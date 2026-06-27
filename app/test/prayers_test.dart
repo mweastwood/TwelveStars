@@ -14,6 +14,8 @@ void main() {
       for (var prayer in defaultPrayers) {
         expect(prayer.translations.containsKey(PrayerLanguage.english), true);
         expect(prayer.translations.containsKey(PrayerLanguage.spanish), true);
+        expect(prayer.translations.containsKey(PrayerLanguage.french), true);
+        expect(prayer.translations.containsKey(PrayerLanguage.italian), true);
         expect(prayer.translations.containsKey(PrayerLanguage.latin), true);
         expect(
           prayer.translations.containsKey(PrayerLanguage.vietnamese),
