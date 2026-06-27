@@ -5,6 +5,7 @@ enum PrayerLanguage {
   italian(name: 'Italian', nativeName: 'Italiano', flag: '🇮🇹'),
   latin(name: 'Latin', nativeName: 'Latina', flag: '🇻🇦'),
   vietnamese(name: 'Vietnamese', nativeName: 'Tiếng Việt', flag: '🇻🇳'),
+  tagalog(name: 'Tagalog', nativeName: 'Tagalog', flag: '🇵🇭'),
   traditionalChinese(
     name: 'Traditional Chinese',
     nativeName: '繁體中文',
@@ -115,6 +116,14 @@ final List<Prayer> defaultPrayers = [
             'Lạy Cha chúng con ở trên trời,\nchúng con nguyện danh Cha cả sáng,\nnước Cha trị đến,\ný Cha thể hiện dưới đất cũng như trên trời.\n\nXin Cha cho chúng con hôm nay\nlương thực hằng ngày,\nvà tha nợ chúng con\nnhư chúng con cũng tha kẻ có nợ chúng con.\n\nXin chớ để chúng con sa chước cám dỗ,\nnhưng cứu chúng con cho khỏi sự dữ.\n\nAmen.',
         sourceName: 'Tổng Giáo Phận Sài Gòn (Archdiocese of Saigon)',
         sourceUrl: 'https://tgpsaigon.net',
+      ),
+      PrayerLanguage.tagalog: const PrayerTranslation(
+        title: 'Ama Namin',
+        subtitle: 'Panalangin ng Panginoon',
+        text:
+            'Ama namin, sumasalangit Ka.\nSambahin ang ngalan Mo.\nMapasaamin ang kaharian Mo.\nSundin ang loob Mo dito sa lupa, para nang sa langit.\n\nBigyan Mo kami ngayon ng aming kakanin sa araw-araw;\nAt patawarin Mo kami sa aming mga sala,\nPara nang pagpapatawad namin sa mga nagkakasala sa amin;\nAt huwag Mo kaming ipahintulot sa tukso,\nAt iadya Mo kami sa lahat ng masama.\n\nAmen.',
+        sourceName: 'Catholic Bishops’ Conference of the Philippines (CBCP)',
+        sourceUrl: 'https://cbcpnews.net',
       ),
       PrayerLanguage.traditionalChinese: const PrayerTranslation(
         title: '天主經',
@@ -257,7 +266,7 @@ final List<Prayer> defaultPrayers = [
         title: 'Ave María',
         subtitle: 'El Ave María',
         text:
-            'Dios te salve, María, llena eres de gracia,\nel Señor es contigo.\nBendita tú eres entre todas las mujeres,\ny bendito es el fruto de tu vientre, Jesús.\n\nSanta María, Madre of Dios,\nruega por nosotros, pecadores,\nahora y en la hora de nuestra muerte.\n\nAmén.',
+            'Dios te salve, María, llena eres de gracia,\nel Señor es contigo.\nBendita tú eres entre todas las mujeres,\ny bendito es el fruto de tu vientre, Jesús.\n\nSanta María, Madre de Dios,\nruega por nosotros, pecadores,\nahora y en la hora de nuestra muerte.\n\nAmén.',
         sourceName: 'Catecismo de la Iglesia Católica (Vatican)',
         sourceUrl:
             'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html',
@@ -296,6 +305,14 @@ final List<Prayer> defaultPrayers = [
             'Kính mừng Maria đầy ơn phúc,\nĐức Chúa Trời ở cùng Bà,\nBà có phúc lạ hơn mọi người nữ,\nvà Giêsu con lòng Bà gồm phúc lạ.\n\nThánh Maria, Đức Mẹ Chúa Trời,\ncầu cho chúng con là kẻ có tội,\nkhi nay và trong giờ lâm tử.\n\nAmen.',
         sourceName: 'Tổng Giáo Phận Sài Gòn (Archdiocese of Saigon)',
         sourceUrl: 'https://tgpsaigon.net',
+      ),
+      PrayerLanguage.tagalog: const PrayerTranslation(
+        title: 'Aba Ginoong Maria',
+        subtitle: 'Ave Maria',
+        text:
+            'Aba Ginoong Maria, napupuno ka ng grasya.\nAng Panginoong Diyos ay sumasaiyo.\nBukod kang pinagpala sa babaeng lahat\nAt pinagpala naman ang iyong Anak na si Hesus.\n\nSanta Maria, Ina ng Diyos,\nIpanalangin mo kaming makasalanan,\nNgayon at kung kami’y mamamatay.\n\nAmen.',
+        sourceName: 'Catholic Bishops’ Conference of the Philippines (CBCP)',
+        sourceUrl: 'https://cbcpnews.net',
       ),
       PrayerLanguage.traditionalChinese: const PrayerTranslation(
         title: '聖母經',
@@ -444,6 +461,14 @@ final List<Prayer> defaultPrayers = [
             'Sáng danh Đức Chúa Cha,\nvà Đức Chúa Con,\nvà Đức Chúa Thánh Thần.\n\nNhư đã có trước vô cùng,\nvà bây giờ, và hằng có,\nvà đời đời chẳng cùng.\n\nAmen.',
         sourceName: 'Tổng Giáo Phận Sài Gòn (Archdiocese of Saigon)',
         sourceUrl: 'https://tgpsaigon.net',
+      ),
+      PrayerLanguage.tagalog: const PrayerTranslation(
+        title: 'Luwalhati sa Ama',
+        subtitle: 'Luwalhati',
+        text:
+            'Luwalhati sa Ama, at sa Anak, at sa Espiritu Santo.\n\nKapara nang sa una, gayon din ngayon\nat magpakailanman\nAt magpasawalang hanggan.\n\nAmen.',
+        sourceName: 'Catholic Bishops’ Conference of the Philippines (CBCP)',
+        sourceUrl: 'https://cbcpnews.net',
       ),
       PrayerLanguage.traditionalChinese: const PrayerTranslation(
         title: '聖三光榮頌',
