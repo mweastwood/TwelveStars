@@ -10,13 +10,17 @@ void main() {
       expect(defaultPrayers[2].id, 'glory_be');
     });
 
-    test('each prayer has translations for all four target languages', () {
+    test('each prayer has translations for all target languages', () {
       for (var prayer in defaultPrayers) {
         expect(prayer.translations.containsKey(PrayerLanguage.english), true);
         expect(prayer.translations.containsKey(PrayerLanguage.spanish), true);
         expect(prayer.translations.containsKey(PrayerLanguage.latin), true);
         expect(
           prayer.translations.containsKey(PrayerLanguage.vietnamese),
+          true,
+        );
+        expect(
+          prayer.translations.containsKey(PrayerLanguage.traditionalChinese),
           true,
         );
       }
@@ -30,6 +34,20 @@ void main() {
           expect(trans.sourceName.isNotEmpty, true);
           expect(trans.sourceUrl.startsWith('https://'), true);
         });
+      }
+    });
+
+    test('traditionalChinese translations contain valid pinyin lines', () {
+      for (var prayer in defaultPrayers) {
+        final trans = prayer.translations[PrayerLanguage.traditionalChinese]!;
+        expect(trans.chineseLines, isNotNull);
+        expect(trans.chineseLines!.isNotEmpty, true);
+        for (var line in trans.chineseLines!) {
+          expect(line.isNotEmpty, true);
+          for (var charItem in line) {
+            expect(charItem.char.isNotEmpty, true);
+          }
+        }
       }
     });
   });

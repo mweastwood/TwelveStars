@@ -403,16 +403,62 @@ class PrayerCard extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               // Prayer Text
-              Text(
-                translation.text,
-                style: theme.textTheme.bodyLarge?.copyWith(
-                  height: 1.6,
-                  color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
-                  fontSize: 16.0,
-                  letterSpacing: 0.2,
+              if (translation.chineseLines != null)
+                Column(
+                  children: translation.chineseLines!.map((line) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 4.0),
+                      child: Wrap(
+                        alignment: WrapAlignment.center,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        spacing: 2,
+                        runSpacing: 4,
+                        children: line.map((charItem) {
+                          final isPunct = charItem.pinyin.isEmpty;
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 1.0,
+                              vertical: 2.0,
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  charItem.char,
+                                  style: theme.textTheme.titleMedium?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                    color: theme.colorScheme.onSurface,
+                                  ),
+                                ),
+                                const SizedBox(height: 2),
+                                Text(
+                                  isPunct ? '' : charItem.pinyin,
+                                  style: theme.textTheme.bodySmall?.copyWith(
+                                    fontSize: 10,
+                                    color: theme.colorScheme.onSurfaceVariant
+                                        .withValues(alpha: 0.7),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    );
+                  }).toList(),
+                )
+              else
+                Text(
+                  translation.text,
+                  style: theme.textTheme.bodyLarge?.copyWith(
+                    height: 1.6,
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
+                    fontSize: 16.0,
+                    letterSpacing: 0.2,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
-              ),
               const SizedBox(height: 20),
               // Divider
               Divider(
