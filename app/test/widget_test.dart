@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/main.dart';
+import 'package:twelve_stars/prayers.dart';
 
 void main() {
   testWidgets('TwelveStarsApp widget test', (WidgetTester tester) async {
@@ -34,5 +36,20 @@ void main() {
     await tester.tap(find.text('Prayers').last);
     await tester.pumpAndSettle();
     expect(find.text('Our Father'), findsOneWidget);
+
+    // Test language change to Traditional Chinese on the Our Father card
+    final dropdownFinder = find.byType(DropdownButton<PrayerLanguage>).first;
+    await tester.tap(dropdownFinder);
+    await tester.pumpAndSettle();
+
+    // Tap the Traditional Chinese option (nativeName '繁體中文')
+    final chineseItemFinder = find.text('繁體中文').last;
+    await tester.tap(chineseItemFinder);
+    await tester.pumpAndSettle();
+
+    // Verify it switched to Traditional Chinese
+    expect(find.text('天主經'), findsOneWidget);
+    expect(find.text('wǒ'), findsWidgets);
+    expect(find.text('men'), findsWidgets);
   });
 }
