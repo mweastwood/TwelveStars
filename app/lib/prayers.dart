@@ -5,6 +5,7 @@ enum PrayerLanguage {
   italian(name: 'Italian', nativeName: 'Italiano', flag: '🇮🇹'),
   latin(name: 'Latin', nativeName: 'Latina', flag: '🇻🇦'),
   vietnamese(name: 'Vietnamese', nativeName: 'Tiếng Việt', flag: '🇻🇳'),
+  tagalog(name: 'Tagalog', nativeName: 'Tagalog', flag: '🇵🇭'),
   traditionalChinese(
     name: 'Traditional Chinese',
     nativeName: '繁體中文',
@@ -76,7 +77,7 @@ final List<Prayer> defaultPrayers = [
         title: 'Padre Nuestro',
         subtitle: 'El Padre Nuestro',
         text:
-            'Padre nuestro, que estás en el cielo,\nsantificado sea tu Nombre;\nvenga a nosotros tu reino;\nhágase tu voluntad\nen la tierra como en el cielo.\n\nDanos hoy nuestro pan de cada día;\nperdona nuestras ofensas,\ncomo también nosotros perdonamos\na los que nos ofenden;\nno nos dejes caer en la tentación,\ny líbranos del mal.\n\nAmén.',
+            'Padre nuestro, que estás en el cielo,\nsantificado sea tu Nombre;\nvenga a nosotros tu reino;\nhágase tu voluntad\nen la tierra como en el cielo.\n\nDanos hoy nuestro pan di cada día;\nperdona nuestras ofensas,\ncomo también nosotros perdonamos\na los que nos ofenden;\nno nos dejes caer en la tentación,\ny líbranos del mal.\n\nAmén.',
         sourceName: 'Catecismo de la Iglesia Católica (Vatican)',
         sourceUrl:
             'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html',
@@ -115,6 +116,14 @@ final List<Prayer> defaultPrayers = [
             'Lạy Cha chúng con ở trên trời,\nchúng con nguyện danh Cha cả sáng,\nnước Cha trị đến,\ný Cha thể hiện dưới đất cũng như trên trời.\n\nXin Cha cho chúng con hôm nay\nlương thực hằng ngày,\nvà tha nợ chúng con\nnhư chúng con cũng tha kẻ có nợ chúng con.\n\nXin chớ để chúng con sa chước cám dỗ,\nnhưng cứu chúng con cho khỏi sự dữ.\n\nAmen.',
         sourceName: 'Tổng Giáo Phận Sài Gòn (Archdiocese of Saigon)',
         sourceUrl: 'https://tgpsaigon.net',
+      ),
+      PrayerLanguage.tagalog: const PrayerTranslation(
+        title: 'Ama Namin',
+        subtitle: 'Panalangin ng Panginoon',
+        text:
+            'Ama namin, sumasalangit Ka.\nSambahin ang ngalan Mo.\nMapasaamin ang kaharian Mo.\nSundin ang loob Mo dito sa lupa, para nang sa langit.\n\nBigyan Mo kami ngayon ng aming kakanin sa araw-araw;\nAt patawarin Mo kami sa aming mga sala,\nPara nang pagpapatawad namin sa mga nagkakasala sa amin;\nAt huwag Mo kaming ipahintulot sa tukso,\nAt iadya Mo kami sa lahat ng masama.\n\nAmen.',
+        sourceName: 'Catholic Bishops’ Conference of the Philippines (CBCP)',
+        sourceUrl: 'https://cbcpnews.net',
       ),
       PrayerLanguage.traditionalChinese: const PrayerTranslation(
         title: '天主經',
@@ -257,7 +266,7 @@ final List<Prayer> defaultPrayers = [
         title: 'Ave María',
         subtitle: 'El Ave María',
         text:
-            'Dios te salve, María, llena eres de gracia,\nel Señor es contigo.\nBendita tú eres entre todas las mujeres,\ny bendito es el fruto de tu vientre, Jesús.\n\nSanta María, Madre of Dios,\nruega por nosotros, pecadores,\nahora y en la hora de nuestra muerte.\n\nAmén.',
+            'Dios te salve, María, llena eres de gracia,\nel Señor es contigo.\nBendita tú eres entre todas las mujeres,\ny bendito es el fruto de tu vientre, Jesús.\n\nSanta María, Madre de Dios,\nruega por nosotros, pecadores,\nahora y en la hora de nuestra muerte.\n\nAmén.',
         sourceName: 'Catecismo de la Iglesia Católica (Vatican)',
         sourceUrl:
             'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html',
@@ -297,11 +306,19 @@ final List<Prayer> defaultPrayers = [
         sourceName: 'Tổng Giáo Phận Sài Gòn (Archdiocese of Saigon)',
         sourceUrl: 'https://tgpsaigon.net',
       ),
+      PrayerLanguage.tagalog: const PrayerTranslation(
+        title: 'Aba Ginoong Maria',
+        subtitle: 'Ave Maria',
+        text:
+            'Aba Ginoong Maria, napupuno ka ng grasya.\nAng Panginoong Diyos ay sumasaiyo.\nBukod kang pinagpala sa babaeng lahat\nAt pinagpala naman ang iyong Anak na si Hesus.\n\nSanta Maria, Ina ng Diyos,\nIpanalangin mo kaming makasalanan,\nNgayon at kung kami’y mamamatay.\n\nAmen.',
+        sourceName: 'Catholic Bishops’ Conference of the Philippines (CBCP)',
+        sourceUrl: 'https://cbcpnews.net',
+      ),
       PrayerLanguage.traditionalChinese: const PrayerTranslation(
         title: '聖母經',
         subtitle: 'Hail Mary',
         text:
-            '萬福瑪利亞，妳充滿聖寵。主與妳同在。妳在婦女中受讚頌，妳的親子耶穌同受讚頌。天主聖母瑪利亞，求妳現在和我們臨終時，為我們罪人祈求天主。亞孟。',
+            '萬福瑪利亞，妳充滿聖寵。主與妳同在。妳在婦女中受讚頌，妳的親子耶穌同受讚頌。天主聖母瑪利亞，求妳現在 and 我們臨終時，為我們罪人祈求天主。亞孟。',
         sourceName: '台灣地區主教團 (Bishops’ Conference of Taiwan)',
         sourceUrl: 'https://www.catholic.org.tw',
         chineseLines: [
@@ -444,6 +461,14 @@ final List<Prayer> defaultPrayers = [
             'Sáng danh Đức Chúa Cha,\nvà Đức Chúa Con,\nvà Đức Chúa Thánh Thần.\n\nNhư đã có trước vô cùng,\nvà bây giờ, và hằng có,\nvà đời đời chẳng cùng.\n\nAmen.',
         sourceName: 'Tổng Giáo Phận Sài Gòn (Archdiocese of Saigon)',
         sourceUrl: 'https://tgpsaigon.net',
+      ),
+      PrayerLanguage.tagalog: const PrayerTranslation(
+        title: 'Luwalhati sa Ama',
+        subtitle: 'Luwalhati',
+        text:
+            'Luwalhati sa Ama, at sa Anak, at sa Espiritu Santo.\n\nKapara nang sa una, gayon din ngayon\nat magpakailanman\nAt magpasawalang hanggan.\n\nAmen.',
+        sourceName: 'Catholic Bishops’ Conference of the Philippines (CBCP)',
+        sourceUrl: 'https://cbcpnews.net',
       ),
       PrayerLanguage.traditionalChinese: const PrayerTranslation(
         title: '聖三光榮頌',

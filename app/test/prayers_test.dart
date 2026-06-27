@@ -21,6 +21,7 @@ void main() {
           prayer.translations.containsKey(PrayerLanguage.vietnamese),
           true,
         );
+        expect(prayer.translations.containsKey(PrayerLanguage.tagalog), true);
         expect(
           prayer.translations.containsKey(PrayerLanguage.traditionalChinese),
           true,
