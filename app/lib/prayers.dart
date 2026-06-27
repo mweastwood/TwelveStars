@@ -77,7 +77,7 @@ final List<Prayer> defaultPrayers = [
         title: 'Padre Nuestro',
         subtitle: 'El Padre Nuestro',
         text:
-            'Padre nuestro, que estás en el cielo,\nsantificado sea tu Nombre;\nvenga a nosotros tu reino;\nhágase tu voluntad\nen la tierra como en el cielo.\n\nDanos hoy nuestro pan di cada día;\nperdona nuestras ofensas,\ncomo también nosotros perdonamos\na los que nos ofenden;\nno nos dejes caer en la tentación,\ny líbranos del mal.\n\nAmén.',
+            'Padre nuestro, que estás en el cielo,\nsantificado sea tu Nombre;\nvenga a nosotros tu reino;\nhágase tu voluntad\nen la tierra como en el cielo.\n\nDanos hoy nuestro pan de cada día;\nperdona nuestras ofensas,\ncomo también nosotros perdonamos\na los que nos ofenden;\nno nos dejes caer en la tentación,\ny líbranos del mal.\n\nAmén.',
         sourceName: 'Catecismo de la Iglesia Católica (Vatican)',
         sourceUrl:
             'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html',
@@ -318,7 +318,7 @@ final List<Prayer> defaultPrayers = [
         title: '聖母經',
         subtitle: 'Hail Mary',
         text:
-            '萬福瑪利亞，妳充滿聖寵。主與妳同在。妳在婦女中受讚頌，妳的親子耶穌同受讚頌。天主聖母瑪利亞，求妳現在 and 我們臨終時，為我們罪人祈求天主。亞孟。',
+            '萬福瑪利亞，妳充滿聖寵。主與妳同在。妳在婦女中受讚頌，妳的親子耶穌同受讚頌。天主聖母瑪利亞，求妳現在和我們臨終時，為我們罪人祈求天主。亞孟。',
         sourceName: '台灣地區主教團 (Bishops’ Conference of Taiwan)',
         sourceUrl: 'https://www.catholic.org.tw',
         chineseLines: [
