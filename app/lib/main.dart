@@ -3,7 +3,17 @@ import 'package:url_launcher/url_launcher.dart';
 import 'prayers.dart';
 
 void main() {
+  mainCommon();
+}
+
+void mainCommon() {
   runApp(const TwelveStarsApp());
+}
+
+enum AppEnvironment { dev, prod }
+
+class AppConfig {
+  static AppEnvironment environment = AppEnvironment.dev;
 }
 
 class TwelveStarsApp extends StatelessWidget {

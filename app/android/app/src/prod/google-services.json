@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "357378980414",
+    "project_id": "twelve-stars-prod",
+    "storage_bucket": "twelve-stars-prod.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357378980414:android:6823d4ac6344d247bcaf6f",
+        "android_client_info": {
+          "package_name": "com.mweastwood.twelve_stars"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLTABcDPa3g9PNnwiE6YuBk-VaFZH0qR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
