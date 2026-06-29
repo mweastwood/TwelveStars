@@ -159,49 +159,22 @@ void main() {
           .replaceAll('“', '"')
           .replaceAll('”', '"');
 
-      // Traditional Chinese variant character normalization
-      res = res
-          .replaceAll('妳', '你')
-          .replaceAll('祂', '你')
-          .replaceAll('禰', '你')
-          .replaceAll('祢', '你')
-          .replaceAll('他', '你')
-          .replaceAll('她', '你')
-          .replaceAll('兇', '凶')
-          .replaceAll('亞孟', '阿們');
-
-      // Tagalog pronoun/spelling equivalents
-      res = res
-          .replaceAll("'yong", 'iyong')
-          .replaceAll('yong', 'iyong')
-          .replaceAll('utang', 'sala')
-          .replaceAll('nagkakautang', 'nagkakasala')
-          .replaceAll('bagkus', 'at')
-          .replaceAll('lahatngmasama', 'masama')
-          .replaceAll('lahatmasama', 'masama')
-          .replaceAll('nang', 'ng');
-
       // Strip all straight quotes first
       res = res.replaceAll('"', '').replaceAll("'", '');
 
       // Strip all punctuation and whitespace to do a character-sequence only match.
       // This includes Western and Chinese full-width punctuation.
       res = res.replaceAll(
-        RegExp(r"[.,;:!?\-\(\)«»‘’“”\s\u00A0\u200b，。、；：！？「」『』]+"),
+        RegExp(r"[.,;:!?\-\(\)«»‘’“”\s\u00A0\u200b，。、；：！？「」『』/]+"),
         '',
       );
 
-      // Tagalog phrase variants after whitespace stripping
-      res = res
-          .replaceAll('noongunguna', 'ngsauna')
-          .replaceAll('noongungun-una', 'ngsauna')
-          .replaceAll('noongunanguna', 'ngsauna')
-          .replaceAll('noongunang-una', 'ngsauna')
-          .replaceAll('nangsauna', 'ngsauna')
-          .replaceAll('gayondin', '');
-
       // Strip closing Amen or equivalent from the end/body of the text
-      res = res.replaceAll('amen', '').replaceAll('amon', '');
+      res = res
+          .replaceAll('amen', '')
+          .replaceAll('amon', '')
+          .replaceAll('亞孟', '')
+          .replaceAll('阿們', '');
 
       return res;
     }
