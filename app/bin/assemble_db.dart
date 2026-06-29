@@ -7,6 +7,28 @@ import 'package:sqlite3/open.dart';
 import 'package:sqlite3/sqlite3.dart';
 import 'package:yaml/yaml.dart';
 
+List<Map<String, dynamic>> parseTokens(String input) {
+  final List<Map<String, dynamic>> tokens = [];
+  final regex = RegExp(r'\{([^\}]+)\|([^\|\}]+)\}');
+  int lastMatchEnd = 0;
+
+  for (final match in regex.allMatches(input)) {
+    if (match.start > lastMatchEnd) {
+      tokens.add({
+        'text': input.substring(lastMatchEnd, match.start),
+        'id': null,
+      });
+    }
+    tokens.add({'text': match.group(1)!, 'id': match.group(2)!});
+    lastMatchEnd = match.end;
+  }
+
+  if (lastMatchEnd < input.length) {
+    tokens.add({'text': input.substring(lastMatchEnd), 'id': null});
+  }
+  return tokens;
+}
+
 void main() {
   // Override sqlite3 FFI loading on Linux to fall back to libsqlite3.so.0 if libsqlite3.so is not available.
   open.overrideFor(OperatingSystem.linux, () {
@@ -60,6 +82,7 @@ void main() {
       source_name TEXT,
       source_url TEXT,
       chinese_lines TEXT, -- JSON string representation
+      tokens TEXT, -- JSON string representation of parsed tokens
       FOREIGN KEY(prayer_id) REFERENCES prayers(id)
     );
   ''');
@@ -110,7 +133,11 @@ void main() {
     }
 
     final frontmatterYaml = parts[1];
-    final bodyText = parts.sublist(2).join('---\n').trim();
+    final bodyTextRaw = parts.sublist(2).join('---\n').trim();
+
+    final tokens = parseTokens(bodyTextRaw);
+    final bodyText = tokens.map((t) => t['text'] as String).join('');
+    final tokensJson = jsonEncode(tokens);
 
     final YamlMap yaml = loadYaml(frontmatterYaml);
 
@@ -124,10 +151,20 @@ void main() {
 
     String? chineseLinesJson;
     if (language == 'traditionalChinese') {
-      final List<List<Map<String, String>>> lines = [];
+      final List<List<Map<String, dynamic>>> lines = [];
+      final List<String?> charPhraseIds = [];
+      for (final token in tokens) {
+        final tokenText = token['text'] as String;
+        final tokenId = token['id'] as String?;
+        for (int i = 0; i < tokenText.runes.length; i++) {
+          charPhraseIds.add(tokenId);
+        }
+      }
+
+      int globalCharIndex = 0;
       for (final line in bodyText.split('\n')) {
         if (line.trim().isEmpty) continue;
-        final List<Map<String, String>> currentLine = [];
+        final List<Map<String, dynamic>> currentLine = [];
         for (final char in line.runes.map((r) => String.fromCharCode(r))) {
           final isChinese = RegExp(r'[\u4e00-\u9fff]').hasMatch(char);
           if (isChinese && !pinyinMap.containsKey(char)) {
@@ -137,8 +174,20 @@ void main() {
             exit(1);
           }
           final pinyin = pinyinMap[char] ?? '';
-          currentLine.add({'char': char, 'pinyin': pinyin});
+
+          String? phraseId;
+          if (globalCharIndex < charPhraseIds.length) {
+            phraseId = charPhraseIds[globalCharIndex];
+          }
+          globalCharIndex++;
+
+          currentLine.add({
+            'char': char,
+            'pinyin': pinyin,
+            'phraseId': phraseId,
+          });
         }
+        globalCharIndex++; // account for newline character
         lines.add(currentLine);
       }
       chineseLinesJson = jsonEncode(lines);
@@ -161,6 +210,7 @@ void main() {
       'source_name': sourceName,
       'source_url': sourceUrl,
       'chinese_lines': chineseLinesJson,
+      'tokens': tokensJson,
     });
   }
 
@@ -181,8 +231,8 @@ void main() {
 
   // Insert translations
   final insertTranslation = db.prepare('''
-    INSERT INTO translations (prayer_id, language, version_index, title, subtitle, text, source_name, source_url, chinese_lines)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+    INSERT INTO translations (prayer_id, language, version_index, title, subtitle, text, source_name, source_url, chinese_lines, tokens)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
   ''');
 
   final insertSearch = db.prepare('''
@@ -201,6 +251,7 @@ void main() {
       t['source_name'],
       t['source_url'],
       t['chinese_lines'],
+      t['tokens'],
     ]);
     final translationId = db.lastInsertRowId;
 

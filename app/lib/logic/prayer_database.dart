@@ -95,8 +95,22 @@ class PrayerDatabase {
               return ChineseChar(
                 map['char'] as String? ?? '',
                 map['pinyin'] as String? ?? '',
+                map['phraseId'] as String?,
               );
             }).toList();
+          }).toList();
+        }
+
+        final tokensJson = tMap['tokens'] as String?;
+        List<PrayerToken>? tokens;
+        if (tokensJson != null) {
+          final List<dynamic> parsedList = jsonDecode(tokensJson);
+          tokens = parsedList.map((item) {
+            final map = item as Map<String, dynamic>;
+            return PrayerToken(
+              text: map['text'] as String,
+              id: map['id'] as String?,
+            );
           }).toList();
         }
 
@@ -107,6 +121,7 @@ class PrayerDatabase {
           sourceName: sourceName,
           sourceUrl: sourceUrl,
           chineseLines: chineseLines,
+          tokens: tokens,
         );
 
         if (!translations.containsKey(language)) {

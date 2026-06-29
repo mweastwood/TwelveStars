@@ -26,8 +26,16 @@ enum PrayerLanguage {
 class ChineseChar {
   final String char;
   final String pinyin;
+  final String? phraseId;
 
-  const ChineseChar(this.char, [this.pinyin = '']);
+  const ChineseChar(this.char, [this.pinyin = '', this.phraseId]);
+}
+
+class PrayerToken {
+  final String text;
+  final String? id;
+
+  const PrayerToken({required this.text, this.id});
 }
 
 class PrayerTranslation {
@@ -37,6 +45,7 @@ class PrayerTranslation {
   final String sourceName;
   final String sourceUrl;
   final List<List<ChineseChar>>? chineseLines;
+  final List<PrayerToken>? tokens;
 
   const PrayerTranslation({
     required this.title,
@@ -45,6 +54,7 @@ class PrayerTranslation {
     required this.sourceName,
     required this.sourceUrl,
     this.chineseLines,
+    this.tokens,
   });
 }
 
