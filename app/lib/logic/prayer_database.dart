@@ -38,7 +38,7 @@ class PrayerDatabase {
 
     if (list.isEmpty) {
       final prayers = await _loadPrayersFromWebJson();
-      await isarInstance.writeAsync((isar) {
+      isarInstance.write((isar) {
         isar.prayers.putAll(prayers);
       });
       return prayers;
