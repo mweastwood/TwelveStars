@@ -16,15 +16,15 @@ class PrayerDatabase {
   }
 
   static Future<Isar> _initIsar() async {
+    if (kIsWeb) {
+      await Isar.initialize();
+    }
     String? directory;
     if (!kIsWeb) {
       final dir = await getApplicationDocumentsDirectory();
       directory = dir.path;
     }
-    return await Isar.openAsync(
-      schemas: [PrayerSchema],
-      directory: directory ?? '',
-    );
+    return Isar.open(schemas: [PrayerSchema], directory: directory ?? '');
   }
 
   // Fetch all prayers from the database
