@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/widgets/prayers_header.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/screens/rosary_tab.dart';
@@ -15,6 +16,34 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentTab = 0;
   final Map<String, PrayerLanguage> _prayerLanguages = {};
+  List<Prayer>? _prayers;
+  bool _loading = true;
+  String? _error;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    try {
+      final prayers = await PrayerDatabase.loadPrayers();
+      if (mounted) {
+        setState(() {
+          _prayers = prayers;
+          _loading = false;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _error = e.toString();
+          _loading = false;
+        });
+      }
+    }
+  }
 
   void _changePrayerLanguage(String prayerId, PrayerLanguage language) {
     setState(() {
@@ -53,7 +82,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    final tabs = [_buildPrayersTab(theme), const RosaryTab()];
+    final tabs = [
+      _loading
+          ? const Center(child: CircularProgressIndicator())
+          : _error != null
+          ? Center(child: Text('Error loading prayers: $_error'))
+          : _buildPrayersTab(theme),
+      const RosaryTab(),
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -114,12 +150,17 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildPrayersTab(ThemeData theme) {
+    final prayers = _prayers;
+    if (prayers == null || prayers.isEmpty) {
+      return const Center(child: Text('No prayers found.'));
+    }
+
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       child: Column(
         children: [
           const PrayersHeader(),
-          ...defaultPrayers.map((prayer) {
+          ...prayers.map((prayer) {
             final selectedLang =
                 _prayerLanguages[prayer.id] ?? PrayerLanguage.english;
             return PrayerCard(

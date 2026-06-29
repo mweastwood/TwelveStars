@@ -7,7 +7,165 @@ import '../test_helper.dart';
 
 void main() {
   group('PrayerCard Widget', () {
-    final testPrayer = defaultPrayers.first; // Our Father
+    const testPrayer = Prayer(
+      id: 'our_father',
+      defaultTitle: 'Our Father',
+      translations: {
+        PrayerLanguage.english: [
+          PrayerTranslation(
+            title: 'Our Father',
+            subtitle: "The Lord's Prayer (Traditional)",
+            text:
+                'Our Father, who art in heaven,\nhallowed be thy name;\nthy kingdom come;\nthy will be done\non earth as it is in heaven.\n\nGive us this day our daily bread;\nand forgive us our trespasses\nas we forgive those who trespass against us;\nand lead us not into temptation,\nbut deliver us from evil.\n\nAmen.',
+            sourceName:
+                'Compendium of the Catechism of the Catholic Church (Vatican)',
+            sourceUrl:
+                'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html',
+          ),
+        ],
+        PrayerLanguage.spanish: [
+          PrayerTranslation(
+            title: 'Padre Nuestro',
+            subtitle: 'El Padre Nuestro',
+            text: 'Padre nuestro, que estás en el cielo...',
+            sourceName: 'Catecismo',
+            sourceUrl: 'https://vatican.va',
+          ),
+        ],
+        PrayerLanguage.traditionalChinese: [
+          PrayerTranslation(
+            title: '天主經',
+            subtitle: 'Lord’s Prayer',
+            text:
+                '我們的天父，願祢的名受顯揚；願祢的國來臨；願祢的旨意奉行在人間，如同在天上。求祢今天賞給我們日用的食糧；求祢寬恕我們的罪過，如同我們寬恕別人一樣；不要讓我們陷於誘惑；但救我們免於凶惡。亞孟。',
+            sourceName: 'Wikipedia',
+            sourceUrl:
+                'https://zh.wikipedia.org/zh-hant/%E5%A4%A9%E4%B8%BB%E7%B6%93',
+            chineseLines: [
+              [
+                ChineseChar('我', 'wǒ'),
+                ChineseChar('們', 'men'),
+                ChineseChar('的', 'de'),
+                ChineseChar('天', 'tiān'),
+                ChineseChar('父', 'fù'),
+                ChineseChar('，', ''),
+              ],
+              [
+                ChineseChar('願', 'yuàn'),
+                ChineseChar('祢', 'nǐ'),
+                ChineseChar('的', 'de'),
+                ChineseChar('名', 'míng'),
+                ChineseChar('受', 'shòu'),
+                ChineseChar('顯', 'xiǎn'),
+                ChineseChar('揚', 'yáng'),
+                ChineseChar('；', ''),
+              ],
+              [
+                ChineseChar('願', 'yuàn'),
+                ChineseChar('祢', 'nǐ'),
+                ChineseChar('的', 'de'),
+                ChineseChar('國', 'guó'),
+                ChineseChar('來', 'lái'),
+                ChineseChar('臨', 'lín'),
+                ChineseChar('；', ''),
+              ],
+              [
+                ChineseChar('願', 'yuàn'),
+                ChineseChar('祢', 'nǐ'),
+                ChineseChar('的', 'de'),
+                ChineseChar('旨', 'zhǐ'),
+                ChineseChar('意', 'yì'),
+                ChineseChar('奉', 'fèng'),
+                ChineseChar('行', 'xíng'),
+                ChineseChar('在', 'zài'),
+                ChineseChar('人', 'rén'),
+                ChineseChar('間', 'jiān'),
+                ChineseChar('，', ''),
+              ],
+              [
+                ChineseChar('如', 'rú'),
+                ChineseChar('同', 'tóng'),
+                ChineseChar('在', 'zài'),
+                ChineseChar('天', 'tiān'),
+                ChineseChar('上', 'shang'),
+                ChineseChar('。', ''),
+              ],
+              [
+                ChineseChar('求', 'qiú'),
+                ChineseChar('祢', 'nǐ'),
+                ChineseChar('今', 'jīn'),
+                ChineseChar('天', 'tiān'),
+                ChineseChar('賞', 'shǎng'),
+                ChineseChar('給', 'gěi'),
+                ChineseChar('我', 'wǒ'),
+                ChineseChar('們', 'men'),
+              ],
+              [
+                ChineseChar('日', 'rì'),
+                ChineseChar('用', 'yòng'),
+                ChineseChar('的', 'de'),
+                ChineseChar('食', 'shí'),
+                ChineseChar('糧', 'liáng'),
+                ChineseChar('；', ''),
+              ],
+              [
+                ChineseChar('求', 'qiú'),
+                ChineseChar('祢', 'nǐ'),
+                ChineseChar('寬', 'kuān'),
+                ChineseChar('恕', 'shù'),
+                ChineseChar('我', 'wǒ'),
+                ChineseChar('們', 'men'),
+                ChineseChar('的', 'de'),
+                ChineseChar('罪', 'zuì'),
+                ChineseChar('過', 'guò'),
+                ChineseChar('，', ''),
+              ],
+              [
+                ChineseChar('如', 'rú'),
+                ChineseChar('同', 'tóng'),
+                ChineseChar('我', 'wǒ'),
+                ChineseChar('們', 'men'),
+                ChineseChar('寬', 'kuān'),
+                ChineseChar('恕', 'shù'),
+                ChineseChar('別', 'bié'),
+                ChineseChar('人', 'rén'),
+                ChineseChar('一', 'yí'),
+                ChineseChar('樣', 'yàng'),
+                ChineseChar('；', ''),
+              ],
+              [
+                ChineseChar('不', 'bù'),
+                ChineseChar('要', 'yào'),
+                ChineseChar('讓', 'ràng'),
+                ChineseChar('我', 'wǒ'),
+                ChineseChar('們', 'men'),
+                ChineseChar('陷', 'xiàn'),
+                ChineseChar('於', 'yú'),
+                ChineseChar('誘', 'yòu'),
+                ChineseChar('惑', 'huò'),
+                ChineseChar('；', ''),
+              ],
+              [
+                ChineseChar('但', 'dàn'),
+                ChineseChar('救', 'jiù'),
+                ChineseChar('我', 'wǒ'),
+                ChineseChar('們', 'men'),
+                ChineseChar('免', 'miǎn'),
+                ChineseChar('於', 'yú'),
+                ChineseChar('凶', 'xiōng'),
+                ChineseChar('惡', 'è'),
+                ChineseChar('。', ''),
+              ],
+              [
+                ChineseChar('亞', 'yà'),
+                ChineseChar('孟', 'mèng'),
+                ChineseChar('。', ''),
+              ],
+            ],
+          ),
+        ],
+      },
+    );
 
     testWidgets('renders prayer title, subtitle, and content in English', (
       tester,
