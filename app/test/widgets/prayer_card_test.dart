@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/prayers.dart';
@@ -262,6 +263,93 @@ void main() {
       expect(find.text('Français'), findsNothing);
       expect(find.text('Italiano'), findsNothing);
     });
+
+    testWidgets(
+      'tapping on an annotated phrase in single-language mode opens side-by-side (dual) mode',
+      (tester) async {
+        final testPrayerWithTokens = Prayer.mock(
+          id: 'our_father',
+          defaultTitle: 'Our Father',
+          translations: {
+            PrayerLanguage.english: [
+              PrayerTranslation.mock(
+                title: 'Our Father',
+                subtitle: "The Lord's Prayer (Traditional)",
+                text: 'Our Father, who art in heaven, hallowed be thy name;',
+                tokens: [
+                  PrayerToken('Our Father, ', null),
+                  PrayerToken('who art in heaven', 'heaven'),
+                  PrayerToken(', ', null),
+                  PrayerToken('hallowed be thy name', 'name'),
+                  PrayerToken(';', null),
+                ],
+              ),
+            ],
+            PrayerLanguage.spanish: [
+              PrayerTranslation.mock(
+                title: 'Padre Nuestro',
+                subtitle: 'El Padre Nuestro',
+                text:
+                    'Padre nuestro, que estás en el cielo, santificado sea tu nombre;',
+                tokens: [
+                  PrayerToken('Padre nuestro, ', null),
+                  PrayerToken('que estás en el cielo', 'heaven'),
+                  PrayerToken(', ', null),
+                  PrayerToken('santificado sea tu nombre', 'name'),
+                  PrayerToken(';', null),
+                ],
+              ),
+            ],
+          },
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: testPrayerWithTokens,
+                  selectedLanguage: PrayerLanguage.english,
+                  onLanguageChanged: (_) {},
+                  onLaunchSource: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        // Verify that initially side-by-side mode is NOT enabled (only one title is rendered)
+        expect(find.text('Our Father'), findsOneWidget);
+        expect(find.text('Padre Nuestro'), findsNothing);
+
+        // Find the RichText widget containing the phrase
+        final richTextFinder = find.byWidgetPredicate(
+          (widget) =>
+              widget is RichText &&
+              widget.text.toPlainText().contains('who art in heaven'),
+        );
+        final richTextWidget =
+            tester.element(richTextFinder).widget as RichText;
+
+        // Traverse the textSpan tree to find the TapGestureRecognizer for the phrase
+        TapGestureRecognizer? recognizer;
+        richTextWidget.text.visitChildren((span) {
+          if (span is TextSpan && span.text == 'who art in heaven') {
+            recognizer = span.recognizer as TapGestureRecognizer?;
+            return false; // stop visiting
+          }
+          return true;
+        });
+
+        expect(recognizer, isNotNull);
+        recognizer!.onTap!();
+        await tester.pumpAndSettle();
+
+        // Verify that side-by-side mode is now enabled (both titles are rendered)
+        expect(find.text('Our Father'), findsNWidgets(2));
+        expect(find.text('Padre Nuestro'), findsOneWidget);
+      },
+    );
 
     testGoldens('renders English and Traditional Chinese states correctly', (
       tester,
