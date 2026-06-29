@@ -7,16 +7,16 @@ subtitle: "The Lord's Prayer (Traditional)"
 source_name: "Compendium of the Catechism of the Catholic Church (Vatican)"
 source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html"
 ---
-Our Father, who art in heaven,
-hallowed be thy name;
-thy kingdom come;
-thy will be done
-on earth as it is in heaven.
+{Our Father|our_father_1}, {who art in heaven|our_father_2},
+{hallowed be thy name|our_father_3};
+{thy kingdom come|our_father_4};
+{thy will be done|our_father_5}
+{on earth as it is in heaven|our_father_6}.
 
-Give us this day our daily bread;
-and forgive us our trespasses
-as we forgive those who trespass against us;
-and lead us not into temptation,
-but deliver us from evil.
+{Give us this day our daily bread|our_father_7};
+{and forgive us our trespasses|our_father_8}
+{as we forgive those who trespass against us|our_father_9};
+{and lead us not into temptation|our_father_10},
+{but deliver us from evil|our_father_11}.
 
 Amen.

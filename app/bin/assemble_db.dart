@@ -1,22 +1,32 @@
 // ignore_for_file: avoid_print
 import 'dart:convert';
-import 'dart:ffi';
 import 'dart:io';
 import 'package:path/path.dart' as p;
-import 'package:sqlite3/open.dart';
-import 'package:sqlite3/sqlite3.dart';
 import 'package:yaml/yaml.dart';
 
-void main() {
-  // Override sqlite3 FFI loading on Linux to fall back to libsqlite3.so.0 if libsqlite3.so is not available.
-  open.overrideFor(OperatingSystem.linux, () {
-    try {
-      return DynamicLibrary.open('libsqlite3.so.0');
-    } catch (_) {
-      return DynamicLibrary.open('libsqlite3.so');
-    }
-  });
+List<Map<String, dynamic>> parseTokens(String input) {
+  final List<Map<String, dynamic>> tokens = [];
+  final regex = RegExp(r'\{([^\}]+)\|([^\|\}]+)\}');
+  int lastMatchEnd = 0;
 
+  for (final match in regex.allMatches(input)) {
+    if (match.start > lastMatchEnd) {
+      tokens.add({
+        'text': input.substring(lastMatchEnd, match.start),
+        'id': null,
+      });
+    }
+    tokens.add({'text': match.group(1)!, 'id': match.group(2)!});
+    lastMatchEnd = match.end;
+  }
+
+  if (lastMatchEnd < input.length) {
+    tokens.add({'text': input.substring(lastMatchEnd), 'id': null});
+  }
+  return tokens;
+}
+
+void main() {
   // Load pinyin dictionary
   final pinyinMap = <String, String>{};
   final pinyinDictFile = File('assets/pinyin_dict.txt');
@@ -30,49 +40,6 @@ void main() {
   } else {
     print('Warning: assets/pinyin_dict.txt not found.');
   }
-
-  final targetDbFile = File('assets/prayers.db');
-  if (targetDbFile.existsSync()) {
-    targetDbFile.deleteSync();
-  }
-
-  final db = sqlite3.open(targetDbFile.path);
-
-  // Create tables
-  db.execute('''
-    CREATE TABLE prayers (
-      id TEXT PRIMARY KEY,
-      default_title TEXT NOT NULL,
-      category TEXT NOT NULL,
-      default_order INTEGER NOT NULL
-    );
-  ''');
-
-  db.execute('''
-    CREATE TABLE translations (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      prayer_id TEXT NOT NULL,
-      language TEXT NOT NULL,
-      version_index INTEGER NOT NULL,
-      title TEXT NOT NULL,
-      subtitle TEXT,
-      text TEXT NOT NULL,
-      source_name TEXT,
-      source_url TEXT,
-      chinese_lines TEXT, -- JSON string representation
-      FOREIGN KEY(prayer_id) REFERENCES prayers(id)
-    );
-  ''');
-
-  db.execute('''
-    CREATE VIRTUAL TABLE translation_search USING fts5(
-      translation_id UNINDEXED,
-      title,
-      subtitle,
-      text,
-      tokenize="unicode61"
-    );
-  ''');
 
   // Find all .md files under assets/prayers/
   final dir = Directory('assets/prayers');
@@ -110,7 +77,10 @@ void main() {
     }
 
     final frontmatterYaml = parts[1];
-    final bodyText = parts.sublist(2).join('---\n').trim();
+    final bodyTextRaw = parts.sublist(2).join('---\n').trim();
+
+    final tokens = parseTokens(bodyTextRaw);
+    final bodyText = tokens.map((t) => t['text'] as String).join('');
 
     final YamlMap yaml = loadYaml(frontmatterYaml);
 
@@ -122,12 +92,22 @@ void main() {
     final sourceName = yaml['source_name'] as String;
     final sourceUrl = yaml['source_url'] as String;
 
-    String? chineseLinesJson;
+    List<List<Map<String, dynamic>>>? chineseLines;
     if (language == 'traditionalChinese') {
-      final List<List<Map<String, String>>> lines = [];
+      final List<List<Map<String, dynamic>>> lines = [];
+      final List<String?> charPhraseIds = [];
+      for (final token in tokens) {
+        final tokenText = token['text'] as String;
+        final tokenId = token['id'] as String?;
+        for (int i = 0; i < tokenText.runes.length; i++) {
+          charPhraseIds.add(tokenId);
+        }
+      }
+
+      int globalCharIndex = 0;
       for (final line in bodyText.split('\n')) {
         if (line.trim().isEmpty) continue;
-        final List<Map<String, String>> currentLine = [];
+        final List<Map<String, dynamic>> currentLine = [];
         for (final char in line.runes.map((r) => String.fromCharCode(r))) {
           final isChinese = RegExp(r'[\u4e00-\u9fff]').hasMatch(char);
           if (isChinese && !pinyinMap.containsKey(char)) {
@@ -137,11 +117,23 @@ void main() {
             exit(1);
           }
           final pinyin = pinyinMap[char] ?? '';
-          currentLine.add({'char': char, 'pinyin': pinyin});
+
+          String? phraseId;
+          if (globalCharIndex < charPhraseIds.length) {
+            phraseId = charPhraseIds[globalCharIndex];
+          }
+          globalCharIndex++;
+
+          currentLine.add({
+            'char': char,
+            'pinyin': pinyin,
+            'phraseId': phraseId,
+          });
         }
+        globalCharIndex++; // account for newline character
         lines.add(currentLine);
       }
-      chineseLinesJson = jsonEncode(lines);
+      chineseLines = lines;
     }
 
     prayersToInsert[prayerId] = {
@@ -160,56 +152,43 @@ void main() {
       'text': bodyText,
       'source_name': sourceName,
       'source_url': sourceUrl,
-      'chinese_lines': chineseLinesJson,
+      'chinese_lines': chineseLines,
+      'tokens': tokens,
     });
   }
 
-  // Insert prayers
-  final insertPrayer = db.prepare('''
-    INSERT OR REPLACE INTO prayers (id, default_title, category, default_order)
-    VALUES (?, ?, ?, ?);
-  ''');
+  // Reconstruct JSON structure for Database catalog
+  final List<Map<String, dynamic>> jsonList = [];
   for (final p in prayersToInsert.values) {
-    insertPrayer.execute([
-      p['id'],
-      p['default_title'],
-      p['category'],
-      p['default_order'],
-    ]);
-  }
-  insertPrayer.dispose();
+    final Map<String, List<Map<String, dynamic>>> translationsMap = {};
+    for (final t in translationsToInsert) {
+      if (t['prayer_id'] == p['id']) {
+        final lang = t['language'] as String;
+        if (!translationsMap.containsKey(lang)) {
+          translationsMap[lang] = [];
+        }
 
-  // Insert translations
-  final insertTranslation = db.prepare('''
-    INSERT INTO translations (prayer_id, language, version_index, title, subtitle, text, source_name, source_url, chinese_lines)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
-  ''');
-
-  final insertSearch = db.prepare('''
-    INSERT INTO translation_search (translation_id, title, subtitle, text)
-    VALUES (?, ?, ?, ?);
-  ''');
-
-  for (final t in translationsToInsert) {
-    insertTranslation.execute([
-      t['prayer_id'],
-      t['language'],
-      t['version_index'],
-      t['title'],
-      t['subtitle'],
-      t['text'],
-      t['source_name'],
-      t['source_url'],
-      t['chinese_lines'],
-    ]);
-    final translationId = db.lastInsertRowId;
-
-    insertSearch.execute([translationId, t['title'], t['subtitle'], t['text']]);
+        translationsMap[lang]!.add({
+          'title': t['title'],
+          'subtitle': t['subtitle'],
+          'text': t['text'],
+          'source_name': t['source_name'],
+          'source_url': t['source_url'],
+          'chinese_lines': t['chinese_lines'],
+          'tokens': t['tokens'],
+        });
+      }
+    }
+    jsonList.add({
+      'id': p['id'],
+      'default_title': p['default_title'],
+      'category': p['category'],
+      'default_order': p['default_order'],
+      'translations': translationsMap,
+    });
   }
 
-  insertTranslation.dispose();
-  insertSearch.dispose();
-
-  db.dispose();
-  print('Successfully compiled SQLite database: assets/prayers.db');
+  final targetJsonFile = File('assets/prayers.json');
+  targetJsonFile.writeAsStringSync(jsonEncode(jsonList));
+  print('Successfully compiled JSON database: assets/prayers.json');
 }
