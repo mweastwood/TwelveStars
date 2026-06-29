@@ -17,6 +17,20 @@ void main() {
     }
   });
 
+  // Load pinyin dictionary
+  final pinyinMap = <String, String>{};
+  final pinyinDictFile = File('assets/pinyin_dict.txt');
+  if (pinyinDictFile.existsSync()) {
+    for (final line in pinyinDictFile.readAsLinesSync()) {
+      final parts = line.split(':');
+      if (parts.length == 2) {
+        pinyinMap[parts[0].trim()] = parts[1].trim();
+      }
+    }
+  } else {
+    print('Warning: assets/pinyin_dict.txt not found.');
+  }
+
   final targetDbFile = File('assets/prayers.db');
   if (targetDbFile.existsSync()) {
     targetDbFile.deleteSync();
@@ -109,18 +123,21 @@ void main() {
     final sourceUrl = yaml['source_url'] as String;
 
     String? chineseLinesJson;
-    if (yaml.containsKey('chinese_lines')) {
-      final yamlList = yaml['chinese_lines'] as YamlList;
+    if (language == 'traditionalChinese') {
       final List<List<Map<String, String>>> lines = [];
-      for (final line in yamlList) {
+      for (final line in bodyText.split('\n')) {
+        if (line.trim().isEmpty) continue;
         final List<Map<String, String>> currentLine = [];
-        final charList = line as YamlList;
-        for (final item in charList) {
-          final charMap = item as YamlMap;
-          currentLine.add({
-            'char': charMap['char'] as String,
-            'pinyin': charMap['pinyin'] as String,
-          });
+        for (final char in line.runes.map((r) => String.fromCharCode(r))) {
+          final isChinese = RegExp(r'[\u4e00-\u9fff]').hasMatch(char);
+          if (isChinese && !pinyinMap.containsKey(char)) {
+            print(
+              'Error: Missing pinyin mapping for Chinese character "$char" in assets/pinyin_dict.txt',
+            );
+            exit(1);
+          }
+          final pinyin = pinyinMap[char] ?? '';
+          currentLine.add({'char': char, 'pinyin': pinyin});
         }
         lines.add(currentLine);
       }
