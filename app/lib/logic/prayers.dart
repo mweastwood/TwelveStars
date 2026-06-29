@@ -70,8 +70,10 @@ final List<Prayer> defaultPrayers = [
         subtitle: "The Lord's Prayer",
         text:
             'Our Father, who art in heaven,\nhallowed be thy name;\nthy kingdom come;\nthy will be done\non earth as it is in heaven.\n\nGive us this day our daily bread;\nand forgive us our trespasses\nas we forgive those who trespass against us;\nand lead us not into temptation,\nbut deliver us from evil.\n\nAmen.',
-        sourceName: 'United States Conference of Catholic Bishops (USCCB)',
-        sourceUrl: 'https://www.usccb.org/prayers/basic-prayers',
+        sourceName:
+            'Compendium of the Catechism of the Catholic Church (Vatican)',
+        sourceUrl:
+            'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html',
       ),
       PrayerLanguage.spanish: const PrayerTranslation(
         title: 'Padre Nuestro',
@@ -262,8 +264,10 @@ final List<Prayer> defaultPrayers = [
         subtitle: 'Ave Maria',
         text:
             'Hail Mary, full of grace,\nthe Lord is with you;\nblessed are you among women,\nand blessed is the fruit of your womb, Jesus.\n\nHoly Mary, Mother of God,\npray for us sinners\nnow and at the hour of our death.\n\nAmen.',
-        sourceName: 'United States Conference of Catholic Bishops (USCCB)',
-        sourceUrl: 'https://www.usccb.org/prayers/basic-prayers',
+        sourceName:
+            'Compendium of the Catechism of the Catholic Church (Vatican)',
+        sourceUrl:
+            'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html',
       ),
       PrayerLanguage.spanish: const PrayerTranslation(
         title: 'Ave María',
@@ -421,8 +425,10 @@ final List<Prayer> defaultPrayers = [
         subtitle: 'Doxology',
         text:
             'Glory be to the Father,\nand to the Son,\nand to the Holy Spirit;\nas it was in the beginning,\nis now, and ever shall be,\nworld without end.\n\nAmen.',
-        sourceName: 'United States Conference of Catholic Bishops (USCCB)',
-        sourceUrl: 'https://www.usccb.org/prayers/basic-prayers',
+        sourceName:
+            'Compendium of the Catechism of the Catholic Church (Vatican)',
+        sourceUrl:
+            'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html',
       ),
       PrayerLanguage.spanish: const PrayerTranslation(
         title: 'Gloria al Padre',
