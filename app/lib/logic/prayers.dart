@@ -97,7 +97,7 @@ final List<Prayer> defaultPrayers = [
         title: 'Padre Nostro',
         subtitle: 'Preghiera del Signore',
         text:
-            'Padre nostro, che sei nei cieli,\nsia santificato il tuo nome,\nvenga il tuo regno,\nsia fatta la tua volontà,\ncome in cielo così in terra.\n\nDacci oggi il nostro pane quotidiano,\ne rimetti a noi i nostri debiti\ncome anche noi li rimettiamo ai nostri debitori,\ne non abbandonarci alla tentazione,\nma liberaci dal male.\n\nAmen.',
+            'Padre nostro, che sei nei cieli,\nsia santificato il tuo nome,\nvenga il tuo regno,\nsia fatta la tua volontà,\ncome in cielo così in terra.\n\nDacci oggi il nostro pane quotidiano,\ne rimetti a noi i nostri debiti\ncome noi li rimettiamo ai nostri debitori,\ne non ci indurre in tentazione,\nma liberaci dal male.\n\nAmen.',
         sourceName: 'Compendio del Catechismo della Chiesa Cattolica (Vatican)',
         sourceUrl:
             'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html',
@@ -273,7 +273,7 @@ final List<Prayer> defaultPrayers = [
         title: 'Ave María',
         subtitle: 'El Ave María',
         text:
-            'Dios te salve, María, llena eres de gracia,\nel Señor es contigo.\nBendita tú eres entre todas las mujeres,\ny bendito es el fruto de tu vientre, Jesús.\n\nSanta María, Madre de Dios,\nruega por nosotros, pecadores,\nahora y en la hora de nuestra muerte.\n\nAmén.',
+            'Dios te salve, María, llena eres de gracia,\nel Señor es contigo.\nBendita Tú eres entre todas las mujeres,\ny bendito es el fruto de tu vientre, Jesús.\n\nSanta María, Madre de Dios,\nruega por nosotros, pecadores,\nahora y en la hora de nuestra muerte.\n\nAmén.',
         sourceName: 'Catecismo de la Iglesia Católica (Vatican)',
         sourceUrl:
             'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html',
@@ -282,7 +282,7 @@ final List<Prayer> defaultPrayers = [
         title: 'Je vous salue Marie',
         subtitle: 'Salutation Angélique',
         text:
-            'Je vous salue, Marie pleine de grâce ;\nle Seigneur est avec vous.\nVous êtes bénie entre toutes les femmes\net Jésus, le fruit de vos entrailles, est béni.\n\nSainte Marie, Mère de Dieu,\npriez pour nous pauvres pécheurs,\nmaintenant et à l’heure de notre mort.\n\nAmen.',
+            'Je vous salue, Marie, pleine de grâce ;\nLe Seigneur est avec vous ;\nVous êtes bénie entre toutes les femmes ;\net Jésus, le fruit de vos entrailles, est béni.\n\nSainte Marie, Mère de Dieu,\npriez pour nous, pauvres pécheurs,\nmaintenant et à l’heure de notre mort.\n\nAmen.',
         sourceName: 'Compendium du Catéchisme de l’Église Catholique (Vatican)',
         sourceUrl:
             'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html',
@@ -291,7 +291,7 @@ final List<Prayer> defaultPrayers = [
         title: 'Ave Maria',
         subtitle: 'Saluto Angelico',
         text:
-            'Ave, o Maria, piena di grazia,\nil Signore è con te.\nTu sei benedetta tra le donne\ne benedetto è il frutto del tuo seno, Gesù.\n\nSanta Maria, Madre di Dio,\nprega per noi peccatori,\nadesso e nell’ora della nostra morte.\n\nAmen.',
+            'Ave, o Maria, piena di grazia,\nil Signore è con te.\nTu sei benedetta fra le donne\ne benedetto è il frutto del tuo seno, Gesù.\n\nSanta Maria, Madre di Dio,\nprega per noi peccatori,\nadesso e nell’ora della nostra morte.\n\nAmen.',
         sourceName: 'Compendio del Catechismo della Chiesa Cattolica (Vatican)',
         sourceUrl:
             'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html',
@@ -452,7 +452,7 @@ final List<Prayer> defaultPrayers = [
         title: 'Gloria al Padre',
         subtitle: 'Doxologia Minor',
         text:
-            'Gloria al Padre e al Figlio\ne allo Spirito Santo.\n\nCome era nel principio,\ne ora e sempre\nnei secoli dei secoli.\n\nAmen.',
+            'Gloria al Padre e al Figlio\ne allo Spirito Santo.\n\nCome era nel principio,\nora e sempre,\nnei secoli dei secoli.\n\nAmen.',
         sourceName: 'Compendio del Catechismo della Chiesa Cattolica (Vatican)',
         sourceUrl:
             'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html',
