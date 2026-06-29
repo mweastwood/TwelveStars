@@ -209,48 +209,53 @@ void main() {
     for (final prayer in defaultPrayers) {
       for (final entry in prayer.translations.entries) {
         final language = entry.key;
-        final translation = entry.value;
+        final translations = entry.value;
 
-        test(
-          'Verify ${prayer.id} in ${language.name} matches source text',
-          () async {
-            final html = await fetchHtml(translation.sourceUrl);
-            final document = html_parser.parse(html);
-            final pageText = document.body?.text ?? '';
+        for (int i = 0; i < translations.length; i++) {
+          final translation = translations[i];
+          final suffix = translations.length > 1 ? ' (Version ${i + 1})' : '';
 
-            final softPage = softNormalize(pageText);
+          test(
+            'Verify ${prayer.id} in ${language.name}$suffix matches source text',
+            () async {
+              final html = await fetchHtml(translation.sourceUrl);
+              final document = html_parser.parse(html);
+              final pageText = document.body?.text ?? '';
 
-            // Split the prayer into lines by newline to verify each line exists on the page.
-            // This is robust against side-by-side bilingual layouts or interspersed footnotes/Greek text.
-            final lines = translation.text
-                .split('\n')
-                .map((line) => softNormalize(line))
-                .where((line) => line.isNotEmpty)
-                .toList();
+              final softPage = softNormalize(pageText);
 
-            bool allLinesMatched = true;
-            final missingLines = <String>[];
+              // Split the prayer into lines by newline to verify each line exists on the page.
+              // This is robust against side-by-side bilingual layouts or interspersed footnotes/Greek text.
+              final lines = translation.text
+                  .split('\n')
+                  .map((line) => softNormalize(line))
+                  .where((line) => line.isNotEmpty)
+                  .toList();
 
-            for (final line in lines) {
-              if (!softPage.contains(line)) {
-                allLinesMatched = false;
-                missingLines.add(line);
+              bool allLinesMatched = true;
+              final missingLines = <String>[];
+
+              for (final line in lines) {
+                if (!softPage.contains(line)) {
+                  allLinesMatched = false;
+                  missingLines.add(line);
+                }
               }
-            }
 
-            if (!allLinesMatched) {
-              final errorMsg =
-                  'Prayer text was not found in the source URL: ${translation.sourceUrl}\n\n'
-                  'Missing lines (soft normalized):\n${missingLines.map((l) => '"$l"').join('\n')}\n\n'
-                  'First 500 characters of page text (soft normalized):\n'
-                  '"${softPage.substring(0, softPage.length > 500 ? 500 : softPage.length)}"';
-              fail(errorMsg);
-            }
+              if (!allLinesMatched) {
+                final errorMsg =
+                    'Prayer text was not found in the source URL: ${translation.sourceUrl}\n\n'
+                    'Missing lines (soft normalized):\n${missingLines.map((l) => '"$l"').join('\n')}\n\n'
+                    'First 500 characters of page text (soft normalized):\n'
+                    '"${softPage.substring(0, softPage.length > 500 ? 500 : softPage.length)}"';
+                fail(errorMsg);
+              }
 
-            expect(allLinesMatched, isTrue);
-          },
-          timeout: const Timeout(Duration(seconds: 30)),
-        );
+              expect(allLinesMatched, isTrue);
+            },
+            timeout: const Timeout(Duration(seconds: 30)),
+          );
+        }
       }
     }
   });
