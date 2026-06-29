@@ -24,7 +24,11 @@ class PrayerDatabase {
       final dir = await getApplicationDocumentsDirectory();
       directory = dir.path;
     }
-    return Isar.open(schemas: [PrayerSchema], directory: directory ?? '');
+    return Isar.open(
+      schemas: [PrayerSchema],
+      directory: kIsWeb ? Isar.sqliteInMemory : (directory ?? ''),
+      engine: kIsWeb ? IsarEngine.sqlite : IsarEngine.isar,
+    );
   }
 
   // Fetch all prayers from the database
