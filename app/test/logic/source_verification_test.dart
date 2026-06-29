@@ -43,8 +43,13 @@ void main() {
       res = res.toLowerCase();
 
       if (isLatin) {
-        // Strip accents for Latin since the Vatican compendium uses variable liturgical accents.
-        // Also map ligatures æ -> ae and œ -> oe.
+        // Latin is normalized (accent/diacritic stripping and ligature expansion) because:
+        // 1. Liturgical Latin source texts (like the Vatican Compendium) use variable pronunciation/chanting
+        //    accents (e.g. 'Dóminus', 'María') that do not alter grammatical meaning, unlike modern languages
+        //    (e.g., Spanish, French, Vietnamese) where accents change word meaning.
+        // 2. Different sources use ligatures (æ/œ) interchangeably with standard letter pairings (ae/oe).
+        // Stripping accents/ligatures only for Latin prevents false mismatches due to style and typography
+        // while preserving strict accent checks for modern languages.
         res = res
             .replaceAll('æ', 'ae')
             .replaceAll('œ', 'oe')
