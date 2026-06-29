@@ -372,7 +372,7 @@ final List<Prayer> defaultPrayers = [
           title: 'Kinh Kính Mừng',
           subtitle: 'Kinh Kính Mừng',
           text:
-              'Kinh mừng Maria đầy ơn phúc,\nĐức Chúa Trời ở cùng Bà,\nBà có phúc lạ hơn mọi người nữ,\nvà Giêsu con lòng Bà gồm phúc lạ.\n\nThánh Maria, Đức Mẹ Chúa Trời,\ncầu cho chúng con là kẻ có tội,\nkhi nay và trong giờ lâm tử.\n\nAmen.',
+              'Kính mừng Maria đầy ơn phúc,\nĐức Chúa Trời ở cùng Bà,\nBà có phúc lạ hơn mọi người nữ,\nvà Giêsu con lòng Bà gồm phúc lạ.\n\nThánh Maria, Đức Mẹ Chúa Trời,\ncầu cho chúng con là kẻ có tội,\nkhi này và trong giờ lâm tử.\n\nAmen.',
           sourceName: 'Wikipedia',
           sourceUrl:
               'https://vi.wikipedia.org/wiki/Kinh_K%C3%ADnh_M%E1%BB%ABng',
