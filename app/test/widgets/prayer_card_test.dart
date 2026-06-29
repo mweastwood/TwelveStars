@@ -226,6 +226,43 @@ void main() {
       expect(newLanguage, PrayerLanguage.spanish);
     });
 
+    testWidgets('dropdown only contains languages that have translations', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: PrayerCard(
+                prayer:
+                    testPrayer, // Has English, Spanish, and Traditional Chinese
+                selectedLanguage: PrayerLanguage.english,
+                onLanguageChanged: (_) {},
+                onLaunchSource: (_) {},
+              ),
+            ),
+          ),
+        ),
+      );
+
+      final dropdownFinder = find.byType(DropdownButton<PrayerLanguage>);
+      expect(dropdownFinder, findsOneWidget);
+
+      // Tap to open the dropdown
+      await tester.tap(dropdownFinder);
+      await tester.pumpAndSettle();
+
+      // Verify that available languages are presented
+      expect(find.text('English'), findsWidgets);
+      expect(find.text('Español'), findsWidgets);
+      expect(find.text('繁體中文'), findsWidgets);
+
+      // Verify that unavailable languages are NOT presented
+      expect(find.text('Latina'), findsNothing);
+      expect(find.text('Français'), findsNothing);
+      expect(find.text('Italiano'), findsNothing);
+    });
+
     testGoldens('renders English and Traditional Chinese states correctly', (
       tester,
     ) async {
