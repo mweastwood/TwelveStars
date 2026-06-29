@@ -181,9 +181,14 @@ class _PrayerCardState extends State<PrayerCard> {
           final recognizer = TapGestureRecognizer()
             ..onTap = () {
               setState(() {
-                _selectedPhraseId = (_selectedPhraseId == token.id)
-                    ? null
-                    : token.id;
+                if (_selectedPhraseId == token.id) {
+                  _selectedPhraseId = null;
+                } else {
+                  _selectedPhraseId = token.id;
+                  if (!_isDualMode) {
+                    _isDualMode = true;
+                  }
+                }
               });
             };
           spans.add(
