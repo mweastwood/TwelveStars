@@ -39,14 +39,14 @@ dependencies:
   sqflite: ^2.3.0
   path_provider: ^2.1.1
   path: ^1.9.0
+  yaml: ^3.1.2
+  sqlite3: ^2.4.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   http: ^1.2.1
   html: ^0.15.4
-  yaml: ^3.1.2
-  sqlite3: ^2.4.4
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
