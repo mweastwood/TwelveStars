@@ -9,12 +9,12 @@ import '../test_helper.dart';
 void main() {
   group('HomeScreen Widget', () {
     final mockPrayers = [
-      const Prayer(
+      Prayer.mock(
         id: 'our_father',
         defaultTitle: 'Our Father',
         translations: {
           PrayerLanguage.english: [
-            PrayerTranslation(
+            PrayerTranslation.mock(
               title: 'Our Father',
               subtitle: "The Lord's Prayer (Traditional)",
               text:
@@ -25,7 +25,7 @@ void main() {
             ),
           ],
           PrayerLanguage.traditionalChinese: [
-            PrayerTranslation(
+            PrayerTranslation.mock(
               title: '天主經',
               subtitle: 'Lord’s Prayer',
               text:
@@ -46,12 +46,12 @@ void main() {
           ],
         },
       ),
-      const Prayer(
+      Prayer.mock(
         id: 'hail_mary',
         defaultTitle: 'Hail Mary',
         translations: {
           PrayerLanguage.english: [
-            PrayerTranslation(
+            PrayerTranslation.mock(
               title: 'Hail Mary',
               subtitle: 'Angelic Salutation',
               text: 'Hail Mary, full of grace...',
@@ -61,12 +61,12 @@ void main() {
           ],
         },
       ),
-      const Prayer(
+      Prayer.mock(
         id: 'glory_be',
         defaultTitle: 'Glory Be',
         translations: {
           PrayerLanguage.english: [
-            PrayerTranslation(
+            PrayerTranslation.mock(
               title: 'Glory Be',
               subtitle: 'Doxology',
               text: 'Glory be to the Father...',

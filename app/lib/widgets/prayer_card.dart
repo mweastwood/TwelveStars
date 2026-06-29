@@ -31,7 +31,7 @@ class _PrayerCardState extends State<PrayerCard> {
     super.didUpdateWidget(oldWidget);
     // Reset version index if language or prayer changes
     if (oldWidget.selectedLanguage != widget.selectedLanguage ||
-        oldWidget.prayer.id != widget.prayer.id) {
+        oldWidget.prayer.prayerId != widget.prayer.prayerId) {
       _currentVersionIndex = 0;
     }
   }
@@ -105,7 +105,7 @@ class _PrayerCardState extends State<PrayerCard> {
               crossAxisAlignment: WrapCrossAlignment.center,
               spacing: 2,
               runSpacing: 4,
-              children: line.map((charItem) {
+              children: (line.chars ?? []).map((charItem) {
                 final isPunct = charItem.pinyin.isEmpty;
                 final isSelected =
                     charItem.phraseId != null &&
@@ -335,7 +335,7 @@ class _PrayerCardState extends State<PrayerCard> {
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
-                        _getPrayerIcon(widget.prayer.id),
+                        _getPrayerIcon(widget.prayer.prayerId),
                         color: theme.colorScheme.primary,
                         size: 24,
                       ),

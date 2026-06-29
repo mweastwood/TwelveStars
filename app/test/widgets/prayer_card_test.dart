@@ -7,12 +7,12 @@ import '../test_helper.dart';
 
 void main() {
   group('PrayerCard Widget', () {
-    const testPrayer = Prayer(
+    final testPrayer = Prayer.mock(
       id: 'our_father',
       defaultTitle: 'Our Father',
       translations: {
         PrayerLanguage.english: [
-          PrayerTranslation(
+          PrayerTranslation.mock(
             title: 'Our Father',
             subtitle: "The Lord's Prayer (Traditional)",
             text:
@@ -24,7 +24,7 @@ void main() {
           ),
         ],
         PrayerLanguage.spanish: [
-          PrayerTranslation(
+          PrayerTranslation.mock(
             title: 'Padre Nuestro',
             subtitle: 'El Padre Nuestro',
             text: 'Padre nuestro, que estás en el cielo...',
@@ -33,7 +33,7 @@ void main() {
           ),
         ],
         PrayerLanguage.traditionalChinese: [
-          PrayerTranslation(
+          PrayerTranslation.mock(
             title: '天主經',
             subtitle: 'Lord’s Prayer',
             text:

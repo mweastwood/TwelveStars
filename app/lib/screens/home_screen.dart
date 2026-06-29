@@ -162,13 +162,13 @@ class _HomeScreenState extends State<HomeScreen> {
           const PrayersHeader(),
           ...prayers.map((prayer) {
             final selectedLang =
-                _prayerLanguages[prayer.id] ?? PrayerLanguage.english;
+                _prayerLanguages[prayer.prayerId] ?? PrayerLanguage.english;
             return PrayerCard(
               prayer: prayer,
               selectedLanguage: selectedLang,
               onLanguageChanged: (lang) {
                 if (lang != null) {
-                  _changePrayerLanguage(prayer.id, lang);
+                  _changePrayerLanguage(prayer.prayerId, lang);
                 }
               },
               onLaunchSource: _launchSourceUrl,

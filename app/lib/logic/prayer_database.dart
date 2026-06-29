@@ -1,46 +1,27 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart';
-import 'package:path/path.dart' as p;
+import 'package:isar_plus/isar_plus.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 
 class PrayerDatabase {
   static List<Prayer>? mockPrayers;
-  static Database? _db;
+  static Isar? _isar;
 
-  static Future<Database> get database async {
-    if (_db != null) return _db!;
-    _db = await _initDatabase();
-    return _db!;
+  static Future<Isar> get isar async {
+    if (_isar != null) return _isar!;
+    _isar = await _initIsar();
+    return _isar!;
   }
 
-  static Future<Database> _initDatabase() async {
-    final documentsDirectory = await getApplicationDocumentsDirectory();
-    final path = p.join(documentsDirectory.path, "prayers.db");
-
-    // Copy from assets on first run or when the database needs update
-    final exists = await databaseExists(path);
-
-    if (!exists) {
-      try {
-        await Directory(p.dirname(path)).create(recursive: true);
-      } catch (_) {}
-
-      // Copy from asset
-      ByteData data = await rootBundle.load(p.join("assets", "prayers.db"));
-      List<int> bytes = data.buffer.asUint8List(
-        data.offsetInBytes,
-        data.lengthInBytes,
-      );
-
-      // Write and flush the bytes written
-      await File(path).writeAsBytes(bytes, flush: true);
+  static Future<Isar> _initIsar() async {
+    String? directory;
+    if (!kIsWeb) {
+      final dir = await getApplicationDocumentsDirectory();
+      directory = dir.path;
     }
-
-    return await openDatabase(path, readOnly: true);
+    return Isar.open(schemas: [PrayerSchema], directory: directory ?? '');
   }
 
   // Fetch all prayers from the database
@@ -49,103 +30,18 @@ class PrayerDatabase {
       return mockPrayers!;
     }
 
-    if (kIsWeb) {
-      return await _loadPrayersFromWebJson();
+    final isarInstance = await isar;
+    final list = isarInstance.prayers.where().sortByDefaultOrder().findAll();
+
+    if (list.isEmpty) {
+      final prayers = await _loadPrayersFromWebJson();
+      await isarInstance.writeAsync((isar) {
+        isar.prayers.putAll(prayers);
+      });
+      return prayers;
     }
 
-    final db = await database;
-
-    final List<Map<String, dynamic>> prayerMaps = await db.query(
-      'prayers',
-      orderBy: 'default_order ASC',
-    );
-
-    final List<Prayer> prayers = [];
-
-    for (final pMap in prayerMaps) {
-      final prayerId = pMap['id'] as String;
-      final defaultTitle = pMap['default_title'] as String;
-
-      // Fetch all translations for this prayer
-      final List<Map<String, dynamic>> tMaps = await db.query(
-        'translations',
-        where: 'prayer_id = ?',
-        whereArgs: [prayerId],
-      );
-
-      final Map<PrayerLanguage, List<PrayerTranslation>> translations = {};
-
-      for (final tMap in tMaps) {
-        final langStr = tMap['language'] as String;
-
-        // Find matching PrayerLanguage enum
-        final language = PrayerLanguage.values.firstWhere(
-          (e) => e.toString().split('.').last == langStr,
-          orElse: () => PrayerLanguage.english,
-        );
-
-        final title = tMap['title'] as String;
-        final subtitle = tMap['subtitle'] as String? ?? '';
-        final text = tMap['text'] as String;
-        final sourceName = tMap['source_name'] as String? ?? '';
-        final sourceUrl = tMap['source_url'] as String? ?? '';
-        final chineseLinesJson = tMap['chinese_lines'] as String?;
-
-        List<List<ChineseChar>>? chineseLines;
-        if (chineseLinesJson != null) {
-          final List<dynamic> outer = jsonDecode(chineseLinesJson);
-          chineseLines = outer.map((line) {
-            final List<dynamic> charList = line;
-            return charList.map((item) {
-              final map = item as Map<String, dynamic>;
-              return ChineseChar(
-                map['char'] as String? ?? '',
-                map['pinyin'] as String? ?? '',
-                map['phraseId'] as String?,
-              );
-            }).toList();
-          }).toList();
-        }
-
-        final tokensJson = tMap['tokens'] as String?;
-        List<PrayerToken>? tokens;
-        if (tokensJson != null) {
-          final List<dynamic> parsedList = jsonDecode(tokensJson);
-          tokens = parsedList.map((item) {
-            final map = item as Map<String, dynamic>;
-            return PrayerToken(
-              text: map['text'] as String,
-              id: map['id'] as String?,
-            );
-          }).toList();
-        }
-
-        final translation = PrayerTranslation(
-          title: title,
-          subtitle: subtitle,
-          text: text,
-          sourceName: sourceName,
-          sourceUrl: sourceUrl,
-          chineseLines: chineseLines,
-          tokens: tokens,
-        );
-
-        if (!translations.containsKey(language)) {
-          translations[language] = [];
-        }
-        translations[language]!.add(translation);
-      }
-
-      prayers.add(
-        Prayer(
-          id: prayerId,
-          defaultTitle: defaultTitle,
-          translations: translations,
-        ),
-      );
-    }
-
-    return prayers;
+    return list;
   }
 
   static Future<List<Prayer>> _loadPrayersFromWebJson() async {
@@ -158,18 +54,17 @@ class PrayerDatabase {
       final pMap = item as Map<String, dynamic>;
       final prayerId = pMap['id'] as String;
       final defaultTitle = pMap['default_title'] as String;
+      final category = pMap['category'] as String;
+      final defaultOrder = pMap['default_order'] as int;
 
-      final Map<PrayerLanguage, List<PrayerTranslation>> translations = {};
+      final List<LocalizedTranslations> localizedTranslations = [];
 
       final transMap = pMap['translations'] as Map<String, dynamic>;
       for (final entry in transMap.entries) {
         final langStr = entry.key;
-        final language = PrayerLanguage.values.firstWhere(
-          (e) => e.toString().split('.').last == langStr,
-          orElse: () => PrayerLanguage.english,
-        );
-
         final List<dynamic> transList = entry.value;
+        final List<PrayerTranslation> translationList = [];
+
         for (final tItem in transList) {
           final tMap = tItem as Map<String, dynamic>;
           final title = tMap['title'] as String;
@@ -179,12 +74,12 @@ class PrayerDatabase {
           final sourceUrl = tMap['source_url'] as String? ?? '';
 
           final chineseLinesList = tMap['chinese_lines'];
-          List<List<ChineseChar>>? chineseLines;
+          List<ChineseLine>? chineseLines;
           if (chineseLinesList != null) {
             final List<dynamic> outer = chineseLinesList;
             chineseLines = outer.map((line) {
               final List<dynamic> charList = line;
-              return charList.map((c) {
+              final List<ChineseChar> chars = charList.map((c) {
                 final map = c as Map<String, dynamic>;
                 return ChineseChar(
                   map['char'] as String? ?? '',
@@ -192,6 +87,7 @@ class PrayerDatabase {
                   map['phraseId'] as String?,
                 );
               }).toList();
+              return ChineseLine(chars: chars);
             }).toList();
           }
 
@@ -202,34 +98,37 @@ class PrayerDatabase {
             tokens = parsedList.map((tok) {
               final map = tok as Map<String, dynamic>;
               return PrayerToken(
-                text: map['text'] as String,
-                id: map['id'] as String?,
+                map['text'] as String? ?? '',
+                map['id'] as String?,
               );
             }).toList();
           }
 
-          final translation = PrayerTranslation(
-            title: title,
-            subtitle: subtitle,
-            text: text,
-            sourceName: sourceName,
-            sourceUrl: sourceUrl,
-            chineseLines: chineseLines,
-            tokens: tokens,
+          translationList.add(
+            PrayerTranslation(
+              title: title,
+              subtitle: subtitle,
+              text: text,
+              sourceName: sourceName,
+              sourceUrl: sourceUrl,
+              chineseLines: chineseLines,
+              tokens: tokens,
+            ),
           );
-
-          if (!translations.containsKey(language)) {
-            translations[language] = [];
-          }
-          translations[language]!.add(translation);
         }
+
+        localizedTranslations.add(
+          LocalizedTranslations(languageCode: langStr, list: translationList),
+        );
       }
 
       prayers.add(
         Prayer(
-          id: prayerId,
+          prayerId: prayerId,
           defaultTitle: defaultTitle,
-          translations: translations,
+          category: category,
+          defaultOrder: defaultOrder,
+          localizedTranslations: localizedTranslations,
         ),
       );
     }

@@ -1,3 +1,7 @@
+import 'package:isar_plus/isar_plus.dart';
+
+part 'prayers.g.dart';
+
 enum PrayerLanguage {
   english(name: 'English', nativeName: 'English', flag: '🇺🇸'),
   spanish(name: 'Spanish', nativeName: 'Español', flag: '🇪🇸'),
@@ -23,49 +27,140 @@ enum PrayerLanguage {
   });
 }
 
+@embedded
 class ChineseChar {
-  final String char;
-  final String pinyin;
-  final String? phraseId;
+  String char;
+  String pinyin;
+  String? phraseId;
 
-  const ChineseChar(this.char, [this.pinyin = '', this.phraseId]);
+  ChineseChar([this.char = '', this.pinyin = '', this.phraseId]);
 }
 
+@embedded
+class ChineseLine {
+  List<ChineseChar>? chars;
+
+  ChineseLine({this.chars});
+}
+
+@embedded
 class PrayerToken {
-  final String text;
-  final String? id;
+  String text;
+  String? id;
 
-  const PrayerToken({required this.text, this.id});
+  PrayerToken([this.text = '', this.id]);
 }
 
+@embedded
 class PrayerTranslation {
-  final String title;
-  final String subtitle;
-  final String text;
-  final String sourceName;
-  final String sourceUrl;
-  final List<List<ChineseChar>>? chineseLines;
-  final List<PrayerToken>? tokens;
+  String title;
+  String subtitle;
+  String text;
+  String sourceName;
+  String sourceUrl;
+  List<ChineseLine>? chineseLines;
+  List<PrayerToken>? tokens;
 
-  const PrayerTranslation({
-    required this.title,
-    required this.subtitle,
-    required this.text,
-    required this.sourceName,
-    required this.sourceUrl,
+  PrayerTranslation({
+    this.title = '',
+    this.subtitle = '',
+    this.text = '',
+    this.sourceName = '',
+    this.sourceUrl = '',
     this.chineseLines,
     this.tokens,
   });
+
+  factory PrayerTranslation.mock({
+    String title = '',
+    String subtitle = '',
+    String text = '',
+    String sourceName = '',
+    String sourceUrl = '',
+    List<List<ChineseChar>>? chineseLines,
+    List<PrayerToken>? tokens,
+  }) {
+    return PrayerTranslation(
+      title: title,
+      subtitle: subtitle,
+      text: text,
+      sourceName: sourceName,
+      sourceUrl: sourceUrl,
+      chineseLines: chineseLines
+          ?.map((line) => ChineseLine(chars: line))
+          .toList(),
+      tokens: tokens,
+    );
+  }
 }
 
-class Prayer {
-  final String id;
-  final String defaultTitle;
-  final Map<PrayerLanguage, List<PrayerTranslation>> translations;
+@embedded
+class LocalizedTranslations {
+  String languageCode;
+  List<PrayerTranslation>? list;
 
-  const Prayer({
-    required this.id,
-    required this.defaultTitle,
-    required this.translations,
+  LocalizedTranslations({this.languageCode = '', this.list});
+}
+
+@collection
+class Prayer {
+  @Id()
+  int isarId = 0;
+
+  @Index(unique: true)
+  String prayerId;
+
+  String defaultTitle;
+  String category;
+  int defaultOrder;
+
+  List<LocalizedTranslations>? localizedTranslations;
+
+  Prayer({
+    this.isarId = 0,
+    this.prayerId = '',
+    this.defaultTitle = '',
+    this.category = '',
+    this.defaultOrder = 0,
+    this.localizedTranslations,
   });
+
+  factory Prayer.mock({
+    required String id,
+    required String defaultTitle,
+    required Map<PrayerLanguage, List<PrayerTranslation>> translations,
+    String category = 'starter',
+    int defaultOrder = 0,
+  }) {
+    return Prayer(
+      prayerId: id,
+      defaultTitle: defaultTitle,
+      category: category,
+      defaultOrder: defaultOrder,
+      localizedTranslations: translations.entries.map((entry) {
+        return LocalizedTranslations(
+          languageCode: entry.key.toString().split('.').last,
+          list: entry.value,
+        );
+      }).toList(),
+    );
+  }
+
+  @ignore
+  String get idString => prayerId;
+
+  @ignore
+  Map<PrayerLanguage, List<PrayerTranslation>> get translations {
+    final map = <PrayerLanguage, List<PrayerTranslation>>{};
+    if (localizedTranslations != null) {
+      for (final item in localizedTranslations!) {
+        final lang = PrayerLanguage.values.firstWhere(
+          (e) => e.toString().split('.').last == item.languageCode,
+          orElse: () => PrayerLanguage.english,
+        );
+        map[lang] = item.list ?? [];
+      }
+    }
+    return map;
+  }
 }
