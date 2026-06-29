@@ -129,7 +129,13 @@ void main() {
         if (line.trim().isEmpty) continue;
         final List<Map<String, String>> currentLine = [];
         for (final char in line.runes.map((r) => String.fromCharCode(r))) {
-          // If the character is in the pinyin dictionary, use it. Otherwise leave empty.
+          final isChinese = RegExp(r'[\u4e00-\u9fff]').hasMatch(char);
+          if (isChinese && !pinyinMap.containsKey(char)) {
+            print(
+              'Error: Missing pinyin mapping for Chinese character "$char" in assets/pinyin_dict.txt',
+            );
+            exit(1);
+          }
           final pinyin = pinyinMap[char] ?? '';
           currentLine.add({'char': char, 'pinyin': pinyin});
         }
