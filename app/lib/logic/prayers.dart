@@ -105,25 +105,28 @@ final List<Prayer> defaultPrayers = [
         subtitle: 'Oratio Dominica',
         text:
             'Pater noster, qui es in caelis,\nsanctificetur nomen tuum;\nadveniat regnum tuum;\nfiat voluntas tua,\nsicut in caelo, et in terra.\n\nPanem nostrum cotidianum da nobis hodie;\net dimitte nobis debita nostra,\nsicut et nos dimittimus debitoribus nostris;\net ne nos inducas in tentationem;\nsed libera nos a malo.\n\nAmen.',
-        sourceName: 'Catechismus Catholicae Ecclesiae (Vatican)',
+        sourceName:
+            'Compendium of the Catechism of the Catholic Church (Vatican)',
         sourceUrl:
-            'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_lt.html',
+            'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html',
       ),
       PrayerLanguage.vietnamese: const PrayerTranslation(
         title: 'Kinh Lạy Cha',
         subtitle: 'Kinh Lạy Cha',
         text:
             'Lạy Cha chúng con ở trên trời,\nchúng con nguyện danh Cha cả sáng,\nnước Cha trị đến,\ný Cha thể hiện dưới đất cũng như trên trời.\n\nXin Cha cho chúng con hôm nay\nlương thực hằng ngày,\nvà tha nợ chúng con\nnhư chúng con cũng tha kẻ có nợ chúng con.\n\nXin chớ để chúng con sa chước cám dỗ,\nnhưng cứu chúng con cho khỏi sự dữ.\n\nAmen.',
-        sourceName: 'Tổng Giáo Phận Sài Gòn (Archdiocese of Saigon)',
-        sourceUrl: 'https://tgpsaigon.net',
+        sourceName:
+            'Hội đồng Giám mục Việt Nam (Bishops’ Conference of Vietnam)',
+        sourceUrl: 'https://hdgmvietnam.com',
       ),
       PrayerLanguage.tagalog: const PrayerTranslation(
         title: 'Ama Namin',
         subtitle: 'Panalangin ng Panginoon',
         text:
             'Ama namin, sumasalangit Ka.\nSambahin ang ngalan Mo.\nMapasaamin ang kaharian Mo.\nSundin ang loob Mo dito sa lupa, para nang sa langit.\n\nBigyan Mo kami ngayon ng aming kakanin sa araw-araw;\nAt patawarin Mo kami sa aming mga sala,\nPara nang pagpapatawad namin sa mga nagkakasala sa amin;\nAt huwag Mo kaming ipahintulot sa tukso,\nAt iadya Mo kami sa lahat ng masama.\n\nAmen.',
-        sourceName: 'Catholic Bishops’ Conference of the Philippines (CBCP)',
-        sourceUrl: 'https://cbcpnews.net',
+        sourceName:
+            'National Shrine of Our Mother of Perpetual Help (Baclaran)',
+        sourceUrl: 'https://www.baclaranchurch.org/novena.html',
       ),
       PrayerLanguage.traditionalChinese: const PrayerTranslation(
         title: '天主經',
@@ -294,25 +297,28 @@ final List<Prayer> defaultPrayers = [
         subtitle: 'Salutatio Angelica',
         text:
             'Ave Maria, gratia plena, Dominus tecum.\nBenedicta tu in mulieribus,\net benedictus fructus ventris tui, Iesus.\n\nSancta Maria, Mater Dei,\nora pro nobis peccatoribus,\nnunc et in hora mortis nostrae.\n\nAmen.',
-        sourceName: 'Catechismus Catholicae Ecclesiae (Vatican)',
+        sourceName:
+            'Compendium of the Catechism of the Catholic Church (Vatican)',
         sourceUrl:
-            'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_lt.html',
+            'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html',
       ),
       PrayerLanguage.vietnamese: const PrayerTranslation(
         title: 'Kinh Kính Mừng',
         subtitle: 'Kinh Kính Mừng',
         text:
             'Kính mừng Maria đầy ơn phúc,\nĐức Chúa Trời ở cùng Bà,\nBà có phúc lạ hơn mọi người nữ,\nvà Giêsu con lòng Bà gồm phúc lạ.\n\nThánh Maria, Đức Mẹ Chúa Trời,\ncầu cho chúng con là kẻ có tội,\nkhi nay và trong giờ lâm tử.\n\nAmen.',
-        sourceName: 'Tổng Giáo Phận Sài Gòn (Archdiocese of Saigon)',
-        sourceUrl: 'https://tgpsaigon.net',
+        sourceName:
+            'Hội đồng Giám mục Việt Nam (Bishops’ Conference of Vietnam)',
+        sourceUrl: 'https://hdgmvietnam.com',
       ),
       PrayerLanguage.tagalog: const PrayerTranslation(
         title: 'Aba Ginoong Maria',
         subtitle: 'Ave Maria',
         text:
             'Aba Ginoong Maria, napupuno ka ng grasya.\nAng Panginoong Diyos ay sumasaiyo.\nBukod kang pinagpala sa babaeng lahat\nAt pinagpala naman ang iyong Anak na si Hesus.\n\nSanta Maria, Ina ng Diyos,\nIpanalangin mo kaming makasalanan,\nNgayon at kung kami’y mamamatay.\n\nAmen.',
-        sourceName: 'Catholic Bishops’ Conference of the Philippines (CBCP)',
-        sourceUrl: 'https://cbcpnews.net',
+        sourceName:
+            'National Shrine of Our Mother of Perpetual Help (Baclaran)',
+        sourceUrl: 'https://www.baclaranchurch.org/novena.html',
       ),
       PrayerLanguage.traditionalChinese: const PrayerTranslation(
         title: '聖母經',
@@ -450,25 +456,28 @@ final List<Prayer> defaultPrayers = [
         subtitle: 'Doxologia Minor',
         text:
             'Gloria Patri, et Filio, et Spiritui Sancto.\n\nSicut erat in principio,\net nunc, et semper,\net in saecula saeculorum.\n\nAmen.',
-        sourceName: 'Catechismus Catholicae Ecclesiae (Vatican)',
+        sourceName:
+            'Compendium of the Catechism of the Catholic Church (Vatican)',
         sourceUrl:
-            'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_lt.html',
+            'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html',
       ),
       PrayerLanguage.vietnamese: const PrayerTranslation(
         title: 'Kinh Sáng Danh',
         subtitle: 'Kinh Sáng Danh',
         text:
             'Sáng danh Đức Chúa Cha,\nvà Đức Chúa Con,\nvà Đức Chúa Thánh Thần.\n\nNhư đã có trước vô cùng,\nvà bây giờ, và hằng có,\nvà đời đời chẳng cùng.\n\nAmen.',
-        sourceName: 'Tổng Giáo Phận Sài Gòn (Archdiocese of Saigon)',
-        sourceUrl: 'https://tgpsaigon.net',
+        sourceName:
+            'Hội đồng Giám mục Việt Nam (Bishops’ Conference of Vietnam)',
+        sourceUrl: 'https://hdgmvietnam.com',
       ),
       PrayerLanguage.tagalog: const PrayerTranslation(
         title: 'Luwalhati sa Ama',
         subtitle: 'Luwalhati',
         text:
             'Luwalhati sa Ama, at sa Anak, at sa Espiritu Santo.\n\nKapara nang sa una, gayon din ngayon\nat magpakailanman\nAt magpasawalang hanggan.\n\nAmen.',
-        sourceName: 'Catholic Bishops’ Conference of the Philippines (CBCP)',
-        sourceUrl: 'https://cbcpnews.net',
+        sourceName:
+            'National Shrine of Our Mother of Perpetual Help (Baclaran)',
+        sourceUrl: 'https://www.baclaranchurch.org/novena.html',
       ),
       PrayerLanguage.traditionalChinese: const PrayerTranslation(
         title: '聖三光榮頌',
