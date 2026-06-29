@@ -31,7 +31,7 @@ void main() {
       expect(find.text("The Lord's Prayer"), findsOneWidget);
       expect(find.textContaining('who art in heaven'), findsOneWidget);
       expect(
-        find.textContaining('Compendium of the Catechism'),
+        find.textContaining('United States Conference of Catholic Bishops'),
         findsOneWidget,
       );
     });
