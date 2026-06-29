@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -47,6 +48,11 @@ class PrayerDatabase {
     if (mockPrayers != null) {
       return mockPrayers!;
     }
+
+    if (kIsWeb) {
+      return await _loadPrayersFromWebJson();
+    }
+
     final db = await database;
 
     final List<Map<String, dynamic>> prayerMaps = await db.query(
@@ -128,6 +134,95 @@ class PrayerDatabase {
           translations[language] = [];
         }
         translations[language]!.add(translation);
+      }
+
+      prayers.add(
+        Prayer(
+          id: prayerId,
+          defaultTitle: defaultTitle,
+          translations: translations,
+        ),
+      );
+    }
+
+    return prayers;
+  }
+
+  static Future<List<Prayer>> _loadPrayersFromWebJson() async {
+    final jsonStr = await rootBundle.loadString('assets/prayers.json');
+    final List<dynamic> list = jsonDecode(jsonStr);
+
+    final List<Prayer> prayers = [];
+
+    for (final item in list) {
+      final pMap = item as Map<String, dynamic>;
+      final prayerId = pMap['id'] as String;
+      final defaultTitle = pMap['default_title'] as String;
+
+      final Map<PrayerLanguage, List<PrayerTranslation>> translations = {};
+
+      final transMap = pMap['translations'] as Map<String, dynamic>;
+      for (final entry in transMap.entries) {
+        final langStr = entry.key;
+        final language = PrayerLanguage.values.firstWhere(
+          (e) => e.toString().split('.').last == langStr,
+          orElse: () => PrayerLanguage.english,
+        );
+
+        final List<dynamic> transList = entry.value;
+        for (final tItem in transList) {
+          final tMap = tItem as Map<String, dynamic>;
+          final title = tMap['title'] as String;
+          final subtitle = tMap['subtitle'] as String? ?? '';
+          final text = tMap['text'] as String;
+          final sourceName = tMap['source_name'] as String? ?? '';
+          final sourceUrl = tMap['source_url'] as String? ?? '';
+
+          final chineseLinesList = tMap['chinese_lines'];
+          List<List<ChineseChar>>? chineseLines;
+          if (chineseLinesList != null) {
+            final List<dynamic> outer = chineseLinesList;
+            chineseLines = outer.map((line) {
+              final List<dynamic> charList = line;
+              return charList.map((c) {
+                final map = c as Map<String, dynamic>;
+                return ChineseChar(
+                  map['char'] as String? ?? '',
+                  map['pinyin'] as String? ?? '',
+                  map['phraseId'] as String?,
+                );
+              }).toList();
+            }).toList();
+          }
+
+          final tokensList = tMap['tokens'];
+          List<PrayerToken>? tokens;
+          if (tokensList != null) {
+            final List<dynamic> parsedList = tokensList;
+            tokens = parsedList.map((tok) {
+              final map = tok as Map<String, dynamic>;
+              return PrayerToken(
+                text: map['text'] as String,
+                id: map['id'] as String?,
+              );
+            }).toList();
+          }
+
+          final translation = PrayerTranslation(
+            title: title,
+            subtitle: subtitle,
+            text: text,
+            sourceName: sourceName,
+            sourceUrl: sourceUrl,
+            chineseLines: chineseLines,
+            tokens: tokens,
+          );
+
+          if (!translations.containsKey(language)) {
+            translations[language] = [];
+          }
+          translations[language]!.add(translation);
+        }
       }
 
       prayers.add(

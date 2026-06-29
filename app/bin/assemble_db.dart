@@ -263,4 +263,49 @@ void main() {
 
   db.dispose();
   print('Successfully compiled SQLite database: assets/prayers.db');
+
+  // Reconstruct JSON structure for Web fallback
+  final List<Map<String, dynamic>> jsonList = [];
+  for (final p in prayersToInsert.values) {
+    final Map<String, List<Map<String, dynamic>>> translationsMap = {};
+    for (final t in translationsToInsert) {
+      if (t['prayer_id'] == p['id']) {
+        final lang = t['language'] as String;
+        if (!translationsMap.containsKey(lang)) {
+          translationsMap[lang] = [];
+        }
+
+        List<dynamic>? tokens;
+        if (t['tokens'] != null) {
+          tokens = jsonDecode(t['tokens'] as String);
+        }
+
+        List<dynamic>? chineseLines;
+        if (t['chinese_lines'] != null) {
+          chineseLines = jsonDecode(t['chinese_lines'] as String);
+        }
+
+        translationsMap[lang]!.add({
+          'title': t['title'],
+          'subtitle': t['subtitle'],
+          'text': t['text'],
+          'source_name': t['source_name'],
+          'source_url': t['source_url'],
+          'chinese_lines': chineseLines,
+          'tokens': tokens,
+        });
+      }
+    }
+    jsonList.add({
+      'id': p['id'],
+      'default_title': p['default_title'],
+      'category': p['category'],
+      'default_order': p['default_order'],
+      'translations': translationsMap,
+    });
+  }
+
+  final targetJsonFile = File('assets/prayers.json');
+  targetJsonFile.writeAsStringSync(jsonEncode(jsonList));
+  print('Successfully compiled Web fallback JSON: assets/prayers.json');
 }
