@@ -28,7 +28,7 @@ void main() {
       );
 
       expect(find.text('Our Father'), findsOneWidget);
-      expect(find.text("The Lord's Prayer"), findsOneWidget);
+      expect(find.textContaining("The Lord's Prayer"), findsOneWidget);
       expect(find.textContaining('who art in heaven'), findsOneWidget);
       expect(
         find.textContaining('Compendium of the Catechism'),

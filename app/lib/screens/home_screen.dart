@@ -16,15 +16,6 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentTab = 0;
   final Map<String, PrayerLanguage> _prayerLanguages = {};
 
-  @override
-  void initState() {
-    super.initState();
-    // Default all prayers to English
-    for (var prayer in defaultPrayers) {
-      _prayerLanguages[prayer.id] = PrayerLanguage.english;
-    }
-  }
-
   void _changePrayerLanguage(String prayerId, PrayerLanguage language) {
     setState(() {
       _prayerLanguages[prayerId] = language;

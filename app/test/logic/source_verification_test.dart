@@ -31,118 +31,8 @@ void main() {
       return html;
     }
 
-    // A map-based lookup for accents and diacritics to avoid index offset errors
-    final Map<String, String> accentMap = {
-      // Spanish / French / Italian / Latin
-      'à': 'a',
-      'á': 'a',
-      'â': 'a',
-      'ã': 'a',
-      'ä': 'a',
-      'å': 'a',
-      'ā': 'a',
-      'ă': 'a',
-      'ą': 'a',
-      'è': 'e',
-      'é': 'e',
-      'ê': 'e',
-      'ë': 'e',
-      'ē': 'e',
-      'ĕ': 'e',
-      'ė': 'e',
-      'ę': 'e',
-      'ě': 'e',
-      'ì': 'i',
-      'í': 'i',
-      'î': 'i',
-      'ï': 'i',
-      'ĩ': 'i',
-      'ī': 'i',
-      'ĭ': 'i',
-      'į': 'i',
-      'ı': 'i',
-      'ò': 'o',
-      'ó': 'o',
-      'ô': 'o',
-      'õ': 'o',
-      'ö': 'o',
-      'ø': 'o',
-      'ō': 'o',
-      'ŏ': 'o',
-      'ő': 'o',
-      'ù': 'u',
-      'ú': 'u',
-      'û': 'u',
-      'ü': 'u',
-      'ũ': 'u',
-      'ū': 'u',
-      'ŭ': 'u',
-      'ů': 'u',
-      'ű': 'u',
-      'ų': 'u',
-      'ç': 'c', 'ć': 'c', 'ĉ': 'c', 'ċ': 'c', 'č': 'c',
-      'ď': 'd', 'đ': 'd',
-      'ĝ': 'g', 'ğ': 'g', 'ġ': 'g', 'ģ': 'g',
-      'ĥ': 'h', 'ħ': 'h',
-      'ĵ': 'j',
-      'ķ': 'k',
-      'ĺ': 'l', 'ļ': 'l', 'ľ': 'l', 'ł': 'l',
-      'ń': 'n', 'ņ': 'n', 'ň': 'n', 'ŉ': 'n',
-      'ŕ': 'r', 'ŗ': 'r', 'ř': 'r',
-      'ś': 's', 'ŝ': 's', 'ş': 's', 'š': 's',
-      'ţ': 't', 'ť': 't', 'ŧ': 't',
-      'ŵ': 'w',
-      'ŷ': 'y', 'ÿ': 'y',
-      'ź': 'z', 'ż': 'z', 'ž': 'z',
-      'æ': 'ae', 'œ': 'oe',
-
-      // Vietnamese
-      'ả': 'a', 'ạ': 'a', 'ắ': 'a', 'ằ': 'a', 'ẳ': 'a', 'ẵ': 'a', 'ặ': 'a',
-      'ấ': 'a', 'ầ': 'a', 'ẩ': 'a', 'ẫ': 'a', 'ậ': 'a',
-      'ẻ': 'e',
-      'ẽ': 'e',
-      'ẹ': 'e',
-      'ế': 'e',
-      'ề': 'e',
-      'ể': 'e',
-      'ễ': 'e',
-      'ệ': 'e',
-      'ỉ': 'i', 'ị': 'i',
-      'ỏ': 'o',
-      'ọ': 'o',
-      'ố': 'o',
-      'ồ': 'o',
-      'ổ': 'o',
-      'ỗ': 'o',
-      'ộ': 'o',
-      'ơ': 'o', 'ớ': 'o', 'ờ': 'o', 'ở': 'o', 'ỡ': 'o', 'ợ': 'o',
-      'ủ': 'u',
-      'ụ': 'u',
-      'ư': 'u',
-      'ứ': 'u',
-      'ừ': 'u',
-      'ử': 'u',
-      'ữ': 'u',
-      'ự': 'u',
-      'ý': 'y', 'ỳ': 'y', 'ỷ': 'y', 'ỹ': 'y', 'ỵ': 'y',
-    };
-
-    String stripAccents(String str) {
-      final sb = StringBuffer();
-      for (int i = 0; i < str.length; i++) {
-        final char = str[i];
-        final replacement = accentMap[char];
-        if (replacement != null) {
-          sb.write(replacement);
-        } else {
-          sb.write(char);
-        }
-      }
-      return sb.toString();
-    }
-
     // A robust soft normalization to handle HTML tag spacing, punctuation, accents, and casing.
-    String softNormalize(String text) {
+    String softNormalize(String text, {required bool isLatin}) {
       // Strip Wikipedia footnote reference tags like [a] or [1]
       String res = text
           .replaceAll(RegExp(r'\[\w\]'), '')
@@ -151,7 +41,104 @@ void main() {
       res = res.replaceAll('[', '').replaceAll(']', '');
 
       res = res.toLowerCase();
-      res = stripAccents(res);
+
+      if (isLatin) {
+        // Latin is normalized (accent/diacritic stripping and ligature expansion) because:
+        // 1. Liturgical Latin source texts (like the Vatican Compendium) use variable pronunciation/chanting
+        //    accents (e.g. 'Dóminus', 'María') that do not alter grammatical meaning, unlike modern languages
+        //    (e.g., Spanish, French, Vietnamese) where accents change word meaning.
+        // 2. Different sources use ligatures (æ/œ) interchangeably with standard letter pairings (ae/oe).
+        // Stripping accents/ligatures only for Latin prevents false mismatches due to style and typography
+        // while preserving strict accent checks for modern languages.
+        res = res
+            .replaceAll('æ', 'ae')
+            .replaceAll('œ', 'oe')
+            .replaceAll('à', 'a')
+            .replaceAll('á', 'a')
+            .replaceAll('â', 'a')
+            .replaceAll('ã', 'a')
+            .replaceAll('ä', 'a')
+            .replaceAll('å', 'a')
+            .replaceAll('ā', 'a')
+            .replaceAll('ă', 'a')
+            .replaceAll('ą', 'a')
+            .replaceAll('è', 'e')
+            .replaceAll('é', 'e')
+            .replaceAll('ê', 'e')
+            .replaceAll('ë', 'e')
+            .replaceAll('ē', 'e')
+            .replaceAll('ĕ', 'e')
+            .replaceAll('ė', 'e')
+            .replaceAll('ę', 'e')
+            .replaceAll('ě', 'e')
+            .replaceAll('ì', 'i')
+            .replaceAll('í', 'i')
+            .replaceAll('î', 'i')
+            .replaceAll('ï', 'i')
+            .replaceAll('ĩ', 'i')
+            .replaceAll('ī', 'i')
+            .replaceAll('ĭ', 'i')
+            .replaceAll('į', 'i')
+            .replaceAll('ı', 'i')
+            .replaceAll('ò', 'o')
+            .replaceAll('ó', 'o')
+            .replaceAll('ô', 'o')
+            .replaceAll('õ', 'o')
+            .replaceAll('ö', 'o')
+            .replaceAll('ø', 'o')
+            .replaceAll('ō', 'o')
+            .replaceAll('ŏ', 'o')
+            .replaceAll('ő', 'o')
+            .replaceAll('ù', 'u')
+            .replaceAll('ú', 'u')
+            .replaceAll('û', 'u')
+            .replaceAll('ü', 'u')
+            .replaceAll('ũ', 'u')
+            .replaceAll('ū', 'u')
+            .replaceAll('ŭ', 'u')
+            .replaceAll('ů', 'u')
+            .replaceAll('ű', 'u')
+            .replaceAll('ų', 'u')
+            .replaceAll('ç', 'c')
+            .replaceAll('ć', 'c')
+            .replaceAll('ĉ', 'c')
+            .replaceAll('ċ', 'c')
+            .replaceAll('č', 'c')
+            .replaceAll('ď', 'd')
+            .replaceAll('đ', 'd')
+            .replaceAll('ĝ', 'g')
+            .replaceAll('ğ', 'g')
+            .replaceAll('ġ', 'g')
+            .replaceAll('ģ', 'g')
+            .replaceAll('ĥ', 'h')
+            .replaceAll('ħ', 'h')
+            .replaceAll('ĵ', 'j')
+            .replaceAll('ķ', 'k')
+            .replaceAll('ĺ', 'l')
+            .replaceAll('ļ', 'l')
+            .replaceAll('ľ', 'l')
+            .replaceAll('ł', 'l')
+            .replaceAll('ń', 'n')
+            .replaceAll('ņ', 'n')
+            .replaceAll('ň', 'n')
+            .replaceAll('ŉ', 'n')
+            .replaceAll('ŕ', 'r')
+            .replaceAll('ŗ', 'r')
+            .replaceAll('ř', 'r')
+            .replaceAll('ś', 's')
+            .replaceAll('ŝ', 's')
+            .replaceAll('ş', 's')
+            .replaceAll('š', 's')
+            .replaceAll('ţ', 't')
+            .replaceAll('ť', 't')
+            .replaceAll('ŧ', 't')
+            .replaceAll('ŵ', 'w')
+            .replaceAll('ŷ', 'y')
+            .replaceAll('ÿ', 'y')
+            .replaceAll('ź', 'z')
+            .replaceAll('ż', 'z')
+            .replaceAll('ž', 'z');
+      }
 
       res = res
           .replaceAll('’', "'")
@@ -159,49 +146,22 @@ void main() {
           .replaceAll('“', '"')
           .replaceAll('”', '"');
 
-      // Traditional Chinese variant character normalization
-      res = res
-          .replaceAll('妳', '你')
-          .replaceAll('祂', '你')
-          .replaceAll('禰', '你')
-          .replaceAll('祢', '你')
-          .replaceAll('他', '你')
-          .replaceAll('她', '你')
-          .replaceAll('兇', '凶')
-          .replaceAll('亞孟', '阿們');
-
-      // Tagalog pronoun/spelling equivalents
-      res = res
-          .replaceAll("'yong", 'iyong')
-          .replaceAll('yong', 'iyong')
-          .replaceAll('utang', 'sala')
-          .replaceAll('nagkakautang', 'nagkakasala')
-          .replaceAll('bagkus', 'at')
-          .replaceAll('lahatngmasama', 'masama')
-          .replaceAll('lahatmasama', 'masama')
-          .replaceAll('nang', 'ng');
-
       // Strip all straight quotes first
       res = res.replaceAll('"', '').replaceAll("'", '');
 
       // Strip all punctuation and whitespace to do a character-sequence only match.
       // This includes Western and Chinese full-width punctuation.
       res = res.replaceAll(
-        RegExp(r"[.,;:!?\-\(\)«»‘’“”\s\u00A0\u200b，。、；：！？「」『』]+"),
+        RegExp(r"[.,;:!?\-\(\)«»‘’“”\s\u00A0\u200b，。、；：！？「」『』/]+"),
         '',
       );
 
-      // Tagalog phrase variants after whitespace stripping
-      res = res
-          .replaceAll('noongunguna', 'ngsauna')
-          .replaceAll('noongungun-una', 'ngsauna')
-          .replaceAll('noongunanguna', 'ngsauna')
-          .replaceAll('noongunang-una', 'ngsauna')
-          .replaceAll('nangsauna', 'ngsauna')
-          .replaceAll('gayondin', '');
-
       // Strip closing Amen or equivalent from the end/body of the text
-      res = res.replaceAll('amen', '').replaceAll('amon', '');
+      res = res
+          .replaceAll('amen', '')
+          .replaceAll('amon', '')
+          .replaceAll('亞孟', '')
+          .replaceAll('阿們', '');
 
       return res;
     }
@@ -209,48 +169,54 @@ void main() {
     for (final prayer in defaultPrayers) {
       for (final entry in prayer.translations.entries) {
         final language = entry.key;
-        final translation = entry.value;
+        final translations = entry.value;
 
-        test(
-          'Verify ${prayer.id} in ${language.name} matches source text',
-          () async {
-            final html = await fetchHtml(translation.sourceUrl);
-            final document = html_parser.parse(html);
-            final pageText = document.body?.text ?? '';
+        for (int i = 0; i < translations.length; i++) {
+          final translation = translations[i];
+          final suffix = translations.length > 1 ? ' (Version ${i + 1})' : '';
 
-            final softPage = softNormalize(pageText);
+          test(
+            'Verify ${prayer.id} in ${language.name}$suffix matches source text',
+            () async {
+              final html = await fetchHtml(translation.sourceUrl);
+              final document = html_parser.parse(html);
+              final pageText = document.body?.text ?? '';
 
-            // Split the prayer into lines by newline to verify each line exists on the page.
-            // This is robust against side-by-side bilingual layouts or interspersed footnotes/Greek text.
-            final lines = translation.text
-                .split('\n')
-                .map((line) => softNormalize(line))
-                .where((line) => line.isNotEmpty)
-                .toList();
+              final isLatin = language == PrayerLanguage.latin;
+              final softPage = softNormalize(pageText, isLatin: isLatin);
 
-            bool allLinesMatched = true;
-            final missingLines = <String>[];
+              // Split the prayer into lines by newline to verify each line exists on the page.
+              // This is robust against side-by-side bilingual layouts or interspersed footnotes/Greek text.
+              final lines = translation.text
+                  .split('\n')
+                  .map((line) => softNormalize(line, isLatin: isLatin))
+                  .where((line) => line.isNotEmpty)
+                  .toList();
 
-            for (final line in lines) {
-              if (!softPage.contains(line)) {
-                allLinesMatched = false;
-                missingLines.add(line);
+              bool allLinesMatched = true;
+              final missingLines = <String>[];
+
+              for (final line in lines) {
+                if (!softPage.contains(line)) {
+                  allLinesMatched = false;
+                  missingLines.add(line);
+                }
               }
-            }
 
-            if (!allLinesMatched) {
-              final errorMsg =
-                  'Prayer text was not found in the source URL: ${translation.sourceUrl}\n\n'
-                  'Missing lines (soft normalized):\n${missingLines.map((l) => '"$l"').join('\n')}\n\n'
-                  'First 500 characters of page text (soft normalized):\n'
-                  '"${softPage.substring(0, softPage.length > 500 ? 500 : softPage.length)}"';
-              fail(errorMsg);
-            }
+              if (!allLinesMatched) {
+                final errorMsg =
+                    'Prayer text was not found in the source URL: ${translation.sourceUrl}\n\n'
+                    'Missing lines (soft normalized):\n${missingLines.map((l) => '"$l"').join('\n')}\n\n'
+                    'First 500 characters of page text (soft normalized):\n'
+                    '"${softPage.substring(0, softPage.length > 500 ? 500 : softPage.length)}"';
+                fail(errorMsg);
+              }
 
-            expect(allLinesMatched, isTrue);
-          },
-          timeout: const Timeout(Duration(seconds: 30)),
-        );
+              expect(allLinesMatched, isTrue);
+            },
+            timeout: const Timeout(Duration(seconds: 30)),
+          );
+        }
       }
     }
   });

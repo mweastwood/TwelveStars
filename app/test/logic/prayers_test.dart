@@ -31,24 +31,31 @@ void main() {
 
     test('translations contain valid data and sources', () {
       for (var prayer in defaultPrayers) {
-        prayer.translations.forEach((lang, trans) {
-          expect(trans.title.isNotEmpty, true);
-          expect(trans.text.isNotEmpty, true);
-          expect(trans.sourceName.isNotEmpty, true);
-          expect(trans.sourceUrl.startsWith('https://'), true);
+        prayer.translations.forEach((lang, transList) {
+          expect(transList.isNotEmpty, true);
+          for (var trans in transList) {
+            expect(trans.title.isNotEmpty, true);
+            expect(trans.text.isNotEmpty, true);
+            expect(trans.sourceName.isNotEmpty, true);
+            expect(trans.sourceUrl.startsWith('https://'), true);
+          }
         });
       }
     });
 
     test('traditionalChinese translations contain valid pinyin lines', () {
       for (var prayer in defaultPrayers) {
-        final trans = prayer.translations[PrayerLanguage.traditionalChinese]!;
-        expect(trans.chineseLines, isNotNull);
-        expect(trans.chineseLines!.isNotEmpty, true);
-        for (var line in trans.chineseLines!) {
-          expect(line.isNotEmpty, true);
-          for (var charItem in line) {
-            expect(charItem.char.isNotEmpty, true);
+        final transList =
+            prayer.translations[PrayerLanguage.traditionalChinese]!;
+        expect(transList.isNotEmpty, true);
+        for (var trans in transList) {
+          expect(trans.chineseLines, isNotNull);
+          expect(trans.chineseLines!.isNotEmpty, true);
+          for (var line in trans.chineseLines!) {
+            expect(line.isNotEmpty, true);
+            for (var charItem in line) {
+              expect(charItem.char.isNotEmpty, true);
+            }
           }
         }
       }
