@@ -88,7 +88,7 @@ final List<Prayer> defaultPrayers = [
         title: 'Notre Père',
         subtitle: "L'Oraison Dominicale",
         text:
-            'Notre Père, qui es aux cieux,\nque ton nom soit sanctifié,\nque ton règne vienne,\nque ta volonté soit faite\nsur la terre comme au ciel.\n\nDonne-nous aujourd’hui notre pain de ce jour.\nPardonne-nous nos offenses,\ncomme nous pardonnons aussi\nà ceux qui nous ont offensés.\nEt ne nous laisse pas entrer en tentation,\nmais délivre-nous du Mal.\n\nAmen.',
+            'Notre Père, qui es aux cieux,\nque ton Nom soit sanctifié,\nque ton Règne vienne,\nque ta volonté soit faite,\nsur la terre comme au ciel.\n\nDonne-nous aujourd’hui notre pain de ce jour,\npardonne-nous nos offenses,\ncomme nous pardonnons aussi à ceux qui nous ont offensés,\net ne nous soumets pas à la tentation,\nmais délivre-nous du mal.\n\nAmen.',
         sourceName: 'Compendium du Catéchisme de l’Église Catholique (Vatican)',
         sourceUrl:
             'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html',
@@ -117,26 +117,25 @@ final List<Prayer> defaultPrayers = [
         subtitle: 'Kinh Lạy Cha',
         text:
             'Lạy Cha chúng con ở trên trời,\nchúng con nguyện danh Cha cả sáng,\nnước Cha trị đến,\ný Cha thể hiện dưới đất cũng như trên trời.\n\nXin Cha cho chúng con hôm nay\nlương thực hằng ngày,\nvà tha nợ chúng con\nnhư chúng con cũng tha kẻ có nợ chúng con.\n\nXin chớ để chúng con sa chước cám dỗ,\nnhưng cứu chúng con cho khỏi sự dữ.\n\nAmen.',
-        sourceName:
-            'Hội đồng Giám mục Việt Nam (Bishops’ Conference of Vietnam)',
-        sourceUrl: 'https://hdgmvietnam.com',
+        sourceName: 'Wikipedia',
+        sourceUrl: 'https://vi.wikipedia.org/wiki/Kinh_L%E1%BA%A1y_Cha',
       ),
       PrayerLanguage.tagalog: const PrayerTranslation(
         title: 'Ama Namin',
         subtitle: 'Panalangin ng Panginoon',
         text:
             'Ama namin, sumasalangit Ka.\nSambahin ang ngalan Mo.\nMapasaamin ang kaharian Mo.\nSundin ang loob Mo dito sa lupa, para nang sa langit.\n\nBigyan Mo kami ngayon ng aming kakanin sa araw-araw;\nAt patawarin Mo kami sa aming mga sala,\nPara nang pagpapatawad namin sa mga nagkakasala sa amin;\nAt huwag Mo kaming ipahintulot sa tukso,\nAt iadya Mo kami sa lahat ng masama.\n\nAmen.',
-        sourceName:
-            'National Shrine of Our Mother of Perpetual Help (Baclaran)',
-        sourceUrl: 'https://www.baclaranchurch.org/novena.html',
+        sourceName: 'Wikipedia',
+        sourceUrl: 'https://tl.wikipedia.org/wiki/Ama_Namin',
       ),
       PrayerLanguage.traditionalChinese: const PrayerTranslation(
         title: '天主經',
         subtitle: 'Lord’s Prayer',
         text:
             '我們的天父，願祢的名受顯揚；願祢的國來臨；願祢的旨意奉行在人間，如同在天上。求祢今天賞給我們日用的食糧；求祢寬恕我們的罪過，如同我們寬恕別人一樣；不要讓我們陷於誘惑；但救我們免於凶惡。亞孟。',
-        sourceName: '台灣地區主教團 (Bishops’ Conference of Taiwan)',
-        sourceUrl: 'https://www.catholic.org.tw',
+        sourceName: 'Wikipedia',
+        sourceUrl:
+            'https://zh.wikipedia.org/zh-hant/%E5%A4%A9%E4%B8%BB%E7%B6%93',
         chineseLines: [
           [
             ChineseChar('我', 'wǒ'),
@@ -263,7 +262,7 @@ final List<Prayer> defaultPrayers = [
         title: 'Hail Mary',
         subtitle: 'Ave Maria',
         text:
-            'Hail Mary, full of grace,\nthe Lord is with you;\nblessed are you among women,\nand blessed is the fruit of your womb, Jesus.\n\nHoly Mary, Mother of God,\npray for us sinners\nnow and at the hour of our death.\n\nAmen.',
+            'Hail, Mary, full of grace,\nthe Lord is with thee.\nBlessed art thou among women,\nand blessed is the fruit of thy womb, Jesus.\n\nHoly Mary, Mother of God,\npray for us sinners,\nnow and at the hour of our death.\n\nAmen.',
         sourceName:
             'Compendium of the Catechism of the Catholic Church (Vatican)',
         sourceUrl:
@@ -311,26 +310,25 @@ final List<Prayer> defaultPrayers = [
         subtitle: 'Kinh Kính Mừng',
         text:
             'Kính mừng Maria đầy ơn phúc,\nĐức Chúa Trời ở cùng Bà,\nBà có phúc lạ hơn mọi người nữ,\nvà Giêsu con lòng Bà gồm phúc lạ.\n\nThánh Maria, Đức Mẹ Chúa Trời,\ncầu cho chúng con là kẻ có tội,\nkhi nay và trong giờ lâm tử.\n\nAmen.',
-        sourceName:
-            'Hội đồng Giám mục Việt Nam (Bishops’ Conference of Vietnam)',
-        sourceUrl: 'https://hdgmvietnam.com',
+        sourceName: 'Wikipedia',
+        sourceUrl: 'https://vi.wikipedia.org/wiki/Kinh_K%C3%ADnh_M%E1%BB%ABng',
       ),
       PrayerLanguage.tagalog: const PrayerTranslation(
         title: 'Aba Ginoong Maria',
         subtitle: 'Ave Maria',
         text:
             'Aba Ginoong Maria, napupuno ka ng grasya.\nAng Panginoong Diyos ay sumasaiyo.\nBukod kang pinagpala sa babaeng lahat\nAt pinagpala naman ang iyong Anak na si Hesus.\n\nSanta Maria, Ina ng Diyos,\nIpanalangin mo kaming makasalanan,\nNgayon at kung kami’y mamamatay.\n\nAmen.',
-        sourceName:
-            'National Shrine of Our Mother of Perpetual Help (Baclaran)',
-        sourceUrl: 'https://www.baclaranchurch.org/novena.html',
+        sourceName: 'Wikipedia',
+        sourceUrl: 'https://tl.wikipedia.org/wiki/Aba_Ginoong_Maria',
       ),
       PrayerLanguage.traditionalChinese: const PrayerTranslation(
         title: '聖母經',
         subtitle: 'Hail Mary',
         text:
             '萬福瑪利亞，妳充滿聖寵。主與妳同在。妳在婦女中受讚頌，妳的親子耶穌同受讚頌。天主聖母瑪利亞，求妳現在和我們臨終時，為我們罪人祈求天主。亞孟。',
-        sourceName: '台灣地區主教團 (Bishops’ Conference of Taiwan)',
-        sourceUrl: 'https://www.catholic.org.tw',
+        sourceName: 'Wikipedia',
+        sourceUrl:
+            'https://zh.wikipedia.org/zh-hant/%E8%81%96%E6%AF%8D%E7%B6%93',
         chineseLines: [
           [
             ChineseChar('萬', 'wàn'),
@@ -443,7 +441,7 @@ final List<Prayer> defaultPrayers = [
         title: 'Gloire au Père',
         subtitle: 'Doxologie',
         text:
-            'Gloire au Père,\net au Fils,\net au Saint-Esprit.\n\nComme il était au commencement,\nmaintenant et toujours,\net dans les siècles des siècles.\n\nAmen.',
+            'Gloire au Père,\nau Fils,\net au Saint-Esprit.\n\nComme il était au commencement,\nmaintenant et toujours,\net dans les siècles des siècles.\n\nAmen.',
         sourceName: 'Compendium du Catéchisme de l’Église Catholique (Vatican)',
         sourceUrl:
             'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html',
@@ -472,25 +470,24 @@ final List<Prayer> defaultPrayers = [
         subtitle: 'Kinh Sáng Danh',
         text:
             'Sáng danh Đức Chúa Cha,\nvà Đức Chúa Con,\nvà Đức Chúa Thánh Thần.\n\nNhư đã có trước vô cùng,\nvà bây giờ, và hằng có,\nvà đời đời chẳng cùng.\n\nAmen.',
-        sourceName:
-            'Hội đồng Giám mục Việt Nam (Bishops’ Conference of Vietnam)',
-        sourceUrl: 'https://hdgmvietnam.com',
+        sourceName: 'Wikipedia',
+        sourceUrl: 'https://vi.wikipedia.org/wiki/Kinh_S%C3%A1ng_Danh',
       ),
       PrayerLanguage.tagalog: const PrayerTranslation(
         title: 'Luwalhati sa Ama',
         subtitle: 'Luwalhati',
         text:
             'Luwalhati sa Ama, at sa Anak, at sa Espiritu Santo.\n\nKapara nang sa una, gayon din ngayon\nat magpakailanman\nAt magpasawalang hanggan.\n\nAmen.',
-        sourceName:
-            'National Shrine of Our Mother of Perpetual Help (Baclaran)',
-        sourceUrl: 'https://www.baclaranchurch.org/novena.html',
+        sourceName: 'Wikipedia',
+        sourceUrl: 'https://tl.wikipedia.org/wiki/Luwalhati_sa_Ama',
       ),
       PrayerLanguage.traditionalChinese: const PrayerTranslation(
         title: '聖三光榮頌',
         subtitle: 'Glory Be',
         text: '願光榮歸於父、及子、及聖神。起初如何，今日亦然，直到永遠。亞孟。',
-        sourceName: '台灣地區主教團 (Bishops’ Conference of Taiwan)',
-        sourceUrl: 'https://www.catholic.org.tw',
+        sourceName: 'Wikipedia',
+        sourceUrl:
+            'https://zh.wikipedia.org/zh-hant/%E6%A6%AE%E8%80%80%E9%A0%8C',
         chineseLines: [
           [
             ChineseChar('願', 'yuàn'),
