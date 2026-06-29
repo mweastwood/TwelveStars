@@ -40,6 +40,7 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_TWELVE_STARS_DEV }}'
           channelId: live
           projectId: twelve-stars-dev
+          firebaseToolsVersion: '15.22.2'
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
 
