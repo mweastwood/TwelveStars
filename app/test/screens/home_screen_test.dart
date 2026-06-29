@@ -3,14 +3,90 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/screens/home_screen.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/prayer_database.dart';
 import '../test_helper.dart';
 
 void main() {
   group('HomeScreen Widget', () {
+    final mockPrayers = [
+      const Prayer(
+        id: 'our_father',
+        defaultTitle: 'Our Father',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation(
+              title: 'Our Father',
+              subtitle: "The Lord's Prayer (Traditional)",
+              text:
+                  'Our Father, who art in heaven,\nhallowed be thy name;\nthy kingdom come;\nthy will be done\non earth as it is in heaven.\n\nGive us this day our daily bread;\nand forgive us our trespasses\nas we forgive those who trespass against us;\nand lead us not into temptation,\nbut deliver us from evil.\n\nAmen.',
+              sourceName:
+                  'Compendium of the Catechism of the Catholic Church (Vatican)',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+          PrayerLanguage.traditionalChinese: [
+            PrayerTranslation(
+              title: '天主經',
+              subtitle: 'Lord’s Prayer',
+              text:
+                  '我們的天父，願祢的名受顯揚；願祢的國來臨；願祢的旨意奉行在人間，如同在天上。求祢今天賞給我們日用的食糧；求祢寬恕我們的罪過，如同我們寬恕別人一樣；不要讓我們陷於誘惑；但救我們免於凶惡。亞孟。',
+              sourceName: 'Wikipedia',
+              sourceUrl: 'https://wikipedia.org',
+              chineseLines: [
+                [
+                  ChineseChar('我', 'wǒ'),
+                  ChineseChar('們', 'men'),
+                  ChineseChar('的', 'de'),
+                  ChineseChar('天', 'tiān'),
+                  ChineseChar('父', 'fù'),
+                  ChineseChar('，', ''),
+                ],
+              ],
+            ),
+          ],
+        },
+      ),
+      const Prayer(
+        id: 'hail_mary',
+        defaultTitle: 'Hail Mary',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation(
+              title: 'Hail Mary',
+              subtitle: 'Angelic Salutation',
+              text: 'Hail Mary, full of grace...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      const Prayer(
+        id: 'glory_be',
+        defaultTitle: 'Glory Be',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation(
+              title: 'Glory Be',
+              subtitle: 'Doxology',
+              text: 'Glory be to the Father...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+    ];
+
+    setUp(() {
+      PrayerDatabase.mockPrayers = mockPrayers;
+    });
+
     testWidgets('renders initial tab (Prayers) and switches to Rosary tab', (
       tester,
     ) async {
       await tester.pumpWidget(buildTestableWidget(child: const HomeScreen()));
+      await tester.pumpAndSettle(); // Let database load
 
       // Verify app bar and header are present
       expect(find.text('TwelveStars'), findsWidgets);
@@ -49,6 +125,7 @@ void main() {
 
     testWidgets('changes language of prayer in dropdown', (tester) async {
       await tester.pumpWidget(buildTestableWidget(child: const HomeScreen()));
+      await tester.pumpAndSettle(); // Let database load
 
       // Select dropdown for Our Father
       final dropdownFinder = find.byType(DropdownButton<PrayerLanguage>).first;
@@ -72,6 +149,8 @@ void main() {
         wrapper: materialAppWrapper(),
         surfaceSize: const Size(400, 800),
       );
+      await tester.pump(); // Start database loading
+      await tester.pumpAndSettle(); // Let database load
       await screenMatchesGolden(tester, 'home_screen_prayers_tab_golden');
 
       // 2. Rosary tab golden
@@ -80,6 +159,8 @@ void main() {
         wrapper: materialAppWrapper(),
         surfaceSize: const Size(400, 800),
       );
+      await tester.pump();
+      await tester.pumpAndSettle();
       // Switch tab
       await tester.tap(find.text('Rosary').last);
       await tester.pumpAndSettle();

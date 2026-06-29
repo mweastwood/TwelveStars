@@ -1,12 +1,24 @@
 import 'dart:convert';
+import 'dart:ffi';
 import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:html/parser.dart' as html_parser;
 import 'package:http/http.dart' as http;
+import 'package:sqlite3/open.dart';
+import 'package:sqlite3/sqlite3.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 
 void main() {
   HttpOverrides.global = null;
+
+  // Override sqlite3 FFI loading on Linux
+  open.overrideFor(OperatingSystem.linux, () {
+    try {
+      return DynamicLibrary.open('libsqlite3.so.0');
+    } catch (_) {
+      return DynamicLibrary.open('libsqlite3.so');
+    }
+  });
 
   group('Prayer Source Verification', () {
     // Cache to avoid fetching the same URL multiple times
@@ -166,58 +178,76 @@ void main() {
       return res;
     }
 
-    for (final prayer in defaultPrayers) {
-      for (final entry in prayer.translations.entries) {
-        final language = entry.key;
-        final translations = entry.value;
+    // Open compiled sqlite database
+    final dbFile = File('assets/prayers.db');
+    if (!dbFile.existsSync()) {
+      throw Exception(
+        'assets/prayers.db does not exist. Run bin/assemble_db.dart first.',
+      );
+    }
+    final db = sqlite3.open(dbFile.path);
+    final translationRows = db.select('SELECT * FROM translations');
 
-        for (int i = 0; i < translations.length; i++) {
-          final translation = translations[i];
-          final suffix = translations.length > 1 ? ' (Version ${i + 1})' : '';
+    for (final row in translationRows) {
+      final prayerId = row['prayer_id'] as String;
+      final languageStr = row['language'] as String;
+      final versionIndex = row['version_index'] as int;
+      final text = row['text'] as String;
+      final sourceUrl = row['source_url'] as String;
 
-          test(
-            'Verify ${prayer.id} in ${language.name}$suffix matches source text',
-            () async {
-              final html = await fetchHtml(translation.sourceUrl);
-              final document = html_parser.parse(html);
-              final pageText = document.body?.text ?? '';
+      final language = PrayerLanguage.values.firstWhere(
+        (e) => e.toString().split('.').last == languageStr,
+        orElse: () => PrayerLanguage.english,
+      );
 
-              final isLatin = language == PrayerLanguage.latin;
-              final softPage = softNormalize(pageText, isLatin: isLatin);
+      // Get count of versions for suffix rendering
+      final versionCountRow = db.select(
+        'SELECT COUNT(*) as count FROM translations WHERE prayer_id = ? AND language = ?',
+        [prayerId, languageStr],
+      );
+      final versionCount = versionCountRow.first['count'] as int;
+      final suffix = versionCount > 1 ? ' (Version ${versionIndex + 1})' : '';
 
-              // Split the prayer into lines by newline to verify each line exists on the page.
-              // This is robust against side-by-side bilingual layouts or interspersed footnotes/Greek text.
-              final lines = translation.text
-                  .split('\n')
-                  .map((line) => softNormalize(line, isLatin: isLatin))
-                  .where((line) => line.isNotEmpty)
-                  .toList();
+      test(
+        'Verify $prayerId in ${language.name}$suffix matches source text',
+        () async {
+          final html = await fetchHtml(sourceUrl);
+          final document = html_parser.parse(html);
+          final pageText = document.body?.text ?? '';
 
-              bool allLinesMatched = true;
-              final missingLines = <String>[];
+          final isLatin = language == PrayerLanguage.latin;
+          final softPage = softNormalize(pageText, isLatin: isLatin);
 
-              for (final line in lines) {
-                if (!softPage.contains(line)) {
-                  allLinesMatched = false;
-                  missingLines.add(line);
-                }
-              }
+          // Split the prayer into lines by newline to verify each line exists on the page.
+          final lines = text
+              .split('\n')
+              .map((line) => softNormalize(line, isLatin: isLatin))
+              .where((line) => line.isNotEmpty)
+              .toList();
 
-              if (!allLinesMatched) {
-                final errorMsg =
-                    'Prayer text was not found in the source URL: ${translation.sourceUrl}\n\n'
-                    'Missing lines (soft normalized):\n${missingLines.map((l) => '"$l"').join('\n')}\n\n'
-                    'First 500 characters of page text (soft normalized):\n'
-                    '"${softPage.substring(0, softPage.length > 500 ? 500 : softPage.length)}"';
-                fail(errorMsg);
-              }
+          bool allLinesMatched = true;
+          final missingLines = <String>[];
 
-              expect(allLinesMatched, isTrue);
-            },
-            timeout: const Timeout(Duration(seconds: 30)),
-          );
-        }
-      }
+          for (final line in lines) {
+            if (!softPage.contains(line)) {
+              allLinesMatched = false;
+              missingLines.add(line);
+            }
+          }
+
+          if (!allLinesMatched) {
+            final errorMsg =
+                'Prayer text was not found in the source URL: $sourceUrl\n\n'
+                'Missing lines (soft normalized):\n${missingLines.map((l) => '"$l"').join('\n')}\n\n'
+                'First 500 characters of page text (soft normalized):\n'
+                '"${softPage.substring(0, softPage.length > 500 ? 500 : softPage.length)}"';
+            fail(errorMsg);
+          }
+
+          expect(allLinesMatched, isTrue);
+        },
+        timeout: const Timeout(Duration(seconds: 30)),
+      );
     }
   });
 }

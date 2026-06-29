@@ -1,0 +1,19 @@
+---
+category: "starter"
+default_order: 2
+default_title: "Hail Mary"
+title: "Aba Ginoong Maria"
+subtitle: "Ave Maria"
+source_name: "Wikipedia"
+source_url: "https://tl.wikipedia.org/wiki/Aba_Ginoong_Maria"
+---
+Aba Ginoong Maria, napupuno ka ng grasya.
+Ang Panginoong Diyos ay sumasaiyo.
+Bukod kang pinagpala sa babaeng lahat
+At pinagpala naman ang ’yong anak na si Hesus.
+
+Santa Maria, Ina ng Diyos,
+Ipanalangin mo kaming makasalanan,
+Ngayon at kung kami’y mamamatay.
+
+Amen.
