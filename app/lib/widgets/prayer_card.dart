@@ -34,9 +34,14 @@ class _PrayerCardState extends State<PrayerCard> {
 
   @override
   Widget build(BuildContext context) {
-    final translations =
-        widget.prayer.translations[widget.selectedLanguage] ??
-        widget.prayer.translations[PrayerLanguage.english]!;
+    final resolvedLanguage =
+        widget.prayer.translations.containsKey(widget.selectedLanguage)
+        ? widget.selectedLanguage
+        : (widget.prayer.translations.containsKey(PrayerLanguage.english)
+              ? PrayerLanguage.english
+              : widget.prayer.translations.keys.first);
+
+    final translations = widget.prayer.translations[resolvedLanguage]!;
 
     // Safe bound check
     final versionIndex = _currentVersionIndex < translations.length
@@ -157,7 +162,7 @@ class _PrayerCardState extends State<PrayerCard> {
                       ),
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton<PrayerLanguage>(
-                          value: widget.selectedLanguage,
+                          value: resolvedLanguage,
                           icon: Icon(
                             Icons.arrow_drop_down,
                             color: theme.colorScheme.onSurfaceVariant,
@@ -167,28 +172,36 @@ class _PrayerCardState extends State<PrayerCard> {
                           borderRadius: BorderRadius.circular(12),
                           alignment: Alignment.centerRight,
                           onChanged: widget.onLanguageChanged,
-                          items: PrayerLanguage.values.map((lang) {
-                            return DropdownMenuItem<PrayerLanguage>(
-                              value: lang,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    lang.flag,
-                                    style: const TextStyle(fontSize: 16),
+                          items: PrayerLanguage.values
+                              .where(
+                                (lang) => widget.prayer.translations
+                                    .containsKey(lang),
+                              )
+                              .map((lang) {
+                                return DropdownMenuItem<PrayerLanguage>(
+                                  value: lang,
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        lang.flag,
+                                        style: const TextStyle(fontSize: 16),
+                                      ),
+                                      const SizedBox(width: 6),
+                                      Text(
+                                        lang.nativeName,
+                                        style: theme.textTheme.bodyMedium
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.w500,
+                                              color:
+                                                  theme.colorScheme.onSurface,
+                                            ),
+                                      ),
+                                    ],
                                   ),
-                                  const SizedBox(width: 6),
-                                  Text(
-                                    lang.nativeName,
-                                    style: theme.textTheme.bodyMedium?.copyWith(
-                                      fontWeight: FontWeight.w500,
-                                      color: theme.colorScheme.onSurface,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          }).toList(),
+                                );
+                              })
+                              .toList(),
                         ),
                       ),
                     ),
