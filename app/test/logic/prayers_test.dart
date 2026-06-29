@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:twelve_stars/prayers.dart';
+import 'package:twelve_stars/logic/prayers.dart';
 
 void main() {
   group('Prayers Data', () {
