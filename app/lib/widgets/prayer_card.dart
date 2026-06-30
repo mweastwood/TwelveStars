@@ -359,7 +359,7 @@ class _PrayerCardState extends State<PrayerCard> {
                         ],
                       ),
                 const SizedBox(height: 12),
-                // Second Row: Controls (Compare Toggle, Language Selectors)
+                // Second Row: Controls (Compare Toggle, Language Selector in Single Mode)
                 Row(
                   children: [
                     // Compare Toggle
@@ -384,39 +384,14 @@ class _PrayerCardState extends State<PrayerCard> {
                         });
                       },
                     ),
-                    const SizedBox(width: 8),
-                    // Language Dropdown(s)
-                    Expanded(
-                      child: Wrap(
-                        spacing: 8,
-                        runSpacing: 8,
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        children: [
-                          _buildLanguageDropdown(
-                            resolvedLanguage,
-                            widget.onLanguageChanged,
-                            theme,
-                          ),
-                          if (_isDualMode) ...[
-                            const Icon(
-                              Icons.arrow_forward_ios,
-                              size: 12,
-                              color: Colors.grey,
-                            ),
-                            _buildLanguageDropdown(resolvedCompareLanguage, (
-                              lang,
-                            ) {
-                              if (lang != null) {
-                                setState(() {
-                                  _compareLanguage = lang;
-                                  _selectedPhraseId = null;
-                                });
-                              }
-                            }, theme),
-                          ],
-                        ],
+                    if (!_isDualMode) ...[
+                      const SizedBox(width: 8),
+                      _buildLanguageDropdown(
+                        resolvedLanguage,
+                        widget.onLanguageChanged,
+                        theme,
                       ),
-                    ),
+                    ],
                   ],
                 ),
                 const SizedBox(height: 12),
@@ -440,6 +415,14 @@ class _PrayerCardState extends State<PrayerCard> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
+                              Center(
+                                child: _buildLanguageDropdown(
+                                  resolvedLanguage,
+                                  widget.onLanguageChanged,
+                                  theme,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
                               Center(
                                 child: Text(
                                   translation.title,
@@ -483,6 +466,21 @@ class _PrayerCardState extends State<PrayerCard> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
+                              Center(
+                                child: _buildLanguageDropdown(
+                                  resolvedCompareLanguage,
+                                  (lang) {
+                                    if (lang != null) {
+                                      setState(() {
+                                        _compareLanguage = lang;
+                                        _selectedPhraseId = null;
+                                      });
+                                    }
+                                  },
+                                  theme,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
                               Center(
                                 child: Text(
                                   compareTranslation.title,
