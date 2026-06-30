@@ -17,16 +17,17 @@ void main() {
       prayersJson = jsonDecode(jsonFile.readAsStringSync()) as List<dynamic>;
     });
 
-    test('contains exactly three starter prayers', () {
-      expect(prayersJson.length, 3);
+    test('contains correct prayers', () {
+      expect(prayersJson.length, 4);
       final ids = prayersJson.map((p) => p['id'] as String).toList();
       expect(ids, contains('our_father'));
       expect(ids, contains('hail_mary'));
       expect(ids, contains('glory_be'));
+      expect(ids, contains('act_of_contrition'));
     });
 
-    test('each prayer has translations for all target languages', () {
-      final expectedLanguages = [
+    test('each prayer has required translations', () {
+      final expectedLanguagesForStarter = [
         'english',
         'spanish',
         'french',
@@ -36,18 +37,24 @@ void main() {
         'tagalog',
         'traditionalChinese',
       ];
+      final expectedLanguagesForOthers = ['english', 'spanish', 'latin'];
 
       for (final p in prayersJson) {
         final pMap = p as Map<String, dynamic>;
         final prayerId = pMap['id'] as String;
+        final category = pMap['category'] as String? ?? 'starter';
         final transMap = pMap['translations'] as Map<String, dynamic>;
         final languages = transMap.keys.toList();
 
-        for (final expected in expectedLanguages) {
+        final expected = category == 'starter'
+            ? expectedLanguagesForStarter
+            : expectedLanguagesForOthers;
+
+        for (final lang in expected) {
           expect(
-            languages.contains(expected),
+            languages.contains(lang),
             isTrue,
-            reason: 'Prayer $prayerId is missing translation for $expected',
+            reason: 'Prayer $prayerId is missing translation for $lang',
           );
         }
       }

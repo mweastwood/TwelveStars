@@ -1,0 +1,10 @@
+---
+category: "devotional"
+default_order: 4
+default_title: "Act of Contrition"
+title: "Acto de Contrición"
+subtitle: "Versión tradicional"
+source_name: "Compendio del Catecismo de la Iglesia Católica"
+source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html"
+---
+Pésame Dios mío y me arrepiento de todo corazón de haberos ofendido. Pésame por el infierno que merecí y por el cielo que perdí; pero mucho más me pesa porque pecando ofendí a un Dios tan bueno y tan grande como Vos. Antes querría haber muerto que haberos ofendido, y propongo firmemente ayudado por vuestra divina gracia, no pecar más y evitar las ocasiones próximas de pecado. Amén.
