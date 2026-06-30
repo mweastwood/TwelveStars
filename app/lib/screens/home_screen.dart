@@ -147,6 +147,31 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         dropdownColor: theme.colorScheme.surfaceContainer,
         borderRadius: BorderRadius.circular(12),
+        selectedItemBuilder: (BuildContext context) {
+          return PrayerLanguage.values.map((lang) {
+            return Align(
+              alignment: Alignment.centerLeft,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    lang.flag,
+                    style: const TextStyle(fontSize: 16, height: 1.0),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    lang.nativeName,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w500,
+                      height: 1.0,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }).toList();
+        },
         items: PrayerLanguage.values.map((lang) {
           return DropdownMenuItem<PrayerLanguage>(
             value: lang,
@@ -156,8 +181,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 vertical: 2.0,
               ),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(lang.flag),
+                  Text(lang.flag, style: const TextStyle(fontSize: 16)),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Text(
