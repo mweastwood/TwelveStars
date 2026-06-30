@@ -6,6 +6,9 @@ title: "Kinh Kính Mừng"
 subtitle: "Kinh Kính Mừng"
 source_name: "Wikipedia"
 source_url: "https://vi.wikipedia.org/wiki/Kinh_K%C3%ADnh_M%E1%BB%ABng"
+history_author: "Angel Gabriel & St. Elizabeth"
+history_origin: "Gospel of Luke 1:28, 42"
+history_description: "Combines the Angelic Salutation, Elizabeth’s greeting, and an ecclesial petition finalized in the 16th century."
 ---
 Kính mừng Maria đầy ơn phúc,
 Đức Chúa Trời ở cùng Bà,

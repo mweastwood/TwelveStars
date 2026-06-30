@@ -2,93 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 
-class _PrayerHistory {
-  final String author;
-  final String origin;
-  final String description;
-
-  const _PrayerHistory({
-    required this.author,
-    required this.origin,
-    required this.description,
-  });
-}
-
-const Map<String, _PrayerHistory> _prayerHistories = {
-  'our_father': _PrayerHistory(
-    author: 'Jesus Christ',
-    origin: 'Gospel of Matthew 6:9–13',
-    description:
-        'Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer.',
-  ),
-  'hail_mary': _PrayerHistory(
-    author: 'Angel Gabriel & St. Elizabeth',
-    origin: 'Gospel of Luke 1:28, 42',
-    description:
-        'Combines the Angelic Salutation, Elizabeth’s greeting, and an ecclesial petition finalized in the 16th century.',
-  ),
-  'glory_be': _PrayerHistory(
-    author: 'Early Church Fathers',
-    origin: 'Traditional Christian Doxology',
-    description:
-        'A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, tracing back to the early Councils.',
-  ),
-  'act_of_contrition': _PrayerHistory(
-    author: 'Traditional',
-    origin: 'Catholic Devotional Tradition',
-    description:
-        'An expression of sorrow for sin and a resolution to amend one\'s life, widely used in the Sacrament of Reconciliation.',
-  ),
-  'nicene_creed': _PrayerHistory(
-    author: 'First Council of Nicaea & Constantinople',
-    origin: 'Councils of Nicaea (325 AD) & Constantinople (381 AD)',
-    description:
-        'The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity.',
-  ),
-  'apostles_creed': _PrayerHistory(
-    author: 'Apostles of Christ (Traditional)',
-    origin: 'Early Roman Church (c. 2nd–5th century)',
-    description:
-        'A summary of Christian faith used in baptism and the Rosary, reflecting early apostolic teachings.',
-  ),
-  'fatima_prayer': _PrayerHistory(
-    author: 'Our Lady of Fatima',
-    origin: 'Apparition at Fatima (1917)',
-    description:
-        'Taught by the Virgin Mary to the three shepherd children in Fatima, Portugal, to be said after each decade of the Rosary.',
-  ),
-  'hail_holy_queen': _PrayerHistory(
-    author: 'Hermann of Reichenau (attributed)',
-    origin: 'Marian Antiphon (c. 11th century)',
-    description:
-        'One of the four Marian antiphons, traditionally recited at the end of the Rosary as a plea for protection and mercy.',
-  ),
-  'final_prayer_rosary': _PrayerHistory(
-    author: 'Traditional Liturgical Prayer',
-    origin: 'Collect from the Feast of the Holy Rosary',
-    description:
-        'A concluding petition asking God that we may imitate the mysteries of the Rosary and obtain the eternal life they promise.',
-  ),
-  'anima_christi': _PrayerHistory(
-    author: 'Pope John XXII (attributed)',
-    origin: 'Medieval Christian Devotion (c. 14th century)',
-    description:
-        'A prayer of intimate union with Jesus Christ, focusing on His body, blood, passion, and wounds, often recited after Communion.',
-  ),
-  'st_michael': _PrayerHistory(
-    author: 'Pope Leo XIII',
-    origin: 'Leonine Prayers (1886)',
-    description:
-        'Recited after Low Mass to invoke the archangel\'s defense against evil and the spiritual ruin of souls.',
-  ),
-  'now_i_lay_me': _PrayerHistory(
-    author: 'Traditional',
-    origin: 'Classic Bedtime Prayer (c. 18th century)',
-    description:
-        'A popular children\'s bedtime prayer asking for divine protection throughout the night.',
-  ),
-};
-
 class PrayerCard extends StatefulWidget {
   final Prayer prayer;
   final PrayerLanguage selectedLanguage;
@@ -111,6 +24,37 @@ class _PrayerCardState extends State<PrayerCard> {
   int _currentVersionIndex = 0;
   bool _isDualMode = false;
   String? _selectedPhraseId;
+
+  PrayerTranslation? get _activeTranslationWithHistory {
+    // 1. Try selected translation
+    final selectedTranslations =
+        widget.prayer.translations[widget.selectedLanguage];
+    if (selectedTranslations != null &&
+        _currentVersionIndex < selectedTranslations.length) {
+      final selectedTrans = selectedTranslations[_currentVersionIndex];
+      if (selectedTrans.historyDescription.isNotEmpty) return selectedTrans;
+    }
+
+    // 2. Try compare translation
+    if (_isDualMode) {
+      final compareTranslations =
+          widget.prayer.translations[widget.compareLanguage];
+      if (compareTranslations != null && compareTranslations.isNotEmpty) {
+        final compareTrans = compareTranslations[0];
+        if (compareTrans.historyDescription.isNotEmpty) return compareTrans;
+      }
+    }
+
+    // 3. Fall back to English translation
+    final englishTranslations =
+        widget.prayer.translations[PrayerLanguage.english];
+    if (englishTranslations != null && englishTranslations.isNotEmpty) {
+      final englishTrans = englishTranslations[0];
+      if (englishTrans.historyDescription.isNotEmpty) return englishTrans;
+    }
+
+    return null;
+  }
 
   @override
   void didUpdateWidget(covariant PrayerCard oldWidget) {
@@ -307,7 +251,7 @@ class _PrayerCardState extends State<PrayerCard> {
     final compareTranslation =
         compareTranslations[0]; // compare default first version
 
-    final history = _prayerHistories[widget.prayer.prayerId];
+    final historyTrans = _activeTranslationWithHistory;
 
     return GestureDetector(
       onHorizontalDragEnd: (details) {
@@ -559,9 +503,13 @@ class _PrayerCardState extends State<PrayerCard> {
                     ],
 
                     // 4. Historical Context Row: Rendered below Source
-                    if (history != null) ...[
+                    if (historyTrans != null) ...[
                       const SizedBox(height: 12),
-                      _buildHistoryPanel(history, theme),
+                      _buildHistoryPanel(
+                        historyTrans.historyOrigin,
+                        historyTrans.historyDescription,
+                        theme,
+                      ),
                     ],
 
                     // 5. Version indicator dots
@@ -661,7 +609,11 @@ class _PrayerCardState extends State<PrayerCard> {
     );
   }
 
-  Widget _buildHistoryPanel(_PrayerHistory history, ThemeData theme) {
+  Widget _buildHistoryPanel(
+    String origin,
+    String description,
+    ThemeData theme,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
@@ -684,7 +636,7 @@ class _PrayerCardState extends State<PrayerCard> {
         ),
         const SizedBox(height: 6),
         Text(
-          'Origin: ${history.origin}',
+          'Origin: $origin',
           style: theme.textTheme.bodySmall?.copyWith(
             fontWeight: FontWeight.bold,
             fontSize: 12,
@@ -693,7 +645,7 @@ class _PrayerCardState extends State<PrayerCard> {
         ),
         const SizedBox(height: 2),
         Text(
-          history.description,
+          description,
           style: theme.textTheme.bodySmall?.copyWith(
             fontSize: 11,
             color: theme.colorScheme.onSurfaceVariant,

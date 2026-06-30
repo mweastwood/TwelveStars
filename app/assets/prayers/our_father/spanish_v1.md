@@ -6,6 +6,9 @@ title: "Padre Nuestro"
 subtitle: "El Padre Nuestro"
 source_name: "Catecismo de la Iglesia Católica (Vatican)"
 source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html"
+history_author: "Jesus Christ"
+history_origin: "Gospel of Matthew 6:9–13"
+history_description: "Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer."
 ---
 {Padre nuestro|our_father_1}, {que estás en el cielo|our_father_2},
 {santificado sea tu Nombre|our_father_3};

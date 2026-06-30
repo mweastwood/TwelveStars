@@ -108,6 +108,10 @@ class PrayerDatabase {
           final text = tMap['text'] as String;
           final sourceName = tMap['source_name'] as String? ?? '';
           final sourceUrl = tMap['source_url'] as String? ?? '';
+          final historyAuthor = tMap['history_author'] as String? ?? '';
+          final historyOrigin = tMap['history_origin'] as String? ?? '';
+          final historyDescription =
+              tMap['history_description'] as String? ?? '';
 
           final chineseLinesList = tMap['chinese_lines'];
           List<ChineseLine>? chineseLines;
@@ -147,6 +151,9 @@ class PrayerDatabase {
               text: text,
               sourceName: sourceName,
               sourceUrl: sourceUrl,
+              historyAuthor: historyAuthor,
+              historyOrigin: historyOrigin,
+              historyDescription: historyDescription,
               chineseLines: chineseLines,
               tokens: tokens,
             ),

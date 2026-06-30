@@ -6,6 +6,9 @@ title: "Ama Namin"
 subtitle: "Panalangin ng Panginoon (Moderno)"
 source_name: "Wikipedia"
 source_url: "https://tl.wikipedia.org/wiki/Ama_Namin"
+history_author: "Jesus Christ"
+history_origin: "Gospel of Matthew 6:9–13"
+history_description: "Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer."
 ---
 Ama namin, sumasalangit Ka.
 Sambahin ang ngalan Mo.

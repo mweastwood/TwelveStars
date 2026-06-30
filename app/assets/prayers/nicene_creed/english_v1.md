@@ -6,6 +6,9 @@ title: "Nicene Creed"
 subtitle: "Symbol of Faith"
 source_name: "Compendium of the Catechism of the Catholic Church"
 source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html"
+history_author: "First Council of Nicaea & Constantinople"
+history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
+history_description: "The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity."
 ---
 I believe in one God, the Father almighty, maker of heaven and earth, of all things visible and invisible.
 

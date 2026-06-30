@@ -91,6 +91,9 @@ void main() {
     final subtitle = yaml['subtitle'] as String?;
     final sourceName = yaml['source_name'] as String;
     final sourceUrl = yaml['source_url'] as String;
+    final historyAuthor = yaml['history_author'] as String? ?? '';
+    final historyOrigin = yaml['history_origin'] as String? ?? '';
+    final historyDescription = yaml['history_description'] as String? ?? '';
 
     List<List<Map<String, dynamic>>>? chineseLines;
     if (language == 'traditionalChinese') {
@@ -152,6 +155,9 @@ void main() {
       'text': bodyText,
       'source_name': sourceName,
       'source_url': sourceUrl,
+      'history_author': historyAuthor,
+      'history_origin': historyOrigin,
+      'history_description': historyDescription,
       'chinese_lines': chineseLines,
       'tokens': tokens,
     });
@@ -174,6 +180,9 @@ void main() {
           'text': t['text'],
           'source_name': t['source_name'],
           'source_url': t['source_url'],
+          'history_author': t['history_author'],
+          'history_origin': t['history_origin'],
+          'history_description': t['history_description'],
           'chinese_lines': t['chinese_lines'],
           'tokens': t['tokens'],
         });
