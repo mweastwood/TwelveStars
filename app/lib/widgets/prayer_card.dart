@@ -359,41 +359,87 @@ class _PrayerCardState extends State<PrayerCard> {
                         ],
                       ),
                 const SizedBox(height: 12),
-                // Second Row: Controls (Compare Toggle, Language Selector in Single Mode)
-                Row(
-                  children: [
-                    // Compare Toggle
-                    IconButton(
-                      icon: RotatedBox(
-                        quarterTurns: 1,
-                        child: Icon(
-                          _isDualMode
-                              ? Icons.splitscreen
-                              : Icons.splitscreen_outlined,
-                          color: _isDualMode
-                              ? theme.colorScheme.primary
-                              : theme.colorScheme.onSurfaceVariant,
-                          size: 20,
+                // Second Row: Controls (Compare Toggle, Language Selectors)
+                if (_isDualMode)
+                  Row(
+                    children: [
+                      // Left column selector
+                      Expanded(
+                        child: Center(
+                          child: _buildLanguageDropdown(
+                            resolvedLanguage,
+                            widget.onLanguageChanged,
+                            theme,
+                          ),
                         ),
                       ),
-                      tooltip: 'Compare Translations',
-                      onPressed: () {
-                        setState(() {
-                          _isDualMode = !_isDualMode;
-                          _selectedPhraseId = null; // Reset highlights
-                        });
-                      },
-                    ),
-                    if (!_isDualMode) ...[
+                      // Compare Toggle centered
+                      IconButton(
+                        icon: RotatedBox(
+                          quarterTurns: 1,
+                          child: Icon(
+                            Icons.splitscreen,
+                            color: theme.colorScheme.primary,
+                            size: 20,
+                          ),
+                        ),
+                        tooltip: 'Compare Translations',
+                        onPressed: () {
+                          setState(() {
+                            _isDualMode = false;
+                            _selectedPhraseId = null; // Reset highlights
+                          });
+                        },
+                      ),
+                      // Right column selector
+                      Expanded(
+                        child: Center(
+                          child: _buildLanguageDropdown(
+                            resolvedCompareLanguage,
+                            (lang) {
+                              if (lang != null) {
+                                setState(() {
+                                  _compareLanguage = lang;
+                                  _selectedPhraseId = null;
+                                });
+                              }
+                            },
+                            theme,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                else
+                  Row(
+                    children: [
+                      // Compare Toggle
+                      IconButton(
+                        icon: RotatedBox(
+                          quarterTurns: 1,
+                          child: Icon(
+                            Icons.splitscreen_outlined,
+                            color: theme.colorScheme.onSurfaceVariant,
+                            size: 20,
+                          ),
+                        ),
+                        tooltip: 'Compare Translations',
+                        onPressed: () {
+                          setState(() {
+                            _isDualMode = true;
+                            _selectedPhraseId = null; // Reset highlights
+                          });
+                        },
+                      ),
                       const SizedBox(width: 8),
+                      // Language selector
                       _buildLanguageDropdown(
                         resolvedLanguage,
                         widget.onLanguageChanged,
                         theme,
                       ),
                     ],
-                  ],
-                ),
+                  ),
                 const SizedBox(height: 12),
                 // Divider
                 Divider(
@@ -415,14 +461,6 @@ class _PrayerCardState extends State<PrayerCard> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Center(
-                                child: _buildLanguageDropdown(
-                                  resolvedLanguage,
-                                  widget.onLanguageChanged,
-                                  theme,
-                                ),
-                              ),
-                              const SizedBox(height: 8),
                               Center(
                                 child: Text(
                                   translation.title,
@@ -466,21 +504,6 @@ class _PrayerCardState extends State<PrayerCard> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Center(
-                                child: _buildLanguageDropdown(
-                                  resolvedCompareLanguage,
-                                  (lang) {
-                                    if (lang != null) {
-                                      setState(() {
-                                        _compareLanguage = lang;
-                                        _selectedPhraseId = null;
-                                      });
-                                    }
-                                  },
-                                  theme,
-                                ),
-                              ),
-                              const SizedBox(height: 8),
                               Center(
                                 child: Text(
                                   compareTranslation.title,
