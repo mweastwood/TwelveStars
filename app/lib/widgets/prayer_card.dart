@@ -542,8 +542,15 @@ class _PrayerCardState extends State<PrayerCard> {
                   const SizedBox(height: 12),
 
                   // Controls Row: Split Toggle + dropdown selector
+                  // Controls Row: dropdown selector + Spacer + Split Toggle on the far right
                   Row(
                     children: [
+                      _buildLanguageDropdown(
+                        resolvedLanguage,
+                        widget.onLanguageChanged,
+                        theme,
+                      ),
+                      const Spacer(),
                       IconButton(
                         icon: RotatedBox(
                           quarterTurns: 1,
@@ -560,12 +567,6 @@ class _PrayerCardState extends State<PrayerCard> {
                             _selectedPhraseId = null;
                           });
                         },
-                      ),
-                      const SizedBox(width: 8),
-                      _buildLanguageDropdown(
-                        resolvedLanguage,
-                        widget.onLanguageChanged,
-                        theme,
                       ),
                     ],
                   ),
