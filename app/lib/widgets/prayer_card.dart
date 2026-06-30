@@ -604,63 +604,45 @@ class _PrayerCardState extends State<PrayerCard> {
   }
 
   Widget _buildHistoryPanel(_PrayerHistory history, ThemeData theme) {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.primaryContainer.withValues(alpha: 0.15),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: theme.colorScheme.primaryContainer.withValues(alpha: 0.3),
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            children: [
-              Icon(
-                Icons.history_edu,
-                size: 14,
-                color: theme.colorScheme.primary,
-              ),
-              const SizedBox(width: 6),
-              Expanded(
-                child: Text(
-                  'HISTORICAL CONTEXT',
-                  style: theme.textTheme.labelSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: theme.colorScheme.primary,
-                    letterSpacing: 0.5,
-                  ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Row(
+          children: [
+            Icon(Icons.history_edu, size: 14, color: theme.colorScheme.primary),
+            const SizedBox(width: 6),
+            Expanded(
+              child: Text(
+                'HISTORICAL CONTEXT',
+                style: theme.textTheme.labelSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.primary,
+                  letterSpacing: 0.5,
                 ),
               ),
-            ],
-          ),
-          const SizedBox(height: 6),
-          Text(
-            'Origin: ${history.origin}',
-            style: theme.textTheme.bodySmall?.copyWith(
-              fontWeight: FontWeight.bold,
-              fontSize: 11,
-              color: theme.colorScheme.onSurface,
             ),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
+          ],
+        ),
+        const SizedBox(height: 6),
+        Text(
+          'Origin: ${history.origin}',
+          style: theme.textTheme.bodySmall?.copyWith(
+            fontWeight: FontWeight.bold,
+            fontSize: 12,
+            color: theme.colorScheme.onSurface,
           ),
-          const SizedBox(height: 2),
-          Text(
-            history.description,
-            style: theme.textTheme.bodySmall?.copyWith(
-              fontSize: 10,
-              color: theme.colorScheme.onSurfaceVariant,
-              height: 1.2,
-            ),
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
+        ),
+        const SizedBox(height: 2),
+        Text(
+          history.description,
+          style: theme.textTheme.bodySmall?.copyWith(
+            fontSize: 11,
+            color: theme.colorScheme.onSurfaceVariant,
+            height: 1.3,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

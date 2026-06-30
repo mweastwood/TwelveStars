@@ -150,20 +150,26 @@ class _HomeScreenState extends State<HomeScreen> {
         items: PrayerLanguage.values.map((lang) {
           return DropdownMenuItem<PrayerLanguage>(
             value: lang,
-            child: Row(
-              children: [
-                Text(lang.flag),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Text(
-                    lang.nativeName,
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      fontWeight: FontWeight.w500,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 4.0,
+                vertical: 2.0,
+              ),
+              child: Row(
+                children: [
+                  Text(lang.flag),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      lang.nativeName,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    overflow: TextOverflow.ellipsis,
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         }).toList(),
