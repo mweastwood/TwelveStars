@@ -18,7 +18,7 @@ void main() {
     });
 
     test('contains correct prayers', () {
-      expect(prayersJson.length, 10);
+      expect(prayersJson.length, 11);
       final ids = prayersJson.map((p) => p['id'] as String).toList();
       expect(ids, contains('our_father'));
       expect(ids, contains('hail_mary'));
@@ -30,6 +30,7 @@ void main() {
       expect(ids, contains('hail_holy_queen'));
       expect(ids, contains('anima_christi'));
       expect(ids, contains('st_michael'));
+      expect(ids, contains('final_prayer_rosary'));
     });
 
     test('each prayer has required translations', () {
