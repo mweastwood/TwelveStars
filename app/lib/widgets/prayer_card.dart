@@ -299,61 +299,59 @@ class _PrayerCardState extends State<PrayerCard> {
               ],
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // 1. Header Row: Titles/Subtitles + Split Button in the top right
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Expanded(
-                      child: _isDualMode
-                          ? Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // Left Column Title/Subtitle
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
+                    // 1. Header Row: Titles/Subtitles spanning full width
+                    _isDualMode
+                        ? Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              // Left Column Title/Subtitle
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      translation.title,
+                                      style: theme.textTheme.titleLarge
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                            color: theme.colorScheme.onSurface,
+                                          ),
+                                    ),
+                                    if (translation.subtitle.isNotEmpty) ...[
+                                      const SizedBox(height: 2),
                                       Text(
-                                        translation.title,
-                                        style: theme.textTheme.titleLarge
+                                        translation.subtitle,
+                                        style: theme.textTheme.bodySmall
                                             ?.copyWith(
-                                              fontWeight: FontWeight.bold,
-                                              color:
-                                                  theme.colorScheme.onSurface,
+                                              color: theme
+                                                  .colorScheme
+                                                  .onSurfaceVariant,
+                                              fontStyle: FontStyle.italic,
                                             ),
                                       ),
-                                      if (translation.subtitle.isNotEmpty) ...[
-                                        const SizedBox(height: 2),
-                                        Text(
-                                          translation.subtitle,
-                                          style: theme.textTheme.bodySmall
-                                              ?.copyWith(
-                                                color: theme
-                                                    .colorScheme
-                                                    .onSurfaceVariant,
-                                                fontStyle: FontStyle.italic,
-                                              ),
-                                        ),
-                                      ],
                                     ],
-                                  ),
+                                  ],
                                 ),
-                                const SizedBox(width: 16),
-                                Container(
-                                  width: 1,
-                                  height: 40,
-                                  color: theme.colorScheme.outlineVariant
-                                      .withValues(alpha: 0.3),
-                                ),
-                                const SizedBox(width: 16),
-                                // Right Column Title/Subtitle
-                                Expanded(
+                              ),
+                              const SizedBox(width: 12),
+                              Container(
+                                width: 1,
+                                height: 32,
+                                color: theme.colorScheme.outlineVariant
+                                    .withValues(alpha: 0.3),
+                              ),
+                              const SizedBox(width: 12),
+                              // Right Column Title/Subtitle with padding to avoid overlaying split button
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 36),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -385,9 +383,12 @@ class _PrayerCardState extends State<PrayerCard> {
                                     ],
                                   ),
                                 ),
-                              ],
-                            )
-                          : Column(
+                              ),
+                            ],
+                          )
+                        : Padding(
+                            padding: const EdgeInsets.only(right: 36),
+                            child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
@@ -409,148 +410,155 @@ class _PrayerCardState extends State<PrayerCard> {
                                 ],
                               ],
                             ),
-                    ),
-                    const SizedBox(width: 8),
-                    IconButton(
-                      icon: RotatedBox(
-                        quarterTurns: 1,
-                        child: Icon(
-                          _isDualMode
-                              ? Icons.splitscreen
-                              : Icons.splitscreen_outlined,
-                          color: _isDualMode
-                              ? theme.colorScheme.primary
-                              : theme.colorScheme.onSurfaceVariant,
-                          size: 20,
-                        ),
+                          ),
+                    const SizedBox(height: 12),
+
+                    // Divider
+                    Divider(
+                      color: theme.colorScheme.outlineVariant.withValues(
+                        alpha: 0.3,
                       ),
-                      tooltip: 'Compare Translations',
-                      onPressed: () {
-                        setState(() {
-                          _isDualMode = !_isDualMode;
-                          _selectedPhraseId = null;
-                        });
-                      },
+                      height: 1,
                     ),
+                    const SizedBox(height: 16),
+
+                    // 2. Content Row: Prayer 1 | Prayer 2 (conditional)
+                    if (_isDualMode)
+                      IntrinsicHeight(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: _buildPrayerText(
+                                translation,
+                                resolvedLanguage,
+                                theme,
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Container(
+                              width: 1,
+                              color: theme.colorScheme.outlineVariant
+                                  .withValues(alpha: 0.3),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: _buildPrayerText(
+                                compareTranslation,
+                                resolvedCompareLanguage,
+                                theme,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    else
+                      _buildPrayerText(translation, resolvedLanguage, theme),
+                    const SizedBox(height: 20),
+
+                    // Divider for Footer
+                    Divider(
+                      color: theme.colorScheme.outlineVariant.withValues(
+                        alpha: 0.3,
+                      ),
+                      height: 1,
+                    ),
+                    const SizedBox(height: 12),
+
+                    // 3. Source Row: Source Buttons
+                    if (_isDualMode)
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Center(
+                              child: _buildSourceButton(translation, theme),
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          const SizedBox(
+                            width: 1,
+                          ), // spacer matching vertical divider
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Center(
+                              child: _buildSourceButton(
+                                compareTranslation,
+                                theme,
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    else ...[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Flexible(
+                            child: _buildSourceButton(translation, theme),
+                          ),
+                        ],
+                      ),
+                    ],
+
+                    // 4. Historical Context Row: Rendered below Source
+                    if (history != null) ...[
+                      const SizedBox(height: 12),
+                      _buildHistoryPanel(history, theme),
+                    ],
+
+                    // 5. Version indicator dots
+                    if (translations.length > 1 && !_isDualMode) ...[
+                      const SizedBox(height: 16),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List.generate(translations.length, (index) {
+                          final isSelected = index == versionIndex;
+                          return AnimatedContainer(
+                            duration: const Duration(milliseconds: 200),
+                            margin: const EdgeInsets.symmetric(horizontal: 4),
+                            width: isSelected ? 12 : 8,
+                            height: 8,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4),
+                              color: isSelected
+                                  ? theme.colorScheme.primary
+                                  : theme.colorScheme.outlineVariant.withValues(
+                                      alpha: 0.8,
+                                    ),
+                            ),
+                          );
+                        }),
+                      ),
+                    ],
                   ],
                 ),
-                const SizedBox(height: 12),
-
-                // Divider
-                Divider(
-                  color: theme.colorScheme.outlineVariant.withValues(
-                    alpha: 0.3,
-                  ),
-                  height: 1,
-                ),
-                const SizedBox(height: 16),
-
-                // 2. Content Row: Prayer 1 | Prayer 2 (conditional)
-                if (_isDualMode)
-                  IntrinsicHeight(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: _buildPrayerText(
-                            translation,
-                            resolvedLanguage,
-                            theme,
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        Container(
-                          width: 1,
-                          color: theme.colorScheme.outlineVariant.withValues(
-                            alpha: 0.3,
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: _buildPrayerText(
-                            compareTranslation,
-                            resolvedCompareLanguage,
-                            theme,
-                          ),
-                        ),
-                      ],
+              ),
+              Positioned(
+                top: 8,
+                right: 8,
+                child: IconButton(
+                  icon: RotatedBox(
+                    quarterTurns: 1,
+                    child: Icon(
+                      _isDualMode
+                          ? Icons.splitscreen
+                          : Icons.splitscreen_outlined,
+                      color: _isDualMode
+                          ? theme.colorScheme.primary
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 20,
                     ),
-                  )
-                else
-                  _buildPrayerText(translation, resolvedLanguage, theme),
-                const SizedBox(height: 20),
-
-                // Divider for Footer
-                Divider(
-                  color: theme.colorScheme.outlineVariant.withValues(
-                    alpha: 0.3,
                   ),
-                  height: 1,
+                  tooltip: 'Compare Translations',
+                  onPressed: () {
+                    setState(() {
+                      _isDualMode = !_isDualMode;
+                      _selectedPhraseId = null;
+                    });
+                  },
                 ),
-                const SizedBox(height: 12),
-
-                // 3. Source Row: Source Buttons
-                if (_isDualMode)
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Center(
-                          child: _buildSourceButton(translation, theme),
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      const SizedBox(
-                        width: 1,
-                      ), // spacer matching vertical divider
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Center(
-                          child: _buildSourceButton(compareTranslation, theme),
-                        ),
-                      ),
-                    ],
-                  )
-                else ...[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Flexible(child: _buildSourceButton(translation, theme)),
-                    ],
-                  ),
-                ],
-
-                // 4. Historical Context Row: Rendered below Source
-                if (history != null) ...[
-                  const SizedBox(height: 12),
-                  _buildHistoryPanel(history, theme),
-                ],
-
-                // 5. Version indicator dots
-                if (translations.length > 1 && !_isDualMode) ...[
-                  const SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(translations.length, (index) {
-                      final isSelected = index == versionIndex;
-                      return AnimatedContainer(
-                        duration: const Duration(milliseconds: 200),
-                        margin: const EdgeInsets.symmetric(horizontal: 4),
-                        width: isSelected ? 12 : 8,
-                        height: 8,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                          color: isSelected
-                              ? theme.colorScheme.primary
-                              : theme.colorScheme.outlineVariant.withValues(
-                                  alpha: 0.8,
-                                ),
-                        ),
-                      );
-                    }),
-                  ),
-                ],
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
