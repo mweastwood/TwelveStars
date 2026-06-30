@@ -178,7 +178,7 @@ void main() {
               child: PrayerCard(
                 prayer: testPrayer,
                 selectedLanguage: PrayerLanguage.english,
-                onLanguageChanged: (_) {},
+                compareLanguage: PrayerLanguage.spanish,
                 onLaunchSource: (_) {},
               ),
             ),
@@ -193,75 +193,6 @@ void main() {
         find.textContaining('Compendium of the Catechism'),
         findsOneWidget,
       );
-    });
-
-    testWidgets('triggers onLanguageChanged callback', (tester) async {
-      PrayerLanguage? newLanguage;
-
-      await tester.pumpWidget(
-        buildTestableWidget(
-          child: Scaffold(
-            body: SingleChildScrollView(
-              child: PrayerCard(
-                prayer: testPrayer,
-                selectedLanguage: PrayerLanguage.english,
-                onLanguageChanged: (lang) => newLanguage = lang,
-                onLaunchSource: (_) {},
-              ),
-            ),
-          ),
-        ),
-      );
-
-      final dropdownFinder = find.byType(DropdownButton<PrayerLanguage>);
-      expect(dropdownFinder, findsOneWidget);
-
-      await tester.tap(dropdownFinder);
-      await tester.pumpAndSettle();
-
-      // Tap the Spanish option (nativeName 'Español')
-      final spanishItemFinder = find.text('Español').last;
-      await tester.tap(spanishItemFinder);
-      await tester.pumpAndSettle();
-
-      expect(newLanguage, PrayerLanguage.spanish);
-    });
-
-    testWidgets('dropdown only contains languages that have translations', (
-      tester,
-    ) async {
-      await tester.pumpWidget(
-        buildTestableWidget(
-          child: Scaffold(
-            body: SingleChildScrollView(
-              child: PrayerCard(
-                prayer:
-                    testPrayer, // Has English, Spanish, and Traditional Chinese
-                selectedLanguage: PrayerLanguage.english,
-                onLanguageChanged: (_) {},
-                onLaunchSource: (_) {},
-              ),
-            ),
-          ),
-        ),
-      );
-
-      final dropdownFinder = find.byType(DropdownButton<PrayerLanguage>);
-      expect(dropdownFinder, findsOneWidget);
-
-      // Tap to open the dropdown
-      await tester.tap(dropdownFinder);
-      await tester.pumpAndSettle();
-
-      // Verify that available languages are presented
-      expect(find.text('English'), findsWidgets);
-      expect(find.text('Español'), findsWidgets);
-      expect(find.text('繁體中文'), findsWidgets);
-
-      // Verify that unavailable languages are NOT presented
-      expect(find.text('Latina'), findsNothing);
-      expect(find.text('Français'), findsNothing);
-      expect(find.text('Italiano'), findsNothing);
     });
 
     testWidgets(
@@ -290,10 +221,10 @@ void main() {
                 title: 'Padre Nuestro',
                 subtitle: 'El Padre Nuestro',
                 text:
-                    'Padre nuestro, que estás en el cielo, santificado sea tu nombre;',
+                    'Padre nuestro, que estás in el cielo, santificado sea tu nombre;',
                 tokens: [
                   PrayerToken('Padre nuestro, ', null),
-                  PrayerToken('que estás en el cielo', 'heaven'),
+                  PrayerToken('que estás in el cielo', 'heaven'),
                   PrayerToken(', ', null),
                   PrayerToken('santificado sea tu nombre', 'name'),
                   PrayerToken(';', null),
@@ -310,7 +241,7 @@ void main() {
                 child: PrayerCard(
                   prayer: testPrayerWithTokens,
                   selectedLanguage: PrayerLanguage.english,
-                  onLanguageChanged: (_) {},
+                  compareLanguage: PrayerLanguage.spanish,
                   onLaunchSource: (_) {},
                 ),
               ),
@@ -360,7 +291,7 @@ void main() {
           PrayerCard(
             prayer: testPrayer,
             selectedLanguage: PrayerLanguage.english,
-            onLanguageChanged: (_) {},
+            compareLanguage: PrayerLanguage.spanish,
             onLaunchSource: (_) {},
           ),
         )
@@ -369,7 +300,7 @@ void main() {
           PrayerCard(
             prayer: testPrayer,
             selectedLanguage: PrayerLanguage.traditionalChinese,
-            onLanguageChanged: (_) {},
+            compareLanguage: PrayerLanguage.spanish,
             onLaunchSource: (_) {},
           ),
         );

@@ -38,14 +38,14 @@ const Map<String, _PrayerHistory> _prayerHistories = {
 class PrayerCard extends StatefulWidget {
   final Prayer prayer;
   final PrayerLanguage selectedLanguage;
-  final ValueChanged<PrayerLanguage?> onLanguageChanged;
+  final PrayerLanguage compareLanguage;
   final Function(String) onLaunchSource;
 
   const PrayerCard({
     super.key,
     required this.prayer,
     required this.selectedLanguage,
-    required this.onLanguageChanged,
+    required this.compareLanguage,
     required this.onLaunchSource,
   });
 
@@ -56,7 +56,6 @@ class PrayerCard extends StatefulWidget {
 class _PrayerCardState extends State<PrayerCard> {
   int _currentVersionIndex = 0;
   bool _isDualMode = false;
-  PrayerLanguage? _compareLanguage;
   String? _selectedPhraseId;
 
   @override
@@ -67,59 +66,6 @@ class _PrayerCardState extends State<PrayerCard> {
         oldWidget.prayer.prayerId != widget.prayer.prayerId) {
       _currentVersionIndex = 0;
     }
-  }
-
-  Widget _buildLanguageDropdown(
-    PrayerLanguage value,
-    ValueChanged<PrayerLanguage?> onChanged,
-    ThemeData theme,
-  ) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceContainerLow,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: theme.colorScheme.outlineVariant.withValues(alpha: 0.8),
-        ),
-      ),
-      child: DropdownButtonHideUnderline(
-        child: DropdownButton<PrayerLanguage>(
-          value: value,
-          icon: Icon(
-            Icons.arrow_drop_down,
-            color: theme.colorScheme.onSurfaceVariant,
-            size: 20,
-          ),
-          dropdownColor: theme.colorScheme.surfaceContainerHigh,
-          borderRadius: BorderRadius.circular(12),
-          alignment: Alignment.centerRight,
-          onChanged: onChanged,
-          items: PrayerLanguage.values
-              .where((lang) => widget.prayer.translations.containsKey(lang))
-              .map((lang) {
-                return DropdownMenuItem<PrayerLanguage>(
-                  value: lang,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(lang.flag, style: const TextStyle(fontSize: 16)),
-                      const SizedBox(width: 6),
-                      Text(
-                        lang.nativeName,
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          fontWeight: FontWeight.w500,
-                          color: theme.colorScheme.onSurface,
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              })
-              .toList(),
-        ),
-      ),
-    );
   }
 
   Widget _buildPrayerText(
@@ -296,14 +242,10 @@ class _PrayerCardState extends State<PrayerCard> {
     final translation = translations[versionIndex];
 
     // Dual mode compare language resolution
-    final resolvedCompareLanguage =
-        _compareLanguage ??
-        widget.prayer.translations.keys.firstWhere(
-          (lang) => lang != resolvedLanguage,
-          orElse: () => resolvedLanguage,
-        );
+    final resolvedCompareLanguage = widget.compareLanguage;
     final compareTranslations =
-        widget.prayer.translations[resolvedCompareLanguage]!;
+        widget.prayer.translations[resolvedCompareLanguage] ??
+        widget.prayer.translations.values.first;
     final compareTranslation =
         compareTranslations[0]; // compare default first version
 
@@ -362,126 +304,133 @@ class _PrayerCardState extends State<PrayerCard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // Header Row (Left Column, Middle Split Button, Right Column/Historical Context)
+                // 1. Header Row: Titles/Subtitles + Split Button in the top right
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Left Column: Title 1, Subtitle 1, Dropdown 1
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Center(
-                            child: Text(
-                              translation.title,
-                              style: theme.textTheme.titleLarge?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: theme.colorScheme.onSurface,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          const SizedBox(height: 2),
-                          Center(
-                            child: Text(
-                              translation.subtitle,
-                              style: theme.textTheme.bodySmall?.copyWith(
-                                color: theme.colorScheme.onSurfaceVariant,
-                                fontStyle: FontStyle.italic,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          const SizedBox(height: 12),
-                          Center(
-                            child: _buildLanguageDropdown(
-                              resolvedLanguage,
-                              widget.onLanguageChanged,
-                              theme,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    // Middle Column: Split Toggle aligned with dropdowns
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const SizedBox(height: 42), // Alignment offset
-                        IconButton(
-                          icon: RotatedBox(
-                            quarterTurns: 1,
-                            child: Icon(
-                              _isDualMode
-                                  ? Icons.splitscreen
-                                  : Icons.splitscreen_outlined,
-                              color: _isDualMode
-                                  ? theme.colorScheme.primary
-                                  : theme.colorScheme.onSurfaceVariant,
-                              size: 20,
-                            ),
-                          ),
-                          tooltip: 'Compare Translations',
-                          onPressed: () {
-                            setState(() {
-                              _isDualMode = !_isDualMode;
-                              _selectedPhraseId = null;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                    const SizedBox(width: 12),
-                    // Right Column: Title 2, Subtitle 2, Dropdown 2 OR Historical Context
                     Expanded(
                       child: _isDualMode
-                          ? Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              mainAxisSize: MainAxisSize.min,
+                          ? Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Center(
-                                  child: Text(
-                                    compareTranslation.title,
-                                    style: theme.textTheme.titleLarge?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                      color: theme.colorScheme.onSurface,
-                                    ),
-                                    textAlign: TextAlign.center,
+                                // Left Column Title/Subtitle
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        translation.title,
+                                        style: theme.textTheme.titleLarge
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.bold,
+                                              color:
+                                                  theme.colorScheme.onSurface,
+                                            ),
+                                      ),
+                                      if (translation.subtitle.isNotEmpty) ...[
+                                        const SizedBox(height: 2),
+                                        Text(
+                                          translation.subtitle,
+                                          style: theme.textTheme.bodySmall
+                                              ?.copyWith(
+                                                color: theme
+                                                    .colorScheme
+                                                    .onSurfaceVariant,
+                                                fontStyle: FontStyle.italic,
+                                              ),
+                                        ),
+                                      ],
+                                    ],
                                   ),
                                 ),
-                                const SizedBox(height: 2),
-                                Center(
-                                  child: Text(
-                                    compareTranslation.subtitle,
-                                    style: theme.textTheme.bodySmall?.copyWith(
-                                      color: theme.colorScheme.onSurfaceVariant,
-                                      fontStyle: FontStyle.italic,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
+                                const SizedBox(width: 16),
+                                Container(
+                                  width: 1,
+                                  height: 40,
+                                  color: theme.colorScheme.outlineVariant
+                                      .withValues(alpha: 0.3),
                                 ),
-                                const SizedBox(height: 12),
-                                Center(
-                                  child: _buildLanguageDropdown(
-                                    resolvedCompareLanguage,
-                                    (lang) {
-                                      if (lang != null) {
-                                        setState(() {
-                                          _compareLanguage = lang;
-                                          _selectedPhraseId = null;
-                                        });
-                                      }
-                                    },
-                                    theme,
+                                const SizedBox(width: 16),
+                                // Right Column Title/Subtitle
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        compareTranslation.title,
+                                        style: theme.textTheme.titleLarge
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.bold,
+                                              color:
+                                                  theme.colorScheme.onSurface,
+                                            ),
+                                      ),
+                                      if (compareTranslation
+                                          .subtitle
+                                          .isNotEmpty) ...[
+                                        const SizedBox(height: 2),
+                                        Text(
+                                          compareTranslation.subtitle,
+                                          style: theme.textTheme.bodySmall
+                                              ?.copyWith(
+                                                color: theme
+                                                    .colorScheme
+                                                    .onSurfaceVariant,
+                                                fontStyle: FontStyle.italic,
+                                              ),
+                                        ),
+                                      ],
+                                    ],
                                   ),
                                 ),
                               ],
                             )
-                          : (history != null
-                                ? _buildHistoryPanel(history, theme)
-                                : const SizedBox.shrink()),
+                          : Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  translation.title,
+                                  style: theme.textTheme.titleLarge?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: theme.colorScheme.onSurface,
+                                  ),
+                                ),
+                                if (translation.subtitle.isNotEmpty) ...[
+                                  const SizedBox(height: 2),
+                                  Text(
+                                    translation.subtitle,
+                                    style: theme.textTheme.bodySmall?.copyWith(
+                                      color: theme.colorScheme.onSurfaceVariant,
+                                      fontStyle: FontStyle.italic,
+                                    ),
+                                  ),
+                                ],
+                              ],
+                            ),
+                    ),
+                    const SizedBox(width: 8),
+                    IconButton(
+                      icon: RotatedBox(
+                        quarterTurns: 1,
+                        child: Icon(
+                          _isDualMode
+                              ? Icons.splitscreen
+                              : Icons.splitscreen_outlined,
+                          color: _isDualMode
+                              ? theme.colorScheme.primary
+                              : theme.colorScheme.onSurfaceVariant,
+                          size: 20,
+                        ),
+                      ),
+                      tooltip: 'Compare Translations',
+                      onPressed: () {
+                        setState(() {
+                          _isDualMode = !_isDualMode;
+                          _selectedPhraseId = null;
+                        });
+                      },
                     ),
                   ],
                 ),
@@ -496,7 +445,7 @@ class _PrayerCardState extends State<PrayerCard> {
                 ),
                 const SizedBox(height: 16),
 
-                // 4. Content Row: Prayer 1 | Prayer 2 (conditional)
+                // 2. Content Row: Prayer 1 | Prayer 2 (conditional)
                 if (_isDualMode)
                   IntrinsicHeight(
                     child: Row(
@@ -540,7 +489,7 @@ class _PrayerCardState extends State<PrayerCard> {
                 ),
                 const SizedBox(height: 12),
 
-                // 5. Source Row: Source 1 | Source 2 (conditional)
+                // 3. Source Row: Source Buttons
                 if (_isDualMode)
                   Row(
                     children: [
@@ -550,7 +499,9 @@ class _PrayerCardState extends State<PrayerCard> {
                         ),
                       ),
                       const SizedBox(width: 12),
-                      const SizedBox(width: 36),
+                      const SizedBox(
+                        width: 1,
+                      ), // spacer matching vertical divider
                       const SizedBox(width: 12),
                       Expanded(
                         child: Center(
@@ -566,29 +517,37 @@ class _PrayerCardState extends State<PrayerCard> {
                       Flexible(child: _buildSourceButton(translation, theme)),
                     ],
                   ),
-                  if (translations.length > 1) ...[
-                    const SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(translations.length, (index) {
-                        final isSelected = index == versionIndex;
-                        return AnimatedContainer(
-                          duration: const Duration(milliseconds: 200),
-                          margin: const EdgeInsets.symmetric(horizontal: 4),
-                          width: isSelected ? 12 : 8,
-                          height: 8,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4),
-                            color: isSelected
-                                ? theme.colorScheme.primary
-                                : theme.colorScheme.outlineVariant.withValues(
-                                    alpha: 0.8,
-                                  ),
-                          ),
-                        );
-                      }),
-                    ),
-                  ],
+                ],
+
+                // 4. Historical Context Row: Rendered below Source
+                if (history != null) ...[
+                  const SizedBox(height: 12),
+                  _buildHistoryPanel(history, theme),
+                ],
+
+                // 5. Version indicator dots
+                if (translations.length > 1 && !_isDualMode) ...[
+                  const SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(translations.length, (index) {
+                      final isSelected = index == versionIndex;
+                      return AnimatedContainer(
+                        duration: const Duration(milliseconds: 200),
+                        margin: const EdgeInsets.symmetric(horizontal: 4),
+                        width: isSelected ? 12 : 8,
+                        height: 8,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          color: isSelected
+                              ? theme.colorScheme.primary
+                              : theme.colorScheme.outlineVariant.withValues(
+                                  alpha: 0.8,
+                                ),
+                        ),
+                      );
+                    }),
+                  ),
                 ],
               ],
             ),
