@@ -15,7 +15,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentTab = 0;
-  final Map<String, PrayerLanguage> _prayerLanguages = {};
+  PrayerLanguage _primaryLanguage = PrayerLanguage.english;
+  PrayerLanguage _compareLanguage = PrayerLanguage.latin;
   List<Prayer>? _prayers;
   bool _loading = true;
   String? _error;
@@ -45,10 +46,166 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  void _changePrayerLanguage(String prayerId, PrayerLanguage language) {
-    setState(() {
-      _prayerLanguages[prayerId] = language;
-    });
+  Widget _buildGlobalLanguageSelectors(ThemeData theme) {
+    return Card(
+      elevation: 0,
+      color: theme.colorScheme.surfaceContainerLow,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+        child: Row(
+          children: [
+            // Left dropdown (Primary Language)
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Primary Language',
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.primary,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  _buildGlobalDropdown(_primaryLanguage, (lang) {
+                    if (lang != null) {
+                      setState(() {
+                        _primaryLanguage = lang;
+                        if (_compareLanguage == lang) {
+                          // Automatically switch compare language to avoid duplicates
+                          _compareLanguage = PrayerLanguage.values.firstWhere(
+                            (l) => l != lang,
+                          );
+                        }
+                      });
+                    }
+                  }, theme),
+                ],
+              ),
+            ),
+            const SizedBox(width: 12),
+            Icon(
+              Icons.swap_horiz,
+              color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
+              size: 20,
+            ),
+            const SizedBox(width: 12),
+            // Right dropdown (Compare Language)
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Compare Language',
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.secondary,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  _buildGlobalDropdown(_compareLanguage, (lang) {
+                    if (lang != null) {
+                      setState(() {
+                        _compareLanguage = lang;
+                        if (_primaryLanguage == lang) {
+                          _primaryLanguage = PrayerLanguage.values.firstWhere(
+                            (l) => l != lang,
+                          );
+                        }
+                      });
+                    }
+                  }, theme),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildGlobalDropdown(
+    PrayerLanguage value,
+    ValueChanged<PrayerLanguage?> onChanged,
+    ThemeData theme,
+  ) {
+    return DropdownButtonHideUnderline(
+      child: DropdownButton<PrayerLanguage>(
+        value: value,
+        onChanged: onChanged,
+        isDense: true,
+        isExpanded: true,
+        icon: Icon(
+          Icons.arrow_drop_down,
+          color: theme.colorScheme.onSurfaceVariant,
+        ),
+        dropdownColor: theme.colorScheme.surfaceContainer,
+        borderRadius: BorderRadius.circular(12),
+        selectedItemBuilder: (BuildContext context) {
+          return PrayerLanguage.values.map((lang) {
+            return Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 12.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      lang.flag,
+                      style: const TextStyle(fontSize: 16, height: 1.0),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      lang.nativeName,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                        height: 1.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }).toList();
+        },
+        items: PrayerLanguage.values.map((lang) {
+          return DropdownMenuItem<PrayerLanguage>(
+            value: lang,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                left: 12.0,
+                right: 4.0,
+                top: 2.0,
+                bottom: 2.0,
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(lang.flag, style: const TextStyle(fontSize: 16)),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      lang.nativeName,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }).toList(),
+      ),
+    );
   }
 
   Future<void> _launchSourceUrl(String urlString) async {
@@ -160,17 +317,13 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: [
           const PrayersHeader(),
+          _buildGlobalLanguageSelectors(theme),
+          const SizedBox(height: 12),
           ...prayers.map((prayer) {
-            final selectedLang =
-                _prayerLanguages[prayer.prayerId] ?? PrayerLanguage.english;
             return PrayerCard(
               prayer: prayer,
-              selectedLanguage: selectedLang,
-              onLanguageChanged: (lang) {
-                if (lang != null) {
-                  _changePrayerLanguage(prayer.prayerId, lang);
-                }
-              },
+              selectedLanguage: _primaryLanguage,
+              compareLanguage: _compareLanguage,
               onLaunchSource: _launchSourceUrl,
             );
           }),
