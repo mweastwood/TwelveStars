@@ -346,7 +346,7 @@ void main() {
         await tester.pumpAndSettle();
 
         // Verify that side-by-side mode is now enabled (both titles are rendered)
-        expect(find.text('Our Father'), findsNWidgets(2));
+        expect(find.text('Our Father'), findsOneWidget);
         expect(find.text('Padre Nuestro'), findsOneWidget);
       },
     );
