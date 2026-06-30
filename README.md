@@ -15,10 +15,11 @@ A beautifully designed, premium Flutter application to count and shine stars.
 
 To run the application locally, make sure you have the Flutter SDK installed and then execute:
 
-1. **Install Dependencies**:
+1. **Install Dependencies & Assemble Database**:
    ```bash
    cd app
    flutter pub get
+   dart run bin/assemble_db.dart
    ```
 
 2. **Run All Tests**:
