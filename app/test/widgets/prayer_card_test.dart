@@ -303,13 +303,27 @@ void main() {
             compareLanguage: PrayerLanguage.spanish,
             onLaunchSource: (_) {},
           ),
+        )
+        ..addScenario(
+          'Side-by-Side Dual Language State',
+          PrayerCard(
+            prayer: testPrayer,
+            selectedLanguage: PrayerLanguage.english,
+            compareLanguage: PrayerLanguage.spanish,
+            onLaunchSource: (_) {},
+          ),
         );
 
       await tester.pumpWidgetBuilder(
         builder.build(),
         wrapper: materialAppWrapper(),
-        surfaceSize: const Size(450, 1700),
+        surfaceSize: const Size(450, 2600),
       );
+
+      // Tap the split button in the third scenario (Side-by-Side State) to enable dual mode
+      final compareButtons = find.byTooltip('Compare Translations');
+      await tester.tap(compareButtons.last);
+      await tester.pumpAndSettle();
 
       await screenMatchesGolden(tester, 'prayer_card_golden');
     });
