@@ -327,104 +327,99 @@ class _PrayerCardState extends State<PrayerCard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // Header Row
+                // First Row: Title and Subtitle spanning the full width
+                _isDualMode
+                    ? Text(
+                        widget.prayer.defaultTitle,
+                        style: theme.textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: theme.colorScheme.onSurface,
+                        ),
+                      )
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            translation.title,
+                            style: theme.textTheme.titleLarge?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: theme.colorScheme.onSurface,
+                            ),
+                          ),
+                          if (translation.subtitle.isNotEmpty) ...[
+                            const SizedBox(height: 2),
+                            Text(
+                              translation.subtitle,
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: theme.colorScheme.onSurfaceVariant,
+                                fontStyle: FontStyle.italic,
+                              ),
+                            ),
+                          ],
+                        ],
+                      ),
+                const SizedBox(height: 12),
+                // Second Row: Controls (Compare Toggle, Language Selectors)
                 Row(
                   children: [
-                    // Icon indicator
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: theme.colorScheme.primaryContainer.withValues(
-                          alpha: 0.4,
+                    // Compare Toggle
+                    IconButton(
+                      icon: RotatedBox(
+                        quarterTurns: 1,
+                        child: Icon(
+                          _isDualMode
+                              ? Icons.splitscreen
+                              : Icons.splitscreen_outlined,
+                          color: _isDualMode
+                              ? theme.colorScheme.primary
+                              : theme.colorScheme.onSurfaceVariant,
+                          size: 20,
                         ),
-                        shape: BoxShape.circle,
                       ),
-                      child: Icon(
-                        _getPrayerIcon(widget.prayer.prayerId),
-                        color: theme.colorScheme.primary,
-                        size: 24,
-                      ),
+                      tooltip: 'Compare Translations',
+                      onPressed: () {
+                        setState(() {
+                          _isDualMode = !_isDualMode;
+                          _selectedPhraseId = null; // Reset highlights
+                        });
+                      },
                     ),
-                    const SizedBox(width: 12),
-                    // Title and Subtitle (single mode) or Dual Mode Title
+                    const SizedBox(width: 8),
+                    // Language Dropdown(s)
                     Expanded(
-                      child: _isDualMode
-                          ? Text(
-                              widget.prayer.defaultTitle,
-                              style: theme.textTheme.titleMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: theme.colorScheme.onSurface,
-                              ),
-                            )
-                          : Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  translation.title,
-                                  style: theme.textTheme.titleLarge?.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: theme.colorScheme.onSurface,
-                                  ),
-                                ),
-                                if (translation.subtitle.isNotEmpty) ...[
-                                  const SizedBox(height: 2),
-                                  Text(
-                                    translation.subtitle,
-                                    style: theme.textTheme.bodySmall?.copyWith(
-                                      color: theme.colorScheme.onSurfaceVariant,
-                                      fontStyle: FontStyle.italic,
-                                    ),
-                                  ),
-                                ],
-                              ],
-                            ),
-                    ),
-                    // Dual mode toggle and dropdown language selectors
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        IconButton(
-                          icon: Icon(
-                            _isDualMode
-                                ? Icons.splitscreen
-                                : Icons.splitscreen_outlined,
-                            color: _isDualMode
-                                ? theme.colorScheme.primary
-                                : theme.colorScheme.onSurfaceVariant,
-                            size: 20,
+                      child: Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          _buildLanguageDropdown(
+                            resolvedLanguage,
+                            widget.onLanguageChanged,
+                            theme,
                           ),
-                          tooltip: 'Compare Translations',
-                          onPressed: () {
-                            setState(() {
-                              _isDualMode = !_isDualMode;
-                              _selectedPhraseId = null; // Reset highlights
-                            });
-                          },
-                        ),
-                        const SizedBox(width: 4),
-                        _buildLanguageDropdown(
-                          resolvedLanguage,
-                          widget.onLanguageChanged,
-                          theme,
-                        ),
-                        if (_isDualMode) ...[
-                          const SizedBox(width: 8),
-                          _buildLanguageDropdown(resolvedCompareLanguage, (
-                            lang,
-                          ) {
-                            if (lang != null) {
-                              setState(() {
-                                _compareLanguage = lang;
-                                _selectedPhraseId = null;
-                              });
-                            }
-                          }, theme),
+                          if (_isDualMode) ...[
+                            const Icon(
+                              Icons.arrow_forward_ios,
+                              size: 12,
+                              color: Colors.grey,
+                            ),
+                            _buildLanguageDropdown(resolvedCompareLanguage, (
+                              lang,
+                            ) {
+                              if (lang != null) {
+                                setState(() {
+                                  _compareLanguage = lang;
+                                  _selectedPhraseId = null;
+                                });
+                              }
+                            }, theme),
+                          ],
                         ],
-                      ],
+                      ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 12),
                 // Divider
                 Divider(
                   color: theme.colorScheme.outlineVariant.withValues(
@@ -667,18 +662,5 @@ class _PrayerCardState extends State<PrayerCard> {
         ),
       ),
     );
-  }
-
-  IconData _getPrayerIcon(String id) {
-    switch (id) {
-      case 'our_father':
-        return Icons.person_outline;
-      case 'hail_mary':
-        return Icons.stars_outlined;
-      case 'glory_be':
-        return Icons.wb_sunny_outlined;
-      default:
-        return Icons.auto_stories;
-    }
   }
 }

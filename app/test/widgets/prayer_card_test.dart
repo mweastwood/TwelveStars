@@ -377,7 +377,7 @@ void main() {
       await tester.pumpWidgetBuilder(
         builder.build(),
         wrapper: materialAppWrapper(),
-        surfaceSize: const Size(450, 1500),
+        surfaceSize: const Size(450, 1700),
       );
 
       await screenMatchesGolden(tester, 'prayer_card_golden');
