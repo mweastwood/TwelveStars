@@ -178,6 +178,10 @@ void main() {
     for (final prayerItem in jsonList) {
       final pMap = prayerItem as Map<String, dynamic>;
       final prayerId = pMap['id'] as String;
+      final category = pMap['category'] as String? ?? 'starter';
+
+      if (category != 'starter') continue;
+
       final transMap = pMap['translations'] as Map<String, dynamic>;
 
       for (final entry in transMap.entries) {

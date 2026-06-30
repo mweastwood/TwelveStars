@@ -242,10 +242,14 @@ class _PrayerCardState extends State<PrayerCard> {
     final translation = translations[versionIndex];
 
     // Dual mode compare language resolution
-    final resolvedCompareLanguage = widget.compareLanguage;
+    final resolvedCompareLanguage =
+        widget.prayer.translations.containsKey(widget.compareLanguage)
+        ? widget.compareLanguage
+        : (widget.prayer.translations.containsKey(PrayerLanguage.english)
+              ? PrayerLanguage.english
+              : widget.prayer.translations.keys.first);
     final compareTranslations =
-        widget.prayer.translations[resolvedCompareLanguage] ??
-        widget.prayer.translations.values.first;
+        widget.prayer.translations[resolvedCompareLanguage]!;
     final compareTranslation =
         compareTranslations[0]; // compare default first version
 

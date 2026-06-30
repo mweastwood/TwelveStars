@@ -67,13 +67,14 @@ class PrayerDatabase {
 
     final isarInstance = await isar;
     final list = isarInstance.prayers.where().sortByDefaultOrder().findAll();
+    final compiledPrayers = await _loadPrayersFromWebJson();
 
-    if (list.isEmpty) {
-      final prayers = await _loadPrayersFromWebJson();
+    if (list.length != compiledPrayers.length) {
       isarInstance.write((isar) {
-        isar.prayers.putAll(prayers);
+        isar.prayers.clear();
+        isar.prayers.putAll(compiledPrayers);
       });
-      return prayers;
+      return compiledPrayers;
     }
 
     return list;
