@@ -33,6 +33,60 @@ const Map<String, _PrayerHistory> _prayerHistories = {
     description:
         'A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, tracing back to the early Councils.',
   ),
+  'act_of_contrition': _PrayerHistory(
+    author: 'Traditional',
+    origin: 'Catholic Devotional Tradition',
+    description:
+        'An expression of sorrow for sin and a resolution to amend one\'s life, widely used in the Sacrament of Reconciliation.',
+  ),
+  'nicene_creed': _PrayerHistory(
+    author: 'First Council of Nicaea & Constantinople',
+    origin: 'Councils of Nicaea (325 AD) & Constantinople (381 AD)',
+    description:
+        'The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity.',
+  ),
+  'apostles_creed': _PrayerHistory(
+    author: 'Apostles of Christ (Traditional)',
+    origin: 'Early Roman Church (c. 2nd–5th century)',
+    description:
+        'A summary of Christian faith used in baptism and the Rosary, reflecting early apostolic teachings.',
+  ),
+  'fatima_prayer': _PrayerHistory(
+    author: 'Our Lady of Fatima',
+    origin: 'Apparition at Fatima (1917)',
+    description:
+        'Taught by the Virgin Mary to the three shepherd children in Fatima, Portugal, to be said after each decade of the Rosary.',
+  ),
+  'hail_holy_queen': _PrayerHistory(
+    author: 'Hermann of Reichenau (attributed)',
+    origin: 'Marian Antiphon (c. 11th century)',
+    description:
+        'One of the four Marian antiphons, traditionally recited at the end of the Rosary as a plea for protection and mercy.',
+  ),
+  'final_prayer_rosary': _PrayerHistory(
+    author: 'Traditional Liturgical Prayer',
+    origin: 'Collect from the Feast of the Holy Rosary',
+    description:
+        'A concluding petition asking God that we may imitate the mysteries of the Rosary and obtain the eternal life they promise.',
+  ),
+  'anima_christi': _PrayerHistory(
+    author: 'Pope John XXII (attributed)',
+    origin: 'Medieval Christian Devotion (c. 14th century)',
+    description:
+        'A prayer of intimate union with Jesus Christ, focusing on His body, blood, passion, and wounds, often recited after Communion.',
+  ),
+  'st_michael': _PrayerHistory(
+    author: 'Pope Leo XIII',
+    origin: 'Leonine Prayers (1886)',
+    description:
+        'Recited after Low Mass to invoke the archangel\'s defense against evil and the spiritual ruin of souls.',
+  ),
+  'now_i_lay_me': _PrayerHistory(
+    author: 'Traditional',
+    origin: 'Classic Bedtime Prayer (c. 18th century)',
+    description:
+        'A popular children\'s bedtime prayer asking for divine protection throughout the night.',
+  ),
 };
 
 class PrayerCard extends StatefulWidget {
