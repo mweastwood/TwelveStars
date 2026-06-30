@@ -151,23 +151,26 @@ class _HomeScreenState extends State<HomeScreen> {
           return PrayerLanguage.values.map((lang) {
             return Align(
               alignment: Alignment.centerLeft,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    lang.flag,
-                    style: const TextStyle(fontSize: 16, height: 1.0),
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    lang.nativeName,
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      fontWeight: FontWeight.w500,
-                      height: 1.0,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 12.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      lang.flag,
+                      style: const TextStyle(fontSize: 16, height: 1.0),
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 8),
+                    Text(
+                      lang.nativeName,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                        height: 1.0,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             );
           }).toList();
@@ -176,9 +179,11 @@ class _HomeScreenState extends State<HomeScreen> {
           return DropdownMenuItem<PrayerLanguage>(
             value: lang,
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 4.0,
-                vertical: 2.0,
+              padding: const EdgeInsets.only(
+                left: 12.0,
+                right: 4.0,
+                top: 2.0,
+                bottom: 2.0,
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
