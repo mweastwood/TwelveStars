@@ -5,6 +5,8 @@ import 'package:isar_plus/isar_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 
+import 'dart:io';
+
 class PrayerDatabase {
   static List<Prayer>? mockPrayers;
   static Isar? _isar;
@@ -24,11 +26,37 @@ class PrayerDatabase {
       final dir = await getApplicationDocumentsDirectory();
       directory = dir.path;
     }
-    return Isar.open(
-      schemas: [PrayerSchema],
-      directory: kIsWeb ? Isar.sqliteInMemory : (directory ?? ''),
-      engine: kIsWeb ? IsarEngine.sqlite : IsarEngine.isar,
-    );
+    try {
+      return Isar.open(
+        schemas: [PrayerSchema],
+        directory: kIsWeb ? Isar.sqliteInMemory : (directory ?? ''),
+        engine: kIsWeb ? IsarEngine.sqlite : IsarEngine.isar,
+      );
+    } catch (e) {
+      if (!kIsWeb && directory != null) {
+        try {
+          final isarDir = Directory(directory);
+          if (await isarDir.exists()) {
+            await for (final entity in isarDir.list()) {
+              if (entity is File &&
+                  (entity.path.endsWith('.isar') ||
+                      entity.path.endsWith('.sqlite') ||
+                      entity.path.contains('isar') ||
+                      entity.path.contains('sqlite'))) {
+                await entity.delete();
+              }
+            }
+          }
+        } catch (_) {}
+        // Retry opening database
+        return Isar.open(
+          schemas: [PrayerSchema],
+          directory: directory,
+          engine: IsarEngine.isar,
+        );
+      }
+      rethrow;
+    }
   }
 
   // Fetch all prayers from the database
