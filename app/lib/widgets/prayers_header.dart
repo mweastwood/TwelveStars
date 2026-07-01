@@ -7,15 +7,6 @@ class PrayersHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      elevation: 0,
-      color: theme.colorScheme.primaryContainer.withValues(alpha: 0.25),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-        side: BorderSide(
-          color: theme.colorScheme.primary.withValues(alpha: 0.25),
-          width: 1,
-        ),
-      ),
       margin: const EdgeInsets.only(bottom: 12),
       child: Padding(
         padding: const EdgeInsets.all(20.0),

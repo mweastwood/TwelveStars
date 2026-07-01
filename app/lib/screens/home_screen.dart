@@ -48,14 +48,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildGlobalLanguageSelectors(ThemeData theme) {
     return Card(
-      elevation: 0,
-      color: theme.colorScheme.surfaceContainerLow,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(
-          color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5),
-        ),
-      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
         child: Row(
@@ -249,40 +241,8 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.stars_outlined, color: theme.colorScheme.primary),
-            const SizedBox(width: 8),
-            Text(
-              'TwelveStars',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.primary,
-                letterSpacing: 0.8,
-              ),
-            ),
-          ],
-        ),
-        centerTitle: true,
-        backgroundColor: theme.colorScheme.surface,
-        elevation: 0,
-        scrolledUnderElevation: 2,
-      ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              theme.colorScheme.primaryContainer.withValues(alpha: 0.1),
-              theme.colorScheme.surface,
-            ],
-          ),
-        ),
-        child: SafeArea(child: tabs[_currentTab]),
-      ),
+      appBar: AppBar(title: const Text('TwelveStars')),
+      body: SafeArea(child: tabs[_currentTab]),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentTab,
         onDestinationSelected: (index) {

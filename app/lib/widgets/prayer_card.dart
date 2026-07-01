@@ -278,58 +278,75 @@ class _PrayerCardState extends State<PrayerCard> {
       },
       child: Card(
         margin: const EdgeInsets.symmetric(vertical: 8),
-        elevation: 2,
-        shadowColor: theme.colorScheme.shadow.withValues(alpha: 0.1),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-          side: BorderSide(
-            color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5),
-            width: 1,
-          ),
-        ),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                theme.colorScheme.surfaceContainerHighest.withValues(
-                  alpha: 0.2,
-                ),
-                theme.colorScheme.surface,
-              ],
-            ),
-          ),
-          child: Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    // 1. Header Row: Titles/Subtitles spanning full width
-                    _isDualMode
-                        ? Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              // Left Column Title/Subtitle
-                              Expanded(
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  // 1. Header Row: Titles/Subtitles spanning full width
+                  _isDualMode
+                      ? Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // Left Column Title/Subtitle
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    translation.title,
+                                    style: theme.textTheme.titleLarge?.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      color: theme.colorScheme.onSurface,
+                                    ),
+                                  ),
+                                  if (translation.subtitle.isNotEmpty) ...[
+                                    const SizedBox(height: 2),
+                                    Text(
+                                      translation.subtitle,
+                                      style: theme.textTheme.bodySmall
+                                          ?.copyWith(
+                                            color: theme
+                                                .colorScheme
+                                                .onSurfaceVariant,
+                                            fontStyle: FontStyle.italic,
+                                          ),
+                                    ),
+                                  ],
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Container(
+                              width: 1,
+                              height: 32,
+                              color: theme.colorScheme.outlineVariant
+                                  .withValues(alpha: 0.3),
+                            ),
+                            const SizedBox(width: 12),
+                            // Right Column Title/Subtitle with padding to avoid overlaying split button
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 36),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      translation.title,
+                                      compareTranslation.title,
                                       style: theme.textTheme.titleLarge
                                           ?.copyWith(
                                             fontWeight: FontWeight.bold,
                                             color: theme.colorScheme.onSurface,
                                           ),
                                     ),
-                                    if (translation.subtitle.isNotEmpty) ...[
+                                    if (compareTranslation
+                                        .subtitle
+                                        .isNotEmpty) ...[
                                       const SizedBox(height: 2),
                                       Text(
-                                        translation.subtitle,
+                                        compareTranslation.subtitle,
                                         style: theme.textTheme.bodySmall
                                             ?.copyWith(
                                               color: theme
@@ -342,230 +359,185 @@ class _PrayerCardState extends State<PrayerCard> {
                                   ],
                                 ),
                               ),
-                              const SizedBox(width: 12),
-                              Container(
-                                width: 1,
-                                height: 32,
-                                color: theme.colorScheme.outlineVariant
-                                    .withValues(alpha: 0.3),
-                              ),
-                              const SizedBox(width: 12),
-                              // Right Column Title/Subtitle with padding to avoid overlaying split button
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(right: 36),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        compareTranslation.title,
-                                        style: theme.textTheme.titleLarge
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.bold,
-                                              color:
-                                                  theme.colorScheme.onSurface,
-                                            ),
-                                      ),
-                                      if (compareTranslation
-                                          .subtitle
-                                          .isNotEmpty) ...[
-                                        const SizedBox(height: 2),
-                                        Text(
-                                          compareTranslation.subtitle,
-                                          style: theme.textTheme.bodySmall
-                                              ?.copyWith(
-                                                color: theme
-                                                    .colorScheme
-                                                    .onSurfaceVariant,
-                                                fontStyle: FontStyle.italic,
-                                              ),
-                                        ),
-                                      ],
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          )
-                        : Padding(
-                            padding: const EdgeInsets.only(right: 36),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  translation.title,
-                                  style: theme.textTheme.titleLarge?.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: theme.colorScheme.onSurface,
-                                  ),
-                                ),
-                                if (translation.subtitle.isNotEmpty) ...[
-                                  const SizedBox(height: 2),
-                                  Text(
-                                    translation.subtitle,
-                                    style: theme.textTheme.bodySmall?.copyWith(
-                                      color: theme.colorScheme.onSurfaceVariant,
-                                      fontStyle: FontStyle.italic,
-                                    ),
-                                  ),
-                                ],
-                              ],
-                            ),
-                          ),
-                    const SizedBox(height: 12),
-
-                    // Divider
-                    Divider(
-                      color: theme.colorScheme.outlineVariant.withValues(
-                        alpha: 0.3,
-                      ),
-                      height: 1,
-                    ),
-                    const SizedBox(height: 16),
-
-                    // 2. Content Row: Prayer 1 | Prayer 2 (conditional)
-                    if (_isDualMode)
-                      IntrinsicHeight(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: _buildPrayerText(
-                                translation,
-                                resolvedLanguage,
-                                theme,
-                              ),
-                            ),
-                            const SizedBox(width: 12),
-                            Container(
-                              width: 1,
-                              color: theme.colorScheme.outlineVariant
-                                  .withValues(alpha: 0.3),
-                            ),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: _buildPrayerText(
-                                compareTranslation,
-                                resolvedCompareLanguage,
-                                theme,
-                              ),
                             ),
                           ],
+                        )
+                      : Padding(
+                          padding: const EdgeInsets.only(right: 36),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                translation.title,
+                                style: theme.textTheme.titleLarge?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.onSurface,
+                                ),
+                              ),
+                              if (translation.subtitle.isNotEmpty) ...[
+                                const SizedBox(height: 2),
+                                Text(
+                                  translation.subtitle,
+                                  style: theme.textTheme.bodySmall?.copyWith(
+                                    color: theme.colorScheme.onSurfaceVariant,
+                                    fontStyle: FontStyle.italic,
+                                  ),
+                                ),
+                              ],
+                            ],
+                          ),
                         ),
-                      )
-                    else
-                      _buildPrayerText(translation, resolvedLanguage, theme),
-                    const SizedBox(height: 20),
+                  const SizedBox(height: 12),
 
-                    // Divider for Footer
-                    Divider(
-                      color: theme.colorScheme.outlineVariant.withValues(
-                        alpha: 0.3,
-                      ),
-                      height: 1,
+                  // Divider
+                  Divider(
+                    color: theme.colorScheme.outlineVariant.withValues(
+                      alpha: 0.3,
                     ),
-                    const SizedBox(height: 12),
+                    height: 1,
+                  ),
+                  const SizedBox(height: 16),
 
-                    // 3. Source Row: Source Buttons
-                    if (_isDualMode)
-                      Row(
+                  // 2. Content Row: Prayer 1 | Prayer 2 (conditional)
+                  if (_isDualMode)
+                    IntrinsicHeight(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
-                            child: Center(
-                              child: _buildSourceButton(translation, theme),
+                            child: _buildPrayerText(
+                              translation,
+                              resolvedLanguage,
+                              theme,
                             ),
                           ),
                           const SizedBox(width: 12),
-                          const SizedBox(
+                          Container(
                             width: 1,
-                          ), // spacer matching vertical divider
+                            color: theme.colorScheme.outlineVariant.withValues(
+                              alpha: 0.3,
+                            ),
+                          ),
                           const SizedBox(width: 12),
                           Expanded(
-                            child: Center(
-                              child: _buildSourceButton(
-                                compareTranslation,
-                                theme,
-                              ),
+                            child: _buildPrayerText(
+                              compareTranslation,
+                              resolvedCompareLanguage,
+                              theme,
                             ),
                           ),
                         ],
-                      )
-                    else ...[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Flexible(
+                      ),
+                    )
+                  else
+                    _buildPrayerText(translation, resolvedLanguage, theme),
+                  const SizedBox(height: 20),
+
+                  // Divider for Footer
+                  Divider(
+                    color: theme.colorScheme.outlineVariant.withValues(
+                      alpha: 0.3,
+                    ),
+                    height: 1,
+                  ),
+                  const SizedBox(height: 12),
+
+                  // 3. Source Row: Source Buttons
+                  if (_isDualMode)
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Center(
                             child: _buildSourceButton(translation, theme),
                           ),
-                        ],
-                      ),
-                    ],
-
-                    // 4. Historical Context Row: Rendered below Source
-                    if (historyTrans != null) ...[
-                      const SizedBox(height: 12),
-                      _buildHistoryPanel(
-                        historyTrans.historyOrigin,
-                        historyTrans.historyDescription,
-                        theme,
-                      ),
-                    ],
-
-                    // 5. Version indicator dots
-                    if (translations.length > 1 && !_isDualMode) ...[
-                      const SizedBox(height: 16),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(translations.length, (index) {
-                          final isSelected = index == versionIndex;
-                          return AnimatedContainer(
-                            duration: const Duration(milliseconds: 200),
-                            margin: const EdgeInsets.symmetric(horizontal: 4),
-                            width: isSelected ? 12 : 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
-                              color: isSelected
-                                  ? theme.colorScheme.primary
-                                  : theme.colorScheme.outlineVariant.withValues(
-                                      alpha: 0.8,
-                                    ),
+                        ),
+                        const SizedBox(width: 12),
+                        const SizedBox(
+                          width: 1,
+                        ), // spacer matching vertical divider
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Center(
+                            child: _buildSourceButton(
+                              compareTranslation,
+                              theme,
                             ),
-                          );
-                        }),
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-              Positioned(
-                top: 8,
-                right: 8,
-                child: IconButton(
-                  icon: RotatedBox(
-                    quarterTurns: 1,
-                    child: Icon(
-                      _isDualMode
-                          ? Icons.splitscreen
-                          : Icons.splitscreen_outlined,
-                      color: _isDualMode
-                          ? theme.colorScheme.primary
-                          : theme.colorScheme.onSurfaceVariant,
-                      size: 20,
+                          ),
+                        ),
+                      ],
+                    )
+                  else ...[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Flexible(child: _buildSourceButton(translation, theme)),
+                      ],
                     ),
-                  ),
-                  tooltip: 'Compare Translations',
-                  onPressed: () {
-                    setState(() {
-                      _isDualMode = !_isDualMode;
-                      _selectedPhraseId = null;
-                    });
-                  },
-                ),
+                  ],
+
+                  // 4. Historical Context Row: Rendered below Source
+                  if (historyTrans != null) ...[
+                    const SizedBox(height: 12),
+                    _buildHistoryPanel(
+                      historyTrans.historyOrigin,
+                      historyTrans.historyDescription,
+                      theme,
+                    ),
+                  ],
+
+                  // 5. Version indicator dots
+                  if (translations.length > 1 && !_isDualMode) ...[
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(translations.length, (index) {
+                        final isSelected = index == versionIndex;
+                        return AnimatedContainer(
+                          duration: const Duration(milliseconds: 200),
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          width: isSelected ? 12 : 8,
+                          height: 8,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4),
+                            color: isSelected
+                                ? theme.colorScheme.primary
+                                : theme.colorScheme.outlineVariant.withValues(
+                                    alpha: 0.8,
+                                  ),
+                          ),
+                        );
+                      }),
+                    ),
+                  ],
+                ],
               ),
-            ],
-          ),
+            ),
+            Positioned(
+              top: 8,
+              right: 8,
+              child: IconButton(
+                icon: RotatedBox(
+                  quarterTurns: 1,
+                  child: Icon(
+                    _isDualMode
+                        ? Icons.splitscreen
+                        : Icons.splitscreen_outlined,
+                    color: _isDualMode
+                        ? theme.colorScheme.primary
+                        : theme.colorScheme.onSurfaceVariant,
+                    size: 20,
+                  ),
+                ),
+                tooltip: 'Compare Translations',
+                onPressed: () {
+                  setState(() {
+                    _isDualMode = !_isDualMode;
+                    _selectedPhraseId = null;
+                  });
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
