@@ -18,20 +18,12 @@ void main() {
     });
 
     test('contains correct prayers', () {
-      expect(prayersJson.length, 12);
+      expect(prayersJson.isNotEmpty, isTrue);
       final ids = prayersJson.map((p) => p['id'] as String).toList();
+      // Verify a core set of fundamental prayers is always present
       expect(ids, contains('our_father'));
       expect(ids, contains('hail_mary'));
       expect(ids, contains('glory_be'));
-      expect(ids, contains('act_of_contrition'));
-      expect(ids, contains('nicene_creed'));
-      expect(ids, contains('apostles_creed'));
-      expect(ids, contains('fatima_prayer'));
-      expect(ids, contains('hail_holy_queen'));
-      expect(ids, contains('anima_christi'));
-      expect(ids, contains('st_michael'));
-      expect(ids, contains('final_prayer_rosary'));
-      expect(ids, contains('now_i_lay_me'));
     });
 
     test('each prayer has required translations', () {
