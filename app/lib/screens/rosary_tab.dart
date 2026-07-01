@@ -51,18 +51,6 @@ class RosaryTab extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             Card(
-              elevation: 0,
-              color: theme.colorScheme.secondaryContainer.withValues(
-                alpha: 0.25,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-                side: BorderSide(
-                  color: theme.colorScheme.outlineVariant.withValues(
-                    alpha: 0.4,
-                  ),
-                ),
-              ),
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: Column(

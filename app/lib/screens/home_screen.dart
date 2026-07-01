@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
-import 'package:twelve_stars/widgets/prayers_header.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/screens/rosary_tab.dart';
 
@@ -48,14 +47,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildGlobalLanguageSelectors(ThemeData theme) {
     return Card(
-      elevation: 0,
-      color: theme.colorScheme.surfaceContainerLow,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(
-          color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5),
-        ),
-      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
         child: Row(
@@ -249,40 +240,8 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.stars_outlined, color: theme.colorScheme.primary),
-            const SizedBox(width: 8),
-            Text(
-              'TwelveStars',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.primary,
-                letterSpacing: 0.8,
-              ),
-            ),
-          ],
-        ),
-        centerTitle: true,
-        backgroundColor: theme.colorScheme.surface,
-        elevation: 0,
-        scrolledUnderElevation: 2,
-      ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              theme.colorScheme.primaryContainer.withValues(alpha: 0.1),
-              theme.colorScheme.surface,
-            ],
-          ),
-        ),
-        child: SafeArea(child: tabs[_currentTab]),
-      ),
+      appBar: AppBar(title: const Text('Twelve Stars')),
+      body: SafeArea(child: tabs[_currentTab]),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentTab,
         onDestinationSelected: (index) {
@@ -316,7 +275,6 @@ class _HomeScreenState extends State<HomeScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       child: Column(
         children: [
-          const PrayersHeader(),
           _buildGlobalLanguageSelectors(theme),
           const SizedBox(height: 12),
           ...prayers.map((prayer) {
@@ -327,6 +285,25 @@ class _HomeScreenState extends State<HomeScreen> {
               onLaunchSource: _launchSourceUrl,
             );
           }),
+          const SizedBox(height: 24),
+          Text(
+            '“A great sign appeared in heaven: a woman clothed with the sun, with the moon under her feet, and on her head a crown of twelve stars.”',
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+              fontStyle: FontStyle.italic,
+              height: 1.4,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 6),
+          Text(
+            '— Revelation 12:1',
+            style: theme.textTheme.labelSmall?.copyWith(
+              color: theme.colorScheme.primary,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 16),
         ],
       ),
     );

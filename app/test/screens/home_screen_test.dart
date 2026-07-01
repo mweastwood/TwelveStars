@@ -89,7 +89,6 @@ void main() {
       await tester.pumpAndSettle(); // Let database load
 
       // Verify app bar and header are present
-      expect(find.text('TwelveStars'), findsWidgets);
       expect(find.text('Twelve Stars'), findsOneWidget);
 
       // Verify default prayers are loaded in English initially

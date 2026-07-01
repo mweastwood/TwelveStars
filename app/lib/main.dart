@@ -21,7 +21,7 @@ class TwelveStarsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'TwelveStars',
+      title: 'Twelve Stars',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFF1E3A8A), // Marian Deep Blue
