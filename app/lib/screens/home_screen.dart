@@ -241,7 +241,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
 
     return Scaffold(
-      appBar: AppBar(title: const Text('TwelveStars')),
+      appBar: AppBar(title: const Text('Twelve Stars')),
       body: SafeArea(child: tabs[_currentTab]),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentTab,
