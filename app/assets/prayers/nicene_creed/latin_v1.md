@@ -6,6 +6,9 @@ title: "Symbolum Nicaenum"
 subtitle: "Nicene Creed"
 source_name: "Compendium Catechismi Catholicae Ecclesiae"
 source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_la.html"
+history_author: "First Council of Nicaea & Constantinople"
+history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
+history_description: "The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity."
 ---
 Credo in unum Deum, Patrem omnipotentem, factorem caeli et terrae, visibilium omnium et invisibilium.
 

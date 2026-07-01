@@ -6,6 +6,9 @@ title: "天主經"
 subtitle: "Lord’s Prayer"
 source_name: "Wikipedia"
 source_url: "https://zh.wikipedia.org/zh-hant/%E5%A4%A9%E4%B8%BB%E7%B6%93"
+history_author: "Jesus Christ"
+history_origin: "Gospel of Matthew 6:9–13"
+history_description: "Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer."
 ---
 {我們的天父|our_father_1}，
 {願祢的名受顯揚|our_father_3}；

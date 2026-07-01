@@ -2299,6 +2299,9 @@ final PrayerTranslationSchema = IsarGeneratedSchema(
       IsarPropertySchema(name: 'text', type: IsarType.string),
       IsarPropertySchema(name: 'sourceName', type: IsarType.string),
       IsarPropertySchema(name: 'sourceUrl', type: IsarType.string),
+      IsarPropertySchema(name: 'historyAuthor', type: IsarType.string),
+      IsarPropertySchema(name: 'historyOrigin', type: IsarType.string),
+      IsarPropertySchema(name: 'historyDescription', type: IsarType.string),
       IsarPropertySchema(
         name: 'chineseLines',
         type: IsarType.objectList,
@@ -2325,12 +2328,15 @@ int serializePrayerTranslation(IsarWriter writer, PrayerTranslation object) {
   IsarCore.writeString(writer, 3, object.text);
   IsarCore.writeString(writer, 4, object.sourceName);
   IsarCore.writeString(writer, 5, object.sourceUrl);
+  IsarCore.writeString(writer, 6, object.historyAuthor);
+  IsarCore.writeString(writer, 7, object.historyOrigin);
+  IsarCore.writeString(writer, 8, object.historyDescription);
   {
     final list = object.chineseLines;
     if (list == null) {
-      IsarCore.writeNull(writer, 6);
+      IsarCore.writeNull(writer, 9);
     } else {
-      final listWriter = IsarCore.beginList(writer, 6, list.length);
+      final listWriter = IsarCore.beginList(writer, 9, list.length);
       for (var i = 0; i < list.length; i++) {
         {
           final value = list[i];
@@ -2345,9 +2351,9 @@ int serializePrayerTranslation(IsarWriter writer, PrayerTranslation object) {
   {
     final list = object.tokens;
     if (list == null) {
-      IsarCore.writeNull(writer, 7);
+      IsarCore.writeNull(writer, 10);
     } else {
-      final listWriter = IsarCore.beginList(writer, 7, list.length);
+      final listWriter = IsarCore.beginList(writer, 10, list.length);
       for (var i = 0; i < list.length; i++) {
         {
           final value = list[i];
@@ -2374,9 +2380,15 @@ PrayerTranslation deserializePrayerTranslation(IsarReader reader) {
   _sourceName = IsarCore.readString(reader, 4) ?? '';
   final String _sourceUrl;
   _sourceUrl = IsarCore.readString(reader, 5) ?? '';
+  final String _historyAuthor;
+  _historyAuthor = IsarCore.readString(reader, 6) ?? '';
+  final String _historyOrigin;
+  _historyOrigin = IsarCore.readString(reader, 7) ?? '';
+  final String _historyDescription;
+  _historyDescription = IsarCore.readString(reader, 8) ?? '';
   final List<ChineseLine>? _chineseLines;
   {
-    final length = IsarCore.readList(reader, 6, IsarCore.readerPtrPtr);
+    final length = IsarCore.readList(reader, 9, IsarCore.readerPtrPtr);
     {
       final reader = IsarCore.readerPtr;
       if (reader.isNull) {
@@ -2406,7 +2418,7 @@ PrayerTranslation deserializePrayerTranslation(IsarReader reader) {
   }
   final List<PrayerToken>? _tokens;
   {
-    final length = IsarCore.readList(reader, 7, IsarCore.readerPtrPtr);
+    final length = IsarCore.readList(reader, 10, IsarCore.readerPtrPtr);
     {
       final reader = IsarCore.readerPtr;
       if (reader.isNull) {
@@ -2440,6 +2452,9 @@ PrayerTranslation deserializePrayerTranslation(IsarReader reader) {
     text: _text,
     sourceName: _sourceName,
     sourceUrl: _sourceUrl,
+    historyAuthor: _historyAuthor,
+    historyOrigin: _historyOrigin,
+    historyDescription: _historyDescription,
     chineseLines: _chineseLines,
     tokens: _tokens,
   );
@@ -3154,16 +3169,457 @@ extension PrayerTranslationQueryFilter
   }
 
   QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyAuthorEqualTo(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(property: 6, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyAuthorGreaterThan(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 6,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyAuthorGreaterThanOrEqualTo(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 6,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyAuthorLessThan(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessCondition(property: 6, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyAuthorLessThanOrEqualTo(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 6,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyAuthorBetween(
+    String lower,
+    String upper, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 6,
+          lower: lower,
+          upper: upper,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyAuthorStartsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        StartsWithCondition(
+          property: 6,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyAuthorEndsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EndsWithCondition(
+          property: 6,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyAuthorContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        ContainsCondition(
+          property: 6,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyAuthorMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        MatchesCondition(
+          property: 6,
+          wildcard: pattern,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyAuthorIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const EqualCondition(property: 6, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyAuthorIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const GreaterCondition(property: 6, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyOriginEqualTo(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(property: 7, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyOriginGreaterThan(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 7,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyOriginGreaterThanOrEqualTo(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 7,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyOriginLessThan(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessCondition(property: 7, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyOriginLessThanOrEqualTo(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 7,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyOriginBetween(
+    String lower,
+    String upper, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 7,
+          lower: lower,
+          upper: upper,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyOriginStartsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        StartsWithCondition(
+          property: 7,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyOriginEndsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EndsWithCondition(
+          property: 7,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyOriginContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        ContainsCondition(
+          property: 7,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyOriginMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        MatchesCondition(
+          property: 7,
+          wildcard: pattern,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyOriginIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const EqualCondition(property: 7, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyOriginIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const GreaterCondition(property: 7, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyDescriptionEqualTo(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(property: 8, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyDescriptionGreaterThan(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 8,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyDescriptionGreaterThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 8,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyDescriptionLessThan(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessCondition(property: 8, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyDescriptionLessThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 8,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyDescriptionBetween(
+    String lower,
+    String upper, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 8,
+          lower: lower,
+          upper: upper,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyDescriptionStartsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        StartsWithCondition(
+          property: 8,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyDescriptionEndsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EndsWithCondition(
+          property: 8,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyDescriptionContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        ContainsCondition(
+          property: 8,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyDescriptionMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        MatchesCondition(
+          property: 8,
+          wildcard: pattern,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyDescriptionIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const EqualCondition(property: 8, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
+  historyDescriptionIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const GreaterCondition(property: 8, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
   chineseLinesIsNull() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const IsNullCondition(property: 6));
+      return query.addFilterCondition(const IsNullCondition(property: 9));
     });
   }
 
   QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
   chineseLinesIsNotNull() {
     return QueryBuilder.apply(not(), (query) {
-      return query.addFilterCondition(const IsNullCondition(property: 6));
+      return query.addFilterCondition(const IsNullCondition(property: 9));
     });
   }
 
@@ -3178,7 +3634,7 @@ extension PrayerTranslationQueryFilter
   chineseLinesIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
-        const GreaterOrEqualCondition(property: 6, value: null),
+        const GreaterOrEqualCondition(property: 9, value: null),
       );
     });
   }
@@ -3186,14 +3642,14 @@ extension PrayerTranslationQueryFilter
   QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
   tokensIsNull() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const IsNullCondition(property: 7));
+      return query.addFilterCondition(const IsNullCondition(property: 10));
     });
   }
 
   QueryBuilder<PrayerTranslation, PrayerTranslation, QAfterFilterCondition>
   tokensIsNotNull() {
     return QueryBuilder.apply(not(), (query) {
-      return query.addFilterCondition(const IsNullCondition(property: 7));
+      return query.addFilterCondition(const IsNullCondition(property: 10));
     });
   }
 
@@ -3206,7 +3662,7 @@ extension PrayerTranslationQueryFilter
   tokensIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
-        const GreaterOrEqualCondition(property: 7, value: null),
+        const GreaterOrEqualCondition(property: 10, value: null),
       );
     });
   }

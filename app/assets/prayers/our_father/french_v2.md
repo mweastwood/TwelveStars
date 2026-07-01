@@ -6,6 +6,9 @@ title: "Notre Père"
 subtitle: "L'Oraison Dominicale (Traditionnel)"
 source_name: "Compendium du Catéchisme de l’Église Catholique (Vatican)"
 source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html"
+history_author: "Jesus Christ"
+history_origin: "Gospel of Matthew 6:9–13"
+history_description: "Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer."
 ---
 Notre Père, qui es aux cieux,
 que ton Nom soit sanctifié,

@@ -58,6 +58,9 @@ class PrayerTranslation {
   String text;
   String sourceName;
   String sourceUrl;
+  String historyAuthor;
+  String historyOrigin;
+  String historyDescription;
   List<ChineseLine>? chineseLines;
   List<PrayerToken>? tokens;
 
@@ -67,6 +70,9 @@ class PrayerTranslation {
     this.text = '',
     this.sourceName = '',
     this.sourceUrl = '',
+    this.historyAuthor = '',
+    this.historyOrigin = '',
+    this.historyDescription = '',
     this.chineseLines,
     this.tokens,
   });
@@ -77,6 +83,9 @@ class PrayerTranslation {
     String text = '',
     String sourceName = '',
     String sourceUrl = '',
+    String historyAuthor = '',
+    String historyOrigin = '',
+    String historyDescription = '',
     List<List<ChineseChar>>? chineseLines,
     List<PrayerToken>? tokens,
   }) {
@@ -86,6 +95,9 @@ class PrayerTranslation {
       text: text,
       sourceName: sourceName,
       sourceUrl: sourceUrl,
+      historyAuthor: historyAuthor,
+      historyOrigin: historyOrigin,
+      historyDescription: historyDescription,
       chineseLines: chineseLines
           ?.map((line) => ChineseLine(chars: line))
           .toList(),
