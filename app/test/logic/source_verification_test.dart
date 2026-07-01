@@ -210,11 +210,16 @@ void main() {
           final skipKey = '$prayerId/${languageStr}_v${versionIndex + 1}';
           final shouldSkip =
               [
+                // GitHub Issue #69: fatima_prayer/tagalog
                 'fatima_prayer/tagalog_v1',
+                // GitHub Issue #70: anima_christi/vietnamese
                 'anima_christi/vietnamese_v1',
+                // GitHub Issue #71: final_prayer_rosary/vietnamese
                 'final_prayer_rosary/vietnamese_v1',
+                // GitHub Issue #72: act_of_contrition/tagalog
                 'act_of_contrition/tagalog_v1',
               ].contains(skipKey) ||
+              // GitHub Issue #73: now_i_lay_me (all languages)
               prayerId == 'now_i_lay_me';
 
           if (shouldSkip) {
