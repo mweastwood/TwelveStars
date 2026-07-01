@@ -10,4 +10,8 @@ history_author: "Traditional"
 history_origin: "Classic Bedtime Prayer (c. 18th century)"
 history_description: "A popular children's bedtime prayer asking for divine protection throughout the night."
 ---
-Ngayong ako ay hihiga na para matulog, idinadalangin ko sa Panginoon na ingatan ang aking kaluluwa. Kung ako man ay mamatay bago magising, idinadalangin ko sa Panginoon na kunin ang aking kaluluwa. Amen.
+Ngayong ako ay hihiga na para matulog,
+idinadalangin ko sa Panginoon na ingatan ang aking kaluluwa.
+Kung ako man ay mamatay bago magising,
+idinadalangin ko sa Panginoon na kunin ang aking kaluluwa.
+Amen.

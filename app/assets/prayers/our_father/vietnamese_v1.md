@@ -19,7 +19,6 @@ Xin Cha cho chúng con hôm nay
 lương thực hằng ngày,
 và tha nợ chúng con
 như chúng con cũng tha kẻ có nợ chúng con.
-
 Xin chớ để chúng con sa chước cám dỗ,
 nhưng cứu chúng con cho khỏi sự dữ.
 
