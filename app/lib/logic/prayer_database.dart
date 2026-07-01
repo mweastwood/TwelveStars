@@ -72,6 +72,9 @@ class PrayerDatabase {
     if (list.length != compiledPrayers.length) {
       isarInstance.write((isar) {
         isar.prayers.clear();
+        for (final prayer in compiledPrayers) {
+          prayer.isarId = isar.prayers.autoIncrement();
+        }
         isar.prayers.putAll(compiledPrayers);
       });
       return compiledPrayers;
