@@ -12,7 +12,9 @@ history_description: "A trinitarian doxology used to glorify the Father, Son, an
 ---
 願光榮歸於父、
 及子、及聖神。
+
 起初如何，
 今日亦然，
-直到永遠。
+直 到永遠。
+
 亞孟。
