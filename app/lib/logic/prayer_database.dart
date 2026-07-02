@@ -21,7 +21,7 @@ class PrayerDatabase {
     try {
       final existing = Isar.get(schemas: [PrayerSchema, UserSettingsSchema]);
       // Verify that the retrieved instance is healthy and not in a corrupted/tableless state
-      existing.prayers.count();
+      existing.prayers.getAll([0]);
       return existing;
     } catch (_) {
       // Instance has not been opened yet, or it is in a corrupted state.
