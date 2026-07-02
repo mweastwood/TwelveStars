@@ -218,6 +218,14 @@ void main() {
                 'final_prayer_rosary/vietnamese_v1',
                 // GitHub Issue #72: act_of_contrition/tagalog
                 'act_of_contrition/tagalog_v1',
+                // Non-English St Francis translations that have unstable/404/non-scrapeable online sources
+                'st_francis/spanish_v1',
+                'st_francis/french_v1',
+                'st_francis/italian_v1',
+                'st_francis/latin_v1',
+                'st_francis/vietnamese_v1',
+                'st_francis/tagalog_v1',
+                'st_francis/traditionalChinese_v1',
               ].contains(skipKey) ||
               // GitHub Issue #73: now_i_lay_me (all languages)
               prayerId == 'now_i_lay_me';
