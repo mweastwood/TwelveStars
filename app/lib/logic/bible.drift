@@ -1,0 +1,9 @@
+CREATE TABLE bible_verses (
+    id INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    book_number INT NOT NULL,
+    book_name TEXT NOT NULL,
+    chapter INT NOT NULL,
+    verse_number INT NOT NULL,
+    verse_text TEXT NOT NULL,
+    translation_code TEXT NOT NULL
+);
