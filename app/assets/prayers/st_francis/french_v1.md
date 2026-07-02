@@ -1,0 +1,32 @@
+---
+category: "devotional"
+default_order: 12
+default_title: "Prayer of St. Francis"
+title: "Prière de Saint François"
+subtitle: "Prière pour la Paix"
+source_name: "Tradition Franciscaine"
+source_url: "https://fr.wikipedia.org/wiki/Prière_de_saint_François"
+history_author: "Anonyme (attribué à Saint François)"
+history_origin: "La Clochette (1912)"
+history_description: "Une magnifique prière demandant à Dieu de faire de nous des instruments de paix, d'amour et de réconciliation."
+---
+Seigneur, fais de moi un instrument de ta paix.
+Là où est la haine, que je mette l'amour.
+Là où est l'offense, que je mette le pardon.
+Là où est la discorde, que je mette l'union.
+Là où est l'erreur, que je mette la vérité.
+Là où est le doute, que je mette la foi.
+Là où est le désespoir, que je mette l'espérance.
+Là où sont les ténèbres, que je mette la lumière.
+Là où est la tristesse, que je mette la joie.
+
+O Seigneur, que je ne cherche pas tant à être consolé qu'à consoler,
+à être compris qu'à comprendre,
+à être aimé qu'à aimer.
+
+Car c'est en se donnant qu'on reçoit,
+c'est en s'oubliant qu'on se retrouve,
+c'est en pardonnant qu'on est pardonné,
+c'est en mourant qu'on ressuscite à l'éternelle vie.
+
+Amen.
