@@ -1,6 +1,6 @@
 ---
 category: "rosary"
-default_order: 11
+default_order: 9
 default_title: "Final Prayer of the Rosary"
 title: "Prière de conclusion du Rosaire"
 subtitle: "O Dieu, dont le Fils unique"

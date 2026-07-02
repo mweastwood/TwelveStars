@@ -1,6 +1,6 @@
 ---
 category: "devotional"
-default_order: 9
+default_order: 11
 default_title: "Anima Christi"
 title: "基督靈魂頌"
 subtitle: "領聖體後默禱"

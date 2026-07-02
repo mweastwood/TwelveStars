@@ -1,6 +1,6 @@
 ---
 category: "rosary"
-default_order: 7
+default_order: 8
 default_title: "Hail Holy Queen"
 title: "Salve Regina"
 subtitle: "Salve Regina"

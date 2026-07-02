@@ -1,6 +1,6 @@
 ---
 category: "devotional"
-default_order: 12
+default_order: 13
 default_title: "Prayer of St. Francis"
 title: "Kinh Hòa Bình"
 subtitle: "Lời nguyện của Thánh Phanxicô"

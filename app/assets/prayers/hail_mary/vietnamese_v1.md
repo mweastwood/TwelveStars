@@ -1,6 +1,6 @@
 ---
 category: "starter"
-default_order: 2
+default_order: 3
 default_title: "Hail Mary"
 title: "Kinh Kính Mừng"
 subtitle: "Kinh Kính Mừng"

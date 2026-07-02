@@ -1,6 +1,6 @@
 ---
 category: "devotional"
-default_order: 12
+default_order: 13
 default_title: "Prayer of St. Francis"
 title: "聖方濟和平禱文"
 subtitle: "使我作你和平的工具"

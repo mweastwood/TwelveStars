@@ -1,6 +1,6 @@
 ---
 category: "rosary"
-default_order: 11
+default_order: 9
 default_title: "Final Prayer of the Rosary"
 title: "玫瑰經結束禱文"
 subtitle: "結束禱詞"

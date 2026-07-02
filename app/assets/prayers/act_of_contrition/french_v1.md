@@ -1,6 +1,6 @@
 ---
 category: "devotional"
-default_order: 4
+default_order: 10
 default_title: "Act of Contrition"
 title: "Acte de Contrition"
 subtitle: "Version traditionnelle"
