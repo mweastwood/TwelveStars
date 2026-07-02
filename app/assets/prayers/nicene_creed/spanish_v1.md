@@ -1,6 +1,6 @@
 ---
 category: "creed"
-default_order: 5
+default_order: 6
 default_title: "Nicene Creed"
 title: "Credo Niceno-Constantinopolitano"
 subtitle: "Profesión de Fe"

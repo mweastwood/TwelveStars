@@ -1,6 +1,6 @@
 ---
 category: "creed"
-default_order: 8
+default_order: 6
 default_title: "Nicene Creed"
 title: "Credo de Nicée-Constantinople"
 subtitle: "Symbole de Nicée-Constantinople"

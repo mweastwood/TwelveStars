@@ -1,6 +1,6 @@
 ---
 category: "bedtime"
-default_order: 12
+default_order: 14
 default_title: "Now I Lay Me Down to Sleep"
 title: "Ora mi corico per dormire"
 subtitle: "Preghiera della sera"

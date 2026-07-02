@@ -1,6 +1,6 @@
 ---
 category: "devotional"
-default_order: 12
+default_order: 13
 default_title: "Prayer of St. Francis"
 title: "Prayer of St. Francis"
 subtitle: "Prayer for Peace"

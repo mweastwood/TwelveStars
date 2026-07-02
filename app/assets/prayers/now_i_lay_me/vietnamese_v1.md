@@ -1,6 +1,6 @@
 ---
 category: "bedtime"
-default_order: 12
+default_order: 14
 default_title: "Now I Lay Me Down to Sleep"
 title: "Giờ đây con nằm xuống ngủ"
 subtitle: "Kinh tối trẻ em"

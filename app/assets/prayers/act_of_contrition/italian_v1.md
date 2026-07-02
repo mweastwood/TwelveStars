@@ -1,6 +1,6 @@
 ---
 category: "devotional"
-default_order: 4
+default_order: 10
 default_title: "Act of Contrition"
 title: "Atto di Dolore"
 subtitle: "Versione tradizionale"

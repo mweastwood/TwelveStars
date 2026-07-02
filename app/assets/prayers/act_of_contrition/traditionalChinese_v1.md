@@ -1,6 +1,6 @@
 ---
 category: "devotional"
-default_order: 4
+default_order: 10
 default_title: "Act of Contrition"
 title: "痛悔經"
 subtitle: "悔罪經"

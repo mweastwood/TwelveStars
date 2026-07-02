@@ -1,6 +1,6 @@
 ---
 category: "devotional"
-default_order: 11
+default_order: 12
 default_title: "Prayer to St. Michael"
 title: "Sancte Michael Archangele"
 subtitle: "Prayer to St. Michael"

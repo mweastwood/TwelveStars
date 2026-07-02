@@ -1,6 +1,6 @@
 ---
 category: "starter"
-default_order: 1
+default_order: 2
 default_title: "Our Father"
 title: "Kinh Lạy Cha"
 subtitle: "Kinh Lạy Cha"

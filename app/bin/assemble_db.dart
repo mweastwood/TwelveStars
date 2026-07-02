@@ -197,6 +197,11 @@ void main() {
     });
   }
 
+  // Sort jsonList by default_order to keep a deterministic order in assets/prayers.json
+  jsonList.sort(
+    (a, b) => (a['default_order'] as int).compareTo(b['default_order'] as int),
+  );
+
   final targetJsonFile = File('assets/prayers.json');
   targetJsonFile.writeAsStringSync(jsonEncode(jsonList));
   print('Successfully compiled JSON database: assets/prayers.json');

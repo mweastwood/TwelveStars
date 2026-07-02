@@ -1,6 +1,6 @@
 ---
 category: "starter"
-default_order: 1
+default_order: 2
 default_title: "Our Father"
 title: "天主經"
 subtitle: "Lord’s Prayer"

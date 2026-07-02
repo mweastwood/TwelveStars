@@ -1,6 +1,6 @@
 ---
 category: "rosary"
-default_order: 6
+default_order: 7
 default_title: "Fatima Prayer"
 title: "Preghiera di Fatima"
 subtitle: "O Gesù mio"

@@ -1,6 +1,6 @@
 ---
 category: "creed"
-default_order: 8
+default_order: 6
 default_title: "Nicene Creed"
 title: "Kinh Tin Kính Nicene"
 subtitle: "Kinh Tin Kính"

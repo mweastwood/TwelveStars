@@ -1,6 +1,6 @@
 ---
 category: "rosary"
-default_order: 11
+default_order: 9
 default_title: "Final Prayer of the Rosary"
 title: "Preghiera finale del Rosario"
 subtitle: "O Dio, il tuo unico Figlio"

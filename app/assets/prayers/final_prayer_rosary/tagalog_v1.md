@@ -1,6 +1,6 @@
 ---
 category: "rosary"
-default_order: 11
+default_order: 9
 default_title: "Final Prayer of the Rosary"
 title: "Pangwakas na Panalangin sa Santo Rosaryo"
 subtitle: "O Diyos, na ang kaisa-isang Anak"
