@@ -293,7 +293,16 @@ class _HomeScreenState extends State<HomeScreen> {
           : _error != null
           ? Center(child: Text('Error loading prayers: $_error'))
           : _buildPrayersTab(theme),
-      const RosaryTab(),
+      _loading
+          ? const Center(child: CircularProgressIndicator())
+          : _error != null
+          ? Center(child: Text('Error loading prayers: $_error'))
+          : RosaryTab(
+              prayers: _prayers,
+              primaryLanguage: _primaryLanguage,
+              compareLanguage: _compareLanguage,
+              onLaunchSource: _launchSourceUrl,
+            ),
     ];
 
     final scaffold = Scaffold(

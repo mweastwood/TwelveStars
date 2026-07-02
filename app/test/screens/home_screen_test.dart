@@ -10,6 +10,22 @@ void main() {
   group('HomeScreen Widget', () {
     final mockPrayers = [
       Prayer.mock(
+        id: 'sign_of_the_cross',
+        defaultTitle: 'Sign of the Cross',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Sign of the Cross',
+              subtitle: 'Signum Crucis',
+              text:
+                  'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
         id: 'our_father',
         defaultTitle: 'Our Father',
         translations: {
@@ -83,6 +99,66 @@ void main() {
           ],
         },
       ),
+      Prayer.mock(
+        id: 'apostles_creed',
+        defaultTitle: 'Apostles\' Creed',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Apostles\' Creed',
+              subtitle: 'Profession of Faith',
+              text: 'I believe in God, the Father almighty...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'fatima_prayer',
+        defaultTitle: 'Fatima Prayer',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Fatima Prayer',
+              subtitle: 'Decade Prayer',
+              text: 'O my Jesus, forgive us our sins...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'hail_holy_queen',
+        defaultTitle: 'Hail Holy Queen',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Hail Holy Queen',
+              subtitle: 'Salve Regina',
+              text: 'Hail, holy Queen, Mother of mercy...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'final_prayer_rosary',
+        defaultTitle: 'Final Prayer',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Final Prayer',
+              subtitle: 'Rosary Closing Prayer',
+              text: 'O God, whose only begotten Son...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
     ];
 
     setUp(() {
@@ -108,15 +184,15 @@ void main() {
       expect(find.text('Rosary'), findsWidgets);
 
       // Rosary tab content should not be present initially
-      expect(find.text('The Holy Rosary'), findsNothing);
+      expect(find.text('Select Mysteries'), findsNothing);
 
       // Switch to the Rosary tab
       await tester.tap(find.text('Rosary').last);
       await tester.pumpAndSettle();
 
       // Rosary content should now be visible
-      expect(find.text('The Holy Rosary'), findsOneWidget);
-      expect(find.text('Coming Soon'), findsOneWidget);
+      expect(find.text('Select Mysteries'), findsOneWidget);
+      expect(find.text('Sign of the Cross'), findsWidgets);
 
       // Prayers should not be visible now
       expect(find.text('Our Father'), findsNothing);
