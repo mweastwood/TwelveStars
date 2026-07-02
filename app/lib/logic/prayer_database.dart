@@ -44,6 +44,9 @@ class PrayerDatabase {
         schemas: [PrayerSchema, UserSettingsSchema],
         directory: kIsWeb ? Isar.sqliteInMemory : (directory ?? ''),
         engine: kIsWeb ? IsarEngine.sqlite : IsarEngine.isar,
+        name: kIsWeb
+            ? 'default_${DateTime.now().millisecondsSinceEpoch}'
+            : Isar.defaultName,
       );
     } catch (e) {
       final errorStr = e.toString().toLowerCase();
