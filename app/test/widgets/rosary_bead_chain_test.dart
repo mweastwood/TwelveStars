@@ -51,12 +51,23 @@ void main() {
               onStepSelected: (_) {},
             ),
           ),
+        )
+        ..addScenario(
+          'Rosary Bead Chain Medal Active State',
+          SizedBox(
+            height: 300,
+            child: RosaryBeadChain(
+              steps: steps,
+              currentStep: 66, // Closing prayers Medal step
+              onStepSelected: (_) {},
+            ),
+          ),
         );
 
       await tester.pumpWidgetBuilder(
         builder.build(),
         wrapper: materialAppWrapper(),
-        surfaceSize: const Size(120, 450),
+        surfaceSize: const Size(120, 900),
       );
 
       await screenMatchesGolden(tester, 'rosary_bead_chain_golden');
