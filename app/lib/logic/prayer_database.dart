@@ -19,7 +19,8 @@ class PrayerDatabase {
 
   static Future<Isar> _initIsar() async {
     try {
-      return Isar.get(schemas: [PrayerSchema, UserSettingsSchema]);
+      final existing = Isar.get(schemas: [PrayerSchema, UserSettingsSchema]);
+      existing.close();
     } catch (_) {
       // Instance has not been opened yet, proceed with normal initialization
     }
