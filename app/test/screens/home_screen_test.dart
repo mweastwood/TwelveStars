@@ -226,7 +226,7 @@ void main() {
         // Switch to the Missal tab
         await tester.tap(find.text('Missal').last);
         await tester.pumpAndSettle();
-        expect(find.text("TODAY'S LITURGY OF THE WORD"), findsOneWidget);
+        expect(find.text('Mass Missal'), findsOneWidget);
 
         // Switch to the Bible tab
         await tester.tap(find.text('Bible').last);
