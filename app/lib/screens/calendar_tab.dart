@@ -121,6 +121,13 @@ class _CalendarTabState extends State<CalendarTab> {
     );
   }
 
+  bool get _isTodaySelected {
+    final now = DateTime.now();
+    return _selectedDate.year == now.year &&
+        _selectedDate.month == now.month &&
+        _selectedDate.day == now.day;
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -130,17 +137,19 @@ class _CalendarTabState extends State<CalendarTab> {
     final gridDays = _generateMonthDays(_selectedDate);
     final weekdayLabels = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
-    // Calculate upcoming days
-    final upcomingDays = List.generate(
-      4,
-      (i) => DateTime(
-        _selectedDate.year,
-        _selectedDate.month,
-        _selectedDate.day + i + 1,
-      ),
-    );
-
     return Scaffold(
+      floatingActionButton: !_isTodaySelected
+          ? FloatingActionButton.extended(
+              onPressed: () {
+                setState(() {
+                  final now = DateTime.now();
+                  _selectedDate = DateTime(now.year, now.month, now.day);
+                });
+              },
+              icon: const Icon(Icons.today),
+              label: const Text('Today'),
+            )
+          : null,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -225,6 +234,9 @@ class _CalendarTabState extends State<CalendarTab> {
                 itemBuilder: (context, index) {
                   final date = gridDays[index];
                   final isCurrentMonth = date.month == _selectedDate.month;
+                  if (!isCurrentMonth) {
+                    return const SizedBox.shrink();
+                  }
                   final isSelected =
                       date.year == _selectedDate.year &&
                       date.month == _selectedDate.month &&
@@ -469,100 +481,7 @@ class _CalendarTabState extends State<CalendarTab> {
                 const SizedBox(height: 16),
               ],
 
-              // 7. Upcoming Days
-              Text(
-                'Upcoming Days',
-                style: theme.textTheme.titleSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 6),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: upcomingDays.length,
-                itemBuilder: (context, index) {
-                  final nextDate = upcomingDays[index];
-                  final nextDay = LiturgicalCalendar.computeDay(nextDate);
-                  final isSunday = nextDate.weekday == DateTime.sunday;
-                  final displayLabel = nextDay.name ?? nextDay.weekName;
-
-                  final dayStr = LiturgicalCalendar.getDayOfWeekName(
-                    nextDate.weekday,
-                  ).substring(0, 3);
-                  final dateStr = '${nextDate.day}';
-
-                  return Card(
-                    margin: const EdgeInsets.symmetric(vertical: 3.0),
-                    elevation: 0,
-                    color: theme.colorScheme.surfaceContainerLow,
-                    child: ListTile(
-                      dense: true,
-                      onTap: () {
-                        setState(() {
-                          _selectedDate = nextDate;
-                        });
-                      },
-                      leading: SizedBox(
-                        width: 36,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              dayStr,
-                              style: theme.textTheme.bodySmall?.copyWith(
-                                color: isSunday
-                                    ? theme.colorScheme.error
-                                    : theme.colorScheme.onSurfaceVariant,
-                                fontWeight: isSunday
-                                    ? FontWeight.bold
-                                    : FontWeight.normal,
-                              ),
-                            ),
-                            Text(
-                              dateStr,
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      title: Text(
-                        displayLabel,
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          fontWeight: nextDay.name != null
-                              ? FontWeight.bold
-                              : FontWeight.normal,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      subtitle: Text(
-                        nextDay.seasonName,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
-                        ),
-                      ),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: nextDay.colorWidget,
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                          const SizedBox(width: 6),
-                          const Icon(Icons.chevron_right, size: 14),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
+              const SizedBox(height: 12),
             ],
           ),
         ),
