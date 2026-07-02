@@ -23,8 +23,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   bool _isSearching = false;
   String _searchQuery = '';
-  final TextEditingController _searchController = TextEditingController();
-  final FocusNode _searchFocusNode = FocusNode();
+  late final TextEditingController _searchController;
+  late final FocusNode _searchFocusNode;
 
   @override
   void dispose() {
@@ -51,6 +51,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    _searchController = TextEditingController();
+    _searchFocusNode = FocusNode();
     _loadData();
   }
 
