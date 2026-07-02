@@ -4,8 +4,10 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
-import 'package:twelve_stars/screens/rosary_tab.dart';
+import 'package:twelve_stars/screens/rosary_screen.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
+import 'package:twelve_stars/screens/calendar_tab.dart';
+import 'package:twelve_stars/screens/missal_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   final DateTime? initialDate;
@@ -295,17 +297,8 @@ class _HomeScreenState extends State<HomeScreen> {
           : _error != null
           ? Center(child: Text('Error loading prayers: $_error'))
           : _buildPrayersTab(theme),
-      _loading
-          ? const Center(child: CircularProgressIndicator())
-          : _error != null
-          ? Center(child: Text('Error loading prayers: $_error'))
-          : RosaryTab(
-              prayers: _prayers,
-              primaryLanguage: _primaryLanguage,
-              compareLanguage: _compareLanguage,
-              onLaunchSource: _launchSourceUrl,
-              initialDate: widget.initialDate,
-            ),
+      const CalendarTab(),
+      const MissalTab(),
       const BibleTab(),
     ];
 
@@ -350,6 +343,26 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: SafeArea(child: tabs[_currentTab]),
+      floatingActionButton: _currentTab == 0
+          ? FloatingActionButton.extended(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => RosaryScreen(
+                      prayers: _prayers,
+                      primaryLanguage: _primaryLanguage,
+                      compareLanguage: _compareLanguage,
+                      onLaunchSource: _launchSourceUrl,
+                      initialDate: widget.initialDate,
+                    ),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.grain),
+              label: const Text('Start Rosary'),
+            )
+          : null,
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentTab,
         onDestinationSelected: (index) {
@@ -367,9 +380,14 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Prayers',
           ),
           NavigationDestination(
-            icon: Icon(Icons.grain_outlined),
-            selectedIcon: Icon(Icons.grain),
-            label: 'Rosary',
+            icon: Icon(Icons.calendar_month_outlined),
+            selectedIcon: Icon(Icons.calendar_month),
+            label: 'Calendar',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.auto_stories_outlined),
+            selectedIcon: Icon(Icons.auto_stories),
+            label: 'Missal',
           ),
           NavigationDestination(
             icon: Icon(Icons.book_outlined),
