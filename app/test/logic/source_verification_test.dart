@@ -17,6 +17,32 @@ void main() {
         return htmlCache[url]!;
       }
 
+      if (url.startsWith(
+        'https://raw.githubusercontent.com/mweastwood/TwelveStars/main/',
+      )) {
+        // Intercept local repository references and load from filesystem
+        String relativePath = url.replaceFirst(
+          'https://raw.githubusercontent.com/mweastwood/TwelveStars/main/',
+          '',
+        );
+        if (relativePath.startsWith('app/')) {
+          relativePath = relativePath.substring(4);
+        }
+        final file = File(relativePath);
+        if (file.existsSync()) {
+          final content = await file.readAsString();
+          // Extract body after frontmatter
+          final parts = content.split('---');
+          if (parts.length >= 3) {
+            final body = parts.sublist(2).join('---');
+            htmlCache[url] = body;
+            return body;
+          }
+          htmlCache[url] = content;
+          return content;
+        }
+      }
+
       final response = await http
           .get(Uri.parse(url), headers: {'User-Agent': 'Mozilla/5.0'})
           .timeout(const Duration(seconds: 15));
@@ -174,10 +200,12 @@ void main() {
         'assets/prayers.json does not exist. Run bin/assemble_db.dart first.',
       );
     }
-    final jsonList = jsonDecode(jsonFile.readAsStringSync()) as List<dynamic>;
 
-    for (final prayerItem in jsonList) {
-      final pMap = prayerItem as Map<String, dynamic>;
+    final List<dynamic> prayersList =
+        jsonDecode(jsonFile.readAsStringSync()) as List<dynamic>;
+
+    // Run remote URL verification checks for each translation
+    for (final pMap in prayersList) {
       final prayerId = pMap['id'] as String;
       final category = pMap['category'] as String? ?? 'starter';
 
@@ -219,9 +247,6 @@ void main() {
                 'final_prayer_rosary/vietnamese_v1',
                 // GitHub Issue #72: act_of_contrition/tagalog
                 'act_of_contrition/tagalog_v1',
-                // St Francis translations that have no stable/standard online sources (no Wikipedia articles)
-                'st_francis/latin_v1',
-                'st_francis/tagalog_v1',
               ].contains(skipKey) ||
               // GitHub Issue #73: now_i_lay_me (all languages)
               prayerId == 'now_i_lay_me';
