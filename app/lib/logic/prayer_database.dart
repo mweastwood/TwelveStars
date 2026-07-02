@@ -19,9 +19,17 @@ class PrayerDatabase {
 
   static Future<Isar> _initIsar() async {
     try {
-      return Isar.get(schemas: [PrayerSchema, UserSettingsSchema]);
+      final existing = Isar.get(schemas: [PrayerSchema, UserSettingsSchema]);
+      // Verify that the retrieved instance is healthy and not in a corrupted/tableless state
+      existing.prayers.count();
+      return existing;
     } catch (_) {
-      // Instance has not been opened yet, proceed with normal initialization
+      // Instance has not been opened yet, or it is in a corrupted state.
+      // Try closing the existing instance first to release locks before we reopen/delete
+      try {
+        final existing = Isar.get(schemas: [PrayerSchema, UserSettingsSchema]);
+        existing.close();
+      } catch (_) {}
     }
     if (kIsWeb) {
       await Isar.initialize();
