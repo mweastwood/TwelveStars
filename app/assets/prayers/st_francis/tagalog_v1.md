@@ -8,7 +8,7 @@ source_name: "Tradisyong Pransiskano"
 source_url: "https://tl.wikipedia.org/wiki/Panalangin_ni_San_Francisco"
 history_author: "Hindi kilala (ipinapalagay na kay San Francisco)"
 history_origin: "La Clochette (1912)"
-history_description: "Isang tanyag na panalangin na humihingi ng tulong sa Diyos upang maging instrumento ng kapayapaan at pag-ibig."
+history_description: "Unang nailathala nang walang pangalan noong Disyembre 1912 sa Pranses na magasin na La Clochette ni Padre Esther Bouquerel. Noong 1916, inilathala ito sa L'Osservatore Romano. Noong 1920, inilimbag ito sa isang postcard ng kapayapaan na may larawan ni San Francisco sa likod, na naging dahilan ng maling pag-aangkin nito sa santo."
 ---
 Panginoon, gawin Mo akong instrumento ng Iyong kapayapaan.
 Saan man may poot, nawa’y maghasik ako ng pag-ibig;

@@ -8,7 +8,7 @@ source_name: "Tradizione Francescana"
 source_url: "https://it.wikipedia.org/wiki/Preghiera_semplice"
 history_author: "Anonimo (attribuito a San Francesco)"
 history_origin: "La Clochette (1912)"
-history_description: "Una celebre preghiera che invoca la pace e l'amore disinteressato verso il prossimo."
+history_description: "Pubblicata per la prima volta in forma anonima nel dicembre 1912 sulla rivista spirituale francese La Clochette da padre Esther Bouquerel. Nel 1916 fu pubblicata sull'Osservatore Romano. Intorno al 1920 fu stampata su una cartolina della pace con l'immagine di San Francesco d'Assisi sul retro, dando origine alla sua popolare ma errata attribuzione al santo."
 ---
 Signore, fa' di me uno strumento della tua pace:
 dove è odio, ch'io porti l'amore,

@@ -8,7 +8,7 @@ source_name: "Traditio Franciscana"
 source_url: "https://la.wikipedia.org/wiki/Oratio_Sancti_Francisci"
 history_author: "Anonymus (Sancto Francisco attributa)"
 history_origin: "La Clochette (1912)"
-history_description: "Precatio pulcherrima quae Deum rogat ut nos faciat instrumenta pacis, amoris, et reconciliationis."
+history_description: "Primum sine nomine editum mense Decembri anno 1912 in libello gallico La Clochette a patre Esther Bouquerel. Anno 1916 in L'Osservatore Romano editum est. Circa annum 1920 in chartula pacis cum imagine Sancti Francisci Assisiensis in tergo impressum est, unde orta est popularis sed falsa attributio huic sancto."
 ---
 Domine, fac me instrumentum pacis tuae:
 Ubi odium, ibi amor;

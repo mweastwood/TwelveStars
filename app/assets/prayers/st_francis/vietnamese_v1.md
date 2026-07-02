@@ -8,7 +8,7 @@ source_name: "Truyền thống Phanxicô"
 source_url: "https://vi.wikipedia.org/wiki/Kinh_H%C3%B2a_B%C3%ACnh"
 history_author: "Khuyết danh (phỏng dịch theo Thánh Phanxicô)"
 history_origin: "La Clochette (1912)"
-history_description: "Lời kinh cầu nguyện cho sự hòa bình, yêu thương và phụng sự tha nhân."
+history_description: "Được xuất bản ẩn danh lần đầu tiên vào tháng 12 năm 1912 trên tạp chí La Clochette của Pháp bởi Cha Esther Bouquerel. Năm 1916, lời kinh được đăng trên L'Osservatore Romano. Khoảng năm 1920, lời kinh được in trên một bưu thiếp hòa bình với hình ảnh Thánh Phanxicô ở mặt sau, dẫn đến việc ngộ nhận lời kinh là do ngài viết."
 ---
 Lạy Chúa, xin hãy dùng con như khí cụ bình an của Chúa.
 Để con đem yêu thương vào nơi oán thù,
