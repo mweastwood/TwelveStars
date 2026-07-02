@@ -156,9 +156,10 @@ void main() {
         '',
       );
 
-      // Strip closing Amen or equivalent from the end/body of the text
       res = res
           .replaceAll('amen', '')
+          .replaceAll('amén', '')
+          .replaceAll('amên', '')
           .replaceAll('amon', '')
           .replaceAll('亞孟', '')
           .replaceAll('阿們', '');
@@ -180,7 +181,7 @@ void main() {
       final prayerId = pMap['id'] as String;
       final category = pMap['category'] as String? ?? 'starter';
 
-      if (category != 'starter') continue;
+      if (category != 'starter' && prayerId != 'st_francis') continue;
 
       final transMap = pMap['translations'] as Map<String, dynamic>;
 
@@ -218,14 +219,9 @@ void main() {
                 'final_prayer_rosary/vietnamese_v1',
                 // GitHub Issue #72: act_of_contrition/tagalog
                 'act_of_contrition/tagalog_v1',
-                // Non-English St Francis translations that have unstable/404/non-scrapeable online sources
-                'st_francis/spanish_v1',
-                'st_francis/french_v1',
-                'st_francis/italian_v1',
+                // St Francis translations that have no stable/standard online sources (no Wikipedia articles)
                 'st_francis/latin_v1',
-                'st_francis/vietnamese_v1',
                 'st_francis/tagalog_v1',
-                'st_francis/traditionalChinese_v1',
               ].contains(skipKey) ||
               // GitHub Issue #73: now_i_lay_me (all languages)
               prayerId == 'now_i_lay_me';
