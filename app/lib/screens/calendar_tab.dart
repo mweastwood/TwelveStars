@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import '../logic/liturgical_calendar.dart';
+import '../logic/bible_database.dart'
+    show LectionaryReading, BibleDatabaseHelper;
+import '../widgets/mass_reading_card.dart';
 
 class CalendarTab extends StatefulWidget {
   final DateTime? initialDate;
@@ -504,6 +507,48 @@ class _CalendarTabState extends State<CalendarTab> {
                 const SizedBox(height: 16),
               ],
 
+              FutureBuilder<List<LectionaryReading>>(
+                future: BibleDatabaseHelper.db.getReadings(
+                  currentDay.lectionaryKey,
+                ),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20.0),
+                      child: Center(
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      ),
+                    );
+                  }
+                  if (snapshot.hasError) {
+                    return Text(
+                      'Error loading readings: ${snapshot.error}',
+                      style: TextStyle(color: theme.colorScheme.error),
+                    );
+                  }
+                  final readings = snapshot.data ?? [];
+                  if (readings.isEmpty) {
+                    return const SizedBox.shrink();
+                  }
+
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'MASS READINGS',
+                        style: theme.textTheme.labelMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: theme.colorScheme.primary,
+                          letterSpacing: 1.1,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      ...readings.map((r) => MassReadingCard(reading: r)),
+                      const SizedBox(height: 12),
+                    ],
+                  );
+                },
+              ),
               const SizedBox(height: 12),
             ],
           ),

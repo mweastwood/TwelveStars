@@ -7,3 +7,14 @@ CREATE TABLE bible_verses (
     verse_text TEXT NOT NULL,
     translation_code TEXT NOT NULL
 );
+
+CREATE TABLE lectionary_readings (
+    id INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    reading_key TEXT NOT NULL,
+    reading_type TEXT NOT NULL,
+    book_number INT NOT NULL,
+    book_name TEXT NOT NULL,
+    chapter INT NOT NULL,
+    verse_range TEXT NOT NULL,
+    citation TEXT NOT NULL
+);

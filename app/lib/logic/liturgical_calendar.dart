@@ -24,6 +24,111 @@ class LiturgicalDay {
     required this.weekdayCycle,
   });
 
+  String get lectionaryKey {
+    if (name != null) {
+      final norm = name!.toLowerCase();
+      if (norm.contains('joseph')) {
+        return 'feast_st_joseph';
+      }
+      if (norm.contains('annunciation')) {
+        return 'feast_annunciation';
+      }
+      if (norm.contains('john the baptist')) {
+        return 'feast_st_john_baptist';
+      }
+      if (norm.contains('peter and paul')) {
+        return 'feast_st_peter_paul';
+      }
+      if (norm.contains('assumption')) {
+        return 'feast_assumption';
+      }
+      if (norm.contains('all saints')) {
+        return 'feast_all_saints';
+      }
+      if (norm.contains('immaculate conception')) {
+        return 'feast_immaculate_conception';
+      }
+      if (norm.contains('baptism of the lord')) {
+        return 'feast_baptism_of_the_lord';
+      }
+      if (norm.contains('holy family')) {
+        return 'feast_holy_family';
+      }
+      if (norm.contains('trinity')) {
+        return 'feast_holy_trinity';
+      }
+      if (norm.contains('corpus christi')) {
+        return 'feast_corpus_christi';
+      }
+      if (norm.contains('sacred heart')) {
+        return 'feast_sacred_heart';
+      }
+      if (norm.contains('king of the universe')) {
+        return 'feast_christ_the_king';
+      }
+    }
+
+    final normWeek = weekName.toLowerCase();
+    if (normWeek.contains('ash wednesday')) {
+      return 'season_lent_ash_wednesday';
+    }
+    if (normWeek.contains('holy thursday')) {
+      return 'triduum_holy_thursday';
+    }
+    if (normWeek.contains('good friday')) {
+      return 'triduum_good_friday';
+    }
+    if (normWeek.contains('holy saturday')) {
+      return 'triduum_holy_saturday';
+    }
+    if (normWeek.contains('easter sunday')) {
+      return 'season_easter_sunday';
+    }
+
+    final weekMatch = RegExp(r'(\d+)(?:st|nd|rd|th)').firstMatch(weekName);
+    final week = weekMatch != null ? int.parse(weekMatch.group(1)!) : 1;
+    final isSunday = date.weekday == DateTime.sunday;
+    final days = [
+      'monday',
+      'tuesday',
+      'wednesday',
+      'thursday',
+      'friday',
+      'saturday',
+      'sunday',
+    ];
+    final dayName = days[date.weekday - 1];
+
+    switch (season) {
+      case LiturgicalSeason.advent:
+        return isSunday
+            ? 'season_advent_${week}_sunday_${sundayCycle.toLowerCase()}'
+            : 'season_advent_${week}_$dayName';
+      case LiturgicalSeason.christmas:
+        return 'season_christmas_${date.month}_${date.day}';
+      case LiturgicalSeason.lent:
+        if (normWeek.contains('after ash wednesday')) {
+          return 'season_lent_0_$dayName';
+        }
+        if (normWeek.contains('holy week')) {
+          return 'season_lent_6_$dayName';
+        }
+        return isSunday
+            ? 'season_lent_${week}_sunday_${sundayCycle.toLowerCase()}'
+            : 'season_lent_${week}_$dayName';
+      case LiturgicalSeason.easter:
+        return isSunday
+            ? 'season_easter_${week}_sunday_${sundayCycle.toLowerCase()}'
+            : 'season_easter_${week}_$dayName';
+      case LiturgicalSeason.ordinaryTime:
+        return isSunday
+            ? 'season_ordinary_time_${week}_sunday_${sundayCycle.toLowerCase()}'
+            : 'season_ordinary_time_${week}_${dayName}_${weekdayCycle.toLowerCase() == 'ii' ? '2' : '1'}';
+      case LiturgicalSeason.triduum:
+        return 'triduum_$dayName';
+    }
+  }
+
   String get seasonName {
     switch (season) {
       case LiturgicalSeason.advent:

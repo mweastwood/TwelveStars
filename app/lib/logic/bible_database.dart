@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -83,6 +84,52 @@ class BibleDatabase extends _$BibleDatabase {
   // Populate translation if empty (default to Genesis for compatibility)
   Future<void> ensurePopulated() async {
     await ensureBookPopulated(1, 'Genesis', 'GEN');
+    await _ensureLectionaryPopulated();
+  }
+
+  // Retrieve readings for a specific liturgical day key
+  Future<List<LectionaryReading>> getReadings(String key) {
+    return (select(lectionaryReadings)
+          ..where((t) => t.readingKey.equals(key))
+          ..orderBy([(t) => OrderingTerm(expression: t.id)]))
+        .get();
+  }
+
+  // Populate lectionary if empty
+  Future<void> _ensureLectionaryPopulated() async {
+    final countCheck = await (select(lectionaryReadings)..limit(1)).get();
+    if (countCheck.isNotEmpty) {
+      return; // Already populated
+    }
+
+    try {
+      final jsonContent = await rootBundle.loadString(
+        'assets/bible/lectionary.json',
+      );
+      final List<dynamic> decoded = jsonDecode(jsonContent);
+
+      await batch((batch) {
+        batch.insertAll(
+          lectionaryReadings,
+          decoded.map(
+            (item) => LectionaryReadingsCompanion.insert(
+              readingKey: item['reading_key'] as String,
+              readingType: item['reading_type'] as String,
+              bookNumber: item['book_number'] as int,
+              bookName: item['book_name'] as String,
+              chapter: item['chapter'] as int,
+              verseRange: item['verse_range'] as String,
+              citation: item['citation'] as String,
+            ),
+          ),
+        );
+      });
+      debugPrint(
+        'Successfully seeded lectionary database with ${decoded.length} entries',
+      );
+    } catch (e) {
+      debugPrint('Error seeding lectionary database: $e');
+    }
   }
 }
 
