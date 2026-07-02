@@ -91,7 +91,22 @@ class PrayerDatabase {
     final list = isarInstance.prayers.where().sortByDefaultOrder().findAll();
     final compiledPrayers = await _loadPrayersFromWebJson();
 
-    if (list.length != compiledPrayers.length) {
+    bool needsUpdate = list.length != compiledPrayers.length;
+    if (!needsUpdate) {
+      for (final p in list) {
+        final cp = compiledPrayers.firstWhere(
+          (element) => element.prayerId == p.prayerId,
+          orElse: () => p,
+        );
+        if (p.defaultOrder != cp.defaultOrder ||
+            p.defaultTitle != cp.defaultTitle) {
+          needsUpdate = true;
+          break;
+        }
+      }
+    }
+
+    if (needsUpdate) {
       isarInstance.write((isar) {
         isar.prayers.clear();
         for (final prayer in compiledPrayers) {
