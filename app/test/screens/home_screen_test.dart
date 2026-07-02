@@ -141,6 +141,79 @@ void main() {
       expect(find.text('wǒ'), findsWidgets);
     });
 
+    testWidgets('search bar filters prayers list and handles clear/close', (
+      tester,
+    ) async {
+      await tester.pumpWidget(buildTestableWidget(child: const HomeScreen()));
+      await tester.pumpAndSettle(); // Let database load
+
+      // Initially all three mock prayers are visible
+      expect(find.text('Our Father'), findsOneWidget);
+      expect(find.text('Hail Mary'), findsOneWidget);
+      expect(find.text('Glory Be'), findsOneWidget);
+
+      // Search button should be visible in Prayers tab
+      final searchButton = find.byIcon(Icons.search);
+      expect(searchButton, findsOneWidget);
+
+      // Tap search button to open search
+      await tester.tap(searchButton);
+      await tester.pumpAndSettle();
+
+      // AppBar should contain TextField
+      final searchTextField = find.byType(TextField);
+      expect(searchTextField, findsOneWidget);
+
+      // Enter search query "hail"
+      await tester.enterText(searchTextField, 'hail');
+      await tester.pumpAndSettle();
+
+      // Only "Hail Mary" should match and be visible
+      expect(find.text('Hail Mary'), findsOneWidget);
+      expect(find.text('Our Father'), findsNothing);
+      expect(find.text('Glory Be'), findsNothing);
+
+      // Clear search via clear button
+      final clearButton = find.byIcon(Icons.clear);
+      expect(clearButton, findsOneWidget);
+      await tester.tap(clearButton);
+      await tester.pumpAndSettle();
+
+      // All mock prayers should be visible again
+      expect(find.text('Our Father'), findsOneWidget);
+      expect(find.text('Hail Mary'), findsOneWidget);
+      expect(find.text('Glory Be'), findsOneWidget);
+
+      // Type a query that yields no results
+      await tester.enterText(searchTextField, 'nonexistentprayer');
+      await tester.pumpAndSettle();
+
+      // Verify empty search state is visible
+      expect(
+        find.text('No prayers matching "nonexistentprayer"'),
+        findsOneWidget,
+      );
+      final clearSearchButton = find.text('Clear search');
+      expect(clearSearchButton, findsOneWidget);
+
+      // Tap "Clear search" in empty state
+      await tester.tap(clearSearchButton);
+      await tester.pumpAndSettle();
+
+      // All mock prayers should be visible again
+      expect(find.text('Our Father'), findsOneWidget);
+
+      // Search is already open, so tap back button to close search
+      final backButton = find.byIcon(Icons.arrow_back);
+      expect(backButton, findsOneWidget);
+      await tester.tap(backButton);
+      await tester.pumpAndSettle();
+
+      // TextField should be gone, standard title back
+      expect(find.byType(TextField), findsNothing);
+      expect(find.text('Twelve Stars'), findsOneWidget);
+    });
+
     testGoldens('HomeScreen renders correctly in both tabs', (tester) async {
       // 1. Initial/Prayers tab golden
       await tester.pumpWidgetBuilder(

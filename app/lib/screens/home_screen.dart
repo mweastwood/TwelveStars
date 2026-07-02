@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
@@ -19,6 +20,33 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Prayer>? _prayers;
   bool _loading = true;
   String? _error;
+
+  bool _isSearching = false;
+  String _searchQuery = '';
+  final TextEditingController _searchController = TextEditingController();
+  final FocusNode _searchFocusNode = FocusNode();
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    _searchFocusNode.dispose();
+    super.dispose();
+  }
+
+  void _openSearch() {
+    setState(() {
+      _isSearching = true;
+    });
+    _searchFocusNode.requestFocus();
+  }
+
+  void _closeSearch() {
+    setState(() {
+      _isSearching = false;
+      _searchQuery = '';
+      _searchController.clear();
+    });
+  }
 
   @override
   void initState() {
@@ -239,14 +267,55 @@ class _HomeScreenState extends State<HomeScreen> {
       const RosaryTab(),
     ];
 
-    return Scaffold(
-      appBar: AppBar(title: const Text('Twelve Stars')),
+    final scaffold = Scaffold(
+      appBar: AppBar(
+        title: _isSearching
+            ? TextField(
+                controller: _searchController,
+                focusNode: _searchFocusNode,
+                style: TextStyle(color: theme.colorScheme.onSurface),
+                decoration: const InputDecoration(
+                  hintText: 'Search prayers...',
+                  border: InputBorder.none,
+                ),
+                onChanged: (val) {
+                  setState(() {
+                    _searchQuery = val;
+                  });
+                },
+              )
+            : const Text('Twelve Stars'),
+        leading: _isSearching
+            ? IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: _closeSearch,
+              )
+            : null,
+        actions: [
+          if (_isSearching)
+            IconButton(
+              icon: const Icon(Icons.clear),
+              onPressed: () {
+                setState(() {
+                  _searchController.clear();
+                  _searchQuery = '';
+                });
+                _searchFocusNode.requestFocus();
+              },
+            )
+          else if (_currentTab == 0)
+            IconButton(icon: const Icon(Icons.search), onPressed: _openSearch),
+        ],
+      ),
       body: SafeArea(child: tabs[_currentTab]),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentTab,
         onDestinationSelected: (index) {
           setState(() {
             _currentTab = index;
+            if (index != 0 && _isSearching) {
+              _closeSearch();
+            }
           });
         },
         destinations: const [
@@ -263,6 +332,37 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
+
+    return CallbackShortcuts(
+      bindings: {
+        const SingleActivator(LogicalKeyboardKey.slash): () {
+          final primaryFocus = FocusManager.instance.primaryFocus;
+          final isEditableFocused =
+              primaryFocus?.context?.widget is EditableText;
+          if (_currentTab == 0 && !_isSearching && !isEditableFocused) {
+            _openSearch();
+          }
+        },
+        const SingleActivator(LogicalKeyboardKey.escape): () {
+          if (_isSearching) {
+            _closeSearch();
+          }
+        },
+      },
+      child: Focus(
+        autofocus: true,
+        child: PopScope(
+          canPop: !_isSearching,
+          onPopInvokedWithResult: (didPop, result) {
+            if (didPop) return;
+            if (_isSearching) {
+              _closeSearch();
+            }
+          },
+          child: scaffold,
+        ),
+      ),
+    );
   }
 
   Widget _buildPrayersTab(ThemeData theme) {
@@ -271,20 +371,62 @@ class _HomeScreenState extends State<HomeScreen> {
       return const Center(child: Text('No prayers found.'));
     }
 
+    final query = _searchQuery.trim().toLowerCase();
+    final filteredPrayers = prayers.where((prayer) {
+      if (query.isEmpty) return true;
+      final transList = prayer.translations[_primaryLanguage];
+      if (transList == null || transList.isEmpty) return false;
+      final trans = transList[0];
+
+      final queryWords = query.split(RegExp(r'\s+')).where((w) => w.isNotEmpty);
+      if (queryWords.isEmpty) return true;
+
+      return queryWords.every((word) {
+        final matchTitle = trans.title.toLowerCase().contains(word);
+        final matchSubtitle = trans.subtitle.toLowerCase().contains(word);
+        final matchText = trans.text.toLowerCase().contains(word);
+        return matchTitle || matchSubtitle || matchText;
+      });
+    }).toList();
+
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       child: Column(
         children: [
           _buildGlobalLanguageSelectors(theme),
           const SizedBox(height: 12),
-          ...prayers.map((prayer) {
-            return PrayerCard(
-              prayer: prayer,
-              selectedLanguage: _primaryLanguage,
-              compareLanguage: _compareLanguage,
-              onLaunchSource: _launchSourceUrl,
-            );
-          }),
+          if (filteredPrayers.isEmpty)
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 48),
+                  Text(
+                    'No prayers matching "$_searchQuery"',
+                    style: theme.textTheme.bodyMedium,
+                  ),
+                  const SizedBox(height: 8),
+                  TextButton(
+                    onPressed: () {
+                      setState(() {
+                        _searchController.clear();
+                        _searchQuery = '';
+                      });
+                    },
+                    child: const Text('Clear search'),
+                  ),
+                ],
+              ),
+            )
+          else
+            ...filteredPrayers.map((prayer) {
+              return PrayerCard(
+                prayer: prayer,
+                selectedLanguage: _primaryLanguage,
+                compareLanguage: _compareLanguage,
+                onLaunchSource: _launchSourceUrl,
+              );
+            }),
           const SizedBox(height: 24),
           Text(
             '“A great sign appeared in heaven: a woman clothed with the sun, with the moon under her feet, and on her head a crown of twelve stars.”',
