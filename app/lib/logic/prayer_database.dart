@@ -18,6 +18,19 @@ class PrayerDatabase {
   }
 
   static Future<Isar> _initIsar() async {
+    try {
+      final existing = Isar.get(schemas: [PrayerSchema, UserSettingsSchema]);
+      // Verify that the retrieved instance is healthy and not in a corrupted/tableless state
+      existing.prayers.getAll([0]);
+      return existing;
+    } catch (_) {
+      // Instance has not been opened yet, or it is in a corrupted state.
+      // Try closing the existing instance first to release locks before we reopen/delete
+      try {
+        final existing = Isar.get(schemas: [PrayerSchema, UserSettingsSchema]);
+        existing.close();
+      } catch (_) {}
+    }
     if (kIsWeb) {
       await Isar.initialize();
     }
@@ -31,19 +44,28 @@ class PrayerDatabase {
         schemas: [PrayerSchema, UserSettingsSchema],
         directory: kIsWeb ? Isar.sqliteInMemory : (directory ?? ''),
         engine: kIsWeb ? IsarEngine.sqlite : IsarEngine.isar,
+        name: kIsWeb
+            ? 'default_${DateTime.now().millisecondsSinceEpoch}'
+            : Isar.defaultName,
       );
     } catch (e) {
-      if (!kIsWeb && directory != null) {
+      final errorStr = e.toString().toLowerCase();
+      final isAlreadyOpenError =
+          errorStr.contains('already opened') ||
+          errorStr.contains('already open');
+      if (!kIsWeb && directory != null && !isAlreadyOpenError) {
         try {
           final isarDir = Directory(directory);
-          if (await isarDir.exists()) {
-            await for (final entity in isarDir.list()) {
+          if (isarDir.existsSync()) {
+            for (final entity in isarDir.listSync()) {
               if (entity is File &&
                   (entity.path.endsWith('.isar') ||
                       entity.path.endsWith('.sqlite') ||
                       entity.path.contains('isar') ||
                       entity.path.contains('sqlite'))) {
-                await entity.delete();
+                try {
+                  entity.deleteSync();
+                } catch (_) {}
               }
             }
           }
