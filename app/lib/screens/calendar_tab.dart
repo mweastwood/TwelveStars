@@ -36,7 +36,11 @@ class _CalendarTabState extends State<CalendarTab> {
 
   void _changeDay(int offset) {
     setState(() {
-      _selectedDate = _selectedDate.add(Duration(days: offset));
+      _selectedDate = DateTime(
+        _selectedDate.year,
+        _selectedDate.month,
+        _selectedDate.day + offset,
+      );
     });
   }
 
@@ -102,10 +106,18 @@ class _CalendarTabState extends State<CalendarTab> {
   List<DateTime> _generateMonthDays(DateTime date) {
     final firstDayOfMonth = DateTime(date.year, date.month, 1);
     final startOffset = firstDayOfMonth.weekday % 7; // Sunday is 0
-    final firstGridDay = firstDayOfMonth.subtract(Duration(days: startOffset));
+    final firstGridDay = DateTime(
+      firstDayOfMonth.year,
+      firstDayOfMonth.month,
+      firstDayOfMonth.day - startOffset,
+    );
     return List.generate(
       42,
-      (index) => firstGridDay.add(Duration(days: index)),
+      (index) => DateTime(
+        firstGridDay.year,
+        firstGridDay.month,
+        firstGridDay.day + index,
+      ),
     );
   }
 
@@ -121,7 +133,11 @@ class _CalendarTabState extends State<CalendarTab> {
     // Calculate upcoming days
     final upcomingDays = List.generate(
       4,
-      (i) => _selectedDate.add(Duration(days: i + 1)),
+      (i) => DateTime(
+        _selectedDate.year,
+        _selectedDate.month,
+        _selectedDate.day + i + 1,
+      ),
     );
 
     return Scaffold(

@@ -92,7 +92,6 @@ class LiturgicalCalendar {
     return DateTime(year, month, day);
   }
 
-  // 1st Sunday of Advent is the Sunday on or between Nov 27 and Dec 3
   static DateTime getFirstSundayOfAdvent(int year) {
     final nov30 = DateTime(year, 11, 30);
     final weekday = nov30.weekday;
@@ -104,7 +103,7 @@ class LiturgicalCalendar {
     } else {
       offset = 7 - weekday; // go forward to Sunday
     }
-    return nov30.add(Duration(days: offset));
+    return DateTime(nov30.year, nov30.month, nov30.day + offset);
   }
 
   static DateTime getEpiphany(int year) {
@@ -122,10 +121,10 @@ class LiturgicalCalendar {
     final epiphany = getEpiphany(year);
     // If Epiphany is on Jan 7 or Jan 8, Baptism is the next day (Monday)
     if (epiphany.day == 7 || epiphany.day == 8) {
-      return epiphany.add(const Duration(days: 1));
+      return DateTime(epiphany.year, epiphany.month, epiphany.day + 1);
     }
     // Otherwise, it is the Sunday after Epiphany
-    return epiphany.add(const Duration(days: 7));
+    return DateTime(epiphany.year, epiphany.month, epiphany.day + 7);
   }
 
   static String getOrdinalSuffix(int num) {
@@ -235,18 +234,46 @@ class LiturgicalCalendar {
     final weekdayCycle = calculateWeekdayCycle(year, localDate, advent);
 
     // Movable Feasts relative to activeEaster
-    final ashWednesday = activeEaster.subtract(const Duration(days: 46));
-    final holyThursday = activeEaster.subtract(const Duration(days: 3));
-    final goodFriday = activeEaster.subtract(const Duration(days: 2));
-    final pentecost = activeEaster.add(const Duration(days: 49));
-    final trinitySunday = activeEaster.add(const Duration(days: 56));
-    final corpusChristi = activeEaster.add(
-      const Duration(days: 63),
+    final ashWednesday = DateTime(
+      activeEaster.year,
+      activeEaster.month,
+      activeEaster.day - 46,
+    );
+    final holyThursday = DateTime(
+      activeEaster.year,
+      activeEaster.month,
+      activeEaster.day - 3,
+    );
+    final goodFriday = DateTime(
+      activeEaster.year,
+      activeEaster.month,
+      activeEaster.day - 2,
+    );
+    final pentecost = DateTime(
+      activeEaster.year,
+      activeEaster.month,
+      activeEaster.day + 49,
+    );
+    final trinitySunday = DateTime(
+      activeEaster.year,
+      activeEaster.month,
+      activeEaster.day + 56,
+    );
+    final corpusChristi = DateTime(
+      activeEaster.year,
+      activeEaster.month,
+      activeEaster.day + 63,
     ); // Sunday transfer
-    final sacredHeart = activeEaster.add(
-      const Duration(days: 68),
+    final sacredHeart = DateTime(
+      activeEaster.year,
+      activeEaster.month,
+      activeEaster.day + 68,
     ); // Friday after 2nd Sunday after Pentecost
-    final christTheKing = activeAdventStart.subtract(const Duration(days: 7));
+    final christTheKing = DateTime(
+      activeAdventStart.year,
+      activeAdventStart.month,
+      activeAdventStart.day - 7,
+    );
 
     // Seasons checks
     LiturgicalSeason season;
@@ -290,14 +317,15 @@ class LiturgicalCalendar {
           name = 'The Baptism of the Lord';
           weekName = 'Feast of the Baptism of the Lord';
         } else {
-          // Check for Holy Family (Sunday in the Octave of Christmas, or Dec 30 if Christmas is Sunday)
           final dec25 = DateTime(
-            localDate.year == 12 ? localDate.year : localDate.year - 1,
+            localDate.month == 12 ? localDate.year : localDate.year - 1,
             12,
             25,
           );
-          final holyFamilySunday = dec25.add(
-            Duration(days: 7 - dec25.weekday % 7),
+          final holyFamilySunday = DateTime(
+            dec25.year,
+            dec25.month,
+            dec25.day + 7 - dec25.weekday % 7,
           );
           if (localDate.isAtSameMomentAs(holyFamilySunday)) {
             name = 'The Holy Family of Jesus, Mary and Joseph';
@@ -403,12 +431,14 @@ class LiturgicalCalendar {
       final nextAdvent = localDate.isBefore(advent)
           ? advent
           : getFirstSundayOfAdvent(year + 1);
-      final sundayOfContainingWeek = localDate.subtract(
-        Duration(days: localDate.weekday % 7),
+      final sundayOfContainingWeek = DateTime(
+        localDate.year,
+        localDate.month,
+        localDate.day - localDate.weekday % 7,
       );
       final weeksFromAdvent =
           nextAdvent.difference(sundayOfContainingWeek).inDays ~/ 7;
-      final week = 35 - weeksFromAdvent;
+      final int week = 35 - weeksFromAdvent;
 
       if (localDate.weekday == DateTime.sunday) {
         weekName = '$week${getOrdinalSuffix(week)} Sunday in Ordinary Time';
