@@ -147,6 +147,20 @@ class _CalendarTabState extends State<CalendarTab> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
+          if (!_isTodaySelected) ...[
+            FloatingActionButton.extended(
+              heroTag: 'today_fab',
+              onPressed: () {
+                setState(() {
+                  final now = DateTime.now();
+                  _selectedDate = DateTime(now.year, now.month, now.day);
+                });
+              },
+              icon: const Icon(Icons.restore),
+              label: const Text('Today'),
+            ),
+            const SizedBox(height: 8),
+          ],
           FloatingActionButton.extended(
             heroTag: 'next_sunday_fab',
             onPressed: () {
@@ -157,20 +171,6 @@ class _CalendarTabState extends State<CalendarTab> {
             icon: const Icon(Icons.navigate_next),
             label: const Text('Next Sunday'),
           ),
-          if (!_isTodaySelected) ...[
-            const SizedBox(height: 8),
-            FloatingActionButton.extended(
-              heroTag: 'today_fab',
-              onPressed: () {
-                setState(() {
-                  final now = DateTime.now();
-                  _selectedDate = DateTime(now.year, now.month, now.day);
-                });
-              },
-              icon: const Icon(Icons.today),
-              label: const Text('Today'),
-            ),
-          ],
         ],
       ),
       body: SingleChildScrollView(
