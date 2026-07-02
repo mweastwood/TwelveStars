@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dynamic_color/dynamic_color.dart';
 import 'screens/home_screen.dart';
 
 void main() {
@@ -20,24 +21,33 @@ class TwelveStarsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Twelve Stars',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF1E3A8A), // Marian Deep Blue
-          brightness: Brightness.light,
-        ),
-        useMaterial3: true,
-      ),
-      darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF1E3A8A), // Marian Deep Blue
-          brightness: Brightness.dark,
-        ),
-        useMaterial3: true,
-      ),
-      home: const HomeScreen(),
-      debugShowCheckedModeBanner: false,
+    return DynamicColorBuilder(
+      builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
+        ColorScheme lightScheme;
+        ColorScheme darkScheme;
+
+        if (lightDynamic != null && darkDynamic != null) {
+          lightScheme = lightDynamic;
+          darkScheme = darkDynamic;
+        } else {
+          lightScheme = ColorScheme.fromSeed(
+            seedColor: const Color(0xFF1E3A8A), // Marian Deep Blue
+            brightness: Brightness.light,
+          );
+          darkScheme = ColorScheme.fromSeed(
+            seedColor: const Color(0xFF1E3A8A), // Marian Deep Blue
+            brightness: Brightness.dark,
+          );
+        }
+
+        return MaterialApp(
+          title: 'Twelve Stars',
+          theme: ThemeData(colorScheme: lightScheme, useMaterial3: true),
+          darkTheme: ThemeData(colorScheme: darkScheme, useMaterial3: true),
+          home: const HomeScreen(),
+          debugShowCheckedModeBanner: false,
+        );
+      },
     );
   }
 }
