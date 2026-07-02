@@ -226,17 +226,25 @@ void main() {
       await screenMatchesGolden(tester, 'home_screen_prayers_tab_golden');
 
       // 2. Rosary tab golden
-      await tester.pumpWidgetBuilder(
-        const HomeScreen(),
-        wrapper: materialAppWrapper(),
-        surfaceSize: const Size(400, 800),
-      );
-      await tester.pump();
-      await tester.pumpAndSettle();
       // Switch tab
       await tester.tap(find.text('Rosary').last);
       await tester.pumpAndSettle();
       await screenMatchesGolden(tester, 'home_screen_rosary_tab_golden');
+
+      // 3. Search active golden
+      // Switch back to Prayers tab
+      await tester.tap(find.text('Prayers').last);
+      await tester.pumpAndSettle();
+      // Tap search button to open search
+      await tester.tap(find.byIcon(Icons.search));
+      await tester.pumpAndSettle();
+      await screenMatchesGolden(tester, 'home_screen_search_active_golden');
+
+      // 4. Search empty state golden
+      // Enter search query with no results
+      await tester.enterText(find.byType(TextField), 'nonexistentprayer');
+      await tester.pumpAndSettle();
+      await screenMatchesGolden(tester, 'home_screen_search_empty_golden');
     });
   });
 }
