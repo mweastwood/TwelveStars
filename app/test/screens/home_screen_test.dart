@@ -23,6 +23,13 @@ void main() {
                   'Compendium of the Catechism of the Catholic Church (Vatican)',
               sourceUrl: 'https://vatican.va',
             ),
+            PrayerTranslation.mock(
+              title: 'Our Father (Modern)',
+              subtitle: "The Lord's Prayer (Modern)",
+              text: 'Our Father in heaven, hallowed be your name...',
+              sourceName: 'Vatican Modern',
+              sourceUrl: 'https://vatican.va',
+            ),
           ],
           PrayerLanguage.traditionalChinese: [
             PrayerTranslation.mock(
@@ -212,6 +219,65 @@ void main() {
       // TextField should be gone, standard title back
       expect(find.byType(TextField), findsNothing);
       expect(find.text('Twelve Stars'), findsOneWidget);
+    });
+
+    testWidgets('persists primary/compare languages and version selections', (
+      tester,
+    ) async {
+      final initialSettings = UserSettings(
+        primaryLanguageCode: 'english',
+        compareLanguageCode: 'latin',
+        preferredVersions: [],
+      );
+      PrayerDatabase.mockSettings = initialSettings;
+
+      await tester.pumpWidget(buildTestableWidget(child: const HomeScreen()));
+      await tester.pumpAndSettle();
+
+      // 1. Verify dropdown selects Traditional Chinese and saves to mockSettings
+      final dropdownFinder = find.byType(DropdownButton<PrayerLanguage>).first;
+      await tester.tap(dropdownFinder);
+      await tester.pumpAndSettle();
+
+      final chineseItemFinder = find.text('繁體中文').last;
+      await tester.tap(chineseItemFinder);
+      await tester.pumpAndSettle();
+
+      expect(
+        PrayerDatabase.mockSettings?.primaryLanguageCode,
+        'traditionalChinese',
+      );
+
+      // 2. Load settings with an existing version preference and verify it is rendered
+      final persistedSettings = UserSettings(
+        primaryLanguageCode: 'english',
+        compareLanguageCode: 'latin',
+        preferredVersions: [PrayerVersionPreference('our_father_english', 1)],
+      );
+      PrayerDatabase.mockSettings = persistedSettings;
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const HomeScreen(key: Key('persisted'))),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('Our Father (Modern)'), findsOneWidget);
+
+      // 3. Swipe left to change version back to index 0, and verify it updates the persisted preference
+      await tester.fling(
+        find.text('Our Father (Modern)'),
+        const Offset(-400.0, 0.0),
+        1000.0,
+      );
+      await tester.pumpAndSettle();
+
+      final pref = PrayerDatabase.mockSettings?.preferredVersions?.firstWhere(
+        (p) => p.key == 'our_father_english',
+      );
+      expect(pref?.versionIndex, 0);
+
+      // Reset mockSettings to avoid cross-test pollution
+      PrayerDatabase.mockSettings = null;
     });
 
     testGoldens('HomeScreen renders correctly in both tabs', (tester) async {

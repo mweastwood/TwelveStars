@@ -176,3 +176,41 @@ class Prayer {
     return map;
   }
 }
+
+@embedded
+class PrayerVersionPreference {
+  String key;
+  int versionIndex;
+
+  PrayerVersionPreference([this.key = '', this.versionIndex = 0]);
+}
+
+@collection
+class UserSettings {
+  @Id()
+  int id = 1;
+
+  String primaryLanguageCode;
+  String compareLanguageCode;
+
+  List<PrayerVersionPreference>? preferredVersions;
+
+  UserSettings({
+    this.id = 1,
+    this.primaryLanguageCode = 'english',
+    this.compareLanguageCode = 'latin',
+    this.preferredVersions,
+  });
+
+  @ignore
+  PrayerLanguage get primaryLanguage => PrayerLanguage.values.firstWhere(
+    (e) => e.toString().split('.').last == primaryLanguageCode,
+    orElse: () => PrayerLanguage.english,
+  );
+
+  @ignore
+  PrayerLanguage get compareLanguage => PrayerLanguage.values.firstWhere(
+    (e) => e.toString().split('.').last == compareLanguageCode,
+    orElse: () => PrayerLanguage.latin,
+  );
+}
