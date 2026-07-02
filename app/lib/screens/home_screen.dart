@@ -20,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Prayer>? _prayers;
   bool _loading = true;
   String? _error;
+  UserSettings? _settings;
 
   bool _isSearching = false;
   String _searchQuery = '';
@@ -59,9 +60,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _loadData() async {
     try {
       final prayers = await PrayerDatabase.loadPrayers();
+      final settings = await PrayerDatabase.loadSettings();
       if (mounted) {
         setState(() {
           _prayers = prayers;
+          _settings = settings;
+          _primaryLanguage = settings.primaryLanguage;
+          _compareLanguage = settings.compareLanguage;
           _loading = false;
         });
       }
@@ -104,7 +109,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             (l) => l != lang,
                           );
                         }
+                        _settings?.primaryLanguageCode = lang
+                            .toString()
+                            .split('.')
+                            .last;
+                        _settings?.compareLanguageCode = _compareLanguage
+                            .toString()
+                            .split('.')
+                            .last;
                       });
+                      if (_settings != null) {
+                        PrayerDatabase.saveSettings(_settings!);
+                      }
                     }
                   }, theme),
                 ],
@@ -139,7 +155,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             (l) => l != lang,
                           );
                         }
+                        _settings?.compareLanguageCode = lang
+                            .toString()
+                            .split('.')
+                            .last;
+                        _settings?.primaryLanguageCode = _primaryLanguage
+                            .toString()
+                            .split('.')
+                            .last;
                       });
+                      if (_settings != null) {
+                        PrayerDatabase.saveSettings(_settings!);
+                      }
                     }
                   }, theme),
                 ],
@@ -422,10 +449,35 @@ class _HomeScreenState extends State<HomeScreen> {
             )
           else
             ...filteredPrayers.map((prayer) {
+              final prefKey =
+                  '${prayer.prayerId}_${_primaryLanguage.toString().split('.').last}';
+              final initialVersion =
+                  _settings?.preferredVersions
+                      ?.firstWhere(
+                        (p) => p.key == prefKey,
+                        orElse: () => PrayerVersionPreference(),
+                      )
+                      .versionIndex ??
+                  0;
+
               return PrayerCard(
                 prayer: prayer,
                 selectedLanguage: _primaryLanguage,
                 compareLanguage: _compareLanguage,
+                initialVersionIndex: initialVersion,
+                onVersionChanged: (newIndex) async {
+                  if (_settings != null) {
+                    final list = _settings!.preferredVersions ?? [];
+                    final idx = list.indexWhere((p) => p.key == prefKey);
+                    if (idx >= 0) {
+                      list[idx].versionIndex = newIndex;
+                    } else {
+                      list.add(PrayerVersionPreference(prefKey, newIndex));
+                    }
+                    _settings!.preferredVersions = list;
+                    await PrayerDatabase.saveSettings(_settings!);
+                  }
+                },
                 onLaunchSource: _launchSourceUrl,
               );
             }),

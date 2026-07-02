@@ -1262,6 +1262,876 @@ extension PrayerQueryProperty3<R1, R2>
   }
 }
 
+// coverage:ignore-file
+// ignore_for_file: duplicate_ignore, invalid_use_of_protected_member, lines_longer_than_80_chars, constant_identifier_names, avoid_js_rounded_ints, no_leading_underscores_for_local_identifiers, require_trailing_commas, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_in_if_null_operators, library_private_types_in_public_api, prefer_const_constructors
+// ignore_for_file: type=lint
+
+extension GetUserSettingsCollection on Isar {
+  IsarCollection<int, UserSettings> get userSettings => this.collection();
+}
+
+final UserSettingsSchema = IsarGeneratedSchema(
+  schema: IsarSchema(
+    name: 'UserSettings',
+    idName: 'id',
+    embedded: false,
+    properties: [
+      IsarPropertySchema(name: 'primaryLanguageCode', type: IsarType.string),
+      IsarPropertySchema(name: 'compareLanguageCode', type: IsarType.string),
+      IsarPropertySchema(
+        name: 'preferredVersions',
+        type: IsarType.objectList,
+        target: 'PrayerVersionPreference',
+      ),
+    ],
+    indexes: [],
+  ),
+  converter: IsarObjectConverter<int, UserSettings>(
+    serialize: serializeUserSettings,
+    deserialize: deserializeUserSettings,
+    deserializeProperty: deserializeUserSettingsProp,
+  ),
+  getEmbeddedSchemas: () => [PrayerVersionPreferenceSchema],
+);
+
+@isarProtected
+int serializeUserSettings(IsarWriter writer, UserSettings object) {
+  IsarCore.writeString(writer, 1, object.primaryLanguageCode);
+  IsarCore.writeString(writer, 2, object.compareLanguageCode);
+  {
+    final list = object.preferredVersions;
+    if (list == null) {
+      IsarCore.writeNull(writer, 3);
+    } else {
+      final listWriter = IsarCore.beginList(writer, 3, list.length);
+      for (var i = 0; i < list.length; i++) {
+        {
+          final value = list[i];
+          final objectWriter = IsarCore.beginObject(listWriter, i);
+          serializePrayerVersionPreference(objectWriter, value);
+          IsarCore.endObject(listWriter, objectWriter);
+        }
+      }
+      IsarCore.endList(writer, listWriter);
+    }
+  }
+  return object.id;
+}
+
+@isarProtected
+UserSettings deserializeUserSettings(IsarReader reader) {
+  final int _id;
+  _id = IsarCore.readId(reader);
+  final String _primaryLanguageCode;
+  _primaryLanguageCode = IsarCore.readString(reader, 1) ?? 'english';
+  final String _compareLanguageCode;
+  _compareLanguageCode = IsarCore.readString(reader, 2) ?? 'latin';
+  final List<PrayerVersionPreference>? _preferredVersions;
+  {
+    final length = IsarCore.readList(reader, 3, IsarCore.readerPtrPtr);
+    {
+      final reader = IsarCore.readerPtr;
+      if (reader.isNull) {
+        _preferredVersions = null;
+      } else {
+        final list = List<PrayerVersionPreference>.filled(
+          length,
+          PrayerVersionPreference(),
+          growable: true,
+        );
+        for (var i = 0; i < length; i++) {
+          {
+            final objectReader = IsarCore.readObject(reader, i);
+            if (objectReader.isNull) {
+              list[i] = PrayerVersionPreference();
+            } else {
+              final embedded = deserializePrayerVersionPreference(objectReader);
+              IsarCore.freeReader(objectReader);
+              list[i] = embedded;
+            }
+          }
+        }
+        IsarCore.freeReader(reader);
+        _preferredVersions = list;
+      }
+    }
+  }
+  final object = UserSettings(
+    id: _id,
+    primaryLanguageCode: _primaryLanguageCode,
+    compareLanguageCode: _compareLanguageCode,
+    preferredVersions: _preferredVersions,
+  );
+  return object;
+}
+
+@isarProtected
+dynamic deserializeUserSettingsProp(IsarReader reader, int property) {
+  switch (property) {
+    case 0:
+      return IsarCore.readId(reader);
+    case 1:
+      return IsarCore.readString(reader, 1) ?? 'english';
+    case 2:
+      return IsarCore.readString(reader, 2) ?? 'latin';
+    case 3:
+      {
+        final length = IsarCore.readList(reader, 3, IsarCore.readerPtrPtr);
+        {
+          final reader = IsarCore.readerPtr;
+          if (reader.isNull) {
+            return null;
+          } else {
+            final list = List<PrayerVersionPreference>.filled(
+              length,
+              PrayerVersionPreference(),
+              growable: true,
+            );
+            for (var i = 0; i < length; i++) {
+              {
+                final objectReader = IsarCore.readObject(reader, i);
+                if (objectReader.isNull) {
+                  list[i] = PrayerVersionPreference();
+                } else {
+                  final embedded = deserializePrayerVersionPreference(
+                    objectReader,
+                  );
+                  IsarCore.freeReader(objectReader);
+                  list[i] = embedded;
+                }
+              }
+            }
+            IsarCore.freeReader(reader);
+            return list;
+          }
+        }
+      }
+    default:
+      throw ArgumentError('Unknown property: $property');
+  }
+}
+
+sealed class _UserSettingsUpdate {
+  bool call({
+    required int id,
+    String? primaryLanguageCode,
+    String? compareLanguageCode,
+  });
+}
+
+class _UserSettingsUpdateImpl implements _UserSettingsUpdate {
+  const _UserSettingsUpdateImpl(this.collection);
+
+  final IsarCollection<int, UserSettings> collection;
+
+  @override
+  bool call({
+    required int id,
+    Object? primaryLanguageCode = ignore,
+    Object? compareLanguageCode = ignore,
+  }) {
+    return collection.updateProperties(
+          [id],
+          {
+            if (primaryLanguageCode != ignore)
+              1: primaryLanguageCode as String?,
+            if (compareLanguageCode != ignore)
+              2: compareLanguageCode as String?,
+          },
+        ) >
+        0;
+  }
+}
+
+sealed class _UserSettingsUpdateAll {
+  int call({
+    required List<int> id,
+    String? primaryLanguageCode,
+    String? compareLanguageCode,
+  });
+}
+
+class _UserSettingsUpdateAllImpl implements _UserSettingsUpdateAll {
+  const _UserSettingsUpdateAllImpl(this.collection);
+
+  final IsarCollection<int, UserSettings> collection;
+
+  @override
+  int call({
+    required List<int> id,
+    Object? primaryLanguageCode = ignore,
+    Object? compareLanguageCode = ignore,
+  }) {
+    return collection.updateProperties(id, {
+      if (primaryLanguageCode != ignore) 1: primaryLanguageCode as String?,
+      if (compareLanguageCode != ignore) 2: compareLanguageCode as String?,
+    });
+  }
+}
+
+extension UserSettingsUpdate on IsarCollection<int, UserSettings> {
+  _UserSettingsUpdate get update => _UserSettingsUpdateImpl(this);
+
+  _UserSettingsUpdateAll get updateAll => _UserSettingsUpdateAllImpl(this);
+}
+
+sealed class _UserSettingsQueryUpdate {
+  int call({String? primaryLanguageCode, String? compareLanguageCode});
+}
+
+class _UserSettingsQueryUpdateImpl implements _UserSettingsQueryUpdate {
+  const _UserSettingsQueryUpdateImpl(this.query, {this.limit});
+
+  final IsarQuery<UserSettings> query;
+  final int? limit;
+
+  @override
+  int call({
+    Object? primaryLanguageCode = ignore,
+    Object? compareLanguageCode = ignore,
+  }) {
+    return query.updateProperties(limit: limit, {
+      if (primaryLanguageCode != ignore) 1: primaryLanguageCode as String?,
+      if (compareLanguageCode != ignore) 2: compareLanguageCode as String?,
+    });
+  }
+}
+
+extension UserSettingsQueryUpdate on IsarQuery<UserSettings> {
+  _UserSettingsQueryUpdate get updateFirst =>
+      _UserSettingsQueryUpdateImpl(this, limit: 1);
+
+  _UserSettingsQueryUpdate get updateAll => _UserSettingsQueryUpdateImpl(this);
+}
+
+class _UserSettingsQueryBuilderUpdateImpl implements _UserSettingsQueryUpdate {
+  const _UserSettingsQueryBuilderUpdateImpl(this.query, {this.limit});
+
+  final QueryBuilder<UserSettings, UserSettings, QOperations> query;
+  final int? limit;
+
+  @override
+  int call({
+    Object? primaryLanguageCode = ignore,
+    Object? compareLanguageCode = ignore,
+  }) {
+    final q = query.build();
+    try {
+      return q.updateProperties(limit: limit, {
+        if (primaryLanguageCode != ignore) 1: primaryLanguageCode as String?,
+        if (compareLanguageCode != ignore) 2: compareLanguageCode as String?,
+      });
+    } finally {
+      q.close();
+    }
+  }
+}
+
+extension UserSettingsQueryBuilderUpdate
+    on QueryBuilder<UserSettings, UserSettings, QOperations> {
+  _UserSettingsQueryUpdate get updateFirst =>
+      _UserSettingsQueryBuilderUpdateImpl(this, limit: 1);
+
+  _UserSettingsQueryUpdate get updateAll =>
+      _UserSettingsQueryBuilderUpdateImpl(this);
+}
+
+extension UserSettingsQueryFilter
+    on QueryBuilder<UserSettings, UserSettings, QFilterCondition> {
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition> idEqualTo(
+    int value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(property: 0, value: value),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition> idGreaterThan(
+    int value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterCondition(property: 0, value: value),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  idGreaterThanOrEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(property: 0, value: value),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition> idLessThan(
+    int value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(LessCondition(property: 0, value: value));
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  idLessThanOrEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(property: 0, value: value),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition> idBetween(
+    int lower,
+    int upper,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(property: 0, lower: lower, upper: upper),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryLanguageCodeEqualTo(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(property: 1, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryLanguageCodeGreaterThan(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryLanguageCodeGreaterThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryLanguageCodeLessThan(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessCondition(property: 1, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryLanguageCodeLessThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryLanguageCodeBetween(
+    String lower,
+    String upper, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 1,
+          lower: lower,
+          upper: upper,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryLanguageCodeStartsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        StartsWithCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryLanguageCodeEndsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EndsWithCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryLanguageCodeContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        ContainsCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryLanguageCodeMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        MatchesCondition(
+          property: 1,
+          wildcard: pattern,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryLanguageCodeIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const EqualCondition(property: 1, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryLanguageCodeIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const GreaterCondition(property: 1, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareLanguageCodeEqualTo(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(property: 2, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareLanguageCodeGreaterThan(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 2,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareLanguageCodeGreaterThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 2,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareLanguageCodeLessThan(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessCondition(property: 2, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareLanguageCodeLessThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 2,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareLanguageCodeBetween(
+    String lower,
+    String upper, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 2,
+          lower: lower,
+          upper: upper,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareLanguageCodeStartsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        StartsWithCondition(
+          property: 2,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareLanguageCodeEndsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EndsWithCondition(
+          property: 2,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareLanguageCodeContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        ContainsCondition(
+          property: 2,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareLanguageCodeMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        MatchesCondition(
+          property: 2,
+          wildcard: pattern,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareLanguageCodeIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const EqualCondition(property: 2, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareLanguageCodeIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const GreaterCondition(property: 2, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  preferredVersionsIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const IsNullCondition(property: 3));
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  preferredVersionsIsNotNull() {
+    return QueryBuilder.apply(not(), (query) {
+      return query.addFilterCondition(const IsNullCondition(property: 3));
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  preferredVersionsIsEmpty() {
+    return not().group(
+      (q) => q.preferredVersionsIsNull().or().preferredVersionsIsNotEmpty(),
+    );
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  preferredVersionsIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const GreaterOrEqualCondition(property: 3, value: null),
+      );
+    });
+  }
+}
+
+extension UserSettingsQueryObject
+    on QueryBuilder<UserSettings, UserSettings, QFilterCondition> {}
+
+extension UserSettingsQuerySortBy
+    on QueryBuilder<UserSettings, UserSettings, QSortBy> {
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy> sortById() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(0);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy> sortByIdDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(0, sort: Sort.desc);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  sortByPrimaryLanguageCode({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(1, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  sortByPrimaryLanguageCodeDesc({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(1, sort: Sort.desc, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  sortByCompareLanguageCode({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(2, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  sortByCompareLanguageCodeDesc({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(2, sort: Sort.desc, caseSensitive: caseSensitive);
+    });
+  }
+}
+
+extension UserSettingsQuerySortThenBy
+    on QueryBuilder<UserSettings, UserSettings, QSortThenBy> {
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy> thenById() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(0);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy> thenByIdDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(0, sort: Sort.desc);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  thenByPrimaryLanguageCode({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(1, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  thenByPrimaryLanguageCodeDesc({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(1, sort: Sort.desc, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  thenByCompareLanguageCode({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(2, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  thenByCompareLanguageCodeDesc({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(2, sort: Sort.desc, caseSensitive: caseSensitive);
+    });
+  }
+}
+
+extension UserSettingsQueryWhereDistinct
+    on QueryBuilder<UserSettings, UserSettings, QDistinct> {
+  QueryBuilder<UserSettings, UserSettings, QAfterDistinct>
+  distinctByPrimaryLanguageCode({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(1, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterDistinct>
+  distinctByCompareLanguageCode({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(2, caseSensitive: caseSensitive);
+    });
+  }
+}
+
+extension UserSettingsQueryProperty1
+    on QueryBuilder<UserSettings, UserSettings, QProperty> {
+  QueryBuilder<UserSettings, int, QAfterProperty> idProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(0);
+    });
+  }
+
+  QueryBuilder<UserSettings, String, QAfterProperty>
+  primaryLanguageCodeProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(1);
+    });
+  }
+
+  QueryBuilder<UserSettings, String, QAfterProperty>
+  compareLanguageCodeProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(2);
+    });
+  }
+
+  QueryBuilder<UserSettings, List<PrayerVersionPreference>?, QAfterProperty>
+  preferredVersionsProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(3);
+    });
+  }
+}
+
+extension UserSettingsQueryProperty2<R>
+    on QueryBuilder<UserSettings, R, QAfterProperty> {
+  QueryBuilder<UserSettings, (R, int), QAfterProperty> idProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(0);
+    });
+  }
+
+  QueryBuilder<UserSettings, (R, String), QAfterProperty>
+  primaryLanguageCodeProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(1);
+    });
+  }
+
+  QueryBuilder<UserSettings, (R, String), QAfterProperty>
+  compareLanguageCodeProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(2);
+    });
+  }
+
+  QueryBuilder<
+    UserSettings,
+    (R, List<PrayerVersionPreference>?),
+    QAfterProperty
+  >
+  preferredVersionsProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(3);
+    });
+  }
+}
+
+extension UserSettingsQueryProperty3<R1, R2>
+    on QueryBuilder<UserSettings, (R1, R2), QAfterProperty> {
+  QueryBuilder<UserSettings, (R1, R2, int), QOperations> idProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(0);
+    });
+  }
+
+  QueryBuilder<UserSettings, (R1, R2, String), QOperations>
+  primaryLanguageCodeProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(1);
+    });
+  }
+
+  QueryBuilder<UserSettings, (R1, R2, String), QOperations>
+  compareLanguageCodeProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(2);
+    });
+  }
+
+  QueryBuilder<
+    UserSettings,
+    (R1, R2, List<PrayerVersionPreference>?),
+    QOperations
+  >
+  preferredVersionsProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(3);
+    });
+  }
+}
+
 // **************************************************************************
 // _IsarEmbeddedGenerator
 // **************************************************************************
@@ -4009,5 +4879,334 @@ extension LocalizedTranslationsQueryObject
         QueryBuilder<
           LocalizedTranslations,
           LocalizedTranslations,
+          QFilterCondition
+        > {}
+
+// coverage:ignore-file
+// ignore_for_file: duplicate_ignore, invalid_use_of_protected_member, lines_longer_than_80_chars, constant_identifier_names, avoid_js_rounded_ints, no_leading_underscores_for_local_identifiers, require_trailing_commas, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_in_if_null_operators, library_private_types_in_public_api, prefer_const_constructors
+// ignore_for_file: type=lint
+
+final PrayerVersionPreferenceSchema = IsarGeneratedSchema(
+  schema: IsarSchema(
+    name: 'PrayerVersionPreference',
+
+    embedded: true,
+    properties: [
+      IsarPropertySchema(name: 'key', type: IsarType.string),
+      IsarPropertySchema(name: 'versionIndex', type: IsarType.long),
+    ],
+    indexes: [],
+  ),
+  converter: IsarObjectConverter<void, PrayerVersionPreference>(
+    serialize: serializePrayerVersionPreference,
+    deserialize: deserializePrayerVersionPreference,
+  ),
+);
+
+@isarProtected
+int serializePrayerVersionPreference(
+  IsarWriter writer,
+  PrayerVersionPreference object,
+) {
+  IsarCore.writeString(writer, 1, object.key);
+  IsarCore.writeLong(writer, 2, object.versionIndex);
+  return 0;
+}
+
+@isarProtected
+PrayerVersionPreference deserializePrayerVersionPreference(IsarReader reader) {
+  final String _key;
+  _key = IsarCore.readString(reader, 1) ?? '';
+  final int _versionIndex;
+  {
+    final value = IsarCore.readLong(reader, 2);
+    if (value == -9223372036854775808) {
+      _versionIndex = 0;
+    } else {
+      _versionIndex = value;
+    }
+  }
+  final object = PrayerVersionPreference(_key, _versionIndex);
+  return object;
+}
+
+extension PrayerVersionPreferenceQueryFilter
+    on
+        QueryBuilder<
+          PrayerVersionPreference,
+          PrayerVersionPreference,
+          QFilterCondition
+        > {
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  keyEqualTo(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(property: 1, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  keyGreaterThan(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  keyGreaterThanOrEqualTo(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  keyLessThan(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessCondition(property: 1, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  keyLessThanOrEqualTo(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  keyBetween(String lower, String upper, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 1,
+          lower: lower,
+          upper: upper,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  keyStartsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        StartsWithCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  keyEndsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EndsWithCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  keyContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        ContainsCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  keyMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        MatchesCondition(
+          property: 1,
+          wildcard: pattern,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  keyIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const EqualCondition(property: 1, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  keyIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const GreaterCondition(property: 1, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  versionIndexEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(property: 2, value: value),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  versionIndexGreaterThan(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterCondition(property: 2, value: value),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  versionIndexGreaterThanOrEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(property: 2, value: value),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  versionIndexLessThan(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(LessCondition(property: 2, value: value));
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  versionIndexLessThanOrEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(property: 2, value: value),
+      );
+    });
+  }
+
+  QueryBuilder<
+    PrayerVersionPreference,
+    PrayerVersionPreference,
+    QAfterFilterCondition
+  >
+  versionIndexBetween(int lower, int upper) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(property: 2, lower: lower, upper: upper),
+      );
+    });
+  }
+}
+
+extension PrayerVersionPreferenceQueryObject
+    on
+        QueryBuilder<
+          PrayerVersionPreference,
+          PrayerVersionPreference,
           QFilterCondition
         > {}

@@ -28,7 +28,7 @@ class PrayerDatabase {
     }
     try {
       return Isar.open(
-        schemas: [PrayerSchema],
+        schemas: [PrayerSchema, UserSettingsSchema],
         directory: kIsWeb ? Isar.sqliteInMemory : (directory ?? ''),
         engine: kIsWeb ? IsarEngine.sqlite : IsarEngine.isar,
       );
@@ -50,7 +50,7 @@ class PrayerDatabase {
         } catch (_) {}
         // Retry opening database
         return Isar.open(
-          schemas: [PrayerSchema],
+          schemas: [PrayerSchema, UserSettingsSchema],
           directory: directory,
           engine: IsarEngine.isar,
         );
@@ -81,6 +81,38 @@ class PrayerDatabase {
     }
 
     return list;
+  }
+
+  static UserSettings? mockSettings;
+
+  static Future<UserSettings> loadSettings() async {
+    if (mockSettings != null) {
+      return mockSettings!;
+    }
+    if (mockPrayers != null) {
+      return UserSettings();
+    }
+    final isarInstance = await isar;
+    var settings = isarInstance.userSettings.get(1);
+    if (settings == null) {
+      settings = UserSettings();
+      isarInstance.write((isar) {
+        isar.userSettings.put(settings!);
+      });
+    }
+    return settings;
+  }
+
+  static Future<void> saveSettings(UserSettings settings) async {
+    if (mockSettings != null) {
+      mockSettings = settings;
+      return;
+    }
+    if (mockPrayers != null) return;
+    final isarInstance = await isar;
+    isarInstance.write((isar) {
+      isar.userSettings.put(settings);
+    });
   }
 
   static Future<List<Prayer>> _loadPrayersFromWebJson() async {

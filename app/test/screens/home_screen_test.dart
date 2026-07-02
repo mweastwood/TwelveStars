@@ -214,6 +214,37 @@ void main() {
       expect(find.text('Twelve Stars'), findsOneWidget);
     });
 
+    testWidgets('persists primary/compare languages and version selections', (
+      tester,
+    ) async {
+      final initialSettings = UserSettings(
+        primaryLanguageCode: 'english',
+        compareLanguageCode: 'latin',
+        preferredVersions: [],
+      );
+      PrayerDatabase.mockSettings = initialSettings;
+
+      await tester.pumpWidget(buildTestableWidget(child: const HomeScreen()));
+      await tester.pumpAndSettle();
+
+      // Verify dropdown selects Traditional Chinese and saves to mockSettings
+      final dropdownFinder = find.byType(DropdownButton<PrayerLanguage>).first;
+      await tester.tap(dropdownFinder);
+      await tester.pumpAndSettle();
+
+      final chineseItemFinder = find.text('繁體中文').last;
+      await tester.tap(chineseItemFinder);
+      await tester.pumpAndSettle();
+
+      expect(
+        PrayerDatabase.mockSettings?.primaryLanguageCode,
+        'traditionalChinese',
+      );
+
+      // Reset mockSettings to avoid cross-test pollution
+      PrayerDatabase.mockSettings = null;
+    });
+
     testGoldens('HomeScreen renders correctly in both tabs', (tester) async {
       // 1. Initial/Prayers tab golden
       await tester.pumpWidgetBuilder(

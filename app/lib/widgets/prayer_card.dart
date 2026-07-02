@@ -6,6 +6,8 @@ class PrayerCard extends StatefulWidget {
   final Prayer prayer;
   final PrayerLanguage selectedLanguage;
   final PrayerLanguage compareLanguage;
+  final int initialVersionIndex;
+  final ValueChanged<int> onVersionChanged;
   final Function(String) onLaunchSource;
 
   const PrayerCard({
@@ -13,6 +15,8 @@ class PrayerCard extends StatefulWidget {
     required this.prayer,
     required this.selectedLanguage,
     required this.compareLanguage,
+    required this.initialVersionIndex,
+    required this.onVersionChanged,
     required this.onLaunchSource,
   });
 
@@ -57,12 +61,19 @@ class _PrayerCardState extends State<PrayerCard> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _currentVersionIndex = widget.initialVersionIndex;
+  }
+
+  @override
   void didUpdateWidget(covariant PrayerCard oldWidget) {
     super.didUpdateWidget(oldWidget);
-    // Reset version index if language or prayer changes
-    if (oldWidget.selectedLanguage != widget.selectedLanguage ||
+    if (oldWidget.initialVersionIndex != widget.initialVersionIndex) {
+      _currentVersionIndex = widget.initialVersionIndex;
+    } else if (oldWidget.selectedLanguage != widget.selectedLanguage ||
         oldWidget.prayer.prayerId != widget.prayer.prayerId) {
-      _currentVersionIndex = 0;
+      _currentVersionIndex = widget.initialVersionIndex;
     }
   }
 
@@ -263,17 +274,20 @@ class _PrayerCardState extends State<PrayerCard> {
 
         if (details.primaryVelocity! < 0) {
           // Swiped left -> next version
+          final newIndex = (_currentVersionIndex + 1) % translations.length;
           setState(() {
-            _currentVersionIndex =
-                (_currentVersionIndex + 1) % translations.length;
+            _currentVersionIndex = newIndex;
           });
+          widget.onVersionChanged(newIndex);
         } else if (details.primaryVelocity! > 0) {
           // Swiped right -> previous version
+          final newIndex =
+              (_currentVersionIndex - 1 + translations.length) %
+              translations.length;
           setState(() {
-            _currentVersionIndex =
-                (_currentVersionIndex - 1 + translations.length) %
-                translations.length;
+            _currentVersionIndex = newIndex;
           });
+          widget.onVersionChanged(newIndex);
         }
       },
       child: Card(
