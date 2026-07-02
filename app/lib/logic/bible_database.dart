@@ -9,7 +9,8 @@ part 'bible_database.g.dart';
 
 @DriftDatabase(include: {'bible.drift'})
 class BibleDatabase extends _$BibleDatabase {
-  BibleDatabase() : super(openConnection());
+  BibleDatabase([QueryExecutor? executor])
+    : super(executor ?? openConnection());
 
   @override
   int get schemaVersion => 1;
@@ -100,7 +101,7 @@ class UsfmParser {
             '',
           ); // strip footnotes
           text = text.replaceAll(
-            RegExp(r'\\[a-zA-Z0-9*]+\*?\s?'),
+            RegExp(r'\\[a-zA-Z0-9]+(?:\*|\s)?'),
             '',
           ); // strip formatting
           text = text.trim();
@@ -126,5 +127,10 @@ class BibleDatabaseHelper {
   static BibleDatabase get db {
     _db ??= BibleDatabase();
     return _db!;
+  }
+
+  @visibleForTesting
+  static set db(BibleDatabase database) {
+    _db = database;
   }
 }

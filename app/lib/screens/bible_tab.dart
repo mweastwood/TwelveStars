@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 
 class BibleTab extends StatefulWidget {
-  const BibleTab({super.key});
+  final List<BibleVerse>? initialVerses;
+  const BibleTab({super.key, this.initialVerses});
 
   @override
   State<BibleTab> createState() => _BibleTabState();
@@ -16,7 +17,12 @@ class _BibleTabState extends State<BibleTab> {
   @override
   void initState() {
     super.initState();
-    _loadBibleData();
+    if (widget.initialVerses != null) {
+      _verses = widget.initialVerses!;
+      _loading = false;
+    } else {
+      _loadBibleData();
+    }
   }
 
   Future<void> _loadBibleData() async {
@@ -49,53 +55,58 @@ class _BibleTabState extends State<BibleTab> {
     if (_error != null) {
       return Center(child: Text('Error loading Bible: $_error'));
     }
-    return Scaffold(
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Genesis 1',
-              style: theme.textTheme.headlineMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.primary,
-              ),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Genesis 1',
+            style: theme.textTheme.headlineMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+              color: theme.colorScheme.primary,
             ),
-            const SizedBox(height: 8),
-            Text(
-              'Catholic Public Domain Version (CPDV)',
-              style: theme.textTheme.bodyMedium?.copyWith(
-                fontStyle: FontStyle.italic,
-                color: theme.colorScheme.outline,
-              ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Catholic Public Domain Version (CPDV)',
+            style: theme.textTheme.bodyMedium?.copyWith(
+              fontStyle: FontStyle.italic,
+              color: theme.colorScheme.outline,
             ),
-            const Divider(height: 24),
-            ..._verses.map((verse) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 6.0),
-                child: RichText(
-                  text: TextSpan(
-                    style: theme.textTheme.bodyLarge,
-                    children: [
-                      TextSpan(
-                        text: '${verse.verseNumber}  ',
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.primary,
-                        ),
+          ),
+          const Divider(height: 24),
+          ..._verses.map((verse) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 6.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 28,
+                    child: Text(
+                      '${verse.verseNumber}',
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: theme.colorScheme.primary,
                       ),
-                      TextSpan(
-                        text: verse.verseText,
-                        style: TextStyle(color: theme.colorScheme.onSurface),
-                      ),
-                    ],
+                      textAlign: TextAlign.right,
+                    ),
                   ),
-                ),
-              );
-            }),
-          ],
-        ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      verse.verseText,
+                      style: theme.textTheme.bodyLarge?.copyWith(
+                        color: theme.colorScheme.onSurface,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }),
+        ],
       ),
     );
   }
