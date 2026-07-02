@@ -175,49 +175,68 @@ void main() {
       await testDb.close();
     });
 
-    testWidgets('renders initial tab (Prayers) and switches to Rosary tab', (
-      tester,
-    ) async {
-      await tester.pumpWidget(
-        buildTestableWidget(
-          child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
-        ),
-      );
-      await tester.pumpAndSettle(); // Let database load
+    testWidgets(
+      'renders initial tab (Prayers), launches Rosary via FAB, and navigates tabs',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
+          ),
+        );
+        await tester.pumpAndSettle(); // Let database load
 
-      // Verify app bar and header are present
-      expect(find.text('Twelve Stars'), findsOneWidget);
+        // Verify app bar and header are present
+        expect(find.text('Twelve Stars'), findsOneWidget);
 
-      // Verify default prayers are loaded in English initially
-      expect(find.text('Our Father'), findsOneWidget);
-      expect(find.text('Hail Mary'), findsOneWidget);
-      expect(find.text('Glory Be'), findsOneWidget);
+        // Verify default prayers are loaded in English initially
+        expect(find.text('Our Father'), findsOneWidget);
+        expect(find.text('Hail Mary'), findsOneWidget);
 
-      // Verify navigation items
-      expect(find.text('Prayers'), findsWidgets);
-      expect(find.text('Rosary'), findsWidgets);
+        // Verify navigation items
+        expect(find.text('Prayers'), findsWidgets);
+        expect(find.text('Calendar'), findsWidgets);
+        expect(find.text('Missal'), findsWidgets);
+        expect(find.text('Bible'), findsWidgets);
 
-      // Rosary tab content should not be present initially
-      expect(find.text('Select Mysteries'), findsNothing);
+        // Verify FAB to start Rosary is present
+        expect(find.text('Start Rosary'), findsOneWidget);
 
-      // Switch to the Rosary tab
-      await tester.tap(find.text('Rosary').last);
-      await tester.pumpAndSettle();
+        // Tap FAB to start the Rosary
+        await tester.tap(find.text('Start Rosary'));
+        await tester.pumpAndSettle();
 
-      // Rosary content should now be visible
-      expect(find.text('Select Mysteries'), findsOneWidget);
-      expect(find.text('Sign of the Cross'), findsWidgets);
+        // We should now be on the Rosary Screen
+        expect(find.text('Select Mysteries'), findsOneWidget);
+        expect(find.text('Sign of the Cross'), findsWidgets);
 
-      // Prayers should not be visible now
-      expect(find.text('Our Father'), findsNothing);
+        // Tap the back arrow in the AppBar to pop the Rosary Screen
+        await tester.tap(find.byType(BackButton));
+        await tester.pumpAndSettle();
 
-      // Switch back to Prayers tab
-      await tester.tap(find.text('Prayers').last);
-      await tester.pumpAndSettle();
+        // We should be back on the Home/Prayers screen
+        expect(find.text('Start Rosary'), findsOneWidget);
+        expect(find.text('Our Father'), findsOneWidget);
 
-      // Prayers should be visible again
-      expect(find.text('Our Father'), findsOneWidget);
-    });
+        // Switch to the Calendar tab
+        await tester.tap(find.text('Calendar').last);
+        await tester.pumpAndSettle();
+        expect(find.text('Liturgical Calendar'), findsOneWidget);
+
+        // Switch to the Missal tab
+        await tester.tap(find.text('Missal').last);
+        await tester.pumpAndSettle();
+        expect(find.text('Mass Missal'), findsOneWidget);
+
+        // Switch to the Bible tab
+        await tester.tap(find.text('Bible').last);
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
+        expect(
+          find.byType(CircularProgressIndicator),
+          findsOneWidget,
+        ); // Bible tab loading
+      },
+    );
 
     testWidgets('changes language of prayer in dropdown', (tester) async {
       await tester.pumpWidget(
@@ -387,8 +406,8 @@ void main() {
       PrayerDatabase.mockSettings = null;
     });
 
-    testGoldens('HomeScreen renders correctly in both tabs', (tester) async {
-      // 1. Initial/Prayers tab golden
+    testGoldens('HomeScreen renders correctly in all tabs', (tester) async {
+      // 1. Initial/Prayers tab golden (with Start Rosary FAB!)
       await tester.pumpWidgetBuilder(
         HomeScreen(initialDate: DateTime(2026, 7, 6)),
         wrapper: materialAppWrapper(),
@@ -398,13 +417,17 @@ void main() {
       await tester.pumpAndSettle(); // Let database load
       await screenMatchesGolden(tester, 'home_screen_prayers_tab_golden');
 
-      // 2. Rosary tab golden
-      // Switch tab
-      await tester.tap(find.text('Rosary').last);
+      // 2. Calendar tab golden
+      await tester.tap(find.text('Calendar').last);
       await tester.pumpAndSettle();
-      await screenMatchesGolden(tester, 'home_screen_rosary_tab_golden');
+      await screenMatchesGolden(tester, 'home_screen_calendar_tab_golden');
 
-      // 3. Search active golden
+      // 3. Missal tab golden
+      await tester.tap(find.text('Missal').last);
+      await tester.pumpAndSettle();
+      await screenMatchesGolden(tester, 'home_screen_missal_tab_golden');
+
+      // 4. Search active golden
       // Switch back to Prayers tab
       await tester.tap(find.text('Prayers').last);
       await tester.pumpAndSettle();
@@ -413,7 +436,7 @@ void main() {
       await tester.pumpAndSettle();
       await screenMatchesGolden(tester, 'home_screen_search_active_golden');
 
-      // 4. Search empty state golden
+      // 5. Search empty state golden
       // Enter search query with no results
       await tester.enterText(find.byType(TextField), 'nonexistentprayer');
       await tester.pumpAndSettle();

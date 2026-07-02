@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/rosary_helper.dart';
-import 'package:twelve_stars/screens/rosary_tab.dart';
+import 'package:twelve_stars/screens/rosary_screen.dart';
 import '../test_helper.dart';
 
 List<Prayer> _createMockPrayers() {
@@ -78,7 +78,7 @@ List<Prayer> _createMockPrayers() {
 }
 
 void main() {
-  group('RosaryTab Screen', () {
+  group('RosaryScreen Screen', () {
     late List<Prayer> mockPrayers;
 
     setUp(() {
@@ -90,18 +90,16 @@ void main() {
     ) async {
       await tester.pumpWidget(
         buildTestableWidget(
-          child: Scaffold(
-            body: RosaryTab(
-              prayers: mockPrayers,
-              primaryLanguage: PrayerLanguage.english,
-              compareLanguage: PrayerLanguage.latin,
-              onLaunchSource: (_) {},
-              initialDate: DateTime(
-                2026,
-                7,
-                6,
-              ), // Fixed Monday (Joyful Mysteries)
-            ),
+          child: RosaryScreen(
+            prayers: mockPrayers,
+            primaryLanguage: PrayerLanguage.english,
+            compareLanguage: PrayerLanguage.latin,
+            onLaunchSource: (_) {},
+            initialDate: DateTime(
+              2026,
+              7,
+              6,
+            ), // Fixed Monday (Joyful Mysteries)
           ),
         ),
       );
@@ -150,18 +148,16 @@ void main() {
     testWidgets('changing mystery type resets step to 0', (tester) async {
       await tester.pumpWidget(
         buildTestableWidget(
-          child: Scaffold(
-            body: RosaryTab(
-              prayers: mockPrayers,
-              primaryLanguage: PrayerLanguage.english,
-              compareLanguage: PrayerLanguage.latin,
-              onLaunchSource: (_) {},
-              initialDate: DateTime(
-                2026,
-                7,
-                6,
-              ), // Fixed Monday (Joyful Mysteries)
-            ),
+          child: RosaryScreen(
+            prayers: mockPrayers,
+            primaryLanguage: PrayerLanguage.english,
+            compareLanguage: PrayerLanguage.latin,
+            onLaunchSource: (_) {},
+            initialDate: DateTime(
+              2026,
+              7,
+              6,
+            ), // Fixed Monday (Joyful Mysteries)
           ),
         ),
       );
@@ -192,14 +188,12 @@ void main() {
       // Test Thursday (Luminous)
       await tester.pumpWidget(
         buildTestableWidget(
-          child: Scaffold(
-            body: RosaryTab(
-              prayers: mockPrayers,
-              primaryLanguage: PrayerLanguage.english,
-              compareLanguage: PrayerLanguage.latin,
-              onLaunchSource: (_) {},
-              initialDate: DateTime(2026, 7, 9), // Thursday
-            ),
+          child: RosaryScreen(
+            prayers: mockPrayers,
+            primaryLanguage: PrayerLanguage.english,
+            compareLanguage: PrayerLanguage.latin,
+            onLaunchSource: (_) {},
+            initialDate: DateTime(2026, 7, 9), // Thursday
           ),
         ),
       );
@@ -212,16 +206,19 @@ void main() {
       final builder = GoldenBuilder.column()
         ..addScenario(
           'Rosary Tab Active State',
-          RosaryTab(
-            prayers: mockPrayers,
-            primaryLanguage: PrayerLanguage.english,
-            compareLanguage: PrayerLanguage.latin,
-            onLaunchSource: (_) {},
-            initialDate: DateTime(
-              2026,
-              7,
-              6,
-            ), // Fixed Monday (Joyful Mysteries)
+          SizedBox(
+            height: 640,
+            child: RosaryScreen(
+              prayers: mockPrayers,
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+              onLaunchSource: (_) {},
+              initialDate: DateTime(
+                2026,
+                7,
+                6,
+              ), // Fixed Monday (Joyful Mysteries)
+            ),
           ),
         );
 
