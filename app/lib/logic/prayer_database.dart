@@ -18,6 +18,11 @@ class PrayerDatabase {
   }
 
   static Future<Isar> _initIsar() async {
+    try {
+      return Isar.get(schemas: [PrayerSchema, UserSettingsSchema]);
+    } catch (_) {
+      // Instance has not been opened yet, proceed with normal initialization
+    }
     if (kIsWeb) {
       await Isar.initialize();
     }
