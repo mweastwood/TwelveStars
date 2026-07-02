@@ -156,9 +156,10 @@ void main() {
         '',
       );
 
-      // Strip closing Amen or equivalent from the end/body of the text
       res = res
           .replaceAll('amen', '')
+          .replaceAll('amén', '')
+          .replaceAll('amên', '')
           .replaceAll('amon', '')
           .replaceAll('亞孟', '')
           .replaceAll('阿們', '');
@@ -173,14 +174,16 @@ void main() {
         'assets/prayers.json does not exist. Run bin/assemble_db.dart first.',
       );
     }
-    final jsonList = jsonDecode(jsonFile.readAsStringSync()) as List<dynamic>;
 
-    for (final prayerItem in jsonList) {
-      final pMap = prayerItem as Map<String, dynamic>;
+    final List<dynamic> prayersList =
+        jsonDecode(jsonFile.readAsStringSync()) as List<dynamic>;
+
+    // Run remote URL verification checks for each translation
+    for (final pMap in prayersList) {
       final prayerId = pMap['id'] as String;
       final category = pMap['category'] as String? ?? 'starter';
 
-      if (category != 'starter') continue;
+      if (category != 'starter' && prayerId != 'st_francis') continue;
 
       final transMap = pMap['translations'] as Map<String, dynamic>;
 
