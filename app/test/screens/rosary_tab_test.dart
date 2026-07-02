@@ -96,6 +96,11 @@ void main() {
               primaryLanguage: PrayerLanguage.english,
               compareLanguage: PrayerLanguage.latin,
               onLaunchSource: (_) {},
+              initialDate: DateTime(
+                2026,
+                7,
+                6,
+              ), // Fixed Monday (Joyful Mysteries)
             ),
           ),
         ),
@@ -151,6 +156,11 @@ void main() {
               primaryLanguage: PrayerLanguage.english,
               compareLanguage: PrayerLanguage.latin,
               onLaunchSource: (_) {},
+              initialDate: DateTime(
+                2026,
+                7,
+                6,
+              ), // Fixed Monday (Joyful Mysteries)
             ),
           ),
         ),
@@ -176,6 +186,28 @@ void main() {
       expect(find.text('Apostles\' Creed'), findsWidgets);
     });
 
+    testWidgets('initializes with mystery selection based on initialDate', (
+      tester,
+    ) async {
+      // Test Thursday (Luminous)
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: RosaryTab(
+              prayers: mockPrayers,
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+              onLaunchSource: (_) {},
+              initialDate: DateTime(2026, 7, 9), // Thursday
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('Luminous Mysteries (Thursdays)'), findsOneWidget);
+    });
+
     testGoldens('renders correctly', (tester) async {
       final builder = GoldenBuilder.column()
         ..addScenario(
@@ -185,6 +217,11 @@ void main() {
             primaryLanguage: PrayerLanguage.english,
             compareLanguage: PrayerLanguage.latin,
             onLaunchSource: (_) {},
+            initialDate: DateTime(
+              2026,
+              7,
+              6,
+            ), // Fixed Monday (Joyful Mysteries)
           ),
         );
 

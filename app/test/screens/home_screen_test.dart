@@ -168,7 +168,11 @@ void main() {
     testWidgets('renders initial tab (Prayers) and switches to Rosary tab', (
       tester,
     ) async {
-      await tester.pumpWidget(buildTestableWidget(child: const HomeScreen()));
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
+        ),
+      );
       await tester.pumpAndSettle(); // Let database load
 
       // Verify app bar and header are present
@@ -206,7 +210,11 @@ void main() {
     });
 
     testWidgets('changes language of prayer in dropdown', (tester) async {
-      await tester.pumpWidget(buildTestableWidget(child: const HomeScreen()));
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
+        ),
+      );
       await tester.pumpAndSettle(); // Let database load
 
       // Select dropdown for Our Father
@@ -227,7 +235,11 @@ void main() {
     testWidgets('search bar filters prayers list and handles clear/close', (
       tester,
     ) async {
-      await tester.pumpWidget(buildTestableWidget(child: const HomeScreen()));
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
+        ),
+      );
       await tester.pumpAndSettle(); // Let database load
 
       // Initially all three mock prayers are visible
@@ -307,7 +319,11 @@ void main() {
       );
       PrayerDatabase.mockSettings = initialSettings;
 
-      await tester.pumpWidget(buildTestableWidget(child: const HomeScreen()));
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
+        ),
+      );
       await tester.pumpAndSettle();
 
       // 1. Verify dropdown selects Traditional Chinese and saves to mockSettings
@@ -333,7 +349,12 @@ void main() {
       PrayerDatabase.mockSettings = persistedSettings;
 
       await tester.pumpWidget(
-        buildTestableWidget(child: const HomeScreen(key: Key('persisted'))),
+        buildTestableWidget(
+          child: HomeScreen(
+            key: const Key('persisted'),
+            initialDate: DateTime(2026, 7, 6),
+          ),
+        ),
       );
       await tester.pumpAndSettle();
 
@@ -359,7 +380,7 @@ void main() {
     testGoldens('HomeScreen renders correctly in both tabs', (tester) async {
       // 1. Initial/Prayers tab golden
       await tester.pumpWidgetBuilder(
-        const HomeScreen(),
+        HomeScreen(initialDate: DateTime(2026, 7, 6)),
         wrapper: materialAppWrapper(),
         surfaceSize: const Size(400, 800),
       );

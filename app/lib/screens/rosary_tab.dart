@@ -10,6 +10,7 @@ class RosaryTab extends StatefulWidget {
   final PrayerLanguage primaryLanguage;
   final PrayerLanguage compareLanguage;
   final Function(String) onLaunchSource;
+  final DateTime? initialDate;
 
   const RosaryTab({
     super.key,
@@ -17,6 +18,7 @@ class RosaryTab extends StatefulWidget {
     required this.primaryLanguage,
     required this.compareLanguage,
     required this.onLaunchSource,
+    this.initialDate,
   });
 
   @override
@@ -24,7 +26,7 @@ class RosaryTab extends StatefulWidget {
 }
 
 class _RosaryTabState extends State<RosaryTab> {
-  RosaryMysteryType _mysteryType = RosaryMysteryType.joyful;
+  late RosaryMysteryType _mysteryType;
   int _currentStep = 0;
   late List<RosaryStep> _steps;
   final Map<String, int> _preferredVersions = {};
@@ -32,6 +34,9 @@ class _RosaryTabState extends State<RosaryTab> {
   @override
   void initState() {
     super.initState();
+    _mysteryType = RosaryHelper.getMysteryForDay(
+      widget.initialDate ?? DateTime.now(),
+    );
     _generateSteps();
   }
 
@@ -325,6 +330,20 @@ class _RosaryTabState extends State<RosaryTab> {
                                   ),
                                   const Spacer(),
                                   ElevatedButton.icon(
+                                    style: ElevatedButton.styleFrom(
+                                      disabledBackgroundColor: Color.alphaBlend(
+                                        theme.colorScheme.onSurface.withValues(
+                                          alpha: 0.12,
+                                        ),
+                                        theme.colorScheme.surface,
+                                      ),
+                                      disabledForegroundColor: Color.alphaBlend(
+                                        theme.colorScheme.onSurface.withValues(
+                                          alpha: 0.38,
+                                        ),
+                                        theme.colorScheme.surface,
+                                      ),
+                                    ),
                                     icon: const Icon(Icons.arrow_back),
                                     label: const Text('Back'),
                                     onPressed: _currentStep > 0

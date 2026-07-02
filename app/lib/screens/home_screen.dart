@@ -7,7 +7,8 @@ import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/screens/rosary_tab.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final DateTime? initialDate;
+  const HomeScreen({super.key, this.initialDate});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -302,6 +303,7 @@ class _HomeScreenState extends State<HomeScreen> {
               primaryLanguage: _primaryLanguage,
               compareLanguage: _compareLanguage,
               onLaunchSource: _launchSourceUrl,
+              initialDate: widget.initialDate,
             ),
     ];
 
