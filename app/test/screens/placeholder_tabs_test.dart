@@ -110,5 +110,34 @@ void main() {
 
       expect(find.widgetWithText(FloatingActionButton, 'Today'), findsNothing);
     });
+
+    testWidgets('Next Sunday FAB jumps to next Sunday', (tester) async {
+      final fixedDate = DateTime(2026, 7, 2); // Thursday
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(body: CalendarTab(initialDate: fixedDate)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // 1. Initial date display is Thursday, July 2
+      expect(find.text('Thursday, July 2, 2026'), findsOneWidget);
+
+      // 2. Tap Next Sunday FAB -> date should jump to Sunday, July 5
+      await tester.tap(
+        find.widgetWithText(FloatingActionButton, 'Next Sunday'),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('Sunday, July 5, 2026'), findsOneWidget);
+
+      // 3. Tap it again -> date should jump to Sunday, July 12
+      await tester.tap(
+        find.widgetWithText(FloatingActionButton, 'Next Sunday'),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('Sunday, July 12, 2026'), findsOneWidget);
+    });
   });
 }
