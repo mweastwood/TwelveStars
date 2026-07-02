@@ -59,7 +59,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 100));
 
       // Verify title and verses are displayed
-      expect(find.text('Genesis 1'), findsOneWidget);
+      expect(find.text('Genesis 1'), findsNWidgets(2));
       expect(
         find.text('Catholic Public Domain Version (CPDV)'),
         findsOneWidget,

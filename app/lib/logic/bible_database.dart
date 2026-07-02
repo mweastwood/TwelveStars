@@ -32,21 +32,32 @@ class BibleDatabase extends _$BibleDatabase {
         .get();
   }
 
-  // Populate translation if empty
-  Future<void> ensurePopulated() async {
-    final countQuery = select(bibleVerses)..limit(1);
-    final existing = await countQuery.get();
-    if (existing.isNotEmpty) {
+  // Populate a specific book if not already populated
+  Future<void> ensureBookPopulated(
+    int bookNumber,
+    String bookName,
+    String abbrev,
+  ) async {
+    final existingCheck =
+        await (select(bibleVerses)
+              ..where((t) => t.bookNumber.equals(bookNumber))
+              ..limit(1))
+            .get();
+    if (existingCheck.isNotEmpty) {
       return; // Already populated
     }
 
-    // Parse and load Genesis 1 (CPDV)
     try {
-      final usfmContent = await rootBundle.loadString(
-        'assets/bible/cpdv/usfm/01-GEN-ENG[B]CPDV2009[pd].p.sfm',
+      final numStr = bookNumber.toString().padLeft(2, '0');
+      final assetPath =
+          'assets/bible/cpdv/usfm/$numStr-$abbrev-ENG[B]CPDV2009[pd].p.sfm';
+      final usfmContent = await rootBundle.loadString(assetPath);
+      final parsedVerses = UsfmParser.parse(
+        usfmContent,
+        'CPDV',
+        bookNumber,
+        bookName,
       );
-
-      final parsedVerses = UsfmParser.parse(usfmContent, 'CPDV', 1, 'Genesis');
 
       await batch((batch) {
         batch.insertAll(
@@ -63,10 +74,15 @@ class BibleDatabase extends _$BibleDatabase {
           ),
         );
       });
-      debugPrint('Successfully populated Bible database with Genesis 1');
+      debugPrint('Successfully populated Bible database with $bookName');
     } catch (e) {
-      debugPrint('Error populating Bible database: $e');
+      debugPrint('Error populating book $bookName ($bookNumber): $e');
     }
+  }
+
+  // Populate translation if empty (default to Genesis for compatibility)
+  Future<void> ensurePopulated() async {
+    await ensureBookPopulated(1, 'Genesis', 'GEN');
   }
 }
 
