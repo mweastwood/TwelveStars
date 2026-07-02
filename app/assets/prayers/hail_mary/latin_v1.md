@@ -1,6 +1,6 @@
 ---
 category: "starter"
-default_order: 2
+default_order: 3
 default_title: "Hail Mary"
 title: "Ave Maria"
 subtitle: "Salutatio Angelica"

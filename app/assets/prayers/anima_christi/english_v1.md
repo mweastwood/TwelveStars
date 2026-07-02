@@ -1,6 +1,6 @@
 ---
 category: "devotional"
-default_order: 10
+default_order: 11
 default_title: "Anima Christi"
 title: "Anima Christi"
 subtitle: "Soul of Christ"

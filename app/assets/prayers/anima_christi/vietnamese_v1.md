@@ -1,6 +1,6 @@
 ---
 category: "devotional"
-default_order: 9
+default_order: 11
 default_title: "Anima Christi"
 title: "Kinh Lạy Hồn Chúa Kitô"
 subtitle: "Anima Christi"

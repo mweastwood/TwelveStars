@@ -1,6 +1,6 @@
 ---
 category: "devotional"
-default_order: 10
+default_order: 12
 default_title: "Prayer to St. Michael"
 title: "Preghiera a San Michele Arcangelo"
 subtitle: "Preghiera di Leone XIII"

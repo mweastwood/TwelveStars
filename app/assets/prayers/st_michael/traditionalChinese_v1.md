@@ -1,6 +1,6 @@
 ---
 category: "devotional"
-default_order: 10
+default_order: 12
 default_title: "Prayer to St. Michael"
 title: "聖彌額爾總領天使經"
 subtitle: "聖彌額爾"

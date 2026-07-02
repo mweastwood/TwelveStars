@@ -1,6 +1,6 @@
 ---
 category: "creed"
-default_order: 6
+default_order: 5
 default_title: "Apostles' Creed"
 title: "Symbolum Apostolicum"
 subtitle: "Apostles' Creed"

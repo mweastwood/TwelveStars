@@ -1,6 +1,6 @@
 ---
 category: "starter"
-default_order: 3
+default_order: 4
 default_title: "Glory Be"
 title: "聖三光榮頌"
 subtitle: "Glory Be"

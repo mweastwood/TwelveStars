@@ -1,6 +1,6 @@
 ---
 category: "starter"
-default_order: 1
+default_order: 2
 default_title: "Our Father"
 title: "Ama Namin"
 subtitle: "Panalangin ng Panginoon (Moderno)"

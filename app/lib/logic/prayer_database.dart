@@ -99,6 +99,7 @@ class PrayerDatabase {
         }
         isar.prayers.putAll(compiledPrayers);
       });
+      compiledPrayers.sort((a, b) => a.defaultOrder.compareTo(b.defaultOrder));
       return compiledPrayers;
     }
 
