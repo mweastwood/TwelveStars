@@ -4,6 +4,8 @@ import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/screens/home_screen.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
+import 'package:drift/native.dart';
+import 'package:twelve_stars/logic/bible_database.dart';
 import '../test_helper.dart';
 
 void main() {
@@ -161,8 +163,16 @@ void main() {
       ),
     ];
 
+    late BibleDatabase testDb;
+
     setUp(() {
+      testDb = BibleDatabase(NativeDatabase.memory());
+      BibleDatabaseHelper.db = testDb;
       PrayerDatabase.mockPrayers = mockPrayers;
+    });
+
+    tearDown(() async {
+      await testDb.close();
     });
 
     testWidgets('renders initial tab (Prayers) and switches to Rosary tab', (
