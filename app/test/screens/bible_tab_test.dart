@@ -99,5 +99,114 @@ void main() {
 
       await screenMatchesGolden(tester, 'bible_tab_populated_golden');
     });
+
+    testWidgets('expand navigation sheet and select book and chapter', (
+      WidgetTester tester,
+    ) async {
+      // Pre-populate Gen 1 and Exo 1
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning...',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 2,
+              bookName: 'Exodus',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'These are the names...',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: BibleTab())),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      // Panel starts collapsed, displaying "Genesis 1"
+      expect(find.text('Genesis 1'), findsNWidgets(2));
+      expect(find.text('Books'), findsNothing);
+
+      // Drag up from the location header
+      await tester.drag(find.text('Genesis 1').last, const Offset(0.0, -300.0));
+      await tester.pumpAndSettle();
+
+      // Verify the panel is now expanded
+      expect(find.text('Books'), findsOneWidget);
+      expect(find.text('Chapters'), findsOneWidget);
+
+      // Tap on "Exodus" chip
+      await tester.tap(find.text('Exodus'));
+      await tester.pumpAndSettle();
+
+      // Tap chapter 1 of Exodus
+      await tester.tap(find.text('1').last);
+      await tester.pumpAndSettle();
+
+      // Now it should have transitioned to Exodus 1
+      expect(find.text('Exodus 1'), findsNWidgets(2));
+      expect(find.text('These are the names...'), findsOneWidget);
+    });
+
+    testWidgets('horizontal swiping transitions chapters', (
+      WidgetTester tester,
+    ) async {
+      // Pre-populate Genesis 1 and Genesis 2
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'Genesis 1 Verse 1',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 2,
+              verseNumber: 1,
+              verseText: 'Genesis 2 Verse 1',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: BibleTab())),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      expect(find.text('Genesis 1 Verse 1'), findsOneWidget);
+
+      // Swipe left (drag from right to left) to go to the next page
+      await tester.drag(
+        find.text('Genesis 1 Verse 1'),
+        const Offset(-400.0, 0.0),
+      );
+      await tester.pumpAndSettle();
+
+      // Now we should be on Genesis 2
+      expect(find.text('Genesis 2 Verse 1'), findsOneWidget);
+      expect(find.text('Genesis 2'), findsNWidgets(2));
+    });
   });
 }
