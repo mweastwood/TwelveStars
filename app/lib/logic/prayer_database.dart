@@ -19,8 +19,7 @@ class PrayerDatabase {
 
   static Future<Isar> _initIsar() async {
     try {
-      final existing = Isar.get(schemas: [PrayerSchema, UserSettingsSchema]);
-      existing.close();
+      return Isar.get(schemas: [PrayerSchema, UserSettingsSchema]);
     } catch (_) {
       // Instance has not been opened yet, proceed with normal initialization
     }
@@ -39,17 +38,23 @@ class PrayerDatabase {
         engine: kIsWeb ? IsarEngine.sqlite : IsarEngine.isar,
       );
     } catch (e) {
-      if (!kIsWeb && directory != null) {
+      final errorStr = e.toString().toLowerCase();
+      final isAlreadyOpenError =
+          errorStr.contains('already opened') ||
+          errorStr.contains('already open');
+      if (!kIsWeb && directory != null && !isAlreadyOpenError) {
         try {
           final isarDir = Directory(directory);
-          if (await isarDir.exists()) {
-            await for (final entity in isarDir.list()) {
+          if (isarDir.existsSync()) {
+            for (final entity in isarDir.listSync()) {
               if (entity is File &&
                   (entity.path.endsWith('.isar') ||
                       entity.path.endsWith('.sqlite') ||
                       entity.path.contains('isar') ||
                       entity.path.contains('sqlite'))) {
-                await entity.delete();
+                try {
+                  entity.deleteSync();
+                } catch (_) {}
               }
             }
           }
