@@ -128,6 +128,11 @@ class _CalendarTabState extends State<CalendarTab> {
         _selectedDate.day == now.day;
   }
 
+  DateTime _getNextSunday(DateTime date) {
+    final offset = 7 - date.weekday % 7;
+    return DateTime(date.year, date.month, date.day + offset);
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -138,8 +143,24 @@ class _CalendarTabState extends State<CalendarTab> {
     final weekdayLabels = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
     return Scaffold(
-      floatingActionButton: !_isTodaySelected
-          ? FloatingActionButton.extended(
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          FloatingActionButton.extended(
+            heroTag: 'next_sunday_fab',
+            onPressed: () {
+              setState(() {
+                _selectedDate = _getNextSunday(_selectedDate);
+              });
+            },
+            icon: const Icon(Icons.navigate_next),
+            label: const Text('Next Sunday'),
+          ),
+          if (!_isTodaySelected) ...[
+            const SizedBox(height: 8),
+            FloatingActionButton.extended(
+              heroTag: 'today_fab',
               onPressed: () {
                 setState(() {
                   final now = DateTime.now();
@@ -148,8 +169,10 @@ class _CalendarTabState extends State<CalendarTab> {
               },
               icon: const Icon(Icons.today),
               label: const Text('Today'),
-            )
-          : null,
+            ),
+          ],
+        ],
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
