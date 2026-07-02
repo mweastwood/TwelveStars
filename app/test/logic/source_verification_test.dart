@@ -17,32 +17,6 @@ void main() {
         return htmlCache[url]!;
       }
 
-      if (url.startsWith(
-        'https://raw.githubusercontent.com/mweastwood/TwelveStars/main/',
-      )) {
-        // Intercept local repository references and load from filesystem
-        String relativePath = url.replaceFirst(
-          'https://raw.githubusercontent.com/mweastwood/TwelveStars/main/',
-          '',
-        );
-        if (relativePath.startsWith('app/')) {
-          relativePath = relativePath.substring(4);
-        }
-        final file = File(relativePath);
-        if (file.existsSync()) {
-          final content = await file.readAsString();
-          // Extract body after frontmatter
-          final parts = content.split('---');
-          if (parts.length >= 3) {
-            final body = parts.sublist(2).join('---');
-            htmlCache[url] = body;
-            return body;
-          }
-          htmlCache[url] = content;
-          return content;
-        }
-      }
-
       final response = await http
           .get(Uri.parse(url), headers: {'User-Agent': 'Mozilla/5.0'})
           .timeout(const Duration(seconds: 15));
