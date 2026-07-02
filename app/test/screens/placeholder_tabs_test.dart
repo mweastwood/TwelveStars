@@ -11,7 +11,12 @@ void main() {
       final builder = GoldenBuilder.column()
         ..addScenario(
           'Calendar Tab Placeholder',
-          const SizedBox(height: 600, child: Scaffold(body: CalendarTab())),
+          SizedBox(
+            height: 600,
+            child: Scaffold(
+              body: CalendarTab(initialDate: DateTime(2026, 7, 2)),
+            ),
+          ),
         );
 
       await tester.pumpWidgetBuilder(

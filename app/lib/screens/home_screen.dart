@@ -297,7 +297,7 @@ class _HomeScreenState extends State<HomeScreen> {
           : _error != null
           ? Center(child: Text('Error loading prayers: $_error'))
           : _buildPrayersTab(theme),
-      const CalendarTab(),
+      CalendarTab(initialDate: widget.initialDate),
       const MissalTab(),
       const BibleTab(),
     ];
