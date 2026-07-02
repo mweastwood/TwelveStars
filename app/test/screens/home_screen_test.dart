@@ -220,7 +220,7 @@ void main() {
         // Switch to the Calendar tab
         await tester.tap(find.text('Calendar').last);
         await tester.pumpAndSettle();
-        expect(find.text('Liturgical Calendar'), findsOneWidget);
+        expect(find.text('Color: Green'), findsOneWidget);
 
         // Switch to the Missal tab
         await tester.tap(find.text('Missal').last);
