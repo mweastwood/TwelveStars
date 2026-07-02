@@ -301,4 +301,22 @@ class RosaryHelper {
 
     return list;
   }
+
+  static RosaryMysteryType getMysteryForDay(DateTime date) {
+    switch (date.weekday) {
+      case DateTime.monday:
+      case DateTime.saturday:
+        return RosaryMysteryType.joyful;
+      case DateTime.tuesday:
+      case DateTime.friday:
+        return RosaryMysteryType.sorrowful;
+      case DateTime.wednesday:
+      case DateTime.sunday:
+        return RosaryMysteryType.glorious;
+      case DateTime.thursday:
+        return RosaryMysteryType.luminous;
+      default:
+        return RosaryMysteryType.joyful;
+    }
+  }
 }

@@ -96,6 +96,11 @@ void main() {
               primaryLanguage: PrayerLanguage.english,
               compareLanguage: PrayerLanguage.latin,
               onLaunchSource: (_) {},
+              initialDate: DateTime(
+                2026,
+                7,
+                6,
+              ), // Fixed Monday (Joyful Mysteries)
             ),
           ),
         ),
@@ -151,6 +156,11 @@ void main() {
               primaryLanguage: PrayerLanguage.english,
               compareLanguage: PrayerLanguage.latin,
               onLaunchSource: (_) {},
+              initialDate: DateTime(
+                2026,
+                7,
+                6,
+              ), // Fixed Monday (Joyful Mysteries)
             ),
           ),
         ),
@@ -185,6 +195,11 @@ void main() {
             primaryLanguage: PrayerLanguage.english,
             compareLanguage: PrayerLanguage.latin,
             onLaunchSource: (_) {},
+            initialDate: DateTime(
+              2026,
+              7,
+              6,
+            ), // Fixed Monday (Joyful Mysteries)
           ),
         );
 
