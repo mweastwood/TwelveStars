@@ -61,7 +61,19 @@ class BibleDatabase extends _$BibleDatabase {
               ..limit(1))
             .get();
     if (existingCheck.isNotEmpty) {
-      return; // Already populated
+      if (existingCheck.first.verseText.contains('|strong=')) {
+        debugPrint(
+          'Detected strong tags in populated $bookName ($translation). Re-populating...',
+        );
+        await (delete(bibleVerses)..where(
+              (t) =>
+                  t.bookNumber.equals(bookNumber) &
+                  t.translationCode.equals(translation),
+            ))
+            .go();
+      } else {
+        return; // Already populated and clean
+      }
     }
 
     try {
@@ -195,6 +207,10 @@ class UsfmParser {
         // Strip inline footnotes and formatting
         text = text.replaceAll(RegExp(r'\\f\s+.*\\f\*'), '');
         text = text.replaceAll(RegExp(r'\\[a-zA-Z0-9]+(?:\*|\s)?'), '');
+        text = text.replaceAll(
+          RegExp(r'\|[a-zA-Z0-9_]+="[^"]*"(?:\s+[a-zA-Z0-9_]+="[^"]*")*'),
+          '',
+        );
         text = text.trim();
         // Remove multiple consecutive spaces
         text = text.replaceAll(RegExp(r'\s+'), ' ');

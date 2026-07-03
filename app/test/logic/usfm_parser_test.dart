@@ -68,6 +68,17 @@ void main() {
       expect(results[1]['verseText'], equals('And the earth was empty.'));
     });
 
+    test('Strips word attributes (like strongs numbers)', () {
+      const usfm = r'''
+\c 1
+\v 1 In|strong="H0430" the|strong="H0853" beginning|strong="H7225" God|strong="H0430" created|strong="H1254"
+''';
+
+      final results = UsfmParser.parse(usfm, 'DRC', 1, 'Genesis');
+      expect(results.length, equals(1));
+      expect(results[0]['verseText'], equals('In the beginning God created'));
+    });
+
     test('Handles empty and invalid USFM inputs gracefully', () {
       final emptyResult = UsfmParser.parse('', 'CPDV', 1, 'Genesis');
       expect(emptyResult, isEmpty);
