@@ -165,9 +165,10 @@ void main() {
 
     late BibleDatabase testDb;
 
-    setUp(() {
+    setUp(() async {
       testDb = BibleDatabase(NativeDatabase.memory());
       BibleDatabaseHelper.db = testDb;
+      await testDb.ensurePopulated();
       PrayerDatabase.mockPrayers = mockPrayers;
     });
 
@@ -229,12 +230,8 @@ void main() {
 
         // Switch to the Bible tab
         await tester.tap(find.text('Bible').last);
-        await tester.pump();
-        await tester.pump(const Duration(milliseconds: 100));
-        expect(
-          find.byType(CircularProgressIndicator),
-          findsOneWidget,
-        ); // Bible tab loading
+        await tester.pumpAndSettle();
+        expect(find.textContaining('In the beginning'), findsOneWidget);
       },
     );
 

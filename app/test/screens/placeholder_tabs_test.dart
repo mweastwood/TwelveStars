@@ -3,9 +3,23 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/screens/calendar_tab.dart';
 import 'package:twelve_stars/screens/missal_tab.dart';
+import 'package:drift/native.dart';
+import 'package:twelve_stars/logic/bible_database.dart';
 import '../test_helper.dart';
 
 void main() {
+  late BibleDatabase testDb;
+
+  setUp(() async {
+    testDb = BibleDatabase(NativeDatabase.memory());
+    BibleDatabaseHelper.db = testDb;
+    await testDb.ensurePopulated();
+  });
+
+  tearDown(() async {
+    await testDb.close();
+  });
+
   group('Placeholder Tabs Golden Tests', () {
     testGoldens('CalendarTab renders correctly', (tester) async {
       final builder = GoldenBuilder.column()

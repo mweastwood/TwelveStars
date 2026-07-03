@@ -468,15 +468,533 @@ class BibleVersesCompanion extends UpdateCompanion<BibleVerse> {
   }
 }
 
+class LectionaryReadings extends Table
+    with TableInfo<LectionaryReadings, LectionaryReading> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  LectionaryReadings(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL PRIMARY KEY AUTOINCREMENT',
+  );
+  static const VerificationMeta _readingKeyMeta = const VerificationMeta(
+    'readingKey',
+  );
+  late final GeneratedColumn<String> readingKey = GeneratedColumn<String>(
+    'reading_key',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _readingTypeMeta = const VerificationMeta(
+    'readingType',
+  );
+  late final GeneratedColumn<String> readingType = GeneratedColumn<String>(
+    'reading_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _bookNumberMeta = const VerificationMeta(
+    'bookNumber',
+  );
+  late final GeneratedColumn<int> bookNumber = GeneratedColumn<int>(
+    'book_number',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _bookNameMeta = const VerificationMeta(
+    'bookName',
+  );
+  late final GeneratedColumn<String> bookName = GeneratedColumn<String>(
+    'book_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _chapterMeta = const VerificationMeta(
+    'chapter',
+  );
+  late final GeneratedColumn<int> chapter = GeneratedColumn<int>(
+    'chapter',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _verseRangeMeta = const VerificationMeta(
+    'verseRange',
+  );
+  late final GeneratedColumn<String> verseRange = GeneratedColumn<String>(
+    'verse_range',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _citationMeta = const VerificationMeta(
+    'citation',
+  );
+  late final GeneratedColumn<String> citation = GeneratedColumn<String>(
+    'citation',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    readingKey,
+    readingType,
+    bookNumber,
+    bookName,
+    chapter,
+    verseRange,
+    citation,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'lectionary_readings';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<LectionaryReading> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('reading_key')) {
+      context.handle(
+        _readingKeyMeta,
+        readingKey.isAcceptableOrUnknown(data['reading_key']!, _readingKeyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_readingKeyMeta);
+    }
+    if (data.containsKey('reading_type')) {
+      context.handle(
+        _readingTypeMeta,
+        readingType.isAcceptableOrUnknown(
+          data['reading_type']!,
+          _readingTypeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_readingTypeMeta);
+    }
+    if (data.containsKey('book_number')) {
+      context.handle(
+        _bookNumberMeta,
+        bookNumber.isAcceptableOrUnknown(data['book_number']!, _bookNumberMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_bookNumberMeta);
+    }
+    if (data.containsKey('book_name')) {
+      context.handle(
+        _bookNameMeta,
+        bookName.isAcceptableOrUnknown(data['book_name']!, _bookNameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_bookNameMeta);
+    }
+    if (data.containsKey('chapter')) {
+      context.handle(
+        _chapterMeta,
+        chapter.isAcceptableOrUnknown(data['chapter']!, _chapterMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_chapterMeta);
+    }
+    if (data.containsKey('verse_range')) {
+      context.handle(
+        _verseRangeMeta,
+        verseRange.isAcceptableOrUnknown(data['verse_range']!, _verseRangeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_verseRangeMeta);
+    }
+    if (data.containsKey('citation')) {
+      context.handle(
+        _citationMeta,
+        citation.isAcceptableOrUnknown(data['citation']!, _citationMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_citationMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  LectionaryReading map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return LectionaryReading(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      readingKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}reading_key'],
+      )!,
+      readingType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}reading_type'],
+      )!,
+      bookNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}book_number'],
+      )!,
+      bookName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}book_name'],
+      )!,
+      chapter: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chapter'],
+      )!,
+      verseRange: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}verse_range'],
+      )!,
+      citation: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}citation'],
+      )!,
+    );
+  }
+
+  @override
+  LectionaryReadings createAlias(String alias) {
+    return LectionaryReadings(attachedDatabase, alias);
+  }
+
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class LectionaryReading extends DataClass
+    implements Insertable<LectionaryReading> {
+  final int id;
+  final String readingKey;
+  final String readingType;
+  final int bookNumber;
+  final String bookName;
+  final int chapter;
+  final String verseRange;
+  final String citation;
+  const LectionaryReading({
+    required this.id,
+    required this.readingKey,
+    required this.readingType,
+    required this.bookNumber,
+    required this.bookName,
+    required this.chapter,
+    required this.verseRange,
+    required this.citation,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['reading_key'] = Variable<String>(readingKey);
+    map['reading_type'] = Variable<String>(readingType);
+    map['book_number'] = Variable<int>(bookNumber);
+    map['book_name'] = Variable<String>(bookName);
+    map['chapter'] = Variable<int>(chapter);
+    map['verse_range'] = Variable<String>(verseRange);
+    map['citation'] = Variable<String>(citation);
+    return map;
+  }
+
+  LectionaryReadingsCompanion toCompanion(bool nullToAbsent) {
+    return LectionaryReadingsCompanion(
+      id: Value(id),
+      readingKey: Value(readingKey),
+      readingType: Value(readingType),
+      bookNumber: Value(bookNumber),
+      bookName: Value(bookName),
+      chapter: Value(chapter),
+      verseRange: Value(verseRange),
+      citation: Value(citation),
+    );
+  }
+
+  factory LectionaryReading.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return LectionaryReading(
+      id: serializer.fromJson<int>(json['id']),
+      readingKey: serializer.fromJson<String>(json['reading_key']),
+      readingType: serializer.fromJson<String>(json['reading_type']),
+      bookNumber: serializer.fromJson<int>(json['book_number']),
+      bookName: serializer.fromJson<String>(json['book_name']),
+      chapter: serializer.fromJson<int>(json['chapter']),
+      verseRange: serializer.fromJson<String>(json['verse_range']),
+      citation: serializer.fromJson<String>(json['citation']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'reading_key': serializer.toJson<String>(readingKey),
+      'reading_type': serializer.toJson<String>(readingType),
+      'book_number': serializer.toJson<int>(bookNumber),
+      'book_name': serializer.toJson<String>(bookName),
+      'chapter': serializer.toJson<int>(chapter),
+      'verse_range': serializer.toJson<String>(verseRange),
+      'citation': serializer.toJson<String>(citation),
+    };
+  }
+
+  LectionaryReading copyWith({
+    int? id,
+    String? readingKey,
+    String? readingType,
+    int? bookNumber,
+    String? bookName,
+    int? chapter,
+    String? verseRange,
+    String? citation,
+  }) => LectionaryReading(
+    id: id ?? this.id,
+    readingKey: readingKey ?? this.readingKey,
+    readingType: readingType ?? this.readingType,
+    bookNumber: bookNumber ?? this.bookNumber,
+    bookName: bookName ?? this.bookName,
+    chapter: chapter ?? this.chapter,
+    verseRange: verseRange ?? this.verseRange,
+    citation: citation ?? this.citation,
+  );
+  LectionaryReading copyWithCompanion(LectionaryReadingsCompanion data) {
+    return LectionaryReading(
+      id: data.id.present ? data.id.value : this.id,
+      readingKey: data.readingKey.present
+          ? data.readingKey.value
+          : this.readingKey,
+      readingType: data.readingType.present
+          ? data.readingType.value
+          : this.readingType,
+      bookNumber: data.bookNumber.present
+          ? data.bookNumber.value
+          : this.bookNumber,
+      bookName: data.bookName.present ? data.bookName.value : this.bookName,
+      chapter: data.chapter.present ? data.chapter.value : this.chapter,
+      verseRange: data.verseRange.present
+          ? data.verseRange.value
+          : this.verseRange,
+      citation: data.citation.present ? data.citation.value : this.citation,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('LectionaryReading(')
+          ..write('id: $id, ')
+          ..write('readingKey: $readingKey, ')
+          ..write('readingType: $readingType, ')
+          ..write('bookNumber: $bookNumber, ')
+          ..write('bookName: $bookName, ')
+          ..write('chapter: $chapter, ')
+          ..write('verseRange: $verseRange, ')
+          ..write('citation: $citation')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    readingKey,
+    readingType,
+    bookNumber,
+    bookName,
+    chapter,
+    verseRange,
+    citation,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is LectionaryReading &&
+          other.id == this.id &&
+          other.readingKey == this.readingKey &&
+          other.readingType == this.readingType &&
+          other.bookNumber == this.bookNumber &&
+          other.bookName == this.bookName &&
+          other.chapter == this.chapter &&
+          other.verseRange == this.verseRange &&
+          other.citation == this.citation);
+}
+
+class LectionaryReadingsCompanion extends UpdateCompanion<LectionaryReading> {
+  final Value<int> id;
+  final Value<String> readingKey;
+  final Value<String> readingType;
+  final Value<int> bookNumber;
+  final Value<String> bookName;
+  final Value<int> chapter;
+  final Value<String> verseRange;
+  final Value<String> citation;
+  const LectionaryReadingsCompanion({
+    this.id = const Value.absent(),
+    this.readingKey = const Value.absent(),
+    this.readingType = const Value.absent(),
+    this.bookNumber = const Value.absent(),
+    this.bookName = const Value.absent(),
+    this.chapter = const Value.absent(),
+    this.verseRange = const Value.absent(),
+    this.citation = const Value.absent(),
+  });
+  LectionaryReadingsCompanion.insert({
+    this.id = const Value.absent(),
+    required String readingKey,
+    required String readingType,
+    required int bookNumber,
+    required String bookName,
+    required int chapter,
+    required String verseRange,
+    required String citation,
+  }) : readingKey = Value(readingKey),
+       readingType = Value(readingType),
+       bookNumber = Value(bookNumber),
+       bookName = Value(bookName),
+       chapter = Value(chapter),
+       verseRange = Value(verseRange),
+       citation = Value(citation);
+  static Insertable<LectionaryReading> custom({
+    Expression<int>? id,
+    Expression<String>? readingKey,
+    Expression<String>? readingType,
+    Expression<int>? bookNumber,
+    Expression<String>? bookName,
+    Expression<int>? chapter,
+    Expression<String>? verseRange,
+    Expression<String>? citation,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (readingKey != null) 'reading_key': readingKey,
+      if (readingType != null) 'reading_type': readingType,
+      if (bookNumber != null) 'book_number': bookNumber,
+      if (bookName != null) 'book_name': bookName,
+      if (chapter != null) 'chapter': chapter,
+      if (verseRange != null) 'verse_range': verseRange,
+      if (citation != null) 'citation': citation,
+    });
+  }
+
+  LectionaryReadingsCompanion copyWith({
+    Value<int>? id,
+    Value<String>? readingKey,
+    Value<String>? readingType,
+    Value<int>? bookNumber,
+    Value<String>? bookName,
+    Value<int>? chapter,
+    Value<String>? verseRange,
+    Value<String>? citation,
+  }) {
+    return LectionaryReadingsCompanion(
+      id: id ?? this.id,
+      readingKey: readingKey ?? this.readingKey,
+      readingType: readingType ?? this.readingType,
+      bookNumber: bookNumber ?? this.bookNumber,
+      bookName: bookName ?? this.bookName,
+      chapter: chapter ?? this.chapter,
+      verseRange: verseRange ?? this.verseRange,
+      citation: citation ?? this.citation,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (readingKey.present) {
+      map['reading_key'] = Variable<String>(readingKey.value);
+    }
+    if (readingType.present) {
+      map['reading_type'] = Variable<String>(readingType.value);
+    }
+    if (bookNumber.present) {
+      map['book_number'] = Variable<int>(bookNumber.value);
+    }
+    if (bookName.present) {
+      map['book_name'] = Variable<String>(bookName.value);
+    }
+    if (chapter.present) {
+      map['chapter'] = Variable<int>(chapter.value);
+    }
+    if (verseRange.present) {
+      map['verse_range'] = Variable<String>(verseRange.value);
+    }
+    if (citation.present) {
+      map['citation'] = Variable<String>(citation.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('LectionaryReadingsCompanion(')
+          ..write('id: $id, ')
+          ..write('readingKey: $readingKey, ')
+          ..write('readingType: $readingType, ')
+          ..write('bookNumber: $bookNumber, ')
+          ..write('bookName: $bookName, ')
+          ..write('chapter: $chapter, ')
+          ..write('verseRange: $verseRange, ')
+          ..write('citation: $citation')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$BibleDatabase extends GeneratedDatabase {
   _$BibleDatabase(QueryExecutor e) : super(e);
   $BibleDatabaseManager get managers => $BibleDatabaseManager(this);
   late final BibleVerses bibleVerses = BibleVerses(this);
+  late final LectionaryReadings lectionaryReadings = LectionaryReadings(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
-  List<DatabaseSchemaEntity> get allSchemaEntities => [bibleVerses];
+  List<DatabaseSchemaEntity> get allSchemaEntities => [
+    bibleVerses,
+    lectionaryReadings,
+  ];
 }
 
 typedef $BibleVersesCreateCompanionBuilder =
@@ -714,10 +1232,275 @@ typedef $BibleVersesProcessedTableManager =
       BibleVerse,
       PrefetchHooks Function()
     >;
+typedef $LectionaryReadingsCreateCompanionBuilder =
+    LectionaryReadingsCompanion Function({
+      Value<int> id,
+      required String readingKey,
+      required String readingType,
+      required int bookNumber,
+      required String bookName,
+      required int chapter,
+      required String verseRange,
+      required String citation,
+    });
+typedef $LectionaryReadingsUpdateCompanionBuilder =
+    LectionaryReadingsCompanion Function({
+      Value<int> id,
+      Value<String> readingKey,
+      Value<String> readingType,
+      Value<int> bookNumber,
+      Value<String> bookName,
+      Value<int> chapter,
+      Value<String> verseRange,
+      Value<String> citation,
+    });
+
+class $LectionaryReadingsFilterComposer
+    extends Composer<_$BibleDatabase, LectionaryReadings> {
+  $LectionaryReadingsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get readingKey => $composableBuilder(
+    column: $table.readingKey,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get readingType => $composableBuilder(
+    column: $table.readingType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get bookNumber => $composableBuilder(
+    column: $table.bookNumber,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get bookName => $composableBuilder(
+    column: $table.bookName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get chapter => $composableBuilder(
+    column: $table.chapter,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get verseRange => $composableBuilder(
+    column: $table.verseRange,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get citation => $composableBuilder(
+    column: $table.citation,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $LectionaryReadingsOrderingComposer
+    extends Composer<_$BibleDatabase, LectionaryReadings> {
+  $LectionaryReadingsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get readingKey => $composableBuilder(
+    column: $table.readingKey,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get readingType => $composableBuilder(
+    column: $table.readingType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get bookNumber => $composableBuilder(
+    column: $table.bookNumber,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get bookName => $composableBuilder(
+    column: $table.bookName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get chapter => $composableBuilder(
+    column: $table.chapter,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get verseRange => $composableBuilder(
+    column: $table.verseRange,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get citation => $composableBuilder(
+    column: $table.citation,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $LectionaryReadingsAnnotationComposer
+    extends Composer<_$BibleDatabase, LectionaryReadings> {
+  $LectionaryReadingsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get readingKey => $composableBuilder(
+    column: $table.readingKey,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get readingType => $composableBuilder(
+    column: $table.readingType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get bookNumber => $composableBuilder(
+    column: $table.bookNumber,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get bookName =>
+      $composableBuilder(column: $table.bookName, builder: (column) => column);
+
+  GeneratedColumn<int> get chapter =>
+      $composableBuilder(column: $table.chapter, builder: (column) => column);
+
+  GeneratedColumn<String> get verseRange => $composableBuilder(
+    column: $table.verseRange,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get citation =>
+      $composableBuilder(column: $table.citation, builder: (column) => column);
+}
+
+class $LectionaryReadingsTableManager
+    extends
+        RootTableManager<
+          _$BibleDatabase,
+          LectionaryReadings,
+          LectionaryReading,
+          $LectionaryReadingsFilterComposer,
+          $LectionaryReadingsOrderingComposer,
+          $LectionaryReadingsAnnotationComposer,
+          $LectionaryReadingsCreateCompanionBuilder,
+          $LectionaryReadingsUpdateCompanionBuilder,
+          (
+            LectionaryReading,
+            BaseReferences<
+              _$BibleDatabase,
+              LectionaryReadings,
+              LectionaryReading
+            >,
+          ),
+          LectionaryReading,
+          PrefetchHooks Function()
+        > {
+  $LectionaryReadingsTableManager(_$BibleDatabase db, LectionaryReadings table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $LectionaryReadingsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $LectionaryReadingsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $LectionaryReadingsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> readingKey = const Value.absent(),
+                Value<String> readingType = const Value.absent(),
+                Value<int> bookNumber = const Value.absent(),
+                Value<String> bookName = const Value.absent(),
+                Value<int> chapter = const Value.absent(),
+                Value<String> verseRange = const Value.absent(),
+                Value<String> citation = const Value.absent(),
+              }) => LectionaryReadingsCompanion(
+                id: id,
+                readingKey: readingKey,
+                readingType: readingType,
+                bookNumber: bookNumber,
+                bookName: bookName,
+                chapter: chapter,
+                verseRange: verseRange,
+                citation: citation,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String readingKey,
+                required String readingType,
+                required int bookNumber,
+                required String bookName,
+                required int chapter,
+                required String verseRange,
+                required String citation,
+              }) => LectionaryReadingsCompanion.insert(
+                id: id,
+                readingKey: readingKey,
+                readingType: readingType,
+                bookNumber: bookNumber,
+                bookName: bookName,
+                chapter: chapter,
+                verseRange: verseRange,
+                citation: citation,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $LectionaryReadingsProcessedTableManager =
+    ProcessedTableManager<
+      _$BibleDatabase,
+      LectionaryReadings,
+      LectionaryReading,
+      $LectionaryReadingsFilterComposer,
+      $LectionaryReadingsOrderingComposer,
+      $LectionaryReadingsAnnotationComposer,
+      $LectionaryReadingsCreateCompanionBuilder,
+      $LectionaryReadingsUpdateCompanionBuilder,
+      (
+        LectionaryReading,
+        BaseReferences<_$BibleDatabase, LectionaryReadings, LectionaryReading>,
+      ),
+      LectionaryReading,
+      PrefetchHooks Function()
+    >;
 
 class $BibleDatabaseManager {
   final _$BibleDatabase _db;
   $BibleDatabaseManager(this._db);
   $BibleVersesTableManager get bibleVerses =>
       $BibleVersesTableManager(_db, _db.bibleVerses);
+  $LectionaryReadingsTableManager get lectionaryReadings =>
+      $LectionaryReadingsTableManager(_db, _db.lectionaryReadings);
 }
