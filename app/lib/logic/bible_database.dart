@@ -21,6 +21,8 @@ class BibleDatabase extends _$BibleDatabase {
     onUpgrade: (m, from, to) async {
       if (from < 2) {
         await m.createTable(favoritePassages);
+        // Clear bible_verses to force re-population with the corrected UsfmParser
+        await delete(bibleVerses).go();
       }
     },
   );
