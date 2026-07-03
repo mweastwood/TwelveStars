@@ -5,6 +5,7 @@ import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
+import 'package:twelve_stars/logic/prayers.dart';
 import '../test_helper.dart';
 
 void main() {
@@ -344,6 +345,62 @@ void main() {
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(tester, 'bible_tab_favorites_list_golden');
+    });
+
+    testWidgets('displays both translations side-by-side in parallel view', (
+      WidgetTester tester,
+    ) async {
+      // 1. Setup mock settings
+      final settings = UserSettings(
+        primaryBibleTranslation: 'CPDV',
+        compareBibleTranslation: 'DRC',
+      );
+      PrayerDatabase.mockSettings = settings;
+
+      // 2. Pre-populate database with verses for both CPDV and DRC
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created the heaven (CPDV).',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven (DRC).',
+              translationCode: 'DRC',
+            ),
+          );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: BibleTab())),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      // 3. Verify both texts are on screen
+      expect(
+        find.text('In the beginning God created the heaven (CPDV).'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('In the beginning God created heaven (DRC).'),
+        findsOneWidget,
+      );
+
+      // Clean up mock settings
+      PrayerDatabase.mockSettings = null;
     });
   });
 }

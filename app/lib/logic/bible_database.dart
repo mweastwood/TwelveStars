@@ -48,11 +48,16 @@ class BibleDatabase extends _$BibleDatabase {
   Future<void> ensureBookPopulated(
     int bookNumber,
     String bookName,
-    String abbrev,
-  ) async {
+    String abbrev, {
+    String translation = 'CPDV',
+  }) async {
     final existingCheck =
         await (select(bibleVerses)
-              ..where((t) => t.bookNumber.equals(bookNumber))
+              ..where(
+                (t) =>
+                    t.bookNumber.equals(bookNumber) &
+                    t.translationCode.equals(translation),
+              )
               ..limit(1))
             .get();
     if (existingCheck.isNotEmpty) {
@@ -61,12 +66,19 @@ class BibleDatabase extends _$BibleDatabase {
 
     try {
       final numStr = bookNumber.toString().padLeft(2, '0');
-      final assetPath =
-          'assets/bible/cpdv/usfm/$numStr-$abbrev-ENG[B]CPDV2009[pd].p.sfm';
+      final String assetPath;
+      if (translation == 'DRC') {
+        assetPath =
+            'assets/bible/drc/usfm/$numStr-$abbrev-ENG[B]DRC1899[pd].usfm';
+      } else {
+        assetPath =
+            'assets/bible/cpdv/usfm/$numStr-$abbrev-ENG[B]CPDV2009[pd].p.sfm';
+      }
+
       final usfmContent = await rootBundle.loadString(assetPath);
       final parsedVerses = UsfmParser.parse(
         usfmContent,
-        'CPDV',
+        translation,
         bookNumber,
         bookName,
       );
@@ -86,9 +98,13 @@ class BibleDatabase extends _$BibleDatabase {
           ),
         );
       });
-      debugPrint('Successfully populated Bible database with $bookName');
+      debugPrint(
+        'Successfully populated Bible database ($translation) with $bookName',
+      );
     } catch (e) {
-      debugPrint('Error populating book $bookName ($bookNumber): $e');
+      debugPrint(
+        'Error populating book $bookName ($bookNumber) for $translation: $e',
+      );
     }
   }
 

@@ -193,12 +193,17 @@ class UserSettings {
   String primaryLanguageCode;
   String compareLanguageCode;
 
+  String primaryBibleTranslation;
+  String compareBibleTranslation;
+
   List<PrayerVersionPreference>? preferredVersions;
 
   UserSettings({
     this.id = 1,
     this.primaryLanguageCode = 'english',
     this.compareLanguageCode = 'latin',
+    this.primaryBibleTranslation = 'CPDV',
+    this.compareBibleTranslation = 'none',
     this.preferredVersions,
   });
 

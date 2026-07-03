@@ -76,6 +76,7 @@ flutter:
     - assets/prayers.json
     - assets/pinyin_dict.txt
     - assets/bible/cpdv/usfm/
+    - assets/bible/drc/usfm/
     - assets/bible/lectionary.json
 
   # An image asset can refer to one or more resolution-specific "variants", see

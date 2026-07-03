@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/prayer_database.dart';
+import 'package:twelve_stars/logic/prayers.dart';
 
 class BibleChapterRef {
   final BibleBook book;
@@ -39,6 +41,10 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
 
   List<FavoritePassage> _favorites = [];
   bool _loadingFavorites = true;
+
+  UserSettings? _settings;
+  String _primaryTranslation = 'CPDV';
+  String _compareTranslation = 'none';
 
   // Navigation target for favorite scrolling/highlighting
   int? _targetBookNumber;
@@ -81,6 +87,20 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
 
     _sheetTabController = TabController(length: 3, vsync: this);
     _loadFavorites();
+    _loadSettings();
+  }
+
+  Future<void> _loadSettings() async {
+    try {
+      final settings = await PrayerDatabase.loadSettings();
+      if (mounted) {
+        setState(() {
+          _settings = settings;
+          _primaryTranslation = settings.primaryBibleTranslation;
+          _compareTranslation = settings.compareBibleTranslation;
+        });
+      }
+    } catch (_) {}
   }
 
   Future<void> _loadFavorites() async {
@@ -193,6 +213,139 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     );
   }
 
+  Widget _buildTranslationSelectors(ThemeData theme) {
+    return Card(
+      margin: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 4.0),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        child: Row(
+          children: [
+            // Left dropdown (Primary Translation)
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Primary Translation',
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.primary,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  DropdownButtonHideUnderline(
+                    child: DropdownButton<String>(
+                      value: _primaryTranslation,
+                      isDense: true,
+                      isExpanded: true,
+                      icon: Icon(
+                        Icons.arrow_drop_down,
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                      dropdownColor: theme.colorScheme.surfaceContainer,
+                      borderRadius: BorderRadius.circular(12),
+                      onChanged: (val) {
+                        if (val != null) {
+                          setState(() {
+                            _primaryTranslation = val;
+                            if (_compareTranslation == val) {
+                              _compareTranslation = 'none';
+                            }
+                            _settings?.primaryBibleTranslation = val;
+                            _settings?.compareBibleTranslation =
+                                _compareTranslation;
+                          });
+                          if (_settings != null) {
+                            PrayerDatabase.saveSettings(_settings!);
+                          }
+                        }
+                      },
+                      items: const [
+                        DropdownMenuItem(
+                          value: 'CPDV',
+                          child: Text('CPDV (English)'),
+                        ),
+                        DropdownMenuItem(
+                          value: 'DRC',
+                          child: Text('DRC (English)'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 12),
+            Icon(
+              Icons.swap_horiz,
+              color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
+              size: 20,
+            ),
+            const SizedBox(width: 12),
+            // Right dropdown (Compare Translation)
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Compare Translation',
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.secondary,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  DropdownButtonHideUnderline(
+                    child: DropdownButton<String>(
+                      value: _compareTranslation,
+                      isDense: true,
+                      isExpanded: true,
+                      icon: Icon(
+                        Icons.arrow_drop_down,
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                      dropdownColor: theme.colorScheme.surfaceContainer,
+                      borderRadius: BorderRadius.circular(12),
+                      onChanged: (val) {
+                        if (val != null) {
+                          setState(() {
+                            _compareTranslation = val;
+                            if (_primaryTranslation == val) {
+                              _primaryTranslation = val == 'CPDV'
+                                  ? 'DRC'
+                                  : 'CPDV';
+                            }
+                            _settings?.compareBibleTranslation = val;
+                            _settings?.primaryBibleTranslation =
+                                _primaryTranslation;
+                          });
+                          if (_settings != null) {
+                            PrayerDatabase.saveSettings(_settings!);
+                          }
+                        }
+                      },
+                      items: const [
+                        DropdownMenuItem(value: 'none', child: Text('None')),
+                        DropdownMenuItem(
+                          value: 'CPDV',
+                          child: Text('CPDV (English)'),
+                        ),
+                        DropdownMenuItem(
+                          value: 'DRC',
+                          child: Text('DRC (English)'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -258,288 +411,314 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     final currentRef = _allChapters[_currentPageIndex];
 
     return Scaffold(
-      body: Stack(
+      body: Column(
         children: [
-          // 1. Main PageView containing the chapters
-          PageView.builder(
-            controller: _pageController,
-            itemCount: _allChapters.length,
-            onPageChanged: (index) {
-              setState(() {
-                _currentPageIndex = index;
-              });
-            },
-            itemBuilder: (context, index) {
-              final ref = _allChapters[index];
-              final isTarget =
-                  _targetBookNumber == ref.book.bookNumber &&
-                  _targetChapter == ref.chapter;
-              return BibleChapterView(
-                book: ref.book,
-                chapter: ref.chapter,
-                scrollToVerse: isTarget ? _scrollToVerse : null,
-                highlightStartVerse: isTarget ? _highlightStartVerse : null,
-                highlightEndVerse: isTarget ? _highlightEndVerse : null,
-                navigationSessionId: isTarget ? _navigationSessionId : null,
-                onFavoriteSaved: _loadFavorites,
-              );
-            },
-          ),
+          _buildTranslationSelectors(theme),
+          Expanded(
+            child: Stack(
+              children: [
+                // 1. Main PageView containing the chapters
+                PageView.builder(
+                  controller: _pageController,
+                  itemCount: _allChapters.length,
+                  onPageChanged: (index) {
+                    setState(() {
+                      _currentPageIndex = index;
+                    });
+                  },
+                  itemBuilder: (context, index) {
+                    final ref = _allChapters[index];
+                    final isTarget =
+                        _targetBookNumber == ref.book.bookNumber &&
+                        _targetChapter == ref.chapter;
+                    return BibleChapterView(
+                      book: ref.book,
+                      chapter: ref.chapter,
+                      primaryTranslation: _primaryTranslation,
+                      compareTranslation: _compareTranslation,
+                      scrollToVerse: isTarget ? _scrollToVerse : null,
+                      highlightStartVerse: isTarget
+                          ? _highlightStartVerse
+                          : null,
+                      highlightEndVerse: isTarget ? _highlightEndVerse : null,
+                      navigationSessionId: isTarget
+                          ? _navigationSessionId
+                          : null,
+                      onFavoriteSaved: _loadFavorites,
+                    );
+                  },
+                ),
 
-          // 2. Backdrop Barrier to collapse sheet on tap
-          if (_isPanelExpanded)
-            Positioned.fill(
-              child: GestureDetector(
-                onTap: _collapsePanel,
-                child: Container(color: Colors.black26),
-              ),
-            ),
-
-          // 3. Persistent Peeking Bottom Panel
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: AnimatedBuilder(
-              animation: _panelHeightAnimation,
-              builder: (context, child) {
-                return Container(
-                  height: _panelHeightAnimation.value,
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.surface,
-                    borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(28.0),
+                // 2. Backdrop Barrier to collapse sheet on tap
+                if (_isPanelExpanded)
+                  Positioned.fill(
+                    child: GestureDetector(
+                      onTap: _collapsePanel,
+                      child: Container(color: Colors.black26),
                     ),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.black12,
-                        blurRadius: 10.0,
-                        spreadRadius: 2.0,
-                      ),
-                    ],
                   ),
-                  child: child,
-                );
-              },
-              child: Column(
-                children: [
-                  // Drag Handle & Location Header
-                  GestureDetector(
-                    onVerticalDragUpdate: _onVerticalDragUpdate,
-                    onVerticalDragEnd: _onVerticalDragEnd,
-                    onTap: _togglePanel,
-                    behavior: HitTestBehavior.translucent,
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.only(top: 12.0, bottom: 16.0),
-                      child: Column(
-                        children: [
-                          // Small Handle Pill
-                          Container(
-                            width: 36,
-                            height: 5,
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onSurfaceVariant
-                                  .withAlpha(102),
-                              borderRadius: BorderRadius.circular(2.5),
+
+                // 3. Persistent Peeking Bottom Panel
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: AnimatedBuilder(
+                    animation: _panelHeightAnimation,
+                    builder: (context, child) {
+                      return Container(
+                        height: _panelHeightAnimation.value,
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.surface,
+                          borderRadius: const BorderRadius.vertical(
+                            top: Radius.circular(28.0),
+                          ),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 10.0,
+                              spreadRadius: 2.0,
                             ),
-                          ),
-                          const SizedBox(height: 12),
-                          // Current location title
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                '${currentRef.book.bookName} ${currentRef.chapter}',
-                                style: theme.textTheme.titleMedium?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: theme.colorScheme.primary,
+                          ],
+                        ),
+                        child: child,
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        // Drag Handle & Location Header
+                        GestureDetector(
+                          onVerticalDragUpdate: _onVerticalDragUpdate,
+                          onVerticalDragEnd: _onVerticalDragEnd,
+                          onTap: _togglePanel,
+                          behavior: HitTestBehavior.translucent,
+                          child: Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.only(
+                              top: 12.0,
+                              bottom: 16.0,
+                            ),
+                            child: Column(
+                              children: [
+                                // Small Handle Pill
+                                Container(
+                                  width: 36,
+                                  height: 5,
+                                  decoration: BoxDecoration(
+                                    color: theme.colorScheme.onSurfaceVariant
+                                        .withAlpha(102),
+                                    borderRadius: BorderRadius.circular(2.5),
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(width: 8),
-                              Icon(
-                                _isPanelExpanded
-                                    ? Icons.keyboard_arrow_down
-                                    : Icons.keyboard_arrow_up,
-                                color: theme.colorScheme.primary,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-
-                  // Tab Bar and Tab Views (only shown when height is expanded enough)
-                  if (_isPanelExpanded)
-                    Expanded(
-                      child: AnimatedBuilder(
-                        animation: _panelHeightAnimation,
-                        builder: (context, _) {
-                          if (_panelHeightAnimation.value <= 150.0) {
-                            return const SizedBox.shrink();
-                          }
-                          return Column(
-                            children: [
-                              TabBar(
-                                controller: _sheetTabController,
-                                tabs: const [
-                                  Tab(text: 'Books'),
-                                  Tab(text: 'Chapters'),
-                                  Tab(text: 'Favorites'),
-                                ],
-                              ),
-                              Expanded(
-                                child: TabBarView(
-                                  controller: _sheetTabController,
+                                const SizedBox(height: 12),
+                                // Current location title
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    // Tab 1: Book List grouped by Category
-                                    ListView(
-                                      padding: const EdgeInsets.all(16.0),
-                                      children: [
-                                        _buildBookGroup(
-                                          'Pentateuch',
-                                          catholicBooks
-                                              .where(
-                                                (b) =>
-                                                    b.category == 'Pentateuch',
-                                              )
-                                              .toList(),
-                                        ),
-                                        _buildBookGroup(
-                                          'Historical Books',
-                                          catholicBooks
-                                              .where(
-                                                (b) =>
-                                                    b.category ==
-                                                    'Historical Books',
-                                              )
-                                              .toList(),
-                                        ),
-                                        _buildBookGroup(
-                                          'Wisdom Books',
-                                          catholicBooks
-                                              .where(
-                                                (b) =>
-                                                    b.category ==
-                                                    'Wisdom Books',
-                                              )
-                                              .toList(),
-                                        ),
-                                        _buildBookGroup(
-                                          'Prophets',
-                                          catholicBooks
-                                              .where(
-                                                (b) => b.category == 'Prophets',
-                                              )
-                                              .toList(),
-                                        ),
-                                        _buildBookGroup(
-                                          'Gospels & Acts',
-                                          catholicBooks
-                                              .where(
-                                                (b) =>
-                                                    b.category ==
-                                                    'Gospels & Acts',
-                                              )
-                                              .toList(),
-                                        ),
-                                        _buildBookGroup(
-                                          'Epistles',
-                                          catholicBooks
-                                              .where(
-                                                (b) => b.category == 'Epistles',
-                                              )
-                                              .toList(),
-                                        ),
-                                        _buildBookGroup(
-                                          'Prophecy',
-                                          catholicBooks
-                                              .where(
-                                                (b) => b.category == 'Prophecy',
-                                              )
-                                              .toList(),
-                                        ),
-                                      ],
+                                    Text(
+                                      '${currentRef.book.bookName} ${currentRef.chapter}',
+                                      style: theme.textTheme.titleMedium
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                            color: theme.colorScheme.primary,
+                                          ),
                                     ),
-
-                                    // Tab 2: Chapter Grid
-                                    GridView.builder(
-                                      padding: const EdgeInsets.all(16.0),
-                                      gridDelegate:
-                                          const SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 6,
-                                            mainAxisSpacing: 12.0,
-                                            crossAxisSpacing: 12.0,
-                                          ),
-                                      itemCount:
-                                          _selectedBookForPicker.chaptersCount,
-                                      itemBuilder: (context, index) {
-                                        final chapterNum = index + 1;
-                                        return InkWell(
-                                          onTap: () {
-                                            final pageIndex = _allChapters
-                                                .indexWhere(
-                                                  (ref) =>
-                                                      ref.book.bookNumber ==
-                                                          _selectedBookForPicker
-                                                              .bookNumber &&
-                                                      ref.chapter == chapterNum,
-                                                );
-                                            if (pageIndex != -1) {
-                                              _pageController.jumpToPage(
-                                                pageIndex,
-                                              );
-                                              _collapsePanel();
-                                            }
-                                          },
-                                          borderRadius: BorderRadius.circular(
-                                            8.0,
-                                          ),
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                color: theme
-                                                    .colorScheme
-                                                    .outlineVariant,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            child: Center(
-                                              child: Text(
-                                                '$chapterNum',
-                                                style: theme
-                                                    .textTheme
-                                                    .bodyMedium
-                                                    ?.copyWith(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
+                                    const SizedBox(width: 8),
+                                    Icon(
+                                      _isPanelExpanded
+                                          ? Icons.keyboard_arrow_down
+                                          : Icons.keyboard_arrow_up,
+                                      color: theme.colorScheme.primary,
                                     ),
-
-                                    // Tab 3: Favorites List
-                                    _buildFavoritesTab(theme),
                                   ],
                                 ),
-                              ),
-                            ],
-                          );
-                        },
-                      ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        // Tab Bar and Tab Views (only shown when height is expanded enough)
+                        if (_isPanelExpanded)
+                          Expanded(
+                            child: AnimatedBuilder(
+                              animation: _panelHeightAnimation,
+                              builder: (context, _) {
+                                if (_panelHeightAnimation.value <= 150.0) {
+                                  return const SizedBox.shrink();
+                                }
+                                return Column(
+                                  children: [
+                                    TabBar(
+                                      controller: _sheetTabController,
+                                      tabs: const [
+                                        Tab(text: 'Books'),
+                                        Tab(text: 'Chapters'),
+                                        Tab(text: 'Favorites'),
+                                      ],
+                                    ),
+                                    Expanded(
+                                      child: TabBarView(
+                                        controller: _sheetTabController,
+                                        children: [
+                                          // Tab 1: Book List grouped by Category
+                                          ListView(
+                                            padding: const EdgeInsets.all(16.0),
+                                            children: [
+                                              _buildBookGroup(
+                                                'Pentateuch',
+                                                catholicBooks
+                                                    .where(
+                                                      (b) =>
+                                                          b.category ==
+                                                          'Pentateuch',
+                                                    )
+                                                    .toList(),
+                                              ),
+                                              _buildBookGroup(
+                                                'Historical Books',
+                                                catholicBooks
+                                                    .where(
+                                                      (b) =>
+                                                          b.category ==
+                                                          'Historical Books',
+                                                    )
+                                                    .toList(),
+                                              ),
+                                              _buildBookGroup(
+                                                'Wisdom Books',
+                                                catholicBooks
+                                                    .where(
+                                                      (b) =>
+                                                          b.category ==
+                                                          'Wisdom Books',
+                                                    )
+                                                    .toList(),
+                                              ),
+                                              _buildBookGroup(
+                                                'Prophets',
+                                                catholicBooks
+                                                    .where(
+                                                      (b) =>
+                                                          b.category ==
+                                                          'Prophets',
+                                                    )
+                                                    .toList(),
+                                              ),
+                                              _buildBookGroup(
+                                                'Gospels & Acts',
+                                                catholicBooks
+                                                    .where(
+                                                      (b) =>
+                                                          b.category ==
+                                                          'Gospels & Acts',
+                                                    )
+                                                    .toList(),
+                                              ),
+                                              _buildBookGroup(
+                                                'Epistles',
+                                                catholicBooks
+                                                    .where(
+                                                      (b) =>
+                                                          b.category ==
+                                                          'Epistles',
+                                                    )
+                                                    .toList(),
+                                              ),
+                                              _buildBookGroup(
+                                                'Prophecy',
+                                                catholicBooks
+                                                    .where(
+                                                      (b) =>
+                                                          b.category ==
+                                                          'Prophecy',
+                                                    )
+                                                    .toList(),
+                                              ),
+                                            ],
+                                          ),
+
+                                          // Tab 2: Chapter Grid
+                                          GridView.builder(
+                                            padding: const EdgeInsets.all(16.0),
+                                            gridDelegate:
+                                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                                  crossAxisCount: 6,
+                                                  mainAxisSpacing: 12.0,
+                                                  crossAxisSpacing: 12.0,
+                                                ),
+                                            itemCount: _selectedBookForPicker
+                                                .chaptersCount,
+                                            itemBuilder: (context, index) {
+                                              final chapterNum = index + 1;
+                                              return InkWell(
+                                                onTap: () {
+                                                  final pageIndex = _allChapters
+                                                      .indexWhere(
+                                                        (ref) =>
+                                                            ref.book.bookNumber ==
+                                                                _selectedBookForPicker
+                                                                    .bookNumber &&
+                                                            ref.chapter ==
+                                                                chapterNum,
+                                                      );
+                                                  if (pageIndex != -1) {
+                                                    _pageController.jumpToPage(
+                                                      pageIndex,
+                                                    );
+                                                    _collapsePanel();
+                                                  }
+                                                },
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    border: Border.all(
+                                                      color: theme
+                                                          .colorScheme
+                                                          .outlineVariant,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                          8.0,
+                                                        ),
+                                                  ),
+                                                  child: Center(
+                                                    child: Text(
+                                                      '$chapterNum',
+                                                      style: theme
+                                                          .textTheme
+                                                          .bodyMedium
+                                                          ?.copyWith(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          ),
+
+                                          // Tab 3: Favorites List
+                                          _buildFavoritesTab(theme),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
+                            ),
+                          ),
+                      ],
                     ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+                  ),
+                ),
+              ], // closes Stack children
+            ), // closes Stack
+          ), // closes Expanded
+        ], // closes Column children
+      ), // closes Column
+    ); // closes Scaffold
   }
 
   Widget _buildFavoritesTab(ThemeData theme) {
@@ -646,6 +825,8 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
 class BibleChapterView extends StatefulWidget {
   final BibleBook book;
   final int chapter;
+  final String primaryTranslation;
+  final String compareTranslation;
   final int? scrollToVerse;
   final int? highlightStartVerse;
   final int? highlightEndVerse;
@@ -656,6 +837,8 @@ class BibleChapterView extends StatefulWidget {
     super.key,
     required this.book,
     required this.chapter,
+    required this.primaryTranslation,
+    required this.compareTranslation,
     this.scrollToVerse,
     this.highlightStartVerse,
     this.highlightEndVerse,
@@ -670,6 +853,7 @@ class BibleChapterView extends StatefulWidget {
 class _BibleChapterViewState extends State<BibleChapterView>
     with AutomaticKeepAliveClientMixin {
   List<BibleVerse> _verses = [];
+  List<BibleVerse> _compareVerses = [];
   bool _loading = true;
   String? _error;
 
@@ -694,7 +878,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
   void didUpdateWidget(BibleChapterView oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.book.bookNumber != widget.book.bookNumber ||
-        oldWidget.chapter != widget.chapter) {
+        oldWidget.chapter != widget.chapter ||
+        oldWidget.primaryTranslation != widget.primaryTranslation ||
+        oldWidget.compareTranslation != widget.compareTranslation) {
       _firstSelectedVerseNumber = null;
       _lastSelectedVerseNumber = null;
       _loadChapterData();
@@ -712,19 +898,39 @@ class _BibleChapterViewState extends State<BibleChapterView>
 
     try {
       final db = BibleDatabaseHelper.db;
+      // Load primary translation
       await db.ensureBookPopulated(
         widget.book.bookNumber,
         widget.book.bookName,
         widget.book.abbrev,
+        translation: widget.primaryTranslation,
       );
       final verses = await db.getChapterVerses(
-        'CPDV',
+        widget.primaryTranslation,
         widget.book.bookNumber,
         widget.chapter,
       );
+
+      // Load compare translation if needed
+      List<BibleVerse> compareVerses = [];
+      if (widget.compareTranslation != 'none') {
+        await db.ensureBookPopulated(
+          widget.book.bookNumber,
+          widget.book.bookName,
+          widget.book.abbrev,
+          translation: widget.compareTranslation,
+        );
+        compareVerses = await db.getChapterVerses(
+          widget.compareTranslation,
+          widget.book.bookNumber,
+          widget.chapter,
+        );
+      }
+
       if (mounted) {
         setState(() {
           _verses = verses;
+          _compareVerses = compareVerses;
           _loading = false;
         });
         _scrollToAndHighlightTarget();
@@ -894,6 +1100,12 @@ class _BibleChapterViewState extends State<BibleChapterView>
     );
   }
 
+  String _getTranslationName(String code) {
+    if (code == 'CPDV') return 'Catholic Public Domain Version (CPDV)';
+    if (code == 'DRC') return 'Douay-Rheims Bible (DRC)';
+    return code;
+  }
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -927,7 +1139,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
               ),
               const SizedBox(height: 8),
               Text(
-                'Catholic Public Domain Version (CPDV)',
+                widget.compareTranslation == 'none'
+                    ? _getTranslationName(widget.primaryTranslation)
+                    : '${_getTranslationName(widget.primaryTranslation)}  |  ${_getTranslationName(widget.compareTranslation)}',
                 style: theme.textTheme.bodyMedium?.copyWith(
                   fontStyle: FontStyle.italic,
                   color: theme.colorScheme.outline,
@@ -937,6 +1151,16 @@ class _BibleChapterViewState extends State<BibleChapterView>
               ..._verses.map((verse) {
                 final isSelected = _isVerseSelected(verse.verseNumber);
                 _verseKeys.putIfAbsent(verse.verseNumber, () => GlobalKey());
+
+                BibleVerse? compareVerse;
+                if (_compareVerses.isNotEmpty) {
+                  for (final cv in _compareVerses) {
+                    if (cv.verseNumber == verse.verseNumber) {
+                      compareVerse = cv;
+                      break;
+                    }
+                  }
+                }
 
                 return GestureDetector(
                   key: _verseKeys[verse.verseNumber],
@@ -973,14 +1197,34 @@ class _BibleChapterViewState extends State<BibleChapterView>
                           ),
                         ),
                         const SizedBox(width: 12),
-                        Expanded(
-                          child: Text(
-                            verse.verseText,
-                            style: theme.textTheme.bodyLarge?.copyWith(
-                              color: theme.colorScheme.onSurface,
+                        if (_compareVerses.isEmpty)
+                          Expanded(
+                            child: Text(
+                              verse.verseText,
+                              style: theme.textTheme.bodyLarge?.copyWith(
+                                color: theme.colorScheme.onSurface,
+                              ),
+                            ),
+                          )
+                        else ...[
+                          Expanded(
+                            child: Text(
+                              verse.verseText,
+                              style: theme.textTheme.bodyLarge?.copyWith(
+                                color: theme.colorScheme.onSurface,
+                              ),
                             ),
                           ),
-                        ),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: Text(
+                              compareVerse?.verseText ?? '',
+                              style: theme.textTheme.bodyLarge?.copyWith(
+                                color: theme.colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                          ),
+                        ],
                       ],
                     ),
                   ),
