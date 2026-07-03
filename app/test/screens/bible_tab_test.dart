@@ -4,6 +4,7 @@ import 'package:drift/native.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
+import 'package:twelve_stars/logic/prayer_database.dart';
 import '../test_helper.dart';
 
 void main() {
@@ -12,6 +13,7 @@ void main() {
   setUp(() {
     testDb = BibleDatabase(NativeDatabase.memory());
     BibleDatabaseHelper.db = testDb;
+    PrayerDatabase.mockPrayers = [];
   });
 
   tearDown(() async {
@@ -207,6 +209,141 @@ void main() {
       // Now we should be on Genesis 2
       expect(find.text('Genesis 2 Verse 1'), findsOneWidget);
       expect(find.text('Genesis 2'), findsNWidgets(2));
+    });
+
+    testWidgets('long press to select verses and save as favorite', (
+      WidgetTester tester,
+    ) async {
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning...',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 2,
+              verseText: 'And the earth was void...',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: BibleTab())),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      // Long press verse 1 to start selection
+      await tester.longPress(find.text('In the beginning...'));
+      await tester.pumpAndSettle();
+
+      // Tap verse 2 to expand selection
+      await tester.tap(find.text('And the earth was void...'));
+      await tester.pumpAndSettle();
+
+      // Check selection bar appears
+      expect(find.text('Genesis 1:1-2'), findsOneWidget);
+      expect(find.text('2 verses selected'), findsOneWidget);
+
+      // Tap Save
+      await tester.tap(find.text('Save'));
+      await tester.pumpAndSettle();
+
+      // Verify SnackBar and favorites list has the favorite
+      expect(find.byType(SnackBar), findsOneWidget);
+      final favorites = await testDb.getFavorites();
+      expect(favorites.length, 1);
+      final fav = favorites.first;
+      expect(fav.bookName, 'Genesis');
+      expect(fav.chapter, 1);
+      expect(fav.startVerse, 1);
+      expect(fav.endVerse, 2);
+    });
+
+    testGoldens('renders selection bar correctly', (tester) async {
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created...',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await tester.pumpWidgetBuilder(
+        const Scaffold(body: BibleTab()),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      await tester.longPress(find.text('In the beginning God created...'));
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'bible_tab_selection_active_golden');
+    });
+
+    testGoldens('renders favorites tab correctly', (tester) async {
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created...',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await testDb
+          .into(testDb.favoritePassages)
+          .insert(
+            FavoritePassagesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              startVerse: 1,
+              endVerse: 1,
+              textPreview: 'In the beginning God created...',
+            ),
+          );
+
+      await tester.pumpWidgetBuilder(
+        const Scaffold(body: BibleTab()),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      await tester.drag(find.text('Genesis 1').last, const Offset(0.0, -300.0));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Favorites'));
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'bible_tab_favorites_list_golden');
     });
   });
 }
