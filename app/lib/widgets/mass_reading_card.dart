@@ -68,189 +68,61 @@ class _MassReadingCardState extends State<MassReadingCard> {
         bookMeta.abbrev,
       );
 
-      final cleanRange = cleanVerseStr(widget.reading.verseRange);
-      final initialVersesList = parseVerseRange(cleanRange);
-      final mappedRef = mapModernToVulgate(
-        widget.reading.bookNumber,
-        widget.reading.chapter,
-        initialVersesList,
+      final ranges = resolveReadingRanges(
+        bookNumber: widget.reading.bookNumber,
+        defaultChapter: widget.reading.chapter,
+        defaultVerseRange: widget.reading.verseRange,
+        citation: widget.reading.citation,
       );
 
-      final citation = widget.reading.citation;
-      List<BibleVerse> verses = [];
+      Expression<bool> predicate = const Constant(false);
+      for (final range in ranges) {
+        Expression<bool> rangePredicate = db.bibleVerses.chapter.equals(
+          range.chapter,
+        );
 
-      // 1. Semicolon-separated cross-chapter citations (e.g. "Isaiah 63:16b-17, 19b; 64:2-7")
-      if (citation.contains(';')) {
-        final parts = citation.split(';');
-        Expression<bool> predicate = const Constant(false);
-
-        for (final part in parts) {
-          final trimmedPart = part.trim();
-          final colonIndex = trimmedPart.indexOf(':');
-          if (colonIndex != -1) {
-            final chapterPart = trimmedPart.substring(0, colonIndex);
-            final chapterMatch = RegExp(r'\d+$').firstMatch(chapterPart.trim());
-            if (chapterMatch != null) {
-              final ch = int.parse(chapterMatch.group(0)!);
-              final versesStr = trimmedPart.substring(colonIndex + 1);
-              final rawVerses = parseVerseRange(cleanVerseStr(versesStr));
-              final mappedRefPart = mapModernToVulgate(
-                widget.reading.bookNumber,
-                ch,
-                rawVerses,
-              );
-
-              predicate =
-                  predicate |
-                  (db.bibleVerses.chapter.equals(mappedRefPart.chapter) &
-                      db.bibleVerses.verseNumber.isIn(mappedRefPart.verses));
-            }
+        if (range.verses != null) {
+          if (range.startVerseLimit != null) {
+            rangePredicate =
+                rangePredicate &
+                (db.bibleVerses.verseNumber.isIn(range.verses!) |
+                    db.bibleVerses.verseNumber.isBiggerOrEqualValue(
+                      range.startVerseLimit!,
+                    ));
+          } else {
+            rangePredicate =
+                rangePredicate & db.bibleVerses.verseNumber.isIn(range.verses!);
           }
-        }
-
-        verses =
-            await (db.select(db.bibleVerses)
-                  ..where(
-                    (t) =>
-                        t.translationCode.equals('CPDV') &
-                        t.bookNumber.equals(widget.reading.bookNumber) &
-                        predicate,
-                  )
-                  ..orderBy([
-                    (t) => OrderingTerm(expression: t.chapter),
-                    (t) => OrderingTerm(expression: t.verseNumber),
-                  ]))
-                .get();
-      }
-      // 2. Multi-chapter crossings (e.g. "Exodus 11:10—12:14")
-      else if (citation.contains('—') || citation.contains('–')) {
-        String dash = citation.contains('—') ? '—' : '–';
-        final parts = citation.split(dash);
-        if (parts.length == 2) {
-          final rightPart = parts[1].trim();
-
-          if (rightPart.contains(':')) {
-            final rightSubParts = rightPart.split(':');
-            final endChapterStr = rightSubParts[0].replaceAll(
-              RegExp(r'[^\d]'),
-              '',
-            );
-            final endChapterVal = int.tryParse(endChapterStr);
-
-            if (endChapterVal != null) {
-              final mappedEndRef = mapModernToVulgate(
-                widget.reading.bookNumber,
-                endChapterVal,
-                const [],
+        } else if (range.startVerseLimit != null) {
+          rangePredicate =
+              rangePredicate &
+              db.bibleVerses.verseNumber.isBiggerOrEqualValue(
+                range.startVerseLimit!,
               );
-              final endChapter = mappedEndRef.chapter;
-
-              if (endChapter != mappedRef.chapter) {
-                final endVerseStr = cleanVerseStr(rightSubParts[1]);
-                final rawEndVerses = parseVerseRange(endVerseStr);
-                final mappedEndVerseRef = mapModernToVulgate(
-                  widget.reading.bookNumber,
-                  endChapterVal,
-                  rawEndVerses,
-                );
-                final endVerses = mappedEndVerseRef.verses;
-
-                final startVerses = mappedRef.verses;
-                Expression<bool> predicate = const Constant(false);
-
-                // Add first chapter verses
-                if (startVerses.isNotEmpty) {
-                  final startVerseLimit = startVerses.last;
-                  final specificVerses = startVerses.sublist(
-                    0,
-                    startVerses.length - 1,
-                  );
-
-                  if (specificVerses.isNotEmpty) {
-                    predicate =
-                        predicate |
-                        (db.bibleVerses.chapter.equals(mappedRef.chapter) &
-                            (db.bibleVerses.verseNumber.isIn(specificVerses) |
-                                db.bibleVerses.verseNumber.isBiggerOrEqualValue(
-                                  startVerseLimit,
-                                )));
-                  } else {
-                    predicate =
-                        predicate |
-                        (db.bibleVerses.chapter.equals(mappedRef.chapter) &
-                            db.bibleVerses.verseNumber.isBiggerOrEqualValue(
-                              startVerseLimit,
-                            ));
-                  }
-                }
-
-                // Add intermediate chapters
-                for (int c = mappedRef.chapter + 1; c < endChapter; c++) {
-                  predicate = predicate | db.bibleVerses.chapter.equals(c);
-                }
-
-                // Add second chapter verses
-                if (endVerses.isNotEmpty) {
-                  final hasCommaOrMultiple =
-                      rightSubParts[1].contains(',') ||
-                      rightSubParts[1].contains('and');
-                  if (hasCommaOrMultiple) {
-                    predicate =
-                        predicate |
-                        (db.bibleVerses.chapter.equals(endChapter) &
-                            db.bibleVerses.verseNumber.isIn(endVerses));
-                  } else {
-                    final endVerseLimit = endVerses.last;
-                    predicate =
-                        predicate |
-                        (db.bibleVerses.chapter.equals(endChapter) &
-                            db.bibleVerses.verseNumber.isSmallerOrEqualValue(
-                              endVerseLimit,
-                            ));
-                  }
-                }
-
-                verses =
-                    await (db.select(db.bibleVerses)
-                          ..where(
-                            (t) =>
-                                t.translationCode.equals('CPDV') &
-                                t.bookNumber.equals(widget.reading.bookNumber) &
-                                predicate,
-                          )
-                          ..orderBy([
-                            (t) => OrderingTerm(expression: t.chapter),
-                            (t) => OrderingTerm(expression: t.verseNumber),
-                          ]))
-                        .get();
-              }
-            }
-          }
+        } else if (range.endVerseLimit != null) {
+          rangePredicate =
+              rangePredicate &
+              db.bibleVerses.verseNumber.isSmallerOrEqualValue(
+                range.endVerseLimit!,
+              );
         }
+
+        predicate = predicate | rangePredicate;
       }
 
-      // 3. Fallback/Single chapter case
-      if (verses.isEmpty) {
-        if (mappedRef.verses.isEmpty) {
-          verses = await db.getChapterVerses(
-            'CPDV',
-            widget.reading.bookNumber,
-            mappedRef.chapter,
-          );
-        } else {
-          verses =
-              await (db.select(db.bibleVerses)
-                    ..where(
-                      (t) =>
-                          t.translationCode.equals('CPDV') &
-                          t.bookNumber.equals(widget.reading.bookNumber) &
-                          t.chapter.equals(mappedRef.chapter) &
-                          t.verseNumber.isIn(mappedRef.verses),
-                    )
-                    ..orderBy([(t) => OrderingTerm(expression: t.verseNumber)]))
-                  .get();
-        }
-      }
+      final verses =
+          await (db.select(db.bibleVerses)
+                ..where(
+                  (t) =>
+                      t.translationCode.equals('CPDV') &
+                      t.bookNumber.equals(widget.reading.bookNumber) &
+                      predicate,
+                )
+                ..orderBy([
+                  (t) => OrderingTerm(expression: t.chapter),
+                  (t) => OrderingTerm(expression: t.verseNumber),
+                ]))
+              .get();
 
       if (mounted) {
         setState(() {
