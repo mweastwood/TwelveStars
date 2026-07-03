@@ -177,9 +177,38 @@ void main() {
         return htmlCache[url]!;
       }
 
-      final response = await http
-          .get(Uri.parse(url), headers: {'User-Agent': 'Mozilla/5.0'})
-          .timeout(const Duration(seconds: 15));
+      http.Response response;
+      try {
+        response = await http
+            .get(
+              Uri.parse(url),
+              headers: {
+                'User-Agent':
+                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+              },
+            )
+            .timeout(const Duration(seconds: 15));
+
+        if (response.statusCode == 403 || response.statusCode == 503) {
+          // Try fetching from the Internet Archive Wayback Machine as a fallback
+          final waybackUrl = 'https://web.archive.org/web/20260101/$url';
+          final waybackResponse = await http
+              .get(
+                Uri.parse(waybackUrl),
+                headers: {'User-Agent': 'Mozilla/5.0'},
+              )
+              .timeout(const Duration(seconds: 15));
+          if (waybackResponse.statusCode == 200) {
+            response = waybackResponse;
+          }
+        }
+      } catch (_) {
+        // If a network exception or timeout occurs, try the Wayback Machine
+        final waybackUrl = 'https://web.archive.org/web/20260101/$url';
+        response = await http
+            .get(Uri.parse(waybackUrl), headers: {'User-Agent': 'Mozilla/5.0'})
+            .timeout(const Duration(seconds: 15));
+      }
 
       if (response.statusCode != 200) {
         throw Exception('Failed to fetch $url: HTTP ${response.statusCode}');
