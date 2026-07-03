@@ -549,7 +549,7 @@ class _CalendarTabState extends State<CalendarTab> {
                   );
                 },
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 160),
             ],
           ),
         ),
