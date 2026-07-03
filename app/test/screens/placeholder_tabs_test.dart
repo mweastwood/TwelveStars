@@ -153,5 +153,38 @@ void main() {
 
       expect(find.text('Sunday, July 12, 2026'), findsOneWidget);
     });
+
+    testWidgets('displays lectionary readings in correct order on Sunday', (
+      tester,
+    ) async {
+      final fixedDate = DateTime(2026, 7, 5); // Sunday, July 5, 2026
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(body: CalendarTab(initialDate: fixedDate)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Verify that the title of readings are displayed in correct order:
+      // First Reading -> Responsorial Psalm -> Second Reading -> Gospel.
+      final firstReadingFinder = find.text('First Reading');
+      final psalmFinder = find.text('Responsorial Psalm');
+      final secondReadingFinder = find.text('Second Reading');
+      final gospelFinder = find.text('Gospel');
+
+      expect(firstReadingFinder, findsOneWidget);
+      expect(psalmFinder, findsOneWidget);
+      expect(secondReadingFinder, findsOneWidget);
+      expect(gospelFinder, findsOneWidget);
+
+      final firstReadingY = tester.getCenter(firstReadingFinder).dy;
+      final psalmY = tester.getCenter(psalmFinder).dy;
+      final secondReadingY = tester.getCenter(secondReadingFinder).dy;
+      final gospelY = tester.getCenter(gospelFinder).dy;
+
+      expect(firstReadingY < psalmY, isTrue);
+      expect(psalmY < secondReadingY, isTrue);
+      expect(secondReadingY < gospelY, isTrue);
+    });
   });
 }

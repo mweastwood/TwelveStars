@@ -543,10 +543,23 @@ class _CalendarTabState extends State<CalendarTab> {
                       style: TextStyle(color: theme.colorScheme.error),
                     );
                   }
-                  final readings = snapshot.data ?? [];
+                  final readings = (snapshot.data ?? []).toList();
                   if (readings.isEmpty) {
                     return const SizedBox.shrink();
                   }
+
+                  // Sort readings to ensure the order: First reading, psalm, second reading, gospel
+                  readings.sort((a, b) {
+                    const order = {
+                      'first': 0,
+                      'psalm': 1,
+                      'second': 2,
+                      'gospel': 3,
+                    };
+                    final indexA = order[a.readingType] ?? 99;
+                    final indexB = order[b.readingType] ?? 99;
+                    return indexA.compareTo(indexB);
+                  });
 
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
