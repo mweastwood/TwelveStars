@@ -180,7 +180,7 @@ class _CalendarTabState extends State<CalendarTab> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               // Calendar Month View (Constrained to 480px)
               Center(
@@ -549,7 +549,7 @@ class _CalendarTabState extends State<CalendarTab> {
                   }
 
                   return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
                         'MASS READINGS',
