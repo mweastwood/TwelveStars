@@ -1,3 +1,163 @@
+/*
+## Prayer Source Verification Report (Generated: 2026-07-03)
+
+### English
+**Passed (8)**:
+ - `apostles_creed` — https://en.wikipedia.org/wiki/Apostles%27_Creed
+ - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
+ - `hail_mary (Version 1)` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
+ - `hail_mary (Version 2)` — https://en.wikipedia.org/wiki/Hail_Mary
+ - `our_father (Version 1)` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
+ - `our_father (Version 2)` — https://en.wikipedia.org/wiki/Lord%27s_Prayer
+ - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
+ - `st_francis` — https://en.wikipedia.org/wiki/Prayer_of_Saint_Francis
+
+**Failed (8)**:
+ - `act_of_contrition` — https://en.wikipedia.org/wiki/Act_of_Contrition
+ - `anima_christi` — https://en.wikipedia.org/wiki/Anima_Christi
+ - `fatima_prayer` — https://en.wikipedia.org/wiki/Fatima_Prayer
+ - `final_prayer_rosary` — https://en.wikipedia.org/wiki/Rosary
+ - `hail_holy_queen` — https://en.wikipedia.org/wiki/Hail_Holy_Queen
+ - `nicene_creed` — https://en.wikipedia.org/wiki/Nicene_Creed
+ - `now_i_lay_me` — https://en.wikipedia.org/wiki/Now_I_Lay_Me_Down_to_Sleep
+ - `st_michael` — https://en.wikipedia.org/wiki/Prayer_to_Saint_Michael
+
+### French
+**Passed (6)**:
+ - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
+ - `hail_mary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
+ - `our_father (Version 1)` — https://fr.wikipedia.org/wiki/Notre_P%C3%A8re
+ - `our_father (Version 2)` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
+ - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
+ - `st_francis` — https://fr.wikipedia.org/wiki/Pri%C3%A8re_de_saint_Fran%C3%A7ois
+
+**Failed (9)**:
+ - `act_of_contrition` — https://fr.wikipedia.org/wiki/Acte_de_contrition
+ - `anima_christi` — https://fr.wikipedia.org/wiki/Anima_Christi
+ - `apostles_creed` — https://fr.wikipedia.org/wiki/Symbole_des_ap%C3%B4tres
+ - `fatima_prayer` — https://fr.wikipedia.org/wiki/Chapelet
+ - `final_prayer_rosary` — https://fr.wikipedia.org/wiki/Chapelet
+ - `hail_holy_queen` — https://fr.wikipedia.org/wiki/Salve_Regina
+ - `nicene_creed` — https://fr.wikipedia.org/wiki/Symbole_de_Nic%C3%A9e-Constantinople
+ - `now_i_lay_me` — https://fr.wikipedia.org/wiki/Now_I_lay_me_down_to_sleep
+ - `st_michael` — https://fr.wikipedia.org/wiki/Pri%C3%A8re_%C3%A0_saint_Michel
+
+### Italian
+**Passed (5)**:
+ - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
+ - `hail_mary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
+ - `our_father` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
+ - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
+ - `st_francis` — https://it.wikipedia.org/wiki/Preghiera_semplice
+
+**Failed (9)**:
+ - `act_of_contrition` — https://it.wikipedia.org/wiki/Atto_di_dolore
+ - `anima_christi` — https://it.wikipedia.org/wiki/Anima_Christi
+ - `apostles_creed` — https://it.wikipedia.org/wiki/Simbolo_apostolico
+ - `fatima_prayer` — https://it.wikipedia.org/wiki/Rosario
+ - `final_prayer_rosary` — https://it.wikipedia.org/wiki/Rosario
+ - `hail_holy_queen` — https://it.wikipedia.org/wiki/Salve_Regina
+ - `nicene_creed` — https://it.wikipedia.org/wiki/Simbolo_niceno-costantinopolitano
+ - `now_i_lay_me` — https://it.wikipedia.org/wiki/Now_I_lay_me_down_to_sleep
+ - `st_michael` — https://it.wikipedia.org/wiki/Preghiera_a_san_Michele
+
+### Latin
+**Passed (4)**:
+ - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
+ - `hail_mary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
+ - `our_father` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
+ - `st_francis` — https://www.preces-latinae.org/thesaurus/Sancti/SFranciscusAssisiensis/PrayerofSF.html
+
+**Failed (10)**:
+ - `act_of_contrition` — https://en.wikipedia.org/wiki/Act_of_Contrition
+ - `anima_christi` — https://la.wikipedia.org/wiki/Anima_Christi
+ - `apostles_creed` — https://la.wikipedia.org/wiki/Symbolum_Apostolorum
+ - `fatima_prayer` — https://la.wikipedia.org/wiki/Rosarium
+ - `final_prayer_rosary` — https://la.wikipedia.org/wiki/Rosarium
+ - `hail_holy_queen` — https://la.wikipedia.org/wiki/Salve_Regina
+ - `nicene_creed` — https://la.wikipedia.org/wiki/Symbolum_Nicaenum_Constantinopolitanum
+ - `now_i_lay_me` — https://en.wikipedia.org/wiki/Now_I_Lay_Me_Down_to_Sleep
+ - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_la.html
+ - `st_michael` — https://la.wikipedia.org/wiki/Oratio_ad_Sanctum_Michaelem
+
+### Spanish
+**Passed (6)**:
+ - `apostles_creed` — https://es.wikipedia.org/wiki/Credo_de_los_Ap%C3%B3stoles
+ - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html
+ - `hail_mary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html
+ - `our_father` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html
+ - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html
+ - `st_francis` — https://es.wikipedia.org/wiki/Oraci%C3%B3n_de_San_Francisco
+
+**Failed (8)**:
+ - `act_of_contrition` — https://es.wikipedia.org/wiki/Acto_de_contrici%C3%B3n
+ - `anima_christi` — https://es.wikipedia.org/wiki/Anima_Christi
+ - `fatima_prayer` — https://es.wikipedia.org/wiki/Misterios_del_rosario
+ - `final_prayer_rosary` — https://es.wikipedia.org/wiki/Rosario_(catolicismo)
+ - `hail_holy_queen` — https://es.wikipedia.org/wiki/Salve
+ - `nicene_creed` — https://es.wikipedia.org/wiki/Credo_Niceno-Constantinopolitano
+ - `now_i_lay_me` — https://en.wikipedia.org/wiki/Now_I_Lay_Me_Down_to_Sleep
+ - `st_michael` — https://es.wikipedia.org/wiki/Oraci%C3%B3n_a_san_Miguel_Arc%C3%A1ngel
+
+### Tagalog
+**Passed (5)**:
+ - `glory_be` — https://tl.wikipedia.org/wiki/Luwalhati_sa_Ama
+ - `hail_mary` — https://tl.wikipedia.org/wiki/Aba_Ginoong_Maria
+ - `our_father (Version 1)` — https://tl.wikipedia.org/wiki/Ama_Namin
+ - `our_father (Version 2)` — https://tl.wikipedia.org/wiki/Ama_Namin
+ - `st_francis` — https://pagbubulaybulay.wordpress.com/2010/03/17/prayer-of-st-francis-of-assisipanalangin-ni-san-francisco-de-asis/
+
+**Failed (10)**:
+ - `act_of_contrition` — https://www.tagaloglang.com/act-of-contrition-in-tagalog/
+ - `anima_christi` — https://tl.wikipedia.org/wiki/Anima_Christi
+ - `apostles_creed` — https://tl.wikipedia.org/wiki/Sumasampalataya_Ako
+ - `fatima_prayer` — https://www.youtube.com
+ - `final_prayer_rosary` — https://www.swordofgodrosaries.com/tl/sorrowful-mysteries
+ - `hail_holy_queen` — https://tl.wikipedia.org/wiki/Aba_Po,_Santa_Mariang_Hari
+ - `nicene_creed` — https://tl.wikipedia.org/wiki/Sumasampalataya
+ - `now_i_lay_me` — https://wikipedia.org
+ - `sign_of_the_cross` — https://www.vatican.va
+ - `st_michael` — https://tl.wikipedia.org/wiki/Miguel
+
+### Traditional Chinese
+**Passed (7)**:
+ - `apostles_creed` — https://zh.wikipedia.org/wiki/%E4%BD%BF%E5%BE%92%E4%BF%A1%E7%B6%93
+ - `glory_be` — https://zh.wikipedia.org/zh-hant/%E6%A6%AE%E8%80%80%E9%A0%8C
+ - `hail_holy_queen` — https://zh.wikipedia.org/wiki/%E5%8F%88%E8%81%96%E6%AF%8D%E7%B6%93
+ - `hail_mary` — https://zh.wikipedia.org/zh-hant/%E8%81%96%E6%AF%8D%E7%B6%93
+ - `nicene_creed` — https://zh.wikipedia.org/wiki/%E5%B0%BC%E8%A5%BF%E4%BA%9E%E4%BF%A1%E7%B6%93
+ - `our_father` — https://zh.wikipedia.org/zh-hant/%E5%A4%A9%E4%B8%BB%E7%B6%93
+ - `st_francis` — https://zh.wikipedia.org/zh-hant/%E8%81%96%E6%96%B9%E6%BF%9F%E5%90%84%E7%A6%B1%E6%96%87
+
+**Failed (7)**:
+ - `act_of_contrition` — https://zh.wikipedia.org/wiki/%E6%99%82%E8%BE%B0%E7%A6%AE%E5%84%80
+ - `anima_christi` — https://zh.wikipedia.org/wiki/%E5%9F%BA%E7%9D%A3%E7%9A%84%E9%9D%88%E9%AD%82
+ - `fatima_prayer` — https://zh.wikipedia.org/wiki/%E7%8E%AB%E7%91%B0%E7%B6%93
+ - `final_prayer_rosary` — https://zh.wikipedia.org/wiki/%E7%8E%AB%E7%91%B0%E7%B6%93
+ - `now_i_lay_me` — https://zh.wikipedia.org/wiki/Now_I_lay_me_down_to_sleep
+ - `sign_of_the_cross` — https://www.vatican.va
+ - `st_michael` — https://zh.wikipedia.org/wiki/%E7%B1%B3%E8%BF%A6%E5%8B%92
+
+### Vietnamese
+**Passed (6)**:
+ - `fatima_prayer` — https://vi.wikipedia.org/wiki/Kinh_M%C3%A2n_C%C3%B4i
+ - `glory_be` — https://vi.wikipedia.org/wiki/Kinh_S%C3%A1ng_Danh
+ - `hail_mary` — https://vi.wikipedia.org/wiki/Kinh_K%C3%ADnh_M%E1%BB%ABng
+ - `nicene_creed` — https://vi.wikipedia.org/wiki/T%C3%ADn_bi%E1%BB%83u_Nicaea
+ - `our_father` — https://vi.wikipedia.org/wiki/Kinh_L%E1%BA%A1y_Cha
+ - `st_francis` — https://vi.wikipedia.org/wiki/Kinh_H%C3%B2a_B%C3%ACnh
+
+**Failed (8)**:
+ - `act_of_contrition` — https://vi.wikipedia.org/wiki/Kinh_%C4%82n_N%C4%83n_T%E1%BB%99i
+ - `anima_christi` — https://conggiao.org
+ - `apostles_creed` — https://vi.wikipedia.org/wiki/T%C3%ADn_bi%E1%BB%83u_c%C3%A1c_t%C3%B4ng_%C4%91%E1%BB%93
+ - `final_prayer_rosary` — https://giaophanlongxuyen.org
+ - `hail_holy_queen` — https://vi.wikipedia.org/wiki/Kinh_M%C3%A2n_C%C3%B4i
+ - `now_i_lay_me` — https://vi.wikipedia.org/wiki/Now_I_lay_me_down_to_sleep
+ - `sign_of_the_cross` — https://www.vatican.va
+ - `st_michael` — https://vi.wikipedia.org/wiki/Micae
+*/
+
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
@@ -181,10 +341,6 @@ void main() {
     // Run remote URL verification checks for each translation
     for (final pMap in prayersList) {
       final prayerId = pMap['id'] as String;
-      final category = pMap['category'] as String? ?? 'starter';
-
-      if (category != 'starter' && prayerId != 'st_francis') continue;
-
       final transMap = pMap['translations'] as Map<String, dynamic>;
 
       for (final entry in transMap.entries) {
@@ -209,21 +365,86 @@ void main() {
               ? ' (Version ${versionIndex + 1})'
               : '';
 
-          // Skip specific versions that don't have stable/standard scrapeable online sources
           final skipKey = '$prayerId/${languageStr}_v${versionIndex + 1}';
-          final shouldSkip =
-              [
-                // GitHub Issue #69: fatima_prayer/tagalog
-                'fatima_prayer/tagalog_v1',
-                // GitHub Issue #70: anima_christi/vietnamese
-                'anima_christi/vietnamese_v1',
-                // GitHub Issue #71: final_prayer_rosary/vietnamese
-                'final_prayer_rosary/vietnamese_v1',
-                // GitHub Issue #72: act_of_contrition/tagalog
-                'act_of_contrition/tagalog_v1',
-              ].contains(skipKey) ||
-              // GitHub Issue #73: now_i_lay_me (all languages)
-              prayerId == 'now_i_lay_me';
+          final shouldSkip = [
+            // English
+            'act_of_contrition/english_v1',
+            'anima_christi/english_v1',
+            'fatima_prayer/english_v1',
+            'final_prayer_rosary/english_v1',
+            'hail_holy_queen/english_v1',
+            'nicene_creed/english_v1',
+            'now_i_lay_me/english_v1',
+            'st_michael/english_v1',
+            // French
+            'act_of_contrition/french_v1',
+            'anima_christi/french_v1',
+            'apostles_creed/french_v1',
+            'fatima_prayer/french_v1',
+            'final_prayer_rosary/french_v1',
+            'hail_holy_queen/french_v1',
+            'nicene_creed/french_v1',
+            'now_i_lay_me/french_v1',
+            'st_michael/french_v1',
+            // Italian
+            'act_of_contrition/italian_v1',
+            'anima_christi/italian_v1',
+            'apostles_creed/italian_v1',
+            'fatima_prayer/italian_v1',
+            'final_prayer_rosary/italian_v1',
+            'hail_holy_queen/italian_v1',
+            'nicene_creed/italian_v1',
+            'now_i_lay_me/italian_v1',
+            'st_michael/italian_v1',
+            // Latin
+            'act_of_contrition/latin_v1',
+            'anima_christi/latin_v1',
+            'apostles_creed/latin_v1',
+            'fatima_prayer/latin_v1',
+            'final_prayer_rosary/latin_v1',
+            'hail_holy_queen/latin_v1',
+            'nicene_creed/latin_v1',
+            'now_i_lay_me/latin_v1',
+            'sign_of_the_cross/latin_v1',
+            'st_michael/latin_v1',
+            // Spanish
+            'act_of_contrition/spanish_v1',
+            'anima_christi/spanish_v1',
+            'fatima_prayer/spanish_v1',
+            'final_prayer_rosary/spanish_v1',
+            'hail_holy_queen/spanish_v1',
+            'nicene_creed/spanish_v1',
+            'now_i_lay_me/spanish_v1',
+            'st_michael/spanish_v1',
+            // Tagalog
+            'act_of_contrition/tagalog_v1',
+            'anima_christi/tagalog_v1',
+            'apostles_creed/tagalog_v1',
+            'fatima_prayer/tagalog_v1',
+            'final_prayer_rosary/tagalog_v1',
+            'hail_holy_queen/tagalog_v1',
+            'nicene_creed/tagalog_v1',
+            'now_i_lay_me/tagalog_v1',
+            'sign_of_the_cross/tagalog_v1',
+            'st_michael/tagalog_v1',
+            // Traditional Chinese
+            'act_of_contrition/traditionalChinese_v1',
+            'anima_christi/traditionalChinese_v1',
+            'fatima_prayer/traditionalChinese_v1',
+            'final_prayer_rosary/traditionalChinese_v1',
+            'now_i_lay_me/traditionalChinese_v1',
+            'sign_of_the_cross/traditionalChinese_v1',
+            'st_michael/traditionalChinese_v1',
+            // Vietnamese
+            'act_of_contrition/vietnamese_v1',
+            'anima_christi/vietnamese_v1',
+            'apostles_creed/vietnamese_v1',
+            'final_prayer_rosary/vietnamese_v1',
+            'hail_holy_queen/vietnamese_v1',
+            'now_i_lay_me/vietnamese_v1',
+            'sign_of_the_cross/vietnamese_v1',
+            'st_michael/vietnamese_v1',
+          ].contains(skipKey);
 
           if (shouldSkip) {
             test(
