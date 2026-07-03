@@ -53,8 +53,10 @@ BibleReference mapModernToVulgate(
   int chapter,
   List<int> verses,
 ) {
-  // 1. Psalms mapping
+  // 1. Psalms mapping (Book 21)
+  // The Hebrew (NABRE/Modern) Psalms numbering differs from the Greek/Latin Vulgate (CPDV) numbering.
   if (bookNumber == 21) {
+    // Hebrew Psalms 1-8 map 1:1 to Vulgate Psalms 1-8 (same numbering).
     if (chapter >= 1 && chapter <= 8) {
       return BibleReference(
         bookNumber: bookNumber,
@@ -62,6 +64,9 @@ BibleReference mapModernToVulgate(
         verses: verses,
       );
     }
+    // Hebrew Psalms 9 & 10 are combined into Vulgate Psalm 9.
+    // Hebrew 9:1-20 maps directly to Vulgate 9:1-21.
+    // Hebrew 10:1-18 maps to Vulgate 9:22-39 (with a +21 verse offset).
     if (chapter == 9 || chapter == 10) {
       final List<int> mappedVerses = [];
       for (final v in verses) {
@@ -77,6 +82,8 @@ BibleReference mapModernToVulgate(
         verses: mappedVerses,
       );
     }
+    // Hebrew Psalm 56 has a unique verse shift of -1 because the Hebrew version counts
+    // the title superscription as verse 1, while the Vulgate does not.
     if (chapter == 56) {
       return BibleReference(
         bookNumber: bookNumber,
@@ -84,6 +91,7 @@ BibleReference mapModernToVulgate(
         verses: verses.map((v) => v - 1).toList(),
       );
     }
+    // Hebrew Psalms 11 to 113 are shifted by -1 chapter in the Vulgate (e.g., Hebrew 23 -> Vulgate 22).
     if (chapter >= 11 && chapter <= 113) {
       return BibleReference(
         bookNumber: bookNumber,
@@ -91,6 +99,9 @@ BibleReference mapModernToVulgate(
         verses: verses,
       );
     }
+    // Hebrew Psalms 114 & 115 are combined into Vulgate Psalm 113.
+    // Hebrew 114:1-8 maps to Vulgate 113:1-8.
+    // Hebrew 115:1-18 maps to Vulgate 113:9-26 (with a +8 verse offset).
     if (chapter == 114 || chapter == 115) {
       final List<int> mappedVerses = [];
       for (final v in verses) {
@@ -106,6 +117,9 @@ BibleReference mapModernToVulgate(
         verses: mappedVerses,
       );
     }
+    // Hebrew Psalm 116 is split into two Vulgate Psalms:
+    // Hebrew 116:1-9 maps to Vulgate Psalm 114:1-9.
+    // Hebrew 116:10-19 maps to Vulgate Psalm 115:1-10 (with a -9 verse offset).
     if (chapter == 116) {
       final List<int> verses114 = [];
       final List<int> verses115 = [];
@@ -130,6 +144,7 @@ BibleReference mapModernToVulgate(
         );
       }
     }
+    // Hebrew Psalms 117 to 146 are shifted by -1 chapter in the Vulgate (e.g., Hebrew 117 -> Vulgate 116).
     if (chapter >= 117 && chapter <= 146) {
       return BibleReference(
         bookNumber: bookNumber,
@@ -137,6 +152,9 @@ BibleReference mapModernToVulgate(
         verses: verses,
       );
     }
+    // Hebrew Psalm 147 is split into two Vulgate Psalms:
+    // Hebrew 147:1-11 maps to Vulgate Psalm 146:1-11.
+    // Hebrew 147:12-20 maps to Vulgate Psalm 147:1-9 (with a -11 verse offset).
     if (chapter == 147) {
       final List<int> verses146 = [];
       final List<int> verses147 = [];
@@ -161,6 +179,7 @@ BibleReference mapModernToVulgate(
         );
       }
     }
+    // Hebrew Psalms 148 to 150 map directly to Vulgate Psalms 148 to 150 (same numbering).
     if (chapter >= 148 && chapter <= 150) {
       return BibleReference(
         bookNumber: bookNumber,
@@ -171,6 +190,7 @@ BibleReference mapModernToVulgate(
   }
 
   // 2. Zechariah mapping
+  // Hebrew Zechariah 2:5-17 maps to Vulgate Zechariah 2:1-13 (shifted by -4 verses).
   if (bookNumber == 43 && chapter == 2) {
     final List<int> mappedVerses = [];
     for (final v in verses) {
@@ -188,6 +208,8 @@ BibleReference mapModernToVulgate(
   }
 
   // 3. Malachi mapping
+  // Hebrew Malachi has 3 chapters; Vulgate Malachi has 4 chapters.
+  // Hebrew Malachi 3:19-24 maps to Vulgate Malachi 4:1-6 (shifted by -18 verses into chapter 4).
   if (bookNumber == 44 && chapter == 3) {
     final List<int> versesCh3 = [];
     final List<int> versesCh4 = [];
@@ -213,7 +235,9 @@ BibleReference mapModernToVulgate(
     }
   }
 
-  // 4. Acts mapping (Acts 14)
+  // 4. Acts mapping
+  // In Acts 14, modern verses 20 and 21 are combined into CPDV verse 20.
+  // Consequently, modern verses 21-28 map to CPDV verses 20-27 (shifted by -1 verse).
   if (bookNumber == 53 && chapter == 14) {
     final List<int> mappedVerses = [];
     for (final v in verses) {
@@ -230,8 +254,10 @@ BibleReference mapModernToVulgate(
     );
   }
 
-  // 5. Mark mapping (Mark 4:35-41 -> 35-40, Mark 9:41-50 -> 40-49)
+  // 5. Mark mapping
   if (bookNumber == 50) {
+    // In Mark 4, modern verses 40 and 41 (stilling the storm) are combined in the Vulgate,
+    // so modern 4:35-41 maps to CPDV 4:35-40 (verse 41 does not exist in CPDV).
     if (chapter == 4) {
       final List<int> mapped = [];
       for (final v in verses) {
@@ -245,6 +271,8 @@ BibleReference mapModernToVulgate(
         verses: mapped,
       );
     }
+    // In Mark 9, modern verses 40 and 41 are combined into CPDV verse 40,
+    // shifting subsequent verses by -1 (modern 9:41-50 maps to CPDV 9:40-49).
     if (chapter == 9) {
       final List<int> mapped = [];
       for (final v in verses) {
@@ -262,8 +290,10 @@ BibleReference mapModernToVulgate(
     }
   }
 
-  // 6. Genesis mapping (Gen 32, Gen 50)
+  // 6. Genesis mapping
   if (bookNumber == 1) {
+    // In Genesis 32, the wrestling with the angel starts at modern verse 23,
+    // which corresponds to Vulgate verse 22 (shifted by -1 verse).
     if (chapter == 32) {
       return BibleReference(
         bookNumber: bookNumber,
@@ -271,6 +301,8 @@ BibleReference mapModernToVulgate(
         verses: verses.map((v) => v - 1).toList(),
       );
     }
+    // In Genesis 50, modern verses 22 and 23 are combined into CPDV verse 22,
+    // shifting subsequent verses 23-26 by -1 (modern 50:15-26 maps to CPDV 50:15-25).
     if (chapter == 50) {
       final List<int> mapped = [];
       for (final v in verses) {
@@ -288,7 +320,10 @@ BibleReference mapModernToVulgate(
     }
   }
 
-  // 7. Exodus mapping (Exo 40)
+  // 7. Exodus mapping
+  // In Exodus 40, modern verses 32 and 33 are combined into CPDV verse 31,
+  // and modern verses 34 and 35 are combined into CPDV verse 33, causing
+  // modern verses 34-38 to map to CPDV verses 32-36 (shifted by -2 verses).
   if (bookNumber == 2 && chapter == 40) {
     final List<int> mapped = [];
     for (final v in verses) {
@@ -305,7 +340,9 @@ BibleReference mapModernToVulgate(
     );
   }
 
-  // 8. Matthew mapping (Matt 17)
+  // 8. Matthew mapping
+  // In Matthew 17, modern verses 20 and 21 are combined into CPDV verse 20,
+  // shifting subsequent verses 22-27 by -1 (modern 17:22-27 maps to CPDV 17:21-26).
   if (bookNumber == 49 && chapter == 17) {
     final List<int> mapped = [];
     for (final v in verses) {
@@ -322,7 +359,9 @@ BibleReference mapModernToVulgate(
     );
   }
 
-  // 9. 2 Thessalonians mapping (2 Thes 2)
+  // 9. 2 Thessalonians mapping
+  // In 2 Thessalonians 2, modern verses 10 and 11 are combined into CPDV verse 10,
+  // shifting subsequent verses 14-17 by -1 (modern 2:14-17 maps to CPDV 2:13-16).
   if (bookNumber == 62 && chapter == 2) {
     final List<int> mapped = [];
     for (final v in verses) {
@@ -339,7 +378,9 @@ BibleReference mapModernToVulgate(
     );
   }
 
-  // 10. Job mapping (Job 42)
+  // 10. Job mapping
+  // In Job 42, modern verses 16 and 17 (Job's death) are combined into CPDV verse 16,
+  // so modern verse 17 maps to CPDV verse 16.
   if (bookNumber == 20 && chapter == 42) {
     final List<int> mapped = [];
     for (final v in verses) {
@@ -356,7 +397,9 @@ BibleReference mapModernToVulgate(
     );
   }
 
-  // 11. Joel mapping (Joel 4 -> Joel 3)
+  // 11. Joel mapping
+  // Modern Joel has 4 chapters, whereas Vulgate Joel has 3 chapters.
+  // Modern Joel 4 maps to Vulgate Joel 3.
   if (bookNumber == 34 && chapter == 4) {
     return BibleReference(bookNumber: bookNumber, chapter: 3, verses: verses);
   }
