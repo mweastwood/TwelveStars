@@ -297,7 +297,8 @@ void main() {
             .replaceAll('ÿ', 'y')
             .replaceAll('ź', 'z')
             .replaceAll('ż', 'z')
-            .replaceAll('ž', 'z');
+            .replaceAll('ž', 'z')
+            .replaceAll('j', 'i');
       }
 
       res = res
@@ -368,7 +369,6 @@ void main() {
           final skipKey = '$prayerId/${languageStr}_v${versionIndex + 1}';
           final shouldSkip = [
             // English
-            'anima_christi/english_v1',
             'fatima_prayer/english_v1',
             'final_prayer_rosary/english_v1',
             'hail_holy_queen/english_v1',
@@ -397,7 +397,6 @@ void main() {
             'st_michael/italian_v1',
             // Latin
             'act_of_contrition/latin_v1',
-            'anima_christi/latin_v1',
             'apostles_creed/latin_v1',
             'fatima_prayer/latin_v1',
             'final_prayer_rosary/latin_v1',
