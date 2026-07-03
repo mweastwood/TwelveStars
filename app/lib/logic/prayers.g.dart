@@ -1279,6 +1279,14 @@ final UserSettingsSchema = IsarGeneratedSchema(
       IsarPropertySchema(name: 'primaryLanguageCode', type: IsarType.string),
       IsarPropertySchema(name: 'compareLanguageCode', type: IsarType.string),
       IsarPropertySchema(
+        name: 'primaryBibleTranslation',
+        type: IsarType.string,
+      ),
+      IsarPropertySchema(
+        name: 'compareBibleTranslation',
+        type: IsarType.string,
+      ),
+      IsarPropertySchema(
         name: 'preferredVersions',
         type: IsarType.objectList,
         target: 'PrayerVersionPreference',
@@ -1298,12 +1306,14 @@ final UserSettingsSchema = IsarGeneratedSchema(
 int serializeUserSettings(IsarWriter writer, UserSettings object) {
   IsarCore.writeString(writer, 1, object.primaryLanguageCode);
   IsarCore.writeString(writer, 2, object.compareLanguageCode);
+  IsarCore.writeString(writer, 3, object.primaryBibleTranslation);
+  IsarCore.writeString(writer, 4, object.compareBibleTranslation);
   {
     final list = object.preferredVersions;
     if (list == null) {
-      IsarCore.writeNull(writer, 3);
+      IsarCore.writeNull(writer, 5);
     } else {
-      final listWriter = IsarCore.beginList(writer, 3, list.length);
+      final listWriter = IsarCore.beginList(writer, 5, list.length);
       for (var i = 0; i < list.length; i++) {
         {
           final value = list[i];
@@ -1326,9 +1336,13 @@ UserSettings deserializeUserSettings(IsarReader reader) {
   _primaryLanguageCode = IsarCore.readString(reader, 1) ?? 'english';
   final String _compareLanguageCode;
   _compareLanguageCode = IsarCore.readString(reader, 2) ?? 'latin';
+  final String _primaryBibleTranslation;
+  _primaryBibleTranslation = IsarCore.readString(reader, 3) ?? 'CPDV';
+  final String _compareBibleTranslation;
+  _compareBibleTranslation = IsarCore.readString(reader, 4) ?? 'none';
   final List<PrayerVersionPreference>? _preferredVersions;
   {
-    final length = IsarCore.readList(reader, 3, IsarCore.readerPtrPtr);
+    final length = IsarCore.readList(reader, 5, IsarCore.readerPtrPtr);
     {
       final reader = IsarCore.readerPtr;
       if (reader.isNull) {
@@ -1360,6 +1374,8 @@ UserSettings deserializeUserSettings(IsarReader reader) {
     id: _id,
     primaryLanguageCode: _primaryLanguageCode,
     compareLanguageCode: _compareLanguageCode,
+    primaryBibleTranslation: _primaryBibleTranslation,
+    compareBibleTranslation: _compareBibleTranslation,
     preferredVersions: _preferredVersions,
   );
   return object;
@@ -1375,8 +1391,12 @@ dynamic deserializeUserSettingsProp(IsarReader reader, int property) {
     case 2:
       return IsarCore.readString(reader, 2) ?? 'latin';
     case 3:
+      return IsarCore.readString(reader, 3) ?? 'CPDV';
+    case 4:
+      return IsarCore.readString(reader, 4) ?? 'none';
+    case 5:
       {
-        final length = IsarCore.readList(reader, 3, IsarCore.readerPtrPtr);
+        final length = IsarCore.readList(reader, 5, IsarCore.readerPtrPtr);
         {
           final reader = IsarCore.readerPtr;
           if (reader.isNull) {
@@ -1416,6 +1436,8 @@ sealed class _UserSettingsUpdate {
     required int id,
     String? primaryLanguageCode,
     String? compareLanguageCode,
+    String? primaryBibleTranslation,
+    String? compareBibleTranslation,
   });
 }
 
@@ -1429,6 +1451,8 @@ class _UserSettingsUpdateImpl implements _UserSettingsUpdate {
     required int id,
     Object? primaryLanguageCode = ignore,
     Object? compareLanguageCode = ignore,
+    Object? primaryBibleTranslation = ignore,
+    Object? compareBibleTranslation = ignore,
   }) {
     return collection.updateProperties(
           [id],
@@ -1437,6 +1461,10 @@ class _UserSettingsUpdateImpl implements _UserSettingsUpdate {
               1: primaryLanguageCode as String?,
             if (compareLanguageCode != ignore)
               2: compareLanguageCode as String?,
+            if (primaryBibleTranslation != ignore)
+              3: primaryBibleTranslation as String?,
+            if (compareBibleTranslation != ignore)
+              4: compareBibleTranslation as String?,
           },
         ) >
         0;
@@ -1448,6 +1476,8 @@ sealed class _UserSettingsUpdateAll {
     required List<int> id,
     String? primaryLanguageCode,
     String? compareLanguageCode,
+    String? primaryBibleTranslation,
+    String? compareBibleTranslation,
   });
 }
 
@@ -1461,10 +1491,16 @@ class _UserSettingsUpdateAllImpl implements _UserSettingsUpdateAll {
     required List<int> id,
     Object? primaryLanguageCode = ignore,
     Object? compareLanguageCode = ignore,
+    Object? primaryBibleTranslation = ignore,
+    Object? compareBibleTranslation = ignore,
   }) {
     return collection.updateProperties(id, {
       if (primaryLanguageCode != ignore) 1: primaryLanguageCode as String?,
       if (compareLanguageCode != ignore) 2: compareLanguageCode as String?,
+      if (primaryBibleTranslation != ignore)
+        3: primaryBibleTranslation as String?,
+      if (compareBibleTranslation != ignore)
+        4: compareBibleTranslation as String?,
     });
   }
 }
@@ -1476,7 +1512,12 @@ extension UserSettingsUpdate on IsarCollection<int, UserSettings> {
 }
 
 sealed class _UserSettingsQueryUpdate {
-  int call({String? primaryLanguageCode, String? compareLanguageCode});
+  int call({
+    String? primaryLanguageCode,
+    String? compareLanguageCode,
+    String? primaryBibleTranslation,
+    String? compareBibleTranslation,
+  });
 }
 
 class _UserSettingsQueryUpdateImpl implements _UserSettingsQueryUpdate {
@@ -1489,10 +1530,16 @@ class _UserSettingsQueryUpdateImpl implements _UserSettingsQueryUpdate {
   int call({
     Object? primaryLanguageCode = ignore,
     Object? compareLanguageCode = ignore,
+    Object? primaryBibleTranslation = ignore,
+    Object? compareBibleTranslation = ignore,
   }) {
     return query.updateProperties(limit: limit, {
       if (primaryLanguageCode != ignore) 1: primaryLanguageCode as String?,
       if (compareLanguageCode != ignore) 2: compareLanguageCode as String?,
+      if (primaryBibleTranslation != ignore)
+        3: primaryBibleTranslation as String?,
+      if (compareBibleTranslation != ignore)
+        4: compareBibleTranslation as String?,
     });
   }
 }
@@ -1514,12 +1561,18 @@ class _UserSettingsQueryBuilderUpdateImpl implements _UserSettingsQueryUpdate {
   int call({
     Object? primaryLanguageCode = ignore,
     Object? compareLanguageCode = ignore,
+    Object? primaryBibleTranslation = ignore,
+    Object? compareBibleTranslation = ignore,
   }) {
     final q = query.build();
     try {
       return q.updateProperties(limit: limit, {
         if (primaryLanguageCode != ignore) 1: primaryLanguageCode as String?,
         if (compareLanguageCode != ignore) 2: compareLanguageCode as String?,
+        if (primaryBibleTranslation != ignore)
+          3: primaryBibleTranslation as String?,
+        if (compareBibleTranslation != ignore)
+          4: compareBibleTranslation as String?,
       });
     } finally {
       q.close();
@@ -1898,16 +1951,324 @@ extension UserSettingsQueryFilter
   }
 
   QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryBibleTranslationEqualTo(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(property: 3, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryBibleTranslationGreaterThan(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryBibleTranslationGreaterThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryBibleTranslationLessThan(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessCondition(property: 3, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryBibleTranslationLessThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryBibleTranslationBetween(
+    String lower,
+    String upper, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 3,
+          lower: lower,
+          upper: upper,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryBibleTranslationStartsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        StartsWithCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryBibleTranslationEndsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EndsWithCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryBibleTranslationContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        ContainsCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryBibleTranslationMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        MatchesCondition(
+          property: 3,
+          wildcard: pattern,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryBibleTranslationIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const EqualCondition(property: 3, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  primaryBibleTranslationIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const GreaterCondition(property: 3, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareBibleTranslationEqualTo(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(property: 4, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareBibleTranslationGreaterThan(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 4,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareBibleTranslationGreaterThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 4,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareBibleTranslationLessThan(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessCondition(property: 4, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareBibleTranslationLessThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 4,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareBibleTranslationBetween(
+    String lower,
+    String upper, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 4,
+          lower: lower,
+          upper: upper,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareBibleTranslationStartsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        StartsWithCondition(
+          property: 4,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareBibleTranslationEndsWith(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EndsWithCondition(
+          property: 4,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareBibleTranslationContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        ContainsCondition(
+          property: 4,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareBibleTranslationMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        MatchesCondition(
+          property: 4,
+          wildcard: pattern,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareBibleTranslationIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const EqualCondition(property: 4, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
+  compareBibleTranslationIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const GreaterCondition(property: 4, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
   preferredVersionsIsNull() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const IsNullCondition(property: 3));
+      return query.addFilterCondition(const IsNullCondition(property: 5));
     });
   }
 
   QueryBuilder<UserSettings, UserSettings, QAfterFilterCondition>
   preferredVersionsIsNotNull() {
     return QueryBuilder.apply(not(), (query) {
-      return query.addFilterCondition(const IsNullCondition(property: 3));
+      return query.addFilterCondition(const IsNullCondition(property: 5));
     });
   }
 
@@ -1922,7 +2283,7 @@ extension UserSettingsQueryFilter
   preferredVersionsIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
-        const GreaterOrEqualCondition(property: 3, value: null),
+        const GreaterOrEqualCondition(property: 5, value: null),
       );
     });
   }
@@ -1972,6 +2333,34 @@ extension UserSettingsQuerySortBy
       return query.addSortBy(2, sort: Sort.desc, caseSensitive: caseSensitive);
     });
   }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  sortByPrimaryBibleTranslation({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(3, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  sortByPrimaryBibleTranslationDesc({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(3, sort: Sort.desc, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  sortByCompareBibleTranslation({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(4, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  sortByCompareBibleTranslationDesc({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(4, sort: Sort.desc, caseSensitive: caseSensitive);
+    });
+  }
 }
 
 extension UserSettingsQuerySortThenBy
@@ -2015,6 +2404,34 @@ extension UserSettingsQuerySortThenBy
       return query.addSortBy(2, sort: Sort.desc, caseSensitive: caseSensitive);
     });
   }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  thenByPrimaryBibleTranslation({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(3, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  thenByPrimaryBibleTranslationDesc({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(3, sort: Sort.desc, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  thenByCompareBibleTranslation({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(4, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterSortBy>
+  thenByCompareBibleTranslationDesc({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(4, sort: Sort.desc, caseSensitive: caseSensitive);
+    });
+  }
 }
 
 extension UserSettingsQueryWhereDistinct
@@ -2030,6 +2447,20 @@ extension UserSettingsQueryWhereDistinct
   distinctByCompareLanguageCode({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(2, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterDistinct>
+  distinctByPrimaryBibleTranslation({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(3, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<UserSettings, UserSettings, QAfterDistinct>
+  distinctByCompareBibleTranslation({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(4, caseSensitive: caseSensitive);
     });
   }
 }
@@ -2056,10 +2487,24 @@ extension UserSettingsQueryProperty1
     });
   }
 
+  QueryBuilder<UserSettings, String, QAfterProperty>
+  primaryBibleTranslationProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(3);
+    });
+  }
+
+  QueryBuilder<UserSettings, String, QAfterProperty>
+  compareBibleTranslationProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(4);
+    });
+  }
+
   QueryBuilder<UserSettings, List<PrayerVersionPreference>?, QAfterProperty>
   preferredVersionsProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(3);
+      return query.addProperty(5);
     });
   }
 }
@@ -2086,6 +2531,20 @@ extension UserSettingsQueryProperty2<R>
     });
   }
 
+  QueryBuilder<UserSettings, (R, String), QAfterProperty>
+  primaryBibleTranslationProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(3);
+    });
+  }
+
+  QueryBuilder<UserSettings, (R, String), QAfterProperty>
+  compareBibleTranslationProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(4);
+    });
+  }
+
   QueryBuilder<
     UserSettings,
     (R, List<PrayerVersionPreference>?),
@@ -2093,7 +2552,7 @@ extension UserSettingsQueryProperty2<R>
   >
   preferredVersionsProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(3);
+      return query.addProperty(5);
     });
   }
 }
@@ -2120,6 +2579,20 @@ extension UserSettingsQueryProperty3<R1, R2>
     });
   }
 
+  QueryBuilder<UserSettings, (R1, R2, String), QOperations>
+  primaryBibleTranslationProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(3);
+    });
+  }
+
+  QueryBuilder<UserSettings, (R1, R2, String), QOperations>
+  compareBibleTranslationProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(4);
+    });
+  }
+
   QueryBuilder<
     UserSettings,
     (R1, R2, List<PrayerVersionPreference>?),
@@ -2127,7 +2600,7 @@ extension UserSettingsQueryProperty3<R1, R2>
   >
   preferredVersionsProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(3);
+      return query.addProperty(5);
     });
   }
 }

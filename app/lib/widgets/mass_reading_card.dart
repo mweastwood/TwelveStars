@@ -3,6 +3,7 @@ import 'package:drift/drift.dart' hide Column;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/lectionary_resolver.dart';
+import 'package:twelve_stars/logic/prayer_database.dart';
 
 class MassReadingCard extends StatefulWidget {
   final LectionaryReading reading;
@@ -56,6 +57,9 @@ class _MassReadingCardState extends State<MassReadingCard> {
     });
 
     try {
+      final settings = await PrayerDatabase.loadSettings();
+      final translation = settings.primaryBibleTranslation;
+
       final db = BibleDatabaseHelper.db;
       final bookMeta = catholicBooks.firstWhere(
         (b) => b.bookNumber == widget.reading.bookNumber,
@@ -66,6 +70,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
         bookMeta.bookNumber,
         bookMeta.bookName,
         bookMeta.abbrev,
+        translation: translation,
       );
 
       final ranges = resolveReadingRanges(
@@ -114,7 +119,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
           await (db.select(db.bibleVerses)
                 ..where(
                   (t) =>
-                      t.translationCode.equals('CPDV') &
+                      t.translationCode.equals(translation) &
                       t.bookNumber.equals(widget.reading.bookNumber) &
                       predicate,
                 )

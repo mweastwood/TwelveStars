@@ -48,25 +48,49 @@ class BibleDatabase extends _$BibleDatabase {
   Future<void> ensureBookPopulated(
     int bookNumber,
     String bookName,
-    String abbrev,
-  ) async {
+    String abbrev, {
+    String translation = 'CPDV',
+  }) async {
     final existingCheck =
         await (select(bibleVerses)
-              ..where((t) => t.bookNumber.equals(bookNumber))
+              ..where(
+                (t) =>
+                    t.bookNumber.equals(bookNumber) &
+                    t.translationCode.equals(translation),
+              )
               ..limit(1))
             .get();
     if (existingCheck.isNotEmpty) {
-      return; // Already populated
+      if (existingCheck.first.verseText.contains('|strong=')) {
+        debugPrint(
+          'Detected strong tags in populated $bookName ($translation). Re-populating...',
+        );
+        await (delete(bibleVerses)..where(
+              (t) =>
+                  t.bookNumber.equals(bookNumber) &
+                  t.translationCode.equals(translation),
+            ))
+            .go();
+      } else {
+        return; // Already populated and clean
+      }
     }
 
     try {
       final numStr = bookNumber.toString().padLeft(2, '0');
-      final assetPath =
-          'assets/bible/cpdv/usfm/$numStr-$abbrev-ENG[B]CPDV2009[pd].p.sfm';
+      final String assetPath;
+      if (translation == 'DRC') {
+        assetPath =
+            'assets/bible/drc/usfm/$numStr-$abbrev-ENG[B]DRC1899[pd].usfm';
+      } else {
+        assetPath =
+            'assets/bible/cpdv/usfm/$numStr-$abbrev-ENG[B]CPDV2009[pd].p.sfm';
+      }
+
       final usfmContent = await rootBundle.loadString(assetPath);
       final parsedVerses = UsfmParser.parse(
         usfmContent,
-        'CPDV',
+        translation,
         bookNumber,
         bookName,
       );
@@ -86,9 +110,13 @@ class BibleDatabase extends _$BibleDatabase {
           ),
         );
       });
-      debugPrint('Successfully populated Bible database with $bookName');
+      debugPrint(
+        'Successfully populated Bible database ($translation) with $bookName',
+      );
     } catch (e) {
-      debugPrint('Error populating book $bookName ($bookNumber): $e');
+      debugPrint(
+        'Error populating book $bookName ($bookNumber) for $translation: $e',
+      );
     }
   }
 
@@ -179,6 +207,10 @@ class UsfmParser {
         // Strip inline footnotes and formatting
         text = text.replaceAll(RegExp(r'\\f\s+.*\\f\*'), '');
         text = text.replaceAll(RegExp(r'\\[a-zA-Z0-9]+(?:\*|\s)?'), '');
+        text = text.replaceAll(
+          RegExp(r'\|[a-zA-Z0-9_]+="[^"]*"(?:\s+[a-zA-Z0-9_]+="[^"]*")*'),
+          '',
+        );
         text = text.trim();
         // Remove multiple consecutive spaces
         text = text.replaceAll(RegExp(r'\s+'), ' ');
