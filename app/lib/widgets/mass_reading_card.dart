@@ -164,7 +164,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               // Header row
               Row(
@@ -181,14 +181,14 @@ class _MassReadingCardState extends State<MassReadingCard> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const Spacer(),
-                  Flexible(
+                  Expanded(
                     child: Text(
                       widget.reading.citation,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         color: theme.colorScheme.secondary,
                         fontWeight: FontWeight.w500,
                       ),
+                      textAlign: TextAlign.end,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                     ),
