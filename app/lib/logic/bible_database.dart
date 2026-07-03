@@ -166,43 +166,70 @@ class UsfmParser {
   ) {
     final List<Map<String, dynamic>> verses = [];
     final lines = usfmContent.split('\n');
-    int currentChapter = 0;
 
-    final verseRegex = RegExp(r'^\\v\s+(\d+)\s+(.*)');
+    int currentChapter = 0;
+    int currentVerseNumber = 0;
+    String currentVerseText = '';
+
+    void saveCurrentVerse() {
+      if (currentChapter > 0 && currentVerseNumber > 0) {
+        var text = currentVerseText;
+        // Strip inline footnotes and formatting
+        text = text.replaceAll(RegExp(r'\\f\s+.*\\f\*'), '');
+        text = text.replaceAll(RegExp(r'\\[a-zA-Z0-9]+(?:\*|\s)?'), '');
+        text = text.trim();
+        // Remove multiple consecutive spaces
+        text = text.replaceAll(RegExp(r'\s+'), ' ');
+
+        verses.add({
+          'bookNumber': bookNumber,
+          'bookName': bookName,
+          'chapter': currentChapter,
+          'verseNumber': currentVerseNumber,
+          'verseText': text,
+          'translationCode': translationCode,
+        });
+      }
+    }
+
+    final chapterRegex = RegExp(r'^\\c\s+(\d+)');
+    final verseRegex = RegExp(r'\\v\s+(\d+)\s*(.*)');
 
     for (var line in lines) {
       line = line.trim();
-      if (line.startsWith(r'\c ')) {
-        final chapterStr = line.substring(3).trim();
-        currentChapter = int.tryParse(chapterStr) ?? 0;
-      } else if (line.startsWith(r'\v ')) {
-        final match = verseRegex.firstMatch(line);
-        if (match != null) {
-          final verseNumber = int.parse(match.group(1)!);
-          var text = match.group(2)!;
+      if (line.isEmpty) continue;
 
-          // Strip inline formatting tags (like \nd ... \nd*, \add ... \add*)
-          text = text.replaceAll(
-            RegExp(r'\\f\s+.*\\f\*'),
-            '',
-          ); // strip footnotes
-          text = text.replaceAll(
-            RegExp(r'\\[a-zA-Z0-9]+(?:\*|\s)?'),
-            '',
-          ); // strip formatting
-          text = text.trim();
+      final chapterMatch = chapterRegex.firstMatch(line);
+      if (chapterMatch != null) {
+        saveCurrentVerse();
+        currentChapter = int.parse(chapterMatch.group(1)!);
+        currentVerseNumber = 0;
+        currentVerseText = '';
+        continue;
+      }
 
-          verses.add({
-            'bookNumber': bookNumber,
-            'bookName': bookName,
-            'chapter': currentChapter,
-            'verseNumber': verseNumber,
-            'verseText': text,
-            'translationCode': translationCode,
-          });
+      final verseMatch = verseRegex.firstMatch(line);
+      if (verseMatch != null) {
+        saveCurrentVerse();
+        currentVerseNumber = int.parse(verseMatch.group(1)!);
+        currentVerseText = verseMatch.group(2)!;
+        continue;
+      }
+
+      if (currentChapter > 0 && currentVerseNumber > 0) {
+        if (line.startsWith(r'\id') ||
+            line.startsWith(r'\h') ||
+            line.startsWith(r'\toc') ||
+            line.startsWith(r'\mt') ||
+            line.startsWith(r'\cl') ||
+            line.startsWith(r'\ca')) {
+          continue;
         }
+        currentVerseText += ' $line';
       }
     }
+
+    saveCurrentVerse();
     return verses;
   }
 }
