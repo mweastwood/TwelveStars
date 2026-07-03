@@ -182,177 +182,194 @@ class _CalendarTabState extends State<CalendarTab> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // 1. Month Navigation Header
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back_ios, size: 16),
-                    onPressed: () => _changeMonth(-1),
-                    tooltip: 'Previous Month',
-                  ),
-                  Expanded(
-                    child: InkWell(
-                      onTap: () => _selectDate(context),
-                      borderRadius: BorderRadius.circular(8),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              _formatMonthYear(_selectedDate),
-                              style: theme.textTheme.titleMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: theme.colorScheme.primary,
-                              ),
-                            ),
-                            const SizedBox(width: 6),
-                            Icon(
-                              Icons.arrow_drop_down,
-                              color: theme.colorScheme.primary,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.arrow_forward_ios, size: 16),
-                    onPressed: () => _changeMonth(1),
-                    tooltip: 'Next Month',
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
-
-              // 2. Weekday Label Header
-              Row(
-                children: weekdayLabels.map((label) {
-                  return Expanded(
-                    child: Center(
-                      child: Text(
-                        label,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.onSurfaceVariant.withValues(
-                            alpha: 0.8,
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                }).toList(),
-              ),
-              const SizedBox(height: 8),
-
-              // 3. Month Grid
-              GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 7,
-                  childAspectRatio: 1.0,
-                  mainAxisSpacing: 4.0,
-                  crossAxisSpacing: 4.0,
-                ),
-                itemCount: gridDays.length,
-                itemBuilder: (context, index) {
-                  final date = gridDays[index];
-                  final isCurrentMonth = date.month == _selectedDate.month;
-                  if (!isCurrentMonth) {
-                    return const SizedBox.shrink();
-                  }
-                  final isSelected =
-                      date.year == _selectedDate.year &&
-                      date.month == _selectedDate.month &&
-                      date.day == _selectedDate.day;
-                  final isToday =
-                      DateTime.now().year == date.year &&
-                      DateTime.now().month == date.month &&
-                      DateTime.now().day == date.day;
-
-                  final dayData = LiturgicalCalendar.computeDay(date);
-
-                  // Colors for cell styling
-                  final baseColor = dayData.colorWidget;
-                  final cellBg = baseColor.withValues(
-                    alpha: isCurrentMonth ? 0.12 : 0.04,
-                  );
-
-                  return InkWell(
-                    onTap: () {
-                      setState(() {
-                        _selectedDate = date;
-                      });
-                    },
-                    borderRadius: BorderRadius.circular(8),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: cellBg,
-                        borderRadius: BorderRadius.circular(8),
-                        border: isSelected
-                            ? Border.all(
-                                color: theme.colorScheme.primary,
-                                width: 2,
-                              )
-                            : isToday
-                            ? Border.all(
-                                color: theme.colorScheme.outlineVariant,
-                                width: 1,
-                              )
-                            : null,
-                      ),
-                      child: Stack(
+              // Calendar Month View (Constrained to 480px)
+              Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 480),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      // 1. Month Navigation Header
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          // Star icon for Feasts/Solemnities
-                          if (dayData.name != null)
-                            Positioned(
-                              top: 2,
-                              right: 2,
-                              child: Icon(
-                                Icons.star,
-                                size: 8,
-                                color: Colors.amber[800],
-                              ),
-                            ),
-                          // Day Number
-                          Center(
-                            child: Text(
-                              '${date.day}',
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                fontWeight: isSelected || isToday
-                                    ? FontWeight.bold
-                                    : FontWeight.normal,
-                                color: isCurrentMonth
-                                    ? theme.colorScheme.onSurface
-                                    : theme.colorScheme.onSurface.withValues(
-                                        alpha: 0.35,
-                                      ),
-                              ),
-                            ),
+                          IconButton(
+                            icon: const Icon(Icons.arrow_back_ios, size: 16),
+                            onPressed: () => _changeMonth(-1),
+                            tooltip: 'Previous Month',
                           ),
-                          // Liturgical Color indicator bar (bottom of cell)
-                          Positioned(
-                            bottom: 4,
-                            left: 0,
-                            right: 0,
-                            child: Center(
-                              child: Container(
-                                width: 12,
-                                height: 3,
-                                decoration: BoxDecoration(
-                                  color: baseColor,
-                                  borderRadius: BorderRadius.circular(1.5),
+                          Expanded(
+                            child: InkWell(
+                              onTap: () => _selectDate(context),
+                              borderRadius: BorderRadius.circular(8),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 8.0,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      _formatMonthYear(_selectedDate),
+                                      style: theme.textTheme.titleMedium
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                            color: theme.colorScheme.primary,
+                                          ),
+                                    ),
+                                    const SizedBox(width: 6),
+                                    Icon(
+                                      Icons.arrow_drop_down,
+                                      color: theme.colorScheme.primary,
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
                           ),
+                          IconButton(
+                            icon: const Icon(Icons.arrow_forward_ios, size: 16),
+                            onPressed: () => _changeMonth(1),
+                            tooltip: 'Next Month',
+                          ),
                         ],
                       ),
-                    ),
-                  );
-                },
+                      const SizedBox(height: 8),
+
+                      // 2. Weekday Label Header
+                      Row(
+                        children: weekdayLabels.map((label) {
+                          return Expanded(
+                            child: Center(
+                              child: Text(
+                                label,
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.onSurfaceVariant
+                                      .withValues(alpha: 0.8),
+                                ),
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                      const SizedBox(height: 8),
+
+                      // 3. Month Grid
+                      GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 7,
+                              childAspectRatio: 1.0,
+                              mainAxisSpacing: 4.0,
+                              crossAxisSpacing: 4.0,
+                            ),
+                        itemCount: gridDays.length,
+                        itemBuilder: (context, index) {
+                          final date = gridDays[index];
+                          final isCurrentMonth =
+                              date.month == _selectedDate.month;
+                          if (!isCurrentMonth) {
+                            return const SizedBox.shrink();
+                          }
+                          final isSelected =
+                              date.year == _selectedDate.year &&
+                              date.month == _selectedDate.month &&
+                              date.day == _selectedDate.day;
+                          final isToday =
+                              DateTime.now().year == date.year &&
+                              DateTime.now().month == date.month &&
+                              DateTime.now().day == date.day;
+
+                          final dayData = LiturgicalCalendar.computeDay(date);
+
+                          // Colors for cell styling
+                          final baseColor = dayData.colorWidget;
+                          final cellBg = baseColor.withValues(
+                            alpha: isCurrentMonth ? 0.12 : 0.04,
+                          );
+
+                          return InkWell(
+                            onTap: () {
+                              setState(() {
+                                _selectedDate = date;
+                              });
+                            },
+                            borderRadius: BorderRadius.circular(8),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: cellBg,
+                                borderRadius: BorderRadius.circular(8),
+                                border: isSelected
+                                    ? Border.all(
+                                        color: theme.colorScheme.primary,
+                                        width: 2,
+                                      )
+                                    : isToday
+                                    ? Border.all(
+                                        color: theme.colorScheme.outlineVariant,
+                                        width: 1,
+                                      )
+                                    : null,
+                              ),
+                              child: Stack(
+                                children: [
+                                  // Star icon for Feasts/Solemnities
+                                  if (dayData.name != null)
+                                    Positioned(
+                                      top: 2,
+                                      right: 2,
+                                      child: Icon(
+                                        Icons.star,
+                                        size: 8,
+                                        color: Colors.amber[800],
+                                      ),
+                                    ),
+                                  // Day Number
+                                  Center(
+                                    child: Text(
+                                      '${date.day}',
+                                      style: theme.textTheme.bodyMedium
+                                          ?.copyWith(
+                                            fontWeight: isSelected || isToday
+                                                ? FontWeight.bold
+                                                : FontWeight.normal,
+                                            color: isCurrentMonth
+                                                ? theme.colorScheme.onSurface
+                                                : theme.colorScheme.onSurface
+                                                      .withValues(alpha: 0.35),
+                                          ),
+                                    ),
+                                  ),
+                                  // Liturgical Color indicator bar (bottom of cell)
+                                  Positioned(
+                                    bottom: 4,
+                                    left: 0,
+                                    right: 0,
+                                    child: Center(
+                                      child: Container(
+                                        width: 12,
+                                        height: 3,
+                                        decoration: BoxDecoration(
+                                          color: baseColor,
+                                          borderRadius: BorderRadius.circular(
+                                            1.5,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
               ),
               const SizedBox(height: 16),
 
