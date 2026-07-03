@@ -402,5 +402,221 @@ void main() {
       // Clean up mock settings
       PrayerDatabase.mockSettings = null;
     });
+
+    testGoldens('renders primary translation dialog correctly', (tester) async {
+      // 1. Populate database to prevent infinite loading spinner
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created...',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await tester.pumpWidgetBuilder(
+        const Scaffold(body: BibleTab()),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      // Tap on Primary Translation card
+      await tester.tap(find.text('Primary Translation'));
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'bible_tab_primary_dialog_golden');
+
+      // Tap Cancel to close dialog
+      await tester.tap(find.text('Cancel'));
+      await tester.pumpAndSettle();
+    });
+
+    testWidgets('primary and comparison selection dialogs update preferences', (
+      WidgetTester tester,
+    ) async {
+      // Initialize mock settings
+      final settings = UserSettings(
+        primaryBibleTranslation: 'CPDV',
+        compareBibleTranslation: 'none',
+      );
+      PrayerDatabase.mockSettings = settings;
+
+      // Populate database for verification
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created the heaven (CPDV).',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven (DRC).',
+              translationCode: 'DRC',
+            ),
+          );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: BibleTab())),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      // 1. Open Primary Dialog and choose DRC
+      await tester.tap(find.text('Primary Translation'));
+      await tester.pumpAndSettle();
+
+      // Tap DRC option (we find option containing DRC title)
+      await tester.tap(find.text('Douay-Rheims Bible (DRC)').first);
+      await tester.pumpAndSettle();
+
+      // Tap Apply
+      await tester.tap(find.text('Apply'));
+      await tester.pumpAndSettle();
+
+      // Verify primary selection is updated
+      expect(settings.primaryBibleTranslation, equals('DRC'));
+
+      // 2. Open Comparison Dialog and choose CPDV
+      await tester.tap(find.text('Comparison Translation'));
+      await tester.pumpAndSettle();
+
+      // Tap CPDV option
+      await tester.tap(
+        find.text('Catholic Public Domain Version (CPDV)').first,
+      );
+      await tester.pumpAndSettle();
+
+      // Tap Apply
+      await tester.tap(find.text('Apply'));
+      await tester.pumpAndSettle();
+
+      // Verify comparison selection is updated
+      expect(settings.compareBibleTranslation, equals('CPDV'));
+
+      PrayerDatabase.mockSettings = null;
+    });
+
+    testWidgets('comparison verse text uses matching onSurface color', (
+      WidgetTester tester,
+    ) async {
+      final settings = UserSettings(
+        primaryBibleTranslation: 'CPDV',
+        compareBibleTranslation: 'DRC',
+      );
+      PrayerDatabase.mockSettings = settings;
+
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'Verse CPDV',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'Verse DRC',
+              translationCode: 'DRC',
+            ),
+          );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: BibleTab())),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      // Locate the CPDV Text widget and DRC Text widget
+      final cpdvTextWidget = tester.widget<Text>(find.text('Verse CPDV'));
+      final drcTextWidget = tester.widget<Text>(find.text('Verse DRC'));
+
+      // Verify that their styles have the exact same color
+      expect(cpdvTextWidget.style?.color, equals(drcTextWidget.style?.color));
+
+      PrayerDatabase.mockSettings = null;
+    });
+
+    testGoldens('renders parallel translations side-by-side correctly', (
+      tester,
+    ) async {
+      // 1. Setup mock settings for parallel view
+      final settings = UserSettings(
+        primaryBibleTranslation: 'CPDV',
+        compareBibleTranslation: 'DRC',
+      );
+      PrayerDatabase.mockSettings = settings;
+
+      // 2. Pre-populate database with verses for both CPDV and DRC
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created the heaven (CPDV).',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven (DRC).',
+              translationCode: 'DRC',
+            ),
+          );
+
+      await tester.pumpWidgetBuilder(
+        const Scaffold(body: BibleTab()),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      await screenMatchesGolden(
+        tester,
+        'bible_tab_parallel_translation_golden',
+      );
+
+      // Clean up mock settings
+      PrayerDatabase.mockSettings = null;
+    });
   });
 }
