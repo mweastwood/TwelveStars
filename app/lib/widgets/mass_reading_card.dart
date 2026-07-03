@@ -2,36 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:drift/drift.dart' hide Column;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
-
-List<int> parseVerseRange(String rangeStr) {
-  final trimmed = rangeStr.trim();
-  if (trimmed.isEmpty || trimmed.toLowerCase() == 'all') {
-    return const [];
-  }
-  final List<int> verses = [];
-  final parts = trimmed.split(',');
-  for (final part in parts) {
-    final cleanPart = part.trim().replaceAll('–', '-').replaceAll('—', '-');
-    if (cleanPart.contains('-')) {
-      final subParts = cleanPart.split('-');
-      if (subParts.length == 2) {
-        final start = int.tryParse(subParts[0].trim());
-        final end = int.tryParse(subParts[1].trim());
-        if (start != null && end != null) {
-          for (int i = start; i <= end; i++) {
-            verses.add(i);
-          }
-        }
-      }
-    } else {
-      final val = int.tryParse(cleanPart);
-      if (val != null) {
-        verses.add(val);
-      }
-    }
-  }
-  return verses;
-}
+import 'package:twelve_stars/logic/lectionary_resolver.dart';
 
 class MassReadingCard extends StatefulWidget {
   final LectionaryReading reading;
@@ -97,27 +68,61 @@ class _MassReadingCardState extends State<MassReadingCard> {
         bookMeta.abbrev,
       );
 
-      final verseList = parseVerseRange(widget.reading.verseRange);
-      List<BibleVerse> verses;
-      if (verseList.isEmpty) {
-        verses = await db.getChapterVerses(
-          'CPDV',
-          widget.reading.bookNumber,
-          widget.reading.chapter,
+      final ranges = resolveReadingRanges(
+        bookNumber: widget.reading.bookNumber,
+        defaultChapter: widget.reading.chapter,
+        defaultVerseRange: widget.reading.verseRange,
+        citation: widget.reading.citation,
+      );
+
+      Expression<bool> predicate = const Constant(false);
+      for (final range in ranges) {
+        Expression<bool> rangePredicate = db.bibleVerses.chapter.equals(
+          range.chapter,
         );
-      } else {
-        verses =
-            await (db.select(db.bibleVerses)
-                  ..where(
-                    (t) =>
-                        t.translationCode.equals('CPDV') &
-                        t.bookNumber.equals(widget.reading.bookNumber) &
-                        t.chapter.equals(widget.reading.chapter) &
-                        t.verseNumber.isIn(verseList),
-                  )
-                  ..orderBy([(t) => OrderingTerm(expression: t.verseNumber)]))
-                .get();
+
+        if (range.verses != null) {
+          if (range.startVerseLimit != null) {
+            rangePredicate =
+                rangePredicate &
+                (db.bibleVerses.verseNumber.isIn(range.verses!) |
+                    db.bibleVerses.verseNumber.isBiggerOrEqualValue(
+                      range.startVerseLimit!,
+                    ));
+          } else {
+            rangePredicate =
+                rangePredicate & db.bibleVerses.verseNumber.isIn(range.verses!);
+          }
+        } else if (range.startVerseLimit != null) {
+          rangePredicate =
+              rangePredicate &
+              db.bibleVerses.verseNumber.isBiggerOrEqualValue(
+                range.startVerseLimit!,
+              );
+        } else if (range.endVerseLimit != null) {
+          rangePredicate =
+              rangePredicate &
+              db.bibleVerses.verseNumber.isSmallerOrEqualValue(
+                range.endVerseLimit!,
+              );
+        }
+
+        predicate = predicate | rangePredicate;
       }
+
+      final verses =
+          await (db.select(db.bibleVerses)
+                ..where(
+                  (t) =>
+                      t.translationCode.equals('CPDV') &
+                      t.bookNumber.equals(widget.reading.bookNumber) &
+                      predicate,
+                )
+                ..orderBy([
+                  (t) => OrderingTerm(expression: t.chapter),
+                  (t) => OrderingTerm(expression: t.verseNumber),
+                ]))
+              .get();
 
       if (mounted) {
         setState(() {
