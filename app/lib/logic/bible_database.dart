@@ -88,7 +88,8 @@ class BibleDatabase extends _$BibleDatabase {
   }
 
   // Retrieve readings for a specific liturgical day key
-  Future<List<LectionaryReading>> getReadings(String key) {
+  Future<List<LectionaryReading>> getReadings(String key) async {
+    await _ensureLectionaryPopulated();
     return (select(lectionaryReadings)
           ..where((t) => t.readingKey.equals(key))
           ..orderBy([(t) => OrderingTerm(expression: t.id)]))
