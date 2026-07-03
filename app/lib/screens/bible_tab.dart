@@ -214,136 +214,156 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   }
 
   Widget _buildTranslationSelectors(ThemeData theme) {
-    return Card(
-      margin: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 4.0),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        child: Row(
-          children: [
-            // Left dropdown (Primary Translation)
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Primary Translation',
-                    style: theme.textTheme.labelSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.primary,
-                    ),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 4.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: Card(
+              margin: EdgeInsets.zero,
+              child: InkWell(
+                onTap: () => _showPrimaryDialog(theme),
+                borderRadius: BorderRadius.circular(12),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12.0,
+                    vertical: 10.0,
                   ),
-                  const SizedBox(height: 4),
-                  DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
-                      value: _primaryTranslation,
-                      isDense: true,
-                      isExpanded: true,
-                      icon: Icon(
-                        Icons.arrow_drop_down,
-                        color: theme.colorScheme.onSurfaceVariant,
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.translate,
+                        color: theme.colorScheme.primary,
+                        size: 18,
                       ),
-                      dropdownColor: theme.colorScheme.surfaceContainer,
-                      borderRadius: BorderRadius.circular(12),
-                      onChanged: (val) {
-                        if (val != null) {
-                          setState(() {
-                            _primaryTranslation = val;
-                            if (_compareTranslation == val) {
-                              _compareTranslation = 'none';
-                            }
-                            _settings?.primaryBibleTranslation = val;
-                            _settings?.compareBibleTranslation =
-                                _compareTranslation;
-                          });
-                          if (_settings != null) {
-                            PrayerDatabase.saveSettings(_settings!);
-                          }
-                        }
-                      },
-                      items: const [
-                        DropdownMenuItem(
-                          value: 'CPDV',
-                          child: Text('CPDV (English)'),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Primary Translation',
+                              style: theme.textTheme.labelSmall?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: theme.colorScheme.primary,
+                              ),
+                            ),
+                            Text(
+                              _primaryTranslation,
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
-                        DropdownMenuItem(
-                          value: 'DRC',
-                          child: Text('DRC (English)'),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
-            const SizedBox(width: 12),
-            Icon(
-              Icons.swap_horiz,
-              color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
-              size: 20,
-            ),
-            const SizedBox(width: 12),
-            // Right dropdown (Compare Translation)
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Compare Translation',
-                    style: theme.textTheme.labelSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.secondary,
-                    ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Card(
+              margin: EdgeInsets.zero,
+              child: InkWell(
+                onTap: () => _showCompareDialog(theme),
+                borderRadius: BorderRadius.circular(12),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12.0,
+                    vertical: 10.0,
                   ),
-                  const SizedBox(height: 4),
-                  DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
-                      value: _compareTranslation,
-                      isDense: true,
-                      isExpanded: true,
-                      icon: Icon(
-                        Icons.arrow_drop_down,
-                        color: theme.colorScheme.onSurfaceVariant,
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.compare_arrows,
+                        color: theme.colorScheme.secondary,
+                        size: 18,
                       ),
-                      dropdownColor: theme.colorScheme.surfaceContainer,
-                      borderRadius: BorderRadius.circular(12),
-                      onChanged: (val) {
-                        if (val != null) {
-                          setState(() {
-                            _compareTranslation = val;
-                            if (_primaryTranslation == val) {
-                              _primaryTranslation = val == 'CPDV'
-                                  ? 'DRC'
-                                  : 'CPDV';
-                            }
-                            _settings?.compareBibleTranslation = val;
-                            _settings?.primaryBibleTranslation =
-                                _primaryTranslation;
-                          });
-                          if (_settings != null) {
-                            PrayerDatabase.saveSettings(_settings!);
-                          }
-                        }
-                      },
-                      items: const [
-                        DropdownMenuItem(value: 'none', child: Text('None')),
-                        DropdownMenuItem(
-                          value: 'CPDV',
-                          child: Text('CPDV (English)'),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Comparison Translation',
+                              style: theme.textTheme.labelSmall?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: theme.colorScheme.secondary,
+                              ),
+                            ),
+                            Text(
+                              _compareTranslation == 'none'
+                                  ? 'None'
+                                  : _compareTranslation,
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
-                        DropdownMenuItem(
-                          value: 'DRC',
-                          child: Text('DRC (English)'),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
+  }
+
+  Future<void> _showPrimaryDialog(ThemeData theme) async {
+    final result = await showDialog<String>(
+      context: context,
+      builder: (context) => _BibleTranslationDialog(
+        mode: _TranslationDialogMode.primary,
+        currentPrimary: _primaryTranslation,
+        currentCompare: _compareTranslation,
+      ),
+    );
+
+    if (result != null && mounted) {
+      setState(() {
+        _primaryTranslation = result;
+        if (_compareTranslation == result) {
+          _compareTranslation = 'none';
+        }
+        _settings?.primaryBibleTranslation = _primaryTranslation;
+        _settings?.compareBibleTranslation = _compareTranslation;
+      });
+      if (_settings != null) {
+        await PrayerDatabase.saveSettings(_settings!);
+      }
+    }
+  }
+
+  Future<void> _showCompareDialog(ThemeData theme) async {
+    final result = await showDialog<String>(
+      context: context,
+      builder: (context) => _BibleTranslationDialog(
+        mode: _TranslationDialogMode.compare,
+        currentPrimary: _primaryTranslation,
+        currentCompare: _compareTranslation,
+      ),
+    );
+
+    if (result != null && mounted) {
+      setState(() {
+        _compareTranslation = result;
+        if (_primaryTranslation == result) {
+          _primaryTranslation = result == 'CPDV' ? 'DRC' : 'CPDV';
+        }
+        _settings?.primaryBibleTranslation = _primaryTranslation;
+        _settings?.compareBibleTranslation = _compareTranslation;
+      });
+      if (_settings != null) {
+        await PrayerDatabase.saveSettings(_settings!);
+      }
+    }
   }
 
   @override
@@ -1220,7 +1240,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                             child: Text(
                               compareVerse?.verseText ?? '',
                               style: theme.textTheme.bodyLarge?.copyWith(
-                                color: theme.colorScheme.onSurfaceVariant,
+                                color: theme.colorScheme.onSurface,
                               ),
                             ),
                           ),
@@ -1241,6 +1261,221 @@ class _BibleChapterViewState extends State<BibleChapterView>
             child: _buildSelectionActionBar(theme),
           ),
       ],
+    );
+  }
+}
+
+enum _TranslationDialogMode { primary, compare }
+
+class _BibleTranslationDialog extends StatefulWidget {
+  final _TranslationDialogMode mode;
+  final String currentPrimary;
+  final String currentCompare;
+
+  const _BibleTranslationDialog({
+    required this.mode,
+    required this.currentPrimary,
+    required this.currentCompare,
+  });
+
+  @override
+  State<_BibleTranslationDialog> createState() =>
+      _BibleTranslationDialogState();
+}
+
+class _BibleTranslationDialogState extends State<_BibleTranslationDialog> {
+  late String _selectedValue;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedValue = widget.mode == _TranslationDialogMode.primary
+        ? widget.currentPrimary
+        : widget.currentCompare;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isPrimaryMode = widget.mode == _TranslationDialogMode.primary;
+
+    return AlertDialog(
+      title: Text(
+        isPrimaryMode ? 'Primary Translation' : 'Comparison Translation',
+      ),
+      content: SizedBox(
+        width: double.maxFinite,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (isPrimaryMode) ...[
+                _buildTranslationOption(
+                  title: 'Catholic Public Domain Version (CPDV)',
+                  origin: 'Ronald L. Conte Jr. (2009)',
+                  description:
+                      'A contemporary, literal translation of the Clementine Latin Vulgate.',
+                  usage:
+                      'Clear modern reading, literal Vulgate comparison, and study.',
+                  value: 'CPDV',
+                  theme: theme,
+                ),
+                const SizedBox(height: 8),
+                _buildTranslationOption(
+                  title: 'Douay-Rheims Bible (DRC)',
+                  origin: 'Challoner Revision (1749–1752)',
+                  description:
+                      'A classic, traditional translation of the Latin Vulgate, highly faithful to the Latin text.',
+                  usage:
+                      'Majestic traditional language, personal devotions, and historical study.',
+                  value: 'DRC',
+                  theme: theme,
+                ),
+              ] else ...[
+                _buildTranslationOption(
+                  title: 'None (Single View)',
+                  origin: '',
+                  description:
+                      'Displays only the primary translation in a single column layout.',
+                  usage: '',
+                  value: 'none',
+                  theme: theme,
+                ),
+                const SizedBox(height: 8),
+                _buildTranslationOption(
+                  title: 'Catholic Public Domain Version (CPDV)',
+                  origin: 'Ronald L. Conte Jr. (2009)',
+                  description:
+                      'A contemporary, literal translation of the Clementine Latin Vulgate.',
+                  usage:
+                      'Clear modern reading, literal Vulgate comparison, and study.',
+                  value: 'CPDV',
+                  theme: theme,
+                ),
+                const SizedBox(height: 8),
+                _buildTranslationOption(
+                  title: 'Douay-Rheims Bible (DRC)',
+                  origin: 'Challoner Revision (1749–1752)',
+                  description:
+                      'A classic, traditional translation of the Latin Vulgate, highly faithful to the Latin text.',
+                  usage:
+                      'Majestic traditional language, personal devotions, and historical study.',
+                  value: 'DRC',
+                  theme: theme,
+                ),
+              ],
+            ],
+          ),
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('Cancel'),
+        ),
+        FilledButton(
+          onPressed: () {
+            Navigator.of(context).pop(_selectedValue);
+          },
+          child: const Text('Apply'),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildTranslationOption({
+    required String title,
+    required String origin,
+    required String description,
+    required String usage,
+    required String value,
+    required ThemeData theme,
+  }) {
+    final isSelected = _selectedValue == value;
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _selectedValue = value;
+        });
+      },
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: isSelected
+                ? theme.colorScheme.primary
+                : theme.colorScheme.outlineVariant,
+            width: isSelected ? 2 : 1,
+          ),
+          borderRadius: BorderRadius.circular(12),
+          color: isSelected
+              ? theme.colorScheme.primaryContainer.withValues(alpha: 0.15)
+              : Colors.transparent,
+        ),
+        padding: const EdgeInsets.all(12.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 2.0),
+              child: Icon(
+                isSelected
+                    ? Icons.radio_button_checked
+                    : Icons.radio_button_off,
+                color: isSelected
+                    ? theme.colorScheme.primary
+                    : theme.colorScheme.onSurfaceVariant,
+                size: 20,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: theme.textTheme.titleSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: isSelected
+                          ? theme.colorScheme.primary
+                          : theme.colorScheme.onSurface,
+                    ),
+                  ),
+                  if (origin.isNotEmpty) ...[
+                    const SizedBox(height: 2),
+                    Text(
+                      'Origin: $origin',
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                  ],
+                  const SizedBox(height: 4),
+                  Text(
+                    description,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: theme.colorScheme.onSurface,
+                    ),
+                  ),
+                  if (usage.isNotEmpty) ...[
+                    const SizedBox(height: 4),
+                    Text(
+                      'Best for: $usage',
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.colorScheme.primary.withValues(alpha: 0.8),
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
