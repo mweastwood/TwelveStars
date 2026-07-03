@@ -982,11 +982,475 @@ class LectionaryReadingsCompanion extends UpdateCompanion<LectionaryReading> {
   }
 }
 
+class FavoritePassages extends Table
+    with TableInfo<FavoritePassages, FavoritePassage> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  FavoritePassages(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL PRIMARY KEY AUTOINCREMENT',
+  );
+  static const VerificationMeta _bookNumberMeta = const VerificationMeta(
+    'bookNumber',
+  );
+  late final GeneratedColumn<int> bookNumber = GeneratedColumn<int>(
+    'book_number',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _bookNameMeta = const VerificationMeta(
+    'bookName',
+  );
+  late final GeneratedColumn<String> bookName = GeneratedColumn<String>(
+    'book_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _chapterMeta = const VerificationMeta(
+    'chapter',
+  );
+  late final GeneratedColumn<int> chapter = GeneratedColumn<int>(
+    'chapter',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _startVerseMeta = const VerificationMeta(
+    'startVerse',
+  );
+  late final GeneratedColumn<int> startVerse = GeneratedColumn<int>(
+    'start_verse',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _endVerseMeta = const VerificationMeta(
+    'endVerse',
+  );
+  late final GeneratedColumn<int> endVerse = GeneratedColumn<int>(
+    'end_verse',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _textPreviewMeta = const VerificationMeta(
+    'textPreview',
+  );
+  late final GeneratedColumn<String> textPreview = GeneratedColumn<String>(
+    'text_preview',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    bookNumber,
+    bookName,
+    chapter,
+    startVerse,
+    endVerse,
+    textPreview,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'favorite_passages';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<FavoritePassage> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('book_number')) {
+      context.handle(
+        _bookNumberMeta,
+        bookNumber.isAcceptableOrUnknown(data['book_number']!, _bookNumberMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_bookNumberMeta);
+    }
+    if (data.containsKey('book_name')) {
+      context.handle(
+        _bookNameMeta,
+        bookName.isAcceptableOrUnknown(data['book_name']!, _bookNameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_bookNameMeta);
+    }
+    if (data.containsKey('chapter')) {
+      context.handle(
+        _chapterMeta,
+        chapter.isAcceptableOrUnknown(data['chapter']!, _chapterMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_chapterMeta);
+    }
+    if (data.containsKey('start_verse')) {
+      context.handle(
+        _startVerseMeta,
+        startVerse.isAcceptableOrUnknown(data['start_verse']!, _startVerseMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_startVerseMeta);
+    }
+    if (data.containsKey('end_verse')) {
+      context.handle(
+        _endVerseMeta,
+        endVerse.isAcceptableOrUnknown(data['end_verse']!, _endVerseMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_endVerseMeta);
+    }
+    if (data.containsKey('text_preview')) {
+      context.handle(
+        _textPreviewMeta,
+        textPreview.isAcceptableOrUnknown(
+          data['text_preview']!,
+          _textPreviewMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_textPreviewMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  FavoritePassage map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return FavoritePassage(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      bookNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}book_number'],
+      )!,
+      bookName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}book_name'],
+      )!,
+      chapter: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chapter'],
+      )!,
+      startVerse: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}start_verse'],
+      )!,
+      endVerse: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}end_verse'],
+      )!,
+      textPreview: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}text_preview'],
+      )!,
+    );
+  }
+
+  @override
+  FavoritePassages createAlias(String alias) {
+    return FavoritePassages(attachedDatabase, alias);
+  }
+
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class FavoritePassage extends DataClass implements Insertable<FavoritePassage> {
+  final int id;
+  final int bookNumber;
+  final String bookName;
+  final int chapter;
+  final int startVerse;
+  final int endVerse;
+  final String textPreview;
+  const FavoritePassage({
+    required this.id,
+    required this.bookNumber,
+    required this.bookName,
+    required this.chapter,
+    required this.startVerse,
+    required this.endVerse,
+    required this.textPreview,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['book_number'] = Variable<int>(bookNumber);
+    map['book_name'] = Variable<String>(bookName);
+    map['chapter'] = Variable<int>(chapter);
+    map['start_verse'] = Variable<int>(startVerse);
+    map['end_verse'] = Variable<int>(endVerse);
+    map['text_preview'] = Variable<String>(textPreview);
+    return map;
+  }
+
+  FavoritePassagesCompanion toCompanion(bool nullToAbsent) {
+    return FavoritePassagesCompanion(
+      id: Value(id),
+      bookNumber: Value(bookNumber),
+      bookName: Value(bookName),
+      chapter: Value(chapter),
+      startVerse: Value(startVerse),
+      endVerse: Value(endVerse),
+      textPreview: Value(textPreview),
+    );
+  }
+
+  factory FavoritePassage.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return FavoritePassage(
+      id: serializer.fromJson<int>(json['id']),
+      bookNumber: serializer.fromJson<int>(json['book_number']),
+      bookName: serializer.fromJson<String>(json['book_name']),
+      chapter: serializer.fromJson<int>(json['chapter']),
+      startVerse: serializer.fromJson<int>(json['start_verse']),
+      endVerse: serializer.fromJson<int>(json['end_verse']),
+      textPreview: serializer.fromJson<String>(json['text_preview']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'book_number': serializer.toJson<int>(bookNumber),
+      'book_name': serializer.toJson<String>(bookName),
+      'chapter': serializer.toJson<int>(chapter),
+      'start_verse': serializer.toJson<int>(startVerse),
+      'end_verse': serializer.toJson<int>(endVerse),
+      'text_preview': serializer.toJson<String>(textPreview),
+    };
+  }
+
+  FavoritePassage copyWith({
+    int? id,
+    int? bookNumber,
+    String? bookName,
+    int? chapter,
+    int? startVerse,
+    int? endVerse,
+    String? textPreview,
+  }) => FavoritePassage(
+    id: id ?? this.id,
+    bookNumber: bookNumber ?? this.bookNumber,
+    bookName: bookName ?? this.bookName,
+    chapter: chapter ?? this.chapter,
+    startVerse: startVerse ?? this.startVerse,
+    endVerse: endVerse ?? this.endVerse,
+    textPreview: textPreview ?? this.textPreview,
+  );
+  FavoritePassage copyWithCompanion(FavoritePassagesCompanion data) {
+    return FavoritePassage(
+      id: data.id.present ? data.id.value : this.id,
+      bookNumber: data.bookNumber.present
+          ? data.bookNumber.value
+          : this.bookNumber,
+      bookName: data.bookName.present ? data.bookName.value : this.bookName,
+      chapter: data.chapter.present ? data.chapter.value : this.chapter,
+      startVerse: data.startVerse.present
+          ? data.startVerse.value
+          : this.startVerse,
+      endVerse: data.endVerse.present ? data.endVerse.value : this.endVerse,
+      textPreview: data.textPreview.present
+          ? data.textPreview.value
+          : this.textPreview,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FavoritePassage(')
+          ..write('id: $id, ')
+          ..write('bookNumber: $bookNumber, ')
+          ..write('bookName: $bookName, ')
+          ..write('chapter: $chapter, ')
+          ..write('startVerse: $startVerse, ')
+          ..write('endVerse: $endVerse, ')
+          ..write('textPreview: $textPreview')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    bookNumber,
+    bookName,
+    chapter,
+    startVerse,
+    endVerse,
+    textPreview,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is FavoritePassage &&
+          other.id == this.id &&
+          other.bookNumber == this.bookNumber &&
+          other.bookName == this.bookName &&
+          other.chapter == this.chapter &&
+          other.startVerse == this.startVerse &&
+          other.endVerse == this.endVerse &&
+          other.textPreview == this.textPreview);
+}
+
+class FavoritePassagesCompanion extends UpdateCompanion<FavoritePassage> {
+  final Value<int> id;
+  final Value<int> bookNumber;
+  final Value<String> bookName;
+  final Value<int> chapter;
+  final Value<int> startVerse;
+  final Value<int> endVerse;
+  final Value<String> textPreview;
+  const FavoritePassagesCompanion({
+    this.id = const Value.absent(),
+    this.bookNumber = const Value.absent(),
+    this.bookName = const Value.absent(),
+    this.chapter = const Value.absent(),
+    this.startVerse = const Value.absent(),
+    this.endVerse = const Value.absent(),
+    this.textPreview = const Value.absent(),
+  });
+  FavoritePassagesCompanion.insert({
+    this.id = const Value.absent(),
+    required int bookNumber,
+    required String bookName,
+    required int chapter,
+    required int startVerse,
+    required int endVerse,
+    required String textPreview,
+  }) : bookNumber = Value(bookNumber),
+       bookName = Value(bookName),
+       chapter = Value(chapter),
+       startVerse = Value(startVerse),
+       endVerse = Value(endVerse),
+       textPreview = Value(textPreview);
+  static Insertable<FavoritePassage> custom({
+    Expression<int>? id,
+    Expression<int>? bookNumber,
+    Expression<String>? bookName,
+    Expression<int>? chapter,
+    Expression<int>? startVerse,
+    Expression<int>? endVerse,
+    Expression<String>? textPreview,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (bookNumber != null) 'book_number': bookNumber,
+      if (bookName != null) 'book_name': bookName,
+      if (chapter != null) 'chapter': chapter,
+      if (startVerse != null) 'start_verse': startVerse,
+      if (endVerse != null) 'end_verse': endVerse,
+      if (textPreview != null) 'text_preview': textPreview,
+    });
+  }
+
+  FavoritePassagesCompanion copyWith({
+    Value<int>? id,
+    Value<int>? bookNumber,
+    Value<String>? bookName,
+    Value<int>? chapter,
+    Value<int>? startVerse,
+    Value<int>? endVerse,
+    Value<String>? textPreview,
+  }) {
+    return FavoritePassagesCompanion(
+      id: id ?? this.id,
+      bookNumber: bookNumber ?? this.bookNumber,
+      bookName: bookName ?? this.bookName,
+      chapter: chapter ?? this.chapter,
+      startVerse: startVerse ?? this.startVerse,
+      endVerse: endVerse ?? this.endVerse,
+      textPreview: textPreview ?? this.textPreview,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (bookNumber.present) {
+      map['book_number'] = Variable<int>(bookNumber.value);
+    }
+    if (bookName.present) {
+      map['book_name'] = Variable<String>(bookName.value);
+    }
+    if (chapter.present) {
+      map['chapter'] = Variable<int>(chapter.value);
+    }
+    if (startVerse.present) {
+      map['start_verse'] = Variable<int>(startVerse.value);
+    }
+    if (endVerse.present) {
+      map['end_verse'] = Variable<int>(endVerse.value);
+    }
+    if (textPreview.present) {
+      map['text_preview'] = Variable<String>(textPreview.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FavoritePassagesCompanion(')
+          ..write('id: $id, ')
+          ..write('bookNumber: $bookNumber, ')
+          ..write('bookName: $bookName, ')
+          ..write('chapter: $chapter, ')
+          ..write('startVerse: $startVerse, ')
+          ..write('endVerse: $endVerse, ')
+          ..write('textPreview: $textPreview')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$BibleDatabase extends GeneratedDatabase {
   _$BibleDatabase(QueryExecutor e) : super(e);
   $BibleDatabaseManager get managers => $BibleDatabaseManager(this);
   late final BibleVerses bibleVerses = BibleVerses(this);
   late final LectionaryReadings lectionaryReadings = LectionaryReadings(this);
+  late final FavoritePassages favoritePassages = FavoritePassages(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -994,6 +1458,7 @@ abstract class _$BibleDatabase extends GeneratedDatabase {
   List<DatabaseSchemaEntity> get allSchemaEntities => [
     bibleVerses,
     lectionaryReadings,
+    favoritePassages,
   ];
 }
 
@@ -1495,6 +1960,244 @@ typedef $LectionaryReadingsProcessedTableManager =
       LectionaryReading,
       PrefetchHooks Function()
     >;
+typedef $FavoritePassagesCreateCompanionBuilder =
+    FavoritePassagesCompanion Function({
+      Value<int> id,
+      required int bookNumber,
+      required String bookName,
+      required int chapter,
+      required int startVerse,
+      required int endVerse,
+      required String textPreview,
+    });
+typedef $FavoritePassagesUpdateCompanionBuilder =
+    FavoritePassagesCompanion Function({
+      Value<int> id,
+      Value<int> bookNumber,
+      Value<String> bookName,
+      Value<int> chapter,
+      Value<int> startVerse,
+      Value<int> endVerse,
+      Value<String> textPreview,
+    });
+
+class $FavoritePassagesFilterComposer
+    extends Composer<_$BibleDatabase, FavoritePassages> {
+  $FavoritePassagesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get bookNumber => $composableBuilder(
+    column: $table.bookNumber,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get bookName => $composableBuilder(
+    column: $table.bookName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get chapter => $composableBuilder(
+    column: $table.chapter,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get startVerse => $composableBuilder(
+    column: $table.startVerse,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get endVerse => $composableBuilder(
+    column: $table.endVerse,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get textPreview => $composableBuilder(
+    column: $table.textPreview,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $FavoritePassagesOrderingComposer
+    extends Composer<_$BibleDatabase, FavoritePassages> {
+  $FavoritePassagesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get bookNumber => $composableBuilder(
+    column: $table.bookNumber,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get bookName => $composableBuilder(
+    column: $table.bookName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get chapter => $composableBuilder(
+    column: $table.chapter,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get startVerse => $composableBuilder(
+    column: $table.startVerse,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get endVerse => $composableBuilder(
+    column: $table.endVerse,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get textPreview => $composableBuilder(
+    column: $table.textPreview,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $FavoritePassagesAnnotationComposer
+    extends Composer<_$BibleDatabase, FavoritePassages> {
+  $FavoritePassagesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get bookNumber => $composableBuilder(
+    column: $table.bookNumber,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get bookName =>
+      $composableBuilder(column: $table.bookName, builder: (column) => column);
+
+  GeneratedColumn<int> get chapter =>
+      $composableBuilder(column: $table.chapter, builder: (column) => column);
+
+  GeneratedColumn<int> get startVerse => $composableBuilder(
+    column: $table.startVerse,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get endVerse =>
+      $composableBuilder(column: $table.endVerse, builder: (column) => column);
+
+  GeneratedColumn<String> get textPreview => $composableBuilder(
+    column: $table.textPreview,
+    builder: (column) => column,
+  );
+}
+
+class $FavoritePassagesTableManager
+    extends
+        RootTableManager<
+          _$BibleDatabase,
+          FavoritePassages,
+          FavoritePassage,
+          $FavoritePassagesFilterComposer,
+          $FavoritePassagesOrderingComposer,
+          $FavoritePassagesAnnotationComposer,
+          $FavoritePassagesCreateCompanionBuilder,
+          $FavoritePassagesUpdateCompanionBuilder,
+          (
+            FavoritePassage,
+            BaseReferences<_$BibleDatabase, FavoritePassages, FavoritePassage>,
+          ),
+          FavoritePassage,
+          PrefetchHooks Function()
+        > {
+  $FavoritePassagesTableManager(_$BibleDatabase db, FavoritePassages table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $FavoritePassagesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $FavoritePassagesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $FavoritePassagesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> bookNumber = const Value.absent(),
+                Value<String> bookName = const Value.absent(),
+                Value<int> chapter = const Value.absent(),
+                Value<int> startVerse = const Value.absent(),
+                Value<int> endVerse = const Value.absent(),
+                Value<String> textPreview = const Value.absent(),
+              }) => FavoritePassagesCompanion(
+                id: id,
+                bookNumber: bookNumber,
+                bookName: bookName,
+                chapter: chapter,
+                startVerse: startVerse,
+                endVerse: endVerse,
+                textPreview: textPreview,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int bookNumber,
+                required String bookName,
+                required int chapter,
+                required int startVerse,
+                required int endVerse,
+                required String textPreview,
+              }) => FavoritePassagesCompanion.insert(
+                id: id,
+                bookNumber: bookNumber,
+                bookName: bookName,
+                chapter: chapter,
+                startVerse: startVerse,
+                endVerse: endVerse,
+                textPreview: textPreview,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $FavoritePassagesProcessedTableManager =
+    ProcessedTableManager<
+      _$BibleDatabase,
+      FavoritePassages,
+      FavoritePassage,
+      $FavoritePassagesFilterComposer,
+      $FavoritePassagesOrderingComposer,
+      $FavoritePassagesAnnotationComposer,
+      $FavoritePassagesCreateCompanionBuilder,
+      $FavoritePassagesUpdateCompanionBuilder,
+      (
+        FavoritePassage,
+        BaseReferences<_$BibleDatabase, FavoritePassages, FavoritePassage>,
+      ),
+      FavoritePassage,
+      PrefetchHooks Function()
+    >;
 
 class $BibleDatabaseManager {
   final _$BibleDatabase _db;
@@ -1503,4 +2206,6 @@ class $BibleDatabaseManager {
       $BibleVersesTableManager(_db, _db.bibleVerses);
   $LectionaryReadingsTableManager get lectionaryReadings =>
       $LectionaryReadingsTableManager(_db, _db.lectionaryReadings);
+  $FavoritePassagesTableManager get favoritePassages =>
+      $FavoritePassagesTableManager(_db, _db.favoritePassages);
 }

@@ -18,3 +18,14 @@ CREATE TABLE lectionary_readings (
     verse_range TEXT NOT NULL,
     citation TEXT NOT NULL
 );
+
+CREATE TABLE favorite_passages (
+    id INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    book_number INT NOT NULL,
+    book_name TEXT NOT NULL,
+    chapter INT NOT NULL,
+    start_verse INT NOT NULL,
+    end_verse INT NOT NULL,
+    text_preview TEXT NOT NULL
+);
+

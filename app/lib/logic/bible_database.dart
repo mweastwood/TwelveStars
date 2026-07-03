@@ -14,7 +14,16 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
+
+  @override
+  MigrationStrategy get migration => MigrationStrategy(
+    onUpgrade: (m, from, to) async {
+      if (from < 2) {
+        await m.createTable(favoritePassages);
+      }
+    },
+  );
 
   // Retrieve verses for a specific chapter
   Future<List<BibleVerse>> getChapterVerses(
@@ -131,6 +140,19 @@ class BibleDatabase extends _$BibleDatabase {
     } catch (e) {
       debugPrint('Error seeding lectionary database: $e');
     }
+  }
+
+  // Favorites operations
+  Future<List<FavoritePassage>> getFavorites() {
+    return select(favoritePassages).get();
+  }
+
+  Future<int> saveFavorite(FavoritePassagesCompanion companion) {
+    return into(favoritePassages).insert(companion);
+  }
+
+  Future<int> deleteFavorite(int id) {
+    return (delete(favoritePassages)..where((t) => t.id.equals(id))).go();
   }
 }
 
