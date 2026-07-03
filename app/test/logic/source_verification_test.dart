@@ -368,7 +368,6 @@ void main() {
           final skipKey = '$prayerId/${languageStr}_v${versionIndex + 1}';
           final shouldSkip = [
             // English
-            'act_of_contrition/english_v1',
             'anima_christi/english_v1',
             'fatima_prayer/english_v1',
             'final_prayer_rosary/english_v1',
