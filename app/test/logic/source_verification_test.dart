@@ -2,25 +2,26 @@
 ## Prayer Source Verification Report (Generated: 2026-07-03)
 
 ### English
-**Passed (11)**:
+**Passed (16)**:
  - `act_of_contrition` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
  - `anima_christi` — https://www.usccb.org/prayers/anima-christi
  - `apostles_creed` — https://en.wikipedia.org/wiki/Apostles%27_Creed
  - `fatima_prayer` — https://www.ewtn.com/catholicism/teachings/fatima-prayer-102
+ - `final_prayer_rosary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
  - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
+ - `hail_holy_queen` — https://www.preces-latinae.org/thesaurus/BVM/SalveRegina.html
  - `hail_mary (Version 1)` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
  - `hail_mary (Version 2)` — https://en.wikipedia.org/wiki/Hail_Mary
+ - `nicene_creed` — https://www.loyolapress.com/catholic-resources/prayer/traditional-catholic-prayers/prayers-every-catholic-should-know/nicene-creed/
+ - `now_i_lay_me` — https://www.catholicprayer.ca/Prayers/Now-I-Lay-Me-Down-To-Sleep.html
  - `our_father (Version 1)` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
  - `our_father (Version 2)` — https://en.wikipedia.org/wiki/Lord%27s_Prayer
  - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
  - `st_francis` — https://en.wikipedia.org/wiki/Prayer_of_Saint_Francis
+ - `st_michael` — https://www.ewtn.com/catholicism/devotions/prayer-to-st-michael-the-archangel-371
 
-**Failed (5)**:
- - `final_prayer_rosary` — https://en.wikipedia.org/wiki/Rosary
- - `hail_holy_queen` — https://en.wikipedia.org/wiki/Hail_Holy_Queen
- - `nicene_creed` — https://en.wikipedia.org/wiki/Nicene_Creed
- - `now_i_lay_me` — https://en.wikipedia.org/wiki/Now_I_Lay_Me_Down_to_Sleep
- - `st_michael` — https://en.wikipedia.org/wiki/Prayer_to_Saint_Michael
+**Failed (0)**:
+ *None*
 
 ### French
 **Passed (6)**:
@@ -415,12 +416,6 @@ void main() {
 
           final skipKey = '$prayerId/${languageStr}_v${versionIndex + 1}';
           final shouldSkip = [
-            // English
-            // USCCB URL is protected by Obolus PoW / Cloudflare
-            'hail_holy_queen/english_v1',
-            'nicene_creed/english_v1',
-            'now_i_lay_me/english_v1',
-            'st_michael/english_v1',
             // French
             'act_of_contrition/french_v1',
             'anima_christi/french_v1',
