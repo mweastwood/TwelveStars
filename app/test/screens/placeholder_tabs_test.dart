@@ -5,6 +5,7 @@ import 'package:twelve_stars/screens/calendar_tab.dart';
 import 'package:twelve_stars/screens/missal_tab.dart';
 import 'package:drift/native.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/logic/time_helper.dart';
 import '../test_helper.dart';
 
 void main() {
@@ -17,11 +18,13 @@ void main() {
   });
 
   tearDown(() async {
+    TimeHelper.setCustomTime(null);
     await testDb.close();
   });
 
   group('Placeholder Tabs Golden Tests', () {
     testGoldens('CalendarTab renders correctly', (tester) async {
+      TimeHelper.setCustomTime(DateTime(2026, 7, 2));
       final builder = GoldenBuilder.column()
         ..addScenario(
           'Calendar Tab Placeholder',
