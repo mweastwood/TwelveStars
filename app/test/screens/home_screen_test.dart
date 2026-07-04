@@ -6,6 +6,7 @@ import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:drift/native.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/logic/time_helper.dart';
 import '../test_helper.dart';
 
 void main() {
@@ -173,6 +174,7 @@ void main() {
     });
 
     tearDown(() async {
+      TimeHelper.setCustomTime(null);
       await testDb.close();
     });
 
@@ -404,6 +406,7 @@ void main() {
     });
 
     testGoldens('HomeScreen renders correctly in all tabs', (tester) async {
+      TimeHelper.setCustomTime(DateTime(2026, 7, 6));
       // 1. Initial/Prayers tab golden (with Start Rosary FAB!)
       await tester.pumpWidgetBuilder(
         HomeScreen(initialDate: DateTime(2026, 7, 6)),

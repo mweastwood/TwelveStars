@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../logic/liturgical_calendar.dart';
+import '../logic/time_helper.dart';
 import '../logic/bible_database.dart'
     show LectionaryReading, BibleDatabaseHelper;
 import '../widgets/mass_reading_card.dart';
@@ -19,7 +20,7 @@ class _CalendarTabState extends State<CalendarTab> {
   @override
   void initState() {
     super.initState();
-    final baseDate = widget.initialDate ?? DateTime.now();
+    final baseDate = widget.initialDate ?? TimeHelper.now();
     _selectedDate = DateTime(baseDate.year, baseDate.month, baseDate.day);
   }
 
@@ -125,7 +126,7 @@ class _CalendarTabState extends State<CalendarTab> {
   }
 
   bool get _isTodaySelected {
-    final now = DateTime.now();
+    final now = TimeHelper.now();
     return _selectedDate.year == now.year &&
         _selectedDate.month == now.month &&
         _selectedDate.day == now.day;
@@ -155,7 +156,7 @@ class _CalendarTabState extends State<CalendarTab> {
               heroTag: 'today_fab',
               onPressed: () {
                 setState(() {
-                  final now = DateTime.now();
+                  final now = TimeHelper.now();
                   _selectedDate = DateTime(now.year, now.month, now.day);
                 });
               },
@@ -278,10 +279,11 @@ class _CalendarTabState extends State<CalendarTab> {
                               date.year == _selectedDate.year &&
                               date.month == _selectedDate.month &&
                               date.day == _selectedDate.day;
+                          final today = TimeHelper.now();
                           final isToday =
-                              DateTime.now().year == date.year &&
-                              DateTime.now().month == date.month &&
-                              DateTime.now().day == date.day;
+                              today.year == date.year &&
+                              today.month == date.month &&
+                              today.day == date.day;
 
                           final dayData = LiturgicalCalendar.computeDay(date);
 
