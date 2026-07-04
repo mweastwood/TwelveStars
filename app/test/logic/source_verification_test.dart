@@ -2,8 +2,11 @@
 ## Prayer Source Verification Report (Generated: 2026-07-03)
 
 ### English
-**Passed (8)**:
+**Passed (11)**:
+ - `act_of_contrition` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
+ - `anima_christi` — https://www.usccb.org/prayers/anima-christi
  - `apostles_creed` — https://en.wikipedia.org/wiki/Apostles%27_Creed
+ - `fatima_prayer` — https://www.ewtn.com/catholicism/teachings/fatima-prayer-102
  - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
  - `hail_mary (Version 1)` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
  - `hail_mary (Version 2)` — https://en.wikipedia.org/wiki/Hail_Mary
@@ -12,10 +15,7 @@
  - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
  - `st_francis` — https://en.wikipedia.org/wiki/Prayer_of_Saint_Francis
 
-**Failed (8)**:
- - `act_of_contrition` — https://en.wikipedia.org/wiki/Act_of_Contrition
- - `anima_christi` — https://en.wikipedia.org/wiki/Anima_Christi
- - `fatima_prayer` — https://en.wikipedia.org/wiki/Fatima_Prayer
+**Failed (5)**:
  - `final_prayer_rosary` — https://en.wikipedia.org/wiki/Rosary
  - `hail_holy_queen` — https://en.wikipedia.org/wiki/Hail_Holy_Queen
  - `nicene_creed` — https://en.wikipedia.org/wiki/Nicene_Creed
@@ -62,15 +62,15 @@
  - `st_michael` — https://it.wikipedia.org/wiki/Preghiera_a_san_Michele
 
 ### Latin
-**Passed (4)**:
+**Passed (5)**:
+ - `anima_christi` — https://la.wikipedia.org/wiki/Anima_Christi
  - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
  - `hail_mary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
  - `our_father` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
  - `st_francis` — https://www.preces-latinae.org/thesaurus/Sancti/SFranciscusAssisiensis/PrayerofSF.html
 
-**Failed (10)**:
+**Failed (9)**:
  - `act_of_contrition` — https://en.wikipedia.org/wiki/Act_of_Contrition
- - `anima_christi` — https://la.wikipedia.org/wiki/Anima_Christi
  - `apostles_creed` — https://la.wikipedia.org/wiki/Symbolum_Apostolorum
  - `fatima_prayer` — https://la.wikipedia.org/wiki/Rosarium
  - `final_prayer_rosary` — https://la.wikipedia.org/wiki/Rosarium
