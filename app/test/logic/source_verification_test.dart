@@ -419,7 +419,6 @@ void main() {
             // English
             // USCCB URL is protected by Obolus PoW / Cloudflare
             'anima_christi/english_v1',
-            'fatima_prayer/english_v1',
             'final_prayer_rosary/english_v1',
             'hail_holy_queen/english_v1',
             'nicene_creed/english_v1',
