@@ -2,12 +2,14 @@
 ## Prayer Source Verification Report (Generated: 2026-07-03)
 
 ### English
-**Passed (16)**:
+**Passed (18)**:
  - `act_of_contrition` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
  - `anima_christi` — https://www.usccb.org/prayers/anima-christi
  - `apostles_creed` — https://en.wikipedia.org/wiki/Apostles%27_Creed
+ - `confiteor` — https://www.universalis.com/static/mass/orderofmass.htm
  - `fatima_prayer` — https://www.ewtn.com/catholicism/teachings/fatima-prayer-102
  - `final_prayer_rosary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
+ - `gloria` — https://www.universalis.com/static/mass/orderofmass.htm
  - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
  - `hail_holy_queen` — https://www.preces-latinae.org/thesaurus/BVM/SalveRegina.html
  - `hail_mary (Version 1)` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
@@ -439,8 +441,10 @@ void main() {
             // Latin
             'act_of_contrition/latin_v1',
             'apostles_creed/latin_v1',
+            'confiteor/latin_v1',
             'fatima_prayer/latin_v1',
             'final_prayer_rosary/latin_v1',
+            'gloria/latin_v1',
             'hail_holy_queen/latin_v1',
             'nicene_creed/latin_v1',
             'now_i_lay_me/latin_v1',
@@ -449,8 +453,10 @@ void main() {
             // Spanish
             'act_of_contrition/spanish_v1',
             'anima_christi/spanish_v1',
+            'confiteor/spanish_v1',
             'fatima_prayer/spanish_v1',
             'final_prayer_rosary/spanish_v1',
+            'gloria/spanish_v1',
             'hail_holy_queen/spanish_v1',
             'nicene_creed/spanish_v1',
             'now_i_lay_me/spanish_v1',
