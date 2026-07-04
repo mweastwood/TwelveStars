@@ -345,8 +345,7 @@ void main() {
             .replaceAll('ÿ', 'y')
             .replaceAll('ź', 'z')
             .replaceAll('ż', 'z')
-            .replaceAll('ž', 'z')
-            .replaceAll('j', 'i');
+            .replaceAll('ž', 'z');
       }
 
       res = res
