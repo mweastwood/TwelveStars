@@ -5,7 +5,7 @@ default_title: Agnus Dei
 title: Cordero de Dios
 subtitle: ""
 source_name: Misal Romano
-source_url: https://vatican.va
+source_url: https://es.wikipedia.org/wiki/Agnus_Dei
 history_author: ""
 history_origin: ""
 history_description: ""

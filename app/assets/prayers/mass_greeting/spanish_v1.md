@@ -5,7 +5,7 @@ default_title: Greeting
 title: Saludo
 subtitle: ""
 source_name: Misal Romano
-source_url: https://vatican.va
+source_url: https://misas.org/p/ordinario-de-la-misa
 history_author: ""
 history_origin: ""
 history_description: ""

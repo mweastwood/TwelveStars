@@ -5,7 +5,7 @@ default_title: Blessing & Dismissal
 title: Bendición y Despedida
 subtitle: ""
 source_name: Misal Romano
-source_url: https://vatican.va
+source_url: https://misas.org/p/ordinario-de-la-misa
 history_author: ""
 history_origin: ""
 history_description: ""
@@ -16,5 +16,5 @@ Asamblea: Y con tu espíritu.
 Sacerdote: La bendición de Dios todopoderoso, Padre, Hijo y Espíritu Santo, descienda sobre vosotros.
 Asamblea: Amén.
 
-Diácono o Sacerdote: Podéis ir en paz.
+Diácono: Podéis ir en paz.
 Asamblea: Demos gracias a Dios.

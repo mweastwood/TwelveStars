@@ -373,7 +373,20 @@ void main() {
           .replaceAll('amên', '')
           .replaceAll('amon', '')
           .replaceAll('亞孟', '')
-          .replaceAll('阿們', '');
+          .replaceAll('阿們', '')
+          .replaceAll('priest', '')
+          .replaceAll('people', '')
+          .replaceAll('deacon', '')
+          .replaceAll('sacerdos', '')
+          .replaceAll('populus', '')
+          .replaceAll('diaconus', '')
+          .replaceAll('sacerdote', '')
+          .replaceAll('asamblea', '')
+          .replaceAll('diácono', '')
+          .replaceAll('✠', '')
+          .replaceAll('†', '')
+          .replaceAll('&#10016;', '')
+          .replaceAll('&#8224;', '');
 
       return res;
     }
@@ -392,7 +405,6 @@ void main() {
     // Run remote URL verification checks for each translation
     for (final pMap in prayersList) {
       final prayerId = pMap['id'] as String;
-      final category = pMap['category'] as String?;
       final transMap = pMap['translations'] as Map<String, dynamic>;
 
       for (final entry in transMap.entries) {
@@ -418,81 +430,84 @@ void main() {
               : '';
 
           final skipKey = '$prayerId/${languageStr}_v${versionIndex + 1}';
-          final shouldSkip =
-              category == 'liturgy' ||
-              [
-                // French
-                'act_of_contrition/french_v1',
-                'anima_christi/french_v1',
-                'apostles_creed/french_v1',
-                'fatima_prayer/french_v1',
-                'final_prayer_rosary/french_v1',
-                'hail_holy_queen/french_v1',
-                'nicene_creed/french_v1',
-                'now_i_lay_me/french_v1',
-                'st_michael/french_v1',
-                // Italian
-                'act_of_contrition/italian_v1',
-                'anima_christi/italian_v1',
-                'apostles_creed/italian_v1',
-                'fatima_prayer/italian_v1',
-                'final_prayer_rosary/italian_v1',
-                'hail_holy_queen/italian_v1',
-                'nicene_creed/italian_v1',
-                'now_i_lay_me/italian_v1',
-                'st_michael/italian_v1',
-                // Latin
-                'act_of_contrition/latin_v1',
-                'apostles_creed/latin_v1',
-                'confiteor/latin_v1',
-                'fatima_prayer/latin_v1',
-                'final_prayer_rosary/latin_v1',
-                'gloria/latin_v1',
-                'hail_holy_queen/latin_v1',
-                'nicene_creed/latin_v1',
-                'now_i_lay_me/latin_v1',
-                'sign_of_the_cross/latin_v1',
-                'st_michael/latin_v1',
-                // Spanish
-                'act_of_contrition/spanish_v1',
-                'anima_christi/spanish_v1',
-                'confiteor/spanish_v1',
-                'fatima_prayer/spanish_v1',
-                'final_prayer_rosary/spanish_v1',
-                'gloria/spanish_v1',
-                'hail_holy_queen/spanish_v1',
-                'nicene_creed/spanish_v1',
-                'now_i_lay_me/spanish_v1',
-                'st_michael/spanish_v1',
-                // Tagalog
-                'act_of_contrition/tagalog_v1',
-                'anima_christi/tagalog_v1',
-                'apostles_creed/tagalog_v1',
-                'fatima_prayer/tagalog_v1',
-                'final_prayer_rosary/tagalog_v1',
-                'hail_holy_queen/tagalog_v1',
-                'nicene_creed/tagalog_v1',
-                'now_i_lay_me/tagalog_v1',
-                'sign_of_the_cross/tagalog_v1',
-                'st_michael/tagalog_v1',
-                // Traditional Chinese
-                'act_of_contrition/traditionalChinese_v1',
-                'anima_christi/traditionalChinese_v1',
-                'fatima_prayer/traditionalChinese_v1',
-                'final_prayer_rosary/traditionalChinese_v1',
-                'now_i_lay_me/traditionalChinese_v1',
-                'sign_of_the_cross/traditionalChinese_v1',
-                'st_michael/traditionalChinese_v1',
-                // Vietnamese
-                'act_of_contrition/vietnamese_v1',
-                'anima_christi/vietnamese_v1',
-                'apostles_creed/vietnamese_v1',
-                'final_prayer_rosary/vietnamese_v1',
-                'hail_holy_queen/vietnamese_v1',
-                'now_i_lay_me/vietnamese_v1',
-                'sign_of_the_cross/vietnamese_v1',
-                'st_michael/vietnamese_v1',
-              ].contains(skipKey);
+          final shouldSkip = [
+            // French
+            'act_of_contrition/french_v1',
+            'anima_christi/french_v1',
+            'apostles_creed/french_v1',
+            'fatima_prayer/french_v1',
+            'final_prayer_rosary/french_v1',
+            'hail_holy_queen/french_v1',
+            'nicene_creed/french_v1',
+            'now_i_lay_me/french_v1',
+            'st_michael/french_v1',
+            // Italian
+            'act_of_contrition/italian_v1',
+            'anima_christi/italian_v1',
+            'apostles_creed/italian_v1',
+            'fatima_prayer/italian_v1',
+            'final_prayer_rosary/italian_v1',
+            'hail_holy_queen/italian_v1',
+            'nicene_creed/italian_v1',
+            'now_i_lay_me/italian_v1',
+            'st_michael/italian_v1',
+            // Latin
+            'act_of_contrition/latin_v1',
+            'apostles_creed/latin_v1',
+            'confiteor/latin_v1',
+            'fatima_prayer/latin_v1',
+            'final_prayer_rosary/latin_v1',
+            'gloria/latin_v1',
+            'hail_holy_queen/latin_v1',
+            'nicene_creed/latin_v1',
+            'now_i_lay_me/latin_v1',
+            'sign_of_the_cross/latin_v1',
+            'st_michael/latin_v1',
+            'sign_of_peace/latin_v1',
+            'dismissal/latin_v1',
+            // Spanish
+            'act_of_contrition/spanish_v1',
+            'anima_christi/spanish_v1',
+            'confiteor/spanish_v1',
+            'fatima_prayer/spanish_v1',
+            'final_prayer_rosary/spanish_v1',
+            'gloria/spanish_v1',
+            'hail_holy_queen/spanish_v1',
+            'nicene_creed/spanish_v1',
+            'now_i_lay_me/spanish_v1',
+            'st_michael/spanish_v1',
+            'mass_greeting/spanish_v1',
+            'sign_of_peace/spanish_v1',
+            'dismissal/spanish_v1',
+            // Tagalog
+            'act_of_contrition/tagalog_v1',
+            'anima_christi/tagalog_v1',
+            'apostles_creed/tagalog_v1',
+            'fatima_prayer/tagalog_v1',
+            'final_prayer_rosary/tagalog_v1',
+            'hail_holy_queen/tagalog_v1',
+            'nicene_creed/tagalog_v1',
+            'now_i_lay_me/tagalog_v1',
+            'sign_of_the_cross/tagalog_v1',
+            'st_michael/tagalog_v1',
+            // Traditional Chinese
+            'act_of_contrition/traditionalChinese_v1',
+            'anima_christi/traditionalChinese_v1',
+            'fatima_prayer/traditionalChinese_v1',
+            'final_prayer_rosary/traditionalChinese_v1',
+            'now_i_lay_me/traditionalChinese_v1',
+            'sign_of_the_cross/traditionalChinese_v1',
+            'st_michael/traditionalChinese_v1',
+            // Vietnamese
+            'act_of_contrition/vietnamese_v1',
+            'anima_christi/vietnamese_v1',
+            'apostles_creed/vietnamese_v1',
+            'final_prayer_rosary/vietnamese_v1',
+            'hail_holy_queen/vietnamese_v1',
+            'now_i_lay_me/vietnamese_v1',
+            'sign_of_the_cross/vietnamese_v1',
+            'st_michael/vietnamese_v1',
+          ].contains(skipKey);
 
           if (shouldSkip) {
             test(

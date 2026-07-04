@@ -5,7 +5,7 @@ default_title: Sanctus
 title: Sanctus
 subtitle: "Holy, Holy, Holy"
 source_name: Roman Missal
-source_url: https://vatican.va
+source_url: https://www.universalis.com/static/mass/orderofmass.htm
 history_author: ""
 history_origin: ""
 history_description: ""

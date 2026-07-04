@@ -5,7 +5,7 @@ default_title: Agnus Dei
 title: Agnus Dei
 subtitle: ""
 source_name: Missale Romanum
-source_url: https://vatican.va
+source_url: https://en.wikipedia.org/wiki/Agnus_Dei
 history_author: ""
 history_origin: ""
 history_description: ""

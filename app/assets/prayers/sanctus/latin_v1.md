@@ -5,7 +5,7 @@ default_title: Sanctus
 title: Sanctus
 subtitle: ""
 source_name: Missale Romanum
-source_url: https://vatican.va
+source_url: https://en.wikipedia.org/wiki/Sanctus
 history_author: ""
 history_origin: ""
 history_description: ""
