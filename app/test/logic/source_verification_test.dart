@@ -417,7 +417,6 @@ void main() {
           final shouldSkip = [
             // English
             // USCCB URL is protected by Obolus PoW / Cloudflare
-            'final_prayer_rosary/english_v1',
             'hail_holy_queen/english_v1',
             'nicene_creed/english_v1',
             'now_i_lay_me/english_v1',
