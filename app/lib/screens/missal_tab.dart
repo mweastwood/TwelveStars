@@ -303,12 +303,18 @@ class _MissalTabState extends State<MissalTab> {
 
     final currentDay = LiturgicalCalendar.computeDay(_selectedDate);
 
+    final massGreeting = _findPrayer('mass_greeting');
     final signOfTheCross = _findPrayer('sign_of_the_cross');
     final confiteor = _findPrayer('confiteor');
+    final kyrieEleison = _findPrayer('kyrie_eleison');
     final gloria = _findPrayer('gloria');
     final niceneCreed = _findPrayer('nicene_creed');
     final apostlesCreed = _findPrayer('apostles_creed');
+    final sanctus = _findPrayer('sanctus');
     final ourFather = _findPrayer('our_father');
+    final signOfPeace = _findPrayer('sign_of_peace');
+    final agnusDei = _findPrayer('agnus_dei');
+    final dismissal = _findPrayer('dismissal');
 
     return Scaffold(
       floatingActionButton: Column(
@@ -532,12 +538,16 @@ class _MissalTabState extends State<MissalTab> {
               // 4. Introductory Rites Section
               _buildSectionHeader('INTRODUCTORY RITES', theme),
               _buildMassPartPlaceholder(
-                'Entrance Chant & Greeting',
-                'Greeting dialogue: "The Lord be with you..."',
-                Icons.message,
+                'Entrance Chant',
+                'Entrance Antiphon of the day',
+                Icons.music_note,
                 theme,
               ),
               const SizedBox(height: 12),
+              if (massGreeting != null) ...[
+                _buildPrayerCard(massGreeting),
+                const SizedBox(height: 12),
+              ],
               if (signOfTheCross != null) ...[
                 _buildPrayerCard(signOfTheCross),
                 const SizedBox(height: 12),
@@ -546,13 +556,18 @@ class _MissalTabState extends State<MissalTab> {
                 _buildPrayerCard(confiteor),
                 const SizedBox(height: 12),
               ],
-              _buildMassPartPlaceholder(
-                'Kyrie Eleison',
-                'Kyrie, eleison (Lord, have mercy...)',
-                Icons.volunteer_activism,
-                theme,
-              ),
-              const SizedBox(height: 12),
+              if (kyrieEleison != null) ...[
+                _buildPrayerCard(kyrieEleison),
+                const SizedBox(height: 12),
+              ] else ...[
+                _buildMassPartPlaceholder(
+                  'Kyrie Eleison',
+                  'Kyrie, eleison (Lord, have mercy...)',
+                  Icons.volunteer_activism,
+                  theme,
+                ),
+                const SizedBox(height: 12),
+              ],
               if (gloria != null) ...[
                 _buildPrayerCard(gloria),
                 const SizedBox(height: 12),
@@ -697,13 +712,18 @@ class _MissalTabState extends State<MissalTab> {
                 theme,
               ),
               const SizedBox(height: 12),
-              _buildMassPartPlaceholder(
-                'Sanctus (Holy, Holy, Holy)',
-                'Holy, Holy, Holy Lord God of hosts...',
-                Icons.notifications_active,
-                theme,
-              ),
-              const SizedBox(height: 12),
+              if (sanctus != null) ...[
+                _buildPrayerCard(sanctus),
+                const SizedBox(height: 12),
+              ] else ...[
+                _buildMassPartPlaceholder(
+                  'Sanctus (Holy, Holy, Holy)',
+                  'Holy, Holy, Holy Lord God of hosts...',
+                  Icons.notifications_active,
+                  theme,
+                ),
+                const SizedBox(height: 12),
+              ],
               _buildMassPartPlaceholder(
                 'Eucharistic Prayer & Consecration',
                 'Eucharistic prayer and consecration of bread and wine',
@@ -715,20 +735,30 @@ class _MissalTabState extends State<MissalTab> {
                 _buildPrayerCard(ourFather),
                 const SizedBox(height: 12),
               ],
-              _buildMassPartPlaceholder(
-                'Sign of Peace',
-                'Greeting one another with a sign of peace',
-                Icons.handshake,
-                theme,
-              ),
-              const SizedBox(height: 12),
-              _buildMassPartPlaceholder(
-                'Agnus Dei (Lamb of God)',
-                'Lamb of God, you take away the sins of the world...',
-                Icons.spa,
-                theme,
-              ),
-              const SizedBox(height: 12),
+              if (signOfPeace != null) ...[
+                _buildPrayerCard(signOfPeace),
+                const SizedBox(height: 12),
+              ] else ...[
+                _buildMassPartPlaceholder(
+                  'Sign of Peace',
+                  'Greeting one another with a sign of peace',
+                  Icons.handshake,
+                  theme,
+                ),
+                const SizedBox(height: 12),
+              ],
+              if (agnusDei != null) ...[
+                _buildPrayerCard(agnusDei),
+                const SizedBox(height: 12),
+              ] else ...[
+                _buildMassPartPlaceholder(
+                  'Agnus Dei (Lamb of God)',
+                  'Lamb of God, you take away the sins of the world...',
+                  Icons.spa,
+                  theme,
+                ),
+                const SizedBox(height: 12),
+              ],
               _buildMassPartPlaceholder(
                 'Communion Rite',
                 'Reception of Holy Communion and silent thanksgiving',
@@ -739,12 +769,18 @@ class _MissalTabState extends State<MissalTab> {
 
               // 7. Concluding Rites Section
               _buildSectionHeader('CONCLUDING RITES', theme),
-              _buildMassPartPlaceholder(
-                'Concluding Blessing & Dismissal',
-                'Blessing and sending forth: "Go in peace..."',
-                Icons.logout,
-                theme,
-              ),
+              if (dismissal != null) ...[
+                _buildPrayerCard(dismissal),
+                const SizedBox(height: 12),
+              ] else ...[
+                _buildMassPartPlaceholder(
+                  'Concluding Blessing & Dismissal',
+                  'Blessing and sending forth: "Go in peace..."',
+                  Icons.logout,
+                  theme,
+                ),
+                const SizedBox(height: 12),
+              ],
               const SizedBox(height: 120),
             ],
           ),

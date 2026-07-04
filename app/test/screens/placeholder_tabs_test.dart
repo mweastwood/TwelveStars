@@ -134,6 +134,151 @@ void main() {
           ],
         },
       ),
+      Prayer.mock(
+        id: 'mass_greeting',
+        defaultTitle: 'Greeting',
+        category: 'liturgy',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Greeting',
+              text:
+                  'Priest: In the name of the Father...\nPeople: Amen.\n\nPriest: The Lord be with you.\nPeople: And with your spirit.',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+          PrayerLanguage.latin: [
+            PrayerTranslation.mock(
+              title: 'Salutatio',
+              text:
+                  'Sacerdos: In nomine Patris...\nPopulus: Amen.\n\nSacerdos: Dominus vobiscum.\nPopulus: Et cum spiritu tuo.',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'kyrie_eleison',
+        defaultTitle: 'Kyrie Eleison',
+        category: 'liturgy',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Kyrie Eleison',
+              subtitle: 'Lord, Have Mercy',
+              text: 'Lord, have mercy. Christ, have mercy. Lord, have mercy.',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+          PrayerLanguage.latin: [
+            PrayerTranslation.mock(
+              title: 'Kyrie Eleison',
+              text: 'Kyrie, eleison. Christe, eleison. Kyrie, eleison.',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'sanctus',
+        defaultTitle: 'Sanctus',
+        category: 'liturgy',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Sanctus',
+              subtitle: 'Holy, Holy, Holy',
+              text: 'Holy, Holy, Holy Lord God of hosts...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+          PrayerLanguage.latin: [
+            PrayerTranslation.mock(
+              title: 'Sanctus',
+              text: 'Sanctus, Sanctus, Sanctus Dominus Deus Sabaoth...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'sign_of_peace',
+        defaultTitle: 'Sign of Peace',
+        category: 'liturgy',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Sign of Peace',
+              text:
+                  'Priest: The peace of the Lord be with you always.\nPeople: And with your spirit.',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+          PrayerLanguage.latin: [
+            PrayerTranslation.mock(
+              title: 'Pax Domini',
+              text:
+                  'Sacerdos: Pax Domini sit semper vobiscum.\nPopulus: Et cum spiritu tuo.',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'agnus_dei',
+        defaultTitle: 'Agnus Dei',
+        category: 'liturgy',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Agnus Dei',
+              subtitle: 'Lamb of God',
+              text: 'Lamb of God, you take away the sins of the world...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+          PrayerLanguage.latin: [
+            PrayerTranslation.mock(
+              title: 'Agnus Dei',
+              text: 'Agnus Dei, qui tollis peccata mundi...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'dismissal',
+        defaultTitle: 'Blessing & Dismissal',
+        category: 'liturgy',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Concluding Blessing & Dismissal',
+              text: 'Go forth, the Mass is ended.\nPeople: Thanks be to God.',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+          PrayerLanguage.latin: [
+            PrayerTranslation.mock(
+              title: 'Benedictio et Dismissio',
+              text: 'Ite, missa est.\nPopulus: Deo gratias.',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
     ];
   });
 
