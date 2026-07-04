@@ -162,6 +162,51 @@ void main() {
           ],
         },
       ),
+      Prayer.mock(
+        id: 'confiteor',
+        defaultTitle: 'Confiteor',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Confiteor',
+              subtitle: 'I confess to almighty God',
+              text: 'I confess to almighty God...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'gloria',
+        defaultTitle: 'Gloria',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Gloria',
+              subtitle: 'Glory to God in the Highest',
+              text: 'Glory to God in the highest...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'nicene_creed',
+        defaultTitle: 'Nicene Creed',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Nicene Creed',
+              subtitle: 'Symbol of Faith',
+              text: 'I believe in one God, the Father almighty...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
     ];
 
     late BibleDatabase testDb;

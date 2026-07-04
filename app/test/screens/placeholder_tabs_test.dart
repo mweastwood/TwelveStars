@@ -3,6 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/screens/calendar_tab.dart';
 import 'package:twelve_stars/screens/missal_tab.dart';
+import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:drift/native.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/time_helper.dart';
@@ -15,11 +17,130 @@ void main() {
     testDb = BibleDatabase(NativeDatabase.memory());
     BibleDatabaseHelper.db = testDb;
     await testDb.ensurePopulated();
+
+    PrayerDatabase.mockPrayers = [
+      Prayer.mock(
+        id: 'sign_of_the_cross',
+        defaultTitle: 'Sign of the Cross',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Sign of the Cross',
+              subtitle: 'Signum Crucis',
+              text:
+                  'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+          PrayerLanguage.latin: [
+            PrayerTranslation.mock(
+              title: 'Signum Crucis',
+              text: 'In nomine Patris, et Filii, et Spiritus Sancti. Amen.',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'confiteor',
+        defaultTitle: 'Confiteor',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Confiteor',
+              subtitle: 'I confess to almighty God',
+              text: 'I confess to almighty God...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+          PrayerLanguage.latin: [
+            PrayerTranslation.mock(
+              title: 'Confiteor',
+              text: 'Confiteor Deo omnipotenti...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'gloria',
+        defaultTitle: 'Gloria',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Gloria',
+              subtitle: 'Glory to God in the Highest',
+              text: 'Glory to God in the highest...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+          PrayerLanguage.latin: [
+            PrayerTranslation.mock(
+              title: 'Gloria in excelsis Deo',
+              text: 'Gloria in excelsis Deo...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'nicene_creed',
+        defaultTitle: 'Nicene Creed',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Nicene Creed',
+              subtitle: 'Symbol of Faith',
+              text: 'I believe in one God, the Father almighty...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'apostles_creed',
+        defaultTitle: 'Apostles\' Creed',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Apostles\' Creed',
+              subtitle: 'Profession of Faith',
+              text: 'I believe in God, the Father almighty...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'our_father',
+        defaultTitle: 'Our Father',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Our Father',
+              subtitle: "The Lord's Prayer",
+              text: 'Our Father, who art in heaven...',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+    ];
   });
 
   tearDown(() async {
     TimeHelper.setCustomTime(null);
     await testDb.close();
+    PrayerDatabase.mockPrayers = null;
   });
 
   group('Placeholder Tabs Golden Tests', () {
@@ -49,7 +170,15 @@ void main() {
       final builder = GoldenBuilder.column()
         ..addScenario(
           'Missal Tab Placeholder',
-          const SizedBox(height: 600, child: Scaffold(body: MissalTab())),
+          const SizedBox(
+            height: 600,
+            child: Scaffold(
+              body: MissalTab(
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+          ),
         );
 
       await tester.pumpWidgetBuilder(
@@ -188,6 +317,139 @@ void main() {
       expect(firstReadingY < psalmY, isTrue);
       expect(psalmY < secondReadingY, isTrue);
       expect(secondReadingY < gospelY, isTrue);
+    });
+  });
+
+  group('MissalTab Interactive Widget Tests', () {
+    testWidgets('allows day navigation and displays prayers/readings', (
+      tester,
+    ) async {
+      final fixedDate = DateTime(2026, 7, 2); // Thursday
+      TimeHelper.setCustomTime(fixedDate);
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: MissalTab(
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // 1. Initial State Check
+      expect(find.text('Thursday, July 2, 2026'), findsOneWidget);
+      expect(find.text('Mass Missal'), findsOneWidget);
+      expect(find.text('INTRODUCTORY RITES'), findsOneWidget);
+      expect(find.text('LITURGY OF THE WORD'), findsOneWidget);
+      expect(find.text('LITURGY OF THE EUCHARIST'), findsOneWidget);
+
+      // Verify sign of the cross and Confiteor exist
+      expect(find.text('Sign of the Cross'), findsOneWidget);
+      expect(find.text('Confiteor'), findsOneWidget);
+
+      // 2. Day Navigation
+      await tester.tap(find.byTooltip('Next Day'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Friday, July 3, 2026'), findsOneWidget);
+
+      await tester.tap(find.byTooltip('Previous Day'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Thursday, July 2, 2026'), findsOneWidget);
+    });
+
+    testWidgets('Creed toggle switches between Nicene and Apostles Creeds', (
+      tester,
+    ) async {
+      final fixedDate = DateTime(2026, 7, 2);
+      TimeHelper.setCustomTime(fixedDate);
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: MissalTab(
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Default is Nicene Creed
+      expect(find.text('Nicene Creed'), findsWidgets);
+      expect(find.text('Symbol of Faith'), findsOneWidget); // Nicene subtitle
+
+      // Tap on Apostles' Creed segment
+      final apostlesCreedSegment = find.text('Apostles\' Creed');
+      await tester.ensureVisible(apostlesCreedSegment);
+      await tester.tap(apostlesCreedSegment);
+      await tester.pumpAndSettle();
+
+      // Verify Apostles' Creed subtitle
+      expect(find.text('Profession of Faith'), findsOneWidget);
+      expect(find.text('Symbol of Faith'), findsNothing);
+    });
+
+    testWidgets('Today FAB visibility and click behavior', (tester) async {
+      final fixedDate = DateTime(2026, 7, 2);
+      TimeHelper.setCustomTime(fixedDate);
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: MissalTab(
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Since initial date is today, Today FAB should NOT be visible
+      expect(find.widgetWithText(FloatingActionButton, 'Today'), findsNothing);
+
+      // Navigate away
+      await tester.tap(find.byTooltip('Next Day'));
+      await tester.pumpAndSettle();
+
+      // Today FAB should be visible now
+      expect(
+        find.widgetWithText(FloatingActionButton, 'Today'),
+        findsOneWidget,
+      );
+
+      // Tap it to return
+      await tester.tap(find.widgetWithText(FloatingActionButton, 'Today'));
+      await tester.pumpAndSettle();
+
+      expect(find.widgetWithText(FloatingActionButton, 'Today'), findsNothing);
+    });
+
+    testWidgets('Next Sunday FAB jumps to next Sunday', (tester) async {
+      final fixedDate = DateTime(2026, 7, 2); // Thursday
+      TimeHelper.setCustomTime(fixedDate);
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: MissalTab(
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Tap Next Sunday FAB -> date should jump to Sunday, July 5
+      await tester.tap(
+        find.widgetWithText(FloatingActionButton, 'Next Sunday'),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('Sunday, July 5, 2026'), findsOneWidget);
     });
   });
 }
