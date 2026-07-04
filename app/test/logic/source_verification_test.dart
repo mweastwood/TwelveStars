@@ -373,7 +373,20 @@ void main() {
           .replaceAll('amên', '')
           .replaceAll('amon', '')
           .replaceAll('亞孟', '')
-          .replaceAll('阿們', '');
+          .replaceAll('阿們', '')
+          .replaceAll('priest', '')
+          .replaceAll('people', '')
+          .replaceAll('deacon', '')
+          .replaceAll('sacerdos', '')
+          .replaceAll('populus', '')
+          .replaceAll('diaconus', '')
+          .replaceAll('sacerdote', '')
+          .replaceAll('asamblea', '')
+          .replaceAll('diácono', '')
+          .replaceAll('✠', '')
+          .replaceAll('†', '')
+          .replaceAll('&#10016;', '')
+          .replaceAll('&#8224;', '');
 
       return res;
     }
@@ -450,6 +463,8 @@ void main() {
             'now_i_lay_me/latin_v1',
             'sign_of_the_cross/latin_v1',
             'st_michael/latin_v1',
+            'sign_of_peace/latin_v1',
+            'dismissal/latin_v1',
             // Spanish
             'act_of_contrition/spanish_v1',
             'anima_christi/spanish_v1',
@@ -461,6 +476,9 @@ void main() {
             'nicene_creed/spanish_v1',
             'now_i_lay_me/spanish_v1',
             'st_michael/spanish_v1',
+            'mass_greeting/spanish_v1',
+            'sign_of_peace/spanish_v1',
+            'dismissal/spanish_v1',
             // Tagalog
             'act_of_contrition/tagalog_v1',
             'anima_christi/tagalog_v1',

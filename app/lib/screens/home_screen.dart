@@ -441,6 +441,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     final query = _searchQuery.trim().toLowerCase();
     final filteredPrayers = prayers.where((prayer) {
+      if (prayer.category == 'liturgy') return false;
       if (query.isEmpty) return true;
       final transList = prayer.translations[_primaryLanguage];
       if (transList == null || transList.isEmpty) return false;
