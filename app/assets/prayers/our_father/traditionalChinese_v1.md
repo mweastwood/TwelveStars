@@ -10,14 +10,13 @@ history_author: "Jesus Christ"
 history_origin: "Gospel of Matthew 6:9–13"
 history_description: "Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer."
 ---
-{我們的天父|our_father_1}，
+{我們的|our_father_1}{天父|our_father_2}，
 {願祢的名受顯揚|our_father_3}；
 {願祢的國來臨|our_father_4}；
 {願祢的旨意奉行在人間|our_father_5}，
 {如同在天上|our_father_6}。
 
-{求祢今天賞給我們|our_father_7}
-{日用的食糧|our_father_7}；
+{求祢今天賞給我們日用的食糧|our_father_7}；
 {求祢寬恕我們的罪過|our_father_8}，
 {如同我們寬恕別人一樣|our_father_9}；
 {不要讓我們陷於誘惑|our_father_10}；
