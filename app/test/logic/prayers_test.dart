@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:yaml/yaml.dart';
 
 void main() {
   group('Prayers Compiled JSON Database', () {
@@ -105,6 +106,183 @@ void main() {
               }
             }
           }
+        }
+      }
+    });
+
+    test('tokens are aligned across all translations of each prayer', () {
+      for (final p in prayersJson) {
+        final pMap = p as Map<String, dynamic>;
+        final prayerId = pMap['id'] as String;
+        final transMap = pMap['translations'] as Map<String, dynamic>;
+
+        final Map<String, List<String>> translationTokenIds = {};
+
+        for (final entry in transMap.entries) {
+          final lang = entry.key;
+          final transList = entry.value as List<dynamic>;
+
+          for (
+            int versionIndex = 0;
+            versionIndex < transList.length;
+            versionIndex++
+          ) {
+            final tMap = transList[versionIndex] as Map<String, dynamic>;
+            final tokensList = tMap['tokens'] as List<dynamic>?;
+            if (tokensList != null) {
+              final tokenIds = tokensList
+                  .map((tok) => tok['id'] as String?)
+                  .where((id) => id != null)
+                  .map((id) => id!)
+                  .toList();
+              if (tokenIds.isNotEmpty) {
+                translationTokenIds['${lang}_v${versionIndex + 1}'] = tokenIds;
+              }
+            }
+          }
+        }
+
+        if (translationTokenIds.length > 1) {
+          final entries = translationTokenIds.entries.toList();
+          final firstEntry = entries.first;
+          final firstTokenIds = firstEntry.value;
+
+          for (int i = 1; i < entries.length; i++) {
+            final otherEntry = entries[i];
+            final otherTokenIds = otherEntry.value;
+
+            expect(
+              otherTokenIds,
+              equals(firstTokenIds),
+              reason:
+                  'Token alignment mismatch in prayer "$prayerId": '
+                  '${firstEntry.key} has tokens $firstTokenIds, but '
+                  '${otherEntry.key} has tokens $otherTokenIds',
+            );
+          }
+        }
+      }
+    });
+
+    test(
+      'raw markdown files in each prayer directory have consistent metadata',
+      () {
+        final dir = Directory('assets/prayers');
+        expect(dir.existsSync(), isTrue);
+
+        final folders = dir.listSync().whereType<Directory>().toList();
+        for (final folder in folders) {
+          final prayerId = folder.path.split(Platform.pathSeparator).last;
+          final mdFiles = folder
+              .listSync()
+              .whereType<File>()
+              .where((f) => f.path.endsWith('.md'))
+              .toList();
+
+          if (mdFiles.isEmpty) continue;
+
+          String? expectedCategory;
+          int? expectedDefaultOrder;
+          String? expectedDefaultTitle;
+          String? expectedCategorySource;
+          String? expectedDefaultOrderSource;
+          String? expectedDefaultTitleSource;
+
+          for (final file in mdFiles) {
+            final filename = file.path.split(Platform.pathSeparator).last;
+            final content = file.readAsStringSync();
+            final normalizedContent = content.replaceAll('\r\n', '\n');
+            final parts = normalizedContent.split('---\n');
+            expect(
+              parts.length,
+              greaterThanOrEqualTo(3),
+              reason: 'Invalid markdown structure in ${file.path}',
+            );
+
+            final yamlMap = loadYaml(parts[1]) as YamlMap;
+            final category = yamlMap['category'] as String?;
+            final defaultOrder = yamlMap['default_order'] as int?;
+            final defaultTitle = yamlMap['default_title'] as String?;
+
+            if (expectedCategory == null) {
+              expectedCategory = category;
+              expectedCategorySource = filename;
+            } else {
+              expect(
+                category,
+                equals(expectedCategory),
+                reason:
+                    'Inconsistent category for "$prayerId": '
+                    '$expectedCategorySource has "$expectedCategory" but '
+                    '$filename has "$category"',
+              );
+            }
+
+            if (expectedDefaultOrder == null) {
+              expectedDefaultOrder = defaultOrder;
+              expectedDefaultOrderSource = filename;
+            } else {
+              expect(
+                defaultOrder,
+                equals(expectedDefaultOrder),
+                reason:
+                    'Inconsistent default_order for "$prayerId": '
+                    '$expectedDefaultOrderSource has "$expectedDefaultOrder" but '
+                    '$filename has "$defaultOrder"',
+              );
+            }
+
+            if (expectedDefaultTitle == null) {
+              expectedDefaultTitle = defaultTitle;
+              expectedDefaultTitleSource = filename;
+            } else {
+              expect(
+                defaultTitle,
+                equals(expectedDefaultTitle),
+                reason:
+                    'Inconsistent default_title for "$prayerId": '
+                    '$expectedDefaultTitleSource has "$expectedDefaultTitle" but '
+                    '$filename has "$defaultTitle"',
+              );
+            }
+          }
+        }
+      },
+    );
+
+    test('default_order is unique across all prayers', () {
+      final dir = Directory('assets/prayers');
+      expect(dir.existsSync(), isTrue);
+
+      final folders = dir.listSync().whereType<Directory>().toList();
+      final Map<int, String> orderToPrayerId = {};
+
+      for (final folder in folders) {
+        final prayerId = folder.path.split(Platform.pathSeparator).last;
+        final mdFiles = folder
+            .listSync()
+            .whereType<File>()
+            .where((f) => f.path.endsWith('.md'))
+            .toList();
+
+        if (mdFiles.isEmpty) continue;
+
+        final firstFile = mdFiles.first;
+        final content = firstFile.readAsStringSync();
+        final normalizedContent = content.replaceAll('\r\n', '\n');
+        final parts = normalizedContent.split('---\n');
+        final yamlMap = loadYaml(parts[1]) as YamlMap;
+        final defaultOrder = yamlMap['default_order'] as int?;
+
+        if (defaultOrder != null) {
+          expect(
+            orderToPrayerId.containsKey(defaultOrder),
+            isFalse,
+            reason:
+                'Duplicate default_order "$defaultOrder" found between '
+                '"${orderToPrayerId[defaultOrder]}" and "$prayerId"',
+          );
+          orderToPrayerId[defaultOrder] = prayerId;
         }
       }
     });
