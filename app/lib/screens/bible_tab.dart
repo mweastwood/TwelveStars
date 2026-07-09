@@ -355,7 +355,8 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       setState(() {
         _compareTranslation = result;
         if (_primaryTranslation == result) {
-          _primaryTranslation = result == 'CPDV' ? 'DRC' : 'CPDV';
+          final options = ['CPDV', 'DRC', 'JUN', 'TAM'];
+          _primaryTranslation = options.firstWhere((o) => o != result);
         }
         _settings?.primaryBibleTranslation = _primaryTranslation;
         _settings?.compareBibleTranslation = _compareTranslation;
@@ -1123,6 +1124,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
   String _getTranslationName(String code) {
     if (code == 'CPDV') return 'Catholic Public Domain Version (CPDV)';
     if (code == 'DRC') return 'Douay-Rheims Bible (DRC)';
+    if (code == 'JUN') return 'Biblia de Jünemann (JUN)';
+    if (code == 'TAM') return 'Torres Amat (TAM)';
     return code;
   }
 
@@ -1332,6 +1335,28 @@ class _BibleTranslationDialogState extends State<_BibleTranslationDialog> {
                   value: 'DRC',
                   theme: theme,
                 ),
+                const SizedBox(height: 8),
+                _buildTranslationOption(
+                  title: 'Biblia de Jünemann (JUN)',
+                  origin: 'Guillermo Jünemann (1928)',
+                  description:
+                      'La primera versión de la Biblia completa traducida en América Latina, con el AT traducido de la Septuaginta.',
+                  usage:
+                      'Estudio bíblico hispano, comparación con la Septuaginta y devoción.',
+                  value: 'JUN',
+                  theme: theme,
+                ),
+                const SizedBox(height: 8),
+                _buildTranslationOption(
+                  title: 'Torres Amat (TAM)',
+                  origin: 'Félix Torres Amat (1836)',
+                  description:
+                      'Una de las traducciones católicas al español más tradicionales e influyentes, basada en la Vulgata.',
+                  usage:
+                      'Lenguaje tradicional, devoción personal y comparación histórica.',
+                  value: 'TAM',
+                  theme: theme,
+                ),
               ] else ...[
                 _buildTranslationOption(
                   title: 'None (Single View)',
@@ -1362,6 +1387,28 @@ class _BibleTranslationDialogState extends State<_BibleTranslationDialog> {
                   usage:
                       'Majestic traditional language, personal devotions, and historical study.',
                   value: 'DRC',
+                  theme: theme,
+                ),
+                const SizedBox(height: 8),
+                _buildTranslationOption(
+                  title: 'Biblia de Jünemann (JUN)',
+                  origin: 'Guillermo Jünemann (1928)',
+                  description:
+                      'La primera versión de la Biblia completa traducida en América Latina, con el AT traducido de la Septuaginta.',
+                  usage:
+                      'Estudio bíblico hispano, comparación con la Septuaginta y devoción.',
+                  value: 'JUN',
+                  theme: theme,
+                ),
+                const SizedBox(height: 8),
+                _buildTranslationOption(
+                  title: 'Torres Amat (TAM)',
+                  origin: 'Félix Torres Amat (1836)',
+                  description:
+                      'Una de las traducciones católicas al español más tradicionales e influyentes, basada en la Vulgata.',
+                  usage:
+                      'Lenguaje tradicional, devoción personal y comparación histórica.',
+                  value: 'TAM',
                   theme: theme,
                 ),
               ],
