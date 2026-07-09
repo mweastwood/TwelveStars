@@ -82,6 +82,12 @@ class BibleDatabase extends _$BibleDatabase {
       if (translation == 'DRC') {
         assetPath =
             'assets/bible/drc/usfm/$numStr-$abbrev-ENG[B]DRC1899[pd].usfm';
+      } else if (translation == 'JUN') {
+        assetPath =
+            'assets/bible/jun/usfm/$numStr-$abbrev-SPA[B]JUN1928[pd].usfm';
+      } else if (translation == 'TAM') {
+        assetPath =
+            'assets/bible/tam/usfm/$numStr-$abbrev-SPA[B]TAM1836[pd].usfm';
       } else {
         assetPath =
             'assets/bible/cpdv/usfm/$numStr-$abbrev-ENG[B]CPDV2009[pd].p.sfm';
