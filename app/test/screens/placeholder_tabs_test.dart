@@ -312,6 +312,7 @@ void main() {
     });
 
     testGoldens('MissalTab renders correctly', (tester) async {
+      TimeHelper.setCustomTime(DateTime(2026, 7, 4));
       final builder = GoldenBuilder.column()
         ..addScenario(
           'Missal Tab Placeholder',
