@@ -1,0 +1,69 @@
+---
+description: "Rules for modifying and verifying prayers under app/assets/prayers"
+globs: "app/assets/prayers/**/*"
+alwaysApply: false
+---
+
+# Guidelines for Prayers Modification and Verification
+
+Please follow these guidelines whenever you create, edit, or remove prayers in the `app/assets/prayers/` directory.
+
+## 1. File Structure and Versioning
+- Save translation files inside the corresponding prayer folder: `app/assets/prayers/{prayer_id}/{language}_v{version}.md`.
+- **Handling Variations:** Do not overwrite existing translation files if a different translation variant is introduced (e.g., Traditional vs. Modern English). Instead:
+  - Create a new version file (e.g., `english_v2.md`).
+  - Add a distinguishing `subtitle` in the frontmatter (e.g., `subtitle: "Ave Maria (Traditional)"` vs. `subtitle: "Ave Maria (Modern)"`).
+
+## 2. Frontmatter and Metadata Requirements
+Every prayer Markdown file must contain a YAML frontmatter block with the following fields:
+- `category`: The category name (e.g., `"starter"`).
+- `default_order`: A sorting index integer.
+- `default_title`: The global default title.
+- `title`: The localized title of the prayer.
+- `subtitle`: Subtitle, e.g. the alternative title or translation type.
+- `source_name`: The canonical name of the source.
+- `source_url`: A secure HTTPS link (`https://...`) to the web page hosting the official text.
+
+## 3. Formatting & Interlinear Tokenization
+- **Interlinear Alignment:** Split the prayer text logically by clause or sentence.
+- Wrap each segment in the `{text|id}` tokenization syntax.
+- Ensure the **same segment IDs** (e.g. `prayerId_1`, `prayerId_2`) are used across **all language versions** of the prayer so they align perfectly in the comparative/interlinear UI.
+- Example:
+  - In `hail_mary/english_v1.md`: `{Hail, Mary, full of grace|hail_mary_1}, {the Lord is with thee|hail_mary_2}.`
+  - In `hail_mary/latin_v1.md`: `{Ave Maria, gratia plena|hail_mary_1}, {Dominus tecum|hail_mary_2}.`
+
+## 4. Preferred Sourcing Guidelines
+- Source prayers from official Catholic repositories:
+  - Vatican (vatican.va)
+  - USCCB (usccb.org)
+  - Universalis (universalis.com)
+  - Preces Latinae (preces-latinae.org)
+- If official repositories are unavailable, fall back to verified Wikipedia or other peer-reviewed catechetical reference sites.
+- Every source URL must start with `https://`.
+
+## 5. Traditional Chinese Pinyin Dictionary
+- When adding or modifying Traditional Chinese translations, ensure all Chinese characters used have pinyin mappings in [app/assets/pinyin_dict.txt](file:///home/mweastwood/projects/TwelveStars/app/assets/pinyin_dict.txt).
+- If any characters are missing, append them to the text file in the format: `char: pinyin`.
+
+## 6. Verification and Testing Workflows
+After making changes to any file in `app/assets/prayers/`, you **must** execute the following verification steps before committing:
+
+1. **Rebuild the Database:** Compile the raw Markdown files into the JSON catalog:
+   ```bash
+   # Run from the app/ directory
+   dart bin/assemble_db.dart
+   ```
+2. **Run Integrity Tests:** Ensure all JSON properties, pinyin mappings, and translation rules are satisfied:
+   ```bash
+   # Run from the app/ directory
+   flutter test test/logic/prayers_test.dart
+   ```
+3. **Run Source Verification Tests:** Ensure all lines of the prayer match the fetched official source text:
+   ```bash
+   # Run from the app/ directory
+   flutter test test/logic/source_verification_test.dart
+   ```
+
+## 7. Meta-Guidelines (Updating Rules)
+- If you are asked to perform an action, apply a pattern, or make changes that are not covered by or deviate from these guidelines, you MUST ask the user if this rule file (`.agents/rules/prayers.mdc`) should be updated to incorporate the new instructions or criteria.
+
