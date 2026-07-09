@@ -16,7 +16,8 @@ history_description: "Taught directly by Jesus to His disciples when they asked 
 {願祢的旨意奉行在人間|our_father_5}，
 {如同在天上|our_father_6}。
 
-{求祢今天賞給我們日用的食糧|our_father_7}；
+{求祢今天賞給我們
+日用的食糧|our_father_7}；
 {求祢寬恕我們的罪過|our_father_8}，
 {如同我們寬恕別人一樣|our_father_9}；
 {不要讓我們陷於誘惑|our_father_10}；
