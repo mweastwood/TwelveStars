@@ -60,6 +60,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
   golden_toolkit: ^0.15.0
+  flutter_launcher_icons: ^0.14.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -104,3 +105,17 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "../assets/PNG/HEART MOSAIC_COLORED_1A_1024.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "../assets/PNG/HEART MOSAIC_COLORED_1A_512.png"
+  adaptive_icon_monochrome: "../assets/PNG/HEART MOSAIC_WHITE_1A_512.png"
+  web:
+    generate: true
+    image_path: "../assets/PNG/HEART MOSAIC_COLORED_1A_1024.png"
+    background_color: "#ffffff"
+    theme_color: "#1e3a8a"
