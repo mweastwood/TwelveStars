@@ -10,7 +10,7 @@ history_author: "Jesus Christ"
 history_origin: "Gospel of Matthew 6:9–13"
 history_description: "Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer."
 ---
-{Our Father in heaven|our_father_1},
+{Our Father |our_father_1}{in heaven|our_father_2},
 {hallowed be your name|our_father_3},
 {your kingdom come|our_father_4},
 {your will be done|our_father_5},

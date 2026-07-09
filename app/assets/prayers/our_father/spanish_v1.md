@@ -18,8 +18,8 @@ history_description: "Taught directly by Jesus to His disciples when they asked 
 
 {Danos hoy nuestro pan de cada día|our_father_7};
 {perdona nuestras ofensas|our_father_8},
-{como también nosotros perdonamos|our_father_9}
-{a los que nos ofenden|our_father_9};
+{como también nosotros perdonamos
+a los que nos ofenden|our_father_9};
 {no nos dejes caer en la tentación|our_father_10},
 {y líbranos del mal|our_father_11}.
 
