@@ -86,7 +86,7 @@ class _PrayerCardState extends State<PrayerCard> {
         ? Padding(
             padding: const EdgeInsets.only(top: 12.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   lang.amenText,
