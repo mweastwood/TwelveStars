@@ -59,7 +59,7 @@
  - `our_father` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
  - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
  - `st_francis` — https://it.wikipedia.org/wiki/Preghiera_semplice
- - `st_michael` — https://www.preghiamo.org/oratio-sanctum-michael-leone-xiii-preghiera-san-michele.php
+ - `st_michael` — https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2018/09/29/0707/01504.html
 
 **Failed (0)**:
 *None*
