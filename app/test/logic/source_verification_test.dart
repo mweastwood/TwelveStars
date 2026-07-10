@@ -46,23 +46,23 @@
 *None*
 
 ### Italian
-**Passed (5)**:
+**Passed (13)**:
+ - `act_of_contrition` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
+ - `anima_christi` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
+ - `apostles_creed` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
+ - `fatima_prayer` — https://www.fatima.pt/it/pages/preghiere-di-fatima
+ - `final_prayer_rosary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
  - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
+ - `hail_holy_queen` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
  - `hail_mary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
+ - `nicene_creed` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
  - `our_father` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
  - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
  - `st_francis` — https://it.wikipedia.org/wiki/Preghiera_semplice
+ - `st_michael` — https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2018/09/29/0707/01504.html
 
-**Failed (9)**:
- - `act_of_contrition` — https://it.wikipedia.org/wiki/Atto_di_dolore
- - `anima_christi` — https://it.wikipedia.org/wiki/Anima_Christi
- - `apostles_creed` — https://it.wikipedia.org/wiki/Simbolo_apostolico
- - `fatima_prayer` — https://it.wikipedia.org/wiki/Rosario
- - `final_prayer_rosary` — https://it.wikipedia.org/wiki/Rosario
- - `hail_holy_queen` — https://it.wikipedia.org/wiki/Salve_Regina
- - `nicene_creed` — https://it.wikipedia.org/wiki/Simbolo_niceno-costantinopolitano
- - `now_i_lay_me` — https://it.wikipedia.org/wiki/Now_I_lay_me_down_to_sleep
- - `st_michael` — https://it.wikipedia.org/wiki/Preghiera_a_san_Michele
+**Failed (0)**:
+*None*
 
 ### Latin
 **Passed (5)**:
@@ -432,16 +432,7 @@ void main() {
           final skipKey = '$prayerId/${languageStr}_v${versionIndex + 1}';
           final shouldSkip = [
             // French (fully verified)
-            // Italian
-            'act_of_contrition/italian_v1',
-            'anima_christi/italian_v1',
-            'apostles_creed/italian_v1',
-            'fatima_prayer/italian_v1',
-            'final_prayer_rosary/italian_v1',
-            'hail_holy_queen/italian_v1',
-            'nicene_creed/italian_v1',
-            'now_i_lay_me/italian_v1',
-            'st_michael/italian_v1',
+            // Italian (fully verified)
             // Latin
             'act_of_contrition/latin_v1',
             'apostles_creed/latin_v1',
