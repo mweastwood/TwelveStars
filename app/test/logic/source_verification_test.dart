@@ -26,7 +26,7 @@
  *None*
 
 ### French
-**Passed (15)**:
+**Passed (14)**:
  - `act_of_contrition` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
  - `anima_christi` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
  - `apostles_creed` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
@@ -36,7 +36,6 @@
  - `hail_holy_queen` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
  - `hail_mary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
  - `nicene_creed` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
- - `now_i_lay_me` — https://www.cursillos.ca/priere/choixdeprieres/cursillistes/PriereDuSoir.htm
  - `our_father (Version 1)` — https://fr.wikipedia.org/wiki/Notre_P%C3%A8re
  - `our_father (Version 2)` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
  - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
