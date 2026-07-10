@@ -26,24 +26,24 @@
  *None*
 
 ### French
-**Passed (6)**:
+**Passed (14)**:
+ - `act_of_contrition` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
+ - `anima_christi` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
+ - `apostles_creed` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
+ - `fatima_prayer` — https://www.fatima.pt/fr/pages/prieres-de-fatima
+ - `final_prayer_rosary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
  - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
+ - `hail_holy_queen` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
  - `hail_mary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
+ - `nicene_creed` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
  - `our_father (Version 1)` — https://fr.wikipedia.org/wiki/Notre_P%C3%A8re
  - `our_father (Version 2)` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
  - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
  - `st_francis` — https://fr.wikipedia.org/wiki/Pri%C3%A8re_de_saint_Fran%C3%A7ois
+ - `st_michael` — https://www.orleans.catholique.fr/vivre-ma-foi/prier-et-celebrer/5408-prier-archange-st-michel/
 
-**Failed (9)**:
- - `act_of_contrition` — https://fr.wikipedia.org/wiki/Acte_de_contrition
- - `anima_christi` — https://fr.wikipedia.org/wiki/Anima_Christi
- - `apostles_creed` — https://fr.wikipedia.org/wiki/Symbole_des_ap%C3%B4tres
- - `fatima_prayer` — https://fr.wikipedia.org/wiki/Chapelet
- - `final_prayer_rosary` — https://fr.wikipedia.org/wiki/Chapelet
- - `hail_holy_queen` — https://fr.wikipedia.org/wiki/Salve_Regina
- - `nicene_creed` — https://fr.wikipedia.org/wiki/Symbole_de_Nic%C3%A9e-Constantinople
- - `now_i_lay_me` — https://fr.wikipedia.org/wiki/Now_I_lay_me_down_to_sleep
- - `st_michael` — https://fr.wikipedia.org/wiki/Pri%C3%A8re_%C3%A0_saint_Michel
+**Failed (0)**:
+*None*
 
 ### Italian
 **Passed (5)**:
@@ -431,16 +431,7 @@ void main() {
 
           final skipKey = '$prayerId/${languageStr}_v${versionIndex + 1}';
           final shouldSkip = [
-            // French
-            'act_of_contrition/french_v1',
-            'anima_christi/french_v1',
-            'apostles_creed/french_v1',
-            'fatima_prayer/french_v1',
-            'final_prayer_rosary/french_v1',
-            'hail_holy_queen/french_v1',
-            'nicene_creed/french_v1',
-            'now_i_lay_me/french_v1',
-            'st_michael/french_v1',
+            // French (fully verified)
             // Italian
             'act_of_contrition/italian_v1',
             'anima_christi/italian_v1',
