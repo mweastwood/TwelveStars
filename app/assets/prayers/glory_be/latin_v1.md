@@ -9,11 +9,10 @@ source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_200
 history_author: "Early Church Fathers"
 history_origin: "Traditional Christian Doxology"
 history_description: "A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, tracing back to the early Councils."
+has_amen: true
 ---
 Gloria Patri, et Filio, et Spiritui Sancto.
 
 Sicut erat in principio,
 et nunc, et semper,
 et in saecula saeculorum.
-
-Amen.

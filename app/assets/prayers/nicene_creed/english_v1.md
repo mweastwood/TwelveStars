@@ -9,6 +9,7 @@ source_url: "https://www.loyolapress.com/catholic-resources/prayer/traditional-c
 history_author: "First Council of Nicaea & Constantinople"
 history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
 history_description: "The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity."
+has_amen: true
 ---
 I believe in one God, the Father almighty, maker of heaven and earth, of all things visible and invisible.
 
@@ -16,4 +17,4 @@ I believe in one Lord Jesus Christ, the Only Begotten Son of God, born of the Fa
 
 I believe in the Holy Spirit, the Lord, the giver of life, who proceeds from the Father and the Son, who with the Father and the Son is adored and glorified, who has spoken through the prophets.
 
-I believe in one, holy, catholic and apostolic Church. I confess one Baptism for the forgiveness of sins and I look forward to the resurrection of the dead and the life of the world to come. Amen.
+I believe in one, holy, catholic and apostolic Church. I confess one Baptism for the forgiveness of sins and I look forward to the resurrection of the dead and the life of the world to come.

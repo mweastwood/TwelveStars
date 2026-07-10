@@ -9,7 +9,6 @@ source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_200
 history_author: "Padres de la Iglesia"
 history_origin: "Tradición Cristiana"
 history_description: "Invocación trinitaria tradicional en lengua castellana."
+has_amen: true
 ---
 En el nombre del Padre, y del Hijo, y del Espíritu Santo.
-
-Amén.

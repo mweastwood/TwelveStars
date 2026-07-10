@@ -9,7 +9,6 @@ source_url: "https://www.vatican.va"
 history_author: "Catholic Missionaries"
 history_origin: "Traditional Filipino Catholic Devotion"
 history_description: "Inbokasyon ng Banal na Trinidad sa wikang Tagalog."
+has_amen: true
 ---
 Sa ngalan ng Ama, at ng Anak, at ng Espiritu Santo.
-
-Amen.

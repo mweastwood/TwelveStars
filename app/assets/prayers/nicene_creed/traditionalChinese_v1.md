@@ -9,6 +9,7 @@ source_url: "https://zh.wikipedia.org/wiki/%E5%B0%BC%E8%A5%BF%E4%BA%9E%E4%BF%A1%
 history_author: "First Council of Nicaea & Constantinople"
 history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
 history_description: "The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity."
+has_amen: true
 ---
 我信唯一的天主，全能的聖父，天地萬物，無論有形無形，都是祂所創造的。
 
@@ -16,4 +17,4 @@ history_description: "The ecumenical statement of belief used in the Christian l
 
 我信聖神，祂是主及賦予生命者，由聖父聖子所共發。祂和聖父聖子，同受欽崇，同享光榮，祂曾藉先知們發言。
 
-我信唯一、至聖、至公、從宗徒傳下來的教會。我承認赦罪的聖洗，只有一個。我期待死人的復活，及來世的生命。亞孟。
+我信唯一、至聖、至公、從宗徒傳下來的教會。我承認赦罪的聖洗，只有一個。我期待死人的復活，及來世的生命。

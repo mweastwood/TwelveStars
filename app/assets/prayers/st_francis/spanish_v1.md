@@ -9,6 +9,7 @@ source_url: "https://es.wikipedia.org/wiki/Oraci%C3%B3n_de_San_Francisco"
 history_author: "Anónimo (atribuido a San Francisco)"
 history_origin: "La Clochette (1912)"
 history_description: "Publicada por primera vez de forma anónima en diciembre de 1912 en la revista francesa La Clochette por el padre Esther Bouquerel. En 1916 se publicó en L'Osservatore Romano. Hacia 1920 se imprimió en una postal de paz con una imagen de San Francisco de Asís en el reverso, lo que originó su popular pero errónea atribución al santo."
+has_amen: true
 ---
 Señor, haz de mí un instrumento de tu paz:
 donde haya odio, ponga yo amor,
@@ -29,5 +30,3 @@ Porque dando se recibe,
 olvidando se encuentra,
 perdonando se es perdonado,
 muriendo se resucita a la vida eterna.
-
-Amén.

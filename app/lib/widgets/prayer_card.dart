@@ -82,81 +82,103 @@ class _PrayerCardState extends State<PrayerCard> {
     PrayerLanguage lang,
     ThemeData theme,
   ) {
+    final Widget? amenWidget = widget.prayer.hasAmen
+        ? Padding(
+            padding: const EdgeInsets.only(top: 12.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  lang.amenText,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    fontSize: 13.5,
+                    color: theme.colorScheme.onSurfaceVariant.withValues(
+                      alpha: 0.7,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        : null;
+
     // Chinese Character rendering with Pinyin grid
     if (trans.chineseLines != null) {
       return Column(
-        children: trans.chineseLines!.map((line) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4.0),
-            child: Wrap(
-              alignment: WrapAlignment.center,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              spacing: 2,
-              runSpacing: 4,
-              children: (line.chars ?? []).map((charItem) {
-                final isPunct = charItem.pinyin.isEmpty;
-                final isSelected =
-                    charItem.phraseId != null &&
-                    charItem.phraseId == _selectedPhraseId;
+        children: [
+          ...trans.chineseLines!.map((line) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 2,
+                runSpacing: 4,
+                children: (line.chars ?? []).map((charItem) {
+                  final isPunct = charItem.pinyin.isEmpty;
+                  final isSelected =
+                      charItem.phraseId != null &&
+                      charItem.phraseId == _selectedPhraseId;
 
-                return GestureDetector(
-                  onTap: charItem.phraseId != null
-                      ? () {
-                          setState(() {
-                            _selectedPhraseId =
-                                (_selectedPhraseId == charItem.phraseId)
-                                ? null
-                                : charItem.phraseId;
-                          });
-                        }
-                      : null,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 1.0,
-                      vertical: 2.0,
-                    ),
-                    decoration: BoxDecoration(
-                      color: isSelected
-                          ? theme.colorScheme.primaryContainer.withValues(
-                              alpha: 0.8,
-                            )
-                          : null,
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          charItem.char,
-                          style: theme.textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                            color: isSelected
-                                ? theme.colorScheme.onPrimaryContainer
-                                : theme.colorScheme.onSurface,
+                  return GestureDetector(
+                    onTap: charItem.phraseId != null
+                        ? () {
+                            setState(() {
+                              _selectedPhraseId =
+                                  (_selectedPhraseId == charItem.phraseId)
+                                  ? null
+                                  : charItem.phraseId;
+                            });
+                          }
+                        : null,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 1.0,
+                        vertical: 2.0,
+                      ),
+                      decoration: BoxDecoration(
+                        color: isSelected
+                            ? theme.colorScheme.primaryContainer.withValues(
+                                alpha: 0.8,
+                              )
+                            : null,
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            charItem.char,
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: isSelected
+                                  ? theme.colorScheme.onPrimaryContainer
+                                  : theme.colorScheme.onSurface,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 2),
-                        Text(
-                          isPunct ? '' : charItem.pinyin,
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            fontSize: 10,
-                            color: isSelected
-                                ? theme.colorScheme.onPrimaryContainer
-                                      .withValues(alpha: 0.7)
-                                : theme.colorScheme.onSurfaceVariant.withValues(
-                                    alpha: 0.7,
-                                  ),
+                          const SizedBox(height: 2),
+                          Text(
+                            isPunct ? '' : charItem.pinyin,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              fontSize: 10,
+                              color: isSelected
+                                  ? theme.colorScheme.onPrimaryContainer
+                                        .withValues(alpha: 0.7)
+                                  : theme.colorScheme.onSurfaceVariant
+                                        .withValues(alpha: 0.7),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              }).toList(),
-            ),
-          );
-        }).toList(),
+                  );
+                }).toList(),
+              ),
+            );
+          }),
+          ?amenWidget,
+        ],
       );
     }
 
@@ -210,27 +232,39 @@ class _PrayerCardState extends State<PrayerCard> {
           );
         }
       }
-      return Text.rich(
-        TextSpan(children: spans),
-        style: theme.textTheme.bodyLarge?.copyWith(
-          height: 1.6,
-          fontSize: 16.0,
-          letterSpacing: 0.2,
-        ),
-        textAlign: TextAlign.center,
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text.rich(
+            TextSpan(children: spans),
+            style: theme.textTheme.bodyLarge?.copyWith(
+              height: 1.6,
+              fontSize: 16.0,
+              letterSpacing: 0.2,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          ?amenWidget,
+        ],
       );
     }
 
     // Fallback: plain text
-    return Text(
-      trans.text,
-      style: theme.textTheme.bodyLarge?.copyWith(
-        height: 1.6,
-        color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
-        fontSize: 16.0,
-        letterSpacing: 0.2,
-      ),
-      textAlign: TextAlign.center,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          trans.text,
+          style: theme.textTheme.bodyLarge?.copyWith(
+            height: 1.6,
+            color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
+            fontSize: 16.0,
+            letterSpacing: 0.2,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        ?amenWidget,
+      ],
     );
   }
 

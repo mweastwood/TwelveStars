@@ -9,6 +9,7 @@ source_url: "https://fr.wikipedia.org/wiki/Pri%C3%A8re_de_saint_Fran%C3%A7ois"
 history_author: "Anonyme (attribué à Saint François)"
 history_origin: "La Clochette (1912)"
 history_description: "Publiée pour la première fois de manière anonyme en décembre 1912 dans la revue spirituelle La Clochette par le père Esther Bouquerel. En 1916, elle parut dans L'Osservatore Romano. Vers 1920, elle fut imprimée sur une carte postale de paix avec une image de Saint François d'Assise au verso, entraînant son attribution populaire mais erronée au saint."
+has_amen: true
 ---
 Seigneur, faites de moi un instrument de votre paix.
 Là où il y a de la haine, que je mette l'amour.
@@ -28,5 +29,3 @@ car c'est en donnant qu'on reçoit,
 c'est en s'oubliant qu'on trouve,
 c'est en pardonnant qu'on est pardonné,
 c'est en mourant qu'on ressuscite à l'éternelle vie.
-
-Amen.

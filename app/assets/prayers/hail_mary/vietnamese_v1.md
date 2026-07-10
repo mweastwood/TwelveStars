@@ -9,6 +9,7 @@ source_url: "https://vi.wikipedia.org/wiki/Kinh_K%C3%ADnh_M%E1%BB%ABng"
 history_author: "Angel Gabriel & St. Elizabeth"
 history_origin: "Gospel of Luke 1:28, 42"
 history_description: "Combines the Angelic Salutation, Elizabeth’s greeting, and an ecclesial petition finalized in the 16th century."
+has_amen: true
 ---
 Kính mừng Maria đầy ơn phúc,
 Đức Chúa Trời ở cùng Bà,
@@ -18,5 +19,3 @@ và Giêsu con lòng Bà gồm phúc lạ.
 Thánh Maria, Đức Mẹ Chúa Trời,
 cầu cho chúng con là kẻ có tội,
 khi này và trong giờ lâm tử.
-
-Amen.

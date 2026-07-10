@@ -9,6 +9,7 @@ source_url: "https://fr.wikipedia.org/wiki/Symbole_de_Nic%C3%A9e-Constantinople"
 history_author: "First Council of Nicaea & Constantinople"
 history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
 history_description: "The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity."
+has_amen: true
 ---
 Je crois en un seul Dieu, le Père tout-puissant, Créateur du ciel et de la terre, de l’univers visible et invisible.
 
@@ -16,4 +17,4 @@ Je crois en un seul Seigneur, Jésus Christ, le Fils unique de Dieu, né du Pèr
 
 Je crois en l’Esprit Saint, qui es Seigneur et qui donne la via; il procède du Père et du Fils; avec le Père et le Fils, il reçoit même adoration et même gloire; il a parlé par les prophètes.
 
-Je crois en l’Église, une, sainte, catholique et apostolique. Je reconnais un seul baptême pour le pardon des péchés. J’attends la résurrection des morts et la vie du monde à venir. Amen.
+Je crois en l’Église, une, sainte, catholique et apostolique. Je reconnais un seul baptême pour le pardon des péchés. J’attends la résurrection des morts et la vie du monde à venir.

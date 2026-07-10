@@ -99,7 +99,8 @@ class PrayerDatabase {
           orElse: () => p,
         );
         if (p.defaultOrder != cp.defaultOrder ||
-            p.defaultTitle != cp.defaultTitle) {
+            p.defaultTitle != cp.defaultTitle ||
+            p.hasAmen != cp.hasAmen) {
           needsUpdate = true;
           break;
         }
@@ -238,12 +239,15 @@ class PrayerDatabase {
         );
       }
 
+      final hasAmen = pMap['has_amen'] as bool? ?? false;
+
       prayers.add(
         Prayer(
           prayerId: prayerId,
           defaultTitle: defaultTitle,
           category: category,
           defaultOrder: defaultOrder,
+          hasAmen: hasAmen,
           localizedTranslations: localizedTranslations,
         ),
       );

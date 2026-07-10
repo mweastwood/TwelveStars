@@ -9,6 +9,7 @@ source_url: "https://en.wikipedia.org/wiki/Prayer_of_Saint_Francis"
 history_author: "Anonymous (attributed to St. Francis)"
 history_origin: "La Clochette (1912)"
 history_description: "First published anonymously in December 1912 in the French spiritual magazine La Clochette by Father Esther Bouquerel. In 1916, it was published in L'Osservatore Romano. Around 1920, it was printed on a peace postcard with an image of St. Francis of Assisi on the back, establishing its popular but mistaken attribution to the saint."
+has_amen: true
 ---
 Lord, make me an instrument of your peace.
 Where there is hatred, let me bring love.
@@ -28,5 +29,3 @@ for it is in giving that one receives,
 it is in self-forgetting that one finds,
 it is in forgiving that one is forgiven,
 it is in dying that one awakens to eternal life.
-
-Amen.

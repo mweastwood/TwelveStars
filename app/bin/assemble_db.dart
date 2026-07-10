@@ -94,6 +94,7 @@ void main() {
     final historyAuthor = yaml['history_author'] as String? ?? '';
     final historyOrigin = yaml['history_origin'] as String? ?? '';
     final historyDescription = yaml['history_description'] as String? ?? '';
+    final hasAmen = yaml['has_amen'] as bool? ?? false;
 
     List<List<Map<String, dynamic>>>? chineseLines;
     if (language == 'traditionalChinese') {
@@ -144,6 +145,8 @@ void main() {
       'default_title': defaultTitle,
       'category': category,
       'default_order': defaultOrder,
+      'has_amen':
+          (prayersToInsert[prayerId]?['has_amen'] as bool? ?? false) || hasAmen,
     };
 
     translationsToInsert.add({
@@ -193,6 +196,7 @@ void main() {
       'default_title': p['default_title'],
       'category': p['category'],
       'default_order': p['default_order'],
+      'has_amen': p['has_amen'],
       'translations': translationsMap,
     });
   }

@@ -9,7 +9,6 @@ source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_200
 history_author: "Early Church Fathers"
 history_origin: "Early Christian Custom"
 history_description: "A blessing gesture tracing back to the 2nd century, invoking the Holy Trinity."
+has_amen: true
 ---
 In the name of the Father, and of the Son, and of the Holy Spirit.
-
-Amen.

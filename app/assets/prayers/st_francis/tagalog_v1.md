@@ -9,6 +9,7 @@ source_url: "https://pagbubulaybulay.wordpress.com/2010/03/17/prayer-of-st-franc
 history_author: "Hindi kilala (ipinapalagay na kay San Francisco)"
 history_origin: "La Clochette (1912)"
 history_description: "Unang nailathala nang walang pangalan noong Disyembre 1912 sa Pranses na magasin na La Clochette ni Padre Esther Bouquerel. Noong 1916, inilathala ito sa L'Osservatore Romano. Noong 1920, inilimbag ito sa isang postcard ng kapayapaan na may larawan ni San Francisco sa likod, na naging dahilan ng maling pag-aangkin nito sa santo."
+has_amen: true
 ---
 Panginoon, itulot Mong alang-alang sa Iyo
 ay mapalaganap ko ang Iyong Kapayapaan:
@@ -28,5 +29,3 @@ sapagkat kung di magbibigay, wala kaming tatanggapin;
 kung di magpapatawad, hindi kami patatawarin;
 kung di mamatay muna, ang buhay na walang
 hanggan ay hindi namin kakamtin.
-
-Amen.

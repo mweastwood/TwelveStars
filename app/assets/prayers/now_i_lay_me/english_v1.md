@@ -9,9 +9,10 @@ source_url: "https://www.catholicprayer.ca/Prayers/Now-I-Lay-Me-Down-To-Sleep.ht
 history_author: "Traditional"
 history_origin: "Classic Bedtime Prayer (c. 18th century)"
 history_description: "A popular children's bedtime prayer asking for divine protection throughout the night."
+has_amen: true
 ---
 Now I lay me down to sleep,
 I pray Thee, Lord, my soul to keep.
 If I should die before I wake,
 I pray Thee, Lord, my soul to take;
-And this I ask for Jesus' sake. Amen.
+And this I ask for Jesus' sake.

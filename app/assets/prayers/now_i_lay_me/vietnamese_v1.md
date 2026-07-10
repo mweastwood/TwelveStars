@@ -9,9 +9,9 @@ source_url: "https://vi.wikipedia.org/wiki/Now_I_lay_me_down_to_sleep"
 history_author: "Traditional"
 history_origin: "Classic Bedtime Prayer (c. 18th century)"
 history_description: "A popular children's bedtime prayer asking for divine protection throughout the night."
+has_amen: true
 ---
 Con nằm xuống để ngủ,
 Con cầu xin Chúa giữ gìn linh hồn con.
 Nếu con có mệnh hệ nào trước khi thức giấc,
 Xin Chúa hãy đưa linh hồn con về với Ngài.
-Amen.

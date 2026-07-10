@@ -9,6 +9,7 @@ source_url: "https://la.wikipedia.org/wiki/Gloria_in_excelsis_Deo"
 history_author: "Traditional"
 history_origin: "Missale Romanum"
 history_description: "Doxologia maior est antiquus et venerabilis hymnus, quo Ecclesia in Spiritu Sancto congregata Patrem et Agnum glorificat et deprecatur."
+has_amen: true
 ---
 Gloria in excelsis Deo
 et in terra pax hominibus bonae voluntatis.
@@ -30,4 +31,3 @@ Quoniam tu solus Sanctus,
 tu solus Dominus,
 tu solus Altissimus, Jesu Christe,
 cum Sancto Spiritu: in gloria Dei Patris.
-Amen.

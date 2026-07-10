@@ -9,9 +9,9 @@ source_url: "https://zh.wikipedia.org/wiki/Now_I_lay_me_down_to_sleep"
 history_author: "Traditional"
 history_origin: "Classic Bedtime Prayer (c. 18th century)"
 history_description: "A popular children's bedtime prayer asking for divine protection throughout the night."
+has_amen: true
 ---
 我今躺下入睡，
 祈求主保守我的靈魂。
 若我未醒先死，
 祈求主接納我的靈魂。
-阿們。

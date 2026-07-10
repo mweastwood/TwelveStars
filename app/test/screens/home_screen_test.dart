@@ -15,13 +15,14 @@ void main() {
       Prayer.mock(
         id: 'sign_of_the_cross',
         defaultTitle: 'Sign of the Cross',
+        hasAmen: true,
         translations: {
           PrayerLanguage.english: [
             PrayerTranslation.mock(
               title: 'Sign of the Cross',
               subtitle: 'Signum Crucis',
               text:
-                  'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.',
+                  'In the name of the Father, and of the Son, and of the Holy Spirit.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),
@@ -31,13 +32,14 @@ void main() {
       Prayer.mock(
         id: 'our_father',
         defaultTitle: 'Our Father',
+        hasAmen: true,
         translations: {
           PrayerLanguage.english: [
             PrayerTranslation.mock(
               title: 'Our Father',
               subtitle: "The Lord's Prayer (Traditional)",
               text:
-                  'Our Father, who art in heaven,\nhallowed be thy name;\nthy kingdom come;\nthy will be done\non earth as it is in heaven.\n\nGive us this day our daily bread;\nand forgive us our trespasses\nas we forgive those who trespass against us;\nand lead us not into temptation,\nbut deliver us from evil.\n\nAmen.',
+                  'Our Father, who art in heaven,\nhallowed be thy name;\nthy kingdom come;\nthy will be done\non earth as it is in heaven.\n\nGive us this day our daily bread;\nand forgive us our trespasses\nas we forgive those who trespass against us;\nand lead us not into temptation,\nbut deliver us from evil.',
               sourceName:
                   'Compendium of the Catechism of the Catholic Church (Vatican)',
               sourceUrl: 'https://vatican.va',
@@ -55,7 +57,7 @@ void main() {
               title: '天主經',
               subtitle: 'Lord’s Prayer',
               text:
-                  '我們的天父，願祢的名受顯揚；願祢的國來臨；願祢的旨意奉行在人間，如同在天上。求祢今天賞給我們日用的食糧；求祢寬恕我們的罪過，如同我們寬恕別人一樣；不要讓我們陷於誘惑；但救我們免於凶惡。亞孟。',
+                  '我們的天父，願祢的名受顯揚；願祢的國來臨；願祢的旨意奉行在人間，如同在天上。求祢今天賞給我們日用的食糧；求祢寬恕我們的罪過，如同我們寬恕別人一樣；不要讓我們陷於誘惑；但救我們免於凶惡。',
               sourceName: 'Wikipedia',
               sourceUrl: 'https://wikipedia.org',
               chineseLines: [

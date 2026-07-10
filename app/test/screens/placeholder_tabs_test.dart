@@ -22,13 +22,14 @@ void main() {
       Prayer.mock(
         id: 'sign_of_the_cross',
         defaultTitle: 'Sign of the Cross',
+        hasAmen: true,
         translations: {
           PrayerLanguage.english: [
             PrayerTranslation.mock(
               title: 'Sign of the Cross',
               subtitle: 'Signum Crucis',
               text:
-                  'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.',
+                  'In the name of the Father, and of the Son, and of the Holy Spirit.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),
@@ -36,7 +37,7 @@ void main() {
           PrayerLanguage.latin: [
             PrayerTranslation.mock(
               title: 'Signum Crucis',
-              text: 'In nomine Patris, et Filii, et Spiritus Sancti. Amen.',
+              text: 'In nomine Patris, et Filii, et Spiritus Sancti.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),

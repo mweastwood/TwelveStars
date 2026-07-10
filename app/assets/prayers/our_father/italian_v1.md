@@ -9,6 +9,7 @@ source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_200
 history_author: "Jesus Christ"
 history_origin: "Gospel of Matthew 6:9–13"
 history_description: "Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer."
+has_amen: true
 ---
 Padre nostro, che sei nei cieli,
 sia santificato il tuo nome,
@@ -21,5 +22,3 @@ e rimetti a noi i nostri debiti
 come noi li rimettiamo ai nostri debitori,
 e non ci indurre in tentazione,
 ma liberaci dal male.
-
-Amen.

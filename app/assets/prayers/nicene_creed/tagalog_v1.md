@@ -9,6 +9,7 @@ source_url: "https://tl.wikipedia.org/wiki/Sumasampalataya"
 history_author: "First Council of Nicaea & Constantinople"
 history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
 history_description: "The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity."
+has_amen: true
 ---
 Sumasampalataya ako sa iisang Diyos, Amang makapangyarihan sa lahat, na may gawa ng langit at lupa, ng lahat ng nakikita at di nakikita.
 
@@ -16,4 +17,4 @@ Sumasampalataya ako sa iisang Panginoong Hesukristo, Bugtong na Anak ng Diyos, s
 
 Sumasampalataya ako sa Espiritu Santo, Panginoon at nagbibigay-buhay na nanggagaling sa Ama at sa Anak. Sinasamba siya at pinararangalan kaisa ng Ama at ng Anak. Nagsalita siya sa pamamagitan ng mga propeta.
 
-Sumasampalataya ako sa iisang banal, katolika at apostolikong Simbahan. Kinikilala ko ang isang binyag sa ikapagpapatawad ng mga kasalanan. At hinihintay ko ang muling pagkabuhay ng mga patay at ang buhay na walang hanggan. Amen.
+Sumasampalataya ako sa iisang banal, katolika at apostolikong Simbahan. Kinikilala ko ang isang binyag sa ikapagpapatawad ng mga kasalanan. At hinihintay ko ang muling pagkabuhay ng mga patay at ang buhay na walang hanggan.

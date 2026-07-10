@@ -9,6 +9,7 @@ source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_200
 history_author: "Early Church Fathers"
 history_origin: "Traditional Christian Doxology"
 history_description: "A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, tracing back to the early Councils."
+has_amen: true
 ---
 Gloria al Padre,
 y al Hijo,
@@ -17,5 +18,3 @@ y al Espíritu Santo.
 Como era en el principio,
 ahora y siempre,
 por los siglos de los siglos.
-
-Amén.
