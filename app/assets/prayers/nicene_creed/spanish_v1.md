@@ -9,6 +9,7 @@ source_url: "https://es.wikipedia.org/wiki/Credo_Niceno-Constantinopolitano"
 history_author: "First Council of Nicaea & Constantinople"
 history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
 history_description: "The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity."
+has_amen: true
 ---
 Creo en un solo Dios, Padre todopoderoso, Creador del cielo y de la tierra, de todo lo visible y lo invisible.
 
@@ -16,4 +17,4 @@ Creo en un solo Señor, Jesucristo, Hijo único de Dios, nacido del Padre antes 
 
 Creo en el Espíritu Santo, Señor y dador de vida, que procede del Padre y del Hijo, que con el Padre y el Hijo recibe una misma adoración y gloria, y que habló por los profetas.
 
-Creo en la Iglesia, que es una, santa, católica y apostólica. Confieso que hay un solo bautismo para el perdón de los pecados. Espero la resurrección de los muertos y la vida del mundo futuro. Amén.
+Creo en la Iglesia, que es una, santa, católica y apostólica. Confieso que hay un solo bautismo para el perdón de los pecados. Espero la resurrección de los muertos y la vida del mundo futuro.

@@ -9,6 +9,7 @@ source_url: "https://www.preces-latinae.org/thesaurus/Sancti/SFranciscusAssisien
 history_author: "Anonymus (Sancto Francisco attributa)"
 history_origin: "La Clochette (1912)"
 history_description: "Primum sine nomine editum mense Decembri anno 1912 in libello gallico La Clochette a patre Esther Bouquerel. Anno 1916 in L'Osservatore Romano editum est. Circa annum 1920 in chartula pacis cum imagine Sancti Francisci Assisiensis in tergo impressum est, unde orta est popularis sed falsa attributio huic sancto."
+has_amen: true
 ---
 Domine, fac me servum pacis tuae,
 ubi odium, amorem seram;
@@ -26,5 +27,3 @@ amari quam amare.
 Nam in dando recipimus,
 in ignoscendo ignoscimur,
 et in moriendo ad vitam aeternam nascimur.
-
-Amen.

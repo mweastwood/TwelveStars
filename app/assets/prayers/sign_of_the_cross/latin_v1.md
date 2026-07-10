@@ -9,7 +9,6 @@ source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_200
 history_author: "Early Church"
 history_origin: "Traditional Latin Rite"
 history_description: "The traditional Latin form of the trinitarian invocation."
+has_amen: true
 ---
 In nomine Patris, et Filii, et Spiritus Sancti.
-
-Amen.

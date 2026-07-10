@@ -24,6 +24,7 @@ final PrayerSchema = IsarGeneratedSchema(
       IsarPropertySchema(name: 'defaultTitle', type: IsarType.string),
       IsarPropertySchema(name: 'category', type: IsarType.string),
       IsarPropertySchema(name: 'defaultOrder', type: IsarType.long),
+      IsarPropertySchema(name: 'hasAmen', type: IsarType.bool),
       IsarPropertySchema(
         name: 'localizedTranslations',
         type: IsarType.objectList,
@@ -59,12 +60,13 @@ int serializePrayer(IsarWriter writer, Prayer object) {
   IsarCore.writeString(writer, 2, object.defaultTitle);
   IsarCore.writeString(writer, 3, object.category);
   IsarCore.writeLong(writer, 4, object.defaultOrder);
+  IsarCore.writeBool(writer, 5, value: object.hasAmen);
   {
     final list = object.localizedTranslations;
     if (list == null) {
-      IsarCore.writeNull(writer, 5);
+      IsarCore.writeNull(writer, 6);
     } else {
-      final listWriter = IsarCore.beginList(writer, 5, list.length);
+      final listWriter = IsarCore.beginList(writer, 6, list.length);
       for (var i = 0; i < list.length; i++) {
         {
           final value = list[i];
@@ -98,9 +100,11 @@ Prayer deserializePrayer(IsarReader reader) {
       _defaultOrder = value;
     }
   }
+  final bool _hasAmen;
+  _hasAmen = IsarCore.readBool(reader, 5);
   final List<LocalizedTranslations>? _localizedTranslations;
   {
-    final length = IsarCore.readList(reader, 5, IsarCore.readerPtrPtr);
+    final length = IsarCore.readList(reader, 6, IsarCore.readerPtrPtr);
     {
       final reader = IsarCore.readerPtr;
       if (reader.isNull) {
@@ -134,6 +138,7 @@ Prayer deserializePrayer(IsarReader reader) {
     defaultTitle: _defaultTitle,
     category: _category,
     defaultOrder: _defaultOrder,
+    hasAmen: _hasAmen,
     localizedTranslations: _localizedTranslations,
   );
   return object;
@@ -160,8 +165,10 @@ dynamic deserializePrayerProp(IsarReader reader, int property) {
         }
       }
     case 5:
+      return IsarCore.readBool(reader, 5);
+    case 6:
       {
-        final length = IsarCore.readList(reader, 5, IsarCore.readerPtrPtr);
+        final length = IsarCore.readList(reader, 6, IsarCore.readerPtrPtr);
         {
           final reader = IsarCore.readerPtr;
           if (reader.isNull) {
@@ -203,6 +210,7 @@ sealed class _PrayerUpdate {
     String? defaultTitle,
     String? category,
     int? defaultOrder,
+    bool? hasAmen,
   });
 }
 
@@ -218,6 +226,7 @@ class _PrayerUpdateImpl implements _PrayerUpdate {
     Object? defaultTitle = ignore,
     Object? category = ignore,
     Object? defaultOrder = ignore,
+    Object? hasAmen = ignore,
   }) {
     return collection.updateProperties(
           [isarId],
@@ -226,6 +235,7 @@ class _PrayerUpdateImpl implements _PrayerUpdate {
             if (defaultTitle != ignore) 2: defaultTitle as String?,
             if (category != ignore) 3: category as String?,
             if (defaultOrder != ignore) 4: defaultOrder as int?,
+            if (hasAmen != ignore) 5: hasAmen as bool?,
           },
         ) >
         0;
@@ -239,6 +249,7 @@ sealed class _PrayerUpdateAll {
     String? defaultTitle,
     String? category,
     int? defaultOrder,
+    bool? hasAmen,
   });
 }
 
@@ -254,12 +265,14 @@ class _PrayerUpdateAllImpl implements _PrayerUpdateAll {
     Object? defaultTitle = ignore,
     Object? category = ignore,
     Object? defaultOrder = ignore,
+    Object? hasAmen = ignore,
   }) {
     return collection.updateProperties(isarId, {
       if (prayerId != ignore) 1: prayerId as String?,
       if (defaultTitle != ignore) 2: defaultTitle as String?,
       if (category != ignore) 3: category as String?,
       if (defaultOrder != ignore) 4: defaultOrder as int?,
+      if (hasAmen != ignore) 5: hasAmen as bool?,
     });
   }
 }
@@ -276,6 +289,7 @@ sealed class _PrayerQueryUpdate {
     String? defaultTitle,
     String? category,
     int? defaultOrder,
+    bool? hasAmen,
   });
 }
 
@@ -291,12 +305,14 @@ class _PrayerQueryUpdateImpl implements _PrayerQueryUpdate {
     Object? defaultTitle = ignore,
     Object? category = ignore,
     Object? defaultOrder = ignore,
+    Object? hasAmen = ignore,
   }) {
     return query.updateProperties(limit: limit, {
       if (prayerId != ignore) 1: prayerId as String?,
       if (defaultTitle != ignore) 2: defaultTitle as String?,
       if (category != ignore) 3: category as String?,
       if (defaultOrder != ignore) 4: defaultOrder as int?,
+      if (hasAmen != ignore) 5: hasAmen as bool?,
     });
   }
 }
@@ -319,6 +335,7 @@ class _PrayerQueryBuilderUpdateImpl implements _PrayerQueryUpdate {
     Object? defaultTitle = ignore,
     Object? category = ignore,
     Object? defaultOrder = ignore,
+    Object? hasAmen = ignore,
   }) {
     final q = query.build();
     try {
@@ -327,6 +344,7 @@ class _PrayerQueryBuilderUpdateImpl implements _PrayerQueryUpdate {
         if (defaultTitle != ignore) 2: defaultTitle as String?,
         if (category != ignore) 3: category as String?,
         if (defaultOrder != ignore) 4: defaultOrder as int?,
+        if (hasAmen != ignore) 5: hasAmen as bool?,
       });
     } finally {
       q.close();
@@ -928,17 +946,27 @@ extension PrayerQueryFilter on QueryBuilder<Prayer, Prayer, QFilterCondition> {
     });
   }
 
+  QueryBuilder<Prayer, Prayer, QAfterFilterCondition> hasAmenEqualTo(
+    bool value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(property: 5, value: value),
+      );
+    });
+  }
+
   QueryBuilder<Prayer, Prayer, QAfterFilterCondition>
   localizedTranslationsIsNull() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const IsNullCondition(property: 5));
+      return query.addFilterCondition(const IsNullCondition(property: 6));
     });
   }
 
   QueryBuilder<Prayer, Prayer, QAfterFilterCondition>
   localizedTranslationsIsNotNull() {
     return QueryBuilder.apply(not(), (query) {
-      return query.addFilterCondition(const IsNullCondition(property: 5));
+      return query.addFilterCondition(const IsNullCondition(property: 6));
     });
   }
 
@@ -956,7 +984,7 @@ extension PrayerQueryFilter on QueryBuilder<Prayer, Prayer, QFilterCondition> {
   localizedTranslationsIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
-        const GreaterOrEqualCondition(property: 5, value: null),
+        const GreaterOrEqualCondition(property: 6, value: null),
       );
     });
   }
@@ -1036,6 +1064,18 @@ extension PrayerQuerySortBy on QueryBuilder<Prayer, Prayer, QSortBy> {
       return query.addSortBy(4, sort: Sort.desc);
     });
   }
+
+  QueryBuilder<Prayer, Prayer, QAfterSortBy> sortByHasAmen() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(5);
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterSortBy> sortByHasAmenDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(5, sort: Sort.desc);
+    });
+  }
 }
 
 extension PrayerQuerySortThenBy on QueryBuilder<Prayer, Prayer, QSortThenBy> {
@@ -1110,6 +1150,18 @@ extension PrayerQuerySortThenBy on QueryBuilder<Prayer, Prayer, QSortThenBy> {
       return query.addSortBy(4, sort: Sort.desc);
     });
   }
+
+  QueryBuilder<Prayer, Prayer, QAfterSortBy> thenByHasAmen() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(5);
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterSortBy> thenByHasAmenDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(5, sort: Sort.desc);
+    });
+  }
 }
 
 extension PrayerQueryWhereDistinct on QueryBuilder<Prayer, Prayer, QDistinct> {
@@ -1140,6 +1192,12 @@ extension PrayerQueryWhereDistinct on QueryBuilder<Prayer, Prayer, QDistinct> {
   QueryBuilder<Prayer, Prayer, QAfterDistinct> distinctByDefaultOrder() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(4);
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterDistinct> distinctByHasAmen() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(5);
     });
   }
 }
@@ -1175,10 +1233,16 @@ extension PrayerQueryProperty1 on QueryBuilder<Prayer, Prayer, QProperty> {
     });
   }
 
+  QueryBuilder<Prayer, bool, QAfterProperty> hasAmenProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(5);
+    });
+  }
+
   QueryBuilder<Prayer, List<LocalizedTranslations>?, QAfterProperty>
   localizedTranslationsProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(5);
+      return query.addProperty(6);
     });
   }
 }
@@ -1214,10 +1278,16 @@ extension PrayerQueryProperty2<R> on QueryBuilder<Prayer, R, QAfterProperty> {
     });
   }
 
+  QueryBuilder<Prayer, (R, bool), QAfterProperty> hasAmenProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(5);
+    });
+  }
+
   QueryBuilder<Prayer, (R, List<LocalizedTranslations>?), QAfterProperty>
   localizedTranslationsProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(5);
+      return query.addProperty(6);
     });
   }
 }
@@ -1254,10 +1324,16 @@ extension PrayerQueryProperty3<R1, R2>
     });
   }
 
+  QueryBuilder<Prayer, (R1, R2, bool), QOperations> hasAmenProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(5);
+    });
+  }
+
   QueryBuilder<Prayer, (R1, R2, List<LocalizedTranslations>?), QOperations>
   localizedTranslationsProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(5);
+      return query.addProperty(6);
     });
   }
 }

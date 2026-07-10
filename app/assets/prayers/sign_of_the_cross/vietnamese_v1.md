@@ -9,7 +9,6 @@ source_url: "https://www.vatican.va"
 history_author: "Vietnamese Church"
 history_origin: "Vietnamese Traditional Liturgy"
 history_description: "Dấu thánh giá tuyên xưng Ba Ngôi Thiên Chúa bằng tiếng Việt."
+has_amen: true
 ---
 Nhân danh Cha, và Con, và Thánh Thần.
-
-Amen.

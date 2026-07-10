@@ -9,7 +9,6 @@ source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_200
 history_author: "Pères de l'Église"
 history_origin: "Tradition Chrétienne"
 history_description: "Formulation trinitaire traditionnelle en langue française."
+has_amen: true
 ---
 Au nom du Père, et du Fils, et du Saint-Esprit.
-
-Amen.

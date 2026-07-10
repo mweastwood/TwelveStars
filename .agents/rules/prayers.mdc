@@ -23,14 +23,16 @@ Every prayer Markdown file must contain a YAML frontmatter block with the follow
 - `subtitle`: Subtitle, e.g. the alternative title or translation type.
 - `source_name`: The canonical name of the source.
 - `source_url`: A secure HTTPS link (`https://...`) to the web page hosting the official text.
+- `has_amen`: Boolean flag (`true` or `false`) indicating if the prayer should end with a dynamically rendered, localized Amen. Use `true` if the prayer ends with an Amen.
 
 ## 3. Formatting & Interlinear Tokenization
 - **Interlinear Alignment:** Split the prayer text logically by clause or sentence.
 - Wrap each segment in the `{text|id}` tokenization syntax.
 - Ensure the **same segment IDs** (e.g. `prayerId_1`, `prayerId_2`) are used across **all language versions** of the prayer so they align perfectly in the comparative/interlinear UI.
+- **Excluding Amen from Text:** Do not include the word "Amen" (or localized equivalents like "Amén", "亞孟", "阿們") in the body text or token segments of the prayer if it ends with an Amen. Instead, set `has_amen: true` in the frontmatter metadata block to let the UI append and center the Amen dynamically.
 - Example:
-  - In `hail_mary/english_v1.md`: `{Hail, Mary, full of grace|hail_mary_1}, {the Lord is with thee|hail_mary_2}.`
-  - In `hail_mary/latin_v1.md`: `{Ave Maria, gratia plena|hail_mary_1}, {Dominus tecum|hail_mary_2}.`
+  - In `hail_mary/english_v1.md`: `{Hail, Mary, full of grace|hail_mary_1}, {the Lord is with thee|hail_mary_2}.` (with `has_amen: true` in frontmatter)
+  - In `hail_mary/latin_v1.md`: `{Ave Maria, gratia plena|hail_mary_1}, {Dominus tecum|hail_mary_2}.` (with `has_amen: true` in frontmatter)
 
 ## 4. Preferred Sourcing Guidelines
 - Source prayers from official Catholic repositories:

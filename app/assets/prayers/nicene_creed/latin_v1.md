@@ -9,6 +9,7 @@ source_url: "https://la.wikipedia.org/wiki/Symbolum_Nicaenum_Constantinopolitanu
 history_author: "First Council of Nicaea & Constantinople"
 history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
 history_description: "The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity."
+has_amen: true
 ---
 Credo in unum Deum, Patrem omnipotentem, factorem caeli et terrae, visibilium omnium et invisibilium.
 
@@ -18,4 +19,4 @@ Et incarnatus est de Spiritu Sancto ex Maria Virgine, et homo factus est. Crucif
 
 Et in Spiritum Sanctum, Dominum et vivificantem: qui ex Patre Filioque procedit. Qui cum Patre et Filio simul adoratur et conglorificatur: qui locutus est per prophetas.
 
-Et unam, sanctam, catholicam et apostolicam Ecclesiam. Confiteor unum baptisma in remissionem peccatorum. Et exspecto resurrectionem mortuorum, et vitam venturi saeculi. Amen.
+Et unam, sanctam, catholicam et apostolicam Ecclesiam. Confiteor unum baptisma in remissionem peccatorum. Et exspecto resurrectionem mortuorum, et vitam venturi saeculi.

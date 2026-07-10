@@ -9,5 +9,6 @@ source_url: "https://www.swordofgodrosaries.com/tl/sorrowful-mysteries"
 history_author: "Traditional Liturgical Prayer"
 history_origin: "Collect from the Feast of the Holy Rosary"
 history_description: "A concluding petition asking God that we may imitate the mysteries of the Rosary and obtain the eternal life they promise."
+has_amen: true
 ---
-O Diyos, na ang kaisa-isang Anak, sa pamamagitan ng Kanyang buhay, kamatayan, at muling pagkabuhay, ay nagkamit para sa amin ng gantimpala ng buhay na walang hanggan; ipagkaloob Mo, isinasamo namin sa Iyo, na sa pagninilay sa mga misteryong ito ng Pinakabanal na Rosaryo ng Mapagpalang Birheng Maria, ay matularan namin ang kanilang nilalaman at makamit ang kanilang ipinangako. Sa pamamagitan ni Kristo na aming Panginoon. Amen.
+O Diyos, na ang kaisa-isang Anak, sa pamamagitan ng Kanyang buhay, kamatayan, at muling pagkabuhay, ay nagkamit para sa amin ng gantimpala ng buhay na walang hanggan; ipagkaloob Mo, isinasamo namin sa Iyo, na sa pagninilay sa mga misteryong ito ng Pinakabanal na Rosaryo ng Mapagpalang Birheng Maria, ay matularan namin ang kanilang nilalaman at makamit ang kanilang ipinangako. Sa pamamagitan ni Kristo na aming Panginoon.

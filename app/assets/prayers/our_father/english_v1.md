@@ -9,6 +9,7 @@ source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_200
 history_author: "Jesus Christ"
 history_origin: "Gospel of Matthew 6:9–13"
 history_description: "Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer."
+has_amen: true
 ---
 {Our Father|our_father_1}, {who art in heaven|our_father_2},
 {hallowed be thy name|our_father_3};
@@ -21,5 +22,3 @@ history_description: "Taught directly by Jesus to His disciples when they asked 
 {as we forgive those who trespass against us|our_father_9};
 {and lead us not into temptation|our_father_10},
 {but deliver us from evil|our_father_11}.
-
-Amen.

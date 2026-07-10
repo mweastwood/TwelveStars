@@ -9,6 +9,7 @@ source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_200
 history_author: "Early Church Fathers"
 history_origin: "Traditional Christian Doxology"
 history_description: "A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, tracing back to the early Councils."
+has_amen: true
 ---
 Glory be to the Father,
 and to the Son,
@@ -17,5 +18,3 @@ and to the Holy Spirit;
 as it was in the beginning,
 is now, and ever shall be,
 world without end.
-
-Amen.

@@ -25,6 +25,17 @@ enum PrayerLanguage {
     required this.nativeName,
     required this.flag,
   });
+
+  String get amenText {
+    switch (this) {
+      case PrayerLanguage.spanish:
+        return 'Amén';
+      case PrayerLanguage.traditionalChinese:
+        return '亞孟';
+      default:
+        return 'Amen';
+    }
+  }
 }
 
 @embedded
@@ -125,6 +136,7 @@ class Prayer {
   String defaultTitle;
   String category;
   int defaultOrder;
+  bool hasAmen;
 
   List<LocalizedTranslations>? localizedTranslations;
 
@@ -134,6 +146,7 @@ class Prayer {
     this.defaultTitle = '',
     this.category = '',
     this.defaultOrder = 0,
+    this.hasAmen = false,
     this.localizedTranslations,
   });
 
@@ -143,12 +156,14 @@ class Prayer {
     required Map<PrayerLanguage, List<PrayerTranslation>> translations,
     String category = 'starter',
     int defaultOrder = 0,
+    bool hasAmen = false,
   }) {
     return Prayer(
       prayerId: id,
       defaultTitle: defaultTitle,
       category: category,
       defaultOrder: defaultOrder,
+      hasAmen: hasAmen,
       localizedTranslations: translations.entries.map((entry) {
         return LocalizedTranslations(
           languageCode: entry.key.toString().split('.').last,

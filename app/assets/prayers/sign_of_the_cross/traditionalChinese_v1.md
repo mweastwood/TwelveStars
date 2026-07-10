@@ -9,7 +9,6 @@ source_url: "https://www.vatican.va"
 history_author: "Chinese Missionaries"
 history_origin: "Traditional Chinese Liturgy"
 history_description: "天主教傳統聖號經。"
+has_amen: true
 ---
 因父、及子、及聖神之名。
-
-亞孟。
