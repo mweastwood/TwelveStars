@@ -64,6 +64,12 @@ class _PrayerCardState extends State<PrayerCard> {
   void initState() {
     super.initState();
     _currentVersionIndex = widget.initialVersionIndex;
+    final hasCompare =
+        widget.prayer.translations.containsKey(widget.compareLanguage) &&
+        widget.prayer.translations[widget.compareLanguage]!.isNotEmpty;
+    if (!hasCompare) {
+      _isDualMode = false;
+    }
   }
 
   @override
@@ -74,6 +80,12 @@ class _PrayerCardState extends State<PrayerCard> {
     } else if (oldWidget.selectedLanguage != widget.selectedLanguage ||
         oldWidget.prayer.prayerId != widget.prayer.prayerId) {
       _currentVersionIndex = widget.initialVersionIndex;
+    }
+    final hasCompare =
+        widget.prayer.translations.containsKey(widget.compareLanguage) &&
+        widget.prayer.translations[widget.compareLanguage]!.isNotEmpty;
+    if (!hasCompare) {
+      _isDualMode = false;
     }
   }
 
@@ -270,13 +282,16 @@ class _PrayerCardState extends State<PrayerCard> {
 
   @override
   Widget build(BuildContext context) {
+    final hasPrimaryTranslation =
+        widget.prayer.translations.containsKey(widget.selectedLanguage) &&
+        widget.prayer.translations[widget.selectedLanguage]!.isNotEmpty;
+
+    if (!hasPrimaryTranslation) {
+      return const SizedBox.shrink();
+    }
+
     final theme = Theme.of(context);
-    final resolvedLanguage =
-        widget.prayer.translations.containsKey(widget.selectedLanguage)
-        ? widget.selectedLanguage
-        : (widget.prayer.translations.containsKey(PrayerLanguage.english)
-              ? PrayerLanguage.english
-              : widget.prayer.translations.keys.first);
+    final resolvedLanguage = widget.selectedLanguage;
 
     final translations = widget.prayer.translations[resolvedLanguage]!;
     final versionIndex = _currentVersionIndex < translations.length
@@ -285,12 +300,13 @@ class _PrayerCardState extends State<PrayerCard> {
     final translation = translations[versionIndex];
 
     // Dual mode compare language resolution
-    final resolvedCompareLanguage =
-        widget.prayer.translations.containsKey(widget.compareLanguage)
+    final hasCompareTranslation =
+        widget.prayer.translations.containsKey(widget.compareLanguage) &&
+        widget.prayer.translations[widget.compareLanguage]!.isNotEmpty;
+
+    final resolvedCompareLanguage = hasCompareTranslation
         ? widget.compareLanguage
-        : (widget.prayer.translations.containsKey(PrayerLanguage.english)
-              ? PrayerLanguage.english
-              : widget.prayer.translations.keys.first);
+        : resolvedLanguage;
     final compareTranslations =
         widget.prayer.translations[resolvedCompareLanguage]!;
     final compareTranslation =
@@ -560,31 +576,32 @@ class _PrayerCardState extends State<PrayerCard> {
                 ],
               ),
             ),
-            Positioned(
-              top: 8,
-              right: 8,
-              child: IconButton(
-                icon: RotatedBox(
-                  quarterTurns: 1,
-                  child: Icon(
-                    _isDualMode
-                        ? Icons.splitscreen
-                        : Icons.splitscreen_outlined,
-                    color: _isDualMode
-                        ? theme.colorScheme.primary
-                        : theme.colorScheme.onSurfaceVariant,
-                    size: 20,
+            if (hasCompareTranslation)
+              Positioned(
+                top: 8,
+                right: 8,
+                child: IconButton(
+                  icon: RotatedBox(
+                    quarterTurns: 1,
+                    child: Icon(
+                      _isDualMode
+                          ? Icons.splitscreen
+                          : Icons.splitscreen_outlined,
+                      color: _isDualMode
+                          ? theme.colorScheme.primary
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 20,
+                    ),
                   ),
+                  tooltip: 'Compare Translations',
+                  onPressed: () {
+                    setState(() {
+                      _isDualMode = !_isDualMode;
+                      _selectedPhraseId = null;
+                    });
+                  },
                 ),
-                tooltip: 'Compare Translations',
-                onPressed: () {
-                  setState(() {
-                    _isDualMode = !_isDualMode;
-                    _selectedPhraseId = null;
-                  });
-                },
               ),
-            ),
           ],
         ),
       ),

@@ -285,6 +285,57 @@ void main() {
       },
     );
 
+    testWidgets(
+      'renders SizedBox when selected primary language translation is missing',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: testPrayer,
+                  selectedLanguage: PrayerLanguage.french,
+                  compareLanguage: PrayerLanguage.spanish,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                  onLaunchSource: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        // Verify that no card content is rendered
+        expect(find.text('Our Father'), findsNothing);
+        expect(find.text('Padre Nuestro'), findsNothing);
+        expect(find.byType(Card), findsNothing);
+      },
+    );
+
+    testWidgets('hides compare button when comparison translation is missing', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: PrayerCard(
+                prayer: testPrayer,
+                selectedLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.french,
+                initialVersionIndex: 0,
+                onVersionChanged: (_) {},
+                onLaunchSource: (_) {},
+              ),
+            ),
+          ),
+        ),
+      );
+
+      // Verify that the compare translations button is NOT rendered
+      expect(find.byTooltip('Compare Translations'), findsNothing);
+    });
+
     testGoldens('renders English and Traditional Chinese states correctly', (
       tester,
     ) async {
