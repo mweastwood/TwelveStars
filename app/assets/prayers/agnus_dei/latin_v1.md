@@ -4,8 +4,8 @@ default_order: 105
 default_title: Agnus Dei
 title: Agnus Dei
 subtitle: ""
-source_name: Missale Romanum
-source_url: https://en.wikipedia.org/wiki/Agnus_Dei
+source_name: "Maranatha"
+source_url: "https://www.maranatha.it/RitoMessa/missaetext.htm"
 history_author: ""
 history_origin: ""
 history_description: ""

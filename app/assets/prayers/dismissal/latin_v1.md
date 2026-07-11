@@ -4,8 +4,8 @@ default_order: 106
 default_title: Blessing & Dismissal
 title: Benedictio et Dismissio
 subtitle: ""
-source_name: Missale Romanum
-source_url: https://www.preces-latinae.org/thesaurus/Mass/OrdinaryForm.html
+source_name: "Maranatha"
+source_url: "https://www.maranatha.it/RitoMessa/missaetext.htm"
 history_author: ""
 history_origin: ""
 history_description: ""
