@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - TwelveStars</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Privacy Policy for TwelveStars, a premium Catholic prayer and bible application. Learn how we handle and protect your local and diagnostic data.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Theme Colors - Light Mode (Marian Blue / Gold accents) */
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --accent: #1e3a8a;
+            --accent-hover: #172554;
+            --accent-light: #eff6ff;
+            --gold: #b45309;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+            --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                /* Theme Colors - Dark Mode */
+                --bg-color: #0f172a;
+                --card-bg: #1e293b;
+                --text-primary: #f8fafc;
+                --text-secondary: #cbd5e1;
+                --text-muted: #94a3b8;
+                --accent-light: #172554;
+                --accent: #3b82f6;
+                --accent-hover: #60a5fa;
+                --gold: #f59e0b;
+                --border-color: #334155;
+                --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+                --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent-light);
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--gold);
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 2rem;
+        }
+
+        .last-updated {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            display: inline-block;
+            background-color: var(--border-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 500;
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            border-left: 4px solid var(--gold);
+            padding-left: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        ul {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        .contact-box {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+                border-radius: 16px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <span class="logo-icon">⭐</span>
+            </div>
+            <h1>TwelveStars</h1>
+            <p class="subtitle">Privacy Policy</p>
+        </header>
+
+        <main class="card">
+            <div class="last-updated">Last Updated: July 10, 2026</div>
+
+            <p>Welcome to <strong>TwelveStars</strong>. We are committed to protecting your privacy and ensuring a safe, secure experience while using our mobile application (the "App").</p>
+            
+            <p>This Privacy Policy describes how we handle information in connection with your use of the App.</p>
+
+            <h2>1. Information We Collect</h2>
+            <p>TwelveStars is designed to be an offline-first devotional application. We value your privacy and aim to collect as little data as possible:</p>
+            <ul>
+                <li><strong>Local Storage (Offline-First):</strong> All your custom prayer settings, favorites, reading logs, and history are stored locally on your device using secure local databases. We do not upload or sync this content to any remote server or third-party cloud.</li>
+                <li><strong>Diagnostic and Usage Data (Optional):</strong> To help us identify bugs, diagnose crashes, and improve the application performance, we may eventually collect anonymous diagnostic data and usage statistics. This data is aggregated and does not contain any personally identifiable information.</li>
+            </ul>
+
+            <h2>2. Third-Party Services</h2>
+            <p>We may use Google Firebase services to help monitor app stability and improve performance. These services include:</p>
+            <ul>
+                <li><strong>Firebase Crashlytics:</strong> Used to collect anonymous crash reports and error logs so we can quickly resolve application bugs.</li>
+                <li><strong>Firebase Analytics:</strong> Used to understand anonymous usage trends (e.g., which sections of the app are visited most frequently) to guide future feature development.</li>
+            </ul>
+            <p>Firebase processes this data in accordance with Google's privacy policies. You can learn more about Firebase security practices here: <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase Privacy and Security Policies</a>.</p>
+
+            <h2>3. Children's Privacy</h2>
+            <p>Our App is a general audience devotional tool and does not knowingly collect any personally identifiable information from anyone, including children under the age of 13. All data remains strictly on your local device.</p>
+
+            <h2>4. Security</h2>
+            <p>We value your trust and strive to protect your data. Since your prayer history and app data are stored locally on your device, their security depends on your device's operating system security and access controls.</p>
+
+            <h2>5. Changes to This Privacy Policy</h2>
+            <p>We may update our Privacy Policy from time to time to reflect changes in our practices or services. Any updates will be posted on this page with the updated "Last Updated" date at the top.</p>
+            
+            <h2>6. Contact Us</h2>
+            <p>If you have any questions or suggestions regarding our Privacy Policy, please feel free to reach out to us.</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 TwelveStars. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
