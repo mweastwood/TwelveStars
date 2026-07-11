@@ -11,8 +11,8 @@ history_origin: "Traditional Christian Doxology"
 history_description: "A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, tracing back to the early Councils."
 has_amen: true
 ---
-Gloria Patri, et Filio, et Spiritui Sancto.
+{Gloria Patri|glory_be_1}, {et Filio|glory_be_2}, {et Spiritui Sancto|glory_be_3}.
 
-Sicut erat in principio,
-et nunc, et semper,
-et in saecula saeculorum.
+{Sicut erat in principio|glory_be_4},
+{et nunc, et semper|glory_be_5},
+{et in saecula saeculorum|glory_be_6}.
