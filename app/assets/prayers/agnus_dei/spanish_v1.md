@@ -10,6 +10,6 @@ history_author: ""
 history_origin: ""
 history_description: ""
 ---
-Cordero de Dios, que quitas el pecado del mundo, ten piedad de nosotros.
-Cordero de Dios, que quitas el pecado del mundo, ten piedad de nosotros.
-Cordero de Dios, que quitas el pecado del mundo, danos la paz.
+{Cordero de Dios|agnus_dei_1}, {que quitas el pecado del mundo|agnus_dei_2}, {ten piedad de nosotros|agnus_dei_3}.
+{Cordero de Dios|agnus_dei_4}, {que quitas el pecado del mundo|agnus_dei_5}, {ten piedad de nosotros|agnus_dei_6}.
+{Cordero de Dios|agnus_dei_7}, {que quitas el pecado del mundo|agnus_dei_8}, {danos la paz|agnus_dei_9}.
