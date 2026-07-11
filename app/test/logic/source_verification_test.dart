@@ -538,7 +538,6 @@ void main() {
           .replaceAll('amen', '')
           .replaceAll('amén', '')
           .replaceAll('amên', '')
-          .replaceAll('amon', '')
           .replaceAll('亞孟', '')
           .replaceAll('阿們', '')
           .replaceAll('priest', '')
@@ -602,17 +601,7 @@ void main() {
             // Italian (fully verified)
             // Latin (fully verified)
             // Spanish (fully verified)
-            // Tagalog
-            'act_of_contrition/tagalog_v1',
-            'anima_christi/tagalog_v1',
-            'apostles_creed/tagalog_v1',
-            'fatima_prayer/tagalog_v1',
-            'final_prayer_rosary/tagalog_v1',
-            'hail_holy_queen/tagalog_v1',
-            'nicene_creed/tagalog_v1',
-            'now_i_lay_me/tagalog_v1',
-            'sign_of_the_cross/tagalog_v1',
-            'st_michael/tagalog_v1',
+            // Tagalog (fully verified)
             // Traditional Chinese
             'act_of_contrition/traditionalChinese_v1',
             'anima_christi/traditionalChinese_v1',
