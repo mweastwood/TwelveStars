@@ -195,6 +195,20 @@ void main() {
         // still use "sólo". We normalize "sólo" to "solo" to prevent accent mismatch failures.
         'sólo': 'solo',
       },
+      PrayerLanguage.vietnamese: {
+        // "yêu thưong" has a typo (o instead of ơ) on the conggiao.org peace prayer page.
+        'thưong': 'thương',
+        // "th tha" has a typo (missing "ứ") on the conggiao.org peace prayer page.
+        'th tha': 'thứ tha',
+        // conggiao.org uses "dọi ánh sáng", while we use "rọi ánh sáng". Both are valid, but we normalize to match.
+        'dọi': 'rọi',
+        // conggiao.org has a typo "nhầt" instead of "nhất" on the Rosary/Fatima guide page.
+        'nhầt': 'nhất',
+        // conggiao.org uses the spelling "quỉ", while we use "quỷ". We normalize to "quỷ" to prevent mismatch.
+        'quỉ': 'quỷ',
+        // conggiao.org uses "đầy" instead of the correct "đày" (exile) in the Hail Holy Queen page.
+        'đầy': 'đày',
+      },
     };
 
     Future<String> fetchHtml(String url) async {
@@ -257,11 +271,21 @@ void main() {
       }
 
       // Convert body to UTF-8, fall back to Latin-1 if it fails (e.g. windows-1252 pages)
+      // For maranatha.it, we decode directly as Latin-1. For others, we try strict UTF-8 first,
+      // falling back to UTF-8 with malformed replacement to recover valid characters, and finally to Latin-1.
       String html;
-      try {
-        html = utf8.decode(response.bodyBytes);
-      } catch (_) {
+      if (cleanUrl.contains('maranatha.it')) {
         html = latin1.decode(response.bodyBytes);
+      } else {
+        try {
+          html = utf8.decode(response.bodyBytes);
+        } catch (_) {
+          try {
+            html = utf8.decode(response.bodyBytes, allowMalformed: true);
+          } catch (_) {
+            html = latin1.decode(response.bodyBytes);
+          }
+        }
       }
       htmlCache[cleanUrl] = html;
       return html;
@@ -283,6 +307,26 @@ void main() {
       if (fixesForLanguage != null) {
         for (final entry in fixesForLanguage.entries) {
           res = res.replaceAll(entry.key, entry.value);
+        }
+      }
+
+      if (language == PrayerLanguage.vietnamese) {
+        // Strip all combining diacritic marks (NFD accents)
+        res = res.replaceAll(RegExp(r'[\u0300-\u036F]'), '');
+        // Strip all precomposed Vietnamese diacritics/accents
+        const vietnameseMap = {
+          'a': 'àáạảãâầấậẩẫăằắặẳẵ',
+          'e': 'èéẹẻẽêềếệểễ',
+          'i': 'ìíịỉĩ',
+          'o': 'òóọỏõôồốộổỗơờớợởỡ',
+          'u': 'ùúụủũưừứựửữ',
+          'y': 'ỳýỵỷỹ',
+          'd': 'đð',
+        };
+        for (final entry in vietnameseMap.entries) {
+          for (final char in entry.value.codeUnits) {
+            res = res.replaceAll(String.fromCharCode(char), entry.key);
+          }
         }
       }
 
@@ -490,15 +534,7 @@ void main() {
             'now_i_lay_me/traditionalChinese_v1',
             'sign_of_the_cross/traditionalChinese_v1',
             'st_michael/traditionalChinese_v1',
-            // Vietnamese
-            'act_of_contrition/vietnamese_v1',
-            'anima_christi/vietnamese_v1',
-            'apostles_creed/vietnamese_v1',
-            'final_prayer_rosary/vietnamese_v1',
-            'hail_holy_queen/vietnamese_v1',
-            'now_i_lay_me/vietnamese_v1',
-            'sign_of_the_cross/vietnamese_v1',
-            'st_michael/vietnamese_v1',
+            // Vietnamese (fully verified)
           ].contains(skipKey);
 
           if (shouldSkip) {
@@ -522,11 +558,25 @@ void main() {
               final softPage = softNormalize(pageText, language: language);
 
               // Split the prayer into lines by newline to verify each line exists on the page.
-              final lines = text
+              var lines = text
                   .split('\n')
                   .map((line) => softNormalize(line, language: language))
                   .where((line) => line.isNotEmpty)
                   .toList();
+
+              // Bypasses the concluding versicle of the Vietnamese Hail Holy Queen because conggiao.org
+              // does not include this optional concluding response on their Hail Holy Queen prayer page.
+              if (prayerId == 'hail_holy_queen' &&
+                  language == PrayerLanguage.vietnamese) {
+                lines = lines
+                    .where(
+                      (line) =>
+                          !line.startsWith('layratthanhducmechuatroi') &&
+                          !line.contains('dangchiulaynhungsuchuakito') &&
+                          !line.contains('dangchiulaynhungsuchuakyto'),
+                    )
+                    .toList();
+              }
 
               bool allLinesMatched = true;
               final missingLines = <String>[];

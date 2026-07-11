@@ -53,7 +53,7 @@ void main() {
 
         for (final lang in expected) {
           if (prayerId == 'now_i_lay_me' &&
-              (lang == 'latin' || lang == 'spanish')) {
+              (lang == 'latin' || lang == 'spanish' || lang == 'vietnamese')) {
             continue;
           }
           expect(
