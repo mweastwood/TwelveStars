@@ -185,6 +185,9 @@ void main() {
     // List of domains that have Cloudflare/bot protection and should be fetched from the Wayback Machine directly.
     const waybackOnlyDomains = {'usccb.org', 'www.usccb.org'};
 
+    // Map of known typographical errors on external source pages to their correct spellings.
+    const sourceTypoFixes = {'víirgine': 'virgine', 'viirgine': 'virgine'};
+
     Future<String> fetchHtml(String url) async {
       // Strip any fragment/anchor (e.g. #P1) from the URL to share cache across the same page
       final cleanUrl = url.split('#').first;
@@ -266,6 +269,11 @@ void main() {
 
       res = res.toLowerCase();
 
+      // Apply external source typo fixes
+      for (final entry in sourceTypoFixes.entries) {
+        res = res.replaceAll(entry.key, entry.value);
+      }
+
       if (isLatin) {
         // Latin is normalized (accent/diacritic stripping and ligature expansion) because:
         // 1. Liturgical Latin source texts (like the Vatican Compendium) use variable pronunciation/chanting
@@ -275,8 +283,6 @@ void main() {
         // Stripping accents/ligatures only for Latin prevents false mismatches due to style and typography
         // while preserving strict accent checks for modern languages.
         res = res
-            .replaceAll('víirgine', 'virgine')
-            .replaceAll('viirgine', 'virgine')
             .replaceAll('j', 'i')
             .replaceAll('æ', 'ae')
             .replaceAll('ǽ', 'ae')
