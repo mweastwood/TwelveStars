@@ -96,6 +96,20 @@ void main() {
     final historyDescription = yaml['history_description'] as String? ?? '';
     final hasAmen = yaml['has_amen'] as bool? ?? false;
 
+    List<Map<String, dynamic>>? sources;
+    if (yaml.containsKey('sources')) {
+      final yamlList = yaml['sources'] as YamlList;
+      sources = yamlList.map((item) {
+        final map = item as YamlMap;
+        return {
+          'name': map['name'] as String,
+          'url': map['url'] as String,
+          'start_line': map['start_line'] as int,
+          'end_line': map['end_line'] as int,
+        };
+      }).toList();
+    }
+
     List<List<Map<String, dynamic>>>? chineseLines;
     if (language == 'traditionalChinese') {
       final List<List<Map<String, dynamic>>> lines = [];
@@ -163,6 +177,7 @@ void main() {
       'history_description': historyDescription,
       'chinese_lines': chineseLines,
       'tokens': tokens,
+      'sources': sources,
     });
   }
 
@@ -188,6 +203,7 @@ void main() {
           'history_description': t['history_description'],
           'chinese_lines': t['chinese_lines'],
           'tokens': t['tokens'],
+          'sources': t['sources'],
         });
       }
     }

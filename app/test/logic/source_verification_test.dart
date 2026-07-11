@@ -638,49 +638,63 @@ void main() {
           test(
             'Verify $prayerId in ${language.name}$suffix matches source text',
             () async {
-              final html = await fetchHtml(sourceUrl);
-              final document = html_parser.parse(html);
-              final pageText = document.body?.text ?? '';
-
-              final softPage = softNormalize(pageText, language: language);
+              final sourcesList = tMap['sources'] as List<dynamic>?;
 
               // Split the prayer into lines by newline to verify each line exists on the page.
-              var lines = text
+              final lines = text
                   .split('\n')
                   .map((line) => softNormalize(line, language: language))
                   .where((line) => line.isNotEmpty)
                   .toList();
 
-              // Bypasses the concluding versicle of the Vietnamese Hail Holy Queen because conggiao.org
-              // does not include this optional concluding response on their Hail Holy Queen prayer page.
-              if (prayerId == 'hail_holy_queen' &&
-                  language == PrayerLanguage.vietnamese) {
-                lines = lines
-                    .where(
-                      (line) =>
-                          !line.startsWith('lạyrấtthánhđứcmẹchúatrời') &&
-                          !line.contains('đángchịulấynhữngsựchúakitô') &&
-                          !line.contains('đángchịulấynhữngsựchúakytô'),
-                    )
-                    .toList();
-              }
-
               bool allLinesMatched = true;
               final missingLines = <String>[];
+              final missingDetails = <String>[];
 
-              for (final line in lines) {
-                if (!softPage.contains(line)) {
-                  allLinesMatched = false;
-                  missingLines.add(line);
+              if (sourcesList != null && sourcesList.isNotEmpty) {
+                // Multi-source verification
+                for (final src in sourcesList) {
+                  final srcMap = src as Map<String, dynamic>;
+                  final srcName = srcMap['name'] as String;
+                  final srcUrl = srcMap['url'] as String;
+                  final startLine = srcMap['start_line'] as int;
+                  final endLine = srcMap['end_line'] as int;
+
+                  final html = await fetchHtml(srcUrl);
+                  final document = html_parser.parse(html);
+                  final pageText = document.body?.text ?? '';
+                  final softPage = softNormalize(pageText, language: language);
+
+                  // Extract the lines belonging to this source (1-based indices)
+                  final srcLines = lines.sublist(startLine - 1, endLine);
+                  for (final line in srcLines) {
+                    if (!softPage.contains(line)) {
+                      allLinesMatched = false;
+                      missingLines.add(line);
+                      missingDetails.add('"$line" (from $srcName: $srcUrl)');
+                    }
+                  }
+                }
+              } else {
+                // Fallback to standard single-source verification
+                final html = await fetchHtml(sourceUrl);
+                final document = html_parser.parse(html);
+                final pageText = document.body?.text ?? '';
+                final softPage = softNormalize(pageText, language: language);
+
+                for (final line in lines) {
+                  if (!softPage.contains(line)) {
+                    allLinesMatched = false;
+                    missingLines.add(line);
+                    missingDetails.add('"$line" (from $sourceUrl)');
+                  }
                 }
               }
 
               if (!allLinesMatched) {
                 final errorMsg =
-                    'Prayer text was not found in the source URL: $sourceUrl\n\n'
-                    'Missing lines (soft normalized):\n${missingLines.map((l) => '"$l"').join('\n')}\n\n'
-                    'First 500 characters of page text (soft normalized):\n'
-                    '"${softPage.substring(0, softPage.length > 500 ? 500 : softPage.length)}"';
+                    'Prayer text was not found in the source URLs:\n'
+                    'Missing lines:\n${missingDetails.join('\n')}';
                 fail(errorMsg);
               }
 
