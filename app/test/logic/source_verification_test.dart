@@ -600,28 +600,6 @@ void main() {
               ? ' (Version ${versionIndex + 1})'
               : '';
 
-          final skipKey = '$prayerId/${languageStr}_v${versionIndex + 1}';
-          final shouldSkip = [
-            // French (fully verified)
-            // Italian (fully verified)
-            // Latin (fully verified)
-            // Spanish (fully verified)
-            // Tagalog (fully verified)
-            // Traditional Chinese (fully verified)
-            // Vietnamese (fully verified)
-          ].contains(skipKey);
-
-          if (shouldSkip) {
-            test(
-              'Verify $prayerId in ${language.name}$suffix matches source text (SKIPPED)',
-              () {
-                // ignore: avoid_print
-                print('Skipping source verification for $skipKey');
-              },
-            );
-            continue;
-          }
-
           test(
             'Verify $prayerId in ${language.name}$suffix matches source text',
             () async {
