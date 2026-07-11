@@ -198,8 +198,16 @@ void main() {
       PrayerLanguage.vietnamese: {
         // VEYM website has a typo "Đức Chúa Chúa Thánh Thần" in the Apostles' Creed.
         'chúa chúa': 'chúa',
+        // VEYM website has a typo "lương thực hàng ngày" instead of "hằng ngày" in the Our Father.
+        'hàng ngày': 'hằng ngày',
+        // VEYM website has a typo "khi nay" instead of "khi này" in the Hail Mary.
+        'khi nay': 'khi này',
+        // VEYM website has a typo "nhầt" instead of "nhất" in the Fatima Prayer.
+        'nhầt': 'nhất',
         // VietCatholic uses the spelling "quỉ", while we use "quỷ". We normalize to "quỷ" to prevent mismatch.
         'quỉ': 'quỷ',
+        // VietCatholic has a typo "cơ bình" instead of "cơ binh" in the St. Michael prayer.
+        'cơ bình': 'cơ binh',
       },
     };
 
@@ -303,22 +311,109 @@ void main() {
       }
 
       if (language == PrayerLanguage.vietnamese) {
-        // Strip all combining diacritic marks (NFD accents)
-        res = res.replaceAll(RegExp(r'[\u0300-\u036F]'), '');
-        // Strip all precomposed Vietnamese diacritics/accents
-        const vietnameseMap = {
-          'a': 'àáạảãâầấậẩẫăằắặẳẵ',
-          'e': 'èéẹẻẽêềếệểễ',
-          'i': 'ìíịỉĩ',
-          'o': 'òóọỏõôồốộổỗơờớợởỡ',
-          'u': 'ùúụủũưừứựửữ',
-          'y': 'ỳýỵỷỹ',
-          'd': 'đð',
+        // Normalize Icelandic Eth (used on older sites like conggiao.org) to Vietnamese D-with-stroke
+        res = res.replaceAll('ð', 'đ');
+
+        // Compose decomposed Unicode combining diacritics into precomposed NFC characters
+        const baseMap = {
+          'a\u0306': 'ă',
+          'a\u0302': 'â',
+          'e\u0302': 'ê',
+          'o\u0302': 'ô',
+          'o\u031b': 'ơ',
+          'u\u031b': 'ư',
+          'd\u0335': 'đ',
         };
-        for (final entry in vietnameseMap.entries) {
-          for (final char in entry.value.codeUnits) {
-            res = res.replaceAll(String.fromCharCode(char), entry.key);
-          }
+        for (final entry in baseMap.entries) {
+          res = res.replaceAll(entry.key, entry.value);
+        }
+
+        const toneMap = {
+          'a\u0300': 'à',
+          'a\u0301': 'á',
+          'a\u0309': 'ả',
+          'a\u0303': 'ã',
+          'a\u0323': 'ạ',
+          'ă\u0300': 'ằ',
+          'ă\u0301': 'ắ',
+          'ă\u0309': 'ẳ',
+          'ă\u0303': 'ẵ',
+          'ă\u0323': 'ặ',
+          'â\u0300': 'ầ',
+          'â\u0301': 'ấ',
+          'â\u0309': 'ẩ',
+          'â\u0303': 'ẫ',
+          'â\u0323': 'ậ',
+          'e\u0300': 'è',
+          'e\u0301': 'é',
+          'e\u0309': 'ẻ',
+          'e\u0303': 'ẽ',
+          'e\u0323': 'ẹ',
+          'ê\u0300': 'ề',
+          'ê\u0301': 'ế',
+          'ê\u0309': 'ể',
+          'ê\u0303': 'ễ',
+          'ê\u0323': 'ệ',
+          'i\u0300': 'ì',
+          'i\u0301': 'í',
+          'i\u0309': 'ỉ',
+          'i\u0303': 'ĩ',
+          'i\u0323': 'ị',
+          'o\u0300': 'ò',
+          'o\u0301': 'ó',
+          'o\u0309': 'ỏ',
+          'o\u0303': 'õ',
+          'o\u0323': 'ọ',
+          'ô\u0300': 'ồ',
+          'ô\u0301': 'ố',
+          'ô\u0309': 'ổ',
+          'ô\u0303': 'ỗ',
+          'ô\u0323': 'ộ',
+          'ơ\u0300': 'ờ',
+          'ơ\u0301': 'ớ',
+          'ơ\u0309': 'ở',
+          'ơ\u0303': 'ỡ',
+          'ơ\u0323': 'ợ',
+          'u\u0300': 'ù',
+          'u\u0301': 'ú',
+          'u\u0309': 'ủ',
+          'u\u0303': 'ũ',
+          'u\u0323': 'ụ',
+          'ư\u0300': 'ừ',
+          'ư\u0301': 'ứ',
+          'ư\u0309': 'ử',
+          'ư\u0303': 'ữ',
+          'ư\u0323': 'ự',
+          'y\u0300': 'ỳ',
+          'y\u0301': 'ý',
+          'y\u0309': 'ỷ',
+          'y\u0303': 'ỹ',
+          'y\u0323': 'ỵ',
+        };
+        for (final entry in toneMap.entries) {
+          res = res.replaceAll(entry.key, entry.value);
+        }
+
+        // Normalize old-style diphthong accent placement to modern-style
+        const diphthongMap = {
+          'oá': 'óa',
+          'oà': 'òa',
+          'oả': 'ỏa',
+          'oã': 'õa',
+          'oạ': 'ọa',
+          'uý': 'úy',
+          'uỳ': 'ùy',
+          'uỷ': 'ủy',
+          'uỹ': 'ũy',
+          'uỵ': 'ụy',
+          'oé': 'óe',
+          'oè': 'òe',
+          'oẻ': 'ỏe',
+          'oẽ': 'õe',
+          'oẹ': 'ọe',
+        };
+        for (final entry in diphthongMap.entries) {
+          res = res.replaceAll(entry.key, entry.value);
         }
       }
 
@@ -563,9 +658,9 @@ void main() {
                 lines = lines
                     .where(
                       (line) =>
-                          !line.startsWith('layratthanhducmechuatroi') &&
-                          !line.contains('dangchiulaynhungsuchuakito') &&
-                          !line.contains('dangchiulaynhungsuchuakyto'),
+                          !line.startsWith('lạyrấtthánhđứcmẹchúatrời') &&
+                          !line.contains('đángchịulấynhữngsựchúakitô') &&
+                          !line.contains('đángchịulấynhữngsựchúakytô'),
                     )
                     .toList();
               }
