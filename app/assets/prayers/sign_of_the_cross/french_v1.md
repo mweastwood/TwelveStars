@@ -11,4 +11,4 @@ history_origin: "Tradition Chrétienne"
 history_description: "Formulation trinitaire traditionnelle en langue française."
 has_amen: true
 ---
-Au nom du Père, et du Fils, et du Saint-Esprit.
+{Au nom du Père|sign_of_the_cross_1}, {et du Fils|sign_of_the_cross_2}, {et du Saint-Esprit|sign_of_the_cross_3}.

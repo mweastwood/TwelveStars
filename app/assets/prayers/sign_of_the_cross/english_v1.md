@@ -11,4 +11,4 @@ history_origin: "Early Christian Custom"
 history_description: "A blessing gesture tracing back to the 2nd century, invoking the Holy Trinity."
 has_amen: true
 ---
-In the name of the Father, and of the Son, and of the Holy Spirit.
+{In the name of the Father|sign_of_the_cross_1}, {and of the Son|sign_of_the_cross_2}, {and of the Holy Spirit|sign_of_the_cross_3}.

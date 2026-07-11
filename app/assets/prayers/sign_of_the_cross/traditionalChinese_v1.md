@@ -11,4 +11,4 @@ history_origin: "Apostolic Tradition"
 history_description: "天主聖三的祈求。"
 has_amen: true
 ---
-因父、及子、及聖神之名。阿們。
+{因父|sign_of_the_cross_1}、{及子|sign_of_the_cross_2}、{及聖神之名|sign_of_the_cross_3}。

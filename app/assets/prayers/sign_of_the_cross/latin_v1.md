@@ -11,4 +11,4 @@ history_origin: "Traditional Latin Rite"
 history_description: "The traditional Latin form of the trinitarian invocation."
 has_amen: true
 ---
-In nomine Patris, et Filii, et Spiritus Sancti.
+{In nomine Patris|sign_of_the_cross_1}, {et Filii|sign_of_the_cross_2}, {et Spiritus Sancti|sign_of_the_cross_3}.
