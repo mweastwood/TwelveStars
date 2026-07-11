@@ -3,12 +3,12 @@ category: "devotional"
 default_order: 10
 default_title: "Act of Contrition"
 title: "Acto de Contrición"
-subtitle: "Versión tradicional"
+subtitle: "Versión del Compendio"
 source_name: "Compendio del Catecismo de la Iglesia Católica"
-source_url: "https://es.wikipedia.org/wiki/Acto_de_contrici%C3%B3n"
-history_author: "Traditional"
-history_origin: "Catholic Devotional Tradition"
-history_description: "An expression of sorrow for sin and a resolution to amend one's life, widely used in the Sacrament of Reconciliation."
+source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html"
+history_author: "Tradicional"
+history_origin: "Tradición de la Iglesia"
+history_description: "Una expresión de dolor por el pecado y la resolución de enmendar la vida, ampliamente utilizada en el Sacramento de la Reconciliación."
 has_amen: true
 ---
-Pésame Dios mío y me arrepiento de todo corazón de haberos ofendido. Pésame por el infierno que merecí y por el cielo que perdí; pero mucho más me pesa porque pecando ofendí a un Dios tan bueno y tan grande como Vos. Antes querría haber muerto que haberos ofendido, y propongo firmemente ayudado por vuestra divina gracia, no pecar más y evitar las ocasiones próximas de pecado.
+Dios mío, me arrepiento de todo corazón de todos mis pecados y los aborrezco, porque al pecar, no sólo merezco las penas establecidas por ti justamente, sino principalmente porque te ofendí, a ti sumo Bien y digno de amor por encima de todas las cosas. Por eso propongo firmemente, con ayuda de tu gracia, no pecar más en adelante y huir de toda ocasión de pecado.
