@@ -196,18 +196,10 @@ void main() {
         'sólo': 'solo',
       },
       PrayerLanguage.vietnamese: {
-        // "yêu thưong" has a typo (o instead of ơ) on the conggiao.org peace prayer page.
-        'thưong': 'thương',
-        // "th tha" has a typo (missing "ứ") on the conggiao.org peace prayer page.
-        'th tha': 'thứ tha',
-        // conggiao.org uses "dọi ánh sáng", while we use "rọi ánh sáng". Both are valid, but we normalize to match.
-        'dọi': 'rọi',
-        // conggiao.org has a typo "nhầt" instead of "nhất" on the Rosary/Fatima guide page.
-        'nhầt': 'nhất',
-        // conggiao.org uses the spelling "quỉ", while we use "quỷ". We normalize to "quỷ" to prevent mismatch.
+        // VEYM website has a typo "Đức Chúa Chúa Thánh Thần" in the Apostles' Creed.
+        'chúa chúa': 'chúa',
+        // VietCatholic uses the spelling "quỉ", while we use "quỷ". We normalize to "quỷ" to prevent mismatch.
         'quỉ': 'quỷ',
-        // conggiao.org uses "đầy" instead of the correct "đày" (exile) in the Hail Holy Queen page.
-        'đầy': 'đày',
       },
     };
 
