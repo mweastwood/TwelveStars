@@ -11,14 +11,14 @@ history_origin: "Gospel of Matthew 6:9–13"
 history_description: "Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer."
 has_amen: true
 ---
-Notre Père, qui es aux cieux,
-que ton Nom soit sanctifié,
-que ton Règne vienne,
-que ta volonté soit faite,
-sur la terre comme au ciel.
+{Notre Père|our_father_1}, {qui es aux cieux|our_father_2},
+{que ton Nom soit sanctifié|our_father_3},
+{que ton Règne vienne|our_father_4},
+{que ta volonté soit faite|our_father_5},
+{sur la terre comme au ciel|our_father_6}.
 
-Donne-nous aujourd’hui notre pain de ce jour,
-pardonne-nous nos offenses,
-comme nous pardonnons aussi à ceux qui nous ont offensés,
-et ne nous soumets pas à la tentation,
-mais délivre-nous du mal.
+{Donne-nous aujourd’hui notre pain de ce jour|our_father_7},
+{pardonne-nous nos offenses|our_father_8},
+{comme nous pardonnons aussi à ceux qui nous ont offensés|our_father_9},
+{et ne nous soumets pas à la tentation|our_father_10},
+{mais délivre-nous du mal|our_father_11}.
