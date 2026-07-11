@@ -11,4 +11,4 @@ history_origin: "Collect from the Feast of the Holy Rosary"
 history_description: "A concluding petition asking God that we may imitate the mysteries of the Rosary and obtain the eternal life they promise."
 has_amen: true
 ---
-O God, whose only-begotten Son, by his life, death and resurrection, has purchased for us the rewards of eternal life, grant, we beseech thee, that meditating on these mysteries of the most holy Rosary of the Blessed Virgin Mary, we may imitate what they contain and obtain what they promise, through the same Christ our Lord.
+{O God, whose only-begotten Son, by his life, death and resurrection, has purchased for us the rewards of eternal life|final_prayer_rosary_1}, {grant, we beseech thee, that meditating on these mysteries of the most holy Rosary of the Blessed Virgin Mary|final_prayer_rosary_2}, {we may imitate what they contain|final_prayer_rosary_3} {and obtain what they promise|final_prayer_rosary_4}, {through the same Christ our Lord|final_prayer_rosary_5}.
