@@ -11,4 +11,4 @@ history_origin: "Catholic Devotional Tradition"
 history_description: "An expression of sorrow for sin and a resolution to amend one's life, widely used in the Sacrament of Reconciliation."
 has_amen: true
 ---
-Lạy Chúa con, Chúa là Đấng trọn tốt trọn lành vô cùng. Chúa đã dựng nên con, và cho Con Chúa ra đời chịu nạn chịu chết vì con, mà con đã cả lòng phản nghịch lỗi nghĩa cùng Chúa, thì con lo buồn đau đớn, cùng chê ghét mọi tội con trên hết mọi sự; con dốc lòng chừa cải, và nhờ ơn Chúa thì con sẽ lánh xa dịp tội cùng làm việc đền tội cho xứng.
+{Lạy Chúa con, Chúa là Đấng trọn tốt trọn lành vô cùng|act_of_contrition_1}. {Chúa đã dựng nên con, và cho Con Chúa ra đời chịu nạn chịu chết vì con, mà con đã cả lòng phản nghịch lỗi nghĩa cùng Chúa|act_of_contrition_2}, {thì con lo buồn đau đớn, cùng chê ghét mọi tội con trên hết mọi sự|act_of_contrition_3}; {con dốc lòng chừa cải|act_of_contrition_4}, {và nhờ ơn Chúa thì con sẽ lánh xa dịp tội cùng làm việc đền tội cho xứng|act_of_contrition_5}.
