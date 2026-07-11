@@ -185,11 +185,16 @@ void main() {
     // List of domains that have Cloudflare/bot protection and should be fetched from the Wayback Machine directly.
     const waybackOnlyDomains = {'usccb.org', 'www.usccb.org'};
 
-    // Map of known typographical errors on external source pages to their correct spellings.
+    // Map of known typographical errors on external source pages to their correct spellings, categorized by language.
     const sourceTypoFixes = {
-      'víirgine': 'virgine',
-      'viirgine': 'virgine',
-      'sólo': 'solo',
+      PrayerLanguage.latin: {'víirgine': 'virgine', 'viirgine': 'virgine'},
+      PrayerLanguage.spanish: {
+        // In 2010, the Real Academia Española (RAE) updated the spelling rules and officially
+        // eliminated the accent mark on "sólo" (meaning "only" or "just"). Today, the correct spelling is
+        // simply "solo" without an accent. Our database uses the modern spelling "solo", but older web sources
+        // still use "sólo". We normalize "sólo" to "solo" to prevent accent mismatch failures.
+        'sólo': 'solo',
+      },
     };
 
     Future<String> fetchHtml(String url) async {
@@ -263,7 +268,7 @@ void main() {
     }
 
     // A robust soft normalization to handle HTML tag spacing, punctuation, accents, and casing.
-    String softNormalize(String text, {required bool isLatin}) {
+    String softNormalize(String text, {required PrayerLanguage language}) {
       // Strip Wikipedia footnote reference tags like [a] or [1]
       String res = text
           .replaceAll(RegExp(r'\[\w\]'), '')
@@ -273,11 +278,15 @@ void main() {
 
       res = res.toLowerCase();
 
-      // Apply external source typo fixes
-      for (final entry in sourceTypoFixes.entries) {
-        res = res.replaceAll(entry.key, entry.value);
+      // Apply language-specific external source typo fixes
+      final fixesForLanguage = sourceTypoFixes[language];
+      if (fixesForLanguage != null) {
+        for (final entry in fixesForLanguage.entries) {
+          res = res.replaceAll(entry.key, entry.value);
+        }
       }
 
+      final isLatin = language == PrayerLanguage.latin;
       if (isLatin) {
         // Latin is normalized (accent/diacritic stripping and ligature expansion) because:
         // 1. Liturgical Latin source texts (like the Vatican Compendium) use variable pronunciation/chanting
@@ -510,13 +519,12 @@ void main() {
               final document = html_parser.parse(html);
               final pageText = document.body?.text ?? '';
 
-              final isLatin = language == PrayerLanguage.latin;
-              final softPage = softNormalize(pageText, isLatin: isLatin);
+              final softPage = softNormalize(pageText, language: language);
 
               // Split the prayer into lines by newline to verify each line exists on the page.
               final lines = text
                   .split('\n')
-                  .map((line) => softNormalize(line, isLatin: isLatin))
+                  .map((line) => softNormalize(line, language: language))
                   .where((line) => line.isNotEmpty)
                   .toList();
 
