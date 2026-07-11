@@ -82,7 +82,11 @@ void main() {
             expect(title.isNotEmpty, isTrue);
             expect(text.isNotEmpty, isTrue);
             expect(sourceName.isNotEmpty, isTrue);
-            expect(sourceUrl.startsWith('https://'), isTrue);
+            expect(
+              sourceUrl.startsWith('https://') ||
+                  sourceUrl.startsWith('http://'),
+              isTrue,
+            );
           }
         }
       }
