@@ -209,6 +209,10 @@ void main() {
         // VietCatholic has a typo "cơ bình" instead of "cơ binh" in the St. Michael prayer.
         'cơ bình': 'cơ binh',
       },
+      PrayerLanguage.traditionalChinese: {
+        // Diocesan Family Commission has a typo "遣責" instead of "譴責".
+        '遣責': '譴責',
+      },
     };
 
     Future<String> fetchHtml(String url) async {
@@ -540,6 +544,7 @@ void main() {
           .replaceAll('amên', '')
           .replaceAll('亞孟', '')
           .replaceAll('阿們', '')
+          .replaceAll('阿門', '')
           .replaceAll('priest', '')
           .replaceAll('people', '')
           .replaceAll('deacon', '')
@@ -594,35 +599,6 @@ void main() {
           final suffix = versionCount > 1
               ? ' (Version ${versionIndex + 1})'
               : '';
-
-          final skipKey = '$prayerId/${languageStr}_v${versionIndex + 1}';
-          final shouldSkip = [
-            // French (fully verified)
-            // Italian (fully verified)
-            // Latin (fully verified)
-            // Spanish (fully verified)
-            // Tagalog (fully verified)
-            // Traditional Chinese
-            'act_of_contrition/traditionalChinese_v1',
-            'anima_christi/traditionalChinese_v1',
-            'fatima_prayer/traditionalChinese_v1',
-            'final_prayer_rosary/traditionalChinese_v1',
-            'now_i_lay_me/traditionalChinese_v1',
-            'sign_of_the_cross/traditionalChinese_v1',
-            'st_michael/traditionalChinese_v1',
-            // Vietnamese (fully verified)
-          ].contains(skipKey);
-
-          if (shouldSkip) {
-            test(
-              'Verify $prayerId in ${language.name}$suffix matches source text (SKIPPED)',
-              () {
-                // ignore: avoid_print
-                print('Skipping source verification for $skipKey');
-              },
-            );
-            continue;
-          }
 
           test(
             'Verify $prayerId in ${language.name}$suffix matches source text',
