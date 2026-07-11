@@ -11,4 +11,4 @@ history_origin: "Apparition at Fatima (1917)"
 history_description: "Taught by the Virgin Mary to the three shepherd children in Fatima, Portugal, to be said after each decade of the Rosary."
 has_amen: true
 ---
-O Hesus ko, patawarin Mo ang aming mga sala. Iligtas Mo kami sa apoy ng impiyerno. Hanguin Mo ang mga kaluluwa sa purgatoryo, lalong-lalo na yaong mga walang nakakaalaala.
+{O Hesus ko, patawarin Mo ang aming mga sala|fatima_prayer_1}. {Iligtas Mo kami sa apoy ng impiyerno|fatima_prayer_2}. {Hanguin Mo ang mga kaluluwa sa purgatoryo|fatima_prayer_3}, {lalong-lalo na yaong mga walang nakakaalaala|fatima_prayer_4}.
