@@ -4,8 +4,8 @@ default_order: 106
 default_title: Blessing & Dismissal
 title: Bendición y Despedida
 subtitle: ""
-source_name: Misal Romano
-source_url: https://misas.org/p/ordinario-de-la-misa
+source_name: Ordinario de la Misa (Maranatha)
+source_url: https://www.maranatha.it/MobileEdition/02-Liturgia/testiPDA/ritomessa/ordmisa.htm
 history_author: ""
 history_origin: ""
 history_description: ""

@@ -186,7 +186,11 @@ void main() {
     const waybackOnlyDomains = {'usccb.org', 'www.usccb.org'};
 
     // Map of known typographical errors on external source pages to their correct spellings.
-    const sourceTypoFixes = {'víirgine': 'virgine', 'viirgine': 'virgine'};
+    const sourceTypoFixes = {
+      'víirgine': 'virgine',
+      'viirgine': 'virgine',
+      'sólo': 'solo',
+    };
 
     Future<String> fetchHtml(String url) async {
       // Strip any fragment/anchor (e.g. #P1) from the URL to share cache across the same page
@@ -457,20 +461,7 @@ void main() {
             // French (fully verified)
             // Italian (fully verified)
             // Latin (fully verified)
-            // Spanish
-            'act_of_contrition/spanish_v1',
-            'anima_christi/spanish_v1',
-            'confiteor/spanish_v1',
-            'fatima_prayer/spanish_v1',
-            'final_prayer_rosary/spanish_v1',
-            'gloria/spanish_v1',
-            'hail_holy_queen/spanish_v1',
-            'nicene_creed/spanish_v1',
-            'now_i_lay_me/spanish_v1',
-            'st_michael/spanish_v1',
-            'mass_greeting/spanish_v1',
-            'sign_of_peace/spanish_v1',
-            'dismissal/spanish_v1',
+            // Spanish (fully verified)
             // Tagalog
             'act_of_contrition/tagalog_v1',
             'anima_christi/tagalog_v1',
