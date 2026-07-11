@@ -601,8 +601,7 @@ void main() {
             // Italian (fully verified)
             // Latin (fully verified)
             // Spanish (fully verified)
-            // Tagalog (fully verified, except nursery bedtime prayer)
-            'now_i_lay_me/tagalog_v1',
+            // Tagalog (fully verified)
             // Traditional Chinese
             'act_of_contrition/traditionalChinese_v1',
             'anima_christi/traditionalChinese_v1',
