@@ -10,11 +10,11 @@ history_author: ""
 history_origin: ""
 history_description: ""
 ---
-Sacerdos: Dominus vobiscum.
-Populus: Et cum spiritu tuo.
+Sacerdos: {Dominus vobiscum.|dismissal_1}
+Populus: {Et cum spiritu tuo.|dismissal_2}
 
-Sacerdos: Benedicat vos omnipotens Deus, Pater, et Filius, et Spiritus Sanctus.
-Populus: Amen.
+Sacerdos: {Benedicat vos omnipotens Deus, Pater, et Filius, et Spiritus Sanctus.|dismissal_3}
+Populus: {Amen.|dismissal_4}
 
-Diaconus: Ite, missa est.
-Populus: Deo gratias.
+Diaconus: {Ite, missa est.|dismissal_5}
+Populus: {Deo gratias.|dismissal_6}
