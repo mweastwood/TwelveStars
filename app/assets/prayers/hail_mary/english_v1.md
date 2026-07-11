@@ -11,11 +11,11 @@ history_origin: "Gospel of Luke 1:28, 42"
 history_description: "Combines the Angelic Salutation, Elizabeth’s greeting, and an ecclesial petition finalized in the 16th century."
 has_amen: true
 ---
-Hail, Mary, full of grace,
-the Lord is with thee.
-Blessed art thou among women,
-and blessed is the fruit of thy womb, Jesus.
+{Hail, Mary, full of grace|hail_mary_1},
+{the Lord is with thee|hail_mary_2}.
+{Blessed art thou among women|hail_mary_3},
+{and blessed is the fruit of thy womb, Jesus|hail_mary_4}.
 
-Holy Mary, Mother of God,
-pray for us sinners,
-now and at the hour of our death.
+{Holy Mary, Mother of God|hail_mary_5},
+{pray for us sinners|hail_mary_6},
+{now and at the hour of our death|hail_mary_7}.
