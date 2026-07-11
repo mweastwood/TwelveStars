@@ -11,4 +11,4 @@ history_origin: "Tradición Cristiana"
 history_description: "Invocación trinitaria tradicional en lengua castellana."
 has_amen: true
 ---
-En el nombre del Padre, y del Hijo, y del Espíritu Santo.
+{En el nombre del Padre|sign_of_the_cross_1}, {y del Hijo|sign_of_the_cross_2}, {y del Espíritu Santo|sign_of_the_cross_3}.

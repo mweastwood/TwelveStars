@@ -11,4 +11,4 @@ history_origin: "Tradizione Cristiana"
 history_description: "Invocazione trinitaria in lingua italiana."
 has_amen: true
 ---
-Nel nome del Padre, del Figlio e dello Spirito Santo.
+{Nel nome del Padre|sign_of_the_cross_1}, {del Figlio|sign_of_the_cross_2} {e dello Spirito Santo|sign_of_the_cross_3}.

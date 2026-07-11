@@ -11,4 +11,4 @@ history_origin: "Vietnamese Traditional Liturgy"
 history_description: "Dấu thánh giá tuyên xưng Ba Ngôi Thiên Chúa bằng tiếng Việt."
 has_amen: true
 ---
-Nhân danh Cha, và Con, và Thánh Thần.
+{Nhân danh Cha|sign_of_the_cross_1}, {và Con|sign_of_the_cross_2}, {và Thánh Thần|sign_of_the_cross_3}.
