@@ -10,8 +10,9 @@ history_author: ""
 history_origin: ""
 history_description: ""
 ---
-Sanctus, Sanctus, Sanctus Dominus Deus Sabaoth.
-Pleni sunt caeli et terra gloria tua.
-Hosanna in excelsis.
-Benedictus qui venit in nomine Domini.
-Hosanna in excelsis.
+{Sanctus, Sanctus, Sanctus Dominus Deus Sabaoth.|sanctus_1}
+{Pleni sunt caeli et terra gloria tua.|sanctus_2}
+{Hosanna in excelsis.|sanctus_3}
+{Benedictus qui venit in nomine Domini.|sanctus_4}
+{Hosanna in excelsis.|sanctus_5}
+

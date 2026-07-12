@@ -10,8 +10,9 @@ history_author: ""
 history_origin: ""
 history_description: ""
 ---
-Holy, Holy, Holy Lord God of hosts.
-Heaven and earth are full of your glory.
-Hosanna in the highest.
-Blessed is he who comes in the name of the Lord.
-Hosanna in the highest.
+{Holy, Holy, Holy Lord God of hosts.|sanctus_1}
+{Heaven and earth are full of your glory.|sanctus_2}
+{Hosanna in the highest.|sanctus_3}
+{Blessed is he who comes in the name of the Lord.|sanctus_4}
+{Hosanna in the highest.|sanctus_5}
+

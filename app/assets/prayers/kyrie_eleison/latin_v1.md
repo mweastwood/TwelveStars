@@ -10,11 +10,12 @@ history_author: ""
 history_origin: ""
 history_description: ""
 ---
-Sacerdos: Kyrie, eleison.
-Populus: Kyrie, eleison.
+Sacerdos: {Kyrie, eleison.|kyrie_eleison_1}
+Populus: {Kyrie, eleison.|kyrie_eleison_2}
 
-Sacerdos: Christe, eleison.
-Populus: Christe, eleison.
+Sacerdos: {Christe, eleison.|kyrie_eleison_3}
+Populus: {Christe, eleison.|kyrie_eleison_4}
 
-Sacerdos: Kyrie, eleison.
-Populus: Kyrie, eleison.
+Sacerdos: {Kyrie, eleison.|kyrie_eleison_5}
+Populus: {Kyrie, eleison.|kyrie_eleison_6}
+

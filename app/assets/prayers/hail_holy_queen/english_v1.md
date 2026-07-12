@@ -10,9 +10,10 @@ history_author: "Hermann of Reichenau (attributed)"
 history_origin: "Marian Antiphon (c. 11th century)"
 history_description: "One of the four Marian antiphons, traditionally recited at the end of the Rosary as a plea for protection and mercy."
 ---
-Hail, holy Queen, Mother of mercy, our life, our sweetness, and our hope. To thee do we cry, poor banished children of Eve. To thee do we send up our sighs, mourning and weeping in this valley of tears.
+{Hail, holy Queen, Mother of mercy, our life, our sweetness, and our hope|hail_holy_queen_1}. {To thee do we cry, poor banished children of Eve|hail_holy_queen_2}. {To thee do we send up our sighs, mourning and weeping in this valley of tears|hail_holy_queen_3}.
 
-Turn then, most gracious Advocate, thine eyes of mercy toward us. And after this our exile show unto us the blessed fruit of thy womb, Jesus. O clement, O loving, O sweet Virgin Mary.
+{Turn then, most gracious Advocate, thine eyes of mercy toward us|hail_holy_queen_4}. {And after this our exile show unto us the blessed fruit of thy womb, Jesus|hail_holy_queen_5}. {O clement, O loving, O sweet Virgin Mary|hail_holy_queen_6}.
 
-V. Pray for us, O Holy Mother of God.
-R. That we may be made worthy of the promises of Christ.
+V. {Pray for us, O Holy Mother of God|hail_holy_queen_7}.
+R. {That we may be made worthy of the promises of Christ|hail_holy_queen_8}.
+

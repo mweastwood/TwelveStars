@@ -10,11 +10,12 @@ history_author: ""
 history_origin: ""
 history_description: ""
 ---
-Sacerdote: Señor, ten piedad.
-Asamblea: Señor, ten piedad.
+Sacerdote: {Señor, ten piedad.|kyrie_eleison_1}
+Asamblea: {Señor, ten piedad.|kyrie_eleison_2}
 
-Sacerdote: Cristo, ten piedad.
-Asamblea: Cristo, ten piedad.
+Sacerdote: {Cristo, ten piedad.|kyrie_eleison_3}
+Asamblea: {Cristo, ten piedad.|kyrie_eleison_4}
 
-Sacerdote: Señor, ten piedad.
-Asamblea: Señor, ten piedad.
+Sacerdote: {Señor, ten piedad.|kyrie_eleison_5}
+Asamblea: {Señor, ten piedad.|kyrie_eleison_6}
+

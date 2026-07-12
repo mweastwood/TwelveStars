@@ -10,6 +10,7 @@ history_author: "Hermann of Reichenau (attributed)"
 history_origin: "Marian Antiphon (c. 11th century)"
 history_description: "One of the four Marian antiphons, traditionally recited at the end of the Rosary as a plea for protection and mercy."
 ---
-Salve, Regina, Mater misericordiae, vita, dulcedo et spes nostra, salve. Ad te clamamus, exsules filii Evae. Ad te suspiramus gementes et flentes in hac lacrimarum valle. Eia ergo, advocata nostra, illos tuos misericordes oculos ad nos converte. Et Iesum benedictum fructum ventris tui, nobis, post hoc exsilium, ostende. O clemens, o pia, o dulcis Virgo Maria.
+{Salve, Regina, Mater misericordiae, vita, dulcedo et spes nostra, salve|hail_holy_queen_1}. {Ad te clamamus, exsules filii Evae|hail_holy_queen_2}. {Ad te suspiramus gementes et flentes in hac lacrimarum valle|hail_holy_queen_3}. {Eia ergo, advocata nostra, illos tuos misericordes oculos ad nos converte|hail_holy_queen_4}. {Et Iesum benedictum fructum ventris tui, nobis, post hoc exsilium, ostende|hail_holy_queen_5}. {O clemens, o pia, o dulcis Virgo Maria|hail_holy_queen_6}.
 
-Ora pro nobis, sancta Dei Genetrix. Ut digni efficiamur promissionibus Christi.
+{Ora pro nobis, sancta Dei Genetrix|hail_holy_queen_7}. {Ut digni efficiamur promissionibus Christi|hail_holy_queen_8}.
+

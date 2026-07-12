@@ -11,8 +11,9 @@ history_origin: "Classic Bedtime Prayer (c. 18th century)"
 history_description: "A popular children's bedtime prayer asking for divine protection throughout the night."
 has_amen: true
 ---
-Now I lay me down to sleep,
-I pray Thee, Lord, my soul to keep.
-If I should die before I wake,
-I pray Thee, Lord, my soul to take;
-And this I ask for Jesus' sake.
+{Now I lay me down to sleep|now_i_lay_me_1},
+{I pray Thee, Lord, my soul to keep|now_i_lay_me_2}.
+{If I should die before I wake|now_i_lay_me_3},
+{I pray Thee, Lord, my soul to take|now_i_lay_me_4};
+{And this I ask for Jesus' sake|now_i_lay_me_5}.
+

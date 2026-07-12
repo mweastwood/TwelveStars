@@ -10,5 +10,8 @@ history_author: ""
 history_origin: ""
 history_description: ""
 ---
-Sacerdote: La paz del Señor esté siempre con vosotros.
-Asamblea: Y con tu espíritu.
+Sacerdote: {La paz del Señor esté siempre con vosotros.|sign_of_peace_1}
+Asamblea: {Y con tu espíritu.|sign_of_peace_2}
+
+{|sign_of_peace_3}
+
