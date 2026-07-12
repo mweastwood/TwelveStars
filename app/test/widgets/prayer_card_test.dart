@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
+import 'package:local_agent/local_agent.dart';
+import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
 import '../test_helper.dart';
@@ -167,6 +169,42 @@ void main() {
       },
     );
 
+    final testPrayerWithTokens = Prayer.mock(
+      id: 'our_father_tokens',
+      defaultTitle: 'Our Father',
+      translations: {
+        PrayerLanguage.english: [
+          PrayerTranslation.mock(
+            title: 'Our Father',
+            subtitle: "The Lord's Prayer (Traditional)",
+            text: 'Our Father, who art in heaven, hallowed be thy name;',
+            tokens: [
+              PrayerToken('Our Father, ', null),
+              PrayerToken('who art in heaven', 'heaven'),
+              PrayerToken(', ', null),
+              PrayerToken('hallowed be thy name', 'name'),
+              PrayerToken(';', null),
+            ],
+          ),
+        ],
+        PrayerLanguage.spanish: [
+          PrayerTranslation.mock(
+            title: 'Padre Nuestro',
+            subtitle: 'El Padre Nuestro',
+            text:
+                'Padre nuestro, que estás in el cielo, santificado sea tu nombre;',
+            tokens: [
+              PrayerToken('Padre nuestro, ', null),
+              PrayerToken('que estás in el cielo', 'heaven'),
+              PrayerToken(', ', null),
+              PrayerToken('santificado sea tu nombre', 'name'),
+              PrayerToken(';', null),
+            ],
+          ),
+        ],
+      },
+    );
+
     testWidgets('renders prayer title, subtitle, and content in English', (
       tester,
     ) async {
@@ -199,42 +237,6 @@ void main() {
     testWidgets(
       'tapping on an annotated phrase in single-language mode opens side-by-side (dual) mode',
       (tester) async {
-        final testPrayerWithTokens = Prayer.mock(
-          id: 'our_father',
-          defaultTitle: 'Our Father',
-          translations: {
-            PrayerLanguage.english: [
-              PrayerTranslation.mock(
-                title: 'Our Father',
-                subtitle: "The Lord's Prayer (Traditional)",
-                text: 'Our Father, who art in heaven, hallowed be thy name;',
-                tokens: [
-                  PrayerToken('Our Father, ', null),
-                  PrayerToken('who art in heaven', 'heaven'),
-                  PrayerToken(', ', null),
-                  PrayerToken('hallowed be thy name', 'name'),
-                  PrayerToken(';', null),
-                ],
-              ),
-            ],
-            PrayerLanguage.spanish: [
-              PrayerTranslation.mock(
-                title: 'Padre Nuestro',
-                subtitle: 'El Padre Nuestro',
-                text:
-                    'Padre nuestro, que estás in el cielo, santificado sea tu nombre;',
-                tokens: [
-                  PrayerToken('Padre nuestro, ', null),
-                  PrayerToken('que estás in el cielo', 'heaven'),
-                  PrayerToken(', ', null),
-                  PrayerToken('santificado sea tu nombre', 'name'),
-                  PrayerToken(';', null),
-                ],
-              ),
-            ],
-          },
-        );
-
         await tester.pumpWidget(
           buildTestableWidget(
             child: Scaffold(
@@ -339,6 +341,10 @@ void main() {
     testGoldens('renders English and Traditional Chinese states correctly', (
       tester,
     ) async {
+      final mockAi = MockAiService();
+      LocalAgentHelper.instance = mockAi;
+      mockAi.setMockStatus(AiCoreStatus.available);
+
       final builder = GoldenBuilder.column()
         ..addScenario(
           'English State',
@@ -372,20 +378,200 @@ void main() {
             onVersionChanged: (_) {},
             onLaunchSource: (_) {},
           ),
+        )
+        ..addScenario(
+          'Dual Language with Highlighted Phrase and FAB',
+          PrayerCard(
+            prayer: testPrayerWithTokens,
+            selectedLanguage: PrayerLanguage.english,
+            compareLanguage: PrayerLanguage.spanish,
+            initialVersionIndex: 0,
+            onVersionChanged: (_) {},
+            onLaunchSource: (_) {},
+          ),
         );
 
       await tester.pumpWidgetBuilder(
         builder.build(),
         wrapper: materialAppWrapper(),
-        surfaceSize: const Size(450, 2600),
+        surfaceSize: const Size(450, 3200),
       );
 
-      // Tap the split button in the third scenario (Side-by-Side State) to enable dual mode
       final compareButtons = find.byTooltip('Compare Translations');
-      await tester.tap(compareButtons.last);
+
+      // Tap the split button in the third scenario (Side-by-Side State) to enable dual mode
+      await tester.tap(compareButtons.at(2));
+      await tester.pumpAndSettle();
+
+      // Tap the split button in the fourth scenario to enable dual mode
+      await tester.tap(compareButtons.at(3));
+      await tester.pumpAndSettle();
+
+      // Find the RichText widget inside the fourth scenario containing the phrase
+      final richTextFinder = find.byWidgetPredicate(
+        (widget) =>
+            widget is RichText &&
+            widget.text.toPlainText().contains('who art in heaven'),
+      );
+      final richTextWidget =
+          tester.element(richTextFinder.last).widget as RichText;
+
+      TapGestureRecognizer? recognizer;
+      richTextWidget.text.visitChildren((span) {
+        if (span is TextSpan && span.text == 'who art in heaven') {
+          recognizer = span.recognizer as TapGestureRecognizer?;
+          return false;
+        }
+        return true;
+      });
+
+      expect(recognizer, isNotNull);
+      recognizer!.onTap!();
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(tester, 'prayer_card_golden');
+    });
+
+    testWidgets(
+      'translation explanation FAB visibility depends on AI service availability',
+      (tester) async {
+        final mockAi = MockAiService();
+        LocalAgentHelper.instance = mockAi;
+
+        // 1. Test when AI is NOT available
+        mockAi.setMockStatus(AiCoreStatus.unavailable);
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: testPrayerWithTokens,
+                  selectedLanguage: PrayerLanguage.english,
+                  compareLanguage: PrayerLanguage.spanish,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                  onLaunchSource: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        // Enable side-by-side mode first
+        final compareButtons = find.byTooltip('Compare Translations');
+        await tester.tap(compareButtons.first);
+        await tester.pumpAndSettle();
+
+        // Find the RichText widget containing the phrase
+        final richTextFinder = find.byWidgetPredicate(
+          (widget) =>
+              widget is RichText &&
+              widget.text.toPlainText().contains('who art in heaven'),
+        );
+        final richTextWidget =
+            tester.element(richTextFinder).widget as RichText;
+
+        TapGestureRecognizer? recognizer;
+        richTextWidget.text.visitChildren((span) {
+          if (span is TextSpan && span.text == 'who art in heaven') {
+            recognizer = span.recognizer as TapGestureRecognizer?;
+            return false;
+          }
+          return true;
+        });
+
+        expect(recognizer, isNotNull);
+        recognizer!.onTap!();
+        await tester.pumpAndSettle();
+
+        // FAB should NOT be shown since AI is unavailable
+        expect(find.byIcon(Icons.auto_awesome), findsNothing);
+
+        // 2. Test when AI IS available
+        mockAi.setMockStatus(AiCoreStatus.available);
+
+        // Retap to refresh the state and run the check
+        recognizer!.onTap!(); // untap
+        await tester.pumpAndSettle();
+        recognizer!.onTap!(); // retap
+        await tester.pumpAndSettle();
+
+        // FAB should be shown now!
+        expect(find.byIcon(Icons.auto_awesome), findsOneWidget);
+
+        // 3. Test tapping the FAB opens the explainer sheet
+        await tester.tap(find.byIcon(Icons.auto_awesome));
+        await tester.pumpAndSettle();
+
+        // Check if bottom sheet is shown with the correct title
+        expect(find.text('Translation Explainer'), findsOneWidget);
+        expect(find.text('who art in heaven'), findsWidgets);
+        expect(find.text('que estás in el cielo'), findsWidgets);
+      },
+    );
+
+    testGoldens('renders Translation Explainer bottom sheet correctly', (
+      tester,
+    ) async {
+      final mockAi = MockAiService();
+      LocalAgentHelper.instance = mockAi;
+      mockAi.setMockStatus(AiCoreStatus.available);
+
+      await tester.pumpWidgetBuilder(
+        buildTestableWidget(
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: PrayerCard(
+                prayer: testPrayerWithTokens,
+                selectedLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.spanish,
+                initialVersionIndex: 0,
+                onVersionChanged: (_) {},
+                onLaunchSource: (_) {},
+              ),
+            ),
+          ),
+        ),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(450, 800),
+      );
+
+      // Enable side-by-side mode
+      final compareButtons = find.byTooltip('Compare Translations');
+      await tester.tap(compareButtons.first);
+      await tester.pumpAndSettle();
+
+      // Find the RichText widget containing the phrase
+      final richTextFinder = find.byWidgetPredicate(
+        (widget) =>
+            widget is RichText &&
+            widget.text.toPlainText().contains('who art in heaven'),
+      );
+      final richTextWidget = tester.element(richTextFinder).widget as RichText;
+
+      TapGestureRecognizer? recognizer;
+      richTextWidget.text.visitChildren((span) {
+        if (span is TextSpan && span.text == 'who art in heaven') {
+          recognizer = span.recognizer as TapGestureRecognizer?;
+          return false;
+        }
+        return true;
+      });
+
+      expect(recognizer, isNotNull);
+      recognizer!.onTap!();
+      await tester.pumpAndSettle();
+
+      // Tap the FAB to open the bottom sheet
+      final fabFinder = find.byIcon(Icons.auto_awesome);
+      expect(fabFinder, findsOneWidget);
+      await tester.tap(fabFinder);
+
+      // Pump and settle to let the sheet animate up and the mock response load completely
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'translation_explainer_sheet_golden');
     });
   });
 }
