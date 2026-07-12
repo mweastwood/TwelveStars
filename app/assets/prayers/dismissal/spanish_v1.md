@@ -10,11 +10,11 @@ history_author: ""
 history_origin: ""
 history_description: ""
 ---
-Sacerdote: El Señor esté con vosotros.
-Asamblea: Y con tu espíritu.
+Sacerdote: {El Señor esté con vosotros.|dismissal_1}
+Asamblea: {Y con tu espíritu.|dismissal_2}
 
-Sacerdote: La bendición de Dios todopoderoso, Padre, Hijo y Espíritu Santo, descienda sobre vosotros.
-Asamblea: Amén.
+Sacerdote: {La bendición de Dios todopoderoso, Padre, Hijo y Espíritu Santo, descienda sobre vosotros.|dismissal_3}
+Asamblea: {Amén.|dismissal_4}
 
-Diácono: Podéis ir en paz.
-Asamblea: Demos gracias a Dios.
+Diácono: {Podéis ir en paz.|dismissal_5}
+Asamblea: {Demos gracias a Dios.|dismissal_6}
