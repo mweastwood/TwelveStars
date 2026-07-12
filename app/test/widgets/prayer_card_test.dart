@@ -510,5 +510,68 @@ void main() {
         expect(find.text('que estás in el cielo'), findsWidgets);
       },
     );
+
+    testGoldens('renders Translation Explainer bottom sheet correctly', (
+      tester,
+    ) async {
+      final mockAi = MockAiService();
+      LocalAgentHelper.instance = mockAi;
+      mockAi.setMockStatus(AiCoreStatus.available);
+
+      await tester.pumpWidgetBuilder(
+        buildTestableWidget(
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: PrayerCard(
+                prayer: testPrayerWithTokens,
+                selectedLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.spanish,
+                initialVersionIndex: 0,
+                onVersionChanged: (_) {},
+                onLaunchSource: (_) {},
+              ),
+            ),
+          ),
+        ),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(450, 800),
+      );
+
+      // Enable side-by-side mode
+      final compareButtons = find.byTooltip('Compare Translations');
+      await tester.tap(compareButtons.first);
+      await tester.pumpAndSettle();
+
+      // Find the RichText widget containing the phrase
+      final richTextFinder = find.byWidgetPredicate(
+        (widget) =>
+            widget is RichText &&
+            widget.text.toPlainText().contains('who art in heaven'),
+      );
+      final richTextWidget = tester.element(richTextFinder).widget as RichText;
+
+      TapGestureRecognizer? recognizer;
+      richTextWidget.text.visitChildren((span) {
+        if (span is TextSpan && span.text == 'who art in heaven') {
+          recognizer = span.recognizer as TapGestureRecognizer?;
+          return false;
+        }
+        return true;
+      });
+
+      expect(recognizer, isNotNull);
+      recognizer!.onTap!();
+      await tester.pumpAndSettle();
+
+      // Tap the FAB to open the bottom sheet
+      final fabFinder = find.byIcon(Icons.auto_awesome);
+      expect(fabFinder, findsOneWidget);
+      await tester.tap(fabFinder);
+
+      // Pump and settle to let the sheet animate up and the mock response load completely
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'translation_explainer_sheet_golden');
+    });
   });
 }
