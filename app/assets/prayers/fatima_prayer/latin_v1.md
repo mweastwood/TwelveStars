@@ -11,4 +11,4 @@ history_origin: "Apparition at Fatima (1917)"
 history_description: "Taught by the Virgin Mary to the three shepherd children in Fatima, Portugal, to be said after each decade of the Rosary."
 has_amen: true
 ---
-O mi Iesu, dimitte nobis debita nostra, libera nos ab igne inferni, conduc in caelum omnes animas, praesertim illas quae maxime indigent misericordia tua.
+{O mi Iesu, dimitte nobis debita nostra|fatima_prayer_1}, {libera nos ab igne inferni|fatima_prayer_2}, {conduc in caelum omnes animas|fatima_prayer_3}, {praesertim illas quae maxime indigent misericordia tua|fatima_prayer_4}.

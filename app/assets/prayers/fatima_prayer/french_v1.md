@@ -11,4 +11,4 @@ history_origin: "Apparition at Fatima (1917)"
 history_description: "Taught by the Virgin Mary to the three shepherd children in Fatima, Portugal, to be said after each decade of the Rosary."
 has_amen: true
 ---
-Ô mon Jésus, pardonnez-nous, préservez-nous du feu de l’enfer ; emmenez au Paradis toutes les âmes, surtout celles qui ont le plus besoin.
+{Ô mon Jésus, pardonnez-nous|fatima_prayer_1}, {préservez-nous du feu de l’enfer|fatima_prayer_2} ; {emmenez au Paradis toutes les âmes|fatima_prayer_3}, {surtout celles qui ont le plus besoin|fatima_prayer_4}.

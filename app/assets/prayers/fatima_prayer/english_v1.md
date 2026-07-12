@@ -11,4 +11,4 @@ history_origin: "Apparition at Fatima (1917)"
 history_description: "Taught by the Virgin Mary to the three shepherd children in Fatima, Portugal, to be said after each decade of the Rosary."
 has_amen: true
 ---
-O my Jesus, forgive us our sins, save us from the fires of hell, and lead all souls to heaven, especially those most in need of Thy mercy.
+{O my Jesus, forgive us our sins|fatima_prayer_1}, {save us from the fires of hell|fatima_prayer_2}, {and lead all souls to heaven|fatima_prayer_3}, {especially those most in need of Thy mercy|fatima_prayer_4}.

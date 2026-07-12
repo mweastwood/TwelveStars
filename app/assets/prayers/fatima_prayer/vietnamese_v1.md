@@ -11,4 +11,4 @@ history_origin: "Apparition at Fatima (1917)"
 history_description: "Taught by the Virgin Mary to the three shepherd children in Fatima, Portugal, to be said after each decade of the Rosary."
 has_amen: true
 ---
-Lạy Chúa Giêsu, xin tha tội cho chúng con, xin cứu chúng con khỏi sa hỏa ngục, xin đem các linh hồn lên thiên đàng, nhất là những linh hồn cần đến lòng Chúa thương xót hơn.
+{Lạy Chúa Giêsu, xin tha tội cho chúng con|fatima_prayer_1}, {xin cứu chúng con khỏi sa hỏa ngục|fatima_prayer_2}, {xin đem các linh hồn lên thiên đàng|fatima_prayer_3}, {nhất là những linh hồn cần đến lòng Chúa thương xót hơn|fatima_prayer_4}.
