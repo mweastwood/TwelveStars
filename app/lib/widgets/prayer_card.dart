@@ -1,5 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:local_agent/local_agent.dart';
+import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 
 class PrayerCard extends StatefulWidget {
@@ -573,6 +575,8 @@ class _PrayerCardState extends State<PrayerCard> {
                       }),
                     ),
                   ],
+                  if (_isDualMode && _selectedPhraseId != null)
+                    const SizedBox(height: 56),
                 ],
               ),
             ),
@@ -600,6 +604,28 @@ class _PrayerCardState extends State<PrayerCard> {
                       _selectedPhraseId = null;
                     });
                   },
+                ),
+              ),
+            if (_isDualMode && _selectedPhraseId != null)
+              Positioned(
+                bottom: 12,
+                right: 12,
+                child: ElevatedButton.icon(
+                  onPressed: _explainSelectedTranslation,
+                  icon: const Icon(Icons.auto_awesome, size: 16),
+                  label: const Text(
+                    'Explain Translation',
+                    style: TextStyle(fontSize: 12),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: theme.colorScheme.primaryContainer,
+                    foregroundColor: theme.colorScheme.onPrimaryContainer,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 8,
+                    ),
+                    elevation: 3,
+                  ),
                 ),
               ),
           ],
@@ -690,6 +716,417 @@ class _PrayerCardState extends State<PrayerCard> {
           ),
         ),
       ],
+    );
+  }
+
+  String _getPhraseText(PrayerTranslation trans, String phraseId) {
+    if (trans.tokens == null) return '';
+    return trans.tokens!
+        .where((t) => t.id == phraseId)
+        .map((t) => t.text)
+        .join('')
+        .trim();
+  }
+
+  void _explainSelectedTranslation() {
+    final phraseId = _selectedPhraseId;
+    if (phraseId == null) return;
+
+    final resolvedLanguage = widget.selectedLanguage;
+    final hasCompareTranslation =
+        widget.prayer.translations.containsKey(widget.compareLanguage) &&
+        widget.prayer.translations[widget.compareLanguage]!.isNotEmpty;
+    final resolvedCompareLanguage = hasCompareTranslation
+        ? widget.compareLanguage
+        : resolvedLanguage;
+
+    final translations = widget.prayer.translations[resolvedLanguage]!;
+    final versionIndex = _currentVersionIndex < translations.length
+        ? _currentVersionIndex
+        : 0;
+    final translation = translations[versionIndex];
+
+    final compareTranslations =
+        widget.prayer.translations[resolvedCompareLanguage]!;
+    final compareTranslation = compareTranslations[0];
+
+    final originalPhrase = _getPhraseText(compareTranslation, phraseId);
+    final translatedPhrase = _getPhraseText(translation, phraseId);
+
+    final originalContext = compareTranslation.text;
+    final translatedContext = translation.text;
+
+    final originalLangName = resolvedCompareLanguage.name;
+    final translatedLangName = resolvedLanguage.name;
+
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) => _TranslationExplainerSheet(
+        originalPhrase: originalPhrase,
+        translatedPhrase: translatedPhrase,
+        originalContext: originalContext,
+        translatedContext: translatedContext,
+        originalLang: originalLangName,
+        translatedLang: translatedLangName,
+      ),
+    );
+  }
+}
+
+class _TranslationExplainerSheet extends StatefulWidget {
+  final String originalPhrase;
+  final String translatedPhrase;
+  final String originalContext;
+  final String translatedContext;
+  final String originalLang;
+  final String translatedLang;
+
+  const _TranslationExplainerSheet({
+    required this.originalPhrase,
+    required this.translatedPhrase,
+    required this.originalContext,
+    required this.translatedContext,
+    required this.originalLang,
+    required this.translatedLang,
+  });
+
+  @override
+  State<_TranslationExplainerSheet> createState() =>
+      __TranslationExplainerSheetState();
+}
+
+class __TranslationExplainerSheetState
+    extends State<_TranslationExplainerSheet> {
+  bool _isLoading = true;
+  String? _explanation;
+  String? _error;
+  AiCoreStatus _status = AiCoreStatus.unavailable;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkStatusAndRun();
+  }
+
+  Future<void> _checkStatusAndRun() async {
+    setState(() {
+      _isLoading = true;
+      _error = null;
+    });
+
+    try {
+      final aiService = LocalAgentHelper.instance;
+      final status = await aiService.checkStatus();
+      setState(() {
+        _status = status;
+      });
+
+      if (status == AiCoreStatus.available) {
+        await _runExplanation();
+      } else {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    } catch (e) {
+      setState(() {
+        _isLoading = false;
+        _error = 'Error initializing AI service: $e';
+      });
+    }
+  }
+
+  Future<void> _triggerDownload() async {
+    setState(() {
+      _isLoading = true;
+      _error = null;
+    });
+
+    try {
+      final aiService = LocalAgentHelper.instance;
+      await aiService.triggerDownload();
+      // Poll status for a bit
+      for (int i = 0; i < 30; i++) {
+        await Future.delayed(const Duration(seconds: 1));
+        final status = await aiService.checkStatus();
+        setState(() {
+          _status = status;
+        });
+        if (status == AiCoreStatus.available) {
+          await _runExplanation();
+          return;
+        }
+      }
+      setState(() {
+        _isLoading = false;
+        _error =
+            'Model download taking longer than expected. Please wait or try again.';
+      });
+    } catch (e) {
+      setState(() {
+        _isLoading = false;
+        _error = 'Error downloading model: $e';
+      });
+    }
+  }
+
+  Future<void> _runExplanation() async {
+    setState(() {
+      _isLoading = true;
+      _error = null;
+    });
+
+    try {
+      final prompt =
+          '''
+Original phrase:
+${widget.originalPhrase}
+
+Translated phrase:
+${widget.translatedPhrase}
+
+Original phrase in context:
+${widget.originalContext}
+
+Translated phrase in context:
+${widget.translatedContext}
+
+Define each translated word and how the translated phrase comes to carry the meaning of the original phrase.
+''';
+
+      final response = await LocalAgentHelper.instance.generateContent(
+        prompt: prompt,
+      );
+
+      setState(() {
+        _explanation = response;
+        _isLoading = false;
+      });
+    } catch (e) {
+      setState(() {
+        _isLoading = false;
+        _error = 'Error generating explanation: $e';
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    Widget content;
+    if (_isLoading) {
+      content = Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 40.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const CircularProgressIndicator(),
+              const SizedBox(height: 16),
+              Text(
+                _status == AiCoreStatus.downloading
+                    ? 'Downloading Gemini Nano model weights (~30MB)...'
+                    : 'Running AI analysis locally...',
+                style: theme.textTheme.bodyMedium,
+              ),
+            ],
+          ),
+        ),
+      );
+    } else if (_error != null) {
+      content = Padding(
+        padding: const EdgeInsets.symmetric(vertical: 24.0),
+        child: Column(
+          children: [
+            Icon(Icons.error_outline, color: theme.colorScheme.error, size: 48),
+            const SizedBox(height: 12),
+            Text(
+              'Failed to generate explanation',
+              style: theme.textTheme.titleMedium?.copyWith(
+                color: theme.colorScheme.error,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              _error!,
+              style: theme.textTheme.bodySmall,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: _checkStatusAndRun,
+              child: const Text('Retry'),
+            ),
+          ],
+        ),
+      );
+    } else if (_status == AiCoreStatus.unavailable) {
+      content = Padding(
+        padding: const EdgeInsets.symmetric(vertical: 24.0),
+        child: Column(
+          children: [
+            Icon(
+              Icons.warning_amber_rounded,
+              color: theme.colorScheme.secondary,
+              size: 48,
+            ),
+            const SizedBox(height: 12),
+            Text('AI Core Unavailable', style: theme.textTheme.titleMedium),
+            const SizedBox(height: 8),
+            const Text(
+              'On-device AI features (Gemini Nano) are not supported on this device. '
+              'Please ensure you are on a compatible Pixel device with AICore enabled.',
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      );
+    } else if (_status == AiCoreStatus.downloadable) {
+      content = Padding(
+        padding: const EdgeInsets.symmetric(vertical: 24.0),
+        child: Column(
+          children: [
+            Icon(
+              Icons.download_for_offline_outlined,
+              color: theme.colorScheme.primary,
+              size: 48,
+            ),
+            const SizedBox(height: 12),
+            Text('Download AI Model', style: theme.textTheme.titleMedium),
+            const SizedBox(height: 8),
+            const Text(
+              'The on-device Gemini Nano model needs to be downloaded before it can explain translations.',
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton.icon(
+              onPressed: _triggerDownload,
+              icon: const Icon(Icons.download),
+              label: const Text('Download now'),
+            ),
+          ],
+        ),
+      );
+    } else {
+      content = SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (_explanation != null)
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0, bottom: 20.0),
+                child: Text(
+                  _explanation!,
+                  style: theme.textTheme.bodyLarge?.copyWith(height: 1.5),
+                ),
+              )
+            else
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 20.0),
+                child: Text('No explanation generated.'),
+              ),
+          ],
+        ),
+      );
+    }
+
+    return Padding(
+      padding: EdgeInsets.only(
+        left: 20.0,
+        right: 20.0,
+        top: 20.0,
+        bottom: MediaQuery.of(context).viewInsets.bottom + 20.0,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              Icon(
+                Icons.auto_awesome,
+                color: theme.colorScheme.primary,
+                size: 20,
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  'Translation Explainer',
+                  style: theme.textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.close),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            ],
+          ),
+          Text(
+            '${widget.originalLang} ➜ ${widget.translatedLang}',
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.8),
+            ),
+          ),
+          const SizedBox(height: 16),
+          // Show comparing phrases nicely
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: theme.colorScheme.surfaceContainerHighest.withValues(
+                alpha: 0.5,
+              ),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: theme.colorScheme.outlineVariant.withValues(alpha: 0.3),
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '${widget.originalLang}:',
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.primary,
+                  ),
+                ),
+                Text(
+                  widget.originalPhrase,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  '${widget.translatedLang}:',
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.secondary,
+                  ),
+                ),
+                Text(
+                  widget.translatedPhrase,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          const Divider(),
+          const SizedBox(height: 8),
+          content,
+        ],
+      ),
     );
   }
 }
