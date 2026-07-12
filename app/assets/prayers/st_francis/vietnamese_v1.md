@@ -17,7 +17,7 @@ has_amen: true
 {|st_francis_4}{|st_francis_5}{đem tin kính vào nơi nghi nan|st_francis_6},
 {chiếu trông cậy vào nơi thất vọng|st_francis_7},
 {dọi ánh sáng vào nơi tối tăm|st_francis_8},
-{dem niềm vui đến chốn u sầu|st_francis_9}.
+{đem niềm vui đến chốn u sầu|st_francis_9}.
 
 {Lạy Chúa xin hãy dạy con|st_francis_10}
 {tìm an ủi người hơn được người ủi an|st_francis_11},
