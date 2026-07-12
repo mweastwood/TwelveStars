@@ -11,10 +11,10 @@ history_origin: "Traditional Christian Doxology"
 history_description: "A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, tracing back to the early Councils."
 has_amen: true
 ---
-Gloria al Padre,
-y al Hijo,
-y al Espíritu Santo.
+{Gloria al Padre|glory_be_1},
+{y al Hijo|glory_be_2},
+{y al Espíritu Santo|glory_be_3}.
 
-Como era en el principio,
-ahora y siempre,
-por los siglos de los siglos.
+{Como era en el principio|glory_be_4},
+{ahora y siempre|glory_be_5},
+{por los siglos de los siglos|glory_be_6}.

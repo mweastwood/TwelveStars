@@ -11,10 +11,10 @@ history_origin: "Traditional Christian Doxology"
 history_description: "A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, tracing back to the early Councils."
 has_amen: true
 ---
-Sáng danh Đức Chúa Cha,
-và Đức Chúa Con,
-và Đức Chúa Thánh Thần.
+{Sáng danh Đức Chúa Cha|glory_be_1},
+{và Đức Chúa Con|glory_be_2},
+{và Đức Chúa Thánh Thần|glory_be_3}.
 
-Như đã có trước vô cùng,
-và bây giờ, và hằng có,
-và đời đời chẳng cùng.
+{Như đã có trước vô cùng|glory_be_4},
+{và bây giờ, và hằng có|glory_be_5},
+{và đời đời chẳng cùng|glory_be_6}.
