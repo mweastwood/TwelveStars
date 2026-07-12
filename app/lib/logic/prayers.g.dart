@@ -25,6 +25,7 @@ final PrayerSchema = IsarGeneratedSchema(
       IsarPropertySchema(name: 'category', type: IsarType.string),
       IsarPropertySchema(name: 'defaultOrder', type: IsarType.long),
       IsarPropertySchema(name: 'hasAmen', type: IsarType.bool),
+      IsarPropertySchema(name: 'hash', type: IsarType.string),
       IsarPropertySchema(
         name: 'localizedTranslations',
         type: IsarType.objectList,
@@ -61,12 +62,13 @@ int serializePrayer(IsarWriter writer, Prayer object) {
   IsarCore.writeString(writer, 3, object.category);
   IsarCore.writeLong(writer, 4, object.defaultOrder);
   IsarCore.writeBool(writer, 5, value: object.hasAmen);
+  IsarCore.writeString(writer, 6, object.hash);
   {
     final list = object.localizedTranslations;
     if (list == null) {
-      IsarCore.writeNull(writer, 6);
+      IsarCore.writeNull(writer, 7);
     } else {
-      final listWriter = IsarCore.beginList(writer, 6, list.length);
+      final listWriter = IsarCore.beginList(writer, 7, list.length);
       for (var i = 0; i < list.length; i++) {
         {
           final value = list[i];
@@ -102,9 +104,11 @@ Prayer deserializePrayer(IsarReader reader) {
   }
   final bool _hasAmen;
   _hasAmen = IsarCore.readBool(reader, 5);
+  final String _hash;
+  _hash = IsarCore.readString(reader, 6) ?? '';
   final List<LocalizedTranslations>? _localizedTranslations;
   {
-    final length = IsarCore.readList(reader, 6, IsarCore.readerPtrPtr);
+    final length = IsarCore.readList(reader, 7, IsarCore.readerPtrPtr);
     {
       final reader = IsarCore.readerPtr;
       if (reader.isNull) {
@@ -139,6 +143,7 @@ Prayer deserializePrayer(IsarReader reader) {
     category: _category,
     defaultOrder: _defaultOrder,
     hasAmen: _hasAmen,
+    hash: _hash,
     localizedTranslations: _localizedTranslations,
   );
   return object;
@@ -167,8 +172,10 @@ dynamic deserializePrayerProp(IsarReader reader, int property) {
     case 5:
       return IsarCore.readBool(reader, 5);
     case 6:
+      return IsarCore.readString(reader, 6) ?? '';
+    case 7:
       {
-        final length = IsarCore.readList(reader, 6, IsarCore.readerPtrPtr);
+        final length = IsarCore.readList(reader, 7, IsarCore.readerPtrPtr);
         {
           final reader = IsarCore.readerPtr;
           if (reader.isNull) {
@@ -211,6 +218,7 @@ sealed class _PrayerUpdate {
     String? category,
     int? defaultOrder,
     bool? hasAmen,
+    String? hash,
   });
 }
 
@@ -227,6 +235,7 @@ class _PrayerUpdateImpl implements _PrayerUpdate {
     Object? category = ignore,
     Object? defaultOrder = ignore,
     Object? hasAmen = ignore,
+    Object? hash = ignore,
   }) {
     return collection.updateProperties(
           [isarId],
@@ -236,6 +245,7 @@ class _PrayerUpdateImpl implements _PrayerUpdate {
             if (category != ignore) 3: category as String?,
             if (defaultOrder != ignore) 4: defaultOrder as int?,
             if (hasAmen != ignore) 5: hasAmen as bool?,
+            if (hash != ignore) 6: hash as String?,
           },
         ) >
         0;
@@ -250,6 +260,7 @@ sealed class _PrayerUpdateAll {
     String? category,
     int? defaultOrder,
     bool? hasAmen,
+    String? hash,
   });
 }
 
@@ -266,6 +277,7 @@ class _PrayerUpdateAllImpl implements _PrayerUpdateAll {
     Object? category = ignore,
     Object? defaultOrder = ignore,
     Object? hasAmen = ignore,
+    Object? hash = ignore,
   }) {
     return collection.updateProperties(isarId, {
       if (prayerId != ignore) 1: prayerId as String?,
@@ -273,6 +285,7 @@ class _PrayerUpdateAllImpl implements _PrayerUpdateAll {
       if (category != ignore) 3: category as String?,
       if (defaultOrder != ignore) 4: defaultOrder as int?,
       if (hasAmen != ignore) 5: hasAmen as bool?,
+      if (hash != ignore) 6: hash as String?,
     });
   }
 }
@@ -290,6 +303,7 @@ sealed class _PrayerQueryUpdate {
     String? category,
     int? defaultOrder,
     bool? hasAmen,
+    String? hash,
   });
 }
 
@@ -306,6 +320,7 @@ class _PrayerQueryUpdateImpl implements _PrayerQueryUpdate {
     Object? category = ignore,
     Object? defaultOrder = ignore,
     Object? hasAmen = ignore,
+    Object? hash = ignore,
   }) {
     return query.updateProperties(limit: limit, {
       if (prayerId != ignore) 1: prayerId as String?,
@@ -313,6 +328,7 @@ class _PrayerQueryUpdateImpl implements _PrayerQueryUpdate {
       if (category != ignore) 3: category as String?,
       if (defaultOrder != ignore) 4: defaultOrder as int?,
       if (hasAmen != ignore) 5: hasAmen as bool?,
+      if (hash != ignore) 6: hash as String?,
     });
   }
 }
@@ -336,6 +352,7 @@ class _PrayerQueryBuilderUpdateImpl implements _PrayerQueryUpdate {
     Object? category = ignore,
     Object? defaultOrder = ignore,
     Object? hasAmen = ignore,
+    Object? hash = ignore,
   }) {
     final q = query.build();
     try {
@@ -345,6 +362,7 @@ class _PrayerQueryBuilderUpdateImpl implements _PrayerQueryUpdate {
         if (category != ignore) 3: category as String?,
         if (defaultOrder != ignore) 4: defaultOrder as int?,
         if (hasAmen != ignore) 5: hasAmen as bool?,
+        if (hash != ignore) 6: hash as String?,
       });
     } finally {
       q.close();
@@ -956,17 +974,177 @@ extension PrayerQueryFilter on QueryBuilder<Prayer, Prayer, QFilterCondition> {
     });
   }
 
+  QueryBuilder<Prayer, Prayer, QAfterFilterCondition> hashEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(property: 6, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterFilterCondition> hashGreaterThan(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 6,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterFilterCondition> hashGreaterThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 6,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterFilterCondition> hashLessThan(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessCondition(property: 6, value: value, caseSensitive: caseSensitive),
+      );
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterFilterCondition> hashLessThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 6,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterFilterCondition> hashBetween(
+    String lower,
+    String upper, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 6,
+          lower: lower,
+          upper: upper,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterFilterCondition> hashStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        StartsWithCondition(
+          property: 6,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterFilterCondition> hashEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EndsWithCondition(
+          property: 6,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterFilterCondition> hashContains(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        ContainsCondition(
+          property: 6,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterFilterCondition> hashMatches(
+    String pattern, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        MatchesCondition(
+          property: 6,
+          wildcard: pattern,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterFilterCondition> hashIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const EqualCondition(property: 6, value: ''),
+      );
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterFilterCondition> hashIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const GreaterCondition(property: 6, value: ''),
+      );
+    });
+  }
+
   QueryBuilder<Prayer, Prayer, QAfterFilterCondition>
   localizedTranslationsIsNull() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const IsNullCondition(property: 6));
+      return query.addFilterCondition(const IsNullCondition(property: 7));
     });
   }
 
   QueryBuilder<Prayer, Prayer, QAfterFilterCondition>
   localizedTranslationsIsNotNull() {
     return QueryBuilder.apply(not(), (query) {
-      return query.addFilterCondition(const IsNullCondition(property: 6));
+      return query.addFilterCondition(const IsNullCondition(property: 7));
     });
   }
 
@@ -984,7 +1162,7 @@ extension PrayerQueryFilter on QueryBuilder<Prayer, Prayer, QFilterCondition> {
   localizedTranslationsIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
-        const GreaterOrEqualCondition(property: 6, value: null),
+        const GreaterOrEqualCondition(property: 7, value: null),
       );
     });
   }
@@ -1076,6 +1254,22 @@ extension PrayerQuerySortBy on QueryBuilder<Prayer, Prayer, QSortBy> {
       return query.addSortBy(5, sort: Sort.desc);
     });
   }
+
+  QueryBuilder<Prayer, Prayer, QAfterSortBy> sortByHash({
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(6, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterSortBy> sortByHashDesc({
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(6, sort: Sort.desc, caseSensitive: caseSensitive);
+    });
+  }
 }
 
 extension PrayerQuerySortThenBy on QueryBuilder<Prayer, Prayer, QSortThenBy> {
@@ -1162,6 +1356,22 @@ extension PrayerQuerySortThenBy on QueryBuilder<Prayer, Prayer, QSortThenBy> {
       return query.addSortBy(5, sort: Sort.desc);
     });
   }
+
+  QueryBuilder<Prayer, Prayer, QAfterSortBy> thenByHash({
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(6, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterSortBy> thenByHashDesc({
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(6, sort: Sort.desc, caseSensitive: caseSensitive);
+    });
+  }
 }
 
 extension PrayerQueryWhereDistinct on QueryBuilder<Prayer, Prayer, QDistinct> {
@@ -1198,6 +1408,14 @@ extension PrayerQueryWhereDistinct on QueryBuilder<Prayer, Prayer, QDistinct> {
   QueryBuilder<Prayer, Prayer, QAfterDistinct> distinctByHasAmen() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(5);
+    });
+  }
+
+  QueryBuilder<Prayer, Prayer, QAfterDistinct> distinctByHash({
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(6, caseSensitive: caseSensitive);
     });
   }
 }
@@ -1239,10 +1457,16 @@ extension PrayerQueryProperty1 on QueryBuilder<Prayer, Prayer, QProperty> {
     });
   }
 
+  QueryBuilder<Prayer, String, QAfterProperty> hashProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(6);
+    });
+  }
+
   QueryBuilder<Prayer, List<LocalizedTranslations>?, QAfterProperty>
   localizedTranslationsProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(6);
+      return query.addProperty(7);
     });
   }
 }
@@ -1284,10 +1508,16 @@ extension PrayerQueryProperty2<R> on QueryBuilder<Prayer, R, QAfterProperty> {
     });
   }
 
+  QueryBuilder<Prayer, (R, String), QAfterProperty> hashProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(6);
+    });
+  }
+
   QueryBuilder<Prayer, (R, List<LocalizedTranslations>?), QAfterProperty>
   localizedTranslationsProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(6);
+      return query.addProperty(7);
     });
   }
 }
@@ -1330,10 +1560,16 @@ extension PrayerQueryProperty3<R1, R2>
     });
   }
 
+  QueryBuilder<Prayer, (R1, R2, String), QOperations> hashProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(6);
+    });
+  }
+
   QueryBuilder<Prayer, (R1, R2, List<LocalizedTranslations>?), QOperations>
   localizedTranslationsProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(6);
+      return query.addProperty(7);
     });
   }
 }

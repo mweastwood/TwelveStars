@@ -98,9 +98,7 @@ class PrayerDatabase {
           (element) => element.prayerId == p.prayerId,
           orElse: () => p,
         );
-        if (p.defaultOrder != cp.defaultOrder ||
-            p.defaultTitle != cp.defaultTitle ||
-            p.hasAmen != cp.hasAmen) {
+        if (p.hash != cp.hash) {
           needsUpdate = true;
           break;
         }
@@ -240,6 +238,7 @@ class PrayerDatabase {
       }
 
       final hasAmen = pMap['has_amen'] as bool? ?? false;
+      final hash = pMap['hash'] as String? ?? '';
 
       prayers.add(
         Prayer(
@@ -248,6 +247,7 @@ class PrayerDatabase {
           category: category,
           defaultOrder: defaultOrder,
           hasAmen: hasAmen,
+          hash: hash,
           localizedTranslations: localizedTranslations,
         ),
       );

@@ -26,6 +26,15 @@ List<Map<String, dynamic>> parseTokens(String input) {
   return tokens;
 }
 
+String calculateHash(String input) {
+  int hash = 5381;
+  for (int i = 0; i < input.length; i++) {
+    hash = ((hash << 5) + hash) + input.codeUnitAt(i);
+    hash = hash & 0xFFFFFFFF; // Keep it as 32-bit unsigned int
+  }
+  return hash.toRadixString(16);
+}
+
 void main() {
   // Load pinyin dictionary
   final pinyinMap = <String, String>{};
@@ -207,14 +216,17 @@ void main() {
         });
       }
     }
-    jsonList.add({
+    final prayerData = {
       'id': p['id'],
       'default_title': p['default_title'],
       'category': p['category'],
       'default_order': p['default_order'],
       'has_amen': p['has_amen'],
       'translations': translationsMap,
-    });
+    };
+    final canonicalString = jsonEncode(prayerData);
+    prayerData['hash'] = calculateHash(canonicalString);
+    jsonList.add(prayerData);
   }
 
   // Sort jsonList by default_order to keep a deterministic order in assets/prayers.json
