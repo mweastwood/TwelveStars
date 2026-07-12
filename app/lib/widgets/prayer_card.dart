@@ -30,6 +30,26 @@ class _PrayerCardState extends State<PrayerCard> {
   int _currentVersionIndex = 0;
   bool _isDualMode = false;
   String? _selectedPhraseId;
+  PrayerLanguage? _tappedLanguage;
+  final LayerLink _layerLink = LayerLink();
+  bool _isAiAvailable = false;
+
+  void _checkAiAvailability() async {
+    try {
+      final status = await LocalAgentHelper.instance.checkStatus();
+      if (mounted) {
+        setState(() {
+          _isAiAvailable = status == AiCoreStatus.available;
+        });
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(() {
+          _isAiAvailable = false;
+        });
+      }
+    }
+  }
 
   PrayerTranslation? get _activeTranslationWithHistory {
     // 1. Try selected translation
@@ -72,6 +92,7 @@ class _PrayerCardState extends State<PrayerCard> {
     if (!hasCompare) {
       _isDualMode = false;
     }
+    _checkAiAvailability();
   }
 
   @override
@@ -89,6 +110,7 @@ class _PrayerCardState extends State<PrayerCard> {
     if (!hasCompare) {
       _isDualMode = false;
     }
+    _checkAiAvailability();
   }
 
   Widget _buildPrayerText(
@@ -96,6 +118,7 @@ class _PrayerCardState extends State<PrayerCard> {
     PrayerLanguage lang,
     ThemeData theme,
   ) {
+    bool renderedTarget = false;
     final Widget? amenWidget = widget.prayer.hasAmen
         ? Padding(
             padding: const EdgeInsets.only(top: 12.0),
@@ -133,59 +156,83 @@ class _PrayerCardState extends State<PrayerCard> {
                   final isSelected =
                       charItem.phraseId != null &&
                       charItem.phraseId == _selectedPhraseId;
+                  final isTappedLang = lang == _tappedLanguage;
+
+                  final shouldBeTarget =
+                      isSelected && isTappedLang && !renderedTarget;
+                  if (shouldBeTarget) {
+                    renderedTarget = true;
+                  }
+
+                  Widget charWidget = Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 1.0,
+                      vertical: 2.0,
+                    ),
+                    decoration: BoxDecoration(
+                      color: isSelected
+                          ? theme.colorScheme.primaryContainer.withValues(
+                              alpha: 0.8,
+                            )
+                          : null,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          charItem.char,
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: isSelected
+                                ? theme.colorScheme.onPrimaryContainer
+                                : theme.colorScheme.onSurface,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          isPunct ? '' : charItem.pinyin,
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            fontSize: 10,
+                            color: isSelected
+                                ? theme.colorScheme.onPrimaryContainer
+                                      .withValues(alpha: 0.7)
+                                : theme.colorScheme.onSurfaceVariant.withValues(
+                                    alpha: 0.7,
+                                  ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+
+                  if (shouldBeTarget) {
+                    charWidget = CompositedTransformTarget(
+                      link: _layerLink,
+                      child: charWidget,
+                    );
+                  }
 
                   return GestureDetector(
                     onTap: charItem.phraseId != null
                         ? () {
                             setState(() {
-                              _selectedPhraseId =
-                                  (_selectedPhraseId == charItem.phraseId)
-                                  ? null
-                                  : charItem.phraseId;
+                              if (_selectedPhraseId == charItem.phraseId) {
+                                _selectedPhraseId = null;
+                                _tappedLanguage = null;
+                              } else {
+                                _selectedPhraseId = charItem.phraseId;
+                                _tappedLanguage = lang;
+                                if (!_isDualMode) {
+                                  _isDualMode = true;
+                                }
+                                _checkAiAvailability();
+                              }
                             });
                           }
                         : null,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 1.0,
-                        vertical: 2.0,
-                      ),
-                      decoration: BoxDecoration(
-                        color: isSelected
-                            ? theme.colorScheme.primaryContainer.withValues(
-                                alpha: 0.8,
-                              )
-                            : null,
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            charItem.char,
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: isSelected
-                                  ? theme.colorScheme.onPrimaryContainer
-                                  : theme.colorScheme.onSurface,
-                            ),
-                          ),
-                          const SizedBox(height: 2),
-                          Text(
-                            isPunct ? '' : charItem.pinyin,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              fontSize: 10,
-                              color: isSelected
-                                  ? theme.colorScheme.onPrimaryContainer
-                                        .withValues(alpha: 0.7)
-                                  : theme.colorScheme.onSurfaceVariant
-                                        .withValues(alpha: 0.7),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    child: charWidget,
                   );
                 }).toList(),
               ),
@@ -202,39 +249,76 @@ class _PrayerCardState extends State<PrayerCard> {
       for (final token in trans.tokens!) {
         if (token.id != null) {
           final isSelected = token.id == _selectedPhraseId;
+          final isTappedLang = lang == _tappedLanguage;
+
           final recognizer = TapGestureRecognizer()
             ..onTap = () {
               setState(() {
                 if (_selectedPhraseId == token.id) {
                   _selectedPhraseId = null;
+                  _tappedLanguage = null;
                 } else {
                   _selectedPhraseId = token.id;
+                  _tappedLanguage = lang;
                   if (!_isDualMode) {
                     _isDualMode = true;
                   }
+                  _checkAiAvailability();
                 }
               });
             };
-          spans.add(
-            TextSpan(
-              text: token.text,
-              recognizer: recognizer,
-              style: TextStyle(
-                backgroundColor: isSelected
-                    ? theme.colorScheme.primaryContainer.withValues(alpha: 0.8)
-                    : null,
-                decoration: isSelected ? null : TextDecoration.underline,
-                decorationStyle: TextDecorationStyle.dashed,
-                decorationColor: theme.colorScheme.primary.withValues(
-                  alpha: 0.5,
+
+          if (isSelected) {
+            final shouldBeTarget = isTappedLang && !renderedTarget;
+            if (shouldBeTarget) {
+              renderedTarget = true;
+            }
+
+            Widget tokenWidget = Container(
+              padding: const EdgeInsets.symmetric(horizontal: 2.0),
+              color: theme.colorScheme.primaryContainer.withValues(alpha: 0.8),
+              child: Text(
+                token.text,
+                style: TextStyle(
+                  color: theme.colorScheme.onPrimaryContainer,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
                 ),
-                color: isSelected
-                    ? theme.colorScheme.onPrimaryContainer
-                    : theme.colorScheme.onSurface,
-                fontWeight: isSelected ? FontWeight.bold : null,
               ),
-            ),
-          );
+            );
+
+            if (shouldBeTarget) {
+              tokenWidget = CompositedTransformTarget(
+                link: _layerLink,
+                child: tokenWidget,
+              );
+            }
+
+            spans.add(
+              WidgetSpan(
+                alignment: PlaceholderAlignment.middle,
+                child: GestureDetector(
+                  onTap: recognizer.onTap,
+                  child: tokenWidget,
+                ),
+              ),
+            );
+          } else {
+            spans.add(
+              TextSpan(
+                text: token.text,
+                recognizer: recognizer,
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  decorationStyle: TextDecorationStyle.dashed,
+                  decorationColor: theme.colorScheme.primary.withValues(
+                    alpha: 0.5,
+                  ),
+                  color: theme.colorScheme.onSurface,
+                ),
+              ),
+            );
+          }
         } else {
           spans.add(
             TextSpan(
@@ -575,8 +659,6 @@ class _PrayerCardState extends State<PrayerCard> {
                       }),
                     ),
                   ],
-                  if (_isDualMode && _selectedPhraseId != null)
-                    const SizedBox(height: 56),
                 ],
               ),
             ),
@@ -602,29 +684,26 @@ class _PrayerCardState extends State<PrayerCard> {
                     setState(() {
                       _isDualMode = !_isDualMode;
                       _selectedPhraseId = null;
+                      _tappedLanguage = null;
                     });
                   },
                 ),
               ),
-            if (_isDualMode && _selectedPhraseId != null)
-              Positioned(
-                bottom: 12,
-                right: 12,
-                child: ElevatedButton.icon(
-                  onPressed: _explainSelectedTranslation,
-                  icon: const Icon(Icons.auto_awesome, size: 16),
-                  label: const Text(
-                    'Explain Translation',
-                    style: TextStyle(fontSize: 12),
-                  ),
-                  style: ElevatedButton.styleFrom(
+            if (_isDualMode && _selectedPhraseId != null && _isAiAvailable)
+              CompositedTransformFollower(
+                link: _layerLink,
+                showWhenUnlinked: false,
+                targetAnchor: Alignment.topRight,
+                followerAnchor: Alignment.bottomLeft,
+                offset: const Offset(4, -4),
+                child: SizedBox(
+                  width: 32,
+                  height: 32,
+                  child: FloatingActionButton.small(
+                    onPressed: _explainSelectedTranslation,
                     backgroundColor: theme.colorScheme.primaryContainer,
                     foregroundColor: theme.colorScheme.onPrimaryContainer,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 8,
-                    ),
-                    elevation: 3,
+                    child: const Icon(Icons.auto_awesome, size: 16),
                   ),
                 ),
               ),
