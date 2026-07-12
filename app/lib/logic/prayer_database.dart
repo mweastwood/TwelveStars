@@ -81,76 +81,6 @@ class PrayerDatabase {
     }
   }
 
-  static bool _arePrayersIdentical(Prayer a, Prayer b) {
-    if (a.prayerId != b.prayerId) return false;
-    if (a.defaultTitle != b.defaultTitle) return false;
-    if (a.category != b.category) return false;
-    if (a.defaultOrder != b.defaultOrder) return false;
-    if (a.hasAmen != b.hasAmen) return false;
-
-    final aTrans = a.localizedTranslations ?? [];
-    final bTrans = b.localizedTranslations ?? [];
-    if (aTrans.length != bTrans.length) return false;
-
-    for (final at in aTrans) {
-      final bt = bTrans.firstWhere(
-        (element) => element.languageCode == at.languageCode,
-        orElse: () => LocalizedTranslations(languageCode: ''),
-      );
-      if (bt.languageCode.isEmpty) return false;
-
-      final atList = at.list ?? [];
-      final btList = bt.list ?? [];
-      if (atList.length != btList.length) return false;
-
-      for (int i = 0; i < atList.length; i++) {
-        final atItem = atList[i];
-        final btItem = btList[i];
-
-        if (atItem.title != btItem.title) return false;
-        if (atItem.subtitle != btItem.subtitle) return false;
-        if (atItem.text != btItem.text) return false;
-        if (atItem.sourceName != btItem.sourceName) return false;
-        if (atItem.sourceUrl != btItem.sourceUrl) return false;
-        if (atItem.historyAuthor != btItem.historyAuthor) return false;
-        if (atItem.historyOrigin != btItem.historyOrigin) return false;
-        if (atItem.historyDescription != btItem.historyDescription) {
-          return false;
-        }
-
-        // Compare tokens
-        final atTokens = atItem.tokens ?? [];
-        final btTokens = btItem.tokens ?? [];
-        if (atTokens.length != btTokens.length) return false;
-        for (int j = 0; j < atTokens.length; j++) {
-          if (atTokens[j].text != btTokens[j].text ||
-              atTokens[j].id != btTokens[j].id) {
-            return false;
-          }
-        }
-
-        // Compare Chinese lines
-        final atChinese = atItem.chineseLines ?? [];
-        final btChinese = btItem.chineseLines ?? [];
-        if (atChinese.length != btChinese.length) return false;
-        for (int j = 0; j < atChinese.length; j++) {
-          final atChars = atChinese[j].chars ?? [];
-          final btChars = btChinese[j].chars ?? [];
-          if (atChars.length != btChars.length) return false;
-          for (int k = 0; k < atChars.length; k++) {
-            if (atChars[k].char != btChars[k].char ||
-                atChars[k].pinyin != btChars[k].pinyin ||
-                atChars[k].phraseId != btChars[k].phraseId) {
-              return false;
-            }
-          }
-        }
-      }
-    }
-
-    return true;
-  }
-
   // Fetch all prayers from the database
   static Future<List<Prayer>> loadPrayers() async {
     if (mockPrayers != null) {
@@ -168,7 +98,7 @@ class PrayerDatabase {
           (element) => element.prayerId == p.prayerId,
           orElse: () => p,
         );
-        if (!_arePrayersIdentical(p, cp)) {
+        if (p.hash != cp.hash) {
           needsUpdate = true;
           break;
         }
@@ -308,6 +238,7 @@ class PrayerDatabase {
       }
 
       final hasAmen = pMap['has_amen'] as bool? ?? false;
+      final hash = pMap['hash'] as String? ?? '';
 
       prayers.add(
         Prayer(
@@ -316,6 +247,7 @@ class PrayerDatabase {
           category: category,
           defaultOrder: defaultOrder,
           hasAmen: hasAmen,
+          hash: hash,
           localizedTranslations: localizedTranslations,
         ),
       );

@@ -137,6 +137,7 @@ class Prayer {
   String category;
   int defaultOrder;
   bool hasAmen;
+  String hash;
 
   List<LocalizedTranslations>? localizedTranslations;
 
@@ -147,6 +148,7 @@ class Prayer {
     this.category = '',
     this.defaultOrder = 0,
     this.hasAmen = false,
+    this.hash = '',
     this.localizedTranslations,
   });
 
