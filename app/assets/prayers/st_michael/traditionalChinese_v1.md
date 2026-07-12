@@ -11,4 +11,5 @@ history_origin: "Leonine Prayers (1886)"
 history_description: "Recited after Low Mass to invoke the archangel's defense against evil and the spiritual ruin of souls."
 has_amen: true
 ---
-聖彌額爾總領天使，在戰爭的日子裡保衛我們，免我們陷入魔鬼邪惡的陰謀，和奸詐的陷阱中。我們謙卑地祈求，但願上主譴責牠。上天萬軍的統帥，求你因上主的威能，把徘徊人間，引誘人靈，使其喪亡的撒殫及其他邪靈，拋下地獄裡去。
+{聖彌額爾總領天使，在戰爭的日子裡保衛我們|st_michael_1}，{免我們陷入魔鬼邪惡的陰謀，和奸詐的陷阱中|st_michael_2}。{我們謙卑地祈求，但願上主譴責牠|st_michael_3}。{上天萬軍的統帥，求你因上主的威能，把徘徊人間，引誘人靈，使其喪亡的撒殫及其他邪靈，拋下地獄裡去|st_michael_4}。
+

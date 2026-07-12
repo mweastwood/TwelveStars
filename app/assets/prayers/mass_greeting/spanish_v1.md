@@ -10,8 +10,9 @@ history_author: ""
 history_origin: ""
 history_description: ""
 ---
-Sacerdote: En el nombre del Padre, y del Hijo, y del Espíritu Santo.
-Asamblea: Amén.
+Sacerdote: {En el nombre del Padre, y del Hijo, y del Espíritu Santo.|mass_greeting_1}
+Asamblea: {Amén.|mass_greeting_2}
 
-Sacerdote: El Señor esté con vosotros.
-Asamblea: Y con tu espíritu.
+Sacerdote: {El Señor esté con vosotros.|mass_greeting_3}
+Asamblea: {Y con tu espíritu.|mass_greeting_4}
+

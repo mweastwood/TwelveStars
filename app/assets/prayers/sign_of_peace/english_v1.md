@@ -10,7 +10,8 @@ history_author: ""
 history_origin: ""
 history_description: ""
 ---
-Priest: The peace of the Lord be with you always.
-People: And with your spirit.
+Priest: {The peace of the Lord be with you always.|sign_of_peace_1}
+People: {And with your spirit.|sign_of_peace_2}
 
-Deacon: Let us offer each other the sign of peace.
+Deacon: {Let us offer each other the sign of peace.|sign_of_peace_3}
+

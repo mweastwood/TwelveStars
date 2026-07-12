@@ -10,8 +10,9 @@ history_author: ""
 history_origin: ""
 history_description: ""
 ---
-Priest: In the name of the Father, and of the Son, and of the Holy Spirit.
-People: Amen.
+Priest: {In the name of the Father, and of the Son, and of the Holy Spirit.|mass_greeting_1}
+People: {Amen.|mass_greeting_2}
 
-Priest: The Lord be with you.
-People: And with your spirit.
+Priest: {The Lord be with you.|mass_greeting_3}
+People: {And with your spirit.|mass_greeting_4}
+

@@ -11,4 +11,5 @@ history_origin: "Leonine Prayers (1886)"
 history_description: "Recited after Low Mass to invoke the archangel's defense against evil and the spiritual ruin of souls."
 has_amen: true
 ---
-Saint Michel Archange, défendez-nous dans le combat et soyez notre protecteur contre la méchanceté et les embûches du démon. Que Dieu lui commande, nous vous en supplions : et vous, Prince de la Milice Céleste, par le pouvoir divin qui vous a été confié, précipitez au fond des enfers Satan et les autres esprits mauvais qui parcourent le monde pour la perte des âmes.
+{Saint Michel Archange, défendez-nous dans le combat|st_michael_1} {et soyez notre protecteur contre la méchanceté et les embûches du démon|st_michael_2}. {Que Dieu lui commande, nous vous en supplions|st_michael_3} : {et vous, Prince de la Milice Céleste, par le pouvoir divin qui vous a été confié, précipitez au fond des enfers Satan et les autres esprits mauvais qui parcourent le monde pour la perte des âmes|st_michael_4}.
+

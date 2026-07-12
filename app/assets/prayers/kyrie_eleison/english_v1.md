@@ -10,11 +10,12 @@ history_author: ""
 history_origin: ""
 history_description: ""
 ---
-Priest: Lord, have mercy.
-People: Lord, have mercy.
+Priest: {Lord, have mercy.|kyrie_eleison_1}
+People: {Lord, have mercy.|kyrie_eleison_2}
 
-Priest: Christ, have mercy.
-People: Christ, have mercy.
+Priest: {Christ, have mercy.|kyrie_eleison_3}
+People: {Christ, have mercy.|kyrie_eleison_4}
 
-Priest: Lord, have mercy.
-People: Lord, have mercy.
+Priest: {Lord, have mercy.|kyrie_eleison_5}
+People: {Lord, have mercy.|kyrie_eleison_6}
+

@@ -294,5 +294,94 @@ void main() {
         }
       }
     });
+
+    test(
+      'consistent handling of punctuation and whitespace within phrase keys',
+      () {
+        for (final p in prayersJson) {
+          final pMap = p as Map<String, dynamic>;
+          final prayerId = pMap['id'] as String;
+          final transMap = pMap['translations'] as Map<String, dynamic>;
+
+          for (final entry in transMap.entries) {
+            final lang = entry.key;
+            final transList = entry.value as List<dynamic>;
+
+            for (
+              int versionIndex = 0;
+              versionIndex < transList.length;
+              versionIndex++
+            ) {
+              final tMap = transList[versionIndex] as Map<String, dynamic>;
+              final tokensList = tMap['tokens'] as List<dynamic>?;
+              if (tokensList == null) continue;
+
+              for (final token in tokensList) {
+                final id = token['id'] as String?;
+                if (id == null) continue; // Skip non-phrase tokens
+
+                final text = token['text'] as String;
+
+                // 1. Must not start or end with whitespace
+                expect(
+                  text.trim(),
+                  equals(text),
+                  reason:
+                      'Phrase "$text" (id: $id) in prayer "$prayerId" ($lang, version ${versionIndex + 1}) has leading or trailing whitespace.',
+                );
+
+                // 2. Must not start with punctuation
+                final startsWithPunct = RegExp(
+                  r'^[.,;:!?，。；：！？«»‘’“”"()]',
+                ).hasMatch(text);
+                expect(
+                  startsWithPunct,
+                  isFalse,
+                  reason:
+                      'Phrase "$text" (id: $id) in prayer "$prayerId" ($lang, version ${versionIndex + 1}) starts with punctuation.',
+                );
+              }
+            }
+          }
+        }
+      },
+    );
+
+    test('every prayer has at least one phrase', () {
+      for (final p in prayersJson) {
+        final pMap = p as Map<String, dynamic>;
+        final prayerId = pMap['id'] as String;
+        final transMap = pMap['translations'] as Map<String, dynamic>;
+
+        for (final entry in transMap.entries) {
+          final lang = entry.key;
+          final transList = entry.value as List<dynamic>;
+
+          for (
+            int versionIndex = 0;
+            versionIndex < transList.length;
+            versionIndex++
+          ) {
+            final tMap = transList[versionIndex] as Map<String, dynamic>;
+            final tokensList = tMap['tokens'] as List<dynamic>?;
+
+            expect(
+              tokensList,
+              isNotNull,
+              reason:
+                  'Tokens list is null in prayer "$prayerId" ($lang, version ${versionIndex + 1})',
+            );
+
+            final hasPhrase = tokensList!.any((tok) => tok['id'] != null);
+            expect(
+              hasPhrase,
+              isTrue,
+              reason:
+                  'Prayer "$prayerId" ($lang, version ${versionIndex + 1}) has no phrase keys.',
+            );
+          }
+        }
+      }
+    });
   });
 }

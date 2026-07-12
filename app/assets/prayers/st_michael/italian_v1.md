@@ -11,4 +11,5 @@ history_origin: "Leonine Prayers (1886)"
 history_description: "Recited after Low Mass to invoke the archangel's defense against evil and the spiritual ruin of souls."
 has_amen: true
 ---
-San Michele Arcangelo, difendici nella lotta, sii nostro presidio contro le malvagità e le insidie del demonio. Capo supremo delle milizie celesti, fa' sprofondare nell'inferno, con la forza di Dio, Satana e gli altri spiriti maligni che vagano per il mondo per la perdizione delle anime.
+{San Michele Arcangelo, difendici nella lotta|st_michael_1}, {sii nostro presidio contro le malvagità e le insidie del demonio|st_michael_2}. {|st_michael_3}{Capo supremo delle milizie celesti, fa' sprofondare nell'inferno, con la forza di Dio, Satana e gli altri spiriti maligni che vagano per il mondo per la perdizione delle anime|st_michael_4}.
+

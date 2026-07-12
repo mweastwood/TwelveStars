@@ -6,7 +6,7 @@ import 'package:yaml/yaml.dart';
 
 List<Map<String, dynamic>> parseTokens(String input) {
   final List<Map<String, dynamic>> tokens = [];
-  final regex = RegExp(r'\{([^\}]+)\|([^\|\}]+)\}');
+  final regex = RegExp(r'\{([^\}]*)\|([^\|\}]+)\}');
   int lastMatchEnd = 0;
 
   for (final match in regex.allMatches(input)) {

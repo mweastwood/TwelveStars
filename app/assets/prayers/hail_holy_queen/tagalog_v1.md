@@ -11,7 +11,8 @@ history_origin: "Marian Antiphon (c. 11th century)"
 history_description: "One of the four Marian antiphons, traditionally recited at the end of the Rosary as a plea for protection and mercy."
 has_amen: true
 ---
-Aba po, Santa Mariang Hari, Ina ng Awa, ikaw ang buhay at katamisan; aba, pinanaligan ka namin. Ikaw ang tinatawag namin, pinapanaw ng taong anak ni Eva. Ikaw rin ang pinabubuntunang-hininga namin ng aming pagtangis dito sa lupang bayang kahapis-hapis. Ay! Aba pintakasi ka namin, ilingon mo sa amin ang mata mong maawain, at saka kung matapos yaring pagpanaw sa amin, ipakita mo sa amin ang iyong Anak na si Hesus. O Santa Maria, Ina ng Diyos, maawain at maalam at matamis na birhen.
+{Aba po, Santa Mariang Hari, Ina ng Awa, ikaw ang buhay at katamisan; aba, pinanaligan ka namin|hail_holy_queen_1}. {Ikaw ang tinatawag namin, pinapanaw ng taong anak ni Eva|hail_holy_queen_2}. {Ikaw rin ang pinabubuntunang-hininga namin ng aming pagtangis dito sa lupang bayang kahapis-hapis|hail_holy_queen_3}. {Ay! Aba pintakasi ka namin, ilingon mo sa amin ang mata mong maawain|hail_holy_queen_4}, {at saka kung matapos yaring pagpanaw sa amin, ipakita mo sa amin ang iyong Anak na si Hesus|hail_holy_queen_5}. {O Santa Maria, Ina ng Diyos, maawain at maalam at matamis na birhen|hail_holy_queen_6}.
 
-Ipanalangin mo kami, Santang Ina ng Diyos.
-Nang kami'y maging marapat makinabang sa mga pangako ni Kristo, aming Panginoon.
+{Ipanalangin mo kami, Santang Ina ng Diyos|hail_holy_queen_7}.
+{Nang kami'y maging marapat makinabang sa mga pangako ni Kristo, aming Panginoon|hail_holy_queen_8}.
+

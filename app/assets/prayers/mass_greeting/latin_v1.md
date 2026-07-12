@@ -10,8 +10,9 @@ history_author: ""
 history_origin: ""
 history_description: ""
 ---
-Sacerdos: In nomine Patris, et Filii, et Spiritus Sancti.
-Populus: Amen.
+Sacerdos: {In nomine Patris, et Filii, et Spiritus Sancti.|mass_greeting_1}
+Populus: {Amen.|mass_greeting_2}
 
-Sacerdos: Dominus vobiscum.
-Populus: Et cum spiritu tuo.
+Sacerdos: {Dominus vobiscum.|mass_greeting_3}
+Populus: {Et cum spiritu tuo.|mass_greeting_4}
+
