@@ -11,10 +11,10 @@ history_origin: "Gospel of Matthew 6:9–13"
 history_description: "Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer."
 has_amen: true
 ---
-{我們的|our_father_1}{天父|our_father_2}，
+{我們的|our_father_1}{天|our_father_2}{父|our_father_1}，
 {願祢的名受顯揚|our_father_3}；
 {願祢的國來臨|our_father_4}；
-{願祢的旨意奉行在人間|our_father_5}，
+{願祢的旨意奉行|our_father_5}{在人間|our_father_6}，
 {如同在天上|our_father_6}。
 
 {求祢今天賞給我們
