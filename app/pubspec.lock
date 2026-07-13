@@ -500,8 +500,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "v0.0.2"
-      resolved-ref: "25e5896880e0abb4d82344041b2ac3d3f566edc3"
+      ref: "v0.0.3"
+      resolved-ref: "332f3a83650a4ee23c31826d09efcaceadc122c3"
       url: "https://github.com/mweastwood/flutter-local-agent.git"
     source: git
     version: "0.0.1"
