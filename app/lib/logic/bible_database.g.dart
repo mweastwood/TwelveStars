@@ -1445,12 +1445,698 @@ class FavoritePassagesCompanion extends UpdateCompanion<FavoritePassage> {
   }
 }
 
+class $PrayersTable extends Prayers with TableInfo<$PrayersTable, Prayer> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $PrayersTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _isarIdMeta = const VerificationMeta('isarId');
+  @override
+  late final GeneratedColumn<int> isarId = GeneratedColumn<int>(
+    'isar_id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _prayerIdMeta = const VerificationMeta(
+    'prayerId',
+  );
+  @override
+  late final GeneratedColumn<String> prayerId = GeneratedColumn<String>(
+    'prayer_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'),
+  );
+  static const VerificationMeta _defaultTitleMeta = const VerificationMeta(
+    'defaultTitle',
+  );
+  @override
+  late final GeneratedColumn<String> defaultTitle = GeneratedColumn<String>(
+    'default_title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _categoryMeta = const VerificationMeta(
+    'category',
+  );
+  @override
+  late final GeneratedColumn<String> category = GeneratedColumn<String>(
+    'category',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _defaultOrderMeta = const VerificationMeta(
+    'defaultOrder',
+  );
+  @override
+  late final GeneratedColumn<int> defaultOrder = GeneratedColumn<int>(
+    'default_order',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hasAmenMeta = const VerificationMeta(
+    'hasAmen',
+  );
+  @override
+  late final GeneratedColumn<bool> hasAmen = GeneratedColumn<bool>(
+    'has_amen',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("has_amen" IN (0, 1))',
+    ),
+  );
+  static const VerificationMeta _hashMeta = const VerificationMeta('hash');
+  @override
+  late final GeneratedColumn<String> hash = GeneratedColumn<String>(
+    'hash',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  @override
+  late final GeneratedColumnWithTypeConverter<
+    List<LocalizedTranslations>?,
+    String
+  >
+  localizedTranslations =
+      GeneratedColumn<String>(
+        'localized_translations',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      ).withConverter<List<LocalizedTranslations>?>(
+        $PrayersTable.$converterlocalizedTranslations,
+      );
+  @override
+  List<GeneratedColumn> get $columns => [
+    isarId,
+    prayerId,
+    defaultTitle,
+    category,
+    defaultOrder,
+    hasAmen,
+    hash,
+    localizedTranslations,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'prayers';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<Prayer> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('isar_id')) {
+      context.handle(
+        _isarIdMeta,
+        isarId.isAcceptableOrUnknown(data['isar_id']!, _isarIdMeta),
+      );
+    }
+    if (data.containsKey('prayer_id')) {
+      context.handle(
+        _prayerIdMeta,
+        prayerId.isAcceptableOrUnknown(data['prayer_id']!, _prayerIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_prayerIdMeta);
+    }
+    if (data.containsKey('default_title')) {
+      context.handle(
+        _defaultTitleMeta,
+        defaultTitle.isAcceptableOrUnknown(
+          data['default_title']!,
+          _defaultTitleMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_defaultTitleMeta);
+    }
+    if (data.containsKey('category')) {
+      context.handle(
+        _categoryMeta,
+        category.isAcceptableOrUnknown(data['category']!, _categoryMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_categoryMeta);
+    }
+    if (data.containsKey('default_order')) {
+      context.handle(
+        _defaultOrderMeta,
+        defaultOrder.isAcceptableOrUnknown(
+          data['default_order']!,
+          _defaultOrderMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_defaultOrderMeta);
+    }
+    if (data.containsKey('has_amen')) {
+      context.handle(
+        _hasAmenMeta,
+        hasAmen.isAcceptableOrUnknown(data['has_amen']!, _hasAmenMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_hasAmenMeta);
+    }
+    if (data.containsKey('hash')) {
+      context.handle(
+        _hashMeta,
+        hash.isAcceptableOrUnknown(data['hash']!, _hashMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_hashMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {isarId};
+  @override
+  Prayer map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return Prayer(
+      isarId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}isar_id'],
+      )!,
+      prayerId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}prayer_id'],
+      )!,
+      defaultTitle: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}default_title'],
+      )!,
+      category: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}category'],
+      )!,
+      defaultOrder: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}default_order'],
+      )!,
+      hasAmen: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}has_amen'],
+      )!,
+      hash: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}hash'],
+      )!,
+      localizedTranslations: $PrayersTable.$converterlocalizedTranslations
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.string,
+              data['${effectivePrefix}localized_translations'],
+            ),
+          ),
+    );
+  }
+
+  @override
+  $PrayersTable createAlias(String alias) {
+    return $PrayersTable(attachedDatabase, alias);
+  }
+
+  static TypeConverter<List<LocalizedTranslations>?, String?>
+  $converterlocalizedTranslations = NullAwareTypeConverter.wrap(
+    const LocalizedTranslationsConverter(),
+  );
+}
+
+class PrayersCompanion extends UpdateCompanion<Prayer> {
+  final Value<int> isarId;
+  final Value<String> prayerId;
+  final Value<String> defaultTitle;
+  final Value<String> category;
+  final Value<int> defaultOrder;
+  final Value<bool> hasAmen;
+  final Value<String> hash;
+  final Value<List<LocalizedTranslations>?> localizedTranslations;
+  const PrayersCompanion({
+    this.isarId = const Value.absent(),
+    this.prayerId = const Value.absent(),
+    this.defaultTitle = const Value.absent(),
+    this.category = const Value.absent(),
+    this.defaultOrder = const Value.absent(),
+    this.hasAmen = const Value.absent(),
+    this.hash = const Value.absent(),
+    this.localizedTranslations = const Value.absent(),
+  });
+  PrayersCompanion.insert({
+    this.isarId = const Value.absent(),
+    required String prayerId,
+    required String defaultTitle,
+    required String category,
+    required int defaultOrder,
+    required bool hasAmen,
+    required String hash,
+    this.localizedTranslations = const Value.absent(),
+  }) : prayerId = Value(prayerId),
+       defaultTitle = Value(defaultTitle),
+       category = Value(category),
+       defaultOrder = Value(defaultOrder),
+       hasAmen = Value(hasAmen),
+       hash = Value(hash);
+  static Insertable<Prayer> custom({
+    Expression<int>? isarId,
+    Expression<String>? prayerId,
+    Expression<String>? defaultTitle,
+    Expression<String>? category,
+    Expression<int>? defaultOrder,
+    Expression<bool>? hasAmen,
+    Expression<String>? hash,
+    Expression<String>? localizedTranslations,
+  }) {
+    return RawValuesInsertable({
+      if (isarId != null) 'isar_id': isarId,
+      if (prayerId != null) 'prayer_id': prayerId,
+      if (defaultTitle != null) 'default_title': defaultTitle,
+      if (category != null) 'category': category,
+      if (defaultOrder != null) 'default_order': defaultOrder,
+      if (hasAmen != null) 'has_amen': hasAmen,
+      if (hash != null) 'hash': hash,
+      if (localizedTranslations != null)
+        'localized_translations': localizedTranslations,
+    });
+  }
+
+  PrayersCompanion copyWith({
+    Value<int>? isarId,
+    Value<String>? prayerId,
+    Value<String>? defaultTitle,
+    Value<String>? category,
+    Value<int>? defaultOrder,
+    Value<bool>? hasAmen,
+    Value<String>? hash,
+    Value<List<LocalizedTranslations>?>? localizedTranslations,
+  }) {
+    return PrayersCompanion(
+      isarId: isarId ?? this.isarId,
+      prayerId: prayerId ?? this.prayerId,
+      defaultTitle: defaultTitle ?? this.defaultTitle,
+      category: category ?? this.category,
+      defaultOrder: defaultOrder ?? this.defaultOrder,
+      hasAmen: hasAmen ?? this.hasAmen,
+      hash: hash ?? this.hash,
+      localizedTranslations:
+          localizedTranslations ?? this.localizedTranslations,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (isarId.present) {
+      map['isar_id'] = Variable<int>(isarId.value);
+    }
+    if (prayerId.present) {
+      map['prayer_id'] = Variable<String>(prayerId.value);
+    }
+    if (defaultTitle.present) {
+      map['default_title'] = Variable<String>(defaultTitle.value);
+    }
+    if (category.present) {
+      map['category'] = Variable<String>(category.value);
+    }
+    if (defaultOrder.present) {
+      map['default_order'] = Variable<int>(defaultOrder.value);
+    }
+    if (hasAmen.present) {
+      map['has_amen'] = Variable<bool>(hasAmen.value);
+    }
+    if (hash.present) {
+      map['hash'] = Variable<String>(hash.value);
+    }
+    if (localizedTranslations.present) {
+      map['localized_translations'] = Variable<String>(
+        $PrayersTable.$converterlocalizedTranslations.toSql(
+          localizedTranslations.value,
+        ),
+      );
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PrayersCompanion(')
+          ..write('isarId: $isarId, ')
+          ..write('prayerId: $prayerId, ')
+          ..write('defaultTitle: $defaultTitle, ')
+          ..write('category: $category, ')
+          ..write('defaultOrder: $defaultOrder, ')
+          ..write('hasAmen: $hasAmen, ')
+          ..write('hash: $hash, ')
+          ..write('localizedTranslations: $localizedTranslations')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $UserSettingsTableTable extends UserSettingsTable
+    with TableInfo<$UserSettingsTableTable, UserSettings> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UserSettingsTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(1),
+  );
+  static const VerificationMeta _primaryLanguageCodeMeta =
+      const VerificationMeta('primaryLanguageCode');
+  @override
+  late final GeneratedColumn<String> primaryLanguageCode =
+      GeneratedColumn<String>(
+        'primary_language_code',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _compareLanguageCodeMeta =
+      const VerificationMeta('compareLanguageCode');
+  @override
+  late final GeneratedColumn<String> compareLanguageCode =
+      GeneratedColumn<String>(
+        'compare_language_code',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _primaryBibleTranslationMeta =
+      const VerificationMeta('primaryBibleTranslation');
+  @override
+  late final GeneratedColumn<String> primaryBibleTranslation =
+      GeneratedColumn<String>(
+        'primary_bible_translation',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _compareBibleTranslationMeta =
+      const VerificationMeta('compareBibleTranslation');
+  @override
+  late final GeneratedColumn<String> compareBibleTranslation =
+      GeneratedColumn<String>(
+        'compare_bible_translation',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      );
+  @override
+  late final GeneratedColumnWithTypeConverter<
+    List<PrayerVersionPreference>?,
+    String
+  >
+  preferredVersions =
+      GeneratedColumn<String>(
+        'preferred_versions',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      ).withConverter<List<PrayerVersionPreference>?>(
+        $UserSettingsTableTable.$converterpreferredVersions,
+      );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    primaryLanguageCode,
+    compareLanguageCode,
+    primaryBibleTranslation,
+    compareBibleTranslation,
+    preferredVersions,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'user_settings';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UserSettings> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('primary_language_code')) {
+      context.handle(
+        _primaryLanguageCodeMeta,
+        primaryLanguageCode.isAcceptableOrUnknown(
+          data['primary_language_code']!,
+          _primaryLanguageCodeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_primaryLanguageCodeMeta);
+    }
+    if (data.containsKey('compare_language_code')) {
+      context.handle(
+        _compareLanguageCodeMeta,
+        compareLanguageCode.isAcceptableOrUnknown(
+          data['compare_language_code']!,
+          _compareLanguageCodeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_compareLanguageCodeMeta);
+    }
+    if (data.containsKey('primary_bible_translation')) {
+      context.handle(
+        _primaryBibleTranslationMeta,
+        primaryBibleTranslation.isAcceptableOrUnknown(
+          data['primary_bible_translation']!,
+          _primaryBibleTranslationMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_primaryBibleTranslationMeta);
+    }
+    if (data.containsKey('compare_bible_translation')) {
+      context.handle(
+        _compareBibleTranslationMeta,
+        compareBibleTranslation.isAcceptableOrUnknown(
+          data['compare_bible_translation']!,
+          _compareBibleTranslationMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_compareBibleTranslationMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  UserSettings map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UserSettings(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      primaryLanguageCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}primary_language_code'],
+      )!,
+      compareLanguageCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}compare_language_code'],
+      )!,
+      primaryBibleTranslation: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}primary_bible_translation'],
+      )!,
+      compareBibleTranslation: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}compare_bible_translation'],
+      )!,
+      preferredVersions: $UserSettingsTableTable.$converterpreferredVersions
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.string,
+              data['${effectivePrefix}preferred_versions'],
+            ),
+          ),
+    );
+  }
+
+  @override
+  $UserSettingsTableTable createAlias(String alias) {
+    return $UserSettingsTableTable(attachedDatabase, alias);
+  }
+
+  static TypeConverter<List<PrayerVersionPreference>?, String?>
+  $converterpreferredVersions = NullAwareTypeConverter.wrap(
+    const PreferredVersionsConverter(),
+  );
+}
+
+class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
+  final Value<int> id;
+  final Value<String> primaryLanguageCode;
+  final Value<String> compareLanguageCode;
+  final Value<String> primaryBibleTranslation;
+  final Value<String> compareBibleTranslation;
+  final Value<List<PrayerVersionPreference>?> preferredVersions;
+  const UserSettingsTableCompanion({
+    this.id = const Value.absent(),
+    this.primaryLanguageCode = const Value.absent(),
+    this.compareLanguageCode = const Value.absent(),
+    this.primaryBibleTranslation = const Value.absent(),
+    this.compareBibleTranslation = const Value.absent(),
+    this.preferredVersions = const Value.absent(),
+  });
+  UserSettingsTableCompanion.insert({
+    this.id = const Value.absent(),
+    required String primaryLanguageCode,
+    required String compareLanguageCode,
+    required String primaryBibleTranslation,
+    required String compareBibleTranslation,
+    this.preferredVersions = const Value.absent(),
+  }) : primaryLanguageCode = Value(primaryLanguageCode),
+       compareLanguageCode = Value(compareLanguageCode),
+       primaryBibleTranslation = Value(primaryBibleTranslation),
+       compareBibleTranslation = Value(compareBibleTranslation);
+  static Insertable<UserSettings> custom({
+    Expression<int>? id,
+    Expression<String>? primaryLanguageCode,
+    Expression<String>? compareLanguageCode,
+    Expression<String>? primaryBibleTranslation,
+    Expression<String>? compareBibleTranslation,
+    Expression<String>? preferredVersions,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (primaryLanguageCode != null)
+        'primary_language_code': primaryLanguageCode,
+      if (compareLanguageCode != null)
+        'compare_language_code': compareLanguageCode,
+      if (primaryBibleTranslation != null)
+        'primary_bible_translation': primaryBibleTranslation,
+      if (compareBibleTranslation != null)
+        'compare_bible_translation': compareBibleTranslation,
+      if (preferredVersions != null) 'preferred_versions': preferredVersions,
+    });
+  }
+
+  UserSettingsTableCompanion copyWith({
+    Value<int>? id,
+    Value<String>? primaryLanguageCode,
+    Value<String>? compareLanguageCode,
+    Value<String>? primaryBibleTranslation,
+    Value<String>? compareBibleTranslation,
+    Value<List<PrayerVersionPreference>?>? preferredVersions,
+  }) {
+    return UserSettingsTableCompanion(
+      id: id ?? this.id,
+      primaryLanguageCode: primaryLanguageCode ?? this.primaryLanguageCode,
+      compareLanguageCode: compareLanguageCode ?? this.compareLanguageCode,
+      primaryBibleTranslation:
+          primaryBibleTranslation ?? this.primaryBibleTranslation,
+      compareBibleTranslation:
+          compareBibleTranslation ?? this.compareBibleTranslation,
+      preferredVersions: preferredVersions ?? this.preferredVersions,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (primaryLanguageCode.present) {
+      map['primary_language_code'] = Variable<String>(
+        primaryLanguageCode.value,
+      );
+    }
+    if (compareLanguageCode.present) {
+      map['compare_language_code'] = Variable<String>(
+        compareLanguageCode.value,
+      );
+    }
+    if (primaryBibleTranslation.present) {
+      map['primary_bible_translation'] = Variable<String>(
+        primaryBibleTranslation.value,
+      );
+    }
+    if (compareBibleTranslation.present) {
+      map['compare_bible_translation'] = Variable<String>(
+        compareBibleTranslation.value,
+      );
+    }
+    if (preferredVersions.present) {
+      map['preferred_versions'] = Variable<String>(
+        $UserSettingsTableTable.$converterpreferredVersions.toSql(
+          preferredVersions.value,
+        ),
+      );
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserSettingsTableCompanion(')
+          ..write('id: $id, ')
+          ..write('primaryLanguageCode: $primaryLanguageCode, ')
+          ..write('compareLanguageCode: $compareLanguageCode, ')
+          ..write('primaryBibleTranslation: $primaryBibleTranslation, ')
+          ..write('compareBibleTranslation: $compareBibleTranslation, ')
+          ..write('preferredVersions: $preferredVersions')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$BibleDatabase extends GeneratedDatabase {
   _$BibleDatabase(QueryExecutor e) : super(e);
   $BibleDatabaseManager get managers => $BibleDatabaseManager(this);
   late final BibleVerses bibleVerses = BibleVerses(this);
   late final LectionaryReadings lectionaryReadings = LectionaryReadings(this);
   late final FavoritePassages favoritePassages = FavoritePassages(this);
+  late final $PrayersTable prayers = $PrayersTable(this);
+  late final $UserSettingsTableTable userSettingsTable =
+      $UserSettingsTableTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -1459,6 +2145,8 @@ abstract class _$BibleDatabase extends GeneratedDatabase {
     bibleVerses,
     lectionaryReadings,
     favoritePassages,
+    prayers,
+    userSettingsTable,
   ];
 }
 
@@ -2198,6 +2886,505 @@ typedef $FavoritePassagesProcessedTableManager =
       FavoritePassage,
       PrefetchHooks Function()
     >;
+typedef $$PrayersTableCreateCompanionBuilder =
+    PrayersCompanion Function({
+      Value<int> isarId,
+      required String prayerId,
+      required String defaultTitle,
+      required String category,
+      required int defaultOrder,
+      required bool hasAmen,
+      required String hash,
+      Value<List<LocalizedTranslations>?> localizedTranslations,
+    });
+typedef $$PrayersTableUpdateCompanionBuilder =
+    PrayersCompanion Function({
+      Value<int> isarId,
+      Value<String> prayerId,
+      Value<String> defaultTitle,
+      Value<String> category,
+      Value<int> defaultOrder,
+      Value<bool> hasAmen,
+      Value<String> hash,
+      Value<List<LocalizedTranslations>?> localizedTranslations,
+    });
+
+class $$PrayersTableFilterComposer
+    extends Composer<_$BibleDatabase, $PrayersTable> {
+  $$PrayersTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get isarId => $composableBuilder(
+    column: $table.isarId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get prayerId => $composableBuilder(
+    column: $table.prayerId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get defaultTitle => $composableBuilder(
+    column: $table.defaultTitle,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get category => $composableBuilder(
+    column: $table.category,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get defaultOrder => $composableBuilder(
+    column: $table.defaultOrder,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get hasAmen => $composableBuilder(
+    column: $table.hasAmen,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get hash => $composableBuilder(
+    column: $table.hash,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<
+    List<LocalizedTranslations>?,
+    List<LocalizedTranslations>,
+    String
+  >
+  get localizedTranslations => $composableBuilder(
+    column: $table.localizedTranslations,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
+}
+
+class $$PrayersTableOrderingComposer
+    extends Composer<_$BibleDatabase, $PrayersTable> {
+  $$PrayersTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get isarId => $composableBuilder(
+    column: $table.isarId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get prayerId => $composableBuilder(
+    column: $table.prayerId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get defaultTitle => $composableBuilder(
+    column: $table.defaultTitle,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get category => $composableBuilder(
+    column: $table.category,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get defaultOrder => $composableBuilder(
+    column: $table.defaultOrder,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get hasAmen => $composableBuilder(
+    column: $table.hasAmen,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get hash => $composableBuilder(
+    column: $table.hash,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get localizedTranslations => $composableBuilder(
+    column: $table.localizedTranslations,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$PrayersTableAnnotationComposer
+    extends Composer<_$BibleDatabase, $PrayersTable> {
+  $$PrayersTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get isarId =>
+      $composableBuilder(column: $table.isarId, builder: (column) => column);
+
+  GeneratedColumn<String> get prayerId =>
+      $composableBuilder(column: $table.prayerId, builder: (column) => column);
+
+  GeneratedColumn<String> get defaultTitle => $composableBuilder(
+    column: $table.defaultTitle,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get category =>
+      $composableBuilder(column: $table.category, builder: (column) => column);
+
+  GeneratedColumn<int> get defaultOrder => $composableBuilder(
+    column: $table.defaultOrder,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get hasAmen =>
+      $composableBuilder(column: $table.hasAmen, builder: (column) => column);
+
+  GeneratedColumn<String> get hash =>
+      $composableBuilder(column: $table.hash, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<List<LocalizedTranslations>?, String>
+  get localizedTranslations => $composableBuilder(
+    column: $table.localizedTranslations,
+    builder: (column) => column,
+  );
+}
+
+class $$PrayersTableTableManager
+    extends
+        RootTableManager<
+          _$BibleDatabase,
+          $PrayersTable,
+          Prayer,
+          $$PrayersTableFilterComposer,
+          $$PrayersTableOrderingComposer,
+          $$PrayersTableAnnotationComposer,
+          $$PrayersTableCreateCompanionBuilder,
+          $$PrayersTableUpdateCompanionBuilder,
+          (Prayer, BaseReferences<_$BibleDatabase, $PrayersTable, Prayer>),
+          Prayer,
+          PrefetchHooks Function()
+        > {
+  $$PrayersTableTableManager(_$BibleDatabase db, $PrayersTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$PrayersTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$PrayersTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$PrayersTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> isarId = const Value.absent(),
+                Value<String> prayerId = const Value.absent(),
+                Value<String> defaultTitle = const Value.absent(),
+                Value<String> category = const Value.absent(),
+                Value<int> defaultOrder = const Value.absent(),
+                Value<bool> hasAmen = const Value.absent(),
+                Value<String> hash = const Value.absent(),
+                Value<List<LocalizedTranslations>?> localizedTranslations =
+                    const Value.absent(),
+              }) => PrayersCompanion(
+                isarId: isarId,
+                prayerId: prayerId,
+                defaultTitle: defaultTitle,
+                category: category,
+                defaultOrder: defaultOrder,
+                hasAmen: hasAmen,
+                hash: hash,
+                localizedTranslations: localizedTranslations,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> isarId = const Value.absent(),
+                required String prayerId,
+                required String defaultTitle,
+                required String category,
+                required int defaultOrder,
+                required bool hasAmen,
+                required String hash,
+                Value<List<LocalizedTranslations>?> localizedTranslations =
+                    const Value.absent(),
+              }) => PrayersCompanion.insert(
+                isarId: isarId,
+                prayerId: prayerId,
+                defaultTitle: defaultTitle,
+                category: category,
+                defaultOrder: defaultOrder,
+                hasAmen: hasAmen,
+                hash: hash,
+                localizedTranslations: localizedTranslations,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$PrayersTableProcessedTableManager =
+    ProcessedTableManager<
+      _$BibleDatabase,
+      $PrayersTable,
+      Prayer,
+      $$PrayersTableFilterComposer,
+      $$PrayersTableOrderingComposer,
+      $$PrayersTableAnnotationComposer,
+      $$PrayersTableCreateCompanionBuilder,
+      $$PrayersTableUpdateCompanionBuilder,
+      (Prayer, BaseReferences<_$BibleDatabase, $PrayersTable, Prayer>),
+      Prayer,
+      PrefetchHooks Function()
+    >;
+typedef $$UserSettingsTableTableCreateCompanionBuilder =
+    UserSettingsTableCompanion Function({
+      Value<int> id,
+      required String primaryLanguageCode,
+      required String compareLanguageCode,
+      required String primaryBibleTranslation,
+      required String compareBibleTranslation,
+      Value<List<PrayerVersionPreference>?> preferredVersions,
+    });
+typedef $$UserSettingsTableTableUpdateCompanionBuilder =
+    UserSettingsTableCompanion Function({
+      Value<int> id,
+      Value<String> primaryLanguageCode,
+      Value<String> compareLanguageCode,
+      Value<String> primaryBibleTranslation,
+      Value<String> compareBibleTranslation,
+      Value<List<PrayerVersionPreference>?> preferredVersions,
+    });
+
+class $$UserSettingsTableTableFilterComposer
+    extends Composer<_$BibleDatabase, $UserSettingsTableTable> {
+  $$UserSettingsTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get primaryLanguageCode => $composableBuilder(
+    column: $table.primaryLanguageCode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get compareLanguageCode => $composableBuilder(
+    column: $table.compareLanguageCode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get primaryBibleTranslation => $composableBuilder(
+    column: $table.primaryBibleTranslation,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get compareBibleTranslation => $composableBuilder(
+    column: $table.compareBibleTranslation,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<
+    List<PrayerVersionPreference>?,
+    List<PrayerVersionPreference>,
+    String
+  >
+  get preferredVersions => $composableBuilder(
+    column: $table.preferredVersions,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
+}
+
+class $$UserSettingsTableTableOrderingComposer
+    extends Composer<_$BibleDatabase, $UserSettingsTableTable> {
+  $$UserSettingsTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get primaryLanguageCode => $composableBuilder(
+    column: $table.primaryLanguageCode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get compareLanguageCode => $composableBuilder(
+    column: $table.compareLanguageCode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get primaryBibleTranslation => $composableBuilder(
+    column: $table.primaryBibleTranslation,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get compareBibleTranslation => $composableBuilder(
+    column: $table.compareBibleTranslation,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get preferredVersions => $composableBuilder(
+    column: $table.preferredVersions,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$UserSettingsTableTableAnnotationComposer
+    extends Composer<_$BibleDatabase, $UserSettingsTableTable> {
+  $$UserSettingsTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get primaryLanguageCode => $composableBuilder(
+    column: $table.primaryLanguageCode,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get compareLanguageCode => $composableBuilder(
+    column: $table.compareLanguageCode,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get primaryBibleTranslation => $composableBuilder(
+    column: $table.primaryBibleTranslation,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get compareBibleTranslation => $composableBuilder(
+    column: $table.compareBibleTranslation,
+    builder: (column) => column,
+  );
+
+  GeneratedColumnWithTypeConverter<List<PrayerVersionPreference>?, String>
+  get preferredVersions => $composableBuilder(
+    column: $table.preferredVersions,
+    builder: (column) => column,
+  );
+}
+
+class $$UserSettingsTableTableTableManager
+    extends
+        RootTableManager<
+          _$BibleDatabase,
+          $UserSettingsTableTable,
+          UserSettings,
+          $$UserSettingsTableTableFilterComposer,
+          $$UserSettingsTableTableOrderingComposer,
+          $$UserSettingsTableTableAnnotationComposer,
+          $$UserSettingsTableTableCreateCompanionBuilder,
+          $$UserSettingsTableTableUpdateCompanionBuilder,
+          (
+            UserSettings,
+            BaseReferences<
+              _$BibleDatabase,
+              $UserSettingsTableTable,
+              UserSettings
+            >,
+          ),
+          UserSettings,
+          PrefetchHooks Function()
+        > {
+  $$UserSettingsTableTableTableManager(
+    _$BibleDatabase db,
+    $UserSettingsTableTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$UserSettingsTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$UserSettingsTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$UserSettingsTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> primaryLanguageCode = const Value.absent(),
+                Value<String> compareLanguageCode = const Value.absent(),
+                Value<String> primaryBibleTranslation = const Value.absent(),
+                Value<String> compareBibleTranslation = const Value.absent(),
+                Value<List<PrayerVersionPreference>?> preferredVersions =
+                    const Value.absent(),
+              }) => UserSettingsTableCompanion(
+                id: id,
+                primaryLanguageCode: primaryLanguageCode,
+                compareLanguageCode: compareLanguageCode,
+                primaryBibleTranslation: primaryBibleTranslation,
+                compareBibleTranslation: compareBibleTranslation,
+                preferredVersions: preferredVersions,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String primaryLanguageCode,
+                required String compareLanguageCode,
+                required String primaryBibleTranslation,
+                required String compareBibleTranslation,
+                Value<List<PrayerVersionPreference>?> preferredVersions =
+                    const Value.absent(),
+              }) => UserSettingsTableCompanion.insert(
+                id: id,
+                primaryLanguageCode: primaryLanguageCode,
+                compareLanguageCode: compareLanguageCode,
+                primaryBibleTranslation: primaryBibleTranslation,
+                compareBibleTranslation: compareBibleTranslation,
+                preferredVersions: preferredVersions,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$UserSettingsTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$BibleDatabase,
+      $UserSettingsTableTable,
+      UserSettings,
+      $$UserSettingsTableTableFilterComposer,
+      $$UserSettingsTableTableOrderingComposer,
+      $$UserSettingsTableTableAnnotationComposer,
+      $$UserSettingsTableTableCreateCompanionBuilder,
+      $$UserSettingsTableTableUpdateCompanionBuilder,
+      (
+        UserSettings,
+        BaseReferences<_$BibleDatabase, $UserSettingsTableTable, UserSettings>,
+      ),
+      UserSettings,
+      PrefetchHooks Function()
+    >;
 
 class $BibleDatabaseManager {
   final _$BibleDatabase _db;
@@ -2208,4 +3395,8 @@ class $BibleDatabaseManager {
       $LectionaryReadingsTableManager(_db, _db.lectionaryReadings);
   $FavoritePassagesTableManager get favoritePassages =>
       $FavoritePassagesTableManager(_db, _db.favoritePassages);
+  $$PrayersTableTableManager get prayers =>
+      $$PrayersTableTableManager(_db, _db.prayers);
+  $$UserSettingsTableTableTableManager get userSettingsTable =>
+      $$UserSettingsTableTableTableManager(_db, _db.userSettingsTable);
 }
