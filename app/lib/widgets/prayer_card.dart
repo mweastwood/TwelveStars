@@ -975,7 +975,7 @@ Define each translated word in the selected phrase and explain how the translate
 
       final response = await LocalAgentHelper.instance.generateContent(
         prompt: prompt,
-        maxOutputTokens: 1024,
+        maxOutputTokens: 256,
       );
 
       setState(() {
