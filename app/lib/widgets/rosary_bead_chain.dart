@@ -136,48 +136,52 @@ class _RosaryBeadChainState extends State<RosaryBeadChain> {
                   );
                 }
 
-                return Center(
-                  child: SizedBox(
-                    height: itemHeight,
-                    child: GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onTap: () => widget.onStepSelected(index),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        clipBehavior: Clip.none,
-                        children: [
-                          // Rope segment
-                          Positioned(
-                            top: isFirst ? itemHeight / 2 : 0,
-                            bottom: isLast ? itemHeight / 2 : 0,
-                            width: ropeWidth,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: ropeColor,
-                                boxShadow:
-                                    (isActive &&
-                                        step.beadType ==
-                                            RosaryBeadType.chainLink)
-                                    ? [
-                                        BoxShadow(
-                                          color: ropeColor.withValues(
-                                            alpha: 0.3,
+                return Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: Center(
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: itemHeight,
+                      child: GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: () => widget.onStepSelected(index),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          clipBehavior: Clip.none,
+                          children: [
+                            // Rope segment
+                            Positioned(
+                              top: isFirst ? itemHeight / 2 : 0,
+                              bottom: isLast ? itemHeight / 2 : 0,
+                              width: ropeWidth,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: ropeColor,
+                                  boxShadow:
+                                      (isActive &&
+                                          step.beadType ==
+                                              RosaryBeadType.chainLink)
+                                      ? [
+                                          BoxShadow(
+                                            color: ropeColor.withValues(
+                                              alpha: 0.3,
+                                            ),
+                                            blurRadius: 4,
+                                            spreadRadius: 1,
                                           ),
-                                          blurRadius: 4,
-                                          spreadRadius: 1,
-                                        ),
-                                      ]
-                                    : null,
+                                        ]
+                                      : null,
+                                ),
                               ),
                             ),
-                          ),
-                          // Bead on top
-                          Semantics(
-                            label: 'Bead ${index + 1}: ${step.title}',
-                            selected: isActive,
-                            child: bead,
-                          ),
-                        ],
+                            // Bead on top
+                            Semantics(
+                              label: 'Bead ${index + 1}: ${step.title}',
+                              selected: isActive,
+                              child: bead,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
