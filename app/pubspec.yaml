@@ -38,7 +38,7 @@ dependencies:
   local_agent:
     git:
       url: https://github.com/mweastwood/flutter-local-agent.git
-      ref: v0.0.2
+      ref: v0.0.3
   firebase_core: ^4.4.0
   path_provider: ^2.1.1
   path: ^1.9.0
