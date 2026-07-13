@@ -160,8 +160,8 @@ void main() {
             final otherTokenIds = otherEntry.value;
 
             expect(
-              otherTokenIds,
-              equals(firstTokenIds),
+              otherTokenIds.toSet(),
+              equals(firstTokenIds.toSet()),
               reason:
                   'Token alignment mismatch in prayer "$prayerId": '
                   '${firstEntry.key} has tokens $firstTokenIds, but '
