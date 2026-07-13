@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter/services.dart';
 import 'package:drift/native.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_database.dart';
@@ -271,6 +272,81 @@ void main() {
       expect(fav.chapter, 1);
       expect(fav.startVerse, 1);
       expect(fav.endVerse, 2);
+    });
+
+    testWidgets('long press to select verses and copy to clipboard', (
+      WidgetTester tester,
+    ) async {
+      // Mock Clipboard
+      final List<Map<String, dynamic>> clipboardLog = [];
+      tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+        SystemChannels.platform,
+        (MethodCall methodCall) async {
+          if (methodCall.method == 'Clipboard.setData') {
+            clipboardLog.add(methodCall.arguments as Map<String, dynamic>);
+            return null;
+          }
+          if (methodCall.method == 'Clipboard.getData') {
+            return {
+              'text': clipboardLog.isNotEmpty ? clipboardLog.last['text'] : '',
+            };
+          }
+          return null;
+        },
+      );
+
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning...',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 2,
+              verseText: 'And the earth was void...',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: BibleTab())),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      // Long press verse 1 to start selection
+      await tester.longPress(find.text('In the beginning...'));
+      await tester.pumpAndSettle();
+
+      // Tap verse 2 to expand selection
+      await tester.tap(find.text('And the earth was void...'));
+      await tester.pumpAndSettle();
+
+      // Tap Copy
+      await tester.tap(find.byTooltip('Copy selection'));
+      await tester.pumpAndSettle();
+
+      // Verify SnackBar and clipboard data
+      expect(find.byType(SnackBar), findsOneWidget);
+      expect(find.text('Copied Genesis 1:1-2 to clipboard'), findsOneWidget);
+
+      final clipboardData = await Clipboard.getData(Clipboard.kTextPlain);
+      expect(
+        clipboardData?.text,
+        'Genesis 1:1-2\n1 In the beginning...\n2 And the earth was void...',
+      );
     });
 
     testGoldens('renders selection bar correctly', (tester) async {

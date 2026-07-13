@@ -1070,12 +1070,6 @@ class _BibleChapterViewState extends State<BibleChapterView>
                 ],
               ),
             ),
-            IconButton(
-              icon: const Icon(Icons.close),
-              onPressed: _clearSelection,
-              tooltip: 'Cancel selection',
-            ),
-            const SizedBox(width: 8),
             ElevatedButton.icon(
               icon: const Icon(Icons.star),
               label: const Text('Save'),
@@ -1114,6 +1108,47 @@ class _BibleChapterViewState extends State<BibleChapterView>
                   _clearSelection();
                 }
               },
+            ),
+            const SizedBox(width: 8),
+            IconButton(
+              icon: const Icon(Icons.content_copy),
+              tooltip: 'Copy selection',
+              onPressed: () async {
+                final selectedVerses =
+                    _verses
+                        .where(
+                          (v) => v.verseNumber >= start && v.verseNumber <= end,
+                        )
+                        .toList()
+                      ..sort((a, b) => a.verseNumber.compareTo(b.verseNumber));
+
+                final versesText = selectedVerses
+                    .map((v) {
+                      return count == 1
+                          ? v.verseText
+                          : '${v.verseNumber} ${v.verseText}';
+                    })
+                    .join(count == 1 ? '' : '\n');
+
+                final clipboardContent = '$citation\n$versesText';
+                await Clipboard.setData(ClipboardData(text: clipboardContent));
+
+                if (mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Copied $citation to clipboard'),
+                      behavior: SnackBarBehavior.floating,
+                    ),
+                  );
+                  _clearSelection();
+                }
+              },
+            ),
+            const SizedBox(width: 8),
+            IconButton(
+              icon: const Icon(Icons.close),
+              onPressed: _clearSelection,
+              tooltip: 'Cancel selection',
             ),
           ],
         ),
