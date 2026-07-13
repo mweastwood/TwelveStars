@@ -970,7 +970,7 @@ ${widget.originalContext}
 Translated phrase in context:
 ${widget.translatedContext}
 
-Define each translated word and how the translated phrase comes to carry the meaning of the original phrase.
+Define each translated word in the selected phrase and explain how the translated phrase carries the meaning of the original phrase. Focus your explanation only on the selected phrase in context, not the rest of the prayer.
 ''';
 
       final response = await LocalAgentHelper.instance.generateContent(
