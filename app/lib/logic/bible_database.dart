@@ -5,16 +5,199 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'connection_stub.dart'
     if (dart.library.io) 'connection_native.dart'
     if (dart.library.html) 'connection_web.dart';
+import 'prayers.dart';
 
 part 'bible_database.g.dart';
 
-@DriftDatabase(include: {'bible.drift'})
+class LocalizedTranslationsConverter
+    extends TypeConverter<List<LocalizedTranslations>, String> {
+  const LocalizedTranslationsConverter();
+
+  @override
+  List<LocalizedTranslations> fromSql(String fromDb) {
+    if (fromDb.isEmpty) return [];
+    try {
+      final List<dynamic> list = jsonDecode(fromDb);
+      return list.map((item) {
+        final map = item as Map<String, dynamic>;
+        final langStr = map['languageCode'] as String? ?? 'english';
+        final List<dynamic>? transList = map['list'];
+        final List<PrayerTranslation>? translationList = transList?.map((
+          tItem,
+        ) {
+          final tMap = tItem as Map<String, dynamic>;
+
+          final chineseLinesList = tMap['chineseLines'];
+          List<ChineseLine>? chineseLines;
+          if (chineseLinesList != null) {
+            final List<dynamic> outer = chineseLinesList;
+            chineseLines = outer.map((line) {
+              final List<dynamic>? charList = line['chars'];
+              final List<ChineseChar> chars =
+                  charList?.map((c) {
+                    final map = c as Map<String, dynamic>;
+                    return ChineseChar(
+                      map['char'] as String? ?? '',
+                      map['pinyin'] as String? ?? '',
+                      map['phraseId'] as String?,
+                    );
+                  }).toList() ??
+                  [];
+              return ChineseLine(chars: chars);
+            }).toList();
+          }
+
+          final tokensList = tMap['tokens'];
+          List<PrayerToken>? tokens;
+          if (tokensList != null) {
+            final List<dynamic> parsedList = tokensList;
+            tokens = parsedList.map((tok) {
+              final map = tok as Map<String, dynamic>;
+              return PrayerToken(
+                map['text'] as String? ?? '',
+                map['id'] as String?,
+              );
+            }).toList();
+          }
+
+          return PrayerTranslation(
+            title: tMap['title'] as String? ?? '',
+            subtitle: tMap['subtitle'] as String? ?? '',
+            text: tMap['text'] as String? ?? '',
+            sourceName: tMap['sourceName'] as String? ?? '',
+            sourceUrl: tMap['sourceUrl'] as String? ?? '',
+            historyAuthor: tMap['historyAuthor'] as String? ?? '',
+            historyOrigin: tMap['historyOrigin'] as String? ?? '',
+            historyDescription: tMap['historyDescription'] as String? ?? '',
+            chineseLines: chineseLines,
+            tokens: tokens,
+          );
+        }).toList();
+
+        return LocalizedTranslations(
+          languageCode: langStr,
+          list: translationList,
+        );
+      }).toList();
+    } catch (_) {
+      return [];
+    }
+  }
+
+  @override
+  String toSql(List<LocalizedTranslations> value) {
+    try {
+      final List<Map<String, dynamic>> list = value.map((item) {
+        return {
+          'languageCode': item.languageCode,
+          'list': item.list?.map((trans) {
+            return {
+              'title': trans.title,
+              'subtitle': trans.subtitle,
+              'text': trans.text,
+              'sourceName': trans.sourceName,
+              'sourceUrl': trans.sourceUrl,
+              'historyAuthor': trans.historyAuthor,
+              'historyOrigin': trans.historyOrigin,
+              'historyDescription': trans.historyDescription,
+              'chineseLines': trans.chineseLines?.map((line) {
+                return {
+                  'chars': line.chars?.map((c) {
+                    return {
+                      'char': c.char,
+                      'pinyin': c.pinyin,
+                      'phraseId': c.phraseId,
+                    };
+                  }).toList(),
+                };
+              }).toList(),
+              'tokens': trans.tokens?.map((tok) {
+                return {'text': tok.text, 'id': tok.id};
+              }).toList(),
+            };
+          }).toList(),
+        };
+      }).toList();
+      return jsonEncode(list);
+    } catch (_) {
+      return '';
+    }
+  }
+}
+
+class PreferredVersionsConverter
+    extends TypeConverter<List<PrayerVersionPreference>, String> {
+  const PreferredVersionsConverter();
+
+  @override
+  List<PrayerVersionPreference> fromSql(String fromDb) {
+    if (fromDb.isEmpty) return [];
+    try {
+      final List<dynamic> list = jsonDecode(fromDb);
+      return list.map((item) {
+        final map = item as Map<String, dynamic>;
+        return PrayerVersionPreference(
+          map['key'] as String? ?? '',
+          map['versionIndex'] as int? ?? 0,
+        );
+      }).toList();
+    } catch (_) {
+      return [];
+    }
+  }
+
+  @override
+  String toSql(List<PrayerVersionPreference> value) {
+    try {
+      final List<Map<String, dynamic>> list = value.map((item) {
+        return {'key': item.key, 'versionIndex': item.versionIndex};
+      }).toList();
+      return jsonEncode(list);
+    } catch (_) {
+      return '';
+    }
+  }
+}
+
+@UseRowClass(Prayer)
+class Prayers extends Table {
+  IntColumn get isarId => integer().autoIncrement()();
+  TextColumn get prayerId => text().unique()();
+  TextColumn get defaultTitle => text()();
+  TextColumn get category => text()();
+  IntColumn get defaultOrder => integer()();
+  BoolColumn get hasAmen => boolean()();
+  TextColumn get hash => text()();
+  TextColumn get localizedTranslations => text()
+      .map(NullAwareTypeConverter.wrap(const LocalizedTranslationsConverter()))
+      .nullable()();
+}
+
+@UseRowClass(UserSettings)
+class UserSettingsTable extends Table {
+  IntColumn get id => integer().withDefault(const Constant(1))();
+  TextColumn get primaryLanguageCode => text()();
+  TextColumn get compareLanguageCode => text()();
+  TextColumn get primaryBibleTranslation => text()();
+  TextColumn get compareBibleTranslation => text()();
+  TextColumn get preferredVersions => text()
+      .map(NullAwareTypeConverter.wrap(const PreferredVersionsConverter()))
+      .nullable()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+
+  @override
+  String get tableName => 'user_settings';
+}
+
+@DriftDatabase(tables: [Prayers, UserSettingsTable], include: {'bible.drift'})
 class BibleDatabase extends _$BibleDatabase {
   BibleDatabase([QueryExecutor? executor])
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 3;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -23,6 +206,10 @@ class BibleDatabase extends _$BibleDatabase {
         await m.createTable(favoritePassages);
         // Clear bible_verses to force re-population with the corrected UsfmParser
         await delete(bibleVerses).go();
+      }
+      if (from < 3) {
+        await m.createTable(prayers);
+        await m.createTable(userSettingsTable);
       }
     },
   );
@@ -189,6 +376,51 @@ class BibleDatabase extends _$BibleDatabase {
 
   Future<int> deleteFavorite(int id) {
     return (delete(favoritePassages)..where((t) => t.id.equals(id))).go();
+  }
+
+  // Prayers operations
+  Future<List<Prayer>> getAllPrayers() {
+    return (select(
+      prayers,
+    )..orderBy([(t) => OrderingTerm(expression: t.defaultOrder)])).get();
+  }
+
+  Future<void> updatePrayers(List<Prayer> newPrayers) async {
+    await transaction(() async {
+      await delete(prayers).go();
+      for (final prayer in newPrayers) {
+        await into(prayers).insert(
+          PrayersCompanion(
+            isarId: Value(prayer.isarId),
+            prayerId: Value(prayer.prayerId),
+            defaultTitle: Value(prayer.defaultTitle),
+            category: Value(prayer.category),
+            defaultOrder: Value(prayer.defaultOrder),
+            hasAmen: Value(prayer.hasAmen),
+            hash: Value(prayer.hash),
+            localizedTranslations: Value(prayer.localizedTranslations),
+          ),
+        );
+      }
+    });
+  }
+
+  // User Settings operations
+  Future<UserSettings?> getUserSettings() {
+    return (select(userSettingsTable)..limit(1)).getSingleOrNull();
+  }
+
+  Future<void> saveUserSettings(UserSettings settings) {
+    return into(userSettingsTable).insertOnConflictUpdate(
+      UserSettingsTableCompanion(
+        id: Value(settings.id),
+        primaryLanguageCode: Value(settings.primaryLanguageCode),
+        compareLanguageCode: Value(settings.compareLanguageCode),
+        primaryBibleTranslation: Value(settings.primaryBibleTranslation),
+        compareBibleTranslation: Value(settings.compareBibleTranslation),
+        preferredVersions: Value(settings.preferredVersions),
+      ),
+    );
   }
 }
 

@@ -1,7 +1,3 @@
-import 'package:isar_plus/isar_plus.dart';
-
-part 'prayers.g.dart';
-
 enum PrayerLanguage {
   english(name: 'English', nativeName: 'English', flag: '🇺🇸'),
   spanish(name: 'Spanish', nativeName: 'Español', flag: '🇪🇸'),
@@ -38,7 +34,6 @@ enum PrayerLanguage {
   }
 }
 
-@embedded
 class ChineseChar {
   String char;
   String pinyin;
@@ -47,14 +42,12 @@ class ChineseChar {
   ChineseChar([this.char = '', this.pinyin = '', this.phraseId]);
 }
 
-@embedded
 class ChineseLine {
   List<ChineseChar>? chars;
 
   ChineseLine({this.chars});
 }
 
-@embedded
 class PrayerToken {
   String text;
   String? id;
@@ -62,7 +55,6 @@ class PrayerToken {
   PrayerToken([this.text = '', this.id]);
 }
 
-@embedded
 class PrayerTranslation {
   String title;
   String subtitle;
@@ -117,7 +109,6 @@ class PrayerTranslation {
   }
 }
 
-@embedded
 class LocalizedTranslations {
   String languageCode;
   List<PrayerTranslation>? list;
@@ -125,20 +116,14 @@ class LocalizedTranslations {
   LocalizedTranslations({this.languageCode = '', this.list});
 }
 
-@collection
 class Prayer {
-  @Id()
   int isarId = 0;
-
-  @Index(unique: true)
   String prayerId;
-
   String defaultTitle;
   String category;
   int defaultOrder;
   bool hasAmen;
   String hash;
-
   List<LocalizedTranslations>? localizedTranslations;
 
   Prayer({
@@ -175,10 +160,8 @@ class Prayer {
     );
   }
 
-  @ignore
   String get idString => prayerId;
 
-  @ignore
   Map<PrayerLanguage, List<PrayerTranslation>> get translations {
     final map = <PrayerLanguage, List<PrayerTranslation>>{};
     if (localizedTranslations != null) {
@@ -194,7 +177,6 @@ class Prayer {
   }
 }
 
-@embedded
 class PrayerVersionPreference {
   String key;
   int versionIndex;
@@ -202,17 +184,12 @@ class PrayerVersionPreference {
   PrayerVersionPreference([this.key = '', this.versionIndex = 0]);
 }
 
-@collection
 class UserSettings {
-  @Id()
   int id = 1;
-
   String primaryLanguageCode;
   String compareLanguageCode;
-
   String primaryBibleTranslation;
   String compareBibleTranslation;
-
   List<PrayerVersionPreference>? preferredVersions;
 
   UserSettings({
@@ -224,13 +201,11 @@ class UserSettings {
     this.preferredVersions,
   });
 
-  @ignore
   PrayerLanguage get primaryLanguage => PrayerLanguage.values.firstWhere(
     (e) => e.toString().split('.').last == primaryLanguageCode,
     orElse: () => PrayerLanguage.english,
   );
 
-  @ignore
   PrayerLanguage get compareLanguage => PrayerLanguage.values.firstWhere(
     (e) => e.toString().split('.').last == compareLanguageCode,
     orElse: () => PrayerLanguage.latin,

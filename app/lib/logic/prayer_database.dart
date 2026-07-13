@@ -1,85 +1,11 @@
 import 'dart:convert';
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart';
-import 'package:isar_plus/isar_plus.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:twelve_stars/logic/prayers.dart';
-
-import 'dart:io';
+import 'package:twelve_stars/logic/bible_database.dart';
 
 class PrayerDatabase {
   static List<Prayer>? mockPrayers;
-  static Isar? _isar;
-
-  static Future<Isar> get isar async {
-    if (_isar != null) return _isar!;
-    _isar = await _initIsar();
-    return _isar!;
-  }
-
-  static Future<Isar> _initIsar() async {
-    try {
-      final existing = Isar.get(schemas: [PrayerSchema, UserSettingsSchema]);
-      // Verify that the retrieved instance is healthy and not in a corrupted/tableless state
-      existing.prayers.getAll([0]);
-      return existing;
-    } catch (_) {
-      // Instance has not been opened yet, or it is in a corrupted state.
-      // Try closing the existing instance first to release locks before we reopen/delete
-      try {
-        final existing = Isar.get(schemas: [PrayerSchema, UserSettingsSchema]);
-        existing.close();
-      } catch (_) {}
-    }
-    if (kIsWeb) {
-      await Isar.initialize();
-    }
-    String? directory;
-    if (!kIsWeb) {
-      final dir = await getApplicationDocumentsDirectory();
-      directory = dir.path;
-    }
-    try {
-      return Isar.open(
-        schemas: [PrayerSchema, UserSettingsSchema],
-        directory: kIsWeb ? Isar.sqliteInMemory : (directory ?? ''),
-        engine: kIsWeb ? IsarEngine.sqlite : IsarEngine.isar,
-        name: kIsWeb
-            ? 'default_${DateTime.now().millisecondsSinceEpoch}'
-            : Isar.defaultName,
-      );
-    } catch (e) {
-      final errorStr = e.toString().toLowerCase();
-      final isAlreadyOpenError =
-          errorStr.contains('already opened') ||
-          errorStr.contains('already open');
-      if (!kIsWeb && directory != null && !isAlreadyOpenError) {
-        try {
-          final isarDir = Directory(directory);
-          if (isarDir.existsSync()) {
-            for (final entity in isarDir.listSync()) {
-              if (entity is File &&
-                  (entity.path.endsWith('.isar') ||
-                      entity.path.endsWith('.sqlite') ||
-                      entity.path.contains('isar') ||
-                      entity.path.contains('sqlite'))) {
-                try {
-                  entity.deleteSync();
-                } catch (_) {}
-              }
-            }
-          }
-        } catch (_) {}
-        // Retry opening database
-        return Isar.open(
-          schemas: [PrayerSchema, UserSettingsSchema],
-          directory: directory,
-          engine: IsarEngine.isar,
-        );
-      }
-      rethrow;
-    }
-  }
+  static UserSettings? mockSettings;
 
   // Fetch all prayers from the database
   static Future<List<Prayer>> loadPrayers() async {
@@ -87,8 +13,8 @@ class PrayerDatabase {
       return mockPrayers!;
     }
 
-    final isarInstance = await isar;
-    final list = isarInstance.prayers.where().sortByDefaultOrder().findAll();
+    final db = BibleDatabaseHelper.db;
+    final list = await db.getAllPrayers();
     final compiledPrayers = await _loadPrayersFromWebJson();
 
     bool needsUpdate = list.length != compiledPrayers.length;
@@ -106,21 +32,17 @@ class PrayerDatabase {
     }
 
     if (needsUpdate) {
-      isarInstance.write((isar) {
-        isar.prayers.clear();
-        for (final prayer in compiledPrayers) {
-          prayer.isarId = isar.prayers.autoIncrement();
-        }
-        isar.prayers.putAll(compiledPrayers);
-      });
+      int autoId = 1;
+      for (final prayer in compiledPrayers) {
+        prayer.isarId = autoId++;
+      }
+      await db.updatePrayers(compiledPrayers);
       compiledPrayers.sort((a, b) => a.defaultOrder.compareTo(b.defaultOrder));
       return compiledPrayers;
     }
 
     return list;
   }
-
-  static UserSettings? mockSettings;
 
   static Future<UserSettings> loadSettings() async {
     if (mockSettings != null) {
@@ -129,13 +51,11 @@ class PrayerDatabase {
     if (mockPrayers != null) {
       return UserSettings();
     }
-    final isarInstance = await isar;
-    var settings = isarInstance.userSettings.get(1);
+    final db = BibleDatabaseHelper.db;
+    var settings = await db.getUserSettings();
     if (settings == null) {
       settings = UserSettings();
-      isarInstance.write((isar) {
-        isar.userSettings.put(settings!);
-      });
+      await db.saveUserSettings(settings);
     }
     return settings;
   }
@@ -146,10 +66,8 @@ class PrayerDatabase {
       return;
     }
     if (mockPrayers != null) return;
-    final isarInstance = await isar;
-    isarInstance.write((isar) {
-      isar.userSettings.put(settings);
-    });
+    final db = BibleDatabaseHelper.db;
+    await db.saveUserSettings(settings);
   }
 
   static Future<List<Prayer>> _loadPrayersFromWebJson() async {
