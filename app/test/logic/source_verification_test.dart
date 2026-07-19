@@ -275,7 +275,8 @@ void main() {
               response.statusCode == 503 ||
               pageText.contains('cloudflare') ||
               pageText.contains('security check') ||
-              pageText.contains('captcha') ||
+              (pageText.contains('captcha') &&
+                  !pageText.contains('wgconfirmedit')) ||
               pageText.contains('sucuri') ||
               pageText.contains('access denied') ||
               pageText.contains('challenge-platform') ||
