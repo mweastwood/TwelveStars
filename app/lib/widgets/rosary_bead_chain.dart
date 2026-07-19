@@ -107,7 +107,7 @@ class _RosaryBeadChainState extends State<RosaryBeadChain> {
               controller: _scrollController,
               itemCount: widget.steps.length,
               clipBehavior: Clip.none, // Prevent clipping of large cross/medal
-              padding: const EdgeInsets.symmetric(vertical: 48.0),
+              padding: const EdgeInsets.only(top: 0.0, bottom: 48.0),
               itemBuilder: (context, index) {
                 final step = widget.steps[index];
                 final isActive = index == widget.currentStep;

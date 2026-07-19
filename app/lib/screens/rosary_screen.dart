@@ -176,7 +176,7 @@ class _RosaryScreenState extends State<RosaryScreen> {
                     children: [
                       // Mystery selector at the top
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
+                        padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
                         child: Row(
                           children: [
                             Expanded(
