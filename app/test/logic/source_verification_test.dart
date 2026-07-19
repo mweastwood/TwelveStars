@@ -364,6 +364,27 @@ void main() {
 
       res = res.toLowerCase();
 
+      res = res
+          .replaceAll('℣.', '')
+          .replaceAll('℟.', '')
+          .replaceAll('℣', '')
+          .replaceAll('℟', '')
+          .replaceAll('v.', '')
+          .replaceAll('r.', '')
+          .replaceAll('v/', '')
+          .replaceAll('r/', '')
+          .replaceAll('namumuno', '')
+          .replaceAll('bayan', '')
+          .replaceAll('người xướng', '')
+          .replaceAll('người đáp', '')
+          .replaceAll('đọc chung', '')
+          .replaceAll('xướng', '')
+          .replaceAll('đáp', '')
+          .replaceAll('啟：', '')
+          .replaceAll('應：', '')
+          .replaceAll('啟', '')
+          .replaceAll('應', '');
+
       // Apply language-specific external source typo fixes
       final fixesForLanguage = sourceTypoFixes[language];
       if (fixesForLanguage != null) {
