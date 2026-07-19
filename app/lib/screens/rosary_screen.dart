@@ -316,61 +316,64 @@ class _RosaryScreenState extends State<RosaryScreen> {
                               left: 0,
                               right: 0,
                               bottom: 0,
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 16.0,
-                                  vertical: 12.0,
-                                ),
-                                child: Row(
-                                  children: [
-                                    Tooltip(
-                                      message: 'Reset Rosary',
-                                      child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          shape: const CircleBorder(),
-                                          padding: const EdgeInsets.all(12),
+                              child: SafeArea(
+                                top: false,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 16.0,
+                                    vertical: 12.0,
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Tooltip(
+                                        message: 'Reset Rosary',
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            shape: const CircleBorder(),
+                                            padding: const EdgeInsets.all(12),
+                                          ),
+                                          onPressed: _resetRosary,
+                                          child: const Icon(Icons.replay),
                                         ),
-                                        onPressed: _resetRosary,
-                                        child: const Icon(Icons.replay),
                                       ),
-                                    ),
-                                    const Spacer(),
-                                    ElevatedButton.icon(
-                                      style: ElevatedButton.styleFrom(
-                                        disabledBackgroundColor:
-                                            Color.alphaBlend(
-                                              theme.colorScheme.onSurface
-                                                  .withValues(alpha: 0.12),
-                                              theme.colorScheme.surface,
-                                            ),
-                                        disabledForegroundColor:
-                                            Color.alphaBlend(
-                                              theme.colorScheme.onSurface
-                                                  .withValues(alpha: 0.38),
-                                              theme.colorScheme.surface,
-                                            ),
+                                      const Spacer(),
+                                      ElevatedButton.icon(
+                                        style: ElevatedButton.styleFrom(
+                                          disabledBackgroundColor:
+                                              Color.alphaBlend(
+                                                theme.colorScheme.onSurface
+                                                    .withValues(alpha: 0.12),
+                                                theme.colorScheme.surface,
+                                              ),
+                                          disabledForegroundColor:
+                                              Color.alphaBlend(
+                                                theme.colorScheme.onSurface
+                                                    .withValues(alpha: 0.38),
+                                                theme.colorScheme.surface,
+                                              ),
+                                        ),
+                                        icon: const Icon(Icons.arrow_back),
+                                        label: const Text('Back'),
+                                        onPressed: _currentStep > 0
+                                            ? _prevStep
+                                            : null,
                                       ),
-                                      icon: const Icon(Icons.arrow_back),
-                                      label: const Text('Back'),
-                                      onPressed: _currentStep > 0
-                                          ? _prevStep
-                                          : null,
-                                    ),
-                                    const SizedBox(width: 12),
-                                    FilledButton.icon(
-                                      icon: Icon(
-                                        _currentStep == _steps.length - 1
-                                            ? Icons.check
-                                            : Icons.arrow_forward,
+                                      const SizedBox(width: 12),
+                                      FilledButton.icon(
+                                        icon: Icon(
+                                          _currentStep == _steps.length - 1
+                                              ? Icons.check
+                                              : Icons.arrow_forward,
+                                        ),
+                                        label: Text(
+                                          _currentStep == _steps.length - 1
+                                              ? 'Finish'
+                                              : 'Next',
+                                        ),
+                                        onPressed: _nextStep,
                                       ),
-                                      label: Text(
-                                        _currentStep == _steps.length - 1
-                                            ? 'Finish'
-                                            : 'Next',
-                                      ),
-                                      onPressed: _nextStep,
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
