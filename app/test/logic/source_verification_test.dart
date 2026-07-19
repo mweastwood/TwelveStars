@@ -364,6 +364,31 @@ void main() {
 
       res = res.toLowerCase();
 
+      // Strip call/response symbols, role labels, and prompt headers that are
+      // present in web sources but omitted in the application's local text database.
+      // This is done before stripping whitespace and punctuation so that multi-word
+      // labels (like "người xướng" and "đọc chung") can be matched accurately.
+      res = res
+          .replaceAll('℣.', '')
+          .replaceAll('℟.', '')
+          .replaceAll('℣', '')
+          .replaceAll('℟', '')
+          .replaceAll('v.', '')
+          .replaceAll('r.', '')
+          .replaceAll('v/', '')
+          .replaceAll('r/', '')
+          .replaceAll('namumuno', '')
+          .replaceAll('bayan', '')
+          .replaceAll('người xướng', '')
+          .replaceAll('người đáp', '')
+          .replaceAll('đọc chung', '')
+          .replaceAll('xướng', '')
+          .replaceAll('đáp', '')
+          .replaceAll('啟：', '')
+          .replaceAll('應：', '')
+          .replaceAll('啟', '')
+          .replaceAll('應', '');
+
       // Apply language-specific external source typo fixes
       final fixesForLanguage = sourceTypoFixes[language];
       if (fixesForLanguage != null) {

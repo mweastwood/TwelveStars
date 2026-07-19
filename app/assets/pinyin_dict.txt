@@ -461,4 +461,22 @@
 凡: fán
 懺: chàn
 援: yuán
+她: tā
+婢: bì
+照: zhào
+話: huà
+就: jiù
+吧: ba
+居: jū
+住: zhù
+當: dāng
+注: zhù
+既: jì
+預: yù
+賴: lài
+啟: qǐ
+應: yìng
+請: qǐng
+眾: zhòng
+禱: dǎo
 
