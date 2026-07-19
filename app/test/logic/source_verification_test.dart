@@ -364,6 +364,10 @@ void main() {
 
       res = res.toLowerCase();
 
+      // Strip call/response symbols, role labels, and prompt headers that are
+      // present in web sources but omitted in the application's local text database.
+      // This is done before stripping whitespace and punctuation so that multi-word
+      // labels (like "người xướng" and "đọc chung") can be matched accurately.
       res = res
           .replaceAll('℣.', '')
           .replaceAll('℟.', '')
