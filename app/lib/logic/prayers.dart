@@ -157,7 +157,7 @@ class Prayer {
       hasAmen: hasAmen,
       localizedTranslations: translations.entries.map((entry) {
         return LocalizedTranslations(
-          languageCode: entry.key.toString().split('.').last,
+          languageCode: entry.key.name,
           list: entry.value,
         );
       }).toList(),
@@ -171,7 +171,7 @@ class Prayer {
     if (localizedTranslations != null) {
       for (final item in localizedTranslations!) {
         final lang = PrayerLanguage.values.firstWhere(
-          (e) => e.toString().split('.').last == item.languageCode,
+          (e) => e.name == item.languageCode,
           orElse: () => PrayerLanguage.english,
         );
         map[lang] = item.list ?? [];
@@ -206,12 +206,12 @@ class UserSettings {
   });
 
   PrayerLanguage get primaryLanguage => PrayerLanguage.values.firstWhere(
-    (e) => e.toString().split('.').last == primaryLanguageCode,
+    (e) => e.name == primaryLanguageCode,
     orElse: () => PrayerLanguage.english,
   );
 
   PrayerLanguage get compareLanguage => PrayerLanguage.values.firstWhere(
-    (e) => e.toString().split('.').last == compareLanguageCode,
+    (e) => e.name == compareLanguageCode,
     orElse: () => PrayerLanguage.latin,
   );
 }
