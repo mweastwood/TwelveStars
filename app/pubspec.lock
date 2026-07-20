@@ -294,6 +294,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_agent_core:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: "v0.0.16"
+      resolved-ref: "543eede8f81abded7f5dd9418f0bcbad05d9c684"
+      url: "https://github.com/mweastwood/flutter-agent-core.git"
+    source: git
+    version: "0.0.1"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -480,15 +489,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.0"
-  local_agent:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: "v0.0.3"
-      resolved-ref: "332f3a83650a4ee23c31826d09efcaceadc122c3"
-      url: "https://github.com/mweastwood/flutter-local-agent.git"
-    source: git
-    version: "0.0.1"
   logging:
     dependency: transitive
     description:
