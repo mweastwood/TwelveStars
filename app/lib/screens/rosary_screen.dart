@@ -129,7 +129,7 @@ class _RosaryScreenState extends State<RosaryScreen> {
         ? _findPrayer(activeStep.tertiaryPrayerId!)
         : null;
 
-    final langSuffix = widget.primaryLanguage.toString().split('.').last;
+    final langSuffix = widget.primaryLanguage.code;
     final prefKey1 = '${activeStep.prayerId}_$langSuffix';
     final initialVersion1 = _preferredVersions[prefKey1] ?? 0;
 
