@@ -204,7 +204,14 @@ void main() {
 
     // Map of known typographical errors on external source pages to their correct spellings, categorized by language.
     const sourceTypoFixes = {
-      PrayerLanguage.latin: {'víirgine': 'virgine', 'viirgine': 'virgine'},
+      PrayerLanguage.latin: {
+        'víirgine': 'virgine',
+        'viirgine': 'virgine',
+        '&uacutes': 'us',
+        '&iacute': 'i',
+        '&oacute': 'o',
+        '&aelig': 'ae',
+      },
       PrayerLanguage.spanish: {
         // In 2010, the Real Academia Española (RAE) updated the spelling rules and officially
         // eliminated the accent mark on "sólo" (meaning "only" or "just"). Today, the correct spelling is
@@ -389,6 +396,19 @@ void main() {
         for (final entry in fixesForLanguage.entries) {
           res = res.replaceAll(entry.key, entry.value);
         }
+      }
+
+      if (language == PrayerLanguage.latin) {
+        res = res
+            .replaceAll('á', 'a')
+            .replaceAll('é', 'e')
+            .replaceAll('í', 'i')
+            .replaceAll('ó', 'o')
+            .replaceAll('ú', 'u')
+            .replaceAll('ý', 'y')
+            .replaceAll('æ', 'ae')
+            .replaceAll('œ', 'oe')
+            .replaceAll('ǽ', 'ae');
       }
 
       if (language == PrayerLanguage.vietnamese) {
