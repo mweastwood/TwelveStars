@@ -15,14 +15,15 @@ has_amen: false
 {Mula ngayon, ang lahat ng tao'y tatawagin akong pinagpala;|magnificat_4}
 {dahil sa mga dakilang bagay na ginawa sa akin ng Makapangyarihan.|magnificat_5}
 {Banal ang kanyang pangalan!|magnificat_6}
-{Ang kanyang kahabagan ay para sa lahat ng salinlahing may takot sa kanya.|magnificat_7}
-{Ipinakita niya ang lakas ng kanyang mga bisig,|magnificat_8}
-{nilito niya ang mga may palalong isip.|magnificat_9}
-{Tinanggal sa kanilang luklukan ang mga may kapangyarihan,|magnificat_10}
-{at itinaas ang mga nasa abang kalagayan.|magnificat_11}
-{Pinasagana niya sa mabubuting bagay ang mga kapus-palad,|magnificat_12}
-{at pinaalis nang walang dalang anuman ang mga mayayaman.|magnificat_13}
-{Tinulungan niya ang Israel na kanyang lingkod,|magnificat_14}
-{at hindi niya kinalimutang kahabagan ito.|magnificat_15}
-{Tulad ng kanyang ipinangako sa ating mga ninuno,|magnificat_16}
-{kay Abraham at sa kanyang lahi, magpakailanman.|magnificat_17}
+{Ang kanyang kahabagan ay para sa lahat ng salinlahing|magnificat_7}
+{may takot sa kanya.|magnificat_8}
+{Ipinakita niya ang lakas ng kanyang mga bisig,|magnificat_9}
+{nilito niya ang mga may palalong isip.|magnificat_10}
+{Tinanggal sa kanilang luklukan ang mga may kapangyarihan,|magnificat_11}
+{at itinaas ang mga nasa abang kalagayan.|magnificat_12}
+{Pinasagana niya sa mabubuting bagay ang mga kapus-palad,|magnificat_13}
+{at pinaalis nang walang dalang anuman ang mga mayayaman.|magnificat_14}
+{Tinulungan niya ang Israel na kanyang lingkod,|magnificat_15}
+{at hindi niya kinalimutang kahabagan ito.|magnificat_16}
+{Tulad ng kanyang ipinangako sa ating mga ninuno,|magnificat_17}
+{kay Abraham at sa kanyang lahi, magpakailanman.|magnificat_18}

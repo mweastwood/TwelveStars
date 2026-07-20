@@ -17,16 +17,20 @@ has_amen: false
 {He looks on his servant in her lowliness;|magnificat_3}
 {Henceforth all generations will call me blessed.|magnificat_4}
 
-{The Almighty works marvels for me. Holy his name!|magnificat_5}
-{His mercy is from age to age, on those who fear him.|magnificat_6}
+{The Almighty works marvels for me.|magnificat_5}
+{Holy his name!|magnificat_6}
+{His mercy is from age to age,|magnificat_7}
+{on those who fear him.|magnificat_8}
 
-{He puts forth his arm in strength|magnificat_7}
-{And scatters the proud hearted.|magnificat_8}
-{He casts the mighty from their thrones|magnificat_9}
-{And raises the lowly.|magnificat_10}
+{He puts forth his arm in strength|magnificat_9}
+{And scatters the proud hearted.|magnificat_10}
+{He casts the mighty from their thrones|magnificat_11}
+{And raises the lowly.|magnificat_12}
 
-{He fills the starving with good things,|magnificat_11}
-{Sends the rich away empty.|magnificat_12}
+{He fills the starving with good things,|magnificat_13}
+{Sends the rich away empty.|magnificat_14}
 
-{He protects Israel, his servant, remembering his mercy,|magnificat_13}
-{the mercy promised to our fathers, to Abraham and his sons for ever.|magnificat_14}
+{He protects Israel, his servant,|magnificat_15}
+{remembering his mercy,|magnificat_16}
+{the mercy promised to our fathers,|magnificat_17}
+{to Abraham and his sons for ever.|magnificat_18}
