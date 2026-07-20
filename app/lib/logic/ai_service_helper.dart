@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:local_agent/local_agent.dart';
+import 'package:flutter_agent_core/flutter_agent_core.dart';
 
 class LocalAgentHelper {
   static AiService? _instance;
@@ -32,16 +32,47 @@ class CachingAiService implements AiService {
   }
 
   @override
+  Future<void> setModelConfig({
+    required String releaseStage,
+    required String preference,
+  }) {
+    return delegate.setModelConfig(
+      releaseStage: releaseStage,
+      preference: preference,
+    );
+  }
+
+  @override
   Future<String?> generateContent({
     required String prompt,
     Uint8List? imageBytes,
-    bool lowTemperature = false,
+    double temperature = 1.0,
     int? maxOutputTokens,
   }) {
     return delegate.generateContent(
       prompt: prompt,
       imageBytes: imageBytes,
-      lowTemperature: lowTemperature,
+      temperature: temperature,
+      maxOutputTokens: maxOutputTokens,
+    );
+  }
+
+  @override
+  Future<int> countTokens({required String prompt, Uint8List? imageBytes}) {
+    return delegate.countTokens(prompt: prompt, imageBytes: imageBytes);
+  }
+
+  @override
+  Future<AiResponse?> generateContentRaw({
+    required String prompt,
+    Uint8List? imageBytes,
+    double temperature = 1.0,
+    int? maxOutputTokens,
+  }) {
+    return delegate.generateContentRaw(
+      prompt: prompt,
+      imageBytes: imageBytes,
+      temperature: temperature,
       maxOutputTokens: maxOutputTokens,
     );
   }

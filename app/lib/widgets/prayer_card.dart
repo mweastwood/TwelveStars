@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:local_agent/local_agent.dart';
+import 'package:flutter_agent_core/flutter_agent_core.dart';
 import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 
@@ -1015,10 +1015,12 @@ ${widget.translatedContext}
 Define each translated word in the selected phrase and explain how the translated phrase carries the meaning of the original phrase. Focus your explanation only on the selected phrase in context, not the rest of the prayer.
 ''';
 
-      final response = await LocalAgentHelper.instance.generateContent(
-        prompt: prompt,
-        maxOutputTokens: 256,
-      );
+      final response = await LocalAgentHelper.instance
+          .generateContentWithContinuation(
+            prompt: prompt,
+            maxOutputTokens: 256,
+            autoContinueLimit: 3,
+          );
 
       setState(() {
         _explanation = response;
