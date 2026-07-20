@@ -489,7 +489,7 @@ class _HomeScreenState extends State<HomeScreen> {
             )
           else
             ...filteredPrayers.map((prayer) {
-              final prefKey = '${prayer.prayerId}_${_primaryLanguage.name}';
+              final prefKey = '${prayer.prayerId}_${_primaryLanguage.code}';
               final initialVersion =
                   _settings?.preferredVersions
                       ?.firstWhere(
