@@ -6,8 +6,9 @@ title: Canticle of Simeon (Nunc Dimittis)
 subtitle: Nunc Dimittis
 source_name: Vatican
 source_url: https://www.vatican.va/roman_curia/pontifical_councils/chrstuni/angl-comm-docs/rc_pc_chrstuni_doc_1978_evening-prayer_en.html
-history_author: St. Luke
-history_origin: Gospel of Luke
+history_author: "Simeon the Righteous"
+history_origin: "Gospel of Luke 2:29–32"
+history_description: "The Canticle of Simeon, spoken by the elderly Simeon when Jesus was presented in the Temple. It is traditionally prayed during Compline (Night Prayer)."
 has_amen: false
 ---
 

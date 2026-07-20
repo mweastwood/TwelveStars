@@ -6,6 +6,9 @@ title: "Come, Creator Spirit"
 subtitle: "Veni Creator Spiritus"
 source_name: "Vatican"
 source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html"
+history_author: "Attributed to Rabanus Maurus"
+history_origin: "9th Century"
+history_description: "A traditional Christian hymn invocation to the Holy Spirit, traditionally sung at Pentecost, ordinations, and the dedication of churches."
 has_amen: true
 ---
 
