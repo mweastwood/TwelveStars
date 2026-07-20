@@ -100,6 +100,9 @@ void main() {
     final subtitle = yaml['subtitle'] as String?;
     final sourceName = yaml['source_name'] as String;
     final sourceUrl = yaml['source_url'] as String;
+    final copyright = yaml.containsKey('copyright')
+        ? yaml['copyright'] as String
+        : '';
     final historyAuthor = yaml['history_author'] as String? ?? '';
     final historyOrigin = yaml['history_origin'] as String? ?? '';
     final historyDescription = yaml['history_description'] as String? ?? '';
@@ -181,6 +184,7 @@ void main() {
       'text': bodyText,
       'source_name': sourceName,
       'source_url': sourceUrl,
+      'copyright': copyright,
       'history_author': historyAuthor,
       'history_origin': historyOrigin,
       'history_description': historyDescription,

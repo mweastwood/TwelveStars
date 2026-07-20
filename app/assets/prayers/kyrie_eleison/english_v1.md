@@ -9,6 +9,7 @@ source_url: https://www.universalis.com/static/mass/orderofmass.htm
 history_author: ""
 history_origin: ""
 history_description: ""
+copyright: "English translation of the Order of Mass excerpts © 2010, ICEL. All rights reserved."
 ---
 Priest: {Lord, have mercy.|kyrie_eleison_1}
 People: {Lord, have mercy.|kyrie_eleison_2}

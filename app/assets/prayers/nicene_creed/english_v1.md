@@ -10,6 +10,7 @@ history_author: "First Council of Nicaea & Constantinople"
 history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
 history_description: "The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity."
 has_amen: true
+copyright: "English translation of the Nicene Creed © 2010, ICEL. All rights reserved."
 ---
 {I believe in one God, the Father almighty, maker of heaven and earth, of all things visible and invisible|nicene_creed_1}.
 

@@ -69,6 +69,7 @@ class LocalizedTranslationsConverter
             historyAuthor: tMap['historyAuthor'] as String? ?? '',
             historyOrigin: tMap['historyOrigin'] as String? ?? '',
             historyDescription: tMap['historyDescription'] as String? ?? '',
+            copyright: tMap['copyright'] as String? ?? '',
             chineseLines: chineseLines,
             tokens: tokens,
           );
@@ -100,6 +101,7 @@ class LocalizedTranslationsConverter
               'historyAuthor': trans.historyAuthor,
               'historyOrigin': trans.historyOrigin,
               'historyDescription': trans.historyDescription,
+              'copyright': trans.copyright,
               'chineseLines': trans.chineseLines?.map((line) {
                 return {
                   'chars': line.chars?.map((c) {

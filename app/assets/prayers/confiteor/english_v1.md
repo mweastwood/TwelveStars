@@ -9,6 +9,7 @@ source_url: "https://www.universalis.com/static/mass/orderofmass.htm"
 history_author: "Traditional"
 history_origin: "Roman Missal"
 history_description: "An act of confession and penitence recited during the introductory rites of the Catholic Mass."
+copyright: "English translation of the Confiteor © 2010, ICEL. All rights reserved."
 ---
 {I confess to almighty God|confiteor_1} {and to you, my brothers and sisters|confiteor_2}, {that I have greatly sinned|confiteor_3}, {in my thoughts and in my words|confiteor_4}, {in what I have done and in what I have failed to do|confiteor_5},
 

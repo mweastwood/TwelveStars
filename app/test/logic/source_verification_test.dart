@@ -204,7 +204,11 @@ void main() {
 
     // Map of known typographical errors on external source pages to their correct spellings, categorized by language.
     const sourceTypoFixes = {
-      PrayerLanguage.latin: {'víirgine': 'virgine', 'viirgine': 'virgine'},
+      PrayerLanguage.latin: {
+        'víirgine': 'virgine',
+        'viirgine': 'virgine',
+        'eundem': 'eumdem',
+      },
       PrayerLanguage.spanish: {
         // In 2010, the Real Academia Española (RAE) updated the spelling rules and officially
         // eliminated the accent mark on "sólo" (meaning "only" or "just"). Today, the correct spelling is
@@ -369,14 +373,8 @@ void main() {
       // This is done before stripping whitespace and punctuation so that multi-word
       // labels (like "người xướng" and "đọc chung") can be matched accurately.
       res = res
-          .replaceAll('℣.', '')
-          .replaceAll('℟.', '')
-          .replaceAll('℣', '')
-          .replaceAll('℟', '')
-          .replaceAll('v.', '')
-          .replaceAll('r.', '')
-          .replaceAll('v/', '')
-          .replaceAll('r/', '')
+          .replaceAll(RegExp(r'(^|\s)[℣℟vVrR]\.?(\s|$)'), ' ')
+          .replaceAll(RegExp(r'(^|\s)[vVrR]/(\s|$)'), ' ')
           .replaceAll('namumuno', '')
           .replaceAll('bayan', '')
           .replaceAll('người xướng', '')
@@ -692,8 +690,8 @@ void main() {
                 // Split the prayer into lines by newline to verify each line exists on the page.
                 final lines = text
                     .split('\n')
+                    .where((line) => line.trim().isNotEmpty)
                     .map((line) => softNormalize(line, language: language))
-                    .where((line) => line.isNotEmpty)
                     .toList();
 
                 bool allLinesMatched = true;

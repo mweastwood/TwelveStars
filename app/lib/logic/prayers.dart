@@ -64,6 +64,7 @@ class PrayerTranslation {
   String historyAuthor;
   String historyOrigin;
   String historyDescription;
+  String copyright;
   List<ChineseLine>? chineseLines;
   List<PrayerToken>? tokens;
 
@@ -76,6 +77,7 @@ class PrayerTranslation {
     this.historyAuthor = '',
     this.historyOrigin = '',
     this.historyDescription = '',
+    this.copyright = '',
     this.chineseLines,
     this.tokens,
   });
@@ -89,6 +91,7 @@ class PrayerTranslation {
     String historyAuthor = '',
     String historyOrigin = '',
     String historyDescription = '',
+    String copyright = '',
     List<List<ChineseChar>>? chineseLines,
     List<PrayerToken>? tokens,
   }) {
@@ -101,6 +104,7 @@ class PrayerTranslation {
       historyAuthor: historyAuthor,
       historyOrigin: historyOrigin,
       historyDescription: historyDescription,
+      copyright: copyright,
       chineseLines: chineseLines
           ?.map((line) => ChineseLine(chars: line))
           .toList(),

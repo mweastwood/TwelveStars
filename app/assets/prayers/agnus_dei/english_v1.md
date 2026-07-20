@@ -9,6 +9,7 @@ source_url: https://www.universalis.com/static/mass/orderofmass.htm
 history_author: ""
 history_origin: ""
 history_description: ""
+copyright: "English translation of the Agnus Dei © 2010, ICEL. All rights reserved."
 ---
 {Lamb of God|agnus_dei_1}, {you take away the sins of the world|agnus_dei_2}, {have mercy on us|agnus_dei_3}.
 {Lamb of God|agnus_dei_4}, {you take away the sins of the world|agnus_dei_5}, {have mercy on us|agnus_dei_6}.
