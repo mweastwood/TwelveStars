@@ -10,6 +10,7 @@ history_author: "First Council of Nicaea & Constantinople"
 history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
 history_description: "The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity."
 has_amen: true
+copyright: "Teksto sa liturhiya © Catholic Bishops' Conference of the Philippines (CBCP). Lahat ng karapatan ay reserbado."
 ---
 {Sumasampalataya ako sa iisang Diyos, Amang makapangyarihan sa lahat, na may gawa ng langit at lupa, ng lahat ng nakikita at hindi nakikita|nicene_creed_1}.
 
@@ -18,4 +19,3 @@ has_amen: true
 {Sumasampalataya ako sa Espiritu Santo, Panginoon at nagbibigay-buhay na nanggagaling sa Ama at sa Anak|nicene_creed_8}. {Sinasamba siya at pinararangalan kaisa ng Ama at ng Anak. Nagsalita siya sa pamamagitan ng mga propeta|nicene_creed_9}.
 
 {Sumasampalataya ako sa iisang banal na Simbahang Katolika at apostolika|nicene_creed_10}. {Gayundin sa isang binyag na ikapagpapatawad ng mga kasalanan|nicene_creed_11}. {At hinihintay ko ang muling pagkabuhay ng nangamatay at sa buhay na walang hanggan|nicene_creed_12}.
-

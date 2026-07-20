@@ -9,9 +9,9 @@ source_url: https://www.maranatha.it/MobileEdition/02-Liturgia/testiPDA/ritomess
 history_author: ""
 history_origin: ""
 history_description: ""
+copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reservados todos los derechos."
 ---
 Sacerdote: {La paz del Señor esté siempre con vosotros.|sign_of_peace_1}
 Asamblea: {Y con tu espíritu.|sign_of_peace_2}
 
 {|sign_of_peace_3}
-

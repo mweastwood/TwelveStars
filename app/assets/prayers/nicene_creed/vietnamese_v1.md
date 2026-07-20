@@ -10,6 +10,7 @@ history_author: "First Council of Nicaea & Constantinople"
 history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
 history_description: "The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity."
 has_amen: true
+copyright: "Văn bản Phụng vụ © Hội đồng Giám mục Việt Nam (HĐGMVN). Giữ toàn quyền."
 ---
 {Tôi tin kính một Thiên Chúa là Cha toàn năng, Đấng tạo thành trời đất, muôn vật hữu hình và vô hình|nicene_creed_1}.
 
@@ -18,4 +19,3 @@ has_amen: true
 {Tôi tin kính Đức Chúa Thánh Thần, là Thiên Chúa và là Đấng ban sự sống; Người bởi Đức Chúa Cha và Đức Chúa Con mà ra|nicene_creed_8}. {Người được phụng thờ và tôn vinh cùng với Đức Chúa Cha và Đức Chúa Con; Người đã dùng các tiên tri mà phán dạy|nicene_creed_9}.
 
 {Tôi tin Hội Thánh duy nhất, thánh thiện, công giáo và tông truyền|nicene_creed_10}. {Tôi tuyên xưng có một Phép Rửa để tha tội|nicene_creed_11}. {Tôi trông đợi kẻ chết sống lại và sự sống đời sau|nicene_creed_12}.
-

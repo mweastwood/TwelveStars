@@ -9,6 +9,7 @@ source_url: "https://www.maranatha.it/MobileEdition/02-Liturgia/testiPDA/ritomes
 history_author: "Traditional"
 history_origin: "Missale Romanum"
 history_description: "Oración de arrepentimiento y confesión de los pecados al inicio de la Santa Misa."
+copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reservados todos los derechos."
 ---
 {Yo confieso ante Dios todopoderoso|confiteor_1} {y ante vosotros, hermanos|confiteor_2}: {que he pecado mucho|confiteor_3} {de pensamiento, palabra|confiteor_4}, {obra y omisión|confiteor_5}.
 

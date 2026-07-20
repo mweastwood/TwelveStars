@@ -10,6 +10,7 @@ history_author: "Traditional"
 history_origin: "Missale Romanum"
 history_description: "Himno litúrgico de alabanza cantado o recitado durante el Ordinario de la Misa."
 has_amen: true
+copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reservados todos los derechos."
 ---
 {Gloria a Dios en el cielo|gloria_1}, {y en la tierra paz a los hombres que ama el Señor|gloria_2}.
 
