@@ -10,6 +10,7 @@ history_author: "First Council of Nicaea & Constantinople"
 history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
 history_description: "The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity."
 has_amen: true
+copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reservados todos los derechos."
 ---
 {Creo en un solo Dios, Padre todopoderoso, Creador del cielo y de la tierra, de todo lo visible y lo invisible|nicene_creed_1}.
 
@@ -18,4 +19,3 @@ has_amen: true
 {Creo en el Espíritu Santo, Señor y dador de vida, que procede del Padre y del Hijo|nicene_creed_8}, {que con el Padre y el Hijo recibe una misma adoración y gloria, y que habló por los profetas|nicene_creed_9}.
 
 {Creo en la Iglesia, que es una, santa, católica y apostólica|nicene_creed_10}. {Confieso que hay un solo bautismo para el perdón de los pecados|nicene_creed_11}. {Espero la resurrección de los muertos y la vida del mundo futuro|nicene_creed_12}.
-

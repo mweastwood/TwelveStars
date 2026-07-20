@@ -10,6 +10,7 @@ history_author: "Apostles of Christ (Traditional)"
 history_origin: "Early Roman Church (c. 2nd–5th century)"
 history_description: "A summary of Christian faith used in baptism and the Rosary, reflecting early apostolic teachings."
 has_amen: true
+copyright: "Teksto sa liturhiya © Catholic Bishops' Conference of the Philippines (CBCP). Lahat ng karapatan ay reserbado."
 ---
 {Sumasampalataya ako sa Diyos, Amang makapangyarihan sa lahat|apostles_creed_1}, {na may gawa ng langit at lupa|apostles_creed_2}.
 

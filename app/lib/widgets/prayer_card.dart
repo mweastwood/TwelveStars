@@ -328,39 +328,79 @@ class _PrayerCardState extends State<PrayerCard> {
           );
         }
       }
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text.rich(
-            TextSpan(children: spans),
-            style: theme.textTheme.bodyLarge?.copyWith(
-              height: 1.6,
-              fontSize: 16.0,
-              letterSpacing: 0.2,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          ?amenWidget,
-        ],
-      );
-    }
-
-    // Fallback: plain text
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Text(
-          trans.text,
+      final children = <Widget>[
+        Text.rich(
+          TextSpan(children: spans),
           style: theme.textTheme.bodyLarge?.copyWith(
             height: 1.6,
-            color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
             fontSize: 16.0,
             letterSpacing: 0.2,
           ),
           textAlign: TextAlign.center,
         ),
-        ?amenWidget,
-      ],
+      ];
+      if (amenWidget != null) {
+        children.add(amenWidget);
+      }
+      if (trans.copyright.isNotEmpty) {
+        children.add(
+          Padding(
+            padding: const EdgeInsets.only(top: 12.0, bottom: 4.0),
+            child: Text(
+              trans.copyright,
+              style: theme.textTheme.bodySmall?.copyWith(
+                fontSize: 10,
+                color: theme.colorScheme.onSurfaceVariant.withValues(
+                  alpha: 0.6,
+                ),
+                fontStyle: FontStyle.italic,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        );
+      }
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: children,
+      );
+    }
+
+    // Fallback: plain text
+    final children = <Widget>[
+      Text(
+        trans.text,
+        style: theme.textTheme.bodyLarge?.copyWith(
+          height: 1.6,
+          color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
+          fontSize: 16.0,
+          letterSpacing: 0.2,
+        ),
+        textAlign: TextAlign.center,
+      ),
+    ];
+    if (amenWidget != null) {
+      children.add(amenWidget);
+    }
+    if (trans.copyright.isNotEmpty) {
+      children.add(
+        Padding(
+          padding: const EdgeInsets.only(top: 12.0, bottom: 4.0),
+          child: Text(
+            trans.copyright,
+            style: theme.textTheme.bodySmall?.copyWith(
+              fontSize: 10,
+              color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6),
+              fontStyle: FontStyle.italic,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      );
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: children,
     );
   }
 

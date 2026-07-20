@@ -98,6 +98,7 @@ class PrayerDatabase {
           final text = tMap['text'] as String;
           final sourceName = tMap['source_name'] as String? ?? '';
           final sourceUrl = tMap['source_url'] as String? ?? '';
+          final copyright = tMap['copyright'] as String? ?? '';
           final historyAuthor = tMap['history_author'] as String? ?? '';
           final historyOrigin = tMap['history_origin'] as String? ?? '';
           final historyDescription =
@@ -144,6 +145,7 @@ class PrayerDatabase {
               historyAuthor: historyAuthor,
               historyOrigin: historyOrigin,
               historyDescription: historyDescription,
+              copyright: copyright,
               chineseLines: chineseLines,
               tokens: tokens,
             ),

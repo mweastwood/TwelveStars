@@ -9,6 +9,7 @@ source_url: https://www.maranatha.it/MobileEdition/02-Liturgia/testiPDA/ritomess
 history_author: ""
 history_origin: ""
 history_description: ""
+copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reservados todos los derechos."
 ---
 Sacerdote: {El Señor esté con vosotros.|dismissal_1}
 Asamblea: {Y con tu espíritu.|dismissal_2}

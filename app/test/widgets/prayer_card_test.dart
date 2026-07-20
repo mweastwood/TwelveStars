@@ -573,5 +573,49 @@ void main() {
 
       await screenMatchesGolden(tester, 'translation_explainer_sheet_golden');
     });
+
+    testGoldens('renders copyright disclaimer correctly', (tester) async {
+      final mockAi = MockAiService();
+      LocalAgentHelper.instance = mockAi;
+      mockAi.setMockStatus(AiCoreStatus.available);
+
+      final prayerWithCopyright = Prayer.mock(
+        id: 'nicene_creed',
+        defaultTitle: 'Nicene Creed',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Nicene Creed',
+              subtitle: 'Symbolum Nicaenum',
+              text:
+                  'I believe in one God, the Father almighty, maker of heaven and earth...',
+              copyright:
+                  'English translation of the Nicene Creed © 2010, ICEL. All rights reserved.',
+            ),
+          ],
+        },
+      );
+
+      final builder = GoldenBuilder.column()
+        ..addScenario(
+          'English Liturgical State with Copyright Disclaimer',
+          PrayerCard(
+            prayer: prayerWithCopyright,
+            selectedLanguage: PrayerLanguage.english,
+            compareLanguage: PrayerLanguage.spanish,
+            initialVersionIndex: 0,
+            onVersionChanged: (_) {},
+            onLaunchSource: (_) {},
+          ),
+        );
+
+      await tester.pumpWidgetBuilder(
+        builder.build(),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(450, 400),
+      );
+
+      await screenMatchesGolden(tester, 'prayer_card_copyright_golden');
+    });
   });
 }

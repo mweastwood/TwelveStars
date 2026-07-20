@@ -61,4 +61,5 @@ Người đáp: {Và ở cùng chúng con.|angelus_10}
 Người xướng: {Lạy rất thánh Đức Mẹ Chúa Trời xin cầu cho chúng con.|angelus_13}
 Người đáp: {Đáng chịu lấy những sự Chúa Kitô đã hứa|angelus_14}
 
-{Đọc chung:|angelus_15} {Lạy Chúa, chúng con xin Chúa ban ơn xuống trong linh hồn chúng con, là kẻ đã nhờ lời thánh thiên thần truyền, mà biết thật Chúa Kitô là Con Chúa đã xuống thế làm người, thì xin vì công ơn Con Chúa chịu nạn chịu chết trên cây Thánh giá cho chúng con ngày sau khi sống lại, được đến nơi vinh hiển, cũng vì công nghiệp Chúa Kitô là Chúa chúng con. Amen.|angelus_16}
+{Đọc chung:|angelus_15}
+{Lạy Chúa, chúng con xin Chúa ban ơn xuống trong linh hồn chúng con, là kẻ đã nhờ lời thánh thiên thần truyền, mà biết thật Chúa Kitô là Con Chúa đã xuống thế làm người, thì xin vì công ơn Con Chúa chịu nạn chịu chết trên cây Thánh giá cho chúng con ngày sau khi sống lại, được đến nơi vinh hiển, cũng vì công nghiệp Chúa Kitô là Chúa chúng con. Amen.|angelus_16}

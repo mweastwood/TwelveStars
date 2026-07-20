@@ -9,6 +9,7 @@ source_url: https://www.universalis.com/static/mass/orderofmass.htm
 history_author: ""
 history_origin: ""
 history_description: ""
+copyright: "English translation of the Sanctus © 2010, ICEL. All rights reserved."
 ---
 {Holy, Holy, Holy Lord God of hosts.|sanctus_1}
 {Heaven and earth are full of your glory.|sanctus_2}

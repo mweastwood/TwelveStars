@@ -10,6 +10,7 @@ history_author: "Traditional"
 history_origin: "Roman Missal"
 history_description: "The Gloria in excelsis (Glory to God in the highest) is a most ancient and venerable hymn by which the Church, gathered in the Holy Spirit, glorifies and entreats God the Father and the Lamb."
 has_amen: true
+copyright: "English translation of the Gloria © 2010, ICEL. All rights reserved."
 ---
 {Glory to God in the highest|gloria_1}, {and on earth peace to people of good will|gloria_2}.
 

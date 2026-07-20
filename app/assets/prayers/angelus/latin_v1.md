@@ -62,4 +62,4 @@ sources:
 ℟. {ut digni efficiamur promissionibus Christi.|angelus_14}
 
 {Oremus:|angelus_15}
-{Gratiam tuam, quaesumus, Domine, mentibus nostris infunde; ut qui, Angelo nuntiante, Christi Filii tui incarnationem cognovimus, per passionem eius et crucem ad resurrectionis gloriam perducamur. Per eumdem Christum Dominum nostrum. Amen.|angelus_16}
+{Gratiam tuam, quaesumus, Domine, mentibus nostris infunde; ut qui, Angelo nuntiante, Christi Filii tui incarnationem cognovimus, per passionem eius et crucem ad resurrectionis gloriam perducamur. Per eundem Christum Dominum nostrum. Amen.|angelus_16}

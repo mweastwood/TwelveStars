@@ -9,6 +9,7 @@ source_url: https://es.wikipedia.org/wiki/Kyrie_eleison
 history_author: ""
 history_origin: ""
 history_description: ""
+copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reservados todos los derechos."
 ---
 Sacerdote: {Señor, ten piedad.|kyrie_eleison_1}
 Asamblea: {Señor, ten piedad.|kyrie_eleison_2}
@@ -18,4 +19,3 @@ Asamblea: {Cristo, ten piedad.|kyrie_eleison_4}
 
 Sacerdote: {Señor, ten piedad.|kyrie_eleison_5}
 Asamblea: {Señor, ten piedad.|kyrie_eleison_6}
-
