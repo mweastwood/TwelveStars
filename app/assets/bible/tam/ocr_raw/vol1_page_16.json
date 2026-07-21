@@ -1,0 +1,377 @@
+{
+  "volume": 1,
+  "page_index": 16,
+  "pdf_page": 17,
+  "lines": [
+    {
+      "text": "ADVERTENCIA",
+      "box": [
+        353,
+        132,
+        562,
+        181
+      ],
+      "score": 0.9999374747276306
+    },
+    {
+      "text": "SOBRE EL LIBRO DEL GÉNESIS",
+      "box": [
+        147,
+        219,
+        764,
+        256
+      ],
+      "score": 0.9818919897079468
+    },
+    {
+      "text": "PRIMERO DEL PENTATEUCO",
+      "box": [
+        303,
+        295,
+        606,
+        317
+      ],
+      "score": 0.9997707009315491
+    },
+    {
+      "text": "Isvtátwozo; es una palabra griega, que significa cinco volúmenes. Se da este nombre á los cinco libros",
+      "box": [
+        57,
+        400,
+        892,
+        424
+      ],
+      "score": 0.9520060420036316
+    },
+    {
+      "text": "que escribió Moisés; y son, segun los llamaron los Setenta Intérpretes, el Génesis, el Éxodo, el Levítico,",
+      "box": [
+        13,
+        428,
+        892,
+        456
+      ],
+      "score": 0.9872380495071411
+    },
+    {
+      "text": "los Números, y el Deuteronomio. El Pentateuco se llama tambien en el Nuevo Testamento Libro de",
+      "box": [
+        14,
+        461,
+        891,
+        483
+      ],
+      "score": 0.9906823039054871
+    },
+    {
+      "text": "Moisés ó de la Ley.",
+      "box": [
+        16,
+        492,
+        187,
+        512
+      ],
+      "score": 0.9956678152084351
+    },
+    {
+      "text": "El Génesis, voz griega que significa Generacion, contiene la historia de la creacion de todas las cosas,",
+      "box": [
+        57,
+        520,
+        891,
+        543
+      ],
+      "score": 0.998001217842102
+    },
+    {
+      "text": "y la descendencia de los hombres desde Adam. En el hebreo se llama este libro nus primera palabra",
+      "box": [
+        12,
+        546,
+        892,
+        575
+      ],
+      "score": 0.9846680760383606
+    },
+    {
+      "text": "con que comienza .",
+      "box": [
+        12,
+        577,
+        188,
+        603
+      ],
+      "score": 0.9812462329864502
+    },
+    {
+      "text": "Todo el Génesis puede dividirse en cuatro partes. La primera, que llega hasta el capítulo VII,",
+      "box": [
+        55,
+        604,
+        890,
+        631
+      ],
+      "score": 0.9998922348022461
+    },
+    {
+      "text": "contiene la historia del género humano desde Adam hasta el diluvio. La segunda desde Noé hasta",
+      "box": [
+        12,
+        634,
+        890,
+        660
+      ],
+      "score": 0.9997186660766602
+    },
+    {
+      "text": "Abraham, y empieza en el capítulo VII, y llega al XII: La tercera, que comienza en este y concluye en",
+      "box": [
+        13,
+        664,
+        889,
+        691
+      ],
+      "score": 0.9919911623001099
+    },
+    {
+      "text": "el XXV, describe las acciones de este patriarca hasta su muerte. En la cuarta se cuentan los hechos de",
+      "box": [
+        11,
+        694,
+        891,
+        720
+      ],
+      "score": 0.9933311343193054
+    },
+    {
+      "text": "Isaac, Jacob y Joseph hasta la muerte de este gran patriarca, referida en el capítulo LI, último",
+      "box": [
+        14,
+        725,
+        890,
+        749
+      ],
+      "score": 0.9996023178100586
+    },
+    {
+      "text": "del Génesis.",
+      "box": [
+        13,
+        756,
+        118,
+        777
+      ],
+      "score": 0.9994967579841614
+    },
+    {
+      "text": "Escribió Moisés este libro estando en el Desierto con el pueblo de Israel; y escribióle por inspiracion",
+      "box": [
+        55,
+        780,
+        887,
+        809
+      ],
+      "score": 0.9939135313034058
+    },
+    {
+      "text": "de Dios, el cual se llama su autor (Isaías, XLIV, v. 7, 8). Pudo tambien valerse Moisés de las noticias",
+      "box": [
+        11,
+        810,
+        890,
+        837
+      ],
+      "score": 0.9995505213737488
+    },
+    {
+      "text": "que tenia en la tradicion de sus padres. Leví, su abuelo, con quien habia vivido mucho tiempo, habia",
+      "box": [
+        12,
+        839,
+        887,
+        867
+      ],
+      "score": 0.9955825805664062
+    },
+    {
+      "text": "alcanzado treinta años de vida de Isaac. Isaac vivió cincuenta años con Sem; y Sem noventa y ocho con",
+      "box": [
+        11,
+        867,
+        887,
+        897
+      ],
+      "score": 0.9972196817398071
+    },
+    {
+      "text": "Matusalem, el cual habia vivido ciento y cuarenta años con Adam. De suerte que la creacion del mundo,",
+      "box": [
+        14,
+        896,
+        885,
+        926
+      ],
+      "score": 0.9949310421943665
+    },
+    {
+      "text": "y cuanto se refiere en el Génesis, pudo llegar á noticia de Moisés por relacion de sus mismos padres.",
+      "box": [
+        10,
+        924,
+        885,
+        956
+      ],
+      "score": 0.9940923452377319
+    },
+    {
+      "text": "Además, quizá los Israelitas conservaban escritas las memorias de estos sucesos, y en ellas notado el",
+      "box": [
+        14,
+        953,
+        885,
+        984
+      ],
+      "score": 0.995853066444397
+    },
+    {
+      "text": "tiempo del nacimiento y muerte de los patriarcas, y los nombres de sus hijos, y de los diferentes países",
+      "box": [
+        13,
+        981,
+        885,
+        1014
+      ],
+      "score": 0.9984999299049377
+    },
+    {
+      "text": "en que cada uno se estableció. Pero, sea lo que fuere de lo dicho, siempre se ha de reconocer al Espíritu",
+      "box": [
+        13,
+        1009,
+        883,
+        1043
+      ],
+      "score": 0.9895694255828857
+    },
+    {
+      "text": "Santo por el principal autor de este y demás libros sagrados.",
+      "box": [
+        16,
+        1042,
+        522,
+        1068
+      ],
+      "score": 0.9997009038925171
+    },
+    {
+      "text": "Moisés, pues, quiso con este libro comenzar á instruir y formar el pueblo, cuyo gobierno le habia",
+      "box": [
+        58,
+        1069,
+        881,
+        1099
+      ],
+      "score": 0.9982165098190308
+    },
+    {
+      "text": "encargado el Señor, poniéndole delante las grandes verdades de la Religion. Describe la creacion del",
+      "box": [
+        15,
+        1096,
+        881,
+        1130
+      ],
+      "score": 0.997133195400238
+    },
+    {
+      "text": "Universo, el orígen del género humano, la felicidad de nuestros primeros padres, de que hubiéramos",
+      "box": [
+        17,
+        1126,
+        880,
+        1159
+      ],
+      "score": 0.9981690049171448
+    },
+    {
+      "text": "gozado todos sus descendientes, si ellos no hubiesen desobedecido al Criador: la corrupcion general de",
+      "box": [
+        16,
+        1156,
+        879,
+        1187
+      ],
+      "score": 0.989648699760437
+    },
+    {
+      "text": "los hombres castigada con el diluvio universal, en el cual solamente se salvó en el Arca Noé con su",
+      "box": [
+        16,
+        1183,
+        878,
+        1216
+      ],
+      "score": 0.9968225359916687
+    },
+    {
+      "text": "familia: la confusion de las lenguas, y la division de las tierras entre los hijos de Noé: la separacion de",
+      "box": [
+        15,
+        1212,
+        877,
+        1245
+      ],
+      "score": 0.9989751577377319
+    },
+    {
+      "text": "uno de los descendientes de Sem para ser el padre de los creyentes, y la estirpe del pueblo de Dios; y",
+      "box": [
+        16,
+        1241,
+        876,
+        1274
+      ],
+      "score": 0.996908962726593
+    },
+    {
+      "text": "finalmente la vida de los patriarcas hasta Joseph. Tales son los grandiosos objetos de este libro. En él",
+      "box": [
+        15,
+        1270,
+        878,
+        1301
+      ],
+      "score": 0.9964414834976196
+    },
+    {
+      "text": "halla el cristiano no sólo el conocimiento de la existencia del verdadero Dios, y de sus atributos, sino",
+      "box": [
+        12,
+        1299,
+        876,
+        1332
+      ],
+      "score": 0.9980571269989014
+    },
+    {
+      "text": "1 Véase en las Notas generales la palabra LiBro.",
+      "box": [
+        30,
+        1340,
+        275,
+        1361
+      ],
+      "score": 0.9652667045593262
+    },
+    {
+      "text": "I.—2",
+      "box": [
+        819,
+        1364,
+        857,
+        1387
+      ],
+      "score": 0.8066681623458862
+    }
+  ]
+}
