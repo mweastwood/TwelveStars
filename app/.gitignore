@@ -50,3 +50,5 @@ assets/prayers.json
 # PDF scans for translation reproduction
 assets/bible/tam/pdf/
 
+# Local Python virtual environment for OCR processing
+assets/bible/tam/.venv/
