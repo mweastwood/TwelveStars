@@ -1,0 +1,1697 @@
+{
+  "volume": 1,
+  "page_index": 20,
+  "pdf_page": 21,
+  "lines": [
+    {
+      "text": "5",
+      "box": [
+        3,
+        40,
+        16,
+        53
+      ],
+      "score": 0.9968309998512268
+    },
+    {
+      "text": "GÉNESIS",
+      "box": [
+        161,
+        39,
+        232,
+        59
+      ],
+      "score": 0.9998987317085266
+    },
+    {
+      "text": "CRIA",
+      "box": [
+        428,
+        34,
+        462,
+        48
+      ],
+      "score": 0.7234500646591187
+    },
+    {
+      "text": "CAPITULO III",
+      "box": [
+        650,
+        43,
+        757,
+        59
+      ],
+      "score": 0.9989736676216125
+    },
+    {
+      "text": "6",
+      "box": [
+        871,
+        39,
+        884,
+        52
+      ],
+      "score": 0.9998345375061035
+    },
+    {
+      "text": "24. Por cuya causa dejará el hombre á su padre, y á su",
+      "box": [
+        2,
+        80,
+        396,
+        106
+      ],
+      "score": 0.9974789023399353
+    },
+    {
+      "text": "11. Replicóle: ¿Pues quién te ha hecho advertir que estás",
+      "box": [
+        510,
+        80,
+        890,
+        107
+      ],
+      "score": 0.9978945255279541
+    },
+    {
+      "text": "nadre, y cstará unido á su mujer: y los dos vendrán á ser una",
+      "box": [
+        0,
+        97,
+        396,
+        124
+      ],
+      "score": 0.9795095324516296
+    },
+    {
+      "text": "IV",
+      "box": [
+        418,
+        102,
+        434,
+        114
+      ],
+      "score": 0.8927144408226013
+    },
+    {
+      "text": "desnudo, sino el haber comido del fruto de que yo te habia",
+      "box": [
+        496,
+        99,
+        890,
+        126
+      ],
+      "score": 0.9906070232391357
+    },
+    {
+      "text": "ola'carne.",
+      "box": [
+        0,
+        114,
+        77,
+        137
+      ],
+      "score": 0.9735243916511536
+    },
+    {
+      "text": "UD 1OO",
+      "box": [
+        413,
+        116,
+        443,
+        127
+      ],
+      "score": 0.3003281056880951
+    },
+    {
+      "text": "a",
+      "box": [
+        446,
+        116,
+        485,
+        127
+      ],
+      "score": 0.34047219157218933
+    },
+    {
+      "text": "25. Y ambos, á saber, Adam y su esposa, estaban desnudos:",
+      "box": [
+        0,
+        131,
+        398,
+        160
+      ],
+      "score": 0.9950529336929321
+    },
+    {
+      "text": "11",
+      "box": [
+        460,
+        127,
+        471,
+        136
+      ],
+      "score": 0.9111310243606567
+    },
+    {
+      "text": "vedado que comieses?",
+      "box": [
+        499,
+        123,
+        637,
+        139
+      ],
+      "score": 0.9916386604309082
+    },
+    {
+      "text": "avast v",
+      "box": [
+        446,
+        136,
+        485,
+        147
+      ],
+      "score": 0.38130882382392883
+    },
+    {
+      "text": "12. Respondió Adam: La mujer, que tú me diste por com-",
+      "box": [
+        508,
+        137,
+        887,
+        159
+      ],
+      "score": 0.9817190766334534
+    },
+    {
+      "text": "no sentian por ello rubor ninguno.",
+      "box": [
+        0,
+        152,
+        248,
+        177
+      ],
+      "score": 0.9932640194892883
+    },
+    {
+      "text": "11",
+      "box": [
+        459,
+        147,
+        470,
+        157
+      ],
+      "score": 0.5310091972351074
+    },
+    {
+      "text": "",
+      "box": [
+        446,
+        158,
+        484,
+        168
+      ],
+      "score": 0.0
+    },
+    {
+      "text": "pañera, me ha dado del fruto de aquel árbol, y le he comido.",
+      "box": [
+        494,
+        155,
+        886,
+        176
+      ],
+      "score": 0.9917538166046143
+    },
+    {
+      "text": "VI",
+      "box": [
+        458,
+        168,
+        483,
+        179
+      ],
+      "score": 0.9684184193611145
+    },
+    {
+      "text": "nze",
+      "box": [
+        454,
+        179,
+        484,
+        190
+      ],
+      "score": 0.4353530704975128
+    },
+    {
+      "text": "13. Y dijo el Señor Dios á la mujer: ¿Por qué has hocho",
+      "box": [
+        508,
+        171,
+        887,
+        194
+      ],
+      "score": 0.9798578023910522
+    },
+    {
+      "text": "CAPITULO III",
+      "box": [
+        146,
+        193,
+        251,
+        213
+      ],
+      "score": 0.9992375373840332
+    },
+    {
+      "text": "ynyy",
+      "box": [
+        458,
+        195,
+        483,
+        206
+      ],
+      "score": 0.43083447217941284
+    },
+    {
+      "text": "tú esto? La cual respondió: La serpiente me ha engañado, y",
+      "box": [
+        495,
+        187,
+        886,
+        211
+      ],
+      "score": 0.9895614981651306
+    },
+    {
+      "text": "he comido.",
+      "box": [
+        496,
+        205,
+        569,
+        221
+      ],
+      "score": 0.9999135732650757
+    },
+    {
+      "text": "educe la serpiente á Eva: pecan nuestros primeros padres, y se acar-",
+      "box": [
+        0,
+        218,
+        397,
+        243
+      ],
+      "score": 0.990835428237915
+    },
+    {
+      "text": "14. Dijo entonces el Señor Dios á la serpiente \": Por",
+      "box": [
+        507,
+        219,
+        886,
+        242
+      ],
+      "score": 0.9758632779121399
+    },
+    {
+      "text": "rean sobre sí y sus descendientes la maldicion divina. Promesa del",
+      "box": [
+        0,
+        234,
+        396,
+        258
+      ],
+      "score": 0.9869166016578674
+    },
+    {
+      "text": "cuanto hiciste esto, maldita tú eres é seas entre todos los",
+      "box": [
+        495,
+        237,
+        886,
+        257
+      ],
+      "score": 0.9751251935958862
+    },
+    {
+      "text": "Mesías.",
+      "box": [
+        0,
+        249,
+        50,
+        269
+      ],
+      "score": 0.9915682673454285
+    },
+    {
+      "text": "animales y bestias de la tierra: andarás arrastrando sobre tu",
+      "box": [
+        495,
+        253,
+        886,
+        274
+      ],
+      "score": 0.9916834235191345
+    },
+    {
+      "text": "pecho, y tierra comerás todos los dias de tu vida.",
+      "box": [
+        495,
+        271,
+        809,
+        289
+      ],
+      "score": 0.992815375328064
+    },
+    {
+      "text": "1. Erá empero la serpiente el animal mas astuto de todos",
+      "box": [
+        0,
+        286,
+        394,
+        310
+      ],
+      "score": 0.9941621422767639
+    },
+    {
+      "text": "15. Yo pondré enemistades entre tí y la mujer, y entre tu",
+      "box": [
+        508,
+        287,
+        886,
+        306
+      ],
+      "score": 0.9986189007759094
+    },
+    {
+      "text": "uantos animales habia hecho el Señor Dios sobre la tierra.",
+      "box": [
+        0,
+        304,
+        394,
+        327
+      ],
+      "score": 0.9888702034950256
+    },
+    {
+      "text": "raza y la descendencia suya: ella quebrantará tu cabeza 'º, y",
+      "box": [
+        495,
+        302,
+        886,
+        322
+      ],
+      "score": 0.976293683052063
+    },
+    {
+      "text": "dijo á la mujer: ¿Por qué motivo os ha mandado Dios que",
+      "box": [
+        0,
+        319,
+        393,
+        342
+      ],
+      "score": 0.979850709438324
+    },
+    {
+      "text": "andarás acechando á su calcañar.",
+      "box": [
+        497,
+        321,
+        709,
+        335
+      ],
+      "score": 0.9965656399726868
+    },
+    {
+      "text": "o comieseis de todos los árboles del paraíso?",
+      "box": [
+        0,
+        337,
+        293,
+        359
+      ],
+      "score": 0.990655779838562
+    },
+    {
+      "text": "16. Dijo asimismo á la mujer: Multiplicaré tus trabajos",
+      "box": [
+        508,
+        335,
+        887,
+        354
+      ],
+      "score": 0.9846509695053101
+    },
+    {
+      "text": "2. A la cual respondió la mujer: Del fruto de los árboles,",
+      "box": [
+        0,
+        352,
+        393,
+        377
+      ],
+      "score": 0.9875248074531555
+    },
+    {
+      "text": "y miserias en tus preñeces: con dolor parirás los hijos, y",
+      "box": [
+        495,
+        352,
+        888,
+        372
+      ],
+      "score": 0.9991341233253479
+    },
+    {
+      "text": "ue hay en el paraíso, s comemos:",
+      "box": [
+        0,
+        372,
+        229,
+        394
+      ],
+      "score": 0.9950253963470459
+    },
+    {
+      "text": "estarás bajo la potestad ó mando de tu marido, y él te do-",
+      "box": [
+        495,
+        368,
+        888,
+        388
+      ],
+      "score": 0.9904302358627319
+    },
+    {
+      "text": "3. Mas del fruto de aquel árbol, que está en medio del",
+      "box": [
+        0,
+        385,
+        394,
+        411
+      ],
+      "score": 0.9843722581863403
+    },
+    {
+      "text": "minará 13.",
+      "box": [
+        496,
+        386,
+        561,
+        402
+      ],
+      "score": 0.9425281286239624
+    },
+    {
+      "text": "araíso, mandónos Dios que no comiésemos, ni le tocásemos",
+      "box": [
+        0,
+        403,
+        393,
+        426
+      ],
+      "score": 0.997454047203064
+    },
+    {
+      "text": "17. Y á Adam le dijo: Por cuanto has escuchado la voz de",
+      "box": [
+        508,
+        401,
+        887,
+        421
+      ],
+      "score": 0.9809653162956238
+    },
+    {
+      "text": "quiera, para que no muramos.",
+      "box": [
+        0,
+        424,
+        221,
+        441
+      ],
+      "score": 0.9930077195167542
+    },
+    {
+      "text": "tu mujer, y comido del árbol de que te mandé no comieses,",
+      "box": [
+        493,
+        417,
+        888,
+        439
+      ],
+      "score": 0.9995340704917908
+    },
+    {
+      "text": "4. Dijo entonces la serpiente á la mujer: Oh! ciertamento",
+      "box": [
+        0,
+        435,
+        393,
+        461
+      ],
+      "score": 0.949812114238739
+    },
+    {
+      "text": "maldita sea la tierra por tu causa: con grandes fatigas sacarás",
+      "box": [
+        493,
+        434,
+        887,
+        455
+      ],
+      "score": 0.9968459010124207
+    },
+    {
+      "text": "ue no morireis *.",
+      "box": [
+        0,
+        457,
+        115,
+        474
+      ],
+      "score": 0.9823384284973145
+    },
+    {
+      "text": "de ella el alimento en todo el discurso de tu vida.",
+      "box": [
+        493,
+        451,
+        813,
+        470
+      ],
+      "score": 0.9910615086555481
+    },
+    {
+      "text": "5. Sabe empero Dios que en cualquier tiempo que comie-",
+      "box": [
+        0,
+        467,
+        394,
+        494
+      ],
+      "score": 0.987830400466919
+    },
+    {
+      "text": "18. Espinas y abrojos te producirá, y comerás de los frutos",
+      "box": [
+        505,
+        467,
+        888,
+        489
+      ],
+      "score": 0.9923258423805237
+    },
+    {
+      "text": "eis de él, se abrirán vuestros ojos: y sereis como dioses,",
+      "box": [
+        0,
+        484,
+        394,
+        510
+      ],
+      "score": 0.9675774574279785
+    },
+    {
+      "text": "que den las yerbas ó plantas de la tierra.",
+      "box": [
+        493,
+        486,
+        758,
+        503
+      ],
+      "score": 0.9986699223518372
+    },
+    {
+      "text": "onocedores de todo del bien y del mal.",
+      "box": [
+        0,
+        504,
+        254,
+        525
+      ],
+      "score": 0.9994949698448181
+    },
+    {
+      "text": "19. Mediante el sudor de tu rostro comerás el pan, hasta",
+      "box": [
+        505,
+        501,
+        887,
+        521
+      ],
+      "score": 0.9994758367538452
+    },
+    {
+      "text": "6. Vió pues la mujer que el fruto de aquel árbol era bueno",
+      "box": [
+        0,
+        517,
+        393,
+        545
+      ],
+      "score": 0.9933584332466125
+    },
+    {
+      "text": "que vuelvas á confundirte con la tierra de que fuiste formado:",
+      "box": [
+        491,
+        518,
+        889,
+        539
+      ],
+      "score": 0.9996510148048401
+    },
+    {
+      "text": "ara comer, y bello á los ojos, y de aspecto deleitable: y cogió",
+      "box": [
+        0,
+        534,
+        393,
+        562
+      ],
+      "score": 0.9611886739730835
+    },
+    {
+      "text": "puesto que polvo eres, y á ser polvo tornarás.",
+      "box": [
+        492,
+        535,
+        785,
+        554
+      ],
+      "score": 0.9974976181983948
+    },
+    {
+      "text": "el fruto, y comióle: dió tambien de él á su marido, el cual",
+      "box": [
+        0,
+        551,
+        393,
+        577
+      ],
+      "score": 0.9802584052085876
+    },
+    {
+      "text": "20. À Adam puso á su mujer el nombre de Eva, esto es,",
+      "box": [
+        504,
+        551,
+        888,
+        571
+      ],
+      "score": 0.9826965928077698
+    },
+    {
+      "text": "omió .",
+      "box": [
+        0,
+        570,
+        52,
+        591
+      ],
+      "score": 0.966057300567627
+    },
+    {
+      "text": "Vida: atento á que habia de scr madre de todos los vivientes.",
+      "box": [
+        493,
+        569,
+        887,
+        586
+      ],
+      "score": 0.9784914255142212
+    },
+    {
+      "text": "7. Luego se les abrieron á entrambos los ojos: y como",
+      "box": [
+        0,
+        584,
+        391,
+        609
+      ],
+      "score": 0.9930322766304016
+    },
+    {
+      "text": "21. Hizo tambien el Scñor Dios á Adam y á su mujer unas",
+      "box": [
+        502,
+        583,
+        888,
+        604
+      ],
+      "score": 0.9980698823928833
+    },
+    {
+      "text": "chasen de ver que estaban desnudos, cosieron * ó acomodá-",
+      "box": [
+        0,
+        601,
+        391,
+        626
+      ],
+      "score": 0.974992036819458
+    },
+    {
+      "text": "túnicas de pieles, y los vistió:",
+      "box": [
+        492,
+        601,
+        685,
+        618
+      ],
+      "score": 0.997736930847168
+    },
+    {
+      "text": "onse unas hojas de higuera, y se hicieron unos delantales ó",
+      "box": [
+        0,
+        618,
+        392,
+        643
+      ],
+      "score": 0.9850019216537476
+    },
+    {
+      "text": "22. Y dijo: Ved ahí á Adam que se ha hecho como uno de",
+      "box": [
+        502,
+        615,
+        887,
+        636
+      ],
+      "score": 0.9922311305999756
+    },
+    {
+      "text": "eñidores.",
+      "box": [
+        0,
+        641,
+        64,
+        658
+      ],
+      "score": 0.9500575661659241
+    },
+    {
+      "text": "nosotros \", conocedor del bien y del mal: ahora pues eché-",
+      "box": [
+        490,
+        633,
+        887,
+        650
+      ],
+      "score": 0.9845189452171326
+    },
+    {
+      "text": "8. Y habiendo oido la voz del Señor Dios que se paseaba",
+      "box": [
+        0,
+        650,
+        391,
+        675
+      ],
+      "score": 0.9984833002090454
+    },
+    {
+      "text": "mosle de aqui no sea que alargue su mano, y tome tambien",
+      "box": [
+        489,
+        650,
+        887,
+        666
+      ],
+      "score": 0.9979991316795349
+    },
+    {
+      "text": "del fruto del árbol de conservar la vida 1ª, y coma de él, y",
+      "box": [
+        488,
+        663,
+        887,
+        686
+      ],
+      "score": 0.9714797139167786
+    },
+    {
+      "text": "n el paraíso al tiempo que se levanta el aire despues de mc-",
+      "box": [
+        0,
+        667,
+        390,
+        693
+      ],
+      "score": 0.9862589240074158
+    },
+    {
+      "text": "io dia *, escondióse Adam con su mujer de la vista del Señor",
+      "box": [
+        0,
+        683,
+        391,
+        710
+      ],
+      "score": 0.9737821817398071
+    },
+    {
+      "text": "viva para siempre.",
+      "box": [
+        491,
+        683,
+        612,
+        700
+      ],
+      "score": 0.999871015548706
+    },
+    {
+      "text": "23. Y echólc el Señor Dios del paraíso de deleites, para",
+      "box": [
+        501,
+        696,
+        887,
+        719
+      ],
+      "score": 0.9917505383491516
+    },
+    {
+      "text": "ios en medio de los árboles del paraíso.",
+      "box": [
+        0,
+        703,
+        263,
+        726
+      ],
+      "score": 0.9979060292243958
+    },
+    {
+      "text": "9. Entonces el Señor Dios llamó á Adam, y díjole: ¿Dónde",
+      "box": [
+        0,
+        715,
+        390,
+        744
+      ],
+      "score": 0.98583984375
+    },
+    {
+      "text": "que labrase la tierra, de que fué formado.",
+      "box": [
+        490,
+        716,
+        757,
+        733
+      ],
+      "score": 0.999247670173645
+    },
+    {
+      "text": "24. Y desterrado Adam, colocó Dios delante del paraíso",
+      "box": [
+        501,
+        729,
+        886,
+        751
+      ],
+      "score": 0.9905100464820862
+    },
+    {
+      "text": "stás 10?",
+      "box": [
+        0,
+        740,
+        51,
+        758
+      ],
+      "score": 0.9131208658218384
+    },
+    {
+      "text": "de delicias un Querubin 1* con espada de fuego, el cual an-",
+      "box": [
+        487,
+        745,
+        887,
+        768
+      ],
+      "score": 0.9606550335884094
+    },
+    {
+      "text": "10. El cual respondió: He oido tu voz en el paraíso: y he",
+      "box": [
+        0,
+        748,
+        390,
+        775
+      ],
+      "score": 0.9912404417991638
+    },
+    {
+      "text": "daba al rededor para guardar el camino que conducia al árbol",
+      "box": [
+        488,
+        762,
+        886,
+        784
+      ],
+      "score": 0.9956083297729492
+    },
+    {
+      "text": "emido y llenádome de vergüenza porque estoy desnudo, y",
+      "box": [
+        0,
+        766,
+        391,
+        792
+      ],
+      "score": 0.9935950040817261
+    },
+    {
+      "text": "sí me he escondido.",
+      "box": [
+        0,
+        787,
+        133,
+        807
+      ],
+      "score": 0.9958971738815308
+    },
+    {
+      "text": "de la vida.",
+      "box": [
+        488,
+        781,
+        558,
+        795
+      ],
+      "score": 0.9995790719985962
+    },
+    {
+      "text": "1 Una sola carne. Jesu-Christo se sirvió de estas palabras para probar",
+      "box": [
+        0,
+        813,
+        391,
+        834
+      ],
+      "score": 0.9838760495185852
+    },
+    {
+      "text": "á su condicion, y que esta aparicion del Señor era precedida de algun li-",
+      "box": [
+        487,
+        809,
+        884,
+        830
+      ],
+      "score": 0.9920508861541748
+    },
+    {
+      "text": "gero y suave viento que los avisaba. La voz y ruido de una persona quo",
+      "box": [
+        487,
+        823,
+        884,
+        844
+      ],
+      "score": 0.9811142086982727
+    },
+    {
+      "text": "los Fariseos la indisolubilidad del matrimonio. San Pablo nos enseiña",
+      "box": [
+        0,
+        826,
+        390,
+        848
+      ],
+      "score": 0.9870532751083374
+    },
+    {
+      "text": "ue la union íntima y estrecha de Adam y Eva, que eran como dos almas",
+      "box": [
+        0,
+        840,
+        391,
+        863
+      ],
+      "score": 0.9884207248687744
+    },
+    {
+      "text": "se paseaba, fué, segun opina San Agustin (De Genesi ad litt, lib. XI,",
+      "box": [
+        487,
+        838,
+        884,
+        858
+      ],
+      "score": 0.9589909911155701
+    },
+    {
+      "text": "un solo cuerpo, significa la de Christo y su Iglesia.—Véase Matrimo-",
+      "box": [
+        0,
+        855,
+        389,
+        876
+      ],
+      "score": 0.9714905023574829
+    },
+    {
+      "text": "c. 33), de un ángel que representaba á Dios en forma de hombre.",
+      "box": [
+        487,
+        852,
+        840,
+        871
+      ],
+      "score": 0.9858200550079346
+    },
+    {
+      "text": "io.—Matth. XLX, v. 5 —Marc. X, v. 7.—Eph. V, v. 31.—I. Cor. VII, v. 16.",
+      "box": [
+        0,
+        869,
+        389,
+        890
+      ],
+      "score": 0.9435508847236633
+    },
+    {
+      "text": "10 No ignoraba Dios en dónde estaba Adam; mas, á manera de un pa-",
+      "box": [
+        497,
+        866,
+        882,
+        887
+      ],
+      "score": 0.9716222286224365
+    },
+    {
+      "text": "* Eran, dice San Juan Crisóstomo, como dos ángeles revestidos de",
+      "box": [
+        0,
+        884,
+        389,
+        903
+      ],
+      "score": 0.9843923449516296
+    },
+    {
+      "text": "dre lleno de misericordia, convida al hombre á que vuelva en sí. Como si",
+      "box": [
+        487,
+        881,
+        883,
+        901
+      ],
+      "score": 0.9899418354034424
+    },
+    {
+      "text": "serpos. Sujetábase su carne al espíritu sin la menor repugnancia",
+      "box": [
+        0,
+        898,
+        389,
+        916
+      ],
+      "score": 0.982883095741272
+    },
+    {
+      "text": "dijera: ¿Por qué huyes ahora de mi presencia ?—Tertul., lib. II contra",
+      "box": [
+        487,
+        896,
+        882,
+        915
+      ],
+      "score": 0.9730069637298584
+    },
+    {
+      "text": "S. Aug. De Civ. Dei, lib, XIV, c. 15). Despues del pecado de Adam, nos",
+      "box": [
+        0,
+        914,
+        386,
+        928
+      ],
+      "score": 0.9530835747718811
+    },
+    {
+      "text": "Marc.",
+      "box": [
+        488,
+        912,
+        522,
+        926
+      ],
+      "score": 0.9819869995117188
+    },
+    {
+      "text": "lesta algun trabajo el formar idea del admirable candor de Adam y Eva",
+      "box": [
+        0,
+        925,
+        388,
+        943
+      ],
+      "score": 0.9833503365516663
+    },
+    {
+      "text": "\" Aunque el arrastrar por tierra y comer de ella es natural á la ser-",
+      "box": [
+        497,
+        922,
+        881,
+        942
+      ],
+      "score": 0.992517352104187
+    },
+    {
+      "text": "a el estado de la inocencia.",
+      "box": [
+        0,
+        941,
+        150,
+        955
+      ],
+      "score": 0.9675968289375305
+    },
+    {
+      "text": "piente, quiso Dios que fuese en adelante como una señal de oprobio é ig-",
+      "box": [
+        485,
+        936,
+        882,
+        958
+      ],
+      "score": 0.98021399974823
+    },
+    {
+      "text": " Moisés no ha hablado hasta ahora de la caida de los ángeles rebeldes;",
+      "box": [
+        0,
+        952,
+        388,
+        970
+      ],
+      "score": 0.9939897656440735
+    },
+    {
+      "text": "nominia, y que se reputase como pena. Pero debemos tener presente que",
+      "box": [
+        486,
+        950,
+        881,
+        972
+      ],
+      "score": 0.9828876256942749
+    },
+    {
+      "text": "ero la supone en esta narracion. Porque en la serpiente aquella no puede",
+      "box": [
+        0,
+        966,
+        389,
+        985
+      ],
+      "score": 0.9927090406417847
+    },
+    {
+      "text": "esta maldicion, aunque comprende á la serpiente material, se dirige espe-",
+      "box": [
+        484,
+        963,
+        882,
+        987
+      ],
+      "score": 0.9777220487594604
+    },
+    {
+      "text": "ejar de reconocerse un instrumento del demonio. Es la serpiente un ani-",
+      "box": [
+        0,
+        980,
+        389,
+        1000
+      ],
+      "score": 0.9977767467498779
+    },
+    {
+      "text": "cialmente á la serpiente infernal, ó espíritu maligno. Y por eso se llama",
+      "box": [
+        485,
+        978,
+        880,
+        999
+      ],
+      "score": 0.9798783659934998
+    },
+    {
+      "text": "al astuto, que con sus vueltas y revueltas se introduce fácilmente en",
+      "box": [
+        0,
+        994,
+        389,
+        1013
+      ],
+      "score": 0.9935758113861084
+    },
+    {
+      "text": "tambien espíritu inmundo, porque sus sugestiones tienen por objeto los",
+      "box": [
+        485,
+        993,
+        880,
+        1012
+      ],
+      "score": 0.9958381652832031
+    },
+    {
+      "text": "odas partes, y sabe derramar el veneno sin que se perciba. S. Aug. De",
+      "box": [
+        0,
+        1007,
+        389,
+        1028
+      ],
+      "score": 0.9849826693534851
+    },
+    {
+      "text": "mas viles placeres: y así el demonio reputa por muy suyos á los que se",
+      "box": [
+        483,
+        1005,
+        881,
+        1028
+      ],
+      "score": 0.9787054061889648
+    },
+    {
+      "text": "v. De, lib. XIV, cap. 2. Qué viva imágen de aquel que en la Escritu-",
+      "box": [
+        0,
+        1020,
+        389,
+        1043
+      ],
+      "score": 0.8430100083351135
+    },
+    {
+      "text": "revuelcan en los deleites carnales ó terrenos. La expresion, comer el polvo",
+      "box": [
+        484,
+        1019,
+        879,
+        1041
+      ],
+      "score": 0.9547935724258423
+    },
+    {
+      "text": "es llamado la antigua serpiente! Entró pues el ángel malo en el cuerpo",
+      "box": [
+        0,
+        1034,
+        388,
+        1058
+      ],
+      "score": 0.9357709884643555
+    },
+    {
+      "text": "como las serpientes, se halla en la Escritura. Mich VII, v. 17.",
+      "box": [
+        483,
+        1033,
+        813,
+        1054
+      ],
+      "score": 0.9695515036582947
+    },
+    {
+      "text": "e la serpiente, y moviendo su lengua y labios se dirigió á Eva, como á la",
+      "box": [
+        0,
+        1049,
+        389,
+        1071
+      ],
+      "score": 0.9171298146247864
+    },
+    {
+      "text": "is Hó aquí la primera evidente promesa del Mesías, esto es, de un Sal-",
+      "box": [
+        495,
+        1049,
+        877,
+        1068
+      ],
+      "score": 0.971846342086792
+    },
+    {
+      "text": "arte mas flaca; y hallándola apartada de Adam, le sugirió dudas sobre el",
+      "box": [
+        0,
+        1064,
+        388,
+        1085
+      ],
+      "score": 0.986120879650116
+    },
+    {
+      "text": "vador. El hebreo en vez del ipsa de la Vulgata tiene ipse, con relacion al",
+      "box": [
+        484,
+        1063,
+        878,
+        1082
+      ],
+      "score": 0.9737414717674255
+    },
+    {
+      "text": "recepto de Dios, ó á lo menos sobre su inteligencia. Pero, ¿cómo Eva no",
+      "box": [
+        0,
+        1079,
+        387,
+        1097
+      ],
+      "score": 0.9909331798553467
+    },
+    {
+      "text": "descendiente de la mujer; pero siempre el sentido viene á ser el mismo.",
+      "box": [
+        484,
+        1077,
+        876,
+        1095
+      ],
+      "score": 0.9780685901641846
+    },
+    {
+      "text": "eceló oyendo hablar á una serpiente? San Cirilo (contra Julian) dioe",
+      "box": [
+        0,
+        1092,
+        387,
+        1111
+      ],
+      "score": 0.9682801365852356
+    },
+    {
+      "text": "Esta mujer es María, así como el descendiente de ella es Christo, El hijo",
+      "box": [
+        483,
+        1089,
+        876,
+        1110
+      ],
+      "score": 0.949697732925415
+    },
+    {
+      "text": "ue, como acabada de salir de las manos de Dios, pudo entrar en duda de",
+      "box": [
+        0,
+        1106,
+        387,
+        1125
+      ],
+      "score": 0.9913130402565002
+    },
+    {
+      "text": "de la mujer, Jesu-Christo, hijo de Dios, quebrantará ta cabeza. O bien:",
+      "box": [
+        485,
+        1105,
+        877,
+        1122
+      ],
+      "score": 0.9841768741607666
+    },
+    {
+      "text": "habria algun animal mas perfecto que los otros, que pudiese hablar; ó",
+      "box": [
+        0,
+        1120,
+        386,
+        1140
+      ],
+      "score": 0.987621009349823
+    },
+    {
+      "text": "Una mujer quebrantará tu cabeza: aquella que llena de gracia dará á luz",
+      "box": [
+        485,
+        1119,
+        876,
+        1136
+      ],
+      "score": 0.9985231161117554
+    },
+    {
+      "text": "acaso le hablaba algun ángel por medio de la serpiente, sin conocer que",
+      "box": [
+        0,
+        1133,
+        386,
+        1155
+      ],
+      "score": 0.9724392890930176
+    },
+    {
+      "text": "al Hijo de Dios. Y ta andarás acechando su caloañar. Refiriendo estas pa-",
+      "box": [
+        483,
+        1134,
+        874,
+        1151
+      ],
+      "score": 0.9821366667747498
+    },
+    {
+      "text": "lese bueno ó malo.",
+      "box": [
+        0,
+        1148,
+        104,
+        1164
+      ],
+      "score": 0.9422932863235474
+    },
+    {
+      "text": "labras al Hijo de la mujer, tienen una explicacion muy importante; pues",
+      "box": [
+        483,
+        1148,
+        874,
+        1165
+      ],
+      "score": 0.9979246854782104
+    },
+    {
+      "text": "Puede traducirse tambien: No sea que vengamos á morir.",
+      "box": [
+        1,
+        1161,
+        321,
+        1181
+      ],
+      "score": 0.9767905473709106
+    },
+    {
+      "text": "manifiestan que el Hijo de ln mujer peleará con el demonio, no empleando",
+      "box": [
+        482,
+        1161,
+        873,
+        1178
+      ],
+      "score": 0.9732316136360168
+    },
+    {
+      "text": " II. Cor. XI, v. 3.",
+      "box": [
+        1,
+        1174,
+        112,
+        1192
+      ],
+      "score": 0.9246808886528015
+    },
+    {
+      "text": "su divino poder, sino con la flaqueza de su carne: significada por el calca-",
+      "box": [
+        481,
+        1174,
+        872,
+        1192
+      ],
+      "score": 0.9884317517280579
+    },
+    {
+      "text": " Véase Elohim. Puede traducirse: Sereis como Dios.",
+      "box": [
+        2,
+        1188,
+        286,
+        1207
+      ],
+      "score": 0.9801588654518127
+    },
+    {
+      "text": "fñar la humanidad de Jesu-Christo.",
+      "box": [
+        482,
+        1188,
+        674,
+        1206
+      ],
+      "score": 0.9429187774658203
+    },
+    {
+      "text": " Eccl. XXV, v. 33.—L Tim. II, v. 14.",
+      "box": [
+        2,
+        1201,
+        219,
+        1220
+      ],
+      "score": 0.944316029548645
+    },
+    {
+      "text": "13 I. Cor. XIV, v. 34.",
+      "box": [
+        495,
+        1204,
+        614,
+        1218
+      ],
+      "score": 0.9111623764038086
+    },
+    {
+      "text": "\" La voz hebrea  siguifica aplicar, acomodar; y la griega zzpa",
+      "box": [
+        1,
+        1215,
+        382,
+        1235
+      ],
+      "score": 0.8724141716957092
+    },
+    {
+      "text": "s Es una ironía. Por las palabras uno de nosotros se entienden las tres",
+      "box": [
+        492,
+        1215,
+        871,
+        1233
+      ],
+      "score": 0.9900199770927429
+    },
+    {
+      "text": "uede traducirse faldetas, ó pañetas. En Egipto hay una especie de hi-",
+      "box": [
+        0,
+        1230,
+        382,
+        1249
+      ],
+      "score": 0.9551684856414795
+    },
+    {
+      "text": "divinas personas.",
+      "box": [
+        482,
+        1229,
+        581,
+        1249
+      ],
+      "score": 0.9932929873466492
+    },
+    {
+      "text": "uera, que llaman de Adam, cuyas hojas tienen cerea de una vara de",
+      "box": [
+        0,
+        1244,
+        382,
+        1264
+      ],
+      "score": 0.9825438261032104
+    },
+    {
+      "text": "15 Véase Arbol.",
+      "box": [
+        495,
+        1246,
+        582,
+        1260
+      ],
+      "score": 0.9761626124382019
+    },
+    {
+      "text": "argo, y unos dos piés de ancho.",
+      "box": [
+        0,
+        1260,
+        165,
+        1273
+      ],
+      "score": 0.991107702255249
+    },
+    {
+      "text": "ia Véase Querubin. Puede traducirse un Querubin con espada resplan-",
+      "box": [
+        492,
+        1255,
+        870,
+        1274
+      ],
+      "score": 0.9781242609024048
+    },
+    {
+      "text": "Es muy creible que, durante el estado de la inocencia, Dios se de-",
+      "box": [
+        0,
+        1269,
+        381,
+        1292
+      ],
+      "score": 0.979276716709137
+    },
+    {
+      "text": "deciente como el fuego, y proporvionada para herir á cualquiera parte a",
+      "box": [
+        479,
+        1268,
+        871,
+        1290
+      ],
+      "score": 0.9690715074539185
+    },
+    {
+      "text": "aba ver de nuestros primeros padres bajo de alguna figura acomodada",
+      "box": [
+        0,
+        1286,
+        380,
+        1306
+      ],
+      "score": 0.9974296689033508
+    },
+    {
+      "text": "que fuese dirigida, á fin de guardar, etc.",
+      "box": [
+        479,
+        1284,
+        698,
+        1305
+      ],
+      "score": 0.9580067992210388
+    },
+    {
+      "text": "I.—3",
+      "box": [
+        813,
+        1301,
+        846,
+        1316
+      ],
+      "score": 0.9161656498908997
+    }
+  ]
+}

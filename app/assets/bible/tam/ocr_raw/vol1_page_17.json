@@ -1,0 +1,47 @@
+{
+  "volume": 1,
+  "page_index": 17,
+  "pdf_page": 18,
+  "lines": [
+    {
+      "text": "su vida culta en la de Enoch; su cualdad de Salvado, en Noé salvando en el Arca al género humano; u",
+      "box": [
+        66,
+        197,
+        922,
+        241
+      ],
+      "score": 0.7797319889068604
+    },
+    {
+      "text": " d  ve, e l de Abhm; u edo, e el de ecee; u i,ened",
+      "box": [
+        64,
+        219,
+        922,
+        265
+      ],
+      "score": 0.6333146095275879
+    },
+    {
+      "text": "Is; us trabajos, en los de Jacob; su surimiento y glorios resurrecion, en las humillacone de",
+      "box": [
+        64,
+        244,
+        922,
+        289
+      ],
+      "score": 0.7414964437484741
+    },
+    {
+      "text": "Joseph, y la gloria que de ellas se le siguió.",
+      "box": [
+        65,
+        273,
+        425,
+        307
+      ],
+      "score": 0.99905925989151
+    }
+  ]
+}
