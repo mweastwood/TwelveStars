@@ -97,7 +97,7 @@ def main():
         sys.exit(1)
         
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    ocr_raw_dir = os.path.join(base_dir, "ocr_raw")
+    ocr_raw_dir = os.path.join(base_dir, "raw_ocr")
     output_dir = os.path.join(base_dir, "ocr")
     os.makedirs(output_dir, exist_ok=True)
     
