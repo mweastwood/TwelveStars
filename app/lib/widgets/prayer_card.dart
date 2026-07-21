@@ -275,6 +275,7 @@ class _PrayerCardState extends State<PrayerCard> {
               color: theme.colorScheme.primaryContainer.withValues(alpha: 0.8),
               child: Text(
                 token.text,
+                textScaler: TextScaler.noScaling,
                 style: (theme.textTheme.bodyLarge ?? const TextStyle())
                     .copyWith(
                       color: theme.colorScheme.onPrimaryContainer,
