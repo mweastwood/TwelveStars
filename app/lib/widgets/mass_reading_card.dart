@@ -246,6 +246,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
                                 padding: const EdgeInsets.only(right: 4.0),
                                 child: Text(
                                   '${v.verseNumber}',
+                                  textScaler: TextScaler.noScaling,
                                   style: theme.textTheme.labelSmall?.copyWith(
                                     fontWeight: FontWeight.bold,
                                     color: theme.colorScheme.primary,
