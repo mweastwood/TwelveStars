@@ -31,23 +31,18 @@ def download_file(url, filepath):
 
 def main():
     # Use relative path for replication inside assets folder
-    dest_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "raw")
-    os.makedirs(dest_dir, exist_ok=True)
+    pdf_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "pdf"))
+    os.makedirs(pdf_dir, exist_ok=True)
     
     for vol_name, item_id in VOLUMES.items():
-        # Download plain text OCR
-        txt_url = f"https://archive.org/download/{item_id}/{item_id}_djvu.txt"
-        txt_path = os.path.join(dest_dir, f"{vol_name}_ocr.txt")
-        if not os.path.exists(txt_path):
-            download_file(txt_url, txt_path)
-            time.sleep(1)
-            
         # Download PDF scan
         pdf_url = f"https://archive.org/download/{item_id}/{item_id}.pdf"
-        pdf_path = os.path.join(dest_dir, f"{vol_name}_scan.pdf")
+        pdf_path = os.path.join(pdf_dir, f"{vol_name}_scan.pdf")
         if not os.path.exists(pdf_path):
             download_file(pdf_url, pdf_path)
             time.sleep(1)
+        else:
+            print(f"{vol_name}_scan.pdf already exists under {pdf_dir}, skipping download.")
 
 if __name__ == "__main__":
     main()

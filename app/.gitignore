@@ -46,3 +46,7 @@ app.*.map.json
 
 # Build-time generated database payload
 assets/prayers.json
+
+# PDF scans for translation reproduction
+assets/bible/tam/pdf/
+

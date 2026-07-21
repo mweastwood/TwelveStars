@@ -8,10 +8,12 @@ This directory contains the final integrated USFM files and reproduction tools f
 assets/bible/tam/
 ├── README.md               # Reproduction and structure guide (this file)
 ├── usfm/                   # Target folder containing all 73 USFM books
+├── pdf/                    # High-resolution PDF scans downloaded from Internet Archive
+├── scripts/                # Utility scripts
+│   └── download_scans.py   # Script to download PDFs from Internet Archive
 └── src/                    # Reproduction tools and source files
     ├── raw/                # Raw OCR text files (vol1_ocr.txt to vol4_ocr.txt)
     ├── parsed/             # Output folder for OCR-parsed USFMs
-    ├── download_scans.py   # Script to download PDFs/scans from Internet Archive
     ├── parse_ocr_to_usfm.py# State machine parser to extract USFM from OCR texts
     ├── compare_ocr_vs_unam.py # Verification tool comparing OCR parsed text vs UNAM
     └── merge_deuterocanon.py  # Copies and formats the 7 Deuterocanonicals into usfm/
@@ -22,9 +24,9 @@ assets/bible/tam/
 Follow these steps to reproduce the parsing, verification, and merge results from scratch:
 
 ### Step 1: Setup Raw Files
-By default, the raw OCR text files are already included in `src/raw/` to save bandwidth. If you want to download the high-resolution source PDFs and fresh OCR text files directly from the Internet Archive, run:
+By default, the raw OCR text files are already included in `src/raw/` to save bandwidth. To download the high-resolution source PDFs directly from the Internet Archive into the `pdf/` directory, run:
 ```bash
-python3 src/download_scans.py
+python3 scripts/download_scans.py
 ```
 
 ### Step 2: Run Parser Script
