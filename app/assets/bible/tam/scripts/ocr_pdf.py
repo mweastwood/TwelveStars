@@ -22,7 +22,7 @@ def main():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     vol_filename = f"vol{args.volume}_scan.pdf"
     pdf_path = os.path.join(base_dir, "pdf", vol_filename)
-    ocr_raw_dir = os.path.join(base_dir, "ocr_raw")
+    ocr_raw_dir = os.path.join(base_dir, "raw_ocr")
     
     if not os.path.exists(pdf_path):
         print(f"Error: PDF scan file {pdf_path} not found.")
