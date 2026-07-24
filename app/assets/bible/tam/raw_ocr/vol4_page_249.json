@@ -1,0 +1,967 @@
+{
+  "volume": 4,
+  "page_index": 249,
+  "pdf_page": 250,
+  "lines": [
+    {
+      "text": "EPÍSTOLA",
+      "box": [
+        398,
+        40,
+        580,
+        91
+      ],
+      "score": 0.9998686909675598
+    },
+    {
+      "text": "DEL",
+      "box": [
+        475,
+        111,
+        503,
+        127
+      ],
+      "score": 0.9999774098396301
+    },
+    {
+      "text": "APÓSTOL SAN PABLO",
+      "box": [
+        168,
+        143,
+        815,
+        212
+      ],
+      "score": 0.993232250213623
+    },
+    {
+      "text": "é",
+      "box": [
+        479,
+        216,
+        492,
+        232
+      ],
+      "score": 0.35342907905578613
+    },
+    {
+      "text": "LOS GALATAS",
+      "box": [
+        355,
+        249,
+        616,
+        283
+      ],
+      "score": 0.996753454208374
+    },
+    {
+      "text": "ADVERTENCIA",
+      "box": [
+        410,
+        364,
+        560,
+        388
+      ],
+      "score": 0.9998565912246704
+    },
+    {
+      "text": "Los pueblos de Galacia, provineia del Asia menor, habian sido convértidos á la fe por San Pablo; mas despues muchos fieles se habian dejado seducir por unos",
+      "box": [
+        97,
+        402,
+        899,
+        436
+      ],
+      "score": 0.9744428992271423
+    },
+    {
+      "text": "falsos apóstoles que les predicaban que la fe de Jesu-Christo no los salvaria si no se hacian circuncidar, y no se sometian á todas las demás observancias de la Ley",
+      "box": [
+        75,
+        419,
+        897,
+        451
+      ],
+      "score": 0.9612186551094055
+    },
+    {
+      "text": "de Moysés. Estos doctores judaizantes procuraban desacreditar al Apóstol en el concepto de los Gálatas, diciendo que ni habia sido instruido, ni enviado por Jesu",
+      "box": [
+        74,
+        434,
+        897,
+        467
+      ],
+      "score": 0.8874009251594543
+    },
+    {
+      "text": "Christo; y que la doctrina era diferente de la de los demás Apóstoles. Establece pues desde el principio de esta carta la verdad de su apostolado, y la certera de su",
+      "box": [
+        75,
+        451,
+        896,
+        482
+      ],
+      "score": 0.9434244632720947
+    },
+    {
+      "text": "doctrina, que aprendió del mismo Jesu-Christo: prueba en seguida la inutilidad de las ceremonias legales para la justificacion, y finalmente da á los Gálatas algunos",
+      "box": [
+        74,
+        467,
+        896,
+        498
+      ],
+      "score": 0.8888283371925354
+    },
+    {
+      "text": "avisos para el arreglo de costumbres.",
+      "box": [
+        75,
+        485,
+        266,
+        504
+      ],
+      "score": 0.999496579170227
+    },
+    {
+      "text": "CAPITULO PRIMERO",
+      "box": [
+        187,
+        576,
+        325,
+        592
+      ],
+      "score": 0.9995250701904297
+    },
+    {
+      "text": "13. Porque bien habeis oido decir el modo con que en",
+      "box": [
+        549,
+        582,
+        894,
+        599
+      ],
+      "score": 0.9990792870521545
+    },
+    {
+      "text": "Reprende á los Gálatas por haber dado oidos á unos falsos apóstoles,",
+      "box": [
+        73,
+        604,
+        439,
+        622
+      ],
+      "score": 0.9925210475921631
+    },
+    {
+      "text": "otro tiempo vivia yo en el judaismo: con qué exceso de furor",
+      "box": [
+        537,
+        598,
+        895,
+        616
+      ],
+      "score": 0.9772396683692932
+    },
+    {
+      "text": "40g",
+      "box": [
+        459,
+        608,
+        477,
+        619
+      ],
+      "score": 0.6356235146522522
+    },
+    {
+      "text": "abandonando la doctrina que les habia enseñado, y que recibió él de",
+      "box": [
+        85,
+        621,
+        439,
+        636
+      ],
+      "score": 0.9937482476234436
+    },
+    {
+      "text": "perseguia la Iglesia de Dios, y la desolaba,",
+      "box": [
+        537,
+        615,
+        788,
+        634
+      ],
+      "score": 0.9953416585922241
+    },
+    {
+      "text": "Jesu-Christo. Refiere lo que era él antes y despues de su conversion.",
+      "box": [
+        86,
+        636,
+        439,
+        650
+      ],
+      "score": 0.9997525215148926
+    },
+    {
+      "text": "14. Y me señalaba en el judaismo mas que muchos coe-",
+      "box": [
+        550,
+        632,
+        896,
+        649
+      ],
+      "score": 0.996667742729187
+    },
+    {
+      "text": "táneos mios de mi nacion, siendo en extremo celoso de las",
+      "box": [
+        538,
+        650,
+        896,
+        667
+      ],
+      "score": 0.9995813369750977
+    },
+    {
+      "text": "1. Pablo constituido Apóstol no por los hombres ni por la",
+      "box": [
+        87,
+        663,
+        439,
+        680
+      ],
+      "score": 0.9995704889297485
+    },
+    {
+      "text": "tradiciones de mis padres 6.",
+      "box": [
+        538,
+        666,
+        699,
+        683
+      ],
+      "score": 0.9836215376853943
+    },
+    {
+      "text": "autoridad de hombre alguno 1, sino por Jesu-Christo, y por",
+      "box": [
+        73,
+        677,
+        441,
+        699
+      ],
+      "score": 0.9877489805221558
+    },
+    {
+      "text": "15. Mas cuando plugo á aquel Señor, que me destinó yse-",
+      "box": [
+        548,
+        680,
+        897,
+        701
+      ],
+      "score": 0.9951382875442505
+    },
+    {
+      "text": "Dios su Padre, que le resucitó de entre los muertos:",
+      "box": [
+        77,
+        698,
+        386,
+        712
+      ],
+      "score": 0.9899218678474426
+    },
+    {
+      "text": "paró desde el vientre de mi madre, y me llamó con su gracia,",
+      "box": [
+        535,
+        696,
+        896,
+        718
+      ],
+      "score": 0.9930933117866516
+    },
+    {
+      "text": "2. Y todos los hermanos que conmigo están, á las Iglesias",
+      "box": [
+        75,
+        712,
+        438,
+        732
+      ],
+      "score": 0.9890298843383789
+    },
+    {
+      "text": "16. El revelarme á su Hijo, para que yo le predicase á las",
+      "box": [
+        548,
+        713,
+        897,
+        735
+      ],
+      "score": 0.9894435405731201
+    },
+    {
+      "text": "de Galacia.",
+      "box": [
+        74,
+        730,
+        143,
+        747
+      ],
+      "score": 0.9632022380828857
+    },
+    {
+      "text": "naciones: lo hice al punto sin tomar consejo de la carneni de",
+      "box": [
+        536,
+        729,
+        896,
+        753
+      ],
+      "score": 0.9943836331367493
+    },
+    {
+      "text": "3. Gracia á vosotros, y paz de parte de Dios Padre, y de",
+      "box": [
+        87,
+        746,
+        438,
+        766
+      ],
+      "score": 0.9946125745773315
+    },
+    {
+      "text": "la sangre,",
+      "box": [
+        537,
+        751,
+        601,
+        768
+      ],
+      "score": 0.9990217089653015
+    },
+    {
+      "text": "Jesu-Christo nuestro Señor,",
+      "box": [
+        77,
+        766,
+        240,
+        780
+      ],
+      "score": 0.9999579191207886
+    },
+    {
+      "text": "17. Ni pasar á Jerusalem en busca de los Apóstoles ante-",
+      "box": [
+        548,
+        764,
+        898,
+        785
+      ],
+      "score": 0.9892255067825317
+    },
+    {
+      "text": "4. El cual se dió á sí mismo á la muerte por nuestros",
+      "box": [
+        87,
+        780,
+        438,
+        799
+      ],
+      "score": 0.9921348690986633
+    },
+    {
+      "text": "riores á mí : sino que me fuí luego á la Arabia : de donde",
+      "box": [
+        536,
+        779,
+        897,
+        803
+      ],
+      "score": 0.9731335043907166
+    },
+    {
+      "text": "pecados, para sacarnos de la corrupcion de este mundo, con-",
+      "box": [
+        76,
+        799,
+        438,
+        816
+      ],
+      "score": 0.9994851350784302
+    },
+    {
+      "text": "vólví otra vez á Damasco:",
+      "box": [
+        539,
+        802,
+        689,
+        816
+      ],
+      "score": 0.9589425921440125
+    },
+    {
+      "text": "forme á la voluntad de Dios, y Padre nuestro,",
+      "box": [
+        76,
+        814,
+        350,
+        833
+      ],
+      "score": 0.9979149699211121
+    },
+    {
+      "text": "18. De allí á tres años fuí á Jerusalem para visitar á Pe-",
+      "box": [
+        548,
+        811,
+        896,
+        837
+      ],
+      "score": 0.981637716293335
+    },
+    {
+      "text": "5. Cuya es la gloria por los siglos de los siglos. Amen .",
+      "box": [
+        89,
+        831,
+        424,
+        849
+      ],
+      "score": 0.9912176132202148
+    },
+    {
+      "text": "dro, y estuve con él quince dias:",
+      "box": [
+        538,
+        833,
+        730,
+        851
+      ],
+      "score": 0.9758718013763428
+    },
+    {
+      "text": "6. Me maravillo como así tan de ligero abandonais al que os",
+      "box": [
+        89,
+        848,
+        439,
+        867
+      ],
+      "score": 0.9922313094139099
+    },
+    {
+      "text": "19. Y no ví á otro alguno de los Apóstoles, sino á Santiago",
+      "box": [
+        549,
+        846,
+        895,
+        868
+      ],
+      "score": 0.949660062789917
+    },
+    {
+      "text": "llamó á la gracia de Jesu-Christo, para seguir otro Evangelio:",
+      "box": [
+        76,
+        865,
+        440,
+        884
+      ],
+      "score": 0.9973811507225037
+    },
+    {
+      "text": "el primo hermano del Señor.",
+      "box": [
+        538,
+        866,
+        707,
+        884
+      ],
+      "score": 0.9997333884239197
+    },
+    {
+      "text": "7. Mas no es que haya otro Evangelio, sino que hay algu-",
+      "box": [
+        89,
+        882,
+        439,
+        900
+      ],
+      "score": 0.9935492873191833
+    },
+    {
+      "text": "20. De todo esto que os escribo, pongo á Dios por testigo",
+      "box": [
+        549,
+        878,
+        896,
+        902
+      ],
+      "score": 0.9981166124343872
+    },
+    {
+      "text": "nos, qûe os traen alborotados, y quieren trastornar el Evan-",
+      "box": [
+        77,
+        900,
+        440,
+        917
+      ],
+      "score": 0.9868612289428711
+    },
+    {
+      "text": "que no miento.",
+      "box": [
+        538,
+        898,
+        631,
+        918
+      ],
+      "score": 0.9998369812965393
+    },
+    {
+      "text": "gelio de Christo ³.",
+      "box": [
+        77,
+        916,
+        186,
+        934
+      ],
+      "score": 0.9835596680641174
+    },
+    {
+      "text": "21. De allí fuí á los países de Syria, y de Cilicia.",
+      "box": [
+        550,
+        912,
+        836,
+        933
+      ],
+      "score": 0.9949148893356323
+    },
+    {
+      "text": "8. Pero aun cuando nosotros mismos, ó un Angel del cielo",
+      "box": [
+        88,
+        932,
+        440,
+        950
+      ],
+      "score": 0.9973564147949219
+    },
+    {
+      "text": "22. Hasta entonces no me conocian de vista las Iglesias de",
+      "box": [
+        550,
+        928,
+        896,
+        949
+      ],
+      "score": 0.9992296099662781
+    },
+    {
+      "text": "si posible fuese os predique un Evangelio diferente del que",
+      "box": [
+        76,
+        949,
+        440,
+        967
+      ],
+      "score": 0.9846513867378235
+    },
+    {
+      "text": "Christo, que habia en la Judéa:",
+      "box": [
+        538,
+        946,
+        721,
+        965
+      ],
+      "score": 0.997753381729126
+    },
+    {
+      "text": "nosotros hemos anunciado, sea anathema .",
+      "box": [
+        76,
+        965,
+        335,
+        984
+      ],
+      "score": 0.9737491607666016
+    },
+    {
+      "text": "23. Solamente habian oido decir: Aquel que antes nos",
+      "box": [
+        549,
+        962,
+        897,
+        981
+      ],
+      "score": 0.9912833571434021
+    },
+    {
+      "text": "9. Os lo he dicho ya, y os lo repito: Cualquiera que os",
+      "box": [
+        88,
+        982,
+        440,
+        1001
+      ],
+      "score": 0.999304473400116
+    },
+    {
+      "text": "perseguia, ahora predica la fe, que en otro tiempo impug-",
+      "box": [
+        537,
+        978,
+        897,
+        999
+      ],
+      "score": 0.9981518983840942
+    },
+    {
+      "text": "anuncie un Evangelio diferente del que habeis recibido, sea",
+      "box": [
+        76,
+        998,
+        440,
+        1019
+      ],
+      "score": 0.9954901933670044
+    },
+    {
+      "text": "naba:",
+      "box": [
+        539,
+        998,
+        577,
+        1013
+      ],
+      "score": 0.999652087688446
+    },
+    {
+      "text": "anathema.",
+      "box": [
+        77,
+        1019,
+        143,
+        1036
+      ],
+      "score": 0.9998657703399658
+    },
+    {
+      "text": "24. Y glorificaban á Dios por causa de mi conversion.",
+      "box": [
+        551,
+        1012,
+        870,
+        1030
+      ],
+      "score": 0.9993740320205688
+    },
+    {
+      "text": "10. Porque en fin ¿busco yo ahora la aprobacion de los",
+      "box": [
+        89,
+        1032,
+        439,
+        1053
+      ],
+      "score": 0.9947134852409363
+    },
+    {
+      "text": "CAPITULO II",
+      "box": [
+        669,
+        1041,
+        757,
+        1058
+      ],
+      "score": 0.9995777606964111
+    },
+    {
+      "text": "hombres, ó de Dios? ¿Por ventura pretendo agradar á los hom-",
+      "box": [
+        76,
+        1048,
+        440,
+        1070
+      ],
+      "score": 0.9924156069755554
+    },
+    {
+      "text": "bres? Si todavía prosiguiese complaciendo á los hombress, no",
+      "box": [
+        77,
+        1063,
+        439,
+        1088
+      ],
+      "score": 0.9778562784194946
+    },
+    {
+      "text": "San Pablo predica con libertad contra los falsos apóstoles, y contra los",
+      "box": [
+        540,
+        1072,
+        897,
+        1086
+      ],
+      "score": 0.9920921325683594
+    },
+    {
+      "text": "seria yo siervo de Christo.",
+      "box": [
+        76,
+        1085,
+        236,
+        1104
+      ],
+      "score": 0.9983317852020264
+    },
+    {
+      "text": "judaizantes. Resistencia que hizo á Cephas en Antiochia sobre las cere-",
+      "box": [
+        548,
+        1086,
+        897,
+        1100
+      ],
+      "score": 0.9952060580253601
+    },
+    {
+      "text": "11. Porque os hago saber, hermanos, que el Evangelio, que",
+      "box": [
+        88,
+        1098,
+        439,
+        1122
+      ],
+      "score": 0.9995247721672058
+    },
+    {
+      "text": "monias legales. Nadie es justificado sino por la fe en Jesu-Christo.",
+      "box": [
+        549,
+        1100,
+        879,
+        1114
+      ],
+      "score": 0.9964651465415955
+    },
+    {
+      "text": "yo os he predicado, no es una cosa humana:",
+      "box": [
+        76,
+        1116,
+        342,
+        1139
+      ],
+      "score": 0.9889460206031799
+    },
+    {
+      "text": "1. Catorce años despues, volví á Jerusalem con Bernabé",
+      "box": [
+        550,
+        1128,
+        895,
+        1142
+      ],
+      "score": 0.9879626035690308
+    },
+    {
+      "text": "12. Pues no le he recibido, ni aprendido yo de algun hom-",
+      "box": [
+        88,
+        1131,
+        439,
+        1155
+      ],
+      "score": 0.9965276122093201
+    },
+    {
+      "text": "llevando tambien conmigo á Tito.",
+      "box": [
+        537,
+        1142,
+        731,
+        1161
+      ],
+      "score": 0.9983444213867188
+    },
+    {
+      "text": "bre, sino por revelacion de Christo.",
+      "box": [
+        76,
+        1151,
+        288,
+        1172
+      ],
+      "score": 0.9994960427284241
+    },
+    {
+      "text": "6 Esto es, á los principales de mi nacion.",
+      "box": [
+        546,
+        1174,
+        751,
+        1192
+      ],
+      "score": 0.9806832671165466
+    },
+    {
+      "text": "1 Como dicen vuestros nuevos maestros.",
+      "box": [
+        85,
+        1184,
+        293,
+        1202
+      ],
+      "score": 0.9831922650337219
+    },
+    {
+      "text": " El empeño contraido ya con los ruidosos procedimientos anteriores:",
+      "box": [
+        547,
+        1189,
+        899,
+        1206
+      ],
+      "score": 0.9929820895195007
+    },
+    {
+      "text": "à Unamos nuestro corazon con el de San Pablo, y elevándole hácia",
+      "box": [
+        83,
+        1194,
+        441,
+        1219
+      ],
+      "score": 0.9780625700950623
+    },
+    {
+      "text": "la consideracion que lograba en el partido de los Phariséos, que era",
+      "box": [
+        535,
+        1202,
+        901,
+        1224
+      ],
+      "score": 0.9782675504684448
+    },
+    {
+      "text": "Dios amoroso Criador y Redentor nuestro, prorumpamos muehas veces",
+      "box": [
+        74,
+        1209,
+        442,
+        1233
+      ],
+      "score": 0.9911978840827942
+    },
+    {
+      "text": "entonces muy poderoso: una falsa ilustracion y un falso celo, hé aquí",
+      "box": [
+        535,
+        1217,
+        902,
+        1238
+      ],
+      "score": 0.9705742001533508
+    },
+    {
+      "text": "en un Amen de adoracion, de alabanza, de accion de gracias y de un",
+      "box": [
+        73,
+        1222,
+        442,
+        1247
+      ],
+      "score": 0.9804643392562866
+    },
+    {
+      "text": "los obstáculos que detenian á San Pablo en el error.",
+      "box": [
+        536,
+        1231,
+        794,
+        1251
+      ],
+      "score": 0.9762214422225952
+    },
+    {
+      "text": "ardiente deseo de que Dios sea glorificado por sus misericordias.",
+      "box": [
+        73,
+        1238,
+        400,
+        1261
+      ],
+      "score": 0.9908193945884705
+    },
+    {
+      "text": "7 Para recibir de ellos el apostolado, y el Evangelio que debia anunciar.",
+      "box": [
+        546,
+        1245,
+        900,
+        1263
+      ],
+      "score": 0.9842217564582825
+    },
+    {
+      "text": "3 Ofuscando su pureza con falsas doctrinas, y sosteniendo con vigor",
+      "box": [
+        82,
+        1251,
+        441,
+        1274
+      ],
+      "score": 0.9874890446662903
+    },
+    {
+      "text": "8 A predicar á Jesu-Christo, segun la órden que habia recibido del",
+      "box": [
+        546,
+        1259,
+        902,
+        1277
+      ],
+      "score": 0.9950043559074402
+    },
+    {
+      "text": "las ceremonias legales.",
+      "box": [
+        72,
+        1269,
+        193,
+        1289
+      ],
+      "score": 0.9996268153190613
+    },
+    {
+      "text": "4 Maldito sea, y de todos execrado.",
+      "box": [
+        81,
+        1282,
+        265,
+        1303
+      ],
+      "score": 0.9566392302513123
+    },
+    {
+      "text": "mismo Dios.",
+      "box": [
+        537,
+        1274,
+        602,
+        1292
+      ],
+      "score": 0.9936971068382263
+    }
+  ]
+}

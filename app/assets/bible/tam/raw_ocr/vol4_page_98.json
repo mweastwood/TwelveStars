@@ -1,0 +1,1437 @@
+{
+  "volume": 4,
+  "page_index": 98,
+  "pdf_page": 99,
+  "lines": [
+    {
+      "text": "113",
+      "box": [
+        82,
+        55,
+        107,
+        72
+      ],
+      "score": 0.9998517632484436
+    },
+    {
+      "text": "SAN LUCAS.",
+      "box": [
+        214,
+        51,
+        303,
+        70
+      ],
+      "score": 0.9927385449409485
+    },
+    {
+      "text": "CAPITULO XIX.",
+      "box": [
+        680,
+        47,
+        790,
+        67
+      ],
+      "score": 0.9990397691726685
+    },
+    {
+      "text": "114",
+      "box": [
+        883,
+        48,
+        910,
+        68
+      ],
+      "score": 0.9998941421508789
+    },
+    {
+      "text": "31. En aquella hora, quien se hallare en el terrado¹, y",
+      "box": [
+        84,
+        93,
+        449,
+        117
+      ],
+      "score": 0.9820348024368286
+    },
+    {
+      "text": "19. Respondióle Jesus: ¿Por qué me llamas bueno tenién-",
+      "box": [
+        560,
+        97,
+        914,
+        114
+      ],
+      "score": 0.9903114438056946
+    },
+    {
+      "text": "tiene tambien sus muebles dentro de casa, no entre á coger-",
+      "box": [
+        73,
+        115,
+        447,
+        132
+      ],
+      "score": 0.9993422031402588
+    },
+    {
+      "text": "dome por puro hombre? nadie es bueno sino solo Dios.",
+      "box": [
+        546,
+        113,
+        874,
+        134
+      ],
+      "score": 0.9928616285324097
+    },
+    {
+      "text": "los; ni tampoco quien está en el campo, no vuelva atrás, no",
+      "box": [
+        71,
+        131,
+        448,
+        152
+      ],
+      "score": 0.990880012512207
+    },
+    {
+      "text": "20. Ya sabes los mandamientos: No matarás: No come-",
+      "box": [
+        558,
+        133,
+        913,
+        150
+      ],
+      "score": 0.9948245286941528
+    },
+    {
+      "text": "piense sino en salvar su vida.",
+      "box": [
+        72,
+        152,
+        258,
+        169
+      ],
+      "score": 0.9937201142311096
+    },
+    {
+      "text": "terás adulterio: No hurtarás: No dirás falso testimonio:",
+      "box": [
+        545,
+        149,
+        912,
+        168
+      ],
+      "score": 0.9864054918289185
+    },
+    {
+      "text": "32. Acordaos de la mujer de Lot.",
+      "box": [
+        84,
+        169,
+        297,
+        186
+      ],
+      "score": 0.999862790107727
+    },
+    {
+      "text": "Honra á tu padre, y madre.",
+      "box": [
+        547,
+        170,
+        711,
+        184
+      ],
+      "score": 0.9932499527931213
+    },
+    {
+      "text": "33. Todo aquel que quisiere salvar su vida abandonando",
+      "box": [
+        83,
+        183,
+        447,
+        204
+      ],
+      "score": 0.9829818606376648
+    },
+    {
+      "text": "21. Dijo él: Todos estos mandamientos los he guardado",
+      "box": [
+        556,
+        183,
+        910,
+        200
+      ],
+      "score": 0.9918607473373413
+    },
+    {
+      "text": "la fe, la perderá eternamente: y quien la perdiere por defen-",
+      "box": [
+        73,
+        203,
+        446,
+        220
+      ],
+      "score": 0.9967206716537476
+    },
+    {
+      "text": "desde mi mocedad.",
+      "box": [
+        546,
+        202,
+        659,
+        216
+      ],
+      "score": 0.9998883605003357
+    },
+    {
+      "text": "derla, la conservará.",
+      "box": [
+        72,
+        219,
+        202,
+        236
+      ],
+      "score": 0.9987244606018066
+    },
+    {
+      "text": "22. Lo cual oyendo Jesus, le dijo: Todavía te falta una",
+      "box": [
+        556,
+        215,
+        910,
+        233
+      ],
+      "score": 0.9840439558029175
+    },
+    {
+      "text": "34. Una cosa os digo: en aquella noche dos estarán en un",
+      "box": [
+        82,
+        232,
+        447,
+        254
+      ],
+      "score": 0.986127495765686
+    },
+    {
+      "text": "cosa para ser perfecto: vende todos tus haberes, y dalos á los",
+      "box": [
+        545,
+        234,
+        910,
+        248
+      ],
+      "score": 0.999563992023468
+    },
+    {
+      "text": "mismo lecho; el uno será libertado, y el otro abandonado:",
+      "box": [
+        70,
+        249,
+        447,
+        270
+      ],
+      "score": 0.9964141845703125
+    },
+    {
+      "text": "pobres, y tendrás un tesoro en el ciclo: y despues ven, y",
+      "box": [
+        544,
+        249,
+        910,
+        266
+      ],
+      "score": 0.9922812581062317
+    },
+    {
+      "text": "35. Estarán dos mujeres moliendo juntas; la una será",
+      "box": [
+        83,
+        265,
+        447,
+        288
+      ],
+      "score": 0.9989480972290039
+    },
+    {
+      "text": "sígueme.",
+      "box": [
+        543,
+        265,
+        600,
+        282
+      ],
+      "score": 0.976852297782898
+    },
+    {
+      "text": "libertada, y la otra abandonada: dos hombres en el mismo",
+      "box": [
+        70,
+        281,
+        446,
+        304
+      ],
+      "score": 0.9946942925453186
+    },
+    {
+      "text": "23. Al oir esto, entristecióse el jóven: porque era suma-",
+      "box": [
+        553,
+        281,
+        910,
+        298
+      ],
+      "score": 0.9870865941047668
+    },
+    {
+      "text": "campo; el uno será libertado, y el otro abandonado.",
+      "box": [
+        71,
+        299,
+        386,
+        319
+      ],
+      "score": 0.9984278678894043
+    },
+    {
+      "text": "mente rico.",
+      "box": [
+        543,
+        297,
+        613,
+        311
+      ],
+      "score": 0.9999294281005859
+    },
+    {
+      "text": "36 ¿Dónde, Señor, replicaron ellos, dónde será esto?",
+      "box": [
+        82,
+        313,
+        416,
+        336
+      ],
+      "score": 0.9934586882591248
+    },
+    {
+      "text": "24. Y Jesus viéndole sobrecogido de tristeza, dijo: 1Oh",
+      "box": [
+        553,
+        311,
+        909,
+        329
+      ],
+      "score": 0.988685131072998
+    },
+    {
+      "text": "37. Jesus les respondió: Do quiera que esté el cuerpo ó",
+      "box": [
+        82,
+        328,
+        446,
+        352
+      ],
+      "score": 0.9869939088821411
+    },
+    {
+      "text": "cuán dificultosamente los adincrados entrarán en el reino de",
+      "box": [
+        543,
+        329,
+        909,
+        343
+      ],
+      "score": 0.9839398264884949
+    },
+    {
+      "text": "cadáver, allá volarán las águilas.",
+      "box": [
+        72,
+        350,
+        271,
+        364
+      ],
+      "score": 0.9972100853919983
+    },
+    {
+      "text": "Dios!",
+      "box": [
+        542,
+        344,
+        579,
+        359
+      ],
+      "score": 0.999754786491394
+    },
+    {
+      "text": "25. Porque mas fácil es á un camello el pasar por el ojo",
+      "box": [
+        552,
+        358,
+        909,
+        376
+      ],
+      "score": 0.9876102209091187
+    },
+    {
+      "text": "CAPITULO XVIII",
+      "box": [
+        198,
+        379,
+        318,
+        396
+      ],
+      "score": 0.9995558857917786
+    },
+    {
+      "text": "de una aguja, que á un rico el entrar en el reino de Dios.",
+      "box": [
+        543,
+        377,
+        883,
+        391
+      ],
+      "score": 0.9986438751220703
+    },
+    {
+      "text": "26. Y dijeron los que le escuchaban: ¿Pues quién podrá",
+      "box": [
+        554,
+        392,
+        909,
+        409
+      ],
+      "score": 0.9826822876930237
+    },
+    {
+      "text": "Parábolas de la viuda, y del mal juez, y del Phariséo, y del publicano.",
+      "box": [
+        71,
+        407,
+        443,
+        421
+      ],
+      "score": 0.9992707967758179
+    },
+    {
+      "text": "salvarse?",
+      "box": [
+        540,
+        407,
+        599,
+        428
+      ],
+      "score": 0.9999377727508545
+    },
+    {
+      "text": "Jesus recibe amorosamente á los niños. Da consejos de perfec-",
+      "box": [
+        81,
+        421,
+        442,
+        435
+      ],
+      "score": 0.9771438837051392
+    },
+    {
+      "text": "27. Respondióles Jesus: Lo que es imposible á los hom-",
+      "box": [
+        554,
+        425,
+        910,
+        442
+      ],
+      "score": 0.9830501675605774
+    },
+    {
+      "text": "cion. Muestra el peligro de las riquezas; y cura al ciego de Jerichó.",
+      "box": [
+        81,
+        436,
+        442,
+        450
+      ],
+      "score": 0.9933942556381226
+    },
+    {
+      "text": "(Matth. 19, 20, 23.—Mare. 10.)",
+      "box": [
+        82,
+        450,
+        244,
+        464
+      ],
+      "score": 0.946270763874054
+    },
+    {
+      "text": "bres, á Dios es posible .",
+      "box": [
+        541,
+        440,
+        686,
+        459
+      ],
+      "score": 0.9892724752426147
+    },
+    {
+      "text": "28. Entonces dijo Pedro: Bien ves que nosotros hemos",
+      "box": [
+        554,
+        458,
+        910,
+        475
+      ],
+      "score": 0.9994961023330688
+    },
+    {
+      "text": "1. Propúsoles tambien esta parábola, para hacer ver que",
+      "box": [
+        81,
+        479,
+        442,
+        498
+      ],
+      "score": 0.992019534111023
+    },
+    {
+      "text": "dejado todas las cosas, y seguídote.",
+      "box": [
+        541,
+        474,
+        754,
+        492
+      ],
+      "score": 0.9991151094436646
+    },
+    {
+      "text": "conviene orar perseverantemente y no desfallecer,",
+      "box": [
+        71,
+        497,
+        375,
+        514
+      ],
+      "score": 0.9881755113601685
+    },
+    {
+      "text": "29. Díjoles Jesus: En verdad os digo, ninguno hay que",
+      "box": [
+        553,
+        490,
+        909,
+        509
+      ],
+      "score": 0.9984400272369385
+    },
+    {
+      "text": "2. Diciendo: En cierta ciudad habia un juez, que ni tenia",
+      "box": [
+        83,
+        515,
+        441,
+        529
+      ],
+      "score": 0.9983161687850952
+    },
+    {
+      "text": "haya dejado casa, ó padres, ó hermanos, ó esposa, ó hijos, por",
+      "box": [
+        541,
+        506,
+        910,
+        526
+      ],
+      "score": 0.9862220883369446
+    },
+    {
+      "text": "temor de Dios, ni respeto á hombre alguno.",
+      "box": [
+        71,
+        530,
+        335,
+        547
+      ],
+      "score": 0.9917226433753967
+    },
+    {
+      "text": "amor del reino de Dios,",
+      "box": [
+        541,
+        524,
+        684,
+        543
+      ],
+      "score": 0.9996139407157898
+    },
+    {
+      "text": "3. Vivia en la misma ciudad una viuda, la cual solia ir á",
+      "box": [
+        83,
+        547,
+        444,
+        564
+      ],
+      "score": 0.9904776215553284
+    },
+    {
+      "text": "30. El cual no reciba mucho mas en este siglo en bienes",
+      "box": [
+        553,
+        537,
+        910,
+        559
+      ],
+      "score": 0.9889311790466309
+    },
+    {
+      "text": "él, diciendo: Hazme justicia de mi contrario.",
+      "box": [
+        72,
+        563,
+        342,
+        580
+      ],
+      "score": 0.9980129599571228
+    },
+    {
+      "text": "sólidos y celestiales, y en el venidero la vida eterna.",
+      "box": [
+        541,
+        555,
+        853,
+        575
+      ],
+      "score": 0.9886255264282227
+    },
+    {
+      "text": "4. Mas el juez en mucho tiempo no quiso hacórsela. Pero",
+      "box": [
+        83,
+        578,
+        442,
+        597
+      ],
+      "score": 0.9871034026145935
+    },
+    {
+      "text": "31. Despues tomando Jesus aparte á los doce Apóstoles,",
+      "box": [
+        552,
+        570,
+        909,
+        591
+      ],
+      "score": 0.9820564389228821
+    },
+    {
+      "text": "despues dijo para consigo: Aunque yo no temo á Dios, ni",
+      "box": [
+        71,
+        594,
+        443,
+        614
+      ],
+      "score": 0.9974101781845093
+    },
+    {
+      "text": "les dijo: Ya veis que subimos á Jerusalem, donde se cum-",
+      "box": [
+        539,
+        586,
+        910,
+        608
+      ],
+      "score": 0.9910281300544739
+    },
+    {
+      "text": "respeto á hombre alguno:",
+      "box": [
+        71,
+        612,
+        234,
+        630
+      ],
+      "score": 0.9907410740852356
+    },
+    {
+      "text": "plirán todas las cosas que fueron escritas por los profetas",
+      "box": [
+        540,
+        603,
+        910,
+        625
+      ],
+      "score": 0.9998127818107605
+    },
+    {
+      "text": "5. Con todo, para que me deje en paz esta viuda, le haré",
+      "box": [
+        83,
+        626,
+        443,
+        646
+      ],
+      "score": 0.9963020086288452
+    },
+    {
+      "text": "acerea del Hijo del hombre:",
+      "box": [
+        540,
+        622,
+        711,
+        641
+      ],
+      "score": 0.9964680075645447
+    },
+    {
+      "text": "justicia, á fin de que no venga de continuo á romperme la",
+      "box": [
+        70,
+        641,
+        444,
+        664
+      ],
+      "score": 0.979977548122406
+    },
+    {
+      "text": "32. Porque será entregado en manos de los Gentiles, y",
+      "box": [
+        552,
+        636,
+        910,
+        657
+      ],
+      "score": 0.993615984916687
+    },
+    {
+      "text": "caboza.",
+      "box": [
+        73,
+        663,
+        118,
+        678
+      ],
+      "score": 0.9496776461601257
+    },
+    {
+      "text": "escarnecido, y azotado, y escupido:",
+      "box": [
+        537,
+        655,
+        753,
+        674
+      ],
+      "score": 0.9848844408988953
+    },
+    {
+      "text": "6. Ved, añadió el Señor, lo que dijo ese juez inícuo:",
+      "box": [
+        84,
+        674,
+        403,
+        695
+      ],
+      "score": 0.9900206923484802
+    },
+    {
+      "text": "33. Y despues que le hubieren azotado, le darán la muerte,",
+      "box": [
+        551,
+        669,
+        910,
+        690
+      ],
+      "score": 0.9902526140213013
+    },
+    {
+      "text": "7. Y ¿ereereis que Dios dejará de hacer justicia á sus es-",
+      "box": [
+        84,
+        690,
+        442,
+        711
+      ],
+      "score": 0.9692318439483643
+    },
+    {
+      "text": "y al tercer dia resucitará.",
+      "box": [
+        538,
+        687,
+        691,
+        706
+      ],
+      "score": 0.9782906174659729
+    },
+    {
+      "text": "cogidos que claman á él dia y noche, y que ha de sufrir",
+      "box": [
+        73,
+        706,
+        443,
+        728
+      ],
+      "score": 0.9952995181083679
+    },
+    {
+      "text": "34. Pero ellos ninguna de estas cosas comprendicron,",
+      "box": [
+        552,
+        701,
+        909,
+        722
+      ],
+      "score": 0.9998108148574829
+    },
+    {
+      "text": "siempre que se les oprima?",
+      "box": [
+        72,
+        725,
+        237,
+        744
+      ],
+      "score": 0.9850082993507385
+    },
+    {
+      "text": "antes era este un lenguaje desconocido para ellos, ni enten-",
+      "box": [
+        539,
+        719,
+        910,
+        739
+      ],
+      "score": 0.9998742341995239
+    },
+    {
+      "text": "8. Os aseguro que no tardará en vengarlos de los agravios.",
+      "box": [
+        85,
+        738,
+        441,
+        759
+      ],
+      "score": 0.9782998561859131
+    },
+    {
+      "text": "dian la significacion de las palabras dichas.",
+      "box": [
+        539,
+        736,
+        803,
+        754
+      ],
+      "score": 0.9919124841690063
+    },
+    {
+      "text": "Pero cuando viniere el Hijo del hombre, ¿os parece que ha-",
+      "box": [
+        73,
+        755,
+        442,
+        774
+      ],
+      "score": 0.9996139407157898
+    },
+    {
+      "text": "35. Y al acercarse á Jerichó, estaba un ciego sentado á",
+      "box": [
+        552,
+        753,
+        911,
+        770
+      ],
+      "score": 0.9795489311218262
+    },
+    {
+      "text": "llará fe sobre la tierra?",
+      "box": [
+        74,
+        771,
+        212,
+        790
+      ],
+      "score": 0.9947469234466553
+    },
+    {
+      "text": "la orilla del camino, pidiendo limosna.",
+      "box": [
+        539,
+        769,
+        772,
+        785
+      ],
+      "score": 0.9787554740905762
+    },
+    {
+      "text": "9. Dijo asimismo á ciertos hombres, que presumian de",
+      "box": [
+        86,
+        785,
+        441,
+        805
+      ],
+      "score": 0.9923121333122253
+    },
+    {
+      "text": "36. Y sintiendo cl tropel de la gente que pasaba, preguntó",
+      "box": [
+        551,
+        786,
+        910,
+        803
+      ],
+      "score": 0.9831709265708923
+    },
+    {
+      "text": "justos, y despreciaban á los demás, esta parábola:",
+      "box": [
+        73,
+        802,
+        371,
+        821
+      ],
+      "score": 0.9949217438697815
+    },
+    {
+      "text": "qué novedad era aquella.",
+      "box": [
+        540,
+        803,
+        689,
+        817
+      ],
+      "score": 0.9993546605110168
+    },
+    {
+      "text": "10. Dos hombres subieron al templo á orar: el uno era",
+      "box": [
+        86,
+        818,
+        442,
+        836
+      ],
+      "score": 0.9798944592475891
+    },
+    {
+      "text": "37. Dijéronle que Jesus Nazareno pasaba por allí de ca-",
+      "box": [
+        549,
+        815,
+        909,
+        835
+      ],
+      "score": 0.9772079586982727
+    },
+    {
+      "text": "Phariséo y el otro publicano ó alcabalero.",
+      "box": [
+        74,
+        833,
+        322,
+        851
+      ],
+      "score": 0.989467442035675
+    },
+    {
+      "text": "mino.",
+      "box": [
+        537,
+        832,
+        576,
+        850
+      ],
+      "score": 0.9992006421089172
+    },
+    {
+      "text": "11. El Phariséo puesto en pié, oraba en su interior de",
+      "box": [
+        88,
+        851,
+        436,
+        865
+      ],
+      "score": 0.9937576055526733
+    },
+    {
+      "text": "38. Y al punto se puso á gritar: Jesus hijo de David, ten",
+      "box": [
+        549,
+        848,
+        908,
+        867
+      ],
+      "score": 0.9853748679161072
+    },
+    {
+      "text": "csta manera: Oh Dios! yo te doy gracias de que no soy",
+      "box": [
+        74,
+        865,
+        439,
+        883
+      ],
+      "score": 0.9900833964347839
+    },
+    {
+      "text": "piedad de mí.",
+      "box": [
+        537,
+        865,
+        625,
+        882
+      ],
+      "score": 0.984612762928009
+    },
+    {
+      "text": "como los demás hombres, que son ladrones, injustos, adúl-",
+      "box": [
+        75,
+        883,
+        438,
+        897
+      ],
+      "score": 0.9979150891304016
+    },
+    {
+      "text": "39. Los que iban delante le reprendian para que callase.",
+      "box": [
+        549,
+        880,
+        909,
+        900
+      ],
+      "score": 0.9927095770835876
+    },
+    {
+      "text": "teros: ni tampoco como este publicano:",
+      "box": [
+        74,
+        896,
+        309,
+        914
+      ],
+      "score": 0.994215726852417
+    },
+    {
+      "text": "Pero él levantaba mucho mas el grito: Hijo de David, ten",
+      "box": [
+        536,
+        896,
+        908,
+        917
+      ],
+      "score": 0.9841797947883606
+    },
+    {
+      "text": "12. Ayuno dos veces á la semana: pago los diezmos de",
+      "box": [
+        86,
+        913,
+        438,
+        930
+      ],
+      "score": 0.9972195029258728
+    },
+    {
+      "text": "piedad de mí.",
+      "box": [
+        538,
+        914,
+        621,
+        928
+      ],
+      "score": 0.9990968108177185
+    },
+    {
+      "text": "todo lo que poseo.",
+      "box": [
+        75,
+        929,
+        184,
+        946
+      ],
+      "score": 0.9676089882850647
+    },
+    {
+      "text": "40. Paróse entonces Jesus, y mandó traerle á su presencia.",
+      "box": [
+        548,
+        927,
+        907,
+        949
+      ],
+      "score": 0.9851235151290894
+    },
+    {
+      "text": "13, El publicano, al contrario, puesto allá lejos, ni aun",
+      "box": [
+        88,
+        946,
+        436,
+        960
+      ],
+      "score": 0.9857210516929626
+    },
+    {
+      "text": "Y cuando le tuvo ya cerca, preguntóle,",
+      "box": [
+        536,
+        943,
+        774,
+        965
+      ],
+      "score": 0.9819704294204712
+    },
+    {
+      "text": "los ojos osaba levantar al cielo: sino que se daba golpes de",
+      "box": [
+        73,
+        960,
+        437,
+        978
+      ],
+      "score": 0.9916899800300598
+    },
+    {
+      "text": "41. Dicicndo: ¿Qué quieres que te haga? Señor, respondió",
+      "box": [
+        547,
+        956,
+        909,
+        983
+      ],
+      "score": 0.9834022521972656
+    },
+    {
+      "text": "pecho, diciendo: Dios mio, ten misericordia de mí que soy",
+      "box": [
+        72,
+        976,
+        437,
+        994
+      ],
+      "score": 0.9976170659065247
+    },
+    {
+      "text": "él: Que yo tenga vista.",
+      "box": [
+        536,
+        973,
+        675,
+        992
+      ],
+      "score": 0.992341935634613
+    },
+    {
+      "text": "un pecador.",
+      "box": [
+        74,
+        994,
+        146,
+        1008
+      ],
+      "score": 0.9994840621948242
+    },
+    {
+      "text": "42. Díjole Jesus: Tenla, y sábete que tu fc te ha salvado.",
+      "box": [
+        547,
+        986,
+        908,
+        1012
+      ],
+      "score": 0.9835187792778015
+    },
+    {
+      "text": "14. Os declaro pues, que éste volvió á su casa justificado,",
+      "box": [
+        84,
+        1007,
+        437,
+        1025
+      ],
+      "score": 0.9940568208694458
+    },
+    {
+      "text": "43. Y al instante vió, y le scguia celebrando las grandezas",
+      "box": [
+        549,
+        1003,
+        909,
+        1027
+      ],
+      "score": 0.9847642779350281
+    },
+    {
+      "text": "mas no el otro: porque todo aquel que se ensalza, será hu-",
+      "box": [
+        72,
+        1023,
+        438,
+        1042
+      ],
+      "score": 0.9887313842773438
+    },
+    {
+      "text": "de Dios. Y todo el pueblo cuando vió csto, alabó á Dios.",
+      "box": [
+        534,
+        1017,
+        876,
+        1044
+      ],
+      "score": 0.9819035530090332
+    },
+    {
+      "text": "millado: y el que se humilla, será ensalzado.",
+      "box": [
+        74,
+        1041,
+        334,
+        1055
+      ],
+      "score": 0.9883701801300049
+    },
+    {
+      "text": "15. Y traíanle tambicn algunos niños, para que los tocase",
+      "box": [
+        84,
+        1054,
+        437,
+        1073
+      ],
+      "score": 0.9906328320503235
+    },
+    {
+      "text": "CAPITULO XIX",
+      "box": [
+        668,
+        1059,
+        775,
+        1081
+      ],
+      "score": 0.9844086170196533
+    },
+    {
+      "text": "ó les impusiese las manos. Lo cual viendo los discípulos, lo",
+      "box": [
+        71,
+        1069,
+        438,
+        1089
+      ],
+      "score": 0.9922592043876648
+    },
+    {
+      "text": "impedian con ásperas palabras.",
+      "box": [
+        71,
+        1085,
+        260,
+        1103
+      ],
+      "score": 0.9957720637321472
+    },
+    {
+      "text": "Conversion de Zachco. Parábola del hombre noble. Jesus, entrando en",
+      "box": [
+        535,
+        1088,
+        907,
+        1111
+      ],
+      "score": 0.9964399337768555
+    },
+    {
+      "text": "16. Mas Jesus llamando á sí los niños dijo á sus discípu-",
+      "box": [
+        84,
+        1100,
+        436,
+        1121
+      ],
+      "score": 0.9909455180168152
+    },
+    {
+      "text": "Jerusalem como en triunfo, predice y llora su ruina, en medio de los",
+      "box": [
+        545,
+        1102,
+        908,
+        1126
+      ],
+      "score": 0.9862055778503418
+    },
+    {
+      "text": "los: Dejad venir á mí los niños, y no se lo vedeis: porque de",
+      "box": [
+        71,
+        1115,
+        436,
+        1137
+      ],
+      "score": 0.9962654113769531
+    },
+    {
+      "text": "aplausos del pueblo. Negociantcs echados del templo. (Matth. 12, 13,",
+      "box": [
+        545,
+        1116,
+        907,
+        1139
+      ],
+      "score": 0.9608263969421387
+    },
+    {
+      "text": "tales como cstos es el reino de Dios.",
+      "box": [
+        72,
+        1131,
+        294,
+        1151
+      ],
+      "score": 0.9679811596870422
+    },
+    {
+      "text": "21, 25.—Marc. 4, 11, 13.—Joan. 12.)",
+      "box": [
+        545,
+        1129,
+        739,
+        1150
+      ],
+      "score": 0.9642086625099182
+    },
+    {
+      "text": "17. En verdad os digo, que quien no recibiere el reino de",
+      "box": [
+        84,
+        1146,
+        435,
+        1168
+      ],
+      "score": 0.9943407773971558
+    },
+    {
+      "text": "Dios como un niño, ó con la senciller suya, no cntrará en él.",
+      "box": [
+        71,
+        1161,
+        434,
+        1184
+      ],
+      "score": 0.9711688756942749
+    },
+    {
+      "text": "1. Habiendo Jesus entrado en Jerichó, atravesaba por la",
+      "box": [
+        544,
+        1161,
+        907,
+        1188
+      ],
+      "score": 0.990829586982727
+    },
+    {
+      "text": "18. Un jóven sugeto de distincion, le hizo esta pregunta:",
+      "box": [
+        84,
+        1174,
+        434,
+        1202
+      ],
+      "score": 0.9981351494789124
+    },
+    {
+      "text": "ciudad.",
+      "box": [
+        533,
+        1178,
+        583,
+        1196
+      ],
+      "score": 0.9987706542015076
+    },
+    {
+      "text": "Buen Maestro, ¿qué podré yo hacer á fin de alcanzar la vida",
+      "box": [
+        70,
+        1191,
+        433,
+        1216
+      ],
+      "score": 0.9885994791984558
+    },
+    {
+      "text": "2. Y hé aquí que un hombre muy rico, llamado Zachco,",
+      "box": [
+        543,
+        1193,
+        907,
+        1222
+      ],
+      "score": 0.9867404699325562
+    },
+    {
+      "text": "eterna?",
+      "box": [
+        71,
+        1207,
+        119,
+        1222
+      ],
+      "score": 0.9805719256401062
+    },
+    {
+      "text": "principal ó jefe entre los publicanos,",
+      "box": [
+        531,
+        1209,
+        753,
+        1237
+      ],
+      "score": 0.9805006980895996
+    },
+    {
+      "text": "1 Véase Tejado.",
+      "box": [
+        81,
+        1247,
+        171,
+        1268
+      ],
+      "score": 0.9573405385017395
+    },
+    {
+      "text": "àE ual pud d el ep de pb r.—VéCns.",
+      "box": [
+        539,
+        1257,
+        911,
+        1291
+      ],
+      "score": 0.6119465827941895
+    },
+    {
+      "text": "—Moral evangélica.",
+      "box": [
+        531,
+        1273,
+        639,
+        1294
+      ],
+      "score": 0.9526514410972595
+    },
+    {
+      "text": "IV.—16",
+      "box": [
+        838,
+        1297,
+        887,
+        1315
+      ],
+      "score": 0.9684000015258789
+    }
+  ]
+}

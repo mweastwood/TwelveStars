@@ -1,0 +1,827 @@
+{
+  "volume": 4,
+  "page_index": 297,
+  "pdf_page": 298,
+  "lines": [
+    {
+      "text": "EPÍSTOLA SEGUNDA",
+      "box": [
+        278,
+        55,
+        659,
+        98
+      ],
+      "score": 0.9989490509033203
+    },
+    {
+      "text": "DEL",
+      "box": [
+        456,
+        118,
+        485,
+        133
+      ],
+      "score": 0.9999272227287292
+    },
+    {
+      "text": "APÓSTOL SAN PABLO",
+      "box": [
+        133,
+        141,
+        797,
+        219
+      ],
+      "score": 0.9996048212051392
+    },
+    {
+      "text": "Á",
+      "box": [
+        462,
+        230,
+        475,
+        247
+      ],
+      "score": 0.7889239192008972
+    },
+    {
+      "text": "TIMOTHÉO",
+      "box": [
+        365,
+        265,
+        569,
+        298
+      ],
+      "score": 0.995521068572998
+    },
+    {
+      "text": "ADVERTENCIA",
+      "box": [
+        391,
+        416,
+        545,
+        438
+      ],
+      "score": 0.994229257106781
+    },
+    {
+      "text": "Sas PanLo en la carta anterior habia dado esperanzas á Timothéo de que volveria á Épheso; pero como Neron le puso preso en Roma, por haber convertido,",
+      "box": [
+        67,
+        456,
+        887,
+        482
+      ],
+      "score": 0.9868865013122559
+    },
+    {
+      "text": "como dice el Crisóstomo, á algunos familiares del mismo César (Hom. 46, in Acta Apost.), no pudo cumplir su palabra. Desde la cárcel, pues, le escribió esta",
+      "box": [
+        44,
+        473,
+        887,
+        497
+      ],
+      "score": 0.9968488812446594
+    },
+    {
+      "text": "carta, que, segun dice el Crisóstomo, puede mirarse como el testamento del grande Apóstol; y la escribió no solo para darle cuenta de todo, y pedirle que viniese",
+      "box": [
+        46,
+        491,
+        886,
+        512
+      ],
+      "score": 0.9923089146614075
+    },
+    {
+      "text": "cuanto antes á verle en compañía de Marcos, sino tambien para darle utilísimos documentos sobre la manera de portarse en Épheso. No sabemos si Timothéo tuvo",
+      "box": [
+        46,
+        506,
+        886,
+        528
+      ],
+      "score": 0.9889265894889832
+    },
+    {
+      "text": "el consuelo de encontrar vivo en Roma á su padre y maestro. Fué escrita, pues, esta carta hácia el año 67 de Jesu-Christo: poco antes de padecer el martirio; al",
+      "box": [
+        47,
+        523,
+        885,
+        544
+      ],
+      "score": 0.9953514933586121
+    },
+    {
+      "text": "cual parece que aluden las palabras del versículo 6 del capítulo IV.",
+      "box": [
+        50,
+        541,
+        397,
+        555
+      ],
+      "score": 0.9968559145927429
+    },
+    {
+      "text": "CAPITULO PRIMERO",
+      "box": [
+        160,
+        648,
+        306,
+        666
+      ],
+      "score": 0.9997208118438721
+    },
+    {
+      "text": "11. Para el cual fuí yo constituido predicador, y Apóstol, y",
+      "box": [
+        535,
+        652,
+        883,
+        666
+      ],
+      "score": 0.9749735593795776
+    },
+    {
+      "text": "doctor de las naciones.",
+      "box": [
+        521,
+        668,
+        655,
+        682
+      ],
+      "score": 0.9984185695648193
+    },
+    {
+      "text": "Exhorta á Timothéo á predicar intrépidamente el Evangelio, para mani-",
+      "box": [
+        49,
+        683,
+        418,
+        700
+      ],
+      "score": 0.9972664713859558
+    },
+    {
+      "text": "12. Por cuyo motivo padezco lo que padezco, pero no me",
+      "box": [
+        534,
+        684,
+        884,
+        698
+      ],
+      "score": 0.9937996864318848
+    },
+    {
+      "text": "festar mejor su fe. Acuerda que Christo destruyó la muerte. Dice que",
+      "box": [
+        58,
+        696,
+        420,
+        715
+      ],
+      "score": 0.9880136847496033
+    },
+    {
+      "text": "avergüenzo. Porque bien sé de quién me he fiado, y estoy",
+      "box": [
+        521,
+        700,
+        884,
+        714
+      ],
+      "score": 0.9971082806587219
+    },
+    {
+      "text": "algunos de Asia le abandonaron en Roma; y elogia á Onesíphoro.",
+      "box": [
+        59,
+        711,
+        394,
+        729
+      ],
+      "score": 0.9977493286132812
+    },
+    {
+      "text": "cierto de que es poderoso para conservar mi depósito 1 hasta",
+      "box": [
+        519,
+        713,
+        885,
+        732
+      ],
+      "score": 0.984327495098114
+    },
+    {
+      "text": "aquel último dia .",
+      "box": [
+        521,
+        732,
+        634,
+        746
+      ],
+      "score": 0.9956585764884949
+    },
+    {
+      "text": "1. Pablo Apóstol de Jesu-Christo por voluntad de Dios,",
+      "box": [
+        60,
+        747,
+        418,
+        765
+      ],
+      "score": 0.9977549314498901
+    },
+    {
+      "text": "13. Ten por modelo la sana doctrina, que has oido de mí",
+      "box": [
+        531,
+        747,
+        885,
+        764
+      ],
+      "score": 0.9986754655838013
+    },
+    {
+      "text": "segun la promesa de vida que tenemos en Jesu-Christo:",
+      "box": [
+        46,
+        763,
+        387,
+        782
+      ],
+      "score": 0.9990353584289551
+    },
+    {
+      "text": "con la fe, y caridad en Christo Jesus.",
+      "box": [
+        519,
+        762,
+        741,
+        781
+      ],
+      "score": 0.9997376799583435
+    },
+    {
+      "text": "2. A Timothéo hijo carísimo, gracia, misericordia, y paz de",
+      "box": [
+        59,
+        779,
+        418,
+        797
+      ],
+      "score": 0.9774045944213867
+    },
+    {
+      "text": "14. Guarda ese rico depósito por medio del Espíritu Santo,",
+      "box": [
+        529,
+        777,
+        885,
+        798
+      ],
+      "score": 0.9895581603050232
+    },
+    {
+      "text": "parte de Dios Padre, y de nuestro Señor Jesu-Christo.",
+      "box": [
+        46,
+        794,
+        376,
+        814
+      ],
+      "score": 0.9941061735153198
+    },
+    {
+      "text": "que habita en nosotros.",
+      "box": [
+        520,
+        797,
+        661,
+        811
+      ],
+      "score": 0.9855942726135254
+    },
+    {
+      "text": "3. Doy gracias á Dios, á quien sirvo á ejemplo de mis ma-",
+      "box": [
+        59,
+        810,
+        418,
+        830
+      ],
+      "score": 0.9724380970001221
+    },
+    {
+      "text": "15. Ya sabes cómo se han apartado de mí todos los natu-",
+      "box": [
+        532,
+        811,
+        883,
+        829
+      ],
+      "score": 0.9890486001968384
+    },
+    {
+      "text": "yores con conciencia pura, de que sin cesar hago, memoria de",
+      "box": [
+        46,
+        826,
+        418,
+        847
+      ],
+      "score": 0.9892759323120117
+    },
+    {
+      "text": "rales de Ásia que estaban aquí en Roma, de cuyonúmero son",
+      "box": [
+        518,
+        827,
+        884,
+        845
+      ],
+      "score": 0.9740715622901917
+    },
+    {
+      "text": "tí en mis oraciones, noche y dia,",
+      "box": [
+        49,
+        847,
+        248,
+        861
+      ],
+      "score": 0.9958600997924805
+    },
+    {
+      "text": "Phigello, y Hermógenes.",
+      "box": [
+        520,
+        846,
+        665,
+        860
+      ],
+      "score": 0.9793605208396912
+    },
+    {
+      "text": "4. Deseoso de verte, acordándome de tus lágrimas en nues-",
+      "box": [
+        60,
+        859,
+        419,
+        878
+      ],
+      "score": 0.9917181730270386
+    },
+    {
+      "text": "16. Derrame el Señor sus misericordias sobre la casa de",
+      "box": [
+        531,
+        859,
+        882,
+        876
+      ],
+      "score": 0.9989696741104126
+    },
+    {
+      "text": "tra despedida de Epheso, para bañarme de gozo,",
+      "box": [
+        49,
+        879,
+        342,
+        893
+      ],
+      "score": 0.9992841482162476
+    },
+    {
+      "text": "Onesíphoro: porque me ha consolado muchas veces, y no se",
+      "box": [
+        519,
+        875,
+        884,
+        893
+      ],
+      "score": 0.9898548126220703
+    },
+    {
+      "text": "5. Como que tengo presente aquella tu fe sincera, la cual",
+      "box": [
+        60,
+        891,
+        418,
+        910
+      ],
+      "score": 0.9906150698661804
+    },
+    {
+      "text": "ha avergonzado de mi cadena:",
+      "box": [
+        520,
+        894,
+        701,
+        907
+      ],
+      "score": 0.999829113483429
+    },
+    {
+      "text": "primero se vió constantemente en tu abuela Loide, y en tu",
+      "box": [
+        46,
+        907,
+        418,
+        928
+      ],
+      "score": 0.9973064661026001
+    },
+    {
+      "text": "17. Antes luego que llegó á Roma, me buscó diligente-",
+      "box": [
+        531,
+        906,
+        883,
+        925
+      ],
+      "score": 0.9924866557121277
+    },
+    {
+      "text": "madre Eunice, y estoy cierto de que igualmente está en tí.",
+      "box": [
+        46,
+        923,
+        402,
+        944
+      ],
+      "score": 0.9792197942733765
+    },
+    {
+      "text": "mente, hasta que me encontró.",
+      "box": [
+        520,
+        925,
+        703,
+        939
+      ],
+      "score": 0.9960395097732544
+    },
+    {
+      "text": "6. Por cuya causa te exhorto, que avives lagracia de Dios,",
+      "box": [
+        60,
+        940,
+        417,
+        960
+      ],
+      "score": 0.9917789697647095
+    },
+    {
+      "text": "18. El Señor le concoda hallar misericordia delante de él",
+      "box": [
+        532,
+        937,
+        884,
+        955
+      ],
+      "score": 0.9941654801368713
+    },
+    {
+      "text": "que reside en tí por la imposicion de mis manos.",
+      "box": [
+        46,
+        956,
+        343,
+        977
+      ],
+      "score": 0.9996325373649597
+    },
+    {
+      "text": "en aquel dia grande del juicio. Cuantos servicios me prestó",
+      "box": [
+        519,
+        953,
+        883,
+        972
+      ],
+      "score": 0.9888098835945129
+    },
+    {
+      "text": "7. Porque no nos ha dado Dios á nosotros un espíritu de",
+      "box": [
+        59,
+        971,
+        418,
+        993
+      ],
+      "score": 0.9979074001312256
+    },
+    {
+      "text": "en Épheso, tú lo sabes bien.",
+      "box": [
+        521,
+        972,
+        685,
+        986
+      ],
+      "score": 0.9930303692817688
+    },
+    {
+      "text": "timidez; sino de fortaleza, y de caridad, y de templanza y",
+      "box": [
+        45,
+        988,
+        418,
+        1009
+      ],
+      "score": 0.9933282732963562
+    },
+    {
+      "text": "prudencia.",
+      "box": [
+        44,
+        1009,
+        118,
+        1027
+      ],
+      "score": 0.9995501637458801
+    },
+    {
+      "text": "CAPITULO II",
+      "box": [
+        657,
+        1013,
+        744,
+        1028
+      ],
+      "score": 0.9989757537841797
+    },
+    {
+      "text": "8. Por tanto no te avergüences del testimonio de nuestro",
+      "box": [
+        57,
+        1019,
+        418,
+        1043
+      ],
+      "score": 0.9978775978088379
+    },
+    {
+      "text": "Soñor ó de confesar su fe públicamente, ni de mí que estoy en",
+      "box": [
+        44,
+        1037,
+        418,
+        1059
+      ],
+      "score": 0.9767773151397705
+    },
+    {
+      "text": "cadenas por amor suyo: antes bien padece y trabaja á una",
+      "box": [
+        44,
+        1053,
+        418,
+        1076
+      ],
+      "score": 0.9865380525588989
+    },
+    {
+      "text": "Habla á Timothéo de la fortaleza y prudencia con que debe enseñar las",
+      "box": [
+        520,
+        1049,
+        885,
+        1064
+      ],
+      "score": 0.987824022769928
+    },
+    {
+      "text": "cosas de la fe, y cómo debe evitar las cuestiones inútiles, orígen de",
+      "box": [
+        530,
+        1062,
+        885,
+        1078
+      ],
+      "score": 0.9950193166732788
+    },
+    {
+      "text": "conmigo por el Evangelio con la virtud que recibirás de",
+      "box": [
+        43,
+        1069,
+        418,
+        1093
+      ],
+      "score": 0.999841034412384
+    },
+    {
+      "text": "discordias y de contiendas, las cuales son ajenas del Cristiano.",
+      "box": [
+        531,
+        1077,
+        848,
+        1092
+      ],
+      "score": 0.9950098991394043
+    },
+    {
+      "text": "Dios:",
+      "box": [
+        44,
+        1093,
+        81,
+        1107
+      ],
+      "score": 0.9999581575393677
+    },
+    {
+      "text": "9. El cual nos libertó, y llamó con su santa vocacion, no",
+      "box": [
+        56,
+        1102,
+        417,
+        1125
+      ],
+      "score": 0.9846171140670776
+    },
+    {
+      "text": "por obras nuestras, sino por su mero beneplácito, y por la",
+      "box": [
+        42,
+        1119,
+        417,
+        1142
+      ],
+      "score": 0.9996631145477295
+    },
+    {
+      "text": "1. Tú pues, hijo mio, cobra buen ánimo con la gracia, que",
+      "box": [
+        532,
+        1114,
+        885,
+        1133
+      ],
+      "score": 0.9980857968330383
+    },
+    {
+      "text": "gracia, que nos ha sido otorgada en Jesu-Christo antes'de",
+      "box": [
+        41,
+        1136,
+        417,
+        1158
+      ],
+      "score": 0.9898415207862854
+    },
+    {
+      "text": "tenemos en Jesu-Christo:",
+      "box": [
+        522,
+        1134,
+        672,
+        1148
+      ],
+      "score": 0.9922061562538147
+    },
+    {
+      "text": "2. Y las cosas que de mí has oido delante de muchos tes-",
+      "box": [
+        532,
+        1146,
+        885,
+        1165
+      ],
+      "score": 0.9997122883796692
+    },
+    {
+      "text": "todos los siglos,",
+      "box": [
+        43,
+        1159,
+        143,
+        1173
+      ],
+      "score": 0.9999838471412659
+    },
+    {
+      "text": "10. Y que se ha manifestado ahora por el advenimiento",
+      "box": [
+        55,
+        1168,
+        417,
+        1190
+      ],
+      "score": 0.9994864463806152
+    },
+    {
+      "text": "tigos, confíalas a hombres fieles, que sean idóneos para",
+      "box": [
+        520,
+        1162,
+        886,
+        1181
+      ],
+      "score": 0.984272837638855
+    },
+    {
+      "text": "de nuestro Salvador Jesu-Christo, el cual ha destruido la",
+      "box": [
+        41,
+        1185,
+        417,
+        1207
+      ],
+      "score": 0.9997293949127197
+    },
+    {
+      "text": "enseñarlas tambien á otros.",
+      "box": [
+        521,
+        1179,
+        684,
+        1197
+      ],
+      "score": 0.9976751804351807
+    },
+    {
+      "text": "muerte, y al mismo tiempo ha sacado á luz la vida y la in-",
+      "box": [
+        41,
+        1201,
+        417,
+        1223
+      ],
+      "score": 0.9861129522323608
+    },
+    {
+      "text": "3. Soporta el trabajo y la fatiga como buen soldado de",
+      "box": [
+        532,
+        1191,
+        886,
+        1214
+      ],
+      "score": 0.9979129433631897
+    },
+    {
+      "text": "Jesu-Christo.",
+      "box": [
+        521,
+        1212,
+        601,
+        1230
+      ],
+      "score": 0.9990018010139465
+    },
+    {
+      "text": "mortalidad por medio del Evangelio:",
+      "box": [
+        41,
+        1219,
+        272,
+        1240
+      ],
+      "score": 0.9974279999732971
+    },
+    {
+      "text": "& En el cual espero que me dará el cien doblado por esta vida perece-",
+      "box": [
+        530,
+        1240,
+        886,
+        1264
+      ],
+      "score": 0.9877081513404846
+    },
+    {
+      "text": "1 La corona ó premio que voy ganando. Otros por depásito entienden",
+      "box": [
+        51,
+        1254,
+        417,
+        1274
+      ],
+      "score": 0.982469379901886
+    },
+    {
+      "text": "dera, que pongo ahora en sus manos, y sacrífico por amor suyo.",
+      "box": [
+        522,
+        1254,
+        844,
+        1278
+      ],
+      "score": 0.9917919039726257
+    },
+    {
+      "text": "la fe y doctrina que le habia encomendado.",
+      "box": [
+        42,
+        1269,
+        268,
+        1288
+      ],
+      "score": 0.9819440245628357
+    }
+  ]
+}

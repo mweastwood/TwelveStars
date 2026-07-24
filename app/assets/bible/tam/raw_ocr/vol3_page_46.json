@@ -1,0 +1,37 @@
+{
+  "volume": 3,
+  "page_index": 46,
+  "pdf_page": 47,
+  "lines": [
+    {
+      "text": "EL SEÑOR DA MUERTE À LA SERPIENTE LEVIATHAN",
+      "box": [
+        229,
+        182,
+        697,
+        209
+      ],
+      "score": 0.9856984615325928
+    },
+    {
+      "text": "H.PISAN.",
+      "box": [
+        45,
+        247,
+        148,
+        271
+      ],
+      "score": 0.9843687415122986
+    },
+    {
+      "text": "9\"D0",
+      "box": [
+        801,
+        249,
+        903,
+        302
+      ],
+      "score": 0.5406239032745361
+    }
+  ]
+}

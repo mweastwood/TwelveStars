@@ -1,0 +1,1507 @@
+{
+  "volume": 2,
+  "page_index": 145,
+  "pdf_page": 146,
+  "lines": [
+    {
+      "text": "179",
+      "box": [
+        103,
+        22,
+        141,
+        53
+      ],
+      "score": 0.9999668598175049
+    },
+    {
+      "text": "I.PARALIPÓMENON.",
+      "box": [
+        255,
+        30,
+        466,
+        61
+      ],
+      "score": 0.9771734476089478
+    },
+    {
+      "text": "CAPITULO VI.",
+      "box": [
+        999,
+        48,
+        1150,
+        77
+      ],
+      "score": 0.9983885884284973
+    },
+    {
+      "text": "180",
+      "box": [
+        1289,
+        62,
+        1320,
+        83
+      ],
+      "score": 0.9999707341194153
+    },
+    {
+      "text": "CAPITULO VI",
+      "box": [
+        291,
+        100,
+        428,
+        127
+      ],
+      "score": 0.9619796276092529
+    },
+    {
+      "text": "38. Hijo de Isaar, hijo de Caath, hijo de Leví, hijo de",
+      "box": [
+        806,
+        113,
+        1333,
+        148
+      ],
+      "score": 0.997651994228363
+    },
+    {
+      "text": "Geealogía de los hjo de e milas, ministerio y ciudade de los",
+      "box": [
+        102,
+        149,
+        622,
+        191
+      ],
+      "score": 0.6950197815895081
+    },
+    {
+      "text": "Israél.",
+      "box": [
+        788,
+        143,
+        851,
+        168
+      ],
+      "score": 0.9996970891952515
+    },
+    {
+      "text": "39. Además Asaph, hermano, ó pariente de Eman, que es-",
+      "box": [
+        806,
+        164,
+        1331,
+        197
+      ],
+      "score": 0.9770029783248901
+    },
+    {
+      "text": "Levitas: ciudades de refugio.",
+      "box": [
+        255,
+        179,
+        463,
+        205
+      ],
+      "score": 0.998393177986145
+    },
+    {
+      "text": "taba á su derecha. Era Asaph hijo de Barachias, hijo de",
+      "box": [
+        786,
+        191,
+        1330,
+        221
+      ],
+      "score": 0.9918355941772461
+    },
+    {
+      "text": "Samaa,",
+      "box": [
+        786,
+        219,
+        857,
+        244
+      ],
+      "score": 0.9998614192008972
+    },
+    {
+      "text": "1. Hijos de Leví: Gerson, Caath y Merari.",
+      "box": [
+        112,
+        229,
+        479,
+        258
+      ],
+      "score": 0.9983155131340027
+    },
+    {
+      "text": "40. Hijo de Michael, hijo de Basaia, hijo de Melchia,",
+      "box": [
+        805,
+        242,
+        1283,
+        269
+      ],
+      "score": 0.9929271936416626
+    },
+    {
+      "text": "2. Hijos de Caath: Amram, Isaar, Hebron y Oziel.",
+      "box": [
+        110,
+        254,
+        554,
+        287
+      ],
+      "score": 0.9925321936607361
+    },
+    {
+      "text": "41. Hijo de Athanai, hijo de Zara, hijo de Adaia,",
+      "box": [
+        804,
+        267,
+        1255,
+        295
+      ],
+      "score": 0.998594343662262
+    },
+    {
+      "text": "3. Hijos de Amram: Aaron, Moysés y María. Hijos de",
+      "box": [
+        111,
+        280,
+        629,
+        314
+      ],
+      "score": 0.9913313388824463
+    },
+    {
+      "text": "42. Hijo de Ethan, hijo de Zamma, hijo de Semei,",
+      "box": [
+        804,
+        293,
+        1263,
+        320
+      ],
+      "score": 0.9982656836509705
+    },
+    {
+      "text": "Aaron: Nadab y Abiú, Eleazar, é Ithamar.",
+      "box": [
+        95,
+        307,
+        460,
+        338
+      ],
+      "score": 0.9958745837211609
+    },
+    {
+      "text": "43. Hijo de Jeth, hijo de Gerson, hijo de Leví.",
+      "box": [
+        803,
+        316,
+        1233,
+        345
+      ],
+      "score": 0.9909977316856384
+    },
+    {
+      "text": "4. Eleazar engendró á Phinées, yPhinées á Abisué.",
+      "box": [
+        112,
+        332,
+        565,
+        363
+      ],
+      "score": 0.9982201457023621
+    },
+    {
+      "text": "44. Y sus hermanos, hijos de Merari, estaban á la iz-",
+      "box": [
+        803,
+        340,
+        1330,
+        369
+      ],
+      "score": 0.9855926632881165
+    },
+    {
+      "text": "5. Abisué engendró á Bocci, y Bocci á Ozi.",
+      "box": [
+        110,
+        355,
+        494,
+        393
+      ],
+      "score": 0.9405850172042847
+    },
+    {
+      "text": "quierda, Ethan, hijo de Cusi, hijo de Abdi, hijo de Maloch,",
+      "box": [
+        783,
+        365,
+        1307,
+        395
+      ],
+      "score": 0.9818803071975708
+    },
+    {
+      "text": "6. Ozi engendró á Zaraia, y Zaraia á Meraioth.",
+      "box": [
+        110,
+        379,
+        528,
+        418
+      ],
+      "score": 0.960289478302002
+    },
+    {
+      "text": "45. Hijo de Hasabias, hijo de Amasias, hijo de Helcias,",
+      "box": [
+        802,
+        388,
+        1303,
+        418
+      ],
+      "score": 0.9852582812309265
+    },
+    {
+      "text": "7Meraioth engendró á Amarias, y Amariasá Acb.",
+      "box": [
+        109,
+        402,
+        601,
+        442
+      ],
+      "score": 0.7029922604560852
+    },
+    {
+      "text": "46. Hijo de Amasaí, hijo de Boni, hijo de Somer,",
+      "box": [
+        801,
+        414,
+        1257,
+        442
+      ],
+      "score": 0.9900396466255188
+    },
+    {
+      "text": "8. Achitob engendró á Sadoc, y Sadoc á Achimaas.",
+      "box": [
+        111,
+        428,
+        570,
+        465
+      ],
+      "score": 0.9647875428199768
+    },
+    {
+      "text": "47. Hijo de Moholi, hijo de Musi, hijo de Merari, hijo de",
+      "box": [
+        799,
+        434,
+        1332,
+        468
+      ],
+      "score": 0.9951529502868652
+    },
+    {
+      "text": "9. Achimaas engendró á Azarias, yAzarias á Johanan.",
+      "box": [
+        115,
+        456,
+        613,
+        487
+      ],
+      "score": 0.9599856734275818
+    },
+    {
+      "text": "Leví.",
+      "box": [
+        781,
+        462,
+        835,
+        488
+      ],
+      "score": 0.9994064569473267
+    },
+    {
+      "text": "10. Johanan engendró á Azarias: éste es aquel que ejerció",
+      "box": [
+        113,
+        478,
+        632,
+        513
+      ],
+      "score": 0.9682596325874329
+    },
+    {
+      "text": "48. Los demás Levitas, hermanos de estos, fueron desti-",
+      "box": [
+        801,
+        480,
+        1334,
+        517
+      ],
+      "score": 0.9996026754379272
+    },
+    {
+      "text": "las funciones del sacerdocio en el templo edicado por Salo-",
+      "box": [
+        93,
+        501,
+        632,
+        541
+      ],
+      "score": 0.8636278510093689
+    },
+    {
+      "text": "nados á todo el restante servicio del Tabernáculo de la Casa",
+      "box": [
+        780,
+        506,
+        1335,
+        541
+      ],
+      "score": 0.9977713227272034
+    },
+    {
+      "text": "mon en Jerusalem.",
+      "box": [
+        96,
+        531,
+        270,
+        563
+      ],
+      "score": 0.9999368190765381
+    },
+    {
+      "text": "del Señor.",
+      "box": [
+        782,
+        535,
+        879,
+        562
+      ],
+      "score": 0.9998589754104614
+    },
+    {
+      "text": "11. Azarias engendró á Amarias, y Amarias á Achitob.",
+      "box": [
+        114,
+        554,
+        600,
+        589
+      ],
+      "score": 0.977349042892456
+    },
+    {
+      "text": "49. Pero Aaron y sus hijos ponian á quemar las víctimas",
+      "box": [
+        800,
+        554,
+        1338,
+        593
+      ],
+      "score": 0.9953596591949463
+    },
+    {
+      "text": "12. Achitob engendró á Sadoc, Sadoc á Sellúm.",
+      "box": [
+        116,
+        580,
+        539,
+        614
+      ],
+      "score": 0.9726769328117371
+    },
+    {
+      "text": "sobre el altar de los holocaustos, y el incienso sobre el altar",
+      "box": [
+        781,
+        579,
+        1337,
+        618
+      ],
+      "score": 0.9898866415023804
+    },
+    {
+      "text": "13. Sellúm engendró á Helcias, y Helcias á Azarias.",
+      "box": [
+        116,
+        605,
+        580,
+        640
+      ],
+      "score": 0.9800511002540588
+    },
+    {
+      "text": "de los perfumes; empleándose en todo lo concerniente al",
+      "box": [
+        781,
+        604,
+        1339,
+        642
+      ],
+      "score": 0.9899290800094604
+    },
+    {
+      "text": "14. Azarias engendró á Saraias, y Saraias á Josedec.",
+      "box": [
+        116,
+        631,
+        579,
+        665
+      ],
+      "score": 0.9865961670875549
+    },
+    {
+      "text": "Sancta Sanctorum, y en hacer oracion por Israél, conforme",
+      "box": [
+        781,
+        629,
+        1339,
+        668
+      ],
+      "score": 0.9903960227966309
+    },
+    {
+      "text": "15. Josedec dejó su patria cuando el Señor trasladó al",
+      "box": [
+        117,
+        655,
+        635,
+        691
+      ],
+      "score": 0.9886221289634705
+    },
+    {
+      "text": "á todo lo mandado por Moysés, siervo de Dios.",
+      "box": [
+        782,
+        660,
+        1213,
+        688
+      ],
+      "score": 0.9995419979095459
+    },
+    {
+      "text": "pueblo de Judá y de Jerusalem por medio de Nabuchodo-",
+      "box": [
+        97,
+        680,
+        635,
+        716
+      ],
+      "score": 0.9922640919685364
+    },
+    {
+      "text": "50. Los descendientes de Aaron son estos: Eleazar su",
+      "box": [
+        802,
+        678,
+        1340,
+        716
+      ],
+      "score": 0.9963724613189697
+    },
+    {
+      "text": "nosor.",
+      "box": [
+        100,
+        709,
+        161,
+        734
+      ],
+      "score": 0.9992491602897644
+    },
+    {
+      "text": "hijo: Phinées, hijo de Eleazar; Abisué, hijo de Phinées;",
+      "box": [
+        783,
+        706,
+        1285,
+        739
+      ],
+      "score": 0.9913808703422546
+    },
+    {
+      "text": "16. Los hijos pues de Leví fueron: Gerson, Caath y Me-",
+      "box": [
+        118,
+        731,
+        635,
+        763
+      ],
+      "score": 0.992046058177948
+    },
+    {
+      "text": "51. Bocci, de Abisué; Ozi, hijo de Bocci; Zaraia, de Ozi;",
+      "box": [
+        802,
+        726,
+        1339,
+        767
+      ],
+      "score": 0.9921846985816956
+    },
+    {
+      "text": "rari.",
+      "box": [
+        100,
+        757,
+        146,
+        783
+      ],
+      "score": 0.9995018839836121
+    },
+    {
+      "text": "52. Meraioth, hijo de Zaraia; Amaria, de Meraioth; Achi-",
+      "box": [
+        802,
+        751,
+        1340,
+        791
+      ],
+      "score": 0.9987015128135681
+    },
+    {
+      "text": "17. Los nombres de los hijos de Gerson fueron: Lobni y",
+      "box": [
+        118,
+        778,
+        638,
+        815
+      ],
+      "score": 0.9915474057197571
+    },
+    {
+      "text": "tob, de Amaria;",
+      "box": [
+        785,
+        785,
+        935,
+        814
+      ],
+      "score": 0.999643087387085
+    },
+    {
+      "text": "Semei.",
+      "box": [
+        100,
+        805,
+        167,
+        836
+      ],
+      "score": 0.9982015490531921
+    },
+    {
+      "text": "53. Sadoc, de Achitob; Achimaas, de Sadoc.",
+      "box": [
+        805,
+        809,
+        1215,
+        839
+      ],
+      "score": 0.988017201423645
+    },
+    {
+      "text": "18. Los hijos de Caath fueron: Amram éIsaar, Hebron y",
+      "box": [
+        118,
+        829,
+        638,
+        864
+      ],
+      "score": 0.9957112073898315
+    },
+    {
+      "text": "54. Y hé aquí los parajes en donde habitaron estos hijos",
+      "box": [
+        804,
+        824,
+        1341,
+        869
+      ],
+      "score": 0.9953490495681763
+    },
+    {
+      "text": "Oziel.",
+      "box": [
+        104,
+        857,
+        160,
+        883
+      ],
+      "score": 0.9998072981834412
+    },
+    {
+      "text": "de Aaron, es decir, los lugares y términos que les tocaron por",
+      "box": [
+        785,
+        850,
+        1342,
+        896
+      ],
+      "score": 0.9918995499610901
+    },
+    {
+      "text": "19. Hijos de Merari: Hoholi y Musi. Y estos son los des-",
+      "box": [
+        122,
+        881,
+        639,
+        911
+      ],
+      "score": 0.9936092495918274
+    },
+    {
+      "text": "suerte, principiando por las familias de Caath.",
+      "box": [
+        788,
+        881,
+        1208,
+        916
+      ],
+      "score": 0.9916550517082214
+    },
+    {
+      "text": "cendientes de Leví segun sus familias.",
+      "box": [
+        107,
+        910,
+        437,
+        933
+      ],
+      "score": 0.9852799773216248
+    },
+    {
+      "text": "55. Señalóseles pues á estos á Hebron en tierra de Judá,",
+      "box": [
+        806,
+        896,
+        1341,
+        946
+      ],
+      "score": 0.9838444590568542
+    },
+    {
+      "text": "20. De Gerson fué hijo Lobni: Jahath lo fué de éste. De",
+      "box": [
+        123,
+        932,
+        640,
+        961
+      ],
+      "score": 0.9992319941520691
+    },
+    {
+      "text": "y sus ejidos al contorno:",
+      "box": [
+        789,
+        933,
+        1013,
+        967
+      ],
+      "score": 0.9993735551834106
+    },
+    {
+      "text": "Jahath lo fué Zamma.",
+      "box": [
+        105,
+        958,
+        298,
+        986
+      ],
+      "score": 0.9630489349365234
+    },
+    {
+      "text": "56. Mas los campos de la ciudad, y las aldeas fueron de",
+      "box": [
+        809,
+        947,
+        1341,
+        993
+      ],
+      "score": 0.9935824275016785
+    },
+    {
+      "text": "21. De Zamma fué hijo Joah. De Joah lo fué Addo: de Addo,",
+      "box": [
+        122,
+        982,
+        641,
+        1014
+      ],
+      "score": 0.985939621925354
+    },
+    {
+      "text": "Caleb, hijo de Jephone.",
+      "box": [
+        792,
+        986,
+        999,
+        1013
+      ],
+      "score": 0.9999232888221741
+    },
+    {
+      "text": "Zara; y de Zara, Jethrai.",
+      "box": [
+        107,
+        1013,
+        319,
+        1037
+      ],
+      "score": 0.9956831932067871
+    },
+    {
+      "text": "57. Dieron pues á los hijos de Aaron estas ciudades: He-",
+      "box": [
+        809,
+        995,
+        1343,
+        1044
+      ],
+      "score": 0.9882931113243103
+    },
+    {
+      "text": "22. Hijos de Caath: Aminadab hijo suyo: Coré lo fué de",
+      "box": [
+        123,
+        1036,
+        641,
+        1063
+      ],
+      "score": 0.9891647100448608
+    },
+    {
+      "text": "bron (ciudad de refugio), y Lobna, y sus ejidos;",
+      "box": [
+        791,
+        1031,
+        1218,
+        1065
+      ],
+      "score": 0.9989995956420898
+    },
+    {
+      "text": "Aminadab: Asir, de Coré.",
+      "box": [
+        107,
+        1064,
+        325,
+        1088
+      ],
+      "score": 0.9989776611328125
+    },
+    {
+      "text": "58. Y asimismo Jether, y Esthemo con sus ejidos, y tam-",
+      "box": [
+        810,
+        1047,
+        1344,
+        1092
+      ],
+      "score": 0.9989497065544128
+    },
+    {
+      "text": "23. De Asir fué hijo Elcana: de Elcana Abiasaph: de Abia-",
+      "box": [
+        124,
+        1087,
+        643,
+        1114
+      ],
+      "score": 0.9924881458282471
+    },
+    {
+      "text": "bien Helon y Dabir con los suyos:",
+      "box": [
+        792,
+        1084,
+        1102,
+        1112
+      ],
+      "score": 0.9987751245498657
+    },
+    {
+      "text": "saph lo fué Asir.",
+      "box": [
+        105,
+        1111,
+        251,
+        1138
+      ],
+      "score": 0.9998743534088135
+    },
+    {
+      "text": "59. É igualmente Asan, y Bethsemes, y sus ejidos.",
+      "box": [
+        811,
+        1100,
+        1272,
+        1140
+      ],
+      "score": 0.9985062479972839
+    },
+    {
+      "text": "24. De Asir, Thahath: de Thahath fué hijo Uriel: de éste,",
+      "box": [
+        124,
+        1134,
+        644,
+        1166
+      ],
+      "score": 0.9994984865188599
+    },
+    {
+      "text": "60. De la tribu de Benjamin les dieron Gabée y sus ejidos,",
+      "box": [
+        810,
+        1119,
+        1345,
+        1166
+      ],
+      "score": 0.9792316555976868
+    },
+    {
+      "text": "Ozías: de Ozías lo fué Saul.",
+      "box": [
+        108,
+        1160,
+        345,
+        1187
+      ],
+      "score": 0.9998351335525513
+    },
+    {
+      "text": "y Almath con sus ejidos, y Anathoth con sus ejidos : en todo",
+      "box": [
+        790,
+        1144,
+        1346,
+        1192
+      ],
+      "score": 0.9526779651641846
+    },
+    {
+      "text": "25. Hijos de Elcana: Amasai y Achimoth,",
+      "box": [
+        128,
+        1185,
+        499,
+        1212
+      ],
+      "score": 0.9812289476394653
+    },
+    {
+      "text": "trece ciudades, repartidas entre sus familias.",
+      "box": [
+        794,
+        1179,
+        1189,
+        1211
+      ],
+      "score": 0.999788224697113
+    },
+    {
+      "text": "26. Y Elcana. De Elcana fué hijo Sophai: de éste, Nahath:",
+      "box": [
+        127,
+        1208,
+        645,
+        1239
+      ],
+      "score": 0.9972567558288574
+    },
+    {
+      "text": "61. A los restantes descendientes de Caath y á sus fami-",
+      "box": [
+        810,
+        1191,
+        1349,
+        1243
+      ],
+      "score": 0.9358152747154236
+    },
+    {
+      "text": "27. Y de Nahath, Eliab. De éste, Jeroham, y de Jeróham,",
+      "box": [
+        126,
+        1232,
+        643,
+        1265
+      ],
+      "score": 0.9973257780075073
+    },
+    {
+      "text": "lias, diéronles diez ciudades de la media tribu de Manassés.",
+      "box": [
+        792,
+        1218,
+        1338,
+        1265
+      ],
+      "score": 0.9840869307518005
+    },
+    {
+      "text": "Elcana.",
+      "box": [
+        110,
+        1260,
+        178,
+        1282
+      ],
+      "score": 0.9996768236160278
+    },
+    {
+      "text": "62. Asimismo á los hijos de Gerson, divididos en sus",
+      "box": [
+        812,
+        1242,
+        1349,
+        1290
+      ],
+      "score": 0.9871318340301514
+    },
+    {
+      "text": "28. Hijos de Samuel: Vassení su primogénito, y Abia².",
+      "box": [
+        128,
+        1281,
+        615,
+        1313
+      ],
+      "score": 0.9889719486236572
+    },
+    {
+      "text": "familias, les dieron trece ciudades de las tribus de Issachar, y",
+      "box": [
+        794,
+        1268,
+        1348,
+        1313
+      ],
+      "score": 0.9958992004394531
+    },
+    {
+      "text": "29. Hijos de Merari: Moholi, de quien fué hijo Lobni: de",
+      "box": [
+        127,
+        1306,
+        647,
+        1340
+      ],
+      "score": 0.9900957942008972
+    },
+    {
+      "text": "de Aser, y de Nephthali, y de la media tribu de Manassés,",
+      "box": [
+        793,
+        1291,
+        1348,
+        1340
+      ],
+      "score": 0.9896299839019775
+    },
+    {
+      "text": "éste, Semei: de Semei, Oza.",
+      "box": [
+        112,
+        1336,
+        346,
+        1360
+      ],
+      "score": 0.9994493126869202
+    },
+    {
+      "text": "que estaba en el territorio de Basan.",
+      "box": [
+        797,
+        1328,
+        1117,
+        1361
+      ],
+      "score": 0.9997090697288513
+    },
+    {
+      "text": "30. De Oza lo fué Sammaa: de Sammaa, Haggia; y de Hag-",
+      "box": [
+        127,
+        1356,
+        648,
+        1391
+      ],
+      "score": 0.9860184788703918
+    },
+    {
+      "text": "63. Igualmente á los hijos de Merari, divididos en sus",
+      "box": [
+        814,
+        1341,
+        1348,
+        1390
+      ],
+      "score": 0.9949021935462952
+    },
+    {
+      "text": "gia, Asaia.",
+      "box": [
+        108,
+        1384,
+        205,
+        1415
+      ],
+      "score": 0.9994102716445923
+    },
+    {
+      "text": "familias, diéronles por suerte doce ciudades de la tribu de",
+      "box": [
+        794,
+        1364,
+        1348,
+        1415
+      ],
+      "score": 0.9974160194396973
+    },
+    {
+      "text": "31. Estos son los que constituyó David prefectos de los",
+      "box": [
+        128,
+        1408,
+        650,
+        1441
+      ],
+      "score": 0.9998358488082886
+    },
+    {
+      "text": "Ruben, y de la tribu de Gad, y de la tribu de Zabulon.",
+      "box": [
+        795,
+        1395,
+        1285,
+        1437
+      ],
+      "score": 0.9849045872688293
+    },
+    {
+      "text": "cantores del templo del Señor, despues que se hizo la colo-",
+      "box": [
+        112,
+        1437,
+        649,
+        1463
+      ],
+      "score": 0.99971604347229
+    },
+    {
+      "text": "64. Dieron tambien los hijos de Israél á los Levitas varias",
+      "box": [
+        814,
+        1415,
+        1350,
+        1464
+      ],
+      "score": 0.9911947250366211
+    },
+    {
+      "text": "cacion del Arca en Jerusalem.",
+      "box": [
+        112,
+        1461,
+        378,
+        1487
+      ],
+      "score": 0.997334897518158
+    },
+    {
+      "text": "ciudades con sus ejidos:",
+      "box": [
+        799,
+        1457,
+        1007,
+        1481
+      ],
+      "score": 0.9999241232872009
+    },
+    {
+      "text": "32. Y ejercitaban su ministerio, cantando delante del",
+      "box": [
+        129,
+        1483,
+        649,
+        1514
+      ],
+      "score": 0.9920518398284912
+    },
+    {
+      "text": "65. Diéronles por suerte estas ciudades de la tribu de los",
+      "box": [
+        815,
+        1467,
+        1349,
+        1511
+      ],
+      "score": 0.9895581007003784
+    },
+    {
+      "text": "Tabernáculo del Testimonio, hasta que Salomon hubo fabri-",
+      "box": [
+        109,
+        1508,
+        651,
+        1539
+      ],
+      "score": 0.9891172647476196
+    },
+    {
+      "text": "hijos de Judá, de la tribu de los hijos de Simeon, y de la tribu",
+      "box": [
+        796,
+        1493,
+        1350,
+        1535
+      ],
+      "score": 0.9990116357803345
+    },
+    {
+      "text": "cado el templo del Señor en Jerusalem: y servian sú minis-",
+      "box": [
+        109,
+        1532,
+        652,
+        1566
+      ],
+      "score": 0.994460940361023
+    },
+    {
+      "text": "de los hijos de Benjamin: ciudades que llamaron de sus",
+      "box": [
+        796,
+        1520,
+        1352,
+        1560
+      ],
+      "score": 0.9912826418876648
+    },
+    {
+      "text": "terio segun el turno de sus familias.",
+      "box": [
+        110,
+        1557,
+        438,
+        1590
+      ],
+      "score": 0.9993072748184204
+    },
+    {
+      "text": "propios nombres.",
+      "box": [
+        797,
+        1554,
+        947,
+        1581
+      ],
+      "score": 0.9999488592147827
+    },
+    {
+      "text": "33. Hé aquí los nombres de los que servian juntamente",
+      "box": [
+        131,
+        1581,
+        651,
+        1614
+      ],
+      "score": 0.9998089075088501
+    },
+    {
+      "text": "66. Igualmente los descendientes de los hijos de Caath",
+      "box": [
+        814,
+        1567,
+        1354,
+        1610
+      ],
+      "score": 0.9986116886138916
+    },
+    {
+      "text": "con sus hijos: De los hijos de Caath, Hemam era cantor, hijó",
+      "box": [
+        111,
+        1605,
+        651,
+        1641
+      ],
+      "score": 0.9900586009025574
+    },
+    {
+      "text": "fueron dueños de varias ciudades de la tribu de Ephraim;",
+      "box": [
+        795,
+        1596,
+        1355,
+        1633
+      ],
+      "score": 0.9995898008346558
+    },
+    {
+      "text": "67. Y así les dieron Sichem (ciudad de refugio) con sus",
+      "box": [
+        815,
+        1622,
+        1355,
+        1656
+      ],
+      "score": 0.9911686182022095
+    },
+    {
+      "text": "de Johel, hijo de Samuel,",
+      "box": [
+        113,
+        1634,
+        337,
+        1664
+      ],
+      "score": 0.9999310970306396
+    },
+    {
+      "text": "34. Hijo de Elcana, hijo de Jeroham, hijo de Eliel, hijo de",
+      "box": [
+        131,
+        1652,
+        652,
+        1690
+      ],
+      "score": 0.9981821775436401
+    },
+    {
+      "text": "ejidos en el monte Ephraim, y Gazer con sus ejidos:",
+      "box": [
+        797,
+        1650,
+        1261,
+        1680
+      ],
+      "score": 0.999480128288269
+    },
+    {
+      "text": "68. Tambien Jecmaam con sus ejidos, y asimismo Be-",
+      "box": [
+        814,
+        1672,
+        1355,
+        1704
+      ],
+      "score": 0.9978724122047424
+    },
+    {
+      "text": "Tholú,",
+      "box": [
+        110,
+        1683,
+        178,
+        1715
+      ],
+      "score": 0.9992850422859192
+    },
+    {
+      "text": "35. Hijo de Suph, hijo de Elcana, hijo de Mahath, hijo de",
+      "box": [
+        131,
+        1697,
+        653,
+        1740
+      ],
+      "score": 0.9870067834854126
+    },
+    {
+      "text": "thoron,",
+      "box": [
+        797,
+        1703,
+        864,
+        1728
+      ],
+      "score": 0.9999731183052063
+    },
+    {
+      "text": "69. Y Helon con sus ejidos, y Gethremmon del mismo",
+      "box": [
+        815,
+        1725,
+        1355,
+        1752
+      ],
+      "score": 0.9997583627700806
+    },
+    {
+      "text": "Amasaí,",
+      "box": [
+        114,
+        1733,
+        191,
+        1763
+      ],
+      "score": 0.9998243451118469
+    },
+    {
+      "text": "36. Hijo de Elcana, hijo de Johel, hijo de Azarias, hijo de",
+      "box": [
+        134,
+        1743,
+        654,
+        1787
+      ],
+      "score": 0.9660072326660156
+    },
+    {
+      "text": "modo.",
+      "box": [
+        795,
+        1750,
+        854,
+        1775
+      ],
+      "score": 0.9999755620956421
+    },
+    {
+      "text": "70. Así como en la media tribu de Manassés fué señalada",
+      "box": [
+        812,
+        1770,
+        1358,
+        1803
+      ],
+      "score": 0.998569130897522
+    },
+    {
+      "text": "Sophonias,",
+      "box": [
+        114,
+        1779,
+        218,
+        1813
+      ],
+      "score": 0.9999299049377441
+    },
+    {
+      "text": "37. Hijo de Thahath, hijo de Asir, hijo de Abiasaph, hijo",
+      "box": [
+        133,
+        1791,
+        654,
+        1835
+      ],
+      "score": 0.9866190552711487
+    },
+    {
+      "text": "Aner con sus ejidos, y Baalam con los suyos, á los restantes",
+      "box": [
+        796,
+        1795,
+        1359,
+        1828
+      ],
+      "score": 0.993107795715332
+    },
+    {
+      "text": "del linaje de los hijos de Caath.",
+      "box": [
+        796,
+        1821,
+        1065,
+        1848
+      ],
+      "score": 0.9909563660621643
+    },
+    {
+      "text": "de Coré,",
+      "box": [
+        114,
+        1827,
+        197,
+        1860
+      ],
+      "score": 0.999976634979248
+    },
+    {
+      "text": "avτυ Iωλ, zaìδ δeštipo; A6á.—El primogénito de Samuel Johel, y el",
+      "box": [
+        794,
+        1861,
+        1361,
+        1897
+      ],
+      "score": 0.8511149883270264
+    },
+    {
+      "text": "1 II. Paral. XXVI, v. 17.",
+      "box": [
+        131,
+        1866,
+        339,
+        1900
+      ],
+      "score": 0.987752377986908
+    },
+    {
+      "text": "segundo Ábia.",
+      "box": [
+        794,
+        1884,
+        904,
+        1911
+      ],
+      "score": 0.9585027694702148
+    },
+    {
+      "text": "El primogénito de Samuel es llamado Johel (I. Reg. VIII, v. 2); y así,",
+      "box": [
+        128,
+        1878,
+        654,
+        1924
+      ],
+      "score": 0.8139527440071106
+    },
+    {
+      "text": "3 Y Jeta (Josué XXI, v. 16), y Gabaon con los suyos.—Véase Nom-",
+      "box": [
+        805,
+        1901,
+        1363,
+        1946
+      ],
+      "score": 0.9549150466918945
+    },
+    {
+      "text": "ó tuvo dos nombres, ó hay algun error de los copistas.  Vascheni",
+      "box": [
+        114,
+        1900,
+        654,
+        1947
+      ],
+      "score": 0.9826982617378235
+    },
+    {
+      "text": "bre.",
+      "box": [
+        795,
+        1925,
+        830,
+        1949
+      ],
+      "score": 0.9999778866767883
+    },
+    {
+      "text": "quiere decir segundo, y vemos que los Setenta traducen: ó πwtótozo;",
+      "box": [
+        114,
+        1922,
+        655,
+        1971
+      ],
+      "score": 0.9484635591506958
+    }
+  ]
+}

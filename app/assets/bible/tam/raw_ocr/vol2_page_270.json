@@ -1,0 +1,607 @@
+{
+  "volume": 2,
+  "page_index": 270,
+  "pdf_page": 271,
+  "lines": [
+    {
+      "text": "LIBRO DE JOB",
+      "box": [
+        447,
+        71,
+        985,
+        183
+      ],
+      "score": 0.9999442100524902
+    },
+    {
+      "text": "ADVERTENCIA",
+      "box": [
+        603,
+        265,
+        829,
+        299
+      ],
+      "score": 0.9998554587364197
+    },
+    {
+      "text": "nosa peregrinacion en el Desierto.",
+      "box": [
+        77,
+        676,
+        353,
+        704
+      ],
+      "score": 0.9997172355651855
+    },
+    {
+      "text": "el Apóstol, diciendo (Rom. V, v. 3, 4, 5): Sepamos que la tribulacion ejercita la paciencia, la paciencia sirve á la prueba de nuestra fe; y la prueba produce la espe-",
+      "box": [
+        74,
+        899,
+        1343,
+        962
+      ],
+      "score": 0.9605538249015808
+    },
+    {
+      "text": "ranza, esperanza que no burla, etc.",
+      "box": [
+        77,
+        955,
+        364,
+        981
+      ],
+      "score": 0.9989001750946045
+    },
+    {
+      "text": "Tuvo además el Señor otra mira en permitir que Job fuese tan gravemente afligido, que fué el presentar á los hombres un ejemplar de paciencia y de consuelo en",
+      "box": [
+        113,
+        944,
+        1343,
+        1007
+      ],
+      "score": 0.9935327768325806
+    },
+    {
+      "text": "las aflicciones. Pues hablándose de las tribulaciones que padeció Tobías, dice la Escritura, que permitió el Señor que le sobreviniesen tales oflicciones, con el n de dar",
+      "box": [
+        75,
+        969,
+        1344,
+        1032
+      ],
+      "score": 0.9641515612602234
+    },
+    {
+      "text": "á los venideros un ejemplo de paciencia, semejante al del Santo Job (Tob. II, v. 12). Y sobre todo del Justo por excelencia nos dice San Pedro, que padeció por nosotros,",
+      "box": [
+        74,
+        991,
+        1345,
+        1057
+      ],
+      "score": 0.9914084672927856
+    },
+    {
+      "text": "dejándonos este ejemplo para que sigamos sus pisadas; el cual no cometió pecado, etc., etc. (I. Pet. 1I, v. 2). Mas quien considere atentamente el retrato de Job, hallará",
+      "box": [
+        74,
+        1016,
+        1344,
+        1080
+      ],
+      "score": 0.9894112348556519
+    },
+    {
+      "text": "una conformidad grande con la imágen de Jesu-Christo; pudiendo dudar muchas veces si es la pintura de Job, ómas bien la de Jesús la que se hace en este libro. Y si",
+      "box": [
+        73,
+        1040,
+        1344,
+        1102
+      ],
+      "score": 0.9930011630058289
+    },
+    {
+      "text": "el conocer á Jesu-Christo, y la eficacia de su resurreccion, y el particular de sus penas, como dice el Apóstol(Philip. III, v.10), es el gran fruto de la justicia ó virtudes",
+      "box": [
+        73,
+        1064,
+        1344,
+        1125
+      ],
+      "score": 0.9789630174636841
+    },
+    {
+      "text": "cristianas, ningun libro puede servirnos mas para eso que el presente: libro lleno de la mas sublime teología, en el cual con altísimas ideas se expresa la grandeza,",
+      "box": [
+        73,
+        1090,
+        1343,
+        1148
+      ],
+      "score": 0.9989227056503296
+    },
+    {
+      "text": "majestad, y poder de Dios, su sabiduría, justicia y providencia, los premios y castigos de la otra vida, y la resurreccion universal de los hombres: libro en que abun-",
+      "box": [
+        72,
+        1113,
+        1342,
+        1172
+      ],
+      "score": 0.994718611240387
+    },
+    {
+      "text": "dan los mas útiles y saludables documentos morales, para arreglar cada uno santamente su vida, y hacer buen uso de los bienes del mundo; y en que se enseña el",
+      "box": [
+        72,
+        1138,
+        1344,
+        1194
+      ],
+      "score": 0.9989580512046814
+    },
+    {
+      "text": "amor de los enemigos, la castidad, la pureza del corazon y de los pensamientos, y toda la perfeccion evangélica. De esta gran muchedumbre de gravísimas materias",
+      "box": [
+        71,
+        1161,
+        1343,
+        1216
+      ],
+      "score": 0.9965845942497253
+    },
+    {
+      "text": "que se tratan en el libro de Job nacen las dificultades de entender algunos pasajes. Pero así como la clara y fácil inteligencia de los demás satisface la hambre del que",
+      "box": [
+        71,
+        1185,
+        1343,
+        1239
+      ],
+      "score": 0.9902743101119995
+    },
+    {
+      "text": "lee este libro, la oscuridad de aquellos otros sirve para alejar del lector el fastidio, como dice San Agustin (De Doct. Christ., II, cap. 6). Ya notó San Gerónimo que",
+      "box": [
+        72,
+        1213,
+        1342,
+        1260
+      ],
+      "score": 0.995604932308197
+    },
+    {
+      "text": "algunas expresiones de Job tienen un sonido áspero para algunos lectores poco instruidos; porque no saben tomar en el verdadero sentido las palabras de los Santos",
+      "box": [
+        72,
+        1235,
+        1342,
+        1285
+      ],
+      "score": 0.995038628578186
+    },
+    {
+      "text": "atribulados, por no revestirse de la disposicion de ánimo en que aquellos se hallaban. Y debe asimismo tenerse presente que sobre las dificultades casi insuperables que",
+      "box": [
+        72,
+        1261,
+        1342,
+        1306
+      ],
+      "score": 0.9968539476394653
+    },
+    {
+      "text": "ofrece la traduccion de ciertas frases, ó modismos peculiares de las lenguas orientales, y aun de ciertos países y tiempos, se hallan en este libro muchas expresiones",
+      "box": [
+        71,
+        1285,
+        1343,
+        1331
+      ],
+      "score": 0.9972410798072815
+    },
+    {
+      "text": "hiperbólicas, y sentencias como cortadas, que suelen ser comunes en las personas que hablan, si están dominadas de alguna vehemente pasion.—Véase Hebraismos.",
+      "box": [
+        72,
+        1309,
+        1343,
+        1353
+      ],
+      "score": 0.9950596690177917
+    },
+    {
+      "text": "CAPITULO PRIMERO",
+      "box": [
+        250,
+        1446,
+        454,
+        1471
+      ],
+      "score": 0.999416708946228
+    },
+    {
+      "text": "sas, cada cual en su dia; y enviaban á llamar á sus tres her-",
+      "box": [
+        778,
+        1434,
+        1347,
+        1467
+      ],
+      "score": 0.9997066855430603
+    },
+    {
+      "text": "欧A",
+      "box": [
+        673,
+        1454,
+        726,
+        1483
+      ],
+      "score": 0.5363099575042725
+    },
+    {
+      "text": "manas, para que comiesen y bebiesen con ellos.",
+      "box": [
+        777,
+        1461,
+        1214,
+        1492
+      ],
+      "score": 0.9939078688621521
+    },
+    {
+      "text": "5. Concluido el turno de los dias del convite, enviaba",
+      "box": [
+        797,
+        1485,
+        1346,
+        1516
+      ],
+      "score": 0.9908227324485779
+    },
+    {
+      "text": "Job, varon santo y rico, ofrece sacrificios á Dios por sus hijos: el Señor",
+      "box": [
+        65,
+        1511,
+        624,
+        1538
+      ],
+      "score": 0.9802603721618652
+    },
+    {
+      "text": "Job á llamarlos, y los santificaba , y levantándose de ma-",
+      "box": [
+        777,
+        1510,
+        1347,
+        1541
+      ],
+      "score": 0.993725061416626
+    },
+    {
+      "text": "permite á Satanás que haga prueba de su virtud, quitándole de golpe",
+      "box": [
+        83,
+        1533,
+        624,
+        1561
+      ],
+      "score": 0.9969072341918945
+    },
+    {
+      "text": "drugada ofrecia holocaustos á Dios por cada uno de ellos.",
+      "box": [
+        777,
+        1533,
+        1346,
+        1566
+      ],
+      "score": 0.999841570854187
+    },
+    {
+      "text": "todos sus bienes é hijos.",
+      "box": [
+        84,
+        1557,
+        279,
+        1580
+      ],
+      "score": 0.9998496174812317
+    },
+    {
+      "text": "Porque decia:No sea que mis hijos hayan pecado y desechado",
+      "box": [
+        775,
+        1557,
+        1346,
+        1591
+      ],
+      "score": 0.9999273419380188
+    },
+    {
+      "text": "á Dios en sus corazones. Esto hacia Job en todos aquellos",
+      "box": [
+        773,
+        1582,
+        1345,
+        1615
+      ],
+      "score": 0.9959046244621277
+    },
+    {
+      "text": "1. Habia en el país de Hus ¹ un varon célebre llamado Job,",
+      "box": [
+        83,
+        1620,
+        621,
+        1652
+      ],
+      "score": 0.983519434928894
+    },
+    {
+      "text": "dias.",
+      "box": [
+        773,
+        1616,
+        822,
+        1642
+      ],
+      "score": 0.9848889112472534
+    },
+    {
+      "text": "6. Pero cierto dia concurriendo los hijos de Dios, esto es",
+      "box": [
+        793,
+        1632,
+        1344,
+        1663
+      ],
+      "score": 0.9994237422943115
+    },
+    {
+      "text": "hombre sencillo y recto y temeroso de Dios, y que se apartaba",
+      "box": [
+        63,
+        1646,
+        622,
+        1677
+      ],
+      "score": 0.9924249053001404
+    },
+    {
+      "text": "los ángeles, á presentarse delante del Señor, compareció tam-",
+      "box": [
+        773,
+        1656,
+        1344,
+        1689
+      ],
+      "score": 0.9956181645393372
+    },
+    {
+      "text": "del mal.",
+      "box": [
+        61,
+        1675,
+        146,
+        1702
+      ],
+      "score": 0.9999552965164185
+    },
+    {
+      "text": "bien entre ellos Satanás 4.",
+      "box": [
+        773,
+        1685,
+        1012,
+        1713
+      ],
+      "score": 0.9789141416549683
+    },
+    {
+      "text": "2. Tenia siete hijos y tres hijas;",
+      "box": [
+        81,
+        1695,
+        392,
+        1729
+      ],
+      "score": 0.9857738614082336
+    },
+    {
+      "text": "7. Al cual dijo el Señor: ¿De dónde vendrás tú? Él respon-",
+      "box": [
+        791,
+        1703,
+        1344,
+        1739
+      ],
+      "score": 0.9991514682769775
+    },
+    {
+      "text": "3. Y poseia siete mil ovejas, y tres mil camellos, quinien-",
+      "box": [
+        81,
+        1717,
+        623,
+        1753
+      ],
+      "score": 0.9891778230667114
+    },
+    {
+      "text": "dió: Vengo de dar la vuelta por tierra, y de recorrerla toda.",
+      "box": [
+        774,
+        1729,
+        1324,
+        1764
+      ],
+      "score": 0.9997657537460327
+    },
+    {
+      "text": "tas yuntas de bueyes, y quinientas asnas, y muchísimos",
+      "box": [
+        62,
+        1742,
+        623,
+        1778
+      ],
+      "score": 0.999406099319458
+    },
+    {
+      "text": "8. Replicóle el Señor: ¿Has parado tu atencion en mi sier-",
+      "box": [
+        792,
+        1754,
+        1344,
+        1788
+      ],
+      "score": 0.9996871948242188
+    },
+    {
+      "text": "criados; por lo cual era este varon grande entre todos los",
+      "box": [
+        61,
+        1767,
+        629,
+        1802
+      ],
+      "score": 0.9920754432678223
+    },
+    {
+      "text": "vo Job, que no hay otro como él en la tierra, varon sencillo, y",
+      "box": [
+        772,
+        1779,
+        1342,
+        1813
+      ],
+      "score": 0.9886881113052368
+    },
+    {
+      "text": "orientales ².",
+      "box": [
+        61,
+        1797,
+        179,
+        1824
+      ],
+      "score": 0.9858059287071228
+    },
+    {
+      "text": "4. Sus hijos solian reunirse y celebrar convites en sus ca-",
+      "box": [
+        81,
+        1814,
+        624,
+        1849
+      ],
+      "score": 0.9945539236068726
+    },
+    {
+      "text": "recto, y temeroso de Dios, y ajeno de todo mal obrar?",
+      "box": [
+        771,
+        1805,
+        1268,
+        1839
+      ],
+      "score": 0.9904917478561401
+    },
+    {
+      "text": "1 Territorio de Iduméa.",
+      "box": [
+        80,
+        1872,
+        282,
+        1902
+      ],
+      "score": 0.9980291128158569
+    },
+    {
+      "text": "3 Esto es, hacia que se purificasen.",
+      "box": [
+        788,
+        1868,
+        1065,
+        1895
+      ],
+      "score": 0.9806187748908997
+    },
+    {
+      "text": "2 Casi todos los Padres griegos y los mas de la Iglesia latina son de pa-",
+      "box": [
+        77,
+        1894,
+        621,
+        1923
+      ],
+      "score": 0.9747763872146606
+    },
+    {
+      "text": "4 Parábola es esta con que se nos explica la paternal providencia de",
+      "box": [
+        787,
+        1881,
+        1344,
+        1921
+      ],
+      "score": 0.9915459752082825
+    },
+    {
+      "text": "recer que Job era rey ó príncipe de un pequeño territorio; y así lo indica",
+      "box": [
+        61,
+        1914,
+        622,
+        1946
+      ],
+      "score": 0.9864034056663513
+    },
+    {
+      "text": "Dios, el oficio de los ángeles buenos, la malicia de Satanás, etc.—Véase",
+      "box": [
+        771,
+        1904,
+        1345,
+        1941
+      ],
+      "score": 0.9897481203079224
+    },
+    {
+      "text": "lo que leemos en el cap. XXIX, v. 7 al 25, y antes en el cap. XIX, v. 9, etc.",
+      "box": [
+        62,
+        1936,
+        623,
+        1967
+      ],
+      "score": 0.9839668869972229
+    },
+    {
+      "text": "Hebraismos, y III. Reg: XXII, v. 21.: Nota.",
+      "box": [
+        772,
+        1936,
+        1116,
+        1959
+      ],
+      "score": 0.9506487250328064
+    },
+    {
+      "text": "II.—45",
+      "box": [
+        1242,
+        1953,
+        1310,
+        1978
+      ],
+      "score": 0.9267937541007996
+    }
+  ]
+}

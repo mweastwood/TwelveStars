@@ -1,0 +1,27 @@
+{
+  "volume": 4,
+  "page_index": 370,
+  "pdf_page": 371,
+  "lines": [
+    {
+      "text": "HPISAN",
+      "box": [
+        827,
+        1167,
+        907,
+        1185
+      ],
+      "score": 0.9204175472259521
+    },
+    {
+      "text": "EL ANGEL MUESTRA LA CIUDAD DE JERUSALEM A SAN JUAN",
+      "box": [
+        238,
+        1207,
+        750,
+        1244
+      ],
+      "score": 0.9949632883071899
+    }
+  ]
+}

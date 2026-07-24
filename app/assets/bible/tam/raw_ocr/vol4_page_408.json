@@ -1,0 +1,3617 @@
+{
+  "volume": 4,
+  "page_index": 408,
+  "pdf_page": 409,
+  "lines": [
+    {
+      "text": "Mundo.",
+      "box": [
+        34,
+        0,
+        48,
+        48
+      ],
+      "score": 0.9956918358802795
+    },
+    {
+      "text": "Año del",
+      "box": [
+        45,
+        2,
+        59,
+        48
+      ],
+      "score": 0.9979172945022583
+    },
+    {
+      "text": "J. C.",
+      "box": [
+        62,
+        6,
+        75,
+        39
+      ],
+      "score": 0.9584439992904663
+    },
+    {
+      "text": "Antes de",
+      "box": [
+        70,
+        0,
+        87,
+        49
+      ],
+      "score": 0.9945582151412964
+    },
+    {
+      "text": "Mundo.",
+      "box": [
+        465,
+        14,
+        478,
+        57
+      ],
+      "score": 0.9998672604560852
+    },
+    {
+      "text": "Año",
+      "box": [
+        477,
+        13,
+        488,
+        39
+      ],
+      "score": 0.9991165995597839
+    },
+    {
+      "text": "Antes",
+      "box": [
+        503,
+        13,
+        518,
+        46
+      ],
+      "score": 0.9642320871353149
+    },
+    {
+      "text": "451",
+      "box": [
+        837,
+        6,
+        856,
+        19
+      ],
+      "score": 0.9295749664306641
+    },
+    {
+      "text": "REYES DE JUDÁ",
+      "box": [
+        126,
+        16,
+        200,
+        34
+      ],
+      "score": 0.987613320350647
+    },
+    {
+      "text": "MEDOS. BABILONIOS",
+      "box": [
+        309,
+        26,
+        398,
+        38
+      ],
+      "score": 0.9587056636810303
+    },
+    {
+      "text": "J.",
+      "box": [
+        496,
+        21,
+        504,
+        36
+      ],
+      "score": 0.9982907772064209
+    },
+    {
+      "text": "G",
+      "box": [
+        495,
+        33,
+        508,
+        49
+      ],
+      "score": 0.46080172061920166
+    },
+    {
+      "text": "SUCESO DE LOS JUDÍOS",
+      "box": [
+        543,
+        26,
+        644,
+        45
+      ],
+      "score": 0.9847327470779419
+    },
+    {
+      "text": "del",
+      "box": [
+        474,
+        36,
+        489,
+        59
+      ],
+      "score": 0.9996483325958252
+    },
+    {
+      "text": "ap",
+      "box": [
+        504,
+        43,
+        517,
+        60
+      ],
+      "score": 0.552457332611084
+    },
+    {
+      "text": "IMPERIO DE LOS FERSAS",
+      "box": [
+        715,
+        40,
+        818,
+        58
+      ],
+      "score": 0.9362345337867737
+    },
+    {
+      "text": "8898",
+      "box": [
+        38,
+        53,
+        59,
+        66
+      ],
+      "score": 0.790733277797699
+    },
+    {
+      "text": "606 Nabuchodonosor invade la Judea,",
+      "box": [
+        67,
+        50,
+        243,
+        71
+      ],
+      "score": 0.9835423231124878
+    },
+    {
+      "text": "IV. Reg. xxiv. 1; y aprisiona",
+      "box": [
+        96,
+        60,
+        244,
+        82
+      ],
+      "score": 0.9072748422622681
+    },
+    {
+      "text": "con cadenas á su Rey Joakim,",
+      "box": [
+        97,
+        70,
+        244,
+        92
+      ],
+      "score": 0.947343647480011
+    },
+    {
+      "text": "3579",
+      "box": [
+        464,
+        62,
+        489,
+        77
+      ],
+      "score": 0.9758797883987427
+    },
+    {
+      "text": "425",
+      "box": [
+        498,
+        65,
+        517,
+        76
+      ],
+      "score": 0.9999256134033203
+    },
+    {
+      "text": "II. Paralip, XxxvI. 6.",
+      "box": [
+        98,
+        81,
+        202,
+        100
+      ],
+      "score": 0.8294392228126526
+    },
+    {
+      "text": "Artaxerxes muere el año 7 de esta guerra. Thu-",
+      "box": [
+        667,
+        72,
+        863,
+        93
+      ],
+      "score": 0.9801830649375916
+    },
+    {
+      "text": "3580",
+      "box": [
+        465,
+        84,
+        487,
+        96
+      ],
+      "score": 0.9967796206474304
+    },
+    {
+      "text": "424",
+      "box": [
+        498,
+        85,
+        517,
+        97
+      ],
+      "score": 0.9999930262565613
+    },
+    {
+      "text": "Le sucede Xerzes II, su hijo, que reina un año.",
+      "box": [
+        666,
+        92,
+        862,
+        113
+      ],
+      "score": 0.9408614635467529
+    },
+    {
+      "text": "cidides.",
+      "box": [
+        676,
+        85,
+        710,
+        96
+      ],
+      "score": 0.8656565546989441
+    },
+    {
+      "text": "Nota. Agul comienra la cautividad de los Ju.",
+      "box": [
+        38,
+        100,
+        246,
+        123
+      ],
+      "score": 0.753751814365387
+    },
+    {
+      "text": "dios en Babilonia, que duró 77 años.",
+      "box": [
+        61,
+        111,
+        222,
+        132
+      ],
+      "score": 0.9188520908355713
+    },
+    {
+      "text": "A éste sucede Secundiano, que habiendo muer-",
+      "box": [
+        665,
+        113,
+        862,
+        132
+      ],
+      "score": 0.9713925719261169
+    },
+    {
+      "text": "Diodoro,",
+      "box": [
+        676,
+        105,
+        714,
+        116
+      ],
+      "score": 0.9453034400939941
+    },
+    {
+      "text": "Daniel, de unos 8 años de edad,",
+      "box": [
+        91,
+        132,
+        245,
+        155
+      ],
+      "score": 0.9435315728187561
+    },
+    {
+      "text": "to á su hermano Xerxes, reina 7 meses. Dio-",
+      "box": [
+        673,
+        123,
+        862,
+        142
+      ],
+      "score": 0.9188156723976135
+    },
+    {
+      "text": "es llevado à Babilonia con los",
+      "box": [
+        100,
+        143,
+        247,
+        166
+      ],
+      "score": 0.9760444164276123
+    },
+    {
+      "text": "3581",
+      "box": [
+        465,
+        135,
+        487,
+        146
+      ],
+      "score": 0.9956426024436951
+    },
+    {
+      "text": "A Secundiano le sucede Oco, otro de los hijos",
+      "box": [
+        664,
+        141,
+        862,
+        161
+      ],
+      "score": 0.9663254618644714
+    },
+    {
+      "text": "doro.",
+      "box": [
+        674,
+        134,
+        698,
+        145
+      ],
+      "score": 0.9975048303604126
+    },
+    {
+      "text": "demás cautivos. Vivió hasta los",
+      "box": [
+        100,
+        153,
+        248,
+        177
+      ],
+      "score": 0.9688811898231506
+    },
+    {
+      "text": "de Artaxerxes, que habiendo muerto á Se-",
+      "box": [
+        673,
+        151,
+        862,
+        171
+      ],
+      "score": 0.9377077221870422
+    },
+    {
+      "text": "tiempos de Cyro, esto es, cerca",
+      "box": [
+        100,
+        163,
+        248,
+        188
+      ],
+      "score": 0.9590901136398315
+    },
+    {
+      "text": "cundiano, reimó 19, el cual tomó el nombre",
+      "box": [
+        672,
+        161,
+        862,
+        181
+      ],
+      "score": 0.9475898742675781
+    },
+    {
+      "text": "de 80 aos.",
+      "box": [
+        100,
+        174,
+        155,
+        192
+      ],
+      "score": 0.8676421046257019
+    },
+    {
+      "text": "8599",
+      "box": [
+        465,
+        175,
+        488,
+        187
+      ],
+      "score": 0.985842227935791
+    },
+    {
+      "text": "405",
+      "box": [
+        497,
+        176,
+        517,
+        187
+      ],
+      "score": 0.9999759793281555
+    },
+    {
+      "text": "Despues reinó 43 años Artaxerzes Mnemon, su",
+      "box": [
+        664,
+        180,
+        861,
+        200
+      ],
+      "score": 0.9119614958763123
+    },
+    {
+      "text": "de Darico ó Dario Notho.",
+      "box": [
+        673,
+        171,
+        784,
+        188
+      ],
+      "score": 0.8951668739318848
+    },
+    {
+      "text": "3399",
+      "box": [
+        44,
+        187,
+        66,
+        199
+      ],
+      "score": 0.999226987361908
+    },
+    {
+      "text": "605",
+      "box": [
+        74,
+        187,
+        95,
+        198
+      ],
+      "score": 0.9997479915618896
+    },
+    {
+      "text": "Nabuchodonosor, despues de la muerte de su",
+      "box": [
+        252,
+        193,
+        457,
+        209
+      ],
+      "score": 0.9657795429229736
+    },
+    {
+      "text": "3638",
+      "box": [
+        464,
+        195,
+        488,
+        207
+      ],
+      "score": 0.9945974349975586
+    },
+    {
+      "text": "366",
+      "box": [
+        497,
+        196,
+        517,
+        207
+      ],
+      "score": 0.9929036498069763
+    },
+    {
+      "text": "Ocupa despues el trono 23 añños Oco, por sobre-",
+      "box": [
+        663,
+        201,
+        861,
+        219
+      ],
+      "score": 0.9673886299133301
+    },
+    {
+      "text": "hijo mayor. Diodoro.",
+      "box": [
+        671,
+        192,
+        763,
+        207
+      ],
+      "score": 0.9615892171859741
+    },
+    {
+      "text": "padre, queda dueño de todo el imperio; y de",
+      "box": [
+        262,
+        205,
+        457,
+        219
+      ],
+      "score": 0.9700353741645813
+    },
+    {
+      "text": "aquí suele á veces contarse el principio de su",
+      "box": [
+        263,
+        216,
+        456,
+        229
+      ],
+      "score": 0.9460965991020203
+    },
+    {
+      "text": "Bagoa, egipcio, mata á Oco, y le sucede su hijo",
+      "box": [
+        663,
+        221,
+        861,
+        239
+      ],
+      "score": 0.9613590836524963
+    },
+    {
+      "text": "nombre Artazerzes.",
+      "box": [
+        671,
+        212,
+        757,
+        226
+      ],
+      "score": 0.785102128982544
+    },
+    {
+      "text": "3401",
+      "box": [
+        44,
+        227,
+        66,
+        239
+      ],
+      "score": 0.9999114274978638
+    },
+    {
+      "text": "603 Joakim, despues de tres años de",
+      "box": [
+        74,
+        224,
+        249,
+        249
+      ],
+      "score": 0.923642098903656
+    },
+    {
+      "text": "estar sujeto á Nabuchodonosor,",
+      "box": [
+        101,
+        236,
+        249,
+        261
+      ],
+      "score": 0.9670187830924988
+    },
+    {
+      "text": "reinado.",
+      "box": [
+        263,
+        227,
+        301,
+        238
+      ],
+      "score": 0.9784992933273315
+    },
+    {
+      "text": "3666",
+      "box": [
+        464,
+        235,
+        488,
+        247
+      ],
+      "score": 0.9951633214950562
+    },
+    {
+      "text": "338",
+      "box": [
+        496,
+        237,
+        515,
+        245
+      ],
+      "score": 0.9874202609062195
+    },
+    {
+      "text": "Arsen, y quitado este tambien por Bagoa, al",
+      "box": [
+        662,
+        241,
+        861,
+        257
+      ],
+      "score": 0.9679567217826843
+    },
+    {
+      "text": "menor,",
+      "box": [
+        672,
+        234,
+        705,
+        244
+      ],
+      "score": 0.9973391890525818
+    },
+    {
+      "text": "599 Los Chaldeos le hacen prisionero,",
+      "box": [
+        73,
+        255,
+        249,
+        281
+      ],
+      "score": 0.9712619185447693
+    },
+    {
+      "text": "se rebela, IV. Reg, Xxiv. 1. 8.",
+      "box": [
+        100,
+        246,
+        240,
+        270
+      ],
+      "score": 0.9327182173728943
+    },
+    {
+      "text": "3405",
+      "box": [
+        44,
+        257,
+        66,
+        269
+      ],
+      "score": 0.8944985866546631
+    },
+    {
+      "text": "tercer año ocupa el trono Condomano, que",
+      "box": [
+        670,
+        250,
+        861,
+        267
+      ],
+      "score": 0.8924728631973267
+    },
+    {
+      "text": "y le arrojan muerto, sin darle se-",
+      "box": [
+        100,
+        267,
+        249,
+        290
+      ],
+      "score": 0.9659123420715332
+    },
+    {
+      "text": "toma el nombre de Dario, y reina 6 años.",
+      "box": [
+        670,
+        260,
+        860,
+        278
+      ],
+      "score": 0.9460097551345825
+    },
+    {
+      "text": "pultara, Jer. XXII. 18. XXxvI. 30.",
+      "box": [
+        100,
+        277,
+        249,
+        300
+      ],
+      "score": 0.856802225112915
+    },
+    {
+      "text": "IMPERIO DE LOS GRIEGOS",
+      "box": [
+        533,
+        275,
+        640,
+        289
+      ],
+      "score": 0.9799824357032776
+    },
+    {
+      "text": "Diodoro.",
+      "box": [
+        671,
+        269,
+        711,
+        285
+      ],
+      "score": 0.9728285074234009
+    },
+    {
+      "text": "Sucedióle su hijo Joackin, lamado",
+      "box": [
+        92,
+        285,
+        249,
+        311
+      ],
+      "score": 0.8689588904380798
+    },
+    {
+      "text": "tambien Jechonias, que despues",
+      "box": [
+        101,
+        296,
+        249,
+        320
+      ],
+      "score": 0.9383835196495056
+    },
+    {
+      "text": "8668",
+      "box": [
+        464,
+        294,
+        486,
+        306
+      ],
+      "score": 0.9986107349395752
+    },
+    {
+      "text": "336 En este aão murió el rey Philippo",
+      "box": [
+        492,
+        292,
+        658,
+        311
+      ],
+      "score": 0.9564012885093689
+    },
+    {
+      "text": "de reinar tres meses y diez dias,",
+      "box": [
+        101,
+        306,
+        249,
+        329
+      ],
+      "score": 0.8780662417411804
+    },
+    {
+      "text": "de Macedonía, y comienza cl im-",
+      "box": [
+        520,
+        304,
+        658,
+        320
+      ],
+      "score": 0.8909893035888672
+    },
+    {
+      "text": "fué llevado cautivo à Babilonia",
+      "box": [
+        101,
+        315,
+        249,
+        338
+      ],
+      "score": 0.9451645612716675
+    },
+    {
+      "text": "perio de su hájo Alesandro Mag-",
+      "box": [
+        520,
+        313,
+        658,
+        330
+      ],
+      "score": 0.8944264054298401
+    },
+    {
+      "text": "con su madre y los magnates de",
+      "box": [
+        100,
+        326,
+        249,
+        348
+      ],
+      "score": 0.9779273867607117
+    },
+    {
+      "text": "3674",
+      "box": [
+        463,
+        333,
+        486,
+        344
+      ],
+      "score": 0.9865924119949341
+    },
+    {
+      "text": "330 Reinó Alejandro 12 años y 8 meses.",
+      "box": [
+        491,
+        332,
+        657,
+        350
+      ],
+      "score": 0.910881519317627
+    },
+    {
+      "text": "no, de edad de 20 ahos. Plutare.",
+      "box": [
+        521,
+        324,
+        657,
+        339
+      ],
+      "score": 0.9281262755393982
+    },
+    {
+      "text": "595 Es puesto en su lugar Mathanias,",
+      "box": [
+        72,
+        344,
+        248,
+        367
+      ],
+      "score": 0.9337171912193298
+    },
+    {
+      "text": "su corte IV. Reg. Xxiv. 8, ete.",
+      "box": [
+        100,
+        336,
+        243,
+        357
+      ],
+      "score": 0.895962655544281
+    },
+    {
+      "text": "3409",
+      "box": [
+        43,
+        347,
+        65,
+        359
+      ],
+      "score": 0.9884660243988037
+    },
+    {
+      "text": "Arriano. A los 6 años de su rei-",
+      "box": [
+        521,
+        343,
+        656,
+        359
+      ],
+      "score": 0.9114164113998413
+    },
+    {
+      "text": "Alejandro Magno, el año 6 de su reinado, des-",
+      "box": [
+        661,
+        338,
+        860,
+        353
+      ],
+      "score": 0.9553686380386353
+    },
+    {
+      "text": "tio del mismo, é hijo del rey Jo-",
+      "box": [
+        100,
+        356,
+        249,
+        378
+      ],
+      "score": 0.941003143787384
+    },
+    {
+      "text": "En el año quinto, despues de la cautividad de",
+      "box": [
+        252,
+        352,
+        455,
+        366
+      ],
+      "score": 0.9887461066246033
+    },
+    {
+      "text": "nado comeuzó el Imperio lama-",
+      "box": [
+        520,
+        353,
+        656,
+        369
+      ],
+      "score": 0.9185572862625122
+    },
+    {
+      "text": "Arbela. Parte luego á Babilonin, y se hace",
+      "box": [
+        670,
+        359,
+        860,
+        372
+      ],
+      "score": 0.9237391352653503
+    },
+    {
+      "text": "truye enteramente & Darío en la batalls de",
+      "box": [
+        671,
+        351,
+        859,
+        361
+      ],
+      "score": 0.9775609374046326
+    },
+    {
+      "text": "sías, mudándole el nombre en el",
+      "box": [
+        101,
+        365,
+        249,
+        387
+      ],
+      "score": 0.9438340067863464
+    },
+    {
+      "text": "los Judios en Babilonia, comenzó á profeti-",
+      "box": [
+        263,
+        362,
+        454,
+        376
+      ],
+      "score": 0.933886706829071
+    },
+    {
+      "text": "do de los Griegos, que formó en",
+      "box": [
+        520,
+        362,
+        658,
+        380
+      ],
+      "score": 0.9693395495414734
+    },
+    {
+      "text": "de Sedeclas. Reinó once años, IV.",
+      "box": [
+        100,
+        375,
+        249,
+        398
+      ],
+      "score": 0.9550637602806091
+    },
+    {
+      "text": "zar Ezechiel, y siguió hasta el año 27, Ezech.",
+      "box": [
+        261,
+        372,
+        454,
+        386
+      ],
+      "score": 0.8991724252700806
+    },
+    {
+      "text": "6 años y 10 mescs, apoderándose",
+      "box": [
+        519,
+        373,
+        658,
+        390
+      ],
+      "score": 0.950462281703949
+    },
+    {
+      "text": "dueño de todo el Oriente. Plutarco. Ourtio.",
+      "box": [
+        669,
+        368,
+        859,
+        382
+      ],
+      "score": 0.9271351099014282
+    },
+    {
+      "text": "Reg. Xxiv. 17, etc.",
+      "box": [
+        99,
+        386,
+        188,
+        404
+      ],
+      "score": 0.9280037879943848
+    },
+    {
+      "text": "1, 2. xxix. 17; y tambien profetizaron por",
+      "box": [
+        261,
+        381,
+        455,
+        398
+      ],
+      "score": 0.9553826451301575
+    },
+    {
+      "text": "de todo el Orieute con una rapi-",
+      "box": [
+        521,
+        384,
+        656,
+        399
+      ],
+      "score": 0.9769884347915649
+    },
+    {
+      "text": "3435 569",
+      "box": [
+        42,
+        397,
+        93,
+        411
+      ],
+      "score": 0.9755533337593079
+    },
+    {
+      "text": "Nabuchodonosor, perlido el juicio, vive 7 años",
+      "box": [
+        252,
+        402,
+        455,
+        417
+      ],
+      "score": 0.8890910148620605
+    },
+    {
+      "text": "estos años Abdias y Baruch.",
+      "box": [
+        262,
+        394,
+        389,
+        405
+      ],
+      "score": 0.9928999543190002
+    },
+    {
+      "text": "dez asombrosa. Por eso Daniel le",
+      "box": [
+        521,
+        393,
+        656,
+        409
+      ],
+      "score": 0.8678988814353943
+    },
+    {
+      "text": "como una bestia, Dan. Iv. 30.",
+      "box": [
+        261,
+        413,
+        392,
+        425
+      ],
+      "score": 0.9706063866615295
+    },
+    {
+      "text": "comparó en su profecia á un leo-",
+      "box": [
+        521,
+        404,
+        656,
+        419
+      ],
+      "score": 0.9637190103530884
+    },
+    {
+      "text": "3442",
+      "box": [
+        43,
+        418,
+        65,
+        430
+      ],
+      "score": 0.9993860721588135
+    },
+    {
+      "text": "562",
+      "box": [
+        70,
+        419,
+        91,
+        430
+      ],
+      "score": 0.9996099472045898
+    },
+    {
+      "text": "Recobrada la salud vuelve á ocupar el trono, y",
+      "box": [
+        252,
+        422,
+        453,
+        437
+      ],
+      "score": 0.9867852330207825
+    },
+    {
+      "text": "3681",
+      "box": [
+        462,
+        423,
+        484,
+        435
+      ],
+      "score": 0.9951014518737793
+    },
+    {
+      "text": "323 Despues dela muerte de Alejandro,",
+      "box": [
+        491,
+        422,
+        656,
+        439
+      ],
+      "score": 0.9487717151641846
+    },
+    {
+      "text": "pardo que volaba, Dan. vií. 6.",
+      "box": [
+        520,
+        415,
+        649,
+        427
+      ],
+      "score": 0.8711351156234741
+    },
+    {
+      "text": "solo por espacio de 43 añios, Dan, 1v, 31.",
+      "box": [
+        259,
+        442,
+        437,
+        457
+      ],
+      "score": 0.9331803321838379
+    },
+    {
+      "text": "muere poco despues, hablendo reinado' él",
+      "box": [
+        261,
+        434,
+        454,
+        447
+      ],
+      "score": 0.9386903643608093
+    },
+    {
+      "text": "habiéndose suscitado discordiaa",
+      "box": [
+        519,
+        434,
+        656,
+        447
+      ],
+      "score": 0.8938547372817993
+    },
+    {
+      "text": "3444",
+      "box": [
+        42,
+        449,
+        63,
+        461
+      ],
+      "score": 0.9960353374481201
+    },
+    {
+      "text": "560",
+      "box": [
+        71,
+        451,
+        89,
+        459
+      ],
+      "score": 0.9551451206207275
+    },
+    {
+      "text": "Le sucodió su hijo Evilmeroddch, á los 37 aos",
+      "box": [
+        251,
+        452,
+        453,
+        467
+      ],
+      "score": 0.892177164554596
+    },
+    {
+      "text": "sobre quién le sucedcria, se dis-",
+      "box": [
+        520,
+        443,
+        656,
+        458
+      ],
+      "score": 0.9652146100997925
+    },
+    {
+      "text": "de haber sido llevado cautivo Jechonías á",
+      "box": [
+        260,
+        462,
+        453,
+        476
+      ],
+      "score": 0.9766104817390442
+    },
+    {
+      "text": "tribuyó el imperio entre sus prin-",
+      "box": [
+        520,
+        453,
+        656,
+        468
+      ],
+      "score": 0.9467005133628845
+    },
+    {
+      "text": "Babilonia, con el eual estuvieron Jechonías",
+      "box": [
+        260,
+        471,
+        453,
+        487
+      ],
+      "score": 0.9511312246322632
+    },
+    {
+      "text": "cipales capitañes. Pero las guer-",
+      "box": [
+        519,
+        463,
+        657,
+        478
+      ],
+      "score": 0.9223687648773193
+    },
+    {
+      "text": "y Daniel, IV, Reg. xxv. 27, etc. Dan. XIv. 1.",
+      "box": [
+        259,
+        481,
+        451,
+        496
+      ],
+      "score": 0.907444417476654
+    },
+    {
+      "text": "ras que se hicieron unos á otros",
+      "box": [
+        519,
+        475,
+        656,
+        487
+      ],
+      "score": 0.9312299489974976
+    },
+    {
+      "text": "A Evilmerodach, despues de renar poco mas",
+      "box": [
+        250,
+        491,
+        452,
+        508
+      ],
+      "score": 0.9384546875953674
+    },
+    {
+      "text": "dieron origen á otros varios rei-",
+      "box": [
+        519,
+        483,
+        656,
+        498
+      ],
+      "score": 0.9291713833808899
+    },
+    {
+      "text": "de dos años, le mató Nerigliasor, el cual",
+      "box": [
+        259,
+        501,
+        452,
+        517
+      ],
+      "score": 0.903569221496582
+    },
+    {
+      "text": "nos ó imperios, de los cuales dió",
+      "box": [
+        519,
+        494,
+        657,
+        507
+      ],
+      "score": 0.9391450881958008
+    },
+    {
+      "text": "reinó 4 años (Beroso en Josepho, lib. L con-",
+      "box": [
+        258,
+        511,
+        452,
+        528
+      ],
+      "score": 0.9033492803573608
+    },
+    {
+      "text": "una idea figurada Daniel en su",
+      "box": [
+        519,
+        504,
+        657,
+        518
+      ],
+      "score": 0.9678976535797119
+    },
+    {
+      "text": "tra Appion.), y movió sus vasallos y otros",
+      "box": [
+        259,
+        523,
+        451,
+        537
+      ],
+      "score": 0.9549638628959656
+    },
+    {
+      "text": "profecia, vII. 6. Estos principales",
+      "box": [
+        518,
+        514,
+        655,
+        528
+      ],
+      "score": 0.947856605052948
+    },
+    {
+      "text": "aliados contra los Persas y Medos, Xenoph.",
+      "box": [
+        259,
+        532,
+        450,
+        547
+      ],
+      "score": 0.9286888837814331
+    },
+    {
+      "text": "reyes fueron Ptolemeo en Egipto,",
+      "box": [
+        518,
+        525,
+        655,
+        537
+      ],
+      "score": 0.9293622970581055
+    },
+    {
+      "text": "Con este motivo, Cyro es nombrado empera-",
+      "box": [
+        258,
+        542,
+        450,
+        557
+      ],
+      "score": 0.9692316055297852
+    },
+    {
+      "text": "Seleuco en Babilonia y Siria, Ca-",
+      "box": [
+        518,
+        534,
+        655,
+        548
+      ],
+      "score": 0.902480959892273
+    },
+    {
+      "text": "dor de todo el ejército por su padre Camby.",
+      "box": [
+        257,
+        552,
+        450,
+        567
+      ],
+      "score": 0.9753218293190002
+    },
+    {
+      "text": "sandro en Macedonia y Grecia, y",
+      "box": [
+        517,
+        544,
+        655,
+        558
+      ],
+      "score": 0.9248080253601074
+    },
+    {
+      "text": "ses y su tio Cyaxar. Y desde aqui se cuentan",
+      "box": [
+        257,
+        563,
+        449,
+        577
+      ],
+      "score": 0.9398311376571655
+    },
+    {
+      "text": "reíno de Egípto y el de la Siría",
+      "box": [
+        517,
+        564,
+        656,
+        577
+      ],
+      "score": 0.9622631072998047
+    },
+    {
+      "text": "Anfigono en Asia. De estos el",
+      "box": [
+        518,
+        555,
+        655,
+        567
+      ],
+      "score": 0.9575563669204712
+    },
+    {
+      "text": "el primerahode la Olympiadaxxxv. Xenoph.",
+      "box": [
+        256,
+        581,
+        449,
+        597
+      ],
+      "score": 0.8294402956962585
+    },
+    {
+      "text": "los 30 años de su mando; cuando se acababa",
+      "box": [
+        257,
+        572,
+        449,
+        587
+      ],
+      "score": 0.9441145062446594
+    },
+    {
+      "text": "con la Hístoria Sagrada.",
+      "box": [
+        516,
+        583,
+        621,
+        598
+      ],
+      "score": 0.9567995071411133
+    },
+    {
+      "text": "son los que tienen mas relación",
+      "box": [
+        517,
+        575,
+        653,
+        585
+      ],
+      "score": 0.9522241353988647
+    },
+    {
+      "text": "3449",
+      "box": [
+        39,
+        601,
+        61,
+        612
+      ],
+      "score": 0.9808923006057739
+    },
+    {
+      "text": "En la guerta que movió Neriglissor, queda",
+      "box": [
+        247,
+        600,
+        450,
+        617
+      ],
+      "score": 0.8892707824707031
+    },
+    {
+      "text": "Instit. lib. III.",
+      "box": [
+        257,
+        592,
+        324,
+        604
+      ],
+      "score": 0.826281726360321
+    },
+    {
+      "text": "555",
+      "box": [
+        71,
+        603,
+        86,
+        611
+      ],
+      "score": 0.9971769452095032
+    },
+    {
+      "text": "mmerto este. Acnopuh. Y le sucede su hijo",
+      "box": [
+        256,
+        610,
+        448,
+        626
+      ],
+      "score": 0.7842297554016113
+    },
+    {
+      "text": "REYES DE EGIPTO",
+      "box": [
+        544,
+        605,
+        620,
+        615
+      ],
+      "score": 0.9962833523750305
+    },
+    {
+      "text": "REYES DE SIRIA",
+      "box": [
+        722,
+        603,
+        792,
+        616
+      ],
+      "score": 0.9813752770423889
+    },
+    {
+      "text": "Laborosaorchado, que reina 9 meses. Beroso.",
+      "box": [
+        256,
+        620,
+        451,
+        636
+      ],
+      "score": 0.9304780960083008
+    },
+    {
+      "text": "3682",
+      "box": [
+        458,
+        622,
+        481,
+        634
+      ],
+      "score": 0.9996734857559204
+    },
+    {
+      "text": "322 Ptolemeo, pues, hijo de Lago, lla-",
+      "box": [
+        488,
+        620,
+        655,
+        636
+      ],
+      "score": 0.973270833492279
+    },
+    {
+      "text": "Muerto este, le sucede Nabonydo, é Labynto,",
+      "box": [
+        257,
+        630,
+        449,
+        646
+      ],
+      "score": 0.9376189708709717
+    },
+    {
+      "text": "Selewco, general que era de caballería, quedó",
+      "box": [
+        658,
+        623,
+        857,
+        636
+      ],
+      "score": 0.9705303907394409
+    },
+    {
+      "text": "llamado por Daniel Baltassar, y reina 17",
+      "box": [
+        255,
+        639,
+        449,
+        656
+      ],
+      "score": 0.8617415428161621
+    },
+    {
+      "text": "reiño de Egipto y ocupado el tro-",
+      "box": [
+        517,
+        641,
+        654,
+        655
+      ],
+      "score": 0.9303095936775208
+    },
+    {
+      "text": "mado Soter, habiendo tomado el",
+      "box": [
+        518,
+        634,
+        654,
+        644
+      ],
+      "score": 0.9377666115760803
+    },
+    {
+      "text": "De este Seleuco tuvo principio la época del rei-",
+      "box": [
+        659,
+        643,
+        857,
+        656
+      ],
+      "score": 0.9845452308654785
+    },
+    {
+      "text": "rey de Babilonia. Diodoro, lib. 18.",
+      "box": [
+        665,
+        633,
+        814,
+        645
+      ],
+      "score": 0.9514995217323303
+    },
+    {
+      "text": "3466",
+      "box": [
+        40,
+        659,
+        63,
+        671
+      ],
+      "score": 0.9949191212654114
+    },
+    {
+      "text": "538",
+      "box": [
+        70,
+        660,
+        89,
+        671
+      ],
+      "score": 0.9811198115348816
+    },
+    {
+      "text": "Ballassar es muerto por las tropas de Cyro,",
+      "box": [
+        246,
+        658,
+        449,
+        675
+      ],
+      "score": 0.9743704795837402
+    },
+    {
+      "text": "años.",
+      "box": [
+        256,
+        651,
+        282,
+        662
+      ],
+      "score": 0.9963607788085938
+    },
+    {
+      "text": "no pocos meses, dejó su nombre",
+      "box": [
+        517,
+        654,
+        654,
+        664
+      ],
+      "score": 0.9914351105690002
+    },
+    {
+      "text": "nado de los Griegus é de los Seleucidas de que",
+      "box": [
+        667,
+        652,
+        857,
+        666
+      ],
+      "score": 0.9363201856613159
+    },
+    {
+      "text": "estando celebrando un gran convite, Dan, v.",
+      "box": [
+        256,
+        669,
+        450,
+        684
+      ],
+      "score": 0.9876380562782288
+    },
+    {
+      "text": "à sus sucesores.",
+      "box": [
+        517,
+        663,
+        584,
+        673
+      ],
+      "score": 0.936025857925415
+    },
+    {
+      "text": "se sirven los libros de los Machabeos, la cual",
+      "box": [
+        667,
+        663,
+        858,
+        676
+      ],
+      "score": 0.9800434708595276
+    },
+    {
+      "text": "30, Xemoph. Y el imperio de Babilouia pa-",
+      "box": [
+        255,
+        677,
+        449,
+        694
+      ],
+      "score": 0.8507162928581238
+    },
+    {
+      "text": "comienza el año del Mundo 3691 y 313 antes",
+      "box": [
+        667,
+        671,
+        858,
+        686
+      ],
+      "score": 0.9461600184440613
+    },
+    {
+      "text": "só al poder de los Medos y Persas, Dan.",
+      "box": [
+        254,
+        687,
+        449,
+        705
+      ],
+      "score": 0.9768812656402588
+    },
+    {
+      "text": "3719",
+      "box": [
+        457,
+        689,
+        479,
+        701
+      ],
+      "score": 0.9999204277992249
+    },
+    {
+      "text": "285 Entregó el reino á su hijo Phila-",
+      "box": [
+        488,
+        690,
+        656,
+        703
+      ],
+      "score": 0.9920083284378052
+    },
+    {
+      "text": "de Cristo.",
+      "box": [
+        669,
+        683,
+        712,
+        694
+      ],
+      "score": 0.9999417066574097
+    },
+    {
+      "text": "Entonces Darío, Medo, recibió del vencedor",
+      "box": [
+        246,
+        706,
+        449,
+        723
+      ],
+      "score": 0.9610230326652527
+    },
+    {
+      "text": "28,81.",
+      "box": [
+        255,
+        697,
+        290,
+        712
+      ],
+      "score": 0.9871461391448975
+    },
+    {
+      "text": "3468",
+      "box": [
+        41,
+        707,
+        63,
+        719
+      ],
+      "score": 0.9887869358062744
+    },
+    {
+      "text": "536",
+      "box": [
+        71,
+        709,
+        88,
+        717
+      ],
+      "score": 0.9956362843513489
+    },
+    {
+      "text": "delpho, un año y 3 meses antes",
+      "box": [
+        515,
+        700,
+        656,
+        713
+      ],
+      "score": 0.8864578604698181
+    },
+    {
+      "text": "Cyro el imperio de los Chaldecs, 31. Xenoph.,",
+      "box": [
+        255,
+        717,
+        448,
+        735
+      ],
+      "score": 0.8839715719223022
+    },
+    {
+      "text": "de morir. Entonoes, bajo la direc-",
+      "box": [
+        516,
+        711,
+        655,
+        721
+      ],
+      "score": 0.9612051844596863
+    },
+    {
+      "text": "y reinó 2 años.",
+      "box": [
+        254,
+        726,
+        323,
+        743
+      ],
+      "score": 0.9699555039405823
+    },
+    {
+      "text": "cion de Demetrio Phalereo, se",
+      "box": [
+        517,
+        721,
+        656,
+        731
+      ],
+      "score": 0.9904196262359619
+    },
+    {
+      "text": "hizo por setenta y tres intérpre-",
+      "box": [
+        517,
+        731,
+        656,
+        742
+      ],
+      "score": 0.9772272706031799
+    },
+    {
+      "text": "tes ó traductores la célebre ver-",
+      "box": [
+        517,
+        741,
+        655,
+        751
+      ],
+      "score": 0.9556440114974976
+    },
+    {
+      "text": "SEXTA ÉPOCA",
+      "box": [
+        188,
+        751,
+        300,
+        770
+      ],
+      "score": 0.9988491535186768
+    },
+    {
+      "text": "sion griega de los Libros sagra-",
+      "box": [
+        517,
+        750,
+        655,
+        760
+      ],
+      "score": 0.9737677574157715
+    },
+    {
+      "text": "dos, Ilamada de los Setenta. Al-",
+      "box": [
+        517,
+        759,
+        656,
+        771
+      ],
+      "score": 0.9150499105453491
+    },
+    {
+      "text": "Ó EDAD DEL MUNDO",
+      "box": [
+        197,
+        776,
+        290,
+        791
+      ],
+      "score": 0.959118127822876
+    },
+    {
+      "text": "gunos Santos Padres suponen que",
+      "box": [
+        516,
+        769,
+        656,
+        781
+      ],
+      "score": 0.9755141139030457
+    },
+    {
+      "text": "Soter, padre de Philadelpho,",
+      "box": [
+        515,
+        787,
+        656,
+        802
+      ],
+      "score": 0.897556722164154
+    },
+    {
+      "text": "se hizo en tiempo de Ptoleneo",
+      "box": [
+        517,
+        780,
+        656,
+        790
+      ],
+      "score": 0.9499309659004211
+    },
+    {
+      "text": "que comprende 531 años y algunos meses que trascurrieron desde la libertad que Oyro concedis à",
+      "box": [
+        36,
+        798,
+        448,
+        816
+      ],
+      "score": 0.9460098743438721
+    },
+    {
+      "text": "los Judios, hasta el Nacimiento de Jusvcnisto, esto es, desde el año 346s del Mundo hasta",
+      "box": [
+        45,
+        808,
+        448,
+        826
+      ],
+      "score": 0.8015053272247314
+    },
+    {
+      "text": "viviendo aquel, y se concluyó",
+      "box": [
+        515,
+        807,
+        657,
+        822
+      ],
+      "score": 0.9071983098983765
+    },
+    {
+      "text": "porque tal vez se comenzó aun",
+      "box": [
+        517,
+        800,
+        656,
+        810
+      ],
+      "score": 0.9625076055526733
+    },
+    {
+      "text": "el 3999.",
+      "box": [
+        46,
+        818,
+        83,
+        832
+      ],
+      "score": 0.9307709336280823
+    },
+    {
+      "text": "Reinó Philadelpho casi 39 años.",
+      "box": [
+        505,
+        826,
+        644,
+        842
+      ],
+      "score": 0.904234766960144
+    },
+    {
+      "text": "reinando este.",
+      "box": [
+        516,
+        819,
+        577,
+        829
+      ],
+      "score": 0.9346247911453247
+    },
+    {
+      "text": "Antiocho Soter sucedió À su padre Seleuco, y",
+      "box": [
+        660,
+        827,
+        861,
+        845
+      ],
+      "score": 0.9503899216651917
+    },
+    {
+      "text": "Mundo.",
+      "box": [
+        36,
+        840,
+        50,
+        880
+      ],
+      "score": 0.9957717061042786
+    },
+    {
+      "text": "Año del",
+      "box": [
+        45,
+        838,
+        61,
+        884
+      ],
+      "score": 0.9985044598579407
+    },
+    {
+      "text": "3743",
+      "box": [
+        456,
+        846,
+        482,
+        858
+      ],
+      "score": 0.9999708533287048
+    },
+    {
+      "text": "reinó 19 añoa. Sev. Sulp.",
+      "box": [
+        667,
+        838,
+        777,
+        854
+      ],
+      "score": 0.9377098679542542
+    },
+    {
+      "text": ".r",
+      "box": [
+        68,
+        851,
+        77,
+        862
+      ],
+      "score": 0.4018067717552185
+    },
+    {
+      "text": "261",
+      "box": [
+        485,
+        848,
+        512,
+        859
+      ],
+      "score": 0.9998133182525635
+    },
+    {
+      "text": "Anticho, llamado Divino ó Dios (Divus ó",
+      "box": [
+        659,
+        848,
+        862,
+        864
+      ],
+      "score": 0.9048539400100708
+    },
+    {
+      "text": "ESTADO DE LOS JUDÍOS",
+      "box": [
+        112,
+        858,
+        217,
+        871
+      ],
+      "score": 0.9871705174446106
+    },
+    {
+      "text": "IMPERIO DE LOS PERSAS",
+      "box": [
+        293,
+        861,
+        399,
+        874
+      ],
+      "score": 0.9897201061248779
+    },
+    {
+      "text": "3758",
+      "box": [
+        455,
+        867,
+        478,
+        878
+      ],
+      "score": 0.9999229907989502
+    },
+    {
+      "text": "246 Ptolemeo Evergetes sucede á su pa-",
+      "box": [
+        486,
+        866,
+        655,
+        881
+      ],
+      "score": 0.9700832366943359
+    },
+    {
+      "text": "Seleuco, llamado Calinicho ó Pogon, sucedió á",
+      "box": [
+        659,
+        868,
+        862,
+        885
+      ],
+      "score": 0.8512344360351562
+    },
+    {
+      "text": "Deus), sucedió á su padze, y reinó 15 aos.",
+      "box": [
+        668,
+        859,
+        854,
+        874
+      ],
+      "score": 0.9102708101272583
+    },
+    {
+      "text": "ee",
+      "box": [
+        75,
+        869,
+        87,
+        885
+      ],
+      "score": 0.6723053455352783
+    },
+    {
+      "text": "dre, y reina 25 años. Ptolomeo,",
+      "box": [
+        515,
+        878,
+        655,
+        891
+      ],
+      "score": 0.9145898222923279
+    },
+    {
+      "text": "Los Judíos, alcanzado de Cyro el",
+      "box": [
+        87,
+        889,
+        243,
+        906
+      ],
+      "score": 0.9623293280601501
+    },
+    {
+      "text": "S. Jerónimo.",
+      "box": [
+        516,
+        889,
+        571,
+        900
+      ],
+      "score": 0.8401737809181213
+    },
+    {
+      "text": "Seleuco Cerauno sucedió & su padre, y reinó 3",
+      "box": [
+        659,
+        888,
+        863,
+        904
+      ],
+      "score": 0.9068301916122437
+    },
+    {
+      "text": "au padre, y reinó 20 años. Eusebio.",
+      "box": [
+        667,
+        880,
+        819,
+        892
+      ],
+      "score": 0.8784530758857727
+    },
+    {
+      "text": "permiso de volver á la Judea,",
+      "box": [
+        95,
+        899,
+        241,
+        916
+      ],
+      "score": 0.9827859997749329
+    },
+    {
+      "text": "Cyro, despues que murieron su padre Camby-",
+      "box": [
+        245,
+        893,
+        447,
+        910
+      ],
+      "score": 0.9957669377326965
+    },
+    {
+      "text": "ses en Persia, y su abuelo Cyaxar (ó Dario)",
+      "box": [
+        253,
+        903,
+        447,
+        920
+      ],
+      "score": 0.9258263111114502
+    },
+    {
+      "text": "años; y liabicndo sido muerto, el ejército",
+      "box": [
+        667,
+        898,
+        863,
+        914
+      ],
+      "score": 0.9137053489685059
+    },
+    {
+      "text": "émprenden el viaje, L Ead. vIí.",
+      "box": [
+        96,
+        910,
+        241,
+        924
+      ],
+      "score": 0.8758532404899597
+    },
+    {
+      "text": "18, 28. VIII. 15, etc. IL. Esd. I,",
+      "box": [
+        96,
+        918,
+        241,
+        936
+      ],
+      "score": 0.8530259728431702
+    },
+    {
+      "text": "en la Medin, quedó con todo el imperio de",
+      "box": [
+        254,
+        912,
+        447,
+        930
+      ],
+      "score": 0.9674031138420105
+    },
+    {
+      "text": "nombró rey à su hermano Antiocho el Gran-",
+      "box": [
+        668,
+        909,
+        861,
+        922
+      ],
+      "score": 0.9400198459625244
+    },
+    {
+      "text": "8, v. 18.",
+      "box": [
+        95,
+        927,
+        138,
+        944
+      ],
+      "score": 0.85544753074646
+    },
+    {
+      "text": "Oriente, y reinó 7 años, Xenoph. Y entonces",
+      "box": [
+        255,
+        923,
+        446,
+        939
+      ],
+      "score": 0.9239053726196289
+    },
+    {
+      "text": "3783",
+      "box": [
+        454,
+        925,
+        477,
+        937
+      ],
+      "score": 0.999189555644989
+    },
+    {
+      "text": "221 Ptolemeo Philopator sucede À su",
+      "box": [
+        486,
+        924,
+        657,
+        940
+      ],
+      "score": 0.9470028281211853
+    },
+    {
+      "text": "Su lijo menor Autiocho fuè euviado á Roma,",
+      "box": [
+        659,
+        926,
+        863,
+        942
+      ],
+      "score": 0.8713659644126892
+    },
+    {
+      "text": "de, que reinó S6 ahos. Porphirio. Eusebio.",
+      "box": [
+        668,
+        918,
+        851,
+        931
+      ],
+      "score": 0.7907889485359192
+    },
+    {
+      "text": "dió libertad á los Judios, II. Paral. Xxxvi.",
+      "box": [
+        254,
+        932,
+        446,
+        950
+      ],
+      "score": 0.8764495253562927
+    },
+    {
+      "text": "3475",
+      "box": [
+        35,
+        942,
+        59,
+        958
+      ],
+      "score": 0.9852651357650757
+    },
+    {
+      "text": "529 Al principio del reinado de Assue-",
+      "box": [
+        67,
+        944,
+        242,
+        967
+      ],
+      "score": 0.9735920429229736
+    },
+    {
+      "text": "23. Murió á los 70 años de edad.",
+      "box": [
+        256,
+        942,
+        394,
+        958
+      ],
+      "score": 0.90614914894104
+    },
+    {
+      "text": "padre, y reina 17 años. Ptolos.",
+      "box": [
+        515,
+        936,
+        656,
+        949
+      ],
+      "score": 0.8558017611503601
+    },
+    {
+      "text": "en rehenes por la paz lecha, y ocupó el tro-",
+      "box": [
+        667,
+        936,
+        863,
+        953
+      ],
+      "score": 0.9387220740318298
+    },
+    {
+      "text": "3800",
+      "box": [
+        454,
+        954,
+        477,
+        967
+      ],
+      "score": 0.9999309778213501
+    },
+    {
+      "text": "204 Ptolemeo Epiphames, sucediendo à",
+      "box": [
+        485,
+        952,
+        656,
+        971
+      ],
+      "score": 0.7915792465209961
+    },
+    {
+      "text": "Euseb.",
+      "box": [
+        515,
+        946,
+        546,
+        957
+      ],
+      "score": 0.9348223805427551
+    },
+    {
+      "text": "ro (ó Cambyses) escriben los Sa-",
+      "box": [
+        96,
+        957,
+        243,
+        976
+      ],
+      "score": 0.8971620798110962
+    },
+    {
+      "text": "no el hijo mayor.",
+      "box": [
+        670,
+        948,
+        745,
+        959
+      ],
+      "score": 0.9923117160797119
+    },
+    {
+      "text": "maritanos al Rey contra los Ju-",
+      "box": [
+        95,
+        967,
+        243,
+        986
+      ],
+      "score": 0.9796217679977417
+    },
+    {
+      "text": "3816",
+      "box": [
+        453,
+        973,
+        478,
+        988
+      ],
+      "score": 0.9895666241645813
+    },
+    {
+      "text": "su padre, reinó 24 alos. Ptolom.",
+      "box": [
+        514,
+        965,
+        653,
+        979
+      ],
+      "score": 0.9022893309593201
+    },
+    {
+      "text": "3476",
+      "box": [
+        35,
+        982,
+        60,
+        997
+      ],
+      "score": 0.9967189431190491
+    },
+    {
+      "text": "dios, I. Esd. Iv. 6.",
+      "box": [
+        95,
+        976,
+        183,
+        993
+      ],
+      "score": 0.8977092504501343
+    },
+    {
+      "text": "188",
+      "box": [
+        485,
+        975,
+        504,
+        987
+      ],
+      "score": 0.9999802708625793
+    },
+    {
+      "text": "Seleuco Philopator (llamado por Joseplio So-",
+      "box": [
+        658,
+        974,
+        864,
+        991
+      ],
+      "score": 0.9430549144744873
+    },
+    {
+      "text": "528",
+      "box": [
+        68,
+        986,
+        88,
+        998
+      ],
+      "score": 0.9962587356567383
+    },
+    {
+      "text": "Cambyses su hijo reinó 7 años y 5 mesos.",
+      "box": [
+        247,
+        992,
+        417,
+        1009
+      ],
+      "score": 0.9751508831977844
+    },
+    {
+      "text": "Los Galos ó Gálatas, son derrotados",
+      "box": [
+        502,
+        984,
+        655,
+        999
+      ],
+      "score": 0.9631736874580383
+    },
+    {
+      "text": "8482",
+      "box": [
+        36,
+        994,
+        58,
+        1006
+      ],
+      "score": 0.997464656829834
+    },
+    {
+      "text": "ter), fué declarado sucesor de su padre, II.",
+      "box": [
+        667,
+        985,
+        862,
+        1000
+      ],
+      "score": 0.9098384380340576
+    },
+    {
+      "text": "522 Y tambien á Mago, llamado Arta-",
+      "box": [
+        67,
+        995,
+        242,
+        1016
+      ],
+      "score": 0.9577297568321228
+    },
+    {
+      "text": "por Manlio en el moute Olimpo,",
+      "box": [
+        515,
+        997,
+        654,
+        1007
+      ],
+      "score": 0.9579464793205261
+    },
+    {
+      "text": "Mach. IX. 23, y reinó 12 años. Appiano. Eu-",
+      "box": [
+        668,
+        995,
+        863,
+        1010
+      ],
+      "score": 0.8653666377067566
+    },
+    {
+      "text": "8483",
+      "box": [
+        33,
+        1012,
+        59,
+        1027
+      ],
+      "score": 0.9651839137077332
+    },
+    {
+      "text": "zerzes, vers, 11.",
+      "box": [
+        93,
+        1008,
+        174,
+        1023
+      ],
+      "score": 0.9233195781707764
+    },
+    {
+      "text": "y deshechos despues en Ancira.",
+      "box": [
+        514,
+        1005,
+        654,
+        1017
+      ],
+      "score": 0.9683554768562317
+    },
+    {
+      "text": "sebío, Pertenece à esto Seleuco lo que se refie-",
+      "box": [
+        667,
+        1005,
+        862,
+        1020
+      ],
+      "score": 0.8891268372535706
+    },
+    {
+      "text": "Por astucia ocupó Mago 7 meses el trono; pero",
+      "box": [
+        246,
+        1022,
+        444,
+        1039
+      ],
+      "score": 0.9882513284683228
+    },
+    {
+      "text": "Tit. Lén. Se habla de esta victo-",
+      "box": [
+        514,
+        1015,
+        653,
+        1027
+      ],
+      "score": 0.8766797780990601
+    },
+    {
+      "text": "ria I. Mach. viíi. 2.",
+      "box": [
+        513,
+        1025,
+        600,
+        1037
+      ],
+      "score": 0.8480145335197449
+    },
+    {
+      "text": "re IL. Mach. I1L. 3. rv. 7.",
+      "box": [
+        667,
+        1016,
+        777,
+        1028
+      ],
+      "score": 0.8025381565093994
+    },
+    {
+      "text": "descubierto el engaño, es muerto por siete",
+      "box": [
+        255,
+        1032,
+        443,
+        1049
+      ],
+      "score": 0.946759819984436
+    },
+    {
+      "text": "coujurados: uno de los cuales, llamado Da-",
+      "box": [
+        255,
+        1042,
+        442,
+        1059
+      ],
+      "score": 0.9567572474479675
+    },
+    {
+      "text": "3824",
+      "box": [
+        452,
+        1035,
+        475,
+        1047
+      ],
+      "score": 0.9716208577156067
+    },
+    {
+      "text": "180 Ocupa cl trono Ptolemeo Philome-",
+      "box": [
+        483,
+        1033,
+        654,
+        1048
+      ],
+      "score": 0.9275670647621155
+    },
+    {
+      "text": "rio Hystaspe, es proclamado rey; y reina 36",
+      "box": [
+        254,
+        1052,
+        444,
+        1070
+      ],
+      "score": 0.8922284841537476
+    },
+    {
+      "text": "for, lhijo del antecesor, y reina 27",
+      "box": [
+        512,
+        1044,
+        654,
+        1059
+      ],
+      "score": 0.8985271453857422
+    },
+    {
+      "text": "En este tiempo profetizó Aggeo,",
+      "box": [
+        85,
+        1056,
+        242,
+        1076
+      ],
+      "score": 0.9883137941360474
+    },
+    {
+      "text": "años. Justino. Herodoto.",
+      "box": [
+        255,
+        1062,
+        359,
+        1078
+      ],
+      "score": 0.6973277926445007
+    },
+    {
+      "text": "3828",
+      "box": [
+        452,
+        1064,
+        475,
+        1077
+      ],
+      "score": 0.9792323112487793
+    },
+    {
+      "text": "176",
+      "box": [
+        484,
+        1065,
+        503,
+        1077
+      ],
+      "score": 0.9996511340141296
+    },
+    {
+      "text": "años.",
+      "box": [
+        513,
+        1056,
+        540,
+        1067
+      ],
+      "score": 0.9789456129074097
+    },
+    {
+      "text": "Agg. L. 1.",
+      "box": [
+        97,
+        1070,
+        142,
+        1082
+      ],
+      "score": 0.9184706807136536
+    },
+    {
+      "text": "Hácia el fin del reinado de Seleuco Philopator",
+      "box": [
+        658,
+        1064,
+        864,
+        1081
+      ],
+      "score": 0.985948920249939
+    },
+    {
+      "text": "8485",
+      "box": [
+        36,
+        1076,
+        59,
+        1087
+      ],
+      "score": 0.9102500081062317
+    },
+    {
+      "text": "Se cree que este es el Aasuero de Esther. Véase",
+      "box": [
+        245,
+        1080,
+        444,
+        1099
+      ],
+      "score": 0.9671537280082703
+    },
+    {
+      "text": "es enviado en rehenes à Roma en lugar de",
+      "box": [
+        666,
+        1077,
+        864,
+        1091
+      ],
+      "score": 0.9283344149589539
+    },
+    {
+      "text": "la Advertencia à dicho libro.",
+      "box": [
+        255,
+        1092,
+        377,
+        1106
+      ],
+      "score": 0.9601890444755554
+    },
+    {
+      "text": "Antiocho hijo de Antiocho el Grande, Deme-",
+      "box": [
+        667,
+        1086,
+        863,
+        1101
+      ],
+      "score": 0.9822422862052917
+    },
+    {
+      "text": "trio hijo de Seleuco. Volvió entonces de Ro-",
+      "box": [
+        667,
+        1097,
+        863,
+        1109
+      ],
+      "score": 0.9754444360733032
+    },
+    {
+      "text": "SUCESO DE LOS JUDÍOS",
+      "box": [
+        112,
+        1108,
+        216,
+        1123
+      ],
+      "score": 0.9934461712837219
+    },
+    {
+      "text": "ma dicho Antioclio, y poco despues pereció",
+      "box": [
+        667,
+        1106,
+        863,
+        1120
+      ],
+      "score": 0.9326503276824951
+    },
+    {
+      "text": "su lermano mayor Seleuco por la traicion de",
+      "box": [
+        667,
+        1117,
+        863,
+        1129
+      ],
+      "score": 0.951967179775238
+    },
+    {
+      "text": "En el mes octavo del mismo año",
+      "box": [
+        85,
+        1127,
+        242,
+        1144
+      ],
+      "score": 0.9897711873054504
+    },
+    {
+      "text": "à Heliodoro, y colocaron en el trono à Antio-",
+      "box": [
+        666,
+        1136,
+        863,
+        1150
+      ],
+      "score": 0.9329577684402466
+    },
+    {
+      "text": "Hcliodoro. Pero Eumenes y Attalo arrojaron",
+      "box": [
+        667,
+        1127,
+        863,
+        1140
+      ],
+      "score": 0.9853672981262207
+    },
+    {
+      "text": "comienza Zacharlas, profeta, su",
+      "box": [
+        95,
+        1138,
+        240,
+        1154
+      ],
+      "score": 0.9298245906829834
+    },
+    {
+      "text": "3519",
+      "box": [
+        33,
+        1153,
+        59,
+        1168
+      ],
+      "score": 0.9979473352432251
+    },
+    {
+      "text": "predicacion. Zach. L. 1.",
+      "box": [
+        96,
+        1151,
+        201,
+        1161
+      ],
+      "score": 0.9472382664680481
+    },
+    {
+      "text": "3834",
+      "box": [
+        451,
+        1154,
+        475,
+        1165
+      ],
+      "score": 0.9987717866897583
+    },
+    {
+      "text": "170 Antiocho arroja del trono à Philo-",
+      "box": [
+        482,
+        1153,
+        654,
+        1169
+      ],
+      "score": 0.9199660420417786
+    },
+    {
+      "text": "cho, el cual reinó 11 afios y meses.",
+      "box": [
+        667,
+        1146,
+        819,
+        1161
+      ],
+      "score": 0.9335998892784119
+    },
+    {
+      "text": "485",
+      "box": [
+        66,
+        1157,
+        86,
+        1168
+      ],
+      "score": 0.9980039000511169
+    },
+    {
+      "text": "Xerzes, hijo de Dario, reina 12 añoa. Empleó",
+      "box": [
+        244,
+        1159,
+        442,
+        1179
+      ],
+      "score": 0.916587233543396
+    },
+    {
+      "text": "todas sus fuerzas contra los Griegos, seguún el",
+      "box": [
+        252,
+        1170,
+        442,
+        1189
+      ],
+      "score": 0.9379117488861084
+    },
+    {
+      "text": "metor. Los de Alejandria le ofre-",
+      "box": [
+        511,
+        1165,
+        654,
+        1178
+      ],
+      "score": 0.963991105556488
+    },
+    {
+      "text": "vaticinio de Damiel, Dan. XI. 2.",
+      "box": [
+        252,
+        1179,
+        387,
+        1197
+      ],
+      "score": 0.8849027156829834
+    },
+    {
+      "text": "cen á su hermano Evergetes, al",
+      "box": [
+        510,
+        1173,
+        654,
+        1190
+      ],
+      "score": 0.8168228268623352
+    },
+    {
+      "text": "Le sucede Artaxerxes Longimano, su hijo, que",
+      "box": [
+        242,
+        1188,
+        442,
+        1209
+      ],
+      "score": 0.8676601648330688
+    },
+    {
+      "text": "cual va à refugiarse Philome-",
+      "box": [
+        510,
+        1184,
+        654,
+        1199
+      ],
+      "score": 0.948623776435852
+    },
+    {
+      "text": "reina 48 años.",
+      "box": [
+        252,
+        1201,
+        313,
+        1213
+      ],
+      "score": 0.9676464796066284
+    },
+    {
+      "text": "terrar á Philometor. Euseb. Just.",
+      "box": [
+        509,
+        1203,
+        653,
+        1219
+      ],
+      "score": 0.7344503402709961
+    },
+    {
+      "text": "tor. Poco despues vuelven à des-",
+      "box": [
+        510,
+        1194,
+        653,
+        1208
+      ],
+      "score": 0.9709655046463013
+    },
+    {
+      "text": "En el año 7.º de su reinado consigue Esdmas un",
+      "box": [
+        242,
+        1208,
+        442,
+        1227
+      ],
+      "score": 0.9191282391548157
+    },
+    {
+      "text": "real decreto para restaurar la uacion de los",
+      "box": [
+        250,
+        1219,
+        442,
+        1237
+      ],
+      "score": 0.9759324789047241
+    },
+    {
+      "text": "3886",
+      "box": [
+        450,
+        1213,
+        473,
+        1225
+      ],
+      "score": 0.9156026244163513
+    },
+    {
+      "text": "168 Veneido Perseo por L. Emílio, aca-",
+      "box": [
+        481,
+        1212,
+        654,
+        1230
+      ],
+      "score": 0.9251224398612976
+    },
+    {
+      "text": "Judics, y mareha ála Palestina con una gran",
+      "box": [
+        251,
+        1228,
+        441,
+        1247
+      ],
+      "score": 0.8263044357299805
+    },
+    {
+      "text": "bóse el smperio Macedbaico, que",
+      "box": [
+        508,
+        1222,
+        655,
+        1240
+      ],
+      "score": 0.6996038556098938
+    },
+    {
+      "text": "muchedumbre de familias de Judice. L. Ead.",
+      "box": [
+        251,
+        1238,
+        441,
+        1256
+      ],
+      "score": 0.9046032428741455
+    },
+    {
+      "text": "había durado 626 años despues",
+      "box": [
+        510,
+        1233,
+        654,
+        1248
+      ],
+      "score": 0.9473583698272705
+    },
+    {
+      "text": "VII. 11, etc.",
+      "box": [
+        251,
+        1249,
+        303,
+        1261
+      ],
+      "score": 0.954688310623169
+    },
+    {
+      "text": "que le fundó Charaar y los res-",
+      "box": [
+        510,
+        1243,
+        654,
+        1258
+      ],
+      "score": 0.9397560954093933
+    },
+    {
+      "text": "En el año 20 del mismo relnado, en el mes de",
+      "box": [
+        241,
+        1257,
+        441,
+        1275
+      ],
+      "score": 0.9679038524627686
+    },
+    {
+      "text": "fos de él quedaron en poder de",
+      "box": [
+        509,
+        1253,
+        654,
+        1267
+      ],
+      "score": 0.938288688659668
+    },
+    {
+      "text": "Nisan, Nehemfas obtiene permiso real para",
+      "box": [
+        250,
+        1267,
+        442,
+        1286
+      ],
+      "score": 0.9445949792861938
+    },
+    {
+      "text": "3840",
+      "box": [
+        447,
+        1268,
+        475,
+        1285
+      ],
+      "score": 0.9974302053451538
+    },
+    {
+      "text": "164",
+      "box": [
+        481,
+        1271,
+        500,
+        1283
+      ],
+      "score": 0.9843146800994873
+    },
+    {
+      "text": "los Ptolemeos y Seleucos.",
+      "box": [
+        510,
+        1262,
+        623,
+        1276
+      ],
+      "score": 0.9762814044952393
+    },
+    {
+      "text": "reedificar á Jerusalem, II. Esd. I. 1. 8. Y de",
+      "box": [
+        250,
+        1277,
+        441,
+        1295
+      ],
+      "score": 0.8273950815200806
+    },
+    {
+      "text": "Antiocho vuclve vergouzosamente de Persia, y",
+      "box": [
+        660,
+        1273,
+        864,
+        1285
+      ],
+      "score": 0.9874290227890015
+    },
+    {
+      "text": "aquí se comienzan á contar las 70 Semanaa",
+      "box": [
+        250,
+        1287,
+        441,
+        1306
+      ],
+      "score": 0.9462667107582092
+    },
+    {
+      "text": "Antiocho Eupator, ayudado de Lysias, Xil.",
+      "box": [
+        667,
+        1291,
+        864,
+        1307
+      ],
+      "score": 0.9112519025802612
+    },
+    {
+      "text": "muere. Le sucede su hijo (IL. Mach. IX. 1).",
+      "box": [
+        668,
+        1282,
+        863,
+        1296
+      ],
+      "score": 0.9675999283790588
+    },
+    {
+      "text": "3562",
+      "box": [
+        29,
+        1299,
+        56,
+        1317
+      ],
+      "score": 0.9616202116012573
+    },
+    {
+      "text": "442 Vivió en este tiempo Malachlas,",
+      "box": [
+        63,
+        1303,
+        237,
+        1322
+      ],
+      "score": 0.9348430037498474
+    },
+    {
+      "text": "Nehemaías vuelve á presentarse al Rey de les",
+      "box": [
+        238,
+        1306,
+        440,
+        1325
+      ],
+      "score": 0.9303209781646729
+    },
+    {
+      "text": "de Daniel.",
+      "box": [
+        251,
+        1300,
+        297,
+        1311
+      ],
+      "score": 0.9943886995315552
+    },
+    {
+      "text": "3842",
+      "box": [
+        448,
+        1311,
+        473,
+        1323
+      ],
+      "score": 0.9998759627342224
+    },
+    {
+      "text": "162 Onias (hijo de Onías III sumo sa-",
+      "box": [
+        481,
+        1309,
+        654,
+        1327
+      ],
+      "score": 0.9367835521697998
+    },
+    {
+      "text": "2, etc.",
+      "box": [
+        667,
+        1304,
+        698,
+        1318
+      ],
+      "score": 0.9843464493751526
+    },
+    {
+      "text": "que parece profetizó durante el",
+      "box": [
+        93,
+        1320,
+        236,
+        1330
+      ],
+      "score": 0.9981125593185425
+    },
+    {
+      "text": "Persas, II. Esd. xl. 6.",
+      "box": [
+        249,
+        1318,
+        352,
+        1334
+      ],
+      "score": 0.8730979561805725
+    },
+    {
+      "text": "cerdote de los Judíos) viendo que",
+      "box": [
+        508,
+        1321,
+        654,
+        1337
+      ],
+      "score": 0.9646367430686951
+    },
+    {
+      "text": "Antiocho, quitando la vida á Memelao, (II.",
+      "box": [
+        659,
+        1311,
+        864,
+        1327
+      ],
+      "score": 0.9602771997451782
+    },
+    {
+      "text": "8573",
+      "box": [
+        27,
+        1330,
+        54,
+        1349
+      ],
+      "score": 0.9981331825256348
+    },
+    {
+      "text": "mando de Nehemías.",
+      "box": [
+        91,
+        1329,
+        187,
+        1342
+      ],
+      "score": 0.962920606136322
+    },
+    {
+      "text": "se habin dado el sumo sacerdocio",
+      "box": [
+        507,
+        1331,
+        655,
+        1348
+      ],
+      "score": 0.9371951818466187
+    },
+    {
+      "text": "Mach. XIlL. 5), da el sumo sacerdocio de los",
+      "box": [
+        667,
+        1321,
+        865,
+        1337
+      ],
+      "score": 0.9159295558929443
+    },
+    {
+      "text": "431",
+      "box": [
+        63,
+        1338,
+        82,
+        1351
+      ],
+      "score": 0.9996964335441589
+    },
+    {
+      "text": "Principia la guerra del Peloponeso. Thucidides.",
+      "box": [
+        235,
+        1338,
+        440,
+        1356
+      ],
+      "score": 0.8730380535125732
+    },
+    {
+      "text": "á Alcimo, va á Egipto.",
+      "box": [
+        507,
+        1341,
+        613,
+        1356
+      ],
+      "score": 0.9687387943267822
+    },
+    {
+      "text": "Judios á Alcimo, I. Mach. VIL. 9. IL. Mach.",
+      "box": [
+        667,
+        1331,
+        864,
+        1348
+      ],
+      "score": 0.9240450263023376
+    },
+    {
+      "text": "XIV. 13,",
+      "box": [
+        669,
+        1346,
+        705,
+        1356
+      ],
+      "score": 0.8427532911300659
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "volume": 3,
+  "page_index": 74,
+  "pdf_page": 75,
+  "lines": [
+    {
+      "text": "HERTKAND-SC",
+      "box": [
+        729,
+        1173,
+        843,
+        1195
+      ],
+      "score": 0.8348653316497803
+    },
+    {
+      "text": "DUELO DE JERUSALEN DESPUES DE SU RUINA",
+      "box": [
+        257,
+        1226,
+        634,
+        1257
+      ],
+      "score": 0.979245662689209
+    }
+  ]
+}

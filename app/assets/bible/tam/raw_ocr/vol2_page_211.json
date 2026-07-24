@@ -1,0 +1,1537 @@
+{
+  "volume": 2,
+  "page_index": 211,
+  "pdf_page": 212,
+  "lines": [
+    {
+      "text": "267",
+      "box": [
+        96,
+        80,
+        135,
+        108
+      ],
+      "score": 0.9999964833259583
+    },
+    {
+      "text": "CAPITULO IX.",
+      "box": [
+        1015,
+        70,
+        1173,
+        102
+      ],
+      "score": 0.9987843036651611
+    },
+    {
+      "text": "268",
+      "box": [
+        1327,
+        75,
+        1365,
+        103
+      ],
+      "score": 0.9999914169311523
+    },
+    {
+      "text": "I. ESDRAS.",
+      "box": [
+        306,
+        89,
+        419,
+        113
+      ],
+      "score": 0.9800193905830383
+    },
+    {
+      "text": "9. De los hijos de Joab, Obedia hijo de Jahiel, y con él",
+      "box": [
+        101,
+        148,
+        643,
+        186
+      ],
+      "score": 0.9785270094871521
+    },
+    {
+      "text": "33. Al cuarto dia se hizo la éntrega por peso del oro y de",
+      "box": [
+        816,
+        139,
+        1376,
+        180
+      ],
+      "score": 0.9925898909568787
+    },
+    {
+      "text": "doscientos diez y ocho hombres.",
+      "box": [
+        83,
+        178,
+        379,
+        215
+      ],
+      "score": 0.9832727909088135
+    },
+    {
+      "text": "la plata, y de los vasos en la Casa de nuestro Dios, por mano",
+      "box": [
+        794,
+        169,
+        1374,
+        209
+      ],
+      "score": 0.9930636882781982
+    },
+    {
+      "text": "10. De los hijos de Selomith, el hijo de Josphias, y con él",
+      "box": [
+        103,
+        206,
+        641,
+        242
+      ],
+      "score": 0.988714337348938
+    },
+    {
+      "text": "de Meremoth hijo de Urias, sacerdote, estando presente",
+      "box": [
+        795,
+        199,
+        1372,
+        235
+      ],
+      "score": 0.9893776774406433
+    },
+    {
+      "text": "ciento y sesenta hombres.",
+      "box": [
+        86,
+        236,
+        325,
+        266
+      ],
+      "score": 0.9995594620704651
+    },
+    {
+      "text": "Eleazar hijo de Phinées, en compañía de los Levitas Jozabed",
+      "box": [
+        794,
+        225,
+        1371,
+        262
+      ],
+      "score": 0.9949012398719788
+    },
+    {
+      "text": "11. De los hijos de Bebai, Zacharias hijo de Bebai, y con",
+      "box": [
+        105,
+        260,
+        640,
+        292
+      ],
+      "score": 0.9987218976020813
+    },
+    {
+      "text": "hijo de Josué, y Noadaia hijo de Bennoi:",
+      "box": [
+        795,
+        255,
+        1187,
+        287
+      ],
+      "score": 0.9925482869148254
+    },
+    {
+      "text": "él veinte y ocho hombres.",
+      "box": [
+        85,
+        287,
+        324,
+        318
+      ],
+      "score": 0.9967573285102844
+    },
+    {
+      "text": "34. Todo fué contado y pesado; y de todo se hizo entonces",
+      "box": [
+        814,
+        278,
+        1368,
+        312
+      ],
+      "score": 0.9974624514579773
+    },
+    {
+      "text": "12. De los hijos de Azgad, Johanan hijo de Eccetan, y con",
+      "box": [
+        105,
+        311,
+        640,
+        343
+      ],
+      "score": 0.9909828305244446
+    },
+    {
+      "text": "inventario.",
+      "box": [
+        793,
+        311,
+        901,
+        337
+      ],
+      "score": 0.9999862313270569
+    },
+    {
+      "text": "él ciento y diez hombres.",
+      "box": [
+        85,
+        338,
+        316,
+        369
+      ],
+      "score": 0.9964621067047119
+    },
+    {
+      "text": "35. Asimismo los hijos de la trasmigracion, venidos del",
+      "box": [
+        813,
+        326,
+        1368,
+        363
+      ],
+      "score": 0.9996873736381531
+    },
+    {
+      "text": "13. De los hijos de Adonicam, que fueron los últimos, son",
+      "box": [
+        103,
+        359,
+        641,
+        395
+      ],
+      "score": 0.99080491065979
+    },
+    {
+      "text": "cautiverio, ofrecieron holocaustos al Dios de Israél: doce",
+      "box": [
+        794,
+        354,
+        1368,
+        387
+      ],
+      "score": 0.9980829358100891
+    },
+    {
+      "text": "estos los nombres: Elipheleth, y Jehiel, y Samaias, y con ellos",
+      "box": [
+        83,
+        384,
+        640,
+        419
+      ],
+      "score": 0.9686406850814819
+    },
+    {
+      "text": "becerros por todo el púeblo israelítico, noventa y seis car-",
+      "box": [
+        792,
+        378,
+        1369,
+        415
+      ],
+      "score": 0.9980180859565735
+    },
+    {
+      "text": "sesenta hombres.",
+      "box": [
+        76,
+        413,
+        243,
+        442
+      ],
+      "score": 0.9999348521232605
+    },
+    {
+      "text": "neros, setenta y siete corderos, doce machos cabríos por el",
+      "box": [
+        793,
+        404,
+        1367,
+        438
+      ],
+      "score": 0.9997220635414124
+    },
+    {
+      "text": "14. De los hijos de Begui, Uthai y Zachur, y con ellos se-",
+      "box": [
+        101,
+        433,
+        642,
+        469
+      ],
+      "score": 0.9930046200752258
+    },
+    {
+      "text": "pecado, todo en holocausto al Señor.",
+      "box": [
+        793,
+        433,
+        1143,
+        462
+      ],
+      "score": 0.9996055960655212
+    },
+    {
+      "text": "tenta hombres.",
+      "box": [
+        84,
+        461,
+        225,
+        490
+      ],
+      "score": 0.99998939037323
+    },
+    {
+      "text": "36. En fin presentaron los edictos del rey á los sátrapas",
+      "box": [
+        813,
+        453,
+        1367,
+        487
+      ],
+      "score": 0.9982128739356995
+    },
+    {
+      "text": "15. Los congregué pues junto al rio, que desagua en el",
+      "box": [
+        101,
+        483,
+        641,
+        515
+      ],
+      "score": 0.9850385189056396
+    },
+    {
+      "text": "de su corte y á los gobernadores de la otra parte del rio, los",
+      "box": [
+        793,
+        478,
+        1367,
+        513
+      ],
+      "score": 0.9796253442764282
+    },
+    {
+      "text": "Ahava, y nos detuvimos allí tres dias; y habiendo buscado",
+      "box": [
+        82,
+        507,
+        640,
+        539
+      ],
+      "score": 0.9867054224014282
+    },
+    {
+      "text": "cuales favorecieron al pueblo y á la Casa de Dios.",
+      "box": [
+        794,
+        508,
+        1258,
+        536
+      ],
+      "score": 0.9997695684432983
+    },
+    {
+      "text": "entre el pueblo y entre los sacerdotes algunos hijos de Leví,",
+      "box": [
+        81,
+        532,
+        638,
+        564
+      ],
+      "score": 0.9933640360832214
+    },
+    {
+      "text": "no hallé allí ninguno.",
+      "box": [
+        81,
+        558,
+        280,
+        589
+      ],
+      "score": 0.9997835755348206
+    },
+    {
+      "text": "CAPITULO IX",
+      "box": [
+        1009,
+        552,
+        1160,
+        576
+      ],
+      "score": 0.9994382858276367
+    },
+    {
+      "text": "C",
+      "box": [
+        751,
+        572,
+        761,
+        581
+      ],
+      "score": 0.5900110006332397
+    },
+    {
+      "text": "16. Por tanto despaché á Eliezer, y Ariel, y Semeias, y",
+      "box": [
+        98,
+        582,
+        640,
+        615
+      ],
+      "score": 0.9932023882865906
+    },
+    {
+      "text": "Sentimiento de Esdras por el nuevo desórden y pecados de los Judíos.",
+      "box": [
+        802,
+        587,
+        1358,
+        622
+      ],
+      "score": 0.9941189885139465
+    },
+    {
+      "text": "Elnathán, y Jarib, y otro Elnathán, yá Nathán, y á Zacharias,",
+      "box": [
+        79,
+        607,
+        640,
+        641
+      ],
+      "score": 0.9907115697860718
+    },
+    {
+      "text": "y Mosollam personas principales, y á Joiarib y Elnathán",
+      "box": [
+        77,
+        632,
+        642,
+        669
+      ],
+      "score": 0.9864540696144104
+    },
+    {
+      "text": "1. Cumplidas estas cosas, acudieron á mí los príncipes",
+      "box": [
+        813,
+        628,
+        1366,
+        666
+      ],
+      "score": 0.9885020852088928
+    },
+    {
+      "text": "hombres sábios;",
+      "box": [
+        79,
+        657,
+        235,
+        689
+      ],
+      "score": 0.9998518824577332
+    },
+    {
+      "text": "de las familias, diciendo: Ni el pueblo de Israél, ni los sacer-",
+      "box": [
+        794,
+        654,
+        1368,
+        692
+      ],
+      "score": 0.9996933341026306
+    },
+    {
+      "text": "17. Y enviélos á Eddo, Judío, que era el que gozaba ma-",
+      "box": [
+        99,
+        683,
+        641,
+        715
+      ],
+      "score": 0.9690326452255249
+    },
+    {
+      "text": "dotes y Levitas, se han mantenido segregados de los pueblos",
+      "box": [
+        792,
+        678,
+        1369,
+        719
+      ],
+      "score": 0.9994401931762695
+    },
+    {
+      "text": "yor reputacion en el lugar de Chasphia, y puse en su boca",
+      "box": [
+        79,
+        709,
+        641,
+        739
+      ],
+      "score": 0.9998424053192139
+    },
+    {
+      "text": "de estos países y de sus abominaciones; es á saber, de los",
+      "box": [
+        793,
+        704,
+        1368,
+        743
+      ],
+      "score": 0.9838894605636597
+    },
+    {
+      "text": "las palabras que habian de decir á Eddo, y á sus hermanos",
+      "box": [
+        79,
+        734,
+        641,
+        765
+      ],
+      "score": 0.9911354184150696
+    },
+    {
+      "text": "Chananéos, Hethéos y Pherezéos, de los Jebuséos, y Ammo-",
+      "box": [
+        793,
+        730,
+        1367,
+        767
+      ],
+      "score": 0.9988496899604797
+    },
+    {
+      "text": "los Nathinéos en el lugar de Chasphia, para que nos trajesen",
+      "box": [
+        79,
+        759,
+        641,
+        791
+      ],
+      "score": 0.9989239573478699
+    },
+    {
+      "text": "nitas, y Moabitas, y Egypcios, y Amorrhéos:",
+      "box": [
+        792,
+        759,
+        1209,
+        793
+      ],
+      "score": 0.9973845481872559
+    },
+    {
+      "text": "ministros de la Casa de nuestro Dios.",
+      "box": [
+        81,
+        787,
+        421,
+        813
+      ],
+      "score": 0.9999603033065796
+    },
+    {
+      "text": "2. Porque han tomado de sus hijas esposas para sí y para",
+      "box": [
+        812,
+        780,
+        1367,
+        820
+      ],
+      "score": 0.9963778257369995
+    },
+    {
+      "text": "18. Y, por la bondad de nuestro Dios sobre nosotros, nos",
+      "box": [
+        101,
+        812,
+        642,
+        841
+      ],
+      "score": 0.9990988373756409
+    },
+    {
+      "text": "sus hijos, y han mezclado el linaje santo con las naciones",
+      "box": [
+        791,
+        805,
+        1368,
+        846
+      ],
+      "score": 0.9997519850730896
+    },
+    {
+      "text": "trajeron un varon doctísimo de los hijos de Moholi, hijo de",
+      "box": [
+        80,
+        838,
+        643,
+        866
+      ],
+      "score": 0.9999651312828064
+    },
+    {
+      "text": "del país; habiendo sido los príncipes y magistrados los pri-",
+      "box": [
+        790,
+        830,
+        1367,
+        873
+      ],
+      "score": 0.9999376535415649
+    },
+    {
+      "text": "Leví, hijo de Israél, y á Sarabias con sus hijos y hermanos,",
+      "box": [
+        80,
+        863,
+        641,
+        891
+      ],
+      "score": 0.9987783432006836
+    },
+    {
+      "text": "meros cómplices en esta transgresion.",
+      "box": [
+        791,
+        864,
+        1140,
+        895
+      ],
+      "score": 0.9999688863754272
+    },
+    {
+      "text": "en número de diez y ocho:",
+      "box": [
+        81,
+        890,
+        328,
+        915
+      ],
+      "score": 0.9906362891197205
+    },
+    {
+      "text": "3. Al oir estas palabras, penetrado de dolor, rasgué mi",
+      "box": [
+        811,
+        879,
+        1368,
+        922
+      ],
+      "score": 0.9973551034927368
+    },
+    {
+      "text": "19. Asimismo á Hasabias, y con él á Isaías de los hijos de",
+      "box": [
+        104,
+        916,
+        640,
+        939
+      ],
+      "score": 0.9890569448471069
+    },
+    {
+      "text": "manto y la túnica, y mesé los cabellos de mi cabeza y de",
+      "box": [
+        791,
+        905,
+        1368,
+        947
+      ],
+      "score": 0.9983081221580505
+    },
+    {
+      "text": "Merari, y á sus hermanos é hijos, que eran veinte:",
+      "box": [
+        84,
+        941,
+        543,
+        965
+      ],
+      "score": 0.9843453764915466
+    },
+    {
+      "text": "mi barba, y sentéme lleno de tristeza.",
+      "box": [
+        792,
+        938,
+        1141,
+        969
+      ],
+      "score": 0.9944168925285339
+    },
+    {
+      "text": "20. De los Nathinéos, destinados por David y los prínci-",
+      "box": [
+        103,
+        963,
+        642,
+        993
+      ],
+      "score": 0.9996322989463806
+    },
+    {
+      "text": "4. Entonces acudieron á mí todos los temerosos de la",
+      "box": [
+        811,
+        955,
+        1369,
+        995
+      ],
+      "score": 0.9986084699630737
+    },
+    {
+      "text": "pes al servicio de los Levitas, doscientos veinte Nathinéos,",
+      "box": [
+        83,
+        988,
+        641,
+        1019
+      ],
+      "score": 0.9998805522918701
+    },
+    {
+      "text": "palabra del Dios de Israél, en vista de la prevaricacion de",
+      "box": [
+        791,
+        982,
+        1370,
+        1020
+      ],
+      "score": 0.9951973557472229
+    },
+    {
+      "text": "todos los cuales se distinguian por sus propios nombres.",
+      "box": [
+        83,
+        1015,
+        594,
+        1045
+      ],
+      "score": 0.9999077916145325
+    },
+    {
+      "text": "aquellos que habian venido del cautiverio antes de nosotros,",
+      "box": [
+        791,
+        1009,
+        1370,
+        1044
+      ],
+      "score": 0.9984167814254761
+    },
+    {
+      "text": "21. Allí junto al rio Ahava intimé un ayuno, á fin de hu-",
+      "box": [
+        105,
+        1039,
+        642,
+        1071
+      ],
+      "score": 0.9876478910446167
+    },
+    {
+      "text": "y yo permanecí sentado y poseido de angustias hasta el sa-",
+      "box": [
+        789,
+        1034,
+        1372,
+        1071
+      ],
+      "score": 0.9883085489273071
+    },
+    {
+      "text": "millarnos en el acatamiento del Señor Dios nuestro, y pedirle",
+      "box": [
+        85,
+        1065,
+        641,
+        1096
+      ],
+      "score": 0.9960194826126099
+    },
+    {
+      "text": "crificio de la tarde:",
+      "box": [
+        794,
+        1069,
+        968,
+        1090
+      ],
+      "score": 0.9993041753768921
+    },
+    {
+      "text": "feliz viaje para nosotros, y para nuestros hijos, y para todos",
+      "box": [
+        84,
+        1090,
+        642,
+        1123
+      ],
+      "score": 0.9988048076629639
+    },
+    {
+      "text": "5. Y al tiempo del dicho sacrificio vespertino, salí de la",
+      "box": [
+        810,
+        1083,
+        1372,
+        1119
+      ],
+      "score": 0.9994310140609741
+    },
+    {
+      "text": "nuestros haberes.",
+      "box": [
+        86,
+        1122,
+        248,
+        1145
+      ],
+      "score": 0.9999852180480957
+    },
+    {
+      "text": "consternacion en que habia estado; y rasgados el manto y la",
+      "box": [
+        791,
+        1109,
+        1372,
+        1144
+      ],
+      "score": 0.9910947680473328
+    },
+    {
+      "text": "22.  Pues tuve vergüenza de pedir al rey escolta de sol-",
+      "box": [
+        106,
+        1140,
+        642,
+        1170
+      ],
+      "score": 0.9847225546836853
+    },
+    {
+      "text": "túnica, arrodilléme, y alcé mis manos al Señor Dios mio,",
+      "box": [
+        791,
+        1134,
+        1371,
+        1168
+      ],
+      "score": 0.9992245435714722
+    },
+    {
+      "text": "dados de á caballo, que nos defendiera de los enemigos en",
+      "box": [
+        87,
+        1165,
+        641,
+        1194
+      ],
+      "score": 0.9991350173950195
+    },
+    {
+      "text": "6. Diciendo: Oh Dios mio, estoy lleno de cónfusion, y mé",
+      "box": [
+        809,
+        1158,
+        1373,
+        1192
+      ],
+      "score": 0.9874988794326782
+    },
+    {
+      "text": "el viaje; porque habíamos dicho al rey: La mano de nuestro",
+      "box": [
+        88,
+        1189,
+        642,
+        1219
+      ],
+      "score": 0.989667534828186
+    },
+    {
+      "text": "avergüenzo de levantar hácia tí mi rostro, porque nuestras",
+      "box": [
+        790,
+        1184,
+        1373,
+        1216
+      ],
+      "score": 0.9929096698760986
+    },
+    {
+      "text": "Dios asiste á todos aquellos que le buscan con sinceridad; y",
+      "box": [
+        87,
+        1214,
+        644,
+        1244
+      ],
+      "score": 0.9992322325706482
+    },
+    {
+      "text": "maldades se han multiplicado sobre nuestra cabeza, y nues-",
+      "box": [
+        790,
+        1208,
+        1373,
+        1240
+      ],
+      "score": 0.997501015663147
+    },
+    {
+      "text": "su imperio, y su poder, y su indignacion se hacen sentir de",
+      "box": [
+        87,
+        1238,
+        644,
+        1270
+      ],
+      "score": 0.997588038444519
+    },
+    {
+      "text": "tros delitos han subido hasta el cielo",
+      "box": [
+        791,
+        1237,
+        1124,
+        1263
+      ],
+      "score": 0.9999229907989502
+    },
+    {
+      "text": "todos los que le abandonan.",
+      "box": [
+        89,
+        1265,
+        344,
+        1293
+      ],
+      "score": 0.9999356865882874
+    },
+    {
+      "text": "7. Desde los dias de nuestros padres; y además nosotros",
+      "box": [
+        809,
+        1256,
+        1372,
+        1291
+      ],
+      "score": 0.998870313167572
+    },
+    {
+      "text": "23. Á este fin pues ayunamos, é hicimos oracion á nuestro",
+      "box": [
+        110,
+        1290,
+        641,
+        1316
+      ],
+      "score": 0.9955967664718628
+    },
+    {
+      "text": "mismos hemos pecado gravemente hasta este dia, y por",
+      "box": [
+        790,
+        1282,
+        1372,
+        1315
+      ],
+      "score": 0.9993072152137756
+    },
+    {
+      "text": "Dios, y todo nos sucedió prósperamente:",
+      "box": [
+        89,
+        1316,
+        457,
+        1343
+      ],
+      "score": 0.992466390132904
+    },
+    {
+      "text": "nuestras iniquidades hemos sido abandonados nosotros, y",
+      "box": [
+        790,
+        1309,
+        1371,
+        1339
+      ],
+      "score": 0.9997833967208862
+    },
+    {
+      "text": "24. Y escogí doce de los principales sacerdotes, á Sarabias,",
+      "box": [
+        112,
+        1343,
+        642,
+        1366
+      ],
+      "score": 0.9945126175880432
+    },
+    {
+      "text": "nuestros reyes y nuestros sacerdotes en manos de los reyes",
+      "box": [
+        790,
+        1334,
+        1371,
+        1364
+      ],
+      "score": 0.9989396333694458
+    },
+    {
+      "text": "y Hasabias, con otros diez de sus hermanos;",
+      "box": [
+        88,
+        1364,
+        495,
+        1396
+      ],
+      "score": 0.9997774958610535
+    },
+    {
+      "text": "IUAN",
+      "box": [
+        702,
+        1362,
+        751,
+        1384
+      ],
+      "score": 0.5688866972923279
+    },
+    {
+      "text": "de la tierra, y al cuchillo, y á la esclavitud, y al saqueo, y",
+      "box": [
+        790,
+        1358,
+        1370,
+        1390
+      ],
+      "score": 0.9735927581787109
+    },
+    {
+      "text": "25. Y les entregué por peso el oro y la plata, y los vasos",
+      "box": [
+        113,
+        1393,
+        644,
+        1417
+      ],
+      "score": 0.9843754172325134
+    },
+    {
+      "text": "á los oprobios, como se ve aun en este dia.",
+      "box": [
+        791,
+        1386,
+        1171,
+        1413
+      ],
+      "score": 0.9944493770599365
+    },
+    {
+      "text": "consagrados á la Casa de nuestro Dios, ofrecidos por el rey,",
+      "box": [
+        92,
+        1415,
+        643,
+        1445
+      ],
+      "score": 0.9998511672019958
+    },
+    {
+      "text": "8. Si bien ahora por un poco, y como por un momento",
+      "box": [
+        809,
+        1406,
+        1371,
+        1438
+      ],
+      "score": 0.9979119300842285
+    },
+    {
+      "text": "y sus consejeros, y magnates, y por todos los Israelitas que se",
+      "box": [
+        91,
+        1440,
+        644,
+        1470
+      ],
+      "score": 0.9929860234260559
+    },
+    {
+      "text": "han sido admitidos nuestros ruegos por el Señor Dios nues-",
+      "box": [
+        791,
+        1430,
+        1371,
+        1461
+      ],
+      "score": 0.9998053312301636
+    },
+    {
+      "text": "tro, á fin de que fuesen puestos en libertad los restos de",
+      "box": [
+        793,
+        1454,
+        1371,
+        1484
+      ],
+      "score": 0.9923752546310425
+    },
+    {
+      "text": "habian hallado allí.",
+      "box": [
+        91,
+        1468,
+        276,
+        1495
+      ],
+      "score": 0.999132513999939
+    },
+    {
+      "text": "nuestro pueblo, y se nos diese estabilidad ó morada segura",
+      "box": [
+        790,
+        1479,
+        1371,
+        1509
+      ],
+      "score": 0.9945170879364014
+    },
+    {
+      "text": "26. Y puse en sus manos seiscientos y cincuenta talentos",
+      "box": [
+        111,
+        1487,
+        645,
+        1522
+      ],
+      "score": 0.9847612977027893
+    },
+    {
+      "text": "en su lugar santo, y alumbrase el Señor Dios nuestros ojos, y",
+      "box": [
+        792,
+        1506,
+        1371,
+        1532
+      ],
+      "score": 0.9915611147880554
+    },
+    {
+      "text": "de plata, y cien vasos de plata, con cien talentos de oro;",
+      "box": [
+        92,
+        1514,
+        597,
+        1548
+      ],
+      "score": 0.9988040328025818
+    },
+    {
+      "text": "nos concediese respirar algun tanto en nuestra esclavitud:",
+      "box": [
+        791,
+        1530,
+        1332,
+        1556
+      ],
+      "score": 0.9954880475997925
+    },
+    {
+      "text": "27. Y además veinte tazones de oro, de mil dracmas de",
+      "box": [
+        113,
+        1538,
+        643,
+        1572
+      ],
+      "score": 0.9837860465049744
+    },
+    {
+      "text": "9. Porque esclavos éramos; mas en medio de nuestra",
+      "box": [
+        812,
+        1555,
+        1373,
+        1579
+      ],
+      "score": 0.9995579719543457
+    },
+    {
+      "text": "peso, y dos vasos de bronce acicalado, y muy fino, tan visto-",
+      "box": [
+        90,
+        1562,
+        645,
+        1601
+      ],
+      "score": 0.9985442161560059
+    },
+    {
+      "text": "esclavitud no nos ha desamparado nuestro Dios, antes bien",
+      "box": [
+        792,
+        1580,
+        1372,
+        1604
+      ],
+      "score": 0.998284637928009
+    },
+    {
+      "text": "sos como los de oro.",
+      "box": [
+        91,
+        1597,
+        277,
+        1626
+      ],
+      "score": 0.9999125599861145
+    },
+    {
+      "text": "ha inclinado á misericordia para con nosotros al rey de",
+      "box": [
+        789,
+        1601,
+        1374,
+        1630
+      ],
+      "score": 0.9944120645523071
+    },
+    {
+      "text": "28. Y díjeles: Vosotros sois santos ó consagrados al Señor,",
+      "box": [
+        112,
+        1613,
+        643,
+        1651
+      ],
+      "score": 0.9987162947654724
+    },
+    {
+      "text": "Persia, á fin de que éste nos diese la vida concediéndonos la",
+      "box": [
+        789,
+        1625,
+        1374,
+        1654
+      ],
+      "score": 0.9971317648887634
+    },
+    {
+      "text": "y santos son los vasos, y la plata y el oro, ofrecido espontá-",
+      "box": [
+        91,
+        1639,
+        644,
+        1677
+      ],
+      "score": 0.9907670021057129
+    },
+    {
+      "text": "libertad, y ensalzase la Casa de nuestro Dios, y reparase",
+      "box": [
+        790,
+        1649,
+        1375,
+        1680
+      ],
+      "score": 0.9868208169937134
+    },
+    {
+      "text": "neamente al Señor Dios de nuestros padres:",
+      "box": [
+        91,
+        1667,
+        489,
+        1702
+      ],
+      "score": 0.999973475933075
+    },
+    {
+      "text": "sus ruinas, y nos diese acogida segura en Judá y en Jeru-",
+      "box": [
+        788,
+        1673,
+        1376,
+        1705
+      ],
+      "score": 0.9738970994949341
+    },
+    {
+      "text": "29. 'Custodiad con vigilancia todo eso, hasta que lo en-",
+      "box": [
+        112,
+        1688,
+        644,
+        1726
+      ],
+      "score": 0.9993187189102173
+    },
+    {
+      "text": "salem.",
+      "box": [
+        787,
+        1699,
+        851,
+        1727
+      ],
+      "score": 0.9998696446418762
+    },
+    {
+      "text": "tregueis por su peso en el tesoro de la Casa del Señor en",
+      "box": [
+        93,
+        1713,
+        645,
+        1752
+      ],
+      "score": 0.9884224534034729
+    },
+    {
+      "text": "10. Y ahora, oh Dios nuestro, ¿qué diremos despues de",
+      "box": [
+        807,
+        1719,
+        1376,
+        1754
+      ],
+      "score": 0.9935917258262634
+    },
+    {
+      "text": "UUU",
+      "box": [
+        660,
+        1718,
+        778,
+        1761
+      ],
+      "score": 0.5368372797966003
+    },
+    {
+      "text": "Jerusalem ante los príncipes de los sacerdotes y Levitas, y",
+      "box": [
+        92,
+        1738,
+        643,
+        1777
+      ],
+      "score": 0.9980475902557373
+    },
+    {
+      "text": "tales cosas? Nosotros que hemos despreciado de nuevo tus",
+      "box": [
+        788,
+        1743,
+        1379,
+        1781
+      ],
+      "score": 0.9984310269355774
+    },
+    {
+      "text": "jefes de las familias de Israél.",
+      "box": [
+        91,
+        1770,
+        359,
+        1800
+      ],
+      "score": 0.986021101474762
+    },
+    {
+      "text": "mandamientos,",
+      "box": [
+        790,
+        1770,
+        923,
+        1799
+      ],
+      "score": 0.9999949932098389
+    },
+    {
+      "text": "11. Intimados por medio de tus siervos los profetas, di-",
+      "box": [
+        806,
+        1789,
+        1379,
+        1831
+      ],
+      "score": 0.9987050890922546
+    },
+    {
+      "text": "30. Recibieron pues los sacerdotes y Levitas por peso la",
+      "box": [
+        112,
+        1787,
+        643,
+        1825
+      ],
+      "score": 0.996324896812439
+    },
+    {
+      "text": "ciéndonos: La tierra en cuya posesion vais á entrar, es una",
+      "box": [
+        787,
+        1812,
+        1381,
+        1858
+      ],
+      "score": 0.9861576557159424
+    },
+    {
+      "text": "plata y el oro, y los vasos, para llevarlo á Jerusalem á la",
+      "box": [
+        91,
+        1811,
+        643,
+        1849
+      ],
+      "score": 0.9960386157035828
+    },
+    {
+      "text": "tierra inmunda (como son inmundos los otros pueblos y",
+      "box": [
+        787,
+        1836,
+        1381,
+        1883
+      ],
+      "score": 0.9996404051780701
+    },
+    {
+      "text": "Casa de nuestro Dios.",
+      "box": [
+        93,
+        1844,
+        290,
+        1872
+      ],
+      "score": 0.9998633861541748
+    },
+    {
+      "text": "demás países), por causa de las abominaciones é inmundicias",
+      "box": [
+        789,
+        1863,
+        1381,
+        1906
+      ],
+      "score": 0.9977236390113831
+    },
+    {
+      "text": "31. Partimos en fin de la ribera del rio Ahava el dia doce",
+      "box": [
+        109,
+        1860,
+        643,
+        1896
+      ],
+      "score": 0.9906537532806396
+    },
+    {
+      "text": "de los ídolos, que la han inundado de un cabo á otro;",
+      "box": [
+        789,
+        1888,
+        1297,
+        1930
+      ],
+      "score": 0.9795642495155334
+    },
+    {
+      "text": "del mes primero, camino de Jerusalem; y la mano de nuestro",
+      "box": [
+        92,
+        1885,
+        644,
+        1923
+      ],
+      "score": 0.9986427426338196
+    },
+    {
+      "text": "12. Por tanto, no dareis vuestras hijas á sus hijos, ni",
+      "box": [
+        809,
+        1913,
+        1379,
+        1955
+      ],
+      "score": 0.9923431873321533
+    },
+    {
+      "text": "Dios nos protegió, y nos libró de caer en lás manos de los",
+      "box": [
+        91,
+        1909,
+        645,
+        1950
+      ],
+      "score": 0.9888583421707153
+    },
+    {
+      "text": "tomareis sus hijas por esposas de vuestros hijos, ni procu-",
+      "box": [
+        790,
+        1938,
+        1381,
+        1981
+      ],
+      "score": 0.9789526462554932
+    },
+    {
+      "text": "enemigos y salteadores, durante el viaje.",
+      "box": [
+        91,
+        1939,
+        462,
+        1976
+      ],
+      "score": 0.9998976588249207
+    },
+    {
+      "text": "rareis jamás su amistad ni su prosperidad, si quereis hace-",
+      "box": [
+        791,
+        1962,
+        1381,
+        2006
+      ],
+      "score": 0.9993302822113037
+    },
+    {
+      "text": "32. Por último llegamos á Jerusalem, donde descansamos",
+      "box": [
+        111,
+        1961,
+        645,
+        1999
+      ],
+      "score": 0.9990971088409424
+    },
+    {
+      "text": "tres dias.",
+      "box": [
+        88,
+        1998,
+        178,
+        2027
+      ],
+      "score": 0.9982298612594604
+    }
+  ]
+}

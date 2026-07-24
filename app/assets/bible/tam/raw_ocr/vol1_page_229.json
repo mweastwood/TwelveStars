@@ -1,0 +1,1497 @@
+{
+  "volume": 1,
+  "page_index": 229,
+  "pdf_page": 230,
+  "lines": [
+    {
+      "text": "CAPITULO XVI.",
+      "box": [
+        675,
+        35,
+        791,
+        56
+      ],
+      "score": 0.9974040985107422
+    },
+    {
+      "text": "256",
+      "box": [
+        883,
+        40,
+        907,
+        57
+      ],
+      "score": 0.999682605266571
+    },
+    {
+      "text": "255",
+      "box": [
+        73,
+        50,
+        97,
+        67
+      ],
+      "score": 0.9998429417610168
+    },
+    {
+      "text": "DEUTERONOMIO.",
+      "box": [
+        185,
+        47,
+        307,
+        69
+      ],
+      "score": 0.9994799494743347
+    },
+    {
+      "text": "19. Consagrarás al Señor Dios tuyo todos los primerizos",
+      "box": [
+        77,
+        92,
+        437,
+        114
+      ],
+      "score": 0.9965431690216064
+    },
+    {
+      "text": "entre vosotros: todo en el lugar que tu Señor Dios señalare",
+      "box": [
+        538,
+        78,
+        916,
+        106
+      ],
+      "score": 0.9932454228401184
+    },
+    {
+      "text": "machos, que nacieren de tus vacas y ovejas. No pondrás al",
+      "box": [
+        67,
+        110,
+        437,
+        133
+      ],
+      "score": 0.996575653553009
+    },
+    {
+      "text": "para establecer allí su culto ó Tabernáculo.",
+      "box": [
+        537,
+        98,
+        810,
+        125
+      ],
+      "score": 0.9880014657974243
+    },
+    {
+      "text": "12. Y acordándote que fuiste esclavo en Egypto, observarás",
+      "box": [
+        550,
+        114,
+        915,
+        140
+      ],
+      "score": 0.9866409301757812
+    },
+    {
+      "text": "trabajo al primerizo de la vaca, ni esquilarás los primerizos",
+      "box": [
+        67,
+        126,
+        437,
+        151
+      ],
+      "score": 0.989700436592102
+    },
+    {
+      "text": "de las ovejas 1.",
+      "box": [
+        66,
+        147,
+        163,
+        170
+      ],
+      "score": 0.923409640789032
+    },
+    {
+      "text": "y harás lo que queda ordenado.",
+      "box": [
+        537,
+        133,
+        736,
+        156
+      ],
+      "score": 0.9998630285263062
+    },
+    {
+      "text": "13. Celebrarás tambien la solemnidad de los Tabernáculos",
+      "box": [
+        550,
+        148,
+        913,
+        172
+      ],
+      "score": 0.9904346466064453
+    },
+    {
+      "text": "20. Todos los años los comerás en presencia del Señor Dios",
+      "box": [
+        79,
+        158,
+        437,
+        185
+      ],
+      "score": 0.9926333427429199
+    },
+    {
+      "text": "tuyo en compaña de tu familia , en el lugar que habrá esco-",
+      "box": [
+        67,
+        174,
+        436,
+        204
+      ],
+      "score": 0.8926048874855042
+    },
+    {
+      "text": "por siete dias, despues de recogidos los frutos de la era y del",
+      "box": [
+        537,
+        165,
+        915,
+        189
+      ],
+      "score": 0.9881067872047424
+    },
+    {
+      "text": "lagar;",
+      "box": [
+        538,
+        188,
+        580,
+        206
+      ],
+      "score": 0.9997632503509521
+    },
+    {
+      "text": "gido el Señor.",
+      "box": [
+        69,
+        198,
+        156,
+        217
+      ],
+      "score": 0.9763168692588806
+    },
+    {
+      "text": "14. Y en esta festividad celebrarás banquetes tú, tu hijo",
+      "box": [
+        550,
+        196,
+        913,
+        221
+      ],
+      "score": 0.995740532875061
+    },
+    {
+      "text": "21. Pero si el primerizo tuviere alguna tacha ódefecto legal,",
+      "box": [
+        78,
+        205,
+        435,
+        236
+      ],
+      "score": 0.963441014289856
+    },
+    {
+      "text": "si fuere cojo, ó ciego, ó disforme en alguna parte del cuerpo,",
+      "box": [
+        65,
+        223,
+        436,
+        251
+      ],
+      "score": 0.9435573220252991
+    },
+    {
+      "text": "é hija, tu esclavo y esclava, como tambien el Levita y el",
+      "box": [
+        537,
+        213,
+        913,
+        238
+      ],
+      "score": 0.9852907657623291
+    },
+    {
+      "text": "óestropeado, no será sacrificado al Señor Dios tuyo;",
+      "box": [
+        65,
+        240,
+        384,
+        267
+      ],
+      "score": 0.9193048477172852
+    },
+    {
+      "text": "extranjero, el huérfano, y la viuda que viven dentro de tus",
+      "box": [
+        537,
+        230,
+        913,
+        254
+      ],
+      "score": 0.9985520839691162
+    },
+    {
+      "text": "22. Sino que le comerás dentro de tu ciudad: tanto el",
+      "box": [
+        77,
+        253,
+        435,
+        283
+      ],
+      "score": 0.9614832997322083
+    },
+    {
+      "text": "ciudades.",
+      "box": [
+        538,
+        254,
+        598,
+        268
+      ],
+      "score": 0.9999358057975769
+    },
+    {
+      "text": "hombre limpio como el inmundo podnán comer igualmente de",
+      "box": [
+        64,
+        269,
+        435,
+        300
+      ],
+      "score": 0.9773389101028442
+    },
+    {
+      "text": "15. Siete dias celebrarás fiesta al Señor Dios tuyo en el",
+      "box": [
+        549,
+        260,
+        913,
+        285
+      ],
+      "score": 0.9989096522331238
+    },
+    {
+      "text": "él, ni mas ni menos que de un corzo ó de un ciervo.",
+      "box": [
+        66,
+        287,
+        379,
+        314
+      ],
+      "score": 0.9886320233345032
+    },
+    {
+      "text": "lugar que hubiere escogido; y con eso tu Señor Dios echará la",
+      "box": [
+        536,
+        276,
+        913,
+        302
+      ],
+      "score": 0.9962558150291443
+    },
+    {
+      "text": "23. Solo te guardarás de comer su sangre; la cual has de",
+      "box": [
+        79,
+        299,
+        434,
+        332
+      ],
+      "score": 0.9780369997024536
+    },
+    {
+      "text": "bendicion sobre todas tus cosechas, y sobre todas las obras",
+      "box": [
+        536,
+        292,
+        913,
+        318
+      ],
+      "score": 0.9941756725311279
+    },
+    {
+      "text": "derramar en el suelo como agua.",
+      "box": [
+        70,
+        326,
+        263,
+        343
+      ],
+      "score": 0.9962809085845947
+    },
+    {
+      "text": "de tus manos, y estarás alegre.",
+      "box": [
+        536,
+        313,
+        730,
+        334
+      ],
+      "score": 0.9917418956756592
+    },
+    {
+      "text": "16. Tres veces al año se presentarán todos tus varones",
+      "box": [
+        549,
+        323,
+        914,
+        351
+      ],
+      "score": 0.9986802339553833
+    },
+    {
+      "text": "CAPITULO XVI",
+      "box": [
+        200,
+        351,
+        303,
+        370
+      ],
+      "score": 0.998699426651001
+    },
+    {
+      "text": "ante el Señor Dios tuyo, en el lugar que señalare: en la flesta",
+      "box": [
+        535,
+        339,
+        915,
+        367
+      ],
+      "score": 0.9919947385787964
+    },
+    {
+      "text": "de los Ázymos, en la fiesta de las Semanas é Pentecostés, y en",
+      "box": [
+        535,
+        355,
+        914,
+        384
+      ],
+      "score": 0.9758042097091675
+    },
+    {
+      "text": "De las tres festas solemnísimas de Pascua, de Pentecostés, y de los Ta-",
+      "box": [
+        68,
+        373,
+        433,
+        399
+      ],
+      "score": 0.9016026258468628
+    },
+    {
+      "text": "la fiesta de los Tabernáculos. Nadie comparecerá con las",
+      "box": [
+        534,
+        371,
+        915,
+        401
+      ],
+      "score": 0.9900349378585815
+    },
+    {
+      "text": "bernáculos. Sobre poner jueces rectos, y huir las ocasiones de ido-",
+      "box": [
+        79,
+        389,
+        434,
+        412
+      ],
+      "score": 0.98956698179245
+    },
+    {
+      "text": "manos vacías delante del Señor:",
+      "box": [
+        535,
+        395,
+        739,
+        416
+      ],
+      "score": 0.9997895359992981
+    },
+    {
+      "text": "latría³.",
+      "box": [
+        80,
+        409,
+        123,
+        424
+      ],
+      "score": 0.9251698851585388
+    },
+    {
+      "text": "17. Sino que cada uno ofrecerá á proporcion de lo que",
+      "box": [
+        548,
+        404,
+        915,
+        433
+      ],
+      "score": 0.9827995896339417
+    },
+    {
+      "text": "1. Ten cuidado con el mes de los nuevos frutos, que es al",
+      "box": [
+        82,
+        432,
+        434,
+        454
+      ],
+      "score": 0.9979509115219116
+    },
+    {
+      "text": "tuviere, á medida de la bendicion que su Señor Dios le habrá",
+      "box": [
+        535,
+        420,
+        915,
+        450
+      ],
+      "score": 0.9913495779037476
+    },
+    {
+      "text": "principio de la primavera, para celebrar en él la Pascua del",
+      "box": [
+        67,
+        446,
+        435,
+        473
+      ],
+      "score": 0.9906498789787292
+    },
+    {
+      "text": "dado.",
+      "box": [
+        537,
+        446,
+        577,
+        464
+      ],
+      "score": 0.9999038577079773
+    },
+    {
+      "text": "Señor Dios tuyo: por cuanto en este mes te sacó de Egypto tu",
+      "box": [
+        69,
+        464,
+        434,
+        487
+      ],
+      "score": 0.9929695129394531
+    },
+    {
+      "text": "18. Constituirás jueces y magistrados en todas las ciuda-",
+      "box": [
+        549,
+        452,
+        916,
+        483
+      ],
+      "score": 0.9985736608505249
+    },
+    {
+      "text": "Señor Dios durante la noche 4.",
+      "box": [
+        69,
+        483,
+        252,
+        503
+      ],
+      "score": 0.9909074306488037
+    },
+    {
+      "text": "des, que el Señor Dios tuyo te diere en cada una de tus tribus:",
+      "box": [
+        536,
+        468,
+        917,
+        499
+      ],
+      "score": 0.9840053915977478
+    },
+    {
+      "text": "2. Y sacrificarás en la Pascua ovejas y bueyes al Señor",
+      "box": [
+        81,
+        495,
+        434,
+        520
+      ],
+      "score": 0.9873810410499573
+    },
+    {
+      "text": "para que juzguen al pueblo con juicio recto;",
+      "box": [
+        537,
+        490,
+        812,
+        514
+      ],
+      "score": 0.9765737652778625
+    },
+    {
+      "text": "Dios tuyo en el lugar que hubiere escogido el mismo Señor",
+      "box": [
+        69,
+        513,
+        435,
+        536
+      ],
+      "score": 0.9978903532028198
+    },
+    {
+      "text": "19. Sin inclinarse mas á una parte que á otra. No serás",
+      "box": [
+        549,
+        500,
+        917,
+        533
+      ],
+      "score": 0.9731391668319702
+    },
+    {
+      "text": "para establecer allí el culto de su Nombre.",
+      "box": [
+        69,
+        530,
+        323,
+        554
+      ],
+      "score": 0.9940434098243713
+    },
+    {
+      "text": "aceptador de personas, ni de dádivas; porque las dádivas cie-",
+      "box": [
+        536,
+        516,
+        919,
+        549
+      ],
+      "score": 0.9900593161582947
+    },
+    {
+      "text": "3. No comerás durante esta fiesta pan con levadura:",
+      "box": [
+        82,
+        544,
+        434,
+        569
+      ],
+      "score": 0.9937756657600403
+    },
+    {
+      "text": "gan los ojos de los sabios, y pervierten los dictámenes de los",
+      "box": [
+        536,
+        532,
+        919,
+        566
+      ],
+      "score": 0.9990096688270569
+    },
+    {
+      "text": "durante siete dias comerás pan ázymo, pan de afliccion ;",
+      "box": [
+        69,
+        562,
+        434,
+        585
+      ],
+      "score": 0.9959850311279297
+    },
+    {
+      "text": "justos.",
+      "box": [
+        537,
+        563,
+        583,
+        581
+      ],
+      "score": 0.9999874234199524
+    },
+    {
+      "text": "porque con azoramiento saliste de Egypto: á fin de que te",
+      "box": [
+        68,
+        578,
+        434,
+        602
+      ],
+      "score": 0.9940124154090881
+    },
+    {
+      "text": "20. Administrarás la justicia con rectitud, para que vivas",
+      "box": [
+        549,
+        562,
+        919,
+        598
+      ],
+      "score": 0.9936870336532593
+    },
+    {
+      "text": "acuerdes del dia de tu salida de Egypto todo el tiempo de tu",
+      "box": [
+        68,
+        594,
+        434,
+        617
+      ],
+      "score": 0.9960766434669495
+    },
+    {
+      "text": "y poseas la tierra que te dará el Señor Dios tuyo.",
+      "box": [
+        535,
+        585,
+        840,
+        613
+      ],
+      "score": 0.9915297031402588
+    },
+    {
+      "text": "vida.",
+      "box": [
+        70,
+        616,
+        105,
+        634
+      ],
+      "score": 0.9997366070747375
+    },
+    {
+      "text": "21. No plantarás bosquetes ni árbol ninguno cerca del",
+      "box": [
+        548,
+        595,
+        919,
+        631
+      ],
+      "score": 0.9974384903907776
+    },
+    {
+      "text": "4. No aparecerá levadura en todos los términos de tu país",
+      "box": [
+        83,
+        624,
+        434,
+        650
+      ],
+      "score": 0.989732027053833
+    },
+    {
+      "text": "altar del Señor Dios tuyo 10.",
+      "box": [
+        537,
+        621,
+        709,
+        644
+      ],
+      "score": 0.9701951146125793
+    },
+    {
+      "text": "durante los siete dias, ni quedará nada de la carne de la vícti-",
+      "box": [
+        70,
+        640,
+        435,
+        666
+      ],
+      "score": 0.9873042106628418
+    },
+    {
+      "text": "22. No te fabricarás ni erigirás estátua; porque tu Señor",
+      "box": [
+        549,
+        627,
+        918,
+        663
+      ],
+      "score": 0.9980704188346863
+    },
+    {
+      "text": "ma inmolada en la tarde del primer dia, hasta otro dia por la",
+      "box": [
+        69,
+        658,
+        434,
+        683
+      ],
+      "score": 0.9888389110565186
+    },
+    {
+      "text": "Dios aborrece todas estas cosas.",
+      "box": [
+        537,
+        655,
+        729,
+        676
+      ],
+      "score": 0.9999297857284546
+    },
+    {
+      "text": "mañana.",
+      "box": [
+        70,
+        681,
+        126,
+        700
+      ],
+      "score": 0.9996423721313477
+    },
+    {
+      "text": "CAPITULO XVII",
+      "box": [
+        668,
+        681,
+        779,
+        702
+      ],
+      "score": 0.9994114637374878
+    },
+    {
+      "text": "5. No podrás sacrificar el cordero pascual en cualquiera",
+      "box": [
+        83,
+        689,
+        434,
+        715
+      ],
+      "score": 0.9869877099990845
+    },
+    {
+      "text": "de tus ciudades que te dará el Señor Dios tuyo;",
+      "box": [
+        70,
+        707,
+        357,
+        731
+      ],
+      "score": 0.999764621257782
+    },
+    {
+      "text": "Sobre el castigo de la idolatría: consultar á los sacerdotes; y eleccion y",
+      "box": [
+        537,
+        704,
+        918,
+        733
+      ],
+      "score": 0.9947942495346069
+    },
+    {
+      "text": "6. Sino solamente en el lugar que tu Señor Dios escogiere",
+      "box": [
+        84,
+        721,
+        434,
+        746
+      ],
+      "score": 0.9999062418937683
+    },
+    {
+      "text": "condiciones de un rey.",
+      "box": [
+        664,
+        724,
+        781,
+        742
+      ],
+      "score": 0.9998571872711182
+    },
+    {
+      "text": "para establecer allí el culto de su Nombre: é inmolarás la",
+      "box": [
+        70,
+        738,
+        435,
+        763
+      ],
+      "score": 0.9973926544189453
+    },
+    {
+      "text": "Pascua por la tarde al ponerse el sol, y en el tiempo en que",
+      "box": [
+        71,
+        755,
+        435,
+        778
+      ],
+      "score": 0.9970324039459229
+    },
+    {
+      "text": "1. No sacrificarás á tu Señor Dios oveja ó buey que tenga",
+      "box": [
+        550,
+        746,
+        920,
+        772
+      ],
+      "score": 0.9910957217216492
+    },
+    {
+      "text": "saliste de Egypto.",
+      "box": [
+        69,
+        774,
+        189,
+        795
+      ],
+      "score": 0.9374784827232361
+    },
+    {
+      "text": "tacha ó algun vicio: por ser esto abominable delante del Señor",
+      "box": [
+        537,
+        762,
+        920,
+        788
+      ],
+      "score": 0.9974428415298462
+    },
+    {
+      "text": "7. Así que aderezarás, y comerás el cordero pascual en el",
+      "box": [
+        84,
+        786,
+        436,
+        810
+      ],
+      "score": 0.9966123700141907
+    },
+    {
+      "text": "Dios tuyo.",
+      "box": [
+        537,
+        785,
+        605,
+        805
+      ],
+      "score": 0.9999532699584961
+    },
+    {
+      "text": "lugar que tu Señor Dios eligiere; y á la mañana, levantándo-",
+      "box": [
+        71,
+        802,
+        436,
+        826
+      ],
+      "score": 0.9942548871040344
+    },
+    {
+      "text": "2. En el caso que se hallaren en tu país dentro de alguna",
+      "box": [
+        549,
+        793,
+        920,
+        820
+      ],
+      "score": 0.9974453449249268
+    },
+    {
+      "text": "te, podrás volverte á tu casa.",
+      "box": [
+        71,
+        822,
+        246,
+        842
+      ],
+      "score": 0.9818950295448303
+    },
+    {
+      "text": "de tus ciudades que Dios tu Señor te dará, hombre ó mujer",
+      "box": [
+        537,
+        810,
+        920,
+        836
+      ],
+      "score": 0.9989762306213379
+    },
+    {
+      "text": "8. Seis dias comerás panes sin levadura, y el dia séptimo",
+      "box": [
+        83,
+        835,
+        436,
+        858
+      ],
+      "score": 0.9897270202636719
+    },
+    {
+      "text": "que cometan la maldad en presencia del Señor Dios tuyo, de",
+      "box": [
+        538,
+        827,
+        920,
+        853
+      ],
+      "score": 0.999613881111145
+    },
+    {
+      "text": "por ser la solemne reunion s en honor del Señor Dios tuyo, no",
+      "box": [
+        69,
+        852,
+        438,
+        875
+      ],
+      "score": 0.9704064726829529
+    },
+    {
+      "text": "quebrantar su pacto,",
+      "box": [
+        538,
+        849,
+        666,
+        869
+      ],
+      "score": 0.9998254776000977
+    },
+    {
+      "text": "trabajarás.",
+      "box": [
+        72,
+        872,
+        140,
+        889
+      ],
+      "score": 0.9996256232261658
+    },
+    {
+      "text": "3. Yéndose á servir y adorar á dioses ajenos, al sol, y á la",
+      "box": [
+        550,
+        858,
+        920,
+        884
+      ],
+      "score": 0.9968186020851135
+    },
+    {
+      "text": "9. Contarás siete semanas, comenzando desde el día en que",
+      "box": [
+        82,
+        884,
+        439,
+        906
+      ],
+      "score": 0.9879993200302124
+    },
+    {
+      "text": "luna, y á todas las estrellas del cielo, contraviniendo al man-",
+      "box": [
+        538,
+        874,
+        920,
+        900
+      ],
+      "score": 0.9957499504089355
+    },
+    {
+      "text": "metieres la hoz en las mieses ;",
+      "box": [
+        71,
+        902,
+        260,
+        921
+      ],
+      "score": 0.9958325624465942
+    },
+    {
+      "text": "damiento mio;",
+      "box": [
+        538,
+        896,
+        632,
+        916
+      ],
+      "score": 0.9708933234214783
+    },
+    {
+      "text": "10. Y celebrarás la fiesta de las Siete Semanas, ó de Pente-",
+      "box": [
+        85,
+        917,
+        439,
+        937
+      ],
+      "score": 0.9815158843994141
+    },
+    {
+      "text": "4. Y eso te fuere denunciado; si despues de haber tenido",
+      "box": [
+        551,
+        906,
+        920,
+        931
+      ],
+      "score": 0.9960116147994995
+    },
+    {
+      "text": "costés, al Señor Dios tuyo, con la oblacion voluntaria del fruto",
+      "box": [
+        71,
+        933,
+        439,
+        954
+      ],
+      "score": 0.9993855953216553
+    },
+    {
+      "text": "el aviso hicieres diligentes pesquisas, y hallares ser cierto que",
+      "box": [
+        539,
+        924,
+        920,
+        947
+      ],
+      "score": 0.9952279925346375
+    },
+    {
+      "text": "de tus manos, que ofrecerás conforme á la bendicion recibida",
+      "box": [
+        71,
+        949,
+        439,
+        970
+      ],
+      "score": 0.9982959032058716
+    },
+    {
+      "text": "tal abominacion se ha cometido en Israél,",
+      "box": [
+        540,
+        942,
+        794,
+        963
+      ],
+      "score": 0.9950453639030457
+    },
+    {
+      "text": "5. Sacarás al hombre y á la mujer, que cometieren tan",
+      "box": [
+        551,
+        955,
+        921,
+        981
+      ],
+      "score": 0.9989480972290039
+    },
+    {
+      "text": "de Dios tu Señor.",
+      "box": [
+        72,
+        967,
+        179,
+        987
+      ],
+      "score": 0.9998963475227356
+    },
+    {
+      "text": "11. Y en su presencia celebrarás banquetes tú, tu hijo, y",
+      "box": [
+        86,
+        983,
+        440,
+        1002
+      ],
+      "score": 0.9991520047187805
+    },
+    {
+      "text": "enorme pecado, á la puerta de tu ciudad ii, y serán muertos",
+      "box": [
+        540,
+        972,
+        920,
+        996
+      ],
+      "score": 0.9706291556358337
+    },
+    {
+      "text": "tu hija, tu siervo, y tu sierva, y el Levita que reside en tu",
+      "box": [
+        73,
+        998,
+        441,
+        1019
+      ],
+      "score": 0.9937195181846619
+    },
+    {
+      "text": "á pedradas.",
+      "box": [
+        539,
+        992,
+        613,
+        1012
+      ],
+      "score": 0.9487294554710388
+    },
+    {
+      "text": "6. Por deposicion de dos ó tres testigos perderá la vida el",
+      "box": [
+        552,
+        1003,
+        921,
+        1028
+      ],
+      "score": 0.9958330392837524
+    },
+    {
+      "text": "ciudad, el extranjero y el huérfano y la viuda que moran",
+      "box": [
+        73,
+        1014,
+        441,
+        1035
+      ],
+      "score": 0.9917144775390625
+    },
+    {
+      "text": "cion, durante los siete dias de la fiesta. De estas víctimas pacíficas creen",
+      "box": [
+        540,
+        1044,
+        920,
+        1066
+      ],
+      "score": 0.9608437418937683
+    },
+    {
+      "text": "1 Estando consagrados á Dios los primerizos de sus ganados, se les",
+      "box": [
+        83,
+        1053,
+        442,
+        1074
+      ],
+      "score": 0.9989443421363831
+    },
+    {
+      "text": "prohibe aquí, como cosa injusta, el sacar antes de ellos los provechos y",
+      "box": [
+        73,
+        1067,
+        443,
+        1089
+      ],
+      "score": 0.9847541451454163
+    },
+    {
+      "text": "algunos que hablaban los Judíos. Joann. X'VIII, v. 28.",
+      "box": [
+        540,
+        1059,
+        825,
+        1080
+      ],
+      "score": 0.9709510207176208
+    },
+    {
+      "text": "6 Como que es menos sabroso.",
+      "box": [
+        552,
+        1076,
+        711,
+        1090
+      ],
+      "score": 0.9839373826980591
+    },
+    {
+      "text": "ventajas posibles.",
+      "box": [
+        74,
+        1085,
+        165,
+        1101
+      ],
+      "score": 0.9971133470535278
+    },
+    {
+      "text": "* Habla Moysés á los que tenian derccho de comerlos. Num. X'VIII,",
+      "box": [
+        83,
+        1093,
+        442,
+        1115
+      ],
+      "score": 0.9527139663696289
+    },
+    {
+      "text": "7 Esto es, en el mismo dia y mes del año.",
+      "box": [
+        551,
+        1086,
+        770,
+        1106
+      ],
+      "score": 0.9835500121116638
+    },
+    {
+      "text": "v. 17. O tal vez esta ley se entiende únicamente de los animales prime-",
+      "box": [
+        74,
+        1107,
+        442,
+        1128
+      ],
+      "score": 0.9904460906982422
+    },
+    {
+      "text": "8 Colectas se llamaban al principio de la Iglesia las juntas solemnes de",
+      "box": [
+        551,
+        1098,
+        922,
+        1120
+      ],
+      "score": 0.9931541085243225
+    },
+    {
+      "text": "rizos destinados á los convites sagrados.—Véase antes cop. XI, v. 17.",
+      "box": [
+        73,
+        1121,
+        431,
+        1143
+      ],
+      "score": 0.9308879971504211
+    },
+    {
+      "text": "los fieles; y aun se llaman colectas las oraciones que se dicen en la misa,",
+      "box": [
+        541,
+        1112,
+        922,
+        1134
+      ],
+      "score": 0.9932157397270203
+    },
+    {
+      "text": "3 Año del MuNDo 2553: antes de Jesu-CHRísto 1451",
+      "box": [
+        85,
+        1136,
+        357,
+        1154
+      ],
+      "score": 0.913541853427887
+    },
+    {
+      "text": "congregado el pueblo.",
+      "box": [
+        542,
+        1130,
+        655,
+        1149
+      ],
+      "score": 0.996810257434845
+    },
+    {
+      "text": "4 Esto cs, antes de amanecer. Puede decirse que hicieron su salida",
+      "box": [
+        84,
+        1149,
+        441,
+        1168
+      ],
+      "score": 0.998847246170044
+    },
+    {
+      "text": " Que será al otro dia de la Pascua.",
+      "box": [
+        551,
+        1141,
+        739,
+        1161
+      ],
+      "score": 0.960767388343811
+    },
+    {
+      "text": "por la tarde, pues en ella se prepararon para la marcha, y comieron el",
+      "box": [
+        75,
+        1164,
+        442,
+        1181
+      ],
+      "score": 0.998811662197113
+    },
+    {
+      "text": "10 Segun estilo de los idólatras.",
+      "box": [
+        549,
+        1154,
+        714,
+        1175
+      ],
+      "score": 0.9938879013061523
+    },
+    {
+      "text": "cordero pascual: por la noche pues antes de amanecer ya les obligaban á",
+      "box": [
+        74,
+        1176,
+        442,
+        1194
+      ],
+      "score": 0.9878333806991577
+    },
+    {
+      "text": "11 Donde está el tribunal. Habia en cada ciudad un synedrio ó consejo",
+      "box": [
+        548,
+        1165,
+        922,
+        1188
+      ],
+      "score": 0.9770733118057251
+    },
+    {
+      "text": "salir los Egypcios en vista de la muerte de sus primogénitos; y última-",
+      "box": [
+        73,
+        1189,
+        443,
+        1208
+      ],
+      "score": 0.9868040680885315
+    },
+    {
+      "text": "de veinte y tres jueces, y dé tres en las pequeñas poblaciones, compuesto",
+      "box": [
+        542,
+        1179,
+        922,
+        1202
+      ],
+      "score": 0.9863719940185547
+    },
+    {
+      "text": "mente, reunidos en Rameses, se pusieron en camino al salir el sol. Todas",
+      "box": [
+        73,
+        1203,
+        443,
+        1221
+      ],
+      "score": 0.9949073791503906
+    },
+    {
+      "text": "de Saccrdotes, Levitas y Hebreos nobles, ricos y sabios, libres de toda",
+      "box": [
+        544,
+        1191,
+        922,
+        1216
+      ],
+      "score": 0.9909411072731018
+    },
+    {
+      "text": "son partes de una misma accion.",
+      "box": [
+        74,
+        1219,
+        238,
+        1234
+      ],
+      "score": 0.9891480803489685
+    },
+    {
+      "text": "mancha de cuerpo y espíritu. Para las sentencias de muerte debian juu-",
+      "box": [
+        544,
+        1205,
+        922,
+        1231
+      ],
+      "score": 0.9817269444465637
+    },
+    {
+      "text": "5 Por Pascua entiende aquí Moysés todas las víctimas pascuales; y en",
+      "box": [
+        84,
+        1234,
+        441,
+        1248
+      ],
+      "score": 0.9776171445846558
+    },
+    {
+      "text": "tarse todos; pero bastaban tres para las causas pecuniarias y negocios de",
+      "box": [
+        545,
+        1218,
+        922,
+        1245
+      ],
+      "score": 0.985018789768219
+    },
+    {
+      "text": "primer lugar el cordero, que era el sacrificio esencial, despues las otras",
+      "box": [
+        76,
+        1248,
+        442,
+        1262
+      ],
+      "score": 0.9976089000701904
+    },
+    {
+      "text": "menos consecuencia. Fleuri, Costumbres, etc., n. 26. Las sentencias de",
+      "box": [
+        544,
+        1231,
+        922,
+        1259
+      ],
+      "score": 0.9659311771392822
+    },
+    {
+      "text": "víetimas mandadas por Dios (Num. XATIII, v. 19, 23); y finalmente las",
+      "box": [
+        76,
+        1262,
+        442,
+        1275
+      ],
+      "score": 0.9298333525657654
+    },
+    {
+      "text": "muerte se ejecutaban fuera de la ciudad.—Véase Juicio.",
+      "box": [
+        545,
+        1246,
+        833,
+        1273
+      ],
+      "score": 0.9492351412773132
+    },
+    {
+      "text": "víetimas pacíficas que en accion de gracias ofrecian muchos por devo-",
+      "box": [
+        76,
+        1275,
+        442,
+        1289
+      ],
+      "score": 0.9886536598205566
+    }
+  ]
+}

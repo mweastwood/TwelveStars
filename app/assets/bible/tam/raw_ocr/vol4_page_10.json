@@ -1,0 +1,167 @@
+{
+  "volume": 4,
+  "page_index": 10,
+  "pdf_page": 11,
+  "lines": [
+    {
+      "text": "SAGRADA BIBLIA",
+      "box": [
+        41,
+        20,
+        894,
+        135
+      ],
+      "score": 0.9991453886032104
+    },
+    {
+      "text": "TRADUCIDA DE LA VULGATA LATINA AL ESPAÑOL,",
+      "box": [
+        159,
+        155,
+        777,
+        204
+      ],
+      "score": 0.9983736872673035
+    },
+    {
+      "text": "ACLARADO EL SENTIDO DE ALGUNOS LUGARES CON LA LUZ QUE DAN LOS TEXTOS ORIGINALES HEBREO Y GRIEÇO,",
+      "box": [
+        49,
+        222,
+        905,
+        258
+      ],
+      "score": 0.9918181300163269
+    },
+    {
+      "text": "É ILUSTR ADA CON VARIAS NOTAS SACADAS DE LOS SANTOS PADRES Y EXPOSITORES SAGRADOS",
+      "box": [
+        115,
+        247,
+        831,
+        284
+      ],
+      "score": 0.9925806522369385
+    },
+    {
+      "text": "POR",
+      "box": [
+        448,
+        294,
+        473,
+        306
+      ],
+      "score": 0.9999823570251465
+    },
+    {
+      "text": "D. FÉLIX TORRES AMAT,",
+      "box": [
+        175,
+        320,
+        767,
+        388
+      ],
+      "score": 0.9761711955070496
+    },
+    {
+      "text": "DE LA DE LA HISTORIA, ETC., ETC., ETC.",
+      "box": [
+        343,
+        425,
+        588,
+        447
+      ],
+      "score": 0.996159017086029
+    },
+    {
+      "text": "NUEVA EDICION",
+      "box": [
+        379,
+        481,
+        551,
+        509
+      ],
+      "score": 0.9759636521339417
+    },
+    {
+      "text": "ILUSTRADA POR GUSTAVO DORÉ",
+      "box": [
+        215,
+        543,
+        708,
+        575
+      ],
+      "score": 0.9994677901268005
+    },
+    {
+      "text": "CON LICENCIA DE LA AUTORIDAD ECLESIÁSTICA",
+      "box": [
+        300,
+        631,
+        637,
+        655
+      ],
+      "score": 0.9915921092033386
+    },
+    {
+      "text": "TOMO CUARTO",
+      "box": [
+        373,
+        853,
+        571,
+        883
+      ],
+      "score": 0.9994191527366638
+    },
+    {
+      "text": "NUEVO TESTAMENTO",
+      "box": [
+        413,
+        904,
+        532,
+        920
+      ],
+      "score": 0.999847412109375
+    },
+    {
+      "text": "BARCELONA",
+      "box": [
+        410,
+        1154,
+        533,
+        1179
+      ],
+      "score": 0.9998812079429626
+    },
+    {
+      "text": "MONTANER Y SIMON, EDITORES",
+      "box": [
+        237,
+        1205,
+        715,
+        1241
+      ],
+      "score": 0.9947969913482666
+    },
+    {
+      "text": "CALLE DE ARAGON, NUMEROS 309 Y 311",
+      "box": [
+        350,
+        1251,
+        602,
+        1272
+      ],
+      "score": 0.9905634522438049
+    },
+    {
+      "text": "MDCCCLXXXIV",
+      "box": [
+        430,
+        1290,
+        511,
+        1305
+      ],
+      "score": 0.9974847435951233
+    }
+  ]
+}

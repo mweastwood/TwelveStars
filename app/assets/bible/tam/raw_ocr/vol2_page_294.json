@@ -1,0 +1,27 @@
+{
+  "volume": 2,
+  "page_index": 294,
+  "pdf_page": 295,
+  "lines": [
+    {
+      "text": "s.Xers",
+      "box": [
+        139,
+        1684,
+        271,
+        1725
+      ],
+      "score": 0.607759416103363
+    },
+    {
+      "text": "JOB RECIBE LA NOTICIA LE SU RUINA",
+      "box": [
+        499,
+        1791,
+        948,
+        1821
+      ],
+      "score": 0.9827397465705872
+    }
+  ]
+}

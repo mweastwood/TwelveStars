@@ -1,0 +1,1467 @@
+{
+  "volume": 3,
+  "page_index": 56,
+  "pdf_page": 57,
+  "lines": [
+    {
+      "text": "73",
+      "box": [
+        18,
+        45,
+        38,
+        61
+      ],
+      "score": 0.999390721321106
+    },
+    {
+      "text": "SALMOS.",
+      "box": [
+        171,
+        46,
+        243,
+        71
+      ],
+      "score": 0.9980128407478333
+    },
+    {
+      "text": "SALMO CIII.",
+      "box": [
+        657,
+        57,
+        749,
+        81
+      ],
+      "score": 0.945548415184021
+    },
+    {
+      "text": "74",
+      "box": [
+        868,
+        68,
+        887,
+        85
+      ],
+      "score": 0.9914827346801758
+    },
+    {
+      "text": "15. Y porque hasta sus mismas ruinas son amadas de tus",
+      "box": [
+        20,
+        85,
+        409,
+        122
+      ],
+      "score": 0.992508053779602
+    },
+    {
+      "text": "siervos, y miran estos con aficion aun al polvo de aquella",
+      "box": [
+        5,
+        103,
+        408,
+        141
+      ],
+      "score": 0.9896417260169983
+    },
+    {
+      "text": "13. Como un padre se compadece de sus hijos, así se ha",
+      "box": [
+        523,
+        106,
+        894,
+        136
+      ],
+      "score": 0.9957409501075745
+    },
+    {
+      "text": "tierra.",
+      "box": [
+        5,
+        119,
+        55,
+        144
+      ],
+      "score": 0.999244213104248
+    },
+    {
+      "text": "compadecido el Señor de los que le temen:",
+      "box": [
+        510,
+        126,
+        778,
+        151
+      ],
+      "score": 0.9871060252189636
+    },
+    {
+      "text": "16. Entonces, oh Señor, las naciones temerán tu santo",
+      "box": [
+        20,
+        139,
+        410,
+        179
+      ],
+      "score": 0.9986951351165771
+    },
+    {
+      "text": "14. Porque conoce bien él la fragilidad de nuestro sér.—",
+      "box": [
+        522,
+        143,
+        892,
+        171
+      ],
+      "score": 0.9990301132202148
+    },
+    {
+      "text": "Nombre, y todos los reyes de la tierra respetarán tu gloria.",
+      "box": [
+        6,
+        157,
+        391,
+        195
+      ],
+      "score": 0.9770765900611877
+    },
+    {
+      "text": "Tiene muy presente que somos polvo:",
+      "box": [
+        511,
+        162,
+        747,
+        183
+      ],
+      "score": 0.9971970915794373
+    },
+    {
+      "text": "17. Porque el Señor reedificará á Sion, en donde se dejará",
+      "box": [
+        22,
+        176,
+        410,
+        212
+      ],
+      "score": 0.9980055093765259
+    },
+    {
+      "text": "15. Y que los dias del hombre son cómo el heno: cual flor",
+      "box": [
+        522,
+        176,
+        892,
+        205
+      ],
+      "score": 0.9858627319335938
+    },
+    {
+      "text": "ver con toda majestad.",
+      "box": [
+        6,
+        193,
+        165,
+        220
+      ],
+      "score": 0.9989144802093506
+    },
+    {
+      "text": "del campo, así florece *, y se seca.",
+      "box": [
+        510,
+        194,
+        717,
+        216
+      ],
+      "score": 0.9641286134719849
+    },
+    {
+      "text": "18. Él atendió á la oracion de los humildes, y no despreció",
+      "box": [
+        20,
+        209,
+        412,
+        248
+      ],
+      "score": 0.9816951155662537
+    },
+    {
+      "text": "16. Porque el espíritu estará en él como de paso; y así el",
+      "box": [
+        521,
+        210,
+        892,
+        237
+      ],
+      "score": 0.9933356046676636
+    },
+    {
+      "text": "sus plegarias.",
+      "box": [
+        6,
+        227,
+        103,
+        252
+      ],
+      "score": 0.999754786491394
+    },
+    {
+      "text": "hombre dejará pronto de existir, y le desconocerá el lugar",
+      "box": [
+        509,
+        225,
+        892,
+        253
+      ],
+      "score": 0.9768096208572388
+    },
+    {
+      "text": "19. Escrbanse estas cosas para la generacion venidera; y el",
+      "box": [
+        19,
+        242,
+        413,
+        282
+      ],
+      "score": 0.7863926887512207
+    },
+    {
+      "text": "mismo que ocupaba .",
+      "box": [
+        510,
+        243,
+        650,
+        261
+      ],
+      "score": 0.989184558391571
+    },
+    {
+      "text": "pueblo que será creado glorificará al Señor:",
+      "box": [
+        5,
+        260,
+        300,
+        296
+      ],
+      "score": 0.9861406087875366
+    },
+    {
+      "text": "17. Pero la misericordia del Señor permanece ab eterno,",
+      "box": [
+        522,
+        256,
+        892,
+        283
+      ],
+      "score": 0.9993352293968201
+    },
+    {
+      "text": "20. Porque desde su excelso Santuario inclinó los ojos",
+      "box": [
+        21,
+        278,
+        412,
+        313
+      ],
+      "score": 0.9769382476806641
+    },
+    {
+      "text": "y para siempre sobre aquellos que le temen.—Su justicia e no",
+      "box": [
+        508,
+        273,
+        893,
+        299
+      ],
+      "score": 0.9930144548416138
+    },
+    {
+      "text": "hácia nosotros. Púsose el Señor desde el cielo á mirar la",
+      "box": [
+        3,
+        292,
+        413,
+        332
+      ],
+      "score": 0.9571852684020996
+    },
+    {
+      "text": "abandonará jamás á los hijos y nietos",
+      "box": [
+        503,
+        289,
+        755,
+        310
+      ],
+      "score": 0.9394478797912598
+    },
+    {
+      "text": "tierra,",
+      "box": [
+        6,
+        312,
+        55,
+        333
+      ],
+      "score": 0.9977280497550964
+    },
+    {
+      "text": "18. De aquellos que observan su alianza,- y conservan",
+      "box": [
+        520,
+        304,
+        893,
+        329
+      ],
+      "score": 0.9832126498222351
+    },
+    {
+      "text": "21. Para escuchar los gemidos de los que estaban entre",
+      "box": [
+        20,
+        328,
+        410,
+        361
+      ],
+      "score": 0.9968737363815308
+    },
+    {
+      "text": "la memoria de sus mandamientos, para ponerlos en prác-",
+      "box": [
+        508,
+        320,
+        893,
+        345
+      ],
+      "score": 0.9866917729377747
+    },
+    {
+      "text": "cadenas, para libertar á los sentenciados é destinados á",
+      "box": [
+        5,
+        343,
+        411,
+        377
+      ],
+      "score": 0.9712056517601013
+    },
+    {
+      "text": "tica.",
+      "box": [
+        510,
+        338,
+        541,
+        353
+      ],
+      "score": 0.9906255602836609
+    },
+    {
+      "text": "19. El Señor asentó en el cielo su trono; y su reino domi-",
+      "box": [
+        520,
+        349,
+        892,
+        376
+      ],
+      "score": 0.9993142485618591
+    },
+    {
+      "text": "muerte,",
+      "box": [
+        6,
+        362,
+        66,
+        382
+      ],
+      "score": 0.9998534917831421
+    },
+    {
+      "text": "22. Á fin de que prediquen en Sion el Nombre del Señor,",
+      "box": [
+        20,
+        376,
+        410,
+        410
+      ],
+      "score": 0.9937824606895447
+    },
+    {
+      "text": "nará sobre todos.",
+      "box": [
+        509,
+        369,
+        619,
+        386
+      ],
+      "score": 0.9996653199195862
+    },
+    {
+      "text": "20. Bendecid al Señor todos vosotros, oh ángeles suyos,",
+      "box": [
+        519,
+        381,
+        893,
+        410
+      ],
+      "score": 0.9954138994216919
+    },
+    {
+      "text": "y sus alabanzas en Jerusalem:",
+      "box": [
+        4,
+        394,
+        217,
+        421
+      ],
+      "score": 0.9820371270179749
+    },
+    {
+      "text": "vosotros de gran poder y virtud, ejecutores de sus órdenes,",
+      "box": [
+        506,
+        399,
+        893,
+        426
+      ],
+      "score": 0.9995506405830383
+    },
+    {
+      "text": "23. Entonces que los pueblos y reyes se reunirán para",
+      "box": [
+        20,
+        410,
+        410,
+        444
+      ],
+      "score": 0.9955357909202576
+    },
+    {
+      "text": "prontos á obedecer la voz de sus mandatos.",
+      "box": [
+        508,
+        417,
+        779,
+        439
+      ],
+      "score": 0.9968429803848267
+    },
+    {
+      "text": "servir juntos al Señor.",
+      "box": [
+        7,
+        429,
+        162,
+        452
+      ],
+      "score": 0.9898936152458191
+    },
+    {
+      "text": "21. Bendecid al Señor todos vosotros que componeis su",
+      "box": [
+        519,
+        432,
+        893,
+        459
+      ],
+      "score": 0.9915096163749695
+    },
+    {
+      "text": "24. Dijo el justo en medio de su florida edad ¹: Manifiésta-",
+      "box": [
+        23,
+        445,
+        408,
+        473
+      ],
+      "score": 0.9695078134536743
+    },
+    {
+      "text": "celestial milicia, ministros suyos que haceis su voluntad.",
+      "box": [
+        508,
+        450,
+        861,
+        472
+      ],
+      "score": 0.9973116517066956
+    },
+    {
+      "text": "me, oh Señor, el corto número de mis dias.",
+      "box": [
+        7,
+        462,
+        292,
+        488
+      ],
+      "score": 0.9740848541259766
+    },
+    {
+      "text": "22. Criaturas todas de Dios, en cualquier lugar de su uni-",
+      "box": [
+        521,
+        466,
+        893,
+        490
+      ],
+      "score": 0.9995557069778442
+    },
+    {
+      "text": "25. No me llames á la mitad de mi vida: eternos son tus",
+      "box": [
+        22,
+        478,
+        409,
+        506
+      ],
+      "score": 0.9930181503295898
+    },
+    {
+      "text": "versal imperio, bendecid al Señor: bendice tú, oh alma mia, al",
+      "box": [
+        508,
+        483,
+        893,
+        506
+      ],
+      "score": 0.9931564927101135
+    },
+    {
+      "text": "años ².",
+      "box": [
+        8,
+        494,
+        61,
+        515
+      ],
+      "score": 0.9278963208198547
+    },
+    {
+      "text": "26. Oh Señor, tú eres el que al principio criaste la tierra:",
+      "box": [
+        23,
+        510,
+        410,
+        541
+      ],
+      "score": 0.9955483078956604
+    },
+    {
+      "text": "Señor.",
+      "box": [
+        508,
+        501,
+        553,
+        519
+      ],
+      "score": 0.9996774196624756
+    },
+    {
+      "text": "los cielos obra son de tus manos.",
+      "box": [
+        9,
+        527,
+        233,
+        555
+      ],
+      "score": 0.9921116828918457
+    },
+    {
+      "text": "SALMO CIII",
+      "box": [
+        660,
+        527,
+        745,
+        545
+      ],
+      "score": 0.9981541633605957
+    },
+    {
+      "text": "27. Estos perecerán; pero tú eres inmutable. Vendrán á",
+      "box": [
+        25,
+        544,
+        412,
+        573
+      ],
+      "score": 0.9924498200416565
+    },
+    {
+      "text": "Alaba el Profeta á Dios por la creacion y conservacion admirable del",
+      "box": [
+        523,
+        552,
+        883,
+        575
+      ],
+      "score": 0.9898412227630615
+    },
+    {
+      "text": "gastarse como un vestido.—Y mudaráslos como quien muda",
+      "box": [
+        10,
+        562,
+        409,
+        589
+      ],
+      "score": 0.9931469559669495
+    },
+    {
+      "text": "una capa, y mudados quedarán ³.",
+      "box": [
+        12,
+        578,
+        237,
+        604
+      ],
+      "score": 0.9518427848815918
+    },
+    {
+      "text": "mundo.",
+      "box": [
+        679,
+        570,
+        723,
+        585
+      ],
+      "score": 0.9964178204536438
+    },
+    {
+      "text": "28. Mas tú eres siempre el mismo; y tus años no tendrán",
+      "box": [
+        27,
+        594,
+        410,
+        622
+      ],
+      "score": 0.9873974919319153
+    },
+    {
+      "text": "1. Del mismo David.",
+      "box": [
+        522,
+        597,
+        661,
+        617
+      ],
+      "score": 0.9997327923774719
+    },
+    {
+      "text": "fin.",
+      "box": [
+        13,
+        610,
+        43,
+        630
+      ],
+      "score": 0.9742007255554199
+    },
+    {
+      "text": "Oh alma mia, bendice al Señor. Señor Dios mio, tú te has",
+      "box": [
+        523,
+        615,
+        894,
+        635
+      ],
+      "score": 0.9933375716209412
+    },
+    {
+      "text": "29. Los hijos de tus siervos habitarán tranquilos en Jeru-",
+      "box": [
+        31,
+        628,
+        410,
+        653
+      ],
+      "score": 0.9965158104896545
+    },
+    {
+      "text": "salem, y su descendencia quedará arraigada por los siglos de",
+      "box": [
+        13,
+        641,
+        413,
+        672
+      ],
+      "score": 0.895569920539856
+    },
+    {
+      "text": "engrandecido mucho en gran manera.—Revestido te has de",
+      "box": [
+        509,
+        632,
+        894,
+        651
+      ],
+      "score": 0.9862769246101379
+    },
+    {
+      "text": "gloria y de majestad;",
+      "box": [
+        509,
+        647,
+        646,
+        666
+      ],
+      "score": 0.99931401014328
+    },
+    {
+      "text": "los siglos.",
+      "box": [
+        15,
+        659,
+        88,
+        684
+      ],
+      "score": 0.9996923208236694
+    },
+    {
+      "text": "2. Cubierto estás de luz, como de un ropaje.—Extendiste",
+      "box": [
+        523,
+        662,
+        894,
+        683
+      ],
+      "score": 0.9970743060112
+    },
+    {
+      "text": "los cielos como un pabellon ó cortina;",
+      "box": [
+        510,
+        679,
+        749,
+        697
+      ],
+      "score": 0.998690128326416
+    },
+    {
+      "text": "SALMO CII",
+      "box": [
+        184,
+        698,
+        262,
+        715
+      ],
+      "score": 0.9995905756950378
+    },
+    {
+      "text": "3. Y cubriste de aguas la parte superior de ellos .—Tú",
+      "box": [
+        525,
+        696,
+        895,
+        713
+      ],
+      "score": 0.9811660647392273
+    },
+    {
+      "text": "haces de las nubes tu carroza: corres sobre las alas de los",
+      "box": [
+        512,
+        713,
+        895,
+        730
+      ],
+      "score": 0.9999285936355591
+    },
+    {
+      "text": "Accion de gracias á Dios por la remision de los pecados y demás inmen-",
+      "box": [
+        22,
+        726,
+        412,
+        747
+      ],
+      "score": 0.995799720287323
+    },
+    {
+      "text": "vientos.",
+      "box": [
+        511,
+        728,
+        565,
+        747
+      ],
+      "score": 0.9966983795166016
+    },
+    {
+      "text": "sos beneficios que de él recibimos.",
+      "box": [
+        133,
+        743,
+        307,
+        760
+      ],
+      "score": 0.9441367983818054
+    },
+    {
+      "text": "4. Haces que tus ángeles sean veloces como los vientos, y",
+      "box": [
+        524,
+        743,
+        896,
+        764
+      ],
+      "score": 0.9987649917602539
+    },
+    {
+      "text": "tus ministros activos como fuego abrasador.",
+      "box": [
+        513,
+        762,
+        784,
+        776
+      ],
+      "score": 0.999566912651062
+    },
+    {
+      "text": "1. Del mismo David.",
+      "box": [
+        38,
+        777,
+        183,
+        794
+      ],
+      "score": 0.9993007183074951
+    },
+    {
+      "text": "5. Cimentaste la tierra sobre sus propias bases: no se des-",
+      "box": [
+        525,
+        775,
+        896,
+        794
+      ],
+      "score": 0.9849019646644592
+    },
+    {
+      "text": "Bendice, oh alma mia, al Señor, y bendigan todas mis entra-",
+      "box": [
+        36,
+        791,
+        413,
+        813
+      ],
+      "score": 0.9994292855262756
+    },
+    {
+      "text": "nivelará jamás.",
+      "box": [
+        512,
+        792,
+        611,
+        809
+      ],
+      "score": 0.9972305297851562
+    },
+    {
+      "text": "ñas su santo Nombre.",
+      "box": [
+        25,
+        808,
+        169,
+        827
+      ],
+      "score": 0.9909976720809937
+    },
+    {
+      "text": "6. Hallábase cubierta, como de una capa, de inmensas",
+      "box": [
+        525,
+        807,
+        895,
+        827
+      ],
+      "score": 0.9920129179954529
+    },
+    {
+      "text": "2. Bendice al Señor, alma mia, y guárdate de olvidar nin-",
+      "box": [
+        37,
+        825,
+        411,
+        843
+      ],
+      "score": 0.9893944263458252
+    },
+    {
+      "text": "aguas; sobrepujaban estas los montes.",
+      "box": [
+        513,
+        826,
+        748,
+        843
+      ],
+      "score": 0.9932798147201538
+    },
+    {
+      "text": "guno de sus beneficios.",
+      "box": [
+        26,
+        842,
+        175,
+        858
+      ],
+      "score": 0.9721606969833374
+    },
+    {
+      "text": "7. Á tu amenaza echaron á huir, amedrentadas del estam-",
+      "box": [
+        524,
+        840,
+        896,
+        860
+      ],
+      "score": 0.990830659866333
+    },
+    {
+      "text": "3. Él es quien perdona todas tus maldades: quien sana",
+      "box": [
+        39,
+        856,
+        412,
+        876
+      ],
+      "score": 0.9938346743583679
+    },
+    {
+      "text": "pido de tu trueno.",
+      "box": [
+        511,
+        857,
+        628,
+        876
+      ],
+      "score": 0.9994193315505981
+    },
+    {
+      "text": "todas tus dolencias:",
+      "box": [
+        27,
+        871,
+        158,
+        890
+      ],
+      "score": 0.9988356828689575
+    },
+    {
+      "text": "8. Álzanse como montes, y abájanse como valles, en el",
+      "box": [
+        524,
+        872,
+        896,
+        893
+      ],
+      "score": 0.9972642660140991
+    },
+    {
+      "text": "4. Quien rescata de la muerte tu vida: el que te corona de",
+      "box": [
+        40,
+        888,
+        412,
+        909
+      ],
+      "score": 0.999799370765686
+    },
+    {
+      "text": "lugar que les estableciste.",
+      "box": [
+        511,
+        889,
+        671,
+        909
+      ],
+      "score": 0.9878289103507996
+    },
+    {
+      "text": "misericordias y gracias:",
+      "box": [
+        28,
+        903,
+        182,
+        925
+      ],
+      "score": 0.9704769253730774
+    },
+    {
+      "text": "9. Fijásteles un término, que no traspasarán: no volverán",
+      "box": [
+        525,
+        906,
+        894,
+        925
+      ],
+      "score": 0.99592524766922
+    },
+    {
+      "text": "5. Él que sacia con sus bienes tus deseos; para que se re-",
+      "box": [
+        41,
+        919,
+        412,
+        943
+      ],
+      "score": 0.9981712102890015
+    },
+    {
+      "text": "ellas á cubrir la tierra.",
+      "box": [
+        512,
+        923,
+        654,
+        941
+      ],
+      "score": 0.9970216155052185
+    },
+    {
+      "text": "nueve tu juventud como la del águila.",
+      "box": [
+        30,
+        936,
+        269,
+        955
+      ],
+      "score": 0.9981421232223511
+    },
+    {
+      "text": "10. Tú haces brotar las fuentes en los valles, y que filtren",
+      "box": [
+        525,
+        937,
+        894,
+        958
+      ],
+      "score": 0.9862939715385437
+    },
+    {
+      "text": "6. El Señor hace mercedes, y hace justicia á todos los que",
+      "box": [
+        42,
+        951,
+        410,
+        973
+      ],
+      "score": 0.9964193105697632
+    },
+    {
+      "text": "las aguas por en medio de los montes.",
+      "box": [
+        511,
+        955,
+        749,
+        973
+      ],
+      "score": 0.999823272228241
+    },
+    {
+      "text": "sufren agravios.",
+      "box": [
+        30,
+        967,
+        134,
+        988
+      ],
+      "score": 0.998337984085083
+    },
+    {
+      "text": "11. Con eso beberán todas las bestias del campo: á ellas",
+      "box": [
+        525,
+        971,
+        895,
+        990
+      ],
+      "score": 0.9893661737442017
+    },
+    {
+      "text": "7. Hizo conocer á Moysés sus caminos, y á los hijos de",
+      "box": [
+        42,
+        983,
+        411,
+        1007
+      ],
+      "score": 0.9902504682540894
+    },
+    {
+      "text": "correrán, acosados de la sed, los asnos monteses.",
+      "box": [
+        514,
+        990,
+        813,
+        1004
+      ],
+      "score": 0.9911913871765137
+    },
+    {
+      "text": "Israél su voluntad.",
+      "box": [
+        32,
+        1000,
+        155,
+        1020
+      ],
+      "score": 0.9990787506103516
+    },
+    {
+      "text": "12. Junto á ellas habitarán las aves del cielo: desde entre",
+      "box": [
+        526,
+        1003,
+        895,
+        1023
+      ],
+      "score": 0.9975740313529968
+    },
+    {
+      "text": "8. Compasivo es el Señor y benigno, tardo en airarse, y de",
+      "box": [
+        43,
+        1016,
+        411,
+        1041
+      ],
+      "score": 0.994335949420929
+    },
+    {
+      "text": "las peñas harán sentir sus gorjeos.",
+      "box": [
+        512,
+        1021,
+        727,
+        1038
+      ],
+      "score": 0.9999467134475708
+    },
+    {
+      "text": "gran clemencia.",
+      "box": [
+        33,
+        1033,
+        137,
+        1053
+      ],
+      "score": 0.969862699508667
+    },
+    {
+      "text": "13. Tú riegas los montes con las aguas que envias de lo",
+      "box": [
+        525,
+        1034,
+        895,
+        1055
+      ],
+      "score": 0.9970735907554626
+    },
+    {
+      "text": "9. No durará para siempre su enojo, ni estará amenazando",
+      "box": [
+        43,
+        1047,
+        409,
+        1072
+      ],
+      "score": 0.9732343554496765
+    },
+    {
+      "text": "alto: colmas la tierra de frutos que tú haces nacer.",
+      "box": [
+        511,
+        1051,
+        826,
+        1070
+      ],
+      "score": 0.9976400136947632
+    },
+    {
+      "text": "perpétuamente.",
+      "box": [
+        32,
+        1064,
+        135,
+        1085
+      ],
+      "score": 0.9848026633262634
+    },
+    {
+      "text": "14. Tú produces el heno para las bestias, y la yerba que",
+      "box": [
+        524,
+        1067,
+        895,
+        1087
+      ],
+      "score": 0.9970231056213379
+    },
+    {
+      "text": "10. No nos ha tratado segun merecian nuestros pecados,",
+      "box": [
+        45,
+        1079,
+        409,
+        1105
+      ],
+      "score": 0.9929415583610535
+    },
+    {
+      "text": "da grano para el servicio de los hombres;—á fin de hacer",
+      "box": [
+        511,
+        1083,
+        895,
+        1103
+      ],
+      "score": 0.9881493449211121
+    },
+    {
+      "text": "ni dado el castigo debido á nuestras iniquidades.",
+      "box": [
+        32,
+        1095,
+        331,
+        1120
+      ],
+      "score": 0.9978731274604797
+    },
+    {
+      "text": "salir pan del seno de la tierra,",
+      "box": [
+        511,
+        1100,
+        698,
+        1118
+      ],
+      "score": 0.9990454316139221
+    },
+    {
+      "text": "11. Antes bien cuanta es la elevacion del cielo sobre la",
+      "box": [
+        45,
+        1111,
+        409,
+        1137
+      ],
+      "score": 0.981007993221283
+    },
+    {
+      "text": "15. Y el vino que recrea el corazon del hombre: de modo",
+      "box": [
+        521,
+        1115,
+        894,
+        1137
+      ],
+      "score": 0.992745041847229
+    },
+    {
+      "text": "tierra, tanto ha engrandccido él su misericordia para con",
+      "box": [
+        33,
+        1127,
+        409,
+        1154
+      ],
+      "score": 0.9933717250823975
+    },
+    {
+      "text": "que, ungiéndose s ó perfumándose, presente alegre su rostro,",
+      "box": [
+        511,
+        1133,
+        894,
+        1153
+      ],
+      "score": 0.9767006635665894
+    },
+    {
+      "text": "aquellos que le temen.",
+      "box": [
+        34,
+        1144,
+        175,
+        1164
+      ],
+      "score": 0.9896395206451416
+    },
+    {
+      "text": "12. Cuanto dista el Oriente del Occidente, tan lejos ha",
+      "box": [
+        36,
+        1159,
+        409,
+        1185
+      ],
+      "score": 0.9934613108634949
+    },
+    {
+      "text": "y con el pan corrobore sus fuerzas.",
+      "box": [
+        511,
+        1150,
+        728,
+        1167
+      ],
+      "score": 0.9910297989845276
+    },
+    {
+      "text": "16. Llenarse han de jugo los árboles del campo, y los cedros",
+      "box": [
+        525,
+        1164,
+        894,
+        1187
+      ],
+      "score": 0.9967812895774841
+    },
+    {
+      "text": "echado de nosotros nuestras maldados.",
+      "box": [
+        34,
+        1176,
+        269,
+        1198
+      ],
+      "score": 0.9884815812110901
+    },
+    {
+      "text": "del Líbano, que él plantó.",
+      "box": [
+        512,
+        1183,
+        673,
+        1200
+      ],
+      "score": 0.9761778712272644
+    },
+    {
+      "text": "1 Al salir de su cautiverio.",
+      "box": [
+        43,
+        1220,
+        190,
+        1239
+      ],
+      "score": 0.9936299920082092
+    },
+    {
+      "text": "2 Pero tan breves los mios, que no podré ver la gloria de la santa ciu-",
+      "box": [
+        42,
+        1234,
+        407,
+        1255
+      ],
+      "score": 0.9899831414222717
+    },
+    {
+      "text": "cuando la omnipotencia de Dios vuelva el alma al cuerpo donde estuvo,",
+      "box": [
+        510,
+        1226,
+        896,
+        1249
+      ],
+      "score": 0.9939255714416504
+    },
+    {
+      "text": "dad de Jerusalem que vamos á reedificar.",
+      "box": [
+        33,
+        1248,
+        249,
+        1266
+      ],
+      "score": 0.9797830581665039
+    },
+    {
+      "text": "esta no le conocerá, digámoslo así; pues de mortal que le dejó, le hallará",
+      "box": [
+        510,
+        1240,
+        897,
+        1263
+      ],
+      "score": 0.9866926074028015
+    },
+    {
+      "text": "3 En otros cielos nuevos y nueva tierra.",
+      "box": [
+        42,
+        1262,
+        254,
+        1279
+      ],
+      "score": 0.9988350868225098
+    },
+    {
+      "text": "inmortal.",
+      "box": [
+        512,
+        1255,
+        564,
+        1269
+      ],
+      "score": 0.9999081492424011
+    },
+    {
+      "text": "4 Job. XIII, v. 25.—XIV, v. 2.",
+      "box": [
+        41,
+        1275,
+        216,
+        1293
+      ],
+      "score": 0.9835829138755798
+    },
+    {
+      "text": " Esto es, su fidelidad en las promesas.",
+      "box": [
+        520,
+        1266,
+        735,
+        1290
+      ],
+      "score": 0.9796401858329773
+    },
+    {
+      "text": "6 Si se entiende aquí por espíritu el alma racional, el sentido es, que",
+      "box": [
+        40,
+        1288,
+        410,
+        1310
+      ],
+      "score": 0.9669715166091919
+    },
+    {
+      "text": ": Véase Escritura.",
+      "box": [
+        520,
+        1280,
+        627,
+        1299
+      ],
+      "score": 0.9173976182937622
+    },
+    {
+      "text": "8 Véase Uncion.",
+      "box": [
+        522,
+        1292,
+        615,
+        1313
+      ],
+      "score": 0.9913346171379089
+    },
+    {
+      "text": "III—11",
+      "box": [
+        823,
+        1318,
+        876,
+        1339
+      ],
+      "score": 0.8147360682487488
+    }
+  ]
+}

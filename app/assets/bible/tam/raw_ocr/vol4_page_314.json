@@ -1,0 +1,27 @@
+{
+  "volume": 4,
+  "page_index": 314,
+  "pdf_page": 315,
+  "lines": [
+    {
+      "text": "SSors",
+      "box": [
+        97,
+        1106,
+        170,
+        1138
+      ],
+      "score": 0.5381820797920227
+    },
+    {
+      "text": "SAN PABLO EN EL CAMINO DE DAMASCO",
+      "box": [
+        321,
+        1177,
+        646,
+        1211
+      ],
+      "score": 0.9906858801841736
+    }
+  ]
+}

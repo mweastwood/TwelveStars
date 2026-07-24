@@ -1,0 +1,1517 @@
+{
+  "volume": 3,
+  "page_index": 176,
+  "pdf_page": 177,
+  "lines": [
+    {
+      "text": "277",
+      "box": [
+        21,
+        33,
+        45,
+        50
+      ],
+      "score": 0.999718189239502
+    },
+    {
+      "text": "ISAÍAS.",
+      "box": [
+        172,
+        29,
+        234,
+        50
+      ],
+      "score": 0.9789372086524963
+    },
+    {
+      "text": "CAPITULO X.",
+      "box": [
+        643,
+        37,
+        740,
+        62
+      ],
+      "score": 0.9984134435653687
+    },
+    {
+      "text": "278",
+      "box": [
+        841,
+        48,
+        867,
+        67
+      ],
+      "score": 0.9999821782112122
+    },
+    {
+      "text": "2. El pueblo que andaba entre tinieblas vió una gran luz:",
+      "box": [
+        24,
+        73,
+        406,
+        100
+      ],
+      "score": 0.9989267587661743
+    },
+    {
+      "text": "amaneció el dia á los que moraban en la sombría region de la",
+      "box": [
+        10,
+        91,
+        405,
+        119
+      ],
+      "score": 0.9938856363296509
+    },
+    {
+      "text": "del Señor de los ejércitos; y el pueblo será como cebo del",
+      "box": [
+        505,
+        83,
+        875,
+        113
+      ],
+      "score": 0.9876867532730103
+    },
+    {
+      "text": "muerte.",
+      "box": [
+        11,
+        111,
+        65,
+        128
+      ],
+      "score": 0.9998473525047302
+    },
+    {
+      "text": "fuego; el hombre no perdonará á su propio hermano.",
+      "box": [
+        505,
+        102,
+        824,
+        130
+      ],
+      "score": 0.9989520311355591
+    },
+    {
+      "text": "3. Multiplicaste 1 la nacion; mas no aumentaste la ale-",
+      "box": [
+        27,
+        127,
+        406,
+        155
+      ],
+      "score": 0.987136960029602
+    },
+    {
+      "text": "20. Y volveráse á la derecha para devorarlo todo, y aun",
+      "box": [
+        517,
+        118,
+        874,
+        150
+      ],
+      "score": 0.9946060180664062
+    },
+    {
+      "text": "gría. Sin embargo alegrarse han algun dia delante de ti,",
+      "box": [
+        13,
+        144,
+        406,
+        172
+      ],
+      "score": 0.982570230960846
+    },
+    {
+      "text": "tendrá hambre, y comerá cuanto halle á la izquierda, y tam-",
+      "box": [
+        505,
+        135,
+        874,
+        167
+      ],
+      "score": 0.9971546530723572
+    },
+    {
+      "text": "poco podrá saciarse 1ª: cada uno devorará la carne de su mis-",
+      "box": [
+        505,
+        153,
+        874,
+        182
+      ],
+      "score": 0.9734800457954407
+    },
+    {
+      "text": "como los que se alegran en la siega, ó como se huelgan los",
+      "box": [
+        14,
+        163,
+        407,
+        189
+      ],
+      "score": 0.9925112724304199
+    },
+    {
+      "text": "mo brazo 13. Manassés devastará á Ephraim, y Ephraim á Ma-",
+      "box": [
+        504,
+        168,
+        874,
+        199
+      ],
+      "score": 0.980171799659729
+    },
+    {
+      "text": "vencedores con el botin que cogieron, al repartirse los des-",
+      "box": [
+        13,
+        180,
+        408,
+        206
+      ],
+      "score": 0.9954298734664917
+    },
+    {
+      "text": "nassés: luego ambos se unirán contra Judá.",
+      "box": [
+        506,
+        186,
+        766,
+        209
+      ],
+      "score": 0.9928415417671204
+    },
+    {
+      "text": "pojos.",
+      "box": [
+        15,
+        199,
+        58,
+        217
+      ],
+      "score": 0.9997766017913818
+    },
+    {
+      "text": "21. Á pesar de todas estas cosas no está aplacada la ira del",
+      "box": [
+        518,
+        202,
+        872,
+        229
+      ],
+      "score": 0.9887349009513855
+    },
+    {
+      "text": "4. Porque su pesado yugo y la vara que heria sus espaldas,",
+      "box": [
+        30,
+        214,
+        407,
+        240
+      ],
+      "score": 0.9960407614707947
+    },
+    {
+      "text": "Señor, sino que aun está levantado su brazo.",
+      "box": [
+        505,
+        218,
+        772,
+        242
+      ],
+      "score": 0.9957752823829651
+    },
+    {
+      "text": "y el baston de su exactor & ó tirano, tú los hiciste pedazos,",
+      "box": [
+        14,
+        231,
+        407,
+        257
+      ],
+      "score": 0.9761965274810791
+    },
+    {
+      "text": "como en la jornada de Madian 8.",
+      "box": [
+        16,
+        248,
+        227,
+        269
+      ],
+      "score": 0.9693076014518738
+    },
+    {
+      "text": "5. Porque todo despojo hecho con violencia y tumulto, y",
+      "box": [
+        30,
+        263,
+        407,
+        289
+      ],
+      "score": 0.9968773126602173
+    },
+    {
+      "text": "CAPITULO X",
+      "box": [
+        644,
+        254,
+        735,
+        275
+      ],
+      "score": 0.9994500875473022
+    },
+    {
+      "text": "Ios vestidos manchados de sangre serán quemados y hechos",
+      "box": [
+        15,
+        280,
+        407,
+        305
+      ],
+      "score": 0.9934667944908142
+    },
+    {
+      "text": "Desdichados aquellos que hacen leyes injustas, y oprimen al pobre, y",
+      "box": [
+        505,
+        284,
+        871,
+        311
+      ],
+      "score": 0.9957777857780457
+    },
+    {
+      "text": "pábulo del fuego.",
+      "box": [
+        16,
+        298,
+        131,
+        317
+      ],
+      "score": 0.9997764825820923
+    },
+    {
+      "text": "á la viuda! Isaías predice la humillacion de Sennacherib; y consuela á",
+      "box": [
+        514,
+        298,
+        872,
+        324
+      ],
+      "score": 0.9831448197364807
+    },
+    {
+      "text": "6. Ahora que ha nacido un PAnvuLito para nosotros , y",
+      "box": [
+        30,
+        313,
+        405,
+        336
+      ],
+      "score": 0.926070511341095
+    },
+    {
+      "text": "Israél, y le promete que los restos de este pueblo al fin se convertirán.",
+      "box": [
+        515,
+        312,
+        871,
+        337
+      ],
+      "score": 0.9913879632949829
+    },
+    {
+      "text": "se nos ha dado un hijo, el cual lleva sobre sus hombros el",
+      "box": [
+        16,
+        331,
+        405,
+        351
+      ],
+      "score": 0.9963213205337524
+    },
+    {
+      "text": "principado, ó la divisa del rey, y tendrá por nombre el Admi-",
+      "box": [
+        15,
+        346,
+        406,
+        366
+      ],
+      "score": 0.9901026487350464
+    },
+    {
+      "text": "1. Ay de aquellos que establecen leyes inícuas, y escriben",
+      "box": [
+        517,
+        346,
+        870,
+        370
+      ],
+      "score": 0.990897536277771
+    },
+    {
+      "text": "rable 5, el Consejero, Dios 6, el Fuerte, el Padre del siglo veni-",
+      "box": [
+        14,
+        361,
+        406,
+        383
+      ],
+      "score": 0.9663952589035034
+    },
+    {
+      "text": "continuamente sentencias de injusticia:",
+      "box": [
+        504,
+        362,
+        746,
+        383
+      ],
+      "score": 0.9998416304588318
+    },
+    {
+      "text": "dero 7, el Príncipe de paz 8.",
+      "box": [
+        16,
+        378,
+        195,
+        398
+      ],
+      "score": 0.9752576947212219
+    },
+    {
+      "text": "2. Para oprimir á los pobres en juicio, y hacer violencia á",
+      "box": [
+        516,
+        378,
+        872,
+        401
+      ],
+      "score": 0.9956085085868835
+    },
+    {
+      "text": "7. Su imperio será amplificado, y la paz no tendrá fin :",
+      "box": [
+        30,
+        394,
+        405,
+        417
+      ],
+      "score": 0.9806433916091919
+    },
+    {
+      "text": "los desvalidos de mi pueblo, para devorar cual presa á las",
+      "box": [
+        502,
+        394,
+        872,
+        418
+      ],
+      "score": 0.9991875886917114
+    },
+    {
+      "text": "sentaráse sobre el solio de David, y poseerá su reino para",
+      "box": [
+        15,
+        411,
+        405,
+        434
+      ],
+      "score": 0.9936515092849731
+    },
+    {
+      "text": "viudas, y saquear á los huérfanos!",
+      "box": [
+        503,
+        411,
+        711,
+        431
+      ],
+      "score": 0.9926571846008301
+    },
+    {
+      "text": "afianzarle y consolidarle haciendo reinar la equidad y la jus-",
+      "box": [
+        16,
+        429,
+        404,
+        450
+      ],
+      "score": 0.985687792301178
+    },
+    {
+      "text": "3. ¿Qué hareis en el dia en que se os tomará residencia, y",
+      "box": [
+        514,
+        426,
+        873,
+        452
+      ],
+      "score": 0.9890220165252686
+    },
+    {
+      "text": "ticia desde ahora, y para siempre. El celo del Señor de los",
+      "box": [
+        15,
+        445,
+        405,
+        466
+      ],
+      "score": 0.995871901512146
+    },
+    {
+      "text": "en la calamidad que viene amenazando de lejos? ¿A quién",
+      "box": [
+        502,
+        442,
+        873,
+        467
+      ],
+      "score": 0.995521605014801
+    },
+    {
+      "text": "ejércitos es el que hará estas cosas.",
+      "box": [
+        17,
+        462,
+        241,
+        481
+      ],
+      "score": 0.9868040084838867
+    },
+    {
+      "text": "acudireis para que os ayude? ¿Y en dónde dejareis ó de que",
+      "box": [
+        502,
+        459,
+        873,
+        483
+      ],
+      "score": 0.9940446019172668
+    },
+    {
+      "text": "8. Lanzó el Señor una palabra contra Jacob, y cayó sobre",
+      "box": [
+        29,
+        477,
+        405,
+        500
+      ],
+      "score": 0.9930842518806458
+    },
+    {
+      "text": "servirá vuestra grandeza,",
+      "box": [
+        502,
+        476,
+        659,
+        495
+      ],
+      "score": 0.9884359836578369
+    },
+    {
+      "text": "Israél 10.",
+      "box": [
+        17,
+        496,
+        75,
+        513
+      ],
+      "score": 0.9291826486587524
+    },
+    {
+      "text": "4. Para no doblar la cerviz á la cadena éntre los esclavos, y",
+      "box": [
+        515,
+        492,
+        874,
+        515
+      ],
+      "score": 0.9981735348701477
+    },
+    {
+      "text": "9. Y lo echará de ver todo el pueblo de Ephraim, y los",
+      "box": [
+        30,
+        510,
+        405,
+        532
+      ],
+      "score": 0.9878336787223816
+    },
+    {
+      "text": "no caer entre los muertos? Á pesar de todas estas cosas, no",
+      "box": [
+        501,
+        508,
+        874,
+        532
+      ],
+      "score": 0.9893775582313538
+    },
+    {
+      "text": "habitantes de Samaria, quienes con soberbia é hinchazon de",
+      "box": [
+        14,
+        526,
+        406,
+        550
+      ],
+      "score": 0.9841420650482178
+    },
+    {
+      "text": "está calmada la ira del Señor, sino que aun está levantado su",
+      "box": [
+        502,
+        526,
+        874,
+        547
+      ],
+      "score": 0.9940121173858643
+    },
+    {
+      "text": "corazon andan diciendo:",
+      "box": [
+        16,
+        545,
+        182,
+        564
+      ],
+      "score": 0.9994327425956726
+    },
+    {
+      "text": "brazo.",
+      "box": [
+        505,
+        545,
+        545,
+        559
+      ],
+      "score": 0.9944100975990295
+    },
+    {
+      "text": "10. Los edificios de ladrillo han sido arruinados por los",
+      "box": [
+        30,
+        558,
+        406,
+        582
+      ],
+      "score": 0.9973503351211548
+    },
+    {
+      "text": "5. Ay de Assur! vara y baston de mi furor: en su mano he",
+      "box": [
+        515,
+        557,
+        874,
+        578
+      ],
+      "score": 0.984040379524231
+    },
+    {
+      "text": "enemigos; mas nosotros edificaremos con piedras de sillería:",
+      "box": [
+        15,
+        575,
+        407,
+        599
+      ],
+      "score": 0.9977896809577942
+    },
+    {
+      "text": "puesto mi ira.",
+      "box": [
+        503,
+        574,
+        592,
+        594
+      ],
+      "score": 0.9942489862442017
+    },
+    {
+      "text": "cortaron los cabrahigos; pero en su lugar sustituiremos cedros.",
+      "box": [
+        15,
+        592,
+        407,
+        616
+      ],
+      "score": 0.9938173294067383
+    },
+    {
+      "text": "6. Enviarle he contra un pueblo fementido, y contra un",
+      "box": [
+        514,
+        589,
+        875,
+        610
+      ],
+      "score": 0.9902263283729553
+    },
+    {
+      "text": "11. Entre tanto el Señor hará que los enemigos (los Assy-",
+      "box": [
+        31,
+        608,
+        407,
+        632
+      ],
+      "score": 0.9918750524520874
+    },
+    {
+      "text": "pueblo que ha provocado mi indignacion; y daréle mis órde-",
+      "box": [
+        502,
+        606,
+        876,
+        627
+      ],
+      "score": 0.9971684813499451
+    },
+    {
+      "text": "rios) prevalezcan contra Rasin, y reunirá despues en tropel á",
+      "box": [
+        17,
+        624,
+        407,
+        648
+      ],
+      "score": 0.9845861196517944
+    },
+    {
+      "text": "nes para que se lleve sus despojos, y le entregue al saqueo, y",
+      "box": [
+        502,
+        622,
+        876,
+        643
+      ],
+      "score": 0.9967225193977356
+    },
+    {
+      "text": "los mismos enemigos contra Ephraim 11.",
+      "box": [
+        17,
+        643,
+        276,
+        662
+      ],
+      "score": 0.9695406556129456
+    },
+    {
+      "text": "le reduzca á ser pisado como el lodo de las plazas.",
+      "box": [
+        502,
+        637,
+        808,
+        658
+      ],
+      "score": 0.9914222359657288
+    },
+    {
+      "text": "12. Á los Syros por el lado del Oriente, y á los Philisthéos",
+      "box": [
+        31,
+        654,
+        406,
+        681
+      ],
+      "score": 0.9818170070648193
+    },
+    {
+      "text": "7. Es verdad que él no lo pensará así, y que en su corazon",
+      "box": [
+        517,
+        655,
+        875,
+        672
+      ],
+      "score": 0.9976416826248169
+    },
+    {
+      "text": "por el de Occidente: y llenos de rabia devorarán á Israél: á",
+      "box": [
+        17,
+        673,
+        406,
+        696
+      ],
+      "score": 0.996832013130188
+    },
+    {
+      "text": "no formará tal concepto l4: su corazon solamente pondrá la",
+      "box": [
+        502,
+        669,
+        876,
+        690
+      ],
+      "score": 0.9768614172935486
+    },
+    {
+      "text": "pesar de todo esto no se retira su furor, sino que aun está le-",
+      "box": [
+        16,
+        689,
+        406,
+        713
+      ],
+      "score": 0.9998876452445984
+    },
+    {
+      "text": "mira en destruir y exterminar no pocas naciones.",
+      "box": [
+        503,
+        686,
+        804,
+        705
+      ],
+      "score": 0.9991467595100403
+    },
+    {
+      "text": "vantado su brazo,",
+      "box": [
+        17,
+        711,
+        137,
+        729
+      ],
+      "score": 0.9979932308197021
+    },
+    {
+      "text": "8. Porque dirá:",
+      "box": [
+        517,
+        704,
+        624,
+        721
+      ],
+      "score": 0.9990559220314026
+    },
+    {
+      "text": "13. Porque el pueblo no se ha convertido hácia aquel que",
+      "box": [
+        33,
+        721,
+        405,
+        746
+      ],
+      "score": 0.9963778257369995
+    },
+    {
+      "text": "9. ¿Acaso mis palaciegos no son otros tantos reyes? ¿pues",
+      "box": [
+        516,
+        719,
+        878,
+        739
+      ],
+      "score": 0.9995090961456299
+    },
+    {
+      "text": "le hiere, y no ha buscado al Señor de los ejércitos;",
+      "box": [
+        18,
+        740,
+        340,
+        759
+      ],
+      "score": 0.9991649985313416
+    },
+    {
+      "text": "qué no ha tenido la misma suerte Cálano que Chareamis? ¿y",
+      "box": [
+        505,
+        737,
+        877,
+        753
+      ],
+      "score": 0.9922266006469727
+    },
+    {
+      "text": "14. Y el Señor destruirá en un solo dia la cabeza y la cola,",
+      "box": [
+        33,
+        753,
+        405,
+        775
+      ],
+      "score": 0.991491436958313
+    },
+    {
+      "text": "Émath que Arphad?¿por ventura no ha sido de Samaria lo que",
+      "box": [
+        504,
+        751,
+        878,
+        771
+      ],
+      "score": 0.9899686574935913
+    },
+    {
+      "text": "á los que obedecen sumisos, como á los que gobiernan.",
+      "box": [
+        19,
+        770,
+        365,
+        791
+      ],
+      "score": 0.975471556186676
+    },
+    {
+      "text": "de Damasco?",
+      "box": [
+        504,
+        767,
+        588,
+        784
+      ],
+      "score": 0.996354341506958
+    },
+    {
+      "text": "15. El anciano y el hombre respetable, ese es la cabeza; el",
+      "box": [
+        34,
+        786,
+        404,
+        807
+      ],
+      "score": 0.9898205399513245
+    },
+    {
+      "text": "10. Así como ganó mi mano los reinos de variosídolos, del",
+      "box": [
+        518,
+        784,
+        877,
+        801
+      ],
+      "score": 0.9993816018104553
+    },
+    {
+      "text": "Profeta que vende embustes, ese es la cola.",
+      "box": [
+        20,
+        803,
+        291,
+        823
+      ],
+      "score": 0.9999226331710815
+    },
+    {
+      "text": "mismo modo venceré los simulacros de los de Jerusalem y de",
+      "box": [
+        502,
+        798,
+        879,
+        819
+      ],
+      "score": 0.999826192855835
+    },
+    {
+      "text": "16. Y tanto los que llaman bienaventurado á este pueblo,",
+      "box": [
+        34,
+        817,
+        403,
+        840
+      ],
+      "score": 0.9793924689292908
+    },
+    {
+      "text": "Samaria.",
+      "box": [
+        504,
+        817,
+        561,
+        834
+      ],
+      "score": 0.9998500943183899
+    },
+    {
+      "text": "seduciéndole, como los mismos que son llamados bienaventu-",
+      "box": [
+        20,
+        836,
+        404,
+        853
+      ],
+      "score": 0.999703049659729
+    },
+    {
+      "text": "11. ¿Acaso lo que hice ya con Samaria y con sus ídolos, no",
+      "box": [
+        515,
+        831,
+        879,
+        851
+      ],
+      "score": 0.9992725849151611
+    },
+    {
+      "text": "rados, perecerán desgraciadamente.",
+      "box": [
+        20,
+        852,
+        247,
+        870
+      ],
+      "score": 0.9981892704963684
+    },
+    {
+      "text": "lo ejecutaré tumbien con Jerusalem y con sus simulacros?",
+      "box": [
+        502,
+        847,
+        861,
+        868
+      ],
+      "score": 0.9933330416679382
+    },
+    {
+      "text": "17. Por esto no se enternecerá el Señor en favor de los",
+      "box": [
+        34,
+        867,
+        405,
+        887
+      ],
+      "score": 0.998231828212738
+    },
+    {
+      "text": "12. Pero luego que el Señor hubiere cumplido todas sus",
+      "box": [
+        518,
+        866,
+        879,
+        883
+      ],
+      "score": 0.999878466129303
+    },
+    {
+      "text": "jovencitos de ese pueblo, ni tendrá compasion de sus huérfa-",
+      "box": [
+        18,
+        883,
+        405,
+        904
+      ],
+      "score": 0.997872531414032
+    },
+    {
+      "text": "obras en el monte de Sion, y en Jerusalem, él mismo tomará",
+      "box": [
+        505,
+        883,
+        879,
+        900
+      ],
+      "score": 0.9994353652000427
+    },
+    {
+      "text": "nos, ni de sus viudas: porque todo él es hipócrita y malvado,",
+      "box": [
+        21,
+        902,
+        404,
+        919
+      ],
+      "score": 0.9853963255882263
+    },
+    {
+      "text": "residencia de las empresas del altivo corazon del rey assyrio,",
+      "box": [
+        505,
+        900,
+        878,
+        917
+      ],
+      "score": 0.9935590624809265
+    },
+    {
+      "text": "y todas sus bocas no hablan mas que desatinos. Por todas",
+      "box": [
+        21,
+        917,
+        405,
+        936
+      ],
+      "score": 0.992681622505188
+    },
+    {
+      "text": "y de la jactancia de sus altivos ojos 15.",
+      "box": [
+        503,
+        914,
+        739,
+        933
+      ],
+      "score": 0.983235776424408
+    },
+    {
+      "text": "estas cosas su furor no se aplaca, sino que aun está levantada",
+      "box": [
+        21,
+        933,
+        404,
+        952
+      ],
+      "score": 0.9966803789138794
+    },
+    {
+      "text": "13. Ya que ha dicho: Con el poder de mi mano hice lo que",
+      "box": [
+        518,
+        932,
+        880,
+        948
+      ],
+      "score": 0.9993659257888794
+    },
+    {
+      "text": "su mano.",
+      "box": [
+        23,
+        953,
+        82,
+        967
+      ],
+      "score": 0.997652530670166
+    },
+    {
+      "text": "hice, y con mi sabiduría lo tracé: y he mudado los límites de",
+      "box": [
+        504,
+        948,
+        880,
+        965
+      ],
+      "score": 0.9974951148033142
+    },
+    {
+      "text": "18. Pues la impiedad se encendió cual fuego que devora",
+      "box": [
+        35,
+        965,
+        403,
+        985
+      ],
+      "score": 0.9998493194580078
+    },
+    {
+      "text": "los pueblos, y despojado sus príncipes, y con el poder que ten-",
+      "box": [
+        504,
+        963,
+        881,
+        982
+      ],
+      "score": 0.9964218735694885
+    },
+    {
+      "text": "las zarzas, y las espinas, y toma vigor en lo mas espeso del",
+      "box": [
+        21,
+        982,
+        403,
+        1003
+      ],
+      "score": 0.9965824484825134
+    },
+    {
+      "text": "go he derribado á los que estaban en altos puestos:",
+      "box": [
+        506,
+        982,
+        820,
+        996
+      ],
+      "score": 0.9998437762260437
+    },
+    {
+      "text": "bosque, y se eleva en torbellinos de humo densísimo.",
+      "box": [
+        21,
+        1000,
+        351,
+        1019
+      ],
+      "score": 0.9960288405418396
+    },
+    {
+      "text": "14. Y el poderío de los pueblos fué respecto de mi valor",
+      "box": [
+        518,
+        997,
+        882,
+        1014
+      ],
+      "score": 0.9995756149291992
+    },
+    {
+      "text": "19. La tierra está en la mayor consternacion por la ira",
+      "box": [
+        35,
+        1016,
+        403,
+        1036
+      ],
+      "score": 0.9994460344314575
+    },
+    {
+      "text": "como una nidada de pajarillos; y como se recogen del nido",
+      "box": [
+        506,
+        1014,
+        882,
+        1031
+      ],
+      "score": 0.9881324172019958
+    },
+    {
+      "text": "1 Puede traducirse: Hlas ensalzado. La voz mucho se usa varias veoes",
+      "box": [
+        32,
+        1057,
+        403,
+        1076
+      ],
+      "score": 0.9739004969596863
+    },
+    {
+      "text": "9 La paz divina que nos trajo Jesu-Christo permanecerá para siempre,",
+      "box": [
+        515,
+        1055,
+        883,
+        1073
+      ],
+      "score": 0.9968103766441345
+    },
+    {
+      "text": "en la Escritura en lugar de grande: y multiplicar por engrandecer.",
+      "box": [
+        19,
+        1072,
+        369,
+        1091
+      ],
+      "score": 0.9981505870819092
+    },
+    {
+      "text": "aun en medio de las afliociones y tormentos, por la virtud de aquel que",
+      "box": [
+        506,
+        1072,
+        882,
+        1086
+      ],
+      "score": 0.9878934621810913
+    },
+    {
+      "text": "à El ejus de la Vulgata se refiere al populus del v. 2.",
+      "box": [
+        31,
+        1086,
+        311,
+        1104
+      ],
+      "score": 0.9511530995368958
+    },
+    {
+      "text": "da al justo la victoria por Jesu-Christo, como dice el Apóstol.",
+      "box": [
+        505,
+        1083,
+        825,
+        1101
+      ],
+      "score": 0.9770283102989197
+    },
+    {
+      "text": "3 Judic. VIII, v. 22. Cuando el Mesías, Ilamado en el v. 3 del cap. VIII",
+      "box": [
+        30,
+        1099,
+        402,
+        1118
+      ],
+      "score": 0.9456204175949097
+    },
+    {
+      "text": "10 Jacob é Israél es lo mismo: y aquí denota los Judíos del reino de",
+      "box": [
+        513,
+        1099,
+        882,
+        1113
+      ],
+      "score": 0.9698601961135864
+    },
+    {
+      "text": "Cito pradare, arrebatará los despojos al demonio, se alborotará el infier-",
+      "box": [
+        19,
+        1114,
+        402,
+        1132
+      ],
+      "score": 0.986005425453186
+    },
+    {
+      "text": "Samaria, ó de Ephraim.",
+      "box": [
+        505,
+        1111,
+        635,
+        1129
+      ],
+      "score": 0.9990739226341248
+    },
+    {
+      "text": "no y todos los mundanos; y por eso los Judíos de Roma decian á San",
+      "box": [
+        19,
+        1129,
+        402,
+        1145
+      ],
+      "score": 0.9947593212127686
+    },
+    {
+      "text": "11 IV. Reg. X VI, v. 9.",
+      "box": [
+        511,
+        1125,
+        637,
+        1143
+      ],
+      "score": 0.9525400996208191
+    },
+    {
+      "text": "Pablo que su doctrina tenia contrarios en todas partes. Act. XXVIII,",
+      "box": [
+        19,
+        1141,
+        402,
+        1160
+      ],
+      "score": 0.9919572472572327
+    },
+    {
+      "text": "12 Es una pintura de la hambre rabiosa de una fiera que entra en un",
+      "box": [
+        512,
+        1139,
+        884,
+        1156
+      ],
+      "score": 0.9843842387199402
+    },
+    {
+      "text": "v. 22.—Matth. X, v. 34.",
+      "box": [
+        18,
+        1154,
+        147,
+        1172
+      ],
+      "score": 0.952649712562561
+    },
+    {
+      "text": "rebaño.",
+      "box": [
+        506,
+        1156,
+        549,
+        1171
+      ],
+      "score": 0.9960293769836426
+    },
+    {
+      "text": "Jesu-Christo, niño Divino, que el Padre eterno quiso que entrase en",
+      "box": [
+        30,
+        1167,
+        401,
+        1188
+      ],
+      "score": 0.9916558265686035
+    },
+    {
+      "text": "13 O parentela.",
+      "box": [
+        511,
+        1167,
+        598,
+        1186
+      ],
+      "score": 0.9734615087509155
+    },
+    {
+      "text": "la gloria por medio de la pasion y muerte.",
+      "box": [
+        18,
+        1180,
+        244,
+        1201
+      ],
+      "score": 0.975932240486145
+    },
+    {
+      "text": "14 No pensará que no es sino un mero instrumento mio; sino que",
+      "box": [
+        512,
+        1180,
+        886,
+        1200
+      ],
+      "score": 0.9907997846603394
+    },
+    {
+      "text": "6 Admárable en su concepcion, y nacimiento de una madre Vírgen:",
+      "box": [
+        30,
+        1193,
+        401,
+        1216
+      ],
+      "score": 0.9606641530990601
+    },
+    {
+      "text": "admirable en su vida, milagros y doctrina; en su pasion y muerte y re-",
+      "box": [
+        18,
+        1206,
+        401,
+        1231
+      ],
+      "score": 0.9909056425094604
+    },
+    {
+      "text": "atribuirá sus victorias á los idolos que l adora; y no tendrá otro fin que",
+      "box": [
+        505,
+        1194,
+        887,
+        1215
+      ],
+      "score": 0.9683218002319336
+    },
+    {
+      "text": "surreccion.",
+      "box": [
+        18,
+        1219,
+        79,
+        1238
+      ],
+      "score": 0.9617751836776733
+    },
+    {
+      "text": "el saciar su ambicion; permitiéndolo ast Dios en castigo de los pecados de",
+      "box": [
+        504,
+        1208,
+        887,
+        1229
+      ],
+      "score": 0.9929182529449463
+    },
+    {
+      "text": " Gal. IV, v. 4.",
+      "box": [
+        29,
+        1231,
+        118,
+        1254
+      ],
+      "score": 0.9676274657249451
+    },
+    {
+      "text": "Isral.",
+      "box": [
+        506,
+        1228,
+        544,
+        1242
+      ],
+      "score": 0.9860334992408752
+    },
+    {
+      "text": "7 Rom. V, v. 14.",
+      "box": [
+        29,
+        1245,
+        123,
+        1266
+      ],
+      "score": 0.9613046050071716
+    },
+    {
+      "text": "15 IV. Reg. XIX, v. 35.—Véase cap. XXXVII, v. 36.—Dios se sirvió del",
+      "box": [
+        509,
+        1233,
+        888,
+        1257
+      ],
+      "score": 0.9661611914634705
+    },
+    {
+      "text": "Ephes. II, v. 18.—Rom. V, v. 10.—Philip. IV, v. 7.—Joan. XIV,",
+      "box": [
+        29,
+        1258,
+        401,
+        1288
+      ],
+      "score": 0.9487495422363281
+    },
+    {
+      "text": "rey de los Assyrios como de un instrumento para castigar á los Judíos;",
+      "box": [
+        504,
+        1249,
+        888,
+        1272
+      ],
+      "score": 0.9960373044013977
+    },
+    {
+      "text": "v.27.",
+      "box": [
+        19,
+        1274,
+        53,
+        1289
+      ],
+      "score": 0.9975021481513977
+    },
+    {
+      "text": "pero despues hizo lo que con todos los soberbios, esto es, le destruyó y",
+      "box": [
+        504,
+        1262,
+        888,
+        1288
+      ],
+      "score": 0.9903717041015625
+    },
+    {
+      "text": "aniquiló.",
+      "box": [
+        503,
+        1282,
+        557,
+        1301
+      ],
+      "score": 0.9878652095794678
+    }
+  ]
+}

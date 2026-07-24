@@ -1,0 +1,827 @@
+{
+  "volume": 2,
+  "page_index": 139,
+  "pdf_page": 140,
+  "lines": [
+    {
+      "text": "PARALIPÓMENON",
+      "box": [
+        391,
+        256,
+        1023,
+        375
+      ],
+      "score": 0.9998257756233215
+    },
+    {
+      "text": "ADVERTENCIA",
+      "box": [
+        591,
+        490,
+        818,
+        526
+      ],
+      "score": 0.9996454119682312
+    },
+    {
+      "text": "cas, como las llamó San Gerónimo.",
+      "box": [
+        95,
+        620,
+        358,
+        658
+      ],
+      "score": 0.9997706413269043
+    },
+    {
+      "text": "nia: y despues se describe el reinado de David hasta Salomon; esto es, hasta el año 2990o del Mundo.",
+      "box": [
+        96,
+        669,
+        842,
+        709
+      ],
+      "score": 0.9875616431236267
+    },
+    {
+      "text": ",buddeeud,ddd",
+      "box": [
+        96,
+        718,
+        1332,
+        754
+      ],
+      "score": 0.5313014984130859
+    },
+    {
+      "text": "lrg, duedlddBlluqureeeereád,udeedddeld",
+      "box": [
+        96,
+        743,
+        1332,
+        778
+      ],
+      "score": 0.5425202250480652
+    },
+    {
+      "text": "qedaadcaquubdlreá,cáldeaedael,ucd.",
+      "box": [
+        97,
+        767,
+        1333,
+        802
+      ],
+      "score": 0.5087325572967529
+    },
+    {
+      "text": "equámedlDddde.lcqu eeeequuedeel",
+      "box": [
+        98,
+        791,
+        1333,
+        826
+      ],
+      "score": 0.5046412944793701
+    },
+    {
+      "text": "dlb;equesquddsgodeuedqu",
+      "box": [
+        98,
+        815,
+        1334,
+        852
+      ],
+      "score": 0.4492115378379822
+    },
+    {
+      "text": "entender las demás Escrituras Sagradas.",
+      "box": [
+        105,
+        893,
+        404,
+        915
+      ],
+      "score": 0.9998849034309387
+    },
+    {
+      "text": "CAPITULO PRIMERO",
+      "box": [
+        273,
+        1064,
+        473,
+        1092
+      ],
+      "score": 0.9997404217720032
+    },
+    {
+      "text": "20. Jectan engendróá Elmodad, y á Saleph, y á Asarmoth,",
+      "box": [
+        803,
+        1057,
+        1336,
+        1092
+      ],
+      "score": 0.985669732093811
+    },
+    {
+      "text": "yáJare;",
+      "box": [
+        785,
+        1090,
+        871,
+        1115
+      ],
+      "score": 0.9993299841880798
+    },
+    {
+      "text": "21. Como tambien á Adoram, y á Huzal, y á Decla.",
+      "box": [
+        803,
+        1110,
+        1277,
+        1140
+      ],
+      "score": 0.9652031064033508
+    },
+    {
+      "text": "Genealogía desde Adam hasta Abraham: hijos de éste, y descendencia de",
+      "box": [
+        105,
+        1114,
+        643,
+        1154
+      ],
+      "score": 0.9990369081497192
+    },
+    {
+      "text": "Ismahel y de Esaú.",
+      "box": [
+        302,
+        1143,
+        447,
+        1166
+      ],
+      "score": 0.9993617534637451
+    },
+    {
+      "text": "22. Y asimismo á Hebal, y Abimael, y á Saba,",
+      "box": [
+        806,
+        1139,
+        1224,
+        1163
+      ],
+      "score": 0.981642484664917
+    },
+    {
+      "text": "23. Yá Ophir, y á Hévila, y á Jobab: todos estos fueron",
+      "box": [
+        802,
+        1153,
+        1336,
+        1194
+      ],
+      "score": 0.984562337398529
+    },
+    {
+      "text": "hijos de Jectan.",
+      "box": [
+        787,
+        1187,
+        927,
+        1211
+      ],
+      "score": 0.9998772740364075
+    },
+    {
+      "text": "1. Adam, Seth, Enos,",
+      "box": [
+        124,
+        1191,
+        325,
+        1227
+      ],
+      "score": 0.9900315403938293
+    },
+    {
+      "text": "24. Descendientes de Sem: Arphaxad, Salé,",
+      "box": [
+        803,
+        1210,
+        1195,
+        1238
+      ],
+      "score": 0.9997034072875977
+    },
+    {
+      "text": "2. Cainan, Malaleel, Jared,",
+      "box": [
+        123,
+        1216,
+        372,
+        1252
+      ],
+      "score": 0.9802024364471436
+    },
+    {
+      "text": "25. Heber, Phaleg, Ragau,",
+      "box": [
+        804,
+        1237,
+        1044,
+        1266
+      ],
+      "score": 0.9998070597648621
+    },
+    {
+      "text": "3. Henoch, Mathusalé 1, Lamech,",
+      "box": [
+        124,
+        1240,
+        425,
+        1275
+      ],
+      "score": 0.9759467244148254
+    },
+    {
+      "text": "26. Serug, Nachor, Thare,",
+      "box": [
+        804,
+        1263,
+        1043,
+        1289
+      ],
+      "score": 0.9942136406898499
+    },
+    {
+      "text": "4. Noé, Sem, Cham, y Japhet.",
+      "box": [
+        125,
+        1266,
+        400,
+        1301
+      ],
+      "score": 0.9968360662460327
+    },
+    {
+      "text": "5. Hijos de Japhet: Gomer, y Magog, y Madai, y Javan,",
+      "box": [
+        125,
+        1289,
+        642,
+        1326
+      ],
+      "score": 0.9986818432807922
+    },
+    {
+      "text": "27. Abram, el mismo que Abraham.",
+      "box": [
+        804,
+        1287,
+        1132,
+        1312
+      ],
+      "score": 0.9707174301147461
+    },
+    {
+      "text": "Thubal, Mosoch, Thiras.",
+      "box": [
+        108,
+        1318,
+        321,
+        1350
+      ],
+      "score": 0.998755156993866
+    },
+    {
+      "text": "28. Hijos de Abraham, Isaac, é Ismahel;",
+      "box": [
+        805,
+        1311,
+        1171,
+        1338
+      ],
+      "score": 0.9826481342315674
+    },
+    {
+      "text": "29. Y estos son sus descendientes: El primogénito de Is-",
+      "box": [
+        802,
+        1323,
+        1336,
+        1371
+      ],
+      "score": 0.9897565841674805
+    },
+    {
+      "text": "6. Hijos de Gomer: Ascenez, y Riphath, y Thogorma.",
+      "box": [
+        128,
+        1344,
+        599,
+        1374
+      ],
+      "score": 0.9997721910476685
+    },
+    {
+      "text": "mahel fué Nabaioth, despues Cedar, y Adbeel, y Mabsam,",
+      "box": [
+        785,
+        1351,
+        1335,
+        1393
+      ],
+      "score": 0.9931700229644775
+    },
+    {
+      "text": "7. Hijos de Javan: Elisa, y Tharsis, Cethim y Dodanim.",
+      "box": [
+        128,
+        1369,
+        618,
+        1399
+      ],
+      "score": 0.9873627424240112
+    },
+    {
+      "text": "8. Hijos de Cham: Chus, y Mesraim, y Phut, y Chanaan.",
+      "box": [
+        128,
+        1395,
+        645,
+        1424
+      ],
+      "score": 0.9859794974327087
+    },
+    {
+      "text": "30. Y Masma, y Duma, Massa, Hadad, y Thema,",
+      "box": [
+        806,
+        1384,
+        1241,
+        1414
+      ],
+      "score": 0.9923929572105408
+    },
+    {
+      "text": "31. Jetur, Naphis, y Cedma. Estos son los hijos de Is-",
+      "box": [
+        803,
+        1397,
+        1337,
+        1446
+      ],
+      "score": 0.9958504438400269
+    },
+    {
+      "text": "9. Hijos de Chus: Saba y Hévila; Sabatha, y Regma, y Sa-",
+      "box": [
+        129,
+        1420,
+        645,
+        1449
+      ],
+      "score": 0.9946619868278503
+    },
+    {
+      "text": "mahel.",
+      "box": [
+        788,
+        1437,
+        852,
+        1461
+      ],
+      "score": 0.9996842741966248
+    },
+    {
+      "text": "bathacha. Hijos de Regma: Saba y Dadan.",
+      "box": [
+        113,
+        1445,
+        481,
+        1473
+      ],
+      "score": 0.9918543696403503
+    },
+    {
+      "text": "32. Los hijos de Cetura, mujer de segundo órden de",
+      "box": [
+        808,
+        1452,
+        1336,
+        1489
+      ],
+      "score": 0.9822016358375549
+    },
+    {
+      "text": "10: Chus engendró tambien á Nemrod: el cual empezó á",
+      "box": [
+        131,
+        1468,
+        646,
+        1499
+      ],
+      "score": 0.9895702004432678
+    },
+    {
+      "text": "Abraham , fueron: Zamran, Jecsan, Madan, Madian, Jesboc,",
+      "box": [
+        790,
+        1479,
+        1337,
+        1512
+      ],
+      "score": 0.9968238472938538
+    },
+    {
+      "text": "ser poderoso en la tierra ².",
+      "box": [
+        112,
+        1496,
+        344,
+        1526
+      ],
+      "score": 0.9905869364738464
+    },
+    {
+      "text": "y Sué. Hijos de Jecsan: Saba, y Dadan. Los de Dadan : Assu-",
+      "box": [
+        789,
+        1505,
+        1337,
+        1537
+      ],
+      "score": 0.9834100008010864
+    },
+    {
+      "text": "11. Mesraim engendro á Ludim, y á Anamim, y á Laabim,",
+      "box": [
+        133,
+        1519,
+        645,
+        1549
+      ],
+      "score": 0.983356773853302
+    },
+    {
+      "text": "rim, y Latussim, y Laomim.",
+      "box": [
+        791,
+        1534,
+        1033,
+        1561
+      ],
+      "score": 0.986975908279419
+    },
+    {
+      "text": "yá Nephthuim,",
+      "box": [
+        112,
+        1549,
+        257,
+        1576
+      ],
+      "score": 0.987634539604187
+    },
+    {
+      "text": "33. Los hijos de Madian fueron Epha, Epher, Henoch,",
+      "box": [
+        809,
+        1555,
+        1336,
+        1586
+      ],
+      "score": 0.9941470623016357
+    },
+    {
+      "text": "12. Y tambien á Phetrusim y Cassuim, de los cuales sa-",
+      "box": [
+        132,
+        1567,
+        648,
+        1599
+      ],
+      "score": 0.9985776543617249
+    },
+    {
+      "text": "Abida, y Eldaa: todos estos descendian de Cetura.",
+      "box": [
+        793,
+        1585,
+        1227,
+        1608
+      ],
+      "score": 0.9803653359413147
+    },
+    {
+      "text": "lieron los Philisthéos y Caphtoréos.",
+      "box": [
+        113,
+        1595,
+        423,
+        1625
+      ],
+      "score": 0.999927282333374
+    },
+    {
+      "text": "34. Abraham engendró asimismo á Isaac, de quien fueron",
+      "box": [
+        810,
+        1608,
+        1337,
+        1635
+      ],
+      "score": 0.9995840787887573
+    },
+    {
+      "text": "13. Chanaan tuvo por su primogénito á Sidon, y despues",
+      "box": [
+        132,
+        1616,
+        649,
+        1651
+      ],
+      "score": 0.9943706393241882
+    },
+    {
+      "text": "hijos Esaú é Israél.",
+      "box": [
+        793,
+        1633,
+        954,
+        1657
+      ],
+      "score": 0.9988096952438354
+    },
+    {
+      "text": "engendró al Hethéo,",
+      "box": [
+        115,
+        1648,
+        298,
+        1677
+      ],
+      "score": 0.9997332692146301
+    },
+    {
+      "text": "35. Hijos de Esaú: Eliphaz, Rahuel, Jehús, Ihelom, y Coré.",
+      "box": [
+        810,
+        1654,
+        1336,
+        1684
+      ],
+      "score": 0.9978950619697571
+    },
+    {
+      "text": "14. Y al Jebuséo, y al Amorrhéo, y al Gergeséo,",
+      "box": [
+        134,
+        1668,
+        559,
+        1700
+      ],
+      "score": 0.9854676127433777
+    },
+    {
+      "text": "36. Hijos de Eliphaz: Theman, Omar, Sephi, Gathan, Ce-",
+      "box": [
+        810,
+        1680,
+        1336,
+        1709
+      ],
+      "score": 0.9984844326972961
+    },
+    {
+      "text": "15. Y al Hevéo, y al Aracéo, y al Sinéo:",
+      "box": [
+        134,
+        1692,
+        494,
+        1725
+      ],
+      "score": 0.9984416961669922
+    },
+    {
+      "text": "nez: de Thamna tuvo á Amalec 6.",
+      "box": [
+        794,
+        1708,
+        1076,
+        1730
+      ],
+      "score": 0.9569529294967651
+    },
+    {
+      "text": "16. Como tambien al Aradio, y al Samaréo, y al Hamathéo.",
+      "box": [
+        135,
+        1716,
+        647,
+        1748
+      ],
+      "score": 0.9833714365959167
+    },
+    {
+      "text": "37. Hijos de Rahuel: Nahath, Zara, Samma, y Meza.",
+      "box": [
+        811,
+        1728,
+        1282,
+        1760
+      ],
+      "score": 0.9977453351020813
+    },
+    {
+      "text": "17. Hijos de Sem: Elam, y Assur, y Arphaxad, y Lud, y",
+      "box": [
+        136,
+        1741,
+        649,
+        1774
+      ],
+      "score": 0.989030659198761
+    },
+    {
+      "text": "38. Hijos de Seir: Lotan, Sobal, Sebeon, Ana, Dison, Eser,",
+      "box": [
+        811,
+        1754,
+        1335,
+        1784
+      ],
+      "score": 0.9995620250701904
+    },
+    {
+      "text": "Aram, y Hus, y Hul, y Gether, y Mosoch.",
+      "box": [
+        119,
+        1769,
+        478,
+        1798
+      ],
+      "score": 0.9984678626060486
+    },
+    {
+      "text": "Disan.",
+      "box": [
+        794,
+        1781,
+        851,
+        1803
+      ],
+      "score": 0.9999418258666992
+    },
+    {
+      "text": "18. Arphaxad engendró á Salé, el cual engendró despues",
+      "box": [
+        137,
+        1791,
+        650,
+        1822
+      ],
+      "score": 0.9918321967124939
+    },
+    {
+      "text": "39. Hijos de Lotan: Hori, Homam: hermana de Lotan fué",
+      "box": [
+        813,
+        1800,
+        1336,
+        1833
+      ],
+      "score": 0.9988102316856384
+    },
+    {
+      "text": "á Heber.",
+      "box": [
+        118,
+        1822,
+        199,
+        1846
+      ],
+      "score": 0.9936546087265015
+    },
+    {
+      "text": "Thamna.",
+      "box": [
+        796,
+        1829,
+        874,
+        1852
+      ],
+      "score": 0.9987117052078247
+    },
+    {
+      "text": "19. Á Heber le nacieron dos hijos: el nombre del uno es",
+      "box": [
+        139,
+        1838,
+        651,
+        1870
+      ],
+      "score": 0.9968398809432983
+    },
+    {
+      "text": "40. Hijos de Sobal: Alian y Manahath, y Ebal, Sephi y",
+      "box": [
+        814,
+        1848,
+        1337,
+        1887
+      ],
+      "score": 0.9823705554008484
+    },
+    {
+      "text": "Phaleg ³, porque en su tiempo fué dividida la tierra ⁴, y el",
+      "box": [
+        119,
+        1863,
+        651,
+        1897
+      ],
+      "score": 0.9719225764274597
+    },
+    {
+      "text": "Onam. Hijos de Sebeon: Aja y Ana. Hijo de Ana: Dison.",
+      "box": [
+        797,
+        1875,
+        1292,
+        1913
+      ],
+      "score": 0.9832464456558228
+    },
+    {
+      "text": "nombre de su hermano era Jectan.",
+      "box": [
+        117,
+        1893,
+        421,
+        1924
+      ],
+      "score": 0.9977983236312866
+    },
+    {
+      "text": "4 En naciones y lenguas diferentes.",
+      "box": [
+        814,
+        1929,
+        1066,
+        1958
+      ],
+      "score": 0.9764814376831055
+    },
+    {
+      "text": "1 El mismo que Mathusalem.—Véase Nombre.",
+      "box": [
+        133,
+        1946,
+        479,
+        1978
+      ],
+      "score": 0.9983308911323547
+    },
+    {
+      "text": "5 Gen. XXXVI, v. 1, es llamada Uxor, mujer.—Véase Concubina.",
+      "box": [
+        813,
+        1946,
+        1307,
+        1990
+      ],
+      "score": 0.9715582132339478
+    },
+    {
+      "text": "2 Estableciendo la primera monarquía.",
+      "box": [
+        132,
+        1972,
+        425,
+        1998
+      ],
+      "score": 0.9998440146446228
+    },
+    {
+      "text": "Gen. XXXVI, v. 12.",
+      "box": [
+        821,
+        1968,
+        976,
+        1996
+      ],
+      "score": 0.9632640480995178
+    },
+    {
+      "text": "3 Que significa division.",
+      "box": [
+        129,
+        1994,
+        317,
+        2024
+      ],
+      "score": 0.9984613060951233
+    }
+  ]
+}

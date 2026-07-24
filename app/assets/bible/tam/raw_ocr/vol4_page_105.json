@@ -1,0 +1,1517 @@
+{
+  "volume": 4,
+  "page_index": 105,
+  "pdf_page": 106,
+  "lines": [
+    {
+      "text": "123",
+      "box": [
+        86,
+        68,
+        110,
+        85
+      ],
+      "score": 0.9999514222145081
+    },
+    {
+      "text": "SAN LUCAS.",
+      "box": [
+        211,
+        64,
+        299,
+        87
+      ],
+      "score": 0.9985247850418091
+    },
+    {
+      "text": "CAPITULO XXIII.",
+      "box": [
+        670,
+        76,
+        796,
+        97
+      ],
+      "score": 0.986912727355957
+    },
+    {
+      "text": "124",
+      "box": [
+        883,
+        83,
+        906,
+        100
+      ],
+      "score": 0.9999869465827942
+    },
+    {
+      "text": "y haciéndole comparecer en su concilio, le dijeron: Si tú",
+      "box": [
+        75,
+        112,
+        442,
+        144
+      ],
+      "score": 0.9827760457992554
+    },
+    {
+      "text": "eres el Christo ó Mesías, dínoslo¹.",
+      "box": [
+        78,
+        135,
+        281,
+        156
+      ],
+      "score": 0.9723977446556091
+    },
+    {
+      "text": "17. Tenia Pilato que dar libertad á un reo cuando llegaba",
+      "box": [
+        552,
+        125,
+        912,
+        152
+      ],
+      "score": 0.987366259098053
+    },
+    {
+      "text": "67. Respondióles: Si os lo dijere, no me creereis:",
+      "box": [
+        90,
+        154,
+        384,
+        178
+      ],
+      "score": 0.9985182285308838
+    },
+    {
+      "text": "la celebridad de la fiesta de la Pascua.",
+      "box": [
+        538,
+        147,
+        773,
+        169
+      ],
+      "score": 0.9940370321273804
+    },
+    {
+      "text": "68. Y si yo os hiciere alguna pregunta, no me respondereis,",
+      "box": [
+        89,
+        172,
+        439,
+        199
+      ],
+      "score": 0.982774555683136
+    },
+    {
+      "text": "18. Y todo el pueblo á una voz clamó, diciendo: Quítale á",
+      "box": [
+        550,
+        163,
+        910,
+        185
+      ],
+      "score": 0.984255313873291
+    },
+    {
+      "text": "ni me dejareis ir.",
+      "box": [
+        77,
+        189,
+        183,
+        211
+      ],
+      "score": 0.9994568228721619
+    },
+    {
+      "text": "éste la vida, y suéltanos á Barrabás:",
+      "box": [
+        538,
+        182,
+        761,
+        202
+      ],
+      "score": 0.9926958680152893
+    },
+    {
+      "text": "69. Pero despues de lo que veis ahora el Hijo del hombre",
+      "box": [
+        90,
+        207,
+        440,
+        233
+      ],
+      "score": 0.9987316131591797
+    },
+    {
+      "text": "19. El cual por una sedicion levantada en la ciudad y por",
+      "box": [
+        548,
+        196,
+        909,
+        219
+      ],
+      "score": 0.9783181548118591
+    },
+    {
+      "text": "estará sentado á la diestra del poder de Dios.",
+      "box": [
+        79,
+        225,
+        346,
+        247
+      ],
+      "score": 0.9943296909332275
+    },
+    {
+      "text": "un homicidio, habia sido puesto en la cárcel.",
+      "box": [
+        537,
+        214,
+        813,
+        234
+      ],
+      "score": 0.993388295173645
+    },
+    {
+      "text": "70. Dijeron entonces todos: ¿Luego tú eres el Hijo de",
+      "box": [
+        89,
+        240,
+        439,
+        266
+      ],
+      "score": 0.9948943257331848
+    },
+    {
+      "text": "20. Hablóles nuevamente Pilato, con deseo de libertar á",
+      "box": [
+        548,
+        230,
+        909,
+        249
+      ],
+      "score": 0.9957867860794067
+    },
+    {
+      "text": "Dios? Respondióles él: Así es, que yo soy como vosotros",
+      "box": [
+        76,
+        255,
+        440,
+        284
+      ],
+      "score": 0.9854506850242615
+    },
+    {
+      "text": "Jesus:",
+      "box": [
+        537,
+        249,
+        578,
+        264
+      ],
+      "score": 0.9952041506767273
+    },
+    {
+      "text": "decís.",
+      "box": [
+        77,
+        271,
+        116,
+        294
+      ],
+      "score": 0.9216158390045166
+    },
+    {
+      "text": "21. Pero ellos se pusieron á gritar, diciendo: Crucifícale",
+      "box": [
+        548,
+        262,
+        905,
+        279
+      ],
+      "score": 0.9931874871253967
+    },
+    {
+      "text": "71. Y replicaron ellos: ¿Qué necesitamos ya busear otros",
+      "box": [
+        88,
+        289,
+        439,
+        312
+      ],
+      "score": 0.9904189109802246
+    },
+    {
+      "text": "crucificale.",
+      "box": [
+        538,
+        281,
+        605,
+        295
+      ],
+      "score": 0.9995384216308594
+    },
+    {
+      "text": "22. Él no obstante por tercera vez les dijo: ¿Pues qué",
+      "box": [
+        549,
+        294,
+        907,
+        311
+      ],
+      "score": 0.9960522651672363
+    },
+    {
+      "text": "testigos, cuando nosotros mismos lo hemos oido de su propia",
+      "box": [
+        76,
+        304,
+        438,
+        329
+      ],
+      "score": 0.9822553992271423
+    },
+    {
+      "text": "boca?",
+      "box": [
+        76,
+        319,
+        116,
+        340
+      ],
+      "score": 0.997765064239502
+    },
+    {
+      "text": "mal ha hecho éste? Yo no hallo en él delito ninguno de",
+      "box": [
+        537,
+        310,
+        909,
+        327
+      ],
+      "score": 0.9792847037315369
+    },
+    {
+      "text": "muerte: así que, despues de castigarle, le daré por libre.",
+      "box": [
+        536,
+        325,
+        875,
+        343
+      ],
+      "score": 0.9963729381561279
+    },
+    {
+      "text": "23. Mas ellos insistian con grandes clamores pidiendo",
+      "box": [
+        548,
+        339,
+        908,
+        358
+      ],
+      "score": 0.9947316646575928
+    },
+    {
+      "text": "CAPITULO XXIII",
+      "box": [
+        200,
+        353,
+        315,
+        373
+      ],
+      "score": 0.9692387580871582
+    },
+    {
+      "text": "que fuese crucificado: y se aumentaba la gritería.",
+      "box": [
+        536,
+        354,
+        837,
+        374
+      ],
+      "score": 0.9896700978279114
+    },
+    {
+      "text": "24. Al fin Pilato se resolvió á otorgar su demanda³.",
+      "box": [
+        547,
+        368,
+        875,
+        390
+      ],
+      "score": 0.9866650700569153
+    },
+    {
+      "text": "Jesu-Christo es acusado delante de Pilato enviado á Herodes: pospuesto",
+      "box": [
+        75,
+        384,
+        439,
+        410
+      ],
+      "score": 0.7743593454360962
+    },
+    {
+      "text": "25. En consecuencia dió libertad, como ellos pedian, al",
+      "box": [
+        548,
+        384,
+        910,
+        407
+      ],
+      "score": 0.9972754120826721
+    },
+    {
+      "text": "á Barrabás: entregado á los Judios: crucificado é insultado. Titulo de",
+      "box": [
+        86,
+        399,
+        438,
+        422
+      ],
+      "score": 0.9450137615203857
+    },
+    {
+      "text": "la cruz. Del buen ladron. Tinieblas. Muerte del Señor. Confesion del",
+      "box": [
+        85,
+        413,
+        439,
+        435
+      ],
+      "score": 0.9911701083183289
+    },
+    {
+      "text": "que por causa de homicidio, y sedicion habia sido encarcelado:",
+      "box": [
+        538,
+        404,
+        910,
+        421
+      ],
+      "score": 0.9981289505958557
+    },
+    {
+      "text": "centurion, y sepultura de Jesus. (Matth. 22, 27.—Mare. 12, 15, 18.—",
+      "box": [
+        86,
+        427,
+        438,
+        449
+      ],
+      "score": 0.9714799523353577
+    },
+    {
+      "text": "y á Jesus le abandonó al arbitrio de ellos.",
+      "box": [
+        536,
+        419,
+        793,
+        438
+      ],
+      "score": 0.997917890548706
+    },
+    {
+      "text": "Joan. 18, 19.)",
+      "box": [
+        85,
+        440,
+        162,
+        460
+      ],
+      "score": 0.9841214418411255
+    },
+    {
+      "text": "26. Al conducirle al suplicio, echaron mano de un tal",
+      "box": [
+        550,
+        435,
+        911,
+        455
+      ],
+      "score": 0.9967519640922546
+    },
+    {
+      "text": "Simon natural de Cyrene, que venia de una granja: y le car-",
+      "box": [
+        537,
+        450,
+        912,
+        472
+      ],
+      "score": 0.9980486631393433
+    },
+    {
+      "text": "1. Y levantándose luego todo aquel congreso, le llevaron",
+      "box": [
+        85,
+        476,
+        438,
+        502
+      ],
+      "score": 0.9959198832511902
+    },
+    {
+      "text": "garon la cruz para que la llevara en pos de Jesus.",
+      "box": [
+        537,
+        468,
+        854,
+        489
+      ],
+      "score": 0.9896136522293091
+    },
+    {
+      "text": "27. Seguíale gran muchedumbre de pueblo, y de mujeres:",
+      "box": [
+        549,
+        484,
+        912,
+        507
+      ],
+      "score": 0.9947447776794434
+    },
+    {
+      "text": "á Pilato.",
+      "box": [
+        74,
+        494,
+        129,
+        512
+      ],
+      "score": 0.9964005351066589
+    },
+    {
+      "text": "2. Y comenzaron á acusarle, diciendo: Á este le hemos",
+      "box": [
+        85,
+        508,
+        440,
+        534
+      ],
+      "score": 0.9930766820907593
+    },
+    {
+      "text": "las cuales se deshacian en llantos, y le plañian.",
+      "box": [
+        538,
+        502,
+        825,
+        522
+      ],
+      "score": 0.9968978762626648
+    },
+    {
+      "text": "hallado pervirtiendo á nuestra nacion: y vedando pagar los",
+      "box": [
+        73,
+        525,
+        440,
+        551
+      ],
+      "score": 0.9984380602836609
+    },
+    {
+      "text": "28. Pero Jesus vuelto á ellas, les dijo: Hijas de Jerusalem,",
+      "box": [
+        550,
+        517,
+        910,
+        538
+      ],
+      "score": 0.991463303565979
+    },
+    {
+      "text": "tributos á César, y diciendo que él es el Christo ó el Ungido",
+      "box": [
+        74,
+        542,
+        439,
+        567
+      ],
+      "score": 0.9897819757461548
+    },
+    {
+      "text": "no lloreis por mí, llorad por vosotras mismas, y por vuestros",
+      "box": [
+        537,
+        535,
+        911,
+        555
+      ],
+      "score": 0.9916864633560181
+    },
+    {
+      "text": "Rey ² de Isruél.",
+      "box": [
+        75,
+        561,
+        169,
+        578
+      ],
+      "score": 0.9716604948043823
+    },
+    {
+      "text": "hijos.",
+      "box": [
+        538,
+        552,
+        575,
+        571
+      ],
+      "score": 0.9999836087226868
+    },
+    {
+      "text": "3. Pilato pues le interrogó, diciendo: ¿Eres tú el rey de los",
+      "box": [
+        85,
+        575,
+        440,
+        599
+      ],
+      "score": 0.9826381802558899
+    },
+    {
+      "text": "29. Porque presto vendrán dias en que se diga: Dichosas",
+      "box": [
+        550,
+        567,
+        910,
+        587
+      ],
+      "score": 0.9995213150978088
+    },
+    {
+      "text": "Judíos? Á lo cual respondió Jesus: Así es como tú dices.",
+      "box": [
+        74,
+        592,
+        407,
+        614
+      ],
+      "score": 0.9834222197532654
+    },
+    {
+      "text": "las estériles, y dichosos los vientres que no concibieron, y los",
+      "box": [
+        539,
+        585,
+        909,
+        602
+      ],
+      "score": 0.9937814474105835
+    },
+    {
+      "text": "4. Pilato dijo á los príncipes de los sacerdotes, y al pue-",
+      "box": [
+        87,
+        609,
+        439,
+        629
+      ],
+      "score": 0.9920130968093872
+    },
+    {
+      "text": "pechos que no dieron de mamar.",
+      "box": [
+        539,
+        602,
+        734,
+        619
+      ],
+      "score": 0.9971639513969421
+    },
+    {
+      "text": "blo: Yo no hallo delito alguno en este hombre.",
+      "box": [
+        75,
+        625,
+        350,
+        644
+      ],
+      "score": 0.999671459197998
+    },
+    {
+      "text": "30. Entonces comenzarán á decir á los montes: Caed sobre",
+      "box": [
+        551,
+        617,
+        909,
+        634
+      ],
+      "score": 0.99046391248703
+    },
+    {
+      "text": "5. Pero ellos insistian mas y mas, diciendo: Tiene albo-",
+      "box": [
+        87,
+        641,
+        439,
+        660
+      ],
+      "score": 0.9928713440895081
+    },
+    {
+      "text": "nosotros; y á los collados: Sepultadnos.",
+      "box": [
+        537,
+        632,
+        774,
+        651
+      ],
+      "score": 0.9879339337348938
+    },
+    {
+      "text": "31. Pues si al árbol verde le tratan de esta manera, ¿en",
+      "box": [
+        549,
+        646,
+        910,
+        669
+      ],
+      "score": 0.9918025135993958
+    },
+    {
+      "text": "rotado al pueblo con la doctrina que va sembrando por toda",
+      "box": [
+        75,
+        657,
+        440,
+        676
+      ],
+      "score": 0.9996165037155151
+    },
+    {
+      "text": "el seco qué se hará?",
+      "box": [
+        537,
+        663,
+        666,
+        681
+      ],
+      "score": 0.993114173412323
+    },
+    {
+      "text": "la Judéa, desde la Galiléa donde comenzó hastá aquí.",
+      "box": [
+        74,
+        673,
+        392,
+        692
+      ],
+      "score": 0.9861749410629272
+    },
+    {
+      "text": "32. Éran tambien conducidos con Jesus á la muerte otros",
+      "box": [
+        548,
+        678,
+        910,
+        700
+      ],
+      "score": 0.9805030226707458
+    },
+    {
+      "text": "6. Pilato oyendo Galiléa, preguntó si aquel hombre era",
+      "box": [
+        87,
+        689,
+        439,
+        708
+      ],
+      "score": 0.9962033033370972
+    },
+    {
+      "text": "dos facinerosos.",
+      "box": [
+        537,
+        695,
+        636,
+        714
+      ],
+      "score": 0.9992796182632446
+    },
+    {
+      "text": "Galiléo.",
+      "box": [
+        75,
+        705,
+        125,
+        723
+      ],
+      "score": 0.9988183975219727
+    },
+    {
+      "text": "33. Llegados que fueron al lugar llamado Calvario ú Osa-",
+      "box": [
+        548,
+        710,
+        910,
+        732
+      ],
+      "score": 0.9768996238708496
+    },
+    {
+      "text": "7. Y cuando entendió que era de la jurisdiccion de Hero-",
+      "box": [
+        87,
+        721,
+        439,
+        739
+      ],
+      "score": 0.999592125415802
+    },
+    {
+      "text": "des, remitióle al mismo Herodes, que en aquellos dias se",
+      "box": [
+        75,
+        736,
+        439,
+        758
+      ],
+      "score": 0.9940744042396545
+    },
+    {
+      "text": "rio, allí le crucificaron; y con él á los ladrones, uno á la",
+      "box": [
+        536,
+        727,
+        909,
+        749
+      ],
+      "score": 0.9904904961585999
+    },
+    {
+      "text": "diestra, y otro á la izquierda.",
+      "box": [
+        537,
+        744,
+        714,
+        763
+      ],
+      "score": 0.9967360496520996
+    },
+    {
+      "text": "hallaba tambien en Jerusalem.",
+      "box": [
+        77,
+        755,
+        257,
+        769
+      ],
+      "score": 0.999923825263977
+    },
+    {
+      "text": "8. Herodes holgóse sobremanera de ver á Jesus: porque",
+      "box": [
+        87,
+        767,
+        438,
+        790
+      ],
+      "score": 0.9959546327590942
+    },
+    {
+      "text": "34. Entre tanto Jesus decia: Padre mio, perdónales, por-",
+      "box": [
+        549,
+        760,
+        908,
+        780
+      ],
+      "score": 0.9940291047096252
+    },
+    {
+      "text": "hacia mucho tiempo que deseaba verle, por las muchas cosas",
+      "box": [
+        74,
+        785,
+        439,
+        804
+      ],
+      "score": 0.9998363256454468
+    },
+    {
+      "text": "que no saben lo que hacen 6. Y ellos poniéndose á repartir",
+      "box": [
+        537,
+        776,
+        909,
+        797
+      ],
+      "score": 0.9823862314224243
+    },
+    {
+      "text": "que habia oido de él, y con esta ocasion esperaba verle hacer",
+      "box": [
+        74,
+        800,
+        440,
+        822
+      ],
+      "score": 0.9907559156417847
+    },
+    {
+      "text": "entre sí sus vestidos, los sortearon.",
+      "box": [
+        537,
+        792,
+        744,
+        812
+      ],
+      "score": 0.9998842477798462
+    },
+    {
+      "text": "35. El pueblo lo estaba mirando todo, y á una con él los",
+      "box": [
+        549,
+        808,
+        908,
+        828
+      ],
+      "score": 0.9818416237831116
+    },
+    {
+      "text": "algun milagro.",
+      "box": [
+        77,
+        819,
+        166,
+        833
+      ],
+      "score": 0.999867856502533
+    },
+    {
+      "text": "9. Hízole pues muchas preguntas, pero él no le respondió",
+      "box": [
+        86,
+        831,
+        438,
+        853
+      ],
+      "score": 0.9965129494667053
+    },
+    {
+      "text": "principales hacian befa de Jesus, diciendo: À otros ha sal-",
+      "box": [
+        537,
+        825,
+        908,
+        844
+      ],
+      "score": 0.9852895140647888
+    },
+    {
+      "text": "palabra.",
+      "box": [
+        73,
+        846,
+        127,
+        867
+      ],
+      "score": 0.9999493956565857
+    },
+    {
+      "text": "vado, sálvese pues á sí mismo, si él es el Christo ó Mesías,",
+      "box": [
+        537,
+        841,
+        907,
+        861
+      ],
+      "score": 0.9686697125434875
+    },
+    {
+      "text": "10. Entre tanto los príncipes de los sacerdotes, y los Es-",
+      "box": [
+        87,
+        863,
+        438,
+        885
+      ],
+      "score": 0.9912580251693726
+    },
+    {
+      "text": "el escogido de Dios 7.",
+      "box": [
+        536,
+        857,
+        663,
+        875
+      ],
+      "score": 0.9945448040962219
+    },
+    {
+      "text": "cribas persistian obstinadamente en acusarle.",
+      "box": [
+        75,
+        879,
+        343,
+        900
+      ],
+      "score": 0.9846195578575134
+    },
+    {
+      "text": "36. Insultábanle no menos los soldados, los cuales se",
+      "box": [
+        548,
+        873,
+        908,
+        894
+      ],
+      "score": 0.997298538684845
+    },
+    {
+      "text": "11. Mas Herodes con todos los de su séquito le despreció:",
+      "box": [
+        86,
+        894,
+        439,
+        919
+      ],
+      "score": 0.9957369565963745
+    },
+    {
+      "text": "arrimaban á él, y presentándole vinagre 8,",
+      "box": [
+        536,
+        889,
+        787,
+        909
+      ],
+      "score": 0.9817732572555542
+    },
+    {
+      "text": "y para burlarse de él, le hizo vestir de una ropa blanca, y",
+      "box": [
+        73,
+        909,
+        439,
+        936
+      ],
+      "score": 0.9986722469329834
+    },
+    {
+      "text": "37. Le decian: Si tú eres el rey de los Judíos, ponte en salvo.",
+      "box": [
+        548,
+        904,
+        908,
+        926
+      ],
+      "score": 0.9836755394935608
+    },
+    {
+      "text": "le volvió á enviar á Pilato.",
+      "box": [
+        74,
+        926,
+        235,
+        945
+      ],
+      "score": 0.9950466752052307
+    },
+    {
+      "text": "38. Estaba colocado sobre la cabeza de Jesus un letrero",
+      "box": [
+        548,
+        920,
+        908,
+        942
+      ],
+      "score": 0.997650146484375
+    },
+    {
+      "text": "12. Con lo cual se hicieron amigos aquel mismo dia Hero-",
+      "box": [
+        86,
+        941,
+        438,
+        964
+      ],
+      "score": 0.9994502663612366
+    },
+    {
+      "text": "escrito en griego, en latin, y en hebreo, que decia: Éste",
+      "box": [
+        535,
+        936,
+        908,
+        958
+      ],
+      "score": 0.984094500541687
+    },
+    {
+      "text": "des y Pilato, que antes estaban entre sí enemistados.",
+      "box": [
+        73,
+        957,
+        388,
+        979
+      ],
+      "score": 0.9960767030715942
+    },
+    {
+      "text": "ES EL REY DE LOS JUDíos.",
+      "box": [
+        535,
+        951,
+        690,
+        970
+      ],
+      "score": 0.9127500653266907
+    },
+    {
+      "text": "13. Habiendo pues Pilato convocado á los príncipes de los",
+      "box": [
+        85,
+        972,
+        438,
+        996
+      ],
+      "score": 0.9877840876579285
+    },
+    {
+      "text": "39. Y uno de los ladrones que estaban crucificados, blas-",
+      "box": [
+        547,
+        965,
+        908,
+        990
+      ],
+      "score": 0.9883935451507568
+    },
+    {
+      "text": "sacerdotes, y á los magistrados, juntamente con el pueblo,",
+      "box": [
+        74,
+        989,
+        418,
+        1011
+      ],
+      "score": 0.9867539405822754
+    },
+    {
+      "text": "femaba contra Jesus, diciendo: Si tú eres el Christo é Mestas,",
+      "box": [
+        535,
+        981,
+        908,
+        1006
+      ],
+      "score": 0.9785293936729431
+    },
+    {
+      "text": "14. Les dijo: Vosotros me habeis presentado este hombre",
+      "box": [
+        85,
+        1004,
+        439,
+        1029
+      ],
+      "score": 0.9908294677734375
+    },
+    {
+      "text": "sálvate á tí mismo, y á nosotros.",
+      "box": [
+        535,
+        997,
+        726,
+        1018
+      ],
+      "score": 0.989917516708374
+    },
+    {
+      "text": "como alborotador del pueblo, y hé aquí que habiéndole yo",
+      "box": [
+        73,
+        1020,
+        438,
+        1045
+      ],
+      "score": 0.990594208240509
+    },
+    {
+      "text": "40. Mas el otro le reprendia, diciendo: ¿Cómo, ni aun tú",
+      "box": [
+        547,
+        1012,
+        908,
+        1038
+      ],
+      "score": 0.9962483644485474
+    },
+    {
+      "text": "interrogado en presencia vuestra, ningun delito he hallado",
+      "box": [
+        72,
+        1036,
+        438,
+        1061
+      ],
+      "score": 0.9995218515396118
+    },
+    {
+      "text": "temes á Dios, estando como estás en el mismo suplicio?",
+      "box": [
+        534,
+        1028,
+        870,
+        1055
+      ],
+      "score": 0.9953319430351257
+    },
+    {
+      "text": "41. Y nosotros á la verdad estamos en él justamente, pues",
+      "box": [
+        545,
+        1044,
+        909,
+        1074
+      ],
+      "score": 0.9987006783485413
+    },
+    {
+      "text": "en él de los de que le acusais,",
+      "box": [
+        75,
+        1055,
+        252,
+        1072
+      ],
+      "score": 0.9991751909255981
+    },
+    {
+      "text": "15. Pero ni tampoco Herodes: puesto que os remití á él,",
+      "box": [
+        84,
+        1068,
+        437,
+        1092
+      ],
+      "score": 0.9775564074516296
+    },
+    {
+      "text": "pagamos la pena merecida por nuestros delitos: pero éste",
+      "box": [
+        533,
+        1061,
+        909,
+        1090
+      ],
+      "score": 0.9987125992774963
+    },
+    {
+      "text": "y por el hecho se ve que no le juzgó digno de muerte.",
+      "box": [
+        73,
+        1086,
+        391,
+        1106
+      ],
+      "score": 0.9882940649986267
+    },
+    {
+      "text": "ningun mal ha hecho.",
+      "box": [
+        533,
+        1078,
+        663,
+        1098
+      ],
+      "score": 0.9974938631057739
+    },
+    {
+      "text": "16. Por tanto despues de castigado le dejaré libre.",
+      "box": [
+        85,
+        1102,
+        390,
+        1122
+      ],
+      "score": 0.9996217489242554
+    },
+    {
+      "text": "42. Decia despues á Jesus: Señor, acuérdate de mí, cuando",
+      "box": [
+        544,
+        1093,
+        909,
+        1122
+      ],
+      "score": 0.9975078701972961
+    },
+    {
+      "text": "hayas llegado á tu reino9.",
+      "box": [
+        532,
+        1111,
+        686,
+        1130
+      ],
+      "score": 0.9709517359733582
+    },
+    {
+      "text": "1 La misma pregunta le hizo el Sumo Sacerdote. Mare. XIV, v. 61.",
+      "box": [
+        84,
+        1125,
+        424,
+        1148
+      ],
+      "score": 0.9858099222183228
+    },
+    {
+      "text": "& Es verdad que Jesus habia dicho que él era el Christo ó Rey: pero",
+      "box": [
+        83,
+        1138,
+        436,
+        1164
+      ],
+      "score": 0.9792595505714417
+    },
+    {
+      "text": "el Justo y el Santo por esencia, ¿qué no deben temer los impíos y peca-",
+      "box": [
+        532,
+        1138,
+        909,
+        1165
+      ],
+      "score": 0.9911086559295654
+    },
+    {
+      "text": "los senadores ó ancianos de los Judíos callaron maliciosamente que",
+      "box": [
+        74,
+        1151,
+        436,
+        1178
+      ],
+      "score": 0.9820894002914429
+    },
+    {
+      "text": "dores? Los Hebreos comparaban al justo á un árbol verde y frondoso; y",
+      "box": [
+        531,
+        1152,
+        909,
+        1179
+      ],
+      "score": 0.989651083946228
+    },
+    {
+      "text": "Jesus hablaba de un reino espiritual, no del reino terreno que tenian",
+      "box": [
+        74,
+        1164,
+        436,
+        1192
+      ],
+      "score": 0.9877901077270508
+    },
+    {
+      "text": "solian comparar al hombre malo á un tronco árido y scoo.",
+      "box": [
+        531,
+        1166,
+        828,
+        1190
+      ],
+      "score": 0.9865239262580872
+    },
+    {
+      "text": "allí los Romanos.",
+      "box": [
+        74,
+        1179,
+        164,
+        1196
+      ],
+      "score": 0.9967220425605774
+    },
+    {
+      "text": "e Jerem. LIII, v. 12.",
+      "box": [
+        542,
+        1180,
+        651,
+        1198
+      ],
+      "score": 0.9195225834846497
+    },
+    {
+      "text": "3 Cuántas veces los gritos del pueblo iluso ó seducido hacen callar las",
+      "box": [
+        82,
+        1191,
+        437,
+        1218
+      ],
+      "score": 0.9769949913024902
+    },
+    {
+      "text": "7 Jerem. XLII, v. 1.",
+      "box": [
+        540,
+        1192,
+        651,
+        1211
+      ],
+      "score": 0.9109736680984497
+    },
+    {
+      "text": "razones de la prudencia y de la justicia! La buena intencion de Pilato no",
+      "box": [
+        73,
+        1204,
+        436,
+        1232
+      ],
+      "score": 0.9794324040412903
+    },
+    {
+      "text": "8 El vinagre mezclado con agua era una bebida comun entre los sol-",
+      "box": [
+        539,
+        1204,
+        911,
+        1235
+      ],
+      "score": 0.9425988793373108
+    },
+    {
+      "text": "tuvo tanta constancia para salvar la vida de Jesu-Christo, como tuvo la",
+      "box": [
+        73,
+        1217,
+        435,
+        1247
+      ],
+      "score": 0.9926251769065857
+    },
+    {
+      "text": "dados romanos. La otra bebida de vino mezclado con myrrha se la ofre-",
+      "box": [
+        531,
+        1219,
+        911,
+        1248
+      ],
+      "score": 0.9935711026191711
+    },
+    {
+      "text": "envidia y maldad de los Escribas y Phariséos para hacer gritar al pue-",
+      "box": [
+        72,
+        1230,
+        435,
+        1261
+      ],
+      "score": 0.9885846972465515
+    },
+    {
+      "text": "cian los Judíos á Jesus, segun la costumbre que tenian de darla á los",
+      "box": [
+        531,
+        1234,
+        912,
+        1262
+      ],
+      "score": 0.9955929517745972
+    },
+    {
+      "text": "blo que Jesus fuese crucificado. S. Joan. Chrysost., v. 26.",
+      "box": [
+        72,
+        1244,
+        357,
+        1272
+      ],
+      "score": 0.9750764966011047
+    },
+    {
+      "text": "sentenciados. Algunos Expositores añaden que le ofrecian otra tercera",
+      "box": [
+        530,
+        1247,
+        912,
+        1276
+      ],
+      "score": 0.9968709349632263
+    },
+    {
+      "text": "4 Simon iba detrás de Jesus sosteniendo el extremo de la cruz. Así lo",
+      "box": [
+        81,
+        1257,
+        435,
+        1288
+      ],
+      "score": 0.984976053237915
+    },
+    {
+      "text": "bebida diferente deestas dos, que fué la de vino con hiel. Matth. XXVII,",
+      "box": [
+        530,
+        1259,
+        913,
+        1292
+      ],
+      "score": 0.7887909412384033
+    },
+    {
+      "text": "entienden muchos Expositores. Matth. XXVII, v. 32.",
+      "box": [
+        72,
+        1270,
+        342,
+        1298
+      ],
+      "score": 0.9737083911895752
+    },
+    {
+      "text": " Proverbio hebreo con que se denota que si tales tormentos padece",
+      "box": [
+        81,
+        1283,
+        434,
+        1317
+      ],
+      "score": 0.9748674631118774
+    },
+    {
+      "text": "v. 34.—Mare. XV, v. 36.",
+      "box": [
+        531,
+        1274,
+        660,
+        1294
+      ],
+      "score": 0.9557507634162903
+    },
+    {
+      "text": "Admirable fe de este hombre! ya conoce que el reino de Jesu-",
+      "box": [
+        542,
+        1285,
+        912,
+        1319
+      ],
+      "score": 0.9785102009773254
+    },
+    {
+      "text": "Christo no es de este mundo.",
+      "box": [
+        532,
+        1302,
+        682,
+        1321
+      ],
+      "score": 0.9999347925186157
+    }
+  ]
+}

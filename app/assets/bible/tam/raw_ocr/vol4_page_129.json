@@ -1,0 +1,1497 @@
+{
+  "volume": 4,
+  "page_index": 129,
+  "pdf_page": 130,
+  "lines": [
+    {
+      "text": "155",
+      "box": [
+        81,
+        58,
+        107,
+        79
+      ],
+      "score": 0.9999290108680725
+    },
+    {
+      "text": "SAN JUAN.",
+      "box": [
+        217,
+        60,
+        297,
+        78
+      ],
+      "score": 0.9884935021400452
+    },
+    {
+      "text": "CAPITULO XV.",
+      "box": [
+        683,
+        66,
+        790,
+        89
+      ],
+      "score": 0.99327152967453
+    },
+    {
+      "text": "156",
+      "box": [
+        887,
+        77,
+        912,
+        94
+      ],
+      "score": 0.9956434369087219
+    },
+    {
+      "text": "31. Salido que hubo Judas, dijo Jesus: Ahora es glorifl-",
+      "box": [
+        85,
+        103,
+        448,
+        130
+      ],
+      "score": 0.9764108657836914
+    },
+    {
+      "text": "cado el Hijo del hombre: y Dios es glorificado en él,",
+      "box": [
+        74,
+        123,
+        392,
+        148
+      ],
+      "score": 0.9980525374412537
+    },
+    {
+      "text": "tambien las obras que yo hago, y las hará todavía mayores:",
+      "box": [
+        547,
+        116,
+        919,
+        139
+      ],
+      "score": 0.9872308373451233
+    },
+    {
+      "text": "32. Y si Dios queda glorificado en él, Dios igualmente le",
+      "box": [
+        86,
+        142,
+        449,
+        168
+      ],
+      "score": 0.9920565485954285
+    },
+    {
+      "text": "por cuanto yo me voy al Padre.",
+      "box": [
+        546,
+        137,
+        736,
+        156
+      ],
+      "score": 0.999050498008728
+    },
+    {
+      "text": "glorificará á él en sí mismo: y le glorificará muy presto.",
+      "box": [
+        71,
+        161,
+        414,
+        186
+      ],
+      "score": 0.9891660213470459
+    },
+    {
+      "text": "13. Y cuanto pidiereis al Padre en mi nombre, yo lo haré:",
+      "box": [
+        557,
+        155,
+        916,
+        172
+      ],
+      "score": 0.9905683398246765
+    },
+    {
+      "text": "33. Hijitos mios, por un poco de tiempo aun estoy con",
+      "box": [
+        87,
+        179,
+        449,
+        204
+      ],
+      "score": 0.9990777969360352
+    },
+    {
+      "text": "á fin de que el Padre sea glorificado en el Hijo.",
+      "box": [
+        546,
+        174,
+        829,
+        188
+      ],
+      "score": 0.9912781715393066
+    },
+    {
+      "text": "vosotros, Vosotros me buscareis: y así como dije á los Ju-",
+      "box": [
+        76,
+        197,
+        449,
+        222
+      ],
+      "score": 0.9933862090110779
+    },
+    {
+      "text": "14. Si algo pidiereis en mi nombre, yo lo haré.",
+      "box": [
+        557,
+        188,
+        848,
+        206
+      ],
+      "score": 0.9879075884819031
+    },
+    {
+      "text": "díos: À donde yo voy, no podeis venir vosotros: eso mismo",
+      "box": [
+        76,
+        214,
+        449,
+        240
+      ],
+      "score": 0.9872745275497437
+    },
+    {
+      "text": "15. Si me amais, observar mis mandamientos.",
+      "box": [
+        557,
+        205,
+        845,
+        223
+      ],
+      "score": 0.9951426386833191
+    },
+    {
+      "text": "16. Y yo rogaré al Padre, y os dará otro Consolador y",
+      "box": [
+        556,
+        221,
+        916,
+        239
+      ],
+      "score": 0.9969915747642517
+    },
+    {
+      "text": "digo á vosotros ahora.",
+      "box": [
+        77,
+        232,
+        215,
+        254
+      ],
+      "score": 0.9962242245674133
+    },
+    {
+      "text": "Abogado7, para que esté con vosotros eternamente,",
+      "box": [
+        545,
+        237,
+        856,
+        255
+      ],
+      "score": 0.9942209124565125
+    },
+    {
+      "text": "34. Entre tanto un nuevo mandamiento os doy, y es 1: Que",
+      "box": [
+        88,
+        249,
+        448,
+        272
+      ],
+      "score": 0.9533089399337769
+    },
+    {
+      "text": "17. Á saber, al Espíritu de verdad, á quien el mundo ó el",
+      "box": [
+        554,
+        250,
+        918,
+        272
+      ],
+      "score": 0.9694738984107971
+    },
+    {
+      "text": "os ameis unos á otros: y que del modo que yo os he amado",
+      "box": [
+        78,
+        269,
+        446,
+        286
+      ],
+      "score": 0.9967158436775208
+    },
+    {
+      "text": "hombre mundano no puede recibir, porque no le ve, ni le",
+      "box": [
+        542,
+        267,
+        917,
+        289
+      ],
+      "score": 0.9954635500907898
+    },
+    {
+      "text": "á vosotros, así tambien os ameis recíprocamente .",
+      "box": [
+        78,
+        286,
+        383,
+        303
+      ],
+      "score": 0.9885001182556152
+    },
+    {
+      "text": "conoce: pero vosotros le conocereis: porque morará con",
+      "box": [
+        542,
+        283,
+        917,
+        305
+      ],
+      "score": 0.9914806485176086
+    },
+    {
+      "text": "35. Por aquí conocerán todos que sois mis discípulos, si",
+      "box": [
+        88,
+        299,
+        448,
+        320
+      ],
+      "score": 0.9972622990608215
+    },
+    {
+      "text": "vosotros, y estará dentro de vosotros.",
+      "box": [
+        545,
+        304,
+        769,
+        318
+      ],
+      "score": 0.9887894988059998
+    },
+    {
+      "text": "os teneis un tal amor unos á otros.",
+      "box": [
+        78,
+        318,
+        290,
+        335
+      ],
+      "score": 0.9990940690040588
+    },
+    {
+      "text": "18. No os dejaré huérfanos: yo volveré á vosotros.",
+      "box": [
+        554,
+        315,
+        870,
+        336
+      ],
+      "score": 0.9890249371528625
+    },
+    {
+      "text": "36. Dícele Simon Pedro: Señor, ¿á dónde te vas? Respon-",
+      "box": [
+        90,
+        333,
+        445,
+        349
+      ],
+      "score": 0.9842832684516907
+    },
+    {
+      "text": "19. Aun resta un poco de tiempo: despues del cual el",
+      "box": [
+        554,
+        328,
+        918,
+        353
+      ],
+      "score": 0.9937728643417358
+    },
+    {
+      "text": "dió Jesus: Á donde yo voy, tú no puedes seguirme ahora:",
+      "box": [
+        78,
+        349,
+        447,
+        366
+      ],
+      "score": 0.996134877204895
+    },
+    {
+      "text": "mundo ya no me verá, Pero vosotros me veis: porque yo",
+      "box": [
+        540,
+        346,
+        918,
+        367
+      ],
+      "score": 0.9769631028175354
+    },
+    {
+      "text": "me seguirás, sí, despues.",
+      "box": [
+        79,
+        367,
+        224,
+        381
+      ],
+      "score": 0.9933410882949829
+    },
+    {
+      "text": "vivo, y vosotros vivireis.",
+      "box": [
+        544,
+        366,
+        691,
+        380
+      ],
+      "score": 0.9948428273200989
+    },
+    {
+      "text": "37. Pedro le dice: ¿Por qué no puedo seguirte al presente?",
+      "box": [
+        89,
+        381,
+        447,
+        398
+      ],
+      "score": 0.9868263006210327
+    },
+    {
+      "text": "20. Entonces conocereis vosotros que yo estoy en mi",
+      "box": [
+        553,
+        376,
+        919,
+        400
+      ],
+      "score": 0.9997227787971497
+    },
+    {
+      "text": "yo daré por tí mi vida.",
+      "box": [
+        77,
+        397,
+        218,
+        414
+      ],
+      "score": 0.9768429398536682
+    },
+    {
+      "text": "Padre, y que vosotros estais en mí, y yo en vosotros.",
+      "box": [
+        544,
+        397,
+        863,
+        414
+      ],
+      "score": 0.9983804225921631
+    },
+    {
+      "text": "38. Respondióle Jesus: ¿Tú darás la vida por mí? En",
+      "box": [
+        91,
+        414,
+        445,
+        428
+      ],
+      "score": 0.9977578520774841
+    },
+    {
+      "text": "21. Quien ha recibido mis mandamientos, y los observa:",
+      "box": [
+        553,
+        409,
+        919,
+        432
+      ],
+      "score": 0.995087742805481
+    },
+    {
+      "text": "verdad, en verdad te digo: No cantará el gallo, sin que me",
+      "box": [
+        76,
+        428,
+        447,
+        446
+      ],
+      "score": 0.9965554475784302
+    },
+    {
+      "text": "ese es el que me ama. Y el que me ama, será amado de mi",
+      "box": [
+        541,
+        424,
+        919,
+        450
+      ],
+      "score": 0.9927180409431458
+    },
+    {
+      "text": "hayas negado tres veces 8.",
+      "box": [
+        76,
+        445,
+        234,
+        462
+      ],
+      "score": 0.9802841544151306
+    },
+    {
+      "text": "Padre: y yo le amaré, y yo mismo me manifestaré á él.",
+      "box": [
+        542,
+        442,
+        878,
+        465
+      ],
+      "score": 0.9789391756057739
+    },
+    {
+      "text": "22. Dícele Judas, no el Iscariote: Señor, ¿qué causa hay",
+      "box": [
+        554,
+        457,
+        918,
+        482
+      ],
+      "score": 0.9966589212417603
+    },
+    {
+      "text": "CAPITULO XIV",
+      "box": [
+        207,
+        476,
+        315,
+        493
+      ],
+      "score": 0.9931928515434265
+    },
+    {
+      "text": "para que te hayas de manifestar claramente á nosotros, y no",
+      "box": [
+        542,
+        476,
+        917,
+        498
+      ],
+      "score": 0.9981368184089661
+    },
+    {
+      "text": "Prosigue la plática de Jesus, interrumpida poco antes por la pregunta de",
+      "box": [
+        76,
+        505,
+        447,
+        523
+      ],
+      "score": 0.9982259273529053
+    },
+    {
+      "text": "al mundo?",
+      "box": [
+        543,
+        496,
+        611,
+        513
+      ],
+      "score": 0.9985727667808533
+    },
+    {
+      "text": "Simon Pedro. Consuela á sus Apóstoles: díceles que él es el camino,",
+      "box": [
+        84,
+        519,
+        447,
+        537
+      ],
+      "score": 0.9801496863365173
+    },
+    {
+      "text": "23. Jesus le respondió así: Cualquiera que me ama, ob-",
+      "box": [
+        554,
+        505,
+        918,
+        532
+      ],
+      "score": 0.9899067282676697
+    },
+    {
+      "text": "la verdad y la vida: y que está en el Padre, y el Padre en él. Promete",
+      "box": [
+        84,
+        533,
+        447,
+        551
+      ],
+      "score": 0.9868062734603882
+    },
+    {
+      "text": "servará mi doctrina, y mi Padre le amará, y vendremos á",
+      "box": [
+        541,
+        521,
+        919,
+        548
+      ],
+      "score": 0.9916554093360901
+    },
+    {
+      "text": "enviarles el Espíritu Santo, y darles la paz; y les asegura la utilidad",
+      "box": [
+        87,
+        549,
+        446,
+        563
+      ],
+      "score": 0.9977625608444214
+    },
+    {
+      "text": "él, y haremos mansion dentro de él.",
+      "box": [
+        543,
+        542,
+        760,
+        563
+      ],
+      "score": 0.997009813785553
+    },
+    {
+      "text": "de su partida. (Matth. 7, 21.—Mare. 11.)",
+      "box": [
+        87,
+        563,
+        296,
+        577
+      ],
+      "score": 0.985141932964325
+    },
+    {
+      "text": "24. Pero el que no me ama, no practica mi doctrina. Y la",
+      "box": [
+        555,
+        552,
+        916,
+        580
+      ],
+      "score": 0.9762281775474548
+    },
+    {
+      "text": "doctrina que habeis oido, no es solamente mia: sino del",
+      "box": [
+        543,
+        570,
+        916,
+        595
+      ],
+      "score": 0.993105947971344
+    },
+    {
+      "text": "1. No se turbe vuestro corazon. Pues creeis en Dios, creed",
+      "box": [
+        85,
+        591,
+        446,
+        609
+      ],
+      "score": 0.9896999597549438
+    },
+    {
+      "text": "Padre, que me ha enviado.",
+      "box": [
+        542,
+        590,
+        704,
+        611
+      ],
+      "score": 0.9799894094467163
+    },
+    {
+      "text": "tambien en mí.",
+      "box": [
+        75,
+        607,
+        170,
+        626
+      ],
+      "score": 0.9995469450950623
+    },
+    {
+      "text": "25. Éstas cosas os he dicho, conversando con vosotros.",
+      "box": [
+        554,
+        601,
+        914,
+        627
+      ],
+      "score": 0.9937672019004822
+    },
+    {
+      "text": "2. En la casa de mi Padre hay muchas habitaciones: que",
+      "box": [
+        85,
+        623,
+        447,
+        641
+      ],
+      "score": 0.9996391534805298
+    },
+    {
+      "text": "26. Mas el Consolador, el Espíritu Santo, que mi Padre",
+      "box": [
+        553,
+        616,
+        916,
+        644
+      ],
+      "score": 0.9955132007598877
+    },
+    {
+      "text": "si no fuese así, os lo hubiera yo dicho. Yo yoy á preparar",
+      "box": [
+        75,
+        642,
+        446,
+        656
+      ],
+      "score": 0.9836317300796509
+    },
+    {
+      "text": "enviará en mi nombre, os lo enseñará todo, y os recordará",
+      "box": [
+        541,
+        632,
+        916,
+        659
+      ],
+      "score": 0.996682345867157
+    },
+    {
+      "text": "lugar para vosotros.",
+      "box": [
+        76,
+        659,
+        198,
+        673
+      ],
+      "score": 0.9999569654464722
+    },
+    {
+      "text": "cuantas cosas os tengo dichas.",
+      "box": [
+        541,
+        654,
+        725,
+        673
+      ],
+      "score": 0.9818322062492371
+    },
+    {
+      "text": "3. Y cuando habré ido, y os habré preparado lugar: ven-",
+      "box": [
+        86,
+        671,
+        446,
+        690
+      ],
+      "score": 0.9835349321365356
+    },
+    {
+      "text": "27. La paz os dejo, la paz mia os doy: no os la doy yo,",
+      "box": [
+        554,
+        666,
+        914,
+        689
+      ],
+      "score": 0.9847112894058228
+    },
+    {
+      "text": "dré otra vez, y os llevaré conmigo, para que donde yo estoy,",
+      "box": [
+        74,
+        688,
+        446,
+        706
+      ],
+      "score": 0.9937483668327332
+    },
+    {
+      "text": "como la da el mundo s. No se turbe vuestro corazon, ni se",
+      "box": [
+        542,
+        682,
+        915,
+        704
+      ],
+      "score": 0.9785938858985901
+    },
+    {
+      "text": "esteis tambien vosotros.",
+      "box": [
+        75,
+        704,
+        221,
+        722
+      ],
+      "score": 0.9999086260795593
+    },
+    {
+      "text": "acobarde.",
+      "box": [
+        542,
+        703,
+        603,
+        720
+      ],
+      "score": 0.9999182224273682
+    },
+    {
+      "text": "4. Que ya sabeis a dónde voy, y sabeis asimismo el ca-",
+      "box": [
+        87,
+        719,
+        446,
+        739
+      ],
+      "score": 0.975844144821167
+    },
+    {
+      "text": "28. Oido habeis que os he dicho: Me voy, y vuelvo á vos-",
+      "box": [
+        554,
+        714,
+        914,
+        736
+      ],
+      "score": 0.9933614134788513
+    },
+    {
+      "text": "mino.",
+      "box": [
+        75,
+        737,
+        114,
+        755
+      ],
+      "score": 0.9885991215705872
+    },
+    {
+      "text": "otros. Si me amaseis, os alegrariais sin duda de que voy al",
+      "box": [
+        542,
+        731,
+        914,
+        751
+      ],
+      "score": 0.9864287376403809
+    },
+    {
+      "text": "5. Dícele Thomás: Señor, no sabemos á dónde vas: pues",
+      "box": [
+        86,
+        752,
+        446,
+        770
+      ],
+      "score": 0.9953867793083191
+    },
+    {
+      "text": "Padre: porque el Padre es mayor que yo 0.",
+      "box": [
+        542,
+        748,
+        794,
+        767
+      ],
+      "score": 0.9797323942184448
+    },
+    {
+      "text": "¿cómo podemos saber el camino?.",
+      "box": [
+        74,
+        768,
+        293,
+        787
+      ],
+      "score": 0.9755851626396179
+    },
+    {
+      "text": "29. Yo os lo digo ahora antes que suceda: á fin de que",
+      "box": [
+        554,
+        764,
+        914,
+        783
+      ],
+      "score": 0.9942574501037598
+    },
+    {
+      "text": "6. Respóndele Jesus: Yo soy el camino, y la verdad, y la",
+      "box": [
+        87,
+        784,
+        446,
+        803
+      ],
+      "score": 0.9849513173103333
+    },
+    {
+      "text": "cuando sucediere, os confirmeis en la fe.",
+      "box": [
+        541,
+        780,
+        782,
+        799
+      ],
+      "score": 0.9920192956924438
+    },
+    {
+      "text": "vida4: nadie viene al Padre, sino por mí.",
+      "box": [
+        75,
+        801,
+        321,
+        819
+      ],
+      "score": 0.9734120965003967
+    },
+    {
+      "text": "00",
+      "box": [
+        518,
+        805,
+        534,
+        817
+      ],
+      "score": 0.4351993799209595
+    },
+    {
+      "text": "30. Ya no hablaré mucho con vosotros, porque viene el",
+      "box": [
+        553,
+        794,
+        914,
+        817
+      ],
+      "score": 0.995532751083374
+    },
+    {
+      "text": "7. Si me hubieseis conocido á mí, hubierais sin duda",
+      "box": [
+        86,
+        816,
+        447,
+        835
+      ],
+      "score": 0.999293863773346
+    },
+    {
+      "text": "príncipe de este mundo 19, aunque no hay en mí cosa que",
+      "box": [
+        542,
+        812,
+        913,
+        832
+      ],
+      "score": 0.9714944362640381
+    },
+    {
+      "text": "conocido tambien á mi Padre: pero le conocereis luego, y",
+      "box": [
+        75,
+        834,
+        447,
+        851
+      ],
+      "score": 0.9953052401542664
+    },
+    {
+      "text": "le pertenezca.",
+      "box": [
+        542,
+        831,
+        627,
+        848
+      ],
+      "score": 0.9923855066299438
+    },
+    {
+      "text": "ya le habeis visto en cierto modo.",
+      "box": [
+        73,
+        849,
+        281,
+        868
+      ],
+      "score": 0.9887098670005798
+    },
+    {
+      "text": "31. Mas para que conozca el mundo que yo amo al Padre,",
+      "box": [
+        552,
+        842,
+        913,
+        865
+      ],
+      "score": 0.9897170066833496
+    },
+    {
+      "text": "8. Dícele Phelipe: Soñor, muéstranos al Padre, y eso nos",
+      "box": [
+        85,
+        865,
+        446,
+        884
+      ],
+      "score": 0.9793210625648499
+    },
+    {
+      "text": "y que cumplo con lo que me ha mandado: Levantaos, y",
+      "box": [
+        539,
+        859,
+        914,
+        882
+      ],
+      "score": 0.998840868473053
+    },
+    {
+      "text": "basta.",
+      "box": [
+        74,
+        883,
+        114,
+        901
+      ],
+      "score": 0.9995934367179871
+    },
+    {
+      "text": "vamos de aquí.",
+      "box": [
+        541,
+        877,
+        634,
+        896
+      ],
+      "score": 0.9815387725830078
+    },
+    {
+      "text": "9. Jesus le responde: Tanto tiempo ha que estoy con vos-",
+      "box": [
+        85,
+        897,
+        447,
+        916
+      ],
+      "score": 0.9936777949333191
+    },
+    {
+      "text": "CAPITULO XV",
+      "box": [
+        672,
+        905,
+        770,
+        922
+      ],
+      "score": 0.9988620281219482
+    },
+    {
+      "text": "otros: ¿y aun no me habeis conocido? Phelipe, quien me ve á",
+      "box": [
+        73,
+        913,
+        447,
+        933
+      ],
+      "score": 0.9976812601089478
+    },
+    {
+      "text": "mí, ve tambien al Padre. Pues ¿cómo dices tú: Muéstranos al",
+      "box": [
+        73,
+        929,
+        447,
+        949
+      ],
+      "score": 0.9957102537155151
+    },
+    {
+      "text": "Prosigue la plática de Jesus. Dice que él es la vid; y los fieles los sar-",
+      "box": [
+        543,
+        933,
+        914,
+        950
+      ],
+      "score": 0.9768209457397461
+    },
+    {
+      "text": "Padre?",
+      "box": [
+        75,
+        949,
+        120,
+        964
+      ],
+      "score": 0.9999541640281677
+    },
+    {
+      "text": "mientos. Recomienda y manda otra vez el amor. Éacoge á sus discí-",
+      "box": [
+        553,
+        947,
+        914,
+        964
+      ],
+      "score": 0.9646795988082886
+    },
+    {
+      "text": "10. ¿No ereeis⁵ que yo estoy en el Padre, y que el Padre",
+      "box": [
+        85,
+        960,
+        447,
+        981
+      ],
+      "score": 0.9651966094970703
+    },
+    {
+      "text": "pulos para que den fruto, y los conforta contra las persecuciones del",
+      "box": [
+        554,
+        962,
+        915,
+        976
+      ],
+      "score": 0.9990085363388062
+    },
+    {
+      "text": "está en mí? Las palabras que yo os hablo, no las hablo de",
+      "box": [
+        73,
+        977,
+        447,
+        998
+      ],
+      "score": 0.9909375309944153
+    },
+    {
+      "text": "mundo. Hace ver que los Judíos son inexcusables de su pecado.",
+      "box": [
+        553,
+        974,
+        915,
+        991
+      ],
+      "score": 0.9887709617614746
+    },
+    {
+      "text": "(Matth. 10, 24, 28.—Lue. 24.)",
+      "box": [
+        554,
+        987,
+        700,
+        1004
+      ],
+      "score": 0.9793245792388916
+    },
+    {
+      "text": "mí mismo. El Padre que está en mí, él mismo hace conmigo",
+      "box": [
+        73,
+        992,
+        446,
+        1014
+      ],
+      "score": 0.9966945052146912
+    },
+    {
+      "text": "las obras que yo hago.",
+      "box": [
+        73,
+        1011,
+        211,
+        1031
+      ],
+      "score": 0.9805298447608948
+    },
+    {
+      "text": "1. Yo soy la verdadera vid: y mi Padre es el labrador.",
+      "box": [
+        554,
+        1018,
+        887,
+        1037
+      ],
+      "score": 0.9996721744537354
+    },
+    {
+      "text": "11. ¿Cómo no creeis que yo estoy en el Padre, y que el",
+      "box": [
+        85,
+        1024,
+        447,
+        1047
+      ],
+      "score": 0.9991344213485718
+    },
+    {
+      "text": "2. Todo sarmiento que en mí que soy la vid no lleva fruto,",
+      "box": [
+        552,
+        1032,
+        916,
+        1053
+      ],
+      "score": 0.9856666922569275
+    },
+    {
+      "text": "Padre está en mí?",
+      "box": [
+        74,
+        1044,
+        187,
+        1064
+      ],
+      "score": 0.9719983339309692
+    },
+    {
+      "text": "le cortará: y á todo aquel que diere fruto, le podará para",
+      "box": [
+        540,
+        1050,
+        918,
+        1070
+      ],
+      "score": 0.9829219579696655
+    },
+    {
+      "text": "12. Creedlo á lo menos por Ias obras que yo hago. En",
+      "box": [
+        85,
+        1056,
+        449,
+        1081
+      ],
+      "score": 0.9928299784660339
+    },
+    {
+      "text": "que dé mas fruto.",
+      "box": [
+        540,
+        1064,
+        648,
+        1087
+      ],
+      "score": 0.999382495880127
+    },
+    {
+      "text": "verdad, en verdad os digo, que quien cree en mí, ese hará",
+      "box": [
+        75,
+        1073,
+        448,
+        1099
+      ],
+      "score": 0.998957633972168
+    },
+    {
+      "text": "6 Martini traduce: Non credi (no crees), conforme al texto griego.",
+      "box": [
+        550,
+        1110,
+        898,
+        1129
+      ],
+      "score": 0.9725984334945679
+    },
+    {
+      "text": "1 Levit. XIX, v. 18.",
+      "box": [
+        83,
+        1126,
+        195,
+        1145
+      ],
+      "score": 0.981339156627655
+    },
+    {
+      "text": "6 Y os concederé el poder de hacer grandes milagros para extender la",
+      "box": [
+        550,
+        1124,
+        917,
+        1142
+      ],
+      "score": 0.9793548583984375
+    },
+    {
+      "text": ": No del modo que los Escribas y Phariséos enseñan que se ha de",
+      "box": [
+        83,
+        1133,
+        448,
+        1160
+      ],
+      "score": 0.9837777018547058
+    },
+    {
+      "text": "fe, y con ella la gloria de mi Padre. Matth. VII, v. 7.—XXI, v. 22.—",
+      "box": [
+        539,
+        1134,
+        917,
+        1159
+      ],
+      "score": 0.8733439445495605
+    },
+    {
+      "text": "amar al prójimo, sino de un modo mas perfecto y nuevo en el mundo.",
+      "box": [
+        75,
+        1146,
+        437,
+        1175
+      ],
+      "score": 0.9784150719642639
+    },
+    {
+      "text": "Mare. XI, v. 24.—X V1, v. 23.",
+      "box": [
+        540,
+        1151,
+        692,
+        1171
+      ],
+      "score": 0.9508437514305115
+    },
+    {
+      "text": "3 En el Evangelio de San Matheo y de San Luens se habla tambien del",
+      "box": [
+        82,
+        1161,
+        448,
+        1188
+      ],
+      "score": 0.9846152663230896
+    },
+    {
+      "text": "I Véase Paraclito.",
+      "box": [
+        551,
+        1164,
+        648,
+        1184
+      ],
+      "score": 0.8864710927009583
+    },
+    {
+      "text": "canto del gallo por tercera vez, que es al amanecer, Pedro confiaba",
+      "box": [
+        74,
+        1175,
+        448,
+        1202
+      ],
+      "score": 0.9754843711853027
+    },
+    {
+      "text": "La paz del mundo está en alegría y deleites profanos: paz falsa y",
+      "box": [
+        549,
+        1173,
+        917,
+        1198
+      ],
+      "score": 0.9280522465705872
+    },
+    {
+      "text": "demasiado en sus propias fuerzas, y Jesu-Christo le hace ver que son",
+      "box": [
+        74,
+        1189,
+        448,
+        1216
+      ],
+      "score": 0.9930378198623657
+    },
+    {
+      "text": "fementida que jamís hace feliz al hombre. La paz de Jesu-Christo con-",
+      "box": [
+        541,
+        1186,
+        916,
+        1211
+      ],
+      "score": 0.9665378928184509
+    },
+    {
+      "text": "imaginarias, y que no las tenía verdaderas para dar la vida por su Maes-",
+      "box": [
+        75,
+        1202,
+        448,
+        1230
+      ],
+      "score": 0.9867977499961853
+    },
+    {
+      "text": "siste en la sumision á la voluntad de nuestro Padre celestial, en el júbilo",
+      "box": [
+        540,
+        1197,
+        917,
+        1226
+      ],
+      "score": 0.7715842127799988
+    },
+    {
+      "text": "tro. Así el celo aparente nos hace creer que haríamos grandes cosas por",
+      "box": [
+        75,
+        1216,
+        449,
+        1244
+      ],
+      "score": 0.9909780621528625
+    },
+    {
+      "text": "de la caridad y alegría pura de la buena conciencia, y en la firme y dulce",
+      "box": [
+        542,
+        1211,
+        916,
+        1238
+      ],
+      "score": 0.9849653244018555
+    },
+    {
+      "text": "la causa de Dios si nos hallásemos en otras circunstaneias; y entre tanto",
+      "box": [
+        74,
+        1230,
+        449,
+        1258
+      ],
+      "score": 0.9850197434425354
+    },
+    {
+      "text": "esperanza de los bienes eternos.",
+      "box": [
+        542,
+        1229,
+        701,
+        1253
+      ],
+      "score": 0.9730585813522339
+    },
+    {
+      "text": "p En cuanto soy hombre: y como tal, voy á recibir el premio de mi",
+      "box": [
+        549,
+        1235,
+        917,
+        1266
+      ],
+      "score": 0.9146038293838501
+    },
+    {
+      "text": "no hacemos muchas cosas fáciles que actualmente Dios exige de nos-",
+      "box": [
+        75,
+        1244,
+        448,
+        1272
+      ],
+      "score": 0.9906573295593262
+    },
+    {
+      "text": "otros. Ilusion muy funesta que causa gran daño en los que se dedican á",
+      "box": [
+        76,
+        1258,
+        449,
+        1286
+      ],
+      "score": 0.997235119342804
+    },
+    {
+      "text": "obediencia hasta la muerte.—Véase Jesu-Christo.—Paz.",
+      "box": [
+        543,
+        1251,
+        828,
+        1280
+      ],
+      "score": 0.9757659435272217
+    },
+    {
+      "text": " Se acerea el diablo, por medio de sus ministros para darme la muerte,",
+      "box": [
+        549,
+        1261,
+        916,
+        1293
+      ],
+      "score": 0.9211157560348511
+    },
+    {
+      "text": "la vida espiritual.",
+      "box": [
+        76,
+        1281,
+        173,
+        1299
+      ],
+      "score": 0.9992697834968567
+    },
+    {
+      "text": "4 Soy el camino, con mi ejemplo: la verdad, con mi doctrina: la vida,",
+      "box": [
+        86,
+        1285,
+        449,
+        1313
+      ],
+      "score": 0.9924860596656799
+    },
+    {
+      "text": "aunque ningun derecho tiene él sobre mí.—Véase Mundo.",
+      "box": [
+        544,
+        1276,
+        838,
+        1307
+      ],
+      "score": 0.9770846962928772
+    },
+    {
+      "text": "con mi gracia.",
+      "box": [
+        76,
+        1308,
+        156,
+        1328
+      ],
+      "score": 0.9908818602561951
+    }
+  ]
+}

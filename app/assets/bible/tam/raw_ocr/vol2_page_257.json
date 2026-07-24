@@ -1,0 +1,887 @@
+{
+  "volume": 2,
+  "page_index": 257,
+  "pdf_page": 258,
+  "lines": [
+    {
+      "text": "LIBRO DE ESTHER",
+      "box": [
+        318,
+        112,
+        1033,
+        243
+      ],
+      "score": 0.9999723434448242
+    },
+    {
+      "text": "ADVERTENCIA",
+      "box": [
+        556,
+        382,
+        789,
+        415
+      ],
+      "score": 0.9997415542602539
+    },
+    {
+      "text": "ya célebre en tiempo de Judas Machabéo (II. Mac. XV, v. 37).",
+      "box": [
+        31,
+        707,
+        522,
+        740
+      ],
+      "score": 0.9897312521934509
+    },
+    {
+      "text": "De ella hablan Josepho (Antiq., lib. XI, cap. 6), y el emperador Teodosio en su Código; y la celebran aun hoy dia los Judíos.",
+      "box": [
+        66,
+        730,
+        1039,
+        768
+      ],
+      "score": 0.9133273363113403
+    },
+    {
+      "text": "CAPITULO PRIMERO",
+      "box": [
+        213,
+        888,
+        421,
+        910
+      ],
+      "score": 0.9997259378433228
+    },
+    {
+      "text": "9. Al mismo tiempo la reina Vasthi dió un convite á las",
+      "box": [
+        766,
+        878,
+        1318,
+        923
+      ],
+      "score": 0.9996001720428467
+    },
+    {
+      "text": "mujeres, en el palacio donde solia residir el rey Assuero.",
+      "box": [
+        748,
+        908,
+        1270,
+        943
+      ],
+      "score": 0.9925780892372131
+    },
+    {
+      "text": "Convite del rey Assuero: repudio de la reina Vasthi; y edicto para que",
+      "box": [
+        33,
+        935,
+        595,
+        961
+      ],
+      "score": 0.9995310306549072
+    },
+    {
+      "text": "10. Y el dia séptimo estando el rey mas alegre de lo acos-",
+      "box": [
+        766,
+        928,
+        1319,
+        970
+      ],
+      "score": 0.9910352826118469
+    },
+    {
+      "text": "las mujeres respeten á sus maridos.",
+      "box": [
+        180,
+        960,
+        453,
+        983
+      ],
+      "score": 0.9995186924934387
+    },
+    {
+      "text": "tumbrado, y por el demasiado beber recalentado del vino,",
+      "box": [
+        746,
+        952,
+        1320,
+        997
+      ],
+      "score": 0.9999167323112488
+    },
+    {
+      "text": "mandó á Maumam, y Bazatha, y Harbona, y Bagatha, y Abga-",
+      "box": [
+        746,
+        978,
+        1320,
+        1021
+      ],
+      "score": 0.9909130930900574
+    },
+    {
+      "text": "1. En tiempo de el rey Assuero ¹, que reinó desde la India",
+      "box": [
+        54,
+        1011,
+        595,
+        1038
+      ],
+      "score": 0.9886408448219299
+    },
+    {
+      "text": "tha, y Zethar, y Charchas, siete eunucos que estaban de servi-",
+      "box": [
+        746,
+        1003,
+        1320,
+        1048
+      ],
+      "score": 0.9682096242904663
+    },
+    {
+      "text": "hasta la Ethiopia sobre ciento veinte y siete provincias;",
+      "box": [
+        35,
+        1038,
+        543,
+        1063
+      ],
+      "score": 0.9960419535636902
+    },
+    {
+      "text": "cio al rededor de él,",
+      "box": [
+        749,
+        1039,
+        934,
+        1066
+      ],
+      "score": 0.9998897314071655
+    },
+    {
+      "text": "2. Al sentarse en el trono de su reino, fué Susan la ciudad",
+      "box": [
+        56,
+        1064,
+        594,
+        1088
+      ],
+      "score": 0.9944465756416321
+    },
+    {
+      "text": "11. Que condujesen á su presencia á la reina Vasthi con la",
+      "box": [
+        766,
+        1054,
+        1319,
+        1095
+      ],
+      "score": 0.9895588159561157
+    },
+    {
+      "text": "escogida para capital de su imperio.",
+      "box": [
+        36,
+        1089,
+        369,
+        1113
+      ],
+      "score": 0.9960405826568604
+    },
+    {
+      "text": "corona puesta en la cabeza, para hacer ver su hermosura á",
+      "box": [
+        747,
+        1080,
+        1321,
+        1121
+      ],
+      "score": 0.9908574819564819
+    },
+    {
+      "text": "3. Al tercer año pues de su reinado, dió un espléndido",
+      "box": [
+        56,
+        1113,
+        594,
+        1137
+      ],
+      "score": 0.9994925856590271
+    },
+    {
+      "text": "todo el pueblo y señores; pues era de extremada belleza.",
+      "box": [
+        748,
+        1109,
+        1269,
+        1142
+      ],
+      "score": 0.9956931471824646
+    },
+    {
+      "text": "convite, que honró con su presencia, á todos los príncipes de",
+      "box": [
+        36,
+        1136,
+        595,
+        1162
+      ],
+      "score": 0.9990153312683105
+    },
+    {
+      "text": "12. La cual lo rehusó, y por mas que los eunucos le hicie-",
+      "box": [
+        766,
+        1130,
+        1320,
+        1170
+      ],
+      "score": 0.9933904409408569
+    },
+    {
+      "text": "su corte, á todos sus oficiales, á los mas valientes de los Per-",
+      "box": [
+        35,
+        1160,
+        595,
+        1187
+      ],
+      "score": 0.9991834163665771
+    },
+    {
+      "text": "ron presente la órden del rey, no quiso comparecer. Por lo que",
+      "box": [
+        747,
+        1159,
+        1318,
+        1192
+      ],
+      "score": 0.9916653037071228
+    },
+    {
+      "text": "sas, y á los mas señalados entre los Medos, y á los gobernado-",
+      "box": [
+        36,
+        1184,
+        595,
+        1213
+      ],
+      "score": 0.9993129372596741
+    },
+    {
+      "text": "indignado el rey, y ardiendo todo en saña,",
+      "box": [
+        750,
+        1191,
+        1132,
+        1214
+      ],
+      "score": 0.9998758435249329
+    },
+    {
+      "text": "res de las provincias,",
+      "box": [
+        36,
+        1208,
+        233,
+        1235
+      ],
+      "score": 0.9998063445091248
+    },
+    {
+      "text": "13. Consultó á los sábios, que segun el estilo de los reyes",
+      "box": [
+        767,
+        1211,
+        1318,
+        1240
+      ],
+      "score": 0.9994646310806274
+    },
+    {
+      "text": "4. (Todo para ostentar las riquezas y magnificencia de su",
+      "box": [
+        58,
+        1233,
+        594,
+        1262
+      ],
+      "score": 0.9937024116516113
+    },
+    {
+      "text": "tenia siempre á su lado, y por cuyo consejo lo hacia todo,",
+      "box": [
+        749,
+        1236,
+        1317,
+        1264
+      ],
+      "score": 0.992027997970581
+    },
+    {
+      "text": "reino, y la grandeza y pompa de su poderío); convite, cuya",
+      "box": [
+        38,
+        1258,
+        595,
+        1287
+      ],
+      "score": 0.9885356426239014
+    },
+    {
+      "text": "pues estaban instruidos de las leyes y costumbres de sus ma-",
+      "box": [
+        747,
+        1260,
+        1318,
+        1290
+      ],
+      "score": 0.9932224154472351
+    },
+    {
+      "text": "celebracion duró mucho tiempo, á saber, ciento y ochenta",
+      "box": [
+        38,
+        1282,
+        595,
+        1312
+      ],
+      "score": 0.9882107377052307
+    },
+    {
+      "text": "yores.",
+      "box": [
+        747,
+        1291,
+        807,
+        1316
+      ],
+      "score": 0.9998858571052551
+    },
+    {
+      "text": "dias ².",
+      "box": [
+        38,
+        1306,
+        103,
+        1332
+      ],
+      "score": 0.9639151692390442
+    },
+    {
+      "text": "14. (Entre ellos eran los principales y mas allegados, Char-",
+      "box": [
+        766,
+        1310,
+        1319,
+        1340
+      ],
+      "score": 0.9992181658744812
+    },
+    {
+      "text": "5. Estando ya para acabarse, convidó á todo el pueblo que",
+      "box": [
+        58,
+        1329,
+        596,
+        1364
+      ],
+      "score": 0.9977554678916931
+    },
+    {
+      "text": "sena, y Sethar, y Admatha, y Tharsis, y Marés, y Marsana, y",
+      "box": [
+        747,
+        1337,
+        1319,
+        1365
+      ],
+      "score": 0.9994755387306213
+    },
+    {
+      "text": "se hallaba en Susan, grandes y chicos, y mandó se les dispu-",
+      "box": [
+        38,
+        1355,
+        597,
+        1388
+      ],
+      "score": 0.9980992078781128
+    },
+    {
+      "text": "Mamuchan, siete magnates de los Persas y Medos, que tenian",
+      "box": [
+        748,
+        1363,
+        1319,
+        1388
+      ],
+      "score": 0.9907218813896179
+    },
+    {
+      "text": "siese un banquete de siete dias, en el cercado del jardin, y del",
+      "box": [
+        39,
+        1381,
+        596,
+        1411
+      ],
+      "score": 0.9933485984802246
+    },
+    {
+      "text": "entrada libre al rey, y ocupaban los primeros asientos despues",
+      "box": [
+        749,
+        1389,
+        1319,
+        1413
+      ],
+      "score": 0.9994847178459167
+    },
+    {
+      "text": "bosque, que habia sido plantado de mano de los reyes, y con",
+      "box": [
+        39,
+        1405,
+        597,
+        1437
+      ],
+      "score": 0.9919477105140686
+    },
+    {
+      "text": "de él.)",
+      "box": [
+        748,
+        1412,
+        811,
+        1437
+      ],
+      "score": 0.9992462992668152
+    },
+    {
+      "text": "régia magnificencia.",
+      "box": [
+        40,
+        1430,
+        225,
+        1457
+      ],
+      "score": 0.9983253479003906
+    },
+    {
+      "text": "15.' Preguntóles pues el rey qué pena merecia la reina Vas-",
+      "box": [
+        765,
+        1433,
+        1320,
+        1464
+      ],
+      "score": 0.9831329584121704
+    },
+    {
+      "text": "6. Habíanse tendido por todas partes toldos de color azul",
+      "box": [
+        60,
+        1455,
+        597,
+        1484
+      ],
+      "score": 0.9982744455337524
+    },
+    {
+      "text": "thi por no haber querido obedecer la órden que le habia en-",
+      "box": [
+        748,
+        1458,
+        1321,
+        1490
+      ],
+      "score": 0.9904106259346008
+    },
+    {
+      "text": "celeste y blanco, y de jacinto ó cárdeno, sostenidos de cordo-",
+      "box": [
+        41,
+        1481,
+        597,
+        1508
+      ],
+      "score": 0.9871060252189636
+    },
+    {
+      "text": "viado el rey por medio de los eunucos.",
+      "box": [
+        749,
+        1485,
+        1095,
+        1510
+      ],
+      "score": 0.9998048543930054
+    },
+    {
+      "text": "nes de finísimo lino, y de púrpura, que pasaban por sortijas",
+      "box": [
+        41,
+        1505,
+        597,
+        1534
+      ],
+      "score": 0.9996864199638367
+    },
+    {
+      "text": "16. A lo que respondió Mamuchan en presencia del rey y",
+      "box": [
+        766,
+        1506,
+        1321,
+        1541
+      ],
+      "score": 0.992405354976654
+    },
+    {
+      "text": "de marfil, y se ataban á unas columnas de mármol. Estaban",
+      "box": [
+        42,
+        1530,
+        597,
+        1557
+      ],
+      "score": 0.9889498949050903
+    },
+    {
+      "text": "de los grandes: La reina Vasthi no solo ha ofendido al rey,",
+      "box": [
+        748,
+        1531,
+        1321,
+        1565
+      ],
+      "score": 0.9998770356178284
+    },
+    {
+      "text": "tambien dispuestos canapés ó tarimas de oro y plata, sobre el",
+      "box": [
+        42,
+        1554,
+        598,
+        1582
+      ],
+      "score": 0.9944104552268982
+    },
+    {
+      "text": "sino tambien á todos los pueblos y señores de todas las pro-",
+      "box": [
+        747,
+        1555,
+        1321,
+        1591
+      ],
+      "score": 0.9989005327224731
+    },
+    {
+      "text": "pavimento enlosado de piedra de color de esmeralda, óde pór-",
+      "box": [
+        42,
+        1578,
+        597,
+        1607
+      ],
+      "score": 0.9988978505134583
+    },
+    {
+      "text": "vincias del rey Assuero.",
+      "box": [
+        749,
+        1580,
+        958,
+        1607
+      ],
+      "score": 0.9998164176940918
+    },
+    {
+      "text": "fido, y de mármol de Paros, formando varias figuras á lo mo-",
+      "box": [
+        41,
+        1602,
+        598,
+        1632
+      ],
+      "score": 0.9966742396354675
+    },
+    {
+      "text": "17. Porque la repulsa de la reina llegará á noticia de todas",
+      "box": [
+        767,
+        1604,
+        1322,
+        1640
+      ],
+      "score": 0.9965222477912903
+    },
+    {
+      "text": "suico, con admirable variedad.",
+      "box": [
+        43,
+        1628,
+        323,
+        1654
+      ],
+      "score": 0.9949283003807068
+    },
+    {
+      "text": "las mujeres; por tanto harán estas poco caso de sus maridos,",
+      "box": [
+        746,
+        1630,
+        1322,
+        1665
+      ],
+      "score": 0.9990037679672241
+    },
+    {
+      "text": "7. Bebian los convidados en vasos de oro, y los manjares",
+      "box": [
+        64,
+        1651,
+        598,
+        1682
+      ],
+      "score": 0.9990341067314148
+    },
+    {
+      "text": "diciendo: El rey Assuero mandó venir á su presencia á la rei-",
+      "box": [
+        747,
+        1654,
+        1323,
+        1690
+      ],
+      "score": 0.9868838787078857
+    },
+    {
+      "text": "se servian en vajilla siempre diferente: presentábase asimismo",
+      "box": [
+        44,
+        1676,
+        598,
+        1707
+      ],
+      "score": 0.9929037690162659
+    },
+    {
+      "text": "na Vasthi, y ella no quiso.",
+      "box": [
+        747,
+        1682,
+        979,
+        1707
+      ],
+      "score": 0.999779462814331
+    },
+    {
+      "text": "el vino en abundancia, y de exquisita calidad, como corres-",
+      "box": [
+        45,
+        1699,
+        599,
+        1733
+      ],
+      "score": 0.9896191358566284
+    },
+    {
+      "text": "18. Con cuyo ejemplar todas las mujeres de los magnates",
+      "box": [
+        765,
+        1704,
+        1324,
+        1742
+      ],
+      "score": 0.9943252801895142
+    },
+    {
+      "text": "pondia á la magnificencia del rey.",
+      "box": [
+        45,
+        1723,
+        354,
+        1754
+      ],
+      "score": 0.9979958534240723
+    },
+    {
+      "text": "Persas y Medos harán poco caso de los mandatos de sus mari-",
+      "box": [
+        745,
+        1729,
+        1325,
+        1767
+      ],
+      "score": 0.9999204874038696
+    },
+    {
+      "text": "8. Ninguno forzaba á beber al que no queria, sino que cada",
+      "box": [
+        66,
+        1747,
+        597,
+        1782
+      ],
+      "score": 0.9887186884880066
+    },
+    {
+      "text": "dos; y así la indignacion del rey es muy justa.",
+      "box": [
+        746,
+        1755,
+        1168,
+        1789
+      ],
+      "score": 0.9978801012039185
+    },
+    {
+      "text": "cual tomaba cuanto gustaba, conforme lo habia mandado el",
+      "box": [
+        46,
+        1772,
+        598,
+        1806
+      ],
+      "score": 0.9949060082435608
+    },
+    {
+      "text": "19. Si'te parece bien, promúlguese por tí un edicto, y es-",
+      "box": [
+        764,
+        1778,
+        1327,
+        1819
+      ],
+      "score": 0.9865060448646545
+    },
+    {
+      "text": "rey: el cual á este fin dió la presidencia de cada mesa á uno",
+      "box": [
+        46,
+        1795,
+        597,
+        1830
+      ],
+      "score": 0.9932225346565247
+    },
+    {
+      "text": "críbase al tenor de las leyes de los Persas y Medos que no es",
+      "box": [
+        747,
+        1803,
+        1328,
+        1845
+      ],
+      "score": 0.992030918598175
+    },
+    {
+      "text": "de sus magnates.",
+      "box": [
+        46,
+        1818,
+        205,
+        1845
+      ],
+      "score": 0.9998325109481812
+    },
+    {
+      "text": "lícito traspasar ó revocar ³, para que la reina Vasthi no",
+      "box": [
+        746,
+        1829,
+        1329,
+        1871
+      ],
+      "score": 0.9795981049537659
+    },
+    {
+      "text": "1 Año del MuNDo 3383: antes de JesU-CíRIsto 621.",
+      "box": [
+        63,
+        1872,
+        466,
+        1910
+      ],
+      "score": 0.9213910102844238
+    },
+    {
+      "text": "2 Semejantes fiestas y convites de larga duracion se leen tambien en",
+      "box": [
+        63,
+        1894,
+        598,
+        1935
+      ],
+      "score": 0.9950255155563354
+    },
+    {
+      "text": " Habia entre los Persas edictos ó leyes hechas con tales formalidades,",
+      "box": [
+        761,
+        1887,
+        1331,
+        1934
+      ],
+      "score": 0.9934618473052979
+    },
+    {
+      "text": "las historias profanas. Atheneo, lib. VIII y XII.—Ciceron, Tuscul. y Va-",
+      "box": [
+        48,
+        1915,
+        598,
+        1956
+      ],
+      "score": 0.9703049063682556
+    },
+    {
+      "text": "que se tenian por irrevocables aun por el mismo rey.—Véase Dan. VI,",
+      "box": [
+        746,
+        1910,
+        1332,
+        1955
+      ],
+      "score": 0.9966869354248047
+    },
+    {
+      "text": "lerio Máximo, lib. IX, cap. 2.—Suet. in Jul., 38, in Tib., 20.",
+      "box": [
+        48,
+        1937,
+        504,
+        1975
+      ],
+      "score": 0.9893048405647278
+    },
+    {
+      "text": "v.8,15.",
+      "box": [
+        747,
+        1934,
+        814,
+        1956
+      ],
+      "score": 0.9970783591270447
+    },
+    {
+      "text": ".oeS",
+      "box": [
+        236,
+        2014,
+        277,
+        2033
+      ],
+      "score": 0.4895782470703125
+    }
+  ]
+}

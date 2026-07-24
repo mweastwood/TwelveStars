@@ -1,0 +1,1437 @@
+{
+  "volume": 2,
+  "page_index": 146,
+  "pdf_page": 147,
+  "lines": [
+    {
+      "text": "I.PARALIPÓMENON.",
+      "box": [
+        195,
+        52,
+        428,
+        84
+      ],
+      "score": 0.99869304895401
+    },
+    {
+      "text": "181",
+      "box": [
+        40,
+        65,
+        75,
+        94
+      ],
+      "score": 0.9999209046363831
+    },
+    {
+      "text": "CAPITULO VIII.",
+      "box": [
+        987,
+        58,
+        1167,
+        93
+      ],
+      "score": 0.9880491495132446
+    },
+    {
+      "text": "182",
+      "box": [
+        1321,
+        61,
+        1360,
+        91
+      ],
+      "score": 0.9999878406524658
+    },
+    {
+      "text": "71. A los hijos empero del linaje de Gersom Ies tocó en la",
+      "box": [
+        50,
+        134,
+        621,
+        167
+      ],
+      "score": 0.9887509346008301
+    },
+    {
+      "text": "tuvo una hermana llamada Maacha: su nieto se llamó Sal-",
+      "box": [
+        785,
+        137,
+        1371,
+        181
+      ],
+      "score": 0.9915614724159241
+    },
+    {
+      "text": "media tribu de Manassés: Gaulon en Basan con sus ejidos, y",
+      "box": [
+        33,
+        166,
+        621,
+        198
+      ],
+      "score": 0.9997630715370178
+    },
+    {
+      "text": "phaad, que solamente tuyo hijas.",
+      "box": [
+        787,
+        173,
+        1101,
+        210
+      ],
+      "score": 0.9999532699584961
+    },
+    {
+      "text": "Astharoth con los suyos.",
+      "box": [
+        36,
+        197,
+        264,
+        227
+      ],
+      "score": 0.999931275844574
+    },
+    {
+      "text": "16. Otra Maacha, segunda mujer de Machir, parió un hijo",
+      "box": [
+        805,
+        197,
+        1368,
+        235
+      ],
+      "score": 0.982081949710846
+    },
+    {
+      "text": "72. En la tribu de Issachar: Cedes con sus ejidos, y Dabe-",
+      "box": [
+        57,
+        222,
+        623,
+        255
+      ],
+      "score": 0.9923056960105896
+    },
+    {
+      "text": "que llamó Phares, quien tuvo un hermano llamado Sares;",
+      "box": [
+        787,
+        225,
+        1369,
+        262
+      ],
+      "score": 0.9997919797897339
+    },
+    {
+      "text": "reth con los suyos.",
+      "box": [
+        40,
+        256,
+        213,
+        283
+      ],
+      "score": 0.9998521208763123
+    },
+    {
+      "text": "cuyos hijos fueron Ulam y Recen.",
+      "box": [
+        787,
+        257,
+        1107,
+        285
+      ],
+      "score": 0.9929633140563965
+    },
+    {
+      "text": "73. Asimismo Ramoth con sus ejidos, y Anem co los",
+      "box": [
+        58,
+        274,
+        626,
+        311
+      ],
+      "score": 0.9903904795646667
+    },
+    {
+      "text": "17. Hijo de Ulam fué Badan: estos son los descendientes",
+      "box": [
+        806,
+        278,
+        1368,
+        310
+      ],
+      "score": 0.9948434829711914
+    },
+    {
+      "text": "suyos.",
+      "box": [
+        43,
+        311,
+        105,
+        336
+      ],
+      "score": 0.9995412230491638
+    },
+    {
+      "text": "de Galaad, hijo de Machir, hijo de Manassés.",
+      "box": [
+        788,
+        305,
+        1208,
+        335
+      ],
+      "score": 0.9999752044677734
+    },
+    {
+      "text": "74. En la tribu de Aser: Masal con sus ejidos, y Abdon con",
+      "box": [
+        60,
+        326,
+        627,
+        365
+      ],
+      "score": 0.9954138398170471
+    },
+    {
+      "text": "18. Su hermana Regina parió á Ishod, que significa el Va-",
+      "box": [
+        808,
+        328,
+        1367,
+        358
+      ],
+      "score": 0.9990137219429016
+    },
+    {
+      "text": "los suyos:",
+      "box": [
+        44,
+        357,
+        142,
+        388
+      ],
+      "score": 0.9997998476028442
+    },
+    {
+      "text": "ron hermoso, y á Abiezer, y á Mohola.",
+      "box": [
+        787,
+        354,
+        1149,
+        383
+      ],
+      "score": 0.9622046947479248
+    },
+    {
+      "text": "75. Como tambien Hucac con sus ejidos, y Rohob con los",
+      "box": [
+        62,
+        373,
+        629,
+        417
+      ],
+      "score": 0.9828057289123535
+    },
+    {
+      "text": "19. Hijos de Semida eran Ahin, y Sechem, y Leci, y",
+      "box": [
+        806,
+        374,
+        1367,
+        408
+      ],
+      "score": 0.999309241771698
+    },
+    {
+      "text": "suyos.",
+      "box": [
+        46,
+        410,
+        112,
+        440
+      ],
+      "score": 0.9987878799438477
+    },
+    {
+      "text": "Aniam.",
+      "box": [
+        790,
+        406,
+        859,
+        428
+      ],
+      "score": 0.9999783039093018
+    },
+    {
+      "text": "76. En la tribu de Nephthali: Cedes en la Galiléa con sus",
+      "box": [
+        63,
+        423,
+        630,
+        467
+      ],
+      "score": 0.998320996761322
+    },
+    {
+      "text": "20. Hijos de Ephraim, Suthala, Bared su hijo, Thahath su",
+      "box": [
+        808,
+        423,
+        1368,
+        453
+      ],
+      "score": 0.9978811144828796
+    },
+    {
+      "text": "ejidos, y Hamon con los suyos, y Cariathaim con los suyos.",
+      "box": [
+        46,
+        449,
+        603,
+        492
+      ],
+      "score": 0.9991885423660278
+    },
+    {
+      "text": "hijo, Elada su hijo, Thahath su hijo, Zabad su hijo,",
+      "box": [
+        788,
+        448,
+        1270,
+        477
+      ],
+      "score": 0.9997523427009583
+    },
+    {
+      "text": "77. A los demás del linaje de Merari les dieron en la",
+      "box": [
+        63,
+        472,
+        630,
+        517
+      ],
+      "score": 0.9896188974380493
+    },
+    {
+      "text": "21. Y Suthala hijo de éste, cuyos hijos fueron Ezer y Elad;",
+      "box": [
+        807,
+        471,
+        1369,
+        500
+      ],
+      "score": 0.9939640760421753
+    },
+    {
+      "text": "tribu de Zabulon Remmono con sus ejidos y Thabor con los",
+      "box": [
+        46,
+        496,
+        630,
+        543
+      ],
+      "score": 0.9998563528060913
+    },
+    {
+      "text": "pero los habitantes del país de Geth los mataron, porque",
+      "box": [
+        786,
+        494,
+        1370,
+        527
+      ],
+      "score": 0.9997739791870117
+    },
+    {
+      "text": "habian bajado á invadir sus posesiones.",
+      "box": [
+        783,
+        522,
+        1157,
+        549
+      ],
+      "score": 0.9993644952774048
+    },
+    {
+      "text": "suyos.",
+      "box": [
+        46,
+        536,
+        113,
+        564
+      ],
+      "score": 0.9997360110282898
+    },
+    {
+      "text": "22. Por esto Ephraim su padre los lloró por mucho tiempo,",
+      "box": [
+        808,
+        544,
+        1368,
+        573
+      ],
+      "score": 0.9901337623596191
+    },
+    {
+      "text": "78. Y de la otra parte del Jordan en frente de Jerichó al",
+      "box": [
+        64,
+        546,
+        631,
+        593
+      ],
+      "score": 0.9881578683853149
+    },
+    {
+      "text": "Oriente del Jordan, en la tribu de Ruben, Bosor en el Desierto",
+      "box": [
+        46,
+        571,
+        632,
+        619
+      ],
+      "score": 0.9767183065414429
+    },
+    {
+      "text": "y vinieron sus hermanos á consolarle.",
+      "box": [
+        786,
+        568,
+        1145,
+        601
+      ],
+      "score": 0.9999043345451355
+    },
+    {
+      "text": "23. Despues estuvo con su mujer, la cual concibió y parió",
+      "box": [
+        808,
+        594,
+        1370,
+        624
+      ],
+      "score": 0.9861181974411011
+    },
+    {
+      "text": "con sus ejidos, y Jasa con los suyos.",
+      "box": [
+        49,
+        610,
+        392,
+        638
+      ],
+      "score": 0.9982086420059204
+    },
+    {
+      "text": "un hijo á quien puso el nombre de Beria ², por haber nacido",
+      "box": [
+        788,
+        618,
+        1371,
+        651
+      ],
+      "score": 0.9903605580329895
+    },
+    {
+      "text": "79. Asimismo Cademoth y sus ejidos, y Mephaat con los",
+      "box": [
+        67,
+        623,
+        633,
+        669
+      ],
+      "score": 0.9810176491737366
+    },
+    {
+      "text": "suyos.",
+      "box": [
+        50,
+        660,
+        117,
+        689
+      ],
+      "score": 0.9995369911193848
+    },
+    {
+      "text": "en medio de las aflicciones de su casa.",
+      "box": [
+        789,
+        646,
+        1148,
+        675
+      ],
+      "score": 0.9989467263221741
+    },
+    {
+      "text": "80. Demás de esto en la tribu de Gad, Ramoth en Galaad",
+      "box": [
+        69,
+        674,
+        635,
+        718
+      ],
+      "score": 0.9955732822418213
+    },
+    {
+      "text": "24. Hija suya fué Sara que reedificó á Bethoron la de abajo",
+      "box": [
+        809,
+        669,
+        1370,
+        699
+      ],
+      "score": 0.999285876750946
+    },
+    {
+      "text": "y la de arriba, y á Ozensara.",
+      "box": [
+        789,
+        695,
+        1055,
+        727
+      ],
+      "score": 0.9890934228897095
+    },
+    {
+      "text": "con sus ejidos, y Manaim con los suyos.",
+      "box": [
+        53,
+        709,
+        429,
+        738
+      ],
+      "score": 0.999721109867096
+    },
+    {
+      "text": "81. Y tambien Hesebon con sus ejidos, y Jezer con los",
+      "box": [
+        71,
+        725,
+        636,
+        767
+      ],
+      "score": 0.9995536208152771
+    },
+    {
+      "text": "25. Tambien fueron sus hijos Rapha, y Reseph, y Thale,",
+      "box": [
+        809,
+        718,
+        1371,
+        748
+      ],
+      "score": 0.9886694550514221
+    },
+    {
+      "text": "suyos.",
+      "box": [
+        52,
+        760,
+        120,
+        789
+      ],
+      "score": 0.9993184208869934
+    },
+    {
+      "text": "de quien nació Thaan;",
+      "box": [
+        789,
+        746,
+        999,
+        776
+      ],
+      "score": 0.9999722838401794
+    },
+    {
+      "text": "26. El cual engendró á Laadan, cuyo hijo fué Ammiud,",
+      "box": [
+        807,
+        766,
+        1372,
+        800
+      ],
+      "score": 0.9952389001846313
+    },
+    {
+      "text": "que fué padre de Elizama,",
+      "box": [
+        789,
+        796,
+        1037,
+        828
+      ],
+      "score": 0.9999076724052429
+    },
+    {
+      "text": "CAPITULO VII",
+      "box": [
+        273,
+        806,
+        425,
+        836
+      ],
+      "score": 0.9995951056480408
+    },
+    {
+      "text": "27. De quien nació Nun, que tuvo por hijo á Josué.",
+      "box": [
+        808,
+        816,
+        1310,
+        851
+      ],
+      "score": 0.9794576168060303
+    },
+    {
+      "text": "Descendientes de Issachar y de Benjamin, de Nephtali, de Manassés,",
+      "box": [
+        70,
+        850,
+        621,
+        891
+      ],
+      "score": 0.9636117219924927
+    },
+    {
+      "text": "28. La posesion y habitacion de ellos fué Bethel con sus",
+      "box": [
+        808,
+        840,
+        1376,
+        875
+      ],
+      "score": 0.9999427795410156
+    },
+    {
+      "text": "aldeas, y Noran hácia el Oriente, y al Occidente Gazer con sus",
+      "box": [
+        788,
+        864,
+        1376,
+        900
+      ],
+      "score": 0.9933359026908875
+    },
+    {
+      "text": "de Éphraim y de Áser.",
+      "box": [
+        258,
+        881,
+        439,
+        910
+      ],
+      "score": 0.9776873588562012
+    },
+    {
+      "text": "aldeas, y asimismo Sichem con las suyas, hasta la ciudad de",
+      "box": [
+        787,
+        887,
+        1375,
+        924
+      ],
+      "score": 0.9855920672416687
+    },
+    {
+      "text": "Aza con las suyas.",
+      "box": [
+        788,
+        918,
+        962,
+        947
+      ],
+      "score": 0.9995995759963989
+    },
+    {
+      "text": "1. Hijos de Issachar, cuatro: Thola y Phua, Jasub y Si-",
+      "box": [
+        75,
+        920,
+        638,
+        971
+      ],
+      "score": 0.9774191975593567
+    },
+    {
+      "text": "29. Y junto á la tribu de los hijos de Manassés tuvieron á",
+      "box": [
+        806,
+        934,
+        1375,
+        971
+      ],
+      "score": 0.9971588850021362
+    },
+    {
+      "text": "meron.",
+      "box": [
+        58,
+        959,
+        133,
+        987
+      ],
+      "score": 0.9999785423278809
+    },
+    {
+      "text": "Bethsan con sus aldeas, á Thanach con las suyas, á Mageddo",
+      "box": [
+        786,
+        961,
+        1374,
+        994
+      ],
+      "score": 0.993645429611206
+    },
+    {
+      "text": "2. Hijos de Thola: Ozi, y Raphaia, y Jeriel, y Jemai, y",
+      "box": [
+        75,
+        971,
+        635,
+        1017
+      ],
+      "score": 0.9901835918426514
+    },
+    {
+      "text": "con las suyas, á Dor con las suyas. En estos lugares habitaron",
+      "box": [
+        787,
+        985,
+        1375,
+        1016
+      ],
+      "score": 0.9985967874526978
+    },
+    {
+      "text": "Jebsem, y Samuel, cabezas de varias parentelas y familias. De",
+      "box": [
+        55,
+        995,
+        637,
+        1041
+      ],
+      "score": 0.9743502140045166
+    },
+    {
+      "text": "los hijos de Joseph hijo de Israél.",
+      "box": [
+        788,
+        1008,
+        1103,
+        1037
+      ],
+      "score": 0.9994041323661804
+    },
+    {
+      "text": "la estirpe de Thola se contaron en tiempo de David veinte y",
+      "box": [
+        57,
+        1018,
+        636,
+        1064
+      ],
+      "score": 0.9917939305305481
+    },
+    {
+      "text": "30.\" Hijos de Aser: Jemna, y Jesua, y Jessuí, y Baria, y",
+      "box": [
+        809,
+        1027,
+        1376,
+        1062
+      ],
+      "score": 0.9715477824211121
+    },
+    {
+      "text": "dos mil y seiscientos varones muy valerosos.",
+      "box": [
+        61,
+        1051,
+        478,
+        1086
+      ],
+      "score": 0.9912566542625427
+    },
+    {
+      "text": "Sara hermana de estos.",
+      "box": [
+        790,
+        1059,
+        1005,
+        1087
+      ],
+      "score": 0.9970134496688843
+    },
+    {
+      "text": "3. Hijo de Ozi: Izrahia; del cual nacieron Michael, y Oba-",
+      "box": [
+        81,
+        1065,
+        637,
+        1114
+      ],
+      "score": 0.9984229803085327
+    },
+    {
+      "text": "31. Hijos de Baria: Heber, y Melchiel: éste es el padre de",
+      "box": [
+        810,
+        1077,
+        1376,
+        1112
+      ],
+      "score": 0.9946847558021545
+    },
+    {
+      "text": "dia, y Johel, y Jesia, todos cinco príncipes ó cabezas de varias",
+      "box": [
+        60,
+        1089,
+        638,
+        1140
+      ],
+      "score": 0.9880595207214355
+    },
+    {
+      "text": "Barsahith.",
+      "box": [
+        789,
+        1112,
+        890,
+        1136
+      ],
+      "score": 0.999981701374054
+    },
+    {
+      "text": "familias.",
+      "box": [
+        61,
+        1132,
+        150,
+        1156
+      ],
+      "score": 0.9999217987060547
+    },
+    {
+      "text": "32. Heber engendró á Jephlat, y á Somer, y á Hotham, y á",
+      "box": [
+        809,
+        1128,
+        1376,
+        1161
+      ],
+      "score": 0.9803143739700317
+    },
+    {
+      "text": "4. Y con ellos habia en sus ramas y familias treinta y seis",
+      "box": [
+        82,
+        1137,
+        637,
+        1186
+      ],
+      "score": 0.9934367537498474
+    },
+    {
+      "text": "Suaa hermana de estos.",
+      "box": [
+        790,
+        1159,
+        1011,
+        1184
+      ],
+      "score": 0.9998672008514404
+    },
+    {
+      "text": "mil hombres muy esforzados y adiestrados en el manejo de las",
+      "box": [
+        60,
+        1162,
+        637,
+        1210
+      ],
+      "score": 0.9980490207672119
+    },
+    {
+      "text": "33. Los hijos de Jephlat: Phosech y Chamaal, y Asoth:",
+      "box": [
+        810,
+        1176,
+        1377,
+        1209
+      ],
+      "score": 0.9986575245857239
+    },
+    {
+      "text": "armas; porque tuvieron muchas mujeres é hijos:",
+      "box": [
+        62,
+        1193,
+        516,
+        1233
+      ],
+      "score": 0.9943277835845947
+    },
+    {
+      "text": "estos son los hijos de Jephlat.",
+      "box": [
+        792,
+        1206,
+        1071,
+        1233
+      ],
+      "score": 0.999971866607666
+    },
+    {
+      "text": "5. Y de sus hermanos esparcidos por toda la tribu de",
+      "box": [
+        82,
+        1210,
+        637,
+        1258
+      ],
+      "score": 0.9960668087005615
+    },
+    {
+      "text": "34. Hijos de Somer: Ahi, y Roaga, y Haba, y Aram.",
+      "box": [
+        812,
+        1227,
+        1308,
+        1257
+      ],
+      "score": 0.9918960928916931
+    },
+    {
+      "text": "Issachar se contaron hasta ochenta y siete mil valerosísimos",
+      "box": [
+        61,
+        1237,
+        636,
+        1279
+      ],
+      "score": 0.9971572756767273
+    },
+    {
+      "text": "35. Y los hijos de Helem su hermano: Supha, y Jemna, y",
+      "box": [
+        811,
+        1253,
+        1375,
+        1282
+      ],
+      "score": 0.9881866574287415
+    },
+    {
+      "text": "combatientes.",
+      "box": [
+        62,
+        1274,
+        200,
+        1300
+      ],
+      "score": 0.9999884366989136
+    },
+    {
+      "text": "Selles, y Amal.",
+      "box": [
+        791,
+        1282,
+        935,
+        1308
+      ],
+      "score": 0.9990237951278687
+    },
+    {
+      "text": "6. Hijos de Benjamin, tres: Bela, Bechor y Jadihel.",
+      "box": [
+        83,
+        1288,
+        564,
+        1327
+      ],
+      "score": 0.9905842542648315
+    },
+    {
+      "text": "36. Hijos de Supha: Sué, Harnapher, y Sual, y Beri, y",
+      "box": [
+        811,
+        1301,
+        1375,
+        1334
+      ],
+      "score": 0.995311439037323
+    },
+    {
+      "text": "7. Hijos de Bela: Esbon, y Ozi, y Oziel, y Jerimoth, y",
+      "box": [
+        84,
+        1313,
+        636,
+        1350
+      ],
+      "score": 0.9954891800880432
+    },
+    {
+      "text": "Jamra,",
+      "box": [
+        792,
+        1334,
+        861,
+        1359
+      ],
+      "score": 0.9999858736991882
+    },
+    {
+      "text": "Urai, todos cinco cabezas de familias de valerosos comba-",
+      "box": [
+        63,
+        1337,
+        637,
+        1374
+      ],
+      "score": 0.9987779855728149
+    },
+    {
+      "text": "37. Y Bosor, y Hod, y Samma, y Salusa, y Jethran, y Bera.",
+      "box": [
+        811,
+        1349,
+        1374,
+        1383
+      ],
+      "score": 0.9957039952278137
+    },
+    {
+      "text": "tientes; el número de los cuales fué de veinte y dos mil",
+      "box": [
+        63,
+        1362,
+        636,
+        1399
+      ],
+      "score": 0.9994722008705139
+    },
+    {
+      "text": "38. Hijos de Jether ó Jethran: Jephone, y Phaspha, y Ara.",
+      "box": [
+        812,
+        1376,
+        1374,
+        1406
+      ],
+      "score": 0.9987843632698059
+    },
+    {
+      "text": "tréinta y cuatro.",
+      "box": [
+        66,
+        1398,
+        227,
+        1419
+      ],
+      "score": 0.9618021845817566
+    },
+    {
+      "text": "39. Hijos de Olla: Aree, y Haniel, y Resia.",
+      "box": [
+        812,
+        1402,
+        1218,
+        1430
+      ],
+      "score": 0.9996083378791809
+    },
+    {
+      "text": "8. Hijos de Bechor: Zamira, y Joas, y Eliezer, y Elioenai, y",
+      "box": [
+        85,
+        1409,
+        636,
+        1446
+      ],
+      "score": 0.9947978854179382
+    },
+    {
+      "text": "40. Todos estos son descendientes de Aser, cabezas ó",
+      "box": [
+        812,
+        1424,
+        1375,
+        1454
+      ],
+      "score": 0.9829248189926147
+    },
+    {
+      "text": "Amri, y Jerimoth, y Abia, y Anathoth, y Almath; todos hijos",
+      "box": [
+        64,
+        1434,
+        637,
+        1471
+      ],
+      "score": 0.993262767791748
+    },
+    {
+      "text": "troncos de familias, y principales jefes, los mas escogidos y",
+      "box": [
+        792,
+        1448,
+        1373,
+        1479
+      ],
+      "score": 0.9914937019348145
+    },
+    {
+      "text": "de Bechor.",
+      "box": [
+        64,
+        1466,
+        172,
+        1490
+      ],
+      "score": 0.9999135136604309
+    },
+    {
+      "text": "esforzados: el número de los que estaban en edad de tomar",
+      "box": [
+        792,
+        1473,
+        1374,
+        1503
+      ],
+      "score": 0.9984759092330933
+    },
+    {
+      "text": "9. Y el número de estos, segun sus familias, de donde pro-",
+      "box": [
+        85,
+        1482,
+        636,
+        1517
+      ],
+      "score": 0.9946656823158264
+    },
+    {
+      "text": "las armas era de veinte y seis mil.",
+      "box": [
+        791,
+        1500,
+        1113,
+        1528
+      ],
+      "score": 0.9997968673706055
+    },
+    {
+      "text": "cedieron varias parentelas, fué de veinte mil y doscientos",
+      "box": [
+        64,
+        1508,
+        637,
+        1542
+      ],
+      "score": 0.9997503161430359
+    },
+    {
+      "text": "combatientes valerosos.",
+      "box": [
+        68,
+        1542,
+        292,
+        1563
+      ],
+      "score": 0.9999668002128601
+    },
+    {
+      "text": "CAPITULO VIII",
+      "box": [
+        1002,
+        1543,
+        1166,
+        1564
+      ],
+      "score": 0.9990090131759644
+    },
+    {
+      "text": "10. Hijo de Jadihel fué Balan: hijos de Balan: Jehús, y",
+      "box": [
+        86,
+        1557,
+        637,
+        1590
+      ],
+      "score": 0.9997580647468567
+    },
+    {
+      "text": "Benjamin, y Aod, y Chanana, y Zethan, y Tharsis, y Ahi-",
+      "box": [
+        63,
+        1581,
+        639,
+        1616
+      ],
+      "score": 0.9973069429397583
+    },
+    {
+      "text": "De otros descendientes de Benjamin hasta Saul, y de los hijos de éste.",
+      "box": [
+        802,
+        1578,
+        1360,
+        1609
+      ],
+      "score": 0.995471715927124
+    },
+    {
+      "text": "sahar:",
+      "box": [
+        64,
+        1612,
+        130,
+        1637
+      ],
+      "score": 0.9983699917793274
+    },
+    {
+      "text": "1. El primogénito de Benjamin fué Bale, Asbel el segundo,",
+      "box": [
+        813,
+        1618,
+        1365,
+        1650
+      ],
+      "score": 0.9998029470443726
+    },
+    {
+      "text": "11. Todos estos fueron descendientes de Jadihel, cabezas",
+      "box": [
+        85,
+        1632,
+        636,
+        1661
+      ],
+      "score": 0.9923110604286194
+    },
+    {
+      "text": "de sus familias, en que se contaron diez y siete mil y doscien-",
+      "box": [
+        63,
+        1656,
+        636,
+        1687
+      ],
+      "score": 0.9992384910583496
+    },
+    {
+      "text": "y el tercero Ahara;",
+      "box": [
+        792,
+        1648,
+        974,
+        1677
+      ],
+      "score": 0.9910291433334351
+    },
+    {
+      "text": "2. El cuarto Nohaa, y Rapha el quinto.",
+      "box": [
+        813,
+        1669,
+        1188,
+        1699
+      ],
+      "score": 0.9971166849136353
+    },
+    {
+      "text": "tos varones, valerosos combatientes.",
+      "box": [
+        64,
+        1684,
+        402,
+        1709
+      ],
+      "score": 0.9999509453773499
+    },
+    {
+      "text": "3. Los hijos de Bale fueron Addar, y Gera, y Abiud,",
+      "box": [
+        814,
+        1689,
+        1302,
+        1723
+      ],
+      "score": 0.9998614192008972
+    },
+    {
+      "text": "12. Tambien lo fueron Sepham y Hapham, hijos de Hir, y",
+      "box": [
+        83,
+        1704,
+        635,
+        1734
+      ],
+      "score": 0.9920191764831543
+    },
+    {
+      "text": "4. Con Abisué, y Naaman, y Ahoé;",
+      "box": [
+        814,
+        1716,
+        1152,
+        1748
+      ],
+      "score": 0.9857820272445679
+    },
+    {
+      "text": "Hasim hijo de Aher.",
+      "box": [
+        63,
+        1732,
+        262,
+        1758
+      ],
+      "score": 0.9997216463088989
+    },
+    {
+      "text": "13. Los hijos de Nephthali fueron Jasiel, y Guní, y Jeser,",
+      "box": [
+        81,
+        1754,
+        634,
+        1783
+      ],
+      "score": 0.9936286211013794
+    },
+    {
+      "text": "5. Y además otro Gera y Sephuphan y Huram.",
+      "box": [
+        815,
+        1737,
+        1256,
+        1772
+      ],
+      "score": 0.9931475520133972
+    },
+    {
+      "text": "y Sellúm: estos son los hijos ó nietos de Bala ",
+      "box": [
+        58,
+        1776,
+        501,
+        1809
+      ],
+      "score": 0.9751387238502502
+    },
+    {
+      "text": "6. Estos son los hijos de Ahod, cabezas de las familias",
+      "box": [
+        815,
+        1757,
+        1359,
+        1797
+      ],
+      "score": 0.9980012774467468
+    },
+    {
+      "text": "14. Fué hijo ó descendiente de Manassés, Esriel: y una",
+      "box": [
+        80,
+        1802,
+        634,
+        1829
+      ],
+      "score": 0.9941116571426392
+    },
+    {
+      "text": "de los habitantes de Gabáa, que fueron trasladados á Ma-",
+      "box": [
+        794,
+        1781,
+        1358,
+        1822
+      ],
+      "score": 0.9987439513206482
+    },
+    {
+      "text": "Syra, mujer suya de segundo órden, le parió á Machir padre",
+      "box": [
+        57,
+        1824,
+        635,
+        1855
+      ],
+      "score": 0.9934934377670288
+    },
+    {
+      "text": "nahath,",
+      "box": [
+        792,
+        1819,
+        871,
+        1848
+      ],
+      "score": 0.9999847412109375
+    },
+    {
+      "text": "de Galaad:",
+      "box": [
+        56,
+        1850,
+        170,
+        1876
+      ],
+      "score": 0.9998785853385925
+    },
+    {
+      "text": "7. Es á saber, Naaman, y Achia, y Gera, el mismo que los",
+      "box": [
+        814,
+        1827,
+        1356,
+        1870
+      ],
+      "score": 0.9863343238830566
+    },
+    {
+      "text": "15. Machir dió mujeres á sus hijos Happhim y Saphan; y",
+      "box": [
+        75,
+        1870,
+        633,
+        1901
+      ],
+      "score": 0.9988412261009216
+    },
+    {
+      "text": "trasladó; y de quien nacieron Oza y Ahiud.",
+      "box": [
+        795,
+        1856,
+        1193,
+        1896
+      ],
+      "score": 0.9955683946609497
+    },
+    {
+      "text": "1Mujer secundaria de Jacob.—Véase Gen. XXX, v. 3 ad 17, XLVI, v.24.",
+      "box": [
+        70,
+        1943,
+        633,
+        1975
+      ],
+      "score": 0.9832642674446106
+    },
+    {
+      "text": "2 Esto es, Afliccion.",
+      "box": [
+        812,
+        1938,
+        978,
+        1966
+      ],
+      "score": 0.9825935363769531
+    }
+  ]
+}

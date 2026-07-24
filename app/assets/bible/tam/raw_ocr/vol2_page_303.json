@@ -1,0 +1,1497 @@
+{
+  "volume": 2,
+  "page_index": 303,
+  "pdf_page": 304,
+  "lines": [
+    {
+      "text": "387",
+      "box": [
+        25,
+        12,
+        67,
+        46
+      ],
+      "score": 0.998516321182251
+    },
+    {
+      "text": "JOB.",
+      "box": [
+        300,
+        41,
+        360,
+        75
+      ],
+      "score": 0.9983516335487366
+    },
+    {
+      "text": "CAPITULO XLII.",
+      "box": [
+        998,
+        53,
+        1186,
+        90
+      ],
+      "score": 0.9708031415939331
+    },
+    {
+      "text": "388",
+      "box": [
+        1329,
+        62,
+        1372,
+        97
+      ],
+      "score": 0.9949981570243835
+    },
+    {
+      "text": "18. Mira como él sé sorbe un rio, sin que le parezca ha-",
+      "box": [
+        32,
+        88,
+        632,
+        169
+      ],
+      "score": 0.9936879873275757
+    },
+    {
+      "text": "ber bebido mucho : aun presume poder agotar el Jordan",
+      "box": [
+        7,
+        118,
+        631,
+        196
+      ],
+      "score": 0.9744930863380432
+    },
+    {
+      "text": "13. En su cerviz reside la fortaleza; y va delante de él la",
+      "box": [
+        809,
+        135,
+        1380,
+        171
+      ],
+      "score": 0.9851179122924805
+    },
+    {
+      "text": "entero.",
+      "box": [
+        10,
+        151,
+        93,
+        182
+      ],
+      "score": 0.9997269511222839
+    },
+    {
+      "text": "19. Parece que se le quiere tragar con los ojos, y absorbér-",
+      "box": [
+        35,
+        178,
+        628,
+        250
+      ],
+      "score": 0.9984150528907776
+    },
+    {
+      "text": "miseria 8.",
+      "box": [
+        788,
+        169,
+        883,
+        200
+      ],
+      "score": 0.9783577919006348
+    },
+    {
+      "text": "14. Los miembros de su cuerpo están perfectamente uni-",
+      "box": [
+        809,
+        195,
+        1376,
+        225
+      ],
+      "score": 0.9998307228088379
+    },
+    {
+      "text": "sele con sus narices ².",
+      "box": [
+        14,
+        210,
+        244,
+        248
+      ],
+      "score": 0.9885872602462769
+    },
+    {
+      "text": "dos entre sí: caerán rayos sobre él, mas no por eso se moverá",
+      "box": [
+        787,
+        224,
+        1376,
+        252
+      ],
+      "score": 0.9993161559104919
+    },
+    {
+      "text": "20. ¿Podrás tú tampoco pescar y sacar fuera con anzuelo á",
+      "box": [
+        38,
+        237,
+        629,
+        299
+      ],
+      "score": 0.9879075884819031
+    },
+    {
+      "text": "de su sitio.",
+      "box": [
+        789,
+        252,
+        894,
+        273
+      ],
+      "score": 0.99360591173172
+    },
+    {
+      "text": "Leviathan óla ballena, y atar con una cuerda su lengua ?",
+      "box": [
+        14,
+        263,
+        595,
+        323
+      ],
+      "score": 0.9929850697517395
+    },
+    {
+      "text": "15. Tiene el corazon duro como piedra, y apretado como",
+      "box": [
+        807,
+        276,
+        1374,
+        300
+      ],
+      "score": 0.989078164100647
+    },
+    {
+      "text": "21. ¿Podrás echar acaso una argolla e sus narices, ó tala-",
+      "box": [
+        38,
+        291,
+        628,
+        353
+      ],
+      "score": 0.9979372620582581
+    },
+    {
+      "text": "yunque de herrero golpeado de martillo.",
+      "box": [
+        787,
+        300,
+        1182,
+        325
+      ],
+      "score": 0.9999417066574097
+    },
+    {
+      "text": "drar conun garfio sus quijadas?",
+      "box": [
+        15,
+        317,
+        346,
+        363
+      ],
+      "score": 0.9975930452346802
+    },
+    {
+      "text": "16. Cuando él se levanta sobre las olas tienen miedo los",
+      "box": [
+        806,
+        323,
+        1376,
+        350
+      ],
+      "score": 0.9929271340370178
+    },
+    {
+      "text": "22. ¿Acaso te hará muchas súplicas, ó te dirá palabras",
+      "box": [
+        36,
+        342,
+        627,
+        405
+      ],
+      "score": 0.997029185295105
+    },
+    {
+      "text": "ángeles mismos 9, y amedrentados procuran purificarse y apla-",
+      "box": [
+        785,
+        348,
+        1376,
+        374
+      ],
+      "score": 0.9986671209335327
+    },
+    {
+      "text": "tiernas?",
+      "box": [
+        14,
+        369,
+        103,
+        399
+      ],
+      "score": 0.9999767541885376
+    },
+    {
+      "text": "car al cielo.",
+      "box": [
+        786,
+        376,
+        902,
+        397
+      ],
+      "score": 0.9990571141242981
+    },
+    {
+      "text": "23. ¿O hará quizá pcto contigo, y le recibirás por tu per-",
+      "box": [
+        36,
+        394,
+        626,
+        456
+      ],
+      "score": 0.9943158626556396
+    },
+    {
+      "text": "17. Si alguno quiere embestirle, no sirven contra él ni es-",
+      "box": [
+        804,
+        395,
+        1377,
+        422
+      ],
+      "score": 0.9996849298477173
+    },
+    {
+      "text": "pétuo esclavo?",
+      "box": [
+        13,
+        422,
+        171,
+        458
+      ],
+      "score": 0.9997948408126831
+    },
+    {
+      "text": "pada, ni lanza, ni coraza;",
+      "box": [
+        778,
+        423,
+        1031,
+        446
+      ],
+      "score": 0.9996850490570068
+    },
+    {
+      "text": "24. ¿Por ventura juguetearás con él como con un pajarillo,",
+      "box": [
+        35,
+        446,
+        622,
+        504
+      ],
+      "score": 0.9987682700157166
+    },
+    {
+      "text": "18. Pues el hierro es para él como paja, y el bronce como",
+      "box": [
+        802,
+        443,
+        1377,
+        469
+      ],
+      "score": 0.9982326030731201
+    },
+    {
+      "text": "6 le atarás con un hilo para diversion de tus siervas?",
+      "box": [
+        13,
+        472,
+        554,
+        525
+      ],
+      "score": 0.9919639825820923
+    },
+    {
+      "text": "leño podrido.",
+      "box": [
+        780,
+        469,
+        914,
+        494
+      ],
+      "score": 0.999670147895813
+    },
+    {
+      "text": "25. ¿Partiránle en trozos en un convite tus amigos, ó re-",
+      "box": [
+        35,
+        497,
+        622,
+        552
+      ],
+      "score": 0.9898654818534851
+    },
+    {
+      "text": "19. No le hará huir el mas diestro flechero: para él las pie-",
+      "box": [
+        802,
+        490,
+        1377,
+        517
+      ],
+      "score": 0.9982248544692993
+    },
+    {
+      "text": "partiránsele entre sí los negociantes 4?",
+      "box": [
+        12,
+        524,
+        397,
+        568
+      ],
+      "score": 0.9954292178153992
+    },
+    {
+      "text": "dras de la honda son hojarasca.",
+      "box": [
+        782,
+        518,
+        1089,
+        541
+      ],
+      "score": 0.9969871044158936
+    },
+    {
+      "text": "26. ¿Harás caber acaso su cuerpo en las redes de los pes-",
+      "box": [
+        36,
+        550,
+        621,
+        600
+      ],
+      "score": 0.9872335195541382
+    },
+    {
+      "text": "20. Reputará el martillo como una arista 10; y se reirá de",
+      "box": [
+        801,
+        540,
+        1378,
+        565
+      ],
+      "score": 0.9737493395805359
+    },
+    {
+      "text": "cadores, ó meterás su cabeza en el garlito ónasa de los",
+      "box": [
+        11,
+        574,
+        621,
+        625
+      ],
+      "score": 0.9967252016067505
+    },
+    {
+      "text": "la lanza enristrada.",
+      "box": [
+        779,
+        563,
+        971,
+        590
+      ],
+      "score": 0.9998380541801453
+    },
+    {
+      "text": "21. Debajo de él quedarán ofuscados los rayos del sol, y",
+      "box": [
+        802,
+        591,
+        1378,
+        614
+      ],
+      "score": 0.993465006351471
+    },
+    {
+      "text": "peces?",
+      "box": [
+        10,
+        601,
+        88,
+        633
+      ],
+      "score": 0.9999479651451111
+    },
+    {
+      "text": "andará por encima del oro 1, como sobre lodo.",
+      "box": [
+        781,
+        615,
+        1234,
+        641
+      ],
+      "score": 0.9827182292938232
+    },
+    {
+      "text": "27. Pon tu mano sobre él, tócale solamente, y te quedará",
+      "box": [
+        36,
+        626,
+        622,
+        674
+      ],
+      "score": 0.9967173337936401
+    },
+    {
+      "text": "22. Con sus bufidos hará hervir el mar profundo como una",
+      "box": [
+        803,
+        642,
+        1378,
+        665
+      ],
+      "score": 0.9935951232910156
+    },
+    {
+      "text": "memoria eterna de tal pelea, ni volverás á hablar mas de",
+      "box": [
+        11,
+        653,
+        621,
+        697
+      ],
+      "score": 0.9993538856506348
+    },
+    {
+      "text": "olla, y hará que se parezea al caldero de ungüentos, cuando",
+      "box": [
+        780,
+        664,
+        1379,
+        693
+      ],
+      "score": 0.9911919832229614
+    },
+    {
+      "text": "ella⁵.",
+      "box": [
+        10,
+        678,
+        79,
+        706
+      ],
+      "score": 0.9376053214073181
+    },
+    {
+      "text": "hierven á borbollones.",
+      "box": [
+        780,
+        690,
+        1001,
+        716
+      ],
+      "score": 0.9993480443954468
+    },
+    {
+      "text": "28. Quien espera prenderle se hallará burlado, yá vista de",
+      "box": [
+        34,
+        703,
+        622,
+        749
+      ],
+      "score": 0.9982002377510071
+    },
+    {
+      "text": "23. Deja en pos de sí un sendero reluciente 12, y hace que",
+      "box": [
+        801,
+        715,
+        1380,
+        741
+      ],
+      "score": 0.9918785095214844
+    },
+    {
+      "text": "todos será por él precipitado al mar.",
+      "box": [
+        11,
+        730,
+        384,
+        770
+      ],
+      "score": 0.9993879795074463
+    },
+    {
+      "text": "el mar se agite, y tome el color canoso de la vejez.",
+      "box": [
+        783,
+        743,
+        1274,
+        763
+      ],
+      "score": 0.9897162914276123
+    },
+    {
+      "text": "24. En fin no hay poder sobre la tierra que pueda compa-",
+      "box": [
+        801,
+        764,
+        1380,
+        792
+      ],
+      "score": 0.995164692401886
+    },
+    {
+      "text": "CAPITULO XLI",
+      "box": [
+        241,
+        794,
+        405,
+        818
+      ],
+      "score": 0.9997613430023193
+    },
+    {
+      "text": "rársele, pues fué criado para no tener temor de nadie.",
+      "box": [
+        781,
+        790,
+        1304,
+        817
+      ],
+      "score": 0.9998946189880371
+    },
+    {
+      "text": "25. Mira debajo de s cuanto hay de grande ¹3; como quien",
+      "box": [
+        802,
+        813,
+        1379,
+        842
+      ],
+      "score": 0.9724159240722656
+    },
+    {
+      "text": "Explícase mas difusamente la fiéreza de Leviathan con la descripcion",
+      "box": [
+        26,
+        834,
+        605,
+        874
+      ],
+      "score": 0.999561071395874
+    },
+    {
+      "text": "es el rey de todoš los mas soberbios animales 14.",
+      "box": [
+        781,
+        839,
+        1247,
+        867
+      ],
+      "score": 0.9737897515296936
+    },
+    {
+      "text": "de sus miembros, y de su dureza y soberbia.",
+      "box": [
+        139,
+        861,
+        506,
+        891
+      ],
+      "score": 0.99850994348526
+    },
+    {
+      "text": "1. No le despertaré como cruel; pues ¿quién puede resistir",
+      "box": [
+        31,
+        903,
+        623,
+        950
+      ],
+      "score": 0.9973311424255371
+    },
+    {
+      "text": "CAPITULO XLII",
+      "box": [
+        1005,
+        902,
+        1179,
+        924
+      ],
+      "score": 0.9993703365325928
+    },
+    {
+      "text": "á mi semblante 6?",
+      "box": [
+        8,
+        930,
+        200,
+        965
+      ],
+      "score": 0.9005424976348877
+    },
+    {
+      "text": "2. ¿Quién me ha dado algo primero, para que yo deba res-",
+      "box": [
+        34,
+        957,
+        621,
+        996
+      ],
+      "score": 0.997611403465271
+    },
+    {
+      "text": "Sentencia el Señor á favor de Job contra sus tres amigos. Ruega Job por",
+      "box": [
+        780,
+        951,
+        1382,
+        982
+      ],
+      "score": 0.9969122409820557
+    },
+    {
+      "text": "tituírselo? Mio es todo cuanto hay debajo del cielo.",
+      "box": [
+        12,
+        982,
+        515,
+        1018
+      ],
+      "score": 0.99617999792099
+    },
+    {
+      "text": "ellos; y habiendo recibido doblados bienes, descansa en paz.",
+      "box": [
+        833,
+        975,
+        1328,
+        1001
+      ],
+      "score": 0.9984524250030518
+    },
+    {
+      "text": "3. No tendré miramiento por él, ni á la eficacia de sus",
+      "box": [
+        39,
+        1008,
+        621,
+        1045
+      ],
+      "score": 0.9884065389633179
+    },
+    {
+      "text": "palabras dispuestas á propósito para mover á compasion.",
+      "box": [
+        14,
+        1032,
+        573,
+        1070
+      ],
+      "score": 0.9932634234428406
+    },
+    {
+      "text": "1. Entonces Job, respondiendo al Señor, dijo:",
+      "box": [
+        800,
+        1033,
+        1257,
+        1062
+      ],
+      "score": 0.9998239278793335
+    },
+    {
+      "text": "4. ¿Quién de los mortales le quitará á Leviathan la piel que",
+      "box": [
+        42,
+        1059,
+        620,
+        1094
+      ],
+      "score": 0.9917089343070984
+    },
+    {
+      "text": "2. Yo sé que todo lo puedes, y que no se te oculta ningun",
+      "box": [
+        799,
+        1057,
+        1382,
+        1088
+      ],
+      "score": 0.9868097305297852
+    },
+    {
+      "text": "le cubre? ¿ó quién entrará en medio de su espantosa boca?",
+      "box": [
+        16,
+        1084,
+        587,
+        1118
+      ],
+      "score": 0.9998533725738525
+    },
+    {
+      "text": "pensamiento.",
+      "box": [
+        778,
+        1088,
+        913,
+        1115
+      ],
+      "score": 0.9999743103981018
+    },
+    {
+      "text": "5. ¿Quién abrirá las puertas de esta boca ósus agallas?",
+      "box": [
+        43,
+        1109,
+        619,
+        1143
+      ],
+      "score": 0.9990637302398682
+    },
+    {
+      "text": "3. ¿Quién es aquel (has dicho tú) que envuelve sentencias",
+      "box": [
+        798,
+        1105,
+        1383,
+        1139
+      ],
+      "score": 0.9864394664764404
+    },
+    {
+      "text": "Espanta el ver solamente el cerco de sus dientes.",
+      "box": [
+        20,
+        1133,
+        496,
+        1166
+      ],
+      "score": 0.989560604095459
+    },
+    {
+      "text": "juiciosas con palabras de ignorante 15? Por tanto confieso, Señor,",
+      "box": [
+        777,
+        1131,
+        1383,
+        1164
+      ],
+      "score": 0.98405921459198
+    },
+    {
+      "text": "6. Su cuerpo es impenetrable como los escudos fundidos",
+      "box": [
+        43,
+        1155,
+        620,
+        1193
+      ],
+      "score": 0.9927987456321716
+    },
+    {
+      "text": "que he hablado indiscretamente, y de cosas que sobrepujan",
+      "box": [
+        778,
+        1156,
+        1383,
+        1189
+      ],
+      "score": 0.9990800023078918
+    },
+    {
+      "text": "de bronce, y está apiñado de escamas entre sí apretadas:",
+      "box": [
+        19,
+        1179,
+        573,
+        1218
+      ],
+      "score": 0.9858216047286987
+    },
+    {
+      "text": "infinitamente mi saber.",
+      "box": [
+        779,
+        1184,
+        1008,
+        1212
+      ],
+      "score": 0.999787449836731
+    },
+    {
+      "text": "7. La una está trabada con la otra, sin que quede ningun",
+      "box": [
+        43,
+        1206,
+        619,
+        1242
+      ],
+      "score": 0.9997469782829285
+    },
+    {
+      "text": "4. Mas dígnate escuchar, y yo hablaré con mas juicio: te",
+      "box": [
+        799,
+        1205,
+        1383,
+        1237
+      ],
+      "score": 0.9883970022201538
+    },
+    {
+      "text": "resquicio por donde pueda penetrar ni el aire.",
+      "box": [
+        21,
+        1231,
+        474,
+        1266
+      ],
+      "score": 0.9886600375175476
+    },
+    {
+      "text": "preguntaré 1º, y tú tendrás la bondad de respondeme.",
+      "box": [
+        778,
+        1230,
+        1314,
+        1264
+      ],
+      "score": 0.9738768935203552
+    },
+    {
+      "text": "8. Está la una tan pegada á la otra, y tan asidas entre sí,",
+      "box": [
+        44,
+        1255,
+        618,
+        1291
+      ],
+      "score": 0.9941418766975403
+    },
+    {
+      "text": "5. Ya, Señor, te conocia de oidas; pero ahora parece que te",
+      "box": [
+        798,
+        1255,
+        1383,
+        1287
+      ],
+      "score": 0.9865718483924866
+    },
+    {
+      "text": "que de ningun modo se separarán.",
+      "box": [
+        21,
+        1282,
+        362,
+        1314
+      ],
+      "score": 0.9990519285202026
+    },
+    {
+      "text": "veo con mis propios ojos.",
+      "box": [
+        779,
+        1285,
+        1022,
+        1315
+      ],
+      "score": 0.9984086751937866
+    },
+    {
+      "text": "9. Cuando estornuda, parece que arroja chispas de fuego,",
+      "box": [
+        44,
+        1307,
+        619,
+        1341
+      ],
+      "score": 0.9971944689750671
+    },
+    {
+      "text": "6. Por eso yo me acuso á mí mismo 17, y hago penitencia",
+      "box": [
+        798,
+        1302,
+        1383,
+        1339
+      ],
+      "score": 0.9894616007804871
+    },
+    {
+      "text": "y sus ojos centellean como los arreboles de la aurora 7.",
+      "box": [
+        21,
+        1334,
+        551,
+        1363
+      ],
+      "score": 0.9953777194023132
+    },
+    {
+      "text": "envuelto en polvo y ceniza.",
+      "box": [
+        780,
+        1334,
+        1043,
+        1362
+      ],
+      "score": 0.9981501698493958
+    },
+    {
+      "text": "10. De su boca salen llamas como de tizones encendidos.",
+      "box": [
+        46,
+        1359,
+        619,
+        1388
+      ],
+      "score": 0.9977676868438721
+    },
+    {
+      "text": "7. Despues que el Señor hubo acabado de hablar de aquel",
+      "box": [
+        798,
+        1352,
+        1383,
+        1388
+      ],
+      "score": 0.9820401072502136
+    },
+    {
+      "text": "11. Sus narices arrojan humo como la olla hirviente entre",
+      "box": [
+        47,
+        1384,
+        619,
+        1412
+      ],
+      "score": 0.9994519948959351
+    },
+    {
+      "text": "modo á Job, dijo á Eliphaz Themanita: Estoy altamente in-",
+      "box": [
+        778,
+        1377,
+        1383,
+        1412
+      ],
+      "score": 0.9898952841758728
+    },
+    {
+      "text": "llamas.",
+      "box": [
+        24,
+        1412,
+        103,
+        1435
+      ],
+      "score": 0.995875895023346
+    },
+    {
+      "text": "dignado contra tí y contra tus dos amigos, porque no habeis",
+      "box": [
+        780,
+        1402,
+        1383,
+        1435
+      ],
+      "score": 0.9896969199180603
+    },
+    {
+      "text": "12. Su aliento eneiende los carbones, y su boca despide lla-",
+      "box": [
+        47,
+        1435,
+        618,
+        1461
+      ],
+      "score": 0.9996198415756226
+    },
+    {
+      "text": "hablado con rectitud y justicia en mi presencia, como mi sier-",
+      "box": [
+        777,
+        1426,
+        1383,
+        1461
+      ],
+      "score": 0.999708890914917
+    },
+    {
+      "text": "maradas.",
+      "box": [
+        25,
+        1461,
+        123,
+        1486
+      ],
+      "score": 0.9999533295631409
+    },
+    {
+      "text": "vo Job.",
+      "box": [
+        780,
+        1459,
+        854,
+        1482
+      ],
+      "score": 0.998543918132782
+    },
+    {
+      "text": "1 O sin que le cause impresion alguna. Expresion hiperbólica.",
+      "box": [
+        46,
+        1520,
+        552,
+        1545
+      ],
+      "score": 0.9973987936973572
+    },
+    {
+      "text": "6 No tengo necesidad de provocarle contra los hombres como cruel",
+      "box": [
+        796,
+        1511,
+        1383,
+        1540
+      ],
+      "score": 0.9932047128677368
+    },
+    {
+      "text": "2 A algunos les parece que en este verso no se habla de rio ninguno",
+      "box": [
+        46,
+        1542,
+        619,
+        1565
+      ],
+      "score": 0.9994310736656189
+    },
+    {
+      "text": "qué es. Porque ¿quién puede resistir tan solamente á mi semblante",
+      "box": [
+        778,
+        1533,
+        1383,
+        1562
+      ],
+      "score": 0.9899644255638123
+    },
+    {
+      "text": "que se quiera sorber el elefante con ojos y narices: porque las palabras",
+      "box": [
+        28,
+        1564,
+        619,
+        1586
+      ],
+      "score": 0.994486927986145
+    },
+    {
+      "text": "airado?",
+      "box": [
+        779,
+        1559,
+        841,
+        1580
+      ],
+      "score": 0.9977448582649231
+    },
+    {
+      "text": "quasi hamo capiet eum, dan idea de que se trata aquí del modo de cazar-",
+      "box": [
+        27,
+        1586,
+        619,
+        1607
+      ],
+      "score": 0.9934132695198059
+    },
+    {
+      "text": "7 El erudito Expositor y sábio agustiniano P. Diego Estúnica cree que",
+      "box": [
+        795,
+        1573,
+        1383,
+        1603
+      ],
+      "score": 0.991155743598938
+    },
+    {
+      "text": "Íe,y así traducen el versículo 19 de esta manera: Él será preso por sus",
+      "box": [
+        25,
+        1603,
+        621,
+        1630
+      ],
+      "score": 0.9873180985450745
+    },
+    {
+      "text": "en este y siguientes versos se habla efectivamente de fuego producido",
+      "box": [
+        780,
+        1595,
+        1383,
+        1623
+      ],
+      "score": 0.9935147762298584
+    },
+    {
+      "text": "ojos, como el pez con anzuelo; y con un palo agudo serán traspasadas sus",
+      "box": [
+        24,
+        1626,
+        620,
+        1649
+      ],
+      "score": 0.9982444047927856
+    },
+    {
+      "text": "con el movimiento vehemente del estornudo; y añade que semejantes",
+      "box": [
+        780,
+        1615,
+        1382,
+        1643
+      ],
+      "score": 0.9968123435974121
+    },
+    {
+      "text": "narices para enfrenarle. Alégase como fundamento de esta traduccion",
+      "box": [
+        27,
+        1646,
+        619,
+        1669
+      ],
+      "score": 0.9983002543449402
+    },
+    {
+      "text": "cetáceos son muchos en el océano boreal, donde se ven lucir desde muy",
+      "box": [
+        779,
+        1636,
+        1382,
+        1663
+      ],
+      "score": 0.9944353103637695
+    },
+    {
+      "text": "el texto hebreo, y el que los cazadores ponen la hembra del elefante á la",
+      "box": [
+        28,
+        1666,
+        619,
+        1690
+      ],
+      "score": 0.9996854066848755
+    },
+    {
+      "text": "lejos sus grandes ojos, de manera que parecen dos fuegos, y sirve esto de",
+      "box": [
+        778,
+        1654,
+        1383,
+        1686
+      ],
+      "score": 0.9884268641471863
+    },
+    {
+      "text": "vista de este y le hacen caer así en una hoya ó fosa encubierta con algu-",
+      "box": [
+        28,
+        1685,
+        618,
+        1712
+      ],
+      "score": 0.9989561438560486
+    },
+    {
+      "text": "señal á los navegantes para apartarse de ellos.",
+      "box": [
+        780,
+        1678,
+        1154,
+        1705
+      ],
+      "score": 0.9844748377799988
+    },
+    {
+      "text": "nas ramas, y allí le domestican á fuerza de hambre, y le horadan la nariz",
+      "box": [
+        27,
+        1706,
+        620,
+        1732
+      ],
+      "score": 0.9994785785675049
+    },
+    {
+      "text": "8 O la devastacion, pues todo lo destroza por donde pasa.",
+      "box": [
+        796,
+        1696,
+        1269,
+        1724
+      ],
+      "score": 0.9977580308914185
+    },
+    {
+      "text": "para ponerle en ella un anillo que sirva como de freno.",
+      "box": [
+        27,
+        1725,
+        475,
+        1753
+      ],
+      "score": 0.9885956048965454
+    },
+    {
+      "text": "9 Esto es, los mas esforzados varones. En el hebreo la voz  Elim",
+      "box": [
+        795,
+        1710,
+        1383,
+        1747
+      ],
+      "score": 0.9931228160858154
+    },
+    {
+      "text": "3 Puede traducirse: Y tirar de su lengua con el cordel del anzuelo que",
+      "box": [
+        45,
+        1744,
+        621,
+        1776
+      ],
+      "score": 0.9928744435310364
+    },
+    {
+      "text": "significa tambien hombre de gran fuerza.",
+      "box": [
+        779,
+        1736,
+        1112,
+        1770
+      ],
+      "score": 0.999489963054657
+    },
+    {
+      "text": "la tiene agarrada. Algunos entienden por leviathan al cocodrilo: de este",
+      "box": [
+        26,
+        1765,
+        622,
+        1796
+      ],
+      "score": 0.9971088767051697
+    },
+    {
+      "text": "10 Como una estopa ó paja seca.",
+      "box": [
+        790,
+        1759,
+        1051,
+        1787
+      ],
+      "score": 0.9846758246421814
+    },
+    {
+      "text": "dicen los naturalistas que despues que está mucho tiempo debajo del",
+      "box": [
+        28,
+        1786,
+        620,
+        1815
+      ],
+      "score": 0.999854564666748
+    },
+    {
+      "text": "11 O se tenderá encima del oro, ó riquezas del fondo del mar.",
+      "box": [
+        789,
+        1774,
+        1296,
+        1807
+      ],
+      "score": 0.988897979259491
+    },
+    {
+      "text": "agua con el aliento detenido por precision, cuando sale afuera y se echa",
+      "box": [
+        27,
+        1805,
+        621,
+        1836
+      ],
+      "score": 0.9928807020187378
+    },
+    {
+      "text": "12 O sulco de blanca espuma.",
+      "box": [
+        790,
+        1800,
+        1029,
+        1827
+      ],
+      "score": 0.9976869821548462
+    },
+    {
+      "text": "sobre la presa con la boca abierta, lo arroja tan encendido y con tal vio-",
+      "box": [
+        26,
+        1826,
+        621,
+        1856
+      ],
+      "score": 0.9944977760314941
+    },
+    {
+      "text": "13 Y sublime entre los demás vivientes. Otros traducen: Todo lo des-",
+      "box": [
+        789,
+        1812,
+        1383,
+        1847
+      ],
+      "score": 0.9907968044281006
+    },
+    {
+      "text": "lencia que parece respira fuego envuelto en humo.",
+      "box": [
+        26,
+        1846,
+        441,
+        1875
+      ],
+      "score": 0.9949345588684082
+    },
+    {
+      "text": "precia, como que él es rey de todos los hijos de la soberbia.",
+      "box": [
+        780,
+        1832,
+        1242,
+        1871
+      ],
+      "score": 0.9993231296539307
+    },
+    {
+      "text": "4 Para salarle y venderle.",
+      "box": [
+        48,
+        1867,
+        267,
+        1890
+      ],
+      "score": 0.9981480240821838
+    },
+    {
+      "text": "14 O mónstruos del mundo.",
+      "box": [
+        791,
+        1860,
+        1017,
+        1888
+      ],
+      "score": 0.9827821850776672
+    },
+    {
+      "text": " Pondérase aquí la gran dificultad de pescar la ballena, pesca que",
+      "box": [
+        47,
+        1885,
+        623,
+        1918
+      ],
+      "score": 0.9989737272262573
+    },
+    {
+      "text": "15 Puede traducirse: ¿Quién es pues aquel que neciamente ó falto de",
+      "box": [
+        792,
+        1871,
+        1382,
+        1909
+      ],
+      "score": 0.9895955324172974
+    },
+    {
+      "text": "entonces el vulgo creia imposible, como realmente lo es, á un pescador",
+      "box": [
+        28,
+        1908,
+        623,
+        1938
+      ],
+      "score": 0.9964076280593872
+    },
+    {
+      "text": "juicio, oscurece ó presume ocultar los consejos de la Providencia?",
+      "box": [
+        782,
+        1892,
+        1302,
+        1931
+      ],
+      "score": 0.992729663848877
+    },
+    {
+      "text": "solo; y que solamente hace unos cuatro siglos que se practica, reuniéndo-",
+      "box": [
+        28,
+        1931,
+        623,
+        1958
+      ],
+      "score": 0.9993703961372375
+    },
+    {
+      "text": "16 Sóbre mis penas.",
+      "box": [
+        794,
+        1925,
+        958,
+        1948
+      ],
+      "score": 0.9907287955284119
+    },
+    {
+      "text": "se para ello una grań multitud de hombres.",
+      "box": [
+        29,
+        1953,
+        392,
+        1976
+      ],
+      "score": 0.9997584819793701
+    },
+    {
+      "text": "17 De haber hablado neciamente.",
+      "box": [
+        795,
+        1941,
+        1063,
+        1969
+      ],
+      "score": 0.9896184802055359
+    }
+  ]
+}

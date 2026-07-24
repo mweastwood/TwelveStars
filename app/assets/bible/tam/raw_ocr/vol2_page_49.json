@@ -1,0 +1,977 @@
+{
+  "volume": 2,
+  "page_index": 49,
+  "pdf_page": 50,
+  "lines": [
+    {
+      "text": "LOS REYES",
+      "box": [
+        490,
+        233,
+        968,
+        350
+      ],
+      "score": 0.9999411106109619
+    },
+    {
+      "text": "LIBRO II",
+      "box": [
+        647,
+        385,
+        809,
+        438
+      ],
+      "score": 0.9988411664962769
+    },
+    {
+      "text": "CAPITULO PRIMERO",
+      "box": [
+        281,
+        728,
+        488,
+        754
+      ],
+      "score": 0.9998452067375183
+    },
+    {
+      "text": "15. Y llamando á uno de sus soldados, le dijo: Arrójate",
+      "box": [
+        825,
+        736,
+        1359,
+        765
+      ],
+      "score": 0.9874365329742432
+    },
+    {
+      "text": "sobre ese hombre, y mátale. En efecto, se echó sobre él, yle",
+      "box": [
+        806,
+        762,
+        1359,
+        792
+      ],
+      "score": 0.9950178265571594
+    },
+    {
+      "text": "David hace quitar la vida al que dijo haber muerto á Saul y le traia la",
+      "box": [
+        108,
+        786,
+        658,
+        809
+      ],
+      "score": 0.997588574886322
+    },
+    {
+      "text": "hirió, y mató;",
+      "box": [
+        805,
+        788,
+        937,
+        817
+      ],
+      "score": 0.9993900656700134
+    },
+    {
+      "text": "corona: muestra su dolor por la muerte de Saul, de Jonathás, y demás",
+      "box": [
+        125,
+        808,
+        659,
+        831
+      ],
+      "score": 0.9998059272766113
+    },
+    {
+      "text": "16. Diciendo David al mismo tiempo: A nadie sino á tí",
+      "box": [
+        826,
+        814,
+        1361,
+        841
+      ],
+      "score": 0.9784039855003357
+    },
+    {
+      "text": "Israelitas; y forma un cántico lúgubre á este intento 1.",
+      "box": [
+        124,
+        826,
+        537,
+        854
+      ],
+      "score": 0.9814521074295044
+    },
+    {
+      "text": "mismo se impute tu muerte, porque tu propia boca ha dado",
+      "box": [
+        806,
+        840,
+        1360,
+        867
+      ],
+      "score": 0.9906259179115295
+    },
+    {
+      "text": "testimonio contra tí, con haber dicho: Yo maté al Ungido del",
+      "box": [
+        808,
+        866,
+        1360,
+        890
+      ],
+      "score": 0.9925259351730347
+    },
+    {
+      "text": "1. Muerto Saul, habia ya dos dias que David se hallaba en",
+      "box": [
+        127,
+        879,
+        658,
+        910
+      ],
+      "score": 0.9941296577453613
+    },
+    {
+      "text": "Señor.",
+      "box": [
+        808,
+        892,
+        869,
+        914
+      ],
+      "score": 0.9999783635139465
+    },
+    {
+      "text": "Siceleg, de vuelta de la derrota de los Amalecitas;",
+      "box": [
+        107,
+        905,
+        555,
+        937
+      ],
+      "score": 0.9953213334083557
+    },
+    {
+      "text": "17. Entonces fué cuando David compuso el siguiente cán-",
+      "box": [
+        824,
+        912,
+        1362,
+        941
+      ],
+      "score": 0.9970650672912598
+    },
+    {
+      "text": "2. Cuando al tercer dia compareció un hombre que venia",
+      "box": [
+        127,
+        929,
+        660,
+        963
+      ],
+      "score": 0.9913704991340637
+    },
+    {
+      "text": "tico fúnebre sobre la muerte de Saul, y de su hijo Jonathás:",
+      "box": [
+        808,
+        937,
+        1344,
+        967
+      ],
+      "score": 0.9998639822006226
+    },
+    {
+      "text": "del campamento de Saul, rasgados sus vestidos y cubierta de",
+      "box": [
+        109,
+        954,
+        660,
+        990
+      ],
+      "score": 0.996999204158783
+    },
+    {
+      "text": "18. Cántico llamado del Arco, que mandó que se enseñase",
+      "box": [
+        827,
+        963,
+        1361,
+        990
+      ],
+      "score": 0.983794629573822
+    },
+    {
+      "text": "polvo la cabeza; y llegándose á David, postróse sobre su rostro,",
+      "box": [
+        108,
+        979,
+        659,
+        1019
+      ],
+      "score": 0.9874595403671265
+    },
+    {
+      "text": "á los hijos de Judá, como está escrito en el libro de los Jus-",
+      "box": [
+        809,
+        988,
+        1362,
+        1015
+      ],
+      "score": 0.9996424317359924
+    },
+    {
+      "text": "haciéndole una profunda reverencia.",
+      "box": [
+        109,
+        1008,
+        440,
+        1043
+      ],
+      "score": 0.9986810684204102
+    },
+    {
+      "text": "tos . Dijo pues así: Considera, oh Israél, quiénes son los que",
+      "box": [
+        808,
+        1013,
+        1362,
+        1042
+      ],
+      "score": 0.9899028539657593
+    },
+    {
+      "text": "3. Preguntóle David: ¿De dónde vienes? He podido escapar,",
+      "box": [
+        130,
+        1031,
+        658,
+        1067
+      ],
+      "score": 0.9906714558601379
+    },
+    {
+      "text": "fueron heridos y perdieron la vida sobre tus colinas.",
+      "box": [
+        808,
+        1037,
+        1274,
+        1064
+      ],
+      "score": 0.9999793171882629
+    },
+    {
+      "text": "respondió él, de los reales de Israél.",
+      "box": [
+        110,
+        1058,
+        431,
+        1094
+      ],
+      "score": 0.9980503916740417
+    },
+    {
+      "text": "19. La flor de Israél ha perecido sobre tus montañas. Cómo",
+      "box": [
+        826,
+        1061,
+        1363,
+        1090
+      ],
+      "score": 0.9953218102455139
+    },
+    {
+      "text": "4. Díjole David: ¿Pues qué ha sucedido? decláramelo. Se",
+      "box": [
+        131,
+        1080,
+        659,
+        1118
+      ],
+      "score": 0.9924941062927246
+    },
+    {
+      "text": "han sido muertos esos campeones!",
+      "box": [
+        808,
+        1087,
+        1116,
+        1113
+      ],
+      "score": 0.9999077916145325
+    },
+    {
+      "text": "trabó la batalla, respondió él, ha echado á huir la tropa, han",
+      "box": [
+        112,
+        1107,
+        660,
+        1144
+      ],
+      "score": 0.9979406595230103
+    },
+    {
+      "text": ". 20. Ah! No sea contada en Geth esta nueva: no sea con-",
+      "box": [
+        813,
+        1111,
+        1365,
+        1140
+      ],
+      "score": 0.9823107719421387
+    },
+    {
+      "text": "quedado tendidos muchos en el campo, y hasta Saul y su hijo",
+      "box": [
+        111,
+        1130,
+        661,
+        1172
+      ],
+      "score": 0.9981625080108643
+    },
+    {
+      "text": "tada en las plazas de Ascalon; para que no hagan fiesta por",
+      "box": [
+        808,
+        1136,
+        1364,
+        1166
+      ],
+      "score": 0.9984748959541321
+    },
+    {
+      "text": "Jonathás han perecido.",
+      "box": [
+        112,
+        1162,
+        320,
+        1195
+      ],
+      "score": 0.9954835772514343
+    },
+    {
+      "text": "ella las hijas de los Philisthéos, para que no salten de gozo",
+      "box": [
+        809,
+        1161,
+        1364,
+        1191
+      ],
+      "score": 0.9958505630493164
+    },
+    {
+      "text": "5. Dijo David al jóven que Ie daba esta nueva: ¿Cómo",
+      "box": [
+        132,
+        1181,
+        661,
+        1221
+      ],
+      "score": 0.9991868138313293
+    },
+    {
+      "text": "las hijas de los incircuncisos.",
+      "box": [
+        808,
+        1187,
+        1063,
+        1213
+      ],
+      "score": 0.9986475110054016
+    },
+    {
+      "text": "sabes tú que han muerto Saul y Jonathás su hijo?",
+      "box": [
+        113,
+        1208,
+        557,
+        1247
+      ],
+      "score": 0.9885074496269226
+    },
+    {
+      "text": "21. Montes de Gelboe, ni el rocío ni la lluvia caigan ya",
+      "box": [
+        826,
+        1211,
+        1364,
+        1238
+      ],
+      "score": 0.9932435750961304
+    },
+    {
+      "text": "6. Respondióle aquel mozo: Llegué yo casualmente al",
+      "box": [
+        133,
+        1232,
+        661,
+        1270
+      ],
+      "score": 0.9895183444023132
+    },
+    {
+      "text": "jamás sobre vosotros; ni campos haya de donde sacar la",
+      "box": [
+        806,
+        1232,
+        1364,
+        1266
+      ],
+      "score": 0.9780523777008057
+    },
+    {
+      "text": "monte Gelboe ², al tiempo que Saul se habia arrojado sobre la",
+      "box": [
+        113,
+        1257,
+        662,
+        1298
+      ],
+      "score": 0.9958829283714294
+    },
+    {
+      "text": "ofrenda de las primicias 6: puesto que allí es donde fué arro",
+      "box": [
+        809,
+        1259,
+        1360,
+        1290
+      ],
+      "score": 0.9895063638687134
+    },
+    {
+      "text": "punta de su lanza: y cuando ya los carros de guerra y la caba-",
+      "box": [
+        113,
+        1283,
+        662,
+        1324
+      ],
+      "score": 0.9951990842819214
+    },
+    {
+      "text": "jado por el suelo el escudo de lós fuertes, el escudo de Saul,",
+      "box": [
+        808,
+        1284,
+        1362,
+        1315
+      ],
+      "score": 0.9989393353462219
+    },
+    {
+      "text": "Îlería del enemigo se le acercaban,",
+      "box": [
+        114,
+        1314,
+        421,
+        1347
+      ],
+      "score": 0.993439257144928
+    },
+    {
+      "text": "como si no hubiese sido ungido rey con el óleo santo.",
+      "box": [
+        810,
+        1313,
+        1282,
+        1338
+      ],
+      "score": 0.9938427805900574
+    },
+    {
+      "text": "7. Volviéndose entonces á mirar atrás, y viéndome, me",
+      "box": [
+        134,
+        1337,
+        662,
+        1371
+      ],
+      "score": 0.9903417825698853
+    },
+    {
+      "text": "22. Nunca disparó flecha Jonathás, que no se tiñera en",
+      "box": [
+        827,
+        1334,
+        1362,
+        1365
+      ],
+      "score": 0.9881871342658997
+    },
+    {
+      "text": "llamó. Y habiéndole respondido yo: Estoy á tu mandar;",
+      "box": [
+        115,
+        1361,
+        609,
+        1398
+      ],
+      "score": 0.9944750070571899
+    },
+    {
+      "text": "sangre de los heridos; que no se clavara en las entrañas",
+      "box": [
+        809,
+        1358,
+        1363,
+        1391
+      ],
+      "score": 0.9992156624794006
+    },
+    {
+      "text": "8. Preguntóme: ¿Quién eres tú? Díjele: Soy un Amalecita.",
+      "box": [
+        135,
+        1386,
+        661,
+        1423
+      ],
+      "score": 0.9960698485374451
+    },
+    {
+      "text": "de los valientes. Jamás dió golpe en vano la espada de",
+      "box": [
+        809,
+        1383,
+        1362,
+        1415
+      ],
+      "score": 0.9970172643661499
+    },
+    {
+      "text": "9. Ponte sobre mí, dijo él, y mátame; porque estoy ya en",
+      "box": [
+        135,
+        1411,
+        661,
+        1448
+      ],
+      "score": 0.9988168478012085
+    },
+    {
+      "text": "Saul.",
+      "box": [
+        807,
+        1411,
+        861,
+        1440
+      ],
+      "score": 0.999942421913147
+    },
+    {
+      "text": "23. Saul y Jonathás amables y gloriosos durante su vida,",
+      "box": [
+        827,
+        1432,
+        1363,
+        1462
+      ],
+      "score": 0.9937022924423218
+    },
+    {
+      "text": "la agonía, y no acaba de salir mi alma:",
+      "box": [
+        115,
+        1438,
+        465,
+        1474
+      ],
+      "score": 0.976870596408844
+    },
+    {
+      "text": "mas ligeros que lás águilas, mas fuertes que los leones, han",
+      "box": [
+        809,
+        1457,
+        1361,
+        1488
+      ],
+      "score": 0.9972757697105408
+    },
+    {
+      "text": "10. Por lo que poniéndome sobre él le acabé de matar;",
+      "box": [
+        136,
+        1461,
+        662,
+        1499
+      ],
+      "score": 0.9929510951042175
+    },
+    {
+      "text": "sido inseparables hasta la muerte.",
+      "box": [
+        811,
+        1486,
+        1102,
+        1509
+      ],
+      "score": 0.9999855160713196
+    },
+    {
+      "text": "bien cierto de que no podia sobrevivir despues de tal desastre.",
+      "box": [
+        116,
+        1485,
+        662,
+        1525
+      ],
+      "score": 0.9967222213745117
+    },
+    {
+      "text": "24. Llorad, pues, oh hijas de Israél, llorad sobre Saul,",
+      "box": [
+        826,
+        1506,
+        1360,
+        1537
+      ],
+      "score": 0.991463303565979
+    },
+    {
+      "text": "Tomé la diadema & de su cabeza, y el brazalete de su brazo, y",
+      "box": [
+        116,
+        1511,
+        661,
+        1550
+      ],
+      "score": 0.9836795330047607
+    },
+    {
+      "text": "que os adornaba con delicados ropajes de grana; y os daba",
+      "box": [
+        810,
+        1532,
+        1360,
+        1562
+      ],
+      "score": 0.9995546340942383
+    },
+    {
+      "text": "te lo traigo á tí, que eres mi señor.",
+      "box": [
+        116,
+        1540,
+        427,
+        1577
+      ],
+      "score": 0.9994399547576904
+    },
+    {
+      "text": "joyeles de oro para engalanaros 7.",
+      "box": [
+        807,
+        1556,
+        1102,
+        1588
+      ],
+      "score": 0.9963697791099548
+    },
+    {
+      "text": "11. Al punto David asió sus vestidos, y los rasgó 4; hacien-",
+      "box": [
+        134,
+        1557,
+        662,
+        1604
+      ],
+      "score": 0.9934686422348022
+    },
+    {
+      "text": "25. Mas ¿cómo es, que así hayan los valientes perecido en",
+      "box": [
+        827,
+        1582,
+        1359,
+        1611
+      ],
+      "score": 0.9998103380203247
+    },
+    {
+      "text": "do lo mismo cuantos le acompañaban:",
+      "box": [
+        117,
+        1590,
+        460,
+        1629
+      ],
+      "score": 0.9999185800552368
+    },
+    {
+      "text": "el combate? ¿Cómo es, oh montes de Gelboe, que Jonathás ha",
+      "box": [
+        810,
+        1605,
+        1358,
+        1635
+      ],
+      "score": 0.9858022928237915
+    },
+    {
+      "text": "12. Y plañeron y lloraron, y ayunaron hasta la tarde por",
+      "box": [
+        135,
+        1610,
+        662,
+        1653
+      ],
+      "score": 0.9891449809074402
+    },
+    {
+      "text": "sido muerto en vuestras alturas?",
+      "box": [
+        811,
+        1631,
+        1093,
+        1659
+      ],
+      "score": 0.9987709522247314
+    },
+    {
+      "text": "amor de Saul y de Jonathás su hijo, y del pueblo del Señor, y",
+      "box": [
+        117,
+        1636,
+        663,
+        1678
+      ],
+      "score": 0.9995877742767334
+    },
+    {
+      "text": "26. Oh, hermano mio Jonathás! gallardo sobremanera, y",
+      "box": [
+        828,
+        1656,
+        1358,
+        1684
+      ],
+      "score": 0.9929092526435852
+    },
+    {
+      "text": "de la casa de Ísraél, porque habian sido pasados á cuchillo.",
+      "box": [
+        118,
+        1662,
+        636,
+        1703
+      ],
+      "score": 0.9935352206230164
+    },
+    {
+      "text": "digno de ser amado mas que la mas amable doncella, yo lloro",
+      "box": [
+        810,
+        1681,
+        1358,
+        1710
+      ],
+      "score": 0.9993761777877808
+    },
+    {
+      "text": "13. Dijo despues David al jóven que habia traido la noti-",
+      "box": [
+        137,
+        1685,
+        663,
+        1729
+      ],
+      "score": 0.9896823763847351
+    },
+    {
+      "text": "por tí. Del modo que una madre ama á un hijo único que",
+      "box": [
+        810,
+        1706,
+        1358,
+        1736
+      ],
+      "score": 0.9837218523025513
+    },
+    {
+      "text": "cia: ¿De dónde eres tú? Soy hijo, le respondió, de un hombre",
+      "box": [
+        119,
+        1713,
+        663,
+        1754
+      ],
+      "score": 0.9943862557411194
+    },
+    {
+      "text": "tiene, así te amaba yo.",
+      "box": [
+        812,
+        1735,
+        1004,
+        1759
+      ],
+      "score": 0.9978460073471069
+    },
+    {
+      "text": "extranjero, Amalecita.",
+      "box": [
+        119,
+        1746,
+        320,
+        1780
+      ],
+      "score": 0.9992168545722961
+    },
+    {
+      "text": "27. Cómo han caido esos valientes, y se han perdido las",
+      "box": [
+        828,
+        1755,
+        1358,
+        1784
+      ],
+      "score": 0.9977326393127441
+    },
+    {
+      "text": "14. Replicóle David: Pues ¿cómo has osado levantar tu",
+      "box": [
+        138,
+        1760,
+        664,
+        1804
+      ],
+      "score": 0.9973761439323425
+    },
+    {
+      "text": "armas con que peleaban!",
+      "box": [
+        810,
+        1779,
+        1026,
+        1808
+      ],
+      "score": 0.9908671379089355
+    },
+    {
+      "text": "mano para matar al Ungido del Señor?",
+      "box": [
+        119,
+        1793,
+        466,
+        1830
+      ],
+      "score": 0.9956637620925903
+    },
+    {
+      "text": "6 Expresiones figuradas, hijas de un vehemente dolor.",
+      "box": [
+        826,
+        1839,
+        1229,
+        1871
+      ],
+      "score": 0.9950825572013855
+    },
+    {
+      "text": "1 Año del MuNDo 2949; antes de JEsU-CíRísto 1055.",
+      "box": [
+        134,
+        1854,
+        544,
+        1893
+      ],
+      "score": 0.9196446537971497
+    },
+    {
+      "text": "7 David, apartando la vista de los vicios ó defectos de Saul, alaba las",
+      "box": [
+        826,
+        1860,
+        1363,
+        1892
+      ],
+      "score": 0.9908827543258667
+    },
+    {
+      "text": "2 No es menester tener por verdadero todo lo que dijo este Amalecita",
+      "box": [
+        133,
+        1869,
+        667,
+        1919
+      ],
+      "score": 0.9992572665214539
+    },
+    {
+      "text": "virtudes civiles y militares de este rey. Por lo demás los Padres y Expo-",
+      "box": [
+        814,
+        1883,
+        1362,
+        1912
+      ],
+      "score": 0.9891605973243713
+    },
+    {
+      "text": "sitores sagrados dicen que Saul reprobado por Dios fué figura de la Syna-",
+      "box": [
+        813,
+        1902,
+        1363,
+        1934
+      ],
+      "score": 0.9876106977462769
+    },
+    {
+      "text": "á David.",
+      "box": [
+        116,
+        1913,
+        188,
+        1942
+      ],
+      "score": 0.9932387471199036
+    },
+    {
+      "text": "3 Véase Corona.",
+      "box": [
+        133,
+        1932,
+        263,
+        1963
+      ],
+      "score": 0.9985892176628113
+    },
+    {
+      "text": "goga, y que David perseguido lo fué de la Iglesia.",
+      "box": [
+        814,
+        1923,
+        1177,
+        1955
+      ],
+      "score": 0.9794944524765015
+    },
+    {
+      "text": "4 Véase Vestido.",
+      "box": [
+        131,
+        1953,
+        265,
+        1984
+      ],
+      "score": 0.9984163641929626
+    },
+    {
+      "text": "5 No tenemos ya noticia de este libro.",
+      "box": [
+        129,
+        1963,
+        429,
+        2010
+      ],
+      "score": 0.9866887927055359
+    }
+  ]
+}

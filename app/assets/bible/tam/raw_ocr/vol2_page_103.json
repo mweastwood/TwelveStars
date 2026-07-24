@@ -1,0 +1,1447 @@
+{
+  "volume": 2,
+  "page_index": 103,
+  "pdf_page": 104,
+  "lines": [
+    {
+      "text": "123",
+      "box": [
+        79,
+        83,
+        117,
+        108
+      ],
+      "score": 0.999980628490448
+    },
+    {
+      "text": "CAPITULOXX.",
+      "box": [
+        1005,
+        75,
+        1161,
+        102
+      ],
+      "score": 0.9998078942298889
+    },
+    {
+      "text": "III.REYES.",
+      "box": [
+        283,
+        85,
+        403,
+        112
+      ],
+      "score": 0.9952602386474609
+    },
+    {
+      "text": "124",
+      "box": [
+        1296,
+        91,
+        1328,
+        115
+      ],
+      "score": 0.9999932646751404
+    },
+    {
+      "text": "46. Al punto la mano ó virtud del Señor se hizo sentir",
+      "box": [
+        88,
+        148,
+        626,
+        184
+      ],
+      "score": 0.9889870285987854
+    },
+    {
+      "text": "ungirás tambien á Eliséo, hijo de Saphat, natural de Abel-",
+      "box": [
+        785,
+        142,
+        1337,
+        179
+      ],
+      "score": 0.9908959865570068
+    },
+    {
+      "text": "sobre Elías, el cual recogiendo las faldas del vestido en su",
+      "box": [
+        68,
+        174,
+        625,
+        211
+      ],
+      "score": 0.9866411685943604
+    },
+    {
+      "text": "meula, por Profeta sucesor tuyo.",
+      "box": [
+        786,
+        173,
+        1093,
+        202
+      ],
+      "score": 0.9978011846542358
+    },
+    {
+      "text": "cintura, iba corriendo delante de Achab hasta que llegó á",
+      "box": [
+        69,
+        201,
+        626,
+        237
+      ],
+      "score": 0.999795138835907
+    },
+    {
+      "text": "17. Y sucederá que el que escapare de la espada de Ha-",
+      "box": [
+        807,
+        199,
+        1335,
+        229
+      ],
+      "score": 0.9786463975906372
+    },
+    {
+      "text": "Jezrahel.",
+      "box": [
+        68,
+        226,
+        172,
+        256
+      ],
+      "score": 0.9630407691001892
+    },
+    {
+      "text": "zaél, será muerto por Jehú; y el que se librare de la espada",
+      "box": [
+        785,
+        227,
+        1335,
+        255
+      ],
+      "score": 0.9996738433837891
+    },
+    {
+      "text": "de Jehú, le hará morir Eliséo 8.",
+      "box": [
+        786,
+        252,
+        1077,
+        277
+      ],
+      "score": 0.9838104844093323
+    },
+    {
+      "text": "CAPITULO XIX",
+      "box": [
+        274,
+        284,
+        424,
+        308
+      ],
+      "score": 0.9997088313102722
+    },
+    {
+      "text": "18. Mas yo me reservaré 9 en Israél siete mil varones que",
+      "box": [
+        805,
+        278,
+        1334,
+        303
+      ],
+      "score": 0.9980430006980896
+    },
+    {
+      "text": "nunca doblaron su rodilla ante Baal, ninguno de los cuales",
+      "box": [
+        785,
+        305,
+        1335,
+        328
+      ],
+      "score": 0.9971064925193787
+    },
+    {
+      "text": "Elías perseguido de muerte por Jezabel, se retira al monte, donde es",
+      "box": [
+        73,
+        332,
+        627,
+        367
+      ],
+      "score": 0.9999032616615295
+    },
+    {
+      "text": "ha besado su propia mano, y extendídola despues en señal de",
+      "box": [
+        784,
+        329,
+        1335,
+        354
+      ],
+      "score": 0.9997789263725281
+    },
+    {
+      "text": "confortado y favorecido del Señor, que le manda ungir dos reyes. Voca-",
+      "box": [
+        90,
+        355,
+        626,
+        387
+      ],
+      "score": 0.9986993074417114
+    },
+    {
+      "text": "adorarle.",
+      "box": [
+        784,
+        352,
+        872,
+        380
+      ],
+      "score": 0.9999900460243225
+    },
+    {
+      "text": "cion de Eliséo.",
+      "box": [
+        90,
+        374,
+        207,
+        406
+      ],
+      "score": 0.9858248233795166
+    },
+    {
+      "text": "19. Partido que hubo de allí Elías, halló á Eliséo, hijo de",
+      "box": [
+        803,
+        377,
+        1336,
+        406
+      ],
+      "score": 0.9994358420372009
+    },
+    {
+      "text": "Saphat, arando con doce yuntas de bueyes, y él era uno de",
+      "box": [
+        782,
+        401,
+        1336,
+        431
+      ],
+      "score": 0.9950970411300659
+    },
+    {
+      "text": "1. Contó Achab á Jezabel cuanto habia hecho Elías, y",
+      "box": [
+        91,
+        430,
+        626,
+        463
+      ],
+      "score": 0.9959431886672974
+    },
+    {
+      "text": "Ios que araban con una de las doce yuntas; y Elías, así que",
+      "box": [
+        782,
+        428,
+        1335,
+        455
+      ],
+      "score": 0.977196216583252
+    },
+    {
+      "text": "cómo habia pasado á cuchillo todos los profetas de Baal, sin",
+      "box": [
+        72,
+        454,
+        627,
+        489
+      ],
+      "score": 0.9951153993606567
+    },
+    {
+      "text": "llegó á él, le echó su manto encima.",
+      "box": [
+        782,
+        453,
+        1119,
+        478
+      ],
+      "score": 0.9981347322463989
+    },
+    {
+      "text": "dejar uno.",
+      "box": [
+        72,
+        479,
+        174,
+        509
+      ],
+      "score": 0.999893844127655
+    },
+    {
+      "text": "20. Eliséo dejando al instante los bueyes, fuése corriendo",
+      "box": [
+        803,
+        474,
+        1335,
+        504
+      ],
+      "score": 0.9998298287391663
+    },
+    {
+      "text": "2. Y envió Jezabel á decir á Elías: Trátenme los dioses",
+      "box": [
+        92,
+        505,
+        627,
+        534
+      ],
+      "score": 0.9905561804771423
+    },
+    {
+      "text": "en pos de Elías, á quien dijo: Permíteme que vaya á dar el",
+      "box": [
+        781,
+        498,
+        1338,
+        531
+      ],
+      "score": 0.9917437434196472
+    },
+    {
+      "text": "con todo su rigor, si mañana á estas horas no te hiciere",
+      "box": [
+        73,
+        529,
+        628,
+        560
+      ],
+      "score": 0.9978456497192383
+    },
+    {
+      "text": "ósculo de despedida á mi padre y á mi madre, y luego te",
+      "box": [
+        781,
+        524,
+        1338,
+        556
+      ],
+      "score": 0.9841914176940918
+    },
+    {
+      "text": "pagar con tu vida la que quitaste á cada uno de aquellos",
+      "box": [
+        73,
+        556,
+        627,
+        585
+      ],
+      "score": 0.9997261166572571
+    },
+    {
+      "text": "seguiré. Respondióle: Anda, y vuelve, que lo que á mí me",
+      "box": [
+        781,
+        549,
+        1338,
+        581
+      ],
+      "score": 0.993481457233429
+    },
+    {
+      "text": "profetas.",
+      "box": [
+        75,
+        580,
+        161,
+        609
+      ],
+      "score": 0.9999877214431763
+    },
+    {
+      "text": "tocaba hacer contigo, yo ya lo he hecho.",
+      "box": [
+        781,
+        578,
+        1156,
+        606
+      ],
+      "score": 0.997217059135437
+    },
+    {
+      "text": "3. Oido esto, se atemorizó Elías , y se fué huyendo por",
+      "box": [
+        95,
+        603,
+        628,
+        637
+      ],
+      "score": 0.9795506596565247
+    },
+    {
+      "text": "21. Apenas se hubo separado de él, y despedido de sus",
+      "box": [
+        800,
+        598,
+        1338,
+        634
+      ],
+      "score": 0.9989489316940308
+    },
+    {
+      "text": "donde le llevaba su imaginacion. Al llegar á Bersabée de",
+      "box": [
+        78,
+        630,
+        627,
+        662
+      ],
+      "score": 0.9973623156547546
+    },
+    {
+      "text": "padres, tomó el par de bueyes, y degollólos, y con la madera",
+      "box": [
+        780,
+        623,
+        1339,
+        660
+      ],
+      "score": 0.9944679737091064
+    },
+    {
+      "text": "Judá, dejó allí su criado.",
+      "box": [
+        78,
+        654,
+        306,
+        686
+      ],
+      "score": 0.994983434677124
+    },
+    {
+      "text": "del arado coció sus carnes, y dióselas á la gente para que",
+      "box": [
+        781,
+        648,
+        1339,
+        685
+      ],
+      "score": 0.9941967129707336
+    },
+    {
+      "text": "4. Y prosiguió su camino una jornada por el desierto: y",
+      "box": [
+        98,
+        680,
+        628,
+        710
+      ],
+      "score": 0.9746914505958557
+    },
+    {
+      "text": "comiese; despues de lo cual púsose en camino, y fué siguiendo",
+      "box": [
+        780,
+        671,
+        1339,
+        710
+      ],
+      "score": 0.9987096190452576
+    },
+    {
+      "text": "habiendo llegado allá, y sentádose debajo de un enebros",
+      "box": [
+        78,
+        704,
+        631,
+        734
+      ],
+      "score": 0.9868158102035522
+    },
+    {
+      "text": "á Elías, y le servia.",
+      "box": [
+        780,
+        705,
+        957,
+        733
+      ],
+      "score": 0.9987685084342957
+    },
+    {
+      "text": "pidió para su alma la separacion del cuerpo, diciendo: Bás-",
+      "box": [
+        81,
+        733,
+        628,
+        757
+      ],
+      "score": 0.9871767163276672
+    },
+    {
+      "text": "tame ya, Señor, de vivir 4: llévate mi alma; pues no soy yo",
+      "box": [
+        79,
+        755,
+        629,
+        784
+      ],
+      "score": 0.9925994873046875
+    },
+    {
+      "text": "CAPITULO XX",
+      "box": [
+        991,
+        752,
+        1144,
+        780
+      ],
+      "score": 0.9998001456260681
+    },
+    {
+      "text": "de mejor condicion que mis padres5.",
+      "box": [
+        81,
+        782,
+        415,
+        806
+      ],
+      "score": 0.984241783618927
+    },
+    {
+      "text": "5. Y tendiéndose en el suelo, quedóse dormido á la som-",
+      "box": [
+        102,
+        805,
+        630,
+        832
+      ],
+      "score": 0.9857926964759827
+    },
+    {
+      "text": "Guerra contra Benadad rey de Syria, y victorias milagrosas de Israél.",
+      "box": [
+        780,
+        796,
+        1338,
+        843
+      ],
+      "score": 0.9966283440589905
+    },
+    {
+      "text": "bra del enebro: cuando hé aquí que el Angel del Señor le",
+      "box": [
+        81,
+        832,
+        628,
+        856
+      ],
+      "score": 0.9961814284324646
+    },
+    {
+      "text": "Achab es gravemente reprendido por haber perdonado á Benadad, y",
+      "box": [
+        798,
+        820,
+        1337,
+        863
+      ],
+      "score": 0.9957743883132935
+    },
+    {
+      "text": "tocó y dijo: Levántate, y come.",
+      "box": [
+        81,
+        858,
+        362,
+        882
+      ],
+      "score": 0.9983039498329163
+    },
+    {
+      "text": "hecho con él alianza.",
+      "box": [
+        799,
+        855,
+        963,
+        879
+      ],
+      "score": 0.9867071509361267
+    },
+    {
+      "text": "6. Miró atrás, y vió á su cabecera un pan cocido al res-",
+      "box": [
+        99,
+        878,
+        629,
+        907
+      ],
+      "score": 0.9945312142372131
+    },
+    {
+      "text": "coldo, y un vaso de agua: comió, pues, y bebió, y se volvió",
+      "box": [
+        80,
+        903,
+        629,
+        933
+      ],
+      "score": 0.991357684135437
+    },
+    {
+      "text": "1. Despues Benadad, rey de Syria, reunido todo su ejér-",
+      "box": [
+        800,
+        890,
+        1337,
+        939
+      ],
+      "score": 0.9958171248435974
+    },
+    {
+      "text": "á dormir.",
+      "box": [
+        81,
+        931,
+        172,
+        955
+      ],
+      "score": 0.9995148181915283
+    },
+    {
+      "text": "cito, toda su caballería, y carros armados, y teniendo consigo",
+      "box": [
+        782,
+        915,
+        1337,
+        963
+      ],
+      "score": 0.9990679025650024
+    },
+    {
+      "text": "7. Mas el Angel del Señor volvió segunda vez á tocarle, y",
+      "box": [
+        100,
+        951,
+        629,
+        982
+      ],
+      "score": 0.9926486015319824
+    },
+    {
+      "text": "treinta y dos reyes, ó pequeños príncipes, salió á campaña",
+      "box": [
+        780,
+        939,
+        1339,
+        989
+      ],
+      "score": 0.987068235874176
+    },
+    {
+      "text": "le dijo: Levántate, y come; porque te queda que andar un",
+      "box": [
+        81,
+        980,
+        630,
+        1007
+      ],
+      "score": 0.9913535118103027
+    },
+    {
+      "text": "contra Samaria, y la puso sitio.",
+      "box": [
+        783,
+        976,
+        1072,
+        1008
+      ],
+      "score": 0.9835963845252991
+    },
+    {
+      "text": "largo camino 6.",
+      "box": [
+        81,
+        1005,
+        221,
+        1032
+      ],
+      "score": 0.9347330927848816
+    },
+    {
+      "text": "2. Y envió mensajeros á la ciudad, que dijesen á Achab,",
+      "box": [
+        799,
+        989,
+        1337,
+        1035
+      ],
+      "score": 0.9950489401817322
+    },
+    {
+      "text": "8. Levantándose Elías, comió y bebió; y confortado con",
+      "box": [
+        102,
+        1028,
+        629,
+        1055
+      ],
+      "score": 0.9992000460624695
+    },
+    {
+      "text": "rey de Israél:",
+      "box": [
+        783,
+        1028,
+        910,
+        1055
+      ],
+      "score": 0.9843215942382812
+    },
+    {
+      "text": "aquella comida, caminó cuarenta dias y cuarenta noches 7",
+      "box": [
+        83,
+        1053,
+        630,
+        1082
+      ],
+      "score": 0.9936298727989197
+    },
+    {
+      "text": "3. Esto dice Benadad: Tu plata y tu oro es mio, y tus",
+      "box": [
+        801,
+        1040,
+        1338,
+        1083
+      ],
+      "score": 0.9996306300163269
+    },
+    {
+      "text": "hasta llegar á Horeb, monte de Dios.",
+      "box": [
+        82,
+        1079,
+        412,
+        1106
+      ],
+      "score": 0.9998977184295654
+    },
+    {
+      "text": "mujeres y tus gallardos hijos mios son.",
+      "box": [
+        783,
+        1074,
+        1139,
+        1107
+      ],
+      "score": 0.9881824851036072
+    },
+    {
+      "text": "9. Llegado allá hizo asiento en una cueva, y dirigiéndole",
+      "box": [
+        102,
+        1103,
+        630,
+        1132
+      ],
+      "score": 0.9906409978866577
+    },
+    {
+      "text": "4. A lo que contestó el rey de Israél: Tuyo soy, mi rey y",
+      "box": [
+        801,
+        1090,
+        1337,
+        1133
+      ],
+      "score": 0.9934708476066589
+    },
+    {
+      "text": "el Señor la palabra, le dijo: ¿Qué haces ahí, Elías?",
+      "box": [
+        84,
+        1128,
+        543,
+        1154
+      ],
+      "score": 0.9990681409835815
+    },
+    {
+      "text": "señor, como tú dices, y tuyas son todas mis cosas.",
+      "box": [
+        783,
+        1121,
+        1236,
+        1155
+      ],
+      "score": 0.9999165534973145
+    },
+    {
+      "text": "10. A lo que respondió él: Me abraso de celo por tí, oh",
+      "box": [
+        106,
+        1154,
+        631,
+        1178
+      ],
+      "score": 0.9922536611557007
+    },
+    {
+      "text": "5. Volviendo de nuevo los mensajeros dijeron: Esto dice",
+      "box": [
+        801,
+        1135,
+        1339,
+        1184
+      ],
+      "score": 0.9870308041572571
+    },
+    {
+      "text": "Señor Dios de los ejércitos; porque los hijos de Israél han",
+      "box": [
+        85,
+        1178,
+        632,
+        1201
+      ],
+      "score": 0.9988696575164795
+    },
+    {
+      "text": "Benadad, que nos vuelve á enviar á tí: Me has de dar tu",
+      "box": [
+        782,
+        1160,
+        1339,
+        1209
+      ],
+      "score": 0.9856129288673401
+    },
+    {
+      "text": "abandonado tu alianza, han destruido tus altares, han pasado",
+      "box": [
+        83,
+        1199,
+        633,
+        1227
+      ],
+      "score": 0.996853768825531
+    },
+    {
+      "text": "plata y tu oro, y tus mujeres, y tus hijos.",
+      "box": [
+        784,
+        1194,
+        1157,
+        1230
+      ],
+      "score": 0.9997096657752991
+    },
+    {
+      "text": "á cuchillo tus profetas: he quedado yo solo, y me buscan para",
+      "box": [
+        83,
+        1224,
+        634,
+        1252
+      ],
+      "score": 0.9989238977432251
+    },
+    {
+      "text": ". Mañana, pues, á esta misma hora enviaré á t mis sier",
+      "box": [
+        800,
+        1207,
+        1340,
+        1260
+      ],
+      "score": 0.8838577270507812
+    },
+    {
+      "text": "quitarme la vida.",
+      "box": [
+        86,
+        1250,
+        241,
+        1277
+      ],
+      "score": 0.999305248260498
+    },
+    {
+      "text": "vos, los cuales registrarán tu palacio y las casas de tus cria-",
+      "box": [
+        783,
+        1231,
+        1340,
+        1285
+      ],
+      "score": 0.9417466521263123
+    },
+    {
+      "text": "11. Díjole el Señor: Sal fuera, y ponte sobre el monte en",
+      "box": [
+        107,
+        1276,
+        635,
+        1300
+      ],
+      "score": 0.9987664222717285
+    },
+    {
+      "text": "presencia del Señor; y hé aquí que pasará el Señor, y delante",
+      "box": [
+        85,
+        1299,
+        638,
+        1330
+      ],
+      "score": 0.9984875917434692
+    },
+    {
+      "text": "les agradare, y se lo llevarán.",
+      "box": [
+        788,
+        1299,
+        1047,
+        1327
+      ],
+      "score": 0.9903778433799744
+    },
+    {
+      "text": "de él correrá un viento fuerte é impetuoso, capaz de tras-",
+      "box": [
+        87,
+        1326,
+        639,
+        1354
+      ],
+      "score": 0.9993869662284851
+    },
+    {
+      "text": "jo€",
+      "box": [
+        681,
+        1321,
+        719,
+        1344
+      ],
+      "score": 0.5250380039215088
+    },
+    {
+      "text": "7. Entonces el rey de Israél convocó á todos los ancianos",
+      "box": [
+        803,
+        1305,
+        1342,
+        1361
+      ],
+      "score": 0.9793892502784729
+    },
+    {
+      "text": "tornar los montes y quebrantar las peñas: no está el Señor",
+      "box": [
+        89,
+        1352,
+        641,
+        1380
+      ],
+      "score": 0.9920845627784729
+    },
+    {
+      "text": "de su pueblo, y dijo: Advertid y notad como nos está arman-",
+      "box": [
+        788,
+        1331,
+        1343,
+        1386
+      ],
+      "score": 0.9837253093719482
+    },
+    {
+      "text": "en el viento. Despues del viento vendrá un temblor de tierra:",
+      "box": [
+        90,
+        1377,
+        642,
+        1406
+      ],
+      "score": 0.9955039620399475
+    },
+    {
+      "text": "do asechanzas 10; puesto que envió á pedirme mis mujeres,",
+      "box": [
+        788,
+        1354,
+        1342,
+        1411
+      ],
+      "score": 0.9173470735549927
+    },
+    {
+      "text": "tampoco está el Señor en el terremoto.",
+      "box": [
+        92,
+        1402,
+        438,
+        1431
+      ],
+      "score": 0.9997256398200989
+    },
+    {
+      "text": "y mis hijos, y el oro y la plata, y no le he dicho que no.",
+      "box": [
+        789,
+        1386,
+        1291,
+        1431
+      ],
+      "score": 0.9967390298843384
+    },
+    {
+      "text": "12. Tras el terremoto un fuego: no está el Señor en el",
+      "box": [
+        111,
+        1424,
+        642,
+        1457
+      ],
+      "score": 0.9960207343101501
+    },
+    {
+      "text": "8. Respondiéronle todos los ancianos, y el pueblo todo:",
+      "box": [
+        806,
+        1402,
+        1343,
+        1458
+      ],
+      "score": 0.9349124431610107
+    },
+    {
+      "text": "fuego. Y tras el fuego el soplo de un aura apacible y",
+      "box": [
+        91,
+        1450,
+        643,
+        1482
+      ],
+      "score": 0.9997994303703308
+    },
+    {
+      "text": "No le dés oidos, ni condesciendas con él.",
+      "box": [
+        791,
+        1438,
+        1147,
+        1475
+      ],
+      "score": 0.9845786690711975
+    },
+    {
+      "text": "9. Y así contestó á los enviados de Benadad: Decid á mi",
+      "box": [
+        808,
+        1450,
+        1344,
+        1502
+      ],
+      "score": 0.9819985628128052
+    },
+    {
+      "text": "suave.",
+      "box": [
+        93,
+        1484,
+        156,
+        1506
+      ],
+      "score": 0.9998526573181152
+    },
+    {
+      "text": "señor el rey: Todo cuanto me pediste al principio á mí, sier-",
+      "box": [
+        790,
+        1476,
+        1344,
+        1526
+      ],
+      "score": 0.9886607527732849
+    },
+    {
+      "text": "13. Habiendo oido esto Elías, cubrió su rostro con el",
+      "box": [
+        112,
+        1497,
+        643,
+        1532
+      ],
+      "score": 0.9998779892921448
+    },
+    {
+      "text": "vo tuyo, lo haré: mas esto que ahora pides, no puedo",
+      "box": [
+        789,
+        1501,
+        1344,
+        1550
+      ],
+      "score": 0.9885352849960327
+    },
+    {
+      "text": "manto, y saliendo fuera, paróse á la puerta de la cueva, y",
+      "box": [
+        93,
+        1521,
+        645,
+        1560
+      ],
+      "score": 0.9897370934486389
+    },
+    {
+      "text": "hacerlo.",
+      "box": [
+        793,
+        1543,
+        866,
+        1565
+      ],
+      "score": 0.99992835521698
+    },
+    {
+      "text": "de repente oye una voz que le dice: ¿Qué haces aquí, Elías?",
+      "box": [
+        95,
+        1546,
+        625,
+        1584
+      ],
+      "score": 0.9950070381164551
+    },
+    {
+      "text": "10. Volviéndose los mensajeros, llevaron á Benadad esta",
+      "box": [
+        811,
+        1553,
+        1343,
+        1593
+      ],
+      "score": 0.9988967776298523
+    },
+    {
+      "text": "14. Abrasarme de celo, respondió él, por el Señor Dios",
+      "box": [
+        113,
+        1570,
+        644,
+        1608
+      ],
+      "score": 0.9735605716705322
+    },
+    {
+      "text": "respuesta: el cual despachólos nuevamente, diciendo por",
+      "box": [
+        792,
+        1578,
+        1344,
+        1617
+      ],
+      "score": 0.9867083430290222
+    },
+    {
+      "text": "de los ejércitos; porque los hijos de Israél han abandonado",
+      "box": [
+        95,
+        1595,
+        644,
+        1634
+      ],
+      "score": 0.9940938949584961
+    },
+    {
+      "text": "medio de ellos á Achab: Háganme los diosęs no bien, sino",
+      "box": [
+        793,
+        1601,
+        1345,
+        1642
+      ],
+      "score": 0.9890934228897095
+    },
+    {
+      "text": "tu álianza, han derribado tus altares, y pasado á cuchillo á",
+      "box": [
+        94,
+        1621,
+        645,
+        1658
+      ],
+      "score": 0.9897167086601257
+    },
+    {
+      "text": "mucho mal, si todo el polvo ó tierra de Samaria ha de ser",
+      "box": [
+        792,
+        1624,
+        1347,
+        1668
+      ],
+      "score": 0.9880743026733398
+    },
+    {
+      "text": "tus profetas: he quedado solamente yo, y me buscan para",
+      "box": [
+        94,
+        1645,
+        646,
+        1685
+      ],
+      "score": 0.9996393322944641
+    },
+    {
+      "text": "bastante para que repartido entre mis soldados le quepa á",
+      "box": [
+        793,
+        1649,
+        1347,
+        1693
+      ],
+      "score": 0.998252809047699
+    },
+    {
+      "text": "quitarme la vida.",
+      "box": [
+        96,
+        1677,
+        258,
+        1709
+      ],
+      "score": 0.9720479249954224
+    },
+    {
+      "text": "cada uno un puñado.",
+      "box": [
+        796,
+        1682,
+        995,
+        1714
+      ],
+      "score": 0.9906966686248779
+    },
+    {
+      "text": "15. Díjole el Señor: Anda, y vuélvete por el mismo camino",
+      "box": [
+        113,
+        1692,
+        646,
+        1734
+      ],
+      "score": 0.9993759989738464
+    },
+    {
+      "text": "11. Mas el rey de Israél les respondió: Decidle á vuestro",
+      "box": [
+        812,
+        1696,
+        1346,
+        1739
+      ],
+      "score": 0.9924549460411072
+    },
+    {
+      "text": "del desierto hácia Damasco, y llegado allá, ungirás á Hazaél",
+      "box": [
+        95,
+        1720,
+        644,
+        1756
+      ],
+      "score": 0.9996259212493896
+    },
+    {
+      "text": "amo que no cante la victoria antes de la batalla.",
+      "box": [
+        795,
+        1727,
+        1221,
+        1762
+      ],
+      "score": 0.9960410594940186
+    },
+    {
+      "text": "por rey de Syria;",
+      "box": [
+        93,
+        1751,
+        258,
+        1784
+      ],
+      "score": 0.9999755620956421
+    },
+    {
+      "text": "12. Cuando recibió Benadad esta respuesta estaba bebien-",
+      "box": [
+        812,
+        1746,
+        1347,
+        1787
+      ],
+      "score": 0.9923437833786011
+    },
+    {
+      "text": "16. Y á Jehú hijo de Namsi le ungirás rey de Israél, y",
+      "box": [
+        114,
+        1769,
+        644,
+        1805
+      ],
+      "score": 0.9849697947502136
+    },
+    {
+      "text": "6 Muy superior á tus fuerzas.",
+      "box": [
+        811,
+        1827,
+        1034,
+        1857
+      ],
+      "score": 0.9877565503120422
+    },
+    {
+      "text": "1 Villa de Achab.",
+      "box": [
+        110,
+        1849,
+        257,
+        1879
+      ],
+      "score": 0.9986310005187988
+    },
+    {
+      "text": "7 Por sendas extraviadas.",
+      "box": [
+        811,
+        1850,
+        1000,
+        1875
+      ],
+      "score": 0.9950940012931824
+    },
+    {
+      "text": "2 Dejándole por entonces Dios en manos de sus propias fuerzas.",
+      "box": [
+        109,
+        1863,
+        594,
+        1902
+      ],
+      "score": 0.9845432639122009
+    },
+    {
+      "text": "8 Armado de celo contra mis enemigos.",
+      "box": [
+        811,
+        1865,
+        1105,
+        1897
+      ],
+      "score": 0.9998575448989868
+    },
+    {
+      "text": "3 Penetrado de dolor al ver tan abandonada la Religion, y que triunfa-",
+      "box": [
+        108,
+        1885,
+        647,
+        1922
+      ],
+      "score": 0.9973806142807007
+    },
+    {
+      "text": "9 El Apóstol cita este lugar diciendo: (Rom. XI, v. 4.) Me he reserva-",
+      "box": [
+        809,
+        1884,
+        1345,
+        1919
+      ],
+      "score": 0.9707116484642029
+    },
+    {
+      "text": "ba la impiedad.",
+      "box": [
+        93,
+        1913,
+        223,
+        1945
+      ],
+      "score": 0.9983941316604614
+    },
+    {
+      "text": "do, etc.",
+      "box": [
+        796,
+        1916,
+        858,
+        1941
+      ],
+      "score": 0.9720984697341919
+    },
+    {
+      "text": "4 Puede traducirse: Bastante he vivido ya, oh Señor.—Véase Ec-",
+      "box": [
+        109,
+        1925,
+        647,
+        1964
+      ],
+      "score": 0.9894801378250122
+    },
+    {
+      "text": "1ó O buscando pretextos para la guerra.",
+      "box": [
+        806,
+        1929,
+        1102,
+        1958
+      ],
+      "score": 0.9843740463256836
+    },
+    {
+      "text": "cli. XXX, v. 17.",
+      "box": [
+        94,
+        1955,
+        228,
+        1986
+      ],
+      "score": 0.9919235110282898
+    },
+    {
+      "text": "11 Tan numeroso es el ejército con que voy á arrasar á Samaria.",
+      "box": [
+        807,
+        1945,
+        1290,
+        1979
+      ],
+      "score": 0.9886186122894287
+    },
+    {
+      "text": "6 Los cuales murieron en la edad en que me hallo.",
+      "box": [
+        112,
+        1969,
+        499,
+        2004
+      ],
+      "score": 0.9989163279533386
+    }
+  ]
+}

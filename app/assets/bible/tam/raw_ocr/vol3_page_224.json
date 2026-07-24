@@ -1,0 +1,1517 @@
+{
+  "volume": 3,
+  "page_index": 224,
+  "pdf_page": 225,
+  "lines": [
+    {
+      "text": "JEREMÍAS.",
+      "box": [
+        189,
+        37,
+        275,
+        60
+      ],
+      "score": 0.9829636812210083
+    },
+    {
+      "text": "CAPITULO V.",
+      "box": [
+        676,
+        28,
+        771,
+        51
+      ],
+      "score": 0.9962751269340515
+    },
+    {
+      "text": "357",
+      "box": [
+        53,
+        39,
+        76,
+        55
+      ],
+      "score": 0.9998255372047424
+    },
+    {
+      "text": "358",
+      "box": [
+        873,
+        31,
+        899,
+        51
+      ],
+      "score": 0.9831664562225342
+    },
+    {
+      "text": "Judá",
+      "box": [
+        45,
+        80,
+        83,
+        99
+      ],
+      "score": 0.9957376718521118
+    },
+    {
+      "text": "quedará desierta; mas no acabaré de arruinarla del",
+      "box": [
+        75,
+        80,
+        434,
+        109
+      ],
+      "score": 0.9978533387184143
+    },
+    {
+      "text": "verdadero: no nos sobrevendrá ningun desastre; no veremos",
+      "box": [
+        530,
+        83,
+        902,
+        109
+      ],
+      "score": 0.9983187913894653
+    },
+    {
+      "text": "todo.",
+      "box": [
+        45,
+        97,
+        82,
+        117
+      ],
+      "score": 0.9759722948074341
+    },
+    {
+      "text": "la espada, ni la hambre 9.",
+      "box": [
+        530,
+        105,
+        688,
+        127
+      ],
+      "score": 0.9743506908416748
+    },
+    {
+      "text": "13. Sus profetas hablaban al aire; y no tuvieron jamás",
+      "box": [
+        544,
+        125,
+        898,
+        145
+      ],
+      "score": 0.9967474341392517
+    },
+    {
+      "text": "mudo de parecer.",
+      "box": [
+        48,
+        149,
+        161,
+        178
+      ],
+      "score": 0.9986002445220947
+    },
+    {
+      "text": "respuesta de Dios. Tales cosas pues á ellos les sobrevendrán,",
+      "box": [
+        530,
+        143,
+        897,
+        164
+      ],
+      "score": 0.9995602965354919
+    },
+    {
+      "text": "no á nosotros.",
+      "box": [
+        531,
+        160,
+        619,
+        177
+      ],
+      "score": 0.9844171404838562
+    },
+    {
+      "text": "14. Esto me dice el Señor Dios de los ejércitos: Porque ha-",
+      "box": [
+        544,
+        177,
+        895,
+        196
+      ],
+      "score": 0.992452085018158
+    },
+    {
+      "text": "beis proferido vosotros tales palabras, hé aquí, oh Jeremías,",
+      "box": [
+        531,
+        192,
+        895,
+        214
+      ],
+      "score": 0.9922816157341003
+    },
+    {
+      "text": "que yo desde ahora pongo en tu boca mis palabras cual fuego",
+      "box": [
+        531,
+        210,
+        895,
+        230
+      ],
+      "score": 0.9992952346801758
+    },
+    {
+      "text": "sin que quedase en ellas un solo habitante.",
+      "box": [
+        48,
+        220,
+        319,
+        253
+      ],
+      "score": 0.9656490683555603
+    },
+    {
+      "text": "devorador, y le doy ese pueblo por leña, para que sea de él",
+      "box": [
+        530,
+        225,
+        896,
+        247
+      ],
+      "score": 0.997534990310669
+    },
+    {
+      "text": "30. ¿Y qué harás ahora,",
+      "box": [
+        62,
+        238,
+        226,
+        266
+      ],
+      "score": 0.9793992042541504
+    },
+    {
+      "text": ", oh desolada hija de Sion? ¿qué ha-",
+      "box": [
+        216,
+        247,
+        431,
+        263
+      ],
+      "score": 0.9853022694587708
+    },
+    {
+      "text": "consumido.",
+      "box": [
+        532,
+        243,
+        604,
+        259
+      ],
+      "score": 0.9998327493667603
+    },
+    {
+      "text": "nás? Por mas que te vistas",
+      "box": [
+        50,
+        254,
+        225,
+        283
+      ],
+      "score": 0.9765402674674988
+    },
+    {
+      "text": "de grana, aunque te adornes con",
+      "box": [
+        219,
+        262,
+        432,
+        282
+      ],
+      "score": 0.9988027215003967
+    },
+    {
+      "text": "15. Yo voy á traer sobre vosotros, oh familia de Israél,",
+      "box": [
+        543,
+        257,
+        894,
+        276
+      ],
+      "score": 0.9937759041786194
+    },
+    {
+      "text": "joyeles de oro, y pintes",
+      "box": [
+        49,
+        271,
+        206,
+        300
+      ],
+      "score": 0.9987390637397766
+    },
+    {
+      "text": "con antimonio tus ojos 1, en vano te",
+      "box": [
+        195,
+        279,
+        431,
+        298
+      ],
+      "score": 0.9807912111282349
+    },
+    {
+      "text": "dice el Señor, una nacion lejana, nacion robusta, nacion anti-",
+      "box": [
+        530,
+        273,
+        895,
+        292
+      ],
+      "score": 0.9874478578567505
+    },
+    {
+      "text": "engalanarás: tus",
+      "box": [
+        50,
+        289,
+        162,
+        314
+      ],
+      "score": 0.9929324388504028
+    },
+    {
+      "text": "s amantes",
+      "box": [
+        152,
+        296,
+        217,
+        316
+      ],
+      "score": 0.9599193930625916
+    },
+    {
+      "text": "te han desdeñado, quieren acabar",
+      "box": [
+        211,
+        296,
+        431,
+        315
+      ],
+      "score": 0.9994288682937622
+    },
+    {
+      "text": "gua 10, nacion cuya lengua tú no sabrás, ni entenderás lo que",
+      "box": [
+        529,
+        289,
+        895,
+        309
+      ],
+      "score": 0.9903932213783264
+    },
+    {
+      "text": "contigo.",
+      "box": [
+        50,
+        305,
+        107,
+        328
+      ],
+      "score": 0.9973873496055603
+    },
+    {
+      "text": "habla.",
+      "box": [
+        530,
+        304,
+        571,
+        322
+      ],
+      "score": 0.9998998641967773
+    },
+    {
+      "text": "31. Porque he oido",
+      "box": [
+        63,
+        322,
+        202,
+        348
+      ],
+      "score": 0.9992791414260864
+    },
+    {
+      "text": "gritos como de mujer que está de",
+      "box": [
+        196,
+        326,
+        432,
+        349
+      ],
+      "score": 0.988369882106781
+    },
+    {
+      "text": "16. Su aljaba es como un sepulcro abierto I; todos ellos",
+      "box": [
+        541,
+        320,
+        894,
+        340
+      ],
+      "score": 0.9771056771278381
+    },
+    {
+      "text": "parto, ansias y congojas",
+      "box": [
+        50,
+        337,
+        218,
+        367
+      ],
+      "score": 0.9920642375946045
+    },
+    {
+      "text": "como de primeriza ²; la voz de la",
+      "box": [
+        207,
+        343,
+        431,
+        363
+      ],
+      "score": 0.9615693688392639
+    },
+    {
+      "text": "son valerosos soldados.",
+      "box": [
+        531,
+        339,
+        668,
+        352
+      ],
+      "score": 0.9998317360877991
+    },
+    {
+      "text": "17. Esta nacion conquistadora se comerá tus cosechas y tu",
+      "box": [
+        541,
+        352,
+        895,
+        371
+      ],
+      "score": 0.9842215180397034
+    },
+    {
+      "text": "pan; se tragará tus hijos y tus hijas ia, comerá tus rebaños y",
+      "box": [
+        527,
+        368,
+        896,
+        389
+      ],
+      "score": 0.9856703281402588
+    },
+    {
+      "text": "hijos.",
+      "box": [
+        49,
+        385,
+        93,
+        411
+      ],
+      "score": 0.9972022175788879
+    },
+    {
+      "text": "tus vacadas; acabará con tus viñas y tus higuerales; y asolará",
+      "box": [
+        529,
+        386,
+        895,
+        404
+      ],
+      "score": 0.9924387335777283
+    },
+    {
+      "text": "con la espada tus fuertes ciudades, en que tú tienes puesta la",
+      "box": [
+        530,
+        404,
+        895,
+        421
+      ],
+      "score": 0.9970590472221375
+    },
+    {
+      "text": "CAPITULO V",
+      "box": [
+        196,
+        421,
+        291,
+        444
+      ],
+      "score": 0.9940496683120728
+    },
+    {
+      "text": "confianza.",
+      "box": [
+        530,
+        420,
+        593,
+        437
+      ],
+      "score": 0.9959129095077515
+    },
+    {
+      "text": "E,evisa deabe ead lsu aalde desu puebo",
+      "box": [
+        49,
+        442,
+        434,
+        473
+      ],
+      "score": 0.5119802951812744
+    },
+    {
+      "text": "18. Con todo eso, en aquellos dias no acabaré del todo con",
+      "box": [
+        542,
+        437,
+        894,
+        453
+      ],
+      "score": 0.9940170049667358
+    },
+    {
+      "text": "le anuncia que a á casigale por medio de n pueblo etaeo.",
+      "box": [
+        65,
+        459,
+        415,
+        487
+      ],
+      "score": 0.6275219321250916
+    },
+    {
+      "text": "vosotros, dice el Señor.",
+      "box": [
+        530,
+        453,
+        669,
+        470
+      ],
+      "score": 0.9906423687934875
+    },
+    {
+      "text": "19. Que si dijereis: ¿Por qué ha hecho el Señor Dios nues-",
+      "box": [
+        543,
+        470,
+        895,
+        487
+      ],
+      "score": 0.999245822429657
+    },
+    {
+      "text": "1. Recorred las calles de Jerusalem, ved, y observad; y",
+      "box": [
+        62,
+        489,
+        433,
+        516
+      ],
+      "score": 0.98944091796875
+    },
+    {
+      "text": "tro contra nosotros todas estas cosas is? tú les responderás:",
+      "box": [
+        531,
+        487,
+        896,
+        504
+      ],
+      "score": 0.9823646545410156
+    },
+    {
+      "text": "busead en sus plazas si encontrais un hombre que obre lo que",
+      "box": [
+        50,
+        505,
+        434,
+        534
+      ],
+      "score": 0.7850755453109741
+    },
+    {
+      "text": "Así como vosotros me habeis abandonado á mí, dice el Señor,",
+      "box": [
+        531,
+        504,
+        895,
+        521
+      ],
+      "score": 0.9981529116630554
+    },
+    {
+      "text": "es justo, y que procure ser el ; y si le hallas, yo usar con",
+      "box": [
+        49,
+        523,
+        434,
+        550
+      ],
+      "score": 0.7713264226913452
+    },
+    {
+      "text": "y habeis servido á los dioses extraños en vuestra tierra, así les",
+      "box": [
+        529,
+        518,
+        896,
+        540
+      ],
+      "score": 0.9974429607391357
+    },
+    {
+      "text": "ella de misericordia.",
+      "box": [
+        52,
+        540,
+        182,
+        565
+      ],
+      "score": 0.999273955821991
+    },
+    {
+      "text": "servireis ahora en tierra extranjera.",
+      "box": [
+        530,
+        536,
+        746,
+        554
+      ],
+      "score": 0.9985784292221069
+    },
+    {
+      "text": "2. Pues aun cuando 4 dicen todavía: Vive el Señor, Dios",
+      "box": [
+        62,
+        556,
+        434,
+        583
+      ],
+      "score": 0.9809519052505493
+    },
+    {
+      "text": "20. Anunciad esto á la casa de Jacob, y pregonadlo en",
+      "box": [
+        542,
+        550,
+        896,
+        572
+      ],
+      "score": 0.9956942796707153
+    },
+    {
+      "text": "verdadero; aun entonces juran con mentira.",
+      "box": [
+        50,
+        576,
+        327,
+        599
+      ],
+      "score": 0.9932290315628052
+    },
+    {
+      "text": "Judá, diciendo:",
+      "box": [
+        530,
+        568,
+        628,
+        588
+      ],
+      "score": 0.9922584891319275
+    },
+    {
+      "text": "3. Señor, tus ojos están mirando siempre la fidelidad ó",
+      "box": [
+        62,
+        590,
+        435,
+        616
+      ],
+      "score": 0.9756340980529785
+    },
+    {
+      "text": "21. Escucha, oh pueblo insensato, y sin cordura; vosotros",
+      "box": [
+        541,
+        582,
+        896,
+        605
+      ],
+      "score": 0.9889472126960754
+    },
+    {
+      "text": "verdad: azotaste á estos perversos, y no les dolió: molístelos á",
+      "box": [
+        50,
+        606,
+        435,
+        633
+      ],
+      "score": 0.804633378982544
+    },
+    {
+      "text": "que teniendo ojos no veis, y teniendo orejas no oís.",
+      "box": [
+        529,
+        598,
+        834,
+        623
+      ],
+      "score": 0.9966945052146912
+    },
+    {
+      "text": "22. ¿Con qué á mí no me temereis, dice el Señor, ni os arre-",
+      "box": [
+        541,
+        614,
+        895,
+        638
+      ],
+      "score": 0.9793925881385803
+    },
+    {
+      "text": "golpes, y no han hecho caso de la correccion: endurecieron",
+      "box": [
+        51,
+        624,
+        433,
+        649
+      ],
+      "score": 0.9941418170928955
+    },
+    {
+      "text": "sus frentes mas que un peñasco, y no han querido convertir-",
+      "box": [
+        49,
+        639,
+        434,
+        666
+      ],
+      "score": 0.9948643445968628
+    },
+    {
+      "text": "pentireis delante de mí? Yo soy ol que al mar le puse por tér-",
+      "box": [
+        528,
+        631,
+        895,
+        655
+      ],
+      "score": 0.9818554520606995
+    },
+    {
+      "text": "mino la arena, ley perdurable que no quebrantará: levantarse",
+      "box": [
+        529,
+        647,
+        896,
+        670
+      ],
+      "score": 0.9926039576530457
+    },
+    {
+      "text": "se á tí.",
+      "box": [
+        51,
+        661,
+        100,
+        679
+      ],
+      "score": 0.9509653449058533
+    },
+    {
+      "text": "han sus olas, y no traspasarán sus límites; y se encresparán,",
+      "box": [
+        529,
+        663,
+        895,
+        687
+      ],
+      "score": 0.994488000869751
+    },
+    {
+      "text": "4. Entonces dije yo: Tal vez estos son los pobres é idiotas,",
+      "box": [
+        65,
+        671,
+        431,
+        698
+      ],
+      "score": 0.9982004761695862
+    },
+    {
+      "text": "pero no pasarán mas adelante.",
+      "box": [
+        529,
+        682,
+        712,
+        703
+      ],
+      "score": 0.9842267036437988
+    },
+    {
+      "text": "que ignoran el camino del Señor, los juicios de su Dios.",
+      "box": [
+        52,
+        688,
+        394,
+        716
+      ],
+      "score": 0.998735785484314
+    },
+    {
+      "text": "23. Pero este pueblo se ha formado un corazon incrédulo",
+      "box": [
+        542,
+        697,
+        894,
+        718
+      ],
+      "score": 0.9966684579849243
+    },
+    {
+      "text": "5. Iré pues á los principales del pueblo y hablaré á ellos:",
+      "box": [
+        65,
+        704,
+        432,
+        732
+      ],
+      "score": 0.9699814319610596
+    },
+    {
+      "text": "y rebelde: se han retirado de mí, y se han ido en pos de los",
+      "box": [
+        527,
+        712,
+        896,
+        737
+      ],
+      "score": 0.9955180287361145
+    },
+    {
+      "text": "que sin duda esos saben el camino del Señor, los juicios de",
+      "box": [
+        51,
+        720,
+        432,
+        749
+      ],
+      "score": 0.9846746325492859
+    },
+    {
+      "text": "idolos;",
+      "box": [
+        530,
+        735,
+        576,
+        752
+      ],
+      "score": 0.9991769790649414
+    },
+    {
+      "text": "su Dios. Pero hallé que estos aun mas que los otros, todos",
+      "box": [
+        51,
+        735,
+        432,
+        764
+      ],
+      "score": 0.9923317432403564
+    },
+    {
+      "text": "24. En vez de decir en su corazon: Temamos al Señor",
+      "box": [
+        540,
+        745,
+        895,
+        768
+      ],
+      "score": 0.9898836016654968
+    },
+    {
+      "text": "á una quebrantaron el yugo del Señor, rompieron sus co-",
+      "box": [
+        51,
+        752,
+        432,
+        780
+      ],
+      "score": 0.9939872026443481
+    },
+    {
+      "text": "Dios nuestro, que nos da á su tiempo la lluvia temprana y",
+      "box": [
+        530,
+        764,
+        895,
+        783
+      ],
+      "score": 0.9880568385124207
+    },
+    {
+      "text": "yundas.",
+      "box": [
+        52,
+        776,
+        109,
+        797
+      ],
+      "score": 0.9975274205207825
+    },
+    {
+      "text": "la tardía, y que nos da todos los años una abundante co-",
+      "box": [
+        528,
+        779,
+        896,
+        801
+      ],
+      "score": 0.9989943504333496
+    },
+    {
+      "text": "6. Pero el leon del bosque & los ha desgarrado: el lobo al",
+      "box": [
+        65,
+        783,
+        431,
+        812
+      ],
+      "score": 0.980259120464325
+    },
+    {
+      "text": "anochecer los ha exterminado: el leopardo está acechando en",
+      "box": [
+        52,
+        800,
+        431,
+        828
+      ],
+      "score": 0.9974558353424072
+    },
+    {
+      "text": "secha.",
+      "box": [
+        529,
+        799,
+        571,
+        817
+      ],
+      "score": 0.9999339580535889
+    },
+    {
+      "text": "25. Vuestras maldades han hecho desaparecer estas cosas:",
+      "box": [
+        542,
+        813,
+        895,
+        832
+      ],
+      "score": 0.9850319027900696
+    },
+    {
+      "text": "torno de sus ciudades: todos cuantos salgan de ellas, caerán",
+      "box": [
+        52,
+        817,
+        431,
+        845
+      ],
+      "score": 0.9995943903923035
+    },
+    {
+      "text": "en sus garras;porque se han multiplicado sus prevaricaciones,",
+      "box": [
+        53,
+        832,
+        430,
+        861
+      ],
+      "score": 0.9919801354408264
+    },
+    {
+      "text": "y vuestros pecados han retraido de vosotros el bienestar:",
+      "box": [
+        528,
+        829,
+        867,
+        850
+      ],
+      "score": 0.9947794675827026
+    },
+    {
+      "text": "26. Por cuanto se hallan impíos en mi pueblo, acechando",
+      "box": [
+        542,
+        845,
+        893,
+        864
+      ],
+      "score": 0.9987246990203857
+    },
+    {
+      "text": "y se han obstinado en sus apostasías.",
+      "box": [
+        52,
+        850,
+        286,
+        877
+      ],
+      "score": 0.9745861887931824
+    },
+    {
+      "text": "7. ¿Por qué título 6 podré yo inclinarme á serte propicio á",
+      "box": [
+        66,
+        865,
+        431,
+        891
+      ],
+      "score": 0.9703525900840759
+    },
+    {
+      "text": "como cazadores, poniendo lazos y pihuelas para cazar hombres.",
+      "box": [
+        530,
+        861,
+        893,
+        882
+      ],
+      "score": 0.9969949722290039
+    },
+    {
+      "text": "tí, oh pueblo rebelde? Tus hijos me han abandonado, y juran",
+      "box": [
+        54,
+        882,
+        431,
+        907
+      ],
+      "score": 0.9926448464393616
+    },
+    {
+      "text": "27. Como jaula óred de cazadores llena de aves, así están",
+      "box": [
+        542,
+        877,
+        894,
+        899
+      ],
+      "score": 0.9963088035583496
+    },
+    {
+      "text": "por el nombre de aquellos que no son dioses: yo los colmé de",
+      "box": [
+        55,
+        900,
+        430,
+        921
+      ],
+      "score": 0.9984947443008423
+    },
+    {
+      "text": "sus casas llenas de fraudes;con ellos se han engrandecido y se",
+      "box": [
+        529,
+        895,
+        894,
+        914
+      ],
+      "score": 0.9923892021179199
+    },
+    {
+      "text": "bienes, y ellos se han entregado al adulterio, y han desahoga-",
+      "box": [
+        55,
+        916,
+        430,
+        936
+      ],
+      "score": 0.9985049366950989
+    },
+    {
+      "text": "han hecho ricos.",
+      "box": [
+        531,
+        915,
+        629,
+        929
+      ],
+      "score": 0.9819194078445435
+    },
+    {
+      "text": "do su lujuria en casa de la mujer prostituta.",
+      "box": [
+        56,
+        933,
+        329,
+        951
+      ],
+      "score": 0.9959002733230591
+    },
+    {
+      "text": "28. Engrosáronse y engordaron;y han violado pésimamen-",
+      "box": [
+        542,
+        927,
+        894,
+        946
+      ],
+      "score": 0.9905375242233276
+    },
+    {
+      "text": "8. Han llegado á ser como caballos padres desenfrenados,",
+      "box": [
+        69,
+        947,
+        429,
+        967
+      ],
+      "score": 0.9981417059898376
+    },
+    {
+      "text": "te mis preceptos. No han administrado justicia á la viuda, ni",
+      "box": [
+        529,
+        943,
+        894,
+        962
+      ],
+      "score": 0.9969428181648254
+    },
+    {
+      "text": "y en estado de calor: con tanto ardor persigue cada cual la",
+      "box": [
+        55,
+        963,
+        430,
+        984
+      ],
+      "score": 0.9989104866981506
+    },
+    {
+      "text": "han defendido la causa del huérfano, y no hicieron justicia al",
+      "box": [
+        531,
+        960,
+        894,
+        977
+      ],
+      "score": 0.9979884028434753
+    },
+    {
+      "text": "mujer de su prójimo .",
+      "box": [
+        58,
+        982,
+        200,
+        999
+      ],
+      "score": 0.9806455969810486
+    },
+    {
+      "text": "pobre 14.",
+      "box": [
+        529,
+        975,
+        584,
+        995
+      ],
+      "score": 0.9929834008216858
+    },
+    {
+      "text": "9. Pues qué, ¿no he de castigar yo estas cosas, dice el Se-",
+      "box": [
+        71,
+        998,
+        428,
+        1015
+      ],
+      "score": 0.9907686114311218
+    },
+    {
+      "text": "29. ¿Cómo no he de castigar yo estas cosas? dice el Señor:",
+      "box": [
+        542,
+        990,
+        895,
+        1011
+      ],
+      "score": 0.9954475164413452
+    },
+    {
+      "text": "ñor, y no se vengará mi alma de una tal gente?",
+      "box": [
+        60,
+        1016,
+        345,
+        1030
+      ],
+      "score": 0.9918779134750366
+    },
+    {
+      "text": "¿ó cómo puede mi alma dejar de tomar venganza de una tal",
+      "box": [
+        528,
+        1007,
+        895,
+        1029
+      ],
+      "score": 0.9900432825088501
+    },
+    {
+      "text": "10. Escalad, oh pueblos de Chaldéa, sus muros, y derribad-",
+      "box": [
+        72,
+        1030,
+        429,
+        1046
+      ],
+      "score": 0.9917060732841492
+    },
+    {
+      "text": "gente?",
+      "box": [
+        529,
+        1023,
+        575,
+        1045
+      ],
+      "score": 0.9982490539550781
+    },
+    {
+      "text": "los: mas no acabeis del todo con ella: quitadle los sarmien-",
+      "box": [
+        58,
+        1046,
+        429,
+        1062
+      ],
+      "score": 0.9979371428489685
+    },
+    {
+      "text": "30. Cosa asombrosa, cosa muy extraña es la que ha suce-",
+      "box": [
+        543,
+        1042,
+        894,
+        1058
+      ],
+      "score": 0.9988932609558105
+    },
+    {
+      "text": "tos 8: porque no son del Señor.",
+      "box": [
+        58,
+        1060,
+        248,
+        1078
+      ],
+      "score": 0.989963173866272
+    },
+    {
+      "text": "dido en esta tierra:",
+      "box": [
+        531,
+        1058,
+        648,
+        1075
+      ],
+      "score": 0.9992489814758301
+    },
+    {
+      "text": "11. Puesto que la casa de Israél y la casa de Judá han pe-",
+      "box": [
+        71,
+        1076,
+        429,
+        1095
+      ],
+      "score": 0.9952405095100403
+    },
+    {
+      "text": "31. Los profetas profetizaban mentiras, y los sacerdotes los",
+      "box": [
+        543,
+        1074,
+        894,
+        1091
+      ],
+      "score": 0.9902108311653137
+    },
+    {
+      "text": "cado enormemente contra mí, dice el Señor.",
+      "box": [
+        59,
+        1092,
+        325,
+        1110
+      ],
+      "score": 0.9992752075195312
+    },
+    {
+      "text": "aplaudian con palmoteo; y mi pueblo gustó de tales cosas:",
+      "box": [
+        531,
+        1089,
+        895,
+        1109
+      ],
+      "score": 0.9988324642181396
+    },
+    {
+      "text": "12. Ellas renegaron del Señor, y dijeron: No es él el Dios",
+      "box": [
+        73,
+        1109,
+        428,
+        1126
+      ],
+      "score": 0.9874427318572998
+    },
+    {
+      "text": "¿qué será pues de él al llegar su fin?",
+      "box": [
+        531,
+        1107,
+        746,
+        1126
+      ],
+      "score": 0.9994717836380005
+    },
+    {
+      "text": "1 IV. Reg. IX, v. 30. En lugar de tus ojos puede entenderse tu rostro,",
+      "box": [
+        69,
+        1147,
+        427,
+        1168
+      ],
+      "score": 0.9835677146911621
+    },
+    {
+      "text": "T Ezech. XXII, v. 11.",
+      "box": [
+        541,
+        1149,
+        654,
+        1166
+      ],
+      "score": 0.9550542235374451
+    },
+    {
+      "text": "suponiendo aquí la figura sinéedoque en que se toma la parte porel todo.",
+      "box": [
+        58,
+        1161,
+        427,
+        1182
+      ],
+      "score": 0.9862304329872131
+    },
+    {
+      "text": "8 Llevaos cautivos sus hijos.",
+      "box": [
+        542,
+        1165,
+        687,
+        1179
+      ],
+      "score": 0.9694546461105347
+    },
+    {
+      "text": "à La voz hebrea n mabquira, y la griega πpwtotozobsu, prototo-",
+      "box": [
+        68,
+        1175,
+        427,
+        1196
+      ],
+      "score": 0.8377869129180908
+    },
+    {
+      "text": " Como han vaticinado los Profetas.",
+      "box": [
+        540,
+        1178,
+        725,
+        1192
+      ],
+      "score": 0.976667046546936
+    },
+    {
+      "text": "couses, sígnifica la mujer que pare por primera vez, cuyo parto es mas",
+      "box": [
+        57,
+        1188,
+        428,
+        1210
+      ],
+      "score": 0.9733334183692932
+    },
+    {
+      "text": "10 Los Chaldeos traian su orígen de Nemrod, fundador dol imperio de",
+      "box": [
+        535,
+        1186,
+        897,
+        1210
+      ],
+      "score": 0.9290521144866943
+    },
+    {
+      "text": "difícil y doloroso.",
+      "box": [
+        59,
+        1203,
+        155,
+        1217
+      ],
+      "score": 0.9973307251930237
+    },
+    {
+      "text": "s O que quiera seguir la verdad. Es una hipérbole para significar cuán",
+      "box": [
+        67,
+        1214,
+        426,
+        1236
+      ],
+      "score": 0.9721530079841614
+    },
+    {
+      "text": "Babylonia.—Genes. X, v. 10.—Deuter, XXVIII, v. 49.—Baruch, IV,",
+      "box": [
+        530,
+        1202,
+        896,
+        1224
+      ],
+      "score": 0.9741982221603394
+    },
+    {
+      "text": "pocos eran los justos en Jerusalem.",
+      "box": [
+        57,
+        1229,
+        245,
+        1245
+      ],
+      "score": 0.9990838170051575
+    },
+    {
+      "text": "v. 16.",
+      "box": [
+        529,
+        1221,
+        562,
+        1236
+      ],
+      "score": 0.9340758323669434
+    },
+    {
+      "text": " Para asegurar, ó dar fe de alguna cosa.",
+      "box": [
+        67,
+        1241,
+        282,
+        1260
+      ],
+      "score": 0.9941760301589966
+    },
+    {
+      "text": "11 Cuantas saetas salen de ella, otras tantas muertes causan.",
+      "box": [
+        535,
+        1231,
+        847,
+        1250
+      ],
+      "score": 0.9882093071937561
+    },
+    {
+      "text": " Nabuchodonosor es llamado leon por su poder, lobo por su voracidad",
+      "box": [
+        66,
+        1254,
+        426,
+        1277
+      ],
+      "score": 0.9931699633598328
+    },
+    {
+      "text": "En e uele dcie pa pdeelterr qual",
+      "box": [
+        534,
+        1241,
+        898,
+        1268
+      ],
+      "score": 0.5267218947410583
+    },
+    {
+      "text": "y avaricia, y leopardo por la celeridad en sus empresas.",
+      "box": [
+        54,
+        1267,
+        343,
+        1291
+      ],
+      "score": 0.9594294428825378
+    },
+    {
+      "text": "no: se come viva la gente.",
+      "box": [
+        530,
+        1264,
+        658,
+        1278
+      ],
+      "score": 0.986280083656311
+    },
+    {
+      "text": "18 Cap. XVI, v. 10.",
+      "box": [
+        534,
+        1274,
+        644,
+        1292
+      ],
+      "score": 0.9465710520744324
+    },
+    {
+      "text": "6 O con qué motivo.",
+      "box": [
+        68,
+        1284,
+        181,
+        1298
+      ],
+      "score": 0.9690962433815002
+    },
+    {
+      "text": "O no patrocinaron su causa. Isai. I, v. 23.—Zach. VII, v. 10.",
+      "box": [
+        535,
+        1286,
+        863,
+        1308
+      ],
+      "score": 0.8058252334594727
+    }
+  ]
+}

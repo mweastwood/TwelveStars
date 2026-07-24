@@ -1,0 +1,27 @@
+{
+  "volume": 4,
+  "page_index": 142,
+  "pdf_page": 143,
+  "lines": [
+    {
+      "text": "HPISAN",
+      "box": [
+        1139,
+        845,
+        1241,
+        865
+      ],
+      "score": 0.9804806709289551
+    },
+    {
+      "text": "JESÚS CAMINANDO SOBRE LAS AGUAS",
+      "box": [
+        535,
+        888,
+        871,
+        915
+      ],
+      "score": 0.9990354180335999
+    }
+  ]
+}

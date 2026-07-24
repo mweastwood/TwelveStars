@@ -1,0 +1,1517 @@
+{
+  "volume": 3,
+  "page_index": 319,
+  "pdf_page": 320,
+  "lines": [
+    {
+      "text": "CAPITULO XLI.",
+      "box": [
+        678,
+        30,
+        796,
+        58
+      ],
+      "score": 0.9891954064369202
+    },
+    {
+      "text": "516",
+      "box": [
+        888,
+        33,
+        912,
+        51
+      ],
+      "score": 0.9994801878929138
+    },
+    {
+      "text": "515",
+      "box": [
+        77,
+        49,
+        101,
+        65
+      ],
+      "score": 0.999884307384491
+    },
+    {
+      "text": "EZECHIEL.",
+      "box": [
+        207,
+        48,
+        287,
+        65
+      ],
+      "score": 0.9998257756233215
+    },
+    {
+      "text": "10. Las cámaras de la puerta de Oriente eran tres á un",
+      "box": [
+        79,
+        88,
+        435,
+        112
+      ],
+      "score": 0.9902557730674744
+    },
+    {
+      "text": "34.Y su pórico caia al ario exero, yhabia en su fc",
+      "box": [
+        547,
+        69,
+        921,
+        112
+      ],
+      "score": 0.6324426531791687
+    },
+    {
+      "text": "lado y tres al otro: una misma era la medida de las tres cá-",
+      "box": [
+        67,
+        106,
+        436,
+        130
+      ],
+      "score": 0.9922101497650146
+    },
+    {
+      "text": "da de un lado y de otro palmas entalladas; y subíase á la",
+      "box": [
+        534,
+        90,
+        920,
+        129
+      ],
+      "score": 0.9849179983139038
+    },
+    {
+      "text": "maras; é igual medida tenian las fachadas de ambas partes.",
+      "box": [
+        66,
+        124,
+        421,
+        148
+      ],
+      "score": 0.9994412064552307
+    },
+    {
+      "text": "puerta por ocho gradas.",
+      "box": [
+        533,
+        117,
+        693,
+        147
+      ],
+      "score": 0.9965936541557312
+    },
+    {
+      "text": "11. Y midió la anchura del umbral de la puerta, que era",
+      "box": [
+        80,
+        140,
+        435,
+        165
+      ],
+      "score": 0.9985095858573914
+    },
+    {
+      "text": "35. Y llevóme á la puerta que miraba al Norte, y midióla",
+      "box": [
+        547,
+        125,
+        917,
+        163
+      ],
+      "score": 0.9822131395339966
+    },
+    {
+      "text": "de diez codos, y de trece codos su longitud.",
+      "box": [
+        67,
+        158,
+        331,
+        180
+      ],
+      "score": 0.9924278855323792
+    },
+    {
+      "text": "segun las mismas medidas que las otras.",
+      "box": [
+        533,
+        147,
+        796,
+        180
+      ],
+      "score": 0.987131655216217
+    },
+    {
+      "text": "12. Y la márgen que habia delante de las cámaras era de",
+      "box": [
+        80,
+        175,
+        436,
+        197
+      ],
+      "score": 0.9955384135246277
+    },
+    {
+      "text": "36. Sus cámaras, y su fachada, y su vestíbulo, y sus ven-",
+      "box": [
+        546,
+        159,
+        917,
+        195
+      ],
+      "score": 0.9957612752914429
+    },
+    {
+      "text": "un codo; y un codo hacia toda su medida, por una y otra",
+      "box": [
+        68,
+        193,
+        435,
+        214
+      ],
+      "score": 0.991426944732666
+    },
+    {
+      "text": "tanas al rededor tenian cincuenta codos de largo y veinte y",
+      "box": [
+        534,
+        178,
+        916,
+        210
+      ],
+      "score": 0.9964722394943237
+    },
+    {
+      "text": "parte; y las cámaras de ambos lados tenian seis codos.",
+      "box": [
+        68,
+        210,
+        391,
+        229
+      ],
+      "score": 0.9935101270675659
+    },
+    {
+      "text": "cinco de ancho.",
+      "box": [
+        535,
+        205,
+        638,
+        226
+      ],
+      "score": 0.9987853765487671
+    },
+    {
+      "text": "13. Y midió el atrio de la puerta desde el fondo de una",
+      "box": [
+        80,
+        225,
+        436,
+        246
+      ],
+      "score": 0.9938058853149414
+    },
+    {
+      "text": "37. Y su vestíbulo caia al atrio exterior, y habia palmas",
+      "box": [
+        546,
+        209,
+        917,
+        244
+      ],
+      "score": 0.9892886877059937
+    },
+    {
+      "text": "cámara hasta el fondo de la otra, y tenia veinte y cinco",
+      "box": [
+        67,
+        241,
+        436,
+        262
+      ],
+      "score": 0.9774354100227356
+    },
+    {
+      "text": "entalladas en su fachada, de un lado y de otro; y subíase á",
+      "box": [
+        533,
+        225,
+        917,
+        261
+      ],
+      "score": 0.9859936833381653
+    },
+    {
+      "text": "codos de anchura: la puerta de una cámara estaba en frente",
+      "box": [
+        67,
+        256,
+        435,
+        278
+      ],
+      "score": 0.9855531454086304
+    },
+    {
+      "text": "la puerta por ocho gradas.",
+      "box": [
+        533,
+        252,
+        704,
+        274
+      ],
+      "score": 0.9905791878700256
+    },
+    {
+      "text": "de la otra.",
+      "box": [
+        67,
+        273,
+        133,
+        293
+      ],
+      "score": 0.9985679388046265
+    },
+    {
+      "text": "38. Y en cada una de Ias cámaras habia un postigo en",
+      "box": [
+        546,
+        258,
+        917,
+        292
+      ],
+      "score": 0.9909582734107971
+    },
+    {
+      "text": "14. É hizo ó midió las fachadas de sesenta codos; y corres-",
+      "box": [
+        78,
+        288,
+        435,
+        309
+      ],
+      "score": 0.9940664768218994
+    },
+    {
+      "text": "frente de las puertas ², junto á las cuales lavaban el holo-",
+      "box": [
+        533,
+        275,
+        917,
+        307
+      ],
+      "score": 0.9888017773628235
+    },
+    {
+      "text": "pondiente á la fachada hizo el atrio de la puerta por todo al",
+      "box": [
+        64,
+        304,
+        435,
+        325
+      ],
+      "score": 0.9903793931007385
+    },
+    {
+      "text": "causto.",
+      "box": [
+        536,
+        305,
+        583,
+        320
+      ],
+      "score": 0.9740374684333801
+    },
+    {
+      "text": "rededor.",
+      "box": [
+        67,
+        322,
+        120,
+        339
+      ],
+      "score": 0.9998139142990112
+    },
+    {
+      "text": "39. Y en el zaguan de la puerta habia dos mesas á un lado",
+      "box": [
+        547,
+        306,
+        918,
+        339
+      ],
+      "score": 0.9816001057624817
+    },
+    {
+      "text": "15. Y desde la fachada de la puerta hasta la fachada inte-",
+      "box": [
+        78,
+        336,
+        435,
+        355
+      ],
+      "score": 0.9873086810112
+    },
+    {
+      "text": "y dos al otro, para degollar sobre ellas las víctimas para el",
+      "box": [
+        532,
+        323,
+        918,
+        355
+      ],
+      "score": 0.994473397731781
+    },
+    {
+      "text": "rior de la otra puerta del atrio habia cincuenta codos:",
+      "box": [
+        66,
+        352,
+        392,
+        372
+      ],
+      "score": 0.9952703714370728
+    },
+    {
+      "text": "holocausto, por el pecado, y por el delito.",
+      "box": [
+        535,
+        344,
+        798,
+        370
+      ],
+      "score": 0.9993142485618591
+    },
+    {
+      "text": "16. Y ventanas oblícuas 1, en las cámaras y en las facha-",
+      "box": [
+        79,
+        368,
+        435,
+        388
+      ],
+      "score": 0.9867188334465027
+    },
+    {
+      "text": "40. Y al lado exterior que sube al postigo por la puerta",
+      "box": [
+        547,
+        355,
+        918,
+        388
+      ],
+      "score": 0.9903424382209778
+    },
+    {
+      "text": "das que estaban de dentro de la puerta por todas partes al",
+      "box": [
+        65,
+        383,
+        435,
+        404
+      ],
+      "score": 0.9996540546417236
+    },
+    {
+      "text": "que mira al Norte habia dos mesas, y otras dos al otro lado,",
+      "box": [
+        534,
+        372,
+        918,
+        404
+      ],
+      "score": 0.9796457886695862
+    },
+    {
+      "text": "rededor: habia tambien en los zaguanes ventanas al rededor,",
+      "box": [
+        65,
+        400,
+        434,
+        421
+      ],
+      "score": 0.9848178029060364
+    },
+    {
+      "text": "delante del zaguan de la puerta.",
+      "box": [
+        535,
+        397,
+        742,
+        419
+      ],
+      "score": 0.9889806509017944
+    },
+    {
+      "text": "por la parte de dentro; y delante de las fachadas habia figu-",
+      "box": [
+        65,
+        417,
+        435,
+        438
+      ],
+      "score": 0.992686927318573
+    },
+    {
+      "text": "41. Cuatro mesas de un lado y cuatro de otro. A los lados",
+      "box": [
+        548,
+        405,
+        919,
+        438
+      ],
+      "score": 0.9971660375595093
+    },
+    {
+      "text": "ras de palmas.",
+      "box": [
+        67,
+        435,
+        154,
+        451
+      ],
+      "score": 0.9981589317321777
+    },
+    {
+      "text": "de la puerta habia ocho mesas, sobre las cuales inmolaban*",
+      "box": [
+        535,
+        421,
+        919,
+        455
+      ],
+      "score": 0.9907940030097961
+    },
+    {
+      "text": "17. Y condújome al atrio exterior, y ví allí cámaras, y el",
+      "box": [
+        77,
+        447,
+        435,
+        469
+      ],
+      "score": 0.9856370687484741
+    },
+    {
+      "text": "las víctimas.",
+      "box": [
+        535,
+        447,
+        619,
+        467
+      ],
+      "score": 0.9980435967445374
+    },
+    {
+      "text": "pavimento del atrio estaba enlosado de piedra al rededor:",
+      "box": [
+        66,
+        465,
+        434,
+        484
+      ],
+      "score": 0.9996721148490906
+    },
+    {
+      "text": "42. Y las cuatro mesas para el holocausto estaban hechas",
+      "box": [
+        548,
+        452,
+        920,
+        486
+      ],
+      "score": 0.9997502565383911
+    },
+    {
+      "text": "treinta cámaras ó estancias habia al rededor del pavimento.",
+      "box": [
+        67,
+        481,
+        434,
+        501
+      ],
+      "score": 0.9860695004463196
+    },
+    {
+      "text": "de piedras cuadradas, de codo y medio de largo, y de codo",
+      "box": [
+        535,
+        468,
+        920,
+        504
+      ],
+      "score": 0.9884554147720337
+    },
+    {
+      "text": "18. Y el pavimento en la fachada de las puertas era mas",
+      "box": [
+        80,
+        497,
+        435,
+        518
+      ],
+      "score": 0.9881272315979004
+    },
+    {
+      "text": "y medio de ancho, y de un codo de alto, para poner sobro",
+      "box": [
+        535,
+        486,
+        921,
+        519
+      ],
+      "score": 0.9972414970397949
+    },
+    {
+      "text": "bajo, segun la longitud de las puertas.",
+      "box": [
+        67,
+        515,
+        297,
+        532
+      ],
+      "score": 0.989674985408783
+    },
+    {
+      "text": "ellas los instrumentos que se usan al inmolar el holocausto",
+      "box": [
+        536,
+        502,
+        921,
+        537
+      ],
+      "score": 0.9834056496620178
+    },
+    {
+      "text": "19. Y midió la anchura desde la fachada de la puerta",
+      "box": [
+        79,
+        532,
+        434,
+        549
+      ],
+      "score": 0.9936978220939636
+    },
+    {
+      "text": "y la víctima.",
+      "box": [
+        535,
+        531,
+        618,
+        551
+      ],
+      "score": 0.9698631763458252
+    },
+    {
+      "text": "inferior, hasta el principio del atrio interior por la parte de",
+      "box": [
+        68,
+        549,
+        435,
+        566
+      ],
+      "score": 0.9943058490753174
+    },
+    {
+      "text": "43. Y tenian todas ellas al rededor un borde de un palmo,",
+      "box": [
+        549,
+        534,
+        921,
+        568
+      ],
+      "score": 0.9964962601661682
+    },
+    {
+      "text": "fuera, y tenia cien codos al Oriente, y otros tantos al Norte.",
+      "box": [
+        67,
+        564,
+        422,
+        582
+      ],
+      "score": 0.9974920153617859
+    },
+    {
+      "text": "que se redoblaba hácia dentro, y sobre las mesas poníanse",
+      "box": [
+        536,
+        551,
+        922,
+        585
+      ],
+      "score": 0.9971387386322021
+    },
+    {
+      "text": "20. Asimismo midió tanto la longitud como la anchura de",
+      "box": [
+        80,
+        580,
+        435,
+        598
+      ],
+      "score": 0.9803723692893982
+    },
+    {
+      "text": "las carnes de la ofrenda.",
+      "box": [
+        536,
+        577,
+        688,
+        598
+      ],
+      "score": 0.9974490404129028
+    },
+    {
+      "text": "la puerta del atrio exterior que cae al Norte.",
+      "box": [
+        67,
+        598,
+        336,
+        615
+      ],
+      "score": 0.9894487261772156
+    },
+    {
+      "text": "44. Y fuera de la puerta interior habia las cámaras de los",
+      "box": [
+        549,
+        581,
+        922,
+        616
+      ],
+      "score": 0.9910260438919067
+    },
+    {
+      "text": "21. Y sus cámaras tres á un lado y tres á otro; y su fron-",
+      "box": [
+        80,
+        612,
+        435,
+        632
+      ],
+      "score": 0.9843357801437378
+    },
+    {
+      "text": "cantores en el atrio interior, que estaba al lado de la puerta",
+      "box": [
+        537,
+        599,
+        922,
+        633
+      ],
+      "score": 0.996417224407196
+    },
+    {
+      "text": "tispicio y su vestíbulo eran segun la medida de la primera",
+      "box": [
+        67,
+        628,
+        436,
+        650
+      ],
+      "score": 0.9996193647384644
+    },
+    {
+      "text": "que mira al Norte, y sus fachadas miraban al Mediodía; una",
+      "box": [
+        537,
+        617,
+        921,
+        647
+      ],
+      "score": 0.9923958778381348
+    },
+    {
+      "text": "puerta, de cincuenta codos de largo, y veinte y cinco codos",
+      "box": [
+        66,
+        643,
+        437,
+        666
+      ],
+      "score": 0.998359203338623
+    },
+    {
+      "text": "estaba al lado de la puerta oriental que miraba al Norte.",
+      "box": [
+        536,
+        633,
+        889,
+        664
+      ],
+      "score": 0.9931703805923462
+    },
+    {
+      "text": "de ancho.",
+      "box": [
+        66,
+        663,
+        130,
+        682
+      ],
+      "score": 0.9998716711997986
+    },
+    {
+      "text": "45. Y díjome el Ángel: Esta cámara ó habitacion que mira",
+      "box": [
+        550,
+        648,
+        922,
+        679
+      ],
+      "score": 0.9679455161094666
+    },
+    {
+      "text": "22. Y sus ventanas, y el vestíbulo, y las entalladuras eran",
+      "box": [
+        79,
+        675,
+        436,
+        699
+      ],
+      "score": 0.9989989995956421
+    },
+    {
+      "text": "al Mediodía, será para los sacerdotes que velan en la guar-",
+      "box": [
+        536,
+        665,
+        922,
+        695
+      ],
+      "score": 0.9946385622024536
+    },
+    {
+      "text": "segun la medida de la puerta que miraba al Oriente: y para",
+      "box": [
+        68,
+        693,
+        436,
+        716
+      ],
+      "score": 0.9974185228347778
+    },
+    {
+      "text": "dia del templo.",
+      "box": [
+        539,
+        692,
+        636,
+        709
+      ],
+      "score": 0.9998160004615784
+    },
+    {
+      "text": "subir á ella habia siete gradas, y delante de ella un zaguan.",
+      "box": [
+        67,
+        710,
+        437,
+        732
+      ],
+      "score": 0.9945123791694641
+    },
+    {
+      "text": "46. Aquella cámara que da al Norte será para los sacer-",
+      "box": [
+        549,
+        697,
+        922,
+        727
+      ],
+      "score": 0.9968795776367188
+    },
+    {
+      "text": "23. Y la puerta del atrio interior estaba en frente de la",
+      "box": [
+        80,
+        726,
+        436,
+        748
+      ],
+      "score": 0.9911130666732788
+    },
+    {
+      "text": "dotes que velan en el servicio del altar, Estos son los hijos",
+      "box": [
+        536,
+        714,
+        922,
+        743
+      ],
+      "score": 0.9920944571495056
+    },
+    {
+      "text": "puerta del atrio exterior á Norte, y á Oriente; y desde una á",
+      "box": [
+        67,
+        741,
+        437,
+        764
+      ],
+      "score": 0.9900087714195251
+    },
+    {
+      "text": "de Sadoc, los cuales son descendientes de Leví, y se acer-",
+      "box": [
+        537,
+        732,
+        922,
+        759
+      ],
+      "score": 0.9996683597564697
+    },
+    {
+      "text": "otra puerta midió cien codos.",
+      "box": [
+        68,
+        759,
+        245,
+        780
+      ],
+      "score": 0.9996328949928284
+    },
+    {
+      "text": "can al Señor para emplearse en servirle.",
+      "box": [
+        538,
+        751,
+        783,
+        773
+      ],
+      "score": 0.9999357461929321
+    },
+    {
+      "text": "24. Y llevóme á la parte del Mediodía, en donde estaba la",
+      "box": [
+        81,
+        773,
+        437,
+        795
+      ],
+      "score": 0.9864659905433655
+    },
+    {
+      "text": "47. Y midió el atrio, que tenia cien codos de largo y cien",
+      "box": [
+        550,
+        762,
+        922,
+        790
+      ],
+      "score": 0.994476318359375
+    },
+    {
+      "text": "puerta que miraba al Mediodía; y midió su fachada y su ves-",
+      "box": [
+        66,
+        789,
+        439,
+        813
+      ],
+      "score": 0.9996537566184998
+    },
+    {
+      "text": "cc.",
+      "box": [
+        507,
+        778,
+        531,
+        802
+      ],
+      "score": 0.5300248265266418
+    },
+    {
+      "text": "codos en cuadro de ancho, y el altar que estaba delante de",
+      "box": [
+        538,
+        780,
+        921,
+        805
+      ],
+      "score": 0.9996691942214966
+    },
+    {
+      "text": "tíbulo, que eran de las mismas medidas que las otras.",
+      "box": [
+        69,
+        807,
+        391,
+        828
+      ],
+      "score": 0.9994326233863831
+    },
+    {
+      "text": "la fachada del templo.",
+      "box": [
+        538,
+        802,
+        676,
+        822
+      ],
+      "score": 0.9998701214790344
+    },
+    {
+      "text": "25. Tambien sus ventanas y los zaguanes al rededor eran,",
+      "box": [
+        81,
+        823,
+        437,
+        844
+      ],
+      "score": 0.9870874285697937
+    },
+    {
+      "text": "48. É introdújome en el vestíbulo del templo; y midió el",
+      "box": [
+        552,
+        810,
+        923,
+        839
+      ],
+      "score": 0.9834796190261841
+    },
+    {
+      "text": "como las otras ventanas, de cincuenta codos de largo, y",
+      "box": [
+        69,
+        840,
+        438,
+        859
+      ],
+      "score": 0.9971946477890015
+    },
+    {
+      "text": "vestíbulo, que tenia cinco codos de una parte, y cinco codos",
+      "box": [
+        539,
+        828,
+        922,
+        855
+      ],
+      "score": 0.9959681034088135
+    },
+    {
+      "text": "veinte y cinco de ancho.",
+      "box": [
+        69,
+        857,
+        217,
+        876
+      ],
+      "score": 0.9718772768974304
+    },
+    {
+      "text": "de otra; y la anchura de la puerta tres codos de un lado y",
+      "box": [
+        539,
+        844,
+        921,
+        871
+      ],
+      "score": 0.999207615852356
+    },
+    {
+      "text": "26. Y subíase á esta puerta por siete gradas, y delante de",
+      "box": [
+        82,
+        872,
+        439,
+        892
+      ],
+      "score": 0.9881007671356201
+    },
+    {
+      "text": "tres de otro.",
+      "box": [
+        540,
+        868,
+        618,
+        887
+      ],
+      "score": 0.9998276829719543
+    },
+    {
+      "text": "ella habia un zaguan y palmas entalladas, una de un lado, y",
+      "box": [
+        70,
+        889,
+        440,
+        908
+      ],
+      "score": 0.9865054488182068
+    },
+    {
+      "text": "49. Y la longitud del vestíbulo era de veinte codos, y de",
+      "box": [
+        553,
+        875,
+        921,
+        903
+      ],
+      "score": 0.9996218681335449
+    },
+    {
+      "text": "otra de otro en su fachada.",
+      "box": [
+        70,
+        906,
+        234,
+        925
+      ],
+      "score": 0.9992472529411316
+    },
+    {
+      "text": "once codos de anchura, y se subia á la puerta por ocho gra-",
+      "box": [
+        541,
+        892,
+        921,
+        920
+      ],
+      "score": 0.9907658100128174
+    },
+    {
+      "text": "27. La puerta del atrio interior caia al Mediodía; y midió",
+      "box": [
+        84,
+        921,
+        441,
+        941
+      ],
+      "score": 0.9982800483703613
+    },
+    {
+      "text": "das. Y en la fachada habia dos columnas, una de un lado y",
+      "box": [
+        542,
+        909,
+        920,
+        936
+      ],
+      "score": 0.9812778234481812
+    },
+    {
+      "text": "de puerta á puerta en la parte meridional cien codos.",
+      "box": [
+        71,
+        938,
+        393,
+        958
+      ],
+      "score": 0.9953272342681885
+    },
+    {
+      "text": "otra de otro4.",
+      "box": [
+        542,
+        932,
+        629,
+        953
+      ],
+      "score": 0.9568057656288147
+    },
+    {
+      "text": "28. Y llevóme al atrio interior á la puerta del Mediodía;",
+      "box": [
+        85,
+        952,
+        442,
+        974
+      ],
+      "score": 0.9894304871559143
+    },
+    {
+      "text": "CAPITULO XLI",
+      "box": [
+        670,
+        957,
+        778,
+        978
+      ],
+      "score": 0.9980195164680481
+    },
+    {
+      "text": "y midió la puerta, la cual era de las mismas medidas que",
+      "box": [
+        70,
+        968,
+        444,
+        994
+      ],
+      "score": 0.9919337630271912
+    },
+    {
+      "text": "las otras.",
+      "box": [
+        72,
+        992,
+        131,
+        1009
+      ],
+      "score": 0.9977632761001587
+    },
+    {
+      "text": "Descripcion del templo: esto es, del lugar santo, del Santísimo ó Santo",
+      "box": [
+        543,
+        986,
+        923,
+        1018
+      ],
+      "score": 0.9778569340705872
+    },
+    {
+      "text": "29. Sus cámaras, y fachada, y zaguan, y sus ventanas y",
+      "box": [
+        85,
+        1001,
+        445,
+        1028
+      ],
+      "score": 0.9858394265174866
+    },
+    {
+      "text": "de los Santos, y de las estancias contiguas al templo.",
+      "box": [
+        591,
+        1006,
+        868,
+        1029
+      ],
+      "score": 0.9958816766738892
+    },
+    {
+      "text": "su zaguan al rededor, tenian las mismas medidas, cincuenta",
+      "box": [
+        73,
+        1019,
+        444,
+        1044
+      ],
+      "score": 0.9994660019874573
+    },
+    {
+      "text": "codos de largo, y veinte y cinco de ancho.",
+      "box": [
+        73,
+        1036,
+        330,
+        1062
+      ],
+      "score": 0.9985499382019043
+    },
+    {
+      "text": "1. É introdújome el Angel en el templo, y midió los pos-",
+      "box": [
+        556,
+        1036,
+        926,
+        1069
+      ],
+      "score": 0.9902432560920715
+    },
+    {
+      "text": "30. Y el vestíbulo que habia al rededor tenia veinte y",
+      "box": [
+        86,
+        1050,
+        446,
+        1078
+      ],
+      "score": 0.9858103394508362
+    },
+    {
+      "text": "tes, que tenian seis codos de anchura por un lado y seis codos",
+      "box": [
+        545,
+        1054,
+        926,
+        1085
+      ],
+      "score": 0.9914758801460266
+    },
+    {
+      "text": "cinco codos de largo y cinco de ancho.",
+      "box": [
+        74,
+        1071,
+        310,
+        1094
+      ],
+      "score": 0.9975807666778564
+    },
+    {
+      "text": "por otro; lo cual era la anchura del Tabernáculo antiguo.",
+      "box": [
+        544,
+        1072,
+        900,
+        1102
+      ],
+      "score": 0.9986971020698547
+    },
+    {
+      "text": "31. Y su pórtico daba al atrio exterior: habia tambien",
+      "box": [
+        87,
+        1083,
+        445,
+        1112
+      ],
+      "score": 0.9975666403770447
+    },
+    {
+      "text": "2. La anchura de la puerta era de diez codos; y sus lados",
+      "box": [
+        556,
+        1086,
+        928,
+        1120
+      ],
+      "score": 0.9839514493942261
+    },
+    {
+      "text": "palmas en la fachada, y ocho gradas para subir á la puerta.",
+      "box": [
+        73,
+        1100,
+        433,
+        1131
+      ],
+      "score": 0.9978765249252319
+    },
+    {
+      "text": "tenian cinco codos cada uno. Y midió la longitud",
+      "box": [
+        546,
+        1107,
+        859,
+        1134
+      ],
+      "score": 0.9944643974304199
+    },
+    {
+      "text": "del Santo,",
+      "box": [
+        853,
+        1105,
+        926,
+        1126
+      ],
+      "score": 0.9959657788276672
+    },
+    {
+      "text": "32. É introdújome en el mismo atrio interior por la parte",
+      "box": [
+        89,
+        1118,
+        446,
+        1144
+      ],
+      "score": 0.9970747232437134
+    },
+    {
+      "text": "y tenia cuarenta codos, y su anchura veinte codos.",
+      "box": [
+        545,
+        1124,
+        856,
+        1152
+      ],
+      "score": 0.9892420768737793
+    },
+    {
+      "text": "oriental; y midió la puerta, la cual era de las mismas medi-",
+      "box": [
+        77,
+        1133,
+        448,
+        1162
+      ],
+      "score": 0.9989505410194397
+    },
+    {
+      "text": "3. Y habiendo entrado en lo interior s, midió un poste de",
+      "box": [
+        557,
+        1135,
+        930,
+        1169
+      ],
+      "score": 0.9584575295448303
+    },
+    {
+      "text": "das que las otras.",
+      "box": [
+        76,
+        1158,
+        186,
+        1178
+      ],
+      "score": 0.9929297566413879
+    },
+    {
+      "text": "la puerta que era de dos codos, y la puerta de seis codos;",
+      "box": [
+        545,
+        1154,
+        930,
+        1184
+      ],
+      "score": 0.9940570592880249
+    },
+    {
+      "text": "33. Sus cámaras, su fachada y su vestíbulo, así como",
+      "box": [
+        90,
+        1166,
+        447,
+        1194
+      ],
+      "score": 0.9986887574195862
+    },
+    {
+      "text": "y además de esta abertura, siete codos de ancho desde la",
+      "box": [
+        545,
+        1170,
+        930,
+        1200
+      ],
+      "score": 0.9975208640098572
+    },
+    {
+      "text": "arriba; y las ventanas y el vestíbulo al rededor tenian de",
+      "box": [
+        76,
+        1184,
+        448,
+        1210
+      ],
+      "score": 0.9913610219955444
+    },
+    {
+      "text": "puerta á cada rincon.",
+      "box": [
+        547,
+        1193,
+        678,
+        1216
+      ],
+      "score": 0.9981016516685486
+    },
+    {
+      "text": "longitud cincuenta codos, y veinte y cinco codos de anchura.",
+      "box": [
+        75,
+        1199,
+        448,
+        1228
+      ],
+      "score": 0.9886971712112427
+    },
+    {
+      "text": "ofecerse al Señor en holocausto.—III. Reg. VII, v. 39.—II.Paral.IV,",
+      "box": [
+        545,
+        1212,
+        930,
+        1245
+      ],
+      "score": 0.7488236427307129
+    },
+    {
+      "text": ": Esto es, por dentro anchas, y por fuera angostas. Otros traducen:",
+      "box": [
+        86,
+        1228,
+        449,
+        1255
+      ],
+      "score": 0.9869222044944763
+    },
+    {
+      "text": "v. 6.",
+      "box": [
+        547,
+        1239,
+        576,
+        1258
+      ],
+      "score": 0.9090954661369324
+    },
+    {
+      "text": "claraboyas.",
+      "box": [
+        76,
+        1249,
+        141,
+        1271
+      ],
+      "score": 0.999869704246521
+    },
+    {
+      "text": "3 O degollaban.",
+      "box": [
+        558,
+        1250,
+        643,
+        1270
+      ],
+      "score": 0.9822481870651245
+    },
+    {
+      "text": "à Dentro del atrio de los sacerdotes, al lado de las dos grandes puertas",
+      "box": [
+        86,
+        1256,
+        449,
+        1282
+      ],
+      "score": 0.9801903963088989
+    },
+    {
+      "text": " III. Reg. VII, v. 15.—II. Paral. III, v. 15.",
+      "box": [
+        559,
+        1259,
+        796,
+        1284
+      ],
+      "score": 0.9347632527351379
+    },
+    {
+      "text": "meridional y septentrional. Estaban allí entre columnata y columnata",
+      "box": [
+        75,
+        1269,
+        450,
+        1299
+      ],
+      "score": 0.9232664108276367
+    },
+    {
+      "text": "5 O en el Saneta Sanctorum.",
+      "box": [
+        561,
+        1277,
+        708,
+        1297
+      ],
+      "score": 0.962860107421875
+    },
+    {
+      "text": "las diez conchas que hizo Salomon para lavar las víctimas que habian de",
+      "box": [
+        75,
+        1283,
+        450,
+        1313
+      ],
+      "score": 0.9728259444236755
+    }
+  ]
+}

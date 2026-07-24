@@ -1,0 +1,1487 @@
+{
+  "volume": 1,
+  "page_index": 51,
+  "pdf_page": 52,
+  "lines": [
+    {
+      "text": "47",
+      "box": [
+        34,
+        31,
+        53,
+        48
+      ],
+      "score": 0.9998995661735535
+    },
+    {
+      "text": "GÉNESIS.",
+      "box": [
+        185,
+        36,
+        256,
+        54
+      ],
+      "score": 0.9588413238525391
+    },
+    {
+      "text": "CAPITULO XXXII.",
+      "box": [
+        642,
+        35,
+        772,
+        61
+      ],
+      "score": 0.9958959817886353
+    },
+    {
+      "text": "48",
+      "box": [
+        864,
+        54,
+        880,
+        68
+      ],
+      "score": 0.9916235208511353
+    },
+    {
+      "text": "43. Respondióle Laban: Mis hijas é hijos, y los rebaños",
+      "box": [
+        40,
+        75,
+        417,
+        105
+      ],
+      "score": 0.9899178147315979
+    },
+    {
+      "text": "10. Yo soy indigno de todas tus misericordias, y de la",
+      "box": [
+        525,
+        81,
+        889,
+        113
+      ],
+      "score": 0.993902325630188
+    },
+    {
+      "text": "tuyos, y todo cuanto miras en tu poder, son cosa mia: ¿qué",
+      "box": [
+        27,
+        93,
+        417,
+        123
+      ],
+      "score": 0.9922351241111755
+    },
+    {
+      "text": "fidelidad con que has cumplido á tu siervo las promesas que",
+      "box": [
+        518,
+        100,
+        889,
+        131
+      ],
+      "score": 0.9831593632698059
+    },
+    {
+      "text": "puedo hacer yo contra mis hijas y nietos?",
+      "box": [
+        28,
+        112,
+        295,
+        135
+      ],
+      "score": 0.9832644462585449
+    },
+    {
+      "text": "le hiciste: solo con mi simple cayado pasé este rio Jordan, y",
+      "box": [
+        518,
+        117,
+        887,
+        147
+      ],
+      "score": 0.9870152473449707
+    },
+    {
+      "text": "44. Ea pues, hagamos una alianza que sirva de testimonio",
+      "box": [
+        44,
+        130,
+        417,
+        155
+      ],
+      "score": 0.9979152679443359
+    },
+    {
+      "text": "ahora vuelvo con dos cuadrillas de gentes y ganados:",
+      "box": [
+        518,
+        136,
+        843,
+        161
+      ],
+      "score": 0.9983377456665039
+    },
+    {
+      "text": "de la armonía entre los dos.",
+      "box": [
+        30,
+        146,
+        219,
+        171
+      ],
+      "score": 0.9987702369689941
+    },
+    {
+      "text": "11. Líbrame, te ruego, de las manos de mi hermano Esaú,",
+      "box": [
+        531,
+        153,
+        887,
+        178
+      ],
+      "score": 0.9856141805648804
+    },
+    {
+      "text": "45. Tomó entonces Jacob una piedra, y la erigió en tes-",
+      "box": [
+        45,
+        164,
+        417,
+        188
+      ],
+      "score": 0.9753345847129822
+    },
+    {
+      "text": "porque le temo mucho; no sea que arremetiendo, acabe con",
+      "box": [
+        517,
+        168,
+        889,
+        195
+      ],
+      "score": 0.9887729287147522
+    },
+    {
+      "text": "timonio 1:",
+      "box": [
+        33,
+        182,
+        104,
+        200
+      ],
+      "score": 0.9006816148757935
+    },
+    {
+      "text": "madres é hijos.",
+      "box": [
+        516,
+        183,
+        613,
+        206
+      ],
+      "score": 0.9683783650398254
+    },
+    {
+      "text": "46. Y dijo á sus hermanos: Traed piedras; Y habiéndolas",
+      "box": [
+        45,
+        197,
+        417,
+        220
+      ],
+      "score": 0.9826146960258484
+    },
+    {
+      "text": "12. Tú has prometido hacerme mil bienes, y dilatar mi",
+      "box": [
+        530,
+        199,
+        890,
+        227
+      ],
+      "score": 0.9992716312408447
+    },
+    {
+      "text": "recogido formaron un majano ², y comieron encima de él:",
+      "box": [
+        32,
+        213,
+        393,
+        237
+      ],
+      "score": 0.9829579591751099
+    },
+    {
+      "text": "descendencia como las arenas del mar, que por la muche-",
+      "box": [
+        517,
+        216,
+        891,
+        244
+      ],
+      "score": 0.9822834134101868
+    },
+    {
+      "text": "47. Al cual llamó Laban: Majano del testigo; y Jacob, Ma-",
+      "box": [
+        46,
+        230,
+        416,
+        253
+      ],
+      "score": 0.9928021430969238
+    },
+    {
+      "text": "dumbre no pueden contarse.",
+      "box": [
+        519,
+        232,
+        695,
+        255
+      ],
+      "score": 0.9999415874481201
+    },
+    {
+      "text": "jano del testimonio, cada uno segun la propicdad de su",
+      "box": [
+        29,
+        243,
+        418,
+        274
+      ],
+      "score": 0.9684246778488159
+    },
+    {
+      "text": "13. Habiendo pues dormido allí aquella noche, scparó de",
+      "box": [
+        529,
+        249,
+        891,
+        275
+      ],
+      "score": 0.9916042685508728
+    },
+    {
+      "text": "lengua.",
+      "box": [
+        31,
+        260,
+        88,
+        284
+      ],
+      "score": 0.9990453124046326
+    },
+    {
+      "text": "todo lo que tenia, lo que habia destinado para regalar á su",
+      "box": [
+        517,
+        264,
+        892,
+        292
+      ],
+      "score": 0.9959343075752258
+    },
+    {
+      "text": "48. Y dijo Laban: Este majano será desde hoy testigo entre",
+      "box": [
+        46,
+        279,
+        415,
+        302
+      ],
+      "score": 0.9907651543617249
+    },
+    {
+      "text": "hermano Esaú,",
+      "box": [
+        517,
+        281,
+        615,
+        301
+      ],
+      "score": 0.9995194673538208
+    },
+    {
+      "text": "mí y entre tí; y en atencion á esto se le dió el nombre de",
+      "box": [
+        31,
+        294,
+        416,
+        320
+      ],
+      "score": 0.9889611601829529
+    },
+    {
+      "text": "14. Es á saber, doscientas cabras, veinte machos de ca-",
+      "box": [
+        529,
+        297,
+        891,
+        321
+      ],
+      "score": 0.9865034818649292
+    },
+    {
+      "text": "Galaad, esto es, Majano del testigo.",
+      "box": [
+        33,
+        310,
+        254,
+        335
+      ],
+      "score": 0.9683118462562561
+    },
+    {
+      "text": "brío, doscientas ovejas, y veinte carneros,",
+      "box": [
+        517,
+        312,
+        779,
+        337
+      ],
+      "score": 0.975770115852356
+    },
+    {
+      "text": "49. El Señor vele y sea juez entre nosotros, cuando nos",
+      "box": [
+        47,
+        328,
+        416,
+        350
+      ],
+      "score": 0.9944359064102173
+    },
+    {
+      "text": "15. Treinta camellas paridas con sus crias, cuarenta va-",
+      "box": [
+        530,
+        329,
+        891,
+        353
+      ],
+      "score": 0.9901995062828064
+    },
+    {
+      "text": "hubiéremos separado.",
+      "box": [
+        34,
+        343,
+        176,
+        365
+      ],
+      "score": 0.9881938695907593
+    },
+    {
+      "text": "cas, veinte toros, y veinte asnas, con diez de sus pollinos.",
+      "box": [
+        519,
+        345,
+        871,
+        369
+      ],
+      "score": 0.9853326082229614
+    },
+    {
+      "text": "50. Si tú maltratares mis hijas, y tomares otras mujeres",
+      "box": [
+        46,
+        358,
+        416,
+        382
+      ],
+      "score": 0.9948320388793945
+    },
+    {
+      "text": "16. Y envió por medio de sus criados cada manada de es-",
+      "box": [
+        531,
+        362,
+        891,
+        385
+      ],
+      "score": 0.996690034866333
+    },
+    {
+      "text": "además de ellas, ningun testigo hay de nuestra conferencia",
+      "box": [
+        33,
+        374,
+        416,
+        398
+      ],
+      "score": 0.9911378622055054
+    },
+    {
+      "text": "tas de por sí, y dijo á los mozos: Id delante de mí, dejando",
+      "box": [
+        519,
+        379,
+        891,
+        400
+      ],
+      "score": 0.9847086668014526
+    },
+    {
+      "text": "sino es Dios, que presente nos mira.",
+      "box": [
+        33,
+        391,
+        261,
+        414
+      ],
+      "score": 0.9745394587516785
+    },
+    {
+      "text": "algun trecho entre manada y manada.",
+      "box": [
+        519,
+        396,
+        755,
+        415
+      ],
+      "score": 0.9862426519393921
+    },
+    {
+      "text": "51. Y dijo de nuevo á Jacob: Mira, este majano, y la piedra",
+      "box": [
+        48,
+        408,
+        416,
+        431
+      ],
+      "score": 0.9905802011489868
+    },
+    {
+      "text": "17. Y dió esta órden al primero: Si encontrares á mi her-",
+      "box": [
+        531,
+        411,
+        893,
+        433
+      ],
+      "score": 0.9761825203895569
+    },
+    {
+      "text": "que he levantado entre los dos,",
+      "box": [
+        35,
+        426,
+        235,
+        446
+      ],
+      "score": 0.9989259243011475
+    },
+    {
+      "text": "mano Esaú, y te preguntare: ¿De quién cres? ó, ¿á dónde",
+      "box": [
+        520,
+        428,
+        892,
+        449
+      ],
+      "score": 0.9870855808258057
+    },
+    {
+      "text": "52. Servirán de testigo: este majano, digo, y la piedra",
+      "box": [
+        48,
+        442,
+        417,
+        463
+      ],
+      "score": 0.9876015186309814
+    },
+    {
+      "text": "vas? ó, ¿de quién es eso que conduces?",
+      "box": [
+        522,
+        446,
+        756,
+        463
+      ],
+      "score": 0.9785135984420776
+    },
+    {
+      "text": "darán testimonio, si ó yo pasare de él para ir contra tí, ó tú le",
+      "box": [
+        34,
+        458,
+        417,
+        480
+      ],
+      "score": 0.9805401563644409
+    },
+    {
+      "text": "18. Has de responder: Es un regalo de tu siervo. Jacob,",
+      "box": [
+        533,
+        461,
+        892,
+        480
+      ],
+      "score": 0.998589813709259
+    },
+    {
+      "text": "pasares maquinando mal contra mí.",
+      "box": [
+        35,
+        478,
+        261,
+        495
+      ],
+      "score": 0.9851377010345459
+    },
+    {
+      "text": "que le envia á mi señor Esaú, y él mismo en persona viene",
+      "box": [
+        522,
+        479,
+        893,
+        496
+      ],
+      "score": 0.9941460490226746
+    },
+    {
+      "text": "53. El Dios de Abraham, y el Dios de Nachor, el Dios de",
+      "box": [
+        50,
+        493,
+        417,
+        513
+      ],
+      "score": 0.9871501326560974
+    },
+    {
+      "text": "detrás de nosotros.",
+      "box": [
+        522,
+        495,
+        637,
+        512
+      ],
+      "score": 0.9998525381088257
+    },
+    {
+      "text": "sus padres sea nuestro juez. Juró pues Jacob por el Dios",
+      "box": [
+        35,
+        509,
+        417,
+        529
+      ],
+      "score": 0.9913016557693481
+    },
+    {
+      "text": "19. Las mismas órdenes dió al segundo, y al tercero, y á",
+      "box": [
+        532,
+        508,
+        895,
+        531
+      ],
+      "score": 0.9944618344306946
+    },
+    {
+      "text": "temido y reverenciado de su padre Isaac:",
+      "box": [
+        35,
+        525,
+        295,
+        547
+      ],
+      "score": 0.9928878545761108
+    },
+    {
+      "text": "todos los demás que iban detrás de aquellas manadas, dicien-",
+      "box": [
+        522,
+        526,
+        895,
+        546
+      ],
+      "score": 0.9998356103897095
+    },
+    {
+      "text": "54. É inmoladas víctimas en el monte, convidó á comer á",
+      "box": [
+        51,
+        544,
+        417,
+        561
+      ],
+      "score": 0.9739215970039368
+    },
+    {
+      "text": "do: En los mismos términos habeis de hablar á Esaú, cuando",
+      "box": [
+        522,
+        541,
+        895,
+        563
+      ],
+      "score": 0.9985347390174866
+    },
+    {
+      "text": "sus hermanos ó parientes: los cuales despues de haber comido,",
+      "box": [
+        37,
+        561,
+        417,
+        578
+      ],
+      "score": 0.9922556281089783
+    },
+    {
+      "text": "le encontreis.",
+      "box": [
+        522,
+        562,
+        608,
+        579
+      ],
+      "score": 0.9999611973762512
+    },
+    {
+      "text": "se quedaron allí aquella noche.",
+      "box": [
+        36,
+        577,
+        232,
+        594
+      ],
+      "score": 0.994821310043335
+    },
+    {
+      "text": "20. Y no dejeis de añadir: Tu siervo Jacob en persona vio-",
+      "box": [
+        533,
+        572,
+        896,
+        596
+      ],
+      "score": 0.985750138759613
+    },
+    {
+      "text": "55. Pero Laban levantándose antes de amanecer, besó á",
+      "box": [
+        50,
+        591,
+        419,
+        613
+      ],
+      "score": 0.9945948719978333
+    },
+    {
+      "text": "ne siguiendo detrás de nosotros: porque dijo: Le aplacaré con",
+      "box": [
+        522,
+        589,
+        896,
+        612
+      ],
+      "score": 0.988129734992981
+    },
+    {
+      "text": "sus hijos y á sus hijas, y echóles la bendicion, y se volvió á",
+      "box": [
+        35,
+        608,
+        419,
+        630
+      ],
+      "score": 0.9785050749778748
+    },
+    {
+      "text": "los regalos que preceden, y despues me presentaré á él, quizá",
+      "box": [
+        521,
+        604,
+        896,
+        629
+      ],
+      "score": 0.9877052903175354
+    },
+    {
+      "text": "su país.",
+      "box": [
+        37,
+        628,
+        92,
+        646
+      ],
+      "score": 0.9998781681060791
+    },
+    {
+      "text": "se me mostrará propicio.",
+      "box": [
+        522,
+        625,
+        676,
+        644
+      ],
+      "score": 0.9991000294685364
+    },
+    {
+      "text": "21. Remitió pues los dones por delante, y él pasó aquella",
+      "box": [
+        534,
+        637,
+        897,
+        660
+      ],
+      "score": 0.9912440180778503
+    },
+    {
+      "text": "CAPÍTULO XXXII",
+      "box": [
+        172,
+        652,
+        290,
+        671
+      ],
+      "score": 0.9819478988647461
+    },
+    {
+      "text": "noche en el campamento.",
+      "box": [
+        525,
+        659,
+        681,
+        676
+      ],
+      "score": 0.999761164188385
+    },
+    {
+      "text": "22. Y levantándose muy temprano, tomó sus dos mujeres",
+      "box": [
+        535,
+        670,
+        898,
+        692
+      ],
+      "score": 0.9964752197265625
+    },
+    {
+      "text": "Jacob avisa su llegada á Esaá, y lo aplaca. Lucha misteriosa con un",
+      "box": [
+        53,
+        681,
+        405,
+        702
+      ],
+      "score": 0.9869549870491028
+    },
+    {
+      "text": "Angel: el cual le muda el nombre de Jacob en el de Israél.",
+      "box": [
+        78,
+        694,
+        382,
+        717
+      ],
+      "score": 0.9804252982139587
+    },
+    {
+      "text": "y las dos criadas, con los once hijos, y pasó el vado de Jaboc.",
+      "box": [
+        524,
+        687,
+        898,
+        709
+      ],
+      "score": 0.9912903904914856
+    },
+    {
+      "text": "23. Y despues de haber hecho pasar todo lo que le pertc-",
+      "box": [
+        535,
+        704,
+        899,
+        724
+      ],
+      "score": 0.9904434084892273
+    },
+    {
+      "text": "1. Jacob entonces prosiguió cl viaje comenzado: y salié-",
+      "box": [
+        52,
+        724,
+        419,
+        745
+      ],
+      "score": 0.996303141117096
+    },
+    {
+      "text": "necia,",
+      "box": [
+        525,
+        724,
+        567,
+        742
+      ],
+      "score": 0.9999052882194519
+    },
+    {
+      "text": "ronle al encuentro Ángeles de Dios ³.",
+      "box": [
+        38,
+        741,
+        271,
+        762
+      ],
+      "score": 0.9791479110717773
+    },
+    {
+      "text": "24. Quedóse solo: y hé aquí que se le apareció un perso-",
+      "box": [
+        536,
+        737,
+        899,
+        757
+      ],
+      "score": 0.9929035902023315
+    },
+    {
+      "text": "2. Vistos los cuales, dijo: Hé aquí los campamentos de",
+      "box": [
+        52,
+        757,
+        420,
+        778
+      ],
+      "score": 0.9921603202819824
+    },
+    {
+      "text": "naje 5, que comenzó á luchar con él hasta la mañana.",
+      "box": [
+        525,
+        754,
+        854,
+        774
+      ],
+      "score": 0.9815044403076172
+    },
+    {
+      "text": "Dios; y llamó á aquel lugar Mahanaim, esto es, Campamentos.",
+      "box": [
+        38,
+        772,
+        420,
+        796
+      ],
+      "score": 0.9782218337059021
+    },
+    {
+      "text": "25. Éste varon respetable, viendo que no podia  sobrepujar",
+      "box": [
+        537,
+        768,
+        900,
+        790
+      ],
+      "score": 0.9715585112571716
+    },
+    {
+      "text": "3. De aquí tambien despachó mensajeros delante de sí á",
+      "box": [
+        54,
+        789,
+        421,
+        812
+      ],
+      "score": 0.9740645885467529
+    },
+    {
+      "text": "á Jacob, le tocó el tendon del muslo, que al instante se secó.",
+      "box": [
+        526,
+        784,
+        900,
+        807
+      ],
+      "score": 0.9934284687042236
+    },
+    {
+      "text": "su hermano Esaú á tierra de Seir, en la Iduméa;",
+      "box": [
+        40,
+        807,
+        340,
+        828
+      ],
+      "score": 0.9983206987380981
+    },
+    {
+      "text": "26. Y le dijo: Déjame ir, que ya raya el alba. Jacob 7 res-",
+      "box": [
+        537,
+        799,
+        901,
+        824
+      ],
+      "score": 0.980305552482605
+    },
+    {
+      "text": "4. Dándoles csta órden: Hablareis de esa manera á mi",
+      "box": [
+        54,
+        822,
+        421,
+        845
+      ],
+      "score": 0.9861541986465454
+    },
+    {
+      "text": "pondió: No te dejaré ir, si antes no me das la bendicion.",
+      "box": [
+        525,
+        816,
+        871,
+        840
+      ],
+      "score": 0.9856687188148499
+    },
+    {
+      "text": "señor Esaú: Jacob tu hermano te cnvia á decir lo siguiente:",
+      "box": [
+        39,
+        840,
+        422,
+        862
+      ],
+      "score": 0.9948586225509644
+    },
+    {
+      "text": "27. ¿Cómo te llamas? le preguntó el Angel. Él respondió:",
+      "box": [
+        522,
+        829,
+        902,
+        858
+      ],
+      "score": 0.9832693934440613
+    },
+    {
+      "text": "Me fuí peregrinando á casa de Laban, y en ella he estado",
+      "box": [
+        40,
+        857,
+        422,
+        879
+      ],
+      "score": 0.9963249564170837
+    },
+    {
+      "text": "Jacob.",
+      "box": [
+        527,
+        854,
+        571,
+        872
+      ],
+      "score": 0.9999596476554871
+    },
+    {
+      "text": "hasta el dia presente.",
+      "box": [
+        41,
+        876,
+        179,
+        895
+      ],
+      "score": 0.979985237121582
+    },
+    {
+      "text": "28. No ha de ser ya tu nombre Jacob, dijo entonces el Án-",
+      "box": [
+        537,
+        861,
+        902,
+        890
+      ],
+      "score": 0.9934916496276855
+    },
+    {
+      "text": "5. Tengo bueyes, y asnos, y ovejas, y esclavos, y esclavas:",
+      "box": [
+        56,
+        890,
+        424,
+        913
+      ],
+      "score": 0.9964308142662048
+    },
+    {
+      "text": "gol, sino Israél; porque si con el mismo Dios te has mostrado",
+      "box": [
+        525,
+        877,
+        902,
+        907
+      ],
+      "score": 0.9673894643783569
+    },
+    {
+      "text": "y ahora envío cstos mensajeros á mi señor con deseo de hallar",
+      "box": [
+        40,
+        906,
+        424,
+        931
+      ],
+      "score": 0.9929767847061157
+    },
+    {
+      "text": "fuerte, ¿cuánto mas prevalecerás contra todos los hombres?",
+      "box": [
+        526,
+        894,
+        891,
+        923
+      ],
+      "score": 0.9902302026748657
+    },
+    {
+      "text": "20. Preguntóle Jacob: Dime ahora, ¿cuál cs tu nombre?",
+      "box": [
+        538,
+        909,
+        904,
+        939
+      ],
+      "score": 0.9819011092185974
+    },
+    {
+      "text": "gracia en su presencia.",
+      "box": [
+        41,
+        924,
+        189,
+        949
+      ],
+      "score": 0.9942512512207031
+    },
+    {
+      "text": "6. Los enviados volvieron á Jacob, diciendo: Fuimos á tu",
+      "box": [
+        57,
+        939,
+        423,
+        964
+      ],
+      "score": 0.9899300336837769
+    },
+    {
+      "text": "Respondió: ¿Por qué quieres saber mi nombre? Y allí mismo",
+      "box": [
+        527,
+        925,
+        903,
+        955
+      ],
+      "score": 0.9894566535949707
+    },
+    {
+      "text": "le dió su bendicion.",
+      "box": [
+        528,
+        949,
+        650,
+        968
+      ],
+      "score": 0.9989908337593079
+    },
+    {
+      "text": "hermano Esaú; y hételo que viene presuroso á tu encuentro",
+      "box": [
+        44,
+        957,
+        423,
+        979
+      ],
+      "score": 0.996137261390686
+    },
+    {
+      "text": "30. Por donde Jacob llamó aquel lugar Phanuel , dicien-",
+      "box": [
+        538,
+        956,
+        906,
+        987
+      ],
+      "score": 0.9881447553634644
+    },
+    {
+      "text": "con cuatrocientos hombres.",
+      "box": [
+        45,
+        975,
+        216,
+        997
+      ],
+      "score": 0.9991617798805237
+    },
+    {
+      "text": "do: Yo he visto á Dios cara á cara, y mi vida ha quedado en",
+      "box": [
+        528,
+        975,
+        905,
+        1003
+      ],
+      "score": 0.9877920746803284
+    },
+    {
+      "text": "7. Concibió Jacob grandísimo miedo: y lleno de terror,",
+      "box": [
+        59,
+        987,
+        425,
+        1014
+      ],
+      "score": 0.9991458654403687
+    },
+    {
+      "text": "salvo 10.",
+      "box": [
+        531,
+        999,
+        582,
+        1017
+      ],
+      "score": 0.9180328845977783
+    },
+    {
+      "text": "dividió la gente * que tenia consigo, juntamente con los ga-",
+      "box": [
+        46,
+        1004,
+        426,
+        1030
+      ],
+      "score": 0.9834099411964417
+    },
+    {
+      "text": "31. Al punto que partió de Phanuel, le salió cl sol: mas",
+      "box": [
+        542,
+        1008,
+        905,
+        1035
+      ],
+      "score": 0.9766041040420532
+    },
+    {
+      "text": "nados de ovejas, y de bucyes, y de camellos, en dos bandas,",
+      "box": [
+        47,
+        1022,
+        426,
+        1047
+      ],
+      "score": 0.9867863059043884
+    },
+    {
+      "text": "él iba cojeando de un pié.",
+      "box": [
+        531,
+        1030,
+        689,
+        1050
+      ],
+      "score": 0.9829671382904053
+    },
+    {
+      "text": "8. Diciendo: Si Esaú acometiere una banda, y la destro-",
+      "box": [
+        61,
+        1038,
+        426,
+        1063
+      ],
+      "score": 0.990282416343689
+    },
+    {
+      "text": "32. Por este motivo los hijos de Israél, hasta el dia de",
+      "box": [
+        542,
+        1040,
+        907,
+        1068
+      ],
+      "score": 0.9875044226646423
+    },
+    {
+      "text": "zare, la otra banda que resta se salvará.",
+      "box": [
+        48,
+        1058,
+        291,
+        1080
+      ],
+      "score": 0.9992824792861938
+    },
+    {
+      "text": "hoy, no comen del nervio de los animales, correspondiente al",
+      "box": [
+        530,
+        1057,
+        908,
+        1084
+      ],
+      "score": 0.9936837553977966
+    },
+    {
+      "text": "9. Dijo despues Jacob: Oh Dios de mi padre Abraham, y",
+      "box": [
+        62,
+        1071,
+        427,
+        1096
+      ],
+      "score": 0.9894145727157593
+    },
+    {
+      "text": "que se secó en el muslo de Jacob; en memoria de que ha-",
+      "box": [
+        531,
+        1074,
+        909,
+        1099
+      ],
+      "score": 0.9919314980506897
+    },
+    {
+      "text": "Dios de mi padre Isaac! tú, Señor, que me dijiste: Vuélvete á",
+      "box": [
+        49,
+        1088,
+        427,
+        1112
+      ],
+      "score": 0.9816181063652039
+    },
+    {
+      "text": "biendo tocado el Angel dicho nervio, quedó este sin movi-",
+      "box": [
+        532,
+        1090,
+        910,
+        1116
+      ],
+      "score": 0.9918064475059509
+    },
+    {
+      "text": "tu tierra, y al lugar de tu nacimionto, que yo te colmaré de",
+      "box": [
+        48,
+        1104,
+        428,
+        1129
+      ],
+      "score": 0.9827424883842468
+    },
+    {
+      "text": "miento.",
+      "box": [
+        534,
+        1113,
+        583,
+        1131
+      ],
+      "score": 0.9998435974121094
+    },
+    {
+      "text": "beneficios:",
+      "box": [
+        51,
+        1127,
+        120,
+        1144
+      ],
+      "score": 0.9991666674613953
+    },
+    {
+      "text": "aunque tocando el muslo de Jacob y dejándole seco, dió bien á entender",
+      "box": [
+        532,
+        1146,
+        911,
+        1172
+      ],
+      "score": 0.9771127104759216
+    },
+    {
+      "text": "1 O monumento de la aliauza que iban á hacer.",
+      "box": [
+        62,
+        1166,
+        308,
+        1184
+      ],
+      "score": 0.9879990220069885
+    },
+    {
+      "text": "su virtud excelsa.",
+      "box": [
+        533,
+        1166,
+        627,
+        1183
+      ],
+      "score": 0.9817533493041992
+    },
+    {
+      "text": "2 O monton grande de piedras, que termina en un plano.",
+      "box": [
+        61,
+        1180,
+        359,
+        1199
+      ],
+      "score": 0.9906909465789795
+    },
+    {
+      "text": "7 Conociendo que era un Angel.",
+      "box": [
+        543,
+        1177,
+        712,
+        1197
+      ],
+      "score": 0.986258864402771
+    },
+    {
+      "text": "3 Cap. XLVIII, v. 16.",
+      "box": [
+        60,
+        1195,
+        189,
+        1213
+      ],
+      "score": 0.9669412970542908
+    },
+    {
+      "text": "8  significa hombre gue ve á Dios, y tambien Príncipe de Dios,",
+      "box": [
+        543,
+        1187,
+        911,
+        1210
+      ],
+      "score": 0.94472736120224
+    },
+    {
+      "text": "4 Observa San Agustin que ol justo, al paso que confia en Dios, no ha",
+      "box": [
+        60,
+        1205,
+        431,
+        1227
+      ],
+      "score": 0.9790626168251038
+    },
+    {
+      "text": "esto es, grande, ó invencible: y en este último sentido pareco que se lo",
+      "box": [
+        533,
+        1201,
+        912,
+        1225
+      ],
+      "score": 0.9281476140022278
+    },
+    {
+      "text": "de omitir las diligencias y socorros humanos.",
+      "box": [
+        49,
+        1221,
+        286,
+        1242
+      ],
+      "score": 0.9958640933036804
+    },
+    {
+      "text": "aplicó el Angel.—Véase Jacob.",
+      "box": [
+        534,
+        1218,
+        695,
+        1239
+      ],
+      "score": 0.9726575613021851
+    },
+    {
+      "text": "5 La mayor parte de los Padres é Intérpretes reconocen on este perso-",
+      "box": [
+        59,
+        1232,
+        431,
+        1256
+      ],
+      "score": 0.9836910963058472
+    },
+    {
+      "text": "Esto es, vista, ó rostro de Dios.",
+      "box": [
+        545,
+        1232,
+        718,
+        1252
+      ],
+      "score": 0.9889373779296875
+    },
+    {
+      "text": "naje que luchaba con Jacob á un Angel del Señor, que representaba á",
+      "box": [
+        49,
+        1246,
+        433,
+        1272
+      ],
+      "score": 0.9790194034576416
+    },
+    {
+      "text": "10 Observa San Cirilo que antiguamente se creia que el ver á un Angel",
+      "box": [
+        546,
+        1242,
+        913,
+        1266
+      ],
+      "score": 0.9811949729919434
+    },
+    {
+      "text": "Dios, óal Hijo de Dios; y así en el verso 30 se le llama Dios.",
+      "box": [
+        50,
+        1261,
+        370,
+        1287
+      ],
+      "score": 0.9614434838294983
+    },
+    {
+      "text": "llevaba consigo el perder los sentidos, y aun la vida.",
+      "box": [
+        536,
+        1258,
+        804,
+        1280
+      ],
+      "score": 0.9885888695716858
+    },
+    {
+      "text": "6 No quiso Dios, ni permitió que el Angel usara de toda su fuerza;",
+      "box": [
+        59,
+        1276,
+        432,
+        1300
+      ],
+      "score": 0.9856994152069092
+    }
+  ]
+}

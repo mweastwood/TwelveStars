@@ -1,0 +1,1447 @@
+{
+  "volume": 4,
+  "page_index": 111,
+  "pdf_page": 112,
+  "lines": [
+    {
+      "text": "131",
+      "box": [
+        68,
+        27,
+        94,
+        48
+      ],
+      "score": 0.9998592734336853
+    },
+    {
+      "text": "SAN JUAN.",
+      "box": [
+        205,
+        35,
+        287,
+        59
+      ],
+      "score": 0.9968189597129822
+    },
+    {
+      "text": "CAPITULO II.",
+      "box": [
+        674,
+        52,
+        772,
+        75
+      ],
+      "score": 0.9919378757476807
+    },
+    {
+      "text": "132",
+      "box": [
+        871,
+        61,
+        894,
+        78
+      ],
+      "score": 0.9999882578849792
+    },
+    {
+      "text": "21. Pues quién eres? le deron: Eres  la?Ydjo",
+      "box": [
+        72,
+        74,
+        443,
+        121
+      ],
+      "score": 0.5971767902374268
+    },
+    {
+      "text": "N lo Ee tel Pe Resd",
+      "box": [
+        61,
+        95,
+        358,
+        138
+      ],
+      "score": 0.5692216753959656
+    },
+    {
+      "text": "nunciaron los profetas, & Jesus de Nazareth, el hijo de",
+      "box": [
+        536,
+        100,
+        900,
+        124
+      ],
+      "score": 0.9975632429122925
+    },
+    {
+      "text": " Pues quin eres t, le dieron, para que podamos",
+      "box": [
+        74,
+        115,
+        443,
+        162
+      ],
+      "score": 0.7176202535629272
+    },
+    {
+      "text": "Joseph.",
+      "box": [
+        533,
+        118,
+        587,
+        143
+      ],
+      "score": 0.9787623286247253
+    },
+    {
+      "text": "d l reue  l u  edQ",
+      "box": [
+        62,
+        134,
+        442,
+        181
+      ],
+      "score": 0.5525217652320862
+    },
+    {
+      "text": "46. Respondióle Nathanael: ¿Acaso de Nazareth puede salir",
+      "box": [
+        547,
+        138,
+        899,
+        159
+      ],
+      "score": 0.9913953542709351
+    },
+    {
+      "text": "de tí mismo?",
+      "box": [
+        64,
+        155,
+        156,
+        184
+      ],
+      "score": 0.9988753795623779
+    },
+    {
+      "text": "cosa buena? Dícele Phelipe: Ven, y lo verás.",
+      "box": [
+        535,
+        157,
+        794,
+        174
+      ],
+      "score": 0.9973576068878174
+    },
+    {
+      "text": "47. Vió Jesus venir hácia sí á Nathanael, y dijo de él: Hé",
+      "box": [
+        546,
+        172,
+        898,
+        193
+      ],
+      "score": 0.9785101413726807
+    },
+    {
+      "text": "aquí un verdadero Israelita, en quien ni hay doblez ni",
+      "box": [
+        535,
+        191,
+        897,
+        208
+      ],
+      "score": 0.9997271299362183
+    },
+    {
+      "text": "el Profeta Isaías ².",
+      "box": [
+        66,
+        208,
+        186,
+        237
+      ],
+      "score": 0.9461361765861511
+    },
+    {
+      "text": "engaño.",
+      "box": [
+        536,
+        209,
+        585,
+        224
+      ],
+      "score": 0.989251971244812
+    },
+    {
+      "text": "24. Es de saber",
+      "box": [
+        79,
+        225,
+        192,
+        254
+      ],
+      "score": 0.9990098476409912
+    },
+    {
+      "text": "48. Dícele Nathanael: ¿De dónde me conoces? Respondióle",
+      "box": [
+        547,
+        223,
+        897,
+        240
+      ],
+      "score": 0.9911600947380066
+    },
+    {
+      "text": "Phariséos.",
+      "box": [
+        66,
+        241,
+        138,
+        267
+      ],
+      "score": 0.9989191889762878
+    },
+    {
+      "text": "que los enviados eran de la secta de los",
+      "box": [
+        191,
+        236,
+        438,
+        253
+      ],
+      "score": 0.9960787892341614
+    },
+    {
+      "text": "Jesus: Antes que Phelipe te llamara, yo te ví cuando estabas",
+      "box": [
+        535,
+        239,
+        898,
+        256
+      ],
+      "score": 0.9912886023521423
+    },
+    {
+      "text": "debajo de la higuera.",
+      "box": [
+        535,
+        255,
+        661,
+        272
+      ],
+      "score": 0.9973806738853455
+    },
+    {
+      "text": "49. Al oir esto Nathanael 7, le dijo: Oh Maestro mio! tú",
+      "box": [
+        547,
+        270,
+        897,
+        287
+      ],
+      "score": 0.9885371327400208
+    },
+    {
+      "text": "eres el Hijo de Dios, tú eres el Rey de Israél.",
+      "box": [
+        535,
+        286,
+        800,
+        300
+      ],
+      "score": 0.9834202527999878
+    },
+    {
+      "text": "50. Replicóle Jesus: Por haberte dicho que te ví debajo",
+      "box": [
+        545,
+        300,
+        897,
+        317
+      ],
+      "score": 0.9893161654472351
+    },
+    {
+      "text": "de la higuera, crees: mayores cosas que estas verás todavía.",
+      "box": [
+        533,
+        315,
+        891,
+        334
+      ],
+      "score": 0.9905755519866943
+    },
+    {
+      "text": "51. Y le añadió: En verdad, en verdad os digo, que algun",
+      "box": [
+        544,
+        330,
+        899,
+        350
+      ],
+      "score": 0.9930840134620667
+    },
+    {
+      "text": "dia vereis abierto el cielo, y á los ángeles de Dios subir, y",
+      "box": [
+        533,
+        345,
+        899,
+        366
+      ],
+      "score": 0.9893695116043091
+    },
+    {
+      "text": "correa de su zapato.",
+      "box": [
+        66,
+        356,
+        196,
+        382
+      ],
+      "score": 0.9944630861282349
+    },
+    {
+      "text": "bajar *, sirviendo al Hijo del hombre.",
+      "box": [
+        533,
+        361,
+        759,
+        381
+      ],
+      "score": 0.9760448336601257
+    },
+    {
+      "text": "28. Todo esto sucedió en Bethania, la que está á la otra",
+      "box": [
+        78,
+        372,
+        437,
+        400
+      ],
+      "score": 0.9889587163925171
+    },
+    {
+      "text": "parte del Jordan, donde Juan estaba bautizando.",
+      "box": [
+        66,
+        389,
+        365,
+        414
+      ],
+      "score": 0.9982944130897522
+    },
+    {
+      "text": "29. Al dia siguiente vió Juan á Jesus que venia á encon-",
+      "box": [
+        79,
+        404,
+        438,
+        432
+      ],
+      "score": 0.9434269666671753
+    },
+    {
+      "text": "CAPITULO II",
+      "box": [
+        671,
+        399,
+        762,
+        416
+      ],
+      "score": 0.9997459650039673
+    },
+    {
+      "text": "trarle, y dijo: Hé aquí el Cordero de Dios , ved aquí el que",
+      "box": [
+        66,
+        421,
+        437,
+        449
+      ],
+      "score": 0.9771038889884949
+    },
+    {
+      "text": "Bodas de Caná, donde Jesus convierte el agua en vino. Arroja con un",
+      "box": [
+        534,
+        430,
+        900,
+        448
+      ],
+      "score": 0.9981849789619446
+    },
+    {
+      "text": "quita los pecados del mundo.",
+      "box": [
+        68,
+        440,
+        250,
+        461
+      ],
+      "score": 0.9994543790817261
+    },
+    {
+      "text": "30. Éste es aquel de quien yo dije: En pos de mí viene",
+      "box": [
+        80,
+        455,
+        436,
+        479
+      ],
+      "score": 0.9978927373886108
+    },
+    {
+      "text": "azote á los negociantes del templo. Anuncia su resurreccion. Obra",
+      "box": [
+        545,
+        447,
+        900,
+        461
+      ],
+      "score": 0.9869551658630371
+    },
+    {
+      "text": "varios milagros. (Matth. 26, 27.—Mare. 14, 15.)",
+      "box": [
+        545,
+        459,
+        790,
+        477
+      ],
+      "score": 0.9715275764465332
+    },
+    {
+      "text": "un varon, el cual ha sido preferido á mí: por cuanto era ya",
+      "box": [
+        66,
+        472,
+        436,
+        496
+      ],
+      "score": 0.9855726361274719
+    },
+    {
+      "text": "antes que yo:",
+      "box": [
+        67,
+        490,
+        156,
+        510
+      ],
+      "score": 0.9998673796653748
+    },
+    {
+      "text": "1. Tres dias despues se celebraron unas bodas en Caná de",
+      "box": [
+        546,
+        494,
+        900,
+        511
+      ],
+      "score": 0.9966063499450684
+    },
+    {
+      "text": "31. Yo no le conocia personalmente; pero yo he venido á",
+      "box": [
+        79,
+        505,
+        437,
+        527
+      ],
+      "score": 0.9853696227073669
+    },
+    {
+      "text": "Galiléa: donde se hallaba la madre de Jesus,",
+      "box": [
+        535,
+        511,
+        800,
+        525
+      ],
+      "score": 0.9885029196739197
+    },
+    {
+      "text": "bautizar con agua, para que él sea reconocido por Mesías en",
+      "box": [
+        66,
+        522,
+        437,
+        544
+      ],
+      "score": 0.9927763938903809
+    },
+    {
+      "text": "2. Fué tambien convidado á las bodas Jesus con sus dis-",
+      "box": [
+        545,
+        525,
+        899,
+        544
+      ],
+      "score": 0.9975674152374268
+    },
+    {
+      "text": "Israél.",
+      "box": [
+        67,
+        540,
+        112,
+        558
+      ],
+      "score": 0.9993062615394592
+    },
+    {
+      "text": "cípulos.",
+      "box": [
+        534,
+        544,
+        585,
+        562
+      ],
+      "score": 0.9999016523361206
+    },
+    {
+      "text": "32. Y dió entonces Juan este testimonio de Jesus, diciendo:",
+      "box": [
+        80,
+        555,
+        438,
+        576
+      ],
+      "score": 0.9984695315361023
+    },
+    {
+      "text": "3. Y como viniese á faltar el vino, dijo á Jesus su madre:",
+      "box": [
+        544,
+        556,
+        899,
+        577
+      ],
+      "score": 0.9750472903251648
+    },
+    {
+      "text": "Yo he visto al Espíritu Santo descender del cielo en forma",
+      "box": [
+        69,
+        574,
+        435,
+        591
+      ],
+      "score": 0.9994721412658691
+    },
+    {
+      "text": "No tienen vino.",
+      "box": [
+        534,
+        576,
+        629,
+        593
+      ],
+      "score": 0.9999350309371948
+    },
+    {
+      "text": "de paloma, y reposar sobre él.",
+      "box": [
+        68,
+        590,
+        253,
+        607
+      ],
+      "score": 0.9992278218269348
+    },
+    {
+      "text": "4. Respondióle Jesus: Mujer, ¿qué nos va á mí y á tí? aun",
+      "box": [
+        544,
+        589,
+        898,
+        609
+      ],
+      "score": 0.9850858449935913
+    },
+    {
+      "text": "33. Yo antes no le conocia, mas el que me envió á bauti-",
+      "box": [
+        81,
+        604,
+        436,
+        623
+      ],
+      "score": 0.9910367131233215
+    },
+    {
+      "text": "no es llegada mi hora.",
+      "box": [
+        533,
+        606,
+        667,
+        624
+      ],
+      "score": 0.9984367489814758
+    },
+    {
+      "text": "zar con agua, me dijo: Aquel sobre quien vieres que baja",
+      "box": [
+        68,
+        619,
+        436,
+        641
+      ],
+      "score": 0.999273955821991
+    },
+    {
+      "text": "5. Dijo entonces su madre á los sirvientes: Haced lo que",
+      "box": [
+        546,
+        624,
+        897,
+        638
+      ],
+      "score": 0.9994786381721497
+    },
+    {
+      "text": "el Espíritu Santo, y reposa sobre él, ese es el que bautiza",
+      "box": [
+        69,
+        635,
+        436,
+        657
+      ],
+      "score": 0.9987151622772217
+    },
+    {
+      "text": "él os dirá.",
+      "box": [
+        533,
+        638,
+        597,
+        655
+      ],
+      "score": 0.980055570602417
+    },
+    {
+      "text": "con el Espíritu Santo.",
+      "box": [
+        70,
+        655,
+        207,
+        672
+      ],
+      "score": 0.9998771548271179
+    },
+    {
+      "text": "6. Estaban allí seis hydrias de piedra, destinadas para",
+      "box": [
+        546,
+        654,
+        899,
+        671
+      ],
+      "score": 0.9992308616638184
+    },
+    {
+      "text": "34. Yo le he visto: y por eso doy testimonio de que él es",
+      "box": [
+        83,
+        667,
+        436,
+        688
+      ],
+      "score": 0.9958394765853882
+    },
+    {
+      "text": "las purificaciones de los Judíos; en cada una de las cuales",
+      "box": [
+        535,
+        671,
+        898,
+        685
+      ],
+      "score": 0.9934983849525452
+    },
+    {
+      "text": "el Hijo de Dios.",
+      "box": [
+        70,
+        686,
+        172,
+        705
+      ],
+      "score": 0.9975672960281372
+    },
+    {
+      "text": "cabian dos ó tres cántaras 10.",
+      "box": [
+        533,
+        684,
+        703,
+        702
+      ],
+      "score": 0.9795428514480591
+    },
+    {
+      "text": "35. Al dia siguiente otra vez estaba Juan allí con dos de",
+      "box": [
+        84,
+        698,
+        436,
+        721
+      ],
+      "score": 0.9912405014038086
+    },
+    {
+      "text": "7. Díjoles Jesus: Llenad de agua aquellas hydrias. Y lle-",
+      "box": [
+        545,
+        702,
+        899,
+        719
+      ],
+      "score": 0.9848683476448059
+    },
+    {
+      "text": "sus discípulos.",
+      "box": [
+        70,
+        718,
+        164,
+        737
+      ],
+      "score": 0.9974492192268372
+    },
+    {
+      "text": "náronlas hasta arriba.",
+      "box": [
+        535,
+        719,
+        663,
+        733
+      ],
+      "score": 0.9996681809425354
+    },
+    {
+      "text": "36. Y viendo á Jesus que pasaba, dijo: Hé aquí el Cordero",
+      "box": [
+        85,
+        731,
+        436,
+        752
+      ],
+      "score": 0.9896928668022156
+    },
+    {
+      "text": "8. Díceles despues Jesus: Sacad ahora en algun vaso, y",
+      "box": [
+        544,
+        732,
+        899,
+        753
+      ],
+      "score": 0.9957954287528992
+    },
+    {
+      "text": "de Dios.",
+      "box": [
+        72,
+        752,
+        127,
+        769
+      ],
+      "score": 0.9985615015029907
+    },
+    {
+      "text": "llevadle al maestresala 1. Hiciéronlo así.",
+      "box": [
+        533,
+        749,
+        774,
+        767
+      ],
+      "score": 0.9892134070396423
+    },
+    {
+      "text": "37. Los dos discípulos al oirle hablar así, se fueron en pos",
+      "box": [
+        84,
+        763,
+        437,
+        786
+      ],
+      "score": 0.9975618124008179
+    },
+    {
+      "text": "9. Apenas probó el maestresala el agua convertida en",
+      "box": [
+        544,
+        765,
+        899,
+        785
+      ],
+      "score": 0.9875176548957825
+    },
+    {
+      "text": "de Jesus.",
+      "box": [
+        71,
+        782,
+        132,
+        802
+      ],
+      "score": 0.998733401298523
+    },
+    {
+      "text": "vino, como él no sabia de dónde era, bien que lo sabian los",
+      "box": [
+        534,
+        782,
+        899,
+        801
+      ],
+      "score": 0.9996737241744995
+    },
+    {
+      "text": "38. Y volviéndose Jesus, y viendo que le seguian, díjoles:",
+      "box": [
+        85,
+        796,
+        437,
+        817
+      ],
+      "score": 0.9972500205039978
+    },
+    {
+      "text": "sirvientes que la habian sacado; llamó al esposo,",
+      "box": [
+        533,
+        798,
+        822,
+        817
+      ],
+      "score": 0.9906803965568542
+    },
+    {
+      "text": "¿Qué buscais? Respondieron ellos: Rabbi, (que quiere decir",
+      "box": [
+        72,
+        813,
+        436,
+        833
+      ],
+      "score": 0.9959803819656372
+    },
+    {
+      "text": "10. Y le dijo: Todos sirven al principio el vino mejor; y",
+      "box": [
+        544,
+        814,
+        898,
+        834
+      ],
+      "score": 0.9966282844543457
+    },
+    {
+      "text": "Maestro) ¿dónde habitas?",
+      "box": [
+        72,
+        830,
+        228,
+        849
+      ],
+      "score": 0.9829276204109192
+    },
+    {
+      "text": "cuando los convidados han bebido ya á satisfaccion, sacan",
+      "box": [
+        533,
+        830,
+        899,
+        850
+      ],
+      "score": 0.9842627048492432
+    },
+    {
+      "text": "39. Díceles: Venid y lo vereis. Fueron pues, y vieron dón-",
+      "box": [
+        85,
+        845,
+        436,
+        864
+      ],
+      "score": 0.9983325004577637
+    },
+    {
+      "text": "el mas flojo: tú al contrario has reservado el buen vino para",
+      "box": [
+        533,
+        846,
+        899,
+        866
+      ],
+      "score": 0.9985719919204712
+    },
+    {
+      "text": "de habitaba, y se quedaron con él aquel dia: era entonces",
+      "box": [
+        72,
+        861,
+        437,
+        880
+      ],
+      "score": 0.9994781017303467
+    },
+    {
+      "text": "lo último.",
+      "box": [
+        533,
+        863,
+        595,
+        880
+      ],
+      "score": 0.9984935522079468
+    },
+    {
+      "text": "como la hora de las diez.",
+      "box": [
+        73,
+        879,
+        224,
+        896
+      ],
+      "score": 0.9918266534805298
+    },
+    {
+      "text": "11. Así en Caná de Galiléa 1ª hizo Jesus el primero de sus",
+      "box": [
+        545,
+        878,
+        899,
+        897
+      ],
+      "score": 0.989166259765625
+    },
+    {
+      "text": "40. Uno de los dos, que oido lo que dijo Juan siguieron á",
+      "box": [
+        87,
+        894,
+        436,
+        911
+      ],
+      "score": 0.9865884184837341
+    },
+    {
+      "text": "milagros, con que manifestó su gloria, y sus discípulos creye-",
+      "box": [
+        532,
+        892,
+        900,
+        916
+      ],
+      "score": 0.9993131756782532
+    },
+    {
+      "text": "Jesus, era Andrés hermano de Simon Pedro.",
+      "box": [
+        73,
+        909,
+        339,
+        927
+      ],
+      "score": 0.9995473623275757
+    },
+    {
+      "text": "ron mas en él 18.",
+      "box": [
+        535,
+        911,
+        632,
+        925
+      ],
+      "score": 0.9365242123603821
+    },
+    {
+      "text": "41. El primero á quien éste halló fué Simon su hermano,",
+      "box": [
+        88,
+        926,
+        435,
+        943
+      ],
+      "score": 0.9895169138908386
+    },
+    {
+      "text": "12. Despues de esto pasó á Capharnaum con su madre, sus",
+      "box": [
+        545,
+        924,
+        899,
+        946
+      ],
+      "score": 0.998994767665863
+    },
+    {
+      "text": "y le dijo: Hemos hallado al Mesías: (que quiere decir el",
+      "box": [
+        71,
+        938,
+        440,
+        961
+      ],
+      "score": 0.9990218877792358
+    },
+    {
+      "text": "hermanos ó parientes, y sus discípulos, en donde se detuvie-",
+      "box": [
+        533,
+        940,
+        900,
+        961
+      ],
+      "score": 0.9977772235870361
+    },
+    {
+      "text": "Christo),",
+      "box": [
+        74,
+        958,
+        132,
+        975
+      ],
+      "score": 0.9996640086174011
+    },
+    {
+      "text": "ron pocos dias.",
+      "box": [
+        535,
+        958,
+        623,
+        972
+      ],
+      "score": 0.982877790927887
+    },
+    {
+      "text": "42. Y le llevó á Jesus. Y Jesus, fijos los ojos en él, dijo:",
+      "box": [
+        87,
+        971,
+        438,
+        990
+      ],
+      "score": 0.9869673252105713
+    },
+    {
+      "text": "13. Estaba ya cerea la Pascua de los Judíos, y Jesus subió",
+      "box": [
+        543,
+        967,
+        902,
+        995
+      ],
+      "score": 0.9803244471549988
+    },
+    {
+      "text": "Tú eres Simon hijo de Jona ó Juan: Tú serás llamado Cephas,",
+      "box": [
+        75,
+        987,
+        437,
+        1006
+      ],
+      "score": 0.9779546856880188
+    },
+    {
+      "text": " Jerusalem:",
+      "box": [
+        534,
+        987,
+        614,
+        1004
+      ],
+      "score": 0.9896113872528076
+    },
+    {
+      "text": "que quiere decir Pedro ó piedra .",
+      "box": [
+        75,
+        1001,
+        280,
+        1025
+      ],
+      "score": 0.966057300567627
+    },
+    {
+      "text": "14. Y encontrando en el templo gentes que vendian bue-",
+      "box": [
+        545,
+        1000,
+        902,
+        1026
+      ],
+      "score": 0.9994456768035889
+    },
+    {
+      "text": "43. Al dia siguiente determinó Jesus encaminarse á Gali-",
+      "box": [
+        88,
+        1016,
+        438,
+        1039
+      ],
+      "score": 0.9881238341331482
+    },
+    {
+      "text": "yes, y ovejas, y palomas, y cambistas sentados en sus mesas;",
+      "box": [
+        533,
+        1016,
+        888,
+        1043
+      ],
+      "score": 0.9921159148216248
+    },
+    {
+      "text": "léa, y en el camino encontró á Phelipe, y díjole: Sígueme.",
+      "box": [
+        75,
+        1033,
+        419,
+        1055
+      ],
+      "score": 0.9757754802703857
+    },
+    {
+      "text": "15. Habiendo formado de cuerdas como un azote, los echó",
+      "box": [
+        544,
+        1032,
+        902,
+        1058
+      ],
+      "score": 0.9973370432853699
+    },
+    {
+      "text": "44. Era Phelipe de Bethsaida, patria de Andrés, y de",
+      "box": [
+        88,
+        1048,
+        439,
+        1071
+      ],
+      "score": 0.9947629570960999
+    },
+    {
+      "text": "á todos del templo, juntamente con las ovejas, y bueyes, y",
+      "box": [
+        533,
+        1047,
+        903,
+        1077
+      ],
+      "score": 0.9933180212974548
+    },
+    {
+      "text": "Pedro.",
+      "box": [
+        76,
+        1069,
+        120,
+        1087
+      ],
+      "score": 0.9979109168052673
+    },
+    {
+      "text": "derramó por el suelo el dinero de los cambistas, derribando",
+      "box": [
+        535,
+        1064,
+        902,
+        1091
+      ],
+      "score": 0.9907958507537842
+    },
+    {
+      "text": "45. Phelipe halló á Nathanael, y le dijo: Hemos encon-",
+      "box": [
+        89,
+        1080,
+        439,
+        1101
+      ],
+      "score": 0.9896553754806519
+    },
+    {
+      "text": "las mesas.",
+      "box": [
+        535,
+        1082,
+        597,
+        1099
+      ],
+      "score": 0.958517849445343
+    },
+    {
+      "text": "trado á aquel de quien escribió Moysés 6 en la Ley y pre-",
+      "box": [
+        77,
+        1097,
+        439,
+        1118
+      ],
+      "score": 0.9718326926231384
+    },
+    {
+      "text": "16. Y hasta á los que vendian palomas, les dijo: Quitad",
+      "box": [
+        546,
+        1095,
+        903,
+        1123
+      ],
+      "score": 0.9963425397872925
+    },
+    {
+      "text": "1 Realmente ni era Elías en persona, ni el Profeta, que, además de",
+      "box": [
+        87,
+        1124,
+        440,
+        1145
+      ],
+      "score": 0.9856403470039368
+    },
+    {
+      "text": "8 Alude á la vision de Jacob. Genes. XXVIII, v. 12.",
+      "box": [
+        546,
+        1123,
+        809,
+        1146
+      ],
+      "score": 0.9790740013122559
+    },
+    {
+      "text": "Elías, osperaban los Judíos antes de la venida del Mesías; y era Juan",
+      "box": [
+        77,
+        1137,
+        440,
+        1160
+      ],
+      "score": 0.9879012107849121
+    },
+    {
+      "text": "9 Parece que se lo diria con disimulo, y sin que nadie reparara en la",
+      "box": [
+        544,
+        1138,
+        903,
+        1163
+      ],
+      "score": 0.973160445690155
+    },
+    {
+      "text": "mas que Profeta, pues soñalaba con el dedo al Mesías ya presente.",
+      "box": [
+        76,
+        1151,
+        411,
+        1174
+      ],
+      "score": 0.9877597689628601
+    },
+    {
+      "text": "conversacion.",
+      "box": [
+        536,
+        1155,
+        606,
+        1169
+      ],
+      "score": 0.9996809363365173
+    },
+    {
+      "text": " Inai. XL, v. 3.—Soy el precursor del Mesias.",
+      "box": [
+        87,
+        1166,
+        329,
+        1186
+      ],
+      "score": 0.9392890334129333
+    },
+    {
+      "text": "10 Véase Metreta.",
+      "box": [
+        539,
+        1165,
+        634,
+        1183
+      ],
+      "score": 0.9812053442001343
+    },
+    {
+      "text": "s. El cual os bautizará con el fuego de la caridad, que os purifique de",
+      "box": [
+        87,
+        1177,
+        440,
+        1199
+      ],
+      "score": 0.9829489588737488
+    },
+    {
+      "text": "l Architrielinus palabra griega, compuesta de dpz primero ó princi-",
+      "box": [
+        540,
+        1177,
+        904,
+        1203
+      ],
+      "score": 0.8110045194625854
+    },
+    {
+      "text": "todo pecado.",
+      "box": [
+        76,
+        1194,
+        146,
+        1215
+      ],
+      "score": 0.9989409446716309
+    },
+    {
+      "text": "pal, de tus que quiere decir tres, y ziy tectus, mensa. Por eso trielinium",
+      "box": [
+        536,
+        1193,
+        905,
+        1216
+      ],
+      "score": 0.7968469262123108
+    },
+    {
+      "text": "4 Exod. XIII, v. 5.—XXIX, v. 38.—Levit. I, v. 4.—XVI, v. 23.",
+      "box": [
+        87,
+        1202,
+        421,
+        1225
+      ],
+      "score": 0.9299011826515198
+    },
+    {
+      "text": "es un lugar que contiene tres tablados ó lechos para recostarse y comer.",
+      "box": [
+        535,
+        1205,
+        905,
+        1229
+      ],
+      "score": 0.9854011535644531
+    },
+    {
+      "text": "5 Este fué el primer llamamiento: véase el segundo, Matth. IV, v. 18.",
+      "box": [
+        87,
+        1216,
+        439,
+        1239
+      ],
+      "score": 0.9510743618011475
+    },
+    {
+      "text": "—Véase Convite.—Es lo mismo que Dozosápy symposiarea, que viene",
+      "box": [
+        534,
+        1217,
+        907,
+        1246
+      ],
+      "score": 0.7995461225509644
+    },
+    {
+      "text": " Genez. XLIX, v. 10.—Deuter, X VIII, v. 18.Isai. XL, v. 10.—XLV,",
+      "box": [
+        86,
+        1230,
+        440,
+        1254
+      ],
+      "score": 0.8603209257125854
+    },
+    {
+      "text": "de Soutéaov, convivium, ágyh prineipalís.",
+      "box": [
+        536,
+        1233,
+        746,
+        1254
+      ],
+      "score": 0.7330893874168396
+    },
+    {
+      "text": "v. 8.—Jerem. XXIII, v. 5.—XXXIII, v. 13.—Ezech, XXX1V, v. 23, et",
+      "box": [
+        75,
+        1243,
+        441,
+        1270
+      ],
+      "score": 0.9047889709472656
+    },
+    {
+      "text": "1º Hubo tres pueblos así llamados: uno en la tribu de Ephraim (Jo-",
+      "box": [
+        540,
+        1247,
+        905,
+        1270
+      ],
+      "score": 0.9801409244537354
+    },
+    {
+      "text": "XXX VII, v. 24.—Dan, 1X, v. 24.",
+      "box": [
+        76,
+        1261,
+        254,
+        1282
+      ],
+      "score": 0.9695551991462708
+    },
+    {
+      "text": "sue XVI, v. 10): otro en la de Aser (XXIX, v. 28); y este en la Galiléa.",
+      "box": [
+        535,
+        1261,
+        906,
+        1285
+      ],
+      "score": 0.9240115284919739
+    },
+    {
+      "text": "7 Creyendo quizá que solo Dios pudo haberle visto en aquel lugar.",
+      "box": [
+        85,
+        1272,
+        425,
+        1296
+      ],
+      "score": 0.9963154792785645
+    },
+    {
+      "text": "13 Creyeron mas firmemente.",
+      "box": [
+        542,
+        1275,
+        693,
+        1294
+      ],
+      "score": 0.9800640940666199
+    }
+  ]
+}

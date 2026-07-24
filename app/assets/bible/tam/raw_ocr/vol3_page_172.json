@@ -1,0 +1,27 @@
+{
+  "volume": 3,
+  "page_index": 172,
+  "pdf_page": 173,
+  "lines": [
+    {
+      "text": "VISION DEL PROFETA DANIEL",
+      "box": [
+        542,
+        50,
+        815,
+        71
+      ],
+      "score": 0.9856611490249634
+    },
+    {
+      "text": "H.:PISAN.",
+      "box": [
+        133,
+        106,
+        228,
+        132
+      ],
+      "score": 0.8982155323028564
+    }
+  ]
+}

@@ -1,0 +1,1507 @@
+{
+  "volume": 4,
+  "page_index": 123,
+  "pdf_page": 124,
+  "lines": [
+    {
+      "text": "147",
+      "box": [
+        85,
+        60,
+        110,
+        77
+      ],
+      "score": 0.9999170303344727
+    },
+    {
+      "text": "SAN JUAN.",
+      "box": [
+        216,
+        51,
+        296,
+        71
+      ],
+      "score": 0.9988117218017578
+    },
+    {
+      "text": "CAPITULO X.",
+      "box": [
+        686,
+        63,
+        781,
+        84
+      ],
+      "score": 0.9952536225318909
+    },
+    {
+      "text": "148",
+      "box": [
+        881,
+        71,
+        905,
+        87
+      ],
+      "score": 0.9999284744262695
+    },
+    {
+      "text": "20. Sus padres les respondieron, diciendo: Sabemos que",
+      "box": [
+        87,
+        96,
+        446,
+        120
+      ],
+      "score": 0.9930629134178162
+    },
+    {
+      "text": "2. Mas el que entra por la puerta, pastor es de las ovejas.",
+      "box": [
+        555,
+        105,
+        912,
+        130
+      ],
+      "score": 0.999375581741333
+    },
+    {
+      "text": "éste es hijo nuestro, y que nació ciego:",
+      "box": [
+        75,
+        115,
+        311,
+        138
+      ],
+      "score": 0.9866682291030884
+    },
+    {
+      "text": "3. Á éste el portero le abre, y las ovejas escuchan su voz,",
+      "box": [
+        555,
+        123,
+        911,
+        147
+      ],
+      "score": 0.9964027404785156
+    },
+    {
+      "text": "21. Pero como ahora ve, no lo sabemos: ni tampoco sabe-",
+      "box": [
+        87,
+        132,
+        445,
+        154
+      ],
+      "score": 0.9918070435523987
+    },
+    {
+      "text": "y él llama por su nombre á las ovejas propias, y las saca",
+      "box": [
+        542,
+        139,
+        911,
+        165
+      ],
+      "score": 0.9917165040969849
+    },
+    {
+      "text": "mos quién le ha abierto los ojos: preguntádselo á él: edad",
+      "box": [
+        75,
+        150,
+        444,
+        172
+      ],
+      "score": 0.992241621017456
+    },
+    {
+      "text": "fuera al pasto.",
+      "box": [
+        543,
+        157,
+        634,
+        177
+      ],
+      "score": 0.9969807267189026
+    },
+    {
+      "text": "tiene, él dará razon de sí.",
+      "box": [
+        76,
+        171,
+        239,
+        188
+      ],
+      "score": 0.9982652068138123
+    },
+    {
+      "text": "4. Y cuando ha hecho salir sus propias ovejas, va delante",
+      "box": [
+        553,
+        173,
+        911,
+        197
+      ],
+      "score": 0.9994654655456543
+    },
+    {
+      "text": "22. Esto dijeron sus padres, por temor de los Judíos: por-",
+      "box": [
+        88,
+        185,
+        445,
+        205
+      ],
+      "score": 0.9920589923858643
+    },
+    {
+      "text": "de ellas: y las ovejas le siguen, porque conocen su voz.",
+      "box": [
+        543,
+        189,
+        871,
+        213
+      ],
+      "score": 0.9996686577796936
+    },
+    {
+      "text": "que ya estos habian decretado echar de la synagoga ó exco-",
+      "box": [
+        75,
+        202,
+        445,
+        223
+      ],
+      "score": 0.9776779413223267
+    },
+    {
+      "text": "5. Mas á un extraño no le siguen, sino que huyen de él:",
+      "box": [
+        554,
+        205,
+        911,
+        229
+      ],
+      "score": 0.9889991879463196
+    },
+    {
+      "text": "mulgar á cualquiera que reconociese á Jesus por el Christo",
+      "box": [
+        74,
+        217,
+        445,
+        241
+      ],
+      "score": 0.9865256547927856
+    },
+    {
+      "text": "porque no conocen la voz de los extraños.",
+      "box": [
+        542,
+        223,
+        797,
+        242
+      ],
+      "score": 0.998058021068573
+    },
+    {
+      "text": "ó Mesias.",
+      "box": [
+        74,
+        234,
+        136,
+        256
+      ],
+      "score": 0.9340121746063232
+    },
+    {
+      "text": "6. Este símil les puso Jesus: pero no entendieron lo que",
+      "box": [
+        553,
+        237,
+        911,
+        261
+      ],
+      "score": 0.9980792999267578
+    },
+    {
+      "text": "23. Por eso sus padres dijeron: Edad tiene, preguntádselo",
+      "box": [
+        85,
+        250,
+        445,
+        273
+      ],
+      "score": 0.990805983543396
+    },
+    {
+      "text": "les decia.",
+      "box": [
+        542,
+        255,
+        603,
+        272
+      ],
+      "score": 0.9957453608512878
+    },
+    {
+      "text": "á él.",
+      "box": [
+        72,
+        268,
+        107,
+        287
+      ],
+      "score": 0.9578901529312134
+    },
+    {
+      "text": "7. Por eso Jesus les dijo segunda vez por lo cluro: En",
+      "box": [
+        552,
+        269,
+        910,
+        292
+      ],
+      "score": 0.9975325465202332
+    },
+    {
+      "text": "24. Llamaron pues otra vez al hombre que habia sido",
+      "box": [
+        84,
+        282,
+        444,
+        305
+      ],
+      "score": 0.991485595703125
+    },
+    {
+      "text": "verdad, en verdad os digo, que yo soy la puerta de las ovejas.",
+      "box": [
+        542,
+        285,
+        909,
+        309
+      ],
+      "score": 0.9989829659461975
+    },
+    {
+      "text": "ciego, y dijéronle: Da gloria á Dios: nosotros sabemos que",
+      "box": [
+        74,
+        301,
+        444,
+        321
+      ],
+      "score": 0.9915125370025635
+    },
+    {
+      "text": "8. Todos los que hasta ahora han venido, ó entrado por",
+      "box": [
+        554,
+        301,
+        909,
+        324
+      ],
+      "score": 0.995294988155365
+    },
+    {
+      "text": "ese hombre es un pecador.",
+      "box": [
+        75,
+        319,
+        237,
+        336
+      ],
+      "score": 0.9910913705825806
+    },
+    {
+      "text": "otra parte, son ladrones, y salteadores, y así las ovejas no",
+      "box": [
+        540,
+        316,
+        910,
+        341
+      ],
+      "score": 0.9775357842445374
+    },
+    {
+      "text": "25. Mas él les respondió: Si es pecador, yo no lo sé: solo",
+      "box": [
+        84,
+        329,
+        443,
+        352
+      ],
+      "score": 0.9760683178901672
+    },
+    {
+      "text": "los han escuchado.",
+      "box": [
+        541,
+        333,
+        656,
+        353
+      ],
+      "score": 0.9980828166007996
+    },
+    {
+      "text": "sé que yo antes era ciego, y ahora veo.",
+      "box": [
+        75,
+        349,
+        310,
+        366
+      ],
+      "score": 0.9924627542495728
+    },
+    {
+      "text": "9. Yo soy la puerta. El que por mí entrare, se salvará: y",
+      "box": [
+        553,
+        349,
+        910,
+        370
+      ],
+      "score": 0.9980486631393433
+    },
+    {
+      "text": "26. Replicáronle: ¿Qué hizo él contigo? ¿Cómo te abrió los",
+      "box": [
+        84,
+        362,
+        445,
+        383
+      ],
+      "score": 0.9958412647247314
+    },
+    {
+      "text": "entrará, y saldrá sin tropiezo, y hallará pastos.",
+      "box": [
+        542,
+        366,
+        824,
+        387
+      ],
+      "score": 0.9864476323127747
+    },
+    {
+      "text": "ojos?",
+      "box": [
+        73,
+        379,
+        109,
+        398
+      ],
+      "score": 0.9998561143875122
+    },
+    {
+      "text": "10. El ladron no viene sino para robar, y matar, y hacer",
+      "box": [
+        554,
+        381,
+        911,
+        402
+      ],
+      "score": 0.9935798645019531
+    },
+    {
+      "text": "27. Respondióles: Os lo he dicho ya, y lo habeis oido: ¿á",
+      "box": [
+        87,
+        397,
+        443,
+        414
+      ],
+      "score": 0.9933532476425171
+    },
+    {
+      "text": "estrago. Mas yo he venido para que las ovejas tengan vida,",
+      "box": [
+        543,
+        399,
+        908,
+        417
+      ],
+      "score": 0.9885032176971436
+    },
+    {
+      "text": "qué fin quereis oirlo de nuevo? ¿Si será que tambien vosotros",
+      "box": [
+        76,
+        415,
+        443,
+        429
+      ],
+      "score": 0.9905806183815002
+    },
+    {
+      "text": "y la tengan en mas abundancia,",
+      "box": [
+        544,
+        418,
+        733,
+        432
+      ],
+      "score": 0.9825572371482849
+    },
+    {
+      "text": "quereis haceros discípulos suyos?",
+      "box": [
+        76,
+        432,
+        275,
+        446
+      ],
+      "score": 0.9987037181854248
+    },
+    {
+      "text": "11. Yo soy el buen Pastor s. El buen pastor sacrifica su",
+      "box": [
+        555,
+        432,
+        909,
+        449
+      ],
+      "score": 0.9961044192314148
+    },
+    {
+      "text": "28. Entonces le llenaron de maldiciones, y por fin le dije-",
+      "box": [
+        87,
+        446,
+        444,
+        463
+      ],
+      "score": 0.99798583984375
+    },
+    {
+      "text": "vida por sus ovejas.",
+      "box": [
+        545,
+        450,
+        660,
+        464
+      ],
+      "score": 0.9993561506271362
+    },
+    {
+      "text": "ron: Tú seas su discípulo: que nosotros somos discípulos",
+      "box": [
+        75,
+        463,
+        444,
+        480
+      ],
+      "score": 0.9995189905166626
+    },
+    {
+      "text": "12. Pero el mercenario, y el que no es el propio pastor,",
+      "box": [
+        556,
+        466,
+        907,
+        480
+      ],
+      "score": 0.9932294487953186
+    },
+    {
+      "text": "de Moysés.",
+      "box": [
+        75,
+        479,
+        145,
+        496
+      ],
+      "score": 0.9995213747024536
+    },
+    {
+      "text": "de quien no son propias las ovejas, en viendo venir al lobo,",
+      "box": [
+        543,
+        479,
+        910,
+        497
+      ],
+      "score": 0.9981057047843933
+    },
+    {
+      "text": "29. Nosotros sabemos que á Moysés le habló Dios: mas",
+      "box": [
+        87,
+        494,
+        444,
+        513
+      ],
+      "score": 0.9921794533729553
+    },
+    {
+      "text": "desampara las ovejas, y huye: y el lobo las arrebata, y dis-",
+      "box": [
+        543,
+        495,
+        908,
+        515
+      ],
+      "score": 0.9909401535987854
+    },
+    {
+      "text": "éste no sabemos de dónde es.",
+      "box": [
+        76,
+        513,
+        251,
+        527
+      ],
+      "score": 0.9895332455635071
+    },
+    {
+      "text": "persa el rebaño:",
+      "box": [
+        543,
+        513,
+        641,
+        530
+      ],
+      "score": 0.9996260404586792
+    },
+    {
+      "text": "30. Respondió aquel hombre, y les dijo: Aquí está la",
+      "box": [
+        87,
+        527,
+        445,
+        547
+      ],
+      "score": 0.9922577142715454
+    },
+    {
+      "text": "13. El mercenario huye, por la razon de que es asala-",
+      "box": [
+        555,
+        526,
+        909,
+        546
+      ],
+      "score": 0.9930973649024963
+    },
+    {
+      "text": "maravilla, que vosotros no sabeis de dónde es éste, y con",
+      "box": [
+        75,
+        544,
+        445,
+        563
+      ],
+      "score": 0.9950453639030457
+    },
+    {
+      "text": "riado, y no tiene interés alguno en las ovejas 4.",
+      "box": [
+        542,
+        543,
+        822,
+        562
+      ],
+      "score": 0.978826105594635
+    },
+    {
+      "text": "todo ha abierto mis ojos:",
+      "box": [
+        75,
+        561,
+        227,
+        579
+      ],
+      "score": 0.9939665794372559
+    },
+    {
+      "text": "14. Yo soy el buen Pastor: y conozco mis ovejas, y las",
+      "box": [
+        555,
+        558,
+        907,
+        578
+      ],
+      "score": 0.9984574913978577
+    },
+    {
+      "text": "31. Lo que sabemos es que Dios no oye á los pecadores :",
+      "box": [
+        87,
+        575,
+        445,
+        595
+      ],
+      "score": 0.9960666298866272
+    },
+    {
+      "text": "ovejas mias me conocen á mí.",
+      "box": [
+        542,
+        575,
+        721,
+        595
+      ],
+      "score": 0.9990279078483582
+    },
+    {
+      "text": "sino que aquel que honra á Dios y hace su voluntad, éste",
+      "box": [
+        75,
+        592,
+        445,
+        612
+      ],
+      "score": 0.9988346099853516
+    },
+    {
+      "text": "15. Así como el Padre me conoce á mí, así yo conozco al",
+      "box": [
+        554,
+        588,
+        907,
+        610
+      ],
+      "score": 0.9848771095275879
+    },
+    {
+      "text": "es á quien Dios oye.",
+      "box": [
+        75,
+        610,
+        200,
+        628
+      ],
+      "score": 0.9696931838989258
+    },
+    {
+      "text": "Padre: y doy mi vida por mis ovejas.",
+      "box": [
+        542,
+        606,
+        759,
+        625
+      ],
+      "score": 0.9801076054573059
+    },
+    {
+      "text": "32. Desde que el mundo es mundo no se ha oido jamás,",
+      "box": [
+        88,
+        622,
+        444,
+        644
+      ],
+      "score": 0.9874081015586853
+    },
+    {
+      "text": "16. Tengo tambien otras ovejas, que no son de este",
+      "box": [
+        554,
+        620,
+        908,
+        641
+      ],
+      "score": 0.9907973408699036
+    },
+    {
+      "text": "que alguno haya abierto los ojos de un ciego de nacimiento.",
+      "box": [
+        75,
+        638,
+        445,
+        660
+      ],
+      "score": 0.998507022857666
+    },
+    {
+      "text": "aprisco: las cuales debo yo recoger, y oirán mi voz, y de",
+      "box": [
+        542,
+        637,
+        907,
+        656
+      ],
+      "score": 0.9895241856575012
+    },
+    {
+      "text": "33. Si este hombre no fuese enviado de Dios, no podria",
+      "box": [
+        88,
+        654,
+        445,
+        675
+      ],
+      "score": 0.9908125400543213
+    },
+    {
+      "text": "todas se hará un solo rebaño, y un solo pastor.",
+      "box": [
+        542,
+        653,
+        819,
+        671
+      ],
+      "score": 0.997636079788208
+    },
+    {
+      "text": "hacer nada de lo que hace.",
+      "box": [
+        76,
+        673,
+        234,
+        692
+      ],
+      "score": 0.9910857081413269
+    },
+    {
+      "text": "17. Por eso mi Padre me ama: porque doy mi vida por",
+      "box": [
+        554,
+        668,
+        907,
+        687
+      ],
+      "score": 0.9940645694732666
+    },
+    {
+      "text": "34. Dijéronle en respuesta: Saliste del vientre de tu",
+      "box": [
+        88,
+        685,
+        445,
+        708
+      ],
+      "score": 0.9975759983062744
+    },
+    {
+      "text": "mis ovejas, bien que para tomarla otra vēz 5:",
+      "box": [
+        542,
+        685,
+        810,
+        703
+      ],
+      "score": 0.9532399773597717
+    },
+    {
+      "text": "madre envuelto en pecados, ¿y tú nos das lecciones? Y le",
+      "box": [
+        75,
+        701,
+        445,
+        725
+      ],
+      "score": 0.9804062247276306
+    },
+    {
+      "text": "18. Nadie me la arranca: sino que yo la doy de mi propia",
+      "box": [
+        555,
+        700,
+        907,
+        719
+      ],
+      "score": 0.9990605711936951
+    },
+    {
+      "text": "arrojaron fuera.",
+      "box": [
+        75,
+        722,
+        175,
+        741
+      ],
+      "score": 0.9996899366378784
+    },
+    {
+      "text": "voluntad, y soy dueño de darla, y dueño de recobrarla: este",
+      "box": [
+        542,
+        716,
+        909,
+        734
+      ],
+      "score": 0.9886752367019653
+    },
+    {
+      "text": "35. Oyó Jesus que le habian echado fuera: y haciéndose",
+      "box": [
+        88,
+        733,
+        445,
+        756
+      ],
+      "score": 0.9904943108558655
+    },
+    {
+      "text": "es el mandamiento que recibí de mi Padre e.",
+      "box": [
+        542,
+        732,
+        806,
+        751
+      ],
+      "score": 0.9766567945480347
+    },
+    {
+      "text": "encontradizo con él, le dijo: ¿Crees tú en el Hijo de Dios?",
+      "box": [
+        75,
+        750,
+        418,
+        772
+      ],
+      "score": 0.9912703633308411
+    },
+    {
+      "text": "19. Excitó este discurso una nueva division entre los",
+      "box": [
+        554,
+        748,
+        908,
+        766
+      ],
+      "score": 0.9994417428970337
+    },
+    {
+      "text": "36. Respondió él, y dijo: ¿Quién es, Señor, para que yo",
+      "box": [
+        88,
+        766,
+        445,
+        788
+      ],
+      "score": 0.9975088238716125
+    },
+    {
+      "text": "Judíos.",
+      "box": [
+        543,
+        766,
+        589,
+        781
+      ],
+      "score": 0.9966885447502136
+    },
+    {
+      "text": "crea en él?",
+      "box": [
+        75,
+        785,
+        145,
+        805
+      ],
+      "score": 0.9967247247695923
+    },
+    {
+      "text": "20. Decian muchos de ellos: Está poseido del demonio, y",
+      "box": [
+        556,
+        783,
+        905,
+        797
+      ],
+      "score": 0.9964123368263245
+    },
+    {
+      "text": "37. Díjole Jesus: Le viste ya, y es el mismo que está ha-",
+      "box": [
+        88,
+        798,
+        445,
+        820
+      ],
+      "score": 0.9871957898139954
+    },
+    {
+      "text": "ha perdido el juicio: ¿por qué lę escuchais?",
+      "box": [
+        542,
+        796,
+        797,
+        815
+      ],
+      "score": 0.9855339527130127
+    },
+    {
+      "text": "blando contigo.",
+      "box": [
+        75,
+        816,
+        172,
+        835
+      ],
+      "score": 0.9998336434364319
+    },
+    {
+      "text": "21. Otros decian: No son palabras estas de quien está",
+      "box": [
+        554,
+        811,
+        908,
+        830
+      ],
+      "score": 0.9990040063858032
+    },
+    {
+      "text": "38. Entonces dijo él: Creo, Señor. Y postrándose á sus",
+      "box": [
+        88,
+        828,
+        445,
+        851
+      ],
+      "score": 0.9974197149276733
+    },
+    {
+      "text": "endemoniado: ¿por ventura puede el demonio abrir los ojos",
+      "box": [
+        542,
+        828,
+        908,
+        846
+      ],
+      "score": 0.9943575263023376
+    },
+    {
+      "text": "piés, le adoró.",
+      "box": [
+        75,
+        848,
+        163,
+        868
+      ],
+      "score": 0.9784008264541626
+    },
+    {
+      "text": "de los ciegos ?",
+      "box": [
+        542,
+        845,
+        634,
+        862
+      ],
+      "score": 0.9442790150642395
+    },
+    {
+      "text": "39. Y añadió Jesus: Yo vine á este mundo á ejercer un",
+      "box": [
+        88,
+        861,
+        445,
+        882
+      ],
+      "score": 0.9885745644569397
+    },
+    {
+      "text": "22. Celebrábase en Jerusalem la fiesta de la Dedicacion*:",
+      "box": [
+        553,
+        857,
+        909,
+        879
+      ],
+      "score": 0.9874229431152344
+    },
+    {
+      "text": "justo juicio, para que los que no ven vean: y los que ven ó",
+      "box": [
+        75,
+        878,
+        446,
+        899
+      ],
+      "score": 0.9954553246498108
+    },
+    {
+      "text": "fiesta que era en invierno.",
+      "box": [
+        542,
+        875,
+        694,
+        894
+      ],
+      "score": 0.9917030930519104
+    },
+    {
+      "text": "soberbios presumen ver queden ciegos.",
+      "box": [
+        76,
+        895,
+        318,
+        914
+      ],
+      "score": 0.9994615912437439
+    },
+    {
+      "text": "23. Y Jesus se paseaba en el templo, por el pórtico de",
+      "box": [
+        553,
+        889,
+        908,
+        911
+      ],
+      "score": 0.9914895296096802
+    },
+    {
+      "text": "40. Oyeron esto algunos de los Phariséos, que estaban con",
+      "box": [
+        89,
+        910,
+        446,
+        930
+      ],
+      "score": 0.9992731213569641
+    },
+    {
+      "text": "Salomon.",
+      "box": [
+        542,
+        908,
+        600,
+        925
+      ],
+      "score": 0.9995779395103455
+    },
+    {
+      "text": "él, y le dijeron: Pues qué ¿nosotros somos tambien ciegos?",
+      "box": [
+        77,
+        926,
+        425,
+        946
+      ],
+      "score": 0.9991765022277832
+    },
+    {
+      "text": "24. Rodeáronle pues los Judíos, y le dijeron: ¿Hasta",
+      "box": [
+        553,
+        920,
+        906,
+        941
+      ],
+      "score": 0.9888565540313721
+    },
+    {
+      "text": "41. Respondióles Jesus: Si fuerais ciegos, no tendriais",
+      "box": [
+        89,
+        941,
+        446,
+        962
+      ],
+      "score": 0.9913895130157471
+    },
+    {
+      "text": "cuándo has de traer suspensa nuestra alma? si tú eres el",
+      "box": [
+        542,
+        937,
+        906,
+        955
+      ],
+      "score": 0.9949713945388794
+    },
+    {
+      "text": "pecado: pero por lo mismo que decís: Nosotros vemos, y",
+      "box": [
+        76,
+        957,
+        446,
+        979
+      ],
+      "score": 0.9965053796768188
+    },
+    {
+      "text": "Christo, dínoslo abiertamente.",
+      "box": [
+        544,
+        955,
+        719,
+        969
+      ],
+      "score": 0.9996325373649597
+    },
+    {
+      "text": "25. Respondióles Jesus: Os lo estoy diciendo, y no lo",
+      "box": [
+        554,
+        967,
+        908,
+        986
+      ],
+      "score": 0.9784073829650879
+    },
+    {
+      "text": "osjuzgais muy instruidos, por eso vuestro pecado persevera",
+      "box": [
+        75,
+        974,
+        445,
+        995
+      ],
+      "score": 0.9841662049293518
+    },
+    {
+      "text": "creeis: las obras que yo hago en nombre de mi Padre, esas",
+      "box": [
+        543,
+        985,
+        907,
+        1002
+      ],
+      "score": 0.9998388886451721
+    },
+    {
+      "text": "en vosotros.",
+      "box": [
+        75,
+        992,
+        151,
+        1012
+      ],
+      "score": 0.9884097576141357
+    },
+    {
+      "text": "están dando testimonio de mí:",
+      "box": [
+        542,
+        1000,
+        722,
+        1018
+      ],
+      "score": 0.9997966885566711
+    },
+    {
+      "text": "CAPITULO X",
+      "box": [
+        216,
+        1009,
+        308,
+        1029
+      ],
+      "score": 0.998399555683136
+    },
+    {
+      "text": "26. Mas vosotros no creeis, porque no sois de mis ovejas.",
+      "box": [
+        556,
+        1018,
+        905,
+        1031
+      ],
+      "score": 0.9916704893112183
+    },
+    {
+      "text": "Parábola del buen pastor, y sus propiedades. Va Jesus al templo el dia",
+      "box": [
+        76,
+        1033,
+        445,
+        1055
+      ],
+      "score": 0.996368944644928
+    },
+    {
+      "text": "27. Mis ovejas oyen la voz mia: y yo las conozco, y ellas",
+      "box": [
+        556,
+        1033,
+        906,
+        1047
+      ],
+      "score": 0.9990441799163818
+    },
+    {
+      "text": "de la Dedicacion, y declara ser el Mesías. Los Judíos cogen piedras",
+      "box": [
+        86,
+        1048,
+        444,
+        1068
+      ],
+      "score": 0.9975845813751221
+    },
+    {
+      "text": "me siguen:",
+      "box": [
+        542,
+        1048,
+        612,
+        1065
+      ],
+      "score": 0.9999113082885742
+    },
+    {
+      "text": "para tirárselas como á blasfemo, y se quedan con ellas en las manos",
+      "box": [
+        85,
+        1060,
+        445,
+        1083
+      ],
+      "score": 0.9915332198143005
+    },
+    {
+      "text": "28. Y yo les doy la vida eterna: y no se perderán jamás,",
+      "box": [
+        554,
+        1063,
+        906,
+        1080
+      ],
+      "score": 0.9960054755210876
+    },
+    {
+      "text": "À una razon suya. (Matth. 11.—Lue. 10.)",
+      "box": [
+        86,
+        1077,
+        299,
+        1096
+      ],
+      "score": 0.9296252727508545
+    },
+    {
+      "text": "y ninguno las arrebatará de mis manos.",
+      "box": [
+        540,
+        1077,
+        776,
+        1097
+      ],
+      "score": 0.9853199124336243
+    },
+    {
+      "text": "29. Pues lo que mi Padre me ha dado 9, todo lo sobre-",
+      "box": [
+        554,
+        1094,
+        909,
+        1111
+      ],
+      "score": 0.9891827702522278
+    },
+    {
+      "text": "1. En verdad, en verdad os digo, prosiguió Jesus, que quien",
+      "box": [
+        87,
+        1100,
+        443,
+        1122
+      ],
+      "score": 0.997162401676178
+    },
+    {
+      "text": "puja: y nadie puede arrebatarlo de mano de mi Padre ó de",
+      "box": [
+        541,
+        1108,
+        909,
+        1130
+      ],
+      "score": 0.9931269288063049
+    },
+    {
+      "text": "no entra por la puerta en el aprisco de las ovejas, sino que",
+      "box": [
+        74,
+        1117,
+        444,
+        1139
+      ],
+      "score": 0.998740553855896
+    },
+    {
+      "text": "la mia.",
+      "box": [
+        540,
+        1125,
+        591,
+        1146
+      ],
+      "score": 0.9917470216751099
+    },
+    {
+      "text": "sube por otra parte, el tal es un ladron, y salteador.",
+      "box": [
+        74,
+        1134,
+        387,
+        1156
+      ],
+      "score": 0.9906058311462402
+    },
+    {
+      "text": "voluntad de su Padre, cuya voluntad era la misma que la suya.—Véase",
+      "box": [
+        540,
+        1158,
+        908,
+        1177
+      ],
+      "score": 0.9961609244346619
+    },
+    {
+      "text": "1 La respuesta de los padres del ciego es como la de tantos que siem-",
+      "box": [
+        84,
+        1167,
+        444,
+        1189
+      ],
+      "score": 0.9804099202156067
+    },
+    {
+      "text": "Jesu-Christo.—Isai. LIV, v. 7.",
+      "box": [
+        539,
+        1172,
+        697,
+        1191
+      ],
+      "score": 0.9242861270904541
+    },
+    {
+      "text": "pre hallan excusas para echar sobre otros la obligacion de decir la verdad",
+      "box": [
+        74,
+        1181,
+        445,
+        1203
+      ],
+      "score": 0.9894571900367737
+    },
+    {
+      "text": "7 Véase Jesu-Christo.",
+      "box": [
+        551,
+        1188,
+        661,
+        1202
+      ],
+      "score": 0.952088475227356
+    },
+    {
+      "text": "ó defender la causa de Dios.",
+      "box": [
+        75,
+        1198,
+        223,
+        1215
+      ],
+      "score": 0.9839192032814026
+    },
+    {
+      "text": "8 Vénse Dedicacion.",
+      "box": [
+        550,
+        1199,
+        657,
+        1216
+      ],
+      "score": 0.9819366931915283
+    },
+    {
+      "text": "* De suerte que hagan milagros en prueba de su falsa doctrina.",
+      "box": [
+        84,
+        1208,
+        414,
+        1229
+      ],
+      "score": 0.9886183142662048
+    },
+    {
+      "text": "9Lo queel Padre dió ásu Hijo fué su misma naturaleza divina. Segun",
+      "box": [
+        549,
+        1209,
+        908,
+        1231
+      ],
+      "score": 0.971348762512207
+    },
+    {
+      "text": "3 Isai. XL, v. 11.—Ezech. XXXIV, v. 23, et XXX VII, v. 24.",
+      "box": [
+        85,
+        1222,
+        407,
+        1243
+      ],
+      "score": 0.9540258049964905
+    },
+    {
+      "text": "el texto griego, este verso puede traducirse: Mi Padre, que ms las ha",
+      "box": [
+        540,
+        1223,
+        909,
+        1246
+      ],
+      "score": 0.9742633700370789
+    },
+    {
+      "text": "Nunca se conoce mejor quién sea pastor mercenario, que en tiempo",
+      "box": [
+        84,
+        1236,
+        444,
+        1258
+      ],
+      "score": 0.9765187501907349
+    },
+    {
+      "text": "dado, es mayor qus todas las cosas, y nadie puede arrebatarlas de mano",
+      "box": [
+        540,
+        1236,
+        910,
+        1260
+      ],
+      "score": 0.9781432151794434
+    },
+    {
+      "text": "de persecucion, de miseria, de peste ú otras cnlamidades.",
+      "box": [
+        75,
+        1251,
+        367,
+        1271
+      ],
+      "score": 0.9756394624710083
+    },
+    {
+      "text": "de mi Padre.",
+      "box": [
+        542,
+        1258,
+        612,
+        1272
+      ],
+      "score": 0.9978232979774475
+    },
+    {
+      "text": "6 Isai. LIII, v. 7.",
+      "box": [
+        87,
+        1267,
+        187,
+        1282
+      ],
+      "score": 0.8672012686729431
+    },
+    {
+      "text": " Jesu-Christo habla aquí como hombre sometido perfectamente á la",
+      "box": [
+        86,
+        1276,
+        444,
+        1297
+      ],
+      "score": 0.9811649918556213
+    }
+  ]
+}

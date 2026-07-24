@@ -1,0 +1,1697 @@
+{
+  "volume": 1,
+  "page_index": 110,
+  "pdf_page": 111,
+  "lines": [
+    {
+      "text": "125",
+      "box": [
+        4,
+        12,
+        33,
+        32
+      ],
+      "score": 0.999995231628418
+    },
+    {
+      "text": "ÉXODO.",
+      "box": [
+        172,
+        21,
+        236,
+        45
+      ],
+      "score": 0.9372552037239075
+    },
+    {
+      "text": "CAPITULO XXXIV.",
+      "box": [
+        645,
+        26,
+        783,
+        44
+      ],
+      "score": 0.9780045747756958
+    },
+    {
+      "text": "126",
+      "box": [
+        864,
+        25,
+        889,
+        42
+      ],
+      "score": 0.9999904632568359
+    },
+    {
+      "text": "19. Respondió el Señor: Yo te mostraré á tí todo el bien ¹,",
+      "box": [
+        7,
+        58,
+        404,
+        93
+      ],
+      "score": 0.9856868386268616
+    },
+    {
+      "text": "pronunciaré el nombre inefable del Señor delante de tí. Yo",
+      "box": [
+        0,
+        77,
+        405,
+        110
+      ],
+      "score": 0.9893023371696472
+    },
+    {
+      "text": "15. No hagas liga con los habitantes de aquellos países: no",
+      "box": [
+        522,
+        69,
+        896,
+        92
+      ],
+      "score": 0.99070805311203
+    },
+    {
+      "text": "isaré de misericordia con quien quisiere, y haré gracia á quien",
+      "box": [
+        0,
+        94,
+        405,
+        129
+      ],
+      "score": 0.9807384610176086
+    },
+    {
+      "text": "sea que despues de haberse corrompido con sus dioses, y",
+      "box": [
+        508,
+        87,
+        896,
+        109
+      ],
+      "score": 0.9988480806350708
+    },
+    {
+      "text": "me pluguiere.",
+      "box": [
+        0,
+        112,
+        96,
+        134
+      ],
+      "score": 0.9998427033424377
+    },
+    {
+      "text": "adorado sus estatuas ó simulacros, alguno te convide á co-",
+      "box": [
+        507,
+        104,
+        895,
+        126
+      ],
+      "score": 0.9843577742576599
+    },
+    {
+      "text": "20. En cuanto á ver mi rostro², prosiguió el Señor, no lo pue-",
+      "box": [
+        7,
+        128,
+        405,
+        163
+      ],
+      "score": 0.985554039478302
+    },
+    {
+      "text": "mer de las cosas sacrificadasº.",
+      "box": [
+        507,
+        123,
+        701,
+        142
+      ],
+      "score": 0.965660810470581
+    },
+    {
+      "text": "des conseguir; porque no me verá hombre ninguno, sin morir.",
+      "box": [
+        0,
+        147,
+        405,
+        179
+      ],
+      "score": 0.9937742948532104
+    },
+    {
+      "text": "16. Ni desposarás á tus hijos con las hijas de ellos: no",
+      "box": [
+        520,
+        139,
+        895,
+        158
+      ],
+      "score": 0.9994530081748962
+    },
+    {
+      "text": "21. Mas yo tengo aquí, añadió, un paraje especial mio: Tú,",
+      "box": [
+        7,
+        163,
+        405,
+        199
+      ],
+      "score": 0.9696972370147705
+    },
+    {
+      "text": "suceda que despues de haber idolatrado ellas, induzcan tam-",
+      "box": [
+        508,
+        159,
+        894,
+        173
+      ],
+      "score": 0.999805748462677
+    },
+    {
+      "text": "pues, te estarás sobre aquella peña;",
+      "box": [
+        0,
+        182,
+        239,
+        209
+      ],
+      "score": 0.9991940259933472
+    },
+    {
+      "text": "bien á tus hijos á corromperse con la idolatría 10.",
+      "box": [
+        508,
+        173,
+        816,
+        187
+      ],
+      "score": 0.9847224354743958
+    },
+    {
+      "text": "22. Y al tiempo de pasar mi gloria, te pondré en el res-",
+      "box": [
+        6,
+        196,
+        406,
+        231
+      ],
+      "score": 0.9945979714393616
+    },
+    {
+      "text": "17. No te formes dioses de fundicion.",
+      "box": [
+        519,
+        187,
+        767,
+        205
+      ],
+      "score": 0.9894591569900513
+    },
+    {
+      "text": "quicio de la peña, y te cubriré con mi mano derecha, hasta",
+      "box": [
+        0,
+        213,
+        406,
+        246
+      ],
+      "score": 0.9882808923721313
+    },
+    {
+      "text": "18. Guardarás la fiesta de los ázymos. Por siete dias co-",
+      "box": [
+        520,
+        204,
+        896,
+        222
+      ],
+      "score": 0.996289849281311
+    },
+    {
+      "text": "jue yo haya pasado.",
+      "box": [
+        0,
+        230,
+        137,
+        255
+      ],
+      "score": 0.9724258780479431
+    },
+    {
+      "text": "merás pan ázymo, como te tengo mandado, en el tiempo del",
+      "box": [
+        506,
+        221,
+        897,
+        238
+      ],
+      "score": 0.9904847741127014
+    },
+    {
+      "text": "23. Despues apartaré mi mano, y verás mis espaldas; pero",
+      "box": [
+        3,
+        247,
+        404,
+        278
+      ],
+      "score": 0.9849485754966736
+    },
+    {
+      "text": "mes de los nuevos frutos; porque en el mes de la primavera",
+      "box": [
+        507,
+        238,
+        895,
+        252
+      ],
+      "score": 0.9994635581970215
+    },
+    {
+      "text": "fué cuando saliste de Egypto.",
+      "box": [
+        505,
+        251,
+        697,
+        269
+      ],
+      "score": 0.9929905533790588
+    },
+    {
+      "text": "ni rostro no podrás verle.",
+      "box": [
+        0,
+        265,
+        174,
+        290
+      ],
+      "score": 0.9997643232345581
+    },
+    {
+      "text": "19. Todos los primeros nacidos, que fueren del sexo mas-",
+      "box": [
+        521,
+        269,
+        896,
+        283
+      ],
+      "score": 0.9981722831726074
+    },
+    {
+      "text": "culino, serán mios: de todos los animales, tanto de vacas",
+      "box": [
+        507,
+        284,
+        896,
+        299
+      ],
+      "score": 0.9950905442237854
+    },
+    {
+      "text": "CAPITULO XXXIV",
+      "box": [
+        135,
+        299,
+        269,
+        320
+      ],
+      "score": 0.9990301728248596
+    },
+    {
+      "text": "como de ovejas, el primerizo será mio u.",
+      "box": [
+        507,
+        301,
+        766,
+        314
+      ],
+      "score": 0.9891225695610046
+    },
+    {
+      "text": "20. El primerizo del asno le rescatarás con una oveja: en",
+      "box": [
+        519,
+        314,
+        898,
+        332
+      ],
+      "score": 0.999261200428009
+    },
+    {
+      "text": "uelve Moysés al monte, donde Dios le manifiesta su gloria; y renueva",
+      "box": [
+        0,
+        324,
+        400,
+        347
+      ],
+      "score": 0.9865259528160095
+    },
+    {
+      "text": "por su medio la alianza con los Israelitas, escribiendo de nuevo el De-",
+      "box": [
+        0,
+        339,
+        400,
+        360
+      ],
+      "score": 0.9902585744857788
+    },
+    {
+      "text": "caso que no dieres el rescate, será muerto. Los primogénitos",
+      "box": [
+        504,
+        330,
+        899,
+        348
+      ],
+      "score": 0.9979597330093384
+    },
+    {
+      "text": "cálogo.",
+      "box": [
+        0,
+        351,
+        50,
+        372
+      ],
+      "score": 0.9812731742858887
+    },
+    {
+      "text": "de tus hijos los redimirás: ni comparecerás en mi presencia",
+      "box": [
+        505,
+        346,
+        900,
+        365
+      ],
+      "score": 0.9995655417442322
+    },
+    {
+      "text": "con las manos vacías.",
+      "box": [
+        507,
+        364,
+        648,
+        378
+      ],
+      "score": 0.9999209642410278
+    },
+    {
+      "text": "1. Dijo despues el Señor: Labra dos tablas de piedra, se-",
+      "box": [
+        1,
+        379,
+        400,
+        403
+      ],
+      "score": 0.9841052889823914
+    },
+    {
+      "text": "21. Seis dias trabajarás: el dia séptimo ni ararás, ni segarás.",
+      "box": [
+        519,
+        378,
+        901,
+        397
+      ],
+      "score": 0.9973108172416687
+    },
+    {
+      "text": "nejantes á las primeras, y escribiré en ellas las palabras que",
+      "box": [
+        0,
+        397,
+        401,
+        420
+      ],
+      "score": 0.9827147722244263
+    },
+    {
+      "text": "22. Celebrarás la fiesta de Pentecostes con las primicias",
+      "box": [
+        519,
+        395,
+        902,
+        414
+      ],
+      "score": 0.9981678128242493
+    },
+    {
+      "text": "ontenian las tablas que hiciste pedazos 4.",
+      "box": [
+        0,
+        415,
+        276,
+        435
+      ],
+      "score": 0.9890279173851013
+    },
+    {
+      "text": "de tus mieses de trigo; y otra fiesta, cuando al fin del año se",
+      "box": [
+        506,
+        411,
+        902,
+        430
+      ],
+      "score": 0.9999086856842041
+    },
+    {
+      "text": "2. Prepárate para mañana, á subir luego al monte Sinaí,",
+      "box": [
+        2,
+        430,
+        399,
+        452
+      ],
+      "score": 0.9803268909454346
+    },
+    {
+      "text": "recogèn todos los frutos 12.",
+      "box": [
+        505,
+        427,
+        679,
+        445
+      ],
+      "score": 0.9796739220619202
+    },
+    {
+      "text": "estarás conmigo sobre la cima del monte.",
+      "box": [
+        1,
+        448,
+        285,
+        468
+      ],
+      "score": 0.9903143644332886
+    },
+    {
+      "text": "23. En tres tiempos del año se presentarán todos tus va-",
+      "box": [
+        519,
+        444,
+        903,
+        463
+      ],
+      "score": 0.9842909574508667
+    },
+    {
+      "text": "3. Ninguno suba contigo, ni aparezca nadie en todo el",
+      "box": [
+        1,
+        463,
+        401,
+        485
+      ],
+      "score": 0.9876185059547424
+    },
+    {
+      "text": "rones delante del Omnipotente Señor Dios de Israél 13.",
+      "box": [
+        507,
+        463,
+        857,
+        478
+      ],
+      "score": 0.9930472373962402
+    },
+    {
+      "text": "nonte: ni aun los bueyes y ovejas pazcan enfrente de él.",
+      "box": [
+        0,
+        482,
+        367,
+        501
+      ],
+      "score": 0.9729442596435547
+    },
+    {
+      "text": "24. Porque cuando yo hubiere arrojado de tu presencia",
+      "box": [
+        519,
+        478,
+        904,
+        497
+      ],
+      "score": 0.9972055554389954
+    },
+    {
+      "text": "4. Cortó pues dos tablas de piedra como las anteriores; y",
+      "box": [
+        1,
+        498,
+        400,
+        518
+      ],
+      "score": 0.9997034668922424
+    },
+    {
+      "text": "aquellas naciones, y ensanchado tus términos, nadie pensará",
+      "box": [
+        507,
+        498,
+        904,
+        512
+      ],
+      "score": 0.9996283650398254
+    },
+    {
+      "text": "nadrugando, subió con ellas antes del dia al monte Sinaí,",
+      "box": [
+        0,
+        515,
+        399,
+        533
+      ],
+      "score": 0.9965386390686035
+    },
+    {
+      "text": "en invadir tu país, en el tiempo que tú subirás á presentarte",
+      "box": [
+        507,
+        515,
+        906,
+        529
+      ],
+      "score": 0.9997383952140808
+    },
+    {
+      "text": "omo le habia ordenado el Señor.",
+      "box": [
+        0,
+        531,
+        223,
+        551
+      ],
+      "score": 0.990998387336731
+    },
+    {
+      "text": "al Señor Dios tuyo tres veces al año.",
+      "box": [
+        506,
+        530,
+        744,
+        544
+      ],
+      "score": 0.9997943043708801
+    },
+    {
+      "text": "5. Y descendido que hubo el Señor en medio de una nube,",
+      "box": [
+        1,
+        546,
+        399,
+        568
+      ],
+      "score": 0.9877941012382507
+    },
+    {
+      "text": "25. No ofrecerás con levadura la sangre de mi víctima: ni",
+      "box": [
+        521,
+        547,
+        905,
+        562
+      ],
+      "score": 0.995611846446991
+    },
+    {
+      "text": "e estuvo Moysés con & él, pronunciando en alta voz el nom-",
+      "box": [
+        0,
+        566,
+        400,
+        583
+      ],
+      "score": 0.9809069633483887
+    },
+    {
+      "text": "de la víctima solemne de la Pascua quedará nada para la",
+      "box": [
+        504,
+        562,
+        906,
+        580
+      ],
+      "score": 0.9987096786499023
+    },
+    {
+      "text": "re del Señor:",
+      "box": [
+        0,
+        582,
+        95,
+        599
+      ],
+      "score": 0.9999605417251587
+    },
+    {
+      "text": "mañana siguiente \".",
+      "box": [
+        504,
+        577,
+        640,
+        596
+      ],
+      "score": 0.9781354665756226
+    },
+    {
+      "text": "6. El cual pasando º por delante de él, dijo: Soberano Do-",
+      "box": [
+        0,
+        596,
+        400,
+        616
+      ],
+      "score": 0.9718480110168457
+    },
+    {
+      "text": "26. Ofrecerás las primicias de los frutos de tu tierra en la",
+      "box": [
+        518,
+        595,
+        906,
+        612
+      ],
+      "score": 0.9948379993438721
+    },
+    {
+      "text": "ninador, Señor Dios, misericordioso, y clemente, sufrido, y",
+      "box": [
+        0,
+        613,
+        399,
+        632
+      ],
+      "score": 0.9882806539535522
+    },
+    {
+      "text": "Rn-ng",
+      "box": [
+        424,
+        617,
+        450,
+        675
+      ],
+      "score": 0.5320326685905457
+    },
+    {
+      "text": "casa del Señor tu Dios. No cocerás el cabrito en la leche de",
+      "box": [
+        505,
+        611,
+        906,
+        628
+      ],
+      "score": 0.9976368546485901
+    },
+    {
+      "text": "iadosísimo, y verídico,",
+      "box": [
+        1,
+        633,
+        156,
+        648
+      ],
+      "score": 0.9954806566238403
+    },
+    {
+      "text": "su madre 15.",
+      "box": [
+        503,
+        625,
+        586,
+        645
+      ],
+      "score": 0.9656657576560974
+    },
+    {
+      "text": "7. Que conservas la misericordia para millares, que borras",
+      "box": [
+        0,
+        645,
+        400,
+        667
+      ],
+      "score": 0.9993240237236023
+    },
+    {
+      "text": "27. Añadió el Señor á Moysés: Pon por escrito estas co-",
+      "box": [
+        518,
+        643,
+        906,
+        660
+      ],
+      "score": 0.9878363609313965
+    },
+    {
+      "text": " iniquidad y los delitos, y los pecados; en cuya presencia",
+      "box": [
+        0,
+        662,
+        400,
+        684
+      ],
+      "score": 0.9837409853935242
+    },
+    {
+      "text": "sas, mediante las cuales he contraido alianza contigo, y con",
+      "box": [
+        503,
+        659,
+        907,
+        678
+      ],
+      "score": 0.987483561038971
+    },
+    {
+      "text": "inguno de suyo es inocente, y que castigas la maldad de los",
+      "box": [
+        0,
+        678,
+        400,
+        701
+      ],
+      "score": 0.9943792819976807
+    },
+    {
+      "text": "los hijos de Israél.",
+      "box": [
+        505,
+        678,
+        625,
+        692
+      ],
+      "score": 0.9956402778625488
+    },
+    {
+      "text": "adres en los hijos, y nietos hasta la tercera y cuarta genera-",
+      "box": [
+        0,
+        695,
+        400,
+        718
+      ],
+      "score": 0.9923577308654785
+    },
+    {
+      "text": "28. Mantúvose pues allí con el Señor por espacio de cua-",
+      "box": [
+        519,
+        693,
+        908,
+        710
+      ],
+      "score": 0.9993852972984314
+    },
+    {
+      "text": "ion 7.",
+      "box": [
+        0,
+        717,
+        39,
+        733
+      ],
+      "score": 0.9917547106742859
+    },
+    {
+      "text": "renta dias, y cuarenta noches: todo ese tiempo estuvo sin co-",
+      "box": [
+        503,
+        708,
+        909,
+        728
+      ],
+      "score": 0.9963575005531311
+    },
+    {
+      "text": "8. Al instante Moysés se postró de cara sobre el suelo, y",
+      "box": [
+        0,
+        726,
+        398,
+        750
+      ],
+      "score": 0.9935007691383362
+    },
+    {
+      "text": "mer ni beber cosa alguna: y escribió 6 el Señor en las tablas",
+      "box": [
+        503,
+        724,
+        909,
+        744
+      ],
+      "score": 0.9768868088722229
+    },
+    {
+      "text": "dorando á Dios,",
+      "box": [
+        0,
+        747,
+        113,
+        766
+      ],
+      "score": 0.9983409643173218
+    },
+    {
+      "text": "los diez mandamientos de la alianza 17.",
+      "box": [
+        503,
+        741,
+        761,
+        759
+      ],
+      "score": 0.9754660129547119
+    },
+    {
+      "text": "9. Dijo: Señor, si he hallado gracia en tus ojos, suplícote",
+      "box": [
+        0,
+        759,
+        398,
+        782
+      ],
+      "score": 0.9951818585395813
+    },
+    {
+      "text": "29. Y al bajar Moysés del monte Sinaí, traia consigo las",
+      "box": [
+        518,
+        757,
+        909,
+        777
+      ],
+      "score": 0.9960006475448608
+    },
+    {
+      "text": "ue vengas con nosotros (siendo como es este pueblo de dura",
+      "box": [
+        0,
+        775,
+        399,
+        798
+      ],
+      "score": 0.9938587546348572
+    },
+    {
+      "text": "dos tablas de la Ley; mas no sabia que, á causa de la conver-",
+      "box": [
+        503,
+        774,
+        909,
+        793
+      ],
+      "score": 0.9965221881866455
+    },
+    {
+      "text": "erviz), y perdones nuestras maldades y pecados, y tomes",
+      "box": [
+        0,
+        792,
+        399,
+        815
+      ],
+      "score": 0.9920281767845154
+    },
+    {
+      "text": "sacion con el Señor, despedia su rostro rayos de luz 18.",
+      "box": [
+        505,
+        793,
+        860,
+        808
+      ],
+      "score": 0.9844989776611328
+    },
+    {
+      "text": "osesion de nosotros.",
+      "box": [
+        0,
+        811,
+        138,
+        830
+      ],
+      "score": 0.9993162155151367
+    },
+    {
+      "text": "30. Aaron, pues, y los hijos de Israél, viendo resplande-",
+      "box": [
+        517,
+        807,
+        908,
+        827
+      ],
+      "score": 0.9868342280387878
+    },
+    {
+      "text": "1o. Respondió el Señor: Yo estableceré alianza con este pue-",
+      "box": [
+        0,
+        825,
+        398,
+        846
+      ],
+      "score": 0.986273467540741
+    },
+    {
+      "text": "D78 Y0R",
+      "box": [
+        411,
+        730,
+        488,
+        838
+      ],
+      "score": 0.41586440801620483
+    },
+    {
+      "text": "iLNL",
+      "box": [
+        456,
+        826,
+        484,
+        876
+      ],
+      "score": 0.6819878816604614
+    },
+    {
+      "text": "ciente la cara de Moysés, temieron acercársele.",
+      "box": [
+        505,
+        825,
+        814,
+        842
+      ],
+      "score": 0.9944851398468018
+    },
+    {
+      "text": "lo en presencia de todos; haré prodigios nunca vistos sobre",
+      "box": [
+        0,
+        842,
+        398,
+        862
+      ],
+      "score": 0.9960669279098511
+    },
+    {
+      "text": "31. Pero llamados por éste, volvieron así Aaron, como los",
+      "box": [
+        518,
+        842,
+        908,
+        859
+      ],
+      "score": 0.9902961850166321
+    },
+    {
+      "text": "tierra, ni en nacion alguna: para que vea ese pueblo, que",
+      "box": [
+        0,
+        860,
+        398,
+        878
+      ],
+      "score": 0.9850187301635742
+    },
+    {
+      "text": "príncipes de la synagoga.",
+      "box": [
+        504,
+        859,
+        674,
+        876
+      ],
+      "score": 0.9998013973236084
+    },
+    {
+      "text": "ú conduces, la obra terrible que Yo el Señor he de hacer 8.",
+      "box": [
+        0,
+        877,
+        384,
+        895
+      ],
+      "score": 0.9750016331672668
+    },
+    {
+      "text": "32. Y despues que les habló, se llegaron tambien á él to-",
+      "box": [
+        520,
+        876,
+        907,
+        890
+      ],
+      "score": 0.9930456280708313
+    },
+    {
+      "text": "11. Tú observa todas las cosas que yo te encomiendo en",
+      "box": [
+        3,
+        895,
+        396,
+        909
+      ],
+      "score": 0.9871392250061035
+    },
+    {
+      "text": "dos los hijos de Israél: á los cuales expuso todas las órdenes",
+      "box": [
+        505,
+        892,
+        907,
+        907
+      ],
+      "score": 0.9971469044685364
+    },
+    {
+      "text": "ste dia; y Yo mismo arrojaré de delante de tí al Amorrhéo,",
+      "box": [
+        0,
+        911,
+        395,
+        925
+      ],
+      "score": 0.994418740272522
+    },
+    {
+      "text": "que habia recibido del Señor en el monte Sinaí.",
+      "box": [
+        503,
+        906,
+        817,
+        925
+      ],
+      "score": 0.9986971020698547
+    },
+    {
+      "text": "al Chananéo, y al Hethéo, al Pherezéo tambien, y al Hevéo,",
+      "box": [
+        1,
+        927,
+        395,
+        941
+      ],
+      "score": 0.9948455095291138
+    },
+    {
+      "text": "33. Y acabado el razonamiento, puso un velo sobre su",
+      "box": [
+        518,
+        925,
+        906,
+        939
+      ],
+      "score": 0.9997560977935791
+    },
+    {
+      "text": "al Jebuséo.",
+      "box": [
+        0,
+        941,
+        84,
+        958
+      ],
+      "score": 0.9986016750335693
+    },
+    {
+      "text": "LUAIL",
+      "box": [
+        435,
+        933,
+        483,
+        998
+      ],
+      "score": 0.6058288812637329
+    },
+    {
+      "text": "rostro 19,",
+      "box": [
+        502,
+        939,
+        563,
+        957
+      ],
+      "score": 0.9650471806526184
+    },
+    {
+      "text": "12. Guárdate de contraer jamás amistad con los habitan-",
+      "box": [
+        3,
+        956,
+        396,
+        974
+      ],
+      "score": 0.9996135830879211
+    },
+    {
+      "text": "34. El cual se lo quitaba cuando entraba á tratar con el",
+      "box": [
+        517,
+        956,
+        906,
+        973
+      ],
+      "score": 0.9973633885383606
+    },
+    {
+      "text": "es de aquella tierra; lo que očasionaria tu ruina:",
+      "box": [
+        0,
+        973,
+        317,
+        992
+      ],
+      "score": 0.990842878818512
+    },
+    {
+      "text": "Señor, hasta que, saliendo, intimaba á los hijos de Israél todo",
+      "box": [
+        504,
+        974,
+        904,
+        989
+      ],
+      "score": 0.9993280172348022
+    },
+    {
+      "text": "13. Antes bien destruye sus altares, rompe sus estatuas, y",
+      "box": [
+        4,
+        990,
+        397,
+        1010
+      ],
+      "score": 0.989867627620697
+    },
+    {
+      "text": "lo que se le habia ordenado.",
+      "box": [
+        502,
+        989,
+        690,
+        1007
+      ],
+      "score": 0.998214840888977
+    },
+    {
+      "text": "rrasa los bosquetes consagrados á sus ídolos.",
+      "box": [
+        0,
+        1006,
+        297,
+        1026
+      ],
+      "score": 0.9920810461044312
+    },
+    {
+      "text": "35. Cuando salia Moysés del Tabernáculo, los Israelitas",
+      "box": [
+        516,
+        1004,
+        905,
+        1023
+      ],
+      "score": 0.992091953754425
+    },
+    {
+      "text": "14. No quieras adorar á ningun Dios extranjero. El Señor",
+      "box": [
+        5,
+        1023,
+        396,
+        1042
+      ],
+      "score": 0.9964345693588257
+    },
+    {
+      "text": "veian su cara despidiendo rayos de luz; mas él la cubria de",
+      "box": [
+        502,
+        1021,
+        904,
+        1040
+      ],
+      "score": 0.991728663444519
+    },
+    {
+      "text": "iene por nombre Zeloso. Dios quiere ser amado él solo.",
+      "box": [
+        0,
+        1039,
+        358,
+        1060
+      ],
+      "score": 0.9822868704795837
+    },
+    {
+      "text": "nuevo, siempre que les hablaba 0.",
+      "box": [
+        501,
+        1038,
+        727,
+        1057
+      ],
+      "score": 0.9884670376777649
+    },
+    {
+      "text": "1 O el bien por entero, del modo que puedes ahora verle; y haré brillar",
+      "box": [
+        1,
+        1064,
+        396,
+        1085
+      ],
+      "score": 0.9865515232086182
+    },
+    {
+      "text": "7 Deut, V, v. 9, 10.—Jer. XXXII, v, 18.—Ps. CXLII, v. 2.",
+      "box": [
+        513,
+        1065,
+        850,
+        1079
+      ],
+      "score": 0.9788913726806641
+    },
+    {
+      "text": "lelante de ti el Nombre del Señor.—Véase Cap. XXXIV, v. 6.",
+      "box": [
+        0,
+        1079,
+        338,
+        1098
+      ],
+      "score": 0.9724273681640625
+    },
+    {
+      "text": "8 Deut. V, v. 2.—Jer, XXXII, v. 40.",
+      "box": [
+        514,
+        1081,
+        724,
+        1095
+      ],
+      "score": 0.968413233757019
+    },
+    {
+      "text": " El Señor, ó un Angel, hablaba á Moysés desde la nube: mas éste no",
+      "box": [
+        2,
+        1092,
+        396,
+        1112
+      ],
+      "score": 0.9802716374397278
+    },
+    {
+      "text": "9 Cap. XXIII, v. 32.—Deut. VII, v. 2.",
+      "box": [
+        513,
+        1095,
+        734,
+        1109
+      ],
+      "score": 0.9825510382652283
+    },
+    {
+      "text": "eia al que le hablaba. El Señor le promete que le revelará su inefable y",
+      "box": [
+        0,
+        1106,
+        395,
+        1126
+      ],
+      "score": 0.995049238204956
+    },
+    {
+      "text": "10 III. Req. XI, v. 2.—Deut. VII, v. 3.",
+      "box": [
+        509,
+        1107,
+        728,
+        1121
+      ],
+      "score": 0.9780247211456299
+    },
+    {
+      "text": "oropio nombre de Jehovah ó, El que es: nombre que no habia revelado ni",
+      "box": [
+        0,
+        1121,
+        394,
+        1138
+      ],
+      "score": 0.9713448882102966
+    },
+    {
+      "text": "11",
+      "box": [
+        510,
+        1123,
+        525,
+        1136
+      ],
+      "score": 0.9997211694717407
+    },
+    {
+      "text": "Cap. XIII, v. 2, 12.—XXII, v. 29.",
+      "box": [
+        524,
+        1120,
+        724,
+        1138
+      ],
+      "score": 0.9956867098808289
+    },
+    {
+      "text": "Abraham, ni á Isaac, Jacob, etc. Cap. XXXIV, v. 6.—Véase San Pa-",
+      "box": [
+        0,
+        1133,
+        395,
+        1154
+      ],
+      "score": 0.9360708594322205
+    },
+    {
+      "text": "12",
+      "box": [
+        510,
+        1137,
+        523,
+        1151
+      ],
+      "score": 0.949822187423706
+    },
+    {
+      "text": "Cap: XXIII, v. 15.—Véase Fiestas.",
+      "box": [
+        524,
+        1134,
+        728,
+        1153
+      ],
+      "score": 0.9797531962394714
+    },
+    {
+      "text": "lo ad Rom. 1X, v. 15, 16.",
+      "box": [
+        0,
+        1149,
+        148,
+        1163
+      ],
+      "score": 0.9843243956565857
+    },
+    {
+      "text": "13",
+      "box": [
+        511,
+        1153,
+        521,
+        1164
+      ],
+      "score": 0.9999318718910217
+    },
+    {
+      "text": "Cap. XXIII, v. 17.—Deut. XVI, v. 16.",
+      "box": [
+        524,
+        1148,
+        747,
+        1167
+      ],
+      "score": 0.9711151123046875
+    },
+    {
+      "text": "3 Desde el cual suelo hablarte.",
+      "box": [
+        7,
+        1161,
+        188,
+        1177
+      ],
+      "score": 0.9994785785675049
+    },
+    {
+      "text": "14",
+      "box": [
+        509,
+        1166,
+        522,
+        1179
+      ],
+      "score": 0.996104896068573
+    },
+    {
+      "text": "Cap. XXIII, v. 18.",
+      "box": [
+        522,
+        1161,
+        636,
+        1182
+      ],
+      "score": 0.9754289984703064
+    },
+    {
+      "text": " Deut. X, v. 1.",
+      "box": [
+        8,
+        1175,
+        103,
+        1189
+      ],
+      "score": 0.9917281270027161
+    },
+    {
+      "text": "Martini traduce: Mosé si stete con lui, é quegli intuonó il nome, ete.",
+      "box": [
+        20,
+        1185,
+        382,
+        1209
+      ],
+      "score": 0.9553244709968567
+    },
+    {
+      "text": "15",
+      "box": [
+        509,
+        1180,
+        522,
+        1193
+      ],
+      "score": 0.9996637105941772
+    },
+    {
+      "text": "O cuando aun está mamando.—Cap. XXIII, v. 19.—Deut. XIV, v. 21.",
+      "box": [
+        522,
+        1175,
+        901,
+        1195
+      ],
+      "score": 0.9581543207168579
+    },
+    {
+      "text": "á",
+      "box": [
+        10,
+        1189,
+        20,
+        1199
+      ],
+      "score": 0.7445337772369385
+    },
+    {
+      "text": "6",
+      "box": [
+        9,
+        1202,
+        26,
+        1214
+      ],
+      "score": 0.9014098048210144
+    },
+    {
+      "text": "Este es el mismo Dios; quien, segun la promesa hecha en el capítulo",
+      "box": [
+        19,
+        1199,
+        394,
+        1224
+      ],
+      "score": 0.9974828958511353
+    },
+    {
+      "text": "16",
+      "box": [
+        509,
+        1194,
+        524,
+        1206
+      ],
+      "score": 0.9974781274795532
+    },
+    {
+      "text": "Aunque en las palabras antecedentes se habla de Moysés; con todo",
+      "box": [
+        519,
+        1190,
+        901,
+        1209
+      ],
+      "score": 0.9898233413696289
+    },
+    {
+      "text": "untecedente (v. 19), pronunció el nombre de Jehovah; que era la señal",
+      "box": [
+        0,
+        1211,
+        395,
+        1240
+      ],
+      "score": 0.9473402500152588
+    },
+    {
+      "text": "es evidente, segun el cap. XX, v. 1, 2, 3, 4 del Deut., que Dios escribió;",
+      "box": [
+        498,
+        1203,
+        901,
+        1224
+      ],
+      "score": 0.9839755892753601
+    },
+    {
+      "text": "dada á Moysés: y añadió las palabras siguientes, tal vez para dar á Moy-",
+      "box": [
+        0,
+        1225,
+        395,
+        1254
+      ],
+      "score": 0.9106610417366028
+    },
+    {
+      "text": "y el verso l.º del capítulo quita toda duda.—Véase Hebraismos.",
+      "box": [
+        496,
+        1214,
+        855,
+        1242
+      ],
+      "score": 0.8596282005310059
+    },
+    {
+      "text": "sés una fórmula de orar como hizo Jesu-Christo al pronunciar el Padre",
+      "box": [
+        0,
+        1238,
+        395,
+        1268
+      ],
+      "score": 0.9761330485343933
+    },
+    {
+      "text": "=3",
+      "box": [
+        412,
+        1244,
+        456,
+        1325
+      ],
+      "score": 0.42543333768844604
+    },
+    {
+      "text": "7 Cap. XXIV, v. 18.—Deut, IX, v. 9, 18.—IV, v. 13.",
+      "box": [
+        510,
+        1232,
+        816,
+        1252
+      ],
+      "score": 0.9582965970039368
+    },
+    {
+      "text": "auesto. O puede decirse que este discurso fué primero pronunciado por",
+      "box": [
+        0,
+        1252,
+        394,
+        1283
+      ],
+      "score": 0.8938876986503601
+    },
+    {
+      "text": "Is El hebreoD p ', resplandecia.",
+      "box": [
+        510,
+        1247,
+        762,
+        1265
+      ],
+      "score": 0.7985097169876099
+    },
+    {
+      "text": "Dios, y repetido despues por Moysés.",
+      "box": [
+        0,
+        1270,
+        207,
+        1288
+      ],
+      "score": 0.9840251207351685
+    },
+    {
+      "text": "19 San Pablo explica todo este hecho misterioso. II. Cor. III.",
+      "box": [
+        510,
+        1259,
+        853,
+        1279
+      ],
+      "score": 0.9922962188720703
+    },
+    {
+      "text": "20",
+      "box": [
+        512,
+        1279,
+        526,
+        1291
+      ],
+      "score": 0.99781334400177
+    },
+    {
+      "text": "En conversacion familiar y ordinaria.",
+      "box": [
+        523,
+        1273,
+        738,
+        1294
+      ],
+      "score": 0.997353196144104
+    },
+    {
+      "text": "1.—18",
+      "box": [
+        833,
+        1289,
+        877,
+        1311
+      ],
+      "score": 0.8280518651008606
+    }
+  ]
+}

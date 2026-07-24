@@ -1,0 +1,967 @@
+{
+  "volume": 1,
+  "page_index": 334,
+  "pdf_page": 335,
+  "lines": [
+    {
+      "text": "361",
+      "box": [
+        25,
+        11,
+        49,
+        32
+      ],
+      "score": 0.999907910823822
+    },
+    {
+      "text": "RUTH.",
+      "box": [
+        179,
+        20,
+        237,
+        44
+      ],
+      "score": 0.9990161061286926
+    },
+    {
+      "text": "CAPITULO IV.",
+      "box": [
+        637,
+        20,
+        746,
+        48
+      ],
+      "score": 0.9930577278137207
+    },
+    {
+      "text": "362",
+      "box": [
+        852,
+        19,
+        878,
+        39
+      ],
+      "score": 0.9999020099639893
+    },
+    {
+      "text": "15. Y añadió: Extiende el manto 1 con que te cubres, y",
+      "box": [
+        25,
+        53,
+        412,
+        101
+      ],
+      "score": 0.986175000667572
+    },
+    {
+      "text": "tenle bien asido con entrambas manos. Extendiéndole ella, y",
+      "box": [
+        14,
+        72,
+        411,
+        117
+      ],
+      "score": 0.9914450645446777
+    },
+    {
+      "text": "que cuando uno cedia su derecho al otro, para que la cesion",
+      "box": [
+        508,
+        69,
+        883,
+        101
+      ],
+      "score": 0.9884285926818848
+    },
+    {
+      "text": "teniéndole, le midió seis modios de cebada, y cargóselos á",
+      "box": [
+        15,
+        90,
+        412,
+        134
+      ],
+      "score": 0.9974068999290466
+    },
+    {
+      "text": "fuese válida, se quitaba aquel su calzado y dábaselo á su",
+      "box": [
+        508,
+        88,
+        883,
+        116
+      ],
+      "score": 0.9951378703117371
+    },
+    {
+      "text": "cuestas. Así cargada entró en la ciudad.",
+      "box": [
+        16,
+        109,
+        277,
+        141
+      ],
+      "score": 0.9981228113174438
+    },
+    {
+      "text": "pariente . Ésta era la fórmula y testimonio de cesion en",
+      "box": [
+        507,
+        107,
+        883,
+        134
+      ],
+      "score": 0.9926465153694153
+    },
+    {
+      "text": "16. Y fué á su suegra, la cual le preguntó: ¿Qué has he-",
+      "box": [
+        29,
+        127,
+        412,
+        166
+      ],
+      "score": 0.997024655342102
+    },
+    {
+      "text": "Israél.",
+      "box": [
+        508,
+        131,
+        549,
+        149
+      ],
+      "score": 0.9894219040870667
+    },
+    {
+      "text": "cho, hija mia, sóbre lo que te encargué? Contóla Ruth todo lo",
+      "box": [
+        17,
+        144,
+        411,
+        182
+      ],
+      "score": 0.9816636443138123
+    },
+    {
+      "text": "8. Por lo cual dijo Booz á su pariente: Quítate el calzado,",
+      "box": [
+        518,
+        143,
+        882,
+        165
+      ],
+      "score": 0.9972801804542542
+    },
+    {
+      "text": "que habia hecho Booz por ella;",
+      "box": [
+        18,
+        163,
+        219,
+        189
+      ],
+      "score": 0.9972612261772156
+    },
+    {
+      "text": "y él al punto se lo quitó del pié,",
+      "box": [
+        507,
+        161,
+        701,
+        180
+      ],
+      "score": 0.9819201231002808
+    },
+    {
+      "text": "17. Y añadió: Hé aquí seis modios de cebada que me ha",
+      "box": [
+        32,
+        178,
+        410,
+        215
+      ],
+      "score": 0.9929870963096619
+    },
+    {
+      "text": "9. Éntonces Booz dijo á los ancianos y á todo el pueblo:",
+      "box": [
+        520,
+        175,
+        881,
+        195
+      ],
+      "score": 0.9874919056892395
+    },
+    {
+      "text": "dado, diciéndome: No quiero que vuelvas á tu suegra con las",
+      "box": [
+        17,
+        194,
+        411,
+        233
+      ],
+      "score": 0.991071343421936
+    },
+    {
+      "text": "Vosotros sois testigos en este dia de que yo entro en posesion",
+      "box": [
+        508,
+        191,
+        881,
+        211
+      ],
+      "score": 0.9921263456344604
+    },
+    {
+      "text": "manos vacías.",
+      "box": [
+        18,
+        211,
+        112,
+        235
+      ],
+      "score": 0.9759244918823242
+    },
+    {
+      "text": "de todas las cosas que posein Elimelech, y Chelion, y Maha-",
+      "box": [
+        508,
+        207,
+        882,
+        226
+      ],
+      "score": 0.9919270277023315
+    },
+    {
+      "text": "18. Dijo entonces Noemí: Espera, hija mia, hasta que",
+      "box": [
+        32,
+        227,
+        410,
+        263
+      ],
+      "score": 0.996604323387146
+    },
+    {
+      "text": "lon, por entrega que me hace Noemí;",
+      "box": [
+        507,
+        222,
+        735,
+        242
+      ],
+      "score": 0.9853711724281311
+    },
+    {
+      "text": "veamos en qué para la cosa. Porque Booz es hombre hon-",
+      "box": [
+        18,
+        243,
+        411,
+        280
+      ],
+      "score": 0.9876499176025391
+    },
+    {
+      "text": "10. Y recibo en matrimonio á Ruth la Moabita 6, mujer",
+      "box": [
+        520,
+        237,
+        881,
+        256
+      ],
+      "score": 0.9755980372428894
+    },
+    {
+      "text": "rado, que no parará hasta que cumpla lo que te ha pro-",
+      "box": [
+        18,
+        261,
+        411,
+        295
+      ],
+      "score": 0.9875099062919617
+    },
+    {
+      "text": "que fué de Mahalon, para resucitar el nombre del difunto en",
+      "box": [
+        507,
+        251,
+        882,
+        271
+      ],
+      "score": 0.9935145378112793
+    },
+    {
+      "text": "metido.",
+      "box": [
+        18,
+        278,
+        72,
+        300
+      ],
+      "score": 0.9998340606689453
+    },
+    {
+      "text": "su herencia, á fin de que no se borre su nombre de entre su",
+      "box": [
+        506,
+        266,
+        882,
+        286
+      ],
+      "score": 0.9873224496841431
+    },
+    {
+      "text": "familia, de entre sus hermanos y de su pueblo. Vosotros,",
+      "box": [
+        506,
+        282,
+        882,
+        300
+      ],
+      "score": 0.9992438554763794
+    },
+    {
+      "text": "repito, sois testigos de este acto.",
+      "box": [
+        506,
+        297,
+        703,
+        316
+      ],
+      "score": 0.9999327659606934
+    },
+    {
+      "text": "CAPITULO IV",
+      "box": [
+        167,
+        320,
+        265,
+        337
+      ],
+      "score": 0.9994747638702393
+    },
+    {
+      "text": "11. Entonces todo el pueblo que estaba en la puerta, res-",
+      "box": [
+        517,
+        312,
+        882,
+        330
+      ],
+      "score": 0.9964504837989807
+    },
+    {
+      "text": "pondió con los ancianos: Nosotros somos testigos. El Señor",
+      "box": [
+        505,
+        326,
+        883,
+        348
+      ],
+      "score": 0.9995570182800293
+    },
+    {
+      "text": "haga que esa mujer que entras en tu casa, sea como Rachel",
+      "box": [
+        503,
+        342,
+        883,
+        364
+      ],
+      "score": 0.9938210844993591
+    },
+    {
+      "text": "Cásase Booz con Ruth, la cual le pare un hijo llamado Obed, padre de",
+      "box": [
+        18,
+        354,
+        407,
+        380
+      ],
+      "score": 0.9898734092712402
+    },
+    {
+      "text": "y Lia, las cuales fundaron la casa de Israél; para que sea",
+      "box": [
+        503,
+        357,
+        884,
+        380
+      ],
+      "score": 0.9980657696723938
+    },
+    {
+      "text": "Isaí y abuelo de David.",
+      "box": [
+        151,
+        376,
+        276,
+        390
+      ],
+      "score": 0.9774971008300781
+    },
+    {
+      "text": "como aquellas dechado de virtud en Ephrata, y tenga un",
+      "box": [
+        503,
+        373,
+        884,
+        396
+      ],
+      "score": 0.9833003282546997
+    },
+    {
+      "text": "nombre célebre en Bethlehem;",
+      "box": [
+        504,
+        391,
+        695,
+        411
+      ],
+      "score": 0.9994736909866333
+    },
+    {
+      "text": "1. Fué pues Booz á las puertas é juzgado de la ciudad 2, y",
+      "box": [
+        30,
+        410,
+        404,
+        433
+      ],
+      "score": 0.966119110584259
+    },
+    {
+      "text": "12. Y sea tu casa como la casa de Phares (hijo de Tha-",
+      "box": [
+        517,
+        406,
+        884,
+        428
+      ],
+      "score": 0.9888041615486145
+    },
+    {
+      "text": "sentóse allí; y viendo pasar aquel pariente de quien se habló",
+      "box": [
+        14,
+        424,
+        405,
+        450
+      ],
+      "score": 0.9710327386856079
+    },
+    {
+      "text": "mar y de Judá), por la posteridad que el Señor te diere de",
+      "box": [
+        502,
+        421,
+        885,
+        444
+      ],
+      "score": 0.9960148930549622
+    },
+    {
+      "text": "jesta jóven.",
+      "box": [
+        503,
+        440,
+        575,
+        460
+      ],
+      "score": 0.9397859573364258
+    },
+    {
+      "text": "13. Tomó pues Booz á Ruth, y desposóse con ella, y en su",
+      "box": [
+        515,
+        454,
+        885,
+        476
+      ],
+      "score": 0.9981632232666016
+    },
+    {
+      "text": "matrimonio el Señor le hizo la gracia de que Ruth coneibiera",
+      "box": [
+        503,
+        471,
+        884,
+        492
+      ],
+      "score": 0.9932451844215393
+    },
+    {
+      "text": "nos de la ciudad, díjoles: Sentaos aquí.",
+      "box": [
+        9,
+        488,
+        266,
+        521
+      ],
+      "score": 0.9940371513366699
+    },
+    {
+      "text": "y pariese un hijo.",
+      "box": [
+        503,
+        489,
+        615,
+        510
+      ],
+      "score": 0.9995248317718506
+    },
+    {
+      "text": "14. Con cuyo motivo las mujeres dijeron á Noemí: Ben-",
+      "box": [
+        516,
+        501,
+        887,
+        527
+      ],
+      "score": 0.9848851561546326
+    },
+    {
+      "text": "que ha vuelto del país",
+      "box": [
+        9,
+        523,
+        169,
+        550
+      ],
+      "score": 0.999129056930542
+    },
+    {
+      "text": "s de Moab, está para vender una parte",
+      "box": [
+        158,
+        527,
+        401,
+        549
+      ],
+      "score": 0.9982089400291443
+    },
+    {
+      "text": "dito sea el Señor que no ha permitido que faltase heredero",
+      "box": [
+        503,
+        518,
+        886,
+        544
+      ],
+      "score": 0.9924862384796143
+    },
+    {
+      "text": "en tu familia, y ha querido conservar el nombre de ella en",
+      "box": [
+        502,
+        534,
+        886,
+        561
+      ],
+      "score": 0.9890012145042419
+    },
+    {
+      "text": "Israél;",
+      "box": [
+        502,
+        558,
+        546,
+        576
+      ],
+      "score": 0.9987979531288147
+    },
+    {
+      "text": "15. Para que tengas tú tambien quien consuele tu alma,",
+      "box": [
+        514,
+        566,
+        888,
+        593
+      ],
+      "score": 0.996570348739624
+    },
+    {
+      "text": "y sea el sosten de tu vejez. Pues que te ha nacido un niño de",
+      "box": [
+        500,
+        581,
+        888,
+        610
+      ],
+      "score": 0.9982589483261108
+    },
+    {
+      "text": "tu nuera, la cual te ama, y es para tí mucho mejor que si",
+      "box": [
+        500,
+        598,
+        889,
+        625
+      ],
+      "score": 0.9992426633834839
+    },
+    {
+      "text": "tuvieses siete hijos.",
+      "box": [
+        501,
+        619,
+        624,
+        640
+      ],
+      "score": 0.9994147419929504
+    },
+    {
+      "text": "sino tú, que eres el primero, y yo que soy el segundo. A lo",
+      "box": [
+        3,
+        636,
+        400,
+        665
+      ],
+      "score": 0.876742422580719
+    },
+    {
+      "text": "16. Noemí, recibido el niño ó recien nacido, le puso en su",
+      "box": [
+        514,
+        631,
+        888,
+        656
+      ],
+      "score": 0.9765925407409668
+    },
+    {
+      "text": "que respondió él: Pues yo compraré la heredad.",
+      "box": [
+        4,
+        655,
+        312,
+        679
+      ],
+      "score": 0.9867222905158997
+    },
+    {
+      "text": "regazo, haciendo con él oficio de ama y de niñera.",
+      "box": [
+        501,
+        649,
+        821,
+        673
+      ],
+      "score": 0.9902368783950806
+    },
+    {
+      "text": "5. Replicóle Booz: Luego que compres esa posesion debes",
+      "box": [
+        19,
+        673,
+        398,
+        696
+      ],
+      "score": 0.9856830835342407
+    },
+    {
+      "text": "17. Y las mujeres vecinas suyas, congratulándose con",
+      "box": [
+        514,
+        664,
+        890,
+        690
+      ],
+      "score": 0.9981310963630676
+    },
+    {
+      "text": "tambien casarte con Ruth, la Moabita, que fué consorte del",
+      "box": [
+        1,
+        687,
+        398,
+        714
+      ],
+      "score": 0.9857005476951599
+    },
+    {
+      "text": "ella, decian: Ha nacido un hijo á Noemí; y pusiéronle por",
+      "box": [
+        499,
+        680,
+        892,
+        708
+      ],
+      "score": 0.9882873296737671
+    },
+    {
+      "text": "difunto, para hacer revivir el nombre de tu pariente en su",
+      "box": [
+        1,
+        703,
+        398,
+        732
+      ],
+      "score": 0.9875773787498474
+    },
+    {
+      "text": "nombre Obed. Este fué padre de Isaí, que lo fué de David.",
+      "box": [
+        498,
+        698,
+        875,
+        725
+      ],
+      "score": 0.995934247970581
+    },
+    {
+      "text": "herencia 3.",
+      "box": [
+        1,
+        721,
+        81,
+        741
+      ],
+      "score": 0.9589664340019226
+    },
+    {
+      "text": "18. Hé aquí las generaciones ó la posteridad de Phares.",
+      "box": [
+        512,
+        715,
+        892,
+        741
+      ],
+      "score": 0.9836854338645935
+    },
+    {
+      "text": "6. Él respondió: Renuncio el derecho de parentesco; por-",
+      "box": [
+        16,
+        737,
+        396,
+        764
+      ],
+      "score": 0.995484471321106
+    },
+    {
+      "text": "Phares fué padre de Esron,",
+      "box": [
+        498,
+        736,
+        676,
+        758
+      ],
+      "score": 0.9994370341300964
+    },
+    {
+      "text": "que no es razon que yo arruine la posteridad de mi familia :",
+      "box": [
+        0,
+        754,
+        396,
+        780
+      ],
+      "score": 0.9842848181724548
+    },
+    {
+      "text": "19. Esron de Aram, Aram de Aminadab,",
+      "box": [
+        512,
+        751,
+        780,
+        774
+      ],
+      "score": 0.9998607635498047
+    },
+    {
+      "text": "usa tú del derecho mio, el que protesto renunciar espontá-",
+      "box": [
+        0,
+        769,
+        395,
+        798
+      ],
+      "score": 0.989020049571991
+    },
+    {
+      "text": "20. Aminadab de Nahasson, Nahasson de Salmon,",
+      "box": [
+        511,
+        765,
+        842,
+        793
+      ],
+      "score": 0.9957504272460938
+    },
+    {
+      "text": "neamente.",
+      "box": [
+        0,
+        785,
+        75,
+        806
+      ],
+      "score": 0.9999896287918091
+    },
+    {
+      "text": "21. Salmon fué padre de Booz, Booz lo fué de Obed,",
+      "box": [
+        511,
+        782,
+        856,
+        809
+      ],
+      "score": 0.9888817071914673
+    },
+    {
+      "text": "7. Era costumbre antigua en Israél entre los parientes,",
+      "box": [
+        13,
+        800,
+        393,
+        833
+      ],
+      "score": 0.9923785924911499
+    },
+    {
+      "text": "22. Obed de Isaí, Isaí fué padre de David.",
+      "box": [
+        510,
+        801,
+        791,
+        826
+      ],
+      "score": 0.9939793944358826
+    },
+    {
+      "text": "O el velo grande con que las mujeres orientales se cubrian desde la",
+      "box": [
+        7,
+        840,
+        394,
+        878
+      ],
+      "score": 0.9900091290473938
+    },
+    {
+      "text": "cabeza hasta los piés.",
+      "box": [
+        0,
+        855,
+        123,
+        877
+      ],
+      "score": 0.9731586575508118
+    },
+    {
+      "text": "4 Aumentando la division de mis bienes eon los muchos hijos que puede",
+      "box": [
+        508,
+        846,
+        891,
+        870
+      ],
+      "score": 0.9847058057785034
+    },
+    {
+      "text": "2 Véaso Puertas.",
+      "box": [
+        7,
+        868,
+        115,
+        890
+      ],
+      "score": 0.9597970247268677
+    },
+    {
+      "text": "à Cuando el que debia desposarse con la viuda no era hermano del",
+      "box": [
+        4,
+        878,
+        393,
+        922
+      ],
+      "score": 0.962662935256958
+    },
+    {
+      "text": "dar Ruth despues del primogénito.",
+      "box": [
+        496,
+        865,
+        689,
+        885
+      ],
+      "score": 0.9822087287902832
+    },
+    {
+      "text": "s San Agustin cree que la órden de Dios de no casarsc con Moabitas",
+      "box": [
+        505,
+        873,
+        890,
+        900
+      ],
+      "score": 0.9805805087089539
+    },
+    {
+      "text": "uo, sno parente, y aun remoo, tenia bligacon de casarse con ella,",
+      "box": [
+        0,
+        894,
+        392,
+        936
+      ],
+      "score": 0.6855655908584595
+    },
+    {
+      "text": "hasta la décima gencracion no se extendia á las que se convertian á la",
+      "box": [
+        495,
+        888,
+        891,
+        914
+      ],
+      "score": 0.9834736585617065
+    },
+    {
+      "text": "pero menos rigorosa que el hermano.",
+      "box": [
+        0,
+        909,
+        204,
+        939
+      ],
+      "score": 0.9967159628868103
+    },
+    {
+      "text": "Religion.",
+      "box": [
+        495,
+        912,
+        548,
+        928
+      ],
+      "score": 0.9999805092811584
+    },
+    {
+      "text": "e Vénse Poligamia.",
+      "box": [
+        504,
+        922,
+        620,
+        942
+      ],
+      "score": 0.9757335186004639
+    },
+    {
+      "text": "FIN DEL TOMO PRIMERO",
+      "box": [
+        344,
+        1105,
+        538,
+        1121
+      ],
+      "score": 0.9997733235359192
+    }
+  ]
+}

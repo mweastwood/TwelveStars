@@ -1,0 +1,27 @@
+{
+  "volume": 2,
+  "page_index": 130,
+  "pdf_page": 131,
+  "lines": [
+    {
+      "text": "SDon's",
+      "box": [
+        131,
+        1730,
+        268,
+        1793
+      ],
+      "score": 0.8834622502326965
+    },
+    {
+      "text": "ELÍAS HACE PERECER A LOS SACERDOTES DE BAAL",
+      "box": [
+        425,
+        1830,
+        1043,
+        1870
+      ],
+      "score": 0.9914111495018005
+    }
+  ]
+}

@@ -1,0 +1,677 @@
+{
+  "volume": 4,
+  "page_index": 356,
+  "pdf_page": 357,
+  "lines": [
+    {
+      "text": "393",
+      "box": [
+        72,
+        44,
+        99,
+        64
+      ],
+      "score": 0.9999515414237976
+    },
+    {
+      "text": "EP. DE SAN JUDAS.",
+      "box": [
+        182,
+        50,
+        317,
+        64
+      ],
+      "score": 0.9703083038330078
+    },
+    {
+      "text": "EP. DE SAN JUDAS.",
+      "box": [
+        649,
+        46,
+        780,
+        61
+      ],
+      "score": 0.9682742953300476
+    },
+    {
+      "text": "394",
+      "box": [
+        861,
+        47,
+        885,
+        64
+      ],
+      "score": 0.9999885559082031
+    },
+    {
+      "text": "para allá por los vientos, árboles otoñales ¹, infructuosos, dos",
+      "box": [
+        64,
+        89,
+        434,
+        108
+      ],
+      "score": 0.9870767593383789
+    },
+    {
+      "text": "19. Estos son los que se separan á sí mismos de la grey de",
+      "box": [
+        543,
+        88,
+        892,
+        106
+      ],
+      "score": 0.9924563765525818
+    },
+    {
+      "text": "veces muertos ², sin raices,",
+      "box": [
+        65,
+        105,
+        231,
+        124
+      ],
+      "score": 0.9829406142234802
+    },
+    {
+      "text": "Jesu-Christo, hombres sensuales, que no tienen el Espíritu de",
+      "box": [
+        531,
+        104,
+        892,
+        123
+      ],
+      "score": 0.9945912957191467
+    },
+    {
+      "text": "13. Olas bravas de la mar, que arrojan las espumas de sus",
+      "box": [
+        76,
+        120,
+        435,
+        144
+      ],
+      "score": 0.9960756301879883
+    },
+    {
+      "text": "Dios.",
+      "box": [
+        532,
+        121,
+        563,
+        137
+      ],
+      "score": 0.9996644854545593
+    },
+    {
+      "text": "torpezas, exhalaciones errantes: á quienes está reservada óha",
+      "box": [
+        65,
+        138,
+        434,
+        160
+      ],
+      "score": 0.9797407388687134
+    },
+    {
+      "text": "20. Vosotros al contrario, carísimos, elevándoos á vosotros",
+      "box": [
+        542,
+        136,
+        891,
+        157
+      ],
+      "score": 0.9980029463768005
+    },
+    {
+      "text": "de seguir una tenebrosísima tempestad que ha de durar para",
+      "box": [
+        64,
+        155,
+        435,
+        177
+      ],
+      "score": 0.9990119934082031
+    },
+    {
+      "text": "mismos como un edificio espiritual sobre el fundamento de",
+      "box": [
+        529,
+        154,
+        890,
+        174
+      ],
+      "score": 0.9941002130508423
+    },
+    {
+      "text": "siempre.",
+      "box": [
+        65,
+        172,
+        123,
+        192
+      ],
+      "score": 0.9995477795600891
+    },
+    {
+      "text": "vuestra santísima fe, orando en el Espíritu Santo,",
+      "box": [
+        530,
+        170,
+        822,
+        189
+      ],
+      "score": 0.9997987151145935
+    },
+    {
+      "text": "14. Tambien profetizó de estos Enoch * que es el séptimo",
+      "box": [
+        77,
+        187,
+        433,
+        208
+      ],
+      "score": 0.9894774556159973
+    },
+    {
+      "text": "21. -Manteneos constantes en el amor de Dios, esperando la",
+      "box": [
+        542,
+        185,
+        890,
+        205
+      ],
+      "score": 0.9895392656326294
+    },
+    {
+      "text": "á contar desde Adam, diciendo: Mirad que viene el Señorcon",
+      "box": [
+        65,
+        204,
+        434,
+        224
+      ],
+      "score": 0.9890958666801453
+    },
+    {
+      "text": "misericordia de nuestro Señor Jesu-Christo para aleanzar la",
+      "box": [
+        529,
+        200,
+        890,
+        221
+      ],
+      "score": 0.9908035397529602
+    },
+    {
+      "text": "millares de sus santos",
+      "box": [
+        65,
+        219,
+        204,
+        241
+      ],
+      "score": 0.9997594952583313
+    },
+    {
+      "text": "vida eterna.",
+      "box": [
+        532,
+        218,
+        602,
+        232
+      ],
+      "score": 0.9998769164085388
+    },
+    {
+      "text": "15. A juzgar á todos los hombres, y á redargüir á todos los",
+      "box": [
+        77,
+        235,
+        432,
+        256
+      ],
+      "score": 0.9691905379295349
+    },
+    {
+      "text": "22. Y á aquellos que están endurecidos y ya sentenciados,",
+      "box": [
+        542,
+        231,
+        889,
+        254
+      ],
+      "score": 0.9775810241699219
+    },
+    {
+      "text": "malvados de todas las obras de su impiedad, que impíamente",
+      "box": [
+        64,
+        252,
+        433,
+        272
+      ],
+      "score": 0.9978700876235962
+    },
+    {
+      "text": "corregidlos y reprendedlos con vigor:",
+      "box": [
+        530,
+        247,
+        752,
+        267
+      ],
+      "score": 0.9978169798851013
+    },
+    {
+      "text": "hicieron, y de todas las injuriosas expresiones, que profirieron",
+      "box": [
+        63,
+        266,
+        434,
+        289
+      ],
+      "score": 0.9566448926925659
+    },
+    {
+      "text": "23. A los unos ponedlos en salvo, arrebatándolos de entre",
+      "box": [
+        541,
+        263,
+        889,
+        284
+      ],
+      "score": 0.9972670078277588
+    },
+    {
+      "text": "contra Dios los impíos pecadores.",
+      "box": [
+        65,
+        282,
+        270,
+        303
+      ],
+      "score": 0.9896202087402344
+    },
+    {
+      "text": "las llamas. Y tened lástima do los demás b temiendo por vos-",
+      "box": [
+        529,
+        278,
+        890,
+        299
+      ],
+      "score": 0.9834139347076416
+    },
+    {
+      "text": "16. Estos son unos murmuradores quejumbrosos, arrastra-",
+      "box": [
+        77,
+        298,
+        433,
+        318
+      ],
+      "score": 0.9877490401268005
+    },
+    {
+      "text": "otros mismos: aborreciendo aun ó huyendo hasta de la ropa,",
+      "box": [
+        529,
+        293,
+        890,
+        315
+      ],
+      "score": 0.9957154393196106
+    },
+    {
+      "text": "dos de sus pasiones, y su boca profiere á cada paso palabras",
+      "box": [
+        64,
+        311,
+        433,
+        333
+      ],
+      "score": 0.9930468797683716
+    },
+    {
+      "text": "que está contaminada con la corrupcion de la carne .",
+      "box": [
+        529,
+        310,
+        852,
+        329
+      ],
+      "score": 0.991243302822113
+    },
+    {
+      "text": "orgullosas, los cuales se muestran admiradores ó adulan á",
+      "box": [
+        64,
+        328,
+        433,
+        349
+      ],
+      "score": 0.9691697955131531
+    },
+    {
+      "text": "24. En fin, al que es poderoso para conservaros sin pe-",
+      "box": [
+        541,
+        325,
+        890,
+        347
+      ],
+      "score": 0.9971206784248352
+    },
+    {
+      "text": "ciertas personas segun conviene á sus propios intereses.",
+      "box": [
+        63,
+        343,
+        402,
+        365
+      ],
+      "score": 0.9946587681770325
+    },
+    {
+      "text": "cado, y presentaros sin mácula y llenos de júbilo ante el",
+      "box": [
+        529,
+        341,
+        891,
+        361
+      ],
+      "score": 0.9915344715118408
+    },
+    {
+      "text": "17. Vosotros empero, queridos mios, acordaos de las pala-",
+      "box": [
+        77,
+        360,
+        433,
+        380
+      ],
+      "score": 0.9931172132492065
+    },
+    {
+      "text": "trono de su gloria en la venida de nuestro Señor Jesu-",
+      "box": [
+        529,
+        358,
+        891,
+        377
+      ],
+      "score": 0.9995758533477783
+    },
+    {
+      "text": "bras, que os fueron antes dichas por los Apóstoles de nuestro",
+      "box": [
+        62,
+        374,
+        432,
+        396
+      ],
+      "score": 0.9915922284126282
+    },
+    {
+      "text": "Christo:",
+      "box": [
+        529,
+        374,
+        583,
+        391
+      ],
+      "score": 0.9999194145202637
+    },
+    {
+      "text": "Señor Jesu-Christo 4,",
+      "box": [
+        62,
+        390,
+        195,
+        411
+      ],
+      "score": 0.9358660578727722
+    },
+    {
+      "text": "25. Al solo Dios Salvador nuestro, por Jesu-Christo nuestro",
+      "box": [
+        541,
+        390,
+        891,
+        408
+      ],
+      "score": 0.9990959167480469
+    },
+    {
+      "text": "18. Los cuales os decian, que en los últimos tiempos han",
+      "box": [
+        75,
+        406,
+        432,
+        428
+      ],
+      "score": 0.9982369542121887
+    },
+    {
+      "text": "Señor, sea dada la gloria y magnificencia, imperio y potestad",
+      "box": [
+        528,
+        406,
+        892,
+        424
+      ],
+      "score": 0.9851568341255188
+    },
+    {
+      "text": "de venir unos impostores, que seguirán sus pasiones llenas de",
+      "box": [
+        61,
+        422,
+        432,
+        445
+      ],
+      "score": 0.9957437515258789
+    },
+    {
+      "text": "antes de todos los siglos, y ahora, y por todos los siglos de los",
+      "box": [
+        529,
+        422,
+        893,
+        441
+      ],
+      "score": 0.9975756406784058
+    },
+    {
+      "text": "impiedad.",
+      "box": [
+        61,
+        438,
+        131,
+        462
+      ],
+      "score": 0.9999392032623291
+    },
+    {
+      "text": "siglos. Amen.",
+      "box": [
+        530,
+        440,
+        612,
+        457
+      ],
+      "score": 0.9991751909255981
+    },
+    {
+      "text": "Que no florecen hasta el otoño, cuyo frutą no llega á sazonarse.",
+      "box": [
+        70,
+        474,
+        408,
+        497
+      ],
+      "score": 0.9651180505752563
+    },
+    {
+      "text": "nera. A unos se les ha de tratar con mucha dulzura para convertirlos:",
+      "box": [
+        529,
+        476,
+        895,
+        490
+      ],
+      "score": 0.9981814622879028
+    },
+    {
+      "text": "8 Esto es, antes y despues del bautismo,",
+      "box": [
+        71,
+        490,
+        286,
+        510
+      ],
+      "score": 0.9712602496147156
+    },
+    {
+      "text": "á otros, que son contumaces, con severidad, acompañada siempre de la",
+      "box": [
+        530,
+        490,
+        895,
+        504
+      ],
+      "score": 0.98933345079422
+    },
+    {
+      "text": "Véase Apocal. I, v. 7—La profecia de este Patriarca, el séptimo",
+      "box": [
+        69,
+        502,
+        430,
+        524
+      ],
+      "score": 0.7695567607879639
+    },
+    {
+      "text": "mas sincera caridad. Pero siempre debemos evitar todo peligro de que",
+      "box": [
+        527,
+        501,
+        897,
+        519
+      ],
+      "score": 0.997427225112915
+    },
+    {
+      "text": "desde Adam, se conservaria por tradicion. Tertuliano, Clemente Alejan",
+      "box": [
+        60,
+        518,
+        431,
+        539
+      ],
+      "score": 0.7910022735595703
+    },
+    {
+      "text": "se corrompa nuestra fe, y buenas costumbres, con el trato y familiaridad",
+      "box": [
+        527,
+        514,
+        897,
+        534
+      ],
+      "score": 0.9823905229568481
+    },
+    {
+      "text": "drino, San Atanasio, San Gerónimo, y otros hablan de este libro de",
+      "box": [
+        58,
+        530,
+        432,
+        552
+      ],
+      "score": 0.925744354724884
+    },
+    {
+      "text": "de los hombres malos é impíos. Puede tambien traducirse: A los ya con-",
+      "box": [
+        527,
+        527,
+        897,
+        547
+      ],
+      "score": 0.9675981998443604
+    },
+    {
+      "text": "Enoch, como custodiado en el arca en tiempo del diluvio.",
+      "box": [
+        59,
+        546,
+        358,
+        564
+      ],
+      "score": 0.9949817657470703
+    },
+    {
+      "text": "vencidos, 6 sentenciados, corregidlos con vigor; y á los otros ponedlos en",
+      "box": [
+        528,
+        541,
+        897,
+        561
+      ],
+      "score": 0.9739295244216919
+    },
+    {
+      "text": "I. Tim. IV, v. 1. —II. Tim. II, v. I.—II. Pet. III, v. 3.",
+      "box": [
+        68,
+        558,
+        379,
+        579
+      ],
+      "score": 0.8550599813461304
+    },
+    {
+      "text": "salvo, etc.",
+      "box": [
+        528,
+        559,
+        581,
+        573
+      ],
+      "score": 0.993657112121582
+    },
+    {
+      "text": "No deben corregirse todos los herejes ó pecadores de la misma ma-",
+      "box": [
+        69,
+        572,
+        429,
+        593
+      ],
+      "score": 0.9820216298103333
+    },
+    {
+      "text": " Hipérbole tomada del Levit., cap. XV, v. 4.",
+      "box": [
+        537,
+        568,
+        774,
+        588
+      ],
+      "score": 0.9652472138404846
+    },
+    {
+      "text": "IV.—51",
+      "box": [
+        834,
+        1285,
+        881,
+        1306
+      ],
+      "score": 0.9482605457305908
+    }
+  ]
+}

@@ -1,0 +1,1457 @@
+{
+  "volume": 3,
+  "page_index": 25,
+  "pdf_page": 26,
+  "lines": [
+    {
+      "text": "23",
+      "box": [
+        67,
+        44,
+        87,
+        61
+      ],
+      "score": 0.9999827146530151
+    },
+    {
+      "text": "SALMOS.",
+      "box": [
+        213,
+        42,
+        283,
+        68
+      ],
+      "score": 0.9930283427238464
+    },
+    {
+      "text": "SALMO XXXIV.",
+      "box": [
+        687,
+        64,
+        797,
+        88
+      ],
+      "score": 0.9979398846626282
+    },
+    {
+      "text": "24",
+      "box": [
+        897,
+        81,
+        913,
+        95
+      ],
+      "score": 0.9989475011825562
+    },
+    {
+      "text": "SALMO XXXIII",
+      "box": [
+        199,
+        91,
+        310,
+        121
+      ],
+      "score": 0.9987770915031433
+    },
+    {
+      "text": "3. Desenvaina la espada, y cierra con los que me persi-",
+      "box": [
+        560,
+        111,
+        920,
+        142
+      ],
+      "score": 0.9919220209121704
+    },
+    {
+      "text": "DgD,de,",
+      "box": [
+        85,
+        129,
+        426,
+        170
+      ],
+      "score": 0.6145961880683899
+    },
+    {
+      "text": "guen: díle á mi alma: Yo soy tu Salvador.",
+      "box": [
+        550,
+        137,
+        807,
+        154
+      ],
+      "score": 0.9846204519271851
+    },
+    {
+      "text": "severamente á los impios.",
+      "box": [
+        189,
+        155,
+        322,
+        177
+      ],
+      "score": 0.9792728424072266
+    },
+    {
+      "text": "4. Queden cubiertos de confusion y de vergüenza los que",
+      "box": [
+        559,
+        153,
+        920,
+        176
+      ],
+      "score": 0.9901540875434875
+    },
+    {
+      "text": "atentan á mi vida.—Sean puestos en fuga y en desórden los",
+      "box": [
+        547,
+        171,
+        919,
+        191
+      ],
+      "score": 0.9923431873321533
+    },
+    {
+      "text": "1. Salmo de David, cuando se desfiguró delante del rey",
+      "box": [
+        82,
+        191,
+        446,
+        226
+      ],
+      "score": 0.9996379017829895
+    },
+    {
+      "text": "que maquinan contra mí.",
+      "box": [
+        547,
+        189,
+        703,
+        207
+      ],
+      "score": 0.9998036026954651
+    },
+    {
+      "text": "Achimelech 1, el cual le echó de sí; con lo que David se es-",
+      "box": [
+        73,
+        210,
+        446,
+        244
+      ],
+      "score": 0.989005982875824
+    },
+    {
+      "text": "5. Vengan á ser como el polvo que arrebata el viento; y",
+      "box": [
+        559,
+        207,
+        918,
+        224
+      ],
+      "score": 0.9899412393569946
+    },
+    {
+      "text": "capó 2.",
+      "box": [
+        75,
+        230,
+        120,
+        249
+      ],
+      "score": 0.8938000798225403
+    },
+    {
+      "text": "estréchelos el Ángel del Señor.",
+      "box": [
+        549,
+        224,
+        735,
+        238
+      ],
+      "score": 0.9835853576660156
+    },
+    {
+      "text": "2. Alabaré al Señor en todo tiempo: no cesarán mis labios",
+      "box": [
+        85,
+        244,
+        446,
+        279
+      ],
+      "score": 0.9662985801696777
+    },
+    {
+      "text": "6. Sea su camino tenebroso y resbaladizo, y el Ángel del",
+      "box": [
+        559,
+        238,
+        919,
+        255
+      ],
+      "score": 0.9786852598190308
+    },
+    {
+      "text": "de pronunciar sus alabanzas.",
+      "box": [
+        75,
+        264,
+        252,
+        290
+      ],
+      "score": 0.9989548921585083
+    },
+    {
+      "text": "Señor vaya persiguiéndolos;",
+      "box": [
+        547,
+        255,
+        719,
+        272
+      ],
+      "score": 0.9943225979804993
+    },
+    {
+      "text": "3. En el Señor se gloriará mi alma. Óiganlo los humildes, y",
+      "box": [
+        87,
+        281,
+        445,
+        310
+      ],
+      "score": 0.9671179056167603
+    },
+    {
+      "text": "7. Ya que sin causa me armaron ocultamente el lazo de",
+      "box": [
+        559,
+        272,
+        917,
+        286
+      ],
+      "score": 0.9998354911804199
+    },
+    {
+      "text": "muerte, y ultrajaron injustamente mi alma.",
+      "box": [
+        547,
+        288,
+        814,
+        302
+      ],
+      "score": 0.9932788610458374
+    },
+    {
+      "text": "consuélense.",
+      "box": [
+        77,
+        298,
+        160,
+        321
+      ],
+      "score": 0.9995825290679932
+    },
+    {
+      "text": "8. Caiga mi enemigo en un lazo impensado, y caiga en la",
+      "box": [
+        557,
+        301,
+        918,
+        319
+      ],
+      "score": 0.9954800605773926
+    },
+    {
+      "text": "4. Engrandeced conmigo al Señor, y todos á una ensalce-",
+      "box": [
+        88,
+        314,
+        446,
+        341
+      ],
+      "score": 0.9854816198348999
+    },
+    {
+      "text": "trampa que él puso en celada, y quede cogido en su mismo",
+      "box": [
+        545,
+        316,
+        918,
+        335
+      ],
+      "score": 0.9949061274528503
+    },
+    {
+      "text": "mos su Nombre.",
+      "box": [
+        77,
+        331,
+        180,
+        353
+      ],
+      "score": 0.9993811249732971
+    },
+    {
+      "text": "lazo.",
+      "box": [
+        545,
+        333,
+        578,
+        348
+      ],
+      "score": 0.9997888803482056
+    },
+    {
+      "text": "5. Acudí solícitamente al Señor, y me oyó, y me sacó de",
+      "box": [
+        88,
+        345,
+        446,
+        371
+      ],
+      "score": 0.9858385324478149
+    },
+    {
+      "text": "9. Entre tanto mi alma se regocijará en cl Señor, y se de-",
+      "box": [
+        556,
+        346,
+        918,
+        367
+      ],
+      "score": 0.9856883883476257
+    },
+    {
+      "text": "todas mis tribulaciones.",
+      "box": [
+        77,
+        361,
+        222,
+        385
+      ],
+      "score": 0.9828870892524719
+    },
+    {
+      "text": "leitará en su Salvador.",
+      "box": [
+        543,
+        361,
+        683,
+        380
+      ],
+      "score": 0.9982975721359253
+    },
+    {
+      "text": "6. Acercaos vosotros á él, y os iluminará: y no quedareis",
+      "box": [
+        90,
+        378,
+        445,
+        401
+      ],
+      "score": 0.9770076274871826
+    },
+    {
+      "text": "10. De todas las coyunturas de mis huesos saldrán voces",
+      "box": [
+        557,
+        378,
+        919,
+        399
+      ],
+      "score": 0.9937821626663208
+    },
+    {
+      "text": "sonrojados.",
+      "box": [
+        79,
+        396,
+        150,
+        414
+      ],
+      "score": 0.9998875260353088
+    },
+    {
+      "text": "que digan:—Oh Señor, ¿quién hay semejante á tí,—que libras",
+      "box": [
+        544,
+        393,
+        919,
+        417
+      ],
+      "score": 0.9743179678916931
+    },
+    {
+      "text": "7. Clamó este pobre, y el Señor le oyó, y libróle de todas",
+      "box": [
+        88,
+        408,
+        446,
+        435
+      ],
+      "score": 0.9913465976715088
+    },
+    {
+      "text": "al desvalido do las manos de los que pueden mas que él; al",
+      "box": [
+        544,
+        410,
+        919,
+        433
+      ],
+      "score": 0.9881497621536255
+    },
+    {
+      "text": "sus angustias.",
+      "box": [
+        79,
+        429,
+        166,
+        446
+      ],
+      "score": 0.9997894167900085
+    },
+    {
+      "text": "necesitado y al pobre de los que le despojaban?",
+      "box": [
+        544,
+        427,
+        835,
+        448
+      ],
+      "score": 0.9975189566612244
+    },
+    {
+      "text": "8. El Ángel del Señor asistirá al rededor de los que le te-",
+      "box": [
+        90,
+        443,
+        444,
+        463
+      ],
+      "score": 0.9937866926193237
+    },
+    {
+      "text": "11. Levantándose testigos falsos, me intorrogaban de cosas",
+      "box": [
+        555,
+        442,
+        921,
+        465
+      ],
+      "score": 0.9785455465316772
+    },
+    {
+      "text": "men, y los librará-del mal.",
+      "box": [
+        78,
+        459,
+        238,
+        478
+      ],
+      "score": 0.972808837890625
+    },
+    {
+      "text": "que yo ignoraba.",
+      "box": [
+        545,
+        461,
+        648,
+        478
+      ],
+      "score": 0.9968282580375671
+    },
+    {
+      "text": "9. Gustad y ved cuán suave es el Señor: bienaventurado el",
+      "box": [
+        90,
+        475,
+        445,
+        494
+      ],
+      "score": 0.9941068291664124
+    },
+    {
+      "text": "12. Retornábanme males por bienes, procurando quitarme",
+      "box": [
+        554,
+        474,
+        920,
+        496
+      ],
+      "score": 0.9901382327079773
+    },
+    {
+      "text": "hombre que en él confía.",
+      "box": [
+        77,
+        490,
+        227,
+        508
+      ],
+      "score": 0.9920915961265564
+    },
+    {
+      "text": "la vida.",
+      "box": [
+        543,
+        491,
+        594,
+        509
+      ],
+      "score": 0.9971079230308533
+    },
+    {
+      "text": "10. Temed al Señor todos vosotros sus santos; porque nada",
+      "box": [
+        92,
+        505,
+        445,
+        525
+      ],
+      "score": 0.9945526123046875
+    },
+    {
+      "text": "13. Pero yo, mientras ellos me afligian, me cubria de cili-",
+      "box": [
+        558,
+        508,
+        919,
+        525
+      ],
+      "score": 0.9949464201927185
+    },
+    {
+      "text": "falta á los que le temen ³.",
+      "box": [
+        79,
+        520,
+        232,
+        538
+      ],
+      "score": 0.9737073183059692
+    },
+    {
+      "text": "eio:—humillaba mi alma con el avuno, no cesando de orar en",
+      "box": [
+        544,
+        524,
+        918,
+        541
+      ],
+      "score": 0.9940293431282043
+    },
+    {
+      "text": "11. Los ricos 4 padecieron necesidad y hambre; pero á los",
+      "box": [
+        92,
+        536,
+        446,
+        557
+      ],
+      "score": 0.980221688747406
+    },
+    {
+      "text": "mi corazon .",
+      "box": [
+        545,
+        541,
+        627,
+        558
+      ],
+      "score": 0.9572723507881165
+    },
+    {
+      "text": "que buscan al Señor no les faltará bien ninguno.",
+      "box": [
+        79,
+        553,
+        368,
+        572
+      ],
+      "score": 0.9867668151855469
+    },
+    {
+      "text": "14. Con el amor que á un íntimo amigo, y como á un her-",
+      "box": [
+        557,
+        555,
+        921,
+        575
+      ],
+      "score": 0.9834082722663879
+    },
+    {
+      "text": "12. Venid, hijos, escuchadme, que yo os enseñaré el temor",
+      "box": [
+        91,
+        569,
+        446,
+        588
+      ],
+      "score": 0.9923359155654907
+    },
+    {
+      "text": "mano mio, así los trataba: como quien está de luto y en triste-",
+      "box": [
+        545,
+        573,
+        920,
+        590
+      ],
+      "score": 0.9833566546440125
+    },
+    {
+      "text": "del Señor.",
+      "box": [
+        79,
+        586,
+        143,
+        603
+      ],
+      "score": 0.9999233484268188
+    },
+    {
+      "text": "za, así me humillaba.",
+      "box": [
+        547,
+        591,
+        673,
+        605
+      ],
+      "score": 0.9995189905166626
+    },
+    {
+      "text": "13. ¿Quién es el hombre que apetece vivir, y que desea ver",
+      "box": [
+        90,
+        601,
+        446,
+        621
+      ],
+      "score": 0.9996322989463806
+    },
+    {
+      "text": "15. Mas ellos hacian fiesta, y se aunaron contra mí, des-",
+      "box": [
+        557,
+        601,
+        919,
+        623
+      ],
+      "score": 0.9975608587265015
+    },
+    {
+      "text": "dias dichosos?",
+      "box": [
+        80,
+        620,
+        163,
+        634
+      ],
+      "score": 0.9999570846557617
+    },
+    {
+      "text": "cargaron sobre mí azotes á porfía, sin saber yo la causa.",
+      "box": [
+        546,
+        620,
+        888,
+        637
+      ],
+      "score": 0.9883976578712463
+    },
+    {
+      "text": "14. Pues para esto guarda pura tu lengua de todo mal, y",
+      "box": [
+        91,
+        635,
+        445,
+        652
+      ],
+      "score": 0.9960771203041077
+    },
+    {
+      "text": "16. Quedaron disipados, mas no arrepentidos; tentáron-",
+      "box": [
+        557,
+        634,
+        919,
+        653
+      ],
+      "score": 0.9975268840789795
+    },
+    {
+      "text": "no profieran tus labios ningun embuste.",
+      "box": [
+        78,
+        652,
+        315,
+        669
+      ],
+      "score": 0.9892503023147583
+    },
+    {
+      "text": "me, insultáronme con escarnio; rechinaron contra mí sus",
+      "box": [
+        545,
+        651,
+        920,
+        668
+      ],
+      "score": 0.9944769144058228
+    },
+    {
+      "text": "15. Huye del mal, y obra el bien: busca la paz, y empéña-",
+      "box": [
+        90,
+        668,
+        447,
+        685
+      ],
+      "score": 0.995404064655304
+    },
+    {
+      "text": "dientes.",
+      "box": [
+        546,
+        668,
+        597,
+        684
+      ],
+      "score": 0.9998636245727539
+    },
+    {
+      "text": "te en alcanzarla.",
+      "box": [
+        77,
+        684,
+        179,
+        703
+      ],
+      "score": 0.9982103705406189
+    },
+    {
+      "text": "17. Oh Señor, ¿cuándo volverás tus ojos? Libra mi alma",
+      "box": [
+        559,
+        684,
+        919,
+        701
+      ],
+      "score": 0.9846534729003906
+    },
+    {
+      "text": "16. El Señor tiene fijos sus ojos sobre los justos, y atentos",
+      "box": [
+        90,
+        701,
+        446,
+        718
+      ],
+      "score": 0.9963402152061462
+    },
+    {
+      "text": "de la malignidad de estos hombres, libra de estos leones al",
+      "box": [
+        546,
+        701,
+        919,
+        718
+      ],
+      "score": 0.9912733435630798
+    },
+    {
+      "text": "sus oidos á las plegarias que le hacen 6.",
+      "box": [
+        76,
+        717,
+        314,
+        735
+      ],
+      "score": 0.9823334217071533
+    },
+    {
+      "text": "alma mia.",
+      "box": [
+        546,
+        717,
+        610,
+        734
+      ],
+      "score": 0.9980054497718811
+    },
+    {
+      "text": "17. Y el rostro del Señor está observando á los que obran",
+      "box": [
+        91,
+        735,
+        445,
+        749
+      ],
+      "score": 0.9985383152961731
+    },
+    {
+      "text": "18. Yo te glorificaré en una iglesia ó congregacion grande:",
+      "box": [
+        560,
+        734,
+        921,
+        751
+      ],
+      "score": 0.9925526976585388
+    },
+    {
+      "text": "mal, para extirpar de la tierra la memoria de ellos.",
+      "box": [
+        77,
+        749,
+        378,
+        767
+      ],
+      "score": 0.9988085627555847
+    },
+    {
+      "text": "en medio de un pueblo numeroso cantaré tus alabanzas.",
+      "box": [
+        546,
+        749,
+        889,
+        768
+      ],
+      "score": 0.9952763319015503
+    },
+    {
+      "text": "18. Clamaron los justos, y oyólos el Señor, y librólos de",
+      "box": [
+        89,
+        765,
+        446,
+        783
+      ],
+      "score": 0.9995611310005188
+    },
+    {
+      "text": "19. No tengan el placer de triunfar de mí mis inícuos con-",
+      "box": [
+        559,
+        765,
+        922,
+        784
+      ],
+      "score": 0.9985373020172119
+    },
+    {
+      "text": "todas sus aflicciones.",
+      "box": [
+        78,
+        782,
+        201,
+        796
+      ],
+      "score": 0.9943743348121643
+    },
+    {
+      "text": "trarios: los que sin causa me aborrecen 7, y con sus ojos mues-",
+      "box": [
+        547,
+        782,
+        922,
+        801
+      ],
+      "score": 0.9961535334587097
+    },
+    {
+      "text": "19. El Señor está al lado de los que tienen el corazon atri-",
+      "box": [
+        89,
+        796,
+        448,
+        815
+      ],
+      "score": 0.9916414022445679
+    },
+    {
+      "text": "tran complacencia.",
+      "box": [
+        549,
+        800,
+        663,
+        814
+      ],
+      "score": 0.999934732913971
+    },
+    {
+      "text": "bulado; y él salvará á los humildes de espíritu.",
+      "box": [
+        77,
+        812,
+        360,
+        831
+      ],
+      "score": 0.9940975308418274
+    },
+    {
+      "text": "20. Pues conmigo ciertamente hablaban palabras de paz;",
+      "box": [
+        559,
+        814,
+        922,
+        833
+      ],
+      "score": 0.9998247623443604
+    },
+    {
+      "text": "20. Muchas son las tribulaciones de los justos; pero de to-",
+      "box": [
+        89,
+        828,
+        446,
+        848
+      ],
+      "score": 0.9856870770454407
+    },
+    {
+      "text": "DC.",
+      "box": [
+        518,
+        808,
+        543,
+        833
+      ],
+      "score": 0.5811251997947693
+    },
+    {
+      "text": "mas en medio de su indignacion, fija en tierra su vista, traza-",
+      "box": [
+        547,
+        830,
+        922,
+        849
+      ],
+      "score": 0.9927336573600769
+    },
+    {
+      "text": "das los librará el Señor.",
+      "box": [
+        76,
+        844,
+        222,
+        862
+      ],
+      "score": 0.9998473525047302
+    },
+    {
+      "text": "ban engaños 8.",
+      "box": [
+        550,
+        848,
+        636,
+        862
+      ],
+      "score": 0.9976180791854858
+    },
+    {
+      "text": "21. De todos los huesos de ellos tiene el Señor sumo cui-",
+      "box": [
+        89,
+        859,
+        447,
+        880
+      ],
+      "score": 0.9949061274528503
+    },
+    {
+      "text": "21. Y abrian contra mí tanta boca, diciendo: Ea, ea, nues-",
+      "box": [
+        560,
+        863,
+        920,
+        880
+      ],
+      "score": 0.9984654188156128
+    },
+    {
+      "text": "dado; ni uno solo será quebrantado.",
+      "box": [
+        77,
+        876,
+        295,
+        894
+      ],
+      "score": 0.9977515339851379
+    },
+    {
+      "text": "tros ojos lo han visto.",
+      "box": [
+        550,
+        880,
+        677,
+        894
+      ],
+      "score": 0.9998544454574585
+    },
+    {
+      "text": "22. Funestísima es la muerte de los pecadores; y los quo",
+      "box": [
+        89,
+        892,
+        448,
+        914
+      ],
+      "score": 0.9920387268066406
+    },
+    {
+      "text": "22. Oh Señor, tú lo has visto, no guardes mas tiempo si-",
+      "box": [
+        560,
+        893,
+        922,
+        913
+      ],
+      "score": 0.9994105100631714
+    },
+    {
+      "text": "aborrecen al justo quedarán destruidos.",
+      "box": [
+        78,
+        910,
+        318,
+        927
+      ],
+      "score": 0.9938612580299377
+    },
+    {
+      "text": "lencio: Señor, no te alejes de mí.",
+      "box": [
+        549,
+        910,
+        744,
+        927
+      ],
+      "score": 0.9995368719100952
+    },
+    {
+      "text": "23. El Señor redimirá las almas de sus siervos, y no pere-",
+      "box": [
+        90,
+        925,
+        449,
+        946
+      ],
+      "score": 0.9956755042076111
+    },
+    {
+      "text": "23. Levántate, y entiende en mi juicio, ocúpate en mi cau-",
+      "box": [
+        561,
+        925,
+        922,
+        945
+      ],
+      "score": 0.9943567514419556
+    },
+    {
+      "text": "cerán los que en él esperan.",
+      "box": [
+        77,
+        942,
+        246,
+        960
+      ],
+      "score": 0.9998541474342346
+    },
+    {
+      "text": "sa, oh mi Dios y Señor mio.",
+      "box": [
+        549,
+        942,
+        713,
+        959
+      ],
+      "score": 0.999527096748352
+    },
+    {
+      "text": "24. Júzgame segun tu justicia, oh Señor, mi Dios, y no",
+      "box": [
+        560,
+        956,
+        923,
+        977
+      ],
+      "score": 0.9964472651481628
+    },
+    {
+      "text": "triunfen ellos de mí.",
+      "box": [
+        552,
+        975,
+        671,
+        989
+      ],
+      "score": 0.9887887239456177
+    },
+    {
+      "text": "SALMO XXXIV",
+      "box": [
+        212,
+        985,
+        314,
+        1002
+      ],
+      "score": 0.9994305968284607
+    },
+    {
+      "text": "25. No digan en sus corazones: Albricias, hemos logrado",
+      "box": [
+        563,
+        990,
+        922,
+        1007
+      ],
+      "score": 0.9937036633491516
+    },
+    {
+      "text": "nuestro deseo º. Ni digan tampoco: Le hemos devorado.",
+      "box": [
+        549,
+        1005,
+        884,
+        1024
+      ],
+      "score": 0.9934123158454895
+    },
+    {
+      "text": "Implora David en sus persecuciones el socorro de Dios. Segun muchos de",
+      "box": [
+        79,
+        1025,
+        450,
+        1039
+      ],
+      "score": 0.9934020042419434
+    },
+    {
+      "text": "26. Queden, Señor, todos ellos llenos de confusion y ver-",
+      "box": [
+        561,
+        1021,
+        923,
+        1040
+      ],
+      "score": 0.9947542548179626
+    },
+    {
+      "text": "los Santos Padres es este Salmo una imágen de la mansedumbre del",
+      "box": [
+        88,
+        1038,
+        449,
+        1052
+      ],
+      "score": 0.9955394268035889
+    },
+    {
+      "text": "güenza, los que se congratulan por mis males,—Cubiertos",
+      "box": [
+        551,
+        1039,
+        924,
+        1056
+      ],
+      "score": 0.9766214489936829
+    },
+    {
+      "text": "Saleador.",
+      "box": [
+        88,
+        1053,
+        140,
+        1067
+      ],
+      "score": 0.951787531375885
+    },
+    {
+      "text": "sean de ignominia y sonrojados los que se jactan contra mí.",
+      "box": [
+        550,
+        1055,
+        910,
+        1072
+      ],
+      "score": 0.9997198581695557
+    },
+    {
+      "text": "27. Triunfen y regocíjense los que están á favor de mi jus-",
+      "box": [
+        562,
+        1069,
+        924,
+        1088
+      ],
+      "score": 0.9936859011650085
+    },
+    {
+      "text": "1. Salmo del mismo David.",
+      "box": [
+        90,
+        1089,
+        265,
+        1107
+      ],
+      "score": 0.9831426739692688
+    },
+    {
+      "text": "ta causa; y digan siempre los que desean la paz de su siervo:",
+      "box": [
+        550,
+        1087,
+        924,
+        1104
+      ],
+      "score": 0.9967108368873596
+    },
+    {
+      "text": "Juzga, oh Señor, á los que me dañan: bate á los que pelean",
+      "box": [
+        89,
+        1105,
+        449,
+        1124
+      ],
+      "score": 0.9864314794540405
+    },
+    {
+      "text": "Glorificado sea el Señor.",
+      "box": [
+        552,
+        1103,
+        693,
+        1117
+      ],
+      "score": 0.9972583651542664
+    },
+    {
+      "text": "contra mí.",
+      "box": [
+        78,
+        1123,
+        143,
+        1140
+      ],
+      "score": 0.9998108744621277
+    },
+    {
+      "text": "28. Y públicará mi lengua tu justicia, y celebrará todo el",
+      "box": [
+        563,
+        1117,
+        924,
+        1134
+      ],
+      "score": 0.9860725402832031
+    },
+    {
+      "text": "2. Ármate y embraza el escudo, y sal á defenderme.",
+      "box": [
+        91,
+        1139,
+        410,
+        1156
+      ],
+      "score": 0.9956904053688049
+    },
+    {
+      "text": "dia tus alabanzas.",
+      "box": [
+        549,
+        1133,
+        657,
+        1151
+      ],
+      "score": 0.9834306240081787
+    },
+    {
+      "text": "1 Las ediciones latinas anteriores á la de Sixto V, y el texto hebreo y",
+      "box": [
+        89,
+        1191,
+        449,
+        1205
+      ],
+      "score": 0.9872028231620789
+    },
+    {
+      "text": "s Ó tambien: Porque para los que le temen no hay pobreza.",
+      "box": [
+        562,
+        1182,
+        862,
+        1199
+      ],
+      "score": 0.9867023229598999
+    },
+    {
+      "text": "el griego leen bz áétμfλsy Abimelech. No parece que pueda aplicarse",
+      "box": [
+        80,
+        1205,
+        449,
+        1219
+      ],
+      "score": 0.9310376048088074
+    },
+    {
+      "text": "4 Luc. I, v. 23.",
+      "box": [
+        563,
+        1198,
+        642,
+        1212
+      ],
+      "score": 0.9676656723022461
+    },
+    {
+      "text": "á lo que pasó entre David y el sacerdote Achimelech, lo que se dice en el",
+      "box": [
+        79,
+        1216,
+        449,
+        1234
+      ],
+      "score": 0.9850199222564697
+    },
+    {
+      "text": "6 Eccli. XV, v. 20.—Heb. IV, v. 13.",
+      "box": [
+        560,
+        1206,
+        745,
+        1226
+      ],
+      "score": 0.9263008236885071
+    },
+    {
+      "text": "6 Puede traducirse: Mi oracion se volvia á mi seno, llenando mi pecho",
+      "box": [
+        560,
+        1221,
+        925,
+        1238
+      ],
+      "score": 0.9798351526260376
+    },
+    {
+      "text": "título de este Salmo.—Véase Belarmino.—Puede tambien hablarse de",
+      "box": [
+        78,
+        1230,
+        449,
+        1248
+      ],
+      "score": 0.9813146591186523
+    },
+    {
+      "text": "Achis rey de Geth; pues eso significa en hebreo hN Achimelech. Y es",
+      "box": [
+        79,
+        1244,
+        451,
+        1262
+      ],
+      "score": 0.9495505690574646
+    },
+    {
+      "text": "de consuelo.",
+      "box": [
+        551,
+        1237,
+        617,
+        1254
+      ],
+      "score": 0.991962194442749
+    },
+    {
+      "text": "? Joann. XV, v. 25.",
+      "box": [
+        560,
+        1249,
+        667,
+        1267
+      ],
+      "score": 0.9545868039131165
+    },
+    {
+      "text": "de notar que los reyes de los Philisthéos tomaban el nombre de Abimelech",
+      "box": [
+        78,
+        1258,
+        450,
+        1277
+      ],
+      "score": 0.9858642220497131
+    },
+    {
+      "text": "8 Puede traducirse: Pero en su terreno corazon reventando de ira, ur-",
+      "box": [
+        561,
+        1262,
+        928,
+        1281
+      ],
+      "score": 0.9884807467460632
+    },
+    {
+      "text": "como los emperadores romanos el de César, y los reyes de Egypto el de",
+      "box": [
+        78,
+        1273,
+        450,
+        1292
+      ],
+      "score": 0.9894131422042847
+    },
+    {
+      "text": "dian engaños.",
+      "box": [
+        551,
+        1277,
+        626,
+        1297
+      ],
+      "score": 0.9971180558204651
+    },
+    {
+      "text": "Pharaon, y despues el de Ptolomeo. Genes. XX, y XXVI.",
+      "box": [
+        78,
+        1288,
+        375,
+        1307
+      ],
+      "score": 0.986062228679657
+    },
+    {
+      "text": "O tambien: Albricias, que salimos con la nuestra.",
+      "box": [
+        562,
+        1287,
+        824,
+        1309
+      ],
+      "score": 0.9608396291732788
+    },
+    {
+      "text": "8 I. Reg, XXI.",
+      "box": [
+        88,
+        1304,
+        174,
+        1321
+      ],
+      "score": 0.8941441178321838
+    }
+  ]
+}

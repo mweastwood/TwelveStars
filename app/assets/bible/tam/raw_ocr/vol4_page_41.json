@@ -1,0 +1,1487 @@
+{
+  "volume": 4,
+  "page_index": 41,
+  "pdf_page": 42,
+  "lines": [
+    {
+      "text": "39",
+      "box": [
+        60,
+        35,
+        79,
+        53
+      ],
+      "score": 0.9976314902305603
+    },
+    {
+      "text": "SAN MATHEO.",
+      "box": [
+        186,
+        34,
+        289,
+        55
+      ],
+      "score": 0.9992571473121643
+    },
+    {
+      "text": "CAPITULO XXV.",
+      "box": [
+        667,
+        57,
+        782,
+        80
+      ],
+      "score": 0.9990014433860779
+    },
+    {
+      "text": "40",
+      "box": [
+        884,
+        70,
+        901,
+        84
+      ],
+      "score": 0.9984579086303711
+    },
+    {
+      "text": "44. Pues asimismo estad vosotros igualmente apercibidos:",
+      "box": [
+        67,
+        81,
+        434,
+        110
+      ],
+      "score": 0.9875338673591614
+    },
+    {
+      "text": "porque ála hora que menos penseis, ha de venir el Hijo del",
+      "box": [
+        52,
+        101,
+        435,
+        130
+      ],
+      "score": 0.9965540766716003
+    },
+    {
+      "text": "21. Respondióle su amo: Muy bien, siervo bueno, siervo",
+      "box": [
+        549,
+        98,
+        911,
+        127
+      ],
+      "score": 0.9743762612342834
+    },
+    {
+      "text": "hombre.",
+      "box": [
+        55,
+        121,
+        116,
+        142
+      ],
+      "score": 0.998853862285614
+    },
+    {
+      "text": "diligente, y leal; ya que has sido fiel en lo poco, yo te con-",
+      "box": [
+        536,
+        116,
+        911,
+        145
+      ],
+      "score": 0.9924158453941345
+    },
+    {
+      "text": "45. ¿Quién pensais que es el siervo fiel, y prudente, cons-",
+      "box": [
+        69,
+        140,
+        435,
+        166
+      ],
+      "score": 0.993510901927948
+    },
+    {
+      "text": "fiaré lo mucho, ven á tomar parte en el gozo de tu señor.",
+      "box": [
+        535,
+        133,
+        886,
+        163
+      ],
+      "score": 0.9864704012870789
+    },
+    {
+      "text": "tituido por su señor mayordomo sobre su familia, para repar-",
+      "box": [
+        57,
+        158,
+        436,
+        185
+      ],
+      "score": 0.9942322969436646
+    },
+    {
+      "text": "22. Llegóse despues el que habia recibido dos talentos,",
+      "box": [
+        546,
+        151,
+        910,
+        180
+      ],
+      "score": 0.9921001195907593
+    },
+    {
+      "text": "tir á cada uno el alimento á su tiempo?",
+      "box": [
+        57,
+        176,
+        298,
+        201
+      ],
+      "score": 0.9867101907730103
+    },
+    {
+      "text": "y dijo: Señor, dos talentos me diste, aquí te traigo otros dos,",
+      "box": [
+        533,
+        168,
+        910,
+        197
+      ],
+      "score": 0.997390866279602
+    },
+    {
+      "text": "que he granjeado con ellos.",
+      "box": [
+        535,
+        185,
+        706,
+        208
+      ],
+      "score": 0.999592661857605
+    },
+    {
+      "text": "46. Bienaventurado el tal siervo, á quien, cuando venga su",
+      "box": [
+        71,
+        195,
+        434,
+        221
+      ],
+      "score": 0.9909265637397766
+    },
+    {
+      "text": "señor, le hallare cumpliendo así con su obligacion:",
+      "box": [
+        56,
+        211,
+        369,
+        239
+      ],
+      "score": 0.9895161390304565
+    },
+    {
+      "text": "23. Díjole su amo : Muy bien, siervo bueno y fiel, pues",
+      "box": [
+        545,
+        202,
+        911,
+        229
+      ],
+      "score": 0.9897493124008179
+    },
+    {
+      "text": "47. En verdad os digo, que le encomendará el gobero de",
+      "box": [
+        68,
+        227,
+        435,
+        259
+      ],
+      "score": 0.7992398738861084
+    },
+    {
+      "text": "has sido fiel en pocas cosas, yo te conflaré muchas mas, ven",
+      "box": [
+        532,
+        219,
+        912,
+        246
+      ],
+      "score": 0.9913151264190674
+    },
+    {
+      "text": "toda su hacienda.",
+      "box": [
+        56,
+        244,
+        171,
+        272
+      ],
+      "score": 0.9993332028388977
+    },
+    {
+      "text": "á participar del gozo de tu señor.",
+      "box": [
+        532,
+        236,
+        742,
+        261
+      ],
+      "score": 0.9971122741699219
+    },
+    {
+      "text": "24. Por último llegando el que habia recibido un talento,",
+      "box": [
+        545,
+        253,
+        911,
+        279
+      ],
+      "score": 0.9969132542610168
+    },
+    {
+      "text": "48. Pero si este siervo fuere malo, y dijere en su corazon:",
+      "box": [
+        70,
+        263,
+        434,
+        293
+      ],
+      "score": 0.9333041310310364
+    },
+    {
+      "text": "dijo: Señor, yo sé que eres un hombre de recia condicion,",
+      "box": [
+        532,
+        270,
+        911,
+        296
+      ],
+      "score": 0.9922600984573364
+    },
+    {
+      "text": "Mi amo no viene tan presto:",
+      "box": [
+        56,
+        280,
+        238,
+        309
+      ],
+      "score": 0.999596357345581
+    },
+    {
+      "text": "que siegas donde no has sembrado, y recoges donde no has",
+      "box": [
+        531,
+        287,
+        912,
+        311
+      ],
+      "score": 0.992136538028717
+    },
+    {
+      "text": "49. Y con esto empezare á maltratar á sus consiervos, y á",
+      "box": [
+        68,
+        297,
+        435,
+        326
+      ],
+      "score": 0.916459858417511
+    },
+    {
+      "text": "esparcido:",
+      "box": [
+        533,
+        306,
+        600,
+        324
+      ],
+      "score": 0.9997795820236206
+    },
+    {
+      "text": "comer y beber con los borrachos:",
+      "box": [
+        57,
+        316,
+        265,
+        340
+      ],
+      "score": 0.9927095174789429
+    },
+    {
+      "text": "25. Y así, temeroso de perderle, me fuí y escondí tu talento",
+      "box": [
+        543,
+        321,
+        911,
+        344
+      ],
+      "score": 0.9768558144569397
+    },
+    {
+      "text": "50. Vendrá el amo del tal siervo en el dia que no espera,",
+      "box": [
+        69,
+        331,
+        433,
+        359
+      ],
+      "score": 0.960601806640625
+    },
+    {
+      "text": "en tierra: aquí tienes lo que es tuyo.",
+      "box": [
+        532,
+        339,
+        758,
+        359
+      ],
+      "score": 0.9995362162590027
+    },
+    {
+      "text": "y á la hora que menos piensa:",
+      "box": [
+        55,
+        349,
+        245,
+        374
+      ],
+      "score": 0.9816762208938599
+    },
+    {
+      "text": "26. Pero su amo, cogiéndole la palabra, le replicó y dijo:",
+      "box": [
+        543,
+        355,
+        911,
+        376
+      ],
+      "score": 0.9937891364097595
+    },
+    {
+      "text": "51. Y le echará en hora mala1, y le dará la pena que á",
+      "box": [
+        69,
+        365,
+        434,
+        392
+      ],
+      "score": 0.9528534412384033
+    },
+    {
+      "text": "Oh siervo malo y perezoso! tú sabias que yo siego donde no",
+      "box": [
+        531,
+        371,
+        911,
+        394
+      ],
+      "score": 0.9949985146522522
+    },
+    {
+      "text": "los p se e sáel o, elcu",
+      "box": [
+        54,
+        381,
+        434,
+        412
+      ],
+      "score": 0.5592001676559448
+    },
+    {
+      "text": "de dientes.",
+      "box": [
+        53,
+        398,
+        129,
+        423
+      ],
+      "score": 0.9987478256225586
+    },
+    {
+      "text": "siembro, y recojo donde nada he esparcido;",
+      "box": [
+        531,
+        389,
+        804,
+        411
+      ],
+      "score": 0.9957159161567688
+    },
+    {
+      "text": "27. Pues por eso mismo debias haber dado á los banque-",
+      "box": [
+        544,
+        405,
+        911,
+        427
+      ],
+      "score": 0.9927445650100708
+    },
+    {
+      "text": "CAPITULO XXV",
+      "box": [
+        187,
+        425,
+        298,
+        445
+      ],
+      "score": 0.9621691703796387
+    },
+    {
+      "text": "ros mi dinero, para que yo á la vuelta recobrase mi caudal",
+      "box": [
+        531,
+        422,
+        911,
+        445
+      ],
+      "score": 0.9930420517921448
+    },
+    {
+      "text": "Parábolas de las diez vírgenes,y de los talentos; en las que Jesus manda",
+      "box": [
+        54,
+        447,
+        436,
+        473
+      ],
+      "score": 0.9877427220344543
+    },
+    {
+      "text": "con los intereses.",
+      "box": [
+        534,
+        443,
+        640,
+        460
+      ],
+      "score": 0.9979737401008606
+    },
+    {
+      "text": "estar en vela y ejercitar las buenas obras, para que no seamos conde-",
+      "box": [
+        66,
+        464,
+        436,
+        487
+      ],
+      "score": 0.9353473782539368
+    },
+    {
+      "text": "28. Ea pues, quitadle aquel talento, y dádselo al que tiene",
+      "box": [
+        544,
+        454,
+        910,
+        480
+      ],
+      "score": 0.971002995967865
+    },
+    {
+      "text": "nados en su segunda venida y último juicio.",
+      "box": [
+        66,
+        479,
+        300,
+        502
+      ],
+      "score": 0.973701536655426
+    },
+    {
+      "text": "diez talentos:",
+      "box": [
+        533,
+        474,
+        620,
+        494
+      ],
+      "score": 0.9994808435440063
+    },
+    {
+      "text": "29. Porque á quien tiene, dársele ha,y estará abundante",
+      "box": [
+        544,
+        487,
+        909,
+        514
+      ],
+      "score": 0.9922888278961182
+    },
+    {
+      "text": "1. Entonces el reino de los cielos será semejante á diez",
+      "box": [
+        67,
+        506,
+        437,
+        531
+      ],
+      "score": 0.9876598119735718
+    },
+    {
+      "text": "É sobrado; mas á quien no tiene, quitarásele aun aquello que",
+      "box": [
+        531,
+        504,
+        911,
+        532
+      ],
+      "score": 0.9157739281654358
+    },
+    {
+      "text": "vírgenes: que tomando sus lámparas, salieron á recibir al",
+      "box": [
+        56,
+        524,
+        437,
+        548
+      ],
+      "score": 0.9985378384590149
+    },
+    {
+      "text": "parece que tiene.",
+      "box": [
+        533,
+        527,
+        640,
+        547
+      ],
+      "score": 0.9997478723526001
+    },
+    {
+      "text": "esposo y á la esposa.",
+      "box": [
+        55,
+        542,
+        188,
+        564
+      ],
+      "score": 0.9922516942024231
+    },
+    {
+      "text": "30. Àhora bien, á ese siervo inútil arrojadle á las tinieblas",
+      "box": [
+        543,
+        537,
+        910,
+        564
+      ],
+      "score": 0.9844703078269958
+    },
+    {
+      "text": "2. De las cuales cinco eran necias, y cinco prudentes:",
+      "box": [
+        66,
+        559,
+        410,
+        580
+      ],
+      "score": 0.9961612224578857
+    },
+    {
+      "text": "de afuera: allí será el llorar, y el crujir de dientes.",
+      "box": [
+        533,
+        556,
+        836,
+        580
+      ],
+      "score": 0.9807124137878418
+    },
+    {
+      "text": "3. Pero las cinco necias, al coger sus lámparas, no se pro-",
+      "box": [
+        68,
+        576,
+        437,
+        597
+      ],
+      "score": 0.9938837885856628
+    },
+    {
+      "text": "31. Cuando venga pues el Hijo del hombre con toda su",
+      "box": [
+        545,
+        569,
+        909,
+        597
+      ],
+      "score": 0.9963060617446899
+    },
+    {
+      "text": "veyeron de aceite.",
+      "box": [
+        58,
+        595,
+        174,
+        612
+      ],
+      "score": 0.9994404315948486
+    },
+    {
+      "text": "majestad, y acompañado de todos sus ángeles, sentarse ha",
+      "box": [
+        532,
+        586,
+        909,
+        614
+      ],
+      "score": 0.9977898597717285
+    },
+    {
+      "text": "4. Al contrario, las prudentes junto con Ias lámparas",
+      "box": [
+        68,
+        609,
+        437,
+        631
+      ],
+      "score": 0.9947720170021057
+    },
+    {
+      "text": "entonces en el trono de su gloria:",
+      "box": [
+        534,
+        607,
+        739,
+        628
+      ],
+      "score": 0.9987108707427979
+    },
+    {
+      "text": "Ilevaron aceite en sus vasijas.",
+      "box": [
+        57,
+        629,
+        242,
+        647
+      ],
+      "score": 0.9909089803695679
+    },
+    {
+      "text": "32. Y hará comparecer delante de él á todas las naciones,",
+      "box": [
+        545,
+        618,
+        908,
+        645
+      ],
+      "score": 0.9933549165725708
+    },
+    {
+      "text": "5. Como el esposo tardase en venir, se adormecieron todas,",
+      "box": [
+        71,
+        641,
+        436,
+        666
+      ],
+      "score": 0.9870174527168274
+    },
+    {
+      "text": "y separará á los unos de los otros, como el pastor separa las",
+      "box": [
+        533,
+        635,
+        909,
+        662
+      ],
+      "score": 0.9977386593818665
+    },
+    {
+      "text": "y al fin se quedaron dormidas.",
+      "box": [
+        58,
+        662,
+        254,
+        683
+      ],
+      "score": 0.9792751669883728
+    },
+    {
+      "text": "ovejas de los cabritos:",
+      "box": [
+        535,
+        659,
+        670,
+        676
+      ],
+      "score": 0.9997555017471313
+    },
+    {
+      "text": "6. Mas llegada la media noche se oyó una voz que gri-",
+      "box": [
+        71,
+        676,
+        438,
+        700
+      ],
+      "score": 0.9859851002693176
+    },
+    {
+      "text": "33. Poniendo las ovejas á su derecha y los cabritos á la",
+      "box": [
+        545,
+        668,
+        910,
+        694
+      ],
+      "score": 0.991349995136261
+    },
+    {
+      "text": "taba: Mirad que viene el esposo, salidle al encuentro.",
+      "box": [
+        59,
+        693,
+        391,
+        718
+      ],
+      "score": 0.9997710585594177
+    },
+    {
+      "text": "izquierda .",
+      "box": [
+        536,
+        692,
+        609,
+        710
+      ],
+      "score": 0.9599720239639282
+    },
+    {
+      "text": "7. Al punto se levantaron todas aquellas vírgenes, y ade-",
+      "box": [
+        71,
+        710,
+        439,
+        735
+      ],
+      "score": 0.9852945804595947
+    },
+    {
+      "text": "34. Entonces el Rey dirá á los que estarán á su derecha:",
+      "box": [
+        545,
+        701,
+        911,
+        728
+      ],
+      "score": 0.990839958190918
+    },
+    {
+      "text": "rezaron sus lámparas,",
+      "box": [
+        59,
+        731,
+        197,
+        753
+      ],
+      "score": 0.9656659960746765
+    },
+    {
+      "text": "Venid, benditos de mi Padre, á tomar posesion del reino",
+      "box": [
+        535,
+        719,
+        912,
+        746
+      ],
+      "score": 0.9939802289009094
+    },
+    {
+      "text": "8. Entonces las necias dijeron á las prudentes: Dadnos de",
+      "box": [
+        71,
+        744,
+        438,
+        770
+      ],
+      "score": 0.9936458468437195
+    },
+    {
+      "text": "celestial, que os está preparado desde el principio del",
+      "box": [
+        535,
+        734,
+        911,
+        764
+      ],
+      "score": 0.9895812273025513
+    },
+    {
+      "text": "vuestro aceite: porque nuestras lámparas se apagan.",
+      "box": [
+        58,
+        764,
+        383,
+        788
+      ],
+      "score": 0.9982777237892151
+    },
+    {
+      "text": "mundo.",
+      "box": [
+        535,
+        759,
+        590,
+        780
+      ],
+      "score": 0.9999561905860901
+    },
+    {
+      "text": "35. Porque yo tuve hambre, y me disteis de comer: tuve",
+      "box": [
+        547,
+        770,
+        911,
+        796
+      ],
+      "score": 0.99953293800354
+    },
+    {
+      "text": "9. Respondieron las prudentes, diciendo: No sea que este",
+      "box": [
+        71,
+        780,
+        439,
+        806
+      ],
+      "score": 0.9892862439155579
+    },
+    {
+      "text": "sed, y me disteis de beber: era peregrino, y me hospe-",
+      "box": [
+        535,
+        787,
+        912,
+        813
+      ],
+      "score": 0.9979007244110107
+    },
+    {
+      "text": "que tenemos no baste para nosotras y para vosotras, mejor",
+      "box": [
+        57,
+        797,
+        439,
+        824
+      ],
+      "score": 0.991682231426239
+    },
+    {
+      "text": "dasteis:",
+      "box": [
+        537,
+        811,
+        589,
+        829
+      ],
+      "score": 0.9993304014205933
+    },
+    {
+      "text": "es que vayais á los que le venden, y compreis el que os",
+      "box": [
+        57,
+        815,
+        440,
+        841
+      ],
+      "score": 0.9875807166099548
+    },
+    {
+      "text": "36. Estando desnudo, me cubristeis: enfermo, y me visi-",
+      "box": [
+        548,
+        818,
+        911,
+        846
+      ],
+      "score": 0.9981285333633423
+    },
+    {
+      "text": "fálta.",
+      "box": [
+        58,
+        839,
+        98,
+        858
+      ],
+      "score": 0.940833330154419
+    },
+    {
+      "text": "tasteis: encarcelado, y vinisteis á verme y consolarme.",
+      "box": [
+        537,
+        838,
+        866,
+        863
+      ],
+      "score": 0.9801805019378662
+    },
+    {
+      "text": "10. Mientras iban estas á comprarle, vino el esposo, y las",
+      "box": [
+        71,
+        849,
+        439,
+        876
+      ],
+      "score": 0.9915257692337036
+    },
+    {
+      "text": "37. Á lo cual los justos le responderán, diciendo: Señor,",
+      "box": [
+        549,
+        851,
+        912,
+        881
+      ],
+      "score": 0.9958634376525879
+    },
+    {
+      "text": "que estaban preparadas, entraron con él á las bodas, y se",
+      "box": [
+        58,
+        866,
+        439,
+        895
+      ],
+      "score": 0.998099684715271
+    },
+    {
+      "text": "¿cuándo te vimos nosotros hambriento, y te dimos de comer:",
+      "box": [
+        537,
+        867,
+        913,
+        899
+      ],
+      "score": 0.997189462184906
+    },
+    {
+      "text": "cerró la puerta.",
+      "box": [
+        60,
+        890,
+        161,
+        910
+      ],
+      "score": 0.9745258092880249
+    },
+    {
+      "text": "sediento, y te dimos de beber?",
+      "box": [
+        538,
+        892,
+        720,
+        914
+      ],
+      "score": 0.9998622536659241
+    },
+    {
+      "text": "11. Al cabo vinieron tambien las otras vírgenes, diciendo:",
+      "box": [
+        73,
+        901,
+        440,
+        927
+      ],
+      "score": 0.9888891577720642
+    },
+    {
+      "text": "38. ¿Cuándo te hallamos de peregrino, y te hospedamos:",
+      "box": [
+        550,
+        900,
+        913,
+        932
+      ],
+      "score": 0.9951969981193542
+    },
+    {
+      "text": "Señor, Señor! ábrenos.",
+      "box": [
+        60,
+        923,
+        209,
+        944
+      ],
+      "score": 0.9808509349822998
+    },
+    {
+      "text": "desnudo, y te vestimos?",
+      "box": [
+        539,
+        925,
+        680,
+        946
+      ],
+      "score": 0.9910925030708313
+    },
+    {
+      "text": "12. Pero él respondió, y dijo: En verdad os digo que yo",
+      "box": [
+        74,
+        935,
+        440,
+        961
+      ],
+      "score": 0.9907709956169128
+    },
+    {
+      "text": "39. Ó ¿cuándo te vimos enfermo, ó en la cárcel, y fuimos",
+      "box": [
+        550,
+        932,
+        912,
+        965
+      ],
+      "score": 0.9817019701004028
+    },
+    {
+      "text": "no os conozco.",
+      "box": [
+        62,
+        959,
+        156,
+        979
+      ],
+      "score": 0.9773058891296387
+    },
+    {
+      "text": "á visitarte?",
+      "box": [
+        538,
+        959,
+        611,
+        979
+      ],
+      "score": 0.9822342395782471
+    },
+    {
+      "text": "13. Así que, velad vosotros, ya que no sabeis ni el dia, ni",
+      "box": [
+        74,
+        967,
+        441,
+        996
+      ],
+      "score": 0.9925664663314819
+    },
+    {
+      "text": "40. Yel Rey en respuesta les dirá: En verdad os digo,",
+      "box": [
+        551,
+        964,
+        912,
+        997
+      ],
+      "score": 0.9912591576576233
+    },
+    {
+      "text": "la hora.",
+      "box": [
+        62,
+        995,
+        116,
+        1013
+      ],
+      "score": 0.9999045729637146
+    },
+    {
+      "text": "siempre que lo hicisteis con alguno de estos mis mas peque-",
+      "box": [
+        538,
+        982,
+        913,
+        1013
+      ],
+      "score": 0.994341254234314
+    },
+    {
+      "text": "14. Porque el Señor obrará como un hombre que yéndose",
+      "box": [
+        75,
+        1000,
+        440,
+        1030
+      ],
+      "score": 0.9976050853729248
+    },
+    {
+      "text": "ños hermanos, conmigo lo hicisteis.",
+      "box": [
+        539,
+        1002,
+        752,
+        1030
+      ],
+      "score": 0.9914379715919495
+    },
+    {
+      "text": "á lejanas tierras, convocó á sus criados, y les entregó sus",
+      "box": [
+        62,
+        1019,
+        441,
+        1048
+      ],
+      "score": 0.9973028898239136
+    },
+    {
+      "text": "41. Al mismo tiempo dirá á los que estarán en la izquier-",
+      "box": [
+        552,
+        1013,
+        914,
+        1046
+      ],
+      "score": 0.9793899655342102
+    },
+    {
+      "text": "bienes,",
+      "box": [
+        64,
+        1047,
+        112,
+        1065
+      ],
+      "score": 0.9998926520347595
+    },
+    {
+      "text": "da: Apartaos de mí, malditos, id al fuego eterno, que fué",
+      "box": [
+        538,
+        1028,
+        915,
+        1067
+      ],
+      "score": 0.9135761857032776
+    },
+    {
+      "text": "15. Dando al uno cinco talentos, á otro dos, y uno solo á",
+      "box": [
+        75,
+        1053,
+        442,
+        1084
+      ],
+      "score": 0.9707439541816711
+    },
+    {
+      "text": "destinado para el diablo, y sus ángeles ó ministros:",
+      "box": [
+        540,
+        1050,
+        856,
+        1081
+      ],
+      "score": 0.9927968978881836
+    },
+    {
+      "text": "otro, á cada uno segun su capacidad, y marchóse inmediata-",
+      "box": [
+        63,
+        1072,
+        440,
+        1101
+      ],
+      "score": 0.9900769591331482
+    },
+    {
+      "text": "42. Porque tuve hambre, y no me disteis de comer: sed, y",
+      "box": [
+        552,
+        1063,
+        914,
+        1098
+      ],
+      "score": 0.9850743412971497
+    },
+    {
+      "text": "mente.",
+      "box": [
+        63,
+        1098,
+        112,
+        1119
+      ],
+      "score": 0.9999005198478699
+    },
+    {
+      "text": "no me disteis de beber:",
+      "box": [
+        541,
+        1088,
+        683,
+        1113
+      ],
+      "score": 0.9783099889755249
+    },
+    {
+      "text": "16. El que recibió cinco talentos fué, y negociando con",
+      "box": [
+        75,
+        1105,
+        441,
+        1135
+      ],
+      "score": 0.9944087862968445
+    },
+    {
+      "text": "43. Era peregrino, y no me recogisteis: desnudo, y no me",
+      "box": [
+        552,
+        1094,
+        915,
+        1130
+      ],
+      "score": 0.9847041368484497
+    },
+    {
+      "text": "ellos, sacó de ganancia otros cinco.",
+      "box": [
+        64,
+        1129,
+        278,
+        1151
+      ],
+      "score": 0.9966108798980713
+    },
+    {
+      "text": "vestisteis: enfermo y encarclado, y no me visitasteis.",
+      "box": [
+        540,
+        1112,
+        865,
+        1147
+      ],
+      "score": 0.9673249125480652
+    },
+    {
+      "text": "17. De la misma suerte, aquel que habia recibido dos,",
+      "box": [
+        75,
+        1139,
+        442,
+        1169
+      ],
+      "score": 0.9933221936225891
+    },
+    {
+      "text": "44. A lo que replicarán tambien los malos:Señor!¿cuándo",
+      "box": [
+        552,
+        1126,
+        915,
+        1162
+      ],
+      "score": 0.9749165773391724
+    },
+    {
+      "text": "ganó otros dos.",
+      "box": [
+        63,
+        1165,
+        162,
+        1185
+      ],
+      "score": 0.9998900294303894
+    },
+    {
+      "text": "te vimos hambriento, ó sediento, óperegrino, ó desnudo, 6",
+      "box": [
+        538,
+        1141,
+        915,
+        1182
+      ],
+      "score": 0.9565954804420471
+    },
+    {
+      "text": "18. Mas el que recibió uno, fué é hizo un hoyo en la tierra,",
+      "box": [
+        75,
+        1173,
+        441,
+        1204
+      ],
+      "score": 0.982430636882782
+    },
+    {
+      "text": "enfermo, ó encarcelado, y dejamos de asistirte?",
+      "box": [
+        540,
+        1161,
+        828,
+        1197
+      ],
+      "score": 0.993316650390625
+    },
+    {
+      "text": "y escondió el dinero de su señor.",
+      "box": [
+        62,
+        1196,
+        265,
+        1220
+      ],
+      "score": 0.9962560534477234
+    },
+    {
+      "text": "45. Entonces les responderá: Os digo en verdad: siempre",
+      "box": [
+        552,
+        1172,
+        916,
+        1213
+      ],
+      "score": 0.9940616488456726
+    },
+    {
+      "text": "19. Pasado mucho tiempo volvió el amo de dichos criados,",
+      "box": [
+        75,
+        1206,
+        442,
+        1237
+      ],
+      "score": 0.9915843605995178
+    },
+    {
+      "text": "que dejasteis de hacerlo con alguno de estos mis pequeños",
+      "box": [
+        539,
+        1187,
+        918,
+        1232
+      ],
+      "score": 0.991285502910614
+    },
+    {
+      "text": "y llamólos á cuentas.",
+      "box": [
+        61,
+        1232,
+        197,
+        1253
+      ],
+      "score": 0.9896239042282104
+    },
+    {
+      "text": "hermanos, dejasteis de hacerlo conmigo.",
+      "box": [
+        541,
+        1210,
+        790,
+        1246
+      ],
+      "score": 0.9984055757522583
+    },
+    {
+      "text": "46. Y en consecuencia irán estos al eterno suplicio, y los",
+      "box": [
+        555,
+        1219,
+        917,
+        1261
+      ],
+      "score": 0.9956347346305847
+    },
+    {
+      "text": "20. Llegando el que habia recibido cinco talentos, presen-",
+      "box": [
+        75,
+        1241,
+        443,
+        1271
+      ],
+      "score": 0.9847503900527954
+    },
+    {
+      "text": "tóle otros cinco, diciendo: Señor, cinco talentos me entregas-",
+      "box": [
+        61,
+        1259,
+        444,
+        1289
+      ],
+      "score": 0.9900185465812683
+    },
+    {
+      "text": "justos á la vida eterna.",
+      "box": [
+        541,
+        1247,
+        687,
+        1281
+      ],
+      "score": 0.9959967732429504
+    },
+    {
+      "text": "te, hé aquí otros cinco mas, que he ganado con ellos.",
+      "box": [
+        61,
+        1279,
+        392,
+        1306
+      ],
+      "score": 0.9915313124656677
+    },
+    {
+      "text": " dvd ",
+      "box": [
+        542,
+        1262,
+        918,
+        1314
+      ],
+      "score": 0.47046971321105957
+    },
+    {
+      "text": "Véase Sacrificio.",
+      "box": [
+        545,
+        1300,
+        639,
+        1327
+      ],
+      "score": 0.976993203163147
+    },
+    {
+      "text": "Donde la Vul de e divide em, dice el te grieo ,",
+      "box": [
+        71,
+        1310,
+        444,
+        1341
+      ],
+      "score": 0.6653487682342529
+    },
+    {
+      "text": "2 Etech. XXXIV, v. 17.",
+      "box": [
+        558,
+        1309,
+        693,
+        1339
+      ],
+      "score": 0.9397760033607483
+    },
+    {
+      "text": "significa tambien será serrado: suplicio que se daba á los violadores de",
+      "box": [
+        60,
+        1327,
+        444,
+        1356
+      ],
+      "score": 0.9798363447189331
+    }
+  ]
+}

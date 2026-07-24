@@ -1,0 +1,1457 @@
+{
+  "volume": 1,
+  "page_index": 30,
+  "pdf_page": 31,
+  "lines": [
+    {
+      "text": "17",
+      "box": [
+        0,
+        25,
+        14,
+        42
+      ],
+      "score": 0.9931254386901855
+    },
+    {
+      "text": "GÉNESIS.",
+      "box": [
+        149,
+        25,
+        228,
+        55
+      ],
+      "score": 0.999103307723999
+    },
+    {
+      "text": "CAPITULO XIII.",
+      "box": [
+        646,
+        32,
+        768,
+        57
+      ],
+      "score": 0.9756584167480469
+    },
+    {
+      "text": "18",
+      "box": [
+        877,
+        36,
+        896,
+        54
+      ],
+      "score": 0.9999580383300781
+    },
+    {
+      "text": "30. Sarai empero era estéril, y no tenia hijos.",
+      "box": [
+        0,
+        70,
+        310,
+        106
+      ],
+      "score": 0.9822430610656738
+    },
+    {
+      "text": "31. Thare pues tomó consigo á Abram su hijo, y á su nieto",
+      "box": [
+        0,
+        91,
+        397,
+        127
+      ],
+      "score": 0.9805490374565125
+    },
+    {
+      "text": "17. Pero Dios castigó á Pharaon y á su corte con plagas",
+      "box": [
+        518,
+        86,
+        904,
+        109
+      ],
+      "score": 0.996728241443634
+    },
+    {
+      "text": "ot, hijo de Aran, y á Sarai su nuera, esposa de su hijo",
+      "box": [
+        0,
+        113,
+        396,
+        144
+      ],
+      "score": 0.9822697639465332
+    },
+    {
+      "text": "grandísimas, por causa de Sarai mujer de Abram.",
+      "box": [
+        503,
+        107,
+        826,
+        127
+      ],
+      "score": 0.9998785257339478
+    },
+    {
+      "text": "18. Por lo cual Pharaon hizo llamar á Abram, y díjole:",
+      "box": [
+        514,
+        122,
+        902,
+        147
+      ],
+      "score": 0.9850844144821167
+    },
+    {
+      "text": "bram, y sacólos de Ur de los Chaldeos, con ánimo de pasar",
+      "box": [
+        0,
+        132,
+        397,
+        161
+      ],
+      "score": 0.9995946884155273
+    },
+    {
+      "text": "¿Qué es esto que has hecho conmigo? ¿cómo no me declaraste",
+      "box": [
+        501,
+        141,
+        901,
+        165
+      ],
+      "score": 0.9939977526664734
+    },
+    {
+      "text": "tierra de Chanaan: y llegaron hasta la ciudad de Haran, y",
+      "box": [
+        0,
+        151,
+        397,
+        180
+      ],
+      "score": 0.9844043254852295
+    },
+    {
+      "text": "que era tu mujer?",
+      "box": [
+        502,
+        159,
+        625,
+        179
+      ],
+      "score": 0.9850844144821167
+    },
+    {
+      "text": "e establecieron allí.",
+      "box": [
+        0,
+        170,
+        140,
+        194
+      ],
+      "score": 0.9602404832839966
+    },
+    {
+      "text": "19. ¿Por qué motivo dijiste ser hermana tuya, poniéndomo",
+      "box": [
+        514,
+        175,
+        899,
+        199
+      ],
+      "score": 0.9903339743614197
+    },
+    {
+      "text": "32. Murió Thare en Haran, siendo de edad de doscientos",
+      "box": [
+        2,
+        187,
+        397,
+        215
+      ],
+      "score": 0.9959035515785217
+    },
+    {
+      "text": "en ocasion de casarme con ella? Ahora, pues, ahí tienes á tu",
+      "box": [
+        501,
+        192,
+        899,
+        217
+      ],
+      "score": 0.9943792223930359
+    },
+    {
+      "text": "cinco años.",
+      "box": [
+        0,
+        204,
+        86,
+        229
+      ],
+      "score": 0.9994096159934998
+    },
+    {
+      "text": "mujer, tómala, y anda enhorabuena.",
+      "box": [
+        500,
+        207,
+        742,
+        231
+      ],
+      "score": 0.9856036901473999
+    },
+    {
+      "text": "20. En consecuencia Pharaon encargó á sus gentes el cui-",
+      "box": [
+        514,
+        224,
+        900,
+        249
+      ],
+      "score": 0.9960475564002991
+    },
+    {
+      "text": "CAPITULO XII",
+      "box": [
+        142,
+        242,
+        249,
+        259
+      ],
+      "score": 0.9994406700134277
+    },
+    {
+      "text": "dado do Abram: las cuales le acompañaron á él, y á su esposa,",
+      "box": [
+        501,
+        240,
+        900,
+        267
+      ],
+      "score": 0.9807602167129517
+    },
+    {
+      "text": "con todo lo que tenia hasta fuera de Egypto.",
+      "box": [
+        500,
+        257,
+        794,
+        282
+      ],
+      "score": 0.9876872897148132
+    },
+    {
+      "text": "á Sarai en Egypto .",
+      "box": [
+        137,
+        293,
+        254,
+        309
+      ],
+      "score": 0.9628304839134216
+    },
+    {
+      "text": "CAPITULO XIII",
+      "box": [
+        644,
+        287,
+        759,
+        310
+      ],
+      "score": 0.9989639520645142
+    },
+    {
+      "text": "1. Y dijo el Señor á Abram 3. Sal de tu tierra, y de tu pa-",
+      "box": [
+        1,
+        322,
+        395,
+        349
+      ],
+      "score": 0.974759578704834
+    },
+    {
+      "text": "Sepáranse Abram y Lot á causa de su grande opulencia, por el bien de la",
+      "box": [
+        501,
+        314,
+        899,
+        339
+      ],
+      "score": 0.975021481513977
+    },
+    {
+      "text": "paz. Lot escoge un territorio cerca del Jordan, y Abram habita en la",
+      "box": [
+        512,
+        330,
+        900,
+        352
+      ],
+      "score": 0.9878123998641968
+    },
+    {
+      "text": "tierra de Chanaan, donde Dios le renueva las promesas.",
+      "box": [
+        513,
+        344,
+        820,
+        367
+      ],
+      "score": 0.9991818070411682
+    },
+    {
+      "text": "nostraré.",
+      "box": [
+        0,
+        358,
+        72,
+        379
+      ],
+      "score": 0.9840065836906433
+    },
+    {
+      "text": "2. Y yo te haré cabeza",
+      "box": [
+        1,
+        375,
+        170,
+        398
+      ],
+      "score": 0.9938904047012329
+    },
+    {
+      "text": "a de una nacion grande, y bendecirte",
+      "box": [
+        158,
+        375,
+        394,
+        397
+      ],
+      "score": 0.9877804517745972
+    },
+    {
+      "text": "1. Salió pues Abram de Egypto, con su esposa, y todo lo",
+      "box": [
+        514,
+        372,
+        901,
+        398
+      ],
+      "score": 0.9957222938537598
+    },
+    {
+      "text": ", y ensalzaré tu nombre, y tú serás bendito ó serás una",
+      "box": [
+        0,
+        392,
+        396,
+        416
+      ],
+      "score": 0.867405354976654
+    },
+    {
+      "text": "que tenia, y Lot con él, tirando hácia la region meridional.",
+      "box": [
+        501,
+        388,
+        887,
+        415
+      ],
+      "score": 0.9906410574913025
+    },
+    {
+      "text": "endicion.",
+      "box": [
+        0,
+        410,
+        69,
+        428
+      ],
+      "score": 0.9999715089797974
+    },
+    {
+      "text": "2. Y estaba riquísimo en caudal de oro y de plata.",
+      "box": [
+        513,
+        405,
+        854,
+        432
+      ],
+      "score": 0.9759929180145264
+    },
+    {
+      "text": "3. Bendeciré á los que te bendigan, y maldeciré á los que",
+      "box": [
+        0,
+        424,
+        395,
+        449
+      ],
+      "score": 0.9880235195159912
+    },
+    {
+      "text": "3. Y volvióse por el camino, que habia traido del medio-",
+      "box": [
+        514,
+        422,
+        902,
+        450
+      ],
+      "score": 0.9989878535270691
+    },
+    {
+      "text": "e maldigan, y EN Tt (en uno de tus descendientes)serán ben-",
+      "box": [
+        0,
+        443,
+        396,
+        467
+      ],
+      "score": 0.9373456239700317
+    },
+    {
+      "text": "día hácia Bethél, hasta el lugar en donde primero tuvo",
+      "box": [
+        501,
+        439,
+        902,
+        468
+      ],
+      "score": 0.9903008341789246
+    },
+    {
+      "text": "itas todas las naciones de la tierra .",
+      "box": [
+        0,
+        460,
+        242,
+        483
+      ],
+      "score": 0.9738621115684509
+    },
+    {
+      "text": "asentada su tienda entre Bethél y la ciudad de Hai,",
+      "box": [
+        500,
+        457,
+        843,
+        484
+      ],
+      "score": 0.9898094534873962
+    },
+    {
+      "text": "4. Salió pues Abram como se lo habia ordenado el Señor.",
+      "box": [
+        0,
+        477,
+        393,
+        498
+      ],
+      "score": 0.9842535257339478
+    },
+    {
+      "text": "4. Al sitio del altar que antes habia hecho, y 'allí invocó",
+      "box": [
+        513,
+        473,
+        902,
+        502
+      ],
+      "score": 0.9904212951660156
+    },
+    {
+      "text": "partió con él Lot: de setenta y cinco años era Abram cuando",
+      "box": [
+        0,
+        494,
+        393,
+        516
+      ],
+      "score": 0.9953388571739197
+    },
+    {
+      "text": "el nombre del Señor 1.",
+      "box": [
+        501,
+        492,
+        654,
+        511
+      ],
+      "score": 0.9647640585899353
+    },
+    {
+      "text": "alió de la ciudad de Haran 7.",
+      "box": [
+        0,
+        512,
+        195,
+        534
+      ],
+      "score": 0.966096043586731
+    },
+    {
+      "text": "5. Pero tambien Lot que andaba en compañía de Abram,",
+      "box": [
+        513,
+        507,
+        902,
+        538
+      ],
+      "score": 0.9961279630661011
+    },
+    {
+      "text": "5. Y llevó consigo á Sarai su mujer, y á Lot hijo de su",
+      "box": [
+        0,
+        528,
+        392,
+        552
+      ],
+      "score": 0.9979657530784607
+    },
+    {
+      "text": "tenia rebaños de ovejas, y ganados mayores, y cabañas ó",
+      "box": [
+        500,
+        526,
+        904,
+        554
+      ],
+      "score": 0.9849230647087097
+    },
+    {
+      "text": "ermano, con cuanta hacienda, y familia habian adquirido en",
+      "box": [
+        0,
+        549,
+        393,
+        568
+      ],
+      "score": 0.9998141527175903
+    },
+    {
+      "text": "tiendas 12.",
+      "box": [
+        502,
+        545,
+        571,
+        563
+      ],
+      "score": 0.9451584219932556
+    },
+    {
+      "text": "Haran: y partieron para la tierra de Chanaan. Venidos á ella,",
+      "box": [
+        0,
+        564,
+        392,
+        585
+      ],
+      "score": 0.9773474335670471
+    },
+    {
+      "text": "6. Ni podian caber en aquel terreno, viviendo juntos: por-",
+      "box": [
+        515,
+        560,
+        902,
+        588
+      ],
+      "score": 0.999371349811554
+    },
+    {
+      "text": "6. Atravesó Abram el pais hasta el lugar de Sichem, has-",
+      "box": [
+        0,
+        581,
+        394,
+        603
+      ],
+      "score": 0.9909793138504028
+    },
+    {
+      "text": "que su hacienda era mucha, y no les era posible habitar en",
+      "box": [
+        501,
+        578,
+        902,
+        605
+      ],
+      "score": 0.9827783703804016
+    },
+    {
+      "text": " el famoso valle: el Chananéo habitaba entonces aquella",
+      "box": [
+        0,
+        601,
+        391,
+        618
+      ],
+      "score": 0.9792931079864502
+    },
+    {
+      "text": "un mismo lugar.",
+      "box": [
+        502,
+        598,
+        613,
+        615
+      ],
+      "score": 0.9935557842254639
+    },
+    {
+      "text": "erra.",
+      "box": [
+        0,
+        618,
+        36,
+        637
+      ],
+      "score": 0.9852191805839539
+    },
+    {
+      "text": "7. De donde vino á suscitarse una riña entre los pastores",
+      "box": [
+        514,
+        611,
+        902,
+        638
+      ],
+      "score": 0.9904523491859436
+    },
+    {
+      "text": "7. Y apareció el Señor á Abram, y díjole: Esta tierra la",
+      "box": [
+        0,
+        632,
+        391,
+        654
+      ],
+      "score": 0.9965881705284119
+    },
+    {
+      "text": "de los ganados de Abram y los de Lot. Y el Chamanéo y el",
+      "box": [
+        500,
+        628,
+        902,
+        656
+      ],
+      "score": 0.9958406090736389
+    },
+    {
+      "text": "aré á tu descendencia. Y él edificó allí mismo un altar al",
+      "box": [
+        0,
+        649,
+        392,
+        670
+      ],
+      "score": 0.9937320947647095
+    },
+    {
+      "text": "Pherezéo moraban á la sazon en aquella tierra.",
+      "box": [
+        500,
+        644,
+        807,
+        669
+      ],
+      "score": 0.9902271628379822
+    },
+    {
+      "text": "8. Por lo que dijo Abram á Lot: Ruégote no haya disputas",
+      "box": [
+        513,
+        660,
+        902,
+        690
+      ],
+      "score": 0.9945667386054993
+    },
+    {
+      "text": "eñor, que se le liabia aparecido 8.",
+      "box": [
+        0,
+        667,
+        215,
+        689
+      ],
+      "score": 0.9671279788017273
+    },
+    {
+      "text": "8. Y pasando de allí á un monte, que miraba al oriente de",
+      "box": [
+        0,
+        682,
+        393,
+        706
+      ],
+      "score": 0.991730272769928
+    },
+    {
+      "text": "entre nosotros, ni entre mis pastores y los tuyos: pues so-",
+      "box": [
+        499,
+        677,
+        902,
+        707
+      ],
+      "score": 0.9970375299453735
+    },
+    {
+      "text": "mos hermanos 13.",
+      "box": [
+        499,
+        694,
+        615,
+        716
+      ],
+      "score": 0.9575778245925903
+    },
+    {
+      "text": "ethél, aquí tendió su pabellon, teniendo á Bethél al occidente,",
+      "box": [
+        0,
+        699,
+        393,
+        724
+      ],
+      "score": 0.9785135388374329
+    },
+    {
+      "text": "9. Ahí tienes á la vista toda esta tierra: sepárate de mí,",
+      "box": [
+        513,
+        711,
+        901,
+        740
+      ],
+      "score": 0.9924924969673157
+    },
+    {
+      "text": "Hai al oriente: donde tambien erigió al Señor un altar,",
+      "box": [
+        0,
+        716,
+        393,
+        742
+      ],
+      "score": 0.9892204403877258
+    },
+    {
+      "text": "te ruego: si tú fueres á la izquierda, yo iré á la derecha: si tú",
+      "box": [
+        499,
+        727,
+        902,
+        757
+      ],
+      "score": 0.9792647361755371
+    },
+    {
+      "text": "invocó su santo nombre.",
+      "box": [
+        0,
+        737,
+        164,
+        757
+      ],
+      "score": 0.9980883598327637
+    },
+    {
+      "text": "escogieres la derecha, yo me iré á la izquierda.",
+      "box": [
+        500,
+        745,
+        808,
+        771
+      ],
+      "score": 0.9918644428253174
+    },
+    {
+      "text": "9. Prosiguió Abram su viaje, caminando y avanzando ade-",
+      "box": [
+        0,
+        748,
+        393,
+        776
+      ],
+      "score": 0.9859825372695923
+    },
+    {
+      "text": "10. Lot pues habiendo alzado los ojos, miró toda la ribera",
+      "box": [
+        512,
+        761,
+        902,
+        791
+      ],
+      "score": 0.9967358708381653
+    },
+    {
+      "text": "ante hácia el mediodia.",
+      "box": [
+        0,
+        771,
+        149,
+        791
+      ],
+      "score": 0.9643217921257019
+    },
+    {
+      "text": "del Jordan, por el camino que va á Segor, la cual era de",
+      "box": [
+        499,
+        778,
+        902,
+        809
+      ],
+      "score": 0.996554434299469
+    },
+    {
+      "text": "10. Pero sobrevino hambre en aquella tierra: y Abram",
+      "box": [
+        0,
+        782,
+        392,
+        809
+      ],
+      "score": 0.9989290237426758
+    },
+    {
+      "text": "regadío por todas partes; y, antes que asolase el Señor á So.",
+      "box": [
+        498,
+        796,
+        902,
+        826
+      ],
+      "score": 0.9930487871170044
+    },
+    {
+      "text": "ivo que bajar á Egypto, para estarse allí como pasajero: á",
+      "box": [
+        0,
+        800,
+        393,
+        826
+      ],
+      "score": 0.9801222681999207
+    },
+    {
+      "text": "doma y Gomorrha, fecunda como un paraiso del Señor, y",
+      "box": [
+        499,
+        812,
+        902,
+        843
+      ],
+      "score": 0.9900048971176147
+    },
+    {
+      "text": "ausa de que la hambre en el pais era grandísima.",
+      "box": [
+        0,
+        818,
+        317,
+        842
+      ],
+      "score": 0.9998157620429993
+    },
+    {
+      "text": "11. Estando ya para entrar en Egypto, dijo á Sarai su es-",
+      "box": [
+        0,
+        834,
+        393,
+        859
+      ],
+      "score": 0.995345950126648
+    },
+    {
+      "text": "como el feraz Egypto.",
+      "box": [
+        498,
+        830,
+        645,
+        853
+      ],
+      "score": 0.9983777403831482
+    },
+    {
+      "text": "osa: Conozco que tú eres una mujer bien parecida:",
+      "box": [
+        0,
+        852,
+        329,
+        875
+      ],
+      "score": 0.9905876517295837
+    },
+    {
+      "text": "11. Y escogió Lot para sí la vega del Jordan, y apartóse",
+      "box": [
+        512,
+        847,
+        901,
+        875
+      ],
+      "score": 0.9990286231040955
+    },
+    {
+      "text": "12. Y que cuando los Egypcios te habrán visto, han de",
+      "box": [
+        0,
+        869,
+        391,
+        892
+      ],
+      "score": 0.9940521121025085
+    },
+    {
+      "text": "del oriente: y separáronse entrambos hermanos uno de otro.",
+      "box": [
+        498,
+        865,
+        902,
+        891
+      ],
+      "score": 0.99630206823349
+    },
+    {
+      "text": "ecir: Es la mujer de éste: con lo que á mí me quitarán la",
+      "box": [
+        0,
+        887,
+        390,
+        908
+      ],
+      "score": 0.9991124272346497
+    },
+    {
+      "text": "12. Abram se quedó en la tierra de Chanaan, y Lot se",
+      "box": [
+        511,
+        883,
+        902,
+        909
+      ],
+      "score": 0.9978325963020325
+    },
+    {
+      "text": "ida, y á tí te reservarán para sí.",
+      "box": [
+        0,
+        904,
+        212,
+        923
+      ],
+      "score": 0.9858716130256653
+    },
+    {
+      "text": "quedó en los lugares adyacentes al Jordan, y fijó su morada",
+      "box": [
+        498,
+        900,
+        901,
+        925
+      ],
+      "score": 0.9994954466819763
+    },
+    {
+      "text": "13. Dí pues, te ruego, que eres hermana mia 9: para que",
+      "box": [
+        0,
+        920,
+        389,
+        940
+      ],
+      "score": 0.9748417735099792
+    },
+    {
+      "text": "en Sodoma.",
+      "box": [
+        498,
+        916,
+        577,
+        935
+      ],
+      "score": 0.9989033937454224
+    },
+    {
+      "text": "o sea bien recibido por amor tuyo, y salve mi vida por tu",
+      "box": [
+        0,
+        934,
+        391,
+        958
+      ],
+      "score": 0.996253252029419
+    },
+    {
+      "text": "13. Mas los Sodomitas eran perversísimos, y muy grandes",
+      "box": [
+        510,
+        930,
+        901,
+        958
+      ],
+      "score": 0.9877839684486389
+    },
+    {
+      "text": "espeto 20.",
+      "box": [
+        0,
+        952,
+        59,
+        969
+      ],
+      "score": 0.9000349044799805
+    },
+    {
+      "text": "pecadores á los ojos de Dios.",
+      "box": [
+        498,
+        950,
+        688,
+        969
+      ],
+      "score": 0.9993519186973572
+    },
+    {
+      "text": "14. Entrando pues Abram en Egypto, vieron los Egypcios",
+      "box": [
+        0,
+        966,
+        390,
+        991
+      ],
+      "score": 0.9774454832077026
+    },
+    {
+      "text": "14. Y dijo el Señor á Abram, despues que Lot se separó",
+      "box": [
+        510,
+        964,
+        902,
+        992
+      ],
+      "score": 0.9918215870857239
+    },
+    {
+      "text": "ue la mujer era en extremo hermosa.",
+      "box": [
+        0,
+        983,
+        240,
+        1005
+      ],
+      "score": 0.9905420541763306
+    },
+    {
+      "text": "de él: Alza tus ojos, y mira, desde el sitio en que ahora estás,",
+      "box": [
+        497,
+        981,
+        903,
+        1009
+      ],
+      "score": 0.9995815753936768
+    },
+    {
+      "text": "15. Y los principales ó cortesanos dieron noticia de ella á",
+      "box": [
+        0,
+        997,
+        391,
+        1022
+      ],
+      "score": 0.9870812296867371
+    },
+    {
+      "text": "hácia el norte y el mediodía, hácia el oriente y el poniente 14.",
+      "box": [
+        497,
+        997,
+        902,
+        1024
+      ],
+      "score": 0.9822380542755127
+    },
+    {
+      "text": "Pharaon, alabándosela: y fué luego llevada al palacio de Pha-",
+      "box": [
+        0,
+        1013,
+        390,
+        1040
+      ],
+      "score": 0.9771547913551331
+    },
+    {
+      "text": "15. Toda esta tierra, que ves, yo te la daré á tí y á tu pos-",
+      "box": [
+        509,
+        1013,
+        903,
+        1043
+      ],
+      "score": 0.977181077003479
+    },
+    {
+      "text": "aon.",
+      "box": [
+        0,
+        1032,
+        30,
+        1048
+      ],
+      "score": 0.999830961227417
+    },
+    {
+      "text": "teridad para siempre.",
+      "box": [
+        497,
+        1031,
+        642,
+        1053
+      ],
+      "score": 0.9998149871826172
+    },
+    {
+      "text": "16. Y por respeto á ella trataron bien á Abram: el cual",
+      "box": [
+        0,
+        1045,
+        389,
+        1075
+      ],
+      "score": 0.994458019733429
+    },
+    {
+      "text": "16. Y multiplicaré tu descendencia como el polvo de la",
+      "box": [
+        510,
+        1048,
+        902,
+        1077
+      ],
+      "score": 0.9970058798789978
+    },
+    {
+      "text": "dquirió ovejas, y bueyes, y asnos, y esclavos, y esclavas, y",
+      "box": [
+        0,
+        1063,
+        389,
+        1094
+      ],
+      "score": 0.9234893321990967
+    },
+    {
+      "text": "tierra: si hay hombre que pueda contar los granitos del pol-",
+      "box": [
+        496,
+        1066,
+        901,
+        1095
+      ],
+      "score": 0.997958779335022
+    },
+    {
+      "text": "snas, y camellos.",
+      "box": [
+        0,
+        1081,
+        109,
+        1105
+      ],
+      "score": 0.9936191439628601
+    },
+    {
+      "text": "vo de la tierra, ese podrá contar tus descendientes.",
+      "box": [
+        496,
+        1084,
+        829,
+        1109
+      ],
+      "score": 0.9998591542243958
+    },
+    {
+      "text": "Jo. XXIV,v.2.—Nee. IX, v. 7.—Jadi. V, v. 7.—A. VII,v..",
+      "box": [
+        3,
+        1118,
+        388,
+        1152
+      ],
+      "score": 0.7259522676467896
+    },
+    {
+      "text": "Año del Musdo 2083: antes de Jesu CiRisto 1921.",
+      "box": [
+        3,
+        1134,
+        297,
+        1164
+      ],
+      "score": 0.869617760181427
+    },
+    {
+      "text": " IIeb. XI, v. 8.",
+      "box": [
+        510,
+        1127,
+        605,
+        1144
+      ],
+      "score": 0.9388514161109924
+    },
+    {
+      "text": "8 Cap. XIII, v. 15.—XV, v. 18.—XXVI, v. 4.—Dout. XXXIV, v. 4.",
+      "box": [
+        507,
+        1140,
+        901,
+        1168
+      ],
+      "score": 0.9768558740615845
+    },
+    {
+      "text": "VII, v., );  desde est se cuentan los cuarocientos a depe",
+      "box": [
+        0,
+        1160,
+        390,
+        1196
+      ],
+      "score": 0.6123211979866028
+    },
+    {
+      "text": "Abram pide á Sarai qua calle el nombre de esposa, y diga que era",
+      "box": [
+        507,
+        1156,
+        900,
+        1185
+      ],
+      "score": 0.9694397449493408
+    },
+    {
+      "text": "grinacion notados en el Éxopo (e. XII, v. 40), y por San Pablo",
+      "box": [
+        0,
+        1174,
+        388,
+        1211
+      ],
+      "score": 0.7521415948867798
+    },
+    {
+      "text": "hermana suya, y realmente Sarai era hija de Aran, hermano de Abram;",
+      "box": [
+        495,
+        1171,
+        901,
+        1199
+      ],
+      "score": 0.9697768688201904
+    },
+    {
+      "text": "(Gal, III, v. 17).",
+      "box": [
+        0,
+        1188,
+        87,
+        1212
+      ],
+      "score": 0.925466001033783
+    },
+    {
+      "text": "y los Hebreos liamaban hermanos á los parientes mas cercanos; así des-",
+      "box": [
+        494,
+        1188,
+        900,
+        1213
+      ],
+      "score": 0.9630609750747681
+    },
+    {
+      "text": "Act. VII, v. 3.",
+      "box": [
+        5,
+        1203,
+        103,
+        1226
+      ],
+      "score": 0.9219115972518921
+    },
+    {
+      "text": "pues llamaba Abram hermano á Lot, su sobrino. Otros creen que Sarai",
+      "box": [
+        493,
+        1202,
+        902,
+        1229
+      ],
+      "score": 0.9727106690406799
+    },
+    {
+      "text": "Compronde esta bendicion los bienes temporales; pero ya dice San",
+      "box": [
+        3,
+        1214,
+        387,
+        1253
+      ],
+      "score": 0.9489840269088745
+    },
+    {
+      "text": "era verdaderamente hermana de Abram, aunque de distinta madre.",
+      "box": [
+        494,
+        1218,
+        900,
+        1243
+      ],
+      "score": 0.9923375248908997
+    },
+    {
+      "text": "Pablo que esperaba Abram aquella ciudad bien fundada, cuyo arqutecto",
+      "box": [
+        0,
+        1229,
+        388,
+        1268
+      ],
+      "score": 0.8255000114440918
+    },
+    {
+      "text": "Gen. X.X, v. 12. San Agustin hace ver cómo Abram procedió bien en este",
+      "box": [
+        494,
+        1232,
+        901,
+        1260
+      ],
+      "score": 0.9606399536132812
+    },
+    {
+      "text": "yfundador es Dios. La felicidad de la Jerusalen celestial es la que prin",
+      "box": [
+        0,
+        1242,
+        387,
+        1283
+      ],
+      "score": 0.8028412461280823
+    },
+    {
+      "text": "cipalmente se contenia en aquella bandicion: En ti serán benditas. En tí,",
+      "box": [
+        0,
+        1257,
+        385,
+        1296
+      ],
+      "score": 0.9059925675392151
+    },
+    {
+      "text": "lance Contra Faust., lib. XXII, c. 36.",
+      "box": [
+        495,
+        1248,
+        709,
+        1270
+      ],
+      "score": 0.9855801463127136
+    },
+    {
+      "text": "es decir, en uno de tus desendientes; como se ve Genes. XXII, v. 18: y",
+      "box": [
+        0,
+        1270,
+        387,
+        1312
+      ],
+      "score": 0.8751264810562134
+    },
+    {
+      "text": "10 Cap. XX, v. 11.",
+      "box": [
+        508,
+        1261,
+        623,
+        1280
+      ],
+      "score": 0.9808770418167114
+    },
+    {
+      "text": "\" Sup, cap. XII, v. 7.",
+      "box": [
+        509,
+        1275,
+        642,
+        1294
+      ],
+      "score": 0.9251714944839478
+    },
+    {
+      "text": "este es Christo, segun dice el Apóstol al Galat. III, v. 16.",
+      "box": [
+        0,
+        1285,
+        303,
+        1321
+      ],
+      "score": 0.983512282371521
+    },
+    {
+      "text": "\" Cap. XXXVI, v. 7.",
+      "box": [
+        509,
+        1289,
+        645,
+        1310
+      ],
+      "score": 0.918287992477417
+    },
+    {
+      "text": " Infr. XVIII, v. 18.—XXII, v. 18.—Gal. III, v. 8.",
+      "box": [
+        6,
+        1299,
+        295,
+        1336
+      ],
+      "score": 0.9470159411430359
+    },
+    {
+      "text": " Véase Hermano.",
+      "box": [
+        509,
+        1304,
+        625,
+        1323
+      ],
+      "score": 0.9851943850517273
+    },
+    {
+      "text": " Cap. XII, v. 7.—Cap. X V, v. 18.—XXVI, v. 4.—Deut. XXIV, v. 4.",
+      "box": [
+        509,
+        1318,
+        898,
+        1346
+      ],
+      "score": 0.9238170385360718
+    }
+  ]
+}

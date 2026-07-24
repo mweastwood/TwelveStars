@@ -1,0 +1,1547 @@
+{
+  "volume": 1,
+  "page_index": 129,
+  "pdf_page": 130,
+  "lines": [
+    {
+      "text": "151",
+      "box": [
+        0,
+        38,
+        29,
+        58
+      ],
+      "score": 0.9999033808708191
+    },
+    {
+      "text": "LEVITICO.",
+      "box": [
+        154,
+        39,
+        239,
+        62
+      ],
+      "score": 0.9992581605911255
+    },
+    {
+      "text": "CAPITULO XIV.",
+      "box": [
+        641,
+        52,
+        759,
+        71
+      ],
+      "score": 0.9992291927337646
+    },
+    {
+      "text": "152",
+      "box": [
+        857,
+        57,
+        880,
+        73
+      ],
+      "score": 0.9999440312385559
+    },
+    {
+      "text": "27. Y al séptimo le reconocerá: si la lepra hubiere cun-",
+      "box": [
+        6,
+        82,
+        400,
+        117
+      ],
+      "score": 0.9984874725341797
+    },
+    {
+      "text": "dido en la piel, le dará por inmundo;",
+      "box": [
+        0,
+        102,
+        247,
+        128
+      ],
+      "score": 0.9901587963104248
+    },
+    {
+      "text": "51. Y al séptimo registrándola de nuevo, si hallare que ha",
+      "box": [
+        518,
+        99,
+        887,
+        120
+      ],
+      "score": 0.9926433563232422
+    },
+    {
+      "text": "28. Pero si aquella peca blanquecina no se ha extendido",
+      "box": [
+        10,
+        120,
+        399,
+        150
+      ],
+      "score": 0.9987696409225464
+    },
+    {
+      "text": "cundido, es una lepra tenaz: dará por sucio el vestido, y toda",
+      "box": [
+        506,
+        119,
+        886,
+        137
+      ],
+      "score": 0.9994815587997437
+    },
+    {
+      "text": "mas, es efecto de la quemadura, y así el sugeto será declarado",
+      "box": [
+        0,
+        138,
+        400,
+        167
+      ],
+      "score": 0.9993641972541809
+    },
+    {
+      "text": "otra cosa en que se hallare la inmundicia,",
+      "box": [
+        505,
+        135,
+        771,
+        154
+      ],
+      "score": 0.9951841235160828
+    },
+    {
+      "text": "por limpio, por ser una cicatriz de la quemadura.",
+      "box": [
+        0,
+        159,
+        322,
+        181
+      ],
+      "score": 0.9950780868530273
+    },
+    {
+      "text": "52. Y por lo mismo se quemará en las llamas.",
+      "box": [
+        518,
+        151,
+        815,
+        171
+      ],
+      "score": 0.9897370934486389
+    },
+    {
+      "text": "29. El hombre ó la mujer en cuya cabeza ó barba brotare",
+      "box": [
+        13,
+        175,
+        399,
+        200
+      ],
+      "score": 0.9754911065101624
+    },
+    {
+      "text": "53. Que si viere que no ha cundido,",
+      "box": [
+        518,
+        168,
+        754,
+        186
+      ],
+      "score": 0.9960539937019348
+    },
+    {
+      "text": "la lepra, los verá el sacerdote;",
+      "box": [
+        0,
+        192,
+        200,
+        214
+      ],
+      "score": 0.9996107816696167
+    },
+    {
+      "text": "54. Mandará lavar la cosa en que está la lepra, y la vol-",
+      "box": [
+        517,
+        183,
+        884,
+        202
+      ],
+      "score": 0.9991630911827087
+    },
+    {
+      "text": "30. Y caso que aquella parte estuviere mas hundida que",
+      "box": [
+        13,
+        208,
+        400,
+        234
+      ],
+      "score": 0.9941428303718567
+    },
+    {
+      "text": "verá á encerrar por otros siete dias.",
+      "box": [
+        503,
+        199,
+        731,
+        219
+      ],
+      "score": 0.9949034452438354
+    },
+    {
+      "text": "la demás carne, y el pelo amarillo y mas delgado que antes,",
+      "box": [
+        0,
+        226,
+        399,
+        250
+      ],
+      "score": 0.9956468343734741
+    },
+    {
+      "text": "55. Y viendo que no ha recobrado su primer aspecto,",
+      "box": [
+        517,
+        216,
+        883,
+        234
+      ],
+      "score": 0.9912347793579102
+    },
+    {
+      "text": "los dará por inmundos, por cuanto es lepra de la cabeza y",
+      "box": [
+        0,
+        242,
+        399,
+        266
+      ],
+      "score": 0.9942896366119385
+    },
+    {
+      "text": "aunque no haya cundido la lepra, la declarará inmunda, y la",
+      "box": [
+        502,
+        231,
+        885,
+        250
+      ],
+      "score": 0.9936007857322693
+    },
+    {
+      "text": "echará al fuego; porque está la lepra extendida en la superficie",
+      "box": [
+        502,
+        247,
+        885,
+        265
+      ],
+      "score": 0.9912720918655396
+    },
+    {
+      "text": "de la barba.",
+      "box": [
+        0,
+        261,
+        83,
+        278
+      ],
+      "score": 0.9996070861816406
+    },
+    {
+      "text": "del vestido, ó internada en todo él.",
+      "box": [
+        504,
+        264,
+        727,
+        278
+      ],
+      "score": 0.980789303779602
+    },
+    {
+      "text": "31. Que si viere el lugar de la mancha igual á la carne in-",
+      "box": [
+        11,
+        275,
+        397,
+        298
+      ],
+      "score": 0.9864533543586731
+    },
+    {
+      "text": "56. Pero si el lugar de la lepra, despues de lavado el ves-",
+      "box": [
+        515,
+        278,
+        885,
+        297
+      ],
+      "score": 0.9937777519226074
+    },
+    {
+      "text": "mediata, y el cabello negro, recluirá la persona por siete dias,",
+      "box": [
+        0,
+        292,
+        396,
+        313
+      ],
+      "score": 0.994399905204773
+    },
+    {
+      "text": "tido, está mas oscuro, cortará aquel pedazo y le separará de",
+      "box": [
+        503,
+        294,
+        886,
+        312
+      ],
+      "score": 0.9981716871261597
+    },
+    {
+      "text": "32. Y al séptimo la visitará. Si la mancha no ha cundido,",
+      "box": [
+        11,
+        307,
+        396,
+        329
+      ],
+      "score": 0.996035099029541
+    },
+    {
+      "text": "la pieza entera.",
+      "box": [
+        502,
+        312,
+        599,
+        326
+      ],
+      "score": 0.9998782873153687
+    },
+    {
+      "text": "y el cabello está de su color, y el lugar tachado igual á la",
+      "box": [
+        0,
+        326,
+        396,
+        343
+      ],
+      "score": 0.9899455904960632
+    },
+    {
+      "text": "57. Que si despues se descubriere en las partes que antes",
+      "box": [
+        514,
+        324,
+        885,
+        343
+      ],
+      "score": 0.9822233319282532
+    },
+    {
+      "text": "carne restante,",
+      "box": [
+        0,
+        340,
+        101,
+        359
+      ],
+      "score": 0.9998782873153687
+    },
+    {
+      "text": "estaban limpias, una lepra volátil y vaga, debe todo quemarse",
+      "box": [
+        500,
+        339,
+        887,
+        360
+      ],
+      "score": 0.9956662654876709
+    },
+    {
+      "text": "33. Será aquella persona raida á navaja, excepto el lugar",
+      "box": [
+        12,
+        354,
+        395,
+        375
+      ],
+      "score": 0.977144718170166
+    },
+    {
+      "text": "al fuego.",
+      "box": [
+        502,
+        358,
+        559,
+        375
+      ],
+      "score": 0.9998962879180908
+    },
+    {
+      "text": "de la mancha, y encerrada por otros siete dias.",
+      "box": [
+        0,
+        372,
+        306,
+        391
+      ],
+      "score": 0.9998695850372314
+    },
+    {
+      "text": "58. Si se atajare, lavará en agua segunda vez las partes",
+      "box": [
+        513,
+        370,
+        887,
+        393
+      ],
+      "score": 0.9986836314201355
+    },
+    {
+      "text": "34. Si al dia séptimo se viere que la mancha no se ha ex-",
+      "box": [
+        11,
+        388,
+        396,
+        407
+      ],
+      "score": 0.9986004829406738
+    },
+    {
+      "text": "limpias del vestido, y quedarán purificadas.",
+      "box": [
+        502,
+        391,
+        778,
+        408
+      ],
+      "score": 0.9963770508766174
+    },
+    {
+      "text": "tendido, ni está mas hundida que la otra carne, el sacerdote",
+      "box": [
+        0,
+        405,
+        396,
+        423
+      ],
+      "score": 0.9981091618537903
+    },
+    {
+      "text": "59. Esta es la ley de la lepra en vestido de lana, y de lino,",
+      "box": [
+        513,
+        402,
+        887,
+        426
+      ],
+      "score": 0.9973198175430298
+    },
+    {
+      "text": "dará por limpio al sugeto, y éste, lavados sus vestidos, que-",
+      "box": [
+        0,
+        421,
+        396,
+        440
+      ],
+      "score": 0.9810488224029541
+    },
+    {
+      "text": "en el urdimbre ó en la trama, y de todo ajuar hecho de piel,",
+      "box": [
+        500,
+        417,
+        887,
+        442
+      ],
+      "score": 0.9832150936126709
+    },
+    {
+      "text": "dará desde luego limpio.",
+      "box": [
+        0,
+        440,
+        158,
+        454
+      ],
+      "score": 0.9997212290763855
+    },
+    {
+      "text": "y el modo con que se debe purificar, ó tener por apestado.",
+      "box": [
+        499,
+        434,
+        868,
+        460
+      ],
+      "score": 0.9994361400604248
+    },
+    {
+      "text": "35. Mas si despues de haber sido declarado limpio, se di-",
+      "box": [
+        14,
+        455,
+        394,
+        470
+      ],
+      "score": 0.9981279969215393
+    },
+    {
+      "text": "latare la mancha en la piel,",
+      "box": [
+        0,
+        472,
+        181,
+        486
+      ],
+      "score": 0.9962369799613953
+    },
+    {
+      "text": "CAPITULO XIV",
+      "box": [
+        640,
+        463,
+        751,
+        483
+      ],
+      "score": 0.9951162338256836
+    },
+    {
+      "text": "36. Ya no tiene que averiguar si el cabello se ha vuelto",
+      "box": [
+        14,
+        487,
+        394,
+        501
+      ],
+      "score": 0.9997172951698303
+    },
+    {
+      "text": "De las ceremonias y sacrificios para la purificacion de la lepra.",
+      "box": [
+        528,
+        488,
+        860,
+        510
+      ],
+      "score": 0.9895639419555664
+    },
+    {
+      "text": "amarillo, pues evidentemente la tal persona es inmunda.",
+      "box": [
+        0,
+        502,
+        369,
+        519
+      ],
+      "score": 0.9928749203681946
+    },
+    {
+      "text": "37. Al contrario, si la mancha se ha detenido, y los cabe-",
+      "box": [
+        15,
+        519,
+        395,
+        533
+      ],
+      "score": 0.9960883855819702
+    },
+    {
+      "text": "1. Habló el Señor á Moysés, diciendo:",
+      "box": [
+        516,
+        515,
+        764,
+        536
+      ],
+      "score": 0.9940826892852783
+    },
+    {
+      "text": "llos permanecen negros, entienda que está sana la persona, y",
+      "box": [
+        0,
+        533,
+        396,
+        553
+      ],
+      "score": 0.9918098449707031
+    },
+    {
+      "text": "2. Este es el rito para la purificacion del Ieproso: Será",
+      "box": [
+        514,
+        526,
+        886,
+        556
+      ],
+      "score": 0.9820147752761841
+    },
+    {
+      "text": "declárela sin recelo por limpia.",
+      "box": [
+        1,
+        551,
+        203,
+        566
+      ],
+      "score": 0.9990819096565247
+    },
+    {
+      "text": "llevado al sacerdote,",
+      "box": [
+        502,
+        550,
+        633,
+        569
+      ],
+      "score": 0.998868465423584
+    },
+    {
+      "text": "38. El hombre óla mujer en cuyo cútis aparecieren man-",
+      "box": [
+        14,
+        566,
+        396,
+        583
+      ],
+      "score": 0.9927664399147034
+    },
+    {
+      "text": "3. El cual saliendo fuera del campamento, luego que ha-",
+      "box": [
+        513,
+        557,
+        886,
+        587
+      ],
+      "score": 0.9992416501045227
+    },
+    {
+      "text": "chas blancas,",
+      "box": [
+        0,
+        582,
+        91,
+        599
+      ],
+      "score": 0.9951292276382446
+    },
+    {
+      "text": "llare que la lepra está curada,",
+      "box": [
+        502,
+        581,
+        693,
+        601
+      ],
+      "score": 0.9973865151405334
+    },
+    {
+      "text": "39. Los mirará con atencion el sacerdote: si hallare que",
+      "box": [
+        14,
+        599,
+        395,
+        613
+      ],
+      "score": 0.98512202501297
+    },
+    {
+      "text": "4. Mandará al que debe purificarse que ofrezca por sí dos",
+      "box": [
+        513,
+        588,
+        885,
+        619
+      ],
+      "score": 0.9963868856430054
+    },
+    {
+      "text": "un color blanquecino que tira á oscuro, reluce en la piel,",
+      "box": [
+        0,
+        614,
+        396,
+        631
+      ],
+      "score": 0.9997060298919678
+    },
+    {
+      "text": "pájaros vivos, de los que se permite comer, y un palo de",
+      "box": [
+        502,
+        604,
+        886,
+        636
+      ],
+      "score": 0.9912237524986267
+    },
+    {
+      "text": "sepa que no es lepra, sino ciertas manchas de color blanque-",
+      "box": [
+        0,
+        629,
+        396,
+        648
+      ],
+      "score": 0.998987078666687
+    },
+    {
+      "text": "cedro, y grana ó lana de este color, con hisopo *;",
+      "box": [
+        502,
+        624,
+        804,
+        649
+      ],
+      "score": 0.9610599279403687
+    },
+    {
+      "text": "cino, y que la persona está limpia.",
+      "box": [
+        0,
+        648,
+        223,
+        662
+      ],
+      "score": 0.9967126250267029
+    },
+    {
+      "text": "5. Y al uno de los pájaros le mandará degollar en una",
+      "box": [
+        513,
+        635,
+        885,
+        666
+      ],
+      "score": 0.9763363599777222
+    },
+    {
+      "text": "40. El hombre á quien se le caen los cabellos de la cabe-",
+      "box": [
+        11,
+        661,
+        396,
+        680
+      ],
+      "score": 0.9959267973899841
+    },
+    {
+      "text": "vasija de barro sobre agua viva 4:",
+      "box": [
+        503,
+        658,
+        715,
+        679
+      ],
+      "score": 0.9900492429733276
+    },
+    {
+      "text": "za, calvo es, pero limpio:",
+      "box": [
+        0,
+        679,
+        165,
+        697
+      ],
+      "score": 0.9893307089805603
+    },
+    {
+      "text": "6. Y al otro que ha dejado vivo, le mojará con el palo de",
+      "box": [
+        513,
+        667,
+        885,
+        697
+      ],
+      "score": 0.9942967891693115
+    },
+    {
+      "text": "41. Y si le cayeren los pelos de encima Ia frente, es calvo",
+      "box": [
+        12,
+        693,
+        396,
+        712
+      ],
+      "score": 0.9807105660438538
+    },
+    {
+      "text": "cedro, la grana y el hisopo en la sangre del pájaro degollado;",
+      "box": [
+        502,
+        684,
+        886,
+        714
+      ],
+      "score": 0.9983970522880554
+    },
+    {
+      "text": "por delante, pero limpio.",
+      "box": [
+        0,
+        709,
+        166,
+        730
+      ],
+      "score": 0.9998959302902222
+    },
+    {
+      "text": "7. Y con ella rociará siete veçes al que debe ser purificado,",
+      "box": [
+        514,
+        700,
+        884,
+        729
+      ],
+      "score": 0.9680426716804504
+    },
+    {
+      "text": "42. Mas si en la calva ó media calva le salen pecas blan-",
+      "box": [
+        12,
+        725,
+        397,
+        743
+      ],
+      "score": 0.9968591928482056
+    },
+    {
+      "text": "para que lo sea legítimamente; y soltará al pájaro vivo, para",
+      "box": [
+        501,
+        716,
+        885,
+        745
+      ],
+      "score": 0.9705339074134827
+    },
+    {
+      "text": "cas ó rojas,",
+      "box": [
+        0,
+        742,
+        77,
+        759
+      ],
+      "score": 0.9994201064109802
+    },
+    {
+      "text": "que vuele al campo.",
+      "box": [
+        504,
+        741,
+        629,
+        755
+      ],
+      "score": 0.9994546175003052
+    },
+    {
+      "text": "43. Y el sacerdote las viere, sin dudar le dará por infecto",
+      "box": [
+        12,
+        757,
+        396,
+        774
+      ],
+      "score": 0.9917762279510498
+    },
+    {
+      "text": "8. El hombre despues de haber Iavado sus vestidos, raerá",
+      "box": [
+        514,
+        747,
+        886,
+        775
+      ],
+      "score": 0.9891015291213989
+    },
+    {
+      "text": "de lepra, nacida en la calva,",
+      "box": [
+        0,
+        772,
+        187,
+        790
+      ],
+      "score": 0.9806745648384094
+    },
+    {
+      "text": "todos los pelos de su cuerpo, y se lavará en agua; y purificado",
+      "box": [
+        502,
+        764,
+        886,
+        789
+      ],
+      "score": 0.9919223189353943
+    },
+    {
+      "text": "44. Esto supuesto, cualquiera que fuere contaminado de",
+      "box": [
+        11,
+        787,
+        396,
+        807
+      ],
+      "score": 0.9919484257698059
+    },
+    {
+      "text": "de esta manera entrará en el campamento: pero deberá per-",
+      "box": [
+        503,
+        781,
+        885,
+        805
+      ],
+      "score": 0.9901220798492432
+    },
+    {
+      "text": "lepra, y separado á juicio del sacerdote,",
+      "box": [
+        0,
+        805,
+        258,
+        823
+      ],
+      "score": 0.9977186322212219
+    },
+    {
+      "text": "manecer siete dias fuera de šu tienda;",
+      "box": [
+        503,
+        798,
+        739,
+        819
+      ],
+      "score": 0.9892976880073547
+    },
+    {
+      "text": "45. Tendrá los vestidos descosidos por varias partes, la",
+      "box": [
+        12,
+        821,
+        397,
+        838
+      ],
+      "score": 0.9914194941520691
+    },
+    {
+      "text": "9. Y al dia séptimo se rapará los cabellos de la cabeza, y",
+      "box": [
+        516,
+        811,
+        885,
+        835
+      ],
+      "score": 0.9990177750587463
+    },
+    {
+      "text": "cabeza rapada y descubierta, tapando su boca con la ropa, y",
+      "box": [
+        0,
+        839,
+        396,
+        853
+      ],
+      "score": 0.9968785643577576
+    },
+    {
+      "text": "Ia barba, y las cejas, y todo el vello del cuerpo; y lavados de",
+      "box": [
+        503,
+        827,
+        885,
+        852
+      ],
+      "score": 0.9944789409637451
+    },
+    {
+      "text": "avisará, gritando, estar contaminado é inmundo 1.",
+      "box": [
+        0,
+        852,
+        332,
+        870
+      ],
+      "score": 0.9728363752365112
+    },
+    {
+      "text": "nuevo los vestidos y el cuerpo,",
+      "box": [
+        503,
+        847,
+        695,
+        866
+      ],
+      "score": 0.9957855343818665
+    },
+    {
+      "text": "46. Todo el tiempo que estuviere leproso é inmundo, ha-",
+      "box": [
+        14,
+        868,
+        397,
+        885
+      ],
+      "score": 0.9970589876174927
+    },
+    {
+      "text": "10. Al octavo dia tomará dos corderos sin mácula, y una",
+      "box": [
+        517,
+        858,
+        885,
+        881
+      ],
+      "score": 0.9842981696128845
+    },
+    {
+      "text": "bitará solo, fuera de poblado.",
+      "box": [
+        0,
+        884,
+        193,
+        902
+      ],
+      "score": 0.9997953176498413
+    },
+    {
+      "text": "oveja primal tambien sin defecto, y tres décimas en un ephi",
+      "box": [
+        504,
+        873,
+        886,
+        899
+      ],
+      "score": 0.9939119219779968
+    },
+    {
+      "text": "47. Un vestido de lana ó de lino, á que se pegare la lepra *",
+      "box": [
+        13,
+        898,
+        399,
+        919
+      ],
+      "score": 0.9591497182846069
+    },
+    {
+      "text": "de harina, amasada con aceite para el sacrificio, y además un",
+      "box": [
+        504,
+        889,
+        886,
+        913
+      ],
+      "score": 0.9969146847724915
+    },
+    {
+      "text": "48. En el urdimbre, ó en la trama, 6 tambien una piel, 6",
+      "box": [
+        15,
+        914,
+        398,
+        935
+      ],
+      "score": 0.9833163022994995
+    },
+    {
+      "text": "sextario de aceite.",
+      "box": [
+        503,
+        910,
+        620,
+        928
+      ],
+      "score": 0.9928606152534485
+    },
+    {
+      "text": "cualquier otro ajuar hecho de pieles,",
+      "box": [
+        2,
+        935,
+        240,
+        949
+      ],
+      "score": 0.9997037649154663
+    },
+    {
+      "text": "11. Y luego que el sacerdote que purifica al hombre, le",
+      "box": [
+        517,
+        921,
+        887,
+        944
+      ],
+      "score": 0.9912620782852173
+    },
+    {
+      "text": "49. Si está infecto de manchas blancas, ó rojas, se repu-",
+      "box": [
+        16,
+        947,
+        397,
+        966
+      ],
+      "score": 0.9818297028541565
+    },
+    {
+      "text": "hubiere presentado con todas estas cosas al Señor en la",
+      "box": [
+        504,
+        938,
+        887,
+        959
+      ],
+      "score": 0.9938580393791199
+    },
+    {
+      "text": "tará por lepra, y se hará ver al sacerdote:",
+      "box": [
+        2,
+        963,
+        276,
+        983
+      ],
+      "score": 0.9959878921508789
+    },
+    {
+      "text": "puerta del Tabernáculo del Testimonio,",
+      "box": [
+        504,
+        956,
+        748,
+        976
+      ],
+      "score": 0.999941885471344
+    },
+    {
+      "text": "50. El cual despues de haberla examinado, dejará encer-",
+      "box": [
+        17,
+        977,
+        400,
+        998
+      ],
+      "score": 0.9907913208007812
+    },
+    {
+      "text": "12. Tomará uno de los corderos, y le ofrecerá por el de-",
+      "box": [
+        517,
+        970,
+        888,
+        991
+      ],
+      "score": 0.9910222887992859
+    },
+    {
+      "text": "rada la ropa por siete dias,",
+      "box": [
+        3,
+        996,
+        182,
+        1014
+      ],
+      "score": 0.975334644317627
+    },
+    {
+      "text": "lito con el sextario de aceite; y ofrecido todo ante el Señor,",
+      "box": [
+        504,
+        987,
+        888,
+        1007
+      ],
+      "score": 0.9998171329498291
+    },
+    {
+      "text": "1 Todas estas eran señales que indicaban la enfermedad que pade-",
+      "box": [
+        18,
+        1026,
+        400,
+        1046
+      ],
+      "score": 0.9971472024917603
+    },
+    {
+      "text": "in Leb. ). El pájaro que se degollaba, figuraba la humanidad santa del Hijo",
+      "box": [
+        504,
+        1019,
+        889,
+        1038
+      ],
+      "score": 0.9802266359329224
+    },
+    {
+      "text": "cia, para que nadie se le acercase. Lo eran tambien de vergilenza, de duelo",
+      "box": [
+        6,
+        1038,
+        400,
+        1062
+      ],
+      "score": 0.9845243096351624
+    },
+    {
+      "text": "de Dios, á quien sacrificó su eterno Padre como víctima de propiciacion",
+      "box": [
+        503,
+        1033,
+        890,
+        1052
+      ],
+      "score": 0.9853541254997253
+    },
+    {
+      "text": "por los pecados de todo el mundo, víctima cuya sangre es la salud del",
+      "box": [
+        503,
+        1045,
+        890,
+        1067
+      ],
+      "score": 0.9972900152206421
+    },
+    {
+      "text": "y de tristeza. Ezech. XXIV, v. 17, 22.—Mich. III, v. 7. Pues si esta en-",
+      "box": [
+        6,
+        1052,
+        400,
+        1075
+      ],
+      "score": 0.9294057488441467
+    },
+    {
+      "text": "fermedad, que no arguia culpa ni falta, causaba tal abatimiento en los",
+      "box": [
+        7,
+        1065,
+        401,
+        1088
+      ],
+      "score": 0.9750006794929504
+    },
+    {
+      "text": "pecador mediante las aguas vivificantes del santo bautismo. El que se",
+      "box": [
+        503,
+        1059,
+        891,
+        1080
+      ],
+      "score": 0.9959706664085388
+    },
+    {
+      "text": "soltaba libre para que volase al campo, representaba su Divinidad siem-",
+      "box": [
+        502,
+        1073,
+        891,
+        1092
+      ],
+      "score": 0.9887340664863586
+    },
+    {
+      "text": "ojos de los hombres, ¿cuál debe ser el abatimiento del que se halla con la",
+      "box": [
+        8,
+        1079,
+        401,
+        1102
+      ],
+      "score": 0.9981908798217773
+    },
+    {
+      "text": "pre libre é inmortal; y todo esto se ejecutaba fuera del campamento,",
+      "box": [
+        503,
+        1086,
+        891,
+        1106
+      ],
+      "score": 0.9931023716926575
+    },
+    {
+      "text": "lepra mortal de la culpa? ¿del que ha hollado la sangre de Jesu-Christo?",
+      "box": [
+        7,
+        1092,
+        402,
+        1115
+      ],
+      "score": 0.9977309107780457
+    },
+    {
+      "text": "siendo imágen de la muerte de Jesus fuera de Jerusalem. Heb. XIII,",
+      "box": [
+        503,
+        1100,
+        891,
+        1118
+      ],
+      "score": 0.9771915674209595
+    },
+    {
+      "text": "Heb. X, v. 29.",
+      "box": [
+        10,
+        1110,
+        91,
+        1127
+      ],
+      "score": 0.9644297361373901
+    },
+    {
+      "text": "a No solamente varios Rabinos, sino tambien Theodoreto y otros an-",
+      "box": [
+        20,
+        1119,
+        403,
+        1139
+      ],
+      "score": 0.9880448579788208
+    },
+    {
+      "text": "v. 12. Con cuya muerte son los hombres realmente limpiados de le lepra",
+      "box": [
+        503,
+        1113,
+        891,
+        1131
+      ],
+      "score": 0.9918014407157898
+    },
+    {
+      "text": "de la culpa, y adquieren la libertad propia de los hijos de Dios. Es digno",
+      "box": [
+        504,
+        1126,
+        892,
+        1143
+      ],
+      "score": 0.991342306137085
+    },
+    {
+      "text": "tiguos Expositores, dicen que esta lepra que se pegaba á los vestidos y á",
+      "box": [
+        10,
+        1132,
+        402,
+        1155
+      ],
+      "score": 0.9924039244651794
+    },
+    {
+      "text": "tambien de considerarse que para esta purificacion del leproso concurren,",
+      "box": [
+        504,
+        1139,
+        891,
+        1157
+      ],
+      "score": 0.9712257981300354
+    },
+    {
+      "text": "las casas, era un mal propio de la tierra de Chanaan, enviado por Dios",
+      "box": [
+        9,
+        1145,
+        402,
+        1167
+      ],
+      "score": 0.9809742569923401
+    },
+    {
+      "text": "á los Hebreos en castigo de sus muchos pecados de idolatría, 'dure-",
+      "box": [
+        10,
+        1158,
+        402,
+        1180
+      ],
+      "score": 0.9916337132453918
+    },
+    {
+      "text": "primero: La madera de cedro, que es fuertísima, y significa el madero de",
+      "box": [
+        504,
+        1154,
+        892,
+        1171
+      ],
+      "score": 0.9873129725456238
+    },
+    {
+      "text": "la santa Cruz, que venció todas las potestades del mundo y del infierno.",
+      "box": [
+        503,
+        1165,
+        892,
+        1184
+      ],
+      "score": 0.9834043979644775
+    },
+    {
+      "text": "za, etc. Algo de semejanza tiene la tísis, especialmente en los países",
+      "box": [
+        10,
+        1170,
+        403,
+        1194
+      ],
+      "score": 0.9902429580688477
+    },
+    {
+      "text": "Segundo: La lana de color de púrpura, símbolo de la sangre de Jesu-",
+      "box": [
+        505,
+        1179,
+        893,
+        1196
+      ],
+      "score": 0.9816179275512695
+    },
+    {
+      "text": "muy cálidos; de donde provienen varios reglamentos de policía.—Véase",
+      "box": [
+        10,
+        1183,
+        403,
+        1207
+      ],
+      "score": 0.9883142113685608
+    },
+    {
+      "text": "Christo. Tercero: El hisopo, planta humilde y apta para limpiar las en-",
+      "box": [
+        504,
+        1191,
+        893,
+        1209
+      ],
+      "score": 0.9868021011352539
+    },
+    {
+      "text": "Ley.",
+      "box": [
+        13,
+        1204,
+        41,
+        1220
+      ],
+      "score": 0.9975656270980835
+    },
+    {
+      "text": "3 Dicen los Hebreos que de estas tres cosas se hacia un aspersorio,",
+      "box": [
+        22,
+        1208,
+        404,
+        1232
+      ],
+      "score": 0.9961633086204529
+    },
+    {
+      "text": "trañas, figura de la gracia del Espíritu Sánto, y de la humildad del Sal-",
+      "box": [
+        506,
+        1206,
+        892,
+        1220
+      ],
+      "score": 0.997564971446991
+    },
+    {
+      "text": "vador en anonadarse hasta sufrir la muerte de cruz.—Mare, I, v, 44.—",
+      "box": [
+        506,
+        1219,
+        893,
+        1234
+      ],
+      "score": 0.970157265663147
+    },
+    {
+      "text": "cuyo manojo era de hisopo, el mango de madera de cedro, y la ligadura",
+      "box": [
+        13,
+        1221,
+        404,
+        1246
+      ],
+      "score": 0.9954243302345276
+    },
+    {
+      "text": "Luc. V, v. 14.—Num. XIX, v. 6.",
+      "box": [
+        505,
+        1229,
+        676,
+        1248
+      ],
+      "score": 0.9544379711151123
+    },
+    {
+      "text": "de hilo teñido de grana. En esta ceremonia que se hacia fuera del cam-",
+      "box": [
+        13,
+        1234,
+        404,
+        1259
+      ],
+      "score": 0.9904006719589233
+    },
+    {
+      "text": "4 Véase Agua.",
+      "box": [
+        516,
+        1245,
+        597,
+        1259
+      ],
+      "score": 0.9605535864830017
+    },
+    {
+      "text": "pamento de los Israelitas para la purificacion de la lepra, se representa-",
+      "box": [
+        14,
+        1248,
+        405,
+        1272
+      ],
+      "score": 0.9993581771850586
+    },
+    {
+      "text": "5 Véase Ephi.—Sextario.",
+      "box": [
+        516,
+        1258,
+        651,
+        1272
+      ],
+      "score": 0.9300811886787415
+    },
+    {
+      "text": "ba una verdad muy importante, como observa Theodoreto (Quest. XLX,",
+      "box": [
+        15,
+        1261,
+        404,
+        1285
+      ],
+      "score": 0.9710016846656799
+    }
+  ]
+}

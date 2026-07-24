@@ -1,0 +1,187 @@
+{
+  "volume": 2,
+  "page_index": 8,
+  "pdf_page": 9,
+  "lines": [
+    {
+      "text": "SAGRADAE",
+      "box": [
+        33,
+        0,
+        900,
+        143
+      ],
+      "score": 0.9654058814048767
+    },
+    {
+      "text": "BIBLIA",
+      "box": [
+        822,
+        1,
+        1348,
+        179
+      ],
+      "score": 0.9999570846557617
+    },
+    {
+      "text": "TRADUCIDA DE LA VULGATA LATINA AL ESPAÑOL,",
+      "box": [
+        217,
+        190,
+        1157,
+        258
+      ],
+      "score": 0.9912164807319641
+    },
+    {
+      "text": "ACLARADO EL SENTIDO DE ALGUNOS LUGARES CON LA LUZ QUE DAN LOS TEXTOS ORIGINALES HEBREO Y GRIEGO,",
+      "box": [
+        40,
+        279,
+        1342,
+        357
+      ],
+      "score": 0.999725341796875
+    },
+    {
+      "text": "É ILUSTRADA CON VARIAS NOTAS SACADAS DE LOS SANTOS PADRES Y EXPOSITORES SAGRADOS",
+      "box": [
+        147,
+        329,
+        1227,
+        383
+      ],
+      "score": 0.9923543930053711
+    },
+    {
+      "text": "POR",
+      "box": [
+        655,
+        400,
+        695,
+        422
+      ],
+      "score": 0.9999682307243347
+    },
+    {
+      "text": "D. FÉLIX TORRES AMAT,",
+      "box": [
+        237,
+        438,
+        1123,
+        544
+      ],
+      "score": 0.9923349022865295
+    },
+    {
+      "text": "DIGNIDAD DE SACRISTA DE LA SANTA IGLESIA CATEDRAL DE BARCELONA, INDIVIDUO DE LA REAL ACADEMIA ESPAÑOLA,",
+      "box": [
+        151,
+        557,
+        1208,
+        606
+      ],
+      "score": 0.994592010974884
+    },
+    {
+      "text": "DE LA DE LA HISTORIA, ETC., ETC., ETC.",
+      "box": [
+        489,
+        604,
+        860,
+        634
+      ],
+      "score": 0.9814834594726562
+    },
+    {
+      "text": "NUEVA EDICION",
+      "box": [
+        548,
+        690,
+        808,
+        728
+      ],
+      "score": 0.9693996906280518
+    },
+    {
+      "text": "ILUSTRADA POR GUSTAVO DORÉ",
+      "box": [
+        312,
+        783,
+        1051,
+        837
+      ],
+      "score": 0.9955199956893921
+    },
+    {
+      "text": "CON LICENCIA DE LA AUTORIDAD ECLESIÁSTICA",
+      "box": [
+        431,
+        909,
+        934,
+        945
+      ],
+      "score": 0.9885514378547668
+    },
+    {
+      "text": "TOMO SEGUNDO",
+      "box": [
+        531,
+        1236,
+        851,
+        1278
+      ],
+      "score": 0.9990108013153076
+    },
+    {
+      "text": "ANTIGUO TESTAMENTO",
+      "box": [
+        590,
+        1308,
+        795,
+        1330
+      ],
+      "score": 0.9997658133506775
+    },
+    {
+      "text": "BARCELONA",
+      "box": [
+        598,
+        1679,
+        788,
+        1718
+      ],
+      "score": 0.9999633431434631
+    },
+    {
+      "text": "MONTANER Y SIMON, EDITORES",
+      "box": [
+        315,
+        1752,
+        1057,
+        1815
+      ],
+      "score": 0.991657555103302
+    },
+    {
+      "text": "CALLE DE ARAGON, NUMEROS 309 Y 311",
+      "box": [
+        497,
+        1823,
+        884,
+        1857
+      ],
+      "score": 0.9921901822090149
+    },
+    {
+      "text": "MDCCCLXXXIV",
+      "box": [
+        622,
+        1883,
+        745,
+        1906
+      ],
+      "score": 0.9988767504692078
+    }
+  ]
+}

@@ -1,0 +1,1267 @@
+{
+  "volume": 3,
+  "page_index": 105,
+  "pdf_page": 106,
+  "lines": [
+    {
+      "text": "155",
+      "box": [
+        76,
+        52,
+        100,
+        69
+      ],
+      "score": 0.9995570182800293
+    },
+    {
+      "text": "ECCLESIASTÉS.",
+      "box": [
+        195,
+        51,
+        305,
+        72
+      ],
+      "score": 0.9986434578895569
+    },
+    {
+      "text": "CAPITULO XII.",
+      "box": [
+        672,
+        53,
+        783,
+        77
+      ],
+      "score": 0.9980747699737549
+    },
+    {
+      "text": "156",
+      "box": [
+        877,
+        65,
+        900,
+        82
+      ],
+      "score": 0.9991178512573242
+    },
+    {
+      "text": "2. Repártele á siete y aun á ocho, ó mas personas; porque",
+      "box": [
+        80,
+        98,
+        444,
+        126
+      ],
+      "score": 0.9870815873146057
+    },
+    {
+      "text": "0cOO",
+      "box": [
+        446,
+        112,
+        470,
+        124
+      ],
+      "score": 0.5566803216934204
+    },
+    {
+      "text": ", piernas, guardas que son de la casa de tu alma, y debilitadas",
+      "box": [
+        508,
+        105,
+        906,
+        130
+      ],
+      "score": 0.9493628740310669
+    },
+    {
+      "text": "no sabes tú los males que pueden sobrevenirte en la tierra:",
+      "box": [
+        69,
+        117,
+        443,
+        145
+      ],
+      "score": 0.9881387948989868
+    },
+    {
+      "text": "las rodillas bambolearán los varones robustos; y cuando las",
+      "box": [
+        537,
+        125,
+        906,
+        148
+      ],
+      "score": 0.9924455285072327
+    },
+    {
+      "text": "3. Haz como las nubes, que cuando están cargadas, derra-",
+      "box": [
+        82,
+        136,
+        442,
+        161
+      ],
+      "score": 0.9991990327835083
+    },
+    {
+      "text": "man sobre la tierra la lluvia benéfica. Si el árbol cayere há-",
+      "box": [
+        69,
+        152,
+        442,
+        180
+      ],
+      "score": 0.9729915857315063
+    },
+    {
+      "text": "que muelen en la boca la comida serán en corto número y",
+      "box": [
+        536,
+        143,
+        906,
+        164
+      ],
+      "score": 0.993157684803009
+    },
+    {
+      "text": "estarán ociosas; y cuando quedarán en tinieblas los ojos que",
+      "box": [
+        537,
+        160,
+        904,
+        180
+      ],
+      "score": 0.9916556477546692
+    },
+    {
+      "text": "cia el Mediodía, ó hácia el Norte, do quiera que caiga, allí",
+      "box": [
+        69,
+        170,
+        442,
+        198
+      ],
+      "score": 0.9788599610328674
+    },
+    {
+      "text": "miran por las ventanas;",
+      "box": [
+        537,
+        177,
+        683,
+        196
+      ],
+      "score": 0.9997127652168274
+    },
+    {
+      "text": "quedará 1.",
+      "box": [
+        69,
+        187,
+        140,
+        210
+      ],
+      "score": 0.9534355998039246
+    },
+    {
+      "text": "4. Y cerraránse los labios, puertas que son de la calle, por",
+      "box": [
+        550,
+        194,
+        904,
+        213
+      ],
+      "score": 0.9942360520362854
+    },
+    {
+      "text": "4. El que anda observando el viento, no siembra aunca;",
+      "box": [
+        82,
+        204,
+        440,
+        232
+      ],
+      "score": 0.9702654480934143
+    },
+    {
+      "text": "la voz débil de la lengua, que hace el oficio del que muele: e",
+      "box": [
+        538,
+        211,
+        904,
+        230
+      ],
+      "score": 0.9910269975662231
+    },
+    {
+      "text": "y el que atiende á que hay nubes, jamás se pondrá á segar.",
+      "box": [
+        68,
+        222,
+        439,
+        250
+      ],
+      "score": 0.9832611083984375
+    },
+    {
+      "text": "insomnes los hombres se levantarán á la voz de un pájaro, y",
+      "box": [
+        537,
+        228,
+        903,
+        247
+      ],
+      "score": 0.9963127970695496
+    },
+    {
+      "text": "5. Así como ignoras por dónde viene el espíritu al cuerpo,",
+      "box": [
+        81,
+        239,
+        440,
+        265
+      ],
+      "score": 0.9732369780540466
+    },
+    {
+      "text": "quedarán sordas sus orejas, que son las que perciben el canto",
+      "box": [
+        537,
+        245,
+        903,
+        263
+      ],
+      "score": 0.9981061220169067
+    },
+    {
+      "text": "y la manera con que se compaginan los huesos en el vientre",
+      "box": [
+        67,
+        255,
+        440,
+        283
+      ],
+      "score": 0.9475690722465515
+    },
+    {
+      "text": "de la que está en cinta; así tampoco puedes conocer las obras",
+      "box": [
+        67,
+        271,
+        441,
+        300
+      ],
+      "score": 0.8716077208518982
+    },
+    {
+      "text": "ó la armonía:",
+      "box": [
+        538,
+        263,
+        619,
+        277
+      ],
+      "score": 0.9872748255729675
+    },
+    {
+      "text": "de Dios, Hacedor de todas las cosas.",
+      "box": [
+        67,
+        288,
+        288,
+        317
+      ],
+      "score": 0.9985746741294861
+    },
+    {
+      "text": "5. Cuando, trémulos, temerán subir á los lugares altos, y",
+      "box": [
+        548,
+        279,
+        903,
+        296
+      ],
+      "score": 0.9860540628433228
+    },
+    {
+      "text": "tendrán miedo de caer en el camino llano: cuando florecerá",
+      "box": [
+        538,
+        297,
+        903,
+        311
+      ],
+      "score": 0.9955971837043762
+    },
+    {
+      "text": "el almendro, ó se pondrá cana su cabeza, se engrosará la",
+      "box": [
+        537,
+        312,
+        904,
+        329
+      ],
+      "score": 0.9763007760047913
+    },
+    {
+      "text": "langosta, ó hincharán las piernas, y se disipará la alcaparra ó",
+      "box": [
+        535,
+        326,
+        905,
+        347
+      ],
+      "score": 0.9613325595855713
+    },
+    {
+      "text": "sabes qué nacerá",
+      "box": [
+        68,
+        339,
+        181,
+        362
+      ],
+      "score": 0.974824070930481
+    },
+    {
+      "text": "primero, si esto ó aquello: que si naciere",
+      "box": [
+        177,
+        342,
+        438,
+        361
+      ],
+      "score": 0.9968143701553345
+    },
+    {
+      "text": "todo apetito. Porque el hombre ha de ir & la casa de su eter-",
+      "box": [
+        535,
+        343,
+        904,
+        363
+      ],
+      "score": 0.9858471751213074
+    },
+    {
+      "text": "todo á un tiempo,",
+      "box": [
+        69,
+        354,
+        182,
+        378
+      ],
+      "score": 0.9915896058082581
+    },
+    {
+      "text": "7. Dule eoa e la lu de l vda,  delele álo",
+      "box": [
+        78,
+        368,
+        440,
+        398
+      ],
+      "score": 0.5631066560745239
+    },
+    {
+      "text": "tanto mejor.",
+      "box": [
+        178,
+        360,
+        257,
+        377
+      ],
+      "score": 0.9997875094413757
+    },
+    {
+      "text": "nidad, y los enlutados \" le acompañarán algun dia por las",
+      "box": [
+        535,
+        358,
+        904,
+        381
+      ],
+      "score": 0.9735636711120605
+    },
+    {
+      "text": "el ver el sol.",
+      "box": [
+        68,
+        387,
+        147,
+        408
+      ],
+      "score": 0.9862504601478577
+    },
+    {
+      "text": "calles.",
+      "box": [
+        535,
+        378,
+        575,
+        396
+      ],
+      "score": 0.9996811747550964
+    },
+    {
+      "text": "8. Pero, aunque",
+      "box": [
+        80,
+        403,
+        193,
+        427
+      ],
+      "score": 0.9864040017127991
+    },
+    {
+      "text": "6. Acuerdate de Dios antes que se rompa el cordon de",
+      "box": [
+        545,
+        391,
+        904,
+        415
+      ],
+      "score": 0.9949813485145569
+    },
+    {
+      "text": "viva un hombre muchos años, y en todos",
+      "box": [
+        185,
+        408,
+        437,
+        427
+      ],
+      "score": 0.998727023601532
+    },
+    {
+      "text": "ellos contento, debe no obstante acordarse del tiempo de ti-",
+      "box": [
+        68,
+        419,
+        439,
+        447
+      ],
+      "score": 0.9598121643066406
+    },
+    {
+      "text": "plata, ó médula espinal, y se arrugue la venda de oro, ó mem-",
+      "box": [
+        534,
+        408,
+        905,
+        432
+      ],
+      "score": 0.9732782244682312
+    },
+    {
+      "text": "nieblas, y de la muchedumbre de dias de la eternidad: llega-",
+      "box": [
+        68,
+        437,
+        439,
+        461
+      ],
+      "score": 0.9736432433128357
+    },
+    {
+      "text": "brana que envuelve el cerebro, y se haga pedazos el cántaro",
+      "box": [
+        535,
+        425,
+        905,
+        448
+      ],
+      "score": 0.9901219606399536
+    },
+    {
+      "text": "dos los cuales, quedarán convencidas de vanidad las cosas",
+      "box": [
+        67,
+        451,
+        440,
+        479
+      ],
+      "score": 0.9945642352104187
+    },
+    {
+      "text": "sobre la fuente, y se quiebre la polea sobre la cisterna;",
+      "box": [
+        534,
+        444,
+        864,
+        462
+      ],
+      "score": 0.9997323155403137
+    },
+    {
+      "text": "7. Y en suma: antes que el polvo se vuelva á la tierra de",
+      "box": [
+        545,
+        457,
+        905,
+        480
+      ],
+      "score": 0.9846916198730469
+    },
+    {
+      "text": "pasadas º.",
+      "box": [
+        69,
+        471,
+        133,
+        489
+      ],
+      "score": 0.9340286254882812
+    },
+    {
+      "text": "9. Gózate pues, oh jóven disoluto, en tu mocedad; disfrute",
+      "box": [
+        80,
+        486,
+        439,
+        510
+      ],
+      "score": 0.9824849963188171
+    },
+    {
+      "text": "donde salió, y el espíritu vuele á Dios, que le dió el sér .",
+      "box": [
+        536,
+        476,
+        874,
+        496
+      ],
+      "score": 0.9962962865829468
+    },
+    {
+      "text": "de los bienes tu alma en los floridos dias de tu juventud;",
+      "box": [
+        69,
+        504,
+        439,
+        528
+      ],
+      "score": 0.9942246675491333
+    },
+    {
+      "text": "8. Vanidad de vanidades, dijo el Ecclesiastés, y todo es",
+      "box": [
+        547,
+        491,
+        904,
+        514
+      ],
+      "score": 0.984810471534729
+    },
+    {
+      "text": "vanidad.",
+      "box": [
+        537,
+        513,
+        591,
+        530
+      ],
+      "score": 0.9995351433753967
+    },
+    {
+      "text": "sigue las inclinaciones de tu corazon, y lo que agrada á tus",
+      "box": [
+        70,
+        523,
+        440,
+        545
+      ],
+      "score": 0.9990041851997375
+    },
+    {
+      "text": "9. El Ecclesiastés, ó predicador, siendo como era sapientí-",
+      "box": [
+        548,
+        523,
+        906,
+        549
+      ],
+      "score": 0.9880198240280151
+    },
+    {
+      "text": "ojos; pero sábete que de todas esas cosas te pedirá Dios",
+      "box": [
+        70,
+        541,
+        440,
+        561
+      ],
+      "score": 0.9943656325340271
+    },
+    {
+      "text": "simo, enseñó al pueblo, y refirió las cosas ó indagaciones",
+      "box": [
+        536,
+        539,
+        906,
+        566
+      ],
+      "score": 0.9899458885192871
+    },
+    {
+      "text": "cuenta en el dia que te juzgue.",
+      "box": [
+        72,
+        560,
+        260,
+        577
+      ],
+      "score": 0.9873174428939819
+    },
+    {
+      "text": "que habia hecho: y filosofando sobre ellas compuso muchas",
+      "box": [
+        536,
+        556,
+        906,
+        584
+      ],
+      "score": 0.9986723065376282
+    },
+    {
+      "text": "10. Por tanto, arranca de tu corazon la ira, y aparta todo",
+      "box": [
+        84,
+        577,
+        439,
+        594
+      ],
+      "score": 0.9993572235107422
+    },
+    {
+      "text": "parábolas.",
+      "box": [
+        537,
+        581,
+        601,
+        599
+      ],
+      "score": 0.9997499585151672
+    },
+    {
+      "text": "vicio de tu carne: puesto que la juventud y las delicias no son",
+      "box": [
+        71,
+        594,
+        439,
+        611
+      ],
+      "score": 0.9963813424110413
+    },
+    {
+      "text": "10. Recogió sentencias provechosas, y escribió documen-",
+      "box": [
+        548,
+        590,
+        906,
+        617
+      ],
+      "score": 0.996399462223053
+    },
+    {
+      "text": "sino vanidad.",
+      "box": [
+        70,
+        610,
+        155,
+        629
+      ],
+      "score": 0.9996362328529358
+    },
+    {
+      "text": "tos rectísimos y llenos de verdad.",
+      "box": [
+        537,
+        612,
+        734,
+        632
+      ],
+      "score": 0.9959596991539001
+    },
+    {
+      "text": "CAPITULO XII",
+      "box": [
+        208,
+        637,
+        307,
+        655
+      ],
+      "score": 0.9996097683906555
+    },
+    {
+      "text": "11. Los dichos de los súbios son como aguijones, y como",
+      "box": [
+        548,
+        624,
+        905,
+        650
+      ],
+      "score": 0.989143431186676
+    },
+    {
+      "text": "clavos hincados profundamente, y estos dichos nos ha dado",
+      "box": [
+        536,
+        640,
+        905,
+        665
+      ],
+      "score": 0.997603714466095
+    },
+    {
+      "text": "Descripcion enigmática de los achaques de la vejez. Epílogo de los",
+      "box": [
+        89,
+        666,
+        423,
+        686
+      ],
+      "score": 0.9897820353507996
+    },
+    {
+      "text": "el único Pastor 8, mediante la enseñanza de los maestros.",
+      "box": [
+        537,
+        660,
+        876,
+        680
+      ],
+      "score": 0.9896045923233032
+    },
+    {
+      "text": "documentos que ha dado el Ecclesiastés.",
+      "box": [
+        153,
+        681,
+        360,
+        701
+      ],
+      "score": 0.9987757802009583
+    },
+    {
+      "text": "12. Tú, hijo mio, no tienes que buscar cosa mejor que las",
+      "box": [
+        548,
+        674,
+        905,
+        699
+      ],
+      "score": 0.9895982146263123
+    },
+    {
+      "text": "dichas verdades. Los libros se van multiplicando sin término,",
+      "box": [
+        537,
+        691,
+        905,
+        715
+      ],
+      "score": 0.9858894944190979
+    },
+    {
+      "text": "1. Acuérdate de tu Criador en los dias de tu juventud;",
+      "box": [
+        82,
+        708,
+        442,
+        737
+      ],
+      "score": 0.9930067658424377
+    },
+    {
+      "text": "y la continua meditacion del ánimo es tormento del cuerpo.",
+      "box": [
+        537,
+        708,
+        904,
+        731
+      ],
+      "score": 0.9986280798912048
+    },
+    {
+      "text": "antes que con la vejez venga el tiempo de la afliccion, y se",
+      "box": [
+        69,
+        724,
+        442,
+        756
+      ],
+      "score": 0.9810172319412231
+    },
+    {
+      "text": "13. Ahora oigamos todos juntos el fin y compendio de este",
+      "box": [
+        549,
+        725,
+        906,
+        748
+      ],
+      "score": 0.9978500008583069
+    },
+    {
+      "text": "sermon: Teme á Dios, y guarda sus mandamientos: porque",
+      "box": [
+        536,
+        742,
+        905,
+        763
+      ],
+      "score": 0.9865158200263977
+    },
+    {
+      "text": ". Antes que, debilitándose tu vista, se te oscurezca el",
+      "box": [
+        81,
+        755,
+        443,
+        788
+      ],
+      "score": 0.7734716534614563
+    },
+    {
+      "text": "esto es el todo del hombre;",
+      "box": [
+        540,
+        763,
+        695,
+        777
+      ],
+      "score": 0.9938724637031555
+    },
+    {
+      "text": "14. Y acordémonos que hará Dios dar cuenta en su juicio",
+      "box": [
+        549,
+        773,
+        906,
+        796
+      ],
+      "score": 0.9855920076370239
+    },
+    {
+      "text": "de todas las faltas, y de todo el bien y el mal que se habrá",
+      "box": [
+        537,
+        790,
+        907,
+        812
+      ],
+      "score": 0.9979060292243958
+    },
+    {
+      "text": "vuelvan las nubes .",
+      "box": [
+        69,
+        795,
+        195,
+        822
+      ],
+      "score": 0.9843193888664246
+    },
+    {
+      "text": "No eee  a ben cuando temblarán tu mao",
+      "box": [
+        80,
+        804,
+        444,
+        840
+      ],
+      "score": 0.6201600432395935
+    },
+    {
+      "text": "hecho 9.",
+      "box": [
+        538,
+        810,
+        586,
+        828
+      ],
+      "score": 0.8755631446838379
+    },
+    {
+      "text": "1O como el rástico que corta un árbol sin cuidar de que caiga al Me-",
+      "box": [
+        81,
+        844,
+        442,
+        875
+      ],
+      "score": 0.9666569828987122
+    },
+    {
+      "text": "somne se conmuevan al ruido de un pájaro las orejas hijas de la armonía,",
+      "box": [
+        536,
+        842,
+        907,
+        867
+      ],
+      "score": 0.9455085396766663
+    },
+    {
+      "text": "dioda  al Norte, sino caiga donde cayere. Esto signica; segun mucos",
+      "box": [
+        71,
+        859,
+        444,
+        891
+      ],
+      "score": 0.6793305277824402
+    },
+    {
+      "text": "ya ensordecidas ó torpes para la melodía: cuando trémulos tus piés to",
+      "box": [
+        536,
+        857,
+        908,
+        881
+      ],
+      "score": 0.9339935779571533
+    },
+    {
+      "text": "Expositores, que debemos procurar antes de la muerte hacer limosna y",
+      "box": [
+        71,
+        874,
+        444,
+        906
+      ],
+      "score": 0.9005137085914612
+    },
+    {
+      "text": "merá sub á lugare elevados,  tendrán miedo de caeren camio llano",
+      "box": [
+        536,
+        871,
+        909,
+        897
+      ],
+      "score": 0.6404056549072266
+    },
+    {
+      "text": "otras obras de misericordía para alcanzar el perdon de Dios; porque en",
+      "box": [
+        70,
+        890,
+        444,
+        920
+      ],
+      "score": 0.9388113021850586
+    },
+    {
+      "text": "cuando tu cabeza con cabello cano se asemeje al almendro florido; y tu",
+      "box": [
+        536,
+        886,
+        909,
+        911
+      ],
+      "score": 0.9439862966537476
+    },
+    {
+      "text": "venre  piernas ála langosta, y se disipe la alcaparra  todo tu apeto.",
+      "box": [
+        537,
+        900,
+        909,
+        925
+      ],
+      "score": 0.7060683965682983
+    },
+    {
+      "text": "la pare d que caiga el árbol óa la del Modida, que represea la etera",
+      "box": [
+        70,
+        903,
+        443,
+        935
+      ],
+      "score": 0.6446130871772766
+    },
+    {
+      "text": "gloria, ó á la del Aquilon, que figura al infierno, allí quedará sin mas re-",
+      "box": [
+        71,
+        918,
+        443,
+        949
+      ],
+      "score": 0.9298510551452637
+    },
+    {
+      "text": "medio. Abusan de este lugar algunos herejes para negar el dogma católico",
+      "box": [
+        71,
+        933,
+        443,
+        963
+      ],
+      "score": 0.8162394762039185
+    },
+    {
+      "text": "del Purgatorio: sin reflexionar que todos conocemos que este pertenece",
+      "box": [
+        72,
+        947,
+        443,
+        977
+      ],
+      "score": 0.9463024735450745
+    },
+    {
+      "text": "ya al Mediodía ó lugar eterno de los justos.",
+      "box": [
+        72,
+        965,
+        296,
+        991
+      ],
+      "score": 0.9769263863563538
+    },
+    {
+      "text": "tnente ó los vasos de la sangre vital, como el cántaro sobre la uente, ",
+      "box": [
+        538,
+        969,
+        911,
+        994
+      ],
+      "score": 0.7770649194717407
+    },
+    {
+      "text": "Esto viene á ser la conclusion de todo lo que ha tratado hasta aquí,",
+      "box": [
+        82,
+        976,
+        442,
+        1004
+      ],
+      "score": 0.9927706718444824
+    },
+    {
+      "text": "la polea sobre la cisterna. Porque entonces tornará el polvo á la tierra, y",
+      "box": [
+        537,
+        984,
+        911,
+        1007
+      ],
+      "score": 0.929121732711792
+    },
+    {
+      "text": "y como una clara solucion de los argumentos que ha puesto en boca de",
+      "box": [
+        71,
+        990,
+        443,
+        1020
+      ],
+      "score": 0.9850077033042908
+    },
+    {
+      "text": "el espíritu á Dios, que le dió el sér.",
+      "box": [
+        540,
+        1003,
+        713,
+        1017
+      ],
+      "score": 0.9931003451347351
+    },
+    {
+      "text": "los necios.",
+      "box": [
+        73,
+        1014,
+        132,
+        1032
+      ],
+      "score": 0.9978002309799194
+    },
+    {
+      "text": "q ed l e del al Q",
+      "box": [
+        546,
+        1023,
+        912,
+        1050
+      ],
+      "score": 0.4897634983062744
+    },
+    {
+      "text": "e Véase Sepulero.",
+      "box": [
+        551,
+        1017,
+        641,
+        1031
+      ],
+      "score": 0.9504713416099548
+    },
+    {
+      "text": "3 O tu razon.",
+      "box": [
+        84,
+        1026,
+        159,
+        1045
+      ],
+      "score": 0.9844760894775391
+    },
+    {
+      "text": "4 Esto es, se oscurezcan tus potencias.",
+      "box": [
+        83,
+        1035,
+        284,
+        1060
+      ],
+      "score": 0.9722352623939514
+    },
+    {
+      "text": "el alma de los hijos de Adam sube hácia arriba? etc.",
+      "box": [
+        540,
+        1044,
+        796,
+        1057
+      ],
+      "score": 0.9892504811286926
+    },
+    {
+      "text": "O sean continuas las fluxiones y malos humores, como al agua suce-",
+      "box": [
+        83,
+        1045,
+        442,
+        1073
+      ],
+      "score": 0.9418022632598877
+    },
+    {
+      "text": "O Monarca, para vuestra enseñanza; los cuales escribió por consejo",
+      "box": [
+        548,
+        1051,
+        911,
+        1075
+      ],
+      "score": 0.8826998472213745
+    },
+    {
+      "text": "den negras nubes. No esperesáobrar bien cuando veas vacilar los apoyos",
+      "box": [
+        73,
+        1060,
+        443,
+        1088
+      ],
+      "score": 0.822213351726532
+    },
+    {
+      "text": "de los doctores. San Gerónimo entiende aqu por Pastor á Dios, autor",
+      "box": [
+        538,
+        1065,
+        910,
+        1089
+      ],
+      "score": 0.9336243867874146
+    },
+    {
+      "text": "de tu casa, esto es, cuando te tiemblen las manos, ni puedas tenerte en",
+      "box": [
+        74,
+        1076,
+        442,
+        1101
+      ],
+      "score": 0.9919313192367554
+    },
+    {
+      "text": "principal de las Escrituras, y á su Hijo, y Pastor supremo de las almas",
+      "box": [
+        538,
+        1079,
+        910,
+        1102
+      ],
+      "score": 0.9483396410942078
+    },
+    {
+      "text": "pió, por mas que hayas sido varon fuerte; y las escasas muelas ó colmi-",
+      "box": [
+        75,
+        1088,
+        441,
+        1116
+      ],
+      "score": 0.9764112234115601
+    },
+    {
+      "text": "Jesu-Christo, que nos explica las verdades divinas por medio de los pas-",
+      "box": [
+        538,
+        1094,
+        908,
+        1115
+      ],
+      "score": 0.9899313449859619
+    },
+    {
+      "text": "los, ya corroidas, estén del todo ociosas, y las niñas que se asomaban á",
+      "box": [
+        75,
+        1103,
+        442,
+        1129
+      ],
+      "score": 0.9534434080123901
+    },
+    {
+      "text": "tores de la Iglesia y de la tradicion.",
+      "box": [
+        538,
+        1109,
+        716,
+        1128
+      ],
+      "score": 0.99558025598526
+    },
+    {
+      "text": "los párpados, queden eclipsadas; y te cierren las puertas en la plaza, no",
+      "box": [
+        75,
+        1117,
+        441,
+        1143
+      ],
+      "score": 0.9827876687049866
+    },
+    {
+      "text": "9 II. Cor. V, u. 10.—Job IX, v. 28.",
+      "box": [
+        548,
+        1123,
+        726,
+        1141
+      ],
+      "score": 0.954440176486969
+    },
+    {
+      "text": "quedándote diente en la boca, y hables con poca ó muy baja voz; é in-",
+      "box": [
+        76,
+        1131,
+        440,
+        1158
+      ],
+      "score": 0.9869807958602905
+    }
+  ]
+}

@@ -1,0 +1,1487 @@
+{
+  "volume": 3,
+  "page_index": 57,
+  "pdf_page": 58,
+  "lines": [
+    {
+      "text": "75",
+      "box": [
+        81,
+        51,
+        100,
+        69
+      ],
+      "score": 0.9976755976676941
+    },
+    {
+      "text": "SALMOS.",
+      "box": [
+        219,
+        51,
+        285,
+        74
+      ],
+      "score": 0.9986299276351929
+    },
+    {
+      "text": "SALMO CIV.",
+      "box": [
+        681,
+        56,
+        768,
+        83
+      ],
+      "score": 0.9952343106269836
+    },
+    {
+      "text": "76",
+      "box": [
+        877,
+        77,
+        894,
+        91
+      ],
+      "score": 0.9997263550758362
+    },
+    {
+      "text": "17. Allí harán las aves sus nidos:—á las cuales servirá de",
+      "box": [
+        85,
+        96,
+        440,
+        121
+      ],
+      "score": 0.9928244352340698
+    },
+    {
+      "text": "10. Juramento que confirmó á Jacob como una ley, y á",
+      "box": [
+        549,
+        100,
+        903,
+        136
+      ],
+      "score": 0.9913411736488342
+    },
+    {
+      "text": "guia la casa ó nido ¹ de la cigüeña.",
+      "box": [
+        73,
+        115,
+        279,
+        136
+      ],
+      "score": 0.9850852489471436
+    },
+    {
+      "text": "Israél como un pacto sempiterno,",
+      "box": [
+        537,
+        120,
+        737,
+        145
+      ],
+      "score": 0.9767955541610718
+    },
+    {
+      "text": "18. Los altos montes sirven de asilo á los ciervos; los pe-",
+      "box": [
+        85,
+        132,
+        438,
+        157
+      ],
+      "score": 0.9946818947792053
+    },
+    {
+      "text": "11. Diciendo: Á tí te daré la tierra de Chanaan, legítima",
+      "box": [
+        548,
+        136,
+        900,
+        168
+      ],
+      "score": 0.9944722652435303
+    },
+    {
+      "text": "ñascos de madriguera á los erizos.",
+      "box": [
+        72,
+        148,
+        277,
+        171
+      ],
+      "score": 0.9937515258789062
+    },
+    {
+      "text": "de tu herencia.",
+      "box": [
+        536,
+        155,
+        627,
+        175
+      ],
+      "score": 0.9997622966766357
+    },
+    {
+      "text": "19. El Señor crió la luna para regla de los tiempos. El sol",
+      "box": [
+        86,
+        166,
+        437,
+        189
+      ],
+      "score": 0.9926294088363647
+    },
+    {
+      "text": "12. Y esto, cuando Jucob y sus hijos eran en corto número,",
+      "box": [
+        548,
+        172,
+        900,
+        198
+      ],
+      "score": 0.9845888018608093
+    },
+    {
+      "text": "observa puntualmente su ocaso.",
+      "box": [
+        73,
+        183,
+        263,
+        203
+      ],
+      "score": 0.9988482594490051
+    },
+    {
+      "text": "poquísimos y extranjeros en la misma tierra,",
+      "box": [
+        536,
+        189,
+        806,
+        212
+      ],
+      "score": 0.9996415972709656
+    },
+    {
+      "text": "20. Tú ordenaste las tinieblas, y quedó hecha la noche: en",
+      "box": [
+        85,
+        199,
+        437,
+        222
+      ],
+      "score": 0.9891753196716309
+    },
+    {
+      "text": "13. Y pasaban á menudo de una nacion á otra, y de un",
+      "box": [
+        546,
+        204,
+        901,
+        232
+      ],
+      "score": 0.9919186234474182
+    },
+    {
+      "text": "ella transitará toda fiera del bosque.",
+      "box": [
+        72,
+        215,
+        286,
+        238
+      ],
+      "score": 0.9936325550079346
+    },
+    {
+      "text": "reino á otro pueblo.",
+      "box": [
+        534,
+        221,
+        654,
+        243
+      ],
+      "score": 0.9983908534049988
+    },
+    {
+      "text": "21. Rugen en busca de presa los cachorros de los leones, y",
+      "box": [
+        85,
+        232,
+        436,
+        256
+      ],
+      "score": 0.9975953698158264
+    },
+    {
+      "text": "14. No permitió que nadie los molestase; antes por amor",
+      "box": [
+        546,
+        236,
+        903,
+        265
+      ],
+      "score": 0.9890692830085754
+    },
+    {
+      "text": "claman á Dios por el alimento.",
+      "box": [
+        72,
+        247,
+        256,
+        270
+      ],
+      "score": 0.994902491569519
+    },
+    {
+      "text": "de ellos castigó á los reyes.",
+      "box": [
+        534,
+        252,
+        698,
+        276
+      ],
+      "score": 0.9881511330604553
+    },
+    {
+      "text": "22. Mas así que el sol apunta, retíranse todos en tropel, y",
+      "box": [
+        84,
+        264,
+        434,
+        288
+      ],
+      "score": 0.9868483543395996
+    },
+    {
+      "text": "15. Guardaos 8 de tocar á mis ungidos: no maltrateis á mis",
+      "box": [
+        546,
+        269,
+        902,
+        295
+      ],
+      "score": 0.9680309891700745
+    },
+    {
+      "text": "van á meterse en sus guaridas.",
+      "box": [
+        72,
+        282,
+        254,
+        302
+      ],
+      "score": 0.9930151104927063
+    },
+    {
+      "text": "profetas.",
+      "box": [
+        534,
+        287,
+        590,
+        304
+      ],
+      "score": 0.9999369382858276
+    },
+    {
+      "text": "23. Sale entonces el hombre á su ocupacion y á su trabajo",
+      "box": [
+        83,
+        297,
+        434,
+        320
+      ],
+      "score": 0.9775583148002625
+    },
+    {
+      "text": "16. Hizo venir á la hambre sobre la tierra, y destruyó todo",
+      "box": [
+        545,
+        300,
+        902,
+        326
+      ],
+      "score": 0.9852539896965027
+    },
+    {
+      "text": "hasta la noche.",
+      "box": [
+        71,
+        313,
+        165,
+        333
+      ],
+      "score": 0.9767135381698608
+    },
+    {
+      "text": "sustento de pan.",
+      "box": [
+        534,
+        318,
+        636,
+        338
+      ],
+      "score": 0.9999352693557739
+    },
+    {
+      "text": "24. Oh Señor, y cuán grandiosas son todas tus obras!",
+      "box": [
+        82,
+        328,
+        435,
+        351
+      ],
+      "score": 0.997201681137085
+    },
+    {
+      "text": "17. Envió delante de los suyos á un varon, á Joseph, ven-",
+      "box": [
+        545,
+        333,
+        903,
+        358
+      ],
+      "score": 0.993462085723877
+    },
+    {
+      "text": "Todo lo has hecho sábiamente: llena está la tierra de tus ri-",
+      "box": [
+        70,
+        343,
+        435,
+        367
+      ],
+      "score": 0.9780736565589905
+    },
+    {
+      "text": "dido por esclavo.",
+      "box": [
+        534,
+        349,
+        638,
+        369
+      ],
+      "score": 0.9982877373695374
+    },
+    {
+      "text": "quezas.",
+      "box": [
+        72,
+        362,
+        121,
+        380
+      ],
+      "score": 0.9992165565490723
+    },
+    {
+      "text": "18. Al cual afligieron, oprimiendo sus piés con grillos: un",
+      "box": [
+        545,
+        365,
+        903,
+        389
+      ],
+      "score": 0.9939531683921814
+    },
+    {
+      "text": "25. Tuyo es este mar tan grande y de tan anchurosos se-",
+      "box": [
+        83,
+        376,
+        435,
+        400
+      ],
+      "score": 0.9862672090530396
+    },
+    {
+      "text": "puñal atravesó su alma;",
+      "box": [
+        534,
+        383,
+        681,
+        404
+      ],
+      "score": 0.9993226528167725
+    },
+    {
+      "text": "nos: en él peces sin cuento;—animales chicos y grandes.",
+      "box": [
+        70,
+        393,
+        404,
+        417
+      ],
+      "score": 0.986653208732605
+    },
+    {
+      "text": "19. Hasta que se cumplió su vaticinio.—Inflamóle la pala-",
+      "box": [
+        545,
+        399,
+        903,
+        422
+      ],
+      "score": 0.9956991672515869
+    },
+    {
+      "text": "26. Por él transitan las naves .—Ese dragon ó mónstruo *",
+      "box": [
+        84,
+        410,
+        435,
+        433
+      ],
+      "score": 0.9637212157249451
+    },
+    {
+      "text": "bra del Señor.",
+      "box": [
+        534,
+        416,
+        622,
+        436
+      ],
+      "score": 0.9794960021972656
+    },
+    {
+      "text": "que formaste, para que retozara entre sus olas;",
+      "box": [
+        72,
+        426,
+        349,
+        449
+      ],
+      "score": 0.9991798400878906
+    },
+    {
+      "text": "27. Todos los animales esperan de tí que les des á su tiem-",
+      "box": [
+        83,
+        441,
+        434,
+        465
+      ],
+      "score": 0.9866226315498352
+    },
+    {
+      "text": "20. El rey dió órden para que le soltaran: púsole en liber-",
+      "box": [
+        546,
+        433,
+        904,
+        452
+      ],
+      "score": 0.9881216883659363
+    },
+    {
+      "text": "po el alimento.",
+      "box": [
+        71,
+        458,
+        163,
+        478
+      ],
+      "score": 0.9994258880615234
+    },
+    {
+      "text": "tad este potentado de los pueblos.",
+      "box": [
+        534,
+        449,
+        737,
+        468
+      ],
+      "score": 0.9862259030342102
+    },
+    {
+      "text": "28. Tú se lo das, y acuden ellos á recogerle: en abriendo",
+      "box": [
+        83,
+        472,
+        434,
+        499
+      ],
+      "score": 0.9854301810264587
+    },
+    {
+      "text": "21. Hízole dueño de su casa 9, y gobernador de todos sus",
+      "box": [
+        545,
+        463,
+        904,
+        485
+      ],
+      "score": 0.9789019227027893
+    },
+    {
+      "text": "tú la mano, todos se hartarán de bienes.",
+      "box": [
+        72,
+        491,
+        306,
+        511
+      ],
+      "score": 0.9869832992553711
+    },
+    {
+      "text": "dominios;",
+      "box": [
+        534,
+        482,
+        600,
+        499
+      ],
+      "score": 0.9999810457229614
+    },
+    {
+      "text": "29. Mas si tú apartas tu rostro, túrbanse: les quitas el",
+      "box": [
+        84,
+        506,
+        435,
+        532
+      ],
+      "score": 0.9776462912559509
+    },
+    {
+      "text": "22. Para que comunicase su sabiduría á sus grandes, y",
+      "box": [
+        546,
+        499,
+        903,
+        516
+      ],
+      "score": 0.9970701932907104
+    },
+    {
+      "text": "espíritu, dejan de ser, y vuelven á parar en el polvo de que",
+      "box": [
+        71,
+        523,
+        435,
+        550
+      ],
+      "score": 0.990726888179779
+    },
+    {
+      "text": "enseñase la prudencia á sus ancianos.",
+      "box": [
+        534,
+        515,
+        757,
+        533
+      ],
+      "score": 0.9981188178062439
+    },
+    {
+      "text": "23. Entonces entró Israél en Egypto, y fué Jacob á vivir",
+      "box": [
+        546,
+        528,
+        904,
+        551
+      ],
+      "score": 0.996780514717102
+    },
+    {
+      "text": "salieron.",
+      "box": [
+        72,
+        542,
+        126,
+        559
+      ],
+      "score": 0.9996677041053772
+    },
+    {
+      "text": "30. Enviarás tu espíritu, y serán criados, y renovarás la faz",
+      "box": [
+        82,
+        555,
+        437,
+        581
+      ],
+      "score": 0.9862048029899597
+    },
+    {
+      "text": "como peregrino en la tierra de Cham 30.",
+      "box": [
+        535,
+        546,
+        769,
+        566
+      ],
+      "score": 0.9776021242141724
+    },
+    {
+      "text": "24. Y Dios multiplicó su pueblo sobremanera, é hízole mas",
+      "box": [
+        546,
+        560,
+        904,
+        583
+      ],
+      "score": 0.9783177375793457
+    },
+    {
+      "text": "de la tierra.",
+      "box": [
+        72,
+        575,
+        147,
+        593
+      ],
+      "score": 0.9994580745697021
+    },
+    {
+      "text": "31. Sea para siempre celebrada la gloria del Señor. Com-",
+      "box": [
+        82,
+        588,
+        436,
+        612
+      ],
+      "score": 0.9987302422523499
+    },
+    {
+      "text": "poderoso que sus enemigos.",
+      "box": [
+        536,
+        582,
+        698,
+        599
+      ],
+      "score": 0.9826699495315552
+    },
+    {
+      "text": "25. Permitió que el corazon de estos se mudara, de suerte",
+      "box": [
+        547,
+        592,
+        903,
+        615
+      ],
+      "score": 0.9983066916465759
+    },
+    {
+      "text": "placerse ha el Señor en sus criaturas;",
+      "box": [
+        72,
+        609,
+        294,
+        626
+      ],
+      "score": 0.99993896484375
+    },
+    {
+      "text": "que cobrasen ojeriza á su pueblo de Israél, y urdiesen tramas",
+      "box": [
+        536,
+        610,
+        903,
+        631
+      ],
+      "score": 0.9986690282821655
+    },
+    {
+      "text": "32. Aquel Señor que hace estremecer la tierra con sola una",
+      "box": [
+        82,
+        623,
+        437,
+        645
+      ],
+      "score": 0.9848092198371887
+    },
+    {
+      "text": "contra sus siervos.",
+      "box": [
+        537,
+        631,
+        646,
+        645
+      ],
+      "score": 0.9950680732727051
+    },
+    {
+      "text": "mirada, y que si toca los montes humean *.",
+      "box": [
+        72,
+        641,
+        327,
+        659
+      ],
+      "score": 0.9831884503364563
+    },
+    {
+      "text": "26. Mas envió á Moysés siervo suyo, y á Aaron á quien",
+      "box": [
+        547,
+        642,
+        903,
+        662
+      ],
+      "score": 0.9745076894760132
+    },
+    {
+      "text": "33. Yo cantaré toda mi vida las alabanzas del Señor: ento-",
+      "box": [
+        84,
+        656,
+        437,
+        676
+      ],
+      "score": 0.9944288730621338
+    },
+    {
+      "text": "habia elegido.",
+      "box": [
+        537,
+        661,
+        623,
+        678
+      ],
+      "score": 0.9998741745948792
+    },
+    {
+      "text": "naré himnos á mi Dios mientras yo viviere. .",
+      "box": [
+        72,
+        673,
+        340,
+        692
+      ],
+      "score": 0.9754865765571594
+    },
+    {
+      "text": "27. Dióles poderes para hacer milagros y obrar prodigios",
+      "box": [
+        551,
+        677,
+        903,
+        694
+      ],
+      "score": 0.9992856383323669
+    },
+    {
+      "text": "34. Séanle aceptas mis palabras: en cuanto á mí, todas mis",
+      "box": [
+        85,
+        690,
+        437,
+        710
+      ],
+      "score": 0.9962183237075806
+    },
+    {
+      "text": "en la tierra de Cham.",
+      "box": [
+        537,
+        693,
+        666,
+        711
+      ],
+      "score": 0.9998506903648376
+    },
+    {
+      "text": "delicias las tengo en el Señor.",
+      "box": [
+        74,
+        709,
+        248,
+        723
+      ],
+      "score": 0.9990529417991638
+    },
+    {
+      "text": "28. Envió tinieblas, y todo lo oscureció; no faltó ninguna",
+      "box": [
+        550,
+        710,
+        903,
+        727
+      ],
+      "score": 0.9879888296127319
+    },
+    {
+      "text": "35. Desaparezcan de la tierra los pecadores y los inícuos;",
+      "box": [
+        85,
+        722,
+        438,
+        743
+      ],
+      "score": 0.999487578868866
+    },
+    {
+      "text": "de sus palabras.",
+      "box": [
+        538,
+        727,
+        633,
+        741
+      ],
+      "score": 0.9993764162063599
+    },
+    {
+      "text": "de suerte que no quede ninguno, Tú, oh alma mia, bendice",
+      "box": [
+        72,
+        739,
+        437,
+        758
+      ],
+      "score": 0.9870595932006836
+    },
+    {
+      "text": "29. Convirtió en sangre sus aguas, y mató los peces.",
+      "box": [
+        552,
+        744,
+        865,
+        757
+      ],
+      "score": 0.9961069822311401
+    },
+    {
+      "text": "al Señor.",
+      "box": [
+        72,
+        754,
+        129,
+        772
+      ],
+      "score": 0.998200535774231
+    },
+    {
+      "text": "30. La tierra brotó ranas hasta en los gabinetes de los mis-",
+      "box": [
+        552,
+        759,
+        903,
+        773
+      ],
+      "score": 0.9967647790908813
+    },
+    {
+      "text": "mos reyes.",
+      "box": [
+        539,
+        775,
+        605,
+        792
+      ],
+      "score": 0.9930837750434875
+    },
+    {
+      "text": "SALMO CIV",
+      "box": [
+        214,
+        792,
+        296,
+        810
+      ],
+      "score": 0.9970130920410156
+    },
+    {
+      "text": "31. Dijo, y vino toda casta de moscas 1 y de mosquitos",
+      "box": [
+        553,
+        793,
+        904,
+        807
+      ],
+      "score": 0.9822990894317627
+    },
+    {
+      "text": "por todos sus términos.",
+      "box": [
+        540,
+        808,
+        676,
+        825
+      ],
+      "score": 0.9941402673721313
+    },
+    {
+      "text": "Accion de gracias á Dios por los beneficios hechos á su pueblo desde la",
+      "box": [
+        73,
+        830,
+        440,
+        851
+      ],
+      "score": 0.9868448972702026
+    },
+    {
+      "text": "32. En lugar de agua hacíales llover en su tierra granizo y",
+      "box": [
+        551,
+        824,
+        905,
+        841
+      ],
+      "score": 0.9955801367759705
+    },
+    {
+      "text": "vocacion de Abraham, hasta la entrada en la tierra de promision.",
+      "box": [
+        88,
+        843,
+        423,
+        864
+      ],
+      "score": 0.9924072027206421
+    },
+    {
+      "text": "rayos de fuego abrasador.",
+      "box": [
+        540,
+        841,
+        688,
+        857
+      ],
+      "score": 0.9999253153800964
+    },
+    {
+      "text": "33. Con lo que abrasó sus viñedos é higuerales, y destrozó",
+      "box": [
+        550,
+        852,
+        905,
+        873
+      ],
+      "score": 0.9981821179389954
+    },
+    {
+      "text": "los árboles de su término.",
+      "box": [
+        538,
+        870,
+        689,
+        888
+      ],
+      "score": 0.9992986917495728
+    },
+    {
+      "text": "Aleluya .",
+      "box": [
+        84,
+        884,
+        147,
+        905
+      ],
+      "score": 0.9556150436401367
+    },
+    {
+      "text": "34. Dijo, y vinieron enjambres innumerables de langosta y",
+      "box": [
+        553,
+        889,
+        904,
+        903
+      ],
+      "score": 0.9974464774131775
+    },
+    {
+      "text": "1. Alabad al Señor, é invocad su Nombre: predicad entre",
+      "box": [
+        83,
+        902,
+        440,
+        925
+      ],
+      "score": 0.9973002076148987
+    },
+    {
+      "text": "oruga;",
+      "box": [
+        541,
+        906,
+        583,
+        921
+      ],
+      "score": 0.9999666810035706
+    },
+    {
+      "text": "las naciones sus admirables obras.",
+      "box": [
+        70,
+        919,
+        278,
+        938
+      ],
+      "score": 0.997180163860321
+    },
+    {
+      "text": "35. Y comiéronse toda la yerba de los prados, y cuantos",
+      "box": [
+        550,
+        916,
+        907,
+        938
+      ],
+      "score": 0.9944266080856323
+    },
+    {
+      "text": "2. Entonadle himnos al son de músicos instrumentos; refe-",
+      "box": [
+        83,
+        935,
+        440,
+        957
+      ],
+      "score": 0.9917783737182617
+    },
+    {
+      "text": "frutos habia en los campos.",
+      "box": [
+        540,
+        935,
+        699,
+        952
+      ],
+      "score": 0.9728946685791016
+    },
+    {
+      "text": "rid todas sus maravillas.",
+      "box": [
+        70,
+        951,
+        219,
+        970
+      ],
+      "score": 0.9986684918403625
+    },
+    {
+      "text": "36. Hirió de muerte á todos los primogénitos de aquella",
+      "box": [
+        553,
+        948,
+        906,
+        967
+      ],
+      "score": 0.9973581433296204
+    },
+    {
+      "text": "3. GIoriaos en su santo Nombre: alégrese el corazon de los",
+      "box": [
+        82,
+        968,
+        441,
+        990
+      ],
+      "score": 0.9950693249702454
+    },
+    {
+      "text": "tierra, las primicias de su robustez.",
+      "box": [
+        541,
+        965,
+        745,
+        984
+      ],
+      "score": 0.9988189935684204
+    },
+    {
+      "text": "que van en busca del Señor.",
+      "box": [
+        72,
+        987,
+        242,
+        1004
+      ],
+      "score": 0.9994620680809021
+    },
+    {
+      "text": "37. Y sacó á Israél cargado de oro y plata: sin que hubiese",
+      "box": [
+        552,
+        981,
+        907,
+        1000
+      ],
+      "score": 0.9917212128639221
+    },
+    {
+      "text": "4. Buscad al Señor, y permaneced firmes: buscad incesan-",
+      "box": [
+        82,
+        1003,
+        442,
+        1023
+      ],
+      "score": 0.996387779712677
+    },
+    {
+      "text": "un enfermo en todas sus tribus.",
+      "box": [
+        540,
+        998,
+        725,
+        1017
+      ],
+      "score": 0.9996387362480164
+    },
+    {
+      "text": "temente su rostro .",
+      "box": [
+        73,
+        1021,
+        193,
+        1035
+      ],
+      "score": 0.9601203799247742
+    },
+    {
+      "text": "38. Alegróse el Egypto con la salida de ellos, por causa del",
+      "box": [
+        552,
+        1013,
+        908,
+        1034
+      ],
+      "score": 0.9989102482795715
+    },
+    {
+      "text": "5. Acordaos de las maravillas que hizo, de sus prodigios, y",
+      "box": [
+        82,
+        1036,
+        440,
+        1055
+      ],
+      "score": 0.998896062374115
+    },
+    {
+      "text": "gran temor que le causaban.",
+      "box": [
+        540,
+        1031,
+        705,
+        1051
+      ],
+      "score": 0.9979960322380066
+    },
+    {
+      "text": "de las sentencias que han salido de su boca,",
+      "box": [
+        70,
+        1053,
+        337,
+        1072
+      ],
+      "score": 0.9931461811065674
+    },
+    {
+      "text": "39. Extendió una nube que les sirviese de toldo, éhizo que",
+      "box": [
+        553,
+        1047,
+        907,
+        1064
+      ],
+      "score": 0.9959517121315002
+    },
+    {
+      "text": "6. Oh vosotros, descendientes de Abraham, siervos suyos,",
+      "box": [
+        83,
+        1071,
+        440,
+        1088
+      ],
+      "score": 0.9996110796928406
+    },
+    {
+      "text": "de noche los alumbrase como fuego.",
+      "box": [
+        540,
+        1062,
+        749,
+        1081
+      ],
+      "score": 0.9985506534576416
+    },
+    {
+      "text": "hijos de Jacob, sus escogidos.",
+      "box": [
+        72,
+        1088,
+        250,
+        1105
+      ],
+      "score": 0.9997143149375916
+    },
+    {
+      "text": "40. Pidieron de comer, y envióles codornices; y saciólos",
+      "box": [
+        553,
+        1080,
+        908,
+        1097
+      ],
+      "score": 0.9970186352729797
+    },
+    {
+      "text": "7. Él es el Señor Dios nuestro, cuyos juicios son conocidos",
+      "box": [
+        81,
+        1102,
+        441,
+        1123
+      ],
+      "score": 0.9914246201515198
+    },
+    {
+      "text": "con pan del cielo.",
+      "box": [
+        540,
+        1096,
+        644,
+        1115
+      ],
+      "score": 0.9991352558135986
+    },
+    {
+      "text": "41. Hendió la peña, y brotaron aguas; corrieron rios en",
+      "box": [
+        551,
+        1111,
+        910,
+        1132
+      ],
+      "score": 0.9820042848587036
+    },
+    {
+      "text": "en toda la tierra.",
+      "box": [
+        72,
+        1122,
+        174,
+        1136
+      ],
+      "score": 0.9996704459190369
+    },
+    {
+      "text": "8. Nunca jamás ha puesto en olvido su alianza, aquella",
+      "box": [
+        83,
+        1136,
+        440,
+        1154
+      ],
+      "score": 0.991783857345581
+    },
+    {
+      "text": "aquel secadal.",
+      "box": [
+        539,
+        1127,
+        626,
+        1150
+      ],
+      "score": 0.9983552098274231
+    },
+    {
+      "text": "palabra que dijo para miles de generaciones,",
+      "box": [
+        71,
+        1152,
+        339,
+        1171
+      ],
+      "score": 0.9989022612571716
+    },
+    {
+      "text": "142. Porque tuvo presente su santa palabra, que diera á",
+      "box": [
+        551,
+        1143,
+        912,
+        1164
+      ],
+      "score": 0.9925867915153503
+    },
+    {
+      "text": "9. La promesa hecha á Abraham y su juramento á Isaac:",
+      "box": [
+        83,
+        1167,
+        442,
+        1189
+      ],
+      "score": 0.9813533425331116
+    },
+    {
+      "text": "Abraham siervo suyo.",
+      "box": [
+        540,
+        1162,
+        668,
+        1179
+      ],
+      "score": 0.9975461959838867
+    },
+    {
+      "text": "1 La cigüeña forma su nido en las ramas de los árboles mas altos; y le",
+      "box": [
+        82,
+        1198,
+        442,
+        1221
+      ],
+      "score": 0.9719376564025879
+    },
+    {
+      "text": "4 Exod. XIX, v. 18.—XX, v. 18.",
+      "box": [
+        550,
+        1190,
+        720,
+        1212
+      ],
+      "score": 0.9453150033950806
+    },
+    {
+      "text": "forma antes que las demás aves. Chrysost.",
+      "box": [
+        71,
+        1214,
+        286,
+        1234
+      ],
+      "score": 0.9827620983123779
+    },
+    {
+      "text": "5 I. Paral. XVI, v. 8.",
+      "box": [
+        553,
+        1210,
+        666,
+        1224
+      ],
+      "score": 0.9405508637428284
+    },
+    {
+      "text": ": De una region á otra.",
+      "box": [
+        80,
+        1228,
+        207,
+        1246
+      ],
+      "score": 0.9644011855125427
+    },
+    {
+      "text": " Esto es, alabad al Señor.",
+      "box": [
+        551,
+        1221,
+        687,
+        1240
+      ],
+      "score": 0.9795089960098267
+    },
+    {
+      "text": "3 Esto es, la ballena; ó tal vez un pez aun mas monstruoso y disforme",
+      "box": [
+        80,
+        1240,
+        441,
+        1261
+      ],
+      "score": 0.9690839052200317
+    },
+    {
+      "text": "7 O el estar en su presencia.",
+      "box": [
+        551,
+        1236,
+        696,
+        1254
+      ],
+      "score": 0.9909458160400391
+    },
+    {
+      "text": "que la ballena; del cual se habla en el libro de Job con el nombre de le-",
+      "box": [
+        71,
+        1255,
+        440,
+        1276
+      ],
+      "score": 0.9961650371551514
+    },
+    {
+      "text": "Airado dijo á los reyes: Guardaos, etc. I. Parul. XVI, v. 2.",
+      "box": [
+        551,
+        1247,
+        870,
+        1269
+      ],
+      "score": 0.8705853819847107
+    },
+    {
+      "text": "viathan; y que llamamos ballena, por ser esta el pez mas grande que co-",
+      "box": [
+        72,
+        1269,
+        440,
+        1292
+      ],
+      "score": 0.973554790019989
+    },
+    {
+      "text": "9 Genes. XLI, v. 14, 40.",
+      "box": [
+        553,
+        1268,
+        676,
+        1282
+      ],
+      "score": 0.970756471157074
+    },
+    {
+      "text": "nocemos. Lo mismo puede decirse del animal llamado en Job behemoth, por",
+      "box": [
+        72,
+        1284,
+        440,
+        1306
+      ],
+      "score": 0.9919377565383911
+    },
+    {
+      "text": "10 Esto es, en Egypto, donde Misraim, hijo de Cham, propagó su linaje.",
+      "box": [
+        548,
+        1277,
+        914,
+        1298
+      ],
+      "score": 0.9965940117835999
+    },
+    {
+      "text": "el cual comunmente se entiende el elefante, lamado rey de los animales.",
+      "box": [
+        71,
+        1296,
+        441,
+        1322
+      ],
+      "score": 0.8296332955360413
+    },
+    {
+      "text": "11 O, moscones,—Véase Canomyia.",
+      "box": [
+        551,
+        1297,
+        724,
+        1311
+      ],
+      "score": 0.9524070024490356
+    }
+  ]
+}

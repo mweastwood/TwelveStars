@@ -1,0 +1,1477 @@
+{
+  "volume": 2,
+  "page_index": 123,
+  "pdf_page": 124,
+  "lines": [
+    {
+      "text": "151",
+      "box": [
+        69,
+        61,
+        109,
+        89
+      ],
+      "score": 0.9999497532844543
+    },
+    {
+      "text": "IV. REYES.",
+      "box": [
+        284,
+        72,
+        399,
+        101
+      ],
+      "score": 0.9618436098098755
+    },
+    {
+      "text": "CAPITULO XV.",
+      "box": [
+        980,
+        89,
+        1134,
+        121
+      ],
+      "score": 0.9961442947387695
+    },
+    {
+      "text": "152",
+      "box": [
+        1282,
+        110,
+        1315,
+        133
+      ],
+      "score": 0.9999780058860779
+    },
+    {
+      "text": "Benadad hijo de Hazaél las ciudades ó plazas que habia éste",
+      "box": [
+        56,
+        129,
+        621,
+        178
+      ],
+      "score": 0.9975551962852478
+    },
+    {
+      "text": "tomado á su padre Joachaz por derecho de guerra. Tres veces",
+      "box": [
+        57,
+        160,
+        622,
+        202
+      ],
+      "score": 0.9984095096588135
+    },
+    {
+      "text": "20. Trasportáronle despues de allí en un carro tirado de",
+      "box": [
+        799,
+        153,
+        1324,
+        197
+      ],
+      "score": 0.9961523413658142
+    },
+    {
+      "text": "le derrotó Joas; y restituyó á Israél aquellas ciudades.",
+      "box": [
+        56,
+        186,
+        554,
+        228
+      ],
+      "score": 0.9902834892272949
+    },
+    {
+      "text": "caballos, y fué sepultado en Jerusalem con sus padres en la",
+      "box": [
+        779,
+        180,
+        1324,
+        223
+      ],
+      "score": 0.9952632188796997
+    },
+    {
+      "text": "ciudad de David.",
+      "box": [
+        780,
+        212,
+        937,
+        236
+      ],
+      "score": 0.9732699394226074
+    },
+    {
+      "text": "CAPITULO XIV",
+      "box": [
+        268,
+        241,
+        420,
+        269
+      ],
+      "score": 0.9997062683105469
+    },
+    {
+      "text": "21. Luego todo el pueblo de Judá cogió á Azarias, que era",
+      "box": [
+        797,
+        235,
+        1322,
+        270
+      ],
+      "score": 0.9927337765693665
+    },
+    {
+      "text": "de diez y seis años, y proclamóle rey en lugar de Amasias su",
+      "box": [
+        777,
+        260,
+        1322,
+        293
+      ],
+      "score": 0.9933432340621948
+    },
+    {
+      "text": "Reinado de Amasias, rey de Judá: es batido por Joas, rey de Israél, cuyo",
+      "box": [
+        59,
+        278,
+        622,
+        318
+      ],
+      "score": 0.9981797337532043
+    },
+    {
+      "text": "padre.",
+      "box": [
+        777,
+        286,
+        842,
+        311
+      ],
+      "score": 0.9999836087226868
+    },
+    {
+      "text": "hijo Jeroboam II acaba de libertar á Israél.",
+      "box": [
+        176,
+        304,
+        509,
+        336
+      ],
+      "score": 0.9860914349555969
+    },
+    {
+      "text": "22. Este reedificó á Elath, y la restituyó á Judá, después",
+      "box": [
+        797,
+        309,
+        1321,
+        338
+      ],
+      "score": 0.979776918888092
+    },
+    {
+      "text": "1. En el segundo año de Joas, hijo de Joachaz, rey de Is-",
+      "box": [
+        79,
+        338,
+        623,
+        382
+      ],
+      "score": 0.9982464909553528
+    },
+    {
+      "text": "que el rey pasó á descansar con sus padres.",
+      "box": [
+        778,
+        335,
+        1170,
+        362
+      ],
+      "score": 0.9808322787284851
+    },
+    {
+      "text": "raél, entró á reinar Amasias, hijo de el otro Joas, rey de",
+      "box": [
+        57,
+        361,
+        624,
+        409
+      ],
+      "score": 0.9833969473838806
+    },
+    {
+      "text": "23. El año décimoquinto del reinado de Amasias hijo de",
+      "box": [
+        797,
+        359,
+        1322,
+        384
+      ],
+      "score": 0.9930827617645264
+    },
+    {
+      "text": "Judá.",
+      "box": [
+        58,
+        386,
+        122,
+        418
+      ],
+      "score": 0.9973950386047363
+    },
+    {
+      "text": "Joas, rey de Judá, entró á reinár en Samaria Jeroboam hijo",
+      "box": [
+        777,
+        381,
+        1323,
+        408
+      ],
+      "score": 0.9978631734848022
+    },
+    {
+      "text": "2. Veinte y cinco años tenia cuando comenzó á reinar: y",
+      "box": [
+        79,
+        413,
+        623,
+        455
+      ],
+      "score": 0.9892306327819824
+    },
+    {
+      "text": "de Joas rey de Israél, y reinó cuarenta y un años.",
+      "box": [
+        778,
+        407,
+        1228,
+        431
+      ],
+      "score": 0.9841127991676331
+    },
+    {
+      "text": "reinó veinte y nueve años en Jerusalem. Llamábase su madre",
+      "box": [
+        59,
+        436,
+        624,
+        479
+      ],
+      "score": 0.9953070878982544
+    },
+    {
+      "text": "24. Y obró el mal delante del Señor: en nada se apartó de",
+      "box": [
+        795,
+        429,
+        1324,
+        454
+      ],
+      "score": 0.9987454414367676
+    },
+    {
+      "text": "todos los pecados de Jeroboam hijo de Nabath, que hizo",
+      "box": [
+        775,
+        451,
+        1325,
+        479
+      ],
+      "score": 0.9999436140060425
+    },
+    {
+      "text": "Joadan, natural de Jerusalem.",
+      "box": [
+        61,
+        463,
+        342,
+        497
+      ],
+      "score": 0.9934754967689514
+    },
+    {
+      "text": "3. É hizo lo que era justo en la presencia del Señor, mas",
+      "box": [
+        79,
+        485,
+        625,
+        527
+      ],
+      "score": 0.9979974031448364
+    },
+    {
+      "text": "pecar á Israél.",
+      "box": [
+        775,
+        478,
+        907,
+        502
+      ],
+      "score": 0.9977172017097473
+    },
+    {
+      "text": "25. Restableció en el primitivo estado los límites del reino",
+      "box": [
+        793,
+        497,
+        1327,
+        527
+      ],
+      "score": 0.9936529397964478
+    },
+    {
+      "text": "no como David su padre. En todo imitó el proceder de su",
+      "box": [
+        60,
+        511,
+        624,
+        550
+      ],
+      "score": 0.9950318932533264
+    },
+    {
+      "text": "de Israél, reconquistando desde la entrada de Emath hasta",
+      "box": [
+        774,
+        521,
+        1327,
+        551
+      ],
+      "score": 0.9931455850601196
+    },
+    {
+      "text": "padre Joas:",
+      "box": [
+        61,
+        536,
+        176,
+        565
+      ],
+      "score": 0.9999666810035706
+    },
+    {
+      "text": "el mar del Desierto; conforme á la palabra del Señor Dios de",
+      "box": [
+        774,
+        545,
+        1327,
+        577
+      ],
+      "score": 0.995707094669342
+    },
+    {
+      "text": "4. Aunque tampoco quitó los lugares excelsos; pues to-",
+      "box": [
+        81,
+        560,
+        624,
+        600
+      ],
+      "score": 0.9996709227561951
+    },
+    {
+      "text": "Israél, pronunciada por su siervo el Profeta Jonás, hijo de",
+      "box": [
+        772,
+        568,
+        1328,
+        603
+      ],
+      "score": 0.9946340918540955
+    },
+    {
+      "text": "davía sacrificaba el pueblo, y quemaba incienso en las al-",
+      "box": [
+        62,
+        584,
+        625,
+        625
+      ],
+      "score": 0.9996025562286377
+    },
+    {
+      "text": "Amathi, natural de Geth, ciudad situada en Opher.",
+      "box": [
+        774,
+        597,
+        1249,
+        627
+      ],
+      "score": 0.9982964396476746
+    },
+    {
+      "text": "turas.",
+      "box": [
+        62,
+        610,
+        125,
+        639
+      ],
+      "score": 0.9999601244926453
+    },
+    {
+      "text": "26. Porque vió el Señor la amarguísima afliccion de Is-",
+      "box": [
+        793,
+        618,
+        1327,
+        653
+      ],
+      "score": 0.9998130798339844
+    },
+    {
+      "text": "5. Luego que entró en posesion del reino, hizo quitar la",
+      "box": [
+        83,
+        636,
+        624,
+        675
+      ],
+      "score": 0.996190071105957
+    },
+    {
+      "text": "vida á sus criados, que habian muerto al rey su padre:",
+      "box": [
+        63,
+        660,
+        564,
+        699
+      ],
+      "score": 0.9994403719902039
+    },
+    {
+      "text": "raél, y que habian perecido á filo de espada hasta los que",
+      "box": [
+        774,
+        642,
+        1328,
+        678
+      ],
+      "score": 0.9897341132164001
+    },
+    {
+      "text": "estaban en la cárcel, y los mas desvalidos, y que no habia",
+      "box": [
+        773,
+        664,
+        1329,
+        705
+      ],
+      "score": 0.9968796372413635
+    },
+    {
+      "text": "6. Aunque no mató á los hijos de los que le habian muerto,",
+      "box": [
+        84,
+        687,
+        623,
+        721
+      ],
+      "score": 0.9784626960754395
+    },
+    {
+      "text": "quien socorriese á Israél.",
+      "box": [
+        775,
+        698,
+        998,
+        724
+      ],
+      "score": 0.9995487928390503
+    },
+    {
+      "text": "conforme álo que se halla escrito en el libro de la Ley de",
+      "box": [
+        65,
+        712,
+        623,
+        744
+      ],
+      "score": 0.9991691708564758
+    },
+    {
+      "text": "27. Ni habia decretado el Señor borrar el nombre de Is-",
+      "box": [
+        793,
+        713,
+        1329,
+        750
+      ],
+      "score": 0.996908962726593
+    },
+    {
+      "text": "Moysés, segun el precepto del Señor, que dice: No morirán",
+      "box": [
+        64,
+        737,
+        623,
+        768
+      ],
+      "score": 0.9997270107269287
+    },
+    {
+      "text": "raél de debajo del cielo; y así los libertó por mano de Jero-",
+      "box": [
+        772,
+        737,
+        1330,
+        777
+      ],
+      "score": 0.9940428137779236
+    },
+    {
+      "text": "los padres por los hijos, ni los hijos por los padres; sino que",
+      "box": [
+        64,
+        762,
+        622,
+        794
+      ],
+      "score": 0.9969677925109863
+    },
+    {
+      "text": "boam hijo de Joas.",
+      "box": [
+        773,
+        772,
+        945,
+        799
+      ],
+      "score": 0.9999752044677734
+    },
+    {
+      "text": "cada uno morirá por su pecado personal.",
+      "box": [
+        64,
+        788,
+        442,
+        816
+      ],
+      "score": 0.9990444779396057
+    },
+    {
+      "text": "28. Las demás cosas de Jeroboam, y todo cuanto hizo, y",
+      "box": [
+        793,
+        786,
+        1329,
+        826
+      ],
+      "score": 0.9925175905227661
+    },
+    {
+      "text": "7. Este mismo derrotó diez mil Iduméos en el valle de",
+      "box": [
+        85,
+        812,
+        622,
+        842
+      ],
+      "score": 0.991678774356842
+    },
+    {
+      "text": "el valor con que combatió, y cómo restituyó á Israél las ciu-",
+      "box": [
+        772,
+        808,
+        1330,
+        853
+      ],
+      "score": 0.9954025149345398
+    },
+    {
+      "text": "las Salinas, y tomó á viva fuerza á Petra, á la cual llamó",
+      "box": [
+        64,
+        837,
+        623,
+        866
+      ],
+      "score": 0.9730734825134277
+    },
+    {
+      "text": "dades de Damasco y Emath, que habian sido de Judá ³, ¿no",
+      "box": [
+        771,
+        832,
+        1330,
+        877
+      ],
+      "score": 0.970591127872467
+    },
+    {
+      "text": "Jectehel, nombre que conserva hasta hoy dia.",
+      "box": [
+        66,
+        864,
+        478,
+        887
+      ],
+      "score": 0.9993692636489868
+    },
+    {
+      "text": "está todo eso escrito en el libro de los Anales de los reyes de",
+      "box": [
+        771,
+        854,
+        1330,
+        901
+      ],
+      "score": 0.9984406232833862
+    },
+    {
+      "text": "8. Entonces envió Amasias embajadores á Joas, hijo de",
+      "box": [
+        86,
+        886,
+        622,
+        915
+      ],
+      "score": 0.9991070628166199
+    },
+    {
+      "text": "Israél?",
+      "box": [
+        772,
+        895,
+        840,
+        920
+      ],
+      "score": 0.9981455206871033
+    },
+    {
+      "text": "Joachaz, hijo de Jehú, rey de Israél, diciendo: Ven, y veá-",
+      "box": [
+        64,
+        910,
+        621,
+        940
+      ],
+      "score": 0.9982227683067322
+    },
+    {
+      "text": "29. En fin Jeroboam fué á reposar con sus padres los reyes",
+      "box": [
+        791,
+        902,
+        1330,
+        948
+      ],
+      "score": 0.9970508217811584
+    },
+    {
+      "text": "monos las caras.",
+      "box": [
+        67,
+        939,
+        225,
+        960
+      ],
+      "score": 0.9971747398376465
+    },
+    {
+      "text": "de Israél, y sucedióle en el reino su hijo Zacharias.",
+      "box": [
+        772,
+        932,
+        1233,
+        970
+      ],
+      "score": 0.9930958151817322
+    },
+    {
+      "text": "9. Y Joas rey de Israél envió á Amasias rey de Judá esta",
+      "box": [
+        87,
+        962,
+        620,
+        988
+      ],
+      "score": 0.9791542887687683
+    },
+    {
+      "text": "respuesta: El cardo del Líbano envió á decir al cedro que está",
+      "box": [
+        65,
+        987,
+        622,
+        1015
+      ],
+      "score": 0.9992386698722839
+    },
+    {
+      "text": "CAPITULO XV",
+      "box": [
+        975,
+        982,
+        1123,
+        1012
+      ],
+      "score": 0.9996806979179382
+    },
+    {
+      "text": "en el Líbano: Da tu hija por mujer á mi hijo. Mas las bestias",
+      "box": [
+        67,
+        1015,
+        621,
+        1039
+      ],
+      "score": 0.9996867775917053
+    },
+    {
+      "text": "salvajes que habitan en el Líbano, pasaron y pisotearon al",
+      "box": [
+        66,
+        1041,
+        621,
+        1065
+      ],
+      "score": 0.9998942017555237
+    },
+    {
+      "text": "A Azarias rey de Judá le sucede su hijo Joathám. En el reino de Israél",
+      "box": [
+        772,
+        1017,
+        1330,
+        1061
+      ],
+      "score": 0.9992186427116394
+    },
+    {
+      "text": "á Zacharias sucede Sellúm: á éste, Manahem: á éste, Phaceia; y des-",
+      "box": [
+        788,
+        1039,
+        1330,
+        1080
+      ],
+      "score": 0.9817420840263367
+    },
+    {
+      "text": "cardo orgulloso¹.",
+      "box": [
+        67,
+        1066,
+        230,
+        1090
+      ],
+      "score": 0.9592437744140625
+    },
+    {
+      "text": "pues Phacée, en cuyo tiempo son llevados á Syria prisioneros muchos",
+      "box": [
+        788,
+        1060,
+        1331,
+        1103
+      ],
+      "score": 0.9854958653450012
+    },
+    {
+      "text": "10. Como tú has vencido y derrotado á los Iduméos, por",
+      "box": [
+        86,
+        1088,
+        623,
+        1116
+      ],
+      "score": 0.9960933923721313
+    },
+    {
+      "text": "Israelitas.",
+      "box": [
+        790,
+        1095,
+        873,
+        1118
+      ],
+      "score": 0.9947150945663452
+    },
+    {
+      "text": "esto se ha engreido tu corazon. Conténtate con esa gloria,",
+      "box": [
+        66,
+        1112,
+        622,
+        1140
+      ],
+      "score": 0.9997360706329346
+    },
+    {
+      "text": "y estáte quedo en tu casa: ¿á qué fin quieres acarrearte males",
+      "box": [
+        67,
+        1139,
+        621,
+        1163
+      ],
+      "score": 0.9997993111610413
+    },
+    {
+      "text": "1. El año veinte y siete del reinado de Jeroboam rey de",
+      "box": [
+        791,
+        1123,
+        1330,
+        1164
+      ],
+      "score": 0.9959421157836914
+    },
+    {
+      "text": "para perderte tú y Judá contigo?",
+      "box": [
+        65,
+        1162,
+        371,
+        1188
+      ],
+      "score": 0.9989055395126343
+    },
+    {
+      "text": "Israél entró á reinar Azarias 4, hijo de Amasias rey de Judá.",
+      "box": [
+        773,
+        1148,
+        1330,
+        1188
+      ],
+      "score": 0.9753901362419128
+    },
+    {
+      "text": "11.\" Pero Amasias no quiso aquietarse. Por lo cual Joas",
+      "box": [
+        88,
+        1186,
+        622,
+        1210
+      ],
+      "score": 0.9917240738868713
+    },
+    {
+      "text": "2. Diez y seis años tenia cuando comenzó á reinar, y",
+      "box": [
+        793,
+        1174,
+        1331,
+        1211
+      ],
+      "score": 0.9889551401138306
+    },
+    {
+      "text": "rey de Israél salió á campaña, y encontrándose él y Amasias,",
+      "box": [
+        65,
+        1209,
+        623,
+        1237
+      ],
+      "score": 0.9986338019371033
+    },
+    {
+      "text": "reinó cincuenta y dos años en Jerusalem. Llamábase su ma-",
+      "box": [
+        774,
+        1198,
+        1332,
+        1235
+      ],
+      "score": 0.9934574365615845
+    },
+    {
+      "text": "rey de Judá, junto á Bethsames, ciudad de Judá,",
+      "box": [
+        66,
+        1233,
+        512,
+        1261
+      ],
+      "score": 0.9997771978378296
+    },
+    {
+      "text": "dre Jechelía, natural de Jerusalem.",
+      "box": [
+        776,
+        1230,
+        1090,
+        1258
+      ],
+      "score": 0.9948039650917053
+    },
+    {
+      "text": "12. Fué el ejército de Judá derrotado por el de Israél; y",
+      "box": [
+        88,
+        1260,
+        624,
+        1287
+      ],
+      "score": 0.9925328493118286
+    },
+    {
+      "text": "3. É hizo lo que era agradable al Señor, imitando en todo",
+      "box": [
+        792,
+        1243,
+        1333,
+        1289
+      ],
+      "score": 0.9956989884376526
+    },
+    {
+      "text": "cada cual huyó á su casa ².",
+      "box": [
+        67,
+        1282,
+        316,
+        1313
+      ],
+      "score": 0.9801297783851624
+    },
+    {
+      "text": "y por todo á su padre Amasias.",
+      "box": [
+        775,
+        1280,
+        1055,
+        1311
+      ],
+      "score": 0.987719714641571
+    },
+    {
+      "text": "13. Y Joas, rey de Ísraél, hizo prisionero en la batalla de",
+      "box": [
+        87,
+        1306,
+        628,
+        1340
+      ],
+      "score": 0.9868548512458801
+    },
+    {
+      "text": "4. Verdad es que no demolió los lugares excelsos; pues",
+      "box": [
+        794,
+        1294,
+        1335,
+        1338
+      ],
+      "score": 0.9909541606903076
+    },
+    {
+      "text": "Bethsames á Amasias rey de Judá, hijo de Joas, hijo de",
+      "box": [
+        67,
+        1333,
+        628,
+        1367
+      ],
+      "score": 0.9972438812255859
+    },
+    {
+      "text": "todavía el pueblo sacrificaba y quemaba incienso á Dios en",
+      "box": [
+        776,
+        1317,
+        1337,
+        1365
+      ],
+      "score": 0.9920170903205872
+    },
+    {
+      "text": "Ochozías, y llevóle á Jerusalem; y abrió una brecha de cua-",
+      "box": [
+        70,
+        1358,
+        630,
+        1395
+      ],
+      "score": 0.9963721632957458
+    },
+    {
+      "text": "las alturas.",
+      "box": [
+        780,
+        1361,
+        881,
+        1382
+      ],
+      "score": 0.9997475147247314
+    },
+    {
+      "text": "5. Mas el Señor castigó al rey 5; el cual estuvo leproso",
+      "box": [
+        796,
+        1366,
+        1338,
+        1414
+      ],
+      "score": 0.9757505655288696
+    },
+    {
+      "text": "trocientos codos en la muralla de Jerusalem desde la puerta",
+      "box": [
+        70,
+        1384,
+        631,
+        1421
+      ],
+      "score": 0.9959376454353333
+    },
+    {
+      "text": "hasta el dia de su muerte, y habitó separado en una casa",
+      "box": [
+        777,
+        1390,
+        1340,
+        1439
+      ],
+      "score": 0.97380530834198
+    },
+    {
+      "text": "de Ephraim hasta la puerta de la esquina.",
+      "box": [
+        71,
+        1409,
+        457,
+        1446
+      ],
+      "score": 0.9991735816001892
+    },
+    {
+      "text": "aislada 8. Mientras tanto Joathám, hijo del rey, gobernaba",
+      "box": [
+        778,
+        1414,
+        1340,
+        1464
+      ],
+      "score": 0.973617434501648
+    },
+    {
+      "text": "14. Y tomó todo el oro y plata, y todas las alhajas que se",
+      "box": [
+        91,
+        1431,
+        631,
+        1471
+      ],
+      "score": 0.9954683780670166
+    },
+    {
+      "text": "el palacio, y administraba justicia al pueblo de aquella",
+      "box": [
+        779,
+        1439,
+        1340,
+        1488
+      ],
+      "score": 0.9940112829208374
+    },
+    {
+      "text": "hallaron en el templo del Señor, y en los tesoros del rey, y",
+      "box": [
+        71,
+        1456,
+        631,
+        1497
+      ],
+      "score": 0.9990779757499695
+    },
+    {
+      "text": "tierra.",
+      "box": [
+        782,
+        1481,
+        841,
+        1503
+      ],
+      "score": 0.9999011754989624
+    },
+    {
+      "text": "los rehenes; y volvióse á Samaria.",
+      "box": [
+        72,
+        1486,
+        380,
+        1522
+      ],
+      "score": 0.9996665716171265
+    },
+    {
+      "text": "6. Las demás cosas de Azarias, y todos sus hechos, ¿no",
+      "box": [
+        800,
+        1491,
+        1341,
+        1533
+      ],
+      "score": 0.9938349723815918
+    },
+    {
+      "text": "15. Las demás acciones de Joas, y el valor con que peleó",
+      "box": [
+        94,
+        1506,
+        631,
+        1545
+      ],
+      "score": 0.993043065071106
+    },
+    {
+      "text": "están escritos en el libro de los Anales de los reyes de Judá?",
+      "box": [
+        782,
+        1514,
+        1343,
+        1557
+      ],
+      "score": 0.9935954809188843
+    },
+    {
+      "text": "contra Amasias rey de Judá, ¿todo eso no está escrito en el",
+      "box": [
+        74,
+        1530,
+        632,
+        1570
+      ],
+      "score": 0.9943571090698242
+    },
+    {
+      "text": "7. Pasó en fin Azarias á descansar con sus padres, y fué",
+      "box": [
+        800,
+        1540,
+        1343,
+        1580
+      ],
+      "score": 0.9941316246986389
+    },
+    {
+      "text": "libro de los Anales de los reyes de Israél?",
+      "box": [
+        74,
+        1559,
+        450,
+        1593
+      ],
+      "score": 0.9997803568840027
+    },
+    {
+      "text": "sepultado con sus antepasados en la ciudad de David, suce-",
+      "box": [
+        783,
+        1568,
+        1343,
+        1602
+      ],
+      "score": 0.9992215633392334
+    },
+    {
+      "text": "16. Finalmente, Joas pasó á descansar con sus padres, y",
+      "box": [
+        95,
+        1579,
+        632,
+        1618
+      ],
+      "score": 0.9906153082847595
+    },
+    {
+      "text": "diéndole en el reino su hijo Joathám.",
+      "box": [
+        784,
+        1597,
+        1111,
+        1624
+      ],
+      "score": 0.9999400973320007
+    },
+    {
+      "text": "fué sepultado en Samaria con los reyes de Israél, sucedién-",
+      "box": [
+        74,
+        1603,
+        633,
+        1644
+      ],
+      "score": 0.9933739304542542
+    },
+    {
+      "text": "8. El año treinta y ocho del reinado de Azarias rey de",
+      "box": [
+        800,
+        1613,
+        1345,
+        1652
+      ],
+      "score": 0.9970015287399292
+    },
+    {
+      "text": "dole en el reino su hijo Jeroboam Segundo.",
+      "box": [
+        75,
+        1633,
+        467,
+        1668
+      ],
+      "score": 0.9996766448020935
+    },
+    {
+      "text": "Judá, reinó Zacharias hijo de Jeroboam sobre Israél en Sa-",
+      "box": [
+        782,
+        1639,
+        1345,
+        1675
+      ],
+      "score": 0.9920330047607422
+    },
+    {
+      "text": "17. Mas Amasias, hijo de Joas rey de Judá, vivió quince",
+      "box": [
+        94,
+        1653,
+        632,
+        1692
+      ],
+      "score": 0.9907147288322449
+    },
+    {
+      "text": "maria por espacio de seis meses;",
+      "box": [
+        783,
+        1669,
+        1074,
+        1696
+      ],
+      "score": 0.9996156692504883
+    },
+    {
+      "text": "años despues de la muerte de Joas, hijo de Joachaz rey de",
+      "box": [
+        73,
+        1677,
+        632,
+        1718
+      ],
+      "score": 0.9991258382797241
+    },
+    {
+      "text": "9. È hizo el mal delante del Señor, así como lo habian",
+      "box": [
+        801,
+        1686,
+        1344,
+        1722
+      ],
+      "score": 0.9803097248077393
+    },
+    {
+      "text": "Israél.",
+      "box": [
+        73,
+        1715,
+        138,
+        1740
+      ],
+      "score": 0.9995579123497009
+    },
+    {
+      "text": "hecho sus padres. No se desvió de los pecados de Jeroboam,",
+      "box": [
+        782,
+        1712,
+        1344,
+        1744
+      ],
+      "score": 0.9975296258926392
+    },
+    {
+      "text": "18. Lo restante empero de las acciones de Amasias, ¿no",
+      "box": [
+        92,
+        1727,
+        631,
+        1765
+      ],
+      "score": 0.9977661371231079
+    },
+    {
+      "text": "hijo de Nabath, que hizo pecar á Israél.",
+      "box": [
+        782,
+        1737,
+        1135,
+        1770
+      ],
+      "score": 0.9905574917793274
+    },
+    {
+      "text": "está todo escrito en el libro de los Anales de los reyes de",
+      "box": [
+        72,
+        1753,
+        631,
+        1789
+      ],
+      "score": 0.9997795820236206
+    },
+    {
+      "text": "10. Conjuróse contra él Sellúm, hijo de Jabes, y acome-",
+      "box": [
+        800,
+        1760,
+        1344,
+        1793
+      ],
+      "score": 0.9922250509262085
+    },
+    {
+      "text": "Judá?",
+      "box": [
+        70,
+        1786,
+        135,
+        1814
+      ],
+      "score": 0.9910790324211121
+    },
+    {
+      "text": "tiéndole en público, le mató, y reinó en su lugar.",
+      "box": [
+        783,
+        1786,
+        1224,
+        1816
+      ],
+      "score": 0.9997135400772095
+    },
+    {
+      "text": "19. Contra éste se suscitó una conjuracion en Jerusalem,",
+      "box": [
+        90,
+        1801,
+        631,
+        1839
+      ],
+      "score": 0.9992223978042603
+    },
+    {
+      "text": "11. Las demás cosas de Zacharias, ¿no están todas escritas",
+      "box": [
+        801,
+        1808,
+        1343,
+        1838
+      ],
+      "score": 0.9928722381591797
+    },
+    {
+      "text": "por causa de la cual se huyó á Lachis; pero destacaron gentes",
+      "box": [
+        67,
+        1825,
+        633,
+        1867
+      ],
+      "score": 0.9919330477714539
+    },
+    {
+      "text": "en el libro de los Anales de los reyes de Israél?",
+      "box": [
+        783,
+        1832,
+        1203,
+        1862
+      ],
+      "score": 0.9996795058250427
+    },
+    {
+      "text": "á Lachis, y allí le mataron.",
+      "box": [
+        65,
+        1858,
+        326,
+        1892
+      ],
+      "score": 0.9795418381690979
+    },
+    {
+      "text": "4 Llamado tambien Ozías.",
+      "box": [
+        802,
+        1897,
+        999,
+        1924
+      ],
+      "score": 0.9997915625572205
+    },
+    {
+      "text": " Por usurpador del sacerdocio. II. Paral. XXVI.",
+      "box": [
+        800,
+        1916,
+        1189,
+        1945
+      ],
+      "score": 0.9932185411453247
+    },
+    {
+      "text": "1 Véase Hebraismos.",
+      "box": [
+        79,
+        1926,
+        256,
+        1957
+      ],
+      "score": 0.9765626192092896
+    },
+    {
+      "text": "6 Segun lo mandado por la Ley. Lev. XIII, v. 46.",
+      "box": [
+        801,
+        1939,
+        1184,
+        1967
+      ],
+      "score": 0.9844475388526917
+    },
+    {
+      "text": "2 Véase II. Paral. XXV, v. 14, 20.",
+      "box": [
+        78,
+        1946,
+        368,
+        1980
+      ],
+      "score": 0.9898014068603516
+    },
+    {
+      "text": "3 II. Reg. VIII, v. 6, 14.—I. Paral. XVIII, v. 5.",
+      "box": [
+        75,
+        1964,
+        482,
+        2005
+      ],
+      "score": 0.9746914505958557
+    },
+    {
+      "text": "1il",
+      "box": [
+        339,
+        2028,
+        354,
+        2041
+      ],
+      "score": 0.7126085758209229
+    }
+  ]
+}

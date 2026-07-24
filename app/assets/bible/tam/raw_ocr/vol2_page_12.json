@@ -1,0 +1,797 @@
+{
+  "volume": 2,
+  "page_index": 12,
+  "pdf_page": 13,
+  "lines": [
+    {
+      "text": "LOS REYES",
+      "box": [
+        490,
+        40,
+        992,
+        183
+      ],
+      "score": 0.9998747706413269
+    },
+    {
+      "text": "LIBRO I",
+      "box": [
+        664,
+        196,
+        817,
+        256
+      ],
+      "score": 0.9974781274795532
+    },
+    {
+      "text": "ADVERTENCIA",
+      "box": [
+        628,
+        378,
+        860,
+        417
+      ],
+      "score": 0.9998713135719299
+    },
+    {
+      "text": "de Saul hasta cerca del n del reinado de David.",
+      "box": [
+        90,
+        594,
+        490,
+        642
+      ],
+      "score": 0.8257154822349548
+    },
+    {
+      "text": "unos 126 años. Este libro le han atribuido algunos á Jeremías: y Teodoreto cree que es un compendio sacado de otros escritos, y formado por algun historiador des-",
+      "box": [
+        90,
+        693,
+        1379,
+        737
+      ],
+      "score": 0.8492379188537598
+    },
+    {
+      "text": "pues que el pueblo de Israél fué llevado cautivo por Nabuchodonosor.",
+      "box": [
+        91,
+        719,
+        651,
+        753
+      ],
+      "score": 0.996198296546936
+    },
+    {
+      "text": "El libro que nosotros llamamos IV de los Reyes, es llamado por los Hebreos segundo de los Reyes. Contiene los principales sucesos de diez y seis reyes de Judá,",
+      "box": [
+        128,
+        742,
+        1381,
+        781
+      ],
+      "score": 0.9950262308120728
+    },
+    {
+      "text": "es á saber, Joram, Ochozías, Athalía, Joas, Amasías, Azarías ú Ozías, Joatham, Achaz, Ezechías, Manassés, Amon, Josías, Joachaz ó Sellum, Joachim, Jechonías, y",
+      "box": [
+        90,
+        763,
+        1380,
+        806
+      ],
+      "score": 0.983056902885437
+    },
+    {
+      "text": "Sedecías. E igualmente la historia de doce reyes de Israél, es á saber, Ochozías, Joram, Jehú, Joachaz, Joas, Jcroboam, Zacharías, Sellum, Manahem, Phaceía, Phacée",
+      "box": [
+        90,
+        786,
+        1380,
+        829
+      ],
+      "score": 0.922865629196167
+    },
+    {
+      "text": "y Osée; y tambien la relacion de muchos milagros que Dios hizo por medio de Elías y Eliséo. De suerte que este libro comprende la historia del pueblo de Dios du-",
+      "box": [
+        90,
+        811,
+        1378,
+        850
+      ],
+      "score": 0.9971848130226135
+    },
+    {
+      "text": "rante unos 308 años; esto es, hasta Osée último rey de Israál, y Sedecías rey de Judá, que fué llevado cautivo por Nabuchodonosor: y todos los cuatro libros de los",
+      "box": [
+        90,
+        834,
+        1378,
+        873
+      ],
+      "score": 0.9894869923591614
+    },
+    {
+      "text": "Reyes la de 575 años. Algunos hacen esta época algo mayor, y la extienden desde el año 2848 del mundo, ó el primero del gobierno del Sumo Sacerdote Helí, hasta el",
+      "box": [
+        90,
+        857,
+        1380,
+        895
+      ],
+      "score": 0.9985718727111816
+    },
+    {
+      "text": "año 3445. Acerca del autor de este libro puede decirse lo que del libro III. Y examinadas las varias opiniones que hay sobre este punto, parece mas verosímil que los",
+      "box": [
+        89,
+        879,
+        1379,
+        919
+      ],
+      "score": 0.9955284595489502
+    },
+    {
+      "text": "cuatro libros de los Reyes fueron arreglados por Esdras sobre memorias ó documentos originales, que dejaron otros sugetos exactos y coetáneos á los hechos que se",
+      "box": [
+        89,
+        903,
+        1380,
+        942
+      ],
+      "score": 0.9962878227233887
+    },
+    {
+      "text": "refieren, Mas cualquiera opinion que se abrace, siempre debemos creer como de fe que su primer Autor es el mismo Dios; y que, como dice un elocuente y venerable",
+      "box": [
+        88,
+        927,
+        1380,
+        962
+      ],
+      "score": 0.9931892156600952
+    },
+    {
+      "text": "Prelado: «brilla en estas historias y diferencia hermosísima de sucesos la santa é inefable verdad del Espíritu Santo: á la luz de la cual puedan caminar los príncipes",
+      "box": [
+        88,
+        947,
+        1381,
+        987
+      ],
+      "score": 0.9667001366615295
+    },
+    {
+      "text": "»y los súbditos por esta vida atribulada y congojosa á la patria celestial. Aquí se ven reyes felices y desgraciados, ministros sabios y prudentes, y perversos y codicio-",
+      "box": [
+        88,
+        971,
+        1380,
+        1010
+      ],
+      "score": 0.9641391634941101
+    },
+    {
+      "text": "»sos, vasallos leales y desleales, aciertos del gobierno prudentísimos, y desaciertos dañosísimos, calamidades públicas, y públicas felicidades; profetas verdaderos, y",
+      "box": [
+        88,
+        995,
+        1380,
+        1033
+      ],
+      "score": 0.98366379737854
+    },
+    {
+      "text": "»otros inícuos y falsos, y finalmente se ve no solamente lo que pasó en aquel país limitado de Palestina y Syria, sino lo que pasó y pasa en las demás monarquías;",
+      "box": [
+        88,
+        1019,
+        1380,
+        1055
+      ],
+      "score": 0.9956179857254028
+    },
+    {
+      "text": "»porque mudando los nombres y el campo á los sucesos en la voluble rueda de los acaecimientos humanos, aunque sean diversos en una ú otra circunstancia, todos",
+      "box": [
+        89,
+        1044,
+        1380,
+        1078
+      ],
+      "score": 0.9912439584732056
+    },
+    {
+      "text": "»son en la sustancia los mismos.»",
+      "box": [
+        92,
+        1073,
+        369,
+        1095
+      ],
+      "score": 0.9955800175666809
+    },
+    {
+      "text": "CAPÍTULO PRIMERO",
+      "box": [
+        275,
+        1182,
+        488,
+        1209
+      ],
+      "score": 0.9990037679672241
+    },
+    {
+      "text": "angustiaba en gran manera; en tanto grado, que la echaba en",
+      "box": [
+        819,
+        1182,
+        1377,
+        1216
+      ],
+      "score": 0.9994173645973206
+    },
+    {
+      "text": "rostro el que el Señor la habia hecho estéril.",
+      "box": [
+        818,
+        1209,
+        1219,
+        1236
+      ],
+      "score": 0.9911471605300903
+    },
+    {
+      "text": "7. Y así lo hacia todos los años cuando llegado el tiempo",
+      "box": [
+        838,
+        1231,
+        1377,
+        1266
+      ],
+      "score": 0.9951513409614563
+    },
+    {
+      "text": "Nace Samuel de Anna, que era estéril; y despues de destetado, es consa-",
+      "box": [
+        91,
+        1246,
+        661,
+        1274
+      ],
+      "score": 0.9858342409133911
+    },
+    {
+      "text": "subian al templo del Señor; y de este modo la zaheria. Con",
+      "box": [
+        817,
+        1256,
+        1379,
+        1290
+      ],
+      "score": 0.9915070533752441
+    },
+    {
+      "text": "grado al Señor por medio del sacerdote Helí.",
+      "box": [
+        208,
+        1267,
+        553,
+        1296
+      ],
+      "score": 0.9925287365913391
+    },
+    {
+      "text": "esto Anna se ponia á llorar, y no probaba la comida.",
+      "box": [
+        817,
+        1281,
+        1294,
+        1313
+      ],
+      "score": 0.9920540452003479
+    },
+    {
+      "text": "- 8. Díjole pues Elcana su marido: Anna, ¿por qué lloras?",
+      "box": [
+        819,
+        1305,
+        1379,
+        1341
+      ],
+      "score": 0.9873227477073669
+    },
+    {
+      "text": "1. Hubo un hombre en la ciudad de Ramathaimsophim en",
+      "box": [
+        113,
+        1331,
+        660,
+        1360
+      ],
+      "score": 0.98784339427948
+    },
+    {
+      "text": "¿cómo es que no comes? ¿y por qué se aflige así tu corazon?",
+      "box": [
+        817,
+        1331,
+        1380,
+        1365
+      ],
+      "score": 0.9959563612937927
+    },
+    {
+      "text": "las montañas de Ephraim, cuyo nombre era Elcana, hijo de",
+      "box": [
+        94,
+        1358,
+        659,
+        1384
+      ],
+      "score": 0.9983757138252258
+    },
+    {
+      "text": "¿Acaso no soy yo para tí mejor que diez hijos que tuvieses?",
+      "box": [
+        815,
+        1356,
+        1357,
+        1389
+      ],
+      "score": 0.9998260140419006
+    },
+    {
+      "text": "Jeroham, hijo de Eliú, hijo de Thohú, hijo de Suph, de la",
+      "box": [
+        95,
+        1382,
+        659,
+        1409
+      ],
+      "score": 0.9951879978179932
+    },
+    {
+      "text": "9. Y despues de haber comido y bebido en Silo, levantóse",
+      "box": [
+        836,
+        1380,
+        1379,
+        1414
+      ],
+      "score": 0.993281364440918
+    },
+    {
+      "text": "tribu de Leví, domiciliado en la de Ephraim.",
+      "box": [
+        95,
+        1407,
+        514,
+        1433
+      ],
+      "score": 0.9988501071929932
+    },
+    {
+      "text": "Anna; y estando el Sumo Sacerdote Helí sentado en su silla,",
+      "box": [
+        817,
+        1404,
+        1378,
+        1438
+      ],
+      "score": 0.9948486089706421
+    },
+    {
+      "text": "2. Y tenia dos mujeres ¹, una llamada Anna, y la otra",
+      "box": [
+        115,
+        1431,
+        659,
+        1457
+      ],
+      "score": 0.9735420942306519
+    },
+    {
+      "text": "ó audiencia, delante de la puerta del templo ó Tabernáculo",
+      "box": [
+        815,
+        1429,
+        1379,
+        1461
+      ],
+      "score": 0.9862962961196899
+    },
+    {
+      "text": "Phenenna. Phenenna tenia hijos, mas Anna carecia de ellos.",
+      "box": [
+        94,
+        1453,
+        639,
+        1481
+      ],
+      "score": 0.9996153116226196
+    },
+    {
+      "text": "del Señor,",
+      "box": [
+        817,
+        1455,
+        915,
+        1478
+      ],
+      "score": 0.9999785423278809
+    },
+    {
+      "text": "3. Subia este hombre desde su ciudad á Silo en los dias",
+      "box": [
+        113,
+        1476,
+        660,
+        1506
+      ],
+      "score": 0.9995341897010803
+    },
+    {
+      "text": "10. Vino Anna con un corazon lleno de amargura, y oró al",
+      "box": [
+        835,
+        1475,
+        1379,
+        1509
+      ],
+      "score": 0.9933851957321167
+    },
+    {
+      "text": "señalados, á adorar y ofrecer sacrificios al Señor de los",
+      "box": [
+        94,
+        1501,
+        660,
+        1531
+      ],
+      "score": 0.9865530133247375
+    },
+    {
+      "text": "Señor derramando copiosas lágrimas,",
+      "box": [
+        817,
+        1502,
+        1161,
+        1529
+      ],
+      "score": 0.9999791979789734
+    },
+    {
+      "text": "ejércitos . Allí residian entonces los dos hijos de Helí,",
+      "box": [
+        95,
+        1526,
+        657,
+        1556
+      ],
+      "score": 0.9791374206542969
+    },
+    {
+      "text": "11. É hizo un voto diciendo: Señor Dios de los ejércitos, si",
+      "box": [
+        838,
+        1525,
+        1377,
+        1556
+      ],
+      "score": 0.9963696599006653
+    },
+    {
+      "text": "Ophni y Phinées, sacerdotes del Señor.",
+      "box": [
+        97,
+        1555,
+        453,
+        1579
+      ],
+      "score": 0.9904524087905884
+    },
+    {
+      "text": "te dignares volver los ojos para mirar la afliccion de tu sierva,",
+      "box": [
+        815,
+        1550,
+        1376,
+        1582
+      ],
+      "score": 0.9977222084999084
+    },
+    {
+      "text": "4. Venido uno de dichos dias solemnes, ofreció Elcana su",
+      "box": [
+        114,
+        1577,
+        657,
+        1603
+      ],
+      "score": 0.9980276226997375
+    },
+    {
+      "text": "y te acordares de mí, y no olvidándote de tu esclava, dieres",
+      "box": [
+        815,
+        1576,
+        1375,
+        1605
+      ],
+      "score": 0.9995771050453186
+    },
+    {
+      "text": "sacrificio ³, y distribuyó despues lo que le correspondia de la",
+      "box": [
+        96,
+        1603,
+        657,
+        1627
+      ],
+      "score": 0.9960450530052185
+    },
+    {
+      "text": "á tu sierva un hijo varon, le consagraré al Señor por todos los",
+      "box": [
+        816,
+        1600,
+        1375,
+        1629
+      ],
+      "score": 0.9999315738677979
+    },
+    {
+      "text": "víctima entre su mujer Phenenna y todos sus hijos é hijas;",
+      "box": [
+        95,
+        1625,
+        658,
+        1652
+      ],
+      "score": 0.9995632767677307
+    },
+    {
+      "text": "dias de su vida, y no pasará jamás navaja por su cabeza.",
+      "box": [
+        816,
+        1625,
+        1341,
+        1652
+      ],
+      "score": 0.9964262247085571
+    },
+    {
+      "text": "dándoles las porciones de ella.",
+      "box": [
+        96,
+        1649,
+        376,
+        1677
+      ],
+      "score": 0.9946424961090088
+    },
+    {
+      "text": "12. Como repitiese muchas veces sus ruegos delante del",
+      "box": [
+        834,
+        1647,
+        1374,
+        1678
+      ],
+      "score": 0.9938955903053284
+    },
+    {
+      "text": "5. Pero á Anna, que no tenia hijos, dióle su sola porcion,",
+      "box": [
+        116,
+        1676,
+        660,
+        1700
+      ],
+      "score": 0.9961934685707092
+    },
+    {
+      "text": "Señor, Helí estuvo observando el movimiento de sus labios:",
+      "box": [
+        813,
+        1672,
+        1353,
+        1702
+      ],
+      "score": 0.9985860586166382
+    },
+    {
+      "text": "entristecido, porque la amaba; aunque el Señor la habia",
+      "box": [
+        95,
+        1698,
+        658,
+        1728
+      ],
+      "score": 0.9995355010032654
+    },
+    {
+      "text": "13. Porque Anna hablaba solo en su corazon; por manera",
+      "box": [
+        834,
+        1697,
+        1375,
+        1729
+      ],
+      "score": 0.999332070350647
+    },
+    {
+      "text": "hecho estéril.",
+      "box": [
+        95,
+        1723,
+        225,
+        1748
+      ],
+      "score": 0.999870240688324
+    },
+    {
+      "text": "que únicamente movia los labios, pero no se le oia ni siquiera",
+      "box": [
+        816,
+        1723,
+        1374,
+        1754
+      ],
+      "score": 0.9935172200202942
+    },
+    {
+      "text": "6. Además Phenenna, su rival, la mortificaba tambien y.",
+      "box": [
+        115,
+        1748,
+        669,
+        1776
+      ],
+      "score": 0.9933529496192932
+    },
+    {
+      "text": "una palabra. Y así Helí la tuvo por ébria,",
+      "box": [
+        817,
+        1751,
+        1191,
+        1774
+      ],
+      "score": 0.9997228980064392
+    },
+    {
+      "text": "1 Véase Poligamia.",
+      "box": [
+        111,
+        1808,
+        275,
+        1835
+      ],
+      "score": 0.9924960732460022
+    },
+    {
+      "text": "4 Su hijo deberia como Levita servir en el Tabernáculo, cuando le to-",
+      "box": [
+        832,
+        1814,
+        1373,
+        1837
+      ],
+      "score": 0.9968047142028809
+    },
+    {
+      "text": "2 Por ejércitos del Señor se entienden en la Sagrada Escritura los An-",
+      "box": [
+        110,
+        1829,
+        655,
+        1860
+      ],
+      "score": 0.9876347184181213
+    },
+    {
+      "text": "case el turno, desde veinte y cinco ó treinta años hasta cincuenta.—Véa-",
+      "box": [
+        814,
+        1835,
+        1373,
+        1859
+      ],
+      "score": 0.9985373020172119
+    },
+    {
+      "text": "geles, y tambien las estrellas y planetas; y ejército del Señor se llama",
+      "box": [
+        93,
+        1851,
+        656,
+        1882
+      ],
+      "score": 0.9923809766769409
+    },
+    {
+      "text": "se Num. IV, v. 2.—VIII, v. 24.—Anna, empero, moralmente cierta de",
+      "box": [
+        814,
+        1856,
+        1374,
+        1881
+      ],
+      "score": 0.9937140941619873
+    },
+    {
+      "text": "igualmente su pueblo de Israél, que tiene á Dios por Rey y Caudillo.—",
+      "box": [
+        92,
+        1873,
+        655,
+        1904
+      ],
+      "score": 0.9989983439445496
+    },
+    {
+      "text": "que su marido, que era religioso y la amaba, no se opondria á la promesa,",
+      "box": [
+        812,
+        1876,
+        1375,
+        1903
+      ],
+      "score": 0.9846343994140625
+    },
+    {
+      "text": "Véase Astros.",
+      "box": [
+        93,
+        1894,
+        204,
+        1917
+      ],
+      "score": 0.9978794455528259
+    },
+    {
+      "text": "ofreció el hijo á Dios, para que le sirviese en el templo desde los primeros",
+      "box": [
+        812,
+        1896,
+        1376,
+        1923
+      ],
+      "score": 0.9926851987838745
+    },
+    {
+      "text": "3 Y dando al sacerdote lo que debia.",
+      "box": [
+        107,
+        1914,
+        398,
+        1943
+      ],
+      "score": 0.9853075742721558
+    },
+    {
+      "text": "años hasta la muerte; y además el que le haria Nazaréo perpétuo.",
+      "box": [
+        812,
+        1916,
+        1318,
+        1944
+      ],
+      "score": 0.9969070553779602
+    },
+    {
+      "text": "II.—2",
+      "box": [
+        1286,
+        1939,
+        1341,
+        1961
+      ],
+      "score": 0.976161777973175
+    }
+  ]
+}

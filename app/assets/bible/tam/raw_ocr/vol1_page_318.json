@@ -1,0 +1,27 @@
+{
+  "volume": 1,
+  "page_index": 318,
+  "pdf_page": 319,
+  "lines": [
+    {
+      "text": "PISAN",
+      "box": [
+        819,
+        1146,
+        875,
+        1169
+      ],
+      "score": 0.9958512187004089
+    },
+    {
+      "text": "EL LEVITA DE EFRAIM SE LLEVA EL CUERPO DE SU MUJER",
+      "box": [
+        216,
+        1180,
+        704,
+        1217
+      ],
+      "score": 0.9963826537132263
+    }
+  ]
+}

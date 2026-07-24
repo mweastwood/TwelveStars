@@ -1,0 +1,1527 @@
+{
+  "volume": 4,
+  "page_index": 44,
+  "pdf_page": 45,
+  "lines": [
+    {
+      "text": "41",
+      "box": [
+        16,
+        57,
+        32,
+        72
+      ],
+      "score": 0.9894179701805115
+    },
+    {
+      "text": "SAN MATHEO.",
+      "box": [
+        145,
+        53,
+        252,
+        75
+      ],
+      "score": 0.9996299147605896
+    },
+    {
+      "text": "CAPITULO XXVI.",
+      "box": [
+        626,
+        64,
+        749,
+        85
+      ],
+      "score": 0.9963298439979553
+    },
+    {
+      "text": "42",
+      "box": [
+        846,
+        75,
+        862,
+        88
+      ],
+      "score": 0.9998360872268677
+    },
+    {
+      "text": "CAPITULO XXVI",
+      "box": [
+        138,
+        97,
+        261,
+        121
+      ],
+      "score": 0.9992847442626953
+    },
+    {
+      "text": "25. Y tomando la palabra Judas, que era el que le entre-",
+      "box": [
+        509,
+        104,
+        872,
+        133
+      ],
+      "score": 0.9886866807937622
+    },
+    {
+      "text": "Cena de Jesus en Bethania, donde una mujer derrama sobre él bálsamo.",
+      "box": [
+        1,
+        125,
+        395,
+        151
+      ],
+      "score": 0.9953110814094543
+    },
+    {
+      "text": "gaba, dijo: ¿Soy quizá yo, Maestro? Y respondióle Jesus : Tú",
+      "box": [
+        496,
+        123,
+        871,
+        148
+      ],
+      "score": 0.9833440780639648
+    },
+    {
+      "text": "Cena del cordero pascual en Jerusalem, en la cual habla de la traicion",
+      "box": [
+        12,
+        141,
+        394,
+        168
+      ],
+      "score": 0.9896841049194336
+    },
+    {
+      "text": "lo has dicho, tú eres.",
+      "box": [
+        496,
+        139,
+        627,
+        158
+      ],
+      "score": 0.998556911945343
+    },
+    {
+      "text": "de Judas. Institucion de la Eucaristía. Prision de Jesus, y sentencia",
+      "box": [
+        13,
+        157,
+        394,
+        181
+      ],
+      "score": 0.997115433216095
+    },
+    {
+      "text": "26. Mientras estaban cenando, tomó Jesus cl pan, y le bon-",
+      "box": [
+        509,
+        155,
+        870,
+        181
+      ],
+      "score": 0.9819573760032654
+    },
+    {
+      "text": "contra él del Synedrio. Negaciones, y penitencia de San Pedro.",
+      "box": [
+        13,
+        172,
+        355,
+        195
+      ],
+      "score": 0.9948912858963013
+    },
+    {
+      "text": "dijo, y partió, y diósele á sus discípulos, diciendo: Tomad, y",
+      "box": [
+        496,
+        171,
+        869,
+        198
+      ],
+      "score": 0.9971953630447388
+    },
+    {
+      "text": "comed: esto es mi cuerpo.",
+      "box": [
+        496,
+        187,
+        656,
+        209
+      ],
+      "score": 0.972320020198822
+    },
+    {
+      "text": "1. Y sucedió 1 que despues de haber concluido Jesus todos",
+      "box": [
+        13,
+        201,
+        396,
+        226
+      ],
+      "score": 0.9798462986946106
+    },
+    {
+      "text": "27. Y tomando el cáliz dió gracias, le bendijo, y diósele,",
+      "box": [
+        508,
+        203,
+        869,
+        229
+      ],
+      "score": 0.9900804162025452
+    },
+    {
+      "text": "estos razonamientos, dijo á sus discípulos:",
+      "box": [
+        0,
+        219,
+        278,
+        241
+      ],
+      "score": 0.9988661408424377
+    },
+    {
+      "text": "diciendo: Bebed todos de él.",
+      "box": [
+        495,
+        219,
+        672,
+        239
+      ],
+      "score": 0.9993115067481995
+    },
+    {
+      "text": "2. Bien sabeis que de aquí á dos dias debe celebrarse la",
+      "box": [
+        12,
+        235,
+        396,
+        257
+      ],
+      "score": 0.9919778108596802
+    },
+    {
+      "text": "28. Porque esta es mi sangre que será el sello del nuevo",
+      "box": [
+        507,
+        235,
+        870,
+        260
+      ],
+      "score": 0.9979894757270813
+    },
+    {
+      "text": "Pascua, y que el Hijo del hombre será entregado á muerte de",
+      "box": [
+        0,
+        255,
+        393,
+        272
+      ],
+      "score": 0.9970507621765137
+    },
+    {
+      "text": "Testamento, la cual será derramada por muchos e para remi-",
+      "box": [
+        493,
+        251,
+        870,
+        277
+      ],
+      "score": 0.9761831760406494
+    },
+    {
+      "text": "cruz.",
+      "box": [
+        0,
+        271,
+        37,
+        290
+      ],
+      "score": 0.9972952604293823
+    },
+    {
+      "text": "sion de los pecados.",
+      "box": [
+        492,
+        267,
+        618,
+        286
+      ],
+      "score": 0.9996458292007446
+    },
+    {
+      "text": "3. Al mismo tiempo se juntaron los príncipes de los sacer-",
+      "box": [
+        12,
+        285,
+        393,
+        305
+      ],
+      "score": 0.9954917430877686
+    },
+    {
+      "text": "29. Y os declaro que no beberé ya mas desde ahora de",
+      "box": [
+        505,
+        282,
+        870,
+        308
+      ],
+      "score": 0.9959866404533386
+    },
+    {
+      "text": "dotes, y los magistrados del pueblo, en el palacio del Sumo",
+      "box": [
+        0,
+        301,
+        393,
+        322
+      ],
+      "score": 0.9991869926452637
+    },
+    {
+      "text": "este fruto de la vid, hasta el dia en que beba con vosotros de",
+      "box": [
+        492,
+        297,
+        871,
+        324
+      ],
+      "score": 0.9930809140205383
+    },
+    {
+      "text": "Pontífice, que se llamaba Caiphás:",
+      "box": [
+        0,
+        319,
+        226,
+        337
+      ],
+      "score": 0.9802207946777344
+    },
+    {
+      "text": "el nuevo cúliz de delicias en el reino de mi Padre.",
+      "box": [
+        492,
+        314,
+        802,
+        338
+      ],
+      "score": 0.9863688349723816
+    },
+    {
+      "text": "4. Y tuvieron consejo para hallar medio como apoderarse",
+      "box": [
+        10,
+        332,
+        392,
+        354
+      ],
+      "score": 0.9994295239448547
+    },
+    {
+      "text": "30. Y dicho el himno de accion de gracias, salieron hácia",
+      "box": [
+        504,
+        330,
+        869,
+        355
+      ],
+      "score": 0.9951946139335632
+    },
+    {
+      "text": "con maña de Jesus, y hacerle morir.",
+      "box": [
+        0,
+        351,
+        235,
+        369
+      ],
+      "score": 0.9997819066047668
+    },
+    {
+      "text": "el monte de los Olivos.",
+      "box": [
+        491,
+        346,
+        637,
+        365
+      ],
+      "score": 0.9998217821121216
+    },
+    {
+      "text": "5. Y de miedo de que se alborotara el pueblo, decian: No",
+      "box": [
+        9,
+        363,
+        392,
+        386
+      ],
+      "score": 0.9965974688529968
+    },
+    {
+      "text": "31. Entonces díceles Jesus: Todos vosotros padecereis",
+      "box": [
+        503,
+        361,
+        870,
+        386
+      ],
+      "score": 0.9954234957695007
+    },
+    {
+      "text": "conviene que se haga esto durante la fiesta.",
+      "box": [
+        0,
+        383,
+        281,
+        401
+      ],
+      "score": 0.9998137950897217
+    },
+    {
+      "text": "escándalo por ocasion de mí esta noche y me abandonareis.",
+      "box": [
+        491,
+        378,
+        870,
+        403
+      ],
+      "score": 0.9942280054092407
+    },
+    {
+      "text": "6. Estando Jesus en Bethania, en casa de Simon el le-",
+      "box": [
+        9,
+        395,
+        391,
+        419
+      ],
+      "score": 0.9989162087440491
+    },
+    {
+      "text": "Por cuanto está escrito: Heriré al Pastor, y se descarriarán las",
+      "box": [
+        490,
+        394,
+        870,
+        419
+      ],
+      "score": 0.9889264702796936
+    },
+    {
+      "text": "proso,",
+      "box": [
+        0,
+        414,
+        44,
+        436
+      ],
+      "score": 0.9999895691871643
+    },
+    {
+      "text": "ovejas del rebaño.",
+      "box": [
+        491,
+        410,
+        607,
+        429
+      ],
+      "score": 0.9992197751998901
+    },
+    {
+      "text": "7. Se llegó á él una mujer con un vaso de alabastro, lleno",
+      "box": [
+        10,
+        430,
+        390,
+        449
+      ],
+      "score": 0.9979104399681091
+    },
+    {
+      "text": "32. Mas en resucitando yo iré delante de vosotros á Gali-",
+      "box": [
+        503,
+        426,
+        870,
+        450
+      ],
+      "score": 0.9956497550010681
+    },
+    {
+      "text": "de perfume ó ungüento de gran precio, y derramólo sobre la",
+      "box": [
+        0,
+        445,
+        391,
+        468
+      ],
+      "score": 0.9920082688331604
+    },
+    {
+      "text": "léa, donde volveré á reuniros.",
+      "box": [
+        490,
+        443,
+        677,
+        463
+      ],
+      "score": 0.9696109890937805
+    },
+    {
+      "text": "cabeza de Jesus, el cual estaba á la mesa.",
+      "box": [
+        0,
+        465,
+        267,
+        483
+      ],
+      "score": 0.9915655255317688
+    },
+    {
+      "text": "33. Pedro respondiendo, le dijo: Aun cuando todos se",
+      "box": [
+        503,
+        459,
+        869,
+        482
+      ],
+      "score": 0.9977458715438843
+    },
+    {
+      "text": "8. Algunos de los discípulos al ver esto, lo llevaron muy",
+      "box": [
+        10,
+        479,
+        389,
+        499
+      ],
+      "score": 0.993678092956543
+    },
+    {
+      "text": "escandalizaren por tu causa, nunca jamás me escandalizaré",
+      "box": [
+        489,
+        474,
+        870,
+        499
+      ],
+      "score": 0.9919202327728271
+    },
+    {
+      "text": "á mal diciendo: ¿Á qué fin ese desperdicio,",
+      "box": [
+        0,
+        497,
+        274,
+        515
+      ],
+      "score": 0.9847500920295715
+    },
+    {
+      "text": "yo ni te abandonaré.",
+      "box": [
+        490,
+        493,
+        626,
+        510
+      ],
+      "score": 0.9981542825698853
+    },
+    {
+      "text": "9. Cuando se pudo vender esto en mucho precio, y darse á",
+      "box": [
+        10,
+        511,
+        390,
+        533
+      ],
+      "score": 0.9920528531074524
+    },
+    {
+      "text": "34. Replicóle Jesus: Pues yo te aseguro con toda verdad,",
+      "box": [
+        502,
+        507,
+        869,
+        531
+      ],
+      "score": 0.998982310295105
+    },
+    {
+      "text": "los pobres?",
+      "box": [
+        0,
+        532,
+        76,
+        549
+      ],
+      "score": 0.9999839663505554
+    },
+    {
+      "text": "que esta misma noche antes que cante el gallo, me has de",
+      "box": [
+        489,
+        526,
+        868,
+        545
+      ],
+      "score": 0.9994849562644958
+    },
+    {
+      "text": "10. Lo cual entendiendo Jesus, les (dijo: ¿Por qué moles-",
+      "box": [
+        11,
+        544,
+        390,
+        565
+      ],
+      "score": 0.9798705577850342
+    },
+    {
+      "text": "negar 7 tres veces.",
+      "box": [
+        491,
+        545,
+        604,
+        559
+      ],
+      "score": 0.9777636528015137
+    },
+    {
+      "text": "tais á esta mujer, y reprobais lo que hace, siendo buena, como",
+      "box": [
+        0,
+        561,
+        389,
+        581
+      ],
+      "score": 0.9979346990585327
+    },
+    {
+      "text": "35. Á Io que dijo Pedro: Aunque me sea forzoso el morir",
+      "box": [
+        504,
+        561,
+        867,
+        575
+      ],
+      "score": 0.9904797673225403
+    },
+    {
+      "text": "es, la obra que ha hecho conmigo?",
+      "box": [
+        0,
+        579,
+        223,
+        597
+      ],
+      "score": 0.9935523271560669
+    },
+    {
+      "text": "contigo, yo no te negaré. Eso mismo protestaron todos los dis-",
+      "box": [
+        490,
+        576,
+        868,
+        593
+      ],
+      "score": 0.9988465309143066
+    },
+    {
+      "text": "11. Pues á los pobres 2 los teneis siempre á mano; mas á",
+      "box": [
+        10,
+        593,
+        389,
+        613
+      ],
+      "score": 0.9563294053077698
+    },
+    {
+      "text": "cípulos.",
+      "box": [
+        490,
+        593,
+        542,
+        609
+      ],
+      "score": 0.9995789527893066
+    },
+    {
+      "text": "mí no me teneis siempre.",
+      "box": [
+        1,
+        613,
+        163,
+        627
+      ],
+      "score": 0.9996881484985352
+    },
+    {
+      "text": "36. Entre tanto llegó Jesus con ellos á una granja llamada",
+      "box": [
+        501,
+        605,
+        867,
+        624
+      ],
+      "score": 0.9933085441589355
+    },
+    {
+      "text": "12. Y derramando ella sobre mi cuerpo este bálsamo, lo ha",
+      "box": [
+        11,
+        623,
+        389,
+        645
+      ],
+      "score": 0.981850266456604
+    },
+    {
+      "text": "Gethsemaní, y les dijo: Sentaos aquí, mientras yo voy mas",
+      "box": [
+        489,
+        622,
+        867,
+        641
+      ],
+      "score": 0.9926010370254517
+    },
+    {
+      "text": "hecho como para disponer de antemano mi sepultura.",
+      "box": [
+        0,
+        640,
+        344,
+        662
+      ],
+      "score": 0.9908303618431091
+    },
+    {
+      "text": "allá, y hago oracion.",
+      "box": [
+        488,
+        638,
+        619,
+        657
+      ],
+      "score": 0.9920609593391418
+    },
+    {
+      "text": "13. En verdad os digo, que do quiera que se predique este",
+      "box": [
+        9,
+        655,
+        391,
+        679
+      ],
+      "score": 0.9899197816848755
+    },
+    {
+      "text": "37. Y llevándose consigo á Pedro y á los dos hijos de Zebe-",
+      "box": [
+        501,
+        652,
+        867,
+        672
+      ],
+      "score": 0.9866849184036255
+    },
+    {
+      "text": "Evangelio, que lo será en todo el mundo, se celebrará tambien",
+      "box": [
+        0,
+        671,
+        390,
+        695
+      ],
+      "score": 0.988653302192688
+    },
+    {
+      "text": "déo Santiago y Juan, empezó á entristecerse y angustiarse ®.",
+      "box": [
+        488,
+        669,
+        868,
+        688
+      ],
+      "score": 0.988495945930481
+    },
+    {
+      "text": "en memoria suya lo que acaba de hacer.",
+      "box": [
+        0,
+        691,
+        258,
+        710
+      ],
+      "score": 0.9832024574279785
+    },
+    {
+      "text": "38. Y les dijo entonces: Mi alma siente angustias morta-",
+      "box": [
+        502,
+        685,
+        867,
+        704
+      ],
+      "score": 0.9874891638755798
+    },
+    {
+      "text": "14. Entonces Judas Iscariote, uno de los doce, fué á verse",
+      "box": [
+        9,
+        703,
+        388,
+        727
+      ],
+      "score": 0.9937317967414856
+    },
+    {
+      "text": "les: aguardad aquí, y velad conmigo.",
+      "box": [
+        489,
+        704,
+        718,
+        718
+      ],
+      "score": 0.9993109107017517
+    },
+    {
+      "text": "con los príncipes de los sacerdotes, y les dijo:",
+      "box": [
+        0,
+        721,
+        293,
+        743
+      ],
+      "score": 0.999866783618927
+    },
+    {
+      "text": "39. Y adelantándose algunos pasos, se postró en tierra",
+      "box": [
+        501,
+        716,
+        867,
+        735
+      ],
+      "score": 0.9915106296539307
+    },
+    {
+      "text": "15. ¿Qué quereis darme, y yo le pondrá en vuestras manos?",
+      "box": [
+        9,
+        734,
+        390,
+        760
+      ],
+      "score": 0.9752978682518005
+    },
+    {
+      "text": "caido sobre su rostro, orando, y diciendo: Padre mio, si es",
+      "box": [
+        488,
+        732,
+        868,
+        752
+      ],
+      "score": 0.9990106821060181
+    },
+    {
+      "text": "Y se convinieron con él en treinta monedas de plata.",
+      "box": [
+        0,
+        750,
+        344,
+        775
+      ],
+      "score": 0.9903743267059326
+    },
+    {
+      "text": "posible, no me hagas beber este cáliz: pero no obstante no se",
+      "box": [
+        488,
+        748,
+        868,
+        768
+      ],
+      "score": 0.9967044591903687
+    },
+    {
+      "text": "16. Y desde entonces andaba buscando coyuntura favora-",
+      "box": [
+        9,
+        766,
+        389,
+        790
+      ],
+      "score": 0.991932213306427
+    },
+    {
+      "text": "haga lo que yo quiero 9, sino lo que tú.",
+      "box": [
+        490,
+        768,
+        728,
+        782
+      ],
+      "score": 0.9971081614494324
+    },
+    {
+      "text": "ble para hacer la traicion.",
+      "box": [
+        0,
+        787,
+        168,
+        807
+      ],
+      "score": 0.9992203712463379
+    },
+    {
+      "text": "40. Volvió despues á sus discípulos, y los halló durmiendo,",
+      "box": [
+        501,
+        779,
+        867,
+        799
+      ],
+      "score": 0.9895399212837219
+    },
+    {
+      "text": "17. Instando el primer dia de los ázymos, acudieron los",
+      "box": [
+        9,
+        797,
+        388,
+        822
+      ],
+      "score": 0.995400071144104
+    },
+    {
+      "text": "y dijo á Pedro: ¿Es posible que no hayais podido velar una",
+      "box": [
+        486,
+        796,
+        868,
+        814
+      ],
+      "score": 0.9888408184051514
+    },
+    {
+      "text": "discípulos á Jesus y le preguntaron: ¿Dónde quieres que te",
+      "box": [
+        0,
+        813,
+        388,
+        839
+      ],
+      "score": 0.9933070540428162
+    },
+    {
+      "text": "hora conmigo?",
+      "box": [
+        488,
+        815,
+        583,
+        829
+      ],
+      "score": 0.99992436170578
+    },
+    {
+      "text": "41. Velad, y orad para no caer en la tentacion. Que si bien",
+      "box": [
+        500,
+        826,
+        868,
+        845
+      ],
+      "score": 0.9928796291351318
+    },
+    {
+      "text": "dispongamos la cena de la Pascua?",
+      "box": [
+        0,
+        832,
+        223,
+        856
+      ],
+      "score": 0.9908693432807922
+    },
+    {
+      "text": "18. Jesus les respondió: Id á la ciudad en casa de tal",
+      "box": [
+        10,
+        843,
+        388,
+        870
+      ],
+      "score": 0.9963314533233643
+    },
+    {
+      "text": "el espíritu está pronto, mas la carne es flaca.",
+      "box": [
+        487,
+        843,
+        765,
+        861
+      ],
+      "score": 0.989936351776123
+    },
+    {
+      "text": "porsona, y dadle este recado: El Maestro dicc: Mi tiempo",
+      "box": [
+        0,
+        858,
+        388,
+        888
+      ],
+      "score": 0.9863293766975403
+    },
+    {
+      "text": "42. Volvióse de nuevo por segunda vez, y oró diciendo:",
+      "box": [
+        500,
+        858,
+        869,
+        878
+      ],
+      "score": 0.9963904023170471
+    },
+    {
+      "text": "se acerca, voy á celebrar en tu casa la Pascua con mis discí-",
+      "box": [
+        0,
+        875,
+        387,
+        903
+      ],
+      "score": 0.9932765364646912
+    },
+    {
+      "text": "Padre mio, si no puede pasar este cáliz sin que yo le beba,",
+      "box": [
+        487,
+        876,
+        868,
+        894
+      ],
+      "score": 0.9981123805046082
+    },
+    {
+      "text": "pulos.",
+      "box": [
+        0,
+        899,
+        41,
+        920
+      ],
+      "score": 0.9999916553497314
+    },
+    {
+      "text": "hágase tu voluntad.",
+      "box": [
+        487,
+        892,
+        616,
+        910
+      ],
+      "score": 0.9989011883735657
+    },
+    {
+      "text": "19. Hicieron pues los discípulos lo que Jesus les ordenó, y",
+      "box": [
+        8,
+        907,
+        387,
+        935
+      ],
+      "score": 0.9985681772232056
+    },
+    {
+      "text": "43. Dió despues otra vuelta, y encontrólos dormidos: por-",
+      "box": [
+        499,
+        907,
+        868,
+        926
+      ],
+      "score": 0.9936254620552063
+    },
+    {
+      "text": "prepararon lo necesario para la Pascua.",
+      "box": [
+        0,
+        925,
+        256,
+        954
+      ],
+      "score": 0.9923370480537415
+    },
+    {
+      "text": "que sus ojos estaban cargados de sueño.",
+      "box": [
+        487,
+        923,
+        736,
+        942
+      ],
+      "score": 0.9990270733833313
+    },
+    {
+      "text": "20. Al caer de la tarde, púsose á la mesa con sus doce",
+      "box": [
+        10,
+        938,
+        386,
+        969
+      ],
+      "score": 0.9921466708183289
+    },
+    {
+      "text": "44. Y dejándolos, se retiró aun á orar por tercera vez, repi-",
+      "box": [
+        501,
+        939,
+        867,
+        956
+      ],
+      "score": 0.9734726548194885
+    },
+    {
+      "text": "tiendo las mismas palabras.",
+      "box": [
+        488,
+        955,
+        660,
+        971
+      ],
+      "score": 0.9996975064277649
+    },
+    {
+      "text": "discípulos.",
+      "box": [
+        0,
+        964,
+        70,
+        985
+      ],
+      "score": 0.9993240833282471
+    },
+    {
+      "text": "21. Y estando ya comiendo, dijo: En verdad os digo que",
+      "box": [
+        8,
+        971,
+        387,
+        1001
+      ],
+      "score": 0.9926372170448303
+    },
+    {
+      "text": "45. En seguida volvió á sus discípulos, y les dijo: Dormid",
+      "box": [
+        502,
+        972,
+        867,
+        987
+      ],
+      "score": 0.9846765398979187
+    },
+    {
+      "text": "ahora y descansad: hé aquí que llegó ya la hora, y el Hijo del",
+      "box": [
+        489,
+        989,
+        867,
+        1003
+      ],
+      "score": 0.9805014729499817
+    },
+    {
+      "text": "uno de vosotros me hará traicion.",
+      "box": [
+        0,
+        992,
+        215,
+        1017
+      ],
+      "score": 0.9986424446105957
+    },
+    {
+      "text": "22. Y ellos, afligidos sobremanera, empezaron cada uno de",
+      "box": [
+        9,
+        1003,
+        387,
+        1033
+      ],
+      "score": 0.992368221282959
+    },
+    {
+      "text": "hombre va luego á ser entregado en manos de los pecadores.",
+      "box": [
+        489,
+        1005,
+        867,
+        1019
+      ],
+      "score": 0.9848503470420837
+    },
+    {
+      "text": "46. Ea, levantaos, vamos de aquí: ya llega aquel que me",
+      "box": [
+        500,
+        1018,
+        868,
+        1036
+      ],
+      "score": 0.9689401984214783
+    },
+    {
+      "text": "por sí á preguntar: Señor! ¿soy acaso yo?",
+      "box": [
+        0,
+        1024,
+        265,
+        1049
+      ],
+      "score": 0.9940487742424011
+    },
+    {
+      "text": "ha de entregar.",
+      "box": [
+        488,
+        1036,
+        585,
+        1050
+      ],
+      "score": 0.9995847344398499
+    },
+    {
+      "text": "23. Y él en respuesta dijo: El que mete conmigo su mano",
+      "box": [
+        9,
+        1037,
+        386,
+        1063
+      ],
+      "score": 0.9840342402458191
+    },
+    {
+      "text": "47. Aun no habia acabado de decir esto, cuando llegó",
+      "box": [
+        499,
+        1051,
+        868,
+        1068
+      ],
+      "score": 0.9983381628990173
+    },
+    {
+      "text": "en el plato * para mojar el pan, ese es el traidor.",
+      "box": [
+        0,
+        1054,
+        311,
+        1079
+      ],
+      "score": 0.997147262096405
+    },
+    {
+      "text": "Judas, uno de los doce, seguido de gran multitud de gentes",
+      "box": [
+        485,
+        1067,
+        869,
+        1085
+      ],
+      "score": 0.9996675252914429
+    },
+    {
+      "text": "24. En cuanto al Hijo del hombre, él se marcha, conforme",
+      "box": [
+        10,
+        1069,
+        385,
+        1095
+      ],
+      "score": 0.9879251718521118
+    },
+    {
+      "text": "armadas con espadas y con palos, que venian enviadas por",
+      "box": [
+        485,
+        1083,
+        870,
+        1102
+      ],
+      "score": 0.9989746809005737
+    },
+    {
+      "text": "está escrito de él: pero ay de aquel hombre, por quien el Hijo",
+      "box": [
+        0,
+        1085,
+        384,
+        1111
+      ],
+      "score": 0.9880715012550354
+    },
+    {
+      "text": "del hombre será entregado: mejorle fuera al tal si no hubicse",
+      "box": [
+        0,
+        1101,
+        384,
+        1126
+      ],
+      "score": 0.9892916083335876
+    },
+    {
+      "text": "los príncipes de los sacerdotes, y ancianos ó senadores del",
+      "box": [
+        486,
+        1101,
+        870,
+        1118
+      ],
+      "score": 0.9962980151176453
+    },
+    {
+      "text": "jamás nacido!",
+      "box": [
+        0,
+        1121,
+        95,
+        1143
+      ],
+      "score": 0.9994699954986572
+    },
+    {
+      "text": "pueblo.",
+      "box": [
+        484,
+        1114,
+        536,
+        1136
+      ],
+      "score": 0.9998216032981873
+    },
+    {
+      "text": "1 Fórmula vulgar de que usan los eseritores sagrados para comenzar",
+      "box": [
+        9,
+        1156,
+        385,
+        1175
+      ],
+      "score": 0.9920640587806702
+    },
+    {
+      "text": "5 Tal vez sin que lo oyeran los demás.",
+      "box": [
+        498,
+        1154,
+        703,
+        1168
+      ],
+      "score": 0.978848397731781
+    },
+    {
+      "text": "á tomar otra vez el hilo de su narracion.",
+      "box": [
+        0,
+        1172,
+        216,
+        1188
+      ],
+      "score": 0.9797887802124023
+    },
+    {
+      "text": "e Véase Muchos.—Zach. XIII, v. 7.",
+      "box": [
+        498,
+        1169,
+        692,
+        1182
+      ],
+      "score": 0.9541969895362854
+    },
+    {
+      "text": "* La voz griega zozó; mas bien significa aquí necesitado que por-",
+      "box": [
+        11,
+        1186,
+        383,
+        1200
+      ],
+      "score": 0.973958432674408
+    },
+    {
+      "text": "7 San Marc., cap. XIV, v. 30, dice que la negacion de Pedro seria des-",
+      "box": [
+        494,
+        1180,
+        871,
+        1200
+      ],
+      "score": 0.9546779990196228
+    },
+    {
+      "text": "diosero.",
+      "box": [
+        0,
+        1200,
+        47,
+        1214
+      ],
+      "score": 0.9984224438667297
+    },
+    {
+      "text": "pues de cantar el gallo una vez; pero los otros Evangelistas hablan del",
+      "box": [
+        484,
+        1195,
+        873,
+        1215
+      ],
+      "score": 0.9963542222976685
+    },
+    {
+      "text": "3 Treinta siclos era el precio de un esclavo. Exod. XXI, v. 32.—",
+      "box": [
+        10,
+        1210,
+        383,
+        1229
+      ],
+      "score": 0.9748614430427551
+    },
+    {
+      "text": "canto del gallo al amanecer, no del primer canto.",
+      "box": [
+        484,
+        1209,
+        750,
+        1229
+      ],
+      "score": 0.9961621165275574
+    },
+    {
+      "text": "Véase Siclo.",
+      "box": [
+        1,
+        1227,
+        71,
+        1241
+      ],
+      "score": 0.9711587429046631
+    },
+    {
+      "text": "8 Permitiendo que su alma bienaventurada sintiese la amargura que",
+      "box": [
+        494,
+        1224,
+        874,
+        1244
+      ],
+      "score": 0.9915904402732849
+    },
+    {
+      "text": "4 Es probable que siendo trece los convidados habria muchas fuentes",
+      "box": [
+        12,
+        1237,
+        384,
+        1255
+      ],
+      "score": 0.9970957040786743
+    },
+    {
+      "text": "inspira naturalmente la proximidad de la muerte.",
+      "box": [
+        485,
+        1239,
+        754,
+        1256
+      ],
+      "score": 0.9998390078544617
+    },
+    {
+      "text": "ó platos, en latin patina ó catina, de cada una de las cuales tomarian",
+      "box": [
+        1,
+        1250,
+        383,
+        1270
+      ],
+      "score": 0.9930433034896851
+    },
+    {
+      "text": "o El verbo griego Écλo estáraquí en lugar de Oaλotut o tdzλosv, esto es,",
+      "box": [
+        493,
+        1251,
+        874,
+        1272
+      ],
+      "score": 0.8172659277915955
+    },
+    {
+      "text": "comida tres ó cuatro, segun el estilo de comer los orientales. Y de esto",
+      "box": [
+        3,
+        1264,
+        382,
+        1283
+      ],
+      "score": 0.9877243041992188
+    },
+    {
+      "text": "vellem, quisiera. Téngase presente que lalengua hebrea no tiene optativo",
+      "box": [
+        483,
+        1266,
+        874,
+        1287
+      ],
+      "score": 0.9499157667160034
+    },
+    {
+      "text": "se infiere que Jesus tenia cerea de sf al traidor Judas.",
+      "box": [
+        2,
+        1277,
+        286,
+        1297
+      ],
+      "score": 0.9804049730300903
+    },
+    {
+      "text": "ni subjuntivo en los verbos.",
+      "box": [
+        483,
+        1281,
+        637,
+        1297
+      ],
+      "score": 0.9992596507072449
+    },
+    {
+      "text": "IV.—7",
+      "box": [
+        807,
+        1299,
+        852,
+        1317
+      ],
+      "score": 0.9348662495613098
+    }
+  ]
+}

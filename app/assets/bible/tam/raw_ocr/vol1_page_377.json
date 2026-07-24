@@ -1,0 +1,4127 @@
+{
+  "volume": 1,
+  "page_index": 377,
+  "pdf_page": 378,
+  "lines": [
+    {
+      "text": "JOSUE.",
+      "box": [
+        436,
+        0,
+        486,
+        15
+      ],
+      "score": 0.9998648762702942
+    },
+    {
+      "text": "partem terre fliorum Ammon, usque ad Aroer, que est contra",
+      "box": [
+        17,
+        12,
+        309,
+        33
+      ],
+      "score": 0.9539478421211243
+    },
+    {
+      "text": "Rabba.",
+      "box": [
+        18,
+        23,
+        54,
+        37
+      ],
+      "score": 0.9960055947303772
+    },
+    {
+      "text": "27.",
+      "box": [
+        327,
+        18,
+        343,
+        30
+      ],
+      "score": 0.9996142387390137
+    },
+    {
+      "text": "Et Asergadda et Hassemon et Bcthiphelet,",
+      "box": [
+        349,
+        17,
+        543,
+        34
+      ],
+      "score": 0.9789411425590515
+    },
+    {
+      "text": "28.",
+      "box": [
+        326,
+        28,
+        343,
+        40
+      ],
+      "score": 0.9903523325920105
+    },
+    {
+      "text": "Et Hasersual et Bersabee et Baziothia;",
+      "box": [
+        349,
+        27,
+        531,
+        45
+      ],
+      "score": 0.9791578054428101
+    },
+    {
+      "text": "17. Dixitque Josue ad domum Joseph, Ephraim et Manasse:",
+      "box": [
+        627,
+        20,
+        904,
+        42
+      ],
+      "score": 0.9902673363685608
+    },
+    {
+      "text": "26. Et ab Hesebon usque Ramoth, Masphe et Betonim: et",
+      "box": [
+        26,
+        32,
+        308,
+        54
+      ],
+      "score": 0.9799690842628479
+    },
+    {
+      "text": "29.",
+      "box": [
+        326,
+        38,
+        343,
+        50
+      ],
+      "score": 0.9982840418815613
+    },
+    {
+      "text": "Et Baala et Jim et Esem,",
+      "box": [
+        348,
+        38,
+        468,
+        54
+      ],
+      "score": 0.9782285690307617
+    },
+    {
+      "text": "Populus multus es, et magne fortitudinis: non habebis sortem",
+      "box": [
+        617,
+        31,
+        904,
+        53
+      ],
+      "score": 0.9640837907791138
+    },
+    {
+      "text": "a Manaim usque ad terminos Dabir.",
+      "box": [
+        17,
+        43,
+        187,
+        61
+      ],
+      "score": 0.9070523977279663
+    },
+    {
+      "text": "27. In valle quoque Betharan, et Bthnemra, et Socoth, et",
+      "box": [
+        27,
+        52,
+        309,
+        73
+      ],
+      "score": 0.9071003794670105
+    },
+    {
+      "text": "30.",
+      "box": [
+        326,
+        48,
+        344,
+        60
+      ],
+      "score": 0.9984187483787537
+    },
+    {
+      "text": "Et Eltholad et Cesil et Harma,",
+      "box": [
+        348,
+        48,
+        493,
+        65
+      ],
+      "score": 0.9947070479393005
+    },
+    {
+      "text": "unam;",
+      "box": [
+        618,
+        44,
+        650,
+        55
+      ],
+      "score": 0.9987109899520874
+    },
+    {
+      "text": "31.",
+      "box": [
+        326,
+        59,
+        345,
+        70
+      ],
+      "score": 0.9957408905029297
+    },
+    {
+      "text": "Et Siceleg et Medemena et Sensenna,",
+      "box": [
+        348,
+        58,
+        522,
+        75
+      ],
+      "score": 0.9678189158439636
+    },
+    {
+      "text": "18. Sed transibis ad montem, et succides tibi, atque purga-",
+      "box": [
+        624,
+        51,
+        902,
+        73
+      ],
+      "score": 0.9664782285690308
+    },
+    {
+      "text": "Saphon reliquam partem regi Sehou regis Hesebon; hujus",
+      "box": [
+        16,
+        61,
+        309,
+        84
+      ],
+      "score": 0.648850679397583
+    },
+    {
+      "text": "32. Lebaoth, et Selim et Aen et Remon: omnes civitates vi-",
+      "box": [
+        322,
+        66,
+        607,
+        88
+      ],
+      "score": 0.9097705483436584
+    },
+    {
+      "text": "bis ad habitandum spatia; et poteris ultra procedere cum sub-",
+      "box": [
+        616,
+        62,
+        902,
+        83
+      ],
+      "score": 0.9633036255836487
+    },
+    {
+      "text": "quoque finis Jordanis est, usque ad extremam partem maris",
+      "box": [
+        17,
+        73,
+        307,
+        93
+      ],
+      "score": 0.9478645920753479
+    },
+    {
+      "text": "Čenereth trans Jordanem ad orientalem plagam.",
+      "box": [
+        18,
+        82,
+        243,
+        102
+      ],
+      "score": 0.976590633392334
+    },
+    {
+      "text": "giuti novem, et ville carum.",
+      "box": [
+        313,
+        78,
+        447,
+        95
+      ],
+      "score": 0.9342373609542847
+    },
+    {
+      "text": "verteris Chananeum, quem dicis ferreos habere currus, et esse",
+      "box": [
+        615,
+        73,
+        902,
+        93
+      ],
+      "score": 0.9743438363075256
+    },
+    {
+      "text": "28. He est possessio filiorum Gad per famlias suas, civi",
+      "box": [
+        26,
+        91,
+        308,
+        115
+      ],
+      "score": 0.7622746229171753
+    },
+    {
+      "text": "33. In campestribus vero: Estaol et Sarea et Asena,",
+      "box": [
+        322,
+        88,
+        571,
+        108
+      ],
+      "score": 0.9762918949127197
+    },
+    {
+      "text": "fortissimtm.",
+      "box": [
+        615,
+        83,
+        677,
+        100
+      ],
+      "score": 0.9289963245391846
+    },
+    {
+      "text": "tates et villm earum.",
+      "box": [
+        17,
+        102,
+        117,
+        121
+      ],
+      "score": 0.9236605763435364
+    },
+    {
+      "text": "34.",
+      "box": [
+        325,
+        100,
+        346,
+        112
+      ],
+      "score": 0.9989407658576965
+    },
+    {
+      "text": "Et Zanoe et Engannim et Taplhua et Enaim,",
+      "box": [
+        346,
+        100,
+        554,
+        118
+      ],
+      "score": 0.9516604542732239
+    },
+    {
+      "text": "29. Dedit et dimidie tribui Manasse, liisque ejus fuxta",
+      "box": [
+        26,
+        112,
+        307,
+        137
+      ],
+      "score": 0.7599291205406189
+    },
+    {
+      "text": "35.",
+      "box": [
+        325,
+        111,
+        349,
+        122
+      ],
+      "score": 0.9980866312980652
+    },
+    {
+      "text": "Et Jerimoth et Adullam, Socho et Azeca,",
+      "box": [
+        346,
+        110,
+        540,
+        128
+      ],
+      "score": 0.9760008454322815
+    },
+    {
+      "text": "CAPUT XVII",
+      "box": [
+        723,
+        105,
+        798,
+        121
+      ],
+      "score": 0.9896880984306335
+    },
+    {
+      "text": "cognationes suas possessionem,",
+      "box": [
+        17,
+        124,
+        166,
+        143
+      ],
+      "score": 0.9839544892311096
+    },
+    {
+      "text": "36. Et Saraim et Adithaim et Gedera et Gederothaim: ur",
+      "box": [
+        321,
+        118,
+        606,
+        141
+      ],
+      "score": 0.7903630137443542
+    },
+    {
+      "text": "S0. Cujus hoc priucipium est: a Manaim universam Basan,",
+      "box": [
+        25,
+        133,
+        306,
+        157
+      ],
+      "score": 0.8301493525505066
+    },
+    {
+      "text": "bes quatuordecim, et villke earum.",
+      "box": [
+        313,
+        130,
+        472,
+        148
+      ],
+      "score": 0.9077510237693787
+    },
+    {
+      "text": "1. Congregatique sunt omnes filii Israel in Silo, ibique fixe-",
+      "box": [
+        624,
+        125,
+        899,
+        145
+      ],
+      "score": 0.9847315549850464
+    },
+    {
+      "text": "et cuneta regua Og regis Basan, omnesque vicos Jair, qui sunt",
+      "box": [
+        16,
+        144,
+        306,
+        168
+      ],
+      "score": 0.955238938331604
+    },
+    {
+      "text": "37. Sanan et Hadassa et Magdalgad,",
+      "box": [
+        321,
+        140,
+        500,
+        159
+      ],
+      "score": 0.9694223999977112
+    },
+    {
+      "text": "runt tabernaculum testimonli, et fuit eis terra subjecta.",
+      "box": [
+        613,
+        136,
+        869,
+        155
+      ],
+      "score": 0.9295755624771118
+    },
+    {
+      "text": "in Basan, sexaginta oppida:",
+      "box": [
+        17,
+        154,
+        151,
+        173
+      ],
+      "score": 0.9555573463439941
+    },
+    {
+      "text": "38. Delean et Masepha et Jecthel,",
+      "box": [
+        321,
+        150,
+        488,
+        169
+      ],
+      "score": 0.9554340839385986
+    },
+    {
+      "text": "2. Remanserant autem filiorum Israel septem tribus, que",
+      "box": [
+        622,
+        146,
+        899,
+        166
+      ],
+      "score": 0.973691463470459
+    },
+    {
+      "text": "S1. E dimiliam partem Galaad, et Astaroth, et Edral,",
+      "box": [
+        25,
+        164,
+        304,
+        188
+      ],
+      "score": 0.8774672150611877
+    },
+    {
+      "text": "39. Lachis et Bascath et Eglon,",
+      "box": [
+        321,
+        160,
+        475,
+        180
+      ],
+      "score": 0.9923465847969055
+    },
+    {
+      "text": "necdum acceperant possessiones suas.",
+      "box": [
+        612,
+        156,
+        788,
+        174
+      ],
+      "score": 0.9691296815872192
+    },
+    {
+      "text": "40. Chebbon et Leheman et Cethlis,",
+      "box": [
+        321,
+        171,
+        497,
+        189
+      ],
+      "score": 0.9686905145645142
+    },
+    {
+      "text": "3. Ad quos Josue ait: Usquequo marcetis ignavia, et non in-",
+      "box": [
+        622,
+        166,
+        898,
+        186
+      ],
+      "score": 0.9432910084724426
+    },
+    {
+      "text": "urbes regni Og in Basan: filiis Machir filii Manasse, dimidie",
+      "box": [
+        17,
+        176,
+        304,
+        197
+      ],
+      "score": 0.9060755968093872
+    },
+    {
+      "text": "parti filiorum Machir juxta cognationes suas.",
+      "box": [
+        17,
+        186,
+        226,
+        206
+      ],
+      "score": 0.9579718708992004
+    },
+    {
+      "text": "41. Et Gideroth et Bethdagon et Naama et Maceda: civita-",
+      "box": [
+        321,
+        182,
+        603,
+        201
+      ],
+      "score": 0.9639758467674255
+    },
+    {
+      "text": "tratis ad possidendam terram, quam Dominus Deus patrum",
+      "box": [
+        612,
+        177,
+        898,
+        196
+      ],
+      "score": 0.9840404391288757
+    },
+    {
+      "text": "32. Hane possessionem divisit Moyses in campestribus Moab",
+      "box": [
+        25,
+        195,
+        305,
+        219
+      ],
+      "score": 0.8026886582374573
+    },
+    {
+      "text": "tes sedecim, et ville earum.",
+      "box": [
+        310,
+        192,
+        444,
+        209
+      ],
+      "score": 0.9647863507270813
+    },
+    {
+      "text": "vestrorum dedit vobis?",
+      "box": [
+        612,
+        187,
+        724,
+        203
+      ],
+      "score": 0.9680913686752319
+    },
+    {
+      "text": "trans Jordanem contra Jericho ad orientalem plagam.",
+      "box": [
+        17,
+        206,
+        263,
+        228
+      ],
+      "score": 0.9868965148925781
+    },
+    {
+      "text": "42. Labana et Ether et Asan,",
+      "box": [
+        320,
+        202,
+        464,
+        220
+      ],
+      "score": 0.9762916564941406
+    },
+    {
+      "text": "4. Eligite de siugulis tribubus ternos viros, ut mittam eos,",
+      "box": [
+        622,
+        199,
+        897,
+        216
+      ],
+      "score": 0.9923383593559265
+    },
+    {
+      "text": "S3. Tribui autem Levi non dedit possessionem: quoniam",
+      "box": [
+        25,
+        215,
+        305,
+        241
+      ],
+      "score": 0.6566177010536194
+    },
+    {
+      "text": "43. Jephtha et Esna et Nesib,",
+      "box": [
+        321,
+        214,
+        467,
+        230
+      ],
+      "score": 0.9627426266670227
+    },
+    {
+      "text": "et pergant atque circumeant terram, et describant eam juxta",
+      "box": [
+        611,
+        209,
+        898,
+        227
+      ],
+      "score": 0.9623483419418335
+    },
+    {
+      "text": "Dominu De Isrl pe e poseso e, u locu e.",
+      "box": [
+        17,
+        225,
+        304,
+        252
+      ],
+      "score": 0.5384730696678162
+    },
+    {
+      "text": "44. Et Ceila et Achzib et Maresa: civitates novem, et villm",
+      "box": [
+        320,
+        224,
+        602,
+        242
+      ],
+      "score": 0.969073474407196
+    },
+    {
+      "text": "numerum uniuscujusque multitudinis; refeaantque ad mequed",
+      "box": [
+        610,
+        219,
+        897,
+        237
+      ],
+      "score": 0.9453168511390686
+    },
+    {
+      "text": "earum.",
+      "box": [
+        312,
+        237,
+        347,
+        248
+      ],
+      "score": 0.9997801780700684
+    },
+    {
+      "text": "descripserint.",
+      "box": [
+        611,
+        229,
+        676,
+        244
+      ],
+      "score": 0.9837273955345154
+    },
+    {
+      "text": "45. Accaron cum vicis et villulis suis.",
+      "box": [
+        320,
+        244,
+        500,
+        260
+      ],
+      "score": 0.9678043723106384
+    },
+    {
+      "text": "5. Dividite vobis terram in septem partes: Judas sit in ter-",
+      "box": [
+        620,
+        239,
+        896,
+        256
+      ],
+      "score": 0.9833353757858276
+    },
+    {
+      "text": "CAPUT XIV",
+      "box": [
+        128,
+        250,
+        192,
+        268
+      ],
+      "score": 0.9998143315315247
+    },
+    {
+      "text": "46. Ab Accaron usque ad mare: omuía qum vergunt ad",
+      "box": [
+        320,
+        255,
+        601,
+        272
+      ],
+      "score": 0.9672865867614746
+    },
+    {
+      "text": "minis suis ab australi plaga, et domus Joseph ab Aquilone.",
+      "box": [
+        610,
+        249,
+        881,
+        266
+      ],
+      "score": 0.9814191460609436
+    },
+    {
+      "text": "1. Hoc est, quod possedcrunt flii Isrsel in terra Chanaan,",
+      "box": [
+        25,
+        266,
+        303,
+        291
+      ],
+      "score": 0.9337180852890015
+    },
+    {
+      "text": "Azotum et viculos ejus.",
+      "box": [
+        310,
+        265,
+        422,
+        280
+      ],
+      "score": 0.9661430716514587
+    },
+    {
+      "text": "6. Mediam inter hos terram in septem partes describite: et",
+      "box": [
+        620,
+        259,
+        897,
+        277
+      ],
+      "score": 0.9484094381332397
+    },
+    {
+      "text": "47. Azotus cum vicis et villulis suis, Gaza cum vicis et vil-",
+      "box": [
+        319,
+        274,
+        600,
+        292
+      ],
+      "score": 0.9649813175201416
+    },
+    {
+      "text": "hue venietis ad me, ut coram Domino Deo vestro mittam vobis",
+      "box": [
+        609,
+        269,
+        896,
+        287
+      ],
+      "score": 0.9711714386940002
+    },
+    {
+      "text": "cipes familiarum per tribus Israel:",
+      "box": [
+        17,
+        288,
+        177,
+        307
+      ],
+      "score": 0.9865062236785889
+    },
+    {
+      "text": "lulis suis, usque ad torrentem Egypti, et mare magnum ter-",
+      "box": [
+        309,
+        284,
+        600,
+        303
+      ],
+      "score": 0.961410403251648
+    },
+    {
+      "text": "hie sortem:",
+      "box": [
+        611,
+        281,
+        667,
+        292
+      ],
+      "score": 0.9737869501113892
+    },
+    {
+      "text": "minus ejus.",
+      "box": [
+        310,
+        295,
+        367,
+        307
+      ],
+      "score": 0.9640894532203674
+    },
+    {
+      "text": "7. Quia non est inter vos pars Levitarum, sed sacerdotiuma",
+      "box": [
+        617,
+        288,
+        895,
+        305
+      ],
+      "score": 0.9726391434669495
+    },
+    {
+      "text": "48. Et in monte: Samir et Jether et Socoth:",
+      "box": [
+        319,
+        304,
+        535,
+        320
+      ],
+      "score": 0.9896955490112305
+    },
+    {
+      "text": "Domini est eorum hareditas. Gad autem et Ruben, et dimidia",
+      "box": [
+        609,
+        298,
+        896,
+        315
+      ],
+      "score": 0.9384965300559998
+    },
+    {
+      "text": "manu Moysi, novem tribubus, et dimidise tribui:",
+      "box": [
+        16,
+        308,
+        241,
+        328
+      ],
+      "score": 0.9235153794288635
+    },
+    {
+      "text": ". Duabus enim tribubus, et diidia, dederat Moyses trans",
+      "box": [
+        24,
+        316,
+        304,
+        340
+      ],
+      "score": 0.7441554665565491
+    },
+    {
+      "text": "49.",
+      "box": [
+        321,
+        315,
+        346,
+        326
+      ],
+      "score": 0.9998242259025574
+    },
+    {
+      "text": "Et Danna et Cariathsenna, hc est Dabir:",
+      "box": [
+        341,
+        314,
+        539,
+        331
+      ],
+      "score": 0.955381453037262
+    },
+    {
+      "text": "tribus Manasse, jam acceperant possessiones suas trans Jorda-",
+      "box": [
+        609,
+        308,
+        895,
+        326
+      ],
+      "score": 0.9804467558860779
+    },
+    {
+      "text": "50.",
+      "box": [
+        321,
+        325,
+        340,
+        336
+      ],
+      "score": 0.9987988471984863
+    },
+    {
+      "text": "Anab et Istemo et Anim,",
+      "box": [
+        342,
+        324,
+        461,
+        340
+      ],
+      "score": 0.9979041814804077
+    },
+    {
+      "text": "nem ad orientalem plagam: quas dedit eis Moyses famulus Do-",
+      "box": [
+        608,
+        318,
+        895,
+        336
+      ],
+      "score": 0.9787765741348267
+    },
+    {
+      "text": "perunt inter fratres suos:",
+      "box": [
+        16,
+        337,
+        135,
+        354
+      ],
+      "score": 0.9807920455932617
+    },
+    {
+      "text": "51.",
+      "box": [
+        320,
+        335,
+        340,
+        346
+      ],
+      "score": 0.9996417164802551
+    },
+    {
+      "text": "Gosen et Olon et Gilo: eivitates undecim et ville earum.",
+      "box": [
+        342,
+        334,
+        598,
+        351
+      ],
+      "score": 0.9755660891532898
+    },
+    {
+      "text": "mini.",
+      "box": [
+        610,
+        330,
+        636,
+        341
+      ],
+      "score": 0.9992949366569519
+    },
+    {
+      "text": "52.",
+      "box": [
+        320,
+        345,
+        338,
+        356
+      ],
+      "score": 0.9997060894966125
+    },
+    {
+      "text": "Arab et Ruma et Esaan,",
+      "box": [
+        342,
+        344,
+        458,
+        360
+      ],
+      "score": 0.9767902493476868
+    },
+    {
+      "text": "8. Cumque surrexissent viri, ut pergerent ad describendam",
+      "box": [
+        617,
+        337,
+        895,
+        356
+      ],
+      "score": 0.9900173544883728
+    },
+    {
+      "text": "divia tribus, Manasse et Ephraim: nec acceperant Levite aliam",
+      "box": [
+        14,
+        356,
+        303,
+        380
+      ],
+      "score": 0.7390504479408264
+    },
+    {
+      "text": "4. Sed in eorum successerunt loeum ålii Joseph in duas",
+      "box": [
+        24,
+        347,
+        303,
+        368
+      ],
+      "score": 0.9550601840019226
+    },
+    {
+      "text": "53.",
+      "box": [
+        320,
+        355,
+        342,
+        366
+      ],
+      "score": 0.963909924030304
+    },
+    {
+      "text": "Et Janum et Beththaplua et Apheca,",
+      "box": [
+        339,
+        354,
+        516,
+        370
+      ],
+      "score": 0.9847277402877808
+    },
+    {
+      "text": "terram, pracepit eis Josue, dicens: Cireuite terram, et deseri-",
+      "box": [
+        607,
+        348,
+        895,
+        365
+      ],
+      "score": 0.9318089485168457
+    },
+    {
+      "text": "in terra partem, nisi urbes ad habitandum, et suburbana earum",
+      "box": [
+        15,
+        367,
+        303,
+        389
+      ],
+      "score": 0.9164914488792419
+    },
+    {
+      "text": "54. Athmatha et Cariatharbe, hawe est Hebron, et Sior: civi-",
+      "box": [
+        319,
+        363,
+        598,
+        382
+      ],
+      "score": 0.9539934992790222
+    },
+    {
+      "text": "bite eam, ac revertimini ad me, ut hic coram Domimo, in Silo,",
+      "box": [
+        607,
+        358,
+        895,
+        375
+      ],
+      "score": 0.9239725470542908
+    },
+    {
+      "text": "ad alenda jumenta et pecora sua.",
+      "box": [
+        14,
+        376,
+        167,
+        396
+      ],
+      "score": 0.9707016944885254
+    },
+    {
+      "text": "tates novem, et ville earum.",
+      "box": [
+        309,
+        374,
+        443,
+        389
+      ],
+      "score": 0.9830762147903442
+    },
+    {
+      "text": "mittam vobis sortem.",
+      "box": [
+        607,
+        368,
+        710,
+        383
+      ],
+      "score": 0.9813248515129089
+    },
+    {
+      "text": " Sicut prreperat Dominus Moys, ita fecerunt fl Israel,",
+      "box": [
+        22,
+        386,
+        302,
+        411
+      ],
+      "score": 0.7081496715545654
+    },
+    {
+      "text": "55. Maon et Carmel et Ziph et Jota,",
+      "box": [
+        318,
+        383,
+        493,
+        401
+      ],
+      "score": 0.9849475026130676
+    },
+    {
+      "text": "9. Itaque perrexerunt, et lustrantes eam, in septem partes",
+      "box": [
+        617,
+        378,
+        895,
+        395
+      ],
+      "score": 0.9708772897720337
+    },
+    {
+      "text": "et diviserunt terram.",
+      "box": [
+        13,
+        397,
+        115,
+        414
+      ],
+      "score": 0.9943298101425171
+    },
+    {
+      "text": "56. Jezrael et Jucadam et Zanoe,",
+      "box": [
+        318,
+        393,
+        478,
+        411
+      ],
+      "score": 0.8909324407577515
+    },
+    {
+      "text": "diviserunt, scribentes iu volumine, Reversique sunt ad Josuein",
+      "box": [
+        607,
+        388,
+        895,
+        406
+      ],
+      "score": 0.9741939902305603
+    },
+    {
+      "text": "6. Accesserunt itaque filii Juda ad Josue in Galgala, locu-",
+      "box": [
+        24,
+        407,
+        302,
+        429
+      ],
+      "score": 0.9796832203865051
+    },
+    {
+      "text": "57. Accain, Gabaa, et Thamna: civitates decem, et ville",
+      "box": [
+        317,
+        403,
+        599,
+        423
+      ],
+      "score": 0.9260139465332031
+    },
+    {
+      "text": "castra Silo.",
+      "box": [
+        608,
+        399,
+        659,
+        412
+      ],
+      "score": 0.960541307926178
+    },
+    {
+      "text": "tusque est ad eum Caleb fillus Jephone Cenezaus: Nosti quid",
+      "box": [
+        13,
+        417,
+        302,
+        439
+      ],
+      "score": 0.9225582480430603
+    },
+    {
+      "text": "earum.",
+      "box": [
+        310,
+        417,
+        344,
+        428
+      ],
+      "score": 0.992098331451416
+    },
+    {
+      "text": "10. Qui misit sortes coram Domino in Silo, divísitque ter-",
+      "box": [
+        616,
+        408,
+        894,
+        425
+      ],
+      "score": 0.9878600835800171
+    },
+    {
+      "text": "locutus sit Domiuus ad Moysen hominem Dei de me et te in",
+      "box": [
+        12,
+        426,
+        304,
+        451
+      ],
+      "score": 0.9254652857780457
+    },
+    {
+      "text": "58.",
+      "box": [
+        320,
+        426,
+        340,
+        437
+      ],
+      "score": 0.9990736842155457
+    },
+    {
+      "text": "Halhul et Bessur et Gedor,",
+      "box": [
+        342,
+        424,
+        468,
+        440
+      ],
+      "score": 0.9968404769897461
+    },
+    {
+      "text": "ram filiis Israel in septem partes.",
+      "box": [
+        607,
+        419,
+        762,
+        433
+      ],
+      "score": 0.9501108527183533
+    },
+    {
+      "text": "59.",
+      "box": [
+        320,
+        436,
+        343,
+        447
+      ],
+      "score": 0.9879123568534851
+    },
+    {
+      "text": "Mareth et Bethanotla et Eltecon: civitates sex, et ville",
+      "box": [
+        341,
+        435,
+        598,
+        452
+      ],
+      "score": 0.9505074620246887
+    },
+    {
+      "text": "11. Et ascendit sors prima filiorum Benjamin per familias",
+      "box": [
+        617,
+        428,
+        895,
+        444
+      ],
+      "score": 0.9732241630554199
+    },
+    {
+      "text": "Cadesbarne.",
+      "box": [
+        14,
+        438,
+        73,
+        451
+      ],
+      "score": 0.9826767444610596
+    },
+    {
+      "text": "7. Quadraginta annorum eram quando misit me Moyses fa-",
+      "box": [
+        22,
+        446,
+        302,
+        471
+      ],
+      "score": 0.9860461354255676
+    },
+    {
+      "text": "carum.",
+      "box": [
+        310,
+        446,
+        345,
+        457
+      ],
+      "score": 0.9974088668823242
+    },
+    {
+      "text": "suns, ut possiderent terrana inter filios Juda et filios Joseph.",
+      "box": [
+        606,
+        439,
+        882,
+        454
+      ],
+      "score": 0.930687427520752
+    },
+    {
+      "text": "mulus Donini de Cadesbarne, ut cousiderarem terram, nuntia-",
+      "box": [
+        12,
+        457,
+        302,
+        480
+      ],
+      "score": 0.8890209794044495
+    },
+    {
+      "text": "60. Cariathbaal; hmc est Cariathiarim urbs silvarum, et",
+      "box": [
+        318,
+        454,
+        598,
+        471
+      ],
+      "score": 0.9887439608573914
+    },
+    {
+      "text": "12. Fuitque terminus eorum contra Aquilonem a Jordane:",
+      "box": [
+        616,
+        448,
+        895,
+        464
+      ],
+      "score": 0.9227677583694458
+    },
+    {
+      "text": "vique ei quod mihi verum videbatur.",
+      "box": [
+        13,
+        467,
+        184,
+        487
+      ],
+      "score": 0.9584132432937622
+    },
+    {
+      "text": "Arebba: civitates due, et ville earum.",
+      "box": [
+        309,
+        464,
+        487,
+        480
+      ],
+      "score": 0.9304859638214111
+    },
+    {
+      "text": "pergens juxta latus Jericho septentrionalis plaga, et inde con-",
+      "box": [
+        606,
+        459,
+        894,
+        474
+      ],
+      "score": 0.9855676293373108
+    },
+    {
+      "text": "8. Fratres autem mel, qui ascenderant mecum, dissolverunt",
+      "box": [
+        21,
+        476,
+        303,
+        501
+      ],
+      "score": 0.8433936834335327
+    },
+    {
+      "text": "61. Ia deserto: Betharaba, Meddin, et Sachacha,",
+      "box": [
+        318,
+        473,
+        550,
+        490
+      ],
+      "score": 0.9618415832519531
+    },
+    {
+      "text": "tra Occideutem ad montana conscendeus, et perveniensad soli-",
+      "box": [
+        606,
+        468,
+        894,
+        484
+      ],
+      "score": 0.9062606692314148
+    },
+    {
+      "text": "cor populi: et nihilominus ego secutus sum Dominum Deun",
+      "box": [
+        12,
+        487,
+        302,
+        510
+      ],
+      "score": 0.9698771238327026
+    },
+    {
+      "text": "62. E Neban, et civitas salis, et Engaddi; civitates sex, et",
+      "box": [
+        317,
+        482,
+        598,
+        504
+      ],
+      "score": 0.7220764756202698
+    },
+    {
+      "text": "tudinem Bethaven,",
+      "box": [
+        607,
+        479,
+        696,
+        492
+      ],
+      "score": 0.9913553595542908
+    },
+    {
+      "text": "ville earum.",
+      "box": [
+        309,
+        492,
+        370,
+        509
+      ],
+      "score": 0.9626663327217102
+    },
+    {
+      "text": "13. Atque pertransiens juxta Luzam ad Meridiem, ipsa est",
+      "box": [
+        616,
+        487,
+        894,
+        503
+      ],
+      "score": 0.9532637000083923
+    },
+    {
+      "text": "meum.",
+      "box": [
+        13,
+        499,
+        49,
+        510
+      ],
+      "score": 0.9419697523117065
+    },
+    {
+      "text": "9. Juravitque Moyses in die illo, dicens: Terra, quam cal-",
+      "box": [
+        21,
+        506,
+        302,
+        529
+      ],
+      "score": 0.9940617084503174
+    },
+    {
+      "text": "63. Jebuscum autem habitatorem Jerusalem non potuerunt",
+      "box": [
+        319,
+        503,
+        598,
+        522
+      ],
+      "score": 0.9627983570098877
+    },
+    {
+      "text": "Bethel: descenditque in Atarothaddar, in montem qui est ad",
+      "box": [
+        606,
+        497,
+        894,
+        514
+      ],
+      "score": 0.9359815120697021
+    },
+    {
+      "text": "cavit pes taus, erit possessio tua, et filiorum tuorum iu eter-",
+      "box": [
+        11,
+        518,
+        302,
+        539
+      ],
+      "score": 0.9683869481086731
+    },
+    {
+      "text": "filii Juda delere: habitavitque Jebuseus cum filis Juda in Je-",
+      "box": [
+        308,
+        513,
+        598,
+        533
+      ],
+      "score": 0.9326761364936829
+    },
+    {
+      "text": "meridiem Beth-horon inferioris:",
+      "box": [
+        607,
+        509,
+        759,
+        523
+      ],
+      "score": 0.9948740601539612
+    },
+    {
+      "text": "num: quia secutus es Dominuma Deum meum.",
+      "box": [
+        11,
+        528,
+        224,
+        548
+      ],
+      "score": 0.9425680041313171
+    },
+    {
+      "text": "rusalem usque in prwsentem diem.",
+      "box": [
+        308,
+        524,
+        468,
+        541
+      ],
+      "score": 0.9750846028327942
+    },
+    {
+      "text": "14. Et inclinatur circuiens contra mare ad meridiem montis",
+      "box": [
+        616,
+        520,
+        894,
+        533
+      ],
+      "score": 0.9860089421272278
+    },
+    {
+      "text": "10. Concessit ergo Dominus vitam mihi sicut pollicitus est,",
+      "box": [
+        21,
+        537,
+        301,
+        559
+      ],
+      "score": 0.9825776815414429
+    },
+    {
+      "text": "Cariath-baal, que vocatur et Cariathiarim, urbem filiorum Juda:",
+      "box": [
+        606,
+        538,
+        894,
+        553
+      ],
+      "score": 0.9490365982055664
+    },
+    {
+      "text": "qui respicit Beth-horon contra Africum: suntque exitus ejus a-",
+      "box": [
+        607,
+        530,
+        894,
+        543
+      ],
+      "score": 0.9731101393699646
+    },
+    {
+      "text": "usque in prasentena diem. Quadraginta et quinque anni sunt,",
+      "box": [
+        11,
+        547,
+        302,
+        569
+      ],
+      "score": 0.920002281665802
+    },
+    {
+      "text": "CAPUT XVI",
+      "box": [
+        421,
+        544,
+        486,
+        561
+      ],
+      "score": 0.9996623992919922
+    },
+    {
+      "text": "luec est plaga contra mare ad Occidentem.",
+      "box": [
+        606,
+        549,
+        803,
+        563
+      ],
+      "score": 0.9563279747962952
+    },
+    {
+      "text": "ex guo locutus est Domimus verbum istud ad Moysen, quando",
+      "box": [
+        10,
+        559,
+        302,
+        578
+      ],
+      "score": 0.9731585383415222
+    },
+    {
+      "text": "ambulabat Israel per solitudinem: hodie octogluta quinque",
+      "box": [
+        10,
+        568,
+        302,
+        588
+      ],
+      "score": 0.9627516865730286
+    },
+    {
+      "text": "1. Cecidit quoque sors filiorum Joseph, ab Jordane contra",
+      "box": [
+        318,
+        563,
+        598,
+        581
+      ],
+      "score": 0.9900069832801819
+    },
+    {
+      "text": "15. A Meridie antem ex parte Cariathiarim egredietur ter-",
+      "box": [
+        617,
+        559,
+        893,
+        573
+      ],
+      "score": 0.9545562267303467
+    },
+    {
+      "text": "annorum sum.",
+      "box": [
+        10,
+        578,
+        81,
+        593
+      ],
+      "score": 0.9724950194358826
+    },
+    {
+      "text": "Jericho et aquas ejus ab Oriente: solitudo quw ascendit de Je-",
+      "box": [
+        308,
+        573,
+        597,
+        591
+      ],
+      "score": 0.9701172113418579
+    },
+    {
+      "text": "minus contra mare, et perveuit usque ad fontem aquarum",
+      "box": [
+        606,
+        569,
+        893,
+        583
+      ],
+      "score": 0.9868857860565186
+    },
+    {
+      "text": "richo ad montem Bethel,",
+      "box": [
+        309,
+        584,
+        424,
+        596
+      ],
+      "score": 0.9680923223495483
+    },
+    {
+      "text": "Nephtos.",
+      "box": [
+        605,
+        576,
+        653,
+        593
+      ],
+      "score": 0.9842672944068909
+    },
+    {
+      "text": "11. Sic valens, ut eo valebam tempore quando ad exploran-",
+      "box": [
+        18,
+        586,
+        303,
+        608
+      ],
+      "score": 0.9703500866889954
+    },
+    {
+      "text": "2. Et egreditur de Bethel Laza, transitque terminum Archi,",
+      "box": [
+        317,
+        592,
+        596,
+        610
+      ],
+      "score": 0.9651527404785156
+    },
+    {
+      "text": "16. Descenditque in partem montis, qui respicit vallem ",
+      "box": [
+        613,
+        585,
+        894,
+        603
+      ],
+      "score": 0.9499446749687195
+    },
+    {
+      "text": "dum missus sum: illius in me temporis fortitudo usque hodie",
+      "box": [
+        9,
+        597,
+        302,
+        617
+      ],
+      "score": 0.9784654974937439
+    },
+    {
+      "text": "Atharoth:",
+      "box": [
+        310,
+        603,
+        362,
+        615
+      ],
+      "score": 0.9988270998001099
+    },
+    {
+      "text": "liorum Ennom: et est contra septentriomalenm plagam in extre-",
+      "box": [
+        605,
+        597,
+        892,
+        611
+      ],
+      "score": 0.9023674130439758
+    },
+    {
+      "text": "perseverat, tam ad bellandum quam ad gradiendum.",
+      "box": [
+        9,
+        608,
+        253,
+        626
+      ],
+      "score": 0.9921698570251465
+    },
+    {
+      "text": "12. Da ergo mihi montem istum, quena pollicitus est Domi-",
+      "box": [
+        18,
+        616,
+        303,
+        638
+      ],
+      "score": 0.8575822114944458
+    },
+    {
+      "text": "3. Et descendit ad Occidentem juxta terminum Jephleti, us-",
+      "box": [
+        318,
+        612,
+        596,
+        629
+      ],
+      "score": 0.9765692353248596
+    },
+    {
+      "text": "vallem Eunom) juta latus Jebusai ad Austrum: et pervenit",
+      "box": [
+        604,
+        615,
+        894,
+        633
+      ],
+      "score": 0.6423758268356323
+    },
+    {
+      "text": "ma parte vallis Raphaim: descenditque in Geennom (id est,",
+      "box": [
+        606,
+        608,
+        892,
+        622
+      ],
+      "score": 0.9705729484558105
+    },
+    {
+      "text": "nus, te quoque audiente, in quo Enacim sant, et urbes magua",
+      "box": [
+        7,
+        628,
+        302,
+        647
+      ],
+      "score": 0.9700945615768433
+    },
+    {
+      "text": "que ad terminos Beth-horon inferioris, et Gazer: finiunturque",
+      "box": [
+        308,
+        622,
+        597,
+        639
+      ],
+      "score": 0.9932133555412292
+    },
+    {
+      "text": "regiones ejus mari magno:",
+      "box": [
+        311,
+        635,
+        432,
+        645
+      ],
+      "score": 0.985561728477478
+    },
+    {
+      "text": "ad fontem Rogel,",
+      "box": [
+        605,
+        626,
+        686,
+        642
+      ],
+      "score": 0.9373123049736023
+    },
+    {
+      "text": "atque munitm; si forte sit Dominus mecum, et potuero delere",
+      "box": [
+        7,
+        638,
+        302,
+        657
+      ],
+      "score": 0.9552995562553406
+    },
+    {
+      "text": "4. Possederuntque filii Joseph Manasses et Ephraim:",
+      "box": [
+        318,
+        642,
+        569,
+        657
+      ],
+      "score": 0.9852665662765503
+    },
+    {
+      "text": "17. Tranaiens ad Aquilonem, et egredieus ad Ensemes, dl",
+      "box": [
+        613,
+        634,
+        894,
+        652
+      ],
+      "score": 0.8887147903442383
+    },
+    {
+      "text": "eos, sicut promisit mili.",
+      "box": [
+        7,
+        648,
+        124,
+        664
+      ],
+      "score": 0.9292555451393127
+    },
+    {
+      "text": "5. Et factus est termiuus fillorum Ephraim per cognatioues",
+      "box": [
+        318,
+        651,
+        595,
+        669
+      ],
+      "score": 0.9850196838378906
+    },
+    {
+      "text": "est, fontein Solis :",
+      "box": [
+        604,
+        646,
+        693,
+        661
+      ],
+      "score": 0.9202077984809875
+    },
+    {
+      "text": "13. Benedixitque ei Josue, et tradidit ei Hebron in posses-",
+      "box": [
+        16,
+        658,
+        302,
+        678
+      ],
+      "score": 0.9757803082466125
+    },
+    {
+      "text": "suas: et possessio corum contra Orieutem Atharoth Addar us-",
+      "box": [
+        308,
+        662,
+        595,
+        678
+      ],
+      "score": 0.9808737635612488
+    },
+    {
+      "text": "census Adommim; descenditque ad Abenboen, id est, lapidem",
+      "box": [
+        603,
+        664,
+        894,
+        682
+      ],
+      "score": 0.813504695892334
+    },
+    {
+      "text": "18. Et pertransit usque ad tumulos, qui sunt e regione as-",
+      "box": [
+        615,
+        657,
+        893,
+        671
+      ],
+      "score": 0.9788413643836975
+    },
+    {
+      "text": "sionem",
+      "box": [
+        8,
+        670,
+        45,
+        681
+      ],
+      "score": 0.9998335838317871
+    },
+    {
+      "text": "14. Atque ex eo fuit Hebron Caleb filio Jephone Cenezão",
+      "box": [
+        16,
+        678,
+        301,
+        697
+      ],
+      "score": 0.9928649067878723
+    },
+    {
+      "text": "que Beth-horon superiorem;",
+      "box": [
+        309,
+        673,
+        442,
+        686
+      ],
+      "score": 0.9886429905891418
+    },
+    {
+      "text": "6. Egrediunturque confinia in mare: Machmethath vero",
+      "box": [
+        317,
+        681,
+        595,
+        698
+      ],
+      "score": 0.970934271812439
+    },
+    {
+      "text": "Boen l Ruben: et pertranst ex latere Aquilonis ad campes",
+      "box": [
+        603,
+        674,
+        893,
+        692
+      ],
+      "score": 0.6818752288818359
+    },
+    {
+      "text": "usque in presentem diem; quia secutus est Dominum Deum",
+      "box": [
+        5,
+        689,
+        301,
+        707
+      ],
+      "score": 0.9525970816612244
+    },
+    {
+      "text": "Aquilonem respicit, et circuit terminos contra Orientem iu",
+      "box": [
+        308,
+        692,
+        595,
+        708
+      ],
+      "score": 0.9776567816734314
+    },
+    {
+      "text": "tria: descenditque in planitiem,",
+      "box": [
+        603,
+        685,
+        753,
+        702
+      ],
+      "score": 0.9642114639282227
+    },
+    {
+      "text": "Israel.",
+      "box": [
+        7,
+        700,
+        41,
+        711
+      ],
+      "score": 0.993309497833252
+    },
+    {
+      "text": "Thanathselo, et pertransit ab Oriente Janoe:",
+      "box": [
+        307,
+        701,
+        515,
+        717
+      ],
+      "score": 0.9787914752960205
+    },
+    {
+      "text": "19. Et pretergreditur contra Aquilonem Beth-hagla: sunt-",
+      "box": [
+        614,
+        696,
+        892,
+        710
+      ],
+      "score": 0.9704651236534119
+    },
+    {
+      "text": "15. Nomen Hebron ante vocabatur Cariath Arbe: Adam",
+      "box": [
+        16,
+        708,
+        301,
+        725
+      ],
+      "score": 0.9955779910087585
+    },
+    {
+      "text": "7. Descenditque de Janoe in Atharoth et Naaratha, et per-",
+      "box": [
+        316,
+        711,
+        594,
+        728
+      ],
+      "score": 0.9807026982307434
+    },
+    {
+      "text": "fine Jordanis ad australem plagam:",
+      "box": [
+        603,
+        715,
+        771,
+        730
+      ],
+      "score": 0.8987607359886169
+    },
+    {
+      "text": "que exitus ejus contra linguam maris salsissimi ab Aquilone in",
+      "box": [
+        604,
+        706,
+        893,
+        720
+      ],
+      "score": 0.9547604322433472
+    },
+    {
+      "text": "maximus ibi inter Enacin situs est; et terra cessavit a preliis.",
+      "box": [
+        5,
+        718,
+        300,
+        735
+      ],
+      "score": 0.885228157043457
+    },
+    {
+      "text": "venit iu Jericho, egrediturque ad Jordanem.",
+      "box": [
+        308,
+        722,
+        510,
+        736
+      ],
+      "score": 0.9825466275215149
+    },
+    {
+      "text": "8. De Thaphua pertransit contra mare in Vallem arundiue-",
+      "box": [
+        316,
+        731,
+        594,
+        747
+      ],
+      "score": 0.990418553352356
+    },
+    {
+      "text": "20. Qui est terminus ilius ab Oriente: he est possessio",
+      "box": [
+        612,
+        722,
+        893,
+        741
+      ],
+      "score": 0.8020786643028259
+    },
+    {
+      "text": "CAPUT XV",
+      "box": [
+        125,
+        741,
+        183,
+        752
+      ],
+      "score": 0.9914195537567139
+    },
+    {
+      "text": "ti, suntque egressus ejus in mare salsissimum; hme est posses-",
+      "box": [
+        307,
+        741,
+        594,
+        758
+      ],
+      "score": 0.9635265469551086
+    },
+    {
+      "text": "filiorum Benjamin per terminos suos in cireuitu, et familias",
+      "box": [
+        602,
+        734,
+        893,
+        751
+      ],
+      "score": 0.7003797888755798
+    },
+    {
+      "text": "sio tribus filiorum Ephraim per familias suas.",
+      "box": [
+        308,
+        752,
+        514,
+        765
+      ],
+      "score": 0.9765445590019226
+    },
+    {
+      "text": "suns.",
+      "box": [
+        603,
+        746,
+        629,
+        757
+      ],
+      "score": 0.9218815565109253
+    },
+    {
+      "text": "1. Igitur sors filiorum Judre per cognationes suas ista fuit:",
+      "box": [
+        14,
+        757,
+        300,
+        774
+      ],
+      "score": 0.9873785972595215
+    },
+    {
+      "text": "9. Urbesque separate sunt filiis Ephrainm in medio posses-",
+      "box": [
+        316,
+        761,
+        594,
+        777
+      ],
+      "score": 0.9539909362792969
+    },
+    {
+      "text": "Casis,",
+      "box": [
+        602,
+        762,
+        635,
+        780
+      ],
+      "score": 0.9945126175880432
+    },
+    {
+      "text": "21.",
+      "box": [
+        613,
+        755,
+        632,
+        767
+      ],
+      "score": 0.9829562306404114
+    },
+    {
+      "text": "Fueruntque eivitates efus, Jericho et Beth-hagla et vallis",
+      "box": [
+        635,
+        752,
+        893,
+        771
+      ],
+      "score": 0.9682874083518982
+    },
+    {
+      "text": "A termino Edom, desertum Sin contra Meráliem, et usque ad",
+      "box": [
+        3,
+        767,
+        300,
+        785
+      ],
+      "score": 0.9677767157554626
+    },
+    {
+      "text": "extremam partem australis plage.",
+      "box": [
+        3,
+        778,
+        169,
+        793
+      ],
+      "score": 0.9648625254631042
+    },
+    {
+      "text": "sionis filiorum Manasse, et villm earum.",
+      "box": [
+        307,
+        771,
+        489,
+        785
+      ],
+      "score": 0.9651501774787903
+    },
+    {
+      "text": "10. Et non interfecerunt filii Eplhraim Chananmum, qui ha-",
+      "box": [
+        318,
+        780,
+        594,
+        797
+      ],
+      "score": 0.9593573212623596
+    },
+    {
+      "text": "22.",
+      "box": [
+        613,
+        775,
+        632,
+        787
+      ],
+      "score": 0.9986951947212219
+    },
+    {
+      "text": "23.",
+      "box": [
+        613,
+        785,
+        632,
+        797
+      ],
+      "score": 0.9966680407524109
+    },
+    {
+      "text": "Beth Araba et Samaraim et Bethel,",
+      "box": [
+        638,
+        776,
+        803,
+        789
+      ],
+      "score": 0.999781608581543
+    },
+    {
+      "text": "2. Initium ejus a summitate maris salsissimi, et a lingua",
+      "box": [
+        12,
+        787,
+        299,
+        805
+      ],
+      "score": 0.960371196269989
+    },
+    {
+      "text": "bitabat in Gazer; habitavitque Chananeus in medio Ephraim",
+      "box": [
+        307,
+        790,
+        594,
+        808
+      ],
+      "score": 0.9644899964332581
+    },
+    {
+      "text": "24.",
+      "box": [
+        613,
+        795,
+        633,
+        807
+      ],
+      "score": 0.9996610283851624
+    },
+    {
+      "text": "Villa Emona et Ophni et Gabce: elvitateduodecim, et",
+      "box": [
+        634,
+        791,
+        892,
+        811
+      ],
+      "score": 0.794661819934845
+    },
+    {
+      "text": "Et Avim et Aphara et Ophera,",
+      "box": [
+        637,
+        786,
+        781,
+        799
+      ],
+      "score": 0.9874835014343262
+    },
+    {
+      "text": "ejus, que respicit Meridient,",
+      "box": [
+        3,
+        799,
+        144,
+        812
+      ],
+      "score": 0.9648433923721313
+    },
+    {
+      "text": "3. Egrediturque contra ascensum Scorpionis, et pertransit",
+      "box": [
+        11,
+        807,
+        299,
+        824
+      ],
+      "score": 0.959093451499939
+    },
+    {
+      "text": "usque in diem hane tributarius.",
+      "box": [
+        307,
+        802,
+        452,
+        815
+      ],
+      "score": 0.97049880027771
+    },
+    {
+      "text": "ville earum.",
+      "box": [
+        603,
+        804,
+        662,
+        818
+      ],
+      "score": 0.9915521740913391
+    },
+    {
+      "text": "in Sina: asceuditque in Cadesbarue, et pervenit in Esron, as-",
+      "box": [
+        1,
+        817,
+        299,
+        835
+      ],
+      "score": 0.9555250406265259
+    },
+    {
+      "text": "CAPUT XVII",
+      "box": [
+        419,
+        821,
+        485,
+        835
+      ],
+      "score": 0.9537093043327332
+    },
+    {
+      "text": "25.",
+      "box": [
+        613,
+        815,
+        637,
+        826
+      ],
+      "score": 0.9892188906669617
+    },
+    {
+      "text": "Gabaon et Rama et Beroth,",
+      "box": [
+        633,
+        815,
+        766,
+        828
+      ],
+      "score": 0.9804370999336243
+    },
+    {
+      "text": "cendens ad Addar, et circuiens Careaa,",
+      "box": [
+        2,
+        829,
+        191,
+        842
+      ],
+      "score": 0.9521123170852661
+    },
+    {
+      "text": "27. Et Recem, Jarephel et Tharela,",
+      "box": [
+        610,
+        832,
+        786,
+        851
+      ],
+      "score": 0.8508790135383606
+    },
+    {
+      "text": "26.",
+      "box": [
+        614,
+        825,
+        633,
+        836
+      ],
+      "score": 0.9995980262756348
+    },
+    {
+      "text": "Et Mesphe et Caplara et Amosa,",
+      "box": [
+        635,
+        824,
+        792,
+        839
+      ],
+      "score": 0.9458686709403992
+    },
+    {
+      "text": "4. Atque inde pertransiens in Asemona, et perveniens ad",
+      "box": [
+        11,
+        838,
+        299,
+        854
+      ],
+      "score": 0.9936683773994446
+    },
+    {
+      "text": "torrentem Egypti: eruntque termiai ejus mare magnum; hie",
+      "box": [
+        1,
+        848,
+        300,
+        864
+      ],
+      "score": 0.9576944708824158
+    },
+    {
+      "text": "1. Cecidit autem sors tribui Manasse; (ipse enim est pri-",
+      "box": [
+        316,
+        839,
+        594,
+        858
+      ],
+      "score": 0.9670589566230774
+    },
+    {
+      "text": "erit finis meridiane plage.",
+      "box": [
+        1,
+        859,
+        130,
+        873
+      ],
+      "score": 0.978497326374054
+    },
+    {
+      "text": "mogenitus Joseph) Machir primogenito Manasse patri Galaad,",
+      "box": [
+        306,
+        850,
+        594,
+        868
+      ],
+      "score": 0.9188145399093628
+    },
+    {
+      "text": "6. Ab Oriente vero erit initium, mare salsissimum usque ad",
+      "box": [
+        9,
+        867,
+        299,
+        884
+      ],
+      "score": 0.9735573530197144
+    },
+    {
+      "text": "qui fuit vir pugnator; habuitque possessionem Galaad et Ba-",
+      "box": [
+        306,
+        860,
+        594,
+        878
+      ],
+      "score": 0.9587830901145935
+    },
+    {
+      "text": "san:",
+      "box": [
+        308,
+        874,
+        330,
+        882
+      ],
+      "score": 0.9902969598770142
+    },
+    {
+      "text": "possessio filiorum Benjamin juxta familias suas.",
+      "box": [
+        603,
+        866,
+        823,
+        880
+      ],
+      "score": 0.9771742224693298
+    },
+    {
+      "text": "extrema Jordanis: et es qum respiciunt ad Aquilouem a lingua",
+      "box": [
+        0,
+        878,
+        299,
+        894
+      ],
+      "score": 0.9515398740768433
+    },
+    {
+      "text": "2. Et reliquis filiorum Manasse juxta familias suas, filiis",
+      "box": [
+        314,
+        879,
+        594,
+        897
+      ],
+      "score": 0.9601771831512451
+    },
+    {
+      "text": "maris usque ad eumdem Jordanis fluvium,",
+      "box": [
+        0,
+        889,
+        206,
+        903
+      ],
+      "score": 0.9948363900184631
+    },
+    {
+      "text": "Abiezer, et filiis Helec, et filiis Esriel, et filiis Sechem, et filiis",
+      "box": [
+        307,
+        890,
+        594,
+        907
+      ],
+      "score": 0.9017189145088196
+    },
+    {
+      "text": "CAPUT XIX",
+      "box": [
+        715,
+        885,
+        780,
+        899
+      ],
+      "score": 0.9999491572380066
+    },
+    {
+      "text": "6. Ascenditque terminus in Beth Hagla et trunsit ab Aqui-",
+      "box": [
+        9,
+        898,
+        298,
+        914
+      ],
+      "score": 0.9735287427902222
+    },
+    {
+      "text": "lone in Beth Araba: aseendens ad lapilem Boen fili Ruben,",
+      "box": [
+        0,
+        908,
+        288,
+        923
+      ],
+      "score": 0.9622982144355774
+    },
+    {
+      "text": "Hepher, et filils Semida; isti sunt filii Manasse filii Joseph, ma-",
+      "box": [
+        306,
+        900,
+        594,
+        918
+      ],
+      "score": 0.9667876362800598
+    },
+    {
+      "text": "res, per cognationes suas.",
+      "box": [
+        306,
+        912,
+        425,
+        924
+      ],
+      "score": 0.9894859790802002
+    },
+    {
+      "text": "1. Et egressa est sors secunda filiorum Simeon per cognatio-",
+      "box": [
+        611,
+        900,
+        890,
+        920
+      ],
+      "score": 0.9627944827079773
+    },
+    {
+      "text": "7. Et tendens usque ad terminos Debera de valle Achor,",
+      "box": [
+        7,
+        918,
+        299,
+        934
+      ],
+      "score": 0.9748564958572388
+    },
+    {
+      "text": "3.\" Salphaad vero filio Hepher fili Galaad filll Machir filii",
+      "box": [
+        312,
+        920,
+        595,
+        936
+      ],
+      "score": 0.8860611915588379
+    },
+    {
+      "text": "nes suas: fuitque hmreditas",
+      "box": [
+        603,
+        915,
+        732,
+        928
+      ],
+      "score": 0.9353286027908325
+    },
+    {
+      "text": "contra Aquilonem respiciens Galgala, que est ex adverso aseen-",
+      "box": [
+        0,
+        929,
+        299,
+        943
+      ],
+      "score": 0.9716894626617432
+    },
+    {
+      "text": "Manasse, non erant filii, sed sole filim: quarum ista sunt nomi-",
+      "box": [
+        305,
+        930,
+        595,
+        947
+      ],
+      "score": 0.9439877271652222
+    },
+    {
+      "text": "2. Eorum in medio possessionis filiorum Juda: Bersabee et",
+      "box": [
+        610,
+        919,
+        892,
+        940
+      ],
+      "score": 0.9031478762626648
+    },
+    {
+      "text": "sionis Adommim, ab australi parte torrentis: transitque aquas,",
+      "box": [
+        0,
+        939,
+        298,
+        954
+      ],
+      "score": 0.9903143644332886
+    },
+    {
+      "text": "na: Maala et Noa et Hegla et Melcha et Thersa.",
+      "box": [
+        306,
+        940,
+        526,
+        955
+      ],
+      "score": 0.9696484208106995
+    },
+    {
+      "text": "Sabee et Molada,",
+      "box": [
+        603,
+        933,
+        686,
+        948
+      ],
+      "score": 0.9975297451019287
+    },
+    {
+      "text": "que vocantur fons Solis: et erunt exitus ejus ad fontem Rogel,",
+      "box": [
+        0,
+        950,
+        297,
+        964
+      ],
+      "score": 0.9868097901344299
+    },
+    {
+      "text": "4. Veneruntque in conspectu Eleazari sacerdotis et Josue fi-",
+      "box": [
+        313,
+        950,
+        595,
+        967
+      ],
+      "score": 0.982946515083313
+    },
+    {
+      "text": "3. Et Hasersual, Bala et Asem,",
+      "box": [
+        613,
+        944,
+        766,
+        957
+      ],
+      "score": 0.996709406375885
+    },
+    {
+      "text": "8. Ascenditque per convallem filii Ennom ex latere Jebuswi",
+      "box": [
+        6,
+        959,
+        299,
+        974
+      ],
+      "score": 0.9731623530387878
+    },
+    {
+      "text": "lii Nun, et princlpun, diceutes; Dominus pracepit per manum",
+      "box": [
+        304,
+        960,
+        596,
+        977
+      ],
+      "score": 0.9547303318977356
+    },
+    {
+      "text": "4.",
+      "box": [
+        615,
+        956,
+        628,
+        965
+      ],
+      "score": 0.9996523261070251
+    },
+    {
+      "text": "Et Eltholad, Bethul et Harma,",
+      "box": [
+        632,
+        956,
+        776,
+        966
+      ],
+      "score": 0.9992084503173828
+    },
+    {
+      "text": "nd Meridiem, héc est Jerusalem: et inde se erigens ad vertiecm",
+      "box": [
+        0,
+        970,
+        299,
+        984
+      ],
+      "score": 0.9274654984474182
+    },
+    {
+      "text": "Moysi, ut daretur nobis possessio in medium fratrum nostro-",
+      "box": [
+        305,
+        970,
+        595,
+        987
+      ],
+      "score": 0.984787106513977
+    },
+    {
+      "text": "6. Et Bethlebaoth et Sarohen: civitates tredecim, et ville",
+      "box": [
+        611,
+        969,
+        893,
+        990
+      ],
+      "score": 0.8981812596321106
+    },
+    {
+      "text": "5.",
+      "box": [
+        615,
+        966,
+        627,
+        975
+      ],
+      "score": 0.9891407489776611
+    },
+    {
+      "text": "Et Siceleg et Bethmarchaboth et Hasersusn,",
+      "box": [
+        632,
+        964,
+        837,
+        977
+      ],
+      "score": 0.984161376953125
+    },
+    {
+      "text": "montis qui est coutra Geennom ad Occidentem in summitate",
+      "box": [
+        0,
+        981,
+        299,
+        994
+      ],
+      "score": 0.9896453022956848
+    },
+    {
+      "text": "ram. Deditque eis juxta imperium Domiui possessionem in me-",
+      "box": [
+        304,
+        981,
+        596,
+        997
+      ],
+      "score": 0.9895133972167969
+    },
+    {
+      "text": "vallis Raphaim contra Aquilonem,",
+      "box": [
+        0,
+        991,
+        168,
+        1004
+      ],
+      "score": 0.996407151222229
+    },
+    {
+      "text": "dio fratrum patris earum.",
+      "box": [
+        305,
+        992,
+        427,
+        1004
+      ],
+      "score": 0.9966490268707275
+    },
+    {
+      "text": "earum.",
+      "box": [
+        604,
+        986,
+        638,
+        996
+      ],
+      "score": 0.9993234276771545
+    },
+    {
+      "text": "9. Pertransitque a vertice montis usque ad fontem aque",
+      "box": [
+        7,
+        1001,
+        299,
+        1015
+      ],
+      "score": 0.9849575161933899
+    },
+    {
+      "text": "5. Et ceciderunt funiculi Manasse, decem, absque terra Ga-",
+      "box": [
+        314,
+        1001,
+        596,
+        1017
+      ],
+      "score": 0.9730232954025269
+    },
+    {
+      "text": "7. Aiu et Remmon et Athar et Asan; civitates quatuor, et",
+      "box": [
+        610,
+        990,
+        894,
+        1009
+      ],
+      "score": 0.9598219990730286
+    },
+    {
+      "text": "Nephtoa, et pervenit usque ad vicos montis Epliron: incliua-",
+      "box": [
+        0,
+        1010,
+        298,
+        1025
+      ],
+      "score": 0.9619285464286804
+    },
+    {
+      "text": "laad et Basan trans Jordanem.",
+      "box": [
+        304,
+        1011,
+        448,
+        1025
+      ],
+      "score": 0.9779298305511475
+    },
+    {
+      "text": "ville earum:",
+      "box": [
+        604,
+        1004,
+        665,
+        1017
+      ],
+      "score": 0.9409723281860352
+    },
+    {
+      "text": "turque in Baala, qum est Cariathiarim, id est, urbs silvarum,",
+      "box": [
+        0,
+        1022,
+        287,
+        1035
+      ],
+      "score": 0.9890530109405518
+    },
+    {
+      "text": "6. Filise enim Manasse possederunt hareditatem in medio fi-",
+      "box": [
+        314,
+        1021,
+        595,
+        1036
+      ],
+      "score": 0.9798825979232788
+    },
+    {
+      "text": "8. Omnes vieuli per cireuitum urbium istaram usque ad",
+      "box": [
+        612,
+        1010,
+        895,
+        1029
+      ],
+      "score": 0.9643322825431824
+    },
+    {
+      "text": "10. Et circuit de Baala contra Occidentem, usque ad mon-",
+      "box": [
+        7,
+        1032,
+        298,
+        1045
+      ],
+      "score": 0.9728122353553772
+    },
+    {
+      "text": "lioram ejus. Terra autem Galaad cecidit in sortem filiorum Ma-",
+      "box": [
+        305,
+        1031,
+        594,
+        1046
+      ],
+      "score": 0.9719496369361877
+    },
+    {
+      "text": "Baslath Beer-Ramath contra australem plagam. Hme est here-",
+      "box": [
+        604,
+        1022,
+        894,
+        1037
+      ],
+      "score": 0.8960932493209839
+    },
+    {
+      "text": "tem Seir: transitque juxta latus montis Jarim ad Aquilonem in",
+      "box": [
+        0,
+        1041,
+        298,
+        1056
+      ],
+      "score": 0.984020471572876
+    },
+    {
+      "text": "nasse, qui reliqui erant.",
+      "box": [
+        304,
+        1042,
+        416,
+        1054
+      ],
+      "score": 0.9886488914489746
+    },
+    {
+      "text": "ditas filiorum Simeon juxta cognationes suas,",
+      "box": [
+        605,
+        1034,
+        815,
+        1047
+      ],
+      "score": 0.9911110997200012
+    },
+    {
+      "text": "Cheslon, et descendit in Bethsames, transitque in Thamna,",
+      "box": [
+        0,
+        1051,
+        280,
+        1066
+      ],
+      "score": 0.9779237508773804
+    },
+    {
+      "text": "7. 'Fuitque terminus Manasse ab Aser, Machmethath gum",
+      "box": [
+        313,
+        1050,
+        595,
+        1067
+      ],
+      "score": 0.9748240113258362
+    },
+    {
+      "text": "9. In possessioue et funiculo filioram Juda, qula major erat:",
+      "box": [
+        612,
+        1041,
+        895,
+        1058
+      ],
+      "score": 0.9236782789230347
+    },
+    {
+      "text": "11. Et pervenit contra Aquilonem partis Acearon ex latere:",
+      "box": [
+        6,
+        1061,
+        298,
+        1076
+      ],
+      "score": 0.97089022397995
+    },
+    {
+      "text": "respicit Sichem, et egreditur ad dexteram juxta habitatores Fon-",
+      "box": [
+        303,
+        1061,
+        595,
+        1077
+      ],
+      "score": 0.9722942113876343
+    },
+    {
+      "text": "et idcirco filii Simeon possederunt in medio haereditatis eorum.",
+      "box": [
+        603,
+        1052,
+        895,
+        1068
+      ],
+      "score": 0.9358916282653809
+    },
+    {
+      "text": "inclinaturque Sechrona, et transit montem Baala: pervenitque",
+      "box": [
+        0,
+        1071,
+        298,
+        1086
+      ],
+      "score": 0.9770167469978333
+    },
+    {
+      "text": "tis Thaphue.",
+      "box": [
+        305,
+        1073,
+        370,
+        1084
+      ],
+      "score": 0.9686288237571716
+    },
+    {
+      "text": "10. Ceciditque sors tertia filiorum Zabulon per cognationes",
+      "box": [
+        613,
+        1062,
+        896,
+        1078
+      ],
+      "score": 0.96900475025177
+    },
+    {
+      "text": "u Jebneel, et magui maris contra Occidenten fine concluditur.",
+      "box": [
+        0,
+        1081,
+        297,
+        1097
+      ],
+      "score": 0.9573531746864319
+    },
+    {
+      "text": "8. Étenin in sorte Manasse ceciderat terra Thaphue, qum",
+      "box": [
+        312,
+        1081,
+        595,
+        1097
+      ],
+      "score": 0.9393446445465088
+    },
+    {
+      "text": "suas: et factus est terminus possessionis eorum usque Sarid.",
+      "box": [
+        602,
+        1072,
+        879,
+        1088
+      ],
+      "score": 0.9362321496009827
+    },
+    {
+      "text": "12. Hi'sunt termini filiorum Juda per circuitum in cogna-",
+      "box": [
+        6,
+        1093,
+        297,
+        1106
+      ],
+      "score": 0.9780232906341553
+    },
+    {
+      "text": "est juxta terminos Manasse filiorum Ephraim.",
+      "box": [
+        305,
+        1092,
+        518,
+        1106
+      ],
+      "score": 0.978053629398346
+    },
+    {
+      "text": "11. Asceuditque de mari et Merala, et pervenit in Debba-",
+      "box": [
+        612,
+        1082,
+        895,
+        1098
+      ],
+      "score": 0.9631384611129761
+    },
+    {
+      "text": "tionibus suis.",
+      "box": [
+        0,
+        1101,
+        66,
+        1117
+      ],
+      "score": 0.9892454743385315
+    },
+    {
+      "text": "9. Descenditque terminus Vallis arundineti in meridiem tor-",
+      "box": [
+        314,
+        1101,
+        595,
+        1117
+      ],
+      "score": 0.9755685925483704
+    },
+    {
+      "text": "seth, usque ad torrentem qui est contra Jeconam,",
+      "box": [
+        605,
+        1096,
+        834,
+        1106
+      ],
+      "score": 0.9804056286811829
+    },
+    {
+      "text": "13. Caleb vero filio Jephone dedit partem in medio filiorum",
+      "box": [
+        6,
+        1111,
+        297,
+        1127
+      ],
+      "score": 0.9836679100990295
+    },
+    {
+      "text": "rentis civitatum Ephraim, que in medio sunt urbium Manasse:",
+      "box": [
+        303,
+        1112,
+        595,
+        1127
+      ],
+      "score": 0.9870437383651733
+    },
+    {
+      "text": "12. Et revertitur de Sared contra Orientem in fines Cese-",
+      "box": [
+        611,
+        1102,
+        896,
+        1118
+      ],
+      "score": 0.9600436091423035
+    },
+    {
+      "text": "Juda, sicut preceperat el Dominus, Cariath Arbe patris Enac,",
+      "box": [
+        0,
+        1122,
+        297,
+        1136
+      ],
+      "score": 0.9753625392913818
+    },
+    {
+      "text": "terminus Manasse ab Aquilone torrentis, et exitus ejus pergit",
+      "box": [
+        303,
+        1122,
+        595,
+        1138
+      ],
+      "score": 0.9819948077201843
+    },
+    {
+      "text": "leththabor: et egreditur ad Dabereth, ascenditque contra Ja-",
+      "box": [
+        602,
+        1113,
+        896,
+        1128
+      ],
+      "score": 0.970569908618927
+    },
+    {
+      "text": "psa est Hebron.",
+      "box": [
+        0,
+        1131,
+        81,
+        1149
+      ],
+      "score": 0.950998842716217
+    },
+    {
+      "text": "ad mare.",
+      "box": [
+        305,
+        1134,
+        350,
+        1145
+      ],
+      "score": 0.9970544576644897
+    },
+    {
+      "text": "phie:",
+      "box": [
+        604,
+        1126,
+        631,
+        1137
+      ],
+      "score": 0.9991058111190796
+    },
+    {
+      "text": "14. Delevitque ex ea Caleb tres filios Enac, Sesai et Ahiman",
+      "box": [
+        4,
+        1142,
+        297,
+        1157
+      ],
+      "score": 0.9785254001617432
+    },
+    {
+      "text": "10. Ita ut possessio Ephraim sit ab Austro, et ab Aquflone",
+      "box": [
+        314,
+        1142,
+        595,
+        1157
+      ],
+      "score": 0.9897910356521606
+    },
+    {
+      "text": "18. Et inde pertransit usque ad orientalem plagam Gethhe-",
+      "box": [
+        611,
+        1132,
+        897,
+        1149
+      ],
+      "score": 0.9821287393569946
+    },
+    {
+      "text": "et Tholmai de stirpe Enne.",
+      "box": [
+        0,
+        1151,
+        127,
+        1169
+      ],
+      "score": 0.9490500688552856
+    },
+    {
+      "text": "Manasse, et utramque claudat mare, et conjungantur sibi in",
+      "box": [
+        304,
+        1152,
+        594,
+        1168
+      ],
+      "score": 0.9462088346481323
+    },
+    {
+      "text": "pher et Thacasin: et egreditur in Remmou, Amthar et Noa:",
+      "box": [
+        603,
+        1145,
+        885,
+        1158
+      ],
+      "score": 0.9845222234725952
+    },
+    {
+      "text": "15. Atque inde conscendena venit ad habitatores Dabir, que",
+      "box": [
+        5,
+        1161,
+        299,
+        1179
+      ],
+      "score": 0.9635289311408997
+    },
+    {
+      "text": "tribu Aser ab Aquilone, et in tribu Issachar ab Oriente.",
+      "box": [
+        304,
+        1162,
+        564,
+        1178
+      ],
+      "score": 0.9660104513168335
+    },
+    {
+      "text": "14. Et circuit ad Aquilonem Hanathon: suntque egressus",
+      "box": [
+        610,
+        1155,
+        898,
+        1168
+      ],
+      "score": 0.9715486168861389
+    },
+    {
+      "text": "11. Fuitque hæreditas Manasse in Issachar et in Aser, Beth-",
+      "box": [
+        313,
+        1172,
+        595,
+        1188
+      ],
+      "score": 0.9780564904212952
+    },
+    {
+      "text": "ejus vallis Jephthael,",
+      "box": [
+        604,
+        1167,
+        703,
+        1177
+      ],
+      "score": 0.9941175580024719
+    },
+    {
+      "text": "pr16. Dixitque Caleb: Qui percusserit Cariath Sepher, et ce-",
+      "box": [
+        0,
+        1181,
+        298,
+        1199
+      ],
+      "score": 0.9229398369789124
+    },
+    {
+      "text": "san et viculi ejus et Jeblaam cum viculis suis: et habitatores",
+      "box": [
+        304,
+        1182,
+        595,
+        1199
+      ],
+      "score": 0.9719712138175964
+    },
+    {
+      "text": "15. Et Cateth, et Naalol, et Semeron, et Jedala, et Beth-",
+      "box": [
+        610,
+        1173,
+        898,
+        1188
+      ],
+      "score": 0.9749364256858826
+    },
+    {
+      "text": "Dor cum oppidis suis, habitatores quoque Endor cum viculis",
+      "box": [
+        305,
+        1192,
+        595,
+        1209
+      ],
+      "score": 0.9797937273979187
+    },
+    {
+      "text": "lehem: civitates duodecim, et ville earum.",
+      "box": [
+        602,
+        1185,
+        802,
+        1198
+      ],
+      "score": 0.9721502661705017
+    },
+    {
+      "text": "suis: similiterque habitatores Thenach cum viculis suis, et ha-",
+      "box": [
+        304,
+        1202,
+        595,
+        1219
+      ],
+      "score": 0.9630947709083557
+    },
+    {
+      "text": "16. Hae est hareditas tribus filiorum Zabulon per cogna-",
+      "box": [
+        611,
+        1193,
+        899,
+        1209
+      ],
+      "score": 0.8722440004348755
+    },
+    {
+      "text": "bitatores Mageddo cum viculis suis, et tertia pars urbis No-",
+      "box": [
+        304,
+        1212,
+        595,
+        1229
+      ],
+      "score": 0.9538160562515259
+    },
+    {
+      "text": "tioues suns, urbes et viculi earum.",
+      "box": [
+        603,
+        1205,
+        764,
+        1219
+      ],
+      "score": 0.9647468328475952
+    },
+    {
+      "text": "pheth.",
+      "box": [
+        306,
+        1225,
+        339,
+        1236
+      ],
+      "score": 0.9937092661857605
+    },
+    {
+      "text": "17.",
+      "box": [
+        613,
+        1216,
+        632,
+        1228
+      ],
+      "score": 0.999803364276886
+    },
+    {
+      "text": "Issachar egressa est sors quarta per cognationes suns.",
+      "box": [
+        635,
+        1212,
+        888,
+        1229
+      ],
+      "score": 0.9768544435501099
+    },
+    {
+      "text": "12. Nec potuerunt filii Manasse has civitates subvertere, sed",
+      "box": [
+        313,
+        1233,
+        595,
+        1250
+      ],
+      "score": 0.9638185501098633
+    },
+    {
+      "text": "18.",
+      "box": [
+        614,
+        1227,
+        632,
+        1238
+      ],
+      "score": 0.9999480247497559
+    },
+    {
+      "text": "Fuitque ejus hereditas, Jezrael et Casaloth et Sunem,",
+      "box": [
+        636,
+        1221,
+        901,
+        1238
+      ],
+      "score": 0.9085439443588257
+    },
+    {
+      "text": "eepit Chananaus habitare in terra sua.",
+      "box": [
+        304,
+        1244,
+        488,
+        1259
+      ],
+      "score": 0.9411768913269043
+    },
+    {
+      "text": "19.",
+      "box": [
+        614,
+        1237,
+        632,
+        1248
+      ],
+      "score": 0.9999444484710693
+    },
+    {
+      "text": "Et Hapharaim, et Seon, et Anaharath,",
+      "box": [
+        636,
+        1231,
+        822,
+        1249
+      ],
+      "score": 0.977041482925415
+    },
+    {
+      "text": "Caleb: Quid habes, inquit?",
+      "box": [
+        0,
+        1243,
+        133,
+        1262
+      ],
+      "score": 0.9617000222206116
+    },
+    {
+      "text": "13. Postquam autem convaluerunt filii Israel, subjecerunt",
+      "box": [
+        314,
+        1254,
+        596,
+        1270
+      ],
+      "score": 0.9668026566505432
+    },
+    {
+      "text": "20.",
+      "box": [
+        614,
+        1247,
+        632,
+        1259
+      ],
+      "score": 0.9995453953742981
+    },
+    {
+      "text": "Et Rabboth, et Cesion, Abes,",
+      "box": [
+        637,
+        1243,
+        777,
+        1258
+      ],
+      "score": 0.9869898557662964
+    },
+    {
+      "text": "Chananeos, et fecerunt sibi tributarios, nec interfecerunt cos.",
+      "box": [
+        305,
+        1264,
+        591,
+        1281
+      ],
+      "score": 0.9412045478820801
+    },
+    {
+      "text": "21.",
+      "box": [
+        613,
+        1254,
+        633,
+        1269
+      ],
+      "score": 0.9522530436515808
+    },
+    {
+      "text": "Et Rameth, et Engannim, et Enhadda, et Bethpheses:",
+      "box": [
+        636,
+        1250,
+        903,
+        1269
+      ],
+      "score": 0.9675936102867126
+    },
+    {
+      "text": "tralem et arentem dedisti mihi, fange et irriguam. Dedit itaque",
+      "box": [
+        0,
+        1262,
+        299,
+        1284
+      ],
+      "score": 0.8404901623725891
+    },
+    {
+      "text": "14. Locutique sunt filii Joseph ad Josue, et dixerunt: Quare",
+      "box": [
+        315,
+        1275,
+        596,
+        1291
+      ],
+      "score": 0.979651153087616
+    },
+    {
+      "text": "22. Et pervenit terminus ejus usque Thabor et Sehesima et",
+      "box": [
+        613,
+        1260,
+        904,
+        1279
+      ],
+      "score": 0.9605369567871094
+    },
+    {
+      "text": "si Caleb irriguum superius et inferius.",
+      "box": [
+        0,
+        1274,
+        181,
+        1294
+      ],
+      "score": 0.9773765206336975
+    },
+    {
+      "text": "dedisti mali possessionem sortis et funiculi unius, cum sim tan-",
+      "box": [
+        305,
+        1285,
+        596,
+        1302
+      ],
+      "score": 0.9678325653076172
+    },
+    {
+      "text": "Bethsames: cruntque exitus ejus Jordanis: civitates sedecim, et",
+      "box": [
+        604,
+        1270,
+        904,
+        1290
+      ],
+      "score": 0.9684813618659973
+    },
+    {
+      "text": "20. Hae est possessio tribus filiorum Juda per cognationes",
+      "box": [
+        3,
+        1282,
+        299,
+        1305
+      ],
+      "score": 0.8597568273544312
+    },
+    {
+      "text": "tae multitudinis, et benedixerit mihi Dominus?",
+      "box": [
+        305,
+        1296,
+        526,
+        1311
+      ],
+      "score": 0.9582759141921997
+    },
+    {
+      "text": "villae earum.",
+      "box": [
+        606,
+        1288,
+        664,
+        1299
+      ],
+      "score": 0.9480879902839661
+    },
+    {
+      "text": "suas.",
+      "box": [
+        0,
+        1301,
+        23,
+        1313
+      ],
+      "score": 0.9072802662849426
+    },
+    {
+      "text": "23. Hec est possessio filiorum Issachar per cognationes",
+      "box": [
+        612,
+        1287,
+        905,
+        1310
+      ],
+      "score": 0.9411473870277405
+    },
+    {
+      "text": "21.",
+      "box": [
+        5,
+        1311,
+        25,
+        1322
+      ],
+      "score": 0.9999117255210876
+    },
+    {
+      "text": "Erantque civitates ab extremis partibus filiorum Juda",
+      "box": [
+        30,
+        1305,
+        298,
+        1322
+      ],
+      "score": 0.9957789182662964
+    },
+    {
+      "text": "15. Ad quos Josue ait: Si populus multus es, ascende in sil-",
+      "box": [
+        316,
+        1306,
+        596,
+        1321
+      ],
+      "score": 0.9690589904785156
+    },
+    {
+      "text": "suas, urbes et viculi earumi.",
+      "box": [
+        603,
+        1302,
+        734,
+        1320
+      ],
+      "score": 0.9268125295639038
+    },
+    {
+      "text": "uxta terminos Edom a Meridie: Cabseel et Eder et Jagur,",
+      "box": [
+        0,
+        1315,
+        277,
+        1335
+      ],
+      "score": 0.9749759435653687
+    },
+    {
+      "text": "vam, et succile tibi spatia in terra Pherezei et Raphaim : quia",
+      "box": [
+        305,
+        1317,
+        596,
+        1332
+      ],
+      "score": 0.9376081228256226
+    },
+    {
+      "text": "24. Ceciditque sors quluta tribui filiorum Aser per cogma-",
+      "box": [
+        612,
+        1305,
+        905,
+        1331
+      ],
+      "score": 0.9117769598960876
+    },
+    {
+      "text": "22.",
+      "box": [
+        5,
+        1332,
+        24,
+        1343
+      ],
+      "score": 0.99995356798172
+    },
+    {
+      "text": "Et Cina et Dimona et Adada,",
+      "box": [
+        30,
+        1327,
+        175,
+        1343
+      ],
+      "score": 0.9986129403114319
+    },
+    {
+      "text": "angusta est tibi possessio montis Ephraim.",
+      "box": [
+        305,
+        1327,
+        504,
+        1342
+      ],
+      "score": 0.9852418303489685
+    },
+    {
+      "text": "tiones suas:",
+      "box": [
+        604,
+        1325,
+        664,
+        1341
+      ],
+      "score": 0.9852983355522156
+    },
+    {
+      "text": "23.",
+      "box": [
+        5,
+        1342,
+        24,
+        1355
+      ],
+      "score": 0.992081344127655
+    },
+    {
+      "text": "Et Cades et Asor et Jethnam,",
+      "box": [
+        30,
+        1337,
+        176,
+        1353
+      ],
+      "score": 0.9991422295570374
+    },
+    {
+      "text": "16. Cui responderunt filii Joseph: Non poterimus ad mon-",
+      "box": [
+        315,
+        1338,
+        596,
+        1353
+      ],
+      "score": 0.9771806001663208
+    },
+    {
+      "text": "25. Fuitque terminus eorum Halcath et Chalf et Beten et",
+      "box": [
+        613,
+        1324,
+        906,
+        1352
+      ],
+      "score": 0.9676636457443237
+    },
+    {
+      "text": "24.",
+      "box": [
+        5,
+        1353,
+        24,
+        1366
+      ],
+      "score": 0.9997509121894836
+    },
+    {
+      "text": "Ziph et Telem et Baloth,",
+      "box": [
+        29,
+        1348,
+        153,
+        1365
+      ],
+      "score": 0.9990370869636536
+    },
+    {
+      "text": "tana conscendere, cum ferreis curribus utantur Chauanri, qui",
+      "box": [
+        305,
+        1348,
+        597,
+        1364
+      ],
+      "score": 0.9607378840446472
+    },
+    {
+      "text": "Axapli,",
+      "box": [
+        605,
+        1348,
+        643,
+        1362
+      ],
+      "score": 0.8700609803199768
+    },
+    {
+      "text": "Asor nova et Carioth, Hesron, hãe est Asor.",
+      "box": [
+        30,
+        1356,
+        245,
+        1377
+      ],
+      "score": 0.9554526805877686
+    },
+    {
+      "text": "habitant in terra campestri, in qua site sunt Bethsan cum vi-",
+      "box": [
+        305,
+        1359,
+        597,
+        1375
+      ],
+      "score": 0.9698292016983032
+    },
+    {
+      "text": "26., E Elmelech et Amaad et Messal: et pervenit usque ad",
+      "box": [
+        613,
+        1343,
+        905,
+        1373
+      ],
+      "score": 0.9004406332969666
+    },
+    {
+      "text": "25.",
+      "box": [
+        5,
+        1365,
+        22,
+        1379
+      ],
+      "score": 0.9964742660522461
+    },
+    {
+      "text": "Carmelum maris et Sihor et Labanath,",
+      "box": [
+        605,
+        1360,
+        789,
+        1380
+      ],
+      "score": 0.9591161012649536
+    }
+  ]
+}

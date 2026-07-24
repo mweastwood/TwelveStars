@@ -1,0 +1,1527 @@
+{
+  "volume": 1,
+  "page_index": 176,
+  "pdf_page": 177,
+  "lines": [
+    {
+      "text": "201",
+      "box": [
+        43,
+        35,
+        67,
+        53
+      ],
+      "score": 0.9999938607215881
+    },
+    {
+      "text": "NÚMEROS.",
+      "box": [
+        186,
+        33,
+        269,
+        58
+      ],
+      "score": 0.9998244643211365
+    },
+    {
+      "text": "CAPITULO XVI.",
+      "box": [
+        667,
+        46,
+        783,
+        63
+      ],
+      "score": 0.9983413219451904
+    },
+    {
+      "text": "202",
+      "box": [
+        883,
+        45,
+        910,
+        63
+      ],
+      "score": 0.9999961256980896
+    },
+    {
+      "text": "2. Se amotinaron 1 contra Moysés con otros doscientos",
+      "box": [
+        44,
+        75,
+        425,
+        102
+      ],
+      "score": 0.9794374704360962
+    },
+    {
+      "text": "cincuenta hombres de los hijos de Israél, varones de los mas",
+      "box": [
+        32,
+        93,
+        424,
+        122
+      ],
+      "score": 0.9962097406387329
+    },
+    {
+      "text": "27. Retirados que fueron de los alrededores de las tiendas",
+      "box": [
+        543,
+        87,
+        918,
+        108
+      ],
+      "score": 0.9964468479156494
+    },
+    {
+      "text": "ilustres de la synagoga, y que en tiempo de concilio ó asam-",
+      "box": [
+        32,
+        109,
+        424,
+        140
+      ],
+      "score": 0.9783629179000854
+    },
+    {
+      "text": "de los dichos, saliendo Dathán y Abiron, pusiéronse á la",
+      "box": [
+        529,
+        103,
+        919,
+        127
+      ],
+      "score": 0.9987050890922546
+    },
+    {
+      "text": "blea, eran convocados nominadamente;",
+      "box": [
+        34,
+        128,
+        284,
+        154
+      ],
+      "score": 0.996776819229126
+    },
+    {
+      "text": "entrada de sus pabellones con las mujeres é hijos, y toda su",
+      "box": [
+        529,
+        122,
+        917,
+        143
+      ],
+      "score": 0.9968604445457458
+    },
+    {
+      "text": "3. Y presentándose delante de Moysés y Aaron, dijeron:",
+      "box": [
+        44,
+        146,
+        425,
+        172
+      ],
+      "score": 0.9901155829429626
+    },
+    {
+      "text": "gente.",
+      "box": [
+        529,
+        140,
+        570,
+        158
+      ],
+      "score": 0.999560534954071
+    },
+    {
+      "text": "Básteos ya lo hecho hasta aqui: puesto que todo este pueblo",
+      "box": [
+        32,
+        163,
+        424,
+        189
+      ],
+      "score": 0.9899986982345581
+    },
+    {
+      "text": "28. Dijo entonces Moysés: En esto conocereis que el Señor",
+      "box": [
+        541,
+        155,
+        918,
+        175
+      ],
+      "score": 0.9868484735488892
+    },
+    {
+      "text": "es de santos, y en medio de ellos está el Señor, ¿por qué causa",
+      "box": [
+        32,
+        179,
+        424,
+        207
+      ],
+      "score": 0.9859123229980469
+    },
+    {
+      "text": "me ha enviado á ejecutar todas las cosas que veis, y que no",
+      "box": [
+        527,
+        171,
+        917,
+        193
+      ],
+      "score": 0.9982711672782898
+    },
+    {
+      "text": "os ensalzais tanto sobre el pueblo del Señor?",
+      "box": [
+        33,
+        195,
+        318,
+        222
+      ],
+      "score": 0.9898864030838013
+    },
+    {
+      "text": "las he forjado yo en mi cabeza:",
+      "box": [
+        528,
+        187,
+        728,
+        205
+      ],
+      "score": 0.9977934956550598
+    },
+    {
+      "text": "29. Si estos que me acusan murieren de la muerte ordina-",
+      "box": [
+        540,
+        202,
+        917,
+        224
+      ],
+      "score": 0.9968310594558716
+    },
+    {
+      "text": "4. Lo que oyendo Moysés postróse rostro por tierra;",
+      "box": [
+        44,
+        212,
+        384,
+        239
+      ],
+      "score": 0.9984812140464783
+    },
+    {
+      "text": "ria de los hombres, y fueren heridos del azote que suele",
+      "box": [
+        527,
+        217,
+        917,
+        240
+      ],
+      "score": 0.9998737573623657
+    },
+    {
+      "text": "5. Y luego hablando á Coré y á toda la multitud: Mañana,",
+      "box": [
+        43,
+        228,
+        423,
+        255
+      ],
+      "score": 0.9790827631950378
+    },
+    {
+      "text": "tambien herir á los deimás, no me ha enviado el Señor;",
+      "box": [
+        528,
+        234,
+        877,
+        255
+      ],
+      "score": 0.9824101328849792
+    },
+    {
+      "text": "dijo, declarará el Señor quiénes son los suyos, y se apropiará",
+      "box": [
+        31,
+        244,
+        423,
+        272
+      ],
+      "score": 0.9861404895782471
+    },
+    {
+      "text": "los que son santos; y aquellos que escogiere, esos se acercarán",
+      "box": [
+        29,
+        259,
+        424,
+        290
+      ],
+      "score": 0.9621464610099792
+    },
+    {
+      "text": "30. Pero si el Señor hiciere una cosa nunca vista, de",
+      "box": [
+        540,
+        250,
+        917,
+        271
+      ],
+      "score": 0.9984155893325806
+    },
+    {
+      "text": "manera que la tierra abriendo su boca se los trague á ellos y",
+      "box": [
+        527,
+        266,
+        916,
+        288
+      ],
+      "score": 0.9996262192726135
+    },
+    {
+      "text": "á él ó serán sus ministros.",
+      "box": [
+        31,
+        276,
+        203,
+        300
+      ],
+      "score": 0.9688560366630554
+    },
+    {
+      "text": "á todas sus cosas, y bajen vivos al infierno, sabreis entonces",
+      "box": [
+        526,
+        281,
+        917,
+        304
+      ],
+      "score": 0.986318826675415
+    },
+    {
+      "text": "6. Haced pues esto: Tome cada cual su incensario, tú, Coré,",
+      "box": [
+        42,
+        292,
+        420,
+        320
+      ],
+      "score": 0.9911344051361084
+    },
+    {
+      "text": "y todo tu séquito;",
+      "box": [
+        29,
+        307,
+        147,
+        330
+      ],
+      "score": 0.9810383319854736
+    },
+    {
+      "text": "que han blasfemado contra el Señor.",
+      "box": [
+        527,
+        298,
+        761,
+        317
+      ],
+      "score": 0.9999291300773621
+    },
+    {
+      "text": "31. No bien hubo acabado de hablar, cuando la tierra se",
+      "box": [
+        539,
+        312,
+        917,
+        336
+      ],
+      "score": 0.9985414743423462
+    },
+    {
+      "text": "7. Y mañana, echado el fuego, poned sobre él incienso,",
+      "box": [
+        41,
+        323,
+        420,
+        352
+      ],
+      "score": 0.9983479380607605
+    },
+    {
+      "text": "delante del Señor; y al que escogiere ese será santo: Oh hijos",
+      "box": [
+        27,
+        337,
+        421,
+        373
+      ],
+      "score": 0.9400931596755981
+    },
+    {
+      "text": "hundió debajo de los piés de aquellos ²,",
+      "box": [
+        526,
+        330,
+        782,
+        349
+      ],
+      "score": 0.9911419153213501
+    },
+    {
+      "text": "32. Y abriendo su boca se los tragó con sus tiendas, y",
+      "box": [
+        536,
+        344,
+        918,
+        370
+      ],
+      "score": 0.9941397905349731
+    },
+    {
+      "text": "de Leví, mucho os engreís.",
+      "box": [
+        29,
+        355,
+        205,
+        381
+      ],
+      "score": 0.9979268312454224
+    },
+    {
+      "text": "8. Y añadió hablando con Coré: Escuchad, hijos de Leví:",
+      "box": [
+        39,
+        371,
+        414,
+        401
+      ],
+      "score": 0.9983680248260498
+    },
+    {
+      "text": "todos sus haberes;",
+      "box": [
+        526,
+        364,
+        645,
+        378
+      ],
+      "score": 0.9977016448974609
+    },
+    {
+      "text": "33. Y cubiertos de tierra bajaron vivos al infierno ³, y pe-",
+      "box": [
+        536,
+        376,
+        920,
+        403
+      ],
+      "score": 0.9779911041259766
+    },
+    {
+      "text": "9. ¿Os parece acaso poco que el Dios de Israél os haya",
+      "box": [
+        39,
+        387,
+        419,
+        419
+      ],
+      "score": 0.9918420314788818
+    },
+    {
+      "text": "separado de todo el pueblo, y allegado á sí, para que le sir-",
+      "box": [
+        25,
+        404,
+        420,
+        435
+      ],
+      "score": 0.9888384342193604
+    },
+    {
+      "text": "recieron de en medio del pueblo.",
+      "box": [
+        526,
+        399,
+        737,
+        413
+      ],
+      "score": 0.99986732006073
+    },
+    {
+      "text": "vieseis en el culto del Tabernáculo, y estuvieseis ante el",
+      "box": [
+        25,
+        419,
+        419,
+        452
+      ],
+      "score": 0.9958792924880981
+    },
+    {
+      "text": "34. Al punto todo Israél, que estaba al contorno, á los",
+      "box": [
+        536,
+        411,
+        921,
+        434
+      ],
+      "score": 0.9831986427307129
+    },
+    {
+      "text": "concurso del pueblo, ejerciendo por él el ministerio?",
+      "box": [
+        24,
+        436,
+        361,
+        467
+      ],
+      "score": 0.9957515597343445
+    },
+    {
+      "text": "alaridos de los que perecian eehó á huir, diciendo: No sea que",
+      "box": [
+        524,
+        428,
+        920,
+        450
+      ],
+      "score": 0.985291063785553
+    },
+    {
+      "text": "10. ¿Para eso te ha puesto á tí y á todos tus hermanos los",
+      "box": [
+        36,
+        452,
+        419,
+        484
+      ],
+      "score": 0.9917511940002441
+    },
+    {
+      "text": "nos trague tambien á nosotros la tierra.",
+      "box": [
+        524,
+        446,
+        783,
+        464
+      ],
+      "score": 0.9889509081840515
+    },
+    {
+      "text": "hijos de Leví cerca de sí, para que os arrogueis tambien el",
+      "box": [
+        21,
+        467,
+        419,
+        502
+      ],
+      "score": 0.993306577205658
+    },
+    {
+      "text": "35. Además de esto, un fuego enviado del Señor abrasó á",
+      "box": [
+        536,
+        461,
+        921,
+        483
+      ],
+      "score": 0.9913859963417053
+    },
+    {
+      "text": "Sumo sacerdocio,",
+      "box": [
+        21,
+        484,
+        140,
+        509
+      ],
+      "score": 0.9986294507980347
+    },
+    {
+      "text": "los doscientos y cineuenta hombres que ofrecian el incienso.",
+      "box": [
+        521,
+        477,
+        922,
+        501
+      ],
+      "score": 0.9998520612716675
+    },
+    {
+      "text": "11. Y toda tu gavilla se subleve contra el Señor? Porque",
+      "box": [
+        34,
+        502,
+        418,
+        533
+      ],
+      "score": 0.9910590052604675
+    },
+    {
+      "text": "36. Y el Señor habló á Moysés, diciendo:",
+      "box": [
+        536,
+        495,
+        813,
+        514
+      ],
+      "score": 0.995203971862793
+    },
+    {
+      "text": "37. Da órden á Eleazar, sacerdote, hijo de Aaron, que",
+      "box": [
+        535,
+        510,
+        921,
+        534
+      ],
+      "score": 0.9900028109550476
+    },
+    {
+      "text": "¿qué es Aaron, para que murmureis contra él?",
+      "box": [
+        19,
+        520,
+        320,
+        547
+      ],
+      "score": 0.9922512173652649
+    },
+    {
+      "text": "12. En seguida Moysés envió á llamar á Dathán y á Abi-",
+      "box": [
+        33,
+        535,
+        418,
+        566
+      ],
+      "score": 0.9836890697479248
+    },
+    {
+      "text": "tome los incensarios que han quedado esparcidos en medio",
+      "box": [
+        522,
+        527,
+        922,
+        551
+      ],
+      "score": 0.998621940612793
+    },
+    {
+      "text": "ron hijos de Eliab. Los cuales respondieron: Nosotros no",
+      "box": [
+        16,
+        550,
+        418,
+        583
+      ],
+      "score": 0.9989285469055176
+    },
+    {
+      "text": "del incendio, y desparrame á una y otra parte el fuego que",
+      "box": [
+        522,
+        542,
+        922,
+        568
+      ],
+      "score": 0.9921505451202393
+    },
+    {
+      "text": "vamos:",
+      "box": [
+        17,
+        568,
+        71,
+        588
+      ],
+      "score": 0.9977561831474304
+    },
+    {
+      "text": "hay en ellos: por cuanto han quedado ya consagrados",
+      "box": [
+        521,
+        561,
+        872,
+        582
+      ],
+      "score": 0.9937017560005188
+    },
+    {
+      "text": "13. Pues qué, ¿te parece aun poco el habernos sacado de",
+      "box": [
+        31,
+        584,
+        417,
+        614
+      ],
+      "score": 0.9996287822723389
+    },
+    {
+      "text": "à8. Con la muerte de los pecadores: y que los reduzea á",
+      "box": [
+        533,
+        577,
+        921,
+        597
+      ],
+      "score": 0.9752026796340942
+    },
+    {
+      "text": "una tierra que manaba leche y miel, para hacernos morir",
+      "box": [
+        14,
+        601,
+        417,
+        631
+      ],
+      "score": 0.9967578053474426
+    },
+    {
+      "text": "planchas, las cuales clave en el altar, por haberse ofrecido",
+      "box": [
+        521,
+        592,
+        922,
+        614
+      ],
+      "score": 0.9839550852775574
+    },
+    {
+      "text": "en el Desierto, sino que además de eso nos has de estar tira-",
+      "box": [
+        13,
+        617,
+        416,
+        646
+      ],
+      "score": 0.9965360164642334
+    },
+    {
+      "text": "en ellos incienso al Señor, y quedar á el consagrados; á fin",
+      "box": [
+        521,
+        608,
+        922,
+        629
+      ],
+      "score": 0.9841667413711548
+    },
+    {
+      "text": "nizando?",
+      "box": [
+        13,
+        633,
+        80,
+        655
+      ],
+      "score": 0.9998769164085388
+    },
+    {
+      "text": "de que los hijos de Israél las miren como una señal y re-",
+      "box": [
+        521,
+        624,
+        922,
+        646
+      ],
+      "score": 0.9985039830207825
+    },
+    {
+      "text": "14. Por cierto que nos has introducido en terreno donde",
+      "box": [
+        28,
+        651,
+        415,
+        678
+      ],
+      "score": 0.9994291663169861
+    },
+    {
+      "text": "cuerdo.",
+      "box": [
+        522,
+        644,
+        572,
+        660
+      ],
+      "score": 0.9999402761459351
+    },
+    {
+      "text": "39. Tomó pues el sacerdote Eleazar los incensarios de",
+      "box": [
+        532,
+        656,
+        922,
+        677
+      ],
+      "score": 0.9906729459762573
+    },
+    {
+      "text": "corren arroyos de leche y miel, y que nos has dado posesio-",
+      "box": [
+        10,
+        668,
+        414,
+        694
+      ],
+      "score": 0.9913971424102783
+    },
+    {
+      "text": "bronce en que hicieron su ofrenda aquellos que fueron de-",
+      "box": [
+        521,
+        673,
+        922,
+        693
+      ],
+      "score": 0.9949881434440613
+    },
+    {
+      "text": "nes de campos y viñedos: ó ¿por ventura quieres sacarnos",
+      "box": [
+        9,
+        685,
+        415,
+        710
+      ],
+      "score": 0.9938852190971375
+    },
+    {
+      "text": "vorados del incendio, y los redujo á planchas, que clavó en",
+      "box": [
+        521,
+        691,
+        921,
+        708
+      ],
+      "score": 0.9951702952384949
+    },
+    {
+      "text": "tambien los ojos? Nosotros no vamos.",
+      "box": [
+        10,
+        702,
+        259,
+        725
+      ],
+      "score": 0.9970855712890625
+    },
+    {
+      "text": "el altar;",
+      "box": [
+        521,
+        707,
+        576,
+        725
+      ],
+      "score": 0.9996739625930786
+    },
+    {
+      "text": "15. Entonces Moysés sumamente irritado dijo al Señor:",
+      "box": [
+        24,
+        718,
+        414,
+        741
+      ],
+      "score": 0.995503306388855
+    },
+    {
+      "text": "40. Á fin de que sirviesen en adelante á los hijos de Israél",
+      "box": [
+        532,
+        720,
+        921,
+        742
+      ],
+      "score": 0.9977068305015564
+    },
+    {
+      "text": "No atiendas á sus sacrificios: Tú sabes que ni siquiera un",
+      "box": [
+        7,
+        735,
+        412,
+        757
+      ],
+      "score": 0.992863118648529
+    },
+    {
+      "text": "de escarmiento, para que ningun extraño, y que no sea del",
+      "box": [
+        520,
+        738,
+        921,
+        758
+      ],
+      "score": 0.9889641404151917
+    },
+    {
+      "text": "asnillo he tomado jamás de ellos, niáninguno he hecho daño.",
+      "box": [
+        6,
+        752,
+        412,
+        772
+      ],
+      "score": 0.9893943667411804
+    },
+    {
+      "text": "linaje de Aaron, se acerque á ofrecer incienso al Señor;",
+      "box": [
+        520,
+        754,
+        921,
+        774
+      ],
+      "score": 0.9856151938438416
+    },
+    {
+      "text": "16. Dijo despues á Coré: Tú y toda tu cuadrilla presen-",
+      "box": [
+        23,
+        768,
+        413,
+        789
+      ],
+      "score": 0.9975118041038513
+    },
+    {
+      "text": "porque no le acontezca lo que le aconteció á Coré y á todo su",
+      "box": [
+        518,
+        770,
+        920,
+        790
+      ],
+      "score": 0.9922652840614319
+    },
+    {
+      "text": "taos mañana aparte delante del Señor; y Aaron se presentará",
+      "box": [
+        4,
+        783,
+        414,
+        807
+      ],
+      "score": 0.999165415763855
+    },
+    {
+      "text": "séquito, segun la palabra del Señor á Moysés.",
+      "box": [
+        517,
+        787,
+        816,
+        805
+      ],
+      "score": 0.9885340332984924
+    },
+    {
+      "text": "separadamente.",
+      "box": [
+        3,
+        799,
+        115,
+        820
+      ],
+      "score": 0.9990113377571106
+    },
+    {
+      "text": "41. Pero al dia siguiente toda la multitud de los hijos de",
+      "box": [
+        531,
+        802,
+        919,
+        823
+      ],
+      "score": 0.9982179403305054
+    },
+    {
+      "text": "17. Tomad cada cual vuestros incensarios, y echad en",
+      "box": [
+        18,
+        815,
+        412,
+        839
+      ],
+      "score": 0.9985330104827881
+    },
+    {
+      "text": "Israél murmuraba contra Moysés y Aaron, diciendo: Vos-",
+      "box": [
+        517,
+        819,
+        919,
+        839
+      ],
+      "score": 0.9883272647857666
+    },
+    {
+      "text": "ellos incienso, ofreciendo al Señor doscientos y cincuenta",
+      "box": [
+        1,
+        832,
+        411,
+        855
+      ],
+      "score": 0.9996644258499146
+    },
+    {
+      "text": "otros habeis dado la muerte al pueblo del Señor.",
+      "box": [
+        517,
+        836,
+        835,
+        854
+      ],
+      "score": 0.9958518147468567
+    },
+    {
+      "text": "incensarios; y tengn Aaron tambien el suyo.",
+      "box": [
+        0,
+        849,
+        300,
+        870
+      ],
+      "score": 0.986700713634491
+    },
+    {
+      "text": "42. Y como tomase cuerpo la sedicion, y creciese el tu-",
+      "box": [
+        529,
+        852,
+        918,
+        872
+      ],
+      "score": 0.9915982484817505
+    },
+    {
+      "text": "18. Como lo hubiesen hecho así, estando presentes Moysés",
+      "box": [
+        16,
+        863,
+        411,
+        889
+      ],
+      "score": 0.998694896697998
+    },
+    {
+      "text": "multo,",
+      "box": [
+        517,
+        870,
+        561,
+        885
+      ],
+      "score": 0.9999547004699707
+    },
+    {
+      "text": "y Aaron,",
+      "box": [
+        0,
+        880,
+        67,
+        899
+      ],
+      "score": 0.9875980615615845
+    },
+    {
+      "text": "43. Moysés y Aaron se refugiaron en el Tabernáculo de",
+      "box": [
+        529,
+        884,
+        917,
+        904
+      ],
+      "score": 0.9926304221153259
+    },
+    {
+      "text": "19. Y habiendo agavillado contra ellos toda la gente á la",
+      "box": [
+        15,
+        894,
+        410,
+        920
+      ],
+      "score": 0.9914568066596985
+    },
+    {
+      "text": "la Alianza: entrados dentro, la nube les cubrió, y apareció la",
+      "box": [
+        515,
+        900,
+        916,
+        921
+      ],
+      "score": 0.9972954988479614
+    },
+    {
+      "text": "puerta del Tabernáculo, se manifestó á todos la gloria del",
+      "box": [
+        0,
+        913,
+        410,
+        934
+      ],
+      "score": 0.9994492530822754
+    },
+    {
+      "text": "gloria del Señor.",
+      "box": [
+        515,
+        916,
+        624,
+        934
+      ],
+      "score": 0.9998699426651001
+    },
+    {
+      "text": "Señor.",
+      "box": [
+        0,
+        931,
+        49,
+        946
+      ],
+      "score": 0.9998205304145813
+    },
+    {
+      "text": "44. Y dijo el Señor á Moysés:",
+      "box": [
+        528,
+        931,
+        733,
+        950
+      ],
+      "score": 0.9931703209877014
+    },
+    {
+      "text": "20. El cual hablando con Moysés y Aaron, dijo:",
+      "box": [
+        10,
+        943,
+        341,
+        969
+      ],
+      "score": 0.9993002414703369
+    },
+    {
+      "text": "45. Retiraos de en medio de esa turba; que ahora mismo",
+      "box": [
+        527,
+        947,
+        916,
+        969
+      ],
+      "score": 0.9997746348381042
+    },
+    {
+      "text": "21. Apartaos de en medio de esa gavilla, y en un momento",
+      "box": [
+        10,
+        961,
+        408,
+        985
+      ],
+      "score": 0.9812154769897461
+    },
+    {
+      "text": "voy á acabar con ellos. Y estando postrados en tierra los dos,",
+      "box": [
+        514,
+        963,
+        915,
+        986
+      ],
+      "score": 0.9821175336837769
+    },
+    {
+      "text": "los consumiré.",
+      "box": [
+        0,
+        980,
+        102,
+        997
+      ],
+      "score": 0.9984148144721985
+    },
+    {
+      "text": "46. Dijo Moysés á Aaron: Toma el incensario, y cogiendo",
+      "box": [
+        526,
+        979,
+        915,
+        1002
+      ],
+      "score": 0.9979825019836426
+    },
+    {
+      "text": "22. Aquí Moysés y Aaron se postraron sobre su rostro, y",
+      "box": [
+        9,
+        993,
+        407,
+        1017
+      ],
+      "score": 0.9887202382087708
+    },
+    {
+      "text": "fuego del altar, pon encima el incienso y corre á toda prisa",
+      "box": [
+        513,
+        996,
+        915,
+        1018
+      ],
+      "score": 0.9908629655838013
+    },
+    {
+      "text": "dijeron: Oh fortísimo Dios de los espíritus de todos los hom-",
+      "box": [
+        0,
+        1011,
+        407,
+        1032
+      ],
+      "score": 0.9900233149528503
+    },
+    {
+      "text": "hácia el pueblo para rogar por él; porque ya el Señor ha sol-",
+      "box": [
+        513,
+        1012,
+        915,
+        1034
+      ],
+      "score": 0.990399181842804
+    },
+    {
+      "text": "ores, ¿es posible que por el pecado de uno se ha de ensañar tu",
+      "box": [
+        0,
+        1029,
+        409,
+        1048
+      ],
+      "score": 0.9853880405426025
+    },
+    {
+      "text": "tado el dique á su ira, y la mortandad se encruelece.",
+      "box": [
+        513,
+        1028,
+        860,
+        1050
+      ],
+      "score": 0.9826493859291077
+    },
+    {
+      "text": "ra contra todos?",
+      "box": [
+        0,
+        1045,
+        118,
+        1062
+      ],
+      "score": 0.9997950196266174
+    },
+    {
+      "text": "47. Haciéndolo así Aaron, y corriendo al medio de la",
+      "box": [
+        525,
+        1044,
+        914,
+        1067
+      ],
+      "score": 0.9931033849716187
+    },
+    {
+      "text": "23. Entonces dijo el Señor á Moysés:",
+      "box": [
+        7,
+        1060,
+        271,
+        1080
+      ],
+      "score": 0.9951804280281067
+    },
+    {
+      "text": "multitud *, á la cual devoraba ya el incendio, ofreció el in-",
+      "box": [
+        511,
+        1060,
+        914,
+        1083
+      ],
+      "score": 0.9756592512130737
+    },
+    {
+      "text": "24. Manda á todo el pueblo que se retire de las tiendas de",
+      "box": [
+        7,
+        1077,
+        404,
+        1097
+      ],
+      "score": 0.9973948001861572
+    },
+    {
+      "text": "cienso;",
+      "box": [
+        512,
+        1079,
+        560,
+        1094
+      ],
+      "score": 0.999980628490448
+    },
+    {
+      "text": "Coré, y de Dathán y de Abiron.",
+      "box": [
+        0,
+        1094,
+        214,
+        1111
+      ],
+      "score": 0.9915117025375366
+    },
+    {
+      "text": "48. Y puesto entre los muertos y los vivos, intercedió por",
+      "box": [
+        524,
+        1092,
+        911,
+        1115
+      ],
+      "score": 0.9938822388648987
+    },
+    {
+      "text": "25. Y se levantó Moysés, y fuése hácia Dathán y Abiron;",
+      "box": [
+        7,
+        1109,
+        405,
+        1129
+      ],
+      "score": 0.9968917965888977
+    },
+    {
+      "text": "LUU",
+      "box": [
+        414,
+        1108,
+        496,
+        1129
+      ],
+      "score": 0.7894052863121033
+    },
+    {
+      "text": "el pueblo, y cesó la mortandad.",
+      "box": [
+        510,
+        1109,
+        714,
+        1128
+      ],
+      "score": 0.9996401071548462
+    },
+    {
+      "text": "siguiéndole los ancianos de Israél,",
+      "box": [
+        0,
+        1125,
+        243,
+        1144
+      ],
+      "score": 0.9949058294296265
+    },
+    {
+      "text": "49. Los muertos fueron catorce mil y setecientos hom-",
+      "box": [
+        523,
+        1125,
+        911,
+        1148
+      ],
+      "score": 0.9996653199195862
+    },
+    {
+      "text": "26. Dijo á la gente: Retiraos de las tiendas de esos hom-",
+      "box": [
+        6,
+        1139,
+        405,
+        1163
+      ],
+      "score": 0.9960964918136597
+    },
+    {
+      "text": "26/a5",
+      "box": [
+        426,
+        1138,
+        484,
+        1161
+      ],
+      "score": 0.49111300706863403
+    },
+    {
+      "text": "bres, sin contar los que perecieron en la sedicion de Coré.",
+      "box": [
+        509,
+        1141,
+        884,
+        1164
+      ],
+      "score": 0.999297022819519
+    },
+    {
+      "text": "ores impíos, y no toqueis cosa suya, porque no seais envueltos",
+      "box": [
+        0,
+        1156,
+        404,
+        1180
+      ],
+      "score": 0.9970541596412659
+    },
+    {
+      "text": "50. Y Aaron despues que cesó el estrago, volvióse á Moysés",
+      "box": [
+        522,
+        1158,
+        910,
+        1182
+      ],
+      "score": 0.9899953007698059
+    },
+    {
+      "text": "en sus pecados.",
+      "box": [
+        0,
+        1173,
+        105,
+        1192
+      ],
+      "score": 0.998317301273346
+    },
+    {
+      "text": "á la puerta del Tabernáculo de la Alianza.",
+      "box": [
+        508,
+        1174,
+        786,
+        1195
+      ],
+      "score": 0.9860929846763611
+    },
+    {
+      "text": "1 Eccli. XLV, v, 22. —I. Cor. X, v. 10.—Jud. v. 11.",
+      "box": [
+        9,
+        1212,
+        305,
+        1232
+      ],
+      "score": 0.910304069519043
+    },
+    {
+      "text": "del cuerpo místico de la Iglesia. San Agustin, Quast. XX'IX, in Num.",
+      "box": [
+        508,
+        1213,
+        909,
+        1241
+      ],
+      "score": 0.9795183539390564
+    },
+    {
+      "text": "2 Deut. XI, v. 6.—Ps. CV, v. 17, 18.",
+      "box": [
+        11,
+        1228,
+        224,
+        1243
+      ],
+      "score": 0.9522823691368103
+    },
+    {
+      "text": "4 El salir vestido el Sumo Pontífice fuera del Tabernáculo, acercarse",
+      "box": [
+        515,
+        1227,
+        910,
+        1255
+      ],
+      "score": 0.9905910491943359
+    },
+    {
+      "text": "s Aunque no siempre la voz infterno en la Sagrada Escritura significa",
+      "box": [
+        9,
+        1239,
+        402,
+        1260
+      ],
+      "score": 0.9731060266494751
+    },
+    {
+      "text": "á los cadáveres, y sobre todo ofrecer allí incienso, todo esto, hecho fuera",
+      "box": [
+        506,
+        1240,
+        910,
+        1269
+      ],
+      "score": 0.9955848455429077
+    },
+    {
+      "text": "el lugar de los condenados, le significa sin duda en este verso. Se abre",
+      "box": [
+        0,
+        1253,
+        402,
+        1274
+      ],
+      "score": 0.9889146089553833
+    },
+    {
+      "text": "de regla y por particular instinto de Dios, servia para infundir en el pue-",
+      "box": [
+        506,
+        1255,
+        909,
+        1283
+      ],
+      "score": 0.9895500540733337
+    },
+    {
+      "text": "y divide la tierra debajo los piés de aquellos que han roto la unidad",
+      "box": [
+        0,
+        1268,
+        401,
+        1287
+      ],
+      "score": 0.9825409650802612
+    },
+    {
+      "text": "blo mayor horror al pecado, y moverle á penitencia.",
+      "box": [
+        506,
+        1269,
+        799,
+        1295
+      ],
+      "score": 0.9862600564956665
+    }
+  ]
+}

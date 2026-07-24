@@ -1,0 +1,27 @@
+{
+  "volume": 2,
+  "page_index": 258,
+  "pdf_page": 259,
+  "lines": [
+    {
+      "text": "Sons",
+      "box": [
+        126,
+        1696,
+        257,
+        1764
+      ],
+      "score": 0.5568856596946716
+    },
+    {
+      "text": "LA FAMILIA DE TOBÍAS VÉ DESAPARECER AL ÁNGEL RAFAEL",
+      "box": [
+        347,
+        1791,
+        1096,
+        1837
+      ],
+      "score": 0.9996366500854492
+    }
+  ]
+}

@@ -1,0 +1,1457 @@
+{
+  "volume": 3,
+  "page_index": 78,
+  "pdf_page": 79,
+  "lines": [
+    {
+      "text": "109",
+      "box": [
+        7,
+        27,
+        34,
+        45
+      ],
+      "score": 0.999981701374054
+    },
+    {
+      "text": "PROVERBIOS.",
+      "box": [
+        143,
+        34,
+        241,
+        48
+      ],
+      "score": 0.9999374747276306
+    },
+    {
+      "text": "CAPITULO III.",
+      "box": [
+        626,
+        35,
+        734,
+        60
+      ],
+      "score": 0.990646243095398
+    },
+    {
+      "text": "110",
+      "box": [
+        832,
+        49,
+        856,
+        65
+      ],
+      "score": 0.9897950291633606
+    },
+    {
+      "text": "25. Menospreciasteis todos mis consejos, y ningun caso hi-",
+      "box": [
+        8,
+        67,
+        390,
+        98
+      ],
+      "score": 0.9911337494850159
+    },
+    {
+      "text": "cisteis de mis reprensiones:",
+      "box": [
+        0,
+        84,
+        177,
+        109
+      ],
+      "score": 0.9998775124549866
+    },
+    {
+      "text": "21. Porque los buenos poseerán la tierra, y los inocentes",
+      "box": [
+        504,
+        78,
+        866,
+        107
+      ],
+      "score": 0.9915763735771179
+    },
+    {
+      "text": "26. Yo tambien miraré con risa vuestra perdicion, y me",
+      "box": [
+        8,
+        101,
+        392,
+        132
+      ],
+      "score": 0.9907644987106323
+    },
+    {
+      "text": "permanecerán en ella.",
+      "box": [
+        490,
+        95,
+        629,
+        117
+      ],
+      "score": 0.9996573328971863
+    },
+    {
+      "text": "mofaré de vosotros, cuando os sobrevenga lo que temiais.",
+      "box": [
+        0,
+        118,
+        365,
+        149
+      ],
+      "score": 0.9954903721809387
+    },
+    {
+      "text": "22. Mas los impíos serán exterminados de la tierra, y los",
+      "box": [
+        503,
+        111,
+        865,
+        140
+      ],
+      "score": 0.9984217286109924
+    },
+    {
+      "text": "27. Cuando de improviso os asalte la calamidad, y la muer-",
+      "box": [
+        7,
+        134,
+        392,
+        168
+      ],
+      "score": 0.9931836724281311
+    },
+    {
+      "text": "malhechores arrancados de ella.",
+      "box": [
+        490,
+        129,
+        687,
+        150
+      ],
+      "score": 0.9995524287223816
+    },
+    {
+      "text": "te se os arroje encima como un torbellino; cuando os acometa",
+      "box": [
+        0,
+        153,
+        392,
+        182
+      ],
+      "score": 0.9950295090675354
+    },
+    {
+      "text": "la tribulacion y la angustia:",
+      "box": [
+        0,
+        170,
+        183,
+        195
+      ],
+      "score": 0.996523916721344
+    },
+    {
+      "text": "CAPITULO III",
+      "box": [
+        630,
+        164,
+        728,
+        183
+      ],
+      "score": 0.9992625713348389
+    },
+    {
+      "text": "28. Entonces me invocarán los impíos y no los oiré; ma-",
+      "box": [
+        6,
+        186,
+        393,
+        216
+      ],
+      "score": 0.9814801812171936
+    },
+    {
+      "text": "drugarán 1 á buscarme, y no me hallarán:",
+      "box": [
+        0,
+        203,
+        270,
+        232
+      ],
+      "score": 0.9591207504272461
+    },
+    {
+      "text": "Frutos preciosos de la sabiduría: felicidad de los justos: ruina de los",
+      "box": [
+        503,
+        194,
+        854,
+        219
+      ],
+      "score": 0.9972362518310547
+    },
+    {
+      "text": "29. En pena de haber aborrecido la instruccion y abando-",
+      "box": [
+        5,
+        219,
+        392,
+        250
+      ],
+      "score": 0.985417902469635
+    },
+    {
+      "text": "impfos.",
+      "box": [
+        657,
+        212,
+        700,
+        230
+      ],
+      "score": 0.9005575180053711
+    },
+    {
+      "text": "nado el temor de Dios,",
+      "box": [
+        0,
+        235,
+        149,
+        262
+      ],
+      "score": 0.9921298623085022
+    },
+    {
+      "text": "1. Hijo mio, no te olvides de mi Ley, y guarda en tu cora-",
+      "box": [
+        502,
+        239,
+        866,
+        267
+      ],
+      "score": 0.9965610504150391
+    },
+    {
+      "text": "30. Desatendiendo mis consejos, y burlándose de todas mis",
+      "box": [
+        1,
+        251,
+        392,
+        284
+      ],
+      "score": 0.9688252210617065
+    },
+    {
+      "text": "zon mis mandamientos;",
+      "box": [
+        490,
+        257,
+        642,
+        277
+      ],
+      "score": 0.9997944831848145
+    },
+    {
+      "text": "orrecciones.",
+      "box": [
+        0,
+        269,
+        85,
+        293
+      ],
+      "score": 0.9994004368782043
+    },
+    {
+      "text": "2. Porque ellos te colmarán de largos dias, y de años de",
+      "box": [
+        502,
+        273,
+        866,
+        298
+      ],
+      "score": 0.9968873262405396
+    },
+    {
+      "text": "31. Comerán pues los frutos de su mala conducta, y se sa-",
+      "box": [
+        1,
+        285,
+        392,
+        315
+      ],
+      "score": 0.995942234992981
+    },
+    {
+      "text": "vida, y de perpétua paz.",
+      "box": [
+        490,
+        289,
+        641,
+        309
+      ],
+      "score": 0.993985652923584
+    },
+    {
+      "text": "iarán de los productos de sus perversos consejos.",
+      "box": [
+        0,
+        303,
+        327,
+        329
+      ],
+      "score": 0.9954351186752319
+    },
+    {
+      "text": "3. No se aparte de tí la misericordia y la verdad: ponlas",
+      "box": [
+        501,
+        304,
+        866,
+        330
+      ],
+      "score": 0.9949432015419006
+    },
+    {
+      "text": "32. La indocilidad causará á los ignorantes su perdicion;",
+      "box": [
+        0,
+        318,
+        392,
+        347
+      ],
+      "score": 0.9558444023132324
+    },
+    {
+      "text": "como collar en tu garganta, y estámpalas en las telas de tu",
+      "box": [
+        490,
+        322,
+        866,
+        346
+      ],
+      "score": 0.9917750954627991
+    },
+    {
+      "text": "aquella que neciamente creen ser su felicidad, será su",
+      "box": [
+        2,
+        335,
+        391,
+        363
+      ],
+      "score": 0.9983111023902893
+    },
+    {
+      "text": "corazon,",
+      "box": [
+        490,
+        340,
+        559,
+        356
+      ],
+      "score": 0.9986139535903931
+    },
+    {
+      "text": "uina ³.",
+      "box": [
+        0,
+        352,
+        49,
+        370
+      ],
+      "score": 0.954133152961731
+    },
+    {
+      "text": "4. Y hallarás gracia y buena opinion delante de Dios y de",
+      "box": [
+        501,
+        352,
+        867,
+        377
+      ],
+      "score": 0.9996030926704407
+    },
+    {
+      "text": "33. Mas el que me escuchare, reposará exento de todo te-",
+      "box": [
+        0,
+        366,
+        391,
+        395
+      ],
+      "score": 0.9988102912902832
+    },
+    {
+      "text": "los hombres.",
+      "box": [
+        491,
+        372,
+        571,
+        386
+      ],
+      "score": 0.999932587146759
+    },
+    {
+      "text": "or, y nadará en la abundancia, libre de todo mal.",
+      "box": [
+        0,
+        385,
+        326,
+        410
+      ],
+      "score": 0.9933152198791504
+    },
+    {
+      "text": "5. Confía en el Señor con todo tu corazon, y no te apoyes",
+      "box": [
+        500,
+        385,
+        867,
+        410
+      ],
+      "score": 0.9972516894340515
+    },
+    {
+      "text": "en tu prudencia.",
+      "box": [
+        490,
+        404,
+        596,
+        421
+      ],
+      "score": 0.9992127418518066
+    },
+    {
+      "text": "CAPITULO II",
+      "box": [
+        143,
+        422,
+        243,
+        445
+      ],
+      "score": 0.9987199902534485
+    },
+    {
+      "text": "6. En todas tus empresas tenle presente, y él sea quien",
+      "box": [
+        502,
+        419,
+        866,
+        442
+      ],
+      "score": 0.9987673163414001
+    },
+    {
+      "text": "dirija todos tus pasos.",
+      "box": [
+        492,
+        439,
+        626,
+        452
+      ],
+      "score": 0.9973444938659668
+    },
+    {
+      "text": "a sabiduría nos acarrea grandes bienes. Cuán útil es paa vivir feliz-",
+      "box": [
+        0,
+        452,
+        383,
+        475
+      ],
+      "score": 0.9898858666419983
+    },
+    {
+      "text": "7. No te tengas á tí mismo por sábio. Teme á Dios, y huye",
+      "box": [
+        502,
+        452,
+        866,
+        472
+      ],
+      "score": 0.9671548008918762
+    },
+    {
+      "text": "mente.",
+      "box": [
+        182,
+        473,
+        223,
+        488
+      ],
+      "score": 0.9999568462371826
+    },
+    {
+      "text": "del mal:",
+      "box": [
+        491,
+        469,
+        548,
+        487
+      ],
+      "score": 0.9999505281448364
+    },
+    {
+      "text": "8. De este modo gozará tu carne de salud robusta, y esta-",
+      "box": [
+        503,
+        487,
+        867,
+        504
+      ],
+      "score": 0.9941236972808838
+    },
+    {
+      "text": "1. Hijo mio, oh si recibieses mis consejos, y depositases",
+      "box": [
+        0,
+        501,
+        390,
+        524
+      ],
+      "score": 0.9976685047149658
+    },
+    {
+      "text": "rán llenos de jugo tus huesos.",
+      "box": [
+        491,
+        504,
+        676,
+        521
+      ],
+      "score": 0.9969634413719177
+    },
+    {
+      "text": "is mandamientos en tu corazon!",
+      "box": [
+        0,
+        520,
+        228,
+        539
+      ],
+      "score": 0.9999468326568604
+    },
+    {
+      "text": "9. Honra al Señor con tu hacienda 7, y ofrécele las primi-",
+      "box": [
+        503,
+        518,
+        867,
+        538
+      ],
+      "score": 0.9967515468597412
+    },
+    {
+      "text": "2. Para que tus oidos estén siempre atentos á la voz de la",
+      "box": [
+        0,
+        537,
+        389,
+        555
+      ],
+      "score": 0.9993873238563538
+    },
+    {
+      "text": "cias de todos tus frutos.",
+      "box": [
+        491,
+        536,
+        641,
+        555
+      ],
+      "score": 0.9946574568748474
+    },
+    {
+      "text": "biduría, aplica tu ánimo al estudio de la prudencia.",
+      "box": [
+        0,
+        552,
+        341,
+        571
+      ],
+      "score": 0.9965810775756836
+    },
+    {
+      "text": "10. Con eso tus trojes se colmarán de granos, y rebosará el",
+      "box": [
+        504,
+        549,
+        867,
+        570
+      ],
+      "score": 0.9950451254844666
+    },
+    {
+      "text": "3. Que si tú invocas la sabiduría, y se aficiona tu corazon",
+      "box": [
+        0,
+        568,
+        391,
+        589
+      ],
+      "score": 0.9934309720993042
+    },
+    {
+      "text": "vino en tus lagares.",
+      "box": [
+        491,
+        568,
+        619,
+        587
+      ],
+      "score": 0.9812741279602051
+    },
+    {
+      "text": "la prudencia;",
+      "box": [
+        0,
+        587,
+        106,
+        604
+      ],
+      "score": 0.9996947646141052
+    },
+    {
+      "text": "11. No rehuses, hijo mio, la correccion del Señor: ni des-",
+      "box": [
+        503,
+        580,
+        869,
+        604
+      ],
+      "score": 0.99617999792099
+    },
+    {
+      "text": "4. Si la buseas con el ardor con quese buscan las riquezas,",
+      "box": [
+        0,
+        604,
+        389,
+        621
+      ],
+      "score": 0.9861752986907959
+    },
+    {
+      "text": "mayes cuando él te castigue.",
+      "box": [
+        491,
+        600,
+        672,
+        621
+      ],
+      "score": 0.9865909218788147
+    },
+    {
+      "text": "Ia procuras desenterrar como se hace con un tesoro,",
+      "box": [
+        0,
+        617,
+        346,
+        640
+      ],
+      "score": 0.9923369288444519
+    },
+    {
+      "text": "12. Porque el Señor castiga á los que ama s, y en los",
+      "box": [
+        503,
+        612,
+        869,
+        637
+      ],
+      "score": 0.9674683809280396
+    },
+    {
+      "text": "5. Entonces aprenderás el temor del Señor, y alcanzarás el",
+      "box": [
+        0,
+        635,
+        390,
+        655
+      ],
+      "score": 0.9793152809143066
+    },
+    {
+      "text": "cuales tiene puesto su afecto, como le tiene un padre en sus",
+      "box": [
+        490,
+        630,
+        869,
+        655
+      ],
+      "score": 0.9962751865386963
+    },
+    {
+      "text": "nocimiento de Dios;",
+      "box": [
+        0,
+        653,
+        153,
+        673
+      ],
+      "score": 0.9990140199661255
+    },
+    {
+      "text": "hijos.",
+      "box": [
+        490,
+        653,
+        531,
+        672
+      ],
+      "score": 0.9999073147773743
+    },
+    {
+      "text": "6. Pues el Señor es quien da la sabiduría, y de su boca sale",
+      "box": [
+        0,
+        667,
+        390,
+        692
+      ],
+      "score": 0.9945971965789795
+    },
+    {
+      "text": "13. Dichoso el hombre que ha adquirido la sabiduría, y es",
+      "box": [
+        502,
+        662,
+        868,
+        687
+      ],
+      "score": 0.9910887479782104
+    },
+    {
+      "text": "discrecion y la ciencia.",
+      "box": [
+        0,
+        688,
+        169,
+        709
+      ],
+      "score": 0.9991587996482849
+    },
+    {
+      "text": "rico en prudencia:",
+      "box": [
+        490,
+        684,
+        611,
+        703
+      ],
+      "score": 0.9996100664138794
+    },
+    {
+      "text": "7. Él guarda la vida de los buenos, y es el escudo de los",
+      "box": [
+        0,
+        699,
+        390,
+        727
+      ],
+      "score": 0.9842702150344849
+    },
+    {
+      "text": "14. Cuya adquisicion vale mas que la de la plata; y sus.",
+      "box": [
+        502,
+        697,
+        870,
+        720
+      ],
+      "score": 0.9911640286445618
+    },
+    {
+      "text": "e caminan en la inocencia;",
+      "box": [
+        0,
+        721,
+        195,
+        743
+      ],
+      "score": 0.9944485425949097
+    },
+    {
+      "text": "frutos son mas preciosos que el oro acendrado.",
+      "box": [
+        490,
+        714,
+        778,
+        737
+      ],
+      "score": 0.9984688758850098
+    },
+    {
+      "text": "8. Como que es el que deflende las sendas de los justos, y",
+      "box": [
+        0,
+        731,
+        390,
+        761
+      ],
+      "score": 0.9956247210502625
+    },
+    {
+      "text": "15. Es mas apreciable que todas las riquezas;y no pueden",
+      "box": [
+        503,
+        730,
+        868,
+        753
+      ],
+      "score": 0.990530788898468
+    },
+    {
+      "text": "rige los pasos de los santos.",
+      "box": [
+        0,
+        753,
+        202,
+        776
+      ],
+      "score": 0.9883370995521545
+    },
+    {
+      "text": "parangonarse cón ella las cosas de mayor estima.",
+      "box": [
+        490,
+        748,
+        794,
+        768
+      ],
+      "score": 0.9996419548988342
+    },
+    {
+      "text": "9. Entonces entenderás tú la justicia, la rectitud y la equi-",
+      "box": [
+        0,
+        764,
+        389,
+        793
+      ],
+      "score": 0.9913140535354614
+    },
+    {
+      "text": "16. En su mano derecha trae la larga vida, y las riquezas",
+      "box": [
+        503,
+        764,
+        867,
+        784
+      ],
+      "score": 0.9991253018379211
+    },
+    {
+      "text": "d, y todos los buenos caminos.",
+      "box": [
+        0,
+        784,
+        215,
+        810
+      ],
+      "score": 0.9843089580535889
+    },
+    {
+      "text": "y la gloria en su izquierda.",
+      "box": [
+        489,
+        782,
+        660,
+        801
+      ],
+      "score": 0.9927306175231934
+    },
+    {
+      "text": "10. Si entrare la sabiduría en tu corazon, y se complaciere",
+      "box": [
+        0,
+        796,
+        390,
+        827
+      ],
+      "score": 0.9892433881759644
+    },
+    {
+      "text": "17. Sus caminos son caminos deliciosos, y llenas de paz",
+      "box": [
+        502,
+        796,
+        868,
+        818
+      ],
+      "score": 0.9983137845993042
+    },
+    {
+      "text": "alma en la ciencia,",
+      "box": [
+        0,
+        821,
+        142,
+        841
+      ],
+      "score": 0.9988319873809814
+    },
+    {
+      "text": "todas sus sendas.",
+      "box": [
+        491,
+        818,
+        600,
+        835
+      ],
+      "score": 0.9999194145202637
+    },
+    {
+      "text": "11. El buen consejo será tu salvaguardia, y la prudencia te",
+      "box": [
+        0,
+        832,
+        389,
+        858
+      ],
+      "score": 0.9822157025337219
+    },
+    {
+      "text": "18. Es el árbol de la vida para los que echaren mano de",
+      "box": [
+        503,
+        831,
+        868,
+        851
+      ],
+      "score": 0.9931041598320007
+    },
+    {
+      "text": "nservará,",
+      "box": [
+        0,
+        854,
+        69,
+        874
+      ],
+      "score": 0.9990573525428772
+    },
+    {
+      "text": "ella; y bienaventurado el que la tiene asida .",
+      "box": [
+        491,
+        847,
+        773,
+        869
+      ],
+      "score": 0.9710952639579773
+    },
+    {
+      "text": "12. Librándote de todo mal camino, y de los hombres de",
+      "box": [
+        0,
+        863,
+        390,
+        891
+      ],
+      "score": 0.998656690120697
+    },
+    {
+      "text": "19. Por la sabiduría fundó el Señor la tierra, y por medio",
+      "box": [
+        502,
+        863,
+        868,
+        886
+      ],
+      "score": 0.9980454444885254
+    },
+    {
+      "text": "ngua perversa,",
+      "box": [
+        0,
+        887,
+        106,
+        907
+      ],
+      "score": 0.9815669655799866
+    },
+    {
+      "text": "de ella, ó de la prudencia, estableció los cielos.",
+      "box": [
+        491,
+        882,
+        778,
+        902
+      ],
+      "score": 0.9934535026550293
+    },
+    {
+      "text": "13. De aquellos que abandonan la senda recta, y andan por",
+      "box": [
+        0,
+        898,
+        389,
+        924
+      ],
+      "score": 0.9852244257926941
+    },
+    {
+      "text": "20. Por su sabiduría brotan copiosas aguas los manantia-",
+      "box": [
+        504,
+        898,
+        869,
+        919
+      ],
+      "score": 0.9995155334472656
+    },
+    {
+      "text": "redas tenebrosas;",
+      "box": [
+        0,
+        919,
+        127,
+        939
+      ],
+      "score": 0.9999563694000244
+    },
+    {
+      "text": "les, y las nubes destilan el rocío.",
+      "box": [
+        489,
+        916,
+        693,
+        936
+      ],
+      "score": 0.9973946809768677
+    },
+    {
+      "text": "14. Que se gozan en el mal que han hecho, y hacen gala de",
+      "box": [
+        0,
+        931,
+        389,
+        957
+      ],
+      "score": 0.9996609687805176
+    },
+    {
+      "text": "21. Hijo mio, nunca pierdas de vista estas cosas: observa",
+      "box": [
+        504,
+        932,
+        870,
+        951
+      ],
+      "score": 0.9987103939056396
+    },
+    {
+      "text": "maldad;",
+      "box": [
+        0,
+        951,
+        73,
+        974
+      ],
+      "score": 0.9992203116416931
+    },
+    {
+      "text": "la Ley y mis consejos;",
+      "box": [
+        492,
+        952,
+        635,
+        966
+      ],
+      "score": 0.9996868371963501
+    },
+    {
+      "text": "15. Cuyos caminos son torcidos, é infames todos sus",
+      "box": [
+        0,
+        964,
+        389,
+        991
+      ],
+      "score": 0.9920942783355713
+    },
+    {
+      "text": "22. Que ellos serán la vida de tu alma, y como un precioso",
+      "box": [
+        505,
+        966,
+        870,
+        983
+      ],
+      "score": 0.9994897246360779
+    },
+    {
+      "text": "asos.",
+      "box": [
+        0,
+        991,
+        33,
+        1006
+      ],
+      "score": 0.9367679357528687
+    },
+    {
+      "text": "collar para tu adorno20.",
+      "box": [
+        491,
+        982,
+        644,
+        1001
+      ],
+      "score": 0.963245689868927
+    },
+    {
+      "text": "16. Asimismo la sabiduría te librará de mujer ajena ó",
+      "box": [
+        0,
+        998,
+        390,
+        1024
+      ],
+      "score": 0.9783179759979248
+    },
+    {
+      "text": "23. Entonces seguirás lleno de confianza tu camino, y no",
+      "box": [
+        506,
+        1000,
+        871,
+        1017
+      ],
+      "score": 0.995692789554596
+    },
+    {
+      "text": "dúltera; y de la extraña, que usa de palabras melosas;",
+      "box": [
+        0,
+        1018,
+        354,
+        1041
+      ],
+      "score": 0.9845806956291199
+    },
+    {
+      "text": "tropezará tu pié.",
+      "box": [
+        492,
+        1017,
+        601,
+        1034
+      ],
+      "score": 0.9996024966239929
+    },
+    {
+      "text": "17. Y que abandona al esposo que la guió en su juventud,",
+      "box": [
+        0,
+        1034,
+        387,
+        1058
+      ],
+      "score": 0.9970249533653259
+    },
+    {
+      "text": "24. Te acostarás sin zozobra: te echarás á dormir, y tu sue-",
+      "box": [
+        504,
+        1033,
+        872,
+        1049
+      ],
+      "score": 0.9927412867546082
+    },
+    {
+      "text": "18. Y se olvida del contrato hecho en nombre de su Dios ;",
+      "box": [
+        0,
+        1049,
+        389,
+        1075
+      ],
+      "score": 0.9892001152038574
+    },
+    {
+      "text": "ño será tranquilo.",
+      "box": [
+        491,
+        1049,
+        605,
+        1066
+      ],
+      "score": 0.9821897149085999
+    },
+    {
+      "text": "or lo que su casa camina á la ruina, y se dirigen sus pasos",
+      "box": [
+        0,
+        1067,
+        388,
+        1093
+      ],
+      "score": 0.9850442409515381
+    },
+    {
+      "text": "25. No receles ningun susto repentino, ni que venga sobre",
+      "box": [
+        502,
+        1064,
+        873,
+        1085
+      ],
+      "score": 0.9857650399208069
+    },
+    {
+      "text": "ácia el infierno.",
+      "box": [
+        0,
+        1091,
+        108,
+        1108
+      ],
+      "score": 0.9913734197616577
+    },
+    {
+      "text": "tí la desolacion ó violencia de los impíos;",
+      "box": [
+        491,
+        1082,
+        751,
+        1099
+      ],
+      "score": 0.9995874166488647
+    },
+    {
+      "text": "19. Todos los que tratan con ella no volverán atrás, ni tor-",
+      "box": [
+        0,
+        1101,
+        388,
+        1126
+      ],
+      "score": 0.9869493246078491
+    },
+    {
+      "text": "26. Pues el Señor estará á tu lado, y guiará tus pasos, á fin",
+      "box": [
+        503,
+        1098,
+        873,
+        1118
+      ],
+      "score": 0.9842727184295654
+    },
+    {
+      "text": "de que no seas presa de ellos.",
+      "box": [
+        489,
+        1114,
+        679,
+        1135
+      ],
+      "score": 0.9999597072601318
+    },
+    {
+      "text": "arán á la senda de la vida .",
+      "box": [
+        0,
+        1121,
+        193,
+        1142
+      ],
+      "score": 0.9837778210639954
+    },
+    {
+      "text": "20. Anda tú pues, hijo mio, por el buen camino, y no sal-",
+      "box": [
+        0,
+        1135,
+        387,
+        1159
+      ],
+      "score": 0.9986385703086853
+    },
+    {
+      "text": "27. No impidas el bien al que puede hacerle: hazle tú",
+      "box": [
+        502,
+        1130,
+        875,
+        1151
+      ],
+      "score": 0.9955992698669434
+    },
+    {
+      "text": "as del carril de los justos.",
+      "box": [
+        0,
+        1155,
+        172,
+        1175
+      ],
+      "score": 0.9995517134666443
+    },
+    {
+      "text": "tambien, si puedes.",
+      "box": [
+        491,
+        1149,
+        615,
+        1166
+      ],
+      "score": 0.9999303221702576
+    },
+    {
+      "text": "1 Hebraismo, para denotar que harán los mayores esfuerzos.",
+      "box": [
+        0,
+        1187,
+        338,
+        1211
+      ],
+      "score": 0.9893851280212402
+    },
+    {
+      "text": "ó corrupcion del siglo; lo cual se representa tambien en el Apocalipsis",
+      "box": [
+        490,
+        1185,
+        876,
+        1202
+      ],
+      "score": 0.9861968159675598
+    },
+    {
+      "text": "à O tambien: de esos hombres aniñados, ó sin juicio.",
+      "box": [
+        1,
+        1203,
+        291,
+        1224
+      ],
+      "score": 0.9639421105384827
+    },
+    {
+      "text": "por la prostituta.",
+      "box": [
+        489,
+        1198,
+        586,
+        1218
+      ],
+      "score": 0.9966816306114197
+    },
+    {
+      "text": "3 O tambien: La prosperidad de los necios, eza será la que los ha de",
+      "box": [
+        1,
+        1217,
+        386,
+        1238
+      ],
+      "score": 0.9686121940612793
+    },
+    {
+      "text": "T Tob. IV, v. 7.—Luc. XIV, v. 13.",
+      "box": [
+        500,
+        1214,
+        694,
+        1231
+      ],
+      "score": 0.9517623782157898
+    },
+    {
+      "text": "perder. Por necio se entiende casi siempre en este libro el pecador.",
+      "box": [
+        0,
+        1233,
+        352,
+        1252
+      ],
+      "score": 0.9963668584823608
+    },
+    {
+      "text": "8 IIebr. XII, v. 5.—Apoc. III, v. 19.",
+      "box": [
+        499,
+        1227,
+        705,
+        1246
+      ],
+      "score": 0.9194697737693787
+    },
+    {
+      "text": "4 Durante la peregrinacion de esta vida.",
+      "box": [
+        3,
+        1248,
+        230,
+        1266
+      ],
+      "score": 0.9955933690071106
+    },
+    {
+      "text": "Martini traduce: que la estrecha en su seno: ó que está intimamente",
+      "box": [
+        498,
+        1240,
+        879,
+        1261
+      ],
+      "score": 0.8906351923942566
+    },
+    {
+      "text": "5 Malach. II, v. 14.",
+      "box": [
+        5,
+        1263,
+        121,
+        1281
+      ],
+      "score": 0.9357143640518188
+    },
+    {
+      "text": "unido con ella.",
+      "box": [
+        491,
+        1257,
+        571,
+        1271
+      ],
+      "score": 0.9960407018661499
+    },
+    {
+      "text": "10 Véase Genes. XL1, v. 42.",
+      "box": [
+        491,
+        1268,
+        645,
+        1289
+      ],
+      "score": 0.9551379680633545
+    },
+    {
+      "text": "6 A no ser una gracia muy especial de Dios. Varios Padres y Exposi-",
+      "box": [
+        5,
+        1272,
+        386,
+        1298
+      ],
+      "score": 0.9778003692626953
+    },
+    {
+      "text": "tores, á mas del sentido literal, entienden por la mujer adúltera la herejia",
+      "box": [
+        0,
+        1287,
+        386,
+        1314
+      ],
+      "score": 0.8189309239387512
+    }
+  ]
+}

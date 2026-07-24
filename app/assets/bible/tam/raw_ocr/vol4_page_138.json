@@ -1,0 +1,37 @@
+{
+  "volume": 4,
+  "page_index": 138,
+  "pdf_page": 139,
+  "lines": [
+    {
+      "text": "GDor",
+      "box": [
+        108,
+        1092,
+        194,
+        1129
+      ],
+      "score": 0.6277434825897217
+    },
+    {
+      "text": "PANNEMASCRDOnS./",
+      "box": [
+        708,
+        1108,
+        869,
+        1134
+      ],
+      "score": 0.6924015283584595
+    },
+    {
+      "text": "LOS APÓSTOLES RECOGIENDO ESPIGAS EL DIA DE SÁBADO",
+      "box": [
+        262,
+        1158,
+        718,
+        1181
+      ],
+      "score": 0.9933333992958069
+    }
+  ]
+}

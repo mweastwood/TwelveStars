@@ -1,0 +1,1577 @@
+{
+  "volume": 1,
+  "page_index": 98,
+  "pdf_page": 99,
+  "lines": [
+    {
+      "text": "109",
+      "box": [
+        5,
+        28,
+        32,
+        47
+      ],
+      "score": 0.9995103478431702
+    },
+    {
+      "text": "ÉXODO.",
+      "box": [
+        170,
+        31,
+        234,
+        57
+      ],
+      "score": 0.9844331741333008
+    },
+    {
+      "text": "CAPITULO XXIV.",
+      "box": [
+        652,
+        39,
+        784,
+        65
+      ],
+      "score": 0.9982759356498718
+    },
+    {
+      "text": "110",
+      "box": [
+        873,
+        47,
+        901,
+        67
+      ],
+      "score": 0.9988886713981628
+    },
+    {
+      "text": "8. No recibas regalos 1; porque deslumbran aun á los pru-",
+      "box": [
+        6,
+        72,
+        405,
+        110
+      ],
+      "score": 0.9861948490142822
+    },
+    {
+      "text": "dentes, y pervierten las sentencias de los justos.",
+      "box": [
+        0,
+        90,
+        319,
+        123
+      ],
+      "score": 0.997662365436554
+    },
+    {
+      "text": "y al Chananéo, y al Hethéo antes que tú entres en su país .",
+      "box": [
+        510,
+        90,
+        904,
+        113
+      ],
+      "score": 0.980377733707428
+    },
+    {
+      "text": "9. No molestarás al forastero, ya que sabeis lo que es ser",
+      "box": [
+        8,
+        107,
+        407,
+        145
+      ],
+      "score": 0.9941521286964417
+    },
+    {
+      "text": "29. No te los quitaré de delante en un solo año; porque",
+      "box": [
+        524,
+        108,
+        904,
+        132
+      ],
+      "score": 0.9934332370758057
+    },
+    {
+      "text": "orasteros; pues que vosotros mismos habeis estado en la tier-",
+      "box": [
+        0,
+        125,
+        406,
+        163
+      ],
+      "score": 0.9992837309837341
+    },
+    {
+      "text": "no quede la tierra desierta, y no se multipliquen las fieras en",
+      "box": [
+        509,
+        126,
+        903,
+        150
+      ],
+      "score": 0.9966276288032532
+    },
+    {
+      "text": "ra de Egypto como forasteros ².",
+      "box": [
+        0,
+        144,
+        215,
+        171
+      ],
+      "score": 0.9861636161804199
+    },
+    {
+      "text": "daño tuyo.",
+      "box": [
+        509,
+        144,
+        583,
+        163
+      ],
+      "score": 0.9998114705085754
+    },
+    {
+      "text": "10. Seis años sembrarás tu tierra, y cogerás tus frutos.",
+      "box": [
+        8,
+        162,
+        385,
+        193
+      ],
+      "score": 0.994003176689148
+    },
+    {
+      "text": "30. Los iré quitando de tu presencia poco á poco, mien-",
+      "box": [
+        522,
+        159,
+        902,
+        184
+      ],
+      "score": 0.9781782627105713
+    },
+    {
+      "text": "11. Mas el año séptimo la dejarás holgar, para que tengan",
+      "box": [
+        10,
+        179,
+        406,
+        212
+      ],
+      "score": 0.9997244477272034
+    },
+    {
+      "text": "tras que tú vas creciendo, y señoreando la tierra.",
+      "box": [
+        511,
+        176,
+        829,
+        198
+      ],
+      "score": 0.9924606084823608
+    },
+    {
+      "text": "que comer los pobres de tu pueblo, y lo que sobrare sirva de",
+      "box": [
+        0,
+        195,
+        406,
+        228
+      ],
+      "score": 0.9903961420059204
+    },
+    {
+      "text": "31. Fijaré tus confines desde el mar Rojo hasta el mar de",
+      "box": [
+        524,
+        191,
+        900,
+        214
+      ],
+      "score": 0.9771326184272766
+    },
+    {
+      "text": "pasto á las bestias del campo: lo mismo harás con tu viña y",
+      "box": [
+        0,
+        210,
+        407,
+        246
+      ],
+      "score": 0.9899625778198242
+    },
+    {
+      "text": "la Palestina, y desde el Desierto de la Arabia hasta el rio",
+      "box": [
+        511,
+        206,
+        900,
+        230
+      ],
+      "score": 0.9988625049591064
+    },
+    {
+      "text": "u olivar 3.",
+      "box": [
+        0,
+        227,
+        76,
+        249
+      ],
+      "score": 0.9318660497665405
+    },
+    {
+      "text": "Euphrates. Pondré en tus manos á los moradores del país, y",
+      "box": [
+        511,
+        221,
+        900,
+        246
+      ],
+      "score": 0.9906283020973206
+    },
+    {
+      "text": "12. Seis dias trabajarás: el séptimo descansarás, para que",
+      "box": [
+        6,
+        243,
+        406,
+        277
+      ],
+      "score": 0.9820032715797424
+    },
+    {
+      "text": "los arrojaré de tu presencia.",
+      "box": [
+        510,
+        238,
+        694,
+        258
+      ],
+      "score": 0.9996386170387268
+    },
+    {
+      "text": "32. No trabarás con ellos alianza, ni con sus dioses 1º.",
+      "box": [
+        523,
+        253,
+        873,
+        275
+      ],
+      "score": 0.9844479560852051
+    },
+    {
+      "text": "33.  No habiten en tu tierra, no sea que te hagan pecar",
+      "box": [
+        523,
+        268,
+        902,
+        292
+      ],
+      "score": 0.9886144995689392
+    },
+    {
+      "text": "el extranjero.",
+      "box": [
+        0,
+        278,
+        97,
+        300
+      ],
+      "score": 0.9961605072021484
+    },
+    {
+      "text": "contra mí, incitándote á que sirvas á sus dioses, ó idolos: lo",
+      "box": [
+        509,
+        282,
+        902,
+        306
+      ],
+      "score": 0.9563524723052979
+    },
+    {
+      "text": "13. Observad todas las cosas que os he dicho. No jureis por",
+      "box": [
+        5,
+        292,
+        404,
+        322
+      ],
+      "score": 0.989564061164856
+    },
+    {
+      "text": "que seria ciertamente tu ruina.",
+      "box": [
+        509,
+        298,
+        715,
+        319
+      ],
+      "score": 0.9970076084136963
+    },
+    {
+      "text": "l nombre de dioses extranjeros, ni aun siquiera le menteis.",
+      "box": [
+        0,
+        309,
+        403,
+        338
+      ],
+      "score": 0.9763612151145935
+    },
+    {
+      "text": "14. Tres veces cada año joh Israel! me celebrarás fiesta",
+      "box": [
+        5,
+        325,
+        403,
+        353
+      ],
+      "score": 0.9729036688804626
+    },
+    {
+      "text": "CAPÍTULO XXIV",
+      "box": [
+        646,
+        329,
+        769,
+        349
+      ],
+      "score": 0.9776435494422913
+    },
+    {
+      "text": "olemne.",
+      "box": [
+        0,
+        342,
+        62,
+        362
+      ],
+      "score": 0.9999221563339233
+    },
+    {
+      "text": "15. Observarás la solemnidad de los ázymos. Por siete",
+      "box": [
+        5,
+        356,
+        402,
+        384
+      ],
+      "score": 0.9979633688926697
+    },
+    {
+      "text": "Moysés intima al pueblo las leyes que Dios le habia dado; el cual se obli-",
+      "box": [
+        508,
+        354,
+        903,
+        379
+      ],
+      "score": 0.9908841252326965
+    },
+    {
+      "text": "lias, como te tengo mandado, comerás pan sin levadura en",
+      "box": [
+        0,
+        374,
+        401,
+        399
+      ],
+      "score": 0.9925869107246399
+    },
+    {
+      "text": "ga á su observancia. Establécese una alianza entre Dios y el pueblo.",
+      "box": [
+        520,
+        368,
+        904,
+        393
+      ],
+      "score": 0.9947528839111328
+    },
+    {
+      "text": "1 mes de los nuevos frutos, que es cuando saliste de Egypto:",
+      "box": [
+        0,
+        388,
+        401,
+        416
+      ],
+      "score": 0.9775780439376831
+    },
+    {
+      "text": "Sube Moysés á la cima del monte para recibir las tablas de la Ley; y",
+      "box": [
+        519,
+        381,
+        904,
+        407
+      ],
+      "score": 0.9872033596038818
+    },
+    {
+      "text": "permanece allí cuarenta dias.",
+      "box": [
+        520,
+        396,
+        683,
+        415
+      ],
+      "score": 0.9730409383773804
+    },
+    {
+      "text": "o te presentarás delante de mí con las manos vacías .",
+      "box": [
+        0,
+        406,
+        367,
+        431
+      ],
+      "score": 0.984844446182251
+    },
+    {
+      "text": "16. La otra solemnidad será en la siega de los frutos pri-",
+      "box": [
+        3,
+        422,
+        401,
+        446
+      ],
+      "score": 0.988638162612915
+    },
+    {
+      "text": "1. Dijo despues Dios á Moysés: Sube al Señor tú y Aaron,",
+      "box": [
+        521,
+        422,
+        905,
+        447
+      ],
+      "score": 0.9989619851112366
+    },
+    {
+      "text": "nerizos de tus labores, de todo aquello que hubieses sembra-",
+      "box": [
+        0,
+        438,
+        401,
+        462
+      ],
+      "score": 0.9954627752304077
+    },
+    {
+      "text": "Nadab y Abiu, y los setenta ancianos de Israél, y le adorareis",
+      "box": [
+        508,
+        439,
+        905,
+        464
+      ],
+      "score": 0.9988861083984375
+    },
+    {
+      "text": "lo en el campo. La tercera solemnidad en la recoleccion de",
+      "box": [
+        0,
+        454,
+        400,
+        479
+      ],
+      "score": 0.9836993217468262
+    },
+    {
+      "text": "desde lejos;",
+      "box": [
+        509,
+        456,
+        589,
+        474
+      ],
+      "score": 0.999948263168335
+    },
+    {
+      "text": "odos los frutos del campo, al fin del año.",
+      "box": [
+        0,
+        471,
+        277,
+        494
+      ],
+      "score": 0.9995810985565186
+    },
+    {
+      "text": "2. Y solo Moysés subirá hásta el Señor, y los demás no se",
+      "box": [
+        520,
+        471,
+        905,
+        495
+      ],
+      "score": 0.9899484515190125
+    },
+    {
+      "text": "17. Tres veces al año se presentarán todos tus varones",
+      "box": [
+        2,
+        487,
+        400,
+        510
+      ],
+      "score": 0.9995307326316833
+    },
+    {
+      "text": "acerearán; ni subirá con él el pueblo.",
+      "box": [
+        507,
+        489,
+        753,
+        508
+      ],
+      "score": 0.9862443208694458
+    },
+    {
+      "text": "lelante del Señor Dios tuyo 5.",
+      "box": [
+        0,
+        505,
+        207,
+        525
+      ],
+      "score": 0.9612633585929871
+    },
+    {
+      "text": "3. Vino, pues, Moysés, y refirió al pueblo todas las cosas",
+      "box": [
+        521,
+        505,
+        906,
+        527
+      ],
+      "score": 0.9854341745376587
+    },
+    {
+      "text": "18. No me ofrecerás con levadura la sangre de mi vícti-",
+      "box": [
+        2,
+        520,
+        401,
+        541
+      ],
+      "score": 0.9862000346183777
+    },
+    {
+      "text": "del Señor, y todas las leyes. Y todo el pueblo á una voz res-",
+      "box": [
+        508,
+        522,
+        906,
+        543
+      ],
+      "score": 0.990946888923645
+    },
+    {
+      "text": "na: ni se reservará la grosura de mi víctima solemne hasta",
+      "box": [
+        0,
+        536,
+        399,
+        559
+      ],
+      "score": 0.990966796875
+    },
+    {
+      "text": "pondió: Todas las palabras que ha hablado el Señor las ejecu-",
+      "box": [
+        506,
+        537,
+        907,
+        561
+      ],
+      "score": 0.9996669292449951
+    },
+    {
+      "text": "1 dia siguiente.",
+      "box": [
+        0,
+        555,
+        115,
+        572
+      ],
+      "score": 0.9824703931808472
+    },
+    {
+      "text": "taremos.",
+      "box": [
+        509,
+        557,
+        567,
+        571
+      ],
+      "score": 0.9999682307243347
+    },
+    {
+      "text": "19. Ofrecerás en la casa del Señor Dios tuyo las primicias",
+      "box": [
+        2,
+        571,
+        399,
+        588
+      ],
+      "score": 0.9922216534614563
+    },
+    {
+      "text": "4. Escribió, pues, Moysés todo cuanto dijo el Señor; y",
+      "box": [
+        519,
+        569,
+        907,
+        592
+      ],
+      "score": 0.9868060350418091
+    },
+    {
+      "text": "le los frutos de tu tierra. No cocerás el cabrito ó cordero en",
+      "box": [
+        0,
+        585,
+        399,
+        606
+      ],
+      "score": 0.9809335470199585
+    },
+    {
+      "text": "levantándose de mañana, edificó un altar de tierra al pié del",
+      "box": [
+        506,
+        585,
+        906,
+        606
+      ],
+      "score": 0.9821405410766602
+    },
+    {
+      "text": "a leche de su madre 6.",
+      "box": [
+        0,
+        603,
+        159,
+        620
+      ],
+      "score": 0.9729897975921631
+    },
+    {
+      "text": "monte, y puso doce piedras, ó aras, segun el número de las",
+      "box": [
+        506,
+        601,
+        905,
+        621
+      ],
+      "score": 0.9924885034561157
+    },
+    {
+      "text": "20. Mira que Yo enviaré el Ángel mio 7 que te guie, y",
+      "box": [
+        3,
+        619,
+        398,
+        636
+      ],
+      "score": 0.9927379488945007
+    },
+    {
+      "text": "doce tribus de Israél.",
+      "box": [
+        508,
+        618,
+        646,
+        632
+      ],
+      "score": 0.9998239874839783
+    },
+    {
+      "text": "uarde en el viaje, hasta introducirte en el país que te he",
+      "box": [
+        0,
+        635,
+        398,
+        653
+      ],
+      "score": 0.9998190402984619
+    },
+    {
+      "text": "5. Y eligió algunos jóvenes de los hijos de Israél, que",
+      "box": [
+        519,
+        630,
+        905,
+        655
+      ],
+      "score": 0.9832252264022827
+    },
+    {
+      "text": "reparado.",
+      "box": [
+        0,
+        652,
+        77,
+        670
+      ],
+      "score": 0.9999812245368958
+    },
+    {
+      "text": "ofrecieron holocaustos, é inmolaron víctimas pacíficas de",
+      "box": [
+        506,
+        647,
+        905,
+        671
+      ],
+      "score": 0.9834097623825073
+    },
+    {
+      "text": "21. Reverénciale, y escucha su voz: por ningun caso le",
+      "box": [
+        0,
+        666,
+        398,
+        685
+      ],
+      "score": 0.9848672151565552
+    },
+    {
+      "text": "becerros al Señor.",
+      "box": [
+        508,
+        666,
+        624,
+        680
+      ],
+      "score": 0.9999474287033081
+    },
+    {
+      "text": "nenosprecies; porque si haces algun mal, no te lo pasará: y",
+      "box": [
+        0,
+        683,
+        397,
+        701
+      ],
+      "score": 0.9945129752159119
+    },
+    {
+      "text": "6. Tomó entonces Moysés la mitad de la sangre, y echóla",
+      "box": [
+        519,
+        678,
+        904,
+        703
+      ],
+      "score": 0.9946542382240295
+    },
+    {
+      "text": "n él se halla el nombre mio 8.",
+      "box": [
+        0,
+        699,
+        209,
+        717
+      ],
+      "score": 0.9906701445579529
+    },
+    {
+      "text": "en tazas: y derramó sobre el altar la otra mitad.",
+      "box": [
+        505,
+        695,
+        821,
+        717
+      ],
+      "score": 0.9990391731262207
+    },
+    {
+      "text": "22. Que si tú escuchares su voz, y ejecutares todas las co-",
+      "box": [
+        0,
+        713,
+        397,
+        734
+      ],
+      "score": 0.9947683215141296
+    },
+    {
+      "text": "7. Y tomando el libro en que estaba escrita la alianza, le",
+      "box": [
+        519,
+        711,
+        905,
+        736
+      ],
+      "score": 0.9980227947235107
+    },
+    {
+      "text": "as que ordeno, seré enemigo de tus enemigos, y perseguiré",
+      "box": [
+        0,
+        730,
+        398,
+        750
+      ],
+      "score": 0.9945988655090332
+    },
+    {
+      "text": "leyó delante del pueblo; el cual dijo: Haremos todas las cosas",
+      "box": [
+        505,
+        726,
+        905,
+        752
+      ],
+      "score": 0.9970343112945557
+    },
+    {
+      "text": "los que te persigan 9.",
+      "box": [
+        0,
+        747,
+        158,
+        765
+      ],
+      "score": 0.9669957756996155
+    },
+    {
+      "text": "que ha ordenado el Señor, y seremos obedientes.",
+      "box": [
+        506,
+        744,
+        821,
+        765
+      ],
+      "score": 0.9993698596954346
+    },
+    {
+      "text": "23.  Y mi Ángel irá delante de tí, y te introducirá en el país",
+      "box": [
+        3,
+        761,
+        397,
+        780
+      ],
+      "score": 0.9796618223190308
+    },
+    {
+      "text": "8. Tomando entonces Moysés la sangre, roció con ella al",
+      "box": [
+        518,
+        759,
+        905,
+        783
+      ],
+      "score": 0.9926784038543701
+    },
+    {
+      "text": "el Amorrhéo, y del Hethéo, y del Pherezéo, y del Chananéo,",
+      "box": [
+        0,
+        777,
+        397,
+        796
+      ],
+      "score": 0.9975084066390991
+    },
+    {
+      "text": "pueblo, diciendo: Esta es la sangre de la alianza, que el Señor",
+      "box": [
+        504,
+        775,
+        905,
+        798
+      ],
+      "score": 0.993350088596344
+    },
+    {
+      "text": "del Hevéo, y del Jebuséo, á los cuales yo exterminaré 10.",
+      "box": [
+        0,
+        792,
+        381,
+        812
+      ],
+      "score": 0.9748659133911133
+    },
+    {
+      "text": "ha contraido con vosotros, mediante todo lo tratado 13.",
+      "box": [
+        505,
+        791,
+        860,
+        814
+      ],
+      "score": 0.9896258115768433
+    },
+    {
+      "text": "24. No adorarás, ni darás culto á sus dioses: no imitarás",
+      "box": [
+        4,
+        807,
+        397,
+        829
+      ],
+      "score": 0.9842275381088257
+    },
+    {
+      "text": "9. Luego subieron Moysés y Aaron, Nadab y Abiu, y los",
+      "box": [
+        519,
+        807,
+        902,
+        831
+      ],
+      "score": 0.9976435899734497
+    },
+    {
+      "text": "us obras, antes bien los destruirás, y harás pedazos sus",
+      "box": [
+        0,
+        828,
+        396,
+        842
+      ],
+      "score": 0.9980190396308899
+    },
+    {
+      "text": "setenta ancianos de Israél;",
+      "box": [
+        504,
+        825,
+        682,
+        843
+      ],
+      "score": 0.9992935657501221
+    },
+    {
+      "text": "státuas.",
+      "box": [
+        0,
+        842,
+        62,
+        859
+      ],
+      "score": 0.9985997676849365
+    },
+    {
+      "text": "10. Y vieron al Dios de Israél 14: y la peana de sus piés",
+      "box": [
+        518,
+        841,
+        901,
+        862
+      ],
+      "score": 0.9898516535758972
+    },
+    {
+      "text": "25. Al Señor Dios tuyo servirás, para que yo eche la ben-",
+      "box": [
+        6,
+        856,
+        397,
+        875
+      ],
+      "score": 0.996238648891449
+    },
+    {
+      "text": "parecia una obra hecha de zafiros, y como el cielo cuando",
+      "box": [
+        503,
+        857,
+        901,
+        877
+      ],
+      "score": 0.9963023662567139
+    },
+    {
+      "text": "icion sobre tus panes y tus aguas, y destierre de tí las en-",
+      "box": [
+        0,
+        872,
+        397,
+        892
+      ],
+      "score": 0.9874640107154846
+    },
+    {
+      "text": "está sereno.",
+      "box": [
+        505,
+        874,
+        584,
+        891
+      ],
+      "score": 0.9974663257598877
+    },
+    {
+      "text": "ermedades.",
+      "box": [
+        0,
+        889,
+        85,
+        907
+      ],
+      "score": 0.999880313873291
+    },
+    {
+      "text": "11. Ni por eso la mano de Dios hirió á estos hijos de",
+      "box": [
+        518,
+        888,
+        899,
+        909
+      ],
+      "score": 0.9899808764457703
+    },
+    {
+      "text": "26. No habrá en tu país mujer que aborte, ó sea estéril; y",
+      "box": [
+        3,
+        902,
+        397,
+        925
+      ],
+      "score": 0.9969304203987122
+    },
+    {
+      "text": "Israél, que habian avanzado mucho hácia el monte; sino que",
+      "box": [
+        503,
+        905,
+        899,
+        924
+      ],
+      "score": 0.998156726360321
+    },
+    {
+      "text": "rolongaré los dias de tu vida.",
+      "box": [
+        0,
+        921,
+        207,
+        938
+      ],
+      "score": 0.9945074915885925
+    },
+    {
+      "text": "despues de haber visto á Dios, comieron ellos y bebieron lo",
+      "box": [
+        503,
+        921,
+        898,
+        939
+      ],
+      "score": 0.9929854273796082
+    },
+    {
+      "text": "27. Yo enviaré el terror de mi nombre por precursor tuyo",
+      "box": [
+        3,
+        934,
+        398,
+        956
+      ],
+      "score": 0.9961576461791992
+    },
+    {
+      "text": "mismo que antes15.",
+      "box": [
+        505,
+        938,
+        630,
+        952
+      ],
+      "score": 0.9854679107666016
+    },
+    {
+      "text": "elante de tí; y exterminaré todos los pueblos del país en",
+      "box": [
+        0,
+        950,
+        398,
+        972
+      ],
+      "score": 0.9903324246406555
+    },
+    {
+      "text": "12. Mas Dios dijo á Moysés: Sube á lo alto del monte en",
+      "box": [
+        518,
+        952,
+        895,
+        971
+      ],
+      "score": 0.9806051850318909
+    },
+    {
+      "text": "ue tú entrarás, y haré que á tu presencia vuelvan la espalda",
+      "box": [
+        0,
+        966,
+        398,
+        989
+      ],
+      "score": 0.9955635070800781
+    },
+    {
+      "text": "donde estoy, y detente allí, y te daré unas tablas de piedra",
+      "box": [
+        503,
+        968,
+        895,
+        988
+      ],
+      "score": 0.9917851686477661
+    },
+    {
+      "text": "dos tus enemigos:",
+      "box": [
+        0,
+        985,
+        139,
+        1002
+      ],
+      "score": 0.9740829467773438
+    },
+    {
+      "text": "con la Ley y los mandamientos que tengo escritos en ellas, á",
+      "box": [
+        503,
+        985,
+        895,
+        1004
+      ],
+      "score": 0.9924450516700745
+    },
+    {
+      "text": "28. Arrojando delante tábanos, que ahuyenten al Hevéo,",
+      "box": [
+        1,
+        998,
+        396,
+        1020
+      ],
+      "score": 0.9939911365509033
+    },
+    {
+      "text": "fin de que los enseñes al pueblo.",
+      "box": [
+        502,
+        1000,
+        712,
+        1018
+      ],
+      "score": 0.9997809529304504
+    },
+    {
+      "text": "1 Deut. XVI, v. 19.—Ecli, XX, v. 31.",
+      "box": [
+        0,
+        1036,
+        227,
+        1054
+      ],
+      "score": 0.9459053874015808
+    },
+    {
+      "text": "te por los Padres, sino aun por los Rabinos, los cuales dicen que este An-",
+      "box": [
+        501,
+        1037,
+        892,
+        1056
+      ],
+      "score": 0.9955389499664307
+    },
+    {
+      "text": "2 Gen. XLVI, v. 6.",
+      "box": [
+        2,
+        1050,
+        126,
+        1065
+      ],
+      "score": 0.9757577180862427
+    },
+    {
+      "text": "gel es el Angel redentor de que se habla Gen. XLVIII, v. 16.",
+      "box": [
+        500,
+        1050,
+        830,
+        1070
+      ],
+      "score": 0.9885628819465637
+    },
+    {
+      "text": "3 Así como el dia séptimo era el sábado para los hombres, el año sép-",
+      "box": [
+        0,
+        1063,
+        395,
+        1083
+      ],
+      "score": 0.9867498278617859
+    },
+    {
+      "text": "8 El habla y obra en mi nombre y autoridad.",
+      "box": [
+        510,
+        1063,
+        759,
+        1082
+      ],
+      "score": 0.977893590927124
+    },
+    {
+      "text": "imo era sábado ó descanso para la tierra. En este año no se sembraba, y",
+      "box": [
+        0,
+        1078,
+        396,
+        1097
+      ],
+      "score": 0.9703508019447327
+    },
+    {
+      "text": "9 Deut. VII, v. 11.",
+      "box": [
+        511,
+        1079,
+        619,
+        1093
+      ],
+      "score": 0.9610279202461243
+    },
+    {
+      "text": "uanto daba la tierra de suyo, y producian los árboles, etc., lo recogian",
+      "box": [
+        0,
+        1092,
+        396,
+        1110
+      ],
+      "score": 0.9953584671020508
+    },
+    {
+      "text": "10",
+      "box": [
+        509,
+        1093,
+        524,
+        1105
+      ],
+      "score": 0.9999645948410034
+    },
+    {
+      "text": "Cap. XXXIII, v. 2.—Deut. VII, v. 22.—Jos. XXIV, v. 11.",
+      "box": [
+        521,
+        1091,
+        842,
+        1109
+      ],
+      "score": 0.9510203003883362
+    },
+    {
+      "text": "os pobres. Este aão sabático era instituido, primero para recordar á los",
+      "box": [
+        0,
+        1105,
+        396,
+        1123
+      ],
+      "score": 0.9817116260528564
+    },
+    {
+      "text": "11",
+      "box": [
+        508,
+        1106,
+        522,
+        1118
+      ],
+      "score": 0.999749481678009
+    },
+    {
+      "text": "Deut. VII, v. 20.",
+      "box": [
+        524,
+        1106,
+        617,
+        1120
+      ],
+      "score": 0.9768900871276855
+    },
+    {
+      "text": "Iebreos el dominio de Dios sobre su tierra. Segundo, para conservar la",
+      "box": [
+        0,
+        1118,
+        395,
+        1137
+      ],
+      "score": 0.9879184365272522
+    },
+    {
+      "text": "12",
+      "box": [
+        508,
+        1120,
+        522,
+        1132
+      ],
+      "score": 0.9973841905593872
+    },
+    {
+      "text": "Cap. XXXIV, v. 15.—Deut. VII, v. 2.",
+      "box": [
+        522,
+        1118,
+        735,
+        1136
+      ],
+      "score": 0.9649068713188171
+    },
+    {
+      "text": "gualdad de las condiciones y bienes; pues recobraban la libertad los es-",
+      "box": [
+        0,
+        1131,
+        395,
+        1152
+      ],
+      "score": 0.9885609745979309
+    },
+    {
+      "text": "is Todo esto representaba el misterio de una mejor alianza, consumada",
+      "box": [
+        506,
+        1131,
+        888,
+        1153
+      ],
+      "score": 0.9591328501701355
+    },
+    {
+      "text": "lavos, y todos miraban la tierra como comun. Tercero, para acostum-",
+      "box": [
+        0,
+        1145,
+        395,
+        1166
+      ],
+      "score": 0.9896422624588013
+    },
+    {
+      "text": "mediante la sangre de Christo derramada sobre la ara de la cruz, como",
+      "box": [
+        498,
+        1145,
+        888,
+        1166
+      ],
+      "score": 0.9948939681053162
+    },
+    {
+      "text": "orarlos á confiar en la Providencia divina. Por eso Dios les habia prome-",
+      "box": [
+        0,
+        1159,
+        394,
+        1179
+      ],
+      "score": 0.9927709698677063
+    },
+    {
+      "text": "explica San Pablo. Hebr. IX, v. 20.",
+      "box": [
+        500,
+        1162,
+        693,
+        1176
+      ],
+      "score": 0.9964320659637451
+    },
+    {
+      "text": "ido abundante cosecha para el año sexto. Lev. XX V, v. 3, 20.—Véase",
+      "box": [
+        0,
+        1172,
+        395,
+        1193
+      ],
+      "score": 0.9612281918525696
+    },
+    {
+      "text": "14 Vieron algun rayo de la majestad de Dios, el cual se les apareció bajo",
+      "box": [
+        509,
+        1173,
+        887,
+        1192
+      ],
+      "score": 0.985602617263794
+    },
+    {
+      "text": "sábado.—Lev. XXV, v. 4.",
+      "box": [
+        0,
+        1188,
+        150,
+        1202
+      ],
+      "score": 0.9607251286506653
+    },
+    {
+      "text": " Cap, XIII, v. 3, 4.—XXXIV, v. 22.—Deut. XVI, v. 6.—Ecli. XXXV,",
+      "box": [
+        3,
+        1198,
+        393,
+        1221
+      ],
+      "score": 0.9370775818824768
+    },
+    {
+      "text": "alguna especie ó imágen sensible. Ni se opone esto á lo que se dice",
+      "box": [
+        499,
+        1189,
+        887,
+        1203
+      ],
+      "score": 0.991841197013855
+    },
+    {
+      "text": "Deuter. IV, v. 15; porque allí se habla solamente de aparecerse Dios al",
+      "box": [
+        499,
+        1203,
+        886,
+        1217
+      ],
+      "score": 0.9942328333854675
+    },
+    {
+      "text": " 6.",
+      "box": [
+        0,
+        1215,
+        23,
+        1231
+      ],
+      "score": 0.86448734998703
+    },
+    {
+      "text": "pueblo.",
+      "box": [
+        497,
+        1214,
+        543,
+        1232
+      ],
+      "score": 0.9998860359191895
+    },
+    {
+      "text": "5",
+      "box": [
+        6,
+        1230,
+        16,
+        1241
+      ],
+      "score": 0.9922437071800232
+    },
+    {
+      "text": "Cap. XXXIV, v. 23.—Deut. XVI, v. 16.",
+      "box": [
+        19,
+        1227,
+        247,
+        1247
+      ],
+      "score": 0.9913861751556396
+    },
+    {
+      "text": "1s Esto lo dice porque, segun el comun modo de pensar, ver á Dios y",
+      "box": [
+        510,
+        1227,
+        886,
+        1245
+      ],
+      "score": 0.9806026816368103
+    },
+    {
+      "text": "6",
+      "box": [
+        5,
+        1246,
+        14,
+        1256
+      ],
+      "score": 0.9804854393005371
+    },
+    {
+      "text": "O cuando aun está mamando. Cap. XXXIV, v. 26.—Deut. XIV, v. 21.",
+      "box": [
+        17,
+        1241,
+        392,
+        1264
+      ],
+      "score": 0.8663056492805481
+    },
+    {
+      "text": "morirse era todo uno. Deut. V, v. 24.—Jud. XIII, v. 22.",
+      "box": [
+        498,
+        1242,
+        797,
+        1258
+      ],
+      "score": 0.9721233248710632
+    },
+    {
+      "text": "7",
+      "box": [
+        5,
+        1261,
+        13,
+        1270
+      ],
+      "score": 0.9939310550689697
+    },
+    {
+      "text": "Por este Angel se entiende comunmente el Hijo de Dios, no solamen-",
+      "box": [
+        18,
+        1257,
+        390,
+        1278
+      ],
+      "score": 0.9904808402061462
+    },
+    {
+      "text": "I.—16",
+      "box": [
+        825,
+        1269,
+        863,
+        1284
+      ],
+      "score": 0.943415641784668
+    }
+  ]
+}

@@ -1,0 +1,1417 @@
+{
+  "volume": 3,
+  "page_index": 70,
+  "pdf_page": 71,
+  "lines": [
+    {
+      "text": "97",
+      "box": [
+        6,
+        46,
+        23,
+        59
+      ],
+      "score": 0.9999714493751526
+    },
+    {
+      "text": "SALMOS.",
+      "box": [
+        153,
+        41,
+        223,
+        63
+      ],
+      "score": 0.9978667497634888
+    },
+    {
+      "text": "SALMO CXXXVI.",
+      "box": [
+        622,
+        43,
+        741,
+        73
+      ],
+      "score": 0.9868287444114685
+    },
+    {
+      "text": "98",
+      "box": [
+        837,
+        62,
+        857,
+        80
+      ],
+      "score": 0.9996799230575562
+    },
+    {
+      "text": "SALMO CXXXIV",
+      "box": [
+        131,
+        86,
+        249,
+        108
+      ],
+      "score": 0.9995539784431458
+    },
+    {
+      "text": "7. Al que hizo los grandes luminares: Porque es eterna su",
+      "box": [
+        501,
+        86,
+        865,
+        128
+      ],
+      "score": 0.9997103214263916
+    },
+    {
+      "text": "misericordia:",
+      "box": [
+        488,
+        105,
+        577,
+        129
+      ],
+      "score": 0.9996672868728638
+    },
+    {
+      "text": "Se dan gracias á Dios por haber escogido á Israél por pueblo suyo, y se",
+      "box": [
+        0,
+        118,
+        377,
+        149
+      ],
+      "score": 0.9862102270126343
+    },
+    {
+      "text": "8. El sol para presidir al dia: Porque es eterna su miseri-",
+      "box": [
+        500,
+        123,
+        865,
+        163
+      ],
+      "score": 0.9995925426483154
+    },
+    {
+      "text": "demuestra la vanidad de los idolos.",
+      "box": [
+        95,
+        137,
+        285,
+        161
+      ],
+      "score": 0.9806234240531921
+    },
+    {
+      "text": "cordia;",
+      "box": [
+        486,
+        140,
+        540,
+        165
+      ],
+      "score": 0.9987417459487915
+    },
+    {
+      "text": "9. La luna y estrellas para presidir á la noche: Porque es",
+      "box": [
+        499,
+        159,
+        864,
+        196
+      ],
+      "score": 0.9930548071861267
+    },
+    {
+      "text": "1. Aleluya.",
+      "box": [
+        6,
+        170,
+        92,
+        193
+      ],
+      "score": 0.9990125298500061
+    },
+    {
+      "text": "eterna su misericordia.",
+      "box": [
+        488,
+        177,
+        633,
+        199
+      ],
+      "score": 0.9855384230613708
+    },
+    {
+      "text": "Alabad el Nombre del Señor: tributadle alabanzas vosotros",
+      "box": [
+        7,
+        188,
+        386,
+        218
+      ],
+      "score": 0.9836094975471497
+    },
+    {
+      "text": "10. Al que hirió de muerte al Egypto en sus primogénitos:",
+      "box": [
+        500,
+        193,
+        864,
+        229
+      ],
+      "score": 0.9924821853637695
+    },
+    {
+      "text": "siervos suyos,",
+      "box": [
+        0,
+        207,
+        86,
+        227
+      ],
+      "score": 0.999035656452179
+    },
+    {
+      "text": "Porque es eterna su misericordia.",
+      "box": [
+        488,
+        210,
+        695,
+        237
+      ],
+      "score": 0.9995284676551819
+    },
+    {
+      "text": "2. Que asistís en la Casa del Señor, en los atrios del templo",
+      "box": [
+        5,
+        223,
+        385,
+        253
+      ],
+      "score": 0.9878246784210205
+    },
+    {
+      "text": "11. Al que sacó á Israél de en medio del Egypto: Porque",
+      "box": [
+        499,
+        226,
+        862,
+        260
+      ],
+      "score": 0.9821678400039673
+    },
+    {
+      "text": "de nuestro Dios.",
+      "box": [
+        0,
+        240,
+        104,
+        261
+      ],
+      "score": 0.9999580383300781
+    },
+    {
+      "text": "es eterna su misericordia:",
+      "box": [
+        487,
+        244,
+        651,
+        267
+      ],
+      "score": 0.9887243509292603
+    },
+    {
+      "text": "3. Alabad al Señor, porque el Señor es infinitamente bue-",
+      "box": [
+        5,
+        255,
+        386,
+        288
+      ],
+      "score": 0.9861735701560974
+    },
+    {
+      "text": "12. Ejecutándolo con mano poderosa y brazo levantado:",
+      "box": [
+        499,
+        259,
+        863,
+        291
+      ],
+      "score": 0.9993937015533447
+    },
+    {
+      "text": "no: cantad himnos á su excelso Nombre, porque es sumamen-",
+      "box": [
+        0,
+        274,
+        386,
+        304
+      ],
+      "score": 0.9917707443237305
+    },
+    {
+      "text": "Porque es eterna su misericordia.",
+      "box": [
+        486,
+        276,
+        698,
+        301
+      ],
+      "score": 0.9982560873031616
+    },
+    {
+      "text": "e suave.",
+      "box": [
+        0,
+        291,
+        55,
+        311
+      ],
+      "score": 0.9914405941963196
+    },
+    {
+      "text": "13. Al que dividió en dos partes el.mar Rojo: Porque es",
+      "box": [
+        499,
+        293,
+        862,
+        322
+      ],
+      "score": 0.9852834939956665
+    },
+    {
+      "text": "4. Por cuanto el Señor-ha escogido para sí á Jacob; á Is-",
+      "box": [
+        6,
+        308,
+        384,
+        335
+      ],
+      "score": 0.9747610688209534
+    },
+    {
+      "text": "eterna su misericordia;",
+      "box": [
+        486,
+        310,
+        634,
+        330
+      ],
+      "score": 0.9997978210449219
+    },
+    {
+      "text": "raél para propiedad suya.",
+      "box": [
+        0,
+        325,
+        163,
+        347
+      ],
+      "score": 0.9976476430892944
+    },
+    {
+      "text": "14. Y condujo á Israél por en medio de sus aguas: Porque",
+      "box": [
+        497,
+        325,
+        862,
+        354
+      ],
+      "score": 0.9934486746788025
+    },
+    {
+      "text": "5. Porque yo tengo bien conocido que el Señor es grande,",
+      "box": [
+        6,
+        341,
+        385,
+        366
+      ],
+      "score": 0.9946027398109436
+    },
+    {
+      "text": "es eterna su misericordia;",
+      "box": [
+        485,
+        342,
+        650,
+        362
+      ],
+      "score": 0.9997764229774475
+    },
+    {
+      "text": "y que nuestro Dios es sobre todos los dioses.",
+      "box": [
+        0,
+        359,
+        278,
+        380
+      ],
+      "score": 0.9875233769416809
+    },
+    {
+      "text": "15. Y sumergió á Pharaon y á su ejército en el mar Rojo:",
+      "box": [
+        498,
+        358,
+        862,
+        383
+      ],
+      "score": 0.9952663779258728
+    },
+    {
+      "text": "6. Todas cuantas cosas quiso, ha hecho el Señor; así en",
+      "box": [
+        6,
+        374,
+        384,
+        399
+      ],
+      "score": 0.9964354634284973
+    },
+    {
+      "text": "Porque es eterna su misericordia.",
+      "box": [
+        484,
+        375,
+        694,
+        396
+      ],
+      "score": 0.9995274543762207
+    },
+    {
+      "text": "el cielo como en la tierra, en el mar y en todos los abis-",
+      "box": [
+        0,
+        390,
+        385,
+        416
+      ],
+      "score": 0.9857147336006165
+    },
+    {
+      "text": "16. Al que guió á su pueblo por el Desierto: Porque es",
+      "box": [
+        496,
+        391,
+        863,
+        417
+      ],
+      "score": 0.9967775940895081
+    },
+    {
+      "text": "nos.",
+      "box": [
+        0,
+        411,
+        27,
+        427
+      ],
+      "score": 0.9926332235336304
+    },
+    {
+      "text": "eterna su misericordia.",
+      "box": [
+        484,
+        409,
+        630,
+        427
+      ],
+      "score": 0.9997686147689819
+    },
+    {
+      "text": "7. Él hace venir las nubes de la extremidad de la tierra: y",
+      "box": [
+        3,
+        424,
+        384,
+        449
+      ],
+      "score": 0.9967735409736633
+    },
+    {
+      "text": "17. Al que hirió 6 derribó á los grandes reyes: Porque es",
+      "box": [
+        495,
+        423,
+        864,
+        449
+      ],
+      "score": 0.9818524718284607
+    },
+    {
+      "text": "eonvierte en lluvias los relámpagos ¹.—Él es el que hace salir",
+      "box": [
+        0,
+        442,
+        384,
+        465
+      ],
+      "score": 0.9797125458717346
+    },
+    {
+      "text": "eterna su misericordia.",
+      "box": [
+        485,
+        443,
+        630,
+        459
+      ],
+      "score": 0.9998332262039185
+    },
+    {
+      "text": "os vientos de sus depósitos;",
+      "box": [
+        0,
+        459,
+        181,
+        478
+      ],
+      "score": 0.9998975396156311
+    },
+    {
+      "text": "18. Al que mató & reyes valerosos: Porque es eterna su mi-",
+      "box": [
+        496,
+        456,
+        863,
+        480
+      ],
+      "score": 0.9854447841644287
+    },
+    {
+      "text": "8. El que hirió de muerte á los primogénitos de Egypto,",
+      "box": [
+        2,
+        474,
+        384,
+        498
+      ],
+      "score": 0.9893671870231628
+    },
+    {
+      "text": "sericordia;",
+      "box": [
+        485,
+        474,
+        556,
+        492
+      ],
+      "score": 0.999966025352478
+    },
+    {
+      "text": "in perdonar á hombre ni bestia;",
+      "box": [
+        0,
+        493,
+        211,
+        512
+      ],
+      "score": 0.9908639192581177
+    },
+    {
+      "text": "19. Á Sehon, rey de los Amorrhéos: Porque es eterna su",
+      "box": [
+        496,
+        489,
+        865,
+        513
+      ],
+      "score": 0.9980828762054443
+    },
+    {
+      "text": "9. É hizo señales y prodigios en medio de tí, oh Egypto,",
+      "box": [
+        4,
+        510,
+        383,
+        529
+      ],
+      "score": 0.9910997152328491
+    },
+    {
+      "text": "misericordia:",
+      "box": [
+        487,
+        509,
+        571,
+        523
+      ],
+      "score": 0.9999611973762512
+    },
+    {
+      "text": "contra Pharaon y todos sus vasallos.",
+      "box": [
+        0,
+        526,
+        234,
+        545
+      ],
+      "score": 0.9630836844444275
+    },
+    {
+      "text": "20. Y á Og, rey de Basan: Porque es eterna su miseri-",
+      "box": [
+        498,
+        523,
+        864,
+        543
+      ],
+      "score": 0.998991847038269
+    },
+    {
+      "text": "10. El que destrozó muchas naciones, y quitó la vida á",
+      "box": [
+        6,
+        544,
+        387,
+        560
+      ],
+      "score": 0.9965648651123047
+    },
+    {
+      "text": "cordia.",
+      "box": [
+        486,
+        540,
+        534,
+        557
+      ],
+      "score": 0.9994730949401855
+    },
+    {
+      "text": "reyes poderosos:",
+      "box": [
+        0,
+        560,
+        108,
+        577
+      ],
+      "score": 0.999603807926178
+    },
+    {
+      "text": "21. Y dió la tierra de ellos en herencia: Porque es eterna",
+      "box": [
+        498,
+        553,
+        867,
+        575
+      ],
+      "score": 0.9992246031761169
+    },
+    {
+      "text": "11. Á Sehon rey de los Amorrhéos, y á Og rey de Basan,",
+      "box": [
+        5,
+        574,
+        385,
+        595
+      ],
+      "score": 0.9915874600410461
+    },
+    {
+      "text": "su misericordia:",
+      "box": [
+        487,
+        574,
+        591,
+        588
+      ],
+      "score": 0.9996949434280396
+    },
+    {
+      "text": "y destruyó á todos los reinos de los Chananéos.",
+      "box": [
+        0,
+        594,
+        298,
+        611
+      ],
+      "score": 0.9894052743911743
+    },
+    {
+      "text": "22. En herencia á Israél siervo suyo: Porque es eterna su",
+      "box": [
+        498,
+        586,
+        866,
+        608
+      ],
+      "score": 0.9970556497573853
+    },
+    {
+      "text": "12. Y dió la tierra de estos en herencia, en herencia á Is-",
+      "box": [
+        7,
+        606,
+        388,
+        630
+      ],
+      "score": 0.9885767698287964
+    },
+    {
+      "text": "misericordia.",
+      "box": [
+        486,
+        605,
+        571,
+        622
+      ],
+      "score": 0.99968421459198
+    },
+    {
+      "text": "raél pueblo suyo.",
+      "box": [
+        0,
+        628,
+        112,
+        645
+      ],
+      "score": 0.9884624481201172
+    },
+    {
+      "text": "23. Al que se acordó de nosotros en nuestro abatimiento:",
+      "box": [
+        498,
+        619,
+        867,
+        640
+      ],
+      "score": 0.9885057806968689
+    },
+    {
+      "text": "13. Oh Señor, tu Nombre subsistirá eternamente: la me-",
+      "box": [
+        5,
+        639,
+        387,
+        663
+      ],
+      "score": 0.9932312965393066
+    },
+    {
+      "text": "Porque es eterna su misericordia;",
+      "box": [
+        487,
+        637,
+        697,
+        653
+      ],
+      "score": 0.9995421171188354
+    },
+    {
+      "text": "moria de tí, Señor, pasará de generacion en generacion.",
+      "box": [
+        0,
+        656,
+        348,
+        680
+      ],
+      "score": 0.9880812764167786
+    },
+    {
+      "text": "24. Y nos reseató del poder de nuestros enemigos: Porque",
+      "box": [
+        497,
+        650,
+        867,
+        672
+      ],
+      "score": 0.9903082251548767
+    },
+    {
+      "text": "14. Porque el Señor hará justicia á su pueblo, y será pro-",
+      "box": [
+        6,
+        672,
+        386,
+        698
+      ],
+      "score": 0.9825060367584229
+    },
+    {
+      "text": "es eterna su misericordia.",
+      "box": [
+        485,
+        667,
+        648,
+        686
+      ],
+      "score": 0.9995244741439819
+    },
+    {
+      "text": "25. Al que da el alimento á todos los vivientes: Porque es",
+      "box": [
+        497,
+        683,
+        867,
+        705
+      ],
+      "score": 0.993294894695282
+    },
+    {
+      "text": "picio con sus siervos.",
+      "box": [
+        0,
+        695,
+        134,
+        712
+      ],
+      "score": 0.999392569065094
+    },
+    {
+      "text": "15. Los ídolos de las naciones no son mas que oro y plata,",
+      "box": [
+        6,
+        704,
+        385,
+        730
+      ],
+      "score": 0.996411144733429
+    },
+    {
+      "text": "eterna su misericordia.",
+      "box": [
+        486,
+        701,
+        632,
+        718
+      ],
+      "score": 0.9997336268424988
+    },
+    {
+      "text": "26. Bendecid pues al Dios del cielo: Porque es eterna su mi-",
+      "box": [
+        498,
+        716,
+        868,
+        737
+      ],
+      "score": 0.97929447889328
+    },
+    {
+      "text": "hechura de manos de hombres.",
+      "box": [
+        0,
+        725,
+        208,
+        745
+      ],
+      "score": 0.9886288046836853
+    },
+    {
+      "text": "sericordia.—Bendecid al Señor de los señores: Porque es eter-",
+      "box": [
+        485,
+        733,
+        867,
+        753
+      ],
+      "score": 0.9932065010070801
+    },
+    {
+      "text": "16. Tienen boca, pero no hablarán: ojos, mas no verán:",
+      "box": [
+        7,
+        736,
+        369,
+        763
+      ],
+      "score": 0.9969044327735901
+    },
+    {
+      "text": "17. Orejas tienen, y no oirán. Pues no hay aliento ó espi-",
+      "box": [
+        7,
+        752,
+        386,
+        778
+      ],
+      "score": 0.9791032671928406
+    },
+    {
+      "text": "na su misericordia.",
+      "box": [
+        485,
+        749,
+        608,
+        767
+      ],
+      "score": 0.9994900226593018
+    },
+    {
+      "text": "rítu de vida en su boca.",
+      "box": [
+        0,
+        774,
+        156,
+        793
+      ],
+      "score": 0.978283703327179
+    },
+    {
+      "text": "SALMO CXXXVI",
+      "box": [
+        623,
+        780,
+        737,
+        800
+      ],
+      "score": 0.9997391104698181
+    },
+    {
+      "text": "18. Semejantes sean á ellos los que los fabrican, y cuantos",
+      "box": [
+        7,
+        785,
+        387,
+        811
+      ],
+      "score": 0.9986783266067505
+    },
+    {
+      "text": "en ellos ponen su confianza.",
+      "box": [
+        0,
+        806,
+        181,
+        825
+      ],
+      "score": 0.9835962653160095
+    },
+    {
+      "text": "Los cautivos suspiran por su patria Profecia de la caida de Babylonia.",
+      "box": [
+        486,
+        812,
+        868,
+        832
+      ],
+      "score": 0.9886921644210815
+    },
+    {
+      "text": "19. Oh tú, casa de Israél, bendice al Señor: bendice al",
+      "box": [
+        7,
+        817,
+        386,
+        843
+      ],
+      "score": 0.9892368912696838
+    },
+    {
+      "text": "Señor, casa de Aaron.",
+      "box": [
+        0,
+        840,
+        140,
+        856
+      ],
+      "score": 0.9863097667694092
+    },
+    {
+      "text": "20. Casa de Leví, bendice al Señor. Vosotros todos los que",
+      "box": [
+        8,
+        849,
+        386,
+        873
+      ],
+      "score": 0.9960740804672241
+    },
+    {
+      "text": "Salmo de David, para Jeremías.",
+      "box": [
+        501,
+        848,
+        700,
+        865
+      ],
+      "score": 0.9999220967292786
+    },
+    {
+      "text": "temeis al Señor, bendecid al Señor eternamente.",
+      "box": [
+        0,
+        870,
+        301,
+        887
+      ],
+      "score": 0.9996693134307861
+    },
+    {
+      "text": "1. En las márgenes de los rios del país de Babylonia, allí",
+      "box": [
+        500,
+        866,
+        869,
+        883
+      ],
+      "score": 0.9990050196647644
+    },
+    {
+      "text": "21. Bendígase al Señor desde Sion: al Señor que habita",
+      "box": [
+        9,
+        883,
+        387,
+        905
+      ],
+      "score": 0.9890246987342834
+    },
+    {
+      "text": "nos sentábamos, y nos poníamos á llorar, acordándonos de tí,",
+      "box": [
+        486,
+        882,
+        868,
+        900
+      ],
+      "score": 0.9925587773323059
+    },
+    {
+      "text": "en Jerusalem.",
+      "box": [
+        0,
+        903,
+        94,
+        920
+      ],
+      "score": 0.9998050332069397
+    },
+    {
+      "text": "oh Sion.",
+      "box": [
+        487,
+        899,
+        541,
+        916
+      ],
+      "score": 0.9993236064910889
+    },
+    {
+      "text": "2. Allí colgamos de los sauces nuestros músicos instru-",
+      "box": [
+        498,
+        914,
+        869,
+        933
+      ],
+      "score": 0.9999027848243713
+    },
+    {
+      "text": "SALMO CXXXV",
+      "box": [
+        144,
+        938,
+        252,
+        954
+      ],
+      "score": 0.9995046854019165
+    },
+    {
+      "text": "mentos.",
+      "box": [
+        486,
+        932,
+        540,
+        948
+      ],
+      "score": 0.9976555705070496
+    },
+    {
+      "text": "3. Los mismos que nos habian llevado esclavos, nos pe-",
+      "box": [
+        499,
+        945,
+        869,
+        966
+      ],
+      "score": 0.9970219135284424
+    },
+    {
+      "text": "Exhortacion á alabar á Dios por los grandes beneficios hechos á su",
+      "box": [
+        21,
+        969,
+        370,
+        989
+      ],
+      "score": 0.9790064692497253
+    },
+    {
+      "text": "dian que les cantásemos nuestros cánticos:—los que nos ha-",
+      "box": [
+        486,
+        963,
+        869,
+        982
+      ],
+      "score": 0.9979268312454224
+    },
+    {
+      "text": "bian arrebatado de nuestra patria, decian: Cantadnos algun",
+      "box": [
+        486,
+        978,
+        869,
+        999
+      ],
+      "score": 0.9927417039871216
+    },
+    {
+      "text": "pueblo.",
+      "box": [
+        179,
+        988,
+        220,
+        1003
+      ],
+      "score": 0.9944705963134766
+    },
+    {
+      "text": "himno de los que cantabais en Sion.",
+      "box": [
+        488,
+        998,
+        713,
+        1012
+      ],
+      "score": 0.999553918838501
+    },
+    {
+      "text": "1. Aleluya.",
+      "box": [
+        15,
+        1013,
+        102,
+        1037
+      ],
+      "score": 0.9968808889389038
+    },
+    {
+      "text": "4. ¿Cómo hemos de cantar los cánticos del Señor (les res-",
+      "box": [
+        498,
+        1012,
+        868,
+        1031
+      ],
+      "score": 0.9996305704116821
+    },
+    {
+      "text": "Alabad al Señor, porque es infinitamente bueno: Porque es",
+      "box": [
+        18,
+        1031,
+        388,
+        1052
+      ],
+      "score": 0.9884828925132751
+    },
+    {
+      "text": "pondiamos), en tierra extraña?",
+      "box": [
+        486,
+        1028,
+        683,
+        1046
+      ],
+      "score": 0.9799214005470276
+    },
+    {
+      "text": "eterna su misericordia .",
+      "box": [
+        4,
+        1047,
+        164,
+        1067
+      ],
+      "score": 0.9654482007026672
+    },
+    {
+      "text": "5. Ah! Si me olvidare yo de tí, oh Jerusalem, entregada",
+      "box": [
+        497,
+        1042,
+        869,
+        1064
+      ],
+      "score": 0.9921059608459473
+    },
+    {
+      "text": "2. Alabad al Dios de los dioses: Porque es eterna su mise-",
+      "box": [
+        19,
+        1062,
+        387,
+        1084
+      ],
+      "score": 0.9905844926834106
+    },
+    {
+      "text": "sea al olvido, seca quede mi mano diestra.",
+      "box": [
+        487,
+        1061,
+        748,
+        1078
+      ],
+      "score": 0.9980171918869019
+    },
+    {
+      "text": "ricordia.",
+      "box": [
+        7,
+        1079,
+        68,
+        1097
+      ],
+      "score": 0.9996427893638611
+    },
+    {
+      "text": "6. Pegada quede al paladar la lengua mia, si no me acor-",
+      "box": [
+        498,
+        1076,
+        869,
+        1095
+      ],
+      "score": 0.9929982423782349
+    },
+    {
+      "text": "3. Alabad al Señor de los señores: Porque es eterna su mi-",
+      "box": [
+        19,
+        1092,
+        389,
+        1117
+      ],
+      "score": 0.9949713349342346
+    },
+    {
+      "text": "dare de tí, oh Sion santa:—si no me propusiere á Jerusalem",
+      "box": [
+        486,
+        1092,
+        868,
+        1112
+      ],
+      "score": 0.9923899173736572
+    },
+    {
+      "text": "sericordia.",
+      "box": [
+        8,
+        1110,
+        80,
+        1131
+      ],
+      "score": 0.9997575879096985
+    },
+    {
+      "text": "por el primer objeto de mi alegría.",
+      "box": [
+        486,
+        1108,
+        703,
+        1128
+      ],
+      "score": 0.9979950785636902
+    },
+    {
+      "text": "4. Al único que obra grandes maravillas: Porque es eterna",
+      "box": [
+        23,
+        1126,
+        388,
+        1150
+      ],
+      "score": 0.9997313022613525
+    },
+    {
+      "text": "7. Acuérdate, oh Señor, de los hijos de Edom, los cuales en",
+      "box": [
+        498,
+        1126,
+        869,
+        1144
+      ],
+      "score": 0.9967809915542603
+    },
+    {
+      "text": "su misericordia.",
+      "box": [
+        8,
+        1142,
+        115,
+        1162
+      ],
+      "score": 0.9984511137008667
+    },
+    {
+      "text": "el dia de la ruina de Jerusalem,—decian: Arrasadla, arrasad-",
+      "box": [
+        486,
+        1142,
+        869,
+        1160
+      ],
+      "score": 0.9958137273788452
+    },
+    {
+      "text": "5. Al que con su sabiduría crió los cielos: Porque es eterna",
+      "box": [
+        24,
+        1158,
+        388,
+        1180
+      ],
+      "score": 0.9975143074989319
+    },
+    {
+      "text": "la hasta los cimientos.",
+      "box": [
+        486,
+        1158,
+        627,
+        1176
+      ],
+      "score": 0.9999461770057678
+    },
+    {
+      "text": "su misericordia.",
+      "box": [
+        9,
+        1175,
+        116,
+        1194
+      ],
+      "score": 0.999411940574646
+    },
+    {
+      "text": "8. Desventurada hija, oh ciudad de Babylonia! Afortuna-",
+      "box": [
+        500,
+        1175,
+        870,
+        1194
+      ],
+      "score": 0.9986704587936401
+    },
+    {
+      "text": "6. Al que afianzó la tierra sobre las aguas: Porque es eter-",
+      "box": [
+        26,
+        1191,
+        387,
+        1210
+      ],
+      "score": 0.9915778636932373
+    },
+    {
+      "text": "do sea aquel que te diere el pago de lo que nos has hecho tú",
+      "box": [
+        486,
+        1192,
+        870,
+        1212
+      ],
+      "score": 0.9975590109825134
+    },
+    {
+      "text": "na su misericordia.",
+      "box": [
+        11,
+        1210,
+        135,
+        1224
+      ],
+      "score": 0.9973304867744446
+    },
+    {
+      "text": "padecer á nosotros .",
+      "box": [
+        487,
+        1209,
+        619,
+        1226
+      ],
+      "score": 0.9795982241630554
+    },
+    {
+      "text": "1 O tambien: / hizo los relámpagos en señal, 6 en medio de la lluvia.",
+      "box": [
+        21,
+        1258,
+        375,
+        1276
+      ],
+      "score": 0.9741884469985962
+    },
+    {
+      "text": "la respuesta que daba el pueblo á la exhortacion del que cantaba: á la",
+      "box": [
+        485,
+        1257,
+        874,
+        1288
+      ],
+      "score": 0.9901162385940552
+    },
+    {
+      "text": "* Psalm. CXIII, v. 4.",
+      "box": [
+        23,
+        1275,
+        148,
+        1289
+      ],
+      "score": 0.9332391619682312
+    },
+    {
+      "text": "manera de la que se da en las letanías que se cantan en la Iglesía.",
+      "box": [
+        485,
+        1271,
+        838,
+        1303
+      ],
+      "score": 0.9645729660987854
+    },
+    {
+      "text": "* Se cree que las palabras: Porque es eterna su misericordia, eran como",
+      "box": [
+        22,
+        1285,
+        388,
+        1304
+      ],
+      "score": 0.996294379234314
+    },
+    {
+      "text": "4 Isai. XIII, v. 16.—Véase Hebraismos.—Profeto.",
+      "box": [
+        496,
+        1284,
+        772,
+        1318
+      ],
+      "score": 0.9683808088302612
+    },
+    {
+      "text": "III.—14",
+      "box": [
+        799,
+        1316,
+        853,
+        1337
+      ],
+      "score": 0.9870005249977112
+    }
+  ]
+}

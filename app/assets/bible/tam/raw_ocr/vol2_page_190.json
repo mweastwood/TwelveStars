@@ -1,0 +1,27 @@
+{
+  "volume": 2,
+  "page_index": 190,
+  "pdf_page": 191,
+  "lines": [
+    {
+      "text": "95",
+      "box": [
+        420,
+        1747,
+        514,
+        1781
+      ],
+      "score": 0.7675556540489197
+    },
+    {
+      "text": "EXTRANJEROS DEVORADOS POR LEONES EN LA SAMARIA",
+      "box": [
+        385,
+        1827,
+        1066,
+        1872
+      ],
+      "score": 0.9998480081558228
+    }
+  ]
+}

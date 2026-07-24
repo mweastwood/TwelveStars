@@ -1,0 +1,27 @@
+{
+  "volume": 4,
+  "page_index": 36,
+  "pdf_page": 37,
+  "lines": [
+    {
+      "text": "",
+      "box": [
+        735,
+        1164,
+        848,
+        1190
+      ],
+      "score": 0.0
+    },
+    {
+      "text": "DEGOLLACION DE LOS INOCENTES",
+      "box": [
+        298,
+        1216,
+        594,
+        1244
+      ],
+      "score": 0.9996339082717896
+    }
+  ]
+}

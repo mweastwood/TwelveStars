@@ -1,0 +1,27 @@
+{
+  "volume": 1,
+  "page_index": 178,
+  "pdf_page": 179,
+  "lines": [
+    {
+      "text": "eDors",
+      "box": [
+        61,
+        1125,
+        163,
+        1151
+      ],
+      "score": 0.9778720736503601
+    },
+    {
+      "text": "MOISÉS SALVADO POR LA HIJA DE FARAON",
+      "box": [
+        303,
+        1182,
+        661,
+        1207
+      ],
+      "score": 0.9998183846473694
+    }
+  ]
+}

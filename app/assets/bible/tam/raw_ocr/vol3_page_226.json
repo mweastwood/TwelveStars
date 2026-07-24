@@ -1,0 +1,1527 @@
+{
+  "volume": 3,
+  "page_index": 226,
+  "pdf_page": 227,
+  "lines": [
+    {
+      "text": "JEREMÍAS.",
+      "box": [
+        193,
+        34,
+        280,
+        61
+      ],
+      "score": 0.9944320321083069
+    },
+    {
+      "text": "CAPITULO VIII",
+      "box": [
+        665,
+        33,
+        772,
+        53
+      ],
+      "score": 0.9973481893539429
+    },
+    {
+      "text": "362",
+      "box": [
+        865,
+        32,
+        889,
+        50
+      ],
+      "score": 0.9999739527702332
+    },
+    {
+      "text": "361",
+      "box": [
+        62,
+        43,
+        86,
+        61
+      ],
+      "score": 0.9928703904151917
+    },
+    {
+      "text": "4. No pongais vuestra confianza en aquellas vanas y fala-",
+      "box": [
+        63,
+        77,
+        431,
+        109
+      ],
+      "score": 0.97931307554245
+    },
+    {
+      "text": "les de la campiña, y contra los frutos de la tierra, y todo ar-",
+      "box": [
+        530,
+        77,
+        895,
+        100
+      ],
+      "score": 0.9953082799911499
+    },
+    {
+      "text": "ces expresiones, diciendo: Este es el templo del Señor, el tem-",
+      "box": [
+        53,
+        96,
+        431,
+        127
+      ],
+      "score": 0.9905471801757812
+    },
+    {
+      "text": "derá, y no se apagará.",
+      "box": [
+        530,
+        100,
+        661,
+        117
+      ],
+      "score": 0.9933397769927979
+    },
+    {
+      "text": "plo del Señor, el templo del Señor ¹.",
+      "box": [
+        55,
+        122,
+        277,
+        142
+      ],
+      "score": 0.9799830317497253
+    },
+    {
+      "text": "21. Esto dice el Señor de los ejércitos, el Dios de Israél:",
+      "box": [
+        542,
+        113,
+        892,
+        135
+      ],
+      "score": 0.9985620379447937
+    },
+    {
+      "text": "5. Porque si enderezáreis al bien vuestras acciones, y",
+      "box": [
+        65,
+        133,
+        432,
+        164
+      ],
+      "score": 0.9867942929267883
+    },
+    {
+      "text": "Añadid cuanto querais vuestros holocaustos á vuestras vícti-",
+      "box": [
+        529,
+        131,
+        893,
+        151
+      ],
+      "score": 0.9904248714447021
+    },
+    {
+      "text": "vuestros deseos, s administráreis usicia enre hombre ",
+      "box": [
+        52,
+        149,
+        432,
+        182
+      ],
+      "score": 0.6672310829162598
+    },
+    {
+      "text": "mas, y comed sus carnes 10:",
+      "box": [
+        530,
+        150,
+        694,
+        167
+      ],
+      "score": 0.9732867479324341
+    },
+    {
+      "text": "hombre,",
+      "box": [
+        55,
+        174,
+        110,
+        195
+      ],
+      "score": 0.999963641166687
+    },
+    {
+      "text": "22. Puesto que cuando yo saqué de la tierra de Egypto á",
+      "box": [
+        541,
+        163,
+        893,
+        185
+      ],
+      "score": 0.9725156426429749
+    },
+    {
+      "text": "6. Si no hiciereis agravio al forastero, y al huérfano, y á",
+      "box": [
+        65,
+        182,
+        433,
+        217
+      ],
+      "score": 0.8701218366622925
+    },
+    {
+      "text": "vuestros padres, no les habléni mandé cosa alguna en materia",
+      "box": [
+        529,
+        181,
+        891,
+        200
+      ],
+      "score": 0.9885345101356506
+    },
+    {
+      "text": "la vuda, ni derramáreis la sanre inocente en este lugar, y",
+      "box": [
+        53,
+        201,
+        433,
+        234
+      ],
+      "score": 0.7409144639968872
+    },
+    {
+      "text": "de holocaustos y de víctimas 11.",
+      "box": [
+        529,
+        198,
+        718,
+        216
+      ],
+      "score": 0.9624665975570679
+    },
+    {
+      "text": "23. Ved aquí el mandamiento que entonces les dí: Escuchad",
+      "box": [
+        541,
+        213,
+        891,
+        233
+      ],
+      "score": 0.9887980818748474
+    },
+    {
+      "text": "no anduviereis en pos de doses ajenos para vuestra misma",
+      "box": [
+        52,
+        217,
+        432,
+        252
+      ],
+      "score": 0.7399776577949524
+    },
+    {
+      "text": "mi voz, les dije, y yo seré vuestro Dios, y vosotros sereis el",
+      "box": [
+        529,
+        230,
+        892,
+        248
+      ],
+      "score": 0.9874364733695984
+    },
+    {
+      "text": "ruina;",
+      "box": [
+        56,
+        243,
+        100,
+        261
+      ],
+      "score": 0.9907271862030029
+    },
+    {
+      "text": "pueblo mio; y seguid constantemente el camino que os he se-",
+      "box": [
+        529,
+        246,
+        893,
+        264
+      ],
+      "score": 0.9873804450035095
+    },
+    {
+      "text": "ñalado, á fin de que seais felices.",
+      "box": [
+        531,
+        264,
+        724,
+        278
+      ],
+      "score": 0.9949387907981873
+    },
+    {
+      "text": "que dí á vuestros padres, por siglos y siglos.",
+      "box": [
+        55,
+        272,
+        329,
+        298
+      ],
+      "score": 0.9943740963935852
+    },
+    {
+      "text": "24. Empero ellos no me escucharon, ni hicieron caso de",
+      "box": [
+        541,
+        276,
+        892,
+        295
+      ],
+      "score": 0.9982836842536926
+    },
+    {
+      "text": "eso; sino que se abandonaron á sus apetitos, y á la deprava-",
+      "box": [
+        528,
+        293,
+        893,
+        311
+      ],
+      "score": 0.994370698928833
+    },
+    {
+      "text": "rosas é vanas, que de nada os aprovecharán:",
+      "box": [
+        56,
+        304,
+        332,
+        330
+      ],
+      "score": 0.9644014835357666
+    },
+    {
+      "text": "cion de su maleado corazon: y en lugar de ir hácia adelante,",
+      "box": [
+        529,
+        309,
+        893,
+        326
+      ],
+      "score": 0.9920812845230103
+    },
+    {
+      "text": "fueron hácia atrás,",
+      "box": [
+        528,
+        326,
+        641,
+        343
+      ],
+      "score": 0.9996574521064758
+    },
+    {
+      "text": "25. Desde cl dia mismo en que salieron sus padres de la",
+      "box": [
+        540,
+        339,
+        894,
+        358
+      ],
+      "score": 0.9848448038101196
+    },
+    {
+      "text": "dioses ajenos que no conociais.",
+      "box": [
+        57,
+        355,
+        246,
+        375
+      ],
+      "score": 0.9981193542480469
+    },
+    {
+      "text": "tierra de Egypto, hasta el dia de hoy. Y yo os envié á vos-",
+      "box": [
+        528,
+        355,
+        895,
+        375
+      ],
+      "score": 0.99300616979599
+    },
+    {
+      "text": "10. Y despues de esto venís",
+      "box": [
+        69,
+        371,
+        254,
+        390
+      ],
+      "score": 0.9841358661651611
+    },
+    {
+      "text": "aun, y os presentais delante",
+      "box": [
+        246,
+        365,
+        429,
+        391
+      ],
+      "score": 0.997520387172699
+    },
+    {
+      "text": "otros todos mis siervos los profetas: cada dia me daba priesa",
+      "box": [
+        527,
+        372,
+        895,
+        391
+      ],
+      "score": 0.998323917388916
+    },
+    {
+      "text": "de mí en este templo en",
+      "box": [
+        57,
+        388,
+        225,
+        407
+      ],
+      "score": 0.9997101426124573
+    },
+    {
+      "text": "que es invocado mi Nombre ², y",
+      "box": [
+        216,
+        382,
+        429,
+        409
+      ],
+      "score": 0.9639843106269836
+    },
+    {
+      "text": "á enviarlos:",
+      "box": [
+        527,
+        391,
+        603,
+        408
+      ],
+      "score": 0.9962420463562012
+    },
+    {
+      "text": "decís vanamente confiados:",
+      "box": [
+        58,
+        406,
+        230,
+        423
+      ],
+      "score": 0.9819132685661316
+    },
+    {
+      "text": "Ya estamos á cubierto de todos",
+      "box": [
+        224,
+        399,
+        429,
+        425
+      ],
+      "score": 0.9958094954490662
+    },
+    {
+      "text": "26. Mas los hijos de mi pueblo no me escucharon, sino que",
+      "box": [
+        541,
+        405,
+        894,
+        425
+      ],
+      "score": 0.9996894001960754
+    },
+    {
+      "text": "los males, aunque hayamos",
+      "box": [
+        57,
+        423,
+        234,
+        440
+      ],
+      "score": 0.9821178913116455
+    },
+    {
+      "text": "s cometido todas esas abomina-",
+      "box": [
+        226,
+        415,
+        430,
+        442
+      ],
+      "score": 0.9905081391334534
+    },
+    {
+      "text": "se hicieron sordos y endurecieron su cerviz, y se portaron peor",
+      "box": [
+        526,
+        422,
+        896,
+        444
+      ],
+      "score": 0.9944720268249512
+    },
+    {
+      "text": "ciones.",
+      "box": [
+        57,
+        439,
+        100,
+        456
+      ],
+      "score": 0.9998650550842285
+    },
+    {
+      "text": "que sus padres.",
+      "box": [
+        528,
+        439,
+        637,
+        460
+      ],
+      "score": 0.9801293611526489
+    },
+    {
+      "text": "11. Pues qué ¿este templo mio en que se invoca mi Nom-",
+      "box": [
+        66,
+        446,
+        432,
+        476
+      ],
+      "score": 0.9881190061569214
+    },
+    {
+      "text": "27. Tú, pues, les dirás todas estas palabras, mas no te es-",
+      "box": [
+        539,
+        453,
+        897,
+        475
+      ],
+      "score": 0.9898062944412231
+    },
+    {
+      "text": "bre, ha venido á ser para vosotros una guarida de ladrones?",
+      "box": [
+        54,
+        463,
+        432,
+        493
+      ],
+      "score": 0.9728865027427673
+    },
+    {
+      "text": "cucharán: los llamarás, mas no te responderán.",
+      "box": [
+        528,
+        471,
+        813,
+        491
+      ],
+      "score": 0.9993990063667297
+    },
+    {
+      "text": "Yo, yo soy, yo mismo soy el que he visto vuestras abominacio-",
+      "box": [
+        54,
+        480,
+        431,
+        510
+      ],
+      "score": 0.9876084923744202
+    },
+    {
+      "text": "28. Y así les dirás: Esta es aquella nacion que no ha es-",
+      "box": [
+        541,
+        486,
+        896,
+        509
+      ],
+      "score": 0.9986804723739624
+    },
+    {
+      "text": "nes, dice el Señor.",
+      "box": [
+        56,
+        503,
+        166,
+        522
+      ],
+      "score": 0.9984472393989563
+    },
+    {
+      "text": "cuchado la voz del Señor Dios suyo, ni ha admitido sus ins-",
+      "box": [
+        528,
+        502,
+        898,
+        527
+      ],
+      "score": 0.9994938969612122
+    },
+    {
+      "text": "12. Y sino id á Silo 4, lugar de mi morada, donde al prin-",
+      "box": [
+        67,
+        514,
+        430,
+        541
+      ],
+      "score": 0.9909981489181519
+    },
+    {
+      "text": "trucciones. Muerta está su fe, ó fidelidad; desterrada está de",
+      "box": [
+        528,
+        520,
+        897,
+        543
+      ],
+      "score": 0.9844984412193298
+    },
+    {
+      "text": "cipio estuvo la gloria de mi Nombre s, y considerad lo que",
+      "box": [
+        56,
+        531,
+        430,
+        558
+      ],
+      "score": 0.9868171215057373
+    },
+    {
+      "text": "su boca.",
+      "box": [
+        528,
+        542,
+        582,
+        559
+      ],
+      "score": 0.9996083378791809
+    },
+    {
+      "text": "hice con él, por causa de la malicia de mi pueblo de Israél.",
+      "box": [
+        55,
+        546,
+        416,
+        574
+      ],
+      "score": 0.9912899136543274
+    },
+    {
+      "text": "29. Corta tu cabello 13, y arrójale, y ponte á plañir en alta",
+      "box": [
+        540,
+        551,
+        898,
+        577
+      ],
+      "score": 0.9780771136283875
+    },
+    {
+      "text": "13. Ahora bien, por cuanto habeis hecho todas estas",
+      "box": [
+        67,
+        562,
+        431,
+        590
+      ],
+      "score": 0.9954068660736084
+    },
+    {
+      "text": "voz: porque el Señor ha desechado y abandonado esta genera-",
+      "box": [
+        527,
+        568,
+        898,
+        593
+      ],
+      "score": 0.9982871413230896
+    },
+    {
+      "text": "fechorías, dice el Señor; y en vista de que yo os he predi-",
+      "box": [
+        54,
+        578,
+        430,
+        607
+      ],
+      "score": 0.9980082511901855
+    },
+    {
+      "text": "cion, digna de su cólera.",
+      "box": [
+        528,
+        588,
+        675,
+        609
+      ],
+      "score": 0.9875532388687134
+    },
+    {
+      "text": "cado, y os he avisado con tiempo y exhortado, y vosotros no",
+      "box": [
+        55,
+        594,
+        430,
+        624
+      ],
+      "score": 0.9975362420082092
+    },
+    {
+      "text": "30. Pues los hijos de Judá han obrado el mal ante mis ojos,",
+      "box": [
+        539,
+        600,
+        897,
+        625
+      ],
+      "score": 0.996852695941925
+    },
+    {
+      "text": "me habeis escuchado 6, y que os he llamado, y no me habeis",
+      "box": [
+        54,
+        610,
+        431,
+        641
+      ],
+      "score": 0.9882445335388184
+    },
+    {
+      "text": "dice el Señor: pusieron sus escándalos 14 ó idolos en el templo",
+      "box": [
+        527,
+        617,
+        898,
+        641
+      ],
+      "score": 0.9762446284294128
+    },
+    {
+      "text": "respondido:",
+      "box": [
+        55,
+        635,
+        130,
+        656
+      ],
+      "score": 0.9995038509368896
+    },
+    {
+      "text": "en que se invoca mi Nombre, á fin de contaminarle;",
+      "box": [
+        526,
+        632,
+        844,
+        658
+      ],
+      "score": 0.9925128817558289
+    },
+    {
+      "text": "14. Yo haré con esta Casa, en que se ha invocado mi Nom-",
+      "box": [
+        65,
+        642,
+        430,
+        672
+      ],
+      "score": 0.9880577921867371
+    },
+    {
+      "text": "31. Y edificaron altures ó lugares altos en Topheth 15, situa-",
+      "box": [
+        539,
+        647,
+        898,
+        672
+      ],
+      "score": 0.9702744483947754
+    },
+    {
+      "text": "bre, y en la cual vosotros teneis vuestra confianza, y con este",
+      "box": [
+        54,
+        659,
+        430,
+        689
+      ],
+      "score": 0.9896517395973206
+    },
+    {
+      "text": "da en el Valle del hijo de Ennom, para consumir en el fuego",
+      "box": [
+        527,
+        663,
+        898,
+        689
+      ],
+      "score": 0.9929236769676208
+    },
+    {
+      "text": "lugar que os señalé á vosotros y á vuestros padres, haré, digo,",
+      "box": [
+        54,
+        675,
+        428,
+        707
+      ],
+      "score": 0.9764368534088135
+    },
+    {
+      "text": "á sus hijos é hijas: cosa que yo no mandé, ni me pasó por el",
+      "box": [
+        526,
+        680,
+        898,
+        707
+      ],
+      "score": 0.9781458377838135
+    },
+    {
+      "text": "lo mismo que hice con Silo 7.",
+      "box": [
+        55,
+        697,
+        236,
+        722
+      ],
+      "score": 0.9827995896339417
+    },
+    {
+      "text": "pensamiento.",
+      "box": [
+        528,
+        703,
+        614,
+        723
+      ],
+      "score": 0.9999344348907471
+    },
+    {
+      "text": "32. Por tanto, ya viene el tiempo, dice el Señor, y no se",
+      "box": [
+        540,
+        713,
+        898,
+        739
+      ],
+      "score": 0.9996618032455444
+    },
+    {
+      "text": "vuestros hermanos",
+      "box": [
+        56,
+        729,
+        180,
+        756
+      ],
+      "score": 0.9995996952056885
+    },
+    {
+      "text": "de las",
+      "box": [
+        174,
+        732,
+        232,
+        746
+      ],
+      "score": 0.999447762966156
+    },
+    {
+      "text": "diez tribus, á toda la raza de",
+      "box": [
+        224,
+        726,
+        428,
+        747
+      ],
+      "score": 0.9902382493019104
+    },
+    {
+      "text": "llamará mas Topheth, ni Valle del hijo de Ennom; sino el",
+      "box": [
+        527,
+        730,
+        899,
+        756
+      ],
+      "score": 0.9958054423332214
+    },
+    {
+      "text": "Ephraim.",
+      "box": [
+        57,
+        749,
+        115,
+        772
+      ],
+      "score": 0.9954008460044861
+    },
+    {
+      "text": "tienes tú, Jeremías, que interceder por",
+      "box": [
+        177,
+        756,
+        429,
+        779
+      ],
+      "score": 0.993212878704071
+    },
+    {
+      "text": "Valle de la Mortandad: y enterrarán en Topheth, por falta de",
+      "box": [
+        529,
+        745,
+        897,
+        771
+      ],
+      "score": 0.9975804090499878
+    },
+    {
+      "text": "16. Así pues",
+      "box": [
+        66,
+        759,
+        160,
+        788
+      ],
+      "score": 0.9982113242149353
+    },
+    {
+      "text": "no",
+      "box": [
+        157,
+        762,
+        182,
+        777
+      ],
+      "score": 0.9999828338623047
+    },
+    {
+      "text": "otro sitio.",
+      "box": [
+        528,
+        767,
+        591,
+        786
+      ],
+      "score": 0.9997379779815674
+    },
+    {
+      "text": "33. Y los cadáveres de este pueblo serán pasto de las aves",
+      "box": [
+        540,
+        778,
+        898,
+        803
+      ],
+      "score": 0.9975911974906921
+    },
+    {
+      "text": "del cielo, y de las bestias de la tierra; ni habrá nadie que las",
+      "box": [
+        527,
+        795,
+        899,
+        820
+      ],
+      "score": 0.9955222606658936
+    },
+    {
+      "text": "s ciudades de Judá, y en las plazas públi-",
+      "box": [
+        176,
+        824,
+        428,
+        844
+      ],
+      "score": 0.9930415153503418
+    },
+    {
+      "text": "ahuyente.",
+      "box": [
+        529,
+        818,
+        593,
+        836
+      ],
+      "score": 0.9999810457229614
+    },
+    {
+      "text": "esos hombres en las",
+      "box": [
+        58,
+        823,
+        185,
+        852
+      ],
+      "score": 0.9997353553771973
+    },
+    {
+      "text": "34. Y haré que no se oiga en las ciudades de Judá, ni en",
+      "box": [
+        539,
+        827,
+        898,
+        853
+      ],
+      "score": 0.9926505088806152
+    },
+    {
+      "text": "cas de Jerusalem?",
+      "box": [
+        58,
+        840,
+        170,
+        868
+      ],
+      "score": 0.9995577335357666
+    },
+    {
+      "text": "recogen la leña, encienden el fuego los",
+      "box": [
+        162,
+        856,
+        427,
+        876
+      ],
+      "score": 0.9998434782028198
+    },
+    {
+      "text": "las plazas de Jerusalem voz de regocijo 16, y de alegría, voz",
+      "box": [
+        527,
+        843,
+        899,
+        869
+      ],
+      "score": 0.9769439101219177
+    },
+    {
+      "text": "18. Los hijos",
+      "box": [
+        69,
+        858,
+        167,
+        884
+      ],
+      "score": 0.981711745262146
+    },
+    {
+      "text": "de esposo y de esposa: porque toda la tierra quedará desolada.",
+      "box": [
+        528,
+        859,
+        898,
+        887
+      ],
+      "score": 0.9843548536300659
+    },
+    {
+      "text": "CAPITULO VIII",
+      "box": [
+        661,
+        891,
+        768,
+        911
+      ],
+      "score": 0.9982260465621948
+    },
+    {
+      "text": "á ira.",
+      "box": [
+        57,
+        927,
+        94,
+        949
+      ],
+      "score": 0.9727170467376709
+    },
+    {
+      "text": "Extrema desolacion de Jerusalem, en la cual serán todos castigados,",
+      "box": [
+        530,
+        918,
+        898,
+        942
+      ],
+      "score": 0.9996271729469299
+    },
+    {
+      "text": "19. Pero ¿es acaso á mí, dice el Señor, á quien irritan ellos,",
+      "box": [
+        70,
+        936,
+        428,
+        963
+      ],
+      "score": 0.985492467880249
+    },
+    {
+      "text": "reyes, sacerdotes, profetas, y el pueblo todo, porque todos se han",
+      "box": [
+        539,
+        932,
+        898,
+        957
+      ],
+      "score": 0.9892871975898743
+    },
+    {
+      "text": "y perjudican? ¿No es mas bien á sí mismos á quien hacen da-",
+      "box": [
+        59,
+        953,
+        429,
+        980
+      ],
+      "score": 0.9832329154014587
+    },
+    {
+      "text": "obstinado en sus maldades.",
+      "box": [
+        540,
+        948,
+        686,
+        969
+      ],
+      "score": 0.9914888143539429
+    },
+    {
+      "text": "ño, cubriéndose así de ignominia?",
+      "box": [
+        60,
+        973,
+        266,
+        995
+      ],
+      "score": 0.9897691011428833
+    },
+    {
+      "text": "1. En aquel tiempo, dice el Señor, arrojarán los Chaldéos",
+      "box": [
+        541,
+        972,
+        899,
+        999
+      ],
+      "score": 0.9903364181518555
+    },
+    {
+      "text": "20. Por tanto, esto dice el Señor Dios: Ya mi furor y mi",
+      "box": [
+        72,
+        986,
+        428,
+        1012
+      ],
+      "score": 0.9957889914512634
+    },
+    {
+      "text": "fuera de los sepulcros los huesos de los reyes de Judá, y los",
+      "box": [
+        530,
+        989,
+        899,
+        1015
+      ],
+      "score": 0.9911617636680603
+    },
+    {
+      "text": "indignacion está para descargar contra ese lugar que han",
+      "box": [
+        60,
+        1003,
+        428,
+        1030
+      ],
+      "score": 0.9951601624488831
+    },
+    {
+      "text": "huesos de sus príncipes, y los huesos de los sacerdotes, y",
+      "box": [
+        530,
+        1007,
+        898,
+        1031
+      ],
+      "score": 0.999772846698761
+    },
+    {
+      "text": "profanado, contra los hombres y las bestias, contra los árbo-",
+      "box": [
+        60,
+        1019,
+        428,
+        1047
+      ],
+      "score": 0.9952267408370972
+    },
+    {
+      "text": "estado que Dios no quiere oir ya intercesores.—Véase Ezech. X7V, v. 14",
+      "box": [
+        530,
+        1044,
+        898,
+        1070
+      ],
+      "score": 0.9588137865066528
+    },
+    {
+      "text": "1 Es, y será siempre nuestra salvaguardia. No escogió Dios al pueblo",
+      "box": [
+        71,
+        1058,
+        427,
+        1084
+      ],
+      "score": 0.9933688044548035
+    },
+    {
+      "text": "y siguientes.—Joan. V, v. 16.",
+      "box": [
+        529,
+        1064,
+        681,
+        1084
+      ],
+      "score": 0.9904263615608215
+    },
+    {
+      "text": "por el templo, sino al templo por amor del pueblo. II. Mach. V, v. 19.",
+      "box": [
+        61,
+        1072,
+        427,
+        1099
+      ],
+      "score": 0.9924061298370361
+    },
+    {
+      "text": "A la luna, ó sea Astarte, ó Diana, ó Venus.—Véase Astros.—Despues",
+      "box": [
+        538,
+        1073,
+        898,
+        1097
+      ],
+      "score": 0.9484230875968933
+    },
+    {
+      "text": "Hechas las oraciones sin devocion, nada sirve que se hagan aquí ó acu-",
+      "box": [
+        61,
+        1086,
+        428,
+        1113
+      ],
+      "score": 0.9872028827667236
+    },
+    {
+      "text": "cap. XLIV, v. 18, 25.",
+      "box": [
+        530,
+        1091,
+        647,
+        1111
+      ],
+      "score": 0.9842127561569214
+    },
+    {
+      "text": "llá. Pero al contrario son mas eficaces hechas en la Casa del Señor,",
+      "box": [
+        61,
+        1100,
+        428,
+        1127
+      ],
+      "score": 0.9746592044830322
+    },
+    {
+      "text": "1 Creyendo santificaros: comed aun la parte que segun la Ley debo",
+      "box": [
+        536,
+        1100,
+        898,
+        1125
+      ],
+      "score": 0.9791397452354431
+    },
+    {
+      "text": "cuando se puede acudir à orar en ella, sin faltar á la obligacion.—Véa-",
+      "box": [
+        59,
+        1111,
+        428,
+        1141
+      ],
+      "score": 0.8900895714759827
+    },
+    {
+      "text": "quemarse toda en honor mio: de nada os servirá eso.",
+      "box": [
+        531,
+        1116,
+        802,
+        1139
+      ],
+      "score": 0.9867590069770813
+    },
+    {
+      "text": "se III. Reg. VIII.—II. Paral. VI.",
+      "box": [
+        59,
+        1129,
+        243,
+        1154
+      ],
+      "score": 0.9490690231323242
+    },
+    {
+      "text": "u Lo que hice fué darles el Decálogo. Y si despues les ordené vacrifi-",
+      "box": [
+        536,
+        1126,
+        899,
+        1154
+      ],
+      "score": 0.9183653593063354
+    },
+    {
+      "text": " Despues cap, XLIV, v. 18.—I. Mach. I, v. 12.",
+      "box": [
+        68,
+        1138,
+        321,
+        1168
+      ],
+      "score": 0.9232659339904785
+    },
+    {
+      "text": "cios, fué para apartarlos luego de la perversa inclinacion que mostraron",
+      "box": [
+        531,
+        1141,
+        899,
+        1167
+      ],
+      "score": 0.9875583648681641
+    },
+    {
+      "text": "3",
+      "box": [
+        72,
+        1166,
+        81,
+        1175
+      ],
+      "score": 0.9998193383216858
+    },
+    {
+      "text": "Matth. XXI, v. 13.—Marc. XI, v. 17.—Luc. XLX, v. 46.",
+      "box": [
+        78,
+        1151,
+        368,
+        1180
+      ],
+      "score": 0.912715494632721
+    },
+    {
+      "text": "I. Reg. II, v. 22.—Palm. LXXVII, v. 60.—Véaae Arca.",
+      "box": [
+        78,
+        1166,
+        373,
+        1193
+      ],
+      "score": 0.8752725720405579
+    },
+    {
+      "text": "á la idolatría cuando adoraron al becerro, y de imitar los sacrificios que",
+      "box": [
+        531,
+        1155,
+        899,
+        1181
+      ],
+      "score": 0.985370934009552
+    },
+    {
+      "text": "ofrecian los Egypcios.—Véase Sacrificio.—Leyes, ceremoniales, etc.—",
+      "box": [
+        531,
+        1169,
+        899,
+        1195
+      ],
+      "score": 0.9596491456031799
+    },
+    {
+      "text": "6",
+      "box": [
+        71,
+        1192,
+        79,
+        1201
+      ],
+      "score": 0.5068161487579346
+    },
+    {
+      "text": "O establecí el Tabernáculo.",
+      "box": [
+        78,
+        1181,
+        222,
+        1205
+      ],
+      "score": 0.9567760825157166
+    },
+    {
+      "text": "Prov. I, v. 24.—Iaai, LXV, v. 12.",
+      "box": [
+        78,
+        1193,
+        255,
+        1217
+      ],
+      "score": 0.9421499967575073
+    },
+    {
+      "text": "Ivai. I, v. 13 —Amos V.",
+      "box": [
+        531,
+        1188,
+        657,
+        1208
+      ],
+      "score": 0.9222727417945862
+    },
+    {
+      "text": "6",
+      "box": [
+        71,
+        1205,
+        80,
+        1214
+      ],
+      "score": 0.9706733822822571
+    },
+    {
+      "text": "12 Cap. XVI, v. 12.",
+      "box": [
+        536,
+        1203,
+        644,
+        1221
+      ],
+      "score": 0.9922419190406799
+    },
+    {
+      "text": "I. Reg. IV, v. 2, 10.",
+      "box": [
+        66,
+        1208,
+        185,
+        1231
+      ],
+      "score": 0.9561167359352112
+    },
+    {
+      "text": "1s En señal de luto. Levit. XIX, v.27.—Isai. VII, v. 20.—Jerem. XVI,",
+      "box": [
+        536,
+        1209,
+        901,
+        1236
+      ],
+      "score": 0.9367304444313049
+    },
+    {
+      "text": "v. 6.—Deuter. XIV, v. 1.",
+      "box": [
+        532,
+        1233,
+        661,
+        1246
+      ],
+      "score": 0.9809085726737976
+    },
+    {
+      "text": "14 Ezech. XXI, v. 3.",
+      "box": [
+        537,
+        1246,
+        645,
+        1260
+      ],
+      "score": 0.9689423441886902
+    },
+    {
+      "text": "15",
+      "box": [
+        540,
+        1261,
+        550,
+        1271
+      ],
+      "score": 0.9550595283508301
+    },
+    {
+      "text": "Deuter. XVIII, v. 10.-IV. Reg. XXIII,v. 10.-VéaseInfierno.--Altar.",
+      "box": [
+        552,
+        1252,
+        901,
+        1276
+      ],
+      "score": 0.9207648038864136
+    },
+    {
+      "text": "16",
+      "box": [
+        540,
+        1275,
+        550,
+        1284
+      ],
+      "score": 0.9586862325668335
+    },
+    {
+      "text": "Despues eap. XVI, v. 9.—Ezech. XXVI, v. 13.",
+      "box": [
+        551,
+        1269,
+        801,
+        1289
+      ],
+      "score": 0.950594425201416
+    },
+    {
+      "text": "III.—47",
+      "box": [
+        831,
+        1283,
+        881,
+        1301
+      ],
+      "score": 0.9594769477844238
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "volume": 3,
+  "page_index": 292,
+  "pdf_page": 293,
+  "lines": [
+    {
+      "text": "SDons",
+      "box": [
+        94,
+        1123,
+        157,
+        1145
+      ],
+      "score": 0.8491119146347046
+    },
+    {
+      "text": "MATATÍAS LLAMA Á LAS ARMAS Á LOS JUDÍOS REFUGIADOS EN LAS MONTAÑAS",
+      "box": [
+        168,
+        1162,
+        814,
+        1192
+      ],
+      "score": 0.9892194271087646
+    }
+  ]
+}

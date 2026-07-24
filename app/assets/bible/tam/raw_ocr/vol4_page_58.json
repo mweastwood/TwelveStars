@@ -1,0 +1,1317 @@
+{
+  "volume": 4,
+  "page_index": 58,
+  "pdf_page": 59,
+  "lines": [
+    {
+      "text": "61",
+      "box": [
+        45,
+        48,
+        65,
+        66
+      ],
+      "score": 0.9956172108650208
+    },
+    {
+      "text": "SAN MARCOS.",
+      "box": [
+        179,
+        45,
+        278,
+        67
+      ],
+      "score": 0.9991163611412048
+    },
+    {
+      "text": "CAPITULO IX",
+      "box": [
+        662,
+        41,
+        758,
+        60
+      ],
+      "score": 0.9992408156394958
+    },
+    {
+      "text": "62",
+      "box": [
+        868,
+        45,
+        886,
+        63
+      ],
+      "score": 0.9997636079788208
+    },
+    {
+      "text": "28. Á lo que replicó ella, y le dijo: Es verdad 1, Señor, pero",
+      "box": [
+        47,
+        84,
+        423,
+        113
+      ],
+      "score": 0.9800624847412109
+    },
+    {
+      "text": "conocimiento ni inteligencia? ¿aun está oscurecido vuestro",
+      "box": [
+        522,
+        88,
+        893,
+        109
+      ],
+      "score": 0.9954542517662048
+    },
+    {
+      "text": "á lo menos los cachorrillos comen debajo de la mesa las miga-",
+      "box": [
+        32,
+        103,
+        424,
+        131
+      ],
+      "score": 0.9829719662666321
+    },
+    {
+      "text": "corazon?",
+      "box": [
+        522,
+        106,
+        578,
+        124
+      ],
+      "score": 0.9998549222946167
+    },
+    {
+      "text": "jas que dejan caer los hijos.",
+      "box": [
+        34,
+        125,
+        218,
+        149
+      ],
+      "score": 0.9987353086471558
+    },
+    {
+      "text": "18. ¿Tendreis siempre los ojos sin ver, y los oidos sin per-",
+      "box": [
+        532,
+        121,
+        892,
+        143
+      ],
+      "score": 0.9950608611106873
+    },
+    {
+      "text": ".Dl e Je: P  qu s e, que",
+      "box": [
+        47,
+        137,
+        423,
+        169
+      ],
+      "score": 0.6332094073295593
+    },
+    {
+      "text": "cibir? Ni os acordais ya,",
+      "box": [
+        522,
+        141,
+        666,
+        158
+      ],
+      "score": 0.994351327419281
+    },
+    {
+      "text": "ya el demonio salió de tu hija.",
+      "box": [
+        34,
+        160,
+        236,
+        184
+      ],
+      "score": 0.9957903623580933
+    },
+    {
+      "text": "19. De cuando repartí cinco panes entre cinco mil hom-",
+      "box": [
+        533,
+        156,
+        890,
+        176
+      ],
+      "score": 0.9994379878044128
+    },
+    {
+      "text": "bres: ¿cuántos cestos llenos de las sobras recogisteis entonces?",
+      "box": [
+        521,
+        172,
+        891,
+        192
+      ],
+      "score": 0.9933614730834961
+    },
+    {
+      "text": "Dícenle: Doce.",
+      "box": [
+        521,
+        190,
+        610,
+        207
+      ],
+      "score": 0.9879897236824036
+    },
+    {
+      "text": "20. Pues cuando yo dividí siete panes entre cuatro mil:",
+      "box": [
+        532,
+        205,
+        890,
+        224
+      ],
+      "score": 0.9855032563209534
+    },
+    {
+      "text": "¿cuántas espuertas sacasteis de los fragmentos que sobraron?",
+      "box": [
+        520,
+        223,
+        890,
+        240
+      ],
+      "score": 0.9871186017990112
+    },
+    {
+      "text": "de Decápoli.",
+      "box": [
+        36,
+        241,
+        127,
+        268
+      ],
+      "score": 0.9990007877349854
+    },
+    {
+      "text": "Dícenle: Siote.",
+      "box": [
+        521,
+        239,
+        609,
+        253
+      ],
+      "score": 0.985215961933136
+    },
+    {
+      "text": "21. ¿Y cómo es, pues, les añadió, que todavía no entendeis",
+      "box": [
+        533,
+        254,
+        890,
+        271
+      ],
+      "score": 0.9936200976371765
+    },
+    {
+      "text": "lo que os decia?",
+      "box": [
+        519,
+        270,
+        617,
+        287
+      ],
+      "score": 0.9772539138793945
+    },
+    {
+      "text": "22. Habiendo llegado á Bethsaida, presentáronle un ciego,",
+      "box": [
+        532,
+        286,
+        890,
+        304
+      ],
+      "score": 0.9994543790817261
+    },
+    {
+      "text": "suplicándole que le tocase.",
+      "box": [
+        519,
+        301,
+        682,
+        318
+      ],
+      "score": 0.9992180466651917
+    },
+    {
+      "text": "23. Y él, cogiéndole por la mano, le sacó fuera de la aldea:",
+      "box": [
+        532,
+        318,
+        892,
+        335
+      ],
+      "score": 0.9936937093734741
+    },
+    {
+      "text": "Ephphetha, que quiere decir, abríos.",
+      "box": [
+        36,
+        339,
+        274,
+        365
+      ],
+      "score": 0.9986493587493896
+    },
+    {
+      "text": "y echándole saliva en los ojos, puestas sobre él las manos, le",
+      "box": [
+        518,
+        333,
+        892,
+        352
+      ],
+      "score": 0.9985344409942627
+    },
+    {
+      "text": "preguntó si veia algo.",
+      "box": [
+        519,
+        350,
+        652,
+        369
+      ],
+      "score": 0.9772348403930664
+    },
+    {
+      "text": "impedimento de la lengua, y hablaba claramente.",
+      "box": [
+        35,
+        370,
+        354,
+        395
+      ],
+      "score": 0.9963998794555664
+    },
+    {
+      "text": "24. El ciego, abriendo los ojos, dijo: Veo andar á unos",
+      "box": [
+        531,
+        363,
+        893,
+        384
+      ],
+      "score": 0.9984622001647949
+    },
+    {
+      "text": "hombres que me parecen como árboles.",
+      "box": [
+        519,
+        381,
+        760,
+        401
+      ],
+      "score": 0.9855659008026123
+    },
+    {
+      "text": "25. Púsole segunda vez las manos sobre los ojos: y empezó",
+      "box": [
+        532,
+        395,
+        894,
+        417
+      ],
+      "score": 0.9983519911766052
+    },
+    {
+      "text": "37. Y tanto mas crecia su admiracion, y decian: Todo lo",
+      "box": [
+        52,
+        415,
+        422,
+        445
+      ],
+      "score": 0.9366561770439148
+    },
+    {
+      "text": "á ver mejor: y finalmente recobró la vista, de suerte que veia",
+      "box": [
+        519,
+        411,
+        894,
+        433
+      ],
+      "score": 0.9791304469108582
+    },
+    {
+      "text": "claramente todos los objetos.",
+      "box": [
+        520,
+        430,
+        696,
+        449
+      ],
+      "score": 0.9845890998840332
+    },
+    {
+      "text": "mudos.",
+      "box": [
+        37,
+        456,
+        94,
+        474
+      ],
+      "score": 0.9999873042106628
+    },
+    {
+      "text": "26. Con lo que le remitió á su casa, diciendo: Vete á tu",
+      "box": [
+        532,
+        444,
+        895,
+        465
+      ],
+      "score": 0.9765348434448242
+    },
+    {
+      "text": "casa: y si entras en el lugar, á nadie lo digas.",
+      "box": [
+        520,
+        462,
+        800,
+        481
+      ],
+      "score": 0.9788286089897156
+    },
+    {
+      "text": "CAPITULO VIII",
+      "box": [
+        184,
+        480,
+        290,
+        505
+      ],
+      "score": 0.9732109308242798
+    },
+    {
+      "text": "27. Desde allí partió Jesus con sus discípulos por las aldens",
+      "box": [
+        529,
+        475,
+        896,
+        496
+      ],
+      "score": 0.9865760803222656
+    },
+    {
+      "text": "comarcanas de Cesaréa de Philippo: y en el camino les hizo",
+      "box": [
+        517,
+        490,
+        895,
+        511
+      ],
+      "score": 0.9860825538635254
+    },
+    {
+      "text": "esta pregunta: ¿Quién dicen los hombres que soy yo?",
+      "box": [
+        518,
+        506,
+        845,
+        529
+      ],
+      "score": 0.9922013282775879
+    },
+    {
+      "text": "28. Respondiéronle: Quien dice que Juan Bautista, quien",
+      "box": [
+        531,
+        521,
+        894,
+        545
+      ],
+      "score": 0.9887673854827881
+    },
+    {
+      "text": "Elías, y otros en fin que eres como uno de los antiguos pro-",
+      "box": [
+        517,
+        538,
+        896,
+        563
+      ],
+      "score": 0.994479238986969
+    },
+    {
+      "text": "Luc. 9, 11, 14, 17.—Joan. 6, 12.)",
+      "box": [
+        49,
+        555,
+        240,
+        576
+      ],
+      "score": 0.9666370749473572
+    },
+    {
+      "text": "fetas.",
+      "box": [
+        518,
+        562,
+        556,
+        580
+      ],
+      "score": 0.999823808670044
+    },
+    {
+      "text": "29. Díceles entonces: ¿Y vosotros quién decís que soy yo?",
+      "box": [
+        530,
+        569,
+        896,
+        596
+      ],
+      "score": 0.980268657207489
+    },
+    {
+      "text": "1. Por aquellos dias habiéndose juntado otra vez un gran",
+      "box": [
+        48,
+        582,
+        422,
+        610
+      ],
+      "score": 0.9914435148239136
+    },
+    {
+      "text": "Pedro respondiendo por todos, le dice: Tú eres el Christo, 6",
+      "box": [
+        517,
+        585,
+        897,
+        613
+      ],
+      "score": 0.9910681843757629
+    },
+    {
+      "text": "concurso de gentes al rededor de Jesus, y no teniendo que",
+      "box": [
+        32,
+        598,
+        423,
+        628
+      ],
+      "score": 0.9182309508323669
+    },
+    {
+      "text": "Mesias.",
+      "box": [
+        519,
+        610,
+        568,
+        628
+      ],
+      "score": 0.9817860722541809
+    },
+    {
+      "text": "comer, convocados sus discípulos, les dijo:",
+      "box": [
+        33,
+        619,
+        314,
+        643
+      ],
+      "score": 0.9993413090705872
+    },
+    {
+      "text": "30. Y les prohibió rigurosamente el decir esto de él á nin-",
+      "box": [
+        530,
+        615,
+        898,
+        645
+      ],
+      "score": 0.9863060116767883
+    },
+    {
+      "text": "2. Me da compasion esta multitud de gentes: porque hace",
+      "box": [
+        48,
+        629,
+        423,
+        662
+      ],
+      "score": 0.9866366982460022
+    },
+    {
+      "text": "guno hasta que fuese la ocasion de publicarlo.",
+      "box": [
+        517,
+        632,
+        809,
+        663
+      ],
+      "score": 0.9873080849647522
+    },
+    {
+      "text": "ya tres dias que están conmigo, y no tienen que comer:",
+      "box": [
+        32,
+        648,
+        390,
+        677
+      ],
+      "score": 0.9969282746315002
+    },
+    {
+      "text": "31. Y comenzó á declararles como convenia que el Hijo",
+      "box": [
+        531,
+        648,
+        897,
+        677
+      ],
+      "score": 0.9841926097869873
+    },
+    {
+      "text": "3. Y si los envio á sus casas en ayunas, desfallecerán en",
+      "box": [
+        49,
+        664,
+        422,
+        692
+      ],
+      "score": 0.9856928586959839
+    },
+    {
+      "text": "del hombre padeciese mucho, y fuese desechado por los",
+      "box": [
+        519,
+        666,
+        899,
+        694
+      ],
+      "score": 0.9998038411140442
+    },
+    {
+      "text": "el camino: pues algunos de ellos han venido de lejos.",
+      "box": [
+        34,
+        682,
+        373,
+        707
+      ],
+      "score": 0.9956380128860474
+    },
+    {
+      "text": "ancianos, y por los príncipes de los sacerdotes, y por",
+      "box": [
+        518,
+        682,
+        900,
+        710
+      ],
+      "score": 0.9996891617774963
+    },
+    {
+      "text": "4. Respondiéronle sus discípulos: Y ¿cómo podrá nadie en",
+      "box": [
+        50,
+        696,
+        422,
+        724
+      ],
+      "score": 0.9825668334960938
+    },
+    {
+      "text": "los Escribas, y que fuese muerto: y que resucitase á los tres",
+      "box": [
+        518,
+        698,
+        900,
+        726
+      ],
+      "score": 0.9945793747901917
+    },
+    {
+      "text": "esta soledad procurarles pan en abundancia?",
+      "box": [
+        34,
+        716,
+        322,
+        741
+      ],
+      "score": 0.9993494749069214
+    },
+    {
+      "text": "dias.",
+      "box": [
+        519,
+        724,
+        554,
+        742
+      ],
+      "score": 0.9987188577651978
+    },
+    {
+      "text": "5. Él les preguntó: ¿Cuántos panes teneis? Respondieron:",
+      "box": [
+        50,
+        729,
+        422,
+        758
+      ],
+      "score": 0.9867902398109436
+    },
+    {
+      "text": "32. Y hablaba de esto muy claramente. Pedro entonces",
+      "box": [
+        531,
+        731,
+        900,
+        759
+      ],
+      "score": 0.9975903034210205
+    },
+    {
+      "text": "Siete.",
+      "box": [
+        35,
+        756,
+        80,
+        774
+      ],
+      "score": 0.9673223495483398
+    },
+    {
+      "text": "tomándole aparte, comenzó á reprenderle respetuosamente.",
+      "box": [
+        520,
+        748,
+        887,
+        776
+      ],
+      "score": 0.9848804473876953
+    },
+    {
+      "text": "6. Entonces mandó Jesus á la gente que se sentara en tier-",
+      "box": [
+        49,
+        761,
+        421,
+        790
+      ],
+      "score": 0.9822713136672974
+    },
+    {
+      "text": "33. Pero Jesus vuelto contra él, y mirando á sus discípu-",
+      "box": [
+        532,
+        764,
+        901,
+        791
+      ],
+      "score": 0.9882227182388306
+    },
+    {
+      "text": "ra. Y tomando los siete panes, dando gracias los partió, y",
+      "box": [
+        33,
+        780,
+        421,
+        807
+      ],
+      "score": 0.9960371255874634
+    },
+    {
+      "text": "los para que atendiesen bien á la correccion, reprendió áspe-",
+      "box": [
+        520,
+        782,
+        899,
+        807
+      ],
+      "score": 0.9881170392036438
+    },
+    {
+      "text": "dábaselos á sus discípulos para que los distribuyesen entre la",
+      "box": [
+        35,
+        797,
+        420,
+        822
+      ],
+      "score": 0.9970636963844299
+    },
+    {
+      "text": "ramente & Pedro, diciendo: Quítateme de dolante, Satanás,",
+      "box": [
+        520,
+        798,
+        900,
+        823
+      ],
+      "score": 0.9703162908554077
+    },
+    {
+      "text": "gente, y se los repartieron.",
+      "box": [
+        35,
+        817,
+        213,
+        840
+      ],
+      "score": 0.999877393245697
+    },
+    {
+      "text": "porque no te saboreas en las cosas de Díos, sino en las de los",
+      "box": [
+        519,
+        813,
+        901,
+        842
+      ],
+      "score": 0.993614137172699
+    },
+    {
+      "text": "7. Tenian además algunos pececillos: bendíjolos tambien,",
+      "box": [
+        49,
+        828,
+        420,
+        858
+      ],
+      "score": 0.9932986497879028
+    },
+    {
+      "text": "hombres.",
+      "box": [
+        519,
+        838,
+        581,
+        858
+      ],
+      "score": 0.9997377395629883
+    },
+    {
+      "text": "y mandó distribuírselos.",
+      "box": [
+        34,
+        851,
+        198,
+        873
+      ],
+      "score": 0.9982648491859436
+    },
+    {
+      "text": "34. Despues convocando al pueblo con sus discípulos, les",
+      "box": [
+        531,
+        846,
+        902,
+        875
+      ],
+      "score": 0.9995551705360413
+    },
+    {
+      "text": "8. Y comieron hasta saciarse, y de las sobras recogieron",
+      "box": [
+        48,
+        862,
+        420,
+        889
+      ],
+      "score": 0.9945616126060486
+    },
+    {
+      "text": "dijo á todos: Si alguno quiere venir en pos de mí, niéguese á",
+      "box": [
+        519,
+        863,
+        903,
+        892
+      ],
+      "score": 0.9850298166275024
+    },
+    {
+      "text": "siete espuertas,",
+      "box": [
+        36,
+        887,
+        140,
+        904
+      ],
+      "score": 0.9997947812080383
+    },
+    {
+      "text": "sí mismo: y cargue con su cruz, y sígame.",
+      "box": [
+        519,
+        883,
+        781,
+        908
+      ],
+      "score": 0.9934211373329163
+    },
+    {
+      "text": "9. Siendo al pié de cuatro mil los que habian comido: en",
+      "box": [
+        49,
+        896,
+        419,
+        921
+      ],
+      "score": 0.9969795346260071
+    },
+    {
+      "text": "35. Pues quien quisiere salvar su vida á costa de su fe, la",
+      "box": [
+        532,
+        897,
+        901,
+        925
+      ],
+      "score": 0.9942330718040466
+    },
+    {
+      "text": "seguida Jesus los despidió.",
+      "box": [
+        35,
+        917,
+        212,
+        937
+      ],
+      "score": 0.9965280890464783
+    },
+    {
+      "text": "perderá para siempre: mas quien pordiere su vida por amor",
+      "box": [
+        518,
+        913,
+        902,
+        942
+      ],
+      "score": 0.996769368648529
+    },
+    {
+      "text": "10. É inmediatamente, embarcándose con sus discípulos,",
+      "box": [
+        49,
+        928,
+        418,
+        955
+      ],
+      "score": 0.986901044845581
+    },
+    {
+      "text": "de mí y del Evangelio, la pondrá en salvo eternamente.",
+      "box": [
+        519,
+        931,
+        864,
+        956
+      ],
+      "score": 0.9985398054122925
+    },
+    {
+      "text": "pasó al territorio de Dalmanutha,",
+      "box": [
+        34,
+        948,
+        252,
+        973
+      ],
+      "score": 0.9933181405067444
+    },
+    {
+      "text": "36. Por cierto ¿de qué le servirá á un hombre el ganar el",
+      "box": [
+        532,
+        946,
+        902,
+        972
+      ],
+      "score": 0.9825679063796997
+    },
+    {
+      "text": "11. Donde salieron los Phariséos, y empezaron á disputar",
+      "box": [
+        49,
+        961,
+        418,
+        989
+      ],
+      "score": 0.9945423007011414
+    },
+    {
+      "text": "mundo entero, si pierde su alma?",
+      "box": [
+        518,
+        966,
+        727,
+        989
+      ],
+      "score": 0.9928880929946899
+    },
+    {
+      "text": "con él, pidiéndole, con el fin de tentarle, que les hiciese ver",
+      "box": [
+        34,
+        978,
+        419,
+        1006
+      ],
+      "score": 0.9878086447715759
+    },
+    {
+      "text": "37. Y una vez perdida, ¿por qué cambio podrá roscatarla?",
+      "box": [
+        531,
+        978,
+        903,
+        1005
+      ],
+      "score": 0.9877657294273376
+    },
+    {
+      "text": "algun prodigio del cielo.",
+      "box": [
+        34,
+        998,
+        196,
+        1023
+      ],
+      "score": 0.9903104901313782
+    },
+    {
+      "text": "38. Ello es que quien se avergonzare de mí, y de mi",
+      "box": [
+        532,
+        996,
+        903,
+        1020
+      ],
+      "score": 0.9994657039642334
+    },
+    {
+      "text": "12. Mas Jesus, arrojando un suspiro de lo íntimo del cora-",
+      "box": [
+        48,
+        1011,
+        418,
+        1039
+      ],
+      "score": 0.9971989989280701
+    },
+    {
+      "text": "doctrina, en medio de esta nacion adúltera y pecadora:",
+      "box": [
+        518,
+        1012,
+        905,
+        1038
+      ],
+      "score": 0.9981048107147217
+    },
+    {
+      "text": "zon, dijo: ¿Por qué pedirá esta raza de hombres un prodigio?",
+      "box": [
+        33,
+        1028,
+        417,
+        1056
+      ],
+      "score": 0.9934312701225281
+    },
+    {
+      "text": "igualmente se avergonzará de él el Hijo del hombre, cuando",
+      "box": [
+        518,
+        1027,
+        904,
+        1056
+      ],
+      "score": 0.9990478157997131
+    },
+    {
+      "text": "En verdad os digo, que á esa gente no se le dará el prodigio",
+      "box": [
+        31,
+        1044,
+        416,
+        1073
+      ],
+      "score": 0.9982550740242004
+    },
+    {
+      "text": "venga en la gloria de su Padre acompañado de los santos",
+      "box": [
+        517,
+        1044,
+        904,
+        1072
+      ],
+      "score": 0.9965909123420715
+    },
+    {
+      "text": "que pretende.",
+      "box": [
+        32,
+        1069,
+        125,
+        1090
+      ],
+      "score": 0.9980446696281433
+    },
+    {
+      "text": "ángeles.",
+      "box": [
+        517,
+        1068,
+        575,
+        1089
+      ],
+      "score": 0.975579023361206
+    },
+    {
+      "text": "13. Y dejándolos, se embarcó otra vez, pasando á la ribera",
+      "box": [
+        46,
+        1076,
+        417,
+        1106
+      ],
+      "score": 0.9887969493865967
+    },
+    {
+      "text": "39. Y les añadió: En verdad os digo, que algunos de los",
+      "box": [
+        530,
+        1078,
+        904,
+        1105
+      ],
+      "score": 0.9948814511299133
+    },
+    {
+      "text": "opuesta.",
+      "box": [
+        30,
+        1102,
+        95,
+        1123
+      ],
+      "score": 0.9976085424423218
+    },
+    {
+      "text": "que aquí están, no han de morir sin que vean la llegada del",
+      "box": [
+        519,
+        1094,
+        904,
+        1123
+      ],
+      "score": 0.9974690079689026
+    },
+    {
+      "text": "14. Habíanse olvidado los discípulos de hacer provision",
+      "box": [
+        44,
+        1108,
+        416,
+        1139
+      ],
+      "score": 0.9985352158546448
+    },
+    {
+      "text": "reino de Dios ó al Hijo del hombre en su majestad.",
+      "box": [
+        519,
+        1112,
+        840,
+        1139
+      ],
+      "score": 0.9971678853034973
+    },
+    {
+      "text": "de pan, ni tenian mas que un solo pan consigo en la barea.",
+      "box": [
+        31,
+        1127,
+        400,
+        1155
+      ],
+      "score": 0.9630357623100281
+    },
+    {
+      "text": "15. Y Jesus los amonestaba, diciendo: Estad alerta, y",
+      "box": [
+        45,
+        1143,
+        417,
+        1170
+      ],
+      "score": 0.9808710217475891
+    },
+    {
+      "text": "CAPITULO IX",
+      "box": [
+        661,
+        1145,
+        762,
+        1167
+      ],
+      "score": 0.9994788765907288
+    },
+    {
+      "text": "guardaos de la levadura de los Phariséos, y de la levadura de",
+      "box": [
+        30,
+        1159,
+        415,
+        1186
+      ],
+      "score": 0.9951236248016357
+    },
+    {
+      "text": "Herodes.",
+      "box": [
+        31,
+        1184,
+        93,
+        1201
+      ],
+      "score": 0.9999538660049438
+    },
+    {
+      "text": "Transfiguracion de Jesus, quien cura despues á un endemoniado mudo.",
+      "box": [
+        519,
+        1173,
+        906,
+        1199
+      ],
+      "score": 0.9961454272270203
+    },
+    {
+      "text": "16. Mas ellos discurriendo entre sí, se decian uno al otro:",
+      "box": [
+        43,
+        1190,
+        416,
+        1218
+      ],
+      "score": 0.9930227994918823
+    },
+    {
+      "text": "Poder de la fe, de la oracion, y del ayuno. Instruye á sus discípulos",
+      "box": [
+        531,
+        1189,
+        906,
+        1212
+      ],
+      "score": 0.9961126446723938
+    },
+    {
+      "text": "En verdad que no hemos tomado pan.",
+      "box": [
+        30,
+        1211,
+        273,
+        1233
+      ],
+      "score": 0.9998006224632263
+    },
+    {
+      "text": "en la humildad, y en los daños que acarrea el pecado de escándalo.",
+      "box": [
+        531,
+        1203,
+        906,
+        1227
+      ],
+      "score": 0.9851034879684448
+    },
+    {
+      "text": "17. Lo cual habiéndolo conocido Jesus, les dijo: ¿Qué an-",
+      "box": [
+        44,
+        1223,
+        414,
+        1250
+      ],
+      "score": 0.9945133328437805
+    },
+    {
+      "text": "(Matth. 5, 6, 10, 15, 17, 18.—Luo. 9, 11, 14, 17.—Joan. 6, 12.)",
+      "box": [
+        532,
+        1218,
+        867,
+        1242
+      ],
+      "score": 0.9547117948532104
+    },
+    {
+      "text": "dais discurriendo sobre que no teneis pan?¿todavía estais sin",
+      "box": [
+        28,
+        1241,
+        413,
+        1267
+      ],
+      "score": 0.9959489107131958
+    },
+    {
+      "text": "1. Seis dias despues tomó Jesus consigo á Pedro, y á San-",
+      "box": [
+        533,
+        1249,
+        906,
+        1272
+      ],
+      "score": 0.9768557548522949
+    },
+    {
+      "text": "1 La partícula vá, que en la Vulgata se traduce utígue, es no sola-",
+      "box": [
+        40,
+        1275,
+        411,
+        1298
+      ],
+      "score": 0.958635151386261
+    },
+    {
+      "text": "tiago, y á Juan: y condújolos solos á un elevado monte, en",
+      "box": [
+        517,
+        1265,
+        908,
+        1292
+      ],
+      "score": 0.9829006791114807
+    },
+    {
+      "text": "mente de afirmacion, sino tambien de súplica.",
+      "box": [
+        28,
+        1292,
+        276,
+        1312
+      ],
+      "score": 0.9872217774391174
+    },
+    {
+      "text": "lugar apartado, y se transfiguró en presencia de ellos.",
+      "box": [
+        517,
+        1282,
+        857,
+        1310
+      ],
+      "score": 0.9888544678688049
+    }
+  ]
+}

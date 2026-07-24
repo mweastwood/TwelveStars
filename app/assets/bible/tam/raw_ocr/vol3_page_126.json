@@ -1,0 +1,757 @@
+{
+  "volume": 3,
+  "page_index": 126,
+  "pdf_page": 127,
+  "lines": [
+    {
+      "text": "LIBRO DEL ECLESIÁSTICO",
+      "box": [
+        125,
+        0,
+        768,
+        89
+      ],
+      "score": 0.9999378323554993
+    },
+    {
+      "text": "ADVERTENCIA",
+      "box": [
+        380,
+        139,
+        532,
+        168
+      ],
+      "score": 0.9998852014541626
+    },
+    {
+      "text": "prefacio á los libros de",
+      "box": [
+        8,
+        253,
+        156,
+        285
+      ],
+      "score": 0.9899756908416748
+    },
+    {
+      "text": "Los Judíos no le",
+      "box": [
+        38,
+        270,
+        150,
+        300
+      ],
+      "score": 0.9962595105171204
+    },
+    {
+      "text": "carta 115) que le habia visto con el título de Parábolas.",
+      "box": [
+        236,
+        268,
+        528,
+        290
+      ],
+      "score": 0.996769368648529
+    },
+    {
+      "text": "número de sus libros cannics,  porque cl Cánon de los Libros Sagrados estaba ya hecho cuando se fomó se libro del",
+      "box": [
+        235,
+        282,
+        869,
+        313
+      ],
+      "score": 0.7152347564697266
+    },
+    {
+      "text": "aquí provendria que en algunas",
+      "box": [
+        7,
+        302,
+        206,
+        334
+      ],
+      "score": 0.990588903427124
+    },
+    {
+      "text": "e de lo que ellos quisieran del misterio de la Santsima Trinidad.—Véanse cap. I,v. .—XXIV, v. .LI,v.14, e—De",
+      "box": [
+        255,
+        296,
+        871,
+        329
+      ],
+      "score": 0.7703567147254944
+    },
+    {
+      "text": "ya Clemente Alejandrino y otros Padres",
+      "box": [
+        6,
+        318,
+        247,
+        351
+      ],
+      "score": 0.9983311891555786
+    },
+    {
+      "text": "ya por canónico: y por tal fué declarado",
+      "box": [
+        4,
+        335,
+        245,
+        366
+      ],
+      "score": 0.9933634996414185
+    },
+    {
+      "text": "s de los primeros siglos le citan con el nombre de Eseritura Sagrada. San Cipriano, San Ambrosio y San Agustin le tenian",
+      "box": [
+        239,
+        329,
+        869,
+        358
+      ],
+      "score": 0.9896805882453918
+    },
+    {
+      "text": "po lo Cocilio terceo de Cartago, con 47,  de Roma en emo del Paa Gelaso, adem del de Fracr del a 94,",
+      "box": [
+        235,
+        342,
+        870,
+        375
+      ],
+      "score": 0.6947067379951477
+    },
+    {
+      "text": "y del octavo de Toledo, y finalmente",
+      "box": [
+        5,
+        352,
+        231,
+        379
+      ],
+      "score": 0.9985322952270508
+    },
+    {
+      "text": " el Concilio de Trento.",
+      "box": [
+        236,
+        363,
+        352,
+        380
+      ],
+      "score": 0.9868801236152649
+    },
+    {
+      "text": "PRLOGO1 DE JESÚS HIJO DE SIRACH,",
+      "box": [
+        58,
+        491,
+        831,
+        538
+      ],
+      "score": 0.9548361301422119
+    },
+    {
+      "text": "SOBRE EL LIBRO DEL ECLESIASTICO",
+      "box": [
+        264,
+        529,
+        645,
+        556
+      ],
+      "score": 0.9977878332138062
+    },
+    {
+      "text": "Muchas y grandes cosas se nos han enseñado en la Ley, y por medio de los Profetas, y de otros que vinieron despues de ellos: de",
+      "box": [
+        40,
+        563,
+        873,
+        597
+      ],
+      "score": 0.9915359020233154
+    },
+    {
+      "text": "donde con razon merecen ser alabados los Israelitas por su erudicion y doctrina; puesto que no solamente los mismos que escribieron",
+      "box": [
+        4,
+        582,
+        873,
+        614
+      ],
+      "score": 0.9941273331642151
+    },
+    {
+      "text": "estos discursos hubieron de ser muy instruidos, sino que tambien los extranjeros pucden asimismo llegar por su medio á ser muy hábiles,",
+      "box": [
+        4,
+        601,
+        873,
+        632
+      ],
+      "score": 0.9922055602073669
+    },
+    {
+      "text": "tanto para hablar como para escribir. De aquí es que mi abuelo Jesús, despues de haberse aplicado con el mayor empeño á la lectura de la",
+      "box": [
+        5,
+        620,
+        873,
+        650
+      ],
+      "score": 0.9979643821716309
+    },
+    {
+      "text": "Ley y de los Profetas, y de otros libros que nos dejaron nuestros padres, quiso él tambien escribir algo de estas cosas, tocantes á la doctrina",
+      "box": [
+        6,
+        640,
+        873,
+        667
+      ],
+      "score": 0.9893043637275696
+    },
+    {
+      "text": "y á la sabiduría, á fin de que los deseosos de aprender, bien instruidos en ellas, atiendan mas y mas á su deber, y se mantengan firmes en",
+      "box": [
+        6,
+        657,
+        873,
+        687
+      ],
+      "score": 0.9837933778762817
+    },
+    {
+      "text": "vivir conforme á la Ley. Os exhorto, pues, á que acudais con benevolencia, y con el mas atento estudio, á emprender esta lectura, y que",
+      "box": [
+        8,
+        676,
+        873,
+        706
+      ],
+      "score": 0.9788211584091187
+    },
+    {
+      "text": "nos perdoneis, si algunas veces os pareciere que al copiar este retrato de la sabiduría flaqueamos en la composicion, óaliño de las palabras ²;",
+      "box": [
+        9,
+        697,
+        873,
+        722
+      ],
+      "score": 0.9758893847465515
+    },
+    {
+      "text": "porque las palabras hebreas pierden mucho de su fuerza trasladadas á otra lengua s. Ni es solo este libro, sino que la misma Ley y los Pro-",
+      "box": [
+        9,
+        714,
+        874,
+        741
+      ],
+      "score": 0.9894604682922363
+    },
+    {
+      "text": "fetas, y el contexto de los demás libros son no poco diferentes de cuando se anuncian en su lengua original. Despues que yo llegué á Egypto",
+      "box": [
+        10,
+        731,
+        873,
+        759
+      ],
+      "score": 0.9957894682884216
+    },
+    {
+      "text": "á los treinta y ocho años, en el reinado del rey Ptholoméo Evergetes, ó el Benéfico, habiéndome detenido allí mucho tiempo, encontré varios",
+      "box": [
+        10,
+        748,
+        874,
+        776
+      ],
+      "score": 0.9548183679580688
+    },
+    {
+      "text": "Iibros * que se habian dejado, de no poca ni despreciable doctrina. Por lo cual juzgué útil y neccsario emplear mi diligencia y trabajo en",
+      "box": [
+        10,
+        766,
+        874,
+        795
+      ],
+      "score": 0.9684127569198608
+    },
+    {
+      "text": "traducir este libro, y así en todo aquel espacio de tiempo empleé muchas vigilias y no pequeño estudio en concluir y dar á luz la version",
+      "box": [
+        13,
+        784,
+        873,
+        812
+      ],
+      "score": 0.9895120859146118
+    },
+    {
+      "text": "de este libro, para utilidad de aquellos que desean aplicarse, y aprender de qué manera deben arreglar sus costumbres los que se han",
+      "box": [
+        13,
+        802,
+        872,
+        831
+      ],
+      "score": 0.9964463114738464
+    },
+    {
+      "text": "propuesto vivir segun la Ley del Señor.",
+      "box": [
+        14,
+        822,
+        273,
+        842
+      ],
+      "score": 0.9999760389328003
+    },
+    {
+      "text": "CAPITULO PRIMERO",
+      "box": [
+        143,
+        873,
+        286,
+        894
+      ],
+      "score": 0.999718189239502
+    },
+    {
+      "text": "del cielo, y la extension de la tierra, y la profundidad del",
+      "box": [
+        501,
+        879,
+        876,
+        903
+      ],
+      "score": 0.9951462149620056
+    },
+    {
+      "text": "Que la sabiduría tiene su orígen de Dios, cuyo santo temor y amor la",
+      "box": [
+        13,
+        898,
+        403,
+        923
+      ],
+      "score": 0.9968200922012329
+    },
+    {
+      "text": "abismo, ¿quién la ha medido?",
+      "box": [
+        503,
+        899,
+        681,
+        916
+      ],
+      "score": 0.9821777939796448
+    },
+    {
+      "text": "acompañan siempre, y por consiguiente tambien las demás virtudes.",
+      "box": [
+        27,
+        916,
+        388,
+        937
+      ],
+      "score": 0.9981292486190796
+    },
+    {
+      "text": "3. Pues y la sabiduría de Dios, la cual precede á todas las",
+      "box": [
+        514,
+        913,
+        875,
+        936
+      ],
+      "score": 0.9937044978141785
+    },
+    {
+      "text": "1. Toda sabiduría 5 viene del Señor Dios, y con él estuvo",
+      "box": [
+        28,
+        940,
+        400,
+        966
+      ],
+      "score": 0.9803428649902344
+    },
+    {
+      "text": "cosas, ¿quién es el que la ha comprendido?",
+      "box": [
+        501,
+        932,
+        762,
+        950
+      ],
+      "score": 0.9997254610061646
+    },
+    {
+      "text": "4. La sabiduría fué criada ó engendrada ante todas las co-",
+      "box": [
+        513,
+        947,
+        876,
+        967
+      ],
+      "score": 0.9880518317222595
+    },
+    {
+      "text": "siempre y existe antes de los siglos.",
+      "box": [
+        13,
+        958,
+        244,
+        981
+      ],
+      "score": 0.9952884316444397
+    },
+    {
+      "text": "sas, y la luz de la inteligencia existe desde la eternidad.",
+      "box": [
+        501,
+        964,
+        842,
+        984
+      ],
+      "score": 0.9987114071846008
+    },
+    {
+      "text": "2. ¿Quién ha contado las arenas del mar, y las gotas de la",
+      "box": [
+        28,
+        976,
+        401,
+        1000
+      ],
+      "score": 0.993415892124176
+    },
+    {
+      "text": "5. El Verbo de Dios en las alturas es la fuente de la sabi-",
+      "box": [
+        513,
+        981,
+        876,
+        1001
+      ],
+      "score": 0.9918797612190247
+    },
+    {
+      "text": "Iluvia, y los dias de los siglos que durará el mundo? La altura",
+      "box": [
+        13,
+        994,
+        401,
+        1017
+      ],
+      "score": 0.9783132672309875
+    },
+    {
+      "text": "duría, y sus corrientes los mandamientos eternos .",
+      "box": [
+        501,
+        998,
+        814,
+        1018
+      ],
+      "score": 0.9905090928077698
+    },
+    {
+      "text": "I Este prólogo es del traductor griego, nieto del autor, y del mismo",
+      "box": [
+        26,
+        1036,
+        399,
+        1055
+      ],
+      "score": 0.986703634262085
+    },
+    {
+      "text": "jesuita P. Sanchez, con la lejanía de los tiempos en que fueron escritos,",
+      "box": [
+        500,
+        1037,
+        877,
+        1056
+      ],
+      "score": 0.9885798692703247
+    },
+    {
+      "text": "nombre.",
+      "box": [
+        15,
+        1051,
+        69,
+        1068
+      ],
+      "score": 0.9994478821754456
+    },
+    {
+      "text": "la oscuridad de las usanzas de entonces, del país, plantas, y varias cosas",
+      "box": [
+        500,
+        1051,
+        878,
+        1071
+      ],
+      "score": 0.9871119856834412
+    },
+    {
+      "text": "* O no traducimos palabra por palabra. Otros traducen: si en algunos",
+      "box": [
+        25,
+        1064,
+        400,
+        1084
+      ],
+      "score": 0.9768669009208679
+    },
+    {
+      "text": "que se han perdido. De donde nace el necesitar tales versiones de notas, á",
+      "box": [
+        499,
+        1066,
+        878,
+        1085
+      ],
+      "score": 0.9905434846878052
+    },
+    {
+      "text": "pasajes queriendo presentar toda la belleza y energia del original, no",
+      "box": [
+        14,
+        1082,
+        399,
+        1099
+      ],
+      "score": 0.9827616810798645
+    },
+    {
+      "text": "lo menos eruditas, que den lus de todas aquellas cosas, etc. De donde se",
+      "box": [
+        499,
+        1081,
+        878,
+        1100
+      ],
+      "score": 0.9784130454063416
+    },
+    {
+      "text": "podemos hallar palabras para expresar todo el sentido; porque las voces",
+      "box": [
+        13,
+        1095,
+        400,
+        1114
+      ],
+      "score": 0.9912699460983276
+    },
+    {
+      "text": "infiere cuán necesario es el estudio de la lengua hebrea para conocer la",
+      "box": [
+        498,
+        1095,
+        877,
+        1115
+      ],
+      "score": 0.9921011328697205
+    },
+    {
+      "text": "hebreas no tienen la misma fuerza trasladadas á una lengua extran-",
+      "box": [
+        12,
+        1109,
+        400,
+        1129
+      ],
+      "score": 0.9874292016029358
+    },
+    {
+      "text": "fuerza ó energía de muchas palabras de la Sagrada Escritura.",
+      "box": [
+        499,
+        1109,
+        820,
+        1130
+      ],
+      "score": 0.9917609095573425
+    },
+    {
+      "text": "jera.",
+      "box": [
+        11,
+        1127,
+        46,
+        1145
+      ],
+      "score": 0.9930787086486816
+    },
+    {
+      "text": "4 Segun el griego: un ejemplar de este libro.",
+      "box": [
+        509,
+        1124,
+        742,
+        1144
+      ],
+      "score": 0.9787246584892273
+    },
+    {
+      "text": "* Es sumamente difícil, por no decir imposible, que un libro traducido",
+      "box": [
+        24,
+        1137,
+        399,
+        1159
+      ],
+      "score": 0.9762799739837646
+    },
+    {
+      "text": "6 El nombre de Sabiduría conviene no solamente á las tres Divinas",
+      "box": [
+        509,
+        1138,
+        878,
+        1159
+      ],
+      "score": 0.9781146049499512
+    },
+    {
+      "text": "en otro idioma no pierda parte de su nativa belleza, y tambien de lafuer-",
+      "box": [
+        12,
+        1151,
+        399,
+        1175
+      ],
+      "score": 0.9624804258346558
+    },
+    {
+      "text": "Personas, sino particularmente á la segunda, que es el Verbo eterno,",
+      "box": [
+        499,
+        1153,
+        878,
+        1175
+      ],
+      "score": 0.9891689419746399
+    },
+    {
+      "text": "za ó energía que tienen en su original ciertas frases ó modismos: fuerza",
+      "box": [
+        12,
+        1165,
+        399,
+        1190
+      ],
+      "score": 0.9834630489349365
+    },
+    {
+      "text": "engendrado por el Padre; de esta se habla en el verso 5. Se da tambien",
+      "box": [
+        499,
+        1168,
+        878,
+        1190
+      ],
+      "score": 0.9835934042930603
+    },
+    {
+      "text": "que es peculiar de cada lengua, y á veoes del tiempo en que viviía el escri-",
+      "box": [
+        12,
+        1178,
+        399,
+        1206
+      ],
+      "score": 0.8517025113105774
+    },
+    {
+      "text": "el nombre de Sabiduría á la luz y conocimientos que Dios comunica á los",
+      "box": [
+        498,
+        1183,
+        879,
+        1205
+      ],
+      "score": 0.9836294651031494
+    },
+    {
+      "text": "ángeles y á los hombres. Y así es que algunas cosas de las que se dicen",
+      "box": [
+        498,
+        1197,
+        878,
+        1220
+      ],
+      "score": 0.9911462664604187
+    },
+    {
+      "text": "en este libro, y en los del Eoclesiastés, Sabiduría, Proverbios, etc., sola-",
+      "box": [
+        498,
+        1212,
+        879,
+        1235
+      ],
+      "score": 0.9887535572052002
+    },
+    {
+      "text": "mente convienen á la Sabiduría increada, y otras á la creada. Prov. VIII,",
+      "box": [
+        497,
+        1226,
+        880,
+        1251
+      ],
+      "score": 0.9066470265388489
+    },
+    {
+      "text": "v.22.—Job XXVIII,v. 12.—Sap. VII,v.26.—S. Thom.1.P.Quast. XLI,",
+      "box": [
+        497,
+        1240,
+        882,
+        1266
+      ],
+      "score": 0.9353036284446716
+    },
+    {
+      "text": "art. 3, ad. 4.",
+      "box": [
+        500,
+        1258,
+        570,
+        1272
+      ],
+      "score": 0.979993462562561
+    },
+    {
+      "text": "6 Deuter. IV, v. 6.",
+      "box": [
+        508,
+        1269,
+        614,
+        1289
+      ],
+      "score": 0.9402879476547241
+    },
+    {
+      "text": "III.—26",
+      "box": [
+        809,
+        1293,
+        861,
+        1314
+      ],
+      "score": 0.9434338212013245
+    }
+  ]
+}

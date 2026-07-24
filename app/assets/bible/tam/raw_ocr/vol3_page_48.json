@@ -1,0 +1,1507 @@
+{
+  "volume": 3,
+  "page_index": 48,
+  "pdf_page": 49,
+  "lines": [
+    {
+      "text": "57",
+      "box": [
+        26,
+        32,
+        45,
+        49
+      ],
+      "score": 0.9999368786811829
+    },
+    {
+      "text": "SALMOS.",
+      "box": [
+        180,
+        34,
+        248,
+        51
+      ],
+      "score": 0.9991231560707092
+    },
+    {
+      "text": "SALMO LXXIX.",
+      "box": [
+        653,
+        36,
+        759,
+        52
+      ],
+      "score": 0.9964235424995422
+    },
+    {
+      "text": "58",
+      "box": [
+        866,
+        35,
+        885,
+        52
+      ],
+      "score": 0.9974803328514099
+    },
+    {
+      "text": "39. Haciéndose cargo que son carne, un soplo que sale y",
+      "box": [
+        28,
+        72,
+        412,
+        102
+      ],
+      "score": 0.9981809854507446
+    },
+    {
+      "text": "67. Y desechó el Tabernáculo 1a, de Joseph: y no eligió",
+      "box": [
+        521,
+        78,
+        893,
+        105
+      ],
+      "score": 0.9573636054992676
+    },
+    {
+      "text": "no vuelve.",
+      "box": [
+        12,
+        91,
+        87,
+        111
+      ],
+      "score": 0.9991729855537415
+    },
+    {
+      "text": "40. Oh cuántas veces le irritaron en el Desierto! cuántas",
+      "box": [
+        28,
+        108,
+        412,
+        136
+      ],
+      "score": 0.9890106320381165
+    },
+    {
+      "text": "morar ya en la tribu de Ephraim;",
+      "box": [
+        510,
+        99,
+        732,
+        120
+      ],
+      "score": 0.9780226945877075
+    },
+    {
+      "text": "68. Sino que eligió la tribu de Judá, el monte de Sion, al",
+      "box": [
+        523,
+        115,
+        891,
+        141
+      ],
+      "score": 0.9944673776626587
+    },
+    {
+      "text": "le provocaron á ira en aquel erial!",
+      "box": [
+        12,
+        127,
+        240,
+        151
+      ],
+      "score": 0.9798550009727478
+    },
+    {
+      "text": "cual amó.",
+      "box": [
+        511,
+        134,
+        576,
+        151
+      ],
+      "score": 0.9972268342971802
+    },
+    {
+      "text": "41. Y volvian de nuevo á tentar á Dios, y á exasperar al",
+      "box": [
+        28,
+        144,
+        410,
+        170
+      ],
+      "score": 0.9722757339477539
+    },
+    {
+      "text": "69. Aquí, en esa tierra que habia asegurado por todos los",
+      "box": [
+        523,
+        147,
+        891,
+        174
+      ],
+      "score": 0.9946354627609253
+    },
+    {
+      "text": "Santo de Israél.",
+      "box": [
+        15,
+        162,
+        122,
+        182
+      ],
+      "score": 0.9988538026809692
+    },
+    {
+      "text": "siglos, edificó su Santuario único y fuerte, como asta de",
+      "box": [
+        511,
+        164,
+        890,
+        190
+      ],
+      "score": 0.9982443451881409
+    },
+    {
+      "text": "42. No se acordaron de lo que hizo en el dia aquel en que",
+      "box": [
+        29,
+        179,
+        410,
+        204
+      ],
+      "score": 0.9875137805938721
+    },
+    {
+      "text": "Unicornio 13.",
+      "box": [
+        513,
+        182,
+        593,
+        199
+      ],
+      "score": 0.9713988900184631
+    },
+    {
+      "text": "los rescató de las manos del tirano;",
+      "box": [
+        13,
+        196,
+        252,
+        221
+      ],
+      "score": 0.9995619654655457
+    },
+    {
+      "text": "70. Y escogió á su siervo David, sacándole de entre los",
+      "box": [
+        523,
+        196,
+        891,
+        224
+      ],
+      "score": 0.9963634014129639
+    },
+    {
+      "text": "43. Cuando ostentó sus prodigios en Egypto, y sus por-",
+      "box": [
+        28,
+        213,
+        412,
+        240
+      ],
+      "score": 0.9991011619567871
+    },
+    {
+      "text": "rebaños de ovejas, cuando las apacentaba con sus crias;",
+      "box": [
+        511,
+        214,
+        857,
+        238
+      ],
+      "score": 0.992828905582428
+    },
+    {
+      "text": "tentos en los campos de Tanis:",
+      "box": [
+        15,
+        231,
+        224,
+        256
+      ],
+      "score": 0.9837885499000549
+    },
+    {
+      "text": "71. Para que pastorease á los hijos de Jacob su siervo, á",
+      "box": [
+        524,
+        231,
+        891,
+        255
+      ],
+      "score": 0.9954187870025635
+    },
+    {
+      "text": "44. Cuando convirtió en sangre los rios y demás aguas",
+      "box": [
+        28,
+        247,
+        411,
+        272
+      ],
+      "score": 0.9931212663650513
+    },
+    {
+      "text": "Israél herencia suya.",
+      "box": [
+        511,
+        246,
+        641,
+        264
+      ],
+      "score": 0.9930530786514282
+    },
+    {
+      "text": "para que los Egypcios no pudiesen beber.",
+      "box": [
+        14,
+        265,
+        285,
+        289
+      ],
+      "score": 0.9842197299003601
+    },
+    {
+      "text": "72. Y los apacentó con la inocencia de su corazon, y los",
+      "box": [
+        522,
+        261,
+        891,
+        287
+      ],
+      "score": 0.9881636500358582
+    },
+    {
+      "text": "45. Envió contra estos todo género de moscas1 que los",
+      "box": [
+        29,
+        282,
+        411,
+        305
+      ],
+      "score": 0.9764965176582336
+    },
+    {
+      "text": "gobernó con la sabiduría ó prudencia de sus acciones.",
+      "box": [
+        509,
+        278,
+        851,
+        303
+      ],
+      "score": 0.9970072507858276
+    },
+    {
+      "text": "consumiesen, y ranas que los corrompieran.",
+      "box": [
+        15,
+        298,
+        301,
+        322
+      ],
+      "score": 0.9986227750778198
+    },
+    {
+      "text": "46. Entregó sus frutos al pulgon, y sus sudores á la lan-",
+      "box": [
+        29,
+        315,
+        409,
+        339
+      ],
+      "score": 0.9919220209121704
+    },
+    {
+      "text": "SALMO LXXVIII",
+      "box": [
+        645,
+        309,
+        761,
+        329
+      ],
+      "score": 0.9993002414703369
+    },
+    {
+      "text": "gosta.",
+      "box": [
+        15,
+        333,
+        61,
+        350
+      ],
+      "score": 0.9997318387031555
+    },
+    {
+      "text": "Oracion del pueblo de Dios, destrozado por los idélatras; 6 profeca con-",
+      "box": [
+        510,
+        335,
+        893,
+        361
+      ],
+      "score": 0.8466848134994507
+    },
+    {
+      "text": "47. Destruyóles las viñas con granizo, y los árboles con",
+      "box": [
+        28,
+        345,
+        408,
+        371
+      ],
+      "score": 0.9948678612709045
+    },
+    {
+      "text": "tra los perseguidores de la Iglesia.",
+      "box": [
+        613,
+        352,
+        794,
+        372
+      ],
+      "score": 0.9854176044464111
+    },
+    {
+      "text": "heladas.",
+      "box": [
+        15,
+        365,
+        76,
+        383
+      ],
+      "score": 0.9999176263809204
+    },
+    {
+      "text": "48. Y exterminó con la piedra sus ganados, y abrasó con",
+      "box": [
+        28,
+        379,
+        408,
+        404
+      ],
+      "score": 0.9905126690864563
+    },
+    {
+      "text": "1. Salmo de Asaph.",
+      "box": [
+        524,
+        379,
+        654,
+        396
+      ],
+      "score": 0.9929175972938538
+    },
+    {
+      "text": "rayos todas sus posesiones.",
+      "box": [
+        14,
+        399,
+        195,
+        419
+      ],
+      "score": 0.9998480677604675
+    },
+    {
+      "text": "Oh Dios, los Gentiles han entrado en tu heredad: han pro-",
+      "box": [
+        522,
+        393,
+        894,
+        420
+      ],
+      "score": 0.9932382702827454
+    },
+    {
+      "text": "49. Descargó sobre ellos la cólera de su enojo, la indig-",
+      "box": [
+        31,
+        416,
+        407,
+        436
+      ],
+      "score": 0.9821265339851379
+    },
+    {
+      "text": "fanado tu santo templo: han dejado á Jerusalem tal como",
+      "box": [
+        509,
+        411,
+        893,
+        436
+      ],
+      "score": 0.9921765327453613
+    },
+    {
+      "text": "nacion, la ira, y la tribulacion, que les envió por medio de",
+      "box": [
+        12,
+        430,
+        407,
+        454
+      ],
+      "score": 0.9898688793182373
+    },
+    {
+      "text": "una barraca de hortelano.",
+      "box": [
+        509,
+        429,
+        672,
+        449
+      ],
+      "score": 0.9886806607246399
+    },
+    {
+      "text": "ángeles malos.",
+      "box": [
+        13,
+        447,
+        127,
+        468
+      ],
+      "score": 0.9489184021949768
+    },
+    {
+      "text": "2. Los cadáveres de tus siervos los han arrojado para",
+      "box": [
+        520,
+        443,
+        894,
+        470
+      ],
+      "score": 0.9954875111579895
+    },
+    {
+      "text": "50. Abrió ancho camino á su ira, no perdonó á sus vidas:",
+      "box": [
+        28,
+        463,
+        408,
+        486
+      ],
+      "score": 0.992993175983429
+    },
+    {
+      "text": "pasto de las aves del cielo, han dado las carnes de tus san-",
+      "box": [
+        507,
+        461,
+        895,
+        487
+      ],
+      "score": 0.99920654296875
+    },
+    {
+      "text": "hasta sus jumentos envolvió en la misma mortandad.",
+      "box": [
+        11,
+        480,
+        358,
+        503
+      ],
+      "score": 0.993974506855011
+    },
+    {
+      "text": "tos 14 á las bestias de la tierra.",
+      "box": [
+        508,
+        478,
+        699,
+        500
+      ],
+      "score": 0.996292233467102
+    },
+    {
+      "text": "51. Hirió de muerte á todos los primogénitos del país de",
+      "box": [
+        27,
+        495,
+        407,
+        520
+      ],
+      "score": 0.9911829829216003
+    },
+    {
+      "text": "3. Como agua han derramado la sangre suya el rededor",
+      "box": [
+        520,
+        494,
+        895,
+        520
+      ],
+      "score": 0.9817988872528076
+    },
+    {
+      "text": "Egypto, las primicias de todos sus trabajos en los pabellones",
+      "box": [
+        11,
+        512,
+        407,
+        538
+      ],
+      "score": 0.9871348738670349
+    },
+    {
+      "text": "de Jerusalem: sin que hubiese quien los sepultase.",
+      "box": [
+        508,
+        513,
+        824,
+        534
+      ],
+      "score": 0.9979714751243591
+    },
+    {
+      "text": "de los descendientes de Cham ³.",
+      "box": [
+        12,
+        530,
+        229,
+        554
+      ],
+      "score": 0.9854362607002258
+    },
+    {
+      "text": "4. Somos el objeto de oprobio para con nuestros vecinos,",
+      "box": [
+        520,
+        529,
+        895,
+        554
+      ],
+      "score": 0.9951950907707214
+    },
+    {
+      "text": "52. Entonces sacó á los de su pueblo como ovejas, y",
+      "box": [
+        27,
+        545,
+        407,
+        571
+      ],
+      "score": 0.9934508204460144
+    },
+    {
+      "text": "el escarnio y la mofa de nuestros comarcanos.",
+      "box": [
+        508,
+        546,
+        797,
+        567
+      ],
+      "score": 0.9877054691314697
+    },
+    {
+      "text": "guiólos como una grey por el Desierto.",
+      "box": [
+        12,
+        563,
+        270,
+        587
+      ],
+      "score": 0.9995012879371643
+    },
+    {
+      "text": "5. ¿Hasta cuándo, Señor, durará tu implacable enojo?",
+      "box": [
+        520,
+        561,
+        896,
+        586
+      ],
+      "score": 0.9968719482421875
+    },
+    {
+      "text": "53. Y condújolos llenos de confianza, quitándoles todo",
+      "box": [
+        28,
+        579,
+        407,
+        603
+      ],
+      "score": 0.9855753779411316
+    },
+    {
+      "text": "¿hasta cuándo arderá como fuego ese tu celo?",
+      "box": [
+        508,
+        580,
+        794,
+        599
+      ],
+      "score": 0.9996872544288635
+    },
+    {
+      "text": "temor; mientras que á sus enemigos los sepultó en el mar.",
+      "box": [
+        11,
+        594,
+        390,
+        619
+      ],
+      "score": 0.9840890765190125
+    },
+    {
+      "text": "6. Descarga tu ira sobre las naciones que no te conocen,",
+      "box": [
+        520,
+        594,
+        896,
+        619
+      ],
+      "score": 0.9986241459846497
+    },
+    {
+      "text": "54. Y los introdujo despues en el monte de su santifica-",
+      "box": [
+        28,
+        612,
+        408,
+        636
+      ],
+      "score": 0.9962577819824219
+    },
+    {
+      "text": "y sobre los reinos que no adoran tu Nombre;",
+      "box": [
+        508,
+        615,
+        793,
+        632
+      ],
+      "score": 0.9924904704093933
+    },
+    {
+      "text": "cion: monte que adquirió con el poder de su diestra.—Al",
+      "box": [
+        12,
+        628,
+        408,
+        651
+      ],
+      "score": 0.9781067371368408
+    },
+    {
+      "text": "7. Pues que han asolado á Jacob, y devastado su morada 15.",
+      "box": [
+        518,
+        629,
+        896,
+        650
+      ],
+      "score": 0.9896680116653442
+    },
+    {
+      "text": "entrar ellos arrojó de allí las naciones; y repartióles por",
+      "box": [
+        10,
+        644,
+        408,
+        668
+      ],
+      "score": 0.9865626692771912
+    },
+    {
+      "text": "8. Ah! no te acuerdes de nuestras antiguas maldades:",
+      "box": [
+        520,
+        645,
+        896,
+        666
+      ],
+      "score": 0.9914845824241638
+    },
+    {
+      "text": "suerte la tierra, distribuyéndosela con cuerdas de medir.",
+      "box": [
+        9,
+        659,
+        388,
+        685
+      ],
+      "score": 0.963597297668457
+    },
+    {
+      "text": "anticípense á favor nuestro cuanto antes tus misericordias:",
+      "box": [
+        506,
+        661,
+        897,
+        684
+      ],
+      "score": 0.9945013523101807
+    },
+    {
+      "text": "55. Y colocó las tribus de Israél en las habitaciones de",
+      "box": [
+        26,
+        676,
+        408,
+        702
+      ],
+      "score": 0.9904966354370117
+    },
+    {
+      "text": "pues nos hallamos reducidos á una extrema miseria.",
+      "box": [
+        507,
+        680,
+        839,
+        698
+      ],
+      "score": 0.9991579651832581
+    },
+    {
+      "text": "aquellas gentes.",
+      "box": [
+        13,
+        699,
+        126,
+        716
+      ],
+      "score": 0.9999365210533142
+    },
+    {
+      "text": "9. Ayúdanos, oh Dios, Salvador nuestro: y por la gloria",
+      "box": [
+        520,
+        696,
+        896,
+        717
+      ],
+      "score": 0.9937544465065002
+    },
+    {
+      "text": "56. Mas ellos tentaron de nuevo y exasperaron al Dios",
+      "box": [
+        27,
+        709,
+        406,
+        734
+      ],
+      "score": 0.9990552067756653
+    },
+    {
+      "text": "de tu Nombre líbranos, Señor: y perdónanos nuestros peca-",
+      "box": [
+        506,
+        710,
+        898,
+        736
+      ],
+      "score": 0.9806630611419678
+    },
+    {
+      "text": "Altísimo, y no guardaron sus mandamientos.",
+      "box": [
+        12,
+        729,
+        309,
+        749
+      ],
+      "score": 0.999407172203064
+    },
+    {
+      "text": "dos por amor de tu Nombre.",
+      "box": [
+        507,
+        729,
+        689,
+        749
+      ],
+      "score": 0.999966025352478
+    },
+    {
+      "text": "57. Antes bien le volvieron las espaldas, y se le rebelaron:",
+      "box": [
+        28,
+        741,
+        406,
+        766
+      ],
+      "score": 0.9989976286888123
+    },
+    {
+      "text": "10. No sea que se diga entre los Gentiles: ¿Dónde está el",
+      "box": [
+        519,
+        744,
+        898,
+        768
+      ],
+      "score": 0.9921978712081909
+    },
+    {
+      "text": "semejantes á sus padres, falsearon como un arco torcido ",
+      "box": [
+        12,
+        758,
+        386,
+        783
+      ],
+      "score": 0.9949871301651001
+    },
+    {
+      "text": "Dios de esos? Brille pues entre las naciones, y vean nuestros",
+      "box": [
+        506,
+        760,
+        898,
+        786
+      ],
+      "score": 0.9942007064819336
+    },
+    {
+      "text": "58. Incitáronle á ira en sus collados7, y con el culto de los",
+      "box": [
+        28,
+        774,
+        406,
+        798
+      ],
+      "score": 0.9781241416931152
+    },
+    {
+      "text": "ojos—la venganza que tomas de la sangre de tus siervos, que",
+      "box": [
+        506,
+        776,
+        898,
+        803
+      ],
+      "score": 0.995561420917511
+    },
+    {
+      "text": "ídolos le provocaron á celos.",
+      "box": [
+        14,
+        796,
+        204,
+        813
+      ],
+      "score": 0.9990227818489075
+    },
+    {
+      "text": "ha sido derramada:",
+      "box": [
+        506,
+        793,
+        635,
+        812
+      ],
+      "score": 0.9985973834991455
+    },
+    {
+      "text": "59. Oyólo Dios, y los despreció: y redujo á la última humi-",
+      "box": [
+        29,
+        806,
+        405,
+        831
+      ],
+      "score": 0.9878738522529602
+    },
+    {
+      "text": "11. Asciendan ante tu acatamiento los gemidos de los",
+      "box": [
+        519,
+        809,
+        897,
+        835
+      ],
+      "score": 0.9944199323654175
+    },
+    {
+      "text": "llacion á Israél,",
+      "box": [
+        15,
+        829,
+        124,
+        843
+      ],
+      "score": 0.9572335481643677
+    },
+    {
+      "text": "encarcelados.—Conserva con tu brazo poderoso los hijos de",
+      "box": [
+        507,
+        827,
+        897,
+        851
+      ],
+      "score": 0.9987225532531738
+    },
+    {
+      "text": "60. Y desechó el Tabernáculo de Silo, aquel su Taberná-",
+      "box": [
+        30,
+        839,
+        405,
+        861
+      ],
+      "score": 0.9914649128913879
+    },
+    {
+      "text": "aquellos que han sido sacrificados á la muerte.",
+      "box": [
+        507,
+        843,
+        802,
+        864
+      ],
+      "score": 0.9840418100357056
+    },
+    {
+      "text": "culo donde tenia su morada entre los hombres8",
+      "box": [
+        15,
+        858,
+        323,
+        875
+      ],
+      "score": 0.9879602789878845
+    },
+    {
+      "text": "12. Págales, Señor, á nuestros vecinos con males siete ve-",
+      "box": [
+        520,
+        858,
+        897,
+        884
+      ],
+      "score": 0.9900717735290527
+    },
+    {
+      "text": "61. Y la fuerza de ellos 9 la entregó á cautiverio: toda su",
+      "box": [
+        32,
+        874,
+        404,
+        891
+      ],
+      "score": 0.9792437553405762
+    },
+    {
+      "text": "ces mayores, por las blasfemias que contra tí han vomitado.",
+      "box": [
+        506,
+        876,
+        897,
+        901
+      ],
+      "score": 0.9996446967124939
+    },
+    {
+      "text": "gloria la puso en poder de los enemigos.",
+      "box": [
+        17,
+        893,
+        273,
+        907
+      ],
+      "score": 0.988628089427948
+    },
+    {
+      "text": "13. Entre tanto nosotros, pueblo tuyo y ovejas de tu grey,",
+      "box": [
+        519,
+        893,
+        896,
+        917
+      ],
+      "score": 0.9910463690757751
+    },
+    {
+      "text": "62. Y no haciendo ya caso de un pueblo que era su here-",
+      "box": [
+        33,
+        907,
+        404,
+        924
+      ],
+      "score": 0.9992359280586243
+    },
+    {
+      "text": "cantaremos perpétuamente tus alabanzas: — de generacion",
+      "box": [
+        507,
+        910,
+        896,
+        934
+      ],
+      "score": 0.9823749661445618
+    },
+    {
+      "text": "dad, le entregó al filo de la espada.",
+      "box": [
+        16,
+        922,
+        243,
+        941
+      ],
+      "score": 0.9987143278121948
+    },
+    {
+      "text": "en generacion publicaremos tus glorias.",
+      "box": [
+        507,
+        928,
+        761,
+        947
+      ],
+      "score": 0.9966662526130676
+    },
+    {
+      "text": "63. El fuego devoró sus jóvenes; y sus vírgenes no fueron",
+      "box": [
+        33,
+        939,
+        404,
+        955
+      ],
+      "score": 0.9945191740989685
+    },
+    {
+      "text": "plañidas.",
+      "box": [
+        15,
+        955,
+        83,
+        973
+      ],
+      "score": 0.9998688101768494
+    },
+    {
+      "text": "SALMO LXXIX",
+      "box": [
+        649,
+        957,
+        756,
+        977
+      ],
+      "score": 0.9997268319129944
+    },
+    {
+      "text": "64. Perecieron á cuchillo sus sacerdotes, y nadie lloraba",
+      "box": [
+        32,
+        971,
+        402,
+        988
+      ],
+      "score": 0.9939954280853271
+    },
+    {
+      "text": "las viudas de ellos.",
+      "box": [
+        15,
+        988,
+        144,
+        1005
+      ],
+      "score": 0.9913440942764282
+    },
+    {
+      "text": "Prediccion de la cautividad del pueblo de Ieral entre los Assyrios, y de su",
+      "box": [
+        508,
+        982,
+        897,
+        1008
+      ],
+      "score": 0.9575192332267761
+    },
+    {
+      "text": "65. Entonces despertó el Señor, á la manera del que ha",
+      "box": [
+        33,
+        1005,
+        403,
+        1022
+      ],
+      "score": 0.9928088188171387
+    },
+    {
+      "text": "libertad; figura de la esclavitud del género humano bajo el poder del",
+      "box": [
+        519,
+        998,
+        898,
+        1022
+      ],
+      "score": 0.9848546385765076
+    },
+    {
+      "text": "dormido; como un valiente guerrero refocilado con el vino0.",
+      "box": [
+        15,
+        1020,
+        402,
+        1038
+      ],
+      "score": 0.9760584235191345
+    },
+    {
+      "text": "demonio, y de la redencion de Christo.",
+      "box": [
+        518,
+        1012,
+        721,
+        1032
+      ],
+      "score": 0.990750789642334
+    },
+    {
+      "text": "66. É hirió el Señor á sus enemigos en las partes poste-",
+      "box": [
+        31,
+        1036,
+        402,
+        1055
+      ],
+      "score": 0.9897995591163635
+    },
+    {
+      "text": "1. Para el fin: Para aquellos que han de ser mudados.",
+      "box": [
+        519,
+        1038,
+        895,
+        1066
+      ],
+      "score": 0.9992939829826355
+    },
+    {
+      "text": "riores 11; cubriólos de oprobio sempiterno.",
+      "box": [
+        14,
+        1052,
+        281,
+        1071
+      ],
+      "score": 0.9814493060112
+    },
+    {
+      "text": "Testimonio de Asaph. Sálmo.",
+      "box": [
+        507,
+        1057,
+        693,
+        1077
+      ],
+      "score": 0.9970413446426392
+    },
+    {
+      "text": "1 La palabra hebrea y jarob significa todo género ó mezcla de in-",
+      "box": [
+        27,
+        1088,
+        401,
+        1108
+      ],
+      "score": 0.9712867140769958
+    },
+    {
+      "text": "10 Como un campeon valiente á quien el vino ha llenado de ardimiento",
+      "box": [
+        512,
+        1093,
+        894,
+        1118
+      ],
+      "score": 0.9980907440185547
+    },
+    {
+      "text": "sectos.",
+      "box": [
+        14,
+        1105,
+        54,
+        1119
+      ],
+      "score": 0.9994217753410339
+    },
+    {
+      "text": "* O vengadores. Es idiotismo oriental llamar Angel ó mensajero malo,",
+      "box": [
+        26,
+        1115,
+        402,
+        1137
+      ],
+      "score": 0.9792596101760864
+    },
+    {
+      "text": "y bríos: ó que despues de haber bebido una buena porcion de algun licor",
+      "box": [
+        505,
+        1108,
+        894,
+        1133
+      ],
+      "score": 0.99736487865448
+    },
+    {
+      "text": "no para significar que el Angel sea malo, sino porque lleva un mensaje ó",
+      "box": [
+        12,
+        1131,
+        402,
+        1150
+      ],
+      "score": 0.9864241480827332
+    },
+    {
+      "text": "espirituoso, acomete impávido al enemigo.",
+      "box": [
+        505,
+        1123,
+        735,
+        1144
+      ],
+      "score": 0.9885842800140381
+    },
+    {
+      "text": "11 I. Reg. V, v. 12.",
+      "box": [
+        511,
+        1136,
+        621,
+        1156
+      ],
+      "score": 0.922598659992218
+    },
+    {
+      "text": "una noticia mala.",
+      "box": [
+        15,
+        1146,
+        116,
+        1160
+      ],
+      "score": 0.9878624081611633
+    },
+    {
+      "text": "3 Esto es, todo lo que nacia primero. Mísraim, de quien descendieron",
+      "box": [
+        26,
+        1157,
+        403,
+        1178
+      ],
+      "score": 0.9788027405738831
+    },
+    {
+      "text": "12 O el lugar en que estaba.",
+      "box": [
+        511,
+        1150,
+        666,
+        1170
+      ],
+      "score": 0.9883966445922852
+    },
+    {
+      "text": "los Egypcios, y de quien tomó nombre el Egypto, fuó hijo de Cham. Ge-",
+      "box": [
+        12,
+        1170,
+        402,
+        1194
+      ],
+      "score": 0.9636340141296387
+    },
+    {
+      "text": "13 Segun el hebreo, debe decir: como en las alturas. El cuerno ó asta",
+      "box": [
+        511,
+        1165,
+        893,
+        1189
+      ],
+      "score": 0.9716994762420654
+    },
+    {
+      "text": "nes. X, v. 6.",
+      "box": [
+        13,
+        1188,
+        85,
+        1202
+      ],
+      "score": 0.9769383668899536
+    },
+    {
+      "text": "del monoceronte ó unicornio es uno solo, es fortisimo, y está en medio de la",
+      "box": [
+        505,
+        1179,
+        894,
+        1204
+      ],
+      "score": 0.9755772948265076
+    },
+    {
+      "text": "4 Por el monte Sion, en donde estaba Jerusalem, puede entenderse",
+      "box": [
+        23,
+        1198,
+        401,
+        1220
+      ],
+      "score": 0.9956780076026917
+    },
+    {
+      "text": "la frente del animal. Así el Santuario ó Tabernáculo era único ó uno solo;",
+      "box": [
+        504,
+        1194,
+        893,
+        1218
+      ],
+      "score": 0.9823154807090759
+    },
+    {
+      "text": "todo el territorio de la Judéa.",
+      "box": [
+        12,
+        1215,
+        178,
+        1229
+      ],
+      "score": 0.9998160600662231
+    },
+    {
+      "text": "era la fortaleza del pueblo de Dios; y estaba situado sobre un monte á la",
+      "box": [
+        504,
+        1209,
+        894,
+        1233
+      ],
+      "score": 0.9879512190818787
+    },
+    {
+      "text": "6 Josue XIII, v. 7.",
+      "box": [
+        24,
+        1229,
+        136,
+        1243
+      ],
+      "score": 0.9774417877197266
+    },
+    {
+      "text": "vista de toda la Palestina. Todo esto conviene mas perfectamente á la",
+      "box": [
+        504,
+        1223,
+        894,
+        1249
+      ],
+      "score": 0.998458206653595
+    },
+    {
+      "text": "° Ozex VII, v. 36.",
+      "box": [
+        23,
+        1242,
+        131,
+        1255
+      ],
+      "score": 0.8548222780227661
+    },
+    {
+      "text": "Iglesia de Jesu-Christo, única, fuerte, y vivible.",
+      "box": [
+        505,
+        1236,
+        758,
+        1261
+      ],
+      "score": 0.9895761609077454
+    },
+    {
+      "text": "τ Véase Lugares altos.",
+      "box": [
+        21,
+        1255,
+        153,
+        1272
+      ],
+      "score": 0.9666728973388672
+    },
+    {
+      "text": "14 Véase Santo.",
+      "box": [
+        511,
+        1249,
+        604,
+        1269
+      ],
+      "score": 0.94161456823349
+    },
+    {
+      "text": "8 I. Reg. IV, v. 4.—Jerem. VII, v. 14.",
+      "box": [
+        19,
+        1267,
+        237,
+        1288
+      ],
+      "score": 0.9238476753234863
+    },
+    {
+      "text": "1s Segun San Gerónimo traduce: Su hermosura, esto es, su santo",
+      "box": [
+        509,
+        1261,
+        894,
+        1294
+      ],
+      "score": 0.9729192852973938
+    },
+    {
+      "text": "Esto es, la Arca Santa. I. Reg. IV, v. 11.—I. Paral. XVI, v. 11.",
+      "box": [
+        20,
+        1282,
+        386,
+        1304
+      ],
+      "score": 0.9592275023460388
+    },
+    {
+      "text": "templo.",
+      "box": [
+        504,
+        1279,
+        551,
+        1297
+      ],
+      "score": 0.997724175453186
+    },
+    {
+      "text": "JII.—9",
+      "box": [
+        826,
+        1320,
+        871,
+        1338
+      ],
+      "score": 0.9079585671424866
+    }
+  ]
+}

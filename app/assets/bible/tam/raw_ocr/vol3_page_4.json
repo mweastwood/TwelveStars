@@ -1,0 +1,17 @@
+{
+  "volume": 3,
+  "page_index": 4,
+  "pdf_page": 5,
+  "lines": [
+    {
+      "text": "SESILLA",
+      "box": [
+        439,
+        621,
+        506,
+        647
+      ],
+      "score": 0.5810703635215759
+    }
+  ]
+}

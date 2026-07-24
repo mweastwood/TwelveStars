@@ -1,0 +1,1357 @@
+{
+  "volume": 3,
+  "page_index": 202,
+  "pdf_page": 203,
+  "lines": [
+    {
+      "text": "321",
+      "box": [
+        33,
+        19,
+        58,
+        36
+      ],
+      "score": 0.9999840259552002
+    },
+    {
+      "text": "ISAÍAS.",
+      "box": [
+        184,
+        19,
+        244,
+        41
+      ],
+      "score": 0.9450046420097351
+    },
+    {
+      "text": "CAPITULO XLV.",
+      "box": [
+        644,
+        16,
+        757,
+        36
+      ],
+      "score": 0.9992916584014893
+    },
+    {
+      "text": "322",
+      "box": [
+        854,
+        16,
+        878,
+        35
+      ],
+      "score": 0.9999639391899109
+    },
+    {
+      "text": "tor el Señor de los ejércitos: Yo soy el primero, y yo el últi-",
+      "box": [
+        20,
+        59,
+        410,
+        87
+      ],
+      "score": 0.9900477528572083
+    },
+    {
+      "text": "alabanzas, porque redimió el Señor á Jacob, y será glorificado",
+      "box": [
+        506,
+        59,
+        886,
+        88
+      ],
+      "score": 0.99374920129776
+    },
+    {
+      "text": "mo ¹, y fuera de mí no hay otro Dios.",
+      "box": [
+        19,
+        75,
+        259,
+        102
+      ],
+      "score": 0.9862088561058044
+    },
+    {
+      "text": "7. ¿Quién hay semejante á mí? Que se declare y se expli-",
+      "box": [
+        31,
+        93,
+        409,
+        121
+      ],
+      "score": 0.9909849166870117
+    },
+    {
+      "text": "en Israél.",
+      "box": [
+        508,
+        84,
+        569,
+        103
+      ],
+      "score": 0.9599297642707825
+    },
+    {
+      "text": "24. Esto dice el Señor, Redentor tuyo, que te formó en el",
+      "box": [
+        520,
+        96,
+        884,
+        119
+      ],
+      "score": 0.9975400567054749
+    },
+    {
+      "text": "que; y expóngame la série de las cosas desde que yo fundé la",
+      "box": [
+        17,
+        108,
+        410,
+        140
+      ],
+      "score": 0.9856979846954346
+    },
+    {
+      "text": "antigua gente del mundo: anuncie á los suyos lo porvenir, y",
+      "box": [
+        16,
+        124,
+        409,
+        158
+      ],
+      "score": 0.9622482061386108
+    },
+    {
+      "text": "seno de la madre: Yo soy el Señor, Hacedor de todas las cosas,",
+      "box": [
+        506,
+        114,
+        883,
+        136
+      ],
+      "score": 0.9997443556785583
+    },
+    {
+      "text": "las cosas que han de suceder.",
+      "box": [
+        17,
+        141,
+        210,
+        170
+      ],
+      "score": 0.993537187576294
+    },
+    {
+      "text": "que por mí solo extiendo los cielos, y fundo la tierra, sin ayu-",
+      "box": [
+        507,
+        132,
+        882,
+        153
+      ],
+      "score": 0.992853581905365
+    },
+    {
+      "text": "da de nadie:",
+      "box": [
+        508,
+        150,
+        588,
+        167
+      ],
+      "score": 0.9975495934486389
+    },
+    {
+      "text": "25. Que falsifico los presagios de los adivinos, y á los ago-",
+      "box": [
+        522,
+        166,
+        882,
+        183
+      ],
+      "score": 0.9928703904151917
+    },
+    {
+      "text": "reros les quito el juicio : que dejo corridos á los sábios, y con-",
+      "box": [
+        510,
+        184,
+        882,
+        198
+      ],
+      "score": 0.9912201762199402
+    },
+    {
+      "text": "vierto en necedad su ciencia 6.",
+      "box": [
+        508,
+        197,
+        694,
+        215
+      ],
+      "score": 0.9884273409843445
+    },
+    {
+      "text": "26. Yo soy el que llevo á efecto la palabra de mi siervo,",
+      "box": [
+        522,
+        214,
+        882,
+        231
+      ],
+      "score": 0.9919719099998474
+    },
+    {
+      "text": "nozca?",
+      "box": [
+        13,
+        224,
+        64,
+        243
+      ],
+      "score": 0.9616150259971619
+    },
+    {
+      "text": "y cumplo los oráculos de mis enviados ó profetas: el que digo",
+      "box": [
+        506,
+        230,
+        882,
+        248
+      ],
+      "score": 0.9906922578811646
+    },
+    {
+      "text": "á Jerusalem destruida: Habitada serás algun dia; y á las ciu-",
+      "box": [
+        506,
+        245,
+        883,
+        263
+      ],
+      "score": 0.9774389863014221
+    },
+    {
+      "text": "dades de Judá: Sereis reedificadas, y yo poblaré vuestros de-",
+      "box": [
+        507,
+        262,
+        883,
+        279
+      ],
+      "score": 0.9977326393127441
+    },
+    {
+      "text": "entienden.",
+      "box": [
+        10,
+        288,
+        87,
+        310
+      ],
+      "score": 0.9999361038208008
+    },
+    {
+      "text": "siertos.",
+      "box": [
+        506,
+        279,
+        552,
+        294
+      ],
+      "score": 0.9997429251670837
+    },
+    {
+      "text": "27. Yo el que digo al abismo7: Sécate; yo dejaré áridos tus",
+      "box": [
+        518,
+        291,
+        884,
+        312
+      ],
+      "score": 0.9773367047309875
+    },
+    {
+      "text": "rios 8:",
+      "box": [
+        505,
+        308,
+        547,
+        326
+      ],
+      "score": 0.9838826060295105
+    },
+    {
+      "text": "dios, y fundió una estátua que para nada sirve?",
+      "box": [
+        7,
+        319,
+        322,
+        352
+      ],
+      "score": 0.9853389263153076
+    },
+    {
+      "text": "28. El que digo á Cyro: Tú serás mi pastor 9: tú has de",
+      "box": [
+        517,
+        324,
+        883,
+        342
+      ],
+      "score": 0.972196102142334
+    },
+    {
+      "text": "cumplir todos mis designios: el que digo á Jerusalem: Tú serás",
+      "box": [
+        506,
+        343,
+        882,
+        357
+      ],
+      "score": 0.9821829199790955
+    },
+    {
+      "text": "hombres necios; y sino júntense todos ellos, y presénten-",
+      "box": [
+        3,
+        368,
+        406,
+        403
+      ],
+      "score": 0.9552498459815979
+    },
+    {
+      "text": "reedificada; y al templo: Tú serás fundado de nuevo.",
+      "box": [
+        506,
+        359,
+        828,
+        373
+      ],
+      "score": 0.9702726006507874
+    },
+    {
+      "text": "didos.",
+      "box": [
+        4,
+        402,
+        55,
+        423
+      ],
+      "score": 0.9999261498451233
+    },
+    {
+      "text": "CAPITULO XLV",
+      "box": [
+        644,
+        402,
+        753,
+        416
+      ],
+      "score": 0.9996612071990967
+    },
+    {
+      "text": "12. El herrero trabaja el ídolo con la lima: en la fragua y",
+      "box": [
+        19,
+        418,
+        403,
+        451
+      ],
+      "score": 0.9859995245933533
+    },
+    {
+      "text": "á golpes de martillo le forja, labrándole á fuerza de brazos; y",
+      "box": [
+        1,
+        436,
+        403,
+        466
+      ],
+      "score": 0.9536190629005432
+    },
+    {
+      "text": "Profecía de la victoria de Cyro. En-la libertad que por medio de éste",
+      "box": [
+        505,
+        439,
+        883,
+        453
+      ],
+      "score": 0.9901473522186279
+    },
+    {
+      "text": "promete el Señor á los Judfos cautivos en Babylonia, hace entrever la",
+      "box": [
+        516,
+        453,
+        884,
+        467
+      ],
+      "score": 0.9828044772148132
+    },
+    {
+      "text": "sancio, no irá á beber agua a.",
+      "box": [
+        1,
+        470,
+        213,
+        495
+      ],
+      "score": 0.9666147828102112
+    },
+    {
+      "text": "de todos los hombres por Jesu-Christo; que es el solo Dios, cl Justo,",
+      "box": [
+        516,
+        467,
+        883,
+        481
+      ],
+      "score": 0.993363082408905
+    },
+    {
+      "text": "el Salvador nuostro, y la ruina de la idolatría.",
+      "box": [
+        516,
+        481,
+        760,
+        495
+      ],
+      "score": 0.984570324420929
+    },
+    {
+      "text": "el ídolo con el cepillo, le ajusta á la escuadra, le da su contor-",
+      "box": [
+        0,
+        502,
+        404,
+        531
+      ],
+      "score": 0.9540510177612305
+    },
+    {
+      "text": "no con el compás, y saca la imágen de un hombre, asemeján-",
+      "box": [
+        0,
+        520,
+        403,
+        546
+      ],
+      "score": 0.9886791110038757
+    },
+    {
+      "text": "1. Esto dice el Señor á mi ungido Cyro 10, á quien he to-",
+      "box": [
+        515,
+        519,
+        886,
+        541
+      ],
+      "score": 0.9862045645713806
+    },
+    {
+      "text": "dola á un hombre bien parecido, que habita en una casa ó",
+      "box": [
+        0,
+        536,
+        404,
+        562
+      ],
+      "score": 0.9595241546630859
+    },
+    {
+      "text": "mado de la mano 1 para sujetar á su persona las naciones y",
+      "box": [
+        502,
+        537,
+        885,
+        556
+      ],
+      "score": 0.9845683574676514
+    },
+    {
+      "text": "templo.",
+      "box": [
+        0,
+        554,
+        75,
+        576
+      ],
+      "score": 0.9956393241882324
+    },
+    {
+      "text": "hacer volver las espaldas á los reyes, y para abrir delante de",
+      "box": [
+        502,
+        552,
+        885,
+        573
+      ],
+      "score": 0.9779011607170105
+    },
+    {
+      "text": "14. Cortó cedros, trajo el roble y la encina criada entre los",
+      "box": [
+        1,
+        570,
+        401,
+        591
+      ],
+      "score": 0.9840384721755981
+    },
+    {
+      "text": "él las puertas, sin que ninguna pueda resistirle:",
+      "box": [
+        501,
+        568,
+        803,
+        589
+      ],
+      "score": 0.9995856285095215
+    },
+    {
+      "text": "árboles del bosque: plantó un pino, que mediante la lluvia se",
+      "box": [
+        0,
+        585,
+        402,
+        611
+      ],
+      "score": 0.9883827567100525
+    },
+    {
+      "text": "2. Yo iré delante de tí, y humillaré á los grandes de la",
+      "box": [
+        513,
+        583,
+        886,
+        603
+      ],
+      "score": 0.983484148979187
+    },
+    {
+      "text": "hizo grande.",
+      "box": [
+        0,
+        607,
+        98,
+        624
+      ],
+      "score": 0.9953546524047852
+    },
+    {
+      "text": "tierra: despedazaré las puertas de bronce, y romperé las barras",
+      "box": [
+        499,
+        599,
+        886,
+        620
+      ],
+      "score": 0.9863623380661011
+    },
+    {
+      "text": "15. Y sírvese de estos árboles el hombre para el hogar: toma",
+      "box": [
+        13,
+        617,
+        399,
+        643
+      ],
+      "score": 0.9897987842559814
+    },
+    {
+      "text": "ó cerrojos de hierro.",
+      "box": [
+        499,
+        618,
+        629,
+        635
+      ],
+      "score": 0.995072066783905
+    },
+    {
+      "text": "parte de ellos, y se calienta, y con su fuego cuece el pan; pero",
+      "box": [
+        0,
+        635,
+        398,
+        661
+      ],
+      "score": 0.9766027331352234
+    },
+    {
+      "text": "3, Y te daré á tí los tesoros escondidos, y las riquezas ro-",
+      "box": [
+        509,
+        631,
+        888,
+        655
+      ],
+      "score": 0.9729946255683899
+    },
+    {
+      "text": "de lo restante fabrica un dios y le adora; hace una estátua y",
+      "box": [
+        0,
+        653,
+        397,
+        677
+      ],
+      "score": 0.9896057844161987
+    },
+    {
+      "text": "cónditas; para que sepas que Yo soy el Señor, el Dios de Is-",
+      "box": [
+        496,
+        650,
+        888,
+        674
+      ],
+      "score": 0.9941244721412659
+    },
+    {
+      "text": "se postra delante de ella.",
+      "box": [
+        0,
+        672,
+        180,
+        695
+      ],
+      "score": 0.9889481663703918
+    },
+    {
+      "text": "raél, que ya desde ahora te llamo por tu mismo nombre 12.",
+      "box": [
+        495,
+        669,
+        869,
+        692
+      ],
+      "score": 0.9573984146118164
+    },
+    {
+      "text": "16. Una parte del árbol quema en la lumbre, y con otra",
+      "box": [
+        13,
+        686,
+        395,
+        711
+      ],
+      "score": 0.9981690645217896
+    },
+    {
+      "text": "4. Por amor de mi siervo Jacob, y de Israél mi escogido, te",
+      "box": [
+        510,
+        689,
+        888,
+        706
+      ],
+      "score": 0.9938992857933044
+    },
+    {
+      "text": "cuece la carne para comer, y compone el asado, se sacia y se",
+      "box": [
+        0,
+        702,
+        395,
+        728
+      ],
+      "score": 0.9931051135063171
+    },
+    {
+      "text": "llamé por tu nombre, te puse el sobrenombre de Ungido 13, y",
+      "box": [
+        493,
+        705,
+        888,
+        726
+      ],
+      "score": 0.9745619893074036
+    },
+    {
+      "text": "calienta, y dice: Bueno! me he calentado, he hecho un buen",
+      "box": [
+        0,
+        718,
+        393,
+        745
+      ],
+      "score": 0.9866702556610107
+    },
+    {
+      "text": "tú no me conociste.",
+      "box": [
+        495,
+        724,
+        622,
+        741
+      ],
+      "score": 0.9991808533668518
+    },
+    {
+      "text": "fuego.",
+      "box": [
+        0,
+        742,
+        49,
+        760
+      ],
+      "score": 0.9999528527259827
+    },
+    {
+      "text": "5. Yo el Señor, y no hay otro que yo: no hay Dios fuera de",
+      "box": [
+        505,
+        738,
+        890,
+        761
+      ],
+      "score": 0.9772193431854248
+    },
+    {
+      "text": "17. Mas del resto del árbol forma para sí un dios y una",
+      "box": [
+        15,
+        750,
+        393,
+        777
+      ],
+      "score": 0.9914416074752808
+    },
+    {
+      "text": "mí: Yo te ceñí la espada, y tú no me has conocido;",
+      "box": [
+        492,
+        755,
+        823,
+        778
+      ],
+      "score": 0.9984829425811768
+    },
+    {
+      "text": "estátua; se postra delante de ella, y la adora y la suplica, di-",
+      "box": [
+        0,
+        767,
+        394,
+        793
+      ],
+      "score": 0.9978496432304382
+    },
+    {
+      "text": "6. Y te armé, á fin de que sepan todos desde Oriente á",
+      "box": [
+        505,
+        772,
+        892,
+        796
+      ],
+      "score": 0.9706769585609436
+    },
+    {
+      "text": "ciendo: Sálvame, porque tú eres mi Dios.",
+      "box": [
+        0,
+        785,
+        273,
+        807
+      ],
+      "score": 0.9924062490463257
+    },
+    {
+      "text": "Poniente, que no hay mas Dios que yo: Yo el Señor, y no hay",
+      "box": [
+        492,
+        789,
+        891,
+        814
+      ],
+      "score": 0.9901713728904724
+    },
+    {
+      "text": "18. Son unos ignorantes, sin entendimiento: tienen embar-",
+      "box": [
+        16,
+        800,
+        393,
+        824
+      ],
+      "score": 0.9909448027610779
+    },
+    {
+      "text": "otro:",
+      "box": [
+        493,
+        808,
+        531,
+        826
+      ],
+      "score": 0.99956876039505
+    },
+    {
+      "text": "rados los ojos para no ver, ni ser cuerdos.",
+      "box": [
+        1,
+        817,
+        274,
+        840
+      ],
+      "score": 0.982511579990387
+    },
+    {
+      "text": "7. Yo que formo la luz, y crio las tinieblas: que hago la",
+      "box": [
+        504,
+        824,
+        894,
+        848
+      ],
+      "score": 0.9905238151550293
+    },
+    {
+      "text": "19. No reflexionan, ni consideran, ni tienen seso para",
+      "box": [
+        17,
+        834,
+        392,
+        855
+      ],
+      "score": 0.9854575395584106
+    },
+    {
+      "text": "paz, y envío los castigos á los pueblos: Yo el Señor, yo que",
+      "box": [
+        491,
+        841,
+        895,
+        867
+      ],
+      "score": 0.9729760885238647
+    },
+    {
+      "text": "decir: Yo quemé la una mitad al fuego, y cocí el pan sobre",
+      "box": [
+        1,
+        851,
+        391,
+        870
+      ],
+      "score": 0.9889766573905945
+    },
+    {
+      "text": "hago todas estas cosas.",
+      "box": [
+        493,
+        859,
+        643,
+        879
+      ],
+      "score": 0.9811683297157288
+    },
+    {
+      "text": "sus áscuas, aderecé las carnes, y las comí; ¿y del resto he de.",
+      "box": [
+        1,
+        869,
+        396,
+        886
+      ],
+      "score": 0.9986475110054016
+    },
+    {
+      "text": "fabricar un ídolo? ¿Me he de postrar ante el tronco de un",
+      "box": [
+        0,
+        882,
+        394,
+        904
+      ],
+      "score": 0.9902188777923584
+    },
+    {
+      "text": "8. Oh cielos! derramad desde arriba vuestro rocío; y llue-",
+      "box": [
+        506,
+        876,
+        895,
+        898
+      ],
+      "score": 0.9855151772499084
+    },
+    {
+      "text": "van las nubes al Justo: ábrase la tierra, y brote al Salvador, y",
+      "box": [
+        492,
+        891,
+        896,
+        918
+      ],
+      "score": 0.9939469695091248
+    },
+    {
+      "text": "árbol?",
+      "box": [
+        3,
+        902,
+        51,
+        917
+      ],
+      "score": 0.9925393462181091
+    },
+    {
+      "text": "20. Una parte de este es ya ceniza; y no obstante un cora-",
+      "box": [
+        18,
+        915,
+        394,
+        937
+      ],
+      "score": 0.9988074898719788
+    },
+    {
+      "text": "nazea con él la justicia. Yo el Señor le crié 1.",
+      "box": [
+        493,
+        909,
+        789,
+        930
+      ],
+      "score": 0.9404390454292297
+    },
+    {
+      "text": "zon necio le adora, y no se desengaña á sí mismo diciendo:",
+      "box": [
+        1,
+        931,
+        394,
+        954
+      ],
+      "score": 0.9929831027984619
+    },
+    {
+      "text": "9. Desdichado aquel que disputa contra su Hacedor, no",
+      "box": [
+        506,
+        926,
+        896,
+        949
+      ],
+      "score": 0.9884273409843445
+    },
+    {
+      "text": "Quizá la obra hecha por mi mano es una falsedad.",
+      "box": [
+        4,
+        951,
+        323,
+        968
+      ],
+      "score": 0.9995315670967102
+    },
+    {
+      "text": "siendo mas que una vasija de tierra ó arcilla de Samos 16",
+      "box": [
+        493,
+        942,
+        898,
+        966
+      ],
+      "score": 0.9638028740882874
+    },
+    {
+      "text": "21. Acuérdate de estas cosas, oh Jacob, tú, oh Israél, ya",
+      "box": [
+        18,
+        964,
+        393,
+        988
+      ],
+      "score": 0.9893863201141357
+    },
+    {
+      "text": "¿Acaso dirá el barro al alfarero: Qué haces? ¿no ves que tu la-",
+      "box": [
+        493,
+        957,
+        898,
+        985
+      ],
+      "score": 0.9916927814483643
+    },
+    {
+      "text": "que tú eres mi siervo. Yo te formé: siervo mio eres tú, oh",
+      "box": [
+        1,
+        982,
+        393,
+        1005
+      ],
+      "score": 0.9939877986907959
+    },
+    {
+      "text": "bor no tione la perfeccion del arte?",
+      "box": [
+        494,
+        976,
+        724,
+        996
+      ],
+      "score": 0.9736078977584839
+    },
+    {
+      "text": "Israél, no te olvides de mí.",
+      "box": [
+        2,
+        1001,
+        183,
+        1018
+      ],
+      "score": 0.9985494613647461
+    },
+    {
+      "text": "10. Ay del que dice á su padre: ¿Por qué me engendraste?",
+      "box": [
+        507,
+        992,
+        897,
+        1016
+      ],
+      "score": 0.9879334568977356
+    },
+    {
+      "text": "22. Desvanecí, como á nube, tus maldades, y como á niebla",
+      "box": [
+        18,
+        1015,
+        392,
+        1038
+      ],
+      "score": 0.9952793717384338
+    },
+    {
+      "text": "Y á su madre: ¿Por qué me concebiste?",
+      "box": [
+        494,
+        1009,
+        752,
+        1030
+      ],
+      "score": 0.9913814663887024
+    },
+    {
+      "text": "tus pecados: conviértete á mí, pues yo te he redimido.",
+      "box": [
+        2,
+        1033,
+        347,
+        1053
+      ],
+      "score": 0.9765365123748779
+    },
+    {
+      "text": "11. No obstante, esto dice el Señor, el Santo de Israél á",
+      "box": [
+        507,
+        1025,
+        898,
+        1051
+      ],
+      "score": 0.9935598373413086
+    },
+    {
+      "text": "23. Cantad, oh cielos, alabanzas, porque el Señor ha",
+      "box": [
+        17,
+        1048,
+        393,
+        1072
+      ],
+      "score": 0.9996945858001709
+    },
+    {
+      "text": "los hombres que él formó: Preguntadme sobre las cosas veni-",
+      "box": [
+        492,
+        1042,
+        897,
+        1068
+      ],
+      "score": 0.9881489872932434
+    },
+    {
+      "text": "hecho tan grande misericordia: alégrate tierra de un cabo á",
+      "box": [
+        1,
+        1065,
+        392,
+        1088
+      ],
+      "score": 0.9960108995437622
+    },
+    {
+      "text": "deras, demandadme sobre mis hijos, y sobre las obras de mis",
+      "box": [
+        493,
+        1060,
+        896,
+        1084
+      ],
+      "score": 0.9869331121444702
+    },
+    {
+      "text": "otro: montes, selvas y todas sus plantas, haced resonar sus",
+      "box": [
+        2,
+        1081,
+        393,
+        1106
+      ],
+      "score": 0.9920466542243958
+    },
+    {
+      "text": "manos.",
+      "box": [
+        494,
+        1080,
+        543,
+        1094
+      ],
+      "score": 0.9990090727806091
+    },
+    {
+      "text": "12. Pues yo hice la tierra, y crió en clla al hombre: mis",
+      "box": [
+        505,
+        1092,
+        896,
+        1119
+      ],
+      "score": 0.994355320930481
+    },
+    {
+      "text": "I Antes cap. XLI, v. 4. Despucs cap. XLVIII, v. 12.—Apoc. I, v. 8,",
+      "box": [
+        15,
+        1110,
+        392,
+        1137
+      ],
+      "score": 0.8855247497558594
+    },
+    {
+      "text": "17, y XX1I, v. 13.",
+      "box": [
+        1,
+        1126,
+        112,
+        1145
+      ],
+      "score": 0.9691334962844849
+    },
+    {
+      "text": "10 Véase Christo.—Jesu-Christo es el verdadero Ungido ó el Mesías del",
+      "box": [
+        496,
+        1124,
+        894,
+        1149
+      ],
+      "score": 0.9846745133399963
+    },
+    {
+      "text": "* Y no los ídolos.",
+      "box": [
+        14,
+        1139,
+        120,
+        1158
+      ],
+      "score": 0.9422488808631897
+    },
+    {
+      "text": "Señor, y el Libertador de su pueblo: y al Mesias es á quien principal-",
+      "box": [
+        493,
+        1140,
+        893,
+        1165
+      ],
+      "score": 0.9849560260772705
+    },
+    {
+      "text": "La intencion del Profeta al pintar la necesidad y angustias del her-",
+      "box": [
+        13,
+        1152,
+        391,
+        1178
+      ],
+      "score": 0.871690571308136
+    },
+    {
+      "text": "mente habla Isaías bajo la figura de Cyro, eomo nos enseñan los Santos",
+      "box": [
+        492,
+        1155,
+        893,
+        1180
+      ],
+      "score": 0.9922252297401428
+    },
+    {
+      "text": "Padres.",
+      "box": [
+        494,
+        1171,
+        539,
+        1185
+      ],
+      "score": 0.9997069239616394
+    },
+    {
+      "text": "11 El Profeta habla en nombre de Dios.",
+      "box": [
+        498,
+        1182,
+        724,
+        1204
+      ],
+      "score": 0.995621919631958
+    },
+    {
+      "text": "1 Esto es, te elijo y destino paraque ejecutesmisdesignios. Exod. XXXI,",
+      "box": [
+        498,
+        1195,
+        893,
+        1224
+      ],
+      "score": 0.7980759143829346
+    },
+    {
+      "text": "6",
+      "box": [
+        18,
+        1213,
+        28,
+        1223
+      ],
+      "score": 0.9984122514724731
+    },
+    {
+      "text": "Otros traducen: los vuelvo furiosos.",
+      "box": [
+        28,
+        1208,
+        219,
+        1226
+      ],
+      "score": 0.9808464050292969
+    },
+    {
+      "text": "v. 2, et XXXIII, v. 17.",
+      "box": [
+        492,
+        1211,
+        626,
+        1231
+      ],
+      "score": 0.9828022718429565
+    },
+    {
+      "text": "13 Y de Pastor y Salvador de mi pueblo.",
+      "box": [
+        498,
+        1224,
+        730,
+        1250
+      ],
+      "score": 0.9857172966003418
+    },
+    {
+      "text": "2",
+      "box": [
+        16,
+        1240,
+        25,
+        1251
+      ],
+      "score": 0.7570174336433411
+    },
+    {
+      "text": "14 Yo formaró su euerpo en' el seno de su madre.",
+      "box": [
+        499,
+        1240,
+        773,
+        1265
+      ],
+      "score": 0.9659622311592102
+    },
+    {
+      "text": "Tá recogers y conducirás mis ovejasá Jerusalem su propio redil.",
+      "box": [
+        11,
+        1259,
+        379,
+        1293
+      ],
+      "score": 0.7421057224273682
+    },
+    {
+      "text": "8",
+      "box": [
+        16,
+        1255,
+        25,
+        1265
+      ],
+      "score": 0.9992579817771912
+    },
+    {
+      "text": "I. Esdr. I, v. 2.",
+      "box": [
+        25,
+        1249,
+        118,
+        1269
+      ],
+      "score": 0.964256763458252
+    },
+    {
+      "text": "1s Jerem. XVIII, v. 6.—Rom. IX, v. 20. En Samos habia muchos alfa-",
+      "box": [
+        498,
+        1253,
+        892,
+        1283
+      ],
+      "score": 0.9182672500610352
+    },
+    {
+      "text": "reros. Plinio, lib. XXXV, cap. XII.",
+      "box": [
+        493,
+        1269,
+        699,
+        1293
+      ],
+      "score": 0.9589055776596069
+    },
+    {
+      "text": "III-42",
+      "box": [
+        816,
+        1310,
+        870,
+        1327
+      ],
+      "score": 0.8547034859657288
+    }
+  ]
+}

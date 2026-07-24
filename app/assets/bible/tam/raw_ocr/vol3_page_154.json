@@ -1,0 +1,1457 @@
+{
+  "volume": 3,
+  "page_index": 154,
+  "pdf_page": 155,
+  "lines": [
+    {
+      "text": "241",
+      "box": [
+        52,
+        30,
+        78,
+        50
+      ],
+      "score": 0.9991540908813477
+    },
+    {
+      "text": "CAPITULO XXXVII.",
+      "box": [
+        643,
+        23,
+        780,
+        44
+      ],
+      "score": 0.9974640607833862
+    },
+    {
+      "text": "ECLESIÁSTICO.",
+      "box": [
+        177,
+        37,
+        290,
+        53
+      ],
+      "score": 0.9996432065963745
+    },
+    {
+      "text": "242",
+      "box": [
+        861,
+        29,
+        885,
+        46
+      ],
+      "score": 0.9999149441719055
+    },
+    {
+      "text": "12. Quebranta las cabezas de los príncipes enemigos nues",
+      "box": [
+        54,
+        70,
+        428,
+        102
+      ],
+      "score": 0.9727217555046082
+    },
+    {
+      "text": "3. Oh perversísima invencion! ¿de dónde has salido tú á",
+      "box": [
+        534,
+        69,
+        895,
+        90
+      ],
+      "score": 0.9971249103546143
+    },
+    {
+      "text": "cubrir la tierra de tal malicia y perfidia?",
+      "box": [
+        523,
+        88,
+        770,
+        105
+      ],
+      "score": 0.9852040410041809
+    },
+    {
+      "text": "4. Un amigo se goza con el amigo en las diversiones, y en",
+      "box": [
+        534,
+        102,
+        894,
+        126
+      ],
+      "score": 0.9993488788604736
+    },
+    {
+      "text": "el tiempo de la tribulacion será su contrario.",
+      "box": [
+        522,
+        122,
+        795,
+        139
+      ],
+      "score": 0.9871221780776978
+    },
+    {
+      "text": "5. Ún amigo se conduele con el amigo por amor de su pro-",
+      "box": [
+        533,
+        135,
+        894,
+        159
+      ],
+      "score": 0.9924246668815613
+    },
+    {
+      "text": "principio .",
+      "box": [
+        45,
+        159,
+        122,
+        183
+      ],
+      "score": 0.9427281022071838
+    },
+    {
+      "text": "pio vientre s, y embrazará el escudo para defenderle contra el",
+      "box": [
+        520,
+        152,
+        894,
+        175
+      ],
+      "score": 0.9854627847671509
+    },
+    {
+      "text": "enemigo.",
+      "box": [
+        521,
+        170,
+        580,
+        188
+      ],
+      "score": 0.9987283945083618
+    },
+    {
+      "text": "Israél á quien has",
+      "box": [
+        46,
+        192,
+        180,
+        219
+      ],
+      "score": 0.9833325147628784
+    },
+    {
+      "text": "6. Ah! no te olvides en tu corazon de tu amigo, y no pier-",
+      "box": [
+        533,
+        183,
+        894,
+        207
+      ],
+      "score": 0.9909037947654724
+    },
+    {
+      "text": "tratado y",
+      "box": [
+        170,
+        197,
+        246,
+        220
+      ],
+      "score": 0.9938557147979736
+    },
+    {
+      "text": "amado como á primogénito",
+      "box": [
+        237,
+        194,
+        425,
+        219
+      ],
+      "score": 0.9839674830436707
+    },
+    {
+      "text": "das la memoria de él en medio de tu opulencia.",
+      "box": [
+        521,
+        201,
+        812,
+        222
+      ],
+      "score": 0.9997377991676331
+    },
+    {
+      "text": "tuyo ³.",
+      "box": [
+        48,
+        212,
+        95,
+        231
+      ],
+      "score": 0.9440982937812805
+    },
+    {
+      "text": "15. Apiádate de Jerusalem,",
+      "box": [
+        59,
+        226,
+        251,
+        254
+      ],
+      "score": 0.9964312314987183
+    },
+    {
+      "text": "7. No quieras aconsejarte con aquel que te arma asechan-",
+      "box": [
+        533,
+        218,
+        895,
+        240
+      ],
+      "score": 0.9997669458389282
+    },
+    {
+      "text": ", ciudad que has santifiendo,",
+      "box": [
+        238,
+        226,
+        424,
+        253
+      ],
+      "score": 0.9564911127090454
+    },
+    {
+      "text": "zas: y encubre tus intentos á los que te envidian .",
+      "box": [
+        522,
+        237,
+        829,
+        253
+      ],
+      "score": 0.9846121668815613
+    },
+    {
+      "text": "8. Todo el que es consultado da su consejo: mas hay con-",
+      "box": [
+        533,
+        249,
+        895,
+        272
+      ],
+      "score": 0.9987173676490784
+    },
+    {
+      "text": "16. Llena á Sion de tus",
+      "box": [
+        60,
+        259,
+        226,
+        287
+      ],
+      "score": 0.9918997287750244
+    },
+    {
+      "text": "oráculos ó palabras inefables, y á",
+      "box": [
+        217,
+        258,
+        425,
+        286
+      ],
+      "score": 0.9699015021324158
+    },
+    {
+      "text": "tu pueblo de tu gloria.",
+      "box": [
+        47,
+        276,
+        195,
+        301
+      ],
+      "score": 0.9960681796073914
+    },
+    {
+      "text": "sejero que le da mirando á su propio interés.",
+      "box": [
+        522,
+        269,
+        797,
+        286
+      ],
+      "score": 0.99593186378479
+    },
+    {
+      "text": "17. Declárate á favor",
+      "box": [
+        62,
+        292,
+        213,
+        317
+      ],
+      "score": 0.9935718774795532
+    },
+    {
+      "text": "9. Mira bien con quien te aconsejas: infórmate primero de",
+      "box": [
+        534,
+        283,
+        895,
+        303
+      ],
+      "score": 0.9901067614555359
+    },
+    {
+      "text": "e aquellos que desde el principio,",
+      "box": [
+        221,
+        291,
+        424,
+        318
+      ],
+      "score": 0.9918202757835388
+    },
+    {
+      "text": "desde Abraham, son criaturas",
+      "box": [
+        47,
+        308,
+        246,
+        335
+      ],
+      "score": 0.983879566192627
+    },
+    {
+      "text": "qué necesita 19; pues tambien él lo pensará dentro de sí:",
+      "box": [
+        522,
+        301,
+        863,
+        318
+      ],
+      "score": 0.9812130331993103
+    },
+    {
+      "text": "tuyas escogidas, y verifica las",
+      "box": [
+        238,
+        308,
+        424,
+        332
+      ],
+      "score": 0.9744650721549988
+    },
+    {
+      "text": "10. No sea que él fije en el suelo una estaca para que tro-",
+      "box": [
+        532,
+        314,
+        896,
+        338
+      ],
+      "score": 0.9973998069763184
+    },
+    {
+      "text": "predicciones que anunciaron",
+      "box": [
+        47,
+        324,
+        235,
+        351
+      ],
+      "score": 0.9992191195487976
+    },
+    {
+      "text": "en tu nombre los antiguos pro-",
+      "box": [
+        227,
+        324,
+        424,
+        350
+      ],
+      "score": 0.9992426633834839
+    },
+    {
+      "text": "fetas.",
+      "box": [
+        48,
+        340,
+        88,
+        362
+      ],
+      "score": 0.9963430762290955
+    },
+    {
+      "text": "pieces, y te diga despues:",
+      "box": [
+        520,
+        333,
+        676,
+        352
+      ],
+      "score": 0.9944812059402466
+    },
+    {
+      "text": "18. Remunera á los que",
+      "box": [
+        61,
+        356,
+        226,
+        381
+      ],
+      "score": 0.9760189652442932
+    },
+    {
+      "text": "11. Bueno es tu camino;y se esté en frente para ver lo que",
+      "box": [
+        532,
+        348,
+        896,
+        369
+      ],
+      "score": 0.9904704093933105
+    },
+    {
+      "text": "viven de la esperanza que tienen",
+      "box": [
+        218,
+        355,
+        424,
+        381
+      ],
+      "score": 0.9931132793426514
+    },
+    {
+      "text": "en tí; á fin de que se vea la",
+      "box": [
+        48,
+        373,
+        232,
+        398
+      ],
+      "score": 0.9969969391822815
+    },
+    {
+      "text": "te acontece.",
+      "box": [
+        521,
+        366,
+        595,
+        383
+      ],
+      "score": 0.9884026050567627
+    },
+    {
+      "text": "averacidad de tus profetas: y oye",
+      "box": [
+        222,
+        372,
+        424,
+        397
+      ],
+      "score": 0.9883245825767517
+    },
+    {
+      "text": "las oraciones de tus siervos,",
+      "box": [
+        48,
+        389,
+        226,
+        415
+      ],
+      "score": 0.999005138874054
+    },
+    {
+      "text": "12. Vete á tratar de santidad con un hombre sin religion,",
+      "box": [
+        532,
+        381,
+        896,
+        402
+      ],
+      "score": 0.9998039603233337
+    },
+    {
+      "text": "19. Conforme á la bendicion",
+      "box": [
+        62,
+        407,
+        254,
+        431
+      ],
+      "score": 0.9967269897460938
+    },
+    {
+      "text": "y de justicia con un injusto 11, y con una mujer de la otra que",
+      "box": [
+        519,
+        399,
+        897,
+        419
+      ],
+      "score": 0.9860181212425232
+    },
+    {
+      "text": "n que dió Aaron á tu pueblo, y",
+      "box": [
+        242,
+        405,
+        424,
+        430
+      ],
+      "score": 0.9962204098701477
+    },
+    {
+      "text": "le da celos ó es su rival, de guerra con el cobarde, de cosas de",
+      "box": [
+        521,
+        417,
+        897,
+        434
+      ],
+      "score": 0.9884850382804871
+    },
+    {
+      "text": "tráfico con el negociante, de la venta con el comprador, con el",
+      "box": [
+        522,
+        434,
+        897,
+        450
+      ],
+      "score": 0.9884474277496338
+    },
+    {
+      "text": "nedor de los siglos.",
+      "box": [
+        50,
+        456,
+        174,
+        477
+      ],
+      "score": 0.9991229176521301
+    },
+    {
+      "text": "hombre envidioso del agradecimiento,",
+      "box": [
+        522,
+        451,
+        756,
+        465
+      ],
+      "score": 0.9932084679603577
+    },
+    {
+      "text": "13. Con el impío de la piedad, con el deshonesto de la ho-",
+      "box": [
+        534,
+        466,
+        898,
+        483
+      ],
+      "score": 0.9997497200965881
+    },
+    {
+      "text": "manjar que es mejor que otro.",
+      "box": [
+        50,
+        489,
+        243,
+        514
+      ],
+      "score": 0.9764848351478577
+    },
+    {
+      "text": "nestidad, de cualquier artefacto con el labrador,",
+      "box": [
+        521,
+        483,
+        816,
+        500
+      ],
+      "score": 0.9938291311264038
+    },
+    {
+      "text": "14. Con el jornalero asalariado por un año de la obra",
+      "box": [
+        532,
+        497,
+        899,
+        518
+      ],
+      "score": 0.995561420917511
+    },
+    {
+      "text": "que en él se puede hacer, con el siervo perezoso sobre el teson",
+      "box": [
+        520,
+        513,
+        899,
+        537
+      ],
+      "score": 0.984876811504364
+    },
+    {
+      "text": "verdaderas.",
+      "box": [
+        51,
+        539,
+        129,
+        560
+      ],
+      "score": 0.9970434308052063
+    },
+    {
+      "text": "en el trabajo. Nunca tomes consejo de estos sobre tales",
+      "box": [
+        519,
+        530,
+        899,
+        553
+      ],
+      "score": 0.9910523295402527
+    },
+    {
+      "text": "cosas.",
+      "box": [
+        520,
+        551,
+        560,
+        569
+      ],
+      "score": 0.99733966588974
+    },
+    {
+      "text": "mas el hombre sábio se le opondrá.",
+      "box": [
+        49,
+        571,
+        273,
+        598
+      ],
+      "score": 0.9766207337379456
+    },
+    {
+      "text": "15. Comunica sí y trata de continuo con el varon piadoso,",
+      "box": [
+        532,
+        565,
+        897,
+        587
+      ],
+      "score": 0.9953597187995911
+    },
+    {
+      "text": "cualquiera que tú conozcas constante en el temor de Dios;",
+      "box": [
+        519,
+        582,
+        880,
+        604
+      ],
+      "score": 0.9893070459365845
+    },
+    {
+      "text": "16. Y cuya alma sea conforme á la tuya; y el cual si tú",
+      "box": [
+        532,
+        600,
+        897,
+        619
+      ],
+      "score": 0.98769211769104
+    },
+    {
+      "text": "vacilases alguna vez entre tinieblas, tenga compasion de tí.",
+      "box": [
+        517,
+        615,
+        882,
+        637
+      ],
+      "score": 0.9981393814086914
+    },
+    {
+      "text": "17. Fórmate dentro de tí un corazon de buen consejo 12;",
+      "box": [
+        531,
+        634,
+        897,
+        653
+      ],
+      "score": 0.9938318133354187
+    },
+    {
+      "text": "seos del hombre 6.",
+      "box": [
+        50,
+        655,
+        167,
+        675
+      ],
+      "score": 0.9704068303108215
+    },
+    {
+      "text": "porque no hay cosa que deba serte mas estimable.",
+      "box": [
+        517,
+        647,
+        827,
+        671
+      ],
+      "score": 0.998814582824707
+    },
+    {
+      "text": "25. Si su lengua habla palabras salutíferas, si de blandura",
+      "box": [
+        63,
+        667,
+        423,
+        695
+      ],
+      "score": 0.9931285381317139
+    },
+    {
+      "text": "18. El alma de un varon piadoso descubre algunas veces la",
+      "box": [
+        530,
+        667,
+        894,
+        685
+      ],
+      "score": 0.9944648146629333
+    },
+    {
+      "text": "y de compasion, el marido de esta mujer tendrá una ventaja",
+      "box": [
+        50,
+        686,
+        421,
+        711
+      ],
+      "score": 0.9898853898048401
+    },
+    {
+      "text": "verdad, mejor que siete centinelas apostadas en un lugar alto",
+      "box": [
+        516,
+        683,
+        895,
+        704
+      ],
+      "score": 0.9994207620620728
+    },
+    {
+      "text": "que no es comun entre los hombres.",
+      "box": [
+        52,
+        708,
+        274,
+        726
+      ],
+      "score": 0.9999451637268066
+    },
+    {
+      "text": "para atalayar 1a",
+      "box": [
+        517,
+        700,
+        619,
+        721
+      ],
+      "score": 0.9056638479232788
+    },
+    {
+      "text": "26. Quien posee una buena esposa, comienza ya con eso á",
+      "box": [
+        64,
+        721,
+        421,
+        743
+      ],
+      "score": 0.9953699111938477
+    },
+    {
+      "text": "19. Mas sobre todo has de rogar al Altísimo que enderece",
+      "box": [
+        529,
+        717,
+        894,
+        737
+      ],
+      "score": 0.9999191164970398
+    },
+    {
+      "text": "formar un patrimonio, tiene una ayuda semejante á él, y una",
+      "box": [
+        51,
+        738,
+        420,
+        757
+      ],
+      "score": 0.9973700642585754
+    },
+    {
+      "text": "tus pasos por la senda de la verdad.",
+      "box": [
+        517,
+        733,
+        735,
+        753
+      ],
+      "score": 0.9998824596405029
+    },
+    {
+      "text": "columna de apoyo.",
+      "box": [
+        52,
+        756,
+        169,
+        773
+      ],
+      "score": 0.99654221534729
+    },
+    {
+      "text": "20. Preceda á todas tus obras la palabra ódictámen de la",
+      "box": [
+        531,
+        751,
+        893,
+        768
+      ],
+      "score": 0.9934977293014526
+    },
+    {
+      "text": "27. Al contrurio, así como donde no hay cerca, la heredad",
+      "box": [
+        63,
+        768,
+        421,
+        790
+      ],
+      "score": 0.9906176924705505
+    },
+    {
+      "text": "verdad, y un consejo firme ó maduro á todas tus acciones.",
+      "box": [
+        516,
+        765,
+        876,
+        786
+      ],
+      "score": 0.9978569149971008
+    },
+    {
+      "text": "será saqueada: donde no hay una mujer hacendosa, gime el",
+      "box": [
+        51,
+        787,
+        419,
+        805
+      ],
+      "score": 0.9987694621086121
+    },
+    {
+      "text": "21. Úna palabra ó consejo malo altera el corazon: del cual",
+      "box": [
+        530,
+        784,
+        894,
+        801
+      ],
+      "score": 0.981200098991394
+    },
+    {
+      "text": "hombre en la pobreza.",
+      "box": [
+        52,
+        804,
+        189,
+        821
+      ],
+      "score": 0.999893844127655
+    },
+    {
+      "text": "nacen estas cuatro cosas, el bien y el mal, la muerte y la",
+      "box": [
+        516,
+        801,
+        892,
+        818
+      ],
+      "score": 0.9997177720069885
+    },
+    {
+      "text": "28. ¿Quién se fia de aquel que no tiene nido, ó casa, y que",
+      "box": [
+        66,
+        821,
+        419,
+        838
+      ],
+      "score": 0.9948433637619019
+    },
+    {
+      "text": "vida, cosas que constantemente están en poder de la lengua.",
+      "box": [
+        517,
+        818,
+        892,
+        835
+      ],
+      "score": 0.9885424375534058
+    },
+    {
+      "text": "se echa para dormir donde le coge la oscuridad de la noche,",
+      "box": [
+        53,
+        837,
+        418,
+        853
+      ],
+      "score": 0.9918789863586426
+    },
+    {
+      "text": "Tal es hábil para instruir á muchos, que para su alma no vale",
+      "box": [
+        516,
+        832,
+        892,
+        852
+      ],
+      "score": 0.9967293739318848
+    },
+    {
+      "text": "y es como un ladron muy listo que salta de una ciudad á",
+      "box": [
+        51,
+        853,
+        419,
+        870
+      ],
+      "score": 0.9994417428970337
+    },
+    {
+      "text": "nada.",
+      "box": [
+        515,
+        849,
+        554,
+        868
+      ],
+      "score": 0.9999474287033081
+    },
+    {
+      "text": "otra 7?",
+      "box": [
+        51,
+        867,
+        95,
+        885
+      ],
+      "score": 0.963738739490509
+    },
+    {
+      "text": "22. Otro es prudente é instruye á muchos, y sirve de con-",
+      "box": [
+        528,
+        865,
+        893,
+        886
+      ],
+      "score": 0.9961737394332886
+    },
+    {
+      "text": "suelo á su propia alma.",
+      "box": [
+        516,
+        884,
+        657,
+        901
+      ],
+      "score": 0.9987831115722656
+    },
+    {
+      "text": "CAPITULO XXXVII",
+      "box": [
+        171,
+        899,
+        300,
+        919
+      ],
+      "score": 0.9991261959075928
+    },
+    {
+      "text": "23. El que discurre con sofisterías, se hace odioso; se que-",
+      "box": [
+        527,
+        897,
+        892,
+        921
+      ],
+      "score": 0.9994544386863708
+    },
+    {
+      "text": "dará con las manos enteramente vacías 4.",
+      "box": [
+        516,
+        917,
+        773,
+        934
+      ],
+      "score": 0.9761012196540833
+    },
+    {
+      "text": "Del amigo fingido y del verdadero. Diacrecion que debe usarse en tomar",
+      "box": [
+        52,
+        931,
+        418,
+        956
+      ],
+      "score": 0.9967976212501526
+    },
+    {
+      "text": "24. No le ha dado el Señor gracia poca ni mucha, porque",
+      "box": [
+        527,
+        931,
+        891,
+        953
+      ],
+      "score": 0.9918655157089233
+    },
+    {
+      "text": "consejos. Ciencia verdadera ó falsa, útil ó peligrosa. Males que vienen",
+      "box": [
+        62,
+        945,
+        417,
+        969
+      ],
+      "score": 0.9917458295822144
+    },
+    {
+      "text": "de la gula.",
+      "box": [
+        62,
+        958,
+        121,
+        978
+      ],
+      "score": 0.9867689609527588
+    },
+    {
+      "text": "carece de todo saber.",
+      "box": [
+        517,
+        950,
+        644,
+        964
+      ],
+      "score": 0.9999833703041077
+    },
+    {
+      "text": "25. Aquel es sábio, que es sábio para su alma; y son dignos",
+      "box": [
+        527,
+        962,
+        891,
+        986
+      ],
+      "score": 0.9909985661506653
+    },
+    {
+      "text": "de alabanza los frutos de su prudencia 16.",
+      "box": [
+        515,
+        983,
+        764,
+        997
+      ],
+      "score": 0.974216639995575
+    },
+    {
+      "text": "1. Todo amigo dirá: Yo tambien he trabado amistad conti-",
+      "box": [
+        63,
+        997,
+        416,
+        1022
+      ],
+      "score": 0.9987915754318237
+    },
+    {
+      "text": "26. El hombre sábio instruye á su pueblo, y los frutos de",
+      "box": [
+        528,
+        996,
+        890,
+        1018
+      ],
+      "score": 0.9995591640472412
+    },
+    {
+      "text": "go. Pero hay amigos que lo son solo de nombre. ¿Y no causa",
+      "box": [
+        51,
+        1014,
+        415,
+        1039
+      ],
+      "score": 0.9859777092933655
+    },
+    {
+      "text": "su prudencia son fleles ó estables.",
+      "box": [
+        516,
+        1016,
+        717,
+        1030
+      ],
+      "score": 0.9922313094139099
+    },
+    {
+      "text": "esto un disgusto á par de muerte,",
+      "box": [
+        51,
+        1031,
+        253,
+        1052
+      ],
+      "score": 0.9987085461616516
+    },
+    {
+      "text": "27 Colmado será de bendiciones el varon sábio, y alabado",
+      "box": [
+        525,
+        1027,
+        889,
+        1052
+      ],
+      "score": 0.9910531044006348
+    },
+    {
+      "text": "2. Que el compañero y el amigo se cambien en enemigos?",
+      "box": [
+        61,
+        1045,
+        416,
+        1071
+      ],
+      "score": 0.9907969832420349
+    },
+    {
+      "text": "de cuantos le conozcan.",
+      "box": [
+        516,
+        1047,
+        659,
+        1061
+      ],
+      "score": 0.9724131226539612
+    },
+    {
+      "text": "Habla de los reyes de Egypto y de la Syria.—Véase Dan VII, v.25.",
+      "box": [
+        59,
+        1081,
+        416,
+        1109
+      ],
+      "score": 0.9808528423309326
+    },
+    {
+      "text": "8 Por no perder la mesa que le da.",
+      "box": [
+        525,
+        1082,
+        708,
+        1101
+      ],
+      "score": 0.993273138999939
+    },
+    {
+      "text": ":Con el nombre de doce tribus se representan tambien aqu todos los",
+      "box": [
+        60,
+        1094,
+        417,
+        1124
+      ],
+      "score": 0.6930732131004333
+    },
+    {
+      "text": "Esto es, debes antes de tomar consejo de alguno, cerciorarte, en",
+      "box": [
+        524,
+        1096,
+        889,
+        1118
+      ],
+      "score": 0.9951221942901611
+    },
+    {
+      "text": "Gentiles, como en San Mateo, cap. XIX, v. 28.—Véase Rom. IX, v. 6.—",
+      "box": [
+        50,
+        1108,
+        416,
+        1138
+      ],
+      "score": 0.916493833065033
+    },
+    {
+      "text": "cuanto sea posible, del carácter y honradez de dicho consejero, y de sus",
+      "box": [
+        514,
+        1110,
+        890,
+        1132
+      ],
+      "score": 0.992702066898346
+    },
+    {
+      "text": "Mira pues esta plegaria á la venida del Mesas. Joan X, v. .",
+      "box": [
+        50,
+        1122,
+        369,
+        1151
+      ],
+      "score": 0.74112468957901
+    },
+    {
+      "text": " Exod. IV, v. 22.",
+      "box": [
+        59,
+        1134,
+        164,
+        1158
+      ],
+      "score": 0.9159321784973145
+    },
+    {
+      "text": "circunstancias.",
+      "box": [
+        515,
+        1127,
+        595,
+        1141
+      ],
+      "score": 0.9986482262611389
+    },
+    {
+      "text": "10 Martini traduce en italiano: Reflexiona primero si tiene necesidad de",
+      "box": [
+        519,
+        1137,
+        890,
+        1159
+      ],
+      "score": 0.986710250377655
+    },
+    {
+      "text": "O en medio de la cual tienes tu santuario.",
+      "box": [
+        59,
+        1149,
+        284,
+        1174
+      ],
+      "score": 0.9897729754447937
+    },
+    {
+      "text": "La doncella tomará por esposo á aquel jóven que le aconsejarán sus",
+      "box": [
+        58,
+        1161,
+        415,
+        1193
+      ],
+      "score": 0.8172599077224731
+    },
+    {
+      "text": "alguna cosa.",
+      "box": [
+        515,
+        1155,
+        583,
+        1169
+      ],
+      "score": 0.9997304081916809
+    },
+    {
+      "text": "padres; pero el hombre que busca esposa, irá considerando las cualidades",
+      "box": [
+        51,
+        1175,
+        414,
+        1205
+      ],
+      "score": 0.9481739401817322
+    },
+    {
+      "text": "ii Todo esto es una hermosa ironía, para advertir que de ciertas per-",
+      "box": [
+        519,
+        1166,
+        887,
+        1188
+      ],
+      "score": 0.9793494343757629
+    },
+    {
+      "text": "de varías doncellas, y escogerá la que crea mejor para cuidar de su casa.",
+      "box": [
+        51,
+        1188,
+        413,
+        1219
+      ],
+      "score": 0.9683496952056885
+    },
+    {
+      "text": "sonas jamás debemos tomar consejo.",
+      "box": [
+        512,
+        1180,
+        703,
+        1200
+      ],
+      "score": 0.9983747005462646
+    },
+    {
+      "text": " Por lo que sigue se ve que habla principalmente de las prendas del",
+      "box": [
+        59,
+        1201,
+        412,
+        1233
+      ],
+      "score": 0.9877598285675049
+    },
+    {
+      "text": "1\" O una recta conciencia.",
+      "box": [
+        519,
+        1194,
+        666,
+        1214
+      ],
+      "score": 0.9356896877288818
+    },
+    {
+      "text": "alma.",
+      "box": [
+        50,
+        1211,
+        82,
+        1232
+      ],
+      "score": 0.9886505007743835
+    },
+    {
+      "text": "1a Ve mas que muchos sábios.",
+      "box": [
+        518,
+        1207,
+        680,
+        1229
+      ],
+      "score": 0.9484341740608215
+    },
+    {
+      "text": "Aconseja el Sábio el matrimonio como remedio de muchos males del",
+      "box": [
+        59,
+        1226,
+        412,
+        1260
+      ],
+      "score": 0.9978790283203125
+    },
+    {
+      "text": "14 Saldrá mal en todo.",
+      "box": [
+        518,
+        1221,
+        643,
+        1242
+      ],
+      "score": 0.9688785076141357
+    },
+    {
+      "text": "alma, y como útil al bien páblico y particular. Aun no habia legado el",
+      "box": [
+        50,
+        1238,
+        412,
+        1277
+      ],
+      "score": 0.8703073859214783
+    },
+    {
+      "text": "1s Esta es la diferencia entre el verdadero sábio, y el sofsta: aquel arre-",
+      "box": [
+        517,
+        1233,
+        890,
+        1260
+      ],
+      "score": 0.9084367752075195
+    },
+    {
+      "text": "tiempo de aconsejar aquella angelical virtud, de la cual hizo tantos elo",
+      "box": [
+        50,
+        1252,
+        412,
+        1290
+      ],
+      "score": 0.7983089089393616
+    },
+    {
+      "text": "gla primero su alma; y despues emplea su saber en arreglar ó ser útil á",
+      "box": [
+        510,
+        1248,
+        892,
+        1275
+      ],
+      "score": 0.9324564337730408
+    },
+    {
+      "text": "gios Jesu-Christo.",
+      "box": [
+        51,
+        1265,
+        143,
+        1288
+      ],
+      "score": 0.9618658423423767
+    },
+    {
+      "text": "los demás.",
+      "box": [
+        511,
+        1264,
+        571,
+        1281
+      ],
+      "score": 0.9873679876327515
+    },
+    {
+      "text": "III.—32",
+      "box": [
+        816,
+        1298,
+        869,
+        1319
+      ],
+      "score": 0.9361733198165894
+    }
+  ]
+}

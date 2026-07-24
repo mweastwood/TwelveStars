@@ -1,0 +1,37 @@
+{
+  "volume": 2,
+  "page_index": 82,
+  "pdf_page": 83,
+  "lines": [
+    {
+      "text": "5D02",
+      "box": [
+        168,
+        1757,
+        286,
+        1792
+      ],
+      "score": 0.5973682403564453
+    },
+    {
+      "text": "HPISAN",
+      "box": [
+        1190,
+        1768,
+        1316,
+        1795
+      ],
+      "score": 0.949408769607544
+    },
+    {
+      "text": "RESPHA PROTEGE LOS CUERPOS DE SUS HIJOS",
+      "box": [
+        480,
+        1835,
+        1013,
+        1864
+      ],
+      "score": 0.998540461063385
+    }
+  ]
+}

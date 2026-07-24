@@ -1,0 +1,1387 @@
+{
+  "volume": 3,
+  "page_index": 204,
+  "pdf_page": 205,
+  "lines": [
+    {
+      "text": "325",
+      "box": [
+        46,
+        22,
+        73,
+        42
+      ],
+      "score": 0.999811589717865
+    },
+    {
+      "text": "ISAIAS.",
+      "box": [
+        202,
+        23,
+        266,
+        44
+      ],
+      "score": 0.9994145631790161
+    },
+    {
+      "text": "CAPITULO XLIX.",
+      "box": [
+        663,
+        34,
+        782,
+        55
+      ],
+      "score": 0.9990682601928711
+    },
+    {
+      "text": "326",
+      "box": [
+        874,
+        40,
+        898,
+        56
+      ],
+      "score": 0.9960218071937561
+    },
+    {
+      "text": "7. Y dijiste: Yo dominaré para siempre: y no pensaste en",
+      "box": [
+        50,
+        65,
+        436,
+        89
+      ],
+      "score": 0.9958354234695435
+    },
+    {
+      "text": "estas cosas, ni reflexionaste en el paradero que habias do",
+      "box": [
+        38,
+        83,
+        435,
+        108
+      ],
+      "score": 0.9883058071136475
+    },
+    {
+      "text": "vosotros mismos pregonado 6? Hasta ahora t te he revelado",
+      "box": [
+        537,
+        76,
+        905,
+        98
+      ],
+      "score": 0.9701073169708252
+    },
+    {
+      "text": "tener.",
+      "box": [
+        40,
+        102,
+        81,
+        120
+      ],
+      "score": 0.999988317489624
+    },
+    {
+      "text": "cosas nuevas, y tengo reservadas otras que tú no sabes.",
+      "box": [
+        537,
+        94,
+        868,
+        116
+      ],
+      "score": 0.9994261264801025
+    },
+    {
+      "text": "8. Ahora, pues, escucha estas palabras, oh Babylonia, tú",
+      "box": [
+        51,
+        117,
+        435,
+        147
+      ],
+      "score": 0.9910773038864136
+    },
+    {
+      "text": "7. Ahora es cuando estas predicciones te son hechas, y no",
+      "box": [
+        550,
+        111,
+        905,
+        134
+      ],
+      "score": 0.9806012511253357
+    },
+    {
+      "text": "que vives entre delicias, y que estás llena de arrogancia; tú",
+      "box": [
+        40,
+        136,
+        436,
+        163
+      ],
+      "score": 0.9919238686561584
+    },
+    {
+      "text": "antes; pues hasta aquí tú no oiste hablar de ellas, á fin de",
+      "box": [
+        536,
+        128,
+        905,
+        150
+      ],
+      "score": 0.9986773729324341
+    },
+    {
+      "text": "que dices en tu corazon: Yo soy la dominadora, y no hay",
+      "box": [
+        40,
+        153,
+        436,
+        181
+      ],
+      "score": 0.9887531399726868
+    },
+    {
+      "text": "que no puedas decir: Ya yo me las sabia.",
+      "box": [
+        536,
+        144,
+        784,
+        165
+      ],
+      "score": 0.9950740933418274
+    },
+    {
+      "text": "otra mas que yo: no quedaré jamás viuda ó sin rey, ni cono-",
+      "box": [
+        40,
+        169,
+        438,
+        200
+      ],
+      "score": 0.8896088600158691
+    },
+    {
+      "text": "8. Ni las habias oido, ni las sabias; ni entonces tenias",
+      "box": [
+        549,
+        160,
+        906,
+        183
+      ],
+      "score": 0.9715415239334106
+    },
+    {
+      "text": "abiertas tus orejas: que bien sé que tú has de proseguir",
+      "box": [
+        536,
+        176,
+        906,
+        199
+      ],
+      "score": 0.9917011260986328
+    },
+    {
+      "text": "ceré nunca la esterilidad.",
+      "box": [
+        42,
+        188,
+        217,
+        214
+      ],
+      "score": 0.9493582248687744
+    },
+    {
+      "text": "siempre prevaricando; y prevaricador te llamé desde el seno",
+      "box": [
+        535,
+        192,
+        906,
+        216
+      ],
+      "score": 0.993996262550354
+    },
+    {
+      "text": "9. Vendrán estos dos males súbitamente sobre tí en un",
+      "box": [
+        55,
+        205,
+        437,
+        233
+      ],
+      "score": 0.9963853359222412
+    },
+    {
+      "text": "de tu madre.",
+      "box": [
+        536,
+        210,
+        617,
+        227
+      ],
+      "score": 0.9859514832496643
+    },
+    {
+      "text": "9. Con todo por amor de mi Nombre contendré mi furor;",
+      "box": [
+        548,
+        225,
+        907,
+        247
+      ],
+      "score": 0.99606853723526
+    },
+    {
+      "text": "y con la gloria mia 8 te tiraré del freno para que no te des-",
+      "box": [
+        535,
+        242,
+        907,
+        264
+      ],
+      "score": 0.9789857268333435
+    },
+    {
+      "text": "peñes.",
+      "box": [
+        535,
+        258,
+        578,
+        276
+      ],
+      "score": 0.9989975094795227
+    },
+    {
+      "text": "dores.",
+      "box": [
+        45,
+        272,
+        90,
+        294
+      ],
+      "score": 0.9998219013214111
+    },
+    {
+      "text": "10. Mira: yo te he acrisolado con el fuego de las tribula-",
+      "box": [
+        547,
+        273,
+        907,
+        294
+      ],
+      "score": 0.9966332912445068
+    },
+    {
+      "text": "ciones, mas no como la plata 9, sino que he hecho prueba de",
+      "box": [
+        534,
+        290,
+        907,
+        311
+      ],
+      "score": 0.991344153881073
+    },
+    {
+      "text": "No hay quien me vea. Ese tu saber y ciencia vana te sedu-",
+      "box": [
+        43,
+        304,
+        437,
+        335
+      ],
+      "score": 0.8180166482925415
+    },
+    {
+      "text": "tí en la fragua de la pobreza.",
+      "box": [
+        534,
+        306,
+        710,
+        325
+      ],
+      "score": 0.9993478059768677
+    },
+    {
+      "text": "11. Por mi respeto, por respeto mio haré esto, á fin de",
+      "box": [
+        547,
+        322,
+        907,
+        343
+      ],
+      "score": 0.9854532480239868
+    },
+    {
+      "text": "soberana, y fuera de mí no hay otra.",
+      "box": [
+        46,
+        339,
+        285,
+        366
+      ],
+      "score": 0.9954589009284973
+    },
+    {
+      "text": "que no sea yo blasfemado de vuestros enemigos 1º: que no",
+      "box": [
+        533,
+        339,
+        907,
+        359
+      ],
+      "score": 0.9815542101860046
+    },
+    {
+      "text": "11. Caerá sobre tí la desgracia, y no sabrás de dónde nace;",
+      "box": [
+        59,
+        355,
+        436,
+        383
+      ],
+      "score": 0.9826035499572754
+    },
+    {
+      "text": "daré yo jamás á otro mi gloria.",
+      "box": [
+        534,
+        354,
+        727,
+        373
+      ],
+      "score": 0.9931427240371704
+    },
+    {
+      "text": "y se desplomará sobre tí una calamidad, que no podrás",
+      "box": [
+        44,
+        371,
+        436,
+        399
+      ],
+      "score": 0.9860975742340088
+    },
+    {
+      "text": "12. Éscúchame, oh Jacob, y tú, oh Israál, á quien yo doy",
+      "box": [
+        545,
+        369,
+        907,
+        393
+      ],
+      "score": 0.9643844962120056
+    },
+    {
+      "text": "nombre: Yo mismo, yo el primero y yo el último \".",
+      "box": [
+        533,
+        387,
+        846,
+        408
+      ],
+      "score": 0.9813417196273804
+    },
+    {
+      "text": "sobre tí una imprevista miseria.",
+      "box": [
+        47,
+        405,
+        255,
+        432
+      ],
+      "score": 0.997141420841217
+    },
+    {
+      "text": "13. Mi mano fué la que fundó la tierra, y mi diestra la",
+      "box": [
+        546,
+        404,
+        908,
+        425
+      ],
+      "score": 0.9768337607383728
+    },
+    {
+      "text": "12. Estáte con tus encantadores, y con la muchedumbre",
+      "box": [
+        60,
+        420,
+        436,
+        453
+      ],
+      "score": 0.9792720079421997
+    },
+    {
+      "text": "que midió los cielos: á una voz que yo les dé al momento se",
+      "box": [
+        533,
+        422,
+        908,
+        441
+      ],
+      "score": 0.9973616003990173
+    },
+    {
+      "text": "presentarán todos 9.",
+      "box": [
+        534,
+        440,
+        661,
+        456
+      ],
+      "score": 0.9681141972541809
+    },
+    {
+      "text": "juventud, por si acaso puede esto ayudarte algo, ó puedes tú",
+      "box": [
+        45,
+        454,
+        436,
+        484
+      ],
+      "score": 0.96145099401474
+    },
+    {
+      "text": "14. Reuníos todos vosotros, pueblos, y escuchadme: ¿Cuál",
+      "box": [
+        546,
+        454,
+        909,
+        473
+      ],
+      "score": 0.9967949986457825
+    },
+    {
+      "text": "hacerte mas fuerte.",
+      "box": [
+        47,
+        472,
+        179,
+        494
+      ],
+      "score": 0.9977001547813416
+    },
+    {
+      "text": "de esos idolos anunció tales cosas ? El Señor amó á este",
+      "box": [
+        533,
+        471,
+        910,
+        489
+      ],
+      "score": 0.9775627851486206
+    },
+    {
+      "text": "13. Pero ah! En medio de la multitud de tus consejeros",
+      "box": [
+        60,
+        487,
+        436,
+        517
+      ],
+      "score": 0.9901790618896484
+    },
+    {
+      "text": "hombre; y este Cyro ejecutará la voluntad del Señor en Ba-",
+      "box": [
+        534,
+        489,
+        911,
+        506
+      ],
+      "score": 0.9933488965034485
+    },
+    {
+      "text": "tú te has perdido. Y sino levántense y sálvente los agoreros",
+      "box": [
+        46,
+        503,
+        436,
+        536
+      ],
+      "score": 0.9660475850105286
+    },
+    {
+      "text": "bylonia, y será su brazo contra los Chaldéos.",
+      "box": [
+        535,
+        506,
+        809,
+        523
+      ],
+      "score": 0.9904394149780273
+    },
+    {
+      "text": "del cielo, que contemplaban las estrellas, y contaban los",
+      "box": [
+        46,
+        521,
+        436,
+        551
+      ],
+      "score": 0.9959113001823425
+    },
+    {
+      "text": "15. Yo, yo soy el que le he hablado, y yo el que le he lla-",
+      "box": [
+        546,
+        521,
+        911,
+        540
+      ],
+      "score": 0.999530553817749
+    },
+    {
+      "text": "meses ², para pronosticarte lo que te habia de acontecer.",
+      "box": [
+        45,
+        537,
+        406,
+        566
+      ],
+      "score": 0.9617329239845276
+    },
+    {
+      "text": "mado: yo le he guiado, y le he allanado el camino.",
+      "box": [
+        533,
+        537,
+        845,
+        555
+      ],
+      "score": 0.9929443597793579
+    },
+    {
+      "text": "14. Hé aquí que se han vuelto como paja, el fuego los ha",
+      "box": [
+        60,
+        555,
+        436,
+        582
+      ],
+      "score": 0.9878689646720886
+    },
+    {
+      "text": "16. Acercaos á mí y eseuchad esto: Yo desde el principio",
+      "box": [
+        546,
+        552,
+        911,
+        572
+      ],
+      "score": 0.9790135622024536
+    },
+    {
+      "text": "devorado: no librarán su vida de la violencia de las llamas;",
+      "box": [
+        45,
+        571,
+        436,
+        599
+      ],
+      "score": 0.9793165922164917
+    },
+    {
+      "text": "jamás he hablado á escondidas; ya tiempo antes que esto",
+      "box": [
+        531,
+        567,
+        913,
+        591
+      ],
+      "score": 0.9847551584243774
+    },
+    {
+      "text": "estas no dejarán brasas con que se calienten las gentes, ni",
+      "box": [
+        44,
+        588,
+        436,
+        616
+      ],
+      "score": 0.9889102578163147
+    },
+    {
+      "text": "sucediese, estaba yo allí; y ahora me ha enviado el Señor Dios",
+      "box": [
+        532,
+        583,
+        912,
+        606
+      ],
+      "score": 0.9927136301994324
+    },
+    {
+      "text": "hogar ante el cual se sienten ³:",
+      "box": [
+        44,
+        606,
+        252,
+        630
+      ],
+      "score": 0.9622824788093567
+    },
+    {
+      "text": "y su Espíritu \".",
+      "box": [
+        531,
+        602,
+        633,
+        622
+      ],
+      "score": 0.9435240030288696
+    },
+    {
+      "text": "15. Tal será el paradero de todas aquellas cosas por las",
+      "box": [
+        61,
+        624,
+        433,
+        644
+      ],
+      "score": 0.9983154535293579
+    },
+    {
+      "text": "17. Esto dice el Señor tu Redentor, el Santo de Israél:",
+      "box": [
+        544,
+        613,
+        914,
+        638
+      ],
+      "score": 0.9919420480728149
+    },
+    {
+      "text": "cuales tanto te afanaste: los opulentos comerciantes, que",
+      "box": [
+        46,
+        642,
+        434,
+        661
+      ],
+      "score": 0.998021125793457
+    },
+    {
+      "text": "Yo el Señor Dios tuyo que to enseño lo que te importa, y to",
+      "box": [
+        532,
+        630,
+        913,
+        652
+      ],
+      "score": 0.9877509474754333
+    },
+    {
+      "text": "trataban contigo desde tu juventud, huyeron cada cual por",
+      "box": [
+        47,
+        658,
+        434,
+        678
+      ],
+      "score": 0.9888654351234436
+    },
+    {
+      "text": "dirijo por el camino que sigues.",
+      "box": [
+        532,
+        646,
+        727,
+        668
+      ],
+      "score": 0.9824658036231995
+    },
+    {
+      "text": "18. Ojalá hubieras atendido á mis mandamientos! hu-",
+      "box": [
+        544,
+        658,
+        915,
+        684
+      ],
+      "score": 0.985523521900177
+    },
+    {
+      "text": "su camino: no hay quien te salve.",
+      "box": [
+        46,
+        675,
+        267,
+        695
+      ],
+      "score": 0.9928038716316223
+    },
+    {
+      "text": "biera sido tu paz ó felicidad como un rio, y tu justicia ó san-",
+      "box": [
+        531,
+        674,
+        916,
+        701
+      ],
+      "score": 0.9859017133712769
+    },
+    {
+      "text": "tidad tan copiosa como los abismos del mar,",
+      "box": [
+        530,
+        694,
+        813,
+        716
+      ],
+      "score": 0.9952821731567383
+    },
+    {
+      "text": "CAPITULO XLVIII",
+      "box": [
+        179,
+        717,
+        307,
+        739
+      ],
+      "score": 0.9840750098228455
+    },
+    {
+      "text": "19. Y como sus arenas la descendencia tuya, y como sus",
+      "box": [
+        542,
+        708,
+        916,
+        734
+      ],
+      "score": 0.9992154240608215
+    },
+    {
+      "text": "granitos ó piedrecitas los hijos de tus entrañas: no hubiera",
+      "box": [
+        527,
+        726,
+        914,
+        752
+      ],
+      "score": 0.9800379276275635
+    },
+    {
+      "text": "perecido, ni quedado borrado su nombre delante de mis",
+      "box": [
+        525,
+        744,
+        914,
+        769
+      ],
+      "score": 0.993186891078949
+    },
+    {
+      "text": "Echa en cara el Señor á los Judíos su hipocresía é ingratitud: solo Dios",
+      "box": [
+        44,
+        756,
+        429,
+        777
+      ],
+      "score": 0.9933534264564514
+    },
+    {
+      "text": "ha predicho lo futuro y cumplido las promesas. Promote el perdon á",
+      "box": [
+        56,
+        771,
+        428,
+        791
+      ],
+      "score": 0.9780184626579285
+    },
+    {
+      "text": "ojos.",
+      "box": [
+        526,
+        767,
+        559,
+        786
+      ],
+      "score": 0.9993101358413696
+    },
+    {
+      "text": "Israél, y le hace ver la felicidad de los que cumplen su santa Ley.",
+      "box": [
+        56,
+        786,
+        404,
+        804
+      ],
+      "score": 0.9808244705200195
+    },
+    {
+      "text": "20. Salid pues ahora de Babylonia, huid de los Chaldéos,",
+      "box": [
+        537,
+        779,
+        912,
+        801
+      ],
+      "score": 0.9993199706077576
+    },
+    {
+      "text": "anunciad con voces de júbilo is, haced saber esta alegre nue-",
+      "box": [
+        525,
+        797,
+        912,
+        817
+      ],
+      "score": 0.9764012694358826
+    },
+    {
+      "text": "1. Oid estas cosas los de la casa de Jacob, vosotros que os",
+      "box": [
+        58,
+        826,
+        426,
+        843
+      ],
+      "score": 0.9881868362426758
+    },
+    {
+      "text": "va, y llevadla hasta las últimas extremidades del mundo:",
+      "box": [
+        525,
+        814,
+        911,
+        835
+      ],
+      "score": 0.9925763010978699
+    },
+    {
+      "text": "decid en todas partes: Redimió el Señor á los hijos de su",
+      "box": [
+        523,
+        830,
+        912,
+        852
+      ],
+      "score": 0.9968345165252686
+    },
+    {
+      "text": "apellidais con el nombre de Israól, y venís de la estirpe de",
+      "box": [
+        43,
+        843,
+        424,
+        859
+      ],
+      "score": 0.9885948896408081
+    },
+    {
+      "text": "Judá: vosotros que jurais * en el nombre del Señor, y haceis",
+      "box": [
+        44,
+        860,
+        424,
+        874
+      ],
+      "score": 0.9880339503288269
+    },
+    {
+      "text": "siervo Jacob.",
+      "box": [
+        523,
+        849,
+        607,
+        868
+      ],
+      "score": 0.9985350966453552
+    },
+    {
+      "text": "mencion del Dios de Israél; mas no con verdad ni con jus-",
+      "box": [
+        42,
+        874,
+        424,
+        893
+      ],
+      "score": 0.9993729591369629
+    },
+    {
+      "text": "21. Cuando los guió por el Desierto, no padecieron sed:",
+      "box": [
+        535,
+        863,
+        911,
+        886
+      ],
+      "score": 0.9906535148620605
+    },
+    {
+      "text": "ticia;",
+      "box": [
+        43,
+        891,
+        85,
+        909
+      ],
+      "score": 0.9386562705039978
+    },
+    {
+      "text": "de una roca les hizo salir agua: rompió la peña, y brotaron",
+      "box": [
+        522,
+        881,
+        910,
+        904
+      ],
+      "score": 0.9811201691627502
+    },
+    {
+      "text": "2. Y que os llamais ciudadanos de la ciudad santa, y estais",
+      "box": [
+        57,
+        907,
+        424,
+        926
+      ],
+      "score": 0.9957473278045654
+    },
+    {
+      "text": "aguas en abundancia º.",
+      "box": [
+        522,
+        899,
+        680,
+        921
+      ],
+      "score": 0.9399675726890564
+    },
+    {
+      "text": "apoyados en el Dios de Israél, el cual tiene por nombre",
+      "box": [
+        43,
+        923,
+        423,
+        943
+      ],
+      "score": 0.9923227429389954
+    },
+    {
+      "text": "22. Pero para los impíos no hay paz, dice el Señor .",
+      "box": [
+        534,
+        914,
+        874,
+        938
+      ],
+      "score": 0.9964335560798645
+    },
+    {
+      "text": "Señor de los ejércitos.",
+      "box": [
+        44,
+        941,
+        188,
+        957
+      ],
+      "score": 0.9990605115890503
+    },
+    {
+      "text": "3. Yo anuncié mucho antes las cosas pasadas, y las pre-",
+      "box": [
+        57,
+        954,
+        423,
+        976
+      ],
+      "score": 0.9948130249977112
+    },
+    {
+      "text": "CAPITULO XLIX",
+      "box": [
+        654,
+        955,
+        773,
+        972
+      ],
+      "score": 0.9838280081748962
+    },
+    {
+      "text": "dije é hice oir de mi propia boca; de repente & las puse en",
+      "box": [
+        44,
+        971,
+        422,
+        993
+      ],
+      "score": 0.9844396114349365
+    },
+    {
+      "text": "ejecucion, y se efectuaron.",
+      "box": [
+        45,
+        990,
+        214,
+        1007
+      ],
+      "score": 0.9985073208808899
+    },
+    {
+      "text": "El Mesías prometido á los Judíos, y reconocido por ellos, forma su reino",
+      "box": [
+        522,
+        987,
+        908,
+        1008
+      ],
+      "score": 0.9964855909347534
+    },
+    {
+      "text": "4. Porque sabia yo que tú eres un pueblo duro, y que tu",
+      "box": [
+        56,
+        1004,
+        423,
+        1027
+      ],
+      "score": 0.9906401038169861
+    },
+    {
+      "text": "compuesto de todas las naciones. Felicidad de los que creen en él.",
+      "box": [
+        533,
+        1002,
+        909,
+        1023
+      ],
+      "score": 0.9895734190940857
+    },
+    {
+      "text": "cerviz es de nervios de hierro, y tu frente de bronce.",
+      "box": [
+        42,
+        1022,
+        364,
+        1042
+      ],
+      "score": 0.9859029054641724
+    },
+    {
+      "text": "Consuola á Sion abominada de Dios, pronunciando su futura conver-",
+      "box": [
+        533,
+        1016,
+        907,
+        1037
+      ],
+      "score": 0.9925268292427063
+    },
+    {
+      "text": "5. Te las predije muy de antemano: antes que sucedieran",
+      "box": [
+        56,
+        1039,
+        420,
+        1059
+      ],
+      "score": 0.9907218813896179
+    },
+    {
+      "text": "sion y su gloria.",
+      "box": [
+        534,
+        1034,
+        622,
+        1050
+      ],
+      "score": 0.9602444767951965
+    },
+    {
+      "text": "te las hice saber; á fin de que nunca dijeses: Mis ídolos han",
+      "box": [
+        40,
+        1054,
+        420,
+        1076
+      ],
+      "score": 0.9805580973625183
+    },
+    {
+      "text": "hecho estas cosas, y lo han ordenado así mis estátuas de",
+      "box": [
+        38,
+        1071,
+        419,
+        1093
+      ],
+      "score": 0.9998175501823425
+    },
+    {
+      "text": "1. Oid, islas 18, y atended pueblos distantes. El Señor me",
+      "box": [
+        533,
+        1064,
+        907,
+        1088
+      ],
+      "score": 0.9794901013374329
+    },
+    {
+      "text": "escultura y de fundicion.",
+      "box": [
+        38,
+        1088,
+        203,
+        1107
+      ],
+      "score": 0.9993059635162354
+    },
+    {
+      "text": "llamó 19 desde el vientre de mi madre tº; se acordó ó declaró",
+      "box": [
+        520,
+        1081,
+        907,
+        1105
+      ],
+      "score": 0.9398805499076843
+    },
+    {
+      "text": "6. Mira ejecutado todo lo que oiste: ¿y acaso no lo habeis",
+      "box": [
+        50,
+        1104,
+        420,
+        1128
+      ],
+      "score": 0.9889926314353943
+    },
+    {
+      "text": "mi nombre cuando yo estaba aun en el seno máterno.",
+      "box": [
+        520,
+        1099,
+        860,
+        1122
+      ],
+      "score": 0.988440990447998
+    },
+    {
+      "text": "1 O la falta de moradores.",
+      "box": [
+        46,
+        1145,
+        196,
+        1164
+      ],
+      "score": 0.9763317704200745
+    },
+    {
+      "text": "11 Principio soy y fin de todas las cosas.",
+      "box": [
+        528,
+        1140,
+        746,
+        1161
+      ],
+      "score": 0.9931589961051941
+    },
+    {
+      "text": "2 Formando el horóscopo.",
+      "box": [
+        44,
+        1159,
+        195,
+        1179
+      ],
+      "score": 0.956779956817627
+    },
+    {
+      "text": "is Para escuchar mis órdenes.",
+      "box": [
+        528,
+        1156,
+        691,
+        1176
+      ],
+      "score": 0.9621331691741943
+    },
+    {
+      "text": "a Quedará no mas que ceniza y pavesas.",
+      "box": [
+        43,
+        1174,
+        266,
+        1194
+      ],
+      "score": 0.9682366251945496
+    },
+    {
+      "text": "is Que yo os predigo?",
+      "box": [
+        527,
+        1170,
+        649,
+        1190
+      ],
+      "score": 0.9888168573379517
+    },
+    {
+      "text": "4 Véase antes cap. XLV, v. 24. Nota.",
+      "box": [
+        42,
+        1188,
+        254,
+        1207
+      ],
+      "score": 0.9601395726203918
+    },
+    {
+      "text": "14 San Gerónimo y otros Santos Padres hallan aquí indicado el miste-",
+      "box": [
+        527,
+        1181,
+        905,
+        1204
+      ],
+      "score": 0.9819290041923523
+    },
+    {
+      "text": "6 Tal vez se traducirá mejor: cuando menos pensabais.",
+      "box": [
+        42,
+        1201,
+        334,
+        1222
+      ],
+      "score": 0.9650715589523315
+    },
+    {
+      "text": "rio de la Santísima Trinidad.",
+      "box": [
+        520,
+        1198,
+        678,
+        1219
+      ],
+      "score": 0.995667576789856
+    },
+    {
+      "text": "a Con las festividades que celebrais en su memoria?",
+      "box": [
+        41,
+        1216,
+        324,
+        1236
+      ],
+      "score": 0.9794163703918457
+    },
+    {
+      "text": "15 Vuestra libertad.",
+      "box": [
+        526,
+        1213,
+        640,
+        1233
+      ],
+      "score": 0.9977543950080872
+    },
+    {
+      "text": "7 Segun el texto hebreo, y el griego de los Setenta, etc., el tuno de la",
+      "box": [
+        39,
+        1227,
+        418,
+        1255
+      ],
+      "score": 0.9662384390830994
+    },
+    {
+      "text": "10 Exod. XVII, v. 6.—Num. XX, v. 12.",
+      "box": [
+        526,
+        1226,
+        748,
+        1246
+      ],
+      "score": 0.9658622741699219
+    },
+    {
+      "text": "Vulgata debe de ser nunc.",
+      "box": [
+        30,
+        1244,
+        180,
+        1260
+      ],
+      "score": 0.9905382394790649
+    },
+    {
+      "text": "17 Despues cap. LVII, v. 21.",
+      "box": [
+        526,
+        1240,
+        688,
+        1260
+      ],
+      "score": 0.9720194935798645
+    },
+    {
+      "text": " Con los gloriosos sucesos vaticinados.",
+      "box": [
+        38,
+        1255,
+        259,
+        1277
+      ],
+      "score": 0.9883518815040588
+    },
+    {
+      "text": "1s O regiones remotas.",
+      "box": [
+        526,
+        1254,
+        653,
+        1274
+      ],
+      "score": 0.9545884728431702
+    },
+    {
+      "text": "con fuego ardentísimo.",
+      "box": [
+        37,
+        1270,
+        196,
+        1289
+      ],
+      "score": 0.9738817811012268
+    },
+    {
+      "text": "19 Me dió el nombre de Jesés.",
+      "box": [
+        526,
+        1268,
+        694,
+        1288
+      ],
+      "score": 0.9595290422439575
+    },
+    {
+      "text": " Cap. XLII, v. 8.—XLIV, v. 6.—Apoc. I, v. 8, et 17.—XXII, v. 13.",
+      "box": [
+        34,
+        1283,
+        415,
+        1312
+      ],
+      "score": 0.9333168864250183
+    },
+    {
+      "text": "0 Jerem. I, v. 5.—Galat, I, v. 15.—Ephes. VI, v. 17.—Matth. I, v. 21.",
+      "box": [
+        525,
+        1277,
+        903,
+        1305
+      ],
+      "score": 0.8681743144989014
+    }
+  ]
+}

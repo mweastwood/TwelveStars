@@ -1,0 +1,1527 @@
+{
+  "volume": 3,
+  "page_index": 45,
+  "pdf_page": 46,
+  "lines": [
+    {
+      "text": "55",
+      "box": [
+        69,
+        36,
+        89,
+        54
+      ],
+      "score": 0.9993463754653931
+    },
+    {
+      "text": "SALMOS.",
+      "box": [
+        212,
+        36,
+        278,
+        57
+      ],
+      "score": 0.9964724779129028
+    },
+    {
+      "text": "SALMO LXXVII.",
+      "box": [
+        664,
+        45,
+        781,
+        67
+      ],
+      "score": 0.9723393321037292
+    },
+    {
+      "text": "56",
+      "box": [
+        877,
+        56,
+        896,
+        73
+      ],
+      "score": 0.9993969202041626
+    },
+    {
+      "text": "8. ¿Es posible, decia, que Dios nos ha de abandonar para",
+      "box": [
+        74,
+        84,
+        433,
+        109
+      ],
+      "score": 0.9991498589515686
+    },
+    {
+      "text": "10. Habian faltado al pacto con Dios, y no habian querido",
+      "box": [
+        544,
+        90,
+        903,
+        118
+      ],
+      "score": 0.9829691052436829
+    },
+    {
+      "text": "siempre, ó no ha de volver á sernos propicio?",
+      "box": [
+        64,
+        105,
+        336,
+        128
+      ],
+      "score": 0.9865708947181702
+    },
+    {
+      "text": "seguir su Ley.",
+      "box": [
+        529,
+        109,
+        622,
+        132
+      ],
+      "score": 0.9998944401741028
+    },
+    {
+      "text": "9. ¿O que ha de privar eternamente de su misericordia á",
+      "box": [
+        77,
+        125,
+        432,
+        148
+      ],
+      "score": 0.9906536340713501
+    },
+    {
+      "text": "11. Olvidáronse de sus beneficios, y de las maravillas que",
+      "box": [
+        542,
+        128,
+        903,
+        153
+      ],
+      "score": 0.9928029775619507
+    },
+    {
+      "text": "todas las generaciones venideras?",
+      "box": [
+        66,
+        145,
+        267,
+        164
+      ],
+      "score": 0.9814699292182922
+    },
+    {
+      "text": "obró á vista de ellos.",
+      "box": [
+        531,
+        146,
+        658,
+        166
+      ],
+      "score": 0.9985053539276123
+    },
+    {
+      "text": "10. ¿Ha de olvidarse Dios de usar de clemencia? ¿ó deter-",
+      "box": [
+        78,
+        162,
+        432,
+        183
+      ],
+      "score": 0.9849705696105957
+    },
+    {
+      "text": "12. Delante de sus padres hizo portentos en la tierra de",
+      "box": [
+        542,
+        164,
+        903,
+        185
+      ],
+      "score": 0.99970543384552
+    },
+    {
+      "text": "drá con su ira el curso de sus misericordias?",
+      "box": [
+        67,
+        181,
+        327,
+        198
+      ],
+      "score": 0.9948437213897705
+    },
+    {
+      "text": "Egypto, y en las llanuras de Tanis 8.",
+      "box": [
+        529,
+        181,
+        754,
+        203
+      ],
+      "score": 0.9808506369590759
+    },
+    {
+      "text": "11. Entonces dije: Ahora comienzo á respirar: de la diestra",
+      "box": [
+        78,
+        197,
+        431,
+        220
+      ],
+      "score": 0.9666193723678589
+    },
+    {
+      "text": "13. Rompió la mar por medio, y los hizo pasar, y contuvo",
+      "box": [
+        541,
+        200,
+        903,
+        220
+      ],
+      "score": 0.9992597699165344
+    },
+    {
+      "text": "del Altísimo me viene esta mudanza.",
+      "box": [
+        66,
+        214,
+        289,
+        235
+      ],
+      "score": 0.9985890984535217
+    },
+    {
+      "text": "las olas como en un monton.",
+      "box": [
+        529,
+        217,
+        708,
+        236
+      ],
+      "score": 0.9911966919898987
+    },
+    {
+      "text": "12. Traeré á la memoria las obras del Señor. Sí por cier-",
+      "box": [
+        79,
+        231,
+        431,
+        253
+      ],
+      "score": 0.9976288676261902
+    },
+    {
+      "text": "14. Y los fué guiando de dia por medio de una nube, y toda",
+      "box": [
+        540,
+        232,
+        903,
+        252
+      ],
+      "score": 0.9932706952095032
+    },
+    {
+      "text": "to, haré memoria de las maravillas que has hecho desde el",
+      "box": [
+        65,
+        247,
+        431,
+        270
+      ],
+      "score": 0.9962029457092285
+    },
+    {
+      "text": "la noche con resplandor de fuego.",
+      "box": [
+        527,
+        249,
+        738,
+        270
+      ],
+      "score": 0.9947736263275146
+    },
+    {
+      "text": "principio.",
+      "box": [
+        64,
+        263,
+        129,
+        286
+      ],
+      "score": 0.999428927898407
+    },
+    {
+      "text": "15. En el Desierto hendió una peña, y les dió para beber",
+      "box": [
+        540,
+        265,
+        903,
+        286
+      ],
+      "score": 0.9981741309165955
+    },
+    {
+      "text": "13. Y meditaré todas tus obras, y consideraré tus desig-",
+      "box": [
+        77,
+        280,
+        431,
+        303
+      ],
+      "score": 0.9721193313598633
+    },
+    {
+      "text": "como un caudaloso rio 9:",
+      "box": [
+        529,
+        285,
+        682,
+        302
+      ],
+      "score": 0.9865671992301941
+    },
+    {
+      "text": "nios.",
+      "box": [
+        65,
+        297,
+        99,
+        316
+      ],
+      "score": 0.9995388984680176
+    },
+    {
+      "text": "16. Pues hizo brotar de una roca raudales de aguas, que",
+      "box": [
+        539,
+        298,
+        904,
+        319
+      ],
+      "score": 0.9906405210494995
+    },
+    {
+      "text": "14. Oh Dios! santo es tu camino. ¿Qué Dios hay que sea",
+      "box": [
+        76,
+        313,
+        431,
+        336
+      ],
+      "score": 0.996649980545044
+    },
+    {
+      "text": "corrieron á manera de rios 20.",
+      "box": [
+        529,
+        317,
+        707,
+        334
+      ],
+      "score": 0.9645677804946899
+    },
+    {
+      "text": "grande como el Dios nuestro?",
+      "box": [
+        66,
+        331,
+        243,
+        349
+      ],
+      "score": 0.9997099041938782
+    },
+    {
+      "text": "17. Ellos volvieron sin embargo á pecar contra él. En aquel",
+      "box": [
+        540,
+        331,
+        904,
+        350
+      ],
+      "score": 0.9975197911262512
+    },
+    {
+      "text": "15. Tú eres el Dios, autor de los prodigios.—Tú hiciste",
+      "box": [
+        78,
+        344,
+        431,
+        367
+      ],
+      "score": 0.9936184287071228
+    },
+    {
+      "text": "árido Desierto provocaron á ira al Altísimo;",
+      "box": [
+        528,
+        348,
+        801,
+        368
+      ],
+      "score": 0.9944342970848083
+    },
+    {
+      "text": "manifiesto á los pueblos tu poderío:",
+      "box": [
+        66,
+        359,
+        281,
+        382
+      ],
+      "score": 0.9796661734580994
+    },
+    {
+      "text": "18. Pues tentaron á Dios en sus corazones, pidiendo man-",
+      "box": [
+        539,
+        362,
+        904,
+        385
+      ],
+      "score": 0.9946330189704895
+    },
+    {
+      "text": "16. Con tu brazo redimiste á tu pueblo, á los hijos de",
+      "box": [
+        78,
+        375,
+        432,
+        400
+      ],
+      "score": 0.9958149194717407
+    },
+    {
+      "text": "Jacob y de Joseph.",
+      "box": [
+        67,
+        391,
+        184,
+        412
+      ],
+      "score": 0.9995620250701904
+    },
+    {
+      "text": "jares á medida de su gusto.",
+      "box": [
+        528,
+        383,
+        695,
+        400
+      ],
+      "score": 0.9974165558815002
+    },
+    {
+      "text": "17. Viéronte las aguas 1, oh Dios, viéronte las aguas, y se",
+      "box": [
+        80,
+        406,
+        433,
+        434
+      ],
+      "score": 0.9857696890830994
+    },
+    {
+      "text": "19. Y hablaron mal de Dios, y dijeron: ¿Por ventura podrá",
+      "box": [
+        539,
+        394,
+        904,
+        419
+      ],
+      "score": 0.9927083253860474
+    },
+    {
+      "text": "llenaron de temor, y estremeciéronse los abismos.",
+      "box": [
+        67,
+        423,
+        363,
+        448
+      ],
+      "score": 0.9938242435455322
+    },
+    {
+      "text": "Dios preparar una mesa en el Desierto?",
+      "box": [
+        528,
+        414,
+        769,
+        434
+      ],
+      "score": 0.9997706413269043
+    },
+    {
+      "text": "18. Grande fué el estruendo de las aguas: tronaron las",
+      "box": [
+        79,
+        438,
+        433,
+        466
+      ],
+      "score": 0.982787549495697
+    },
+    {
+      "text": "20. Porque él dió un golpe á la peña y salieron aguas, y se",
+      "box": [
+        539,
+        429,
+        904,
+        452
+      ],
+      "score": 0.9904557466506958
+    },
+    {
+      "text": "nubes: atravesaron tus rayos,",
+      "box": [
+        68,
+        455,
+        245,
+        479
+      ],
+      "score": 0.9997804164886475
+    },
+    {
+      "text": "formaron torrentes caudalosos,—¿podrá acaso dar tambien y",
+      "box": [
+        526,
+        444,
+        904,
+        468
+      ],
+      "score": 0.979272723197937
+    },
+    {
+      "text": "19. Girando en torno * la voz de tus truenos.—Relumbra-",
+      "box": [
+        79,
+        472,
+        433,
+        500
+      ],
+      "score": 0.9726249575614929
+    },
+    {
+      "text": "poner una mesa á su pueblo?",
+      "box": [
+        527,
+        464,
+        705,
+        483
+      ],
+      "score": 0.9853003621101379
+    },
+    {
+      "text": "ron tus relámpagos por toda la redondez de la tierra: toda ella",
+      "box": [
+        67,
+        490,
+        432,
+        516
+      ],
+      "score": 0.9882177114486694
+    },
+    {
+      "text": "21. Oyólo el Señor, é irritóse, y encendióse el fuego de su",
+      "box": [
+        539,
+        476,
+        904,
+        501
+      ],
+      "score": 0.9830299615859985
+    },
+    {
+      "text": "se estremeció, y tembló.",
+      "box": [
+        68,
+        507,
+        210,
+        528
+      ],
+      "score": 0.9919318556785583
+    },
+    {
+      "text": "cólera contra Jacob, y subió de punto su indignacion contra",
+      "box": [
+        525,
+        493,
+        904,
+        518
+      ],
+      "score": 0.9867116808891296
+    },
+    {
+      "text": "20. Te abriste camino dentro del mar; caminaste por en",
+      "box": [
+        80,
+        524,
+        433,
+        550
+      ],
+      "score": 0.9997161626815796
+    },
+    {
+      "text": "Israél 11:",
+      "box": [
+        527,
+        515,
+        584,
+        533
+      ],
+      "score": 0.8521223068237305
+    },
+    {
+      "text": "medio de muchas aguas, y no se conocerán los vestigios de",
+      "box": [
+        67,
+        541,
+        433,
+        566
+      ],
+      "score": 0.9914385676383972
+    },
+    {
+      "text": "22. Porque no creyeron á Dios, ni esperaron de él la salud.",
+      "box": [
+        539,
+        525,
+        902,
+        552
+      ],
+      "score": 0.9964110255241394
+    },
+    {
+      "text": "23. Siendo así que dió órden á las nubes que tenian enci-",
+      "box": [
+        540,
+        541,
+        903,
+        567
+      ],
+      "score": 0.9958904981613159
+    },
+    {
+      "text": "tus pisadas.",
+      "box": [
+        70,
+        561,
+        142,
+        578
+      ],
+      "score": 0.9925429821014404
+    },
+    {
+      "text": "ma, y abrió las puertas del cielo,",
+      "box": [
+        528,
+        562,
+        726,
+        583
+      ],
+      "score": 0.9961465001106262
+    },
+    {
+      "text": "21. Condujiste á tu pueblo, como otras tantas ovejas, por",
+      "box": [
+        80,
+        575,
+        433,
+        599
+      ],
+      "score": 0.9985593557357788
+    },
+    {
+      "text": "24. Y les llovió el maná para comer, dándoles pan del",
+      "box": [
+        538,
+        572,
+        904,
+        601
+      ],
+      "score": 0.9917216897010803
+    },
+    {
+      "text": "el ministerio de Moysés y de Aaron.",
+      "box": [
+        68,
+        593,
+        283,
+        612
+      ],
+      "score": 0.9885502457618713
+    },
+    {
+      "text": "cielo 12.",
+      "box": [
+        529,
+        597,
+        577,
+        615
+      ],
+      "score": 0.9840551018714905
+    },
+    {
+      "text": "25. Pan de ángeles t3 comió el hombre: envióles víveres en",
+      "box": [
+        540,
+        607,
+        903,
+        631
+      ],
+      "score": 0.9831992983818054
+    },
+    {
+      "text": "SALMO LXXVII",
+      "box": [
+        199,
+        626,
+        303,
+        643
+      ],
+      "score": 0.9995424151420593
+    },
+    {
+      "text": "abundancia.",
+      "box": [
+        530,
+        629,
+        606,
+        646
+      ],
+      "score": 0.999966561794281
+    },
+    {
+      "text": "26. Retiró del cielo al viento meridional ó Solano 14, y sus-",
+      "box": [
+        541,
+        640,
+        901,
+        662
+      ],
+      "score": 0.9820322394371033
+    },
+    {
+      "text": "El Profeta reflere los beneficios que Dios hizo á su pueblo, y los castigos",
+      "box": [
+        72,
+        655,
+        433,
+        669
+      ],
+      "score": 0.9783938527107239
+    },
+    {
+      "text": "tituyó con su poder el Ábrego.",
+      "box": [
+        531,
+        659,
+        714,
+        678
+      ],
+      "score": 0.9998237490653992
+    },
+    {
+      "text": "que le envió para que se couvirtiese de sus pecados. Y nos exhorta á que",
+      "box": [
+        81,
+        670,
+        434,
+        684
+      ],
+      "score": 0.9907925724983215
+    },
+    {
+      "text": "busquemos al Señor, y guardemos su Ley.",
+      "box": [
+        80,
+        683,
+        286,
+        701
+      ],
+      "score": 0.9948409795761108
+    },
+    {
+      "text": "27. É hizo llover sobre ellos carnes en tanta abundancia",
+      "box": [
+        542,
+        672,
+        901,
+        695
+      ],
+      "score": 0.9914842247962952
+    },
+    {
+      "text": "como polvo, y aves volátiles como arenas del mar:",
+      "box": [
+        530,
+        692,
+        834,
+        711
+      ],
+      "score": 0.9765027165412903
+    },
+    {
+      "text": "1. Inteligencia, ó instruccion de Asaph.",
+      "box": [
+        83,
+        712,
+        326,
+        729
+      ],
+      "score": 0.976706326007843
+    },
+    {
+      "text": "28. Aves que cayeron en medio de sus campamentos, al",
+      "box": [
+        541,
+        705,
+        902,
+        729
+      ],
+      "score": 0.9876719117164612
+    },
+    {
+      "text": "Escucha, pueblo mio, mi Ley; y ten atentos tus oidos para",
+      "box": [
+        82,
+        727,
+        434,
+        746
+      ],
+      "score": 0.9977772831916809
+    },
+    {
+      "text": "rededor de sus tiendas.",
+      "box": [
+        532,
+        727,
+        666,
+        741
+      ],
+      "score": 0.9996086359024048
+    },
+    {
+      "text": "percibir las palabras de mi boca.",
+      "box": [
+        70,
+        743,
+        265,
+        762
+      ],
+      "score": 0.9772935509681702
+    },
+    {
+      "text": "29. Con lo que comieron y quedaron ahitos, y satisfacieron",
+      "box": [
+        541,
+        737,
+        900,
+        759
+      ],
+      "score": 0.9991605281829834
+    },
+    {
+      "text": "2. La abriré profiriendo parábolas s: diré cosas recónditas",
+      "box": [
+        82,
+        758,
+        435,
+        777
+      ],
+      "score": 0.987994909286499
+    },
+    {
+      "text": "su deseo,",
+      "box": [
+        531,
+        756,
+        588,
+        774
+      ],
+      "score": 0.9996395111083984
+    },
+    {
+      "text": "desde el principio del mundo .",
+      "box": [
+        70,
+        775,
+        258,
+        794
+      ],
+      "score": 0.985653281211853
+    },
+    {
+      "text": "30. Y quedó cumplido su antojo.—Aun estaban con el bo-",
+      "box": [
+        542,
+        768,
+        901,
+        791
+      ],
+      "score": 0.9980677962303162
+    },
+    {
+      "text": "3. Las cuales las hemos oido y entendido 5, y nos las con-",
+      "box": [
+        81,
+        791,
+        436,
+        810
+      ],
+      "score": 0.9759244322776794
+    },
+    {
+      "text": "cado en la boca,",
+      "box": [
+        532,
+        789,
+        629,
+        806
+      ],
+      "score": 0.9987877607345581
+    },
+    {
+      "text": "taron ya nuestros padres.",
+      "box": [
+        70,
+        810,
+        223,
+        827
+      ],
+      "score": 0.9825814962387085
+    },
+    {
+      "text": "31. Cuando la ira de Dios descargó sobre ellos;—y mató",
+      "box": [
+        540,
+        799,
+        902,
+        825
+      ],
+      "score": 0.9940311908721924
+    },
+    {
+      "text": "4. No las ocultaron estos á sus hijos, ni á su posteridad:",
+      "box": [
+        81,
+        824,
+        436,
+        844
+      ],
+      "score": 0.9926142692565918
+    },
+    {
+      "text": "á los mas robustos del pueblo, acabando con lo mas florido de",
+      "box": [
+        529,
+        817,
+        900,
+        842
+      ],
+      "score": 0.9884526133537292
+    },
+    {
+      "text": "—publicaron, sí, las glorias del Señor, y los prodigios y mara-",
+      "box": [
+        68,
+        840,
+        438,
+        862
+      ],
+      "score": 0.9964138269424438
+    },
+    {
+      "text": "Israél 16.",
+      "box": [
+        532,
+        838,
+        585,
+        855
+      ],
+      "score": 0.9198805689811707
+    },
+    {
+      "text": "villas que habia hecho.",
+      "box": [
+        69,
+        858,
+        207,
+        878
+      ],
+      "score": 0.9984146356582642
+    },
+    {
+      "text": "32. Á pesar de todo esto pecaron nuevamente, y no dieron",
+      "box": [
+        540,
+        847,
+        901,
+        875
+      ],
+      "score": 0.98653644323349
+    },
+    {
+      "text": "5. Él estableció alianza con Jacob y dió la Ley á Israél 6:—",
+      "box": [
+        79,
+        872,
+        436,
+        894
+      ],
+      "score": 0.9683330059051514
+    },
+    {
+      "text": "crédito á sus milagros.",
+      "box": [
+        532,
+        871,
+        664,
+        888
+      ],
+      "score": 0.99413001537323
+    },
+    {
+      "text": "Todo lo cual mandó á nuestros padres que lo hiciesen conocer",
+      "box": [
+        68,
+        890,
+        439,
+        910
+      ],
+      "score": 0.9995730519294739
+    },
+    {
+      "text": "33. Y así sus dias desvaneciéronse como humo, y acabáron-",
+      "box": [
+        543,
+        881,
+        901,
+        907
+      ],
+      "score": 0.9841859340667725
+    },
+    {
+      "text": "á sus hijos,",
+      "box": [
+        68,
+        908,
+        139,
+        927
+      ],
+      "score": 0.9991101622581482
+    },
+    {
+      "text": "se muy presto los años de su vida.",
+      "box": [
+        532,
+        902,
+        734,
+        922
+      ],
+      "score": 0.9997062683105469
+    },
+    {
+      "text": "6. Para que lo sepan las generaciones venideras.—Los",
+      "box": [
+        80,
+        923,
+        436,
+        943
+      ],
+      "score": 0.9811246395111084
+    },
+    {
+      "text": "34. Cuando el Señor hacia en ellos mortandad; entonces",
+      "box": [
+        544,
+        913,
+        901,
+        940
+      ],
+      "score": 0.9948473572731018
+    },
+    {
+      "text": "hijos que nacerán y crecerán, lo contarán igualmente á sus",
+      "box": [
+        68,
+        939,
+        436,
+        960
+      ],
+      "score": 0.9975751042366028
+    },
+    {
+      "text": "recurrian á él, y volvian en sí, y acudian solícitos á buscarle.",
+      "box": [
+        532,
+        929,
+        900,
+        956
+      ],
+      "score": 0.9557651281356812
+    },
+    {
+      "text": "35. Y acordábanse que Dios es su amparo, y que el Dios",
+      "box": [
+        542,
+        943,
+        901,
+        974
+      ],
+      "score": 0.9460797309875488
+    },
+    {
+      "text": "hijos:",
+      "box": [
+        66,
+        957,
+        108,
+        979
+      ],
+      "score": 0.9996855854988098
+    },
+    {
+      "text": "7. A fin de que pongan en Dios su esperanza, y no se olvi-",
+      "box": [
+        79,
+        970,
+        436,
+        993
+      ],
+      "score": 0.9984116554260254
+    },
+    {
+      "text": "Altísimo era su Redentor.",
+      "box": [
+        535,
+        966,
+        684,
+        983
+      ],
+      "score": 0.9972689747810364
+    },
+    {
+      "text": "den de las obras de Dios, y guarden con esmero sus manda-",
+      "box": [
+        68,
+        988,
+        435,
+        1009
+      ],
+      "score": 0.9982863068580627
+    },
+    {
+      "text": "36. Pero le amaron de boca, y le mintieron con su lengua:",
+      "box": [
+        544,
+        978,
+        900,
+        1002
+      ],
+      "score": 0.9975987672805786
+    },
+    {
+      "text": "37. Pues su corazon no fué sincero para con él, ni fueron",
+      "box": [
+        543,
+        993,
+        901,
+        1020
+      ],
+      "score": 0.9744502902030945
+    },
+    {
+      "text": "mientos;",
+      "box": [
+        68,
+        1009,
+        124,
+        1027
+      ],
+      "score": 0.9999763369560242
+    },
+    {
+      "text": "8. Para que no sean, como sus padres, generacion perversa",
+      "box": [
+        78,
+        1020,
+        435,
+        1044
+      ],
+      "score": 0.994011402130127
+    },
+    {
+      "text": "fieles á su alianza.",
+      "box": [
+        534,
+        1015,
+        642,
+        1032
+      ],
+      "score": 0.9696453213691711
+    },
+    {
+      "text": "38. El Señor empero es misericordioso, y les perdonaba",
+      "box": [
+        544,
+        1024,
+        900,
+        1052
+      ],
+      "score": 0.9846660494804382
+    },
+    {
+      "text": "y rebelde:—generacion que nunca tuvo recto su corazon, nisu",
+      "box": [
+        67,
+        1037,
+        434,
+        1061
+      ],
+      "score": 0.9885348081588745
+    },
+    {
+      "text": "sus pecados, ni acababa del todo con ellos.—Contuvo mu-",
+      "box": [
+        532,
+        1041,
+        900,
+        1065
+      ],
+      "score": 0.9955492615699768
+    },
+    {
+      "text": "espíritu fiel á Dios.",
+      "box": [
+        67,
+        1057,
+        182,
+        1077
+      ],
+      "score": 0.9973368048667908
+    },
+    {
+      "text": "chísimas veces su indignacion, y no dió lugar á todo su",
+      "box": [
+        533,
+        1057,
+        900,
+        1082
+      ],
+      "score": 0.9948282241821289
+    },
+    {
+      "text": "9. Los hijos de Ephraim, dicstros en tender y disparar el",
+      "box": [
+        77,
+        1069,
+        434,
+        1094
+      ],
+      "score": 0.9973065853118896
+    },
+    {
+      "text": "enojo;",
+      "box": [
+        533,
+        1077,
+        577,
+        1099
+      ],
+      "score": 0.9999485611915588
+    },
+    {
+      "text": "arco, volvieron las espaldas 7 en el dia del combate.",
+      "box": [
+        67,
+        1088,
+        373,
+        1110
+      ],
+      "score": 0.9902245402336121
+    },
+    {
+      "text": "ciudad de Ephraim, tenia su asiento el Arca en aquel tiempo. Los profe",
+      "box": [
+        533,
+        1105,
+        898,
+        1133
+      ],
+      "score": 0.8728041648864746
+    },
+    {
+      "text": "1 Alude á las aguas del mar Rojo.",
+      "box": [
+        77,
+        1125,
+        253,
+        1145
+      ],
+      "score": 0.967018187046051
+    },
+    {
+      "text": "tas dieron muchas veces el nombre de Ephraim á las diez tribus separa-",
+      "box": [
+        534,
+        1120,
+        897,
+        1145
+      ],
+      "score": 0.9546975493431091
+    },
+    {
+      "text": " De los Egypeios, y trastornando sus carros. Parece que se expresa",
+      "box": [
+        74,
+        1134,
+        435,
+        1161
+      ],
+      "score": 0.8926210403442383
+    },
+    {
+      "text": "das de la de Judá.",
+      "box": [
+        533,
+        1138,
+        629,
+        1160
+      ],
+      "score": 0.9989801049232483
+    },
+    {
+      "text": "aquí lo que solamente indioó Moysés, E.xod. XIV, v. 24.",
+      "box": [
+        65,
+        1153,
+        350,
+        1174
+      ],
+      "score": 0.9642886519432068
+    },
+    {
+      "text": "8 Ciudad antiquísima del Egypto inferior, llamada ahora el Gran Cairo.",
+      "box": [
+        542,
+        1144,
+        897,
+        1171
+      ],
+      "score": 0.9916508197784424
+    },
+    {
+      "text": "3 O sentencias misteriosas.—Véase Parábola.",
+      "box": [
+        74,
+        1169,
+        309,
+        1188
+      ],
+      "score": 0.9742518663406372
+    },
+    {
+      "text": "Num. XIII, v. 23.—Isai. XIX, v. 13.—Erech. XXX, v. 14.",
+      "box": [
+        535,
+        1159,
+        828,
+        1186
+      ],
+      "score": 0.9453026056289673
+    },
+    {
+      "text": "4 Matth. XIII, v. 35.",
+      "box": [
+        76,
+        1187,
+        187,
+        1201
+      ],
+      "score": 0.9572372436523438
+    },
+    {
+      "text": "Exod. XVII, v. 6. Como si estuviesen junto á un caudaloso rio.",
+      "box": [
+        544,
+        1171,
+        874,
+        1199
+      ],
+      "score": 0.9686110615730286
+    },
+    {
+      "text": "6 En las escrituras.",
+      "box": [
+        74,
+        1198,
+        180,
+        1217
+      ],
+      "score": 0.9687239527702332
+    },
+    {
+      "text": "10 Deuter. VIII, v. 15.—Palm. CIV, v. 41.—L. Cor. X, v. 4.",
+      "box": [
+        539,
+        1183,
+        847,
+        1214
+      ],
+      "score": 0.827003538608551
+    },
+    {
+      "text": " En este verso, como en otros muchísimos de la Escritura, la segunda",
+      "box": [
+        72,
+        1205,
+        434,
+        1233
+      ],
+      "score": 0.9758434295654297
+    },
+    {
+      "text": "11 Num. XI, v. 1.",
+      "box": [
+        541,
+        1206,
+        639,
+        1226
+      ],
+      "score": 0.9351321458816528
+    },
+    {
+      "text": "mitad tiene el mismo sentido que la primera: y de esta figura, llamada",
+      "box": [
+        61,
+        1219,
+        435,
+        1249
+      ],
+      "score": 0.8741217851638794
+    },
+    {
+      "text": "12 Exod. XIV, v. 1,4, 5.",
+      "box": [
+        542,
+        1218,
+        673,
+        1240
+      ],
+      "score": 0.940392255783081
+    },
+    {
+      "text": "tauloga órerecion, usan muco los escritoe sagrados. Testimonio",
+      "box": [
+        60,
+        1232,
+        435,
+        1265
+      ],
+      "score": 0.552000880241394
+    },
+    {
+      "text": "is El hebroo: Pan de fuertes. Fuerte es epítoto del Angel.",
+      "box": [
+        541,
+        1222,
+        831,
+        1255
+      ],
+      "score": 0.9052092432975769
+    },
+    {
+      "text": "y Alianza vienen á ser lo mismo que Ley; y así se dice Area de Alianza,",
+      "box": [
+        59,
+        1248,
+        434,
+        1278
+      ],
+      "score": 0.8528128862380981
+    },
+    {
+      "text": "14 Austrum: propiamente es el Euro ó Sud-est, que sopla ó viene de la",
+      "box": [
+        541,
+        1231,
+        897,
+        1269
+      ],
+      "score": 0.9672157168388367
+    },
+    {
+      "text": "Arca del Testimonio,y Tablas del Testimonio. Exod. XXV, v.2.—XXVI,",
+      "box": [
+        60,
+        1263,
+        435,
+        1293
+      ],
+      "score": 0.7539179921150208
+    },
+    {
+      "text": "parte de Oriente que inclina hácia el Medida. El Ábrego  Áico e el",
+      "box": [
+        534,
+        1243,
+        898,
+        1284
+      ],
+      "score": 0.7280773520469666
+    },
+    {
+      "text": "v. 34.—Véase Testimonio.",
+      "box": [
+        62,
+        1286,
+        196,
+        1305
+      ],
+      "score": 0.9746271967887878
+    },
+    {
+      "text": "Sud-ouest.",
+      "box": [
+        536,
+        1276,
+        594,
+        1296
+      ],
+      "score": 0.9956591725349426
+    },
+    {
+      "text": "-15 Num. XI, v. 33.",
+      "box": [
+        536,
+        1285,
+        648,
+        1309
+      ],
+      "score": 0.9681852459907532
+    },
+    {
+      "text": "7O quedaron derrotados. I. Reg. IV, v. 10. La tribu de Ephraim sobre",
+      "box": [
+        70,
+        1292,
+        433,
+        1322
+      ],
+      "score": 0.9195615649223328
+    },
+    {
+      "text": "salia éntonces en grandes guerreros. Deuter. XXXIII, v. 17. Y en Silo,",
+      "box": [
+        60,
+        1307,
+        435,
+        1337
+      ],
+      "score": 0.8742934465408325
+    }
+  ]
+}

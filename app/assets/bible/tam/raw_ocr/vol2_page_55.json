@@ -1,0 +1,1507 @@
+{
+  "volume": 2,
+  "page_index": 55,
+  "pdf_page": 56,
+  "lines": [
+    {
+      "text": "59",
+      "box": [
+        98,
+        67,
+        126,
+        96
+      ],
+      "score": 0.9981017708778381
+    },
+    {
+      "text": "II.REYES.",
+      "box": [
+        307,
+        70,
+        426,
+        110
+      ],
+      "score": 0.9882928133010864
+    },
+    {
+      "text": "CAPITULO VII.",
+      "box": [
+        1016,
+        117,
+        1179,
+        153
+      ],
+      "score": 0.9809691905975342
+    },
+    {
+      "text": "60",
+      "box": [
+        1326,
+        136,
+        1346,
+        157
+      ],
+      "score": 0.9999951124191284
+    },
+    {
+      "text": "10. Y así no quiso que se llevase el Arca del Señor á su",
+      "box": [
+        110,
+        150,
+        656,
+        201
+      ],
+      "score": 0.9886927008628845
+    },
+    {
+      "text": "casa en la ciudad de David, sino que la trasladó á casa del",
+      "box": [
+        93,
+        186,
+        655,
+        227
+      ],
+      "score": 0.9984732866287231
+    },
+    {
+      "text": "4. Mas aquella misma noche hé aquí que el Señor habló á",
+      "box": [
+        828,
+        179,
+        1360,
+        223
+      ],
+      "score": 0.9842818975448608
+    },
+    {
+      "text": "Nathán, diciéndole:",
+      "box": [
+        809,
+        206,
+        993,
+        239
+      ],
+      "score": 0.9976749420166016
+    },
+    {
+      "text": "Levita Obededom, Gethéo ¹.",
+      "box": [
+        95,
+        216,
+        349,
+        253
+      ],
+      "score": 0.9812789559364319
+    },
+    {
+      "text": "5. Anda y díle á mi siervo David: Esto dice el Señor: ¿Con",
+      "box": [
+        827,
+        235,
+        1356,
+        269
+      ],
+      "score": 0.9955465197563171
+    },
+    {
+      "text": "11. Estuvo pues el Arca del Señor en casa de Obededom",
+      "box": [
+        115,
+        246,
+        655,
+        286
+      ],
+      "score": 0.99960857629776
+    },
+    {
+      "text": "que tú piensas edificarme casa para mi habitacion?",
+      "box": [
+        809,
+        262,
+        1271,
+        292
+      ],
+      "score": 0.9998618960380554
+    },
+    {
+      "text": "de Geth tres meses, y bendijo el Señor á Obededom y á toda",
+      "box": [
+        96,
+        272,
+        656,
+        313
+      ],
+      "score": 0.9624380469322205
+    },
+    {
+      "text": "6. Pues yo no he habitado en ninguna casa, desde el dia",
+      "box": [
+        825,
+        285,
+        1357,
+        316
+      ],
+      "score": 0.9989211559295654
+    },
+    {
+      "text": "su casa ².",
+      "box": [
+        98,
+        300,
+        191,
+        330
+      ],
+      "score": 0.9566939473152161
+    },
+    {
+      "text": "que saqué á los hijos de Israél de la tierra de Egypto hasta el",
+      "box": [
+        807,
+        310,
+        1358,
+        340
+      ],
+      "score": 0.9938304424285889
+    },
+    {
+      "text": "12. Dieron luego aviso al rey David de que el Señor habia",
+      "box": [
+        115,
+        322,
+        656,
+        366
+      ],
+      "score": 0.9955564737319946
+    },
+    {
+      "text": "presente, sino que he habitado en pabellones y tiendas.",
+      "box": [
+        806,
+        335,
+        1305,
+        363
+      ],
+      "score": 0.993036150932312
+    },
+    {
+      "text": "echado la bendicion sobre Obededom y sobre todas sus co-",
+      "box": [
+        97,
+        348,
+        657,
+        389
+      ],
+      "score": 0.986674964427948
+    },
+    {
+      "text": "7. ¿Por ventura en todos los lugares por donde pasé con",
+      "box": [
+        824,
+        359,
+        1357,
+        387
+      ],
+      "score": 0.9941312670707703
+    },
+    {
+      "text": "sas, por causa del Arca de Dios. Fué pues David y trasladó",
+      "box": [
+        97,
+        374,
+        655,
+        413
+      ],
+      "score": 0.9972331523895264
+    },
+    {
+      "text": "todos los hijos de Israél, he hablado nunca á alguna de las",
+      "box": [
+        806,
+        382,
+        1358,
+        411
+      ],
+      "score": 0.9984686374664307
+    },
+    {
+      "text": "el Arca de Dios de la casa de Obededom á-la ciudad de Da-",
+      "box": [
+        97,
+        398,
+        655,
+        438
+      ],
+      "score": 0.9860502481460571
+    },
+    {
+      "text": "tribus 1a, á quien hubiese yo encargado el gobierno de mi",
+      "box": [
+        804,
+        405,
+        1359,
+        437
+      ],
+      "score": 0.9825815558433533
+    },
+    {
+      "text": "vid con grandes regocijos; é iban junto á David siete coros",
+      "box": [
+        96,
+        421,
+        655,
+        463
+      ],
+      "score": 0.900780975818634
+    },
+    {
+      "text": "pueblo de Israél, ni le he dicho jamás: Por qué no me edificais",
+      "box": [
+        803,
+        429,
+        1359,
+        460
+      ],
+      "score": 0.9897624254226685
+    },
+    {
+      "text": "de músicos 3, y un becerro para el sacrificio:",
+      "box": [
+        97,
+        445,
+        498,
+        486
+      ],
+      "score": 0.9732661247253418
+    },
+    {
+      "text": "una casa de cedro?",
+      "box": [
+        804,
+        450,
+        978,
+        478
+      ],
+      "score": 0.9997045993804932
+    },
+    {
+      "text": "13. Y cada seis pasos que andaban los que llevaban el",
+      "box": [
+        115,
+        468,
+        655,
+        508
+      ],
+      "score": 0.9922049641609192
+    },
+    {
+      "text": "8. Ahora bien, tú dirás á mi siervo David: Esto dice el",
+      "box": [
+        820,
+        474,
+        1360,
+        505
+      ],
+      "score": 0.9980244636535645
+    },
+    {
+      "text": "Arca del Señor, inmolaba un buey y un carnero.",
+      "box": [
+        99,
+        494,
+        534,
+        529
+      ],
+      "score": 0.9918048977851868
+    },
+    {
+      "text": "Señor de los ejércitos: Yo te saqué de las dehesas donde apa-",
+      "box": [
+        802,
+        497,
+        1360,
+        530
+      ],
+      "score": 0.9856036305427551
+    },
+    {
+      "text": "14. Y ceñido David de un Ephod de lino4, danzaba con",
+      "box": [
+        118,
+        518,
+        651,
+        550
+      ],
+      "score": 0.9896923899650574
+    },
+    {
+      "text": "centabas el ganado, á fin de que fueses el caudillo de mi",
+      "box": [
+        802,
+        521,
+        1360,
+        553
+      ],
+      "score": 0.9956693053245544
+    },
+    {
+      "text": "todas sus fuerzas delante del Arca del Señor 5;",
+      "box": [
+        100,
+        543,
+        520,
+        573
+      ],
+      "score": 0.9833242297172546
+    },
+    {
+      "text": "pueblo de Israél.",
+      "box": [
+        802,
+        545,
+        957,
+        572
+      ],
+      "score": 0.9995166659355164
+    },
+    {
+      "text": "15. Y de este modo acompañado de toda la casa de Israél,",
+      "box": [
+        118,
+        565,
+        650,
+        599
+      ],
+      "score": 0.9910696744918823
+    },
+    {
+      "text": "9. Por todas partes donde has andado he estado contigo:",
+      "box": [
+        818,
+        568,
+        1361,
+        603
+      ],
+      "score": 0.9986348152160645
+    },
+    {
+      "text": "conducia el Arca del Testamento del Señor con júbilo y al",
+      "box": [
+        98,
+        590,
+        652,
+        623
+      ],
+      "score": 0.9803746342658997
+    },
+    {
+      "text": "he exterminado delante de tí á todos tus enemigos, y hecho tu",
+      "box": [
+        801,
+        595,
+        1361,
+        625
+      ],
+      "score": 0.9926716089248657
+    },
+    {
+      "text": "son de las trompetas ó clarines.",
+      "box": [
+        99,
+        615,
+        386,
+        646
+      ],
+      "score": 0.9924780130386353
+    },
+    {
+      "text": "nombre tan célebre como el de los grandes de la tierra.",
+      "box": [
+        801,
+        620,
+        1309,
+        650
+      ],
+      "score": 0.9967993497848511
+    },
+    {
+      "text": "16. Mas al entrar el Arca del Señor en la ciudad de David,",
+      "box": [
+        120,
+        638,
+        650,
+        672
+      ],
+      "score": 0.9887348413467407
+    },
+    {
+      "text": "10. Tambien colocaré en un lugar estable á mi pueblo de",
+      "box": [
+        822,
+        645,
+        1361,
+        671
+      ],
+      "score": 0.9994170665740967
+    },
+    {
+      "text": "Michol, hija de Saul, mirando desde una ventana, vió al rey",
+      "box": [
+        100,
+        660,
+        651,
+        697
+      ],
+      "score": 0.9997326731681824
+    },
+    {
+      "text": "Israél, le estableceré en él, y en él habitará, sin ser inquietado",
+      "box": [
+        802,
+        668,
+        1361,
+        696
+      ],
+      "score": 0.995093584060669
+    },
+    {
+      "text": "David bailando y saltando delante del Señor; y desprecióle",
+      "box": [
+        98,
+        685,
+        651,
+        720
+      ],
+      "score": 0.998634397983551
+    },
+    {
+      "text": "mas 13; ni los hijos de iniquidad volverán á humillarle como",
+      "box": [
+        802,
+        693,
+        1362,
+        720
+      ],
+      "score": 0.9948917627334595
+    },
+    {
+      "text": "en su corazon.",
+      "box": [
+        100,
+        713,
+        234,
+        739
+      ],
+      "score": 0.9992117285728455
+    },
+    {
+      "text": "lo hacian antes,",
+      "box": [
+        801,
+        718,
+        948,
+        744
+      ],
+      "score": 0.9987982511520386
+    },
+    {
+      "text": "17. Introdujeron pues los Levitas el Arca del Señor, y",
+      "box": [
+        118,
+        735,
+        651,
+        769
+      ],
+      "score": 0.9997923374176025
+    },
+    {
+      "text": "11. Desde el tiempo en que constituí jueces sobre mi",
+      "box": [
+        819,
+        739,
+        1363,
+        773
+      ],
+      "score": 0.9960950016975403
+    },
+    {
+      "text": "colocáronla en su sitio, en medio del Tabernáculo que le habia",
+      "box": [
+        101,
+        760,
+        651,
+        791
+      ],
+      "score": 0.9998796582221985
+    },
+    {
+      "text": "pueblo de Israél: y yo te daré la paz con todos tus enemigos.",
+      "box": [
+        801,
+        765,
+        1361,
+        796
+      ],
+      "score": 0.9993461966514587
+    },
+    {
+      "text": "mandado levantar David: el cual ofreció holocaustos y las víc-",
+      "box": [
+        101,
+        786,
+        650,
+        814
+      ],
+      "score": 0.9870935082435608
+    },
+    {
+      "text": "Además el Señor es el que te promete desde ahora que él",
+      "box": [
+        801,
+        789,
+        1362,
+        821
+      ],
+      "score": 0.9964577555656433
+    },
+    {
+      "text": "timas pacíficas en accion de gracias delante del Señor.",
+      "box": [
+        101,
+        811,
+        584,
+        836
+      ],
+      "score": 0.9999508261680603
+    },
+    {
+      "text": "mismo dará un firme estar á tu casa 14.",
+      "box": [
+        802,
+        816,
+        1156,
+        843
+      ],
+      "score": 0.9854199290275574
+    },
+    {
+      "text": "18. \"Así que acabó de ofrecer los holocaustos y las víctimas",
+      "box": [
+        120,
+        834,
+        651,
+        861
+      ],
+      "score": 0.9833894371986389
+    },
+    {
+      "text": "12. Y cuando hayas terminado tus dias, éido á descansar",
+      "box": [
+        819,
+        836,
+        1362,
+        869
+      ],
+      "score": 0.9937581419944763
+    },
+    {
+      "text": "pacíficas, bendijo al pueblo en el nombre del Señor Dios de",
+      "box": [
+        98,
+        857,
+        650,
+        886
+      ],
+      "score": 0.991708517074585
+    },
+    {
+      "text": "con tus padres, yo levantaré despues de tí á un hijo tuyo, que",
+      "box": [
+        801,
+        861,
+        1362,
+        892
+      ],
+      "score": 0.9866520166397095
+    },
+    {
+      "text": "los ejércitos .",
+      "box": [
+        100,
+        882,
+        230,
+        906
+      ],
+      "score": 0.9870567321777344
+    },
+    {
+      "text": "nacerá de tí, y consolidaré su reino.",
+      "box": [
+        801,
+        888,
+        1127,
+        914
+      ],
+      "score": 0.9997140765190125
+    },
+    {
+      "text": "19. Y distribuyó á toda la muchedumbre de Israelitas que",
+      "box": [
+        119,
+        904,
+        649,
+        934
+      ],
+      "score": 0.9964349865913391
+    },
+    {
+      "text": "13. Éste edificará un templo en que será adorado mi nom-",
+      "box": [
+        820,
+        910,
+        1360,
+        937
+      ],
+      "score": 0.9989509582519531
+    },
+    {
+      "text": "le habian acompañado, tanto á hombres como á mujeres, á",
+      "box": [
+        99,
+        928,
+        651,
+        958
+      ],
+      "score": 0.9853494167327881
+    },
+    {
+      "text": "bre, y yo afirmaré su regio trono para siempre.",
+      "box": [
+        802,
+        935,
+        1224,
+        961
+      ],
+      "score": 0.9938401579856873
+    },
+    {
+      "text": "cada persona una torta de pan, un pedazo de carne de buey",
+      "box": [
+        100,
+        953,
+        649,
+        983
+      ],
+      "score": 0.9737085103988647
+    },
+    {
+      "text": "14. Yo seré su padre, y él será mi hijo 15; que si en algo",
+      "box": [
+        822,
+        958,
+        1360,
+        985
+      ],
+      "score": 0.9815933704376221
+    },
+    {
+      "text": "asada, y flor de harina frita en aceite. Con esto se retiró toda",
+      "box": [
+        101,
+        981,
+        649,
+        1004
+      ],
+      "score": 0.9854123592376709
+    },
+    {
+      "text": "obrare mal, yo le corregiré paternalmente con vara de hom-",
+      "box": [
+        804,
+        981,
+        1360,
+        1008
+      ],
+      "score": 0.9998408555984497
+    },
+    {
+      "text": "la gente, cada cual á su casa.",
+      "box": [
+        101,
+        1006,
+        362,
+        1029
+      ],
+      "score": 0.9999096989631653
+    },
+    {
+      "text": "bres, y con castigos de hijos de hombres.",
+      "box": [
+        804,
+        1006,
+        1174,
+        1032
+      ],
+      "score": 0.998657763004303
+    },
+    {
+      "text": "20. David tambien entró en la suya para bendecirla 7; y",
+      "box": [
+        123,
+        1029,
+        649,
+        1055
+      ],
+      "score": 0.9967104196548462
+    },
+    {
+      "text": "15. Mas no apartaré de él mi misericordia, como la aparté",
+      "box": [
+        821,
+        1025,
+        1362,
+        1057
+      ],
+      "score": 0.9936128854751587
+    },
+    {
+      "text": "Michol, hija de Saul, saliendo á recibirle, le dijo: Qué bella",
+      "box": [
+        102,
+        1053,
+        649,
+        1077
+      ],
+      "score": 0.9911025166511536
+    },
+    {
+      "text": "de Saul, á quien arrojé de mi presencia.",
+      "box": [
+        804,
+        1053,
+        1162,
+        1078
+      ],
+      "score": 0.9996568560600281
+    },
+    {
+      "text": "figura ha hecho hoy el rey de Israél, despojándose de sus",
+      "box": [
+        101,
+        1078,
+        649,
+        1102
+      ],
+      "score": 0.9995551109313965
+    },
+    {
+      "text": "16. Antes tu casa será estable, y verás permanecer eter-",
+      "box": [
+        821,
+        1075,
+        1363,
+        1104
+      ],
+      "score": 0.990967333316803
+    },
+    {
+      "text": "insignias delante de las criadas de sus siervos, y desnudán.",
+      "box": [
+        99,
+        1100,
+        651,
+        1128
+      ],
+      "score": 0.9965502619743347
+    },
+    {
+      "text": "namente tu reino 16, y tu trono será firme para siempre.",
+      "box": [
+        803,
+        1103,
+        1307,
+        1127
+      ],
+      "score": 0.9733009338378906
+    },
+    {
+      "text": "dose, ni mas ni menos de lo que haria si fuese un bufon!",
+      "box": [
+        100,
+        1125,
+        602,
+        1151
+      ],
+      "score": 0.9901749491691589
+    },
+    {
+      "text": "17. Conforme á todas estas palabras de Dios, y conforme",
+      "box": [
+        821,
+        1123,
+        1361,
+        1151
+      ],
+      "score": 0.9936997890472412
+    },
+    {
+      "text": "21. Pero David respondió á Michol: Delante del Señor,",
+      "box": [
+        119,
+        1147,
+        649,
+        1177
+      ],
+      "score": 0.9941229224205017
+    },
+    {
+      "text": "á toda esta revelacion, así habló Nathán á David.",
+      "box": [
+        802,
+        1149,
+        1246,
+        1174
+      ],
+      "score": 0.992594838142395
+    },
+    {
+      "text": "que me eligió en lugar de tu padre y de toda su descenden-",
+      "box": [
+        99,
+        1173,
+        650,
+        1201
+      ],
+      "score": 0.9992625117301941
+    },
+    {
+      "text": "18. Entonces David fué á presentarse delante del Señor",
+      "box": [
+        819,
+        1168,
+        1362,
+        1201
+      ],
+      "score": 0.9907474517822266
+    },
+    {
+      "text": "cia, y que me mandó ser el caudillo del pueblo del Señor en",
+      "box": [
+        99,
+        1196,
+        651,
+        1225
+      ],
+      "score": 0.998996913433075
+    },
+    {
+      "text": "en el Tabernáculo, y permaneciendo allí en oracion, dijo:",
+      "box": [
+        801,
+        1191,
+        1361,
+        1226
+      ],
+      "score": 0.9915465116500854
+    },
+    {
+      "text": "Israél,",
+      "box": [
+        99,
+        1222,
+        163,
+        1246
+      ],
+      "score": 0.9994998574256897
+    },
+    {
+      "text": "¿Quién soy yo, Señor Dios mio, y cuál es mi casa, para ha-",
+      "box": [
+        801,
+        1215,
+        1360,
+        1250
+      ],
+      "score": 0.9993246793746948
+    },
+    {
+      "text": "22. Bailaré yo, y me abatiré todavía mas de lo que he",
+      "box": [
+        119,
+        1242,
+        651,
+        1272
+      ],
+      "score": 0.9851914644241333
+    },
+    {
+      "text": "berme elevado hasta este punto?",
+      "box": [
+        803,
+        1246,
+        1094,
+        1270
+      ],
+      "score": 0.9999561309814453
+    },
+    {
+      "text": "hecho; y seré despreciable á los ojos mios; y á los de las cria-",
+      "box": [
+        99,
+        1266,
+        651,
+        1296
+      ],
+      "score": 0.9951079487800598
+    },
+    {
+      "text": "19. Y pareciéndote aun, oh Señor Dios, que esto era poco",
+      "box": [
+        818,
+        1261,
+        1359,
+        1298
+      ],
+      "score": 0.9991419911384583
+    },
+    {
+      "text": "das, de que has hablado, pareceré mas glorioso 8.",
+      "box": [
+        101,
+        1293,
+        532,
+        1317
+      ],
+      "score": 0.9772042036056519
+    },
+    {
+      "text": "á tus ojos, has querido asegurar á tu siervo la permanencia",
+      "box": [
+        800,
+        1284,
+        1361,
+        1324
+      ],
+      "score": 0.9945975542068481
+    },
+    {
+      "text": "23. Por lo que Michol, hija de Saul 9, no tuvo hijos todo el",
+      "box": [
+        119,
+        1314,
+        652,
+        1346
+      ],
+      "score": 0.9843989610671997
+    },
+    {
+      "text": "de su casa para los siglos venideros: que tal es la ley ó el",
+      "box": [
+        801,
+        1307,
+        1361,
+        1348
+      ],
+      "score": 0.9735883474349976
+    },
+    {
+      "text": "tiempo que vivió.",
+      "box": [
+        99,
+        1338,
+        259,
+        1368
+      ],
+      "score": 0.9999013543128967
+    },
+    {
+      "text": "deseo de los hijos de Adam, oh Señor Dios.",
+      "box": [
+        803,
+        1338,
+        1181,
+        1367
+      ],
+      "score": 0.9984291791915894
+    },
+    {
+      "text": "20. ¿Qué mas podrá decir ahora David hablando contigo?",
+      "box": [
+        819,
+        1354,
+        1360,
+        1394
+      ],
+      "score": 0.9919962286949158
+    },
+    {
+      "text": "CAPITULO VII",
+      "box": [
+        301,
+        1380,
+        448,
+        1404
+      ],
+      "score": 0.9993586540222168
+    },
+    {
+      "text": "puesto que tú, Señor Dios mio, conoces bien á tu siervo y",
+      "box": [
+        801,
+        1381,
+        1358,
+        1416
+      ],
+      "score": 0.9883069396018982
+    },
+    {
+      "text": "su gratitud.",
+      "box": [
+        803,
+        1412,
+        916,
+        1436
+      ],
+      "score": 0.9992297291755676
+    },
+    {
+      "text": "David intenta edificar un templo al Señor: apruébale Nathán este pensa-",
+      "box": [
+        99,
+        1423,
+        650,
+        1450
+      ],
+      "score": 0.9843312501907349
+    },
+    {
+      "text": "21. Por amor de tu palabra y segun tu corazon has hecho",
+      "box": [
+        819,
+        1425,
+        1357,
+        1461
+      ],
+      "score": 0.996470034122467
+    },
+    {
+      "text": "miento; pero le declara por órden de: Dios, que estaba reservada la",
+      "box": [
+        117,
+        1445,
+        652,
+        1470
+      ],
+      "score": 0.9877630472183228
+    },
+    {
+      "text": "estas grandes maravillas, y aun las has manifestado á tu",
+      "box": [
+        802,
+        1450,
+        1359,
+        1484
+      ],
+      "score": 0.9986971020698547
+    },
+    {
+      "text": "ejecucion á un hijo suyo. David da gracias á Dios por los beneficios",
+      "box": [
+        118,
+        1467,
+        652,
+        1490
+      ],
+      "score": 0.9930545687675476
+    },
+    {
+      "text": "recibidos 10.",
+      "box": [
+        117,
+        1486,
+        212,
+        1509
+      ],
+      "score": 0.9602647423744202
+    },
+    {
+      "text": "siervo.",
+      "box": [
+        804,
+        1483,
+        867,
+        1505
+      ],
+      "score": 0.9998301267623901
+    },
+    {
+      "text": "22. En lo cual, oh Señor Dios mio, has ostentado tu gran-",
+      "box": [
+        820,
+        1499,
+        1357,
+        1530
+      ],
+      "score": 0.9876765608787537
+    },
+    {
+      "text": "1. Estando ya el rey David de asiento en su casa, y habién-",
+      "box": [
+        121,
+        1532,
+        652,
+        1556
+      ],
+      "score": 0.9938207864761353
+    },
+    {
+      "text": "deza: que nadie hay semejante á tí, ni hay Dios fuera de tí,",
+      "box": [
+        803,
+        1522,
+        1358,
+        1555
+      ],
+      "score": 0.998426079750061
+    },
+    {
+      "text": "dole conçedido el Señor paz por todas partes con todos sus",
+      "box": [
+        101,
+        1557,
+        651,
+        1581
+      ],
+      "score": 0.9977183938026428
+    },
+    {
+      "text": "segun todas las cosas que hemos oido con nuestros mismos",
+      "box": [
+        801,
+        1546,
+        1356,
+        1578
+      ],
+      "score": 0.999461829662323
+    },
+    {
+      "text": "enemigos,",
+      "box": [
+        100,
+        1583,
+        196,
+        1606
+      ],
+      "score": 0.999836802482605
+    },
+    {
+      "text": "oidos.",
+      "box": [
+        802,
+        1574,
+        862,
+        1603
+      ],
+      "score": 0.9999873042106628
+    },
+    {
+      "text": "2. Dijo al Profeta Nathán: ¿No reparas que yo habito en",
+      "box": [
+        120,
+        1602,
+        653,
+        1630
+      ],
+      "score": 0.9913405776023865
+    },
+    {
+      "text": "23. Y ¿qué nacion hay sobre la tierra compárable á tu",
+      "box": [
+        820,
+        1592,
+        1356,
+        1624
+      ],
+      "score": 0.995842695236206
+    },
+    {
+      "text": "una casa de cedro, mientras el Arca de Dios está debajo de",
+      "box": [
+        101,
+        1628,
+        652,
+        1652
+      ],
+      "score": 0.9979698657989502
+    },
+    {
+      "text": "pueblo de Israél, al cual tú has ido á rescatar para hacer de",
+      "box": [
+        803,
+        1614,
+        1355,
+        1650
+      ],
+      "score": 0.9944685101509094
+    },
+    {
+      "text": "pieles 1?",
+      "box": [
+        99,
+        1648,
+        188,
+        1678
+      ],
+      "score": 0.909805417060852
+    },
+    {
+      "text": "él un pueblo tuyo, en el cual has engrandecido tu nombre",
+      "box": [
+        803,
+        1638,
+        1355,
+        1673
+      ],
+      "score": 0.9855549931526184
+    },
+    {
+      "text": "3. No te detengas, respondió el Profeta Nathán al rey:",
+      "box": [
+        120,
+        1673,
+        653,
+        1702
+      ],
+      "score": 0.9997490644454956
+    },
+    {
+      "text": "con las maravillas obradas á favor suyo, á cuya presencia",
+      "box": [
+        803,
+        1663,
+        1357,
+        1696
+      ],
+      "score": 0.9908811450004578
+    },
+    {
+      "text": "has hecho tan espantosos prodigios para sacarle de la es-",
+      "box": [
+        802,
+        1685,
+        1358,
+        1721
+      ],
+      "score": 0.9996574521064758
+    },
+    {
+      "text": "Haz lo que te dicta tu corazon, pues el Señor está contigo.",
+      "box": [
+        100,
+        1701,
+        621,
+        1725
+      ],
+      "score": 0.9966462254524231
+    },
+    {
+      "text": "1 La cual estaba junto á Jerusalem.",
+      "box": [
+        114,
+        1760,
+        395,
+        1785
+      ],
+      "score": 0.9994609355926514
+    },
+    {
+      "text": "10 Año 296) del MUNDO: anteS de JESU-CHRISTO 1044.",
+      "box": [
+        812,
+        1745,
+        1225,
+        1779
+      ],
+      "score": 0.9198426008224487
+    },
+    {
+      "text": "2 Llenándola de felicidades.",
+      "box": [
+        112,
+        1779,
+        335,
+        1804
+      ],
+      "score": 0.9992345571517944
+    },
+    {
+      "text": "11 O en un tabernáculo ó pabellon de campaña.",
+      "box": [
+        812,
+        1764,
+        1167,
+        1800
+      ],
+      "score": 0.9871377944946289
+    },
+    {
+      "text": "3 I Paral. XV.",
+      "box": [
+        110,
+        1798,
+        247,
+        1827
+      ],
+      "score": 0.967290461063385
+    },
+    {
+      "text": "12 O al varon escogido de ella.",
+      "box": [
+        812,
+        1787,
+        1038,
+        1820
+      ],
+      "score": 0.9758490920066833
+    },
+    {
+      "text": "4 Este Ephod era como un ceñidor para sostener algo levantada la tú",
+      "box": [
+        107,
+        1819,
+        649,
+        1848
+      ],
+      "score": 0.977333664894104
+    },
+    {
+      "text": "13 Si permaneciere fiel y observare mis preceptos.",
+      "box": [
+        811,
+        1800,
+        1187,
+        1839
+      ],
+      "score": 0.9888340830802917
+    },
+    {
+      "text": "11 O una gloriosa descendencia.",
+      "box": [
+        812,
+        1826,
+        1048,
+        1858
+      ],
+      "score": 0.9605513215065002
+    },
+    {
+      "text": "nica interior, y dejar mas ágiles los piés.",
+      "box": [
+        87,
+        1839,
+        409,
+        1871
+      ],
+      "score": 0.992026150226593
+    },
+    {
+      "text": "sEtas palabras deben entenderse de Chriso hio de Dio por natura",
+      "box": [
+        809,
+        1838,
+        1358,
+        1879
+      ],
+      "score": 0.73560631275177
+    },
+    {
+      "text": "5 Depuestas sus vestiduras reales.",
+      "box": [
+        103,
+        1860,
+        382,
+        1891
+      ],
+      "score": 0.9974113702774048
+    },
+    {
+      "text": "leza. Heb. I,v. . En segundo lugar de Salomon, hijo por la adopcion de la",
+      "box": [
+        803,
+        1860,
+        1359,
+        1899
+      ],
+      "score": 0.8255767822265625
+    },
+    {
+      "text": "6 Véase Bendecir.",
+      "box": [
+        101,
+        1883,
+        260,
+        1913
+      ],
+      "score": 0.966909646987915
+    },
+    {
+      "text": "gracia.",
+      "box": [
+        805,
+        1894,
+        862,
+        1918
+      ],
+      "score": 0.9999068975448608
+    },
+    {
+      "text": "7 Esto es, para celebrar con su familia un convite.",
+      "box": [
+        98,
+        1902,
+        501,
+        1936
+      ],
+      "score": 0.9783945083618164
+    },
+    {
+      "text": "16 Los Setenta tradujeron évwπoy o, ante mí; y tal vez deberíamos",
+      "box": [
+        813,
+        1901,
+        1358,
+        1936
+      ],
+      "score": 0.8662011027336121
+    },
+    {
+      "text": "8 Y aun haré de ello gloria.",
+      "box": [
+        96,
+        1927,
+        331,
+        1956
+      ],
+      "score": 0.9895235896110535
+    },
+    {
+      "text": "leer en la Vulgata ante me; en vez de ante faciem tuam.",
+      "box": [
+        803,
+        1922,
+        1220,
+        1958
+      ],
+      "score": 0.9765366911888123
+    },
+    {
+      "text": "9 Fué castigada por Dios con la esterilidad.",
+      "box": [
+        93,
+        1944,
+        449,
+        1979
+      ],
+      "score": 0.9990218877792358
+    }
+  ]
+}

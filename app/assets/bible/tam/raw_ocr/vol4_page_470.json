@@ -1,0 +1,577 @@
+{
+  "volume": 4,
+  "page_index": 470,
+  "pdf_page": 471,
+  "lines": [
+    {
+      "text": "INDICE",
+      "box": [
+        343,
+        180,
+        529,
+        232
+      ],
+      "score": 0.9999778270721436
+    },
+    {
+      "text": "Páginas",
+      "box": [
+        738,
+        320,
+        781,
+        335
+      ],
+      "score": 0.9997591376304626
+    },
+    {
+      "text": "SANCTUM JESU CHRISTI EVANGELIUM SECUNDUM MATTHAEUM.",
+      "box": [
+        79,
+        341,
+        537,
+        367
+      ],
+      "score": 0.9952157735824585
+    },
+    {
+      "text": "1",
+      "box": [
+        763,
+        344,
+        772,
+        355
+      ],
+      "score": 0.9980586171150208
+    },
+    {
+      "text": "SANCTUM JESU CHRISTI EVANGELIUM SECUNDUM MAROUM.",
+      "box": [
+        79,
+        361,
+        521,
+        388
+      ],
+      "score": 0.994873583316803
+    },
+    {
+      "text": "7",
+      "box": [
+        760,
+        359,
+        775,
+        377
+      ],
+      "score": 0.9996646642684937
+    },
+    {
+      "text": "SANCTUM JESU CHRISTI ÉVANGELIUM SECUNDUM LUCAM.",
+      "box": [
+        79,
+        382,
+        501,
+        408
+      ],
+      "score": 0.9916614890098572
+    },
+    {
+      "text": "11",
+      "box": [
+        757,
+        382,
+        772,
+        397
+      ],
+      "score": 0.9997109174728394
+    },
+    {
+      "text": "SANCTUM JESU CHRISTI EVANGELIUM SECUNDUM JOANNEM..",
+      "box": [
+        79,
+        404,
+        525,
+        428
+      ],
+      "score": 0.9970081448554993
+    },
+    {
+      "text": "18",
+      "box": [
+        757,
+        403,
+        773,
+        417
+      ],
+      "score": 0.9999986290931702
+    },
+    {
+      "text": "ACTUS APOSTOLORUM.",
+      "box": [
+        80,
+        431,
+        251,
+        449
+      ],
+      "score": 0.9997276663780212
+    },
+    {
+      "text": "23",
+      "box": [
+        757,
+        423,
+        773,
+        437
+      ],
+      "score": 0.999980628490448
+    },
+    {
+      "text": "29",
+      "box": [
+        756,
+        442,
+        775,
+        459
+      ],
+      "score": 0.9999518990516663
+    },
+    {
+      "text": "EPISTOLA BEATI PAULI APOSTOLI AD ROMANOS.",
+      "box": [
+        80,
+        448,
+        435,
+        470
+      ],
+      "score": 0.9977569580078125
+    },
+    {
+      "text": "EPISTOLA BEATI PAULI APOSTOLI AD CORINTHIOS PRIMA.",
+      "box": [
+        80,
+        467,
+        496,
+        491
+      ],
+      "score": 0.9992717504501343
+    },
+    {
+      "text": "32",
+      "box": [
+        757,
+        464,
+        775,
+        478
+      ],
+      "score": 0.9999969601631165
+    },
+    {
+      "text": "35",
+      "box": [
+        756,
+        483,
+        776,
+        500
+      ],
+      "score": 0.9999855160713196
+    },
+    {
+      "text": "EPISTOLA BEATI PAULI APOSTOLI AD CORINTHIOS SECUNDA.",
+      "box": [
+        80,
+        488,
+        524,
+        512
+      ],
+      "score": 0.97703617811203
+    },
+    {
+      "text": "37",
+      "box": [
+        757,
+        504,
+        776,
+        522
+      ],
+      "score": 0.9999927282333374
+    },
+    {
+      "text": "EPISTOLA BEATI PAULI APOSTOLI AD GALATAS..",
+      "box": [
+        80,
+        511,
+        435,
+        533
+      ],
+      "score": 0.9953489899635315
+    },
+    {
+      "text": "38",
+      "box": [
+        757,
+        525,
+        776,
+        542
+      ],
+      "score": 0.9999874234199524
+    },
+    {
+      "text": "EPISTOLA-BEATI PAULI APOSTOLI AD EPHESIOS..",
+      "box": [
+        80,
+        533,
+        438,
+        554
+      ],
+      "score": 0.9783765077590942
+    },
+    {
+      "text": "39",
+      "box": [
+        757,
+        546,
+        776,
+        563
+      ],
+      "score": 0.9999857544898987
+    },
+    {
+      "text": "EPISTOLA BEATI PAULI APOSTOLI AD PHILIPPENSES..",
+      "box": [
+        80,
+        553,
+        466,
+        575
+      ],
+      "score": 0.999534547328949
+    },
+    {
+      "text": "39",
+      "box": [
+        758,
+        566,
+        778,
+        583
+      ],
+      "score": 0.9821642637252808
+    },
+    {
+      "text": "EPISTOLA BEATI PAULI APOSTOLI AD COLOSSENSES..",
+      "box": [
+        80,
+        574,
+        466,
+        595
+      ],
+      "score": 0.9877871870994568
+    },
+    {
+      "text": "40",
+      "box": [
+        760,
+        586,
+        781,
+        603
+      ],
+      "score": 0.9999909400939941
+    },
+    {
+      "text": "EPISTOLA BEATI PAULI APOSTOLI AD THESSALONICENSES PRIMA..",
+      "box": [
+        81,
+        593,
+        563,
+        617
+      ],
+      "score": 0.9825130105018616
+    },
+    {
+      "text": "41",
+      "box": [
+        759,
+        606,
+        778,
+        624
+      ],
+      "score": 0.9999752640724182
+    },
+    {
+      "text": "EPISTOLA BEATI PAULI APOSTOLI AD THESSALONICENSES SECUNDA.",
+      "box": [
+        81,
+        612,
+        571,
+        639
+      ],
+      "score": 0.991779088973999
+    },
+    {
+      "text": "41",
+      "box": [
+        762,
+        630,
+        778,
+        645
+      ],
+      "score": 0.9990546703338623
+    },
+    {
+      "text": "EPISTOLA BEATI PAULI APOSTOLI AD TIMOTHEUM PRIMA.",
+      "box": [
+        80,
+        635,
+        499,
+        660
+      ],
+      "score": 0.9994964003562927
+    },
+    {
+      "text": "42",
+      "box": [
+        762,
+        649,
+        781,
+        666
+      ],
+      "score": 0.9999856352806091
+    },
+    {
+      "text": "EPISTOLA BEATI PAULI APOSTOLI AD TIMOTHEUM SECUNDA..",
+      "box": [
+        81,
+        657,
+        531,
+        681
+      ],
+      "score": 0.9897931814193726
+    },
+    {
+      "text": "43",
+      "box": [
+        763,
+        670,
+        782,
+        687
+      ],
+      "score": 0.9999671578407288
+    },
+    {
+      "text": "EPISTOLA BEATI PAULI APOSTOLI AD TITUM.",
+      "box": [
+        83,
+        679,
+        410,
+        702
+      ],
+      "score": 0.9858146905899048
+    },
+    {
+      "text": "43",
+      "box": [
+        764,
+        690,
+        783,
+        707
+      ],
+      "score": 0.9999637007713318
+    },
+    {
+      "text": "EPISTOLA BEATI PAULI APOSTOLI AD PHILEMONEM..",
+      "box": [
+        83,
+        698,
+        467,
+        724
+      ],
+      "score": 0.9942449927330017
+    },
+    {
+      "text": "44",
+      "box": [
+        764,
+        710,
+        783,
+        727
+      ],
+      "score": 0.9999197125434875
+    },
+    {
+      "text": "EPISTOLA BEATI PAULI-APOSTOLI AD HEBREOS.",
+      "box": [
+        81,
+        719,
+        437,
+        744
+      ],
+      "score": 0.997524619102478
+    },
+    {
+      "text": "46",
+      "box": [
+        765,
+        730,
+        784,
+        748
+      ],
+      "score": 0.9999682903289795
+    },
+    {
+      "text": "EPISTOLA CATHOLICA BEATI JACOBI APOSTOLI..",
+      "box": [
+        81,
+        740,
+        437,
+        765
+      ],
+      "score": 0.995055615901947
+    },
+    {
+      "text": "46",
+      "box": [
+        765,
+        752,
+        784,
+        769
+      ],
+      "score": 0.9999045729637146
+    },
+    {
+      "text": "EPISTOLA BEATI PETRI APOSTOLI PRIMA.",
+      "box": [
+        81,
+        762,
+        381,
+        785
+      ],
+      "score": 0.9907938838005066
+    },
+    {
+      "text": "47",
+      "box": [
+        765,
+        772,
+        784,
+        789
+      ],
+      "score": 0.9998016357421875
+    },
+    {
+      "text": "EPISTOLA BEATI PETRI APOSTOLI SECUNDA.",
+      "box": [
+        81,
+        783,
+        407,
+        805
+      ],
+      "score": 0.9979920387268066
+    },
+    {
+      "text": "48",
+      "box": [
+        767,
+        794,
+        784,
+        808
+      ],
+      "score": 0.9999653100967407
+    },
+    {
+      "text": "EPISTOLA BEATI JOANNIS APOSTOLI PRIMA.",
+      "box": [
+        81,
+        803,
+        408,
+        825
+      ],
+      "score": 0.9874370098114014
+    },
+    {
+      "text": "49",
+      "box": [
+        766,
+        813,
+        785,
+        830
+      ],
+      "score": 0.9999905824661255
+    },
+    {
+      "text": "EPISTOLA BEATI JOANNIS APOSTOLI SECUNDA.",
+      "box": [
+        81,
+        824,
+        420,
+        846
+      ],
+      "score": 0.9845717549324036
+    },
+    {
+      "text": "49",
+      "box": [
+        764,
+        835,
+        786,
+        852
+      ],
+      "score": 0.9998958706855774
+    },
+    {
+      "text": "EPISTOLA BEATI JOANNIS APOSTOLI TERTIA.",
+      "box": [
+        82,
+        846,
+        408,
+        866
+      ],
+      "score": 0.9969058632850647
+    },
+    {
+      "text": "49",
+      "box": [
+        768,
+        856,
+        787,
+        873
+      ],
+      "score": 0.9998817443847656
+    },
+    {
+      "text": "EPISTOLA BEATI JUDA APOSTOLI..",
+      "box": [
+        84,
+        871,
+        344,
+        888
+      ],
+      "score": 0.9845219850540161
+    },
+    {
+      "text": "49",
+      "box": [
+        770,
+        879,
+        786,
+        893
+      ],
+      "score": 0.9999893307685852
+    },
+    {
+      "text": "APOCALYPSIS BEATI JOANNIS APOSTOLI.",
+      "box": [
+        84,
+        891,
+        389,
+        908
+      ],
+      "score": 0.9995519518852234
+    },
+    {
+      "text": "IV -14*",
+      "box": [
+        774,
+        1298,
+        819,
+        1316
+      ],
+      "score": 0.8538998961448669
+    }
+  ]
+}

@@ -1,0 +1,1727 @@
+{
+  "volume": 2,
+  "page_index": 205,
+  "pdf_page": 206,
+  "lines": [
+    {
+      "text": "259",
+      "box": [
+        18,
+        19,
+        60,
+        48
+      ],
+      "score": 0.9999570846557617
+    },
+    {
+      "text": "I. ESDRAS.",
+      "box": [
+        243,
+        38,
+        361,
+        66
+      ],
+      "score": 0.972094714641571
+    },
+    {
+      "text": "CAPITULO III.",
+      "box": [
+        966,
+        28,
+        1135,
+        64
+      ],
+      "score": 0.9627398252487183
+    },
+    {
+      "text": "260",
+      "box": [
+        1297,
+        37,
+        1333,
+        62
+      ],
+      "score": 0.9984583258628845
+    },
+    {
+      "text": "2. Los cuales vinieron con Zorobabel, y con Josué, Nehe-",
+      "box": [
+        22,
+        89,
+        599,
+        146
+      ],
+      "score": 0.9967549443244934
+    },
+    {
+      "text": "mias, Saraias, Rahelaias, Mardochai, Belsan, Mesphar, Be-",
+      "box": [
+        0,
+        117,
+        599,
+        172
+      ],
+      "score": 0.9967139363288879
+    },
+    {
+      "text": "49. Los hijos de Aza, los hijos de Phaséa, los hijos de",
+      "box": [
+        773,
+        99,
+        1344,
+        142
+      ],
+      "score": 0.9979963302612305
+    },
+    {
+      "text": "guai, Rehúm, y Baana. Hé aquí la suma de los varones del",
+      "box": [
+        0,
+        146,
+        598,
+        199
+      ],
+      "score": 0.992354691028595
+    },
+    {
+      "text": "Besee,",
+      "box": [
+        754,
+        142,
+        820,
+        168
+      ],
+      "score": 0.9999492764472961
+    },
+    {
+      "text": "50. Los hijos de Asena, los hijos de Munim, los hijos de",
+      "box": [
+        773,
+        154,
+        1340,
+        196
+      ],
+      "score": 0.9970116019248962
+    },
+    {
+      "text": "pueblo de Israél:",
+      "box": [
+        0,
+        175,
+        182,
+        211
+      ],
+      "score": 0.9901531338691711
+    },
+    {
+      "text": "3. Hijos de Pharós 1, dos mil ciento setenta y dos.",
+      "box": [
+        22,
+        201,
+        519,
+        246
+      ],
+      "score": 0.983881950378418
+    },
+    {
+      "text": "Nephusim,",
+      "box": [
+        752,
+        192,
+        862,
+        222
+      ],
+      "score": 0.999980628490448
+    },
+    {
+      "text": "51. Los hijos de Bacbuc, los hijos de Hacupha, los hijos",
+      "box": [
+        773,
+        209,
+        1338,
+        246
+      ],
+      "score": 0.9962396621704102
+    },
+    {
+      "text": "4. Hijos de Sephatia, trescientos setenta y dos.",
+      "box": [
+        22,
+        227,
+        490,
+        272
+      ],
+      "score": 0.9997528195381165
+    },
+    {
+      "text": "5. Hijos de Aréa, setecientos setenta y cinco.",
+      "box": [
+        19,
+        254,
+        473,
+        298
+      ],
+      "score": 0.9983933568000793
+    },
+    {
+      "text": "de Harhur,",
+      "box": [
+        755,
+        246,
+        861,
+        270
+      ],
+      "score": 0.9999681711196899
+    },
+    {
+      "text": "52. Los hijos de Besluth, los hijos de Mahida, los hijos",
+      "box": [
+        773,
+        262,
+        1335,
+        295
+      ],
+      "score": 0.9935716986656189
+    },
+    {
+      "text": "6. Hijos de Phahath Moab, de la estirpe de Josué: de",
+      "box": [
+        16,
+        279,
+        599,
+        326
+      ],
+      "score": 0.9892146587371826
+    },
+    {
+      "text": "de Harsa,",
+      "box": [
+        755,
+        296,
+        850,
+        321
+      ],
+      "score": 0.999932587146759
+    },
+    {
+      "text": "Joab, dos mil ochocientos y doce.",
+      "box": [
+        0,
+        306,
+        334,
+        345
+      ],
+      "score": 0.9981028437614441
+    },
+    {
+      "text": "53. Los hijos de Bercós, los hijos de Sisara, los hijos de",
+      "box": [
+        773,
+        312,
+        1335,
+        346
+      ],
+      "score": 0.998842716217041
+    },
+    {
+      "text": "7. Hijos de Elam, mil doscientos cincuenta y cuatro.",
+      "box": [
+        12,
+        330,
+        545,
+        376
+      ],
+      "score": 0.9978455305099487
+    },
+    {
+      "text": "8. Hijos de Zethúa, novecientos cuarenta y cinco.",
+      "box": [
+        8,
+        355,
+        517,
+        401
+      ],
+      "score": 0.9986567497253418
+    },
+    {
+      "text": "Thema,",
+      "box": [
+        755,
+        346,
+        830,
+        371
+      ],
+      "score": 0.9999947547912598
+    },
+    {
+      "text": "54. Los hijos de Nasía, los hijos de Hathipha.",
+      "box": [
+        773,
+        365,
+        1223,
+        396
+      ],
+      "score": 0.996048629283905
+    },
+    {
+      "text": "9.",
+      "box": [
+        10,
+        385,
+        49,
+        407
+      ],
+      "score": 0.9725912809371948
+    },
+    {
+      "text": "Hijos de Zachai, setecientos sesenta.",
+      "box": [
+        51,
+        382,
+        418,
+        424
+      ],
+      "score": 0.9995794296264648
+    },
+    {
+      "text": "55. Hijos de los siervos de Salomon ³: Los hijos de Sotai,",
+      "box": [
+        773,
+        386,
+        1334,
+        422
+      ],
+      "score": 0.9868353009223938
+    },
+    {
+      "text": "10.",
+      "box": [
+        8,
+        407,
+        50,
+        434
+      ],
+      "score": 0.9983921647071838
+    },
+    {
+      "text": "Hijos de Bani, seiscientos cuarenta y dos.",
+      "box": [
+        62,
+        407,
+        476,
+        449
+      ],
+      "score": 0.989346444606781
+    },
+    {
+      "text": "los hijos de Sophereth, los hijos de Pharuda,",
+      "box": [
+        750,
+        415,
+        1184,
+        445
+      ],
+      "score": 0.9903287887573242
+    },
+    {
+      "text": "11.",
+      "box": [
+        8,
+        433,
+        48,
+        457
+      ],
+      "score": 0.9994298815727234
+    },
+    {
+      "text": "Hijos de Bebai, seiscientos veinte y tres.",
+      "box": [
+        63,
+        433,
+        463,
+        471
+      ],
+      "score": 0.9998070001602173
+    },
+    {
+      "text": "56. Los hijos de Jala, los hijos de Dercon, los hijos de",
+      "box": [
+        772,
+        434,
+        1338,
+        471
+      ],
+      "score": 0.9970293641090393
+    },
+    {
+      "text": "12.",
+      "box": [
+        6,
+        458,
+        48,
+        482
+      ],
+      "score": 0.9996254444122314
+    },
+    {
+      "text": "Hijos de Azgad, mil doscientos veinte y dos.",
+      "box": [
+        62,
+        456,
+        501,
+        498
+      ],
+      "score": 0.9991344809532166
+    },
+    {
+      "text": "Geddel,",
+      "box": [
+        753,
+        468,
+        832,
+        493
+      ],
+      "score": 0.9999598860740662
+    },
+    {
+      "text": "13.",
+      "box": [
+        5,
+        483,
+        48,
+        507
+      ],
+      "score": 0.9984857439994812
+    },
+    {
+      "text": "Hijos de Adonicam, seiscientos sesenta y seis.",
+      "box": [
+        61,
+        481,
+        512,
+        524
+      ],
+      "score": 0.9996951818466187
+    },
+    {
+      "text": "57. Los hijos de Saphatias, los hijos de Hatil, los hijos",
+      "box": [
+        772,
+        482,
+        1338,
+        522
+      ],
+      "score": 0.9960983395576477
+    },
+    {
+      "text": "14.",
+      "box": [
+        4,
+        508,
+        46,
+        532
+      ],
+      "score": 0.9967872500419617
+    },
+    {
+      "text": "Hijos de Beguai, dos mil y cincuenta y seis.",
+      "box": [
+        61,
+        507,
+        497,
+        548
+      ],
+      "score": 0.9994951486587524
+    },
+    {
+      "text": "de Phochereth que eran oriundos de Asebaim, los hijos de",
+      "box": [
+        750,
+        507,
+        1338,
+        548
+      ],
+      "score": 0.9966877698898315
+    },
+    {
+      "text": "15.",
+      "box": [
+        2,
+        530,
+        49,
+        559
+      ],
+      "score": 0.9955905079841614
+    },
+    {
+      "text": "Hijos de Adin, cuatrocientos cincuenta y cuatro.",
+      "box": [
+        61,
+        532,
+        543,
+        575
+      ],
+      "score": 0.999012291431427
+    },
+    {
+      "text": "Ami.",
+      "box": [
+        751,
+        542,
+        804,
+        568
+      ],
+      "score": 0.9999054670333862
+    },
+    {
+      "text": "16.",
+      "box": [
+        3,
+        559,
+        53,
+        586
+      ],
+      "score": 0.9996752738952637
+    },
+    {
+      "text": "Hijos de Ather, que descendian de Ezechias, noventa",
+      "box": [
+        59,
+        558,
+        597,
+        602
+      ],
+      "score": 0.9996584057807922
+    },
+    {
+      "text": "58. Todos los Nathinéos, y los hijos de los siervos de Sa-",
+      "box": [
+        769,
+        557,
+        1339,
+        600
+      ],
+      "score": 0.9924420118331909
+    },
+    {
+      "text": "ocho.",
+      "box": [
+        2,
+        585,
+        70,
+        611
+      ],
+      "score": 0.9987261891365051
+    },
+    {
+      "text": "lomon, trescientos noventa y dos.",
+      "box": [
+        750,
+        592,
+        1077,
+        623
+      ],
+      "score": 0.9960827827453613
+    },
+    {
+      "text": "17.",
+      "box": [
+        3,
+        611,
+        55,
+        637
+      ],
+      "score": 0.9780731201171875
+    },
+    {
+      "text": "Hijos de Besai, trescientos veinte y tres.",
+      "box": [
+        59,
+        610,
+        461,
+        652
+      ],
+      "score": 0.9978125691413879
+    },
+    {
+      "text": "59. Y estos son los que partieron de los distritos de Thel-",
+      "box": [
+        770,
+        607,
+        1340,
+        652
+      ],
+      "score": 0.9856323003768921
+    },
+    {
+      "text": "18.",
+      "box": [
+        3,
+        638,
+        50,
+        663
+      ],
+      "score": 0.997053861618042
+    },
+    {
+      "text": "Hijos de Jora, ciento y doce.",
+      "box": [
+        62,
+        637,
+        353,
+        676
+      ],
+      "score": 0.9997690320014954
+    },
+    {
+      "text": "mala, Thelharsa, Cherub, y Adon, y Emer; y no pudieron",
+      "box": [
+        749,
+        635,
+        1338,
+        677
+      ],
+      "score": 0.9903605580329895
+    },
+    {
+      "text": "19.",
+      "box": [
+        2,
+        663,
+        47,
+        690
+      ],
+      "score": 0.9998219013214111
+    },
+    {
+      "text": "Hijos de Hasum, doscientos veinte y tres.",
+      "box": [
+        63,
+        664,
+        476,
+        704
+      ],
+      "score": 0.9963613152503967
+    },
+    {
+      "text": "señalar la familia y estirpe de sus padres en prueba de ser",
+      "box": [
+        749,
+        660,
+        1339,
+        703
+      ],
+      "score": 0.9941434860229492
+    },
+    {
+      "text": "20.",
+      "box": [
+        2,
+        690,
+        48,
+        716
+      ],
+      "score": 0.9996929168701172
+    },
+    {
+      "text": "Hijos de Gebbar, noventa y cinco.",
+      "box": [
+        63,
+        690,
+        403,
+        725
+      ],
+      "score": 0.9990150928497314
+    },
+    {
+      "text": "oriundos de Israél.",
+      "box": [
+        754,
+        699,
+        932,
+        720
+      ],
+      "score": 0.9997826814651489
+    },
+    {
+      "text": "21.",
+      "box": [
+        0,
+        716,
+        49,
+        743
+      ],
+      "score": 0.9992195963859558
+    },
+    {
+      "text": "Hijos, ú oriundos, de Bethlehem, ciento veinte y tres.",
+      "box": [
+        63,
+        715,
+        595,
+        754
+      ],
+      "score": 0.9885000586509705
+    },
+    {
+      "text": "60. Los hijos de Dalaia, los hijos de Tobia, los hijos de",
+      "box": [
+        771,
+        709,
+        1338,
+        752
+      ],
+      "score": 0.9951279163360596
+    },
+    {
+      "text": "22.",
+      "box": [
+        4,
+        743,
+        50,
+        770
+      ],
+      "score": 0.9981503486633301
+    },
+    {
+      "text": "Varones de Netupha, cincuenta y seis.",
+      "box": [
+        64,
+        743,
+        443,
+        776
+      ],
+      "score": 0.9996843338012695
+    },
+    {
+      "text": "Necoda, seiscientos y cincuenta y dos.",
+      "box": [
+        751,
+        744,
+        1117,
+        775
+      ],
+      "score": 0.9984341859817505
+    },
+    {
+      "text": "23.",
+      "box": [
+        7,
+        771,
+        50,
+        795
+      ],
+      "score": 0.9984124302864075
+    },
+    {
+      "text": "Varones de Anathoth, ciento veinte y ocho.",
+      "box": [
+        65,
+        770,
+        488,
+        802
+      ],
+      "score": 0.9994478821754456
+    },
+    {
+      "text": "·61. Y de los hijos de los sacerdotes: Los hijos de Hobia,",
+      "box": [
+        766,
+        760,
+        1337,
+        804
+      ],
+      "score": 0.9846863150596619
+    },
+    {
+      "text": "24.",
+      "box": [
+        6,
+        797,
+        53,
+        823
+      ],
+      "score": 0.9979740977287292
+    },
+    {
+      "text": "Hijos de Azmaveth, cuarenta y dos.",
+      "box": [
+        66,
+        797,
+        423,
+        828
+      ],
+      "score": 0.9978299140930176
+    },
+    {
+      "text": "los hijos de Accos, los hijos de Berzellai, el cual se casó con",
+      "box": [
+        750,
+        785,
+        1338,
+        830
+      ],
+      "score": 0.9997430443763733
+    },
+    {
+      "text": "25.",
+      "box": [
+        8,
+        825,
+        54,
+        848
+      ],
+      "score": 0.9999322295188904
+    },
+    {
+      "text": "Hijos de Cariathiarim, de Cephira, y de Beroth, sete-",
+      "box": [
+        65,
+        823,
+        596,
+        854
+      ],
+      "score": 0.9941604137420654
+    },
+    {
+      "text": "una de las hijas de Berzellai 4 de Galaad, y tomó su nombre:",
+      "box": [
+        752,
+        811,
+        1339,
+        856
+      ],
+      "score": 0.9944108128547668
+    },
+    {
+      "text": "ientos cuarenta y tres.",
+      "box": [
+        0,
+        851,
+        241,
+        878
+      ],
+      "score": 0.9995819330215454
+    },
+    {
+      "text": "62. Estos tales buscaron la escritura de su genealogía, y",
+      "box": [
+        772,
+        836,
+        1338,
+        881
+      ],
+      "score": 0.9972992539405823
+    },
+    {
+      "text": "26. Hijos de Rama y de Gabáa, seiscientos veinte y uno.",
+      "box": [
+        7,
+        875,
+        576,
+        904
+      ],
+      "score": 0.9953265190124512
+    },
+    {
+      "text": "no la hallaron, por lo que fueron excluidos del sacerdocio.",
+      "box": [
+        750,
+        860,
+        1308,
+        908
+      ],
+      "score": 0.996008574962616
+    },
+    {
+      "text": "27. Varones de Machmas, ciento veinte y dos.",
+      "box": [
+        7,
+        900,
+        481,
+        929
+      ],
+      "score": 0.9943336248397827
+    },
+    {
+      "text": "63. Y díjoles Athersatha5 que no comiesen de las ofrendas",
+      "box": [
+        772,
+        883,
+        1339,
+        932
+      ],
+      "score": 0.9841738939285278
+    },
+    {
+      "text": "28.",
+      "box": [
+        9,
+        925,
+        69,
+        954
+      ],
+      "score": 0.9786179661750793
+    },
+    {
+      "text": "Varones de Bethel y de Hai, doscientos veinte y tres.",
+      "box": [
+        59,
+        925,
+        586,
+        954
+      ],
+      "score": 0.999283492565155
+    },
+    {
+      "text": "santificadas, hasta tanto que se presentase un Pontífice docto",
+      "box": [
+        750,
+        908,
+        1339,
+        957
+      ],
+      "score": 0.9984380602836609
+    },
+    {
+      "text": "29.",
+      "box": [
+        11,
+        953,
+        59,
+        979
+      ],
+      "score": 0.9997677803039551
+    },
+    {
+      "text": "Hijos de Nebo, cincuenta y dos.",
+      "box": [
+        68,
+        953,
+        385,
+        981
+      ],
+      "score": 0.9898970127105713
+    },
+    {
+      "text": "y perfecto 6.",
+      "box": [
+        752,
+        950,
+        871,
+        977
+      ],
+      "score": 0.9715617299079895
+    },
+    {
+      "text": "30.",
+      "box": [
+        11,
+        978,
+        60,
+        1008
+      ],
+      "score": 0.9983282089233398
+    },
+    {
+      "text": "Hijos de Megbis, ciento cincuenta y seis.",
+      "box": [
+        69,
+        978,
+        469,
+        1007
+      ],
+      "score": 0.9940025806427002
+    },
+    {
+      "text": "64. Toda esta muchedumbre, unida como si fuese un hom-",
+      "box": [
+        772,
+        958,
+        1337,
+        1003
+      ],
+      "score": 0.9931380748748779
+    },
+    {
+      "text": "31.",
+      "box": [
+        13,
+        1006,
+        61,
+        1032
+      ],
+      "score": 0.9985596537590027
+    },
+    {
+      "text": "Hijos del otro Elam, mil doscientos cincuenta y cuatro.",
+      "box": [
+        69,
+        1000,
+        598,
+        1035
+      ],
+      "score": 0.9941655993461609
+    },
+    {
+      "text": "bre solo, era de cuarenta y dos mil trescientos y sesenta,",
+      "box": [
+        753,
+        987,
+        1288,
+        1027
+      ],
+      "score": 0.9974938631057739
+    },
+    {
+      "text": "32.",
+      "box": [
+        15,
+        1033,
+        61,
+        1059
+      ],
+      "score": 0.9938726425170898
+    },
+    {
+      "text": "Hijos de Harim, trescientos y veinte.",
+      "box": [
+        71,
+        1030,
+        434,
+        1060
+      ],
+      "score": 0.9812535643577576
+    },
+    {
+      "text": "65. Sin contar sus esclavos y esclavas, que eran siete mil",
+      "box": [
+        773,
+        1007,
+        1337,
+        1055
+      ],
+      "score": 0.9857141375541687
+    },
+    {
+      "text": "33. Hijos de Lod, de Hadid, y de Ono, setecientos veinte",
+      "box": [
+        15,
+        1051,
+        600,
+        1088
+      ],
+      "score": 0.9917975664138794
+    },
+    {
+      "text": "trescientos treinta y siete 7; y entre ellos doscientos cantores",
+      "box": [
+        753,
+        1034,
+        1338,
+        1080
+      ],
+      "score": 0.987928032875061
+    },
+    {
+      "text": "cinco.",
+      "box": [
+        20,
+        1086,
+        93,
+        1112
+      ],
+      "score": 0.999721348285675
+    },
+    {
+      "text": "y cantoras.",
+      "box": [
+        753,
+        1076,
+        865,
+        1102
+      ],
+      "score": 0.9994785189628601
+    },
+    {
+      "text": "66. Tenian setecientos treinta y seis caballos, y doscientos",
+      "box": [
+        773,
+        1084,
+        1336,
+        1129
+      ],
+      "score": 0.9993814826011658
+    },
+    {
+      "text": "34. Hijos de Jerichó, trescientos cuarenta y cinco.",
+      "box": [
+        22,
+        1106,
+        524,
+        1136
+      ],
+      "score": 0.9982672333717346
+    },
+    {
+      "text": "cuarenta y cinco mulos,",
+      "box": [
+        756,
+        1123,
+        980,
+        1151
+      ],
+      "score": 0.9987262487411499
+    },
+    {
+      "text": "35. Hijos de Senaa, tres mil seiscientos treinta.",
+      "box": [
+        26,
+        1133,
+        497,
+        1161
+      ],
+      "score": 0.992199182510376
+    },
+    {
+      "text": "67. Cuatrocientos treinta y cinco camellos, seis mil sete-",
+      "box": [
+        775,
+        1136,
+        1335,
+        1177
+      ],
+      "score": 0.9991179704666138
+    },
+    {
+      "text": "36. Sacerdotes que volvieron á Jerusalem: Los hijos de",
+      "box": [
+        27,
+        1154,
+        600,
+        1187
+      ],
+      "score": 0.9937413334846497
+    },
+    {
+      "text": "Jadaia de la familia de Josué, novecientos setenta y tres.",
+      "box": [
+        6,
+        1181,
+        557,
+        1211
+      ],
+      "score": 0.9982494711875916
+    },
+    {
+      "text": "cientos y veinte asnos.",
+      "box": [
+        757,
+        1172,
+        975,
+        1201
+      ],
+      "score": 0.9998806715011597
+    },
+    {
+      "text": "37: Hijos de Emmer, mil cincuenta y dos.",
+      "box": [
+        35,
+        1208,
+        447,
+        1235
+      ],
+      "score": 0.9778144955635071
+    },
+    {
+      "text": "68. Y algunos príncipes, ó primeras cabezas de familias,",
+      "box": [
+        776,
+        1187,
+        1334,
+        1229
+      ],
+      "score": 0.9956211447715759
+    },
+    {
+      "text": "38. Hijos de Pheshur, mil doscientos cuarenta y siete.",
+      "box": [
+        38,
+        1233,
+        563,
+        1260
+      ],
+      "score": 0.9908556938171387
+    },
+    {
+      "text": "al llegar al lugar del templo del Señor en Jerusalèm, hicie-",
+      "box": [
+        756,
+        1211,
+        1334,
+        1254
+      ],
+      "score": 0.9927536845207214
+    },
+    {
+      "text": "39. Hijos de Harim, mil diez y siete.",
+      "box": [
+        41,
+        1259,
+        403,
+        1285
+      ],
+      "score": 0.9847316145896912
+    },
+    {
+      "text": "ron espontáneamente ofrendas para reedificar la Casa de",
+      "box": [
+        756,
+        1236,
+        1335,
+        1279
+      ],
+      "score": 0.9996680617332458
+    },
+    {
+      "text": "40. Levitas: Los hijos de Josué, y de Cedmihel, de los",
+      "box": [
+        43,
+        1282,
+        602,
+        1311
+      ],
+      "score": 0.9970988631248474
+    },
+    {
+      "text": "Dios en su mismo sitio.",
+      "box": [
+        758,
+        1274,
+        985,
+        1302
+      ],
+      "score": 0.9865497946739197
+    },
+    {
+      "text": "69. Dieron, segun las facultades de cada uno, para los",
+      "box": [
+        779,
+        1285,
+        1335,
+        1329
+      ],
+      "score": 0.9991145133972168
+    },
+    {
+      "text": "descendientes de Odovias, setenta y cuatro.",
+      "box": [
+        25,
+        1312,
+        435,
+        1336
+      ],
+      "score": 0.9996950626373291
+    },
+    {
+      "text": "41. Cantores: Los hijos de Asaph, ciento veinte y ocho.",
+      "box": [
+        52,
+        1337,
+        576,
+        1361
+      ],
+      "score": 0.9985290765762329
+    },
+    {
+      "text": "gastos de la fábrica sesenta y un mil sueldos ó dracmas de",
+      "box": [
+        760,
+        1310,
+        1336,
+        1357
+      ],
+      "score": 0.9844431281089783
+    },
+    {
+      "text": "42. Hijos de los porteros: Los hijos de Sellúm, los hijos",
+      "box": [
+        53,
+        1361,
+        604,
+        1387
+      ],
+      "score": 0.9947420358657837
+    },
+    {
+      "text": "oro, cinco mil marcos de plata, y cien vestiduras sacerdo-",
+      "box": [
+        761,
+        1336,
+        1336,
+        1381
+      ],
+      "score": 0.9995652437210083
+    },
+    {
+      "text": "de Ater, los hijos de Telmon, los hijos de Accub, los hijos de",
+      "box": [
+        33,
+        1386,
+        605,
+        1412
+      ],
+      "score": 0.9969996809959412
+    },
+    {
+      "text": "tales.",
+      "box": [
+        760,
+        1376,
+        817,
+        1405
+      ],
+      "score": 0.9998947978019714
+    },
+    {
+      "text": "70. Finalmente los sacerdotes y Levitas, y los del pueblo,",
+      "box": [
+        780,
+        1384,
+        1336,
+        1428
+      ],
+      "score": 0.9933207035064697
+    },
+    {
+      "text": "Hatita, los hijos de Sobai; todos ciento treinta y nueve.",
+      "box": [
+        35,
+        1410,
+        549,
+        1438
+      ],
+      "score": 0.9984169602394104
+    },
+    {
+      "text": "43. Nathinéos ²: Los hijos de Siha, los hijos de Hasupha,",
+      "box": [
+        59,
+        1433,
+        606,
+        1462
+      ],
+      "score": 0.9903407692909241
+    },
+    {
+      "text": "y los cantores, y los porteros, y los Nathinéos se avecindaron",
+      "box": [
+        761,
+        1409,
+        1338,
+        1454
+      ],
+      "score": 0.9886451959609985
+    },
+    {
+      "text": "en sus ciudades; y de cuantos Israelitas volvieron, se fué",
+      "box": [
+        762,
+        1434,
+        1338,
+        1478
+      ],
+      "score": 0.9944381713867188
+    },
+    {
+      "text": "los hijos de Tabbaoth,",
+      "box": [
+        39,
+        1461,
+        256,
+        1487
+      ],
+      "score": 0.9991920590400696
+    },
+    {
+      "text": "44. Los hijos de Ceros, los hijos de Siaa, los hijos de",
+      "box": [
+        61,
+        1481,
+        608,
+        1513
+      ],
+      "score": 0.9956762194633484
+    },
+    {
+      "text": "cada cual á su pueblo.",
+      "box": [
+        764,
+        1471,
+        966,
+        1500
+      ],
+      "score": 0.9998117685317993
+    },
+    {
+      "text": "Phadon,",
+      "box": [
+        43,
+        1513,
+        129,
+        1538
+      ],
+      "score": 0.9999926686286926
+    },
+    {
+      "text": "CAPITULO III",
+      "box": [
+        970,
+        1507,
+        1117,
+        1536
+      ],
+      "score": 0.9990885853767395
+    },
+    {
+      "text": "45. Los hijos de Lebana, los hijos de Hagaba, los hijos de",
+      "box": [
+        64,
+        1530,
+        609,
+        1562
+      ],
+      "score": 0.9924480319023132
+    },
+    {
+      "text": "Accub,",
+      "box": [
+        45,
+        1561,
+        119,
+        1586
+      ],
+      "score": 0.9999268054962158
+    },
+    {
+      "text": "Convocado el pueblo en Jerusalem, es erigido el altar, en el cual se ofre-",
+      "box": [
+        765,
+        1549,
+        1344,
+        1586
+      ],
+      "score": 0.9947139620780945
+    },
+    {
+      "text": "46. Los hijos de Hagab, los hijos de Semlai, los hijos de",
+      "box": [
+        66,
+        1578,
+        611,
+        1611
+      ],
+      "score": 0.9996621012687683
+    },
+    {
+      "text": "cen sacrificios. Celébrase la fiesta de los Tabernáculos, y pónense los",
+      "box": [
+        782,
+        1571,
+        1346,
+        1606
+      ],
+      "score": 0.9833571910858154
+    },
+    {
+      "text": "Hanan,",
+      "box": [
+        46,
+        1611,
+        124,
+        1636
+      ],
+      "score": 0.9999698996543884
+    },
+    {
+      "text": "cimientos del templo.",
+      "box": [
+        784,
+        1598,
+        950,
+        1627
+      ],
+      "score": 0.9999526143074036
+    },
+    {
+      "text": "47. Los hijos de Gaddel, los hijos de Gaher, los hijos de",
+      "box": [
+        67,
+        1627,
+        611,
+        1660
+      ],
+      "score": 0.9988399147987366
+    },
+    {
+      "text": "1. Llegado ya el mes séptimo, los hijos de Israél que es-",
+      "box": [
+        784,
+        1635,
+        1348,
+        1672
+      ],
+      "score": 0.9998577237129211
+    },
+    {
+      "text": "Raaia,",
+      "box": [
+        48,
+        1660,
+        116,
+        1685
+      ],
+      "score": 0.9997344613075256
+    },
+    {
+      "text": "taban en sus ciudades, se reunieron todos, como si fuesen un",
+      "box": [
+        766,
+        1657,
+        1349,
+        1700
+      ],
+      "score": 0.999653160572052
+    },
+    {
+      "text": "48. Los hijos de Rasin, los hijos de Necoda, los hijos de",
+      "box": [
+        70,
+        1676,
+        613,
+        1709
+      ],
+      "score": 0.9996610879898071
+    },
+    {
+      "text": "solo hombre, en Jerusalem.",
+      "box": [
+        767,
+        1688,
+        1012,
+        1722
+      ],
+      "score": 0.9983005523681641
+    },
+    {
+      "text": "Gazam,.",
+      "box": [
+        51,
+        1709,
+        139,
+        1733
+      ],
+      "score": 0.9242029190063477
+    },
+    {
+      "text": "pndeád ,,ec",
+      "box": [
+        764,
+        1726,
+        1356,
+        1767
+      ],
+      "score": 0.6119081377983093
+    },
+    {
+      "text": "1 La palabra hijos, cuando se junta al nombre de algun hombre, signi-",
+      "box": [
+        68,
+        1744,
+        613,
+        1772
+      ],
+      "score": 0.9916512370109558
+    },
+    {
+      "text": "ma al original hebreo, donde se diceleurim, velethmim.",
+      "box": [
+        764,
+        1749,
+        1356,
+        1785
+      ],
+      "score": 0.8627669215202332
+    },
+    {
+      "text": "fica sus descendientes; cuando se junta al nombre de una ciudad significa",
+      "box": [
+        51,
+        1764,
+        615,
+        1793
+      ],
+      "score": 0.9961764216423035
+    },
+    {
+      "text": "Sabido es que estas dos palabras urim y thumim forman la frase de las",
+      "box": [
+        766,
+        1770,
+        1357,
+        1805
+      ],
+      "score": 0.981745183467865
+    },
+    {
+      "text": "ciudadanos, moradores ú oriundos de tal ciudad. En este y otros capítulos",
+      "box": [
+        50,
+        1784,
+        617,
+        1813
+      ],
+      "score": 0.9966237545013428
+    },
+    {
+      "text": "consultas que el Sumo Pontífice hacia á Dios, entrando en el Saneta",
+      "box": [
+        765,
+        1790,
+        1357,
+        1827
+      ],
+      "score": 0.9821770787239075
+    },
+    {
+      "text": "no siempre es fácil determinar la calidad de los nombres.—Véase Hijo.",
+      "box": [
+        49,
+        1803,
+        617,
+        1835
+      ],
+      "score": 0.9952415823936462
+    },
+    {
+      "text": "2 O Gabaonitas, que estaban al servicio del templo. Josué IX, v. 21.—",
+      "box": [
+        66,
+        1824,
+        617,
+        1854
+      ],
+      "score": 0.9889285564422607
+    },
+    {
+      "text": "mo ocurre en el libro II de Esdras, cap. VII, v. 65.",
+      "box": [
+        767,
+        1832,
+        1165,
+        1867
+      ],
+      "score": 0.996984601020813
+    },
+    {
+      "text": "I. Paral. IX, v. 2.",
+      "box": [
+        48,
+        1849,
+        205,
+        1879
+      ],
+      "score": 0.9986607432365417
+    },
+    {
+      "text": "7 Entran en esta suma no.solo los de las tribus de Judá, de Benjamin",
+      "box": [
+        782,
+        1856,
+        1359,
+        1887
+      ],
+      "score": 0.9966863989830017
+    },
+    {
+      "text": "3. III. Reg. IX, v. 20, 24.",
+      "box": [
+        67,
+        1869,
+        275,
+        1900
+      ],
+      "score": 0.993380069732666
+    },
+    {
+      "text": "4 Descendientes de aquel viejo Berzellai tan afecto á David. I. Reg.",
+      "box": [
+        64,
+        1883,
+        619,
+        1925
+      ],
+      "score": 0.920704185962677
+    },
+    {
+      "text": "siervos y siervas compondrian el número total de los cincuenta mil ó poco",
+      "box": [
+        768,
+        1898,
+        1363,
+        1935
+      ],
+      "score": 0.7990788221359253
+    },
+    {
+      "text": "X VIII, v. 28.—XIX, v. 31.",
+      "box": [
+        45,
+        1911,
+        280,
+        1951
+      ],
+      "score": 0.9876399636268616
+    },
+    {
+      "text": "meno que volvieron á la Judéa. S. August., lib. XVIII, De Civit. Dei,",
+      "box": [
+        768,
+        1920,
+        1363,
+        1956
+      ],
+      "score": 0.9012851119041443
+    },
+    {
+      "text": "6 Esto es, Nehemias. II. Esd. VIII, v. 9.",
+      "box": [
+        62,
+        1928,
+        404,
+        1973
+      ],
+      "score": 0.964918851852417
+    },
+    {
+      "text": "cap. XX VI.",
+      "box": [
+        771,
+        1946,
+        873,
+        1975
+      ],
+      "score": 0.9559732675552368
+    },
+    {
+      "text": "En la version de los Setenta están en dativo las palabras que corres-",
+      "box": [
+        58,
+        1943,
+        624,
+        1998
+      ],
+      "score": 0.9382245540618896
+    }
+  ]
+}

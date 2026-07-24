@@ -1,0 +1,27 @@
+{
+  "volume": 4,
+  "page_index": 346,
+  "pdf_page": 347,
+  "lines": [
+    {
+      "text": "H.PISAN",
+      "box": [
+        771,
+        1120,
+        845,
+        1138
+      ],
+      "score": 0.9586429595947266
+    },
+    {
+      "text": "SAN PABLO ABORDANDO Á LA ISLA DE MALTA",
+      "box": [
+        291,
+        1162,
+        651,
+        1185
+      ],
+      "score": 0.9635370373725891
+    }
+  ]
+}

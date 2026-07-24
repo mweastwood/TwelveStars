@@ -1,0 +1,1487 @@
+{
+  "volume": 3,
+  "page_index": 235,
+  "pdf_page": 236,
+  "lines": [
+    {
+      "text": "376",
+      "box": [
+        878,
+        46,
+        906,
+        70
+      ],
+      "score": 0.9968936443328857
+    },
+    {
+      "text": "375",
+      "box": [
+        72,
+        67,
+        96,
+        84
+      ],
+      "score": 0.999955415725708
+    },
+    {
+      "text": "JEREMIAS.",
+      "box": [
+        205,
+        70,
+        283,
+        88
+      ],
+      "score": 0.9998623728752136
+    },
+    {
+      "text": "CAPITULO XVII.",
+      "box": [
+        662,
+        52,
+        788,
+        82
+      ],
+      "score": 0.9982303380966187
+    },
+    {
+      "text": "si sabes separar lo precioso de lo vil , tú serás entonces como",
+      "box": [
+        61,
+        111,
+        429,
+        138
+      ],
+      "score": 0.9793293476104736
+    },
+    {
+      "text": "de vosotros y de vuestros padres; donde dia y noche servireis",
+      "box": [
+        527,
+        94,
+        911,
+        137
+      ],
+      "score": 0.9932894706726074
+    },
+    {
+      "text": "otra boca mia . Entonces ellos se volverán hácia tí con ruegos,",
+      "box": [
+        62,
+        130,
+        428,
+        157
+      ],
+      "score": 0.8569024205207825
+    },
+    {
+      "text": "á dioses ajenos, que nunca os dejarán en reposo 10.",
+      "box": [
+        525,
+        117,
+        845,
+        156
+      ],
+      "score": 0.9768277406692505
+    },
+    {
+      "text": "y tú no te volverás hácia ellos ³.",
+      "box": [
+        62,
+        148,
+        256,
+        172
+      ],
+      "score": 0.972943902015686
+    },
+    {
+      "text": "14. Hé aquí que vendrá tiempo, dice el Señor, en que no se",
+      "box": [
+        538,
+        132,
+        909,
+        172
+      ],
+      "score": 0.9907333850860596
+    },
+    {
+      "text": "20. Antes bien haré yo que seas con respecto á ese pueblo",
+      "box": [
+        75,
+        164,
+        428,
+        191
+      ],
+      "score": 0.9447044730186462
+    },
+    {
+      "text": "dirá mas ii: Vive el Señor, que sacó á los hijos de Israél de la",
+      "box": [
+        526,
+        148,
+        908,
+        189
+      ],
+      "score": 0.9576494693756104
+    },
+    {
+      "text": "un muro de bronce inexpugable els combatirán contra t,",
+      "box": [
+        61,
+        180,
+        430,
+        208
+      ],
+      "score": 0.7976425886154175
+    },
+    {
+      "text": "tierra de Egypto;",
+      "box": [
+        527,
+        182,
+        637,
+        203
+      ],
+      "score": 0.999521791934967
+    },
+    {
+      "text": "y no podrán prevalecer; porque yo estoy contigo para salvarte",
+      "box": [
+        61,
+        199,
+        429,
+        224
+      ],
+      "score": 0.9058319330215454
+    },
+    {
+      "text": "15. Sino: Vive el Señor, que sacó á los hijos de Israél dela",
+      "box": [
+        538,
+        182,
+        912,
+        221
+      ],
+      "score": 0.9888298511505127
+    },
+    {
+      "text": "y librarte, dice el Señor.",
+      "box": [
+        63,
+        217,
+        210,
+        237
+      ],
+      "score": 0.9872419834136963
+    },
+    {
+      "text": "tierra del Septentrion, y de todos los países por donde los ha-",
+      "box": [
+        525,
+        200,
+        909,
+        238
+      ],
+      "score": 0.9948010444641113
+    },
+    {
+      "text": "21. Yo te libraré pues de las manos de los malvados, y te",
+      "box": [
+        74,
+        230,
+        429,
+        254
+      ],
+      "score": 0.9880609512329102
+    },
+    {
+      "text": "bia esparcido. Y yo los volveré á traer á esta su tierra, que dí",
+      "box": [
+        525,
+        215,
+        908,
+        254
+      ],
+      "score": 0.963146984577179
+    },
+    {
+      "text": "salvaré del poder de los fuertes.",
+      "box": [
+        63,
+        247,
+        251,
+        271
+      ],
+      "score": 0.9787777066230774
+    },
+    {
+      "text": "á sus padres.",
+      "box": [
+        525,
+        247,
+        609,
+        266
+      ],
+      "score": 0.9872785210609436
+    },
+    {
+      "text": "16. Hé aquí que yo enviaré á muchos pescadores, dice el",
+      "box": [
+        537,
+        247,
+        908,
+        285
+      ],
+      "score": 0.984595000743866
+    },
+    {
+      "text": "CAPITULO XVI",
+      "box": [
+        193,
+        281,
+        297,
+        298
+      ],
+      "score": 0.9988780617713928
+    },
+    {
+      "text": "Señor , los cuales los pescarán; y enviaré despues muchos",
+      "box": [
+        525,
+        264,
+        908,
+        301
+      ],
+      "score": 0.9712930917739868
+    },
+    {
+      "text": "Calamidades que enviará Dios sobre el pueblo de Israél: despues de las",
+      "box": [
+        62,
+        303,
+        429,
+        323
+      ],
+      "score": 0.9830498695373535
+    },
+    {
+      "text": "cazadores que los cazarán por todos los montes, y por todos",
+      "box": [
+        524,
+        280,
+        910,
+        317
+      ],
+      "score": 0.9772881865501404
+    },
+    {
+      "text": "cuales le enviará predicadores que le conviertan al buen camino, y",
+      "box": [
+        72,
+        318,
+        428,
+        338
+      ],
+      "score": 0.9654415249824524
+    },
+    {
+      "text": "los collados, y por las cuevas de los peñascos.",
+      "box": [
+        526,
+        304,
+        812,
+        329
+      ],
+      "score": 0.9815483093261719
+    },
+    {
+      "text": "hará brillar en él su infinita misericordia.",
+      "box": [
+        72,
+        331,
+        287,
+        351
+      ],
+      "score": 0.9825124144554138
+    },
+    {
+      "text": "17. Porque mis ojos están observando todos sus pasos: no",
+      "box": [
+        537,
+        312,
+        910,
+        348
+      ],
+      "score": 0.9948711395263672
+    },
+    {
+      "text": "se oculta ninguno á mis miradas; como no hubo maldad suya",
+      "box": [
+        523,
+        327,
+        911,
+        365
+      ],
+      "score": 0.9770455360412598
+    },
+    {
+      "text": "1. Hablóme despues el Señor diciéndome:",
+      "box": [
+        72,
+        357,
+        334,
+        380
+      ],
+      "score": 0.9963688254356384
+    },
+    {
+      "text": "oculta á mi vista.",
+      "box": [
+        526,
+        356,
+        637,
+        375
+      ],
+      "score": 0.9957475662231445
+    },
+    {
+      "text": "2. No tomarás mujer, y no tendrás hijos ni hijas en este",
+      "box": [
+        71,
+        374,
+        428,
+        396
+      ],
+      "score": 0.9810295104980469
+    },
+    {
+      "text": "18. Pero primeramente les pagaré al doble lo que merecen",
+      "box": [
+        537,
+        360,
+        910,
+        396
+      ],
+      "score": 0.9977998733520508
+    },
+    {
+      "text": "lugar ó país de Judéa4.",
+      "box": [
+        59,
+        391,
+        210,
+        413
+      ],
+      "score": 0.9464712738990784
+    },
+    {
+      "text": "sus iniquidades y pecados; porque han contaminado mi tierra",
+      "box": [
+        523,
+        376,
+        911,
+        414
+      ],
+      "score": 0.9497552514076233
+    },
+    {
+      "text": "3. Porque esto dice el Señor acerca de los hijos é hijas",
+      "box": [
+        71,
+        407,
+        428,
+        428
+      ],
+      "score": 0.986991822719574
+    },
+    {
+      "text": "con las carnes mortecinas sacrificadas á sus ídolos, y llenado",
+      "box": [
+        524,
+        392,
+        912,
+        431
+      ],
+      "score": 0.9125691652297974
+    },
+    {
+      "text": "que nacerán en este lugar, y acerca de las madres que los",
+      "box": [
+        62,
+        427,
+        426,
+        444
+      ],
+      "score": 0.9998380541801453
+    },
+    {
+      "text": "mi heredad de sus abominaciones 13.",
+      "box": [
+        527,
+        419,
+        752,
+        443
+      ],
+      "score": 0.9937918782234192
+    },
+    {
+      "text": "parirán, y acerca de los padres que los engendrarán en este",
+      "box": [
+        60,
+        441,
+        428,
+        461
+      ],
+      "score": 0.9891746640205383
+    },
+    {
+      "text": "19. Oh Señor, fortaleza mia, y el sosten mio, y mi refugio",
+      "box": [
+        537,
+        424,
+        912,
+        464
+      ],
+      "score": 0.9783473610877991
+    },
+    {
+      "text": "país:",
+      "box": [
+        61,
+        457,
+        97,
+        476
+      ],
+      "score": 0.9974901080131531
+    },
+    {
+      "text": "en el tiempo de la tribulacion: á tí vendrán las gentes desde",
+      "box": [
+        525,
+        441,
+        913,
+        480
+      ],
+      "score": 0.9065550565719604
+    },
+    {
+      "text": "4. Morirán de varias enfermedades, y no serán plañidos ni",
+      "box": [
+        75,
+        473,
+        427,
+        492
+      ],
+      "score": 0.997008740901947
+    },
+    {
+      "text": "las extremidades de la tierra u, y dirán: Verdaderamente que",
+      "box": [
+        525,
+        458,
+        914,
+        496
+      ],
+      "score": 0.9547744989395142
+    },
+    {
+      "text": "enterrados, yacerán como estiércol sobre la superficie de la",
+      "box": [
+        64,
+        491,
+        428,
+        508
+      ],
+      "score": 0.9948953986167908
+    },
+    {
+      "text": "nuestros padres 1 poseyeron la mentira y la vanidad, la cual",
+      "box": [
+        524,
+        475,
+        914,
+        513
+      ],
+      "score": 0.9528006911277771
+    },
+    {
+      "text": "tierra, y serán consumidos con la espada y la hambre, y sus",
+      "box": [
+        63,
+        506,
+        429,
+        527
+      ],
+      "score": 0.9913134574890137
+    },
+    {
+      "text": "para nada les aprovechó.",
+      "box": [
+        526,
+        504,
+        682,
+        526
+      ],
+      "score": 0.9796870350837708
+    },
+    {
+      "text": "cadáveres serán pasto de las aves del cielo y de las bestias de",
+      "box": [
+        65,
+        525,
+        428,
+        542
+      ],
+      "score": 0.9936127066612244
+    },
+    {
+      "text": "20. ¿Acaso un hombre podrá hacerse sus dioses? No: esos",
+      "box": [
+        539,
+        508,
+        913,
+        546
+      ],
+      "score": 0.9980418086051941
+    },
+    {
+      "text": "la tierra.",
+      "box": [
+        63,
+        541,
+        120,
+        558
+      ],
+      "score": 0.9994575381278992
+    },
+    {
+      "text": "no son dioses.",
+      "box": [
+        527,
+        538,
+        618,
+        560
+      ],
+      "score": 0.9984738230705261
+    },
+    {
+      "text": "5. Porque esto dice el Señor: No entrarás tú en la casa del",
+      "box": [
+        76,
+        555,
+        428,
+        574
+      ],
+      "score": 0.9970216155052185
+    },
+    {
+      "text": "21. Por lo cual hé aquí que yo de esta vez los he de con-",
+      "box": [
+        540,
+        539,
+        914,
+        579
+      ],
+      "score": 0.9954238533973694
+    },
+    {
+      "text": "convite mortuorio, ni vayas á dar el pésame, ni á consolar;",
+      "box": [
+        64,
+        572,
+        429,
+        591
+      ],
+      "score": 0.987227201461792
+    },
+    {
+      "text": "vencer: les mostraré mi poder y mi fortaleza, y conocerán que",
+      "box": [
+        527,
+        555,
+        914,
+        595
+      ],
+      "score": 0.955233633518219
+    },
+    {
+      "text": "porque yo, dice el Señor, he desterrado de este pueblo mi paz,",
+      "box": [
+        62,
+        587,
+        429,
+        610
+      ],
+      "score": 0.9964632391929626
+    },
+    {
+      "text": "mi nombre es EL SEÑOR 16.",
+      "box": [
+        527,
+        584,
+        690,
+        608
+      ],
+      "score": 0.9629578590393066
+    },
+    {
+      "text": "mi misericordia y mis piedades.",
+      "box": [
+        63,
+        605,
+        255,
+        624
+      ],
+      "score": 0.9993125200271606
+    },
+    {
+      "text": "6. Y morirán los grandes y los chicos en este país, y no",
+      "box": [
+        76,
+        619,
+        428,
+        641
+      ],
+      "score": 0.9997957348823547
+    },
+    {
+      "text": "CAPITULO XVII",
+      "box": [
+        658,
+        618,
+        772,
+        639
+      ],
+      "score": 0.998882532119751
+    },
+    {
+      "text": "serán enterrados ni plañidos: ni habrá quien en señal de",
+      "box": [
+        64,
+        635,
+        430,
+        656
+      ],
+      "score": 0.9943726658821106
+    },
+    {
+      "text": "luto se haga sajaduras en su cuerpo , ni se corte á raíz el ca-",
+      "box": [
+        64,
+        649,
+        430,
+        674
+      ],
+      "score": 0.9921862483024597
+    },
+    {
+      "text": "Obstinacion de los Judíos, causa de su castigo. Debemos poner la con-",
+      "box": [
+        528,
+        640,
+        916,
+        675
+      ],
+      "score": 0.9832467436790466
+    },
+    {
+      "text": "bello.",
+      "box": [
+        64,
+        672,
+        102,
+        690
+      ],
+      "score": 0.9968547821044922
+    },
+    {
+      "text": "fianza en Dios, no en los hombres. Jeremas ruega á Dics que le dé",
+      "box": [
+        538,
+        655,
+        917,
+        688
+      ],
+      "score": 0.9369733333587646
+    },
+    {
+      "text": "7. Ni entre ellos habrá nadie que parta el pan, para conso-",
+      "box": [
+        77,
+        683,
+        431,
+        706
+      ],
+      "score": 0.9769347906112671
+    },
+    {
+      "text": "fuerzas para resistir á sus enemigos. Santificacion del sábado.",
+      "box": [
+        539,
+        673,
+        867,
+        700
+      ],
+      "score": 0.9845081567764282
+    },
+    {
+      "text": "lar al que está llorando por su difunto 6; ni á los que lloran la",
+      "box": [
+        65,
+        699,
+        431,
+        724
+      ],
+      "score": 0.9817260503768921
+    },
+    {
+      "text": "pérdida de su padre y de su madre les darán alguna bebida",
+      "box": [
+        64,
+        715,
+        432,
+        742
+      ],
+      "score": 0.9989355802536011
+    },
+    {
+      "text": "1. El pecado de Judá está escrito con punzon de hierro, y",
+      "box": [
+        540,
+        705,
+        915,
+        735
+      ],
+      "score": 0.986518383026123
+    },
+    {
+      "text": "grabado con punta de diamante sobre la tabla de su corazon,",
+      "box": [
+        529,
+        723,
+        915,
+        751
+      ],
+      "score": 0.9994093179702759
+    },
+    {
+      "text": "para su consuelo.",
+      "box": [
+        64,
+        736,
+        171,
+        758
+      ],
+      "score": 0.9987829923629761
+    },
+    {
+      "text": "8. Tampoco entrarás en casa en que hay banquete 7, para",
+      "box": [
+        76,
+        746,
+        432,
+        772
+      ],
+      "score": 0.9828680753707886
+    },
+    {
+      "text": "y en los lados de sus sacrílegos altares 17.",
+      "box": [
+        528,
+        742,
+        779,
+        765
+      ],
+      "score": 0.9854854345321655
+    },
+    {
+      "text": "sentarte con ellos á comer y beber;",
+      "box": [
+        65,
+        766,
+        278,
+        788
+      ],
+      "score": 0.9894371032714844
+    },
+    {
+      "text": "2. Ya que sus hijos se han acordado de sus altares dedica-",
+      "box": [
+        542,
+        754,
+        915,
+        782
+      ],
+      "score": 0.9991845488548279
+    },
+    {
+      "text": "9. Porque esto dice el Señor de los ejércitos, el Dios de",
+      "box": [
+        79,
+        779,
+        433,
+        803
+      ],
+      "score": 0.9991978406906128
+    },
+    {
+      "text": "dos á los ídolos, y de sus bosques, y de los árboles frondosos",
+      "box": [
+        529,
+        771,
+        916,
+        798
+      ],
+      "score": 0.9946913719177246
+    },
+    {
+      "text": "Israél: Sábete que yo á vuestros ojos, y en vuestros dias, des-",
+      "box": [
+        66,
+        796,
+        433,
+        819
+      ],
+      "score": 0.9860691428184509
+    },
+    {
+      "text": "que hay en los altos montes,",
+      "box": [
+        530,
+        794,
+        700,
+        815
+      ],
+      "score": 0.9916388392448425
+    },
+    {
+      "text": "terraré de este lugar la voz del gozo y la voz de alegría, la voz",
+      "box": [
+        66,
+        812,
+        435,
+        835
+      ],
+      "score": 0.9981864094734192
+    },
+    {
+      "text": "3. Y ofrecen sacrificios en los campos; yo entregaré al sa-",
+      "box": [
+        542,
+        805,
+        914,
+        830
+      ],
+      "score": 0.9865692853927612
+    },
+    {
+      "text": "del esposo y la voz ó cantares de la esposa §.",
+      "box": [
+        67,
+        830,
+        334,
+        851
+      ],
+      "score": 0.9804089665412903
+    },
+    {
+      "text": "queo tu hacienda, y todos tus tesoros y tus lugares excelsos",
+      "box": [
+        530,
+        820,
+        916,
+        849
+      ],
+      "score": 0.9950589537620544
+    },
+    {
+      "text": "10. Y cuando hayas anunciado á ese pueblo todas estas",
+      "box": [
+        79,
+        844,
+        433,
+        865
+      ],
+      "score": 0.9909751415252686
+    },
+    {
+      "text": "en que adoras á los ídolos, por causa de los pecados cometi-",
+      "box": [
+        531,
+        835,
+        914,
+        864
+      ],
+      "score": 0.9790696501731873
+    },
+    {
+      "text": "cosas, y ellos te digan: ¿Por qué ha pronunciado el Señor",
+      "box": [
+        66,
+        859,
+        435,
+        883
+      ],
+      "score": 0.9875695109367371
+    },
+    {
+      "text": "dos por tí, oh Judá, en todas tus tierras.",
+      "box": [
+        531,
+        855,
+        772,
+        879
+      ],
+      "score": 0.9969682097434998
+    },
+    {
+      "text": "contra nosotros todos estos grandes males é calamidades ?",
+      "box": [
+        67,
+        877,
+        435,
+        898
+      ],
+      "score": 0.987791121006012
+    },
+    {
+      "text": "4. Y quedarás despojada de la herencia que te habia yo",
+      "box": [
+        542,
+        868,
+        914,
+        895
+      ],
+      "score": 0.998341977596283
+    },
+    {
+      "text": "¿Cuál es nuestra maldad?¿Y qué pecado es el que nosotros",
+      "box": [
+        66,
+        894,
+        437,
+        915
+      ],
+      "score": 0.9891144633293152
+    },
+    {
+      "text": "dado; y te haré esclava de tus enemigos en una tierra descono-",
+      "box": [
+        532,
+        885,
+        915,
+        911
+      ],
+      "score": 0.9871610403060913
+    },
+    {
+      "text": "hemos cometido contra el Señor Dios nuestro?",
+      "box": [
+        67,
+        911,
+        345,
+        929
+      ],
+      "score": 0.9895683526992798
+    },
+    {
+      "text": "cida de tí: porque tú has encendido el fuego de mi indignacion,",
+      "box": [
+        532,
+        901,
+        915,
+        928
+      ],
+      "score": 0.9938910007476807
+    },
+    {
+      "text": "11. Tú les responderás: Porque vuestros padres me aban-",
+      "box": [
+        82,
+        928,
+        436,
+        945
+      ],
+      "score": 0.9980010986328125
+    },
+    {
+      "text": "que arderá eternamente.",
+      "box": [
+        532,
+        923,
+        675,
+        943
+      ],
+      "score": 0.9995359182357788
+    },
+    {
+      "text": "donaron, dice el Señor, y se fueron en pos de los dioses extra-",
+      "box": [
+        70,
+        945,
+        436,
+        961
+      ],
+      "score": 0.9949890971183777
+    },
+    {
+      "text": "5. Esto dice el Señor: Maldito sea el hombre que confia en",
+      "box": [
+        542,
+        933,
+        916,
+        958
+      ],
+      "score": 0.9962977766990662
+    },
+    {
+      "text": "ños, y les sirvieron y los adoraron, y me abandonaron á mí, y",
+      "box": [
+        68,
+        959,
+        436,
+        979
+      ],
+      "score": 0.9973655939102173
+    },
+    {
+      "text": "otro hombre, y no en Dios, y se apoya en un brazo de carne",
+      "box": [
+        533,
+        950,
+        916,
+        974
+      ],
+      "score": 0.9969969987869263
+    },
+    {
+      "text": "no guardaron mi Ley.",
+      "box": [
+        69,
+        977,
+        201,
+        994
+      ],
+      "score": 0.96588134765625
+    },
+    {
+      "text": "miserable, y aparta del Señor su corazon 18.",
+      "box": [
+        533,
+        968,
+        790,
+        989
+      ],
+      "score": 0.9812896847724915
+    },
+    {
+      "text": "12. Y todavía vosotros lo habeis hecho peor que vuestros",
+      "box": [
+        81,
+        991,
+        438,
+        1011
+      ],
+      "score": 0.9985566735267639
+    },
+    {
+      "text": "6. Porque será semejante á los tamariscos ó retama del",
+      "box": [
+        544,
+        983,
+        917,
+        1006
+      ],
+      "score": 0.9853644967079163
+    },
+    {
+      "text": "padres; pues está visto que cada uno sigue la corrupcion de",
+      "box": [
+        67,
+        1007,
+        437,
+        1029
+      ],
+      "score": 0.9961674809455872
+    },
+    {
+      "text": "árido desierto 19: y no se aprovechará del bien 0 cuando ven-",
+      "box": [
+        533,
+        1000,
+        918,
+        1022
+      ],
+      "score": 0.9781781435012817
+    },
+    {
+      "text": "su corazon depravado, por no obedecerme á mí.",
+      "box": [
+        68,
+        1025,
+        355,
+        1044
+      ],
+      "score": 0.9926786422729492
+    },
+    {
+      "text": "ga, sino que permanecerá en la sequedad del desierto, en un",
+      "box": [
+        532,
+        1016,
+        918,
+        1040
+      ],
+      "score": 0.9984962940216064
+    },
+    {
+      "text": "13. Y así yo os arrojaré de esta tierra á otra desconocida",
+      "box": [
+        80,
+        1039,
+        437,
+        1060
+      ],
+      "score": 0.9821844696998596
+    },
+    {
+      "text": "terreno salobre é inhabitable.",
+      "box": [
+        534,
+        1033,
+        703,
+        1054
+      ],
+      "score": 0.9941222071647644
+    },
+    {
+      "text": "1 Esto es, mis promesas de las amenazas y desprecios de los hombres.",
+      "box": [
+        81,
+        1083,
+        437,
+        1101
+      ],
+      "score": 0.9965612888336182
+    },
+    {
+      "text": "is Despues de eso los volveró á esta su tierra.",
+      "box": [
+        539,
+        1073,
+        771,
+        1093
+      ],
+      "score": 0.9741004109382629
+    },
+    {
+      "text": " El Profeta vaticina, lleno de gozo, la conversion de las naciones á la",
+      "box": [
+        538,
+        1087,
+        919,
+        1108
+      ],
+      "score": 0.9673221111297607
+    },
+    {
+      "text": ": Por la firmeza con que hablarás.",
+      "box": [
+        80,
+        1097,
+        261,
+        1115
+      ],
+      "score": 0.9702308773994446
+    },
+    {
+      "text": "3 Para condescender con tus antojos.",
+      "box": [
+        81,
+        1110,
+        275,
+        1129
+      ],
+      "score": 0.9949594140052795
+    },
+    {
+      "text": "Iglesia.",
+      "box": [
+        534,
+        1105,
+        575,
+        1123
+      ],
+      "score": 0.9992952346801758
+    },
+    {
+      "text": "4 San Gerónimo no duda que Jeremías se conservó vírgen hasta la",
+      "box": [
+        80,
+        1124,
+        437,
+        1143
+      ],
+      "score": 0.996144711971283
+    },
+    {
+      "text": "1s Venerando por dioses á los astros.",
+      "box": [
+        538,
+        1113,
+        725,
+        1135
+      ],
+      "score": 0.9321670532226562
+    },
+    {
+      "text": "u O que Yo soy Jehovah:  El que es.—Véase Jehovah.",
+      "box": [
+        538,
+        1126,
+        826,
+        1150
+      ],
+      "score": 0.8759109377861023
+    },
+    {
+      "text": "muerte. S. Hier., cap. XXIII.—Véase la Advertencia.",
+      "box": [
+        70,
+        1138,
+        347,
+        1157
+      ],
+      "score": 0.9813070297241211
+    },
+    {
+      "text": "i7 Es grande su obstinacion.—Véase Act. XVIII, v. 12.—En los Iados ",
+      "box": [
+        538,
+        1139,
+        920,
+        1163
+      ],
+      "score": 0.8701443076133728
+    },
+    {
+      "text": "5 Levit. XIX, v. 27, 28.—Deuter. X1V, v. 1.",
+      "box": [
+        83,
+        1154,
+        309,
+        1168
+      ],
+      "score": 0.9852791428565979
+    },
+    {
+      "text": "cornijales del altar solian grabar los Gentiles algun símbolo ó la imágen",
+      "box": [
+        533,
+        1154,
+        920,
+        1177
+      ],
+      "score": 0.9065406322479248
+    },
+    {
+      "text": "e Y animarlo á comer.",
+      "box": [
+        82,
+        1168,
+        200,
+        1182
+      ],
+      "score": 0.9101687669754028
+    },
+    {
+      "text": "7 Con motivo de boda, etc.",
+      "box": [
+        82,
+        1180,
+        224,
+        1195
+      ],
+      "score": 0.9977559447288513
+    },
+    {
+      "text": "del ídolo á quien ofrecian sacrificios.",
+      "box": [
+        534,
+        1168,
+        715,
+        1190
+      ],
+      "score": 0.9730808734893799
+    },
+    {
+      "text": "us Aluden estas palabras al rey Sedecías y á los príncipes de los Judíos,",
+      "box": [
+        538,
+        1182,
+        920,
+        1203
+      ],
+      "score": 0.9338423609733582
+    },
+    {
+      "text": "8 Esto es, los cantares de alegría; como eran los epitalamios y los",
+      "box": [
+        81,
+        1192,
+        437,
+        1210
+      ],
+      "score": 0.9831876754760742
+    },
+    {
+      "text": "que imploraban el auxilio de los Egypcios en vez de acudir al de Dios.",
+      "box": [
+        533,
+        1194,
+        921,
+        1218
+      ],
+      "score": 0.9462956190109253
+    },
+    {
+      "text": "himeneos entre los Gentiles. XXV, v. 10.",
+      "box": [
+        71,
+        1206,
+        280,
+        1224
+      ],
+      "score": 0.9655941724777222
+    },
+    {
+      "text": "Ya Isaías les decia: El Egypto es hombre y no Dios. Despues cap. XLVIII,",
+      "box": [
+        533,
+        1209,
+        921,
+        1231
+      ],
+      "score": 0.9010438919067383
+    },
+    {
+      "text": "° Cap. V, v. 19.",
+      "box": [
+        82,
+        1221,
+        169,
+        1235
+      ],
+      "score": 0.9106556177139282
+    },
+    {
+      "text": "10 Mas finalmente yo os volveré á esta tierra.",
+      "box": [
+        80,
+        1235,
+        310,
+        1248
+      ],
+      "score": 0.9746341109275818
+    },
+    {
+      "text": "v. 7.—Isai. XXX, v. 2.—XXXI, v. 1, 3.",
+      "box": [
+        534,
+        1223,
+        743,
+        1245
+      ],
+      "score": 0.9723198413848877
+    },
+    {
+      "text": "11 Como se acostumbra ahora.",
+      "box": [
+        79,
+        1246,
+        237,
+        1262
+      ],
+      "score": 0.9858387112617493
+    },
+    {
+      "text": "19 Siempre infructuosos. Se habla de una planta que nace en tierra",
+      "box": [
+        540,
+        1237,
+        920,
+        1257
+      ],
+      "score": 0.9971998929977417
+    },
+    {
+      "text": " Metafóricamente llama pescadores á Zorobabel, Esdras, Nehemfas, etc.",
+      "box": [
+        78,
+        1259,
+        438,
+        1278
+      ],
+      "score": 0.9582397937774658
+    },
+    {
+      "text": "arenisca; y así sus raices no sienten el beneficio de las lluvias; y por eso",
+      "box": [
+        534,
+        1251,
+        922,
+        1273
+      ],
+      "score": 0.9652448892593384
+    },
+    {
+      "text": "Hermosa alusion á los doce Ápóstoles.—Véase lo que decia Jesu-Christo á",
+      "box": [
+        72,
+        1273,
+        438,
+        1292
+      ],
+      "score": 0.9782995581626892
+    },
+    {
+      "text": "vive poco y no produce ningun fruto.",
+      "box": [
+        536,
+        1267,
+        724,
+        1286
+      ],
+      "score": 0.9907433390617371
+    },
+    {
+      "text": "San Pedro y San Andrés: Yo hard que vengais á ser pescadores de hom-",
+      "box": [
+        72,
+        1286,
+        438,
+        1308
+      ],
+      "score": 0.9075876474380493
+    },
+    {
+      "text": "0 O de los beneficios que Dios conccderá á sus siervos.",
+      "box": [
+        542,
+        1279,
+        830,
+        1300
+      ],
+      "score": 0.9357103705406189
+    },
+    {
+      "text": "bres. Mara. I, v. 17.",
+      "box": [
+        74,
+        1301,
+        175,
+        1317
+      ],
+      "score": 0.9472037553787231
+    }
+  ]
+}

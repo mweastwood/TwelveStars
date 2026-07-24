@@ -1,0 +1,37 @@
+{
+  "volume": 4,
+  "page_index": 166,
+  "pdf_page": 167,
+  "lines": [
+    {
+      "text": "Stpns",
+      "box": [
+        10,
+        1102,
+        114,
+        1148
+      ],
+      "score": 0.6065820455551147
+    },
+    {
+      "text": "PANUEANER-DONS",
+      "box": [
+        689,
+        1116,
+        814,
+        1136
+      ],
+      "score": 0.7866624593734741
+    },
+    {
+      "text": "JESUS EN CASA DE MARTA Y MARÍA",
+      "box": [
+        288,
+        1174,
+        582,
+        1196
+      ],
+      "score": 0.999774694442749
+    }
+  ]
+}

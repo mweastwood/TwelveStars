@@ -1,0 +1,1487 @@
+{
+  "volume": 4,
+  "page_index": 89,
+  "pdf_page": 90,
+  "lines": [
+    {
+      "text": "103",
+      "box": [
+        79,
+        52,
+        103,
+        69
+      ],
+      "score": 0.9999940991401672
+    },
+    {
+      "text": "SAN LUCAS.",
+      "box": [
+        203,
+        44,
+        288,
+        64
+      ],
+      "score": 0.9990919828414917
+    },
+    {
+      "text": "CAPITULO XII.",
+      "box": [
+        665,
+        40,
+        774,
+        64
+      ],
+      "score": 0.9982128143310547
+    },
+    {
+      "text": "104",
+      "box": [
+        870,
+        45,
+        894,
+        62
+      ],
+      "score": 0.9999774098396301
+    },
+    {
+      "text": "38. Entonces el Phariséo, discurriendo consigo mismo,",
+      "box": [
+        82,
+        89,
+        430,
+        112
+      ],
+      "score": 0.9997261762619019
+    },
+    {
+      "text": "ahora: No tengais miedo de los que matan al cuerpo, y esto",
+      "box": [
+        529,
+        88,
+        900,
+        113
+      ],
+      "score": 0.9839749336242676
+    },
+    {
+      "text": "comenzó á decir: ¿por qué no se habrá lavado antes de",
+      "box": [
+        70,
+        108,
+        433,
+        132
+      ],
+      "score": 0.9914026260375977
+    },
+    {
+      "text": "hecho ya no pueden hacer mas.",
+      "box": [
+        528,
+        107,
+        721,
+        131
+      ],
+      "score": 0.9682819843292236
+    },
+    {
+      "text": "comer?",
+      "box": [
+        71,
+        130,
+        117,
+        148
+      ],
+      "score": 0.9999696612358093
+    },
+    {
+      "text": "5. Yo quiero mostraros á quién habeis de temer: temed",
+      "box": [
+        539,
+        123,
+        900,
+        148
+      ],
+      "score": 0.992767333984375
+    },
+    {
+      "text": "39. Mas el Señor le dijo: Vosotros oh Phariséos! teneis",
+      "box": [
+        82,
+        142,
+        431,
+        166
+      ],
+      "score": 0.9935206174850464
+    },
+    {
+      "text": "al que, despues de quitar la vida, puede arrojar al infierno:",
+      "box": [
+        526,
+        141,
+        900,
+        166
+      ],
+      "score": 0.9960302114486694
+    },
+    {
+      "text": "gran euidado en limpiar el exterior de las copas y de los",
+      "box": [
+        71,
+        161,
+        431,
+        182
+      ],
+      "score": 0.9944586753845215
+    },
+    {
+      "text": "á éste es, os repito, á quien habeis de temer.",
+      "box": [
+        526,
+        160,
+        798,
+        180
+      ],
+      "score": 0.9815571904182434
+    },
+    {
+      "text": "platos: pero el interior de vuestro corazon está lleno de",
+      "box": [
+        71,
+        178,
+        431,
+        200
+      ],
+      "score": 0.9939984083175659
+    },
+    {
+      "text": "6. ¿No es verdad que cinco pajarillos se venden por dos",
+      "box": [
+        539,
+        175,
+        898,
+        196
+      ],
+      "score": 0.9995113015174866
+    },
+    {
+      "text": "rapiña y de maldad.",
+      "box": [
+        72,
+        200,
+        190,
+        214
+      ],
+      "score": 0.9956167340278625
+    },
+    {
+      "text": "cuartos, y con todo ni uno de ellos es olvidado de Dios?",
+      "box": [
+        527,
+        192,
+        868,
+        212
+      ],
+      "score": 0.9928937554359436
+    },
+    {
+      "text": "40. Oh necios! no sabeis que quien hizo lo de afuera, hizo",
+      "box": [
+        83,
+        209,
+        431,
+        234
+      ],
+      "score": 0.988609790802002
+    },
+    {
+      "text": "7. Hasta los cabellos de vuestra cabeza están todos con.",
+      "box": [
+        538,
+        208,
+        899,
+        227
+      ],
+      "score": 0.9983622431755066
+    },
+    {
+      "text": "asimismo lo de adentro.",
+      "box": [
+        72,
+        231,
+        213,
+        248
+      ],
+      "score": 0.9888675808906555
+    },
+    {
+      "text": "tados. Por tanto no teneis que temer que Dios os olvide: mas",
+      "box": [
+        527,
+        224,
+        899,
+        243
+      ],
+      "score": 0.9959854483604431
+    },
+    {
+      "text": "41. Sobre todo, dad limosna de lo vuestro que os sobra,",
+      "box": [
+        82,
+        241,
+        430,
+        266
+      ],
+      "score": 0.9911507368087769
+    },
+    {
+      "text": "valeis vosotros que muchos pajarillos.",
+      "box": [
+        528,
+        243,
+        755,
+        257
+      ],
+      "score": 0.9962688088417053
+    },
+    {
+      "text": "y con eso alcanzareis de Dios que todas las cosas estarán",
+      "box": [
+        68,
+        258,
+        430,
+        282
+      ],
+      "score": 0.9894014596939087
+    },
+    {
+      "text": "8. Os digo pues, que cualquiera que me confesare delante",
+      "box": [
+        541,
+        259,
+        898,
+        273
+      ],
+      "score": 0.9888067245483398
+    },
+    {
+      "text": "limpias en órden á vosotros.",
+      "box": [
+        71,
+        279,
+        237,
+        296
+      ],
+      "score": 0.9984886050224304
+    },
+    {
+      "text": "de los hombres, tambien el Hijo del hombre le confesará ó",
+      "box": [
+        529,
+        275,
+        900,
+        289
+      ],
+      "score": 0.9933995008468628
+    },
+    {
+      "text": "42. Mas ay de vosotros, Phariséos, que pagais el diezmo",
+      "box": [
+        81,
+        287,
+        430,
+        313
+      ],
+      "score": 0.984682559967041
+    },
+    {
+      "text": "reconocerá por suyo delante de los ángeles de Dios:",
+      "box": [
+        526,
+        288,
+        847,
+        306
+      ],
+      "score": 0.996437668800354
+    },
+    {
+      "text": "de la yerba buena, y de la ruda, y de toda suerte de legum-",
+      "box": [
+        69,
+        302,
+        432,
+        329
+      ],
+      "score": 0.9754425287246704
+    },
+    {
+      "text": "9. Al contrario, quien me negare ante los hombres, será",
+      "box": [
+        540,
+        305,
+        901,
+        322
+      ],
+      "score": 0.9967573285102844
+    },
+    {
+      "text": "bres, y no haceis caso de la justicia y de la caridad ó amor",
+      "box": [
+        69,
+        318,
+        431,
+        344
+      ],
+      "score": 0.9835144877433777
+    },
+    {
+      "text": "negado ante los ángeles de Dios.",
+      "box": [
+        528,
+        321,
+        722,
+        335
+      ],
+      "score": 0.9982128143310547
+    },
+    {
+      "text": "de Dios! Estas son las cosas que debiais practicar, sin omitir",
+      "box": [
+        68,
+        334,
+        430,
+        359
+      ],
+      "score": 0.9772583842277527
+    },
+    {
+      "text": "10. Si alguno habla contra el Hijo del hombre no cono-",
+      "box": [
+        540,
+        334,
+        901,
+        354
+      ],
+      "score": 0.9950947165489197
+    },
+    {
+      "text": "aquellas.",
+      "box": [
+        69,
+        355,
+        124,
+        372
+      ],
+      "score": 0.9965876340866089
+    },
+    {
+      "text": "ciendo su Divinidad, este pecado se le perdonará: pero no",
+      "box": [
+        527,
+        350,
+        901,
+        371
+      ],
+      "score": 0.9991843700408936
+    },
+    {
+      "text": "43. Ay de vosotros, Phariséos, que amais tener los pri-",
+      "box": [
+        79,
+        366,
+        429,
+        389
+      ],
+      "score": 0.9884355068206787
+    },
+    {
+      "text": "habrá perdon para quien blasfemare contra el Espíritu Santo³.",
+      "box": [
+        527,
+        365,
+        902,
+        387
+      ],
+      "score": 0.9891414046287537
+    },
+    {
+      "text": "meros asientos en las synagogas, y ser saludados en público!",
+      "box": [
+        68,
+        382,
+        430,
+        406
+      ],
+      "score": 0.9985193610191345
+    },
+    {
+      "text": "11. Cuando os conduzcan á las synagogas, y á los magis-",
+      "box": [
+        540,
+        382,
+        902,
+        404
+      ],
+      "score": 0.9696537256240845
+    },
+    {
+      "text": "44. Ay de vosotros, que sois como los sepulcros que",
+      "box": [
+        81,
+        401,
+        429,
+        420
+      ],
+      "score": 0.9989420771598816
+    },
+    {
+      "text": "trados y potestades de la tierra, no paseis cuidado de lo que,",
+      "box": [
+        527,
+        399,
+        902,
+        420
+      ],
+      "score": 0.9873561859130859
+    },
+    {
+      "text": "están encubiertos, y que son desconocidos de los hombres",
+      "box": [
+        69,
+        416,
+        429,
+        437
+      ],
+      "score": 0.9945411682128906
+    },
+    {
+      "text": "ó cómo habeis de responder ó alegar.",
+      "box": [
+        527,
+        417,
+        752,
+        436
+      ],
+      "score": 0.9939213991165161
+    },
+    {
+      "text": "que pasan por encima de ellos 1!",
+      "box": [
+        70,
+        435,
+        262,
+        452
+      ],
+      "score": 0.9771963357925415
+    },
+    {
+      "text": "12. Porque el Espíritu Santo os enseñará en aquel trance",
+      "box": [
+        541,
+        435,
+        901,
+        452
+      ],
+      "score": 0.9948503375053406
+    },
+    {
+      "text": "45. Entonces uno de los doctores de la Ley le dijo: Maes-",
+      "box": [
+        80,
+        447,
+        430,
+        469
+      ],
+      "score": 0.9910584092140198
+    },
+    {
+      "text": "lo que debcis decir.",
+      "box": [
+        527,
+        451,
+        646,
+        468
+      ],
+      "score": 0.9533283114433289
+    },
+    {
+      "text": "tro, hablando así, tambien nos afrentas á nosotros.",
+      "box": [
+        69,
+        465,
+        366,
+        483
+      ],
+      "score": 0.9988837242126465
+    },
+    {
+      "text": "13. Entonces le dijo uno del auditorio: Maestro, díle á mi",
+      "box": [
+        540,
+        467,
+        901,
+        484
+      ],
+      "score": 0.9872981905937195
+    },
+    {
+      "text": "46. Mas él respondió: Ay de vosotros igualmente, docto-",
+      "box": [
+        80,
+        479,
+        430,
+        501
+      ],
+      "score": 0.9870325326919556
+    },
+    {
+      "text": "hermano que me dé la parte que me toca de la herencia.",
+      "box": [
+        528,
+        484,
+        871,
+        501
+      ],
+      "score": 0.9986206293106079
+    },
+    {
+      "text": "res de la Ley! porque echais á los hombres cargas que no",
+      "box": [
+        70,
+        499,
+        429,
+        516
+      ],
+      "score": 0.9995956420898438
+    },
+    {
+      "text": "14. Pero Jesus le respondió: Oh hombre! ¿quién me ha",
+      "box": [
+        541,
+        500,
+        901,
+        517
+      ],
+      "score": 0.9935439825057983
+    },
+    {
+      "text": "pueden soportar, y vosotros ni con la punta de el dedo las",
+      "box": [
+        69,
+        514,
+        430,
+        533
+      ],
+      "score": 0.9996602535247803
+    },
+    {
+      "text": "constituido á mí juez, ó repartidor entre vosotros 4?",
+      "box": [
+        528,
+        517,
+        843,
+        534
+      ],
+      "score": 0.979246973991394
+    },
+    {
+      "text": "tocais.",
+      "box": [
+        69,
+        530,
+        111,
+        551
+      ],
+      "score": 0.9988919496536255
+    },
+    {
+      "text": "15. Con esta ocasion les dijo: Estad alerta, y guardaos de",
+      "box": [
+        540,
+        532,
+        901,
+        550
+      ],
+      "score": 0.9940654039382935
+    },
+    {
+      "text": "47. Ay de vosotros, que fabricais mausoleos á los profe-",
+      "box": [
+        79,
+        544,
+        430,
+        566
+      ],
+      "score": 0.9845438003540039
+    },
+    {
+      "text": "toda avaricia: que no depende la vida del hombre de la",
+      "box": [
+        528,
+        548,
+        901,
+        566
+      ],
+      "score": 0.9993956089019775
+    },
+    {
+      "text": "tas, despues que vuestros mismos padres los mataron!",
+      "box": [
+        69,
+        562,
+        388,
+        581
+      ],
+      "score": 0.9972997903823853
+    },
+    {
+      "text": "abundancia de los bienes que él posee.",
+      "box": [
+        530,
+        568,
+        760,
+        582
+      ],
+      "score": 0.9995931386947632
+    },
+    {
+      "text": "48. En verdad que dais á conocer que aprobais los aten-",
+      "box": [
+        80,
+        577,
+        430,
+        596
+      ],
+      "score": 0.9869004487991333
+    },
+    {
+      "text": "16. Y en seguida les propuso esta parábola: Un hombre",
+      "box": [
+        540,
+        580,
+        901,
+        599
+      ],
+      "score": 0.9898190498352051
+    },
+    {
+      "text": "tados de vuestros padres: porque si ellos los mataron, vos-",
+      "box": [
+        69,
+        592,
+        430,
+        614
+      ],
+      "score": 0.9997139573097229
+    },
+    {
+      "text": "rico tuvo una extraordinaria cosecha de frutos en su he-",
+      "box": [
+        527,
+        596,
+        902,
+        614
+      ],
+      "score": 0.9946785569190979
+    },
+    {
+      "text": "otros edificais sus sepulcros.",
+      "box": [
+        69,
+        610,
+        238,
+        628
+      ],
+      "score": 0.9896803498268127
+    },
+    {
+      "text": "redad:",
+      "box": [
+        529,
+        614,
+        574,
+        629
+      ],
+      "score": 0.9990943074226379
+    },
+    {
+      "text": "49. Por eso tambien dijo la sabiduría de Dios: Yo les",
+      "box": [
+        81,
+        624,
+        430,
+        643
+      ],
+      "score": 0.9960756301879883
+    },
+    {
+      "text": "17. Y discurria para consigo, diciendo: ¿Qué haré, que no",
+      "box": [
+        539,
+        628,
+        901,
+        647
+      ],
+      "score": 0.989213764667511
+    },
+    {
+      "text": "enviaré profetas y Apóstoles, y matarán á unos, y persegui-",
+      "box": [
+        69,
+        641,
+        430,
+        659
+      ],
+      "score": 0.9953241944313049
+    },
+    {
+      "text": "tengo sitio capaz para ençerrar mis granos?",
+      "box": [
+        529,
+        646,
+        787,
+        660
+      ],
+      "score": 0.9866122007369995
+    },
+    {
+      "text": "rán á otros:",
+      "box": [
+        71,
+        660,
+        143,
+        674
+      ],
+      "score": 0.9884397983551025
+    },
+    {
+      "text": "18. Al fin dijo: Haré esto: derribaré mis graneros, y cons-",
+      "box": [
+        541,
+        662,
+        901,
+        679
+      ],
+      "score": 0.987363338470459
+    },
+    {
+      "text": "50. Para que á esta nacion se le pida cuenta de la sangre",
+      "box": [
+        83,
+        675,
+        429,
+        689
+      ],
+      "score": 0.9911087155342102
+    },
+    {
+      "text": "truiré otros mayores, donde almacenaré todos mis productos",
+      "box": [
+        528,
+        676,
+        902,
+        696
+      ],
+      "score": 0.9982776045799255
+    },
+    {
+      "text": "de todos los profetas, que ha sido derramada desde la crea-",
+      "box": [
+        71,
+        691,
+        430,
+        705
+      ],
+      "score": 0.9998924732208252
+    },
+    {
+      "text": "y mis bienes,",
+      "box": [
+        528,
+        694,
+        611,
+        711
+      ],
+      "score": 0.9862667322158813
+    },
+    {
+      "text": "cion del mundo acá,",
+      "box": [
+        72,
+        707,
+        191,
+        721
+      ],
+      "score": 0.9969943165779114
+    },
+    {
+      "text": "19. Con lo que diré á mi alma: Oh alma mia! ya tienes",
+      "box": [
+        539,
+        708,
+        902,
+        728
+      ],
+      "score": 0.9849082231521606
+    },
+    {
+      "text": "51. De la sangre de Abel * hasta la sangre de Zacharías,",
+      "box": [
+        83,
+        723,
+        429,
+        737
+      ],
+      "score": 0.9847123026847839
+    },
+    {
+      "text": "muchos bienes de repuesto para muchísimos años: descansa,",
+      "box": [
+        528,
+        724,
+        901,
+        745
+      ],
+      "score": 0.9982693791389465
+    },
+    {
+      "text": "muerto entre el altar y el templo. Sí: yo os lo digo: á esta",
+      "box": [
+        70,
+        738,
+        431,
+        755
+      ],
+      "score": 0.9729196429252625
+    },
+    {
+      "text": "come, bebe, y date buena vida.",
+      "box": [
+        528,
+        741,
+        712,
+        759
+      ],
+      "score": 0.9996827244758606
+    },
+    {
+      "text": "raza de hombres se le pedirá de ello cuenta rigurosa.",
+      "box": [
+        70,
+        753,
+        386,
+        772
+      ],
+      "score": 0.9983621835708618
+    },
+    {
+      "text": "20. Pero al punto le dijo Dios:  Insensato! esta misma",
+      "box": [
+        541,
+        756,
+        902,
+        776
+      ],
+      "score": 0.9828463196754456
+    },
+    {
+      "text": "52. Ay de vosotros, doctores de la Ley, que os habeis",
+      "box": [
+        82,
+        769,
+        432,
+        787
+      ],
+      "score": 0.9922844767570496
+    },
+    {
+      "text": "noche han de exigir de tí la entrega de tu alma: ¿de quién",
+      "box": [
+        528,
+        773,
+        900,
+        793
+      ],
+      "score": 0.9978050589561462
+    },
+    {
+      "text": "reservado la llave de la ciencia de la salud! Vosotros mismos",
+      "box": [
+        69,
+        784,
+        431,
+        803
+      ],
+      "score": 0.9945448040962219
+    },
+    {
+      "text": "será cuanto has almacenado?",
+      "box": [
+        528,
+        789,
+        703,
+        807
+      ],
+      "score": 0.9984745979309082
+    },
+    {
+      "text": "no habeis entrado, y aun á los que iban á entrar se lo habeis",
+      "box": [
+        69,
+        800,
+        432,
+        820
+      ],
+      "score": 0.9819180965423584
+    },
+    {
+      "text": "21. Esto es lo que sucede, concluyó Jesus, al que atesora",
+      "box": [
+        541,
+        803,
+        902,
+        827
+      ],
+      "score": 0.9826293587684631
+    },
+    {
+      "text": "impedido.",
+      "box": [
+        70,
+        816,
+        132,
+        833
+      ],
+      "score": 0.9999276399612427
+    },
+    {
+      "text": "53. Diciéndoles todas estas cosas, irritados los Phariséos",
+      "box": [
+        81,
+        831,
+        431,
+        852
+      ],
+      "score": 0.9948690533638
+    },
+    {
+      "text": "para sí, y no es rico á los ojos de Dios.",
+      "box": [
+        529,
+        822,
+        757,
+        840
+      ],
+      "score": 0.9902405142784119
+    },
+    {
+      "text": "22. Y despues dijo á sus discípulos: Por eso os digo á",
+      "box": [
+        542,
+        837,
+        902,
+        857
+      ],
+      "score": 0.9855473637580872
+    },
+    {
+      "text": "y doctores de la Ley empezaron á contradecirle fuertemente,",
+      "box": [
+        69,
+        847,
+        431,
+        869
+      ],
+      "score": 0.9964424967765808
+    },
+    {
+      "text": "y á pretender taparle la boca de muchas maneras,",
+      "box": [
+        69,
+        863,
+        367,
+        884
+      ],
+      "score": 0.9847168922424316
+    },
+    {
+      "text": "vosotros: No andeis inquietos en órden á vuestra vida, sobre",
+      "box": [
+        529,
+        854,
+        902,
+        873
+      ],
+      "score": 0.9974929690361023
+    },
+    {
+      "text": "lo que comereis, ni en órden á vuestro cuerpo sobre qué",
+      "box": [
+        528,
+        869,
+        903,
+        891
+      ],
+      "score": 0.9917792081832886
+    },
+    {
+      "text": "54. Armándole asechanzas, y tirando á sonsacarle alguna",
+      "box": [
+        81,
+        880,
+        432,
+        901
+      ],
+      "score": 0.9913057088851929
+    },
+    {
+      "text": "palabra de que poder acusarle.",
+      "box": [
+        69,
+        896,
+        252,
+        915
+      ],
+      "score": 0.9920114874839783
+    },
+    {
+      "text": "vestireis.",
+      "box": [
+        530,
+        887,
+        588,
+        904
+      ],
+      "score": 0.9999494552612305
+    },
+    {
+      "text": "23. Mas importa la vida que la comida, y el cuerpo que",
+      "box": [
+        540,
+        900,
+        903,
+        923
+      ],
+      "score": 0.9942116141319275
+    },
+    {
+      "text": "el vestido.",
+      "box": [
+        530,
+        918,
+        596,
+        935
+      ],
+      "score": 0.9985217452049255
+    },
+    {
+      "text": "CAPITULO XII",
+      "box": [
+        203,
+        928,
+        300,
+        945
+      ],
+      "score": 0.9728543162345886
+    },
+    {
+      "text": "24. Reparad en los cuervos: ellos no siembran, ni siegan,",
+      "box": [
+        542,
+        932,
+        902,
+        954
+      ],
+      "score": 0.9960846900939941
+    },
+    {
+      "text": "Levadura de los Phariséos. No temer sino á Dios. Rico del siglo. No",
+      "box": [
+        69,
+        956,
+        433,
+        976
+      ],
+      "score": 0.9948934316635132
+    },
+    {
+      "text": "no tienen dispensa, ni granero, sin embargo Dios los ali-",
+      "box": [
+        530,
+        948,
+        904,
+        969
+      ],
+      "score": 0.9997447729110718
+    },
+    {
+      "text": "inquietarse sobre comida y vestido. Tesoro y corazon en el cielo.",
+      "box": [
+        78,
+        970,
+        433,
+        990
+      ],
+      "score": 0.9934930801391602
+    },
+    {
+      "text": "menta. Ahora bien, ¿cuánto mas valeis vosotros que ellos?",
+      "box": [
+        530,
+        964,
+        882,
+        985
+      ],
+      "score": 0.9915905594825745
+    },
+    {
+      "text": "Administrador fiel y prudente. Siervo violento é infiel. Jesus vino á",
+      "box": [
+        79,
+        984,
+        436,
+        1003
+      ],
+      "score": 0.9877487421035767
+    },
+    {
+      "text": "25. Y por otra parte ¿quién de vosotros, por mucho que",
+      "box": [
+        543,
+        978,
+        904,
+        1003
+      ],
+      "score": 0.9932122826576233
+    },
+    {
+      "text": "poner fuego sobre la tierra. (Matth, 5, 6, 10, 12, 16, 19, 24.—",
+      "box": [
+        79,
+        999,
+        434,
+        1017
+      ],
+      "score": 0.9894176125526428
+    },
+    {
+      "text": "discurra, puede acrecentar á su estatura un solo codo?",
+      "box": [
+        531,
+        995,
+        856,
+        1017
+      ],
+      "score": 0.9952492713928223
+    },
+    {
+      "text": "Mare. 3, 4, 8.)",
+      "box": [
+        80,
+        1013,
+        157,
+        1030
+      ],
+      "score": 0.9704657793045044
+    },
+    {
+      "text": "26. Pues si ni aun para las cosas mas pequeñas teneis",
+      "box": [
+        543,
+        1011,
+        904,
+        1035
+      ],
+      "score": 0.999204158782959
+    },
+    {
+      "text": "poder, ¿á qué fin inquietaros por las demás?",
+      "box": [
+        530,
+        1027,
+        791,
+        1049
+      ],
+      "score": 0.9879187941551208
+    },
+    {
+      "text": "1. Entre tanto, habiéndose juntado al rededor de Jesus",
+      "box": [
+        80,
+        1041,
+        433,
+        1060
+      ],
+      "score": 0.9993715882301331
+    },
+    {
+      "text": "27. Contemplad las azucenas cómo crecen y florecen: no",
+      "box": [
+        542,
+        1043,
+        905,
+        1068
+      ],
+      "score": 0.9753721952438354
+    },
+    {
+      "text": "tanto concurso de gentes que se atropellaban unos á otros,",
+      "box": [
+        68,
+        1058,
+        433,
+        1076
+      ],
+      "score": 0.9929873943328857
+    },
+    {
+      "text": "trabajan, ni tampoco hilan: no obstante os digo, que ni",
+      "box": [
+        531,
+        1059,
+        905,
+        1084
+      ],
+      "score": 0.9930232167243958
+    },
+    {
+      "text": "empezó á decir á sus discípulos: Guardaos de la levadura de",
+      "box": [
+        70,
+        1077,
+        432,
+        1091
+      ],
+      "score": 0.9975705742835999
+    },
+    {
+      "text": "Salomon con toda su magnificencia estuvo jamás vestido",
+      "box": [
+        531,
+        1075,
+        905,
+        1099
+      ],
+      "score": 0.9928621649742126
+    },
+    {
+      "text": "los Phariséos, que es la hipocresía.",
+      "box": [
+        70,
+        1093,
+        275,
+        1107
+      ],
+      "score": 0.9983934760093689
+    },
+    {
+      "text": "como una de estas flores.",
+      "box": [
+        530,
+        1092,
+        677,
+        1111
+      ],
+      "score": 0.9998632669448853
+    },
+    {
+      "text": "2. Mas nada es tan oculto que no se haya de manifestar:",
+      "box": [
+        80,
+        1108,
+        433,
+        1125
+      ],
+      "score": 0.991560161113739
+    },
+    {
+      "text": "28. Pues si á una yerba que hoy está en el campo, y ma-",
+      "box": [
+        542,
+        1107,
+        907,
+        1133
+      ],
+      "score": 0.9964592456817627
+    },
+    {
+      "text": "ni tan secreto que al fin no se sepa.",
+      "box": [
+        69,
+        1124,
+        283,
+        1141
+      ],
+      "score": 0.9825853109359741
+    },
+    {
+      "text": "ñana se echa en el horno, Dios así la viste, ¿cuánto mas á",
+      "box": [
+        530,
+        1124,
+        907,
+        1149
+      ],
+      "score": 0.9890013337135315
+    },
+    {
+      "text": "3. Así es que lo que dijisteis á oscuras, se dirá en la luz",
+      "box": [
+        79,
+        1139,
+        433,
+        1157
+      ],
+      "score": 0.986648440361023
+    },
+    {
+      "text": "vosotros, hombres de poquísima fe?",
+      "box": [
+        530,
+        1142,
+        740,
+        1161
+      ],
+      "score": 0.9998822808265686
+    },
+    {
+      "text": "del dia: y lo que hablasteis al oido en las alcobas, se prego-",
+      "box": [
+        69,
+        1157,
+        433,
+        1174
+      ],
+      "score": 0.9926561117172241
+    },
+    {
+      "text": "29. Así que, no esteis acongojados cuando buscais de",
+      "box": [
+        541,
+        1156,
+        909,
+        1183
+      ],
+      "score": 0.9959800243377686
+    },
+    {
+      "text": "nará sobre los terrados.",
+      "box": [
+        69,
+        1174,
+        209,
+        1188
+      ],
+      "score": 0.9997327923774719
+    },
+    {
+      "text": "comer, ó de beber: ni tengais suspenso é inquieto vuestro",
+      "box": [
+        528,
+        1172,
+        909,
+        1200
+      ],
+      "score": 0.997676432132721
+    },
+    {
+      "text": "4. Á vosotros empero, que sois mis amigos, os digo yo",
+      "box": [
+        80,
+        1189,
+        432,
+        1206
+      ],
+      "score": 0.9973282217979431
+    },
+    {
+      "text": "ánimo:",
+      "box": [
+        530,
+        1190,
+        579,
+        1208
+      ],
+      "score": 0.9941301941871643
+    },
+    {
+      "text": "1 Véase Sepuleros.—Purificacion.",
+      "box": [
+        78,
+        1228,
+        254,
+        1242
+      ],
+      "score": 0.90855872631073
+    },
+    {
+      "text": "grande milagro de la gracia: toda conversion es un milagro; pero mas",
+      "box": [
+        529,
+        1227,
+        913,
+        1255
+      ],
+      "score": 0.9687545895576477
+    },
+    {
+      "text": "2 Genes. IV, v. 8.—Paral. XXIV, v. 22.",
+      "box": [
+        77,
+        1241,
+        291,
+        1259
+      ],
+      "score": 0.9178999662399292
+    },
+    {
+      "text": "grande la del blasfemo contra el Espíritu Santo.",
+      "box": [
+        533,
+        1247,
+        776,
+        1261
+      ],
+      "score": 0.9992210865020752
+    },
+    {
+      "text": "3 Esto es, para el que atribuyere á Beelzebub los milagros que hago:",
+      "box": [
+        79,
+        1257,
+        433,
+        1271
+      ],
+      "score": 0.9914615750312805
+    },
+    {
+      "text": "Léase lo que San Ambrosio dice sobre estas palabras. Importante",
+      "box": [
+        541,
+        1255,
+        914,
+        1282
+      ],
+      "score": 0.9498487114906311
+    },
+    {
+      "text": "por ser esta una ceguedad voluntaria, y de la cual nadie cura sin un",
+      "box": [
+        69,
+        1272,
+        434,
+        1286
+      ],
+      "score": 0.9994779229164124
+    },
+    {
+      "text": "leccion para los eclesiásticos que se mezelan en asuntos que no deben!",
+      "box": [
+        531,
+        1269,
+        914,
+        1296
+      ],
+      "score": 0.9867789149284363
+    }
+  ]
+}

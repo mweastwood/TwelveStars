@@ -1,0 +1,1487 @@
+{
+  "volume": 2,
+  "page_index": 73,
+  "pdf_page": 74,
+  "lines": [
+    {
+      "text": "83",
+      "box": [
+        31,
+        113,
+        60,
+        139
+      ],
+      "score": 0.9999353289604187
+    },
+    {
+      "text": "II. REYES.",
+      "box": [
+        255,
+        115,
+        378,
+        150
+      ],
+      "score": 0.9796258807182312
+    },
+    {
+      "text": "CAPITULO XXIII.",
+      "box": [
+        958,
+        164,
+        1147,
+        191
+      ],
+      "score": 0.9883586764335632
+    },
+    {
+      "text": "84",
+      "box": [
+        1290,
+        168,
+        1315,
+        190
+      ],
+      "score": 0.9999967217445374
+    },
+    {
+      "text": "9. El humo de sus narices, ó su enojo, se levantó en alto;",
+      "box": [
+        38,
+        180,
+        608,
+        233
+      ],
+      "score": 0.9976016283035278
+    },
+    {
+      "text": "y despedia de su boca fuego devorador, que convirtió en",
+      "box": [
+        15,
+        212,
+        607,
+        257
+      ],
+      "score": 0.9996083974838257
+    },
+    {
+      "text": "40. Porque ceñísteme, Señor, de fortaleza para la batalla,",
+      "box": [
+        783,
+        216,
+        1327,
+        257
+      ],
+      "score": 0.992219090461731
+    },
+    {
+      "text": "brasas los carbones.",
+      "box": [
+        18,
+        241,
+        217,
+        270
+      ],
+      "score": 0.9999158978462219
+    },
+    {
+      "text": "y derribaste á mis plantas á cuantos se alzaron contra mí.",
+      "box": [
+        762,
+        242,
+        1310,
+        280
+      ],
+      "score": 0.9727867841720581
+    },
+    {
+      "text": "10. Abajó, ó hizo inclinar los cielos, y descendió, teniendo",
+      "box": [
+        42,
+        266,
+        604,
+        308
+      ],
+      "score": 0.980171263217926
+    },
+    {
+      "text": "41. Hiciste que volvieran las espaldas mis enemigos y",
+      "box": [
+        783,
+        264,
+        1328,
+        307
+      ],
+      "score": 0.999862790107727
+    },
+    {
+      "text": "una densa niebla debajo de sus piés.",
+      "box": [
+        20,
+        293,
+        371,
+        326
+      ],
+      "score": 0.9879915714263916
+    },
+    {
+      "text": "aborrecedores: yo daré cabo de ellos.",
+      "box": [
+        764,
+        290,
+        1103,
+        323
+      ],
+      "score": 0.9998500943183899
+    },
+    {
+      "text": "11. Subió despues sobre los Querubines, y voló; voló sobre",
+      "box": [
+        42,
+        317,
+        604,
+        357
+      ],
+      "score": 0.9961982369422913
+    },
+    {
+      "text": "42. Por mas que griten nadie acudirá á su socorro; clama-",
+      "box": [
+        781,
+        312,
+        1327,
+        353
+      ],
+      "score": 0.9900335073471069
+    },
+    {
+      "text": "1as alas de los vientos.",
+      "box": [
+        18,
+        342,
+        241,
+        373
+      ],
+      "score": 0.9898214340209961
+    },
+    {
+      "text": "rán al Señor, mas no los escuchará.",
+      "box": [
+        761,
+        337,
+        1089,
+        372
+      ],
+      "score": 0.9999200105667114
+    },
+    {
+      "text": "12. Puso las tinieblas alrededor de sí para ocultarse: zaran-",
+      "box": [
+        40,
+        366,
+        603,
+        407
+      ],
+      "score": 0.9990366697311401
+    },
+    {
+      "text": "43. Disiparélos como polvo de la tierra: los aplastaré y",
+      "box": [
+        780,
+        360,
+        1326,
+        401
+      ],
+      "score": 0.9921299815177917
+    },
+    {
+      "text": "deó las aguas de las nubes del cielo.",
+      "box": [
+        18,
+        391,
+        363,
+        425
+      ],
+      "score": 0.9999628067016602
+    },
+    {
+      "text": "desmenuzaré como lodo de las calles.",
+      "box": [
+        759,
+        384,
+        1105,
+        420
+      ],
+      "score": 0.998449444770813
+    },
+    {
+      "text": "13. Los rayos refulgentes de su presencia encendieron",
+      "box": [
+        37,
+        414,
+        602,
+        457
+      ],
+      "score": 0.994469940662384
+    },
+    {
+      "text": "44. Tú me libertarás. Señor, de las contradicciones de mi",
+      "box": [
+        778,
+        408,
+        1325,
+        448
+      ],
+      "score": 0.985141932964325
+    },
+    {
+      "text": "cual fuego áscuas ardientes.",
+      "box": [
+        16,
+        438,
+        292,
+        472
+      ],
+      "score": 0.9999251365661621
+    },
+    {
+      "text": "pueblo: me conservarás para que sea yo la cabeza de las na-",
+      "box": [
+        756,
+        432,
+        1325,
+        472
+      ],
+      "score": 0.9980196952819824
+    },
+    {
+      "text": "14. Tronará el Señor desde lo alto del cielo: El Altísimo",
+      "box": [
+        38,
+        460,
+        601,
+        501
+      ],
+      "score": 0.9934319853782654
+    },
+    {
+      "text": "ciones: un pueblo á quien no conozco me servirá 5.",
+      "box": [
+        757,
+        455,
+        1228,
+        493
+      ],
+      "score": 0.9667006731033325
+    },
+    {
+      "text": "hará resonar su voz.",
+      "box": [
+        16,
+        484,
+        219,
+        513
+      ],
+      "score": 0.9998795390129089
+    },
+    {
+      "text": "45. Los hijos extraños me harán resistencia: mas en oyén-",
+      "box": [
+        776,
+        478,
+        1323,
+        518
+      ],
+      "score": 0.9972710609436035
+    },
+    {
+      "text": "15. Arrojó centellas contra mis enemigos, y los disipó:",
+      "box": [
+        37,
+        505,
+        600,
+        546
+      ],
+      "score": 0.9890965819358826
+    },
+    {
+      "text": "dome, me obedecerán.",
+      "box": [
+        757,
+        502,
+        962,
+        533
+      ],
+      "score": 0.9998477697372437
+    },
+    {
+      "text": "rayos, y los destruyó.",
+      "box": [
+        13,
+        529,
+        228,
+        560
+      ],
+      "score": 0.9999186992645264
+    },
+    {
+      "text": "46. Estos hijos extraños se desmayarán~así que yo los",
+      "box": [
+        775,
+        524,
+        1323,
+        565
+      ],
+      "score": 0.9877848625183105
+    },
+    {
+      "text": "16. Quedaron entonces patentes los abismos del mar, y",
+      "box": [
+        34,
+        551,
+        600,
+        598
+      ],
+      "score": 0.9911466836929321
+    },
+    {
+      "text": "mire 6, y se encogerán de miedo en sus escondrijos.",
+      "box": [
+        755,
+        549,
+        1230,
+        587
+      ],
+      "score": 0.9897618293762207
+    },
+    {
+      "text": "descubiertos los cimientos de la tierra á las amenazas del",
+      "box": [
+        10,
+        577,
+        599,
+        620
+      ],
+      "score": 0.9914376735687256
+    },
+    {
+      "text": "47. Viva para siempre el Señor, y bendito sea mi Dios.",
+      "box": [
+        774,
+        573,
+        1322,
+        610
+      ],
+      "score": 0.999597430229187
+    },
+    {
+      "text": "Señor, y al resuello impetuoso de su furor.",
+      "box": [
+        9,
+        603,
+        421,
+        639
+      ],
+      "score": 0.9893547892570496
+    },
+    {
+      "text": "Sea engrandecido el Dios fuerte que me ha salvado.",
+      "box": [
+        754,
+        597,
+        1231,
+        635
+      ],
+      "score": 0.9932645559310913
+    },
+    {
+      "text": "17. Extendió su mano desde el cielo, y me cogió: y de entre",
+      "box": [
+        30,
+        624,
+        599,
+        670
+      ],
+      "score": 0.9878421425819397
+    },
+    {
+      "text": "48. Tú, oh Dios, que me has vengado, y has derribado na-",
+      "box": [
+        773,
+        621,
+        1322,
+        658
+      ],
+      "score": 0.9934568405151367
+    },
+    {
+      "text": "olas inmensas me sacó á salvo.",
+      "box": [
+        8,
+        651,
+        312,
+        685
+      ],
+      "score": 0.9897779226303101
+    },
+    {
+      "text": "ciones á mis piés:",
+      "box": [
+        755,
+        646,
+        922,
+        676
+      ],
+      "score": 0.9852997660636902
+    },
+    {
+      "text": "18. Libróme de mi poderosísimo enemigo, y de los que me",
+      "box": [
+        29,
+        674,
+        598,
+        718
+      ],
+      "score": 0.996296763420105
+    },
+    {
+      "text": "49. Tú eres el que me has sacado de las manos de mis ene-",
+      "box": [
+        772,
+        669,
+        1322,
+        702
+      ],
+      "score": 0.9998306035995483
+    },
+    {
+      "text": "aborrecian; los cuales eran mas fuertes que yo.",
+      "box": [
+        4,
+        701,
+        460,
+        737
+      ],
+      "score": 0.9974259734153748
+    },
+    {
+      "text": "migos, y me has ensalzado sobre los que me resistian: y tú el",
+      "box": [
+        751,
+        693,
+        1321,
+        727
+      ],
+      "score": 0.9949698448181152
+    },
+    {
+      "text": "19. Y me anticipó su socorro en el dia de la tribulacion;",
+      "box": [
+        26,
+        726,
+        596,
+        764
+      ],
+      "score": 0.984417200088501
+    },
+    {
+      "text": "que me librarás del hombre inícuo.",
+      "box": [
+        753,
+        721,
+        1078,
+        749
+      ],
+      "score": 0.9999740719795227
+    },
+    {
+      "text": "y ha sido siempre el Señor mi firme apoyo.",
+      "box": [
+        0,
+        751,
+        424,
+        786
+      ],
+      "score": 0.9881997108459473
+    },
+    {
+      "text": "50. Por todo lo cual cantaré, oh Señor, tus alabanzas en",
+      "box": [
+        773,
+        743,
+        1318,
+        773
+      ],
+      "score": 0.9999094009399414
+    },
+    {
+      "text": "medio de las naciones, y entonaré cánticos en honor de tu",
+      "box": [
+        750,
+        766,
+        1319,
+        798
+      ],
+      "score": 0.9870032668113708
+    },
+    {
+      "text": "20. Sacóme fuera á un sitio espacioso, y púsome en plena",
+      "box": [
+        25,
+        776,
+        596,
+        813
+      ],
+      "score": 0.9975281357765198
+    },
+    {
+      "text": "libertad, porque fuí grato á sus ojos.",
+      "box": [
+        0,
+        803,
+        361,
+        833
+      ],
+      "score": 0.9892943501472473
+    },
+    {
+      "text": "sunto nombre.",
+      "box": [
+        751,
+        794,
+        890,
+        820
+      ],
+      "score": 0.9658104777336121
+    },
+    {
+      "text": "21. El Señor me recompensará segun mi justicia: y me",
+      "box": [
+        23,
+        826,
+        595,
+        862
+      ],
+      "score": 0.9928703904151917
+    },
+    {
+      "text": "51. A tí que has salvado milagrosamente al rey que has",
+      "box": [
+        770,
+        814,
+        1319,
+        847
+      ],
+      "score": 0.9966397285461426
+    },
+    {
+      "text": "escogido, y usas de tantas misericordias con David tu Christo",
+      "box": [
+        750,
+        836,
+        1319,
+        870
+      ],
+      "score": 0.9989956021308899
+    },
+    {
+      "text": "tratará segun la pureza de mis manos.",
+      "box": [
+        0,
+        852,
+        382,
+        882
+      ],
+      "score": 0.9934163689613342
+    },
+    {
+      "text": "ó Ungido, y las usarás con su descendencia para siempre.",
+      "box": [
+        752,
+        864,
+        1282,
+        894
+      ],
+      "score": 0.9997040033340454
+    },
+    {
+      "text": "22. Pues yo seguí atentamente las sendas del Señor; ni me",
+      "box": [
+        22,
+        877,
+        597,
+        909
+      ],
+      "score": 0.9923539161682129
+    },
+    {
+      "text": "separé de mi Dios con hechos impíos:",
+      "box": [
+        0,
+        903,
+        374,
+        932
+      ],
+      "score": 0.9899095892906189
+    },
+    {
+      "text": "23. Como que siempre tengo delante de mis ojos todas sus",
+      "box": [
+        23,
+        928,
+        598,
+        958
+      ],
+      "score": 0.995977520942688
+    },
+    {
+      "text": "CAPITULO XXIII",
+      "box": [
+        950,
+        916,
+        1125,
+        943
+      ],
+      "score": 0.9991102814674377
+    },
+    {
+      "text": "leyes, y no soy rebelde á sus preceptos.",
+      "box": [
+        0,
+        956,
+        391,
+        982
+      ],
+      "score": 0.9897753000259399
+    },
+    {
+      "text": "Cántico último de David. Catálogo de sus mas ilustres campeones.",
+      "box": [
+        782,
+        963,
+        1295,
+        989
+      ],
+      "score": 0.99228835105896
+    },
+    {
+      "text": "24. Con seguir á Dios seré un varon perfecto, y me guar-",
+      "box": [
+        24,
+        980,
+        598,
+        1008
+      ],
+      "score": 0.9896493554115295
+    },
+    {
+      "text": "daré de ir en pos de mi iniquidad.",
+      "box": [
+        1,
+        1007,
+        343,
+        1031
+      ],
+      "score": 0.9999645352363586
+    },
+    {
+      "text": "1. Estas son las últimas palabras proféticas de David 7.",
+      "box": [
+        774,
+        1006,
+        1319,
+        1036
+      ],
+      "score": 0.9840126633644104
+    },
+    {
+      "text": "25. El Señor me dará la recompensa conforme á mi justi-",
+      "box": [
+        24,
+        1031,
+        596,
+        1055
+      ],
+      "score": 0.9956462979316711
+    },
+    {
+      "text": "Dijo David, hijo de Isaí: dijo el varon á quien fué dada pala-",
+      "box": [
+        754,
+        1029,
+        1320,
+        1059
+      ],
+      "score": 0.9890590310096741
+    },
+    {
+      "text": "cia ¹, y segun la pureza de mis maños delante de sus ojos.",
+      "box": [
+        0,
+        1053,
+        563,
+        1082
+      ],
+      "score": 0.9903877377510071
+    },
+    {
+      "text": "bra ó promesa del Christo  Ungido del Dios de Jacob; dijo el",
+      "box": [
+        755,
+        1054,
+        1319,
+        1082
+      ],
+      "score": 0.9893734455108643
+    },
+    {
+      "text": "26. Con los santos, tú, oh Dios, te mostrarás santo; y per-",
+      "box": [
+        25,
+        1081,
+        595,
+        1104
+      ],
+      "score": 0.9936590790748596
+    },
+    {
+      "text": "egregio cantor de Israél:",
+      "box": [
+        756,
+        1083,
+        984,
+        1104
+      ],
+      "score": 0.9997937679290771
+    },
+    {
+      "text": "fecto con los perfectos ²:",
+      "box": [
+        0,
+        1103,
+        252,
+        1131
+      ],
+      "score": 0.9769925475120544
+    },
+    {
+      "text": "2. El espíritu del Señor habló por mí, su palabra ha estado",
+      "box": [
+        773,
+        1102,
+        1318,
+        1128
+      ],
+      "score": 0.9991359114646912
+    },
+    {
+      "text": "27. Serás fuerte con los fuertes; y al perverso le tratarás",
+      "box": [
+        24,
+        1126,
+        594,
+        1153
+      ],
+      "score": 0.999632716178894
+    },
+    {
+      "text": "sobre mi lengua.",
+      "box": [
+        754,
+        1127,
+        911,
+        1153
+      ],
+      "score": 0.9970120191574097
+    },
+    {
+      "text": "como á tal .",
+      "box": [
+        2,
+        1152,
+        141,
+        1179
+      ],
+      "score": 0.9640870094299316
+    },
+    {
+      "text": "3. Es el Dios de Israél quien me ha hablado: el fuerte de",
+      "box": [
+        773,
+        1150,
+        1319,
+        1175
+      ],
+      "score": 0.9998731017112732
+    },
+    {
+      "text": "28. Tú salvarás al pueblo humilde; y con una mirada aba-",
+      "box": [
+        26,
+        1174,
+        594,
+        1201
+      ],
+      "score": 0.9942870736122131
+    },
+    {
+      "text": "Israél es quien habla: el dominador de los hombres, el justo",
+      "box": [
+        754,
+        1176,
+        1319,
+        1199
+      ],
+      "score": 0.9920289516448975
+    },
+    {
+      "text": "tirás á los erguidos.",
+      "box": [
+        5,
+        1202,
+        208,
+        1228
+      ],
+      "score": 0.9998250603675842
+    },
+    {
+      "text": "dominador de los que temen á Dios 8.",
+      "box": [
+        753,
+        1197,
+        1099,
+        1223
+      ],
+      "score": 0.9876330494880676
+    },
+    {
+      "text": "29. Tú eres, Señor, mi antorcha; y tú alumbrarás, oh",
+      "box": [
+        27,
+        1221,
+        594,
+        1251
+      ],
+      "score": 0.9991803765296936
+    },
+    {
+      "text": "4. Ellos serán como la luz de la aurora que brilla por la",
+      "box": [
+        775,
+        1223,
+        1320,
+        1246
+      ],
+      "score": 0.995454728603363
+    },
+    {
+      "text": "Señor, mis tinieblas.",
+      "box": [
+        6,
+        1249,
+        213,
+        1276
+      ],
+      "score": 0.9999734163284302
+    },
+    {
+      "text": "mañana cuando sale el sol sin nube alguna; y como yerba que",
+      "box": [
+        752,
+        1246,
+        1319,
+        1271
+      ],
+      "score": 0.9980876445770264
+    },
+    {
+      "text": "30. Contigo correré armado á destrozar al enemigo: yendo",
+      "box": [
+        29,
+        1271,
+        596,
+        1300
+      ],
+      "score": 0.9920344948768616
+    },
+    {
+      "text": "brota de la tierra despues de la lluvia.",
+      "box": [
+        753,
+        1268,
+        1101,
+        1296
+      ],
+      "score": 0.9971672892570496
+    },
+    {
+      "text": "con mi Dios no habrá muro que yo no salte.",
+      "box": [
+        7,
+        1297,
+        435,
+        1325
+      ],
+      "score": 0.9997487664222717
+    },
+    {
+      "text": "5. No mereció ciertamente mi casa á los ojos de Dios, que",
+      "box": [
+        774,
+        1294,
+        1318,
+        1319
+      ],
+      "score": 0.9928582906723022
+    },
+    {
+      "text": "31. La senda de Dios es inmaculada; y como acrisolada al",
+      "box": [
+        32,
+        1322,
+        597,
+        1347
+      ],
+      "score": 0.9929503202438354
+    },
+    {
+      "text": "el Señor hiciese conmigo una alianza eterna, una alianza firme",
+      "box": [
+        754,
+        1318,
+        1319,
+        1344
+      ],
+      "score": 0.9954850077629089
+    },
+    {
+      "text": "D1178 7989",
+      "box": [
+        616,
+        1189,
+        730,
+        1351
+      ],
+      "score": 0.643368661403656
+    },
+    {
+      "text": "iLNU",
+      "box": [
+        686,
+        1333,
+        723,
+        1402
+      ],
+      "score": 0.7152665853500366
+    },
+    {
+      "text": "fuego la palabra del Señor: Escudo es de todos los que en él",
+      "box": [
+        9,
+        1347,
+        597,
+        1374
+      ],
+      "score": 0.9998427629470825
+    },
+    {
+      "text": "y del todo inmutable. Porque él me ha salvado de todos los",
+      "box": [
+        753,
+        1340,
+        1319,
+        1369
+      ],
+      "score": 0.9873912334442139
+    },
+    {
+      "text": "esperan.",
+      "box": [
+        10,
+        1375,
+        102,
+        1400
+      ],
+      "score": 0.9844607710838318
+    },
+    {
+      "text": "peligros: ha cumplido todos mis deseos, no dejándome nada",
+      "box": [
+        754,
+        1363,
+        1318,
+        1394
+      ],
+      "score": 0.9998835325241089
+    },
+    {
+      "text": "32. ¿Quién es Dios fuera del Señor? ¿Y quién es fuerte sino",
+      "box": [
+        34,
+        1393,
+        598,
+        1423
+      ],
+      "score": 0.9928606748580933
+    },
+    {
+      "text": "que apetecer 9.",
+      "box": [
+        755,
+        1389,
+        894,
+        1417
+      ],
+      "score": 0.9871126413345337
+    },
+    {
+      "text": "6. Mas los transgresores de la Ley serán desarraigados",
+      "box": [
+        774,
+        1412,
+        1318,
+        1437
+      ],
+      "score": 0.9997860789299011
+    },
+    {
+      "text": "nuestro Dios?",
+      "box": [
+        11,
+        1420,
+        155,
+        1447
+      ],
+      "score": 0.9624395370483398
+    },
+    {
+      "text": "33. Dios es el que me revistió de fortaleza: y allanó perfec-",
+      "box": [
+        36,
+        1442,
+        598,
+        1470
+      ],
+      "score": 0.9929111003875732
+    },
+    {
+      "text": "todos como espinas: á las cuales nadie toca con la mano;",
+      "box": [
+        757,
+        1437,
+        1272,
+        1461
+      ],
+      "score": 0.999733030796051
+    },
+    {
+      "text": "7. Sino que se arma ócubre de hierro, ótoma una asta de",
+      "box": [
+        775,
+        1459,
+        1319,
+        1484
+      ],
+      "score": 0.9982196688652039
+    },
+    {
+      "text": "tamente mi camino.",
+      "box": [
+        15,
+        1469,
+        217,
+        1496
+      ],
+      "score": 0.9998302459716797
+    },
+    {
+      "text": "lanza, y mete fuego en ellas para abrasarlas y reducirlas á",
+      "box": [
+        755,
+        1484,
+        1320,
+        1509
+      ],
+      "score": 0.998927116394043
+    },
+    {
+      "text": "34. Hizo mis piés tan ligeros como los de los ciervos: y al",
+      "box": [
+        39,
+        1491,
+        600,
+        1519
+      ],
+      "score": 0.993884801864624
+    },
+    {
+      "text": "la nada.",
+      "box": [
+        754,
+        1506,
+        834,
+        1533
+      ],
+      "score": 0.9993977546691895
+    },
+    {
+      "text": "fin me colocó en el lugar elevado en que me hallo.",
+      "box": [
+        18,
+        1515,
+        498,
+        1544
+      ],
+      "score": 0.9836580157279968
+    },
+    {
+      "text": "8. Estos son los nombres de los valientes del reinado de",
+      "box": [
+        776,
+        1531,
+        1318,
+        1555
+      ],
+      "score": 0.9998508095741272
+    },
+    {
+      "text": "35. Él es el que adiestra mis manos para la batalla, y hace",
+      "box": [
+        43,
+        1539,
+        600,
+        1567
+      ],
+      "score": 0.9994287490844727
+    },
+    {
+      "text": "David: Jesbaam, el que está sentado en cátedra 10, sapientísimo",
+      "box": [
+        757,
+        1556,
+        1319,
+        1580
+      ],
+      "score": 0.9900425672531128
+    },
+    {
+      "text": "mis brazos firmes como un arco de bronce.",
+      "box": [
+        21,
+        1565,
+        428,
+        1593
+      ],
+      "score": 0.9820830225944519
+    },
+    {
+      "text": "príncipe entre los tres mas distinguidos; aunque parece debil",
+      "box": [
+        754,
+        1576,
+        1322,
+        1609
+      ],
+      "score": 0.9979086518287659
+    },
+    {
+      "text": "36. Tú me has cubierto, Señor, con el escudo de tu protec-",
+      "box": [
+        47,
+        1587,
+        603,
+        1616
+      ],
+      "score": 0.9997197985649109
+    },
+    {
+      "text": "y delicado como el tierno gusanillo que roe el madero, él fué",
+      "box": [
+        755,
+        1598,
+        1320,
+        1632
+      ],
+      "score": 0.9991160035133362
+    },
+    {
+      "text": "cion; y tu benignidad me ha engrandecido.",
+      "box": [
+        27,
+        1613,
+        433,
+        1642
+      ],
+      "score": 0.9933825135231018
+    },
+    {
+      "text": "el que mató en un solo choque á ochocientos hombres.",
+      "box": [
+        756,
+        1623,
+        1252,
+        1654
+      ],
+      "score": 0.9997826218605042
+    },
+    {
+      "text": "37. Tú ensanchaste el camino debajo de mis piés, y no des-",
+      "box": [
+        48,
+        1635,
+        602,
+        1664
+      ],
+      "score": 0.9971817135810852
+    },
+    {
+      "text": "9. Despues de éste fué Eleazar Ahohita hijo de i1 su tio",
+      "box": [
+        775,
+        1646,
+        1320,
+        1676
+      ],
+      "score": 0.9655362367630005
+    },
+    {
+      "text": "fallecerán jamás mis plantas.",
+      "box": [
+        26,
+        1662,
+        310,
+        1689
+      ],
+      "score": 0.9999808669090271
+    },
+    {
+      "text": "paterno, uno de los tres valientes que estaban con David,",
+      "box": [
+        754,
+        1668,
+        1321,
+        1704
+      ],
+      "score": 0.9986501336097717
+    },
+    {
+      "text": "38. Perseguiré á mis enemigos, y los exterminaré: no vol-",
+      "box": [
+        53,
+        1683,
+        603,
+        1712
+      ],
+      "score": 0.9796320796012878
+    },
+    {
+      "text": "cuando le insultaban los Philisthéos, reunidos allí en Jes-",
+      "box": [
+        755,
+        1692,
+        1321,
+        1725
+      ],
+      "score": 0.9925092458724976
+    },
+    {
+      "text": "veré atrás hasta acabar con ellos.",
+      "box": [
+        29,
+        1710,
+        347,
+        1737
+      ],
+      "score": 0.9999489784240723
+    },
+    {
+      "text": "domin para dar la batalla;",
+      "box": [
+        757,
+        1719,
+        994,
+        1749
+      ],
+      "score": 0.9999580979347229
+    },
+    {
+      "text": "39. Los consumiré y haré añicos, de suerte que no puedan",
+      "box": [
+        54,
+        1731,
+        602,
+        1761
+      ],
+      "score": 0.9930543303489685
+    },
+    {
+      "text": "10. À huyendo los Israelitas, Eleazar se mantuvo firme,",
+      "box": [
+        776,
+        1741,
+        1320,
+        1772
+      ],
+      "score": 0.9904043674468994
+    },
+    {
+      "text": "ya reponerse. Caerán todos bajo mis piés.",
+      "box": [
+        31,
+        1752,
+        420,
+        1790
+      ],
+      "score": 0.9988861083984375
+    },
+    {
+      "text": "8 Puede traducirse: Sea justo el que domina sobre los hombres; y rei-",
+      "box": [
+        772,
+        1782,
+        1322,
+        1810
+      ],
+      "score": 0.9950908422470093
+    },
+    {
+      "text": "1 Véase Justicia.",
+      "box": [
+        50,
+        1797,
+        197,
+        1823
+      ],
+      "score": 0.9987809658050537
+    },
+    {
+      "text": "ne con el temor de Dios. v. 4. El será como la luz, etc.",
+      "box": [
+        755,
+        1798,
+        1164,
+        1832
+      ],
+      "score": 0.9929667115211487
+    },
+    {
+      "text": "2 Puede traducirse: Con el santo te mostrarás santo: con el hombre cons-",
+      "box": [
+        49,
+        1809,
+        607,
+        1845
+      ],
+      "score": 0.9815642237663269
+    },
+    {
+      "text": "9 Otros traducen: Porque el es toda mi salud y todo mi consuelo; no",
+      "box": [
+        767,
+        1819,
+        1324,
+        1850
+      ],
+      "score": 0.9673187732696533
+    },
+    {
+      "text": "tante muy cumplido.",
+      "box": [
+        34,
+        1837,
+        206,
+        1867
+      ],
+      "score": 0.9999049305915833
+    },
+    {
+      "text": "3 Véanse Origenes in Psalm. XVII.—S. Hilario Pictav. Tract.in Psalm.",
+      "box": [
+        51,
+        1848,
+        607,
+        1885
+      ],
+      "score": 0.9503756165504456
+    },
+    {
+      "text": "voluntad y cuanto bueno hay en m, todo proviene graciosamente de.",
+      "box": [
+        755,
+        1857,
+        1299,
+        1893
+      ],
+      "score": 0.742365300655365
+    },
+    {
+      "text": "CXX.—S. August., Enarr. in Psalm. XVII.",
+      "box": [
+        38,
+        1871,
+        393,
+        1907
+      ],
+      "score": 0.9728201031684875
+    },
+    {
+      "text": "4 O tambien: A los que alzaron bandera contra mí.",
+      "box": [
+        55,
+        1890,
+        461,
+        1926
+      ],
+      "score": 0.9835929274559021
+    },
+    {
+      "text": "6 Véase la nota al v. 1, y lo mismo puede decirse de los vers. 45 y 46.",
+      "box": [
+        55,
+        1909,
+        608,
+        1946
+      ],
+      "score": 0.989804208278656
+    },
+    {
+      "text": "6 Puede traducirse: Se derretirán como cera delante de mí.",
+      "box": [
+        58,
+        1932,
+        513,
+        1965
+      ],
+      "score": 0.9763432145118713
+    },
+    {
+      "text": "7 Suele mirarse este cántico como el testamento de David. Algunos",
+      "box": [
+        57,
+        1949,
+        610,
+        1987
+      ],
+      "score": 0.9986768364906311
+    },
+    {
+      "text": "en,quei laabeeVés",
+      "box": [
+        756,
+        1954,
+        1331,
+        2001
+      ],
+      "score": 0.5480999946594238
+    },
+    {
+      "text": "creen que fué la última composicion suya.",
+      "box": [
+        43,
+        1971,
+        376,
+        2013
+      ],
+      "score": 0.9998012781143188
+    }
+  ]
+}

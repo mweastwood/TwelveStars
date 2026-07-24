@@ -1,0 +1,407 @@
+{
+  "volume": 4,
+  "page_index": 210,
+  "pdf_page": 211,
+  "lines": [
+    {
+      "text": "237",
+      "box": [
+        73,
+        43,
+        97,
+        63
+      ],
+      "score": 0.999991238117218
+    },
+    {
+      "text": "EP. A LOS ROMANOS.",
+      "box": [
+        176,
+        47,
+        327,
+        68
+      ],
+      "score": 0.9588481187820435
+    },
+    {
+      "text": "CAPITULO XVI.",
+      "box": [
+        675,
+        61,
+        785,
+        79
+      ],
+      "score": 0.998873770236969
+    },
+    {
+      "text": "238",
+      "box": [
+        876,
+        62,
+        900,
+        79
+      ],
+      "score": 0.9999854564666748
+    },
+    {
+      "text": "16. Saludaos unos á otros con el ósculo santo de la cari-",
+      "box": [
+        76,
+        90,
+        476,
+        118
+      ],
+      "score": 0.9768493175506592
+    },
+    {
+      "text": "dad. Á vosotros os saludan todas las Iglesias de Christo.",
+      "box": [
+        64,
+        108,
+        415,
+        136
+      ],
+      "score": 0.9946378469467163
+    },
+    {
+      "text": "000。",
+      "box": [
+        517,
+        108,
+        541,
+        119
+      ],
+      "score": 0.7264413833618164
+    },
+    {
+      "text": "22. Os saludo en el Señor yo Tercio, que he sido el ama-",
+      "box": [
+        555,
+        104,
+        908,
+        123
+      ],
+      "score": 0.9908665418624878
+    },
+    {
+      "text": "17. Y os ruego, hermanos, que os recateis de aquellos,",
+      "box": [
+        76,
+        127,
+        446,
+        154
+      ],
+      "score": 0.999623715877533
+    },
+    {
+      "text": "nuense en esta carta.",
+      "box": [
+        544,
+        124,
+        670,
+        138
+      ],
+      "score": 0.9988394379615784
+    },
+    {
+      "text": "23. Salúdaos Cayo mi huésped, y la Iglesia toda. Salúdaos",
+      "box": [
+        555,
+        137,
+        908,
+        158
+      ],
+      "score": 0.9881144762039185
+    },
+    {
+      "text": "que causan entre vosotros disensiones, y escándalos, ense-",
+      "box": [
+        65,
+        147,
+        446,
+        168
+      ],
+      "score": 0.9977966547012329
+    },
+    {
+      "text": "Erasto 1 el tesorero de la ciudad, y nuestro hermano Quarto.",
+      "box": [
+        541,
+        153,
+        908,
+        174
+      ],
+      "score": 0.9873570203781128
+    },
+    {
+      "text": "ando contra la doctrina, que vosotros habeis aprendido; y",
+      "box": [
+        64,
+        163,
+        446,
+        186
+      ],
+      "score": 0.9951375722885132
+    },
+    {
+      "text": "24. La gracia de nuestro Señor Jesu-Christo sea con to-",
+      "box": [
+        554,
+        169,
+        908,
+        189
+      ],
+      "score": 0.9995046854019165
+    },
+    {
+      "text": "evitad su compañía.",
+      "box": [
+        65,
+        180,
+        193,
+        200
+      ],
+      "score": 0.9992051124572754
+    },
+    {
+      "text": "dos vosotros. Amen.",
+      "box": [
+        542,
+        185,
+        663,
+        202
+      ],
+      "score": 0.9996371269226074
+    },
+    {
+      "text": "18. Pues los tales no sirven á Christo Señor nuestro, sino",
+      "box": [
+        78,
+        195,
+        446,
+        218
+      ],
+      "score": 0.9976629614830017
+    },
+    {
+      "text": "25. Gloria á aquel que es poderoso para fortaleceros en",
+      "box": [
+        554,
+        200,
+        909,
+        219
+      ],
+      "score": 0.9964499473571777
+    },
+    {
+      "text": "á su propia sensualidad: y con palabras melosas, y con adu-",
+      "box": [
+        64,
+        210,
+        448,
+        234
+      ],
+      "score": 0.9851222038269043
+    },
+    {
+      "text": "mi Evangelio, y en la doctrina do Jesu-Christo que yo pre-",
+      "box": [
+        542,
+        215,
+        910,
+        235
+      ],
+      "score": 0.9675911068916321
+    },
+    {
+      "text": "laciones, seducen los corazones de los sencillos.",
+      "box": [
+        65,
+        227,
+        362,
+        250
+      ],
+      "score": 0.9972869753837585
+    },
+    {
+      "text": "dico, segun la revelacion del misterio de la redencion: mis-",
+      "box": [
+        542,
+        229,
+        911,
+        250
+      ],
+      "score": 0.9863415360450745
+    },
+    {
+      "text": "19. Vuestra obediencia á la fe se ha hecho célebre por",
+      "box": [
+        76,
+        242,
+        448,
+        265
+      ],
+      "score": 0.9927321672439575
+    },
+    {
+      "text": "terio que despues de haber permanecido oculto en todos los",
+      "box": [
+        541,
+        244,
+        911,
+        265
+      ],
+      "score": 0.9933232665061951
+    },
+    {
+      "text": "todas partes. De lo cual me congratulo con vosotros. Pero",
+      "box": [
+        64,
+        258,
+        448,
+        281
+      ],
+      "score": 0.9929821491241455
+    },
+    {
+      "text": "siglos pasados,",
+      "box": [
+        543,
+        263,
+        633,
+        276
+      ],
+      "score": 0.9999368190765381
+    },
+    {
+      "text": "deseo que seais sábios 6 sagaces en órden al bien, y sencillos",
+      "box": [
+        63,
+        274,
+        448,
+        296
+      ],
+      "score": 0.9720439910888672
+    },
+    {
+      "text": "26. Acaba de ser descubierto por los oráculos de los pro-",
+      "box": [
+        554,
+        275,
+        912,
+        294
+      ],
+      "score": 0.9873293042182922
+    },
+    {
+      "text": "como niños en cuanto al mal.",
+      "box": [
+        64,
+        291,
+        253,
+        310
+      ],
+      "score": 0.9982461333274841
+    },
+    {
+      "text": "fetas, conforme al decreto del Dios eterno, y ha venido ",
+      "box": [
+        543,
+        289,
+        912,
+        309
+      ],
+      "score": 0.9768723845481873
+    },
+    {
+      "text": "20. El Dios de la paz quebrante y abata presto á Satanás",
+      "box": [
+        76,
+        306,
+        448,
+        326
+      ],
+      "score": 0.9988852739334106
+    },
+    {
+      "text": "noticia de todos los pueblos, para que obedezcan á la fe:",
+      "box": [
+        542,
+        305,
+        887,
+        323
+      ],
+      "score": 0.9902660250663757
+    },
+    {
+      "text": "debajo de vuestros piés. La gracia de nuestro Señor Jesu-",
+      "box": [
+        63,
+        319,
+        448,
+        343
+      ],
+      "score": 0.9919021129608154
+    },
+    {
+      "text": "27. Á Dios, digo, que es el solo sábio, á él la honra, y la",
+      "box": [
+        556,
+        320,
+        914,
+        339
+      ],
+      "score": 0.9717795252799988
+    },
+    {
+      "text": "Christo sea con vosotros.",
+      "box": [
+        64,
+        334,
+        220,
+        357
+      ],
+      "score": 0.9997255802154541
+    },
+    {
+      "text": "gloria por Jesu-Christo en los siglos de los siglos. Amen.",
+      "box": [
+        544,
+        336,
+        886,
+        354
+      ],
+      "score": 0.9846936464309692
+    },
+    {
+      "text": "21. Os saluda Timothéo mi coadjutor, y Lucio, y Jason,",
+      "box": [
+        71,
+        351,
+        447,
+        374
+      ],
+      "score": 0.9927941560745239
+    },
+    {
+      "text": "y Sosipatro mis parientes.",
+      "box": [
+        63,
+        368,
+        226,
+        388
+      ],
+      "score": 0.9997454285621643
+    },
+    {
+      "text": "1 De este Erasto se habla Act. XlX, v. 22, y I. Timoth, IV, v. 20.",
+      "box": [
+        556,
+        369,
+        899,
+        383
+      ],
+      "score": 0.9683495759963989
+    }
+  ]
+}
