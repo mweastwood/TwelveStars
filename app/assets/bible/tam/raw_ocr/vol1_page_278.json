@@ -1,0 +1,27 @@
+{
+  "volume": 1,
+  "page_index": 278,
+  "pdf_page": 279,
+  "lines": [
+    {
+      "text": "H.PISAN",
+      "box": [
+        782,
+        1129,
+        864,
+        1148
+      ],
+      "score": 0.9121829867362976
+    },
+    {
+      "text": "MUERTE DE LOS HIJOS DE JEROBAAL",
+      "box": [
+        329,
+        1180,
+        623,
+        1199
+      ],
+      "score": 0.9994049072265625
+    }
+  ]
+}

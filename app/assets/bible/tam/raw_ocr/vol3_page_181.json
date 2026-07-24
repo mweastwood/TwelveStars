@@ -1,0 +1,1497 @@
+{
+  "volume": 3,
+  "page_index": 181,
+  "pdf_page": 182,
+  "lines": [
+    {
+      "text": "287",
+      "box": [
+        62,
+        50,
+        88,
+        69
+      ],
+      "score": 0.9999351501464844
+    },
+    {
+      "text": "ISAIAS.",
+      "box": [
+        212,
+        58,
+        271,
+        79
+      ],
+      "score": 0.9966445565223694
+    },
+    {
+      "text": "CAPITULO XIX.",
+      "box": [
+        665,
+        64,
+        778,
+        89
+      ],
+      "score": 0.9980601072311401
+    },
+    {
+      "text": "288",
+      "box": [
+        867,
+        76,
+        889,
+        92
+      ],
+      "score": 0.995837390422821
+    },
+    {
+      "text": "2. La cual envia embajadores por mar en barcos de papy-",
+      "box": [
+        65,
+        92,
+        430,
+        132
+      ],
+      "score": 0.9793217182159424
+    },
+    {
+      "text": "ro, ó de juncos, que corren sobre las aguas! Id, mensajeros",
+      "box": [
+        52,
+        109,
+        431,
+        149
+      ],
+      "score": 0.9583711624145508
+    },
+    {
+      "text": "8. Y andarán mustios los pescadores, y llorarán cuantos",
+      "box": [
+        541,
+        110,
+        896,
+        136
+      ],
+      "score": 0.9891365170478821
+    },
+    {
+      "text": "veloces, á la nacion conmovida y despedazada, á aquel pueblo",
+      "box": [
+        53,
+        127,
+        430,
+        166
+      ],
+      "score": 0.9208236932754517
+    },
+    {
+      "text": "echan el anzuelo en el rio, y los que tienden redes en las aguas",
+      "box": [
+        529,
+        129,
+        895,
+        154
+      ],
+      "score": 0.9841268062591553
+    },
+    {
+      "text": "formidable mas que otro alguno, á la nacion que espera, y en-",
+      "box": [
+        53,
+        145,
+        431,
+        183
+      ],
+      "score": 0.9441728591918945
+    },
+    {
+      "text": "se consumirán de pena.",
+      "box": [
+        527,
+        146,
+        675,
+        166
+      ],
+      "score": 0.9994939565658569
+    },
+    {
+      "text": "tre tanto es hollada, cuya tierra se van comiendo los rios.",
+      "box": [
+        53,
+        162,
+        406,
+        198
+      ],
+      "score": 0.9004544019699097
+    },
+    {
+      "text": "9. Quedarán confusos los que trabajaban el lino y le rastri-",
+      "box": [
+        540,
+        164,
+        895,
+        184
+      ],
+      "score": 0.9971243143081665
+    },
+    {
+      "text": "3. Habitadores todos del mundo, vosotros los que estais de",
+      "box": [
+        68,
+        181,
+        428,
+        213
+      ],
+      "score": 0.9904488325119019
+    },
+    {
+      "text": "llaban, y hacian de él telas delicadas;",
+      "box": [
+        527,
+        180,
+        758,
+        199
+      ],
+      "score": 0.985203742980957
+    },
+    {
+      "text": "asieno en el país, cuando fuere alzado el estandarte sobre los",
+      "box": [
+        54,
+        197,
+        429,
+        232
+      ],
+      "score": 0.8112832903862
+    },
+    {
+      "text": "10. (Porque los lugares de regadío quedarán sin jugo) y",
+      "box": [
+        539,
+        195,
+        893,
+        217
+      ],
+      "score": 0.9843786954879761
+    },
+    {
+      "text": "montes, vosotros lo vereis, y oireis el ronco sonido de la trom-",
+      "box": [
+        54,
+        215,
+        429,
+        249
+      ],
+      "score": 0.9163047671318054
+    },
+    {
+      "text": "tristes todos los que hacian balsas para coger peces.",
+      "box": [
+        527,
+        213,
+        840,
+        233
+      ],
+      "score": 0.9997488260269165
+    },
+    {
+      "text": "peta.",
+      "box": [
+        55,
+        234,
+        92,
+        253
+      ],
+      "score": 0.9980942010879517
+    },
+    {
+      "text": "11. Oh qué necios son los príncipes de Tanis º! los sábios",
+      "box": [
+        539,
+        227,
+        895,
+        249
+      ],
+      "score": 0.9822731614112854
+    },
+    {
+      "text": "4. Porque hé aquí lo que el Señor me dice: Yo me estaré",
+      "box": [
+        68,
+        248,
+        428,
+        280
+      ],
+      "score": 0.9798524975776672
+    },
+    {
+      "text": "consejeros de Pharaon le han dado un consejo desatinado.",
+      "box": [
+        526,
+        244,
+        894,
+        264
+      ],
+      "score": 0.9894154667854309
+    },
+    {
+      "text": "tranquilo , y lo contemplaré desde mi asiento; como se ve la",
+      "box": [
+        55,
+        265,
+        428,
+        297
+      ],
+      "score": 0.9472302198410034
+    },
+    {
+      "text": "Cómo sugerircis á Pharaon el que diga ufano: Yo hijo de sá",
+      "box": [
+        525,
+        259,
+        895,
+        281
+      ],
+      "score": 0.9847050905227661
+    },
+    {
+      "text": "clara luz del medio dia; y seréal modo que úna nube de rocío",
+      "box": [
+        55,
+        281,
+        428,
+        313
+      ],
+      "score": 0.9648236036300659
+    },
+    {
+      "text": "bios, yo hijo de reyes antiguos?",
+      "box": [
+        527,
+        277,
+        719,
+        296
+      ],
+      "score": 0.9997440576553345
+    },
+    {
+      "text": "en el tiempo de la cosecha ³.",
+      "box": [
+        55,
+        299,
+        234,
+        325
+      ],
+      "score": 0.9792937636375427
+    },
+    {
+      "text": "12. Mas ¿en dónde están ahora tus sábios?Que te anuncien",
+      "box": [
+        538,
+        290,
+        894,
+        313
+      ],
+      "score": 0.9927959442138672
+    },
+    {
+      "text": "5. Ya que todo él, esto es, el poder de los enemigos, antes de",
+      "box": [
+        68,
+        316,
+        426,
+        343
+      ],
+      "score": 0.9820224046707153
+    },
+    {
+      "text": "y expongan lo que el Señor de los ejércitos tiene resuelto sobre",
+      "box": [
+        523,
+        307,
+        895,
+        329
+      ],
+      "score": 0.9957035779953003
+    },
+    {
+      "text": "la mies se ha ido en flor, y todo brotará antes de sazon, y sus",
+      "box": [
+        55,
+        332,
+        427,
+        360
+      ],
+      "score": 0.9872236847877502
+    },
+    {
+      "text": "el Egypto.",
+      "box": [
+        526,
+        326,
+        592,
+        343
+      ],
+      "score": 0.9984288215637207
+    },
+    {
+      "text": "tallos serán cortados con la podadera, y lo que quedare, será",
+      "box": [
+        55,
+        348,
+        427,
+        375
+      ],
+      "score": 0.9911320805549622
+    },
+    {
+      "text": "13. Los príncipes de Tanis se han vuelto necios, y están",
+      "box": [
+        536,
+        340,
+        894,
+        361
+      ],
+      "score": 0.9919459223747253
+    },
+    {
+      "text": "alucinados los príncipes de Memphis, engañado han al Egyp",
+      "box": [
+        524,
+        354,
+        893,
+        379
+      ],
+      "score": 0.9893300533294678
+    },
+    {
+      "text": "tronchado y arrojado.",
+      "box": [
+        56,
+        364,
+        193,
+        388
+      ],
+      "score": 0.9794020652770996
+    },
+    {
+      "text": "6. Y serán abandonados á un mismo tiempo  á las aves",
+      "box": [
+        68,
+        381,
+        427,
+        407
+      ],
+      "score": 0.9679760336875916
+    },
+    {
+      "text": "to, baluarte de sus pueblos.",
+      "box": [
+        525,
+        373,
+        692,
+        392
+      ],
+      "score": 0.9997572898864746
+    },
+    {
+      "text": "montaraces, y á las bestias de la tierra; y todo el verano esta-",
+      "box": [
+        55,
+        398,
+        427,
+        425
+      ],
+      "score": 0.9903191328048706
+    },
+    {
+      "text": "14. El Señor ha derramado en medio de ellos el espíritu",
+      "box": [
+        538,
+        391,
+        893,
+        408
+      ],
+      "score": 0.9991130232810974
+    },
+    {
+      "text": "rán las aves sobre ellos, y sobre él invernarán todas las bestias",
+      "box": [
+        55,
+        415,
+        427,
+        441
+      ],
+      "score": 0.9984107613563538
+    },
+    {
+      "text": "de vértigo 10, y ellos han sido causa que desacierte el Egypto",
+      "box": [
+        526,
+        408,
+        893,
+        425
+      ],
+      "score": 0.9910813570022583
+    },
+    {
+      "text": "de la tierra .",
+      "box": [
+        56,
+        432,
+        141,
+        452
+      ],
+      "score": 0.964159369468689
+    },
+    {
+      "text": "en todo cuanto hace; á la manera que anda desatinado un",
+      "box": [
+        523,
+        422,
+        895,
+        443
+      ],
+      "score": 0.9891871809959412
+    },
+    {
+      "text": "7. En aquel tiempo, el pueblo dividido y despedazado, el",
+      "box": [
+        68,
+        447,
+        427,
+        473
+      ],
+      "score": 0.9983900785446167
+    },
+    {
+      "text": "borracho cuando está en el vómito.",
+      "box": [
+        526,
+        441,
+        737,
+        457
+      ],
+      "score": 0.999688446521759
+    },
+    {
+      "text": "15. Y el Egypto no ejecutará cosa que tenga piés ni cabeza,",
+      "box": [
+        536,
+        453,
+        893,
+        475
+      ],
+      "score": 0.9903805255889893
+    },
+    {
+      "text": "pueblo formidable mas que otro alguno, la nacion que espera,",
+      "box": [
+        55,
+        464,
+        426,
+        489
+      ],
+      "score": 0.9958972334861755
+    },
+    {
+      "text": "y mas espera, y es entre tanto hollada (cuya tierra está desmo-",
+      "box": [
+        55,
+        482,
+        427,
+        505
+      ],
+      "score": 0.9955304861068726
+    },
+    {
+      "text": "ni el que manda ni el que obedece.",
+      "box": [
+        525,
+        473,
+        734,
+        490
+      ],
+      "score": 0.9987837672233582
+    },
+    {
+      "text": "ronada por los rios) llevará ofrendas e al Señor de los ejércitos",
+      "box": [
+        55,
+        498,
+        427,
+        522
+      ],
+      "score": 0.960809051990509
+    },
+    {
+      "text": "16. Como tímidas mujeres serán en aquel dia los Egyp-",
+      "box": [
+        537,
+        487,
+        893,
+        506
+      ],
+      "score": 0.9908085465431213
+    },
+    {
+      "text": "cios, y se volverán estúpidos y medrosos al movimiento de la",
+      "box": [
+        524,
+        502,
+        894,
+        524
+      ],
+      "score": 0.9844968318939209
+    },
+    {
+      "text": "que reside en el lugar donde se invoca el Nombre del mismo",
+      "box": [
+        56,
+        516,
+        427,
+        538
+      ],
+      "score": 0.9870676398277283
+    },
+    {
+      "text": "Señor de los ejércitos, en el monte de Sion.",
+      "box": [
+        57,
+        532,
+        319,
+        552
+      ],
+      "score": 0.9996052384376526
+    },
+    {
+      "text": "mano del Señor de los ejércitos, la cual descargará contra",
+      "box": [
+        524,
+        519,
+        894,
+        541
+      ],
+      "score": 0.9958484172821045
+    },
+    {
+      "text": "ellos..",
+      "box": [
+        524,
+        540,
+        564,
+        557
+      ],
+      "score": 0.9310566186904907
+    },
+    {
+      "text": "17. Y la tierra de Judá será el espanto del Egypto; y cada",
+      "box": [
+        535,
+        548,
+        893,
+        574
+      ],
+      "score": 0.99936842918396
+    },
+    {
+      "text": "CAPITULO XIX",
+      "box": [
+        191,
+        569,
+        296,
+        586
+      ],
+      "score": 0.9993722438812256
+    },
+    {
+      "text": "uno al acordarse de ella temblará, por causa de los designios",
+      "box": [
+        522,
+        565,
+        893,
+        591
+      ],
+      "score": 0.9989651441574097
+    },
+    {
+      "text": "que á favor de la misma formó el Señor de los ejércitos.",
+      "box": [
+        523,
+        582,
+        856,
+        608
+      ],
+      "score": 0.9882730841636658
+    },
+    {
+      "text": "Profecía contra el Egypto: del cual, y otros pueblos gentiles anuncia que",
+      "box": [
+        58,
+        600,
+        427,
+        619
+      ],
+      "score": 0.998306930065155
+    },
+    {
+      "text": "18. En aquel dia habrá cinco ciudades 1 en la tierra de",
+      "box": [
+        536,
+        597,
+        893,
+        623
+      ],
+      "score": 0.9910553097724915
+    },
+    {
+      "text": "serán llamados á la salud eterna.",
+      "box": [
+        158,
+        616,
+        327,
+        632
+      ],
+      "score": 0.9930568933486938
+    },
+    {
+      "text": "Egypto que hablarán la lengua de Chanaan, y que jurarán",
+      "box": [
+        523,
+        614,
+        893,
+        639
+      ],
+      "score": 0.9961549043655396
+    },
+    {
+      "text": "por el Señor de los ejércitos. Ciudad del Sol será lamada",
+      "box": [
+        522,
+        630,
+        893,
+        656
+      ],
+      "score": 0.9897905588150024
+    },
+    {
+      "text": "1. Duro anuncio contra el Egypto. Hé aquí que el Señor",
+      "box": [
+        73,
+        649,
+        427,
+        666
+      ],
+      "score": 0.9912555813789368
+    },
+    {
+      "text": "una 1ª.",
+      "box": [
+        524,
+        651,
+        568,
+        669
+      ],
+      "score": 0.9159030914306641
+    },
+    {
+      "text": "montará sobre una nube ligera 7, y entrará en Egypto, y á su",
+      "box": [
+        60,
+        667,
+        428,
+        684
+      ],
+      "score": 0.9858364462852478
+    },
+    {
+      "text": "19. En aquel dia estará en medio de la tierra de Egypto el",
+      "box": [
+        536,
+        662,
+        893,
+        687
+      ],
+      "score": 0.9950697422027588
+    },
+    {
+      "text": "presencia se conturbarán los ídolos de Egypto, y el corazon de",
+      "box": [
+        59,
+        682,
+        428,
+        703
+      ],
+      "score": 0.9907045960426331
+    },
+    {
+      "text": "altar del Señor, y el trofeo del Señor hasta sus confines;",
+      "box": [
+        524,
+        682,
+        859,
+        702
+      ],
+      "score": 0.9960290789604187
+    },
+    {
+      "text": "Egypto se repudrirá en su pecho.",
+      "box": [
+        60,
+        700,
+        259,
+        719
+      ],
+      "score": 0.982319712638855
+    },
+    {
+      "text": "20. El cual servirá de señal y testimonio dado al Señor de",
+      "box": [
+        538,
+        696,
+        892,
+        718
+      ],
+      "score": 0.9995772242546082
+    },
+    {
+      "text": "2. Y haré que vengan á las manos Egypcios contra Egyp-",
+      "box": [
+        73,
+        716,
+        429,
+        736
+      ],
+      "score": 0.9879909753799438
+    },
+    {
+      "text": "los ejércitos.en la tierra de Egypto: porque invocarán al Señor",
+      "box": [
+        524,
+        714,
+        893,
+        735
+      ],
+      "score": 0.9814473390579224
+    },
+    {
+      "text": "cios, y combatirá el hermano contra su propio hermano, y el",
+      "box": [
+        60,
+        732,
+        430,
+        752
+      ],
+      "score": 0.9896921515464783
+    },
+    {
+      "text": "contra el opresor, y aquel les enviará un Salvador y defensor",
+      "box": [
+        523,
+        729,
+        893,
+        753
+      ],
+      "score": 0.993675172328949
+    },
+    {
+      "text": "amigo contra su amigo, ciudad contra ciudad, reino contra",
+      "box": [
+        61,
+        750,
+        428,
+        767
+      ],
+      "score": 0.9997619390487671
+    },
+    {
+      "text": "que los libre.",
+      "box": [
+        526,
+        749,
+        607,
+        767
+      ],
+      "score": 0.9985244870185852
+    },
+    {
+      "text": "reino.",
+      "box": [
+        61,
+        765,
+        100,
+        783
+      ],
+      "score": 0.999748706817627
+    },
+    {
+      "text": "21. Y el Señor será conocido del Egypto, y los Egypcios",
+      "box": [
+        537,
+        761,
+        893,
+        783
+      ],
+      "score": 0.9920070767402649
+    },
+    {
+      "text": "3. Y quedará el Egypto sin espíritu en sus entrañas, y tras-",
+      "box": [
+        74,
+        782,
+        428,
+        799
+      ],
+      "score": 0.9987313747406006
+    },
+    {
+      "text": "confesarán al Señor en aquel dia, y honraránle con hostias y",
+      "box": [
+        526,
+        779,
+        892,
+        799
+      ],
+      "score": 0.9996506571769714
+    },
+    {
+      "text": "tornaré sus consejos, y andarán consultando sus ídolos, y sus",
+      "box": [
+        61,
+        796,
+        429,
+        817
+      ],
+      "score": 0.9969836473464966
+    },
+    {
+      "text": "ofrendas, y harán al Señor votos y los cumplirán.",
+      "box": [
+        527,
+        796,
+        816,
+        815
+      ],
+      "score": 0.9918672442436218
+    },
+    {
+      "text": "adivinos y sus pythones y magos.",
+      "box": [
+        61,
+        812,
+        265,
+        833
+      ],
+      "score": 0.9967656135559082
+    },
+    {
+      "text": "22. Y el Señor herirá al Egypto con plagas, y le sanará, y",
+      "box": [
+        539,
+        811,
+        891,
+        832
+      ],
+      "score": 0.989091694355011
+    },
+    {
+      "text": "4. Y entregaré el Egypto en poder de señores crueles: y",
+      "box": [
+        74,
+        831,
+        430,
+        847
+      ],
+      "score": 0.9990483522415161
+    },
+    {
+      "text": "se volverán al Señor, y se aplacará con ellos, y los sanará.",
+      "box": [
+        526,
+        827,
+        870,
+        849
+      ],
+      "score": 0.9938905239105225
+    },
+    {
+      "text": "un rey fiero los dominará, dice el Señor Dios de los ejér-",
+      "box": [
+        60,
+        846,
+        431,
+        865
+      ],
+      "score": 0.9836697578430176
+    },
+    {
+      "text": "23. En aquel dia estará libre el paso del Egypto á la Assy-",
+      "box": [
+        539,
+        842,
+        891,
+        863
+      ],
+      "score": 0.9944885969161987
+    },
+    {
+      "text": "citos.",
+      "box": [
+        61,
+        863,
+        98,
+        881
+      ],
+      "score": 0.9984831809997559
+    },
+    {
+      "text": "5578 708",
+      "box": [
+        440,
+        769,
+        516,
+        874
+      ],
+      "score": 0.5783282518386841
+    },
+    {
+      "text": "ria, y entrará el Assyrio en el Egypto, y el Egypcio en la Assy-",
+      "box": [
+        526,
+        858,
+        892,
+        880
+      ],
+      "score": 0.9869918823242188
+    },
+    {
+      "text": "5. Y el mar quedará sin que suba tanto su agua, y mengua-",
+      "box": [
+        73,
+        877,
+        432,
+        899
+      ],
+      "score": 0.9871143698692322
+    },
+    {
+      "text": "ria, é irán de acuerdo y servirán al Señor los de Egypto con el",
+      "box": [
+        525,
+        873,
+        892,
+        897
+      ],
+      "score": 0.9842739701271057
+    },
+    {
+      "text": "rá por consiguiente el rio Nilo, y vendrá á secarse.",
+      "box": [
+        62,
+        896,
+        369,
+        913
+      ],
+      "score": 0.9970112442970276
+    },
+    {
+      "text": "Assyrio 13.",
+      "box": [
+        528,
+        894,
+        590,
+        912
+      ],
+      "score": 0.9776056408882141
+    },
+    {
+      "text": "6. Y faltarán los rios óbocas del Nilo: irán menguando has-",
+      "box": [
+        75,
+        912,
+        431,
+        929
+      ],
+      "score": 0.9943298101425171
+    },
+    {
+      "text": "24. En aquel dia Israél será el tercero ó medianero con",
+      "box": [
+        537,
+        905,
+        891,
+        929
+      ],
+      "score": 0.9707158803939819
+    },
+    {
+      "text": "ta quedarse secos los canales ® que van entre malecones: la",
+      "box": [
+        61,
+        927,
+        432,
+        948
+      ],
+      "score": 0.9862991571426392
+    },
+    {
+      "text": "el Egypcio y el Assyrio: la bendicion será en medio de la",
+      "box": [
+        526,
+        921,
+        892,
+        946
+      ],
+      "score": 0.9984273910522461
+    },
+    {
+      "text": "caña y el junco se marchitarán:",
+      "box": [
+        62,
+        942,
+        258,
+        962
+      ],
+      "score": 0.9956989288330078
+    },
+    {
+      "text": "tierra 14,",
+      "box": [
+        526,
+        942,
+        578,
+        959
+      ],
+      "score": 0.862683117389679
+    },
+    {
+      "text": "7. El cauce del rio quedará sin agua desde allá donde tiene",
+      "box": [
+        73,
+        958,
+        432,
+        979
+      ],
+      "score": 0.9909809827804565
+    },
+    {
+      "text": "25. Á la cual bendijo el Señor de los ejércitos, diciendo:",
+      "box": [
+        538,
+        952,
+        891,
+        977
+      ],
+      "score": 0.996477484703064
+    },
+    {
+      "text": "su orígen, y toda la sementera de regadío se secará, se agosta-",
+      "box": [
+        61,
+        975,
+        432,
+        997
+      ],
+      "score": 0.9919554591178894
+    },
+    {
+      "text": "A",
+      "box": [
+        464,
+        960,
+        515,
+        1033
+      ],
+      "score": 0.4840867817401886
+    },
+    {
+      "text": "Bendito el pueblo mio de Egypto, y el Assyrio que es obra de",
+      "box": [
+        525,
+        969,
+        891,
+        994
+      ],
+      "score": 0.9982138276100159
+    },
+    {
+      "text": "rá, y pereccrá,",
+      "box": [
+        62,
+        994,
+        152,
+        1014
+      ],
+      "score": 0.8432255387306213
+    },
+    {
+      "text": "mis manos: pero mi herencia es Israél.",
+      "box": [
+        528,
+        991,
+        750,
+        1008
+      ],
+      "score": 0.9941076040267944
+    },
+    {
+      "text": "1 En vez de címbalo alado tradujeron los Setenta: ¿Ay de la tierra de",
+      "box": [
+        73,
+        1028,
+        432,
+        1048
+      ],
+      "score": 0.9781116247177124
+    },
+    {
+      "text": "titud de solitarios, que vivian en sus desiertos, mas como ángeles en carne",
+      "box": [
+        525,
+        1023,
+        893,
+        1046
+      ],
+      "score": 0.9157920479774475
+    },
+    {
+      "text": "las nrves, ó barcos alados! En Egypto, Ethiopia, etc., habia un grandísi-",
+      "box": [
+        64,
+        1041,
+        433,
+        1062
+      ],
+      "score": 0.9805088043212891
+    },
+    {
+      "text": "mortal, que como hombres.",
+      "box": [
+        528,
+        1043,
+        658,
+        1056
+      ],
+      "score": 0.982299268245697
+    },
+    {
+      "text": "mo número de barcos con velas hechas de junco. Plínio habla de estas",
+      "box": [
+        63,
+        1055,
+        433,
+        1077
+      ],
+      "score": 0.9857256412506104
+    },
+    {
+      "text": " San Gerónimo observó que varios Expositores antiguos aplicaron",
+      "box": [
+        534,
+        1050,
+        893,
+        1073
+      ],
+      "score": 0.9788596630096436
+    },
+    {
+      "text": "naves (papyracew naves), hechas de una especie de junco ó arbusto",
+      "box": [
+        63,
+        1069,
+        432,
+        1092
+      ],
+      "score": 0.9809544086456299
+    },
+    {
+      "text": "esta profecía á los tiempos de Jesu-Christo; el cual en su infancia, lle",
+      "box": [
+        524,
+        1063,
+        894,
+        1088
+      ],
+      "score": 0.8339951038360596
+    },
+    {
+      "text": "llamado papyrus, que se cria en Egypto; del cual hacian barcos, velas,",
+      "box": [
+        63,
+        1083,
+        432,
+        1106
+      ],
+      "score": 0.9983313679695129
+    },
+    {
+      "text": "vado en los brazos de su madre, simbolizada en esta nube ligera, fu á",
+      "box": [
+        524,
+        1077,
+        895,
+        1102
+      ],
+      "score": 0.9339050054550171
+    },
+    {
+      "text": "cubiertas de cama, cuerdas, papel para escribir, etc. Plín., lib. XII,",
+      "box": [
+        62,
+        1097,
+        432,
+        1122
+      ],
+      "score": 0.9493367075920105
+    },
+    {
+      "text": "Egypto, y trastornó con su presencia los simulacros de los (dolos, ete. De",
+      "box": [
+        525,
+        1092,
+        894,
+        1115
+      ],
+      "score": 0.9866471290588379
+    },
+    {
+      "text": "exp. XI.",
+      "box": [
+        62,
+        1116,
+        114,
+        1136
+      ],
+      "score": 0.946033239364624
+    },
+    {
+      "text": "este suceso hablan Orígenes, San Cirilo de Jerusalem, Rufino, Sozomeno,",
+      "box": [
+        525,
+        1107,
+        894,
+        1128
+      ],
+      "score": 0.9956564903259277
+    },
+    {
+      "text": "3En efecto, les parece á muchos que no es Dios el que obra cuando se",
+      "box": [
+        72,
+        1123,
+        432,
+        1149
+      ],
+      "score": 0.9753532409667969
+    },
+    {
+      "text": "y otros.",
+      "box": [
+        523,
+        1123,
+        569,
+        1144
+      ],
+      "score": 0.9912382960319519
+    },
+    {
+      "text": "sirve de las intrigas y violencias de los hombres para castigar á los que",
+      "box": [
+        62,
+        1137,
+        433,
+        1163
+      ],
+      "score": 0.9844567179679871
+    },
+    {
+      "text": "Otros traducen las acequias: rivi aggerum.",
+      "box": [
+        533,
+        1132,
+        756,
+        1156
+      ],
+      "score": 0.9352763891220093
+    },
+    {
+      "text": "lo merecen. Y los pecadores suelen atribuir su castigo, no á Dios, sino",
+      "box": [
+        63,
+        1151,
+        433,
+        1176
+      ],
+      "score": 0.9970406293869019
+    },
+    {
+      "text": "Tanis ó Taneos, corte de Pharaon. Num. AII, v. 23.",
+      "box": [
+        533,
+        1145,
+        815,
+        1170
+      ],
+      "score": 0.7648205757141113
+    },
+    {
+      "text": "únicamente á los hombres; en vez de mirar la mano vengadora de Dios,",
+      "box": [
+        64,
+        1165,
+        432,
+        1190
+      ],
+      "score": 0.9835900664329529
+    },
+    {
+      "text": "2",
+      "box": [
+        449,
+        1167,
+        464,
+        1181
+      ],
+      "score": 0.8830182552337646
+    },
+    {
+      "text": "10 I. Thes. II, v. 10.—Véase antes cap. VI, v. 10.",
+      "box": [
+        530,
+        1157,
+        789,
+        1185
+      ],
+      "score": 0.8348425030708313
+    },
+    {
+      "text": "que se sirve, como de instrumento, de la malicia y prepotencia de los",
+      "box": [
+        63,
+        1178,
+        433,
+        1206
+      ],
+      "score": 0.9771575927734375
+    },
+    {
+      "text": "malvados.",
+      "box": [
+        64,
+        1200,
+        119,
+        1217
+      ],
+      "score": 0.999535858631134
+    },
+    {
+      "text": "3 El cumplimiento de mi palabra refocilará á mis siervos, como el",
+      "box": [
+        72,
+        1204,
+        434,
+        1231
+      ],
+      "score": 0.9750323295593262
+    },
+    {
+      "text": "fresco rocío á los segadores.",
+      "box": [
+        64,
+        1221,
+        210,
+        1245
+      ],
+      "score": 0.9734609723091125
+    },
+    {
+      "text": "4 Los cadáveres de los enemigos ó del ejército de Sennacherib.",
+      "box": [
+        72,
+        1231,
+        397,
+        1259
+      ],
+      "score": 0.9572682976722717
+    },
+    {
+      "text": "país de Chanaan.",
+      "box": [
+        526,
+        1234,
+        614,
+        1257
+      ],
+      "score": 0.9986701011657715
+    },
+    {
+      "text": "6 Será tan grande la mortandad, que los cadáveres bastarán para ali-",
+      "box": [
+        73,
+        1246,
+        433,
+        1272
+      ],
+      "score": 0.9596618413925171
+    },
+    {
+      "text": "de los sacerdotes del país, y la mas llena de idolatría.",
+      "box": [
+        526,
+        1252,
+        795,
+        1284
+      ],
+      "score": 0.9482702612876892
+    },
+    {
+      "text": "Véase II. Paral. XXXII, v. 23.",
+      "box": [
+        65,
+        1277,
+        233,
+        1300
+      ],
+      "score": 0.9910421371459961
+    },
+    {
+      "text": "Cumplióse esta profecía cuando el Egypto ofreció á Dios tanta mul-",
+      "box": [
+        74,
+        1290,
+        432,
+        1315
+      ],
+      "score": 0.9795742630958557
+    },
+    {
+      "text": "3A",
+      "box": [
+        451,
+        1288,
+        488,
+        1352
+      ],
+      "score": 0.3303101658821106
+    },
+    {
+      "text": "naciones.",
+      "box": [
+        526,
+        1293,
+        579,
+        1313
+      ],
+      "score": 0.9989706873893738
+    },
+    {
+      "text": "En Juda, donde nacerá el Mesas. Joan. IV, v. .",
+      "box": [
+        533,
+        1292,
+        809,
+        1328
+      ],
+      "score": 0.7925441861152649
+    }
+  ]
+}

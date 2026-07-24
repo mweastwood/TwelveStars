@@ -1,0 +1,1517 @@
+{
+  "volume": 3,
+  "page_index": 365,
+  "pdf_page": 366,
+  "lines": [
+    {
+      "text": "JONÁS.",
+      "box": [
+        217,
+        49,
+        277,
+        70
+      ],
+      "score": 0.9925299286842346
+    },
+    {
+      "text": "CAPITULO IV",
+      "box": [
+        685,
+        38,
+        788,
+        62
+      ],
+      "score": 0.9969220757484436
+    },
+    {
+      "text": "595",
+      "box": [
+        73,
+        55,
+        97,
+        72
+      ],
+      "score": 0.9787108302116394
+    },
+    {
+      "text": "596",
+      "box": [
+        889,
+        49,
+        911,
+        65
+      ],
+      "score": 0.9902148246765137
+    },
+    {
+      "text": "2. É hizo Jonás oracion al Señor Dios suyo desde el vien-",
+      "box": [
+        77,
+        99,
+        433,
+        116
+      ],
+      "score": 0.995099663734436
+    },
+    {
+      "text": "bestias nada coman: no salgan á pacer ni á beber los bueyes",
+      "box": [
+        537,
+        84,
+        920,
+        114
+      ],
+      "score": 0.9969875812530518
+    },
+    {
+      "text": "tre del pez;",
+      "box": [
+        67,
+        119,
+        138,
+        137
+      ],
+      "score": 0.999812126159668
+    },
+    {
+      "text": "y ganados:",
+      "box": [
+        536,
+        108,
+        616,
+        132
+      ],
+      "score": 0.998569130897522
+    },
+    {
+      "text": "8. Hombres y bestias cúbranse con sacos y arreos de luto;",
+      "box": [
+        550,
+        121,
+        918,
+        147
+      ],
+      "score": 0.9991949796676636
+    },
+    {
+      "text": "3. Y despues dijo: Invocado he al Señor en medio de mi",
+      "box": [
+        77,
+        134,
+        433,
+        154
+      ],
+      "score": 0.9898921847343445
+    },
+    {
+      "text": "tribulacion, y me ha escuchado benigno: he clamado desde",
+      "box": [
+        66,
+        151,
+        433,
+        171
+      ],
+      "score": 0.9984658360481262
+    },
+    {
+      "text": "y clamen aquellos con todo ahinco al Señor, convirtiéndose",
+      "box": [
+        537,
+        140,
+        917,
+        162
+      ],
+      "score": 0.9845852255821228
+    },
+    {
+      "text": "cada uno de su mala vida é inícuo proceder.",
+      "box": [
+        538,
+        157,
+        820,
+        179
+      ],
+      "score": 0.9987485408782959
+    },
+    {
+      "text": "el seno del sepulero, y tú, oh Señor, has atendido mi voz ¹.",
+      "box": [
+        66,
+        168,
+        416,
+        189
+      ],
+      "score": 0.9831178784370422
+    },
+    {
+      "text": "4. Y arrojásteme á lo mas profundo del mar, y me cir-",
+      "box": [
+        78,
+        183,
+        434,
+        207
+      ],
+      "score": 0.980293333530426
+    },
+    {
+      "text": "9. ¿Quién sabe si así mudará el Señor su designio, y nos",
+      "box": [
+        551,
+        173,
+        917,
+        196
+      ],
+      "score": 0.98956698179245
+    },
+    {
+      "text": "perdonará; y si se aplacará el furor de su ira, de suerte que",
+      "box": [
+        537,
+        189,
+        917,
+        213
+      ],
+      "score": 0.9879871606826782
+    },
+    {
+      "text": "cundaron las aguas: sobre mí han pasado todos tus remo-",
+      "box": [
+        67,
+        201,
+        433,
+        224
+      ],
+      "score": 0.9869888424873352
+    },
+    {
+      "text": "linos y todas tus olas.",
+      "box": [
+        68,
+        222,
+        197,
+        239
+      ],
+      "score": 0.9994057416915894
+    },
+    {
+      "text": "no perezcamos?",
+      "box": [
+        537,
+        211,
+        641,
+        230
+      ],
+      "score": 0.9814433455467224
+    },
+    {
+      "text": "5. Y dije: Arrojado he sido lejos de la misericordiosa vista",
+      "box": [
+        77,
+        232,
+        434,
+        258
+      ],
+      "score": 0.9741703867912292
+    },
+    {
+      "text": "10. Viendo pues Dios las obras de penitencia que hacian,",
+      "box": [
+        551,
+        222,
+        916,
+        247
+      ],
+      "score": 0.999080240726471
+    },
+    {
+      "text": "de tus ojos: pero no; aun veré nuevamente tu santo templo.",
+      "box": [
+        66,
+        248,
+        434,
+        273
+      ],
+      "score": 0.9877181649208069
+    },
+    {
+      "text": "y cómo se habian convertido de su mala vida, movióse á",
+      "box": [
+        537,
+        238,
+        917,
+        263
+      ],
+      "score": 0.9966183304786682
+    },
+    {
+      "text": "6. Cercáronme las aguas ² hasta el punto de quitarme la",
+      "box": [
+        78,
+        264,
+        434,
+        289
+      ],
+      "score": 0.9782739877700806
+    },
+    {
+      "text": "misericordia, y no les envió los males que habia decretado.",
+      "box": [
+        538,
+        256,
+        903,
+        280
+      ],
+      "score": 0.9991564750671387
+    },
+    {
+      "text": "vida; encerrado me he visto en el abismo: el inmenso pié-",
+      "box": [
+        66,
+        280,
+        434,
+        305
+      ],
+      "score": 0.9822735786437988
+    },
+    {
+      "text": "CAPITULO IV",
+      "box": [
+        682,
+        288,
+        782,
+        308
+      ],
+      "score": 0.9980748891830444
+    },
+    {
+      "text": "lago ha cubierto mi cabeza.",
+      "box": [
+        67,
+        302,
+        230,
+        319
+      ],
+      "score": 0.9970789551734924
+    },
+    {
+      "text": "7. He descendido hasta las raices de los montes; los cer-",
+      "box": [
+        77,
+        312,
+        435,
+        336
+      ],
+      "score": 0.9993466138839722
+    },
+    {
+      "text": "Jonás, afligido al ver que no se habia verificado su profecía, se desea la",
+      "box": [
+        536,
+        313,
+        917,
+        337
+      ],
+      "score": 0.9890629649162292
+    },
+    {
+      "text": "rojos ó barreras de la tierra me encerraron allí dentro para",
+      "box": [
+        65,
+        328,
+        435,
+        351
+      ],
+      "score": 0.9775304794311523
+    },
+    {
+      "text": "muerte; pero el Señor le reprende, y le instruye y saca de su error.",
+      "box": [
+        548,
+        329,
+        904,
+        351
+      ],
+      "score": 0.9963821172714233
+    },
+    {
+      "text": "siempre: mas tú, oh Señor Dios mio, sacarás mi vida ó alma",
+      "box": [
+        65,
+        343,
+        435,
+        366
+      ],
+      "score": 0.9952399730682373
+    },
+    {
+      "text": "del lugar de la corrupcion ³.",
+      "box": [
+        66,
+        362,
+        236,
+        381
+      ],
+      "score": 0.9828052520751953
+    },
+    {
+      "text": "1. Empero Jonás se afligió mucho, y se incomodó.",
+      "box": [
+        549,
+        353,
+        880,
+        378
+      ],
+      "score": 0.9871314167976379
+    },
+    {
+      "text": "8. En medio de las angustias que padecia mi alma, he",
+      "box": [
+        77,
+        376,
+        434,
+        397
+      ],
+      "score": 0.9919859766960144
+    },
+    {
+      "text": "2. É hizo oracion al Señor, diciendo: Ruégote que me",
+      "box": [
+        549,
+        371,
+        916,
+        394
+      ],
+      "score": 0.9923564195632935
+    },
+    {
+      "text": "recurrido á tí, oh Señor; dirigiéndote mi oracion al templo",
+      "box": [
+        65,
+        394,
+        433,
+        413
+      ],
+      "score": 0.9865871071815491
+    },
+    {
+      "text": "digas, oh Señor, ¿no es esto lo mismo que yo me recelaba,",
+      "box": [
+        537,
+        388,
+        916,
+        412
+      ],
+      "score": 0.9998043179512024
+    },
+    {
+      "text": "santo de tu gloria.",
+      "box": [
+        65,
+        410,
+        183,
+        430
+      ],
+      "score": 0.9982169270515442
+    },
+    {
+      "text": "cuando aun estaba en mi país? No por otra razon me caute-",
+      "box": [
+        535,
+        405,
+        916,
+        428
+      ],
+      "score": 0.9920764565467834
+    },
+    {
+      "text": "9. Aquellos que tan inútilmente se entregan á la vanidad",
+      "box": [
+        77,
+        425,
+        435,
+        446
+      ],
+      "score": 0.9933876991271973
+    },
+    {
+      "text": "Iaba, huyendo á Tharsis. Porque yo sé bien que tú eres un",
+      "box": [
+        536,
+        422,
+        916,
+        445
+      ],
+      "score": 0.9936497211456299
+    },
+    {
+      "text": "de los ídolos, abandonan su misericordia 4.",
+      "box": [
+        68,
+        445,
+        319,
+        458
+      ],
+      "score": 0.989035964012146
+    },
+    {
+      "text": "Dios clemente y misericordioso, sufrido y piadosísimo, y",
+      "box": [
+        536,
+        439,
+        916,
+        460
+      ],
+      "score": 0.9970892667770386
+    },
+    {
+      "text": "10. Mas yo te ofreceré en sacrificio cánticos de alabanza:",
+      "box": [
+        79,
+        458,
+        434,
+        475
+      ],
+      "score": 0.9865533709526062
+    },
+    {
+      "text": "perdonador de los pecados 10.",
+      "box": [
+        535,
+        457,
+        720,
+        476
+      ],
+      "score": 0.9835066199302673
+    },
+    {
+      "text": "cumpliré al Señor todos los votos que le he hecho por mi",
+      "box": [
+        65,
+        473,
+        434,
+        492
+      ],
+      "score": 0.9997099041938782
+    },
+    {
+      "text": "3. Ahora bien, Señor, ruégote que me quites la vida, por-",
+      "box": [
+        548,
+        469,
+        917,
+        494
+      ],
+      "score": 0.989111065864563
+    },
+    {
+      "text": "salud.",
+      "box": [
+        65,
+        489,
+        107,
+        507
+      ],
+      "score": 0.9999762177467346
+    },
+    {
+      "text": "que para mí es ya mejor morir que vivir.",
+      "box": [
+        536,
+        489,
+        795,
+        509
+      ],
+      "score": 0.9863147735595703
+    },
+    {
+      "text": "11. El Señor en fin dió la órden al pez, y este vomitó á",
+      "box": [
+        77,
+        504,
+        435,
+        526
+      ],
+      "score": 0.9846419095993042
+    },
+    {
+      "text": "4. Y respondió el Señor: ¿Y te parece á tí que tienes razon",
+      "box": [
+        547,
+        502,
+        916,
+        527
+      ],
+      "score": 0.9899145364761353
+    },
+    {
+      "text": "Jonás en la ribera.",
+      "box": [
+        66,
+        522,
+        179,
+        541
+      ],
+      "score": 0.9982203245162964
+    },
+    {
+      "text": "para enojarte?",
+      "box": [
+        535,
+        524,
+        629,
+        543
+      ],
+      "score": 0.9988594055175781
+    },
+    {
+      "text": "5. Y salióse Jonás de Nínive, é hizo alto al Oriente de la",
+      "box": [
+        547,
+        533,
+        917,
+        561
+      ],
+      "score": 0.9836243987083435
+    },
+    {
+      "text": "CAPITULO III",
+      "box": [
+        202,
+        554,
+        298,
+        571
+      ],
+      "score": 0.9994605183601379
+    },
+    {
+      "text": "ciudad; y formándose allí una cabaña, vivia dentro de ella,",
+      "box": [
+        534,
+        548,
+        917,
+        577
+      ],
+      "score": 0.9913657307624817
+    },
+    {
+      "text": "esperando á ver lo que aconteceria á la ciudad.",
+      "box": [
+        534,
+        568,
+        829,
+        593
+      ],
+      "score": 0.9825556874275208
+    },
+    {
+      "text": "El Señor manda de nuevo á Jonás que vaya á Ninive, é intime allí la",
+      "box": [
+        66,
+        586,
+        434,
+        604
+      ],
+      "score": 0.9833208918571472
+    },
+    {
+      "text": "6. Habia el Señor preparado una hiedra, la cual creció",
+      "box": [
+        546,
+        579,
+        917,
+        612
+      ],
+      "score": 0.9818966388702393
+    },
+    {
+      "text": "ruina de la ciudad. Conviértense á la predicacion de Jonás los Ninivi-",
+      "box": [
+        78,
+        603,
+        433,
+        617
+      ],
+      "score": 0.9954831600189209
+    },
+    {
+      "text": "hasta cubrir la cabeza de Jonás para hacerle sombra, y defen-",
+      "box": [
+        533,
+        597,
+        918,
+        625
+      ],
+      "score": 0.9943241477012634
+    },
+    {
+      "text": "tas, hacen penitencia, y revoca el Señor la sentencia.",
+      "box": [
+        79,
+        617,
+        347,
+        631
+      ],
+      "score": 0.9992232918739319
+    },
+    {
+      "text": "derle del calor. Estaba Jonás muy fatigado, y recibió grandí-",
+      "box": [
+        532,
+        612,
+        918,
+        643
+      ],
+      "score": 0.957144021987915
+    },
+    {
+      "text": "simo placer de aquella hiedra.",
+      "box": [
+        535,
+        638,
+        720,
+        654
+      ],
+      "score": 0.9923433065414429
+    },
+    {
+      "text": "1. Y habló el Señor por segunda vez á Jonás, diciéndole:",
+      "box": [
+        78,
+        650,
+        435,
+        671
+      ],
+      "score": 0.9835259318351746
+    },
+    {
+      "text": "7. Y al otro dia al rayar el alba, envió Dios un gusanillo",
+      "box": [
+        546,
+        646,
+        917,
+        673
+      ],
+      "score": 0.9987953901290894
+    },
+    {
+      "text": "2. Anda y vé luego á Nínive, ciudad grande, y predica",
+      "box": [
+        79,
+        670,
+        434,
+        687
+      ],
+      "score": 0.9939917325973511
+    },
+    {
+      "text": "que royó la raiz de la hiedra, la cual se secó.",
+      "box": [
+        533,
+        666,
+        816,
+        688
+      ],
+      "score": 0.998381495475769
+    },
+    {
+      "text": "en ella aquello que yo te digo.",
+      "box": [
+        66,
+        686,
+        249,
+        704
+      ],
+      "score": 0.9896276593208313
+    },
+    {
+      "text": "8. Y nacido que hubo el sol, dispuso el Señor que soplase",
+      "box": [
+        545,
+        680,
+        918,
+        706
+      ],
+      "score": 0.9893405437469482
+    },
+    {
+      "text": "3. Marchó pues Jonás, y se dirigió á Nínive, segun la ór-",
+      "box": [
+        79,
+        702,
+        434,
+        719
+      ],
+      "score": 0.9957916140556335
+    },
+    {
+      "text": "un viento solano que quemaba: heria el sol en la cabeza de",
+      "box": [
+        532,
+        697,
+        918,
+        721
+      ],
+      "score": 0.9858978390693665
+    },
+    {
+      "text": "den del Señor. Era Nínive una ciudad grandísima, que tenia",
+      "box": [
+        67,
+        719,
+        433,
+        733
+      ],
+      "score": 0.9996455907821655
+    },
+    {
+      "text": "Jonás, quien se abrasaba y se deseaba la muerte, diciendo:",
+      "box": [
+        533,
+        714,
+        918,
+        737
+      ],
+      "score": 0.9896846413612366
+    },
+    {
+      "text": "tres dias de camino en cireuito .",
+      "box": [
+        66,
+        735,
+        266,
+        748
+      ],
+      "score": 0.9817412495613098
+    },
+    {
+      "text": "Mejor me es morir que vivir.",
+      "box": [
+        533,
+        733,
+        711,
+        751
+      ],
+      "score": 0.9963834881782532
+    },
+    {
+      "text": "4. Y comenzó Jonás á recorrer la ciudad, y anduvo por",
+      "box": [
+        78,
+        748,
+        433,
+        765
+      ],
+      "score": 0.9981348514556885
+    },
+    {
+      "text": "9. Pero el Señor dijo á Jonás: ¿Crees tú razonable el eno-",
+      "box": [
+        545,
+        746,
+        918,
+        767
+      ],
+      "score": 0.9785885810852051
+    },
+    {
+      "text": "ella un dia clamando y diciendo: De aquí á cuarenta dias",
+      "box": [
+        64,
+        763,
+        433,
+        781
+      ],
+      "score": 0.9963582158088684
+    },
+    {
+      "text": "jarte por causa de la hiedra? Y respondió él: Razon tengo",
+      "box": [
+        534,
+        766,
+        917,
+        783
+      ],
+      "score": 0.9963476061820984
+    },
+    {
+      "text": "Nínive será destruida.",
+      "box": [
+        65,
+        781,
+        198,
+        795
+      ],
+      "score": 0.9991602301597595
+    },
+    {
+      "text": "para encolerizarme, hasta desear mi muerte 1.",
+      "box": [
+        532,
+        781,
+        819,
+        799
+      ],
+      "score": 0.9814148545265198
+    },
+    {
+      "text": "5. Y creyeron los Ninivitas en la palabra de Dios, y publi-",
+      "box": [
+        76,
+        795,
+        433,
+        813
+      ],
+      "score": 0.9894533753395081
+    },
+    {
+      "text": "10. Y dijo el Señor: Tú tienes pesar por la pérdida de una",
+      "box": [
+        545,
+        798,
+        915,
+        815
+      ],
+      "score": 0.9886114597320557
+    },
+    {
+      "text": "caron el ayuno, y vistiéronse todos chicos y grandes de",
+      "box": [
+        61,
+        810,
+        435,
+        831
+      ],
+      "score": 0.999508261680603
+    },
+    {
+      "text": "hiedra, que ningun trabajo te ha costado, ni tú la has hecho",
+      "box": [
+        533,
+        815,
+        915,
+        832
+      ],
+      "score": 0.9996511340141296
+    },
+    {
+      "text": "sacos ® ó cilicios.",
+      "box": [
+        63,
+        828,
+        166,
+        845
+      ],
+      "score": 0.9396177530288696
+    },
+    {
+      "text": "crecer; pues ha crecido en una noche, y en una noche ha",
+      "box": [
+        532,
+        830,
+        916,
+        848
+      ],
+      "score": 0.999639630317688
+    },
+    {
+      "text": "6. Y llegó la noticia al rey 7 de Nínive, y se levantó del",
+      "box": [
+        75,
+        843,
+        434,
+        861
+      ],
+      "score": 0.9871094226837158
+    },
+    {
+      "text": "perecido.",
+      "box": [
+        532,
+        847,
+        591,
+        864
+      ],
+      "score": 0.9996064305305481
+    },
+    {
+      "text": "trono, y despojándose de sus régias vestiduras, vistióse de",
+      "box": [
+        62,
+        858,
+        434,
+        878
+      ],
+      "score": 0.9986811876296997
+    },
+    {
+      "text": "11. ¿Y yo no tendré compasion de Nínive, ciudad tan",
+      "box": [
+        546,
+        861,
+        916,
+        880
+      ],
+      "score": 0.9977301955223083
+    },
+    {
+      "text": "saco, y sentóse sobre la ceniza.",
+      "box": [
+        62,
+        875,
+        249,
+        892
+      ],
+      "score": 0.9992408752441406
+    },
+    {
+      "text": "7. En seguida se publicó en Nínive una órden del rey y",
+      "box": [
+        74,
+        889,
+        435,
+        913
+      ],
+      "score": 0.9957374334335327
+    },
+    {
+      "text": "grande, y en la cual hay mas de ciento veinte mil personas,",
+      "box": [
+        534,
+        880,
+        916,
+        897
+      ],
+      "score": 0.9985764026641846
+    },
+    {
+      "text": "que no saben aun discernir la mano diestra de la izquierda,",
+      "box": [
+        534,
+        896,
+        916,
+        913
+      ],
+      "score": 0.9843420386314392
+    },
+    {
+      "text": "de sus principales magnates que decia s: Ni hombres ni",
+      "box": [
+        63,
+        906,
+        434,
+        928
+      ],
+      "score": 0.9831804633140564
+    },
+    {
+      "text": "y un gran número de animales?",
+      "box": [
+        534,
+        914,
+        725,
+        928
+      ],
+      "score": 0.9844873547554016
+    },
+    {
+      "text": "1 Psalm. CXIX, v. 1.—I. Cor. XV, v. 4.",
+      "box": [
+        74,
+        948,
+        287,
+        967
+      ],
+      "score": 0.9682562947273254
+    },
+    {
+      "text": "Pekin, segun el P. Du Ilalde, y segun Voltaire (Essai sur lhist., tomo I,",
+      "box": [
+        534,
+        953,
+        919,
+        972
+      ],
+      "score": 0.978280246257782
+    },
+    {
+      "text": "8 Psalm. LXVIII, v. 2.",
+      "box": [
+        73,
+        963,
+        207,
+        981
+      ],
+      "score": 0.9020900130271912
+    },
+    {
+      "text": "3 Psalm. XV, v. 10.",
+      "box": [
+        73,
+        977,
+        186,
+        995
+      ],
+      "score": 0.977424144744873
+    },
+    {
+      "text": "pág. 13) tiene cerca de cuatro millones de habitantes. ¿Cómo, pues, le",
+      "box": [
+        534,
+        968,
+        920,
+        987
+      ],
+      "score": 0.9898017644882202
+    },
+    {
+      "text": "parece increible á un filósofo impío que Nínive tuviese de largo ó de",
+      "box": [
+        533,
+        980,
+        920,
+        1002
+      ],
+      "score": 0.9835608601570129
+    },
+    {
+      "text": "4 Abandonan á Dios que es por esencia la misma misericordia.",
+      "box": [
+        73,
+        992,
+        436,
+        1012
+      ],
+      "score": 0.98460453748703
+    },
+    {
+      "text": "circuito tres dias de camino?",
+      "box": [
+        536,
+        997,
+        678,
+        1011
+      ],
+      "score": 0.9989657402038574
+    },
+    {
+      "text": "Psalm. CXLIV, ult. Tambien puede significar que son crueles para con-",
+      "box": [
+        64,
+        1007,
+        437,
+        1027
+      ],
+      "score": 0.9970332980155945
+    },
+    {
+      "text": "Matth. XII, v. 41.—Luc. XI, v. 32.",
+      "box": [
+        545,
+        1008,
+        736,
+        1027
+      ],
+      "score": 0.966188907623291
+    },
+    {
+      "text": "sigo mismos y con el prójimo.",
+      "box": [
+        65,
+        1024,
+        222,
+        1038
+      ],
+      "score": 0.9886341691017151
+    },
+    {
+      "text": "† Seria Phul, de quien se habla IV. Reg. XV, v. 19.—Paral V, v. 26.",
+      "box": [
+        543,
+        1021,
+        921,
+        1044
+      ],
+      "score": 0.968355119228363
+    },
+    {
+      "text": " Segun dice el historiador gentil Herodoto(lib. I), los Assyrios domi-",
+      "box": [
+        73,
+        1036,
+        437,
+        1053
+      ],
+      "score": 0.9765282869338989
+    },
+    {
+      "text": "8 Los reyes de Oriente no resolvian los negocios graves sin el consejo",
+      "box": [
+        543,
+        1034,
+        921,
+        1058
+      ],
+      "score": 0.9867036938667297
+    },
+    {
+      "text": "naron en el Asia superior por espacio de quinientos veinte años, antes",
+      "box": [
+        64,
+        1049,
+        438,
+        1067
+      ],
+      "score": 0.9941015243530273
+    },
+    {
+      "text": "de los magnates del reino. Esther. I, v. 13, 21.—VIII, v. 8.—Dan. VI, v. 8.",
+      "box": [
+        534,
+        1049,
+        922,
+        1072
+      ],
+      "score": 0.9598365426063538
+    },
+    {
+      "text": "de levantarse el imperio de los Medos; y añade que aun despues de eso",
+      "box": [
+        66,
+        1066,
+        437,
+        1080
+      ],
+      "score": 0.995682954788208
+    },
+    {
+      "text": "Creyendo fallida su profecía. Pero San Gerónimo cree que Jonás se",
+      "box": [
+        545,
+        1063,
+        923,
+        1086
+      ],
+      "score": 0.993755042552948
+    },
+    {
+      "text": "continuó Nínive, capital de la Assyria, en un estado de grande esplen-",
+      "box": [
+        66,
+        1080,
+        436,
+        1094
+      ],
+      "score": 0.9994273781776428
+    },
+    {
+      "text": "entristeció porque se persuadió que habia ya llegado el tiempo de la",
+      "box": [
+        534,
+        1077,
+        922,
+        1100
+      ],
+      "score": 0.9926537871360779
+    },
+    {
+      "text": "dor, hasta que se apoderó de ella Cyaxar: lo que fué, segun Josepho",
+      "box": [
+        66,
+        1094,
+        437,
+        1108
+      ],
+      "score": 0.9735233783721924
+    },
+    {
+      "text": "amenaza que hizo Dios de abandonar á su pueblo de Israél. Deut. XXXII,",
+      "box": [
+        533,
+        1091,
+        922,
+        1114
+      ],
+      "score": 0.9604879021644592
+    },
+    {
+      "text": "(lib. X, Ant., cap. VI), en tiempo de Josías, rey de Judá. Tanto Herodoto,",
+      "box": [
+        66,
+        1108,
+        437,
+        1122
+      ],
+      "score": 0.9882999062538147
+    },
+    {
+      "text": "v. 21.—Rom. X, v. 19. Por semejante motivo lloró Jesu-Christo en su",
+      "box": [
+        534,
+        1105,
+        923,
+        1129
+      ],
+      "score": 0.9854488372802734
+    },
+    {
+      "text": "como Ctesias, Diodoro de Sicilia, y demás historiadores gentiles, con-",
+      "box": [
+        64,
+        1120,
+        438,
+        1138
+      ],
+      "score": 0.9903783798217773
+    },
+    {
+      "text": "entrada triunfante en Jerusalem; y San Pablo deseaba ser anathema",
+      "box": [
+        534,
+        1119,
+        923,
+        1143
+      ],
+      "score": 0.990039050579071
+    },
+    {
+      "text": "vienen en que Nínive ora una ciudad opulentísima y populosa, en la",
+      "box": [
+        64,
+        1134,
+        437,
+        1151
+      ],
+      "score": 0.9879305362701416
+    },
+    {
+      "text": "por sus hermanos los Judíos. Luc. XIX, v. 41.—Rom. IX, v. 3.",
+      "box": [
+        532,
+        1132,
+        869,
+        1158
+      ],
+      "score": 0.9737215042114258
+    },
+    {
+      "text": "época en que Jonás vivia, y muchos siglos antes. Cuando se dice que",
+      "box": [
+        64,
+        1147,
+        438,
+        1165
+      ],
+      "score": 0.9716415405273438
+    },
+    {
+      "text": "10 Psalm. LXXXV, v. 5.—Joel II, v. 13.",
+      "box": [
+        539,
+        1146,
+        752,
+        1166
+      ],
+      "score": 0.9766457080841064
+    },
+    {
+      "text": "Nínive tenia tres dias de largo ó de cireuito, debe entenderse que se",
+      "box": [
+        64,
+        1161,
+        438,
+        1179
+      ],
+      "score": 0.9818328619003296
+    },
+    {
+      "text": "i San Gerónimo tradujo hedera la voz hebrea mpip kiłaion, y",
+      "box": [
+        538,
+        1158,
+        923,
+        1188
+      ],
+      "score": 0.9001331925392151
+    },
+    {
+      "text": "necesitaban para rodearla, con todos los arrabales y lugares dependien-",
+      "box": [
+        64,
+        1175,
+        437,
+        1193
+      ],
+      "score": 0.9966450929641724
+    },
+    {
+      "text": "Koλozby kolokynthe los Setenta, por no hallar voz propia para denotar",
+      "box": [
+        532,
+        1173,
+        924,
+        1202
+      ],
+      "score": 0.9182121157646179
+    },
+    {
+      "text": "tes de ella; y que antiguamente las grandes poblaciones solian dilatarse",
+      "box": [
+        64,
+        1188,
+        437,
+        1206
+      ],
+      "score": 0.9989734292030334
+    },
+    {
+      "text": "una planta, ó arbusto, que no se conocia entre los Griegos ni Latinos.",
+      "box": [
+        532,
+        1188,
+        925,
+        1216
+      ],
+      "score": 0.9832492470741272
+    },
+    {
+      "text": "á lo largo, ó en las orillas de caudalosos rios ó valles, teniendo cada fami-",
+      "box": [
+        65,
+        1203,
+        437,
+        1219
+      ],
+      "score": 0.9980673789978027
+    },
+    {
+      "text": "Léase lo que dice San Agustin sobre esta palabra, y la voz zucca, calaba-",
+      "box": [
+        532,
+        1202,
+        926,
+        1230
+      ],
+      "score": 0.9670759439468384
+    },
+    {
+      "text": "lia una porcion de tierra para cultivo y pasto de los ganados. Y así escri-",
+      "box": [
+        64,
+        1215,
+        438,
+        1235
+      ],
+      "score": 0.9831128120422363
+    },
+    {
+      "text": "cera, de que hacen mencion. Creen muchos que el arbusto de que habla",
+      "box": [
+        532,
+        1216,
+        926,
+        1244
+      ],
+      "score": 0.975748598575592
+    },
+    {
+      "text": "be Aristóteles (Polit. lib. III, cap. II) que cuando Babylonia fué tomada",
+      "box": [
+        65,
+        1229,
+        438,
+        1248
+      ],
+      "score": 0.9827113747596741
+    },
+    {
+      "text": "Jonás es el que se conoce en Levante con el nombre de palma christi, ó",
+      "box": [
+        533,
+        1230,
+        927,
+        1258
+      ],
+      "score": 0.9761560559272766
+    },
+    {
+      "text": "por Alejandro, al tercero dia de haber entrado el enemigo, aun no lo",
+      "box": [
+        65,
+        1244,
+        438,
+        1263
+      ],
+      "score": 0.9927392601966858
+    },
+    {
+      "text": "riccino. Riccinum traduce Arias Montano. Cucurbitam Santes-Pagnino.",
+      "box": [
+        533,
+        1244,
+        927,
+        1274
+      ],
+      "score": 0.9523575305938721
+    },
+    {
+      "text": "sabia una parte de la ciudad. Tácito (Ann., lib. XI, v. 19) dice que la ciu-",
+      "box": [
+        65,
+        1258,
+        437,
+        1278
+      ],
+      "score": 0.9837853312492371
+    },
+    {
+      "text": "is Esta expresion, que parece algo fuerte hablando con Dios, es seme-",
+      "box": [
+        540,
+        1261,
+        926,
+        1287
+      ],
+      "score": 0.9861650466918945
+    },
+    {
+      "text": "dad de Thebas en Egypto tenia setecientos mil hombres en estado de",
+      "box": [
+        65,
+        1272,
+        438,
+        1292
+      ],
+      "score": 0.9861173629760742
+    },
+    {
+      "text": "jante á muchas de las que usaron el santo Job, el Apóstol San Pablo, eto.",
+      "box": [
+        533,
+        1275,
+        927,
+        1303
+      ],
+      "score": 0.9831404089927673
+    },
+    {
+      "text": "tomar las armas, lo que supone tres millones y medio de habitantes.",
+      "box": [
+        65,
+        1286,
+        438,
+        1307
+      ],
+      "score": 0.9969384670257568
+    },
+    {
+      "text": "—Véase Vulgata.",
+      "box": [
+        535,
+        1290,
+        628,
+        1309
+      ],
+      "score": 0.9269018173217773
+    }
+  ]
+}

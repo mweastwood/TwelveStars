@@ -1,0 +1,27 @@
+{
+  "volume": 1,
+  "page_index": 270,
+  "pdf_page": 271,
+  "lines": [
+    {
+      "text": "C.Dorg",
+      "box": [
+        157,
+        824,
+        247,
+        852
+      ],
+      "score": 0.575688362121582
+    },
+    {
+      "text": "JEDEON ELIGE SUS SOLDADOS",
+      "box": [
+        578,
+        888,
+        853,
+        913
+      ],
+      "score": 0.998161792755127
+    }
+  ]
+}

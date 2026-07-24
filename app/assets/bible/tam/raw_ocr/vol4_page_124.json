@@ -1,0 +1,1467 @@
+{
+  "volume": 4,
+  "page_index": 124,
+  "pdf_page": 125,
+  "lines": [
+    {
+      "text": "149",
+      "box": [
+        88,
+        51,
+        114,
+        68
+      ],
+      "score": 0.9999873042106628
+    },
+    {
+      "text": "SAN JUAN.",
+      "box": [
+        225,
+        51,
+        306,
+        69
+      ],
+      "score": 0.9958398342132568
+    },
+    {
+      "text": "CAPITULO XI.",
+      "box": [
+        695,
+        53,
+        796,
+        72
+      ],
+      "score": 0.9984092712402344
+    },
+    {
+      "text": "150",
+      "box": [
+        895,
+        52,
+        920,
+        69
+      ],
+      "score": 0.9999441504478455
+    },
+    {
+      "text": "30. Mi Padre y yo somos una misma cosa.",
+      "box": [
+        93,
+        95,
+        361,
+        122
+      ],
+      "score": 0.9974420070648193
+    },
+    {
+      "text": "31. Al oir esto los Judíos, cogieron piedras para ape-",
+      "box": [
+        92,
+        113,
+        455,
+        144
+      ],
+      "score": 0.9843031764030457
+    },
+    {
+      "text": "15. Y me alegro por vosotros de no haberme hallado allí.",
+      "box": [
+        566,
+        100,
+        926,
+        127
+      ],
+      "score": 0.9978052377700806
+    },
+    {
+      "text": "drearle.",
+      "box": [
+        81,
+        133,
+        137,
+        154
+      ],
+      "score": 0.9994994401931763
+    },
+    {
+      "text": "á fin de que creais. Pero vamos á él.",
+      "box": [
+        554,
+        123,
+        772,
+        145
+      ],
+      "score": 0.984542965888977
+    },
+    {
+      "text": "32. Díjoles Jesus: Muchas buenas obras he hecho delante",
+      "box": [
+        94,
+        151,
+        457,
+        178
+      ],
+      "score": 0.9996926784515381
+    },
+    {
+      "text": "16. Entonces Thomás, por otro nombre Didymo s, dijo á",
+      "box": [
+        565,
+        137,
+        924,
+        164
+      ],
+      "score": 0.9711043834686279
+    },
+    {
+      "text": "de vosotros por la virtud de mi Padre, ¿por cuál de ellas me",
+      "box": [
+        82,
+        171,
+        456,
+        195
+      ],
+      "score": 0.9997103810310364
+    },
+    {
+      "text": "sus condiscípulos: Vamos tambien nosotros, y muramos",
+      "box": [
+        553,
+        157,
+        923,
+        179
+      ],
+      "score": 0.9935362339019775
+    },
+    {
+      "text": "con él.",
+      "box": [
+        553,
+        176,
+        598,
+        197
+      ],
+      "score": 0.9141961336135864
+    },
+    {
+      "text": "apedreais?",
+      "box": [
+        84,
+        189,
+        153,
+        207
+      ],
+      "score": 0.9992815256118774
+    },
+    {
+      "text": "17. Llegó pues Jesus, y halló que hacia ya cuatro dias",
+      "box": [
+        565,
+        190,
+        922,
+        212
+      ],
+      "score": 0.9904587268829346
+    },
+    {
+      "text": "33. Respondiéronle los Judíos: No te apedreamos por nin-",
+      "box": [
+        95,
+        205,
+        458,
+        229
+      ],
+      "score": 0.9937785863876343
+    },
+    {
+      "text": "que Lázaro estaba sepultado.",
+      "box": [
+        553,
+        209,
+        731,
+        228
+      ],
+      "score": 0.9881629943847656
+    },
+    {
+      "text": "guna obra buena, sino por la blasfemia: y porque siendo tú,",
+      "box": [
+        83,
+        224,
+        457,
+        245
+      ],
+      "score": 0.9922177791595459
+    },
+    {
+      "text": "18. (Distaba Bethania de Jerusalem como unos quince",
+      "box": [
+        565,
+        222,
+        921,
+        243
+      ],
+      "score": 0.999646782875061
+    },
+    {
+      "text": "como eres, hombre, te haces Dios.",
+      "box": [
+        85,
+        242,
+        294,
+        259
+      ],
+      "score": 0.9994075894355774
+    },
+    {
+      "text": "estadios 4.)",
+      "box": [
+        555,
+        241,
+        625,
+        258
+      ],
+      "score": 0.9813454747200012
+    },
+    {
+      "text": "34. Replicóles Jesus: ¿No está escrito en vuestra Ley: Yo",
+      "box": [
+        98,
+        259,
+        456,
+        276
+      ],
+      "score": 0.9815599918365479
+    },
+    {
+      "text": "19. Y habian ido muchos de los Judíos á consolar á Mar-",
+      "box": [
+        565,
+        253,
+        922,
+        273
+      ],
+      "score": 0.9925549030303955
+    },
+    {
+      "text": "dije, dioses sois 1?",
+      "box": [
+        86,
+        276,
+        201,
+        293
+      ],
+      "score": 0.9870136976242065
+    },
+    {
+      "text": "tha, y á María de la muerte de su hermano.",
+      "box": [
+        554,
+        271,
+        817,
+        289
+      ],
+      "score": 0.9980508685112
+    },
+    {
+      "text": "35. Pues si llamó dioses á aquellos á quienes habló Dios,",
+      "box": [
+        97,
+        291,
+        456,
+        309
+      ],
+      "score": 0.9926090836524963
+    },
+    {
+      "text": "20. Martha luego que oyó que Jesus venia, le salió á reci-",
+      "box": [
+        564,
+        285,
+        922,
+        305
+      ],
+      "score": 0.9967377781867981
+    },
+    {
+      "text": "y no puede faltar la Escritura:",
+      "box": [
+        86,
+        311,
+        279,
+        325
+      ],
+      "score": 0.9930763840675354
+    },
+    {
+      "text": "bir: y María se quedó en casa 6.",
+      "box": [
+        553,
+        300,
+        748,
+        320
+      ],
+      "score": 0.9478750228881836
+    },
+    {
+      "text": "36. ¿Cómo de mí, á quien ha santificado el Padre, y ha",
+      "box": [
+        98,
+        322,
+        456,
+        343
+      ],
+      "score": 0.9917389750480652
+    },
+    {
+      "text": "21. Dijo pues Martha á Jesus: Soñor, si hubieses estado",
+      "box": [
+        564,
+        313,
+        921,
+        336
+      ],
+      "score": 0.9930976629257202
+    },
+    {
+      "text": "enviado al mundo, decís vosotros que blasfemo: porque",
+      "box": [
+        85,
+        339,
+        456,
+        357
+      ],
+      "score": 0.9975876212120056
+    },
+    {
+      "text": "aquí, no hubiera muerto mi hermano:",
+      "box": [
+        554,
+        331,
+        785,
+        352
+      ],
+      "score": 0.9996461272239685
+    },
+    {
+      "text": "he dicho, soy Hijo de Dios?",
+      "box": [
+        86,
+        357,
+        255,
+        374
+      ],
+      "score": 0.9854722619056702
+    },
+    {
+      "text": "22. Bien que estoy persuadida de que ahora mismo te",
+      "box": [
+        565,
+        345,
+        922,
+        368
+      ],
+      "score": 0.9984069466590881
+    },
+    {
+      "text": "37. Si no hago las obras de mi Padre, no me creais.",
+      "box": [
+        98,
+        370,
+        416,
+        390
+      ],
+      "score": 0.9889373779296875
+    },
+    {
+      "text": "concederá Dios cualquiera cosa que le pidieres.",
+      "box": [
+        554,
+        363,
+        838,
+        383
+      ],
+      "score": 0.9991675615310669
+    },
+    {
+      "text": "38. Pero si las hago, cuando no querais darme crédito á",
+      "box": [
+        97,
+        385,
+        458,
+        408
+      ],
+      "score": 0.997312068939209
+    },
+    {
+      "text": "23. Dícele Jesus: Tu hermano resucitará.",
+      "box": [
+        566,
+        378,
+        822,
+        398
+      ],
+      "score": 0.9921528697013855
+    },
+    {
+      "text": "mí, dádsele á mis obras, á fin de que conozcais, y creais que",
+      "box": [
+        86,
+        405,
+        457,
+        422
+      ],
+      "score": 0.9832751750946045
+    },
+    {
+      "text": "24. Respóndele Martha: Bien sé que resucitará en la re-",
+      "box": [
+        566,
+        393,
+        921,
+        415
+      ],
+      "score": 0.9975675344467163
+    },
+    {
+      "text": "el Padre está en mí, y yo en el Padre².",
+      "box": [
+        86,
+        420,
+        326,
+        439
+      ],
+      "score": 0.9861168265342712
+    },
+    {
+      "text": "surreccion universal, que será on el último dia.",
+      "box": [
+        554,
+        410,
+        840,
+        431
+      ],
+      "score": 0.9868529438972473
+    },
+    {
+      "text": "39. Quisieron entonces prenderle: mas él se escapó de",
+      "box": [
+        97,
+        434,
+        458,
+        457
+      ],
+      "score": 0.9912298917770386
+    },
+    {
+      "text": "25. Díjole Jesus: Yo soy la resurreccion, y la vida: quien",
+      "box": [
+        566,
+        425,
+        920,
+        448
+      ],
+      "score": 0.9921651482582092
+    },
+    {
+      "text": "cree en mí, aunque hubiere muerto, vivirá:",
+      "box": [
+        554,
+        444,
+        816,
+        464
+      ],
+      "score": 0.9938026666641235
+    },
+    {
+      "text": "entre sus manos.",
+      "box": [
+        87,
+        457,
+        191,
+        471
+      ],
+      "score": 0.9997063875198364
+    },
+    {
+      "text": "40. Y se fué de nuevo á la otra parte del Jordan, á aquel",
+      "box": [
+        98,
+        468,
+        457,
+        488
+      ],
+      "score": 0.9864405989646912
+    },
+    {
+      "text": "26. Y todo aquel que vive, y cree en mí, no morirá para",
+      "box": [
+        566,
+        459,
+        921,
+        481
+      ],
+      "score": 0.9703144431114197
+    },
+    {
+      "text": "lugar en que Juan habia comenzado á bautizar: y permane-",
+      "box": [
+        85,
+        486,
+        458,
+        505
+      ],
+      "score": 0.999129593372345
+    },
+    {
+      "text": "siempre. ¿Crees tú esto?",
+      "box": [
+        554,
+        478,
+        700,
+        498
+      ],
+      "score": 0.9883027076721191
+    },
+    {
+      "text": "ció allí.",
+      "box": [
+        86,
+        503,
+        135,
+        521
+      ],
+      "score": 0.9592026472091675
+    },
+    {
+      "text": "27. Respondióle: Oh Señor! sí que lo creo, y que tú eres",
+      "box": [
+        567,
+        491,
+        921,
+        514
+      ],
+      "score": 0.9902268648147583
+    },
+    {
+      "text": "41. Y acudieron muchos á él, y decian: Es cierto que Juan",
+      "box": [
+        98,
+        518,
+        457,
+        537
+      ],
+      "score": 0.9935908317565918
+    },
+    {
+      "text": "el Christo el Hijo de Dios vivo, que has venido á este mundo.",
+      "box": [
+        554,
+        508,
+        921,
+        531
+      ],
+      "score": 0.993794858455658
+    },
+    {
+      "text": "no hizo milagro alguno.",
+      "box": [
+        87,
+        538,
+        233,
+        555
+      ],
+      "score": 0.9984585046768188
+    },
+    {
+      "text": "28. Dicho esto, fuése, y llamó secretamente á María su",
+      "box": [
+        567,
+        525,
+        922,
+        547
+      ],
+      "score": 0.9953440427780151
+    },
+    {
+      "text": "42. Mas todas cuantas cosas dijo Juan de éste, han salido",
+      "box": [
+        99,
+        551,
+        457,
+        570
+      ],
+      "score": 0.999082624912262
+    },
+    {
+      "text": "hermana, diciéndole: Está aquí el Maestro, y te llama.",
+      "box": [
+        554,
+        541,
+        879,
+        565
+      ],
+      "score": 0.9955645203590393
+    },
+    {
+      "text": "verdaderas. Y muchos creyeron en él.",
+      "box": [
+        87,
+        570,
+        317,
+        587
+      ],
+      "score": 0.9940096735954285
+    },
+    {
+      "text": "29. Apenas ella oyó esto, se levantó apresuradamente, y",
+      "box": [
+        567,
+        557,
+        921,
+        581
+      ],
+      "score": 0.9889069199562073
+    },
+    {
+      "text": "fué á encontrarle:",
+      "box": [
+        554,
+        577,
+        667,
+        597
+      ],
+      "score": 0.9555320739746094
+    },
+    {
+      "text": "30. Porque Jesus no habia entrado todavía en la aldea,",
+      "box": [
+        567,
+        588,
+        920,
+        612
+      ],
+      "score": 0.9923049211502075
+    },
+    {
+      "text": "CAPITULO XI",
+      "box": [
+        226,
+        608,
+        322,
+        625
+      ],
+      "score": 0.9995718598365784
+    },
+    {
+      "text": "sino que aun estaba en aquel mismo sitio en que Martha le",
+      "box": [
+        554,
+        604,
+        921,
+        629
+      ],
+      "score": 0.9917343258857727
+    },
+    {
+      "text": "habia salido á recibir.",
+      "box": [
+        554,
+        625,
+        686,
+        644
+      ],
+      "score": 0.9914659261703491
+    },
+    {
+      "text": "Resurreccion de Lázaro. Consejo de los pontífices y Phariséos, en que",
+      "box": [
+        86,
+        638,
+        458,
+        656
+      ],
+      "score": 0.9948681592941284
+    },
+    {
+      "text": "31. Por eso los Judíos que estaban con María en la casa,",
+      "box": [
+        567,
+        635,
+        920,
+        660
+      ],
+      "score": 0.9862526655197144
+    },
+    {
+      "text": "se resuelve la muerte de Jesus; y que debe morir un hombre por todos.",
+      "box": [
+        97,
+        651,
+        458,
+        671
+      ],
+      "score": 0.9920223355293274
+    },
+    {
+      "text": "Retírase Jesu-Christo á Ephrem, ciudad de Galiléa. (Matth. 26.—",
+      "box": [
+        97,
+        665,
+        458,
+        685
+      ],
+      "score": 0.9660947322845459
+    },
+    {
+      "text": "y la consolaban, viéndola levantarse de repente, y salir fue-",
+      "box": [
+        552,
+        652,
+        922,
+        676
+      ],
+      "score": 0.9985120296478271
+    },
+    {
+      "text": "Luc. 7, 14.)",
+      "box": [
+        99,
+        682,
+        162,
+        700
+      ],
+      "score": 0.9611079096794128
+    },
+    {
+      "text": "ra, la siguieron, diciendo: Ésta va sin duda al sepulcro para",
+      "box": [
+        554,
+        667,
+        921,
+        692
+      ],
+      "score": 0.9901781678199768
+    },
+    {
+      "text": "llorar allí.",
+      "box": [
+        554,
+        690,
+        619,
+        706
+      ],
+      "score": 0.9446790218353271
+    },
+    {
+      "text": "32. María pues, habiendo llegado á donde estaba Jesus,",
+      "box": [
+        566,
+        699,
+        921,
+        722
+      ],
+      "score": 0.9818253517150879
+    },
+    {
+      "text": "1. Estaba enfermo por este tiempo un hombre llamado",
+      "box": [
+        99,
+        711,
+        457,
+        733
+      ],
+      "score": 0.9941760897636414
+    },
+    {
+      "text": "viéndole, postróse á sus piés, y díjole: Señor, si lhubieses",
+      "box": [
+        554,
+        715,
+        922,
+        738
+      ],
+      "score": 0.9818910956382751
+    },
+    {
+      "text": "Lázaro vecino de Bethania, patria de María, y de Martha",
+      "box": [
+        85,
+        728,
+        457,
+        750
+      ],
+      "score": 0.9992117285728455
+    },
+    {
+      "text": "estado aquí, no habria muerto mi hermano.",
+      "box": [
+        554,
+        733,
+        817,
+        754
+      ],
+      "score": 0.9978010654449463
+    },
+    {
+      "text": "sus hermanas.",
+      "box": [
+        85,
+        748,
+        177,
+        767
+      ],
+      "score": 0.9991953372955322
+    },
+    {
+      "text": "33. Jesus, al verla llorar, y llorar tambien los Judíos que",
+      "box": [
+        565,
+        748,
+        920,
+        769
+      ],
+      "score": 0.9936699867248535
+    },
+    {
+      "text": "2. (Esta María es aquella misma que derramó sobre el",
+      "box": [
+        98,
+        759,
+        457,
+        782
+      ],
+      "score": 0.9996967911720276
+    },
+    {
+      "text": "habian venido con ella, estremecióse en su alma, y contur-",
+      "box": [
+        553,
+        764,
+        921,
+        785
+      ],
+      "score": 0.9990694522857666
+    },
+    {
+      "text": "Señor el perfume, y le limpió los piés con sus cabellos: de",
+      "box": [
+        86,
+        775,
+        457,
+        798
+      ],
+      "score": 0.9914903044700623
+    },
+    {
+      "text": "bóse á sí mismo,",
+      "box": [
+        554,
+        782,
+        656,
+        801
+      ],
+      "score": 0.9924353361129761
+    },
+    {
+      "text": "la cual era hermano el Lázaro que estaba enfermo.)",
+      "box": [
+        86,
+        792,
+        400,
+        814
+      ],
+      "score": 0.9956525564193726
+    },
+    {
+      "text": "34. Y dijo: ¿Dónde le pusisteis? Ven, Señor, le dijeron, y",
+      "box": [
+        564,
+        796,
+        920,
+        816
+      ],
+      "score": 0.9987695813179016
+    },
+    {
+      "text": "3. Las hermanas pues enviaron á decirle: Señor, mira",
+      "box": [
+        98,
+        807,
+        457,
+        830
+      ],
+      "score": 0.9835962057113647
+    },
+    {
+      "text": "lo verás.",
+      "box": [
+        553,
+        814,
+        609,
+        833
+      ],
+      "score": 0.9892032146453857
+    },
+    {
+      "text": "que aquel á quien amas está enfermo.",
+      "box": [
+        86,
+        825,
+        317,
+        848
+      ],
+      "score": 0.9854720234870911
+    },
+    {
+      "text": "35. Entonces á Jesus se le arrasaron los ojos en lágrimas.",
+      "box": [
+        566,
+        825,
+        919,
+        848
+      ],
+      "score": 0.9881548285484314
+    },
+    {
+      "text": "4. Oyendo Jesus el recado, díjoles: Esta enfermedad no",
+      "box": [
+        97,
+        837,
+        458,
+        864
+      ],
+      "score": 0.9813206195831299
+    },
+    {
+      "text": "36. En vista de lo cual dijeron los Judíos: Mirad como le",
+      "box": [
+        566,
+        841,
+        920,
+        864
+      ],
+      "score": 0.9996086955070496
+    },
+    {
+      "text": "es mortal, sino que está ordenada para gloria de Dios, con la",
+      "box": [
+        85,
+        854,
+        458,
+        881
+      ],
+      "score": 0.9937306046485901
+    },
+    {
+      "text": "amaba.",
+      "box": [
+        553,
+        861,
+        602,
+        882
+      ],
+      "score": 0.9994121193885803
+    },
+    {
+      "text": "mira de que por ella el Hijo de Dios sea glorificado.",
+      "box": [
+        86,
+        872,
+        399,
+        896
+      ],
+      "score": 0.9964481592178345
+    },
+    {
+      "text": "37. Mas algunos de ellos dijeron: Pues éste, que abrió los",
+      "box": [
+        566,
+        873,
+        919,
+        896
+      ],
+      "score": 0.999523401260376
+    },
+    {
+      "text": "5. Jesus tenia particular afecto á Martha, y á su hermana",
+      "box": [
+        98,
+        887,
+        457,
+        911
+      ],
+      "score": 0.9841184616088867
+    },
+    {
+      "text": "ojos de un ciego de nacimiento, ¿no podia hacer que Lázaro",
+      "box": [
+        554,
+        889,
+        920,
+        914
+      ],
+      "score": 0.9986029863357544
+    },
+    {
+      "text": "María, y á Lázaro.",
+      "box": [
+        86,
+        908,
+        202,
+        927
+      ],
+      "score": 0.9890267848968506
+    },
+    {
+      "text": "no muriese?",
+      "box": [
+        554,
+        909,
+        631,
+        928
+      ],
+      "score": 0.9993757009506226
+    },
+    {
+      "text": "6. Cuando oyó que éste estaba enfermo, quedóse aun dos",
+      "box": [
+        98,
+        918,
+        457,
+        942
+      ],
+      "score": 0.9978203177452087
+    },
+    {
+      "text": "38. Finalmente prorumpiendo Jesus en nuevos sollozos,",
+      "box": [
+        566,
+        922,
+        919,
+        943
+      ],
+      "score": 0.9975956678390503
+    },
+    {
+      "text": "dias mas en el mismo lugar:",
+      "box": [
+        86,
+        937,
+        262,
+        959
+      ],
+      "score": 0.999679446220398
+    },
+    {
+      "text": "que le salian del corazon, vino al sepulero: que era una gruta",
+      "box": [
+        554,
+        939,
+        920,
+        959
+      ],
+      "score": 0.9867197275161743
+    },
+    {
+      "text": "7. Despues de pasados estos, dijo á sus discípulos: Vamos",
+      "box": [
+        97,
+        948,
+        457,
+        975
+      ],
+      "score": 0.9832576513290405
+    },
+    {
+      "text": "cerrada con una gran piedra.",
+      "box": [
+        554,
+        956,
+        732,
+        974
+      ],
+      "score": 0.9890560507774353
+    },
+    {
+      "text": "otra vez á la Judéa.",
+      "box": [
+        86,
+        970,
+        208,
+        991
+      ],
+      "score": 0.9565399885177612
+    },
+    {
+      "text": "39. Dijo Jesus: Quitad la piedra. Martha, hermana del di-",
+      "box": [
+        567,
+        969,
+        920,
+        989
+      ],
+      "score": 0.9965483546257019
+    },
+    {
+      "text": "8. Dícenle sus discípulos: Maestro, hace poco que los",
+      "box": [
+        98,
+        980,
+        457,
+        1006
+      ],
+      "score": 0.9881553649902344
+    },
+    {
+      "text": "funto, le respondió: Señor, mira que ya hiede, pucs hace ya",
+      "box": [
+        555,
+        986,
+        920,
+        1004
+      ],
+      "score": 0.9909378290176392
+    },
+    {
+      "text": "Judíos querian apedrearte, y ¿quieres volver allá?",
+      "box": [
+        86,
+        997,
+        387,
+        1022
+      ],
+      "score": 0.9920374155044556
+    },
+    {
+      "text": "cuatro dias que está ahí.",
+      "box": [
+        555,
+        1000,
+        703,
+        1020
+      ],
+      "score": 0.991972029209137
+    },
+    {
+      "text": "9. Jesus les respondió: Pues qué, ¿no son doce las horas",
+      "box": [
+        98,
+        1011,
+        457,
+        1038
+      ],
+      "score": 0.9934707880020142
+    },
+    {
+      "text": "40. Díjole Jesus: ¿No te he dicho que si creyeres, verás la",
+      "box": [
+        567,
+        1015,
+        919,
+        1035
+      ],
+      "score": 0.985213041305542
+    },
+    {
+      "text": "del día? El que anda de dia, no tropieza, porque ve la luz",
+      "box": [
+        85,
+        1028,
+        457,
+        1054
+      ],
+      "score": 0.9934790134429932
+    },
+    {
+      "text": "gloria de Dios?",
+      "box": [
+        555,
+        1033,
+        647,
+        1050
+      ],
+      "score": 0.9998371005058289
+    },
+    {
+      "text": "de este mundo:",
+      "box": [
+        86,
+        1050,
+        185,
+        1070
+      ],
+      "score": 0.9980276823043823
+    },
+    {
+      "text": "41. Quitaron pues la piedra: y Jesus levantando los ojos al",
+      "box": [
+        568,
+        1047,
+        919,
+        1065
+      ],
+      "score": 0.9906387329101562
+    },
+    {
+      "text": "10. Al contrario, quien anda de noche, tropieza, porque",
+      "box": [
+        99,
+        1060,
+        456,
+        1086
+      ],
+      "score": 0.9913778305053711
+    },
+    {
+      "text": "cielo, dijo: Oh Padre! gracias te doy porque me has oido:",
+      "box": [
+        555,
+        1063,
+        900,
+        1081
+      ],
+      "score": 0.9927675724029541
+    },
+    {
+      "text": "no tiene luz.",
+      "box": [
+        86,
+        1082,
+        167,
+        1102
+      ],
+      "score": 0.9995120763778687
+    },
+    {
+      "text": "42. Bien es verdad que yo ya sabia que siempre me oyes,",
+      "box": [
+        569,
+        1081,
+        918,
+        1095
+      ],
+      "score": 0.995749831199646
+    },
+    {
+      "text": "11. Así dijo, y añadióles despues: Nuestro amigo Lázaro",
+      "box": [
+        99,
+        1091,
+        456,
+        1117
+      ],
+      "score": 0.9988687038421631
+    },
+    {
+      "text": "mas lo he dicho por razon de este pueblo que está al redo-",
+      "box": [
+        554,
+        1094,
+        919,
+        1113
+      ],
+      "score": 0.9894587397575378
+    },
+    {
+      "text": "duerme: mas yo voy á despertarle del sueño.",
+      "box": [
+        87,
+        1110,
+        358,
+        1132
+      ],
+      "score": 0.9829843044281006
+    },
+    {
+      "text": "dor de mí: con el fin de que crean que tú eres el que me has",
+      "box": [
+        555,
+        1110,
+        919,
+        1128
+      ],
+      "score": 0.9972754716873169
+    },
+    {
+      "text": "12. Á lo que dijeron sus discípulos: Señor, si duerme,",
+      "box": [
+        99,
+        1123,
+        455,
+        1148
+      ],
+      "score": 0.9981390833854675
+    },
+    {
+      "text": "enviado.",
+      "box": [
+        555,
+        1128,
+        611,
+        1145
+      ],
+      "score": 0.9997684359550476
+    },
+    {
+      "text": "sanará.",
+      "box": [
+        86,
+        1145,
+        136,
+        1165
+      ],
+      "score": 0.9784682989120483
+    },
+    {
+      "text": "43. Dicho esto, gritó con voz muy alta ó sonora: Lázaro,",
+      "box": [
+        566,
+        1141,
+        919,
+        1160
+      ],
+      "score": 0.987071692943573
+    },
+    {
+      "text": "13. Mas Jesus habia hablado del sueño de la muerte: y",
+      "box": [
+        100,
+        1155,
+        456,
+        1178
+      ],
+      "score": 0.9986068606376648
+    },
+    {
+      "text": "sal á fuera.",
+      "box": [
+        555,
+        1161,
+        624,
+        1175
+      ],
+      "score": 0.9954478144645691
+    },
+    {
+      "text": "ellos pensaban que hablaba del sueño natural.",
+      "box": [
+        88,
+        1173,
+        363,
+        1194
+      ],
+      "score": 0.9999427199363708
+    },
+    {
+      "text": "44. Y al instante el que habia muerto salió fuera, ligado",
+      "box": [
+        566,
+        1172,
+        918,
+        1191
+      ],
+      "score": 0.9996167421340942
+    },
+    {
+      "text": "14.\" Entonces les dijo Jesus claramente: Lázaro ha muerto:",
+      "box": [
+        100,
+        1186,
+        457,
+        1210
+      ],
+      "score": 0.9751536250114441
+    },
+    {
+      "text": " Sedebat in domo: el verbo sedebat, que corresponde al griego",
+      "box": [
+        565,
+        1214,
+        919,
+        1228
+      ],
+      "score": 0.9814996123313904
+    },
+    {
+      "text": "1 Psalm. LXXXI, v. 6.",
+      "box": [
+        100,
+        1229,
+        222,
+        1243
+      ],
+      "score": 0.9359604120254517
+    },
+    {
+      "text": "Éxa0cțeto, tal vez denota la manera con que estaba María llorando ó",
+      "box": [
+        555,
+        1226,
+        920,
+        1241
+      ],
+      "score": 0.9129953384399414
+    },
+    {
+      "text": "3 Véase Jesu-Christo.",
+      "box": [
+        99,
+        1244,
+        212,
+        1257
+      ],
+      "score": 0.9545433521270752
+    },
+    {
+      "text": "haciendo el duelo; durante el cual estaban todos sentados en el suelo.",
+      "box": [
+        553,
+        1238,
+        920,
+        1256
+      ],
+      "score": 0.9954697489738464
+    },
+    {
+      "text": "aO Gemelo, viendo que no podian disuadir á Jesus de ir á Jeruselem,",
+      "box": [
+        95,
+        1251,
+        457,
+        1275
+      ],
+      "score": 0.8675697445869446
+    },
+    {
+      "text": "Ezech. VIII, v. 14.—Matth. XXVII, v. 61.",
+      "box": [
+        556,
+        1254,
+        777,
+        1268
+      ],
+      "score": 0.9637700319290161
+    },
+    {
+      "text": "en donde los Judíos habian de matarle.",
+      "box": [
+        86,
+        1269,
+        287,
+        1287
+      ],
+      "score": 0.9965896606445312
+    },
+    {
+      "text": "4 Véaso Estadio.",
+      "box": [
+        97,
+        1284,
+        189,
+        1297
+      ],
+      "score": 0.9339255094528198
+    }
+  ]
+}

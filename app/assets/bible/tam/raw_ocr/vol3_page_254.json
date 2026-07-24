@@ -1,0 +1,27 @@
+{
+  "volume": 3,
+  "page_index": 254,
+  "pdf_page": 255,
+  "lines": [
+    {
+      "text": "S心",
+      "box": [
+        111,
+        813,
+        212,
+        848
+      ],
+      "score": 0.32845717668533325
+    },
+    {
+      "text": "MIQUEAS EXHORTA AL PUEBLO DE ISRAEL Á LA PENITENCIA",
+      "box": [
+        405,
+        883,
+        980,
+        903
+      ],
+      "score": 0.9993778467178345
+    }
+  ]
+}

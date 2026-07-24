@@ -1,0 +1,1497 @@
+{
+  "volume": 1,
+  "page_index": 42,
+  "pdf_page": 43,
+  "lines": [
+    {
+      "text": "33",
+      "box": [
+        1,
+        32,
+        23,
+        49
+      ],
+      "score": 0.9999793767929077
+    },
+    {
+      "text": "GENESIS.",
+      "box": [
+        161,
+        33,
+        234,
+        50
+      ],
+      "score": 0.999946117401123
+    },
+    {
+      "text": "CAPITULO XXIV.",
+      "box": [
+        655,
+        27,
+        788,
+        51
+      ],
+      "score": 0.9878043532371521
+    },
+    {
+      "text": "34",
+      "box": [
+        890,
+        39,
+        910,
+        57
+      ],
+      "score": 0.9686596989631653
+    },
+    {
+      "text": "14. La doncella pues, á quien yo dijere: Baja tu cántaro",
+      "box": [
+        3,
+        73,
+        404,
+        99
+      ],
+      "score": 0.9957221150398254
+    },
+    {
+      "text": "40. Me respondió: El Señor, en cuya presencia ando, en-",
+      "box": [
+        527,
+        77,
+        918,
+        105
+      ],
+      "score": 0.990060567855835
+    },
+    {
+      "text": "ara que yo beba, y ella respondiere: Bebe, y aun á tus",
+      "box": [
+        0,
+        91,
+        405,
+        117
+      ],
+      "score": 0.9980926513671875
+    },
+    {
+      "text": "viará su Ángel contigo, y dirigirá tus pasos: y tú tomarás",
+      "box": [
+        513,
+        98,
+        916,
+        121
+      ],
+      "score": 0.9956466555595398
+    },
+    {
+      "text": "amellos daré tambien de beber: esa es la que tú tienes pre-",
+      "box": [
+        0,
+        109,
+        405,
+        134
+      ],
+      "score": 0.9979779720306396
+    },
+    {
+      "text": "para mi hijo mujer de mi parentela y de la casa de mi padre.",
+      "box": [
+        511,
+        114,
+        915,
+        140
+      ],
+      "score": 0.9925877451896667
+    },
+    {
+      "text": "parada para tu siervo Isaac: y en eso conoceré que has sido",
+      "box": [
+        0,
+        127,
+        405,
+        152
+      ],
+      "score": 0.9900833368301392
+    },
+    {
+      "text": "41. Mas si yendo á mis parientes, no quisieren dártela,",
+      "box": [
+        525,
+        131,
+        914,
+        158
+      ],
+      "score": 0.991196870803833
+    },
+    {
+      "text": "propicio á mi 1 amo.",
+      "box": [
+        0,
+        147,
+        134,
+        166
+      ],
+      "score": 0.9375213384628296
+    },
+    {
+      "text": "exento quedarás de mi maldicion ó libre del juramento.",
+      "box": [
+        512,
+        148,
+        882,
+        174
+      ],
+      "score": 0.985000729560852
+    },
+    {
+      "text": "15. No bien habia acabado de decir dentro de sí estas",
+      "box": [
+        7,
+        164,
+        404,
+        185
+      ],
+      "score": 0.9991639852523804
+    },
+    {
+      "text": "42. Llegué pues hoy á la fuente, y dije á Dios: Señor Dios",
+      "box": [
+        524,
+        165,
+        913,
+        191
+      ],
+      "score": 0.9920544028282166
+    },
+    {
+      "text": "palabras, cuando hé aquí Rebeca, hija de Bathuel, hijo de",
+      "box": [
+        0,
+        181,
+        404,
+        202
+      ],
+      "score": 0.9932625889778137
+    },
+    {
+      "text": "de mi amo Abraham, si es que has enderezado este mi ca-",
+      "box": [
+        513,
+        181,
+        913,
+        207
+      ],
+      "score": 0.9884856343269348
+    },
+    {
+      "text": "Melcha mujer de Nachor hermano de Abraham, que salia",
+      "box": [
+        0,
+        196,
+        404,
+        221
+      ],
+      "score": 0.9988346695899963
+    },
+    {
+      "text": "mino que traigo,",
+      "box": [
+        512,
+        197,
+        626,
+        217
+      ],
+      "score": 0.9994907975196838
+    },
+    {
+      "text": "con su cántaro al hombro;",
+      "box": [
+        0,
+        214,
+        178,
+        235
+      ],
+      "score": 0.9977427124977112
+    },
+    {
+      "text": "43. Hé aquí que estoy junto á esta fuente; haz pues que",
+      "box": [
+        524,
+        212,
+        913,
+        240
+      ],
+      "score": 0.9959582090377808
+    },
+    {
+      "text": "16. Jóven, en extremo agraciada, doncella hermosísima, y",
+      "box": [
+        7,
+        230,
+        405,
+        254
+      ],
+      "score": 0.9880432486534119
+    },
+    {
+      "text": "la doncella que salga á sacar agua, á quien yo diga: Dame á",
+      "box": [
+        510,
+        229,
+        915,
+        255
+      ],
+      "score": 0.9891566038131714
+    },
+    {
+      "text": "odavía vírgen: habia bajado ya á la fuente, y, llenado el",
+      "box": [
+        0,
+        245,
+        406,
+        273
+      ],
+      "score": 0.9923188090324402
+    },
+    {
+      "text": "beber un poco de agua de tu cántaro:",
+      "box": [
+        512,
+        246,
+        766,
+        266
+      ],
+      "score": 0.9737741947174072
+    },
+    {
+      "text": "ántaro,se volvia.",
+      "box": [
+        0,
+        262,
+        120,
+        284
+      ],
+      "score": 0.997817873954773
+    },
+    {
+      "text": "44. Y me responda: Bebe tú, que despues la sacaré tam-",
+      "box": [
+        525,
+        261,
+        915,
+        285
+      ],
+      "score": 0.9774157404899597
+    },
+    {
+      "text": "17. Fué pues á su encuentro el criado de Abraham, y le",
+      "box": [
+        5,
+        279,
+        404,
+        304
+      ],
+      "score": 0.9947353601455688
+    },
+    {
+      "text": "bien para tus camellos: sea esa la mujer que el Señor Dios",
+      "box": [
+        510,
+        277,
+        916,
+        301
+      ],
+      "score": 0.9995929598808289
+    },
+    {
+      "text": "lijo: Dame á beber un poquito de agua de tu cántaro.",
+      "box": [
+        0,
+        294,
+        355,
+        320
+      ],
+      "score": 0.9869950413703918
+    },
+    {
+      "text": "tiene destinada para el hijo de mi amo.",
+      "box": [
+        511,
+        294,
+        777,
+        313
+      ],
+      "score": 0.9890002608299255
+    },
+    {
+      "text": "18. La cual respondió: Bebe, señor mio: y diciendo y ha-",
+      "box": [
+        2,
+        309,
+        404,
+        338
+      ],
+      "score": 0.9769201278686523
+    },
+    {
+      "text": "45. Y cuando estaba yo rumiando en silencio estas cosas",
+      "box": [
+        524,
+        307,
+        916,
+        333
+      ],
+      "score": 0.9950097799301147
+    },
+    {
+      "text": "iendo, bajó el cántaro sobre su brazo, y le dió de beber.",
+      "box": [
+        0,
+        327,
+        371,
+        352
+      ],
+      "score": 0.9819865226745605
+    },
+    {
+      "text": "dentro de mí, ha comparecido Rebeca, que venia con su cán-",
+      "box": [
+        510,
+        323,
+        917,
+        349
+      ],
+      "score": 0.9997833967208862
+    },
+    {
+      "text": "19. Y acabando de darle de beber, añadió: Voy tambien á",
+      "box": [
+        2,
+        344,
+        403,
+        368
+      ],
+      "score": 0.9955779314041138
+    },
+    {
+      "text": "taro á cuestas, y ha bajado á la fuente, y sacado agua. Y hele",
+      "box": [
+        508,
+        339,
+        917,
+        366
+      ],
+      "score": 0.9922694563865662
+    },
+    {
+      "text": "acar agua para tus camellos, hasta que beban todos.",
+      "box": [
+        0,
+        361,
+        346,
+        385
+      ],
+      "score": 0.999411940574646
+    },
+    {
+      "text": "dicho yo: Dame un poco de beber.",
+      "box": [
+        511,
+        357,
+        744,
+        376
+      ],
+      "score": 0.9966849684715271
+    },
+    {
+      "text": "20. Y vaciando el cántaro en los canales ébebederos, fué",
+      "box": [
+        2,
+        377,
+        403,
+        400
+      ],
+      "score": 0.973785400390625
+    },
+    {
+      "text": "46. Al momento ha bajado ella el cántaro del hombro, y",
+      "box": [
+        522,
+        371,
+        917,
+        399
+      ],
+      "score": 0.9912312626838684
+    },
+    {
+      "text": "tra vez corriendo al pozo á sacar agua, que dió en seguida",
+      "box": [
+        0,
+        394,
+        402,
+        417
+      ],
+      "score": 0.9924684762954712
+    },
+    {
+      "text": "me ha dicho: Bebe tú, y voy tambien á dar de beber á tus",
+      "box": [
+        509,
+        389,
+        918,
+        414
+      ],
+      "score": 0.9964829683303833
+    },
+    {
+      "text": "todos los camellos.",
+      "box": [
+        0,
+        411,
+        135,
+        433
+      ],
+      "score": 0.999921977519989
+    },
+    {
+      "text": "camellos. Bebí pues, y ella ha abrevado mis camellos.",
+      "box": [
+        511,
+        406,
+        870,
+        428
+      ],
+      "score": 0.9812361598014832
+    },
+    {
+      "text": "21. Entre tanto la estaba él contemplando en silencio,",
+      "box": [
+        2,
+        427,
+        402,
+        449
+      ],
+      "score": 0.999748945236206
+    },
+    {
+      "text": "47. En seguida le he preguntado, y dicho: ¿De quién eres",
+      "box": [
+        524,
+        421,
+        918,
+        447
+      ],
+      "score": 0.9798031449317932
+    },
+    {
+      "text": "nsioso de saber si Dios habia prosperado ó no su viaje.",
+      "box": [
+        0,
+        444,
+        364,
+        465
+      ],
+      "score": 0.9895448088645935
+    },
+    {
+      "text": "hija? Soy hija de Bathuel, hijo de Nachor y de Melcha, ha",
+      "box": [
+        510,
+        438,
+        918,
+        463
+      ],
+      "score": 0.9979443550109863
+    },
+    {
+      "text": "22. Abrevados ya los camellos, lc presentó el hombre",
+      "box": [
+        1,
+        462,
+        401,
+        482
+      ],
+      "score": 0.9985982179641724
+    },
+    {
+      "text": "respondido ella. Luego le he puesto unos pendientes para",
+      "box": [
+        510,
+        455,
+        919,
+        481
+      ],
+      "score": 0.9915079474449158
+    },
+    {
+      "text": "nos pendientes de oro, quc pesaban dos siclos, y dos bra-",
+      "box": [
+        0,
+        479,
+        403,
+        499
+      ],
+      "score": 0.9995598196983337
+    },
+    {
+      "text": "adorno de su rostro, y unos brazaletes en sus manos.",
+      "box": [
+        511,
+        473,
+        863,
+        494
+      ],
+      "score": 0.9866034984588623
+    },
+    {
+      "text": "aletes que pesaban diez.",
+      "box": [
+        0,
+        496,
+        166,
+        515
+      ],
+      "score": 0.9981234669685364
+    },
+    {
+      "text": "48. Y al instante postrándome he adorado al Señor, ben-",
+      "box": [
+        525,
+        489,
+        920,
+        512
+      ],
+      "score": 0.9989410638809204
+    },
+    {
+      "text": "23. Y la preguntó: Dime, ¿de quién eres hija? ¿hay en",
+      "box": [
+        1,
+        512,
+        401,
+        532
+      ],
+      "score": 0.9943662881851196
+    },
+    {
+      "text": "diciendo al Señor Dios de mi amo Abraham, que me ha con-",
+      "box": [
+        511,
+        506,
+        919,
+        528
+      ],
+      "score": 0.999768078327179
+    },
+    {
+      "text": "asa de tu padre lugar para alojarme esta noche?",
+      "box": [
+        0,
+        531,
+        320,
+        548
+      ],
+      "score": 0.9913561344146729
+    },
+    {
+      "text": "ducido por camino recto á desposar una hija del hermano de",
+      "box": [
+        511,
+        524,
+        919,
+        545
+      ],
+      "score": 0.9995542764663696
+    },
+    {
+      "text": "24. Yo soy, respondió ella, hija de Bathuel, hijo de Mel-",
+      "box": [
+        1,
+        544,
+        402,
+        567
+      ],
+      "score": 0.9912523627281189
+    },
+    {
+      "text": "mi amo con su hijo.",
+      "box": [
+        511,
+        540,
+        650,
+        558
+      ],
+      "score": 0.9995975494384766
+    },
+    {
+      "text": "ha, y de Nachor su esposo.",
+      "box": [
+        0,
+        563,
+        182,
+        583
+      ],
+      "score": 0.9809475541114807
+    },
+    {
+      "text": "49. Por lo cual si quereis ser benéficos y leales con mi",
+      "box": [
+        525,
+        555,
+        919,
+        579
+      ],
+      "score": 0.9933182597160339
+    },
+    {
+      "text": "25. Y añadió: De paja y forrajc hay en casa provision",
+      "box": [
+        0,
+        576,
+        402,
+        602
+      ],
+      "score": 0.9697219729423523
+    },
+    {
+      "text": "amo ², declarádmelo: pero si pensais de otro modo, decídmelo",
+      "box": [
+        510,
+        571,
+        920,
+        595
+      ],
+      "score": 0.9779625535011292
+    },
+    {
+      "text": "bundante, y mucha capacidad para hospedaje.",
+      "box": [
+        0,
+        595,
+        312,
+        616
+      ],
+      "score": 0.9879211783409119
+    },
+    {
+      "text": "igualmente, para que yo siga mi rumbo á la derecha ó á la",
+      "box": [
+        510,
+        588,
+        921,
+        611
+      ],
+      "score": 0.9845611453056335
+    },
+    {
+      "text": "26. El hombre entonces inclinóse profundamente, y adoró",
+      "box": [
+        0,
+        608,
+        403,
+        635
+      ],
+      "score": 0.9804304838180542
+    },
+    {
+      "text": "izquierda.",
+      "box": [
+        512,
+        606,
+        583,
+        623
+      ],
+      "score": 0.9998283386230469
+    },
+    {
+      "text": "1 Señor,",
+      "box": [
+        0,
+        628,
+        59,
+        651
+      ],
+      "score": 0.964479923248291
+    },
+    {
+      "text": "50. Á esto respondieron Laban y Bathuel: Obra es esta del",
+      "box": [
+        524,
+        620,
+        919,
+        641
+      ],
+      "score": 0.9974166750907898
+    },
+    {
+      "text": "27. Diciendo: Bendito sea el Señor Dios de mi amo Abra-",
+      "box": [
+        0,
+        640,
+        403,
+        669
+      ],
+      "score": 0.9937350153923035
+    },
+    {
+      "text": "Señor: de ningun modo podemos oponernos á lo que es con-",
+      "box": [
+        511,
+        636,
+        920,
+        658
+      ],
+      "score": 0.9989582896232605
+    },
+    {
+      "text": "am, que tan propicio se ha mostrado con él segun la verdad",
+      "box": [
+        0,
+        657,
+        404,
+        687
+      ],
+      "score": 0.9969576001167297
+    },
+    {
+      "text": "forme á su voluntad.",
+      "box": [
+        513,
+        655,
+        655,
+        669
+      ],
+      "score": 0.9967001080513
+    },
+    {
+      "text": "51. Ahí tienes á Rebeca, tómala, y llévatela contigo, y sea",
+      "box": [
+        525,
+        669,
+        919,
+        689
+      ],
+      "score": 0.991538941860199
+    },
+    {
+      "text": "e sus promesas, guiándome via recta á la casa del hermano",
+      "box": [
+        0,
+        674,
+        403,
+        703
+      ],
+      "score": 0.9905769228935242
+    },
+    {
+      "text": "muy enhorabuena esposa del hijo de tu amo, conforme lo ha",
+      "box": [
+        511,
+        686,
+        920,
+        705
+      ],
+      "score": 0.9947050213813782
+    },
+    {
+      "text": "e mi amo.",
+      "box": [
+        0,
+        700,
+        72,
+        717
+      ],
+      "score": 0.998188853263855
+    },
+    {
+      "text": "manifestado el Señor.",
+      "box": [
+        513,
+        704,
+        659,
+        718
+      ],
+      "score": 0.9575812816619873
+    },
+    {
+      "text": "28. La muchacha se fué corriendo á casa de su madre, y",
+      "box": [
+        0,
+        706,
+        402,
+        735
+      ],
+      "score": 0.9985628724098206
+    },
+    {
+      "text": "52. Así que oyó esto el criado de Abraham, postrándose",
+      "box": [
+        524,
+        717,
+        922,
+        740
+      ],
+      "score": 0.9932240843772888
+    },
+    {
+      "text": "ontó todo cuanto habia oido.",
+      "box": [
+        0,
+        730,
+        197,
+        749
+      ],
+      "score": 0.9853633642196655
+    },
+    {
+      "text": "en tierra adoró al Señor.",
+      "box": [
+        510,
+        735,
+        679,
+        754
+      ],
+      "score": 0.9996681213378906
+    },
+    {
+      "text": "29. Tenia Rebeca un hermano llamado Laban, el cual salió",
+      "box": [
+        0,
+        738,
+        402,
+        768
+      ],
+      "score": 0.994909942150116
+    },
+    {
+      "text": "53. Y sacando alhajas de oro, y plata, y vestidos preciosos,",
+      "box": [
+        525,
+        752,
+        921,
+        772
+      ],
+      "score": 0.9802283048629761
+    },
+    {
+      "text": "toda prisa en busca del hombre, al lugar en que estaba la",
+      "box": [
+        0,
+        756,
+        402,
+        784
+      ],
+      "score": 0.9954624772071838
+    },
+    {
+      "text": "se los regaló á Rebeca, y ofreció tambien ricos presentes á",
+      "box": [
+        510,
+        768,
+        922,
+        790
+      ],
+      "score": 0.9845139384269714
+    },
+    {
+      "text": "iente.",
+      "box": [
+        0,
+        781,
+        42,
+        799
+      ],
+      "score": 0.928920328617096
+    },
+    {
+      "text": "sus hermanos, y á la madre.",
+      "box": [
+        510,
+        785,
+        705,
+        803
+      ],
+      "score": 0.9817566871643066
+    },
+    {
+      "text": "30. Y como habia visto ya los pendientes y los brazaletes",
+      "box": [
+        0,
+        788,
+        402,
+        816
+      ],
+      "score": 0.990993320941925
+    },
+    {
+      "text": "54. Comenzaron despues el convite, y permanccieron jun-",
+      "box": [
+        524,
+        801,
+        921,
+        821
+      ],
+      "score": 0.9953710436820984
+    },
+    {
+      "text": "n las manos de su hermana, la cual le habia contado tam-",
+      "box": [
+        0,
+        805,
+        403,
+        833
+      ],
+      "score": 0.9847291111946106
+    },
+    {
+      "text": "tos comiendo y bebiendo. Á la mañana levantándose el criado,",
+      "box": [
+        510,
+        817,
+        921,
+        839
+      ],
+      "score": 0.9972135424613953
+    },
+    {
+      "text": "ien todo cuanto le habia dicho aquel hombre: vino á en-",
+      "box": [
+        0,
+        823,
+        401,
+        847
+      ],
+      "score": 0.9923914670944214
+    },
+    {
+      "text": "dijo: Despachadme, á fin de que me pueda volver á mi amo.",
+      "box": [
+        510,
+        834,
+        921,
+        855
+      ],
+      "score": 0.981468141078949
+    },
+    {
+      "text": "ontrarle cuando estaba aun cerca de la fuente con sus",
+      "box": [
+        0,
+        840,
+        399,
+        863
+      ],
+      "score": 0.9926338791847229
+    },
+    {
+      "text": "55. Á lo que respondieron los hermanos y la madre: Es-",
+      "box": [
+        524,
+        851,
+        922,
+        872
+      ],
+      "score": 0.9890695214271545
+    },
+    {
+      "text": "mellos.",
+      "box": [
+        0,
+        862,
+        57,
+        879
+      ],
+      "score": 0.9719954133033752
+    },
+    {
+      "text": "tése la chica con nosotros diez dias siquiera, y despues",
+      "box": [
+        510,
+        867,
+        921,
+        889
+      ],
+      "score": 0.9926287531852722
+    },
+    {
+      "text": "31. Y le dijo: Entra, bendito del Señor: ¿qué haces ahí",
+      "box": [
+        0,
+        871,
+        400,
+        897
+      ],
+      "score": 0.9836546182632446
+    },
+    {
+      "text": "era? preparado he para tí hospedaje, y lugar tumbien para",
+      "box": [
+        0,
+        889,
+        399,
+        914
+      ],
+      "score": 0.9817434549331665
+    },
+    {
+      "text": "partirá.",
+      "box": [
+        510,
+        886,
+        569,
+        903
+      ],
+      "score": 0.9983255863189697
+    },
+    {
+      "text": "56. No querais detenerme, dijo él, ya que Dios ha prospe-",
+      "box": [
+        523,
+        899,
+        922,
+        922
+      ],
+      "score": 0.9979987740516663
+    },
+    {
+      "text": "is camellos.",
+      "box": [
+        0,
+        911,
+        84,
+        928
+      ],
+      "score": 0.9946820735931396
+    },
+    {
+      "text": "32. Con eso le introdujo en el alojamiento: y descargó los",
+      "box": [
+        0,
+        921,
+        398,
+        945
+      ],
+      "score": 0.9963620901107788
+    },
+    {
+      "text": "rado mi camino: dejadme volver á mi amo.",
+      "box": [
+        509,
+        917,
+        802,
+        935
+      ],
+      "score": 0.9977750778198242
+    },
+    {
+      "text": "57. Ellos replicaron: Llamemos á la chica, y veamos lo",
+      "box": [
+        521,
+        931,
+        922,
+        954
+      ],
+      "score": 0.9917528629302979
+    },
+    {
+      "text": "amellos, y les dió paja y heno, y trajo agua para lavar los",
+      "box": [
+        0,
+        938,
+        398,
+        962
+      ],
+      "score": 0.9930734038352966
+    },
+    {
+      "text": "iés así á él, como á los mozos que le acompañaban.",
+      "box": [
+        0,
+        955,
+        340,
+        979
+      ],
+      "score": 0.9806864857673645
+    },
+    {
+      "text": "que dice.",
+      "box": [
+        509,
+        950,
+        575,
+        967
+      ],
+      "score": 0.9999356865882874
+    },
+    {
+      "text": "58. Llamada pues, vino, y preguntáronla: ¿Quieres ir con",
+      "box": [
+        521,
+        963,
+        921,
+        987
+      ],
+      "score": 0.9985004663467407
+    },
+    {
+      "text": "33. Y pusiéronle delante la comida. Mas él dijo: No come-",
+      "box": [
+        0,
+        970,
+        399,
+        995
+      ],
+      "score": 0.9864928126335144
+    },
+    {
+      "text": "é, hasta que os haya expuesto mi comision. Dí pues: le",
+      "box": [
+        0,
+        986,
+        398,
+        1012
+      ],
+      "score": 0.9891979694366455
+    },
+    {
+      "text": "este hombre? Iré, respondió ella.",
+      "box": [
+        509,
+        984,
+        726,
+        998
+      ],
+      "score": 0.9984803795814514
+    },
+    {
+      "text": "59. Con eso la dejaron ir, acompañada de su ama de lc-",
+      "box": [
+        521,
+        995,
+        922,
+        1019
+      ],
+      "score": 0.9801843166351318
+    },
+    {
+      "text": "ontestó Laban.",
+      "box": [
+        0,
+        1009,
+        104,
+        1026
+      ],
+      "score": 0.9997887015342712
+    },
+    {
+      "text": "che, con el criado de Abraham, y sus compañeros,",
+      "box": [
+        508,
+        1013,
+        850,
+        1034
+      ],
+      "score": 0.9861709475517273
+    },
+    {
+      "text": "34. Entonces les habló él de esta manera: Yo soy criado de",
+      "box": [
+        1,
+        1019,
+        398,
+        1044
+      ],
+      "score": 0.9907515048980713
+    },
+    {
+      "text": "60. Deseando toda suerte de felicidades & su hermana, y",
+      "box": [
+        523,
+        1030,
+        919,
+        1052
+      ],
+      "score": 0.9870452880859375
+    },
+    {
+      "text": "Abraham:",
+      "box": [
+        0,
+        1040,
+        66,
+        1057
+      ],
+      "score": 0.9957919716835022
+    },
+    {
+      "text": "35. El Señor ha colmado de bendiciones á mi amo, y le ha",
+      "box": [
+        4,
+        1053,
+        397,
+        1074
+      ],
+      "score": 0.9848028421401978
+    },
+    {
+      "text": "diciendo: Hermana nuestra eres, oh! crezcas en mil y mil",
+      "box": [
+        508,
+        1047,
+        920,
+        1067
+      ],
+      "score": 0.9796476364135742
+    },
+    {
+      "text": "ngrandecido sobremanera: lhale dado ovejas y bueyes, plata",
+      "box": [
+        0,
+        1070,
+        397,
+        1092
+      ],
+      "score": 0.9746724963188171
+    },
+    {
+      "text": "generaciones, y apodérese tu posteridad de las ciudades de",
+      "box": [
+        507,
+        1064,
+        920,
+        1084
+      ],
+      "score": 0.9990338683128357
+    },
+    {
+      "text": "oro, esclavos y esclavas, camellos y asnos.",
+      "box": [
+        0,
+        1090,
+        284,
+        1107
+      ],
+      "score": 0.9922076463699341
+    },
+    {
+      "text": "sus enemigos.",
+      "box": [
+        507,
+        1081,
+        603,
+        1098
+      ],
+      "score": 0.9874664545059204
+    },
+    {
+      "text": "36. Sara mujer de mi amo le parió en su vejez un hijo, á",
+      "box": [
+        5,
+        1102,
+        397,
+        1124
+      ],
+      "score": 0.9879360198974609
+    },
+    {
+      "text": "61. Con csto Rebeca y sus doncellas, montando en los",
+      "box": [
+        520,
+        1094,
+        921,
+        1118
+      ],
+      "score": 0.9905512928962708
+    },
+    {
+      "text": "quien ha dado todos sus bienes.",
+      "box": [
+        0,
+        1120,
+        207,
+        1139
+      ],
+      "score": 0.9885798096656799
+    },
+    {
+      "text": "camellos, siguieron al hombre: el cual se volvia presuroso á",
+      "box": [
+        505,
+        1111,
+        921,
+        1136
+      ],
+      "score": 0.9923955202102661
+    },
+    {
+      "text": "37. Y mi amo me ha juramentado, diciendo: No tomarás",
+      "box": [
+        10,
+        1137,
+        395,
+        1154
+      ],
+      "score": 0.9896355271339417
+    },
+    {
+      "text": "casa de su amo.",
+      "box": [
+        507,
+        1130,
+        618,
+        1147
+      ],
+      "score": 0.9994296431541443
+    },
+    {
+      "text": "para mi hijo mujer de las hijas de los Chananeos, en cuya",
+      "box": [
+        0,
+        1149,
+        397,
+        1173
+      ],
+      "score": 0.9892698526382446
+    },
+    {
+      "text": "62. Al mismo tiempo Isaac se estaba paseando por el ca-",
+      "box": [
+        520,
+        1144,
+        920,
+        1170
+      ],
+      "score": 0.9891959428787231
+    },
+    {
+      "text": "tierra habito:",
+      "box": [
+        0,
+        1165,
+        91,
+        1184
+      ],
+      "score": 0.9958919882774353
+    },
+    {
+      "text": "mino que va al pozo llamado Pozo del Dios Viviente y que",
+      "box": [
+        505,
+        1161,
+        920,
+        1187
+      ],
+      "score": 0.9879611134529114
+    },
+    {
+      "text": "39. Sino que irás á la casa de mi padre, y traerás de mi",
+      "box": [
+        10,
+        1180,
+        396,
+        1204
+      ],
+      "score": 0.9886643290519714
+    },
+    {
+      "text": "Mira: porque moraba en la tierra meridional s no léjos de él:",
+      "box": [
+        505,
+        1179,
+        920,
+        1202
+      ],
+      "score": 0.9689972400665283
+    },
+    {
+      "text": "linaje una mujer para mi hijo.",
+      "box": [
+        0,
+        1196,
+        197,
+        1217
+      ],
+      "score": 0.9781948924064636
+    },
+    {
+      "text": "63. Y habia salido al campo á meditar, caido ya el dia: y",
+      "box": [
+        520,
+        1195,
+        920,
+        1219
+      ],
+      "score": 0.9679706692695618
+    },
+    {
+      "text": "30. Y replicándole yo: Quizá la mujer no querrá seguirme,",
+      "box": [
+        10,
+        1211,
+        394,
+        1237
+      ],
+      "score": 0.9850820302963257
+    },
+    {
+      "text": "habiendo alzado los ojos, vió venir á los camellos á lo lejos.",
+      "box": [
+        504,
+        1212,
+        919,
+        1235
+      ],
+      "score": 0.9932905435562134
+    },
+    {
+      "text": "1 Buscó esta señal por particular instinto del Espíritu Santo; señal de",
+      "box": [
+        8,
+        1233,
+        396,
+        1261
+      ],
+      "score": 0.9794538021087646
+    },
+    {
+      "text": "* Tambien puede traducirse: Si verdaderamente deseais complacerle,",
+      "box": [
+        517,
+        1235,
+        919,
+        1258
+      ],
+      "score": 0.9894912242889404
+    },
+    {
+      "text": "buena índole, de ser afable, hacendosa, ete.",
+      "box": [
+        0,
+        1249,
+        235,
+        1271
+      ],
+      "score": 0.9755706191062927
+    },
+    {
+      "text": "ó, si verdaderamente deseais hacerle este servicio.",
+      "box": [
+        504,
+        1250,
+        787,
+        1271
+      ],
+      "score": 0.9876178503036499
+    },
+    {
+      "text": "3 Cap. XVI, v. 14.",
+      "box": [
+        516,
+        1262,
+        627,
+        1282
+      ],
+      "score": 0.9565138220787048
+    }
+  ]
+}

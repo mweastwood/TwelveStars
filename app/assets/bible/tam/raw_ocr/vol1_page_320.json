@@ -1,0 +1,1487 @@
+{
+  "volume": 1,
+  "page_index": 320,
+  "pdf_page": 321,
+  "lines": [
+    {
+      "text": "345",
+      "box": [
+        66,
+        25,
+        88,
+        41
+      ],
+      "score": 0.9994707107543945
+    },
+    {
+      "text": "JUECES.",
+      "box": [
+        212,
+        25,
+        275,
+        42
+      ],
+      "score": 0.9999241232872009
+    },
+    {
+      "text": "CAPITULO XVI.",
+      "box": [
+        661,
+        19,
+        775,
+        39
+      ],
+      "score": 0.9963579177856445
+    },
+    {
+      "text": "346",
+      "box": [
+        869,
+        24,
+        893,
+        41
+      ],
+      "score": 0.9985175728797913
+    },
+    {
+      "text": "CAPITULO XV",
+      "box": [
+        195,
+        68,
+        294,
+        85
+      ],
+      "score": 0.9996528029441833
+    },
+    {
+      "text": "17. Y acabando de cantar estas palabras, arrojó de su",
+      "box": [
+        539,
+        65,
+        901,
+        88
+      ],
+      "score": 0.9997840523719788
+    },
+    {
+      "text": "Quema Samson los trigos de los Philisthéos; mata mil de ellos con la",
+      "box": [
+        56,
+        90,
+        433,
+        114
+      ],
+      "score": 0.9921848177909851
+    },
+    {
+      "text": "mano la quijada y llamó aquel sitio Ramath-lechi, que quiere",
+      "box": [
+        526,
+        83,
+        899,
+        105
+      ],
+      "score": 0.9968706965446472
+    },
+    {
+      "text": "quijada de un jumento.",
+      "box": [
+        183,
+        111,
+        308,
+        128
+      ],
+      "score": 0.9995958209037781
+    },
+    {
+      "text": "decir: Elevacion de la quijada.",
+      "box": [
+        527,
+        101,
+        714,
+        120
+      ],
+      "score": 0.9961162209510803
+    },
+    {
+      "text": "18. Y acosado en extremo de la sed, clamó al Señor, y",
+      "box": [
+        539,
+        119,
+        897,
+        136
+      ],
+      "score": 0.9992055296897888
+    },
+    {
+      "text": "1. Pasado algun tiempo, acercándose ya la siega de los",
+      "box": [
+        67,
+        132,
+        433,
+        159
+      ],
+      "score": 0.9975079894065857
+    },
+    {
+      "text": "dijo: Tú eres el que has salvado y concedido por medio de",
+      "box": [
+        529,
+        137,
+        896,
+        151
+      ],
+      "score": 0.996936559677124
+    },
+    {
+      "text": "trigos, fué Samson con deseo de visitar á su mujer, y llevóle",
+      "box": [
+        57,
+        150,
+        432,
+        174
+      ],
+      "score": 0.9928929805755615
+    },
+    {
+      "text": "tu siervo tan gran victoria; pero hé aquí que me muero de",
+      "box": [
+        528,
+        152,
+        897,
+        169
+      ],
+      "score": 0.9960218667984009
+    },
+    {
+      "text": "un cabrito de leche. Pero al querer entrar en su aposento,",
+      "box": [
+        57,
+        167,
+        432,
+        191
+      ],
+      "score": 0.9938368201255798
+    },
+    {
+      "text": "sed, y así vendré á caer en manos de los incircuncisos.",
+      "box": [
+        528,
+        169,
+        856,
+        183
+      ],
+      "score": 0.9992104768753052
+    },
+    {
+      "text": "como acostumbraba, el padre de ella se lo impidió, diciendo:",
+      "box": [
+        56,
+        184,
+        432,
+        207
+      ],
+      "score": 0.9937726855278015
+    },
+    {
+      "text": "19. El Señor entonces abrió una fuente por entre una",
+      "box": [
+        536,
+        182,
+        897,
+        200
+      ],
+      "score": 0.9872218370437622
+    },
+    {
+      "text": "2. Yo creí que la habias aborrecido, y por eso la dí á un",
+      "box": [
+        69,
+        201,
+        432,
+        224
+      ],
+      "score": 0.9945204257965088
+    },
+    {
+      "text": "muela de la quijada del asno, y brotaron aguas de ella : de",
+      "box": [
+        529,
+        201,
+        896,
+        215
+      ],
+      "score": 0.9925069212913513
+    },
+    {
+      "text": "amigo tuyo; pero tiene una hermana-mas jóven y mas her-",
+      "box": [
+        57,
+        217,
+        432,
+        240
+      ],
+      "score": 0.9815334677696228
+    },
+    {
+      "text": "las que habiendo bebido, refociló su espíritu, y recobró las",
+      "box": [
+        528,
+        217,
+        895,
+        231
+      ],
+      "score": 0.9992164969444275
+    },
+    {
+      "text": "mosa; tómala por mujer en lugar de la otra.",
+      "box": [
+        57,
+        234,
+        331,
+        257
+      ],
+      "score": 0.990604817867279
+    },
+    {
+      "text": "fuerzas. Por eso es llamado aquel lugar hasta hoy, Fuente del",
+      "box": [
+        528,
+        233,
+        895,
+        247
+      ],
+      "score": 0.9852399826049805
+    },
+    {
+      "text": "3. Respondióle Samson: De hoy mas no tendrán motivo",
+      "box": [
+        70,
+        250,
+        432,
+        272
+      ],
+      "score": 0.998989462852478
+    },
+    {
+      "text": "que invocó á Dios en Lechi.",
+      "box": [
+        527,
+        246,
+        699,
+        265
+      ],
+      "score": 0.9988405704498291
+    },
+    {
+      "text": "de quejarse de mí los Philisthéos, si les pago todo el daño",
+      "box": [
+        57,
+        266,
+        431,
+        289
+      ],
+      "score": 0.9948326349258423
+    },
+    {
+      "text": "20. Y Samson, elegido juez. gobernó á Israél veinte años",
+      "box": [
+        540,
+        264,
+        895,
+        278
+      ],
+      "score": 0.9803467988967896
+    },
+    {
+      "text": "que me han hecho ¹.",
+      "box": [
+        57,
+        282,
+        188,
+        304
+      ],
+      "score": 0.9572765231132507
+    },
+    {
+      "text": "en tiempo de las guerras de los Philisthéos.",
+      "box": [
+        529,
+        280,
+        792,
+        294
+      ],
+      "score": 0.9966390132904053
+    },
+    {
+      "text": "4. Marchóse pues y cogió trescientas raposas , y atólas",
+      "box": [
+        69,
+        298,
+        432,
+        320
+      ],
+      "score": 0.9907479286193848
+    },
+    {
+      "text": "apareadas cola con cola, ligando teas en medio;",
+      "box": [
+        57,
+        314,
+        353,
+        337
+      ],
+      "score": 0.9963697195053101
+    },
+    {
+      "text": "CAPITULO XVI",
+      "box": [
+        663,
+        312,
+        765,
+        329
+      ],
+      "score": 0.9996932148933411
+    },
+    {
+      "text": "5. Las cuales encendidas, soltó las raposas á fin de que",
+      "box": [
+        68,
+        328,
+        433,
+        355
+      ],
+      "score": 0.9677833914756775
+    },
+    {
+      "text": "corrieson por todas partes. Metiéronse luego por entre las",
+      "box": [
+        57,
+        344,
+        433,
+        371
+      ],
+      "score": 0.9329305291175842
+    },
+    {
+      "text": "Sale Samson de Gaza, arraneando y llevándose las puertas de la ciudad.",
+      "box": [
+        526,
+        347,
+        895,
+        366
+      ],
+      "score": 0.9931889176368713
+    },
+    {
+      "text": "mieses de los Philisthéos; é incendiadas estas, se quemaron",
+      "box": [
+        56,
+        360,
+        433,
+        387
+      ],
+      "score": 0.8230499029159546
+    },
+    {
+      "text": "Descubre Dálila el secreto de las fuerzas do Samson: los Philisthéos le",
+      "box": [
+        537,
+        362,
+        896,
+        380
+      ],
+      "score": 0.9888389706611633
+    },
+    {
+      "text": "así las mieses ya hacinadas como las que estaban por segar;",
+      "box": [
+        56,
+        376,
+        434,
+        404
+      ],
+      "score": 0.9709975719451904
+    },
+    {
+      "text": "sacan los ojos, destituido ya de sus fuerzas; pero las recobra y muere",
+      "box": [
+        537,
+        376,
+        895,
+        395
+      ],
+      "score": 0.9965786337852478
+    },
+    {
+      "text": "extendiéndose tanto la llama, que abrasó hasta las viñas y los",
+      "box": [
+        55,
+        394,
+        433,
+        420
+      ],
+      "score": 0.9830692410469055
+    },
+    {
+      "text": "matando millares de enemigos.",
+      "box": [
+        539,
+        392,
+        700,
+        406
+      ],
+      "score": 0.9999114871025085
+    },
+    {
+      "text": "olivares.",
+      "box": [
+        58,
+        412,
+        113,
+        430
+      ],
+      "score": 0.9998539686203003
+    },
+    {
+      "text": "6. Y dijeron los Philisthéos: ¿Quién ha hecho esto? Res-",
+      "box": [
+        68,
+        426,
+        434,
+        451
+      ],
+      "score": 0.9759284853935242
+    },
+    {
+      "text": "1. Fué despues Samson á Gaza donde vió una mujer ",
+      "box": [
+        539,
+        422,
+        895,
+        441
+      ],
+      "score": 0.9830263257026672
+    },
+    {
+      "text": "pondióseles: Samson, yerno del Thamnathéo, es el que lo ha",
+      "box": [
+        56,
+        445,
+        433,
+        468
+      ],
+      "score": 0.9962227940559387
+    },
+    {
+      "text": "pública, y entró en su casa:",
+      "box": [
+        529,
+        440,
+        697,
+        457
+      ],
+      "score": 0.9989963173866272
+    },
+    {
+      "text": "hecho, porque su suegro le quitó su mujer y se la dió á otro.",
+      "box": [
+        56,
+        461,
+        433,
+        484
+      ],
+      "score": 0.9776308536529541
+    },
+    {
+      "text": "2. Lo que sabiendo los Philisthéos, y propalándose entre",
+      "box": [
+        539,
+        455,
+        895,
+        474
+      ],
+      "score": 0.999700665473938
+    },
+    {
+      "text": "Oido esto, vinieron los Philisthéos y quemaron á la mujer y",
+      "box": [
+        56,
+        478,
+        433,
+        501
+      ],
+      "score": 0.9702655076980591
+    },
+    {
+      "text": "ellos que Samson habia entrado en la ciudad, cercaron la",
+      "box": [
+        528,
+        472,
+        896,
+        490
+      ],
+      "score": 0.9948287606239319
+    },
+    {
+      "text": "á su padre.",
+      "box": [
+        55,
+        495,
+        129,
+        515
+      ],
+      "score": 0.9927521347999573
+    },
+    {
+      "text": "casa, y pusieron centinelas á la puerta de la ciudad, y estu-",
+      "box": [
+        530,
+        489,
+        896,
+        506
+      ],
+      "score": 0.9906708002090454
+    },
+    {
+      "text": "7. Díjoles Samson: Aunque habeis ejecutado esto ³, no",
+      "box": [
+        69,
+        510,
+        433,
+        532
+      ],
+      "score": 0.9829047322273254
+    },
+    {
+      "text": "vieron en acecho toda la noche, con el fin de matarle por la",
+      "box": [
+        531,
+        507,
+        895,
+        521
+      ],
+      "score": 0.9993427991867065
+    },
+    {
+      "text": "obstante he de tomar yo otra venganza de vosotros, despues",
+      "box": [
+        56,
+        527,
+        433,
+        549
+      ],
+      "score": 0.9907535314559937
+    },
+    {
+      "text": "mañana al tiempo de salir.",
+      "box": [
+        529,
+        520,
+        693,
+        538
+      ],
+      "score": 0.9992764592170715
+    },
+    {
+      "text": "de la cual me daré por satisfecho.",
+      "box": [
+        58,
+        546,
+        270,
+        565
+      ],
+      "score": 0.9958096742630005
+    },
+    {
+      "text": "3. Samson durmió hasta la media noche; y entonces",
+      "box": [
+        540,
+        536,
+        895,
+        554
+      ],
+      "score": 0.9997053146362305
+    },
+    {
+      "text": "8. Hizo, pues, gran destrozo en ellos: de manera que ató-",
+      "box": [
+        68,
+        558,
+        433,
+        583
+      ],
+      "score": 0.991243302822113
+    },
+    {
+      "text": "levantándose fué y arrancó las dos hojas de la puerta de la",
+      "box": [
+        528,
+        552,
+        896,
+        570
+      ],
+      "score": 0.9889973402023315
+    },
+    {
+      "text": "nitos se quedaban sentados puesta una pierna sobre otra sin",
+      "box": [
+        56,
+        574,
+        433,
+        599
+      ],
+      "score": 0.994628369808197
+    },
+    {
+      "text": "ciudad con sus pilares y cerrojos ó barras, y echándosclas",
+      "box": [
+        529,
+        567,
+        896,
+        587
+      ],
+      "score": 0.9782181978225708
+    },
+    {
+      "text": "á cuestas, llevólas á la cima del monte que mira hácia He-",
+      "box": [
+        529,
+        583,
+        896,
+        602
+      ],
+      "score": 0.996673047542572
+    },
+    {
+      "text": "saber qué hacerse. Despues de lo cual, retirándose Samson,",
+      "box": [
+        56,
+        590,
+        431,
+        616
+      ],
+      "score": 0.9619917273521423
+    },
+    {
+      "text": "bron 8.",
+      "box": [
+        528,
+        599,
+        576,
+        619
+      ],
+      "score": 0.9911898970603943
+    },
+    {
+      "text": "habitó en la cueva de la peña de Etam.",
+      "box": [
+        57,
+        611,
+        300,
+        629
+      ],
+      "score": 0.9987013936042786
+    },
+    {
+      "text": "4. Despues de esto enamoróse de una mujer que habitaba",
+      "box": [
+        540,
+        614,
+        895,
+        633
+      ],
+      "score": 0.9998062252998352
+    },
+    {
+      "text": "9. Entre tanto los Philisthéos entrando por la tierra de",
+      "box": [
+        68,
+        621,
+        433,
+        648
+      ],
+      "score": 0.9997353553771973
+    },
+    {
+      "text": "en el valle Sorec, llamada Dálila 9.",
+      "box": [
+        529,
+        630,
+        736,
+        649
+      ],
+      "score": 0.9722920656204224
+    },
+    {
+      "text": "Judá, acamparon en un lugar, que despues se llamó Lechi,",
+      "box": [
+        56,
+        637,
+        433,
+        665
+      ],
+      "score": 0.9983776211738586
+    },
+    {
+      "text": "5. Vinieron luego á ella los príncipes de los Philisthéos, y",
+      "box": [
+        542,
+        648,
+        895,
+        665
+      ],
+      "score": 0.9979894757270813
+    },
+    {
+      "text": "esto es, Quijada, donde fué derrotado su ejército.",
+      "box": [
+        57,
+        656,
+        361,
+        680
+      ],
+      "score": 0.9943733811378479
+    },
+    {
+      "text": "le dijeron: Engáñale con caricias, y averigua de él de dónde",
+      "box": [
+        530,
+        663,
+        895,
+        682
+      ],
+      "score": 0.9901484251022339
+    },
+    {
+      "text": "10. Y los de la tribu de Judá les preguntaron: ¿Por qué",
+      "box": [
+        71,
+        670,
+        433,
+        695
+      ],
+      "score": 0.9978718161582947
+    },
+    {
+      "text": "le viene tan gran fuerza, y cómo le podremos sojuzgar para",
+      "box": [
+        530,
+        680,
+        895,
+        698
+      ],
+      "score": 0.998497724533081
+    },
+    {
+      "text": "motivo venís contra nosotros? Respondieron ellos: Venimos",
+      "box": [
+        56,
+        686,
+        433,
+        712
+      ],
+      "score": 0.9935492277145386
+    },
+    {
+      "text": "castigarle despues de atado: que si lo consiguieres, to dare-",
+      "box": [
+        531,
+        695,
+        895,
+        715
+      ],
+      "score": 0.9882018566131592
+    },
+    {
+      "text": "para llevarnos atado á Samson, y retornarle el mal que nos",
+      "box": [
+        57,
+        703,
+        433,
+        728
+      ],
+      "score": 0.9857864379882812
+    },
+    {
+      "text": "mos cada uno mil y cien siclos de plata 10.",
+      "box": [
+        529,
+        711,
+        781,
+        731
+      ],
+      "score": 0.9875938892364502
+    },
+    {
+      "text": "ha hecho.",
+      "box": [
+        58,
+        726,
+        122,
+        743
+      ],
+      "score": 0.9984332323074341
+    },
+    {
+      "text": "6. En vista de esto Dálila habló así á Samson: Díme por",
+      "box": [
+        542,
+        728,
+        895,
+        747
+      ],
+      "score": 0.9990851879119873
+    },
+    {
+      "text": "11. Bajaron pues tres mil hombres de Judá á la cueva de",
+      "box": [
+        70,
+        734,
+        432,
+        758
+      ],
+      "score": 0.9968854784965515
+    },
+    {
+      "text": "tu vida: ¿en qué consiste tu grandísima fuerza, y cuál es la",
+      "box": [
+        530,
+        744,
+        895,
+        764
+      ],
+      "score": 0.991914689540863
+    },
+    {
+      "text": "la peña de Etam; y dijeron á Samson: ¿No sabes que esta-",
+      "box": [
+        57,
+        751,
+        433,
+        774
+      ],
+      "score": 0.9915142059326172
+    },
+    {
+      "text": "cosa con que atado no podrias escaparte?",
+      "box": [
+        529,
+        760,
+        776,
+        780
+      ],
+      "score": 0.9924318194389343
+    },
+    {
+      "text": "mos sujetos á los Philisthéos? ¿Cómo has osado cometer tal",
+      "box": [
+        57,
+        767,
+        432,
+        790
+      ],
+      "score": 0.9890965223312378
+    },
+    {
+      "text": "7. Respondióle Samson: Si me ataren con siete cuerdas de",
+      "box": [
+        541,
+        776,
+        896,
+        796
+      ],
+      "score": 0.982341468334198
+    },
+    {
+      "text": "desafuero para nuestra ruina? A los cuales respondió: Como",
+      "box": [
+        57,
+        782,
+        433,
+        805
+      ],
+      "score": 0.9838938117027283
+    },
+    {
+      "text": "ellos hicieron conmigo, así he hecho yo con ellos.",
+      "box": [
+        57,
+        800,
+        362,
+        820
+      ],
+      "score": 0.9850502014160156
+    },
+    {
+      "text": "nervios recientes y todavía húmedos, quedaré sin fuerzas",
+      "box": [
+        529,
+        793,
+        896,
+        813
+      ],
+      "score": 0.9987906217575073
+    },
+    {
+      "text": "12. Pues sábete, le dicen, que venimos á prenderte y á",
+      "box": [
+        70,
+        815,
+        433,
+        836
+      ],
+      "score": 0.9917738437652588
+    },
+    {
+      "text": "como los demás hombres.",
+      "box": [
+        529,
+        810,
+        684,
+        829
+      ],
+      "score": 0.9843938946723938
+    },
+    {
+      "text": "entregarte atado en manos de los Philisthéos 4. Díjoles",
+      "box": [
+        57,
+        831,
+        432,
+        851
+      ],
+      "score": 0.9778770208358765
+    },
+    {
+      "text": "8. Lleváronla pues los príncipes de los Philisthéos siete",
+      "box": [
+        540,
+        824,
+        896,
+        846
+      ],
+      "score": 0.9906197786331177
+    },
+    {
+      "text": "Samson: Juradme y prometedme que no me matareis.",
+      "box": [
+        56,
+        847,
+        391,
+        866
+      ],
+      "score": 0.9947719573974609
+    },
+    {
+      "text": "cordeles, como habia dicho, con los cuales ella le ató:",
+      "box": [
+        529,
+        842,
+        849,
+        861
+      ],
+      "score": 0.9985468983650208
+    },
+    {
+      "text": "13. No te mataremos, respondieron: solamente te entre-",
+      "box": [
+        71,
+        862,
+        432,
+        881
+      ],
+      "score": 0.9978209137916565
+    },
+    {
+      "text": "9. Quedándose aquellos en acecho, escondidos en la casa.",
+      "box": [
+        540,
+        858,
+        898,
+        878
+      ],
+      "score": 0.9869275093078613
+    },
+    {
+      "text": "garemos atado. Atáronle pues con dos cuerdas nuevas, y le",
+      "box": [
+        57,
+        878,
+        431,
+        897
+      ],
+      "score": 0.9916672110557556
+    },
+    {
+      "text": "aguardando en una pieza retirada el fin de este suceso. Luego",
+      "box": [
+        528,
+        875,
+        897,
+        894
+      ],
+      "score": 0.9903693199157715
+    },
+    {
+      "text": "sacaron de la peña de Etam.",
+      "box": [
+        56,
+        894,
+        235,
+        912
+      ],
+      "score": 0.9850026369094849
+    },
+    {
+      "text": "Dálila le gritó: Samson, los Philisthéos se echan sobre tí.",
+      "box": [
+        529,
+        891,
+        899,
+        909
+      ],
+      "score": 0.9894159436225891
+    },
+    {
+      "text": "14. Llegado que hubo al lugar que despues se llamó Qui-",
+      "box": [
+        71,
+        909,
+        430,
+        928
+      ],
+      "score": 0.9861772656440735
+    },
+    {
+      "text": "Mas él rompió las ataduras, como cualquiera romperia un",
+      "box": [
+        531,
+        909,
+        898,
+        923
+      ],
+      "score": 0.9995344877243042
+    },
+    {
+      "text": "jada, saliéndole á recibir los Philisthéos con grande algazara,",
+      "box": [
+        55,
+        926,
+        430,
+        944
+      ],
+      "score": 0.9971497058868408
+    },
+    {
+      "text": "hilo torcido de borra de estopa, así que le hiciera sentir el",
+      "box": [
+        530,
+        925,
+        898,
+        939
+      ],
+      "score": 0.9904113411903381
+    },
+    {
+      "text": "se apoderó de él el espíritu del Señor; y como se consume el",
+      "box": [
+        55,
+        942,
+        430,
+        961
+      ],
+      "score": 0.9992504715919495
+    },
+    {
+      "text": "fuego. Con esto no se supo en qué consistia su fuerza.",
+      "box": [
+        529,
+        940,
+        852,
+        957
+      ],
+      "score": 0.9922318458557129
+    },
+    {
+      "text": "lino al sentir el fuego, así en un momento rompió y deshizo",
+      "box": [
+        55,
+        958,
+        429,
+        977
+      ],
+      "score": 0.9899440407752991
+    },
+    {
+      "text": "10. Entonces le dijo Dálila: Tú te has burlado de mí, y",
+      "box": [
+        540,
+        956,
+        898,
+        973
+      ],
+      "score": 0.9977574348449707
+    },
+    {
+      "text": "Samson las ligaduras con que estaba atado.",
+      "box": [
+        55,
+        975,
+        323,
+        995
+      ],
+      "score": 0.9998102784156799
+    },
+    {
+      "text": "me has mentido: por lo menos ahora descúbreme con qué",
+      "box": [
+        526,
+        970,
+        900,
+        991
+      ],
+      "score": 0.9990663528442383
+    },
+    {
+      "text": "15. Y hallando á mano en el suelo una quijada ó mandí-",
+      "box": [
+        67,
+        989,
+        429,
+        1013
+      ],
+      "score": 0.9908998012542725
+    },
+    {
+      "text": "debieras ser atado.",
+      "box": [
+        528,
+        987,
+        645,
+        1006
+      ],
+      "score": 0.9999231100082397
+    },
+    {
+      "text": "bula de asno, agarróla, y mató despues con ella mil hom-",
+      "box": [
+        54,
+        1007,
+        428,
+        1029
+      ],
+      "score": 0.9988939166069031
+    },
+    {
+      "text": "11. Respondióle: Si me ataren con cuerdas nuevas, que",
+      "box": [
+        540,
+        1003,
+        899,
+        1023
+      ],
+      "score": 0.9941429495811462
+    },
+    {
+      "text": "bres 5.",
+      "box": [
+        54,
+        1027,
+        97,
+        1045
+      ],
+      "score": 0.9794579148292542
+    },
+    {
+      "text": "nunea hayan servido, quedaré débil y semejante á los demás",
+      "box": [
+        527,
+        1021,
+        898,
+        1038
+      ],
+      "score": 0.9928818345069885
+    },
+    {
+      "text": "16. Con cuyo motivo dijo: Con una quijada de asno los",
+      "box": [
+        66,
+        1040,
+        428,
+        1061
+      ],
+      "score": 0.9980035424232483
+    },
+    {
+      "text": "hombres.",
+      "box": [
+        528,
+        1038,
+        588,
+        1055
+      ],
+      "score": 0.9999793767929077
+    },
+    {
+      "text": "enemigos destrocé: con la mandíbula de un asno á mil hom-",
+      "box": [
+        52,
+        1057,
+        428,
+        1079
+      ],
+      "score": 0.9880983829498291
+    },
+    {
+      "text": "12. Atóle por consiguiente Dálila con ellas; y preparadas",
+      "box": [
+        541,
+        1054,
+        900,
+        1071
+      ],
+      "score": 0.9975598454475403
+    },
+    {
+      "text": "bres maté.",
+      "box": [
+        51,
+        1075,
+        123,
+        1096
+      ],
+      "score": 0.9996433258056641
+    },
+    {
+      "text": "en el aposento las asechanzas, gritó: Samson, los Philis-",
+      "box": [
+        527,
+        1068,
+        900,
+        1089
+      ],
+      "score": 0.9894525408744812
+    },
+    {
+      "text": " La palabra hebrea , que corresponde á la latina meretrix en la",
+      "box": [
+        537,
+        1111,
+        902,
+        1129
+      ],
+      "score": 0.9776391983032227
+    },
+    {
+      "text": ":Quitándome mi mujer.",
+      "box": [
+        63,
+        1120,
+        201,
+        1139
+      ],
+      "score": 0.9747238159179688
+    },
+    {
+      "text": "* De que abunda muchísimo la Palestina; y para lo cual le ayudarian",
+      "box": [
+        61,
+        1131,
+        426,
+        1153
+      ],
+      "score": 0.9864566922187805
+    },
+    {
+      "text": "Vulgata, puede venir de la voz zun, alimentar, y significar una mesonera,",
+      "box": [
+        530,
+        1129,
+        902,
+        1143
+      ],
+      "score": 0.9874415993690491
+    },
+    {
+      "text": "otros. Thren. V, v. 18.—Ezech. XIII, v. 4.",
+      "box": [
+        49,
+        1147,
+        277,
+        1167
+      ],
+      "score": 0.9601003527641296
+    },
+    {
+      "text": "ó posadera. Véase Cor. XI, v. 1, y Josué II, v. 1.",
+      "box": [
+        527,
+        1140,
+        785,
+        1159
+      ],
+      "score": 0.9515895247459412
+    },
+    {
+      "text": "3 Como para darme satisfaccion.",
+      "box": [
+        61,
+        1161,
+        240,
+        1181
+      ],
+      "score": 0.9867106676101685
+    },
+    {
+      "text": "8 A unas dos leguas de distancia.-Samson, abriendo á media noche",
+      "box": [
+        536,
+        1154,
+        902,
+        1172
+      ],
+      "score": 0.9652154445648193
+    },
+    {
+      "text": "4 Los cuales exigen de nosotros esta satisfaccion.",
+      "box": [
+        59,
+        1173,
+        322,
+        1195
+      ],
+      "score": 0.9935944080352783
+    },
+    {
+      "text": "las puertas de la ciudad, y librándose de las manos de sus enemigos, y",
+      "box": [
+        529,
+        1171,
+        902,
+        1185
+      ],
+      "score": 0.9892162680625916
+    },
+    {
+      "text": " Ayudado de sus gentes, esto es, entre él y sus soldados.—Véase He-",
+      "box": [
+        59,
+        1187,
+        427,
+        1209
+      ],
+      "score": 0.9796825647354126
+    },
+    {
+      "text": "de la muerte, fué en esto una bella figura de Christo en su resurreccion",
+      "box": [
+        529,
+        1185,
+        902,
+        1199
+      ],
+      "score": 0.9995574951171875
+    },
+    {
+      "text": "braismos.",
+      "box": [
+        48,
+        1207,
+        103,
+        1224
+      ],
+      "score": 0.9985117316246033
+    },
+    {
+      "text": "gloriosa.—Véase S. Hier. in cap. I, Ephes.—S. August., serm. CVII,",
+      "box": [
+        527,
+        1196,
+        904,
+        1215
+      ],
+      "score": 0.9853215217590332
+    },
+    {
+      "text": "e La fuente salia de tierra; pero brotaba por en medio de la quijada,",
+      "box": [
+        59,
+        1215,
+        425,
+        1237
+      ],
+      "score": 0.9902227520942688
+    },
+    {
+      "text": "De temp.—San Greg., hom. XXI, in Evang.",
+      "box": [
+        528,
+        1211,
+        758,
+        1229
+      ],
+      "score": 0.9602535963058472
+    },
+    {
+      "text": "junto al diente molar. Segun el hebreo puede tambien traducirse: Y el",
+      "box": [
+        47,
+        1229,
+        428,
+        1253
+      ],
+      "score": 0.9826136231422424
+    },
+    {
+      "text": "9 Del modo con que habla de esta mujer la Escritura, se infiere que",
+      "box": [
+        534,
+        1223,
+        904,
+        1243
+      ],
+      "score": 0.9903974533081055
+    },
+    {
+      "text": "era una mujer de mala vida, y que Samson jamás se desposó con ella.",
+      "box": [
+        527,
+        1237,
+        891,
+        1257
+      ],
+      "score": 0.988819420337677
+    },
+    {
+      "text": "Señor kizo brotar en Lechi una fuente, etc., v. 9.—Joseph, Antiq, lib. V,",
+      "box": [
+        47,
+        1244,
+        427,
+        1267
+      ],
+      "score": 0.9660056233406067
+    },
+    {
+      "text": "10 Véase Monedas.",
+      "box": [
+        535,
+        1255,
+        636,
+        1269
+      ],
+      "score": 0.9939519166946411
+    },
+    {
+      "text": "cap. 10. Puede tambien muela significar aquí peña.—Véase Diente.",
+      "box": [
+        46,
+        1259,
+        399,
+        1282
+      ],
+      "score": 0.9797972440719604
+    }
+  ]
+}

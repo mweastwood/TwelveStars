@@ -1,0 +1,1537 @@
+{
+  "volume": 1,
+  "page_index": 109,
+  "pdf_page": 110,
+  "lines": [
+    {
+      "text": "123",
+      "box": [
+        33,
+        51,
+        58,
+        68
+      ],
+      "score": 0.99996417760849
+    },
+    {
+      "text": "EXODO.",
+      "box": [
+        189,
+        52,
+        247,
+        70
+      ],
+      "score": 0.9989529252052307
+    },
+    {
+      "text": "CAPITULO XXXIII,",
+      "box": [
+        639,
+        46,
+        775,
+        63
+      ],
+      "score": 0.9837427735328674
+    },
+    {
+      "text": "124",
+      "box": [
+        855,
+        51,
+        878,
+        68
+      ],
+      "score": 0.9995241165161133
+    },
+    {
+      "text": "17. Mas oyendo Josué el tumulto del pueblo que voceaba,",
+      "box": [
+        36,
+        93,
+        406,
+        114
+      ],
+      "score": 0.9967445135116577
+    },
+    {
+      "text": "de Egypto, á la tierra que tengo prometida con juramento á",
+      "box": [
+        512,
+        93,
+        885,
+        110
+      ],
+      "score": 0.9958263039588928
+    },
+    {
+      "text": "dijo á Moysés: Alaridos de guerra se oyen en los campamentos.",
+      "box": [
+        26,
+        110,
+        407,
+        133
+      ],
+      "score": 0.9938184022903442
+    },
+    {
+      "text": "Abraham, á Isaac, y á Jacob, diciendo: Á tu descendencia se",
+      "box": [
+        511,
+        109,
+        886,
+        130
+      ],
+      "score": 0.9839097261428833
+    },
+    {
+      "text": "18. Respondió él: No es gritería de gentes que se exhorten",
+      "box": [
+        43,
+        131,
+        406,
+        148
+      ],
+      "score": 0.9992991089820862
+    },
+    {
+      "text": "la daré 9:",
+      "box": [
+        509,
+        126,
+        571,
+        147
+      ],
+      "score": 0.9747123718261719
+    },
+    {
+      "text": "al combate, ni vocería de los que fuerzan á otros á la fuga; lo",
+      "box": [
+        30,
+        148,
+        405,
+        165
+      ],
+      "score": 0.997134804725647
+    },
+    {
+      "text": "2. Y enviaré por precursor tuyo á un Ángel, y echaré del",
+      "box": [
+        521,
+        143,
+        887,
+        165
+      ],
+      "score": 0.9978005290031433
+    },
+    {
+      "text": "que oigo yo es algazara de gentes que cantan.",
+      "box": [
+        29,
+        166,
+        314,
+        183
+      ],
+      "score": 0.999666154384613
+    },
+    {
+      "text": "país al Chananéo, y al Amorrhéo, y al Hethéo, y al Pherezéo,",
+      "box": [
+        509,
+        163,
+        884,
+        180
+      ],
+      "score": 0.9975866079330444
+    },
+    {
+      "text": "19. Y habiéndose acercado ya al campamento, vió el becerro",
+      "box": [
+        41,
+        181,
+        406,
+        200
+      ],
+      "score": 0.9807805418968201
+    },
+    {
+      "text": "y al Hévéo, y al Jebuséo 10;",
+      "box": [
+        508,
+        177,
+        680,
+        197
+      ],
+      "score": 0.9791253209114075
+    },
+    {
+      "text": "y las danzas; é irritado sobremanera, arrojó de la mano las",
+      "box": [
+        29,
+        196,
+        406,
+        219
+      ],
+      "score": 0.998240053653717
+    },
+    {
+      "text": "3. Á fin de que entres en la tierra que mana leche y miel.",
+      "box": [
+        523,
+        195,
+        884,
+        212
+      ],
+      "score": 0.994510293006897
+    },
+    {
+      "text": "tablas, y las hizo pedazos á la falda del monte;",
+      "box": [
+        31,
+        217,
+        322,
+        234
+      ],
+      "score": 0.99909907579422
+    },
+    {
+      "text": "Porque yo no subiré á aquel país contigo; no sea que me viese",
+      "box": [
+        509,
+        210,
+        885,
+        230
+      ],
+      "score": 0.985140323638916
+    },
+    {
+      "text": "20. Y arrebatando el becerro, que habian hecho, le arrojó",
+      "box": [
+        42,
+        230,
+        407,
+        252
+      ],
+      "score": 0.9970822930335999
+    },
+    {
+      "text": "obligado á destruirte en el camino, siendo como eres un pueblo",
+      "box": [
+        509,
+        227,
+        886,
+        246
+      ],
+      "score": 0.9978915452957153
+    },
+    {
+      "text": "al fuego¹, y redújole despues á polvos, los cuales esparció",
+      "box": [
+        29,
+        245,
+        407,
+        271
+      ],
+      "score": 0.968605101108551
+    },
+    {
+      "text": "de dura cerviz1.",
+      "box": [
+        510,
+        245,
+        617,
+        262
+      ],
+      "score": 0.9314386248588562
+    },
+    {
+      "text": "sobre las aguas, y se los dió á beber á los hijos de Israél",
+      "box": [
+        28,
+        261,
+        386,
+        288
+      ],
+      "score": 0.9310881495475769
+    },
+    {
+      "text": "4. Oyendo el pueblo estas tremendas palabras, prorumpió",
+      "box": [
+        521,
+        259,
+        886,
+        278
+      ],
+      "score": 0.9916872978210449
+    },
+    {
+      "text": "21. Dijo despues á Aaron: ¿Qué es lo que te ha hecho este",
+      "box": [
+        43,
+        278,
+        407,
+        303
+      ],
+      "score": 0.9869332313537598
+    },
+    {
+      "text": "en llanto; y ninguno se vistió con su acostumbrado adorno.",
+      "box": [
+        508,
+        275,
+        886,
+        294
+      ],
+      "score": 0.9989402294158936
+    },
+    {
+      "text": "pueblo, para que acarrearas sobre él tan enorme pecado?",
+      "box": [
+        29,
+        294,
+        377,
+        320
+      ],
+      "score": 0.9842945337295532
+    },
+    {
+      "text": "5. Pues dijo el Señor á Moysés: Díá los hijos de Israél:Eres",
+      "box": [
+        521,
+        290,
+        887,
+        311
+      ],
+      "score": 0.9774762988090515
+    },
+    {
+      "text": "22. No se enoje mi señor, respondió Aaron: tú conoces bien",
+      "box": [
+        43,
+        311,
+        406,
+        335
+      ],
+      "score": 0.9935596585273743
+    },
+    {
+      "text": "pueblo de dura cerviz: si yo llego una vez á aparecer en medio",
+      "box": [
+        507,
+        306,
+        887,
+        329
+      ],
+      "score": 0.9728898406028748
+    },
+    {
+      "text": "á este pueblo, y sabes cuán inclinado es al mal ³.",
+      "box": [
+        28,
+        327,
+        328,
+        350
+      ],
+      "score": 0.9805690050125122
+    },
+    {
+      "text": "de tí, te exterminaré. Ahora bien, quítate tus atavíos, para",
+      "box": [
+        508,
+        323,
+        887,
+        344
+      ],
+      "score": 0.9984388947486877
+    },
+    {
+      "text": "23. Dijéronme: Haznos dioses, que nos guien: pues á aquel",
+      "box": [
+        42,
+        343,
+        406,
+        365
+      ],
+      "score": 0.9844405055046082
+    },
+    {
+      "text": "ver qué tengo de hacer contigo.",
+      "box": [
+        508,
+        343,
+        709,
+        360
+      ],
+      "score": 0.9960426092147827
+    },
+    {
+      "text": "Moysés, que nos sacó de la tierra de Egypto, no sabemos qué",
+      "box": [
+        30,
+        359,
+        406,
+        382
+      ],
+      "score": 0.9921493530273438
+    },
+    {
+      "text": "6. Despojáronse pues los hijos de Israél de sus galas, al pié",
+      "box": [
+        519,
+        353,
+        888,
+        380
+      ],
+      "score": 0.9758116006851196
+    },
+    {
+      "text": "es lo que le ha sucedido.",
+      "box": [
+        31,
+        377,
+        185,
+        396
+      ],
+      "score": 0.9921827912330627
+    },
+    {
+      "text": "del monte Horeb.",
+      "box": [
+        507,
+        374,
+        619,
+        394
+      ],
+      "score": 0.9998686909675598
+    },
+    {
+      "text": "24. Respondíles yo: ¿Quién de vosotros tiene oro?Trajéron-",
+      "box": [
+        46,
+        395,
+        405,
+        412
+      ],
+      "score": 0.9823460578918457
+    },
+    {
+      "text": "7. Y Moysés tambien recogiendo el Tabernáculo 1a, le puso",
+      "box": [
+        519,
+        386,
+        889,
+        412
+      ],
+      "score": 0.978913426399231
+    },
+    {
+      "text": "le, y me lo dieron: le eché en el fuego, y salió de él ese becerro.",
+      "box": [
+        31,
+        411,
+        405,
+        428
+      ],
+      "score": 0.9916594624519348
+    },
+    {
+      "text": "ó extendió lejos, fuera del campamento; y le llamó Tabernáculo",
+      "box": [
+        506,
+        404,
+        890,
+        430
+      ],
+      "score": 0.9727010130882263
+    },
+    {
+      "text": "25. Viendo pues Moysés que el pueblo estaba despojado,",
+      "box": [
+        44,
+        425,
+        405,
+        446
+      ],
+      "score": 0.9862038493156433
+    },
+    {
+      "text": "de la Alianza. Por lo cual todos los del pueblo que tenian",
+      "box": [
+        506,
+        420,
+        890,
+        446
+      ],
+      "score": 0.997266948223114
+    },
+    {
+      "text": "(desde que Aaron le habia puesto tal con la asquerosa abomi-",
+      "box": [
+        32,
+        444,
+        405,
+        461
+      ],
+      "score": 0.9965435862541199
+    },
+    {
+      "text": "alguna cosa que consultar, salian fuera del campamento al",
+      "box": [
+        505,
+        436,
+        891,
+        465
+      ],
+      "score": 0.9987013936042786
+    },
+    {
+      "text": "nacion del ídolo, y dejádole desnudo, ó desurmado en medio",
+      "box": [
+        31,
+        460,
+        404,
+        478
+      ],
+      "score": 0.9755200147628784
+    },
+    {
+      "text": "Tabernáculo de la Alianza",
+      "box": [
+        506,
+        459,
+        675,
+        478
+      ],
+      "score": 0.9995957016944885
+    },
+    {
+      "text": "de los enemigos),",
+      "box": [
+        30,
+        474,
+        139,
+        495
+      ],
+      "score": 0.9998708367347717
+    },
+    {
+      "text": "8. Y cuando Moysés salia para ir al Tabernáculo, se levan-",
+      "box": [
+        517,
+        468,
+        891,
+        496
+      ],
+      "score": 0.9928503632545471
+    },
+    {
+      "text": "26. Poniéndoso á la puerta del campamento, dijo: El que",
+      "box": [
+        46,
+        493,
+        405,
+        510
+      ],
+      "score": 0.9877046346664429
+    },
+    {
+      "text": "taban todas las gentes, y quedaba cada cual en pié á la puerta",
+      "box": [
+        505,
+        486,
+        892,
+        513
+      ],
+      "score": 0.9912537932395935
+    },
+    {
+      "text": "sea del Señor, júntese conmigo. Reuniéronsele luego todos los",
+      "box": [
+        31,
+        510,
+        405,
+        527
+      ],
+      "score": 0.9996982216835022
+    },
+    {
+      "text": "de su pabellon, siguiendo con sus ojos tras de Moysés, hasta",
+      "box": [
+        505,
+        502,
+        892,
+        531
+      ],
+      "score": 0.99305260181427
+    },
+    {
+      "text": "hijos de Leví.",
+      "box": [
+        32,
+        526,
+        119,
+        543
+      ],
+      "score": 0.999930739402771
+    },
+    {
+      "text": "que entraba en el Tabernáculo.",
+      "box": [
+        506,
+        525,
+        703,
+        547
+      ],
+      "score": 0.9982560873031616
+    },
+    {
+      "text": "27. Á los cuales dijo: Esto dice el Señor Dios de Israél:",
+      "box": [
+        45,
+        541,
+        404,
+        559
+      ],
+      "score": 0.9804213047027588
+    },
+    {
+      "text": "9. Entrado ya en el Tabernáculo de la Alianza, descendia",
+      "box": [
+        517,
+        533,
+        891,
+        565
+      ],
+      "score": 0.9969835877418518
+    },
+    {
+      "text": "Ponga cada cual la espada á su lado: Pasad y traspasad por",
+      "box": [
+        31,
+        559,
+        404,
+        576
+      ],
+      "score": 0.9981251358985901
+    },
+    {
+      "text": "la columna de nube, y quedaba fija en la puerta, y hablaba",
+      "box": [
+        504,
+        550,
+        891,
+        582
+      ],
+      "score": 0.9984370470046997
+    },
+    {
+      "text": "medio del campamento desde una á otra puerta, y cada uno",
+      "box": [
+        31,
+        575,
+        404,
+        592
+      ],
+      "score": 0.9896352887153625
+    },
+    {
+      "text": "Dios con Moysés,",
+      "box": [
+        506,
+        576,
+        618,
+        595
+      ],
+      "score": 0.9988445043563843
+    },
+    {
+      "text": "mate aunque sea al hermano, y al amigo, y al vecino .",
+      "box": [
+        30,
+        590,
+        369,
+        609
+      ],
+      "score": 0.9802694320678711
+    },
+    {
+      "text": "10. Viendo todos como la columna de nube quedaba fija en",
+      "box": [
+        518,
+        584,
+        891,
+        611
+      ],
+      "score": 0.9977483153343201
+    },
+    {
+      "text": "28. Ejecutaron los Levitas la órden de Moysés: y perecieron",
+      "box": [
+        44,
+        608,
+        404,
+        625
+      ],
+      "score": 0.9969592094421387
+    },
+    {
+      "text": "la puerta del Tabernáculo. Y así estaban ellos mismos tambien",
+      "box": [
+        505,
+        601,
+        891,
+        629
+      ],
+      "score": 0.9898272156715393
+    },
+    {
+      "text": "en aquel dia como unos veinte y tres mil hombres",
+      "box": [
+        30,
+        622,
+        353,
+        643
+      ],
+      "score": 0.9992775917053223
+    },
+    {
+      "text": "á las puertas de sus pabellones, adorando allí al Señor.",
+      "box": [
+        505,
+        618,
+        855,
+        645
+      ],
+      "score": 0.9932175278663635
+    },
+    {
+      "text": "29. YMoysés les dijo:Hoy habeis consagradovuestras manos",
+      "box": [
+        44,
+        642,
+        405,
+        659
+      ],
+      "score": 0.9928105473518372
+    },
+    {
+      "text": "11. Empero el Señor hablaba á Moysés cara á cara, como",
+      "box": [
+        518,
+        633,
+        891,
+        660
+      ],
+      "score": 0.9933059811592102
+    },
+    {
+      "text": "al Señor, matando cada uno con santo celo, aun al propio hijo",
+      "box": [
+        29,
+        657,
+        403,
+        676
+      ],
+      "score": 0.9984240531921387
+    },
+    {
+      "text": "un hombre suele hablar á un amigo. Y cuando él volvia al",
+      "box": [
+        505,
+        649,
+        892,
+        677
+      ],
+      "score": 0.9890737533569336
+    },
+    {
+      "text": "y al hermano; por lo que sereis benditos.",
+      "box": [
+        28,
+        674,
+        280,
+        693
+      ],
+      "score": 0.9998266696929932
+    },
+    {
+      "text": "campamento, el jóven Josué 1s, ministro ó servidor suyo, hijo",
+      "box": [
+        505,
+        665,
+        892,
+        694
+      ],
+      "score": 0.9828453063964844
+    },
+    {
+      "text": "30. Al dia siguiente dijo Moysés al pueblo: Habeis cometido",
+      "box": [
+        42,
+        689,
+        403,
+        709
+      ],
+      "score": 0.9960939884185791
+    },
+    {
+      "text": "de Nun, no se apartaba del Tabernáculo.",
+      "box": [
+        506,
+        687,
+        760,
+        708
+      ],
+      "score": 0.9982057213783264
+    },
+    {
+      "text": "un pecado enormísimo: subiré al Señor, áver si puedo inclinarle",
+      "box": [
+        28,
+        706,
+        404,
+        725
+      ],
+      "score": 0.9724280834197998
+    },
+    {
+      "text": "12. Dijo Moysés al Señor: Tú me mandas que salga condu-",
+      "box": [
+        518,
+        699,
+        892,
+        726
+      ],
+      "score": 0.9889174699783325
+    },
+    {
+      "text": "de algun modo á que se apiade de vosotros.",
+      "box": [
+        30,
+        722,
+        299,
+        740
+      ],
+      "score": 0.9994432330131531
+    },
+    {
+      "text": "ciendo á este pueblo; y no me haces saber quién es aquel á",
+      "box": [
+        506,
+        716,
+        892,
+        743
+      ],
+      "score": 0.9915286302566528
+    },
+    {
+      "text": "31. Y habiendo vuelto al Señor, dijo: Dígnate escucharme,",
+      "box": [
+        43,
+        740,
+        403,
+        757
+      ],
+      "score": 0.9788098335266113
+    },
+    {
+      "text": "quien has de enviar conmigo, y eso habiéndome dicho: Te",
+      "box": [
+        506,
+        734,
+        893,
+        759
+      ],
+      "score": 0.9952515363693237
+    },
+    {
+      "text": "oh Señor: Este pueblo ha cometido un pecado gravísimo: se ha",
+      "box": [
+        29,
+        754,
+        403,
+        773
+      ],
+      "score": 0.9931829571723938
+    },
+    {
+      "text": "conozco óamo particularmente, y has hallado gracia en mis",
+      "box": [
+        506,
+        750,
+        893,
+        775
+      ],
+      "score": 0.9959909319877625
+    },
+    {
+      "text": "fabricado dioses de oro. Señor, ó perdónales esta culpa,",
+      "box": [
+        29,
+        770,
+        368,
+        789
+      ],
+      "score": 0.9966648817062378
+    },
+    {
+      "text": "ojos.",
+      "box": [
+        504,
+        771,
+        539,
+        793
+      ],
+      "score": 0.999797523021698
+    },
+    {
+      "text": "32. Ó si no lo haces, bórrame del Libro tuyo 7 en que me",
+      "box": [
+        43,
+        786,
+        404,
+        807
+      ],
+      "score": 0.9673932790756226
+    },
+    {
+      "text": "13. Si es así que yo he hallado gracia en tu presencia,",
+      "box": [
+        518,
+        782,
+        892,
+        807
+      ],
+      "score": 0.9903974533081055
+    },
+    {
+      "text": "tienes escrito.",
+      "box": [
+        25,
+        802,
+        117,
+        822
+      ],
+      "score": 0.9998839497566223
+    },
+    {
+      "text": "muéstrame tu rostro para que yo te conozca, y halle gracia",
+      "box": [
+        505,
+        799,
+        893,
+        824
+      ],
+      "score": 0.9889624118804932
+    },
+    {
+      "text": "33. Respondióle el Señor: Al que pecare contra mí, á ese",
+      "box": [
+        42,
+        820,
+        403,
+        839
+      ],
+      "score": 0.9919816851615906
+    },
+    {
+      "text": "ante tus ojos: vuélvelos sobre esta nacion, la cual es el pueblo",
+      "box": [
+        506,
+        816,
+        892,
+        839
+      ],
+      "score": 0.9880015850067139
+    },
+    {
+      "text": "borraré yo de mi Libro.",
+      "box": [
+        29,
+        837,
+        177,
+        854
+      ],
+      "score": 0.9929657578468323
+    },
+    {
+      "text": "tuyo.",
+      "box": [
+        506,
+        839,
+        544,
+        857
+      ],
+      "score": 0.9996566772460938
+    },
+    {
+      "text": "34. Mas tú vé, y conduce á ese pueblo á donde te tengo",
+      "box": [
+        42,
+        854,
+        403,
+        873
+      ],
+      "score": 0.9926640391349792
+    },
+    {
+      "text": "14. Respondió el Señor: Yo mismo iré en persona delante",
+      "box": [
+        518,
+        848,
+        892,
+        871
+      ],
+      "score": 0.9917967319488525
+    },
+    {
+      "text": "dicho. Mi Ángel irá delante de tí. Si bien yo en el dia de la",
+      "box": [
+        28,
+        870,
+        406,
+        890
+      ],
+      "score": 0.9840667843818665
+    },
+    {
+      "text": "de tí, y te procuraré el descanso.",
+      "box": [
+        507,
+        868,
+        708,
+        888
+      ],
+      "score": 0.985456109046936
+    },
+    {
+      "text": "venganza castigaré todavía este pecado que han cometido.",
+      "box": [
+        30,
+        889,
+        389,
+        907
+      ],
+      "score": 0.9985817670822144
+    },
+    {
+      "text": "15. Replicó Moysés: Si tú mismo no vas delante, no nos",
+      "box": [
+        520,
+        880,
+        892,
+        904
+      ],
+      "score": 0.9985643029212952
+    },
+    {
+      "text": "35. En efecto el Señor castigó al pueblo por el crímen del",
+      "box": [
+        42,
+        905,
+        406,
+        923
+      ],
+      "score": 0.9955474734306335
+    },
+    {
+      "text": "hagas salir de este sitio.",
+      "box": [
+        507,
+        901,
+        656,
+        919
+      ],
+      "score": 0.9948686361312866
+    },
+    {
+      "text": "becerro, que Aaron les hizo.",
+      "box": [
+        29,
+        921,
+        205,
+        940
+      ],
+      "score": 0.9980181455612183
+    },
+    {
+      "text": "16. ¿Pues en qué podremos conocer yo y tu pueblo haber",
+      "box": [
+        520,
+        912,
+        893,
+        935
+      ],
+      "score": 0.9984261393547058
+    },
+    {
+      "text": "hallado gracia en tu acatamiento, si no vienes con nosotros,",
+      "box": [
+        508,
+        930,
+        893,
+        950
+      ],
+      "score": 0.9996582865715027
+    },
+    {
+      "text": "CAPITULO XXXIII",
+      "box": [
+        155,
+        950,
+        281,
+        967
+      ],
+      "score": 0.9656431674957275
+    },
+    {
+      "text": "para que seamos respetados de todos los pueblos que habitan",
+      "box": [
+        508,
+        946,
+        893,
+        967
+      ],
+      "score": 0.9999327659606934
+    },
+    {
+      "text": "en la tierra?",
+      "box": [
+        509,
+        965,
+        585,
+        982
+      ],
+      "score": 0.9997841119766235
+    },
+    {
+      "text": "Llanto del pueblo, á quien perdona el Señor por amor de Moysés. Desea",
+      "box": [
+        31,
+        974,
+        408,
+        997
+      ],
+      "score": 0.9903758764266968
+    },
+    {
+      "text": "17. Respondió el Señor á Moysés: Tambien haré lo que me",
+      "box": [
+        522,
+        978,
+        894,
+        998
+      ],
+      "score": 0.9952664971351624
+    },
+    {
+      "text": "éste ver el rostro y la gloria de Dios.",
+      "box": [
+        124,
+        991,
+        316,
+        1009
+      ],
+      "score": 0.977915346622467
+    },
+    {
+      "text": "acabas de pedir; porque has hallado gracia en mis ojos, y tén-",
+      "box": [
+        510,
+        996,
+        894,
+        1015
+      ],
+      "score": 0.9974042177200317
+    },
+    {
+      "text": "1. Habló despues el Señor á Moysés, diciendo: Anda, parte",
+      "box": [
+        45,
+        1015,
+        408,
+        1037
+      ],
+      "score": 0.9973254203796387
+    },
+    {
+      "text": "gote conocido, éte amo muy particularmente.",
+      "box": [
+        511,
+        1013,
+        794,
+        1032
+      ],
+      "score": 0.9918769001960754
+    },
+    {
+      "text": "de ese lugar tá, y el pueblo tuyo 8 que sacaste de la tierra",
+      "box": [
+        31,
+        1031,
+        409,
+        1057
+      ],
+      "score": 0.9824163317680359
+    },
+    {
+      "text": "18. Díjole Moysés: Muéstrame tu gloria.",
+      "box": [
+        524,
+        1029,
+        776,
+        1047
+      ],
+      "score": 0.9939921498298645
+    },
+    {
+      "text": "1 Deut. IX, v. 21.",
+      "box": [
+        42,
+        1066,
+        141,
+        1086
+      ],
+      "score": 0.9564895629882812
+    },
+    {
+      "text": "tan grandes, del cual ha de nacer el Mesías, etc., bórrame del Libro",
+      "box": [
+        510,
+        1059,
+        895,
+        1079
+      ],
+      "score": 0.9934694766998291
+    },
+    {
+      "text": "* Es muy antiguo el arte de reducir á finísimo polvo el oro, tan fino",
+      "box": [
+        41,
+        1078,
+        411,
+        1100
+      ],
+      "score": 0.9885631799697876
+    },
+    {
+      "text": "tuyo en que me tienes escrito; me contento de privarme por algun",
+      "box": [
+        509,
+        1074,
+        895,
+        1093
+      ],
+      "score": 0.9982765913009644
+    },
+    {
+      "text": "que le esparcian por lujo sobre los cabellos, como se hace hoy con el pol-",
+      "box": [
+        31,
+        1092,
+        410,
+        1114
+      ],
+      "score": 0.9909741282463074
+    },
+    {
+      "text": "tiempo de la dicha inestimable de gozar de tu divina presencia. S. Aug.",
+      "box": [
+        509,
+        1088,
+        896,
+        1106
+      ],
+      "score": 0.9904273748397827
+    },
+    {
+      "text": "vo de harina.—Véase Josepho Antiq. lib. VIII, c. 2. Este polvo le arrojó",
+      "box": [
+        31,
+        1107,
+        411,
+        1127
+      ],
+      "score": 0.9821065068244934
+    },
+    {
+      "text": "Quast. CXXVII.—Véase Libro.",
+      "box": [
+        512,
+        1103,
+        674,
+        1119
+      ],
+      "score": 0.9740232825279236
+    },
+    {
+      "text": "Moysés en las aguas de que bebia el pueblo, para que viesen cuán despre-",
+      "box": [
+        31,
+        1121,
+        411,
+        1141
+      ],
+      "score": 0.9846934080123901
+    },
+    {
+      "text": "8 Dice pueblo tuyo, y no mio, como solia antes, por la reciente idolatría",
+      "box": [
+        519,
+        1114,
+        896,
+        1134
+      ],
+      "score": 0.9855383038520813
+    },
+    {
+      "text": "ciable era el dios que habían adorado.",
+      "box": [
+        33,
+        1139,
+        230,
+        1154
+      ],
+      "score": 0.9839248657226562
+    },
+    {
+      "text": "del becerro.",
+      "box": [
+        509,
+        1129,
+        572,
+        1149
+      ],
+      "score": 0.999792754650116
+    },
+    {
+      "text": "\" I. Joann. V, v. 19.",
+      "box": [
+        43,
+        1150,
+        159,
+        1167
+      ],
+      "score": 0.9335124492645264
+    },
+    {
+      "text": "9 Gen. XII, v. 7.",
+      "box": [
+        517,
+        1142,
+        612,
+        1162
+      ],
+      "score": 0.88814777135849
+    },
+    {
+      "text": "+ De toda proteccion divina.",
+      "box": [
+        44,
+        1166,
+        198,
+        1180
+      ],
+      "score": 0.974804699420929
+    },
+    {
+      "text": "10 Cap. XXXII, v. 34.—Deut. VII, v. 22.—Jos. XXIV, v. 11.",
+      "box": [
+        516,
+        1153,
+        850,
+        1175
+      ],
+      "score": 0.9443901181221008
+    },
+    {
+      "text": " Deut. XXXIII, v. 9.",
+      "box": [
+        42,
+        1176,
+        169,
+        1195
+      ],
+      "score": 0.9669475555419922
+    },
+    {
+      "text": "11 Cap. XXXII, v. 9.—Deut, IX, v. 13.",
+      "box": [
+        517,
+        1170,
+        722,
+        1187
+      ],
+      "score": 0.9529629349708557
+    },
+    {
+      "text": "8 El texto hebreo, el samaritano, y el de los Setenta, y toas las ver-",
+      "box": [
+        42,
+        1189,
+        411,
+        1208
+      ],
+      "score": 0.9824997186660767
+    },
+    {
+      "text": "12 El Tabernáculo ó pabellon, de que habla, era aquel en que solia Dios",
+      "box": [
+        517,
+        1180,
+        897,
+        1202
+      ],
+      "score": 0.9831801056861877
+    },
+    {
+      "text": "siones orientales leen tres mil; y así muchos Padres latinos, y varios có-",
+      "box": [
+        30,
+        1203,
+        412,
+        1223
+      ],
+      "score": 0.9902254343032837
+    },
+    {
+      "text": "hablar á Moysés; y adonde acudia el pueblo, principalmente para tratar",
+      "box": [
+        511,
+        1193,
+        897,
+        1216
+      ],
+      "score": 0.9920775294303894
+    },
+    {
+      "text": "dices manuseritos antiguos de la Vulgata. Algunos creen que la equivoca-",
+      "box": [
+        30,
+        1217,
+        412,
+        1238
+      ],
+      "score": 0.9825783967971802
+    },
+    {
+      "text": "de lo perteneciente á Dios. El que el Señor mandó hacer á Moysés, aun",
+      "box": [
+        510,
+        1205,
+        898,
+        1233
+      ],
+      "score": 0.9677296280860901
+    },
+    {
+      "text": "cion viene del hebreo, donde la misma letra , que quiere decir casí, se ha",
+      "box": [
+        31,
+        1231,
+        412,
+        1252
+      ],
+      "score": 0.9711241722106934
+    },
+    {
+      "text": "no se babía formado.",
+      "box": [
+        512,
+        1226,
+        619,
+        1245
+      ],
+      "score": 0.9572742581367493
+    },
+    {
+      "text": "tomado por el número vinte, significado pór dicha letra como nota nume-",
+      "box": [
+        29,
+        1245,
+        413,
+        1267
+      ],
+      "score": 0.9712385535240173
+    },
+    {
+      "text": "13 Josué tenia cerca de cincuenta años; pero es llamado jáven, ó mu-",
+      "box": [
+        521,
+        1232,
+        897,
+        1258
+      ],
+      "score": 0.9423136115074158
+    },
+    {
+      "text": "ral.—Véase Vulgata.—Chronologia.",
+      "box": [
+        30,
+        1260,
+        223,
+        1279
+      ],
+      "score": 0.9729677438735962
+    },
+    {
+      "text": "chacho, segun el estilo de aquellos tiempos.—Véase II. Reg. II, v. 14; 6",
+      "box": [
+        512,
+        1246,
+        899,
+        1273
+      ],
+      "score": 0.9687774181365967
+    },
+    {
+      "text": "7 Expresion de ardentísima caridad, á la cual es semejante la de San",
+      "box": [
+        42,
+        1274,
+        412,
+        1291
+      ],
+      "score": 0.9938124418258667
+    },
+    {
+      "text": "tambien para denotar la obediencia con que servin á Moysés, como un",
+      "box": [
+        512,
+        1259,
+        897,
+        1287
+      ],
+      "score": 0.9885668158531189
+    },
+    {
+      "text": "Pablo, Rom. IX, v. 3. Como si dijera: Antes que exterminar este pueblo",
+      "box": [
+        32,
+        1288,
+        411,
+        1305
+      ],
+      "score": 0.9776999354362488
+    },
+    {
+      "text": "hijo á su padre.—Véase Muchacho.",
+      "box": [
+        511,
+        1277,
+        692,
+        1302
+      ],
+      "score": 0.943744421005249
+    },
+    {
+      "text": "tuyo, el único que te conoce y adora, pueblo destinado por tí á cosas",
+      "box": [
+        32,
+        1303,
+        411,
+        1321
+      ],
+      "score": 0.9787794351577759
+    }
+  ]
+}

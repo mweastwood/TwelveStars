@@ -1,0 +1,937 @@
+{
+  "volume": 4,
+  "page_index": 211,
+  "pdf_page": 212,
+  "lines": [
+    {
+      "text": "EPÍSTOLA PRIMERA",
+      "box": [
+        334,
+        75,
+        703,
+        129
+      ],
+      "score": 0.9997695088386536
+    },
+    {
+      "text": "DEL",
+      "box": [
+        499,
+        141,
+        529,
+        160
+      ],
+      "score": 0.9997822642326355
+    },
+    {
+      "text": "APÓSTOL SAN PABLO",
+      "box": [
+        181,
+        160,
+        854,
+        245
+      ],
+      "score": 0.999675989151001
+    },
+    {
+      "text": "A",
+      "box": [
+        508,
+        248,
+        520,
+        263
+      ],
+      "score": 0.4093853533267975
+    },
+    {
+      "text": "LOS CORINTHIOS",
+      "box": [
+        356,
+        279,
+        664,
+        317
+      ],
+      "score": 0.9996543526649475
+    },
+    {
+      "text": "ADVERTENCIA",
+      "box": [
+        433,
+        393,
+        589,
+        415
+      ],
+      "score": 0.9606789946556091
+    },
+    {
+      "text": "P  llde ea ldubcd ee,reedeldeee",
+      "box": [
+        101,
+        424,
+        933,
+        460
+      ],
+      "score": 0.48336097598075867
+    },
+    {
+      "text": "y probablemente hácia el año 56 de Jesu-Christo.",
+      "box": [
+        78,
+        458,
+        342,
+        482
+      ],
+      "score": 0.9860498905181885
+    },
+    {
+      "text": "CAPITULO PRIMERO",
+      "box": [
+        192,
+        559,
+        338,
+        577
+      ],
+      "score": 0.9989424347877502
+    },
+    {
+      "text": "12. Quiero decir, que cada uno de vosotros toma partido",
+      "box": [
+        570,
+        563,
+        933,
+        580
+      ],
+      "score": 0.9996735453605652
+    },
+    {
+      "text": "diciendo: Yo soy de Pablo: yo de Apollo: yo de Cephas 1: yo",
+      "box": [
+        558,
+        579,
+        932,
+        596
+      ],
+      "score": 0.995069682598114
+    },
+    {
+      "text": "Exhórtalos á la union y concordia: les hace ver cómo confunde Dios la",
+      "box": [
+        74,
+        592,
+        457,
+        610
+      ],
+      "score": 0.9943920373916626
+    },
+    {
+      "text": "de Christo.",
+      "box": [
+        558,
+        596,
+        628,
+        610
+      ],
+      "score": 0.9970312118530273
+    },
+    {
+      "text": "sabiduría y soberbia humana, y que la cruz de Christo, que es una nece-",
+      "box": [
+        86,
+        608,
+        456,
+        622
+      ],
+      "score": 0.9875558018684387
+    },
+    {
+      "text": "13. Pues qué ¿Christo acaso se ha dividido?¿Y por ven-",
+      "box": [
+        569,
+        611,
+        932,
+        628
+      ],
+      "score": 0.9863165616989136
+    },
+    {
+      "text": "dad y escándalo para los mundanos, es para los fieles sabiduría y salud.",
+      "box": [
+        87,
+        622,
+        456,
+        637
+      ],
+      "score": 0.9929821491241455
+    },
+    {
+      "text": "tura Pablo ha sido crucificado por vosotros? ¿ó habeis sido",
+      "box": [
+        557,
+        627,
+        931,
+        645
+      ],
+      "score": 0.9954153299331665
+    },
+    {
+      "text": "bautizados en nombre de Pablo?",
+      "box": [
+        559,
+        645,
+        759,
+        659
+      ],
+      "score": 0.9999859929084778
+    },
+    {
+      "text": "1. Pablo Apóstol de Jesu-Christo por la vocacion y volun-",
+      "box": [
+        87,
+        657,
+        457,
+        674
+      ],
+      "score": 0.9869558811187744
+    },
+    {
+      "text": "14. Ahora que sé esto doy gracias á Dios, de queá ninguno",
+      "box": [
+        569,
+        659,
+        930,
+        676
+      ],
+      "score": 0.9809615612030029
+    },
+    {
+      "text": "tad de Dios, y nuestro hermano Sósthenes,",
+      "box": [
+        74,
+        673,
+        344,
+        691
+      ],
+      "score": 0.9980044364929199
+    },
+    {
+      "text": "de vosotros he bautizado por mí mismo, sino á Crispo, y á",
+      "box": [
+        556,
+        675,
+        932,
+        695
+      ],
+      "score": 0.983608603477478
+    },
+    {
+      "text": "2. Á la Iglesia de Dios, que está en Corintho, á los fieles",
+      "box": [
+        87,
+        688,
+        457,
+        708
+      ],
+      "score": 0.9876348972320557
+    },
+    {
+      "text": "Cayo:",
+      "box": [
+        557,
+        691,
+        598,
+        709
+      ],
+      "score": 0.9995033144950867
+    },
+    {
+      "text": "santificados por Jesu-Christo, llamados santos por su profe-",
+      "box": [
+        74,
+        704,
+        457,
+        725
+      ],
+      "score": 0.9985599517822266
+    },
+    {
+      "text": "15. Para que no pueda decir nadie que habeis sido bau-",
+      "box": [
+        567,
+        706,
+        929,
+        726
+      ],
+      "score": 0.9985188245773315
+    },
+    {
+      "text": "sion, y á todos los que en cualquier lugar que sea, invocan",
+      "box": [
+        74,
+        721,
+        456,
+        741
+      ],
+      "score": 0.9995641708374023
+    },
+    {
+      "text": "tizados en mi nombre.",
+      "box": [
+        556,
+        722,
+        696,
+        742
+      ],
+      "score": 0.9897958040237427
+    },
+    {
+      "text": "el nombre de nuestro Señor Jesu-Christo, Señor de ellos y",
+      "box": [
+        73,
+        738,
+        456,
+        757
+      ],
+      "score": 0.9881737232208252
+    },
+    {
+      "text": "16. Verdad es que bauticé tambien á la familia de Este-",
+      "box": [
+        567,
+        740,
+        930,
+        760
+      ],
+      "score": 0.9961123466491699
+    },
+    {
+      "text": "de nosotros.",
+      "box": [
+        76,
+        758,
+        152,
+        772
+      ],
+      "score": 0.9999721050262451
+    },
+    {
+      "text": "phanas: por lo demás no me acuerdo haber bautizado á otro",
+      "box": [
+        554,
+        755,
+        930,
+        776
+      ],
+      "score": 0.9808501601219177
+    },
+    {
+      "text": "3. Gracia, y paz de parte de Dios Padre nuestro, y de",
+      "box": [
+        88,
+        772,
+        456,
+        789
+      ],
+      "score": 0.9901909232139587
+    },
+    {
+      "text": "alguno que yo sepa.",
+      "box": [
+        555,
+        773,
+        680,
+        793
+      ],
+      "score": 0.9710116386413574
+    },
+    {
+      "text": "Jesu-Christo nuestro Señor.",
+      "box": [
+        77,
+        790,
+        249,
+        804
+      ],
+      "score": 0.9999526739120483
+    },
+    {
+      "text": "17. Porque no me envió Christo á bautizar, sino á predi-",
+      "box": [
+        565,
+        784,
+        931,
+        811
+      ],
+      "score": 0.9634366035461426
+    },
+    {
+      "text": "4. Continuamente estoy dando gracias á Dios por vos-",
+      "box": [
+        87,
+        804,
+        456,
+        822
+      ],
+      "score": 0.9989322423934937
+    },
+    {
+      "text": "car el Evangelio: y á predicarle, sin valerme para eso de la",
+      "box": [
+        553,
+        800,
+        932,
+        829
+      ],
+      "score": 0.8786977529525757
+    },
+    {
+      "text": "otros por la gracia de Dios, que se os ha dado en Jesu-",
+      "box": [
+        77,
+        823,
+        454,
+        838
+      ],
+      "score": 0.999121367931366
+    },
+    {
+      "text": "elocuencia de palabras é discursosde sabiduría humana, para",
+      "box": [
+        553,
+        817,
+        932,
+        845
+      ],
+      "score": 0.8783136010169983
+    },
+    {
+      "text": "Christo:",
+      "box": [
+        77,
+        840,
+        131,
+        854
+      ],
+      "score": 0.9999741911888123
+    },
+    {
+      "text": "que no se haga inútil la cruz de Jesu-Christo .",
+      "box": [
+        556,
+        840,
+        844,
+        857
+      ],
+      "score": 0.9871851205825806
+    },
+    {
+      "text": "5. Porque en él habeis sido enriquecidos con toda suerte",
+      "box": [
+        87,
+        855,
+        455,
+        873
+      ],
+      "score": 0.9869142770767212
+    },
+    {
+      "text": "18. Á la verdad que la predicacion de la cruz óde un Dios",
+      "box": [
+        565,
+        848,
+        931,
+        878
+      ],
+      "score": 0.9588363766670227
+    },
+    {
+      "text": "de bienes espirituales, con todo lo que pertenece á los dones",
+      "box": [
+        74,
+        871,
+        455,
+        889
+      ],
+      "score": 0.9993754029273987
+    },
+    {
+      "text": "crucificado, parece una necedad á los ojos de los que se pier-",
+      "box": [
+        552,
+        864,
+        931,
+        894
+      ],
+      "score": 0.9352534413337708
+    },
+    {
+      "text": "de la palabra y de la ciencia:",
+      "box": [
+        76,
+        887,
+        255,
+        905
+      ],
+      "score": 0.998843252658844
+    },
+    {
+      "text": "den: mas para los que se salvan, esto es, para nosotros, es",
+      "box": [
+        552,
+        880,
+        931,
+        911
+      ],
+      "score": 0.9590804576873779
+    },
+    {
+      "text": "6. Habiéndose así verificado en vosotros el testimonio de",
+      "box": [
+        88,
+        904,
+        455,
+        922
+      ],
+      "score": 0.9991328716278076
+    },
+    {
+      "text": "la virtud y poder de Dios 8.",
+      "box": [
+        554,
+        904,
+        725,
+        922
+      ],
+      "score": 0.9790335893630981
+    },
+    {
+      "text": "Christo:",
+      "box": [
+        75,
+        920,
+        132,
+        938
+      ],
+      "score": 0.9999560117721558
+    },
+    {
+      "text": "19. Así está escrito : Destruiré la sabiduría de los sábios,",
+      "box": [
+        564,
+        911,
+        931,
+        942
+      ],
+      "score": 0.9215916395187378
+    },
+    {
+      "text": "7. De manera que nada os falte de gracia ninguna, á vos-",
+      "box": [
+        87,
+        937,
+        454,
+        954
+      ],
+      "score": 0.9988194108009338
+    },
+    {
+      "text": "y desecharé la prudencia de los prudentes.",
+      "box": [
+        553,
+        935,
+        816,
+        953
+      ],
+      "score": 0.9856893420219421
+    },
+    {
+      "text": "otros que estais esperando la manifestacion de Jesu-Christo",
+      "box": [
+        74,
+        952,
+        454,
+        971
+      ],
+      "score": 0.9991536736488342
+    },
+    {
+      "text": "20. ¿En dónde están los sabios? ¿en dónde los Escribas",
+      "box": [
+        565,
+        944,
+        932,
+        971
+      ],
+      "score": 0.9908453822135925
+    },
+    {
+      "text": "nuestro Señor:",
+      "box": [
+        76,
+        971,
+        171,
+        985
+      ],
+      "score": 0.99982750415802
+    },
+    {
+      "text": "ó doctores de la Ley? ¿en dónde esos espíritus curiosos de las",
+      "box": [
+        552,
+        961,
+        932,
+        986
+      ],
+      "score": 0.9885611534118652
+    },
+    {
+      "text": "8. El cual os confortará todavía hasta el fin, para que",
+      "box": [
+        88,
+        987,
+        451,
+        1001
+      ],
+      "score": 0.999679446220398
+    },
+    {
+      "text": "ciencius de este mundo b?¿ No es verdad que Dios ha con-",
+      "box": [
+        552,
+        977,
+        933,
+        1002
+      ],
+      "score": 0.9658190608024597
+    },
+    {
+      "text": "seais hallados irreprensibles en el dia del advenimiento de",
+      "box": [
+        74,
+        1000,
+        453,
+        1019
+      ],
+      "score": 0.9992371797561646
+    },
+    {
+      "text": "vencido de fátua la sabiduría de este mundo e?",
+      "box": [
+        553,
+        996,
+        842,
+        1017
+      ],
+      "score": 0.9876931309700012
+    },
+    {
+      "text": "Jesu-Christo Señor nuestro.",
+      "box": [
+        76,
+        1020,
+        245,
+        1034
+      ],
+      "score": 0.9993971586227417
+    },
+    {
+      "text": "21. Porque ya que el mundo á vista de las obras de la",
+      "box": [
+        565,
+        1010,
+        933,
+        1035
+      ],
+      "score": 0.9895133376121521
+    },
+    {
+      "text": "9. Porque Dios, por el cual habeis sido llamados á la",
+      "box": [
+        87,
+        1034,
+        453,
+        1052
+      ],
+      "score": 0.9873993992805481
+    },
+    {
+      "text": "sabiduría divina no conoció á Dios por medio de la ciencia",
+      "box": [
+        552,
+        1028,
+        933,
+        1050
+      ],
+      "score": 0.9932532906532288
+    },
+    {
+      "text": "compañía de su Hijo Jesu-Christo nuestro Señor, es fiel en",
+      "box": [
+        75,
+        1050,
+        452,
+        1069
+      ],
+      "score": 0.9994468688964844
+    },
+    {
+      "text": "humana: plugo á Dios salvar á los que creyesen en él por",
+      "box": [
+        551,
+        1044,
+        933,
+        1065
+      ],
+      "score": 0.982425332069397
+    },
+    {
+      "text": "su8 promesas.",
+      "box": [
+        76,
+        1070,
+        163,
+        1084
+      ],
+      "score": 0.9391356110572815
+    },
+    {
+      "text": "medio de la locura ó simplicidad de la predicacion de un Dios",
+      "box": [
+        551,
+        1060,
+        934,
+        1080
+      ],
+      "score": 0.9867416620254517
+    },
+    {
+      "text": "10. Mas os ruego encarecidamente, hermanos mios, por",
+      "box": [
+        89,
+        1085,
+        450,
+        1099
+      ],
+      "score": 0.99055415391922
+    },
+    {
+      "text": "crucificado.",
+      "box": [
+        553,
+        1081,
+        626,
+        1095
+      ],
+      "score": 0.9978246092796326
+    },
+    {
+      "text": "el nombre de nuestro Señor Jesu-Christo: que todos tengais",
+      "box": [
+        76,
+        1101,
+        450,
+        1116
+      ],
+      "score": 0.9998756647109985
+    },
+    {
+      "text": "22. Así es que los Judíos por su parte piden milagros 7,",
+      "box": [
+        562,
+        1092,
+        932,
+        1115
+      ],
+      "score": 0.9911137819290161
+    },
+    {
+      "text": "un mismo lenguaje, y que no haya entre vosotros cismas",
+      "box": [
+        76,
+        1117,
+        451,
+        1134
+      ],
+      "score": 0.9981635808944702
+    },
+    {
+      "text": "y los griegos é Gentiles por la suya quieren ciencia s:",
+      "box": [
+        550,
+        1109,
+        881,
+        1130
+      ],
+      "score": 0.9608480930328369
+    },
+    {
+      "text": "ni partidos: antes bien vivais perfectamente unidos en un",
+      "box": [
+        75,
+        1132,
+        450,
+        1150
+      ],
+      "score": 0.9907291531562805
+    },
+    {
+      "text": "23. Mas nosotros predicamos sencillamente á Christo cru-",
+      "box": [
+        562,
+        1126,
+        933,
+        1146
+      ],
+      "score": 0.9881630539894104
+    },
+    {
+      "text": "mismo pensar, y en un mismo sentir.",
+      "box": [
+        75,
+        1147,
+        304,
+        1167
+      ],
+      "score": 0.9892643690109253
+    },
+    {
+      "text": "cificado: lo cual para los Judíos es motivo de escándalo, y",
+      "box": [
+        550,
+        1142,
+        932,
+        1161
+      ],
+      "score": 0.9888933300971985
+    },
+    {
+      "text": "11. Porque he llegado á entender, hermanos mios, por lós",
+      "box": [
+        88,
+        1163,
+        450,
+        1183
+      ],
+      "score": 0.9860146641731262
+    },
+    {
+      "text": "parece una locura á los Gentiles:",
+      "box": [
+        550,
+        1159,
+        754,
+        1178
+      ],
+      "score": 0.9971041679382324
+    },
+    {
+      "text": "de la familia de Chloé, que hay entre vosotros contiendas.",
+      "box": [
+        76,
+        1179,
+        436,
+        1199
+      ],
+      "score": 0.987380862236023
+    },
+    {
+      "text": "24. Si bien para los que han sido llamados & la fe tanto",
+      "box": [
+        563,
+        1173,
+        933,
+        1193
+      ],
+      "score": 0.9936588406562805
+    },
+    {
+      "text": "1 Actor. VIII, v. 24.—II. Joan. I, v. 42.",
+      "box": [
+        86,
+        1223,
+        303,
+        1242
+      ],
+      "score": 0.9720731377601624
+    },
+    {
+      "text": "6 Jerem. XXXIII, v. 18.",
+      "box": [
+        564,
+        1218,
+        695,
+        1234
+      ],
+      "score": 0.9841739535331726
+    },
+    {
+      "text": "à Y á fin de impedir que se atribuyese á la fuerza de la elocuencia la",
+      "box": [
+        86,
+        1237,
+        450,
+        1256
+      ],
+      "score": 0.9826856255531311
+    },
+    {
+      "text": "è Con el desprecio que ha hecho de ella?",
+      "box": [
+        564,
+        1230,
+        777,
+        1248
+      ],
+      "score": 0.9421132802963257
+    },
+    {
+      "text": "conversion del mundo, que es obra de la cruz.",
+      "box": [
+        78,
+        1254,
+        315,
+        1268
+      ],
+      "score": 0.9994909763336182
+    },
+    {
+      "text": "7 Y milagros que se dirijan á la conquista temporal del mundo.",
+      "box": [
+        563,
+        1242,
+        903,
+        1261
+      ],
+      "score": 0.9857321381568909
+    },
+    {
+      "text": "3 O el medio eficacísimo de que se vale para justificarnos.",
+      "box": [
+        86,
+        1266,
+        388,
+        1282
+      ],
+      "score": 0.9911343455314636
+    },
+    {
+      "text": "s O demostraciones naturales.",
+      "box": [
+        565,
+        1259,
+        725,
+        1272
+      ],
+      "score": 0.9793280959129333
+    },
+    {
+      "text": "4 Isai. XXIX, v, 14.",
+      "box": [
+        87,
+        1281,
+        200,
+        1295
+      ],
+      "score": 0.928693950176239
+    }
+  ]
+}

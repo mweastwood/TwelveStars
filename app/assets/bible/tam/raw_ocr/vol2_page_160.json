@@ -1,0 +1,27 @@
+{
+  "volume": 2,
+  "page_index": 160,
+  "pdf_page": 161,
+  "lines": [
+    {
+      "text": "HTSAN.",
+      "box": [
+        1981,
+        72,
+        2021,
+        203
+      ],
+      "score": 0.7441003918647766
+    },
+    {
+      "text": "ELÍAS ES ARREBATADO EN UN CARRO DE FUEGO",
+      "box": [
+        1972,
+        392,
+        2104,
+        1011
+      ],
+      "score": 0.9827873110771179
+    }
+  ]
+}

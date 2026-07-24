@@ -1,0 +1,1547 @@
+{
+  "volume": 2,
+  "page_index": 225,
+  "pdf_page": 226,
+  "lines": [
+    {
+      "text": "287",
+      "box": [
+        3,
+        17,
+        45,
+        50
+      ],
+      "score": 0.9999961853027344
+    },
+    {
+      "text": "II.ESDRAS.",
+      "box": [
+        223,
+        29,
+        364,
+        67
+      ],
+      "score": 0.9984175562858582
+    },
+    {
+      "text": "CAPITULO XIII.",
+      "box": [
+        963,
+        93,
+        1139,
+        129
+      ],
+      "score": 0.962547779083252
+    },
+    {
+      "text": "CAPITULO XII",
+      "box": [
+        216,
+        106,
+        380,
+        143
+      ],
+      "score": 0.999647319316864
+    },
+    {
+      "text": "288",
+      "box": [
+        1277,
+        118,
+        1313,
+        142
+      ],
+      "score": 0.9999926090240479
+    },
+    {
+      "text": "Nombres y oficios de los sacerdotes y Levitas que vinieron con Zoroba-",
+      "box": [
+        0,
+        144,
+        601,
+        211
+      ],
+      "score": 0.9900815486907959
+    },
+    {
+      "text": "y formé tambien dos grandes coros de gente que cantaba.",
+      "box": [
+        758,
+        154,
+        1322,
+        210
+      ],
+      "score": 0.9972986578941345
+    },
+    {
+      "text": "bel. Celébrase con gran solemnidad la dedicacion de los muros de",
+      "box": [
+        11,
+        171,
+        602,
+        235
+      ],
+      "score": 0.9999199509620667
+    },
+    {
+      "text": "Y se encaminaron á la derecha sobre el muro hácia la puerta",
+      "box": [
+        758,
+        182,
+        1321,
+        236
+      ],
+      "score": 0.9953563213348389
+    },
+    {
+      "text": "Jerusalem.",
+      "box": [
+        11,
+        198,
+        111,
+        227
+      ],
+      "score": 0.999960720539093
+    },
+    {
+      "text": "llamada del Estercolero.",
+      "box": [
+        758,
+        210,
+        992,
+        247
+      ],
+      "score": 0.9997114539146423
+    },
+    {
+      "text": "1. Estos son los sacerdotes y los Levitas que vinieron",
+      "box": [
+        15,
+        241,
+        598,
+        302
+      ],
+      "score": 0.9966522455215454
+    },
+    {
+      "text": "32. Y detrás iban Osaias y la mitad de los magnates de",
+      "box": [
+        777,
+        236,
+        1319,
+        284
+      ],
+      "score": 0.9999489784240723
+    },
+    {
+      "text": "con Zorobabel hijo de Salathiel, y con Josué: Saraia, Jere.",
+      "box": [
+        0,
+        268,
+        599,
+        329
+      ],
+      "score": 0.9854018092155457
+    },
+    {
+      "text": "Judá,",
+      "box": [
+        753,
+        259,
+        815,
+        290
+      ],
+      "score": 0.9991378784179688
+    },
+    {
+      "text": "SRL",
+      "box": [
+        652,
+        281,
+        695,
+        348
+      ],
+      "score": 0.5543535351753235
+    },
+    {
+      "text": "33. Y Azarias, Esdras, y Mosollam, Judas y Benjamin, y",
+      "box": [
+        776,
+        287,
+        1317,
+        334
+      ],
+      "score": 0.9918919205665588
+    },
+    {
+      "text": "mías, Esdras,",
+      "box": [
+        0,
+        297,
+        132,
+        330
+      ],
+      "score": 0.9999494552612305
+    },
+    {
+      "text": "Semeia y Jeremías.",
+      "box": [
+        755,
+        312,
+        936,
+        344
+      ],
+      "score": 0.9996544718742371
+    },
+    {
+      "text": "2. Amaria, Melluch, Hattus,",
+      "box": [
+        15,
+        322,
+        311,
+        368
+      ],
+      "score": 0.9864183068275452
+    },
+    {
+      "text": "34. De los sacerdotes iban con sus trompetas Zacharias,",
+      "box": [
+        775,
+        336,
+        1316,
+        380
+      ],
+      "score": 0.9959893822669983
+    },
+    {
+      "text": "3. Sebenias, Rheum, Merimuth,",
+      "box": [
+        15,
+        349,
+        342,
+        396
+      ],
+      "score": 0.9992611408233643
+    },
+    {
+      "text": "hijo de Jonathán, hijo de Semeias, hijo de Mathanias, hijo de",
+      "box": [
+        754,
+        360,
+        1316,
+        405
+      ],
+      "score": 0.9997250437736511
+    },
+    {
+      "text": "4. Addo, Genthom, Abia,",
+      "box": [
+        14,
+        373,
+        281,
+        421
+      ],
+      "score": 0.9990893006324768
+    },
+    {
+      "text": "Michaias, hijo de Zechur, hijo de Asaph,",
+      "box": [
+        753,
+        386,
+        1133,
+        424
+      ],
+      "score": 0.9975910186767578
+    },
+    {
+      "text": "5. Miamin, Madia, Belga,",
+      "box": [
+        15,
+        400,
+        283,
+        446
+      ],
+      "score": 0.9993789792060852
+    },
+    {
+      "text": "35. Y sus hermanos Semeia, Azareel, Melalai, Galalai,",
+      "box": [
+        773,
+        411,
+        1314,
+        451
+      ],
+      "score": 0.9902974963188171
+    },
+    {
+      "text": "6. Semeia, y Joiarib, Idaia, Sellúm, Amoc, Helcias,",
+      "box": [
+        15,
+        425,
+        525,
+        481
+      ],
+      "score": 0.9842569231987
+    },
+    {
+      "text": "Maai, Nathanael, y Judas y Hanani, con los instrumentos",
+      "box": [
+        751,
+        434,
+        1315,
+        476
+      ],
+      "score": 0.9982176423072815
+    },
+    {
+      "text": "7. Idaia. Estos son los príncipes de los sacerdotes ó fami-",
+      "box": [
+        15,
+        450,
+        596,
+        509
+      ],
+      "score": 0.971887469291687
+    },
+    {
+      "text": "músicos de David, varon de Dios; y Esdras escriba, delante",
+      "box": [
+        750,
+        457,
+        1316,
+        501
+      ],
+      "score": 0.9985352158546448
+    },
+    {
+      "text": "lias sucerdotales, que vinieron con sus hermanos en los dias",
+      "box": [
+        0,
+        477,
+        595,
+        532
+      ],
+      "score": 0.9907734394073486
+    },
+    {
+      "text": "de ellos, hasta la puerta de la Fuente.",
+      "box": [
+        752,
+        483,
+        1103,
+        519
+      ],
+      "score": 0.995954155921936
+    },
+    {
+      "text": "ó pontificado de Josué.",
+      "box": [
+        0,
+        504,
+        231,
+        541
+      ],
+      "score": 0.9927014112472534
+    },
+    {
+      "text": "36. En frente de estos subieron los otros s, por las gradas",
+      "box": [
+        770,
+        506,
+        1316,
+        548
+      ],
+      "score": 0.9889364242553711
+    },
+    {
+      "text": "8. Los Levitas fueron Jesua, Bennui, Cedmihel, Sarebia,",
+      "box": [
+        17,
+        529,
+        592,
+        583
+      ],
+      "score": 0.9964932799339294
+    },
+    {
+      "text": "de la ciudad de David ó monte Sion, donde se alza el muro",
+      "box": [
+        750,
+        531,
+        1314,
+        571
+      ],
+      "score": 0.9933469891548157
+    },
+    {
+      "text": "Judá, Mathanias, que con sus hermanos cantaban y dirigian",
+      "box": [
+        0,
+        555,
+        593,
+        609
+      ],
+      "score": 0.9943680167198181
+    },
+    {
+      "text": "sobre la casa de David, hasta la puerta de las Aguas, al",
+      "box": [
+        747,
+        555,
+        1315,
+        596
+      ],
+      "score": 0.9998167157173157
+    },
+    {
+      "text": "los himnos;",
+      "box": [
+        0,
+        582,
+        124,
+        613
+      ],
+      "score": 0.9911954402923584
+    },
+    {
+      "text": "Oriente.",
+      "box": [
+        750,
+        583,
+        830,
+        608
+      ],
+      "score": 0.9999876618385315
+    },
+    {
+      "text": "9. Y Becbecia, y Hanni con sus hermanos, cada cual en",
+      "box": [
+        19,
+        606,
+        593,
+        660
+      ],
+      "score": 0.9800148606300354
+    },
+    {
+      "text": "37. Y de esta suerte el segundo coro de los que cantaban",
+      "box": [
+        768,
+        606,
+        1314,
+        644
+      ],
+      "score": 0.999466061592102
+    },
+    {
+      "text": "su ministerio.",
+      "box": [
+        0,
+        634,
+        142,
+        663
+      ],
+      "score": 0.9998601675033569
+    },
+    {
+      "text": "á Dios acciones de gracias, marchaba por la parte opuesta,",
+      "box": [
+        748,
+        633,
+        1313,
+        668
+      ],
+      "score": 0.9993451833724976
+    },
+    {
+      "text": "10. Josué, Sumo Sacerdote, engendró á Joacim, Joacim en-",
+      "box": [
+        19,
+        657,
+        594,
+        709
+      ],
+      "score": 0.981532633304596
+    },
+    {
+      "text": "y yo detrás de él con la otra mitad del pueblo, por encima",
+      "box": [
+        747,
+        659,
+        1313,
+        691
+      ],
+      "score": 0.9835650324821472
+    },
+    {
+      "text": "gendró á Eliasib, y Eliasib engendró á Joiada.",
+      "box": [
+        0,
+        683,
+        451,
+        731
+      ],
+      "score": 0.9980007410049438
+    },
+    {
+      "text": "de la muralla y de la torre de los Hornos, hasta la parte mas",
+      "box": [
+        748,
+        683,
+        1313,
+        716
+      ],
+      "score": 0.9998117089271545
+    },
+    {
+      "text": "11. Joiada engendró á Jonathán, Jonathán engendró á",
+      "box": [
+        19,
+        709,
+        595,
+        759
+      ],
+      "score": 0.985261082649231
+    },
+    {
+      "text": "ancha del muro;",
+      "box": [
+        749,
+        709,
+        909,
+        736
+      ],
+      "score": 0.9999242424964905
+    },
+    {
+      "text": "Jeddoa ó Jaddo.",
+      "box": [
+        0,
+        735,
+        167,
+        768
+      ],
+      "score": 0.9932323098182678
+    },
+    {
+      "text": "38. Pasando por sobre la puerta de Ephraim, y sobre la",
+      "box": [
+        768,
+        731,
+        1314,
+        765
+      ],
+      "score": 0.9977120161056519
+    },
+    {
+      "text": "12. Y en el tiempo de Joacim, los sacerdotes cabezas de",
+      "box": [
+        20,
+        760,
+        593,
+        809
+      ],
+      "score": 0.9858704209327698
+    },
+    {
+      "text": "puerta Antigua, y sobre la puerta del Pescado, y sobre la",
+      "box": [
+        747,
+        757,
+        1313,
+        789
+      ],
+      "score": 0.99337238073349
+    },
+    {
+      "text": "las familias sacerdotales eran: De la de Saraias, Maraia: de la",
+      "box": [
+        0,
+        787,
+        593,
+        832
+      ],
+      "score": 0.9995740056037903
+    },
+    {
+      "text": "torre de Hananeel, y la torre de Emath, hasta la puerta del",
+      "box": [
+        747,
+        781,
+        1313,
+        815
+      ],
+      "score": 0.9919176697731018
+    },
+    {
+      "text": "de Jeremías, Hanania:",
+      "box": [
+        0,
+        815,
+        222,
+        845
+      ],
+      "score": 0.9996457695960999
+    },
+    {
+      "text": "Ganado; y vinieron á parar sobre la puerta de la Cárcel.",
+      "box": [
+        747,
+        806,
+        1263,
+        839
+      ],
+      "score": 0.99716717004776
+    },
+    {
+      "text": "13. De la de Esdras, Mosollam: de la de Amarias, Jo-",
+      "box": [
+        19,
+        840,
+        592,
+        882
+      ],
+      "score": 0.9925861954689026
+    },
+    {
+      "text": "39. Y juntáronse los dos coros de cantores en la Casa de",
+      "box": [
+        767,
+        828,
+        1312,
+        864
+      ],
+      "score": 0.9982722997665405
+    },
+    {
+      "text": "hanan:",
+      "box": [
+        0,
+        867,
+        76,
+        892
+      ],
+      "score": 0.9999422430992126
+    },
+    {
+      "text": "Dios, estando yo y la mitad de los magistrados conmigo,",
+      "box": [
+        747,
+        856,
+        1262,
+        888
+      ],
+      "score": 0.9998975396156311
+    },
+    {
+      "text": "14. De la de Milicho ó Melluc, Jonathán: de la de Sebe-",
+      "box": [
+        18,
+        888,
+        592,
+        932
+      ],
+      "score": 0.9946980476379395
+    },
+    {
+      "text": "40. Y los sacerdotes Eliachim, Maasia, Miamin, Michea,",
+      "box": [
+        768,
+        877,
+        1308,
+        913
+      ],
+      "score": 0.9861577153205872
+    },
+    {
+      "text": "nias, Joseph:",
+      "box": [
+        0,
+        916,
+        136,
+        944
+      ],
+      "score": 0.9990606307983398
+    },
+    {
+      "text": "Elioenai, Zacharia, Hanania con sus trompetas ó clarines,",
+      "box": [
+        746,
+        903,
+        1273,
+        936
+      ],
+      "score": 0.9967800378799438
+    },
+    {
+      "text": "15. De la de Haram, Edna: de la de Maraioth, Helci:",
+      "box": [
+        18,
+        940,
+        540,
+        980
+      ],
+      "score": 0.9991247653961182
+    },
+    {
+      "text": "41. Y Maasia, y Semeia, y Eleazar, y Azzi, y Johanan, y",
+      "box": [
+        767,
+        926,
+        1308,
+        960
+      ],
+      "score": 0.986825704574585
+    },
+    {
+      "text": "Melchia, y Elam, y Ezer. É hicieron resonar su voz los can-",
+      "box": [
+        746,
+        949,
+        1309,
+        984
+      ],
+      "score": 0.9996026754379272
+    },
+    {
+      "text": "16. De la de Adaia, Zacharias: de la de Genthom, Mo-",
+      "box": [
+        18,
+        966,
+        590,
+        1006
+      ],
+      "score": 0.9975728988647461
+    },
+    {
+      "text": "tores, y Jezraia su prefecto ó maestro de capilla:",
+      "box": [
+        746,
+        976,
+        1191,
+        1007
+      ],
+      "score": 0.9898020029067993
+    },
+    {
+      "text": "sollam:",
+      "box": [
+        0,
+        994,
+        80,
+        1023
+      ],
+      "score": 0.999786376953125
+    },
+    {
+      "text": "N7-AN",
+      "box": [
+        630,
+        996,
+        671,
+        1077
+      ],
+      "score": 0.5390520095825195
+    },
+    {
+      "text": "42. É inmoláronse en aquel dia grandes víctimas, y hubo",
+      "box": [
+        764,
+        996,
+        1309,
+        1034
+      ],
+      "score": 0.9993916153907776
+    },
+    {
+      "text": "17. De la de Abia, Zechri: de la de Miamin, y de Moadias,",
+      "box": [
+        19,
+        1019,
+        586,
+        1056
+      ],
+      "score": 0.9946333765983582
+    },
+    {
+      "text": "gran regocijo, por el consuelo de que los colmaba Dios: ale-",
+      "box": [
+        744,
+        1020,
+        1310,
+        1059
+      ],
+      "score": 0.9987704157829285
+    },
+    {
+      "text": "Phelti:",
+      "box": [
+        0,
+        1048,
+        73,
+        1073
+      ],
+      "score": 0.9990038871765137
+    },
+    {
+      "text": "gráronse igualmente sus mujeres é hijos, y el alborozo de",
+      "box": [
+        744,
+        1045,
+        1308,
+        1082
+      ],
+      "score": 0.9989916682243347
+    },
+    {
+      "text": "18. Dela de Belga, Sammúa: de la de Semaia, Jonathán:",
+      "box": [
+        18,
+        1072,
+        588,
+        1104
+      ],
+      "score": 0.9977901577949524
+    },
+    {
+      "text": "Jerusalem se oyó de lejos.",
+      "box": [
+        745,
+        1079,
+        982,
+        1100
+      ],
+      "score": 0.9835301637649536
+    },
+    {
+      "text": "19.",
+      "box": [
+        20,
+        1100,
+        68,
+        1122
+      ],
+      "score": 0.9891913533210754
+    },
+    {
+      "text": "De la de Joiarib, Mathanai: de Ia de Jodaia, Azzi:",
+      "box": [
+        56,
+        1099,
+        548,
+        1126
+      ],
+      "score": 0.9971691966056824
+    },
+    {
+      "text": "43. Escogiéronse tambien en aquel mismo dia de entre",
+      "box": [
+        765,
+        1096,
+        1308,
+        1126
+      ],
+      "score": 0.9995986223220825
+    },
+    {
+      "text": "20.",
+      "box": [
+        20,
+        1124,
+        63,
+        1147
+      ],
+      "score": 0.9983145594596863
+    },
+    {
+      "text": "De la de Sellai ó Sellúm, Celai: de la de Amoc, Heber:",
+      "box": [
+        65,
+        1124,
+        586,
+        1151
+      ],
+      "score": 0.9861162900924683
+    },
+    {
+      "text": "los sacerdotes y Levitas algunos para cuidar de las cillas del",
+      "box": [
+        743,
+        1119,
+        1308,
+        1152
+      ],
+      "score": 0.9904490113258362
+    },
+    {
+      "text": "21. De la de Helcias, Hasebia: de la de Idaia, Nathanael.",
+      "box": [
+        19,
+        1147,
+        586,
+        1176
+      ],
+      "score": 0.9951282143592834
+    },
+    {
+      "text": "tesoro, á fin de que por sus manos los magnates de la ciudad",
+      "box": [
+        744,
+        1145,
+        1308,
+        1177
+      ],
+      "score": 0.9937617778778076
+    },
+    {
+      "text": "22. En cuanto á los Levitas que vivieron en los tiempos",
+      "box": [
+        19,
+        1170,
+        586,
+        1204
+      ],
+      "score": 0.9909220337867737
+    },
+    {
+      "text": "presentasen en honorífico tributo de accion de gracias las",
+      "box": [
+        743,
+        1170,
+        1308,
+        1201
+      ],
+      "score": 0.9998828768730164
+    },
+    {
+      "text": "de Eliasib, y de Joiada, y de Johanan, y de Jeddoa, fueron",
+      "box": [
+        0,
+        1196,
+        587,
+        1229
+      ],
+      "score": 0.9976646304130554
+    },
+    {
+      "text": "ofertas de los licores, y de las primicias, y de los diezmos:",
+      "box": [
+        743,
+        1194,
+        1308,
+        1225
+      ],
+      "score": 0.9968760013580322
+    },
+    {
+      "text": "escritas las cabezas de aquellas familias levíticas como las",
+      "box": [
+        0,
+        1223,
+        585,
+        1253
+      ],
+      "score": 0.9995797872543335
+    },
+    {
+      "text": "porque el pueblo de Judá quedó sumamente satisfecho de los",
+      "box": [
+        741,
+        1217,
+        1309,
+        1252
+      ],
+      "score": 0.999893307685852
+    },
+    {
+      "text": "de los sacerdotes en el reinado de Darío rey de Persia.",
+      "box": [
+        0,
+        1248,
+        520,
+        1277
+      ],
+      "score": 0.9897227883338928
+    },
+    {
+      "text": "sacerdotes y Levitas que asistieron á las funciones:",
+      "box": [
+        741,
+        1243,
+        1214,
+        1276
+      ],
+      "score": 0.9935615062713623
+    },
+    {
+      "text": "23. Los hijos de Leví príncipes ó cabezas de las familias,",
+      "box": [
+        20,
+        1272,
+        585,
+        1304
+      ],
+      "score": 0.9776606559753418
+    },
+    {
+      "text": "44. Y estos por su parte cumplieron exactamente con el",
+      "box": [
+        763,
+        1266,
+        1309,
+        1300
+      ],
+      "score": 0.9987194538116455
+    },
+    {
+      "text": "se hallan tambien escritos en el libro de los Anales hasta el",
+      "box": [
+        0,
+        1299,
+        587,
+        1331
+      ],
+      "score": 0.9995183348655701
+    },
+    {
+      "text": "DN78 Y0N9",
+      "box": [
+        608,
+        1162,
+        721,
+        1324
+      ],
+      "score": 0.4655013084411621
+    },
+    {
+      "text": "culto de su Dios, y con las ceremonias de la expiacion: como",
+      "box": [
+        743,
+        1290,
+        1310,
+        1329
+      ],
+      "score": 0.9970159530639648
+    },
+    {
+      "text": "AN7!",
+      "box": [
+        681,
+        1314,
+        712,
+        1381
+      ],
+      "score": 0.7572746276855469
+    },
+    {
+      "text": "e    b",
+      "box": [
+        2,
+        1327,
+        349,
+        1355
+      ],
+      "score": 0.6352712512016296
+    },
+    {
+      "text": "A   p",
+      "box": [
+        743,
+        1316,
+        1309,
+        1353
+      ],
+      "score": 0.5541455745697021
+    },
+    {
+      "text": "  S",
+      "box": [
+        25,
+        1354,
+        588,
+        1382
+      ],
+      "score": 0.5653281211853027
+    },
+    {
+      "text": "av     o",
+      "box": [
+        744,
+        1345,
+        1015,
+        1377
+      ],
+      "score": 0.5928509831428528
+    },
+    {
+      "text": "  e",
+      "box": [
+        3,
+        1378,
+        589,
+        1408
+      ],
+      "score": 0.4354443848133087
+    },
+    {
+      "text": "45. Porque desde el principio, en {tiempo de David y de",
+      "box": [
+        764,
+        1366,
+        1310,
+        1400
+      ],
+      "score": 0.9862896203994751
+    },
+    {
+      "text": "dos en cantar himnos y salmos por sus turnos, conforme á",
+      "box": [
+        3,
+        1405,
+        590,
+        1433
+      ],
+      "score": 0.9983565211296082
+    },
+    {
+      "text": "Asaph, habia establecidos jefes de los cantores que entona-",
+      "box": [
+        744,
+        1390,
+        1310,
+        1426
+      ],
+      "score": 0.9998114705085754
+    },
+    {
+      "text": "la disposicion de David ¹, varon de Dios, observando igual-",
+      "box": [
+        4,
+        1433,
+        588,
+        1457
+      ],
+      "score": 0.9889933466911316
+    },
+    {
+      "text": "ban himnos y alabanzas á Dios.",
+      "box": [
+        744,
+        1417,
+        1031,
+        1450
+      ],
+      "score": 0.9931955337524414
+    },
+    {
+      "text": "46. Y así en tiempo de Zorobabel, y en el de Nehemias",
+      "box": [
+        764,
+        1439,
+        1311,
+        1473
+      ],
+      "score": 0.9883431196212769
+    },
+    {
+      "text": "mente el órden establecido.",
+      "box": [
+        4,
+        1456,
+        269,
+        1483
+      ],
+      "score": 0.9971209764480591
+    },
+    {
+      "text": "todo Israél daba diariamente sus raciones á los cantores y",
+      "box": [
+        744,
+        1462,
+        1310,
+        1500
+      ],
+      "score": 0.9993188381195068
+    },
+    {
+      "text": "25. Mathania y Becbecia, Obedía, Mosollam, Telmon, Ac-",
+      "box": [
+        28,
+        1484,
+        588,
+        1507
+      ],
+      "score": 0.9814822673797607
+    },
+    {
+      "text": "SULNIL",
+      "box": [
+        651,
+        1472,
+        718,
+        1564
+      ],
+      "score": 0.5955069661140442
+    },
+    {
+      "text": "porteros, y presentaba la oblacion santa de los diezmos á los",
+      "box": [
+        742,
+        1485,
+        1312,
+        1526
+      ],
+      "score": 0.991882860660553
+    },
+    {
+      "text": "cub, eran guardas de las puertas y de los vestíbulos de",
+      "box": [
+        7,
+        1509,
+        589,
+        1533
+      ],
+      "score": 0.999855637550354
+    },
+    {
+      "text": "Levitas, y estos la presentaban tambien á los hijos de Aaron.",
+      "box": [
+        743,
+        1513,
+        1311,
+        1547
+      ],
+      "score": 0.9975634217262268
+    },
+    {
+      "text": "delante de ellas.",
+      "box": [
+        6,
+        1532,
+        169,
+        1558
+      ],
+      "score": 0.9999656677246094
+    },
+    {
+      "text": "26. Vivian estos en tiempo de Joacim, hijo de Josué, hijo",
+      "box": [
+        30,
+        1557,
+        589,
+        1582
+      ],
+      "score": 0.9894399046897888
+    },
+    {
+      "text": "CAPITULO XIII",
+      "box": [
+        942,
+        1566,
+        1102,
+        1590
+      ],
+      "score": 0.9992949366569519
+    },
+    {
+      "text": "de Josedec; y en tiempo de Nehemias gobernador, y de Es-",
+      "box": [
+        9,
+        1582,
+        590,
+        1610
+      ],
+      "score": 0.9941837191581726
+    },
+    {
+      "text": "dras sacerdote y escriba .",
+      "box": [
+        9,
+        1608,
+        262,
+        1636
+      ],
+      "score": 0.985305905342102
+    },
+    {
+      "text": "Desórdenes de los Judíos corregidos por Nehemias.",
+      "box": [
+        826,
+        1616,
+        1226,
+        1641
+      ],
+      "score": 0.9997586011886597
+    },
+    {
+      "text": "27. Para la dedicacion de los muros de Jerusalem bus-",
+      "box": [
+        32,
+        1633,
+        591,
+        1660
+      ],
+      "score": 0.9990136027336121
+    },
+    {
+      "text": "cáronse por todos los lugares los Levitas para hacerlos venir",
+      "box": [
+        11,
+        1658,
+        590,
+        1687
+      ],
+      "score": 0.994123637676239
+    },
+    {
+      "text": "1. Por aquel tiempo se hacia en presencia del pueblo la",
+      "box": [
+        761,
+        1654,
+        1314,
+        1695
+      ],
+      "score": 0.9920533895492554
+    },
+    {
+      "text": "á Jerusalem á celebrar la dedicacion y fiestas en accion de",
+      "box": [
+        10,
+        1683,
+        590,
+        1711
+      ],
+      "score": 0.9968037009239197
+    },
+    {
+      "text": "lectura del libro de la Ley de Moysés; y hallóse escrito en él",
+      "box": [
+        740,
+        1678,
+        1314,
+        1723
+      ],
+      "score": 0.9917210340499878
+    },
+    {
+      "text": "gracias con cánticos y címbalos, salterios y cítaras.",
+      "box": [
+        11,
+        1707,
+        496,
+        1740
+      ],
+      "score": 0.9979448318481445
+    },
+    {
+      "text": "que ningun Ammonita, ni Moabita debe jamás entrar en la",
+      "box": [
+        740,
+        1701,
+        1315,
+        1750
+      ],
+      "score": 0.9862335920333862
+    },
+    {
+      "text": "28. Juntáronse pues los cantores de Ia campiña de Jeru-",
+      "box": [
+        35,
+        1732,
+        590,
+        1762
+      ],
+      "score": 0.9930381774902344
+    },
+    {
+      "text": "congregacion del pueblo de Dios 4:",
+      "box": [
+        741,
+        1730,
+        1059,
+        1772
+      ],
+      "score": 0.9964248538017273
+    },
+    {
+      "text": "salem y de las aldeas de Nethuphati,",
+      "box": [
+        14,
+        1760,
+        365,
+        1787
+      ],
+      "score": 0.9999656677246094
+    },
+    {
+      "text": "2. Por cuanto no socorrieron á los hijos de Israél con",
+      "box": [
+        760,
+        1748,
+        1314,
+        1795
+      ],
+      "score": 0.9918162822723389
+    },
+    {
+      "text": "29. Y de la casa de Galgal, y de los territorios de Geba, y",
+      "box": [
+        38,
+        1782,
+        590,
+        1810
+      ],
+      "score": 0.9997687339782715
+    },
+    {
+      "text": "CLOL-",
+      "box": [
+        665,
+        1772,
+        718,
+        1855
+      ],
+      "score": 0.7473418712615967
+    },
+    {
+      "text": "pan y agua; antes bien sobornaron con dinero contra ellos",
+      "box": [
+        738,
+        1771,
+        1316,
+        1823
+      ],
+      "score": 0.999833881855011
+    },
+    {
+      "text": "Azmaveth; pues los cantores se habian fabricado granjas en",
+      "box": [
+        16,
+        1805,
+        592,
+        1838
+      ],
+      "score": 0.9994503259658813
+    },
+    {
+      "text": "á Balaam para que los maldijera; aunque nuestro Dios con-",
+      "box": [
+        739,
+        1798,
+        1315,
+        1844
+      ],
+      "score": 0.9936755895614624
+    },
+    {
+      "text": "la comarca de Jerusalem.",
+      "box": [
+        16,
+        1832,
+        262,
+        1862
+      ],
+      "score": 0.9957510828971863
+    },
+    {
+      "text": "virtió la maldicion en bendicion.",
+      "box": [
+        742,
+        1829,
+        1033,
+        1867
+      ],
+      "score": 0.9916589856147766
+    },
+    {
+      "text": "30. Purificáronse pues los sacerdotes y Levitas, y purifi-",
+      "box": [
+        40,
+        1853,
+        591,
+        1887
+      ],
+      "score": 0.9905832409858704
+    },
+    {
+      "text": "3. Así que hubieron oido la Ley, separaron del pueblo de",
+      "box": [
+        761,
+        1844,
+        1315,
+        1894
+      ],
+      "score": 0.9956215620040894
+    },
+    {
+      "text": "caron despues al pueblo, y las puertas y los muros.",
+      "box": [
+        22,
+        1878,
+        499,
+        1913
+      ],
+      "score": 0.9902552962303162
+    },
+    {
+      "text": "Israél á todo extranjero.",
+      "box": [
+        743,
+        1882,
+        959,
+        1918
+      ],
+      "score": 0.9982645511627197
+    },
+    {
+      "text": "31. Yo hice subir álos magnates de Judá sobrela muralla,",
+      "box": [
+        43,
+        1904,
+        591,
+        1936
+      ],
+      "score": 0.9948496222496033
+    },
+    {
+      "text": "3 Que habian tirado hácia la izquierda.",
+      "box": [
+        760,
+        1933,
+        1059,
+        1972
+      ],
+      "score": 0.9985039830207825
+    },
+    {
+      "text": "1 Véase I. Paral. XXIII, cap. XXV, etc.",
+      "box": [
+        42,
+        1961,
+        377,
+        1990
+      ],
+      "score": 0.9972150921821594
+    },
+    {
+      "text": "4 Deuter. XXIII, v. 3.",
+      "box": [
+        762,
+        1962,
+        938,
+        1993
+      ],
+      "score": 0.984122633934021
+    },
+    {
+      "text": "2 O doctor de la Ley.",
+      "box": [
+        42,
+        1986,
+        215,
+        2011
+      ],
+      "score": 0.9828253388404846
+    }
+  ]
+}

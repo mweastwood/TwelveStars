@@ -1,0 +1,27 @@
+{
+  "volume": 2,
+  "page_index": 136,
+  "pdf_page": 137,
+  "lines": [
+    {
+      "text": "g.Dory",
+      "box": [
+        139,
+        1689,
+        266,
+        1761
+      ],
+      "score": 0.7042651176452637
+    },
+    {
+      "text": "ELÍAS ALIMENTADO POR UN ÁNGEL",
+      "box": [
+        508,
+        1813,
+        915,
+        1845
+      ],
+      "score": 0.9995534420013428
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "volume": 2,
+  "page_index": 64,
+  "pdf_page": 65,
+  "lines": [
+    {
+      "text": "GOEBELS",
+      "box": [
+        1805,
+        1222,
+        1938,
+        1239
+      ],
+      "score": 0.8867047429084778
+    },
+    {
+      "text": "DAVID PASA SOBRE LOS AMMONITAS CON CARROS ARMADOS DE HOCES",
+      "box": [
+        592,
+        1278,
+        1557,
+        1321
+      ],
+      "score": 0.9954370260238647
+    }
+  ]
+}

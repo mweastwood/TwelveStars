@@ -1,0 +1,27 @@
+{
+  "volume": 2,
+  "page_index": 88,
+  "pdf_page": 89,
+  "lines": [
+    {
+      "text": "eBore",
+      "box": [
+        73,
+        1804,
+        205,
+        1852
+      ],
+      "score": 0.7537114024162292
+    },
+    {
+      "text": "ABISAÍ SALVA LA VIDA Á DAVID",
+      "box": [
+        505,
+        1886,
+        885,
+        1919
+      ],
+      "score": 0.9775206446647644
+    }
+  ]
+}

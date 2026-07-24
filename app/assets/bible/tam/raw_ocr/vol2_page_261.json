@@ -1,0 +1,1507 @@
+{
+  "volume": 2,
+  "page_index": 261,
+  "pdf_page": 262,
+  "lines": [
+    {
+      "text": "331",
+      "box": [
+        45,
+        48,
+        84,
+        77
+      ],
+      "score": 0.9999751448631287
+    },
+    {
+      "text": "ESTHER",
+      "box": [
+        280,
+        61,
+        376,
+        95
+      ],
+      "score": 0.9999733567237854
+    },
+    {
+      "text": "CAPITULO V.",
+      "box": [
+        1003,
+        84,
+        1150,
+        114
+      ],
+      "score": 0.9958814382553101
+    },
+    {
+      "text": "332",
+      "box": [
+        1311,
+        90,
+        1345,
+        114
+      ],
+      "score": 0.9999927878379822
+    },
+    {
+      "text": "2. Todos los criados del rey que frecuentaban las puertas",
+      "box": [
+        52,
+        122,
+        620,
+        180
+      ],
+      "score": 0.9993115663528442
+    },
+    {
+      "text": "de palacio, doblaban la rodilla, y adoraban á Aman; pues así",
+      "box": [
+        32,
+        153,
+        621,
+        208
+      ],
+      "score": 0.9956032037734985
+    },
+    {
+      "text": "y vistióse de un saco, ó cilicio, esparciendo ceniza sobre su",
+      "box": [
+        778,
+        154,
+        1356,
+        185
+      ],
+      "score": 0.9903925061225891
+    },
+    {
+      "text": "lo habia mandado el soberano: solo Mardocheo no doblaba la",
+      "box": [
+        31,
+        182,
+        619,
+        234
+      ],
+      "score": 0.9964646697044373
+    },
+    {
+      "text": "cabeza: y en medio de la plaza de la ciudad clamaba en alta",
+      "box": [
+        779,
+        181,
+        1355,
+        213
+      ],
+      "score": 0.9984486103057861
+    },
+    {
+      "text": "rodilla, ni le adoraba.",
+      "box": [
+        33,
+        213,
+        263,
+        248
+      ],
+      "score": 0.9827423691749573
+    },
+    {
+      "text": "voz, manifestando la amargura de su corazon;",
+      "box": [
+        777,
+        209,
+        1218,
+        239
+      ],
+      "score": 0.9999357461929321
+    },
+    {
+      "text": "3. Dijéronle pues los criados del rey, que mandaban en las",
+      "box": [
+        55,
+        241,
+        618,
+        287
+      ],
+      "score": 0.9998126029968262
+    },
+    {
+      "text": "2. Y con estos alaridos iba hasta las puertas de palacio.",
+      "box": [
+        797,
+        236,
+        1353,
+        263
+      ],
+      "score": 0.9938076138496399
+    },
+    {
+      "text": "puertas del palacio: ¿Cómo es que no observas la órden del",
+      "box": [
+        33,
+        270,
+        619,
+        313
+      ],
+      "score": 0.9930904507637024
+    },
+    {
+      "text": "Porque no era lícito que uno vestido de cilicio entrase dentro",
+      "box": [
+        777,
+        260,
+        1354,
+        289
+      ],
+      "score": 0.999692976474762
+    },
+    {
+      "text": "rey, distinguiéndote entre todos los demás?",
+      "box": [
+        35,
+        297,
+        445,
+        335
+      ],
+      "score": 0.9886239767074585
+    },
+    {
+      "text": "del palacio real.",
+      "box": [
+        779,
+        289,
+        931,
+        313
+      ],
+      "score": 0.9999693632125854
+    },
+    {
+      "text": "3. Asimismo en todas las provincias, ciudades y pueblos,",
+      "box": [
+        796,
+        309,
+        1352,
+        339
+      ],
+      "score": 0.9995733499526978
+    },
+    {
+      "text": "4. Y como se lo repitiesen varias veces, y él no quisiese ha-",
+      "box": [
+        55,
+        322,
+        618,
+        366
+      ],
+      "score": 0.996886670589447
+    },
+    {
+      "text": "cer caso, dieron aviso á Aman, deseando probar si persistiria",
+      "box": [
+        34,
+        347,
+        619,
+        390
+      ],
+      "score": 0.9929200410842896
+    },
+    {
+      "text": "á donde habia llegado el cruel edicto del rey, era grande la",
+      "box": [
+        777,
+        335,
+        1354,
+        363
+      ],
+      "score": 0.9988678693771362
+    },
+    {
+      "text": "siempre en su resolucion; porque les habia dicho que él era",
+      "box": [
+        32,
+        371,
+        618,
+        418
+      ],
+      "score": 0.9972193241119385
+    },
+    {
+      "text": "consternacion de los Judíos: ayunaban, prorumpian en ala-",
+      "box": [
+        778,
+        359,
+        1354,
+        390
+      ],
+      "score": 0.9939634799957275
+    },
+    {
+      "text": "ridos y lamentos, usando muchos de cilicio y ceniza en lugar",
+      "box": [
+        775,
+        385,
+        1354,
+        415
+      ],
+      "score": 0.9949950575828552
+    },
+    {
+      "text": "Judío ².",
+      "box": [
+        35,
+        399,
+        118,
+        427
+      ],
+      "score": 0.9377696514129639
+    },
+    {
+      "text": "5. Aman, recibido el aviso, y certificado por la experiencia",
+      "box": [
+        53,
+        424,
+        617,
+        467
+      ],
+      "score": 0.9944111108779907
+    },
+    {
+      "text": "de cama.",
+      "box": [
+        776,
+        415,
+        863,
+        439
+      ],
+      "score": 0.999946653842926
+    },
+    {
+      "text": "4. Y las camaristas de Esther, y los eunucos, entraron á",
+      "box": [
+        794,
+        434,
+        1356,
+        466
+      ],
+      "score": 0.9975782036781311
+    },
+    {
+      "text": "que Mardocheo ni le doblaba la rodilla, ni le adoraba, montó",
+      "box": [
+        34,
+        451,
+        616,
+        489
+      ],
+      "score": 0.9983078241348267
+    },
+    {
+      "text": "darle parte 7. La cual, al oirlo, quedó consternada, y envió un",
+      "box": [
+        775,
+        458,
+        1355,
+        492
+      ],
+      "score": 0.9937880635261536
+    },
+    {
+      "text": "en gran cólera.",
+      "box": [
+        33,
+        475,
+        182,
+        507
+      ],
+      "score": 0.9999120831489563
+    },
+    {
+      "text": "6. Pero reputó por nada el vengarse de solo Mardocheo:",
+      "box": [
+        53,
+        499,
+        616,
+        541
+      ],
+      "score": 0.9970791935920715
+    },
+    {
+      "text": "vestido á Mardocheo, para que quitándose el saco, se le vistie-",
+      "box": [
+        774,
+        483,
+        1356,
+        518
+      ],
+      "score": 0.9916927814483643
+    },
+    {
+      "text": "se8; pero Mardocheo no quiso recibirle.",
+      "box": [
+        774,
+        512,
+        1154,
+        542
+      ],
+      "score": 0.9776550531387329
+    },
+    {
+      "text": "pues habia oido ser Judío de nacion; y quiso mas bien exter-",
+      "box": [
+        30,
+        525,
+        617,
+        565
+      ],
+      "score": 0.9999062418937683
+    },
+    {
+      "text": "minar toda la nacion de Judíos que vivian en el reino de",
+      "box": [
+        29,
+        549,
+        615,
+        590
+      ],
+      "score": 0.9999638199806213
+    },
+    {
+      "text": "5. Entonces ella llamó á Athach, eunuco que el rey le ha-",
+      "box": [
+        793,
+        533,
+        1356,
+        567
+      ],
+      "score": 0.9883137345314026
+    },
+    {
+      "text": "Assuero.",
+      "box": [
+        31,
+        575,
+        121,
+        603
+      ],
+      "score": 0.9999217987060547
+    },
+    {
+      "text": "O",
+      "box": [
+        731,
+        574,
+        741,
+        585
+      ],
+      "score": 0.27812841534614563
+    },
+    {
+      "text": "bia dado para servirla, y le mandó ir á Mardocheo á fin de",
+      "box": [
+        773,
+        558,
+        1356,
+        593
+      ],
+      "score": 0.9912983179092407
+    },
+    {
+      "text": "7. Así en el mes primero, llamado Nisan, el año duodéci-",
+      "box": [
+        50,
+        599,
+        616,
+        642
+      ],
+      "score": 0.984793484210968
+    },
+    {
+      "text": "informarse de él por qué hacia tales cosas.",
+      "box": [
+        774,
+        589,
+        1178,
+        616
+      ],
+      "score": 0.9958003759384155
+    },
+    {
+      "text": "mo del reinado de Assuero, echáronse delante de Aman en una",
+      "box": [
+        29,
+        626,
+        615,
+        665
+      ],
+      "score": 0.9980512261390686
+    },
+    {
+      "text": "6. Salió pues Athach, y fué á encontrar á Mardocheo, que",
+      "box": [
+        793,
+        609,
+        1355,
+        645
+      ],
+      "score": 0.9772653579711914
+    },
+    {
+      "text": "urna las suertes, llamadas en hebreo Phur ³, para saber el dia",
+      "box": [
+        29,
+        651,
+        615,
+        690
+      ],
+      "score": 0.9897488951683044
+    },
+    {
+      "text": "estaba en la plaza de la ciudad, delante de la puerta de pa-",
+      "box": [
+        773,
+        635,
+        1356,
+        671
+      ],
+      "score": 0.9966886043548584
+    },
+    {
+      "text": "y mes en que debia ser entregada á la muerte la nacion de los",
+      "box": [
+        27,
+        679,
+        615,
+        715
+      ],
+      "score": 0.9938273429870605
+    },
+    {
+      "text": "lacio;",
+      "box": [
+        772,
+        670,
+        832,
+        696
+      ],
+      "score": 0.9999294877052307
+    },
+    {
+      "text": "Judíos, y salió el mes duodécimo llamado Adar.",
+      "box": [
+        27,
+        703,
+        488,
+        739
+      ],
+      "score": 0.9999450445175171
+    },
+    {
+      "text": "7. El cual le informó de todo lo ocurrido, y como Aman",
+      "box": [
+        792,
+        686,
+        1356,
+        722
+      ],
+      "score": 0.9994167685508728
+    },
+    {
+      "text": "8. Entonces Aman fué y dijo al rey Assuero: Hay un pue-",
+      "box": [
+        48,
+        727,
+        615,
+        768
+      ],
+      "score": 0.9898417592048645
+    },
+    {
+      "text": "habia prometido meter una gran suma de dinero en el tesoro",
+      "box": [
+        771,
+        710,
+        1357,
+        751
+      ],
+      "score": 0.9922665953636169
+    },
+    {
+      "text": "blo esparcido por todas las provincias de tu reino, gentes sepa-",
+      "box": [
+        26,
+        754,
+        615,
+        793
+      ],
+      "score": 0.9960383176803589
+    },
+    {
+      "text": "del rey por la mortandad de los Judíos.",
+      "box": [
+        774,
+        742,
+        1149,
+        773
+      ],
+      "score": 0.9974497556686401
+    },
+    {
+      "text": "radas unas de otras, que observan leyes y ceremonias desco-",
+      "box": [
+        24,
+        780,
+        615,
+        819
+      ],
+      "score": 0.9995547533035278
+    },
+    {
+      "text": "8. Dióle tambien copia del edicto fijado en Susan, á fin de",
+      "box": [
+        791,
+        759,
+        1357,
+        802
+      ],
+      "score": 0.9890133738517761
+    },
+    {
+      "text": "nocidas, y lo que es mas, desprecian las órdenes del rey; y tú",
+      "box": [
+        24,
+        806,
+        615,
+        844
+      ],
+      "score": 0.9976925849914551
+    },
+    {
+      "text": "que le mostrase á la reina, y la exhortase á presentarse al rey,",
+      "box": [
+        773,
+        787,
+        1354,
+        827
+      ],
+      "score": 0.9947535991668701
+    },
+    {
+      "text": "sabes muy bien no ser conveniente á tu reino el tolerar su in-",
+      "box": [
+        23,
+        831,
+        616,
+        870
+      ],
+      "score": 0.9923297166824341
+    },
+    {
+      "text": "para interceder por su pueblo.",
+      "box": [
+        772,
+        822,
+        1059,
+        850
+      ],
+      "score": 0.9913371801376343
+    },
+    {
+      "text": "solencia.",
+      "box": [
+        24,
+        855,
+        117,
+        884
+      ],
+      "score": 0.999937891960144
+    },
+    {
+      "text": "9. Vuelto Athach, refirió á Esther todo lo que Mardocheo",
+      "box": [
+        791,
+        836,
+        1354,
+        878
+      ],
+      "score": 0.9986651539802551
+    },
+    {
+      "text": "9. Si te parece bien, decreta que perezcan: que yo entraré,",
+      "box": [
+        44,
+        880,
+        613,
+        925
+      ],
+      "score": 0.9996948838233948
+    },
+    {
+      "text": "le habia dicho.",
+      "box": [
+        770,
+        873,
+        914,
+        900
+      ],
+      "score": 0.999362587928772
+    },
+    {
+      "text": "en dinero contante, diez mil talentos en las arcas de tu teso-",
+      "box": [
+        21,
+        907,
+        614,
+        947
+      ],
+      "score": 0.9994593262672424
+    },
+    {
+      "text": "10. Y mandóle ella que llevase la siguiente respuesta á",
+      "box": [
+        790,
+        883,
+        1356,
+        929
+      ],
+      "score": 0.9952435493469238
+    },
+    {
+      "text": "rería .",
+      "box": [
+        21,
+        934,
+        96,
+        959
+      ],
+      "score": 0.9290038347244263
+    },
+    {
+      "text": "Mardocheo:",
+      "box": [
+        772,
+        923,
+        889,
+        948
+      ],
+      "score": 0.999916672706604
+    },
+    {
+      "text": "10. Entonces el rey se quitó del dedo el anillo⁵ de que se",
+      "box": [
+        42,
+        957,
+        614,
+        999
+      ],
+      "score": 0.9777206778526306
+    },
+    {
+      "text": "11. Todos los criados del rey, y todas las provincias su-",
+      "box": [
+        790,
+        933,
+        1353,
+        977
+      ],
+      "score": 0.9993529915809631
+    },
+    {
+      "text": "jetas á su imperio, saben que cualquier hombre ó mujer, que,",
+      "box": [
+        768,
+        960,
+        1352,
+        1001
+      ],
+      "score": 0.9998777508735657
+    },
+    {
+      "text": "servia pura sellar, y se le entregó á Aman hijo de Amadathi,",
+      "box": [
+        19,
+        984,
+        612,
+        1024
+      ],
+      "score": 0.9985302090644836
+    },
+    {
+      "text": "sin ser llamados, entraren en el cuarto interior del rey, al",
+      "box": [
+        770,
+        984,
+        1353,
+        1026
+      ],
+      "score": 0.9995736479759216
+    },
+    {
+      "text": "del linaje de Agag, enemigo de los Judíos,",
+      "box": [
+        20,
+        1011,
+        431,
+        1048
+      ],
+      "score": 0.9830104112625122
+    },
+    {
+      "text": "punto sin remision alguna deben ser muertos: á no ser que el",
+      "box": [
+        769,
+        1007,
+        1354,
+        1052
+      ],
+      "score": 0.9980885982513428
+    },
+    {
+      "text": "11. Y díjole: Ese dinero que prometes, sea para tí. Por lo",
+      "box": [
+        39,
+        1037,
+        613,
+        1074
+      ],
+      "score": 0.9978259801864624
+    },
+    {
+      "text": "rey extienda hácia ellos su cetro de oro en señal de clemencia,",
+      "box": [
+        769,
+        1033,
+        1352,
+        1075
+      ],
+      "score": 0.99919193983078
+    },
+    {
+      "text": "que toca á ese pueblo, haz lo que te parezca.",
+      "box": [
+        18,
+        1066,
+        452,
+        1097
+      ],
+      "score": 0.9709553122520447
+    },
+    {
+      "text": "salvándoles así la vida 9. Esto supuesto, ¿cómo podré yo entrar",
+      "box": [
+        768,
+        1057,
+        1354,
+        1100
+      ],
+      "score": 0.9750968813896179
+    },
+    {
+      "text": "12. Fueron pues llamados los secretarios del rey el primer",
+      "box": [
+        39,
+        1091,
+        612,
+        1122
+      ],
+      "score": 0.9941110014915466
+    },
+    {
+      "text": "al rey, habiéndose ya pasado treinta dias que no he sido lla-",
+      "box": [
+        771,
+        1083,
+        1352,
+        1125
+      ],
+      "score": 0.9907019734382629
+    },
+    {
+      "text": "mes llamado Nisan, el dia trece del mismo mes; y escribieron",
+      "box": [
+        15,
+        1116,
+        613,
+        1146
+      ],
+      "score": 0.9946469664573669
+    },
+    {
+      "text": "mada á su presencia?",
+      "box": [
+        771,
+        1119,
+        972,
+        1145
+      ],
+      "score": 0.9996638298034668
+    },
+    {
+      "text": "en nombre del rey Ássuero, segun la órden de Aman, á todos",
+      "box": [
+        14,
+        1141,
+        613,
+        1171
+      ],
+      "score": 0.9935708045959473
+    },
+    {
+      "text": "12. Lo que oyendo Mardocheo,",
+      "box": [
+        791,
+        1142,
+        1092,
+        1168
+      ],
+      "score": 0.9900631904602051
+    },
+    {
+      "text": "los sátrapas del rey, y á los jueces de las provincias, y de las",
+      "box": [
+        12,
+        1166,
+        612,
+        1198
+      ],
+      "score": 0.9905027151107788
+    },
+    {
+      "text": "13. Envió todavía á decir esto á Esther: No pienses que por",
+      "box": [
+        790,
+        1163,
+        1350,
+        1193
+      ],
+      "score": 0.9984940886497498
+    },
+    {
+      "text": "diversas naciones, segun la variedad de lenguas, para que cada",
+      "box": [
+        13,
+        1191,
+        613,
+        1224
+      ],
+      "score": 0.9864815473556519
+    },
+    {
+      "text": "estar en el palacio del rey, podrás tú sola salvar la vida entre",
+      "box": [
+        770,
+        1186,
+        1350,
+        1220
+      ],
+      "score": 0.9956285953521729
+    },
+    {
+      "text": "nacion pudiese leer el edicto, y entenderle: y las cartas, sella-",
+      "box": [
+        12,
+        1217,
+        614,
+        1249
+      ],
+      "score": 0.9956464171409607
+    },
+    {
+      "text": "todos los Judíos:",
+      "box": [
+        771,
+        1217,
+        939,
+        1243
+      ],
+      "score": 0.9998874664306641
+    },
+    {
+      "text": "das con el anillo del rey,",
+      "box": [
+        12,
+        1242,
+        264,
+        1274
+      ],
+      "score": 0.9977499842643738
+    },
+    {
+      "text": "14. Porque si ahora callares, los Judíos se salvarán por",
+      "box": [
+        790,
+        1238,
+        1349,
+        1268
+      ],
+      "score": 0.992638111114502
+    },
+    {
+      "text": "13. Fueron despachadas por sus correos reales á todas",
+      "box": [
+        34,
+        1266,
+        614,
+        1301
+      ],
+      "score": 0.9839405417442322
+    },
+    {
+      "text": "algun otro medio; mas tú y la casa de tu padre perecereis. ¿Y",
+      "box": [
+        770,
+        1261,
+        1350,
+        1295
+      ],
+      "score": 0.9898820519447327
+    },
+    {
+      "text": "las provincias, para que matasen y exterminasen á todos los",
+      "box": [
+        12,
+        1292,
+        612,
+        1327
+      ],
+      "score": 0.9922979474067688
+    },
+    {
+      "text": "quién sabe si por eso has llegado á ser reina, para que pudie-",
+      "box": [
+        769,
+        1285,
+        1351,
+        1323
+      ],
+      "score": 0.9939867258071899
+    },
+    {
+      "text": "Judíos, mozos y viejos, niños y mujeres, en un mismo dia, esto",
+      "box": [
+        11,
+        1316,
+        613,
+        1355
+      ],
+      "score": 0.9938934445381165
+    },
+    {
+      "text": "ses servirnos en este trance?",
+      "box": [
+        770,
+        1316,
+        1033,
+        1345
+      ],
+      "score": 0.9833512306213379
+    },
+    {
+      "text": "es, el trece del mes duodécimo, llamado Adar, y saqueasen sus",
+      "box": [
+        12,
+        1344,
+        613,
+        1379
+      ],
+      "score": 0.9974083304405212
+    },
+    {
+      "text": "15. Esther entonces envió esta respuesta á Mardocheo:",
+      "box": [
+        789,
+        1336,
+        1316,
+        1370
+      ],
+      "score": 0.9993608593940735
+    },
+    {
+      "text": "bienes.",
+      "box": [
+        14,
+        1371,
+        92,
+        1396
+      ],
+      "score": 0.999942421913147
+    },
+    {
+      "text": "16. Anda en hora buena, y junta todos los Judíos que ha-",
+      "box": [
+        788,
+        1361,
+        1349,
+        1395
+      ],
+      "score": 0.9985545873641968
+    },
+    {
+      "text": "14. Y esto es lo que contenian las cartas 6, para que los",
+      "box": [
+        36,
+        1395,
+        614,
+        1429
+      ],
+      "score": 0.9923562407493591
+    },
+    {
+      "text": "llares en Susan, y haced oracion por mí: no comais ni bebais",
+      "box": [
+        769,
+        1384,
+        1349,
+        1420
+      ],
+      "score": 0.9914721250534058
+    },
+    {
+      "text": "sugetos de todas las provincias quedasen informados, y estu-",
+      "box": [
+        15,
+        1423,
+        614,
+        1453
+      ],
+      "score": 0.9989423751831055
+    },
+    {
+      "text": "en tres dias 10, y en tres noches, que yo con mis criadas ayu-",
+      "box": [
+        769,
+        1408,
+        1349,
+        1443
+      ],
+      "score": 0.9859595894813538
+    },
+    {
+      "text": "naré igualmente; y en seguida me presentaré al rey, contravi-",
+      "box": [
+        768,
+        1433,
+        1348,
+        1467
+      ],
+      "score": 0.9969087243080139
+    },
+    {
+      "text": "viesen apercibidos para el dia susodicho.",
+      "box": [
+        17,
+        1451,
+        412,
+        1476
+      ],
+      "score": 0.9997622966766357
+    },
+    {
+      "text": "niendo á la ley, pues entraré sin ser llamada, y exponiéndome",
+      "box": [
+        768,
+        1456,
+        1349,
+        1492
+      ],
+      "score": 0.992249071598053
+    },
+    {
+      "text": "15. Los correos expedidos fueron á toda priesa á cumplir",
+      "box": [
+        38,
+        1474,
+        613,
+        1503
+      ],
+      "score": 0.9983195662498474
+    },
+    {
+      "text": "al peligro y á la muerte.",
+      "box": [
+        771,
+        1483,
+        997,
+        1515
+      ],
+      "score": 0.9857431650161743
+    },
+    {
+      "text": "la órden del rey; y fijóse luego en Susan el edicto, á tiempo",
+      "box": [
+        14,
+        1499,
+        613,
+        1529
+      ],
+      "score": 0.9942104816436768
+    },
+    {
+      "text": "17. Con esto Mardocheo se retiró, é hizo todo lo que Esther",
+      "box": [
+        788,
+        1505,
+        1349,
+        1539
+      ],
+      "score": 0.9910463690757751
+    },
+    {
+      "text": "que el rey y Aman celebraban un banquete, y mientras",
+      "box": [
+        16,
+        1524,
+        613,
+        1556
+      ],
+      "score": 0.9985617399215698
+    },
+    {
+      "text": "le habia ordenado.",
+      "box": [
+        768,
+        1533,
+        943,
+        1563
+      ],
+      "score": 0.9999069571495056
+    },
+    {
+      "text": "todos los Judíos que habia en la ciudad se deshacian en",
+      "box": [
+        15,
+        1549,
+        613,
+        1581
+      ],
+      "score": 0.9987524747848511
+    },
+    {
+      "text": "lágrimas.",
+      "box": [
+        13,
+        1579,
+        119,
+        1610
+      ],
+      "score": 0.999959409236908
+    },
+    {
+      "text": "CAPITULO V",
+      "box": [
+        984,
+        1578,
+        1122,
+        1606
+      ],
+      "score": 0.9995844960212708
+    },
+    {
+      "text": "CAPITULO IV",
+      "box": [
+        246,
+        1624,
+        393,
+        1648
+      ],
+      "score": 0.9994849562644958
+    },
+    {
+      "text": "Esther se presenta al rey, y le suplica que asista á un convite, y lleve",
+      "box": [
+        768,
+        1627,
+        1347,
+        1663
+      ],
+      "score": 0.9983032941818237
+    },
+    {
+      "text": "consigo á Aman. Manda éste preparar una horca para Mardocheo.",
+      "box": [
+        795,
+        1650,
+        1319,
+        1682
+      ],
+      "score": 0.9992597103118896
+    },
+    {
+      "text": "Esther, avisada del peligro por Mardocheo, resuelve presentarse al rey",
+      "box": [
+        15,
+        1666,
+        611,
+        1696
+      ],
+      "score": 0.9975371360778809
+    },
+    {
+      "text": "para impedir la ruina de los Judíos: encargando antes á estos que ayu-",
+      "box": [
+        34,
+        1688,
+        612,
+        1718
+      ],
+      "score": 0.993105411529541
+    },
+    {
+      "text": "nen y hagan oracion por tres dias, y practicando ella lo mismo.",
+      "box": [
+        36,
+        1710,
+        551,
+        1740
+      ],
+      "score": 0.99945068359375
+    },
+    {
+      "text": "1. Al tercer dia vistióse Esther las vestiduras reales, y",
+      "box": [
+        786,
+        1697,
+        1349,
+        1740
+      ],
+      "score": 0.9987680912017822
+    },
+    {
+      "text": "1",
+      "box": [
+        630,
+        1734,
+        750,
+        1775
+      ],
+      "score": 0.8336074948310852
+    },
+    {
+      "text": "presentándose en la habitacion interior del rey, se paró en",
+      "box": [
+        765,
+        1720,
+        1349,
+        1768
+      ],
+      "score": 0.9998697638511658
+    },
+    {
+      "text": "1. Habiendo sabido esto Mardocheo, rasgó sus vestidos,",
+      "box": [
+        39,
+        1752,
+        610,
+        1784
+      ],
+      "score": 0.9925984740257263
+    },
+    {
+      "text": "4 Con el producto de los bienes que se confiscarán.—Aman con el pre-",
+      "box": [
+        783,
+        1765,
+        1349,
+        1805
+      ],
+      "score": 0.9920076727867126
+    },
+    {
+      "text": "1 Nadie debe admirar que Mardocheo rehusase arrodillarse delante de",
+      "box": [
+        39,
+        1798,
+        611,
+        1826
+      ],
+      "score": 0.9996017813682556
+    },
+    {
+      "text": "texto del interés del real erario cubre su espíritu de venganza.",
+      "box": [
+        765,
+        1787,
+        1259,
+        1827
+      ],
+      "score": 0.9906986951828003
+    },
+    {
+      "text": "Aman. Un crítico hábil observó ya que en el texto hebreo la genuflexion",
+      "box": [
+        20,
+        1819,
+        611,
+        1848
+      ],
+      "score": 0.995907723903656
+    },
+    {
+      "text": "5 Véase Anillo.",
+      "box": [
+        784,
+        1818,
+        908,
+        1844
+      ],
+      "score": 0.9547943472862244
+    },
+    {
+      "text": "que se exigia á Mardocheo se llama constantemente y carahim, de la",
+      "box": [
+        21,
+        1839,
+        611,
+        1872
+      ],
+      "score": 0.9544982314109802
+    },
+    {
+      "text": "6 Véase el cap. XIII.",
+      "box": [
+        784,
+        1833,
+        952,
+        1866
+      ],
+      "score": 0.9816176295280457
+    },
+    {
+      "text": "palabra y carab, arrodillarse, como término consagrado para designar",
+      "box": [
+        20,
+        1858,
+        613,
+        1895
+      ],
+      "score": 0.9700005650520325
+    },
+    {
+      "text": "7 De lo que hacia Mardocheo.",
+      "box": [
+        784,
+        1853,
+        1016,
+        1887
+      ],
+      "score": 0.9979621767997742
+    },
+    {
+      "text": "el respeto debido á la Divinidad; que por eso dice el mismo Mardocheo",
+      "box": [
+        22,
+        1880,
+        612,
+        1916
+      ],
+      "score": 0.9981909394264221
+    },
+    {
+      "text": "8 Y pudiese entrar á verla.",
+      "box": [
+        785,
+        1875,
+        997,
+        1907
+      ],
+      "score": 0.9895852208137512
+    },
+    {
+      "text": "9 Costumbre que vemos en otros reinos del Oriente, especialmente en",
+      "box": [
+        785,
+        1887,
+        1355,
+        1927
+      ],
+      "score": 0.9887210130691528
+    },
+    {
+      "text": "que no le era lícito.—Véase el cap. XIII, v. 14 de este mismo libro.—La",
+      "box": [
+        23,
+        1901,
+        613,
+        1936
+      ],
+      "score": 0.9936939477920532
+    },
+    {
+      "text": "Asia. Herod., lib. I.—Xenoph., Cyrop. I, cap. 2.—Plutarco, Vida de Ar-",
+      "box": [
+        770,
+        1907,
+        1354,
+        1950
+      ],
+      "score": 0.9752457737922668
+    },
+    {
+      "text": "inclinacion profunda que se hacia á los reyes y grandes señores se llama-",
+      "box": [
+        23,
+        1924,
+        613,
+        1957
+      ],
+      "score": 0.9999318718910217
+    },
+    {
+      "text": "ba  mistachavim, del verbo  histachabah, inclinarse, en-",
+      "box": [
+        24,
+        1945,
+        613,
+        1978
+      ],
+      "score": 0.9604454040527344
+    },
+    {
+      "text": "tajerjes, etc.",
+      "box": [
+        772,
+        1944,
+        867,
+        1969
+      ],
+      "score": 0.9995570778846741
+    },
+    {
+      "text": "10 Tres dias, no enteros, sino uno entero y parte de dos.—Véase Dia.",
+      "box": [
+        780,
+        1949,
+        1354,
+        1989
+      ],
+      "score": 0.9894148707389832
+    },
+    {
+      "text": "corvarse, etc.—Véase Adorar.",
+      "box": [
+        23,
+        1970,
+        274,
+        2001
+      ],
+      "score": 0.9844668507575989
+    },
+    {
+      "text": "2 Y que así no podia hacerlo.",
+      "box": [
+        42,
+        1992,
+        291,
+        2022
+      ],
+      "score": 0.9809786677360535
+    },
+    {
+      "text": "3 0 Pur.",
+      "box": [
+        43,
+        2019,
+        131,
+        2044
+      ],
+      "score": 0.9150184392929077
+    }
+  ]
+}

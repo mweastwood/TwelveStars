@@ -1,0 +1,1357 @@
+{
+  "volume": 3,
+  "page_index": 196,
+  "pdf_page": 197,
+  "lines": [
+    {
+      "text": "313",
+      "box": [
+        24,
+        23,
+        48,
+        39
+      ],
+      "score": 0.9999464154243469
+    },
+    {
+      "text": "CAPITULO XL.",
+      "box": [
+        642,
+        20,
+        751,
+        43
+      ],
+      "score": 0.999366044998169
+    },
+    {
+      "text": "314",
+      "box": [
+        857,
+        16,
+        884,
+        36
+      ],
+      "score": 0.9999046325683594
+    },
+    {
+      "text": "ISAIAS.",
+      "box": [
+        178,
+        27,
+        240,
+        47
+      ],
+      "score": 0.9985915422439575
+    },
+    {
+      "text": "17. Ved cómo se ha cambiado en paz mi amarguísima",
+      "box": [
+        25,
+        59,
+        406,
+        94
+      ],
+      "score": 0.9901344776153564
+    },
+    {
+      "text": "afliccion 1; y tú, oh Señor, has librado de la perdicion á mi",
+      "box": [
+        10,
+        75,
+        407,
+        111
+      ],
+      "score": 0.9785684943199158
+    },
+    {
+      "text": "CAPITULO XL",
+      "box": [
+        645,
+        65,
+        747,
+        85
+      ],
+      "score": 0.9991578459739685
+    },
+    {
+      "text": "alma: has arrojado tras de tus espaldas todos mis peca-",
+      "box": [
+        9,
+        92,
+        408,
+        128
+      ],
+      "score": 0.9956201910972595
+    },
+    {
+      "text": "Jerusalem será consolada y salvada por el Mesías. Predicacion del Bau-",
+      "box": [
+        505,
+        92,
+        889,
+        116
+      ],
+      "score": 0.99229496717453
+    },
+    {
+      "text": "dos ².",
+      "box": [
+        10,
+        109,
+        52,
+        127
+      ],
+      "score": 0.9116432666778564
+    },
+    {
+      "text": "tista su precursor. Necedad de los idólatras. Felicidad de los que espe-",
+      "box": [
+        517,
+        109,
+        888,
+        130
+      ],
+      "score": 0.98353111743927
+    },
+    {
+      "text": "18. Porque no han de cantar tus glorias los que están en el",
+      "box": [
+        23,
+        124,
+        409,
+        160
+      ],
+      "score": 0.9931719899177551
+    },
+    {
+      "text": "ran en Dios.",
+      "box": [
+        516,
+        127,
+        582,
+        144
+      ],
+      "score": 0.9990684390068054
+    },
+    {
+      "text": "sepulcro 3, ni han de entonar tus alabanzas los que están en",
+      "box": [
+        8,
+        142,
+        408,
+        176
+      ],
+      "score": 0.9811277389526367
+    },
+    {
+      "text": "poder de la muerte: ni aquellos que bajan á la fosa esperarán",
+      "box": [
+        6,
+        157,
+        408,
+        194
+      ],
+      "score": 0.9919574856758118
+    },
+    {
+      "text": "1. Consuélate, oh pueblo mio, consuélate: porque hé aqu",
+      "box": [
+        518,
+        150,
+        887,
+        169
+      ],
+      "score": 0.9906511306762695
+    },
+    {
+      "text": "ver el cumplimiento de tus verídicas promesas.",
+      "box": [
+        7,
+        174,
+        325,
+        207
+      ],
+      "score": 0.9969944953918457
+    },
+    {
+      "text": "lo que me ha dicho vuestro Dios 9:",
+      "box": [
+        504,
+        166,
+        719,
+        185
+      ],
+      "score": 0.9880927801132202
+    },
+    {
+      "text": "19. Los vivos, Señor, los vivos son los que te han de tribu-",
+      "box": [
+        22,
+        189,
+        409,
+        227
+      ],
+      "score": 0.9819573760032654
+    },
+    {
+      "text": "2. Habladle al corazon á Jerusalem 10, alentadla 11, pues",
+      "box": [
+        518,
+        183,
+        886,
+        200
+      ],
+      "score": 0.958836555480957
+    },
+    {
+      "text": "se acabó su afliccion ¹ª: ya está perdonada su maldad: ella ha",
+      "box": [
+        506,
+        201,
+        885,
+        215
+      ],
+      "score": 0.9736114740371704
+    },
+    {
+      "text": "á sus hijos tu fidelidad en las promesas.",
+      "box": [
+        6,
+        222,
+        275,
+        256
+      ],
+      "score": 0.9929884672164917
+    },
+    {
+      "text": "recibido ya de la mano del Señor al doble is por todos sus pe-",
+      "box": [
+        506,
+        217,
+        885,
+        231
+      ],
+      "score": 0.9830594658851624
+    },
+    {
+      "text": "cados.",
+      "box": [
+        506,
+        232,
+        545,
+        246
+      ],
+      "score": 0.999829113483429
+    },
+    {
+      "text": "3. Ya oigo la voz del que clama en el desierto I4: Aparejad",
+      "box": [
+        517,
+        245,
+        884,
+        263
+      ],
+      "score": 0.9745193123817444
+    },
+    {
+      "text": "el camino del Señor: enderezad en la solodad las sendas de",
+      "box": [
+        504,
+        260,
+        885,
+        279
+      ],
+      "score": 0.9841117858886719
+    },
+    {
+      "text": "nuestro Dios.",
+      "box": [
+        505,
+        278,
+        586,
+        292
+      ],
+      "score": 0.9998543858528137
+    },
+    {
+      "text": "4. Todo valle ha de ser alzado, y todo monte y cerro aba-",
+      "box": [
+        518,
+        291,
+        885,
+        309
+      ],
+      "score": 0.98866206407547
+    },
+    {
+      "text": "tido; y los caminos torcidos se harán rectos, y los asperos",
+      "box": [
+        504,
+        307,
+        884,
+        325
+      ],
+      "score": 0.9816063642501831
+    },
+    {
+      "text": "chias, y se curaria.",
+      "box": [
+        4,
+        320,
+        139,
+        346
+      ],
+      "score": 0.9887667894363403
+    },
+    {
+      "text": "llanos.",
+      "box": [
+        505,
+        324,
+        547,
+        338
+      ],
+      "score": 0.9976911544799805
+    },
+    {
+      "text": "5. Entonces se manifestará la gloria 15 del Señor, y verán á",
+      "box": [
+        516,
+        338,
+        883,
+        355
+      ],
+      "score": 0.9577254056930542
+    },
+    {
+      "text": "dré yo, de que aun he de subir al templo del Señor?",
+      "box": [
+        0,
+        350,
+        352,
+        385
+      ],
+      "score": 0.9669225811958313
+    },
+    {
+      "text": "una todos los hombres que la boca del Señor Dios es la que ha",
+      "box": [
+        503,
+        354,
+        884,
+        372
+      ],
+      "score": 0.9996179342269897
+    },
+    {
+      "text": "hablado por los profetas.",
+      "box": [
+        504,
+        371,
+        659,
+        388
+      ],
+      "score": 0.9973787069320679
+    },
+    {
+      "text": "6. Oí una voz que me decia: Clama. Yo respondí: ¿Qué es",
+      "box": [
+        518,
+        387,
+        883,
+        404
+      ],
+      "score": 0.9855048656463623
+    },
+    {
+      "text": "CAPITULO XXXIX",
+      "box": [
+        146,
+        401,
+        277,
+        421
+      ],
+      "score": 0.9993079900741577
+    },
+    {
+      "text": "lo que he de clamar? Clama, dijo, que toda carne es heno, y",
+      "box": [
+        502,
+        402,
+        884,
+        423
+      ],
+      "score": 0.9863088130950928
+    },
+    {
+      "text": "toda su gloria como la flor del prado 16.",
+      "box": [
+        503,
+        419,
+        747,
+        437
+      ],
+      "score": 0.9836714267730713
+    },
+    {
+      "text": "Habiendo venido unos embajadores del rey de Babylonia á Ezechias, les",
+      "box": [
+        0,
+        433,
+        403,
+        459
+      ],
+      "score": 0.9879534244537354
+    },
+    {
+      "text": "7. Se seca el heno y la flor cae, así que se dirige contra él",
+      "box": [
+        518,
+        436,
+        884,
+        453
+      ],
+      "score": 0.9921491146087646
+    },
+    {
+      "text": "muestra éste sus tesoros; é Isaías le vaticina que algun dia serian presa",
+      "box": [
+        5,
+        448,
+        404,
+        474
+      ],
+      "score": 0.9161432385444641
+    },
+    {
+      "text": "de los Chaldéos.",
+      "box": [
+        7,
+        462,
+        116,
+        483
+      ],
+      "score": 0.9900984168052673
+    },
+    {
+      "text": "el soplo del Señor... Verdaderamente que es como heno todo",
+      "box": [
+        505,
+        454,
+        883,
+        468
+      ],
+      "score": 0.9997867941856384
+    },
+    {
+      "text": "hombre.",
+      "box": [
+        505,
+        470,
+        557,
+        484
+      ],
+      "score": 0.9999921917915344
+    },
+    {
+      "text": "8. Secóse el heno, y cayó la flor; mas la palabra del Soñor",
+      "box": [
+        517,
+        483,
+        885,
+        502
+      ],
+      "score": 0.9924559593200684
+    },
+    {
+      "text": "1. Por aquel tiempo Merodach Baladan 8, hijo de Baladan,",
+      "box": [
+        5,
+        504,
+        403,
+        527
+      ],
+      "score": 0.976939857006073
+    },
+    {
+      "text": "nuestro dura eternamente.",
+      "box": [
+        504,
+        501,
+        670,
+        519
+      ],
+      "score": 0.9820218086242676
+    },
+    {
+      "text": "ey de Babylonia, envió embajadores con cartas y presentes á",
+      "box": [
+        0,
+        521,
+        404,
+        544
+      ],
+      "score": 0.9948135018348694
+    },
+    {
+      "text": "9. Súbete sobre un alto monte tú que anuncias buenas nue-",
+      "box": [
+        517,
+        515,
+        885,
+        535
+      ],
+      "score": 0.9913766980171204
+    },
+    {
+      "text": "Ezechias, por haber sabido que habia estado enfermo y que",
+      "box": [
+        0,
+        538,
+        403,
+        561
+      ],
+      "score": 0.9855269193649292
+    },
+    {
+      "text": "vas á Sion: alza esforzadamente tu voz, oh tú que evangelizas",
+      "box": [
+        504,
+        532,
+        885,
+        552
+      ],
+      "score": 0.9858814477920532
+    },
+    {
+      "text": "abía convalecido.",
+      "box": [
+        0,
+        556,
+        138,
+        575
+      ],
+      "score": 0.9812652468681335
+    },
+    {
+      "text": "á Jerusalem; álzala y no temas. Dí á las ciudades de Judá: Hé",
+      "box": [
+        503,
+        547,
+        885,
+        569
+      ],
+      "score": 0.9868146777153015
+    },
+    {
+      "text": "2. Y se alegró mucho de esto Ezechias, é hízoles ver el",
+      "box": [
+        6,
+        572,
+        404,
+        592
+      ],
+      "score": 0.9792015552520752
+    },
+    {
+      "text": "ahí á vuestro Dios:",
+      "box": [
+        504,
+        565,
+        625,
+        585
+      ],
+      "score": 0.9821817278862
+    },
+    {
+      "text": "epuesto ó recámara de los aromas, y de la plata, y del oro, y",
+      "box": [
+        0,
+        590,
+        403,
+        607
+      ],
+      "score": 0.9855916500091553
+    },
+    {
+      "text": "10. Hé aquí que viene el Señor vuestro Dios con infinito",
+      "box": [
+        517,
+        578,
+        885,
+        601
+      ],
+      "score": 0.9862787127494812
+    },
+    {
+      "text": "le los bálsamos, y de los ungüentos preciosos, y todas las es-",
+      "box": [
+        0,
+        604,
+        403,
+        625
+      ],
+      "score": 0.9822987914085388
+    },
+    {
+      "text": "poder, y dominará con la fuerza de su brazo: mirad, él lleva",
+      "box": [
+        503,
+        594,
+        885,
+        618
+      ],
+      "score": 0.9940221309661865
+    },
+    {
+      "text": "ancias de sus muebles, y todo cuanto se hallaba en sus teso-",
+      "box": [
+        0,
+        621,
+        404,
+        641
+      ],
+      "score": 0.9989913105964661
+    },
+    {
+      "text": "consigo su recompensa para los que le sigan, y tiene á la vista",
+      "box": [
+        503,
+        610,
+        885,
+        634
+      ],
+      "score": 0.9917762279510498
+    },
+    {
+      "text": "ros. No dejó Ezechias cosa alguna de su casa ó en su poder,",
+      "box": [
+        0,
+        637,
+        402,
+        658
+      ],
+      "score": 0.9953032732009888
+    },
+    {
+      "text": "su obra de la Redencion del mundo.",
+      "box": [
+        503,
+        628,
+        730,
+        650
+      ],
+      "score": 0.9968416690826416
+    },
+    {
+      "text": "que no se la mostrara.",
+      "box": [
+        0,
+        656,
+        163,
+        675
+      ],
+      "score": 0.9990455508232117
+    },
+    {
+      "text": "11. Como un pastor 17 apacentará su rebaño, recogerá con",
+      "box": [
+        516,
+        642,
+        885,
+        666
+      ],
+      "score": 0.9953284859657288
+    },
+    {
+      "text": "su brazo los corderillos; los tomará en su seno, y llevará él",
+      "box": [
+        503,
+        657,
+        885,
+        684
+      ],
+      "score": 0.9916211366653442
+    },
+    {
+      "text": "3. Mas entró despues el Profeta Isaías á ver al roy Eze-",
+      "box": [
+        8,
+        669,
+        402,
+        691
+      ],
+      "score": 0.992817759513855
+    },
+    {
+      "text": "chias, y le preguntó: ¿Qué han dicho esos hombres, y de dónde",
+      "box": [
+        0,
+        684,
+        403,
+        710
+      ],
+      "score": 0.9736445546150208
+    },
+    {
+      "text": "mismo las ovejas recien paridas 18.",
+      "box": [
+        503,
+        677,
+        717,
+        699
+      ],
+      "score": 0.9862563014030457
+    },
+    {
+      "text": "12. ¿Quién es aquel que ha medido las aguas del Océano en",
+      "box": [
+        517,
+        689,
+        885,
+        716
+      ],
+      "score": 0.9916946887969971
+    },
+    {
+      "text": "vienen? Han venido á mí, respondió Ezechias, de lejas tierras;",
+      "box": [
+        0,
+        700,
+        403,
+        727
+      ],
+      "score": 0.9855197668075562
+    },
+    {
+      "text": "el hueco de la palma de su mano, y extendiendo esta ha pesa-",
+      "box": [
+        503,
+        707,
+        886,
+        731
+      ],
+      "score": 0.9925222396850586
+    },
+    {
+      "text": "de Babylonia.",
+      "box": [
+        0,
+        721,
+        104,
+        742
+      ],
+      "score": 0.9737887978553772
+    },
+    {
+      "text": "4. ¿Y qué han visto en tu palacio, repuso Isaías? Han visto",
+      "box": [
+        8,
+        729,
+        403,
+        760
+      ],
+      "score": 0.9801675081253052
+    },
+    {
+      "text": "do los cielos? ¿quién es el que con solos tres dedos sostiene la",
+      "box": [
+        504,
+        722,
+        887,
+        747
+      ],
+      "score": 0.993576169013977
+    },
+    {
+      "text": "odo cuanto hay en él, dijo Ezechias: nada ha quedado por",
+      "box": [
+        0,
+        746,
+        404,
+        777
+      ],
+      "score": 0.9854651689529419
+    },
+    {
+      "text": "gran mole de la tierra, y pesa los montes, y los collados como",
+      "box": [
+        503,
+        738,
+        886,
+        764
+      ],
+      "score": 0.9910992980003357
+    },
+    {
+      "text": "mostrarles de todas mis preciosidades.",
+      "box": [
+        0,
+        763,
+        260,
+        792
+      ],
+      "score": 0.9917930960655212
+    },
+    {
+      "text": "en una romana 19?",
+      "box": [
+        503,
+        758,
+        620,
+        779
+      ],
+      "score": 0.9939360022544861
+    },
+    {
+      "text": "5. Entonces dijo Isaías á Ezechias: Escucha la palabra del",
+      "box": [
+        8,
+        778,
+        403,
+        808
+      ],
+      "score": 0.981914758682251
+    },
+    {
+      "text": "13. ¿Quién ayudó al espíritu del Señor? ¿ó quién fué su",
+      "box": [
+        516,
+        770,
+        887,
+        795
+      ],
+      "score": 0.9825956225395203
+    },
+    {
+      "text": "consejero , ó le comunicó alguna idea?",
+      "box": [
+        504,
+        789,
+        753,
+        811
+      ],
+      "score": 0.9750668406486511
+    },
+    {
+      "text": "Señor de los ejércitos:",
+      "box": [
+        0,
+        798,
+        159,
+        823
+      ],
+      "score": 0.9977855086326599
+    },
+    {
+      "text": "6. Hé aquí que vendrá tiempo en que todas las cosas que",
+      "box": [
+        7,
+        812,
+        403,
+        840
+      ],
+      "score": 0.9903141856193542
+    },
+    {
+      "text": "14. ¿Á quién llamó él á consulta, ó quién hay que le haya",
+      "box": [
+        516,
+        803,
+        888,
+        828
+      ],
+      "score": 0.9897192120552063
+    },
+    {
+      "text": "instruido á él, ó mostrádole la senda de la justicia, ó comuni-",
+      "box": [
+        503,
+        820,
+        887,
+        844
+      ],
+      "score": 0.9971404671669006
+    },
+    {
+      "text": "le hoy, será todo llevado á Babylonia: no dejarán ahí nada,",
+      "box": [
+        0,
+        845,
+        401,
+        873
+      ],
+      "score": 0.9686707258224487
+    },
+    {
+      "text": "cádole la ciencia, ó le haya hecho conocer el camino de la pru-",
+      "box": [
+        501,
+        837,
+        888,
+        862
+      ],
+      "score": 0.9924739003181458
+    },
+    {
+      "text": "dencia?",
+      "box": [
+        502,
+        858,
+        554,
+        878
+      ],
+      "score": 0.9723297357559204
+    },
+    {
+      "text": "dice el Señor.",
+      "box": [
+        0,
+        866,
+        101,
+        888
+      ],
+      "score": 0.9557408094406128
+    },
+    {
+      "text": "7. Y escogerán de entre tus hijos, que descenderán de tí",
+      "box": [
+        7,
+        877,
+        401,
+        905
+      ],
+      "score": 0.9788288474082947
+    },
+    {
+      "text": "15. Hé aquí que las naciones todas son delante de él como",
+      "box": [
+        515,
+        870,
+        886,
+        893
+      ],
+      "score": 0.9909791350364685
+    },
+    {
+      "text": "una gota de agua que se rezuma de un cántaro, y como un",
+      "box": [
+        502,
+        888,
+        886,
+        911
+      ],
+      "score": 0.9990725517272949
+    },
+    {
+      "text": "pequeño grano en la balanza at: asimismo las islas ≈ son como",
+      "box": [
+        500,
+        902,
+        887,
+        929
+      ],
+      "score": 0.9346104264259338
+    },
+    {
+      "text": "rey de Babylonia.",
+      "box": [
+        0,
+        913,
+        127,
+        937
+      ],
+      "score": 0.9998692870140076
+    },
+    {
+      "text": "8. Y respondió",
+      "box": [
+        10,
+        928,
+        142,
+        954
+      ],
+      "score": 0.9979343414306641
+    },
+    {
+      "text": "6 Ezechias á Isaías: Justa es la sentencia",
+      "box": [
+        130,
+        928,
+        398,
+        950
+      ],
+      "score": 0.9855223298072815
+    },
+    {
+      "text": "un granito de polvo.",
+      "box": [
+        501,
+        924,
+        632,
+        943
+      ],
+      "score": 0.9946044683456421
+    },
+    {
+      "text": "16. Cuantos árboles hay en el Líbano no bastarian para",
+      "box": [
+        513,
+        936,
+        886,
+        959
+      ],
+      "score": 0.9986344575881958
+    },
+    {
+      "text": "encender el fuego de su altar; ni todos sus animales para ser",
+      "box": [
+        500,
+        953,
+        887,
+        976
+      ],
+      "score": 0.9970284700393677
+    },
+    {
+      "text": "un holocausto digno de él.",
+      "box": [
+        500,
+        972,
+        669,
+        992
+      ],
+      "score": 0.9976965188980103
+    },
+    {
+      "text": "Señor.",
+      "box": [
+        0,
+        985,
+        50,
+        1005
+      ],
+      "score": 0.9907708764076233
+    },
+    {
+      "text": "Sel he a la  e rgua.",
+      "box": [
+        23,
+        1018,
+        289,
+        1047
+      ],
+      "score": 0.5487064123153687
+    },
+    {
+      "text": "11 Oséas, II, v. 14.",
+      "box": [
+        506,
+        1015,
+        613,
+        1034
+      ],
+      "score": 0.9550994634628296
+    },
+    {
+      "text": "18 Malitia tiene aquí el mismo sentido que en San Matoo (cap, VI,",
+      "box": [
+        506,
+        1027,
+        886,
+        1047
+      ],
+      "score": 0.9756907224655151
+    },
+    {
+      "text": "2",
+      "box": [
+        13,
+        1046,
+        23,
+        1057
+      ],
+      "score": 0.9932510256767273
+    },
+    {
+      "text": "Para no pensar mas en ellos.",
+      "box": [
+        26,
+        1035,
+        195,
+        1059
+      ],
+      "score": 0.9953173398971558
+    },
+    {
+      "text": "Psalm. VI, v. 6.—CXIII, v. 17.",
+      "box": [
+        25,
+        1047,
+        214,
+        1074
+      ],
+      "score": 0.9285475015640259
+    },
+    {
+      "text": "v. 34). En el hebreo se dioe su milicia, ó sus combates. Los Setenta tra-",
+      "box": [
+        499,
+        1039,
+        886,
+        1063
+      ],
+      "score": 0.9534803628921509
+    },
+    {
+      "text": "3",
+      "box": [
+        14,
+        1061,
+        25,
+        1071
+      ],
+      "score": 0.9877024292945862
+    },
+    {
+      "text": "dujeron su humildad ó abatimionto.",
+      "box": [
+        498,
+        1056,
+        694,
+        1076
+      ],
+      "score": 0.9687181115150452
+    },
+    {
+      "text": "Viendo á Jerusalem libertada.",
+      "box": [
+        26,
+        1062,
+        201,
+        1087
+      ],
+      "score": 0.9949257969856262
+    },
+    {
+      "text": "13 Esto es, abundante gracia: ó bien, suficiente eastigo.",
+      "box": [
+        505,
+        1069,
+        804,
+        1089
+      ],
+      "score": 0.9751797318458557
+    },
+    {
+      "text": "6",
+      "box": [
+        15,
+        1089,
+        25,
+        1099
+      ],
+      "score": 0.5980147123336792
+    },
+    {
+      "text": "14 Matth. III, v. 3.—Luc. III, v. 4.",
+      "box": [
+        506,
+        1084,
+        701,
+        1103
+      ],
+      "score": 0.979252815246582
+    },
+    {
+      "text": "6",
+      "box": [
+        16,
+        1104,
+        27,
+        1113
+      ],
+      "score": 0.9951332211494446
+    },
+    {
+      "text": "A los criados del rey.",
+      "box": [
+        26,
+        1091,
+        156,
+        1116
+      ],
+      "score": 0.9825944304466248
+    },
+    {
+      "text": "15 Joan. I, v. 14.",
+      "box": [
+        506,
+        1099,
+        607,
+        1118
+      ],
+      "score": 0.9684116840362549
+    },
+    {
+      "text": "16 Ecoli. XIV, v. 18.—Jac. I, v. 10.—I. Pet. I, v. 24.",
+      "box": [
+        506,
+        1111,
+        789,
+        1131
+      ],
+      "score": 0.9319989681243896
+    },
+    {
+      "text": "i7 En el Evangelio y en otros Libros Sagrados se ve cuánto amaba",
+      "box": [
+        506,
+        1123,
+        886,
+        1146
+      ],
+      "score": 0.9761075973510742
+    },
+    {
+      "text": "Jesu-Christo el hablar de sí y de su Padre eon la tierna metáfora de un",
+      "box": [
+        498,
+        1138,
+        886,
+        1161
+      ],
+      "score": 0.9990124702453613
+    },
+    {
+      "text": "8IV. Reg. XX, v. 12.",
+      "box": [
+        16,
+        1148,
+        147,
+        1173
+      ],
+      "score": 0.9773008227348328
+    },
+    {
+      "text": "pastor que ama mueho á sus ovejas.",
+      "box": [
+        499,
+        1155,
+        695,
+        1175
+      ],
+      "score": 0.9876031279563904
+    },
+    {
+      "text": "a con la profeeía de su libertad. Mas el principal",
+      "box": [
+        139,
+        1177,
+        396,
+        1197
+      ],
+      "score": 0.9597786068916321
+    },
+    {
+      "text": "18 Ezech. XXXIV, v. 23.—XXXVII, v. 24.—Joan. X, v. 11.—XI, v. 17.",
+      "box": [
+        505,
+        1166,
+        886,
+        1189
+      ],
+      "score": 0.9476337432861328
+    },
+    {
+      "text": "nia: y ahora le consuela",
+      "box": [
+        4,
+        1177,
+        148,
+        1202
+      ],
+      "score": 0.980680525302887
+    },
+    {
+      "text": "—Luc. XV, v. 5.",
+      "box": [
+        500,
+        1185,
+        595,
+        1201
+      ],
+      "score": 0.971419095993042
+    },
+    {
+      "text": "19 Sap. XI, v. 23.",
+      "box": [
+        505,
+        1197,
+        611,
+        1216
+      ],
+      "score": 0.9907510280609131
+    },
+    {
+      "text": "20 Rom. XI, v. 34.—I. Cor, II, v. 16.—Sap. IX, v. 13.",
+      "box": [
+        506,
+        1210,
+        796,
+        1229
+      ],
+      "score": 0.9608784914016724
+    },
+    {
+      "text": "at Sap. XI, v. 23.",
+      "box": [
+        506,
+        1226,
+        610,
+        1245
+      ],
+      "score": 0.9351089000701904
+    },
+    {
+      "text": "Matth. III, v. 3.—Luc. III, v. 4.",
+      "box": [
+        8,
+        1229,
+        192,
+        1258
+      ],
+      "score": 0.9113320708274841
+    },
+    {
+      "text": " O grandes regiones de ultramar.",
+      "box": [
+        506,
+        1239,
+        699,
+        1259
+      ],
+      "score": 0.9901883602142334
+    },
+    {
+      "text": "doras.",
+      "box": [
+        10,
+        1270,
+        49,
+        1285
+      ],
+      "score": 0.9998494982719421
+    },
+    {
+      "text": "III.—41",
+      "box": [
+        815,
+        1265,
+        865,
+        1283
+      ],
+      "score": 0.947719395160675
+    }
+  ]
+}

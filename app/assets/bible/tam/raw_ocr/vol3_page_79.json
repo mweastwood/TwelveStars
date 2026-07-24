@@ -1,0 +1,1477 @@
+{
+  "volume": 3,
+  "page_index": 79,
+  "pdf_page": 80,
+  "lines": [
+    {
+      "text": "111",
+      "box": [
+        72,
+        51,
+        99,
+        71
+      ],
+      "score": 0.9904069900512695
+    },
+    {
+      "text": "PROVERBIOS.",
+      "box": [
+        199,
+        50,
+        293,
+        67
+      ],
+      "score": 0.9998458623886108
+    },
+    {
+      "text": "CAPITULO V.",
+      "box": [
+        681,
+        47,
+        779,
+        72
+      ],
+      "score": 0.995266318321228
+    },
+    {
+      "text": "112",
+      "box": [
+        875,
+        63,
+        898,
+        80
+      ],
+      "score": 0.9995641112327576
+    },
+    {
+      "text": "28. No digas á tu amigo: Anda y vuelve: mañana te daré",
+      "box": [
+        79,
+        95,
+        437,
+        115
+      ],
+      "score": 0.9899390339851379
+    },
+    {
+      "text": "20. Escucha, hijo mio, mis razonamientos, y atiende á mis",
+      "box": [
+        547,
+        90,
+        905,
+        124
+      ],
+      "score": 0.9130910634994507
+    },
+    {
+      "text": "lo que pides, pudiendo dárselo luego.",
+      "box": [
+        66,
+        113,
+        290,
+        133
+      ],
+      "score": 0.9999181628227234
+    },
+    {
+      "text": "palabras:",
+      "box": [
+        535,
+        113,
+        598,
+        131
+      ],
+      "score": 0.9999069571495056
+    },
+    {
+      "text": "29. No maquines ningun mal contra tu amigo, puesto que",
+      "box": [
+        79,
+        130,
+        436,
+        151
+      ],
+      "score": 0.9886739253997803
+    },
+    {
+      "text": "21. Jamás las pierdas de vista: deposítalas en lo íntimo de",
+      "box": [
+        547,
+        128,
+        903,
+        156
+      ],
+      "score": 0.9898942708969116
+    },
+    {
+      "text": "él se fía de tí.",
+      "box": [
+        68,
+        149,
+        156,
+        166
+      ],
+      "score": 0.9984064102172852
+    },
+    {
+      "text": "tu corazon;",
+      "box": [
+        535,
+        149,
+        612,
+        166
+      ],
+      "score": 0.9598735570907593
+    },
+    {
+      "text": "30. No litigues sin razon contra el que no te ha hecho mal",
+      "box": [
+        80,
+        164,
+        435,
+        184
+      ],
+      "score": 0.9906089901924133
+    },
+    {
+      "text": "22. Porque son vida para los que las reciben, y salud ó me-",
+      "box": [
+        547,
+        162,
+        902,
+        188
+      ],
+      "score": 0.9822630882263184
+    },
+    {
+      "text": "ninguno¹.",
+      "box": [
+        68,
+        182,
+        136,
+        200
+      ],
+      "score": 0.8615032434463501
+    },
+    {
+      "text": "dicina para todo hombre.",
+      "box": [
+        535,
+        179,
+        697,
+        201
+      ],
+      "score": 0.9957545399665833
+    },
+    {
+      "text": "31. No envidies al hombre injusto, ni imites sus procede-",
+      "box": [
+        80,
+        197,
+        435,
+        217
+      ],
+      "score": 0.9914345145225525
+    },
+    {
+      "text": "23. Guarda tu corazon con toda vigilancia, porque de él",
+      "box": [
+        546,
+        195,
+        904,
+        222
+      ],
+      "score": 0.9942317008972168
+    },
+    {
+      "text": "res;",
+      "box": [
+        65,
+        212,
+        100,
+        234
+      ],
+      "score": 0.9995706081390381
+    },
+    {
+      "text": "mana la vida.",
+      "box": [
+        534,
+        212,
+        622,
+        234
+      ],
+      "score": 0.9998136162757874
+    },
+    {
+      "text": "32. Porque todos los tramposos ó perversos º son abomina-",
+      "box": [
+        82,
+        232,
+        434,
+        249
+      ],
+      "score": 0.9858623147010803
+    },
+    {
+      "text": "24. Arroja de tu lengua la malignidad; y lejos esté de tus",
+      "box": [
+        545,
+        228,
+        905,
+        256
+      ],
+      "score": 0.9811191558837891
+    },
+    {
+      "text": "dos del Señor; el cual solo conversa con los sencillos.",
+      "box": [
+        69,
+        249,
+        383,
+        265
+      ],
+      "score": 0.9982554912567139
+    },
+    {
+      "text": "labios la detraccion.",
+      "box": [
+        532,
+        244,
+        659,
+        269
+      ],
+      "score": 0.997468113899231
+    },
+    {
+      "text": " 33. El Señor introduce la miseria en la casa del impío:",
+      "box": [
+        67,
+        262,
+        435,
+        283
+      ],
+      "score": 0.9835057854652405
+    },
+    {
+      "text": "25. Dirige siempre tus ojos rectamente, y adelántese tu",
+      "box": [
+        545,
+        261,
+        905,
+        288
+      ],
+      "score": 0.972968578338623
+    },
+    {
+      "text": "pero echará su bendicion sobre las casas de los justos.",
+      "box": [
+        68,
+        280,
+        390,
+        299
+      ],
+      "score": 0.9970239996910095
+    },
+    {
+      "text": "vista á los pasos que dés.",
+      "box": [
+        534,
+        278,
+        689,
+        301
+      ],
+      "score": 0.9983848929405212
+    },
+    {
+      "text": "34. Él se burlará de los burladores, y dará su gracia á los",
+      "box": [
+        79,
+        295,
+        435,
+        316
+      ],
+      "score": 0.9899500608444214
+    },
+    {
+      "text": "26. Examina la senda en que pones tus piés, y serán firmes",
+      "box": [
+        534,
+        295,
+        905,
+        318
+      ],
+      "score": 0.9954363107681274
+    },
+    {
+      "text": "humildes ³.",
+      "box": [
+        67,
+        311,
+        143,
+        331
+      ],
+      "score": 0.9405801296234131
+    },
+    {
+      "text": "todos tus pasos.",
+      "box": [
+        535,
+        311,
+        634,
+        333
+      ],
+      "score": 0.9998900890350342
+    },
+    {
+      "text": "35. La gloria será la herencia de los sábios; pero á los ne-",
+      "box": [
+        81,
+        328,
+        436,
+        348
+      ],
+      "score": 0.9936234951019287
+    },
+    {
+      "text": "27. No tuerzas ni á la diestra ni á la siniestra 6: retira tu",
+      "box": [
+        546,
+        329,
+        905,
+        348
+      ],
+      "score": 0.9725884795188904
+    },
+    {
+      "text": "cios se les convertirá su exaltacion en ignominia.",
+      "box": [
+        68,
+        344,
+        364,
+        365
+      ],
+      "score": 0.9965439438819885
+    },
+    {
+      "text": "pié de todo mal paso: porque ama el Señor los caminos que",
+      "box": [
+        534,
+        346,
+        906,
+        365
+      ],
+      "score": 0.9878878593444824
+    },
+    {
+      "text": "están á la derecha; pero los que caen á la siniestra son cami-",
+      "box": [
+        533,
+        360,
+        906,
+        381
+      ],
+      "score": 0.9878898859024048
+    },
+    {
+      "text": "CAPITULO IV",
+      "box": [
+        205,
+        376,
+        298,
+        394
+      ],
+      "score": 0.999601423740387
+    },
+    {
+      "text": "nos de perdicion 7. Mas él hará que sea recto tu camino, y que",
+      "box": [
+        534,
+        380,
+        906,
+        397
+      ],
+      "score": 0.9929843544960022
+    },
+    {
+      "text": "Saloñon, con las instrucciones propias de un padre, daá todos saludables",
+      "box": [
+        69,
+        400,
+        437,
+        424
+      ],
+      "score": 0.9860579371452332
+    },
+    {
+      "text": "avances felizmente en tu viaje.",
+      "box": [
+        533,
+        396,
+        723,
+        415
+      ],
+      "score": 0.9985701441764832
+    },
+    {
+      "text": "documentos.",
+      "box": [
+        218,
+        418,
+        287,
+        435
+      ],
+      "score": 0.9959883093833923
+    },
+    {
+      "text": "CAPITULO V",
+      "box": [
+        674,
+        425,
+        768,
+        443
+      ],
+      "score": 0.9989328384399414
+    },
+    {
+      "text": "1. Oid, hijos mios, las instrucciones de un padre, y estad",
+      "box": [
+        83,
+        440,
+        438,
+        465
+      ],
+      "score": 0.9918861985206604
+    },
+    {
+      "text": "atentos para aprender la prudencia.",
+      "box": [
+        71,
+        458,
+        285,
+        479
+      ],
+      "score": 0.9989123940467834
+    },
+    {
+      "text": "Contrapónese al amor deshonesto el amor conyugal.",
+      "box": [
+        590,
+        451,
+        857,
+        468
+      ],
+      "score": 0.9993674755096436
+    },
+    {
+      "text": "2. Yo quiero daros un rico don, no abandoneis mis pre-",
+      "box": [
+        82,
+        473,
+        438,
+        498
+      ],
+      "score": 0.9991317987442017
+    },
+    {
+      "text": "1. Atiende, hijo mio, á lo que te enseña mi sabiduría, é",
+      "box": [
+        547,
+        474,
+        908,
+        498
+      ],
+      "score": 0.9977399110794067
+    },
+    {
+      "text": "ceptos.",
+      "box": [
+        72,
+        493,
+        117,
+        511
+      ],
+      "score": 0.9998469352722168
+    },
+    {
+      "text": "inclina tus oidos á los documentos de mi prudencia;",
+      "box": [
+        535,
+        493,
+        855,
+        513
+      ],
+      "score": 0.9972939491271973
+    },
+    {
+      "text": "3. Porque tambien yo fuí un hijo querido de mi padre, y",
+      "box": [
+        82,
+        507,
+        439,
+        531
+      ],
+      "score": 0.9950804114341736
+    },
+    {
+      "text": "2. Para que observes mis consejos, y no se aparten de tus",
+      "box": [
+        547,
+        507,
+        908,
+        532
+      ],
+      "score": 0.9914065003395081
+    },
+    {
+      "text": "amado tiernamente, como único, de mi madre,",
+      "box": [
+        73,
+        527,
+        351,
+        544
+      ],
+      "score": 0.9997458457946777
+    },
+    {
+      "text": "labios mis instrucciones. No te dejes llevar de las lisonjas",
+      "box": [
+        535,
+        523,
+        907,
+        549
+      ],
+      "score": 0.9913269281387329
+    },
+    {
+      "text": "4. Y él, instruyéndome, me decia: Reciba tu corazon mis",
+      "box": [
+        83,
+        540,
+        442,
+        562
+      ],
+      "score": 0.9811351299285889
+    },
+    {
+      "text": "de la mujer;",
+      "box": [
+        538,
+        548,
+        615,
+        561
+      ],
+      "score": 0.9999025464057922
+    },
+    {
+      "text": "palabras, observa mis preceptos, y vivirás feliz.",
+      "box": [
+        71,
+        556,
+        360,
+        578
+      ],
+      "score": 0.9949367046356201
+    },
+    {
+      "text": "3. Porque los labíos de la ramera son como un panal que",
+      "box": [
+        547,
+        555,
+        908,
+        578
+      ],
+      "score": 0.9920977354049683
+    },
+    {
+      "text": "5. Procura adquirir la sabiduría, veas de alcanzar la pru-",
+      "box": [
+        85,
+        574,
+        442,
+        591
+      ],
+      "score": 0.9862706661224365
+    },
+    {
+      "text": "destila miel, y son mas suaves que el aceite sus palabras.",
+      "box": [
+        537,
+        573,
+        880,
+        594
+      ],
+      "score": 0.9977012872695923
+    },
+    {
+      "text": "dencia, y no te olvides ni apartes de las palabras de mi boca.",
+      "box": [
+        72,
+        589,
+        441,
+        608
+      ],
+      "score": 0.9990972876548767
+    },
+    {
+      "text": "4. Pero sus dejos son amargos como ajenjos, y penetrantes",
+      "box": [
+        549,
+        589,
+        909,
+        611
+      ],
+      "score": 0.9937574863433838
+    },
+    {
+      "text": "6. No abandones la sabiduría, porque ella será tu protee-",
+      "box": [
+        85,
+        607,
+        442,
+        624
+      ],
+      "score": 0.9862454533576965
+    },
+    {
+      "text": "como espada de dos filos.",
+      "box": [
+        539,
+        610,
+        686,
+        624
+      ],
+      "score": 0.9993727207183838
+    },
+    {
+      "text": "tora: ámala, y ella será tu salvacion.",
+      "box": [
+        72,
+        622,
+        293,
+        641
+      ],
+      "score": 0.9810623526573181
+    },
+    {
+      "text": "5. Sus piés se encaminan hácia la muerte, y sus pasos van",
+      "box": [
+        550,
+        622,
+        908,
+        642
+      ],
+      "score": 0.9967449903488159
+    },
+    {
+      "text": "7. El principio de la sabiduría es trabajar por adquirirla.",
+      "box": [
+        84,
+        638,
+        441,
+        656
+      ],
+      "score": 0.9958922863006592
+    },
+    {
+      "text": "á parar al infierno;",
+      "box": [
+        538,
+        641,
+        654,
+        657
+      ],
+      "score": 0.9854563474655151
+    },
+    {
+      "text": "Y así, á costa de cuanto posees, procura adquirir la pruden-",
+      "box": [
+        72,
+        653,
+        443,
+        675
+      ],
+      "score": 0.98590087890625
+    },
+    {
+      "text": "6. Andan descarriados; incierta é incomprensible es su",
+      "box": [
+        551,
+        655,
+        908,
+        675
+      ],
+      "score": 0.9929130673408508
+    },
+    {
+      "text": "cia 4;",
+      "box": [
+        72,
+        671,
+        112,
+        694
+      ],
+      "score": 0.8467185497283936
+    },
+    {
+      "text": "conducta.",
+      "box": [
+        540,
+        673,
+        601,
+        690
+      ],
+      "score": 0.9922457933425903
+    },
+    {
+      "text": "8. Aplica todos tus esfuerzos para alcanzarla, y ella te",
+      "box": [
+        85,
+        688,
+        447,
+        709
+      ],
+      "score": 0.9964746832847595
+    },
+    {
+      "text": "7. Ahora pues, hijo mio, escúchame y no te apartes de los",
+      "box": [
+        550,
+        686,
+        909,
+        710
+      ],
+      "score": 0.9980847835540771
+    },
+    {
+      "text": "ensalzará: te llenará de gloria, cuando la estreches en tus",
+      "box": [
+        75,
+        705,
+        446,
+        727
+      ],
+      "score": 0.9963622093200684
+    },
+    {
+      "text": "documentos que te doy:",
+      "box": [
+        541,
+        708,
+        683,
+        725
+      ],
+      "score": 0.9918944835662842
+    },
+    {
+      "text": "brazos:",
+      "box": [
+        72,
+        725,
+        124,
+        743
+      ],
+      "score": 0.9938901662826538
+    },
+    {
+      "text": "8. Huye lejos de ella s: jamás te acerques á las puertas",
+      "box": [
+        551,
+        720,
+        909,
+        743
+      ],
+      "score": 0.9848229289054871
+    },
+    {
+      "text": "9. Añadirá adornos graciosos á tu cabeza, y ceñirá tus",
+      "box": [
+        87,
+        738,
+        447,
+        758
+      ],
+      "score": 0.9836247563362122
+    },
+    {
+      "text": "de su casa:",
+      "box": [
+        540,
+        740,
+        612,
+        756
+      ],
+      "score": 0.9942101836204529
+    },
+    {
+      "text": "sienes con esclarecida diadema.",
+      "box": [
+        77,
+        754,
+        267,
+        774
+      ],
+      "score": 0.9995043873786926
+    },
+    {
+      "text": "9. Á fin de que no entregues tu honra á gente extraña,",
+      "box": [
+        552,
+        752,
+        912,
+        774
+      ],
+      "score": 0.9843123555183411
+    },
+    {
+      "text": "10. Oh hijo mio, escucha y recibe mis documentos, para",
+      "box": [
+        90,
+        771,
+        447,
+        791
+      ],
+      "score": 0.9941216111183167
+    },
+    {
+      "text": "ni tus floridos años á una cruel:",
+      "box": [
+        541,
+        771,
+        732,
+        790
+      ],
+      "score": 0.9853758215904236
+    },
+    {
+      "text": "que logres muchos años de vida:",
+      "box": [
+        76,
+        786,
+        279,
+        809
+      ],
+      "score": 0.9851028919219971
+    },
+    {
+      "text": "10. A no ser que quieras que los extraños se enriquezcan",
+      "box": [
+        552,
+        784,
+        912,
+        810
+      ],
+      "score": 0.9866342544555664
+    },
+    {
+      "text": "11. Yo te mostraré el camino de la sabiduría, te guiaré por",
+      "box": [
+        89,
+        803,
+        448,
+        825
+      ],
+      "score": 0.991206169128418
+    },
+    {
+      "text": "con tus bienes, y que vaya á parar en casa de otro el fruto",
+      "box": [
+        540,
+        800,
+        912,
+        827
+      ],
+      "score": 0.9683932662010193
+    },
+    {
+      "text": "la senda de la justicia;",
+      "box": [
+        77,
+        821,
+        219,
+        840
+      ],
+      "score": 0.976335346698761
+    },
+    {
+      "text": "de tus sudores:",
+      "box": [
+        543,
+        823,
+        635,
+        840
+      ],
+      "score": 0.9936031699180603
+    },
+    {
+      "text": "12. Y entrado que hayas en ella, no se verán tus piés en",
+      "box": [
+        90,
+        837,
+        448,
+        857
+      ],
+      "score": 0.9997158050537109
+    },
+    {
+      "text": "11. Por donde tengas al fin que gemir, cuando habrás con-",
+      "box": [
+        552,
+        832,
+        912,
+        859
+      ],
+      "score": 0.9793245792388916
+    },
+    {
+      "text": "estrechuras, ni hallarán tropiezo alguno en su carrera.",
+      "box": [
+        77,
+        853,
+        407,
+        874
+      ],
+      "score": 0.9934766888618469
+    },
+    {
+      "text": "sumido tus carnes y tu cuerpo, y hayas de decir:",
+      "box": [
+        543,
+        852,
+        834,
+        873
+      ],
+      "score": 0.9952642917633057
+    },
+    {
+      "text": "13. Mantente adicto á la instruccion: nunca la abandones;",
+      "box": [
+        90,
+        870,
+        450,
+        891
+      ],
+      "score": 0.9869574904441833
+    },
+    {
+      "text": "12. ¿Por qué detesté yo la correccion, y no se rindió mi",
+      "box": [
+        553,
+        862,
+        912,
+        894
+      ],
+      "score": 0.90446937084198
+    },
+    {
+      "text": "guárdala bien, pues ella es tu vida.",
+      "box": [
+        77,
+        886,
+        295,
+        908
+      ],
+      "score": 0.9892110824584961
+    },
+    {
+      "text": "corazon á las reprensiones,",
+      "box": [
+        543,
+        887,
+        697,
+        904
+      ],
+      "score": 0.9983580708503723
+    },
+    {
+      "text": "14. No te aficiones á los caminos de los impíos; ni te agra-",
+      "box": [
+        88,
+        902,
+        450,
+        924
+      ],
+      "score": 0.9981524348258972
+    },
+    {
+      "text": "13. Ni quise escuchar la voz de los que me amonestaban,",
+      "box": [
+        553,
+        895,
+        911,
+        925
+      ],
+      "score": 0.987831711769104
+    },
+    {
+      "text": "de la senda de los malvados:",
+      "box": [
+        80,
+        922,
+        256,
+        939
+      ],
+      "score": 0.9998979568481445
+    },
+    {
+      "text": "ni la instruccion de mis maestros?",
+      "box": [
+        544,
+        919,
+        741,
+        936
+      ],
+      "score": 0.9876748323440552
+    },
+    {
+      "text": "15. Húyela, no pongas el pié en ella; desvíate, y abandó-",
+      "box": [
+        90,
+        936,
+        449,
+        956
+      ],
+      "score": 0.9965617656707764
+    },
+    {
+      "text": "14. En toda suerte de males ó vicios me ví casi engolfado",
+      "box": [
+        553,
+        926,
+        911,
+        958
+      ],
+      "score": 0.969651460647583
+    },
+    {
+      "text": "nala.",
+      "box": [
+        76,
+        953,
+        115,
+        976
+      ],
+      "score": 0.9996050596237183
+    },
+    {
+      "text": "en medio de la congregacion y del pueblo 9.",
+      "box": [
+        544,
+        948,
+        801,
+        968
+      ],
+      "score": 0.9746087789535522
+    },
+    {
+      "text": "16. Porque los impíos no duermen, si antes no han hecho",
+      "box": [
+        91,
+        969,
+        450,
+        990
+      ],
+      "score": 0.9885202646255493
+    },
+    {
+      "text": "15. Bebe pues el agua de tu aljibe, y de los manantiales de",
+      "box": [
+        554,
+        957,
+        911,
+        989
+      ],
+      "score": 0.7621427774429321
+    },
+    {
+      "text": "algun mal; y si primero no han causado la ruina de alguno,",
+      "box": [
+        78,
+        986,
+        450,
+        1008
+      ],
+      "score": 0.9986841678619385
+    },
+    {
+      "text": "tu pozo 10.",
+      "box": [
+        543,
+        980,
+        607,
+        1002
+      ],
+      "score": 0.9654543399810791
+    },
+    {
+      "text": "16. Rebosen por fuera tus manantiales, y espárzanse tus",
+      "box": [
+        554,
+        990,
+        912,
+        1020
+      ],
+      "score": 0.9845463633537292
+    },
+    {
+      "text": "no pueden conciliar el sueño.",
+      "box": [
+        79,
+        1004,
+        261,
+        1025
+      ],
+      "score": 0.9996317028999329
+    },
+    {
+      "text": "17. Como de pan se alimentan de la impiedad, y beben",
+      "box": [
+        90,
+        1019,
+        450,
+        1042
+      ],
+      "score": 0.9923281073570251
+    },
+    {
+      "text": "aguas, ó tus hijos é hijas, por las plazas.",
+      "box": [
+        543,
+        1012,
+        780,
+        1034
+      ],
+      "score": 0.9898546934127808
+    },
+    {
+      "text": "17. Sé tú solo el dueño de ellas, y no entren á la parte",
+      "box": [
+        554,
+        1023,
+        911,
+        1053
+      ],
+      "score": 0.9686599969863892
+    },
+    {
+      "text": "como vino la injusticia.",
+      "box": [
+        78,
+        1038,
+        225,
+        1057
+      ],
+      "score": 0.9760354161262512
+    },
+    {
+      "text": "18. La senda de los justos es como una luz brillante, que",
+      "box": [
+        90,
+        1051,
+        450,
+        1075
+      ],
+      "score": 0.9902750849723816
+    },
+    {
+      "text": "contigo los extraños u.",
+      "box": [
+        544,
+        1043,
+        676,
+        1066
+      ],
+      "score": 0.9139214158058167
+    },
+    {
+      "text": "18. Bendita sea esa tu vena de aguas 12, y vive alegre y",
+      "box": [
+        555,
+        1056,
+        912,
+        1082
+      ],
+      "score": 0.9839859008789062
+    },
+    {
+      "text": "va en aumento y crece hasta el medio dia .",
+      "box": [
+        78,
+        1070,
+        344,
+        1092
+      ],
+      "score": 0.9778494834899902
+    },
+    {
+      "text": "contento con la esposa que tomaste en tu juventud.",
+      "box": [
+        543,
+        1075,
+        848,
+        1098
+      ],
+      "score": 0.9983870983123779
+    },
+    {
+      "text": "19. Al contrario, el camino de los impíos está lleno de",
+      "box": [
+        89,
+        1084,
+        450,
+        1109
+      ],
+      "score": 0.9927660822868347
+    },
+    {
+      "text": "19. Sea ella tus delicias, como hermosisima cierva, y como",
+      "box": [
+        555,
+        1088,
+        912,
+        1115
+      ],
+      "score": 0.9794230461120605
+    },
+    {
+      "text": "tinieblas: no advierten el precipicio en que van á caer.",
+      "box": [
+        79,
+        1103,
+        407,
+        1125
+      ],
+      "score": 0.9821400046348572
+    },
+    {
+      "text": "El camino de la usticia se dice estar ála derecha, si se considera con",
+      "box": [
+        552,
+        1133,
+        914,
+        1159
+      ],
+      "score": 0.8077201247215271
+    },
+    {
+      "text": "1 I. Cor. VI, v. 7.",
+      "box": [
+        89,
+        1152,
+        188,
+        1169
+      ],
+      "score": 0.9398347735404968
+    },
+    {
+      "text": "respecto á la injusticia. Mas aun en el camino derecho no debemos torcer",
+      "box": [
+        543,
+        1147,
+        913,
+        1174
+      ],
+      "score": 0.862512469291687
+    },
+    {
+      "text": "2 O mofadores é impios.",
+      "box": [
+        89,
+        1165,
+        217,
+        1185
+      ],
+      "score": 0.9176003932952881
+    },
+    {
+      "text": "á un lado ni á otro: ni al lado derecho, engriéndonos del bien que hace-",
+      "box": [
+        542,
+        1161,
+        914,
+        1187
+      ],
+      "score": 0.9111032485961914
+    },
+    {
+      "text": "3 Los Setenta traducen: El Señor resiste á los soberbios, y da gracia a",
+      "box": [
+        89,
+        1174,
+        449,
+        1199
+      ],
+      "score": 0.9748163223266602
+    },
+    {
+      "text": "mos; ni al izquierdo, cayendo en la desidia y pereza. S. Aug. Ep. LVII,",
+      "box": [
+        542,
+        1174,
+        915,
+        1202
+      ],
+      "score": 0.7036053538322449
+    },
+    {
+      "text": "los humildes y así se lee en la Epístola de Santiago, cap. IV, v. 6, y",
+      "box": [
+        78,
+        1188,
+        450,
+        1215
+      ],
+      "score": 0.9603443741798401
+    },
+    {
+      "text": "ad Valent. De peccat. mer., lib. II, cap. 35.",
+      "box": [
+        543,
+        1191,
+        761,
+        1214
+      ],
+      "score": 0.9832972288131714
+    },
+    {
+      "text": "I. Pet. V, v. 5.",
+      "box": [
+        79,
+        1210,
+        160,
+        1229
+      ],
+      "score": 0.9877150654792786
+    },
+    {
+      "text": "El remedio de este mal está en huir de él. I. Cor. VI, v. 18.",
+      "box": [
+        552,
+        1203,
+        868,
+        1228
+      ],
+      "score": 0.8772162199020386
+    },
+    {
+      "text": "4 Téngase presente que las palabras prudencia, cordura, inteligen-",
+      "box": [
+        87,
+        1215,
+        449,
+        1244
+      ],
+      "score": 0.9890412092208862
+    },
+    {
+      "text": "A vista de todo el mundo.",
+      "box": [
+        553,
+        1219,
+        698,
+        1241
+      ],
+      "score": 0.9876332879066467
+    },
+    {
+      "text": "cía, ete., se usan promiscuamente para significar la sabiduría; y que esta",
+      "box": [
+        80,
+        1230,
+        449,
+        1259
+      ],
+      "score": 0.9643228054046631
+    },
+    {
+      "text": "10 Esto es, trata solamente con tu esposa.",
+      "box": [
+        552,
+        1231,
+        761,
+        1255
+      ],
+      "score": 0.9699506163597107
+    },
+    {
+      "text": "es lo mismo que el temor de Dios, ó la ciencía de la salvacion, que posee",
+      "box": [
+        80,
+        1244,
+        450,
+        1272
+      ],
+      "score": 0.9742705225944519
+    },
+    {
+      "text": "u Véase Águas.—Bajo de estas metáforasse amonesta los casados que",
+      "box": [
+        551,
+        1240,
+        915,
+        1270
+      ],
+      "score": 0.8203933835029602
+    },
+    {
+      "text": "el que sirve á Dios, junto con los demás dones del Espíritu Santo.",
+      "box": [
+        80,
+        1259,
+        415,
+        1287
+      ],
+      "score": 0.9809422492980957
+    },
+    {
+      "text": "se contenten con el uso del matrimonio.",
+      "box": [
+        546,
+        1260,
+        746,
+        1284
+      ],
+      "score": 0.998633086681366
+    },
+    {
+      "text": "O tambien: es como la luz del alba, que va en aumento hasta el per-",
+      "box": [
+        90,
+        1274,
+        449,
+        1301
+      ],
+      "score": 0.9801861047744751
+    },
+    {
+      "text": "12 Esto es, haga Dios fecunda tu esposa.",
+      "box": [
+        553,
+        1274,
+        757,
+        1298
+      ],
+      "score": 0.9917291402816772
+    },
+    {
+      "text": "fecto dia.",
+      "box": [
+        79,
+        1296,
+        133,
+        1317
+      ],
+      "score": 0.9915640950202942
+    },
+    {
+      "text": " En el medio, y en huir de los extremos, está la virtud.",
+      "box": [
+        90,
+        1304,
+        381,
+        1329
+      ],
+      "score": 0.9823417663574219
+    }
+  ]
+}

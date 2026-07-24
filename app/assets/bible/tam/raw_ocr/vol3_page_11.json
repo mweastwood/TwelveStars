@@ -1,0 +1,27 @@
+{
+  "volume": 3,
+  "page_index": 11,
+  "pdf_page": 12,
+  "lines": [
+    {
+      "text": "y queda hecho el depósito que marca la ley",
+      "box": [
+        235,
+        799,
+        441,
+        822
+      ],
+      "score": 0.9774473309516907
+    },
+    {
+      "text": "La ilustracion de esta obra es propiedad de los aditores",
+      "box": [
+        207,
+        818,
+        467,
+        836
+      ],
+      "score": 0.9710416793823242
+    }
+  ]
+}

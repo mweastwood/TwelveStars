@@ -1,0 +1,27 @@
+{
+  "volume": 1,
+  "page_index": 158,
+  "pdf_page": 159,
+  "lines": [
+    {
+      "text": "G5oy",
+      "box": [
+        79,
+        1111,
+        151,
+        1137
+      ],
+      "score": 0.6071397662162781
+    },
+    {
+      "text": "JOSEPH VENDIDO POR SUS HERMANOS",
+      "box": [
+        324,
+        1163,
+        629,
+        1183
+      ],
+      "score": 0.999737024307251
+    }
+  ]
+}

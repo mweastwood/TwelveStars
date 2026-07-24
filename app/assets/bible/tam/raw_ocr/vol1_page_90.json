@@ -1,0 +1,1467 @@
+{
+  "volume": 1,
+  "page_index": 90,
+  "pdf_page": 91,
+  "lines": [
+    {
+      "text": "97",
+      "box": [
+        7,
+        5,
+        27,
+        23
+      ],
+      "score": 0.9999486207962036
+    },
+    {
+      "text": "ÉXODO.",
+      "box": [
+        170,
+        8,
+        238,
+        35
+      ],
+      "score": 0.9969891905784607
+    },
+    {
+      "text": "CAPITULO XVI.",
+      "box": [
+        661,
+        28,
+        781,
+        48
+      ],
+      "score": 0.9993025064468384
+    },
+    {
+      "text": "98",
+      "box": [
+        889,
+        36,
+        909,
+        53
+      ],
+      "score": 0.9999644756317139
+    },
+    {
+      "text": "27. Luego que Moysés extendió la mano sobre el mar, se",
+      "box": [
+        9,
+        48,
+        409,
+        80
+      ],
+      "score": 0.9997687339782715
+    },
+    {
+      "text": "volvió este á su sitio al rayar el alba; y huyendo los Egypcios,",
+      "box": [
+        0,
+        64,
+        409,
+        100
+      ],
+      "score": 0.9799010753631592
+    },
+    {
+      "text": "16. Caiga de recio sobre ellos el terror y espanto, á vista",
+      "box": [
+        531,
+        71,
+        919,
+        97
+      ],
+      "score": 0.9851779341697693
+    },
+    {
+      "text": "las aguas los sobrecogieron, y el Señor los envolvió en medio",
+      "box": [
+        0,
+        81,
+        411,
+        119
+      ],
+      "score": 0.9940578937530518
+    },
+    {
+      "text": "del gran poder de tu brazo: queden inmobles como una pie-",
+      "box": [
+        518,
+        88,
+        919,
+        113
+      ],
+      "score": 0.9997197985649109
+    },
+    {
+      "text": "de las olas.",
+      "box": [
+        0,
+        100,
+        77,
+        122
+      ],
+      "score": 0.9828513264656067
+    },
+    {
+      "text": "dra, en tanto que pasa oh Señor! tu pueblo; hasta que pase",
+      "box": [
+        517,
+        106,
+        918,
+        131
+      ],
+      "score": 0.9927182197570801
+    },
+    {
+      "text": "28. Así las aguas vueltas á su curso, sumergieron los car-",
+      "box": [
+        9,
+        116,
+        411,
+        153
+      ],
+      "score": 0.988170862197876
+    },
+    {
+      "text": "ros, y la caballería de todo el ejército de Pharaon, que habia",
+      "box": [
+        0,
+        134,
+        411,
+        170
+      ],
+      "score": 0.9982147812843323
+    },
+    {
+      "text": "este pueblo tuyo que tú has adquerido.",
+      "box": [
+        519,
+        126,
+        775,
+        144
+      ],
+      "score": 0.9984789490699768
+    },
+    {
+      "text": "17. A estos hijos tuyos tú los introducirás, y establecerás",
+      "box": [
+        529,
+        141,
+        918,
+        164
+      ],
+      "score": 0.9982961416244507
+    },
+    {
+      "text": "entrado en el mar en seguimiento de Israél: ni uno siquiera",
+      "box": [
+        0,
+        152,
+        411,
+        188
+      ],
+      "score": 0.9766926169395447
+    },
+    {
+      "text": "oh Señor! sobre el monte 4 de tu herencia, sobre esa firmí-",
+      "box": [
+        515,
+        158,
+        917,
+        179
+      ],
+      "score": 0.9905893802642822
+    },
+    {
+      "text": "se salvó.",
+      "box": [
+        0,
+        171,
+        58,
+        191
+      ],
+      "score": 0.9995672702789307
+    },
+    {
+      "text": "sima morada tuya, que tú te has fabricado: en Sion oh Se-",
+      "box": [
+        516,
+        174,
+        918,
+        196
+      ],
+      "score": 0.9977315664291382
+    },
+    {
+      "text": "29. Mas los hijos de Israél marcharon por medio del mar",
+      "box": [
+        9,
+        186,
+        411,
+        223
+      ],
+      "score": 0.9943916201591492
+    },
+    {
+      "text": "ñor! santuario tuyo, que han fundado tus manos.",
+      "box": [
+        516,
+        191,
+        840,
+        211
+      ],
+      "score": 0.9956559538841248
+    },
+    {
+      "text": "enjuto, teniendo las aguas por muro á derecha é izquierda.",
+      "box": [
+        0,
+        204,
+        395,
+        240
+      ],
+      "score": 0.9759656190872192
+    },
+    {
+      "text": "18. El Señor reinará eternamente, y mas allá de todos los",
+      "box": [
+        529,
+        207,
+        918,
+        229
+      ],
+      "score": 0.9915816783905029
+    },
+    {
+      "text": "30. De esta suerte libró el Señor á Israél en aquel dia de",
+      "box": [
+        8,
+        220,
+        410,
+        257
+      ],
+      "score": 0.9844377636909485
+    },
+    {
+      "text": "siglos.",
+      "box": [
+        517,
+        226,
+        560,
+        241
+      ],
+      "score": 0.9954403042793274
+    },
+    {
+      "text": "mano de los Egypcios:",
+      "box": [
+        0,
+        238,
+        154,
+        266
+      ],
+      "score": 0.998131513595581
+    },
+    {
+      "text": "19. Porque Pharaon entró á caballo en el mar, con sus",
+      "box": [
+        528,
+        240,
+        918,
+        260
+      ],
+      "score": 0.9951857328414917
+    },
+    {
+      "text": "31. Y vieron en la orilla del mar los cadáveres de los Egyp-",
+      "box": [
+        7,
+        255,
+        408,
+        291
+      ],
+      "score": 0.9784446358680725
+    },
+    {
+      "text": "carros, y caballería, y el Señor replegó sobre ellos las aguas",
+      "box": [
+        515,
+        255,
+        918,
+        278
+      ],
+      "score": 0.9879150390625
+    },
+    {
+      "text": "cios, y cómo el Señor habia descargado contra ellos su pode-",
+      "box": [
+        0,
+        272,
+        409,
+        307
+      ],
+      "score": 0.9964048266410828
+    },
+    {
+      "text": "del mar: mas los hijos de Israél pasaron por medio de él á",
+      "box": [
+        515,
+        271,
+        918,
+        295
+      ],
+      "score": 0.988958477973938
+    },
+    {
+      "text": "rosa mano. Con esto temió el pueblo al Señor, y creyóal Señor",
+      "box": [
+        0,
+        289,
+        409,
+        322
+      ],
+      "score": 0.9772440791130066
+    },
+    {
+      "text": "pié enjuto.",
+      "box": [
+        513,
+        289,
+        586,
+        307
+      ],
+      "score": 0.9996297359466553
+    },
+    {
+      "text": "y á su siervo Moysés.",
+      "box": [
+        0,
+        307,
+        143,
+        332
+      ],
+      "score": 0.9871407747268677
+    },
+    {
+      "text": "20. Entonces María, la profetisa 5, hermana de Aaron,",
+      "box": [
+        527,
+        303,
+        917,
+        326
+      ],
+      "score": 0.9929102063179016
+    },
+    {
+      "text": "tomó en su mano un pandero; y salieron en pos de ella todas",
+      "box": [
+        515,
+        320,
+        917,
+        341
+      ],
+      "score": 0.9983313679695129
+    },
+    {
+      "text": "CAPITULO XV",
+      "box": [
+        150,
+        344,
+        258,
+        364
+      ],
+      "score": 0.9990822076797485
+    },
+    {
+      "text": "las mujeres con panderos y danzas,",
+      "box": [
+        514,
+        337,
+        749,
+        355
+      ],
+      "score": 0.9997037053108215
+    },
+    {
+      "text": "21. Cuyos coros guiaba, entonando la primera: Cantemos",
+      "box": [
+        528,
+        352,
+        917,
+        373
+      ],
+      "score": 0.9908890128135681
+    },
+    {
+      "text": "Cántico de Moysés en alabanza y hacimiento de gracias al Señor, despues",
+      "box": [
+        0,
+        363,
+        409,
+        396
+      ],
+      "score": 0.933987557888031
+    },
+    {
+      "text": "himnos al Señor, porque ha dado una gloriosa señal de su",
+      "box": [
+        513,
+        367,
+        917,
+        391
+      ],
+      "score": 0.9991096258163452
+    },
+    {
+      "text": "de pasado el ma. Llegan los Ismelitas Mara, donde convierte Moysés",
+      "box": [
+        4,
+        378,
+        408,
+        411
+      ],
+      "score": 0.7458873391151428
+    },
+    {
+      "text": "grandeza; ha precipitado en el mar al caballo y al caballero.",
+      "box": [
+        513,
+        383,
+        917,
+        408
+      ],
+      "score": 0.9904334545135498
+    },
+    {
+      "text": "las aguas amargas en dulces.",
+      "box": [
+        7,
+        393,
+        176,
+        419
+      ],
+      "score": 0.9667034149169922
+    },
+    {
+      "text": "22. En fin, Moysés sacó á los Israelitas del mar Rojo, y",
+      "box": [
+        526,
+        400,
+        917,
+        425
+      ],
+      "score": 0.9766961336135864
+    },
+    {
+      "text": "1. Entonces' Moysés y los hijos de Israél entonaron este",
+      "box": [
+        6,
+        421,
+        408,
+        453
+      ],
+      "score": 0.9771303534507751
+    },
+    {
+      "text": "fueron á salir al desierto de Sur, y anduvieron tres dias por",
+      "box": [
+        513,
+        415,
+        917,
+        442
+      ],
+      "score": 0.9887648820877075
+    },
+    {
+      "text": "himno al Señor, diciendo: Cantemos alabanzas al Señor, por-",
+      "box": [
+        0,
+        437,
+        408,
+        472
+      ],
+      "score": 0.9837629199028015
+    },
+    {
+      "text": "la soledad, sin hallar agua.",
+      "box": [
+        514,
+        434,
+        694,
+        452
+      ],
+      "score": 0.999973475933075
+    },
+    {
+      "text": "que ha hecho brillar su gloria y grandeza, y ha precipitado en",
+      "box": [
+        0,
+        454,
+        408,
+        487
+      ],
+      "score": 0.9355427026748657
+    },
+    {
+      "text": "23. Llegaron despues á Mara, y no podian beber las aguas",
+      "box": [
+        526,
+        448,
+        916,
+        474
+      ],
+      "score": 0.9974451065063477
+    },
+    {
+      "text": "el mar al caballo y al caballero.",
+      "box": [
+        0,
+        473,
+        223,
+        499
+      ],
+      "score": 0.9670085906982422
+    },
+    {
+      "text": "de Mara por ser amargas. Por eso puso nombre apropiado",
+      "box": [
+        513,
+        464,
+        916,
+        491
+      ],
+      "score": 0.9998667240142822
+    },
+    {
+      "text": "2. El Señor es la fortaleza mia, y el objeto de mis alaban-",
+      "box": [
+        6,
+        490,
+        406,
+        517
+      ],
+      "score": 0.9947220683097839
+    },
+    {
+      "text": "al sitio, llamándole Mara, esto es, Amargura.",
+      "box": [
+        514,
+        483,
+        812,
+        503
+      ],
+      "score": 0.9883308410644531
+    },
+    {
+      "text": "24. Aquí murmuró el pueblo contra Moysés, diciendo:",
+      "box": [
+        525,
+        498,
+        917,
+        523
+      ],
+      "score": 0.9960128664970398
+    },
+    {
+      "text": "as, porque él ha sido mi Salvador: Este es mi Dios, y yo",
+      "box": [
+        0,
+        508,
+        407,
+        534
+      ],
+      "score": 0.9835909605026245
+    },
+    {
+      "text": "oublicaré su gloria; el Dios de mis padres, á quien he de",
+      "box": [
+        0,
+        522,
+        408,
+        553
+      ],
+      "score": 0.984094500541687
+    },
+    {
+      "text": "¿Qué beberemos?",
+      "box": [
+        515,
+        517,
+        628,
+        534
+      ],
+      "score": 0.9996472597122192
+    },
+    {
+      "text": "25. Mas él.clamó al Señor; el cual le mostró un madero,",
+      "box": [
+        525,
+        530,
+        915,
+        556
+      ],
+      "score": 0.990594744682312
+    },
+    {
+      "text": "nsalzar .",
+      "box": [
+        0,
+        542,
+        71,
+        560
+      ],
+      "score": 0.971045732498169
+    },
+    {
+      "text": "y habiéndole echado en las aguas, se endulzaron 6. Allí dió",
+      "box": [
+        513,
+        546,
+        915,
+        571
+      ],
+      "score": 0.9772841930389404
+    },
+    {
+      "text": "3. El Señor se ha aparecido como un valiente campeon: es",
+      "box": [
+        3,
+        556,
+        407,
+        583
+      ],
+      "score": 0.9987685084342957
+    },
+    {
+      "text": "u nombre el Omnipotente.",
+      "box": [
+        0,
+        573,
+        186,
+        598
+      ],
+      "score": 0.9999351501464844
+    },
+    {
+      "text": "el Señor al pueblo algunos preceptos y leyes; y allí le probó 7,",
+      "box": [
+        514,
+        564,
+        913,
+        586
+      ],
+      "score": 0.9875866174697876
+    },
+    {
+      "text": "26. Y dijo: Si escuchares la voz del Señor Dios tuyo, é hi-",
+      "box": [
+        526,
+        580,
+        913,
+        602
+      ],
+      "score": 0.9861729741096497
+    },
+    {
+      "text": "4. Á los carros de Pharaon y á su ejército los ha precipi-",
+      "box": [
+        5,
+        590,
+        405,
+        614
+      ],
+      "score": 0.9739112257957458
+    },
+    {
+      "text": "cieres lo que es recto delante de él, y obedecieres sus man-",
+      "box": [
+        514,
+        596,
+        914,
+        617
+      ],
+      "score": 0.9994058012962341
+    },
+    {
+      "text": "ado al mar: sus mejores capitanes han sido sumergidos en el",
+      "box": [
+        0,
+        606,
+        407,
+        633
+      ],
+      "score": 0.9981387257575989
+    },
+    {
+      "text": "damientos, y observares todos sus preceptos, no descargaré",
+      "box": [
+        513,
+        611,
+        913,
+        634
+      ],
+      "score": 0.9937137365341187
+    },
+    {
+      "text": "nar Rojo.",
+      "box": [
+        0,
+        626,
+        67,
+        645
+      ],
+      "score": 0.9990651607513428
+    },
+    {
+      "text": "sobre tí plaga ninguna, de las que he descargado sobre el",
+      "box": [
+        513,
+        626,
+        914,
+        651
+      ],
+      "score": 0.998609185218811
+    },
+    {
+      "text": "5. Sepultados quedan en los abismos: hundiéronse como",
+      "box": [
+        2,
+        641,
+        405,
+        663
+      ],
+      "score": 0.9889385104179382
+    },
+    {
+      "text": "Egypto; porque Yo soy el Señor que te doy la salud.",
+      "box": [
+        514,
+        643,
+        862,
+        665
+      ],
+      "score": 0.9949777722358704
+    },
+    {
+      "text": "na piedra hasta lo mas profundo.",
+      "box": [
+        0,
+        660,
+        234,
+        679
+      ],
+      "score": 0.9994876384735107
+    },
+    {
+      "text": "27. De allí pasaron los hijos de Israél á Elim; donde ha-",
+      "box": [
+        526,
+        660,
+        913,
+        681
+      ],
+      "score": 0.9966785311698914
+    },
+    {
+      "text": "6. Tu diestra oh Señor! ha demostrado su soberana for-",
+      "box": [
+        1,
+        673,
+        405,
+        697
+      ],
+      "score": 0.9940774440765381
+    },
+    {
+      "text": "bia doce manantiales de aguas, y setenta palmeras, y acam-",
+      "box": [
+        513,
+        675,
+        913,
+        698
+      ],
+      "score": 0.9917709827423096
+    },
+    {
+      "text": "aleza: Tu diestra oh Señor! es la que ha herido al enemigo",
+      "box": [
+        0,
+        689,
+        405,
+        714
+      ],
+      "score": 0.9946210384368896
+    },
+    {
+      "text": "paron allí junto á las aguas ®.",
+      "box": [
+        513,
+        692,
+        710,
+        711
+      ],
+      "score": 0.9661988615989685
+    },
+    {
+      "text": "e tu pueblo.",
+      "box": [
+        0,
+        711,
+        89,
+        729
+      ],
+      "score": 0.9596182703971863
+    },
+    {
+      "text": "7. Y con la grandeza de tu gloria y poderío has derribado",
+      "box": [
+        1,
+        719,
+        404,
+        748
+      ],
+      "score": 0.9940966367721558
+    },
+    {
+      "text": "CAPITULO XVI",
+      "box": [
+        658,
+        724,
+        770,
+        741
+      ],
+      "score": 0.9994189143180847
+    },
+    {
+      "text": "tus adversarios. Enviaste los instrumentos de tu cólera, la",
+      "box": [
+        1,
+        737,
+        405,
+        764
+      ],
+      "score": 0.9817477464675903
+    },
+    {
+      "text": "Envia el Señor codornices y pan del cielo á su pueblo ingrato. Le reco-",
+      "box": [
+        513,
+        748,
+        913,
+        772
+      ],
+      "score": 0.9895114898681641
+    },
+    {
+      "text": "ual los ha devorado como el fuego á una paja.",
+      "box": [
+        0,
+        758,
+        312,
+        778
+      ],
+      "score": 0.9893144369125366
+    },
+    {
+      "text": "mienda la observancia del Sábado, y que conserve en el Tabernáculo",
+      "box": [
+        524,
+        762,
+        913,
+        785
+      ],
+      "score": 0.9915040731430054
+    },
+    {
+      "text": "8. Al soplo de tu furor se amontonaron las aguas: paróse",
+      "box": [
+        0,
+        770,
+        405,
+        796
+      ],
+      "score": 0.9948200583457947
+    },
+    {
+      "text": "una porcion del maná para memoria de la posteridad.",
+      "box": [
+        525,
+        776,
+        822,
+        797
+      ],
+      "score": 0.9964137077331543
+    },
+    {
+      "text": " ola que iba corriendo: cuajáronse en medio del mar los",
+      "box": [
+        0,
+        786,
+        405,
+        813
+      ],
+      "score": 0.9954084753990173
+    },
+    {
+      "text": "bismos de las aguas.",
+      "box": [
+        0,
+        811,
+        145,
+        825
+      ],
+      "score": 0.9989428520202637
+    },
+    {
+      "text": "1. Partió de Elim toda la multitud de los hijos do Israél,",
+      "box": [
+        524,
+        804,
+        912,
+        830
+      ],
+      "score": 0.9959021806716919
+    },
+    {
+      "text": "9. Iré tras ellos, habia dicho el enemigo, y los alcanzaré:",
+      "box": [
+        1,
+        819,
+        404,
+        844
+      ],
+      "score": 0.9949157238006592
+    },
+    {
+      "text": "y vino á parar en el desierto de Sin, que está entre Elim y",
+      "box": [
+        511,
+        823,
+        911,
+        846
+      ],
+      "score": 0.9997087121009827
+    },
+    {
+      "text": "artiré los despojos, y se hartará mi alma: desenvainaré mi",
+      "box": [
+        0,
+        836,
+        404,
+        860
+      ],
+      "score": 0.9936621189117432
+    },
+    {
+      "text": "el monte Sinaí, el dia quince del segundo mes, despues de la",
+      "box": [
+        511,
+        839,
+        911,
+        862
+      ],
+      "score": 0.9994327425956726
+    },
+    {
+      "text": "spada, y los matará mi mano.",
+      "box": [
+        0,
+        857,
+        209,
+        874
+      ],
+      "score": 0.990856945514679
+    },
+    {
+      "text": "salida del país de Egypto.",
+      "box": [
+        511,
+        856,
+        691,
+        874
+      ],
+      "score": 0.9906297922134399
+    },
+    {
+      "text": "10. Sopló tu espíritu joh Señor! y el mar los anegó: hundié-",
+      "box": [
+        2,
+        868,
+        404,
+        893
+      ],
+      "score": 0.9693655371665955
+    },
+    {
+      "text": "2. Y murmuró en aquel desierto contra Moysés y Aaron",
+      "box": [
+        525,
+        871,
+        910,
+        894
+      ],
+      "score": 0.999356210231781
+    },
+    {
+      "text": "onse como plomo en aguas impetuosas.",
+      "box": [
+        1,
+        890,
+        269,
+        905
+      ],
+      "score": 0.9996788501739502
+    },
+    {
+      "text": "el pueblo de los hijos de Israél.",
+      "box": [
+        512,
+        888,
+        715,
+        907
+      ],
+      "score": 0.9972084760665894
+    },
+    {
+      "text": "11. ¿Quién hay entre los fuertes á tí semejante, oh Señor?",
+      "box": [
+        5,
+        901,
+        403,
+        924
+      ],
+      "score": 0.9900940656661987
+    },
+    {
+      "text": "3. A los cuales dijeron los hijos de Israél: :Ojalá hubié-",
+      "box": [
+        525,
+        904,
+        910,
+        924
+      ],
+      "score": 0.9655722379684448
+    },
+    {
+      "text": "Quién hay semejante á tí, tan grande en santidad: terrible,",
+      "box": [
+        0,
+        917,
+        402,
+        939
+      ],
+      "score": 0.995625913143158
+    },
+    {
+      "text": "semos muerto á manos del Señor en la tierra de Egypto,",
+      "box": [
+        510,
+        920,
+        909,
+        941
+      ],
+      "score": 0.9988491535186768
+    },
+    {
+      "text": "digno de alabanza, y obrador de prodigios?",
+      "box": [
+        0,
+        935,
+        301,
+        954
+      ],
+      "score": 0.9927856922149658
+    },
+    {
+      "text": "cuando estábamos sentados junto á las calderas llenas de",
+      "box": [
+        510,
+        936,
+        909,
+        957
+      ],
+      "score": 0.9968746900558472
+    },
+    {
+      "text": "12. Extendiste tú la mano, y la tierra los tragó.",
+      "box": [
+        5,
+        949,
+        336,
+        971
+      ],
+      "score": 0.9985392689704895
+    },
+    {
+      "text": "carne, y comíamos pan cuanto queríamos! ¿Por qué nos ha-",
+      "box": [
+        510,
+        952,
+        909,
+        972
+      ],
+      "score": 0.9984713792800903
+    },
+    {
+      "text": "13. Por tu misericordia te has hecho el caudillo del pueblo",
+      "box": [
+        6,
+        964,
+        402,
+        988
+      ],
+      "score": 0.9985364079475403
+    },
+    {
+      "text": "beis traido á este desierto para matar de hambre á toda la",
+      "box": [
+        510,
+        968,
+        907,
+        989
+      ],
+      "score": 0.9989117980003357
+    },
+    {
+      "text": "ue redimiste, y le has conducido á fuerza & de tu poder á tu",
+      "box": [
+        0,
+        982,
+        400,
+        1004
+      ],
+      "score": 0.9793056845664978
+    },
+    {
+      "text": "gente?",
+      "box": [
+        510,
+        987,
+        555,
+        1002
+      ],
+      "score": 0.9999849796295166
+    },
+    {
+      "text": "anta morada.",
+      "box": [
+        0,
+        1003,
+        99,
+        1017
+      ],
+      "score": 0.999840259552002
+    },
+    {
+      "text": "4. Pero el Señor le dijo á Moysés: Voy á hacer quo os",
+      "box": [
+        523,
+        1001,
+        906,
+        1020
+      ],
+      "score": 0.9832261800765991
+    },
+    {
+      "text": "14. Se levantaron los pueblos, y montaron en cólera: que-",
+      "box": [
+        7,
+        1014,
+        403,
+        1036
+      ],
+      "score": 0.9918879866600037
+    },
+    {
+      "text": "llueva pan del cielo: salga el pueblo, y recoja lo que básta",
+      "box": [
+        508,
+        1017,
+        905,
+        1036
+      ],
+      "score": 0.9949198961257935
+    },
+    {
+      "text": "laron penetrados de grande ira y dolor los habitantes de la",
+      "box": [
+        0,
+        1030,
+        401,
+        1052
+      ],
+      "score": 0.9965437650680542
+    },
+    {
+      "text": "para cada dia: pues quiero probarle, á ver si se ajusta, ó no,",
+      "box": [
+        507,
+        1033,
+        903,
+        1052
+      ],
+      "score": 0.9881313443183899
+    },
+    {
+      "text": "Palestina.",
+      "box": [
+        0,
+        1049,
+        68,
+        1067
+      ],
+      "score": 0.9862375259399414
+    },
+    {
+      "text": "á mi ley.",
+      "box": [
+        507,
+        1049,
+        568,
+        1067
+      ],
+      "score": 0.995263397693634
+    },
+    {
+      "text": "15. Conturbáronse los príncipes de Edon: los valientes de",
+      "box": [
+        6,
+        1061,
+        400,
+        1084
+      ],
+      "score": 0.9997137188911438
+    },
+    {
+      "text": "5. Mas el dia sexto prevengan lo que han de reservar, y",
+      "box": [
+        519,
+        1063,
+        901,
+        1085
+      ],
+      "score": 0.9913232326507568
+    },
+    {
+      "text": "Mohab se estremecieron, y quedáronse yertos los moradores",
+      "box": [
+        0,
+        1080,
+        399,
+        1100
+      ],
+      "score": 0.9909670352935791
+    },
+    {
+      "text": "así cojan doble de lo que solian coger cada dia.",
+      "box": [
+        507,
+        1081,
+        814,
+        1099
+      ],
+      "score": 0.9867659211158752
+    },
+    {
+      "text": "odos de Chanaan.",
+      "box": [
+        0,
+        1099,
+        129,
+        1113
+      ],
+      "score": 0.9997948408126831
+    },
+    {
+      "text": "6. Entonces Moysés y Aaron dijeron á todos los hijos de",
+      "box": [
+        521,
+        1096,
+        899,
+        1116
+      ],
+      "score": 0.9910467863082886
+    },
+    {
+      "text": "1 Sap. X, v. 20.",
+      "box": [
+        9,
+        1134,
+        110,
+        1149
+      ],
+      "score": 0.9743068218231201
+    },
+    {
+      "text": "6 De lo que se dice en el libro del Eclesiástico, cap. XXXVIII, v. 5,",
+      "box": [
+        518,
+        1132,
+        898,
+        1152
+      ],
+      "score": 0.9831447005271912
+    },
+    {
+      "text": "° P&. CXVII, v. 14.—Is. XII, v. 2.",
+      "box": [
+        9,
+        1148,
+        221,
+        1162
+      ],
+      "score": 0.9132198095321655
+    },
+    {
+      "text": "parece inferirse que el madero de que aquí se habla tenia virtud natural",
+      "box": [
+        507,
+        1147,
+        897,
+        1166
+      ],
+      "score": 0.996321439743042
+    },
+    {
+      "text": "a Es una profecía de lo que hará Dios conduciendo á su pueblo hasta",
+      "box": [
+        8,
+        1158,
+        398,
+        1176
+      ],
+      "score": 0.9803457856178284
+    },
+    {
+      "text": "para endulzar las aguas. Los Padres han considerado este leño como figu-",
+      "box": [
+        505,
+        1162,
+        895,
+        1179
+      ],
+      "score": 0.9929679036140442
+    },
+    {
+      "text": "la tierra de promision.",
+      "box": [
+        0,
+        1172,
+        134,
+        1190
+      ],
+      "score": 0.9987491369247437
+    },
+    {
+      "text": "ra del madero de la cruz de Christo, la cual endulza todas las amarguras",
+      "box": [
+        503,
+        1174,
+        897,
+        1193
+      ],
+      "score": 0.9932190775871277
+    },
+    {
+      "text": "4 Donde estará el Templo santo. Todas estas cosas convienen aun mas",
+      "box": [
+        9,
+        1184,
+        398,
+        1202
+      ],
+      "score": 0.9891605377197266
+    },
+    {
+      "text": "de esta vida.",
+      "box": [
+        505,
+        1189,
+        578,
+        1203
+      ],
+      "score": 0.9999098181724548
+    },
+    {
+      "text": "á la Jerusalem de arriba.",
+      "box": [
+        0,
+        1198,
+        149,
+        1214
+      ],
+      "score": 0.9912412166595459
+    },
+    {
+      "text": "7 Judith V, v. 15.—Eccli. XXXVIII, v. 5.",
+      "box": [
+        516,
+        1200,
+        757,
+        1219
+      ],
+      "score": 0.9382670521736145
+    },
+    {
+      "text": " Es llamada profetisa por haber recibido de Dios el espíritu profético.",
+      "box": [
+        9,
+        1209,
+        396,
+        1228
+      ],
+      "score": 0.9919647574424744
+    },
+    {
+      "text": "8 Num. XXXIII, v. 9.",
+      "box": [
+        516,
+        1213,
+        648,
+        1233
+      ],
+      "score": 0.962009072303772
+    },
+    {
+      "text": "(Num. XII, v. 2.) Su nombre entero n, puede significar Estrella del",
+      "box": [
+        0,
+        1223,
+        396,
+        1243
+      ],
+      "score": 0.9719951152801514
+    },
+    {
+      "text": " Sap. XI, v. 2.",
+      "box": [
+        516,
+        1226,
+        609,
+        1246
+      ],
+      "score": 0.9497707486152649
+    },
+    {
+      "text": "mar, como dice San Gerónimo Señora ó Iluminadora de la mar, y otras",
+      "box": [
+        0,
+        1237,
+        396,
+        1257
+      ],
+      "score": 0.9921770095825195
+    },
+    {
+      "text": "cosas.—Véase Calmet.",
+      "box": [
+        0,
+        1252,
+        132,
+        1270
+      ],
+      "score": 0.9588658213615417
+    }
+  ]
+}

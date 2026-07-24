@@ -1,0 +1,4897 @@
+{
+  "volume": 4,
+  "page_index": 406,
+  "pdf_page": 407,
+  "lines": [
+    {
+      "text": "Mundo.",
+      "box": [
+        32,
+        0,
+        43,
+        41
+      ],
+      "score": 0.9997355937957764
+    },
+    {
+      "text": "Año",
+      "box": [
+        42,
+        1,
+        53,
+        22
+      ],
+      "score": 0.9203913807868958
+    },
+    {
+      "text": "J. C.",
+      "box": [
+        59,
+        2,
+        73,
+        35
+      ],
+      "score": 0.9140814542770386
+    },
+    {
+      "text": "Antes de",
+      "box": [
+        68,
+        0,
+        84,
+        47
+      ],
+      "score": 0.9967736601829529
+    },
+    {
+      "text": "Mundo.",
+      "box": [
+        326,
+        4,
+        337,
+        45
+      ],
+      "score": 0.9999222755432129
+    },
+    {
+      "text": "Año del",
+      "box": [
+        335,
+        1,
+        349,
+        49
+      ],
+      "score": 0.9305576682090759
+    },
+    {
+      "text": "J. C.",
+      "box": [
+        355,
+        9,
+        366,
+        42
+      ],
+      "score": 0.9320475459098816
+    },
+    {
+      "text": "Antes de",
+      "box": [
+        362,
+        1,
+        379,
+        51
+      ],
+      "score": 0.9709933996200562
+    },
+    {
+      "text": "Mundo.",
+      "box": [
+        610,
+        1,
+        623,
+        46
+      ],
+      "score": 0.99912428855896
+    },
+    {
+      "text": "Año",
+      "box": [
+        622,
+        1,
+        633,
+        26
+      ],
+      "score": 0.9893097877502441
+    },
+    {
+      "text": "del",
+      "box": [
+        42,
+        23,
+        53,
+        44
+      ],
+      "score": 0.9999029040336609
+    },
+    {
+      "text": "del",
+      "box": [
+        620,
+        24,
+        634,
+        47
+      ],
+      "score": 0.998730480670929
+    },
+    {
+      "text": "C.",
+      "box": [
+        642,
+        22,
+        652,
+        37
+      ],
+      "score": 0.9994698762893677
+    },
+    {
+      "text": "2148",
+      "box": [
+        31,
+        50,
+        55,
+        63
+      ],
+      "score": 0.9984997510910034
+    },
+    {
+      "text": "1856 Isanc se casa con Rebeca, sn prima, xxiv. 47, 57,",
+      "box": [
+        57,
+        49,
+        315,
+        68
+      ],
+      "score": 0.9677802920341492
+    },
+    {
+      "text": "2533",
+      "box": [
+        322,
+        50,
+        349,
+        68
+      ],
+      "score": 0.9938117265701294
+    },
+    {
+      "text": "67. Comienza el reinado de Inaco, rey de los Ar-",
+      "box": [
+        93,
+        60,
+        316,
+        79
+      ],
+      "score": 0.9179115295410156
+    },
+    {
+      "text": "1471 Pusiris, hijo de Neptuno ó Ramesses Miamun,",
+      "box": [
+        351,
+        51,
+        599,
+        68
+      ],
+      "score": 0.9629939198493958
+    },
+    {
+      "text": "2869 1135 Siendo Juez de Israel Helí, Samsou, de ednd de 19",
+      "box": [
+        609,
+        51,
+        882,
+        66
+      ],
+      "score": 0.9714521169662476
+    },
+    {
+      "text": "giros, en el Peloponeso. Euseb.",
+      "box": [
+        92,
+        72,
+        236,
+        88
+      ],
+      "score": 0.9358047842979431
+    },
+    {
+      "text": "ejerce un dominio tiránico en las crillas del Nilo,",
+      "box": [
+        387,
+        65,
+        599,
+        78
+      ],
+      "score": 0.9603015780448914
+    },
+    {
+      "text": "años, comienza & vengar de los Philistheos á su",
+      "box": [
+        670,
+        64,
+        882,
+        77
+      ],
+      "score": 0.9797035455703735
+    },
+    {
+      "text": "2158",
+      "box": [
+        32,
+        80,
+        55,
+        92
+      ],
+      "score": 0.9998874068260193
+    },
+    {
+      "text": "1846 Muere Sem, XI. 10.",
+      "box": [
+        60,
+        80,
+        177,
+        97
+      ],
+      "score": 0.952527642250061
+    },
+    {
+      "text": "1455 Femi y Cadmo, partieudo de Thebas de Egipto á",
+      "box": [
+        350,
+        83,
+        601,
+        98
+      ],
+      "score": 0.9289876818656921
+    },
+    {
+      "text": "Euseb.",
+      "box": [
+        387,
+        74,
+        419,
+        88
+      ],
+      "score": 0.9468616843223572
+    },
+    {
+      "text": "1117 Samson, despues de haber goberuado á Israel 20",
+      "box": [
+        636,
+        83,
+        881,
+        97
+      ],
+      "score": 0.973307728767395
+    },
+    {
+      "text": "pueblo, xrv. 19.",
+      "box": [
+        669,
+        71,
+        741,
+        88
+      ],
+      "score": 0.9491413235664368
+    },
+    {
+      "text": "2168",
+      "box": [
+        32,
+        90,
+        55,
+        102
+      ],
+      "score": 0.9984451532363892
+    },
+    {
+      "text": "1836 Nacen Jacob y Esad, xxv. 26.",
+      "box": [
+        60,
+        90,
+        223,
+        108
+      ],
+      "score": 0.8892413377761841
+    },
+    {
+      "text": "2549",
+      "box": [
+        325,
+        84,
+        348,
+        96
+      ],
+      "score": 0.9999210238456726
+    },
+    {
+      "text": "2887",
+      "box": [
+        609,
+        84,
+        631,
+        96
+      ],
+      "score": 0.9999642372131348
+    },
+    {
+      "text": "2179",
+      "box": [
+        32,
+        101,
+        56,
+        112
+      ],
+      "score": 0.9999958276748657
+    },
+    {
+      "text": "1825 Thermosis é Amosis, rey del Egipto suparior, ar-",
+      "box": [
+        59,
+        99,
+        317,
+        121
+      ],
+      "score": 0.857755720615387
+    },
+    {
+      "text": "la Siria, fundaron los dos reinos de Tyro y Sidon,",
+      "box": [
+        385,
+        94,
+        599,
+        109
+      ],
+      "score": 0.9557554721832275
+    },
+    {
+      "text": "sños, muere valerosameute, XV1. 31.",
+      "box": [
+        668,
+        93,
+        828,
+        108
+      ],
+      "score": 0.8454574942588806
+    },
+    {
+      "text": "roja del bajo Egipto á los Hycsos, ó reyes pasto-",
+      "box": [
+        94,
+        112,
+        317,
+        132
+      ],
+      "score": 0.8309414982795715
+    },
+    {
+      "text": "1452 El año 40 de la sallda de Egipto muere María, her-",
+      "box": [
+        351,
+        115,
+        599,
+        128
+      ],
+      "score": 0.9761750102043152
+    },
+    {
+      "text": "Euseb.",
+      "box": [
+        388,
+        106,
+        419,
+        117
+      ],
+      "score": 0.9643716812133789
+    },
+    {
+      "text": "res, los cusles se van á morar en la Phenicia. Jo-",
+      "box": [
+        95,
+        124,
+        315,
+        142
+      ],
+      "score": 0.9573941826820374
+    },
+    {
+      "text": "2552",
+      "box": [
+        325,
+        116,
+        349,
+        127
+      ],
+      "score": 0.9999904632568359
+    },
+    {
+      "text": "Agué acaba el libro de los Junces y comienzan los de los",
+      "box": [
+        623,
+        113,
+        864,
+        128
+      ],
+      "score": 0.9328364133834839
+    },
+    {
+      "text": "mana de Moysés, á los 139 años de edad, Ex. II.",
+      "box": [
+        387,
+        126,
+        598,
+        139
+      ],
+      "score": 0.9352834820747375
+    },
+    {
+      "text": "ReyeS y PaRALIPÓmENON.",
+      "box": [
+        686,
+        126,
+        802,
+        139
+      ],
+      "score": 0.7349503040313721
+    },
+    {
+      "text": "2183",
+      "box": [
+        35,
+        143,
+        57,
+        155
+      ],
+      "score": 0.9999222755432129
+    },
+    {
+      "text": "1821 Muere Abraham, xxv, 7, 8.",
+      "box": [
+        60,
+        142,
+        216,
+        165
+      ],
+      "score": 0.9586730599403381
+    },
+    {
+      "text": "sepho.",
+      "box": [
+        96,
+        136,
+        127,
+        147
+      ],
+      "score": 0.9158973693847656
+    },
+    {
+      "text": "En el mes quinto de dicho sño, el primer dia, mue-",
+      "box": [
+        376,
+        145,
+        599,
+        160
+      ],
+      "score": 0.9704670906066895
+    },
+    {
+      "text": "4. Num. xx. 1.",
+      "box": [
+        387,
+        138,
+        455,
+        149
+      ],
+      "score": 0.9616468548774719
+    },
+    {
+      "text": "2187",
+      "box": [
+        33,
+        153,
+        57,
+        170
+      ],
+      "score": 0.9999141693115234
+    },
+    {
+      "text": "Mure Heb, que e e que despues del Dluvio",
+      "box": [
+        83,
+        153,
+        316,
+        177
+      ],
+      "score": 0.6866289973258972
+    },
+    {
+      "text": "2888",
+      "box": [
+        608,
+        146,
+        631,
+        158
+      ],
+      "score": 0.9997573494911194
+    },
+    {
+      "text": "1116 Es tomada el Arca por los Philistheos: son muertos",
+      "box": [
+        632,
+        145,
+        877,
+        158
+      ],
+      "score": 0.990596354007721
+    },
+    {
+      "text": "1817",
+      "box": [
+        63,
+        156,
+        88,
+        168
+      ],
+      "score": 0.9999732971191406
+    },
+    {
+      "text": "vivió mas tiempo, xL. 16.",
+      "box": [
+        96,
+        166,
+        212,
+        185
+      ],
+      "score": 0.930066704750061
+    },
+    {
+      "text": "re Aaron en la cumbre del monte Horeb, de",
+      "box": [
+        384,
+        155,
+        599,
+        172
+      ],
+      "score": 0.9645348787307739
+    },
+    {
+      "text": "Ophniy Phinées en la batalla: al saberlo cae",
+      "box": [
+        669,
+        157,
+        878,
+        171
+      ],
+      "score": 0.9767043590545654
+    },
+    {
+      "text": "1796 Diluvio llamado Ogygio en la",
+      "box": [
+        61,
+        174,
+        231,
+        197
+      ],
+      "score": 0.9319793581962585
+    },
+    {
+      "text": "edad de 123 años. Num, XX. 29. xXXIII. 38.",
+      "box": [
+        386,
+        167,
+        598,
+        181
+      ],
+      "score": 0.8926619291305542
+    },
+    {
+      "text": "2208",
+      "box": [
+        36,
+        177,
+        59,
+        189
+      ],
+      "score": 0.999869704246521
+    },
+    {
+      "text": "muerto Helí su padre, y le sucede en el gobierno",
+      "box": [
+        667,
+        166,
+        878,
+        181
+      ],
+      "score": 0.9611242413520813
+    },
+    {
+      "text": "Euseb., etc.",
+      "box": [
+        97,
+        186,
+        155,
+        204
+      ],
+      "score": 0.9518198370933533
+    },
+    {
+      "text": "Ática. Jul. Afric.,",
+      "box": [
+        224,
+        180,
+        315,
+        194
+      ],
+      "score": 0.9232633709907532
+    },
+    {
+      "text": "Deut. x. 6.",
+      "box": [
+        387,
+        180,
+        436,
+        191
+      ],
+      "score": 0.9751072525978088
+    },
+    {
+      "text": "Samuel. Recóbrase el Arca despues de siete mc-",
+      "box": [
+        668,
+        178,
+        878,
+        191
+      ],
+      "score": 0.9634097814559937
+    },
+    {
+      "text": "2231",
+      "box": [
+        37,
+        197,
+        58,
+        209
+      ],
+      "score": 0.9998012781143188
+    },
+    {
+      "text": "1773 Muere Ismael, xxv. 17.",
+      "box": [
+        63,
+        196,
+        197,
+        216
+      ],
+      "score": 0.9588635563850403
+    },
+    {
+      "text": "2552 1452 En el mes sexto de dicho año pelesn los israelltas",
+      "box": [
+        323,
+        186,
+        598,
+        202
+      ],
+      "score": 0.9696540236473083
+    },
+    {
+      "text": "111o Nace Berzela, galandita, el buen amigo de David.",
+      "box": [
+        633,
+        196,
+        876,
+        211
+      ],
+      "score": 0.946434736251831
+    },
+    {
+      "text": "ses de tomada, I. Reg, Iv, v, vi, VII.",
+      "box": [
+        667,
+        188,
+        829,
+        201
+      ],
+      "score": 0.8803899884223938
+    },
+    {
+      "text": "1762 Evecus comenza á reinar en la Chalden, Jul. Afric.",
+      "box": [
+        63,
+        206,
+        317,
+        227
+      ],
+      "score": 0.750610888004303
+    },
+    {
+      "text": "contra Arad, Num. XXI. 1. Manda Dios hacer la",
+      "box": [
+        385,
+        196,
+        598,
+        213
+      ],
+      "score": 0.9599152207374573
+    },
+    {
+      "text": "2894",
+      "box": [
+        606,
+        198,
+        629,
+        209
+      ],
+      "score": 0.9981608390808105
+    },
+    {
+      "text": "2242",
+      "box": [
+        37,
+        208,
+        59,
+        220
+      ],
+      "score": 0.999996542930603
+    },
+    {
+      "text": "serpiente de metal, 9: son derrotados Sehon y",
+      "box": [
+        385,
+        207,
+        598,
+        223
+      ],
+      "score": 0.9605184197425842
+    },
+    {
+      "text": "2908",
+      "box": [
+        606,
+        208,
+        629,
+        220
+      ],
+      "score": 0.9996517896652222
+    },
+    {
+      "text": "1096 Permanece el Arca 20 ahos en Cariathiarim: consi-",
+      "box": [
+        634,
+        208,
+        877,
+        221
+      ],
+      "score": 0.9598988890647888
+    },
+    {
+      "text": "Muchos opian que este Rey es el lamado Bel ó",
+      "box": [
+        97,
+        218,
+        318,
+        237
+      ],
+      "score": 0.7721145749092102
+    },
+    {
+      "text": "Og: suceso de Balaam, 21 y ság, y XXI, XXIIi.",
+      "box": [
+        386,
+        217,
+        598,
+        233
+      ],
+      "score": 0.8763554096221924
+    },
+    {
+      "text": "gue Samuel una insigne victoria de los Philis-",
+      "box": [
+        665,
+        216,
+        877,
+        232
+      ],
+      "score": 0.9620338082313538
+    },
+    {
+      "text": "Baal de Babloula, ó tambien Jupiter Belus, ve-",
+      "box": [
+        97,
+        229,
+        318,
+        248
+      ],
+      "score": 0.7641010880470276
+    },
+    {
+      "text": "Se seflala una porcion de tierta, antes de pasar",
+      "box": [
+        385,
+        227,
+        598,
+        243
+      ],
+      "score": 0.9523775577545166
+    },
+    {
+      "text": "theos, IL. VII. 2, 13, 14.",
+      "box": [
+        667,
+        228,
+        769,
+        241
+      ],
+      "score": 0.8931336998939514
+    },
+    {
+      "text": "nerado despues como Dios por los chaldeos. En",
+      "box": [
+        99,
+        242,
+        317,
+        256
+      ],
+      "score": 0.9530649185180664
+    },
+    {
+      "text": "el Jordau, á dos tribus y media, Deut. Ii. Num.",
+      "box": [
+        385,
+        238,
+        598,
+        253
+      ],
+      "score": 0.9372699856758118
+    },
+    {
+      "text": "2909",
+      "box": [
+        606,
+        238,
+        629,
+        250
+      ],
+      "score": 0.9828901886940002
+    },
+    {
+      "text": "1095 Los Israelitas piden à Samuel que les dé un Rey; y",
+      "box": [
+        634,
+        238,
+        876,
+        251
+      ],
+      "score": 0.9710389375686646
+    },
+    {
+      "text": "Isnias, XLVI. 1, se llama",
+      "box": [
+        98,
+        251,
+        220,
+        267
+      ],
+      "score": 0.9162408709526062
+    },
+    {
+      "text": "Bel, y tambien en Je-",
+      "box": [
+        213,
+        251,
+        317,
+        267
+      ],
+      "score": 0.9725274443626404
+    },
+    {
+      "text": "xXXII.33.",
+      "box": [
+        387,
+        251,
+        432,
+        262
+      ],
+      "score": 0.8542413115501404
+    },
+    {
+      "text": "este elige & Saul, de 40 años de edad, IL vIli. 5.",
+      "box": [
+        666,
+        248,
+        874,
+        260
+      ],
+      "score": 0.8940849900245667
+    },
+    {
+      "text": "rem. L. 2, y L. 4. Véase en e Diccionario de",
+      "box": [
+        97,
+        260,
+        318,
+        278
+      ],
+      "score": 0.569927453994751
+    },
+    {
+      "text": "En el mes duodécimo mucre Moysés de 120 sãos.",
+      "box": [
+        377,
+        257,
+        597,
+        273
+      ],
+      "score": 0.983367383480072
+    },
+    {
+      "text": "x. 1. Act. x1L. 21: habiendo goberaado Samuel",
+      "box": [
+        666,
+        258,
+        875,
+        271
+      ],
+      "score": 0.8710126280784607
+    },
+    {
+      "text": "Notas la palsbra Baal.",
+      "box": [
+        99,
+        271,
+        204,
+        288
+      ],
+      "score": 0.9173060059547424
+    },
+    {
+      "text": "Deut. xxxi, 2 y xxxiv, 5, 7.",
+      "box": [
+        386,
+        270,
+        513,
+        284
+      ],
+      "score": 0.9153438806533813
+    },
+    {
+      "text": "2911",
+      "box": [
+        606,
+        278,
+        631,
+        291
+      ],
+      "score": 0.9995161890983582
+    },
+    {
+      "text": "1093 Saul, casi despojado del reino por los Philistheos,",
+      "box": [
+        630,
+        276,
+        874,
+        292
+      ],
+      "score": 0.9590417146682739
+    },
+    {
+      "text": "21 alos y medio.",
+      "box": [
+        667,
+        269,
+        739,
+        280
+      ],
+      "score": 0.9415054321289062
+    },
+    {
+      "text": "2245",
+      "box": [
+        39,
+        279,
+        62,
+        292
+      ],
+      "score": 0.994737982749939
+    },
+    {
+      "text": "tes de morir, Génesis xxviil. I, etc. Jacob huye",
+      "box": [
+        99,
+        293,
+        318,
+        307
+      ],
+      "score": 0.8511088490486145
+    },
+    {
+      "text": "Hasta aqui Uegan los libros del Pustatzuco, que comprenden la",
+      "box": [
+        325,
+        288,
+        597,
+        304
+      ],
+      "score": 0.8851592540740967
+    },
+    {
+      "text": "despues de dos años, I. xI. l, sacudiendo de",
+      "box": [
+        665,
+        288,
+        873,
+        302
+      ],
+      "score": 0.8991242051124573
+    },
+    {
+      "text": "á casa de Laban, xxix. 1.",
+      "box": [
+        98,
+        301,
+        217,
+        317
+      ],
+      "score": 0.9456787705421448
+    },
+    {
+      "text": "historia de 2552 atos y medio; y comienza el libro de Josvé",
+      "box": [
+        333,
+        298,
+        597,
+        314
+      ],
+      "score": 0.8541677594184875
+    },
+    {
+      "text": "nuevo la sujecion, recobra el reino, I. xiv. 47.",
+      "box": [
+        665,
+        297,
+        874,
+        312
+      ],
+      "score": 0.9445476531982422
+    },
+    {
+      "text": "2252",
+      "box": [
+        40,
+        310,
+        62,
+        322
+      ],
+      "score": 0.999996542930603
+    },
+    {
+      "text": "1752 Jacob, despues de servir siete años á Laban, se casa",
+      "box": [
+        64,
+        309,
+        318,
+        328
+      ],
+      "score": 0.8400777578353882
+    },
+    {
+      "text": "con el año 41 de la salida de Égipto, y llega hasta el 48.",
+      "box": [
+        333,
+        308,
+        575,
+        324
+      ],
+      "score": 0.8833325505256653
+    },
+    {
+      "text": "Rey, L. XIII. 14.",
+      "box": [
+        666,
+        319,
+        736,
+        330
+      ],
+      "score": 0.9350310564041138
+    },
+    {
+      "text": "Samuel declara que el Señor se ha preparado otro",
+      "box": [
+        667,
+        310,
+        874,
+        320
+      ],
+      "score": 0.9687404632568359
+    },
+    {
+      "text": "2253",
+      "box": [
+        39,
+        330,
+        61,
+        341
+      ],
+      "score": 0.9999643564224243
+    },
+    {
+      "text": "1751 Nace Ruben, su primogenito, Xxix. 32.",
+      "box": [
+        65,
+        328,
+        270,
+        347
+      ],
+      "score": 0.8187344670295715
+    },
+    {
+      "text": "con Láa y con Rachel, 23, 28.",
+      "box": [
+        99,
+        321,
+        234,
+        336
+      ],
+      "score": 0.9445032477378845
+    },
+    {
+      "text": "2553 1451 En el primer mes de este año 41, JosuÉ envia dos",
+      "box": [
+        324,
+        328,
+        597,
+        343
+      ],
+      "score": 0.9783374667167664
+    },
+    {
+      "text": "2919",
+      "box": [
+        604,
+        329,
+        628,
+        340
+      ],
+      "score": 0.9795234203338623
+    },
+    {
+      "text": "1085 Nace David, y á los 30 años es ungido Rey en He-",
+      "box": [
+        631,
+        327,
+        874,
+        340
+      ],
+      "score": 0.9683047533035278
+    },
+    {
+      "text": "2254",
+      "box": [
+        39,
+        339,
+        62,
+        351
+      ],
+      "score": 0.9999628067016602
+    },
+    {
+      "text": "1750 Nace Leví, su teroer hijo, 34.",
+      "box": [
+        66,
+        339,
+        224,
+        356
+      ],
+      "score": 0.9301270842552185
+    },
+    {
+      "text": "exploradores á la tlerra prometida por Dios: pasa",
+      "box": [
+        385,
+        338,
+        595,
+        353
+      ],
+      "score": 0.9508172869682312
+    },
+    {
+      "text": "bron, I. Reg, XV1. 13, y I1, Reg. 3.",
+      "box": [
+        665,
+        338,
+        815,
+        351
+      ],
+      "score": 0.9090845584869385
+    },
+    {
+      "text": "2250",
+      "box": [
+        39,
+        349,
+        62,
+        361
+      ],
+      "score": 0.9160413146018982
+    },
+    {
+      "text": "1748 Nace Judas, 35.",
+      "box": [
+        66,
+        349,
+        167,
+        364
+      ],
+      "score": 0.9762858152389526
+    },
+    {
+      "text": "el Jordan: renueva la Circuncision: toma á Jeri-",
+      "box": [
+        385,
+        347,
+        597,
+        363
+      ],
+      "score": 0.9468309879302979
+    },
+    {
+      "text": "2934",
+      "box": [
+        604,
+        348,
+        628,
+        360
+      ],
+      "score": 0.9082341194152832
+    },
+    {
+      "text": "1070 Desechado Saul por Dios, va Samuel á Bethlehem",
+      "box": [
+        630,
+        346,
+        873,
+        361
+      ],
+      "score": 0.9827607870101929
+    },
+    {
+      "text": "2259",
+      "box": [
+        39,
+        359,
+        61,
+        371
+      ],
+      "score": 0.9490540027618408
+    },
+    {
+      "text": "1745 Nace Joseph, de Racltel, á los catorce años de ser-",
+      "box": [
+        66,
+        359,
+        316,
+        374
+      ],
+      "score": 0.9610695242881775
+    },
+    {
+      "text": "cós arrasa À Ain, castigando antes el sacrilegio",
+      "box": [
+        385,
+        357,
+        596,
+        373
+      ],
+      "score": 0.9252779483795166
+    },
+    {
+      "text": "á ungir por Rey & David, I. Reg. xvi. l: siendo",
+      "box": [
+        664,
+        355,
+        873,
+        371
+      ],
+      "score": 0.9083366394042969
+    },
+    {
+      "text": "vir Jacob, xxx. 23.",
+      "box": [
+        99,
+        369,
+        190,
+        384
+      ],
+      "score": 0.9347761273384094
+    },
+    {
+      "text": "de Achan; y manda parar el sol y la luna. Ter-",
+      "box": [
+        385,
+        367,
+        596,
+        382
+      ],
+      "score": 0.9625568389892578
+    },
+    {
+      "text": "entouces David de unos 15 años.",
+      "box": [
+        665,
+        366,
+        804,
+        380
+      ],
+      "score": 0.959270715713501
+    },
+    {
+      "text": "2265",
+      "box": [
+        39,
+        379,
+        62,
+        391
+      ],
+      "score": 0.9991167783737183
+    },
+    {
+      "text": "1739 Jacob, habiendo servido sels años mas, se vuelve á",
+      "box": [
+        64,
+        377,
+        318,
+        396
+      ],
+      "score": 0.8847349286079407
+    },
+    {
+      "text": "minase el são 2553, à la mitad del cual, cesando",
+      "box": [
+        386,
+        379,
+        596,
+        392
+      ],
+      "score": 0.9351732134819031
+    },
+    {
+      "text": "2942",
+      "box": [
+        604,
+        378,
+        628,
+        389
+      ],
+      "score": 0.9985288381576538
+    },
+    {
+      "text": "1062 David mata á Goliath, I. xvl. 50: siendo de edad",
+      "box": [
+        630,
+        375,
+        873,
+        390
+      ],
+      "score": 0.9371255040168762
+    },
+    {
+      "text": "su patria, 25, XXXI. 38.",
+      "box": [
+        100,
+        391,
+        207,
+        405
+      ],
+      "score": 0.9500880241394043
+    },
+    {
+      "text": "el maná, el pueblo se alimeutó ya de los produc-",
+      "box": [
+        385,
+        388,
+        596,
+        403
+      ],
+      "score": 0.9793809056282043
+    },
+    {
+      "text": "de unos 23 años.",
+      "box": [
+        665,
+        388,
+        737,
+        400
+      ],
+      "score": 0.9628410935401917
+    },
+    {
+      "text": "2276",
+      "box": [
+        38,
+        398,
+        63,
+        413
+      ],
+      "score": 0.9999618530273438
+    },
+    {
+      "text": "1728 Joseph es vendido por sus herntanos en el año 17",
+      "box": [
+        66,
+        399,
+        317,
+        416
+      ],
+      "score": 0.8884701132774353
+    },
+    {
+      "text": "tos del pais. Josué I, II, III, etc.",
+      "box": [
+        386,
+        400,
+        526,
+        413
+      ],
+      "score": 0.9221301674842834
+    },
+    {
+      "text": "2944",
+      "box": [
+        605,
+        399,
+        628,
+        411
+      ],
+      "score": 0.9999715089797974
+    },
+    {
+      "text": "1060 Se salva por industría de su esposa Michol, I. XIx.",
+      "box": [
+        629,
+        395,
+        872,
+        412
+      ],
+      "score": 0.9756540656089783
+    },
+    {
+      "text": "de su edad, y sirve 14 años. Josepho.",
+      "box": [
+        99,
+        410,
+        267,
+        425
+      ],
+      "score": 0.9044746160507202
+    },
+    {
+      "text": "2554",
+      "box": [
+        326,
+        410,
+        349,
+        421
+      ],
+      "score": 0.9999869465827942
+    },
+    {
+      "text": "1450 Deade el otoño de este año, en que comenzaron los",
+      "box": [
+        351,
+        408,
+        597,
+        423
+      ],
+      "score": 0.9435128569602966
+    },
+    {
+      "text": "16. Come en Nobe los panes de proposiclon, XXI.",
+      "box": [
+        664,
+        406,
+        872,
+        421
+      ],
+      "score": 0.9525047540664673
+    },
+    {
+      "text": "2287",
+      "box": [
+        39,
+        418,
+        63,
+        433
+      ],
+      "score": 0.9999135732650757
+    },
+    {
+      "text": "1717 Encerrado despues en una cárcel por dos años, in-",
+      "box": [
+        65,
+        418,
+        317,
+        436
+      ],
+      "score": 0.9046314358711243
+    },
+    {
+      "text": "israelitas á sembrar en el país, se ha de contarel",
+      "box": [
+        385,
+        418,
+        596,
+        433
+      ],
+      "score": 0.9653946161270142
+    },
+    {
+      "text": "6, 9; y Saul fudiguado liace matar à todos los sa-",
+      "box": [
+        664,
+        416,
+        872,
+        432
+      ],
+      "score": 0.8865618109703064
+    },
+    {
+      "text": "2288",
+      "box": [
+        37,
+        436,
+        63,
+        454
+      ],
+      "score": 0.9836917519569397
+    },
+    {
+      "text": "terpreta alli los sueños, Gén. xt. 12.",
+      "box": [
+        100,
+        432,
+        264,
+        445
+      ],
+      "score": 0.9224987030029297
+    },
+    {
+      "text": "primer año de su agricultura, y asi el priucipio",
+      "box": [
+        385,
+        428,
+        596,
+        443
+      ],
+      "score": 0.9359251856803894
+    },
+    {
+      "text": "cerdotes, XXII. 18.",
+      "box": [
+        663,
+        428,
+        746,
+        441
+      ],
+      "score": 0.940350353717804
+    },
+    {
+      "text": "1716 Muere Isanc de 180 años, XXxv. 28, 29.",
+      "box": [
+        66,
+        439,
+        268,
+        454
+      ],
+      "score": 0.9390468001365662
+    },
+    {
+      "text": "de los años Sabdtieos, Lev. Xxv. 2. Deut. Xxxi. 1.",
+      "box": [
+        385,
+        438,
+        596,
+        452
+      ],
+      "score": 0.8342477679252625
+    },
+    {
+      "text": "2945",
+      "box": [
+        605,
+        438,
+        628,
+        450
+      ],
+      "score": 0.9702759385108948
+    },
+    {
+      "text": "1059 Huye David de Ceila, y se va al desierto de Ziph,",
+      "box": [
+        630,
+        435,
+        872,
+        452
+      ],
+      "score": 0.9657036662101746
+    },
+    {
+      "text": "2289",
+      "box": [
+        39,
+        450,
+        63,
+        462
+      ],
+      "score": 0.9994937181472778
+    },
+    {
+      "text": "1715 Joseph es ensalzado por Pharson, y comienzan los",
+      "box": [
+        67,
+        450,
+        316,
+        464
+      ],
+      "score": 0.9868967533111572
+    },
+    {
+      "text": "2559",
+      "box": [
+        326,
+        450,
+        348,
+        461
+      ],
+      "score": 0.9997419714927673
+    },
+    {
+      "text": "1445 Josmé, ya anciano, reparte por suerte la tierra de",
+      "box": [
+        352,
+        449,
+        596,
+        462
+      ],
+      "score": 0.9694581627845764
+    },
+    {
+      "text": "2946",
+      "box": [
+        604,
+        458,
+        627,
+        470
+      ],
+      "score": 0.9936524629592896
+    },
+    {
+      "text": "1058 Despues á Eugaddi, en cuya cueva corta un pedazo",
+      "box": [
+        630,
+        455,
+        872,
+        471
+      ],
+      "score": 0.9669547080993652
+    },
+    {
+      "text": "XXIIL. 14.",
+      "box": [
+        664,
+        449,
+        707,
+        460
+      ],
+      "score": 0.9395354390144348
+    },
+    {
+      "text": "siete años de abundancia, XLI. 46.",
+      "box": [
+        100,
+        461,
+        256,
+        474
+      ],
+      "score": 0.8754576444625854
+    },
+    {
+      "text": "Promision á las 9 tribus, y á la media tribu de",
+      "box": [
+        385,
+        459,
+        596,
+        472
+      ],
+      "score": 0.9674668908119202
+    },
+    {
+      "text": "2296",
+      "box": [
+        40,
+        470,
+        62,
+        482
+      ],
+      "score": 0.9997632503509521
+    },
+    {
+      "text": "1708 Comienzan los siete años de carestia, 63, 54.",
+      "box": [
+        68,
+        470,
+        287,
+        484
+      ],
+      "score": 0.9416126012802124
+    },
+    {
+      "text": "Manassés, xIII. 1, ete., y mauda dar el primer",
+      "box": [
+        385,
+        469,
+        595,
+        482
+      ],
+      "score": 0.9011849761009216
+    },
+    {
+      "text": "1057 Muere Samuel de ccrea de 98 aos, L. xxv, 1.",
+      "box": [
+        630,
+        473,
+        851,
+        492
+      ],
+      "score": 0.848673403263092
+    },
+    {
+      "text": "del manto á Saul, xxiv. 6.",
+      "box": [
+        662,
+        466,
+        780,
+        481
+      ],
+      "score": 0.8993923664093018
+    },
+    {
+      "text": "2298",
+      "box": [
+        39,
+        480,
+        62,
+        492
+      ],
+      "score": 0.9990535974502563
+    },
+    {
+      "text": "1706 Jacob, con toda su familia, baja á Egipto el año",
+      "box": [
+        66,
+        480,
+        315,
+        494
+      ],
+      "score": 0.9228423237800598
+    },
+    {
+      "text": "descanso, ó sábado, á la tierra, Xi. 23. xiv, 15; y",
+      "box": [
+        385,
+        479,
+        596,
+        492
+      ],
+      "score": 0.8679372668266296
+    },
+    {
+      "text": "2047",
+      "box": [
+        605,
+        478,
+        626,
+        489
+      ],
+      "score": 0.8785082101821899
+    },
+    {
+      "text": "169 Muere ab ea Eep, a lo de slee a de",
+      "box": [
+        64,
+        496,
+        317,
+        518
+      ],
+      "score": 0.4808119237422943
+    },
+    {
+      "text": "tercero de la carestia, XLVI. 6.",
+      "box": [
+        102,
+        491,
+        240,
+        505
+      ],
+      "score": 0.964424729347229
+    },
+    {
+      "text": "desde este año Sabático comienza la época de los",
+      "box": [
+        386,
+        490,
+        596,
+        500
+      ],
+      "score": 0.9450065493583679
+    },
+    {
+      "text": "2049",
+      "box": [
+        604,
+        488,
+        627,
+        500
+      ],
+      "score": 0.9942366480827332
+    },
+    {
+      "text": "1055 David casa con Abigail, xxv. 42: toma & Saul la",
+      "box": [
+        630,
+        484,
+        872,
+        502
+      ],
+      "score": 0.9315809011459351
+    },
+    {
+      "text": "2315",
+      "box": [
+        37,
+        499,
+        62,
+        514
+      ],
+      "score": 0.9997247457504272
+    },
+    {
+      "text": "Jubileos, Lev, Xxv, 10.",
+      "box": [
+        386,
+        500,
+        485,
+        511
+      ],
+      "score": 0.9487290382385254
+    },
+    {
+      "text": "lauza, mientras este dormia, xXvi. 12; y se retira",
+      "box": [
+        662,
+        494,
+        872,
+        511
+      ],
+      "score": 0.8628661632537842
+    },
+    {
+      "text": "estar allí, XLax. 32.",
+      "box": [
+        102,
+        513,
+        190,
+        526
+      ],
+      "score": 0.9080958366394043
+    },
+    {
+      "text": "2570",
+      "box": [
+        325,
+        510,
+        350,
+        521
+      ],
+      "score": 0.9999086856842041
+    },
+    {
+      "text": "1434 Muere Josué de 110 nños, Jos. XXIv. 29. Judic. I1.",
+      "box": [
+        348,
+        508,
+        596,
+        522
+      ],
+      "score": 0.9102643728256226
+    },
+    {
+      "text": "al pais del Rey Achis, xxvií. 3.",
+      "box": [
+        661,
+        504,
+        801,
+        522
+      ],
+      "score": 0.8898336887359619
+    },
+    {
+      "text": "2369",
+      "box": [
+        40,
+        521,
+        62,
+        533
+      ],
+      "score": 0.9861428141593933
+    },
+    {
+      "text": "1635 Muere Joseph despues de haber mandado en Egip",
+      "box": [
+        64,
+        520,
+        316,
+        537
+      ],
+      "score": 0.902019202709198
+    },
+    {
+      "text": "8, habiendo mandado á Isrnel unos 17 años.",
+      "box": [
+        387,
+        521,
+        576,
+        531
+      ],
+      "score": 0.9945046305656433
+    },
+    {
+      "text": "Saul consulta á la Pythonisa, xxviii. 8: y despues",
+      "box": [
+        653,
+        513,
+        872,
+        531
+      ],
+      "score": 0.8719502091407776
+    },
+    {
+      "text": "to por espacio de 80 años, Gén. XLIX. 25.",
+      "box": [
+        100,
+        531,
+        284,
+        547
+      ],
+      "score": 0.9663993120193481
+    },
+    {
+      "text": "de algunos meses de haber arruinado & Siceleg,",
+      "box": [
+        662,
+        524,
+        870,
+        541
+      ],
+      "score": 0.9628632664680481
+    },
+    {
+      "text": "Aqué acaba el libro de Josuk y comienza el de los Juzces.",
+      "box": [
+        337,
+        539,
+        583,
+        552
+      ],
+      "score": 0.9215863943099976
+    },
+    {
+      "text": "xxx. 1, muere cu el campo de batalla con sus",
+      "box": [
+        661,
+        533,
+        871,
+        551
+      ],
+      "score": 0.9630163311958313
+    },
+    {
+      "text": "No. Aqu acaba el libo del Gses y comienzae del",
+      "box": [
+        46,
+        547,
+        309,
+        568
+      ],
+      "score": 0.6629261374473572
+    },
+    {
+      "text": "hijos, xxxi. 6. Uugido David eu Hebrou, á la",
+      "box": [
+        662,
+        543,
+        871,
+        560
+      ],
+      "score": 0.8877391219139099
+    },
+    {
+      "text": "EXODO.",
+      "box": [
+        160,
+        563,
+        198,
+        577
+      ],
+      "score": 0.9015714526176453
+    },
+    {
+      "text": "2585 1419 Isrnel sirvió á Dios, durante el gobierno de los An-",
+      "box": [
+        325,
+        558,
+        596,
+        571
+      ],
+      "score": 0.968686580657959
+    },
+    {
+      "text": "edad de 30 años, reina sobre Judá siete años, IL",
+      "box": [
+        661,
+        553,
+        870,
+        570
+      ],
+      "score": 0.9092324376106262
+    },
+    {
+      "text": "cianos, que gobernaron como unos 15 años, des-",
+      "box": [
+        386,
+        568,
+        596,
+        581
+      ],
+      "score": 0.9709559679031372
+    },
+    {
+      "text": "1053 Despues de dos años dereinar Isboset, lijo de Saul,",
+      "box": [
+        629,
+        572,
+        870,
+        589
+      ],
+      "score": 0.9580335021018982
+    },
+    {
+      "text": "Reg, II. 11, y V. 5.",
+      "box": [
+        663,
+        566,
+        746,
+        579
+      ],
+      "score": 0.903497576713562
+    },
+    {
+      "text": "En esta época se cree que vivió Job en el país de",
+      "box": [
+        91,
+        578,
+        317,
+        597
+      ],
+      "score": 0.9638105630874634
+    },
+    {
+      "text": "pues de Ia muerte de Josué, Jos. Xxiv. 81. Judic.",
+      "box": [
+        387,
+        579,
+        595,
+        589
+      ],
+      "score": 0.9433670043945312
+    },
+    {
+      "text": "2951",
+      "box": [
+        605,
+        577,
+        627,
+        589
+      ],
+      "score": 0.999967098236084
+    },
+    {
+      "text": "la Idumea. Véase dicho Lábro. Es bastante vero-",
+      "box": [
+        100,
+        589,
+        317,
+        606
+      ],
+      "score": 0.9337254166603088
+    },
+    {
+      "text": "II. 7. Hubo un interregno, como de seis años,",
+      "box": [
+        387,
+        589,
+        595,
+        599
+      ],
+      "score": 0.9502728581428528
+    },
+    {
+      "text": "sobre las otras tribus, se eucendió una larga guer-",
+      "box": [
+        661,
+        583,
+        870,
+        599
+      ],
+      "score": 0.9270034432411194
+    },
+    {
+      "text": "Sumil que Job es el mismo Jabab, de quien se ha-",
+      "box": [
+        100,
+        598,
+        317,
+        617
+      ],
+      "score": 0.8292195796966553
+    },
+    {
+      "text": "cn los cuales no habia rey ó magistrado supre-",
+      "box": [
+        386,
+        596,
+        596,
+        610
+      ],
+      "score": 0.9201885461807251
+    },
+    {
+      "text": "1047 David se apodera de la fortaleza ó alcázar de Slon,",
+      "box": [
+        629,
+        602,
+        870,
+        619
+      ],
+      "score": 0.9453539252281189
+    },
+    {
+      "text": "ra entre (l y David, 1I. Reg. 11, 12, etc.",
+      "box": [
+        660,
+        592,
+        836,
+        608
+      ],
+      "score": 0.8770989775657654
+    },
+    {
+      "text": "bla en el cap. Xvi del Geness, y I. Par. I, 35,",
+      "box": [
+        101,
+        608,
+        317,
+        628
+      ],
+      "score": 0.836567223072052
+    },
+    {
+      "text": "mo en Iarael, sino que cada cual practicaba lo",
+      "box": [
+        386,
+        607,
+        596,
+        620
+      ],
+      "score": 0.934810221195221
+    },
+    {
+      "text": "2957",
+      "box": [
+        604,
+        606,
+        627,
+        617
+      ],
+      "score": 0.9999862909317017
+    },
+    {
+      "text": "44, hijo de Zare, nieto de Esaú; asi como Moysés",
+      "box": [
+        100,
+        618,
+        317,
+        637
+      ],
+      "score": 0.879627525806427
+    },
+    {
+      "text": "que le parecia mejor, Judie. xVII. 6. xXI. 24.",
+      "box": [
+        385,
+        616,
+        581,
+        630
+      ],
+      "score": 0.9086378216743469
+    },
+    {
+      "text": "y ada alli su residencia, II. Reg. V. 9, goblerua",
+      "box": [
+        661,
+        612,
+        870,
+        629
+      ],
+      "score": 0.8199388980865479
+    },
+    {
+      "text": "lo fue de Amram, bimieto de Jacob, I. Paral. vL",
+      "box": [
+        99,
+        627,
+        317,
+        648
+      ],
+      "score": 0.6557015776634216
+    },
+    {
+      "text": "2591",
+      "box": [
+        325,
+        628,
+        348,
+        640
+      ],
+      "score": 0.9997235536575317
+    },
+    {
+      "text": "1413 Durante este tiempo sucedió lo que se refiere en los",
+      "box": [
+        350,
+        627,
+        596,
+        640
+      ],
+      "score": 0.9863511919975281
+    },
+    {
+      "text": "à todo Israel, I. Par. XI. 3, etc.",
+      "box": [
+        661,
+        625,
+        800,
+        638
+      ],
+      "score": 0.918886661529541
+    },
+    {
+      "text": "1,2,3,",
+      "box": [
+        100,
+        642,
+        136,
+        656
+      ],
+      "score": 0.908745527267456
+    },
+    {
+      "text": "últimos capitulos del libro de los Jueces sobre el",
+      "box": [
+        385,
+        637,
+        596,
+        650
+      ],
+      "score": 0.9785643219947815
+    },
+    {
+      "text": "2959",
+      "box": [
+        604,
+        636,
+        627,
+        647
+      ],
+      "score": 0.9999206066131592
+    },
+    {
+      "text": "1045 La Area, que el primer año Sabático habia sido co-",
+      "box": [
+        629,
+        633,
+        870,
+        648
+      ],
+      "score": 0.9511240720748901
+    },
+    {
+      "text": "2391",
+      "box": [
+        34,
+        647,
+        61,
+        665
+      ],
+      "score": 0.9980745315551758
+    },
+    {
+      "text": "1613 Muere Levi en Egipto, Ex. vi. 16.",
+      "box": [
+        66,
+        650,
+        244,
+        665
+      ],
+      "score": 0.952243983745575
+    },
+    {
+      "text": "idolo de Michas, el crimen contra la mujer de un",
+      "box": [
+        384,
+        646,
+        595,
+        659
+      ],
+      "score": 0.964707612991333
+    },
+    {
+      "text": "locada en Gálgala, en ls casa de Silhon, eu este",
+      "box": [
+        662,
+        643,
+        870,
+        657
+      ],
+      "score": 0.9393322467803955
+    },
+    {
+      "text": "2427",
+      "box": [
+        34,
+        657,
+        61,
+        675
+      ],
+      "score": 0.9998936653137207
+    },
+    {
+      "text": "1577",
+      "box": [
+        68,
+        663,
+        92,
+        674
+      ],
+      "score": 0.9999737739562988
+    },
+    {
+      "text": "Ramesses Miamun reina en Egipto 62 años (Ma-",
+      "box": [
+        89,
+        657,
+        317,
+        676
+      ],
+      "score": 0.9220808148384094
+    },
+    {
+      "text": "Levita, etc.",
+      "box": [
+        386,
+        658,
+        436,
+        669
+      ],
+      "score": 0.996978759765625
+    },
+    {
+      "text": "otro año Sabático es llevada desde Cariathiarim",
+      "box": [
+        661,
+        652,
+        871,
+        667
+      ],
+      "score": 0.9515676498413086
+    },
+    {
+      "text": "nelhon). Es squel Rey nuevo que no había cono-",
+      "box": [
+        100,
+        667,
+        316,
+        685
+      ],
+      "score": 0.895358681678772
+    },
+    {
+      "text": "2599",
+      "box": [
+        324,
+        666,
+        347,
+        678
+      ],
+      "score": 0.9981920719146729
+    },
+    {
+      "text": "1405 Primera servidumbre del pueblo, sojuzgado por",
+      "box": [
+        351,
+        666,
+        596,
+        679
+      ],
+      "score": 0.947376012802124
+    },
+    {
+      "text": "nndab á la de Obededom, y á los tres meses al",
+      "box": [
+        661,
+        672,
+        871,
+        686
+      ],
+      "score": 0.9472461342811584
+    },
+    {
+      "text": "(donde habia estado 70 años) de la casa de Ami-",
+      "box": [
+        663,
+        663,
+        870,
+        675
+      ],
+      "score": 0.962137758731842
+    },
+    {
+      "text": "cido á Joseph, y que mandó ahogar á los reclen ua-",
+      "box": [
+        100,
+        677,
+        316,
+        695
+      ],
+      "score": 0.9242198467254639
+    },
+    {
+      "text": "Chusan, rey de Mesopotamla, por espacio de ocho",
+      "box": [
+        385,
+        675,
+        594,
+        688
+      ],
+      "score": 0.960760235786438
+    },
+    {
+      "text": "cidos del pueblo hebreo. Muchos creen que es el",
+      "box": [
+        100,
+        686,
+        317,
+        705
+      ],
+      "score": 0.9624696969985962
+    },
+    {
+      "text": "años, III. 8.",
+      "box": [
+        385,
+        687,
+        438,
+        697
+      ],
+      "score": 0.8954074382781982
+    },
+    {
+      "text": "la puso en el templo que construyó, II. Reg, vL",
+      "box": [
+        662,
+        693,
+        870,
+        706
+      ],
+      "score": 0.9710498452186584
+    },
+    {
+      "text": "alcázar de Sion, doude estuvo hasta que Snlomou",
+      "box": [
+        663,
+        684,
+        870,
+        694
+      ],
+      "score": 0.9816654324531555
+    },
+    {
+      "text": "llamado despues Neptuno, que fué venerado como",
+      "box": [
+        100,
+        696,
+        316,
+        714
+      ],
+      "score": 0.9414896965026855
+    },
+    {
+      "text": "Othoniel le pone en libertad. La tierra celebró su",
+      "box": [
+        375,
+        693,
+        596,
+        708
+      ],
+      "score": 0.9649941921234131
+    },
+    {
+      "text": "Dios de las aguas: tuvo por hisos à Amenophis ó",
+      "box": [
+        100,
+        705,
+        316,
+        725
+      ],
+      "score": 0.7100507020950317
+    },
+    {
+      "text": "deseauso à los 40 añhos despues del que le dió Jo-",
+      "box": [
+        384,
+        703,
+        595,
+        718
+      ],
+      "score": 0.9224626421928406
+    },
+    {
+      "text": "2960 1044 David manifiesta á Nathan su desiguio de construir",
+      "box": [
+        603,
+        710,
+        871,
+        725
+      ],
+      "score": 0.9303362369537354
+    },
+    {
+      "text": "12. I. Paralip, Xv. 1. II. Par. I. 4.",
+      "box": [
+        662,
+        702,
+        814,
+        715
+      ],
+      "score": 0.9331064224243164
+    },
+    {
+      "text": "Bel Egipcio (padre de Égipto y de Dánao), y á",
+      "box": [
+        100,
+        716,
+        316,
+        735
+      ],
+      "score": 0.7968197464942932
+    },
+    {
+      "text": "2658",
+      "box": [
+        323,
+        725,
+        346,
+        737
+      ],
+      "score": 0.9941550493240356
+    },
+    {
+      "text": "1346 Segunda servidumbre del pueblo de Israel, por es-",
+      "box": [
+        349,
+        722,
+        595,
+        738
+      ],
+      "score": 0.9783092737197876
+    },
+    {
+      "text": "sué, III. 11.",
+      "box": [
+        385,
+        716,
+        435,
+        726
+      ],
+      "score": 0.922709584236145
+    },
+    {
+      "text": "cará Salomon, que aun habia de nnoer, II. Reg.",
+      "box": [
+        661,
+        731,
+        870,
+        747
+      ],
+      "score": 0.9294005632400513
+    },
+    {
+      "text": "un templo.á Dios, y se le respoude que le edifi-",
+      "box": [
+        662,
+        722,
+        871,
+        736
+      ],
+      "score": 0.9522149562835693
+    },
+    {
+      "text": "2430",
+      "box": [
+        34,
+        736,
+        62,
+        754
+      ],
+      "score": 0.9999468326568604
+    },
+    {
+      "text": "1574 Nace Aaron el aho 83 antes de la salida de Egípto,",
+      "box": [
+        66,
+        735,
+        314,
+        755
+      ],
+      "score": 0.960117518901825
+    },
+    {
+      "text": "Buphiris.",
+      "box": [
+        102,
+        730,
+        147,
+        745
+      ],
+      "score": 0.9873688817024231
+    },
+    {
+      "text": "pacio de 18 años que estuvo sujeto á Eglon, rey",
+      "box": [
+        383,
+        733,
+        594,
+        747
+      ],
+      "score": 0.9603318572044373
+    },
+    {
+      "text": "VI. 20.",
+      "box": [
+        100,
+        748,
+        133,
+        765
+      ],
+      "score": 0.9113631248474121
+    },
+    {
+      "text": "de los Moabitas, I1i. 14.",
+      "box": [
+        384,
+        746,
+        489,
+        756
+      ],
+      "score": 0.9310751557350159
+    },
+    {
+      "text": "2967",
+      "box": [
+        604,
+        752,
+        626,
+        764
+      ],
+      "score": 0.9967096447944641
+    },
+    {
+      "text": "1037 Los Ammouitas recibeu iudignamente álos emba-",
+      "box": [
+        630,
+        752,
+        871,
+        765
+      ],
+      "score": 0.9641386270523071
+    },
+    {
+      "text": "VII. 13. I. Par. xVII. 2, etc.",
+      "box": [
+        663,
+        744,
+        784,
+        754
+      ],
+      "score": 0.9279888868331909
+    },
+    {
+      "text": "2433",
+      "box": [
+        34,
+        755,
+        62,
+        773
+      ],
+      "score": 0.9985684156417847
+    },
+    {
+      "text": "1571",
+      "box": [
+        67,
+        760,
+        92,
+        772
+      ],
+      "score": 0.9999816417694092
+    },
+    {
+      "text": "Nace Moysés el año 80 antes de la dicha salida, 20.",
+      "box": [
+        89,
+        754,
+        315,
+        773
+      ],
+      "score": 0.9624765515327454
+    },
+    {
+      "text": "2680",
+      "box": [
+        323,
+        754,
+        345,
+        766
+      ],
+      "score": 0.9997670650482178
+    },
+    {
+      "text": "1824 Eud 6 Aod mata à Eglon, 111. 21; y quedó en sosie-",
+      "box": [
+        350,
+        751,
+        596,
+        768
+      ],
+      "score": 0.91277015209198
+    },
+    {
+      "text": "2448",
+      "box": [
+        35,
+        766,
+        60,
+        782
+      ],
+      "score": 0.9600520133972168
+    },
+    {
+      "text": "1556",
+      "box": [
+        68,
+        770,
+        92,
+        782
+      ],
+      "score": 0.9998298287391663
+    },
+    {
+      "text": "Cecrops, egipcio, funds el reluo de Ateuas. Los",
+      "box": [
+        91,
+        764,
+        315,
+        784
+      ],
+      "score": 0.9246660470962524
+    },
+    {
+      "text": "go la tierra el año 80, despues del otro descauso",
+      "box": [
+        383,
+        761,
+        596,
+        778
+      ],
+      "score": 0.9400684833526611
+    },
+    {
+      "text": "1035 Adulterio de David con Betlisabée, I. Reg. XI. 4:",
+      "box": [
+        629,
+        770,
+        872,
+        785
+      ],
+      "score": 0.8856124877929688
+    },
+    {
+      "text": "jadores de David, IL. Beg, X. 2, 3.",
+      "box": [
+        661,
+        762,
+        810,
+        774
+      ],
+      "score": 0.9160947799682617
+    },
+    {
+      "text": "chaldeos, vencidos los árabes, reinaron en Babilo-",
+      "box": [
+        99,
+        773,
+        315,
+        793
+      ],
+      "score": 0.9261798858642578
+    },
+    {
+      "text": "que le dió Othoniel, il. 11, 30.",
+      "box": [
+        383,
+        773,
+        517,
+        785
+      ],
+      "score": 0.9404845237731934
+    },
+    {
+      "text": "2969",
+      "box": [
+        604,
+        772,
+        626,
+        783
+      ],
+      "score": 0.9990159273147583
+    },
+    {
+      "text": "nia. Usserio.",
+      "box": [
+        101,
+        787,
+        160,
+        803
+      ],
+      "score": 0.8960429430007935
+    },
+    {
+      "text": "2682",
+      "box": [
+        322,
+        783,
+        346,
+        795
+      ],
+      "score": 0.9999119639396667
+    },
+    {
+      "text": "1322 Samgar mata 600 Philistheos, 31. Reina Bel, assy-",
+      "box": [
+        350,
+        782,
+        595,
+        795
+      ],
+      "score": 0.9620877504348755
+    },
+    {
+      "text": "rio, en Babilonia, despues de los Arabes, 55 años,",
+      "box": [
+        382,
+        791,
+        595,
+        805
+      ],
+      "score": 0.9343550205230713
+    },
+    {
+      "text": "2970",
+      "box": [
+        604,
+        791,
+        627,
+        803
+      ],
+      "score": 0.9999955892562866
+    },
+    {
+      "text": "1034 Muere el hijo que nace. Peuitencia de David, 1I.",
+      "box": [
+        630,
+        791,
+        871,
+        804
+      ],
+      "score": 0.9764258861541748
+    },
+    {
+      "text": "teuia entonces David 50 años.",
+      "box": [
+        663,
+        783,
+        791,
+        793
+      ],
+      "score": 0.9798335433006287
+    },
+    {
+      "text": "Su primer Rey Mardocentes reina 45 aios; y pare-",
+      "box": [
+        90,
+        792,
+        314,
+        812
+      ],
+      "score": 0.9643734097480774
+    },
+    {
+      "text": "ce que es el mismo Merodach, venerado despues",
+      "box": [
+        99,
+        802,
+        314,
+        821
+      ],
+      "score": 0.9486740827560425
+    },
+    {
+      "text": "Jul. African.",
+      "box": [
+        384,
+        803,
+        445,
+        814
+      ],
+      "score": 0.975221574306488
+    },
+    {
+      "text": "1033 Nace Salomou de Betlisabée, ya casada con David,",
+      "box": [
+        630,
+        810,
+        870,
+        823
+      ],
+      "score": 0.9719676375389099
+    },
+    {
+      "text": "Reg. XII. 15, 18.",
+      "box": [
+        662,
+        801,
+        732,
+        812
+      ],
+      "score": 0.8966700434684753
+    },
+    {
+      "text": "como Dios, Jer. L. 2.",
+      "box": [
+        100,
+        817,
+        197,
+        829
+      ],
+      "score": 0.9669016599655151
+    },
+    {
+      "text": "2699",
+      "box": [
+        321,
+        811,
+        345,
+        823
+      ],
+      "score": 0.9986585378646851
+    },
+    {
+      "text": "1305 Tercers servidumbre de Israel, que duró 20 años,",
+      "box": [
+        348,
+        811,
+        595,
+        824
+      ],
+      "score": 0.9677023887634277
+    },
+    {
+      "text": "2071",
+      "box": [
+        604,
+        811,
+        626,
+        822
+      ],
+      "score": 0.9305352568626404
+    },
+    {
+      "text": "2478",
+      "box": [
+        36,
+        824,
+        62,
+        839
+      ],
+      "score": 0.9808070063591003
+    },
+    {
+      "text": "1531",
+      "box": [
+        67,
+        827,
+        91,
+        839
+      ],
+      "score": 0.9989781379699707
+    },
+    {
+      "text": "Moyses, habiendo muerto á un egipcio, huyeá tier-",
+      "box": [
+        89,
+        821,
+        312,
+        842
+      ],
+      "score": 0.8653839230537415
+    },
+    {
+      "text": "en que los tuvo sujetos Jabán, Rey de los Chana-",
+      "box": [
+        382,
+        820,
+        596,
+        835
+      ],
+      "score": 0.9632927775382996
+    },
+    {
+      "text": "II. Reg. X11. 24.",
+      "box": [
+        663,
+        820,
+        733,
+        831
+      ],
+      "score": 0.841464102268219
+    },
+    {
+      "text": "ra de Madian, IL. 12, 15.",
+      "box": [
+        98,
+        835,
+        210,
+        851
+      ],
+      "score": 0.8933379650115967
+    },
+    {
+      "text": "neos, 1v, 2.",
+      "box": [
+        383,
+        833,
+        434,
+        843
+      ],
+      "score": 0.9263239502906799
+    },
+    {
+      "text": "2972",
+      "box": [
+        604,
+        830,
+        626,
+        842
+      ],
+      "score": 0.9999756813049316
+    },
+    {
+      "text": "1032 Viola Annon á su hermana Thamar. IL Reg.",
+      "box": [
+        629,
+        830,
+        869,
+        843
+      ],
+      "score": 0.9402666091918945
+    },
+    {
+      "text": "2474",
+      "box": [
+        34,
+        841,
+        62,
+        859
+      ],
+      "score": 0.9992672801017761
+    },
+    {
+      "text": "1530",
+      "box": [
+        67,
+        846,
+        93,
+        859
+      ],
+      "score": 0.9998130798339844
+    },
+    {
+      "text": "Nace Caleb.",
+      "box": [
+        91,
+        848,
+        147,
+        859
+      ],
+      "score": 0.9980108141899109
+    },
+    {
+      "text": "2719",
+      "box": [
+        320,
+        840,
+        346,
+        856
+      ],
+      "score": 0.9998788237571716
+    },
+    {
+      "text": "1285 Victoria que cousiguió Débora oon Barac contra",
+      "box": [
+        348,
+        841,
+        595,
+        855
+      ],
+      "score": 0.9608014225959778
+    },
+    {
+      "text": "Es muerto Annon dos nños despues por órden de",
+      "box": [
+        653,
+        850,
+        871,
+        863
+      ],
+      "score": 0.9649672508239746
+    },
+    {
+      "text": "XIII. 14.",
+      "box": [
+        661,
+        839,
+        700,
+        854
+      ],
+      "score": 0.9235835671424866
+    },
+    {
+      "text": "2494",
+      "box": [
+        36,
+        853,
+        62,
+        868
+      ],
+      "score": 0.9930047392845154
+    },
+    {
+      "text": "1510 Muere el Rey de Egipto, Ramesses Mlamun, y le",
+      "box": [
+        65,
+        851,
+        314,
+        871
+      ],
+      "score": 0.8706435561180115
+    },
+    {
+      "text": "Sísara; y quedó en paz el pais, despues del des-",
+      "box": [
+        382,
+        851,
+        595,
+        866
+      ],
+      "score": 0.9653691649436951
+    },
+    {
+      "text": "sucede su hijo Amenophis.",
+      "box": [
+        99,
+        865,
+        220,
+        880
+      ],
+      "score": 0.9058622717857361
+    },
+    {
+      "text": "canso que tuvo 40 años antes, 1v y V. 32.",
+      "box": [
+        382,
+        861,
+        559,
+        876
+      ],
+      "score": 0.9247128367424011
+    },
+    {
+      "text": "su lhermauo Absalom, el cual huye á la Siria, al",
+      "box": [
+        661,
+        860,
+        870,
+        872
+      ],
+      "score": 0.9750576019287109
+    },
+    {
+      "text": "2513",
+      "box": [
+        37,
+        872,
+        62,
+        887
+      ],
+      "score": 0.9995526075363159
+    },
+    {
+      "text": "1491 Moyaa tiene la vision de la arza ardente, y e en",
+      "box": [
+        64,
+        872,
+        314,
+        890
+      ],
+      "score": 0.6358832716941833
+    },
+    {
+      "text": "manece tres años, II. Reg. Xi. 87, 88.",
+      "box": [
+        661,
+        879,
+        831,
+        892
+      ],
+      "score": 0.8780468106269836
+    },
+    {
+      "text": "rey Tholomal, su abuelo materno, eu donde per-",
+      "box": [
+        662,
+        870,
+        871,
+        883
+      ],
+      "score": 0.9744952917098999
+    },
+    {
+      "text": "viado á libertar al pueblo de Israel, I. 2, 10: y",
+      "box": [
+        100,
+        883,
+        312,
+        899
+      ],
+      "score": 0.9167653918266296
+    },
+    {
+      "text": "Comienza el Imperio de los Assyrios.",
+      "box": [
+        378,
+        880,
+        536,
+        895
+      ],
+      "score": 0.9862347841262817
+    },
+    {
+      "text": "en el mes de Abis (que desde eutonces fué el l.",
+      "box": [
+        100,
+        892,
+        312,
+        909
+      ],
+      "score": 0.8765726089477539
+    },
+    {
+      "text": "2737 1267 Nino, hijo de Bel, fundó el imperio de los Assy.",
+      "box": [
+        318,
+        897,
+        596,
+        915
+      ],
+      "score": 0.9807281494140625
+    },
+    {
+      "text": "2981",
+      "box": [
+        604,
+        890,
+        626,
+        902
+      ],
+      "score": 0.9953380823135376
+    },
+    {
+      "text": "1023 David huye perseguido de Absalom, II. Reg. Xv.",
+      "box": [
+        630,
+        889,
+        871,
+        902
+      ],
+      "score": 0.9825201034545898
+    },
+    {
+      "text": "del aão), el dia 15, cumplidos 430 de la vocacion",
+      "box": [
+        100,
+        902,
+        312,
+        919
+      ],
+      "score": 0.9392549991607666
+    },
+    {
+      "text": "13. Abaalom cs traspasado por Joab, XVII. 14.",
+      "box": [
+        662,
+        898,
+        866,
+        911
+      ],
+      "score": 0.8378626704216003
+    },
+    {
+      "text": "de Abraham en el año 2083 y 215 años de estar",
+      "box": [
+        100,
+        912,
+        312,
+        928
+      ],
+      "score": 0.9664918780326843
+    },
+    {
+      "text": "rios, que por espacio de 52o años mandaron euel",
+      "box": [
+        381,
+        908,
+        596,
+        924
+      ],
+      "score": 0.9224781394004822
+    },
+    {
+      "text": "2087",
+      "box": [
+        603,
+        909,
+        625,
+        921
+      ],
+      "score": 0.888691246509552
+    },
+    {
+      "text": "1017 Mauda David hacer el censo de su pueblo, y Dios",
+      "box": [
+        629,
+        908,
+        871,
+        921
+      ],
+      "score": 0.9656343460083008
+    },
+    {
+      "text": "en Egipto, marchan los hijos de Israel á Rames-",
+      "box": [
+        99,
+        922,
+        312,
+        938
+      ],
+      "score": 0.9713097214698792
+    },
+    {
+      "text": "Asla superior, Herodoto. Appiano. Reinó Nino",
+      "box": [
+        381,
+        917,
+        596,
+        934
+      ],
+      "score": 0.747671365737915
+    },
+    {
+      "text": "le castiga por su vanidad, enviaudo desastres à",
+      "box": [
+        662,
+        916,
+        870,
+        930
+      ],
+      "score": 0.8970956206321716
+    },
+    {
+      "text": "ses, 600 millas distante, Ex. XIL. 31. Num.",
+      "box": [
+        99,
+        932,
+        311,
+        948
+      ],
+      "score": 0.9149347543716431
+    },
+    {
+      "text": "52 años. Jul. Afric. Euseb.",
+      "box": [
+        382,
+        929,
+        505,
+        941
+      ],
+      "score": 0.8343921899795532
+    },
+    {
+      "text": "todo su reiuo, I1. Reg. xxiv. 1, etc. I. Par, xxI.",
+      "box": [
+        662,
+        927,
+        871,
+        940
+      ],
+      "score": 0.8972042202949524
+    },
+    {
+      "text": "XXXIII. 3.",
+      "box": [
+        100,
+        946,
+        146,
+        957
+      ],
+      "score": 0.9445458650588989
+    },
+    {
+      "text": "2752",
+      "box": [
+        320,
+        940,
+        344,
+        952
+      ],
+      "score": 0.9999834299087524
+    },
+    {
+      "text": "1252 Cuarta servidumbre à opresion del pueblo de Israel",
+      "box": [
+        345,
+        936,
+        595,
+        953
+      ],
+      "score": 0.9545385837554932
+    },
+    {
+      "text": "1016 Prepara los materiales para Ia coustruccion del",
+      "box": [
+        629,
+        944,
+        871,
+        960
+      ],
+      "score": 0.9842338562011719
+    },
+    {
+      "text": "1, etc.",
+      "box": [
+        663,
+        937,
+        691,
+        948
+      ],
+      "score": 0.9628097414970398
+    },
+    {
+      "text": "por los Madianitas, que duró siete años, vi. l.",
+      "box": [
+        382,
+        946,
+        586,
+        963
+      ],
+      "score": 0.8859971761703491
+    },
+    {
+      "text": "2988",
+      "box": [
+        603,
+        947,
+        626,
+        959
+      ],
+      "score": 0.997772216796875
+    },
+    {
+      "text": "2759",
+      "box": [
+        321,
+        960,
+        344,
+        973
+      ],
+      "score": 0.9999979734420776
+    },
+    {
+      "text": "1245",
+      "box": [
+        348,
+        960,
+        376,
+        972
+      ],
+      "score": 0.9994956254959106
+    },
+    {
+      "text": "Gedeon, llamado tambien Jerobaal, vence á los",
+      "box": [
+        369,
+        955,
+        595,
+        973
+      ],
+      "score": 0.8455173969268799
+    },
+    {
+      "text": "1015 Declara por rey á Salomon, I. Par. XxnL. 1. xxrx. 23.",
+      "box": [
+        629,
+        964,
+        870,
+        979
+      ],
+      "score": 0.8936436176300049
+    },
+    {
+      "text": "templo, I. Par. xxn. 14.",
+      "box": [
+        661,
+        957,
+        768,
+        968
+      ],
+      "score": 0.9296806454658508
+    },
+    {
+      "text": "CUARTA ÉPOCA",
+      "box": [
+        108,
+        974,
+        244,
+        992
+      ],
+      "score": 0.9983486533164978
+    },
+    {
+      "text": "Madianitas, vil. 21, y queda la tierra de Israel",
+      "box": [
+        381,
+        965,
+        595,
+        983
+      ],
+      "score": 0.8202103972434998
+    },
+    {
+      "text": "2989",
+      "box": [
+        603,
+        967,
+        625,
+        979
+      ],
+      "score": 0.9891127347946167
+    },
+    {
+      "text": "otra vez en sosiego, al año 40 del que le había al-",
+      "box": [
+        380,
+        976,
+        595,
+        993
+      ],
+      "score": 0.9641328454017639
+    },
+    {
+      "text": "2990",
+      "box": [
+        603,
+        977,
+        625,
+        989
+      ],
+      "score": 0.9995883703231812
+    },
+    {
+      "text": "1014 David muere, despues de haber reinado sicte años",
+      "box": [
+        629,
+        977,
+        869,
+        987
+      ],
+      "score": 0.980320394039154
+    },
+    {
+      "text": "canzado Débora, vill. 28.",
+      "box": [
+        381,
+        989,
+        491,
+        1001
+      ],
+      "score": 0.8806192874908447
+    },
+    {
+      "text": "y seis meses en Hebron, y en Jerusalem 33 ahos,",
+      "box": [
+        662,
+        987,
+        869,
+        997
+      ],
+      "score": 0.9826310276985168
+    },
+    {
+      "text": "Ó EDAD DEL MUNDO",
+      "box": [
+        129,
+        1003,
+        223,
+        1016
+      ],
+      "score": 0.9904460310935974
+    },
+    {
+      "text": "2768",
+      "box": [
+        320,
+        1000,
+        343,
+        1011
+      ],
+      "score": 0.9999582767486572
+    },
+    {
+      "text": "1236 Muerto Gedeon, recae Israel en la Idolatria, VIII.",
+      "box": [
+        346,
+        995,
+        594,
+        1012
+      ],
+      "score": 0.9432476162910461
+    },
+    {
+      "text": "1013 Salomon se casa con una hija de Pharaon. Pide á",
+      "box": [
+        628,
+        1003,
+        871,
+        1018
+      ],
+      "score": 0.9737436771392822
+    },
+    {
+      "text": "II. Reg, v, 5.",
+      "box": [
+        663,
+        996,
+        721,
+        1007
+      ],
+      "score": 0.9286755919456482
+    },
+    {
+      "text": "33. Abimelech, su hijo, codicioso del mando,",
+      "box": [
+        380,
+        1005,
+        594,
+        1022
+      ],
+      "score": 0.9246529936790466
+    },
+    {
+      "text": "2991",
+      "box": [
+        603,
+        1006,
+        625,
+        1018
+      ],
+      "score": 0.9999655485153198
+    },
+    {
+      "text": "mata á los 70 hermanos suyos, 1X. 5.",
+      "box": [
+        381,
+        1016,
+        542,
+        1031
+      ],
+      "score": 0.9590146541595459
+    },
+    {
+      "text": "Dios la sabiduría, III. Reg. III. 1, 6.",
+      "box": [
+        661,
+        1015,
+        819,
+        1028
+      ],
+      "score": 0.9206815958023071
+    },
+    {
+      "text": "que comprende 479 aßos y 17 dias que trascurrieron dende la",
+      "box": [
+        29,
+        1025,
+        312,
+        1043
+      ],
+      "score": 0.9656404256820679
+    },
+    {
+      "text": "2771",
+      "box": [
+        320,
+        1029,
+        342,
+        1041
+      ],
+      "score": 0.9999933838844299
+    },
+    {
+      "text": "1233",
+      "box": [
+        348,
+        1029,
+        374,
+        1040
+      ],
+      "score": 0.9999929070472717
+    },
+    {
+      "text": "Relna Abimelech tres ahos, 22; y eu el sitio de The-",
+      "box": [
+        368,
+        1024,
+        594,
+        1042
+      ],
+      "score": 0.8677947521209717
+    },
+    {
+      "text": "salida de los israelitas de Egipto hasta que se echaron los",
+      "box": [
+        50,
+        1035,
+        311,
+        1053
+      ],
+      "score": 0.8693895936012268
+    },
+    {
+      "text": "bas muere de una piedra que le tira una mujer, 53.",
+      "box": [
+        380,
+        1034,
+        593,
+        1051
+      ],
+      "score": 0.8816443085670471
+    },
+    {
+      "text": "QUINTA ÉPOCA",
+      "box": [
+        678,
+        1038,
+        795,
+        1055
+      ],
+      "score": 0.9738156199455261
+    },
+    {
+      "text": "fundamentos del Templo; esto é, desde 2513 del mundo has-",
+      "box": [
+        48,
+        1045,
+        311,
+        1063
+      ],
+      "score": 0.9005871415138245
+    },
+    {
+      "text": "2772",
+      "box": [
+        319,
+        1048,
+        342,
+        1060
+      ],
+      "score": 0.9999898672103882
+    },
+    {
+      "text": "1215 Semiramis, mujer de Nino, manda en toda la Asia,",
+      "box": [
+        346,
+        1053,
+        592,
+        1071
+      ],
+      "score": 0.8055855631828308
+    },
+    {
+      "text": "1232 Thola gobierna á Israel 23 años, x. 1.",
+      "box": [
+        347,
+        1045,
+        535,
+        1061
+      ],
+      "score": 0.9406710863113403
+    },
+    {
+      "text": "la 2991.",
+      "box": [
+        51,
+        1061,
+        92,
+        1072
+      ],
+      "score": 0.9124695062637329
+    },
+    {
+      "text": "2789",
+      "box": [
+        320,
+        1058,
+        342,
+        1070
+      ],
+      "score": 0.9999750852584839
+    },
+    {
+      "text": "á excepcion de la India. Vivió 62 alos, y reinó",
+      "box": [
+        379,
+        1063,
+        593,
+        1080
+      ],
+      "score": 0.9095700979232788
+    },
+    {
+      "text": "Ó EDAD DEL MUNDO",
+      "box": [
+        687,
+        1064,
+        782,
+        1078
+      ],
+      "score": 0.953605055809021
+    },
+    {
+      "text": "Mundo.",
+      "box": [
+        28,
+        1083,
+        45,
+        1129
+      ],
+      "score": 0.9952855110168457
+    },
+    {
+      "text": "Antes",
+      "box": [
+        70,
+        1083,
+        88,
+        1118
+      ],
+      "score": 0.9940962791442871
+    },
+    {
+      "text": "42. Diodoro, lib. 2. Justin., lib. 1.",
+      "box": [
+        379,
+        1074,
+        533,
+        1090
+      ],
+      "score": 0.7608622312545776
+    },
+    {
+      "text": "Año del",
+      "box": [
+        41,
+        1089,
+        55,
+        1130
+      ],
+      "score": 0.9992237091064453
+    },
+    {
+      "text": "2790",
+      "box": [
+        320,
+        1088,
+        343,
+        1099
+      ],
+      "score": 0.9866447448730469
+    },
+    {
+      "text": "1214 Nace Heli, sumo sacerdote.",
+      "box": [
+        348,
+        1085,
+        491,
+        1099
+      ],
+      "score": 0.9721064567565918
+    },
+    {
+      "text": "2795",
+      "box": [
+        320,
+        1097,
+        343,
+        1109
+      ],
+      "score": 0.9999940395355225
+    },
+    {
+      "text": "1209 A Thola sucedió en el mando Jair, que gobernó á",
+      "box": [
+        346,
+        1092,
+        594,
+        1110
+      ],
+      "score": 0.9816684722900391
+    },
+    {
+      "text": "que comprende unos 476 atos, que trascurrieron desde la fun-",
+      "box": [
+        600,
+        1088,
+        869,
+        1104
+      ],
+      "score": 0.9682403802871704
+    },
+    {
+      "text": ".S",
+      "box": [
+        59,
+        1091,
+        77,
+        1109
+      ],
+      "score": 0.7489893436431885
+    },
+    {
+      "text": "C",
+      "box": [
+        63,
+        1105,
+        75,
+        1120
+      ],
+      "score": 0.7404752373695374
+    },
+    {
+      "text": "Isrsel 22 ahos, Judic. x. 3.",
+      "box": [
+        381,
+        1105,
+        498,
+        1118
+      ],
+      "score": 0.9217258095741272
+    },
+    {
+      "text": "dacion del Templo hasta el fin de la cautividad de Babilonia,",
+      "box": [
+        609,
+        1099,
+        869,
+        1114
+      ],
+      "score": 0.9539269804954529
+    },
+    {
+      "text": "ade",
+      "box": [
+        72,
+        1114,
+        85,
+        1131
+      ],
+      "score": 0.7259111404418945
+    },
+    {
+      "text": "2799",
+      "box": [
+        320,
+        1117,
+        342,
+        1129
+      ],
+      "score": 0.999962568283081
+    },
+    {
+      "text": "1205",
+      "box": [
+        349,
+        1118,
+        372,
+        1126
+      ],
+      "score": 0.9998764991760254
+    },
+    {
+      "text": "Quiuta opresion ó servidumbre, que duró 18 años,",
+      "box": [
+        368,
+        1113,
+        593,
+        1128
+      ],
+      "score": 0.9248407483100891
+    },
+    {
+      "text": "esto es, deade el alto 2992 del Mundo hasta el de 3475.",
+      "box": [
+        609,
+        1109,
+        840,
+        1124
+      ],
+      "score": 0.9403747320175171
+    },
+    {
+      "text": "2513",
+      "box": [
+        30,
+        1134,
+        55,
+        1146
+      ],
+      "score": 0.9999396204948425
+    },
+    {
+      "text": "1491 En el segundo mes de la salida de Egipto comienza",
+      "box": [
+        61,
+        1126,
+        312,
+        1149
+      ],
+      "score": 0.9596583843231201
+    },
+    {
+      "text": "en que estuvieron sujetos à los Philistheos y",
+      "box": [
+        379,
+        1123,
+        592,
+        1138
+      ],
+      "score": 0.9631972312927246
+    },
+    {
+      "text": "Ammonitas, x. 8.",
+      "box": [
+        381,
+        1135,
+        459,
+        1147
+      ],
+      "score": 0.9952632784843445
+    },
+    {
+      "text": "Mundo.",
+      "box": [
+        601,
+        1134,
+        614,
+        1176
+      ],
+      "score": 0.9996327757835388
+    },
+    {
+      "text": ".J",
+      "box": [
+        630,
+        1141,
+        640,
+        1154
+      ],
+      "score": 0.34304967522621155
+    },
+    {
+      "text": "Antes",
+      "box": [
+        636,
+        1131,
+        653,
+        1166
+      ],
+      "score": 0.9306536912918091
+    },
+    {
+      "text": "á bajar del cielo el maná, con el cual se alimen-",
+      "box": [
+        95,
+        1137,
+        312,
+        1157
+      ],
+      "score": 0.9550948739051819
+    },
+    {
+      "text": "tan los hebreos por espacio de 40 años, Ex. xvi. 35.",
+      "box": [
+        94,
+        1147,
+        311,
+        1167
+      ],
+      "score": 0.9441934823989868
+    },
+    {
+      "text": "2817",
+      "box": [
+        320,
+        1146,
+        343,
+        1158
+      ],
+      "score": 0.9995411038398743
+    },
+    {
+      "text": "1187 Jephté sucede en la Judicatura ó mando á Jairo: y",
+      "box": [
+        345,
+        1143,
+        593,
+        1158
+      ],
+      "score": 0.9661717414855957
+    },
+    {
+      "text": "Ébra á Isrnel de la servidumbre de los Ammoni-",
+      "box": [
+        380,
+        1153,
+        591,
+        1167
+      ],
+      "score": 0.9356136322021484
+    },
+    {
+      "text": ".C.",
+      "box": [
+        630,
+        1152,
+        641,
+        1167
+      ],
+      "score": 0.5713545680046082
+    },
+    {
+      "text": "En el tercer mes promulga Dios la Ley del Decálo-",
+      "box": [
+        85,
+        1156,
+        311,
+        1178
+      ],
+      "score": 0.9729970693588257
+    },
+    {
+      "text": "tas, y gobierna seis años, XI y Xu, 7.",
+      "box": [
+        380,
+        1164,
+        540,
+        1176
+      ],
+      "score": 0.9266721606254578
+    },
+    {
+      "text": "dp",
+      "box": [
+        638,
+        1161,
+        651,
+        1177
+      ],
+      "score": 0.6667745113372803
+    },
+    {
+      "text": "go. Inmoladas varias víctimas, se forma una",
+      "box": [
+        95,
+        1165,
+        311,
+        1188
+      ],
+      "score": 0.9626162052154541
+    },
+    {
+      "text": "2820",
+      "box": [
+        319,
+        1175,
+        343,
+        1188
+      ],
+      "score": 0.9998297691345215
+    },
+    {
+      "text": "1184 Troya es tomada por los Griegos en este año, el",
+      "box": [
+        345,
+        1171,
+        593,
+        1188
+      ],
+      "score": 0.9476980566978455
+    },
+    {
+      "text": "allanra ó pacto entre Dios y el pueblo, xxiv.",
+      "box": [
+        93,
+        1176,
+        311,
+        1198
+      ],
+      "score": 0.9498038291931152
+    },
+    {
+      "text": "408 antes de la primera Olympiada é Juegos",
+      "box": [
+        378,
+        1182,
+        592,
+        1198
+      ],
+      "score": 0.9386494159698486
+    },
+    {
+      "text": "2993",
+      "box": [
+        601,
+        1182,
+        622,
+        1195
+      ],
+      "score": 0.9850021004676819
+    },
+    {
+      "text": "1011 Salomon en el año 480 despues de la salida de los",
+      "box": [
+        627,
+        1181,
+        870,
+        1195
+      ],
+      "score": 0.9948809742927551
+    },
+    {
+      "text": "3,5,8.",
+      "box": [
+        92,
+        1191,
+        132,
+        1208
+      ],
+      "score": 0.988081157207489
+    },
+    {
+      "text": "Olympicos.",
+      "box": [
+        381,
+        1196,
+        429,
+        1207
+      ],
+      "score": 0.9792779684066772
+    },
+    {
+      "text": "Israelitas de Egipto, el 4.º de su relnado, en el",
+      "box": [
+        661,
+        1192,
+        871,
+        1205
+      ],
+      "score": 0.9063136577606201
+    },
+    {
+      "text": "En el cuarto mes reelbe Moysés la Ley en dos ta-",
+      "box": [
+        84,
+        1194,
+        310,
+        1217
+      ],
+      "score": 0.965022087097168
+    },
+    {
+      "text": "2828",
+      "box": [
+        318,
+        1205,
+        342,
+        1217
+      ],
+      "score": 0.9873635768890381
+    },
+    {
+      "text": "1131 Muerto Jephté, Abesan gobierna à Israel por espa-",
+      "box": [
+        344,
+        1202,
+        592,
+        1217
+      ],
+      "score": 0.9425479769706726
+    },
+    {
+      "text": "dia 2 del mes segundo, pone los cimientos del",
+      "box": [
+        661,
+        1202,
+        871,
+        1215
+      ],
+      "score": 0.9792649149894714
+    },
+    {
+      "text": "blas de piedra; pero rompiendolas, al ver que el",
+      "box": [
+        93,
+        1204,
+        310,
+        1226
+      ],
+      "score": 0.9417693018913269
+    },
+    {
+      "text": "cio de slete años, Judic. XII. 8, 9.",
+      "box": [
+        379,
+        1213,
+        526,
+        1227
+      ],
+      "score": 0.9617264270782471
+    },
+    {
+      "text": "Templo del Señor, III. Reg. vI. 1. II. Par, II. 1.",
+      "box": [
+        660,
+        1212,
+        871,
+        1225
+      ],
+      "score": 0.8648924827575684
+    },
+    {
+      "text": "pueblo había idolatrado, Ex. xXxl. 19, forma",
+      "box": [
+        93,
+        1215,
+        310,
+        1236
+      ],
+      "score": 0.8877744674682617
+    },
+    {
+      "text": "ótras, y escrita la Ley en ellas, vuelve en el sex-",
+      "box": [
+        93,
+        1226,
+        309,
+        1245
+      ],
+      "score": 0.9107296466827393
+    },
+    {
+      "text": "2830",
+      "box": [
+        316,
+        1224,
+        341,
+        1239
+      ],
+      "score": 0.999667763710022
+    },
+    {
+      "text": "1174 Le sucede Ahialon por espacio de diez años, Xí.",
+      "box": [
+        345,
+        1222,
+        592,
+        1238
+      ],
+      "score": 0.9744406938552856
+    },
+    {
+      "text": "3000",
+      "box": [
+        600,
+        1222,
+        623,
+        1234
+      ],
+      "score": 0.9958662986755371
+    },
+    {
+      "text": "1004",
+      "box": [
+        629,
+        1222,
+        653,
+        1234
+      ],
+      "score": 0.9965040683746338
+    },
+    {
+      "text": "Acabóse la fábrica el año Xi de su refnado, en el",
+      "box": [
+        651,
+        1222,
+        871,
+        1235
+      ],
+      "score": 0.9674504995346069
+    },
+    {
+      "text": "to mes á bajar del monte, xxxiv. 4, 28.",
+      "box": [
+        93,
+        1236,
+        272,
+        1255
+      ],
+      "score": 0.9718493223190308
+    },
+    {
+      "text": "11. Nino ó Ninio mata á Semiramis, su madre, y",
+      "box": [
+        377,
+        1233,
+        591,
+        1247
+      ],
+      "score": 0.9458133578300476
+    },
+    {
+      "text": "3003",
+      "box": [
+        600,
+        1242,
+        623,
+        1254
+      ],
+      "score": 0.9979575872421265
+    },
+    {
+      "text": "1001",
+      "box": [
+        628,
+        1242,
+        653,
+        1253
+      ],
+      "score": 0.9999935626983643
+    },
+    {
+      "text": "Celébrase la maguifica Dedicacion del Templo en",
+      "box": [
+        650,
+        1242,
+        871,
+        1255
+      ],
+      "score": 0.9530426263809204
+    },
+    {
+      "text": "mes segundo, III. Reg, VI. 38.",
+      "box": [
+        660,
+        1233,
+        792,
+        1243
+      ],
+      "score": 0.9492810368537903
+    },
+    {
+      "text": "2514",
+      "box": [
+        29,
+        1253,
+        55,
+        1264
+      ],
+      "score": 0.9999585747718811
+    },
+    {
+      "text": "1490 En los primeros seis meses de este año se constru-",
+      "box": [
+        57,
+        1245,
+        309,
+        1265
+      ],
+      "score": 0.9797677397727966
+    },
+    {
+      "text": "reina 38 años, Euseb.",
+      "box": [
+        377,
+        1244,
+        471,
+        1257
+      ],
+      "score": 0.8985825777053833
+    },
+    {
+      "text": "yeel Tabernáculo, la Arca de la Alíanza, el Altar,",
+      "box": [
+        93,
+        1255,
+        309,
+        1274
+      ],
+      "score": 0.9415721893310547
+    },
+    {
+      "text": "2840",
+      "box": [
+        317,
+        1255,
+        342,
+        1267
+      ],
+      "score": 0.9999815225601196
+    },
+    {
+      "text": "1164 A Ahialon sucede Abdon, que gobierna á Ismel",
+      "box": [
+        339,
+        1251,
+        592,
+        1268
+      ],
+      "score": 0.9747396111488342
+    },
+    {
+      "text": "el mes séptimo, cerea de la flesta de los Taberná-",
+      "box": [
+        660,
+        1251,
+        871,
+        1264
+      ],
+      "score": 0.9653908014297485
+    },
+    {
+      "text": "la Mesn de los panes, el Candelero, ete., Xxxv y",
+      "box": [
+        92,
+        1266,
+        308,
+        1283
+      ],
+      "score": 0.9499280452728271
+    },
+    {
+      "text": "ocho años, Judie. xII. 13, 14.",
+      "box": [
+        375,
+        1262,
+        507,
+        1277
+      ],
+      "score": 0.8819503784179688
+    },
+    {
+      "text": "8015",
+      "box": [
+        598,
+        1270,
+        624,
+        1285
+      ],
+      "score": 0.9964799284934998
+    },
+    {
+      "text": "989",
+      "box": [
+        633,
+        1271,
+        653,
+        1283
+      ],
+      "score": 0.9985144734382629
+    },
+    {
+      "text": "Acaba Salomon su palacio, III. Reg. VII. 1. 1x. 10;",
+      "box": [
+        651,
+        1271,
+        872,
+        1284
+      ],
+      "score": 0.9258052110671997
+    },
+    {
+      "text": "eulos, IIf. Reg. vIII, 2. II. Par. v, 3, vI y VII.",
+      "box": [
+        661,
+        1263,
+        862,
+        1273
+      ],
+      "score": 0.9006341695785522
+    },
+    {
+      "text": "xxxví; y en el dia l.º del segundo año de la aa-",
+      "box": [
+        91,
+        1276,
+        309,
+        1294
+      ],
+      "score": 0.8592454791069031
+    },
+    {
+      "text": "A Abdon sucede Helí, sumo sacerdote, que gober-",
+      "box": [
+        366,
+        1271,
+        592,
+        1287
+      ],
+      "score": 0.9574674367904663
+    },
+    {
+      "text": "lida de Egipto queds erigido el Tabernáculo",
+      "box": [
+        91,
+        1286,
+        308,
+        1304
+      ],
+      "score": 0.8964623808860779
+    },
+    {
+      "text": "nó á Israel 40 años, I. Reg. 1V. 18. Y pecando",
+      "box": [
+        376,
+        1281,
+        591,
+        1299
+      ],
+      "score": 0.9608734250068665
+    },
+    {
+      "text": "ya viejo se deja vencer del amor de las mujeres,",
+      "box": [
+        660,
+        1282,
+        871,
+        1295
+      ],
+      "score": 0.9842765927314758
+    },
+    {
+      "text": "otra vez los hijos de Israel, los entrega Dios en",
+      "box": [
+        375,
+        1291,
+        592,
+        1309
+      ],
+      "score": 0.9707781672477722
+    },
+    {
+      "text": "3029",
+      "box": [
+        599,
+        1301,
+        623,
+        1316
+      ],
+      "score": 0.9699522256851196
+    },
+    {
+      "text": "975 Muere, despues de un reínado de 40 años, 42, 43.",
+      "box": [
+        632,
+        1301,
+        865,
+        1315
+      ],
+      "score": 0.9735741019248962
+    },
+    {
+      "text": "XI. 1.",
+      "box": [
+        660,
+        1292,
+        689,
+        1304
+      ],
+      "score": 0.7794991135597229
+    },
+    {
+      "text": "2522 1482 Egiplo, llamado tambien Ramesses, Sesostris, Ame",
+      "box": [
+        24,
+        1307,
+        308,
+        1326
+      ],
+      "score": 0.6982694268226624
+    },
+    {
+      "text": "XL. 2.",
+      "box": [
+        90,
+        1299,
+        121,
+        1314
+      ],
+      "score": 0.9391573071479797
+    },
+    {
+      "text": "manos de los Philistheos por espacio de 40 años,",
+      "box": [
+        375,
+        1302,
+        591,
+        1321
+      ],
+      "score": 0.9833151698112488
+    },
+    {
+      "text": "nophis, ó hijo de Bel, echa del reino á su herma-",
+      "box": [
+        90,
+        1320,
+        307,
+        1336
+      ],
+      "score": 0.9022337198257446
+    },
+    {
+      "text": "Judic. xI. 1.",
+      "box": [
+        376,
+        1318,
+        438,
+        1332
+      ],
+      "score": 0.8598413467407227
+    },
+    {
+      "text": "Roboain, su hijo, ocasiona que diez tribus se sepa-",
+      "box": [
+        652,
+        1313,
+        872,
+        1326
+      ],
+      "score": 0.9862344264984131
+    },
+    {
+      "text": "2850 1154 Nace Samaon, nazareo, x. 5, 24; y tambien Sa-",
+      "box": [
+        311,
+        1322,
+        591,
+        1347
+      ],
+      "score": 0.913556694984436
+    },
+    {
+      "text": "ren, y reconozcan por rey á Jeroboam, III. Reg.",
+      "box": [
+        660,
+        1323,
+        871,
+        1338
+      ],
+      "score": 0.9673205614089966
+    },
+    {
+      "text": "no Dánao, y da nombre al país de Egipto. Dio-",
+      "box": [
+        89,
+        1331,
+        306,
+        1347
+      ],
+      "score": 0.9665905237197876
+    },
+    {
+      "text": "muel.",
+      "box": [
+        375,
+        1341,
+        403,
+        1356
+      ],
+      "score": 0.949751079082489
+    },
+    {
+      "text": "xII. 16, 17, 20, etc.",
+      "box": [
+        661,
+        1334,
+        746,
+        1349
+      ],
+      "score": 0.8959612846374512
+    },
+    {
+      "text": "doro, lib. i. Herodoto.",
+      "box": [
+        91,
+        1345,
+        192,
+        1355
+      ],
+      "score": 0.9101473689079285
+    }
+  ]
+}

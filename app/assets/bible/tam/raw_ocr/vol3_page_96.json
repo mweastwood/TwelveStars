@@ -1,0 +1,987 @@
+{
+  "volume": 3,
+  "page_index": 96,
+  "pdf_page": 97,
+  "lines": [
+    {
+      "text": "141",
+      "box": [
+        8,
+        33,
+        35,
+        52
+      ],
+      "score": 0.9999359250068665
+    },
+    {
+      "text": "PROVERBIOS.",
+      "box": [
+        144,
+        37,
+        247,
+        59
+      ],
+      "score": 0.9997391104698181
+    },
+    {
+      "text": "CAPITULO XXXI.",
+      "box": [
+        622,
+        46,
+        744,
+        66
+      ],
+      "score": 0.9988873600959778
+    },
+    {
+      "text": "G00G0",
+      "box": [
+        330,
+        54,
+        370,
+        71
+      ],
+      "score": 0.5487810969352722
+    },
+    {
+      "text": "142",
+      "box": [
+        836,
+        54,
+        860,
+        71
+      ],
+      "score": 0.9999294281005859
+    },
+    {
+      "text": "29. Tres cosas hay que andan con mucho garbo, ó mas",
+      "box": [
+        11,
+        78,
+        393,
+        112
+      ],
+      "score": 0.9875147342681885
+    },
+    {
+      "text": "bien cuatro; las cuales marchan con gran gallardía.",
+      "box": [
+        0,
+        96,
+        331,
+        128
+      ],
+      "score": 0.9864383935928345
+    },
+    {
+      "text": "es que todas las preciosidades traidas de lejos, y de los últimos",
+      "box": [
+        494,
+        92,
+        867,
+        119
+      ],
+      "score": 0.989356517791748
+    },
+    {
+      "text": "30. El leon, que como el mas fuerte de todos los animales,",
+      "box": [
+        12,
+        116,
+        391,
+        148
+      ],
+      "score": 0.9961799383163452
+    },
+    {
+      "text": "términos del mundo.",
+      "box": [
+        495,
+        110,
+        625,
+        130
+      ],
+      "score": 0.999682605266571
+    },
+    {
+      "text": "no teme el encuentro de nadie:",
+      "box": [
+        0,
+        134,
+        205,
+        159
+      ],
+      "score": 0.9767494797706604
+    },
+    {
+      "text": "11. En ella pone su confianza el corazon de su marido; el",
+      "box": [
+        506,
+        126,
+        867,
+        154
+      ],
+      "score": 0.9869673848152161
+    },
+    {
+      "text": "31. El gallo, que anda erguido: el carnero padre, que va",
+      "box": [
+        12,
+        152,
+        392,
+        182
+      ],
+      "score": 0.9833573698997498
+    },
+    {
+      "text": "cual no tendrá necesidad de botin ó despojos para vivir.",
+      "box": [
+        494,
+        143,
+        843,
+        169
+      ],
+      "score": 0.991113543510437
+    },
+    {
+      "text": "12. Ella le acarrea el bien todos los dias de su vida, y",
+      "box": [
+        505,
+        158,
+        865,
+        189
+      ],
+      "score": 0.9896512627601624
+    },
+    {
+      "text": "al frente del rebaño, y el rey, con quien nadie puede medir",
+      "box": [
+        0,
+        170,
+        391,
+        200
+      ],
+      "score": 0.9972642064094543
+    },
+    {
+      "text": "nunca el mal.",
+      "box": [
+        494,
+        179,
+        580,
+        196
+      ],
+      "score": 0.9992917776107788
+    },
+    {
+      "text": "sus fuerzas.",
+      "box": [
+        0,
+        189,
+        79,
+        209
+      ],
+      "score": 0.9991089701652527
+    },
+    {
+      "text": "13. Busca lana y lino, de que hace labores con la industria",
+      "box": [
+        504,
+        193,
+        866,
+        221
+      ],
+      "score": 0.9990845322608948
+    },
+    {
+      "text": "32. Hay quien pasaba por sábio, que descubrió ser un in-",
+      "box": [
+        11,
+        206,
+        391,
+        234
+      ],
+      "score": 0.9994257688522339
+    },
+    {
+      "text": "de sus manos.",
+      "box": [
+        493,
+        213,
+        581,
+        230
+      ],
+      "score": 0.9992554187774658
+    },
+    {
+      "text": "sensato, luego de elevado á un alto puesto: si hubiese tenido",
+      "box": [
+        0,
+        224,
+        391,
+        251
+      ],
+      "score": 0.9950762987136841
+    },
+    {
+      "text": "14. Viene á ser como la nave de un comerciante, que con",
+      "box": [
+        503,
+        226,
+        866,
+        255
+      ],
+      "score": 0.9966866970062256
+    },
+    {
+      "text": "entendimiento, no hubiera desplegado sus labios para pedir",
+      "box": [
+        0,
+        239,
+        390,
+        269
+      ],
+      "score": 0.9989185333251953
+    },
+    {
+      "text": "la industria trae de lejos el sustento.",
+      "box": [
+        492,
+        244,
+        725,
+        265
+      ],
+      "score": 0.9998881220817566
+    },
+    {
+      "text": "tal destino.",
+      "box": [
+        0,
+        259,
+        79,
+        279
+      ],
+      "score": 0.9999335408210754
+    },
+    {
+      "text": "15. Se levanta antes que amanezca, y distribuye las ra-",
+      "box": [
+        503,
+        260,
+        867,
+        287
+      ],
+      "score": 0.9956969618797302
+    },
+    {
+      "text": "33. Quien exprime ó bate fuertemente la ubre para sacar",
+      "box": [
+        11,
+        276,
+        391,
+        303
+      ],
+      "score": 0.9893527030944824
+    },
+    {
+      "text": "ciones á sus domésticos, y el alimento á sus criadas.",
+      "box": [
+        491,
+        278,
+        811,
+        301
+      ],
+      "score": 0.992222785949707
+    },
+    {
+      "text": "leche1, hace salir de ella un jugo espeso; y quien se suena",
+      "box": [
+        0,
+        294,
+        390,
+        320
+      ],
+      "score": 0.9908338785171509
+    },
+    {
+      "text": "16. Puso la mira en unas tierras, y las compró: de lo que",
+      "box": [
+        503,
+        295,
+        866,
+        319
+      ],
+      "score": 0.9953905940055847
+    },
+    {
+      "text": "con vehemencia, saca sangre: así aquel que provoca la cólera,",
+      "box": [
+        0,
+        311,
+        390,
+        339
+      ],
+      "score": 0.992578387260437
+    },
+    {
+      "text": "ganó con sus manos plantó una viña.",
+      "box": [
+        491,
+        313,
+        723,
+        333
+      ],
+      "score": 0.9994850158691406
+    },
+    {
+      "text": "enciende discordias.",
+      "box": [
+        0,
+        329,
+        131,
+        350
+      ],
+      "score": 0.9998376965522766
+    },
+    {
+      "text": "17. Revistióse de varonil fortaleza, y esforzó su brazo.",
+      "box": [
+        502,
+        330,
+        844,
+        351
+      ],
+      "score": 0.9919703602790833
+    },
+    {
+      "text": "18. Probó, y echó de ver quc su trabajo le fructifica: por",
+      "box": [
+        502,
+        345,
+        867,
+        369
+      ],
+      "score": 0.9841938018798828
+    },
+    {
+      "text": "CAPITULO XXXI",
+      "box": [
+        136,
+        365,
+        258,
+        387
+      ],
+      "score": 0.998908281326294
+    },
+    {
+      "text": "tanto tendrá encendida la luz toda la noche.",
+      "box": [
+        489,
+        364,
+        766,
+        382
+      ],
+      "score": 0.9955901503562927
+    },
+    {
+      "text": "19. Aplica sus manos á los quehaceres domésticos, aunque",
+      "box": [
+        502,
+        381,
+        868,
+        401
+      ],
+      "score": 0.9954164624214172
+    },
+    {
+      "text": "Consejos de la reina madre al rey su hijo. Retrato y elogio de la mujer",
+      "box": [
+        0,
+        396,
+        388,
+        421
+      ],
+      "score": 0.9965575337409973
+    },
+    {
+      "text": "fatigosos, y sus dedos manejan el huso5.",
+      "box": [
+        491,
+        401,
+        740,
+        415
+      ],
+      "score": 0.9764204025268555
+    },
+    {
+      "text": "fuerte.",
+      "box": [
+        174,
+        417,
+        215,
+        435
+      ],
+      "score": 0.9986023306846619
+    },
+    {
+      "text": "20. Abre su mano para socorrer al mendigo, y extiende",
+      "box": [
+        501,
+        414,
+        869,
+        436
+      ],
+      "score": 0.9891635775566101
+    },
+    {
+      "text": "sus brazos para amparar al necesitado.",
+      "box": [
+        490,
+        434,
+        731,
+        450
+      ],
+      "score": 0.9998069405555725
+    },
+    {
+      "text": "1. Palabras del rey Lamuel ². Profecía ó doctrina inspi-",
+      "box": [
+        7,
+        449,
+        387,
+        473
+      ],
+      "score": 0.9765974283218384
+    },
+    {
+      "text": "21. No temerá para los de su casa los frios ni las nieves:",
+      "box": [
+        503,
+        450,
+        869,
+        467
+      ],
+      "score": 0.999221682548523
+    },
+    {
+      "text": "rada con que le instruyó su madre.",
+      "box": [
+        0,
+        466,
+        232,
+        492
+      ],
+      "score": 0.9992280602455139
+    },
+    {
+      "text": "porque todos sus domésticos traen vestidos aforrados.",
+      "box": [
+        489,
+        467,
+        825,
+        487
+      ],
+      "score": 0.997044563293457
+    },
+    {
+      "text": "2. Qué te diré yo, oh amado mio! qué te encomendare,",
+      "box": [
+        6,
+        484,
+        388,
+        510
+      ],
+      "score": 0.9546324014663696
+    },
+    {
+      "text": "22. Se labró ella misma para sí un vestido acolchado 6: de",
+      "box": [
+        503,
+        483,
+        869,
+        501
+      ],
+      "score": 0.9918097853660583
+    },
+    {
+      "text": "h hijo de mis entrañas! qué, oh dulce objeto de todos mis",
+      "box": [
+        0,
+        500,
+        390,
+        530
+      ],
+      "score": 0.9331684708595276
+    },
+    {
+      "text": "lino finísimo y de púrpura es de lo que se viste.",
+      "box": [
+        490,
+        500,
+        784,
+        520
+      ],
+      "score": 0.9989781379699707
+    },
+    {
+      "text": "deseos!",
+      "box": [
+        0,
+        518,
+        52,
+        543
+      ],
+      "score": 0.9899110794067383
+    },
+    {
+      "text": "23. Su esposo hará un papel brillante en las puertas 6",
+      "box": [
+        502,
+        516,
+        870,
+        538
+      ],
+      "score": 0.9834961891174316
+    },
+    {
+      "text": "3. No entregues tu sustancia ó bienes á las mujeres, ni",
+      "box": [
+        4,
+        536,
+        390,
+        565
+      ],
+      "score": 0.9893245100975037
+    },
+    {
+      "text": "asambleas públicas, sentado entre los senadores del país.",
+      "box": [
+        489,
+        533,
+        845,
+        556
+      ],
+      "score": 0.9889935851097107
+    },
+    {
+      "text": "emplees tus riquezas en lo que es la ruina de los reyes.",
+      "box": [
+        0,
+        555,
+        348,
+        582
+      ],
+      "score": 0.9934176206588745
+    },
+    {
+      "text": "24. Ella teje finísimas telas, y las vende, y entrega tambien",
+      "box": [
+        503,
+        549,
+        869,
+        573
+      ],
+      "score": 0.984086275100708
+    },
+    {
+      "text": "4. No quieras, oh Lamuel, no quieras dar vino á los re",
+      "box": [
+        5,
+        573,
+        390,
+        600
+      ],
+      "score": 0.9462389349937439
+    },
+    {
+      "text": "ricos ceñidores, ófajas, á los negociantes chananeos.",
+      "box": [
+        490,
+        567,
+        819,
+        591
+      ],
+      "score": 0.9946001172065735
+    },
+    {
+      "text": "yes ; porque no hay secreto seguro donde reina la embria-",
+      "box": [
+        0,
+        591,
+        390,
+        618
+      ],
+      "score": 0.7924779057502747
+    },
+    {
+      "text": "25. La fortaleza y el decoro son sus atavíos; y estará ale-",
+      "box": [
+        503,
+        583,
+        870,
+        608
+      ],
+      "score": 0.9942513704299927
+    },
+    {
+      "text": "guez;",
+      "box": [
+        0,
+        612,
+        41,
+        631
+      ],
+      "score": 0.9997075796127319
+    },
+    {
+      "text": "gre y risueña ' en los últimos dias.",
+      "box": [
+        490,
+        600,
+        713,
+        629
+      ],
+      "score": 0.9692454934120178
+    },
+    {
+      "text": "5. Y porque no suceda que bien bebidos se olviden de",
+      "box": [
+        6,
+        623,
+        390,
+        656
+      ],
+      "score": 0.9813269376754761
+    },
+    {
+      "text": "26. : Abre su boca con sábios discursos, y la ley de la bon-",
+      "box": [
+        502,
+        616,
+        871,
+        644
+      ],
+      "score": 0.9830563068389893
+    },
+    {
+      "text": "aditar la uca,  ha tracn á la causa de los",
+      "box": [
+        0,
+        640,
+        390,
+        673
+      ],
+      "score": 0.6686797142028809
+    },
+    {
+      "text": "dad ó amor gobierna su lengua.",
+      "box": [
+        491,
+        638,
+        690,
+        661
+      ],
+      "score": 0.9906495213508606
+    },
+    {
+      "text": "hijos del pobre.",
+      "box": [
+        0,
+        665,
+        107,
+        685
+      ],
+      "score": 0.9996142387390137
+    },
+    {
+      "text": "27. Vela sobre los procederes de su familia; y no come",
+      "box": [
+        502,
+        649,
+        871,
+        678
+      ],
+      "score": 0.9975365996360779
+    },
+    {
+      "text": "6. Dad la cerveza ó los licores á los afligidos, y el vino á",
+      "box": [
+        9,
+        676,
+        390,
+        705
+      ],
+      "score": 0.9664824604988098
+    },
+    {
+      "text": "ociosa el pan.",
+      "box": [
+        491,
+        675,
+        579,
+        695
+      ],
+      "score": 0.9997854232788086
+    },
+    {
+      "text": "los que tienen el corazon lleno de amargura:",
+      "box": [
+        0,
+        699,
+        290,
+        721
+      ],
+      "score": 0.991581380367279
+    },
+    {
+      "text": "28. Levantáronse sus hijos, y aclamáronla dichosísima: su",
+      "box": [
+        503,
+        683,
+        872,
+        712
+      ],
+      "score": 0.9888660311698914
+    },
+    {
+      "text": "7. Beban estos para echar en olvido su miseria, y no",
+      "box": [
+        9,
+        712,
+        388,
+        740
+      ],
+      "score": 0.993904709815979
+    },
+    {
+      "text": "marido tambien, y la alabó, diciendo:",
+      "box": [
+        491,
+        705,
+        729,
+        729
+      ],
+      "score": 0.9966099858283997
+    },
+    {
+      "text": "29. Muehas son las hijas ó esposas que han allegado rique-",
+      "box": [
+        504,
+        717,
+        875,
+        747
+      ],
+      "score": 0.9835179448127747
+    },
+    {
+      "text": "acordarse mas de su dolor.",
+      "box": [
+        0,
+        733,
+        176,
+        757
+      ],
+      "score": 0.9999678730964661
+    },
+    {
+      "text": "8. Abre tu boca á favor del que es mudo, ó no puede",
+      "box": [
+        11,
+        744,
+        388,
+        772
+      ],
+      "score": 0.9914858341217041
+    },
+    {
+      "text": "zas: mas á todas has tú aventajado.",
+      "box": [
+        492,
+        739,
+        714,
+        763
+      ],
+      "score": 0.9926899671554565
+    },
+    {
+      "text": "defenderse, y en defensa de todos los pasajeros.",
+      "box": [
+        0,
+        764,
+        303,
+        789
+      ],
+      "score": 0.9949000477790833
+    },
+    {
+      "text": "30. Engañoso es el donaire, y vana la hermosura: la mujer",
+      "box": [
+        504,
+        750,
+        875,
+        781
+      ],
+      "score": 0.9869641661643982
+    },
+    {
+      "text": "9. Abre tu boca, decide lo que es justo, y haz justicia al",
+      "box": [
+        11,
+        779,
+        390,
+        807
+      ],
+      "score": 0.9919739365577698
+    },
+    {
+      "text": "que teme al Señor, esa será la celebrada.",
+      "box": [
+        491,
+        771,
+        747,
+        798
+      ],
+      "score": 0.9966288208961487
+    },
+    {
+      "text": "desvalido y al pobre.",
+      "box": [
+        0,
+        802,
+        137,
+        821
+      ],
+      "score": 0.9784314036369324
+    },
+    {
+      "text": "31. Dadle alabanza para que goce del fruto de sus manos,",
+      "box": [
+        504,
+        784,
+        876,
+        816
+      ],
+      "score": 0.9892014861106873
+    },
+    {
+      "text": "10. ¿Quién hallará una mujer fuerte ? De mayor estima",
+      "box": [
+        12,
+        815,
+        389,
+        840
+      ],
+      "score": 0.9954966306686401
+    },
+    {
+      "text": "y celébrense sus obras en la pública asamblea de los jueces.",
+      "box": [
+        490,
+        802,
+        876,
+        833
+      ],
+      "score": 0.9904153943061829
+    },
+    {
+      "text": "1 Segun el hebreo: Ast como el que bate mucho la leche que saca de la",
+      "box": [
+        8,
+        858,
+        388,
+        880
+      ],
+      "score": 0.9762775301933289
+    },
+    {
+      "text": "4 O una completa matrona.",
+      "box": [
+        503,
+        854,
+        656,
+        874
+      ],
+      "score": 0.9739118218421936
+    },
+    {
+      "text": "ubre, la hace manteca; y, aquel que se suena, etc.",
+      "box": [
+        0,
+        875,
+        258,
+        894
+      ],
+      "score": 0.9827896356582642
+    },
+    {
+      "text": "Maea co su mano la ruca, y on su deds e luso. As el hebe.",
+      "box": [
+        500,
+        859,
+        878,
+        895
+      ],
+      "score": 0.6642505526542664
+    },
+    {
+      "text": "à En hebreo, Lamuel zh significa uno que es de Dios. Comunmente",
+      "box": [
+        8,
+        889,
+        386,
+        909
+      ],
+      "score": 0.9532009959220886
+    },
+    {
+      "text": "En el ee S label cueas,  aped vrces.",
+      "box": [
+        500,
+        877,
+        850,
+        909
+      ],
+      "score": 0.5376256108283997
+    },
+    {
+      "text": "opinan los Expositores que por Lamuel se entiende Salomon.",
+      "box": [
+        0,
+        903,
+        325,
+        924
+      ],
+      "score": 0.9997878074645996
+    },
+    {
+      "text": "Cn a e re de cuat puede sucde,  espea traqulamete",
+      "box": [
+        498,
+        889,
+        878,
+        926
+      ],
+      "score": 0.5081207752227783
+    },
+    {
+      "text": "* No creas bueno el beber mucho.",
+      "box": [
+        9,
+        916,
+        199,
+        938
+      ],
+      "score": 0.9744771718978882
+    },
+    {
+      "text": "la hora de su muerte.",
+      "box": [
+        489,
+        917,
+        610,
+        935
+      ],
+      "score": 0.9986476898193359
+    }
+  ]
+}

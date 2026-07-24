@@ -1,0 +1,1517 @@
+{
+  "volume": 1,
+  "page_index": 285,
+  "pdf_page": 286,
+  "lines": [
+    {
+      "text": "311",
+      "box": [
+        72,
+        59,
+        96,
+        76
+      ],
+      "score": 0.9995837211608887
+    },
+    {
+      "text": "JOSUE.",
+      "box": [
+        218,
+        59,
+        273,
+        77
+      ],
+      "score": 0.9998850226402283
+    },
+    {
+      "text": "CAPITULO XXI.",
+      "box": [
+        669,
+        53,
+        780,
+        72
+      ],
+      "score": 0.9958609938621521
+    },
+    {
+      "text": "312",
+      "box": [
+        869,
+        53,
+        894,
+        70
+      ],
+      "score": 0.9999949336051941
+    },
+    {
+      "text": "11. Suben del mar Mediterráneo, y de Merala, y llegan á",
+      "box": [
+        75,
+        97,
+        434,
+        123
+      ],
+      "score": 0.9949663281440735
+    },
+    {
+      "text": "45. Y Jud, y Bane, y Barach, y Gethremmon,",
+      "box": [
+        544,
+        95,
+        827,
+        117
+      ],
+      "score": 0.988312304019928
+    },
+    {
+      "text": "Debbaseth, hasta el torrente que está enfrente de Jeconam:",
+      "box": [
+        63,
+        117,
+        434,
+        139
+      ],
+      "score": 0.9852485060691833
+    },
+    {
+      "text": "46. Y Mejareon, y Arecon con la frontera que mira á Joppe;",
+      "box": [
+        543,
+        111,
+        903,
+        135
+      ],
+      "score": 0.9828135371208191
+    },
+    {
+      "text": "12. Vuelven de Sared por el Oriente hasta los confines de",
+      "box": [
+        76,
+        133,
+        434,
+        158
+      ],
+      "score": 0.9834678173065186
+    },
+    {
+      "text": "47. Y aquí rematan sus términos. Pero los hijos de Dan",
+      "box": [
+        543,
+        128,
+        901,
+        154
+      ],
+      "score": 0.9924794435501099
+    },
+    {
+      "text": "Ceseleththabor, salen á Dabereth, y suben hácia Japhie,",
+      "box": [
+        65,
+        152,
+        402,
+        176
+      ],
+      "score": 0.951210618019104
+    },
+    {
+      "text": "avanzaron, y batieron á Lesem, y la tomaron; pasáronla",
+      "box": [
+        529,
+        146,
+        901,
+        171
+      ],
+      "score": 0.9751439690589905
+    },
+    {
+      "text": "13. De donde corren hasta la region oriental de Gethhe-",
+      "box": [
+        77,
+        167,
+        435,
+        193
+      ],
+      "score": 0.9492921829223633
+    },
+    {
+      "text": "despues á cuchillo, y la ocuparon, y habitaron en ella, lla-",
+      "box": [
+        531,
+        164,
+        900,
+        186
+      ],
+      "score": 0.9876426458358765
+    },
+    {
+      "text": "pher y Thacasin, y prosiguen con direccion á Remmon,",
+      "box": [
+        63,
+        185,
+        435,
+        210
+      ],
+      "score": 0.9961971044540405
+    },
+    {
+      "text": "mándola Lesem-Dan, del nombre de Dan su padre.",
+      "box": [
+        531,
+        181,
+        838,
+        201
+      ],
+      "score": 0.9814425110816956
+    },
+    {
+      "text": "Amthar, y Noa:",
+      "box": [
+        65,
+        202,
+        167,
+        225
+      ],
+      "score": 0.9971451759338379
+    },
+    {
+      "text": "48. Esta es la posesion de la tribu de los hijos de Dan, y",
+      "box": [
+        545,
+        197,
+        899,
+        218
+      ],
+      "score": 0.9953606724739075
+    },
+    {
+      "text": "14. Despues dan la vuelta por el Norte de Hanathon, y",
+      "box": [
+        78,
+        219,
+        435,
+        242
+      ],
+      "score": 0.9994955062866211
+    },
+    {
+      "text": "las ciudades y aldeas para sus familias.",
+      "box": [
+        531,
+        215,
+        769,
+        233
+      ],
+      "score": 0.9861901998519897
+    },
+    {
+      "text": "terminan en el valle de Jephthael,",
+      "box": [
+        66,
+        236,
+        273,
+        256
+      ],
+      "score": 0.9829145073890686
+    },
+    {
+      "text": "49. Luego que Josué hijo de Nun lubo acabado de repar-",
+      "box": [
+        543,
+        229,
+        900,
+        250
+      ],
+      "score": 0.9972838163375854
+    },
+    {
+      "text": "15. E incluyen tambien á Cateth, y Naalol, y Semeron, y",
+      "box": [
+        78,
+        251,
+        432,
+        271
+      ],
+      "score": 0.9809960722923279
+    },
+    {
+      "text": "tir la tierra por suerte á cada una de las tribus, diéronle los",
+      "box": [
+        531,
+        246,
+        900,
+        265
+      ],
+      "score": 0.9991244673728943
+    },
+    {
+      "text": "Jedala, y Bethlehem: doce ciudades con sus aldeas.",
+      "box": [
+        64,
+        267,
+        373,
+        288
+      ],
+      "score": 0.9972041845321655
+    },
+    {
+      "text": "lhijos de Israél á él su porcion en medio de ellos,",
+      "box": [
+        531,
+        263,
+        824,
+        281
+      ],
+      "score": 0.9754026532173157
+    },
+    {
+      "text": "16. Esta es la herencia de la tribu de los hijos de Zabulon,",
+      "box": [
+        76,
+        282,
+        432,
+        303
+      ],
+      "score": 0.9969393014907837
+    },
+    {
+      "text": "50. Conforme al precepto del Señor: á saber, la ciudad de",
+      "box": [
+        543,
+        278,
+        900,
+        296
+      ],
+      "score": 0.988671064376831
+    },
+    {
+      "text": "distribuida entre sus familias, con las ciudades y aldeas.",
+      "box": [
+        64,
+        298,
+        397,
+        318
+      ],
+      "score": 0.9925053119659424
+    },
+    {
+      "text": "Thamnath Saraa en el monte de Ephraim, que habia pedido;",
+      "box": [
+        531,
+        294,
+        901,
+        312
+      ],
+      "score": 0.9967759847640991
+    },
+    {
+      "text": "17. La cuarta suerte salió á Issachar para sus familias,",
+      "box": [
+        76,
+        313,
+        411,
+        334
+      ],
+      "score": 0.9960861206054688
+    },
+    {
+      "text": "la cual ciudad reedificó, y habitó en ella 4.",
+      "box": [
+        532,
+        313,
+        790,
+        326
+      ],
+      "score": 0.9973981976509094
+    },
+    {
+      "text": "18.",
+      "box": [
+        78,
+        332,
+        101,
+        347
+      ],
+      "score": 0.999841034412384
+    },
+    {
+      "text": "Y comprende á Jezraél, y Casaloth, y Sunem,",
+      "box": [
+        105,
+        331,
+        378,
+        348
+      ],
+      "score": 0.9961800575256348
+    },
+    {
+      "text": "51. Estas son las posesiones que Eleazar Sumo Sacerdote,",
+      "box": [
+        543,
+        326,
+        901,
+        344
+      ],
+      "score": 0.9991024732589722
+    },
+    {
+      "text": "19.",
+      "box": [
+        78,
+        347,
+        101,
+        363
+      ],
+      "score": 0.9999145865440369
+    },
+    {
+      "text": "Y Hapharaim. y Seon, y Anaharath,",
+      "box": [
+        104,
+        347,
+        323,
+        366
+      ],
+      "score": 0.9838107824325562
+    },
+    {
+      "text": "y Josué hijo de Nun, y los príncipes de las familias y de las",
+      "box": [
+        531,
+        342,
+        900,
+        360
+      ],
+      "score": 0.9964076280593872
+    },
+    {
+      "text": "20.",
+      "box": [
+        78,
+        364,
+        101,
+        379
+      ],
+      "score": 0.9999890327453613
+    },
+    {
+      "text": "Y Rabbot , y Cesion, y Abes,",
+      "box": [
+        105,
+        363,
+        281,
+        380
+      ],
+      "score": 0.9679027199745178
+    },
+    {
+      "text": "tribus de los hijos de Israél distribuyeron por suerte en Silo,",
+      "box": [
+        531,
+        358,
+        900,
+        376
+      ],
+      "score": 0.9993503093719482
+    },
+    {
+      "text": "21.",
+      "box": [
+        78,
+        380,
+        105,
+        395
+      ],
+      "score": 0.9999317526817322
+    },
+    {
+      "text": "Y Rameth, y Engannim. y Enhadda, y Bethpheses;",
+      "box": [
+        101,
+        377,
+        413,
+        398
+      ],
+      "score": 0.9943042993545532
+    },
+    {
+      "text": "delante del Señor, á la puerta del Tabernáculo del Testimonio;",
+      "box": [
+        531,
+        373,
+        900,
+        394
+      ],
+      "score": 0.9892828464508057
+    },
+    {
+      "text": "22. Y sus términos se extienden hasta el Thabor y Sehe-",
+      "box": [
+        76,
+        393,
+        432,
+        414
+      ],
+      "score": 0.9978258013725281
+    },
+    {
+      "text": "y así repartieron la tierra de Chanaan.",
+      "box": [
+        533,
+        395,
+        766,
+        409
+      ],
+      "score": 0.9848242402076721
+    },
+    {
+      "text": "sima, y Bethsames, y acaban en el Jordan: diez y seis ciuda-",
+      "box": [
+        64,
+        412,
+        431,
+        429
+      ],
+      "score": 0.9897217154502869
+    },
+    {
+      "text": "des con sus aldeas.",
+      "box": [
+        65,
+        429,
+        179,
+        446
+      ],
+      "score": 0.9999505281448364
+    },
+    {
+      "text": "CAPITULO XX",
+      "box": [
+        668,
+        424,
+        766,
+        438
+      ],
+      "score": 0.9992044568061829
+    },
+    {
+      "text": "23. Esta es la posesion de los hijos de Issachar, y las ciu-",
+      "box": [
+        76,
+        443,
+        431,
+        462
+      ],
+      "score": 0.9975290894508362
+    },
+    {
+      "text": "Señálanse las ciudades de asilo; y se declaran los privilegios de los",
+      "box": [
+        547,
+        448,
+        885,
+        468
+      ],
+      "score": 0.9980149269104004
+    },
+    {
+      "text": "dades y aldeas para sus familias.",
+      "box": [
+        65,
+        461,
+        260,
+        478
+      ],
+      "score": 0.9979193806648254
+    },
+    {
+      "text": "refugiados.",
+      "box": [
+        684,
+        465,
+        745,
+        482
+      ],
+      "score": 0.9846656918525696
+    },
+    {
+      "text": "24. La quinta suerte salió á la tribu de los hijos de Aser",
+      "box": [
+        77,
+        477,
+        431,
+        494
+      ],
+      "score": 0.9927380084991455
+    },
+    {
+      "text": "segun sus familias;",
+      "box": [
+        65,
+        496,
+        180,
+        510
+      ],
+      "score": 0.9989904165267944
+    },
+    {
+      "text": "1. Habló el Señor á Josué, y le dijo: Habla á los hijos de",
+      "box": [
+        544,
+        486,
+        901,
+        511
+      ],
+      "score": 0.9950062036514282
+    },
+    {
+      "text": "25. Y fueron sus términos Halcath, y Chali, y Beten, y",
+      "box": [
+        76,
+        510,
+        430,
+        528
+      ],
+      "score": 0.9904022812843323
+    },
+    {
+      "text": "Israél, y diles:",
+      "box": [
+        532,
+        508,
+        624,
+        526
+      ],
+      "score": 0.994122326374054
+    },
+    {
+      "text": "Axaph,",
+      "box": [
+        64,
+        528,
+        111,
+        546
+      ],
+      "score": 0.9999611973762512
+    },
+    {
+      "text": "2. Separad las ciudades para los que hayan de refugiarse,",
+      "box": [
+        544,
+        520,
+        898,
+        543
+      ],
+      "score": 0.9993455410003662
+    },
+    {
+      "text": "26. Y Elmelech, y Amaad, y Messal: y llegan hasta el Car-",
+      "box": [
+        75,
+        542,
+        432,
+        561
+      ],
+      "score": 0.9985801577568054
+    },
+    {
+      "text": "dé que os hablé por medio de Moysés:",
+      "box": [
+        531,
+        539,
+        763,
+        560
+      ],
+      "score": 0.9925882816314697
+    },
+    {
+      "text": "melo del mar 1, y á Sihor, y á Labanath;",
+      "box": [
+        63,
+        559,
+        309,
+        577
+      ],
+      "score": 0.9825254678726196
+    },
+    {
+      "text": "3. Para que sirvan de asilo á todo el quo matare á un",
+      "box": [
+        543,
+        551,
+        898,
+        576
+      ],
+      "score": 0.9730572700500488
+    },
+    {
+      "text": "27. Desde donde vuelven por el Oriente hácia Bethdagon;",
+      "box": [
+        76,
+        574,
+        431,
+        593
+      ],
+      "score": 0.9826322793960571
+    },
+    {
+      "text": "hombre sin querer; y pueda así evadir la cólera del que es",
+      "box": [
+        530,
+        569,
+        899,
+        593
+      ],
+      "score": 0.9870666861534119
+    },
+    {
+      "text": "y pasan por Zabulon, y el valle de Jephthael al Norte, hasta",
+      "box": [
+        63,
+        590,
+        431,
+        610
+      ],
+      "score": 0.9958399534225464
+    },
+    {
+      "text": "pariente cercano del muerto, y quiere vengar su sangre.",
+      "box": [
+        530,
+        586,
+        865,
+        609
+      ],
+      "score": 0.9791733026504517
+    },
+    {
+      "text": "Bethemec, y Nehiel;yse extienden por la izquierda hácia Cabul,",
+      "box": [
+        63,
+        606,
+        430,
+        626
+      ],
+      "score": 0.9828663468360901
+    },
+    {
+      "text": "4. Luego que se refugiare á una de estas ciudades, se",
+      "box": [
+        543,
+        600,
+        899,
+        625
+      ],
+      "score": 0.9960435628890991
+    },
+    {
+      "text": "28. Y Abran, y Rohob, y Hamon, y Canna, hasta Sidon la",
+      "box": [
+        76,
+        622,
+        430,
+        642
+      ],
+      "score": 0.9997546076774597
+    },
+    {
+      "text": "presentará en las puertas ó juzgado de la ciudad, y expondrá",
+      "box": [
+        529,
+        615,
+        900,
+        642
+      ],
+      "score": 0.9745970368385315
+    },
+    {
+      "text": "grande;",
+      "box": [
+        62,
+        640,
+        116,
+        660
+      ],
+      "score": 0.9994383454322815
+    },
+    {
+      "text": "á los ancianos de ella todo lo que pueda comprobar su ino-",
+      "box": [
+        530,
+        634,
+        898,
+        657
+      ],
+      "score": 0.9925415515899658
+    },
+    {
+      "text": "29. Y dan vuelta hácia Horma, hasta la ciudad fortísima",
+      "box": [
+        76,
+        654,
+        430,
+        675
+      ],
+      "score": 0.9912492036819458
+    },
+    {
+      "text": "cencia; y despues de esto le darán acogida y lugar donde",
+      "box": [
+        529,
+        649,
+        900,
+        674
+      ],
+      "score": 0.9991421699523926
+    },
+    {
+      "text": "de Tyro, y hasta Hosa; y acaban en el mar junto al territorio",
+      "box": [
+        64,
+        671,
+        430,
+        692
+      ],
+      "score": 0.9987940192222595
+    },
+    {
+      "text": "habite.",
+      "box": [
+        529,
+        669,
+        578,
+        689
+      ],
+      "score": 0.9997316598892212
+    },
+    {
+      "text": "de Achziba,",
+      "box": [
+        63,
+        691,
+        135,
+        708
+      ],
+      "score": 0.961601197719574
+    },
+    {
+      "text": "5. Y si el que quiere vengar la muerte viniere persiguién-",
+      "box": [
+        542,
+        681,
+        900,
+        706
+      ],
+      "score": 0.998971164226532
+    },
+    {
+      "text": "30. É incluyen á Amma, y Aphec, y Rohob: veinte y dos",
+      "box": [
+        76,
+        703,
+        429,
+        726
+      ],
+      "score": 0.9685714840888977
+    },
+    {
+      "text": "dole, no le entregarán entre sus manos: por cuanto no mató",
+      "box": [
+        529,
+        698,
+        900,
+        723
+      ],
+      "score": 0.9943494200706482
+    },
+    {
+      "text": "ciudades con sus aldeas .",
+      "box": [
+        64,
+        722,
+        218,
+        742
+      ],
+      "score": 0.9670237898826599
+    },
+    {
+      "text": "su prójimo á sabiendas, ni se prueba que hubiese sido dos",
+      "box": [
+        529,
+        715,
+        900,
+        739
+      ],
+      "score": 0.9986766576766968
+    },
+    {
+      "text": "31. Esta es la posesion de los hijos de Aser, y las ciudades",
+      "box": [
+        76,
+        736,
+        429,
+        758
+      ],
+      "score": 0.9967795014381409
+    },
+    {
+      "text": "ó tres dias atrás su enemigo.",
+      "box": [
+        532,
+        738,
+        702,
+        752
+      ],
+      "score": 0.9998104572296143
+    },
+    {
+      "text": "y sus aldeas segun sus familias.",
+      "box": [
+        62,
+        754,
+        254,
+        775
+      ],
+      "score": 0.9989256262779236
+    },
+    {
+      "text": "6. Así estará retirado en aquella ciudad hasta que com-",
+      "box": [
+        543,
+        750,
+        901,
+        769
+      ],
+      "score": 0.9993795156478882
+    },
+    {
+      "text": "32. La sexta suerte tocó á los hijos de Nephthalí, divididos",
+      "box": [
+        76,
+        768,
+        430,
+        790
+      ],
+      "score": 0.986711859703064
+    },
+    {
+      "text": "parezca en juicio para dar razon de su hecho, y despues",
+      "box": [
+        530,
+        766,
+        901,
+        786
+      ],
+      "score": 0.996394157409668
+    },
+    {
+      "text": "en sus familias:",
+      "box": [
+        64,
+        787,
+        163,
+        808
+      ],
+      "score": 0.999054491519928
+    },
+    {
+      "text": "hasta que muera el Sumo Sacerdote que á la sazon fuere.",
+      "box": [
+        530,
+        782,
+        900,
+        801
+      ],
+      "score": 0.9915025234222412
+    },
+    {
+      "text": "33 Y comienzan sus términos desde Heleph y Elon en",
+      "box": [
+        75,
+        799,
+        432,
+        823
+      ],
+      "score": 0.9949958920478821
+    },
+    {
+      "text": "Entonces podrá volver el homicida, y entrar en su patria y",
+      "box": [
+        531,
+        798,
+        900,
+        817
+      ],
+      "score": 0.9943949580192566
+    },
+    {
+      "text": "Saananim y Adami, por otro nombre Neceb, y desde Jebnael",
+      "box": [
+        63,
+        816,
+        431,
+        839
+      ],
+      "score": 0.9963269829750061
+    },
+    {
+      "text": "casa de donde habia huido.",
+      "box": [
+        530,
+        815,
+        693,
+        834
+      ],
+      "score": 0.9925311207771301
+    },
+    {
+      "text": "hasta Lecum, y acaban en el Jordan;",
+      "box": [
+        63,
+        833,
+        287,
+        855
+      ],
+      "score": 0.9976718425750732
+    },
+    {
+      "text": "7. Señalaron pues á Cedes en la Galilea sobre el monte",
+      "box": [
+        543,
+        829,
+        900,
+        850
+      ],
+      "score": 0.9862006902694702
+    },
+    {
+      "text": "34. Y vuelven los lindes por la parte del Occidente hácia",
+      "box": [
+        76,
+        848,
+        431,
+        871
+      ],
+      "score": 0.9999039769172668
+    },
+    {
+      "text": "de Nephthalí, y á Sichem en el monte de Ephraim, y en el",
+      "box": [
+        531,
+        846,
+        900,
+        867
+      ],
+      "score": 0.9877501726150513
+    },
+    {
+      "text": "Azanotthabor, y de allí salen á Hucuca, y pasan á Zabulon",
+      "box": [
+        64,
+        865,
+        431,
+        887
+      ],
+      "score": 0.9790008068084717
+    },
+    {
+      "text": "monte de Judá á Cariath-Arbe, por otro nombre Hebron.",
+      "box": [
+        531,
+        863,
+        872,
+        883
+      ],
+      "score": 0.9892013669013977
+    },
+    {
+      "text": "por el lado del Mediodía, y á Aser por el Poniente, y hácia",
+      "box": [
+        63,
+        881,
+        431,
+        904
+      ],
+      "score": 0.9860513210296631
+    },
+    {
+      "text": "8. Y de la otra párte del Jordan hácia el Oriente de Jeri-",
+      "box": [
+        542,
+        878,
+        901,
+        899
+      ],
+      "score": 0.9920703172683716
+    },
+    {
+      "text": "Judá por el lado del Jordan al Oriente.",
+      "box": [
+        63,
+        899,
+        300,
+        920
+      ],
+      "score": 0.9887991547584534
+    },
+    {
+      "text": "chó, destinaron á Bosor situada en la llanura del Desierto,",
+      "box": [
+        531,
+        896,
+        901,
+        915
+      ],
+      "score": 0.9981271028518677
+    },
+    {
+      "text": "35. Sus ciudades muy fuertes, son Assedim, y Ser, y",
+      "box": [
+        76,
+        915,
+        431,
+        935
+      ],
+      "score": 0.995490550994873
+    },
+    {
+      "text": "de la tribu de Ruben, y á Ramoth en Galaad, de la tribu de",
+      "box": [
+        530,
+        912,
+        901,
+        931
+      ],
+      "score": 0.9901471734046936
+    },
+    {
+      "text": "Emath, y Reccath, y Cenereth,",
+      "box": [
+        64,
+        932,
+        247,
+        952
+      ],
+      "score": 0.988972544670105
+    },
+    {
+      "text": "Gad, y á Gaulon en Basan, de la tribu de Manassés.",
+      "box": [
+        531,
+        929,
+        840,
+        947
+      ],
+      "score": 0.9874275326728821
+    },
+    {
+      "text": "36. Y Edema, y Arama, y Asor,",
+      "box": [
+        76,
+        948,
+        277,
+        968
+      ],
+      "score": 0.9712657332420349
+    },
+    {
+      "text": "9. Estas ciudades fueron señaladas para todos los hijos de",
+      "box": [
+        544,
+        945,
+        901,
+        962
+      ],
+      "score": 0.997719943523407
+    },
+    {
+      "text": "37. Y Cedes, y Edrai, y Enhasor,",
+      "box": [
+        76,
+        964,
+        281,
+        985
+      ],
+      "score": 0.9985569715499878
+    },
+    {
+      "text": "Israél'y para los forasteros que habitaban entre ellos, á fin",
+      "box": [
+        532,
+        962,
+        901,
+        979
+      ],
+      "score": 0.9955976605415344
+    },
+    {
+      "text": "38. Y Jeron, y Magdalel, Horem, y Bethanath, y Bethsa-",
+      "box": [
+        76,
+        978,
+        432,
+        1001
+      ],
+      "score": 0.9941498637199402
+    },
+    {
+      "text": "de que se retirase á ellas el que sin querer hubiese muerto",
+      "box": [
+        533,
+        980,
+        900,
+        994
+      ],
+      "score": 0.9996131658554077
+    },
+    {
+      "text": "mes: diez y nueve ciudades 3 con sus aldeas.",
+      "box": [
+        64,
+        996,
+        331,
+        1018
+      ],
+      "score": 0.9767383933067322
+    },
+    {
+      "text": "á un hombre, y así no muriese á manos del pariente ansioso",
+      "box": [
+        532,
+        995,
+        901,
+        1012
+      ],
+      "score": 0.9834720492362976
+    },
+    {
+      "text": "39. Esta es la posesion de la tribu de Nephthalí, sus ciu-",
+      "box": [
+        77,
+        1010,
+        432,
+        1035
+      ],
+      "score": 0.986446738243103
+    },
+    {
+      "text": "de vengar la sangre derramada, antes de presentarse aquel",
+      "box": [
+        532,
+        1011,
+        901,
+        1028
+      ],
+      "score": 0.9987407922744751
+    },
+    {
+      "text": "dades y aldeas para sus familias.",
+      "box": [
+        65,
+        1030,
+        262,
+        1050
+      ],
+      "score": 0.999408483505249
+    },
+    {
+      "text": "delante del juzgado del pueblo para defender su causa.",
+      "box": [
+        532,
+        1025,
+        861,
+        1045
+      ],
+      "score": 0.9954538941383362
+    },
+    {
+      "text": "40. A la tribu de Dan salió la séptima suerte para sus",
+      "box": [
+        77,
+        1044,
+        433,
+        1066
+      ],
+      "score": 0.9996142387390137
+    },
+    {
+      "text": "CAPITULO XXI",
+      "box": [
+        662,
+        1054,
+        765,
+        1068
+      ],
+      "score": 0.9995479583740234
+    },
+    {
+      "text": "familias:",
+      "box": [
+        66,
+        1066,
+        121,
+        1080
+      ],
+      "score": 0.9994794130325317
+    },
+    {
+      "text": "41. Y los lindes de su posesion fueron Sara y Esthaol, é",
+      "box": [
+        77,
+        1076,
+        434,
+        1098
+      ],
+      "score": 0.9992381930351257
+    },
+    {
+      "text": "Ciudades separadas para los Levitas. Los Israelitas viven en reposo.",
+      "box": [
+        544,
+        1079,
+        889,
+        1098
+      ],
+      "score": 0.9979011416435242
+    },
+    {
+      "text": "Hirsemes, esto es, Ciudad del Sol,",
+      "box": [
+        65,
+        1095,
+        268,
+        1115
+      ],
+      "score": 0.9985817074775696
+    },
+    {
+      "text": "42. Selebin, y Ayalon, y Jethela,",
+      "box": [
+        78,
+        1111,
+        281,
+        1131
+      ],
+      "score": 0.9876647591590881
+    },
+    {
+      "text": "1. Recurrieron los príncipes de las familias de Leví⁵ á",
+      "box": [
+        545,
+        1106,
+        901,
+        1123
+      ],
+      "score": 0.9887017011642456
+    },
+    {
+      "text": "43. Elon, y Themna, y Acron,",
+      "box": [
+        77,
+        1128,
+        265,
+        1147
+      ],
+      "score": 0.9558473229408264
+    },
+    {
+      "text": "Eleazar Sumo Sacerdote, y á Josué hijo de Nun, y á los cau-",
+      "box": [
+        533,
+        1123,
+        902,
+        1140
+      ],
+      "score": 0.986455500125885
+    },
+    {
+      "text": "44. Eltlhece, Gebbethon, y Balaath,",
+      "box": [
+        78,
+        1143,
+        295,
+        1163
+      ],
+      "score": 0.9662200808525085
+    },
+    {
+      "text": "dillos de las familias de cada tribu de los hijos de Israél;",
+      "box": [
+        534,
+        1139,
+        873,
+        1156
+      ],
+      "score": 0.9965890049934387
+    },
+    {
+      "text": "1 Habia otro Carmelo en la tribu de Judá.",
+      "box": [
+        75,
+        1178,
+        296,
+        1198
+      ],
+      "score": 0.9912360310554504
+    },
+    {
+      "text": "6 Componíase la tribu de Leví de tres grandes familias, que tomaban",
+      "box": [
+        544,
+        1177,
+        901,
+        1191
+      ],
+      "score": 0.9632557034492493
+    },
+    {
+      "text": "2 Algunas de las ciudades aquí nombradas solo se ponen para denotar",
+      "box": [
+        74,
+        1191,
+        434,
+        1212
+      ],
+      "score": 0.995535671710968
+    },
+    {
+      "text": "el nombre de los tres hijos de Leví, Caath, lerson, y Merari. Mas Aaron,",
+      "box": [
+        532,
+        1188,
+        903,
+        1207
+      ],
+      "score": 0.9875286817550659
+    },
+    {
+      "text": "los límites de la tribu de Aser en cuya frontera estaban; mas no porque",
+      "box": [
+        64,
+        1205,
+        434,
+        1225
+      ],
+      "score": 0.991298496723175
+    },
+    {
+      "text": "aunque descendia de Caath, formaba como una cuarta familia, que tenia",
+      "box": [
+        531,
+        1201,
+        904,
+        1221
+      ],
+      "score": 0.9661945700645447
+    },
+    {
+      "text": "perteneciesen á dicha tribu.",
+      "box": [
+        63,
+        1220,
+        209,
+        1240
+      ],
+      "score": 0.995108962059021
+    },
+    {
+      "text": "mayores prerogativas por razon del sacerdoció que le habia sido adjudi-",
+      "box": [
+        531,
+        1215,
+        904,
+        1234
+      ],
+      "score": 0.9830302000045776
+    },
+    {
+      "text": "3 No se nombran todas.",
+      "box": [
+        75,
+        1237,
+        202,
+        1251
+      ],
+      "score": 0.9971427321434021
+    },
+    {
+      "text": "cado. Y así vemos que el Señor dirigió las suertes de modo que á la fami-",
+      "box": [
+        532,
+        1230,
+        904,
+        1248
+      ],
+      "score": 0.9867091774940491
+    },
+    {
+      "text": "4 Se ve aquí la aluirable modestia y desinterés de Josué, que sola-",
+      "box": [
+        73,
+        1245,
+        434,
+        1266
+      ],
+      "score": 0.9970480799674988
+    },
+    {
+      "text": "lia de Aaron le tocara habitar en las tribus de Judá y de Benjamin, para",
+      "box": [
+        534,
+        1246,
+        904,
+        1260
+      ],
+      "score": 0.99894118309021
+    },
+    {
+      "text": "mente despues de haber repartido á todos su suerte, recibe el áltimo la",
+      "box": [
+        64,
+        1259,
+        435,
+        1280
+      ],
+      "score": 0.9916049838066101
+    },
+    {
+      "text": "que estuviesen mas cerca del templo que habia de edificarse algun día en",
+      "box": [
+        532,
+        1257,
+        905,
+        1276
+      ],
+      "score": 0.9957728981971741
+    },
+    {
+      "text": "suya; y tal, que parece que el mismo nombre de m  denota la es-",
+      "box": [
+        63,
+        1273,
+        435,
+        1295
+      ],
+      "score": 0.9705101251602173
+    },
+    {
+      "text": "Jerusalem.",
+      "box": [
+        534,
+        1274,
+        591,
+        1288
+      ],
+      "score": 0.9776920080184937
+    },
+    {
+      "text": "terilidad del terreno montuoso que escogió.",
+      "box": [
+        64,
+        1290,
+        285,
+        1307
+      ],
+      "score": 0.9932480454444885
+    }
+  ]
+}

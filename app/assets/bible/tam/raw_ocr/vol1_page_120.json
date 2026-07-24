@@ -1,0 +1,1497 @@
+{
+  "volume": 1,
+  "page_index": 120,
+  "pdf_page": 121,
+  "lines": [
+    {
+      "text": "137",
+      "box": [
+        10,
+        25,
+        37,
+        44
+      ],
+      "score": 0.9999682307243347
+    },
+    {
+      "text": "LEVITICO.",
+      "box": [
+        159,
+        29,
+        241,
+        49
+      ],
+      "score": 0.9996403455734253
+    },
+    {
+      "text": "CAPITULO IV.",
+      "box": [
+        642,
+        38,
+        747,
+        58
+      ],
+      "score": 0.9923527240753174
+    },
+    {
+      "text": "138",
+      "box": [
+        857,
+        38,
+        882,
+        55
+      ],
+      "score": 0.9998836517333984
+    },
+    {
+      "text": "horno1, han de ser panes sin levadura amasados con aceite,",
+      "box": [
+        0,
+        66,
+        399,
+        97
+      ],
+      "score": 0.9981461763381958
+    },
+    {
+      "text": "y lasañas tambien sin levadura untadas con aceite.",
+      "box": [
+        0,
+        85,
+        333,
+        111
+      ],
+      "score": 0.9960488677024841
+    },
+    {
+      "text": "11. Y el sacerdote ofrecerá todo esto sobre el altar para",
+      "box": [
+        514,
+        76,
+        891,
+        101
+      ],
+      "score": 0.9998981356620789
+    },
+    {
+      "text": "5. Si tu ofrenda fuere de cosa frita en sarten, será de flor",
+      "box": [
+        11,
+        102,
+        399,
+        131
+      ],
+      "score": 0.9916701912879944
+    },
+    {
+      "text": "cebo del fuego, y oblacion del Señor.",
+      "box": [
+        502,
+        94,
+        734,
+        115
+      ],
+      "score": 0.9986926913261414
+    },
+    {
+      "text": "de harina amasada con aceite, sin levadura,",
+      "box": [
+        0,
+        118,
+        288,
+        147
+      ],
+      "score": 0.993420422077179
+    },
+    {
+      "text": "12. Si su ofrenda fuere una cabra que ofreciere al Señor,",
+      "box": [
+        514,
+        109,
+        890,
+        136
+      ],
+      "score": 0.9966626167297363
+    },
+    {
+      "text": "6. Y la desmenuzarás, y echarás aceite sobre ella.",
+      "box": [
+        11,
+        136,
+        345,
+        165
+      ],
+      "score": 0.9982869625091553
+    },
+    {
+      "text": "13. Le pondrá la mano sobre la cabeza, y la inmolará en",
+      "box": [
+        514,
+        127,
+        890,
+        151
+      ],
+      "score": 0.9969086647033691
+    },
+    {
+      "text": "la entrada del Tabernáculo del Testimonio. Y los hijos de",
+      "box": [
+        499,
+        143,
+        889,
+        167
+      ],
+      "score": 0.997261106967926
+    },
+    {
+      "text": "7. Y si la ofrenda se hiciere de cosa cocida en parrillas ó",
+      "box": [
+        10,
+        155,
+        401,
+        181
+      ],
+      "score": 0.9796348214149475
+    },
+    {
+      "text": "Aaron verterán su sangre al rededor del altar;",
+      "box": [
+        501,
+        159,
+        794,
+        182
+      ],
+      "score": 0.9995267987251282
+    },
+    {
+      "text": "cazuela, estará igualmente la flor de harina amasada con",
+      "box": [
+        0,
+        172,
+        398,
+        198
+      ],
+      "score": 0.9882612824440002
+    },
+    {
+      "text": "14. Y tomarán de ella para cebo del fuego del Señor la",
+      "box": [
+        513,
+        176,
+        889,
+        199
+      ],
+      "score": 0.9932488203048706
+    },
+    {
+      "text": "aceite;",
+      "box": [
+        0,
+        189,
+        47,
+        211
+      ],
+      "score": 0.9930737614631653
+    },
+    {
+      "text": "gordura que cubre el vientre, y la que cubre todas las en-",
+      "box": [
+        498,
+        191,
+        891,
+        218
+      ],
+      "score": 0.9927472472190857
+    },
+    {
+      "text": "8. Y ofreciéndola al Señor, la pondrás en manos del sa-",
+      "box": [
+        6,
+        204,
+        399,
+        233
+      ],
+      "score": 0.9956833720207214
+    },
+    {
+      "text": "trañas;",
+      "box": [
+        498,
+        206,
+        552,
+        227
+      ],
+      "score": 0.9995296597480774
+    },
+    {
+      "text": "cerdote:",
+      "box": [
+        0,
+        222,
+        55,
+        243
+      ],
+      "score": 0.9998514652252197
+    },
+    {
+      "text": "15. Los dos riñones con la telilla que los cubre junto á los",
+      "box": [
+        513,
+        224,
+        889,
+        247
+      ],
+      "score": 0.9989214539527893
+    },
+    {
+      "text": "9. Quien despues de hecha la oferta al Señor, tomará",
+      "box": [
+        6,
+        240,
+        397,
+        262
+      ],
+      "score": 0.9932345747947693
+    },
+    {
+      "text": "ijares, y con los riñones la enjundia del hígado:",
+      "box": [
+        499,
+        240,
+        807,
+        262
+      ],
+      "score": 0.9924220442771912
+    },
+    {
+      "text": "parte de ella para memoria delante de Dios, y la quemará",
+      "box": [
+        0,
+        256,
+        397,
+        280
+      ],
+      "score": 0.9967054128646851
+    },
+    {
+      "text": "16. Todo lo cual ofrecerá el sacerdote sobre el altar para",
+      "box": [
+        511,
+        256,
+        889,
+        279
+      ],
+      "score": 0.9916368722915649
+    },
+    {
+      "text": "sobre el altar en olor suavísimo al Señor.",
+      "box": [
+        0,
+        273,
+        267,
+        296
+      ],
+      "score": 0.9839856028556824
+    },
+    {
+      "text": "nutrimento del fuego, y olor suavísimo. Toda grosura perte-",
+      "box": [
+        497,
+        272,
+        890,
+        296
+      ],
+      "score": 0.9980599880218506
+    },
+    {
+      "text": "10. El resto será de Aaron y de sus hijos; siendo como es",
+      "box": [
+        5,
+        288,
+        395,
+        312
+      ],
+      "score": 0.9880514740943909
+    },
+    {
+      "text": "necerá al Señor,",
+      "box": [
+        497,
+        288,
+        605,
+        307
+      ],
+      "score": 0.999089241027832
+    },
+    {
+      "text": "cosa santa y sagrada, por tomarse de las oblaciones del Señor.",
+      "box": [
+        0,
+        305,
+        395,
+        328
+      ],
+      "score": 0.991983950138092
+    },
+    {
+      "text": "17. Por ley perpétua en todas vuestras generaciones y en",
+      "box": [
+        511,
+        304,
+        889,
+        326
+      ],
+      "score": 0.9914122819900513
+    },
+    {
+      "text": "11. Toda ofrenda que se ofrece al Señor ha de ser sin le-",
+      "box": [
+        5,
+        321,
+        394,
+        344
+      ],
+      "score": 0.993598997592926
+    },
+    {
+      "text": "todas vuestras moradas: no comereis jamás ni sangre ni",
+      "box": [
+        498,
+        320,
+        890,
+        342
+      ],
+      "score": 0.9926872253417969
+    },
+    {
+      "text": "adura; ni se ha de quemar sobre el altar en sacrificio al",
+      "box": [
+        0,
+        337,
+        394,
+        359
+      ],
+      "score": 0.997765064239502
+    },
+    {
+      "text": "grasa.",
+      "box": [
+        498,
+        340,
+        539,
+        355
+      ],
+      "score": 0.9968196749687195
+    },
+    {
+      "text": "eñor cosa con levadura, ni con miel.",
+      "box": [
+        0,
+        354,
+        242,
+        374
+      ],
+      "score": 0.9989283084869385
+    },
+    {
+      "text": "CAPITULO IV",
+      "box": [
+        648,
+        356,
+        745,
+        370
+      ],
+      "score": 0.9981585144996643
+    },
+    {
+      "text": "12. De estas cosas solamente podeis ofrecer primicias y",
+      "box": [
+        1,
+        369,
+        393,
+        393
+      ],
+      "score": 0.986264705657959
+    },
+    {
+      "text": "resentes; mas no se pondrán sobre el altar en olor de sua-",
+      "box": [
+        0,
+        385,
+        393,
+        409
+      ],
+      "score": 0.9930571913719177
+    },
+    {
+      "text": "Rito para los sacrificios por los pecados del sacerdote, por los del prínci-",
+      "box": [
+        497,
+        379,
+        891,
+        402
+      ],
+      "score": 0.994803786277771
+    },
+    {
+      "text": "idad.",
+      "box": [
+        0,
+        403,
+        39,
+        421
+      ],
+      "score": 0.9999467730522156
+    },
+    {
+      "text": "pe, por los del pueblo, por los de un particular, cometidos por ignoran-",
+      "box": [
+        508,
+        395,
+        891,
+        416
+      ],
+      "score": 0.9975695013999939
+    },
+    {
+      "text": "13. Todo lo que ofrecieres en sacrificio, lo has de sazonar",
+      "box": [
+        0,
+        418,
+        393,
+        441
+      ],
+      "score": 0.992036759853363
+    },
+    {
+      "text": "cia culpable.",
+      "box": [
+        510,
+        410,
+        583,
+        424
+      ],
+      "score": 0.9996986985206604
+    },
+    {
+      "text": "on sal: ni faltará del sacrificio la sal de la alianza con Dios.",
+      "box": [
+        0,
+        435,
+        392,
+        456
+      ],
+      "score": 0.9891235828399658
+    },
+    {
+      "text": "1. Y habló el Señor á Moysés, diciendo:",
+      "box": [
+        511,
+        433,
+        784,
+        454
+      ],
+      "score": 0.9984968304634094
+    },
+    {
+      "text": "in todas tus ofrendas ofrecerás sal.",
+      "box": [
+        0,
+        452,
+        229,
+        473
+      ],
+      "score": 0.9861045479774475
+    },
+    {
+      "text": "2. Esto les dirás á los hijos de Israél: Cuando una perso-",
+      "box": [
+        509,
+        450,
+        891,
+        474
+      ],
+      "score": 0.9892469644546509
+    },
+    {
+      "text": "14. Pero cuando ofrecieres al Señor la oblacion ³ de las",
+      "box": [
+        1,
+        471,
+        390,
+        488
+      ],
+      "score": 0.9888272285461426
+    },
+    {
+      "text": "na pecare por ignorancia 7, haciendo alguna cosa de todas",
+      "box": [
+        495,
+        467,
+        892,
+        490
+      ],
+      "score": 0.9984042048454285
+    },
+    {
+      "text": "rimicias de tus mieses, de las espigas todavía verdes, las",
+      "box": [
+        0,
+        486,
+        391,
+        506
+      ],
+      "score": 0.9999204277992249
+    },
+    {
+      "text": "aquellas que mandó el Señor que no se hiciesen:",
+      "box": [
+        496,
+        484,
+        814,
+        505
+      ],
+      "score": 0.9993070960044861
+    },
+    {
+      "text": "as de tostar al fuego, y desmenuzar como se hace con el",
+      "box": [
+        0,
+        503,
+        391,
+        523
+      ],
+      "score": 0.9999574422836304
+    },
+    {
+      "text": "3. Si el que peca es el Sumo Sacerdote, que está ungido,",
+      "box": [
+        509,
+        500,
+        892,
+        524
+      ],
+      "score": 0.9997223615646362
+    },
+    {
+      "text": "rano; y ofrecerás así tus primicias al Señor,",
+      "box": [
+        0,
+        521,
+        285,
+        538
+      ],
+      "score": 0.9969133734703064
+    },
+    {
+      "text": "haciendo delinquir al pueblo, ofrecerá al Señor. por su pe-",
+      "box": [
+        496,
+        516,
+        892,
+        541
+      ],
+      "score": 0.9932079911231995
+    },
+    {
+      "text": "15. Derramando encima aceite y poniendo incienso, por",
+      "box": [
+        0,
+        536,
+        391,
+        557
+      ],
+      "score": 0.9986632466316223
+    },
+    {
+      "text": "cado un becerro sin tacha.",
+      "box": [
+        497,
+        533,
+        671,
+        553
+      ],
+      "score": 0.9973932504653931
+    },
+    {
+      "text": "er oblacion del Señor:",
+      "box": [
+        0,
+        554,
+        148,
+        571
+      ],
+      "score": 0.9999401569366455
+    },
+    {
+      "text": "4. Y lo traerá á la puerta del Tabernáculo del Testimo-",
+      "box": [
+        510,
+        549,
+        892,
+        572
+      ],
+      "score": 0.9792958498001099
+    },
+    {
+      "text": "16. De la cual el sacerdote quemará en memoria del don,",
+      "box": [
+        0,
+        567,
+        391,
+        589
+      ],
+      "score": 0.9869599938392639
+    },
+    {
+      "text": "nio, á la presencia del Señor, le pondrá la mano sobre la",
+      "box": [
+        496,
+        566,
+        893,
+        588
+      ],
+      "score": 0.9904416799545288
+    },
+    {
+      "text": "arte del grano desmenuzado, y del aceite, y todo el incienso.",
+      "box": [
+        0,
+        584,
+        391,
+        606
+      ],
+      "score": 0.9982900619506836
+    },
+    {
+      "text": "cabeza, y le sacrificará al Señor.",
+      "box": [
+        496,
+        582,
+        706,
+        601
+      ],
+      "score": 0.9952700138092041
+    },
+    {
+      "text": "5. Tomará tambien parte de su sangre, que meterá en el",
+      "box": [
+        509,
+        597,
+        893,
+        619
+      ],
+      "score": 0.9920151233673096
+    },
+    {
+      "text": "CAPITULO III",
+      "box": [
+        143,
+        616,
+        245,
+        636
+      ],
+      "score": 0.9991782307624817
+    },
+    {
+      "text": "Tabernáculo del Testimonio;",
+      "box": [
+        496,
+        614,
+        686,
+        632
+      ],
+      "score": 0.9992008209228516
+    },
+    {
+      "text": "6 Y habiendo mojado el dedo en la sangre, hará con ella",
+      "box": [
+        508,
+        628,
+        893,
+        651
+      ],
+      "score": 0.9992361068725586
+    },
+    {
+      "text": "e las hostias pacíficas ó sacrificios por los beneficios que se han recibido",
+      "box": [
+        0,
+        640,
+        390,
+        664
+      ],
+      "score": 0.9947307705879211
+    },
+    {
+      "text": "siete aspersiones en presencia del Señor, hácia el velo del",
+      "box": [
+        495,
+        645,
+        893,
+        667
+      ],
+      "score": 0.9975064992904663
+    },
+    {
+      "text": "del Señor, ó que se le piden. Toda grosura y sangre debe ofrecerse al",
+      "box": [
+        0,
+        655,
+        391,
+        680
+      ],
+      "score": 0.9985042810440063
+    },
+    {
+      "text": "Santuario.",
+      "box": [
+        495,
+        663,
+        565,
+        680
+      ],
+      "score": 0.9999634027481079
+    },
+    {
+      "text": "Señor.",
+      "box": [
+        0,
+        676,
+        43,
+        694
+      ],
+      "score": 0.9996030926704407
+    },
+    {
+      "text": "7. Y teñirá con la misma las puntas del altar de los per-",
+      "box": [
+        509,
+        677,
+        893,
+        700
+      ],
+      "score": 0.9998102784156799
+    },
+    {
+      "text": "fumes gratísimos al Señor, colocado en el Tabernáculo del",
+      "box": [
+        495,
+        693,
+        894,
+        718
+      ],
+      "score": 0.9995096325874329
+    },
+    {
+      "text": "1. Y si la oblacion fuere una hostia pacífica 4, y quisiere",
+      "box": [
+        0,
+        694,
+        391,
+        725
+      ],
+      "score": 0.9791776537895203
+    },
+    {
+      "text": "Testimonio; pero toda la sangre restante la verterá en la",
+      "box": [
+        495,
+        710,
+        895,
+        734
+      ],
+      "score": 0.9998962879180908
+    },
+    {
+      "text": "frecerla de ganado vacuno, presentará delante del Señor",
+      "box": [
+        0,
+        712,
+        391,
+        741
+      ],
+      "score": 0.9951494932174683
+    },
+    {
+      "text": "basa del altar de los holocaustos, á la entrada del Taber-",
+      "box": [
+        495,
+        726,
+        895,
+        751
+      ],
+      "score": 0.9937527775764465
+    },
+    {
+      "text": "n macho ó hembra, que no tengan defecto;",
+      "box": [
+        0,
+        731,
+        282,
+        757
+      ],
+      "score": 0.984600841999054
+    },
+    {
+      "text": "2. Y pondrá la mano sobre la cabeza de su víctima, la",
+      "box": [
+        0,
+        744,
+        390,
+        773
+      ],
+      "score": 0.9957774877548218
+    },
+    {
+      "text": "náculo.",
+      "box": [
+        496,
+        746,
+        546,
+        760
+      ],
+      "score": 0.963022768497467
+    },
+    {
+      "text": "8. Despues quitará el sebo del becerro sacrificado por el",
+      "box": [
+        508,
+        759,
+        895,
+        783
+      ],
+      "score": 0.9995799660682678
+    },
+    {
+      "text": "ual será degollada en la entrada del Tabernáculo del Testi-",
+      "box": [
+        0,
+        760,
+        390,
+        789
+      ],
+      "score": 0.993330717086792
+    },
+    {
+      "text": "pecado, tanto el que cubre las entrañas, como los demás",
+      "box": [
+        495,
+        776,
+        895,
+        801
+      ],
+      "score": 0.9766329526901245
+    },
+    {
+      "text": "onio, y los sacerdotes hijos de Aaron derramarán la sangre",
+      "box": [
+        0,
+        776,
+        391,
+        807
+      ],
+      "score": 0.9860316514968872
+    },
+    {
+      "text": "intestinos:",
+      "box": [
+        495,
+        793,
+        567,
+        811
+      ],
+      "score": 0.9999593496322632
+    },
+    {
+      "text": "rededor del altar;",
+      "box": [
+        0,
+        800,
+        126,
+        822
+      ],
+      "score": 0.9997581839561462
+    },
+    {
+      "text": "9. Los dos riñones y la telilla que está sobre ellos junto",
+      "box": [
+        509,
+        808,
+        894,
+        833
+      ],
+      "score": 0.9880650639533997
+    },
+    {
+      "text": "3. Y sacarán de la hostia pacífica para oblacion del Señor",
+      "box": [
+        0,
+        808,
+        390,
+        838
+      ],
+      "score": 0.992445170879364
+    },
+    {
+      "text": "á los ijares, y con los riñones la enjundia del hígado;",
+      "box": [
+        494,
+        826,
+        843,
+        848
+      ],
+      "score": 0.9975093007087708
+    },
+    {
+      "text": "sebo que cubre las entrañas y toda la grosura interior;",
+      "box": [
+        0,
+        828,
+        368,
+        853
+      ],
+      "score": 0.989996075630188
+    },
+    {
+      "text": "4. Los dos riñones & con el sebo que cubre los ijares, y",
+      "box": [
+        0,
+        844,
+        388,
+        869
+      ],
+      "score": 0.9701353907585144
+    },
+    {
+      "text": "10. De la manera que se quita del becerro ofrecido como",
+      "box": [
+        509,
+        842,
+        894,
+        866
+      ],
+      "score": 0.994358479976654
+    },
+    {
+      "text": "on los riñones la telilla del hígado:",
+      "box": [
+        0,
+        864,
+        226,
+        884
+      ],
+      "score": 0.9995607137680054
+    },
+    {
+      "text": "hostia pacífica: y lo quemará todo sobre el altar de los ho-",
+      "box": [
+        493,
+        859,
+        894,
+        882
+      ],
+      "score": 0.992791473865509
+    },
+    {
+      "text": "5. Y encendiendo la leña, quemarán todo esto como holo-",
+      "box": [
+        0,
+        876,
+        388,
+        901
+      ],
+      "score": 0.9911708235740662
+    },
+    {
+      "text": "locaustos.",
+      "box": [
+        495,
+        879,
+        561,
+        894
+      ],
+      "score": 0.9999831318855286
+    },
+    {
+      "text": "austo sobre el altar, para oblacion de olor suavísimo al",
+      "box": [
+        0,
+        893,
+        388,
+        917
+      ],
+      "score": 0.9960384368896484
+    },
+    {
+      "text": "11. Mas la piel, y todas las carnes con la cabeza, y los",
+      "box": [
+        508,
+        892,
+        894,
+        915
+      ],
+      "score": 0.9998251795768738
+    },
+    {
+      "text": "eñor.",
+      "box": [
+        0,
+        916,
+        35,
+        931
+      ],
+      "score": 0.9999232292175293
+    },
+    {
+      "text": "piés, é intestinos, y el excremento,",
+      "box": [
+        493,
+        910,
+        723,
+        929
+      ],
+      "score": 0.997567892074585
+    },
+    {
+      "text": "6. Pero si su oblacion y hostia pacífica fuere de ovejas,",
+      "box": [
+        0,
+        925,
+        387,
+        949
+      ],
+      "score": 0.995912492275238
+    },
+    {
+      "text": "12. Y lo restante del cuerpo, lo llevará fuera del campa-",
+      "box": [
+        508,
+        925,
+        894,
+        946
+      ],
+      "score": 0.9887884259223938
+    },
+    {
+      "text": "ra ofrezca macho, ora hembra, han de ser sin tacha.",
+      "box": [
+        0,
+        943,
+        334,
+        963
+      ],
+      "score": 0.9997653365135193
+    },
+    {
+      "text": "mento, á un lugar limpio, donde se suelen echar las cenizas",
+      "box": [
+        493,
+        942,
+        894,
+        962
+      ],
+      "score": 0.9839885234832764
+    },
+    {
+      "text": "7. Si ofreciere un cordero en la presencia del Señor,",
+      "box": [
+        0,
+        959,
+        350,
+        980
+      ],
+      "score": 0.9996216297149658
+    },
+    {
+      "text": "de las víctimas; y pondrá fuego á todas estas cosas, coloca-",
+      "box": [
+        494,
+        957,
+        895,
+        980
+      ],
+      "score": 0.9860993027687073
+    },
+    {
+      "text": "8. Pondrá su mano sobre la cabeza de su víctima; la cual",
+      "box": [
+        0,
+        975,
+        386,
+        996
+      ],
+      "score": 0.9963782429695129
+    },
+    {
+      "text": "das sobre un monton de leña, y serán consumidas en el ce-",
+      "box": [
+        493,
+        974,
+        894,
+        996
+      ],
+      "score": 0.9999193549156189
+    },
+    {
+      "text": "erá degollada á la entrada del Tabernáculo del Testimonio;",
+      "box": [
+        0,
+        992,
+        387,
+        1012
+      ],
+      "score": 0.9971982836723328
+    },
+    {
+      "text": "nicero.",
+      "box": [
+        494,
+        993,
+        541,
+        1008
+      ],
+      "score": 0.9998873472213745
+    },
+    {
+      "text": "los hijos de Aaron derramarán su sangre en torno del altar:",
+      "box": [
+        0,
+        1007,
+        388,
+        1029
+      ],
+      "score": 0.9995488524436951
+    },
+    {
+      "text": "13. Pero si todo el pueblo de Israél pecare por ignoran-",
+      "box": [
+        506,
+        1006,
+        894,
+        1029
+      ],
+      "score": 0.9966848492622375
+    },
+    {
+      "text": "9. Y de esta hostia pacífica ofrecerán en sacrificio al Se-",
+      "box": [
+        1,
+        1023,
+        388,
+        1045
+      ],
+      "score": 0.9862314462661743
+    },
+    {
+      "text": "cia, é hiciere por inadvertencia alguna cosa prohibida por",
+      "box": [
+        492,
+        1023,
+        894,
+        1046
+      ],
+      "score": 0.9987979531288147
+    },
+    {
+      "text": "ior la grosura, y la cola entera",
+      "box": [
+        0,
+        1042,
+        207,
+        1059
+      ],
+      "score": 0.9675524234771729
+    },
+    {
+      "text": "el Señor,",
+      "box": [
+        492,
+        1041,
+        553,
+        1058
+      ],
+      "score": 0.9999606013298035
+    },
+    {
+      "text": "10. Con los riñones, y el redaño que cubre el vientre y",
+      "box": [
+        3,
+        1057,
+        384,
+        1075
+      ],
+      "score": 0.9973349571228027
+    },
+    {
+      "text": "14. Y despues conociere su pecado, ofrecerá por el pe-",
+      "box": [
+        505,
+        1055,
+        892,
+        1079
+      ],
+      "score": 0.9947173595428467
+    },
+    {
+      "text": "odas las entrañas, y ambos riñones, con el sebo pegado á",
+      "box": [
+        0,
+        1074,
+        386,
+        1092
+      ],
+      "score": 0.9889407753944397
+    },
+    {
+      "text": "cado un becerro, que conducirá á la entrada del Taber-",
+      "box": [
+        491,
+        1073,
+        892,
+        1094
+      ],
+      "score": 0.9914820194244385
+    },
+    {
+      "text": "os ijares, y con los dos riñones la telilla del hígado:",
+      "box": [
+        0,
+        1090,
+        328,
+        1107
+      ],
+      "score": 0.9992460608482361
+    },
+    {
+      "text": "náculo.",
+      "box": [
+        490,
+        1090,
+        544,
+        1107
+      ],
+      "score": 0.9995259046554565
+    },
+    {
+      "text": "1 Esta es la segunda especie de ofertas de cosas de harina: de la tercera",
+      "box": [
+        0,
+        1117,
+        385,
+        1138
+      ],
+      "score": 0.9870179295539856
+    },
+    {
+      "text": " Quiso Moysés que ofreciesen á Dios la cola del cordero, por ser espt-",
+      "box": [
+        502,
+        1119,
+        890,
+        1142
+      ],
+      "score": 0.9850324392318726
+    },
+    {
+      "text": "e habla en el verso 7. Los dones ú ofertas solian tambien llamarse sacri-",
+      "box": [
+        0,
+        1131,
+        385,
+        1152
+      ],
+      "score": 0.9810169339179993
+    },
+    {
+      "text": "cialmente en la Syria de muy particular grosura y gusto.",
+      "box": [
+        491,
+        1133,
+        807,
+        1155
+      ],
+      "score": 0.9988769888877869
+    },
+    {
+      "text": "icios. La voz  es don, ú oferta.",
+      "box": [
+        0,
+        1145,
+        193,
+        1163
+      ],
+      "score": 0.9416954517364502
+    },
+    {
+      "text": " Se habla aquí de aquella ignorancia que es en algun modo culpable",
+      "box": [
+        500,
+        1147,
+        890,
+        1170
+      ],
+      "score": 0.9963821768760681
+    },
+    {
+      "text": "2 Véase Sal.",
+      "box": [
+        6,
+        1160,
+        80,
+        1174
+      ],
+      "score": 0.9750822186470032
+    },
+    {
+      "text": "3 Las de cebada se ofrecian por Pascua, las de pan de trigo por Pente-",
+      "box": [
+        5,
+        1171,
+        385,
+        1191
+      ],
+      "score": 0.9805759787559509
+    },
+    {
+      "text": "por negligencia, etc. Mas si alguno faltaba á la ley por malicia, y la culpa",
+      "box": [
+        489,
+        1163,
+        891,
+        1184
+      ],
+      "score": 0.9840242266654968
+    },
+    {
+      "text": "costes, y por las fiestas de los Tabernáculos las de todos los demás frutos:",
+      "box": [
+        0,
+        1185,
+        386,
+        1205
+      ],
+      "score": 0.9919989705085754
+    },
+    {
+      "text": "era pública, quedaba condenado, no á ofrecer sacrificio, sino á sufrir la",
+      "box": [
+        489,
+        1177,
+        891,
+        1198
+      ],
+      "score": 0.978937029838562
+    },
+    {
+      "text": "aquí se habla de las de cebada.",
+      "box": [
+        0,
+        1200,
+        164,
+        1214
+      ],
+      "score": 0.9800494909286499
+    },
+    {
+      "text": "pena impuesta por el juez. Pero estos sacrificios no tenian de suyo virtud",
+      "box": [
+        488,
+        1191,
+        890,
+        1211
+      ],
+      "score": 0.9968801140785217
+    },
+    {
+      "text": "4 Esto es, hostia ofrecida á Dios por cualquier beneficio recibido, óque",
+      "box": [
+        6,
+        1211,
+        385,
+        1231
+      ],
+      "score": 0.9925069808959961
+    },
+    {
+      "text": "para perdonar la culpa. La fe y caridad que los acompañaba eran lo que",
+      "box": [
+        488,
+        1204,
+        890,
+        1225
+      ],
+      "score": 0.9932637810707092
+    },
+    {
+      "text": "se deseaba recibir del Señor: pues los Hebreos con el nombre de pas en-",
+      "box": [
+        0,
+        1224,
+        384,
+        1245
+      ],
+      "score": 0.9854520559310913
+    },
+    {
+      "text": "expiaba la culpa delante de Dios, por la virtud del sacrificio de Christo,",
+      "box": [
+        488,
+        1217,
+        888,
+        1240
+      ],
+      "score": 0.9929556846618652
+    },
+    {
+      "text": "tienden toda especie de bienes.—Véase Paz.",
+      "box": [
+        0,
+        1240,
+        233,
+        1254
+      ],
+      "score": 0.9905721545219421
+    },
+    {
+      "text": "que mereció la santificacion á cuantos ó antes ó despues la recibieron ó",
+      "box": [
+        488,
+        1231,
+        888,
+        1253
+      ],
+      "score": 0.9703829884529114
+    },
+    {
+      "text": "6 Renes, en hebreo 2, desiderare: por creerse el lugar donde reside",
+      "box": [
+        7,
+        1252,
+        384,
+        1270
+      ],
+      "score": 0.9732558727264404
+    },
+    {
+      "text": "recibirán. Ep. ad Ileb. c. X.—Véase Ley.",
+      "box": [
+        488,
+        1243,
+        717,
+        1266
+      ],
+      "score": 0.9489371180534363
+    },
+    {
+      "text": "la concupiscencia.",
+      "box": [
+        0,
+        1267,
+        99,
+        1284
+      ],
+      "score": 0.9996432065963745
+    }
+  ]
+}

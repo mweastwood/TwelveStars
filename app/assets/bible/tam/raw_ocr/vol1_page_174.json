@@ -1,0 +1,27 @@
+{
+  "volume": 1,
+  "page_index": 174,
+  "pdf_page": 175,
+  "lines": [
+    {
+      "text": "H.PISAN",
+      "box": [
+        1186,
+        844,
+        1292,
+        869
+      ],
+      "score": 0.9813235998153687
+    },
+    {
+      "text": "MOYSÉS EXPUESTO EN EL NILO",
+      "box": [
+        562,
+        895,
+        863,
+        922
+      ],
+      "score": 0.9998657703399658
+    }
+  ]
+}

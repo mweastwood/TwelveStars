@@ -1,0 +1,3537 @@
+{
+  "volume": 2,
+  "page_index": 331,
+  "pdf_page": 332,
+  "lines": [
+    {
+      "text": "PARALIPOMENON",
+      "box": [
+        318,
+        25,
+        1095,
+        106
+      ],
+      "score": 0.9997686147689819
+    },
+    {
+      "text": "LIBER I",
+      "box": [
+        633,
+        159,
+        762,
+        190
+      ],
+      "score": 0.9339094161987305
+    },
+    {
+      "text": "16. Quorum sorores fuerunt, Sarvia et Abigail. Filii Sarviæ:",
+      "box": [
+        493,
+        269,
+        918,
+        293
+      ],
+      "score": 0.9908528923988342
+    },
+    {
+      "text": "Iius Raphaia: hujus quoque filius, Arnan, de quo natus Obdia,",
+      "box": [
+        932,
+        265,
+        1383,
+        288
+      ],
+      "score": 0.9714381694793701
+    },
+    {
+      "text": "CAPUT PRIMUM",
+      "box": [
+        185,
+        274,
+        318,
+        296
+      ],
+      "score": 0.9998311996459961
+    },
+    {
+      "text": "Abisai, Joab et Asael, tres.",
+      "box": [
+        481,
+        289,
+        667,
+        308
+      ],
+      "score": 0.9984909892082214
+    },
+    {
+      "text": "cujus filius fuit Sechenias.",
+      "box": [
+        932,
+        282,
+        1128,
+        304
+      ],
+      "score": 0.9698765873908997
+    },
+    {
+      "text": "17. Abigail autem genuit Amasa, cnjus pater fuit Jether Is-",
+      "box": [
+        492,
+        302,
+        917,
+        326
+      ],
+      "score": 0.9794425964355469
+    },
+    {
+      "text": "22. Filius Secheniæ, Semeia: cujus filii, Hattus, et Jegaal,",
+      "box": [
+        946,
+        296,
+        1383,
+        319
+      ],
+      "score": 0.9750262498855591
+    },
+    {
+      "text": "1.",
+      "box": [
+        49,
+        312,
+        69,
+        329
+      ],
+      "score": 0.9948713779449463
+    },
+    {
+      "text": "Adam, Seth, Enos,",
+      "box": [
+        72,
+        310,
+        208,
+        327
+      ],
+      "score": 0.9782500267028809
+    },
+    {
+      "text": "mahelites.",
+      "box": [
+        479,
+        323,
+        552,
+        340
+      ],
+      "score": 0.9999572038650513
+    },
+    {
+      "text": "et Baria, et Naaria, et Saphat, sex numero.",
+      "box": [
+        932,
+        315,
+        1253,
+        335
+      ],
+      "score": 0.993488073348999
+    },
+    {
+      "text": "2.",
+      "box": [
+        49,
+        327,
+        70,
+        345
+      ],
+      "score": 0.9771159291267395
+    },
+    {
+      "text": "Cainan, Malaleel, Jared,",
+      "box": [
+        67,
+        328,
+        247,
+        345
+      ],
+      "score": 0.9959046244621277
+    },
+    {
+      "text": "18. Caleb vero filius Hesron accepit uxorem nomine Azuba,",
+      "box": [
+        492,
+        334,
+        916,
+        357
+      ],
+      "score": 0.9893087148666382
+    },
+    {
+      "text": "23. Filius Naariæ, Elioenai, et Ezechias, et Ezricam, tres.",
+      "box": [
+        945,
+        328,
+        1382,
+        351
+      ],
+      "score": 0.9839890003204346
+    },
+    {
+      "text": "3. Henoch, Mathusale, Lamech,",
+      "box": [
+        47,
+        342,
+        280,
+        363
+      ],
+      "score": 0.9787449240684509
+    },
+    {
+      "text": "de qua genuit Jerioth: fueruntque filii ejus Jaser, et Sobab, et",
+      "box": [
+        479,
+        353,
+        916,
+        372
+      ],
+      "score": 0.9974080324172974
+    },
+    {
+      "text": "24. Filii Elioenai, Odvia, et Eliasub, et Pheleia, et Accub, et",
+      "box": [
+        945,
+        344,
+        1383,
+        367
+      ],
+      "score": 0.9860813021659851
+    },
+    {
+      "text": "4. Noe, Sem, Cham, et Japheth.",
+      "box": [
+        48,
+        357,
+        283,
+        379
+      ],
+      "score": 0.9967880845069885
+    },
+    {
+      "text": "Ardon.",
+      "box": [
+        480,
+        370,
+        532,
+        386
+      ],
+      "score": 0.9999526143074036
+    },
+    {
+      "text": "Johanan, et Dalaia, et Anani, septem.",
+      "box": [
+        930,
+        361,
+        1216,
+        384
+      ],
+      "score": 0.9914580583572388
+    },
+    {
+      "text": "5. Filii Japheth: Gomer, et Magog, et Madai, et Javan,",
+      "box": [
+        48,
+        370,
+        464,
+        395
+      ],
+      "score": 0.9837582111358643
+    },
+    {
+      "text": "Thubal, Mosoch, Thiras.",
+      "box": [
+        35,
+        392,
+        206,
+        409
+      ],
+      "score": 0.9969455599784851
+    },
+    {
+      "text": "19. Cumque mortua fnisset Azuba, accepit uxorem Caleb,",
+      "box": [
+        491,
+        382,
+        914,
+        403
+      ],
+      "score": 0.9985291957855225
+    },
+    {
+      "text": "Ephrata: qua peperit ei Hur.",
+      "box": [
+        478,
+        399,
+        681,
+        419
+      ],
+      "score": 0.9795191884040833
+    },
+    {
+      "text": "CAPUT IV",
+      "box": [
+        1117,
+        390,
+        1208,
+        408
+      ],
+      "score": 0.9894900918006897
+    },
+    {
+      "text": "6. Porro filii Gomer: Ascenez, et Riphath, et Thogorma.",
+      "box": [
+        48,
+        401,
+        441,
+        427
+      ],
+      "score": 0.992607593536377
+    },
+    {
+      "text": "7. Filii autem Javan: Elisa et Tharsis, Cethim et Dodanim.",
+      "box": [
+        48,
+        416,
+        463,
+        442
+      ],
+      "score": 0.9924653172492981
+    },
+    {
+      "text": "20. Porro Hur genuit Uri: et Uri genuit Bezeleel.",
+      "box": [
+        491,
+        411,
+        848,
+        434
+      ],
+      "score": 0.984473466873169
+    },
+    {
+      "text": "21. Post hæc ingressus est Hesron ad filiam Machir patris",
+      "box": [
+        492,
+        427,
+        913,
+        449
+      ],
+      "score": 0.9937202334403992
+    },
+    {
+      "text": "1. Filii Juda: Phares, Hesron, et Charmi, et Hur, et Sobal.",
+      "box": [
+        942,
+        416,
+        1382,
+        443
+      ],
+      "score": 0.9758554100990295
+    },
+    {
+      "text": "8. Filii Cham: Chus, et Mesraim, et Phut, et Chanaan.",
+      "box": [
+        48,
+        433,
+        434,
+        458
+      ],
+      "score": 0.9848937392234802
+    },
+    {
+      "text": "Galaad, et accepit eam cum esset annorum sexaginta: qua pe-",
+      "box": [
+        476,
+        443,
+        914,
+        465
+      ],
+      "score": 0.9867070913314819
+    },
+    {
+      "text": "2. Raia vero filius Sobal genuit Jahath, de quo nati sunt",
+      "box": [
+        942,
+        432,
+        1383,
+        459
+      ],
+      "score": 0.9883814454078674
+    },
+    {
+      "text": "9. Filii autem Chus: Saba, et Hevila, Sabatha, et Regma, et",
+      "box": [
+        48,
+        446,
+        464,
+        475
+      ],
+      "score": 0.9731662273406982
+    },
+    {
+      "text": "perit ei Segub.",
+      "box": [
+        476,
+        461,
+        580,
+        480
+      ],
+      "score": 0.9960553050041199
+    },
+    {
+      "text": "Ahumai et Laad ; he cognationes Sarathi.",
+      "box": [
+        929,
+        451,
+        1241,
+        473
+      ],
+      "score": 0.9781314134597778
+    },
+    {
+      "text": "Sabathacha. Porro filii Regma: Saba, et Dadan.",
+      "box": [
+        33,
+        466,
+        358,
+        487
+      ],
+      "score": 0.997700572013855
+    },
+    {
+      "text": "22. Sed et Segnb genuit Jair, et possedit viginti tres civita-",
+      "box": [
+        489,
+        471,
+        913,
+        497
+      ],
+      "score": 0.9892481565475464
+    },
+    {
+      "text": "3. Ista quoque stirps Etam: Jezrahel, et Jesema, et Jede-",
+      "box": [
+        941,
+        461,
+        1383,
+        491
+      ],
+      "score": 0.9887784123420715
+    },
+    {
+      "text": "10. Chus autem genuit Nemrod; iste cœpit esse potens in",
+      "box": [
+        47,
+        477,
+        464,
+        505
+      ],
+      "score": 0.9859411120414734
+    },
+    {
+      "text": "tes in terra Galaad.",
+      "box": [
+        477,
+        493,
+        612,
+        510
+      ],
+      "score": 0.9985867738723755
+    },
+    {
+      "text": "bos. Nomen quoque sororis eorum, Asalelphuni.",
+      "box": [
+        928,
+        480,
+        1289,
+        505
+      ],
+      "score": 0.9921045899391174
+    },
+    {
+      "text": "terra.",
+      "box": [
+        34,
+        502,
+        77,
+        518
+      ],
+      "score": 0.9978430867195129
+    },
+    {
+      "text": "23. Cepitque Gessur, et Aram, oppida Jair, et Canath, et",
+      "box": [
+        489,
+        500,
+        913,
+        528
+      ],
+      "score": 0.9923526048660278
+    },
+    {
+      "text": "4. Phanuel autem pater Gedor, et Ezer pater Hosa; isti sunt",
+      "box": [
+        940,
+        490,
+        1383,
+        523
+      ],
+      "score": 0.9903194904327393
+    },
+    {
+      "text": "11. Mesraim vero genuit Ludim, et Anamim, et Laabim, et",
+      "box": [
+        47,
+        507,
+        464,
+        536
+      ],
+      "score": 0.9807693362236023
+    },
+    {
+      "text": "viculos ejus sexaginta civitatum: omnes isti, filii Machir patris",
+      "box": [
+        475,
+        517,
+        914,
+        544
+      ],
+      "score": 0.9847899079322815
+    },
+    {
+      "text": "filii Hur primogeniti Ephratha patris Bethlehem.",
+      "box": [
+        927,
+        511,
+        1298,
+        536
+      ],
+      "score": 0.9855046272277832
+    },
+    {
+      "text": "Nephthuim,",
+      "box": [
+        33,
+        532,
+        123,
+        549
+      ],
+      "score": 0.9999876022338867
+    },
+    {
+      "text": "5. Assur vero patri Thecuæ erant due uxores, Halaa, et",
+      "box": [
+        940,
+        520,
+        1383,
+        557
+      ],
+      "score": 0.8502078652381897
+    },
+    {
+      "text": "12. Phetrusim quoque et Casluim, de quibus egressi sunt",
+      "box": [
+        45,
+        539,
+        464,
+        569
+      ],
+      "score": 0.989086925983429
+    },
+    {
+      "text": "Galaad.",
+      "box": [
+        477,
+        540,
+        534,
+        558
+      ],
+      "score": 0.9999443888664246
+    },
+    {
+      "text": "24. Cum autem mortuus esset Hesron, ingressus est Caleb",
+      "box": [
+        489,
+        547,
+        914,
+        574
+      ],
+      "score": 0.9985325336456299
+    },
+    {
+      "text": "Naara.",
+      "box": [
+        927,
+        546,
+        982,
+        568
+      ],
+      "score": 0.9997992515563965
+    },
+    {
+      "text": "Philisthiim, et Caphtorim.",
+      "box": [
+        32,
+        564,
+        218,
+        581
+      ],
+      "score": 0.9984467029571533
+    },
+    {
+      "text": "6. Peperit autem ei Naara, Oozam, et Hepher, et Themani,",
+      "box": [
+        941,
+        553,
+        1383,
+        586
+      ],
+      "score": 0.9866628646850586
+    },
+    {
+      "text": "13. Chanaan vero genuit Sidonem primogenitum suum, He-",
+      "box": [
+        43,
+        572,
+        463,
+        601
+      ],
+      "score": 0.9970962405204773
+    },
+    {
+      "text": "ad Ephrata. Habuit quoque Hesron uxorem Abia, quæ peperit",
+      "box": [
+        475,
+        565,
+        914,
+        591
+      ],
+      "score": 0.9921494126319885
+    },
+    {
+      "text": "et Ahasthari; isti sunt filii Naara.",
+      "box": [
+        928,
+        578,
+        1187,
+        597
+      ],
+      "score": 0.9945783615112305
+    },
+    {
+      "text": "theum quoque,",
+      "box": [
+        30,
+        595,
+        144,
+        612
+      ],
+      "score": 0.9780623912811279
+    },
+    {
+      "text": "ei Assur patrem Thecuæ.",
+      "box": [
+        476,
+        586,
+        650,
+        606
+      ],
+      "score": 0.9707014560699463
+    },
+    {
+      "text": "25. Nati sunt autem filii Jerameel primogeniti Hesron,",
+      "box": [
+        489,
+        593,
+        913,
+        623
+      ],
+      "score": 0.9883648157119751
+    },
+    {
+      "text": "7. Porro filii Halaa, Sereth, Isaar et Ethnan.",
+      "box": [
+        943,
+        589,
+        1291,
+        613
+      ],
+      "score": 0.9865142107009888
+    },
+    {
+      "text": "14. Et Jebusæum, et Amorrhæum, et Gergesæum,",
+      "box": [
+        42,
+        608,
+        398,
+        629
+      ],
+      "score": 0.9580237865447998
+    },
+    {
+      "text": "8. Cos autem genuit Anob, et Soboba, et cognationem Aha-",
+      "box": [
+        941,
+        600,
+        1383,
+        632
+      ],
+      "score": 0.9790935516357422
+    },
+    {
+      "text": "15. Hevæumque et Araceum, et Sineum;",
+      "box": [
+        41,
+        623,
+        345,
+        645
+      ],
+      "score": 0.92587810754776
+    },
+    {
+      "text": "Ram primogenitus ejus, et Buna, et Aram, et Asom, et Achia.",
+      "box": [
+        475,
+        610,
+        914,
+        639
+      ],
+      "score": 0.9991675019264221
+    },
+    {
+      "text": "26. Duxit quoque uxorem alteram Jerameel, nomine Ata-",
+      "box": [
+        489,
+        626,
+        914,
+        655
+      ],
+      "score": 0.9907073974609375
+    },
+    {
+      "text": "rehel filii Arum.",
+      "box": [
+        929,
+        626,
+        1054,
+        643
+      ],
+      "score": 0.997710645198822
+    },
+    {
+      "text": "16. Aradium quoque, et Samaræum, et Hamathæum.",
+      "box": [
+        41,
+        638,
+        419,
+        660
+      ],
+      "score": 0.9697273969650269
+    },
+    {
+      "text": "9. Fuit autem Jabes inclytus pre fratribus suis, et mater",
+      "box": [
+        942,
+        630,
+        1383,
+        662
+      ],
+      "score": 0.9946175813674927
+    },
+    {
+      "text": "17. Filii Sem: Elam, et Assur, et Arphaxad, et Lud, et",
+      "box": [
+        41,
+        653,
+        463,
+        676
+      ],
+      "score": 0.9821872711181641
+    },
+    {
+      "text": "ra, quæ fuit mater Onam.",
+      "box": [
+        474,
+        649,
+        654,
+        670
+      ],
+      "score": 0.9752522110939026
+    },
+    {
+      "text": "27. Sed et filii Ram primogeniti Jerameel, fuerunt Moos,",
+      "box": [
+        488,
+        657,
+        914,
+        685
+      ],
+      "score": 0.9748662710189819
+    },
+    {
+      "text": "ejus vocavit nomen illius Jabes, dicens: Quia peperi eum in",
+      "box": [
+        927,
+        646,
+        1383,
+        679
+      ],
+      "score": 0.9640071392059326
+    },
+    {
+      "text": "Aram, et Hus, et Hul, et Gether, et Mosoch.",
+      "box": [
+        25,
+        670,
+        343,
+        691
+      ],
+      "score": 0.9792619943618774
+    },
+    {
+      "text": "Jamin et Achar.",
+      "box": [
+        475,
+        680,
+        591,
+        699
+      ],
+      "score": 0.9998878240585327
+    },
+    {
+      "text": "dolore.",
+      "box": [
+        931,
+        673,
+        984,
+        690
+      ],
+      "score": 0.9993903040885925
+    },
+    {
+      "text": "18. Arphaxad autem genuit Sale, qui et ipse genuit Heber.",
+      "box": [
+        40,
+        683,
+        461,
+        707
+      ],
+      "score": 0.9805852770805359
+    },
+    {
+      "text": "28. Onam autem habuit filios, Semei, et Jada. Filii autem",
+      "box": [
+        488,
+        688,
+        916,
+        715
+      ],
+      "score": 0.993291437625885
+    },
+    {
+      "text": "10. Invocavit vero Jabes Deum Israel, dicens: Si benedi",
+      "box": [
+        942,
+        675,
+        1383,
+        710
+      ],
+      "score": 0.9924472570419312
+    },
+    {
+      "text": "19. Porro Heber nati sunt duo filii, nomen uni Phaleg, quia",
+      "box": [
+        41,
+        700,
+        461,
+        721
+      ],
+      "score": 0.9828097820281982
+    },
+    {
+      "text": "cens benedixeris mihi, et dilataveris terminos meos, et fuerit",
+      "box": [
+        930,
+        692,
+        1383,
+        725
+      ],
+      "score": 0.9856588840484619
+    },
+    {
+      "text": "in diebus ejus divisa est terra; et nomen fratris ejus Jectan.",
+      "box": [
+        24,
+        716,
+        436,
+        737
+      ],
+      "score": 0.9992634654045105
+    },
+    {
+      "text": "Semei: Nadab, et Abisur.",
+      "box": [
+        475,
+        710,
+        655,
+        730
+      ],
+      "score": 0.9857292771339417
+    },
+    {
+      "text": "29. Nomen vero uxoris Abisur, Abihail, quæ peperit ei",
+      "box": [
+        488,
+        719,
+        918,
+        747
+      ],
+      "score": 0.9928600192070007
+    },
+    {
+      "text": "manus tua mecum, et feceris me a malitia non opprimi. Et pras-",
+      "box": [
+        930,
+        708,
+        1383,
+        742
+      ],
+      "score": 0.9757421612739563
+    },
+    {
+      "text": "20. Jectan autem genuit Elmodad, et Saleph, et Asarmoth,",
+      "box": [
+        40,
+        729,
+        460,
+        755
+      ],
+      "score": 0.9992629289627075
+    },
+    {
+      "text": "Ahobban, et Molid.",
+      "box": [
+        475,
+        742,
+        613,
+        761
+      ],
+      "score": 0.9999212622642517
+    },
+    {
+      "text": "titit Deus quæ precatus est.",
+      "box": [
+        933,
+        733,
+        1141,
+        753
+      ],
+      "score": 0.997175395488739
+    },
+    {
+      "text": "et Jare,",
+      "box": [
+        24,
+        752,
+        86,
+        770
+      ],
+      "score": 0.999879777431488
+    },
+    {
+      "text": "30. Filii autem Nadab fuerunt Saled, et Apphaim. Mortuus",
+      "box": [
+        488,
+        750,
+        918,
+        778
+      ],
+      "score": 0.9909954071044922
+    },
+    {
+      "text": "11. Caleb autem frater Sua genuit Mahir, qui fuit pater",
+      "box": [
+        944,
+        738,
+        1383,
+        773
+      ],
+      "score": 0.9956703782081604
+    },
+    {
+      "text": "21.",
+      "box": [
+        41,
+        768,
+        86,
+        786
+      ],
+      "score": 0.9963498115539551
+    },
+    {
+      "text": "Adoram quoque, et Huzal, et Decla,",
+      "box": [
+        77,
+        764,
+        329,
+        785
+      ],
+      "score": 0.9976118803024292
+    },
+    {
+      "text": "est autem Saled absque liberis.",
+      "box": [
+        475,
+        772,
+        692,
+        793
+      ],
+      "score": 0.9997855424880981
+    },
+    {
+      "text": "Esthon.",
+      "box": [
+        933,
+        767,
+        994,
+        784
+      ],
+      "score": 0.9999844431877136
+    },
+    {
+      "text": "22.",
+      "box": [
+        41,
+        783,
+        71,
+        802
+      ],
+      "score": 0.9930260181427002
+    },
+    {
+      "text": "Hebal etiam, et Abimael, et Saba, necnon",
+      "box": [
+        79,
+        779,
+        371,
+        800
+      ],
+      "score": 0.9971254467964172
+    },
+    {
+      "text": "31. Filius vero Apphaim, Jesi: qui Jesi genuit Sesan. Porro",
+      "box": [
+        488,
+        783,
+        918,
+        810
+      ],
+      "score": 0.9911972880363464
+    },
+    {
+      "text": "12. Porro Esthon genuit Bethrapha, et Phesse, et Tehinna",
+      "box": [
+        945,
+        768,
+        1383,
+        806
+      ],
+      "score": 0.9975847005844116
+    },
+    {
+      "text": "23.",
+      "box": [
+        43,
+        800,
+        70,
+        818
+      ],
+      "score": 0.9966459274291992
+    },
+    {
+      "text": "Et Ophir, et Hevila, et Jobab: omnes isti filii Jectan.",
+      "box": [
+        79,
+        793,
+        444,
+        816
+      ],
+      "score": 0.9885673522949219
+    },
+    {
+      "text": "Sesan gennit Oholai.",
+      "box": [
+        475,
+        804,
+        619,
+        824
+      ],
+      "score": 0.9989945292472839
+    },
+    {
+      "text": "patrem urbis Naas: hi sunt viri Recha.",
+      "box": [
+        932,
+        791,
+        1226,
+        819
+      ],
+      "score": 0.9962852001190186
+    },
+    {
+      "text": "24.",
+      "box": [
+        43,
+        816,
+        69,
+        832
+      ],
+      "score": 0.9997742772102356
+    },
+    {
+      "text": "Sem, Arphaxad, Sale,",
+      "box": [
+        79,
+        813,
+        238,
+        833
+      ],
+      "score": 0.9739862680435181
+    },
+    {
+      "text": "32. Filii autem Jada fratris Semei: Jether, et Jonathan.",
+      "box": [
+        488,
+        814,
+        918,
+        841
+      ],
+      "score": 0.9902727007865906
+    },
+    {
+      "text": "18. Filii autem Cenez, Othoniel, et Saraia. Porro filii Otho",
+      "box": [
+        945,
+        798,
+        1383,
+        838
+      ],
+      "score": 0.9648000001907349
+    },
+    {
+      "text": "25.",
+      "box": [
+        43,
+        832,
+        69,
+        848
+      ],
+      "score": 0.9992914199829102
+    },
+    {
+      "text": "Heber, Phaleg, Ragau,",
+      "box": [
+        79,
+        829,
+        243,
+        849
+      ],
+      "score": 0.9987546801567078
+    },
+    {
+      "text": "Sed et Jether mortuus est absque liberis.",
+      "box": [
+        476,
+        835,
+        760,
+        855
+      ],
+      "score": 0.9812421202659607
+    },
+    {
+      "text": "niel, Hathath, et Maonathi.",
+      "box": [
+        934,
+        825,
+        1143,
+        849
+      ],
+      "score": 0.9993450045585632
+    },
+    {
+      "text": "26.",
+      "box": [
+        42,
+        846,
+        71,
+        866
+      ],
+      "score": 0.9997593760490417
+    },
+    {
+      "text": "Serug, Nachor, Thare,",
+      "box": [
+        78,
+        844,
+        240,
+        865
+      ],
+      "score": 0.9692519903182983
+    },
+    {
+      "text": "33. Porro Jonathan genuit Phaleth, et Ziza. Isti fuerunt",
+      "box": [
+        488,
+        846,
+        920,
+        873
+      ],
+      "score": 0.9848500490188599
+    },
+    {
+      "text": "14. Maonathi genuit Ophra; Saraia autem genuit Joab pa",
+      "box": [
+        946,
+        829,
+        1383,
+        869
+      ],
+      "score": 0.9821460843086243
+    },
+    {
+      "text": "27.",
+      "box": [
+        42,
+        864,
+        70,
+        880
+      ],
+      "score": 0.994117796421051
+    },
+    {
+      "text": "Abram, iste est Abraham.",
+      "box": [
+        80,
+        858,
+        265,
+        880
+      ],
+      "score": 0.9916744828224182
+    },
+    {
+      "text": "filii Jerameel.",
+      "box": [
+        476,
+        869,
+        573,
+        886
+      ],
+      "score": 0.9832064509391785
+    },
+    {
+      "text": "trem Vallis artificum : ibi quippe artifices erant.",
+      "box": [
+        933,
+        851,
+        1294,
+        881
+      ],
+      "score": 0.988634467124939
+    },
+    {
+      "text": "28.",
+      "box": [
+        43,
+        878,
+        78,
+        896
+      ],
+      "score": 0.9950103163719177
+    },
+    {
+      "text": "Filii autem Abraham, Isaac, et Ismahel.",
+      "box": [
+        79,
+        871,
+        356,
+        896
+      ],
+      "score": 0.997888445854187
+    },
+    {
+      "text": "34. Sesan autem non habuit filios, sed filias, et servum",
+      "box": [
+        488,
+        878,
+        919,
+        903
+      ],
+      "score": 0.9953633546829224
+    },
+    {
+      "text": "15. Filii vero Caleb fili Jephone: Hir, et Ela, et Naham",
+      "box": [
+        945,
+        859,
+        1383,
+        900
+      ],
+      "score": 0.9669132232666016
+    },
+    {
+      "text": "29. Et he generationes eorum. Primogenitus Ismahelis, Na-",
+      "box": [
+        42,
+        884,
+        462,
+        913
+      ],
+      "score": 0.9739413261413574
+    },
+    {
+      "text": "Egyptium nomine Jeraa.",
+      "box": [
+        478,
+        900,
+        656,
+        917
+      ],
+      "score": 0.9989891648292542
+    },
+    {
+      "text": "Filii quoque Ela: Cenez.",
+      "box": [
+        935,
+        887,
+        1118,
+        911
+      ],
+      "score": 0.9982526898384094
+    },
+    {
+      "text": "bajoth, et Cedar, et Adbeel, et Mabsam,",
+      "box": [
+        27,
+        906,
+        313,
+        927
+      ],
+      "score": 0.988189697265625
+    },
+    {
+      "text": "35. Deditque ei filiam suam uxorem, quæ peperit ei Ethei.",
+      "box": [
+        488,
+        909,
+        910,
+        934
+      ],
+      "score": 0.9654397368431091
+    },
+    {
+      "text": "16. Filii quoque Jaleleel: Ziph, et Zipha, Thiria, et Asrael",
+      "box": [
+        946,
+        889,
+        1383,
+        930
+      ],
+      "score": 0.9796135425567627
+    },
+    {
+      "text": "30. 'Et Masma, et Duma, Massa, Hadad, et Thema,",
+      "box": [
+        43,
+        918,
+        409,
+        944
+      ],
+      "score": 0.9789901971817017
+    },
+    {
+      "text": "36. Ethei autem genuit Nathan, et Nathan genuit Zabad.",
+      "box": [
+        488,
+        926,
+        903,
+        949
+      ],
+      "score": 0.991980791091919
+    },
+    {
+      "text": "17. Et filii Ezra, Jether, et Mered, et Epher, et Jalon: ge",
+      "box": [
+        948,
+        908,
+        1383,
+        943
+      ],
+      "score": 0.9923276901245117
+    },
+    {
+      "text": "31. Jetur, Naphis, Cedma; hi sunt filii Ismahelis.",
+      "box": [
+        44,
+        935,
+        396,
+        960
+      ],
+      "score": 0.994951069355011
+    },
+    {
+      "text": "37.",
+      "box": [
+        491,
+        945,
+        524,
+        964
+      ],
+      "score": 0.9892067909240723
+    },
+    {
+      "text": "Zabad quoquegenuit Ophlal, et Ophlal genuit Obed.",
+      "box": [
+        526,
+        943,
+        893,
+        963
+      ],
+      "score": 0.9927433729171753
+    },
+    {
+      "text": "nuitque Mariam, et Sammai, et Jesba patrem Esthamo.",
+      "box": [
+        933,
+        927,
+        1343,
+        959
+      ],
+      "score": 0.9972692728042603
+    },
+    {
+      "text": "32. Filii autem Ceturae concubinae Abraham, quos genuit:",
+      "box": [
+        45,
+        948,
+        463,
+        977
+      ],
+      "score": 0.9484004378318787
+    },
+    {
+      "text": "38.",
+      "box": [
+        491,
+        961,
+        521,
+        980
+      ],
+      "score": 0.9980940818786621
+    },
+    {
+      "text": "Obed genuit Jehu, Jehu genuit Azariam,",
+      "box": [
+        526,
+        960,
+        811,
+        979
+      ],
+      "score": 0.9855323433876038
+    },
+    {
+      "text": "18. Uxor quoque ejus Judaia, peperit Jared patrem Gedor",
+      "box": [
+        947,
+        937,
+        1383,
+        979
+      ],
+      "score": 0.9883143901824951
+    },
+    {
+      "text": "Zamran, Jecsan, Madan, Madian, Jesboc, et Sue. Porro filii",
+      "box": [
+        29,
+        964,
+        464,
+        993
+      ],
+      "score": 0.9759576916694641
+    },
+    {
+      "text": "39.",
+      "box": [
+        491,
+        977,
+        522,
+        996
+      ],
+      "score": 0.9998130798339844
+    },
+    {
+      "text": "Azarias genuit Helles, et Helles genuit Elasa,",
+      "box": [
+        526,
+        975,
+        847,
+        995
+      ],
+      "score": 0.9852859377861023
+    },
+    {
+      "text": "et Heber patrem Socho, et Icuthiel patrem Zanoe; hi auten",
+      "box": [
+        932,
+        955,
+        1383,
+        994
+      ],
+      "score": 0.9918791651725769
+    },
+    {
+      "text": "Jecsan: Saba, et Dadan. Filii autem Dadan: Assurim, et La-",
+      "box": [
+        29,
+        980,
+        464,
+        1009
+      ],
+      "score": 0.9787448644638062
+    },
+    {
+      "text": "40.",
+      "box": [
+        493,
+        995,
+        524,
+        1011
+      ],
+      "score": 0.9997210502624512
+    },
+    {
+      "text": "Elasa genuit Sisamoi, Sisamoi genuit Sellum,",
+      "box": [
+        525,
+        991,
+        841,
+        1011
+      ],
+      "score": 0.9915285706520081
+    },
+    {
+      "text": "filii Bethiæ filia Pharaonis, quam accepit Mered.",
+      "box": [
+        934,
+        977,
+        1297,
+        1007
+      ],
+      "score": 0.9541508555412292
+    },
+    {
+      "text": "tussim, et Laomim.",
+      "box": [
+        31,
+        1004,
+        176,
+        1023
+      ],
+      "score": 0.9991943836212158
+    },
+    {
+      "text": "41. Sellum genuit Icamiam, Icamia autem genuit Elisama.",
+      "box": [
+        490,
+        1005,
+        919,
+        1028
+      ],
+      "score": 0.9913166165351868
+    },
+    {
+      "text": "19. Et flii uxoris Odaia sororis Naham patris Ceila, Garmi",
+      "box": [
+        948,
+        986,
+        1383,
+        1026
+      ],
+      "score": 0.9264125823974609
+    },
+    {
+      "text": "33. Filii autem Madian: Fpha, et Epher, et Henoch, et",
+      "box": [
+        47,
+        1011,
+        466,
+        1040
+      ],
+      "score": 0.970980167388916
+    },
+    {
+      "text": "42. Filii autem Caleb fratris Jerameel: Mesa primogenitus",
+      "box": [
+        492,
+        1022,
+        919,
+        1042
+      ],
+      "score": 0.9940093159675598
+    },
+    {
+      "text": "et Esthamo, qui fuit de Machathi.",
+      "box": [
+        934,
+        1011,
+        1193,
+        1039
+      ],
+      "score": 0.9995657205581665
+    },
+    {
+      "text": "Abida, et Eldaa; omnes hi, filii Ceture.",
+      "box": [
+        34,
+        1032,
+        311,
+        1053
+      ],
+      "score": 0.9686633944511414
+    },
+    {
+      "text": "ejus, ipse est pater Ziph ; et filii Maresa patris Hebron.",
+      "box": [
+        479,
+        1038,
+        858,
+        1058
+      ],
+      "score": 0.9979764223098755
+    },
+    {
+      "text": "20. Filii quoque Simon, Amnon, et Rinna filius Hanan, e",
+      "box": [
+        949,
+        1019,
+        1383,
+        1055
+      ],
+      "score": 0.9750253558158875
+    },
+    {
+      "text": "34. Genuit autem Abraham Isaac: cujus fuerunt filii, Esau",
+      "box": [
+        48,
+        1041,
+        465,
+        1070
+      ],
+      "score": 0.9617118239402771
+    },
+    {
+      "text": "43. Porro filii Hebron, Core, et Taphua, et Recem, et Samma.",
+      "box": [
+        492,
+        1051,
+        919,
+        1074
+      ],
+      "score": 0.9733938574790955
+    },
+    {
+      "text": "Thilon. Et filii Jesi, Zoheth, et Benzoheth.",
+      "box": [
+        934,
+        1041,
+        1252,
+        1067
+      ],
+      "score": 0.9821754693984985
+    },
+    {
+      "text": "et Israel.",
+      "box": [
+        34,
+        1065,
+        108,
+        1084
+      ],
+      "score": 0.9845620393753052
+    },
+    {
+      "text": "44. Samma autem genuit Raham, patrem Jercaam, et Re-",
+      "box": [
+        492,
+        1066,
+        919,
+        1089
+      ],
+      "score": 0.9835516214370728
+    },
+    {
+      "text": "21. Filii Sela, filii Juda: Her pater Lecha, et Laada pate",
+      "box": [
+        949,
+        1050,
+        1383,
+        1084
+      ],
+      "score": 0.9947758316993713
+    },
+    {
+      "text": "35. Filii Esau: Eliphaz, Rahuel, Jehus, Ihelom, et Core.",
+      "box": [
+        50,
+        1071,
+        449,
+        1099
+      ],
+      "score": 0.9940444231033325
+    },
+    {
+      "text": "cem genuit Sammai.",
+      "box": [
+        480,
+        1086,
+        620,
+        1103
+      ],
+      "score": 0.9998012185096741
+    },
+    {
+      "text": "Maresa, et cognationes domus operantium byssum in domo ju",
+      "box": [
+        933,
+        1066,
+        1383,
+        1100
+      ],
+      "score": 0.9753498435020447
+    },
+    {
+      "text": "36. Filii Eliphaz: Theman, Omar, Sephi, Gathan, Cenez,",
+      "box": [
+        50,
+        1087,
+        466,
+        1115
+      ],
+      "score": 0.992776095867157
+    },
+    {
+      "text": "45. Filius Sammai, Maon: et Maon pater Bethsur.",
+      "box": [
+        494,
+        1097,
+        850,
+        1118
+      ],
+      "score": 0.9942523837089539
+    },
+    {
+      "text": "ramenti.",
+      "box": [
+        933,
+        1094,
+        1001,
+        1114
+      ],
+      "score": 0.9487655162811279
+    },
+    {
+      "text": "Thamna, Amalec.",
+      "box": [
+        40,
+        1112,
+        167,
+        1126
+      ],
+      "score": 0.9916042685508728
+    },
+    {
+      "text": "46. Epha autem concubina Caleb peperit Haran, et Mosa,",
+      "box": [
+        494,
+        1112,
+        918,
+        1133
+      ],
+      "score": 0.9954848289489746
+    },
+    {
+      "text": "22. Et qui stare fecit Solem, virique Mendacii, et Securus",
+      "box": [
+        947,
+        1095,
+        1383,
+        1134
+      ],
+      "score": 0.9953319430351257
+    },
+    {
+      "text": "37. Filii Rahuel: Nahath, Zara, Samma, Meza.",
+      "box": [
+        52,
+        1117,
+        384,
+        1144
+      ],
+      "score": 0.9799972772598267
+    },
+    {
+      "text": "et Gezez. Porro Haran genuit Gezez.",
+      "box": [
+        480,
+        1129,
+        730,
+        1148
+      ],
+      "score": 0.9823943972587585
+    },
+    {
+      "text": "et Incendens, qui principes fuerunt in Moab, et qui reversi sun",
+      "box": [
+        931,
+        1112,
+        1383,
+        1150
+      ],
+      "score": 0.9800244569778442
+    },
+    {
+      "text": "38. Filii Seir: Lotan, Sobal, Sebeon, Ana, Dison, Eser,",
+      "box": [
+        52,
+        1131,
+        466,
+        1160
+      ],
+      "score": 0.9796631336212158
+    },
+    {
+      "text": "47. Filii autem Jahaddai, Regom, et Joathan, et Gesan, et",
+      "box": [
+        494,
+        1142,
+        920,
+        1164
+      ],
+      "score": 0.9936176538467407
+    },
+    {
+      "text": "in Lahem ; hæc autem verba vetera.",
+      "box": [
+        934,
+        1136,
+        1199,
+        1162
+      ],
+      "score": 0.9888041019439697
+    },
+    {
+      "text": "Disan.",
+      "box": [
+        40,
+        1154,
+        91,
+        1172
+      ],
+      "score": 0.9999213814735413
+    },
+    {
+      "text": "Phalet, et Epha, et Saaph.",
+      "box": [
+        481,
+        1160,
+        664,
+        1178
+      ],
+      "score": 0.9995736479759216
+    },
+    {
+      "text": "23. Hi sunt figuli habitantes in Plantationibus, et in Sepi",
+      "box": [
+        948,
+        1142,
+        1383,
+        1181
+      ],
+      "score": 0.9966184496879578
+    },
+    {
+      "text": "39. Filii Lotan: Hori, Homam. Soror autem Lotan fuit",
+      "box": [
+        53,
+        1160,
+        467,
+        1189
+      ],
+      "score": 0.9809617400169373
+    },
+    {
+      "text": "48. Concubina Caleb Maacha, peperit Saber, et Tharana.",
+      "box": [
+        496,
+        1173,
+        895,
+        1194
+      ],
+      "score": 0.9837855100631714
+    },
+    {
+      "text": "bus, apud regem in operibus ejus, commoratique sunt ibi.",
+      "box": [
+        932,
+        1159,
+        1359,
+        1197
+      ],
+      "score": 0.9881067872047424
+    },
+    {
+      "text": "Thamna.",
+      "box": [
+        42,
+        1184,
+        110,
+        1202
+      ],
+      "score": 0.999909520149231
+    },
+    {
+      "text": "49. Genuit autem Saaph pater Madmena, Sue patrem Mach-",
+      "box": [
+        496,
+        1189,
+        918,
+        1209
+      ],
+      "score": 0.9978095293045044
+    },
+    {
+      "text": "24. Filii Simeon: Namuel et Jamin, Jarib, Zara, Saul.",
+      "box": [
+        947,
+        1175,
+        1360,
+        1211
+      ],
+      "score": 0.9884486794471741
+    },
+    {
+      "text": "40. Filii Sobal: Alian, et Manahath, et Ebal, Sephi, et",
+      "box": [
+        55,
+        1190,
+        469,
+        1219
+      ],
+      "score": 0.9986889362335205
+    },
+    {
+      "text": "bena, et patrem Gabaa. Filia vero Caleb fuit Achsa.",
+      "box": [
+        482,
+        1206,
+        838,
+        1224
+      ],
+      "score": 0.9985905885696411
+    },
+    {
+      "text": "2. Sellum lius ejus, Mapsam lius ejus, Masma liu",
+      "box": [
+        945,
+        1187,
+        1383,
+        1229
+      ],
+      "score": 0.8186061978340149
+    },
+    {
+      "text": "Onam. Filii Sebeon: Aja et Ana. Filii Ana: Dison.",
+      "box": [
+        41,
+        1207,
+        389,
+        1234
+      ],
+      "score": 0.9881848692893982
+    },
+    {
+      "text": "41. Filii Dison : Hamram, et Eseban, et Jethran, et Charan.",
+      "box": [
+        57,
+        1220,
+        468,
+        1248
+      ],
+      "score": 0.9733985066413879
+    },
+    {
+      "text": "50. Hi erant filii Caleb, filii Hur primogeniti Ephratha, So-",
+      "box": [
+        498,
+        1222,
+        917,
+        1239
+      ],
+      "score": 0.9946914315223694
+    },
+    {
+      "text": "ejus.",
+      "box": [
+        934,
+        1221,
+        974,
+        1239
+      ],
+      "score": 0.9999534487724304
+    },
+    {
+      "text": "bal pater Cariathiarim.",
+      "box": [
+        484,
+        1239,
+        638,
+        1253
+      ],
+      "score": 0.9967759251594543
+    },
+    {
+      "text": "26.Filii Masma: Hamuel flius ejus, Zachur filius ejus, Se",
+      "box": [
+        944,
+        1217,
+        1383,
+        1260
+      ],
+      "score": 0.9039474725723267
+    },
+    {
+      "text": "42. Filii Eser: Balaan, et Zavan, et Jacan. Filii Disan: Hus",
+      "box": [
+        57,
+        1237,
+        468,
+        1262
+      ],
+      "score": 0.9901034832000732
+    },
+    {
+      "text": "et Aran.",
+      "box": [
+        44,
+        1258,
+        110,
+        1277
+      ],
+      "score": 0.9988305568695068
+    },
+    {
+      "text": "51. Salma pater Bethlehem, Hariph pater Bethgader.",
+      "box": [
+        498,
+        1252,
+        875,
+        1269
+      ],
+      "score": 0.9961867332458496
+    },
+    {
+      "text": "mei filius ejus.",
+      "box": [
+        934,
+        1250,
+        1044,
+        1267
+      ],
+      "score": 0.9834213852882385
+    },
+    {
+      "text": "43. Isti sunt reges, qui imperaverunt in terra Edom, ante-",
+      "box": [
+        59,
+        1267,
+        468,
+        1292
+      ],
+      "score": 0.9854512810707092
+    },
+    {
+      "text": "52. Fuerunt autem filii Sobal patris Cariathiarim, qui vide-",
+      "box": [
+        498,
+        1266,
+        918,
+        1286
+      ],
+      "score": 0.9964250326156616
+    },
+    {
+      "text": "27. Filii Semei sedecim, et filie sex: fratres autem ejus nor",
+      "box": [
+        946,
+        1248,
+        1383,
+        1288
+      ],
+      "score": 0.968837320804596
+    },
+    {
+      "text": "quam esset rex super filios Israel: Bale filius Beor; et nomen",
+      "box": [
+        44,
+        1283,
+        469,
+        1307
+      ],
+      "score": 0.9771214723587036
+    },
+    {
+      "text": "bat dimidium requietionum.",
+      "box": [
+        485,
+        1283,
+        679,
+        1300
+      ],
+      "score": 0.9998936057090759
+    },
+    {
+      "text": "habuerunt lios multos, et nniversa cognatio non potuit ade",
+      "box": [
+        929,
+        1263,
+        1383,
+        1306
+      ],
+      "score": 0.8518483638763428
+    },
+    {
+      "text": "civitatis ejus, Denaba.",
+      "box": [
+        47,
+        1302,
+        203,
+        1321
+      ],
+      "score": 0.9951243996620178
+    },
+    {
+      "text": "53. Et de cognatione Cariathiarim, Jethrei, et Aphuthei, et",
+      "box": [
+        499,
+        1298,
+        918,
+        1315
+      ],
+      "score": 0.9920699000358582
+    },
+    {
+      "text": "quare summam filiorum Juda.",
+      "box": [
+        933,
+        1292,
+        1160,
+        1316
+      ],
+      "score": 0.9880417585372925
+    },
+    {
+      "text": "44. Mortuus est autem Bale, et regnavit pro eo Jobab filius",
+      "box": [
+        61,
+        1314,
+        469,
+        1335
+      ],
+      "score": 0.9954355955123901
+    },
+    {
+      "text": "Semathei, et Maserei. Ex his egressi sunt Saraite, et Esthao-",
+      "box": [
+        484,
+        1314,
+        917,
+        1331
+      ],
+      "score": 0.9806758165359497
+    },
+    {
+      "text": "28. Habitaverunt autem in Bersabee, et Molada, et Hasar",
+      "box": [
+        943,
+        1292,
+        1383,
+        1336
+      ],
+      "score": 0.925126850605011
+    },
+    {
+      "text": "Zare de Bosra.",
+      "box": [
+        49,
+        1333,
+        151,
+        1350
+      ],
+      "score": 0.9968021512031555
+    },
+    {
+      "text": "litæ.",
+      "box": [
+        483,
+        1328,
+        521,
+        1346
+      ],
+      "score": 0.9074426889419556
+    },
+    {
+      "text": "suhal,",
+      "box": [
+        932,
+        1327,
+        980,
+        1345
+      ],
+      "score": 0.9999837875366211
+    },
+    {
+      "text": "45. Cumque et Jobab fuisset mortuus, regnavit pro eo Hu-",
+      "box": [
+        61,
+        1344,
+        470,
+        1366
+      ],
+      "score": 0.9849919080734253
+    },
+    {
+      "text": "54. Filii Salma, Bethlehem, et Netophathi, corone domus",
+      "box": [
+        499,
+        1343,
+        917,
+        1360
+      ],
+      "score": 0.9953672885894775
+    },
+    {
+      "text": "29.",
+      "box": [
+        948,
+        1343,
+        979,
+        1359
+      ],
+      "score": 0.9981255531311035
+    },
+    {
+      "text": "Et in Bala, et in Asom, et in Tholad,",
+      "box": [
+        983,
+        1333,
+        1261,
+        1361
+      ],
+      "score": 0.9999245405197144
+    },
+    {
+      "text": "sam de terra Themanorum.",
+      "box": [
+        49,
+        1363,
+        232,
+        1380
+      ],
+      "score": 0.9995946884155273
+    },
+    {
+      "text": "Joab, et dimidium requietionis Sarai.",
+      "box": [
+        481,
+        1357,
+        739,
+        1376
+      ],
+      "score": 0.9981241822242737
+    },
+    {
+      "text": "30.",
+      "box": [
+        948,
+        1358,
+        979,
+        1374
+      ],
+      "score": 0.9863315224647522
+    },
+    {
+      "text": "Et in Bathuel, et in Horma, et in Siceleg,",
+      "box": [
+        983,
+        1348,
+        1295,
+        1376
+      ],
+      "score": 0.9793923497200012
+    },
+    {
+      "text": "46. Obiit quoque et Husam, et regnavit pro eo Adad filius",
+      "box": [
+        64,
+        1374,
+        469,
+        1394
+      ],
+      "score": 0.9973787665367126
+    },
+    {
+      "text": "55. Cognationes quoque scribarum habitantium in Jabes,",
+      "box": [
+        498,
+        1371,
+        914,
+        1391
+      ],
+      "score": 0.9963249564170837
+    },
+    {
+      "text": "Badad, qui percussit Madian in terra Moab: et nomen civitatis",
+      "box": [
+        49,
+        1389,
+        470,
+        1410
+      ],
+      "score": 0.9817215800285339
+    },
+    {
+      "text": "canentes atque resonantes, et in tabernaculis commorantes. Hi",
+      "box": [
+        484,
+        1385,
+        916,
+        1408
+      ],
+      "score": 0.9977885484695435
+    },
+    {
+      "text": "rai, et in Saarim: he civitates eorum usque ad regem David.",
+      "box": [
+        927,
+        1371,
+        1374,
+        1412
+      ],
+      "score": 0.8107784986495972
+    },
+    {
+      "text": "ejus Avith.",
+      "box": [
+        50,
+        1406,
+        133,
+        1425
+      ],
+      "score": 0.9986541867256165
+    },
+    {
+      "text": "sunt Cinai, qui venerunt de Calore patris domus Rechab.",
+      "box": [
+        484,
+        1401,
+        878,
+        1421
+      ],
+      "score": 0.9817110300064087
+    },
+    {
+      "text": "47. Cumque et Adad fuisset mortuus, regnavit pro eo Semla",
+      "box": [
+        63,
+        1419,
+        470,
+        1440
+      ],
+      "score": 0.9953853487968445
+    },
+    {
+      "text": "chen, et Asan, civitates quinque.",
+      "box": [
+        932,
+        1413,
+        1179,
+        1437
+      ],
+      "score": 0.9903898239135742
+    },
+    {
+      "text": "de Masreca.",
+      "box": [
+        51,
+        1437,
+        138,
+        1454
+      ],
+      "score": 0.997404158115387
+    },
+    {
+      "text": "CAPUT III",
+      "box": [
+        654,
+        1438,
+        738,
+        1456
+      ],
+      "score": 0.9906035661697388
+    },
+    {
+      "text": "48. Sed et Semla mortuus est, et regnavit pro eo Saul de",
+      "box": [
+        65,
+        1450,
+        471,
+        1470
+      ],
+      "score": 0.9976255297660828
+    },
+    {
+      "text": "rum usque ad Baal; hec est habitatio eorum, et sedium distri",
+      "box": [
+        927,
+        1432,
+        1383,
+        1473
+      ],
+      "score": 0.7724915146827698
+    },
+    {
+      "text": "Rohoboth, quæ juxta amnem sita est.",
+      "box": [
+        53,
+        1467,
+        303,
+        1484
+      ],
+      "score": 0.9837794899940491
+    },
+    {
+      "text": "butio.",
+      "box": [
+        930,
+        1460,
+        978,
+        1481
+      ],
+      "score": 0.9991633892059326
+    },
+    {
+      "text": "49. Mortuo quoque Saul, regnavit pro eo Balanan filius",
+      "box": [
+        68,
+        1481,
+        469,
+        1498
+      ],
+      "score": 0.9898610711097717
+    },
+    {
+      "text": "1. David vero hos habuit filios, qui ei nati sunt in Hebron:",
+      "box": [
+        497,
+        1472,
+        916,
+        1496
+      ],
+      "score": 0.992767333984375
+    },
+    {
+      "text": "34.",
+      "box": [
+        946,
+        1477,
+        987,
+        1492
+      ],
+      "score": 0.9929680824279785
+    },
+    {
+      "text": "Mosobab quoque et Jemlech, et Josa filius Amasiae,",
+      "box": [
+        979,
+        1465,
+        1359,
+        1499
+      ],
+      "score": 0.9704011678695679
+    },
+    {
+      "text": "Achobor.",
+      "box": [
+        54,
+        1496,
+        120,
+        1513
+      ],
+      "score": 0.9996476769447327
+    },
+    {
+      "text": "primogenitum Amnon ex Achinoam Jezrahelitide, secundum",
+      "box": [
+        484,
+        1488,
+        917,
+        1512
+      ],
+      "score": 0.9953883290290833
+    },
+    {
+      "text": "35.",
+      "box": [
+        944,
+        1490,
+        989,
+        1508
+      ],
+      "score": 0.9927775263786316
+    },
+    {
+      "text": "Et Joel, et Jehu flius Josabia fili Saraia, filii Asiel,",
+      "box": [
+        979,
+        1480,
+        1370,
+        1514
+      ],
+      "score": 0.8872925639152527
+    },
+    {
+      "text": "50. Sed et hic mortuus est, et regnavit pro eo Adad: cujus",
+      "box": [
+        66,
+        1508,
+        472,
+        1529
+      ],
+      "score": 0.9918326139450073
+    },
+    {
+      "text": "Daniel de Abigail Carmelitide,",
+      "box": [
+        486,
+        1505,
+        695,
+        1526
+      ],
+      "score": 0.996100664138794
+    },
+    {
+      "text": "Et Elioenai, et Jacoba, et Isuhaia, et Asaía, et Adiel, ",
+      "box": [
+        937,
+        1494,
+        1383,
+        1530
+      ],
+      "score": 0.8875367045402527
+    },
+    {
+      "text": "urbis nomen fuit Phau, et appellata est uxor ejus Meetabel",
+      "box": [
+        54,
+        1526,
+        472,
+        1544
+      ],
+      "score": 0.9931421875953674
+    },
+    {
+      "text": "2. Tertium Absalom filium Maacha filia Tholmai regis Ges-",
+      "box": [
+        498,
+        1516,
+        916,
+        1542
+      ],
+      "score": 0.9804573059082031
+    },
+    {
+      "text": "Ismiel, et Banaia,",
+      "box": [
+        929,
+        1517,
+        1066,
+        1541
+      ],
+      "score": 0.9987263083457947
+    },
+    {
+      "text": "filia Matred filie Mezaab.",
+      "box": [
+        55,
+        1540,
+        226,
+        1558
+      ],
+      "score": 0.9820184111595154
+    },
+    {
+      "text": "sur, quartum Adoniam filium Aggith,",
+      "box": [
+        485,
+        1532,
+        742,
+        1558
+      ],
+      "score": 0.988325834274292
+    },
+    {
+      "text": "aquoqu  Seh, , daa,",
+      "box": [
+        940,
+        1522,
+        1383,
+        1562
+      ],
+      "score": 0.5471107363700867
+    },
+    {
+      "text": "51. Adad autem mortuo, duces pro regibus in Edom esse",
+      "box": [
+        67,
+        1554,
+        473,
+        1575
+      ],
+      "score": 0.9949888586997986
+    },
+    {
+      "text": "3. Quintum Saphatiam ex Abital, sextum Jethraham de",
+      "box": [
+        497,
+        1545,
+        916,
+        1572
+      ],
+      "score": 0.989313006401062
+    },
+    {
+      "text": "ri, filii Samaia.",
+      "box": [
+        929,
+        1547,
+        1056,
+        1569
+      ],
+      "score": 0.9517467617988586
+    },
+    {
+      "text": "ceperunt; dux Thamna, dux Alva, dux Jetheth,",
+      "box": [
+        53,
+        1569,
+        381,
+        1590
+      ],
+      "score": 0.9860090017318726
+    },
+    {
+      "text": "Egla uxore sua.",
+      "box": [
+        487,
+        1569,
+        596,
+        1586
+      ],
+      "score": 0.999350905418396
+    },
+    {
+      "text": ". Isti surt nominati principes in cognationibus suis, et ",
+      "box": [
+        940,
+        1554,
+        1383,
+        1591
+      ],
+      "score": 0.7677271366119385
+    },
+    {
+      "text": "52. Dux Oolibama, dux Ela, dux Phinon,",
+      "box": [
+        68,
+        1585,
+        350,
+        1604
+      ],
+      "score": 0.9970026612281799
+    },
+    {
+      "text": "4. Sex ergo nati sunt ei in Hebron, ubi regnavit septem an-",
+      "box": [
+        497,
+        1573,
+        916,
+        1603
+      ],
+      "score": 0.9836508631706238
+    },
+    {
+      "text": "domo affnitatum suarum multiplicati sunt vehementer.",
+      "box": [
+        928,
+        1577,
+        1340,
+        1601
+      ],
+      "score": 0.9860026836395264
+    },
+    {
+      "text": "53. Dux Cenez, dux Theman, dux Mabsar,",
+      "box": [
+        69,
+        1600,
+        362,
+        1619
+      ],
+      "score": 0.9944777488708496
+    },
+    {
+      "text": "nis, et sex mensibus. Triginta autem et tribus annis regnavit in",
+      "box": [
+        485,
+        1592,
+        915,
+        1618
+      ],
+      "score": 0.9949933290481567
+    },
+    {
+      "text": "Jerusalem.",
+      "box": [
+        486,
+        1613,
+        565,
+        1632
+      ],
+      "score": 0.9999505877494812
+    },
+    {
+      "text": "orientem vallis, et ut quererent pascua gregibus suis.",
+      "box": [
+        927,
+        1607,
+        1323,
+        1632
+      ],
+      "score": 0.8978227972984314
+    },
+    {
+      "text": "54. Dux Magdiel, dux Hiram: hi duces Edom.",
+      "box": [
+        71,
+        1617,
+        388,
+        1634
+      ],
+      "score": 0.9898733496665955
+    },
+    {
+      "text": "5. Porro in Jerusalem nati sunt ei filii, Simmaa, et Sobab,",
+      "box": [
+        500,
+        1621,
+        913,
+        1647
+      ],
+      "score": 0.9767873287200928
+    },
+    {
+      "text": "CAPUT II",
+      "box": [
+        228,
+        1645,
+        306,
+        1663
+      ],
+      "score": 0.9574769735336304
+    },
+    {
+      "text": "et Nathan, et Salomon, quatuor de Bethsabee filia Ammiel.",
+      "box": [
+        486,
+        1636,
+        892,
+        1663
+      ],
+      "score": 0.9799668192863464
+    },
+    {
+      "text": "6. Jebaar quoque, et Elisama,",
+      "box": [
+        501,
+        1654,
+        715,
+        1676
+      ],
+      "score": 0.9802600145339966
+    },
+    {
+      "text": "stirpe Cham.",
+      "box": [
+        927,
+        1654,
+        1025,
+        1673
+      ],
+      "score": 0.9999167323112488
+    },
+    {
+      "text": "7. Et Eliphaleth, et Noge, et Nepheg, et Japhia,",
+      "box": [
+        501,
+        1666,
+        840,
+        1692
+      ],
+      "score": 0.9963871836662292
+    },
+    {
+      "text": "41. Hi ergo venerunt, quos supra descripsimus nominatim",
+      "box": [
+        940,
+        1666,
+        1383,
+        1693
+      ],
+      "score": 0.9587613940238953
+    },
+    {
+      "text": "1. Filii autem Israel: Ruben, Simeon, Levi, Juda, Issachar,",
+      "box": [
+        70,
+        1677,
+        472,
+        1694
+      ],
+      "score": 0.9886988997459412
+    },
+    {
+      "text": "et Zabulon,",
+      "box": [
+        56,
+        1693,
+        138,
+        1710
+      ],
+      "score": 0.9992647767066956
+    },
+    {
+      "text": "8. Necnon Elisama, et Elíada, et Elipheleth, novem:",
+      "box": [
+        502,
+        1682,
+        866,
+        1705
+      ],
+      "score": 0.9872366786003113
+    },
+    {
+      "text": "9. Omnes hi, filii David, absque filiis concubinarum: habue-",
+      "box": [
+        501,
+        1696,
+        913,
+        1721
+      ],
+      "score": 0.9872052669525146
+    },
+    {
+      "text": "et habitatores qui inventi fuerant ibi, et deleverunt eos usqu",
+      "box": [
+        924,
+        1696,
+        1383,
+        1725
+      ],
+      "score": 0.8997164368629456
+    },
+    {
+      "text": "2. Dan, Joseph, Benjamin, Nephthali, Gad, et Aser.",
+      "box": [
+        68,
+        1703,
+        431,
+        1726
+      ],
+      "score": 0.9894077777862549
+    },
+    {
+      "text": "runtque sororem Thamar.",
+      "box": [
+        488,
+        1715,
+        668,
+        1735
+      ],
+      "score": 0.9997141361236572
+    },
+    {
+      "text": "in presentem diem: habitaveruntque pro eis, quoniam uberr",
+      "box": [
+        924,
+        1711,
+        1383,
+        1741
+      ],
+      "score": 0.9178969860076904
+    },
+    {
+      "text": "3. Filii Juda: Her, Onan, et Sela; hi tres nati sunt ei de",
+      "box": [
+        69,
+        1719,
+        475,
+        1740
+      ],
+      "score": 0.9924939870834351
+    },
+    {
+      "text": "filia Sue chananitide. Fuit autem Her primogenitus Juda, ma-",
+      "box": [
+        55,
+        1733,
+        476,
+        1757
+      ],
+      "score": 0.9958772659301758
+    },
+    {
+      "text": "10. Filius autem Salomonis, Roboam: cujus Abia filius ge-",
+      "box": [
+        501,
+        1725,
+        912,
+        1750
+      ],
+      "score": 0.9806135892868042
+    },
+    {
+      "text": "mas pascuas ibidem repererunt.",
+      "box": [
+        926,
+        1728,
+        1161,
+        1751
+      ],
+      "score": 0.9961004257202148
+    },
+    {
+      "text": "nuit Asa. De hoc quoque natus est Josaphat,",
+      "box": [
+        487,
+        1742,
+        792,
+        1765
+      ],
+      "score": 0.9996629953384399
+    },
+    {
+      "text": "4n. De filiis quoque Simeon abierunt in montem Seir vi",
+      "box": [
+        939,
+        1740,
+        1383,
+        1771
+      ],
+      "score": 0.9560062289237976
+    },
+    {
+      "text": "lus coram Domino, et occidit eum.",
+      "box": [
+        54,
+        1750,
+        292,
+        1772
+      ],
+      "score": 0.9989383816719055
+    },
+    {
+      "text": "11. Pater Joram: qui Joram genuit Ochoziam, ex quo ortus",
+      "box": [
+        503,
+        1756,
+        912,
+        1779
+      ],
+      "score": 0.9966789484024048
+    },
+    {
+      "text": "quingenti, habentes principes Phalthiam et Naariam et Ra",
+      "box": [
+        923,
+        1755,
+        1383,
+        1787
+      ],
+      "score": 0.9384385943412781
+    },
+    {
+      "text": "4. Thamar autém nurus ejus peperit ei Phares et Zara, om-",
+      "box": [
+        67,
+        1762,
+        477,
+        1787
+      ],
+      "score": 0.9855733513832092
+    },
+    {
+      "text": "est Joas:",
+      "box": [
+        489,
+        1775,
+        555,
+        1794
+      ],
+      "score": 0.9996092915534973
+    },
+    {
+      "text": "phaiam et Oziel filios Jesi:",
+      "box": [
+        926,
+        1773,
+        1125,
+        1794
+      ],
+      "score": 0.9897987246513367
+    },
+    {
+      "text": "nes ergo filii Juda, quinque.",
+      "box": [
+        53,
+        1778,
+        250,
+        1804
+      ],
+      "score": 0.960381805896759
+    },
+    {
+      "text": "12. Et hujus Amasias filius genuit Azariam. Porro Azariæ",
+      "box": [
+        503,
+        1785,
+        913,
+        1808
+      ],
+      "score": 0.9837327003479004
+    },
+    {
+      "text": "43. Et percusserunt reliquias, quae evadere potuerant Am:",
+      "box": [
+        940,
+        1786,
+        1383,
+        1815
+      ],
+      "score": 0.9625450372695923
+    },
+    {
+      "text": "5. Filii autem Phares: Hesron et Hamul.",
+      "box": [
+        66,
+        1791,
+        358,
+        1818
+      ],
+      "score": 0.9879963397979736
+    },
+    {
+      "text": "filius Joathan",
+      "box": [
+        490,
+        1803,
+        588,
+        1822
+      ],
+      "score": 0.9732787013053894
+    },
+    {
+      "text": "lecitarum, et habitaverunt ibi pro eis usque ad diem hanc.",
+      "box": [
+        924,
+        1800,
+        1362,
+        1831
+      ],
+      "score": 0.9918360114097595
+    },
+    {
+      "text": "6. Filii quoque Zara: Zamri, et Ethan, et Eman, Chalchal",
+      "box": [
+        66,
+        1804,
+        479,
+        1833
+      ],
+      "score": 0.9928680062294006
+    },
+    {
+      "text": "13. Procreavit Achaz patrem Ezechia, de quo natus est Ma-",
+      "box": [
+        503,
+        1814,
+        913,
+        1837
+      ],
+      "score": 0.9785648584365845
+    },
+    {
+      "text": "quoque, et Dara, simul quinque.",
+      "box": [
+        49,
+        1818,
+        278,
+        1854
+      ],
+      "score": 0.9892622828483582
+    },
+    {
+      "text": "7. Fili Charmi: Achar, qui turbavit Israel, et peccavit in",
+      "box": [
+        62,
+        1830,
+        481,
+        1867
+      ],
+      "score": 0.9871324300765991
+    },
+    {
+      "text": "nasses.",
+      "box": [
+        492,
+        1834,
+        544,
+        1852
+      ],
+      "score": 0.9991024732589722
+    },
+    {
+      "text": "CAPUT V",
+      "box": [
+        1113,
+        1835,
+        1198,
+        1856
+      ],
+      "score": 0.9993495941162109
+    },
+    {
+      "text": "14. Sed et Manasses genuit Amon patrem Josia.",
+      "box": [
+        505,
+        1843,
+        841,
+        1867
+      ],
+      "score": 0.987641453742981
+    },
+    {
+      "text": "furto anathematis.",
+      "box": [
+        51,
+        1854,
+        185,
+        1881
+      ],
+      "score": 0.9969074726104736
+    },
+    {
+      "text": "15. Filii autem Josie fuerunt, primogenitus Johanan, se-",
+      "box": [
+        507,
+        1859,
+        915,
+        1882
+      ],
+      "score": 0.9868094325065613
+    },
+    {
+      "text": "1. Filii quoque Ruben, primogeniti Israel, (ipse quippe fu",
+      "box": [
+        940,
+        1859,
+        1383,
+        1890
+      ],
+      "score": 0.9813898205757141
+    },
+    {
+      "text": "8. Filii Ethan: Azarias.",
+      "box": [
+        63,
+        1865,
+        244,
+        1896
+      ],
+      "score": 0.9941090941429138
+    },
+    {
+      "text": "cundus Joakim, tertius Sedecias, quartus Sellum.",
+      "box": [
+        494,
+        1874,
+        826,
+        1896
+      ],
+      "score": 0.9867972731590271
+    },
+    {
+      "text": "primogenitus ejus: sed cum violasset thorum patris sui, da",
+      "box": [
+        928,
+        1876,
+        1383,
+        1904
+      ],
+      "score": 0.9802665710449219
+    },
+    {
+      "text": "9. Filii autem Hesron qui nati sunt ei: Jerameel, et Ram,",
+      "box": [
+        61,
+        1874,
+        481,
+        1912
+      ],
+      "score": 0.9743798971176147
+    },
+    {
+      "text": "16. De Joakim natus est Jechonias, et Sedecias.",
+      "box": [
+        508,
+        1888,
+        837,
+        1911
+      ],
+      "score": 0.9823848605155945
+    },
+    {
+      "text": "sunt primogenita ejus filiis Joseph, filii Israel, et non est il",
+      "box": [
+        928,
+        1891,
+        1383,
+        1919
+      ],
+      "score": 0.9835374355316162
+    },
+    {
+      "text": "et Calubi.",
+      "box": [
+        47,
+        1903,
+        126,
+        1927
+      ],
+      "score": 0.9977243542671204
+    },
+    {
+      "text": "17. Filii Jechonian fuerunt Asir, Salathiel,",
+      "box": [
+        510,
+        1905,
+        799,
+        1926
+      ],
+      "score": 0.9783300161361694
+    },
+    {
+      "text": "reputatus in primogenitum.",
+      "box": [
+        929,
+        1907,
+        1129,
+        1929
+      ],
+      "score": 0.9992298483848572
+    },
+    {
+      "text": "10. Porro Ram genuit Aminadab. Aminadab autem genuit",
+      "box": [
+        59,
+        1903,
+        483,
+        1942
+      ],
+      "score": 0.9851732850074768
+    },
+    {
+      "text": "18. Melchiram, Phadaia, Senneser, et Jecemia, Sama, et",
+      "box": [
+        508,
+        1919,
+        917,
+        1942
+      ],
+      "score": 0.9912302494049072
+    },
+    {
+      "text": "2. Porro Judas, qui erat fortissimus inter fratres suos, ",
+      "box": [
+        940,
+        1920,
+        1383,
+        1948
+      ],
+      "score": 0.9707378149032593
+    },
+    {
+      "text": "Nahasson, principem filiorum Juda.",
+      "box": [
+        45,
+        1924,
+        307,
+        1958
+      ],
+      "score": 0.985415518283844
+    },
+    {
+      "text": "Nadabia.",
+      "box": [
+        497,
+        1938,
+        563,
+        1955
+      ],
+      "score": 0.9999547004699707
+    },
+    {
+      "text": "stirpe ejus principes germinati sunt: primogenita autem rep",
+      "box": [
+        928,
+        1934,
+        1383,
+        1965
+      ],
+      "score": 0.9776913523674011
+    },
+    {
+      "text": "11. Nahasson quoque genuit Salma, de quo ortus est Booz.",
+      "box": [
+        57,
+        1932,
+        483,
+        1973
+      ],
+      "score": 0.9978917241096497
+    },
+    {
+      "text": "19. De Phadaia orti sunt Zorobabel et Semei. Zorobabel ge-",
+      "box": [
+        509,
+        1947,
+        917,
+        1971
+      ],
+      "score": 0.9887601137161255
+    },
+    {
+      "text": "tata sunt Joseph).",
+      "box": [
+        929,
+        1949,
+        1062,
+        1972
+      ],
+      "score": 0.9861887693405151
+    },
+    {
+      "text": "12.",
+      "box": [
+        58,
+        1964,
+        92,
+        1987
+      ],
+      "score": 0.9987263083457947
+    },
+    {
+      "text": "Booz vero genuit Obed, qui et ipse genuit Isai.",
+      "box": [
+        97,
+        1950,
+        423,
+        1983
+      ],
+      "score": 0.9825336337089539
+    },
+    {
+      "text": "nuit Mosollam, Hananiam, et Salomith sororem eorum:",
+      "box": [
+        496,
+        1964,
+        868,
+        1985
+      ],
+      "score": 0.999220609664917
+    },
+    {
+      "text": "3. Filii ergo Rnhen primogeniti Israel: Enoch, et Phallu",
+      "box": [
+        941,
+        1963,
+        1383,
+        1991
+      ],
+      "score": 0.971683919429779
+    },
+    {
+      "text": "13.",
+      "box": [
+        58,
+        1982,
+        91,
+        2002
+      ],
+      "score": 0.9946635365486145
+    },
+    {
+      "text": "Isai autem genuit primogenitum Eliab, secundum Abi-",
+      "box": [
+        96,
+        1962,
+        484,
+        2000
+      ],
+      "score": 0.9846099615097046
+    },
+    {
+      "text": "20. Hasaban quoque, et Ohol, et Barachiam, et Hasadiam,",
+      "box": [
+        511,
+        1978,
+        916,
+        2000
+      ],
+      "score": 0.9988904595375061
+    },
+    {
+      "text": "Esron, et Carimi.",
+      "box": [
+        929,
+        1979,
+        1050,
+        2000
+      ],
+      "score": 0.9624208807945251
+    },
+    {
+      "text": "nadab,",
+      "box": [
+        39,
+        1994,
+        100,
+        2022
+      ],
+      "score": 0.9976902008056641
+    },
+    {
+      "text": "tertium Simmaa,",
+      "box": [
+        97,
+        1985,
+        227,
+        2015
+      ],
+      "score": 0.9983418583869934
+    },
+    {
+      "text": "Josabhesed, quinque.",
+      "box": [
+        498,
+        1995,
+        647,
+        2015
+      ],
+      "score": 0.9920473098754883
+    },
+    {
+      "text": "4. Fili Joel: Samia fus ejus, Gog filius ejus, Semei filiu",
+      "box": [
+        942,
+        1992,
+        1383,
+        2021
+      ],
+      "score": 0.918847382068634
+    },
+    {
+      "text": "14.",
+      "box": [
+        57,
+        2015,
+        89,
+        2035
+      ],
+      "score": 0.9980025291442871
+    },
+    {
+      "text": "Quartum Nathanael, quintum Raddai,",
+      "box": [
+        96,
+        1994,
+        369,
+        2033
+      ],
+      "score": 0.998104989528656
+    },
+    {
+      "text": "21. Filius autem Hananiæ, Phaltias pater Jeseiæ, cujus fi-",
+      "box": [
+        511,
+        2007,
+        920,
+        2031
+      ],
+      "score": 0.967896580696106
+    },
+    {
+      "text": "ejus,",
+      "box": [
+        929,
+        2011,
+        966,
+        2029
+      ],
+      "score": 0.9998511075973511
+    },
+    {
+      "text": "15.",
+      "box": [
+        56,
+        2030,
+        88,
+        2054
+      ],
+      "score": 0.9994661808013916
+    },
+    {
+      "text": "Sextum Asom, septimum David.",
+      "box": [
+        95,
+        2011,
+        332,
+        2050
+      ],
+      "score": 0.9989878535270691
+    }
+  ]
+}

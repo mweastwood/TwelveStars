@@ -1,0 +1,1587 @@
+{
+  "volume": 1,
+  "page_index": 86,
+  "pdf_page": 87,
+  "lines": [
+    {
+      "text": "93",
+      "box": [
+        20,
+        33,
+        41,
+        51
+      ],
+      "score": 0.9999188780784607
+    },
+    {
+      "text": "EXODO.",
+      "box": [
+        182,
+        34,
+        247,
+        58
+      ],
+      "score": 0.9989296793937683
+    },
+    {
+      "text": "CREA",
+      "box": [
+        449,
+        38,
+        486,
+        54
+      ],
+      "score": 0.6784937381744385
+    },
+    {
+      "text": "CAPITULO XIII.",
+      "box": [
+        660,
+        33,
+        784,
+        54
+      ],
+      "score": 0.9807859063148499
+    },
+    {
+      "text": "94",
+      "box": [
+        894,
+        36,
+        915,
+        54
+      ],
+      "score": 0.9999430775642395
+    },
+    {
+      "text": "19. Durante siete dias no se hallará levadura en vuestras",
+      "box": [
+        25,
+        77,
+        417,
+        106
+      ],
+      "score": 0.9932305812835693
+    },
+    {
+      "text": "sada de Egypto, é hicieron panes ázymos, cocidos al rescoldo,",
+      "box": [
+        519,
+        79,
+        922,
+        103
+      ],
+      "score": 0.9994298815727234
+    },
+    {
+      "text": "casas. Quien comiere pan con levadura, ora sea extranjero1, ora",
+      "box": [
+        9,
+        95,
+        416,
+        125
+      ],
+      "score": 0.9835137128829956
+    },
+    {
+      "text": "IV",
+      "box": [
+        441,
+        108,
+        454,
+        117
+      ],
+      "score": 0.8643964529037476
+    },
+    {
+      "text": "porque no habian podido echarles levadura, por la prisa que",
+      "box": [
+        519,
+        97,
+        922,
+        121
+      ],
+      "score": 0.98276686668396
+    },
+    {
+      "text": "sea natural del país, será borrada su alma del censo de Israél.",
+      "box": [
+        9,
+        113,
+        415,
+        142
+      ],
+      "score": 0.9965490698814392
+    },
+    {
+      "text": "",
+      "box": [
+        438,
+        120,
+        465,
+        131
+      ],
+      "score": 0.0
+    },
+    {
+      "text": "A",
+      "box": [
+        468,
+        119,
+        509,
+        131
+      ],
+      "score": 0.2977515161037445
+    },
+    {
+      "text": "les metian los Egypcios para que saliesen, no permitiéndoles",
+      "box": [
+        519,
+        114,
+        922,
+        138
+      ],
+      "score": 0.9934113025665283
+    },
+    {
+      "text": "20. Nada habeis de comer con levadura: usareis de pan",
+      "box": [
+        27,
+        131,
+        416,
+        160
+      ],
+      "score": 0.9894883036613464
+    },
+    {
+      "text": " wv",
+      "box": [
+        468,
+        140,
+        509,
+        151
+      ],
+      "score": 0.27165451645851135
+    },
+    {
+      "text": "11",
+      "box": [
+        483,
+        131,
+        495,
+        140
+      ],
+      "score": 0.5721263885498047
+    },
+    {
+      "text": "ninguna dilacion: ni habian podido pensar en disponer comida",
+      "box": [
+        519,
+        133,
+        921,
+        155
+      ],
+      "score": 0.9873178005218506
+    },
+    {
+      "text": "ázymo en todas vuestras casas.",
+      "box": [
+        11,
+        151,
+        225,
+        173
+      ],
+      "score": 0.9875920414924622
+    },
+    {
+      "text": "NA D",
+      "box": [
+        471,
+        159,
+        508,
+        170
+      ],
+      "score": 0.40307003259658813
+    },
+    {
+      "text": "II1",
+      "box": [
+        483,
+        150,
+        495,
+        159
+      ],
+      "score": 0.5851120352745056
+    },
+    {
+      "text": "alguna para el viaje.",
+      "box": [
+        519,
+        152,
+        655,
+        170
+      ],
+      "score": 0.9982184171676636
+    },
+    {
+      "text": "21. En seguida convocó Moysés á todos los ancianos de",
+      "box": [
+        26,
+        167,
+        416,
+        192
+      ],
+      "score": 0.9986037015914917
+    },
+    {
+      "text": "VI",
+      "box": [
+        483,
+        170,
+        496,
+        179
+      ],
+      "score": 0.9957023859024048
+    },
+    {
+      "text": "40. El tiempo que moraron en Egypto, yantes en Chanaan,",
+      "box": [
+        533,
+        166,
+        921,
+        185
+      ],
+      "score": 0.9826486110687256
+    },
+    {
+      "text": "Israél, y les dijo: Id á buscar la res para cada una de vuestras",
+      "box": [
+        10,
+        183,
+        415,
+        210
+      ],
+      "score": 0.9873771667480469
+    },
+    {
+      "text": "",
+      "box": [
+        478,
+        179,
+        508,
+        190
+      ],
+      "score": 0.0
+    },
+    {
+      "text": "los hijos de Israél, fué de cuatrocientos y treinta años 6.",
+      "box": [
+        519,
+        182,
+        884,
+        201
+      ],
+      "score": 0.9870688319206238
+    },
+    {
+      "text": "familias, é inmolad la Pascua ²;",
+      "box": [
+        11,
+        200,
+        227,
+        223
+      ],
+      "score": 0.9558927416801453
+    },
+    {
+      "text": "300Y",
+      "box": [
+        483,
+        195,
+        506,
+        203
+      ],
+      "score": 0.30953773856163025
+    },
+    {
+      "text": "41. Cumplidos los cuales, salió en un mismo dia de la tierra",
+      "box": [
+        534,
+        199,
+        920,
+        217
+      ],
+      "score": 0.985937237739563
+    },
+    {
+      "text": "22. Y mojad un manojito de hisopo en la sangre vertida",
+      "box": [
+        24,
+        214,
+        416,
+        243
+      ],
+      "score": 0.9899515509605408
+    },
+    {
+      "text": "de Egypto todo el ejército del Señor.",
+      "box": [
+        519,
+        214,
+        758,
+        233
+      ],
+      "score": 0.9932745695114136
+    },
+    {
+      "text": "en el umbral de la puerta, y rociad con ella el dintel y ambos",
+      "box": [
+        8,
+        231,
+        416,
+        258
+      ],
+      "score": 0.9925538301467896
+    },
+    {
+      "text": "42. Digna es de ser consagrada al Señor esta noche, en",
+      "box": [
+        533,
+        231,
+        922,
+        248
+      ],
+      "score": 0.9893531799316406
+    },
+    {
+      "text": "postes: ninguno de vosotros salga fuera de la puerta de su",
+      "box": [
+        7,
+        248,
+        416,
+        274
+      ],
+      "score": 0.9897856116294861
+    },
+    {
+      "text": "que sacó á los hijos de Israél de la tierra de Egypto; y deben",
+      "box": [
+        518,
+        245,
+        922,
+        266
+      ],
+      "score": 0.9973955750465393
+    },
+    {
+      "text": "casa hasta la mañana.",
+      "box": [
+        9,
+        265,
+        162,
+        287
+      ],
+      "score": 0.9994356036186218
+    },
+    {
+      "text": "celebrarla todos los hijos de Israél en adelante perpétuamente.",
+      "box": [
+        519,
+        262,
+        921,
+        280
+      ],
+      "score": 0.9973984956741333
+    },
+    {
+      "text": "23. Porque ha de pasar el Señor hiriendo de muerte á los",
+      "box": [
+        22,
+        278,
+        414,
+        306
+      ],
+      "score": 0.9889625906944275
+    },
+    {
+      "text": "43. Sobre lo cual dijo el Señor á Moysés y Aaron: Este ha",
+      "box": [
+        533,
+        279,
+        921,
+        296
+      ],
+      "score": 0.9961783289909363
+    },
+    {
+      "text": "Egypcios, y al ver la sangre en el dintel, y en los dos postes,",
+      "box": [
+        6,
+        294,
+        413,
+        322
+      ],
+      "score": 0.9569403529167175
+    },
+    {
+      "text": "de ser el rito de la Pascua ó cordero pascual. Ningun extran-",
+      "box": [
+        519,
+        294,
+        921,
+        312
+      ],
+      "score": 0.9953601360321045
+    },
+    {
+      "text": "pasará de largo la puerta de aquella casa; ni permitirá al An-",
+      "box": [
+        5,
+        311,
+        414,
+        337
+      ],
+      "score": 0.9600180387496948
+    },
+    {
+      "text": "jero comerá de ella.",
+      "box": [
+        517,
+        310,
+        651,
+        329
+      ],
+      "score": 0.9814496040344238
+    },
+    {
+      "text": "gel exterminador entrar en vuestras casas, ni haceros daño.",
+      "box": [
+        4,
+        326,
+        413,
+        353
+      ],
+      "score": 0.993151068687439
+    },
+    {
+      "text": "44. Pero todo esclavo comprado será circuncidado, y en-",
+      "box": [
+        529,
+        325,
+        922,
+        346
+      ],
+      "score": 0.9977955222129822
+    },
+    {
+      "text": "tonces comerá.",
+      "box": [
+        517,
+        342,
+        616,
+        361
+      ],
+      "score": 0.9986036419868469
+    },
+    {
+      "text": "45. El advenedizo y jornalero no comerán de ella.",
+      "box": [
+        531,
+        359,
+        866,
+        376
+      ],
+      "score": 0.9996423721313477
+    },
+    {
+      "text": "46. El cordero se comerá dentro de la casá, ni sacareis á",
+      "box": [
+        530,
+        373,
+        921,
+        396
+      ],
+      "score": 0.9850000143051147
+    },
+    {
+      "text": "dar el Señor, como",
+      "box": [
+        4,
+        390,
+        155,
+        415
+      ],
+      "score": 0.99941486120224
+    },
+    {
+      "text": "tiene prometido, observareis estas",
+      "box": [
+        172,
+        396,
+        411,
+        415
+      ],
+      "score": 0.9952809810638428
+    },
+    {
+      "text": "fuera nada de su carne, ni le quebrareis ningun hueso 7,",
+      "box": [
+        517,
+        392,
+        887,
+        410
+      ],
+      "score": 0.9920497536659241
+    },
+    {
+      "text": "mismas ceremonias;",
+      "box": [
+        4,
+        407,
+        151,
+        430
+      ],
+      "score": 0.9997518062591553
+    },
+    {
+      "text": "47. Todo el pueblo de los hijos de Israél celebrará la",
+      "box": [
+        529,
+        407,
+        921,
+        428
+      ],
+      "score": 0.9996556043624878
+    },
+    {
+      "text": "26. Y cuando vuestros",
+      "box": [
+        20,
+        423,
+        195,
+        449
+      ],
+      "score": 0.9901003241539001
+    },
+    {
+      "text": " hijos os preguntaren: ¿Qué sigrni-",
+      "box": [
+        185,
+        426,
+        411,
+        448
+      ],
+      "score": 0.9763233661651611
+    },
+    {
+      "text": "Pascua.",
+      "box": [
+        517,
+        425,
+        570,
+        442
+      ],
+      "score": 0.9997467994689941
+    },
+    {
+      "text": "flca este rito?",
+      "box": [
+        3,
+        439,
+        104,
+        461
+      ],
+      "score": 0.9402103424072266
+    },
+    {
+      "text": "48. Que si alguno de los extranjeros quisiese convertirse",
+      "box": [
+        530,
+        440,
+        920,
+        460
+      ],
+      "score": 0.9980000257492065
+    },
+    {
+      "text": "á vuestra religion y celebrar la Pascua del Señor, serán pri-",
+      "box": [
+        516,
+        456,
+        921,
+        478
+      ],
+      "score": 0.9875022172927856
+    },
+    {
+      "text": "cuando pasó de largo las casas de los hijos de Israél en Egypto,",
+      "box": [
+        0,
+        470,
+        412,
+        499
+      ],
+      "score": 0.9493428468704224
+    },
+    {
+      "text": "mero circuncidados todos los varones de su casa; y entonces",
+      "box": [
+        516,
+        474,
+        921,
+        494
+      ],
+      "score": 0.9985225200653076
+    },
+    {
+      "text": "hiriendo de muerte á los Egypcios, y dejando salvas nuestras",
+      "box": [
+        0,
+        488,
+        413,
+        515
+      ],
+      "score": 0.9730290174484253
+    },
+    {
+      "text": "la podrá celebrar legítimamente, y será como natural del",
+      "box": [
+        516,
+        490,
+        921,
+        510
+      ],
+      "score": 0.9969688057899475
+    },
+    {
+      "text": "casas. Al oir esto, se postraron todos y adoraron al Señor.",
+      "box": [
+        0,
+        504,
+        391,
+        531
+      ],
+      "score": 0.9875291585922241
+    },
+    {
+      "text": "país s: pero quien no fuere cireuncidado, no comerá de la",
+      "box": [
+        516,
+        507,
+        920,
+        527
+      ],
+      "score": 0.9902306199073792
+    },
+    {
+      "text": "28. Y habiendo salido los hijos de Israél, hicieron como el",
+      "box": [
+        15,
+        520,
+        413,
+        548
+      ],
+      "score": 0.9859893918037415
+    },
+    {
+      "text": "Pascua",
+      "box": [
+        517,
+        526,
+        565,
+        540
+      ],
+      "score": 0.9997394680976868
+    },
+    {
+      "text": "Señor habia mandado á Moysés y á Aaron.",
+      "box": [
+        0,
+        537,
+        292,
+        564
+      ],
+      "score": 0.9755082726478577
+    },
+    {
+      "text": "49. Una misma ley ó rito guardará el nacional, y el extran-",
+      "box": [
+        529,
+        538,
+        919,
+        561
+      ],
+      "score": 0.9836366772651672
+    },
+    {
+      "text": "jero que mora entre vosotros.",
+      "box": [
+        516,
+        559,
+        708,
+        573
+      ],
+      "score": 0.999467134475708
+    },
+    {
+      "text": "muerte á todos los primogénitos en la tierra de Egypto, desde",
+      "box": [
+        0,
+        569,
+        412,
+        597
+      ],
+      "score": 0.9889377951622009
+    },
+    {
+      "text": "50. Así lo hicieron todos los hijos de Israél, como el Señor",
+      "box": [
+        529,
+        572,
+        918,
+        592
+      ],
+      "score": 0.9923719167709351
+    },
+    {
+      "text": "el primogénito de Pharaon que le sucedia en el trono, hasta",
+      "box": [
+        0,
+        586,
+        412,
+        612
+      ],
+      "score": 0.9897956252098083
+    },
+    {
+      "text": "tenia mandado á Moysés y á Aaron.",
+      "box": [
+        515,
+        588,
+        752,
+        606
+      ],
+      "score": 0.9795039892196655
+    },
+    {
+      "text": "51. Yen el mismo dia sacó el Señor de la tierra de Egypto",
+      "box": [
+        528,
+        603,
+        916,
+        623
+      ],
+      "score": 0.9998274445533752
+    },
+    {
+      "text": "primer nacido de las bestias .",
+      "box": [
+        0,
+        619,
+        213,
+        644
+      ],
+      "score": 0.9722445011138916
+    },
+    {
+      "text": "á los hijos de Israél, repartidos en diversos escuadrones",
+      "box": [
+        514,
+        619,
+        916,
+        640
+      ],
+      "score": 0.9979867339134216
+    },
+    {
+      "text": "30. Con lo que se levantó Pharaon de noche, y todos sus",
+      "box": [
+        14,
+        634,
+        411,
+        660
+      ],
+      "score": 0.9920322299003601
+    },
+    {
+      "text": "ó bandas.",
+      "box": [
+        515,
+        636,
+        582,
+        654
+      ],
+      "score": 0.9564989805221558
+    },
+    {
+      "text": "servidores, y el Egypto todo; y fueron grandes los alaridos",
+      "box": [
+        0,
+        652,
+        410,
+        676
+      ],
+      "score": 0.997448742389679
+    },
+    {
+      "text": "CAPITULO XIII",
+      "box": [
+        657,
+        651,
+        771,
+        668
+      ],
+      "score": 0.9995256662368774
+    },
+    {
+      "text": "en Egypto; porque no habia casa en donde no hubiese algun",
+      "box": [
+        0,
+        668,
+        410,
+        693
+      ],
+      "score": 0.9967150092124939
+    },
+    {
+      "text": "Ordena el Señor la oblacion de los primogénitos, en memoria de lo suce-",
+      "box": [
+        515,
+        677,
+        915,
+        697
+      ],
+      "score": 0.9981811046600342
+    },
+    {
+      "text": "muerto.",
+      "box": [
+        0,
+        688,
+        63,
+        705
+      ],
+      "score": 0.999951183795929
+    },
+    {
+      "text": "31. Y llamando Pharaon en aquella misma noche á Moy-",
+      "box": [
+        13,
+        699,
+        410,
+        726
+      ],
+      "score": 0.9883688688278198
+    },
+    {
+      "text": "dido en la salida de Egypto. Columna de nube y fuego, que les sirve",
+      "box": [
+        526,
+        692,
+        915,
+        712
+      ],
+      "score": 0.9923526048660278
+    },
+    {
+      "text": "de guia por el camino.",
+      "box": [
+        528,
+        708,
+        649,
+        722
+      ],
+      "score": 0.9991617798805237
+    },
+    {
+      "text": "sés y á Aaron, les dijo: Marchad y retiraos prontamente de",
+      "box": [
+        0,
+        716,
+        409,
+        742
+      ],
+      "score": 0.9847121238708496
+    },
+    {
+      "text": "mi pueblo, así vosotros como los hijos de Israél. Id y ofreced",
+      "box": [
+        0,
+        732,
+        409,
+        758
+      ],
+      "score": 0.9873688220977783
+    },
+    {
+      "text": "1. Habló despues el Señor á Moysés, diciendo:",
+      "box": [
+        528,
+        733,
+        839,
+        752
+      ],
+      "score": 0.9976527690887451
+    },
+    {
+      "text": "sacrificios al Señor como decís.",
+      "box": [
+        0,
+        754,
+        217,
+        771
+      ],
+      "score": 0.9986393451690674
+    },
+    {
+      "text": "2. Conságrame todo primogénito que abre el vientre de su",
+      "box": [
+        527,
+        749,
+        914,
+        769
+      ],
+      "score": 0.9894319176673889
+    },
+    {
+      "text": "32. Llevaos vuestras ovejas y ganados mayores, conforme",
+      "box": [
+        12,
+        764,
+        409,
+        790
+      ],
+      "score": 0.9935687184333801
+    },
+    {
+      "text": "madre, entre los hijos de Israél, tanto de hombres como de",
+      "box": [
+        514,
+        764,
+        913,
+        785
+      ],
+      "score": 0.9977168440818787
+    },
+    {
+      "text": "lo habeis pedido; y al partiros rogad por mí.",
+      "box": [
+        0,
+        786,
+        301,
+        803
+      ],
+      "score": 0.9971866011619568
+    },
+    {
+      "text": "animales; porque mios son todos º.",
+      "box": [
+        516,
+        783,
+        740,
+        797
+      ],
+      "score": 0.9738160371780396
+    },
+    {
+      "text": "33. Al mismo tiempo los Egypcios estrechaban al pueblo",
+      "box": [
+        12,
+        797,
+        408,
+        822
+      ],
+      "score": 0.9884646534919739
+    },
+    {
+      "text": "3. Acordaos, dijo Moysés al pueblo; acordaos de este dia",
+      "box": [
+        527,
+        796,
+        912,
+        817
+      ],
+      "score": 0.9989457726478577
+    },
+    {
+      "text": "para que saliese prontamente del país, diciendo: Si no mar-",
+      "box": [
+        0,
+        815,
+        409,
+        838
+      ],
+      "score": 0.988135039806366
+    },
+    {
+      "text": "en que habeis salido de Egypto y de la casa de vuestra escla-",
+      "box": [
+        513,
+        814,
+        911,
+        833
+      ],
+      "score": 0.9940539598464966
+    },
+    {
+      "text": "chais, pereceremos todos.",
+      "box": [
+        0,
+        837,
+        181,
+        851
+      ],
+      "score": 0.9846739172935486
+    },
+    {
+      "text": "vitud; como el Señor os ha sacado con mano fuerte de este",
+      "box": [
+        513,
+        830,
+        911,
+        849
+      ],
+      "score": 0.9998167753219604
+    },
+    {
+      "text": "34. El pueblo, pues, tomó la harina amasada, antes que",
+      "box": [
+        12,
+        847,
+        408,
+        869
+      ],
+      "score": 0.9874927401542664
+    },
+    {
+      "text": "lugar: por cuya razon no comereis en semejante dia pan con",
+      "box": [
+        512,
+        846,
+        910,
+        866
+      ],
+      "score": 0.9975219964981079
+    },
+    {
+      "text": "se le pusiese levadura, y envuelta en los mantos ó capas se la",
+      "box": [
+        0,
+        863,
+        408,
+        886
+      ],
+      "score": 0.9755457043647766
+    },
+    {
+      "text": "levadura.",
+      "box": [
+        514,
+        864,
+        575,
+        878
+      ],
+      "score": 0.9997433423995972
+    },
+    {
+      "text": "echó á cuestas.",
+      "box": [
+        0,
+        884,
+        110,
+        902
+      ],
+      "score": 0.9774595499038696
+    },
+    {
+      "text": "4. Salís hoy en el mes de las nuevas mieses, óde la primut-",
+      "box": [
+        526,
+        877,
+        908,
+        899
+      ],
+      "score": 0.9663318991661072
+    },
+    {
+      "text": "35. Asimismo, los hijos de Israél, haciendo lo que Moysés",
+      "box": [
+        12,
+        894,
+        408,
+        918
+      ],
+      "score": 0.98349928855896
+    },
+    {
+      "text": "vera.",
+      "box": [
+        513,
+        897,
+        547,
+        912
+      ],
+      "score": 0.9977192878723145
+    },
+    {
+      "text": "habia ordenado, pidieron á los Egypcios alhajas de oro y pla-",
+      "box": [
+        0,
+        912,
+        407,
+        935
+      ],
+      "score": 0.9889459609985352
+    },
+    {
+      "text": "5. Cuando el Señor, pues, te hubiere introducido, oh Israel,",
+      "box": [
+        523,
+        909,
+        908,
+        930
+      ],
+      "score": 0.9953609108924866
+    },
+    {
+      "text": "ta, y muchísima ropa.",
+      "box": [
+        0,
+        930,
+        168,
+        951
+      ],
+      "score": 0.9656354188919067
+    },
+    {
+      "text": "en la tierra del Chananéo, y del Hethéo, y del Amorrhéo, y",
+      "box": [
+        510,
+        925,
+        907,
+        946
+      ],
+      "score": 0.9800791144371033
+    },
+    {
+      "text": "36. Y el Señor dió al pueblo gracia en los ojos de los Egyp-",
+      "box": [
+        12,
+        943,
+        406,
+        967
+      ],
+      "score": 0.995267927646637
+    },
+    {
+      "text": "del Hevéo, y del Jebuséo, que prometió con juramento á tus",
+      "box": [
+        512,
+        942,
+        906,
+        961
+      ],
+      "score": 0.993460476398468
+    },
+    {
+      "text": "cios, para que les prestasen lo que pedian; y de esta manera",
+      "box": [
+        0,
+        960,
+        407,
+        985
+      ],
+      "score": 0.9974668025970459
+    },
+    {
+      "text": "padres que te daria á tí, tierra que mana leche y miel 10, tú",
+      "box": [
+        510,
+        957,
+        906,
+        979
+      ],
+      "score": 0.9805874228477478
+    },
+    {
+      "text": "despojaron á los Egypcios s.",
+      "box": [
+        0,
+        979,
+        198,
+        1000
+      ],
+      "score": 0.9695079922676086
+    },
+    {
+      "text": "celebrarás este rito sagrado en dicho mes.",
+      "box": [
+        512,
+        975,
+        781,
+        993
+      ],
+      "score": 0.9880324602127075
+    },
+    {
+      "text": "37. Partieron en fin los hijos de Israél de Ramessés á So-",
+      "box": [
+        13,
+        991,
+        405,
+        1016
+      ],
+      "score": 0.9898808002471924
+    },
+    {
+      "text": "6. Por espacio de siete dias comerás ázymos: y el dia sép.",
+      "box": [
+        525,
+        990,
+        903,
+        1009
+      ],
+      "score": 0.9867106676101685
+    },
+    {
+      "text": "coth, en número de unos seiscientos mil hombres de á pié,",
+      "box": [
+        0,
+        1008,
+        405,
+        1033
+      ],
+      "score": 0.9961737394332886
+    },
+    {
+      "text": "timo será tambien dia solemne del Señor.",
+      "box": [
+        513,
+        1008,
+        779,
+        1022
+      ],
+      "score": 0.9997304677963257
+    },
+    {
+      "text": "sin contar los niños.",
+      "box": [
+        0,
+        1028,
+        146,
+        1048
+      ],
+      "score": 0.9999581575393677
+    },
+    {
+      "text": "7. Comerás ázymos, digo, por siete dias; ni parecerá en tu",
+      "box": [
+        524,
+        1022,
+        902,
+        1040
+      ],
+      "score": 0.9894336462020874
+    },
+    {
+      "text": "38. Tambien salió agregada á ellos una turba inmensa de",
+      "box": [
+        13,
+        1039,
+        405,
+        1065
+      ],
+      "score": 0.9901776909828186
+    },
+    {
+      "text": "casa, ni en todos tus términos, cosa alguna con levadura.",
+      "box": [
+        513,
+        1040,
+        876,
+        1054
+      ],
+      "score": 0.9956283569335938
+    },
+    {
+      "text": "8. Y en aquel dia contarás el suceso á tu hijo, diciendo:",
+      "box": [
+        523,
+        1053,
+        901,
+        1072
+      ],
+      "score": 0.9969494938850403
+    },
+    {
+      "text": "gente de toda clase: ovejas, y ganados mayores, y todo géne-",
+      "box": [
+        0,
+        1056,
+        405,
+        1084
+      ],
+      "score": 0.9907935261726379
+    },
+    {
+      "text": "Esto y esto hizo por mí el Señor, cuando salí de Egypto.",
+      "box": [
+        511,
+        1070,
+        869,
+        1088
+      ],
+      "score": 0.9907516837120056
+    },
+    {
+      "text": "ro de animales en grandísimo número.",
+      "box": [
+        0,
+        1076,
+        264,
+        1097
+      ],
+      "score": 0.9826844334602356
+    },
+    {
+      "text": "39. Y cocieron la harina que acababan de trasportar ama-",
+      "box": [
+        15,
+        1090,
+        405,
+        1112
+      ],
+      "score": 0.9921836256980896
+    },
+    {
+      "text": "9. Y será como una señal 11 en tu mano, y como un re-",
+      "box": [
+        523,
+        1085,
+        900,
+        1104
+      ],
+      "score": 0.9623860716819763
+    },
+    {
+      "text": "7 Num. IX, v. 12.—Joann. XLX, v. 36.",
+      "box": [
+        521,
+        1123,
+        741,
+        1142
+      ],
+      "score": 0.9732096195220947
+    },
+    {
+      "text": "1 Por extranjeros entiende Moysés los que no siendo Hebreos de orí-",
+      "box": [
+        13,
+        1130,
+        404,
+        1152
+      ],
+      "score": 0.9984304904937744
+    },
+    {
+      "text": "gen, habian abrazado su religion; y á estos llamaba proselitos de justicia.",
+      "box": [
+        0,
+        1143,
+        403,
+        1167
+      ],
+      "score": 0.937771737575531
+    },
+    {
+      "text": "8 Véaso Prosélito.",
+      "box": [
+        522,
+        1140,
+        621,
+        1154
+      ],
+      "score": 0.9439802169799805
+    },
+    {
+      "text": "Cap. XXXIV, v. 19.—Lev. XXVII, v. 26.—Num. VIII, v. 16.—",
+      "box": [
+        519,
+        1151,
+        898,
+        1172
+      ],
+      "score": 0.9646144509315491
+    },
+    {
+      "text": "Los proselitos de domicilio prometian solemnemente, á presencia de testi-",
+      "box": [
+        0,
+        1159,
+        404,
+        1179
+      ],
+      "score": 0.9770779609680176
+    },
+    {
+      "text": "gos, el guardar los mandamientos de Dios intimados á Adam y á Noé.—",
+      "box": [
+        0,
+        1172,
+        403,
+        1193
+      ],
+      "score": 0.9863969087600708
+    },
+    {
+      "text": "Luc. II, v. 23.",
+      "box": [
+        510,
+        1168,
+        589,
+        1182
+      ],
+      "score": 0.9636735320091248
+    },
+    {
+      "text": "Véase Prosélitos.",
+      "box": [
+        1,
+        1188,
+        106,
+        1204
+      ],
+      "score": 0.9812986850738525
+    },
+    {
+      "text": "10 Véase Miel.",
+      "box": [
+        520,
+        1181,
+        603,
+        1194
+      ],
+      "score": 0.9844372868537903
+    },
+    {
+      "text": "\" Los hebreos, entendiendo materialmente esta expresion, escriben",
+      "box": [
+        518,
+        1191,
+        899,
+        1211
+      ],
+      "score": 0.9818698167800903
+    },
+    {
+      "text": "à O el cordero pascual.",
+      "box": [
+        14,
+        1198,
+        155,
+        1217
+      ],
+      "score": 0.9466234445571899
+    },
+    {
+      "text": "3 Cap. XI, v. 5.—Ps. CIV, v. 36.",
+      "box": [
+        14,
+        1211,
+        211,
+        1231
+      ],
+      "score": 0.9706242084503174
+    },
+    {
+      "text": "en pedacitos de pergamino algunas palabras de este capítulo del Exodo,",
+      "box": [
+        507,
+        1206,
+        899,
+        1225
+      ],
+      "score": 0.9985856413841248
+    },
+    {
+      "text": "4 Cap. III, v. 21.—XI, v. 2.—Ps. CI V, v. 37.",
+      "box": [
+        15,
+        1225,
+        274,
+        1245
+      ],
+      "score": 0.9187387824058533
+    },
+    {
+      "text": "y se los atan en la frente de una á otra oreja, y en el puño. Llámanlos",
+      "box": [
+        507,
+        1219,
+        899,
+        1238
+      ],
+      "score": 0.9882422685623169
+    },
+    {
+      "text": "6 Disponiendo el Señor de todo lo criado este modo de resarcirse su",
+      "box": [
+        17,
+        1239,
+        402,
+        1258
+      ],
+      "score": 0.9835603833198547
+    },
+    {
+      "text": "n y los griegos polazttga, esto es, Preservativos, Math. XXIII,",
+      "box": [
+        507,
+        1232,
+        897,
+        1252
+      ],
+      "score": 0.8678820729255676
+    },
+    {
+      "text": "pueblo de los perjuicios sufridos.",
+      "box": [
+        1,
+        1250,
+        193,
+        1275
+      ],
+      "score": 0.9866001009941101
+    },
+    {
+      "text": "v. 5.—Véase Phylacteria.",
+      "box": [
+        508,
+        1248,
+        645,
+        1261
+      ],
+      "score": 0.9940091967582703
+    },
+    {
+      "text": "6 Gen. XV, v. 13.",
+      "box": [
+        17,
+        1266,
+        130,
+        1284
+      ],
+      "score": 0.990735650062561
+    },
+    {
+      "text": "I.—14",
+      "box": [
+        835,
+        1278,
+        875,
+        1293
+      ],
+      "score": 0.8544109463691711
+    }
+  ]
+}

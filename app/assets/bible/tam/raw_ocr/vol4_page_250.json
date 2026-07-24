@@ -1,0 +1,37 @@
+{
+  "volume": 4,
+  "page_index": 250,
+  "pdf_page": 251,
+  "lines": [
+    {
+      "text": "GDos",
+      "box": [
+        105,
+        1121,
+        186,
+        1146
+      ],
+      "score": 0.7392157316207886
+    },
+    {
+      "text": "PANNEMAKER-DOMS.",
+      "box": [
+        727,
+        1126,
+        859,
+        1140
+      ],
+      "score": 0.9475548267364502
+    },
+    {
+      "text": "CAIDA DE JESUS BAJO EL PESO DE LA CRUZ",
+      "box": [
+        317,
+        1175,
+        651,
+        1193
+      ],
+      "score": 0.9866846799850464
+    }
+  ]
+}

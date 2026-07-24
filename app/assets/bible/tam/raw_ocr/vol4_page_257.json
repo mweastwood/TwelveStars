@@ -1,0 +1,577 @@
+{
+  "volume": 4,
+  "page_index": 257,
+  "pdf_page": 258,
+  "lines": [
+    {
+      "text": "287",
+      "box": [
+        80,
+        57,
+        105,
+        74
+      ],
+      "score": 0.9998703002929688
+    },
+    {
+      "text": "EP. A LOS GALATAS.",
+      "box": [
+        185,
+        61,
+        325,
+        75
+      ],
+      "score": 0.9897174835205078
+    },
+    {
+      "text": "CAPITULO VI.",
+      "box": [
+        677,
+        56,
+        779,
+        77
+      ],
+      "score": 0.9956094622612
+    },
+    {
+      "text": "000O",
+      "box": [
+        378,
+        63,
+        417,
+        83
+      ],
+      "score": 0.3441208302974701
+    },
+    {
+      "text": "288",
+      "box": [
+        877,
+        63,
+        901,
+        80
+      ],
+      "score": 0.9999505877494812
+    },
+    {
+      "text": "5. Porque cada cual al ir á ser juzgado cargará con su",
+      "box": [
+        81,
+        99,
+        440,
+        123
+      ],
+      "score": 0.9954264760017395
+    },
+    {
+      "text": "con solo el fin de no ser ellos perseguidos por causa de la",
+      "box": [
+        539,
+        100,
+        910,
+        123
+      ],
+      "score": 0.9996615648269653
+    },
+    {
+      "text": "propio fardo1.",
+      "box": [
+        71,
+        118,
+        162,
+        136
+      ],
+      "score": 0.9717002511024475
+    },
+    {
+      "text": "cruz de Christo.",
+      "box": [
+        539,
+        119,
+        647,
+        136
+      ],
+      "score": 0.9021862745285034
+    },
+    {
+      "text": "6. Entre tanto, aquel á quien se le instruye en las cosas",
+      "box": [
+        81,
+        133,
+        441,
+        157
+      ],
+      "score": 0.9872645139694214
+    },
+    {
+      "text": "13. Porque ni ellos mismos que están circuncidados guar-",
+      "box": [
+        551,
+        136,
+        908,
+        156
+      ],
+      "score": 0.990750789642334
+    },
+    {
+      "text": "de la fe, asista de todos modos con sus bienes al que le ins-",
+      "box": [
+        69,
+        149,
+        440,
+        175
+      ],
+      "score": 0.9846295118331909
+    },
+    {
+      "text": "dan la Ley: sino que quieren que seais circuncidados vos-",
+      "box": [
+        539,
+        153,
+        909,
+        172
+      ],
+      "score": 0.9902941584587097
+    },
+    {
+      "text": "truye.",
+      "box": [
+        71,
+        169,
+        113,
+        187
+      ],
+      "score": 0.9988037943840027
+    },
+    {
+      "text": "otros, á fin de gloriarse en vuestra carne contándoos entre",
+      "box": [
+        540,
+        171,
+        909,
+        188
+      ],
+      "score": 0.9847896099090576
+    },
+    {
+      "text": "7. No querais engañaros á vosotros mismos: Dios no puede",
+      "box": [
+        80,
+        182,
+        441,
+        210
+      ],
+      "score": 0.9950758814811707
+    },
+    {
+      "text": ".000",
+      "box": [
+        451,
+        185,
+        477,
+        216
+      ],
+      "score": 0.6843506097793579
+    },
+    {
+      "text": "sus prosélitos.",
+      "box": [
+        540,
+        189,
+        625,
+        203
+      ],
+      "score": 0.9945951700210571
+    },
+    {
+      "text": "ser burlado .",
+      "box": [
+        69,
+        199,
+        157,
+        224
+      ],
+      "score": 0.9522472023963928
+    },
+    {
+      "text": "14. Á mí líbreme Dios de gloriarme, sino en la cruz de",
+      "box": [
+        549,
+        200,
+        909,
+        221
+      ],
+      "score": 0.9919610619544983
+    },
+    {
+      "text": "8. Así es que lo que un hombre sembrare, eso recogerá.",
+      "box": [
+        81,
+        215,
+        440,
+        243
+      ],
+      "score": 0.9890496730804443
+    },
+    {
+      "text": "nuestro Señor Jesu-Christo: por quien el mundo está muerto",
+      "box": [
+        537,
+        216,
+        910,
+        240
+      ],
+      "score": 0.9896456599235535
+    },
+    {
+      "text": "Por donde quien siempra ahora para su carne*, de la carne",
+      "box": [
+        68,
+        231,
+        442,
+        261
+      ],
+      "score": 0.9597765207290649
+    },
+    {
+      "text": "y crucificado para mí, como yo lo estoy para el mundo.",
+      "box": [
+        537,
+        232,
+        877,
+        256
+      ],
+      "score": 0.9988803863525391
+    },
+    {
+      "text": "recogerá despues la corrupcion y la muerte: mas el que siem-",
+      "box": [
+        68,
+        249,
+        441,
+        277
+      ],
+      "score": 0.9230567812919617
+    },
+    {
+      "text": "15. El hecho es, que respecto de Jesu-Christo ni la cir-",
+      "box": [
+        548,
+        245,
+        911,
+        274
+      ],
+      "score": 0.947804868221283
+    },
+    {
+      "text": "bra para el espíritu, del espíritu cogerá la vida eterna.",
+      "box": [
+        68,
+        266,
+        401,
+        294
+      ],
+      "score": 0.9316060543060303
+    },
+    {
+      "text": "cuncision, ni la incircuncision valen nada, sino que lo que",
+      "box": [
+        537,
+        263,
+        911,
+        289
+      ],
+      "score": 0.9960196018218994
+    },
+    {
+      "text": "9. No nos cansemos pues de hacer bien: porque si perse-",
+      "box": [
+        79,
+        283,
+        441,
+        311
+      ],
+      "score": 0.9938044548034668
+    },
+    {
+      "text": "vale es el ser una nueva criatura 5.",
+      "box": [
+        538,
+        284,
+        753,
+        302
+      ],
+      "score": 0.9727204442024231
+    },
+    {
+      "text": "veramos, á su tiempo recogeremos el fruto.",
+      "box": [
+        67,
+        299,
+        337,
+        329
+      ],
+      "score": 0.9608415961265564
+    },
+    {
+      "text": "16. Y sobre todos cuantos siguieren esta norma ó doctri-",
+      "box": [
+        548,
+        292,
+        911,
+        324
+      ],
+      "score": 0.9283307790756226
+    },
+    {
+      "text": "10. Así que, mientras tenemos tiempo, hagamos bien á",
+      "box": [
+        80,
+        315,
+        443,
+        344
+      ],
+      "score": 0.8722795844078064
+    },
+    {
+      "text": "na, venga paz, y misericordia, como sobre el verdadero",
+      "box": [
+        536,
+        308,
+        912,
+        341
+      ],
+      "score": 0.9854061603546143
+    },
+    {
+      "text": "todos y mayormente á aquellos que son, mediante la fe, de",
+      "box": [
+        66,
+        330,
+        443,
+        362
+      ],
+      "score": 0.8010666966438293
+    },
+    {
+      "text": "pueblo de Dios θ.",
+      "box": [
+        539,
+        334,
+        645,
+        352
+      ],
+      "score": 0.9650672674179077
+    },
+    {
+      "text": "la misma familia del Señor que nosotros.",
+      "box": [
+        66,
+        347,
+        322,
+        378
+      ],
+      "score": 0.9830449223518372
+    },
+    {
+      "text": "17. Por lo demás nadie me moleste en adelante sobre la",
+      "box": [
+        550,
+        340,
+        910,
+        370
+      ],
+      "score": 0.9856471419334412
+    },
+    {
+      "text": "11. Mirad qué carta tan larga os he escrito de mi propio",
+      "box": [
+        78,
+        366,
+        441,
+        393
+      ],
+      "score": 0.9480261206626892
+    },
+    {
+      "text": "circuncision: porque yo traigo impresas en mi cuerpo las",
+      "box": [
+        536,
+        355,
+        911,
+        390
+      ],
+      "score": 0.7966519594192505
+    },
+    {
+      "text": "puño.",
+      "box": [
+        67,
+        384,
+        109,
+        403
+      ],
+      "score": 0.9994770288467407
+    },
+    {
+      "text": "señales ó la marca del Señor Jesus ®.",
+      "box": [
+        538,
+        380,
+        770,
+        401
+      ],
+      "score": 0.9575755000114441
+    },
+    {
+      "text": "12. Todos aquellos que quieren seros gratos  lisonjearos",
+      "box": [
+        79,
+        398,
+        442,
+        428
+      ],
+      "score": 0.8982605338096619
+    },
+    {
+      "text": "18. La gracia de nuestro Señor Jesu-Christo sea, herma-",
+      "box": [
+        550,
+        389,
+        911,
+        422
+      ],
+      "score": 0.9751168489456177
+    },
+    {
+      "text": "segun la carne, esos os constriñen á que os circuncideis,",
+      "box": [
+        65,
+        416,
+        441,
+        444
+      ],
+      "score": 0.9249936938285828
+    },
+    {
+      "text": "nos mios, con vuestro espíritu. Amen.",
+      "box": [
+        539,
+        414,
+        777,
+        435
+      ],
+      "score": 0.9981874227523804
+    },
+    {
+      "text": "O con su propias obs; y n ellas se pree al c d Ds.",
+      "box": [
+        75,
+        461,
+        442,
+        488
+      ],
+      "score": 0.5989457964897156
+    },
+    {
+      "text": "5 O el ser un nuevo hombre por la gracia.",
+      "box": [
+        550,
+        457,
+        774,
+        477
+      ],
+      "score": 0.9873142838478088
+    },
+    {
+      "text": "2 No servirán para con él falsos pretextos.",
+      "box": [
+        76,
+        477,
+        305,
+        501
+      ],
+      "score": 0.9750877022743225
+    },
+    {
+      "text": "Pue ellos son los verdadeos Israeltas,  que s cr la",
+      "box": [
+        548,
+        459,
+        915,
+        496
+      ],
+      "score": 0.617170512676239
+    },
+    {
+      "text": "3 No trabajando sino en satisfacer sus apetitos.",
+      "box": [
+        76,
+        492,
+        330,
+        516
+      ],
+      "score": 0.9393210411071777
+    },
+    {
+      "text": "promesas.",
+      "box": [
+        539,
+        489,
+        597,
+        508
+      ],
+      "score": 0.9978523254394531
+    },
+    {
+      "text": "Ddle a,se eluda",
+      "box": [
+        75,
+        505,
+        443,
+        532
+      ],
+      "score": 0.3924340605735779
+    },
+    {
+      "text": "Sie menesterque lleve cada siervo la marea del Señor á quien se.",
+      "box": [
+        549,
+        488,
+        915,
+        525
+      ],
+      "score": 0.7138252258300781
+    },
+    {
+      "text": "y reputados tales.",
+      "box": [
+        67,
+        523,
+        164,
+        543
+      ],
+      "score": 0.9970688223838806
+    },
+    {
+      "text": "Olas seale de lo que he pedecdo por u ao.Vése Seles.",
+      "box": [
+        549,
+        501,
+        905,
+        541
+      ],
+      "score": 0.5647664666175842
+    },
+    {
+      "text": "☆☆",
+      "box": [
+        339,
+        938,
+        421,
+        990
+      ],
+      "score": 0.871772050857544
+    }
+  ]
+}

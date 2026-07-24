@@ -1,0 +1,1467 @@
+{
+  "volume": 3,
+  "page_index": 95,
+  "pdf_page": 96,
+  "lines": [
+    {
+      "text": "139",
+      "box": [
+        49,
+        38,
+        74,
+        54
+      ],
+      "score": 0.9999759793281555
+    },
+    {
+      "text": "PROVERBIOS.",
+      "box": [
+        181,
+        39,
+        276,
+        56
+      ],
+      "score": 0.9998348355293274
+    },
+    {
+      "text": "CAPITULO XXX.",
+      "box": [
+        664,
+        37,
+        783,
+        65
+      ],
+      "score": 0.9779221415519714
+    },
+    {
+      "text": "140",
+      "box": [
+        871,
+        57,
+        895,
+        73
+      ],
+      "score": 0.9998944401741028
+    },
+    {
+      "text": "11. El insensato habla luego cuanto en su pecho tiene;",
+      "box": [
+        55,
+        82,
+        427,
+        111
+      ],
+      "score": 0.9986197352409363
+    },
+    {
+      "text": "pero el que es sábio no se apresura, sino que reserva algunas",
+      "box": [
+        41,
+        102,
+        426,
+        129
+      ],
+      "score": 0.9939410090446472
+    },
+    {
+      "text": "es un escudo para los que en él confian.",
+      "box": [
+        526,
+        106,
+        778,
+        129
+      ],
+      "score": 0.9778157472610474
+    },
+    {
+      "text": "cosas para en adelante.",
+      "box": [
+        43,
+        121,
+        193,
+        144
+      ],
+      "score": 0.999092161655426
+    },
+    {
+      "text": "6. No añadas una tilde á sus palabras ; de lo conario",
+      "box": [
+        538,
+        119,
+        903,
+        151
+      ],
+      "score": 0.6899163722991943
+    },
+    {
+      "text": "12. El príncipe que escucha con gusto las mentiras y chis-",
+      "box": [
+        58,
+        138,
+        426,
+        164
+      ],
+      "score": 0.9811363220214844
+    },
+    {
+      "text": "serás redargüido y convencido de falsario.",
+      "box": [
+        527,
+        142,
+        791,
+        161
+      ],
+      "score": 0.9838957190513611
+    },
+    {
+      "text": "mes, no tendrá sino ministros perversos.",
+      "box": [
+        45,
+        156,
+        293,
+        180
+      ],
+      "score": 0.9979747533798218
+    },
+    {
+      "text": "7. Dos cosas te he pedido, oh Señor; no me las niegues en",
+      "box": [
+        540,
+        156,
+        902,
+        181
+      ],
+      "score": 0.9878283143043518
+    },
+    {
+      "text": "13. Encontráronse el pobre y su acreedor: á entrambos",
+      "box": [
+        59,
+        173,
+        425,
+        197
+      ],
+      "score": 0.9874565601348877
+    },
+    {
+      "text": "lo que me resta de vida.",
+      "box": [
+        526,
+        174,
+        682,
+        195
+      ],
+      "score": 0.9923877716064453
+    },
+    {
+      "text": "alumbra el Señor Dios1.",
+      "box": [
+        48,
+        191,
+        206,
+        214
+      ],
+      "score": 0.992468535900116
+    },
+    {
+      "text": "8. Aleja de mí la vanidad y las palabras mentirosas.—No",
+      "box": [
+        539,
+        191,
+        903,
+        213
+      ],
+      "score": 0.9957492351531982
+    },
+    {
+      "text": "14. El rey que hae justca á los pobres ugado segun",
+      "box": [
+        60,
+        206,
+        427,
+        234
+      ],
+      "score": 0.6898831725120544
+    },
+    {
+      "text": "me dés ni mendiguez ni riquezas: dame solamente lo necesa-",
+      "box": [
+        526,
+        208,
+        902,
+        230
+      ],
+      "score": 0.9965275526046753
+    },
+    {
+      "text": "la verdad, afianza su trono para siempre.",
+      "box": [
+        46,
+        223,
+        301,
+        253
+      ],
+      "score": 0.9557917714118958
+    },
+    {
+      "text": "rio para vivir;",
+      "box": [
+        528,
+        227,
+        621,
+        244
+      ],
+      "score": 0.9951795935630798
+    },
+    {
+      "text": "15. El castigo y la reprension acarrean sabidura; pero el",
+      "box": [
+        60,
+        240,
+        427,
+        267
+      ],
+      "score": 0.7891841530799866
+    },
+    {
+      "text": "9. No sea que viéndome sobrado, me vea tentado á rene-",
+      "box": [
+        541,
+        244,
+        903,
+        260
+      ],
+      "score": 0.9934322834014893
+    },
+    {
+      "text": "muchacho abandonado á sus antojos, es la conusion de su",
+      "box": [
+        45,
+        256,
+        427,
+        285
+      ],
+      "score": 0.845375657081604
+    },
+    {
+      "text": "gar de tí, y diga lleno de arrogancia: ¿Quién es el Señor?ó bien",
+      "box": [
+        527,
+        259,
+        903,
+        278
+      ],
+      "score": 0.9919232130050659
+    },
+    {
+      "text": "madre.",
+      "box": [
+        47,
+        273,
+        102,
+        297
+      ],
+      "score": 0.9953863620758057
+    },
+    {
+      "text": "que, acosado de la necesidad, me ponga á robar, y á perjurar",
+      "box": [
+        528,
+        277,
+        903,
+        294
+      ],
+      "score": 0.9953189492225647
+    },
+    {
+      "text": "16. Multiplicándose los impíos, se multiplicarán las mal-",
+      "box": [
+        61,
+        289,
+        428,
+        317
+      ],
+      "score": 0.9483914971351624
+    },
+    {
+      "text": "el Nombre de mi Dios.",
+      "box": [
+        529,
+        293,
+        670,
+        310
+      ],
+      "score": 0.9977096319198608
+    },
+    {
+      "text": "dades;mas los usos verán la rua de los incuos.",
+      "box": [
+        47,
+        306,
+        364,
+        335
+      ],
+      "score": 0.7181085348129272
+    },
+    {
+      "text": "10. No acuses ligeramente al siervo ante su amo; no sea",
+      "box": [
+        541,
+        309,
+        904,
+        326
+      ],
+      "score": 0.9928305149078369
+    },
+    {
+      "text": "17. Instruye  cria bien á tu hijo, y será tu consuelo, y las",
+      "box": [
+        63,
+        325,
+        427,
+        348
+      ],
+      "score": 0.9079394936561584
+    },
+    {
+      "text": "que te maldiga, y tú te pierdas.",
+      "box": [
+        526,
+        323,
+        726,
+        345
+      ],
+      "score": 0.9844605922698975
+    },
+    {
+      "text": "delicias de tu alma.",
+      "box": [
+        50,
+        339,
+        177,
+        365
+      ],
+      "score": 0.9975085258483887
+    },
+    {
+      "text": "11. Hay una casta de gente que maldice á su padre, y",
+      "box": [
+        541,
+        342,
+        903,
+        358
+      ],
+      "score": 0.9982340931892395
+    },
+    {
+      "text": "18. En faltando la profecía , será disipado el pueblo; pero",
+      "box": [
+        64,
+        357,
+        427,
+        380
+      ],
+      "score": 0.9641190767288208
+    },
+    {
+      "text": "tambien á su madre, en vez de bendecirla.",
+      "box": [
+        528,
+        358,
+        793,
+        375
+      ],
+      "score": 0.9986916780471802
+    },
+    {
+      "text": "bienaventurado será el que guardare la Ley.",
+      "box": [
+        50,
+        372,
+        326,
+        398
+      ],
+      "score": 0.9616502523422241
+    },
+    {
+      "text": "12. Otra casta de gente que se tiene por pura, y por lo mis-",
+      "box": [
+        539,
+        371,
+        905,
+        392
+      ],
+      "score": 0.9969437718391418
+    },
+    {
+      "text": "19. No bastan las solas palabras para corregir á un ánimo",
+      "box": [
+        66,
+        391,
+        428,
+        414
+      ],
+      "score": 0.9754899740219116
+    },
+    {
+      "text": "mo no se ha lavado de sus manchas 7.",
+      "box": [
+        527,
+        389,
+        763,
+        409
+      ],
+      "score": 0.9957090020179749
+    },
+    {
+      "text": "que solo obra por temor: porque conoce bien lo que tú dices;",
+      "box": [
+        52,
+        408,
+        428,
+        430
+      ],
+      "score": 0.9979711174964905
+    },
+    {
+      "text": "13. Otra casta hay de gente que tiene siempre altivos sus",
+      "box": [
+        539,
+        404,
+        906,
+        427
+      ],
+      "score": 0.9936639666557312
+    },
+    {
+      "text": "mas no quiere darse por entendido.",
+      "box": [
+        52,
+        425,
+        272,
+        447
+      ],
+      "score": 0.9957791566848755
+    },
+    {
+      "text": "ojos, y erguidos y levantados sus párpados.",
+      "box": [
+        527,
+        422,
+        798,
+        445
+      ],
+      "score": 0.9910951852798462
+    },
+    {
+      "text": "20. ¿Has visto tú algun hombre que se precipita para ha-",
+      "box": [
+        67,
+        441,
+        429,
+        462
+      ],
+      "score": 0.9953179955482483
+    },
+    {
+      "text": "14. Otra casta de hombres que tienen unos dientes como",
+      "box": [
+        540,
+        438,
+        905,
+        459
+      ],
+      "score": 0.99656081199646
+    },
+    {
+      "text": "blar? Mas antes se puede esperar la enmienda del necio, que",
+      "box": [
+        54,
+        457,
+        430,
+        480
+      ],
+      "score": 0.9946090579032898
+    },
+    {
+      "text": "cuchillos, y despedazan con sus quijadas, y se tragan los des-",
+      "box": [
+        527,
+        452,
+        906,
+        476
+      ],
+      "score": 0.9887785911560059
+    },
+    {
+      "text": "del locuaz.",
+      "box": [
+        56,
+        476,
+        126,
+        494
+      ],
+      "score": 0.9998329281806946
+    },
+    {
+      "text": "validos dè la tierra, y los pobres de entre los hombres.",
+      "box": [
+        528,
+        470,
+        864,
+        493
+      ],
+      "score": 0.9930685758590698
+    },
+    {
+      "text": "21. Quien cria en el regalo desde la niñez á su siervo, des-",
+      "box": [
+        67,
+        489,
+        429,
+        512
+      ],
+      "score": 0.9976116418838501
+    },
+    {
+      "text": "15. La sanguijuela de la concupiscencia tiene dos hijas",
+      "box": [
+        541,
+        484,
+        906,
+        510
+      ],
+      "score": 0.9902918934822083
+    },
+    {
+      "text": "pues le experimentará contumaz.",
+      "box": [
+        53,
+        508,
+        261,
+        530
+      ],
+      "score": 0.9983060359954834
+    },
+    {
+      "text": "las cuales están diciendo siempre: Dame, dame.—Tres cosas",
+      "box": [
+        527,
+        501,
+        907,
+        527
+      ],
+      "score": 0.9918402433395386
+    },
+    {
+      "text": "22. Levanta quimeras el hombre colérico: y quien fácil-",
+      "box": [
+        69,
+        522,
+        429,
+        548
+      ],
+      "score": 0.9827178120613098
+    },
+    {
+      "text": "hay insaciables, ó mas bien cuatro, que jamás dicen: Ya basta.",
+      "box": [
+        527,
+        518,
+        906,
+        545
+      ],
+      "score": 0.9936792254447937
+    },
+    {
+      "text": "mente se enoja, estará mas expuesto á pecar.",
+      "box": [
+        56,
+        541,
+        330,
+        562
+      ],
+      "score": 0.9750188589096069
+    },
+    {
+      "text": "16. El infierno, la matriz de la estéril, ó la lascivia9, y la",
+      "box": [
+        541,
+        534,
+        906,
+        561
+      ],
+      "score": 0.9729331135749817
+    },
+    {
+      "text": "23. Sigue al soberbio la humillacion ³; mas el humilde de",
+      "box": [
+        69,
+        555,
+        431,
+        580
+      ],
+      "score": 0.9920497536659241
+    },
+    {
+      "text": "tierra que nunca se sacia de agua; además el fuego, el cual",
+      "box": [
+        528,
+        550,
+        906,
+        578
+      ],
+      "score": 0.9916139841079712
+    },
+    {
+      "text": "espíritu será glorificado.",
+      "box": [
+        55,
+        576,
+        207,
+        596
+      ],
+      "score": 0.9980754256248474
+    },
+    {
+      "text": "nunca dice: Basta.",
+      "box": [
+        529,
+        573,
+        643,
+        593
+      ],
+      "score": 0.9720006585121155
+    },
+    {
+      "text": "24. Quien con un ladron se asocia, á su propia alma abor-",
+      "box": [
+        69,
+        588,
+        431,
+        613
+      ],
+      "score": 0.9961562752723694
+    },
+    {
+      "text": "17. Á quien hace mofa de su propio padre, y desprecia los",
+      "box": [
+        542,
+        583,
+        906,
+        610
+      ],
+      "score": 0.9926457405090332
+    },
+    {
+      "text": "rece: oye al que le toma juramento, y nada declara.",
+      "box": [
+        55,
+        606,
+        370,
+        630
+      ],
+      "score": 0.9955030679702759
+    },
+    {
+      "text": "dolores que al parirle padeció su madre, sáquenle los ojos los",
+      "box": [
+        529,
+        600,
+        906,
+        626
+      ],
+      "score": 0.9952558279037476
+    },
+    {
+      "text": "25. El que solo al hombre teme, presto caerá: el que espera",
+      "box": [
+        70,
+        621,
+        432,
+        647
+      ],
+      "score": 0.9816320538520813
+    },
+    {
+      "text": "cuervos que viven á lo largo de los torrentes, y cómanselos los",
+      "box": [
+        528,
+        617,
+        905,
+        642
+      ],
+      "score": 0.9967631697654724
+    },
+    {
+      "text": "en el Señor, será exaltado.",
+      "box": [
+        57,
+        642,
+        219,
+        662
+      ],
+      "score": 0.9969013333320618
+    },
+    {
+      "text": "aguiluchos.",
+      "box": [
+        529,
+        638,
+        604,
+        656
+      ],
+      "score": 0.9997939467430115
+    },
+    {
+      "text": "26. Buscan muchos el favor del príncipe; mas del Señor ha",
+      "box": [
+        71,
+        652,
+        432,
+        680
+      ],
+      "score": 0.984480082988739
+    },
+    {
+      "text": "18. Tres cosas me son difíciles de entender, ó mas bien cua-",
+      "box": [
+        541,
+        649,
+        905,
+        672
+      ],
+      "score": 0.9784150719642639
+    },
+    {
+      "text": "de venir el juicio ó destino de cada uno.",
+      "box": [
+        57,
+        673,
+        302,
+        695
+      ],
+      "score": 0.9892793297767639
+    },
+    {
+      "text": "tro 10; las cuales ignoro totalmente:",
+      "box": [
+        530,
+        668,
+        743,
+        687
+      ],
+      "score": 0.9824165105819702
+    },
+    {
+      "text": "27. Los justos abominan á los impíos, y los impíos abomi-",
+      "box": [
+        70,
+        686,
+        432,
+        714
+      ],
+      "score": 0.9961923360824585
+    },
+    {
+      "text": "19. El rastro del águila en la atmósfera, el rastro de la cu-",
+      "box": [
+        543,
+        684,
+        904,
+        703
+      ],
+      "score": 0.9994096159934998
+    },
+    {
+      "text": "nan á los que siguen el buen camino.—El hijo que observa",
+      "box": [
+        56,
+        703,
+        432,
+        731
+      ],
+      "score": 0.9968790411949158
+    },
+    {
+      "text": "lebra sobre la peña, el rastro de la nave en alta mar, y el pro-",
+      "box": [
+        531,
+        704,
+        903,
+        718
+      ],
+      "score": 0.999851405620575
+    },
+    {
+      "text": "ceder del hombre en la mocedad \".",
+      "box": [
+        530,
+        717,
+        742,
+        735
+      ],
+      "score": 0.9624724984169006
+    },
+    {
+      "text": "esta doctrina, seguro está de no perderse.",
+      "box": [
+        57,
+        723,
+        308,
+        747
+      ],
+      "score": 0.9854294657707214
+    },
+    {
+      "text": "20. Tal es tambien el camino de la mujer adúltera; la cual",
+      "box": [
+        543,
+        734,
+        903,
+        750
+      ],
+      "score": 0.995303213596344
+    },
+    {
+      "text": "CAPITULO XXX",
+      "box": [
+        190,
+        748,
+        299,
+        767
+      ],
+      "score": 0.9994037747383118
+    },
+    {
+      "text": "despues de haber comido 1a, limpiándose la boca, dice con des-",
+      "box": [
+        531,
+        750,
+        903,
+        767
+      ],
+      "score": 0.9866604208946228
+    },
+    {
+      "text": "caro: Yo no he cometido mal ninguno.",
+      "box": [
+        529,
+        765,
+        760,
+        784
+      ],
+      "score": 0.9764147996902466
+    },
+    {
+      "text": "El sábio cree no saber nada. Se habla enigmáticamente de cuatro vicios",
+      "box": [
+        58,
+        767,
+        431,
+        795
+      ],
+      "score": 0.9677819609642029
+    },
+    {
+      "text": "pésimos é insaciables que tienen perturbado al mundo, y que debemos",
+      "box": [
+        71,
+        784,
+        431,
+        809
+      ],
+      "score": 0.9943548440933228
+    },
+    {
+      "text": "21. Por tres cosas se perturba la tierra, ó mas bien por",
+      "box": [
+        541,
+        781,
+        904,
+        802
+      ],
+      "score": 0.9967249631881714
+    },
+    {
+      "text": "procurar evitar.",
+      "box": [
+        71,
+        803,
+        159,
+        824
+      ],
+      "score": 0.9994716644287109
+    },
+    {
+      "text": "cuatro; las cuales ella no puede sufrir:",
+      "box": [
+        530,
+        800,
+        762,
+        819
+      ],
+      "score": 0.9993969798088074
+    },
+    {
+      "text": "1. Palabras ó sentencias de aquel que Congrega, hijo del",
+      "box": [
+        74,
+        820,
+        433,
+        846
+      ],
+      "score": 0.9884948134422302
+    },
+    {
+      "text": "22. Por un esclavo que llega á reinar; por un tonto harto",
+      "box": [
+        541,
+        813,
+        905,
+        838
+      ],
+      "score": 0.9953645467758179
+    },
+    {
+      "text": "Afluente en sabiduría4. Revelacion que expuso un varon, con",
+      "box": [
+        64,
+        837,
+        432,
+        862
+      ],
+      "score": 0.97917640209198
+    },
+    {
+      "text": "de comida;",
+      "box": [
+        530,
+        836,
+        600,
+        852
+      ],
+      "score": 0.9999175071716309
+    },
+    {
+      "text": "quien está Dios, y el cual habiendo sido confortado por Dios,",
+      "box": [
+        63,
+        853,
+        433,
+        880
+      ],
+      "score": 0.9994526505470276
+    },
+    {
+      "text": "23. Por una mujer que se casa con el que la aborrece; y",
+      "box": [
+        541,
+        845,
+        904,
+        870
+      ],
+      "score": 0.9891026020050049
+    },
+    {
+      "text": "que mora en él, habló de esta manera:",
+      "box": [
+        62,
+        871,
+        297,
+        897
+      ],
+      "score": 0.993216872215271
+    },
+    {
+      "text": "por la esclava que es heredera de su ama.",
+      "box": [
+        530,
+        865,
+        779,
+        886
+      ],
+      "score": 0.9981646537780762
+    },
+    {
+      "text": "2. Yo soy el mas ignorante de los hombres: ni tengo sabi-",
+      "box": [
+        76,
+        887,
+        434,
+        912
+      ],
+      "score": 0.9842634201049805
+    },
+    {
+      "text": "24. Cuatro cosas hay de las mas pequeñas ó ruines sobre",
+      "box": [
+        542,
+        876,
+        905,
+        904
+      ],
+      "score": 0.9903492331504822
+    },
+    {
+      "text": "duría humana.",
+      "box": [
+        65,
+        908,
+        159,
+        927
+      ],
+      "score": 0.9886079430580139
+    },
+    {
+      "text": "la tierra; las cuales superan en saber á los sábios:",
+      "box": [
+        531,
+        898,
+        830,
+        918
+      ],
+      "score": 0.9959713220596313
+    },
+    {
+      "text": "3. No he aprendido la sabiduría, ni he entendido por mi",
+      "box": [
+        78,
+        919,
+        436,
+        944
+      ],
+      "score": 0.9817501306533813
+    },
+    {
+      "text": "25. Las hormigas, ese pueblo debilísimo, el cual al tiempo",
+      "box": [
+        543,
+        910,
+        904,
+        936
+      ],
+      "score": 0.9942381381988525
+    },
+    {
+      "text": "mismo la ciencia de los santos.",
+      "box": [
+        67,
+        939,
+        253,
+        959
+      ],
+      "score": 0.9994446635246277
+    },
+    {
+      "text": "de las mieses se provee de víveres;",
+      "box": [
+        532,
+        930,
+        737,
+        951
+      ],
+      "score": 0.9993368983268738
+    },
+    {
+      "text": "26. Los conejos, tímidos animales, que colocan su madri-",
+      "box": [
+        543,
+        940,
+        905,
+        967
+      ],
+      "score": 0.983785092830658
+    },
+    {
+      "text": "-4. ¿Quién ha subido al cielo y ha bajado de allá, para po-",
+      "box": [
+        76,
+        951,
+        435,
+        977
+      ],
+      "score": 0.976625382900238
+    },
+    {
+      "text": "guera entre las peñas:",
+      "box": [
+        532,
+        963,
+        662,
+        982
+      ],
+      "score": 0.9781668186187744
+    },
+    {
+      "text": "der hablar sábiamente? ¿Quién sujetó el viento con sus manos?",
+      "box": [
+        67,
+        970,
+        435,
+        992
+      ],
+      "score": 0.9935238361358643
+    },
+    {
+      "text": "27. Las langostas, que sin tener rey, se mueven todas orde-",
+      "box": [
+        543,
+        974,
+        905,
+        1000
+      ],
+      "score": 0.9936948418617249
+    },
+    {
+      "text": "¿Quién envolvió en densas nubes las aguas como en un envol-",
+      "box": [
+        67,
+        986,
+        435,
+        1010
+      ],
+      "score": 0.9914149045944214
+    },
+    {
+      "text": "nadas en escuadrones:",
+      "box": [
+        534,
+        997,
+        665,
+        1014
+      ],
+      "score": 0.9999264478683472
+    },
+    {
+      "text": "torio? ¿Quién ha dado estabilidad á todas las partes de la tier-",
+      "box": [
+        68,
+        1003,
+        435,
+        1027
+      ],
+      "score": 0.9982181191444397
+    },
+    {
+      "text": "28. El estelion, que trepa con sus piés, y se aposenta en los",
+      "box": [
+        544,
+        1007,
+        906,
+        1033
+      ],
+      "score": 0.991167426109314
+    },
+    {
+      "text": "ra? ¿Cuál es el nombre de éste que tal hizo? ¿y qué nombre",
+      "box": [
+        68,
+        1019,
+        435,
+        1045
+      ],
+      "score": 0.9840322136878967
+    },
+    {
+      "text": "mismos palacios de los reyes 13.",
+      "box": [
+        534,
+        1027,
+        715,
+        1047
+      ],
+      "score": 0.9816811084747314
+    },
+    {
+      "text": "tiene su hijo? Dílo tú, si es que lo sabes.",
+      "box": [
+        70,
+        1038,
+        307,
+        1061
+      ],
+      "score": 0.9916291236877441
+    },
+    {
+      "text": "Essés  Ch, es e, el gu pred en la reuion  la rue.",
+      "box": [
+        533,
+        1064,
+        905,
+        1090
+      ],
+      "score": 0.6203418970108032
+    },
+    {
+      "text": "1 Esto es (segun indica el texto hebreo) á ambos dará su merecido, al",
+      "box": [
+        79,
+        1078,
+        435,
+        1103
+      ],
+      "score": 0.969254732131958
+    },
+    {
+      "text": "Y añade ser hijo del gue rebosaba, esto es, de David, que, insprado de",
+      "box": [
+        532,
+        1078,
+        907,
+        1104
+      ],
+      "score": 0.854336678981781
+    },
+    {
+      "text": "pobre por su paciencia, y al acreedor por sus usuras. Cap, XXII, v. 2.",
+      "box": [
+        70,
+        1092,
+        424,
+        1120
+      ],
+      "score": 0.9588925838470459
+    },
+    {
+      "text": "Dios, derramó en sus Salmos tanta sabiduría divina.",
+      "box": [
+        533,
+        1094,
+        797,
+        1117
+      ],
+      "score": 0.9947086572647095
+    },
+    {
+      "text": "a Esto es, la explicacion de la palabra de Dios.—Véase Profeta.—",
+      "box": [
+        78,
+        1107,
+        434,
+        1133
+      ],
+      "score": 0.9808986186981201
+    },
+    {
+      "text": "6 Psalm. XVII, v. 31.",
+      "box": [
+        541,
+        1109,
+        657,
+        1131
+      ],
+      "score": 0.9545971155166626
+    },
+    {
+      "text": "I. Cor. XIV, v. 29. Cuando vino el Mesías, habian faltado enteramente los",
+      "box": [
+        69,
+        1121,
+        435,
+        1148
+      ],
+      "score": 0.9885180592536926
+    },
+    {
+      "text": " Deuter. IV, v. 2.—XII, v. 32.",
+      "box": [
+        542,
+        1121,
+        700,
+        1144
+      ],
+      "score": 0.9434311389923096
+    },
+    {
+      "text": "enviados extraordinarios de Dios, que con su celo eneendido y pureza de",
+      "box": [
+        69,
+        1134,
+        435,
+        1161
+      ],
+      "score": 0.9896332621574402
+    },
+    {
+      "text": "7 Luc. XVIII, v.9.",
+      "box": [
+        542,
+        1136,
+        645,
+        1159
+      ],
+      "score": 0.9152827858924866
+    },
+    {
+      "text": "vida apartasen al pueblo de los vicios y errores. Véase la pintura que",
+      "box": [
+        69,
+        1149,
+        435,
+        1176
+      ],
+      "score": 0.9896498322486877
+    },
+    {
+      "text": "8 La avaricia y la ambición.",
+      "box": [
+        542,
+        1148,
+        684,
+        1173
+      ],
+      "score": 0.9279288053512573
+    },
+    {
+      "text": "hacia Jesu-Christo de los escribas y phariséos, de los doetores de la Ley,",
+      "box": [
+        69,
+        1163,
+        435,
+        1191
+      ],
+      "score": 0.9786654114723206
+    },
+    {
+      "text": "10 Este es el sentido de la expresion",
+      "box": [
+        538,
+        1175,
+        726,
+        1200
+      ],
+      "score": 0.9786519408226013
+    },
+    {
+      "text": "hebrea que la Vulgata tradujo et",
+      "box": [
+        717,
+        1173,
+        908,
+        1196
+      ],
+      "score": 0.9780349731445312
+    },
+    {
+      "text": "y sacerdotes de su tiempo.",
+      "box": [
+        67,
+        1183,
+        206,
+        1206
+      ],
+      "score": 0.9929825663566589
+    },
+    {
+      "text": "3 Job XXII, v. 29.—Luc. XIV, v. 11.",
+      "box": [
+        79,
+        1195,
+        275,
+        1218
+      ],
+      "score": 0.9752345681190491
+    },
+    {
+      "text": "4 O tambien: Palabras que un hijo fiel recogia de su padre que rebo-",
+      "box": [
+        79,
+        1205,
+        434,
+        1233
+      ],
+      "score": 0.9695644378662109
+    },
+    {
+      "text": "Cayetano explicando este lugar.",
+      "box": [
+        533,
+        1203,
+        690,
+        1229
+      ],
+      "score": 0.9956852197647095
+    },
+    {
+      "text": "saba en sabiduria. Opinan algunos Expositores que la Vulgata tradujo",
+      "box": [
+        69,
+        1220,
+        435,
+        1249
+      ],
+      "score": 0.9832996129989624
+    },
+    {
+      "text": "aquí con nombres apelativos los nombres propios.—Véase Vulgata.—",
+      "box": [
+        68,
+        1233,
+        435,
+        1264
+      ],
+      "score": 0.986975908279419
+    },
+    {
+      "text": "Segun el texto hebreo debe traducirse: Palabras ó sentencias de Agur,",
+      "box": [
+        69,
+        1249,
+        435,
+        1277
+      ],
+      "score": 0.9894365072250366
+    },
+    {
+      "text": "hijo de Jakeh. Profecia que dijo el varon á Ithiel y á Ucal. Pero comun-",
+      "box": [
+        69,
+        1264,
+        436,
+        1293
+      ],
+      "score": 0.8957312703132629
+    },
+    {
+      "text": "mente los Padres y Expositores han creido que Salomon se llama á sí",
+      "box": [
+        67,
+        1278,
+        437,
+        1311
+      ],
+      "score": 0.974140465259552
+    },
+    {
+      "text": "mismo: El que congrega ó reune á los hombres para escuchar los docu-",
+      "box": [
+        68,
+        1296,
+        435,
+        1324
+      ],
+      "score": 0.9901795983314514
+    },
+    {
+      "text": "en las puertas y ventanas. Lib. XXX, cap. 3.",
+      "box": [
+        535,
+        1284,
+        765,
+        1318
+      ],
+      "score": 0.9718614220619202
+    },
+    {
+      "text": "mentos de la sabiduría: al modo que en otro libro se llama á sí propio",
+      "box": [
+        67,
+        1310,
+        434,
+        1340
+      ],
+      "score": 0.9763837456703186
+    }
+  ]
+}

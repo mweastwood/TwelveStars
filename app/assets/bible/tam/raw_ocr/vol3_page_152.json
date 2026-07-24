@@ -1,0 +1,1487 @@
+{
+  "volume": 3,
+  "page_index": 152,
+  "pdf_page": 153,
+  "lines": [
+    {
+      "text": "237",
+      "box": [
+        6,
+        25,
+        30,
+        41
+      ],
+      "score": 0.999978244304657
+    },
+    {
+      "text": "ECLESIÁSTICO.",
+      "box": [
+        134,
+        25,
+        251,
+        47
+      ],
+      "score": 0.9984117746353149
+    },
+    {
+      "text": "CAPITULO XXXIV.",
+      "box": [
+        621,
+        28,
+        759,
+        52
+      ],
+      "score": 0.9988294243812561
+    },
+    {
+      "text": "238",
+      "box": [
+        846,
+        39,
+        871,
+        55
+      ],
+      "score": 0.9994847774505615
+    },
+    {
+      "text": "10. De estos mismos dias, á unos los hizo Dios grandes",
+      "box": [
+        6,
+        64,
+        391,
+        97
+      ],
+      "score": 0.9995085597038269
+    },
+    {
+      "text": "y sagrados, y á otros los dejó en el número de dias comunes.",
+      "box": [
+        0,
+        81,
+        390,
+        116
+      ],
+      "score": 0.9965887665748596
+    },
+    {
+      "text": "CAPITULO XXXIV",
+      "box": [
+        621,
+        74,
+        753,
+        98
+      ],
+      "score": 0.9994964599609375
+    },
+    {
+      "text": "Así tambien á todos los hombres los hizo del polvo, y de la",
+      "box": [
+        0,
+        98,
+        390,
+        133
+      ],
+      "score": 0.9756199717521667
+    },
+    {
+      "text": "Vanidad de los sueños, adivinaciones y agieros: utilidad de las tentacio-",
+      "box": [
+        491,
+        103,
+        876,
+        131
+      ],
+      "score": 0.9295744299888611
+    },
+    {
+      "text": "tierra, de que Adam fué formado:",
+      "box": [
+        0,
+        116,
+        216,
+        144
+      ],
+      "score": 0.9849194288253784
+    },
+    {
+      "text": "nes. Bienaventurado el que teme á Dios. La ofrenda del pecador es",
+      "box": [
+        501,
+        120,
+        877,
+        145
+      ],
+      "score": 0.9938225150108337
+    },
+    {
+      "text": "11. A los cuales distinguió el Señor con su gran sabiduría,",
+      "box": [
+        5,
+        132,
+        391,
+        169
+      ],
+      "score": 0.9861344695091248
+    },
+    {
+      "text": "abominable á Dios. Es inátil la penitencia del que no se enmienda de",
+      "box": [
+        502,
+        134,
+        877,
+        160
+      ],
+      "score": 0.9892304539680481
+    },
+    {
+      "text": "y diferenció sus condiciones y estados.",
+      "box": [
+        0,
+        150,
+        246,
+        181
+      ],
+      "score": 0.999405026435852
+    },
+    {
+      "text": "sus vicios.",
+      "box": [
+        503,
+        151,
+        560,
+        165
+      ],
+      "score": 0.997937798500061
+    },
+    {
+      "text": "12. De ellos á unos bendijo, y los ensalzó y consagró, y",
+      "box": [
+        7,
+        166,
+        392,
+        204
+      ],
+      "score": 0.965489387512207
+    },
+    {
+      "text": "tomó para sí; y á otros los maldijo y abatió, y los arrojó del",
+      "box": [
+        0,
+        182,
+        393,
+        221
+      ],
+      "score": 0.7959727048873901
+    },
+    {
+      "text": "1. Las vanas esperanzas y las mentiras son el entreteni-",
+      "box": [
+        504,
+        177,
+        876,
+        202
+      ],
+      "score": 0.9797061085700989
+    },
+    {
+      "text": "país en donde vivian separados de los demás.",
+      "box": [
+        0,
+        202,
+        290,
+        232
+      ],
+      "score": 0.998533308506012
+    },
+    {
+      "text": "miento del necio; y los sueños dan alas á los imprudentes.",
+      "box": [
+        490,
+        193,
+        875,
+        219
+      ],
+      "score": 0.9908649325370789
+    },
+    {
+      "text": "13. Como el barro está en manos del alfarero para hacer y",
+      "box": [
+        5,
+        217,
+        391,
+        252
+      ],
+      "score": 0.9850286245346069
+    },
+    {
+      "text": "2. Como el que se abraza con una sombra, y persigue al",
+      "box": [
+        503,
+        209,
+        876,
+        235
+      ],
+      "score": 0.9918755888938904
+    },
+    {
+      "text": "viento; así es el que atiende á sueños engañosos.",
+      "box": [
+        490,
+        225,
+        794,
+        248
+      ],
+      "score": 0.9921872615814209
+    },
+    {
+      "text": "disponer de él,",
+      "box": [
+        0,
+        236,
+        94,
+        257
+      ],
+      "score": 0.991738498210907
+    },
+    {
+      "text": "3. Las visiones de los sueños son la semejanza de una",
+      "box": [
+        503,
+        241,
+        876,
+        266
+      ],
+      "score": 0.974348247051239
+    },
+    {
+      "text": "14. Y pende de su arbitrio el emplearle en lo que quiera;",
+      "box": [
+        5,
+        251,
+        392,
+        285
+      ],
+      "score": 0.9967089295387268
+    },
+    {
+      "text": "cosa; como es la imágen del hombre puesta delante del",
+      "box": [
+        489,
+        257,
+        877,
+        282
+      ],
+      "score": 0.997304379940033
+    },
+    {
+      "text": "así el hombre está en las manos de su Hacedor, el cual le",
+      "box": [
+        0,
+        268,
+        390,
+        301
+      ],
+      "score": 0.990374743938446
+    },
+    {
+      "text": "mismo hombre.",
+      "box": [
+        489,
+        273,
+        591,
+        292
+      ],
+      "score": 0.9999708533287048
+    },
+    {
+      "text": "dará el destino segun sus juicios.",
+      "box": [
+        0,
+        286,
+        222,
+        312
+      ],
+      "score": 0.9961249232292175
+    },
+    {
+      "text": "4. Una persona sucia ¿á qué otra limpiará? y de una men-",
+      "box": [
+        501,
+        288,
+        876,
+        314
+      ],
+      "score": 0.9907203912734985
+    },
+    {
+      "text": "15. Contra el mal está el bien, y contra la muerte la vida;",
+      "box": [
+        4,
+        301,
+        389,
+        332
+      ],
+      "score": 0.9855239391326904
+    },
+    {
+      "text": "tirosa ¿qué verdad se sacará?",
+      "box": [
+        488,
+        304,
+        675,
+        325
+      ],
+      "score": 0.990699291229248
+    },
+    {
+      "text": "así tambien contra el hombre justo el pecador; y de este",
+      "box": [
+        0,
+        318,
+        388,
+        347
+      ],
+      "score": 0.9977375864982605
+    },
+    {
+      "text": "5. Las adivinaciones erróneas , los agueros falsos, y los",
+      "box": [
+        499,
+        319,
+        876,
+        347
+      ],
+      "score": 0.9686679244041443
+    },
+    {
+      "text": "modo todas las obras del Altísimo las vereis pareadas, y la",
+      "box": [
+        0,
+        334,
+        388,
+        364
+      ],
+      "score": 0.9923173189163208
+    },
+    {
+      "text": "sueños de los malvados son una vanidad.",
+      "box": [
+        487,
+        336,
+        750,
+        359
+      ],
+      "score": 0.9760246276855469
+    },
+    {
+      "text": "una opuesta á la otra ³.",
+      "box": [
+        0,
+        353,
+        150,
+        375
+      ],
+      "score": 0.9461812973022461
+    },
+    {
+      "text": " 6. Y tu espíritu padecerá, como el de la mujer que está",
+      "box": [
+        489,
+        352,
+        875,
+        378
+      ],
+      "score": 0.9922512769699097
+    },
+    {
+      "text": "16. Yo ciertamente me he levantado ó puesto á escribir el",
+      "box": [
+        0,
+        368,
+        387,
+        396
+      ],
+      "score": 0.9693891406059265
+    },
+    {
+      "text": "de parto, muchas fantasmas ó imaginaciones. No hagas caso",
+      "box": [
+        486,
+        369,
+        875,
+        395
+      ],
+      "score": 0.9733686447143555
+    },
+    {
+      "text": "áltimo, y soy como el que recoge rebuscos tras los vendi-",
+      "box": [
+        0,
+        385,
+        386,
+        413
+      ],
+      "score": 0.9861385226249695
+    },
+    {
+      "text": "de semejantes visiones, á no ser que te fuesen enviadas del",
+      "box": [
+        485,
+        386,
+        876,
+        412
+      ],
+      "score": 0.9840052127838135
+    },
+    {
+      "text": "niadores.",
+      "box": [
+        0,
+        402,
+        60,
+        422
+      ],
+      "score": 0.9945617318153381
+    },
+    {
+      "text": "Altísimo 8:",
+      "box": [
+        487,
+        404,
+        560,
+        422
+      ],
+      "score": 0.9556162357330322
+    },
+    {
+      "text": "17. Pero puse mi esperanza en la bendicion de Dios, y así",
+      "box": [
+        2,
+        419,
+        384,
+        444
+      ],
+      "score": 0.9913093447685242
+    },
+    {
+      "text": "7. Porque á muchos les indujeron á error los sueños, y se",
+      "box": [
+        498,
+        419,
+        875,
+        447
+      ],
+      "score": 0.9948927760124207
+    },
+    {
+      "text": "e henchido mi lagar, como el que vendimia.",
+      "box": [
+        0,
+        437,
+        285,
+        460
+      ],
+      "score": 0.9887132048606873
+    },
+    {
+      "text": "perdieron por haber puesto en ellos su confianza.",
+      "box": [
+        485,
+        436,
+        801,
+        461
+      ],
+      "score": 0.9958249926567078
+    },
+    {
+      "text": "18. Observad que no he trabajado para mí solo, sino para",
+      "box": [
+        2,
+        452,
+        384,
+        478
+      ],
+      "score": 0.98814857006073
+    },
+    {
+      "text": "8. La palabra de la Ley será perfecta en sí misma sin",
+      "box": [
+        498,
+        452,
+        875,
+        480
+      ],
+      "score": 0.9867583513259888
+    },
+    {
+      "text": "odos los que buscan el instruirse.",
+      "box": [
+        0,
+        470,
+        218,
+        492
+      ],
+      "score": 0.9999017119407654
+    },
+    {
+      "text": "estas mentiras; y la sabiduría será fácil y clara en boca del",
+      "box": [
+        484,
+        469,
+        876,
+        497
+      ],
+      "score": 0.9800921082496643
+    },
+    {
+      "text": "19. Escuchadme, oh magnates, y pueblos todos; y vosotros",
+      "box": [
+        0,
+        485,
+        384,
+        512
+      ],
+      "score": 0.9875484108924866
+    },
+    {
+      "text": "hombre fiel.",
+      "box": [
+        485,
+        488,
+        567,
+        505
+      ],
+      "score": 0.9999485611915588
+    },
+    {
+      "text": "ue presidís las asambleas, prestadme atentos vuestros oidos.",
+      "box": [
+        0,
+        503,
+        383,
+        527
+      ],
+      "score": 0.9945013523101807
+    },
+    {
+      "text": "9. Quien no ha sido tentado, ¿qué es lo que puede saber?",
+      "box": [
+        497,
+        503,
+        876,
+        530
+      ],
+      "score": 0.9997543692588806
+    },
+    {
+      "text": "20. Al hijo, ni á la mujer, ni al hermano, ni al amigo,",
+      "box": [
+        0,
+        520,
+        383,
+        544
+      ],
+      "score": 0.9852592945098877
+    },
+    {
+      "text": "El varon experimentado en muchas cosas, será muy reflexi-",
+      "box": [
+        484,
+        521,
+        875,
+        545
+      ],
+      "score": 0.992181658744812
+    },
+    {
+      "text": "amás en tu vida les dés potestad sobre tí: ni cedas á otro",
+      "box": [
+        0,
+        536,
+        383,
+        560
+      ],
+      "score": 0.9909062385559082
+    },
+    {
+      "text": "vo; y el que ha aprendido mucho, discurrirá cón prudencia.",
+      "box": [
+        483,
+        537,
+        874,
+        562
+      ],
+      "score": 0.9868654608726501
+    },
+    {
+      "text": "oque posees, para que no suceda que arrepentido hayas de",
+      "box": [
+        0,
+        554,
+        383,
+        576
+      ],
+      "score": 0.9880135655403137
+    },
+    {
+      "text": "10. El que no tiene experiencia sabe poco 9; mas el que",
+      "box": [
+        496,
+        553,
+        874,
+        579
+      ],
+      "score": 0.9807645082473755
+    },
+    {
+      "text": "edirle rogando que te lo devuclva.",
+      "box": [
+        0,
+        570,
+        228,
+        593
+      ],
+      "score": 0.9835543036460876
+    },
+    {
+      "text": "se ha ocupado en muchos negocios, adquiere mucha saga-",
+      "box": [
+        481,
+        570,
+        873,
+        595
+      ],
+      "score": 0.9962975978851318
+    },
+    {
+      "text": "21. Mientras estés en este mundo y respires, ningun",
+      "box": [
+        2,
+        588,
+        381,
+        608
+      ],
+      "score": 0.9994377493858337
+    },
+    {
+      "text": "eidad.",
+      "box": [
+        484,
+        588,
+        527,
+        606
+      ],
+      "score": 0.9228481650352478
+    },
+    {
+      "text": "ombre te haga mudar de este propósito:",
+      "box": [
+        0,
+        603,
+        264,
+        625
+      ],
+      "score": 0.9967029690742493
+    },
+    {
+      "text": "11. Quien no ha sido tentado, ¿qué cosas puede saber? El",
+      "box": [
+        495,
+        601,
+        872,
+        627
+      ],
+      "score": 0.9968492388725281
+    },
+    {
+      "text": "22. Porque mejor es que tus hijos hayan de recurrir á tí,",
+      "box": [
+        1,
+        619,
+        380,
+        642
+      ],
+      "score": 0.980566143989563
+    },
+    {
+      "text": "que ha sido engañado, se hace siempre mas cauteloso.",
+      "box": [
+        483,
+        622,
+        823,
+        639
+      ],
+      "score": 0.9998746514320374
+    },
+    {
+      "text": "ue no el que tú hayas de esperar el auxilio de las manos de",
+      "box": [
+        0,
+        634,
+        381,
+        659
+      ],
+      "score": 0.9970519542694092
+    },
+    {
+      "text": "12. Muchas cosas he visto en mis peregrinaciones; y mu-",
+      "box": [
+        493,
+        632,
+        872,
+        661
+      ],
+      "score": 0.9754660129547119
+    },
+    {
+      "text": "us hijos .",
+      "box": [
+        0,
+        656,
+        65,
+        674
+      ],
+      "score": 0.9642928838729858
+    },
+    {
+      "text": "chísima diversidad de usos y costumbres.",
+      "box": [
+        483,
+        654,
+        747,
+        671
+      ],
+      "score": 0.9955655932426453
+    },
+    {
+      "text": "23. En todas tus cosas manten tu superioridad,",
+      "box": [
+        0,
+        668,
+        315,
+        691
+      ],
+      "score": 0.9947189092636108
+    },
+    {
+      "text": "13. Por esta razon me he visto algunas veces en peligros",
+      "box": [
+        494,
+        666,
+        870,
+        693
+      ],
+      "score": 0.9928601384162903
+    },
+    {
+      "text": "24. A fin de no manchar tu reputacion: y reparte tu he-",
+      "box": [
+        0,
+        684,
+        382,
+        708
+      ],
+      "score": 0.9876455068588257
+    },
+    {
+      "text": "aun de muerte, y me he librado por la gracia de Dios.",
+      "box": [
+        480,
+        685,
+        824,
+        706
+      ],
+      "score": 0.9931321740150452
+    },
+    {
+      "text": "encia euando estén para terminarse los dias de tu vida, al",
+      "box": [
+        0,
+        700,
+        381,
+        725
+      ],
+      "score": 0.989855945110321
+    },
+    {
+      "text": "14. Es custodiado el espíritu de aquellos que temen á",
+      "box": [
+        492,
+        699,
+        870,
+        725
+      ],
+      "score": 0.9975366592407227
+    },
+    {
+      "text": "iempo de tu muerte.",
+      "box": [
+        0,
+        721,
+        133,
+        740
+      ],
+      "score": 0.9911617636680603
+    },
+    {
+      "text": "Dios; y será bendito con sus benéficas miradas;",
+      "box": [
+        480,
+        719,
+        781,
+        739
+      ],
+      "score": 0.9921627640724182
+    },
+    {
+      "text": "25. Pienso y palos y carga para el asno: pan y castigo 5 y",
+      "box": [
+        0,
+        732,
+        379,
+        757
+      ],
+      "score": 0.9866337776184082
+    },
+    {
+      "text": "15. Porque tienen ellos puesta su esperanza en su Salva-",
+      "box": [
+        492,
+        733,
+        869,
+        757
+      ],
+      "score": 0.9951258897781372
+    },
+    {
+      "text": "ué trabajar para el siervo.",
+      "box": [
+        0,
+        751,
+        170,
+        772
+      ],
+      "score": 0.997334897518158
+    },
+    {
+      "text": "dor, y los ojos de Dios están fijos sobre los que le aman.",
+      "box": [
+        480,
+        750,
+        833,
+        772
+      ],
+      "score": 0.9720630049705505
+    },
+    {
+      "text": "26. Éste trabaja cuando es castigado, y apetece el reposo:",
+      "box": [
+        0,
+        764,
+        379,
+        789
+      ],
+      "score": 0.9972609877586365
+    },
+    {
+      "text": "16. De nada temblará ni tendrá miedo quien teme al",
+      "box": [
+        491,
+        764,
+        869,
+        791
+      ],
+      "score": 0.9825295209884644
+    },
+    {
+      "text": "le dejas sueltas las manos, buscará libertad.",
+      "box": [
+        0,
+        781,
+        288,
+        805
+      ],
+      "score": 0.9839021563529968
+    },
+    {
+      "text": "Señor; pues éste es su esperanza,",
+      "box": [
+        479,
+        783,
+        690,
+        803
+      ],
+      "score": 0.9863905310630798
+    },
+    {
+      "text": "27. El yugo y la coyunda doblan la dura cerviz del buey:",
+      "box": [
+        0,
+        797,
+        378,
+        821
+      ],
+      "score": 0.9991851449012756
+    },
+    {
+      "text": "17. Bienaventurada es el alma del que teme al Señor.",
+      "box": [
+        492,
+        798,
+        837,
+        822
+      ],
+      "score": 0.9954003691673279
+    },
+    {
+      "text": "sí las continuas faenas amansan al siervo.",
+      "box": [
+        0,
+        814,
+        265,
+        837
+      ],
+      "score": 0.9995628595352173
+    },
+    {
+      "text": "18. ¿En quién pone ella sus ojos, y quién es su fortaleza?",
+      "box": [
+        491,
+        815,
+        867,
+        840
+      ],
+      "score": 0.9964427351951599
+    },
+    {
+      "text": "28. Al siervo de mala inclinacion azotes y cepo. Envíale",
+      "box": [
+        0,
+        829,
+        378,
+        853
+      ],
+      "score": 0.9836228489875793
+    },
+    {
+      "text": "19. Fijos están los ojos del Señor sobre los que le te-",
+      "box": [
+        491,
+        833,
+        866,
+        855
+      ],
+      "score": 0.9840402603149414
+    },
+    {
+      "text": "I trabajo para que no esté mano sobre mano;",
+      "box": [
+        0,
+        845,
+        286,
+        869
+      ],
+      "score": 0.9774835109710693
+    },
+    {
+      "text": "men t0; el Señor es el poderoso protector, el apoyo fuerte,",
+      "box": [
+        476,
+        849,
+        865,
+        874
+      ],
+      "score": 0.9768182039260864
+    },
+    {
+      "text": "29. Pues es la ociosidad maestra de muchos vicios.",
+      "box": [
+        0,
+        862,
+        332,
+        885
+      ],
+      "score": 0.9972859025001526
+    },
+    {
+      "text": "un toldo contra los ardores del sol, y fresca sombra contra",
+      "box": [
+        476,
+        865,
+        865,
+        890
+      ],
+      "score": 0.9910892844200134
+    },
+    {
+      "text": "30. Fuérzale á trabajar, que esto es lo que le conviene; y",
+      "box": [
+        0,
+        879,
+        378,
+        902
+      ],
+      "score": 0.9871302247047424
+    },
+    {
+      "text": "el resistero del medio dia.",
+      "box": [
+        478,
+        884,
+        643,
+        901
+      ],
+      "score": 0.9817172288894653
+    },
+    {
+      "text": "no hiciere lo que le mandas, aprémiale con meterle en el",
+      "box": [
+        0,
+        897,
+        377,
+        917
+      ],
+      "score": 0.9984588027000427
+    },
+    {
+      "text": "20. Sustentáculo para no tropezar: socorro en las caidas:",
+      "box": [
+        491,
+        899,
+        864,
+        921
+      ],
+      "score": 0.9908156394958496
+    },
+    {
+      "text": "epo: guárdate empero de excederte contra el cuerpo de",
+      "box": [
+        0,
+        912,
+        377,
+        934
+      ],
+      "score": 0.9993560314178467
+    },
+    {
+      "text": "el que eleva el alma, y alumbra los ojos; el que da sanidad, y",
+      "box": [
+        476,
+        914,
+        863,
+        939
+      ],
+      "score": 0.9971840381622314
+    },
+    {
+      "text": "uien quiera que sea; y no hagas cosa de gravedad sin con-",
+      "box": [
+        0,
+        930,
+        377,
+        950
+      ],
+      "score": 0.9887291789054871
+    },
+    {
+      "text": "vida, y bendiçiones.",
+      "box": [
+        478,
+        933,
+        607,
+        950
+      ],
+      "score": 0.9889531135559082
+    },
+    {
+      "text": "ejo ó premeditacion.",
+      "box": [
+        0,
+        946,
+        133,
+        965
+      ],
+      "score": 0.9851206541061401
+    },
+    {
+      "text": "21. Inmunda es la ofrenda de aquel que ofrece sacrificio",
+      "box": [
+        489,
+        946,
+        863,
+        971
+      ],
+      "score": 0.9973581433296204
+    },
+    {
+      "text": "31. Si tienes un siervo fiel, cuida de él como de tí mismo:",
+      "box": [
+        1,
+        964,
+        376,
+        981
+      ],
+      "score": 0.9983620047569275
+    },
+    {
+      "text": "de lo mal adquirido: porque no son gratas á Dios estas irri-",
+      "box": [
+        477,
+        964,
+        862,
+        986
+      ],
+      "score": 0.9995644092559814
+    },
+    {
+      "text": "átale como á un hermano; pues le compraste á costa de tu",
+      "box": [
+        0,
+        979,
+        374,
+        999
+      ],
+      "score": 0.9989921450614929
+    },
+    {
+      "text": "siones de los hombres injustos.",
+      "box": [
+        476,
+        981,
+        672,
+        999
+      ],
+      "score": 0.9999165534973145
+    },
+    {
+      "text": "angre e.",
+      "box": [
+        0,
+        996,
+        49,
+        1014
+      ],
+      "score": 0.8965106010437012
+    },
+    {
+      "text": "22. El Señor solo es todas las cosas para aquellos que en",
+      "box": [
+        489,
+        995,
+        862,
+        1020
+      ],
+      "score": 0.9954138398170471
+    },
+    {
+      "text": "32. Si le maltratas injustamente, se te huiçá.",
+      "box": [
+        0,
+        1011,
+        292,
+        1030
+      ],
+      "score": 0.9864431619644165
+    },
+    {
+      "text": "el camino de la verdad y de la justicia le aguardan con",
+      "box": [
+        474,
+        1012,
+        862,
+        1037
+      ],
+      "score": 0.9877462983131409
+    },
+    {
+      "text": "33. Y si él se aparta de tí y se marcha, no sabrás á quién",
+      "box": [
+        0,
+        1027,
+        374,
+        1049
+      ],
+      "score": 0.983098566532135
+    },
+    {
+      "text": "paciencia .",
+      "box": [
+        476,
+        1030,
+        556,
+        1048
+      ],
+      "score": 0.919101893901825
+    },
+    {
+      "text": "reguntar, ni por qué camino le has de buscar.",
+      "box": [
+        0,
+        1044,
+        288,
+        1064
+      ],
+      "score": 0.9943116903305054
+    },
+    {
+      "text": "23. El Altísimo no acepta los dones de los impíos, ni",
+      "box": [
+        488,
+        1045,
+        861,
+        1069
+      ],
+      "score": 0.9883629679679871
+    },
+    {
+      "text": "1 Martini: discacció del paese.",
+      "box": [
+        0,
+        1078,
+        168,
+        1097
+      ],
+      "score": 0.970112144947052
+    },
+    {
+      "text": "6 Los esclavos que se hacian en la guerra, llamados mancipia, esto",
+      "box": [
+        486,
+        1081,
+        859,
+        1104
+      ],
+      "score": 0.9785558581352234
+    },
+    {
+      "text": "2",
+      "box": [
+        3,
+        1097,
+        12,
+        1107
+      ],
+      "score": 0.9997989535331726
+    },
+    {
+      "text": "Rom. IX, v. 21. Muchos opinan que desde el verso 11 habla el Sábio",
+      "box": [
+        10,
+        1092,
+        374,
+        1113
+      ],
+      "score": 0.96084064245224
+    },
+    {
+      "text": "es, manu capta, podian llamarse comprados á procio de sangre; esto es,",
+      "box": [
+        474,
+        1095,
+        860,
+        1118
+      ],
+      "score": 0.975007951259613
+    },
+    {
+      "text": "con exposicion del que los cautivaba. El texto griego puede traducirse:",
+      "box": [
+        474,
+        1110,
+        859,
+        1131
+      ],
+      "score": 0.9951745867729187
+    },
+    {
+      "text": "porque necesitarás de el como de tí mismo. Otros lo explican de otras",
+      "box": [
+        473,
+        1125,
+        859,
+        1145
+      ],
+      "score": 0.9729584455490112
+    },
+    {
+      "text": "maneras.",
+      "box": [
+        475,
+        1140,
+        528,
+        1154
+      ],
+      "score": 0.9992561936378479
+    },
+    {
+      "text": " Las adivinaciones por arte del diablo: las que se sacan del vuelo y",
+      "box": [
+        484,
+        1151,
+        858,
+        1175
+      ],
+      "score": 0.9519656896591187
+    },
+    {
+      "text": "justicia, sino tambien su amor á",
+      "box": [
+        179,
+        1174,
+        372,
+        1196
+      ],
+      "score": 0.9830020070075989
+    },
+    {
+      "text": "canto, etc., de las aves: los sueños de los charlatanes, etc. Un filósofo,",
+      "box": [
+        473,
+        1167,
+        858,
+        1187
+      ],
+      "score": 0.9862416386604309
+    },
+    {
+      "text": "ecadores no",
+      "box": [
+        0,
+        1177,
+        68,
+        1191
+      ],
+      "score": 0.9884633421897888
+    },
+    {
+      "text": " merecido los mismos castigos á no ha-",
+      "box": [
+        155,
+        1186,
+        370,
+        1210
+      ],
+      "score": 0.978945255279541
+    },
+    {
+      "text": "burlándose de los Atcnienses, decia: Vosotros no pensais nunca en lo que",
+      "box": [
+        473,
+        1181,
+        859,
+        1202
+      ],
+      "score": 0.9824646711349487
+    },
+    {
+      "text": "haceis cuando estais despiertos; y estais muy atentos á lo que os ha pasado",
+      "box": [
+        471,
+        1195,
+        859,
+        1216
+      ],
+      "score": 0.9870380759239197
+    },
+    {
+      "text": "xp. XVIII.",
+      "box": [
+        0,
+        1216,
+        63,
+        1233
+      ],
+      "score": 0.8470479249954224
+    },
+    {
+      "text": "por la cabeza cuando soñabais.",
+      "box": [
+        472,
+        1211,
+        639,
+        1225
+      ],
+      "score": 0.9966614246368408
+    },
+    {
+      "text": "8 O tambien: No pongas tu corazon en tales visiones, á no ser que te",
+      "box": [
+        480,
+        1222,
+        858,
+        1243
+      ],
+      "score": 0.9795463681221008
+    },
+    {
+      "text": "Prov. XXLX, v. 9. Habla",
+      "box": [
+        15,
+        1241,
+        157,
+        1259
+      ],
+      "score": 0.9005192518234253
+    },
+    {
+      "text": "a principalmente de los esclavos comprados",
+      "box": [
+        149,
+        1241,
+        369,
+        1266
+      ],
+      "score": 0.9896039366722107
+    },
+    {
+      "text": "visite con ellas el Altisimo. Matth. I1, v. 13.—Véase Sueños.",
+      "box": [
+        471,
+        1236,
+        787,
+        1255
+      ],
+      "score": 0.9642534255981445
+    },
+    {
+      "text": "9 Y pocas cosas hace. Martini: fa poche cose.",
+      "box": [
+        480,
+        1250,
+        723,
+        1269
+      ],
+      "score": 0.9727994203567505
+    },
+    {
+      "text": "6 amonestaciones.",
+      "box": [
+        0,
+        1268,
+        91,
+        1289
+      ],
+      "score": 0.9648694396018982
+    },
+    {
+      "text": "10 Psalm. XXXIII, v. 16.",
+      "box": [
+        477,
+        1263,
+        626,
+        1281
+      ],
+      "score": 0.9510501027107239
+    },
+    {
+      "text": "11 Paalm. LXXII, v. 25.",
+      "box": [
+        478,
+        1277,
+        618,
+        1294
+      ],
+      "score": 0.9808039665222168
+    }
+  ]
+}

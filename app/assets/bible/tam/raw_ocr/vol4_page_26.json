@@ -1,0 +1,1477 @@
+{
+  "volume": 4,
+  "page_index": 26,
+  "pdf_page": 27,
+  "lines": [
+    {
+      "text": "17",
+      "box": [
+        37,
+        23,
+        56,
+        41
+      ],
+      "score": 0.9999823570251465
+    },
+    {
+      "text": "SAN MATHEO.",
+      "box": [
+        171,
+        23,
+        275,
+        40
+      ],
+      "score": 0.9996185898780823
+    },
+    {
+      "text": "CAPITULO XII.",
+      "box": [
+        665,
+        51,
+        776,
+        72
+      ],
+      "score": 0.9964759349822998
+    },
+    {
+      "text": "20. Entonces comenzó á reconvenir á las ciudades donde",
+      "box": [
+        38,
+        65,
+        419,
+        96
+      ],
+      "score": 0.9895758628845215
+    },
+    {
+      "text": "18",
+      "box": [
+        881,
+        59,
+        900,
+        77
+      ],
+      "score": 0.9999369978904724
+    },
+    {
+      "text": "se habian hecho muchísimos de sus milagros, porque no",
+      "box": [
+        23,
+        82,
+        420,
+        117
+      ],
+      "score": 0.9967343807220459
+    },
+    {
+      "text": "12. ¿Pues cuánto mas vale un hombre que una oveja?",
+      "box": [
+        534,
+        90,
+        909,
+        124
+      ],
+      "score": 0.9830039143562317
+    },
+    {
+      "text": "habian hecho penitencia.",
+      "box": [
+        24,
+        103,
+        191,
+        127
+      ],
+      "score": 0.9966995120048523
+    },
+    {
+      "text": "Luego es lícito el hacer bien en dia de sábado.",
+      "box": [
+        525,
+        108,
+        814,
+        137
+      ],
+      "score": 0.9975866079330444
+    },
+    {
+      "text": "21. Ay de tí, Corozain! ay de tí, Bethsaida! que si en",
+      "box": [
+        38,
+        120,
+        419,
+        155
+      ],
+      "score": 0.9928799867630005
+    },
+    {
+      "text": "13. Entonces dijo al hombre: Extiende esa mano. Estiróla,",
+      "box": [
+        536,
+        126,
+        906,
+        157
+      ],
+      "score": 0.9907556772232056
+    },
+    {
+      "text": "Tyro y en Sidon se hubiesen hecho los milagros que se han",
+      "box": [
+        24,
+        138,
+        419,
+        172
+      ],
+      "score": 0.9903422594070435
+    },
+    {
+      "text": "y quedó tan sana como la otra.",
+      "box": [
+        523,
+        145,
+        718,
+        167
+      ],
+      "score": 0.9997574687004089
+    },
+    {
+      "text": "obrado en vosotras, tiempo ha que habrian hecho peniten-",
+      "box": [
+        24,
+        156,
+        420,
+        190
+      ],
+      "score": 0.9997031092643738
+    },
+    {
+      "text": "14. Mas los Phariséos en saliendo, se juntaron para urdir",
+      "box": [
+        535,
+        158,
+        905,
+        190
+      ],
+      "score": 0.9808961153030396
+    },
+    {
+      "text": "cia, cubiertas de ceniza y de cilicio1.",
+      "box": [
+        24,
+        173,
+        266,
+        201
+      ],
+      "score": 0.9618707299232483
+    },
+    {
+      "text": "tramas contra él, y perderle.",
+      "box": [
+        522,
+        176,
+        699,
+        198
+      ],
+      "score": 0.9884337186813354
+    },
+    {
+      "text": "22. Por tanto os digo, que Tyro y Sidon serán menos ri-",
+      "box": [
+        37,
+        191,
+        419,
+        223
+      ],
+      "score": 0.9990344643592834
+    },
+    {
+      "text": "15. Pero Jesus entendiendo esto se retiró: y muchos en-",
+      "box": [
+        534,
+        193,
+        906,
+        221
+      ],
+      "score": 0.9969438314437866
+    },
+    {
+      "text": "gurosamente tratadas en el dia del juicio, que vosotras.",
+      "box": [
+        23,
+        208,
+        383,
+        240
+      ],
+      "score": 0.9979085326194763
+    },
+    {
+      "text": "fermos le siguieron, y á todos ellos los curó:",
+      "box": [
+        522,
+        209,
+        799,
+        233
+      ],
+      "score": 0.998888373374939
+    },
+    {
+      "text": "23. Y tú, Capharnaum, ¿piensas acaso levantarte hasta el",
+      "box": [
+        36,
+        225,
+        418,
+        256
+      ],
+      "score": 0.9878366589546204
+    },
+    {
+      "text": "16. Previniéndoles fuertemente que no le descubriesen.",
+      "box": [
+        534,
+        224,
+        887,
+        251
+      ],
+      "score": 0.9936017394065857
+    },
+    {
+      "text": "cielo? serás, sí, abatida hasta el infierno; porque, si en",
+      "box": [
+        21,
+        240,
+        417,
+        275
+      ],
+      "score": 0.9975039958953857
+    },
+    {
+      "text": "17. Con lo cual se cumplió la profecía de Isaías, que dice:",
+      "box": [
+        534,
+        240,
+        906,
+        267
+      ],
+      "score": 0.9908850193023682
+    },
+    {
+      "text": "Sodoma se hubiesen hecho los milagros que en tí, Sodoma",
+      "box": [
+        21,
+        257,
+        416,
+        291
+      ],
+      "score": 0.9885952472686768
+    },
+    {
+      "text": "18. Ved ahí el siervo mio, á quien yo tengo elegido, el",
+      "box": [
+        533,
+        256,
+        907,
+        285
+      ],
+      "score": 0.9832862615585327
+    },
+    {
+      "text": "quizá subsistiera aun hoy dia.",
+      "box": [
+        21,
+        275,
+        220,
+        301
+      ],
+      "score": 0.9996069669723511
+    },
+    {
+      "text": "amado mio, en quien mi alma se ha complacido plenamente.",
+      "box": [
+        519,
+        271,
+        905,
+        300
+      ],
+      "score": 0.9989689588546753
+    },
+    {
+      "text": "24. Por eso te digo, que el país de Sodoma en el dia del",
+      "box": [
+        34,
+        291,
+        416,
+        321
+      ],
+      "score": 0.9923801422119141
+    },
+    {
+      "text": "Pondré sobre él mi espíritu, y anunciará la justicia á las",
+      "box": [
+        518,
+        287,
+        906,
+        316
+      ],
+      "score": 0.9926255941390991
+    },
+    {
+      "text": "juicio será con menos rigor que tú castigado.",
+      "box": [
+        16,
+        307,
+        316,
+        335
+      ],
+      "score": 0.9987547993659973
+    },
+    {
+      "text": "naciones.",
+      "box": [
+        517,
+        303,
+        579,
+        323
+      ],
+      "score": 0.9997382760047913
+    },
+    {
+      "text": "25. Por aquel tiempo exclamó Jesus diciendo: Yo te glo-",
+      "box": [
+        33,
+        324,
+        415,
+        353
+      ],
+      "score": 0.9933279752731323
+    },
+    {
+      "text": "19. No contenderá con nadie, no voceará, ni oirá ninguno",
+      "box": [
+        530,
+        318,
+        904,
+        349
+      ],
+      "score": 0.9934120774269104
+    },
+    {
+      "text": "rifico, Padre mio, Señor de cielo y tierra, porque has tenido",
+      "box": [
+        15,
+        340,
+        415,
+        370
+      ],
+      "score": 0.991493821144104
+    },
+    {
+      "text": "su voz ó gritar en las plazas:",
+      "box": [
+        515,
+        336,
+        706,
+        358
+      ],
+      "score": 0.9761945605278015
+    },
+    {
+      "text": "encubiertas estas cosas á los sábios y prudentes del siglo, y",
+      "box": [
+        13,
+        356,
+        414,
+        388
+      ],
+      "score": 0.9963940978050232
+    },
+    {
+      "text": "20. No quebrará la caña cascada, ni acabará de apagar la",
+      "box": [
+        530,
+        352,
+        904,
+        380
+      ],
+      "score": 0.9828086495399475
+    },
+    {
+      "text": "las has revelado á los pequeñuelos.",
+      "box": [
+        14,
+        372,
+        247,
+        399
+      ],
+      "score": 0.982654333114624
+    },
+    {
+      "text": "mecha que aun humea, hasta que haga triunfar la justicia",
+      "box": [
+        515,
+        368,
+        904,
+        398
+      ],
+      "score": 0.9868447184562683
+    },
+    {
+      "text": "26. Sí, Padre mio, alabado seus: por habersido de tu agra-",
+      "box": [
+        28,
+        388,
+        414,
+        421
+      ],
+      "score": 0.9858121275901794
+    },
+    {
+      "text": "de su causa:",
+      "box": [
+        515,
+        385,
+        599,
+        405
+      ],
+      "score": 0.9965229034423828
+    },
+    {
+      "text": "do que fuese así.",
+      "box": [
+        10,
+        406,
+        130,
+        429
+      ],
+      "score": 0.9758622646331787
+    },
+    {
+      "text": "21. Y en su nombre pondrán las naciones su esperanza.",
+      "box": [
+        529,
+        401,
+        889,
+        429
+      ],
+      "score": 0.9996732473373413
+    },
+    {
+      "text": "27. Todas las cosas las ha puesto mi Padre en mis manos.",
+      "box": [
+        27,
+        422,
+        413,
+        454
+      ],
+      "score": 0.9993501901626587
+    },
+    {
+      "text": "22. Fuéle á la sazon traido un endemoniado 6, ciego, y",
+      "box": [
+        529,
+        417,
+        903,
+        446
+      ],
+      "score": 0.9826082587242126
+    },
+    {
+      "text": "Pero nadie conoce al Hijo, sino el Padre: ni conoce ninguno",
+      "box": [
+        8,
+        439,
+        414,
+        472
+      ],
+      "score": 0.9993137717247009
+    },
+    {
+      "text": "mudo, y le curó de modo que desde luego comenzó á hablar,",
+      "box": [
+        514,
+        435,
+        903,
+        462
+      ],
+      "score": 0.98834627866745
+    },
+    {
+      "text": "al Padre, sino el Hijo, y aquel á quien el Hijo habrá que-",
+      "box": [
+        7,
+        456,
+        415,
+        490
+      ],
+      "score": 0.9902819991111755
+    },
+    {
+      "text": "y ver.",
+      "box": [
+        514,
+        453,
+        556,
+        471
+      ],
+      "score": 0.979813814163208
+    },
+    {
+      "text": "rido revelarlo.",
+      "box": [
+        8,
+        475,
+        113,
+        497
+      ],
+      "score": 0.9997608661651611
+    },
+    {
+      "text": "23. Con lo que todo el pueblo quedó asombrado, y decia:",
+      "box": [
+        528,
+        468,
+        903,
+        495
+      ],
+      "score": 0.9892675280570984
+    },
+    {
+      "text": "28. Venid á mí todos los que andais agobiados con traba-",
+      "box": [
+        24,
+        491,
+        412,
+        521
+      ],
+      "score": 0.9949083924293518
+    },
+    {
+      "text": "¿Es éste tal vez el Hijo de David el Mesías?",
+      "box": [
+        514,
+        485,
+        793,
+        509
+      ],
+      "score": 0.9967150092124939
+    },
+    {
+      "text": "jos, y cargas, que yo os aliviaré.",
+      "box": [
+        4,
+        509,
+        228,
+        536
+      ],
+      "score": 0.9879369139671326
+    },
+    {
+      "text": "24. Pero los Phariséos oyéndolo, decian: Éste no lanza",
+      "box": [
+        528,
+        501,
+        902,
+        527
+      ],
+      "score": 0.997885525226593
+    },
+    {
+      "text": "29. Tomad mi yugo sobre vosotros, y aprended de mí,",
+      "box": [
+        22,
+        526,
+        411,
+        555
+      ],
+      "score": 0.9992823600769043
+    },
+    {
+      "text": "los demonios sino por obra de Beelzebub príncipe de los de-",
+      "box": [
+        512,
+        517,
+        902,
+        544
+      ],
+      "score": 0.9902589917182922
+    },
+    {
+      "text": "monios.",
+      "box": [
+        512,
+        533,
+        567,
+        554
+      ],
+      "score": 0.9895796775817871
+    },
+    {
+      "text": "que soy manso, y humilde de corazon: y hallareis el reposo",
+      "box": [
+        3,
+        544,
+        412,
+        572
+      ],
+      "score": 0.9880400896072388
+    },
+    {
+      "text": "25. Entonces Jesus penetrando sus pensamientos, díjoles:",
+      "box": [
+        527,
+        551,
+        902,
+        576
+      ],
+      "score": 0.9911801218986511
+    },
+    {
+      "text": "para vuestras almas.",
+      "box": [
+        3,
+        561,
+        153,
+        584
+      ],
+      "score": 0.9997421503067017
+    },
+    {
+      "text": "Todo reino dividido en facciones contrarias, será desolado; y",
+      "box": [
+        514,
+        567,
+        901,
+        592
+      ],
+      "score": 0.9951294660568237
+    },
+    {
+      "text": "30. Porque suave es mi yugo, y ligero el peso mio.",
+      "box": [
+        19,
+        577,
+        364,
+        604
+      ],
+      "score": 0.9897810220718384
+    },
+    {
+      "text": "cualquiera ciudad, ó casa dividida en bandos, no subsistirá.",
+      "box": [
+        514,
+        585,
+        899,
+        607
+      ],
+      "score": 0.9863299131393433
+    },
+    {
+      "text": "26. Y si Satanás echa fuera á Satanás, es contrario á sí",
+      "box": [
+        527,
+        601,
+        900,
+        623
+      ],
+      "score": 0.9955069422721863
+    },
+    {
+      "text": "CAPITULO XII",
+      "box": [
+        161,
+        621,
+        269,
+        642
+      ],
+      "score": 0.9991748332977295
+    },
+    {
+      "text": "mismo: ¿cómo pues ha de subsistir su reino?",
+      "box": [
+        513,
+        617,
+        794,
+        638
+      ],
+      "score": 0.9990273118019104
+    },
+    {
+      "text": "27. Que si yo lanzo los demonios en nombre de Beelze-",
+      "box": [
+        527,
+        634,
+        899,
+        656
+      ],
+      "score": 0.9924178719520569
+    },
+    {
+      "text": "Defieņde Jesu-Christo á sus discípulos de la murmuracion de los Phari-",
+      "box": [
+        0,
+        652,
+        410,
+        677
+      ],
+      "score": 0.9902939796447754
+    },
+    {
+      "text": "bub, vuestros 7 hijos ¿en qué nombre los echan? Por tanto",
+      "box": [
+        514,
+        651,
+        898,
+        673
+      ],
+      "score": 0.9921137690544128
+    },
+    {
+      "text": "séos con motivo de la observancia del sábado: cura á uno que tenia",
+      "box": [
+        9,
+        669,
+        410,
+        690
+      ],
+      "score": 0.9937118887901306
+    },
+    {
+      "text": "esos mismos serán vuestros jueces.",
+      "box": [
+        513,
+        668,
+        730,
+        687
+      ],
+      "score": 0.9996809363365173
+    },
+    {
+      "text": "seca la mano; y á un endemoniado mudo y ciego. Habla del pecado",
+      "box": [
+        8,
+        684,
+        409,
+        704
+      ],
+      "score": 0.9796904921531677
+    },
+    {
+      "text": "28. Mas si yo echo los demonios en virtud del espíritu de",
+      "box": [
+        526,
+        683,
+        898,
+        705
+      ],
+      "score": 0.9998553991317749
+    },
+    {
+      "text": "contra el Espíritu Santo. Milagro de Jonás. Ninivitas. Reina del Me-",
+      "box": [
+        8,
+        699,
+        409,
+        719
+      ],
+      "score": 0.9935932159423828
+    },
+    {
+      "text": "Dios, síguese por cierto que ya el reino de Dios ó el Mesías",
+      "box": [
+        513,
+        700,
+        898,
+        721
+      ],
+      "score": 0.9799951910972595
+    },
+    {
+      "text": "diodía.",
+      "box": [
+        9,
+        715,
+        59,
+        730
+      ],
+      "score": 0.9970360398292542
+    },
+    {
+      "text": "ha llegado á vosotros.",
+      "box": [
+        512,
+        716,
+        650,
+        734
+      ],
+      "score": 0.9810812473297119
+    },
+    {
+      "text": "29. Ó sino, decidme: ¿cómo es posible que uno entre en",
+      "box": [
+        526,
+        731,
+        897,
+        756
+      ],
+      "score": 0.9944140315055847
+    },
+    {
+      "text": "1. Por aquel tiempo ², pasando Jesus en el dia de sábado",
+      "box": [
+        8,
+        750,
+        408,
+        772
+      ],
+      "score": 0.9884369969367981
+    },
+    {
+      "text": "casa de algun hombre valiente, y le robe sus bienes, si pri-",
+      "box": [
+        512,
+        749,
+        896,
+        772
+      ],
+      "score": 0.9987446665763855
+    },
+    {
+      "text": "por junto unos sembrados, sus discípulos teniendo hambre",
+      "box": [
+        0,
+        770,
+        410,
+        787
+      ],
+      "score": 0.9916344881057739
+    },
+    {
+      "text": "mero no ata bien al valiente? entonces podrá saquearle la",
+      "box": [
+        510,
+        766,
+        897,
+        789
+      ],
+      "score": 0.9967445731163025
+    },
+    {
+      "text": "empezaron á coger espigas, y comer los granos.",
+      "box": [
+        0,
+        789,
+        319,
+        803
+      ],
+      "score": 0.9931235909461975
+    },
+    {
+      "text": "casa.",
+      "box": [
+        513,
+        785,
+        546,
+        800
+      ],
+      "score": 0.9887979626655579
+    },
+    {
+      "text": "2. Y viéndolo los Phariséos, le dijeron: Mira que tus dis-",
+      "box": [
+        11,
+        805,
+        406,
+        819
+      ],
+      "score": 0.9966095089912415
+    },
+    {
+      "text": "30. El que no está por mí, contra mí está; y el que con-",
+      "box": [
+        524,
+        798,
+        896,
+        821
+      ],
+      "score": 0.9981440901756287
+    },
+    {
+      "text": "cípulos hacen lo que no es lícito hacer en sábado.",
+      "box": [
+        0,
+        819,
+        332,
+        837
+      ],
+      "score": 0.9887633323669434
+    },
+    {
+      "text": "migo no recoge, desparrama.",
+      "box": [
+        511,
+        816,
+        690,
+        834
+      ],
+      "score": 0.9996256232261658
+    },
+    {
+      "text": "3. Pero él les respondió: ¿No habeis leido lo que hizo",
+      "box": [
+        12,
+        836,
+        406,
+        853
+      ],
+      "score": 0.9978726506233215
+    },
+    {
+      "text": "31. Por lo cual os declaro: Que cualquier pecado y cual-",
+      "box": [
+        523,
+        830,
+        896,
+        854
+      ],
+      "score": 0.9905120134353638
+    },
+    {
+      "text": "David, cuando él y los que le acompañaban se vieron acosa-",
+      "box": [
+        0,
+        852,
+        406,
+        871
+      ],
+      "score": 0.9995083212852478
+    },
+    {
+      "text": "quier blasfemia se perdonará á los hombres, pero la blasfe-",
+      "box": [
+        511,
+        848,
+        895,
+        870
+      ],
+      "score": 0.9963789582252502
+    },
+    {
+      "text": "dos de la hambre?",
+      "box": [
+        0,
+        871,
+        129,
+        885
+      ],
+      "score": 0.9999552369117737
+    },
+    {
+      "text": "mia contra cl espíritu de Dios no se perdonará tan fácilmente.",
+      "box": [
+        510,
+        864,
+        894,
+        886
+      ],
+      "score": 0.9838871359825134
+    },
+    {
+      "text": "4. ¿Cómo entró en la Casa de Dios, y comió los panes de",
+      "box": [
+        15,
+        886,
+        406,
+        903
+      ],
+      "score": 0.9976608157157898
+    },
+    {
+      "text": "32. Asimismo á cualquiera que hablare contra el Hijo del",
+      "box": [
+        524,
+        882,
+        894,
+        903
+      ],
+      "score": 0.991653323173523
+    },
+    {
+      "text": "la proposicion s, que no era lícito comer ni á él ni á los",
+      "box": [
+        0,
+        903,
+        406,
+        920
+      ],
+      "score": 0.978725790977478
+    },
+    {
+      "text": "hombre s, se le perdonará; poro á quien hablare contra el",
+      "box": [
+        509,
+        898,
+        894,
+        920
+      ],
+      "score": 0.9836888909339905
+    },
+    {
+      "text": "suyos, sino á solos los sacerdotes?",
+      "box": [
+        1,
+        921,
+        228,
+        935
+      ],
+      "score": 0.9932283759117126
+    },
+    {
+      "text": "Espíritu Santo, despreciando su gracia, no se le perdonará",
+      "box": [
+        509,
+        914,
+        893,
+        937
+      ],
+      "score": 0.9981607794761658
+    },
+    {
+      "text": "5. ¿Ó no habeis leido en la Ley, cómo los sacerdotes en el",
+      "box": [
+        17,
+        936,
+        405,
+        953
+      ],
+      "score": 0.9995592832565308
+    },
+    {
+      "text": "ni en esta vida, ni en la otra.",
+      "box": [
+        509,
+        931,
+        697,
+        949
+      ],
+      "score": 0.993808925151825
+    },
+    {
+      "text": "templo trabajan en el sábado, y con todo eso no pecan?",
+      "box": [
+        0,
+        950,
+        367,
+        971
+      ],
+      "score": 0.9976811408996582
+    },
+    {
+      "text": "33. Ó bien decid que el árbol es bueno, y bueno su fruto:",
+      "box": [
+        523,
+        946,
+        892,
+        970
+      ],
+      "score": 0.9929222464561462
+    },
+    {
+      "text": "6. Pues yo os digo, que aquí está uno que es mayor que",
+      "box": [
+        15,
+        967,
+        406,
+        989
+      ],
+      "score": 0.9871253967285156
+    },
+    {
+      "text": "ó si teneis el árbol por malo, tenod tambien por malo su",
+      "box": [
+        508,
+        962,
+        892,
+        987
+      ],
+      "score": 0.9962002635002136
+    },
+    {
+      "text": "el templo.",
+      "box": [
+        1,
+        988,
+        79,
+        1005
+      ],
+      "score": 0.975050151348114
+    },
+    {
+      "text": "fruto: ya que por el fruto se conoce la calidad del árbol.",
+      "box": [
+        508,
+        979,
+        858,
+        1002
+      ],
+      "score": 0.994686484336853
+    },
+    {
+      "text": "7. Que si vosotros supieseis bien lo que significa: Mas",
+      "box": [
+        15,
+        1000,
+        405,
+        1022
+      ],
+      "score": 0.9992503523826599
+    },
+    {
+      "text": "34. Oh raza do víboras! ¿cómo es posible que vosotros",
+      "box": [
+        522,
+        996,
+        891,
+        1019
+      ],
+      "score": 0.9904637336730957
+    },
+    {
+      "text": "quiero la misericordia, que no el sacrificio 4: jamás hubierais",
+      "box": [
+        0,
+        1016,
+        405,
+        1040
+      ],
+      "score": 0.9926958084106445
+    },
+    {
+      "text": "hableis cosa buena, siendo, como sois, malos? puesto que de",
+      "box": [
+        508,
+        1011,
+        890,
+        1035
+      ],
+      "score": 0.9905760884284973
+    },
+    {
+      "text": "la abundancia del corazon habla la boca.",
+      "box": [
+        507,
+        1028,
+        766,
+        1049
+      ],
+      "score": 0.9996175765991211
+    },
+    {
+      "text": "condenado á los inocentes.",
+      "box": [
+        2,
+        1039,
+        182,
+        1053
+      ],
+      "score": 0.9838114380836487
+    },
+    {
+      "text": "8. Porque el Hijo del hombre es dueño aun del sábado.",
+      "box": [
+        16,
+        1050,
+        385,
+        1072
+      ],
+      "score": 0.9998159408569336
+    },
+    {
+      "text": "35. El hombre de bien del buen fondo de su corazon saca",
+      "box": [
+        522,
+        1044,
+        890,
+        1068
+      ],
+      "score": 0.9877233505249023
+    },
+    {
+      "text": "9. Habiendo partido de allí, entró en la synagoga de ellos,",
+      "box": [
+        16,
+        1067,
+        402,
+        1089
+      ],
+      "score": 0.9996743202209473
+    },
+    {
+      "text": "buenas cosas: y el hombre malo de su mal fondo saca cosas",
+      "box": [
+        506,
+        1061,
+        890,
+        1085
+      ],
+      "score": 0.9915547966957092
+    },
+    {
+      "text": "10. Donde se hallaba un hombre que tenia seca una mano;",
+      "box": [
+        19,
+        1087,
+        402,
+        1105
+      ],
+      "score": 0.9982489943504333
+    },
+    {
+      "text": "malas.",
+      "box": [
+        508,
+        1079,
+        551,
+        1094
+      ],
+      "score": 0.9999334812164307
+    },
+    {
+      "text": "36. Yo os digo, que hasta de cualquiera palabra ociosa,",
+      "box": [
+        519,
+        1092,
+        890,
+        1119
+      ],
+      "score": 0.9980120062828064
+    },
+    {
+      "text": "y preguntaron á Jesus, para hallar motivo de acusarle: ¿Si",
+      "box": [
+        3,
+        1102,
+        402,
+        1123
+      ],
+      "score": 0.9927389025688171
+    },
+    {
+      "text": "era lícito curar en dia de sábado?",
+      "box": [
+        4,
+        1119,
+        226,
+        1137
+      ],
+      "score": 0.9907962679862976
+    },
+    {
+      "text": "que hablaren los hombres, han de dar cuenta en el dia del",
+      "box": [
+        505,
+        1111,
+        890,
+        1135
+      ],
+      "score": 0.9856368899345398
+    },
+    {
+      "text": "11. Mas él les dijo: ¿Qué hombre habrá entre vosotros,",
+      "box": [
+        19,
+        1133,
+        402,
+        1155
+      ],
+      "score": 0.9827709197998047
+    },
+    {
+      "text": "juicio.",
+      "box": [
+        503,
+        1125,
+        550,
+        1147
+      ],
+      "score": 0.9996423721313477
+    },
+    {
+      "text": "que tenga una oveja, y si esta cae en una fosa en dia de",
+      "box": [
+        4,
+        1150,
+        402,
+        1172
+      ],
+      "score": 0.9908908009529114
+    },
+    {
+      "text": "37. Porque por tus palabras habrás de ser justificado, y",
+      "box": [
+        518,
+        1143,
+        891,
+        1170
+      ],
+      "score": 0.9993904829025269
+    },
+    {
+      "text": "sábado, no la levante y saque fuera?",
+      "box": [
+        6,
+        1166,
+        245,
+        1188
+      ],
+      "score": 0.9812357425689697
+    },
+    {
+      "text": "por tus palabras condenado.",
+      "box": [
+        504,
+        1162,
+        686,
+        1182
+      ],
+      "score": 0.9971592426300049
+    },
+    {
+      "text": "1 Véase Cilicio.",
+      "box": [
+        19,
+        1207,
+        113,
+        1228
+      ],
+      "score": 0.9711965918540955
+    },
+    {
+      "text": "5 Isai. XLII, v. 1.",
+      "box": [
+        516,
+        1207,
+        622,
+        1225
+      ],
+      "score": 0.9491887092590332
+    },
+    {
+      "text": "*Esta frase no denota que lo que se va á referir pertenezea á un mismo",
+      "box": [
+        18,
+        1220,
+        400,
+        1249
+      ],
+      "score": 0.9236196279525757
+    },
+    {
+      "text": "6 Véase Endemoniados.",
+      "box": [
+        515,
+        1222,
+        649,
+        1240
+      ],
+      "score": 0.9612547755241394
+    },
+    {
+      "text": "tiempo que lo anteriormente dicho. Es solamente una mera transicion,",
+      "box": [
+        7,
+        1236,
+        399,
+        1264
+      ],
+      "score": 0.9980177283287048
+    },
+    {
+      "text": "7 Vuestros exorcistas, ó tambien mis discípulos.",
+      "box": [
+        513,
+        1234,
+        784,
+        1260
+      ],
+      "score": 0.9750496745109558
+    },
+    {
+      "text": "como las que usamos en castellano al comenzar á contar un suceso di-",
+      "box": [
+        7,
+        1250,
+        399,
+        1279
+      ],
+      "score": 0.9879843592643738
+    },
+    {
+      "text": "8 Porque en esta blasfemia tiene mucha parte la ignorancia.",
+      "box": [
+        514,
+        1251,
+        845,
+        1276
+      ],
+      "score": 0.9911882281303406
+    },
+    {
+      "text": "ciendo: En cierta ocasion sucedió que, etc.",
+      "box": [
+        7,
+        1265,
+        234,
+        1289
+      ],
+      "score": 0.9707995653152466
+    },
+    {
+      "text": "9 A no ser por un gran milagro de Dios; pues él mismo rechaza de sí",
+      "box": [
+        513,
+        1265,
+        898,
+        1292
+      ],
+      "score": 0.9742117524147034
+    },
+    {
+      "text": "s Véase Pan.",
+      "box": [
+        19,
+        1278,
+        105,
+        1300
+      ],
+      "score": 0.964148223400116
+    },
+    {
+      "text": "la gracia del Espíritu Santo.",
+      "box": [
+        502,
+        1280,
+        663,
+        1299
+      ],
+      "score": 0.9905235171318054
+    },
+    {
+      "text": "4 Ose. VI, v. 6.",
+      "box": [
+        18,
+        1293,
+        112,
+        1315
+      ],
+      "score": 0.9195711612701416
+    },
+    {
+      "text": "IV.—4",
+      "box": [
+        830,
+        1317,
+        879,
+        1342
+      ],
+      "score": 0.8817364573478699
+    }
+  ]
+}

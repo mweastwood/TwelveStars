@@ -1,0 +1,27 @@
+{
+  "volume": 4,
+  "page_index": 120,
+  "pdf_page": 121,
+  "lines": [
+    {
+      "text": "gbors",
+      "box": [
+        104,
+        1112,
+        176,
+        1148
+      ],
+      "score": 0.5968624949455261
+    },
+    {
+      "text": "MARÍA MAGDALENA ARREPENTIDA",
+      "box": [
+        356,
+        1183,
+        638,
+        1207
+      ],
+      "score": 0.9998891353607178
+    }
+  ]
+}

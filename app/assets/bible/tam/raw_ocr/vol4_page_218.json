@@ -1,0 +1,27 @@
+{
+  "volume": 4,
+  "page_index": 218,
+  "pdf_page": 219,
+  "lines": [
+    {
+      "text": "G.Dore",
+      "box": [
+        121,
+        1109,
+        184,
+        1132
+      ],
+      "score": 0.8701247572898865
+    },
+    {
+      "text": "ORACION DE JESUS EN EL MONTE DE LOS OLIVOS",
+      "box": [
+        306,
+        1167,
+        710,
+        1192
+      ],
+      "score": 0.9886811375617981
+    }
+  ]
+}

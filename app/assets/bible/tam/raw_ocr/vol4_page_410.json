@@ -1,0 +1,3877 @@
+{
+  "volume": 4,
+  "page_index": 410,
+  "pdf_page": 411,
+  "lines": [
+    {
+      "text": "Mundo,",
+      "box": [
+        21,
+        0,
+        32,
+        47
+      ],
+      "score": 0.9907209277153015
+    },
+    {
+      "text": "Año del",
+      "box": [
+        29,
+        0,
+        45,
+        53
+      ],
+      "score": 0.9798659086227417
+    },
+    {
+      "text": "J. C.",
+      "box": [
+        51,
+        6,
+        61,
+        41
+      ],
+      "score": 0.9689637422561646
+    },
+    {
+      "text": "Antes de",
+      "box": [
+        61,
+        1,
+        72,
+        49
+      ],
+      "score": 0.9998646378517151
+    },
+    {
+      "text": "Año del",
+      "box": [
+        477,
+        15,
+        488,
+        62
+      ],
+      "score": 0.9993814826011658
+    },
+    {
+      "text": "Antes de",
+      "box": [
+        503,
+        15,
+        518,
+        65
+      ],
+      "score": 0.9884926676750183
+    },
+    {
+      "text": "458",
+      "box": [
+        846,
+        7,
+        866,
+        24
+      ],
+      "score": 0.988303005695343
+    },
+    {
+      "text": "REYES DE EGIPTO",
+      "box": [
+        99,
+        22,
+        186,
+        37
+      ],
+      "score": 0.9679648876190186
+    },
+    {
+      "text": "SUCESOS DE LOS JUDÍOS",
+      "box": [
+        208,
+        24,
+        323,
+        37
+      ],
+      "score": 0.9914044141769409
+    },
+    {
+      "text": "REYES DE SIRIA",
+      "box": [
+        357,
+        26,
+        432,
+        41
+      ],
+      "score": 0.9553360342979431
+    },
+    {
+      "text": "Mundo.",
+      "box": [
+        466,
+        17,
+        477,
+        59
+      ],
+      "score": 0.9988842606544495
+    },
+    {
+      "text": "REYES DE EGIPTO",
+      "box": [
+        555,
+        25,
+        636,
+        44
+      ],
+      "score": 0.9948700070381165
+    },
+    {
+      "text": "y sucesos de los Romanos",
+      "box": [
+        539,
+        45,
+        649,
+        65
+      ],
+      "score": 0.9885806441307068
+    },
+    {
+      "text": "SUCESOS DE LOS JUDÍOS",
+      "box": [
+        721,
+        44,
+        825,
+        63
+      ],
+      "score": 0.9763208031654358
+    },
+    {
+      "text": "guerras entre Aristóbulo",
+      "box": [
+        212,
+        61,
+        329,
+        74
+      ],
+      "score": 0.9978458285331726
+    },
+    {
+      "text": "brar el reino de Egipto,",
+      "box": [
+        343,
+        60,
+        456,
+        79
+      ],
+      "score": 0.9722442626953125
+    },
+    {
+      "text": "é Hyreano.",
+      "box": [
+        214,
+        72,
+        267,
+        83
+      ],
+      "score": 0.8800584077835083
+    },
+    {
+      "text": "perdió tambien aun la",
+      "box": [
+        343,
+        71,
+        458,
+        89
+      ],
+      "score": 0.854816734790802
+    },
+    {
+      "text": "biblioteca de Alejandría de cua-",
+      "box": [
+        527,
+        68,
+        669,
+        91
+      ],
+      "score": 0.9765898585319519
+    },
+    {
+      "text": "parte que tenía del de",
+      "box": [
+        343,
+        83,
+        458,
+        100
+      ],
+      "score": 0.9867489337921143
+    },
+    {
+      "text": "trocientos mil volumenes. Plu-",
+      "box": [
+        527,
+        79,
+        669,
+        101
+      ],
+      "score": 0.8845055103302002
+    },
+    {
+      "text": "declaró Pontifice á Hyreano, y Procurador 6",
+      "box": [
+        681,
+        77,
+        872,
+        101
+      ],
+      "score": 0.9664483070373535
+    },
+    {
+      "text": "Sirin. De este modo aca-",
+      "box": [
+        343,
+        93,
+        458,
+        110
+      ],
+      "score": 0.9704909324645996
+    },
+    {
+      "text": "tareo. S. Jerámimo. Orosio. Us",
+      "box": [
+        527,
+        91,
+        669,
+        112
+      ],
+      "score": 0.7983414530754089
+    },
+    {
+      "text": "prefecto de la Judea à Antipatro. Josepho.",
+      "box": [
+        680,
+        89,
+        864,
+        110
+      ],
+      "score": 0.8879321813583374
+    },
+    {
+      "text": "bó el reimo de los Seleu-",
+      "box": [
+        344,
+        103,
+        458,
+        122
+      ],
+      "score": 0.9448257684707642
+    },
+    {
+      "text": "serio dice que entonces se quemó",
+      "box": [
+        527,
+        102,
+        669,
+        121
+      ],
+      "score": 0.9670670032501221
+    },
+    {
+      "text": "Autipatro nonabró capitan del territorio de Je-",
+      "box": [
+        672,
+        99,
+        871,
+        121
+      ],
+      "score": 0.9299808144569397
+    },
+    {
+      "text": "cidas, é descendientes de",
+      "box": [
+        343,
+        113,
+        458,
+        132
+      ],
+      "score": 0.9256976842880249
+    },
+    {
+      "text": "el original de la version de los",
+      "box": [
+        527,
+        111,
+        668,
+        132
+      ],
+      "score": 0.9421448707580566
+    },
+    {
+      "text": "rusalem á su hijo mayor Phasael:y À IHcrodes",
+      "box": [
+        680,
+        110,
+        871,
+        131
+      ],
+      "score": 0.8930426239967346
+    },
+    {
+      "text": "Seleuco, Rey 1.º de la Si-",
+      "box": [
+        343,
+        125,
+        458,
+        142
+      ],
+      "score": 0.9254451990127563
+    },
+    {
+      "text": "Setenta Interpretes.",
+      "box": [
+        527,
+        121,
+        614,
+        141
+      ],
+      "score": 0.8181653022766113
+    },
+    {
+      "text": "su hijo segundo, de edad de 25 ahos, le hizo",
+      "box": [
+        680,
+        119,
+        871,
+        141
+      ],
+      "score": 0.8581705689430237
+    },
+    {
+      "text": "ria, despues de dividido",
+      "box": [
+        343,
+        135,
+        458,
+        154
+      ],
+      "score": 0.9241968989372253
+    },
+    {
+      "text": "Ptolemeo el Jóven, hecho prisione-",
+      "box": [
+        516,
+        131,
+        669,
+        153
+      ],
+      "score": 0.8435354828834534
+    },
+    {
+      "text": "Herodes mata al judio Eechías, que coa ua",
+      "box": [
+        670,
+        138,
+        871,
+        162
+      ],
+      "score": 0.9192602634429932
+    },
+    {
+      "text": "Procurador é prefecto de la Galilea. Josepho.",
+      "box": [
+        680,
+        129,
+        871,
+        152
+      ],
+      "score": 0.8362416625022888
+    },
+    {
+      "text": "el Ímperio de Alejandro",
+      "box": [
+        343,
+        146,
+        458,
+        165
+      ],
+      "score": 0.966256856918335
+    },
+    {
+      "text": "ro por César, y puesto en liber-",
+      "box": [
+        526,
+        143,
+        667,
+        162
+      ],
+      "score": 0.9889732003211975
+    },
+    {
+      "text": "Magno.",
+      "box": [
+        343,
+        156,
+        383,
+        174
+      ],
+      "score": 0.9640228748321533
+    },
+    {
+      "text": "tad, hace otra vez guerra á Cé-",
+      "box": [
+        526,
+        152,
+        667,
+        172
+      ],
+      "score": 0.9295220971107483
+    },
+    {
+      "text": "grande ejército de ladrones é guerrillas, co-",
+      "box": [
+        679,
+        149,
+        870,
+        171
+      ],
+      "score": 0.8945037126541138
+    },
+    {
+      "text": "sar; y derrotado junto al Nilo,",
+      "box": [
+        527,
+        163,
+        665,
+        181
+      ],
+      "score": 0.9563284516334534
+    },
+    {
+      "text": "mctia muchos latroclulos en los términos de",
+      "box": [
+        679,
+        159,
+        870,
+        181
+      ],
+      "score": 0.9482254385948181
+    },
+    {
+      "text": "De los sucesos de la Judea y del Egipto, despues de extinguido cl reino de los Seaeucrpas.",
+      "box": [
+        29,
+        173,
+        457,
+        200
+      ],
+      "score": 0.9335741400718689
+    },
+    {
+      "text": "se mete en una nave, que por su",
+      "box": [
+        526,
+        173,
+        667,
+        192
+      ],
+      "score": 0.9501147866249084
+    },
+    {
+      "text": "la Siria. Acusado por esto ante Hyreauo,",
+      "box": [
+        679,
+        168,
+        869,
+        191
+      ],
+      "score": 0.9661237001419067
+    },
+    {
+      "text": "mucho cargamcnto se sumerge.",
+      "box": [
+        526,
+        183,
+        666,
+        202
+      ],
+      "score": 0.9323850870132446
+    },
+    {
+      "text": "salió libre por medio de su politica y gran-",
+      "box": [
+        678,
+        178,
+        869,
+        200
+      ],
+      "score": 0.9685421586036682
+    },
+    {
+      "text": "Algunas noticias de los Romanos",
+      "box": [
+        167,
+        191,
+        323,
+        207
+      ],
+      "score": 0.9915106892585754
+    },
+    {
+      "text": "Plutarco, etc.",
+      "box": [
+        527,
+        194,
+        589,
+        208
+      ],
+      "score": 0.9062525033950806
+    },
+    {
+      "text": "deza de alnma. Josepko.",
+      "box": [
+        679,
+        188,
+        779,
+        206
+      ],
+      "score": 0.7967073321342468
+    },
+    {
+      "text": "Año del",
+      "box": [
+        42,
+        211,
+        58,
+        260
+      ],
+      "score": 0.9981765151023865
+    },
+    {
+      "text": "Dueño Clsar del Egipto, le entre-",
+      "box": [
+        517,
+        203,
+        666,
+        220
+      ],
+      "score": 0.9569563865661621
+    },
+    {
+      "text": "Mundo.",
+      "box": [
+        36,
+        215,
+        46,
+        253
+      ],
+      "score": 0.9995439648628235
+    },
+    {
+      "text": "J. C.",
+      "box": [
+        62,
+        219,
+        75,
+        250
+      ],
+      "score": 0.9499660730361938
+    },
+    {
+      "text": "Antes de",
+      "box": [
+        72,
+        213,
+        85,
+        259
+      ],
+      "score": 0.9985237121582031
+    },
+    {
+      "text": "REYES DE EGIPTO",
+      "box": [
+        126,
+        221,
+        208,
+        234
+      ],
+      "score": 0.9890364408493042
+    },
+    {
+      "text": "go à su hermnaa menor Arsinoé.",
+      "box": [
+        526,
+        223,
+        666,
+        239
+      ],
+      "score": 0.8259924650192261
+    },
+    {
+      "text": "ga à Cleopatra, y se lleva consi-",
+      "box": [
+        527,
+        214,
+        665,
+        230
+      ],
+      "score": 0.8793854117393494
+    },
+    {
+      "text": "y sucesos de los Romanos",
+      "box": [
+        111,
+        240,
+        224,
+        255
+      ],
+      "score": 0.9663546085357666
+    },
+    {
+      "text": "REYES DE LOS JUDÍOS",
+      "box": [
+        302,
+        233,
+        405,
+        248
+      ],
+      "score": 0.9809610247612
+    },
+    {
+      "text": "S. Jeránimo. Suetonio,",
+      "box": [
+        527,
+        234,
+        625,
+        246
+      ],
+      "score": 0.8444934487342834
+    },
+    {
+      "text": "8988",
+      "box": [
+        35,
+        261,
+        58,
+        276
+      ],
+      "score": 0.9389223456382751
+    },
+    {
+      "text": "CORRECCION DEL AÑO JULIANO.",
+      "box": [
+        500,
+        253,
+        630,
+        265
+      ],
+      "score": 0.9525046348571777
+    },
+    {
+      "text": "66 Alejandro II, rey de Egipto, hijo",
+      "box": [
+        72,
+        263,
+        245,
+        283
+      ],
+      "score": 0.967250406742096
+    },
+    {
+      "text": "de Alejandro I, que mató á sn",
+      "box": [
+        96,
+        275,
+        245,
+        293
+      ],
+      "score": 0.9462765455245972
+    },
+    {
+      "text": "Hyreano es echado del trono por su hermano",
+      "box": [
+        248,
+        267,
+        459,
+        285
+      ],
+      "score": 0.995476245880127
+    },
+    {
+      "text": "Aristóbulo; reinó éste hasta que Pompeyo se",
+      "box": [
+        258,
+        278,
+        459,
+        296
+      ],
+      "score": 0.9225435256958008
+    },
+    {
+      "text": "Claar, Pontifice Máximo de Roma,",
+      "box": [
+        517,
+        271,
+        664,
+        287
+      ],
+      "score": 0.9502029418945312
+    },
+    {
+      "text": "madre, es arrojado del reino por",
+      "box": [
+        97,
+        286,
+        245,
+        303
+      ],
+      "score": 0.9690541625022888
+    },
+    {
+      "text": "apoderó de la ciudad. Josepho.",
+      "box": [
+        258,
+        289,
+        398,
+        305
+      ],
+      "score": 0.8656484484672546
+    },
+    {
+      "text": "en an tercer Consulado, y en el",
+      "box": [
+        525,
+        282,
+        664,
+        296
+      ],
+      "score": 0.9598735570907593
+    },
+    {
+      "text": "los Alejandrinos. Suetonio.",
+      "box": [
+        97,
+        295,
+        220,
+        313
+      ],
+      "score": 0.8832226395606995
+    },
+    {
+      "text": "de Marco Enilio Lépido, corrige",
+      "box": [
+        526,
+        293,
+        664,
+        306
+      ],
+      "score": 0.8878765106201172
+    },
+    {
+      "text": "3189",
+      "box": [
+        37,
+        303,
+        61,
+        318
+      ],
+      "score": 0.807826817035675
+    },
+    {
+      "text": "65 Sucedióle Ptolemeo Notho, llamado",
+      "box": [
+        74,
+        305,
+        245,
+        323
+      ],
+      "score": 0.9303390979766846
+    },
+    {
+      "text": "Antipatro favoreció el partido de Hyreano, y",
+      "box": [
+        249,
+        309,
+        459,
+        325
+      ],
+      "score": 0.9388787746429443
+    },
+    {
+      "text": "45 Desde las calendas de enero de este",
+      "box": [
+        502,
+        311,
+        664,
+        326
+      ],
+      "score": 0.9820496439933777
+    },
+    {
+      "text": "el año Romano. Censor. Suctonio.",
+      "box": [
+        526,
+        303,
+        663,
+        316
+      ],
+      "score": 0.8060294985771179
+    },
+    {
+      "text": "tambien Auletes.",
+      "box": [
+        96,
+        316,
+        175,
+        331
+      ],
+      "score": 0.8775663375854492
+    },
+    {
+      "text": "logró restituirle en el tromo. Josepho.",
+      "box": [
+        258,
+        319,
+        424,
+        334
+      ],
+      "score": 0.8996731638908386
+    },
+    {
+      "text": "3959",
+      "box": [
+        466,
+        313,
+        489,
+        325
+      ],
+      "score": 0.988396942615509
+    },
+    {
+      "text": "3940",
+      "box": [
+        39,
+        325,
+        61,
+        337
+      ],
+      "score": 0.9553249478340149
+    },
+    {
+      "text": "64 Alejandro II muere en Tiro, á don-",
+      "box": [
+        74,
+        325,
+        245,
+        343
+      ],
+      "score": 0.9750234484672546
+    },
+    {
+      "text": "Pompeyo escucha en Damasco las quejas de los",
+      "box": [
+        250,
+        329,
+        459,
+        345
+      ],
+      "score": 0.9816003441810608
+    },
+    {
+      "text": "año, en que César comenzó su",
+      "box": [
+        525,
+        323,
+        664,
+        335
+      ],
+      "score": 0.983932614326477
+    },
+    {
+      "text": "de se habia retirado: y corrió la",
+      "box": [
+        97,
+        336,
+        246,
+        353
+      ],
+      "score": 0.9641062021255493
+    },
+    {
+      "text": "Judios y de sus principes, y desaprueba la",
+      "box": [
+        256,
+        339,
+        459,
+        355
+      ],
+      "score": 0.9603408575057983
+    },
+    {
+      "text": "IV Consulado, empieza á con-",
+      "box": [
+        525,
+        331,
+        664,
+        346
+      ],
+      "score": 0.9390648603439331
+    },
+    {
+      "text": "voz de que en su testansento lia-",
+      "box": [
+        98,
+        346,
+        245,
+        363
+      ],
+      "score": 0.9068175554275513
+    },
+    {
+      "text": "violencia de Aristóbulo. Josepão.",
+      "box": [
+        259,
+        349,
+        408,
+        365
+      ],
+      "score": 0.9350534081459045
+    },
+    {
+      "text": "tarse el año l.º de la Correccion",
+      "box": [
+        525,
+        341,
+        663,
+        356
+      ],
+      "score": 0.9332922101020813
+    },
+    {
+      "text": "bia dejado el reino á los Romanos.",
+      "box": [
+        98,
+        355,
+        245,
+        373
+      ],
+      "score": 0.9292111396789551
+    },
+    {
+      "text": "44 César es muerto á pufialadas en el",
+      "box": [
+        503,
+        361,
+        663,
+        375
+      ],
+      "score": 0.9007339477539062
+    },
+    {
+      "text": "Juliana. Censorino.",
+      "box": [
+        525,
+        352,
+        610,
+        364
+      ],
+      "score": 0.9714439511299133
+    },
+    {
+      "text": "Ciceron, en la Oracion Agr.",
+      "box": [
+        98,
+        365,
+        226,
+        384
+      ],
+      "score": 0.8928600549697876
+    },
+    {
+      "text": "8960",
+      "box": [
+        466,
+        363,
+        489,
+        375
+      ],
+      "score": 0.9425756335258484
+    },
+    {
+      "text": "3941",
+      "box": [
+        39,
+        373,
+        63,
+        388
+      ],
+      "score": 0.9332805871963501
+    },
+    {
+      "text": "63 Nace Octavio, llamado despues CE-",
+      "box": [
+        75,
+        375,
+        245,
+        394
+      ],
+      "score": 0.9415945410728455
+    },
+    {
+      "text": "Pompeyo, irritado contra Aristóbulo, entra con",
+      "box": [
+        249,
+        378,
+        458,
+        396
+      ],
+      "score": 0.9980083703994751
+    },
+    {
+      "text": "Senado el año 59 de su edad.",
+      "box": [
+        525,
+        372,
+        663,
+        385
+      ],
+      "score": 0.9898930788040161
+    },
+    {
+      "text": "sar Augusto.",
+      "box": [
+        98,
+        386,
+        160,
+        403
+      ],
+      "score": 0.9342644810676575
+    },
+    {
+      "text": "sus tropas en la Judea, dividida en partidos:",
+      "box": [
+        259,
+        389,
+        459,
+        405
+      ],
+      "score": 0.9380444884300232
+    },
+    {
+      "text": "Yendo luego Octavio á Italia, tomó",
+      "box": [
+        517,
+        391,
+        663,
+        406
+      ],
+      "score": 0.915529727935791
+    },
+    {
+      "text": "Livio. Plutarco.",
+      "box": [
+        527,
+        383,
+        596,
+        394
+      ],
+      "score": 0.9651888012886047
+    },
+    {
+      "text": "se apodera de Jerusalem, y sitia el Templo,",
+      "box": [
+        259,
+        399,
+        458,
+        416
+      ],
+      "score": 0.9354466199874878
+    },
+    {
+      "text": "en el eual se habian refugiado los del partido",
+      "box": [
+        259,
+        409,
+        459,
+        427
+      ],
+      "score": 0.9349361062049866
+    },
+    {
+      "text": "el nombre de César; y quiso lla-",
+      "box": [
+        525,
+        404,
+        663,
+        417
+      ],
+      "score": 0.9694665670394897
+    },
+    {
+      "text": "de Aristóbulo. Josepho.",
+      "box": [
+        260,
+        420,
+        365,
+        434
+      ],
+      "score": 0.9546129703521729
+    },
+    {
+      "text": "vio, Livio, Plutarco.",
+      "box": [
+        526,
+        424,
+        617,
+        437
+      ],
+      "score": 0.8044546246528625
+    },
+    {
+      "text": "marse CaYo JuLio-CÉsan OCTA-",
+      "box": [
+        527,
+        415,
+        662,
+        425
+      ],
+      "score": 0.8383888006210327
+    },
+    {
+      "text": "Fué tomado el Templo en el ayuno solemne del",
+      "box": [
+        250,
+        429,
+        459,
+        446
+      ],
+      "score": 0.9638050198554993
+    },
+    {
+      "text": "tercer mes, que se celebraba el día 28; en este",
+      "box": [
+        259,
+        440,
+        460,
+        456
+      ],
+      "score": 0.960700511932373
+    },
+    {
+      "text": "3961",
+      "box": [
+        467,
+        435,
+        493,
+        447
+      ],
+      "score": 0.8799977898597717
+    },
+    {
+      "text": "43 Encléndese luego la guerra contra",
+      "box": [
+        503,
+        434,
+        664,
+        447
+      ],
+      "score": 0.9866020679473877
+    },
+    {
+      "text": "Antomio y los parricidas del C-",
+      "box": [
+        526,
+        444,
+        663,
+        457
+      ],
+      "score": 0.9655579924583435
+    },
+    {
+      "text": "Cassío, ocupada la Siria, pasa & la Judea.",
+      "box": [
+        669,
+        435,
+        865,
+        445
+      ],
+      "score": 0.9749957323074341
+    },
+    {
+      "text": "dia fué despues ocupada la ciudad por Sosio",
+      "box": [
+        259,
+        450,
+        460,
+        467
+      ],
+      "score": 0.9744753241539001
+    },
+    {
+      "text": "Exige setecieutos talentos. Herodes es el pri-",
+      "box": [
+        676,
+        444,
+        867,
+        457
+      ],
+      "score": 0.9796983599662781
+    },
+    {
+      "text": "y Herodes: habia sido tomada por Nabucho-",
+      "box": [
+        258,
+        460,
+        460,
+        477
+      ],
+      "score": 0.9482296109199524
+    },
+    {
+      "text": "sar.",
+      "box": [
+        526,
+        456,
+        544,
+        467
+      ],
+      "score": 0.9930045008659363
+    },
+    {
+      "text": "tmero en llevarle cien talentos de la Galilea,",
+      "box": [
+        675,
+        453,
+        865,
+        467
+      ],
+      "score": 0.9423441886901855
+    },
+    {
+      "text": "douosor 543 años antes. Este mes tercero es",
+      "box": [
+        259,
+        470,
+        460,
+        488
+      ],
+      "score": 0.9796384572982788
+    },
+    {
+      "text": "3962",
+      "box": [
+        466,
+        464,
+        490,
+        479
+      ],
+      "score": 0.9851723909378052
+    },
+    {
+      "text": "42 Unese Octavio con Lépido y Anto-",
+      "box": [
+        503,
+        464,
+        664,
+        478
+      ],
+      "score": 0.980790913105011
+    },
+    {
+      "text": "y adquiere gran favor para con Cassio. Jo-",
+      "box": [
+        676,
+        463,
+        866,
+        477
+      ],
+      "score": 0.9488735198974609
+    },
+    {
+      "text": "del año civil que comienza en el ótoño, y se",
+      "box": [
+        259,
+        479,
+        460,
+        499
+      ],
+      "score": 0.9705297946929932
+    },
+    {
+      "text": "nío; y forman el célebre Triun-",
+      "box": [
+        526,
+        475,
+        662,
+        487
+      ],
+      "score": 0.8652938008308411
+    },
+    {
+      "text": "Estando Antipatro en Jerusalem en un ban-",
+      "box": [
+        666,
+        481,
+        868,
+        497
+      ],
+      "score": 0.9472962617874146
+    },
+    {
+      "text": "sepho.",
+      "box": [
+        676,
+        476,
+        704,
+        486
+      ],
+      "score": 0.9231308102607727
+    },
+    {
+      "text": "llama Casles entre los Judios. Josepho. Véase",
+      "box": [
+        259,
+        489,
+        460,
+        508
+      ],
+      "score": 0.8610432147979736
+    },
+    {
+      "text": "proscrito entre otros muchos,",
+      "box": [
+        526,
+        496,
+        663,
+        510
+      ],
+      "score": 0.9886775016784668
+    },
+    {
+      "text": "virafo de la Repáblica. Ciceron,",
+      "box": [
+        528,
+        487,
+        662,
+        497
+      ],
+      "score": 0.9605399370193481
+    },
+    {
+      "text": "Mes en el Diccionario de Notas.",
+      "box": [
+        259,
+        499,
+        405,
+        516
+      ],
+      "score": 0.953142523765564
+    },
+    {
+      "text": "quete que le daba Hyreano, Malico le mató",
+      "box": [
+        675,
+        490,
+        868,
+        508
+      ],
+      "score": 0.9550911784172058
+    },
+    {
+      "text": "Pompeyo vuelve el pontificado á Hyreano, y",
+      "box": [
+        250,
+        508,
+        460,
+        529
+      ],
+      "score": 0.9419426918029785
+    },
+    {
+      "text": "fué muerto. Dion. Plutarco.",
+      "box": [
+        527,
+        507,
+        648,
+        518
+      ],
+      "score": 0.972888708114624
+    },
+    {
+      "text": "nmerte, maudando matar à Malico. Josepho.",
+      "box": [
+        674,
+        509,
+        868,
+        528
+      ],
+      "score": 0.9098708033561707
+    },
+    {
+      "text": "con veneuo. Vengó despues Herodes su",
+      "box": [
+        675,
+        499,
+        868,
+        518
+      ],
+      "score": 0.9302602410316467
+    },
+    {
+      "text": "queda éste con el gobierno de la Judea, pero",
+      "box": [
+        259,
+        519,
+        460,
+        538
+      ],
+      "score": 0.9388046860694885
+    },
+    {
+      "text": "3963",
+      "box": [
+        465,
+        515,
+        490,
+        530
+      ],
+      "score": 0.9603033661842346
+    },
+    {
+      "text": "41 Antonio y Octavio hacen la guerra",
+      "box": [
+        503,
+        515,
+        664,
+        529
+      ],
+      "score": 0.899606466293335
+    },
+    {
+      "text": "privado de la dignidad de rey: y hace à los",
+      "box": [
+        259,
+        529,
+        460,
+        548
+      ],
+      "score": 0.9723318219184875
+    },
+    {
+      "text": "contra Cassio y Bruto. Dion.",
+      "box": [
+        527,
+        528,
+        651,
+        538
+      ],
+      "score": 0.9812746644020081
+    },
+    {
+      "text": "Antigono, hijo de Aristóbulo, invade la Judea;",
+      "box": [
+        667,
+        518,
+        868,
+        537
+      ],
+      "score": 0.9021996855735779
+    },
+    {
+      "text": "Judios tributarios del imperio romano.",
+      "box": [
+        258,
+        539,
+        434,
+        556
+      ],
+      "score": 0.9740250110626221
+    },
+    {
+      "text": "3964",
+      "box": [
+        467,
+        536,
+        489,
+        548
+      ],
+      "score": 0.9984549283981323
+    },
+    {
+      "text": "40 Antonio, dividieudo en cuarteles",
+      "box": [
+        502,
+        534,
+        665,
+        549
+      ],
+      "score": 0.9224875569343567
+    },
+    {
+      "text": "y habiéndole repelido Herodes, es éste hon-",
+      "box": [
+        674,
+        528,
+        868,
+        547
+      ],
+      "score": 0.9402322173118591
+    },
+    {
+      "text": "Al partir deja por gobernador de la Siria á",
+      "box": [
+        251,
+        549,
+        459,
+        565
+      ],
+      "score": 0.979491114616394
+    },
+    {
+      "text": "de invieruo el ejército, pasa à",
+      "box": [
+        526,
+        544,
+        665,
+        559
+      ],
+      "score": 0.9208068251609802
+    },
+    {
+      "text": "Pachoro, hijo del Rey de los Parthios, hcclio",
+      "box": [
+        667,
+        547,
+        868,
+        566
+      ],
+      "score": 0.9153624773025513
+    },
+    {
+      "text": "rado con corona por Hyreano. Josepho.",
+      "box": [
+        674,
+        538,
+        845,
+        556
+      ],
+      "score": 0.9034252762794495
+    },
+    {
+      "text": "Soauro, cuestor (Appiano), y se lleva cnuti-",
+      "box": [
+        259,
+        559,
+        459,
+        575
+      ],
+      "score": 0.8962587118148804
+    },
+    {
+      "text": "Egipto á ver á Cleopatrs. Dió",
+      "box": [
+        526,
+        553,
+        665,
+        569
+      ],
+      "score": 0.9354074001312256
+    },
+    {
+      "text": "vo á Aristóbulo con sus dos hijos y dos li-",
+      "box": [
+        260,
+        569,
+        459,
+        585
+      ],
+      "score": 0.969964861869812
+    },
+    {
+      "text": "cato ocasion á graudes movimien-",
+      "box": [
+        526,
+        563,
+        664,
+        579
+      ],
+      "score": 0.8553926944732666
+    },
+    {
+      "text": "dueño de la Siria, va À Palestina, depone à",
+      "box": [
+        675,
+        557,
+        869,
+        575
+      ],
+      "score": 0.9474847316741943
+    },
+    {
+      "text": "jas. Alejandro, uno de ellos, se huye en el",
+      "box": [
+        259,
+        578,
+        460,
+        595
+      ],
+      "score": 0.9059038162231445
+    },
+    {
+      "text": "tos. Dion.",
+      "box": [
+        528,
+        576,
+        573,
+        587
+      ],
+      "score": 0.998255729675293
+    },
+    {
+      "text": "Hyreano, y da el gobieruo á Antigono. Dion.",
+      "box": [
+        675,
+        566,
+        868,
+        584
+      ],
+      "score": 0.8895360231399536
+    },
+    {
+      "text": "camimo: el menor Anigono, con sus herma-",
+      "box": [
+        259,
+        587,
+        459,
+        604
+      ],
+      "score": 0.8128029704093933
+    },
+    {
+      "text": "Son encarcelados Hyrcano, y Phasael, herma-",
+      "box": [
+        666,
+        584,
+        868,
+        603
+      ],
+      "score": 0.9502192735671997
+    },
+    {
+      "text": "Josepho.",
+      "box": [
+        676,
+        581,
+        715,
+        592
+      ],
+      "score": 0.9779685735702515
+    },
+    {
+      "text": "8946",
+      "box": [
+        40,
+        606,
+        64,
+        622
+      ],
+      "score": 0.9796874523162842
+    },
+    {
+      "text": "58 Ptolemeo Auletes llega à ser abor-",
+      "box": [
+        76,
+        606,
+        247,
+        622
+      ],
+      "score": 0.9544517993927002
+    },
+    {
+      "text": "nas, llega á Roma. Josepho.",
+      "box": [
+        260,
+        599,
+        385,
+        612
+      ],
+      "score": 0.8792330622673035
+    },
+    {
+      "text": "no de Herodes. Phasael es luego mucrto. A",
+      "box": [
+        675,
+        594,
+        868,
+        613
+      ],
+      "score": 0.9601252675056458
+    },
+    {
+      "text": "Hyrcano le corta Antigono las orejas para",
+      "box": [
+        675,
+        604,
+        868,
+        622
+      ],
+      "score": 0.9264567494392395
+    },
+    {
+      "text": "recido de los Egipcios, por los",
+      "box": [
+        99,
+        618,
+        247,
+        632
+      ],
+      "score": 0.9807429313659668
+    },
+    {
+      "text": "que quede inhábil para cl Pontificado. Y",
+      "box": [
+        675,
+        613,
+        868,
+        633
+      ],
+      "score": 0.9300983548164368
+    },
+    {
+      "text": "grandes tributos que exige de",
+      "box": [
+        99,
+        626,
+        247,
+        642
+      ],
+      "score": 0.9771405458450317
+    },
+    {
+      "text": "ellos; y huyó & Roma, á fin de",
+      "box": [
+        99,
+        638,
+        247,
+        651
+      ],
+      "score": 0.9407730102539062
+    },
+    {
+      "text": "arregíadas las cosas se llevan los Parthos",
+      "box": [
+        675,
+        623,
+        868,
+        642
+      ],
+      "score": 0.9715595245361328
+    },
+    {
+      "text": "cautivo á Hyrcauo. Josepho.",
+      "box": [
+        676,
+        635,
+        800,
+        651
+      ],
+      "score": 0.8684731721878052
+    },
+    {
+      "text": "que Pompeyo y César le restitu-",
+      "box": [
+        99,
+        646,
+        246,
+        661
+      ],
+      "score": 0.9633172750473022
+    },
+    {
+      "text": "Herodes, vicadose perdido, ncude á Roma á",
+      "box": [
+        667,
+        643,
+        869,
+        661
+      ],
+      "score": 0.9138908386230469
+    },
+    {
+      "text": "yesen en su trono. Livio. Plu-",
+      "box": [
+        99,
+        656,
+        246,
+        669
+      ],
+      "score": 0.907455325126648
+    },
+    {
+      "text": "tareo. Eatre tanto, ignorando los",
+      "box": [
+        99,
+        665,
+        246,
+        680
+      ],
+      "score": 0.9416203498840332
+    },
+    {
+      "text": "ver á Áutonio, y con el favor de éste, y tam-",
+      "box": [
+        676,
+        654,
+        868,
+        669
+      ],
+      "score": 0.9712167382240295
+    },
+    {
+      "text": "bien de César, es nombrado Rey: y Áutigono",
+      "box": [
+        676,
+        664,
+        868,
+        678
+      ],
+      "score": 0.9245144724845886
+    },
+    {
+      "text": "de Alejaudría el viaje de Ptole-",
+      "box": [
+        100,
+        675,
+        245,
+        688
+      ],
+      "score": 0.9635571241378784
+    },
+    {
+      "text": "es declarado enemigo: siendo cónsules Cayo",
+      "box": [
+        676,
+        673,
+        868,
+        688
+      ],
+      "score": 0.9000383019447327
+    },
+    {
+      "text": "meo, y creyéndole muerto, colo-",
+      "box": [
+        98,
+        683,
+        246,
+        699
+      ],
+      "score": 0.9375433921813965
+    },
+    {
+      "text": "Domicio Calvino II, y Asinio Pollion, en la",
+      "box": [
+        676,
+        682,
+        869,
+        697
+      ],
+      "score": 0.9258777499198914
+    },
+    {
+      "text": "caron en su trono á su hija Bere-",
+      "box": [
+        99,
+        694,
+        246,
+        707
+      ],
+      "score": 0.9652704000473022
+    },
+    {
+      "text": "Olympiada 185, el año 6.º de la Cortecciou",
+      "box": [
+        677,
+        692,
+        868,
+        706
+      ],
+      "score": 0.9461103081703186
+    },
+    {
+      "text": "nice junto con la hermana mayor",
+      "box": [
+        100,
+        704,
+        246,
+        716
+      ],
+      "score": 0.9497246742248535
+    },
+    {
+      "text": "SUCESOS DE LOS JUDÍOS",
+      "box": [
+        299,
+        712,
+        407,
+        725
+      ],
+      "score": 0.9708020091056824
+    },
+    {
+      "text": "Juliana, y 4674 del Periodo Juliano. Y á los",
+      "box": [
+        676,
+        702,
+        869,
+        716
+      ],
+      "score": 0.9338363409042358
+    },
+    {
+      "text": "Tryphena, llamada Cleopatra, la",
+      "box": [
+        99,
+        713,
+        245,
+        727
+      ],
+      "score": 0.9707915782928467
+    },
+    {
+      "text": "slete dias partió de Italia para quitar cl rei-",
+      "box": [
+        676,
+        713,
+        869,
+        726
+      ],
+      "score": 0.9590024948120117
+    },
+    {
+      "text": "Anciana. Strabon. Dion.",
+      "box": [
+        100,
+        724,
+        213,
+        737
+      ],
+      "score": 0.9703665375709534
+    },
+    {
+      "text": "Despues de tres años de unn peligrosa guerra",
+      "box": [
+        668,
+        732,
+        869,
+        746
+      ],
+      "score": 0.976131021976471
+    },
+    {
+      "text": "no á Autigomo. Josepho.",
+      "box": [
+        676,
+        723,
+        783,
+        737
+      ],
+      "score": 0.8515909314155579
+    },
+    {
+      "text": "8947",
+      "box": [
+        41,
+        736,
+        63,
+        748
+      ],
+      "score": 0.9825143218040466
+    },
+    {
+      "text": "57 Ptolemeo, desesperanzado de vol-",
+      "box": [
+        76,
+        732,
+        246,
+        748
+      ],
+      "score": 0.9696575999259949
+    },
+    {
+      "text": "Vuelve Alejandro á la Juden, hace varias incur-",
+      "box": [
+        251,
+        733,
+        458,
+        747
+      ],
+      "score": 0.9783570170402527
+    },
+    {
+      "text": "3966",
+      "box": [
+        465,
+        734,
+        488,
+        747
+      ],
+      "score": 0.9559272527694702
+    },
+    {
+      "text": "38 España es sujetada por Domicio",
+      "box": [
+        500,
+        730,
+        664,
+        747
+      ],
+      "score": 0.9563366174697876
+    },
+    {
+      "text": "ver á ocupar el tromo, se va á",
+      "box": [
+        99,
+        744,
+        247,
+        757
+      ],
+      "score": 0.9569171071052551
+    },
+    {
+      "text": "siones por el país; pero Gabinio, gobernndor",
+      "box": [
+        260,
+        746,
+        457,
+        756
+      ],
+      "score": 0.9528687000274658
+    },
+    {
+      "text": "Calvino al poder de César Octa-",
+      "box": [
+        525,
+        743,
+        663,
+        755
+      ],
+      "score": 0.95607990026474
+    },
+    {
+      "text": "contra Autigono, pone Herodes sitio à Jeru-",
+      "box": [
+        676,
+        742,
+        868,
+        756
+      ],
+      "score": 0.962830126285553
+    },
+    {
+      "text": "Epheso, Dion.",
+      "box": [
+        102,
+        755,
+        165,
+        766
+      ],
+      "score": 0.9652858972549438
+    },
+    {
+      "text": "de la Siria, le derrota, enviando delante á",
+      "box": [
+        259,
+        753,
+        457,
+        766
+      ],
+      "score": 0.9617563486099243
+    },
+    {
+      "text": "vior y desde las calendas de ene-",
+      "box": [
+        525,
+        752,
+        663,
+        764
+      ],
+      "score": 0.9645827412605286
+    },
+    {
+      "text": "salem, y ln toma en el mes tercero del año,",
+      "box": [
+        677,
+        753,
+        870,
+        766
+      ],
+      "score": 0.9558090567588806
+    },
+    {
+      "text": "8948",
+      "box": [
+        38,
+        772,
+        63,
+        787
+      ],
+      "score": 0.9957427978515625
+    },
+    {
+      "text": "Marco Antonio.",
+      "box": [
+        260,
+        765,
+        332,
+        776
+      ],
+      "score": 0.9569185376167297
+    },
+    {
+      "text": "ro de este año comienza la Ena",
+      "box": [
+        524,
+        762,
+        664,
+        774
+      ],
+      "score": 0.940419614315033
+    },
+    {
+      "text": "56 Gabínio, que disponía uua expedi-",
+      "box": [
+        76,
+        772,
+        246,
+        786
+      ],
+      "score": 0.9578629732131958
+    },
+    {
+      "text": "Española, la cual estuvo eu uso",
+      "box": [
+        525,
+        770,
+        663,
+        784
+      ],
+      "score": 0.9485030770301819
+    },
+    {
+      "text": "Pompeyo la habia tomado 27 años antes.",
+      "box": [
+        676,
+        771,
+        869,
+        785
+      ],
+      "score": 0.9665505290031433
+    },
+    {
+      "text": "en el Áyuno solemne, el mismo dia que",
+      "box": [
+        677,
+        764,
+        869,
+        774
+      ],
+      "score": 0.9813286066055298
+    },
+    {
+      "text": "cion contra los Parthos, resolvió",
+      "box": [
+        100,
+        784,
+        246,
+        794
+      ],
+      "score": 0.9773340225219727
+    },
+    {
+      "text": "Arist&alo, escapándose de Roma con su hijo",
+      "box": [
+        252,
+        775,
+        456,
+        785
+      ],
+      "score": 0.9682393670082092
+    },
+    {
+      "text": "Antigono, va á Judea, y habiendo sido heri-",
+      "box": [
+        260,
+        783,
+        457,
+        796
+      ],
+      "score": 0.9641890525817871
+    },
+    {
+      "text": "en España muchos siglos, y en",
+      "box": [
+        525,
+        783,
+        664,
+        793
+      ],
+      "score": 0.9962827563285828
+    },
+    {
+      "text": "Autigono fué llevado á Autiochia, y muerto",
+      "box": [
+        676,
+        782,
+        869,
+        795
+      ],
+      "score": 0.9646463990211487
+    },
+    {
+      "text": "restituir el trono á Ptolemeo: co-",
+      "box": [
+        100,
+        793,
+        246,
+        803
+      ],
+      "score": 0.9948408603668213
+    },
+    {
+      "text": "do con su hijo en Macherunte, fueron entre-",
+      "box": [
+        260,
+        794,
+        456,
+        804
+      ],
+      "score": 0.9819347262382507
+    },
+    {
+      "text": "algunas provincias hasta el si-",
+      "box": [
+        523,
+        790,
+        665,
+        805
+      ],
+      "score": 0.9479801058769226
+    },
+    {
+      "text": "glo xiv.",
+      "box": [
+        524,
+        801,
+        562,
+        815
+      ],
+      "score": 0.894412636756897
+    },
+    {
+      "text": "pocos meses despues,",
+      "box": [
+        677,
+        793,
+        769,
+        803
+      ],
+      "score": 0.979676365852356
+    },
+    {
+      "text": "mo lo verificó, vencidos los Egip",
+      "box": [
+        100,
+        803,
+        246,
+        813
+      ],
+      "score": 0.9993912577629089
+    },
+    {
+      "text": "cios. Ptolemeo hizo quitarla vida",
+      "box": [
+        99,
+        810,
+        246,
+        824
+      ],
+      "score": 0.9381872415542603
+    },
+    {
+      "text": "gados otra vez á Gabinio, quien los envió á",
+      "box": [
+        260,
+        803,
+        457,
+        816
+      ],
+      "score": 0.9762207865715027
+    },
+    {
+      "text": "á su hija Berenice. Ciceron, Li-",
+      "box": [
+        99,
+        820,
+        245,
+        834
+      ],
+      "score": 0.7794626355171204
+    },
+    {
+      "text": "Roma. Josepho.",
+      "box": [
+        261,
+        814,
+        330,
+        825
+      ],
+      "score": 0.9978634119033813
+    },
+    {
+      "text": "Cleopatra forma otra biblioteca en",
+      "box": [
+        515,
+        818,
+        665,
+        833
+      ],
+      "score": 0.9759259819984436
+    },
+    {
+      "text": "3950",
+      "box": [
+        39,
+        839,
+        63,
+        855
+      ],
+      "score": 0.8650950789451599
+    },
+    {
+      "text": "vio, Strabon.",
+      "box": [
+        100,
+        832,
+        157,
+        842
+      ],
+      "score": 0.943422257900238
+    },
+    {
+      "text": "lugar de la que se había quema-",
+      "box": [
+        523,
+        828,
+        665,
+        844
+      ],
+      "score": 0.9771974682807922
+    },
+    {
+      "text": "54",
+      "box": [
+        77,
+        841,
+        91,
+        854
+      ],
+      "score": 0.9897466897964478
+    },
+    {
+      "text": "Crasso declara la guerra á los Parthos, Se apo-",
+      "box": [
+        250,
+        840,
+        456,
+        856
+      ],
+      "score": 0.9817621111869812
+    },
+    {
+      "text": "do en la guerra de Alejandría.",
+      "box": [
+        523,
+        838,
+        664,
+        854
+      ],
+      "score": 0.960576057434082
+    },
+    {
+      "text": "8961",
+      "box": [
+        38,
+        859,
+        62,
+        874
+      ],
+      "score": 0.8699655532836914
+    },
+    {
+      "text": "dera del templo de Jerusalem. Orosio.",
+      "box": [
+        259,
+        851,
+        426,
+        866
+      ],
+      "score": 0.9575871825218201
+    },
+    {
+      "text": "3969",
+      "box": [
+        463,
+        861,
+        488,
+        876
+      ],
+      "score": 0.9819480180740356
+    },
+    {
+      "text": "35.",
+      "box": [
+        501,
+        862,
+        526,
+        874
+      ],
+      "score": 0.9475254416465759
+    },
+    {
+      "text": "Epiphanio.",
+      "box": [
+        525,
+        853,
+        576,
+        864
+      ],
+      "score": 0.9830015897750854
+    },
+    {
+      "text": "53",
+      "box": [
+        77,
+        863,
+        90,
+        872
+      ],
+      "score": 0.7613493204116821
+    },
+    {
+      "text": "Mas poco despues, destroado sa ejército ála",
+      "box": [
+        251,
+        863,
+        456,
+        876
+      ],
+      "score": 0.9839186668395996
+    },
+    {
+      "text": "Herodes, vencido de los ruegos de su esposa",
+      "box": [
+        669,
+        861,
+        869,
+        871
+      ],
+      "score": 0.9824302792549133
+    },
+    {
+      "text": "3952",
+      "box": [
+        39,
+        880,
+        61,
+        892
+      ],
+      "score": 0.9991024732589722
+    },
+    {
+      "text": "otra parte del Jordan, muere. Ciceron.",
+      "box": [
+        257,
+        872,
+        429,
+        886
+      ],
+      "score": 0.9354541897773743
+    },
+    {
+      "text": "Mariamne, nombrn Pontiice à su lhermano",
+      "box": [
+        679,
+        871,
+        870,
+        881
+      ],
+      "score": 0.9215143918991089
+    },
+    {
+      "text": "52",
+      "box": [
+        77,
+        883,
+        90,
+        892
+      ],
+      "score": 0.9999489188194275
+    },
+    {
+      "text": "Cassio, cuestor de Crasso, invade la Judea.",
+      "box": [
+        250,
+        881,
+        455,
+        897
+      ],
+      "score": 0.9661576151847839
+    },
+    {
+      "text": "Ahoga despucs á Aristóbulo en el baho; y es",
+      "box": [
+        669,
+        888,
+        872,
+        902
+      ],
+      "score": 0.9710206389427185
+    },
+    {
+      "text": "Aristóbulo, de 17 alos de cdad. Josepho.",
+      "box": [
+        679,
+        881,
+        853,
+        891
+      ],
+      "score": 0.936181366443634
+    },
+    {
+      "text": "8953",
+      "box": [
+        37,
+        897,
+        62,
+        912
+      ],
+      "score": 0.9107397198677063
+    },
+    {
+      "text": "51 Muere Ptolemeo Auletes, y Ptole-",
+      "box": [
+        74,
+        899,
+        244,
+        913
+      ],
+      "score": 0.996616780757904
+    },
+    {
+      "text": "Josepho.",
+      "box": [
+        258,
+        891,
+        299,
+        907
+      ],
+      "score": 0.9520441889762878
+    },
+    {
+      "text": "3970",
+      "box": [
+        464,
+        892,
+        487,
+        904
+      ],
+      "score": 0.9948489665985107
+    },
+    {
+      "text": "34.",
+      "box": [
+        501,
+        892,
+        526,
+        903
+      ],
+      "score": 0.989529550075531
+    },
+    {
+      "text": "acusado à Antonio, aunque en balde. Jo-",
+      "box": [
+        676,
+        897,
+        872,
+        912
+      ],
+      "score": 0.8737221956253052
+    },
+    {
+      "text": "meo el Jóven se casa con su lher-",
+      "box": [
+        99,
+        912,
+        245,
+        922
+      ],
+      "score": 0.9533817768096924
+    },
+    {
+      "text": "sepho.",
+      "box": [
+        677,
+        908,
+        708,
+        922
+      ],
+      "score": 0.9446439743041992
+    },
+    {
+      "text": "mana, por disposicion de su pa-",
+      "box": [
+        98,
+        921,
+        245,
+        934
+      ],
+      "score": 0.9809108376502991
+    },
+    {
+      "text": "3978",
+      "box": [
+        462,
+        919,
+        488,
+        934
+      ],
+      "score": 0.9795850515365601
+    },
+    {
+      "text": "31 Cleopatra y Antonio son vencidos",
+      "box": [
+        498,
+        916,
+        666,
+        932
+      ],
+      "score": 0.9681417346000671
+    },
+    {
+      "text": "8055",
+      "box": [
+        38,
+        938,
+        60,
+        950
+      ],
+      "score": 0.9794210195541382
+    },
+    {
+      "text": "49",
+      "box": [
+        75,
+        939,
+        89,
+        951
+      ],
+      "score": 0.9981576204299927
+    },
+    {
+      "text": "dre. César. Dion.",
+      "box": [
+        98,
+        930,
+        179,
+        943
+      ],
+      "score": 0.9145382046699524
+    },
+    {
+      "text": "por Octavio en ln batalla de",
+      "box": [
+        523,
+        927,
+        665,
+        941
+      ],
+      "score": 0.9406996965408325
+    },
+    {
+      "text": "Poco antes de comenzar las guerras civiles en-",
+      "box": [
+        250,
+        940,
+        456,
+        953
+      ],
+      "score": 0.9772559404373169
+    },
+    {
+      "text": "Accio, el 2 de setiemabre. Desde",
+      "box": [
+        524,
+        937,
+        665,
+        950
+      ],
+      "score": 0.9083288908004761
+    },
+    {
+      "text": "tre César y Pompeyo, César envia á la Judea",
+      "box": [
+        259,
+        950,
+        456,
+        964
+      ],
+      "score": 0.968650758266449
+    },
+    {
+      "text": "cayo fiempo conmienza á contarse",
+      "box": [
+        523,
+        947,
+        665,
+        961
+      ],
+      "score": 0.9128000736236572
+    },
+    {
+      "text": "á Aristóbulo, para gue obre contra Pompeyo.",
+      "box": [
+        259,
+        960,
+        455,
+        974
+      ],
+      "score": 0.9797492027282715
+    },
+    {
+      "text": "la moaarquía de Cesar, segun",
+      "box": [
+        523,
+        955,
+        665,
+        971
+      ],
+      "score": 0.8691220283508301
+    },
+    {
+      "text": "Dion. Pero los de Pompeyo le niatan con ve-",
+      "box": [
+        259,
+        969,
+        455,
+        983
+      ],
+      "score": 0.9489707946777344
+    },
+    {
+      "text": "30 César entra eu Egipto y se apode-",
+      "box": [
+        498,
+        975,
+        666,
+        991
+      ],
+      "score": 0.9237151741981506
+    },
+    {
+      "text": "Dion, que duró 44 años.",
+      "box": [
+        524,
+        968,
+        636,
+        981
+      ],
+      "score": 0.9853484034538269
+    },
+    {
+      "text": "neno. Josepho. Es muerto tambien por órdea",
+      "box": [
+        259,
+        980,
+        454,
+        992
+      ],
+      "score": 0.93877774477005
+    },
+    {
+      "text": "3974",
+      "box": [
+        463,
+        978,
+        486,
+        990
+      ],
+      "score": 0.9600803852081299
+    },
+    {
+      "text": "Hyrcamo, habiendo vuelto á su patria siendo",
+      "box": [
+        670,
+        975,
+        872,
+        987
+      ],
+      "score": 0.9665507078170776
+    },
+    {
+      "text": "de Pompeyo Alejaudro, hijo de Aristóbulo.",
+      "box": [
+        258,
+        989,
+        454,
+        1004
+      ],
+      "score": 0.9805963039398193
+    },
+    {
+      "text": "ra de Alejaudria. Antonio se de-",
+      "box": [
+        523,
+        985,
+        665,
+        1001
+      ],
+      "score": 0.9375754594802856
+    },
+    {
+      "text": "de edad de 80 aßos, es condenado à mucrte",
+      "box": [
+        678,
+        985,
+        872,
+        997
+      ],
+      "score": 0.953710675239563
+    },
+    {
+      "text": "Josepho",
+      "box": [
+        259,
+        1002,
+        296,
+        1013
+      ],
+      "score": 0.9980917572975159
+    },
+    {
+      "text": "gúella el dia de las calendas; y",
+      "box": [
+        523,
+        995,
+        666,
+        1010
+      ],
+      "score": 0.937375009059906
+    },
+    {
+      "text": "cion del Rey de los Arabes. Joscpho.",
+      "box": [
+        677,
+        1004,
+        840,
+        1018
+      ],
+      "score": 0.9337193965911865
+    },
+    {
+      "text": "por Herodes, por háber solicitado la protce-",
+      "box": [
+        678,
+        995,
+        872,
+        1007
+      ],
+      "score": 0.9834813475608826
+    },
+    {
+      "text": "3966",
+      "box": [
+        35,
+        1007,
+        59,
+        1022
+      ],
+      "score": 0.8460661172866821
+    },
+    {
+      "text": "48 Pompeyo, despues de la batalla de",
+      "box": [
+        73,
+        1009,
+        245,
+        1024
+      ],
+      "score": 0.98408043384552
+    },
+    {
+      "text": "despues so mata tambien Cleo-",
+      "box": [
+        523,
+        1005,
+        666,
+        1021
+      ],
+      "score": 0.9687809348106384
+    },
+    {
+      "text": "Pharaalia, huye á Egipto, y és",
+      "box": [
+        98,
+        1023,
+        244,
+        1033
+      ],
+      "score": 0.9717320203781128
+    },
+    {
+      "text": "Yasi desde que Alejandro Magno",
+      "box": [
+        511,
+        1025,
+        666,
+        1041
+      ],
+      "score": 0.8842669129371643
+    },
+    {
+      "text": "patra. Plutarco.",
+      "box": [
+        524,
+        1018,
+        598,
+        1029
+      ],
+      "score": 0.9077941179275513
+    },
+    {
+      "text": "muerto allí miserablemente. Plu-",
+      "box": [
+        97,
+        1032,
+        244,
+        1045
+      ],
+      "score": 0.9400811195373535
+    },
+    {
+      "text": "tarco.",
+      "box": [
+        98,
+        1043,
+        127,
+        1054
+      ],
+      "score": 0.9528754353523254
+    },
+    {
+      "text": "fundó el imperio Macedónico,",
+      "box": [
+        523,
+        1035,
+        664,
+        1050
+      ],
+      "score": 0.8343437314033508
+    },
+    {
+      "text": "Tambien peligró la vida de César,",
+      "box": [
+        87,
+        1052,
+        244,
+        1065
+      ],
+      "score": 0.9783112406730652
+    },
+    {
+      "text": "hasta la muerie de Cleopatra en",
+      "box": [
+        523,
+        1046,
+        665,
+        1059
+      ],
+      "score": 0.9828258156776428
+    },
+    {
+      "text": "que le iba persiguiendo.",
+      "box": [
+        97,
+        1063,
+        205,
+        1077
+      ],
+      "score": 0.9824001789093018
+    },
+    {
+      "text": "que se ncabó del todo, pasaron,",
+      "box": [
+        523,
+        1055,
+        666,
+        1071
+      ],
+      "score": 0.9404405355453491
+    },
+    {
+      "text": "3967",
+      "box": [
+        36,
+        1070,
+        58,
+        1083
+      ],
+      "score": 0.9418623447418213
+    },
+    {
+      "text": "47 Despues, movida la guerra de Pho-",
+      "box": [
+        74,
+        1072,
+        244,
+        1086
+      ],
+      "score": 0.9525467753410339
+    },
+    {
+      "text": "Antigono, hijo de Aristóbulo, hace preseute á",
+      "box": [
+        248,
+        1067,
+        454,
+        1085
+      ],
+      "score": 0.9586734175682068
+    },
+    {
+      "text": "segun el historiador Ptolomeo,",
+      "box": [
+        522,
+        1065,
+        666,
+        1081
+      ],
+      "score": 0.9384653568267822
+    },
+    {
+      "text": "tino contra César, inosudia éste",
+      "box": [
+        97,
+        1082,
+        244,
+        1096
+      ],
+      "score": 0.9228484630584717
+    },
+    {
+      "text": "César los infortunios de su padre y herma-",
+      "box": [
+        257,
+        1078,
+        454,
+        1095
+      ],
+      "score": 0.95576411485672
+    },
+    {
+      "text": "294 años menos algunos dias. Eu",
+      "box": [
+        523,
+        1075,
+        667,
+        1091
+      ],
+      "score": 0.9488247036933899
+    },
+    {
+      "text": "las naves de los enemigos, cuyas",
+      "box": [
+        98,
+        1095,
+        243,
+        1105
+      ],
+      "score": 0.9899188280105591
+    },
+    {
+      "text": "nos. Acnsa á Hyrcano y á Autipatro. Pero",
+      "box": [
+        256,
+        1089,
+        453,
+        1105
+      ],
+      "score": 0.9501180648803711
+    },
+    {
+      "text": "este tiempo César puso fin á las",
+      "box": [
+        522,
+        1086,
+        666,
+        1101
+      ],
+      "score": 0.9794930219650269
+    },
+    {
+      "text": "llamas alcanzaron á aquella gran",
+      "box": [
+        97,
+        1103,
+        244,
+        1116
+      ],
+      "score": 0.9661561846733093
+    },
+    {
+      "text": "éstos se defendieron de tal modo, que César",
+      "box": [
+        257,
+        1099,
+        453,
+        1115
+      ],
+      "score": 0.9780071973800659
+    },
+    {
+      "text": "guerras civiles.",
+      "box": [
+        523,
+        1096,
+        592,
+        1112
+      ],
+      "score": 0.925821840763092
+    },
+    {
+      "text": "Contináanse las memorias de los Judios y de los Romanos, desde la muerte de Cleopatra hasta el NAcuuresto DE Sesucnisto",
+      "box": [
+        186,
+        1121,
+        727,
+        1142
+      ],
+      "score": 0.9002999067306519
+    },
+    {
+      "text": "Herodes, despues de vencido Antouío y muerto",
+      "box": [
+        88,
+        1152,
+        313,
+        1165
+      ],
+      "score": 0.9772451519966125
+    },
+    {
+      "text": "to la habia arrasado enterameute Juaa Hyreano;",
+      "box": [
+        380,
+        1146,
+        598,
+        1162
+      ],
+      "score": 0.9692025184631348
+    },
+    {
+      "text": "carse este templo, y no ha podido concluirse hasta",
+      "box": [
+        663,
+        1142,
+        875,
+        1159
+      ],
+      "score": 0.9714544415473938
+    },
+    {
+      "text": "Hyrcano, eneargado el cuidado del reino á su",
+      "box": [
+        95,
+        1161,
+        311,
+        1175
+      ],
+      "score": 0.8955414295196533
+    },
+    {
+      "text": "pero Gabinio la habia reedificado despues, el año",
+      "box": [
+        380,
+        1156,
+        596,
+        1172
+      ],
+      "score": 0.9706036448478699
+    },
+    {
+      "text": "ahora, y tá, ete. Éste parece cl seutido del pro-",
+      "box": [
+        663,
+        1153,
+        875,
+        1169
+      ],
+      "score": 0.8873787522315979
+    },
+    {
+      "text": "hermano Pheroras, va á Rhodas á presentarse á",
+      "box": [
+        95,
+        1172,
+        312,
+        1185
+      ],
+      "score": 0.9349005222320557
+    },
+    {
+      "text": "57 antes de Cristo; y por eso Jalio Africano la",
+      "box": [
+        380,
+        1166,
+        596,
+        1183
+      ],
+      "score": 0.8996018171310425
+    },
+    {
+      "text": "térito aoristo ocodomethe. Jona, . 20. Con todo,",
+      "box": [
+        663,
+        1163,
+        875,
+        1180
+      ],
+      "score": 0.866855800151825
+    },
+    {
+      "text": "César, el cual le confirma en el reino. Josepão.",
+      "box": [
+        96,
+        1183,
+        299,
+        1194
+      ],
+      "score": 0.9788926243782043
+    },
+    {
+      "text": "llama Cludad de los Gabinios.",
+      "box": [
+        380,
+        1177,
+        513,
+        1193
+      ],
+      "score": 0.8691408634185791
+    },
+    {
+      "text": "nos pareció que era mas natural la versiom que",
+      "box": [
+        664,
+        1173,
+        875,
+        1190
+      ],
+      "score": 0.9679794311523438
+    },
+    {
+      "text": "8976",
+      "box": [
+        32,
+        1190,
+        56,
+        1202
+      ],
+      "score": 0.9984826445579529
+    },
+    {
+      "text": "28 Condena al patibulo á sn querida esposa Mariamne,",
+      "box": [
+        70,
+        1191,
+        312,
+        1205
+      ],
+      "score": 0.9556763768196106
+    },
+    {
+      "text": "En este mismo año hubo en la Judea una hambre",
+      "box": [
+        369,
+        1185,
+        597,
+        1203
+      ],
+      "score": 0.973360538482666
+    },
+    {
+      "text": "hécimos de este texto ea dicho lugar del Evan-",
+      "box": [
+        663,
+        1182,
+        876,
+        1200
+      ],
+      "score": 0.9581727385520935
+    },
+    {
+      "text": "por las calumnias de su hermana Salomé; y des-",
+      "box": [
+        94,
+        1202,
+        312,
+        1215
+      ],
+      "score": 0.9809508323669434
+    },
+    {
+      "text": "y peste horrorosas; cu cuyo socorro brilló la pru-",
+      "box": [
+        379,
+        1197,
+        597,
+        1214
+      ],
+      "score": 0.9849066138267517
+    },
+    {
+      "text": "3998",
+      "box": [
+        602,
+        1205,
+        627,
+        1220
+      ],
+      "score": 0.7846378087997437
+    },
+    {
+      "text": "11 Herodes se embarea para Roma con sus hijos Ale-",
+      "box": [
+        639,
+        1201,
+        876,
+        1220
+      ],
+      "score": 0.951184868812561
+    },
+    {
+      "text": "gelio.",
+      "box": [
+        662,
+        1195,
+        692,
+        1209
+      ],
+      "score": 0.9444920420646667
+    },
+    {
+      "text": "pues de su muerte, enferma él gravemente de",
+      "box": [
+        94,
+        1213,
+        311,
+        1223
+      ],
+      "score": 0.9819107055664062
+    },
+    {
+      "text": "dencia de Herodes. Josepho.",
+      "box": [
+        379,
+        1208,
+        505,
+        1223
+      ],
+      "score": 0.9500256180763245
+    },
+    {
+      "text": "pena y tristeza, llegando á delirar. Josepho.",
+      "box": [
+        93,
+        1221,
+        286,
+        1233
+      ],
+      "score": 0.9673729538917542
+    },
+    {
+      "text": "8980",
+      "box": [
+        319,
+        1221,
+        342,
+        1233
+      ],
+      "score": 0.9944068789482117
+    },
+    {
+      "text": "24 Anxilió tambien á sus vasallos contra los rigores de",
+      "box": [
+        355,
+        1216,
+        597,
+        1233
+      ],
+      "score": 0.9733483791351318
+    },
+    {
+      "text": "jaudro y Aristóbulo, á fin de acusarlos ante Cé-",
+      "box": [
+        663,
+        1211,
+        877,
+        1230
+      ],
+      "score": 0.9122548699378967
+    },
+    {
+      "text": "Entre tanto Aleñándra tienta apoderarse de las dos",
+      "box": [
+        84,
+        1230,
+        311,
+        1242
+      ],
+      "score": 0.9389359951019287
+    },
+    {
+      "text": "aquel invierno. Habiendo quitado el Pontificado",
+      "box": [
+        380,
+        1226,
+        596,
+        1242
+      ],
+      "score": 0.9602909684181213
+    },
+    {
+      "text": " Despaesa, antoriado por Cear, los manda degolar,",
+      "box": [
+        643,
+        1229,
+        877,
+        1250
+      ],
+      "score": 0.5766565203666687
+    },
+    {
+      "text": "sar, pero este los reconcilia con sa padre. Soscpho.",
+      "box": [
+        663,
+        1221,
+        877,
+        1239
+      ],
+      "score": 0.8831878900527954
+    },
+    {
+      "text": "fortalezas de Jerusalem; y af saberio Herodes la",
+      "box": [
+        93,
+        1240,
+        311,
+        1252
+      ],
+      "score": 0.9729158282279968
+    },
+    {
+      "text": "á Jesus, hijo de Phabeto, puso en su lugar á Si-",
+      "box": [
+        379,
+        1235,
+        597,
+        1252
+      ],
+      "score": 0.9292325973510742
+    },
+    {
+      "text": "3999",
+      "box": [
+        603,
+        1236,
+        626,
+        1247
+      ],
+      "score": 0.83272385597229
+    },
+    {
+      "text": "8978",
+      "box": [
+        27,
+        1254,
+        53,
+        1272
+      ],
+      "score": 0.9816220998764038
+    },
+    {
+      "text": "manda mstar. Josepho.",
+      "box": [
+        93,
+        1249,
+        200,
+        1261
+      ],
+      "score": 0.9168890714645386
+    },
+    {
+      "text": "mon, cón cuya hija Mariamme se casó.",
+      "box": [
+        379,
+        1246,
+        548,
+        1261
+      ],
+      "score": 0.8903447389602661
+    },
+    {
+      "text": "tomando bajo su amparo á sus hijos; de los cua-",
+      "box": [
+        664,
+        1240,
+        877,
+        1259
+      ],
+      "score": 0.9085841178894043
+    },
+    {
+      "text": "26 Mata tambien á Costabaro, marido de su hermana,",
+      "box": [
+        68,
+        1257,
+        312,
+        1272
+      ],
+      "score": 0.9673708081245422
+    },
+    {
+      "text": "3981",
+      "box": [
+        318,
+        1259,
+        342,
+        1271
+      ],
+      "score": 0.974128246307373
+    },
+    {
+      "text": "23",
+      "box": [
+        358,
+        1261,
+        371,
+        1269
+      ],
+      "score": 0.9998812079429626
+    },
+    {
+      "text": "Construyó una cludad maritima, doude estaba la",
+      "box": [
+        368,
+        1254,
+        597,
+        1272
+      ],
+      "score": 0.9818968772888184
+    },
+    {
+      "text": "les son los Agrippas hijos de Aristóbulo, y de sa",
+      "box": [
+        664,
+        1250,
+        877,
+        1268
+      ],
+      "score": 0.9695227742195129
+    },
+    {
+      "text": "acusado de traicion. Josepho.",
+      "box": [
+        93,
+        1269,
+        225,
+        1279
+      ],
+      "score": 0.9722692966461182
+    },
+    {
+      "text": "Torre de Straton, y la llamó Cesarea en honor de",
+      "box": [
+        379,
+        1264,
+        597,
+        1280
+      ],
+      "score": 0.9641868472099304
+    },
+    {
+      "text": "Encarceló tambien á Autipatro, que habia llegado",
+      "box": [
+        656,
+        1267,
+        877,
+        1288
+      ],
+      "score": 0.8754709362983704
+    },
+    {
+      "text": "hermana Herodiades. Josepho.",
+      "box": [
+        664,
+        1262,
+        799,
+        1277
+      ],
+      "score": 0.8055738806724548
+    },
+    {
+      "text": "Institaye los certámenes de los Atletas, en honor",
+      "box": [
+        82,
+        1277,
+        311,
+        1289
+      ],
+      "score": 0.9952747821807861
+    },
+    {
+      "text": "de César, cada cinco años, contra las costumbres",
+      "box": [
+        92,
+        1285,
+        311,
+        1300
+      ],
+      "score": 0.9748485088348389
+    },
+    {
+      "text": "19 A los 18 añcs de la salida de Antigono, propuso a",
+      "box": [
+        354,
+        1281,
+        598,
+        1302
+      ],
+      "score": 0.8953570127487183
+    },
+    {
+      "text": "Csar: la concluyó eu 12 años. Josepho.",
+      "box": [
+        379,
+        1274,
+        555,
+        1291
+      ],
+      "score": 0.926227867603302
+    },
+    {
+      "text": "8985",
+      "box": [
+        318,
+        1287,
+        341,
+        1300
+      ],
+      "score": 0.9495438933372498
+    },
+    {
+      "text": "de Roma; y despues de dar parte á César, le",
+      "box": [
+        663,
+        1277,
+        877,
+        1297
+      ],
+      "score": 0.9499986171722412
+    },
+    {
+      "text": "patrias. Construye un teairo en la ciudad y un",
+      "box": [
+        90,
+        1295,
+        311,
+        1311
+      ],
+      "score": 0.9448583126068115
+    },
+    {
+      "text": "los Judios su desiguio de restaurar el Templo, y",
+      "box": [
+        377,
+        1292,
+        597,
+        1311
+      ],
+      "score": 0.9647872447967529
+    },
+    {
+      "text": "Reinando Herodes en la Juden, el sacerdote Zaca-",
+      "box": [
+        654,
+        1295,
+        878,
+        1318
+      ],
+      "score": 0.924063503742218
+    },
+    {
+      "text": "mandó matar. Josepho.",
+      "box": [
+        663,
+        1290,
+        769,
+        1306
+      ],
+      "score": 0.9026678204536438
+    },
+    {
+      "text": "3979",
+      "box": [
+        24,
+        1314,
+        49,
+        1326
+      ],
+      "score": 0.962257981300354
+    },
+    {
+      "text": "25 Para asegurarse mas en el trono, comenzó á fortifi-",
+      "box": [
+        64,
+        1314,
+        311,
+        1330
+      ],
+      "score": 0.9607764482498169
+    },
+    {
+      "text": "anfiteatro en el campo. Josepho.",
+      "box": [
+        92,
+        1308,
+        238,
+        1318
+      ],
+      "score": 0.994911253452301
+    },
+    {
+      "text": "8987",
+      "box": [
+        316,
+        1316,
+        341,
+        1331
+      ],
+      "score": 0.9438636302947998
+    },
+    {
+      "text": "17 Comenzó Herodes la fábrica el año 46 antes de la",
+      "box": [
+        353,
+        1312,
+        597,
+        1331
+      ],
+      "score": 0.9586947560310364
+    },
+    {
+      "text": "preparó los materiales. Josepho.",
+      "box": [
+        378,
+        1305,
+        522,
+        1319
+      ],
+      "score": 0.9199181199073792
+    },
+    {
+      "text": "rias queda mado: su mujer Elisabeth coneibe.",
+      "box": [
+        664,
+        1305,
+        877,
+        1328
+      ],
+      "score": 0.6982511878013611
+    },
+    {
+      "text": "car á Samaria, à la cual en honor de Augusto",
+      "box": [
+        90,
+        1326,
+        309,
+        1340
+      ],
+      "score": 0.9760446548461914
+    },
+    {
+      "text": "primera Pascua que Jesucristo celebró despues",
+      "box": [
+        377,
+        1322,
+        597,
+        1341
+      ],
+      "score": 0.9877341389656067
+    },
+    {
+      "text": "enviado a Maria Santisima, virgen de Namrei,",
+      "box": [
+        663,
+        1326,
+        878,
+        1348
+      ],
+      "score": 0.6240113973617554
+    },
+    {
+      "text": "Luc. I. Seis meses despues el ángel Gabriel es",
+      "box": [
+        665,
+        1317,
+        878,
+        1337
+      ],
+      "score": 0.9627910256385803
+    },
+    {
+      "text": "puso el nombre de Sebaste, palabra griega que es",
+      "box": [
+        89,
+        1337,
+        311,
+        1350
+      ],
+      "score": 0.9911367297172546
+    },
+    {
+      "text": "de su predicacion. Por eso decian los Judios:",
+      "box": [
+        377,
+        1332,
+        598,
+        1352
+      ],
+      "score": 0.9659559726715088
+    },
+    {
+      "text": "xoierma qne Augusía. Fl allo 109 antes de Cris",
+      "box": [
+        99,
+        1348,
+        305,
+        1355
+      ],
+      "score": 0.7852155566215515
+    },
+    {
+      "text": "para ananciarle el mistcrio de la Encaanacion",
+      "box": [
+        663,
+        1336,
+        879,
+        1356
+      ],
+      "score": 0.675990879535675
+    }
+  ]
+}

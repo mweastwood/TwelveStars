@@ -1,0 +1,1467 @@
+{
+  "volume": 4,
+  "page_index": 99,
+  "pdf_page": 100,
+  "lines": [
+    {
+      "text": "115",
+      "box": [
+        77,
+        45,
+        102,
+        62
+      ],
+      "score": 0.9999423027038574
+    },
+    {
+      "text": "SAN LUCAS.",
+      "box": [
+        207,
+        47,
+        294,
+        64
+      ],
+      "score": 0.9986346364021301
+    },
+    {
+      "text": "CAPITULO XX.",
+      "box": [
+        671,
+        61,
+        774,
+        80
+      ],
+      "score": 0.9989003539085388
+    },
+    {
+      "text": "116",
+      "box": [
+        869,
+        68,
+        892,
+        84
+      ],
+      "score": 0.9994952082633972
+    },
+    {
+      "text": "3. Hacia diligencias para conocer á Jesus de vista: y no",
+      "box": [
+        81,
+        90,
+        441,
+        114
+      ],
+      "score": 0.9991273880004883
+    },
+    {
+      "text": "pudiendo á causa del gentío, por ser de muy pequeña esta-",
+      "box": [
+        70,
+        110,
+        441,
+        132
+      ],
+      "score": 0.9990739226341248
+    },
+    {
+      "text": "31. Que si alguno os preguntare: ¿Por qué le desatais?le",
+      "box": [
+        549,
+        104,
+        898,
+        126
+      ],
+      "score": 0.9940277934074402
+    },
+    {
+      "text": "tura,",
+      "box": [
+        70,
+        129,
+        106,
+        148
+      ],
+      "score": 0.9988619685173035
+    },
+    {
+      "text": "direis así: Porque el Señor le ha menester.",
+      "box": [
+        537,
+        121,
+        788,
+        141
+      ],
+      "score": 0.9910998940467834
+    },
+    {
+      "text": "4. Se adelantó corriendo, y subióse sobre un cabrahigo",
+      "box": [
+        83,
+        145,
+        438,
+        168
+      ],
+      "score": 0.9922822117805481
+    },
+    {
+      "text": "32. Fueron pues los enviados: y hallaron el pollino, de",
+      "box": [
+        548,
+        138,
+        898,
+        160
+      ],
+      "score": 0.9962742924690247
+    },
+    {
+      "text": "é higuera silvestre para verle; porque habia de pasar por allí.",
+      "box": [
+        71,
+        163,
+        439,
+        185
+      ],
+      "score": 0.9860365390777588
+    },
+    {
+      "text": "la misma manera que les habia dicho.",
+      "box": [
+        535,
+        155,
+        760,
+        175
+      ],
+      "score": 0.9995516538619995
+    },
+    {
+      "text": "5. Llegado que hubo Jesus á aquel lugar, alzando los ojos",
+      "box": [
+        83,
+        180,
+        440,
+        202
+      ],
+      "score": 0.9837101101875305
+    },
+    {
+      "text": "33. En el acto de desatarle, les dijeron los dueños de él:",
+      "box": [
+        547,
+        171,
+        898,
+        192
+      ],
+      "score": 0.9882920980453491
+    },
+    {
+      "text": "le vió, y díjole: Zacheo 1, baja luego: porque conviene que yo",
+      "box": [
+        70,
+        196,
+        439,
+        220
+      ],
+      "score": 0.9855075478553772
+    },
+    {
+      "text": "¿Por qué desatais ese pollino?",
+      "box": [
+        534,
+        187,
+        711,
+        206
+      ],
+      "score": 0.989970862865448
+    },
+    {
+      "text": "me hospede hoy en tu casa.",
+      "box": [
+        71,
+        212,
+        242,
+        235
+      ],
+      "score": 0.9984594583511353
+    },
+    {
+      "text": "34. Á lo que respondieron ellos: Porque le ha menester",
+      "box": [
+        546,
+        203,
+        898,
+        225
+      ],
+      "score": 0.9869688749313354
+    },
+    {
+      "text": "el Señor.",
+      "box": [
+        535,
+        219,
+        591,
+        237
+      ],
+      "score": 0.9999274015426636
+    },
+    {
+      "text": "6. Él bajó á toda priesa, y le recibió gozoso :",
+      "box": [
+        82,
+        229,
+        357,
+        250
+      ],
+      "score": 0.9805485606193542
+    },
+    {
+      "text": "35. Condujéronle pues á Jesus. Y echando las ropas de",
+      "box": [
+        547,
+        234,
+        898,
+        256
+      ],
+      "score": 0.9753883481025696
+    },
+    {
+      "text": "7. Todo el mundo al ver esto, murmuraba diciendo que",
+      "box": [
+        83,
+        246,
+        439,
+        266
+      ],
+      "score": 0.9990777373313904
+    },
+    {
+      "text": "ellos sobre el pollino, le hicieron montar encima.",
+      "box": [
+        535,
+        250,
+        825,
+        272
+      ],
+      "score": 0.994753897190094
+    },
+    {
+      "text": "se había ido á hospedar en casa de un hombre de mala vida.",
+      "box": [
+        69,
+        261,
+        438,
+        283
+      ],
+      "score": 0.9833857417106628
+    },
+    {
+      "text": "36. Mientras iba Jesus pasando, acudian las gentes y ten-",
+      "box": [
+        545,
+        265,
+        899,
+        289
+      ],
+      "score": 0.9980133175849915
+    },
+    {
+      "text": "8. Mas Zacheo, puesto en presencia del Señor, le dijo:",
+      "box": [
+        82,
+        277,
+        439,
+        299
+      ],
+      "score": 0.9911384582519531
+    },
+    {
+      "text": "dian sus vestidos por el camino.",
+      "box": [
+        534,
+        280,
+        724,
+        302
+      ],
+      "score": 0.9990946650505066
+    },
+    {
+      "text": "Señor, desde ahora doy yo la mitad de mis bienes á los po-",
+      "box": [
+        68,
+        291,
+        440,
+        317
+      ],
+      "score": 0.9434729218482971
+    },
+    {
+      "text": "37. Pero estando ya cercano á la bajada del monte de los",
+      "box": [
+        546,
+        297,
+        898,
+        318
+      ],
+      "score": 0.995360255241394
+    },
+    {
+      "text": "bres: y si he defraudado en algo á alguno, le voy á restituir",
+      "box": [
+        69,
+        308,
+        439,
+        330
+      ],
+      "score": 0.9847580194473267
+    },
+    {
+      "text": "Olivos, todos los discípulos en gran número, trasportados",
+      "box": [
+        533,
+        310,
+        900,
+        336
+      ],
+      "score": 0.99366694688797
+    },
+    {
+      "text": "cuatro tantos mas.",
+      "box": [
+        70,
+        324,
+        188,
+        345
+      ],
+      "score": 0.999324381351471
+    },
+    {
+      "text": "de gozo, comenzaron á alabar á Dios en alta voz por todos los",
+      "box": [
+        534,
+        328,
+        899,
+        350
+      ],
+      "score": 0.9953910708427429
+    },
+    {
+      "text": "9. Jesus le respondió: Ciertamente que el dia de hoy ha",
+      "box": [
+        82,
+        341,
+        438,
+        360
+      ],
+      "score": 0.9938926100730896
+    },
+    {
+      "text": "prodigios que habian visto,",
+      "box": [
+        533,
+        344,
+        696,
+        365
+      ],
+      "score": 0.998677670955658
+    },
+    {
+      "text": "sido dia de salvacion para esta casa: pues que tambien éste",
+      "box": [
+        69,
+        355,
+        438,
+        377
+      ],
+      "score": 0.9954755306243896
+    },
+    {
+      "text": "38. Diciendo: Bendito sea el Rey que viene en nombre",
+      "box": [
+        545,
+        358,
+        900,
+        383
+      ],
+      "score": 0.9923939108848572
+    },
+    {
+      "text": "es hijo de la fe de Abraham.",
+      "box": [
+        70,
+        372,
+        243,
+        393
+      ],
+      "score": 0.9960463643074036
+    },
+    {
+      "text": "del Señor, paz en el cielo, y gloria en lo mas alto de los",
+      "box": [
+        533,
+        374,
+        900,
+        399
+      ],
+      "score": 0.9977819323539734
+    },
+    {
+      "text": "10. Porque el Hijo del hombre ha venido á buscar, y á",
+      "box": [
+        82,
+        387,
+        438,
+        409
+      ],
+      "score": 0.9833983182907104
+    },
+    {
+      "text": "cielos.",
+      "box": [
+        533,
+        391,
+        575,
+        413
+      ],
+      "score": 0.9998391270637512
+    },
+    {
+      "text": "salvar lo que habia perecido.",
+      "box": [
+        70,
+        404,
+        248,
+        424
+      ],
+      "score": 0.9842683672904968
+    },
+    {
+      "text": "39. Con esto algunos de los Phariséos que iban entre la",
+      "box": [
+        544,
+        408,
+        900,
+        429
+      ],
+      "score": 0.9953771233558655
+    },
+    {
+      "text": "11. Mientras escuchaban estas cosas los circunstantes,",
+      "box": [
+        82,
+        419,
+        437,
+        442
+      ],
+      "score": 0.9925528168678284
+    },
+    {
+      "text": "gente le dijeron: Maestro, reprende á tus discípulos.",
+      "box": [
+        534,
+        425,
+        847,
+        446
+      ],
+      "score": 0.9934481978416443
+    },
+    {
+      "text": "añadió una parábola, atento á que se hallaba vecino á Jeru-",
+      "box": [
+        69,
+        436,
+        438,
+        458
+      ],
+      "score": 0.997200608253479
+    },
+    {
+      "text": "40. Respondióles él: En verdad os digo, que si estos ca-",
+      "box": [
+        545,
+        441,
+        902,
+        462
+      ],
+      "score": 0.9903692603111267
+    },
+    {
+      "text": "salem, y las gentes creian que luego se habia de manifestar",
+      "box": [
+        70,
+        453,
+        437,
+        474
+      ],
+      "score": 0.9892041683197021
+    },
+    {
+      "text": "llan, las mismas piedras darán voces.",
+      "box": [
+        533,
+        459,
+        754,
+        477
+      ],
+      "score": 0.9908884167671204
+    },
+    {
+      "text": "el reino de Dios.",
+      "box": [
+        70,
+        469,
+        173,
+        488
+      ],
+      "score": 0.9997364282608032
+    },
+    {
+      "text": "12. Dijo pues: Un hombre de ilustre nacimiento marchóse",
+      "box": [
+        82,
+        484,
+        437,
+        508
+      ],
+      "score": 0.9935169816017151
+    },
+    {
+      "text": "41. Al llegar cerca de Jerusalem, poniéndose á mirar esta",
+      "box": [
+        547,
+        476,
+        900,
+        493
+      ],
+      "score": 0.9859676957130432
+    },
+    {
+      "text": "á una region remota para recibir la investidura de el reino,",
+      "box": [
+        69,
+        502,
+        437,
+        524
+      ],
+      "score": 0.9796638488769531
+    },
+    {
+      "text": "ciudad, derramó lágrimas sobre ella, diciendo:",
+      "box": [
+        536,
+        494,
+        811,
+        508
+      ],
+      "score": 0.9991145730018616
+    },
+    {
+      "text": "42. Ah! si conocieses tambien tú, por lo menos en este",
+      "box": [
+        546,
+        507,
+        901,
+        526
+      ],
+      "score": 0.9962647557258606
+    },
+    {
+      "text": "y volver con ella.",
+      "box": [
+        71,
+        521,
+        181,
+        538
+      ],
+      "score": 0.9857462644577026
+    },
+    {
+      "text": "dia que se te ha dado, lo que puede atraerte la paz é felici-",
+      "box": [
+        533,
+        523,
+        902,
+        543
+      ],
+      "score": 0.9883731007575989
+    },
+    {
+      "text": "13. Con cuyo motivo, convocados diez de sus criados,",
+      "box": [
+        83,
+        536,
+        436,
+        555
+      ],
+      "score": 0.9992541074752808
+    },
+    {
+      "text": "dad: mas ahora está todo ello oculto á tus ojos.",
+      "box": [
+        534,
+        540,
+        817,
+        558
+      ],
+      "score": 0.9867076873779297
+    },
+    {
+      "text": "dióles diez minas ó marcos de plata, diciéndoles: Negociad",
+      "box": [
+        71,
+        552,
+        437,
+        571
+      ],
+      "score": 0.9907122254371643
+    },
+    {
+      "text": "43. La lástima es que vendrán unos dias sobre tí, en que",
+      "box": [
+        546,
+        555,
+        901,
+        574
+      ],
+      "score": 0.9913467168807983
+    },
+    {
+      "text": "con ellas hasta mi vuelta.",
+      "box": [
+        72,
+        570,
+        225,
+        584
+      ],
+      "score": 0.9844017624855042
+    },
+    {
+      "text": "tus enemigos te circunvalarán, y te rodearán de contramuro,",
+      "box": [
+        533,
+        572,
+        905,
+        591
+      ],
+      "score": 0.9963129162788391
+    },
+    {
+      "text": "14. Es de saber que sus naturales le aborrecian: y así",
+      "box": [
+        85,
+        586,
+        438,
+        603
+      ],
+      "score": 0.9974891543388367
+    },
+    {
+      "text": "y te estrecharán por todas partes:",
+      "box": [
+        532,
+        589,
+        736,
+        607
+      ],
+      "score": 0.9996864199638367
+    },
+    {
+      "text": "despacharon tras de él embajadores, diciendo: No queremos",
+      "box": [
+        73,
+        602,
+        436,
+        619
+      ],
+      "score": 0.9916158318519592
+    },
+    {
+      "text": "44. Y te arrasarán, con los hijos tuyos, que tendrás en-",
+      "box": [
+        545,
+        603,
+        900,
+        622
+      ],
+      "score": 0.9976253509521484
+    },
+    {
+      "text": "á ese por nuestro rey.",
+      "box": [
+        73,
+        620,
+        204,
+        634
+      ],
+      "score": 0.977577269077301
+    },
+    {
+      "text": "cerrados dentro de tí, y no dejarán en tí piedra sobre pie-",
+      "box": [
+        533,
+        619,
+        899,
+        638
+      ],
+      "score": 0.9936308264732361
+    },
+    {
+      "text": "15. Pero habiendo vuelto, recibida la investidura del reino,",
+      "box": [
+        86,
+        632,
+        437,
+        650
+      ],
+      "score": 0.997944176197052
+    },
+    {
+      "text": "dra: por cuanto has desconocido el tiempo en que Dios te",
+      "box": [
+        534,
+        636,
+        899,
+        653
+      ],
+      "score": 0.9927977323532104
+    },
+    {
+      "text": "mandó luego llamar á los criados, á quienes habia dado su",
+      "box": [
+        73,
+        647,
+        437,
+        667
+      ],
+      "score": 0.9953521490097046
+    },
+    {
+      "text": "ha visitado.",
+      "box": [
+        533,
+        652,
+        604,
+        666
+      ],
+      "score": 0.9936506152153015
+    },
+    {
+      "text": "dinero, para informarse de lo que habia negociado cada uno.",
+      "box": [
+        75,
+        663,
+        437,
+        683
+      ],
+      "score": 0.9946780204772949
+    },
+    {
+      "text": "45. Y habiendo entrado en el templo, comenzó á echar",
+      "box": [
+        546,
+        668,
+        900,
+        685
+      ],
+      "score": 0.988533616065979
+    },
+    {
+      "text": "16. Vino pues el primero, y dijo: Señor, tu marco ha ren-",
+      "box": [
+        87,
+        680,
+        438,
+        699
+      ],
+      "score": 0.9973154664039612
+    },
+    {
+      "text": "fuera á los que vendian y compraban en él,",
+      "box": [
+        533,
+        683,
+        790,
+        702
+      ],
+      "score": 0.9767546653747559
+    },
+    {
+      "text": "dido diez marcos.",
+      "box": [
+        75,
+        697,
+        182,
+        716
+      ],
+      "score": 0.9978327751159668
+    },
+    {
+      "text": "46. Diciéndoles: Escrito está: Mi casa es casa de oracion;",
+      "box": [
+        545,
+        699,
+        900,
+        717
+      ],
+      "score": 0.9729157090187073
+    },
+    {
+      "text": "17. Respondióle: Bien está, buen criado, ya que en esto",
+      "box": [
+        87,
+        710,
+        437,
+        732
+      ],
+      "score": 0.9989065527915955
+    },
+    {
+      "text": "mas vosotros la teneis hecha una cueva de ladrones.",
+      "box": [
+        532,
+        715,
+        844,
+        734
+      ],
+      "score": 0.999752938747406
+    },
+    {
+      "text": "poco has sido fiel, tendrás mando sobre diez ciudades.",
+      "box": [
+        74,
+        726,
+        394,
+        750
+      ],
+      "score": 0.9974512457847595
+    },
+    {
+      "text": "47. Y enseñaba todos los dias en el templo. Pero los prín-",
+      "box": [
+        545,
+        731,
+        900,
+        750
+      ],
+      "score": 0.9942528009414673
+    },
+    {
+      "text": "18. Llegó el segundo, y dijo: Señor, tu marco ha dado de",
+      "box": [
+        87,
+        743,
+        438,
+        764
+      ],
+      "score": 0.987311065196991
+    },
+    {
+      "text": "cipes de los sacerdotes, y los Escribas, y los principales del",
+      "box": [
+        533,
+        746,
+        901,
+        768
+      ],
+      "score": 0.9962478280067444
+    },
+    {
+      "text": "ganancia cinco marcos.",
+      "box": [
+        75,
+        760,
+        215,
+        781
+      ],
+      "score": 0.9981681704521179
+    },
+    {
+      "text": "pueblo buscaban cómo quitarle del mundo:",
+      "box": [
+        533,
+        763,
+        793,
+        782
+      ],
+      "score": 0.9915447235107422
+    },
+    {
+      "text": "19. Dijo asimismo á este: Tú tendrás tambien el gobierno",
+      "box": [
+        87,
+        776,
+        438,
+        795
+      ],
+      "score": 0.9844129681587219
+    },
+    {
+      "text": "48. Y no hallaban medio de obrar contra él; porque todo",
+      "box": [
+        545,
+        779,
+        900,
+        799
+      ],
+      "score": 0.9952834248542786
+    },
+    {
+      "text": "de cinco ciudades.",
+      "box": [
+        75,
+        792,
+        185,
+        811
+      ],
+      "score": 0.985835611820221
+    },
+    {
+      "text": "el pueblo estaba con la boca abierta escuchándole.",
+      "box": [
+        534,
+        796,
+        833,
+        815
+      ],
+      "score": 0.9982218146324158
+    },
+    {
+      "text": "20. Vino otro, y dijo: Señor, aquí tienes tu marco de",
+      "box": [
+        88,
+        810,
+        436,
+        827
+      ],
+      "score": 0.9830756783485413
+    },
+    {
+      "text": "plata, el cual he guardado envuelto en un pañuelo:",
+      "box": [
+        74,
+        824,
+        383,
+        846
+      ],
+      "score": 0.995527446269989
+    },
+    {
+      "text": "21. Porque tuve miedo de tí, por cuanto eres hombre de",
+      "box": [
+        89,
+        843,
+        438,
+        860
+      ],
+      "score": 0.9940217137336731
+    },
+    {
+      "text": "CAPITULO XX",
+      "box": [
+        666,
+        839,
+        766,
+        858
+      ],
+      "score": 0.9997557997703552
+    },
+    {
+      "text": "un natural austero: tomas lo que no has depositado, y siegas",
+      "box": [
+        76,
+        860,
+        438,
+        877
+      ],
+      "score": 0.9994201064109802
+    },
+    {
+      "text": "lo que no has sembrado.",
+      "box": [
+        76,
+        875,
+        221,
+        892
+      ],
+      "score": 0.9966490268707275
+    },
+    {
+      "text": "Jesus confunde á los sacerdotes y Escribas. Parábola de los viñadores.",
+      "box": [
+        533,
+        874,
+        900,
+        893
+      ],
+      "score": 0.9972445964813232
+    },
+    {
+      "text": "22. Dícele el amo:  Oh mal siervo ! por tu propia boca te",
+      "box": [
+        88,
+        890,
+        439,
+        909
+      ],
+      "score": 0.9739322066307068
+    },
+    {
+      "text": "Piedra angular. Tributo al César. Resurreccion de los muertos. Jesu-",
+      "box": [
+        544,
+        889,
+        900,
+        907
+      ],
+      "score": 0.9911496639251709
+    },
+    {
+      "text": "condeno: sabias que yo soy un hombre duro y austero, que",
+      "box": [
+        76,
+        906,
+        440,
+        926
+      ],
+      "score": 0.9983702301979065
+    },
+    {
+      "text": "Christo hijo y Señor de David. Soberbia y avaricia de los Escribas.",
+      "box": [
+        545,
+        901,
+        899,
+        922
+      ],
+      "score": 0.9593566060066223
+    },
+    {
+      "text": "me llevo lo que no deposité, y siego lo que no he sembrado:",
+      "box": [
+        76,
+        923,
+        440,
+        941
+      ],
+      "score": 0.9973871111869812
+    },
+    {
+      "text": "(Matth. 21, 22, 23.—Mare. 11, 12.)",
+      "box": [
+        545,
+        916,
+        718,
+        935
+      ],
+      "score": 0.9898663759231567
+    },
+    {
+      "text": "23. Pues ¿cómo no pusiste mi dinero en el banco, para",
+      "box": [
+        88,
+        939,
+        440,
+        957
+      ],
+      "score": 0.9957875609397888
+    },
+    {
+      "text": "que yo en volviendo lo recobrase con los intereses?",
+      "box": [
+        77,
+        956,
+        379,
+        973
+      ],
+      "score": 0.9912721514701843
+    },
+    {
+      "text": "1. En uno de estos dias, estando él en el templo instru-",
+      "box": [
+        545,
+        954,
+        901,
+        978
+      ],
+      "score": 0.9951332211494446
+    },
+    {
+      "text": "24. Por lo que dijo á los asistentes: Quitadle el marco, y",
+      "box": [
+        88,
+        971,
+        439,
+        989
+      ],
+      "score": 0.9946970343589783
+    },
+    {
+      "text": "yendo al pueblo, y anunciándole el Evangelio, vinieron de",
+      "box": [
+        533,
+        970,
+        901,
+        993
+      ],
+      "score": 0.9980562925338745
+    },
+    {
+      "text": "dádsele al que tiene diez marcos.",
+      "box": [
+        76,
+        987,
+        273,
+        1005
+      ],
+      "score": 0.9946350455284119
+    },
+    {
+      "text": "mancomun los príncipes de los sacerdotes y los Escribas con",
+      "box": [
+        533,
+        985,
+        901,
+        1011
+      ],
+      "score": 0.9998225569725037
+    },
+    {
+      "text": "25. Replicáronle: Señor, que tiene ya diez mareos.",
+      "box": [
+        89,
+        1003,
+        390,
+        1021
+      ],
+      "score": 0.9915605783462524
+    },
+    {
+      "text": "los ancianos,",
+      "box": [
+        534,
+        1001,
+        616,
+        1022
+      ],
+      "score": 0.999542772769928
+    },
+    {
+      "text": "26. Yo os declaro, respondió Jesus, que á todo aquel que",
+      "box": [
+        89,
+        1021,
+        439,
+        1037
+      ],
+      "score": 0.9920218586921692
+    },
+    {
+      "text": "2. Y le hicieron esta pregunta: Dínos, ¿con qué autori-",
+      "box": [
+        545,
+        1017,
+        901,
+        1042
+      ],
+      "score": 0.9924563765525818
+    },
+    {
+      "text": "tiene, dársele ha, y se hará rico: pero al que no tiene, aun",
+      "box": [
+        77,
+        1036,
+        440,
+        1053
+      ],
+      "score": 0.9858084321022034
+    },
+    {
+      "text": "dad haces estas cosas? ó ¿quién es el que te ha dado esa",
+      "box": [
+        534,
+        1033,
+        903,
+        1059
+      ],
+      "score": 0.9874681830406189
+    },
+    {
+      "text": "lo que parece que tiene se le ha de quitar.",
+      "box": [
+        75,
+        1051,
+        326,
+        1070
+      ],
+      "score": 0.9917373061180115
+    },
+    {
+      "text": "potestad?",
+      "box": [
+        534,
+        1051,
+        594,
+        1068
+      ],
+      "score": 0.9999203085899353
+    },
+    {
+      "text": "27. Pero en órden á aquellos enemigos mios, que no me",
+      "box": [
+        88,
+        1068,
+        440,
+        1086
+      ],
+      "score": 0.9869692921638489
+    },
+    {
+      "text": "3. Pero Jesus, por respuesta, les dijo á ellos: Tambien yo",
+      "box": [
+        545,
+        1066,
+        902,
+        1090
+      ],
+      "score": 0.9774755239486694
+    },
+    {
+      "text": "han querido por rey, conducidlos acá, y quitadles la vida en",
+      "box": [
+        76,
+        1083,
+        439,
+        1103
+      ],
+      "score": 0.995513379573822
+    },
+    {
+      "text": "quiero haceros una pregunta. Respondedme:",
+      "box": [
+        535,
+        1084,
+        800,
+        1103
+      ],
+      "score": 0.9969422221183777
+    },
+    {
+      "text": "mi presencia.",
+      "box": [
+        77,
+        1102,
+        158,
+        1119
+      ],
+      "score": 0.9991232752799988
+    },
+    {
+      "text": "4. El bautismo de Juan ¿era cosa del cielo, ó de los hom-",
+      "box": [
+        546,
+        1100,
+        901,
+        1120
+      ],
+      "score": 0.991530179977417
+    },
+    {
+      "text": "28. Despues de haber dicho Jesus estas cosas, prosiguió",
+      "box": [
+        89,
+        1116,
+        436,
+        1133
+      ],
+      "score": 0.993884265422821
+    },
+    {
+      "text": "bres?",
+      "box": [
+        535,
+        1116,
+        571,
+        1134
+      ],
+      "score": 0.9999200701713562
+    },
+    {
+      "text": "su viaje á Jerusalem, é iba él delante de todos.",
+      "box": [
+        77,
+        1133,
+        351,
+        1150
+      ],
+      "score": 0.9891724586486816
+    },
+    {
+      "text": "5. Mas ellos discurrian entre sí, diciendo: Si responde-",
+      "box": [
+        545,
+        1130,
+        902,
+        1154
+      ],
+      "score": 0.9889406561851501
+    },
+    {
+      "text": "29. Y estando cerca de Bethphage y de Bethania, junto al",
+      "box": [
+        88,
+        1150,
+        439,
+        1167
+      ],
+      "score": 0.9938763976097107
+    },
+    {
+      "text": "mos, que del cielo, nos dirá: Pues ¿por qué no habeis creido",
+      "box": [
+        534,
+        1150,
+        901,
+        1169
+      ],
+      "score": 0.9899921417236328
+    },
+    {
+      "text": "monte llamado de los Olivos, despachó á dos de sus discí-",
+      "box": [
+        78,
+        1167,
+        438,
+        1181
+      ],
+      "score": 0.9908914566040039
+    },
+    {
+      "text": "en él?",
+      "box": [
+        534,
+        1165,
+        575,
+        1183
+      ],
+      "score": 0.9908767342567444
+    },
+    {
+      "text": "pulos,",
+      "box": [
+        74,
+        1179,
+        117,
+        1201
+      ],
+      "score": 0.9998373985290527
+    },
+    {
+      "text": "β. Y si decimos, de los hombres, el pueblo todo nos ape-",
+      "box": [
+        546,
+        1181,
+        902,
+        1200
+      ],
+      "score": 0.9935215711593628
+    },
+    {
+      "text": "30. Diciéndoles: Id á esa aldea de en frente, donde al en-",
+      "box": [
+        87,
+        1195,
+        439,
+        1216
+      ],
+      "score": 0.9710318446159363
+    },
+    {
+      "text": "dreará: teniendo por cierto, como tiene, que Juan era un",
+      "box": [
+        535,
+        1197,
+        903,
+        1216
+      ],
+      "score": 0.9791609644889832
+    },
+    {
+      "text": "trar hallareis un pollino atado, en que ningun hombre ha",
+      "box": [
+        75,
+        1211,
+        439,
+        1233
+      ],
+      "score": 0.9998744130134583
+    },
+    {
+      "text": "Profeta.",
+      "box": [
+        536,
+        1215,
+        584,
+        1230
+      ],
+      "score": 0.9949702620506287
+    },
+    {
+      "text": "montado jamás: desatadle, y traedle.",
+      "box": [
+        75,
+        1227,
+        293,
+        1249
+      ],
+      "score": 0.9968171715736389
+    },
+    {
+      "text": "7. Y así contestaron no saber de dónde fuese.",
+      "box": [
+        548,
+        1232,
+        822,
+        1246
+      ],
+      "score": 0.9922066330909729
+    },
+    {
+      "text": "1 Llamóle Jesu-Christo por su nombre; con lo cual le manifestó que",
+      "box": [
+        84,
+        1260,
+        441,
+        1285
+      ],
+      "score": 0.9741086959838867
+    },
+    {
+      "text": "& Los Judíos tenian sus reyes dependientes de los Romanos, quienes",
+      "box": [
+        545,
+        1262,
+        903,
+        1280
+      ],
+      "score": 0.9874597191810608
+    },
+    {
+      "text": "cra el Mesías, pues que penetraba su interior devocion y afecto.",
+      "box": [
+        76,
+        1275,
+        397,
+        1298
+      ],
+      "score": 0.9934380650520325
+    },
+    {
+      "text": "los concedian como en feudo.",
+      "box": [
+        536,
+        1279,
+        683,
+        1293
+      ],
+      "score": 0.9894730448722839
+    }
+  ]
+}

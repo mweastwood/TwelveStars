@@ -1,0 +1,47 @@
+{
+  "volume": 2,
+  "page_index": 202,
+  "pdf_page": 203,
+  "lines": [
+    {
+      "text": "川",
+      "box": [
+        158,
+        558,
+        184,
+        573
+      ],
+      "score": 0.6369386911392212
+    },
+    {
+      "text": "Son",
+      "box": [
+        149,
+        1669,
+        263,
+        1729
+      ],
+      "score": 0.6765667796134949
+    },
+    {
+      "text": "LObURNVERI",
+      "box": [
+        1224,
+        1713,
+        1337,
+        1744
+      ],
+      "score": 0.8344148397445679
+    },
+    {
+      "text": "NABUCODONOSOR MANDA DAR MUERTE Á LOS HIJOS DE SEDECIAS DELANTE DE SU PADRE",
+      "box": [
+        199,
+        1769,
+        1265,
+        1804
+      ],
+      "score": 0.9980665445327759
+    }
+  ]
+}

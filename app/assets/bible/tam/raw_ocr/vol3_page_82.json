@@ -1,0 +1,1407 @@
+{
+  "volume": 3,
+  "page_index": 82,
+  "pdf_page": 83,
+  "lines": [
+    {
+      "text": "117",
+      "box": [
+        2,
+        19,
+        34,
+        42
+      ],
+      "score": 0.999885082244873
+    },
+    {
+      "text": "PROVERBIOS.",
+      "box": [
+        144,
+        30,
+        245,
+        47
+      ],
+      "score": 0.9999325275421143
+    },
+    {
+      "text": "CAPITULO XI.",
+      "box": [
+        646,
+        36,
+        747,
+        58
+      ],
+      "score": 0.9992092251777649
+    },
+    {
+      "text": "118",
+      "box": [
+        849,
+        47,
+        875,
+        66
+      ],
+      "score": 0.999870777130127
+    },
+    {
+      "text": "6. Dejad las niñerías; y vivid y caminad por las sendas",
+      "box": [
+        6,
+        62,
+        398,
+        95
+      ],
+      "score": 0.9940773844718933
+    },
+    {
+      "text": "de la prudencia.",
+      "box": [
+        0,
+        80,
+        106,
+        103
+      ],
+      "score": 0.9997276067733765
+    },
+    {
+      "text": "17. Quien recibe la correccion, va por el camino de la",
+      "box": [
+        516,
+        79,
+        885,
+        110
+      ],
+      "score": 0.9934634566307068
+    },
+    {
+      "text": "7. El que instruye al mofador ó impío, se acarrea ignomi-",
+      "box": [
+        5,
+        96,
+        398,
+        131
+      ],
+      "score": 0.9864272475242615
+    },
+    {
+      "text": "vida: quien no hace caso de ella, descarriado anda.",
+      "box": [
+        504,
+        98,
+        820,
+        125
+      ],
+      "score": 0.9909266829490662
+    },
+    {
+      "text": "nia; y el que corrige al desalmado, se adquiere infamia.",
+      "box": [
+        0,
+        113,
+        363,
+        148
+      ],
+      "score": 0.9946344494819641
+    },
+    {
+      "text": "18. Los labios mentirosos disimulan la malevolencia:",
+      "box": [
+        516,
+        115,
+        885,
+        146
+      ],
+      "score": 0.9993214011192322
+    },
+    {
+      "text": "8. No quieras redargüir al mofador, para que no te abor-",
+      "box": [
+        4,
+        129,
+        400,
+        168
+      ],
+      "score": 0.9108102917671204
+    },
+    {
+      "text": "quien profiere contumelias es un insensato.",
+      "box": [
+        504,
+        133,
+        770,
+        159
+      ],
+      "score": 0.9999195337295532
+    },
+    {
+      "text": "rezca 1. Corrige al sábio, y te amará.",
+      "box": [
+        0,
+        148,
+        234,
+        179
+      ],
+      "score": 0.9663131833076477
+    },
+    {
+      "text": "19. En el mucho hablar no faltará pecado; mas quien sus",
+      "box": [
+        514,
+        148,
+        883,
+        180
+      ],
+      "score": 0.9872908592224121
+    },
+    {
+      "text": "9. Da al sábio ocasion de aprender, y crecerá en sabidu-",
+      "box": [
+        6,
+        164,
+        399,
+        202
+      ],
+      "score": 0.9257820844650269
+    },
+    {
+      "text": "labios refrena, es hombre muy prudente.",
+      "box": [
+        503,
+        166,
+        754,
+        191
+      ],
+      "score": 0.9998832941055298
+    },
+    {
+      "text": "ría: enseña al justo, y se apresurará á aprender.",
+      "box": [
+        0,
+        182,
+        309,
+        217
+      ],
+      "score": 0.9817081093788147
+    },
+    {
+      "text": "20. Plata finísima es la lengua del justo; pero el corazon",
+      "box": [
+        515,
+        182,
+        883,
+        213
+      ],
+      "score": 0.999492883682251
+    },
+    {
+      "text": "10. El principio de la sabiduría es el temor del Señor; y",
+      "box": [
+        5,
+        199,
+        398,
+        234
+      ],
+      "score": 0.9856407642364502
+    },
+    {
+      "text": "de los impíos no vale nada.",
+      "box": [
+        503,
+        199,
+        672,
+        221
+      ],
+      "score": 0.9987220168113708
+    },
+    {
+      "text": "a ciencia de los santos es la verdadera prudencia.",
+      "box": [
+        0,
+        215,
+        327,
+        251
+      ],
+      "score": 0.9801595211029053
+    },
+    {
+      "text": "21. Los labios del justo instruyen á muchísimos; mas los",
+      "box": [
+        514,
+        217,
+        882,
+        244
+      ],
+      "score": 0.9975573420524597
+    },
+    {
+      "text": "que no quieren recibir la instruccion, morirán en su igno-",
+      "box": [
+        501,
+        231,
+        882,
+        263
+      ],
+      "score": 0.9902114868164062
+    },
+    {
+      "text": "dirán años de vida.",
+      "box": [
+        0,
+        249,
+        126,
+        277
+      ],
+      "score": 0.998917818069458
+    },
+    {
+      "text": "rancia 6.",
+      "box": [
+        503,
+        249,
+        558,
+        267
+      ],
+      "score": 0.9701599478721619
+    },
+    {
+      "text": "22. La bendicion del Señor hace ricos á los hombres, sin",
+      "box": [
+        514,
+        263,
+        883,
+        294
+      ],
+      "score": 0.9994021654129028
+    },
+    {
+      "text": "an mofador, tú solo pagarás la pena.",
+      "box": [
+        0,
+        284,
+        240,
+        315
+      ],
+      "score": 0.9826630353927612
+    },
+    {
+      "text": "que padezcan afliccion.",
+      "box": [
+        502,
+        282,
+        649,
+        302
+      ],
+      "score": 0.9979209899902344
+    },
+    {
+      "text": "23. El insensato comete los crímenes como jugando; mas",
+      "box": [
+        513,
+        296,
+        881,
+        326
+      ],
+      "score": 0.9990766048431396
+    },
+    {
+      "text": "que no sabe nada sino el seducir,",
+      "box": [
+        0,
+        318,
+        222,
+        347
+      ],
+      "score": 0.9856354594230652
+    },
+    {
+      "text": "la sabiduría del hombre está en su cordura.",
+      "box": [
+        500,
+        313,
+        773,
+        337
+      ],
+      "score": 0.9895403385162354
+    },
+    {
+      "text": "24. Le sobrevendrá al impío el mal que está temiendo: á",
+      "box": [
+        513,
+        330,
+        881,
+        357
+      ],
+      "score": 0.9907503128051758
+    },
+    {
+      "text": "ugar alto de la ciudad,",
+      "box": [
+        0,
+        351,
+        153,
+        378
+      ],
+      "score": 0.9998747110366821
+    },
+    {
+      "text": "los justos se les concederá lo que desean.",
+      "box": [
+        500,
+        345,
+        756,
+        368
+      ],
+      "score": 0.9997508525848389
+    },
+    {
+      "text": "25. Como el turbion que pasa, así desaparecerá el impío;",
+      "box": [
+        512,
+        360,
+        881,
+        390
+      ],
+      "score": 0.9964175820350647
+    },
+    {
+      "text": "an en derechura por su camino, diciéndoles:",
+      "box": [
+        0,
+        384,
+        296,
+        417
+      ],
+      "score": 0.9896392822265625
+    },
+    {
+      "text": "pero el justo subsistirá como un fundamento que permanece",
+      "box": [
+        499,
+        377,
+        881,
+        406
+      ],
+      "score": 0.997521698474884
+    },
+    {
+      "text": "eternamente.",
+      "box": [
+        501,
+        397,
+        585,
+        414
+      ],
+      "score": 0.9999277591705322
+    },
+    {
+      "text": "al mentecato le dijo:",
+      "box": [
+        0,
+        417,
+        151,
+        445
+      ],
+      "score": 0.9967769384384155
+    },
+    {
+      "text": "26. Como el agraz entorpece los dientes, y el humo los",
+      "box": [
+        512,
+        410,
+        880,
+        439
+      ],
+      "score": 0.9973488450050354
+    },
+    {
+      "text": "17. Las aguas hurtadas ó deleites prohibidos son mas dul-",
+      "box": [
+        0,
+        434,
+        396,
+        467
+      ],
+      "score": 0.9716503024101257
+    },
+    {
+      "text": "ojos; así es el perezoso para los que le envian.",
+      "box": [
+        501,
+        429,
+        784,
+        451
+      ],
+      "score": 0.9987379908561707
+    },
+    {
+      "text": "27. El temor del Señor alarga la vida: mas los años de los",
+      "box": [
+        512,
+        442,
+        880,
+        471
+      ],
+      "score": 0.9911118149757385
+    },
+    {
+      "text": "es, y el pan tomado á escondidas es mas sabroso.",
+      "box": [
+        0,
+        453,
+        322,
+        481
+      ],
+      "score": 0.9946918487548828
+    },
+    {
+      "text": "18. Y no sabe el mentecato que allí con ella están los gi-",
+      "box": [
+        0,
+        469,
+        396,
+        499
+      ],
+      "score": 0.9869059920310974
+    },
+    {
+      "text": "impíos serán acortados.",
+      "box": [
+        502,
+        462,
+        648,
+        479
+      ],
+      "score": 0.9994950294494629
+    },
+    {
+      "text": "28. La expectacion de los justos parará en contento; pero",
+      "box": [
+        513,
+        475,
+        879,
+        504
+      ],
+      "score": 0.9842793941497803
+    },
+    {
+      "text": "antes ó demonios; y que sus convidados caen en lo mas pro-",
+      "box": [
+        0,
+        485,
+        397,
+        518
+      ],
+      "score": 0.9863418936729431
+    },
+    {
+      "text": "la esperanza de los impíos parará en humo.",
+      "box": [
+        500,
+        494,
+        769,
+        515
+      ],
+      "score": 0.9999098777770996
+    },
+    {
+      "text": "undo del infierno.",
+      "box": [
+        0,
+        504,
+        122,
+        526
+      ],
+      "score": 0.9994384050369263
+    },
+    {
+      "text": "29. El seguir la senda del Señor hace fuerte al justo; pero",
+      "box": [
+        513,
+        509,
+        877,
+        537
+      ],
+      "score": 0.9864303469657898
+    },
+    {
+      "text": "CAPITULO X ",
+      "box": [
+        146,
+        535,
+        256,
+        559
+      ],
+      "score": 0.9463880062103271
+    },
+    {
+      "text": "aquellos que obran mal están llenos de pavor.",
+      "box": [
+        500,
+        529,
+        782,
+        549
+      ],
+      "score": 0.9873219132423401
+    },
+    {
+      "text": "130. El justo jamás será conmovido; mas los impíos no",
+      "box": [
+        512,
+        542,
+        877,
+        568
+      ],
+      "score": 0.9886707663536072
+    },
+    {
+      "text": "entencias que van alternando sobre el sábio y el necio, sobre la virtud",
+      "box": [
+        0,
+        559,
+        397,
+        588
+      ],
+      "score": 0.9615433216094971
+    },
+    {
+      "text": "durarán sobre la tierra.",
+      "box": [
+        501,
+        563,
+        643,
+        577
+      ],
+      "score": 0.9948089718818665
+    },
+    {
+      "text": "y el vicio.",
+      "box": [
+        169,
+        583,
+        230,
+        600
+      ],
+      "score": 0.9976305365562439
+    },
+    {
+      "text": "31. De la boca del justo manará sabiduría: la lengua de",
+      "box": [
+        511,
+        575,
+        876,
+        600
+      ],
+      "score": 0.9928317666053772
+    },
+    {
+      "text": "1. El hijo sábio es la alegría del padre; así como el necio",
+      "box": [
+        0,
+        604,
+        396,
+        631
+      ],
+      "score": 0.9831308722496033
+    },
+    {
+      "text": "los malvados será cortada.",
+      "box": [
+        500,
+        596,
+        662,
+        610
+      ],
+      "score": 0.9910344481468201
+    },
+    {
+      "text": "32. Los labios del justo se emplean en hablar cosas agra-",
+      "box": [
+        511,
+        607,
+        876,
+        632
+      ],
+      "score": 0.9910299181938171
+    },
+    {
+      "text": "s la afliccion de su madre.",
+      "box": [
+        0,
+        623,
+        179,
+        645
+      ],
+      "score": 0.9995151162147522
+    },
+    {
+      "text": "dables á Dios; y en hablar cosas perversas la boca del impío.",
+      "box": [
+        498,
+        624,
+        875,
+        648
+      ],
+      "score": 0.9986900687217712
+    },
+    {
+      "text": "2. Nada aprovecharán los tesoros mal habidos; pero la",
+      "box": [
+        0,
+        640,
+        395,
+        660
+      ],
+      "score": 0.9898598194122314
+    },
+    {
+      "text": "isticia en todas las acciones librará de la muerte.",
+      "box": [
+        0,
+        659,
+        321,
+        676
+      ],
+      "score": 0.9836457371711731
+    },
+    {
+      "text": "CAPITULO XI",
+      "box": [
+        642,
+        660,
+        738,
+        677
+      ],
+      "score": 0.999519944190979
+    },
+    {
+      "text": "3. El Señor no afligirá con hambre la persona del justo,",
+      "box": [
+        0,
+        673,
+        394,
+        694
+      ],
+      "score": 0.9912816286087036
+    },
+    {
+      "text": "desbaratará las tramas de los impíos.",
+      "box": [
+        2,
+        694,
+        257,
+        711
+      ],
+      "score": 0.9987014532089233
+    },
+    {
+      "text": "Contrapónese la felicidad de los justos y sábios á la desdicha de los",
+      "box": [
+        511,
+        691,
+        865,
+        709
+      ],
+      "score": 0.9995965361595154
+    },
+    {
+      "text": "4. La mano desidiosa produce la mendicidad; pero la",
+      "box": [
+        0,
+        705,
+        394,
+        730
+      ],
+      "score": 0.9986009001731873
+    },
+    {
+      "text": "malos é insensatos.",
+      "box": [
+        639,
+        708,
+        739,
+        722
+      ],
+      "score": 0.9961123466491699
+    },
+    {
+      "text": "ano activa acumula riquezas.—Quien se apoya en mentiras,",
+      "box": [
+        0,
+        722,
+        393,
+        747
+      ],
+      "score": 0.9894168972969055
+    },
+    {
+      "text": "e tal se alimenta de viento, y corre neciamente tras las",
+      "box": [
+        0,
+        737,
+        394,
+        763
+      ],
+      "score": 0.9887105226516724
+    },
+    {
+      "text": "1. La balanza falsa es abominable á los ojos del Señor; el",
+      "box": [
+        509,
+        737,
+        875,
+        759
+      ],
+      "score": 0.9943740367889404
+    },
+    {
+      "text": "ves que vuelan.",
+      "box": [
+        0,
+        761,
+        107,
+        778
+      ],
+      "score": 0.9987824559211731
+    },
+    {
+      "text": "peso cabal es lo que le agrada.",
+      "box": [
+        498,
+        756,
+        685,
+        773
+      ],
+      "score": 0.9882358908653259
+    },
+    {
+      "text": "5. El que recoge en tiempo de la siega, es hombre cuerdo;",
+      "box": [
+        0,
+        770,
+        393,
+        797
+      ],
+      "score": 0.998519241809845
+    },
+    {
+      "text": "2. Donde hay sóberbia, allí habrá ignominia; mas donde",
+      "box": [
+        509,
+        770,
+        873,
+        791
+      ],
+      "score": 0.9993630051612854
+    },
+    {
+      "text": "as quien duerme y ronca en verano, es un insensato.",
+      "box": [
+        0,
+        788,
+        352,
+        814
+      ],
+      "score": 0.9986919164657593
+    },
+    {
+      "text": "hay humildad, habrá sabiduría.",
+      "box": [
+        497,
+        788,
+        693,
+        805
+      ],
+      "score": 0.9983065724372864
+    },
+    {
+      "text": "6. La bendicion del Señor descansa sobre la cabeza del",
+      "box": [
+        0,
+        803,
+        393,
+        831
+      ],
+      "score": 0.9928939342498779
+    },
+    {
+      "text": "3. La sencillez servirá como de guia á los justos: y la",
+      "box": [
+        509,
+        803,
+        872,
+        824
+      ],
+      "score": 0.9867756366729736
+    },
+    {
+      "text": "sto; mientras la faz de los impíos está cubierta de maldad.",
+      "box": [
+        0,
+        820,
+        392,
+        848
+      ],
+      "score": 0.9880587458610535
+    },
+    {
+      "text": "doblez acarreará á los pecadores su perdicion.",
+      "box": [
+        496,
+        820,
+        777,
+        840
+      ],
+      "score": 0.9963611364364624
+    },
+    {
+      "text": "7. La memoria de los justos será celebrada; pero el nom-",
+      "box": [
+        0,
+        837,
+        393,
+        863
+      ],
+      "score": 0.9993658065795898
+    },
+    {
+      "text": "4. Nada servirán las riquezas en el dia de la venganza:",
+      "box": [
+        508,
+        837,
+        871,
+        856
+      ],
+      "score": 0.9979144930839539
+    },
+    {
+      "text": "e de los impíos será abominable.",
+      "box": [
+        0,
+        858,
+        224,
+        878
+      ],
+      "score": 0.988046407699585
+    },
+    {
+      "text": "mas la justicia librará de la muerte.",
+      "box": [
+        495,
+        853,
+        720,
+        872
+      ],
+      "score": 0.9996246099472046
+    },
+    {
+      "text": "8. El que es sábio de corazon, recibe bien los avisos: mas",
+      "box": [
+        0,
+        871,
+        392,
+        896
+      ],
+      "score": 0.9867187738418579
+    },
+    {
+      "text": "5. La justicia del hombre sencillo dirigirá sus pasos; y al",
+      "box": [
+        508,
+        870,
+        871,
+        889
+      ],
+      "score": 0.99950110912323
+    },
+    {
+      "text": "ra el mentecato cada palabra es un azote.",
+      "box": [
+        0,
+        891,
+        282,
+        911
+      ],
+      "score": 0.9867408275604248
+    },
+    {
+      "text": "impío le hará caer en el precipicio su impiedad.",
+      "box": [
+        495,
+        886,
+        788,
+        905
+      ],
+      "score": 0.9995071291923523
+    },
+    {
+      "text": "9. Quien anda con sencillez, anda seguro; pero el de pro-",
+      "box": [
+        0,
+        904,
+        392,
+        929
+      ],
+      "score": 0.993820071220398
+    },
+    {
+      "text": "6. A los hombres buenos su justicia los salvará: pero los",
+      "box": [
+        507,
+        903,
+        870,
+        922
+      ],
+      "score": 0.9994146823883057
+    },
+    {
+      "text": "der taimado, vendrá á ser descubierto.",
+      "box": [
+        0,
+        924,
+        264,
+        944
+      ],
+      "score": 0.9985564351081848
+    },
+    {
+      "text": "malos quedarán cogidos en sus mismos lazos.",
+      "box": [
+        495,
+        920,
+        776,
+        938
+      ],
+      "score": 0.9889144897460938
+    },
+    {
+      "text": "10. El que guiña de ojo ³, acarreará dolor; y el necio",
+      "box": [
+        0,
+        937,
+        391,
+        961
+      ],
+      "score": 0.97939532995224
+    },
+    {
+      "text": "7. Muerto el impío, muere tambien su esperanza; y la",
+      "box": [
+        508,
+        937,
+        870,
+        953
+      ],
+      "score": 0.9975383281707764
+    },
+    {
+      "text": "adecerá por sus habladurías.",
+      "box": [
+        0,
+        957,
+        197,
+        976
+      ],
+      "score": 0.9865292310714722
+    },
+    {
+      "text": "expectacion de los codiciosos parará en humo.",
+      "box": [
+        496,
+        952,
+        783,
+        969
+      ],
+      "score": 0.9999651312828064
+    },
+    {
+      "text": "11. Vena de vida es la boca del justo; mas la boca de los",
+      "box": [
+        0,
+        969,
+        391,
+        994
+      ],
+      "score": 0.9909912347793579
+    },
+    {
+      "text": "8. El justo es libertado de la tribulacion; y en su lugar",
+      "box": [
+        508,
+        969,
+        870,
+        986
+      ],
+      "score": 0.9862191677093506
+    },
+    {
+      "text": "apíos encierra la iniquidad.",
+      "box": [
+        0,
+        990,
+        188,
+        1009
+      ],
+      "score": 0.9821296334266663
+    },
+    {
+      "text": "será el impío atribulado.",
+      "box": [
+        495,
+        985,
+        650,
+        1002
+      ],
+      "score": 0.999798595905304
+    },
+    {
+      "text": "12. El ódio mueve rencillas; pero la caridad cubre todas",
+      "box": [
+        0,
+        1003,
+        390,
+        1028
+      ],
+      "score": 0.9980376362800598
+    },
+    {
+      "text": "9. El hombre falso engaña con palabras á su amigo: mas",
+      "box": [
+        509,
+        1003,
+        869,
+        1017
+      ],
+      "score": 0.9936493039131165
+    },
+    {
+      "text": "s faltas4.",
+      "box": [
+        0,
+        1025,
+        71,
+        1042
+      ],
+      "score": 0.9445549249649048
+    },
+    {
+      "text": "los justos se librarán con el don de la ciencia.",
+      "box": [
+        496,
+        1020,
+        777,
+        1034
+      ],
+      "score": 0.9998421669006348
+    },
+    {
+      "text": "13. En los labios del sábio se halla la sabiduría; y el azote",
+      "box": [
+        0,
+        1036,
+        391,
+        1059
+      ],
+      "score": 0.9872832298278809
+    },
+    {
+      "text": "10. En la prosperidad de los justos se alegrará la ciudad:",
+      "box": [
+        507,
+        1032,
+        871,
+        1052
+      ],
+      "score": 0.9925321340560913
+    },
+    {
+      "text": "n Ia espalda del que no tiene juicio.",
+      "box": [
+        0,
+        1057,
+        241,
+        1074
+      ],
+      "score": 0.9945801496505737
+    },
+    {
+      "text": "y la perdicion de los impíos se celebrará con canciones.",
+      "box": [
+        493,
+        1049,
+        836,
+        1068
+      ],
+      "score": 0.9995754957199097
+    },
+    {
+      "text": "14. Ocultan su saber los sábios; mas la boca del necio",
+      "box": [
+        0,
+        1068,
+        390,
+        1092
+      ],
+      "score": 0.9895707368850708
+    },
+    {
+      "text": "11. Por la bendicion de los justos será ensalzada la ciu-",
+      "box": [
+        507,
+        1064,
+        870,
+        1085
+      ],
+      "score": 0.9919636249542236
+    },
+    {
+      "text": "erca está de la confusion.",
+      "box": [
+        0,
+        1088,
+        173,
+        1107
+      ],
+      "score": 0.9992256760597229
+    },
+    {
+      "text": "dad; mas por la lengua de los impíos quedará arruinada.",
+      "box": [
+        495,
+        1083,
+        842,
+        1100
+      ],
+      "score": 0.9880034923553467
+    },
+    {
+      "text": "15. El caudal le sirve al rico de plaza fuerte 5: á los pobres",
+      "box": [
+        1,
+        1103,
+        389,
+        1123
+      ],
+      "score": 0.984180212020874
+    },
+    {
+      "text": "12. El que desprecia á su amigo, es de corazon menguado;",
+      "box": [
+        507,
+        1100,
+        870,
+        1117
+      ],
+      "score": 0.998351514339447
+    },
+    {
+      "text": "os llena de pavor ó timidez su misma miseria.",
+      "box": [
+        0,
+        1121,
+        303,
+        1140
+      ],
+      "score": 0.9817827939987183
+    },
+    {
+      "text": "pero el varon prudente callará sus defectos.",
+      "box": [
+        494,
+        1114,
+        766,
+        1135
+      ],
+      "score": 0.9883594512939453
+    },
+    {
+      "text": "16. El justo trabaja para poder vivir; las ganancias del",
+      "box": [
+        2,
+        1135,
+        391,
+        1157
+      ],
+      "score": 0.997075080871582
+    },
+    {
+      "text": "13. El que va de mala fe, descubre los secretos; pero el",
+      "box": [
+        504,
+        1130,
+        871,
+        1150
+      ],
+      "score": 0.9995961785316467
+    },
+    {
+      "text": "mpío son para pecar.",
+      "box": [
+        0,
+        1155,
+        148,
+        1172
+      ],
+      "score": 0.9999168515205383
+    },
+    {
+      "text": "de corazon leal, calla lo que el amigo le confió.",
+      "box": [
+        492,
+        1146,
+        787,
+        1168
+      ],
+      "score": 0.9997143149375916
+    },
+    {
+      "text": "a En todos estos versos se habla de los impíos obstinados, y que con",
+      "box": [
+        6,
+        1188,
+        388,
+        1202
+      ],
+      "score": 0.993484377861023
+    },
+    {
+      "text": "tal vez por eso en el texto hebreo, chaldéo, y en la version de San Geró-",
+      "box": [
+        491,
+        1180,
+        871,
+        1201
+      ],
+      "score": 0.9862228631973267
+    },
+    {
+      "text": "descaro hacen públicamente burla de la correccion. Cuando se ve que",
+      "box": [
+        0,
+        1201,
+        388,
+        1215
+      ],
+      "score": 0.997890055179596
+    },
+    {
+      "text": "nimo, y varias ediciones de la Vulgata se lee aquí como título Pañanole",
+      "box": [
+        491,
+        1195,
+        872,
+        1215
+      ],
+      "score": 0.9482129812240601
+    },
+    {
+      "text": "esta no es escuchada, antes sí ridiculizada por tales impíos, con peligro",
+      "box": [
+        0,
+        1214,
+        389,
+        1231
+      ],
+      "score": 0.9904693365097046
+    },
+    {
+      "text": "SALOMONIs. Parábolas de Salomon.",
+      "box": [
+        491,
+        1210,
+        681,
+        1228
+      ],
+      "score": 0.9589797258377075
+    },
+    {
+      "text": "de hacer titubear en la virtud á los débiles ó tímidos, debe excusarse;",
+      "box": [
+        0,
+        1228,
+        389,
+        1245
+      ],
+      "score": 0.9802032113075256
+    },
+    {
+      "text": "3 Cap. VI, v. 3.—Eccli, XXVII, v. 25",
+      "box": [
+        504,
+        1225,
+        712,
+        1239
+      ],
+      "score": 0.9395874738693237
+    },
+    {
+      "text": "segun el consejo que nos da el Sábio en el Eclesiástico, cap. XXXII, v. 6.",
+      "box": [
+        0,
+        1242,
+        388,
+        1258
+      ],
+      "score": 0.9758815169334412
+    },
+    {
+      "text": "4 1. Cor. XIII, v. 4.—I. Pet. IV, v. 8.",
+      "box": [
+        504,
+        1240,
+        708,
+        1253
+      ],
+      "score": 0.9736178517341614
+    },
+    {
+      "text": "Y ya dijo un filósofo gentil: Amonestar á un hombre obstinado en el mal,",
+      "box": [
+        0,
+        1255,
+        388,
+        1272
+      ],
+      "score": 0.9890159964561462
+    },
+    {
+      "text": "6 I. Tim. VI, v. 17.",
+      "box": [
+        503,
+        1250,
+        618,
+        1268
+      ],
+      "score": 0.9216834306716919
+    },
+    {
+      "text": "es lo mismo que poner un espejo delante de un ciego.",
+      "box": [
+        0,
+        1271,
+        278,
+        1285
+      ],
+      "score": 0.9729148149490356
+    },
+    {
+      "text": "e O morirán en su necedad y voluntaria ignorancia.",
+      "box": [
+        505,
+        1267,
+        777,
+        1281
+      ],
+      "score": 0.9867943525314331
+    },
+    {
+      "text": "* Los nueve capítulos anteriores son como una especie de prefacio; y",
+      "box": [
+        10,
+        1283,
+        387,
+        1301
+      ],
+      "score": 0.9835217595100403
+    }
+  ]
+}

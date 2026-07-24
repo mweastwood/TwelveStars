@@ -1,0 +1,1477 @@
+{
+  "volume": 1,
+  "page_index": 132,
+  "pdf_page": 133,
+  "lines": [
+    {
+      "text": "153",
+      "box": [
+        15,
+        8,
+        43,
+        28
+      ],
+      "score": 0.9998572468757629
+    },
+    {
+      "text": "LEVITICO.",
+      "box": [
+        169,
+        17,
+        253,
+        39
+      ],
+      "score": 0.9994273781776428
+    },
+    {
+      "text": "CAPITULO XV.",
+      "box": [
+        657,
+        31,
+        767,
+        53
+      ],
+      "score": 0.99709153175354
+    },
+    {
+      "text": "154",
+      "box": [
+        874,
+        38,
+        899,
+        56
+      ],
+      "score": 0.9993526339530945
+    },
+    {
+      "text": "13. Degollará el cordero donde se suele degollar la vícti-",
+      "box": [
+        16,
+        51,
+        410,
+        87
+      ],
+      "score": 0.9898391366004944
+    },
+    {
+      "text": "ma por el pecado y el holocausto, esto es, en el lugar santo.",
+      "box": [
+        0,
+        70,
+        410,
+        105
+      ],
+      "score": 0.9989408254623413
+    },
+    {
+      "text": "40. .Mandará arranear las piedras en que hay lepra, y",
+      "box": [
+        528,
+        71,
+        908,
+        103
+      ],
+      "score": 0.9767772555351257
+    },
+    {
+      "text": "Porque así como la víctima por el pecado, así tambien la",
+      "box": [
+        0,
+        87,
+        410,
+        123
+      ],
+      "score": 0.9973392486572266
+    },
+    {
+      "text": "arrojarlas fuera de la ciudad en un lugar inmundo,",
+      "box": [
+        514,
+        89,
+        846,
+        117
+      ],
+      "score": 0.9866744875907898
+    },
+    {
+      "text": "víctima por delito pertenece al sacerdote, siendo como es",
+      "box": [
+        0,
+        103,
+        411,
+        141
+      ],
+      "score": 0.9885544180870056
+    },
+    {
+      "text": "41. Y la misma casa raerla toda por dentro, y esparcir las",
+      "box": [
+        528,
+        105,
+        906,
+        136
+      ],
+      "score": 0.9935871362686157
+    },
+    {
+      "text": "sacrosanta.",
+      "box": [
+        0,
+        122,
+        78,
+        144
+      ],
+      "score": 0.9998787045478821
+    },
+    {
+      "text": "raeduras fuera de la ciudad en un lugar inmundo,",
+      "box": [
+        514,
+        121,
+        839,
+        150
+      ],
+      "score": 0.9977027773857117
+    },
+    {
+      "text": "14. Despues el sacerdote tomando de la sangre de la víc-",
+      "box": [
+        12,
+        139,
+        411,
+        173
+      ],
+      "score": 0.9883635640144348
+    },
+    {
+      "text": "42. Y reponer otras piedras en lugar de las que se hayan",
+      "box": [
+        528,
+        138,
+        905,
+        169
+      ],
+      "score": 0.9992648959159851
+    },
+    {
+      "text": "tima inmolada por el delito, la pondrá sobre la ternilla de la",
+      "box": [
+        0,
+        158,
+        410,
+        189
+      ],
+      "score": 0.9961552023887634
+    },
+    {
+      "text": "quitado, y revocar de nuevo las paredes de la casa.",
+      "box": [
+        514,
+        155,
+        838,
+        182
+      ],
+      "score": 0.9964814186096191
+    },
+    {
+      "text": "oreja derecha del que se purifica, y sobre los pulgares de la",
+      "box": [
+        0,
+        175,
+        410,
+        207
+      ],
+      "score": 0.9888579845428467
+    },
+    {
+      "text": "43. Pero si despues de quitadas las piedras, y raido el",
+      "box": [
+        527,
+        171,
+        906,
+        201
+      ],
+      "score": 0.9925002455711365
+    },
+    {
+      "text": "mano y pié derechos,",
+      "box": [
+        0,
+        192,
+        145,
+        216
+      ],
+      "score": 0.9967764019966125
+    },
+    {
+      "text": "polvo, y revocada nuevamente la casa,",
+      "box": [
+        513,
+        187,
+        763,
+        211
+      ],
+      "score": 0.9846852421760559
+    },
+    {
+      "text": "15. Y del sextario de aceite derramará en su mano iz.",
+      "box": [
+        9,
+        209,
+        409,
+        239
+      ],
+      "score": 0.9824501872062683
+    },
+    {
+      "text": "44. Entrando el sacerdote viere que ha vuèlto la lepra y",
+      "box": [
+        526,
+        203,
+        906,
+        232
+      ],
+      "score": 0.9926456809043884
+    },
+    {
+      "text": "quierda,",
+      "box": [
+        0,
+        226,
+        60,
+        247
+      ],
+      "score": 0.9999327659606934
+    },
+    {
+      "text": "que las paredes están salpicadas de manchas, la lepra es",
+      "box": [
+        512,
+        219,
+        907,
+        248
+      ],
+      "score": 0.9925346970558167
+    },
+    {
+      "text": "16. Y mojará en ella el dedo de su mano derecha, y hará",
+      "box": [
+        8,
+        243,
+        407,
+        273
+      ],
+      "score": 0.9932101368904114
+    },
+    {
+      "text": "tenaz, y la casa inmunda:",
+      "box": [
+        513,
+        237,
+        686,
+        256
+      ],
+      "score": 0.9981030821800232
+    },
+    {
+      "text": "siete aspersiones ante el Señor.",
+      "box": [
+        0,
+        261,
+        209,
+        285
+      ],
+      "score": 0.9999011754989624
+    },
+    {
+      "text": "45. La derribarán luego, y arrojarán en un lugar inmundo",
+      "box": [
+        525,
+        252,
+        906,
+        278
+      ],
+      "score": 0.9899206757545471
+    },
+    {
+      "text": "17. Lo que quedare de aceite en la mano izquierda, lo",
+      "box": [
+        6,
+        277,
+        406,
+        305
+      ],
+      "score": 0.9822627305984497
+    },
+    {
+      "text": "fuera de la ciudad sus piedras y maderas y todo el escombro.",
+      "box": [
+        512,
+        268,
+        907,
+        294
+      ],
+      "score": 0.9961535334587097
+    },
+    {
+      "text": "echará sobre la ternilla de la oreja derecha del que se puri-",
+      "box": [
+        0,
+        293,
+        405,
+        322
+      ],
+      "score": 0.9795075058937073
+    },
+    {
+      "text": "46. Quien entrare en la casa mientras está cerrada, que-",
+      "box": [
+        524,
+        284,
+        907,
+        311
+      ],
+      "score": 0.99614417552948
+    },
+    {
+      "text": "dará inmundo hasta la tarde:",
+      "box": [
+        511,
+        300,
+        707,
+        321
+      ],
+      "score": 0.999812662601471
+    },
+    {
+      "text": "ica, y sobre los pulgares de la mano y pié derechos, encima",
+      "box": [
+        0,
+        310,
+        405,
+        338
+      ],
+      "score": 0.9895424842834473
+    },
+    {
+      "text": "47. Y el que durmiere, ó comiere en ella, lavará sus ves-",
+      "box": [
+        524,
+        318,
+        908,
+        342
+      ],
+      "score": 0.9912707209587097
+    },
+    {
+      "text": "le la sangre derramada por el delito,",
+      "box": [
+        0,
+        328,
+        249,
+        352
+      ],
+      "score": 0.9917595386505127
+    },
+    {
+      "text": "tidos.",
+      "box": [
+        511,
+        334,
+        551,
+        352
+      ],
+      "score": 0.9999892711639404
+    },
+    {
+      "text": "18. Y sobre la cabeza del hombre;",
+      "box": [
+        3,
+        344,
+        250,
+        369
+      ],
+      "score": 0.9972928166389465
+    },
+    {
+      "text": "48. Pero si entrando el sacerdote viere que no ha cundido",
+      "box": [
+        523,
+        350,
+        908,
+        373
+      ],
+      "score": 0.9898967146873474
+    },
+    {
+      "text": "19. Y rogará por él al Señor, y ofrecerá el sacrificio por el",
+      "box": [
+        2,
+        360,
+        403,
+        388
+      ],
+      "score": 0.9943873882293701
+    },
+    {
+      "text": "la lepra en la casa despues que fué de nuevo revocada, la",
+      "box": [
+        510,
+        366,
+        908,
+        392
+      ],
+      "score": 0.9860340356826782
+    },
+    {
+      "text": "ecado: en seguida degollará el holocausto,",
+      "box": [
+        0,
+        376,
+        288,
+        403
+      ],
+      "score": 0.9908221960067749
+    },
+    {
+      "text": "purificará, dándola por sana;",
+      "box": [
+        510,
+        383,
+        703,
+        405
+      ],
+      "score": 0.9740049839019775
+    },
+    {
+      "text": "20. Y le pondrá en el altar con sus libaciones, y el hombre",
+      "box": [
+        2,
+        394,
+        403,
+        421
+      ],
+      "score": 0.9876406788825989
+    },
+    {
+      "text": "49. Y para su purificacion tomará dos pájaros, un palo de",
+      "box": [
+        521,
+        399,
+        909,
+        426
+      ],
+      "score": 0.9967275857925415
+    },
+    {
+      "text": "uedará purificado segun ley.",
+      "box": [
+        0,
+        410,
+        199,
+        436
+      ],
+      "score": 0.9976559281349182
+    },
+    {
+      "text": "21. En caso de ser pobre, y no poder hallar las cosas di-",
+      "box": [
+        0,
+        426,
+        403,
+        455
+      ],
+      "score": 0.9949915409088135
+    },
+    {
+      "text": "cedro, grana é hisopo;",
+      "box": [
+        509,
+        417,
+        657,
+        436
+      ],
+      "score": 0.9830148220062256
+    },
+    {
+      "text": "50. Y degollado un pájaro en una vasija de barro sobre",
+      "box": [
+        520,
+        432,
+        908,
+        459
+      ],
+      "score": 0.9871429204940796
+    },
+    {
+      "text": "has, tomará un cordero para ofrecerle por el delito, á fin de",
+      "box": [
+        0,
+        443,
+        403,
+        472
+      ],
+      "score": 0.9800266027450562
+    },
+    {
+      "text": "ue ruegue por él el sacerdote, y una décima de flor de harina",
+      "box": [
+        0,
+        460,
+        403,
+        489
+      ],
+      "score": 0.9960554838180542
+    },
+    {
+      "text": "agua viva,",
+      "box": [
+        507,
+        451,
+        579,
+        469
+      ],
+      "score": 0.9608022570610046
+    },
+    {
+      "text": "51. Cogerá el palo de cedro con el hisopo y la grana, y el",
+      "box": [
+        521,
+        466,
+        910,
+        491
+      ],
+      "score": 0.9977487921714783
+    },
+    {
+      "text": "masada con aceite para el sacrificio, y un sextario de aceite,",
+      "box": [
+        0,
+        477,
+        402,
+        506
+      ],
+      "score": 0.9936992526054382
+    },
+    {
+      "text": "pájaro vivo, y mojará todo esto en la sangre del pájaro de-",
+      "box": [
+        507,
+        484,
+        910,
+        509
+      ],
+      "score": 0.9857938289642334
+    },
+    {
+      "text": "22. Y dos tórtolas, ó dos pichones, uno por el pecado, y",
+      "box": [
+        0,
+        495,
+        401,
+        523
+      ],
+      "score": 0.9980248212814331
+    },
+    {
+      "text": "gollado, y en el agua viva, y rociará siete veces la casa,",
+      "box": [
+        507,
+        502,
+        871,
+        523
+      ],
+      "score": 0.9921644926071167
+    },
+    {
+      "text": "tro para holocausto;",
+      "box": [
+        0,
+        512,
+        141,
+        534
+      ],
+      "score": 0.9998241662979126
+    },
+    {
+      "text": "52. Purificándola, tanto con la sangre del pájaro, como",
+      "box": [
+        519,
+        518,
+        911,
+        542
+      ],
+      "score": 0.9905149936676025
+    },
+    {
+      "text": "23. Y ofrecerá estas cosas el dia octavo de su purificacion",
+      "box": [
+        0,
+        528,
+        400,
+        555
+      ],
+      "score": 0.9968684315681458
+    },
+    {
+      "text": "1 sacerdote en la puerta del Tabernáculo del Testimonio",
+      "box": [
+        0,
+        545,
+        400,
+        572
+      ],
+      "score": 0.9995002150535583
+    },
+    {
+      "text": "con el agua viva, y el pájaro vivo, y el palo de cedro, el hiso-",
+      "box": [
+        507,
+        536,
+        909,
+        558
+      ],
+      "score": 0.9987305402755737
+    },
+    {
+      "text": "nte el Señor:",
+      "box": [
+        0,
+        562,
+        93,
+        583
+      ],
+      "score": 0.9728654623031616
+    },
+    {
+      "text": "po, y la grana:",
+      "box": [
+        506,
+        555,
+        607,
+        572
+      ],
+      "score": 0.9991881251335144
+    },
+    {
+      "text": "53. Y despues de soltado el pájaro para que libre vuele",
+      "box": [
+        518,
+        568,
+        908,
+        591
+      ],
+      "score": 0.9989827871322632
+    },
+    {
+      "text": "24. Y el sacerdote recibiendo el cordero por el delito, y el",
+      "box": [
+        0,
+        578,
+        399,
+        604
+      ],
+      "score": 0.9976134896278381
+    },
+    {
+      "text": "por la campaña, hará oracion por la casa, y quedará purifi-",
+      "box": [
+        504,
+        585,
+        908,
+        606
+      ],
+      "score": 0.9930402636528015
+    },
+    {
+      "text": "extario de aceite, los elevará á un mismo tiempo.",
+      "box": [
+        0,
+        597,
+        327,
+        619
+      ],
+      "score": 0.9947826862335205
+    },
+    {
+      "text": "cada segun rito.",
+      "box": [
+        507,
+        604,
+        612,
+        618
+      ],
+      "score": 0.9981622099876404
+    },
+    {
+      "text": "25. Y degollado el cordero, teñirá con su sangre la ternilla",
+      "box": [
+        0,
+        614,
+        398,
+        636
+      ],
+      "score": 0.9898669123649597
+    },
+    {
+      "text": "54. Esta es la ley acerca de toda especie de lepra y de -",
+      "box": [
+        517,
+        615,
+        918,
+        639
+      ],
+      "score": 0.9868828654289246
+    },
+    {
+      "text": "e la oreja derecha del que se purifica, y los pulgares de la",
+      "box": [
+        0,
+        630,
+        399,
+        654
+      ],
+      "score": 0.9951601624488831
+    },
+    {
+      "text": "llaga que degenera en lepra:",
+      "box": [
+        505,
+        634,
+        694,
+        652
+      ],
+      "score": 0.9988352060317993
+    },
+    {
+      "text": "nano y pié derechos.",
+      "box": [
+        0,
+        649,
+        139,
+        666
+      ],
+      "score": 0.985758900642395
+    },
+    {
+      "text": "55. Sobre la lepra de los vestidos y de las casas,",
+      "box": [
+        518,
+        650,
+        843,
+        669
+      ],
+      "score": 0.9810130596160889
+    },
+    {
+      "text": "26. Y echará parte del aceite en su mano izquierda;",
+      "box": [
+        1,
+        665,
+        360,
+        685
+      ],
+      "score": 0.9879218339920044
+    },
+    {
+      "text": "56. De las cicatrices y de las postillas que salen fuera, de",
+      "box": [
+        518,
+        666,
+        907,
+        687
+      ],
+      "score": 0.9950941801071167
+    },
+    {
+      "text": "27. En el que mojará el dedo de la mano derecha, y hará",
+      "box": [
+        1,
+        682,
+        397,
+        701
+      ],
+      "score": 0.9902791380882263
+    },
+    {
+      "text": "las manchas relucientes, y de las varias mutaciones de co-",
+      "box": [
+        502,
+        681,
+        909,
+        704
+      ],
+      "score": 0.9885306358337402
+    },
+    {
+      "text": "iete aspersiones ante el Señor,",
+      "box": [
+        0,
+        699,
+        205,
+        717
+      ],
+      "score": 0.9992700815200806
+    },
+    {
+      "text": "lores sobre el cuerpo,",
+      "box": [
+        505,
+        700,
+        647,
+        717
+      ],
+      "score": 0.9999210834503174
+    },
+    {
+      "text": "28. Y tocará tambien la ternilla de la oreja derecha del",
+      "box": [
+        1,
+        716,
+        396,
+        734
+      ],
+      "score": 0.989975094795227
+    },
+    {
+      "text": "57. Para que se acierte á discernir cuando una cosa está",
+      "box": [
+        516,
+        714,
+        908,
+        739
+      ],
+      "score": 0.9953332543373108
+    },
+    {
+      "text": "ue se purifica, y los pulgares de la mano y pié derechos",
+      "box": [
+        0,
+        732,
+        397,
+        751
+      ],
+      "score": 0.984779953956604
+    },
+    {
+      "text": "limpia ó inmunda.",
+      "box": [
+        502,
+        733,
+        627,
+        751
+      ],
+      "score": 0.9988583922386169
+    },
+    {
+      "text": "n el mismo lugar, bañado con la sangre derramada por el",
+      "box": [
+        0,
+        748,
+        397,
+        767
+      ],
+      "score": 0.9998580813407898
+    },
+    {
+      "text": "elito.",
+      "box": [
+        0,
+        763,
+        39,
+        781
+      ],
+      "score": 0.9993734955787659
+    },
+    {
+      "text": "CAPITULO XV",
+      "box": [
+        652,
+        762,
+        759,
+        779
+      ],
+      "score": 0.9991319179534912
+    },
+    {
+      "text": "29. El resto del aceite que tiene en la mano izquierda, lo",
+      "box": [
+        0,
+        779,
+        395,
+        799
+      ],
+      "score": 0.9933114647865295
+    },
+    {
+      "text": "chará sobre la cabeza del que se purifica, con el fin de apla-",
+      "box": [
+        0,
+        795,
+        395,
+        818
+      ],
+      "score": 0.9998456835746765
+    },
+    {
+      "text": "Cómo debe hacerse la expiacion y purificacion de varias impurezas",
+      "box": [
+        519,
+        787,
+        888,
+        811
+      ],
+      "score": 0.9967291951179504
+    },
+    {
+      "text": "ar por él al Señor.",
+      "box": [
+        0,
+        811,
+        123,
+        830
+      ],
+      "score": 0.985691249370575
+    },
+    {
+      "text": "legales involuntarias.",
+      "box": [
+        643,
+        804,
+        762,
+        821
+      ],
+      "score": 0.9992755651473999
+    },
+    {
+      "text": "30. Igualmente ofrecerá las dos tórtolas, ólos dos pichones,",
+      "box": [
+        0,
+        827,
+        395,
+        851
+      ],
+      "score": 0.9858424067497253
+    },
+    {
+      "text": "1. Habló el Señor á Moysés y Aaron, diciendo:",
+      "box": [
+        514,
+        832,
+        828,
+        853
+      ],
+      "score": 0.9916984438896179
+    },
+    {
+      "text": "31. El uno por el delito, y el otro en holocausto con sus",
+      "box": [
+        0,
+        845,
+        396,
+        867
+      ],
+      "score": 0.9893337488174438
+    },
+    {
+      "text": "2. Dirigid la palabra á los hijos de Israél y decidles: El",
+      "box": [
+        513,
+        848,
+        901,
+        872
+      ],
+      "score": 0.9857403039932251
+    },
+    {
+      "text": "baciones 1.",
+      "box": [
+        0,
+        862,
+        76,
+        879
+      ],
+      "score": 0.9792944192886353
+    },
+    {
+      "text": "32. Tal es el sacrificio del leproso que no puede procu-",
+      "box": [
+        0,
+        875,
+        397,
+        901
+      ],
+      "score": 0.99406898021698
+    },
+    {
+      "text": "hombre que padece gonorrea será inmundo .",
+      "box": [
+        500,
+        867,
+        796,
+        885
+      ],
+      "score": 0.9874545931816101
+    },
+    {
+      "text": "3. Y entonces se juzgará que está sujeto á este achaque,",
+      "box": [
+        511,
+        881,
+        898,
+        906
+      ],
+      "score": 0.9822630882263184
+    },
+    {
+      "text": "arse todas las cosas ordenadas para su purificacion.",
+      "box": [
+        0,
+        893,
+        338,
+        916
+      ],
+      "score": 0.9864205121994019
+    },
+    {
+      "text": "cuando á cada instante el humor sucio se apegare á su carne",
+      "box": [
+        500,
+        899,
+        897,
+        921
+      ],
+      "score": 0.9923127293586731
+    },
+    {
+      "text": "33. Habló todavía el Señor á Moysés y Aaron, diciendo:",
+      "box": [
+        1,
+        910,
+        380,
+        932
+      ],
+      "score": 0.9954231381416321
+    },
+    {
+      "text": "34. Cuando hubiereis entrado en la tierra de Chanaan,",
+      "box": [
+        1,
+        926,
+        394,
+        948
+      ],
+      "score": 0.9994863867759705
+    },
+    {
+      "text": "y se condensare.",
+      "box": [
+        500,
+        919,
+        608,
+        933
+      ],
+      "score": 0.9997895956039429
+    },
+    {
+      "text": "4. Cualquiera cama en que durmiere, y el sitio en que se",
+      "box": [
+        511,
+        930,
+        896,
+        953
+      ],
+      "score": 0.9989781975746155
+    },
+    {
+      "text": "uya posesion os daré yo, si la plaga de la lepra hubiese infi-",
+      "box": [
+        0,
+        943,
+        392,
+        964
+      ],
+      "score": 0.9924451112747192
+    },
+    {
+      "text": "ionado una casa,",
+      "box": [
+        0,
+        959,
+        116,
+        978
+      ],
+      "score": 0.9926834106445312
+    },
+    {
+      "text": "sentare, quedará inmundo.",
+      "box": [
+        500,
+        950,
+        676,
+        964
+      ],
+      "score": 0.998807966709137
+    },
+    {
+      "text": "5. Quien quiera que tocare su lecho lavará sus vestidos;",
+      "box": [
+        510,
+        963,
+        893,
+        984
+      ],
+      "score": 0.9922072291374207
+    },
+    {
+      "text": "35. Irá el dueño de ella á dar parte al sacerdote, y dirá:",
+      "box": [
+        1,
+        973,
+        394,
+        998
+      ],
+      "score": 0.9986795783042908
+    },
+    {
+      "text": "y ese mismo, despues de lavado con agua, quedará inmundo",
+      "box": [
+        496,
+        979,
+        892,
+        1000
+      ],
+      "score": 0.9979404807090759
+    },
+    {
+      "text": "arécemo que hay en mi casa una como plaga de lepra.",
+      "box": [
+        0,
+        992,
+        356,
+        1013
+      ],
+      "score": 0.9994857907295227
+    },
+    {
+      "text": "36. Y el sacerdote antes de entrar en ella para reconocer",
+      "box": [
+        0,
+        1008,
+        393,
+        1029
+      ],
+      "score": 0.9959433674812317
+    },
+    {
+      "text": "hasta la tarde.",
+      "box": [
+        498,
+        999,
+        594,
+        1013
+      ],
+      "score": 0.9998862743377686
+    },
+    {
+      "text": "6. Quien se sentare donde él estuvo sentado, lavará tam-",
+      "box": [
+        510,
+        1012,
+        890,
+        1031
+      ],
+      "score": 0.998534083366394
+    },
+    {
+      "text": "está contagiada, mandará sacar fuera de la casa todas las",
+      "box": [
+        0,
+        1024,
+        393,
+        1045
+      ],
+      "score": 0.9988210201263428
+    },
+    {
+      "text": "bien sus vestidos, y despues de lavado con agua, quedará",
+      "box": [
+        496,
+        1028,
+        889,
+        1048
+      ],
+      "score": 0.9941288828849792
+    },
+    {
+      "text": "osas; á fin de que no quede inmundo todo lo de dentro de",
+      "box": [
+        0,
+        1041,
+        391,
+        1062
+      ],
+      "score": 0.9993098974227905
+    },
+    {
+      "text": "inmundo hasta la tarde.",
+      "box": [
+        496,
+        1045,
+        654,
+        1062
+      ],
+      "score": 0.9998734593391418
+    },
+    {
+      "text": "a casa. Despues entrará para examinar la lepra;",
+      "box": [
+        0,
+        1057,
+        312,
+        1078
+      ],
+      "score": 0.9960973858833313
+    },
+    {
+      "text": "7. Quien tocare su carne lavará sus vestidos, y lavado él",
+      "box": [
+        508,
+        1060,
+        887,
+        1079
+      ],
+      "score": 0.9872714281082153
+    },
+    {
+      "text": "37. Y si viere en las paredes unos hoyitos, y lugares afea-",
+      "box": [
+        0,
+        1074,
+        391,
+        1094
+      ],
+      "score": 0.994866669178009
+    },
+    {
+      "text": "tambien con agua, quedará inmundo hasta la tarde.",
+      "box": [
+        494,
+        1076,
+        837,
+        1094
+      ],
+      "score": 0.9992035031318665
+    },
+    {
+      "text": "os con manchas como de color amarillo, ó rojo, y mas hun-",
+      "box": [
+        0,
+        1089,
+        392,
+        1110
+      ],
+      "score": 0.9882935881614685
+    },
+    {
+      "text": "8. Si el tal hombre escupiere sobre otro que está limpio,",
+      "box": [
+        507,
+        1092,
+        885,
+        1110
+      ],
+      "score": 0.9950370192527771
+    },
+    {
+      "text": "idos que los demás de la superficie,",
+      "box": [
+        0,
+        1105,
+        239,
+        1125
+      ],
+      "score": 0.9930713176727295
+    },
+    {
+      "text": "éste lavará sus vestidos, y despues de haberse lavado en",
+      "box": [
+        494,
+        1108,
+        885,
+        1126
+      ],
+      "score": 0.9964213967323303
+    },
+    {
+      "text": "38. Saldrá de la puerta de la casa, y la dejará inmediata-",
+      "box": [
+        1,
+        1121,
+        391,
+        1142
+      ],
+      "score": 0.9988715648651123
+    },
+    {
+      "text": "agua, estará inmundo hasta la tarde.",
+      "box": [
+        493,
+        1123,
+        732,
+        1142
+      ],
+      "score": 0.990446925163269
+    },
+    {
+      "text": "nente cerrada por siete dias,",
+      "box": [
+        0,
+        1137,
+        190,
+        1156
+      ],
+      "score": 0.9864402413368225
+    },
+    {
+      "text": "9. El albardon de la bestia sobre que aquel se sentare,",
+      "box": [
+        507,
+        1141,
+        883,
+        1159
+      ],
+      "score": 0.9995084404945374
+    },
+    {
+      "text": "39. Y volviendo el dia séptimo la reconocerá: si hallare",
+      "box": [
+        2,
+        1152,
+        391,
+        1174
+      ],
+      "score": 0.9942755103111267
+    },
+    {
+      "text": "quedará inmundo.",
+      "box": [
+        493,
+        1158,
+        613,
+        1172
+      ],
+      "score": 0.9997732639312744
+    },
+    {
+      "text": "ue ha cundido la lepra,",
+      "box": [
+        0,
+        1169,
+        159,
+        1188
+      ],
+      "score": 0.9981208443641663
+    },
+    {
+      "text": "10. En suma, todo lo que hubiere estado debajo de quien",
+      "box": [
+        506,
+        1172,
+        883,
+        1191
+      ],
+      "score": 0.99737548828125
+    },
+    {
+      "text": "1 De harina, de aceite, de vino, etc.—Véase Cap. II.",
+      "box": [
+        3,
+        1211,
+        297,
+        1232
+      ],
+      "score": 0.976003885269165
+    },
+    {
+      "text": "las cosas santas; y á ofrecer sacrificio por su purificacion. Algunos Expo-",
+      "box": [
+        490,
+        1215,
+        883,
+        1236
+      ],
+      "score": 0.991499125957489
+    },
+    {
+      "text": "* Todo hombre timorato mirará en esta ley una prueba de lo mucho",
+      "box": [
+        3,
+        1225,
+        390,
+        1247
+      ],
+      "score": 0.9811496734619141
+    },
+    {
+      "text": "sitores afirman que las dos enfermedades de que se habla en este capítulo",
+      "box": [
+        490,
+        1229,
+        884,
+        1250
+      ],
+      "score": 0.9871717691421509
+    },
+    {
+      "text": "que quiere Dios nuestra pureza interior, y aun la exterior, al considerar",
+      "box": [
+        0,
+        1240,
+        390,
+        1260
+      ],
+      "score": 0.9939952492713928
+    },
+    {
+      "text": "eran frecuentes y contagiosas en la Syria y regiones comarcanas; y un",
+      "box": [
+        490,
+        1243,
+        885,
+        1265
+      ],
+      "score": 0.9987375140190125
+    },
+    {
+      "text": "ómo por cosas involuntarias y exteriores sujetó á los Israelitas á sufrir",
+      "box": [
+        0,
+        1254,
+        390,
+        1273
+      ],
+      "score": 0.9931342601776123
+    },
+    {
+      "text": "mal que se hacia en muchas personas pertinaz y habítual.",
+      "box": [
+        489,
+        1256,
+        808,
+        1278
+      ],
+      "score": 0.9882820844650269
+    },
+    {
+      "text": "a confusion y humillacion de ser tenidos por inmundos y separados de",
+      "box": [
+        0,
+        1267,
+        390,
+        1288
+      ],
+      "score": 0.999835729598999
+    }
+  ]
+}

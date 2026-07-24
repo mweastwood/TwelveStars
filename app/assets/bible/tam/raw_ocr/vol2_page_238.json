@@ -1,0 +1,27 @@
+{
+  "volume": 2,
+  "page_index": 238,
+  "pdf_page": 239,
+  "lines": [
+    {
+      "text": "PISAN",
+      "box": [
+        1253,
+        1721,
+        1325,
+        1749
+      ],
+      "score": 0.9842656254768372
+    },
+    {
+      "text": "NEHEMÍAS Y SUS COMPAÑEROS Á LAS PUERTAS DE JERUSALEN",
+      "box": [
+        348,
+        1790,
+        1107,
+        1831
+      ],
+      "score": 0.9890910387039185
+    }
+  ]
+}

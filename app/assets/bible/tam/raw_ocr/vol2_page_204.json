@@ -1,0 +1,757 @@
+{
+  "volume": 2,
+  "page_index": 204,
+  "pdf_page": 205,
+  "lines": [
+    {
+      "text": "ESDRAS",
+      "box": [
+        553,
+        157,
+        920,
+        267
+      ],
+      "score": 0.9948607087135315
+    },
+    {
+      "text": "LIBRO I",
+      "box": [
+        663,
+        275,
+        815,
+        326
+      ],
+      "score": 0.9977303147315979
+    },
+    {
+      "text": "ADVERTENCIA",
+      "box": [
+        625,
+        456,
+        851,
+        486
+      ],
+      "score": 0.999808669090271
+    },
+    {
+      "text": "que toda la nacion se obligase, con un nuevo y solemne pacto, á la observancia de la Ley. En el libro , ó de Nehemias, vemos al mismo Esdras ocupado en leer y",
+      "box": [
+        86,
+        848,
+        1360,
+        903
+      ],
+      "score": 0.8008307218551636
+    },
+    {
+      "text": "explicar al pueblo la Ley del Señor, y que se hace mencion de él como de uno de los principales apoyos de la nueva república. Nehem. VIII.",
+      "box": [
+        89,
+        874,
+        1175,
+        922
+      ],
+      "score": 0.9908671975135803
+    },
+    {
+      "text": "Es lbro I de Edas comprende la hiri dee  do añ desde el añ 3 en qu Co, po muerte de su padre Cambe d Pe de",
+      "box": [
+        122,
+        896,
+        1358,
+        948
+      ],
+      "score": 0.6543335914611816
+    },
+    {
+      "text": "Ciaxar su suegro rey de la Media, reunió en sí la monarquía de Oriente, hasta el año 35o, que era el XX del reinado de Artajerjes, por otro nombre Longimano.",
+      "box": [
+        88,
+        920,
+        1329,
+        968
+      ],
+      "score": 0.964828610420227
+    },
+    {
+      "text": "CAPITULO PRIMERO",
+      "box": [
+        263,
+        1085,
+        477,
+        1106
+      ],
+      "score": 0.9991213083267212
+    },
+    {
+      "text": "6. Y todos aquellos que vivian en la comarca les ayuda-",
+      "box": [
+        824,
+        1089,
+        1351,
+        1113
+      ],
+      "score": 0.9982185363769531
+    },
+    {
+      "text": "ron, poniendo en sus manos vasos de plata y oro, hacienda,",
+      "box": [
+        803,
+        1114,
+        1348,
+        1139
+      ],
+      "score": 0.9945368766784668
+    },
+    {
+      "text": "Cyro, inspirado por Dios, acabados los setenta años del cautiverio del",
+      "box": [
+        85,
+        1124,
+        656,
+        1153
+      ],
+      "score": 0.9983120560646057
+    },
+    {
+      "text": "pueblo de Israél, le da la libertad, y le restituye los vasos sagrados; y",
+      "box": [
+        100,
+        1145,
+        655,
+        1177
+      ],
+      "score": 0.9980606436729431
+    },
+    {
+      "text": "jumentos, y alhajas, además de otras ofrendas voluntarias",
+      "box": [
+        801,
+        1139,
+        1348,
+        1165
+      ],
+      "score": 0.9978116750717163
+    },
+    {
+      "text": "permite que sea reedificado el templo de Jerusalem ¹.",
+      "box": [
+        100,
+        1167,
+        523,
+        1195
+      ],
+      "score": 0.9854850172996521
+    },
+    {
+      "text": "que habian hecho.",
+      "box": [
+        803,
+        1165,
+        964,
+        1188
+      ],
+      "score": 0.9876753687858582
+    },
+    {
+      "text": "7. El mismo rey Cyro hizo sacar los vasos del templo del",
+      "box": [
+        818,
+        1186,
+        1348,
+        1216
+      ],
+      "score": 0.9737368822097778
+    },
+    {
+      "text": "1. El año primero del imperio de Cyro, rey de los Persas,",
+      "box": [
+        103,
+        1205,
+        652,
+        1241
+      ],
+      "score": 0.9976456761360168
+    },
+    {
+      "text": "Señor, que Nabuchodonosor habia traido de Jerusalem, y",
+      "box": [
+        801,
+        1213,
+        1346,
+        1241
+      ],
+      "score": 0.9902656674385071
+    },
+    {
+      "text": "para que se cumpliese la palabra del Señor pronunciada por",
+      "box": [
+        83,
+        1232,
+        653,
+        1264
+      ],
+      "score": 0.9999479651451111
+    },
+    {
+      "text": "colocado en el templo de su Dios.",
+      "box": [
+        800,
+        1238,
+        1097,
+        1264
+      ],
+      "score": 0.9937368631362915
+    },
+    {
+      "text": "Jeremías, movió el Señor el ánimo de Cyro, rey de los Persas,",
+      "box": [
+        83,
+        1256,
+        652,
+        1290
+      ],
+      "score": 0.9914504289627075
+    },
+    {
+      "text": "8. Hízolos sacar Cyro, rey de los Persas, por mano de",
+      "box": [
+        818,
+        1263,
+        1346,
+        1291
+      ],
+      "score": 0.9907158613204956
+    },
+    {
+      "text": "el cual hizo publicar por todo su reino, aun por escrito, el",
+      "box": [
+        84,
+        1282,
+        652,
+        1315
+      ],
+      "score": 0.9890201091766357
+    },
+    {
+      "text": "Mithrídates hijo de Gazabar, tesorero, que se los entregó por",
+      "box": [
+        799,
+        1287,
+        1346,
+        1318
+      ],
+      "score": 0.9848929643630981
+    },
+    {
+      "text": "siguiente decreto ²:",
+      "box": [
+        83,
+        1306,
+        269,
+        1334
+      ],
+      "score": 0.9545460939407349
+    },
+    {
+      "text": "cuenta á Sassabasar, ó Zorobabel, príncipe de Judá.",
+      "box": [
+        799,
+        1313,
+        1257,
+        1342
+      ],
+      "score": 0.9854267835617065
+    },
+    {
+      "text": "2. Esto dice Cyro, rey de los Persas: El Señor Dios del",
+      "box": [
+        102,
+        1332,
+        651,
+        1364
+      ],
+      "score": 0.9972016215324402
+    },
+    {
+      "text": "9. Hé aquí el número de ellos: Treinta copas de oro, mil",
+      "box": [
+        818,
+        1338,
+        1346,
+        1369
+      ],
+      "score": 0.987118124961853
+    },
+    {
+      "text": "cielo es el que me ha dado todos los reinos de la tierra, y",
+      "box": [
+        84,
+        1356,
+        650,
+        1390
+      ],
+      "score": 0.9891330003738403
+    },
+    {
+      "text": "copas de plata, veinte y nueve cuchillos, treinta tazas de oro,",
+      "box": [
+        799,
+        1363,
+        1346,
+        1395
+      ],
+      "score": 0.9970396161079407
+    },
+    {
+      "text": "él me ha mandado edificarle Casa ó templo en Jerusalem,",
+      "box": [
+        83,
+        1381,
+        648,
+        1414
+      ],
+      "score": 0.996541440486908
+    },
+    {
+      "text": "10. Cuatrocientas y diez tazas de plata de segunda mag-",
+      "box": [
+        817,
+        1387,
+        1347,
+        1421
+      ],
+      "score": 0.9909162521362305
+    },
+    {
+      "text": "ciudad de Judéa.",
+      "box": [
+        83,
+        1404,
+        247,
+        1433
+      ],
+      "score": 0.999893307685852
+    },
+    {
+      "text": "nitud; y mil otros vasos ³.",
+      "box": [
+        797,
+        1411,
+        1027,
+        1438
+      ],
+      "score": 0.9857833385467529
+    },
+    {
+      "text": "3. ¿Quién de entre vosotros pertenece á su pueblo? Su",
+      "box": [
+        102,
+        1430,
+        649,
+        1465
+      ],
+      "score": 0.9941828846931458
+    },
+    {
+      "text": "11. La suma de todos los vasos de oro y de plata ascendia",
+      "box": [
+        815,
+        1433,
+        1348,
+        1472
+      ],
+      "score": 0.9960901737213135
+    },
+    {
+      "text": "Dios.sea con él. Vaya á Jerusalem, ciudad de la Judéa, y edi-",
+      "box": [
+        82,
+        1455,
+        649,
+        1489
+      ],
+      "score": 0.9922235012054443
+    },
+    {
+      "text": "á cinco mil y cuatrocientos: todos estos los llevó Sassabasar",
+      "box": [
+        796,
+        1459,
+        1348,
+        1495
+      ],
+      "score": 0.9871640801429749
+    },
+    {
+      "text": "fique la Casa del Señor Dios de Israél. El Dios verdadero es",
+      "box": [
+        82,
+        1480,
+        649,
+        1514
+      ],
+      "score": 0.9986606240272522
+    },
+    {
+      "text": "al tiempo que volvian á Jerusalem los que habian sido tras-",
+      "box": [
+        797,
+        1482,
+        1348,
+        1521
+      ],
+      "score": 0.9957200288772583
+    },
+    {
+      "text": "aquel que está en Jerusalem.",
+      "box": [
+        83,
+        1507,
+        360,
+        1536
+      ],
+      "score": 0.9999126195907593
+    },
+    {
+      "text": "portados cautivos á Babylonia.",
+      "box": [
+        795,
+        1508,
+        1074,
+        1540
+      ],
+      "score": 0.9997842907905579
+    },
+    {
+      "text": "4. Y todos los demás que se quedaren, donde quiera que",
+      "box": [
+        101,
+        1532,
+        646,
+        1565
+      ],
+      "score": 0.9992611408233643
+    },
+    {
+      "text": "0000",
+      "box": [
+        661,
+        1546,
+        695,
+        1582
+      ],
+      "score": 0.7332552671432495
+    },
+    {
+      "text": "habiten, ayúdenle desde el lugar de su residencia con plata",
+      "box": [
+        81,
+        1556,
+        646,
+        1590
+      ],
+      "score": 0.9998427629470825
+    },
+    {
+      "text": "CAPÍTULO II",
+      "box": [
+        1004,
+        1562,
+        1142,
+        1591
+      ],
+      "score": 0.9426488876342773
+    },
+    {
+      "text": "6000",
+      "box": [
+        746,
+        1544,
+        777,
+        1582
+      ],
+      "score": 0.3365791141986847
+    },
+    {
+      "text": "y oro, y otras cosas, y con ganados, además de lo que volun-",
+      "box": [
+        81,
+        1584,
+        645,
+        1614
+      ],
+      "score": 0.9973526000976562
+    },
+    {
+      "text": "tariamente ofrezcan al templo de Dios, que está en Jeru-",
+      "box": [
+        82,
+        1609,
+        645,
+        1639
+      ],
+      "score": 0.9935307502746582
+    },
+    {
+      "text": "Lista de los que volvieron del cautiverio de Babylonia á Jerusalem.",
+      "box": [
+        816,
+        1609,
+        1325,
+        1644
+      ],
+      "score": 0.9955015182495117
+    },
+    {
+      "text": "salem.",
+      "box": [
+        80,
+        1634,
+        147,
+        1659
+      ],
+      "score": 0.9997508525848389
+    },
+    {
+      "text": "5. Con esto se pusieron en camino los príncipes de las",
+      "box": [
+        103,
+        1661,
+        645,
+        1686
+      ],
+      "score": 0.9998180866241455
+    },
+    {
+      "text": "1. Estos son los hijos de la provincia de Judéa, que, del",
+      "box": [
+        813,
+        1653,
+        1345,
+        1695
+      ],
+      "score": 0.9963357448577881
+    },
+    {
+      "text": "cautiverio de Babylonia á que habian sido conducidos por",
+      "box": [
+        795,
+        1678,
+        1346,
+        1720
+      ],
+      "score": 0.9998198747634888
+    },
+    {
+      "text": "familias de Judá y de Benjamin, y los sacerdotes y Levitas,",
+      "box": [
+        83,
+        1688,
+        643,
+        1710
+      ],
+      "score": 0.9969245791435242
+    },
+    {
+      "text": "y todos aquellos cuyo corazon movió Dios para ir á reedifi-",
+      "box": [
+        81,
+        1710,
+        644,
+        1737
+      ],
+      "score": 0.9996591806411743
+    },
+    {
+      "text": "Nabuchodonosor rey de Babylonia, se pusieron en camino,",
+      "box": [
+        795,
+        1705,
+        1344,
+        1745
+      ],
+      "score": 0.9968656897544861
+    },
+    {
+      "text": "car el templo del Señor, que está en Jerusalem.",
+      "box": [
+        80,
+        1737,
+        519,
+        1762
+      ],
+      "score": 0.9966422319412231
+    },
+    {
+      "text": "y regresaron á Jerusalem y á Judá, cada cual á su pueblo:",
+      "box": [
+        794,
+        1731,
+        1346,
+        1770
+      ],
+      "score": 0.9929337501525879
+    },
+    {
+      "text": "1 Año del MUNDo 3468: antes de JEsU-CHRIsTo.536.",
+      "box": [
+        96,
+        1807,
+        513,
+        1833
+      ],
+      "score": 0.9129567742347717
+    },
+    {
+      "text": "Al ver Cyro el cumplimiento de dichas profecías, no pudo menos de admi-",
+      "box": [
+        794,
+        1805,
+        1345,
+        1843
+      ],
+      "score": 0.9976539015769958
+    },
+    {
+      "text": "2 Habia reinado ya Cyro veinte años en Persia. Tomada despues Baby-",
+      "box": [
+        95,
+        1829,
+        642,
+        1854
+      ],
+      "score": 0.9939979314804077
+    },
+    {
+      "text": "证",
+      "box": [
+        754,
+        1833,
+        765,
+        1842
+      ],
+      "score": 0.38499531149864197
+    },
+    {
+      "text": "rarse, y de favorecer á una nacion tan visiblemente privilegiada de Dios.",
+      "box": [
+        793,
+        1828,
+        1347,
+        1866
+      ],
+      "score": 0.9948294758796692
+    },
+    {
+      "text": "lonia, reunió el imperio de los Medos, de los Assyrios, y de los Chaldéos,",
+      "box": [
+        79,
+        1849,
+        641,
+        1876
+      ],
+      "score": 0.9993630647659302
+    },
+    {
+      "text": "II. Paral. XXXV1, v. 22.—Jerem. XXV,v. 12, et XXIX, v. 10.—Is. XLV,",
+      "box": [
+        793,
+        1849,
+        1347,
+        1890
+      ],
+      "score": 0.9737614989280701
+    },
+    {
+      "text": "fundando la gran monarquía persiana, que fué despues sojuzgada por",
+      "box": [
+        80,
+        1872,
+        642,
+        1897
+      ],
+      "score": 0.9996805191040039
+    },
+    {
+      "text": "v. 13.—XLVI, v. 11.",
+      "box": [
+        792,
+        1871,
+        955,
+        1901
+      ],
+      "score": 0.9944047331809998
+    },
+    {
+      "text": "Alejandro. Refiere el historiador Josepho Hebreo, que se hizo leer á Cyro",
+      "box": [
+        82,
+        1894,
+        641,
+        1918
+      ],
+      "score": 0.9955014586448669
+    },
+    {
+      "text": "3 Es decir, los otros vasos pequeños y menos apreciables, fueron á",
+      "box": [
+        806,
+        1892,
+        1350,
+        1936
+      ],
+      "score": 0.9802141189575195
+    },
+    {
+      "text": "lo que Isaías tanto tiempo antes habia vaticinado de él, de sus conquistas,",
+      "box": [
+        79,
+        1913,
+        640,
+        1941
+      ],
+      "score": 0.9932651519775391
+    },
+    {
+      "text": "millares.",
+      "box": [
+        790,
+        1914,
+        864,
+        1941
+      ],
+      "score": 0.9998931884765625
+    },
+    {
+      "text": "y de lo que haria á favor de Jerusalem y del templo. (Isaías XLÍV, 28.)",
+      "box": [
+        79,
+        1935,
+        640,
+        1963
+      ],
+      "score": 0.9941104054450989
+    },
+    {
+      "text": "II.—34",
+      "box": [
+        1248,
+        1974,
+        1315,
+        2003
+      ],
+      "score": 0.9597439765930176
+    },
+    {
+      "text": ".000",
+      "box": [
+        275,
+        2014,
+        318,
+        2032
+      ],
+      "score": 0.7240890264511108
+    }
+  ]
+}

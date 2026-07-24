@@ -1,0 +1,27 @@
+{
+  "volume": 1,
+  "page_index": 226,
+  "pdf_page": 227,
+  "lines": [
+    {
+      "text": "SDong",
+      "box": [
+        87,
+        1152,
+        171,
+        1191
+      ],
+      "score": 0.8536046743392944
+    },
+    {
+      "text": "BALAAM DETENIDO POR UN ÁNGEL",
+      "box": [
+        340,
+        1220,
+        614,
+        1245
+      ],
+      "score": 0.9993887543678284
+    }
+  ]
+}

@@ -1,0 +1,3677 @@
+{
+  "volume": 3,
+  "page_index": 519,
+  "pdf_page": 520,
+  "lines": [
+    {
+      "text": "40. Et ceciderunt in faciem super terram, et exclamaverunt",
+      "box": [
+        0,
+        0,
+        297,
+        18
+      ],
+      "score": 0.9886380434036255
+    },
+    {
+      "text": "32. Et dixit exercitui suo: Pugnate hodie pro fratribus",
+      "box": [
+        312,
+        1,
+        605,
+        31
+      ],
+      "score": 0.7830190062522888
+    },
+    {
+      "text": "abis signorum, et clamaverunt in celum.",
+      "box": [
+        0,
+        12,
+        196,
+        25
+      ],
+      "score": 0.9735805988311768
+    },
+    {
+      "text": "vestris.",
+      "box": [
+        305,
+        17,
+        343,
+        31
+      ],
+      "score": 0.9998658895492554
+    },
+    {
+      "text": "adduceret Antiochum filium suum, et nutriret eum, et reg-",
+      "box": [
+        610,
+        10,
+        909,
+        29
+      ],
+      "score": 0.9927484393119812
+    },
+    {
+      "text": "41. Tune ordinavit Judas viros, ut pugnarent adversus eos",
+      "box": [
+        0,
+        21,
+        298,
+        41
+      ],
+      "score": 0.988052487373352
+    },
+    {
+      "text": "33. Et venit tribus ordinibus post eos, et exclamaverunt",
+      "box": [
+        313,
+        25,
+        603,
+        50
+      ],
+      "score": 0.9870088696479797
+    },
+    {
+      "text": "naret.",
+      "box": [
+        612,
+        25,
+        642,
+        36
+      ],
+      "score": 0.9933679103851318
+    },
+    {
+      "text": "ui erant in arce, donec emundarent sancta.",
+      "box": [
+        0,
+        35,
+        205,
+        48
+      ],
+      "score": 0.9860663414001465
+    },
+    {
+      "text": "tubis, et clamaverunt in oratione.",
+      "box": [
+        304,
+        37,
+        467,
+        55
+      ],
+      "score": 0.9789770841598511
+    },
+    {
+      "text": "16. Et mortuus est illic Antiochus rex, anno centesimo",
+      "box": [
+        619,
+        33,
+        908,
+        48
+      ],
+      "score": 0.9792801737785339
+    },
+    {
+      "text": "42. Et elegit sacerdotes sine macula, voluntatem habentes",
+      "box": [
+        0,
+        44,
+        296,
+        59
+      ],
+      "score": 0.9824850559234619
+    },
+    {
+      "text": "34. Et cognoverunt castra Timothei quía Machabmus est, et",
+      "box": [
+        312,
+        45,
+        604,
+        69
+      ],
+      "score": 0.8684144020080566
+    },
+    {
+      "text": "quadragesimo nono.",
+      "box": [
+        612,
+        46,
+        708,
+        56
+      ],
+      "score": 0.9884353280067444
+    },
+    {
+      "text": "n lege Dei.",
+      "box": [
+        0,
+        53,
+        51,
+        70
+      ],
+      "score": 0.9654490947723389
+    },
+    {
+      "text": "refagerunt a facie ejus: et percusserunt eos plaga magna; et",
+      "box": [
+        303,
+        56,
+        603,
+        78
+      ],
+      "score": 0.9109048843383789
+    },
+    {
+      "text": "17. Et cognovit Lysias, quonfam mortuus est rex, et consti-",
+      "box": [
+        619,
+        53,
+        907,
+        67
+      ],
+      "score": 0.9949859976768494
+    },
+    {
+      "text": "43. Et mundaverunt saneta, et tuleruntlapides contamina-",
+      "box": [
+        4,
+        65,
+        295,
+        79
+      ],
+      "score": 0.9945545196533203
+    },
+    {
+      "text": "ceciderunt ex els in die illa fere octo millia virorum.",
+      "box": [
+        304,
+        66,
+        552,
+        87
+      ],
+      "score": 0.8716963529586792
+    },
+    {
+      "text": "tuit regnare Antiochum filium ejus, quem nutrivit adolescen-",
+      "box": [
+        609,
+        63,
+        907,
+        77
+      ],
+      "score": 0.979524552822113
+    },
+    {
+      "text": "ionis in locum immundum.",
+      "box": [
+        0,
+        74,
+        127,
+        90
+      ],
+      "score": 0.9919536113739014
+    },
+    {
+      "text": "35. Et divertit Judas in Maspha, et expugaavit, et cepit",
+      "box": [
+        313,
+        76,
+        603,
+        98
+      ],
+      "score": 0.9342341423034668
+    },
+    {
+      "text": "tem: et vocavit nomen ejus Eupator.",
+      "box": [
+        611,
+        75,
+        788,
+        85
+      ],
+      "score": 0.9881554841995239
+    },
+    {
+      "text": "44. Et cogitavit de altari holocaustorum, quod profanatum",
+      "box": [
+        5,
+        86,
+        295,
+        100
+      ],
+      "score": 0.990936815738678
+    },
+    {
+      "text": "eam: et occidit omnem masculum ejus, et sumpsit spolia ejus,",
+      "box": [
+        303,
+        88,
+        602,
+        108
+      ],
+      "score": 0.9851962924003601
+    },
+    {
+      "text": "sanctorum: et querebant eis mala semper, et firmamentum",
+      "box": [
+        608,
+        93,
+        906,
+        108
+      ],
+      "score": 0.9673272967338562
+    },
+    {
+      "text": "18. Et hi qui erant in arce, concluserant Israel in cireuitu",
+      "box": [
+        620,
+        84,
+        907,
+        97
+      ],
+      "score": 0.9659919738769531
+    },
+    {
+      "text": "rat, quid de eo faceret.",
+      "box": [
+        0,
+        95,
+        109,
+        112
+      ],
+      "score": 0.9559645652770996
+    },
+    {
+      "text": "et succendit eam igní.",
+      "box": [
+        304,
+        98,
+        412,
+        114
+      ],
+      "score": 0.9423026442527771
+    },
+    {
+      "text": "36. Inde perrexit, et cepit Casbon, et Mageth, et Bosor, et",
+      "box": [
+        312,
+        107,
+        602,
+        129
+      ],
+      "score": 0.9683738946914673
+    },
+    {
+      "text": "gentium.",
+      "box": [
+        611,
+        105,
+        655,
+        116
+      ],
+      "score": 0.9997904300689697
+    },
+    {
+      "text": "orte illis esset in opprobrium, quia contaminaverunt illud gen.",
+      "box": [
+        0,
+        116,
+        296,
+        134
+      ],
+      "score": 0.9763067960739136
+    },
+    {
+      "text": "reliquas civitates Galaaditidis.",
+      "box": [
+        303,
+        119,
+        451,
+        135
+      ],
+      "score": 0.9787302017211914
+    },
+    {
+      "text": "19. Et cogitavit Judas disperdere eos: et convocavit uni-",
+      "box": [
+        620,
+        114,
+        906,
+        127
+      ],
+      "score": 0.9894281625747681
+    },
+    {
+      "text": "es, et demoliti sunt illud.",
+      "box": [
+        0,
+        126,
+        121,
+        143
+      ],
+      "score": 0.9668715596199036
+    },
+    {
+      "text": "37. Post himc autem verba congregavit Timotheus exerci-",
+      "box": [
+        313,
+        129,
+        600,
+        147
+      ],
+      "score": 0.9484976530075073
+    },
+    {
+      "text": "versum populum, ut obsiderent eos.",
+      "box": [
+        610,
+        126,
+        782,
+        136
+      ],
+      "score": 0.9903959631919861
+    },
+    {
+      "text": "46. Et reposuerunt lapides in monte domns in loco apto,",
+      "box": [
+        3,
+        137,
+        295,
+        154
+      ],
+      "score": 0.968998372554779
+    },
+    {
+      "text": "tum aliu n, et castra posuit contra Raphon traus torrentem.",
+      "box": [
+        303,
+        140,
+        600,
+        157
+      ],
+      "score": 0.9925832152366638
+    },
+    {
+      "text": "20. Et convenerunt simul, et obsederunt eos anno centesimo",
+      "box": [
+        618,
+        133,
+        905,
+        148
+      ],
+      "score": 0.9771336913108826
+    },
+    {
+      "text": "quoadusque veniret propheta, et responderet de eis.",
+      "box": [
+        0,
+        146,
+        243,
+        164
+      ],
+      "score": 0.9851210117340088
+    },
+    {
+      "text": "38. Et misit Judas speculari exercitum: et renuntiaverunt",
+      "box": [
+        312,
+        149,
+        601,
+        168
+      ],
+      "score": 0.9627055525779724
+    },
+    {
+      "text": "quinquagesimo, et fecerunt balistns et machinas,",
+      "box": [
+        609,
+        145,
+        841,
+        158
+      ],
+      "score": 0.978489339351654
+    },
+    {
+      "text": "47. Et acceperunt lapides integros secundum legem; et medi-",
+      "box": [
+        1,
+        157,
+        295,
+        174
+      ],
+      "score": 0.9428403973579407
+    },
+    {
+      "text": "ei, dicentes: Quia convenerunt ad eum omnes gentes, que in",
+      "box": [
+        303,
+        160,
+        600,
+        178
+      ],
+      "score": 0.9728776812553406
+    },
+    {
+      "text": "21. Et exierunt quidam ex eis qui obsidebantur, et adjun-",
+      "box": [
+        618,
+        154,
+        904,
+        169
+      ],
+      "score": 0.9584292769432068
+    },
+    {
+      "text": "leaverunt altare novum, secundum illud quod fuit prius.",
+      "box": [
+        0,
+        166,
+        269,
+        185
+      ],
+      "score": 0.953326404094696
+    },
+    {
+      "text": "circuitu nostro sunt, exercitus multus nimis:",
+      "box": [
+        303,
+        170,
+        517,
+        186
+      ],
+      "score": 0.9649112224578857
+    },
+    {
+      "text": "xerunt se illis aliqui impii ex Israel,",
+      "box": [
+        610,
+        167,
+        783,
+        176
+      ],
+      "score": 0.9833523631095886
+    },
+    {
+      "text": "48. Et edificaverunt sancta, et qum intra domum erant in-",
+      "box": [
+        4,
+        179,
+        294,
+        194
+      ],
+      "score": 0.9669340252876282
+    },
+    {
+      "text": "39. Et Arabas conduxerunt in auxilium sibi, et castra po-",
+      "box": [
+        312,
+        180,
+        600,
+        197
+      ],
+      "score": 0.9840299487113953
+    },
+    {
+      "text": "22. Et abierunt ad regem, et dixerunt: Quousque non facis",
+      "box": [
+        617,
+        174,
+        902,
+        187
+      ],
+      "score": 0.9795829653739929
+    },
+    {
+      "text": "rinsecus, et aedem, et atria sanctificaverunt.",
+      "box": [
+        0,
+        187,
+        209,
+        206
+      ],
+      "score": 0.849629282951355
+    },
+    {
+      "text": "suerunt trans torrentem, parati ad te venire in prelium. Et",
+      "box": [
+        302,
+        191,
+        600,
+        208
+      ],
+      "score": 0.9497278928756714
+    },
+    {
+      "text": "judicium, et vindicas fratres nostros?",
+      "box": [
+        607,
+        185,
+        789,
+        198
+      ],
+      "score": 0.9905634522438049
+    },
+    {
+      "text": "49. Et fecerunt vasa sancta nova, etintulerunteandelabrum,",
+      "box": [
+        6,
+        201,
+        294,
+        215
+      ],
+      "score": 0.9829311370849609
+    },
+    {
+      "text": "abiit Judas obviam illis.",
+      "box": [
+        303,
+        201,
+        422,
+        217
+      ],
+      "score": 0.9645494818687439
+    },
+    {
+      "text": "23. Nos decrevimus servire patri tuo, et ambulare in",
+      "box": [
+        616,
+        194,
+        903,
+        209
+      ],
+      "score": 0.9843276143074036
+    },
+    {
+      "text": "st altare incensorum, et mensam in templum.",
+      "box": [
+        0,
+        211,
+        212,
+        226
+      ],
+      "score": 0.9726452231407166
+    },
+    {
+      "text": "40. Et ait Timotheus principibus exercitus sui: Cum appro-",
+      "box": [
+        314,
+        212,
+        599,
+        228
+      ],
+      "score": 0.9863286018371582
+    },
+    {
+      "text": "prmceptis ejus, et obsequi edictis ejus:",
+      "box": [
+        608,
+        208,
+        795,
+        218
+      ],
+      "score": 0.9783247113227844
+    },
+    {
+      "text": "50. Et incensum posuerunt super altare, et accenderunt lu-",
+      "box": [
+        4,
+        222,
+        295,
+        236
+      ],
+      "score": 0.9898224472999573
+    },
+    {
+      "text": "pinquaverit Judas, et exercitus ejus ad torrentem aqum; sí",
+      "box": [
+        304,
+        223,
+        599,
+        239
+      ],
+      "score": 0.9676849842071533
+    },
+    {
+      "text": "24. Et filii populi nostri propter hoc allenabant se a nobis,",
+      "box": [
+        616,
+        215,
+        901,
+        230
+      ],
+      "score": 0.9531103372573853
+    },
+    {
+      "text": "cernas, qum super candelabrum erant, et lucebant in templo.",
+      "box": [
+        0,
+        232,
+        284,
+        247
+      ],
+      "score": 0.9673688411712646
+    },
+    {
+      "text": "transierit ad nos prior, non poterimus sustinere eum: quia po-",
+      "box": [
+        304,
+        233,
+        598,
+        250
+      ],
+      "score": 0.9905714988708496
+    },
+    {
+      "text": "et quicumque fnveniebantur ex nobis, interficiebantur, et here-",
+      "box": [
+        607,
+        226,
+        902,
+        241
+      ],
+      "score": 0.9700581431388855
+    },
+    {
+      "text": "51. Et posuerunt super mensam panes, etappenderuntvela,",
+      "box": [
+        3,
+        242,
+        294,
+        257
+      ],
+      "score": 0.9907091856002808
+    },
+    {
+      "text": "tens poterit adversum nos.",
+      "box": [
+        305,
+        245,
+        429,
+        257
+      ],
+      "score": 0.9891852140426636
+    },
+    {
+      "text": "ditates nostre diripiebantur.",
+      "box": [
+        606,
+        236,
+        746,
+        251
+      ],
+      "score": 0.9745578169822693
+    },
+    {
+      "text": "et consummaverunt ommia opera qum fecerant.",
+      "box": [
+        0,
+        254,
+        218,
+        267
+      ],
+      "score": 0.9746938347816467
+    },
+    {
+      "text": "41. Si vero timuerit transire, et posuerit castra extra flu-",
+      "box": [
+        313,
+        254,
+        598,
+        270
+      ],
+      "score": 0.9925587177276611
+    },
+    {
+      "text": "25. Et non ad nos tantum extenderunt manum, sed et in",
+      "box": [
+        616,
+        246,
+        901,
+        262
+      ],
+      "score": 0.9936088919639587
+    },
+    {
+      "text": "52. Et ante matutiuum surrexerunt quinta et vigesima die",
+      "box": [
+        3,
+        263,
+        294,
+        278
+      ],
+      "score": 0.9811218976974487
+    },
+    {
+      "text": "men, transfretemus ad eos, et poterimus adversus illum.",
+      "box": [
+        303,
+        264,
+        567,
+        280
+      ],
+      "score": 0.9938565492630005
+    },
+    {
+      "text": "omnes fines nostros,",
+      "box": [
+        607,
+        258,
+        706,
+        271
+      ],
+      "score": 0.978258490562439
+    },
+    {
+      "text": "nensís noni (hic est mensis Caslen) centesimi quadragesimi",
+      "box": [
+        0,
+        273,
+        294,
+        288
+      ],
+      "score": 0.9760158061981201
+    },
+    {
+      "text": "42. Ut autem appropinquavit Judas ad torrentem aqum,",
+      "box": [
+        313,
+        274,
+        598,
+        289
+      ],
+      "score": 0.9798646569252014
+    },
+    {
+      "text": "eam, et munitionem Bethsuram munierunt:",
+      "box": [
+        605,
+        276,
+        819,
+        292
+      ],
+      "score": 0.9888655543327332
+    },
+    {
+      "text": "26. Et ecce applicuerunt hodie ad arcem Jerusalem occupare",
+      "box": [
+        616,
+        267,
+        900,
+        283
+      ],
+      "score": 0.9787573218345642
+    },
+    {
+      "text": "octavi anni.",
+      "box": [
+        0,
+        281,
+        55,
+        298
+      ],
+      "score": 0.8572750091552734
+    },
+    {
+      "text": "53. Et obtulerunt sacrificium secundum legem super altare",
+      "box": [
+        3,
+        292,
+        295,
+        307
+      ],
+      "score": 0.98727947473526
+    },
+    {
+      "text": "statuit scribas populi secus torrentem, et mandavit eis, dicens:",
+      "box": [
+        303,
+        283,
+        598,
+        300
+      ],
+      "score": 0.9509432911872864
+    },
+    {
+      "text": "Neminem hominum reliqueritis: sed veniant omnes in prelium.",
+      "box": [
+        303,
+        293,
+        597,
+        310
+      ],
+      "score": 0.9238606691360474
+    },
+    {
+      "text": "27. Et nisi preveneris eos velocius, majora quam hec fa-",
+      "box": [
+        615,
+        286,
+        900,
+        303
+      ],
+      "score": 0.9515136480331421
+    },
+    {
+      "text": "olocaustorum novum, quod fecerunt.",
+      "box": [
+        0,
+        303,
+        177,
+        317
+      ],
+      "score": 0.9860743284225464
+    },
+    {
+      "text": "43. Et transfretavit ad illos prior, et omnis populus post",
+      "box": [
+        314,
+        304,
+        598,
+        320
+      ],
+      "score": 0.9842289686203003
+    },
+    {
+      "text": "cient, et non poteris obtinere eos.",
+      "box": [
+        606,
+        296,
+        769,
+        312
+      ],
+      "score": 0.9783753752708435
+    },
+    {
+      "text": "54. Secundum tempus, et secundum diem in qua contami-",
+      "box": [
+        3,
+        312,
+        294,
+        327
+      ],
+      "score": 0.9894369840621948
+    },
+    {
+      "text": "eum, et contrite sunt omnes gentes a facée eorum, et projece-",
+      "box": [
+        303,
+        314,
+        598,
+        330
+      ],
+      "score": 0.9802144765853882
+    },
+    {
+      "text": "28. Et iratus est rex, ut hec audivit: et convocavit omnes",
+      "box": [
+        616,
+        306,
+        901,
+        323
+      ],
+      "score": 0.9726969599723816
+    },
+    {
+      "text": "averunt illnd gentes, in ipsa renovatum est in canticis, et ci-",
+      "box": [
+        0,
+        323,
+        295,
+        338
+      ],
+      "score": 0.9876083135604858
+    },
+    {
+      "text": "runt arma sua, et fugerunt ad fanum, quod erat in Carnaim.",
+      "box": [
+        303,
+        324,
+        586,
+        340
+      ],
+      "score": 0.9818783402442932
+    },
+    {
+      "text": "amicos suos, et principes excrcitus sui, et eos qui superequites",
+      "box": [
+        606,
+        317,
+        901,
+        334
+      ],
+      "score": 0.9860145449638367
+    },
+    {
+      "text": "haris, et cinyris, et in cymbalis.",
+      "box": [
+        0,
+        333,
+        151,
+        347
+      ],
+      "score": 0.9794268608093262
+    },
+    {
+      "text": "44. Et occapavit ipsam civitatem, et fanum succendit igni,",
+      "box": [
+        313,
+        334,
+        597,
+        350
+      ],
+      "score": 0.9506770968437195
+    },
+    {
+      "text": "erant:",
+      "box": [
+        607,
+        329,
+        639,
+        340
+      ],
+      "score": 0.9981696605682373
+    },
+    {
+      "text": "55. Et cecidit omnis populus in faciem, et adoraverunt, et",
+      "box": [
+        3,
+        342,
+        296,
+        358
+      ],
+      "score": 0.992033064365387
+    },
+    {
+      "text": "cum omnibus qui erant in ipso; et oppressa est Carnaim, et",
+      "box": [
+        303,
+        344,
+        598,
+        361
+      ],
+      "score": 0.9592516422271729
+    },
+    {
+      "text": "29. Sed et de regnís aliis, et de insulis maritimis venerunt",
+      "box": [
+        616,
+        337,
+        900,
+        354
+      ],
+      "score": 0.9907861948013306
+    },
+    {
+      "text": "enedixerunt in celum eum, qui prosperaviteis.",
+      "box": [
+        0,
+        353,
+        226,
+        368
+      ],
+      "score": 0.9788256883621216
+    },
+    {
+      "text": "non potuit sustinere contra faciem Jude.",
+      "box": [
+        304,
+        355,
+        495,
+        370
+      ],
+      "score": 0.974072277545929
+    },
+    {
+      "text": "ad eum exercitus couductitii.",
+      "box": [
+        607,
+        349,
+        748,
+        362
+      ],
+      "score": 0.9785345196723938
+    },
+    {
+      "text": "56. Et fecerunt dedicationem altaris diebms octo, et obtule-",
+      "box": [
+        3,
+        363,
+        295,
+        378
+      ],
+      "score": 0.9803242087364197
+    },
+    {
+      "text": "45. Et congregavit Judas universos Israelitas, qui erant in",
+      "box": [
+        313,
+        365,
+        598,
+        381
+      ],
+      "score": 0.9713965654373169
+    },
+    {
+      "text": "30. Et erat numcrus exercitus ejus, centum millia peditum",
+      "box": [
+        616,
+        358,
+        898,
+        375
+      ],
+      "score": 0.9650512933731079
+    },
+    {
+      "text": "ant holocausta cum letitia, et saerificium salutaris et laudis.",
+      "box": [
+        0,
+        375,
+        291,
+        388
+      ],
+      "score": 0.9838277101516724
+    },
+    {
+      "text": "Galaaditide, a minimo usque ad maximum, et uxores eorum,",
+      "box": [
+        304,
+        375,
+        599,
+        392
+      ],
+      "score": 0.9774712920188904
+    },
+    {
+      "text": "et viginti millia equitum, et elephanti triginta duo, docti ad",
+      "box": [
+        606,
+        369,
+        899,
+        386
+      ],
+      "score": 0.9783757328987122
+    },
+    {
+      "text": "57. Et ornaverunt faciem templi coronis aureis et seutulis:",
+      "box": [
+        2,
+        383,
+        296,
+        399
+      ],
+      "score": 0.9671754837036133
+    },
+    {
+      "text": "et natos, et exercitum magnam valde, ut venirent in terram",
+      "box": [
+        304,
+        386,
+        598,
+        402
+      ],
+      "score": 0.9710903167724609
+    },
+    {
+      "text": "prelfum.",
+      "box": [
+        608,
+        381,
+        652,
+        392
+      ],
+      "score": 0.996888279914856
+    },
+    {
+      "text": "t dedicaverunt portas, et pastophoria, et imposuerunt eis ja-",
+      "box": [
+        0,
+        394,
+        295,
+        409
+      ],
+      "score": 0.993942141532898
+    },
+    {
+      "text": "Juda.",
+      "box": [
+        305,
+        398,
+        335,
+        408
+      ],
+      "score": 0.9633119702339172
+    },
+    {
+      "text": "31. Et venerunt per Idumæam, et applicuerunt ad Bethsu-",
+      "box": [
+        616,
+        389,
+        899,
+        405
+      ],
+      "score": 0.9769240617752075
+    },
+    {
+      "text": "mas.",
+      "box": [
+        0,
+        405,
+        22,
+        416
+      ],
+      "score": 0.8262547850608826
+    },
+    {
+      "text": "46. Et venerunt usque Ephron, et hec civitas magna in in-",
+      "box": [
+        313,
+        405,
+        598,
+        422
+      ],
+      "score": 0.9872403740882874
+    },
+    {
+      "text": "ram, et pugnaverunt dies multos, et fecerunt machinas; et",
+      "box": [
+        606,
+        399,
+        899,
+        415
+      ],
+      "score": 0.9262356162071228
+    },
+    {
+      "text": "58.",
+      "box": [
+        4,
+        415,
+        32,
+        426
+      ],
+      "score": 0.9984081387519836
+    },
+    {
+      "text": "Et facta est letitia in populo magna valde, et aversum",
+      "box": [
+        26,
+        412,
+        296,
+        430
+      ],
+      "score": 0.984345555305481
+    },
+    {
+      "text": "gressu posita, munita valde, et non erat declinare ab ea dextera",
+      "box": [
+        303,
+        416,
+        598,
+        432
+      ],
+      "score": 0.9573144912719727
+    },
+    {
+      "text": "exierunt, et succenderunt eas igni, et puguaverunt viriliter.",
+      "box": [
+        606,
+        409,
+        886,
+        426
+      ],
+      "score": 0.9103681445121765
+    },
+    {
+      "text": "st opprobrium gentium.",
+      "box": [
+        0,
+        424,
+        115,
+        437
+      ],
+      "score": 0.9987016916275024
+    },
+    {
+      "text": "vel sinístra, sed per mediam iter erat.",
+      "box": [
+        304,
+        426,
+        479,
+        442
+      ],
+      "score": 0.9809221029281616
+    },
+    {
+      "text": "32. Et recessit Judas ab aree, et movit castra ad Bethzacha-",
+      "box": [
+        615,
+        418,
+        898,
+        438
+      ],
+      "score": 0.7548977732658386
+    },
+    {
+      "text": "59. Et statuit Judas, et fratres ejus, et universn ecclesia Is-",
+      "box": [
+        1,
+        433,
+        296,
+        449
+      ],
+      "score": 0.9622620344161987
+    },
+    {
+      "text": "47. Et incluserunt se qui erant in civitate, et obstruxerunt",
+      "box": [
+        313,
+        436,
+        598,
+        452
+      ],
+      "score": 0.9906042218208313
+    },
+    {
+      "text": "ram contra castra regis.",
+      "box": [
+        605,
+        430,
+        720,
+        445
+      ],
+      "score": 0.9818151593208313
+    },
+    {
+      "text": "ael, ut agatur dies dedicationis altaris in temporibus suis, ab",
+      "box": [
+        0,
+        443,
+        296,
+        459
+      ],
+      "score": 0.979871392250061
+    },
+    {
+      "text": "portas lapidibus: et misit ad eos Judas verbis pacificis,",
+      "box": [
+        304,
+        446,
+        564,
+        462
+      ],
+      "score": 0.9880467057228088
+    },
+    {
+      "text": "33. Et surrexit rex ante lucem, et concitavit exereltus in",
+      "box": [
+        615,
+        438,
+        900,
+        458
+      ],
+      "score": 0.9461437463760376
+    },
+    {
+      "text": "nno in annum, per dies octo, a quinta et vigesima die mensis",
+      "box": [
+        0,
+        453,
+        296,
+        470
+      ],
+      "score": 0.9838829040527344
+    },
+    {
+      "text": "48. Dicens: Transeanius per terram vestram, ut eamus in",
+      "box": [
+        313,
+        456,
+        598,
+        473
+      ],
+      "score": 0.9745977520942688
+    },
+    {
+      "text": "impetum contra viam Bethacharam: et comparaverunt se",
+      "box": [
+        606,
+        450,
+        899,
+        467
+      ],
+      "score": 0.9436250925064087
+    },
+    {
+      "text": "asleu, cum letitia et gaudio.",
+      "box": [
+        0,
+        465,
+        139,
+        478
+      ],
+      "score": 0.9587383270263672
+    },
+    {
+      "text": "terram nostram: et nemo vobis nocebit: tantum pedibus transi-",
+      "box": [
+        304,
+        466,
+        598,
+        483
+      ],
+      "score": 0.9778246283531189
+    },
+    {
+      "text": "exercitus in prelium, et tubis cecimerunt:",
+      "box": [
+        605,
+        461,
+        806,
+        477
+      ],
+      "score": 0.9614775776863098
+    },
+    {
+      "text": "60. Et mdificaverunt in tempore illo montem Sion, et per",
+      "box": [
+        1,
+        474,
+        296,
+        490
+      ],
+      "score": 0.9763776063919067
+    },
+    {
+      "text": "bimus. Et nolebant eis aperire.",
+      "box": [
+        304,
+        477,
+        447,
+        492
+      ],
+      "score": 0.9942384362220764
+    },
+    {
+      "text": "acuendos eos in prelium:",
+      "box": [
+        606,
+        480,
+        731,
+        497
+      ],
+      "score": 0.9567925333976746
+    },
+    {
+      "text": "34. Et elephantis ostenderunt sanguinem uve et mori, ad",
+      "box": [
+        616,
+        471,
+        899,
+        488
+      ],
+      "score": 0.8854399919509888
+    },
+    {
+      "text": "ircuitum muros altos, et turres firmas, ne quando venirent",
+      "box": [
+        0,
+        484,
+        296,
+        500
+      ],
+      "score": 0.9781295657157898
+    },
+    {
+      "text": "entes, et conculearent eum sicut antea fecerunt.",
+      "box": [
+        0,
+        494,
+        231,
+        510
+      ],
+      "score": 0.9755099415779114
+    },
+    {
+      "text": "49. Et prmcepit Judas predicare in castris, ut applicarent",
+      "box": [
+        314,
+        486,
+        597,
+        504
+      ],
+      "score": 0.9711817502975464
+    },
+    {
+      "text": "unnsquisque in quo erat loco.",
+      "box": [
+        303,
+        497,
+        444,
+        513
+      ],
+      "score": 0.9744422435760498
+    },
+    {
+      "text": "35. Et diviserunt bestias per legiones: et astiterant singulis",
+      "box": [
+        615,
+        491,
+        899,
+        508
+      ],
+      "score": 0.8427285552024841
+    },
+    {
+      "text": "61. Et collocavit illic exercitum, ut servarent eum, et mu-",
+      "box": [
+        1,
+        505,
+        296,
+        520
+      ],
+      "score": 0.9914838671684265
+    },
+    {
+      "text": "50. Et applicuerunt se viri virtutis: et oppugnavit civita-",
+      "box": [
+        313,
+        507,
+        597,
+        523
+      ],
+      "score": 0.9666719436645508
+    },
+    {
+      "text": "cru e queq  aub",
+      "box": [
+        603,
+        509,
+        900,
+        530
+      ],
+      "score": 0.37888166308403015
+    },
+    {
+      "text": "elephantis mille viri in loricis concatenatis, et galem ere in",
+      "box": [
+        606,
+        502,
+        899,
+        518
+      ],
+      "score": 0.7214877605438232
+    },
+    {
+      "text": "ivit eum ad custodiendam Bethsuram, ut haberet populus",
+      "box": [
+        0,
+        514,
+        295,
+        531
+      ],
+      "score": 0.9931681156158447
+    },
+    {
+      "text": "aunitionem contra faciem Idumam.",
+      "box": [
+        0,
+        526,
+        167,
+        539
+      ],
+      "score": 0.951947033405304
+    },
+    {
+      "text": "tem illam tota die, et tota nocte, et tradíta est civitas in manu",
+      "box": [
+        303,
+        517,
+        597,
+        534
+      ],
+      "score": 0.9671159982681274
+    },
+    {
+      "text": "ejus:",
+      "box": [
+        305,
+        530,
+        332,
+        541
+      ],
+      "score": 0.9990264177322388
+    },
+    {
+      "text": "electi erant.",
+      "box": [
+        605,
+        521,
+        665,
+        537
+      ],
+      "score": 0.9537712335586548
+    },
+    {
+      "text": "CAPUT V",
+      "box": [
+        117,
+        545,
+        172,
+        559
+      ],
+      "score": 0.9994324445724487
+    },
+    {
+      "text": "51. Et peremerunt omuem masculum in ore gladii, et era-",
+      "box": [
+        313,
+        537,
+        596,
+        554
+      ],
+      "score": 0.9829902648925781
+    },
+    {
+      "text": "dicavit eam, et accepit spolia ejus, et transivit per totam civi-",
+      "box": [
+        304,
+        547,
+        596,
+        565
+      ],
+      "score": 0.9361266493797302
+    },
+    {
+      "text": "quocumque ibat, ibant, et non discedebant ab ca.",
+      "box": [
+        605,
+        543,
+        838,
+        558
+      ],
+      "score": 0.9560629725456238
+    },
+    {
+      "text": "1. Et factum est, ut audierant gentes in circuitu, quía aedi-",
+      "box": [
+        1,
+        565,
+        294,
+        580
+      ],
+      "score": 0.968612790107727
+    },
+    {
+      "text": "tatem super interfectos.",
+      "box": [
+        305,
+        559,
+        416,
+        572
+      ],
+      "score": 0.9994413256645203
+    },
+    {
+      "text": "catum est altare et sanctuarium sicut prius, iratm sunt valde:",
+      "box": [
+        0,
+        576,
+        295,
+        591
+      ],
+      "score": 0.990778386592865
+    },
+    {
+      "text": "52. Et transgressi sunt Jordanem in campo magno, contra",
+      "box": [
+        312,
+        568,
+        596,
+        585
+      ],
+      "score": 0.98943692445755
+    },
+    {
+      "text": "faciem Bethsan.",
+      "box": [
+        304,
+        579,
+        383,
+        592
+      ],
+      "score": 0.9988510012626648
+    },
+    {
+      "text": "va g du, qu paba deap, ed a",
+      "box": [
+        602,
+        570,
+        899,
+        591
+      ],
+      "score": 0.441816508769989
+    },
+    {
+      "text": "2. Et cogitabant tollere genus Jacob, qui erant inter cos, et",
+      "box": [
+        0,
+        586,
+        295,
+        602
+      ],
+      "score": 0.9827752709388733
+    },
+    {
+      "text": "53. Et erat Judas congregans extremos, et exhortabatur po-",
+      "box": [
+        311,
+        588,
+        596,
+        605
+      ],
+      "score": 0.9807168841362
+    },
+    {
+      "text": "bestie.",
+      "box": [
+        605,
+        583,
+        640,
+        596
+      ],
+      "score": 0.9406014680862427
+    },
+    {
+      "text": "sperunt occidere de populo, et persequi.",
+      "box": [
+        0,
+        598,
+        194,
+        611
+      ],
+      "score": 0.9432770609855652
+    },
+    {
+      "text": "pulum per totam viam, donec venirent in terram Juda.",
+      "box": [
+        303,
+        599,
+        559,
+        614
+      ],
+      "score": 0.9891561269760132
+    },
+    {
+      "text": "38. Et residuum equitatum hine et inde statult in duns",
+      "box": [
+        611,
+        589,
+        898,
+        610
+      ],
+      "score": 0.9251313805580139
+    },
+    {
+      "text": "S. Et debellabat Judas filios Esau in Idumea, et eos qui",
+      "box": [
+        0,
+        607,
+        295,
+        622
+      ],
+      "score": 0.9609252214431763
+    },
+    {
+      "text": "54. Et ascenderunt in montem Sion cum letitia et gaudio,",
+      "box": [
+        312,
+        608,
+        595,
+        625
+      ],
+      "score": 0.9867647290229797
+    },
+    {
+      "text": "rant in Acrabathane, quia circumsedebant Israelitas, et per-",
+      "box": [
+        0,
+        618,
+        295,
+        632
+      ],
+      "score": 0.9725736975669861
+    },
+    {
+      "text": "et obtalerunt holocausta, quod nemo ex eis cecidisset, donec",
+      "box": [
+        303,
+        619,
+        595,
+        634
+      ],
+      "score": 0.9884589314460754
+    },
+    {
+      "text": "legionábus ejus.",
+      "box": [
+        604,
+        611,
+        680,
+        629
+      ],
+      "score": 0.9181380271911621
+    },
+    {
+      "text": "ussit eos plaga magua.",
+      "box": [
+        0,
+        629,
+        109,
+        642
+      ],
+      "score": 0.9854101538658142
+    },
+    {
+      "text": "reverterentur in pace.",
+      "box": [
+        304,
+        629,
+        405,
+        641
+      ],
+      "score": 0.9991376399993896
+    },
+    {
+      "text": "39. E ut refulsit sol lu clypeos aureos, et ereos, resplen-",
+      "box": [
+        611,
+        620,
+        897,
+        640
+      ],
+      "score": 0.7956300377845764
+    },
+    {
+      "text": "4. Et recordatus est malitiam filiorum Bean, qui erant po-",
+      "box": [
+        0,
+        638,
+        294,
+        651
+      ],
+      "score": 0.9870742559432983
+    },
+    {
+      "text": "55. Et iu diebus, quibus erat Judas et Jonathes in terra",
+      "box": [
+        312,
+        637,
+        595,
+        654
+      ],
+      "score": 0.9721031188964844
+    },
+    {
+      "text": "ulo in laqueum, et in scandalum, insidiautes ei in via.",
+      "box": [
+        0,
+        649,
+        258,
+        662
+      ],
+      "score": 0.9890691041946411
+    },
+    {
+      "text": "Galand, et Simon frater ejus in Galilen contra faciem Ptole-",
+      "box": [
+        303,
+        648,
+        595,
+        664
+      ],
+      "score": 0.9765456318855286
+    },
+    {
+      "text": "5. Et conclusi sunt ab eo in turribus, et applicuit ad eos, et",
+      "box": [
+        0,
+        660,
+        295,
+        673
+      ],
+      "score": 0.9919814467430115
+    },
+    {
+      "text": "maidis,",
+      "box": [
+        304,
+        660,
+        341,
+        671
+      ],
+      "score": 0.9916253685951233
+    },
+    {
+      "text": "et alia per loca humilia: et ibant caute et ordinate.",
+      "box": [
+        603,
+        651,
+        843,
+        671
+      ],
+      "score": 0.8040895462036133
+    },
+    {
+      "text": "nathematizavit eos, et incendit turris eorum igui, cum omni-",
+      "box": [
+        0,
+        670,
+        294,
+        683
+      ],
+      "score": 0.9750198721885681
+    },
+    {
+      "text": "56. Audivit Josephus Zacharize filius, et Azarias priuceps",
+      "box": [
+        311,
+        666,
+        595,
+        686
+      ],
+      "score": 0.937808632850647
+    },
+    {
+      "text": "us qui in eis erant,",
+      "box": [
+        0,
+        682,
+        92,
+        692
+      ],
+      "score": 0.9735056757926941
+    },
+    {
+      "text": "virtutis, res bene gestas, et prelia que facta sunt,",
+      "box": [
+        302,
+        678,
+        536,
+        693
+      ],
+      "score": 0.9502239227294922
+    },
+    {
+      "text": "6. Et transivit ad filios Ammon, et invenit manum fortem,",
+      "box": [
+        0,
+        689,
+        294,
+        703
+      ],
+      "score": 0.9893764853477478
+    },
+    {
+      "text": "57. Et dixit: Faciamus et ipsi nobis nomen, et eamus pug-",
+      "box": [
+        312,
+        687,
+        594,
+        706
+      ],
+      "score": 0.981563925743103
+    },
+    {
+      "text": "cnim exercitus maguus valde, et fortis.",
+      "box": [
+        604,
+        682,
+        787,
+        700
+      ],
+      "score": 0.9689134359359741
+    },
+    {
+      "text": " populum copiosum, et Timotheum duceim ipsorum.",
+      "box": [
+        0,
+        700,
+        254,
+        713
+      ],
+      "score": 0.9773057103157043
+    },
+    {
+      "text": "nare adversus gentes, que in circuita nostro sunt.",
+      "box": [
+        302,
+        699,
+        534,
+        714
+      ],
+      "score": 0.9803093075752258
+    },
+    {
+      "text": "7.\"Et commisit eum eis pralia multa, et contriti sunt in",
+      "box": [
+        0,
+        710,
+        294,
+        723
+      ],
+      "score": 0.9431430101394653
+    },
+    {
+      "text": "58. Et precepit his qui erant in exercitu suo,",
+      "box": [
+        311,
+        708,
+        539,
+        724
+      ],
+      "score": 0.9479775428771973
+    },
+    {
+      "text": "ceciderunt de exercita regis sexcenti viri.",
+      "box": [
+        604,
+        702,
+        798,
+        720
+      ],
+      "score": 0.9432458877563477
+    },
+    {
+      "text": "Jamniam.",
+      "box": [
+        302,
+        719,
+        351,
+        730
+      ],
+      "score": 0.9992841482162476
+    },
+    {
+      "text": "et abierunt",
+      "box": [
+        534,
+        712,
+        594,
+        723
+      ],
+      "score": 0.9530379772186279
+    },
+    {
+      "text": "43. Et vidit Eleazar filius Saura nnam",
+      "box": [
+        613,
+        712,
+        803,
+        730
+      ],
+      "score": 0.9157323241233826
+    },
+    {
+      "text": "onspectu eorum, et pereussit eos.",
+      "box": [
+        0,
+        722,
+        155,
+        732
+      ],
+      "score": 0.9904448986053467
+    },
+    {
+      "text": "de bestiis loricatam",
+      "box": [
+        797,
+        712,
+        894,
+        729
+      ],
+      "score": 0.9309419393539429
+    },
+    {
+      "text": "8.\" Et cepit Gazer civitatem, et filias ejus, et reversus est in",
+      "box": [
+        0,
+        730,
+        293,
+        742
+      ],
+      "score": 0.9834446907043457
+    },
+    {
+      "text": "50. Et exivit Gorgias de civitate, et viri ejus obviam illis",
+      "box": [
+        312,
+        728,
+        595,
+        743
+      ],
+      "score": 0.9959831237792969
+    },
+    {
+      "text": "in pugnam.",
+      "box": [
+        304,
+        740,
+        361,
+        751
+      ],
+      "score": 0.9809387922286987
+    },
+    {
+      "text": "est ei quod in ea esset rex:",
+      "box": [
+        603,
+        731,
+        733,
+        750
+      ],
+      "score": 0.9858049154281616
+    },
+    {
+      "text": "udeam.",
+      "box": [
+        0,
+        741,
+        39,
+        751
+      ],
+      "score": 0.97856205701828
+    },
+    {
+      "text": "9. Et congregatm sunt gentes quse sunt in Galaad, adversus",
+      "box": [
+        0,
+        749,
+        294,
+        762
+      ],
+      "score": 0.9521821737289429
+    },
+    {
+      "text": "60. Et fugati sunt Josephus et Azarias usque in fines Ju-",
+      "box": [
+        311,
+        746,
+        595,
+        763
+      ],
+      "score": 0.9784127473831177
+    },
+    {
+      "text": "srmelitas qui erant in finibus eorum, ut tollerent eos; et fuge-",
+      "box": [
+        0,
+        759,
+        294,
+        772
+      ],
+      "score": 0.9576359391212463
+    },
+    {
+      "text": "dee: et ceciderunt illo dle de populo Israel ad duo millia viri,",
+      "box": [
+        302,
+        757,
+        594,
+        774
+      ],
+      "score": 0.9480741024017334
+    },
+    {
+      "text": "sibi momen seternum.",
+      "box": [
+        603,
+        750,
+        705,
+        769
+      ],
+      "score": 0.8946698307991028
+    },
+    {
+      "text": "ant in Datheman munitionem:",
+      "box": [
+        0,
+        769,
+        146,
+        783
+      ],
+      "score": 0.9916884303092957
+    },
+    {
+      "text": "et facta est fuga magna in populo:",
+      "box": [
+        303,
+        769,
+        463,
+        782
+      ],
+      "score": 0.9825531244277954
+    },
+    {
+      "text": "10. Et miserunt litteras ad Judam et fratres ejus, dicentes:",
+      "box": [
+        0,
+        777,
+        294,
+        793
+      ],
+      "score": 0.9869864583015442
+    },
+    {
+      "text": "61. Quia non audierunt Judam, et fratres ejus, existiman-",
+      "box": [
+        312,
+        777,
+        595,
+        794
+      ],
+      "score": 0.9830152988433838
+    },
+    {
+      "text": "ciens a dextris et a sinistris, et cadebant",
+      "box": [
+        602,
+        770,
+        810,
+        792
+      ],
+      "score": 0.9078323841094971
+    },
+    {
+      "text": "illue.",
+      "box": [
+        604,
+        783,
+        631,
+        794
+      ],
+      "score": 0.9910798668861389
+    },
+    {
+      "text": "ab",
+      "box": [
+        808,
+        777,
+        825,
+        788
+      ],
+      "score": 0.9998288154602051
+    },
+    {
+      "text": "60",
+      "box": [
+        823,
+        777,
+        844,
+        788
+      ],
+      "score": 0.6366133689880371
+    },
+    {
+      "text": "hue atque",
+      "box": [
+        838,
+        773,
+        892,
+        788
+      ],
+      "score": 0.9456189274787903
+    },
+    {
+      "text": "ongregatm sunt adversum nos gentes per cireuitum, ut nos au-",
+      "box": [
+        0,
+        788,
+        294,
+        803
+      ],
+      "score": 0.9942719340324402
+    },
+    {
+      "text": "tcs fortiter se facturos.",
+      "box": [
+        303,
+        788,
+        410,
+        801
+      ],
+      "score": 0.9813976287841797
+    },
+    {
+      "text": "rant:",
+      "box": [
+        0,
+        801,
+        27,
+        812
+      ],
+      "score": 0.9979256391525269
+    },
+    {
+      "text": "62. Ipsi autem non erant de semine virorum illorum, per",
+      "box": [
+        312,
+        797,
+        595,
+        815
+      ],
+      "score": 0.9921934604644775
+    },
+    {
+      "text": "11. Et parant venire, et occupare munitionem, in quam con-",
+      "box": [
+        0,
+        807,
+        294,
+        823
+      ],
+      "score": 0.981523334980011
+    },
+    {
+      "text": "quos salus facta est in Isrnel,",
+      "box": [
+        302,
+        809,
+        438,
+        822
+      ],
+      "score": 0.9583485126495361
+    },
+    {
+      "text": "gimus: et Timotheus est dux exercitus.",
+      "box": [
+        0,
+        817,
+        189,
+        833
+      ],
+      "score": 0.9918859601020813
+    },
+    {
+      "text": "63. Et viri Juda maguificati sunt valde in conspectu omnis",
+      "box": [
+        311,
+        817,
+        595,
+        835
+      ],
+      "score": 0.9607862830162048
+    },
+    {
+      "text": "12. Nune ergo veni, et eripe nos de manibus eorum, quia",
+      "box": [
+        0,
+        828,
+        294,
+        843
+      ],
+      "score": 0.9888940453529358
+    },
+    {
+      "text": "Israel, et gentlum omnfum ubi audiebatur nomen eorum.",
+      "box": [
+        302,
+        828,
+        568,
+        845
+      ],
+      "score": 0.9713528752326965
+    },
+    {
+      "text": "diverterunt se ab eis.",
+      "box": [
+        603,
+        822,
+        704,
+        839
+      ],
+      "score": 0.9771103262901306
+    },
+    {
+      "text": "cidit multitudo de nobis.",
+      "box": [
+        0,
+        838,
+        123,
+        853
+      ],
+      "score": 0.9513899087905884
+    },
+    {
+      "text": "64. Et convenerunt ad eos fausta acclamantes,",
+      "box": [
+        312,
+        838,
+        533,
+        854
+      ],
+      "score": 0.9727396368980408
+    },
+    {
+      "text": "48. Castra autem",
+      "box": [
+        613,
+        831,
+        706,
+        850
+      ],
+      "score": 0.9938297271728516
+    },
+    {
+      "text": "n regis asceuderant contra eos in Jerusa-",
+      "box": [
+        697,
+        831,
+        892,
+        852
+      ],
+      "score": 0.8892767429351807
+    },
+    {
+      "text": "13. Et omnes fratres nostri, qui erant in locia Tubin, inter-",
+      "box": [
+        0,
+        845,
+        295,
+        864
+      ],
+      "score": 0.9801560044288635
+    },
+    {
+      "text": "65. Et exivit Judas, et fratres ejus, et expugnabant filios",
+      "box": [
+        312,
+        847,
+        595,
+        865
+      ],
+      "score": 0.9634295105934143
+    },
+    {
+      "text": "eti sunt: et captivas duxerunt uxores eorum, et natos, et spo-",
+      "box": [
+        0,
+        857,
+        294,
+        872
+      ],
+      "score": 0.9616017937660217
+    },
+    {
+      "text": "Esau in terra que ad Austrum est, et pereussitChebrou et filias",
+      "box": [
+        302,
+        857,
+        595,
+        875
+      ],
+      "score": 0.9718704223632812
+    },
+    {
+      "text": "ejus: et muros ejus et turres succendit igni in circuitu.",
+      "box": [
+        302,
+        867,
+        553,
+        884
+      ],
+      "score": 0.955783486366272
+    },
+    {
+      "text": "14. \"Et adhuc epistolm legebautur, et ecce alii nuutii vene-",
+      "box": [
+        0,
+        875,
+        293,
+        892
+      ],
+      "score": 0.9548347592353821
+    },
+    {
+      "text": "66. Et movit castra ut iret in termm alienigeuarum, et per-",
+      "box": [
+        311,
+        877,
+        593,
+        896
+      ],
+      "score": 0.9873737692832947
+    },
+    {
+      "text": "sabbata erant terrie.",
+      "box": [
+        602,
+        872,
+        698,
+        888
+      ],
+      "score": 0.8880762457847595
+    },
+    {
+      "text": "int de Galilea conscissis tunicis, nuutiantes secundum verba",
+      "box": [
+        0,
+        885,
+        295,
+        904
+      ],
+      "score": 0.9354090094566345
+    },
+    {
+      "text": "ambulabat Samariam.",
+      "box": [
+        301,
+        887,
+        407,
+        902
+      ],
+      "score": 0.9832828044891357
+    },
+    {
+      "text": "50. Et comprehendit rex",
+      "box": [
+        612,
+        882,
+        746,
+        899
+      ],
+      "score": 0.9918903112411499
+    },
+    {
+      "text": "custodiam servare eam.",
+      "box": [
+        601,
+        893,
+        713,
+        908
+      ],
+      "score": 0.9665653109550476
+    },
+    {
+      "text": "Bethsuram; et constltuit illie",
+      "box": [
+        739,
+        879,
+        892,
+        901
+      ],
+      "score": 0.9408670663833618
+    },
+    {
+      "text": "ec:",
+      "box": [
+        0,
+        901,
+        20,
+        912
+      ],
+      "score": 0.7249589562416077
+    },
+    {
+      "text": "67. In die illa ceciderunt sacerdotes in bello, dum volunt",
+      "box": [
+        311,
+        897,
+        594,
+        915
+      ],
+      "score": 0.9897640347480774
+    },
+    {
+      "text": "15.",
+      "box": [
+        0,
+        910,
+        21,
+        921
+      ],
+      "score": 0.8831200003623962
+    },
+    {
+      "text": "Dicentes convenisse a lversum se a Ptolemaida, et Tyro,",
+      "box": [
+        25,
+        908,
+        293,
+        921
+      ],
+      "score": 0.9885072112083435
+    },
+    {
+      "text": "fortiter facere, dum sine consilio exeunt in prelium.",
+      "box": [
+        301,
+        907,
+        544,
+        924
+      ],
+      "score": 0.9821736216545105
+    },
+    {
+      "text": "Sidone: et repleta est omuis Galilma alienigenis, ut nos con-",
+      "box": [
+        0,
+        917,
+        294,
+        932
+      ],
+      "score": 0.9728975296020508
+    },
+    {
+      "text": "68. Et declinavit Judas in Azotam in terram alienigenaram,",
+      "box": [
+        311,
+        917,
+        592,
+        935
+      ],
+      "score": 0.9746361374855042
+    },
+    {
+      "text": "imant.",
+      "box": [
+        0,
+        929,
+        34,
+        942
+      ],
+      "score": 0.9649548530578613
+    },
+    {
+      "text": "et dirnit aras corum, et sculptilia deorum ipsorum succendit",
+      "box": [
+        301,
+        928,
+        593,
+        945
+      ],
+      "score": 0.9733067750930786
+    },
+    {
+      "text": "16. Ut audivit autem Judas et populus sermones istos, con-",
+      "box": [
+        0,
+        937,
+        294,
+        952
+      ],
+      "score": 0.9962138533592224
+    },
+    {
+      "text": "igni: et cepit spolia civitatum, et reversus est in terram Juda.",
+      "box": [
+        301,
+        938,
+        592,
+        955
+      ],
+      "score": 0.9897858500480652
+    },
+    {
+      "text": "sagittas, et fundibula.",
+      "box": [
+        600,
+        932,
+        707,
+        948
+      ],
+      "score": 0.9326604008674622
+    },
+    {
+      "text": "enit ecclesia magua cogitare quid facerent fratribus suis, qui",
+      "box": [
+        0,
+        946,
+        294,
+        964
+      ],
+      "score": 0.9204556941986084
+    },
+    {
+      "text": "tribulatione erant, et expugnabantur ab eis.",
+      "box": [
+        0,
+        957,
+        216,
+        972
+      ],
+      "score": 0.9770538806915283
+    },
+    {
+      "text": "CAPUT VI",
+      "box": [
+        419,
+        959,
+        477,
+        972
+      ],
+      "score": 0.9999451637268066
+    },
+    {
+      "text": "rum, et puguaverunt dies multos.",
+      "box": [
+        600,
+        953,
+        758,
+        969
+      ],
+      "score": 0.9527432918548584
+    },
+    {
+      "text": "17. Dixitque Judas Simoni fratri suo: Elige tibi viros, et",
+      "box": [
+        0,
+        964,
+        294,
+        983
+      ],
+      "score": 0.8937699794769287
+    },
+    {
+      "text": "nus esset: et qui remansernt in Judea de gentibus, consump",
+      "box": [
+        599,
+        970,
+        891,
+        988
+      ],
+      "score": 0.6620146632194519
+    },
+    {
+      "text": "53. Escae autem non erant in civitate, eo quod septimus an-",
+      "box": [
+        610,
+        962,
+        891,
+        978
+      ],
+      "score": 0.8455125093460083
+    },
+    {
+      "text": "ade, et libera fratres tuos in Galilea: egoautem et frater meus",
+      "box": [
+        0,
+        977,
+        293,
+        992
+      ],
+      "score": 0.9709064364433289
+    },
+    {
+      "text": "1. Et rex Antiochus perambulabat superiores regiones, et",
+      "box": [
+        310,
+        976,
+        593,
+        994
+      ],
+      "score": 0.9923151731491089
+    },
+    {
+      "text": "onathas ibimus in Galaaditim.",
+      "box": [
+        0,
+        985,
+        146,
+        1002
+      ],
+      "score": 0.9890517592430115
+    },
+    {
+      "text": "audivit esse civitatem Elymaidem in Perside nobilissimam, et",
+      "box": [
+        301,
+        987,
+        592,
+        1004
+      ],
+      "score": 0.9819511771202087
+    },
+    {
+      "text": "serant reliquias eorum, qum reposite fuerant.",
+      "box": [
+        600,
+        982,
+        812,
+        998
+      ],
+      "score": 0.8936496376991272
+    },
+    {
+      "text": "18. Et reliquit Josephum linm Zacharia, et Azariam, du-",
+      "box": [
+        0,
+        995,
+        294,
+        1013
+      ],
+      "score": 0.9289005398750305
+    },
+    {
+      "text": "copiosam in argento et auro,",
+      "box": [
+        302,
+        998,
+        435,
+        1010
+      ],
+      "score": 0.9823123216629028
+    },
+    {
+      "text": "2 Templumque in ea locuples valde: et illic velamina au-",
+      "box": [
+        309,
+        1007,
+        592,
+        1023
+      ],
+      "score": 0.9729894399642944
+    },
+    {
+      "text": "rat eos fames; et dispersi sunt unnsqusque in locum suum.",
+      "box": [
+        598,
+        1000,
+        877,
+        1018
+      ],
+      "score": 0.7137317061424255
+    },
+    {
+      "text": "19. \" Et precepit illis, dicens: Prwestote populo huic: et no-",
+      "box": [
+        0,
+        1015,
+        293,
+        1032
+      ],
+      "score": 0.9409224390983582
+    },
+    {
+      "text": "rea, et lorice, et scuta, que reliquit Alexander Philippi rex",
+      "box": [
+        300,
+        1017,
+        591,
+        1034
+      ],
+      "score": 0.9824403524398804
+    },
+    {
+      "text": "Macedo, qui regnavit prinius in Grmeia.",
+      "box": [
+        301,
+        1027,
+        484,
+        1042
+      ],
+      "score": 0.8896710276603699
+    },
+    {
+      "text": "3. Et venit, et qumrebat capere civitatem, et depredari",
+      "box": [
+        310,
+        1037,
+        590,
+        1053
+      ],
+      "score": 0.8992689251899719
+    },
+    {
+      "text": "sunm, et regnaret,",
+      "box": [
+        599,
+        1031,
+        686,
+        1046
+      ],
+      "score": 0.9386199116706848
+    },
+    {
+      "text": "eam: Judae autem octo millia in Galaaditim.",
+      "box": [
+        0,
+        1044,
+        211,
+        1063
+      ],
+      "score": 0.960552990436554
+    },
+    {
+      "text": "eam: et non potuit, quoniam innotait sermo his qui erant in",
+      "box": [
+        300,
+        1048,
+        590,
+        1064
+      ],
+      "score": 0.9733509421348572
+    },
+    {
+      "text": "rat cum ipao, et quia quaerebat suseipere regu negotia:",
+      "box": [
+        597,
+        1050,
+        859,
+        1069
+      ],
+      "score": 0.7160913348197937
+    },
+    {
+      "text": "56. Reversus eset a Perside, et Media, et exercitus quiabie-",
+      "box": [
+        608,
+        1041,
+        891,
+        1058
+      ],
+      "score": 0.805519163608551
+    },
+    {
+      "text": "21. Et abiit Simon in Galilmam, et commisit prelia multa",
+      "box": [
+        0,
+        1055,
+        293,
+        1074
+      ],
+      "score": 0.9627320170402527
+    },
+    {
+      "text": "um gentibus: et contritm sunt gentes a facie ejus, et persecu-",
+      "box": [
+        0,
+        1066,
+        294,
+        1083
+      ],
+      "score": 0.9868488311767578
+    },
+    {
+      "text": "civitate:",
+      "box": [
+        303,
+        1059,
+        345,
+        1070
+      ],
+      "score": 0.9798965454101562
+    },
+    {
+      "text": "4. Et insurrexerunt in prelium, et fugit inde, et abiit cam",
+      "box": [
+        309,
+        1067,
+        590,
+        1083
+      ],
+      "score": 0.9885859489440918
+    },
+    {
+      "text": "us est eos usque ad portam",
+      "box": [
+        0,
+        1075,
+        127,
+        1093
+      ],
+      "score": 0.9648429155349731
+    },
+    {
+      "text": "tristitia magna, et reversus est in Babyloniam.",
+      "box": [
+        302,
+        1079,
+        516,
+        1091
+      ],
+      "score": 0.9931207895278931
+    },
+    {
+      "text": "5. Et venit qui nuutiaret ei in Perside, quia' fugata sunt",
+      "box": [
+        310,
+        1087,
+        590,
+        1103
+      ],
+      "score": 0.9613757133483887
+    },
+    {
+      "text": "sidemus, e munitus, et ineumbi nobas ordimare de regno.",
+      "box": [
+        597,
+        1078,
+        874,
+        1098
+      ],
+      "score": 0.6039195656776428
+    },
+    {
+      "text": "irorum, et accepit spolia eorum.",
+      "box": [
+        0,
+        1095,
+        153,
+        1112
+      ],
+      "score": 0.9700623750686646
+    },
+    {
+      "text": "castra, quse eraut in terra Juda:",
+      "box": [
+        301,
+        1098,
+        452,
+        1111
+      ],
+      "score": 0.961090624332428
+    },
+    {
+      "text": "6. 'Et quia abiit Lysias cum virtute forti in primis, et fuga-",
+      "box": [
+        310,
+        1106,
+        589,
+        1122
+      ],
+      "score": 0.942405104637146
+    },
+    {
+      "text": "cum illis pacem, et cum omni geute eorum:",
+      "box": [
+        598,
+        1099,
+        806,
+        1117
+      ],
+      "score": 0.9299090504646301
+    },
+    {
+      "text": "tus est a facie Judmorum, et invaluerunt armis, et viribus, et",
+      "box": [
+        300,
+        1117,
+        590,
+        1132
+      ],
+      "score": 0.9656403660774231
+    },
+    {
+      "text": "59. Et constituamas illia at ambulcat in legitimis suis sicut",
+      "box": [
+        606,
+        1108,
+        893,
+        1127
+      ],
+      "score": 0.753223180770874
+    },
+    {
+      "text": "a Judmam cum letitia magna.",
+      "box": [
+        0,
+        1126,
+        142,
+        1141
+      ],
+      "score": 0.9341816306114197
+    },
+    {
+      "text": "spoliis multis, qum ceperuut de castris, que exciderunt:",
+      "box": [
+        300,
+        1127,
+        559,
+        1140
+      ],
+      "score": 0.9595903158187866
+    },
+    {
+      "text": "prius; propter legitima enim ipsorum, que despeximus, irat",
+      "box": [
+        596,
+        1119,
+        892,
+        1138
+      ],
+      "score": 0.8055091500282288
+    },
+    {
+      "text": "24. Et Judas Machabeus et Jonathas frater ejus transie-",
+      "box": [
+        0,
+        1136,
+        292,
+        1151
+      ],
+      "score": 0.9801152944564819
+    },
+    {
+      "text": "7. Et quia diruerunt abominationem, quam edificaverat",
+      "box": [
+        310,
+        1137,
+        589,
+        1152
+      ],
+      "score": 0.9647504687309265
+    },
+    {
+      "text": "sunt, et fecerunt omitia hee.",
+      "box": [
+        597,
+        1129,
+        733,
+        1145
+      ],
+      "score": 0.911744236946106
+    },
+    {
+      "text": "ant Jordanem, et abierunt viam trium dierum per desertum.",
+      "box": [
+        0,
+        1147,
+        292,
+        1161
+      ],
+      "score": 0.9773629903793335
+    },
+    {
+      "text": "super altare, quod erat in Jerusalem, et sanctificationem, sicut",
+      "box": [
+        300,
+        1147,
+        590,
+        1162
+      ],
+      "score": 0.9875572919845581
+    },
+    {
+      "text": "60. Et placuit sermo in conspectu regis et principum: etmi-",
+      "box": [
+        606,
+        1138,
+        891,
+        1157
+      ],
+      "score": 0.8873253464698792
+    },
+    {
+      "text": "25. Et occurrerunt eis Nabuthei, et susceperunt eos paci-",
+      "box": [
+        1,
+        1157,
+        293,
+        1171
+      ],
+      "score": 0.975817859172821
+    },
+    {
+      "text": "prias, cireumdederunt muris excelsis, sed et Bethsuram civita-",
+      "box": [
+        300,
+        1157,
+        589,
+        1172
+      ],
+      "score": 0.9842429161071777
+    },
+    {
+      "text": "sit ad eos pacem facere, et receperunt illam.",
+      "box": [
+        596,
+        1149,
+        805,
+        1166
+      ],
+      "score": 0.9698804020881653
+    },
+    {
+      "text": "61. Et juravit illis rex, et principes: et exierunt de muni-",
+      "box": [
+        605,
+        1157,
+        891,
+        1177
+      ],
+      "score": 0.8312384486198425
+    },
+    {
+      "text": "n Galaaditide,",
+      "box": [
+        0,
+        1175,
+        69,
+        1191
+      ],
+      "score": 0.9855789542198181
+    },
+    {
+      "text": "tem suam.",
+      "box": [
+        303,
+        1169,
+        354,
+        1179
+      ],
+      "score": 0.9994798302650452
+    },
+    {
+      "text": "8. Et factum est ut audivit rex sermomes istos, expavit, et",
+      "box": [
+        310,
+        1176,
+        589,
+        1191
+      ],
+      "score": 0.9871635437011719
+    },
+    {
+      "text": "tione.",
+      "box": [
+        596,
+        1168,
+        627,
+        1182
+      ],
+      "score": 0.9978061318397522
+    },
+    {
+      "text": "commotus est valde: et decidit in lectum, et incidit in languo-",
+      "box": [
+        299,
+        1184,
+        590,
+        1202
+      ],
+      "score": 0.9494107365608215
+    },
+    {
+      "text": "62. Et intravit rex montem Sion, et vidit munitionem locit",
+      "box": [
+        605,
+        1177,
+        891,
+        1196
+      ],
+      "score": 0.9870439767837524
+    },
+    {
+      "text": "rem pre tristitia, qula non factum est ei sicut cogitabat.",
+      "box": [
+        301,
+        1195,
+        558,
+        1209
+      ],
+      "score": 0.9770146608352661
+    },
+    {
+      "text": "et rupit citius juramentum, quod juravit: et mandavit destrue-",
+      "box": [
+        596,
+        1188,
+        891,
+        1204
+      ],
+      "score": 0.9736882448196411
+    },
+    {
+      "text": "re murum in gyro.",
+      "box": [
+        597,
+        1197,
+        685,
+        1212
+      ],
+      "score": 0.9897918701171875
+    },
+    {
+      "text": "mnes civitates munitae, et magne.",
+      "box": [
+        0,
+        1203,
+        165,
+        1222
+      ],
+      "score": 0.9305801391601562
+    },
+    {
+      "text": "tristitia magna, et arbitratus est se mori.",
+      "box": [
+        303,
+        1215,
+        491,
+        1228
+      ],
+      "score": 0.988747775554657
+    },
+    {
+      "text": "63. Et discessit festinanter, et reversns est Antiochiam, et",
+      "box": [
+        606,
+        1206,
+        891,
+        1224
+      ],
+      "score": 0.9729743599891663
+    },
+    {
+      "text": "10. Et vocavit omnes amicos suos, et dixit illis: Recessit",
+      "box": [
+        313,
+        1225,
+        589,
+        1238
+      ],
+      "score": 0.9873244166374207
+    },
+    {
+      "text": "invenit Philippum dominantem civitati: et pugnavit adversus",
+      "box": [
+        596,
+        1216,
+        891,
+        1234
+      ],
+      "score": 0.9038546681404114
+    },
+    {
+      "text": "rehensi, et in crastinum constituerunt admovere exercitum",
+      "box": [
+        0,
+        1222,
+        295,
+        1243
+      ],
+      "score": 0.9126396775245667
+    },
+    {
+      "text": "vitatibus his, et comprehendere, et tollere eos in una die.",
+      "box": [
+        0,
+        1232,
+        273,
+        1253
+      ],
+      "score": 0.8497094511985779
+    },
+    {
+      "text": "somnus ab oculis meis, et concidi, et corrui corde pre sollicitu-",
+      "box": [
+        302,
+        1233,
+        589,
+        1249
+      ],
+      "score": 0.9898553490638733
+    },
+    {
+      "text": "eum, et occupavit civitatem.",
+      "box": [
+        596,
+        1227,
+        731,
+        1242
+      ],
+      "score": 0.954416811466217
+    },
+    {
+      "text": "dine:",
+      "box": [
+        304,
+        1246,
+        332,
+        1257
+      ],
+      "score": 0.9994381070137024
+    },
+    {
+      "text": "osor repente, et occupavit civitatem: et occidit omnem mas-",
+      "box": [
+        0,
+        1252,
+        295,
+        1274
+      ],
+      "score": 0.8395309448242188
+    },
+    {
+      "text": "11.",
+      "box": [
+        312,
+        1255,
+        335,
+        1267
+      ],
+      "score": 0.9950551986694336
+    },
+    {
+      "text": "Et dixi in corde meo: In quantam tribulationem deveni,",
+      "box": [
+        334,
+        1253,
+        588,
+        1268
+      ],
+      "score": 0.9746800661087036
+    },
+    {
+      "text": "CAPUT VII",
+      "box": [
+        712,
+        1248,
+        775,
+        1262
+      ],
+      "score": 0.9999053478240967
+    },
+    {
+      "text": "alnm in ore gladii, et accepit omnia spolia eorum, et succen-",
+      "box": [
+        0,
+        1263,
+        295,
+        1283
+      ],
+      "score": 0.9724187254905701
+    },
+    {
+      "text": "et in quos fluctus tristitie, in qua nunc sum; qui jucundus",
+      "box": [
+        303,
+        1264,
+        589,
+        1278
+      ],
+      "score": 0.9850518107414246
+    },
+    {
+      "text": "1. Anno centesimo quinquagesimo primo, exiit Demetrius",
+      "box": [
+        604,
+        1264,
+        893,
+        1283
+      ],
+      "score": 0.9706381559371948
+    },
+    {
+      "text": "im eam igni.",
+      "box": [
+        0,
+        1278,
+        63,
+        1293
+      ],
+      "score": 0.9933784008026123
+    },
+    {
+      "text": "eram, et dilectus in potestate mea!",
+      "box": [
+        302,
+        1273,
+        464,
+        1288
+      ],
+      "score": 0.9849908947944641
+    },
+    {
+      "text": "Seleuci lus ab urbe Roma, et aacendit cum pancis viria in e",
+      "box": [
+        595,
+        1274,
+        893,
+        1293
+      ],
+      "score": 0.748638391494751
+    },
+    {
+      "text": "29.",
+      "box": [
+        0,
+        1291,
+        28,
+        1304
+      ],
+      "score": 0.9997694492340088
+    },
+    {
+      "text": "Et surrexerunt inde nocte, et ibant usque ad munitio-",
+      "box": [
+        22,
+        1281,
+        295,
+        1303
+      ],
+      "score": 0.9839612245559692
+    },
+    {
+      "text": "12. Nuue vero reminiscor malorum qum feci in Jerusalem,",
+      "box": [
+        312,
+        1284,
+        588,
+        1297
+      ],
+      "score": 0.9899587035179138
+    },
+    {
+      "text": "unde et abstuli omnia spolía aurea et argentea, qum erant in",
+      "box": [
+        303,
+        1294,
+        589,
+        1307
+      ],
+      "score": 0.976864755153656
+    },
+    {
+      "text": "vitatem maritimam, et regnavit illic.",
+      "box": [
+        596,
+        1285,
+        768,
+        1301
+      ],
+      "score": 0.9673841595649719
+    },
+    {
+      "text": "em.",
+      "box": [
+        0,
+        1301,
+        19,
+        1312
+      ],
+      "score": 0.9895911812782288
+    },
+    {
+      "text": "rum, comprehendit exercitus Antiochun et Lysiam, ut addu-",
+      "box": [
+        594,
+        1302,
+        892,
+        1321
+      ],
+      "score": 0.7366964817047119
+    },
+    {
+      "text": "2. Et factum est, ut ingressus cat domum regni patrum suo-",
+      "box": [
+        603,
+        1293,
+        893,
+        1312
+      ],
+      "score": 0.7882508635520935
+    },
+    {
+      "text": "30. Et factum est diluculo, cum elevassent oculos suos,",
+      "box": [
+        0,
+        1300,
+        295,
+        1323
+      ],
+      "score": 0.9715524315834045
+    },
+    {
+      "text": "ea, et misi auferre lhabitantes Judmam sine causa.",
+      "box": [
+        303,
+        1303,
+        528,
+        1316
+      ],
+      "score": 0.9683590531349182
+    },
+    {
+      "text": "se populus multus, cujus non erat numerus, portantes sealas",
+      "box": [
+        0,
+        1310,
+        296,
+        1333
+      ],
+      "score": 0.8445313572883606
+    },
+    {
+      "text": "13. Cognovi ergo, quia propterea invenerunt me mala ista:",
+      "box": [
+        312,
+        1311,
+        588,
+        1326
+      ],
+      "score": 0.9381681680679321
+    },
+    {
+      "text": "et ecce pereo tristitia nagna in-terra alicna.",
+      "box": [
+        303,
+        1322,
+        501,
+        1336
+      ],
+      "score": 0.9042555689811707
+    },
+    {
+      "text": "cerent eos ad eum.",
+      "box": [
+        597,
+        1314,
+        684,
+        1327
+      ],
+      "score": 0.9681427478790283
+    },
+    {
+      "text": "machinas, ut comprehenderent munitionem, et expugua-",
+      "box": [
+        0,
+        1320,
+        295,
+        1344
+      ],
+      "score": 0.9577608108520508
+    },
+    {
+      "text": "3. Et res el innotuit, et ait: Nolite mihi ostendere faciem",
+      "box": [
+        604,
+        1321,
+        892,
+        1339
+      ],
+      "score": 0.9172930717468262
+    },
+    {
+      "text": "ent eos.",
+      "box": [
+        0,
+        1338,
+        39,
+        1355
+      ],
+      "score": 0.9802090525627136
+    },
+    {
+      "text": "14. Et vocavit Philippum, nnum de amicis suis, et preposult",
+      "box": [
+        314,
+        1333,
+        588,
+        1346
+      ],
+      "score": 0.9654428958892822
+    },
+    {
+      "text": "enm saper uafversnm regnum sunm;",
+      "box": [
+        302,
+        1342,
+        471,
+        1357
+      ],
+      "score": 0.835410475730896
+    },
+    {
+      "text": "eorum.",
+      "box": [
+        597,
+        1335,
+        632,
+        1346
+      ],
+      "score": 0.9994118809700012
+    },
+    {
+      "text": "É vidit Judas quin copit bellum, et clamor belli a",
+      "box": [
+        23,
+        1339,
+        296,
+        1364
+      ],
+      "score": 0.8394617438316345
+    },
+    {
+      "text": "4. Et occidit eos excrcitus. Et sedit Demetrius super sederm",
+      "box": [
+        604,
+        1342,
+        892,
+        1361
+      ],
+      "score": 0.9267856478691101
+    },
+    {
+      "text": "31.",
+      "box": [
+        0,
+        1352,
+        23,
+        1363
+      ],
+      "score": 0.9989179968833923
+    },
+    {
+      "text": "15Ee dedit ci dindema, ct stolam suam, et annulum, ut",
+      "box": [
+        313,
+        1353,
+        589,
+        1363
+      ],
+      "score": 0.8888224959373474
+    }
+  ]
+}

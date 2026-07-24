@@ -1,0 +1,1437 @@
+{
+  "volume": 3,
+  "page_index": 42,
+  "pdf_page": 43,
+  "lines": [
+    {
+      "text": "49",
+      "box": [
+        7,
+        24,
+        26,
+        41
+      ],
+      "score": 0.9999727010726929
+    },
+    {
+      "text": "SALMOS.",
+      "box": [
+        170,
+        25,
+        244,
+        48
+      ],
+      "score": 0.9976476430892944
+    },
+    {
+      "text": "SALMO LXXI.",
+      "box": [
+        670,
+        31,
+        774,
+        54
+      ],
+      "score": 0.9806978106498718
+    },
+    {
+      "text": "50",
+      "box": [
+        892,
+        33,
+        911,
+        51
+      ],
+      "score": 0.9999828338623047
+    },
+    {
+      "text": "32. Lo que será mas grato á Dios que si le inmolara un",
+      "box": [
+        11,
+        69,
+        414,
+        102
+      ],
+      "score": 0.9991301894187927
+    },
+    {
+      "text": "ternerillo cuando le comienzan á salir las astas y las pe-",
+      "box": [
+        0,
+        88,
+        415,
+        122
+      ],
+      "score": 0.9981587529182434
+    },
+    {
+      "text": "11. Diciendo: Dios le ha desamparado: corred tras él, y",
+      "box": [
+        534,
+        85,
+        916,
+        108
+      ],
+      "score": 0.9909422993659973
+    },
+    {
+      "text": "zuñas.",
+      "box": [
+        0,
+        107,
+        51,
+        128
+      ],
+      "score": 0.9997853636741638
+    },
+    {
+      "text": "prendedle, que ya no hay quien le liberte.",
+      "box": [
+        523,
+        109,
+        791,
+        126
+      ],
+      "score": 0.9883284568786621
+    },
+    {
+      "text": "33. Vean esto los pobres, y consuélense. Buscad pues á",
+      "box": [
+        13,
+        124,
+        417,
+        162
+      ],
+      "score": 0.995055615901947
+    },
+    {
+      "text": "12. Oh Dios, no te alejes de mí. Acude, Dios mio, á so-",
+      "box": [
+        533,
+        124,
+        915,
+        148
+      ],
+      "score": 0.9800378680229187
+    },
+    {
+      "text": "Dios, y revivirá vuestro espíritu:",
+      "box": [
+        0,
+        144,
+        232,
+        174
+      ],
+      "score": 0.9959832429885864
+    },
+    {
+      "text": "correrme.",
+      "box": [
+        521,
+        146,
+        585,
+        162
+      ],
+      "score": 0.9987303614616394
+    },
+    {
+      "text": "34. Puesto que el Señor oyó á los pobres, y no olvidó á",
+      "box": [
+        15,
+        162,
+        418,
+        197
+      ],
+      "score": 0.991592526435852
+    },
+    {
+      "text": "13. Corridos queden, y perezcan los que calumnian mi",
+      "box": [
+        533,
+        159,
+        914,
+        183
+      ],
+      "score": 0.9976564049720764
+    },
+    {
+      "text": "los que están por él en cadenas.",
+      "box": [
+        0,
+        181,
+        226,
+        209
+      ],
+      "score": 0.9871869087219238
+    },
+    {
+      "text": "persona: cubiertos sean de confusion y vergüenza los que",
+      "box": [
+        518,
+        176,
+        914,
+        201
+      ],
+      "score": 0.991406261920929
+    },
+    {
+      "text": "35. Alábenle los cielos y la tierra, el mar, y cuanto en",
+      "box": [
+        17,
+        198,
+        417,
+        235
+      ],
+      "score": 0.9992333054542542
+    },
+    {
+      "text": "procuran mi daño.",
+      "box": [
+        520,
+        196,
+        640,
+        213
+      ],
+      "score": 0.9997244477272034
+    },
+    {
+      "text": "ellos se mueve.",
+      "box": [
+        3,
+        216,
+        117,
+        241
+      ],
+      "score": 0.9999231100082397
+    },
+    {
+      "text": "14. Por mi parte no cesaré, oh Señor, de esperar en tí; y",
+      "box": [
+        531,
+        209,
+        913,
+        235
+      ],
+      "score": 0.9953724145889282
+    },
+    {
+      "text": "36. Porque Dios ha de salvar á Sion: y las ciudades de",
+      "box": [
+        19,
+        232,
+        416,
+        269
+      ],
+      "score": 0.9985449314117432
+    },
+    {
+      "text": "añadiré siempre nuevas alabanzas.",
+      "box": [
+        520,
+        228,
+        741,
+        247
+      ],
+      "score": 0.9865514636039734
+    },
+    {
+      "text": "Judá serán reedificadas;—y establecerán allí su morada, y",
+      "box": [
+        2,
+        248,
+        416,
+        288
+      ],
+      "score": 0.9140236377716064
+    },
+    {
+      "text": "15. Mi boca predicará tu justicia todo el dia, y la salud",
+      "box": [
+        533,
+        242,
+        914,
+        267
+      ],
+      "score": 0.9851316213607788
+    },
+    {
+      "text": "que de tí viene.—Como yo no entiendo de literatura ó sabidu-",
+      "box": [
+        518,
+        258,
+        914,
+        284
+      ],
+      "score": 0.9901589155197144
+    },
+    {
+      "text": "adquiriránlas como herencia.",
+      "box": [
+        5,
+        268,
+        209,
+        297
+      ],
+      "score": 0.9982007741928101
+    },
+    {
+      "text": "37. Y los descendientes de sus fieles siervos las poseerán;",
+      "box": [
+        20,
+        285,
+        415,
+        319
+      ],
+      "score": 0.9601961374282837
+    },
+    {
+      "text": "ría munduna²,",
+      "box": [
+        520,
+        277,
+        624,
+        294
+      ],
+      "score": 0.9438501596450806
+    },
+    {
+      "text": "16. Me internaré en la consideracion de las obras del Se-",
+      "box": [
+        531,
+        290,
+        914,
+        317
+      ],
+      "score": 0.9927509427070618
+    },
+    {
+      "text": "y en ellas tendrán su morada aquellos que aman su santo",
+      "box": [
+        2,
+        302,
+        414,
+        337
+      ],
+      "score": 0.9866101145744324
+    },
+    {
+      "text": "ñor: de sola tu justicia, oh Señor, haré yo memoria.",
+      "box": [
+        518,
+        308,
+        851,
+        331
+      ],
+      "score": 0.9983847141265869
+    },
+    {
+      "text": "Nombre.",
+      "box": [
+        3,
+        318,
+        76,
+        343
+      ],
+      "score": 0.999406635761261
+    },
+    {
+      "text": "17. Tú, oh Dios, fuiste mi maestro desde mi tierna edad;",
+      "box": [
+        531,
+        323,
+        913,
+        351
+      ],
+      "score": 0.9918375015258789
+    },
+    {
+      "text": "y yo publicaré tus maravillas que he experimentado hasta",
+      "box": [
+        514,
+        340,
+        912,
+        367
+      ],
+      "score": 0.9735535383224487
+    },
+    {
+      "text": "SALMO LXIX",
+      "box": [
+        169,
+        362,
+        266,
+        380
+      ],
+      "score": 0.9997849464416504
+    },
+    {
+      "text": "ahora.",
+      "box": [
+        517,
+        358,
+        561,
+        376
+      ],
+      "score": 0.9998316168785095
+    },
+    {
+      "text": "18. Y tú, oh Dios, en mi vejez y edad decrépita no me",
+      "box": [
+        529,
+        372,
+        912,
+        402
+      ],
+      "score": 0.9994489550590515
+    },
+    {
+      "text": "Datid pide à Dios que sean confundidos sus enemigos, para consuelo y",
+      "box": [
+        5,
+        387,
+        414,
+        420
+      ],
+      "score": 0.7919497489929199
+    },
+    {
+      "text": "desampares:—á fin de que anuncie el poder de tu brazo á",
+      "box": [
+        516,
+        390,
+        912,
+        420
+      ],
+      "score": 0.9911758899688721
+    },
+    {
+      "text": " d   E pp d  p",
+      "box": [
+        16,
+        402,
+        413,
+        436
+      ],
+      "score": 0.4976133704185486
+    },
+    {
+      "text": "ligro",
+      "box": [
+        18,
+        417,
+        56,
+        439
+      ],
+      "score": 0.9948346018791199
+    },
+    {
+      "text": "toda la generacion que ha de venir;",
+      "box": [
+        517,
+        409,
+        749,
+        430
+      ],
+      "score": 0.9989926815032959
+    },
+    {
+      "text": "19. Aquel tu poder y justicia, oh Dios, mas sublimes que",
+      "box": [
+        528,
+        424,
+        911,
+        455
+      ],
+      "score": 0.9948968291282654
+    },
+    {
+      "text": "los cielos, y aquellas grandes cosas que has hecho. Quién",
+      "box": [
+        515,
+        440,
+        910,
+        471
+      ],
+      "score": 0.9925225973129272
+    },
+    {
+      "text": "1. Para el fin: Salmo de David, en memoria de haberle el",
+      "box": [
+        22,
+        457,
+        413,
+        488
+      ],
+      "score": 0.9988600611686707
+    },
+    {
+      "text": "como tú, oh Dios mio!",
+      "box": [
+        515,
+        458,
+        667,
+        481
+      ],
+      "score": 0.9952694773674011
+    },
+    {
+      "text": "Señor salvado.",
+      "box": [
+        7,
+        474,
+        119,
+        499
+      ],
+      "score": 0.9994401335716248
+    },
+    {
+      "text": "20. Cuántas y cuán acerbas tribulaciones me has hecho",
+      "box": [
+        529,
+        475,
+        910,
+        504
+      ],
+      "score": 0.9862732291221619
+    },
+    {
+      "text": "2. Oh Dios, atiende á mi socorro: acude, Señor, luego á",
+      "box": [
+        22,
+        491,
+        415,
+        524
+      ],
+      "score": 0.9772199988365173
+    },
+    {
+      "text": "probar! Y vuelto á mí, me has hecho revivir, y nuevamente",
+      "box": [
+        513,
+        491,
+        911,
+        523
+      ],
+      "score": 0.983616828918457
+    },
+    {
+      "text": "ayudarme.",
+      "box": [
+        7,
+        509,
+        93,
+        534
+      ],
+      "score": 0.9999762773513794
+    },
+    {
+      "text": "me has sacado de los abismos de la tierra.",
+      "box": [
+        515,
+        512,
+        784,
+        533
+      ],
+      "score": 0.9881517291069031
+    },
+    {
+      "text": "3. Corridos y avergonzados queden los que me persiguen",
+      "box": [
+        21,
+        525,
+        414,
+        560
+      ],
+      "score": 0.9757588505744934
+    },
+    {
+      "text": "21. Diste á conocer de mil maneras la magnificencia de tu",
+      "box": [
+        528,
+        527,
+        908,
+        556
+      ],
+      "score": 0.997929573059082
+    },
+    {
+      "text": "de muerte.",
+      "box": [
+        9,
+        541,
+        95,
+        568
+      ],
+      "score": 0.9999473690986633
+    },
+    {
+      "text": "gloria; y vuelto á mí me consolaste.",
+      "box": [
+        514,
+        544,
+        748,
+        567
+      ],
+      "score": 0.997833788394928
+    },
+    {
+      "text": "4. Arrédrense, y confúndanse los que se complacen en",
+      "box": [
+        24,
+        558,
+        415,
+        593
+      ],
+      "score": 0.9759660959243774
+    },
+    {
+      "text": "22. Por lo que yo tambien celebraré, al son de instru-",
+      "box": [
+        528,
+        560,
+        908,
+        588
+      ],
+      "score": 0.9983105659484863
+    },
+    {
+      "text": "mis males.—Sean puestos en vergonzosa fuga aquellos que",
+      "box": [
+        8,
+        575,
+        415,
+        610
+      ],
+      "score": 0.9322954416275024
+    },
+    {
+      "text": "mentos músicos, la fidelidad tuya en las promesas: te can-",
+      "box": [
+        513,
+        576,
+        908,
+        605
+      ],
+      "score": 0.9814614057540894
+    },
+    {
+      "text": "me dicen insultándome: Bueno, bueno.",
+      "box": [
+        10,
+        594,
+        278,
+        623
+      ],
+      "score": 0.997607946395874
+    },
+    {
+      "text": "taré salmos con la cítara, oh Dios santo de Israél.",
+      "box": [
+        514,
+        594,
+        834,
+        618
+      ],
+      "score": 0.9894946813583374
+    },
+    {
+      "text": "23. De gozo rebosarán mis labios, y el alma mia, que tú",
+      "box": [
+        527,
+        609,
+        906,
+        638
+      ],
+      "score": 0.9937421679496765
+    },
+    {
+      "text": "redimiste, al cantar tus alabanzas.",
+      "box": [
+        513,
+        628,
+        733,
+        647
+      ],
+      "score": 0.9996641874313354
+    },
+    {
+      "text": "sea el Señor.",
+      "box": [
+        10,
+        644,
+        108,
+        668
+      ],
+      "score": 0.997068464756012
+    },
+    {
+      "text": "24. Todo el dia se empleará mi lengua en hablar de tu",
+      "box": [
+        525,
+        639,
+        906,
+        670
+      ],
+      "score": 0.9987422227859497
+    },
+    {
+      "text": "6. Yo por mí soy un menesteroso y pobre: ayúdame, oh",
+      "box": [
+        24,
+        659,
+        413,
+        688
+      ],
+      "score": 0.9931529760360718
+    },
+    {
+      "text": "",
+      "box": [
+        436,
+        656,
+        465,
+        753
+      ],
+      "score": 0.0
+    },
+    {
+      "text": "justicia; luego que los que procuran mi daño estén llenos de",
+      "box": [
+        510,
+        657,
+        905,
+        687
+      ],
+      "score": 0.9923503994941711
+    },
+    {
+      "text": "Dios.—Amparo mio y mi libertador eres tú: oh Señor, no te",
+      "box": [
+        9,
+        675,
+        415,
+        706
+      ],
+      "score": 0.8553205728530884
+    },
+    {
+      "text": "confusion y vergüenza.",
+      "box": [
+        514,
+        678,
+        661,
+        695
+      ],
+      "score": 0.9997518062591553
+    },
+    {
+      "text": "tardes.",
+      "box": [
+        11,
+        694,
+        69,
+        717
+      ],
+      "score": 0.9998685121536255
+    },
+    {
+      "text": "SALMO LXXI",
+      "box": [
+        660,
+        715,
+        757,
+        735
+      ],
+      "score": 0.9997459650039673
+    },
+    {
+      "text": "SALMO LXX",
+      "box": [
+        176,
+        733,
+        267,
+        750
+      ],
+      "score": 0.999781608581543
+    },
+    {
+      "text": "Con ocasion del renado de Salomon, descrbe Dad el reno pacc,",
+      "box": [
+        524,
+        749,
+        888,
+        778
+      ],
+      "score": 0.7468379139900208
+    },
+    {
+      "text": "Créese compuesto por David al tiempo de la rebelion de Absalom Conviene",
+      "box": [
+        15,
+        759,
+        411,
+        780
+      ],
+      "score": 0.9940313696861267
+    },
+    {
+      "text": "unicersal y eterno del Mesias.",
+      "box": [
+        626,
+        768,
+        788,
+        788
+      ],
+      "score": 0.9754307270050049
+    },
+    {
+      "text": "à Christo en su pasion.",
+      "box": [
+        162,
+        779,
+        281,
+        793
+      ],
+      "score": 0.9793911576271057
+    },
+    {
+      "text": "Salmo de David: 1. De los hijos de Jonadab, y de los pri-",
+      "box": [
+        32,
+        810,
+        412,
+        833
+      ],
+      "score": 0.9964167475700378
+    },
+    {
+      "text": "1. Salmo sobre Salomon, figura de Christo.",
+      "box": [
+        525,
+        810,
+        802,
+        833
+      ],
+      "score": 0.9871507287025452
+    },
+    {
+      "text": "meros cautivos.",
+      "box": [
+        16,
+        830,
+        128,
+        846
+      ],
+      "score": 0.9996854662895203
+    },
+    {
+      "text": "2. Da, oh Dios, al rey tus leyes para juzgar ³, da al hijo",
+      "box": [
+        524,
+        826,
+        895,
+        854
+      ],
+      "score": 0.9800934195518494
+    },
+    {
+      "text": "En tí, oh Señor, tengo puesta mi esperanza: no sea yo para",
+      "box": [
+        31,
+        843,
+        411,
+        865
+      ],
+      "score": 0.9967325925827026
+    },
+    {
+      "text": "del rey 4 tu justicia;—á fin de que él juzgue con rectitud á",
+      "box": [
+        510,
+        841,
+        896,
+        869
+      ],
+      "score": 0.9529168605804443
+    },
+    {
+      "text": "siempre confundido:",
+      "box": [
+        18,
+        861,
+        165,
+        878
+      ],
+      "score": 0.9994012117385864
+    },
+    {
+      "text": "78 788",
+      "box": [
+        421,
+        762,
+        502,
+        871
+      ],
+      "score": 0.48067882657051086
+    },
+    {
+      "text": "ilsLr",
+      "box": [
+        469,
+        861,
+        495,
+        909
+      ],
+      "score": 0.36164069175720215
+    },
+    {
+      "text": "tu pueblo, y á tus pobres segun la equidad.",
+      "box": [
+        511,
+        860,
+        782,
+        880
+      ],
+      "score": 0.9932510852813721
+    },
+    {
+      "text": "2. Lábrame por un efecto de tu justicia, y sácame del pe-",
+      "box": [
+        32,
+        875,
+        412,
+        896
+      ],
+      "score": 0.9918608665466309
+    },
+    {
+      "text": "3. Reciban del cielo los montes la paz para el pueblo, y",
+      "box": [
+        523,
+        874,
+        894,
+        902
+      ],
+      "score": 0.9863820672035217
+    },
+    {
+      "text": "ligro.—Presta oidos á mis súplicas, y sálvame.",
+      "box": [
+        18,
+        890,
+        323,
+        913
+      ],
+      "score": 0.9844387769699097
+    },
+    {
+      "text": "reciban los collados la justicia",
+      "box": [
+        512,
+        892,
+        706,
+        911
+      ],
+      "score": 0.9774594306945801
+    },
+    {
+      "text": "3. Seas para mí un Dios protector, y un seguro asilo para",
+      "box": [
+        35,
+        906,
+        413,
+        929
+      ],
+      "score": 0.9961526393890381
+    },
+    {
+      "text": "4. Él hará justicia á los pobres ó afligidos del pueblo, y",
+      "box": [
+        525,
+        905,
+        894,
+        933
+      ],
+      "score": 0.9526947140693665
+    },
+    {
+      "text": "ponerme en salvo:—ya que tú eres mi fortaleza y mi re-",
+      "box": [
+        19,
+        923,
+        413,
+        945
+      ],
+      "score": 0.9847018122673035
+    },
+    {
+      "text": "pondrá en salvo los hijos de los pobres, y humillará al ca-",
+      "box": [
+        511,
+        922,
+        895,
+        949
+      ],
+      "score": 0.997508704662323
+    },
+    {
+      "text": "fugio.",
+      "box": [
+        21,
+        937,
+        69,
+        959
+      ],
+      "score": 0.9998447895050049
+    },
+    {
+      "text": "lumniador.",
+      "box": [
+        512,
+        941,
+        587,
+        957
+      ],
+      "score": 0.9998526573181152
+    },
+    {
+      "text": "4. Dios mio, líbrame de las manos del pecador, y de las",
+      "box": [
+        36,
+        954,
+        412,
+        976
+      ],
+      "score": 0.9740763306617737
+    },
+    {
+      "text": "5. Y permanecerá como el sol y la luna, de generacion en",
+      "box": [
+        524,
+        953,
+        893,
+        980
+      ],
+      "score": 0.9967390894889832
+    },
+    {
+      "text": "manos del transgresor de la Ley, y del inícuo;",
+      "box": [
+        21,
+        971,
+        322,
+        993
+      ],
+      "score": 0.998079240322113
+    },
+    {
+      "text": "LAIL",
+      "box": [
+        448,
+        963,
+        498,
+        1029
+      ],
+      "score": 0.5310661792755127
+    },
+    {
+      "text": "generacion.",
+      "box": [
+        512,
+        973,
+        588,
+        990
+      ],
+      "score": 0.9999455809593201
+    },
+    {
+      "text": "5. Pues tú eres, Señor, la expectacion mia 1; tú, oh Señor,",
+      "box": [
+        37,
+        988,
+        411,
+        1010
+      ],
+      "score": 0.9937440752983093
+    },
+    {
+      "text": "6. Descenderá como la lluvia sobre el vellocino de lana ,",
+      "box": [
+        523,
+        986,
+        891,
+        1011
+      ],
+      "score": 0.9922975301742554
+    },
+    {
+      "text": "mi esperanza desde mi juventud.",
+      "box": [
+        23,
+        1004,
+        242,
+        1026
+      ],
+      "score": 0.9971803426742554
+    },
+    {
+      "text": "y como rocío copioso sobre la tierra.",
+      "box": [
+        510,
+        1005,
+        738,
+        1023
+      ],
+      "score": 0.9958745837211609
+    },
+    {
+      "text": "6. En tí me he apoyado desde el vientre de mi madre:",
+      "box": [
+        39,
+        1022,
+        411,
+        1042
+      ],
+      "score": 0.9901018142700195
+    },
+    {
+      "text": "7. Florecerá en sus dias la justicia, y la abundancia de paz,",
+      "box": [
+        523,
+        1018,
+        890,
+        1044
+      ],
+      "score": 0.9766932725906372
+    },
+    {
+      "text": "desde que estaba en sus entrañas eres tú mi protector. —",
+      "box": [
+        24,
+        1037,
+        410,
+        1058
+      ],
+      "score": 0.9836365580558777
+    },
+    {
+      "text": "hasta que deje de existir la luna.",
+      "box": [
+        511,
+        1037,
+        717,
+        1054
+      ],
+      "score": 0.9980328679084778
+    },
+    {
+      "text": "Tú eres siempre el asunto de mis cánticos.",
+      "box": [
+        25,
+        1054,
+        295,
+        1073
+      ],
+      "score": 0.9990328550338745
+    },
+    {
+      "text": "8. Y dominará de un mar á otro, y desde el rio hasta el",
+      "box": [
+        523,
+        1050,
+        890,
+        1074
+      ],
+      "score": 0.9923722743988037
+    },
+    {
+      "text": "7. Como una especie de prodigio, así soy mirado de mu-",
+      "box": [
+        39,
+        1071,
+        410,
+        1091
+      ],
+      "score": 0.9997503757476807
+    },
+    {
+      "text": "extremo del orbe de la tierra.",
+      "box": [
+        513,
+        1071,
+        693,
+        1085
+      ],
+      "score": 0.9999277591705322
+    },
+    {
+      "text": "chos; mas tú eres un poderoso defensor.",
+      "box": [
+        26,
+        1089,
+        279,
+        1106
+      ],
+      "score": 0.999793529510498
+    },
+    {
+      "text": "9. Postraránse á sus piés los Ethiopes: y lamerán el suelo",
+      "box": [
+        524,
+        1083,
+        888,
+        1106
+      ],
+      "score": 0.9938656091690063
+    },
+    {
+      "text": "8. Llénese de loores mi boca, para cantar todo el dia tu",
+      "box": [
+        40,
+        1105,
+        409,
+        1122
+      ],
+      "score": 0.9992795586585999
+    },
+    {
+      "text": "ante el sus enemigos.",
+      "box": [
+        512,
+        1103,
+        644,
+        1117
+      ],
+      "score": 0.9987245202064514
+    },
+    {
+      "text": "gloria, y la grandeza tuya.",
+      "box": [
+        27,
+        1122,
+        202,
+        1139
+      ],
+      "score": 0.9993785619735718
+    },
+    {
+      "text": "10. Los reyes de Tharsis y los de las islas le ofrecerán",
+      "box": [
+        525,
+        1117,
+        886,
+        1135
+      ],
+      "score": 0.9999114274978638
+    },
+    {
+      "text": "9. No me abandones en el tiempo de la vejez: cuando me",
+      "box": [
+        42,
+        1139,
+        407,
+        1152
+      ],
+      "score": 0.9851012825965881
+    },
+    {
+      "text": "regalos: traeránle presentes los reyes de Arabia y de Sabá:",
+      "box": [
+        511,
+        1134,
+        886,
+        1150
+      ],
+      "score": 0.9910881519317627
+    },
+    {
+      "text": "faltaren las fuerzas no me desampares.",
+      "box": [
+        26,
+        1152,
+        270,
+        1171
+      ],
+      "score": 0.9950616955757141
+    },
+    {
+      "text": "11. Le adorarán todos los reyes de la tierra, todas las na-",
+      "box": [
+        526,
+        1149,
+        886,
+        1166
+      ],
+      "score": 0.9909014701843262
+    },
+    {
+      "text": "10. Pues mis enemigos prorumpen en dicterios contra mí,",
+      "box": [
+        41,
+        1169,
+        406,
+        1186
+      ],
+      "score": 0.9998867511749268
+    },
+    {
+      "text": "ciones le rendirán homenaje:",
+      "box": [
+        513,
+        1167,
+        690,
+        1181
+      ],
+      "score": 0.999206006526947
+    },
+    {
+      "text": "y se han juntado en consejo los que estaban acechando mi",
+      "box": [
+        26,
+        1185,
+        407,
+        1202
+      ],
+      "score": 0.9995919466018677
+    },
+    {
+      "text": "12. Porque librará del poderoso al pobre, y al desvalido",
+      "box": [
+        523,
+        1178,
+        885,
+        1199
+      ],
+      "score": 0.9914799332618713
+    },
+    {
+      "text": "vida,",
+      "box": [
+        25,
+        1200,
+        68,
+        1219
+      ],
+      "score": 0.9970629811286926
+    },
+    {
+      "text": "que no tiene quien le valga.",
+      "box": [
+        511,
+        1198,
+        683,
+        1215
+      ],
+      "score": 0.997748851776123
+    },
+    {
+      "text": "1 O tambien: El ser tú quien eres, es lo que me hace sufrir con pacien-",
+      "box": [
+        37,
+        1238,
+        405,
+        1256
+      ],
+      "score": 0.9750590920448303
+    },
+    {
+      "text": "s Segun Martini puede traducirse: Da, oh Dios, al rey la sabiduría de",
+      "box": [
+        522,
+        1234,
+        886,
+        1253
+      ],
+      "score": 0.9832314848899841
+    },
+    {
+      "text": "cía la dilacion.",
+      "box": [
+        28,
+        1254,
+        112,
+        1268
+      ],
+      "score": 0.9714031219482422
+    },
+    {
+      "text": "juzgar.",
+      "box": [
+        508,
+        1250,
+        554,
+        1268
+      ],
+      "score": 0.9979702830314636
+    },
+    {
+      "text": "* Segun el hebreo puede traducirse: Mi boca predicard, etc, aungue",
+      "box": [
+        36,
+        1263,
+        407,
+        1285
+      ],
+      "score": 0.9403381943702698
+    },
+    {
+      "text": "4 El rey y el hijo del rey es aquí lo mismo.",
+      "box": [
+        520,
+        1262,
+        748,
+        1281
+      ],
+      "score": 0.9813503623008728
+    },
+    {
+      "text": "no conozca yo el namero de tus maravillas; ó no las conozca plenamente.",
+      "box": [
+        26,
+        1280,
+        406,
+        1299
+      ],
+      "score": 0.968061089515686
+    },
+    {
+      "text": " Judic. IV, v. 37. La voz hebrea  puede significar no solamente la",
+      "box": [
+        519,
+        1273,
+        888,
+        1295
+      ],
+      "score": 0.9400247931480408
+    },
+    {
+      "text": "Me internaré, etc.",
+      "box": [
+        26,
+        1292,
+        126,
+        1311
+      ],
+      "score": 0.9886413216590881
+    },
+    {
+      "text": "lana que se esquila, sino tambien la yerba que se corta en los prados.",
+      "box": [
+        508,
+        1286,
+        872,
+        1311
+      ],
+      "score": 0.9420949816703796
+    },
+    {
+      "text": "III.—8",
+      "box": [
+        823,
+        1305,
+        866,
+        1320
+      ],
+      "score": 0.9265301823616028
+    }
+  ]
+}

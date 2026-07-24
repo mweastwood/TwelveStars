@@ -1,0 +1,867 @@
+{
+  "volume": 3,
+  "page_index": 382,
+  "pdf_page": 383,
+  "lines": [
+    {
+      "text": "621",
+      "box": [
+        32,
+        21,
+        54,
+        37
+      ],
+      "score": 0.9988849759101868
+    },
+    {
+      "text": "AGGÉO.",
+      "box": [
+        181,
+        25,
+        242,
+        46
+      ],
+      "score": 0.9988893866539001
+    },
+    {
+      "text": "CAPITULO II.",
+      "box": [
+        651,
+        40,
+        747,
+        54
+      ],
+      "score": 0.9978044033050537
+    },
+    {
+      "text": "622",
+      "box": [
+        849,
+        39,
+        873,
+        55
+      ],
+      "score": 0.9987198710441589
+    },
+    {
+      "text": "7. Porque esto dice el Señor de los ejércitos: Aun falta un",
+      "box": [
+        33,
+        62,
+        412,
+        94
+      ],
+      "score": 0.9997270107269287
+    },
+    {
+      "text": "poco de tiempo 1, y yo pondré en movimiento el cielo y la",
+      "box": [
+        20,
+        78,
+        410,
+        111
+      ],
+      "score": 0.9825882911682129
+    },
+    {
+      "text": ".cor",
+      "box": [
+        417,
+        85,
+        437,
+        93
+      ],
+      "score": 0.5668115019798279
+    },
+    {
+      "text": "000",
+      "box": [
+        483,
+        88,
+        506,
+        99
+      ],
+      "score": 0.8987757563591003
+    },
+    {
+      "text": "16. Y reflexionad ahora vosotros lo sucedido desde este",
+      "box": [
+        523,
+        84,
+        880,
+        101
+      ],
+      "score": 0.999688446521759
+    },
+    {
+      "text": "tierra, y el mar y todo el universo.",
+      "box": [
+        21,
+        95,
+        239,
+        121
+      ],
+      "score": 0.9884326457977295
+    },
+    {
+      "text": "8. Y pondré en movimiento las gentes todas: porque vEN-",
+      "box": [
+        33,
+        111,
+        411,
+        145
+      ],
+      "score": 0.9791985154151917
+    },
+    {
+      "text": "dia atrás, antes que comenzaseis á construir el templo del",
+      "box": [
+        512,
+        103,
+        879,
+        117
+      ],
+      "score": 0.999777615070343
+    },
+    {
+      "text": "DRÁ EL DesEADo de todas las gentes; y henchiré de gloria",
+      "box": [
+        20,
+        128,
+        410,
+        163
+      ],
+      "score": 0.9728614091873169
+    },
+    {
+      "text": "Señor:",
+      "box": [
+        511,
+        119,
+        553,
+        134
+      ],
+      "score": 0.9997906684875488
+    },
+    {
+      "text": "17. Cuando acercándoos á un monton de mieses, que pare-",
+      "box": [
+        521,
+        133,
+        879,
+        152
+      ],
+      "score": 0.9948926568031311
+    },
+    {
+      "text": "este templo, dice el Señor de los ejércitos.",
+      "box": [
+        21,
+        147,
+        284,
+        173
+      ],
+      "score": 0.9852355718612671
+    },
+    {
+      "text": "cia de veinte celemines, venia á quedar en diez; y yendo al",
+      "box": [
+        508,
+        149,
+        879,
+        168
+      ],
+      "score": 0.9938775300979614
+    },
+    {
+      "text": "9. Por lo demás mia es la plata, dice el Señor de los ejérci-",
+      "box": [
+        32,
+        164,
+        409,
+        194
+      ],
+      "score": 0.9960867166519165
+    },
+    {
+      "text": "lagar para sacar cincuenta cántaros, no sacabais mas de",
+      "box": [
+        509,
+        165,
+        877,
+        184
+      ],
+      "score": 0.9987631440162659
+    },
+    {
+      "text": "tos, y mio el oro ².",
+      "box": [
+        20,
+        181,
+        132,
+        201
+      ],
+      "score": 0.9395090341567993
+    },
+    {
+      "text": "veinte.",
+      "box": [
+        513,
+        183,
+        554,
+        194
+      ],
+      "score": 0.9999913573265076
+    },
+    {
+      "text": "10. La gloria de este último templo será grande, será",
+      "box": [
+        32,
+        197,
+        409,
+        226
+      ],
+      "score": 0.9916229248046875
+    },
+    {
+      "text": "18. Yo destruí con viento abrasador, y con añublo, y con",
+      "box": [
+        522,
+        195,
+        877,
+        215
+      ],
+      "score": 0.9908226132392883
+    },
+    {
+      "text": "mayor que la del primero, dice el Señor de los ejércitos; y en",
+      "box": [
+        20,
+        213,
+        409,
+        242
+      ],
+      "score": 0.9954717755317688
+    },
+    {
+      "text": "pedrisco todas las labores de vuestras manos 6; y no hubo",
+      "box": [
+        508,
+        211,
+        877,
+        230
+      ],
+      "score": 0.9833351969718933
+    },
+    {
+      "text": "este lugar daré yo la paz ó felicidad, dice el mismo Señor de",
+      "box": [
+        18,
+        228,
+        409,
+        259
+      ],
+      "score": 0.9787395000457764
+    },
+    {
+      "text": "entre vosotros quien se convirtiese á mí, dice el Señor.",
+      "box": [
+        508,
+        226,
+        835,
+        245
+      ],
+      "score": 0.9977846145629883
+    },
+    {
+      "text": "los ejércitos *.",
+      "box": [
+        18,
+        245,
+        107,
+        264
+      ],
+      "score": 0.9265831708908081
+    },
+    {
+      "text": "19. Pero fijad vuestra atencion desde este dia en adelante,",
+      "box": [
+        521,
+        241,
+        877,
+        261
+      ],
+      "score": 0.9837483763694763
+    },
+    {
+      "text": "11. Á veinte y cuatro dias del mes nono, en el año se-",
+      "box": [
+        32,
+        260,
+        408,
+        290
+      ],
+      "score": 0.9914795160293579
+    },
+    {
+      "text": "desde el dia veinte y cuatro del mes nono: desde el dia en que",
+      "box": [
+        508,
+        256,
+        877,
+        276
+      ],
+      "score": 0.995725691318512
+    },
+    {
+      "text": "gundo del rey Darío, el Señor habló al Profeta Aggéo, y le",
+      "box": [
+        16,
+        276,
+        408,
+        305
+      ],
+      "score": 0.9891083836555481
+    },
+    {
+      "text": "se echaron los cimientos del templo del Señor, parad vuestra",
+      "box": [
+        507,
+        271,
+        877,
+        292
+      ],
+      "score": 0.9933192729949951
+    },
+    {
+      "text": "dijo:",
+      "box": [
+        17,
+        291,
+        54,
+        312
+      ],
+      "score": 0.9987604022026062
+    },
+    {
+      "text": "atencion.",
+      "box": [
+        507,
+        286,
+        567,
+        303
+      ],
+      "score": 0.9998032450675964
+    },
+    {
+      "text": "12. Esto dice el Señor de los ejércitos: Propon á los sacer-",
+      "box": [
+        29,
+        307,
+        407,
+        336
+      ],
+      "score": 0.9838811159133911
+    },
+    {
+      "text": "20. ¿No veis como aun no han nacido las simientes, y que",
+      "box": [
+        520,
+        301,
+        877,
+        323
+      ],
+      "score": 0.999397873878479
+    },
+    {
+      "text": "dotes esta cuestion legal:",
+      "box": [
+        16,
+        323,
+        178,
+        347
+      ],
+      "score": 0.9966404438018799
+    },
+    {
+      "text": "las viñas y las higueras, y los granados y los olivos no están",
+      "box": [
+        506,
+        317,
+        877,
+        337
+      ],
+      "score": 0.9860554933547974
+    },
+    {
+      "text": "13. Si un hombre llevare carne santificada en una extre-",
+      "box": [
+        27,
+        339,
+        407,
+        367
+      ],
+      "score": 0.9991081953048706
+    },
+    {
+      "text": "aun en flor? Pues yo desde este dia les echaré mi bendicion.",
+      "box": [
+        506,
+        333,
+        877,
+        352
+      ],
+      "score": 0.9989205002784729
+    },
+    {
+      "text": "midad de su vestido 4, y tocare con la orla de él pan ó",
+      "box": [
+        14,
+        354,
+        407,
+        383
+      ],
+      "score": 0.9811999201774597
+    },
+    {
+      "text": "21. Y habló el Señor segunda vez á Aggéo, á los veinte y",
+      "box": [
+        519,
+        347,
+        877,
+        369
+      ],
+      "score": 0.9870845079421997
+    },
+    {
+      "text": "vianda, ó vino, ó aceite, ú otra cosa de comer, ¿quedará acaso",
+      "box": [
+        13,
+        370,
+        406,
+        400
+      ],
+      "score": 0.9872313737869263
+    },
+    {
+      "text": "cuatro dias del mes, y díjole:",
+      "box": [
+        507,
+        365,
+        686,
+        382
+      ],
+      "score": 0.9997559785842896
+    },
+    {
+      "text": "santificada la tal cosa? Y respondieron los sacerdotes, y dije-",
+      "box": [
+        11,
+        386,
+        406,
+        417
+      ],
+      "score": 0.9910044074058533
+    },
+    {
+      "text": "22. Habla á Zorobabel, gobernador de Judá, y díle: Yo",
+      "box": [
+        519,
+        380,
+        877,
+        400
+      ],
+      "score": 0.986414909362793
+    },
+    {
+      "text": "ron: No.",
+      "box": [
+        12,
+        403,
+        69,
+        423
+      ],
+      "score": 0.9931671619415283
+    },
+    {
+      "text": "pondré en movimieto á un tiempo el cielo y la tierra,",
+      "box": [
+        505,
+        397,
+        836,
+        416
+      ],
+      "score": 0.984459400177002
+    },
+    {
+      "text": "I4. Y añadió Aggéo: Si alguno que está inmundo por razon",
+      "box": [
+        23,
+        417,
+        405,
+        452
+      ],
+      "score": 0.9626478552818298
+    },
+    {
+      "text": "23. Y trastornaré el trono de los reinos, y destruiré el",
+      "box": [
+        519,
+        413,
+        878,
+        431
+      ],
+      "score": 0.9766534566879272
+    },
+    {
+      "text": "de un muerto tocare alguna de todas estas cosas, ¿quedará por",
+      "box": [
+        8,
+        433,
+        406,
+        468
+      ],
+      "score": 0.9383928775787354
+    },
+    {
+      "text": "poder del reino de las gentes, y volcaré los carros de guerra,",
+      "box": [
+        505,
+        429,
+        878,
+        448
+      ],
+      "score": 0.9988067150115967
+    },
+    {
+      "text": "ventura inmunda la cosa que tocó? Y respondieron los sacer-",
+      "box": [
+        7,
+        449,
+        406,
+        484
+      ],
+      "score": 0.9694862961769104
+    },
+    {
+      "text": "y los que van sobre ellos, y caerán muertos los caballos, y",
+      "box": [
+        504,
+        445,
+        879,
+        464
+      ],
+      "score": 0.990710437297821
+    },
+    {
+      "text": "dotes diciendo: Inmunda quedará .",
+      "box": [
+        7,
+        466,
+        241,
+        497
+      ],
+      "score": 0.9793068766593933
+    },
+    {
+      "text": "los que los montan, cada uno bajo el filo de la espada de su",
+      "box": [
+        506,
+        464,
+        878,
+        478
+      ],
+      "score": 0.9995062351226807
+    },
+    {
+      "text": "15. Á lo que repuso Aggéo, y dijo: Así es este pueblo, y así",
+      "box": [
+        18,
+        482,
+        406,
+        518
+      ],
+      "score": 0.963744044303894
+    },
+    {
+      "text": "hermano.",
+      "box": [
+        505,
+        478,
+        569,
+        495
+      ],
+      "score": 0.9994633197784424
+    },
+    {
+      "text": "es esta gente delante de mí, dice el Señor, y así sucede con",
+      "box": [
+        5,
+        500,
+        404,
+        533
+      ],
+      "score": 0.9533932209014893
+    },
+    {
+      "text": "24. En aquel tiempo, dice el Señor de los ejércitos, yo te",
+      "box": [
+        520,
+        496,
+        878,
+        510
+      ],
+      "score": 0.9923295378684998
+    },
+    {
+      "text": "ensalzaré, oh Zorobabel 7, hijo de Salathiel, siervo mio, dice",
+      "box": [
+        506,
+        509,
+        879,
+        528
+      ],
+      "score": 0.9947779178619385
+    },
+    {
+      "text": "en este lugar, todo es inmundo.",
+      "box": [
+        7,
+        535,
+        211,
+        564
+      ],
+      "score": 0.9874720573425293
+    },
+    {
+      "text": "el Señor, y te tendré como un anillo de sellar; pues á tí te he",
+      "box": [
+        506,
+        525,
+        880,
+        545
+      ],
+      "score": 0.9931455254554749
+    },
+    {
+      "text": "escogido, dice el Señor de los ejércitos.",
+      "box": [
+        505,
+        543,
+        743,
+        561
+      ],
+      "score": 0.9904376864433289
+    },
+    {
+      "text": "IFaltaba algo mas de quinientos años hasta el nacimiento de Jesu-",
+      "box": [
+        11,
+        577,
+        403,
+        608
+      ],
+      "score": 0.9592919945716858
+    },
+    {
+      "text": "Christo,  lamase un poco de tempo con respco á la eternidad de",
+      "box": [
+        2,
+        591,
+        403,
+        622
+      ],
+      "score": 0.6575430631637573
+    },
+    {
+      "text": "luego no hay que esperar ya la venida del Mesías. En otro scntido por",
+      "box": [
+        504,
+        581,
+        881,
+        603
+      ],
+      "score": 0.9884171485900879
+    },
+    {
+      "text": "Di.l Asol cid e l ( ,) le do e lave",
+      "box": [
+        0,
+        605,
+        402,
+        636
+      ],
+      "score": 0.46032950282096863
+    },
+    {
+      "text": "el segundo templo se cntiende la Iglesia de Jesu-Christo, mucho mas",
+      "box": [
+        503,
+        595,
+        882,
+        617
+      ],
+      "score": 0.9894607067108154
+    },
+    {
+      "text": "sng d l e, e l cul e le Ana, ypnd",
+      "box": [
+        0,
+        620,
+        403,
+        650
+      ],
+      "score": 0.5484569072723389
+    },
+    {
+      "text": "gloriosa quc la Synagoga.—Véase I. Cor. III.—Es de notar que Herodes",
+      "box": [
+        503,
+        608,
+        882,
+        630
+      ],
+      "score": 0.9865798950195312
+    },
+    {
+      "text": "hizo muchas obras en cste segundo templo el año XVII antes de nacer",
+      "box": [
+        503,
+        622,
+        883,
+        643
+      ],
+      "score": 0.995581328868866
+    },
+    {
+      "text": "en movimiento, etc.",
+      "box": [
+        1,
+        637,
+        110,
+        658
+      ],
+      "score": 0.9980977773666382
+    },
+    {
+      "text": "Jesu-Christo.—Véase cl índice cronológico, año 3987 del Muspo.",
+      "box": [
+        503,
+        635,
+        848,
+        658
+      ],
+      "score": 0.9709748029708862
+    },
+    {
+      "text": "2 Mio es cuanto podeis ofrecerme.",
+      "box": [
+        11,
+        652,
+        206,
+        676
+      ],
+      "score": 0.9895301461219788
+    },
+    {
+      "text": "4 Levit. VI, v. 27.—VII, v. 19.—Num. XIX, v. 13.",
+      "box": [
+        514,
+        650,
+        792,
+        671
+      ],
+      "score": 0.9651422500610352
+    },
+    {
+      "text": "5 ¿Acaso las carnes santifioadas, decia Jcremías, cap. XI, v. 15, te qui-",
+      "box": [
+        513,
+        663,
+        885,
+        685
+      ],
+      "score": 0.9146153926849365
+    },
+    {
+      "text": "mado Príncipe de la paz.—Véase Isai. II, v. 4, y XI, v. 6.—Dan. IX, v. 24.",
+      "box": [
+        0,
+        681,
+        400,
+        704
+      ],
+      "score": 0.8731775879859924
+    },
+    {
+      "text": "tarán de encima tue maldades?",
+      "box": [
+        503,
+        679,
+        668,
+        699
+      ],
+      "score": 0.9768449664115906
+    },
+    {
+      "text": "—Ephes. II, v. 14.—En estas palabras se ve claramente la venida del",
+      "box": [
+        0,
+        697,
+        399,
+        716
+      ],
+      "score": 0.9861441254615784
+    },
+    {
+      "text": " Amos IV, v. 9.",
+      "box": [
+        514,
+        695,
+        610,
+        711
+      ],
+      "score": 0.960415780544281
+    },
+    {
+      "text": "Mesías; pues Jesu-Christo honró con su presencia cl segundo templo,",
+      "box": [
+        0,
+        709,
+        399,
+        732
+      ],
+      "score": 0.9837192296981812
+    },
+    {
+      "text": "7 Eecli. XLIX, v. 13. Fuó Zorobabel uno de los progenitores del Mesí",
+      "box": [
+        512,
+        702,
+        879,
+        725
+      ],
+      "score": 0.9327846169471741
+    },
+    {
+      "text": "predicó en él, hizo milagros, etc. Este segundo templo ya no subsiste:",
+      "box": [
+        0,
+        725,
+        398,
+        745
+      ],
+      "score": 0.9920194149017334
+    },
+    {
+      "text": "segun la carne. Matth. I, v. 12.",
+      "box": [
+        502,
+        719,
+        671,
+        741
+      ],
+      "score": 0.9909019470214844
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "volume": 2,
+  "page_index": 22,
+  "pdf_page": 23,
+  "lines": [
+    {
+      "text": "SSou",
+      "box": [
+        55,
+        1795,
+        181,
+        1837
+      ],
+      "score": 0.7943918108940125
+    },
+    {
+      "text": "SAUL QUIERE ATRAVESAR A DAVID CON SU LANZA",
+      "box": [
+        355,
+        1872,
+        1024,
+        1909
+      ],
+      "score": 0.9944125413894653
+    }
+  ]
+}

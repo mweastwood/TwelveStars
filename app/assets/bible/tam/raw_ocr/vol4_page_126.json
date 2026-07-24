@@ -1,0 +1,27 @@
+{
+  "volume": 4,
+  "page_index": 126,
+  "pdf_page": 127,
+  "lines": [
+    {
+      "text": "gSar",
+      "box": [
+        108,
+        1087,
+        171,
+        1117
+      ],
+      "score": 0.6385619044303894
+    },
+    {
+      "text": "RESURRECCION DE LA HIJA DE JAIRO",
+      "box": [
+        344,
+        1157,
+        653,
+        1181
+      ],
+      "score": 0.9995791912078857
+    }
+  ]
+}

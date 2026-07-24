@@ -1,0 +1,37 @@
+{
+  "volume": 2,
+  "page_index": 252,
+  "pdf_page": 253,
+  "lines": [
+    {
+      "text": "Do",
+      "box": [
+        184,
+        1733,
+        262,
+        1768
+      ],
+      "score": 0.6518274545669556
+    },
+    {
+      "text": "PANNEMARER-DOMS",
+      "box": [
+        1112,
+        1769,
+        1291,
+        1798
+      ],
+      "score": 0.9540748000144958
+    },
+    {
+      "text": "JUDITH MOSTRANDO LA CABEZA DE HOLOFERNES",
+      "box": [
+        429,
+        1826,
+        1018,
+        1861
+      ],
+      "score": 0.9997599720954895
+    }
+  ]
+}

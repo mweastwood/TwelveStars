@@ -1,0 +1,817 @@
+{
+  "volume": 4,
+  "page_index": 50,
+  "pdf_page": 51,
+  "lines": [
+    {
+      "text": "EL SANTO EVANGELIO",
+      "box": [
+        266,
+        3,
+        701,
+        74
+      ],
+      "score": 0.9998889565467834
+    },
+    {
+      "text": "DE",
+      "box": [
+        475,
+        90,
+        499,
+        109
+      ],
+      "score": 0.9986394643783569
+    },
+    {
+      "text": "NUESTRO SEÑOR JESU·CHRISTO",
+      "box": [
+        113,
+        124,
+        845,
+        212
+      ],
+      "score": 0.9847954511642456
+    },
+    {
+      "text": "SEGUN",
+      "box": [
+        467,
+        219,
+        506,
+        243
+      ],
+      "score": 0.9990943074226379
+    },
+    {
+      "text": "SAN MARCOS",
+      "box": [
+        367,
+        263,
+        602,
+        301
+      ],
+      "score": 0.960101306438446
+    },
+    {
+      "text": "ADVERTENCIA",
+      "box": [
+        411,
+        387,
+        556,
+        411
+      ],
+      "score": 0.9997047781944275
+    },
+    {
+      "text": "CAPITULO PRIMERO",
+      "box": [
+        184,
+        655,
+        322,
+        673
+      ],
+      "score": 0.9998440742492676
+    },
+    {
+      "text": "12. Luego despues el mismo Espíritu le arrebató al desierto,",
+      "box": [
+        541,
+        653,
+        897,
+        671
+      ],
+      "score": 0.997989296913147
+    },
+    {
+      "text": "13. Donde se mantuvo cuarenta dias y cuarenta noches.",
+      "box": [
+        540,
+        669,
+        896,
+        687
+      ],
+      "score": 0.9971579313278198
+    },
+    {
+      "text": "Allí fué tentado de Satanás; y moraba entre las fieras, y los",
+      "box": [
+        528,
+        685,
+        897,
+        704
+      ],
+      "score": 0.9986948370933533
+    },
+    {
+      "text": "Predicacion y bautismo de San Juan. Jesus despues de bautizado en el",
+      "box": [
+        64,
+        696,
+        436,
+        715
+      ],
+      "score": 0.9919607639312744
+    },
+    {
+      "text": "Jordan, y tentado en el desierto, comienza á predicar el Evangelio en",
+      "box": [
+        75,
+        710,
+        434,
+        729
+      ],
+      "score": 0.9896801710128784
+    },
+    {
+      "text": "ángeles le servian.",
+      "box": [
+        530,
+        703,
+        640,
+        717
+      ],
+      "score": 0.9876063466072083
+    },
+    {
+      "text": "14. Pero despues que Juan fué puesto en la cárcel, vino",
+      "box": [
+        540,
+        716,
+        896,
+        736
+      ],
+      "score": 0.9994845986366272
+    },
+    {
+      "text": "Galiléa. Vocacion de San Pedro y de otros discípulos. Jesu Christo",
+      "box": [
+        76,
+        724,
+        435,
+        743
+      ],
+      "score": 0.979926347732544
+    },
+    {
+      "text": "obra varios milagros. (Matth. 3, 4, 8.—Luc. 3, 4, 5.—Joan. 1, 4.)",
+      "box": [
+        75,
+        738,
+        407,
+        758
+      ],
+      "score": 0.951519250869751
+    },
+    {
+      "text": "Jesus á la alta Galiléa, predicando el Evangelio del reino de",
+      "box": [
+        528,
+        732,
+        897,
+        754
+      ],
+      "score": 0.982444703578949
+    },
+    {
+      "text": "Dios,",
+      "box": [
+        529,
+        751,
+        562,
+        769
+      ],
+      "score": 0.9999868273735046
+    },
+    {
+      "text": "15. Y diciendo: Se ha cumplido ya el tiempo, y el reino de",
+      "box": [
+        540,
+        765,
+        896,
+        786
+      ],
+      "score": 0.9949157238006592
+    },
+    {
+      "text": "1. Principio del Evangelio de Jesu-Christo, Hijo de Dios.",
+      "box": [
+        78,
+        785,
+        434,
+        806
+      ],
+      "score": 0.9997236132621765
+    },
+    {
+      "text": "Dios está cerea: haced penitencia, y creed al Evangelio.",
+      "box": [
+        529,
+        782,
+        863,
+        802
+      ],
+      "score": 0.992787778377533
+    },
+    {
+      "text": "2. Conforme á lo que se halla escrito en el Profeta Isaías 1:",
+      "box": [
+        78,
+        801,
+        435,
+        823
+      ],
+      "score": 0.9739457368850708
+    },
+    {
+      "text": "16. En esto, pasando por la ribera del mar de Galiléa, vió",
+      "box": [
+        541,
+        799,
+        897,
+        818
+      ],
+      "score": 0.9977331757545471
+    },
+    {
+      "text": "Hé aquí que despacho yo mi Ángel ó enviado ante tu presen-",
+      "box": [
+        65,
+        817,
+        436,
+        840
+      ],
+      "score": 0.9861744046211243
+    },
+    {
+      "text": "á Simon y á su hermano Andrés, echando las redes al mar,",
+      "box": [
+        528,
+        815,
+        897,
+        835
+      ],
+      "score": 0.986482560634613
+    },
+    {
+      "text": "cia, el cual irá delante de tí preparándote el camino.",
+      "box": [
+        66,
+        834,
+        383,
+        857
+      ],
+      "score": 0.9903721809387207
+    },
+    {
+      "text": "(pues eran pescadores)",
+      "box": [
+        530,
+        833,
+        668,
+        850
+      ],
+      "score": 0.9847726225852966
+    },
+    {
+      "text": "3. Esta es la voz del que clama en el desierto: Preparad el",
+      "box": [
+        78,
+        849,
+        434,
+        872
+      ],
+      "score": 0.9978751540184021
+    },
+    {
+      "text": "17. Y díjoles Jesus: Seguidme, y yo haré que vengais á ser",
+      "box": [
+        541,
+        848,
+        897,
+        868
+      ],
+      "score": 0.9724873304367065
+    },
+    {
+      "text": "camino del Señor, hacedle rectas las sendas.",
+      "box": [
+        67,
+        866,
+        333,
+        889
+      ],
+      "score": 0.9960638284683228
+    },
+    {
+      "text": "pescadores de hombres.",
+      "box": [
+        529,
+        866,
+        671,
+        884
+      ],
+      "score": 0.9884353280067444
+    },
+    {
+      "text": "4. Estaba Juan en el desierto de la Judéa bautizando, y",
+      "box": [
+        79,
+        882,
+        434,
+        905
+      ],
+      "score": 0.999198853969574
+    },
+    {
+      "text": "18. Y ellos prontamente abandonadas las redes, le si-",
+      "box": [
+        542,
+        883,
+        897,
+        900
+      ],
+      "score": 0.9912213683128357
+    },
+    {
+      "text": "predicando el bautismo de penitencia para la remision de los",
+      "box": [
+        67,
+        898,
+        435,
+        922
+      ],
+      "score": 0.999163031578064
+    },
+    {
+      "text": "guieron.",
+      "box": [
+        530,
+        899,
+        583,
+        917
+      ],
+      "score": 0.9999605417251587
+    },
+    {
+      "text": "pecados.",
+      "box": [
+        68,
+        918,
+        125,
+        937
+      ],
+      "score": 0.9990907907485962
+    },
+    {
+      "text": "19. Habiendo pasado un poco mas adelante, vió á Santiago",
+      "box": [
+        544,
+        917,
+        896,
+        931
+      ],
+      "score": 0.9878381490707397
+    },
+    {
+      "text": "5. Y acudia á él todo el país de Judéa, y todas las gentes",
+      "box": [
+        81,
+        932,
+        433,
+        951
+      ],
+      "score": 0.9939582943916321
+    },
+    {
+      "text": "hijo de Zebedéo, y á Juan su hermano, ambos asimismo en la",
+      "box": [
+        532,
+        933,
+        897,
+        947
+      ],
+      "score": 0.9974383115768433
+    },
+    {
+      "text": "de Jerusalem; y, confesando sus pecados, recibian de su mano",
+      "box": [
+        69,
+        948,
+        433,
+        968
+      ],
+      "score": 0.9992256760597229
+    },
+    {
+      "text": "barca componiendo las redes.",
+      "box": [
+        532,
+        949,
+        705,
+        963
+      ],
+      "score": 0.9867173433303833
+    },
+    {
+      "text": "el bautismo en el rio Jordan.",
+      "box": [
+        69,
+        966,
+        246,
+        985
+      ],
+      "score": 0.9998942613601685
+    },
+    {
+      "text": "20. Llamólos luego;y ellos dejando á su padre Zebedéo en",
+      "box": [
+        545,
+        965,
+        897,
+        979
+      ],
+      "score": 0.9936553239822388
+    },
+    {
+      "text": "6. Andaba Juan vestido con un saco de pelos de camello, y",
+      "box": [
+        81,
+        981,
+        433,
+        1001
+      ],
+      "score": 0.99857097864151
+    },
+    {
+      "text": "la barca con los jornaleros, se fueron en pos de él.",
+      "box": [
+        531,
+        981,
+        829,
+        996
+      ],
+      "score": 0.9839445352554321
+    },
+    {
+      "text": "traia un ceñidor de cuero á la cintura, sustentándose de lan-",
+      "box": [
+        69,
+        999,
+        432,
+        1017
+      ],
+      "score": 0.9927805662155151
+    },
+    {
+      "text": "21. Entraron despues en Capharnaum; y Jesus comenzó",
+      "box": [
+        543,
+        996,
+        898,
+        1013
+      ],
+      "score": 0.9943878054618835
+    },
+    {
+      "text": "gostas y miel silvestre. Y predicaba, diciendo:",
+      "box": [
+        69,
+        1016,
+        343,
+        1034
+      ],
+      "score": 0.9948530793190002
+    },
+    {
+      "text": "luego en los sábados á enseñar al pueblo en la synagoga.",
+      "box": [
+        530,
+        1011,
+        871,
+        1030
+      ],
+      "score": 0.9863560795783997
+    },
+    {
+      "text": "7. Én pos de mí viene uno que es mas poderoso que yo,",
+      "box": [
+        83,
+        1034,
+        431,
+        1051
+      ],
+      "score": 0.9801069498062134
+    },
+    {
+      "text": "22. Y los oyentes estaban asombrados de su doctrina: por-",
+      "box": [
+        544,
+        1028,
+        900,
+        1045
+      ],
+      "score": 0.9956934452056885
+    },
+    {
+      "text": "ante el cual no soy digno ni de postrarme para desatar la cor-",
+      "box": [
+        69,
+        1049,
+        432,
+        1067
+      ],
+      "score": 0.99566251039505
+    },
+    {
+      "text": "que su modo de enseñar era como de persona que tiene auto-",
+      "box": [
+        531,
+        1044,
+        900,
+        1063
+      ],
+      "score": 0.9963597059249878
+    },
+    {
+      "text": "rea de sus zapatos.",
+      "box": [
+        70,
+        1068,
+        187,
+        1082
+      ],
+      "score": 0.998741626739502
+    },
+    {
+      "text": "ridad, y no como los Escribas.",
+      "box": [
+        531,
+        1062,
+        711,
+        1079
+      ],
+      "score": 0.9945247173309326
+    },
+    {
+      "text": "8. Yo os he bautizado con agua, mas él os bautizará con",
+      "box": [
+        83,
+        1084,
+        430,
+        1098
+      ],
+      "score": 0.9957096576690674
+    },
+    {
+      "text": "23. Habia en la synagoga un hombre poseido del espíritu",
+      "box": [
+        543,
+        1076,
+        899,
+        1098
+      ],
+      "score": 0.9997867941856384
+    },
+    {
+      "text": "el Espíritu Santo.",
+      "box": [
+        70,
+        1098,
+        180,
+        1116
+      ],
+      "score": 0.9997408390045166
+    },
+    {
+      "text": "inmundo, el cual exclamó,",
+      "box": [
+        532,
+        1094,
+        691,
+        1112
+      ],
+      "score": 0.9926114082336426
+    },
+    {
+      "text": "9. Por estos dias fué cuando vino Jesus desde Nazareth",
+      "box": [
+        83,
+        1117,
+        429,
+        1131
+      ],
+      "score": 0.993922770023346
+    },
+    {
+      "text": "24. Diciendo: ¿Qué tenemos nosotros que ver contigo? oh",
+      "box": [
+        542,
+        1109,
+        901,
+        1132
+      ],
+      "score": 0.9799637794494629
+    },
+    {
+      "text": "ciudad de Galiléa, y Juan le bautizó en el Jordan.",
+      "box": [
+        69,
+        1131,
+        368,
+        1149
+      ],
+      "score": 0.9959613084793091
+    },
+    {
+      "text": "Jesus Nazareno! ¿has venido á perdernos? ya sé quién eres,",
+      "box": [
+        530,
+        1127,
+        900,
+        1148
+      ],
+      "score": 0.9685312509536743
+    },
+    {
+      "text": "10. Y luego al salir del agua, vió abrirse los cielos, y al",
+      "box": [
+        81,
+        1147,
+        431,
+        1166
+      ],
+      "score": 0.9910905957221985
+    },
+    {
+      "text": "eres el Santo de Dios.",
+      "box": [
+        531,
+        1145,
+        661,
+        1162
+      ],
+      "score": 0.9878869652748108
+    },
+    {
+      "text": "Espíritu Santo descender en forma de paloma, y posar sobre",
+      "box": [
+        68,
+        1162,
+        430,
+        1182
+      ],
+      "score": 0.99525386095047
+    },
+    {
+      "text": "25. Mas Jesus * le conminó, diciendo: Enmudece, y sal de",
+      "box": [
+        542,
+        1159,
+        901,
+        1182
+      ],
+      "score": 0.9857310056686401
+    },
+    {
+      "text": "él mismo.",
+      "box": [
+        68,
+        1179,
+        132,
+        1196
+      ],
+      "score": 0.9995638728141785
+    },
+    {
+      "text": "ese hombre.",
+      "box": [
+        530,
+        1176,
+        607,
+        1197
+      ],
+      "score": 0.9999664425849915
+    },
+    {
+      "text": "11. Y se oyó esta voz del cielo: Tú eres el Hijo mio queri-",
+      "box": [
+        81,
+        1193,
+        428,
+        1215
+      ],
+      "score": 0.9865734577178955
+    },
+    {
+      "text": "26. Entonces el espíritu inmundo, agitándole con violentas",
+      "box": [
+        542,
+        1195,
+        900,
+        1215
+      ],
+      "score": 0.9933552145957947
+    },
+    {
+      "text": "do ²: en tí es en quien me estoy complaciendo.",
+      "box": [
+        67,
+        1209,
+        342,
+        1230
+      ],
+      "score": 0.9809356927871704
+    },
+    {
+      "text": "convulsiones , y dando grandes alaridos, salió de él.",
+      "box": [
+        530,
+        1212,
+        846,
+        1232
+      ],
+      "score": 0.9962630271911621
+    },
+    {
+      "text": "1 Isai. XL, v. 3.—Malach. III, v. 1.",
+      "box": [
+        76,
+        1248,
+        265,
+        1269
+      ],
+      "score": 0.9497161507606506
+    },
+    {
+      "text": "2 En el griego se lee ó áyatmtt, y así por el énfasis que tiene la partí",
+      "box": [
+        75,
+        1261,
+        428,
+        1289
+      ],
+      "score": 0.7305014133453369
+    },
+    {
+      "text": "s Que no queria que el padre de la mentira publicara esta verdad, solo",
+      "box": [
+        543,
+        1258,
+        901,
+        1272
+      ],
+      "score": 0.9805233478546143
+    },
+    {
+      "text": "culn ó puede traducirse: tú eres mi Hijo el querido.",
+      "box": [
+        65,
+        1276,
+        323,
+        1300
+      ],
+      "score": 0.9544812440872192
+    },
+    {
+      "text": "conocida del demonio por conjeturas.",
+      "box": [
+        532,
+        1273,
+        723,
+        1287
+      ],
+      "score": 0.9988943934440613
+    },
+    {
+      "text": "4 La palabra ca pys:, de la cual viene espasmos, significa con-",
+      "box": [
+        540,
+        1283,
+        903,
+        1304
+      ],
+      "score": 0.8514981269836426
+    },
+    {
+      "text": "vulsion.",
+      "box": [
+        531,
+        1301,
+        576,
+        1316
+      ],
+      "score": 0.9999784231185913
+    },
+    {
+      "text": "IV.—8",
+      "box": [
+        840,
+        1313,
+        882,
+        1332
+      ],
+      "score": 0.9169585108757019
+    }
+  ]
+}

@@ -1,0 +1,3217 @@
+{
+  "volume": 4,
+  "page_index": 459,
+  "pdf_page": 460,
+  "lines": [
+    {
+      "text": "42",
+      "box": [
+        54,
+        1,
+        68,
+        16
+      ],
+      "score": 0.9999880194664001
+    },
+    {
+      "text": "EPISTOLA BEATI PAULI APOSTOLI AD TIMOTHEUM II",
+      "box": [
+        291,
+        3,
+        641,
+        19
+      ],
+      "score": 0.9983925819396973
+    },
+    {
+      "text": "et sobrietate ornantes se, et non in tortis crinibus, aut auro,",
+      "box": [
+        44,
+        26,
+        319,
+        39
+      ],
+      "score": 0.9881560802459717
+    },
+    {
+      "text": "Jesu, enutritus verbis fidei, et bonm doctrinm, quam assecu-",
+      "box": [
+        326,
+        25,
+        612,
+        41
+      ],
+      "score": 0.994111955165863
+    },
+    {
+      "text": "hmc custodias sine prwjadicio, nihil faciens in alteram partem",
+      "box": [
+        619,
+        27,
+        901,
+        43
+      ],
+      "score": 0.9679160714149475
+    },
+    {
+      "text": "aut margaritis, vel veste pretiosa;",
+      "box": [
+        45,
+        37,
+        195,
+        47
+      ],
+      "score": 0.9893813133239746
+    },
+    {
+      "text": "10. Sed quod decet mulieres, promittentes pietatem per",
+      "box": [
+        53,
+        45,
+        320,
+        59
+      ],
+      "score": 0.9808486700057983
+    },
+    {
+      "text": "tus es,",
+      "box": [
+        329,
+        37,
+        359,
+        47
+      ],
+      "score": 0.9360665082931519
+    },
+    {
+      "text": "7. Ineptas autem, et aniles fabulas devita: exerce autem",
+      "box": [
+        332,
+        44,
+        611,
+        61
+      ],
+      "score": 0.9805774092674255
+    },
+    {
+      "text": "declinaudo..",
+      "box": [
+        620,
+        38,
+        679,
+        51
+      ],
+      "score": 0.9250507354736328
+    },
+    {
+      "text": "teipsum ad pietatem.",
+      "box": [
+        328,
+        55,
+        425,
+        68
+      ],
+      "score": 0.9358352422714233
+    },
+    {
+      "text": "22. Manus cito nemini imposueris, neque communienveris",
+      "box": [
+        628,
+        47,
+        901,
+        63
+      ],
+      "score": 0.9767053127288818
+    },
+    {
+      "text": "opera bona.",
+      "box": [
+        45,
+        55,
+        100,
+        68
+      ],
+      "score": 0.984026312828064
+    },
+    {
+      "text": "11. Mulier in silentio discat cum omni subjectione.",
+      "box": [
+        53,
+        65,
+        283,
+        78
+      ],
+      "score": 0.9939329624176025
+    },
+    {
+      "text": "8. Nam corporalis exercitatio, ad modicum utilis est: pietas",
+      "box": [
+        333,
+        65,
+        611,
+        80
+      ],
+      "score": 0.9830895066261292
+    },
+    {
+      "text": "peccatis alienis. Teipsum castum custodi.",
+      "box": [
+        620,
+        58,
+        809,
+        71
+      ],
+      "score": 0.9400447010993958
+    },
+    {
+      "text": "12. Docere autem mulieri non permitto, neque dominari in",
+      "box": [
+        56,
+        76,
+        318,
+        86
+      ],
+      "score": 0.972887396812439
+    },
+    {
+      "text": "antem ad omnia utilis est, promissionem habens vitm, qum nune",
+      "box": [
+        326,
+        75,
+        612,
+        90
+      ],
+      "score": 0.9669462442398071
+    },
+    {
+      "text": "23. Noli adhue aquam bibere, sed modico vino utere prop-",
+      "box": [
+        626,
+        67,
+        900,
+        82
+      ],
+      "score": 0.9569538831710815
+    },
+    {
+      "text": "virum; sed esse in silentio.",
+      "box": [
+        47,
+        86,
+        164,
+        96
+      ],
+      "score": 0.985138475894928
+    },
+    {
+      "text": "est, et future.",
+      "box": [
+        328,
+        86,
+        392,
+        97
+      ],
+      "score": 0.9882438778877258
+    },
+    {
+      "text": "ter stomachuni tuum, et frequentes tuas iufirmitates.",
+      "box": [
+        621,
+        79,
+        857,
+        89
+      ],
+      "score": 0.9762747883796692
+    },
+    {
+      "text": "13. Adam enim primus formatus est, deinde Heva:",
+      "box": [
+        55,
+        94,
+        282,
+        107
+      ],
+      "score": 0.9894243478775024
+    },
+    {
+      "text": "9. Fidelis sermo, et omni acceptione dignus.",
+      "box": [
+        335,
+        94,
+        545,
+        108
+      ],
+      "score": 0.9936296343803406
+    },
+    {
+      "text": "24. Quorumdani hominum peccata manifesta suat, prmoe-",
+      "box": [
+        627,
+        86,
+        901,
+        100
+      ],
+      "score": 0.9274340271949768
+    },
+    {
+      "text": "14. Et Adam non est seductus, mulier autem seducta in",
+      "box": [
+        55,
+        104,
+        320,
+        117
+      ],
+      "score": 0.9792103171348572
+    },
+    {
+      "text": "10. In hoc enim laboramus, et naledicimur, qui speramus",
+      "box": [
+        336,
+        104,
+        612,
+        119
+      ],
+      "score": 0.9517266154289246
+    },
+    {
+      "text": "dentia ad judicium: quosdam autem et subsequuntur.",
+      "box": [
+        619,
+        97,
+        864,
+        110
+      ],
+      "score": 0.9582821726799011
+    },
+    {
+      "text": "prevaricatione fuit.",
+      "box": [
+        45,
+        113,
+        136,
+        128
+      ],
+      "score": 0.9792968034744263
+    },
+    {
+      "text": "in Deunm vivum, qui est Salvator ouanium hominum, maxime",
+      "box": [
+        327,
+        115,
+        611,
+        128
+      ],
+      "score": 0.9704331159591675
+    },
+    {
+      "text": "25. Similiter et facta bona manifesta sunt: et que aliter se",
+      "box": [
+        628,
+        106,
+        901,
+        119
+      ],
+      "score": 0.9577465653419495
+    },
+    {
+      "text": "15. Salvabitur autem per filiorum generationem, si perman-",
+      "box": [
+        57,
+        126,
+        319,
+        136
+      ],
+      "score": 0.9834704399108887
+    },
+    {
+      "text": "fidelium.",
+      "box": [
+        328,
+        126,
+        368,
+        136
+      ],
+      "score": 0.9855725765228271
+    },
+    {
+      "text": "habent, abscondi uon possunt.",
+      "box": [
+        619,
+        117,
+        757,
+        130
+      ],
+      "score": 0.9751588106155396
+    },
+    {
+      "text": "serit in fide, et dilectione, ct sanctificatione cum sobrietate.",
+      "box": [
+        46,
+        134,
+        304,
+        149
+      ],
+      "score": 0.9693199992179871
+    },
+    {
+      "text": "12. Nemo adolescentiaan tuam contemnat: sed exemplum",
+      "box": [
+        333,
+        144,
+        609,
+        157
+      ],
+      "score": 0.9708064198493958
+    },
+    {
+      "text": "11. Precipe lhaee, et doce.",
+      "box": [
+        337,
+        136,
+        457,
+        146
+      ],
+      "score": 0.8938865661621094
+    },
+    {
+      "text": "CAPUT VI",
+      "box": [
+        734,
+        142,
+        790,
+        153
+      ],
+      "score": 0.9999325275421143
+    },
+    {
+      "text": "CAPUT III",
+      "box": [
+        156,
+        154,
+        211,
+        168
+      ],
+      "score": 0.9987183809280396
+    },
+    {
+      "text": "esto fidelium in verbo, in conversatiome, in charitate, in fide, in",
+      "box": [
+        326,
+        154,
+        609,
+        170
+      ],
+      "score": 0.9762529730796814
+    },
+    {
+      "text": "castitate.",
+      "box": [
+        328,
+        166,
+        371,
+        178
+      ],
+      "score": 0.9998180270195007
+    },
+    {
+      "text": "1. Quicumque sunt sub jugo servi, dominos suos omni ho-",
+      "box": [
+        627,
+        165,
+        900,
+        179
+      ],
+      "score": 0.9770796895027161
+    },
+    {
+      "text": "1. Fidelis sermo: Si quis episcopatum desiderat, bonani",
+      "box": [
+        55,
+        175,
+        319,
+        190
+      ],
+      "score": 0.9515941739082336
+    },
+    {
+      "text": "13. Dum venio, attende lectioni, exhortationi, et doctrine.",
+      "box": [
+        336,
+        175,
+        608,
+        188
+      ],
+      "score": 0.9830263257026672
+    },
+    {
+      "text": "nore dignos arbitreutur, ne nomen Domini et doctrina blasphe",
+      "box": [
+        618,
+        176,
+        897,
+        189
+      ],
+      "score": 0.9702498316764832
+    },
+    {
+      "text": "opus desiderat.",
+      "box": [
+        48,
+        188,
+        116,
+        200
+      ],
+      "score": 0.9869289994239807
+    },
+    {
+      "text": "per prophetiam, eum fmpositione manuunm presbyterii.",
+      "box": [
+        327,
+        195,
+        575,
+        208
+      ],
+      "score": 0.9306154251098633
+    },
+    {
+      "text": "14. Noli negligere gratiam, que in te est, que data est tibi",
+      "box": [
+        337,
+        187,
+        608,
+        197
+      ],
+      "score": 0.9854139089584351
+    },
+    {
+      "text": "metur.",
+      "box": [
+        619,
+        187,
+        651,
+        197
+      ],
+      "score": 0.9992673397064209
+    },
+    {
+      "text": "2. Oportet ergo episcopum irrepreheusibilem esse, unius",
+      "box": [
+        56,
+        194,
+        320,
+        210
+      ],
+      "score": 0.9450168013572693
+    },
+    {
+      "text": "2. Qui autem fideles habent dominos, non contemnant, quia",
+      "box": [
+        625,
+        195,
+        900,
+        208
+      ],
+      "score": 0.9637003540992737
+    },
+    {
+      "text": "uxoris virum, sobrium, prudentem, ornatunm, pudicum, hospi-",
+      "box": [
+        47,
+        205,
+        319,
+        220
+      ],
+      "score": 0.9371508955955505
+    },
+    {
+      "text": "15. Hee meditare, in his esto: ut profeefus tuus manifestus",
+      "box": [
+        335,
+        205,
+        609,
+        218
+      ],
+      "score": 0.9590849280357361
+    },
+    {
+      "text": "fratres sunt: sed magis serviant, quia fideles suut et dilecti, qui",
+      "box": [
+        618,
+        205,
+        900,
+        218
+      ],
+      "score": 0.9831550717353821
+    },
+    {
+      "text": "talem, doctorem,",
+      "box": [
+        49,
+        217,
+        124,
+        229
+      ],
+      "score": 0.9974030256271362
+    },
+    {
+      "text": "sit omnibus.",
+      "box": [
+        329,
+        216,
+        384,
+        226
+      ],
+      "score": 0.9968309998512268
+    },
+    {
+      "text": "16. Attende tibi, et doctringe: insta in illis. Hoc enim fa-",
+      "box": [
+        333,
+        223,
+        609,
+        238
+      ],
+      "score": 0.9696229100227356
+    },
+    {
+      "text": "beneficii particines sunt, Hec doce, et exhortare,",
+      "box": [
+        619,
+        216,
+        840,
+        226
+      ],
+      "score": 0.9581917524337769
+    },
+    {
+      "text": "3. \"Non vinolentum, non pereussorem, sed modestam; non",
+      "box": [
+        56,
+        225,
+        320,
+        240
+      ],
+      "score": 0.9626389741897583
+    },
+    {
+      "text": "3. Si quis aliter docet, et non acquiescit sanis sermonibus",
+      "box": [
+        625,
+        223,
+        901,
+        237
+      ],
+      "score": 0.9461071491241455
+    },
+    {
+      "text": "litigiosum, non capidum, sed",
+      "box": [
+        49,
+        236,
+        175,
+        250
+      ],
+      "score": 0.9523270726203918
+    },
+    {
+      "text": "ciens, et teipsum salvum facies, et eos, qui te audiunt.",
+      "box": [
+        327,
+        233,
+        573,
+        248
+      ],
+      "score": 0.9666056632995605
+    },
+    {
+      "text": "Domini nostri Jesu Christi, et ei, que secundum pietatem est,",
+      "box": [
+        617,
+        234,
+        900,
+        247
+      ],
+      "score": 0.9689841866493225
+    },
+    {
+      "text": "4. Sue domai beue prmpositum, flios habentem subditos",
+      "box": [
+        56,
+        244,
+        320,
+        260
+      ],
+      "score": 0.9093338847160339
+    },
+    {
+      "text": "CAPUT V",
+      "box": [
+        442,
+        251,
+        494,
+        265
+      ],
+      "score": 0.9998164176940918
+    },
+    {
+      "text": "doctrinm:",
+      "box": [
+        618,
+        245,
+        663,
+        256
+      ],
+      "score": 0.951270341873169
+    },
+    {
+      "text": "eum omni castitate.",
+      "box": [
+        49,
+        257,
+        134,
+        269
+      ],
+      "score": 0.9121106863021851
+    },
+    {
+      "text": "4. Superbus est, nilhil scieus, sed languens cirea questiones,",
+      "box": [
+        626,
+        253,
+        900,
+        266
+      ],
+      "score": 0.9651532173156738
+    },
+    {
+      "text": "5. Si quis autem domul sum preesse nescit, quomodo Eccle-",
+      "box": [
+        55,
+        263,
+        319,
+        281
+      ],
+      "score": 0.973812997341156
+    },
+    {
+      "text": "1. Seniorem ne inerepaveris, sed obsecra ut patrem; juvenes,",
+      "box": [
+        336,
+        272,
+        607,
+        286
+      ],
+      "score": 0.9851388335227966
+    },
+    {
+      "text": "et pagnas verborum; ex quibas oriuntur invidise, coutentiones,",
+      "box": [
+        616,
+        263,
+        899,
+        275
+      ],
+      "score": 0.9160581827163696
+    },
+    {
+      "text": "sim Dei diligentiam habebit?",
+      "box": [
+        48,
+        275,
+        173,
+        291
+      ],
+      "score": 0.8767271637916565
+    },
+    {
+      "text": "blasphemim, suspiciones inale,",
+      "box": [
+        618,
+        274,
+        758,
+        285
+      ],
+      "score": 0.9436058402061462
+    },
+    {
+      "text": "6. Non neophytum: ne ia snperbiam elatus, in judiclum in-",
+      "box": [
+        56,
+        282,
+        320,
+        301
+      ],
+      "score": 0.936102032661438
+    },
+    {
+      "text": "ut fratres;",
+      "box": [
+        329,
+        285,
+        378,
+        295
+      ],
+      "score": 0.9664177298545837
+    },
+    {
+      "text": "5. Conflietationes hominnna meate corruptorum, et qul veri-",
+      "box": [
+        624,
+        282,
+        901,
+        296
+      ],
+      "score": 0.8897077441215515
+    },
+    {
+      "text": "cidat diaboli.",
+      "box": [
+        49,
+        297,
+        109,
+        309
+      ],
+      "score": 0.9812122583389282
+    },
+    {
+      "text": "2. Anus, ut matres: juvenculas, ut sorores, in omni casti-",
+      "box": [
+        335,
+        291,
+        607,
+        306
+      ],
+      "score": 0.9656893610954285
+    },
+    {
+      "text": "tatc privati sunt, existimantium questum esse pietatem.",
+      "box": [
+        616,
+        293,
+        872,
+        305
+      ],
+      "score": 0.9643238186836243
+    },
+    {
+      "text": "7. Oportet autem illum et testimonium labere bonum ab",
+      "box": [
+        56,
+        302,
+        320,
+        319
+      ],
+      "score": 0.9759172201156616
+    },
+    {
+      "text": "tate:",
+      "box": [
+        328,
+        303,
+        351,
+        315
+      ],
+      "score": 0.9973209500312805
+    },
+    {
+      "text": "6. Est auteni qumestus magnus, pietas cum sufficientia.",
+      "box": [
+        624,
+        301,
+        879,
+        315
+      ],
+      "score": 0.9448412656784058
+    },
+    {
+      "text": "ils, qui foris sunt, ut non in opprobrium incidat, et in laqueum",
+      "box": [
+        48,
+        312,
+        320,
+        329
+      ],
+      "score": 0.9845744371414185
+    },
+    {
+      "text": "4. Si qua autem vidua filios, aut nepotes habet, diseat pri-",
+      "box": [
+        337,
+        321,
+        607,
+        334
+      ],
+      "score": 0.983595609664917
+    },
+    {
+      "text": "3.",
+      "box": [
+        338,
+        314,
+        350,
+        323
+      ],
+      "score": 0.9998416900634766
+    },
+    {
+      "text": "Viduas honora, que vere vidue sunt.",
+      "box": [
+        355,
+        312,
+        520,
+        322
+      ],
+      "score": 0.9603403210639954
+    },
+    {
+      "text": "7. Nihil enim intalimus in hume muudum: haud dubium",
+      "box": [
+        626,
+        313,
+        900,
+        323
+      ],
+      "score": 0.9620859622955322
+    },
+    {
+      "text": "diaboli.",
+      "box": [
+        50,
+        327,
+        86,
+        338
+      ],
+      "score": 0.9995200634002686
+    },
+    {
+      "text": "mum domam suam regere, et mutuam viceni reddere parenti-",
+      "box": [
+        327,
+        330,
+        607,
+        344
+      ],
+      "score": 0.9172250032424927
+    },
+    {
+      "text": "quod nee auferre quid possunus.",
+      "box": [
+        617,
+        323,
+        767,
+        333
+      ],
+      "score": 0.9656381011009216
+    },
+    {
+      "text": "8. Dinconos similiter pudicos, non bilingues, non malto vino",
+      "box": [
+        56,
+        330,
+        321,
+        348
+      ],
+      "score": 0.9858310222625732
+    },
+    {
+      "text": "8. Habentes autem alimenta, et quibus tegamur, his conten-",
+      "box": [
+        624,
+        331,
+        901,
+        344
+      ],
+      "score": 0.9695204496383667
+    },
+    {
+      "text": "deditos, non turpe lucrum sectantes:",
+      "box": [
+        50,
+        343,
+        207,
+        356
+      ],
+      "score": 0.9762877225875854
+    },
+    {
+      "text": "bus: hoc enim acoeptum est coram Deo.",
+      "box": [
+        329,
+        340,
+        504,
+        352
+      ],
+      "score": 0.9680691361427307
+    },
+    {
+      "text": "5. Que autem vere vidun est, et desolata, speret in Deum,",
+      "box": [
+        337,
+        350,
+        606,
+        363
+      ],
+      "score": 0.9854702949523926
+    },
+    {
+      "text": "ti simus.",
+      "box": [
+        616,
+        341,
+        657,
+        352
+      ],
+      "score": 0.9626865386962891
+    },
+    {
+      "text": "9. Habeutes mysterium fidel in conselentia pura.",
+      "box": [
+        57,
+        350,
+        275,
+        367
+      ],
+      "score": 0.8930080533027649
+    },
+    {
+      "text": "et instet obsecrationibus, et orationibus nocte ac die.",
+      "box": [
+        328,
+        359,
+        562,
+        372
+      ],
+      "score": 0.9890254735946655
+    },
+    {
+      "text": "in laqueam diaboli, et desideria multa inutilia, et nociva, qum",
+      "box": [
+        614,
+        359,
+        902,
+        373
+      ],
+      "score": 0.9231231808662415
+    },
+    {
+      "text": "9. Nam qui volunt divites fleri, ineidunt in tentationem, et",
+      "box": [
+        625,
+        350,
+        902,
+        363
+      ],
+      "score": 0.9640510082244873
+    },
+    {
+      "text": "10. Et hi autem probentur primum: et sie ministrent, nal-",
+      "box": [
+        57,
+        359,
+        320,
+        376
+      ],
+      "score": 0.960629403591156
+    },
+    {
+      "text": "lum crimen habentes.",
+      "box": [
+        50,
+        373,
+        145,
+        385
+      ],
+      "score": 0.9916703104972839
+    },
+    {
+      "text": "6. Nam que in deliciis est, vivens mortua est.",
+      "box": [
+        338,
+        369,
+        547,
+        382
+      ],
+      "score": 0.9604189395904541
+    },
+    {
+      "text": "mergunt homines in interitum et perditionem.",
+      "box": [
+        616,
+        370,
+        829,
+        383
+      ],
+      "score": 0.9853248596191406
+    },
+    {
+      "text": "11. Mulleres similiter pudicas, non detrahentes, sobrias, fi-",
+      "box": [
+        57,
+        379,
+        320,
+        397
+      ],
+      "score": 0.9530059099197388
+    },
+    {
+      "text": "7. Et hoc precipe, ut irreprehensibiles sint.",
+      "box": [
+        338,
+        381,
+        537,
+        391
+      ],
+      "score": 0.9564288854598999
+    },
+    {
+      "text": "10. Radix enim omnium malorum est cupilitas: quam qul-",
+      "box": [
+        623,
+        378,
+        902,
+        394
+      ],
+      "score": 0.9193668961524963
+    },
+    {
+      "text": "deles in onnibus,",
+      "box": [
+        50,
+        392,
+        127,
+        406
+      ],
+      "score": 0.9339118003845215
+    },
+    {
+      "text": "8. Si quis autem snorum, et maxime domesticorum curam",
+      "box": [
+        339,
+        391,
+        606,
+        402
+      ],
+      "score": 0.9816510677337646
+    },
+    {
+      "text": "dam appetentes, erraverunt a fide, et iuseruerunt se doloribus",
+      "box": [
+        616,
+        390,
+        902,
+        404
+      ],
+      "score": 0.941446840763092
+    },
+    {
+      "text": "12. Diaconi sint unlus uxoris viri: qui filiis suis bene prw-",
+      "box": [
+        57,
+        399,
+        321,
+        416
+      ],
+      "score": 0.9638099074363708
+    },
+    {
+      "text": "non habet, fidem negavit, et est infideli deterior.",
+      "box": [
+        330,
+        402,
+        543,
+        412
+      ],
+      "score": 0.9897728562355042
+    },
+    {
+      "text": "9. Vilua eligatur non minus sexaginta annorum, que fuerit",
+      "box": [
+        338,
+        410,
+        607,
+        423
+      ],
+      "score": 0.9932801127433777
+    },
+    {
+      "text": "multis.",
+      "box": [
+        617,
+        402,
+        651,
+        412
+      ],
+      "score": 0.95221346616745
+    },
+    {
+      "text": "sint, et suis domibus.",
+      "box": [
+        51,
+        415,
+        144,
+        425
+      ],
+      "score": 0.9993920922279358
+    },
+    {
+      "text": "11. Tu autem o homo Dei haec fuge: sectare vero justitiam,",
+      "box": [
+        624,
+        410,
+        901,
+        423
+      ],
+      "score": 0.9852296710014343
+    },
+    {
+      "text": "13. Qui enim bene ministraverint, gradum bonum sibiaoqui-",
+      "box": [
+        57,
+        420,
+        321,
+        436
+      ],
+      "score": 0.9574881196022034
+    },
+    {
+      "text": "unius viri uxor,",
+      "box": [
+        329,
+        422,
+        398,
+        432
+      ],
+      "score": 0.9676634073257446
+    },
+    {
+      "text": "pietatem, fidem, charitatem, patientiam, mansnetudinem.",
+      "box": [
+        615,
+        420,
+        880,
+        433
+      ],
+      "score": 0.9445503950119019
+    },
+    {
+      "text": "rent, et multanm fiduciam in fide, qum est in Christo Jesu.",
+      "box": [
+        49,
+        431,
+        297,
+        446
+      ],
+      "score": 0.9561464786529541
+    },
+    {
+      "text": "10. In operibus bonis testimonium habens, si filios educavit,",
+      "box": [
+        338,
+        430,
+        607,
+        443
+      ],
+      "score": 0.9813856482505798
+    },
+    {
+      "text": "12. Certa bonum certamen fidei, apprehende vitam ater-",
+      "box": [
+        624,
+        430,
+        901,
+        443
+      ],
+      "score": 0.9376416206359863
+    },
+    {
+      "text": "14. Hec tibi seribo, sperans me ad te vemire cito:",
+      "box": [
+        58,
+        440,
+        278,
+        457
+      ],
+      "score": 0.9394903779029846
+    },
+    {
+      "text": "si hospitio recepit, si sanctorum pedes lavit, si tribulationem",
+      "box": [
+        330,
+        442,
+        607,
+        452
+      ],
+      "score": 0.9889876842498779
+    },
+    {
+      "text": "nam, in qna vocatus es, et coufessus bonam confessionem co-",
+      "box": [
+        616,
+        440,
+        902,
+        453
+      ],
+      "score": 0.971606433391571
+    },
+    {
+      "text": "15. Si autem tardavero, ut scias quomodo oporteat te in",
+      "box": [
+        58,
+        450,
+        322,
+        466
+      ],
+      "score": 0.9764593243598938
+    },
+    {
+      "text": "1l. Adolescentiores autem viduas devita. Cum enim luxu-",
+      "box": [
+        329,
+        460,
+        608,
+        473
+      ],
+      "score": 0.9549630880355835
+    },
+    {
+      "text": "patientibus subministravit, si omne opus bonum subsecata est.",
+      "box": [
+        330,
+        452,
+        607,
+        462
+      ],
+      "score": 0.9902915358543396
+    },
+    {
+      "text": "ram maltis testibus.",
+      "box": [
+        617,
+        452,
+        709,
+        462
+      ],
+      "score": 0.9835898280143738
+    },
+    {
+      "text": "domo Dei conversari, que est Ecclesia Dei vivi, columna et fir-",
+      "box": [
+        50,
+        459,
+        321,
+        477
+      ],
+      "score": 0.9538509845733643
+    },
+    {
+      "text": "13. Precipio tibi coram Deo, qui vivificat omnia, et Christo",
+      "box": [
+        622,
+        457,
+        902,
+        473
+      ],
+      "score": 0.9694566130638123
+    },
+    {
+      "text": "mamentum veritatis,",
+      "box": [
+        51,
+        473,
+        141,
+        485
+      ],
+      "score": 0.9583753347396851
+    },
+    {
+      "text": "riatae fueriut in Christo, nubere volunt:",
+      "box": [
+        329,
+        470,
+        504,
+        483
+      ],
+      "score": 0.9792677760124207
+    },
+    {
+      "text": "Jesu, qui testimonium reddidit sub Poncio Pilato bonam con-",
+      "box": [
+        615,
+        468,
+        902,
+        482
+      ],
+      "score": 0.9643800258636475
+    },
+    {
+      "text": "16. Et mamifeste magnum est pietatis sacramentum, quod",
+      "box": [
+        59,
+        480,
+        321,
+        496
+      ],
+      "score": 0.9799315333366394
+    },
+    {
+      "text": "12. Habentes damnationem, quia primans fidem irritam",
+      "box": [
+        338,
+        480,
+        608,
+        493
+      ],
+      "score": 0.94618821144104
+    },
+    {
+      "text": "fessionem:",
+      "box": [
+        618,
+        481,
+        667,
+        491
+      ],
+      "score": 0.9970870018005371
+    },
+    {
+      "text": "manifestatum est in carne, justificatum est in spiritu, apparuit",
+      "box": [
+        50,
+        490,
+        322,
+        507
+      ],
+      "score": 0.9714527130126953
+    },
+    {
+      "text": "fecerant:",
+      "box": [
+        329,
+        491,
+        373,
+        502
+      ],
+      "score": 0.9770030975341797
+    },
+    {
+      "text": "14. Ut serves mandatum sine macula, irreprehensibile, us-",
+      "box": [
+        625,
+        486,
+        902,
+        504
+      ],
+      "score": 0.9834794402122498
+    },
+    {
+      "text": "angelis, predicatum est gentibus, creditum est in mundo, as-",
+      "box": [
+        50,
+        500,
+        322,
+        517
+      ],
+      "score": 0.9659922122955322
+    },
+    {
+      "text": "13. Simul antem et otioste discunt circuire domos: non",
+      "box": [
+        336,
+        500,
+        608,
+        514
+      ],
+      "score": 0.9910584688186646
+    },
+    {
+      "text": "que in adventum Domini nostri Jesu Christi:",
+      "box": [
+        616,
+        498,
+        827,
+        513
+      ],
+      "score": 0.9625475406646729
+    },
+    {
+      "text": "sumptum est in gloria.",
+      "box": [
+        52,
+        516,
+        148,
+        526
+      ],
+      "score": 0.9730631113052368
+    },
+    {
+      "text": "solum otiose, sed et verbose, et curiose, loquentes qume non",
+      "box": [
+        328,
+        509,
+        608,
+        525
+      ],
+      "score": 0.9450159072875977
+    },
+    {
+      "text": "15. Quem suis temporibus ostendet beatus et solus potens,",
+      "box": [
+        625,
+        506,
+        902,
+        524
+      ],
+      "score": 0.9752466678619385
+    },
+    {
+      "text": "oportet.",
+      "box": [
+        330,
+        523,
+        367,
+        533
+      ],
+      "score": 0.9983400702476501
+    },
+    {
+      "text": "Rex regum, et Dominus dominantium:",
+      "box": [
+        618,
+        520,
+        799,
+        533
+      ],
+      "score": 0.9776231050491333
+    },
+    {
+      "text": "CAPUT IV",
+      "box": [
+        158,
+        531,
+        212,
+        545
+      ],
+      "score": 0.9997818470001221
+    },
+    {
+      "text": "14. Volo ergo junlores nubere, filios procreare, matresfa-",
+      "box": [
+        337,
+        531,
+        608,
+        544
+      ],
+      "score": 0.9816369414329529
+    },
+    {
+      "text": "inaccessibilem: quem nullus hominam vidit, sed nec videre po",
+      "box": [
+        616,
+        537,
+        901,
+        553
+      ],
+      "score": 0.9309272170066833
+    },
+    {
+      "text": "16. Qui solus habet immortalitatem, et lucem iuhabitat",
+      "box": [
+        625,
+        526,
+        902,
+        544
+      ],
+      "score": 0.9738172888755798
+    },
+    {
+      "text": "milias esse, nnllam occasionem dareadversario maledicti gratia.",
+      "box": [
+        329,
+        541,
+        608,
+        554
+      ],
+      "score": 0.9562705159187317
+    },
+    {
+      "text": "1. Spiritus autem manifeste dicit, quia in novissimis tempo-",
+      "box": [
+        58,
+        550,
+        321,
+        565
+      ],
+      "score": 0.9859164357185364
+    },
+    {
+      "text": "test: cui lhonor, et imperium sempiteruum. Amen.",
+      "box": [
+        617,
+        549,
+        849,
+        562
+      ],
+      "score": 0.9705341458320618
+    },
+    {
+      "text": "ribus discedent quidam a fide, atteadentes spiritibus erroris, et",
+      "box": [
+        50,
+        560,
+        322,
+        575
+      ],
+      "score": 0.9530969262123108
+    },
+    {
+      "text": "16. Si quis fidelis habet viduas, subministret illis, et non",
+      "box": [
+        338,
+        559,
+        609,
+        573
+      ],
+      "score": 0.9288644790649414
+    },
+    {
+      "text": "17. Divitibus hujus smculi precipe non sublime sapere, ne-",
+      "box": [
+        625,
+        556,
+        902,
+        573
+      ],
+      "score": 0.8796629905700684
+    },
+    {
+      "text": "doetrinis dremoniorum,",
+      "box": [
+        51,
+        572,
+        152,
+        584
+      ],
+      "score": 0.9391122460365295
+    },
+    {
+      "text": "gravetur Ecclesia: ut iis, qum vere vidum sunt, sufficiat.",
+      "box": [
+        330,
+        570,
+        577,
+        583
+      ],
+      "score": 0.9579899907112122
+    },
+    {
+      "text": "que sperare in incerto divitiarum, sed lu Deo vivo (qui prestat",
+      "box": [
+        616,
+        566,
+        902,
+        583
+      ],
+      "score": 0.8965128064155579
+    },
+    {
+      "text": "2. In hypocrisi loquentium mendacium, et cauteriatam ha-",
+      "box": [
+        57,
+        579,
+        322,
+        594
+      ],
+      "score": 0.9833265542984009
+    },
+    {
+      "text": "habeantur: maxime qui laborant in verbo et doctrina.",
+      "box": [
+        329,
+        588,
+        567,
+        602
+      ],
+      "score": 0.9216021299362183
+    },
+    {
+      "text": "17. Qui bene prwsunt presbyteri, duplici honore digni",
+      "box": [
+        336,
+        578,
+        609,
+        593
+      ],
+      "score": 0.9298743009567261
+    },
+    {
+      "text": "nobis omaia abunde ad fruendum)",
+      "box": [
+        618,
+        580,
+        777,
+        590
+      ],
+      "score": 0.9938048124313354
+    },
+    {
+      "text": "bentium suam conscientiam,",
+      "box": [
+        51,
+        591,
+        175,
+        603
+      ],
+      "score": 0.9730184078216553
+    },
+    {
+      "text": "18. Bene agere, divites fieri in bonis operibus, facile tribue-",
+      "box": [
+        626,
+        585,
+        901,
+        602
+      ],
+      "score": 0.979559600353241
+    },
+    {
+      "text": "3. Prohibentium nubcre, abstinere a cibis, quos Deas crea-",
+      "box": [
+        56,
+        599,
+        322,
+        613
+      ],
+      "score": 0.9236800670623779
+    },
+    {
+      "text": "Et: Dignus est operarius mercede sua.",
+      "box": [
+        329,
+        607,
+        499,
+        623
+      ],
+      "score": 0.9695130586624146
+    },
+    {
+      "text": "18. Dicit enim Scriptura: Non alligabis os bovi trituranti.",
+      "box": [
+        338,
+        599,
+        609,
+        612
+      ],
+      "score": 0.99232417345047
+    },
+    {
+      "text": "re, communicare,",
+      "box": [
+        617,
+        600,
+        700,
+        610
+      ],
+      "score": 0.9881172776222229
+    },
+    {
+      "text": "vit ad pereipiendum cum gratiarum actione fidelibus, et iis,",
+      "box": [
+        50,
+        609,
+        321,
+        624
+      ],
+      "score": 0.9146865606307983
+    },
+    {
+      "text": "19. Thesaurizare sibi fundamentum bouum in futurum, ut",
+      "box": [
+        626,
+        605,
+        902,
+        621
+      ],
+      "score": 0.9806708693504333
+    },
+    {
+      "text": "qui cognoveruat veritatem.",
+      "box": [
+        50,
+        619,
+        168,
+        634
+      ],
+      "score": 0.9448242783546448
+    },
+    {
+      "text": "19. Adversus presbyterum accusationem noli recipere, nisi",
+      "box": [
+        338,
+        618,
+        609,
+        632
+      ],
+      "score": 0.9783270955085754
+    },
+    {
+      "text": "apprehendant veram vitam.",
+      "box": [
+        617,
+        616,
+        745,
+        631
+      ],
+      "score": 0.9240763187408447
+    },
+    {
+      "text": "4. Quia omnis creatura Dei bona est, et nihil rejicienduna",
+      "box": [
+        57,
+        630,
+        321,
+        642
+      ],
+      "score": 0.9789119958877563
+    },
+    {
+      "text": "smb duobus aut tribus testibus.",
+      "box": [
+        330,
+        629,
+        469,
+        641
+      ],
+      "score": 0.9708384871482849
+    },
+    {
+      "text": "20. O Timothee, depositum enstodi, devitans profanns vo-",
+      "box": [
+        626,
+        627,
+        901,
+        640
+      ],
+      "score": 0.97685307264328
+    },
+    {
+      "text": "quod cum gratiarum actione pereipitur:",
+      "box": [
+        49,
+        639,
+        224,
+        653
+      ],
+      "score": 0.9814054369926453
+    },
+    {
+      "text": "20. Peccantes coram ommibus argue: ut et emteri timorem",
+      "box": [
+        337,
+        637,
+        609,
+        652
+      ],
+      "score": 0.967343270778656
+    },
+    {
+      "text": "cum novitates, et oppositiones falsi nominis scientise,",
+      "box": [
+        618,
+        638,
+        858,
+        648
+      ],
+      "score": 0.9612714648246765
+    },
+    {
+      "text": "5. Sanctificatur enim per verbum Dei, et orationem.",
+      "box": [
+        56,
+        648,
+        288,
+        661
+      ],
+      "score": 0.9742369651794434
+    },
+    {
+      "text": "habeant.",
+      "box": [
+        330,
+        649,
+        371,
+        660
+      ],
+      "score": 0.973046600818634
+    },
+    {
+      "text": "21. Quam quidana promitteutes, cirea fidem exeiderunt.",
+      "box": [
+        624,
+        645,
+        901,
+        660
+      ],
+      "score": 0.8884329199790955
+    },
+    {
+      "text": "6. Hee proponens fratribus, bonus eris minister Christi",
+      "box": [
+        57,
+        657,
+        324,
+        672
+      ],
+      "score": 0.9715941548347473
+    },
+    {
+      "text": "21. Testor coram Deo et Christo Jesu, et electis angelis, ut",
+      "box": [
+        338,
+        658,
+        610,
+        671
+      ],
+      "score": 0.9856119751930237
+    },
+    {
+      "text": "Gratia tecum. Amen.",
+      "box": [
+        613,
+        659,
+        715,
+        669
+      ],
+      "score": 0.9684416055679321
+    },
+    {
+      "text": "EPISTOLA",
+      "box": [
+        373,
+        727,
+        553,
+        765
+      ],
+      "score": 0.9998680949211121
+    },
+    {
+      "text": "BEATI PAULI APOSTOLI",
+      "box": [
+        152,
+        778,
+        791,
+        813
+      ],
+      "score": 0.967068076133728
+    },
+    {
+      "text": "AD TIMOTHEUM SECUNDA",
+      "box": [
+        273,
+        827,
+        660,
+        854
+      ],
+      "score": 0.9999232292175293
+    },
+    {
+      "text": "CAPUT PRIMUM",
+      "box": [
+        144,
+        906,
+        228,
+        919
+      ],
+      "score": 0.999901533126831
+    },
+    {
+      "text": "CAPUT II",
+      "box": [
+        443,
+        908,
+        494,
+        919
+      ],
+      "score": 0.9997755289077759
+    },
+    {
+      "text": "rem sanetificatum, et utile Domino, ad omne opus bonum pa-",
+      "box": [
+        612,
+        899,
+        898,
+        920
+      ],
+      "score": 0.96863853931427
+    },
+    {
+      "text": "ratum.",
+      "box": [
+        617,
+        915,
+        649,
+        926
+      ],
+      "score": 0.9984762072563171
+    },
+    {
+      "text": "1. Paulus Apostolus Jesu Christi per voluntatem Dei, se-",
+      "box": [
+        60,
+        927,
+        322,
+        945
+      ],
+      "score": 0.9878363609313965
+    },
+    {
+      "text": "1. Tu ergo fili mi confortare in gratia, quse est in Christo",
+      "box": [
+        338,
+        930,
+        606,
+        945
+      ],
+      "score": 0.9913623332977295
+    },
+    {
+      "text": "22. Juvenilia autem desideria fuge: sectare vero justitiam,",
+      "box": [
+        622,
+        918,
+        899,
+        939
+      ],
+      "score": 0.8829476833343506
+    },
+    {
+      "text": "cunslum promisionem vite, que est in Christo Jesu:",
+      "box": [
+        51,
+        938,
+        280,
+        954
+      ],
+      "score": 0.8486145734786987
+    },
+    {
+      "text": "Timothe charamo o, graa, miserordia, pa a Deo",
+      "box": [
+        59,
+        946,
+        323,
+        967
+      ],
+      "score": 0.6134055852890015
+    },
+    {
+      "text": "Jesn:",
+      "box": [
+        331,
+        942,
+        359,
+        953
+      ],
+      "score": 0.9990354776382446
+    },
+    {
+      "text": "2. Et que audisti a me per multos testes, hwe commenda",
+      "box": [
+        338,
+        949,
+        606,
+        965
+      ],
+      "score": 0.9679412245750427
+    },
+    {
+      "text": "num de corde puro.",
+      "box": [
+        615,
+        943,
+        704,
+        956
+      ],
+      "score": 0.9858778715133667
+    },
+    {
+      "text": "Patre, et Christo Jesu Donaino nostro.",
+      "box": [
+        51,
+        957,
+        216,
+        974
+      ],
+      "score": 0.9342919588088989
+    },
+    {
+      "text": "fdelibus hominibus, qui idonel erunt et alios docere.",
+      "box": [
+        330,
+        959,
+        562,
+        974
+      ],
+      "score": 0.8971315622329712
+    },
+    {
+      "text": "2. Stultas antem, et sine disciplina qnestiones devita:",
+      "box": [
+        621,
+        947,
+        900,
+        969
+      ],
+      "score": 0.8399384021759033
+    },
+    {
+      "text": "3. Gratias ago Deo, cul servio a progenitoribus in conscien-",
+      "box": [
+        59,
+        968,
+        322,
+        985
+      ],
+      "score": 0.9695531129837036
+    },
+    {
+      "text": "sciens quia generant lítes.",
+      "box": [
+        615,
+        961,
+        732,
+        976
+      ],
+      "score": 0.9495662450790405
+    },
+    {
+      "text": "tia pura, quod sine iatermissione habeam tuimemoriam lu ora-",
+      "box": [
+        51,
+        977,
+        322,
+        995
+      ],
+      "score": 0.8572642803192139
+    },
+    {
+      "text": "3. Labora sicut bonns miles Christi Jesn.",
+      "box": [
+        340,
+        972,
+        525,
+        982
+      ],
+      "score": 0.9769540429115295
+    },
+    {
+      "text": "4. Nemo militans Deo implicat se negotiis secularibus: ut",
+      "box": [
+        340,
+        979,
+        605,
+        993
+      ],
+      "score": 0.988141655921936
+    },
+    {
+      "text": "24. Servum autem Domini non oportet litigare: sed man-",
+      "box": [
+        622,
+        968,
+        900,
+        987
+      ],
+      "score": 0.9762468934059143
+    },
+    {
+      "text": "tionibus neis, nocte ae die,",
+      "box": [
+        52,
+        987,
+        172,
+        1003
+      ],
+      "score": 0.8960251212120056
+    },
+    {
+      "text": "suetum esse ad omnes, docibilem, patieutem,",
+      "box": [
+        613,
+        981,
+        820,
+        996
+      ],
+      "score": 0.9662808179855347
+    },
+    {
+      "text": "4. Desiderans te videre, memor lacrymarum tuarum, ut",
+      "box": [
+        60,
+        996,
+        323,
+        1016
+      ],
+      "score": 0.8944215774536133
+    },
+    {
+      "text": "ei placeat, cui se probavit.",
+      "box": [
+        332,
+        991,
+        448,
+        1001
+      ],
+      "score": 0.9939759373664856
+    },
+    {
+      "text": "gaudio implear,",
+      "box": [
+        52,
+        1006,
+        123,
+        1022
+      ],
+      "score": 0.9503966569900513
+    },
+    {
+      "text": "β. Nam et quí certat in agone, non coronatur misi legitime",
+      "box": [
+        340,
+        1000,
+        606,
+        1013
+      ],
+      "score": 0.9633311629295349
+    },
+    {
+      "text": "ne quando Dens det illis ponitentiam ad coguoscendam verita-",
+      "box": [
+        612,
+        997,
+        900,
+        1016
+      ],
+      "score": 0.7036323547363281
+    },
+    {
+      "text": "5. Recordationem accipicns ejus del, qum est in te non",
+      "box": [
+        59,
+        1015,
+        323,
+        1035
+      ],
+      "score": 0.84977126121521
+    },
+    {
+      "text": "certaverit.",
+      "box": [
+        330,
+        1011,
+        379,
+        1021
+      ],
+      "score": 0.9984888434410095
+    },
+    {
+      "text": "6. Laborantem agricolam oportet primum de fructibus perei-",
+      "box": [
+        340,
+        1019,
+        606,
+        1032
+      ],
+      "score": 0.9885343909263611
+    },
+    {
+      "text": "tem,",
+      "box": [
+        615,
+        1011,
+        638,
+        1022
+      ],
+      "score": 0.9980089664459229
+    },
+    {
+      "text": "ficta, que et habitavit primum in avia tua Loide, et matre tua",
+      "box": [
+        52,
+        1027,
+        322,
+        1044
+      ],
+      "score": 0.90871262550354
+    },
+    {
+      "text": "ad ipsius voluntatem.",
+      "box": [
+        613,
+        1028,
+        713,
+        1044
+      ],
+      "score": 0.9297282695770264
+    },
+    {
+      "text": "26. Et resipiscant a diaboli laqueis, a quo captivi tenentur",
+      "box": [
+        622,
+        1019,
+        899,
+        1033
+      ],
+      "score": 0.9660084843635559
+    },
+    {
+      "text": "Eunice, certus sum antem quod et in te.",
+      "box": [
+        52,
+        1037,
+        229,
+        1053
+      ],
+      "score": 0.939609706401825
+    },
+    {
+      "text": "pere.",
+      "box": [
+        331,
+        1031,
+        356,
+        1042
+      ],
+      "score": 0.9958862066268921
+    },
+    {
+      "text": "6. Propter quam causam admoneo te, nt resuscites gratiam",
+      "box": [
+        60,
+        1047,
+        323,
+        1062
+      ],
+      "score": 0.9308999180793762
+    },
+    {
+      "text": "7. Intellige que dico: dabit enim tibi Dominus in omnibus",
+      "box": [
+        336,
+        1038,
+        606,
+        1051
+      ],
+      "score": 0.9887222647666931
+    },
+    {
+      "text": "Del, qum est in te per impositionem manuum menrum.",
+      "box": [
+        52,
+        1056,
+        287,
+        1074
+      ],
+      "score": 0.8735051155090332
+    },
+    {
+      "text": "intellectum.",
+      "box": [
+        331,
+        1050,
+        388,
+        1060
+      ],
+      "score": 0.9961331486701965
+    },
+    {
+      "text": "8. Memor esto Dominnm JesUM CHRistuM resurrexisse a",
+      "box": [
+        339,
+        1056,
+        606,
+        1072
+      ],
+      "score": 0.9117656946182251
+    },
+    {
+      "text": "CAPUT III",
+      "box": [
+        728,
+        1050,
+        785,
+        1061
+      ],
+      "score": 0.9989163875579834
+    },
+    {
+      "text": "7. Non enim dedit nobis Deus spiritum tinoris; sed virtu-",
+      "box": [
+        59,
+        1066,
+        323,
+        1083
+      ],
+      "score": 0.8922860622406006
+    },
+    {
+      "text": "mortuis ex semine David, secundum Evangelium meuna,",
+      "box": [
+        332,
+        1069,
+        577,
+        1080
+      ],
+      "score": 0.9979286789894104
+    },
+    {
+      "text": "1. Hoc autem scito, quod in novissimis diebus instabunt",
+      "box": [
+        623,
+        1066,
+        901,
+        1082
+      ],
+      "score": 0.9838225841522217
+    },
+    {
+      "text": "tis, et dilectionis, et sobrietatis.",
+      "box": [
+        52,
+        1076,
+        190,
+        1092
+      ],
+      "score": 0.9584482908248901
+    },
+    {
+      "text": "8. Noli itaque erubescere testimonfum Domini nostri, ne-",
+      "box": [
+        59,
+        1087,
+        323,
+        1103
+      ],
+      "score": 0.9532837271690369
+    },
+    {
+      "text": "9. In quo laboro usque ad viucula, quasi male operans: sed",
+      "box": [
+        341,
+        1078,
+        606,
+        1091
+      ],
+      "score": 0.9736389517784119
+    },
+    {
+      "text": "tempora periculosa:",
+      "box": [
+        616,
+        1079,
+        708,
+        1092
+      ],
+      "score": 0.9985304474830627
+    },
+    {
+      "text": "verbum Dei non est alligatum.",
+      "box": [
+        331,
+        1088,
+        468,
+        1100
+      ],
+      "score": 0.9893317818641663
+    },
+    {
+      "text": "2. Erunt homines seipsos amantes, cupidi, elati, superbi,",
+      "box": [
+        623,
+        1087,
+        899,
+        1101
+      ],
+      "score": 0.9576764702796936
+    },
+    {
+      "text": "que me vinetum ejus: sed collabora Evangelio secundum virta-",
+      "box": [
+        51,
+        1097,
+        323,
+        1112
+      ],
+      "score": 0.9388155341148376
+    },
+    {
+      "text": "10. Ideo omnia sustiueo propter electos, ut et ipsi salutem",
+      "box": [
+        341,
+        1098,
+        606,
+        1111
+      ],
+      "score": 0.9799162745475769
+    },
+    {
+      "text": "blasphemi, parentibus non obedientes, ingrati, scelesti,",
+      "box": [
+        615,
+        1097,
+        867,
+        1113
+      ],
+      "score": 0.9497739672660828
+    },
+    {
+      "text": "tem Dei;",
+      "box": [
+        54,
+        1109,
+        96,
+        1119
+      ],
+      "score": 0.9448620676994324
+    },
+    {
+      "text": "consequantur, qum est in Clhristo Jesu, cum gloria celesti.",
+      "box": [
+        332,
+        1108,
+        588,
+        1120
+      ],
+      "score": 0.9681501984596252
+    },
+    {
+      "text": "S. Sine affectlone, sine pace, criminatore, incontinentes,",
+      "box": [
+        621,
+        1105,
+        901,
+        1124
+      ],
+      "score": 0.7618759870529175
+    },
+    {
+      "text": "9. Qul nos liberavit, et vocavit vocatione sua sancta, non",
+      "box": [
+        60,
+        1116,
+        324,
+        1133
+      ],
+      "score": 0.9839739203453064
+    },
+    {
+      "text": "11. Fidelis sermo: Nam si commortui sumus, et convive-",
+      "box": [
+        340,
+        1116,
+        607,
+        1131
+      ],
+      "score": 0.9603474736213684
+    },
+    {
+      "text": "immites, sine benignitate,",
+      "box": [
+        615,
+        1116,
+        734,
+        1131
+      ],
+      "score": 0.9887981414794922
+    },
+    {
+      "text": "secundum opera nostra, sed secundum propositum suum, et",
+      "box": [
+        51,
+        1127,
+        324,
+        1142
+      ],
+      "score": 0.8983451128005981
+    },
+    {
+      "text": "mus:",
+      "box": [
+        332,
+        1129,
+        359,
+        1140
+      ],
+      "score": 0.9974565505981445
+    },
+    {
+      "text": "4. Proditores, protervl, tumidi, et voluptatum amatores",
+      "box": [
+        624,
+        1126,
+        902,
+        1142
+      ],
+      "score": 0.970135509967804
+    },
+    {
+      "text": "gratlam, que data est in mobis in Christo Jesu aute tempora",
+      "box": [
+        52,
+        1137,
+        324,
+        1152
+      ],
+      "score": 0.9312379360198975
+    },
+    {
+      "text": "12. Si snstinebimus, et conregnabimus: si negaverimus, et",
+      "box": [
+        335,
+        1137,
+        608,
+        1150
+      ],
+      "score": 0.9746759533882141
+    },
+    {
+      "text": "magis quam Dei:",
+      "box": [
+        616,
+        1137,
+        695,
+        1149
+      ],
+      "score": 0.9075429439544678
+    },
+    {
+      "text": "secalaría.",
+      "box": [
+        53,
+        1148,
+        98,
+        1158
+      ],
+      "score": 0.8009389042854309
+    },
+    {
+      "text": "ille negabit nos:",
+      "box": [
+        334,
+        1149,
+        407,
+        1159
+      ],
+      "score": 0.9975399971008301
+    },
+    {
+      "text": "5. Habentes speciem quldem pietatis, virtutem antem ejus",
+      "box": [
+        624,
+        1145,
+        903,
+        1161
+      ],
+      "score": 0.9821243286132812
+    },
+    {
+      "text": "10. Manifestata est autem nune per illuminationem Salva-",
+      "box": [
+        60,
+        1155,
+        325,
+        1171
+      ],
+      "score": 0.9934111833572388
+    },
+    {
+      "text": "toris nostri Jesu Christi, qui destruxit quldem mortem, illumi-",
+      "box": [
+        52,
+        1165,
+        325,
+        1182
+      ],
+      "score": 0.9267189502716064
+    },
+    {
+      "text": "13. Si non credimus, ille fidelis permanct: negare seipsum",
+      "box": [
+        341,
+        1155,
+        607,
+        1170
+      ],
+      "score": 0.9584205746650696
+    },
+    {
+      "text": "abnegantcs. Et hos devita:",
+      "box": [
+        618,
+        1158,
+        740,
+        1168
+      ],
+      "score": 0.9741846323013306
+    },
+    {
+      "text": "navit autem vitam et incorruptionem per Evangelium:",
+      "box": [
+        52,
+        1175,
+        290,
+        1191
+      ],
+      "score": 0.7185896039009094
+    },
+    {
+      "text": "nou potest.",
+      "box": [
+        333,
+        1167,
+        386,
+        1180
+      ],
+      "score": 0.9416505694389343
+    },
+    {
+      "text": "14. Hmc commone, testificans-coram Domino, Noli conten-",
+      "box": [
+        340,
+        1175,
+        608,
+        1190
+      ],
+      "score": 0.924868643283844
+    },
+    {
+      "text": "cunt mulierculas oneratas peccatis, que ducmutur variis desi-",
+      "box": [
+        616,
+        1175,
+        904,
+        1191
+      ],
+      "score": 0.8614853024482727
+    },
+    {
+      "text": "6. Ex his enim sunt, qui penetrant donios, et captivas du-",
+      "box": [
+        626,
+        1167,
+        904,
+        1180
+      ],
+      "score": 0.976934015750885
+    },
+    {
+      "text": "11. In quo positus sum ego prmdicator, et Apostolus, et",
+      "box": [
+        60,
+        1184,
+        325,
+        1202
+      ],
+      "score": 0.8755968809127808
+    },
+    {
+      "text": "dere verbis: ad nihil enim utile est, nisi ad smbversioncm an-",
+      "box": [
+        333,
+        1185,
+        609,
+        1200
+      ],
+      "score": 0.9253079295158386
+    },
+    {
+      "text": "deriis:",
+      "box": [
+        619,
+        1188,
+        652,
+        1198
+      ],
+      "score": 0.9524117112159729
+    },
+    {
+      "text": "magister gentium.",
+      "box": [
+        54,
+        1198,
+        134,
+        1208
+      ],
+      "score": 0.9913884401321411
+    },
+    {
+      "text": "12. Ob quam causam etiam hme patior, sed non coafundor.",
+      "box": [
+        60,
+        1205,
+        325,
+        1220
+      ],
+      "score": 0.9621621966362
+    },
+    {
+      "text": "dientium.",
+      "box": [
+        335,
+        1198,
+        379,
+        1209
+      ],
+      "score": 0.9254294633865356
+    },
+    {
+      "text": "7. Semper discentes, et numquam ad scientiam veritatis",
+      "box": [
+        626,
+        1196,
+        904,
+        1209
+      ],
+      "score": 0.9757668972015381
+    },
+    {
+      "text": "Scio enim cui creslidi, et ccrtus suim qula poteus est depositum",
+      "box": [
+        52,
+        1215,
+        326,
+        1230
+      ],
+      "score": 0.9275104999542236
+    },
+    {
+      "text": "15. Sollicite cura teipsuni prohabilem exhibere Deo, opera-",
+      "box": [
+        344,
+        1206,
+        609,
+        1219
+      ],
+      "score": 0.9754542112350464
+    },
+    {
+      "text": "rium inconfusibilem, recte tractantem verbum veritatis.",
+      "box": [
+        334,
+        1215,
+        580,
+        1229
+      ],
+      "score": 0.9848031401634216
+    },
+    {
+      "text": "pervenientes.",
+      "box": [
+        619,
+        1208,
+        679,
+        1218
+      ],
+      "score": 0.966959536075592
+    },
+    {
+      "text": "8. Quemadmodam antem Jannes, et Mambres restiterunt",
+      "box": [
+        624,
+        1214,
+        904,
+        1227
+      ],
+      "score": 0.9717624187469482
+    },
+    {
+      "text": "meum servare in illum diem.",
+      "box": [
+        54,
+        1227,
+        181,
+        1237
+      ],
+      "score": 0.9891908168792725
+    },
+    {
+      "text": "13. Formam habe sanorum verborum, que a me andisti in",
+      "box": [
+        61,
+        1233,
+        327,
+        1249
+      ],
+      "score": 0.9621266722679138
+    },
+    {
+      "text": "16. Profana antem,et vaniloqmia devita: multum enim pro-",
+      "box": [
+        344,
+        1226,
+        610,
+        1239
+      ],
+      "score": 0.9631921052932739
+    },
+    {
+      "text": "probi cirea fdem,",
+      "box": [
+        619,
+        1235,
+        702,
+        1248
+      ],
+      "score": 0.8813633918762207
+    },
+    {
+      "text": "Moysi: ita et hi resistunt veritati, homines corrupti mente, re-",
+      "box": [
+        620,
+        1227,
+        904,
+        1237
+      ],
+      "score": 0.9821769595146179
+    },
+    {
+      "text": "fide, et fa dilectione in Christo Jesu.",
+      "box": [
+        53,
+        1243,
+        212,
+        1257
+      ],
+      "score": 0.9238375425338745
+    },
+    {
+      "text": "ficiunt ad impietatem:",
+      "box": [
+        336,
+        1237,
+        438,
+        1247
+      ],
+      "score": 0.965541422367096
+    },
+    {
+      "text": "14. Bomum depositum custodi per Spiritum Sanctum, qui",
+      "box": [
+        60,
+        1253,
+        328,
+        1268
+      ],
+      "score": 0.9626100063323975
+    },
+    {
+      "text": "17. Et sermo corum ut cancer serpit: ex quibus est Hyme-",
+      "box": [
+        344,
+        1244,
+        610,
+        1257
+      ],
+      "score": 0.9833570122718811
+    },
+    {
+      "text": "9. Sed ultra non proficient: insipientia enim eorum mani-",
+      "box": [
+        628,
+        1244,
+        906,
+        1257
+      ],
+      "score": 0.9779462814331055
+    },
+    {
+      "text": "neus, et Philetus,",
+      "box": [
+        335,
+        1255,
+        417,
+        1268
+      ],
+      "score": 0.9784708023071289
+    },
+    {
+      "text": "festa erit omaibus, sicut et illorum fuit.",
+      "box": [
+        619,
+        1252,
+        802,
+        1268
+      ],
+      "score": 0.9120970964431763
+    },
+    {
+      "text": "habitat in nobis.",
+      "box": [
+        54,
+        1265,
+        128,
+        1275
+      ],
+      "score": 0.9991517066955566
+    },
+    {
+      "text": "15. Seis lhoe, quol aversi sunt a me omnes qui in Asia sunt,",
+      "box": [
+        60,
+        1271,
+        328,
+        1288
+      ],
+      "score": 0.9250328540802002
+    },
+    {
+      "text": "18. Quia veritate exciderunt, dicentes resurrectionem esse",
+      "box": [
+        345,
+        1264,
+        612,
+        1277
+      ],
+      "score": 0.9815121293067932
+    },
+    {
+      "text": "10. Tu antem assecutus es meam doctrinam, institutionem,",
+      "box": [
+        628,
+        1262,
+        907,
+        1277
+      ],
+      "score": 0.9658288955688477
+    },
+    {
+      "text": "ex quibus est Phigellus, et Hermogenes.",
+      "box": [
+        52,
+        1282,
+        231,
+        1297
+      ],
+      "score": 0.9694576859474182
+    },
+    {
+      "text": "jam factam, et subverterunt quoramdam fidem.",
+      "box": [
+        336,
+        1274,
+        546,
+        1288
+      ],
+      "score": 0.9656670093536377
+    },
+    {
+      "text": "propositum, fidem, longanimitatem, dilectionem, patientiam,",
+      "box": [
+        619,
+        1271,
+        907,
+        1287
+      ],
+      "score": 0.9533290266990662
+    },
+    {
+      "text": "16. Det misericordiam Dominus Onesiphori domui: quia",
+      "box": [
+        60,
+        1290,
+        328,
+        1309
+      ],
+      "score": 0.9555155038833618
+    },
+    {
+      "text": "19. Sed firmum fundameatum Dei stat habens signacalum",
+      "box": [
+        344,
+        1283,
+        612,
+        1298
+      ],
+      "score": 0.9568896293640137
+    },
+    {
+      "text": "11. Persecutioues, passiones: qualia mihi facta sunt Antio-",
+      "box": [
+        622,
+        1280,
+        908,
+        1297
+      ],
+      "score": 0.9120272994041443
+    },
+    {
+      "text": "sepe me refrigeravit, et catenam meam non erubult:",
+      "box": [
+        52,
+        1301,
+        283,
+        1317
+      ],
+      "score": 0.9403321743011475
+    },
+    {
+      "text": "hoc: Cognovit Dominus qui sunt ejus; et discedat abiniquita-",
+      "box": [
+        335,
+        1293,
+        612,
+        1309
+      ],
+      "score": 0.9147000908851624
+    },
+    {
+      "text": "chim, Iconli, et Lystris: qnales persecutiones sustinui, et ex",
+      "box": [
+        620,
+        1290,
+        908,
+        1307
+      ],
+      "score": 0.958405077457428
+    },
+    {
+      "text": "17. Sed cum Romam veuisset, sollicite me quasivit, et in-",
+      "box": [
+        58,
+        1312,
+        328,
+        1329
+      ],
+      "score": 0.9695298075675964
+    },
+    {
+      "text": "te omnis, qai nomimat nomen Domini.",
+      "box": [
+        336,
+        1306,
+        506,
+        1318
+      ],
+      "score": 0.9538151621818542
+    },
+    {
+      "text": "ommibus eripult nme Dominus.",
+      "box": [
+        620,
+        1301,
+        757,
+        1317
+      ],
+      "score": 0.8294053673744202
+    },
+    {
+      "text": "20. In magna autem domo non solum sunt vasa aurea, et",
+      "box": [
+        345,
+        1315,
+        612,
+        1329
+      ],
+      "score": 0.9803045988082886
+    },
+    {
+      "text": "12. Et ommes, qui pie volunt vivere in Christo Jesu, perse-",
+      "box": [
+        629,
+        1311,
+        907,
+        1327
+      ],
+      "score": 0.9771961569786072
+    },
+    {
+      "text": "venit.",
+      "box": [
+        54,
+        1324,
+        81,
+        1335
+      ],
+      "score": 0.9995726943016052
+    },
+    {
+      "text": "18. Det illi Dominus invenire miscricordiam a Domino in",
+      "box": [
+        60,
+        1330,
+        329,
+        1349
+      ],
+      "score": 0.9915480017662048
+    },
+    {
+      "text": "argentea, sed et liguea, et fictilia; et quedam quidena in hono-",
+      "box": [
+        336,
+        1326,
+        613,
+        1339
+      ],
+      "score": 0.9533790946006775
+    },
+    {
+      "text": "cutionem patientur.",
+      "box": [
+        622,
+        1323,
+        714,
+        1337
+      ],
+      "score": 0.9934177398681641
+    },
+    {
+      "text": "rem, qugdam autem in contumeliam.",
+      "box": [
+        336,
+        1337,
+        501,
+        1350
+      ],
+      "score": 0.9559969305992126
+    },
+    {
+      "text": "13. Mall autem homines, et seductores profcient in pejus",
+      "box": [
+        628,
+        1330,
+        908,
+        1349
+      ],
+      "score": 0.9048796892166138
+    },
+    {
+      "text": "ille die. Et quanta Ephesi ministravit mihi, tu melius nosti.",
+      "box": [
+        52,
+        1342,
+        316,
+        1356
+      ],
+      "score": 0.8380154967308044
+    },
+    {
+      "text": "91.Si enis er",
+      "box": [
+        346,
+        1348,
+        413,
+        1355
+      ],
+      "score": 0.7971993088722229
+    },
+    {
+      "text": "errautes, et in errorem mittentes.",
+      "box": [
+        622,
+        1344,
+        773,
+        1356
+      ],
+      "score": 0.9294435381889343
+    }
+  ]
+}

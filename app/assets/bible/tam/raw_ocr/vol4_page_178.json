@@ -1,0 +1,27 @@
+{
+  "volume": 4,
+  "page_index": 178,
+  "pdf_page": 179,
+  "lines": [
+    {
+      "text": "BERtRAND.Se",
+      "box": [
+        749,
+        1142,
+        859,
+        1169
+      ],
+      "score": 0.7448867559432983
+    },
+    {
+      "text": "LÁZARO Y EL RICO MALO",
+      "box": [
+        372,
+        1180,
+        575,
+        1210
+      ],
+      "score": 0.9921693205833435
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "volume": 1,
+  "page_index": 314,
+  "pdf_page": 315,
+  "lines": [
+    {
+      "text": "PISSAN",
+      "box": [
+        1270,
+        46,
+        1297,
+        102
+      ],
+      "score": 0.8986607193946838
+    },
+    {
+      "text": "LA MUJER DEL LEVITA ULTRAJADA",
+      "box": [
+        1287,
+        292,
+        1344,
+        592
+      ],
+      "score": 0.9965527653694153
+    }
+  ]
+}

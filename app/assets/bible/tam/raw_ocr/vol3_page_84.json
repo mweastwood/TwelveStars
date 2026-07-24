@@ -1,0 +1,1457 @@
+{
+  "volume": 3,
+  "page_index": 84,
+  "pdf_page": 85,
+  "lines": [
+    {
+      "text": "121",
+      "box": [
+        0,
+        35,
+        24,
+        51
+      ],
+      "score": 0.9999857544898987
+    },
+    {
+      "text": "PROVERBIOS.",
+      "box": [
+        135,
+        34,
+        238,
+        50
+      ],
+      "score": 0.9996817111968994
+    },
+    {
+      "text": "CAPITULO XIV.",
+      "box": [
+        624,
+        43,
+        731,
+        56
+      ],
+      "score": 0.9784371852874756
+    },
+    {
+      "text": "122",
+      "box": [
+        831,
+        42,
+        854,
+        58
+      ],
+      "score": 0.999657392501831
+    },
+    {
+      "text": "6. La justicia protege los pasos del inocente; pero la im-",
+      "box": [
+        0,
+        75,
+        389,
+        101
+      ],
+      "score": 0.9888697862625122
+    },
+    {
+      "text": "iedad suplanta al pecador.",
+      "box": [
+        0,
+        95,
+        173,
+        115
+      ],
+      "score": 0.9986434578895569
+    },
+    {
+      "text": "5. No miente el testigo fiel: el testigo falso no profiere",
+      "box": [
+        503,
+        86,
+        862,
+        103
+      ],
+      "score": 0.9796167612075806
+    },
+    {
+      "text": "7. Hay quien hace del rico, no teniendo nada; y quien",
+      "box": [
+        1,
+        112,
+        389,
+        137
+      ],
+      "score": 0.9845892786979675
+    },
+    {
+      "text": "mas que mentiras 5.",
+      "box": [
+        489,
+        103,
+        614,
+        120
+      ],
+      "score": 0.945347249507904
+    },
+    {
+      "text": "6. Busca el mofador la sabiduría, y no la encuentra: el",
+      "box": [
+        501,
+        119,
+        861,
+        138
+      ],
+      "score": 0.9990216493606567
+    },
+    {
+      "text": "arece pobre, teniendo muchas riquezas.",
+      "box": [
+        0,
+        130,
+        258,
+        154
+      ],
+      "score": 0.9998374581336975
+    },
+    {
+      "text": "hombre prudente se instruye fácilmente.",
+      "box": [
+        489,
+        136,
+        738,
+        153
+      ],
+      "score": 0.9827096462249756
+    },
+    {
+      "text": "8. Con sus riquezas rescata el rico su propia vida; pero",
+      "box": [
+        2,
+        147,
+        389,
+        172
+      ],
+      "score": 0.9935505986213684
+    },
+    {
+      "text": "7. Toma tú un rumbo opuesto al que sigue el insensato:",
+      "box": [
+        501,
+        151,
+        862,
+        171
+      ],
+      "score": 0.9997251033782959
+    },
+    {
+      "text": "quel que es pobre está exento de amenazas.",
+      "box": [
+        0,
+        166,
+        282,
+        187
+      ],
+      "score": 0.9887037873268127
+    },
+    {
+      "text": "no conoce éste los dictámenes de la prudencia.",
+      "box": [
+        488,
+        168,
+        775,
+        186
+      ],
+      "score": 0.9992992281913757
+    },
+    {
+      "text": "9. La luz ó prosperidad de los justos causa sólida alegría;",
+      "box": [
+        3,
+        182,
+        390,
+        206
+      ],
+      "score": 0.9917880296707153
+    },
+    {
+      "text": "8. La sabiduría del varon prudente está en conocer bien",
+      "box": [
+        501,
+        184,
+        861,
+        203
+      ],
+      "score": 0.9998201727867126
+    },
+    {
+      "text": "pero la lámpara de los impíos se apagará.",
+      "box": [
+        0,
+        198,
+        265,
+        223
+      ],
+      "score": 0.9953782558441162
+    },
+    {
+      "text": "su camino 6: la imprudencia de los insensatos anda desca-",
+      "box": [
+        488,
+        200,
+        862,
+        219
+      ],
+      "score": 0.9799521565437317
+    },
+    {
+      "text": "10. Entre los soberbios hay continuas reyertas; mas los",
+      "box": [
+        1,
+        214,
+        390,
+        241
+      ],
+      "score": 0.9886272549629211
+    },
+    {
+      "text": "minada.",
+      "box": [
+        490,
+        218,
+        542,
+        232
+      ],
+      "score": 0.9999903440475464
+    },
+    {
+      "text": "que obran siempre con consejo, se gobiernan prudente-",
+      "box": [
+        0,
+        230,
+        391,
+        259
+      ],
+      "score": 0.9973658323287964
+    },
+    {
+      "text": "9. El necio se burlará ó jugará con el pecado; mas la gra-",
+      "box": [
+        501,
+        231,
+        862,
+        252
+      ],
+      "score": 0.9856224656105042
+    },
+    {
+      "text": "nente.",
+      "box": [
+        0,
+        249,
+        44,
+        266
+      ],
+      "score": 0.9703588485717773
+    },
+    {
+      "text": "cia morará entre los justos.",
+      "box": [
+        489,
+        247,
+        657,
+        265
+      ],
+      "score": 0.9994131326675415
+    },
+    {
+      "text": "11. Los bienes que se adquieren muy apriesa, luego se",
+      "box": [
+        0,
+        262,
+        391,
+        290
+      ],
+      "score": 0.9989827871322632
+    },
+    {
+      "text": "10. El corazon de cada uno es el que siente la amargura",
+      "box": [
+        502,
+        262,
+        862,
+        283
+      ],
+      "score": 0.9996533393859863
+    },
+    {
+      "text": "nenoscaban; así como van en aumento los que se juntan",
+      "box": [
+        0,
+        280,
+        390,
+        305
+      ],
+      "score": 0.9964693188667297
+    },
+    {
+      "text": "de su alma; así como en sus placeres no tiene parte el extraño.",
+      "box": [
+        487,
+        279,
+        862,
+        299
+      ],
+      "score": 0.9923402667045593
+    },
+    {
+      "text": "oco á poco á fuerza de trabajo.",
+      "box": [
+        0,
+        296,
+        203,
+        319
+      ],
+      "score": 0.9646775722503662
+    },
+    {
+      "text": "11. La casa de los impíos será arrasada: al contrario es-",
+      "box": [
+        501,
+        295,
+        863,
+        315
+      ],
+      "score": 0.9935726523399353
+    },
+    {
+      "text": "12. La esperanza que se dilata, aflige al alma: pero es",
+      "box": [
+        0,
+        311,
+        391,
+        338
+      ],
+      "score": 0.9885033369064331
+    },
+    {
+      "text": "tará floreciente la morada de los justos.",
+      "box": [
+        488,
+        310,
+        734,
+        329
+      ],
+      "score": 0.9999217391014099
+    },
+    {
+      "text": "omo árbol de vida el buen deseo que se cumple.",
+      "box": [
+        0,
+        328,
+        310,
+        353
+      ],
+      "score": 0.9873483180999756
+    },
+    {
+      "text": "12. Un camino hay que al hombre le parece camino real",
+      "box": [
+        501,
+        326,
+        862,
+        347
+      ],
+      "score": 0.9992638230323792
+    },
+    {
+      "text": "13. Quien vitupera una cosa que manda la ley, se hace",
+      "box": [
+        0,
+        343,
+        389,
+        367
+      ],
+      "score": 0.9861325025558472
+    },
+    {
+      "text": "y derecho; y no obstante le conduce á la muerte.",
+      "box": [
+        487,
+        343,
+        783,
+        361
+      ],
+      "score": 0.9815220832824707
+    },
+    {
+      "text": "eo para en adelante; pero quien respeta el precepto, vivirá",
+      "box": [
+        0,
+        360,
+        388,
+        382
+      ],
+      "score": 0.9811660051345825
+    },
+    {
+      "text": "13. Mezclada anda la risa con el llanto: el término del",
+      "box": [
+        501,
+        358,
+        862,
+        377
+      ],
+      "score": 0.999070405960083
+    },
+    {
+      "text": "n paz.—Las almas taimadas andan perdidas de pecado en",
+      "box": [
+        0,
+        377,
+        388,
+        399
+      ],
+      "score": 0.9915125966072083
+    },
+    {
+      "text": "gozo es el dolor.",
+      "box": [
+        488,
+        375,
+        592,
+        392
+      ],
+      "score": 0.9778940677642822
+    },
+    {
+      "text": "ecado: mas los justos son benignos, y ejercitan la miseri-",
+      "box": [
+        0,
+        393,
+        387,
+        415
+      ],
+      "score": 0.9926918148994446
+    },
+    {
+      "text": "14. El necio saciará sus pasiones; mas el hombre virtuoso",
+      "box": [
+        501,
+        390,
+        863,
+        410
+      ],
+      "score": 0.9905443787574768
+    },
+    {
+      "text": "ordia.",
+      "box": [
+        0,
+        411,
+        40,
+        429
+      ],
+      "score": 0.9999726414680481
+    },
+    {
+      "text": "lo pasará mejor que él.",
+      "box": [
+        489,
+        410,
+        631,
+        424
+      ],
+      "score": 0.9937803149223328
+    },
+    {
+      "text": "14. La ley del sábio es una fuente de vida para evitar la",
+      "box": [
+        0,
+        426,
+        388,
+        447
+      ],
+      "score": 0.9898731708526611
+    },
+    {
+      "text": "15. El hombre sencillo é inexperto7 cree cuanto le dicen;",
+      "box": [
+        501,
+        423,
+        864,
+        443
+      ],
+      "score": 0.9757170677185059
+    },
+    {
+      "text": "xina de la muerte.",
+      "box": [
+        0,
+        445,
+        121,
+        461
+      ],
+      "score": 0.9460649490356445
+    },
+    {
+      "text": "pero el hombre cauto mira donde asienta su pié.—Al hijo",
+      "box": [
+        487,
+        441,
+        863,
+        458
+      ],
+      "score": 0.9936789870262146
+    },
+    {
+      "text": "15. La buena doctrina hará amable al hombre; pero aque-",
+      "box": [
+        0,
+        458,
+        387,
+        479
+      ],
+      "score": 0.9959920644760132
+    },
+    {
+      "text": "doloso nada le saldrá bien; pero el siervo prudente será",
+      "box": [
+        488,
+        456,
+        864,
+        474
+      ],
+      "score": 0.9996500015258789
+    },
+    {
+      "text": "os que la desprecian hallan el precipicio en el camino que",
+      "box": [
+        0,
+        475,
+        387,
+        496
+      ],
+      "score": 0.9998598694801331
+    },
+    {
+      "text": "afortunado en todo, y caminará felizmente.",
+      "box": [
+        490,
+        475,
+        755,
+        489
+      ],
+      "score": 0.9962430000305176
+    },
+    {
+      "text": "guen.",
+      "box": [
+        0,
+        495,
+        40,
+        510
+      ],
+      "score": 0.9999289512634277
+    },
+    {
+      "text": "16. Teme el sábio y se desvia del mal; pero el insensato",
+      "box": [
+        503,
+        491,
+        863,
+        505
+      ],
+      "score": 0.9934550523757935
+    },
+    {
+      "text": "16. El hombre cuerdo todo lo hace con consejo; mas el",
+      "box": [
+        1,
+        510,
+        385,
+        527
+      ],
+      "score": 0.9995512962341309
+    },
+    {
+      "text": "pasa adelante, y se presume seguro.",
+      "box": [
+        487,
+        506,
+        712,
+        525
+      ],
+      "score": 0.9960101246833801
+    },
+    {
+      "text": "sensato ¹ descubre su necedad.",
+      "box": [
+        0,
+        526,
+        205,
+        544
+      ],
+      "score": 0.9590206146240234
+    },
+    {
+      "text": "17. El hombre impaciente obra como loco: y el solapado",
+      "box": [
+        501,
+        522,
+        864,
+        540
+      ],
+      "score": 0.9996467232704163
+    },
+    {
+      "text": "17. El enviado del impío caerá en mil desastres º; pero el",
+      "box": [
+        0,
+        541,
+        387,
+        561
+      ],
+      "score": 0.9827185273170471
+    },
+    {
+      "text": "se hará odioso.",
+      "box": [
+        488,
+        540,
+        584,
+        556
+      ],
+      "score": 0.9999066591262817
+    },
+    {
+      "text": "ensajero fiel acarrea la salud á los pueblos.",
+      "box": [
+        1,
+        561,
+        287,
+        575
+      ],
+      "score": 0.9989801049232483
+    },
+    {
+      "text": "18. Los imprudentes 8 tendrán por herencia la necedad;",
+      "box": [
+        500,
+        553,
+        865,
+        573
+      ],
+      "score": 0.9993182420730591
+    },
+    {
+      "text": "18. Miseria é ignominia experimentará el que huye la",
+      "box": [
+        0,
+        572,
+        387,
+        595
+      ],
+      "score": 0.986613929271698
+    },
+    {
+      "text": "y los juiciosos la esperanza de la ciencia 9.",
+      "box": [
+        486,
+        569,
+        750,
+        590
+      ],
+      "score": 0.9818559288978577
+    },
+    {
+      "text": "orreccion: mas el que obedece á quien le corrige será coro-",
+      "box": [
+        0,
+        590,
+        387,
+        611
+      ],
+      "score": 0.9939097762107849
+    },
+    {
+      "text": "19. A los piés de los buenos yacerán algun dia los malos,",
+      "box": [
+        499,
+        584,
+        866,
+        607
+      ],
+      "score": 0.9954414963722229
+    },
+    {
+      "text": "ado de gloria.",
+      "box": [
+        0,
+        610,
+        95,
+        627
+      ],
+      "score": 0.9997251629829407
+    },
+    {
+      "text": "y los impíos ante las puertas de los justos.",
+      "box": [
+        486,
+        601,
+        751,
+        622
+      ],
+      "score": 0.9940590262413025
+    },
+    {
+      "text": "19. El deseo, cuando se cumple, recrea el ánimo: detes-",
+      "box": [
+        0,
+        620,
+        388,
+        645
+      ],
+      "score": 0.9953456521034241
+    },
+    {
+      "text": "20. Él pobre es enojoso aun á sus mismos deudos: mas los",
+      "box": [
+        500,
+        616,
+        866,
+        638
+      ],
+      "score": 0.9955571293830872
+    },
+    {
+      "text": "an los necios á los que huyen del mal.",
+      "box": [
+        0,
+        641,
+        247,
+        659
+      ],
+      "score": 0.9974086880683899
+    },
+    {
+      "text": "ricos tienen muchos amigos.",
+      "box": [
+        487,
+        635,
+        665,
+        654
+      ],
+      "score": 0.9998674988746643
+    },
+    {
+      "text": "20. Quien anda con sábios, sábio será: el amigo de los",
+      "box": [
+        0,
+        652,
+        388,
+        678
+      ],
+      "score": 0.9836283326148987
+    },
+    {
+      "text": "21. - Peca quien á su prójimo menosprecia; pero el que del",
+      "box": [
+        500,
+        648,
+        866,
+        669
+      ],
+      "score": 0.9899192452430725
+    },
+    {
+      "text": "ecios se asemejará á ellos.",
+      "box": [
+        0,
+        674,
+        170,
+        693
+      ],
+      "score": 0.9816855788230896
+    },
+    {
+      "text": "pobre se compadece, será bienaventurado. —Quien cree en el",
+      "box": [
+        487,
+        663,
+        868,
+        686
+      ],
+      "score": 0.9821510910987854
+    },
+    {
+      "text": "21. El mal persigue á los pecadores; pero los justos serán",
+      "box": [
+        0,
+        685,
+        387,
+        712
+      ],
+      "score": 0.9995019435882568
+    },
+    {
+      "text": "Señor, ama la misericordia 0.",
+      "box": [
+        488,
+        682,
+        671,
+        702
+      ],
+      "score": 0.9539777636528015
+    },
+    {
+      "text": "22. Errados van los que obran el mal: la misericordia y la",
+      "box": [
+        500,
+        696,
+        868,
+        718
+      ],
+      "score": 0.9905336499214172
+    },
+    {
+      "text": "compensados con bienes.",
+      "box": [
+        0,
+        707,
+        169,
+        727
+      ],
+      "score": 0.978075385093689
+    },
+    {
+      "text": "22. El hombre de bien deja por herederos á sus propios",
+      "box": [
+        0,
+        717,
+        387,
+        744
+      ],
+      "score": 0.9802069067955017
+    },
+    {
+      "text": "verdad son las que nos acarrean bienes.",
+      "box": [
+        488,
+        713,
+        735,
+        735
+      ],
+      "score": 0.9973371624946594
+    },
+    {
+      "text": "ijos y nietos; mas la hacienda del pecador está reservada",
+      "box": [
+        0,
+        734,
+        388,
+        760
+      ],
+      "score": 0.993279755115509
+    },
+    {
+      "text": "23. De toda ocupacion se saca provecho; pero del mucho",
+      "box": [
+        501,
+        729,
+        868,
+        751
+      ],
+      "score": 0.990394651889801
+    },
+    {
+      "text": "ara el justo.",
+      "box": [
+        0,
+        758,
+        81,
+        775
+      ],
+      "score": 0.9964803457260132
+    },
+    {
+      "text": "hablar, solo miseria.",
+      "box": [
+        488,
+        746,
+        620,
+        766
+      ],
+      "score": 0.9949178099632263
+    },
+    {
+      "text": "23. En los barbechos que se heredan de los padres nacen",
+      "box": [
+        0,
+        767,
+        388,
+        792
+      ],
+      "score": 0.9836926460266113
+    },
+    {
+      "text": "24. Las riquezas les sirven á los sábios de corona de glo-",
+      "box": [
+        501,
+        760,
+        870,
+        781
+      ],
+      "score": 0.9994763135910034
+    },
+    {
+      "text": "oundantes frutos; pero por falta de juicio se recogen para",
+      "box": [
+        0,
+        785,
+        388,
+        809
+      ],
+      "score": 0.9963236451148987
+    },
+    {
+      "text": "ria: la sandez de los necios es imprudencia.",
+      "box": [
+        488,
+        778,
+        765,
+        798
+      ],
+      "score": 0.9928517937660217
+    },
+    {
+      "text": "25. El testigo fiel salva las vidas de los calumniados: el",
+      "box": [
+        501,
+        793,
+        871,
+        815
+      ],
+      "score": 0.9896944761276245
+    },
+    {
+      "text": "ros.",
+      "box": [
+        0,
+        808,
+        28,
+        824
+      ],
+      "score": 0.9988679885864258
+    },
+    {
+      "text": "24. Quien escasea el castigo, quiere mal á su hijo: mas",
+      "box": [
+        0,
+        819,
+        387,
+        840
+      ],
+      "score": 0.9965173006057739
+    },
+    {
+      "text": "doloso profiere mentiras, y pierde á los hombres.",
+      "box": [
+        489,
+        810,
+        799,
+        832
+      ],
+      "score": 0.9992493391036987
+    },
+    {
+      "text": "lien le ama, le corrige continuamente.",
+      "box": [
+        0,
+        839,
+        251,
+        855
+      ],
+      "score": 0.9811064004898071
+    },
+    {
+      "text": "26. En el temor del Señor se halla la firme esperanza: en ella",
+      "box": [
+        501,
+        826,
+        871,
+        848
+      ],
+      "score": 0.985178530216217
+    },
+    {
+      "text": "25. Come el justo, y satisface su apetito s; pero el vientre",
+      "box": [
+        0,
+        851,
+        387,
+        873
+      ],
+      "score": 0.9837018847465515
+    },
+    {
+      "text": "vivirán sushijos.",
+      "box": [
+        489,
+        846,
+        600,
+        865
+      ],
+      "score": 0.9980253577232361
+    },
+    {
+      "text": "los impíos no se saciará.",
+      "box": [
+        0,
+        871,
+        168,
+        888
+      ],
+      "score": 0.9963269829750061
+    },
+    {
+      "text": "27. El temor del Señor es una fuente de vida para librarse",
+      "box": [
+        501,
+        858,
+        871,
+        882
+      ],
+      "score": 0.9929338693618774
+    },
+    {
+      "text": "de la ruina de la muerte.",
+      "box": [
+        489,
+        879,
+        648,
+        899
+      ],
+      "score": 0.992293119430542
+    },
+    {
+      "text": "28. En la muchedumbre de pueblo está la gloria y poder",
+      "box": [
+        502,
+        892,
+        871,
+        915
+      ],
+      "score": 0.9915065765380859
+    },
+    {
+      "text": "CAPITULO XIV",
+      "box": [
+        135,
+        921,
+        246,
+        938
+      ],
+      "score": 0.9993138313293457
+    },
+    {
+      "text": "de un rey: la escasez de gente es deshonor del príncipe.",
+      "box": [
+        489,
+        910,
+        836,
+        932
+      ],
+      "score": 0.9982216954231262
+    },
+    {
+      "text": "29. Quien es sufrido, se gobierna con mucha prudencia;",
+      "box": [
+        501,
+        926,
+        872,
+        949
+      ],
+      "score": 0.9989312291145325
+    },
+    {
+      "text": "pero el impaciente pone de manifiesto su necedad.",
+      "box": [
+        488,
+        942,
+        806,
+        965
+      ],
+      "score": 0.9918975234031677
+    },
+    {
+      "text": "Debemos aconsejarnos antes de hacer las cosas, y gobernarnos por la",
+      "box": [
+        0,
+        963,
+        373,
+        980
+      ],
+      "score": 0.9964339733123779
+    },
+    {
+      "text": "30. El corazon sano da vida al cuerpo; mas la envidia es",
+      "box": [
+        502,
+        959,
+        872,
+        981
+      ],
+      "score": 0.994469940662384
+    },
+    {
+      "text": "Ley de Dios, y no por nuestras pasiones.",
+      "box": [
+        79,
+        980,
+        300,
+        994
+      ],
+      "score": 0.9999330639839172
+    },
+    {
+      "text": "carcoma de los huesos.",
+      "box": [
+        488,
+        979,
+        635,
+        998
+      ],
+      "score": 0.9853505492210388
+    },
+    {
+      "text": "31. Quien insulta al necesitado, insulta ó zahiere á su",
+      "box": [
+        500,
+        991,
+        873,
+        1016
+      ],
+      "score": 0.9911469221115112
+    },
+    {
+      "text": "1. La mujer prudente edifica ó realza su casa: la necia,",
+      "box": [
+        2,
+        1021,
+        384,
+        1038
+      ],
+      "score": 0.9844488501548767
+    },
+    {
+      "text": "Criador: así como le honra quien se compadece del pobre.",
+      "box": [
+        489,
+        1009,
+        853,
+        1032
+      ],
+      "score": 0.9984152913093567
+    },
+    {
+      "text": "un la ya edificada la destruirá con sus manos.",
+      "box": [
+        0,
+        1037,
+        294,
+        1054
+      ],
+      "score": 0.9995628595352173
+    },
+    {
+      "text": "32. Desechado de Dios será el impío por causa de su",
+      "box": [
+        501,
+        1026,
+        873,
+        1047
+      ],
+      "score": 0.9920803308486938
+    },
+    {
+      "text": "2. El que Va por el camino derecho y. teme á Dios, es",
+      "box": [
+        0,
+        1051,
+        386,
+        1072
+      ],
+      "score": 0.978268027305603
+    },
+    {
+      "text": "malicia: mas el justo, aun en su muerte, conserva la espe-",
+      "box": [
+        487,
+        1042,
+        873,
+        1064
+      ],
+      "score": 0.996048629283905
+    },
+    {
+      "text": "lespreciado por el que anda en malos pasos 4.",
+      "box": [
+        0,
+        1068,
+        290,
+        1088
+      ],
+      "score": 0.9761337041854858
+    },
+    {
+      "text": "ranza.",
+      "box": [
+        488,
+        1066,
+        530,
+        1081
+      ],
+      "score": 0.9986819624900818
+    },
+    {
+      "text": "3. En la boca del insensato está la vara óel castigo de su",
+      "box": [
+        3,
+        1084,
+        384,
+        1105
+      ],
+      "score": 0.9928575754165649
+    },
+    {
+      "text": "33. La sabiduría reside en el corazon del hombre pru-",
+      "box": [
+        500,
+        1075,
+        873,
+        1097
+      ],
+      "score": 0.9944701790809631
+    },
+    {
+      "text": "soberbia: mas á los sábios les sirve de guarda la modestia de",
+      "box": [
+        0,
+        1100,
+        385,
+        1122
+      ],
+      "score": 0.9808749556541443
+    },
+    {
+      "text": "dente, y ella iluminará á todo ignorante.",
+      "box": [
+        487,
+        1094,
+        745,
+        1114
+      ],
+      "score": 0.9912531971931458
+    },
+    {
+      "text": "sus labios.",
+      "box": [
+        0,
+        1117,
+        68,
+        1136
+      ],
+      "score": 0.9997961521148682
+    },
+    {
+      "text": "34. La justicia es la que engrandece las naciones; pero el",
+      "box": [
+        499,
+        1108,
+        874,
+        1132
+      ],
+      "score": 0.9925942420959473
+    },
+    {
+      "text": "4. Donde faltan los bueyes para arar, están vacías las tro-",
+      "box": [
+        7,
+        1133,
+        385,
+        1154
+      ],
+      "score": 0.9995050430297852
+    },
+    {
+      "text": "pecadó hace desdichados los pueblos.",
+      "box": [
+        486,
+        1128,
+        723,
+        1149
+      ],
+      "score": 0.9998772740364075
+    },
+    {
+      "text": "jes y sin paja los pesebres: donde abundan las mieses, allí se",
+      "box": [
+        0,
+        1148,
+        386,
+        1172
+      ],
+      "score": 0.9947242140769958
+    },
+    {
+      "text": "35. El ministro entendido se gana la voluntad del rey;",
+      "box": [
+        499,
+        1141,
+        876,
+        1165
+      ],
+      "score": 0.9999026656150818
+    },
+    {
+      "text": "ve claramente la fuerza y trabajo del buey.",
+      "box": [
+        0,
+        1165,
+        272,
+        1188
+      ],
+      "score": 0.9996045827865601
+    },
+    {
+      "text": "mas el inepto incurrirá en su enojo.",
+      "box": [
+        486,
+        1162,
+        713,
+        1181
+      ],
+      "score": 0.9944018125534058
+    },
+    {
+      "text": "1 No queriendo consultar á nadie.",
+      "box": [
+        11,
+        1207,
+        200,
+        1225
+      ],
+      "score": 0.9854856729507446
+    },
+    {
+      "text": "é Y asegurarse de que es bueno.",
+      "box": [
+        499,
+        1205,
+        674,
+        1221
+      ],
+      "score": 0.969993531703949
+    },
+    {
+      "text": "* Porque coopera al mal.",
+      "box": [
+        13,
+        1222,
+        152,
+        1236
+      ],
+      "score": 0.9678082466125488
+    },
+    {
+      "text": "7 O el hombre sin experiencia.",
+      "box": [
+        499,
+        1221,
+        661,
+        1235
+      ],
+      "score": 0.9607961177825928
+    },
+    {
+      "text": "à O los deseos de su alma.",
+      "box": [
+        11,
+        1234,
+        157,
+        1251
+      ],
+      "score": 0.9218794703483582
+    },
+    {
+      "text": "8 O poco advertidos.",
+      "box": [
+        499,
+        1235,
+        615,
+        1248
+      ],
+      "score": 0.9838040471076965
+    },
+    {
+      "text": "Segun el hebreo: El que anda por el camino derecho, respeta á Dios;",
+      "box": [
+        11,
+        1246,
+        386,
+        1269
+      ],
+      "score": 0.9792463183403015
+    },
+    {
+      "text": " En el hebreo: Y los prudentes se coronarán de sabiduría.",
+      "box": [
+        496,
+        1245,
+        815,
+        1264
+      ],
+      "score": 0.9920217990875244
+    },
+    {
+      "text": "pero el que va por sendas torcidas, le desprecia.",
+      "box": [
+        1,
+        1262,
+        250,
+        1280
+      ],
+      "score": 0.99267578125
+    },
+    {
+      "text": "10 La fé viva va siempre acompañada de la caridad.",
+      "box": [
+        494,
+        1260,
+        774,
+        1279
+      ],
+      "score": 0.9902403354644775
+    },
+    {
+      "text": "5 O lo hace descaradamente.",
+      "box": [
+        16,
+        1277,
+        170,
+        1291
+      ],
+      "score": 0.9546079039573669
+    },
+    {
+      "text": "III—17",
+      "box": [
+        805,
+        1295,
+        855,
+        1313
+      ],
+      "score": 0.9468069672584534
+    }
+  ]
+}

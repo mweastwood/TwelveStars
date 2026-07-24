@@ -1,0 +1,27 @@
+{
+  "volume": 1,
+  "page_index": 28,
+  "pdf_page": 29,
+  "lines": [
+    {
+      "text": "H.PISAN",
+      "box": [
+        806,
+        1133,
+        893,
+        1156
+      ],
+      "score": 0.9804921746253967
+    },
+    {
+      "text": "ADAN Y EVA ARROJADOS DEL PARAISO",
+      "box": [
+        270,
+        1201,
+        606,
+        1226
+      ],
+      "score": 0.9989389181137085
+    }
+  ]
+}

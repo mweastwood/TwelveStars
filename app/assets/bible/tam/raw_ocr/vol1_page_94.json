@@ -1,0 +1,27 @@
+{
+  "volume": 1,
+  "page_index": 94,
+  "pdf_page": 95,
+  "lines": [
+    {
+      "text": "Syony",
+      "box": [
+        12,
+        1140,
+        97,
+        1181
+      ],
+      "score": 0.7485789060592651
+    },
+    {
+      "text": "ABRAHAM DESPIDE A AGAR",
+      "box": [
+        309,
+        1233,
+        535,
+        1256
+      ],
+      "score": 0.9994174838066101
+    }
+  ]
+}

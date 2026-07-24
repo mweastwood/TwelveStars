@@ -1,0 +1,157 @@
+{
+  "volume": 3,
+  "page_index": 10,
+  "pdf_page": 11,
+  "lines": [
+    {
+      "text": "SAGRADA BIBLIA",
+      "box": [
+        23,
+        33,
+        891,
+        126
+      ],
+      "score": 0.9985457062721252
+    },
+    {
+      "text": "TRADUCIDA DE LA VULGATA LATINA AL ESPAÑOL,",
+      "box": [
+        145,
+        157,
+        781,
+        190
+      ],
+      "score": 0.9750897288322449
+    },
+    {
+      "text": "É ILUSTRADA CON VARIAS NOTAS SACADAS DE LOS SANTOS PADRES Y EXPOSITORES SAGRADOS",
+      "box": [
+        103,
+        241,
+        830,
+        269
+      ],
+      "score": 0.9990437626838684
+    },
+    {
+      "text": "POR",
+      "box": [
+        443,
+        286,
+        468,
+        298
+      ],
+      "score": 0.9999850392341614
+    },
+    {
+      "text": "D. FÉLIX TORRES AMAT,",
+      "box": [
+        162,
+        309,
+        759,
+        374
+      ],
+      "score": 0.9943256378173828
+    },
+    {
+      "text": "DE LA DE LA HISTORIA, ETC., ETC., ETC.",
+      "box": [
+        327,
+        413,
+        578,
+        429
+      ],
+      "score": 0.9840490221977234
+    },
+    {
+      "text": "NUEVA EDICION",
+      "box": [
+        361,
+        467,
+        538,
+        489
+      ],
+      "score": 0.987381637096405
+    },
+    {
+      "text": "ILUSTRADA POR GUSTAVO DORÉ",
+      "box": [
+        188,
+        518,
+        695,
+        560
+      ],
+      "score": 0.9959099292755127
+    },
+    {
+      "text": "CON LICENCIA DE LA AUTORIDAD ECLESIÁSTICA",
+      "box": [
+        272,
+        605,
+        619,
+        630
+      ],
+      "score": 0.996428906917572
+    },
+    {
+      "text": "TOMO TERCERO",
+      "box": [
+        325,
+        815,
+        550,
+        849
+      ],
+      "score": 0.9984545707702637
+    },
+    {
+      "text": "ANTIGUO TESTAMENTO",
+      "box": [
+        362,
+        865,
+        511,
+        885
+      ],
+      "score": 0.9998968839645386
+    },
+    {
+      "text": "BARCELONA",
+      "box": [
+        343,
+        1123,
+        483,
+        1147
+      ],
+      "score": 0.9998469948768616
+    },
+    {
+      "text": "MONTANER Y SIMON, EDITORES",
+      "box": [
+        137,
+        1180,
+        688,
+        1216
+      ],
+      "score": 0.9920024871826172
+    },
+    {
+      "text": "CALLE DE ARAGON, NUMEROS 309 Y 311",
+      "box": [
+        274,
+        1226,
+        561,
+        1251
+      ],
+      "score": 0.9851768612861633
+    },
+    {
+      "text": "MDCCCLXXXIV",
+      "box": [
+        364,
+        1265,
+        454,
+        1283
+      ],
+      "score": 0.9993896484375
+    }
+  ]
+}

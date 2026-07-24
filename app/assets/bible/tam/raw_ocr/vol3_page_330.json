@@ -1,0 +1,1697 @@
+{
+  "volume": 3,
+  "page_index": 330,
+  "pdf_page": 331,
+  "lines": [
+    {
+      "text": "533",
+      "box": [
+        63,
+        36,
+        85,
+        52
+      ],
+      "score": 0.9995047450065613
+    },
+    {
+      "text": "DANIEL.",
+      "box": [
+        205,
+        35,
+        272,
+        54
+      ],
+      "score": 0.9982060790061951
+    },
+    {
+      "text": "CAPITULO 111.",
+      "box": [
+        662,
+        38,
+        764,
+        55
+      ],
+      "score": 0.977458119392395
+    },
+    {
+      "text": "534",
+      "box": [
+        865,
+        38,
+        888,
+        54
+      ],
+      "score": 0.9976807236671448
+    },
+    {
+      "text": "31. Tú, oh rey, tuviste una vision; y te parecia que veias",
+      "box": [
+        61,
+        74,
+        431,
+        99
+      ],
+      "score": 0.9859566688537598
+    },
+    {
+      "text": "como una grande estátua, y esta estátua grande y de ele-",
+      "box": [
+        49,
+        91,
+        430,
+        119
+      ],
+      "score": 0.9091958999633789
+    },
+    {
+      "text": "res, y le hizo muchos y magníficos regalos, y le constituyó",
+      "box": [
+        528,
+        82,
+        896,
+        102
+      ],
+      "score": 0.9938524961471558
+    },
+    {
+      "text": "vada altura estaba derecha en frente de tí; y su presencia",
+      "box": [
+        49,
+        108,
+        431,
+        137
+      ],
+      "score": 0.8971673846244812
+    },
+    {
+      "text": "príncipe de todas las provincias de Babylonia; y presidente",
+      "box": [
+        527,
+        100,
+        894,
+        119
+      ],
+      "score": 0.9851852655410767
+    },
+    {
+      "text": "de los magistrados, y de todos los sábios de Babylonia.",
+      "box": [
+        526,
+        116,
+        855,
+        138
+      ],
+      "score": 0.9994474649429321
+    },
+    {
+      "text": "era espantosa.",
+      "box": [
+        51,
+        128,
+        144,
+        153
+      ],
+      "score": 0.9952541589736938
+    },
+    {
+      "text": "49. É impetró Daniel del rey que se encargasen los nego-",
+      "box": [
+        539,
+        134,
+        894,
+        156
+      ],
+      "score": 0.9934911727905273
+    },
+    {
+      "text": "cios de la provincia de Babylonia á Sidrach, Misach y Ab-",
+      "box": [
+        526,
+        151,
+        894,
+        174
+      ],
+      "score": 0.9776323437690735
+    },
+    {
+      "text": "cho empero, y los",
+      "box": [
+        52,
+        162,
+        183,
+        188
+      ],
+      "score": 0.9974477291107178
+    },
+    {
+      "text": "brazos",
+      "box": [
+        176,
+        169,
+        225,
+        187
+      ],
+      "score": 0.999814510345459
+    },
+    {
+      "text": "de plata; mas el vientre y los",
+      "box": [
+        222,
+        164,
+        429,
+        189
+      ],
+      "score": 0.9991233348846436
+    },
+    {
+      "text": "denago: Daniel empero estaba al lado del rey.",
+      "box": [
+        526,
+        169,
+        801,
+        190
+      ],
+      "score": 0.9707509279251099
+    },
+    {
+      "text": "muslos de cobre ó bronce;",
+      "box": [
+        52,
+        180,
+        218,
+        206
+      ],
+      "score": 0.9903507828712463
+    },
+    {
+      "text": "de hierro y la otra de barro.",
+      "box": [
+        53,
+        213,
+        227,
+        241
+      ],
+      "score": 0.9842367768287659
+    },
+    {
+      "text": "CAPITULO III",
+      "box": [
+        660,
+        204,
+        756,
+        221
+      ],
+      "score": 0.9995210766792297
+    },
+    {
+      "text": "34. Así la veias tú cuando,",
+      "box": [
+        63,
+        230,
+        247,
+        258
+      ],
+      "score": 0.9779892563819885
+    },
+    {
+      "text": "n que mano ninguna la mo-",
+      "box": [
+        259,
+        233,
+        426,
+        254
+      ],
+      "score": 0.9876948595046997
+    },
+    {
+      "text": "Ananias, Misael y Azarias, no queriendo adorar la estátua de Nabucho-",
+      "box": [
+        526,
+        229,
+        891,
+        248
+      ],
+      "score": 0.9990909695625305
+    },
+    {
+      "text": "viese, se desgajó del monte",
+      "box": [
+        52,
+        247,
+        227,
+        274
+      ],
+      "score": 0.9989292621612549
+    },
+    {
+      "text": "sin",
+      "box": [
+        243,
+        240,
+        266,
+        252
+      ],
+      "score": 0.9999637603759766
+    },
+    {
+      "text": "donosor, son echados en un horno encendido, y milagrosamente libra-",
+      "box": [
+        535,
+        243,
+        891,
+        262
+      ],
+      "score": 0.9965013861656189
+    },
+    {
+      "text": "una",
+      "box": [
+        218,
+        256,
+        252,
+        270
+      ],
+      "score": 0.9999071955680847
+    },
+    {
+      "text": "piedra, la cual hirió la está-",
+      "box": [
+        245,
+        250,
+        427,
+        272
+      ],
+      "score": 0.976646363735199
+    },
+    {
+      "text": "tua en sus piés de hierro y",
+      "box": [
+        52,
+        264,
+        219,
+        290
+      ],
+      "score": 0.9939627647399902
+    },
+    {
+      "text": "dos por Dios. Asombrado el rey, da gloria á Dios, y manda que sea",
+      "box": [
+        535,
+        257,
+        891,
+        275
+      ],
+      "score": 0.9914515614509583
+    },
+    {
+      "text": "barro cocido, y los desmenuzó.",
+      "box": [
+        231,
+        265,
+        428,
+        290
+      ],
+      "score": 0.9906356334686279
+    },
+    {
+      "text": "35. Entonces se",
+      "box": [
+        64,
+        282,
+        176,
+        304
+      ],
+      "score": 0.9985863566398621
+    },
+    {
+      "text": "muerto el que blasfemare su santo Nombre.",
+      "box": [
+        537,
+        273,
+        760,
+        287
+      ],
+      "score": 0.9944552183151245
+    },
+    {
+      "text": "pedazos igualmente el hierro, el",
+      "box": [
+        221,
+        282,
+        428,
+        307
+      ],
+      "score": 0.984447717666626
+    },
+    {
+      "text": "l oro, y quedaron reducidos á ser",
+      "box": [
+        219,
+        298,
+        429,
+        323
+      ],
+      "score": 0.9926373958587646
+    },
+    {
+      "text": "1. Hizo el rey Nabuchodonosor una estátua de oro de",
+      "box": [
+        539,
+        302,
+        889,
+        316
+      ],
+      "score": 0.9921025037765503
+    },
+    {
+      "text": "como el tamo de una era",
+      "box": [
+        52,
+        314,
+        209,
+        338
+      ],
+      "score": 0.9857223629951477
+    },
+    {
+      "text": "l verano, que el viento esparce;",
+      "box": [
+        232,
+        317,
+        427,
+        338
+      ],
+      "score": 0.9879205822944641
+    },
+    {
+      "text": "sesenta codos de altura, y seis de anchura, y púsola en el",
+      "box": [
+        524,
+        317,
+        891,
+        334
+      ],
+      "score": 0.9995683431625366
+    },
+    {
+      "text": "y así no quedó",
+      "box": [
+        50,
+        330,
+        151,
+        353
+      ],
+      "score": 0.9845800399780273
+    },
+    {
+      "text": ". Pero la piedra que habia herido",
+      "box": [
+        227,
+        331,
+        428,
+        356
+      ],
+      "score": 0.9883130192756653
+    },
+    {
+      "text": "campo de Dura, en la provincia de Babylonia.",
+      "box": [
+        523,
+        332,
+        808,
+        350
+      ],
+      "score": 0.9992105960845947
+    },
+    {
+      "text": "á la estátua, se",
+      "box": [
+        50,
+        345,
+        151,
+        370
+      ],
+      "score": 0.9636865258216858
+    },
+    {
+      "text": "gran montaña, y llenó toda la tierra.",
+      "box": [
+        197,
+        349,
+        426,
+        372
+      ],
+      "score": 0.9971372485160828
+    },
+    {
+      "text": "2. Mandó pues el rey Nabuchodonosor juntar los sátra-",
+      "box": [
+        532,
+        347,
+        891,
+        366
+      ],
+      "score": 0.9984949827194214
+    },
+    {
+      "text": "36. Tal es el",
+      "box": [
+        63,
+        364,
+        154,
+        385
+      ],
+      "score": 0.9872083067893982
+    },
+    {
+      "text": "Diremos",
+      "box": [
+        193,
+        372,
+        252,
+        386
+      ],
+      "score": 0.9997889399528503
+    },
+    {
+      "text": "s tambien en tu presencia, oh",
+      "box": [
+        244,
+        366,
+        426,
+        387
+      ],
+      "score": 0.9895710349082947
+    },
+    {
+      "text": "pas, magistrados y jueces, los capitanes y grandes señores,",
+      "box": [
+        522,
+        363,
+        891,
+        383
+      ],
+      "score": 0.9858526587486267
+    },
+    {
+      "text": "rey, su significacion.",
+      "box": [
+        50,
+        378,
+        179,
+        406
+      ],
+      "score": 0.9983583092689514
+    },
+    {
+      "text": "y los prefectos y los gobernadores todos de las provincias,",
+      "box": [
+        522,
+        379,
+        891,
+        399
+      ],
+      "score": 0.9944326281547546
+    },
+    {
+      "text": "37. Tú eres rey de",
+      "box": [
+        61,
+        395,
+        191,
+        423
+      ],
+      "score": 0.9926044940948486
+    },
+    {
+      "text": "reyes; y el Dios del cielo te ha dado á",
+      "box": [
+        184,
+        398,
+        428,
+        422
+      ],
+      "score": 0.9951586723327637
+    },
+    {
+      "text": "para que asistiesen á la dedicacion de la estátua que habia",
+      "box": [
+        522,
+        396,
+        891,
+        416
+      ],
+      "score": 0.990425705909729
+    },
+    {
+      "text": "tíreino, y fortaleza,",
+      "box": [
+        49,
+        412,
+        177,
+        438
+      ],
+      "score": 0.9578354954719543
+    },
+    {
+      "text": ", é imperio y gloria:",
+      "box": [
+        164,
+        417,
+        290,
+        440
+      ],
+      "score": 0.9398767352104187
+    },
+    {
+      "text": "levantado el rey Nabuchodonosor.",
+      "box": [
+        522,
+        413,
+        727,
+        432
+      ],
+      "score": 0.9995315670967102
+    },
+    {
+      "text": "38. Y ha sujetado",
+      "box": [
+        61,
+        429,
+        195,
+        456
+      ],
+      "score": 0.9977195858955383
+    },
+    {
+      "text": "tu poder los lugares todos en que",
+      "box": [
+        198,
+        433,
+        427,
+        455
+      ],
+      "score": 0.9996225833892822
+    },
+    {
+      "text": "3. Reuniéronse pues los sátrapas, los magistrados, y los",
+      "box": [
+        535,
+        428,
+        892,
+        449
+      ],
+      "score": 0.9873419404029846
+    },
+    {
+      "text": "habitan los hijos",
+      "box": [
+        49,
+        445,
+        167,
+        471
+      ],
+      "score": 0.9989307522773743
+    },
+    {
+      "text": "de los",
+      "box": [
+        157,
+        452,
+        206,
+        470
+      ],
+      "score": 0.9999361038208008
+    },
+    {
+      "text": "hombres, como tambien las bestias",
+      "box": [
+        199,
+        450,
+        426,
+        470
+      ],
+      "score": 0.9992925524711609
+    },
+    {
+      "text": "jueces, y los capitanes, y los grandes señores, y los presi-",
+      "box": [
+        522,
+        444,
+        893,
+        466
+      ],
+      "score": 0.9995107054710388
+    },
+    {
+      "text": "del campo y las",
+      "box": [
+        49,
+        461,
+        155,
+        487
+      ],
+      "score": 0.9955818057060242
+    },
+    {
+      "text": "aves",
+      "box": [
+        146,
+        470,
+        184,
+        485
+      ],
+      "score": 0.9997333884239197
+    },
+    {
+      "text": "aire; todas las cosas ha puesto bajo",
+      "box": [
+        201,
+        467,
+        425,
+        487
+      ],
+      "score": 0.9996187686920166
+    },
+    {
+      "text": "dentes de los tribunales, y todos los gobernadores de las",
+      "box": [
+        522,
+        460,
+        893,
+        482
+      ],
+      "score": 0.9998338222503662
+    },
+    {
+      "text": "tu dominio: tú pues",
+      "box": [
+        49,
+        478,
+        182,
+        505
+      ],
+      "score": 0.9915909767150879
+    },
+    {
+      "text": "s eres la cabeza de oro 1.",
+      "box": [
+        170,
+        484,
+        316,
+        504
+      ],
+      "score": 0.9695643782615662
+    },
+    {
+      "text": "provincias, para concurrir á la dedicacion de la estátua que",
+      "box": [
+        521,
+        477,
+        893,
+        499
+      ],
+      "score": 0.993815541267395
+    },
+    {
+      "text": "39. Y despues",
+      "box": [
+        62,
+        497,
+        167,
+        520
+      ],
+      "score": 0.995476484298706
+    },
+    {
+      "text": "se levantará otro reino menor que el",
+      "box": [
+        193,
+        499,
+        426,
+        521
+      ],
+      "score": 0.9932028651237488
+    },
+    {
+      "text": "habia levantado el rey Nabuchodonosor. Y estaban en pié",
+      "box": [
+        522,
+        494,
+        894,
+        516
+      ],
+      "score": 0.9988630414009094
+    },
+    {
+      "text": "tuyo, que será de",
+      "box": [
+        50,
+        514,
+        173,
+        537
+      ],
+      "score": 0.9962443113327026
+    },
+    {
+      "text": "pláta",
+      "box": [
+        161,
+        518,
+        206,
+        538
+      ],
+      "score": 0.9883707165718079
+    },
+    {
+      "text": "despues otro tercer reino, que",
+      "box": [
+        228,
+        518,
+        426,
+        537
+      ],
+      "score": 0.9965711236000061
+    },
+    {
+      "text": "delante de la estátua erigida por el rey Nabuchodonosor;",
+      "box": [
+        522,
+        511,
+        867,
+        532
+      ],
+      "score": 0.9877179861068726
+    },
+    {
+      "text": "4. Y gritaba un pregonero en alta voz: Á vosotros, oh",
+      "box": [
+        534,
+        525,
+        895,
+        550
+      ],
+      "score": 0.9964613914489746
+    },
+    {
+      "text": "40. Y el cuarto reino",
+      "box": [
+        64,
+        549,
+        214,
+        571
+      ],
+      "score": 0.9668988585472107
+    },
+    {
+      "text": "será",
+      "box": [
+        209,
+        554,
+        242,
+        569
+      ],
+      "score": 0.9995959997177124
+    },
+    {
+      "text": "como el hierro . Al modo que",
+      "box": [
+        236,
+        550,
+        425,
+        570
+      ],
+      "score": 0.9540224671363831
+    },
+    {
+      "text": "pueblos, tribus y lenguas, se os manda",
+      "box": [
+        521,
+        544,
+        756,
+        566
+      ],
+      "score": 0.9969432353973389
+    },
+    {
+      "text": "el hierro desmenuza y",
+      "box": [
+        50,
+        565,
+        204,
+        587
+      ],
+      "score": 0.9829065203666687
+    },
+    {
+      "text": "doma",
+      "box": [
+        197,
+        570,
+        243,
+        585
+      ],
+      "score": 0.9997249245643616
+    },
+    {
+      "text": "todas las cosas, así este reino",
+      "box": [
+        235,
+        566,
+        425,
+        586
+      ],
+      "score": 0.9993767738342285
+    },
+    {
+      "text": "5. Que en el mismo punto en que oyereis el sonido de la",
+      "box": [
+        533,
+        558,
+        897,
+        583
+      ],
+      "score": 0.9925528764724731
+    },
+    {
+      "text": "destrozará y desmenuzará á todos los demás.",
+      "box": [
+        49,
+        581,
+        326,
+        604
+      ],
+      "score": 0.9742828011512756
+    },
+    {
+      "text": "trompeta, de la flauta, de la arpa, de la zampoña, y del",
+      "box": [
+        522,
+        575,
+        898,
+        600
+      ],
+      "score": 0.9983683228492737
+    },
+    {
+      "text": "41. Mas en cuanto á lo que has visto que una parte de los",
+      "box": [
+        63,
+        598,
+        426,
+        621
+      ],
+      "score": 0.9949550032615662
+    },
+    {
+      "text": "salterio y de la simphonía, y de toda especie de instrumen-",
+      "box": [
+        522,
+        592,
+        897,
+        615
+      ],
+      "score": 0.9908833503723145
+    },
+    {
+      "text": "piés y de los dedos era de barro de alfarero, y la otra de",
+      "box": [
+        49,
+        614,
+        424,
+        636
+      ],
+      "score": 0.9834194183349609
+    },
+    {
+      "text": "tos músicos, postrándoos, adoreis la estátua de oro erigida",
+      "box": [
+        521,
+        608,
+        898,
+        632
+      ],
+      "score": 0.9958134293556213
+    },
+    {
+      "text": "hierro; sepus que el reino, sin embargo que tendrá orígen",
+      "box": [
+        48,
+        631,
+        423,
+        653
+      ],
+      "score": 0.9735056757926941
+    },
+    {
+      "text": "por el rey Nabuchodonosor:",
+      "box": [
+        520,
+        628,
+        691,
+        649
+      ],
+      "score": 0.9999377131462097
+    },
+    {
+      "text": "de vena de hierro, será dividido, conforme lo que viste del",
+      "box": [
+        49,
+        649,
+        423,
+        669
+      ],
+      "score": 0.9960829615592957
+    },
+    {
+      "text": "6. Que si alguno no se postrare, y no la adorare, en el",
+      "box": [
+        532,
+        641,
+        899,
+        666
+      ],
+      "score": 0.9933204650878906
+    },
+    {
+      "text": "hierro mezclado con el barro cocido.",
+      "box": [
+        49,
+        666,
+        272,
+        685
+      ],
+      "score": 0.9991124272346497
+    },
+    {
+      "text": "mismo momento será arrojado en un horno de fuego ar-",
+      "box": [
+        518,
+        658,
+        899,
+        683
+      ],
+      "score": 0.9996283650398254
+    },
+    {
+      "text": "42. Y como los dedos de los piés en parte son de hierro,",
+      "box": [
+        63,
+        682,
+        419,
+        702
+      ],
+      "score": 0.9948415160179138
+    },
+    {
+      "text": "diente.",
+      "box": [
+        521,
+        681,
+        566,
+        699
+      ],
+      "score": 0.9999512434005737
+    },
+    {
+      "text": "y en parte de barro cocido; así el reino en parte será firme y",
+      "box": [
+        47,
+        698,
+        420,
+        720
+      ],
+      "score": 0.9872496724128723
+    },
+    {
+      "text": "7. Así, pues, luego que los pueblos todos oyeron el sonido",
+      "box": [
+        530,
+        689,
+        899,
+        716
+      ],
+      "score": 0.9997940063476562
+    },
+    {
+      "text": "en parte quebradizo.",
+      "box": [
+        49,
+        716,
+        179,
+        736
+      ],
+      "score": 0.9802485704421997
+    },
+    {
+      "text": "de la trompeta, de la flauta, del arpa, de la zampoña, y del",
+      "box": [
+        518,
+        708,
+        899,
+        732
+      ],
+      "score": 0.9988607168197632
+    },
+    {
+      "text": "43. Y al modo que has visto el hierro mezclado con el",
+      "box": [
+        61,
+        730,
+        419,
+        751
+      ],
+      "score": 0.9983243942260742
+    },
+    {
+      "text": "salterio, y de la simphonía, y de toda especie de instrumen-",
+      "box": [
+        517,
+        723,
+        900,
+        750
+      ],
+      "score": 0.9988833069801331
+    },
+    {
+      "text": "barro cocido, así se unirán por medio de parentelas; mas",
+      "box": [
+        48,
+        747,
+        420,
+        767
+      ],
+      "score": 0.9918760657310486
+    },
+    {
+      "text": "tos músicos, postrándose todos los pueblos, tribus y len-",
+      "box": [
+        518,
+        741,
+        899,
+        765
+      ],
+      "score": 0.9997667670249939
+    },
+    {
+      "text": "no formarán un cuerpo el uno con el otro, así como el hierro",
+      "box": [
+        47,
+        763,
+        419,
+        783
+      ],
+      "score": 0.9916251301765442
+    },
+    {
+      "text": "guas, adoraron la estátua de oro que habia levantado el rey",
+      "box": [
+        516,
+        757,
+        899,
+        782
+      ],
+      "score": 0.9973017573356628
+    },
+    {
+      "text": "no puede ligarse con el barro.",
+      "box": [
+        47,
+        779,
+        230,
+        799
+      ],
+      "score": 0.9992955923080444
+    },
+    {
+      "text": "Nabuchodonosor.",
+      "box": [
+        520,
+        781,
+        625,
+        795
+      ],
+      "score": 0.9999368786811829
+    },
+    {
+      "text": "44. Pero en el tiempo de aquellos reinos, el Dios del cielo",
+      "box": [
+        60,
+        794,
+        419,
+        815
+      ],
+      "score": 0.9978574514389038
+    },
+    {
+      "text": "8. Y súbito en el mismo momento fueron algunos Chal-",
+      "box": [
+        527,
+        790,
+        899,
+        814
+      ],
+      "score": 0.9920696020126343
+    },
+    {
+      "text": "levantará un reino que nunca jamás será destruido: y este",
+      "box": [
+        46,
+        812,
+        418,
+        830
+      ],
+      "score": 0.9954325556755066
+    },
+    {
+      "text": "déos á acusar á los Judíos;",
+      "box": [
+        518,
+        811,
+        686,
+        830
+      ],
+      "score": 0.9919010400772095
+    },
+    {
+      "text": "reino no pasará á otra nacion; sino que quebrantará y ani-",
+      "box": [
+        48,
+        830,
+        416,
+        844
+      ],
+      "score": 0.9858916997909546
+    },
+    {
+      "text": "9. Y dijeron al rey Nabuchodonosor: Oh rey, vive eter-",
+      "box": [
+        527,
+        825,
+        899,
+        848
+      ],
+      "score": 0.9872868657112122
+    },
+    {
+      "text": "quilará todos estos reinos: y él subsistirá eternamente;",
+      "box": [
+        47,
+        844,
+        378,
+        862
+      ],
+      "score": 0.9985311627388
+    },
+    {
+      "text": "namente!",
+      "box": [
+        514,
+        845,
+        579,
+        864
+      ],
+      "score": 0.9993491172790527
+    },
+    {
+      "text": "45. Conforme viste tú que la piedra desprendida del monte",
+      "box": [
+        59,
+        858,
+        417,
+        879
+      ],
+      "score": 0.9993579983711243
+    },
+    {
+      "text": "10. Tú, oh rey, has dado un decreto, para que todo hom-",
+      "box": [
+        527,
+        859,
+        899,
+        881
+      ],
+      "score": 0.9987175464630127
+    },
+    {
+      "text": "sin concurso de hombre alguno desmenuzó el barro, y el",
+      "box": [
+        45,
+        872,
+        417,
+        897
+      ],
+      "score": 0.9990788102149963
+    },
+    {
+      "text": "hierro, y el cobre, y la plata, y el oro: el gran Dios ha mos-",
+      "box": [
+        45,
+        888,
+        417,
+        912
+      ],
+      "score": 0.9945586323738098
+    },
+    {
+      "text": "bre que oyere el sonido de la trompeta, de la flauta, y del",
+      "box": [
+        515,
+        878,
+        898,
+        897
+      ],
+      "score": 0.9818016290664673
+    },
+    {
+      "text": "trado al rey las cosas futuras. Y el tal sueño es verdadero,",
+      "box": [
+        45,
+        903,
+        417,
+        929
+      ],
+      "score": 0.9975526332855225
+    },
+    {
+      "text": "arpa, de la zampoña, y del salterio, y de la simphonía, y",
+      "box": [
+        516,
+        896,
+        898,
+        913
+      ],
+      "score": 0.9949879050254822
+    },
+    {
+      "text": "y es fiel su interpretacion 5.",
+      "box": [
+        45,
+        920,
+        211,
+        939
+      ],
+      "score": 0.9675694108009338
+    },
+    {
+      "text": "de toda especie de instrumentos músicos, se postre, y adore",
+      "box": [
+        517,
+        914,
+        897,
+        928
+      ],
+      "score": 0.9991109371185303
+    },
+    {
+      "text": "46. Entonces el rey Nabuchodonosor postróse en tierra",
+      "box": [
+        58,
+        934,
+        415,
+        961
+      ],
+      "score": 0.9995055198669434
+    },
+    {
+      "text": "la estátua de oro;",
+      "box": [
+        515,
+        928,
+        626,
+        945
+      ],
+      "score": 0.9998422265052795
+    },
+    {
+      "text": "sobre su rostro y adoró á Daniel 6, y mandó que se le hicie-",
+      "box": [
+        44,
+        950,
+        416,
+        978
+      ],
+      "score": 0.9611491560935974
+    },
+    {
+      "text": "11. Y que cualquiera que no se.postrare y no la adorare,",
+      "box": [
+        527,
+        944,
+        898,
+        963
+      ],
+      "score": 0.9996678233146667
+    },
+    {
+      "text": "sen sacrificios de víctimas, y le quemasen incienso.",
+      "box": [
+        45,
+        967,
+        351,
+        991
+      ],
+      "score": 0.9818636775016785
+    },
+    {
+      "text": "sea arrojado en un horno de fuego ardiente.",
+      "box": [
+        517,
+        963,
+        788,
+        977
+      ],
+      "score": 0.999782145023346
+    },
+    {
+      "text": "47. El rey pues dirigió su palabra á Daniel, y le dijo:",
+      "box": [
+        59,
+        983,
+        414,
+        1010
+      ],
+      "score": 0.9989152550697327
+    },
+    {
+      "text": "12. Hay pues tres hombres entre los Judíos 8, á los cuales",
+      "box": [
+        527,
+        976,
+        898,
+        996
+      ],
+      "score": 0.9887301325798035
+    },
+    {
+      "text": "Verdaderamente que vuestro Dios es el Dios de los dioses,",
+      "box": [
+        45,
+        999,
+        414,
+        1026
+      ],
+      "score": 0.9994715452194214
+    },
+    {
+      "text": "tú constituiste sobre los negocios de la provincia de Baby-",
+      "box": [
+        515,
+        992,
+        898,
+        1013
+      ],
+      "score": 0.9997697472572327
+    },
+    {
+      "text": "y el Señor de los reyes, y el que revela los arcanos; pues",
+      "box": [
+        42,
+        1014,
+        416,
+        1044
+      ],
+      "score": 0.993777871131897
+    },
+    {
+      "text": "lonia, que son Sidrach, Misach, y Abdenago: estos hombres",
+      "box": [
+        514,
+        1010,
+        898,
+        1029
+      ],
+      "score": 0.9990330934524536
+    },
+    {
+      "text": "has podido tú descubrir este.",
+      "box": [
+        44,
+        1032,
+        224,
+        1053
+      ],
+      "score": 0.987947404384613
+    },
+    {
+      "text": "han despreciado, oh rey, tu decreto: no dan culto á tus dio-",
+      "box": [
+        514,
+        1027,
+        898,
+        1046
+      ],
+      "score": 0.9970021843910217
+    },
+    {
+      "text": "48. Entonces ol rey ensalzó á Daniel colmándole de hono-",
+      "box": [
+        58,
+        1048,
+        415,
+        1074
+      ],
+      "score": 0.997141420841217
+    },
+    {
+      "text": "ses, ni adoran la estátua de oro que has levantado.",
+      "box": [
+        512,
+        1043,
+        832,
+        1063
+      ],
+      "score": 0.9864804744720459
+    },
+    {
+      "text": "13. Entonces Nabuchodonosor, lleno de furor y saña,",
+      "box": [
+        526,
+        1058,
+        899,
+        1083
+      ],
+      "score": 0.9996607303619385
+    },
+    {
+      "text": "IEl imperio de los Chaldéos por su grandeza, gloria éinmensas rique-",
+      "box": [
+        53,
+        1084,
+        413,
+        1113
+      ],
+      "score": 0.8860009908676147
+    },
+    {
+      "text": "zas, está muy bien comparado con el mas noble de los metales.",
+      "box": [
+        42,
+        1099,
+        368,
+        1124
+      ],
+      "score": 0.969237744808197
+    },
+    {
+      "text": "explican casi todos los Santos Padres de un mismo modo, y en especial",
+      "box": [
+        513,
+        1097,
+        898,
+        1121
+      ],
+      "score": 0.9897437691688538
+    },
+    {
+      "text": "à El imperio de los Persas, de menor extension y duracion que el an-",
+      "box": [
+        51,
+        1112,
+        413,
+        1138
+      ],
+      "score": 0.9750480651855469
+    },
+    {
+      "text": "San Justino Mártir, San Ireneo, San Gerónimo y San Agustin. Vino Jesu-",
+      "box": [
+        512,
+        1112,
+        899,
+        1136
+      ],
+      "score": 0.9916598796844482
+    },
+    {
+      "text": "terior de los Chaldos. Su fundador fué Cyr, y acabó en Darío, lamado",
+      "box": [
+        39,
+        1125,
+        413,
+        1153
+      ],
+      "score": 0.8119553327560425
+    },
+    {
+      "text": "Christo á destruir el poder del demonio; y sujetó á Dios y á su Iglesia",
+      "box": [
+        512,
+        1126,
+        898,
+        1151
+      ],
+      "score": 0.9933778047561646
+    },
+    {
+      "text": "Condomano, que fué veneido por Alejandro.",
+      "box": [
+        40,
+        1140,
+        271,
+        1161
+      ],
+      "score": 0.9616677761077881
+    },
+    {
+      "text": "las naciones. Vino á combatir contra el fuerte armado, valiéndose no de",
+      "box": [
+        512,
+        1140,
+        899,
+        1166
+      ],
+      "score": 0.9875034689903259
+    },
+    {
+      "text": "a El imperio de los Griegos, ó sea de Alejandro Magno, que, vencido",
+      "box": [
+        48,
+        1152,
+        412,
+        1180
+      ],
+      "score": 0.9139446020126343
+    },
+    {
+      "text": "su omnipoteneia, sino de la debilidad de nuestra carne frágil y misera-",
+      "box": [
+        511,
+        1155,
+        899,
+        1182
+      ],
+      "score": 0.9919322729110718
+    },
+    {
+      "text": "ble: y cual piedrecita que se desprende del monte, sin que intervenga la",
+      "box": [
+        511,
+        1169,
+        899,
+        1197
+      ],
+      "score": 0.9882150292396545
+    },
+    {
+      "text": "mano de ningun hombre, así Jesu-Christo, concebido como hombre en el",
+      "box": [
+        510,
+        1183,
+        900,
+        1212
+      ],
+      "score": 0.987958550453186
+    },
+    {
+      "text": "seno de la Vírgen María, destruirá el imperio de Satanás, ete., ete.",
+      "box": [
+        510,
+        1196,
+        900,
+        1227
+      ],
+      "score": 0.9895008206367493
+    },
+    {
+      "text": "I. Cor. I, v. 25. Tambien varios doctos rabinos vieron aquí profetizado",
+      "box": [
+        509,
+        1209,
+        900,
+        1244
+      ],
+      "score": 0.956369936466217
+    },
+    {
+      "text": "el Mesías. Bereschib Rabba, ad Gen. XX VII, v. 10.",
+      "box": [
+        509,
+        1223,
+        786,
+        1254
+      ],
+      "score": 0.9862273335456848
+    },
+    {
+      "text": " Véase Adorar.—Act. XIV, v. 10, 17.",
+      "box": [
+        519,
+        1236,
+        733,
+        1266
+      ],
+      "score": 0.951492965221405
+    },
+    {
+      "text": "No se sabe lo que esta estátua representaba: pero se eree que era la",
+      "box": [
+        517,
+        1249,
+        901,
+        1291
+      ],
+      "score": 0.9631465673446655
+    },
+    {
+      "text": "destruyéndose por sí mismo.—Véase despues cap. VII.",
+      "box": [
+        33,
+        1262,
+        327,
+        1283
+      ],
+      "score": 0.9436925053596497
+    },
+    {
+      "text": "imágen del mismo Nabuchodonosor.",
+      "box": [
+        508,
+        1261,
+        704,
+        1292
+      ],
+      "score": 0.9987654685974121
+    },
+    {
+      "text": "No se ve aquí que acusasen á Daniel: tal vez estaria ausente, ó quizá",
+      "box": [
+        516,
+        1275,
+        900,
+        1321
+      ],
+      "score": 0.9225417375564575
+    },
+    {
+      "text": "por la gran estimacion que el rey hacia de él, no se atrevieron.",
+      "box": [
+        506,
+        1288,
+        846,
+        1334
+      ],
+      "score": 0.9925682544708252
+    }
+  ]
+}

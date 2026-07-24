@@ -1,0 +1,817 @@
+{
+  "volume": 4,
+  "page_index": 280,
+  "pdf_page": 281,
+  "lines": [
+    {
+      "text": "EPÍSTOLA PRIMERA",
+      "box": [
+        312,
+        70,
+        667,
+        111
+      ],
+      "score": 0.9995933771133423
+    },
+    {
+      "text": "DEL",
+      "box": [
+        477,
+        133,
+        506,
+        149
+      ],
+      "score": 0.9999861121177673
+    },
+    {
+      "text": "APÓSTOL SAN PABLO",
+      "box": [
+        167,
+        165,
+        807,
+        223
+      ],
+      "score": 0.9882500767707825
+    },
+    {
+      "text": "Á",
+      "box": [
+        486,
+        240,
+        498,
+        256
+      ],
+      "score": 0.9626866579055786
+    },
+    {
+      "text": "LOS THESSALONICENSES",
+      "box": [
+        275,
+        275,
+        703,
+        309
+      ],
+      "score": 0.9997979998588562
+    },
+    {
+      "text": "ADVERTENCIA",
+      "box": [
+        417,
+        415,
+        563,
+        435
+      ],
+      "score": 0.9999076724052429
+    },
+    {
+      "text": "HA Sa Pablo predicado la e en Thessalónica, hoy Salónica, capial de la Maedonia;  vindose preciado  reiarse por la persecucion de lo Judos",
+      "box": [
+        93,
+        452,
+        902,
+        476
+      ],
+      "score": 0.7286990284919739
+    },
+    {
+      "text": "Santo Apóstol: habiendo sido escrita diez y ocho años despues de la muerte del Señor, ó hácia el 52 de la era vulgar.",
+      "box": [
+        71,
+        515,
+        666,
+        540
+      ],
+      "score": 0.9874736666679382
+    },
+    {
+      "text": "CAPITULO PRIMERO",
+      "box": [
+        188,
+        617,
+        329,
+        636
+      ],
+      "score": 0.9998724460601807
+    },
+    {
+      "text": "10. Y para esperar del cielo á su Hijo Jesus (á quien",
+      "box": [
+        550,
+        614,
+        906,
+        635
+      ],
+      "score": 0.9794276356697083
+    },
+    {
+      "text": "resucitó de entre los muertos), y el cual nos libertó de la ira",
+      "box": [
+        537,
+        630,
+        907,
+        651
+      ],
+      "score": 0.9954735040664673
+    },
+    {
+      "text": "Alaba el Apóstol á los Thessalonicenses por haber sido un dechado de",
+      "box": [
+        71,
+        653,
+        442,
+        672
+      ],
+      "score": 0.9970015287399292
+    },
+    {
+      "text": "venidera .",
+      "box": [
+        538,
+        650,
+        607,
+        667
+      ],
+      "score": 0.992660403251648
+    },
+    {
+      "text": "los demás fieles, con el fervor de su fe, esperanza y caridad, en medio",
+      "box": [
+        81,
+        667,
+        441,
+        686
+      ],
+      "score": 0.9941714406013489
+    },
+    {
+      "text": "de las tribulaciones.",
+      "box": [
+        84,
+        685,
+        189,
+        698
+      ],
+      "score": 0.9998850226402283
+    },
+    {
+      "text": "CAPITULO II",
+      "box": [
+        678,
+        678,
+        769,
+        692
+      ],
+      "score": 0.9996554851531982
+    },
+    {
+      "text": "San Pablo hace presente á los Thessalonicenses la libertad, desinterés",
+      "box": [
+        538,
+        703,
+        906,
+        718
+      ],
+      "score": 0.9978482723236084
+    },
+    {
+      "text": "I. Pablo, y Silvano, y Timothéo, á la Iglesia de los Thes-",
+      "box": [
+        84,
+        715,
+        440,
+        736
+      ],
+      "score": 0.9885447025299072
+    },
+    {
+      "text": "y celo con que les predicó el Evangelio; y tambien el entrañable amor",
+      "box": [
+        547,
+        717,
+        906,
+        733
+      ],
+      "score": 0.993777871131897
+    },
+    {
+      "text": "salonicenses, congregada en Dios Padre, y en nuestro Señor",
+      "box": [
+        70,
+        733,
+        440,
+        752
+      ],
+      "score": 0.9973768591880798
+    },
+    {
+      "text": "que les profesa por su constancia en la fe.",
+      "box": [
+        550,
+        733,
+        765,
+        746
+      ],
+      "score": 0.9898610711097717
+    },
+    {
+      "text": "Jesu-Christo.",
+      "box": [
+        72,
+        753,
+        152,
+        767
+      ],
+      "score": 0.9999611973762512
+    },
+    {
+      "text": "2. Gracia, y paz sea con vosotros. Sin cesar damos gra-",
+      "box": [
+        83,
+        764,
+        440,
+        783
+      ],
+      "score": 0.9782409071922302
+    },
+    {
+      "text": "1. El hecho es que vosotros, hermanos mios, sabeis bien",
+      "box": [
+        550,
+        762,
+        907,
+        778
+      ],
+      "score": 0.9968050122261047
+    },
+    {
+      "text": "cias á Dios por todos vosotros, haciendo continuamente",
+      "box": [
+        71,
+        780,
+        439,
+        799
+      ],
+      "score": 0.9991118311882019
+    },
+    {
+      "text": "como nuestra llegada á vuestra ciudad, no fué en vano ó sin",
+      "box": [
+        537,
+        776,
+        908,
+        795
+      ],
+      "score": 0.9927602410316467
+    },
+    {
+      "text": "memoria de vosotros en nuestras oraciones,",
+      "box": [
+        71,
+        796,
+        335,
+        814
+      ],
+      "score": 0.9956445097923279
+    },
+    {
+      "text": "fruto:",
+      "box": [
+        537,
+        794,
+        577,
+        809
+      ],
+      "score": 0.9997754693031311
+    },
+    {
+      "text": "3. Acordándonos delante del Dios y Padre nuestro de las",
+      "box": [
+        85,
+        811,
+        439,
+        830
+      ],
+      "score": 0.9957140684127808
+    },
+    {
+      "text": "2. Sino que habiendo sido antes maltratados, y afrentados",
+      "box": [
+        549,
+        808,
+        908,
+        828
+      ],
+      "score": 0.9995077848434448
+    },
+    {
+      "text": "obras de vuestra fe, de los trabajos de vuestra caridad, y",
+      "box": [
+        73,
+        831,
+        438,
+        845
+      ],
+      "score": 0.9993149042129517
+    },
+    {
+      "text": "ó azotados con varas (como no ignorais) en Philippos, puesta",
+      "box": [
+        538,
+        824,
+        908,
+        845
+      ],
+      "score": 0.9961721897125244
+    },
+    {
+      "text": "de la firmeza de vuestra esperanza en nuestro Señor Jesu-",
+      "box": [
+        71,
+        844,
+        439,
+        862
+      ],
+      "score": 0.9997713565826416
+    },
+    {
+      "text": "en nuestro Dios la confianza, pasamos animosamente á predi-",
+      "box": [
+        538,
+        841,
+        908,
+        861
+      ],
+      "score": 0.9782775640487671
+    },
+    {
+      "text": "Christo:",
+      "box": [
+        73,
+        863,
+        124,
+        877
+      ],
+      "score": 0.999954879283905
+    },
+    {
+      "text": "caros el Evangelio de Dios en medio de muchos obstáculos.",
+      "box": [
+        538,
+        857,
+        908,
+        878
+      ],
+      "score": 0.9921567440032959
+    },
+    {
+      "text": "4. Considerando, amados hermanos, que vuestra eleccion",
+      "box": [
+        86,
+        878,
+        438,
+        892
+      ],
+      "score": 0.9942477345466614
+    },
+    {
+      "text": "3. Porque no os hemos predicado ninguna doctrina de",
+      "box": [
+        550,
+        874,
+        908,
+        894
+      ],
+      "score": 0.9997320175170898
+    },
+    {
+      "text": "ó vocacion á la fe es de Dios:",
+      "box": [
+        73,
+        894,
+        250,
+        908
+      ],
+      "score": 0.9956013560295105
+    },
+    {
+      "text": "error, ni de inmundicia, ni con el designio de engañaros ³,",
+      "box": [
+        538,
+        889,
+        909,
+        910
+      ],
+      "score": 0.9809721112251282
+    },
+    {
+      "text": "5. Porque nuestro Evangelio no se anunció á vosotros",
+      "box": [
+        84,
+        907,
+        439,
+        926
+      ],
+      "score": 0.9834549427032471
+    },
+    {
+      "text": "4. Sino que del mismo modo que fuimos aprobados de",
+      "box": [
+        550,
+        905,
+        909,
+        927
+      ],
+      "score": 0.9956817626953125
+    },
+    {
+      "text": "solo con palabras, sino tambien con milagros, y dones¹ de",
+      "box": [
+        71,
+        924,
+        439,
+        942
+      ],
+      "score": 0.9838072657585144
+    },
+    {
+      "text": "Dios para que se nos confiase su Evangelio: así hablamos",
+      "box": [
+        538,
+        921,
+        909,
+        942
+      ],
+      "score": 0.9903036952018738
+    },
+    {
+      "text": "el Espíritu Santo, con eficaz persuasion, porque ya sabeis",
+      "box": [
+        71,
+        940,
+        438,
+        958
+      ],
+      "score": 0.9997671842575073
+    },
+    {
+      "text": "ó predicamos, no como para agradar á los hombres, sino á",
+      "box": [
+        538,
+        937,
+        909,
+        958
+      ],
+      "score": 0.9763349890708923
+    },
+    {
+      "text": "cuál fué nuestro proceder entre vosotros para procurar",
+      "box": [
+        70,
+        956,
+        439,
+        974
+      ],
+      "score": 0.9963669776916504
+    },
+    {
+      "text": "Dios, que sondea nuestros corazones.",
+      "box": [
+        538,
+        953,
+        765,
+        971
+      ],
+      "score": 0.9998303651809692
+    },
+    {
+      "text": "vuestro bien.",
+      "box": [
+        72,
+        975,
+        151,
+        989
+      ],
+      "score": 0.9998819828033447
+    },
+    {
+      "text": "5. Porque nunca usamos del lenguaje de adulacion, como",
+      "box": [
+        549,
+        969,
+        909,
+        989
+      ],
+      "score": 0.9956712126731873
+    },
+    {
+      "text": "6. Vosotros de vuestra parte os hicisteis imitadores nues-",
+      "box": [
+        83,
+        987,
+        438,
+        1005
+      ],
+      "score": 0.992662250995636
+    },
+    {
+      "text": "sabeis: ni de ningun pretexto de avaricia: Dios es testigo de",
+      "box": [
+        537,
+        984,
+        909,
+        1005
+      ],
+      "score": 0.9865097403526306
+    },
+    {
+      "text": "tros, y del Señor, recibiendo su palabra en medio de muchas",
+      "box": [
+        71,
+        1003,
+        437,
+        1023
+      ],
+      "score": 0.99200439453125
+    },
+    {
+      "text": "todo esto:",
+      "box": [
+        539,
+        1002,
+        599,
+        1016
+      ],
+      "score": 0.9999405145645142
+    },
+    {
+      "text": "tribulaciones, con gozo del Espíritu Santo:",
+      "box": [
+        73,
+        1023,
+        329,
+        1037
+      ],
+      "score": 0.9964154958724976
+    },
+    {
+      "text": "6. Ni buscamos gloria de los hombres, ni de vosotros, ni",
+      "box": [
+        549,
+        1016,
+        909,
+        1038
+      ],
+      "score": 0.9996080994606018
+    },
+    {
+      "text": "7. De suerte que habeis servido de modelo á cuantos han",
+      "box": [
+        83,
+        1036,
+        437,
+        1054
+      ],
+      "score": 0.9945216178894043
+    },
+    {
+      "text": "de otros algunos.",
+      "box": [
+        539,
+        1036,
+        643,
+        1050
+      ],
+      "score": 0.9999762177467346
+    },
+    {
+      "text": "creido en la Macedonia, y en Achaya.",
+      "box": [
+        73,
+        1055,
+        296,
+        1069
+      ],
+      "score": 0.989750325679779
+    },
+    {
+      "text": "7. Pudiendo como Apóstoles de Christo gravaros con la",
+      "box": [
+        548,
+        1050,
+        910,
+        1071
+      ],
+      "score": 0.9998005628585815
+    },
+    {
+      "text": "8. Pues que de vosotros se difundió la palabra del Señor",
+      "box": [
+        83,
+        1067,
+        437,
+        1086
+      ],
+      "score": 0.993408203125
+    },
+    {
+      "text": "carga de nuestra subsistencia: mas bien nos hicimos párvulos",
+      "box": [
+        537,
+        1066,
+        910,
+        1087
+      ],
+      "score": 0.9929754734039307
+    },
+    {
+      "text": "ó el Evangelio, no solo por la Macedonia, y por la Achaya,",
+      "box": [
+        71,
+        1084,
+        437,
+        1102
+      ],
+      "score": 0.9747738838195801
+    },
+    {
+      "text": "ó mansos y suaves en 'medio de vosotros, como una madre",
+      "box": [
+        537,
+        1082,
+        910,
+        1104
+      ],
+      "score": 0.9699127078056335
+    },
+    {
+      "text": "sino que por todas partes se ha divulgado en tanto grado la",
+      "box": [
+        70,
+        1099,
+        437,
+        1119
+      ],
+      "score": 0.9908492565155029
+    },
+    {
+      "text": "que está criando, llena de ternura para con sus hijos.",
+      "box": [
+        537,
+        1099,
+        862,
+        1121
+      ],
+      "score": 0.9977552890777588
+    },
+    {
+      "text": "fe que teneis en Díos, que no tenemos necesidad de decir",
+      "box": [
+        70,
+        1115,
+        436,
+        1135
+      ],
+      "score": 0.9891613125801086
+    },
+    {
+      "text": "8. De tal manera apasionados por vosotros, que deseá-",
+      "box": [
+        548,
+        1115,
+        910,
+        1138
+      ],
+      "score": 0.9962359666824341
+    },
+    {
+      "text": "nada sobre esto.",
+      "box": [
+        72,
+        1136,
+        173,
+        1149
+      ],
+      "score": 0.999897837638855
+    },
+    {
+      "text": "bamos con ansia comunicaros no solo el Evangelio de Dios,",
+      "box": [
+        536,
+        1132,
+        910,
+        1155
+      ],
+      "score": 0.9934436082839966
+    },
+    {
+      "text": "9. Porque los mismos fieles publican el suceso que tuvo",
+      "box": [
+        85,
+        1150,
+        436,
+        1164
+      ],
+      "score": 0.9945807456970215
+    },
+    {
+      "text": "sino daros tambien hasta nuestra misma vida: tan queridos",
+      "box": [
+        535,
+        1148,
+        911,
+        1172
+      ],
+      "score": 0.9931877255439758
+    },
+    {
+      "text": "nuestra entrada entre vosotros: y cómo os convertisteis á",
+      "box": [
+        71,
+        1166,
+        435,
+        1180
+      ],
+      "score": 0.9974750280380249
+    },
+    {
+      "text": "llegasteis á ser de nosotros.",
+      "box": [
+        536,
+        1166,
+        700,
+        1184
+      ],
+      "score": 0.9748103022575378
+    },
+    {
+      "text": "Dios abandonando los ídolos, por servir al Dios vivo, y ver-",
+      "box": [
+        70,
+        1180,
+        434,
+        1196
+      ],
+      "score": 0.9914357662200928
+    },
+    {
+      "text": "9. Porque bien os acordareis, hermanos mios, de nuestros",
+      "box": [
+        546,
+        1182,
+        912,
+        1206
+      ],
+      "score": 0.9992121458053589
+    },
+    {
+      "text": "dadero,",
+      "box": [
+        70,
+        1196,
+        122,
+        1212
+      ],
+      "score": 0.9998728632926941
+    },
+    {
+      "text": "trabajos, y fatigas por amor vuestro: cómo trabajando de dia",
+      "box": [
+        537,
+        1198,
+        912,
+        1223
+      ],
+      "score": 0.9881924986839294
+    },
+    {
+      "text": "1 II. Cor. II, v. 12.",
+      "box": [
+        81,
+        1231,
+        185,
+        1244
+      ],
+      "score": 0.9275902509689331
+    },
+    {
+      "text": "a Satisfaciendo por nosotros con su sangre á la justicia de Dios.",
+      "box": [
+        80,
+        1243,
+        403,
+        1260
+      ],
+      "score": 0.9807626605033875
+    },
+    {
+      "text": "3 Como han hecho Simon Mago, Cerinto, y otros falsos apóstoles.",
+      "box": [
+        546,
+        1235,
+        891,
+        1259
+      ],
+      "score": 0.9975939989089966
+    }
+  ]
+}

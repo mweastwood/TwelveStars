@@ -1,0 +1,947 @@
+{
+  "volume": 2,
+  "page_index": 109,
+  "pdf_page": 110,
+  "lines": [
+    {
+      "text": "LOS REYES",
+      "box": [
+        447,
+        243,
+        936,
+        370
+      ],
+      "score": 0.9998977184295654
+    },
+    {
+      "text": "LIBRO IV",
+      "box": [
+        604,
+        397,
+        775,
+        450
+      ],
+      "score": 0.9990914463996887
+    },
+    {
+      "text": "CAPITULO PRIMERO",
+      "box": [
+        237,
+        738,
+        449,
+        759
+      ],
+      "score": 0.9993016719818115
+    },
+    {
+      "text": "12. Respondió Elías: Si yo soy varon de Dios, caiga fuego",
+      "box": [
+        795,
+        738,
+        1332,
+        765
+      ],
+      "score": 0.9924468994140625
+    },
+    {
+      "text": "del cielo, y devórete á tí y á tus cincuenta. Bajó pues fuego",
+      "box": [
+        774,
+        763,
+        1333,
+        791
+      ],
+      "score": 0.9908290505409241
+    },
+    {
+      "text": "Reinado de Ochozías. Elías le intima la muerte; y hace bajar fuego del",
+      "box": [
+        56,
+        777,
+        623,
+        805
+      ],
+      "score": 0.9997084736824036
+    },
+    {
+      "text": "cielo contra los que envia el rey para prenderle. Muere Ochozías, y",
+      "box": [
+        76,
+        801,
+        621,
+        827
+      ],
+      "score": 0.9944121241569519
+    },
+    {
+      "text": "del cielo, y le devoró á él y á sus cincuenta.",
+      "box": [
+        776,
+        792,
+        1180,
+        815
+      ],
+      "score": 0.9972131252288818
+    },
+    {
+      "text": "13. Tercera vez destacó Ochozías otro capitan de cincuenta",
+      "box": [
+        792,
+        810,
+        1336,
+        845
+      ],
+      "score": 0.9853323101997375
+    },
+    {
+      "text": "sucédele en el trono Joram su hermano.",
+      "box": [
+        77,
+        826,
+        388,
+        846
+      ],
+      "score": 0.9980736970901489
+    },
+    {
+      "text": "hombres con sus cincuenta; el cual luego que llegó, se hincó",
+      "box": [
+        771,
+        835,
+        1336,
+        869
+      ],
+      "score": 0.9967657327651978
+    },
+    {
+      "text": "1. Despues de la muerte de Achab rebeláronse Ios Moa-",
+      "box": [
+        79,
+        859,
+        622,
+        889
+      ],
+      "score": 0.993462085723877
+    },
+    {
+      "text": "de rodillas en frente de Elías, y suplicóle diciendo: Varon de",
+      "box": [
+        772,
+        860,
+        1336,
+        893
+      ],
+      "score": 0.9977741241455078
+    },
+    {
+      "text": "bitas contra Israél.",
+      "box": [
+        60,
+        889,
+        235,
+        915
+      ],
+      "score": 0.9994878768920898
+    },
+    {
+      "text": "Dios, sálvame la vida, y salva tambien las de tus siervos que",
+      "box": [
+        773,
+        886,
+        1336,
+        917
+      ],
+      "score": 0.9994171261787415
+    },
+    {
+      "text": "2. Sucedió tambien que Ochozías cayó desde la ventana",
+      "box": [
+        80,
+        907,
+        622,
+        940
+      ],
+      "score": 0.996309220790863
+    },
+    {
+      "text": "me acompañan.",
+      "box": [
+        776,
+        917,
+        921,
+        937
+      ],
+      "score": 0.9998955130577087
+    },
+    {
+      "text": "de un aposento alto del palacio que tenia en Samaria, y en-",
+      "box": [
+        60,
+        931,
+        623,
+        967
+      ],
+      "score": 0.9990500211715698
+    },
+    {
+      "text": "14. Ya sé que ha bajado fuego del cielo, y devorado á los",
+      "box": [
+        793,
+        933,
+        1336,
+        965
+      ],
+      "score": 0.9906079769134521
+    },
+    {
+      "text": "fermó de la caida. Y despachó unos mensajeros, diciéndoles:",
+      "box": [
+        61,
+        956,
+        623,
+        993
+      ],
+      "score": 0.997628927230835
+    },
+    {
+      "text": "dos primeros capitanes de cincuenta hombres, y á los cin-",
+      "box": [
+        775,
+        958,
+        1337,
+        989
+      ],
+      "score": 0.9982149600982666
+    },
+    {
+      "text": "Id á consultar á Beelzebub, dios de Accaron, si podré conva-",
+      "box": [
+        62,
+        983,
+        623,
+        1020
+      ],
+      "score": 0.9863112568855286
+    },
+    {
+      "text": "cuenta que cada uno mandaba. Mas ahora yo te suplico que",
+      "box": [
+        776,
+        984,
+        1337,
+        1015
+      ],
+      "score": 0.9782881140708923
+    },
+    {
+      "text": "lecer de esta enfermedad.",
+      "box": [
+        62,
+        1018,
+        297,
+        1046
+      ],
+      "score": 0.9999576807022095
+    },
+    {
+      "text": "te apiades de mí.",
+      "box": [
+        777,
+        1016,
+        934,
+        1037
+      ],
+      "score": 0.9999039769172668
+    },
+    {
+      "text": "15. Entonces el Angel del Señor habló á Elías, diciendo:",
+      "box": [
+        795,
+        1033,
+        1340,
+        1065
+      ],
+      "score": 0.9880410432815552
+    },
+    {
+      "text": "3. Al mismo tiempo el Angel del Señor habló á Elías,",
+      "box": [
+        84,
+        1035,
+        621,
+        1075
+      ],
+      "score": 0.9878219962120056
+    },
+    {
+      "text": "Desciende y vete con él: no temas. Levantóse pues, y marchó",
+      "box": [
+        774,
+        1059,
+        1339,
+        1091
+      ],
+      "score": 0.9898317456245422
+    },
+    {
+      "text": "Thesbita, diciendo: Marcha, y sal al encuentro de los men-",
+      "box": [
+        66,
+        1062,
+        622,
+        1099
+      ],
+      "score": 0.9917741417884827
+    },
+    {
+      "text": "con él á encontrar al rey,",
+      "box": [
+        777,
+        1091,
+        1007,
+        1115
+      ],
+      "score": 0.998380720615387
+    },
+    {
+      "text": "sajeros del rey de Samaria, y díles: Pues qué ¿no hay Dios",
+      "box": [
+        64,
+        1086,
+        623,
+        1128
+      ],
+      "score": 0.9946035742759705
+    },
+    {
+      "text": "16. Al cual dijo: Esto dice el Señor: Por cuanto enviaste",
+      "box": [
+        795,
+        1107,
+        1339,
+        1140
+      ],
+      "score": 0.9959166049957275
+    },
+    {
+      "text": "en Israél, que vais á consultar á Beelzebub, dios de Ac-",
+      "box": [
+        65,
+        1114,
+        623,
+        1151
+      ],
+      "score": 0.984359085559845
+    },
+    {
+      "text": "mensajeros á consultar á Beelzebub, dios de Accaron, como",
+      "box": [
+        774,
+        1132,
+        1339,
+        1166
+      ],
+      "score": 0.9947816729545593
+    },
+    {
+      "text": "caron?",
+      "box": [
+        64,
+        1149,
+        133,
+        1177
+      ],
+      "score": 0.9998008608818054
+    },
+    {
+      "text": "si no hubiera Dios en Israél, á quien pudieras consultar: por",
+      "box": [
+        774,
+        1156,
+        1340,
+        1193
+      ],
+      "score": 0.9995810985565186
+    },
+    {
+      "text": "4. Por tanto, esto dice el Señor: De la cama en que te",
+      "box": [
+        87,
+        1164,
+        624,
+        1202
+      ],
+      "score": 0.9938641786575317
+    },
+    {
+      "text": "esto de la cama, en que te acostaste, no te levantarás; sino",
+      "box": [
+        774,
+        1180,
+        1340,
+        1221
+      ],
+      "score": 0.9991307854652405
+    },
+    {
+      "text": "has acostado no te levantarás, sino que morirás infalible-",
+      "box": [
+        64,
+        1189,
+        625,
+        1230
+      ],
+      "score": 0.9982066750526428
+    },
+    {
+      "text": "que morirás indefectiblemente,",
+      "box": [
+        777,
+        1213,
+        1058,
+        1244
+      ],
+      "score": 0.9999817609786987
+    },
+    {
+      "text": "mente. Dicho esto, marchóse Elías.",
+      "box": [
+        65,
+        1220,
+        386,
+        1254
+      ],
+      "score": 0.9996925592422485
+    },
+    {
+      "text": "17. - Murió pues segun la palabra del Señor, pronunciada",
+      "box": [
+        795,
+        1228,
+        1340,
+        1273
+      ],
+      "score": 0.9850033521652222
+    },
+    {
+      "text": "5. Y volviéronse los mensajeros á Ochozías: el cual les",
+      "box": [
+        87,
+        1242,
+        626,
+        1280
+      ],
+      "score": 0.9982241988182068
+    },
+    {
+      "text": "por Elías; y como no tenia hijo ninguno, sucedióle en el",
+      "box": [
+        776,
+        1252,
+        1341,
+        1300
+      ],
+      "score": 0.9980829358100891
+    },
+    {
+      "text": "dijo: ¿Por qué os habeis vuelto?",
+      "box": [
+        66,
+        1273,
+        363,
+        1310
+      ],
+      "score": 0.9935433864593506
+    },
+    {
+      "text": "trono su hermano Joram, en el año segundo de el otro Jo-",
+      "box": [
+        776,
+        1277,
+        1341,
+        1326
+      ],
+      "score": 0.9886592626571655
+    },
+    {
+      "text": "6. A lo que respondieron: Hemos encontrado un hombre,",
+      "box": [
+        85,
+        1294,
+        627,
+        1336
+      ],
+      "score": 0.9931816458702087
+    },
+    {
+      "text": "ram 4, hijo de Josaphat, rey de Judá.",
+      "box": [
+        777,
+        1313,
+        1120,
+        1349
+      ],
+      "score": 0.9874168634414673
+    },
+    {
+      "text": "y nos ha dicho: Id y volved al rey que os ha enviado, y de-",
+      "box": [
+        63,
+        1320,
+        629,
+        1365
+      ],
+      "score": 0.9863160848617554
+    },
+    {
+      "text": "18. En órden á lo demás que hizo Ochozías, ¿no está todo",
+      "box": [
+        797,
+        1328,
+        1342,
+        1376
+      ],
+      "score": 0.9912023544311523
+    },
+    {
+      "text": "cidle: Esto dice el Señor: ¿Acaso no hay Dios en Israél, que",
+      "box": [
+        65,
+        1346,
+        629,
+        1390
+      ],
+      "score": 0.9951140880584717
+    },
+    {
+      "text": "escrito en el libro de los Anales de los reyes de Israél?",
+      "box": [
+        779,
+        1359,
+        1273,
+        1401
+      ],
+      "score": 0.9834869503974915
+    },
+    {
+      "text": "envias á consultar á Beelzebub, dios de Accaron? Por lo",
+      "box": [
+        65,
+        1372,
+        630,
+        1418
+      ],
+      "score": 0.9854031205177307
+    },
+    {
+      "text": "mismo, pues, de la cama en que te acostaste no te levantarás,",
+      "box": [
+        64,
+        1397,
+        629,
+        1446
+      ],
+      "score": 0.9917281866073608
+    },
+    {
+      "text": "CAPÍTULO II",
+      "box": [
+        986,
+        1407,
+        1129,
+        1439
+      ],
+      "score": 0.9980515837669373
+    },
+    {
+      "text": "sino que morirás sin remedio.",
+      "box": [
+        65,
+        1431,
+        343,
+        1471
+      ],
+      "score": 0.9994568228721619
+    },
+    {
+      "text": "7. Preguntóles el rey: ¿Qué figura y traje tiene ese hombre",
+      "box": [
+        86,
+        1449,
+        629,
+        1496
+      ],
+      "score": 0.9910142421722412
+    },
+    {
+      "text": "Elías es milagrosamente arrebatado del mundo. Hereda su espíritu",
+      "box": [
+        801,
+        1444,
+        1321,
+        1486
+      ],
+      "score": 0.9998594522476196
+    },
+    {
+      "text": "Éliséo, el cual obra luego muchos milagros.",
+      "box": [
+        892,
+        1472,
+        1226,
+        1501
+      ],
+      "score": 0.9913141131401062
+    },
+    {
+      "text": "que os ha salido al encuentro, y dicho esas palabras?",
+      "box": [
+        65,
+        1476,
+        554,
+        1525
+      ],
+      "score": 0.9998935461044312
+    },
+    {
+      "text": "8. Respondieron ellos: Es un hombre cubierto de pelo¹,",
+      "box": [
+        86,
+        1501,
+        628,
+        1547
+      ],
+      "score": 0.9904621243476868
+    },
+    {
+      "text": "1. Y sucedió que cuando el Señor quiso arrebatar al cielo",
+      "box": [
+        799,
+        1503,
+        1342,
+        1549
+      ],
+      "score": 0.9998617768287659
+    },
+    {
+      "text": "y que va ceñido con un cinto de cuero. Dijo el rey: Ese es",
+      "box": [
+        62,
+        1525,
+        632,
+        1576
+      ],
+      "score": 0.9882990717887878
+    },
+    {
+      "text": "á Elías en un torbellino de fuego, venian Elías y Eliséo cami-",
+      "box": [
+        780,
+        1527,
+        1343,
+        1573
+      ],
+      "score": 0.9974127411842346
+    },
+    {
+      "text": "Elías, Thesbita.",
+      "box": [
+        64,
+        1568,
+        212,
+        1598
+      ],
+      "score": 0.999107301235199
+    },
+    {
+      "text": "nando de Gálgala.",
+      "box": [
+        781,
+        1568,
+        944,
+        1596
+      ],
+      "score": 0.9999281764030457
+    },
+    {
+      "text": "9. Y destacó un capitan de cincuenta soldados, con los",
+      "box": [
+        87,
+        1579,
+        629,
+        1622
+      ],
+      "score": 0.9925317168235779
+    },
+    {
+      "text": "2. Y dijo Elías á Eliséo: Quédate aquí, porque el Señor",
+      "box": [
+        800,
+        1578,
+        1343,
+        1622
+      ],
+      "score": 0.9919692873954773
+    },
+    {
+      "text": "cincuenta que le estaban subordinados: el cual salió en busca",
+      "box": [
+        66,
+        1604,
+        633,
+        1652
+      ],
+      "score": 0.9970425963401794
+    },
+    {
+      "text": "me envia á Bethel. Al cual respondió Eliséo: Te juro por",
+      "box": [
+        781,
+        1603,
+        1343,
+        1648
+      ],
+      "score": 0.9849326014518738
+    },
+    {
+      "text": "de él; y hallándole sentado en la cima del monte, le dijo:",
+      "box": [
+        66,
+        1629,
+        633,
+        1678
+      ],
+      "score": 0.9983465671539307
+    },
+    {
+      "text": "el Señor y por tu vida, que no te dejaré. Llegados que fueron",
+      "box": [
+        781,
+        1628,
+        1344,
+        1674
+      ],
+      "score": 0.9994067549705505
+    },
+    {
+      "text": "Varon de Dios,², el rey ha mandado que bajes de ahí.",
+      "box": [
+        66,
+        1657,
+        573,
+        1704
+      ],
+      "score": 0.9975508451461792
+    },
+    {
+      "text": "á Bethel,",
+      "box": [
+        781,
+        1669,
+        866,
+        1698
+      ],
+      "score": 0.9977536797523499
+    },
+    {
+      "text": "3. Fueron los hijos ó discípulos de los profetas 5 que es-",
+      "box": [
+        797,
+        1675,
+        1345,
+        1723
+      ],
+      "score": 0.9836326241493225
+    },
+    {
+      "text": "10. Elías en respuesta dijo al capitan de los cincuenta: Si",
+      "box": [
+        88,
+        1681,
+        634,
+        1730
+      ],
+      "score": 0.9861427545547485
+    },
+    {
+      "text": "yo soy yaron de Dios, baje fuego del cielo, que te devore á tí",
+      "box": [
+        65,
+        1706,
+        638,
+        1758
+      ],
+      "score": 0.9850128889083862
+    },
+    {
+      "text": "taban allí á encontrar á Eliséo, y dijéronle: ¿No sabes tú",
+      "box": [
+        780,
+        1699,
+        1344,
+        1750
+      ],
+      "score": 0.9834803938865662
+    },
+    {
+      "text": "y á tus cincuenta. Descendió pues fuego del cielo, y le devoró",
+      "box": [
+        65,
+        1731,
+        636,
+        1783
+      ],
+      "score": 0.9986423850059509
+    },
+    {
+      "text": "como hoy se te llevará el Señor á tu amo? Sí que lo sé, res-",
+      "box": [
+        780,
+        1725,
+        1344,
+        1776
+      ],
+      "score": 0.9995437860488892
+    },
+    {
+      "text": "á él y á los cincuenta soldados que consigo tenia.",
+      "box": [
+        67,
+        1764,
+        524,
+        1805
+      ],
+      "score": 0.9928401112556458
+    },
+    {
+      "text": "pondió él: callad.",
+      "box": [
+        780,
+        1765,
+        935,
+        1800
+      ],
+      "score": 0.9996805191040039
+    },
+    {
+      "text": "4. Dijo nuevamente Elías á Eliséo: Quédate aquí, porque",
+      "box": [
+        796,
+        1773,
+        1344,
+        1824
+      ],
+      "score": 0.993750274181366
+    },
+    {
+      "text": "11. Destacó nuevamente Ochozías contra él á otro capitan",
+      "box": [
+        90,
+        1784,
+        635,
+        1829
+      ],
+      "score": 0.9913788437843323
+    },
+    {
+      "text": "el Señor me envia hastá Jerichó. Te juro por el Señor y por",
+      "box": [
+        779,
+        1797,
+        1345,
+        1849
+      ],
+      "score": 0.9993596076965332
+    },
+    {
+      "text": "de cincuenta hombres con los cincuenta; el cual le dijo³:",
+      "box": [
+        67,
+        1806,
+        638,
+        1857
+      ],
+      "score": 0.9961143136024475
+    },
+    {
+      "text": "Varon de Dios, el rey lo manda: baja presto.",
+      "box": [
+        69,
+        1842,
+        479,
+        1879
+      ],
+      "score": 0.9903174042701721
+    },
+    {
+      "text": "Habló tambien con tono insolente, insultando así á Dios en la perso-",
+      "box": [
+        796,
+        1854,
+        1343,
+        1903
+      ],
+      "score": 0.9820906519889832
+    },
+    {
+      "text": "na de su Profeta.—Véase Santo Tomás, 2, 2æ. Quæst. CVIII,a.2.",
+      "box": [
+        781,
+        1876,
+        1296,
+        1927
+      ],
+      "score": 0.8825293779373169
+    },
+    {
+      "text": "1 Esto es, ó de mucho cabello y barba (S. Hier. in Ezech. XXXV), 6",
+      "box": [
+        87,
+        1888,
+        638,
+        1943
+      ],
+      "score": 0.9811596870422363
+    },
+    {
+      "text": "4 Tal yez seria como virey en vida de su padre.",
+      "box": [
+        799,
+        1904,
+        1162,
+        1945
+      ],
+      "score": 0.9967567920684814
+    },
+    {
+      "text": "vestido de alguna piel de camello.—Calmet.",
+      "box": [
+        68,
+        1924,
+        412,
+        1965
+      ],
+      "score": 0.9987418055534363
+    },
+    {
+      "text": "5 Véase Profeta.",
+      "box": [
+        799,
+        1936,
+        932,
+        1966
+      ],
+      "score": 0.9861228466033936
+    },
+    {
+      "text": "2 O tú que te tienes por tal.",
+      "box": [
+        86,
+        1952,
+        316,
+        1986
+      ],
+      "score": 0.9965295195579529
+    }
+  ]
+}

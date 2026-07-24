@@ -1,0 +1,1517 @@
+{
+  "volume": 4,
+  "page_index": 16,
+  "pdf_page": 17,
+  "lines": [
+    {
+      "text": "5",
+      "box": [
+        14,
+        43,
+        26,
+        57
+      ],
+      "score": 0.9997078776359558
+    },
+    {
+      "text": "SAN MATHEO.",
+      "box": [
+        155,
+        44,
+        261,
+        62
+      ],
+      "score": 0.9829615950584412
+    },
+    {
+      "text": "CAPITULO V.",
+      "box": [
+        658,
+        45,
+        754,
+        63
+      ],
+      "score": 0.9983810782432556
+    },
+    {
+      "text": "6",
+      "box": [
+        877,
+        47,
+        889,
+        62
+      ],
+      "score": 0.999983549118042
+    },
+    {
+      "text": "13. Por este tiempo vino Jesus de Galiléa al Jordan en",
+      "box": [
+        17,
+        87,
+        404,
+        107
+      ],
+      "score": 0.9999083876609802
+    },
+    {
+      "text": "16. Este pueblo que yacia en las tinieblas, ha visto una",
+      "box": [
+        521,
+        87,
+        898,
+        107
+      ],
+      "score": 0.9960140585899353
+    },
+    {
+      "text": "busca de Juan, para ser de él bautizado.",
+      "box": [
+        2,
+        104,
+        270,
+        124
+      ],
+      "score": 0.9964655637741089
+    },
+    {
+      "text": "luz grande: luz que ha venido á iluminar á los que habitaban",
+      "box": [
+        507,
+        104,
+        898,
+        124
+      ],
+      "score": 0.9980024099349976
+    },
+    {
+      "text": "14. Juan empero se resistia á ello, diciendo: ¿Yo debo ser",
+      "box": [
+        19,
+        124,
+        404,
+        141
+      ],
+      "score": 0.998019814491272
+    },
+    {
+      "text": "en la region de las sombras de la muerte.",
+      "box": [
+        508,
+        121,
+        770,
+        139
+      ],
+      "score": 0.9998608827590942
+    },
+    {
+      "text": "baútizado de tí, y tú vienes á mí?",
+      "box": [
+        4,
+        142,
+        227,
+        159
+      ],
+      "score": 0.9796724915504456
+    },
+    {
+      "text": "17. Desde entonces empezó Jesus á predicar, y decir:",
+      "box": [
+        520,
+        136,
+        898,
+        158
+      ],
+      "score": 0.9977009296417236
+    },
+    {
+      "text": "15. Á lo cual respondió Jesus, diciendo: Déjame hacer",
+      "box": [
+        17,
+        155,
+        406,
+        178
+      ],
+      "score": 0.9973433613777161
+    },
+    {
+      "text": "Haced penitencia: porque está cerca el reino de los cielos.",
+      "box": [
+        507,
+        154,
+        898,
+        175
+      ],
+      "score": 0.9976065754890442
+    },
+    {
+      "text": "ahora; que así es como conviene que nosotros cumplamos",
+      "box": [
+        2,
+        174,
+        405,
+        194
+      ],
+      "score": 0.9992595911026001
+    },
+    {
+      "text": "18. Caminando un dia Jesus por la ribera del mar de Ga-",
+      "box": [
+        520,
+        170,
+        899,
+        191
+      ],
+      "score": 0.9911459684371948
+    },
+    {
+      "text": "toda justicia ¹, Juan entonces condescendió con él.",
+      "box": [
+        2,
+        191,
+        336,
+        210
+      ],
+      "score": 0.9816732406616211
+    },
+    {
+      "text": "liléa, vió á dos hermanos, Simon, llamado Pedro, y Andrés su",
+      "box": [
+        507,
+        188,
+        898,
+        207
+      ],
+      "score": 0.9956632852554321
+    },
+    {
+      "text": "16. Bautizado pues Jesus, al instante que salió del agua,",
+      "box": [
+        17,
+        208,
+        404,
+        227
+      ],
+      "score": 0.9987679123878479
+    },
+    {
+      "text": "hermano, echando la red en el mar, (pues eran pescadores)",
+      "box": [
+        507,
+        204,
+        898,
+        224
+      ],
+      "score": 0.9995858669281006
+    },
+    {
+      "text": "se le abrieron los cielos, y vió bajar al Espíritu de Dios á",
+      "box": [
+        0,
+        223,
+        406,
+        244
+      ],
+      "score": 0.9917867183685303
+    },
+    {
+      "text": "19. Y les dijo: Seguidme á mí, y yo haré que vengais á",
+      "box": [
+        519,
+        220,
+        899,
+        240
+      ],
+      "score": 0.9718006253242493
+    },
+    {
+      "text": "manera de paloma, y posar sobre él.",
+      "box": [
+        0,
+        243,
+        245,
+        260
+      ],
+      "score": 0.9885810017585754
+    },
+    {
+      "text": "ser pescadores de hombres.",
+      "box": [
+        507,
+        239,
+        680,
+        253
+      ],
+      "score": 0.9931139349937439
+    },
+    {
+      "text": "17. Y oyóse una voz del cielo que decia: Éste es mi que-",
+      "box": [
+        13,
+        255,
+        404,
+        277
+      ],
+      "score": 0.9954407811164856
+    },
+    {
+      "text": "20. Al instante los dos dejadas las redes, le siguieron.",
+      "box": [
+        519,
+        253,
+        869,
+        272
+      ],
+      "score": 0.9948148727416992
+    },
+    {
+      "text": "rido Hijo, en quien tengo puesta toda mi complacencia .",
+      "box": [
+        0,
+        271,
+        375,
+        296
+      ],
+      "score": 0.9853200316429138
+    },
+    {
+      "text": "21. Pasando mas adelante, vió á otros dos hermanos, San-",
+      "box": [
+        519,
+        270,
+        899,
+        290
+      ],
+      "score": 0.9917610883712769
+    },
+    {
+      "text": "tiago hijo de Zebedéo, y Juan su hermano recomponiendo",
+      "box": [
+        506,
+        286,
+        898,
+        307
+      ],
+      "score": 0.9881312251091003
+    },
+    {
+      "text": "CAPITULO IV",
+      "box": [
+        157,
+        306,
+        257,
+        323
+      ],
+      "score": 0.999281644821167
+    },
+    {
+      "text": "sus redes en la barea con Zebedéo su padre: y los llamó.",
+      "box": [
+        504,
+        304,
+        868,
+        322
+      ],
+      "score": 0.9901605248451233
+    },
+    {
+      "text": "22. Ellos tambien al punto dejadas las redes y á su padre,",
+      "box": [
+        517,
+        320,
+        898,
+        340
+      ],
+      "score": 0.9888429045677185
+    },
+    {
+      "text": "Ayuno y tentacion de Jesu-Christo: vuelve á Galiléa, y establece su resi-",
+      "box": [
+        0,
+        330,
+        402,
+        348
+      ],
+      "score": 0.9943599700927734
+    },
+    {
+      "text": "dencia en Capharnaum: empieza su predicacion y á juntar discípulos,",
+      "box": [
+        10,
+        346,
+        402,
+        363
+      ],
+      "score": 0.995140552520752
+    },
+    {
+      "text": "le siguieron.",
+      "box": [
+        504,
+        337,
+        587,
+        354
+      ],
+      "score": 0.9886175394058228
+    },
+    {
+      "text": "y es seguido de mucha gente.",
+      "box": [
+        7,
+        358,
+        183,
+        378
+      ],
+      "score": 0.9895759224891663
+    },
+    {
+      "text": "23. É iba Jesus recorriendo toda la Galiléa, enseñando en",
+      "box": [
+        517,
+        352,
+        898,
+        372
+      ],
+      "score": 0.9944301247596741
+    },
+    {
+      "text": "sus synagogas, y predicando el Evangelio ó buena nueva del",
+      "box": [
+        504,
+        370,
+        898,
+        389
+      ],
+      "score": 0.9841783046722412
+    },
+    {
+      "text": "1. En aquella sazon Jesus fué conducido del Espíritu de",
+      "box": [
+        9,
+        385,
+        402,
+        407
+      ],
+      "score": 0.9927383661270142
+    },
+    {
+      "text": "reino celestial: y sanando toda dolencia, y toda enfermedad",
+      "box": [
+        504,
+        386,
+        898,
+        406
+      ],
+      "score": 0.9959856271743774
+    },
+    {
+      "text": "Dios & al desierto para que fuese tentado allí por el diablo.",
+      "box": [
+        0,
+        401,
+        403,
+        425
+      ],
+      "score": 0.9716113209724426
+    },
+    {
+      "text": "en los del pueblo.",
+      "box": [
+        505,
+        403,
+        618,
+        421
+      ],
+      "score": 0.9995766878128052
+    },
+    {
+      "text": "2. Y despues de haber ayunado cuarenta dias con cua-",
+      "box": [
+        8,
+        418,
+        403,
+        441
+      ],
+      "score": 0.9928814768791199
+    },
+    {
+      "text": "24. Con lo que corrió su fama por toda la Syria, y pre-",
+      "box": [
+        517,
+        419,
+        898,
+        439
+      ],
+      "score": 0.997246503829956
+    },
+    {
+      "text": "renta noches, tuvo hambre.",
+      "box": [
+        0,
+        436,
+        186,
+        456
+      ],
+      "score": 0.9926549196243286
+    },
+    {
+      "text": "sentábanle todos los que estaban enfermos, y acosados de",
+      "box": [
+        504,
+        436,
+        899,
+        456
+      ],
+      "score": 0.999724268913269
+    },
+    {
+      "text": "3. Entonces acercándose el tentador le dijo: Si eres el",
+      "box": [
+        11,
+        453,
+        403,
+        473
+      ],
+      "score": 0.9918076395988464
+    },
+    {
+      "text": "varios males y dolores agudos, los endemoniados, los luná-",
+      "box": [
+        504,
+        453,
+        899,
+        472
+      ],
+      "score": 0.9987280368804932
+    },
+    {
+      "text": "Hijo de Dios, dí que esas piedras se conviertan en panes.",
+      "box": [
+        0,
+        469,
+        374,
+        490
+      ],
+      "score": 0.994032621383667
+    },
+    {
+      "text": "ticos, los paralíticos; y los curaba:",
+      "box": [
+        504,
+        470,
+        730,
+        488
+      ],
+      "score": 0.9887188076972961
+    },
+    {
+      "text": "4. Mas Jesus le respondió: Escrito está 4: No de solo pan",
+      "box": [
+        12,
+        485,
+        401,
+        506
+      ],
+      "score": 0.9859061241149902
+    },
+    {
+      "text": "25. É íbale siguiendo una gran muchedumbre de gentes",
+      "box": [
+        517,
+        486,
+        898,
+        505
+      ],
+      "score": 0.9899854063987732
+    },
+    {
+      "text": "vive el hombre, sino de toda palabra ó disposicion que sale",
+      "box": [
+        0,
+        502,
+        402,
+        524
+      ],
+      "score": 0.9871474504470825
+    },
+    {
+      "text": "de Galiléa, y Decápoli, y Jerusalem, y Judéa, y de la otra",
+      "box": [
+        504,
+        503,
+        897,
+        523
+      ],
+      "score": 0.9840690493583679
+    },
+    {
+      "text": "de la boca de Dios.",
+      "box": [
+        0,
+        522,
+        131,
+        539
+      ],
+      "score": 0.9890058636665344
+    },
+    {
+      "text": "parte del Jordan.",
+      "box": [
+        504,
+        523,
+        617,
+        540
+      ],
+      "score": 0.9995687007904053
+    },
+    {
+      "text": "5. Despues de esto le trasportó el diablo á la santa ciu-",
+      "box": [
+        14,
+        536,
+        402,
+        558
+      ],
+      "score": 0.995633065700531
+    },
+    {
+      "text": "dad de Jerusalem, y le puso sobre lo alto del templo,",
+      "box": [
+        0,
+        555,
+        352,
+        573
+      ],
+      "score": 0.998023509979248
+    },
+    {
+      "text": "CAPITULO V",
+      "box": [
+        658,
+        552,
+        752,
+        569
+      ],
+      "score": 0.9593437314033508
+    },
+    {
+      "text": "6. Y le dijo: Si eres el Hijo de Dios échate de aquí abajo.",
+      "box": [
+        15,
+        569,
+        401,
+        591
+      ],
+      "score": 0.99042809009552
+    },
+    {
+      "text": "Pues está escrito s: Que te ha encomendado á sus ángeles,",
+      "box": [
+        0,
+        586,
+        401,
+        608
+      ],
+      "score": 0.9672436118125916
+    },
+    {
+      "text": "Sermon de Jesu-Christo en el monte: comienza con las ocho bienaven-",
+      "box": [
+        504,
+        581,
+        896,
+        599
+      ],
+      "score": 0.992693305015564
+    },
+    {
+      "text": "los cuales te tomarán en las palmas de sus manos, para que",
+      "box": [
+        0,
+        602,
+        403,
+        625
+      ],
+      "score": 0.9932989478111267
+    },
+    {
+      "text": "turanzas. Los Apóstoles son la sal y la luz de la tierra. Dice que no",
+      "box": [
+        515,
+        595,
+        897,
+        613
+      ],
+      "score": 0.9986875057220459
+    },
+    {
+      "text": "vino á destruir la Ley sino á cumplirla. Sobre las palabras injuriosas,",
+      "box": [
+        513,
+        609,
+        897,
+        628
+      ],
+      "score": 0.9971495270729065
+    },
+    {
+      "text": "tu pié no tropiece contra alguna piedra.",
+      "box": [
+        2,
+        623,
+        269,
+        641
+      ],
+      "score": 0.9951280355453491
+    },
+    {
+      "text": "la reconciliacion, adulterio del corazon, escándalos, indisolubilidad del",
+      "box": [
+        513,
+        623,
+        897,
+        643
+      ],
+      "score": 0.9947984218597412
+    },
+    {
+      "text": "7. Replicóle Jesus: Tambien está escrito º: No tentarás al",
+      "box": [
+        15,
+        634,
+        402,
+        659
+      ],
+      "score": 0.9658664464950562
+    },
+    {
+      "text": "matrimonio, juramento, paciencia, amor de los enemigos, perfeccion",
+      "box": [
+        513,
+        637,
+        897,
+        658
+      ],
+      "score": 0.9900778532028198
+    },
+    {
+      "text": "Señor tu Dios.",
+      "box": [
+        1,
+        657,
+        102,
+        674
+      ],
+      "score": 0.9999381303787231
+    },
+    {
+      "text": "cristiana.",
+      "box": [
+        515,
+        656,
+        570,
+        670
+      ],
+      "score": 0.9971680641174316
+    },
+    {
+      "text": "8. Todavía le subió el diablo á un monte muy encum-",
+      "box": [
+        15,
+        668,
+        403,
+        692
+      ],
+      "score": 0.9884962439537048
+    },
+    {
+      "text": "brado: y mostróle todos los reinos del mundo, y la gloria de",
+      "box": [
+        0,
+        684,
+        401,
+        710
+      ],
+      "score": 0.9970244765281677
+    },
+    {
+      "text": "1. Mas viendo Jesus á todo este gentío, se subió á un",
+      "box": [
+        515,
+        687,
+        895,
+        705
+      ],
+      "score": 0.9909409284591675
+    },
+    {
+      "text": "ellos,",
+      "box": [
+        0,
+        708,
+        42,
+        723
+      ],
+      "score": 0.9999926686286926
+    },
+    {
+      "text": "monte, donde habiéndose sentado, se le acercaron sus dis-",
+      "box": [
+        502,
+        704,
+        895,
+        722
+      ],
+      "score": 0.9966888427734375
+    },
+    {
+      "text": "9. Y le dijo: Todas estas cosas to daré, si postrándote",
+      "box": [
+        13,
+        715,
+        402,
+        745
+      ],
+      "score": 0.9809281229972839
+    },
+    {
+      "text": "cípulos,",
+      "box": [
+        501,
+        722,
+        557,
+        740
+      ],
+      "score": 0.9988164901733398
+    },
+    {
+      "text": "delante de mí me adorares.",
+      "box": [
+        1,
+        740,
+        186,
+        758
+      ],
+      "score": 0.9969075322151184
+    },
+    {
+      "text": "2. Y abriendo su boca divina 10, los adoctrinaba diciendo:",
+      "box": [
+        515,
+        735,
+        895,
+        756
+      ],
+      "score": 0.9860662221908569
+    },
+    {
+      "text": "10. Respondióle entonces Jesus: Apártate de ahí, Satanás:",
+      "box": [
+        14,
+        748,
+        402,
+        776
+      ],
+      "score": 0.9901646375656128
+    },
+    {
+      "text": "3. Bienaventurados los pobres de espíritu 11: porque de",
+      "box": [
+        516,
+        753,
+        895,
+        772
+      ],
+      "score": 0.9799327254295349
+    },
+    {
+      "text": "Porque está escrito: Adorarás al Señor Dios tuyo, y á él",
+      "box": [
+        0,
+        766,
+        402,
+        791
+      ],
+      "score": 0.9839444756507874
+    },
+    {
+      "text": "ellos es el reino de los cielos.",
+      "box": [
+        506,
+        773,
+        690,
+        787
+      ],
+      "score": 0.9975457787513733
+    },
+    {
+      "text": "solo servirás 7.",
+      "box": [
+        0,
+        788,
+        105,
+        805
+      ],
+      "score": 0.9980872869491577
+    },
+    {
+      "text": "4. Bienaventurados los mansos y humildes: porque ellos",
+      "box": [
+        517,
+        789,
+        894,
+        803
+      ],
+      "score": 0.9846332669258118
+    },
+    {
+      "text": "11. Con eso le dejó el diablo; y hé aquí que se acercaron",
+      "box": [
+        14,
+        799,
+        401,
+        823
+      ],
+      "score": 0.9855956435203552
+    },
+    {
+      "text": "poseerán la tierra 12.",
+      "box": [
+        504,
+        804,
+        636,
+        821
+      ],
+      "score": 0.9678760170936584
+    },
+    {
+      "text": "los ángeles, y le servian.",
+      "box": [
+        1,
+        822,
+        166,
+        836
+      ],
+      "score": 0.9744085073471069
+    },
+    {
+      "text": "5. Bienaventurados los que lloran 13: porque ellos serán",
+      "box": [
+        517,
+        822,
+        893,
+        836
+      ],
+      "score": 0.9802582859992981
+    },
+    {
+      "text": "12. Oyendo despues Jesus que Juan habia sido encarce-",
+      "box": [
+        14,
+        830,
+        401,
+        855
+      ],
+      "score": 0.9902294874191284
+    },
+    {
+      "text": "consolados.",
+      "box": [
+        504,
+        837,
+        580,
+        854
+      ],
+      "score": 0.9998827576637268
+    },
+    {
+      "text": "lado, retiróse á Galiléa:",
+      "box": [
+        0,
+        851,
+        160,
+        870
+      ],
+      "score": 0.9825573563575745
+    },
+    {
+      "text": "6. Bienaventurados los que tienen hambre y sed de la",
+      "box": [
+        517,
+        855,
+        893,
+        870
+      ],
+      "score": 0.9998234510421753
+    },
+    {
+      "text": "13. Y dejando la ciudad de Nazareth, fué á morar en Ca-",
+      "box": [
+        15,
+        862,
+        400,
+        888
+      ],
+      "score": 0.9783777594566345
+    },
+    {
+      "text": "justicia 14: porque ellos serán saciados.",
+      "box": [
+        503,
+        871,
+        750,
+        888
+      ],
+      "score": 0.9945338368415833
+    },
+    {
+      "text": "pharnaum, ciudad marítima, en los confines de Zabulon y",
+      "box": [
+        0,
+        881,
+        399,
+        903
+      ],
+      "score": 0.995632529258728
+    },
+    {
+      "text": "7. Bienaventurados los misericordiosos: porque ellos",
+      "box": [
+        517,
+        889,
+        893,
+        903
+      ],
+      "score": 0.9979340434074402
+    },
+    {
+      "text": "Nephthalim:",
+      "box": [
+        0,
+        900,
+        93,
+        919
+      ],
+      "score": 0.9760017991065979
+    },
+    {
+      "text": "alcanzarán misericordia.",
+      "box": [
+        505,
+        905,
+        661,
+        919
+      ],
+      "score": 0.9992823600769043
+    },
+    {
+      "text": "14. Con que vino á cumplirse lo que dijo el Profeta Isaías 8:",
+      "box": [
+        16,
+        912,
+        400,
+        935
+      ],
+      "score": 0.9840316772460938
+    },
+    {
+      "text": "8. Bienaventurados los que tienen puro su corazon: por-",
+      "box": [
+        514,
+        919,
+        894,
+        938
+      ],
+      "score": 0.9947089552879333
+    },
+    {
+      "text": "15. El país de Zabulon, y el país de Nephthalim, por",
+      "box": [
+        17,
+        930,
+        399,
+        951
+      ],
+      "score": 0.9936479330062866
+    },
+    {
+      "text": "que ellos verán á Dios.",
+      "box": [
+        504,
+        938,
+        650,
+        952
+      ],
+      "score": 0.9876804947853088
+    },
+    {
+      "text": "donde se va al mar de Tiberiades9 á la otra parte del Jordan,",
+      "box": [
+        1,
+        946,
+        398,
+        968
+      ],
+      "score": 0.9905956387519836
+    },
+    {
+      "text": "9. Bienaventurados los pacíficos 16: porque ellos serán",
+      "box": [
+        514,
+        951,
+        893,
+        971
+      ],
+      "score": 0.9820935130119324
+    },
+    {
+      "text": "la Galiléa de los Gentiles,",
+      "box": [
+        0,
+        965,
+        174,
+        986
+      ],
+      "score": 0.9815921783447266
+    },
+    {
+      "text": "llamados 1ª hijos de Dios.",
+      "box": [
+        502,
+        967,
+        665,
+        987
+      ],
+      "score": 0.9586670398712158
+    },
+    {
+      "text": "1 Véase Justicia.",
+      "box": [
+        16,
+        1004,
+        130,
+        1018
+      ],
+      "score": 0.9914259910583496
+    },
+    {
+      "text": "loquio, muy propio y de mucha energía y dignidad en el estilo oriental, se",
+      "box": [
+        502,
+        1004,
+        895,
+        1023
+      ],
+      "score": 0.9895217418670654
+    },
+    {
+      "text": "& En el texto griego se lee antes el artículo é que úto; óvtó; dty é sto;",
+      "box": [
+        13,
+        1012,
+        398,
+        1033
+      ],
+      "score": 0.8879000544548035
+    },
+    {
+      "text": "propone como locucion pueril y ridícula, por la sola razon de que es por",
+      "box": [
+        501,
+        1018,
+        896,
+        1038
+      ],
+      "score": 0.9949358701705933
+    },
+    {
+      "text": "uos é áyazntác; y así puede traducirse: Este es aquel hijo mio querido.",
+      "box": [
+        1,
+        1026,
+        380,
+        1048
+      ],
+      "score": 0.8672126531600952
+    },
+    {
+      "text": "demás advertir que, para hablar ó predicar un sermon, el predicador",
+      "box": [
+        501,
+        1032,
+        896,
+        1051
+      ],
+      "score": 0.9934539794921875
+    },
+    {
+      "text": "s En el texto griego se ve claramente que se habla del Espíritu que,",
+      "box": [
+        16,
+        1041,
+        396,
+        1060
+      ],
+      "score": 0.9867016077041626
+    },
+    {
+      "text": "abrió la boca. Ya hubo un antiguo filósofo que objetaba lo mismo á los",
+      "box": [
+        500,
+        1045,
+        896,
+        1065
+      ],
+      "score": 0.9870291352272034
+    },
+    {
+      "text": "segun se acaba de decir, bajó sobre Jesus á manera de paloma.",
+      "box": [
+        2,
+        1055,
+        346,
+        1075
+      ],
+      "score": 0.9887233376502991
+    },
+    {
+      "text": "Cristianos; y ya entonces San Agustin, Teodoreto y otros deshacian esta",
+      "box": [
+        501,
+        1059,
+        895,
+        1080
+      ],
+      "score": 0.9921607375144958
+    },
+    {
+      "text": "4 Deuter, VIII, v. 3.",
+      "box": [
+        17,
+        1072,
+        135,
+        1086
+      ],
+      "score": 0.972382128238678
+    },
+    {
+      "text": "insulsa y necia objecion, diciendo: que aquel modismo de que usó",
+      "box": [
+        500,
+        1073,
+        896,
+        1095
+      ],
+      "score": 0.9848039746284485
+    },
+    {
+      "text": "5 Psalm. XC, v. 11.",
+      "box": [
+        19,
+        1085,
+        130,
+        1100
+      ],
+      "score": 0.9451725482940674
+    },
+    {
+      "text": "San Matheo, denota en el estilo y genio de la lengua hebrea y otras del",
+      "box": [
+        499,
+        1087,
+        896,
+        1109
+      ],
+      "score": 0.9924695491790771
+    },
+    {
+      "text": "e Deuter. VI, v. 16.",
+      "box": [
+        19,
+        1100,
+        131,
+        1114
+      ],
+      "score": 0.9483708143234253
+    },
+    {
+      "text": "Oriente la importancia do lo que va á decirse, la extension del discurso,",
+      "box": [
+        500,
+        1101,
+        897,
+        1124
+      ],
+      "score": 0.9884095788002014
+    },
+    {
+      "text": "7 Deuter. VI, v. 13.",
+      "box": [
+        19,
+        1113,
+        131,
+        1127
+      ],
+      "score": 0.9428359270095825
+    },
+    {
+      "text": "8 Isai, IX, v. 1.",
+      "box": [
+        20,
+        1125,
+        111,
+        1139
+      ],
+      "score": 0.8984216451644897
+    },
+    {
+      "text": "y tambien la autoridad y dignidad de la persona que habla: modismo",
+      "box": [
+        499,
+        1116,
+        898,
+        1138
+      ],
+      "score": 0.9975848197937012
+    },
+    {
+      "text": "Esto es, al lago de Tiberindes ó Genezareth.—Véase Mar.",
+      "box": [
+        18,
+        1136,
+        346,
+        1155
+      ],
+      "score": 0.9756836891174316
+    },
+    {
+      "text": "que vemos usado por Homero varias veces, y aun por algunos escritores",
+      "box": [
+        499,
+        1130,
+        898,
+        1153
+      ],
+      "score": 0.9873755574226379
+    },
+    {
+      "text": "10 Se ha puesto el adjetivo divina que, aunque ya está de letra cursiva",
+      "box": [
+        17,
+        1151,
+        395,
+        1169
+      ],
+      "score": 0.9818375110626221
+    },
+    {
+      "text": "castellanos antiguos, y hasta por nuestros poetas modernos. Con el",
+      "box": [
+        499,
+        1144,
+        899,
+        1167
+      ],
+      "score": 0.9953128695487976
+    },
+    {
+      "text": "á fin de denotar que no se halla expreso en el texto, parece no hay nece-",
+      "box": [
+        11,
+        1166,
+        395,
+        1182
+      ],
+      "score": 0.9898062944412231
+    },
+    {
+      "text": "mismo fin de prevenir á los lectores contra otras semejantes impías sá-",
+      "box": [
+        499,
+        1158,
+        898,
+        1182
+      ],
+      "score": 0.9859375357627869
+    },
+    {
+      "text": "sidad de añadirle para expresar el sentido literal del Evangelista, ni",
+      "box": [
+        12,
+        1181,
+        395,
+        1195
+      ],
+      "score": 0.9961646199226379
+    },
+    {
+      "text": "tiras, se han puesto las mas de las palabras que se ven intercaladas con",
+      "box": [
+        499,
+        1172,
+        898,
+        1198
+      ],
+      "score": 0.9902983903884888
+    },
+    {
+      "text": "evitar algun error ó mala inteligencia; sin embargo, como semejante",
+      "box": [
+        13,
+        1194,
+        394,
+        1208
+      ],
+      "score": 0.9861204028129578
+    },
+    {
+      "text": "letra cursiva, que a primera vista parecerán supérfluas á los lectores",
+      "box": [
+        498,
+        1187,
+        899,
+        1214
+      ],
+      "score": 0.969039261341095
+    },
+    {
+      "text": "expresion ó modismo de la lengua hebrea no está en uso en la nuestra,",
+      "box": [
+        12,
+        1208,
+        395,
+        1224
+      ],
+      "score": 0.9878113269805908
+    },
+    {
+      "text": "instruidos, los cuales realmente no necesitan de ellas.",
+      "box": [
+        498,
+        1200,
+        797,
+        1226
+      ],
+      "score": 0.9902949333190918
+    },
+    {
+      "text": "seria redundante, á no ser cuando á la palabra boca se le añade algun",
+      "box": [
+        12,
+        1221,
+        396,
+        1239
+      ],
+      "score": 0.9733507633209229
+    },
+    {
+      "text": "11 Véase Pobres.",
+      "box": [
+        505,
+        1215,
+        605,
+        1233
+      ],
+      "score": 0.9759685397148132
+    },
+    {
+      "text": "1: En especial la de los vivientes, que es la gloria.",
+      "box": [
+        504,
+        1226,
+        783,
+        1257
+      ],
+      "score": 0.8994842171669006
+    },
+    {
+      "text": "adjetivo, como divina, dulce, sonora, ete. Pudiera haberse traducido:",
+      "box": [
+        14,
+        1236,
+        393,
+        1250
+      ],
+      "score": 0.9898560047149658
+    },
+    {
+      "text": "Y abriendo su boca los adoctrinaba, diciendo: á no creer conveniento",
+      "box": [
+        12,
+        1249,
+        395,
+        1267
+      ],
+      "score": 0.9808505773544312
+    },
+    {
+      "text": "1s Los oprimidos y afligidos, y los que llevan una vida penitente.",
+      "box": [
+        503,
+        1243,
+        871,
+        1275
+      ],
+      "score": 0.9684511423110962
+    },
+    {
+      "text": "prevenir á los lectores sencillos contra la sátira ó impía mofa que un",
+      "box": [
+        13,
+        1263,
+        394,
+        1282
+      ],
+      "score": 0.9963883757591248
+    },
+    {
+      "text": "14 O de sér justos y santos.",
+      "box": [
+        504,
+        1258,
+        664,
+        1281
+      ],
+      "score": 0.9758908152580261
+    },
+    {
+      "text": "incrédulo de nuestros dias, cuyo veneno se ha esparcido por España, ha",
+      "box": [
+        14,
+        1277,
+        394,
+        1297
+      ],
+      "score": 0.9865347743034363
+    },
+    {
+      "text": "1s Los que viven en paz, y la procuran á los otros.",
+      "box": [
+        504,
+        1272,
+        788,
+        1302
+      ],
+      "score": 0.965814471244812
+    },
+    {
+      "text": "hecho contra la divinidad de los Evangelios. Esta frase hebrea, ó circun-",
+      "box": [
+        14,
+        1291,
+        393,
+        1311
+      ],
+      "score": 0.9902445077896118
+    },
+    {
+      "text": "16 Véase Nombre.",
+      "box": [
+        504,
+        1288,
+        608,
+        1308
+      ],
+      "score": 0.9920960664749146
+    }
+  ]
+}

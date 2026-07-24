@@ -1,0 +1,27 @@
+{
+  "volume": 4,
+  "page_index": 114,
+  "pdf_page": 115,
+  "lines": [
+    {
+      "text": "JESUS APACIGUANDO LAS OLAS",
+      "box": [
+        312,
+        185,
+        575,
+        211
+      ],
+      "score": 0.9993822574615479
+    },
+    {
+      "text": "H.PISAN",
+      "box": [
+        41,
+        238,
+        119,
+        256
+      ],
+      "score": 0.9641469120979309
+    }
+  ]
+}

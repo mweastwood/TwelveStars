@@ -1,0 +1,27 @@
+{
+  "volume": 1,
+  "page_index": 170,
+  "pdf_page": 171,
+  "lines": [
+    {
+      "text": "Donis",
+      "box": [
+        50,
+        1090,
+        127,
+        1142
+      ],
+      "score": 0.6287308931350708
+    },
+    {
+      "text": "JACOB MARCHA A EGYPTO",
+      "box": [
+        323,
+        1170,
+        540,
+        1187
+      ],
+      "score": 0.99958735704422
+    }
+  ]
+}

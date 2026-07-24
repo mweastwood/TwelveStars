@@ -1,0 +1,27 @@
+{
+  "volume": 1,
+  "page_index": 34,
+  "pdf_page": 35,
+  "lines": [
+    {
+      "text": "GDone",
+      "box": [
+        6,
+        1118,
+        94,
+        1154
+      ],
+      "score": 0.830828845500946
+    },
+    {
+      "text": "CAIN Y ABEL OFRECIENDO SU SACRIFICIO",
+      "box": [
+        265,
+        1182,
+        610,
+        1202
+      ],
+      "score": 0.9992346167564392
+    }
+  ]
+}

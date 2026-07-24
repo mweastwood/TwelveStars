@@ -1,0 +1,27 @@
+{
+  "volume": 4,
+  "page_index": 360,
+  "pdf_page": 361,
+  "lines": [
+    {
+      "text": "H. P.ISAN.",
+      "box": [
+        793,
+        1133,
+        862,
+        1150
+      ],
+      "score": 0.8815024495124817
+    },
+    {
+      "text": "RUINAS DE BABILONIA (VISION DE SAN JUAN)",
+      "box": [
+        309,
+        1171,
+        668,
+        1191
+      ],
+      "score": 0.9943521618843079
+    }
+  ]
+}

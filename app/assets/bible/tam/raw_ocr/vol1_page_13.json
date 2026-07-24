@@ -1,0 +1,27 @@
+{
+  "volume": 1,
+  "page_index": 13,
+  "pdf_page": 14,
+  "lines": [
+    {
+      "text": "La ilustracion de esta obra es propiedad de los editores",
+      "box": [
+        431,
+        609,
+        712,
+        626
+      ],
+      "score": 0.9899085760116577
+    },
+    {
+      "text": "y queda hecho el depôsito que marca la ley",
+      "box": [
+        457,
+        624,
+        681,
+        647
+      ],
+      "score": 0.984625518321991
+    }
+  ]
+}

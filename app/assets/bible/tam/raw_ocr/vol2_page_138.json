@@ -1,0 +1,937 @@
+{
+  "volume": 2,
+  "page_index": 138,
+  "pdf_page": 139,
+  "lines": [
+    {
+      "text": "G0",
+      "box": [
+        536,
+        4,
+        579,
+        24
+      ],
+      "score": 0.455770879983902
+    },
+    {
+      "text": "0000",
+      "box": [
+        830,
+        0,
+        872,
+        18
+      ],
+      "score": 0.37111803889274597
+    },
+    {
+      "text": "CAPITULO XXV.",
+      "box": [
+        976,
+        63,
+        1149,
+        94
+      ],
+      "score": 0.9992915391921997
+    },
+    {
+      "text": "170",
+      "box": [
+        1301,
+        62,
+        1337,
+        87
+      ],
+      "score": 0.9999735355377197
+    },
+    {
+      "text": "169",
+      "box": [
+        88,
+        88,
+        122,
+        113
+      ],
+      "score": 0.9999914169311523
+    },
+    {
+      "text": "IV. REYES.",
+      "box": [
+        280,
+        83,
+        399,
+        110
+      ],
+      "score": 0.9920093417167664
+    },
+    {
+      "text": "ACGOO",
+      "box": [
+        532,
+        90,
+        594,
+        121
+      ],
+      "score": 0.5200203657150269
+    },
+    {
+      "text": "11. Al resto del pueblo que habia quedado en la ciudad,",
+      "box": [
+        90,
+        148,
+        625,
+        179
+      ],
+      "score": 0.9996914267539978
+    },
+    {
+      "text": "hizo quitar la vida. Y la tribu de Judá fué trasportada fuera",
+      "box": [
+        779,
+        130,
+        1352,
+        172
+      ],
+      "score": 0.9928224086761475
+    },
+    {
+      "text": "y á los desertores que se habian pasado al rey de Babylonia,",
+      "box": [
+        74,
+        176,
+        626,
+        207
+      ],
+      "score": 0.9970765709877014
+    },
+    {
+      "text": "de su tierra.",
+      "box": [
+        780,
+        170,
+        893,
+        196
+      ],
+      "score": 0.9987820386886597
+    },
+    {
+      "text": "22. Para gobernar la gente que habia quedado en el país",
+      "box": [
+        799,
+        188,
+        1350,
+        222
+      ],
+      "score": 0.9998427033424377
+    },
+    {
+      "text": "y á la ínfima plebe los trasportó Nabuzardan, general del",
+      "box": [
+        74,
+        203,
+        628,
+        235
+      ],
+      "score": 0.9960705041885376
+    },
+    {
+      "text": "de Judá, por disposicion de Nabuchodonosor, rey de Baby-",
+      "box": [
+        781,
+        216,
+        1350,
+        246
+      ],
+      "score": 0.9929028749465942
+    },
+    {
+      "text": "ejército, á otra parte;",
+      "box": [
+        77,
+        236,
+        262,
+        260
+      ],
+      "score": 0.9987004399299622
+    },
+    {
+      "text": "lonia, nombró á Godolias, hijo de Ahicam, hijo de Saphan.",
+      "box": [
+        780,
+        242,
+        1321,
+        271
+      ],
+      "score": 0.99873286485672
+    },
+    {
+      "text": "12. Dejando solamente gentes pobres del país para culti-",
+      "box": [
+        91,
+        254,
+        628,
+        287
+      ],
+      "score": 0.9989787340164185
+    },
+    {
+      "text": "23. Lo que sabido por todos los oficiales del ejército y la",
+      "box": [
+        799,
+        266,
+        1353,
+        295
+      ],
+      "score": 0.982248067855835
+    },
+    {
+      "text": "var las viñas y los campos.",
+      "box": [
+        75,
+        286,
+        308,
+        311
+      ],
+      "score": 0.9988503456115723
+    },
+    {
+      "text": "gente que estaba con ellos, esto es, que el rey de Babylonia",
+      "box": [
+        781,
+        290,
+        1354,
+        321
+      ],
+      "score": 0.9934200048446655
+    },
+    {
+      "text": "13. Mas los Chaldéos haciendo trozos las columnas de",
+      "box": [
+        89,
+        303,
+        629,
+        339
+      ],
+      "score": 0.984015166759491
+    },
+    {
+      "text": "habia dado el gobierno á Godolias; acudieron luego á éste",
+      "box": [
+        779,
+        315,
+        1354,
+        345
+      ],
+      "score": 0.9921143054962158
+    },
+    {
+      "text": "bronce que habia en el templo del Señor, las basas y el mar¹",
+      "box": [
+        73,
+        329,
+        629,
+        364
+      ],
+      "score": 0.9968852996826172
+    },
+    {
+      "text": "en Maspha, Ismahel hijo de Nathanias, y Johanan hijo de",
+      "box": [
+        780,
+        339,
+        1354,
+        369
+      ],
+      "score": 0.9934549331665039
+    },
+    {
+      "text": "de bronce colocado en la Casa del Señor, trasladaron todo",
+      "box": [
+        73,
+        353,
+        628,
+        388
+      ],
+      "score": 0.9996395707130432
+    },
+    {
+      "text": "Caree, y Saraias hijo de Thanehumeth Netophathita, y Jezo-",
+      "box": [
+        780,
+        364,
+        1355,
+        394
+      ],
+      "score": 0.9953473210334778
+    },
+    {
+      "text": "este metal á Babylonia.",
+      "box": [
+        75,
+        384,
+        278,
+        412
+      ],
+      "score": 0.999544620513916
+    },
+    {
+      "text": "nias hijo de Maachathi, así ellos como sus compañeros.",
+      "box": [
+        779,
+        389,
+        1293,
+        418
+      ],
+      "score": 0.9998988509178162
+    },
+    {
+      "text": "14. Asimismo se llevaron las ollas de cobre, y las jarras,",
+      "box": [
+        84,
+        403,
+        626,
+        438
+      ],
+      "score": 0.9920944571495056
+    },
+    {
+      "text": "24. Y Godolias les aseguró con juramento á ellos y á sus",
+      "box": [
+        798,
+        414,
+        1356,
+        441
+      ],
+      "score": 0.9835280179977417
+    },
+    {
+      "text": "y los tridentes, y las copas, y los morterillos, y todas las",
+      "box": [
+        70,
+        426,
+        628,
+        466
+      ],
+      "score": 0.9850589632987976
+    },
+    {
+      "text": "compañeros, diciendo: No temais de estar sujetos á los",
+      "box": [
+        779,
+        438,
+        1356,
+        467
+      ],
+      "score": 0.9936476349830627
+    },
+    {
+      "text": "vasijas de cobre que se usaban en el ministerio.",
+      "box": [
+        73,
+        457,
+        496,
+        487
+      ],
+      "score": 0.9997902512550354
+    },
+    {
+      "text": "Chaldéos: quedaos en el país, y obedeced al rey de Babylonia,",
+      "box": [
+        778,
+        464,
+        1355,
+        491
+      ],
+      "score": 0.9863560199737549
+    },
+    {
+      "text": "15. Llevóse tambien el general del ejército los incensa-",
+      "box": [
+        87,
+        475,
+        628,
+        514
+      ],
+      "score": 0.9943615794181824
+    },
+    {
+      "text": "y lo pasareis bien.",
+      "box": [
+        777,
+        491,
+        948,
+        518
+      ],
+      "score": 0.9990146160125732
+    },
+    {
+      "text": "rios y las ampollas2, tanto los vasos de oro como los de",
+      "box": [
+        70,
+        500,
+        628,
+        538
+      ],
+      "score": 0.9836509823799133
+    },
+    {
+      "text": "25. Pero al séptimo mes sobrevino Ismahel, hijo de Na-",
+      "box": [
+        798,
+        514,
+        1357,
+        542
+      ],
+      "score": 0.9919551610946655
+    },
+    {
+      "text": "plata,",
+      "box": [
+        71,
+        532,
+        129,
+        558
+      ],
+      "score": 0.9999822974205017
+    },
+    {
+      "text": "thanias, y nieto de Elisama, de la estirpe real, acompañado",
+      "box": [
+        778,
+        541,
+        1357,
+        568
+      ],
+      "score": 0.9908268451690674
+    },
+    {
+      "text": "16. Juntamente con las dos columnas, el mar óla concha",
+      "box": [
+        87,
+        551,
+        626,
+        585
+      ],
+      "score": 0.9895303249359131
+    },
+    {
+      "text": "de diez hombres; los cuales hirieron á Godolias, que murió",
+      "box": [
+        778,
+        567,
+        1357,
+        593
+      ],
+      "score": 0.9988848567008972
+    },
+    {
+      "text": "y las bases que habia hecho Salomon para el templo del Señor:",
+      "box": [
+        69,
+        577,
+        627,
+        611
+      ],
+      "score": 0.9969295859336853
+    },
+    {
+      "text": "de las heridas, juntamente con los Judíos y Chaldéos, que",
+      "box": [
+        779,
+        595,
+        1357,
+        619
+      ],
+      "score": 0.9990736842155457
+    },
+    {
+      "text": "el peso del bronce de todos los vasos era inmenso.",
+      "box": [
+        71,
+        606,
+        520,
+        634
+      ],
+      "score": 0.9997575283050537
+    },
+    {
+      "text": "17. Cada una de las columnas tenia diez y ocho codos",
+      "box": [
+        87,
+        629,
+        627,
+        661
+      ],
+      "score": 0.9942278265953064
+    },
+    {
+      "text": "estaban con él en Maspha.",
+      "box": [
+        778,
+        622,
+        1023,
+        646
+      ],
+      "score": 0.9999235272407532
+    },
+    {
+      "text": "de altura, y un chapitel de bronce encima, de tres codos de",
+      "box": [
+        69,
+        653,
+        629,
+        688
+      ],
+      "score": 0.9969933032989502
+    },
+    {
+      "text": "26. De resultas de esto, todo el pueblo, chicos y grandes,",
+      "box": [
+        796,
+        646,
+        1356,
+        673
+      ],
+      "score": 0.992775022983551
+    },
+    {
+      "text": "alto; y en torno del chapitel de la columna una como red,",
+      "box": [
+        70,
+        679,
+        626,
+        715
+      ],
+      "score": 0.9969407320022583
+    },
+    {
+      "text": "y los oficiales del ejército huyeron á Egypto por temor de los",
+      "box": [
+        776,
+        672,
+        1357,
+        700
+      ],
+      "score": 0.9987746477127075
+    },
+    {
+      "text": "con granadas, todo de bronce: el adorno de las demás colum-",
+      "box": [
+        69,
+        707,
+        628,
+        738
+      ],
+      "score": 0.9934036731719971
+    },
+    {
+      "text": "Chaldéos 5.",
+      "box": [
+        777,
+        697,
+        883,
+        725
+      ],
+      "score": 0.9428349137306213
+    },
+    {
+      "text": "nas era el mismo.",
+      "box": [
+        70,
+        735,
+        226,
+        762
+      ],
+      "score": 0.9990532994270325
+    },
+    {
+      "text": "27. A los treinta y siete años de la trasmigracion de Joa-",
+      "box": [
+        797,
+        726,
+        1356,
+        751
+      ],
+      "score": 0.9980159997940063
+    },
+    {
+      "text": "18. Además se llevó el general del ejército á Saraias pri-",
+      "box": [
+        86,
+        758,
+        626,
+        790
+      ],
+      "score": 0.9994536638259888
+    },
+    {
+      "text": "chin rey de Judá, el dia veinte y siete del mes duodécimo,",
+      "box": [
+        778,
+        753,
+        1354,
+        778
+      ],
+      "score": 0.9998725652694702
+    },
+    {
+      "text": "mer sacerdote, y á Sophonias segundo sacerdote ³, y á tres",
+      "box": [
+        68,
+        785,
+        627,
+        817
+      ],
+      "score": 0.9758819341659546
+    },
+    {
+      "text": "sucedió que Evilmerodach rey de Babylonia 6, el mismo año",
+      "box": [
+        777,
+        778,
+        1355,
+        807
+      ],
+      "score": 0.9965446591377258
+    },
+    {
+      "text": "porteros.",
+      "box": [
+        70,
+        813,
+        151,
+        838
+      ],
+      "score": 0.9995051622390747
+    },
+    {
+      "text": "en que comenzó á reinar, levantó á Joachin del estado de",
+      "box": [
+        778,
+        804,
+        1353,
+        834
+      ],
+      "score": 0.9960514903068542
+    },
+    {
+      "text": "19. Y tambien á un eunuco de la ciudad, bajo cuya ins-",
+      "box": [
+        77,
+        835,
+        628,
+        871
+      ],
+      "score": 0.9828760623931885
+    },
+    {
+      "text": "abatimiento en que yacía, y sacóle de la cárcel;",
+      "box": [
+        778,
+        832,
+        1222,
+        859
+      ],
+      "score": 0.9996239542961121
+    },
+    {
+      "text": "peccion estaba la gente de guerra, y á cinco señores del",
+      "box": [
+        67,
+        863,
+        628,
+        896
+      ],
+      "score": 0.9748494029045105
+    },
+    {
+      "text": "28. Y hablóle con amor, y le puso un trono óasiento su-",
+      "box": [
+        798,
+        856,
+        1352,
+        885
+      ],
+      "score": 0.9787092804908752
+    },
+    {
+      "text": "servicio doméstico del rey, hallados en la ciudad; y á So-",
+      "box": [
+        66,
+        888,
+        626,
+        920
+      ],
+      "score": 0.9962748885154724
+    },
+    {
+      "text": "perior al de los demás reyes subyugados que tenia consigo en",
+      "box": [
+        776,
+        881,
+        1352,
+        913
+      ],
+      "score": 0.9999305009841919
+    },
+    {
+      "text": "pher inspector del ejército, que amaestraba á los soldados",
+      "box": [
+        65,
+        912,
+        627,
+        945
+      ],
+      "score": 0.9919496178627014
+    },
+    {
+      "text": "Babylonia 7,",
+      "box": [
+        776,
+        910,
+        894,
+        938
+      ],
+      "score": 0.9841301441192627
+    },
+    {
+      "text": "bisoños del país, y á sesenta varones del pueblo que se halla-",
+      "box": [
+        66,
+        937,
+        626,
+        970
+      ],
+      "score": 0.9992778301239014
+    },
+    {
+      "text": "29. Y le hizo mudar los vestidos que habia usado en su",
+      "box": [
+        795,
+        929,
+        1352,
+        962
+      ],
+      "score": 0.9897595047950745
+    },
+    {
+      "text": "ron en la ciudad:",
+      "box": [
+        66,
+        966,
+        223,
+        990
+      ],
+      "score": 0.9993864893913269
+    },
+    {
+      "text": "prision, y comia siempre á su mesa todo el tiempo que vivió.",
+      "box": [
+        776,
+        955,
+        1354,
+        989
+      ],
+      "score": 0.9958718419075012
+    },
+    {
+      "text": "20. Todos los cuales condujo consigo Nabuzardan, gene-",
+      "box": [
+        81,
+        989,
+        626,
+        1021
+      ],
+      "score": 0.9998447895050049
+    },
+    {
+      "text": "30. Señalóle asimismo alimentos para siempre en ade-",
+      "box": [
+        796,
+        983,
+        1348,
+        1011
+      ],
+      "score": 0.9956278204917908
+    },
+    {
+      "text": "ral del ejército, á Reblatha á presencia del rey de Babylonia;",
+      "box": [
+        63,
+        1017,
+        625,
+        1045
+      ],
+      "score": 0.9996885061264038
+    },
+    {
+      "text": "lante; los cuales le daba el rey diariamente todos los dias",
+      "box": [
+        775,
+        1007,
+        1347,
+        1038
+      ],
+      "score": 0.9986873269081116
+    },
+    {
+      "text": "21. El cual en la misma Reblatha, territorio e Emath, les",
+      "box": [
+        81,
+        1044,
+        624,
+        1069
+      ],
+      "score": 0.9852235913276672
+    },
+    {
+      "text": "de su vida.",
+      "box": [
+        775,
+        1037,
+        881,
+        1063
+      ],
+      "score": 0.9999296069145203
+    },
+    {
+      "text": "1 O la gran concha.",
+      "box": [
+        74,
+        1108,
+        230,
+        1135
+      ],
+      "score": 0.9703328013420105
+    },
+    {
+      "text": "4 En el hebreo  sopher se pone por secretario, y no por nombre",
+      "box": [
+        790,
+        1101,
+        1345,
+        1128
+      ],
+      "score": 0.9912286400794983
+    },
+    {
+      "text": "² La palabra hebreapque el autor de la Vulgata traduce phia-",
+      "box": [
+        72,
+        1131,
+        621,
+        1156
+      ],
+      "score": 0.9555245041847229
+    },
+    {
+      "text": "propio.",
+      "box": [
+        774,
+        1129,
+        832,
+        1154
+      ],
+      "score": 0.9995998740196228
+    },
+    {
+      "text": "las, y Arias Montano pelves, puede significar tambien aguamaniles, piche-",
+      "box": [
+        57,
+        1153,
+        621,
+        1178
+      ],
+      "score": 0.9978189468383789
+    },
+    {
+      "text": "6 Jerem. XXX VIII, v. 2, 17.—XL, v. 9.—XLI.—XLIII.",
+      "box": [
+        787,
+        1143,
+        1252,
+        1171
+      ],
+      "score": 0.9643075466156006
+    },
+    {
+      "text": "les, jarrones, palancanas, etc.",
+      "box": [
+        56,
+        1174,
+        279,
+        1198
+      ],
+      "score": 0.9871616363525391
+    },
+    {
+      "text": "6 Se cree que es el mismo que Balthasar, hijo y sucesor de Nabucho-",
+      "box": [
+        788,
+        1167,
+        1344,
+        1192
+      ],
+      "score": 0.9946686625480652
+    },
+    {
+      "text": "3 Que ejercia las funciones del Sumo Sacerdote en caso de enfermedad",
+      "box": [
+        68,
+        1193,
+        620,
+        1220
+      ],
+      "score": 0.9983820915222168
+    },
+    {
+      "text": "donosor. Dan. V, v. 1.—Baruch, I, v. 11.",
+      "box": [
+        774,
+        1188,
+        1099,
+        1215
+      ],
+      "score": 0.9852461814880371
+    },
+    {
+      "text": "del Pontífice.",
+      "box": [
+        56,
+        1216,
+        156,
+        1237
+      ],
+      "score": 0.997266411781311
+    },
+    {
+      "text": "7 Para hacer mas majestuosa su corte.—Véase Judic. I, v. 7.—Y lo mis-",
+      "box": [
+        788,
+        1210,
+        1345,
+        1236
+      ],
+      "score": 0.9827730655670166
+    },
+    {
+      "text": "mo leemos que hacia Alejandro Magno con los reyes Poro y Taxile, etc.",
+      "box": [
+        772,
+        1232,
+        1348,
+        1262
+      ],
+      "score": 0.9958924055099487
+    },
+    {
+      "text": "II.—23",
+      "box": [
+        1247,
+        2070,
+        1319,
+        2104
+      ],
+      "score": 0.9394531846046448
+    }
+  ]
+}

@@ -1,0 +1,837 @@
+{
+  "volume": 4,
+  "page_index": 14,
+  "pdf_page": 15,
+  "lines": [
+    {
+      "text": "EL SANTO EVANGELIO",
+      "box": [
+        264,
+        16,
+        685,
+        70
+      ],
+      "score": 0.998694121837616
+    },
+    {
+      "text": "DE",
+      "box": [
+        467,
+        86,
+        490,
+        101
+      ],
+      "score": 0.9998960494995117
+    },
+    {
+      "text": "NUESTRO SEÑOR JESU·CHRISTO",
+      "box": [
+        110,
+        109,
+        840,
+        197
+      ],
+      "score": 0.9784265756607056
+    },
+    {
+      "text": "SEGUN",
+      "box": [
+        458,
+        200,
+        497,
+        224
+      ],
+      "score": 0.9997644424438477
+    },
+    {
+      "text": "SAN MATHEO",
+      "box": [
+        351,
+        241,
+        602,
+        281
+      ],
+      "score": 0.9986416697502136
+    },
+    {
+      "text": "ADVERTENCIA",
+      "box": [
+        400,
+        363,
+        552,
+        390
+      ],
+      "score": 0.9998821020126343
+    },
+    {
+      "text": "S,amad tamb e, tual de Gl led al old dedel  de publa, cobad d bu, l e qu ec",
+      "box": [
+        73,
+        392,
+        898,
+        439
+      ],
+      "score": 0.5702868103981018
+    },
+    {
+      "text": "tAl S G,D SE I.,a A.I np,an Mae deEppeeEage.",
+      "box": [
+        48,
+        443,
+        900,
+        487
+      ],
+      "score": 0.4735344648361206
+    },
+    {
+      "text": "CAPITULO PRIMERO",
+      "box": [
+        164,
+        642,
+        310,
+        662
+      ],
+      "score": 0.9992611408233643
+    },
+    {
+      "text": "14. Azor engendró á Sadoc. Sadoc engendró & Achim.",
+      "box": [
+        538,
+        649,
+        898,
+        668
+      ],
+      "score": 0.9929242730140686
+    },
+    {
+      "text": "Achim engendró á Eliud.",
+      "box": [
+        525,
+        666,
+        679,
+        684
+      ],
+      "score": 0.9944261312484741
+    },
+    {
+      "text": "Genealogía de Jesu-Christo, su concepeion por obra del Espíritu Santo,",
+      "box": [
+        47,
+        687,
+        426,
+        705
+      ],
+      "score": 0.9908962845802307
+    },
+    {
+      "text": "15. Eliud engendró á Eleazar. Eleazar engendró á Mathán.",
+      "box": [
+        537,
+        683,
+        898,
+        702
+      ],
+      "score": 0.9894679188728333
+    },
+    {
+      "text": "y su nacimiento.",
+      "box": [
+        190,
+        704,
+        280,
+        718
+      ],
+      "score": 0.9722157120704651
+    },
+    {
+      "text": "Mathán engendró á Jacob.",
+      "box": [
+        524,
+        700,
+        687,
+        718
+      ],
+      "score": 0.9839611053466797
+    },
+    {
+      "text": "16. Y Jacob engendró & Joseph, el esposo de María, de la",
+      "box": [
+        537,
+        717,
+        898,
+        736
+      ],
+      "score": 0.9865468144416809
+    },
+    {
+      "text": "cual nació Jesus, por sobrenombre Christo ε.",
+      "box": [
+        524,
+        734,
+        796,
+        753
+      ],
+      "score": 0.97821044921875
+    },
+    {
+      "text": "1. GENEALoGIA ¹ de Jesu-Christo hijo de David, hijo de",
+      "box": [
+        58,
+        753,
+        425,
+        770
+      ],
+      "score": 0.9765838384628296
+    },
+    {
+      "text": "17. Así son catorce todas las generaciones desde Abra-",
+      "box": [
+        535,
+        750,
+        898,
+        770
+      ],
+      "score": 0.9996657967567444
+    },
+    {
+      "text": "Abraham.",
+      "box": [
+        44,
+        770,
+        107,
+        787
+      ],
+      "score": 0.9995530247688293
+    },
+    {
+      "text": "ham hasta David: y las de David hasta la trasportacion de",
+      "box": [
+        523,
+        767,
+        899,
+        788
+      ],
+      "score": 0.9903375506401062
+    },
+    {
+      "text": "2. Abraham engendró á Isaac. Isaac engendró á Jacob.",
+      "box": [
+        55,
+        786,
+        423,
+        804
+      ],
+      "score": 0.9933030009269714
+    },
+    {
+      "text": "los Judtos á Babylonia catorce generaciones: y tambien cator-",
+      "box": [
+        523,
+        785,
+        899,
+        804
+      ],
+      "score": 0.9814454317092896
+    },
+    {
+      "text": "Jacob engendró á Judas, y á sus hermanos.",
+      "box": [
+        43,
+        805,
+        311,
+        819
+      ],
+      "score": 0.9744208455085754
+    },
+    {
+      "text": "ce las generaciones desde la trasportacion á Babylonia hasta",
+      "box": [
+        523,
+        802,
+        899,
+        820
+      ],
+      "score": 0.9918146133422852
+    },
+    {
+      "text": "3. Judas engendró de Thamar á Pharés, y á Zara. Pharés",
+      "box": [
+        53,
+        820,
+        424,
+        838
+      ],
+      "score": 0.976238489151001
+    },
+    {
+      "text": "Christo ³.",
+      "box": [
+        523,
+        818,
+        584,
+        835
+      ],
+      "score": 0.9296998977661133
+    },
+    {
+      "text": "engendró-á Esron. Esron engendró á Aram.",
+      "box": [
+        41,
+        839,
+        309,
+        853
+      ],
+      "score": 0.9867054224014282
+    },
+    {
+      "text": "18. Pero el nacimiento de Christo fué de esta manera:",
+      "box": [
+        534,
+        834,
+        899,
+        853
+      ],
+      "score": 0.9918158650398254
+    },
+    {
+      "text": "4. Aram engendró á Aminadab. Aminadab engendró á",
+      "box": [
+        52,
+        853,
+        424,
+        872
+      ],
+      "score": 0.9898557662963867
+    },
+    {
+      "text": "Estando desposada su madre María con Joseph, sin que antes",
+      "box": [
+        524,
+        854,
+        897,
+        869
+      ],
+      "score": 0.9999340772628784
+    },
+    {
+      "text": "Naasson. Naasson engendró á Salmon.",
+      "box": [
+        37,
+        871,
+        279,
+        889
+      ],
+      "score": 0.9940420985221863
+    },
+    {
+      "text": "hubiesen estado juntos, se halló que habia concebido en su",
+      "box": [
+        524,
+        872,
+        897,
+        886
+      ],
+      "score": 0.9997736215591431
+    },
+    {
+      "text": "5. Salmon engendró de Rahab á Booz. Booz engendró de",
+      "box": [
+        50,
+        888,
+        423,
+        906
+      ],
+      "score": 0.999026358127594
+    },
+    {
+      "text": "seno por obra del Espíritu Santo.",
+      "box": [
+        521,
+        886,
+        727,
+        904
+      ],
+      "score": 0.9999098181724548
+    },
+    {
+      "text": "Ruth á Obed. Obed engendró á Jessé. Jessé engendró al rey",
+      "box": [
+        36,
+        905,
+        422,
+        924
+      ],
+      "score": 0.9880765676498413
+    },
+    {
+      "text": "19. Mas Joseph su esposo, siendo, como era, justo, y no",
+      "box": [
+        536,
+        905,
+        897,
+        919
+      ],
+      "score": 0.9844191074371338
+    },
+    {
+      "text": "David.",
+      "box": [
+        35,
+        923,
+        81,
+        941
+      ],
+      "score": 0.9999745488166809
+    },
+    {
+      "text": "queriendo infamarla , deliberó dejarla secretamente.",
+      "box": [
+        521,
+        920,
+        845,
+        938
+      ],
+      "score": 0.9878897070884705
+    },
+    {
+      "text": "6. El rey David engendró á Salomon de la que fué mujer",
+      "box": [
+        49,
+        941,
+        421,
+        958
+      ],
+      "score": 0.9966217875480652
+    },
+    {
+      "text": "20. Estando él en este pensamiento, hé aquí que un Ángel",
+      "box": [
+        534,
+        935,
+        898,
+        955
+      ],
+      "score": 0.9904552102088928
+    },
+    {
+      "text": "de Urías.",
+      "box": [
+        35,
+        958,
+        96,
+        975
+      ],
+      "score": 0.9996362328529358
+    },
+    {
+      "text": "del Señor le apareció en sueños, diciendo: Joseph hijo do",
+      "box": [
+        522,
+        953,
+        899,
+        971
+      ],
+      "score": 0.9936296343803406
+    },
+    {
+      "text": "7. Salomon engendró á Roboam. Roboam engendró á",
+      "box": [
+        46,
+        975,
+        422,
+        993
+      ],
+      "score": 0.9878299236297607
+    },
+    {
+      "text": "David, no tengas recelo en recibir á María tu esposa en tu",
+      "box": [
+        521,
+        970,
+        899,
+        989
+      ],
+      "score": 0.9963169693946838
+    },
+    {
+      "text": "Abías. Abías engendró áAsá.",
+      "box": [
+        33,
+        992,
+        220,
+        1010
+      ],
+      "score": 0.966181218624115
+    },
+    {
+      "text": "casa: porque lo'que se ha engendrado en su vientre, es obra",
+      "box": [
+        521,
+        987,
+        900,
+        1005
+      ],
+      "score": 0.9968054890632629
+    },
+    {
+      "text": "8. Asá engendró á Josaphat. Josaphat engendró á Joram.",
+      "box": [
+        45,
+        1010,
+        420,
+        1027
+      ],
+      "score": 0.9789642095565796
+    },
+    {
+      "text": "del Espíritu Santo.",
+      "box": [
+        521,
+        1005,
+        639,
+        1022
+      ],
+      "score": 0.9999004006385803
+    },
+    {
+      "text": "Joram engendró á Ozías.",
+      "box": [
+        31,
+        1027,
+        192,
+        1044
+      ],
+      "score": 0.9989513158798218
+    },
+    {
+      "text": "21. Así que parirá un hijo á quien pondrás por nombre",
+      "box": [
+        534,
+        1020,
+        899,
+        1038
+      ],
+      "score": 0.9963651895523071
+    },
+    {
+      "text": "9. Ozías engendró á Joathám. Joathám engendró á Achaz.",
+      "box": [
+        43,
+        1043,
+        417,
+        1060
+      ],
+      "score": 0.9733827114105225
+    },
+    {
+      "text": "Jesus: pues él es el que ha de salvar á su pueblo ó librarle",
+      "box": [
+        520,
+        1037,
+        899,
+        1056
+      ],
+      "score": 0.9780122637748718
+    },
+    {
+      "text": "Achaz engendró á Ezechias.",
+      "box": [
+        29,
+        1060,
+        210,
+        1079
+      ],
+      "score": 0.9988912343978882
+    },
+    {
+      "text": "de sus pecados.",
+      "box": [
+        521,
+        1056,
+        619,
+        1073
+      ],
+      "score": 0.9721681475639343
+    },
+    {
+      "text": "10. Ezechias engendró á Manassés. Manassés engendró á",
+      "box": [
+        40,
+        1076,
+        420,
+        1098
+      ],
+      "score": 0.9882628917694092
+    },
+    {
+      "text": "22. Todo lo cual se hizo en cumplimiento de lo que pro-",
+      "box": [
+        532,
+        1071,
+        898,
+        1089
+      ],
+      "score": 0.9933691024780273
+    },
+    {
+      "text": "Amon. Amon engendró á Josías.",
+      "box": [
+        28,
+        1094,
+        236,
+        1115
+      ],
+      "score": 0.9838579297065735
+    },
+    {
+      "text": "nunció el Señor por el Profeta 5 que dice:",
+      "box": [
+        519,
+        1087,
+        778,
+        1108
+      ],
+      "score": 0.9941527247428894
+    },
+    {
+      "text": "11. Josías engendró á Jechonías, y á sus hermanos cerca",
+      "box": [
+        41,
+        1114,
+        417,
+        1131
+      ],
+      "score": 0.9930877685546875
+    },
+    {
+      "text": "23. Sabed que una vírgen concebirá y parirá un hijo: á",
+      "box": [
+        533,
+        1105,
+        899,
+        1124
+      ],
+      "score": 0.9957069754600525
+    },
+    {
+      "text": "del tiempo de la trasportacion de los Judíos á Babylonia.",
+      "box": [
+        27,
+        1131,
+        388,
+        1148
+      ],
+      "score": 0.997372567653656
+    },
+    {
+      "text": "quien pondrán por nombre Emmanuel, que traducido signifi-",
+      "box": [
+        518,
+        1120,
+        899,
+        1143
+      ],
+      "score": 0.9954252243041992
+    },
+    {
+      "text": "12. Y despues que fueron trasportados á Babylonia: Je-",
+      "box": [
+        40,
+        1149,
+        416,
+        1166
+      ],
+      "score": 0.9894778728485107
+    },
+    {
+      "text": "ca Dios con nosotros.",
+      "box": [
+        519,
+        1139,
+        652,
+        1159
+      ],
+      "score": 0.9949753284454346
+    },
+    {
+      "text": "chonías engendró á Salathiel. Salathiel engendró á Zoro-",
+      "box": [
+        24,
+        1163,
+        417,
+        1185
+      ],
+      "score": 0.9887937903404236
+    },
+    {
+      "text": "24. Con eso Joseph, al despertarse, hizo lo quo le mandó",
+      "box": [
+        531,
+        1153,
+        898,
+        1176
+      ],
+      "score": 0.9903653264045715
+    },
+    {
+      "text": "babel.",
+      "box": [
+        25,
+        1182,
+        68,
+        1200
+      ],
+      "score": 0.9999924302101135
+    },
+    {
+      "text": "el Ángel del Señor, y recibió á su esposa.",
+      "box": [
+        519,
+        1175,
+        773,
+        1192
+      ],
+      "score": 0.9900864362716675
+    },
+    {
+      "text": "13. Zorobabel engendró á Abiud. Abiud engendró á Elia-",
+      "box": [
+        37,
+        1198,
+        413,
+        1219
+      ],
+      "score": 0.9888730049133301
+    },
+    {
+      "text": "25. Y sin haberla conocido ó tocado dió á luz su hijo pri-",
+      "box": [
+        530,
+        1187,
+        900,
+        1211
+      ],
+      "score": 0.9935474991798401
+    },
+    {
+      "text": "cim. Eliacim engendró á Azor.",
+      "box": [
+        24,
+        1215,
+        221,
+        1235
+      ],
+      "score": 0.9957395195960999
+    },
+    {
+      "text": "mogénito º: y le puso el nombre de Jesus.",
+      "box": [
+        516,
+        1206,
+        781,
+        1229
+      ],
+      "score": 0.9626929759979248
+    },
+    {
+      "text": "1 Véaso on las Notas generales la palabra Libro.",
+      "box": [
+        34,
+        1244,
+        297,
+        1263
+      ],
+      "score": 0.9823441505432129
+    },
+    {
+      "text": "última traduccion se alude á la obligacion que los maridos tenian de",
+      "box": [
+        516,
+        1232,
+        901,
+        1257
+      ],
+      "score": 0.9810054898262024
+    },
+    {
+      "text": "2 Véase Nombre.",
+      "box": [
+        33,
+        1257,
+        133,
+        1277
+      ],
+      "score": 0.9670907855033875
+    },
+    {
+      "text": "delatar a sus mujeres adúlteras.—Véase Adulterio.",
+      "box": [
+        517,
+        1251,
+        791,
+        1270
+      ],
+      "score": 0.9555331468582153
+    },
+    {
+      "text": "s Véase Genealogia.",
+      "box": [
+        34,
+        1273,
+        149,
+        1291
+      ],
+      "score": 0.9721120595932007
+    },
+    {
+      "text": "6 Véase Isaias, cap. VII, v. 14.",
+      "box": [
+        529,
+        1267,
+        697,
+        1281
+      ],
+      "score": 0.9685739874839783
+    },
+    {
+      "text": "4 O tambien puede traducirse: y no queriendo exponerla à la infa-",
+      "box": [
+        32,
+        1288,
+        411,
+        1310
+      ],
+      "score": 0.9740415215492249
+    },
+    {
+      "text": "a Véase Primogénito.",
+      "box": [
+        528,
+        1279,
+        648,
+        1297
+      ],
+      "score": 0.9513313174247742
+    },
+    {
+      "text": "mia, etc. Y scgun otros Expositores: y no queriendo delatarla. En esta",
+      "box": [
+        21,
+        1303,
+        411,
+        1326
+      ],
+      "score": 0.9828984141349792
+    },
+    {
+      "text": "IV.—2",
+      "box": [
+        837,
+        1308,
+        882,
+        1329
+      ],
+      "score": 0.9433087110519409
+    }
+  ]
+}

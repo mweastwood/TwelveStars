@@ -1,0 +1,27 @@
+{
+  "volume": 4,
+  "page_index": 84,
+  "pdf_page": 85,
+  "lines": [
+    {
+      "text": "Haloihannd",
+      "box": [
+        562,
+        1132,
+        664,
+        1152
+      ],
+      "score": 0.45748648047447205
+    },
+    {
+      "text": "JESÚS PREDICANDO EN EL MAR DE GALILEA",
+      "box": [
+        316,
+        1171,
+        687,
+        1201
+      ],
+      "score": 0.9994212985038757
+    }
+  ]
+}

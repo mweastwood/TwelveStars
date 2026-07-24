@@ -1,0 +1,1517 @@
+{
+  "volume": 1,
+  "page_index": 140,
+  "pdf_page": 141,
+  "lines": [
+    {
+      "text": "165",
+      "box": [
+        6,
+        34,
+        36,
+        54
+      ],
+      "score": 0.9999744892120361
+    },
+    {
+      "text": "LEVITICO.",
+      "box": [
+        160,
+        33,
+        248,
+        58
+      ],
+      "score": 0.9994869232177734
+    },
+    {
+      "text": "CAPITULO XXIII.",
+      "box": [
+        653,
+        35,
+        785,
+        60
+      ],
+      "score": 0.9732168912887573
+    },
+    {
+      "text": "166",
+      "box": [
+        877,
+        41,
+        904,
+        63
+      ],
+      "score": 0.9709163308143616
+    },
+    {
+      "text": "20. Si tuviere defecto, no le ofrecereis, ni será aceptable.",
+      "box": [
+        9,
+        75,
+        413,
+        114
+      ],
+      "score": 0.9925175905227661
+    },
+    {
+      "text": "21. Quien ofreciere víctima pacífica al Señor, ó por voto,",
+      "box": [
+        11,
+        95,
+        412,
+        131
+      ],
+      "score": 0.9833483695983887
+    },
+    {
+      "text": "cereis al sacerdote manojos de vuestras espigas, primicias de",
+      "box": [
+        517,
+        92,
+        909,
+        117
+      ],
+      "score": 0.9961315989494324
+    },
+    {
+      "text": "ó voluntariamente, bien sea de bueyes ó de ovejas, debe",
+      "box": [
+        0,
+        114,
+        413,
+        149
+      ],
+      "score": 0.9887118935585022
+    },
+    {
+      "text": "vuestra siega ³:",
+      "box": [
+        517,
+        112,
+        621,
+        135
+      ],
+      "score": 0.9282101392745972
+    },
+    {
+      "text": "ofrecerla sin tacha, para que sea aceptable al Señor: no ha",
+      "box": [
+        0,
+        133,
+        413,
+        166
+      ],
+      "score": 0.999447762966156
+    },
+    {
+      "text": "11. El cual al otro dia de la fiesta & elevará el hacecillo",
+      "box": [
+        531,
+        132,
+        910,
+        151
+      ],
+      "score": 0.9867134094238281
+    },
+    {
+      "text": "de tener vicio ninguno.",
+      "box": [
+        0,
+        152,
+        167,
+        177
+      ],
+      "score": 0.9997010231018066
+    },
+    {
+      "text": "delante del Señor, para que sea aceptable á favor vuestro, y",
+      "box": [
+        518,
+        150,
+        905,
+        169
+      ],
+      "score": 0.998694121837616
+    },
+    {
+      "text": "22. Si el animal es ciego, si estropeado, si tuviere mata-",
+      "box": [
+        15,
+        170,
+        413,
+        201
+      ],
+      "score": 0.996799886226654
+    },
+    {
+      "text": "se lo consagrará.",
+      "box": [
+        518,
+        167,
+        625,
+        184
+      ],
+      "score": 0.9997609257698059
+    },
+    {
+      "text": "dura, ó verrugas, ó sarna, ó empeines, no le ofrezcais al",
+      "box": [
+        1,
+        187,
+        414,
+        219
+      ],
+      "score": 0.9885191917419434
+    },
+    {
+      "text": "12. Y en ese mismo dia en que se consagrará el manojo,",
+      "box": [
+        531,
+        182,
+        904,
+        201
+      ],
+      "score": 0.9963409304618835
+    },
+    {
+      "text": "Señor, ni hagais quemar nada de él sobre el altar del Señor.",
+      "box": [
+        1,
+        203,
+        414,
+        237
+      ],
+      "score": 0.997240424156189
+    },
+    {
+      "text": "será sacrificado un cordero primal, sin mácula, en holocausto",
+      "box": [
+        517,
+        198,
+        904,
+        218
+      ],
+      "score": 0.9990377426147461
+    },
+    {
+      "text": "23. Buey ú oveja, de oreja ó cola cortadas, puedes ofre-",
+      "box": [
+        15,
+        220,
+        415,
+        255
+      ],
+      "score": 0.993378758430481
+    },
+    {
+      "text": "al Señor.",
+      "box": [
+        517,
+        216,
+        576,
+        233
+      ],
+      "score": 0.999671220779419
+    },
+    {
+      "text": "cerlos al Señor en sacrificio voluntario; mas con ellos no",
+      "box": [
+        0,
+        238,
+        414,
+        270
+      ],
+      "score": 0.9917358756065369
+    },
+    {
+      "text": "13. Y con él se presentarán como ofrenda ó libacion dos",
+      "box": [
+        530,
+        230,
+        905,
+        248
+      ],
+      "score": 0.9830754399299622
+    },
+    {
+      "text": "décimas de flor de harina, heñida con aceite, para ser que-",
+      "box": [
+        517,
+        246,
+        905,
+        264
+      ],
+      "score": 0.9932243824005127
+    },
+    {
+      "text": "puedes cumplir el voto que hayas hecho.",
+      "box": [
+        1,
+        256,
+        282,
+        286
+      ],
+      "score": 0.9990452527999878
+    },
+    {
+      "text": "24. Ningun animal que tenga quebrantado, ó majado, 6",
+      "box": [
+        16,
+        272,
+        414,
+        304
+      ],
+      "score": 0.9747133255004883
+    },
+    {
+      "text": "mada, en olor suavísimo al Señor: asimismo por libacion ú",
+      "box": [
+        518,
+        264,
+        905,
+        278
+      ],
+      "score": 0.9825374484062195
+    },
+    {
+      "text": "ofrenda de vino la cuarta parte de un hin .",
+      "box": [
+        517,
+        276,
+        798,
+        295
+      ],
+      "score": 0.9823746681213379
+    },
+    {
+      "text": "cortado, ó quitado lo que está destinado para propagar la",
+      "box": [
+        0,
+        288,
+        413,
+        320
+      ],
+      "score": 0.9933150410652161
+    },
+    {
+      "text": "14. No comereis pan, ni polenta, ni puches de las mieses,",
+      "box": [
+        529,
+        292,
+        904,
+        311
+      ],
+      "score": 0.9972658753395081
+    },
+    {
+      "text": "especie, le ofrecereis al Señor; y de ningun modo hareis",
+      "box": [
+        0,
+        305,
+        413,
+        335
+      ],
+      "score": 0.9894847869873047
+    },
+    {
+      "text": "hasta el dia en qué ofrezcais las primicias de ellas á vuestro",
+      "box": [
+        516,
+        308,
+        905,
+        326
+      ],
+      "score": 0.9989243149757385
+    },
+    {
+      "text": "jamás tales cosas en vuestra tierra.",
+      "box": [
+        0,
+        324,
+        247,
+        349
+      ],
+      "score": 0.9953451156616211
+    },
+    {
+      "text": "Dios. Estatuto es este que debereis observar eternamente",
+      "box": [
+        516,
+        324,
+        905,
+        342
+      ],
+      "score": 0.9999142289161682
+    },
+    {
+      "text": "25. De mano de un extranjero ó gentil, nunca ofrezcais",
+      "box": [
+        16,
+        339,
+        413,
+        366
+      ],
+      "score": 0.9797504544258118
+    },
+    {
+      "text": "de generacion en generacion, en todos los lugares en que",
+      "box": [
+        515,
+        340,
+        905,
+        358
+      ],
+      "score": 0.9999375939369202
+    },
+    {
+      "text": "panes á vuestro Dios, ni otro algun presente que quiera dar:",
+      "box": [
+        0,
+        355,
+        412,
+        384
+      ],
+      "score": 0.9656262993812561
+    },
+    {
+      "text": "habitáreis.",
+      "box": [
+        516,
+        357,
+        585,
+        374
+      ],
+      "score": 0.998718798160553
+    },
+    {
+      "text": "porque todas sus cosas están contaminadas é impuras: no",
+      "box": [
+        1,
+        372,
+        413,
+        400
+      ],
+      "score": 0.9919502139091492
+    },
+    {
+      "text": "15. Contareis, pues, desde el dia segundo de la fiesta en",
+      "box": [
+        529,
+        370,
+        905,
+        391
+      ],
+      "score": 0.9987991452217102
+    },
+    {
+      "text": "las recibais.",
+      "box": [
+        2,
+        389,
+        91,
+        410
+      ],
+      "score": 0.9472141265869141
+    },
+    {
+      "text": "que ofrecisteis el manojo de las primicias, siete semanas",
+      "box": [
+        514,
+        386,
+        906,
+        410
+      ],
+      "score": 0.9972884058952332
+    },
+    {
+      "text": "26. Habló todavía el Señor á Moysés, diciendo:",
+      "box": [
+        18,
+        405,
+        343,
+        429
+      ],
+      "score": 0.9970675110816956
+    },
+    {
+      "text": "enteras.",
+      "box": [
+        517,
+        409,
+        568,
+        423
+      ],
+      "score": 0.9999818801879883
+    },
+    {
+      "text": "27. Ternero, cordero, y cabrito, luego que hubieren naci-",
+      "box": [
+        18,
+        420,
+        413,
+        448
+      ],
+      "score": 0.9843157529830933
+    },
+    {
+      "text": "16. Hasta el otro dia de cumplida la séptima semana, que",
+      "box": [
+        528,
+        419,
+        906,
+        440
+      ],
+      "score": 0.9993886947631836
+    },
+    {
+      "text": "do, estarán por siete dias mamando de su madre. Desde el",
+      "box": [
+        2,
+        437,
+        413,
+        465
+      ],
+      "score": 0.9942561388015747
+    },
+    {
+      "text": "vienen á ser cincuenta dias: y entonces ofrecereis nuevo",
+      "box": [
+        516,
+        436,
+        906,
+        457
+      ],
+      "score": 0.9988148808479309
+    },
+    {
+      "text": "dia octavo y en adelante, podrán ser ofrecidos al Señor.",
+      "box": [
+        1,
+        454,
+        377,
+        481
+      ],
+      "score": 0.9724854230880737
+    },
+    {
+      "text": "sacrificio  al Señor,",
+      "box": [
+        515,
+        453,
+        644,
+        476
+      ],
+      "score": 0.9867128729820251
+    },
+    {
+      "text": "17. En todas partes en que habitáreis, dos panes de pri-",
+      "box": [
+        528,
+        468,
+        907,
+        490
+      ],
+      "score": 0.9994892477989197
+    },
+    {
+      "text": "en un mismo dia.",
+      "box": [
+        2,
+        489,
+        130,
+        510
+      ],
+      "score": 0.9948318004608154
+    },
+    {
+      "text": "micias, hechos de dos décimas de flor de harina con levadura,",
+      "box": [
+        516,
+        486,
+        907,
+        506
+      ],
+      "score": 0.9889588356018066
+    },
+    {
+      "text": "29. Si degolláreis una víctima en accion de gracias al Se-",
+      "box": [
+        18,
+        504,
+        413,
+        529
+      ],
+      "score": 0.9779834151268005
+    },
+    {
+      "text": "los que cocereis para primicias al Señor.",
+      "box": [
+        516,
+        503,
+        772,
+        523
+      ],
+      "score": 0.9982725977897644
+    },
+    {
+      "text": "ñor, para tenerle propicio,",
+      "box": [
+        3,
+        521,
+        189,
+        548
+      ],
+      "score": 0.9992184042930603
+    },
+    {
+      "text": "18. Con los panes ofrecereis siete corderos sin mácula,",
+      "box": [
+        528,
+        518,
+        907,
+        539
+      ],
+      "score": 0.9900547862052917
+    },
+    {
+      "text": "30. La comereis en el mismo dia, no quedará nada para",
+      "box": [
+        20,
+        537,
+        413,
+        564
+      ],
+      "score": 0.9896329045295715
+    },
+    {
+      "text": "primales, y un ternero de la vacada, y dos carneros, en holo-",
+      "box": [
+        516,
+        533,
+        907,
+        558
+      ],
+      "score": 0.9966772198677063
+    },
+    {
+      "text": "la mañana del dia siguiente. Yo el Señor.",
+      "box": [
+        4,
+        554,
+        284,
+        581
+      ],
+      "score": 0.9991227388381958
+    },
+    {
+      "text": "causto, con sus libaciones, para olor suavísimo al Señor.",
+      "box": [
+        516,
+        550,
+        871,
+        573
+      ],
+      "score": 0.9999260902404785
+    },
+    {
+      "text": "31. Guardad mis mandamientos, y cumplidlos. Yo el Señor.",
+      "box": [
+        22,
+        572,
+        413,
+        596
+      ],
+      "score": 0.9258489608764648
+    },
+    {
+      "text": "19. Sacrificareis tambien un macho cabrío por el pecado,",
+      "box": [
+        529,
+        566,
+        907,
+        589
+      ],
+      "score": 0.9914252161979675
+    },
+    {
+      "text": "y dos corderos del año por hostias pacíficas.",
+      "box": [
+        515,
+        583,
+        796,
+        605
+      ],
+      "score": 0.9977204203605652
+    },
+    {
+      "text": "santificado en medio de los hijos de Israél. Yo el Señor que",
+      "box": [
+        6,
+        605,
+        413,
+        629
+      ],
+      "score": 0.9698724150657654
+    },
+    {
+      "text": "20. Los cuales elevados por el sacerdote ante el Señor con",
+      "box": [
+        528,
+        596,
+        907,
+        620
+      ],
+      "score": 0.9894194006919861
+    },
+    {
+      "text": "os santifico,",
+      "box": [
+        6,
+        620,
+        97,
+        645
+      ],
+      "score": 0.9990504384040833
+    },
+    {
+      "text": "los panes de las primicias, servirán para uso suyo.",
+      "box": [
+        515,
+        613,
+        836,
+        637
+      ],
+      "score": 0.9995704293251038
+    },
+    {
+      "text": "33. Y que os he sacado de la tierra de Egypto para ser",
+      "box": [
+        21,
+        634,
+        415,
+        664
+      ],
+      "score": 0.979868471622467
+    },
+    {
+      "text": "21. Tendreis este dia por solemnísimo y santísimo: no",
+      "box": [
+        527,
+        628,
+        909,
+        652
+      ],
+      "score": 0.9747903347015381
+    },
+    {
+      "text": "vuestro Dios. Yo el Señor.",
+      "box": [
+        9,
+        657,
+        189,
+        678
+      ],
+      "score": 0.9996811151504517
+    },
+    {
+      "text": "hareis en él obra ninguna servil. Ley sempiterna será esta",
+      "box": [
+        515,
+        645,
+        909,
+        666
+      ],
+      "score": 0.9850175380706787
+    },
+    {
+      "text": "en todos los lugares en que habitáreis, y para toda vuestra",
+      "box": [
+        515,
+        660,
+        910,
+        683
+      ],
+      "score": 0.9871231317520142
+    },
+    {
+      "text": "CAPÍTULO XXIII",
+      "box": [
+        154,
+        683,
+        279,
+        706
+      ],
+      "score": 0.9900317788124084
+    },
+    {
+      "text": "posteridad.",
+      "box": [
+        515,
+        679,
+        589,
+        699
+      ],
+      "score": 0.9991634488105774
+    },
+    {
+      "text": "22. Cuando segáreis las mieses de vuestros campos, no las",
+      "box": [
+        528,
+        692,
+        911,
+        714
+      ],
+      "score": 0.9914183616638184
+    },
+    {
+      "text": "Ceremonias para la solemnidad del sábado y demás fiestas principales.",
+      "box": [
+        8,
+        705,
+        413,
+        734
+      ],
+      "score": 0.959855318069458
+    },
+    {
+      "text": "cortareis hasta el suelo, ni recogereis las espigas que quedan,",
+      "box": [
+        516,
+        709,
+        910,
+        731
+      ],
+      "score": 0.9982094168663025
+    },
+    {
+      "text": "sino que las dejareis para los pobres y peregrinos. Yo soy el",
+      "box": [
+        515,
+        725,
+        911,
+        748
+      ],
+      "score": 0.9872651100158691
+    },
+    {
+      "text": "1. Habló el Señor á Moysés, diciendo:",
+      "box": [
+        29,
+        736,
+        287,
+        758
+      ],
+      "score": 0.9896341562271118
+    },
+    {
+      "text": "2. Habla á los hijos de Israél, y díles: Estas son las fiestas",
+      "box": [
+        27,
+        748,
+        414,
+        775
+      ],
+      "score": 0.9673066735267639
+    },
+    {
+      "text": "Señor Dios vuestro.",
+      "box": [
+        516,
+        744,
+        641,
+        762
+      ],
+      "score": 0.9998773336410522
+    },
+    {
+      "text": "23. Habló tambien el Señor á Moysés, diciendo:",
+      "box": [
+        529,
+        758,
+        846,
+        778
+      ],
+      "score": 0.9879682660102844
+    },
+    {
+      "text": "del Señor que habeis de santificar:",
+      "box": [
+        12,
+        770,
+        246,
+        789
+      ],
+      "score": 0.9997931122779846
+    },
+    {
+      "text": "24. Dí á los hijos de Israél 7: El dia primero del mes sép-",
+      "box": [
+        529,
+        774,
+        910,
+        794
+      ],
+      "score": 0.99528968334198
+    },
+    {
+      "text": "3. Seis dias trabajareis; el dia séptimo, por ser el descanso",
+      "box": [
+        29,
+        780,
+        414,
+        808
+      ],
+      "score": 0.9931574463844299
+    },
+    {
+      "text": "del sábado, será santificado: en esto dia no hareis trabajo",
+      "box": [
+        13,
+        796,
+        414,
+        823
+      ],
+      "score": 0.9827828407287598
+    },
+    {
+      "text": "timo será para vosotros fiesta memorable: le celebrareis con",
+      "box": [
+        517,
+        790,
+        911,
+        811
+      ],
+      "score": 0.9850308895111084
+    },
+    {
+      "text": "el toque de las trompetas, y llamarse ha santo:",
+      "box": [
+        517,
+        806,
+        818,
+        828
+      ],
+      "score": 0.9997266530990601
+    },
+    {
+      "text": "ninguno: porque es el sábado del Señor, el cual debe obser-",
+      "box": [
+        13,
+        812,
+        415,
+        840
+      ],
+      "score": 0.9887614250183105
+    },
+    {
+      "text": "25. No hareis en él ninguna obra servil, y ofrecereis holo.",
+      "box": [
+        528,
+        821,
+        910,
+        845
+      ],
+      "score": 0.9785329103469849
+    },
+    {
+      "text": "varse en cualquier parte en que os halleis.",
+      "box": [
+        14,
+        833,
+        298,
+        854
+      ],
+      "score": 0.9896692633628845
+    },
+    {
+      "text": "4. Así pues las fiestas del Señor, que debeis celebrar á sus",
+      "box": [
+        31,
+        845,
+        415,
+        871
+      ],
+      "score": 0.9939085841178894
+    },
+    {
+      "text": "causto al Señor.",
+      "box": [
+        516,
+        841,
+        620,
+        861
+      ],
+      "score": 0.9995703101158142
+    },
+    {
+      "text": "tiempos, son las siguientes:",
+      "box": [
+        18,
+        868,
+        205,
+        885
+      ],
+      "score": 0.999959409236908
+    },
+    {
+      "text": "26. Y habló el Señor á Moysés, y le dijo:",
+      "box": [
+        528,
+        854,
+        799,
+        877
+      ],
+      "score": 0.9870473146438599
+    },
+    {
+      "text": "5. En el mes primero, el dia catorce del mes por la tarde,",
+      "box": [
+        33,
+        877,
+        414,
+        904
+      ],
+      "score": 0.9976951479911804
+    },
+    {
+      "text": "27. El décimo dia de este séptimo mes será el dia solem-",
+      "box": [
+        528,
+        869,
+        910,
+        895
+      ],
+      "score": 0.9853221774101257
+    },
+    {
+      "text": "es la Pascua del Señor 1;",
+      "box": [
+        18,
+        899,
+        188,
+        917
+      ],
+      "score": 0.967668890953064
+    },
+    {
+      "text": "nísimo de la Expiacion, ó perdon, y se llamará santo; y morti-",
+      "box": [
+        516,
+        886,
+        909,
+        909
+      ],
+      "score": 0.9965119957923889
+    },
+    {
+      "text": "6. Y el dia quince de este mes es la solemnidad de los",
+      "box": [
+        35,
+        909,
+        416,
+        934
+      ],
+      "score": 0.9973893761634827
+    },
+    {
+      "text": "ficareis en él vuestras almas, y ofrecereis holocausto al Señor.",
+      "box": [
+        517,
+        903,
+        909,
+        925
+      ],
+      "score": 0.9939851760864258
+    },
+    {
+      "text": "ázymos del Señor. Siete dias comereis panes sin levadura.",
+      "box": [
+        19,
+        926,
+        393,
+        950
+      ],
+      "score": 0.9900040626525879
+    },
+    {
+      "text": "28. En todo este dia no hareis ninguna obra servil; porque",
+      "box": [
+        529,
+        918,
+        908,
+        940
+      ],
+      "score": 0.9967365264892578
+    },
+    {
+      "text": "7. El primero de estos será para vosotros solemnísimo y",
+      "box": [
+        35,
+        941,
+        415,
+        966
+      ],
+      "score": 0.9993552565574646
+    },
+    {
+      "text": "es dia de propiciacion, á fin de que os sea propicio el Señor",
+      "box": [
+        516,
+        933,
+        909,
+        957
+      ],
+      "score": 0.9874656796455383
+    },
+    {
+      "text": "Dios vuestro.",
+      "box": [
+        516,
+        952,
+        603,
+        972
+      ],
+      "score": 0.9998430013656616
+    },
+    {
+      "text": "santo: ninguna obra servil hareis en él:",
+      "box": [
+        20,
+        960,
+        279,
+        982
+      ],
+      "score": 0.9926371574401855
+    },
+    {
+      "text": "29. Cualquiera que en este dia no hiciere penitencia, será",
+      "box": [
+        529,
+        964,
+        908,
+        989
+      ],
+      "score": 0.9904096722602844
+    },
+    {
+      "text": "8. Sino que en los siete dias ofrecereis holocausto º al",
+      "box": [
+        36,
+        971,
+        415,
+        999
+      ],
+      "score": 0.9691548943519592
+    },
+    {
+      "text": "Señor: pero el séptimo dia será para vosotros mas solemne y",
+      "box": [
+        20,
+        989,
+        415,
+        1014
+      ],
+      "score": 0.9940779209136963
+    },
+    {
+      "text": "exterminado de entre sus gentes:",
+      "box": [
+        518,
+        983,
+        731,
+        1004
+      ],
+      "score": 0.9999314546585083
+    },
+    {
+      "text": "30. Y yo raeré de la lista de su pueblo al que hiciere",
+      "box": [
+        528,
+        996,
+        909,
+        1020
+      ],
+      "score": 0.9933639168739319
+    },
+    {
+      "text": "santo que los demás; durante el cual no hareis obra ninguna",
+      "box": [
+        19,
+        1005,
+        415,
+        1031
+      ],
+      "score": 0.9884863495826721
+    },
+    {
+      "text": "alguna labor.",
+      "box": [
+        517,
+        1017,
+        605,
+        1036
+      ],
+      "score": 0.9999696016311646
+    },
+    {
+      "text": "servil.",
+      "box": [
+        23,
+        1029,
+        70,
+        1044
+      ],
+      "score": 0.9999832510948181
+    },
+    {
+      "text": "9. Habló tambien el Señor á Moysés, diciendo:",
+      "box": [
+        36,
+        1038,
+        347,
+        1063
+      ],
+      "score": 0.9897295832633972
+    },
+    {
+      "text": "31. Por tanto no trabajeis poco ni mucho en este dia. Ley",
+      "box": [
+        528,
+        1029,
+        910,
+        1053
+      ],
+      "score": 0.9946101903915405
+    },
+    {
+      "text": "10. Habla á los hijos de Israél, y díles: Cuando hubiereis",
+      "box": [
+        38,
+        1052,
+        415,
+        1080
+      ],
+      "score": 0.9932664632797241
+    },
+    {
+      "text": "sempiterna será esta para vosotros y para vuestros descen-",
+      "box": [
+        517,
+        1046,
+        909,
+        1069
+      ],
+      "score": 0.9907815456390381
+    },
+    {
+      "text": "entrado en la tierra que os daré, y segado las mieses, ofre-",
+      "box": [
+        21,
+        1069,
+        415,
+        1096
+      ],
+      "score": 0.9915682673454285
+    },
+    {
+      "text": "dientes, en cualquier lugar en que moreis.",
+      "box": [
+        519,
+        1063,
+        789,
+        1084
+      ],
+      "score": 0.9980692863464355
+    },
+    {
+      "text": "oferta reconocian el supremo dominio de Dios. Algunos creen que esta",
+      "box": [
+        518,
+        1094,
+        910,
+        1116
+      ],
+      "score": 0.9905230402946472
+    },
+    {
+      "text": "1 Exod. XII, v. 18.—Num. XXVIII, v. 16.",
+      "box": [
+        36,
+        1106,
+        278,
+        1125
+      ],
+      "score": 0.96982342004776
+    },
+    {
+      "text": "a Esto quiere decir sacrium n igne; y as trasadan los Setenta In",
+      "box": [
+        35,
+        1116,
+        415,
+        1142
+      ],
+      "score": 0.6679099798202515
+    },
+    {
+      "text": "oferta tenia que hacerla cada familia.—Véase Sacrificio.—Fiestas.",
+      "box": [
+        518,
+        1108,
+        874,
+        1130
+      ],
+      "score": 0.9769390225410461
+    },
+    {
+      "text": "térpretes la voz hebrea twN: ofrenda encendida.",
+      "box": [
+        25,
+        1134,
+        289,
+        1153
+      ],
+      "score": 0.9480722546577454
+    },
+    {
+      "text": "T El mes séptimo, llamado Tisri, el dia séptimo, y el año séptimo, eran",
+      "box": [
+        528,
+        1122,
+        910,
+        1144
+      ],
+      "score": 0.9416751861572266
+    },
+    {
+      "text": "santos y sagrados, y así como el dia séptimo se llamaba sábado, así el",
+      "box": [
+        518,
+        1135,
+        911,
+        1159
+      ],
+      "score": 0.9859729409217834
+    },
+    {
+      "text": "3 A esta ofrenda estaba obligado el cuerpo de la nacion, no los particu-",
+      "box": [
+        36,
+        1145,
+        414,
+        1167
+      ],
+      "score": 0.9836007356643677
+    },
+    {
+      "text": "lares, aunque muchos la hacian por devocion. Ciertas personas, espe-",
+      "box": [
+        24,
+        1161,
+        414,
+        1181
+      ],
+      "score": 0.9885787963867188
+    },
+    {
+      "text": "año séptimo llamábase sabático, y el mes séptimo sábado de los meses.",
+      "box": [
+        518,
+        1149,
+        911,
+        1172
+      ],
+      "score": 0.9914032220840454
+    },
+    {
+      "text": "cialmente destinadas á este fin, segaban algunos manojos de espigas, que",
+      "box": [
+        23,
+        1175,
+        414,
+        1194
+      ],
+      "score": 0.9914624094963074
+    },
+    {
+      "text": "Pues en este mes, recogidos ya los frutos, se celebraban casi todas las",
+      "box": [
+        518,
+        1164,
+        912,
+        1186
+      ],
+      "score": 0.998947024345398
+    },
+    {
+      "text": "ofrecian al sacerdote: el cual presentaba uno ante el Señor, y reduciendo",
+      "box": [
+        22,
+        1188,
+        415,
+        1208
+      ],
+      "score": 0.9879965782165527
+    },
+    {
+      "text": "fiestas; pues además de la de las Trompetas, el dia diez se celebraba la",
+      "box": [
+        518,
+        1178,
+        912,
+        1200
+      ],
+      "score": 0.9989610314369202
+    },
+    {
+      "text": "despues á harina sus granos, mezclando aceite é incienso, lo quemaba",
+      "box": [
+        22,
+        1202,
+        414,
+        1222
+      ],
+      "score": 0.9887270331382751
+    },
+    {
+      "text": "de la Expiacion, el 15 la de los Tabernáculos, y al octavo dia de esta fiesta",
+      "box": [
+        518,
+        1191,
+        913,
+        1214
+      ],
+      "score": 0.9955133199691772
+    },
+    {
+      "text": "todo en honor del Señor: los demás manojos quedaban para los sacerdo-",
+      "box": [
+        22,
+        1217,
+        414,
+        1238
+      ],
+      "score": 0.9849121570587158
+    },
+    {
+      "text": "la otra de la Convocacion del pueblo. El principio de cada mes se anun-",
+      "box": [
+        518,
+        1205,
+        913,
+        1228
+      ],
+      "score": 0.9942362904548645
+    },
+    {
+      "text": "tes. Por Pascua se ofrecian las primicias de la cebada: por Pentecostes",
+      "box": [
+        20,
+        1230,
+        414,
+        1253
+      ],
+      "score": 0.9478334188461304
+    },
+    {
+      "text": "ciaba al pueblo con trompetas; pero se hacia con mayor solemnidad el",
+      "box": [
+        518,
+        1217,
+        913,
+        1242
+      ],
+      "score": 0.9962908625602722
+    },
+    {
+      "text": "primer dia del año que comenzaba en el mes Túsri; y se cree que esta",
+      "box": [
+        517,
+        1230,
+        914,
+        1256
+      ],
+      "score": 0.9622420072555542
+    },
+    {
+      "text": "Ias de trigo.— Deut. XVI, v. 9.",
+      "box": [
+        19,
+        1247,
+        199,
+        1267
+      ],
+      "score": 0.9648978114128113
+    },
+    {
+      "text": "fiesta se dirigia á que el pueblo diese gracias á Dios por los beneficios",
+      "box": [
+        518,
+        1245,
+        915,
+        1270
+      ],
+      "score": 0.9876567125320435
+    },
+    {
+      "text": "4 Esto es, el segundo de Pascua.",
+      "box": [
+        34,
+        1261,
+        221,
+        1280
+      ],
+      "score": 0.9844745397567749
+    },
+    {
+      "text": "recibidos en todo el año pasado, y para tenerle propicio para el que co-",
+      "box": [
+        518,
+        1259,
+        915,
+        1284
+      ],
+      "score": 0.9924778342247009
+    },
+    {
+      "text": "5 Véase Hin.",
+      "box": [
+        31,
+        1276,
+        115,
+        1295
+      ],
+      "score": 0.9434108734130859
+    },
+    {
+      "text": "menzaba.",
+      "box": [
+        518,
+        1279,
+        576,
+        1299
+      ],
+      "score": 0.9993105530738831
+    },
+    {
+      "text": " Esto es, las primicias del grano, en dos panes fermentados. Con esta",
+      "box": [
+        30,
+        1287,
+        413,
+        1312
+      ],
+      "score": 0.9753009676933289
+    },
+    {
+      "text": "I.—23",
+      "box": [
+        849,
+        1287,
+        893,
+        1309
+      ],
+      "score": 0.9445754885673523
+    }
+  ]
+}

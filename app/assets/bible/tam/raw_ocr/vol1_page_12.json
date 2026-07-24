@@ -1,0 +1,147 @@
+{
+  "volume": 1,
+  "page_index": 12,
+  "pdf_page": 13,
+  "lines": [
+    {
+      "text": "SAGRADA BIBLIA",
+      "box": [
+        0,
+        31,
+        910,
+        144
+      ],
+      "score": 0.9992815852165222
+    },
+    {
+      "text": "TRADUCIDA DE LA VULGATA LATINA AL ESPAÑOL,",
+      "box": [
+        111,
+        171,
+        790,
+        211
+      ],
+      "score": 0.9997586607933044
+    },
+    {
+      "text": "POR",
+      "box": [
+        431,
+        308,
+        456,
+        320
+      ],
+      "score": 0.9998204112052917
+    },
+    {
+      "text": "D. FÉLIX TORRES AMAT,",
+      "box": [
+        128,
+        329,
+        763,
+        400
+      ],
+      "score": 0.9954410791397095
+    },
+    {
+      "text": "DE LA DE LA HISTORIA, ETC. ETC. ETC.",
+      "box": [
+        308,
+        435,
+        562,
+        456
+      ],
+      "score": 0.9896373748779297
+    },
+    {
+      "text": "NUEVA EDICION",
+      "box": [
+        340,
+        488,
+        528,
+        516
+      ],
+      "score": 0.9855921268463135
+    },
+    {
+      "text": "ILUSTRADA POR GUSTAVO DORÉ",
+      "box": [
+        172,
+        551,
+        711,
+        591
+      ],
+      "score": 0.9943430423736572
+    },
+    {
+      "text": "CON LICENCIA DE LA AUTORIDAD ECLESIÁSTICA",
+      "box": [
+        248,
+        634,
+        606,
+        660
+      ],
+      "score": 0.9954870939254761
+    },
+    {
+      "text": "TOMO PRIMERO",
+      "box": [
+        298,
+        850,
+        537,
+        885
+      ],
+      "score": 0.9992040991783142
+    },
+    {
+      "text": "ANTIGUO TESTAMENTO",
+      "box": [
+        335,
+        899,
+        490,
+        918
+      ],
+      "score": 0.9997216463088989
+    },
+    {
+      "text": "BARCELONA",
+      "box": [
+        323,
+        1172,
+        475,
+        1199
+      ],
+      "score": 0.9994025826454163
+    },
+    {
+      "text": "MONTANER Y SIMON, EDITORES",
+      "box": [
+        62,
+        1215,
+        676,
+        1261
+      ],
+      "score": 0.9941437244415283
+    },
+    {
+      "text": "CALLE DE ARAGON, NÚMEROS 309 Y 311",
+      "box": [
+        234,
+        1263,
+        545,
+        1299
+      ],
+      "score": 0.9919504523277283
+    },
+    {
+      "text": "MDCCCI XXXIII",
+      "box": [
+        344,
+        1308,
+        445,
+        1326
+      ],
+      "score": 0.9430455565452576
+    }
+  ]
+}

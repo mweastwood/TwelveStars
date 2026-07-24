@@ -1,0 +1,1447 @@
+{
+  "volume": 4,
+  "page_index": 106,
+  "pdf_page": 107,
+  "lines": [
+    {
+      "text": "SAN LUCAS.",
+      "box": [
+        222,
+        59,
+        311,
+        78
+      ],
+      "score": 0.9983536601066589
+    },
+    {
+      "text": "CAPITULO XXIV.",
+      "box": [
+        684,
+        52,
+        807,
+        75
+      ],
+      "score": 0.9981880187988281
+    },
+    {
+      "text": "126",
+      "box": [
+        894,
+        51,
+        921,
+        71
+      ],
+      "score": 0.9999957084655762
+    },
+    {
+      "text": "125",
+      "box": [
+        93,
+        66,
+        117,
+        83
+      ],
+      "score": 0.999993622303009
+    },
+    {
+      "text": "43. Y Jesus le dijo: En verdad te digo, que hoy estarás",
+      "box": [
+        94,
+        105,
+        456,
+        127
+      ],
+      "score": 0.9996922612190247
+    },
+    {
+      "text": "11. Sí bien estas nuevas las miraron ellos como un desva-",
+      "box": [
+        567,
+        101,
+        927,
+        127
+      ],
+      "score": 0.9919160604476929
+    },
+    {
+      "text": "conmigo en el paraiso.",
+      "box": [
+        83,
+        126,
+        223,
+        145
+      ],
+      "score": 0.9967246651649475
+    },
+    {
+      "text": "río: y asi no las creyeron.",
+      "box": [
+        554,
+        125,
+        713,
+        143
+      ],
+      "score": 0.9678693413734436
+    },
+    {
+      "text": "44. Era ya casi la hora de sexta ó el medio dia, y las tinie-",
+      "box": [
+        95,
+        141,
+        455,
+        163
+      ],
+      "score": 0.9871008396148682
+    },
+    {
+      "text": "12. Pedro no obstante fué corriendo al sepulero: y aso-",
+      "box": [
+        566,
+        140,
+        923,
+        161
+      ],
+      "score": 0.9933048486709595
+    },
+    {
+      "text": "blas cubrieron toda la tierra hasta la hora de nona 1.",
+      "box": [
+        83,
+        160,
+        403,
+        179
+      ],
+      "score": 0.9823338389396667
+    },
+    {
+      "text": "mándose á él vió la mortaja sola allí en el suelo, y se volvió",
+      "box": [
+        554,
+        157,
+        923,
+        177
+      ],
+      "score": 0.991733968257904
+    },
+    {
+      "text": "45. El sol se oscureció: y el velo del templo se rasgó por",
+      "box": [
+        95,
+        177,
+        455,
+        196
+      ],
+      "score": 0.999666690826416
+    },
+    {
+      "text": "admirando para consigo el suceso.",
+      "box": [
+        556,
+        177,
+        760,
+        191
+      ],
+      "score": 0.9882025122642517
+    },
+    {
+      "text": "medio.",
+      "box": [
+        83,
+        195,
+        131,
+        213
+      ],
+      "score": 0.9999434947967529
+    },
+    {
+      "text": "13. En este mismo dia dos de ellos iban á una aldea lla-",
+      "box": [
+        565,
+        190,
+        922,
+        208
+      ],
+      "score": 0.9992385506629944
+    },
+    {
+      "text": "46. Entonces Jesus clamando con una voz muy grande,",
+      "box": [
+        96,
+        209,
+        456,
+        229
+      ],
+      "score": 0.9902624487876892
+    },
+    {
+      "text": "mada Emmaús 8, distante de Jerusalem el espacio de scsenta",
+      "box": [
+        555,
+        208,
+        921,
+        222
+      ],
+      "score": 0.9768297672271729
+    },
+    {
+      "text": "dijo: Padre mio, en tus manos encomiendo mi espíritu. Y",
+      "box": [
+        82,
+        223,
+        458,
+        247
+      ],
+      "score": 0.9905340671539307
+    },
+    {
+      "text": "estadios.",
+      "box": [
+        555,
+        224,
+        608,
+        238
+      ],
+      "score": 0.9999755024909973
+    },
+    {
+      "text": "diciendo esto, espiró.",
+      "box": [
+        85,
+        246,
+        215,
+        260
+      ],
+      "score": 0.9924550652503967
+    },
+    {
+      "text": "14. Y conversaban entre sí de todas las cosas que habian",
+      "box": [
+        566,
+        239,
+        920,
+        253
+      ],
+      "score": 0.9997084736824036
+    },
+    {
+      "text": "47. Así que vió el centurion lo que acababa de suceder,",
+      "box": [
+        96,
+        254,
+        457,
+        279
+      ],
+      "score": 0.9992942214012146
+    },
+    {
+      "text": "acontecido.",
+      "box": [
+        554,
+        254,
+        623,
+        268
+      ],
+      "score": 0.9971198439598083
+    },
+    {
+      "text": "glorificó á Dios, diciendo: Verdaderamente era éste un hom-",
+      "box": [
+        81,
+        270,
+        457,
+        295
+      ],
+      "score": 0.9902028441429138
+    },
+    {
+      "text": "15. Mientras así discurrian y conferenciaban recíproca-",
+      "box": [
+        564,
+        267,
+        921,
+        285
+      ],
+      "score": 0.9988186955451965
+    },
+    {
+      "text": "mente, él mismo Jesus juntándose con ellos caminaba en su",
+      "box": [
+        552,
+        282,
+        921,
+        300
+      ],
+      "score": 0.992641270160675
+    },
+    {
+      "text": "bre justo.",
+      "box": [
+        83,
+        292,
+        146,
+        309
+      ],
+      "score": 0.990130603313446
+    },
+    {
+      "text": "48. Y todo aquel concurso de los que se hallaban presen-",
+      "box": [
+        94,
+        300,
+        457,
+        326
+      ],
+      "score": 0.9994644522666931
+    },
+    {
+      "text": "compañía:",
+      "box": [
+        554,
+        299,
+        621,
+        313
+      ],
+      "score": 0.9953494668006897
+    },
+    {
+      "text": "16. Mas sus ojos estaban como deslumbrados para que no",
+      "box": [
+        563,
+        310,
+        920,
+        331
+      ],
+      "score": 0.9911597371101379
+    },
+    {
+      "text": "tes á este espectáculo, considerando lo que habia pasado, se",
+      "box": [
+        81,
+        315,
+        456,
+        342
+      ],
+      "score": 0.9947006106376648
+    },
+    {
+      "text": "volvian dándose golpes de pecho.",
+      "box": [
+        82,
+        336,
+        289,
+        355
+      ],
+      "score": 0.9985513687133789
+    },
+    {
+      "text": "le reconociesen.",
+      "box": [
+        553,
+        329,
+        651,
+        343
+      ],
+      "score": 0.9999106526374817
+    },
+    {
+      "text": "17. Díjoles pues: ¿Qué conversacion es esa que, caminan-",
+      "box": [
+        564,
+        342,
+        921,
+        360
+      ],
+      "score": 0.9983368515968323
+    },
+    {
+      "text": "49. Estaban al mismo tiempo todos los conocidos de",
+      "box": [
+        94,
+        345,
+        456,
+        372
+      ],
+      "score": 0.992509126663208
+    },
+    {
+      "text": "Jesus, y las mujeres que le habian seguido desde Galiléa,",
+      "box": [
+        81,
+        361,
+        455,
+        388
+      ],
+      "score": 0.9983915090560913
+    },
+    {
+      "text": "do, llevais entre los dos, y por qué estais tan tristes?",
+      "box": [
+        554,
+        360,
+        869,
+        374
+      ],
+      "score": 0.9979012608528137
+    },
+    {
+      "text": "observando de lejos estas cosas.",
+      "box": [
+        82,
+        381,
+        287,
+        400
+      ],
+      "score": 0.9961891174316406
+    },
+    {
+      "text": "18. Uno de ellos, llamado Cleophas, respondiendo le dijo:",
+      "box": [
+        564,
+        373,
+        921,
+        391
+      ],
+      "score": 0.9983911514282227
+    },
+    {
+      "text": "50. Entonces se dejó ver un senador llamado Joseph,",
+      "box": [
+        94,
+        393,
+        454,
+        418
+      ],
+      "score": 0.9986251592636108
+    },
+    {
+      "text": "¿Tú solo eres tan extranjero en Jerusalem, que no sabes lo",
+      "box": [
+        553,
+        390,
+        920,
+        407
+      ],
+      "score": 0.9994422197341919
+    },
+    {
+      "text": "varon virtuoso, y justo, oriundo de Arimathéa, ciudad de la",
+      "box": [
+        81,
+        410,
+        455,
+        433
+      ],
+      "score": 0.9877299070358276
+    },
+    {
+      "text": "que ha pasado en ella estos dias?",
+      "box": [
+        553,
+        405,
+        754,
+        423
+      ],
+      "score": 0.9901018142700195
+    },
+    {
+      "text": "19. Replicó él: ¿Qué? Lo de Jesus Nazareno, respondieron,",
+      "box": [
+        565,
+        422,
+        920,
+        439
+      ],
+      "score": 0.9966872334480286
+    },
+    {
+      "text": "Judéa,",
+      "box": [
+        82,
+        432,
+        127,
+        447
+      ],
+      "score": 0.9960784316062927
+    },
+    {
+      "text": "51. El cual no habia consentido en el designio de los",
+      "box": [
+        93,
+        442,
+        456,
+        464
+      ],
+      "score": 0.9822258949279785
+    },
+    {
+      "text": "el cual fué un Profeta, poderoso en obras y en palabras, á los",
+      "box": [
+        553,
+        438,
+        921,
+        455
+      ],
+      "score": 0.992267906665802
+    },
+    {
+      "text": "otros, ni en lo que habian ejecutado, antes bien era de aque-",
+      "box": [
+        81,
+        459,
+        455,
+        481
+      ],
+      "score": 0.9997711181640625
+    },
+    {
+      "text": "ojos de Dios y de todo el pueblo:",
+      "box": [
+        555,
+        456,
+        752,
+        470
+      ],
+      "score": 0.9962031245231628
+    },
+    {
+      "text": "20. Y cómo los príncipes de los sacerdotes y nuestros",
+      "box": [
+        566,
+        470,
+        921,
+        487
+      ],
+      "score": 0.9998679161071777
+    },
+    {
+      "text": "llos que esperaban tambien el reino de Dios.",
+      "box": [
+        81,
+        476,
+        353,
+        497
+      ],
+      "score": 0.9976089596748352
+    },
+    {
+      "text": "52. Éste pues se presentó á Pilato, y le pidió el cuerpo de",
+      "box": [
+        94,
+        490,
+        454,
+        514
+      ],
+      "score": 0.9939690828323364
+    },
+    {
+      "text": "jefes le entregaron à Pilato para que fuese condenado á",
+      "box": [
+        553,
+        486,
+        922,
+        503
+      ],
+      "score": 0.9865849018096924
+    },
+    {
+      "text": "Jesus:",
+      "box": [
+        81,
+        512,
+        128,
+        530
+      ],
+      "score": 0.9997256398200989
+    },
+    {
+      "text": "muerte, y le han crucificado:",
+      "box": [
+        555,
+        504,
+        729,
+        518
+      ],
+      "score": 0.998411238193512
+    },
+    {
+      "text": "21. Mas nosotros esperábamos que él era el que habia de",
+      "box": [
+        565,
+        516,
+        921,
+        535
+      ],
+      "score": 0.9995126128196716
+    },
+    {
+      "text": "53. Y habiéndole descolgado de la cruz, le envolvió en una",
+      "box": [
+        94,
+        523,
+        455,
+        545
+      ],
+      "score": 0.9892521500587463
+    },
+    {
+      "text": "redimir á Israél 4: y no obstante, despues de todo esto, hé",
+      "box": [
+        554,
+        534,
+        921,
+        551
+      ],
+      "score": 0.9886107444763184
+    },
+    {
+      "text": "sábana, y le colocó en un sepulero abierto en peña viva, en",
+      "box": [
+        82,
+        540,
+        456,
+        562
+      ],
+      "score": 0.9942893981933594
+    },
+    {
+      "text": "aquí que estamos ya en el tercer dia despues que acaecieron",
+      "box": [
+        553,
+        549,
+        921,
+        568
+      ],
+      "score": 0.9935892224311829
+    },
+    {
+      "text": "donde ninguno hasta entonces habia sido sepultado.",
+      "box": [
+        82,
+        556,
+        401,
+        579
+      ],
+      "score": 0.9998095631599426
+    },
+    {
+      "text": "54. Era aquel el dia que llamaban parasceve ó prepara-",
+      "box": [
+        95,
+        572,
+        456,
+        594
+      ],
+      "score": 0.9828546047210693
+    },
+    {
+      "text": "dichas cosas.",
+      "box": [
+        555,
+        568,
+        633,
+        582
+      ],
+      "score": 0.9998915195465088
+    },
+    {
+      "text": "22. Bien es verdad que algunas mujeres de entre nesotros",
+      "box": [
+        563,
+        578,
+        922,
+        600
+      ],
+      "score": 0.9925923943519592
+    },
+    {
+      "text": "cion, é iba ya á entrar el sábado.",
+      "box": [
+        82,
+        590,
+        286,
+        610
+      ],
+      "score": 0.9823631048202515
+    },
+    {
+      "text": "nos han sobresaltado, porque antes de ser de dia fueron al",
+      "box": [
+        553,
+        596,
+        921,
+        615
+      ],
+      "score": 0.9805355668067932
+    },
+    {
+      "text": "55. Las mujeres que habian seguido á Jesus desde Galiléa,",
+      "box": [
+        95,
+        602,
+        456,
+        627
+      ],
+      "score": 0.9946107268333435
+    },
+    {
+      "text": "sepulcro,",
+      "box": [
+        554,
+        614,
+        613,
+        631
+      ],
+      "score": 0.9709179401397705
+    },
+    {
+      "text": "yendo en pos de Joseph, observaron el sepulero, y la manera",
+      "box": [
+        82,
+        619,
+        457,
+        643
+      ],
+      "score": 0.990714430809021
+    },
+    {
+      "text": "23. Y, no habiendo hallado su cuerpo, volvieron, diciendo",
+      "box": [
+        565,
+        628,
+        921,
+        645
+      ],
+      "score": 0.9974398612976074
+    },
+    {
+      "text": "con que habia sido depositado el cuerpo de Jesus.",
+      "box": [
+        83,
+        636,
+        387,
+        659
+      ],
+      "score": 0.9975644946098328
+    },
+    {
+      "text": "habérseles aparecido unos ángeles, los cuales les han asegu-",
+      "box": [
+        555,
+        646,
+        920,
+        660
+      ],
+      "score": 0.9916707873344421
+    },
+    {
+      "text": "56. Y al volverse, hicieron prevencion de aromas, y bál-",
+      "box": [
+        95,
+        649,
+        456,
+        675
+      ],
+      "score": 0.9955854415893555
+    },
+    {
+      "text": "rado que está vivo.",
+      "box": [
+        553,
+        659,
+        670,
+        677
+      ],
+      "score": 0.9852840304374695
+    },
+    {
+      "text": "samos: bien que durante el sábado se mantuvieron quietas",
+      "box": [
+        82,
+        666,
+        456,
+        691
+      ],
+      "score": 0.9993270039558411
+    },
+    {
+      "text": "24. Con eso algunos de los nuestros han ido al sepulero, y",
+      "box": [
+        565,
+        674,
+        922,
+        693
+      ],
+      "score": 0.9856196045875549
+    },
+    {
+      "text": "segun el mandamiento de la Ley.",
+      "box": [
+        83,
+        686,
+        287,
+        707
+      ],
+      "score": 0.9998244047164917
+    },
+    {
+      "text": "hallado ser cierto lo que las mujeres dijeron: pero á Jesus no",
+      "box": [
+        555,
+        693,
+        921,
+        707
+      ],
+      "score": 0.9917629361152649
+    },
+    {
+      "text": "le han encontrado.",
+      "box": [
+        552,
+        706,
+        668,
+        724
+      ],
+      "score": 0.9998466968536377
+    },
+    {
+      "text": "25. Entonces les dijo él: Oh necios, y tardos de corazon",
+      "box": [
+        565,
+        722,
+        920,
+        739
+      ],
+      "score": 0.9840413331985474
+    },
+    {
+      "text": "CAPITULO XXIV",
+      "box": [
+        212,
+        733,
+        327,
+        752
+      ],
+      "score": 0.9992390871047974
+    },
+    {
+      "text": "para creer todo lo que anunciaron ya los profetas!",
+      "box": [
+        552,
+        738,
+        859,
+        757
+      ],
+      "score": 0.9912756085395813
+    },
+    {
+      "text": "26. Pues qué, ¿por ventura no era conveniente que cl",
+      "box": [
+        568,
+        757,
+        922,
+        771
+      ],
+      "score": 0.9890798330307007
+    },
+    {
+      "text": "Jesus resucita. Van al sepulcro las santas mujeres. Incredulidad de los",
+      "box": [
+        82,
+        771,
+        456,
+        795
+      ],
+      "score": 0.9959133267402649
+    },
+    {
+      "text": "Christo padeciese todas estas cosas, y entrase así en su",
+      "box": [
+        554,
+        770,
+        923,
+        788
+      ],
+      "score": 0.9992279410362244
+    },
+    {
+      "text": "Apóstoles. Discípulos que van á Emmaús. Aparécese á los Apóstoles,",
+      "box": [
+        94,
+        785,
+        456,
+        809
+      ],
+      "score": 0.9798349142074585
+    },
+    {
+      "text": "gloria?",
+      "box": [
+        554,
+        787,
+        599,
+        805
+      ],
+      "score": 0.9998502135276794
+    },
+    {
+      "text": "les promete el Espíritu Santo, y sube á los cielos. (Matth. 16, 17, 28.—",
+      "box": [
+        92,
+        799,
+        456,
+        823
+      ],
+      "score": 0.9703586101531982
+    },
+    {
+      "text": "27. Y empezando por Moysés, y discurriendo por todos",
+      "box": [
+        566,
+        802,
+        922,
+        819
+      ],
+      "score": 0.9957361817359924
+    },
+    {
+      "text": "Marc. 8, 9, 16.—Joan. 14, 20.)",
+      "box": [
+        93,
+        816,
+        257,
+        837
+      ],
+      "score": 0.9736910462379456
+    },
+    {
+      "text": "los profetas, les interpretaba en todas las Escrituras los luga-",
+      "box": [
+        552,
+        817,
+        922,
+        836
+      ],
+      "score": 0.9994085431098938
+    },
+    {
+      "text": "res que hablaban de él.",
+      "box": [
+        551,
+        831,
+        695,
+        853
+      ],
+      "score": 0.9805200099945068
+    },
+    {
+      "text": "28. En esto llegaron cerca de la aldea á donde iban: y él",
+      "box": [
+        562,
+        847,
+        924,
+        869
+      ],
+      "score": 0.993800938129425
+    },
+    {
+      "text": "1. Mas el primer dia de la semana muy de mañana fueron",
+      "box": [
+        94,
+        858,
+        454,
+        881
+      ],
+      "score": 0.9909217357635498
+    },
+    {
+      "text": "hizo ademan de pasar adelante.",
+      "box": [
+        552,
+        864,
+        745,
+        883
+      ],
+      "score": 0.9893912076950073
+    },
+    {
+      "text": "estas mujeres al sepulero, llevando los aromas que tenian",
+      "box": [
+        81,
+        873,
+        456,
+        899
+      ],
+      "score": 0.9880875945091248
+    },
+    {
+      "text": "29. Mas le detuvieron por fuerza, diciendo: Quédate con",
+      "box": [
+        565,
+        878,
+        922,
+        899
+      ],
+      "score": 0.99969881772995
+    },
+    {
+      "text": "preparados:",
+      "box": [
+        82,
+        897,
+        160,
+        914
+      ],
+      "score": 0.9995794892311096
+    },
+    {
+      "text": "nosotros, porque ya es tarde, y va ya el dia de caida. Entró",
+      "box": [
+        552,
+        894,
+        923,
+        916
+      ],
+      "score": 0.9946510195732117
+    },
+    {
+      "text": "2. Y encontraron apartada la piedra del sepulcro.",
+      "box": [
+        92,
+        905,
+        405,
+        931
+      ],
+      "score": 0.9866701364517212
+    },
+    {
+      "text": "pues con ellos.",
+      "box": [
+        553,
+        912,
+        644,
+        932
+      ],
+      "score": 0.9998379945755005
+    },
+    {
+      "text": "3. Pero habiendo entrado dentro, no hallaron el cuerpo",
+      "box": [
+        92,
+        921,
+        455,
+        947
+      ],
+      "score": 0.9900588989257812
+    },
+    {
+      "text": "30. Y estando juntos á la mesa, tomó el pan, y lo bendijo,",
+      "box": [
+        565,
+        925,
+        922,
+        946
+      ],
+      "score": 0.9947102665901184
+    },
+    {
+      "text": "del Señor Jesus.",
+      "box": [
+        82,
+        944,
+        184,
+        961
+      ],
+      "score": 0.9999699592590332
+    },
+    {
+      "text": "y habiéndole partido, se le dió.",
+      "box": [
+        552,
+        942,
+        740,
+        961
+      ],
+      "score": 0.9981338977813721
+    },
+    {
+      "text": "4. Y quedando muy consternadas con este motivo, hé",
+      "box": [
+        92,
+        950,
+        456,
+        980
+      ],
+      "score": 0.9974736571311951
+    },
+    {
+      "text": "31. Con lo cual se les abrieron los ojos, y le conocieron:",
+      "box": [
+        565,
+        955,
+        923,
+        976
+      ],
+      "score": 0.9844444394111633
+    },
+    {
+      "text": "aquí que se aparecieron de repente junto á ellas dos persona-",
+      "box": [
+        80,
+        967,
+        456,
+        996
+      ],
+      "score": 0.9847539663314819
+    },
+    {
+      "text": "mas él de repente desapareció de su vista.",
+      "box": [
+        553,
+        972,
+        807,
+        992
+      ],
+      "score": 0.9990328550338745
+    },
+    {
+      "text": "jes con vestiduras resplandecientes.",
+      "box": [
+        79,
+        989,
+        302,
+        1010
+      ],
+      "score": 0.9986975789070129
+    },
+    {
+      "text": "32. Entonces se dijeron uno á otro: ¿No es verdad que",
+      "box": [
+        565,
+        986,
+        923,
+        1007
+      ],
+      "score": 0.99793541431427
+    },
+    {
+      "text": "5. Y quedando llenas de espanto, y teniendo inclinado el",
+      "box": [
+        90,
+        998,
+        457,
+        1028
+      ],
+      "score": 0.9978095293045044
+    },
+    {
+      "text": "sentíamos abrasarse nucstro corazon, mientras nos hablaba",
+      "box": [
+        553,
+        1001,
+        923,
+        1023
+      ],
+      "score": 0.9996897578239441
+    },
+    {
+      "text": "rostro hácia la tierra, los ángeles les dijeron: ¿Para qué an-",
+      "box": [
+        79,
+        1014,
+        456,
+        1044
+      ],
+      "score": 0.9705049395561218
+    },
+    {
+      "text": "por el camino, y nos explicaba las Escrituras?",
+      "box": [
+        553,
+        1016,
+        831,
+        1040
+      ],
+      "score": 0.9927685856819153
+    },
+    {
+      "text": "dais buscando entre los muertos al que está vivo?",
+      "box": [
+        78,
+        1032,
+        387,
+        1059
+      ],
+      "score": 0.9930153489112854
+    },
+    {
+      "text": "33. Y levantándose al punto, regresaron á Jerusalem,",
+      "box": [
+        564,
+        1031,
+        924,
+        1055
+      ],
+      "score": 0.9787396192550659
+    },
+    {
+      "text": "6. Jesus no está aquí, sino que resucitó: acordaos de lo",
+      "box": [
+        90,
+        1046,
+        455,
+        1076
+      ],
+      "score": 0.9959551095962524
+    },
+    {
+      "text": "donde hallaron congregados á los once Apóstoles, y á otros",
+      "box": [
+        552,
+        1048,
+        924,
+        1071
+      ],
+      "score": 0.9897395968437195
+    },
+    {
+      "text": "que os previno, cuando estaba todavía en Galiléa,",
+      "box": [
+        79,
+        1066,
+        386,
+        1091
+      ],
+      "score": 0.9969053268432617
+    },
+    {
+      "text": "de su séquito,",
+      "box": [
+        553,
+        1067,
+        640,
+        1088
+      ],
+      "score": 0.999461829662323
+    },
+    {
+      "text": "7. Diciendo: Conviene que el Hijo del hombre sea entre-",
+      "box": [
+        85,
+        1079,
+        454,
+        1108
+      ],
+      "score": 0.9846781492233276
+    },
+    {
+      "text": "34. Que decian: El Señor ha resucitado realmente, y se ha",
+      "box": [
+        563,
+        1078,
+        924,
+        1103
+      ],
+      "score": 0.9806621074676514
+    },
+    {
+      "text": "gado en manos de hombres pecadores, y crucificado, y que al",
+      "box": [
+        79,
+        1095,
+        454,
+        1125
+      ],
+      "score": 0.9931869506835938
+    },
+    {
+      "text": "aparecido á Simon.",
+      "box": [
+        553,
+        1098,
+        670,
+        1119
+      ],
+      "score": 0.9979113340377808
+    },
+    {
+      "text": "tereer dia resucite:",
+      "box": [
+        79,
+        1119,
+        202,
+        1139
+      ],
+      "score": 0.9799675941467285
+    },
+    {
+      "text": "35. Ellos por su parte contaban lo que les habia suce-",
+      "box": [
+        565,
+        1109,
+        925,
+        1135
+      ],
+      "score": 0.9869163036346436
+    },
+    {
+      "text": "8. Ellas en efecto se acordaron de las palabras de Jesus.",
+      "box": [
+        90,
+        1126,
+        441,
+        1157
+      ],
+      "score": 0.9996102452278137
+    },
+    {
+      "text": "dido en el camino: y cómo le habian conocido al partir",
+      "box": [
+        553,
+        1126,
+        925,
+        1150
+      ],
+      "score": 0.9937755465507507
+    },
+    {
+      "text": "9. Y volviendo del sepulcro anunciaron todas estas cosas",
+      "box": [
+        90,
+        1143,
+        455,
+        1172
+      ],
+      "score": 0.9904370903968811
+    },
+    {
+      "text": "el pan.",
+      "box": [
+        553,
+        1149,
+        600,
+        1167
+      ],
+      "score": 0.9998813271522522
+    },
+    {
+      "text": "á los once, y á todos los demás.",
+      "box": [
+        79,
+        1166,
+        275,
+        1187
+      ],
+      "score": 0.9764023423194885
+    },
+    {
+      "text": "36. Mientras estaban hablando de estas cosas, se presentó",
+      "box": [
+        564,
+        1156,
+        925,
+        1182
+      ],
+      "score": 0.9829182028770447
+    },
+    {
+      "text": "10. Las que refirieron esto á los Apóstoles eran María",
+      "box": [
+        91,
+        1174,
+        454,
+        1205
+      ],
+      "score": 0.9954884648323059
+    },
+    {
+      "text": "Jesus de repente en medio de ellos, y les dijo: La paz sea con",
+      "box": [
+        552,
+        1173,
+        926,
+        1197
+      ],
+      "score": 0.9891310334205627
+    },
+    {
+      "text": "Magdalena, y Juana, y María madre de Santiago, y las otras",
+      "box": [
+        78,
+        1191,
+        455,
+        1221
+      ],
+      "score": 0.9945932030677795
+    },
+    {
+      "text": "vosotros: soy yo, no temais.",
+      "box": [
+        552,
+        1192,
+        723,
+        1213
+      ],
+      "score": 0.990944504737854
+    },
+    {
+      "text": "sus compañeras.",
+      "box": [
+        79,
+        1219,
+        182,
+        1236
+      ],
+      "score": 0.9998846054077148
+    },
+    {
+      "text": "a Emmaus significa aguas calientes ó termales.",
+      "box": [
+        563,
+        1227,
+        807,
+        1250
+      ],
+      "score": 0.9779584407806396
+    },
+    {
+      "text": "1 Amos VIII, v. 9.",
+      "box": [
+        90,
+        1256,
+        193,
+        1273
+      ],
+      "score": 0.9735153913497925
+    },
+    {
+      "text": "Creian que el Mesías habia de librar á Israál do toda dominacion",
+      "box": [
+        563,
+        1237,
+        924,
+        1264
+      ],
+      "score": 0.9867197871208191
+    },
+    {
+      "text": "8 Psalm. XXVII, v. 12.",
+      "box": [
+        92,
+        1272,
+        218,
+        1286
+      ],
+      "score": 0.958165168762207
+    },
+    {
+      "text": "extranjera, y que su reino era material.",
+      "box": [
+        554,
+        1256,
+        756,
+        1277
+      ],
+      "score": 0.9918498992919922
+    }
+  ]
+}

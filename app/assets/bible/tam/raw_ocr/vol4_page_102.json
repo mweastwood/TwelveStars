@@ -1,0 +1,27 @@
+{
+  "volume": 4,
+  "page_index": 102,
+  "pdf_page": 103,
+  "lines": [
+    {
+      "text": "BERTRAND.SC.",
+      "box": [
+        760,
+        1122,
+        871,
+        1147
+      ],
+      "score": 0.8367500901222229
+    },
+    {
+      "text": "JESUS CURANDO Á LOS ENFERMOS",
+      "box": [
+        349,
+        1161,
+        617,
+        1188
+      ],
+      "score": 0.9917890429496765
+    }
+  ]
+}

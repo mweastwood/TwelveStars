@@ -1,0 +1,3237 @@
+{
+  "volume": 3,
+  "page_index": 505,
+  "pdf_page": 506,
+  "lines": [
+    {
+      "text": "19Servente autem civi, operabu ebutr",
+      "box": [
+        54,
+        10,
+        324,
+        33
+      ],
+      "score": 0.5560856461524963
+    },
+    {
+      "text": "23. Et reliquis tribubus: A plaga orientali usque ad plagan",
+      "box": [
+        343,
+        10,
+        625,
+        24
+      ],
+      "score": 0.9847874641418457
+    },
+    {
+      "text": "30. Et hi egressus civitatis: A plaga septcutrioali quingen-",
+      "box": [
+        643,
+        5,
+        930,
+        27
+      ],
+      "score": 0.919572114944458
+    },
+    {
+      "text": "bubus Israel,",
+      "box": [
+        49,
+        28,
+        107,
+        39
+      ],
+      "score": 0.9525867700576782
+    },
+    {
+      "text": "oceidentalem, Beujamin unn.",
+      "box": [
+        333,
+        22,
+        469,
+        35
+      ],
+      "score": 0.9557080268859863
+    },
+    {
+      "text": "tos et quatuor millia mensurabis.",
+      "box": [
+        635,
+        20,
+        798,
+        33
+      ],
+      "score": 0.9817736148834229
+    },
+    {
+      "text": "24. Et coutra termiunm Benjamiu, a plaga orientali usque",
+      "box": [
+        341,
+        32,
+        625,
+        46
+      ],
+      "score": 0.9911600947380066
+    },
+    {
+      "text": "31. Et porte civitatis ex nominibus tribuum Israel, porte",
+      "box": [
+        642,
+        28,
+        930,
+        48
+      ],
+      "score": 0.9500812292098999
+    },
+    {
+      "text": "ad plagam occidentalem, Simeou una.",
+      "box": [
+        331,
+        42,
+        509,
+        56
+      ],
+      "score": 0.9905942678451538
+    },
+    {
+      "text": "tresa Septeutrione, porta Ruben nna, porta Juda una, porta Le-",
+      "box": [
+        633,
+        40,
+        930,
+        57
+      ],
+      "score": 0.9776576161384583
+    },
+    {
+      "text": "rií, et in possessionem civitatis.",
+      "box": [
+        47,
+        55,
+        187,
+        71
+      ],
+      "score": 0.9180704951286316
+    },
+    {
+      "text": "25. Et super terminum Simeonis, a plaga orientali nsque ad",
+      "box": [
+        340,
+        52,
+        625,
+        65
+      ],
+      "score": 0.9727616906166077
+    },
+    {
+      "text": "vi una.",
+      "box": [
+        635,
+        53,
+        671,
+        63
+      ],
+      "score": 0.9526202082633972
+    },
+    {
+      "text": "plagam occidentalem, Issachar una.",
+      "box": [
+        332,
+        63,
+        499,
+        76
+      ],
+      "score": 0.9827699065208435
+    },
+    {
+      "text": "32 Et ad plagam orientalem, quingentos et quatuormillia; et",
+      "box": [
+        643,
+        59,
+        929,
+        75
+      ],
+      "score": 0.9566056728363037
+    },
+    {
+      "text": "26. Et super terminum Issachar, a plaga orientali usque ad",
+      "box": [
+        339,
+        71,
+        624,
+        86
+      ],
+      "score": 0.9651837944984436
+    },
+    {
+      "text": "porte tres, porta Joscph una, porta Beajamin una, porta Danuna.",
+      "box": [
+        632,
+        70,
+        928,
+        85
+      ],
+      "score": 0.890459418296814
+    },
+    {
+      "text": "gintiquinque millium primitiarum usque ad terminun orienta-",
+      "box": [
+        48,
+        83,
+        325,
+        102
+      ],
+      "score": 0.6903036832809448
+    },
+    {
+      "text": "plagam occidentalem, Zabulon una.",
+      "box": [
+        331,
+        83,
+        498,
+        96
+      ],
+      "score": 0.9795866012573242
+    },
+    {
+      "text": "33. Et ad plagam mcridianam quiugentos et quatuor millia",
+      "box": [
+        641,
+        80,
+        929,
+        95
+      ],
+      "score": 0.9723990559577942
+    },
+    {
+      "text": "27. Et super terminam Zabulon, a plaga orientali usque ad",
+      "box": [
+        336,
+        92,
+        624,
+        106
+      ],
+      "score": 0.9943214058876038
+    },
+    {
+      "text": "metieris: et portm tres, porta Simeonis uua, porta Issachar unn,",
+      "box": [
+        632,
+        90,
+        928,
+        106
+      ],
+      "score": 0.9780170917510986
+    },
+    {
+      "text": "ad terminam Maris, similiter in partibus principis crit: et",
+      "box": [
+        49,
+        104,
+        324,
+        122
+      ],
+      "score": 0.669789731502533
+    },
+    {
+      "text": "plagam Maris, Gad uua.",
+      "box": [
+        331,
+        104,
+        446,
+        117
+      ],
+      "score": 0.9850172400474548
+    },
+    {
+      "text": "porta Zabulon una.",
+      "box": [
+        633,
+        102,
+        729,
+        115
+      ],
+      "score": 0.9775402545928955
+    },
+    {
+      "text": "28. Et super terminum Gad, ad plagam Austri in Meridie:",
+      "box": [
+        339,
+        112,
+        624,
+        127
+      ],
+      "score": 0.9936324954032898
+    },
+    {
+      "text": "lia: et porta eorum tres, porta Gad uua, porta Aser unn, porta",
+      "box": [
+        631,
+        121,
+        928,
+        137
+      ],
+      "score": 0.9479113221168518
+    },
+    {
+      "text": "34. Et ad plagam occideutalem, quingentos et quatuor mil-",
+      "box": [
+        641,
+        112,
+        928,
+        125
+      ],
+      "score": 0.9956497550010681
+    },
+    {
+      "text": "ejns.",
+      "box": [
+        51,
+        129,
+        74,
+        140
+      ],
+      "score": 0.9828511476516724
+    },
+    {
+      "text": "et erit finis de Thamar usque ad aquas contradictionis Cades,",
+      "box": [
+        330,
+        124,
+        623,
+        137
+      ],
+      "score": 0.99181067943573
+    },
+    {
+      "text": "22. De possessione autem Levitarum, et de possessione ci-",
+      "box": [
+        56,
+        133,
+        323,
+        152
+      ],
+      "score": 0.9479387402534485
+    },
+    {
+      "text": "hereditas contra Mare magnum.",
+      "box": [
+        331,
+        135,
+        480,
+        145
+      ],
+      "score": 0.9942854046821594
+    },
+    {
+      "text": "Nephthali una.",
+      "box": [
+        633,
+        133,
+        709,
+        144
+      ],
+      "score": 0.9883583188056946
+    },
+    {
+      "text": "vitatis in medio partium priucipis, erit inter terminum Juda,",
+      "box": [
+        50,
+        146,
+        321,
+        161
+      ],
+      "score": 0.9612666964530945
+    },
+    {
+      "text": "29. Hmc est terra, quam mittetis in sortem tribubus Israel:",
+      "box": [
+        338,
+        143,
+        624,
+        158
+      ],
+      "score": 0.9777975082397461
+    },
+    {
+      "text": "35. Per circuitum, decem et octo millia: et nomen civitatis",
+      "box": [
+        640,
+        142,
+        927,
+        156
+      ],
+      "score": 0.9717665910720825
+    },
+    {
+      "text": "et inter terminum Benjamin, et ad priucipem pertinebit.",
+      "box": [
+        50,
+        155,
+        295,
+        174
+      ],
+      "score": 0.8791958093643188
+    },
+    {
+      "text": "et he partitiones earuni, ait Dominus Deus.",
+      "box": [
+        329,
+        156,
+        534,
+        169
+      ],
+      "score": 0.9914492964744568
+    },
+    {
+      "text": "ex illa die, Dominus fbidem.",
+      "box": [
+        631,
+        151,
+        771,
+        166
+      ],
+      "score": 0.9740370512008667
+    },
+    {
+      "text": "DANIEL",
+      "box": [
+        352,
+        214,
+        598,
+        250
+      ],
+      "score": 0.9851043224334717
+    },
+    {
+      "text": "CAPUT PRIMUM",
+      "box": [
+        142,
+        297,
+        227,
+        310
+      ],
+      "score": 0.9998725056648254
+    },
+    {
+      "text": "18. Ut quererent misericordiam a facie Dei cell super sa-",
+      "box": [
+        339,
+        294,
+        622,
+        307
+      ],
+      "score": 0.9732573628425598
+    },
+    {
+      "text": "omnesque principes regionum, ut convenirent ad dedicationem",
+      "box": [
+        628,
+        294,
+        926,
+        307
+      ],
+      "score": 0.9774952530860901
+    },
+    {
+      "text": "cramento isto, et non perirent Daniel et socii ejus cuim ceteris",
+      "box": [
+        328,
+        304,
+        618,
+        317
+      ],
+      "score": 0.964242696762085
+    },
+    {
+      "text": "1. Anno tertio regni Joakim regis Juda, venit Nabuchodo-",
+      "box": [
+        58,
+        315,
+        320,
+        329
+      ],
+      "score": 0.9785075187683105
+    },
+    {
+      "text": "sapientibus Babylonis.",
+      "box": [
+        329,
+        315,
+        432,
+        327
+      ],
+      "score": 0.9956985712051392
+    },
+    {
+      "text": "statum, quam erexerat Nabuchodonosor rex.",
+      "box": [
+        629,
+        306,
+        839,
+        316
+      ],
+      "score": 0.9943661689758301
+    },
+    {
+      "text": "3. Tunc congregati sunt satrape, magistratus, et judices,",
+      "box": [
+        637,
+        314,
+        925,
+        327
+      ],
+      "score": 0.9529147744178772
+    },
+    {
+      "text": "nosor rex Babylonis in Jerusalem, et obsedit eam:",
+      "box": [
+        49,
+        324,
+        269,
+        339
+      ],
+      "score": 0.9648141860961914
+    },
+    {
+      "text": "19. Tune Danieli mysterium per visionem uocte revelatum",
+      "box": [
+        339,
+        325,
+        619,
+        338
+      ],
+      "score": 0.9767016172409058
+    },
+    {
+      "text": "duces, et tyranni, et optimates qui erant in potestatibus cons-",
+      "box": [
+        627,
+        324,
+        925,
+        337
+      ],
+      "score": 0.951389491558075
+    },
+    {
+      "text": "2. Et tradidit Dominus in mann ejus Joakim regem Juda,",
+      "box": [
+        58,
+        335,
+        320,
+        349
+      ],
+      "score": 0.9687836766242981
+    },
+    {
+      "text": "est: et benedixit Daniel Deum coll,",
+      "box": [
+        328,
+        334,
+        491,
+        348
+      ],
+      "score": 0.9490840435028076
+    },
+    {
+      "text": "titati, et uuiversi principes regionum, ut couvenirent ad dedi-",
+      "box": [
+        628,
+        335,
+        926,
+        348
+      ],
+      "score": 0.9642561078071594
+    },
+    {
+      "text": "nar in domum del su, et vasa intulit iu domum thesauri dei",
+      "box": [
+        46,
+        352,
+        321,
+        370
+      ],
+      "score": 0.8224681615829468
+    },
+    {
+      "text": "et partem vasorum domus Dei: et asportavit ea in terram Sen:",
+      "box": [
+        49,
+        345,
+        320,
+        359
+      ],
+      "score": 0.9671130776405334
+    },
+    {
+      "text": "et usque in seculum: quia sapientia et fortitudo ejus sunt.",
+      "box": [
+        328,
+        354,
+        593,
+        368
+      ],
+      "score": 0.9914954304695129
+    },
+    {
+      "text": "20. Et locutns ait: Sit nomen Domiui benedietum a seculo",
+      "box": [
+        337,
+        345,
+        618,
+        358
+      ],
+      "score": 0.9744490385055542
+    },
+    {
+      "text": "cationem statuae, quam erexerat Nabuchodonosor rex: stabant",
+      "box": [
+        627,
+        346,
+        926,
+        359
+      ],
+      "score": 0.9668468832969666
+    },
+    {
+      "text": "sui.",
+      "box": [
+        49,
+        365,
+        67,
+        376
+      ],
+      "score": 0.9987658262252808
+    },
+    {
+      "text": "21. Et ipse mutat tempora, et etates: transfert regua, atque",
+      "box": [
+        337,
+        364,
+        619,
+        379
+      ],
+      "score": 0.9687976837158203
+    },
+    {
+      "text": "autem in conspectu stature, quam posuerat Nabuchodomosor",
+      "box": [
+        626,
+        356,
+        926,
+        370
+      ],
+      "score": 0.9718093872070312
+    },
+    {
+      "text": "3. Et ait rex Asphenez preposito eunuchorum, ut introdu-",
+      "box": [
+        55,
+        373,
+        320,
+        388
+      ],
+      "score": 0.9831677079200745
+    },
+    {
+      "text": "coustituit: dat sapientiam sapientibus, et scientiam iutelligen-",
+      "box": [
+        328,
+        374,
+        618,
+        390
+      ],
+      "score": 0.9764216542243958
+    },
+    {
+      "text": "rex:",
+      "box": [
+        627,
+        368,
+        651,
+        379
+      ],
+      "score": 0.9996951222419739
+    },
+    {
+      "text": "ceret de filiis Israel, et de semine reglo et tyrannorum",
+      "box": [
+        47,
+        383,
+        281,
+        399
+      ],
+      "score": 0.9619875550270081
+    },
+    {
+      "text": "4. Et præco clamabat valenter: Vobis dicitur populis, tri-",
+      "box": [
+        635,
+        376,
+        926,
+        390
+      ],
+      "score": 0.979617178440094
+    },
+    {
+      "text": "4. Pueros, in quíbus nulla esset macula, decoros forma, et",
+      "box": [
+        55,
+        393,
+        321,
+        408
+      ],
+      "score": 0.9475890398025513
+    },
+    {
+      "text": "tibus disciplinam:",
+      "box": [
+        329,
+        386,
+        413,
+        398
+      ],
+      "score": 0.9706259965896606
+    },
+    {
+      "text": "22. Ipse revelat profuuda, et abscondita, et novit in tenebris",
+      "box": [
+        337,
+        394,
+        618,
+        409
+      ],
+      "score": 0.9842614531517029
+    },
+    {
+      "text": "bubus, et linguis:",
+      "box": [
+        627,
+        387,
+        716,
+        399
+      ],
+      "score": 0.9433716535568237
+    },
+    {
+      "text": "eruditos omni sapientia, cautos scientia, et doctos disciplina, et",
+      "box": [
+        47,
+        402,
+        321,
+        418
+      ],
+      "score": 0.910311758518219
+    },
+    {
+      "text": "constituta: et lux cum eo est.",
+      "box": [
+        328,
+        404,
+        463,
+        419
+      ],
+      "score": 0.963218092918396
+    },
+    {
+      "text": "5. In hora, qua audieritis sonitum tube, et fistale, et citha-",
+      "box": [
+        635,
+        397,
+        926,
+        410
+      ],
+      "score": 0.9793277382850647
+    },
+    {
+      "text": "qui possent stare in palatio regis, ut doceret eos litteras, et lin-",
+      "box": [
+        47,
+        412,
+        320,
+        428
+      ],
+      "score": 0.9419713616371155
+    },
+    {
+      "text": "23. Tibi Deus patrum nostrorum confiteor, teqne laudo:",
+      "box": [
+        337,
+        413,
+        618,
+        429
+      ],
+      "score": 0.9773526191711426
+    },
+    {
+      "text": "re, sambucm, et psalteril, et symphonie, et universi generis",
+      "box": [
+        625,
+        407,
+        926,
+        421
+      ],
+      "score": 0.8802263140678406
+    },
+    {
+      "text": "guam Chaldeorum.",
+      "box": [
+        48,
+        423,
+        133,
+        436
+      ],
+      "score": 0.9895130395889282
+    },
+    {
+      "text": "quia sapientiam et fortitudinent dedisti mihi: et nunc ostendis-",
+      "box": [
+        328,
+        424,
+        617,
+        438
+      ],
+      "score": 0.9509841203689575
+    },
+    {
+      "text": "musicoruni, cadentes adorate statuam auream, quam constitult",
+      "box": [
+        626,
+        417,
+        927,
+        431
+      ],
+      "score": 0.9425298571586609
+    },
+    {
+      "text": "5. Et constituit eis rex annonam per singulos dies de cibis",
+      "box": [
+        55,
+        431,
+        320,
+        446
+      ],
+      "score": 0.9796265363693237
+    },
+    {
+      "text": "ti mihi gue rogavimus te, quia sermonem regis aperuisti nobis.",
+      "box": [
+        328,
+        434,
+        617,
+        449
+      ],
+      "score": 0.9381003379821777
+    },
+    {
+      "text": "Nabachodonosor rex.",
+      "box": [
+        626,
+        426,
+        731,
+        441
+      ],
+      "score": 0.9699496030807495
+    },
+    {
+      "text": "suis, et de vino unde bibebat ipse, et enutriti tribus annis, pos-",
+      "box": [
+        46,
+        441,
+        320,
+        457
+      ],
+      "score": 0.9548689723014832
+    },
+    {
+      "text": "24. Post laec Daniel ingressus ad Arioch, quem constituerat",
+      "box": [
+        337,
+        443,
+        618,
+        459
+      ],
+      "score": 0.9233431220054626
+    },
+    {
+      "text": "tetur in fornacem iguis ardentis.",
+      "box": [
+        625,
+        446,
+        783,
+        462
+      ],
+      "score": 0.9778947830200195
+    },
+    {
+      "text": "6. Siguis autem mon prostratus adoraverit, eadem hora mit-",
+      "box": [
+        635,
+        437,
+        926,
+        451
+      ],
+      "score": 0.970865786075592
+    },
+    {
+      "text": "tea starent in conspectu regis.",
+      "box": [
+        46,
+        451,
+        178,
+        466
+      ],
+      "score": 0.9972727298736572
+    },
+    {
+      "text": "6. Fuerunt ergo inter eos de filils Juda, Daniel, Ananias,",
+      "box": [
+        54,
+        461,
+        319,
+        476
+      ],
+      "score": 0.967385470867157
+    },
+    {
+      "text": "rex ut perderet sapientes Babylonis, sic ei locutus est: Sapien-",
+      "box": [
+        327,
+        453,
+        618,
+        469
+      ],
+      "score": 0.9764386415481567
+    },
+    {
+      "text": "tes Babylouis ne perdas: introduc me in conspectu regis, et",
+      "box": [
+        327,
+        463,
+        618,
+        479
+      ],
+      "score": 0.9622326493263245
+    },
+    {
+      "text": "tum tube, fistale, et cithare, sambace, et paalter, et sym",
+      "box": [
+        624,
+        465,
+        927,
+        483
+      ],
+      "score": 0.7815430164337158
+    },
+    {
+      "text": "7. Post hee igitur statim ut audierunt omnes populi soni-",
+      "box": [
+        634,
+        456,
+        927,
+        473
+      ],
+      "score": 0.8875532150268555
+    },
+    {
+      "text": "Misnel, et Azarias.",
+      "box": [
+        47,
+        471,
+        130,
+        484
+      ],
+      "score": 0.8963457345962524
+    },
+    {
+      "text": "7. Et imposuit eis prepositus eunuchorum nomina: Danie-",
+      "box": [
+        55,
+        482,
+        319,
+        495
+      ],
+      "score": 0.9902406930923462
+    },
+    {
+      "text": "solutionem regi narrabo.",
+      "box": [
+        328,
+        473,
+        440,
+        488
+      ],
+      "score": 0.9604019522666931
+    },
+    {
+      "text": "25. Tune Arioch festinus iutrodaxit Danielem ad regem, et",
+      "box": [
+        337,
+        483,
+        618,
+        499
+      ],
+      "score": 0.9752926230430603
+    },
+    {
+      "text": "phonie, et omnis generis musicorum: cadentes omnes populi,",
+      "box": [
+        626,
+        478,
+        926,
+        492
+      ],
+      "score": 0.931149959564209
+    },
+    {
+      "text": "li, Baltassar; Ananim, Sidrach; Misaeli, Misach; et Azarie, Ab-",
+      "box": [
+        45,
+        490,
+        319,
+        506
+      ],
+      "score": 0.9847801923751831
+    },
+    {
+      "text": "dixit ei: Inveni honinem de filiis transmigrationis Juda, qui so-",
+      "box": [
+        327,
+        493,
+        617,
+        510
+      ],
+      "score": 0.9431377053260803
+    },
+    {
+      "text": "denago.",
+      "box": [
+        47,
+        503,
+        82,
+        513
+      ],
+      "score": 0.9998875260353088
+    },
+    {
+      "text": "lutionem regi annuutict.",
+      "box": [
+        327,
+        502,
+        440,
+        519
+      ],
+      "score": 0.9706869125366211
+    },
+    {
+      "text": "tuerat Nabuchodonosor rex.",
+      "box": [
+        625,
+        497,
+        762,
+        513
+      ],
+      "score": 0.9803906083106995
+    },
+    {
+      "text": "8. Proposuit autem Daniel in corde suo, ne pollueretur de",
+      "box": [
+        54,
+        509,
+        319,
+        525
+      ],
+      "score": 0.9856530427932739
+    },
+    {
+      "text": "mensa regis, neque de vino potus ejus: et rogavit eunuchorum",
+      "box": [
+        44,
+        520,
+        319,
+        536
+      ],
+      "score": 0.9866405725479126
+    },
+    {
+      "text": "26. Respondit rex, et dixit Danieli, cujus nomen erat Bal-",
+      "box": [
+        336,
+        512,
+        616,
+        529
+      ],
+      "score": 0.9886121153831482
+    },
+    {
+      "text": "tassar: Putasne vere potes mihi indicare somnium, quod vidi,",
+      "box": [
+        327,
+        523,
+        616,
+        540
+      ],
+      "score": 0.9872076511383057
+    },
+    {
+      "text": "saverunt Judwos:",
+      "box": [
+        624,
+        517,
+        713,
+        532
+      ],
+      "score": 0.9241214394569397
+    },
+    {
+      "text": "prepositum ne contaminaretur.",
+      "box": [
+        45,
+        531,
+        182,
+        544
+      ],
+      "score": 0.9694671034812927
+    },
+    {
+      "text": "et interpretationem ejus?",
+      "box": [
+        327,
+        533,
+        442,
+        548
+      ],
+      "score": 0.9876834154129028
+    },
+    {
+      "text": "9. Dixeruntque",
+      "box": [
+        633,
+        527,
+        721,
+        544
+      ],
+      "score": 0.9900323152542114
+    },
+    {
+      "text": "Nabuchodonosor regi: Rex, in eternum",
+      "box": [
+        714,
+        525,
+        927,
+        544
+      ],
+      "score": 0.9547741413116455
+    },
+    {
+      "text": "9. Dedit sutem Deus Danieli gratiam et misericordiam in",
+      "box": [
+        52,
+        539,
+        319,
+        555
+      ],
+      "score": 0.957175612449646
+    },
+    {
+      "text": "27. Et respondeus Daniel coram rege, alt: Mysterium, quod",
+      "box": [
+        336,
+        542,
+        616,
+        560
+      ],
+      "score": 0.9763058423995972
+    },
+    {
+      "text": "vive:",
+      "box": [
+        626,
+        538,
+        654,
+        551
+      ],
+      "score": 0.9982174634933472
+    },
+    {
+      "text": "conspectu principis eunuchorum.",
+      "box": [
+        46,
+        552,
+        188,
+        562
+      ],
+      "score": 0.9836018085479736
+    },
+    {
+      "text": "10. Et ait princeps eunuchorum ad Danielem: Timeo ego",
+      "box": [
+        52,
+        559,
+        320,
+        575
+      ],
+      "score": 0.974592387676239
+    },
+    {
+      "text": "rex interrogat, sapieutcs, magi, arioli, et aruspices nequennt",
+      "box": [
+        326,
+        553,
+        617,
+        570
+      ],
+      "score": 0.9721115231513977
+    },
+    {
+      "text": "dominum meum regem, qui constitait vobis cibum et potum;",
+      "box": [
+        43,
+        568,
+        319,
+        585
+      ],
+      "score": 0.9500885009765625
+    },
+    {
+      "text": "indicare regi.",
+      "box": [
+        327,
+        563,
+        390,
+        575
+      ],
+      "score": 0.9753803014755249
+    },
+    {
+      "text": "28. Sed est Deus in celo revelans mysteria, qui indicavit",
+      "box": [
+        334,
+        572,
+        616,
+        589
+      ],
+      "score": 0.9640786051750183
+    },
+    {
+      "text": "symphonie, et wuiversí",
+      "box": [
+        624,
+        568,
+        740,
+        584
+      ],
+      "score": 0.868817925453186
+    },
+    {
+      "text": "qui si viderit vultus vestros macilentiores prm ceteris adolescen-",
+      "box": [
+        42,
+        578,
+        319,
+        595
+      ],
+      "score": 0.9521411657333374
+    },
+    {
+      "text": "adoret statuam auream:",
+      "box": [
+        623,
+        578,
+        741,
+        594
+      ],
+      "score": 0.9731902480125427
+    },
+    {
+      "text": " generis musicorum, prostermat se, et",
+      "box": [
+        733,
+        565,
+        928,
+        586
+      ],
+      "score": 0.7933677434921265
+    },
+    {
+      "text": "tibus coevis vestris, condemnabitis caput meum regi.",
+      "box": [
+        43,
+        589,
+        276,
+        604
+      ],
+      "score": 0.9873079657554626
+    },
+    {
+      "text": "tibi rex Nabuchodonosor, que ventura sunt in novissimis tem-",
+      "box": [
+        326,
+        582,
+        616,
+        600
+      ],
+      "score": 0.9671563506126404
+    },
+    {
+      "text": "11. Et dixit Daniel ad Malasar, quem constituerat princeps",
+      "box": [
+        51,
+        598,
+        318,
+        615
+      ],
+      "score": 0.9892146587371826
+    },
+    {
+      "text": "poribus, Somnium tuum, et visiones capitis tui in cubili tuo",
+      "box": [
+        327,
+        591,
+        615,
+        610
+      ],
+      "score": 0.9719995856285095
+    },
+    {
+      "text": "hujusoemodisunt:",
+      "box": [
+        327,
+        603,
+        410,
+        615
+      ],
+      "score": 0.9381558895111084
+    },
+    {
+      "text": "nacem ignis ardentis.",
+      "box": [
+        623,
+        597,
+        726,
+        615
+      ],
+      "score": 0.9383767247200012
+    },
+    {
+      "text": "eunuchorum super Danielem, Ananiam, Misaelem, et Ázariam:",
+      "box": [
+        42,
+        608,
+        318,
+        625
+      ],
+      "score": 0.9390074014663696
+    },
+    {
+      "text": "12. Tenta nos, obsecro, servos tuos diebus decem, et dentur",
+      "box": [
+        50,
+        617,
+        318,
+        634
+      ],
+      "score": 0.9840583205223083
+    },
+    {
+      "text": "29. Tu rex cogitare capisti in strato tuo, quid esset futu-",
+      "box": [
+        335,
+        611,
+        616,
+        629
+      ],
+      "score": 0.9368144273757935
+    },
+    {
+      "text": "nobis legumina ad veseendum, et aqua ad bibendum:",
+      "box": [
+        40,
+        628,
+        277,
+        643
+      ],
+      "score": 0.9459704160690308
+    },
+    {
+      "text": "rum post hme: et qui revelat mysteria, ostendit tibi que veutu-",
+      "box": [
+        325,
+        621,
+        615,
+        639
+      ],
+      "score": 0.961463987827301
+    },
+    {
+      "text": "13. Et contemplare vultus uostros, et vultus pnerorum qui",
+      "box": [
+        49,
+        637,
+        317,
+        654
+      ],
+      "score": 0.9773786664009094
+    },
+    {
+      "text": "rasunt.",
+      "box": [
+        327,
+        633,
+        363,
+        644
+      ],
+      "score": 0.9915194511413574
+    },
+    {
+      "text": "30. Mihi quoque non in sapientia qure est in me plus quam",
+      "box": [
+        335,
+        640,
+        614,
+        659
+      ],
+      "score": 0.9641550779342651
+    },
+    {
+      "text": "tuam anream, quam erexisti, non adorant.",
+      "box": [
+        622,
+        636,
+        826,
+        655
+      ],
+      "score": 0.767566978931427
+    },
+    {
+      "text": "veseuntur cibo regio: et sicut videris, facies cum servis tuis.",
+      "box": [
+        40,
+        648,
+        306,
+        663
+      ],
+      "score": 0.9612034559249878
+    },
+    {
+      "text": "14. Qui, audito sermone hujuscemodi, tentavit eos diebus",
+      "box": [
+        46,
+        657,
+        317,
+        674
+      ],
+      "score": 0.9639994502067566
+    },
+    {
+      "text": "in sunetis viventibus, sacramentum hoe revelatum est: sed ut",
+      "box": [
+        325,
+        650,
+        614,
+        669
+      ],
+      "score": 0.9474412798881531
+    },
+    {
+      "text": "decem.",
+      "box": [
+        40,
+        669,
+        73,
+        680
+      ],
+      "score": 0.9951820373535156
+    },
+    {
+      "text": "interpretatio regi manifesta fieret, et cogitationes mentis tuae",
+      "box": [
+        324,
+        661,
+        614,
+        679
+      ],
+      "score": 0.9691285490989685
+    },
+    {
+      "text": "scires.",
+      "box": [
+        326,
+        673,
+        356,
+        684
+      ],
+      "score": 0.9993000030517578
+    },
+    {
+      "text": "dacti sunt in conspecta regis.",
+      "box": [
+        621,
+        666,
+        765,
+        687
+      ],
+      "score": 0.9546376466751099
+    },
+    {
+      "text": "15. Post dies autem decem, apparuerunt vultus eorum me-",
+      "box": [
+        46,
+        676,
+        316,
+        694
+      ],
+      "score": 0.9965759515762329
+    },
+    {
+      "text": "liores et corpulentiores prm omnibus pueris, qui vesoebantur",
+      "box": [
+        37,
+        686,
+        316,
+        703
+      ],
+      "score": 0.9398791790008545
+    },
+    {
+      "text": "31. Tu rex videbas, et ecce quasi statua una grandis: statua",
+      "box": [
+        332,
+        680,
+        612,
+        699
+      ],
+      "score": 0.985235333442688
+    },
+    {
+      "text": "cibo regio.",
+      "box": [
+        38,
+        696,
+        87,
+        709
+      ],
+      "score": 0.9621859192848206
+    },
+    {
+      "text": "illa nagna, et statura sublimis stabat contra te, et intuitus ejus",
+      "box": [
+        324,
+        690,
+        612,
+        710
+      ],
+      "score": 0.9827561974525452
+    },
+    {
+      "text": "16. Porro Malasar tollebat cibaria, et vinum potus eorum:",
+      "box": [
+        46,
+        704,
+        316,
+        723
+      ],
+      "score": 0.986878514289856
+    },
+    {
+      "text": "erat terribilis.",
+      "box": [
+        325,
+        702,
+        388,
+        712
+      ],
+      "score": 0.9633026123046875
+    },
+    {
+      "text": "tuam auream, quam constitua, non adoratis?",
+      "box": [
+        619,
+        696,
+        835,
+        718
+      ],
+      "score": 0.7408229112625122
+    },
+    {
+      "text": "dabatque eis legumina.",
+      "box": [
+        37,
+        714,
+        140,
+        729
+      ],
+      "score": 0.9672458171844482
+    },
+    {
+      "text": "32. Hujus stature caput ex auro optimo crat, pectus autem",
+      "box": [
+        333,
+        709,
+        611,
+        730
+      ],
+      "score": 0.9784682989120483
+    },
+    {
+      "text": "17. Pueris autem his dedit Deus scientiam, et disciplinam",
+      "box": [
+        46,
+        723,
+        316,
+        743
+      ],
+      "score": 0.9739212989807129
+    },
+    {
+      "text": "et brachía de argento, porro veuter et femora ex wre:",
+      "box": [
+        323,
+        720,
+        566,
+        738
+      ],
+      "score": 0.9489794373512268
+    },
+    {
+      "text": "in ommi libro et sapientia: Danieli autem intelligentiana om-",
+      "box": [
+        35,
+        732,
+        315,
+        752
+      ],
+      "score": 0.9626057744026184
+    },
+    {
+      "text": "33. Tibim autem ferree, pedum quedam pars erat ferrea,",
+      "box": [
+        333,
+        729,
+        610,
+        750
+      ],
+      "score": 0.9136877655982971
+    },
+    {
+      "text": "nium visionum et somniorum.",
+      "box": [
+        36,
+        743,
+        168,
+        758
+      ],
+      "score": 0.9573533535003662
+    },
+    {
+      "text": "quedam autem fictilis.",
+      "box": [
+        323,
+        739,
+        430,
+        754
+      ],
+      "score": 0.8747514486312866
+    },
+    {
+      "text": "18. Completis Itaque diebus, post quos dixerat rex ut intro-",
+      "box": [
+        44,
+        752,
+        315,
+        771
+      ],
+      "score": 0.9819522500038147
+    },
+    {
+      "text": "34. Videbas ita, donec abscissus est lapis de monte sine",
+      "box": [
+        332,
+        747,
+        610,
+        769
+      ],
+      "score": 0.9784113168716431
+    },
+    {
+      "text": "ducerentur: introduxit eos prepositus eunuchorum in conspec-",
+      "box": [
+        35,
+        762,
+        314,
+        781
+      ],
+      "score": 0.9673213958740234
+    },
+    {
+      "text": "manibus: et pereussit statuam in pedibus ejus ferreis et fictili-",
+      "box": [
+        322,
+        758,
+        610,
+        779
+      ],
+      "score": 0.9704383015632629
+    },
+    {
+      "text": "vos de manu mea?",
+      "box": [
+        619,
+        756,
+        708,
+        773
+      ],
+      "score": 0.9618573188781738
+    },
+    {
+      "text": "tu Nabuchodonosor.",
+      "box": [
+        35,
+        772,
+        126,
+        786
+      ],
+      "score": 0.9945299625396729
+    },
+    {
+      "text": "bus, et comminuit eos.",
+      "box": [
+        323,
+        769,
+        426,
+        783
+      ],
+      "score": 0.9733989834785461
+    },
+    {
+      "text": "19. Cumque eis locutus fuisset rex, nou sunt inventi tales de",
+      "box": [
+        43,
+        781,
+        314,
+        800
+      ],
+      "score": 0.9765436053276062
+    },
+    {
+      "text": "35. Tune contrita sunt pariter ferrum, testa, aes, argentum,",
+      "box": [
+        331,
+        778,
+        609,
+        800
+      ],
+      "score": 0.9696465730667114
+    },
+    {
+      "text": "universis, ut Daniel, Ananias, Misael, et Azarias: et steterunt",
+      "box": [
+        33,
+        791,
+        313,
+        810
+      ],
+      "score": 0.9731436371803284
+    },
+    {
+      "text": "et aurum, et redacta quasi in favillam estive arem, qum rapta",
+      "box": [
+        321,
+        788,
+        610,
+        810
+      ],
+      "score": 0.9340268969535828
+    },
+    {
+      "text": "tibi.",
+      "box": [
+        617,
+        785,
+        643,
+        802
+      ],
+      "score": 0.9612060785293579
+    },
+    {
+      "text": "in conspectu regis.",
+      "box": [
+        34,
+        801,
+        118,
+        816
+      ],
+      "score": 0.9802106618881226
+    },
+    {
+      "text": "sunt vento: nullusque locus inventus est eis: lapis autem, qui",
+      "box": [
+        321,
+        798,
+        609,
+        820
+      ],
+      "score": 0.9784892201423645
+    },
+    {
+      "text": "nos de camino ignis ardentis,",
+      "box": [
+        615,
+        806,
+        764,
+        828
+      ],
+      "score": 0.9513804912567139
+    },
+    {
+      "text": "17.",
+      "box": [
+        628,
+        798,
+        647,
+        810
+      ],
+      "score": 0.9992777705192566
+    },
+    {
+      "text": "20. Et omne verbum saplentie et intellectus, quod sciscita-",
+      "box": [
+        42,
+        810,
+        313,
+        829
+      ],
+      "score": 0.9811747074127197
+    },
+    {
+      "text": "pereusserat statuam, factus est mons magnus, et implevit uni-",
+      "box": [
+        321,
+        808,
+        609,
+        830
+      ],
+      "score": 0.9807883501052856
+    },
+    {
+      "text": "tus est ab eis rex, invenit in eis decuplum, super cunctos ario-",
+      "box": [
+        32,
+        820,
+        312,
+        840
+      ],
+      "score": 0.9799661636352539
+    },
+    {
+      "text": "versam terram.",
+      "box": [
+        322,
+        819,
+        393,
+        832
+      ],
+      "score": 0.9970864057540894
+    },
+    {
+      "text": "rare.",
+      "box": [
+        617,
+        816,
+        643,
+        831
+      ],
+      "score": 0.9980276823043823
+    },
+    {
+      "text": "et de manibus tuís, o rex, libe-",
+      "box": [
+        756,
+        810,
+        918,
+        827
+      ],
+      "score": 0.9428401589393616
+    },
+    {
+      "text": "los et magos, qui erant in universo regno ejus.",
+      "box": [
+        32,
+        830,
+        239,
+        848
+      ],
+      "score": 0.9602059721946716
+    },
+    {
+      "text": "36. Hoc est somnium: interpretationem quoque ejus dice-",
+      "box": [
+        329,
+        828,
+        608,
+        850
+      ],
+      "score": 0.981140673160553
+    },
+    {
+      "text": "mus coram te, rex.",
+      "box": [
+        321,
+        838,
+        408,
+        853
+      ],
+      "score": 0.9689255952835083
+    },
+    {
+      "text": "18.",
+      "box": [
+        627,
+        829,
+        647,
+        840
+      ],
+      "score": 0.9999763369560242
+    },
+    {
+      "text": "21. Fuit autem Danlel usque ad annum primum Cyriregis.",
+      "box": [
+        41,
+        840,
+        307,
+        860
+      ],
+      "score": 0.9807913303375244
+    },
+    {
+      "text": "37. Tu rex regum es: et Deus coli, regnum, et fortitudiuem,",
+      "box": [
+        328,
+        845,
+        608,
+        870
+      ],
+      "score": 0.9492014050483704
+    },
+    {
+      "text": "CAPUT II",
+      "box": [
+        144,
+        859,
+        199,
+        876
+      ],
+      "score": 0.999007523059845
+    },
+    {
+      "text": "et imperium, et gloriam dedit tibi:",
+      "box": [
+        319,
+        857,
+        480,
+        874
+      ],
+      "score": 0.9507129192352295
+    },
+    {
+      "text": "38. Et omnia in quibus habitant fili hominum, et bestie",
+      "box": [
+        329,
+        866,
+        607,
+        888
+      ],
+      "score": 0.9322652220726013
+    },
+    {
+      "text": "1. In anno secundo regni Nabuchodomosor, vidit Nabucho-",
+      "box": [
+        38,
+        877,
+        311,
+        898
+      ],
+      "score": 0.9773983955383301
+    },
+    {
+      "text": "agri: volucres quoquc celi dedit in manu tua, et sub ditione",
+      "box": [
+        319,
+        876,
+        607,
+        898
+      ],
+      "score": 0.9484058618545532
+    },
+    {
+      "text": "cendi consmeverat.",
+      "box": [
+        615,
+        876,
+        704,
+        894
+      ],
+      "score": 0.9308783411979675
+    },
+    {
+      "text": "donosor somnium, et conterritus est spiritus ejus, et somnlum",
+      "box": [
+        29,
+        887,
+        311,
+        909
+      ],
+      "score": 0.9503248929977417
+    },
+    {
+      "text": "tus universa constitult: tu es ergo caput aureum.",
+      "box": [
+        319,
+        886,
+        542,
+        906
+      ],
+      "score": 0.9424313306808472
+    },
+    {
+      "text": "ejus fugit ab co.",
+      "box": [
+        30,
+        900,
+        103,
+        911
+      ],
+      "score": 0.9769347906112671
+    },
+    {
+      "text": " Precepit autem rex, ut convocarentur arioli, et magi, et",
+      "box": [
+        35,
+        905,
+        311,
+        930
+      ],
+      "score": 0.8545781373977661
+    },
+    {
+      "text": "39. Et post te consurget regnum aliud miuus te argenteum:",
+      "box": [
+        327,
+        896,
+        607,
+        918
+      ],
+      "score": 0.953768253326416
+    },
+    {
+      "text": "et regaum tertium alind sream, quod imperabit uuiversa",
+      "box": [
+        318,
+        906,
+        607,
+        927
+      ],
+      "score": 0.8537662625312805
+    },
+    {
+      "text": "ignis ardentis.",
+      "box": [
+        614,
+        905,
+        682,
+        921
+      ],
+      "score": 0.9579715728759766
+    },
+    {
+      "text": "malefici, et Chaldei, ut indicarent regi somuia sun: qui cum ve-",
+      "box": [
+        27,
+        917,
+        311,
+        939
+      ],
+      "score": 0.9251580238342285
+    },
+    {
+      "text": "terre.",
+      "box": [
+        320,
+        918,
+        349,
+        929
+      ],
+      "score": 0.935141384601593
+    },
+    {
+      "text": "nissent, steterunt coram rege.",
+      "box": [
+        27,
+        928,
+        160,
+        944
+      ],
+      "score": 0.9844775795936584
+    },
+    {
+      "text": "40. Et regnum quartum erit velut ferrum: quomodo ferrum",
+      "box": [
+        328,
+        926,
+        606,
+        947
+      ],
+      "score": 0.985767662525177
+    },
+    {
+      "text": "3. Ét dixit ad eos rex: Vidi somnium; et mente confusus",
+      "box": [
+        35,
+        938,
+        310,
+        959
+      ],
+      "score": 0.988212525844574
+    },
+    {
+      "text": "comminuit et domat omnia, sie comminuet et conteret omnia",
+      "box": [
+        318,
+        936,
+        606,
+        957
+      ],
+      "score": 0.9837976694107056
+    },
+    {
+      "text": "nis ardentis.",
+      "box": [
+        613,
+        934,
+        675,
+        950
+      ],
+      "score": 0.9624142050743103
+    },
+    {
+      "text": "ignoro quid viderim.",
+      "box": [
+        25,
+        948,
+        121,
+        963
+      ],
+      "score": 0.9729563593864441
+    },
+    {
+      "text": "4. Responderuntque Chaldei regi syriace: Rex, in sempi-",
+      "box": [
+        32,
+        956,
+        310,
+        981
+      ],
+      "score": 0.8513370156288147
+    },
+    {
+      "text": "luec.",
+      "box": [
+        319,
+        948,
+        343,
+        959
+      ],
+      "score": 0.7435029149055481
+    },
+    {
+      "text": "41. Porro quia vidisti pedum et digitorum partem teste",
+      "box": [
+        328,
+        955,
+        606,
+        976
+      ],
+      "score": 0.9773370027542114
+    },
+    {
+      "text": "ternum viver die somnium servis tuis, et interpretationem ejus",
+      "box": [
+        23,
+        968,
+        310,
+        989
+      ],
+      "score": 0.9611205458641052
+    },
+    {
+      "text": "figuli, et partem ferream; reguum divisum erit, quod tamen de",
+      "box": [
+        318,
+        966,
+        605,
+        986
+      ],
+      "score": 0.932319164276123
+    },
+    {
+      "text": "denago, interfecit flamma ignis.",
+      "box": [
+        613,
+        963,
+        761,
+        983
+      ],
+      "score": 0.9382261037826538
+    },
+    {
+      "text": "indicabimus.",
+      "box": [
+        22,
+        977,
+        85,
+        993
+      ],
+      "score": 0.9887279868125916
+    },
+    {
+      "text": "plantario ferri orietur, secundum quod vidisti ferrum mistum",
+      "box": [
+        318,
+        976,
+        605,
+        996
+      ],
+      "score": 0.9631563425064087
+    },
+    {
+      "text": "5. Et respondens rex, ait Chaldmis: Sermo recessit a me: nisi",
+      "box": [
+        31,
+        988,
+        309,
+        1008
+      ],
+      "score": 0.9827256798744202
+    },
+    {
+      "text": "teste ex luto.",
+      "box": [
+        318,
+        987,
+        383,
+        1000
+      ],
+      "score": 0.934545636177063
+    },
+    {
+      "text": "go, ceciderunt in medio camino igus ardentis, coligat.",
+      "box": [
+        611,
+        983,
+        879,
+        1004
+      ],
+      "score": 0.7291380763053894
+    },
+    {
+      "text": "indicaveritis mihi somaium, et conjecturam ejus, peribitis vos,",
+      "box": [
+        21,
+        998,
+        309,
+        1020
+      ],
+      "score": 0.9542615413665771
+    },
+    {
+      "text": "42. Et digitos pedum ex parte ferreos, et ex parte fictiles;",
+      "box": [
+        327,
+        996,
+        605,
+        1015
+      ],
+      "score": 0.9901965260505676
+    },
+    {
+      "text": "et domus vestre publicabuntur.",
+      "box": [
+        19,
+        1009,
+        168,
+        1025
+      ],
+      "score": 0.9863845705986023
+    },
+    {
+      "text": "ex parte regnan crit solidum, et ex parte contritum.",
+      "box": [
+        317,
+        1007,
+        560,
+        1023
+      ],
+      "score": 0.9579516649246216
+    },
+    {
+      "text": "QUE SEQUUNTUR, IN HEBREIS VOLUMINIBUS NON REPERI",
+      "box": [
+        627,
+        1002,
+        900,
+        1023
+      ],
+      "score": 0.9844544529914856
+    },
+    {
+      "text": "6. Siautem somnium, et conjecturam ejus narraveritis, pre-",
+      "box": [
+        29,
+        1019,
+        308,
+        1040
+      ],
+      "score": 0.9640433192253113
+    },
+    {
+      "text": "43. Quod autem vidisti ferrum mistum teste ex luto, com-",
+      "box": [
+        327,
+        1016,
+        604,
+        1035
+      ],
+      "score": 0.9738354682922363
+    },
+    {
+      "text": "mia, et dona, et honorem multum accipietis a me: sommiam",
+      "box": [
+        17,
+        1029,
+        310,
+        1051
+      ],
+      "score": 0.8810157179832458
+    },
+    {
+      "text": "miscebuntur quidem humano semine, sed non adhaerebunt sibi,",
+      "box": [
+        317,
+        1026,
+        604,
+        1046
+      ],
+      "score": 0.9648009538650513
+    },
+    {
+      "text": "24. Et ambulabant in medio flamme laudautes Deum, et",
+      "box": [
+        620,
+        1020,
+        916,
+        1042
+      ],
+      "score": 0.9657208323478699
+    },
+    {
+      "text": "igitur, et interpretationem ejus indicate mihi.",
+      "box": [
+        18,
+        1041,
+        230,
+        1058
+      ],
+      "score": 0.9377003908157349
+    },
+    {
+      "text": "sicuti ferrum misceri non potest teste.",
+      "box": [
+        317,
+        1037,
+        496,
+        1054
+      ],
+      "score": 0.9428596496582031
+    },
+    {
+      "text": "benedicentes Domino.",
+      "box": [
+        612,
+        1032,
+        715,
+        1048
+      ],
+      "score": 0.9692909121513367
+    },
+    {
+      "text": "44. Ia diebus autem regnorum illorum, suscitabit Deus celi",
+      "box": [
+        326,
+        1047,
+        604,
+        1065
+      ],
+      "score": 0.9794101119041443
+    },
+    {
+      "text": "25. Stans antem Azarias oravit sic, aperiensque os suum, im",
+      "box": [
+        620,
+        1041,
+        915,
+        1063
+      ],
+      "score": 0.8957356214523315
+    },
+    {
+      "text": "7. 'Responderunt secundo atque dixerunt: Rex somnium di-",
+      "box": [
+        26,
+        1052,
+        307,
+        1070
+      ],
+      "score": 0.9904783964157104
+    },
+    {
+      "text": "reguum, quod iu etéruum non dissipabitur, et regnum ejus",
+      "box": [
+        316,
+        1058,
+        604,
+        1076
+      ],
+      "score": 0.9414232969284058
+    },
+    {
+      "text": "medio ignis, ait:",
+      "box": [
+        612,
+        1052,
+        692,
+        1067
+      ],
+      "score": 0.91584712266922
+    },
+    {
+      "text": "cat servis suis, et interpretatiouem illins indicabimus.",
+      "box": [
+        16,
+        1063,
+        266,
+        1079
+      ],
+      "score": 0.9824740290641785
+    },
+    {
+      "text": "alteri popalo non tradetur: comminnet sutem, et consumet",
+      "box": [
+        316,
+        1068,
+        604,
+        1086
+      ],
+      "score": 0.9919434189796448
+    },
+    {
+      "text": "26. Benedietus es, Domine Deus patrum nostrorum, et lan-",
+      "box": [
+        618,
+        1061,
+        914,
+        1082
+      ],
+      "score": 0.9627857208251953
+    },
+    {
+      "text": "8. Respondit rex, et ait: Certe novi quod tempus redimitis,",
+      "box": [
+        24,
+        1071,
+        308,
+        1092
+      ],
+      "score": 0.9774209856987
+    },
+    {
+      "text": "uuiversa regna hwc: et ipsum stabit in eternum.",
+      "box": [
+        316,
+        1078,
+        539,
+        1095
+      ],
+      "score": 0.8983798623085022
+    },
+    {
+      "text": "dabile et gloriosum nomen tuum in smcula;",
+      "box": [
+        612,
+        1071,
+        818,
+        1090
+      ],
+      "score": 0.9386611580848694
+    },
+    {
+      "text": "scientes quod recesserit a me sermo.",
+      "box": [
+        14,
+        1085,
+        185,
+        1098
+      ],
+      "score": 0.9833840131759644
+    },
+    {
+      "text": "45. Secundum quod vidisti, quod de monte abscissas est",
+      "box": [
+        326,
+        1088,
+        604,
+        1106
+      ],
+      "score": 0.9874425530433655
+    },
+    {
+      "text": "27. Quia justus es in omnibus qute fecisti nobis, et nníversa",
+      "box": [
+        620,
+        1082,
+        915,
+        1101
+      ],
+      "score": 0.9185584187507629
+    },
+    {
+      "text": "9. Si ergó somnium non indicaveritis mihi, una est de vobis",
+      "box": [
+        22,
+        1094,
+        308,
+        1111
+      ],
+      "score": 0.9669590592384338
+    },
+    {
+      "text": "lapis sime manibus, et comminuit testam, et ferrum, et as, et",
+      "box": [
+        316,
+        1098,
+        603,
+        1116
+      ],
+      "score": 0.9703853130340576
+    },
+    {
+      "text": "opera tua vera, et vim tum rectie, et omnía judicia tua vera.",
+      "box": [
+        611,
+        1092,
+        897,
+        1111
+      ],
+      "score": 0.8770627975463867
+    },
+    {
+      "text": "sententia, quod interpretationem quoque fallacem et deceptione",
+      "box": [
+        11,
+        1103,
+        309,
+        1123
+      ],
+      "score": 0.9631536602973938
+    },
+    {
+      "text": "argentum, et aurum, Deus magnus ostendit regi que ventu-",
+      "box": [
+        315,
+        1109,
+        603,
+        1127
+      ],
+      "score": 0.9591023325920105
+    },
+    {
+      "text": "28. Judicia euim vera fecisti, juxta omnia que induxisti",
+      "box": [
+        619,
+        1101,
+        915,
+        1122
+      ],
+      "score": 0.7670993804931641
+    },
+    {
+      "text": "plenam composueritis, ut loquamini mihi donec tempus pertran-",
+      "box": [
+        11,
+        1115,
+        308,
+        1132
+      ],
+      "score": 0.9390891194343567
+    },
+    {
+      "text": "ra sunt postea. Et verum est somaium, et fidelis interpretatio",
+      "box": [
+        314,
+        1119,
+        602,
+        1138
+      ],
+      "score": 0.9732634425163269
+    },
+    {
+      "text": "super nos, et super civitatem sanctam patrum nostrorum Jera-",
+      "box": [
+        610,
+        1113,
+        915,
+        1131
+      ],
+      "score": 0.968227744102478
+    },
+    {
+      "text": "scat. Sonmfum itaque dicite mihi, ut sciam quod interpretatio-",
+      "box": [
+        10,
+        1126,
+        307,
+        1143
+      ],
+      "score": 0.9537132978439331
+    },
+    {
+      "text": "ejus,",
+      "box": [
+        316,
+        1132,
+        341,
+        1143
+      ],
+      "score": 0.9147027730941772
+    },
+    {
+      "text": "safem: quia in veritate, et in judicio, indaxisti omnia haee prop-",
+      "box": [
+        610,
+        1123,
+        915,
+        1142
+      ],
+      "score": 0.9169545769691467
+    },
+    {
+      "text": "nem quoque ejus veram loquamiui.",
+      "box": [
+        11,
+        1138,
+        179,
+        1151
+      ],
+      "score": 0.9427176713943481
+    },
+    {
+      "text": "46. Tune rex Nabuchodonosor cecidit iu faciem suam, et",
+      "box": [
+        324,
+        1139,
+        602,
+        1158
+      ],
+      "score": 0.9795857071876526
+    },
+    {
+      "text": "ter peccata nostra.",
+      "box": [
+        611,
+        1134,
+        699,
+        1147
+      ],
+      "score": 0.980624258518219
+    },
+    {
+      "text": "10.\" Respondentes ergo Chaldmi coram rege, dixerunt: Non",
+      "box": [
+        20,
+        1147,
+        307,
+        1163
+      ],
+      "score": 0.9441405534744263
+    },
+    {
+      "text": "Dauielem adoravit, et hostias, et incensum precepit ut sacrifi-",
+      "box": [
+        315,
+        1150,
+        602,
+        1169
+      ],
+      "score": 0.9579384922981262
+    },
+    {
+      "text": "29. Peccavimas enim, et inique egimus recedentes a te: et",
+      "box": [
+        618,
+        1143,
+        915,
+        1162
+      ],
+      "score": 0.9605400562286377
+    },
+    {
+      "text": "est homo super terram, qui sermonem tuum, rex, possit imple-",
+      "box": [
+        9,
+        1158,
+        307,
+        1174
+      ],
+      "score": 0.9866401553153992
+    },
+    {
+      "text": "deliquimus in omnibus;",
+      "box": [
+        610,
+        1153,
+        725,
+        1168
+      ],
+      "score": 0.9823281764984131
+    },
+    {
+      "text": "re: sed neque regum quisquam magnns et potens verbam hu-",
+      "box": [
+        8,
+        1169,
+        307,
+        1184
+      ],
+      "score": 0.9468905329704285
+    },
+    {
+      "text": "careut ei.",
+      "box": [
+        317,
+        1163,
+        362,
+        1174
+      ],
+      "score": 0.9542821049690247
+    },
+    {
+      "text": "47. Loquensergo rex, ait Daniell: Vere Deus vester Deus",
+      "box": [
+        326,
+        1171,
+        602,
+        1188
+      ],
+      "score": 0.9751883745193481
+    },
+    {
+      "text": "30. Et pracepta tua non audivimus, nec obaervavimus, mec",
+      "box": [
+        619,
+        1162,
+        916,
+        1183
+      ],
+      "score": 0.838973879814148
+    },
+    {
+      "text": "juscemodi sciscitatur ab onuni arielo, et magno, et Chaldeo.",
+      "box": [
+        7,
+        1181,
+        292,
+        1194
+      ],
+      "score": 0.9881736636161804
+    },
+    {
+      "text": "deorum est, et Dominus regum, et revelans mysteria: quoniam",
+      "box": [
+        315,
+        1181,
+        602,
+        1199
+      ],
+      "score": 0.9911872744560242
+    },
+    {
+      "text": "fecimus sicat praceperas nobis ut bene nobis esset.",
+      "box": [
+        610,
+        1173,
+        852,
+        1191
+      ],
+      "score": 0.9572798013687134
+    },
+    {
+      "text": "tu potuisti aperire hoc sacramentum.",
+      "box": [
+        315,
+        1191,
+        486,
+        1206
+      ],
+      "score": 0.9819791316986084
+    },
+    {
+      "text": "31. Omnia ergo, qum induxisti super nos, et universa qua",
+      "box": [
+        619,
+        1182,
+        916,
+        1203
+      ],
+      "score": 0.9407873153686523
+    },
+    {
+      "text": "rietur quisquani, qui indicet illum in conspectu regis: exceptis",
+      "box": [
+        7,
+        1201,
+        307,
+        1215
+      ],
+      "score": 0.9744922518730164
+    },
+    {
+      "text": "11. Sermo enim, quem tu queris, rex, gravis est: nee repe-",
+      "box": [
+        17,
+        1192,
+        307,
+        1204
+      ],
+      "score": 0.9425581693649292
+    },
+    {
+      "text": "48. Tune rex Danielem in sublime extulit, et munera multa",
+      "box": [
+        325,
+        1200,
+        602,
+        1218
+      ],
+      "score": 0.9812950491905212
+    },
+    {
+      "text": "fecisti nobis, in vero fudicio feciati:",
+      "box": [
+        611,
+        1194,
+        776,
+        1207
+      ],
+      "score": 0.9561755657196045
+    },
+    {
+      "text": "diis, quorum non est cum hominibus conversatio.",
+      "box": [
+        6,
+        1209,
+        244,
+        1227
+      ],
+      "score": 0.9779072403907776
+    },
+    {
+      "text": "et inagna dedit el: et constituit eum principem super omnes",
+      "box": [
+        315,
+        1210,
+        602,
+        1228
+      ],
+      "score": 0.9584088325500488
+    },
+    {
+      "text": "32. Et tradidisti nos iu manibus inimicorum nostrorum iui-",
+      "box": [
+        619,
+        1203,
+        916,
+        1220
+      ],
+      "score": 0.9423989057540894
+    },
+    {
+      "text": "provincias Babylonis, et prefectum magistratuum super cune-",
+      "box": [
+        315,
+        1221,
+        602,
+        1239
+      ],
+      "score": 0.9676779508590698
+    },
+    {
+      "text": "quorum, et pessimorum, prevaricatorumque, et regi injusto et",
+      "box": [
+        610,
+        1213,
+        917,
+        1232
+      ],
+      "score": 0.9612482786178589
+    },
+    {
+      "text": "12 Quo audito, rex in furore et in ira magua precepit, ut",
+      "box": [
+        15,
+        1221,
+        308,
+        1237
+      ],
+      "score": 0.9771941900253296
+    },
+    {
+      "text": "perirent omnes sapientes Babylonis.",
+      "box": [
+        5,
+        1231,
+        183,
+        1248
+      ],
+      "score": 0.9878237843513489
+    },
+    {
+      "text": "tos sapientes Babylouis.",
+      "box": [
+        318,
+        1234,
+        427,
+        1244
+      ],
+      "score": 0.989649772644043
+    },
+    {
+      "text": "pessimo ultra omnem terranm.",
+      "box": [
+        612,
+        1225,
+        749,
+        1238
+      ],
+      "score": 0.9346650838851929
+    },
+    {
+      "text": "33. Et nune non possumus sperire os: confusio et oppro-",
+      "box": [
+        619,
+        1231,
+        917,
+        1253
+      ],
+      "score": 0.9453036189079285
+    },
+    {
+      "text": "13. Et egressa sententia, sapientes interficiebantur: quare-",
+      "box": [
+        16,
+        1240,
+        308,
+        1259
+      ],
+      "score": 0.9555102586746216
+    },
+    {
+      "text": "49. Daniel autem postulavit a rege; et constitult super ope-",
+      "box": [
+        326,
+        1241,
+        603,
+        1259
+      ],
+      "score": 0.9737169742584229
+    },
+    {
+      "text": "ra provincime Babylouis, Sidrach, Misach, et Abdenago: ipse",
+      "box": [
+        315,
+        1251,
+        603,
+        1269
+      ],
+      "score": 0.9514518976211548
+    },
+    {
+      "text": "brium facti sumus servis tuis, et his qui colunt te.",
+      "box": [
+        611,
+        1244,
+        850,
+        1260
+      ],
+      "score": 0.9658324122428894
+    },
+    {
+      "text": "bauturque Daniel et socii ejus, ut perirent.",
+      "box": [
+        5,
+        1253,
+        215,
+        1269
+      ],
+      "score": 0.9584920406341553
+    },
+    {
+      "text": "34. Ne, qumesumus, tradas nos in perpetuum propter nomeu",
+      "box": [
+        620,
+        1254,
+        918,
+        1272
+      ],
+      "score": 0.9761185050010681
+    },
+    {
+      "text": "14. Tunc Daniel requisivit de lege atque sententia ab Arioch",
+      "box": [
+        14,
+        1262,
+        307,
+        1279
+      ],
+      "score": 0.9724435806274414
+    },
+    {
+      "text": "aufem Daniel eraf in foribus regis.",
+      "box": [
+        317,
+        1264,
+        473,
+        1277
+      ],
+      "score": 0.9861405491828918
+    },
+    {
+      "text": "tuum, et ne dissipes testamentum tuum;",
+      "box": [
+        611,
+        1264,
+        806,
+        1279
+      ],
+      "score": 0.9386951327323914
+    },
+    {
+      "text": "principe militie regis, qui egressns fuerat ad interficiendos sa-",
+      "box": [
+        3,
+        1274,
+        307,
+        1290
+      ],
+      "score": 0.9686477780342102
+    },
+    {
+      "text": "35. Neque auferas misericordiam tuam & nobis, propter",
+      "box": [
+        620,
+        1274,
+        918,
+        1291
+      ],
+      "score": 0.959465503692627
+    },
+    {
+      "text": "pientes Babylonis.",
+      "box": [
+        4,
+        1285,
+        99,
+        1300
+      ],
+      "score": 0.9930098652839661
+    },
+    {
+      "text": "CAPUT III",
+      "box": [
+        431,
+        1287,
+        490,
+        1301
+      ],
+      "score": 0.9963012337684631
+    },
+    {
+      "text": "Abraham dilectum tuum, et Isaac servum tuum, et Israel sane-",
+      "box": [
+        612,
+        1284,
+        918,
+        1301
+      ],
+      "score": 0.9715386629104614
+    },
+    {
+      "text": "15. Et interrogavit eum, qui a rege potestatem acceperat,",
+      "box": [
+        15,
+        1294,
+        307,
+        1310
+      ],
+      "score": 0.9745521545410156
+    },
+    {
+      "text": "tum tunm:",
+      "box": [
+        614,
+        1296,
+        665,
+        1307
+      ],
+      "score": 0.9805293679237366
+    },
+    {
+      "text": "quam ob causam tam crudelis sententía a facie regis easet",
+      "box": [
+        4,
+        1303,
+        308,
+        1320
+      ],
+      "score": 0.9578385353088379
+    },
+    {
+      "text": "1. Nabuchodonosor rex fecit statuam auream, altitadine cu-",
+      "box": [
+        326,
+        1312,
+        603,
+        1327
+      ],
+      "score": 0.9939154982566833
+    },
+    {
+      "text": "eorum sicut stellas celi, et sicut arenam quse est in littore",
+      "box": [
+        611,
+        1313,
+        919,
+        1329
+      ],
+      "score": 0.9170225858688354
+    },
+    {
+      "text": "36. Quibus locutus es pollicens quod multiplicares semen",
+      "box": [
+        621,
+        1304,
+        918,
+        1318
+      ],
+      "score": 0.96947181224823
+    },
+    {
+      "text": "egressa. Cum ergo rem indicasset Arioch Danieli,",
+      "box": [
+        4,
+        1314,
+        244,
+        1329
+      ],
+      "score": 0.9909879565238953
+    },
+    {
+      "text": "16. Daniel ingressus rogavit regem, ut tempus daret sibi ad",
+      "box": [
+        15,
+        1324,
+        307,
+        1340
+      ],
+      "score": 0.9930097460746765
+    },
+    {
+      "text": "bitorum sexaginta, latitadine cubitorum sex, et statuit eam in",
+      "box": [
+        316,
+        1323,
+        603,
+        1338
+      ],
+      "score": 0.9919683933258057
+    },
+    {
+      "text": "campo Dura provincise Babylonis.",
+      "box": [
+        317,
+        1335,
+        472,
+        1348
+      ],
+      "score": 0.985178530216217
+    },
+    {
+      "text": "maris:",
+      "box": [
+        613,
+        1326,
+        647,
+        1337
+      ],
+      "score": 0.9854788184165955
+    },
+    {
+      "text": "solutionem indicandan regi.",
+      "box": [
+        4,
+        1335,
+        145,
+        1351
+      ],
+      "score": 0.9640267491340637
+    },
+    {
+      "text": "37. Quia, Domine, imminuti samus plus quam ommes gen-",
+      "box": [
+        620,
+        1334,
+        917,
+        1350
+      ],
+      "score": 0.9655910134315491
+    },
+    {
+      "text": "17. Et ingressus est domnm suam, Ananimque et Misaeli, et",
+      "box": [
+        14,
+        1344,
+        309,
+        1363
+      ],
+      "score": 0.9667270183563232
+    },
+    {
+      "text": "2.* Itaque Nabuchodonosor rex misit ad congregandos satra-",
+      "box": [
+        326,
+        1346,
+        603,
+        1359
+      ],
+      "score": 0.9837165474891663
+    },
+    {
+      "text": "tes, sumusque humiles in universa terra hodie propter peccata",
+      "box": [
+        611,
+        1346,
+        918,
+        1361
+      ],
+      "score": 0.9548909068107605
+    }
+  ]
+}

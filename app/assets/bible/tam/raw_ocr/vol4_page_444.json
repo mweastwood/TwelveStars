@@ -1,0 +1,3937 @@
+{
+  "volume": 4,
+  "page_index": 444,
+  "pdf_page": 445,
+  "lines": [
+    {
+      "text": "Athenas, et accepto mandato ab eo ad Silam et Timotheum, ut",
+      "box": [
+        58,
+        0,
+        340,
+        13
+      ],
+      "score": 0.9990130066871643
+    },
+    {
+      "text": "Et cum imposuisset illis manus Panlus, venit Spiritus",
+      "box": [
+        373,
+        0,
+        628,
+        25
+      ],
+      "score": 0.970445454120636
+    },
+    {
+      "text": "18. Qui cum venisseut ad eum, et simul essent, dixit es:",
+      "box": [
+        640,
+        9,
+        909,
+        36
+      ],
+      "score": 0.8454802632331848
+    },
+    {
+      "text": "27",
+      "box": [
+        883,
+        0,
+        899,
+        12
+      ],
+      "score": 0.9999784231185913
+    },
+    {
+      "text": "quanm celeriter venirent ad illum, profecti sunt.",
+      "box": [
+        58,
+        12,
+        270,
+        25
+      ],
+      "score": 0.9716092348098755
+    },
+    {
+      "text": "Sanctus super eos, et loquebantur linguis, et prophetabaut.",
+      "box": [
+        348,
+        11,
+        609,
+        36
+      ],
+      "score": 0.9628210067749023
+    },
+    {
+      "text": "16. Paulus autem cum Athenis eos expectaret, incitabatur",
+      "box": [
+        66,
+        23,
+        341,
+        36
+      ],
+      "score": 0.9858620762825012
+    },
+    {
+      "text": "7. Erant autem omnes viri fere duodeein.",
+      "box": [
+        356,
+        22,
+        550,
+        45
+      ],
+      "score": 0.8409664034843445
+    },
+    {
+      "text": "Vos scitis, a prima die, qua ingressus sum in Asiam, qualiter",
+      "box": [
+        634,
+        21,
+        907,
+        45
+      ],
+      "score": 0.9750097393989563
+    },
+    {
+      "text": "spiritus ejus in ipso, videns idololatrim deditam civitatem,",
+      "box": [
+        58,
+        34,
+        322,
+        47
+      ],
+      "score": 0.9652305841445923
+    },
+    {
+      "text": "8. Introgresus antem synagogam, cum fiducia loquebatur",
+      "box": [
+        355,
+        32,
+        626,
+        57
+      ],
+      "score": 0.7092939019203186
+    },
+    {
+      "text": "vobiscum per omue tempus fuerim,",
+      "box": [
+        632,
+        31,
+        787,
+        51
+      ],
+      "score": 0.8786635398864746
+    },
+    {
+      "text": "17. Disputabat igitur in synagoga cum Judaeis, et colenti-",
+      "box": [
+        66,
+        44,
+        340,
+        58
+      ],
+      "score": 0.968405544757843
+    },
+    {
+      "text": "per tres menses, disputans, et suadens de regno Dei",
+      "box": [
+        347,
+        43,
+        579,
+        65
+      ],
+      "score": 0.9385889768600464
+    },
+    {
+      "text": "19. Serviens Domino cum omni humilitate, et laerymis,",
+      "box": [
+        640,
+        41,
+        905,
+        64
+      ],
+      "score": 0.9511348605155945
+    },
+    {
+      "text": "bus, et in foro, per omnes dies ad eos, qui aderant.",
+      "box": [
+        60,
+        56,
+        288,
+        67
+      ],
+      "score": 0.9872095584869385
+    },
+    {
+      "text": "9. Oum autem quidam indurareutur, et non credereut, ma-",
+      "box": [
+        354,
+        53,
+        625,
+        76
+      ],
+      "score": 0.925711452960968
+    },
+    {
+      "text": "et tentationibus, qum mihi acciderunt ex insidlis Judmorum:",
+      "box": [
+        631,
+        51,
+        895,
+        73
+      ],
+      "score": 0.9252630472183228
+    },
+    {
+      "text": "18. Quidam sutem Epicurei, et Stoici philosophi dissere-",
+      "box": [
+        67,
+        65,
+        340,
+        78
+      ],
+      "score": 0.9615491032600403
+    },
+    {
+      "text": "ledicentes viam Domini coram multitudiue, discedens ab eis,",
+      "box": [
+        347,
+        63,
+        624,
+        85
+      ],
+      "score": 0.8945633769035339
+    },
+    {
+      "text": "20. Quomodo nibil subtraxerim utilium, quo miaus annun-",
+      "box": [
+        639,
+        60,
+        904,
+        83
+      ],
+      "score": 0.8230810761451721
+    },
+    {
+      "text": "bant cum eo, et quidam dicebaut: Quid vult seminiverbius hic",
+      "box": [
+        60,
+        75,
+        341,
+        88
+      ],
+      "score": 0.9860919713973999
+    },
+    {
+      "text": "segregavit discipulos, quotidie disputans in schola Tyranni",
+      "box": [
+        347,
+        75,
+        624,
+        95
+      ],
+      "score": 0.9723227024078369
+    },
+    {
+      "text": "tiarem vobis, et docerem vos publice, et per domos,",
+      "box": [
+        631,
+        70,
+        856,
+        92
+      ],
+      "score": 0.9580532908439636
+    },
+    {
+      "text": "dicere! Alii vero: Novorum dmmoniorum videtar annuntiator",
+      "box": [
+        60,
+        85,
+        340,
+        98
+      ],
+      "score": 0.9312337636947632
+    },
+    {
+      "text": "cujusdam.",
+      "box": [
+        349,
+        87,
+        396,
+        98
+      ],
+      "score": 0.996753454208374
+    },
+    {
+      "text": "21. Testifücans Judeis atque gentilibus in Deum poniten-",
+      "box": [
+        638,
+        81,
+        903,
+        103
+      ],
+      "score": 0.9264346361160278
+    },
+    {
+      "text": "esse: quia Jesum, et resurrectionem annuntiabat eis.",
+      "box": [
+        60,
+        96,
+        296,
+        109
+      ],
+      "score": 0.9616696238517761
+    },
+    {
+      "text": "10. Hoc autem factum est per bienninm, fta ut omnes, qui",
+      "box": [
+        353,
+        95,
+        624,
+        115
+      ],
+      "score": 0.9785094857215881
+    },
+    {
+      "text": "tiam, et fidem in Dominum nostrum Jesum Christum.",
+      "box": [
+        631,
+        91,
+        864,
+        112
+      ],
+      "score": 0.9856973886489868
+    },
+    {
+      "text": "19. \"Et apprelhensum eum ad Areopagum duxerunt, di-",
+      "box": [
+        69,
+        106,
+        340,
+        120
+      ],
+      "score": 0.9466252326965332
+    },
+    {
+      "text": "habitabant in Asia, audirent verbum Domini, Judmi, atque",
+      "box": [
+        347,
+        106,
+        623,
+        125
+      ],
+      "score": 0.9449312090873718
+    },
+    {
+      "text": "22. Et nunc ecce alligatus ego spiritu, vado in Jerusalem,",
+      "box": [
+        638,
+        101,
+        900,
+        123
+      ],
+      "score": 0.9565228223800659
+    },
+    {
+      "text": "centes: Possumus seire que est hee uova, que a te dicitur, doe-",
+      "box": [
+        59,
+        114,
+        340,
+        133
+      ],
+      "score": 0.7824153304100037
+    },
+    {
+      "text": "geutiles.",
+      "box": [
+        349,
+        119,
+        388,
+        130
+      ],
+      "score": 0.9919631481170654
+    },
+    {
+      "text": "que in ea ventura siat mihi, ignorans:",
+      "box": [
+        629,
+        111,
+        797,
+        129
+      ],
+      "score": 0.8979532122612
+    },
+    {
+      "text": "trina?",
+      "box": [
+        61,
+        127,
+        90,
+        138
+      ],
+      "score": 0.997035562992096
+    },
+    {
+      "text": "11. Virtatesque nom quaslibet faciebat Deus per manum",
+      "box": [
+        353,
+        125,
+        623,
+        147
+      ],
+      "score": 0.977882444858551
+    },
+    {
+      "text": "23. Nisi quod Spiritus Sanctus per omnes civitates mihi",
+      "box": [
+        637,
+        121,
+        901,
+        141
+      ],
+      "score": 0.9389865398406982
+    },
+    {
+      "text": "20. Nova enim quedam infers auribus nostris: Volumus",
+      "box": [
+        67,
+        134,
+        341,
+        153
+      ],
+      "score": 0.9864041805267334
+    },
+    {
+      "text": "Pauli:",
+      "box": [
+        346,
+        136,
+        380,
+        153
+      ],
+      "score": 0.9834298491477966
+    },
+    {
+      "text": "protestatur, dicens: Quoaiam vincula, et tribulationes Jeroso-",
+      "box": [
+        629,
+        131,
+        900,
+        151
+      ],
+      "score": 0.96418696641922
+    },
+    {
+      "text": "ergo scire quidnam velint hec esse.",
+      "box": [
+        59,
+        147,
+        217,
+        164
+      ],
+      "score": 0.9395296573638916
+    },
+    {
+      "text": "12. Ita ut etiam super languidos deferrentur a corpore ejus",
+      "box": [
+        355,
+        147,
+        621,
+        165
+      ],
+      "score": 0.9933741092681885
+    },
+    {
+      "text": "lymis me manent.",
+      "box": [
+        631,
+        141,
+        710,
+        156
+      ],
+      "score": 0.9376356601715088
+    },
+    {
+      "text": ". (Athenienses autem omnes, et advee hospites, ad niil",
+      "box": [
+        66,
+        157,
+        340,
+        175
+      ],
+      "score": 0.6709509491920471
+    },
+    {
+      "text": "sudaria et semicinetia, et recedebant ab eis languores, et spiri-",
+      "box": [
+        347,
+        158,
+        621,
+        175
+      ],
+      "score": 0.9325371980667114
+    },
+    {
+      "text": "24. Sed nihil horam vereor: nec facio animam meam pretio-",
+      "box": [
+        635,
+        151,
+        898,
+        171
+      ],
+      "score": 0.959380567073822
+    },
+    {
+      "text": "aliud vacabant, nisi aut dicere, aut andire aliquid novi)",
+      "box": [
+        60,
+        168,
+        312,
+        184
+      ],
+      "score": 0.8556810617446899
+    },
+    {
+      "text": "slorem quam me, dummodo cousammem cursum meum, et mi-",
+      "box": [
+        627,
+        161,
+        897,
+        181
+      ],
+      "score": 0.9255194664001465
+    },
+    {
+      "text": "22. Stans autem Paulus in medio Areopagi ait: Viri Athe-",
+      "box": [
+        67,
+        178,
+        340,
+        196
+      ],
+      "score": 0.8693456649780273
+    },
+    {
+      "text": "tus nequam egrediebautur.",
+      "box": [
+        348,
+        171,
+        466,
+        184
+      ],
+      "score": 0.9910889267921448
+    },
+    {
+      "text": "nisterium verba, quod accipi a Domino Jesa, testifcari Evange-",
+      "box": [
+        627,
+        170,
+        895,
+        191
+      ],
+      "score": 0.7742219567298889
+    },
+    {
+      "text": "nienses, per omnia quasi superstitiosiores vos video.",
+      "box": [
+        59,
+        189,
+        291,
+        206
+      ],
+      "score": 0.9861446022987366
+    },
+    {
+      "text": "exoreistis, invocare super eos, qui habebant spiritus malos, no-",
+      "box": [
+        347,
+        192,
+        620,
+        205
+      ],
+      "score": 0.9816732406616211
+    },
+    {
+      "text": "13. Tentaverant autem quidam et de cireameuntibus Judeis",
+      "box": [
+        356,
+        183,
+        619,
+        193
+      ],
+      "score": 0.9641284942626953
+    },
+    {
+      "text": "lium gratim Dei.",
+      "box": [
+        629,
+        184,
+        700,
+        195
+      ],
+      "score": 0.9661593437194824
+    },
+    {
+      "text": "23. Prateriena enim, et videns simalaera vestra, inveni et",
+      "box": [
+        68,
+        198,
+        341,
+        218
+      ],
+      "score": 0.6852689981460571
+    },
+    {
+      "text": "25. Et úunc ecce ego scio, quia amplius non videbitis fa-",
+      "box": [
+        634,
+        192,
+        894,
+        210
+      ],
+      "score": 0.9386453032493591
+    },
+    {
+      "text": "aram, in qua seriptum erat: Ionoto Deo. Quod ergo ignoran-",
+      "box": [
+        59,
+        210,
+        339,
+        227
+      ],
+      "score": 0.8536197543144226
+    },
+    {
+      "text": "men Domini Jesu, dicentes: Adjuro vos per Jesum, quem Pau-",
+      "box": [
+        347,
+        203,
+        619,
+        216
+      ],
+      "score": 0.9747903347015381
+    },
+    {
+      "text": "ciem meam vos omnes, per quos transivi predicans regnum",
+      "box": [
+        626,
+        202,
+        894,
+        221
+      ],
+      "score": 0.9675079584121704
+    },
+    {
+      "text": "tes colitis, hoc ego aununtio vobis.",
+      "box": [
+        60,
+        220,
+        214,
+        237
+      ],
+      "score": 0.9638814926147461
+    },
+    {
+      "text": "lus predicat.",
+      "box": [
+        348,
+        214,
+        406,
+        225
+      ],
+      "score": 0.9981397986412048
+    },
+    {
+      "text": "Dei.",
+      "box": [
+        627,
+        212,
+        649,
+        226
+      ],
+      "score": 0.9240155220031738
+    },
+    {
+      "text": "24. Deus, qui fecit mundum,",
+      "box": [
+        68,
+        230,
+        215,
+        247
+      ],
+      "score": 0.975365400314331
+    },
+    {
+      "text": "14. Ersnt autem quidam Judmi Soevm principis sacerdotum",
+      "box": [
+        354,
+        222,
+        619,
+        235
+      ],
+      "score": 0.9587581753730774
+    },
+    {
+      "text": "26. Quapropter contestor vos hodierna die, quia mundus",
+      "box": [
+        633,
+        221,
+        893,
+        239
+      ],
+      "score": 0.9805975556373596
+    },
+    {
+      "text": "hie ceeli et terre cum sit Dominus,",
+      "box": [
+        59,
+        239,
+        216,
+        258
+      ],
+      "score": 0.9105649590492249
+    },
+    {
+      "text": "et omnia que in eo sunt,",
+      "box": [
+        212,
+        234,
+        338,
+        247
+      ],
+      "score": 0.9902479648590088
+    },
+    {
+      "text": "septem filii, qui hoe faciebant.",
+      "box": [
+        346,
+        234,
+        478,
+        244
+      ],
+      "score": 0.9354833364486694
+    },
+    {
+      "text": "15. Respondens autem spiritus nequam dixit eis: Jesum",
+      "box": [
+        352,
+        241,
+        618,
+        256
+      ],
+      "score": 0.9682281017303467
+    },
+    {
+      "text": "sum a sanguine onmium.",
+      "box": [
+        625,
+        233,
+        734,
+        245
+      ],
+      "score": 0.9331409335136414
+    },
+    {
+      "text": "habitat,",
+      "box": [
+        59,
+        248,
+        100,
+        265
+      ],
+      "score": 0.9842837452888489
+    },
+    {
+      "text": "non in mannfactis templis",
+      "box": [
+        214,
+        243,
+        339,
+        258
+      ],
+      "score": 0.9901136755943298
+    },
+    {
+      "text": "27. Non euim subterfugi, quo minus annuntiarem omme",
+      "box": [
+        633,
+        241,
+        892,
+        259
+      ],
+      "score": 0.9550285935401917
+    },
+    {
+      "text": "2. Nee manibus humanis colitur indigens aliquo, cum ipse",
+      "box": [
+        67,
+        258,
+        339,
+        281
+      ],
+      "score": 0.9080718159675598
+    },
+    {
+      "text": "novi, et Paulum seio: vos nutem qui estis?",
+      "box": [
+        345,
+        251,
+        529,
+        266
+      ],
+      "score": 0.872901201248169
+    },
+    {
+      "text": "16. Et insiliens in eos homo, in quo erat demonium pesi-",
+      "box": [
+        353,
+        261,
+        617,
+        276
+      ],
+      "score": 0.97966468334198
+    },
+    {
+      "text": "consilium Dei vobis.",
+      "box": [
+        625,
+        254,
+        712,
+        264
+      ],
+      "score": 0.9847537875175476
+    },
+    {
+      "text": "det omnibus vitam, et iuspirationem, et omnia:",
+      "box": [
+        58,
+        269,
+        276,
+        291
+      ],
+      "score": 0.8491679430007935
+    },
+    {
+      "text": "28. Attendite vobis, et universo gregi, in quo vos Spiritus",
+      "box": [
+        632,
+        261,
+        890,
+        279
+      ],
+      "score": 0.9749350547790527
+    },
+    {
+      "text": "mum, et dominatus amborum, invaluít contra eos, ita ut nudi,",
+      "box": [
+        344,
+        271,
+        616,
+        287
+      ],
+      "score": 0.9110950231552124
+    },
+    {
+      "text": "Sanetus posuit episcopos, regere Ecclesiam Dei, quam acquisi-",
+      "box": [
+        624,
+        271,
+        890,
+        289
+      ],
+      "score": 0.95734703540802
+    },
+    {
+      "text": "et vulnerati effugerent de domo illa.",
+      "box": [
+        345,
+        282,
+        504,
+        297
+      ],
+      "score": 0.9386164546012878
+    },
+    {
+      "text": "vit sanguine suo.",
+      "box": [
+        626,
+        284,
+        697,
+        295
+      ],
+      "score": 0.9739248752593994
+    },
+    {
+      "text": "habitationis eorum,",
+      "box": [
+        59,
+        299,
+        149,
+        317
+      ],
+      "score": 0.9983993172645569
+    },
+    {
+      "text": "17. Hoe autem notum factum est omnibus Judmis, atque",
+      "box": [
+        353,
+        291,
+        617,
+        307
+      ],
+      "score": 0.9777436852455139
+    },
+    {
+      "text": "29. Ego scio quomiam intrabunt post discesmonem meam",
+      "box": [
+        630,
+        290,
+        889,
+        308
+      ],
+      "score": 0.9501587748527527
+    },
+    {
+      "text": "gentilibus, qui habitabaut Ephesi: et cecidit timor super omnes",
+      "box": [
+        344,
+        301,
+        616,
+        317
+      ],
+      "score": 0.9573286771774292
+    },
+    {
+      "text": "lupi rapaces in vos, non parcentes gregi.",
+      "box": [
+        622,
+        301,
+        795,
+        316
+      ],
+      "score": 0.9473958611488342
+    },
+    {
+      "text": "illos, et magnificabatur nomen Domini Jesu.",
+      "box": [
+        344,
+        312,
+        537,
+        327
+      ],
+      "score": 0.9370514750480652
+    },
+    {
+      "text": "30. Et ex vobis ipsis exirgent virí loquentes perversa, ut",
+      "box": [
+        629,
+        311,
+        889,
+        328
+      ],
+      "score": 0.9328434467315674
+    },
+    {
+      "text": "quamvis non longe sit ab unoquoque nostrum.",
+      "box": [
+        59,
+        321,
+        266,
+        339
+      ],
+      "score": 0.9873487949371338
+    },
+    {
+      "text": "18. Multique credentium veniebant confitentes, et annun-",
+      "box": [
+        351,
+        321,
+        615,
+        337
+      ],
+      "score": 0.9515436887741089
+    },
+    {
+      "text": "abducant discipulos post se.",
+      "box": [
+        623,
+        321,
+        744,
+        335
+      ],
+      "score": 0.9734532237052917
+    },
+    {
+      "text": "quidam vestrorum Poetarum dixerunt: Ipsius enim et genus",
+      "box": [
+        57,
+        339,
+        338,
+        361
+      ],
+      "score": 0.836362361907959
+    },
+    {
+      "text": "tiantes actus snos.",
+      "box": [
+        346,
+        335,
+        425,
+        345
+      ],
+      "score": 0.9680556058883667
+    },
+    {
+      "text": "S1. Propter quod vigilate, memoria retinentes, quoniam per",
+      "box": [
+        629,
+        330,
+        889,
+        347
+      ],
+      "score": 0.9603416919708252
+    },
+    {
+      "text": "19. Multi autem ex eis, qui fuerant curiosa sectati, contule-",
+      "box": [
+        353,
+        340,
+        615,
+        357
+      ],
+      "score": 0.9804354310035706
+    },
+    {
+      "text": "trienninm mocte et die nou cessavi, enm lacrymis monens unum-",
+      "box": [
+        622,
+        341,
+        888,
+        357
+      ],
+      "score": 0.9599654674530029
+    },
+    {
+      "text": "sumus.",
+      "box": [
+        60,
+        351,
+        92,
+        362
+      ],
+      "score": 0.9584971070289612
+    },
+    {
+      "text": "29. Genus ergo cum simus Dei, non debemus mstimare au-",
+      "box": [
+        66,
+        358,
+        338,
+        379
+      ],
+      "score": 0.9691494107246399
+    },
+    {
+      "text": "runt libros, et combusserunt coram omaibus: et computatis",
+      "box": [
+        343,
+        350,
+        614,
+        367
+      ],
+      "score": 0.9430106282234192
+    },
+    {
+      "text": "quemque vestrum.",
+      "box": [
+        622,
+        352,
+        702,
+        364
+      ],
+      "score": 0.9991999864578247
+    },
+    {
+      "text": "pretiis illorum, iuveuerunt pecuniam denariorum quinquaginta",
+      "box": [
+        343,
+        360,
+        614,
+        378
+      ],
+      "score": 0.9403010010719299
+    },
+    {
+      "text": "32. Et nune commendo vos Deo, et verbo gratie ipsins, qui",
+      "box": [
+        625,
+        360,
+        887,
+        376
+      ],
+      "score": 0.9142225384712219
+    },
+    {
+      "text": "minis, Divinum esse simile.",
+      "box": [
+        58,
+        379,
+        184,
+        397
+      ],
+      "score": 0.971533477306366
+    },
+    {
+      "text": "imillium.",
+      "box": [
+        345,
+        375,
+        384,
+        386
+      ],
+      "score": 0.9559515714645386
+    },
+    {
+      "text": "potens est redificare, et dare hmreditatem iu sanctificatis om-",
+      "box": [
+        620,
+        370,
+        888,
+        387
+      ],
+      "score": 0.909515917301178
+    },
+    {
+      "text": "30. Et tempora quidem hujus ignorantie despiciens Deus,",
+      "box": [
+        66,
+        388,
+        336,
+        410
+      ],
+      "score": 0.879466712474823
+    },
+    {
+      "text": "20. Ita fortite crescebat verbum Del, et confirmabatur.",
+      "box": [
+        352,
+        380,
+        595,
+        397
+      ],
+      "score": 0.9955886006355286
+    },
+    {
+      "text": "nibus.",
+      "box": [
+        622,
+        382,
+        650,
+        393
+      ],
+      "score": 0.996482789516449
+    },
+    {
+      "text": "nunc annuntiat homimibus ut",
+      "box": [
+        58,
+        399,
+        210,
+        418
+      ],
+      "score": 0.9212988615036011
+    },
+    {
+      "text": "21. His autem expletis, proposuit Paulus iu spiritu, transita",
+      "box": [
+        351,
+        389,
+        614,
+        408
+      ],
+      "score": 0.8294908404350281
+    },
+    {
+      "text": "33.",
+      "box": [
+        628,
+        391,
+        650,
+        404
+      ],
+      "score": 0.9273805022239685
+    },
+    {
+      "text": "Argentum, et aurum, aut vestem nullins concupivi,",
+      "box": [
+        651,
+        390,
+        886,
+        407
+      ],
+      "score": 0.9864926934242249
+    },
+    {
+      "text": "omues ubique penitentiam",
+      "box": [
+        203,
+        405,
+        336,
+        418
+      ],
+      "score": 0.9777927994728088
+    },
+    {
+      "text": "Macedonia et Achaia, ire Jerosolymam, dicens: Quoniam post-",
+      "box": [
+        344,
+        400,
+        614,
+        418
+      ],
+      "score": 0.901283323764801
+    },
+    {
+      "text": "slcut",
+      "box": [
+        622,
+        402,
+        646,
+        414
+      ],
+      "score": 0.9020179510116577
+    },
+    {
+      "text": "agant,",
+      "box": [
+        60,
+        412,
+        88,
+        423
+      ],
+      "score": 0.8406787514686584
+    },
+    {
+      "text": "31. Eo quod statuit diem, in quo judicaturus est orbem in",
+      "box": [
+        65,
+        419,
+        337,
+        440
+      ],
+      "score": 0.9855565428733826
+    },
+    {
+      "text": "quam fuero ibi, oportet me et Romam videre.",
+      "box": [
+        343,
+        413,
+        539,
+        428
+      ],
+      "score": 0.9657127857208252
+    },
+    {
+      "text": "34. Ipai seitis: quoniam ad ea, qum mihi opus eraut, et his,",
+      "box": [
+        627,
+        411,
+        886,
+        426
+      ],
+      "score": 0.9655464887619019
+    },
+    {
+      "text": "aquitate, in viro, in quo statuit, fidem prmbeus omaibus, sus-",
+      "box": [
+        58,
+        431,
+        336,
+        449
+      ],
+      "score": 0.9360646605491638
+    },
+    {
+      "text": "22. Mittens autem in Macedoniam duos ex ministrantibus",
+      "box": [
+        350,
+        421,
+        614,
+        438
+      ],
+      "score": 0.9665326476097107
+    },
+    {
+      "text": "quimecum sunt, ministraveruntmanus istm,",
+      "box": [
+        623,
+        424,
+        810,
+        434
+      ],
+      "score": 0.9886889457702637
+    },
+    {
+      "text": "sibi, Timotheum et Erastum, ipse remamsit ad tempus in Asia.",
+      "box": [
+        343,
+        431,
+        613,
+        448
+      ],
+      "score": 0.9464836716651917
+    },
+    {
+      "text": "35. Omuia ostendi vobis, quoniam sic laborantes, oportet",
+      "box": [
+        628,
+        431,
+        886,
+        446
+      ],
+      "score": 0.9355384111404419
+    },
+    {
+      "text": "citans eum a mortuis.",
+      "box": [
+        58,
+        441,
+        157,
+        456
+      ],
+      "score": 0.9644699096679688
+    },
+    {
+      "text": "32. Cum audissent autem resurrectionem mortuorum, qui-",
+      "box": [
+        66,
+        450,
+        336,
+        468
+      ],
+      "score": 0.9723285436630249
+    },
+    {
+      "text": "23. Facta est autem illo tempore turbatio non minima de",
+      "box": [
+        350,
+        442,
+        613,
+        458
+      ],
+      "score": 0.9807443618774414
+    },
+    {
+      "text": "suscipere infirmos, ac meminisse verbi Domini Jesu, quoniam",
+      "box": [
+        620,
+        442,
+        886,
+        456
+      ],
+      "score": 0.9680691361427307
+    },
+    {
+      "text": "dam quidem irridebant, quidanm vero dixerunt: Audiemus te",
+      "box": [
+        58,
+        461,
+        336,
+        479
+      ],
+      "score": 0.9775792956352234
+    },
+    {
+      "text": "via Domini.",
+      "box": [
+        344,
+        456,
+        397,
+        466
+      ],
+      "score": 0.9947158694267273
+    },
+    {
+      "text": "24. Demetrius euim quidam nomine, argentarius, faciens",
+      "box": [
+        350,
+        461,
+        613,
+        477
+      ],
+      "score": 0.9741842746734619
+    },
+    {
+      "text": "ipse dixit: Bentius est magis dare, quam accipere.",
+      "box": [
+        622,
+        454,
+        831,
+        464
+      ],
+      "score": 0.9906567335128784
+    },
+    {
+      "text": "36. Et cum hac dixisset, positis genibus suis oravit eum",
+      "box": [
+        628,
+        462,
+        885,
+        475
+      ],
+      "score": 0.9745473265647888
+    },
+    {
+      "text": "de hoc iterum.",
+      "box": [
+        60,
+        473,
+        125,
+        484
+      ],
+      "score": 0.957402229309082
+    },
+    {
+      "text": "33. Sic Paulus exivit de medio eorum.",
+      "box": [
+        66,
+        481,
+        242,
+        497
+      ],
+      "score": 0.9785423278808594
+    },
+    {
+      "text": "mdes argenteas Dianae, prestabat artificibus non modicum",
+      "box": [
+        341,
+        472,
+        613,
+        487
+      ],
+      "score": 0.9300922155380249
+    },
+    {
+      "text": "omnibus illis.",
+      "box": [
+        622,
+        474,
+        679,
+        484
+      ],
+      "score": 0.9781514406204224
+    },
+    {
+      "text": "34. Quidam vero viri adherentes ei, crediderunt: in quibus",
+      "box": [
+        66,
+        491,
+        335,
+        508
+      ],
+      "score": 0.923458456993103
+    },
+    {
+      "text": "questum:",
+      "box": [
+        343,
+        485,
+        391,
+        496
+      ],
+      "score": 0.983508825302124
+    },
+    {
+      "text": "25. Quos convocans, et eos, qui hujusmodi erant opifices,",
+      "box": [
+        349,
+        490,
+        613,
+        509
+      ],
+      "score": 0.8247724771499634
+    },
+    {
+      "text": "37. Magnus autem fletus factus est omnium; et procumbem-",
+      "box": [
+        627,
+        481,
+        884,
+        495
+      ],
+      "score": 0.9777290225028992
+    },
+    {
+      "text": "et Dionysus Areopaga, et muler nomine Damaris, e al",
+      "box": [
+        56,
+        500,
+        336,
+        520
+      ],
+      "score": 0.722197413444519
+    },
+    {
+      "text": "tes super collum Pauli, osculabantur eum,",
+      "box": [
+        620,
+        491,
+        800,
+        506
+      ],
+      "score": 0.963998019695282
+    },
+    {
+      "text": "dixit: Viri, seitis quia de hoe articio est nobis acquisitio:",
+      "box": [
+        342,
+        502,
+        592,
+        517
+      ],
+      "score": 0.8882860541343689
+    },
+    {
+      "text": "38. Dolentes maxime iu verbo, quod dixerat, quoníam am-",
+      "box": [
+        627,
+        500,
+        885,
+        516
+      ],
+      "score": 0.9590865969657898
+    },
+    {
+      "text": "cum eis.",
+      "box": [
+        59,
+        515,
+        96,
+        526
+      ],
+      "score": 0.960964024066925
+    },
+    {
+      "text": "26. Et videtis, et auditis, quia non solum Ephesi, sed pene",
+      "box": [
+        351,
+        514,
+        613,
+        527
+      ],
+      "score": 0.9823904037475586
+    },
+    {
+      "text": "plius faciem ejus non essent visurt. Et deducebant eum ad na-",
+      "box": [
+        619,
+        510,
+        885,
+        526
+      ],
+      "score": 0.9401659965515137
+    },
+    {
+      "text": "CAPUT XVIII",
+      "box": [
+        159,
+        522,
+        234,
+        539
+      ],
+      "score": 0.9991816878318787
+    },
+    {
+      "text": "totius Asie, Paulus hie suadens avertit multam turbam, dicens:",
+      "box": [
+        343,
+        524,
+        613,
+        537
+      ],
+      "score": 0.9695047736167908
+    },
+    {
+      "text": "Quoniam non sunt dii, qui manibus fiuut.",
+      "box": [
+        343,
+        534,
+        525,
+        547
+      ],
+      "score": 0.9758327603340149
+    },
+    {
+      "text": "vem.",
+      "box": [
+        622,
+        526,
+        643,
+        534
+      ],
+      "score": 0.985868513584137
+    },
+    {
+      "text": "CAPUT XXI",
+      "box": [
+        724,
+        530,
+        785,
+        544
+      ],
+      "score": 0.9900906682014465
+    },
+    {
+      "text": "1. Post hme egressus ab Athenis, venit Corinthum:",
+      "box": [
+        66,
+        542,
+        297,
+        558
+      ],
+      "score": 0.9691171646118164
+    },
+    {
+      "text": "27. Non solum antem hme periclitabitur nobis pars in re-",
+      "box": [
+        351,
+        543,
+        612,
+        556
+      ],
+      "score": 0.9901523590087891
+    },
+    {
+      "text": "2. Et inveniens queindam Judaum, nomine Aquilam, Pon-",
+      "box": [
+        66,
+        554,
+        336,
+        567
+      ],
+      "score": 0.928234875202179
+    },
+    {
+      "text": "dargutionem venire, sed et magute Diane templum in nihilum",
+      "box": [
+        342,
+        552,
+        612,
+        566
+      ],
+      "score": 0.9429728984832764
+    },
+    {
+      "text": "1. Cum autem factum esset ut navigaremus abstmeti ab eis,",
+      "box": [
+        628,
+        550,
+        884,
+        564
+      ],
+      "score": 0.9706123471260071
+    },
+    {
+      "text": "ticum genere, qui nuper venerat ab Italia, et Priscillam uxorem",
+      "box": [
+        58,
+        564,
+        335,
+        577
+      ],
+      "score": 0.9590759873390198
+    },
+    {
+      "text": "reputabitur, sed et destrui incipiet majestas ejus, quam tota",
+      "box": [
+        342,
+        563,
+        613,
+        576
+      ],
+      "score": 0.9847029447555542
+    },
+    {
+      "text": "recto cursu venimus Coum, et sequenti die Rhodum, et inde",
+      "box": [
+        619,
+        559,
+        885,
+        575
+      ],
+      "score": 0.9825221300125122
+    },
+    {
+      "text": "ejus, (eo quod precepisact Clandius discedcre omnes Judeos a",
+      "box": [
+        58,
+        573,
+        334,
+        586
+      ],
+      "score": 0.8884957432746887
+    },
+    {
+      "text": "Asia, et orbis colit.",
+      "box": [
+        343,
+        574,
+        428,
+        584
+      ],
+      "score": 0.9799180030822754
+    },
+    {
+      "text": "28. His auditis, repleti sunt ira, et exclamaverunt dicentes:",
+      "box": [
+        350,
+        582,
+        612,
+        595
+      ],
+      "score": 0.9750686883926392
+    },
+    {
+      "text": "Pataram.",
+      "box": [
+        621,
+        573,
+        660,
+        583
+      ],
+      "score": 0.9931772351264954
+    },
+    {
+      "text": "Roma) accessit ad eos.",
+      "box": [
+        58,
+        586,
+        157,
+        596
+      ],
+      "score": 0.9938209652900696
+    },
+    {
+      "text": "2. Et cum invenissemus navem transfretantem in Phoenicen,",
+      "box": [
+        625,
+        579,
+        884,
+        594
+      ],
+      "score": 0.9571260809898376
+    },
+    {
+      "text": "3. Et quis ejusdem erat artis, manebat apud eos, et opera-",
+      "box": [
+        65,
+        594,
+        334,
+        607
+      ],
+      "score": 0.9879568219184875
+    },
+    {
+      "text": "Magna Diana Ephesiorum.",
+      "box": [
+        342,
+        592,
+        458,
+        605
+      ],
+      "score": 0.9724534153938293
+    },
+    {
+      "text": "29. Et impleta est eivitas confusione, et impetum fecerunt",
+      "box": [
+        349,
+        599,
+        612,
+        615
+      ],
+      "score": 0.9749559164047241
+    },
+    {
+      "text": "ascendeutes navigavimus.",
+      "box": [
+        621,
+        592,
+        729,
+        602
+      ],
+      "score": 0.9967635273933411
+    },
+    {
+      "text": "batur (eraut autem seenofactorim artis).",
+      "box": [
+        58,
+        604,
+        233,
+        617
+      ],
+      "score": 0.922776997089386
+    },
+    {
+      "text": "3. Cum apparuissemus sutem Cypro, reliaquentes eam ad",
+      "box": [
+        623,
+        598,
+        884,
+        613
+      ],
+      "score": 0.9648438692092896
+    },
+    {
+      "text": "4. Et disputabat in synagoga per omne sabbatum, inter-",
+      "box": [
+        65,
+        611,
+        334,
+        629
+      ],
+      "score": 0.9761145114898682
+    },
+    {
+      "text": "uno amimo in theatrum, rapto Gaio et Aristarcho Macedonibus,",
+      "box": [
+        340,
+        610,
+        611,
+        625
+      ],
+      "score": 0.9691852927207947
+    },
+    {
+      "text": "sinistram, navigavimus in Syriam, et venimus Tyrum: ibi enim",
+      "box": [
+        618,
+        608,
+        884,
+        624
+      ],
+      "score": 0.9677865505218506
+    },
+    {
+      "text": "ponens nomen Dómini Jesu, suadebatque Judeis, et Grmecis.",
+      "box": [
+        56,
+        621,
+        324,
+        639
+      ],
+      "score": 0.8666525483131409
+    },
+    {
+      "text": "comitibus Pauli.",
+      "box": [
+        343,
+        623,
+        415,
+        634
+      ],
+      "score": 0.9865603446960449
+    },
+    {
+      "text": "navis expositura erat oaus.",
+      "box": [
+        621,
+        621,
+        736,
+        632
+      ],
+      "score": 0.9877078533172607
+    },
+    {
+      "text": "5. Cum venissent auten de Macedonia Silas et Timothens,",
+      "box": [
+        64,
+        632,
+        333,
+        648
+      ],
+      "score": 0.9555277228355408
+    },
+    {
+      "text": "30. Paulo autem voleute intare in populum, non permise-",
+      "box": [
+        347,
+        629,
+        611,
+        644
+      ],
+      "score": 0.9677188992500305
+    },
+    {
+      "text": "4. Inventis autem discipulis, mansimus ibi diebus septem:",
+      "box": [
+        625,
+        628,
+        883,
+        643
+      ],
+      "score": 0.9457350373268127
+    },
+    {
+      "text": "instabat verbo Paulus, testificsns Judmis esse Christum Jesum.",
+      "box": [
+        57,
+        641,
+        332,
+        658
+      ],
+      "score": 0.9555954337120056
+    },
+    {
+      "text": "runt discipuli",
+      "box": [
+        341,
+        641,
+        404,
+        652
+      ],
+      "score": 0.9656389355659485
+    },
+    {
+      "text": "qui Paulo dicebant per Spiritum ne ascenderet Jerosolymam.",
+      "box": [
+        619,
+        640,
+        873,
+        650
+      ],
+      "score": 0.9782232642173767
+    },
+    {
+      "text": "6. Contradicentibus autem eis, et blaspheauantibus, excu-",
+      "box": [
+        65,
+        651,
+        333,
+        668
+      ],
+      "score": 0.9738475680351257
+    },
+    {
+      "text": "31. Quidem autem et de Asim principibus, qui erant amici",
+      "box": [
+        348,
+        648,
+        610,
+        664
+      ],
+      "score": 0.9372392892837524
+    },
+    {
+      "text": "5. Et expletis diebus profecti ibamus, deducentibus nos om-",
+      "box": [
+        625,
+        648,
+        883,
+        662
+      ],
+      "score": 0.9742968082427979
+    },
+    {
+      "text": "tiens vestimenta sua, dixit ad eos: Sanguis vester super caput",
+      "box": [
+        56,
+        661,
+        334,
+        678
+      ],
+      "score": 0.979604959487915
+    },
+    {
+      "text": "ejus, miserunt ad eum rogantes ne se daret in theatrum:",
+      "box": [
+        339,
+        659,
+        585,
+        674
+      ],
+      "score": 0.9699692726135254
+    },
+    {
+      "text": "nibus cum uxoribus, ct filiis usque foras civitatem: et positis",
+      "box": [
+        618,
+        659,
+        883,
+        672
+      ],
+      "score": 0.9666628241539001
+    },
+    {
+      "text": "vestrum: mundus ego, ex hoc ad gentes vadam.",
+      "box": [
+        56,
+        671,
+        267,
+        688
+      ],
+      "score": 0.9647569060325623
+    },
+    {
+      "text": "32. Alii antem aliud elamabant. Erat enim Ecclesia confusa:",
+      "box": [
+        347,
+        668,
+        610,
+        683
+      ],
+      "score": 0.9064913988113403
+    },
+    {
+      "text": "genibus in littore, oravimus.",
+      "box": [
+        618,
+        669,
+        738,
+        682
+      ],
+      "score": 0.9970548748970032
+    },
+    {
+      "text": "7. Et migrans inde, intravit in domum cujusdam, nomine",
+      "box": [
+        64,
+        680,
+        333,
+        697
+      ],
+      "score": 0.9807597994804382
+    },
+    {
+      "text": "et plures nesciebant qua ex causa convenissent.",
+      "box": [
+        340,
+        680,
+        543,
+        692
+      ],
+      "score": 0.9832465648651123
+    },
+    {
+      "text": "6. Et cum valefecissemus invicem, ascendimus navem: illi",
+      "box": [
+        626,
+        677,
+        883,
+        690
+      ],
+      "score": 0.9376068115234375
+    },
+    {
+      "text": "Titi Justi, colentis Deum, cujus domus erat conjuucta syna-",
+      "box": [
+        56,
+        691,
+        332,
+        707
+      ],
+      "score": 0.9847816228866577
+    },
+    {
+      "text": "bus eum Judmis. Alexander autem manu silentio postulato, vo-",
+      "box": [
+        339,
+        698,
+        609,
+        713
+      ],
+      "score": 0.9569320678710938
+    },
+    {
+      "text": ". De turba antem detraxerunt Alexaudrum, propellenti-",
+      "box": [
+        347,
+        687,
+        609,
+        704
+      ],
+      "score": 0.9549189805984497
+    },
+    {
+      "text": "autem redierunt in sua.",
+      "box": [
+        619,
+        690,
+        717,
+        700
+      ],
+      "score": 0.9787712097167969
+    },
+    {
+      "text": "gogie.",
+      "box": [
+        57,
+        706,
+        83,
+        718
+      ],
+      "score": 0.8567888140678406
+    },
+    {
+      "text": "maidam: et salutatis fratribus, mansimus die uua apud illos.",
+      "box": [
+        617,
+        707,
+        871,
+        721
+      ],
+      "score": 0.915769636631012
+    },
+    {
+      "text": "7. Nos vero navigatione expleta, a Tyro descendimus Ptole-",
+      "box": [
+        625,
+        698,
+        882,
+        711
+      ],
+      "score": 0.9877545833587646
+    },
+    {
+      "text": "8. Crispns autem archisynagogus credidit Domino cum",
+      "box": [
+        64,
+        709,
+        332,
+        728
+      ],
+      "score": 0.9764268398284912
+    },
+    {
+      "text": "lebat reddere rationein populo.",
+      "box": [
+        339,
+        709,
+        473,
+        723
+      ],
+      "score": 0.966018557548523
+    },
+    {
+      "text": "omni domo sua: et multi Corinthiorum audientes credebant, et",
+      "box": [
+        56,
+        720,
+        332,
+        738
+      ],
+      "score": 0.9653171300888062
+    },
+    {
+      "text": "34, Quem ut cognoverunt Judeum esse, vox facta una est",
+      "box": [
+        346,
+        717,
+        609,
+        735
+      ],
+      "score": 0.9580508470535278
+    },
+    {
+      "text": "domum Philippi evangelista, qui erat umus de septem, mansi-",
+      "box": [
+        616,
+        727,
+        882,
+        743
+      ],
+      "score": 0.8556706309318542
+    },
+    {
+      "text": "8. Alia autem die profecti, venimus Cresaream. Et intrantes",
+      "box": [
+        625,
+        718,
+        882,
+        731
+      ],
+      "score": 0.9413729310035706
+    },
+    {
+      "text": "baptizabantur.",
+      "box": [
+        59,
+        734,
+        123,
+        746
+      ],
+      "score": 0.9651085734367371
+    },
+    {
+      "text": "omnium, quasi per horas duas clamantium: Magna Diana Ephe-",
+      "box": [
+        338,
+        727,
+        609,
+        745
+      ],
+      "score": 0.9672918915748596
+    },
+    {
+      "text": "9. Dixit autem Dominus nocte per visionem Paulo: Noli",
+      "box": [
+        64,
+        737,
+        331,
+        758
+      ],
+      "score": 0.9056891202926636
+    },
+    {
+      "text": "siorum.",
+      "box": [
+        339,
+        743,
+        375,
+        753
+      ],
+      "score": 0.9844385981559753
+    },
+    {
+      "text": "mus apud eum.",
+      "box": [
+        618,
+        740,
+        683,
+        751
+      ],
+      "score": 0.989963948726654
+    },
+    {
+      "text": "timere, sed loquere, et ne taceas:",
+      "box": [
+        56,
+        751,
+        204,
+        767
+      ],
+      "score": 0.971332311630249
+    },
+    {
+      "text": "35. Et cum sedasset scriba turbas, dixit: Viri Ephesii, quis",
+      "box": [
+        345,
+        747,
+        610,
+        764
+      ],
+      "score": 0.9647791981697083
+    },
+    {
+      "text": "9. Huie autem erant quatnor filim virgines prophetantes.",
+      "box": [
+        624,
+        747,
+        871,
+        762
+      ],
+      "score": 0.9593247175216675
+    },
+    {
+      "text": "10. Propter quod ego sum tecum: et nemo apponetur tíbí",
+      "box": [
+        65,
+        759,
+        331,
+        776
+      ],
+      "score": 0.9627749919891357
+    },
+    {
+      "text": "enim est hominum, qui nesciat Ephesiorum civitatem cultricem",
+      "box": [
+        337,
+        757,
+        610,
+        773
+      ],
+      "score": 0.9770454168319702
+    },
+    {
+      "text": "10. Et cum moraremur per dies aliquot, supervenit quidam",
+      "box": [
+        624,
+        757,
+        881,
+        772
+      ],
+      "score": 0.9677749276161194
+    },
+    {
+      "text": "ut noceat te: quoniam populus est mihi multus in hac civitate.",
+      "box": [
+        56,
+        769,
+        330,
+        786
+      ],
+      "score": 0.9749422669410706
+    },
+    {
+      "text": "esse magne Dianm, Jovisque prolis?",
+      "box": [
+        338,
+        769,
+        493,
+        782
+      ],
+      "score": 0.9223124384880066
+    },
+    {
+      "text": "a Judgea propheta, nomine Agabns.",
+      "box": [
+        617,
+        768,
+        767,
+        780
+      ],
+      "score": 0.9390394687652588
+    },
+    {
+      "text": "11. Sedit autem ibi annum et sex menses, docens apud eos",
+      "box": [
+        64,
+        779,
+        331,
+        795
+      ],
+      "score": 0.9810851812362671
+    },
+    {
+      "text": "36. Cum ergo lis contradici non possit, oportet vos sédatos",
+      "box": [
+        345,
+        777,
+        609,
+        792
+      ],
+      "score": 0.9373399019241333
+    },
+    {
+      "text": "11. Is cum venisset ad nos, tulit zouam Paull: et alligans",
+      "box": [
+        625,
+        779,
+        880,
+        789
+      ],
+      "score": 0.9937664270401001
+    },
+    {
+      "text": "verbum Dei.",
+      "box": [
+        56,
+        789,
+        114,
+        805
+      ],
+      "score": 0.9875984191894531
+    },
+    {
+      "text": "esse, et mihil temere agere.",
+      "box": [
+        337,
+        789,
+        454,
+        801
+      ],
+      "score": 0.963801383972168
+    },
+    {
+      "text": "37. Adduxistis euim homines istos, neque sacrilegos, neque",
+      "box": [
+        344,
+        797,
+        609,
+        812
+      ],
+      "score": 0.9812686443328857
+    },
+    {
+      "text": "sibi podes, et manus, dixit: Hec dicit Spiritus Sauctus: Virum,",
+      "box": [
+        618,
+        789,
+        880,
+        799
+      ],
+      "score": 0.9638200402259827
+    },
+    {
+      "text": "12. Gallione autem proconsule Achaie, insurrexerunt uno",
+      "box": [
+        63,
+        797,
+        330,
+        814
+      ],
+      "score": 0.9065014123916626
+    },
+    {
+      "text": "blasphemantes deam vestam.",
+      "box": [
+        337,
+        807,
+        467,
+        821
+      ],
+      "score": 0.966852605342865
+    },
+    {
+      "text": "cujus est zona hæc, sic alligabunt in Jérusalem Judai, et trn-",
+      "box": [
+        617,
+        799,
+        879,
+        809
+      ],
+      "score": 0.9580122232437134
+    },
+    {
+      "text": "animo Jadaei in Paulum, et adduxerant eum ad tribunal,",
+      "box": [
+        55,
+        807,
+        309,
+        823
+      ],
+      "score": 0.9350067973136902
+    },
+    {
+      "text": "deat in manus gentium.",
+      "box": [
+        617,
+        807,
+        720,
+        819
+      ],
+      "score": 0.993687629699707
+    },
+    {
+      "text": "13. Dicentes: Quia contra legem hie persuadet hominibus",
+      "box": [
+        63,
+        818,
+        330,
+        833
+      ],
+      "score": 0.979599118232727
+    },
+    {
+      "text": "38. Quod si Demetrius, et qui cum eo sunt artifices, habent",
+      "box": [
+        344,
+        815,
+        609,
+        831
+      ],
+      "score": 0.9794031381607056
+    },
+    {
+      "text": "12. Quod cum audissemus, rogabamus nos, et qui loci illins",
+      "box": [
+        624,
+        816,
+        881,
+        829
+      ],
+      "score": 0.9587442278862
+    },
+    {
+      "text": "colere Deum.",
+      "box": [
+        57,
+        828,
+        115,
+        843
+      ],
+      "score": 0.9855950474739075
+    },
+    {
+      "text": "adversus aliquem causam, conveatus forenses aguntur, et pro-",
+      "box": [
+        335,
+        826,
+        609,
+        841
+      ],
+      "score": 0.98223876953125
+    },
+    {
+      "text": "erant, ne ascendcret Jerosolymam.",
+      "box": [
+        617,
+        828,
+        763,
+        838
+      ],
+      "score": 0.9845467805862427
+    },
+    {
+      "text": "14. Incipiente autem Paulo aperire os, dixit Gallio ad Ja-",
+      "box": [
+        63,
+        837,
+        329,
+        853
+      ],
+      "score": 0.9764737486839294
+    },
+    {
+      "text": "consules sunt, accusent iuvicem.",
+      "box": [
+        336,
+        838,
+        475,
+        851
+      ],
+      "score": 0.959593653678894
+    },
+    {
+      "text": "13. Tune respondit Paulus, et dixit: Quid facitis flentes,",
+      "box": [
+        625,
+        836,
+        879,
+        850
+      ],
+      "score": 0.9642608165740967
+    },
+    {
+      "text": "deos; Si quidem esset iniquum aliquid, aut facinus pessimum,",
+      "box": [
+        56,
+        847,
+        328,
+        863
+      ],
+      "score": 0.9283969402313232
+    },
+    {
+      "text": "39. Si quid autem alterius rei qumritis, in legitima Ecclesia",
+      "box": [
+        344,
+        845,
+        609,
+        862
+      ],
+      "score": 0.9391255378723145
+    },
+    {
+      "text": "et affligentes cor meum? Ego enim non solum alligari, sed et",
+      "box": [
+        615,
+        845,
+        880,
+        860
+      ],
+      "score": 0.9378015995025635
+    },
+    {
+      "text": "o viri Judmi, recte vos sustinerem.",
+      "box": [
+        57,
+        861,
+        208,
+        871
+      ],
+      "score": 0.9839951395988464
+    },
+    {
+      "text": "poterit absolvi.",
+      "box": [
+        337,
+        860,
+        405,
+        871
+      ],
+      "score": 0.9980344176292419
+    },
+    {
+      "text": "40. Nam et perielitamur argui seditionis hodiernm: cum",
+      "box": [
+        344,
+        866,
+        609,
+        881
+      ],
+      "score": 0.9392083287239075
+    },
+    {
+      "text": "mori in Jernsalem paratus sum, propter nomen Domiai Jesu.",
+      "box": [
+        617,
+        858,
+        878,
+        868
+      ],
+      "score": 0.986570417881012
+    },
+    {
+      "text": "15. Si vero questiones sunt de verbo, et nominibus, et lege",
+      "box": [
+        65,
+        868,
+        329,
+        881
+      ],
+      "score": 0.9786363244056702
+    },
+    {
+      "text": "Dominivoluntas fiat.",
+      "box": [
+        617,
+        877,
+        705,
+        887
+      ],
+      "score": 0.9836867451667786
+    },
+    {
+      "text": "14. Et cum ei suadere non possemus, quievimus, dicentes",
+      "box": [
+        625,
+        868,
+        877,
+        878
+      ],
+      "score": 0.9826332926750183
+    },
+    {
+      "text": "vestra, vos ipsi videritis: judex ego horum nolo esse.",
+      "box": [
+        57,
+        878,
+        285,
+        890
+      ],
+      "score": 0.9837239384651184
+    },
+    {
+      "text": "nullus obmoxius sit (de quo possimus reddere rationem) con-",
+      "box": [
+        335,
+        876,
+        608,
+        891
+      ],
+      "score": 0.960005521774292
+    },
+    {
+      "text": "16. Et minavit eos a tribunalí.",
+      "box": [
+        66,
+        889,
+        206,
+        899
+      ],
+      "score": 0.9702627658843994
+    },
+    {
+      "text": "cursus istius. Et cum hec dixisset, dimisit Ecclesiam.",
+      "box": [
+        335,
+        886,
+        570,
+        901
+      ],
+      "score": 0.9601888060569763
+    },
+    {
+      "text": "salem.",
+      "box": [
+        616,
+        896,
+        646,
+        907
+      ],
+      "score": 0.9997944235801697
+    },
+    {
+      "text": "15. Post dies autem istos prwparati, asoendebamus in Jeru",
+      "box": [
+        624,
+        887,
+        877,
+        897
+      ],
+      "score": 0.9739969372749329
+    },
+    {
+      "text": "17. Apprehendentes autem omnes Sosthenem priucipem",
+      "box": [
+        64,
+        897,
+        327,
+        910
+      ],
+      "score": 0.9885704517364502
+    },
+    {
+      "text": "synagoge, percutiebant eum ante tribunal: et nihil eorum",
+      "box": [
+        56,
+        907,
+        329,
+        920
+      ],
+      "score": 0.9472290873527527
+    },
+    {
+      "text": "CAPUT XX",
+      "box": [
+        444,
+        906,
+        499,
+        917
+      ],
+      "score": 0.9998178482055664
+    },
+    {
+      "text": "16. Veneruut autem et ex discipulls a Cesarea nobiscum,",
+      "box": [
+        623,
+        906,
+        877,
+        916
+      ],
+      "score": 0.9675022959709167
+    },
+    {
+      "text": "Gallioni cure erat.",
+      "box": [
+        56,
+        916,
+        139,
+        929
+      ],
+      "score": 0.8770796060562134
+    },
+    {
+      "text": "18. Paulus vero cum adhue sustinuisset dies multos, fratri-",
+      "box": [
+        63,
+        925,
+        327,
+        938
+      ],
+      "score": 0.9854248762130737
+    },
+    {
+      "text": "1. Postquam antem cessavit tunaaltus, vocatis Paulus disci-",
+      "box": [
+        343,
+        922,
+        607,
+        939
+      ],
+      "score": 0.961644172668457
+    },
+    {
+      "text": "addueentes secum apud quena lhospitaremur Moasonem quem-",
+      "box": [
+        617,
+        916,
+        879,
+        926
+      ],
+      "score": 0.9567497372627258
+    },
+    {
+      "text": "dam Cyprium, autiquum iliseipulum.",
+      "box": [
+        617,
+        925,
+        773,
+        935
+      ],
+      "score": 0.9492385983467102
+    },
+    {
+      "text": "bus valefaciens, navigavit in Syriam, (et cum eo Priscilla, 'et",
+      "box": [
+        56,
+        935,
+        329,
+        948
+      ],
+      "score": 0.9412883520126343
+    },
+    {
+      "text": "palis, et exhortatus eos, valedixit, et profectus est ut iret in",
+      "box": [
+        335,
+        933,
+        607,
+        948
+      ],
+      "score": 0.9782044291496277
+    },
+    {
+      "text": "17. \"Ét cum veuissemus Jerosolymam, libenter exceperunt",
+      "box": [
+        622,
+        933,
+        880,
+        946
+      ],
+      "score": 0.9629136919975281
+    },
+    {
+      "text": "Aquila) qui sibi totonderat in Cenchris caput: habebat enim",
+      "box": [
+        55,
+        943,
+        329,
+        959
+      ],
+      "score": 0.8815783858299255
+    },
+    {
+      "text": "Macedoniam.",
+      "box": [
+        338,
+        946,
+        396,
+        956
+      ],
+      "score": 0.9977177977561951
+    },
+    {
+      "text": "nos fratres.",
+      "box": [
+        616,
+        944,
+        665,
+        954
+      ],
+      "score": 0.9983606934547424
+    },
+    {
+      "text": "votum.",
+      "box": [
+        57,
+        954,
+        88,
+        966
+      ],
+      "score": 0.9983710646629333
+    },
+    {
+      "text": "2 Cum antem perambulasset partes illas, et exhortatus eos",
+      "box": [
+        343,
+        951,
+        607,
+        968
+      ],
+      "score": 0.9712556004524231
+    },
+    {
+      "text": "18. Sequenti autem die introibat Paulus nobiscum ad Jaco-",
+      "box": [
+        618,
+        950,
+        880,
+        966
+      ],
+      "score": 0.9728943705558777
+    },
+    {
+      "text": "19. Devenitque Ephesum, et illos ibi reliquit. Ipse vero",
+      "box": [
+        63,
+        962,
+        328,
+        978
+      ],
+      "score": 0.9886340498924255
+    },
+    {
+      "text": "ingressus synagogam, disputabat cum Judeis.",
+      "box": [
+        54,
+        972,
+        256,
+        989
+      ],
+      "score": 0.851251482963562
+    },
+    {
+      "text": "fuisset malto sermone, venit ad Greciam:",
+      "box": [
+        336,
+        962,
+        518,
+        977
+      ],
+      "score": 0.9225772619247437
+    },
+    {
+      "text": "bum, ommesque collecti sunt seniores.",
+      "box": [
+        615,
+        964,
+        778,
+        974
+      ],
+      "score": 0.9878880381584167
+    },
+    {
+      "text": "20. Rogantibus aatem eis ut ampliori tempore maneret, non",
+      "box": [
+        62,
+        981,
+        329,
+        1000
+      ],
+      "score": 0.786280632019043
+    },
+    {
+      "text": "3. Ubi eum fecisset meuses tres, facte sunt illi insidim a Ju-",
+      "box": [
+        342,
+        972,
+        607,
+        987
+      ],
+      "score": 0.9557355046272278
+    },
+    {
+      "text": "19. Quos cum salutasset, narrabat per singula, qum Deus",
+      "box": [
+        622,
+        970,
+        879,
+        985
+      ],
+      "score": 0.9700231552124023
+    },
+    {
+      "text": "consensit,",
+      "box": [
+        56,
+        992,
+        103,
+        1006
+      ],
+      "score": 0.9969075918197632
+    },
+    {
+      "text": "deis navigaturo in Syriam: lhabuitque cousilium ut reverteretur",
+      "box": [
+        334,
+        982,
+        607,
+        997
+      ],
+      "score": 0.9530858397483826
+    },
+    {
+      "text": "fecisset in gentibus per miuisterium ipsfus.",
+      "box": [
+        616,
+        983,
+        796,
+        993
+      ],
+      "score": 0.9675660729408264
+    },
+    {
+      "text": "per Macedoniam.",
+      "box": [
+        336,
+        996,
+        411,
+        1006
+      ],
+      "score": 0.9660252332687378
+    },
+    {
+      "text": "20. At illi cum audisent, magnificabant Deum, dixeruutque",
+      "box": [
+        621,
+        990,
+        879,
+        1004
+      ],
+      "score": 0.9429287314414978
+    },
+    {
+      "text": "4. Comitatus est antem eum Sopater Pyrrhi Bereensis,",
+      "box": [
+        343,
+        1001,
+        606,
+        1017
+      ],
+      "score": 0.9865935444831848
+    },
+    {
+      "text": "el: Vides, frater, quot millia sunt in Judeis, qai erediderunt,",
+      "box": [
+        613,
+        1000,
+        879,
+        1014
+      ],
+      "score": 0.9522395133972168
+    },
+    {
+      "text": "volente, profectus est ab Epheso.",
+      "box": [
+        55,
+        1011,
+        201,
+        1028
+      ],
+      "score": 0.9870986938476562
+    },
+    {
+      "text": " E descenden Csarcam, ascendit, et salutavit Eccle",
+      "box": [
+        62,
+        1019,
+        328,
+        1040
+      ],
+      "score": 0.6356189846992493
+    },
+    {
+      "text": "Thessalonicensium vero Aristarchus, et Secuudus, ct Gaius",
+      "box": [
+        334,
+        1011,
+        607,
+        1027
+      ],
+      "score": 0.956209659576416
+    },
+    {
+      "text": "et omnes munlatores sunt legis.",
+      "box": [
+        614,
+        1011,
+        751,
+        1023
+      ],
+      "score": 0.9233185052871704
+    },
+    {
+      "text": "Derbeus, et Timothens: Asiani vero Tychicus et Troplinus.",
+      "box": [
+        334,
+        1021,
+        594,
+        1037
+      ],
+      "score": 0.941501259803772
+    },
+    {
+      "text": "21. Audierunt autem de te, quía discessionent doceas a",
+      "box": [
+        621,
+        1019,
+        880,
+        1033
+      ],
+      "score": 0.9347088932991028
+    },
+    {
+      "text": "siam, et descendit Antiochiam.",
+      "box": [
+        54,
+        1030,
+        193,
+        1047
+      ],
+      "score": 0.9684693813323975
+    },
+    {
+      "text": "5. Hi cum prmcessisseut, sustinueruat nos Troade:",
+      "box": [
+        341,
+        1032,
+        568,
+        1047
+      ],
+      "score": 0.8878483772277832
+    },
+    {
+      "text": "Moyse eorum, qui per gentes sunt, Judeorum: dicens non de-",
+      "box": [
+        613,
+        1029,
+        880,
+        1044
+      ],
+      "score": 0.9281220436096191
+    },
+    {
+      "text": "lans ex ordine Galatcam regnen, et Phrygam, conrmans",
+      "box": [
+        53,
+        1047,
+        328,
+        1071
+      ],
+      "score": 0.6568978428840637
+    },
+    {
+      "text": "6. Nos vero navigavimus post dies azymorum a Philippis, et",
+      "box": [
+        342,
+        1041,
+        606,
+        1057
+      ],
+      "score": 0.951586127281189
+    },
+    {
+      "text": "bere eos cireumcidere fllios suos, neque secundum consuetudi-",
+      "box": [
+        612,
+        1039,
+        880,
+        1054
+      ],
+      "score": 0.8886123895645142
+    },
+    {
+      "text": "omnes discipulos.",
+      "box": [
+        54,
+        1058,
+        133,
+        1077
+      ],
+      "score": 0.9257863163948059
+    },
+    {
+      "text": "venimus ad eos Troadem in diebus quiaque, ubi demorati su-",
+      "box": [
+        334,
+        1051,
+        605,
+        1068
+      ],
+      "score": 0.9230726957321167
+    },
+    {
+      "text": "nem ingredi.",
+      "box": [
+        613,
+        1052,
+        668,
+        1063
+      ],
+      "score": 0.9878256916999817
+    },
+    {
+      "text": "24. Judaus autem quidam, Apollo nomine, Alexandrinus",
+      "box": [
+        63,
+        1067,
+        328,
+        1089
+      ],
+      "score": 0.8274955153465271
+    },
+    {
+      "text": "mus diebus septem.",
+      "box": [
+        335,
+        1065,
+        419,
+        1076
+      ],
+      "score": 0.9945622682571411
+    },
+    {
+      "text": "22. Quid ergo est† ntique oportct convenire multitudinem:",
+      "box": [
+        620,
+        1059,
+        880,
+        1075
+      ],
+      "score": 0.9619536399841309
+    },
+    {
+      "text": "genere, vir eloquens, devenit Ephesum, potens in Seripturis.",
+      "box": [
+        54,
+        1078,
+        316,
+        1098
+      ],
+      "score": 0.8878129124641418
+    },
+    {
+      "text": "7. Una autem sabbati, cum convenissemus ad frangendum",
+      "box": [
+        341,
+        1070,
+        604,
+        1087
+      ],
+      "score": 0.9567527770996094
+    },
+    {
+      "text": "audient enim te supervenisse.",
+      "box": [
+        613,
+        1072,
+        740,
+        1083
+      ],
+      "score": 0.983131468296051
+    },
+    {
+      "text": " He era edous viam Dom e erve soa lose",
+      "box": [
+        63,
+        1086,
+        326,
+        1109
+      ],
+      "score": 0.5091248154640198
+    },
+    {
+      "text": "panem, Paulus disputabat cum eis, profecturus in crastinum,",
+      "box": [
+        332,
+        1082,
+        604,
+        1097
+      ],
+      "score": 0.9873319268226624
+    },
+    {
+      "text": "23. Hoe ergo fac quod tibi dicimas: sunt nobis viri quatuor,",
+      "box": [
+        619,
+        1080,
+        879,
+        1093
+      ],
+      "score": 0.9438552856445312
+    },
+    {
+      "text": "protaxitque sermonem usque in meliam noctem.",
+      "box": [
+        332,
+        1092,
+        543,
+        1107
+      ],
+      "score": 0.9576383233070374
+    },
+    {
+      "text": "votum habentes super se.",
+      "box": [
+        613,
+        1093,
+        722,
+        1103
+      ],
+      "score": 0.9908197522163391
+    },
+    {
+      "text": "haptisma Joannis.",
+      "box": [
+        54,
+        1107,
+        137,
+        1124
+      ],
+      "score": 0.9575682282447815
+    },
+    {
+      "text": "8. Erant autem lampades copiose in cenaculo, ubi cramus",
+      "box": [
+        340,
+        1101,
+        604,
+        1117
+      ],
+      "score": 0.9508727192878723
+    },
+    {
+      "text": "ut radant capita: et scient omnes, quia que de to audierunt,",
+      "box": [
+        611,
+        1109,
+        880,
+        1124
+      ],
+      "score": 0.9349535703659058
+    },
+    {
+      "text": "24. His assumptis, sanctificn te eum illis, etimpende in illis",
+      "box": [
+        620,
+        1099,
+        880,
+        1114
+      ],
+      "score": 0.9658761024475098
+    },
+    {
+      "text": "6. Hie ergo cepit fiducialiter agere in synagoga, Quem cum",
+      "box": [
+        62,
+        1116,
+        326,
+        1138
+      ],
+      "score": 0.8199827075004578
+    },
+    {
+      "text": "congregati.",
+      "box": [
+        333,
+        1112,
+        385,
+        1128
+      ],
+      "score": 0.9941524863243103
+    },
+    {
+      "text": "audissent Prsela et Asula, aasuperant e, et dligetis",
+      "box": [
+        53,
+        1125,
+        327,
+        1148
+      ],
+      "score": 0.5465174317359924
+    },
+    {
+      "text": "9. Sedens autem quidam adolesceas nomine Eutychus super",
+      "box": [
+        339,
+        1121,
+        605,
+        1136
+      ],
+      "score": 0.9775238037109375
+    },
+    {
+      "text": "falsa sunt, sed ambulas et ipse custodiens legem.",
+      "box": [
+        611,
+        1120,
+        820,
+        1134
+      ],
+      "score": 0.9552788734436035
+    },
+    {
+      "text": "exposuerunt ei viam Domini.",
+      "box": [
+        54,
+        1136,
+        184,
+        1154
+      ],
+      "score": 0.7972676753997803
+    },
+    {
+      "text": "fenestram, cum mergeretur somno gravi, disputante din Paulo,",
+      "box": [
+        333,
+        1133,
+        604,
+        1146
+      ],
+      "score": 0.9934823513031006
+    },
+    {
+      "text": "25. De his autem, qui crediderunt ex gentibus, nos scripsi-",
+      "box": [
+        619,
+        1129,
+        881,
+        1144
+      ],
+      "score": 0.9562565684318542
+    },
+    {
+      "text": "27. Cum autem vellet ire Achaiam, exhortati fratres, scrip-",
+      "box": [
+        61,
+        1144,
+        325,
+        1167
+      ],
+      "score": 0.8182259202003479
+    },
+    {
+      "text": "ductus sommo cecidit de tertio ceuaculo deorsum, et sublatus",
+      "box": [
+        333,
+        1143,
+        604,
+        1156
+      ],
+      "score": 0.965118944644928
+    },
+    {
+      "text": "mus, judicantes ut abstineant se ab idolis, immolato, et san-",
+      "box": [
+        611,
+        1139,
+        881,
+        1154
+      ],
+      "score": 0.9224278330802917
+    },
+    {
+      "text": "serunt diseipulis ut susciperent eum. Qui eum venisset, coutu-",
+      "box": [
+        53,
+        1155,
+        324,
+        1176
+      ],
+      "score": 0.7668811082839966
+    },
+    {
+      "text": "est mortuus.",
+      "box": [
+        334,
+        1154,
+        387,
+        1164
+      ],
+      "score": 0.9824349880218506
+    },
+    {
+      "text": "guine, et suffocato, et fornicatione.",
+      "box": [
+        611,
+        1149,
+        764,
+        1165
+      ],
+      "score": 0.968619704246521
+    },
+    {
+      "text": "lit multum his qui crediderant.",
+      "box": [
+        54,
+        1164,
+        193,
+        1183
+      ],
+      "score": 0.7928180694580078
+    },
+    {
+      "text": "10. Ad quem cum descendisset Paulus, incubuit super",
+      "box": [
+        340,
+        1162,
+        605,
+        1175
+      ],
+      "score": 0.9961530566215515
+    },
+    {
+      "text": "26. Tune Paalus, assumptis viris, postera die purificatus",
+      "box": [
+        619,
+        1158,
+        882,
+        1174
+      ],
+      "score": 0.9533244967460632
+    },
+    {
+      "text": "28. Vehementer enim Jadmos revincebat publice, ostendens",
+      "box": [
+        62,
+        1174,
+        324,
+        1195
+      ],
+      "score": 0.9607546925544739
+    },
+    {
+      "text": "eum, et complexus dixit: Nolite turbari, auima enim ipaius in",
+      "box": [
+        331,
+        1171,
+        604,
+        1187
+      ],
+      "score": 0.884549617767334
+    },
+    {
+      "text": "cum illis intravit in templum, annuntians expletionem dieram",
+      "box": [
+        611,
+        1168,
+        882,
+        1185
+      ],
+      "score": 0.9391239881515503
+    },
+    {
+      "text": "per Scripturas, esse Christum Jesum.",
+      "box": [
+        54,
+        1184,
+        218,
+        1203
+      ],
+      "score": 0.9766877293586731
+    },
+    {
+      "text": "ipso est.",
+      "box": [
+        333,
+        1183,
+        368,
+        1194
+      ],
+      "score": 0.9477104544639587
+    },
+    {
+      "text": "11. Ascendens autem, frangeusque panem, et gustans, satis-",
+      "box": [
+        339,
+        1191,
+        604,
+        1206
+      ],
+      "score": 0.974133312702179
+    },
+    {
+      "text": "purificationis, donec offerretur pro umoquoque eorum oblatio.",
+      "box": [
+        611,
+        1178,
+        872,
+        1195
+      ],
+      "score": 0.964647114276886
+    },
+    {
+      "text": "que allocutus nsque ia lucem, sic profectus est.",
+      "box": [
+        331,
+        1201,
+        537,
+        1217
+      ],
+      "score": 0.9455167651176453
+    },
+    {
+      "text": "27. Dum autem septem dies consummarcutur, hi, qui de",
+      "box": [
+        619,
+        1188,
+        882,
+        1205
+      ],
+      "score": 0.9356284737586975
+    },
+    {
+      "text": "CAPUT XIX",
+      "box": [
+        160,
+        1204,
+        222,
+        1220
+      ],
+      "score": 0.9998738765716553
+    },
+    {
+      "text": "12. Addnerunt antem pueram viventem, et consolati sunt",
+      "box": [
+        336,
+        1209,
+        606,
+        1229
+      ],
+      "score": 0.8360514044761658
+    },
+    {
+      "text": "Asia erant, Judei, cuma vidisseut eun in templo, coucitaverunt",
+      "box": [
+        612,
+        1198,
+        884,
+        1215
+      ],
+      "score": 0.9349611401557922
+    },
+    {
+      "text": "non minime.",
+      "box": [
+        331,
+        1221,
+        386,
+        1234
+      ],
+      "score": 0.997782289981842
+    },
+    {
+      "text": "omnem populum, et injecerunt ei manus, clamantes:",
+      "box": [
+        612,
+        1208,
+        841,
+        1225
+      ],
+      "score": 0.9369211792945862
+    },
+    {
+      "text": "1. Factum est antena, cum Apollo esset Corinthi, ut Paulus",
+      "box": [
+        61,
+        1222,
+        323,
+        1242
+      ],
+      "score": 0.9653578996658325
+    },
+    {
+      "text": "13. Nos autem aseendentes navem, uavigavimus in Asson,",
+      "box": [
+        338,
+        1230,
+        604,
+        1248
+      ],
+      "score": 0.967708170413971
+    },
+    {
+      "text": "28. Viri Isrnelite, adjuvate: hic est homo, qui adversus po-",
+      "box": [
+        620,
+        1217,
+        884,
+        1235
+      ],
+      "score": 0.9260084629058838
+    },
+    {
+      "text": "peragratis superioribus partibus veniret Ephesun, et inveniret",
+      "box": [
+        52,
+        1232,
+        323,
+        1252
+      ],
+      "score": 0.9361055493354797
+    },
+    {
+      "text": "inde suseepturi Paulm: sic enim disposuerat ipse per terram",
+      "box": [
+        329,
+        1239,
+        604,
+        1258
+      ],
+      "score": 0.9141933917999268
+    },
+    {
+      "text": "pulum, et legem, et locuía hune, ommes ubique docens, insuper",
+      "box": [
+        611,
+        1227,
+        885,
+        1246
+      ],
+      "score": 0.9285457134246826
+    },
+    {
+      "text": "quosdam discipulos.",
+      "box": [
+        53,
+        1243,
+        143,
+        1256
+      ],
+      "score": 0.947836697101593
+    },
+    {
+      "text": "2. Dixitque ad eos: Si Spiritum Sanctum acoepistis creden-",
+      "box": [
+        59,
+        1251,
+        322,
+        1270
+      ],
+      "score": 0.9418675899505615
+    },
+    {
+      "text": "iter facturus.",
+      "box": [
+        330,
+        1249,
+        388,
+        1262
+      ],
+      "score": 0.9840222001075745
+    },
+    {
+      "text": "et geatiles induxit in templum, et violavit sanctum locum is-",
+      "box": [
+        610,
+        1236,
+        884,
+        1255
+      ],
+      "score": 0.9333471059799194
+    },
+    {
+      "text": "test Ad illi dixerunt ad eum: Sed neque si Spiritus Sanctas est,",
+      "box": [
+        52,
+        1260,
+        321,
+        1280
+      ],
+      "score": 0.8993237018585205
+    },
+    {
+      "text": "14. Cum antem convenisset nos in Asson, assumpto eo, ve-",
+      "box": [
+        335,
+        1257,
+        605,
+        1279
+      ],
+      "score": 0.9633222222328186
+    },
+    {
+      "text": "tam.",
+      "box": [
+        612,
+        1253,
+        635,
+        1264
+      ],
+      "score": 0.9900336265563965
+    },
+    {
+      "text": "nimus Mitylenen.",
+      "box": [
+        328,
+        1267,
+        409,
+        1286
+      ],
+      "score": 0.8769209384918213
+    },
+    {
+      "text": "29. Viderant enim Trophimum Ephesiam in civitate cum",
+      "box": [
+        618,
+        1255,
+        884,
+        1274
+      ],
+      "score": 0.9951531887054443
+    },
+    {
+      "text": "audivimus.",
+      "box": [
+        53,
+        1270,
+        103,
+        1285
+      ],
+      "score": 0.9463235139846802
+    },
+    {
+      "text": ". Ie veo a: In quo ego baptza es Qui derunt In",
+      "box": [
+        58,
+        1278,
+        322,
+        1301
+      ],
+      "score": 0.6458567380905151
+    },
+    {
+      "text": "ipso, quem mstimaverunt quoniam in templum introduxisset",
+      "box": [
+        610,
+        1265,
+        885,
+        1284
+      ],
+      "score": 0.9754759669303894
+    },
+    {
+      "text": "Joannis baptisunate.",
+      "box": [
+        51,
+        1288,
+        142,
+        1307
+      ],
+      "score": 0.9456660151481628
+    },
+    {
+      "text": "Panlus.",
+      "box": [
+        612,
+        1282,
+        647,
+        1293
+      ],
+      "score": 0.9804415702819824
+    },
+    {
+      "text": "4. Dixit autem Paulus: Joaunes baptizavit baptismo pomi-",
+      "box": [
+        59,
+        1298,
+        320,
+        1320
+      ],
+      "score": 0.960139811038971
+    },
+    {
+      "text": "16. Froposerat enim Paulus trausmavigare Ephesam, ne",
+      "box": [
+        335,
+        1296,
+        605,
+        1321
+      ],
+      "score": 0.6702607274055481
+    },
+    {
+      "text": "30. Commotaque est civitas tota, et facta est coneursio po-",
+      "box": [
+        618,
+        1282,
+        885,
+        1306
+      ],
+      "score": 0.9560226202011108
+    },
+    {
+      "text": "tentim populum, dicens: In eum, qul veuturus esset post ipsum,",
+      "box": [
+        50,
+        1308,
+        320,
+        1331
+      ],
+      "score": 0.938601016998291
+    },
+    {
+      "text": "qua mora l lere in Aa. Pestaba em, si posable sie",
+      "box": [
+        326,
+        1306,
+        604,
+        1331
+      ],
+      "score": 0.4979691505432129
+    },
+    {
+      "text": "puli. Et apprehendentes Paulum, trahebant eum extra tem-",
+      "box": [
+        610,
+        1293,
+        885,
+        1316
+      ],
+      "score": 0.9623795747756958
+    },
+    {
+      "text": "ut crederent, hoc est, in Jesum.",
+      "box": [
+        51,
+        1318,
+        192,
+        1338
+      ],
+      "score": 0.9346556663513184
+    },
+    {
+      "text": "esset, ut diem Pentecoses faeeret Jerosolymis.",
+      "box": [
+        326,
+        1316,
+        535,
+        1342
+      ],
+      "score": 0.6559911966323853
+    },
+    {
+      "text": "plum: et statim clause sunt janume.",
+      "box": [
+        611,
+        1307,
+        768,
+        1326
+      ],
+      "score": 0.9029296636581421
+    },
+    {
+      "text": "5. His auditis, baptizati sunt in nomine Domini Jesu.",
+      "box": [
+        57,
+        1328,
+        296,
+        1351
+      ],
+      "score": 0.852342426776886
+    },
+    {
+      "text": "31. Querentibus autem cum occidere, nuntiatum est tribu-",
+      "box": [
+        618,
+        1315,
+        885,
+        1335
+      ],
+      "score": 0.9639827013015747
+    },
+    {
+      "text": "Ecclesie.",
+      "box": [
+        325,
+        1336,
+        371,
+        1355
+      ],
+      "score": 0.9388914108276367
+    },
+    {
+      "text": "no cohortes: Quia tota confunditur Jerusalem.",
+      "box": [
+        611,
+        1327,
+        817,
+        1347
+      ],
+      "score": 0.9762468338012695
+    },
+    {
+      "text": "32. Qui statim assumptis militibus, et centurionibus, de-",
+      "box": [
+        619,
+        1336,
+        886,
+        1356
+      ],
+      "score": 0.9815104007720947
+    }
+  ]
+}

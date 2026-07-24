@@ -1,0 +1,3167 @@
+{
+  "volume": 4,
+  "page_index": 435,
+  "pdf_page": 436,
+  "lines": [
+    {
+      "text": "SANCTUM JESU CHRISTI EVANGELIUM",
+      "box": [
+        178,
+        59,
+        813,
+        117
+      ],
+      "score": 0.9999826550483704
+    },
+    {
+      "text": "SECUNDUM",
+      "box": [
+        442,
+        131,
+        544,
+        145
+      ],
+      "score": 0.9999841451644897
+    },
+    {
+      "text": "JOANNEM",
+      "box": [
+        348,
+        166,
+        637,
+        197
+      ],
+      "score": 0.9996796250343323
+    },
+    {
+      "text": "CAPUT PRIMUM",
+      "box": [
+        166,
+        253,
+        253,
+        268
+      ],
+      "score": 0.9999492764472961
+    },
+    {
+      "text": "CAPUT II",
+      "box": [
+        468,
+        250,
+        521,
+        264
+      ],
+      "score": 0.999701738357544
+    },
+    {
+      "text": "2.Erat autem et Joannes baptizans in Ennon, juxta Salim",
+      "box": [
+        652,
+        242,
+        924,
+        268
+      ],
+      "score": 0.7182753086090088
+    },
+    {
+      "text": "1. In principio erat Verbum, et Verbum ezat apud Deum,",
+      "box": [
+        84,
+        270,
+        348,
+        289
+      ],
+      "score": 0.9630233645439148
+    },
+    {
+      "text": "1. Et die tertia nuptie facte sunt in Cana Galilme: et erat",
+      "box": [
+        364,
+        271,
+        633,
+        287
+      ],
+      "score": 0.9821189641952515
+    },
+    {
+      "text": "quia aqum multa erant illic, et veniebant, et baptizabantur.",
+      "box": [
+        641,
+        255,
+        912,
+        277
+      ],
+      "score": 0.7770060896873474
+    },
+    {
+      "text": "24. Noudum enim missus fuerat Joannes in carcerem.",
+      "box": [
+        650,
+        266,
+        903,
+        286
+      ],
+      "score": 0.8661627173423767
+    },
+    {
+      "text": "et Deus erat Verbum.",
+      "box": [
+        77,
+        281,
+        173,
+        298
+      ],
+      "score": 0.9775682687759399
+    },
+    {
+      "text": "à Hoc erat in principio apud Deum.",
+      "box": [
+        83,
+        290,
+        250,
+        310
+      ],
+      "score": 0.8538534641265869
+    },
+    {
+      "text": "mater Jesu ibi.",
+      "box": [
+        356,
+        282,
+        423,
+        295
+      ],
+      "score": 0.9357157945632935
+    },
+    {
+      "text": "2. Vocatus est autem et Jesus, et discipuli ejus, ad nuptins.",
+      "box": [
+        363,
+        292,
+        630,
+        305
+      ],
+      "score": 0.9866662621498108
+    },
+    {
+      "text": "Judmis de purificatione.",
+      "box": [
+        640,
+        291,
+        753,
+        305
+      ],
+      "score": 0.9873773455619812
+    },
+    {
+      "text": "25. Facta est autem questio ex discipulia Joannis cum",
+      "box": [
+        650,
+        275,
+        925,
+        297
+      ],
+      "score": 0.9233028292655945
+    },
+    {
+      "text": "8. Et deficiente vino, dieit mater Jesu ad eum: Vinum nom",
+      "box": [
+        364,
+        303,
+        632,
+        316
+      ],
+      "score": 0.9680021405220032
+    },
+    {
+      "text": "26. Et venerant ad Joannem, et dixerunt el: Rabbl, qul",
+      "box": [
+        648,
+        292,
+        927,
+        317
+      ],
+      "score": 0.7805628180503845
+    },
+    {
+      "text": "hil, quod factum est,",
+      "box": [
+        76,
+        311,
+        169,
+        328
+      ],
+      "score": 0.9206709861755371
+    },
+    {
+      "text": "4. In ipso vita erat, et vita erat lux hominum:",
+      "box": [
+        83,
+        320,
+        292,
+        338
+      ],
+      "score": 0.862199604511261
+    },
+    {
+      "text": "habent.",
+      "box": [
+        356,
+        313,
+        391,
+        324
+      ],
+      "score": 0.9997801184654236
+    },
+    {
+      "text": "erat tecum trans Jordanem, cui tu testimonium perhabuist,",
+      "box": [
+        639,
+        304,
+        925,
+        328
+      ],
+      "score": 0.8157640695571899
+    },
+    {
+      "text": "5. Et lux in temebris lucet, et tenebre eam non comprehen-",
+      "box": [
+        83,
+        329,
+        348,
+        347
+      ],
+      "score": 0.8905073404312134
+    },
+    {
+      "text": "4. Et dicit ei Jesus: Quid mihi, et tibi est, mulier! nondum",
+      "box": [
+        364,
+        322,
+        631,
+        335
+      ],
+      "score": 0.9791058897972107
+    },
+    {
+      "text": "ecce hic baptizat, et omnes veniunt ad eum.",
+      "box": [
+        639,
+        319,
+        845,
+        335
+      ],
+      "score": 0.9894860982894897
+    },
+    {
+      "text": "venit hora mea.",
+      "box": [
+        355,
+        332,
+        424,
+        342
+      ],
+      "score": 0.9838289618492126
+    },
+    {
+      "text": "27. Respondit Joannes, et dixit: Non potest homo accipere",
+      "box": [
+        647,
+        325,
+        926,
+        347
+      ],
+      "score": 0.881682276725769
+    },
+    {
+      "text": "derunt.",
+      "box": [
+        78,
+        342,
+        111,
+        353
+      ],
+      "score": 0.9998584985733032
+    },
+    {
+      "text": "6. Fuit homo missus a Deo, cui nomen erat Joannes.",
+      "box": [
+        84,
+        350,
+        318,
+        365
+      ],
+      "score": 0.9943209886550903
+    },
+    {
+      "text": "facite.",
+      "box": [
+        355,
+        350,
+        387,
+        364
+      ],
+      "score": 0.9978952407836914
+    },
+    {
+      "text": "5. Dicit mater ejus ministris: Quodcumque dixerit vobis,",
+      "box": [
+        363,
+        341,
+        630,
+        355
+      ],
+      "score": 0.975503146648407
+    },
+    {
+      "text": "quidquam, nisi fuerit ei datum de ccelo.",
+      "box": [
+        639,
+        340,
+        825,
+        355
+      ],
+      "score": 0.9385549426078796
+    },
+    {
+      "text": "28. Ipsi vos mihi testimonium perhibetis, quod dixerim;",
+      "box": [
+        647,
+        344,
+        927,
+        367
+      ],
+      "score": 0.7688974142074585
+    },
+    {
+      "text": "7. Hie venit in testimonium, ut testimonium perhiberet de",
+      "box": [
+        84,
+        360,
+        346,
+        374
+      ],
+      "score": 0.9314867258071899
+    },
+    {
+      "text": "6. Erant autem ibi lapidem hydrim sex positw secundum",
+      "box": [
+        362,
+        360,
+        630,
+        373
+      ],
+      "score": 0.9632787704467773
+    },
+    {
+      "text": "Non sum ego Christus, sed qua missus sum ante ilun.",
+      "box": [
+        638,
+        356,
+        897,
+        377
+      ],
+      "score": 0.6612328886985779
+    },
+    {
+      "text": "lumine, ut omnes crederent per illum.",
+      "box": [
+        77,
+        370,
+        240,
+        385
+      ],
+      "score": 0.9622897505760193
+    },
+    {
+      "text": "8. Non erat ille lu, sed ut testimonium perhiberet de lu-",
+      "box": [
+        83,
+        378,
+        348,
+        397
+      ],
+      "score": 0.6972190737724304
+    },
+    {
+      "text": "purificationem Judmorum, capientes singule metretas binas vel",
+      "box": [
+        355,
+        371,
+        631,
+        384
+      ],
+      "score": 0.9687350988388062
+    },
+    {
+      "text": "29. Qui habe spousam, sponsus est: amien autem sponsi,",
+      "box": [
+        646,
+        365,
+        926,
+        388
+      ],
+      "score": 0.6331115961074829
+    },
+    {
+      "text": "teruas.",
+      "box": [
+        356,
+        383,
+        388,
+        393
+      ],
+      "score": 0.992432713508606
+    },
+    {
+      "text": "qus sa, et aud eum, gaudo gaudet proper voce sponsa",
+      "box": [
+        638,
+        376,
+        925,
+        399
+      ],
+      "score": 0.5806651711463928
+    },
+    {
+      "text": "mine.",
+      "box": [
+        78,
+        391,
+        104,
+        404
+      ],
+      "score": 0.9955285787582397
+    },
+    {
+      "text": "9. Erat lux vera, que lluminat omnem hominem venlentem",
+      "box": [
+        84,
+        398,
+        348,
+        418
+      ],
+      "score": 0.9421306848526001
+    },
+    {
+      "text": "7. Dicit eis Jesus: Implete hydrias aqua. Et impleverunt eas",
+      "box": [
+        363,
+        392,
+        631,
+        406
+      ],
+      "score": 0.995410680770874
+    },
+    {
+      "text": "Hoc ergo gandium meum impletum est.",
+      "box": [
+        641,
+        392,
+        825,
+        406
+      ],
+      "score": 0.9396185874938965
+    },
+    {
+      "text": "usque ad summum,",
+      "box": [
+        355,
+        403,
+        442,
+        416
+      ],
+      "score": 0.9838890433311462
+    },
+    {
+      "text": "9o. Illum oportet crescere, me autem minul.",
+      "box": [
+        647,
+        397,
+        864,
+        419
+      ],
+      "score": 0.8328315615653992
+    },
+    {
+      "text": "in hune mundum.",
+      "box": [
+        77,
+        413,
+        154,
+        424
+      ],
+      "score": 0.9720228910446167
+    },
+    {
+      "text": "10. In mundo erat, et mundus per ipsum factus est, et",
+      "box": [
+        85,
+        421,
+        348,
+        437
+      ],
+      "score": 0.9951654076576233
+    },
+    {
+      "text": "§. Et dicit eis Jesus: Haurite nune, et ferte architriclino.",
+      "box": [
+        362,
+        413,
+        629,
+        426
+      ],
+      "score": 0.9702065587043762
+    },
+    {
+      "text": "3l. Qui desursum venit, super omnes est. Qul est de terra,",
+      "box": [
+        646,
+        406,
+        926,
+        429
+      ],
+      "score": 0.761907696723938
+    },
+    {
+      "text": "mundus eum non cognovit.",
+      "box": [
+        76,
+        431,
+        197,
+        446
+      ],
+      "score": 0.977303683757782
+    },
+    {
+      "text": "Et tulerunt.",
+      "box": [
+        357,
+        424,
+        410,
+        435
+      ],
+      "score": 0.9982612729072571
+    },
+    {
+      "text": "9. Ut autem gustavit arehitriclinus aquam vinum factam,",
+      "box": [
+        363,
+        432,
+        631,
+        447
+      ],
+      "score": 0.9842332601547241
+    },
+    {
+      "text": "de terra est, et de terra loquitur. Qui de ccelo veait, super",
+      "box": [
+        638,
+        418,
+        926,
+        440
+      ],
+      "score": 0.8437162041664124
+    },
+    {
+      "text": "11. In propria venit, et sui eum non receperunt.",
+      "box": [
+        86,
+        441,
+        300,
+        457
+      ],
+      "score": 0.9512603878974915
+    },
+    {
+      "text": "et non sciebat unde esset, ministri autem sciebant, qui hause-",
+      "box": [
+        355,
+        444,
+        631,
+        457
+      ],
+      "score": 0.9868032336235046
+    },
+    {
+      "text": "omnes est.",
+      "box": [
+        641,
+        436,
+        690,
+        447
+      ],
+      "score": 0.9990625381469727
+    },
+    {
+      "text": "12. Quotquot autem receperunt eum, dedit eis potestatem",
+      "box": [
+        85,
+        451,
+        347,
+        467
+      ],
+      "score": 0.9753608703613281
+    },
+    {
+      "text": ". E quod vidit, et audivit, ho testatur: e testmonium",
+      "box": [
+        645,
+        437,
+        926,
+        460
+      ],
+      "score": 0.7766046524047852
+    },
+    {
+      "text": "filios Dei éeri, his, qui credunt in nomine ejus:",
+      "box": [
+        77,
+        461,
+        281,
+        477
+      ],
+      "score": 0.8970116376876831
+    },
+    {
+      "text": "rant aquam; vocat sponsum arehitricliuus,",
+      "box": [
+        354,
+        452,
+        542,
+        467
+      ],
+      "score": 0.9755239486694336
+    },
+    {
+      "text": "10. Et dicit ei: Omnis homo primum vinum bonum ponit;",
+      "box": [
+        363,
+        462,
+        632,
+        477
+      ],
+      "score": 0.977954626083374
+    },
+    {
+      "text": "ejus nemo accipit.",
+      "box": [
+        640,
+        455,
+        725,
+        468
+      ],
+      "score": 0.9921835660934448
+    },
+    {
+      "text": " Qu acepit eus testimonium, signavi qua Deuave",
+      "box": [
+        644,
+        456,
+        926,
+        481
+      ],
+      "score": 0.5919120907783508
+    },
+    {
+      "text": "13. Qui non ex sanguinibus, neqme ex voluntate carnis, ne-",
+      "box": [
+        85,
+        472,
+        348,
+        487
+      ],
+      "score": 0.9559527635574341
+    },
+    {
+      "text": "que ex voluntate viri, sed ex Deo nati sunt.",
+      "box": [
+        78,
+        483,
+        263,
+        496
+      ],
+      "score": 0.9380026459693909
+    },
+    {
+      "text": "et cum inebriati fuerint, tune id, quod deterius est: tu autem",
+      "box": [
+        355,
+        474,
+        631,
+        487
+      ],
+      "score": 0.9827687740325928
+    },
+    {
+      "text": "servasti bonum vinum usque adhue.",
+      "box": [
+        355,
+        484,
+        514,
+        497
+      ],
+      "score": 0.9181188344955444
+    },
+    {
+      "text": "rax est.",
+      "box": [
+        641,
+        476,
+        678,
+        486
+      ],
+      "score": 0.9979598522186279
+    },
+    {
+      "text": "14. Et Verbum caro factum est, et habitavit in nobis: et",
+      "box": [
+        84,
+        491,
+        347,
+        509
+      ],
+      "score": 0.9670692086219788
+    },
+    {
+      "text": "34. Quem enim misit Deus, verba Dei loqultur: non enim",
+      "box": [
+        644,
+        477,
+        925,
+        501
+      ],
+      "score": 0.9411467909812927
+    },
+    {
+      "text": "vidimus gloriam ejus, gloriam quasi unigeniti a Patre, plenum",
+      "box": [
+        77,
+        502,
+        347,
+        519
+      ],
+      "score": 0.937380313873291
+    },
+    {
+      "text": "11. Hoc fecit initium signorum Jesus in Cana Galilmm: et",
+      "box": [
+        363,
+        494,
+        631,
+        507
+      ],
+      "score": 0.9750691652297974
+    },
+    {
+      "text": "ad mensuram dat Deus spiritum.",
+      "box": [
+        640,
+        494,
+        794,
+        507
+      ],
+      "score": 0.995184600353241
+    },
+    {
+      "text": "manifestavit gloriam suam, et crediderunt in eum discipul",
+      "box": [
+        355,
+        505,
+        628,
+        519
+      ],
+      "score": 0.9870206117630005
+    },
+    {
+      "text": "2a. Pater diligit Filium: et omnia dedit in mana ejus.",
+      "box": [
+        646,
+        498,
+        902,
+        521
+      ],
+      "score": 0.769201934337616
+    },
+    {
+      "text": "gratim, et veritatis.",
+      "box": [
+        77,
+        514,
+        161,
+        527
+      ],
+      "score": 0.973853349685669
+    },
+    {
+      "text": "15. Joannes testimonium perhibet de ipso, et clamat, di-",
+      "box": [
+        84,
+        523,
+        348,
+        538
+      ],
+      "score": 0.9825253486633301
+    },
+    {
+      "text": "ejus.",
+      "box": [
+        356,
+        516,
+        380,
+        528
+      ],
+      "score": 0.9999526739120483
+    },
+    {
+      "text": "6. Qui credit in Filum, habet vitam mternam: qui autem",
+      "box": [
+        646,
+        508,
+        925,
+        531
+      ],
+      "score": 0.666445791721344
+    },
+    {
+      "text": "cens: Hic erat, quem dixi: Qui post me venturus est, aute me",
+      "box": [
+        77,
+        533,
+        348,
+        549
+      ],
+      "score": 0.9629672169685364
+    },
+    {
+      "text": "12. Post hoc descendit Capharnaum ipse, et mater ejus, et",
+      "box": [
+        357,
+        524,
+        632,
+        539
+      ],
+      "score": 0.9903175234794617
+    },
+    {
+      "text": "incredulus est Filio, non videbit vitam, sed ira Dei manesuper",
+      "box": [
+        637,
+        521,
+        924,
+        541
+      ],
+      "score": 0.7377941012382507
+    },
+    {
+      "text": "factus est: quia prior me ernt.",
+      "box": [
+        76,
+        543,
+        207,
+        558
+      ],
+      "score": 0.9604194164276123
+    },
+    {
+      "text": "fratres ejus, et discipuli ejus: et ibi manserunt non multis die-",
+      "box": [
+        355,
+        535,
+        630,
+        548
+      ],
+      "score": 0.9683046340942383
+    },
+    {
+      "text": "bus:",
+      "box": [
+        356,
+        546,
+        380,
+        557
+      ],
+      "score": 0.9999306797981262
+    },
+    {
+      "text": "eum.",
+      "box": [
+        640,
+        538,
+        665,
+        550
+      ],
+      "score": 0.9993072748184204
+    },
+    {
+      "text": "16. Et de plenitudine ejus nos omnes accepimus, et gratiam",
+      "box": [
+        84,
+        553,
+        348,
+        569
+      ],
+      "score": 0.9610804915428162
+    },
+    {
+      "text": "13. Et prope erat pascha Judeorum, et ascendit Jesus Je-",
+      "box": [
+        362,
+        554,
+        631,
+        569
+      ],
+      "score": 0.9877487421035767
+    },
+    {
+      "text": "CAPUT IV",
+      "box": [
+        758,
+        546,
+        813,
+        557
+      ],
+      "score": 0.9995603561401367
+    },
+    {
+      "text": "pro gratia.",
+      "box": [
+        80,
+        565,
+        127,
+        576
+      ],
+      "score": 0.9764423370361328
+    },
+    {
+      "text": "17. Quia lex per Moysen data est: gratia, et veritas per Je-",
+      "box": [
+        84,
+        572,
+        347,
+        588
+      ],
+      "score": 0.9860174655914307
+    },
+    {
+      "text": "rosolymam:",
+      "box": [
+        356,
+        566,
+        411,
+        576
+      ],
+      "score": 0.994322657585144
+    },
+    {
+      "text": "1. Ut ergo cognovit Jesus, quia audierunt Pharisei quod",
+      "box": [
+        647,
+        559,
+        925,
+        581
+      ],
+      "score": 0.958633542060852
+    },
+    {
+      "text": "14. Et invenit in templo vendentes boves, et oves, et co-",
+      "box": [
+        363,
+        573,
+        631,
+        589
+      ],
+      "score": 0.9799290895462036
+    },
+    {
+      "text": "Jesus plures dseapalos aci, et bapia, quam Joannes,",
+      "box": [
+        636,
+        571,
+        899,
+        590
+      ],
+      "score": 0.6336875557899475
+    },
+    {
+      "text": "sum Christum facta est.",
+      "box": [
+        78,
+        585,
+        183,
+        595
+      ],
+      "score": 0.9983335733413696
+    },
+    {
+      "text": "lumbas, et nummularios sedentes.",
+      "box": [
+        355,
+        583,
+        501,
+        597
+      ],
+      "score": 0.9367190599441528
+    },
+    {
+      "text": "18. Deum nemo vidit unquam: unigenitus Filius, qui est in",
+      "box": [
+        86,
+        594,
+        347,
+        607
+      ],
+      "score": 0.9884213805198669
+    },
+    {
+      "text": "15. Et cum fecisset quasi flagellum de funiculis, omnes eje-",
+      "box": [
+        362,
+        594,
+        631,
+        607
+      ],
+      "score": 0.9845378398895264
+    },
+    {
+      "text": "3.",
+      "box": [
+        649,
+        594,
+        662,
+        607
+      ],
+      "score": 0.9975858926773071
+    },
+    {
+      "text": "2.",
+      "box": [
+        650,
+        587,
+        660,
+        597
+      ],
+      "score": 0.9856507778167725
+    },
+    {
+      "text": "Reliquit Judmnm, et abiit iterum in Galileam:",
+      "box": [
+        665,
+        593,
+        881,
+        608
+      ],
+      "score": 0.8483244180679321
+    },
+    {
+      "text": "(Quamquam Jesus non baptizaret, sed discipuli ejus)",
+      "box": [
+        666,
+        582,
+        909,
+        599
+      ],
+      "score": 0.8717747926712036
+    },
+    {
+      "text": "sinu Patris, ipse enarravit.",
+      "box": [
+        79,
+        605,
+        194,
+        615
+      ],
+      "score": 0.9853776693344116
+    },
+    {
+      "text": "cit de templo, oves quoque, et boves, et nummulariorum effu-",
+      "box": [
+        355,
+        603,
+        631,
+        617
+      ],
+      "score": 0.9789901971817017
+    },
+    {
+      "text": "19. Et hoc est testimonium Joannis, quando miserant Ju-",
+      "box": [
+        85,
+        613,
+        348,
+        627
+      ],
+      "score": 0.976454496383667
+    },
+    {
+      "text": "dit ms, et mensas subvertit.",
+      "box": [
+        355,
+        613,
+        476,
+        627
+      ],
+      "score": 0.9126215577125549
+    },
+    {
+      "text": "4.",
+      "box": [
+        650,
+        606,
+        661,
+        615
+      ],
+      "score": 0.9995786547660828
+    },
+    {
+      "text": "Venit ergo in eivitatem Samarim, que dicitur Siehar:",
+      "box": [
+        664,
+        610,
+        924,
+        630
+      ],
+      "score": 0.679688572883606
+    },
+    {
+      "text": "Oportebat autem eum transire per Samariam.",
+      "box": [
+        665,
+        603,
+        876,
+        618
+      ],
+      "score": 0.9490441083908081
+    },
+    {
+      "text": "dal ab Jerosolymis sacerdotes et levitas ad eum, ut interroga-",
+      "box": [
+        78,
+        622,
+        347,
+        637
+      ],
+      "score": 0.9472058415412903
+    },
+    {
+      "text": "16. Et hís, qui columbas vendebant, dixit: Auferte ista",
+      "box": [
+        362,
+        624,
+        631,
+        637
+      ],
+      "score": 0.9771708250045776
+    },
+    {
+      "text": "Juxta predium, quod dedit Jacob Joseph lio suo.",
+      "box": [
+        637,
+        623,
+        870,
+        639
+      ],
+      "score": 0.8899964094161987
+    },
+    {
+      "text": "5.",
+      "box": [
+        650,
+        615,
+        662,
+        625
+      ],
+      "score": 0.9981353282928467
+    },
+    {
+      "text": "rent eum: Tu quis es?",
+      "box": [
+        78,
+        634,
+        170,
+        644
+      ],
+      "score": 0.9556008577346802
+    },
+    {
+      "text": "hine, et nolite facere domum Patris mei, domum negotiationis.",
+      "box": [
+        355,
+        632,
+        629,
+        647
+      ],
+      "score": 0.9833636283874512
+    },
+    {
+      "text": "20. Et confessus est, et non negavit: et confessus est: Quia",
+      "box": [
+        86,
+        643,
+        348,
+        656
+      ],
+      "score": 0.9914865493774414
+    },
+    {
+      "text": "17. Recordati sunt vero discipuli ejus quia scriptum est:",
+      "box": [
+        362,
+        642,
+        630,
+        658
+      ],
+      "score": 0.9831716418266296
+    },
+    {
+      "text": "non sum ego Christus.",
+      "box": [
+        78,
+        653,
+        177,
+        666
+      ],
+      "score": 0.9633889198303223
+    },
+    {
+      "text": "Zelus domus tum comedit me.",
+      "box": [
+        356,
+        652,
+        484,
+        666
+      ],
+      "score": 0.9762940406799316
+    },
+    {
+      "text": "re, sedebat sic supra fontem. Hora erat quasi sexta.",
+      "box": [
+        636,
+        644,
+        875,
+        659
+      ],
+      "score": 0.9355700016021729
+    },
+    {
+      "text": "18. Responderunt ergo Judei, et dixerunt ei: Quod siguum",
+      "box": [
+        361,
+        661,
+        630,
+        677
+      ],
+      "score": 0.9652153849601746
+    },
+    {
+      "text": "7. Venit mulier de Samara haurre aquam. Dicit ed Jesus!",
+      "box": [
+        645,
+        653,
+        923,
+        670
+      ],
+      "score": 0.694753110408783
+    },
+    {
+      "text": "21. Et interrogaverunt eum: Quid ergo? Etias es tut Et dixit",
+      "box": [
+        86,
+        663,
+        346,
+        673
+      ],
+      "score": 0.9306265115737915
+    },
+    {
+      "text": "Da mibi bibere.",
+      "box": [
+        637,
+        663,
+        712,
+        678
+      ],
+      "score": 0.9481445550918579
+    },
+    {
+      "text": "Non sum. Propheta es tul Et respondit: Non.",
+      "box": [
+        79,
+        673,
+        276,
+        686
+      ],
+      "score": 0.9747768640518188
+    },
+    {
+      "text": "ostendis nobis quia hac facis1",
+      "box": [
+        357,
+        674,
+        485,
+        684
+      ],
+      "score": 0.9389326572418213
+    },
+    {
+      "text": "19. Respondit Jesus, et dixit els: Solvite templum hoc, et",
+      "box": [
+        363,
+        680,
+        630,
+        697
+      ],
+      "score": 0.9918116331100464
+    },
+    {
+      "text": "8. (Discipuli enim ejus abierant in civitatem ut cibos eme-",
+      "box": [
+        647,
+        673,
+        922,
+        690
+      ],
+      "score": 0.9248241782188416
+    },
+    {
+      "text": "miserunt nos? Quid dicis de te ipso†",
+      "box": [
+        79,
+        692,
+        235,
+        704
+      ],
+      "score": 0.9044091105461121
+    },
+    {
+      "text": "22, Dixerunt ergo ei: Quis es, ut responsum demus his, qui",
+      "box": [
+        89,
+        684,
+        348,
+        694
+      ],
+      "score": 0.963266134262085
+    },
+    {
+      "text": "in tribus diebus excitabo illnd.",
+      "box": [
+        355,
+        692,
+        489,
+        704
+      ],
+      "score": 0.9377416968345642
+    },
+    {
+      "text": "rent.)",
+      "box": [
+        638,
+        685,
+        669,
+        696
+      ],
+      "score": 0.9971862435340881
+    },
+    {
+      "text": "20. Dixerunt ergo Judmi: Quadraginta et sex annis edifi-",
+      "box": [
+        364,
+        701,
+        628,
+        716
+      ],
+      "score": 0.9526078104972839
+    },
+    {
+      "text": "9. Dicit ergo ei mulier illa Samaritana: Quomodo ta Judmus",
+      "box": [
+        645,
+        691,
+        923,
+        709
+      ],
+      "score": 0.9363780617713928
+    },
+    {
+      "text": "23. Ait: Ego vox clamantis in deserto; Dirigite viam Domi-",
+      "box": [
+        87,
+        702,
+        348,
+        715
+      ],
+      "score": 0.97503262758255
+    },
+    {
+      "text": "ni, sicut dixit Isaias propheta.",
+      "box": [
+        80,
+        712,
+        212,
+        725
+      ],
+      "score": 0.9725015163421631
+    },
+    {
+      "text": "catum est templum hoc, et tu in tribus diebus excitabis illud?",
+      "box": [
+        355,
+        711,
+        625,
+        726
+      ],
+      "score": 0.9768909215927124
+    },
+    {
+      "text": "24. Et qui missi fuerant, erant ex Pharismis.",
+      "box": [
+        87,
+        722,
+        285,
+        736
+      ],
+      "score": 0.9505511522293091
+    },
+    {
+      "text": "21. Ille autem dicebat de templo corporis sui.",
+      "box": [
+        363,
+        721,
+        571,
+        737
+      ],
+      "score": 0.9830263257026672
+    },
+    {
+      "text": "enim coutuntur Judei Samaritanis.",
+      "box": [
+        636,
+        713,
+        801,
+        731
+      ],
+      "score": 0.8200690150260925
+    },
+    {
+      "text": "25. Et interrogaverunt eum, et dixerunt ei: Quid ergo bap-",
+      "box": [
+        87,
+        731,
+        348,
+        747
+      ],
+      "score": 0.9635573625564575
+    },
+    {
+      "text": "22 Cum ergo resurrexisset a mortuís, recordati sunt disci-",
+      "box": [
+        363,
+        731,
+        629,
+        748
+      ],
+      "score": 0.9426981210708618
+    },
+    {
+      "text": "tizas, si tu non es Christus, neque Elias, neque Propheta?",
+      "box": [
+        80,
+        743,
+        326,
+        756
+      ],
+      "score": 0.9800987243652344
+    },
+    {
+      "text": "puli ejus, quia hoe dicebat, et crediderunt Scripture, et ser-",
+      "box": [
+        355,
+        742,
+        629,
+        758
+      ],
+      "score": 0.9762436747550964
+    },
+    {
+      "text": "dedisset tibi aquam vivam.",
+      "box": [
+        636,
+        743,
+        760,
+        761
+      ],
+      "score": 0.8391017913818359
+    },
+    {
+      "text": "26. Respondit eis Joannes, dicens: Ego baptizo in aqua: me-",
+      "box": [
+        87,
+        753,
+        348,
+        766
+      ],
+      "score": 0.981539785861969
+    },
+    {
+      "text": "moni, quem dizit Jesus.",
+      "box": [
+        357,
+        753,
+        460,
+        765
+      ],
+      "score": 0.9811615347862244
+    },
+    {
+      "text": "dius autem vestrum stetit, quem vos nescitis.",
+      "box": [
+        80,
+        762,
+        275,
+        776
+      ],
+      "score": 0.9627105593681335
+    },
+    {
+      "text": "23. Cum autem esset Jerosolymis in pascha in die festo,",
+      "box": [
+        363,
+        761,
+        629,
+        778
+      ],
+      "score": 0.9722905158996582
+    },
+    {
+      "text": "multi crediderunt in nomine ejus, videntes sigua ejus, qum fa-",
+      "box": [
+        355,
+        771,
+        628,
+        788
+      ],
+      "score": 0.9633352756500244
+    },
+    {
+      "text": "puteus altus est: unde ergo habes aquam vivam?",
+      "box": [
+        635,
+        763,
+        857,
+        782
+      ],
+      "score": 0.6252794861793518
+    },
+    {
+      "text": "27. Ipae est, qui post me venturus est, qui ante me factus",
+      "box": [
+        88,
+        772,
+        348,
+        786
+      ],
+      "score": 0.9578006267547607
+    },
+    {
+      "text": "est: cujus ego non sum dignus ut solvam ejus corrigiam caloea-",
+      "box": [
+        79,
+        781,
+        348,
+        797
+      ],
+      "score": 0.9393951296806335
+    },
+    {
+      "text": "ciebat.",
+      "box": [
+        357,
+        783,
+        387,
+        793
+      ],
+      "score": 0.9981021881103516
+    },
+    {
+      "text": "menti.",
+      "box": [
+        79,
+        793,
+        111,
+        807
+      ],
+      "score": 0.9927095770835876
+    },
+    {
+      "text": "24. Ipse sutem Jesus non credebat semetipsum eis, eo quod",
+      "box": [
+        363,
+        790,
+        628,
+        808
+      ],
+      "score": 0.9943969249725342
+    },
+    {
+      "text": "28. Hee in Bethania facta sunt trans Jordanem, ubi erat",
+      "box": [
+        86,
+        800,
+        349,
+        816
+      ],
+      "score": 0.9781051874160767
+    },
+    {
+      "text": "Joannes baptizans.",
+      "box": [
+        80,
+        812,
+        161,
+        825
+      ],
+      "score": 0.9712333679199219
+    },
+    {
+      "text": "ipse nosset omnes,",
+      "box": [
+        357,
+        803,
+        435,
+        813
+      ],
+      "score": 0.9861162900924683
+    },
+    {
+      "text": "25. Et quin opus ei non erat ut quis testimonium perhibe-",
+      "box": [
+        363,
+        810,
+        627,
+        827
+      ],
+      "score": 0.9897232055664062
+    },
+    {
+      "text": "hac, sitiet iterum: qui autem biberit",
+      "box": [
+        635,
+        804,
+        804,
+        821
+      ],
+      "score": 0.9415783286094666
+    },
+    {
+      "text": "el, non sitiet in sternum:",
+      "box": [
+        635,
+        814,
+        752,
+        830
+      ],
+      "score": 0.8951076865196228
+    },
+    {
+      "text": "ex aqua, quam ego dabo",
+      "box": [
+        797,
+        800,
+        919,
+        825
+      ],
+      "score": 0.895729660987854
+    },
+    {
+      "text": "29. Altera die vidit Joannes Jesum venieutem ad se, et ait:",
+      "box": [
+        87,
+        820,
+        349,
+        835
+      ],
+      "score": 0.9555297493934631
+    },
+    {
+      "text": "ret de homine: ipse enim sciebat quid esset in homine.",
+      "box": [
+        354,
+        820,
+        592,
+        837
+      ],
+      "score": 0.97535240650177
+    },
+    {
+      "text": "Eece agnus Dei, ecce qui tollit peccatum mundi,",
+      "box": [
+        79,
+        830,
+        287,
+        846
+      ],
+      "score": 0.9561099410057068
+    },
+    {
+      "text": "30. Hic est, de quo dixi: Post me venit vir, qui ante me",
+      "box": [
+        86,
+        840,
+        348,
+        856
+      ],
+      "score": 0.9846379160881042
+    },
+    {
+      "text": "CAPUT III",
+      "box": [
+        463,
+        841,
+        518,
+        856
+      ],
+      "score": 0.9557833075523376
+    },
+    {
+      "text": "tis in vitam eternam.",
+      "box": [
+        635,
+        833,
+        732,
+        851
+      ],
+      "score": 0.9436014294624329
+    },
+    {
+      "text": "factus est: quia prior me erat:",
+      "box": [
+        80,
+        852,
+        208,
+        866
+      ],
+      "score": 0.9792669415473938
+    },
+    {
+      "text": "31. Et ego nesciebam eum, sed ut manifestetur in Israel:",
+      "box": [
+        86,
+        860,
+        348,
+        876
+      ],
+      "score": 0.9686555862426758
+    },
+    {
+      "text": "1. Erat autem homo ex Pharismis, Nicodemus nomine,",
+      "box": [
+        363,
+        861,
+        625,
+        878
+      ],
+      "score": 0.9820583462715149
+    },
+    {
+      "text": "non sitiam, neque veniam hue haurire.",
+      "box": [
+        634,
+        854,
+        807,
+        872
+      ],
+      "score": 0.9195303916931152
+    },
+    {
+      "text": "propterea veni ego in aqua baptizans.",
+      "box": [
+        80,
+        871,
+        240,
+        886
+      ],
+      "score": 0.9802863597869873
+    },
+    {
+      "text": "32. Et testimonium perhibuit Joannes, dicens: Quia vidi",
+      "box": [
+        85,
+        880,
+        348,
+        895
+      ],
+      "score": 0.9199289679527283
+    },
+    {
+      "text": "princeps Judeorum.",
+      "box": [
+        357,
+        874,
+        445,
+        884
+      ],
+      "score": 0.9775243401527405
+    },
+    {
+      "text": "2. Hic venit ad Jesum nocte, et dixit ei; Rabbi, scimus",
+      "box": [
+        363,
+        881,
+        627,
+        898
+      ],
+      "score": 0.952318549156189
+    },
+    {
+      "text": "Spiritum descendentem quasi columbam de ccelo, et mansit su-",
+      "box": [
+        78,
+        891,
+        348,
+        906
+      ],
+      "score": 0.9789953827857971
+    },
+    {
+      "text": "quia a Deo venisti magister: nemo enina potest hmc signa face-",
+      "box": [
+        355,
+        891,
+        626,
+        908
+      ],
+      "score": 0.961601734161377
+    },
+    {
+      "text": "Jesus: Bene dixisti, quia non habeo virum:",
+      "box": [
+        633,
+        885,
+        829,
+        901
+      ],
+      "score": 0.9297929406166077
+    },
+    {
+      "text": "per eum.",
+      "box": [
+        80,
+        904,
+        120,
+        915
+      ],
+      "score": 0.9399788975715637
+    },
+    {
+      "text": "re, que tu facis, nisi fuerit Deus cum eo.",
+      "box": [
+        355,
+        901,
+        532,
+        916
+      ],
+      "score": 0.9561387896537781
+    },
+    {
+      "text": "33. Et ego nesciebam eum, sed qul misit me baptizare in",
+      "box": [
+        86,
+        910,
+        347,
+        924
+      ],
+      "score": 0.9770151972770691
+    },
+    {
+      "text": "3. Respondit Jesus, et dixit ei: Amen, amen dico tibi, nisi",
+      "box": [
+        362,
+        910,
+        626,
+        927
+      ],
+      "score": 0.9157487750053406
+    },
+    {
+      "text": "est tuus vir: hoc vere dixisti.",
+      "box": [
+        633,
+        904,
+        764,
+        920
+      ],
+      "score": 0.8796094059944153
+    },
+    {
+      "text": "aqua, ille mili dixit: Super quem videris Spiritum descenden-",
+      "box": [
+        79,
+        920,
+        349,
+        934
+      ],
+      "score": 0.9356448650360107
+    },
+    {
+      "text": "quis renatus fuerit denuo, non potest videre reguum Dei.",
+      "box": [
+        355,
+        920,
+        598,
+        936
+      ],
+      "score": 0.9685450792312622
+    },
+    {
+      "text": "tem, et manentem super eum, hic est, qui baptizat in Spiritu",
+      "box": [
+        79,
+        931,
+        348,
+        944
+      ],
+      "score": 0.9806700348854065
+    },
+    {
+      "text": "4. Dicit ad eum Nicodemus: Quomodo potest homo nasei,",
+      "box": [
+        363,
+        929,
+        624,
+        947
+      ],
+      "score": 0.9663746953010559
+    },
+    {
+      "text": "Sancto.",
+      "box": [
+        80,
+        942,
+        112,
+        953
+      ],
+      "score": 0.9403184652328491
+    },
+    {
+      "text": "cum sit senex† numquid potest in ventrem matris suse iterato",
+      "box": [
+        355,
+        939,
+        625,
+        957
+      ],
+      "score": 0.9454270601272583
+    },
+    {
+      "text": "quia Jerosolymis est locus, ubi adorare oportet.",
+      "box": [
+        633,
+        935,
+        845,
+        949
+      ],
+      "score": 0.9643197655677795
+    },
+    {
+      "text": "34. Et ego vidi: et testimonium perhibui, quia hie est Filius",
+      "box": [
+        86,
+        950,
+        348,
+        964
+      ],
+      "score": 0.9498264789581299
+    },
+    {
+      "text": "Dei.",
+      "box": [
+        80,
+        960,
+        100,
+        973
+      ],
+      "score": 0.9369585514068604
+    },
+    {
+      "text": "introire, et renasci?",
+      "box": [
+        356,
+        951,
+        443,
+        962
+      ],
+      "score": 0.956240713596344
+    },
+    {
+      "text": "5. Respondit Jesus: Amen, amen dico tibi, uisi quis rena-",
+      "box": [
+        362,
+        958,
+        625,
+        976
+      ],
+      "score": 0.9596721529960632
+    },
+    {
+      "text": "35.",
+      "box": [
+        87,
+        971,
+        106,
+        983
+      ],
+      "score": 0.9968142509460449
+    },
+    {
+      "text": "Altera die iterum stabat Joannes, et ex discipulis ejus",
+      "box": [
+        109,
+        971,
+        347,
+        984
+      ],
+      "score": 0.993118166923523
+    },
+    {
+      "text": "tus fuerit ex aqua, et Spiritu Sancto, non potest introire in",
+      "box": [
+        354,
+        969,
+        624,
+        986
+      ],
+      "score": 0.9915047287940979
+    },
+    {
+      "text": "Patrem.",
+      "box": [
+        634,
+        965,
+        670,
+        976
+      ],
+      "score": 0.9998341202735901
+    },
+    {
+      "text": "duo.",
+      "box": [
+        79,
+        981,
+        102,
+        993
+      ],
+      "score": 0.9993530511856079
+    },
+    {
+      "text": "regnum Dei.",
+      "box": [
+        356,
+        981,
+        411,
+        992
+      ],
+      "score": 0.9928026795387268
+    },
+    {
+      "text": "Vos adoratis quod uescitis: nos adoramus quod scimua,",
+      "box": [
+        638,
+        969,
+        915,
+        990
+      ],
+      "score": 0.8269079923629761
+    },
+    {
+      "text": "36. Et respiciens Jesum subulantem, dicit: Ecce agnus Dei.",
+      "box": [
+        86,
+        990,
+        347,
+        1003
+      ],
+      "score": 0.9476161003112793
+    },
+    {
+      "text": "6. Quod natum est ex carne, caro est: et quod natum est ex",
+      "box": [
+        361,
+        989,
+        625,
+        1005
+      ],
+      "score": 0.9870590567588806
+    },
+    {
+      "text": "quia salus ex Judmis est.",
+      "box": [
+        632,
+        983,
+        744,
+        997
+      ],
+      "score": 0.9212946891784668
+    },
+    {
+      "text": "37. Et audierunt eum duo discipuli loquentem, et secuti",
+      "box": [
+        86,
+        1002,
+        346,
+        1012
+      ],
+      "score": 0.9892626404762268
+    },
+    {
+      "text": "spiritu, spiritus est.",
+      "box": [
+        356,
+        1001,
+        441,
+        1011
+      ],
+      "score": 0.9879360795021057
+    },
+    {
+      "text": "7. Nou mireris quia dixi tibi: Oportet vos nasci denuo.",
+      "box": [
+        361,
+        1008,
+        605,
+        1024
+      ],
+      "score": 0.9750432372093201
+    },
+    {
+      "text": "rabunt Patrem in spiritu et veritate, Nam et Pater tales qu-",
+      "box": [
+        630,
+        999,
+        915,
+        1018
+      ],
+      "score": 0.7772892713546753
+    },
+    {
+      "text": "sunt Jesum.",
+      "box": [
+        79,
+        1012,
+        133,
+        1022
+      ],
+      "score": 0.994645357131958
+    },
+    {
+      "text": "38. Conversus antem Jesus, et videns eos sequentes se, dicit",
+      "box": [
+        86,
+        1020,
+        348,
+        1034
+      ],
+      "score": 0.9473426938056946
+    },
+    {
+      "text": "8. Spiritus ubi valt spirat: et vocem ejus audis, sed nescis",
+      "box": [
+        362,
+        1019,
+        625,
+        1034
+      ],
+      "score": 0.9072033762931824
+    },
+    {
+      "text": "rit, qui adorent eum.",
+      "box": [
+        632,
+        1013,
+        727,
+        1026
+      ],
+      "score": 0.9781811237335205
+    },
+    {
+      "text": "eis: Quid qumritis) Qui dixerunt ei: Rabbi, (quod dicitur inter-",
+      "box": [
+        78,
+        1029,
+        348,
+        1044
+      ],
+      "score": 0.9025555849075317
+    },
+    {
+      "text": "unde veniat, aut quo vadat: sic est omnis, qui natus eat ex",
+      "box": [
+        353,
+        1029,
+        625,
+        1045
+      ],
+      "score": 0.9518569707870483
+    },
+    {
+      "text": "veritate oportet adorare.",
+      "box": [
+        631,
+        1031,
+        740,
+        1046
+      ],
+      "score": 0.9523478746414185
+    },
+    {
+      "text": "24. Spiritus est Dens: et eos, qui adorant eum, in spiritu et",
+      "box": [
+        638,
+        1018,
+        916,
+        1039
+      ],
+      "score": 0.8351495862007141
+    },
+    {
+      "text": "pretatum Magister) ubi habitas?",
+      "box": [
+        77,
+        1039,
+        219,
+        1054
+      ],
+      "score": 0.8355001211166382
+    },
+    {
+      "text": "spiritu.",
+      "box": [
+        355,
+        1041,
+        391,
+        1052
+      ],
+      "score": 0.999786376953125
+    },
+    {
+      "text": "P9. Respondit Nicodemus, et dixit el: Quomodo possunt hme",
+      "box": [
+        356,
+        1048,
+        624,
+        1064
+      ],
+      "score": 0.9613009095191956
+    },
+    {
+      "text": "25. Dicit ei mulier: Scio quia Messdas venit (qui dicitur",
+      "box": [
+        638,
+        1038,
+        916,
+        1056
+      ],
+      "score": 0.7989679574966431
+    },
+    {
+      "text": "39. Dicit eis: Venite, et videte. Venerunt, ct viderunt ubi",
+      "box": [
+        86,
+        1049,
+        347,
+        1064
+      ],
+      "score": 0.9557303786277771
+    },
+    {
+      "text": "Christus): cum ergo venerit ille, nobis annuntiabit omnia.",
+      "box": [
+        632,
+        1050,
+        887,
+        1066
+      ],
+      "score": 0.857011079788208
+    },
+    {
+      "text": "maneret, et apud eum manserunt die illo: horá autem erat qua-",
+      "box": [
+        78,
+        1061,
+        347,
+        1075
+      ],
+      "score": 0.9686737656593323
+    },
+    {
+      "text": "fieri?",
+      "box": [
+        354,
+        1060,
+        379,
+        1072
+      ],
+      "score": 0.9168309569358826
+    },
+    {
+      "text": "10. Respondit Jesus, et dixit eis Tu es magister in Israel,",
+      "box": [
+        361,
+        1066,
+        624,
+        1086
+      ],
+      "score": 0.9604758620262146
+    },
+    {
+      "text": ".Entuo veeat dciples e miabanr, qua",
+      "box": [
+        639,
+        1068,
+        915,
+        1087
+      ],
+      "score": 0.4350779056549072
+    },
+    {
+      "text": "26. Dicit ei Jesus: Ego sum, qui loquor tecum.",
+      "box": [
+        639,
+        1060,
+        855,
+        1077
+      ],
+      "score": 0.8761901259422302
+    },
+    {
+      "text": "sidecima.",
+      "box": [
+        79,
+        1074,
+        123,
+        1084
+      ],
+      "score": 0.9536450505256653
+    },
+    {
+      "text": "40. Erat autem Andreas frater Simonis Petri unus ex duo-",
+      "box": [
+        85,
+        1080,
+        347,
+        1095
+      ],
+      "score": 0.9865953326225281
+    },
+    {
+      "text": "et hec ignoras?",
+      "box": [
+        354,
+        1081,
+        422,
+        1092
+      ],
+      "score": 0.9126321077346802
+    },
+    {
+      "text": "11. Amen, amen dico tibi, quia quod scimus loquimur, et",
+      "box": [
+        361,
+        1089,
+        625,
+        1104
+      ],
+      "score": 0.973582923412323
+    },
+    {
+      "text": "cum maliere loquebatar. Nemo tamen dixit: Quid queris, aut",
+      "box": [
+        630,
+        1079,
+        915,
+        1097
+      ],
+      "score": 0.7460448145866394
+    },
+    {
+      "text": "bus, qui audierant a Joanne, et secuti fuerant eum.",
+      "box": [
+        78,
+        1090,
+        298,
+        1105
+      ],
+      "score": 0.9813889265060425
+    },
+    {
+      "text": "quod vidimus testamur, et testimonium nostrum non accipitis.",
+      "box": [
+        352,
+        1099,
+        624,
+        1114
+      ],
+      "score": 0.9836536645889282
+    },
+    {
+      "text": "quid loqueris cum eal",
+      "box": [
+        632,
+        1091,
+        728,
+        1105
+      ],
+      "score": 0.936750590801239
+    },
+    {
+      "text": "41.' Invenit hie primum fratrem suum Simonem, et dicit ei:",
+      "box": [
+        85,
+        1099,
+        346,
+        1115
+      ],
+      "score": 0.9608240723609924
+    },
+    {
+      "text": "12. Siterrena dixi vobis, et non creditis; quomodo, si dixero",
+      "box": [
+        362,
+        1109,
+        624,
+        1124
+      ],
+      "score": 0.9505859017372131
+    },
+    {
+      "text": "28. Reliquit ergo hydriam suam mulier, et abiit in civita-",
+      "box": [
+        639,
+        1100,
+        913,
+        1115
+      ],
+      "score": 0.9352526068687439
+    },
+    {
+      "text": "Invenimus Messiam: (quod est interpretatum Christus).",
+      "box": [
+        77,
+        1109,
+        314,
+        1124
+      ],
+      "score": 0.9604061841964722
+    },
+    {
+      "text": "tem, et dicit illis honinibus:",
+      "box": [
+        631,
+        1111,
+        759,
+        1125
+      ],
+      "score": 0.9230688810348511
+    },
+    {
+      "text": "42. Et adduxit eum ad Jesum. Intuitus autem eum Jesus,",
+      "box": [
+        85,
+        1120,
+        346,
+        1134
+      ],
+      "score": 0.978321373462677
+    },
+    {
+      "text": "vobis ccelestia, credetis!",
+      "box": [
+        354,
+        1121,
+        459,
+        1131
+      ],
+      "score": 0.9529119729995728
+    },
+    {
+      "text": "18. Et nemo aspendit in colum, nisi qui descendit de celo,",
+      "box": [
+        358,
+        1128,
+        623,
+        1144
+      ],
+      "score": 0.9262745380401611
+    },
+    {
+      "text": "29. Venite et videte hominem qui dixit mihi omnia quecuma-",
+      "box": [
+        639,
+        1120,
+        913,
+        1135
+      ],
+      "score": 0.8976652026176453
+    },
+    {
+      "text": "dixit: Tu es Simon filius Jonn: tu vocaberis Cephas: quod in-",
+      "box": [
+        78,
+        1131,
+        346,
+        1144
+      ],
+      "score": 0.9848654866218567
+    },
+    {
+      "text": "que feci: numquid ipae est Christus?",
+      "box": [
+        630,
+        1130,
+        793,
+        1145
+      ],
+      "score": 0.9322797060012817
+    },
+    {
+      "text": "terpretatur Petrus.",
+      "box": [
+        77,
+        1141,
+        160,
+        1154
+      ],
+      "score": 0.9916198253631592
+    },
+    {
+      "text": "Filius hominis, qui est in celo.",
+      "box": [
+        355,
+        1141,
+        489,
+        1151
+      ],
+      "score": 0.9822761416435242
+    },
+    {
+      "text": "30. Exierant ergo de civitate, et veniebant ad eum.",
+      "box": [
+        638,
+        1140,
+        873,
+        1155
+      ],
+      "score": 0.9521017670631409
+    },
+    {
+      "text": "43. In crastinum voluit exire in Galilmam, et invenit Phi-",
+      "box": [
+        84,
+        1149,
+        346,
+        1164
+      ],
+      "score": 0.9748867750167847
+    },
+    {
+      "text": "14. Et sicut Moyses exaltavit serpentem in deserto: ita",
+      "box": [
+        362,
+        1150,
+        624,
+        1163
+      ],
+      "score": 0.9962782263755798
+    },
+    {
+      "text": "duca.",
+      "box": [
+        631,
+        1159,
+        658,
+        1174
+      ],
+      "score": 0.9861680269241333
+    },
+    {
+      "text": "31. Interea rogabant eum discipuli, dicentes: Rabbi, man-",
+      "box": [
+        640,
+        1151,
+        913,
+        1165
+      ],
+      "score": 0.955219030380249
+    },
+    {
+      "text": "lippum. Et dicit ei Jesus: Sequere me.",
+      "box": [
+        77,
+        1161,
+        243,
+        1174
+      ],
+      "score": 0.9741800427436829
+    },
+    {
+      "text": "44. Erat autem Philippus a Bethsaida, civitate Andree, et",
+      "box": [
+        82,
+        1170,
+        347,
+        1184
+      ],
+      "score": 0.9681185483932495
+    },
+    {
+      "text": "exaltarn oportet Filium homiuis:",
+      "box": [
+        354,
+        1161,
+        494,
+        1171
+      ],
+      "score": 0.9403643608093262
+    },
+    {
+      "text": "15. Ut ommis, qui credit in ipsum, non pereat, sed habeat",
+      "box": [
+        360,
+        1168,
+        625,
+        1185
+      ],
+      "score": 0.9707534909248352
+    },
+    {
+      "text": "32. Ille autem dicit eis: Ego cibum habeo manducare, quem",
+      "box": [
+        640,
+        1170,
+        913,
+        1183
+      ],
+      "score": 0.9815733432769775
+    },
+    {
+      "text": "Petri.",
+      "box": [
+        77,
+        1181,
+        104,
+        1193
+      ],
+      "score": 0.9973570704460144
+    },
+    {
+      "text": "vitam eternam.",
+      "box": [
+        355,
+        1180,
+        425,
+        1191
+      ],
+      "score": 0.9065728783607483
+    },
+    {
+      "text": "45. Invenit Philippus Nathauael, et dicit ei: Quem scripsit",
+      "box": [
+        83,
+        1191,
+        347,
+        1204
+      ],
+      "score": 0.9629814624786377
+    },
+    {
+      "text": "16. Sic enim Deus dilexit mundum, ut Filium suum uni-",
+      "box": [
+        362,
+        1188,
+        625,
+        1204
+      ],
+      "score": 0.973619282245636
+    },
+    {
+      "text": "vos nescitis.",
+      "box": [
+        632,
+        1182,
+        684,
+        1193
+      ],
+      "score": 0.9585740566253662
+    },
+    {
+      "text": "33. Dicebant ergo discipuli ad invicem: Numquid aliquis at-",
+      "box": [
+        639,
+        1188,
+        913,
+        1204
+      ],
+      "score": 0.9738583564758301
+    },
+    {
+      "text": "Moyses in lege, et Propheta, invenimus Jesum filfum Joseph a",
+      "box": [
+        77,
+        1201,
+        347,
+        1214
+      ],
+      "score": 0.9667686820030212
+    },
+    {
+      "text": "habeat vitam seternam.",
+      "box": [
+        353,
+        1209,
+        455,
+        1223
+      ],
+      "score": 0.9236471652984619
+    },
+    {
+      "text": "genitum daret: ut omnis, qui credit in eum, non pereat, sed",
+      "box": [
+        354,
+        1201,
+        625,
+        1214
+      ],
+      "score": 0.984250009059906
+    },
+    {
+      "text": "Nazareth.",
+      "box": [
+        77,
+        1211,
+        121,
+        1222
+      ],
+      "score": 0.9986915588378906
+    },
+    {
+      "text": "tulit ei manducaref",
+      "box": [
+        633,
+        1202,
+        717,
+        1212
+      ],
+      "score": 0.9964256286621094
+    },
+    {
+      "text": "46. Et dixit el Nathanael: A Naareth potest aliquid boni",
+      "box": [
+        83,
+        1218,
+        346,
+        1234
+      ],
+      "score": 0.940672755241394
+    },
+    {
+      "text": "17. Non enim misit Deus Filium suum In mundum, ut",
+      "box": [
+        360,
+        1219,
+        626,
+        1234
+      ],
+      "score": 0.9697003960609436
+    },
+    {
+      "text": "34. Dicit eis Jesus: Meus cibus est, ut faciam voluntatem",
+      "box": [
+        639,
+        1207,
+        914,
+        1223
+      ],
+      "score": 0.9667345881462097
+    },
+    {
+      "text": "judicet mundum, sed ut salvetur mundus per ipaum.",
+      "box": [
+        352,
+        1229,
+        582,
+        1242
+      ],
+      "score": 0.9668579697608948
+    },
+    {
+      "text": "ejus, qui misit me, ut perficiam opus ejus.",
+      "box": [
+        633,
+        1218,
+        816,
+        1233
+      ],
+      "score": 0.9712499380111694
+    },
+    {
+      "text": "esse† Dicit ei Philippaus: Veni, et vide.",
+      "box": [
+        77,
+        1231,
+        245,
+        1241
+      ],
+      "score": 0.9401324987411499
+    },
+    {
+      "text": "47. Vilit Jesus Nathanael venientem ad se, et dicit de eo:",
+      "box": [
+        82,
+        1238,
+        347,
+        1253
+      ],
+      "score": 0.9488613605499268
+    },
+    {
+      "text": "measis veniti Ecce dico vobis: Levate oculos vestros, et videte",
+      "box": [
+        632,
+        1236,
+        915,
+        1252
+      ],
+      "score": 0.918097198009491
+    },
+    {
+      "text": "35. Nonne vos dicitis, quod adhue quatuor menses sunt, et",
+      "box": [
+        640,
+        1226,
+        915,
+        1243
+      ],
+      "score": 0.9455392360687256
+    },
+    {
+      "text": "Ecce vere Israelita, in quo dolus non est.",
+      "box": [
+        76,
+        1249,
+        254,
+        1261
+      ],
+      "score": 0.9223036766052246
+    },
+    {
+      "text": "jam judicatus est: quia non credit in nömine unigeniti Filii.",
+      "box": [
+        353,
+        1250,
+        628,
+        1263
+      ],
+      "score": 0.9700048565864563
+    },
+    {
+      "text": "18. Qui eredit in eum, non judicatur: qui autem non credit,",
+      "box": [
+        356,
+        1241,
+        625,
+        1251
+      ],
+      "score": 0.9736300706863403
+    },
+    {
+      "text": "regiones, quia albe suut jam ad messem.",
+      "box": [
+        633,
+        1246,
+        809,
+        1262
+      ],
+      "score": 0.9497463703155518
+    },
+    {
+      "text": "48. Dicit ei Nathanael: Unde me nosti? Respondit Jesus,",
+      "box": [
+        83,
+        1259,
+        347,
+        1272
+      ],
+      "score": 0.9582141637802124
+    },
+    {
+      "text": "\"Dei.",
+      "box": [
+        354,
+        1260,
+        378,
+        1271
+      ],
+      "score": 0.8516559600830078
+    },
+    {
+      "text": "36. Ét qui metit, mercedem accipit, et congregat fructum",
+      "box": [
+        641,
+        1254,
+        914,
+        1271
+      ],
+      "score": 0.8651414513587952
+    },
+    {
+      "text": "et dixit el: Priusquam te Philippus vocaret, cum esses sub ficu,",
+      "box": [
+        74,
+        1267,
+        347,
+        1283
+      ],
+      "score": 0.9526674747467041
+    },
+    {
+      "text": "19. Hoc est autem judicium: quia lux venit in munduni, et",
+      "box": [
+        360,
+        1268,
+        628,
+        1281
+      ],
+      "score": 0.9779030680656433
+    },
+    {
+      "text": "in vitam mternam: ut, et qui seminat, simul gaudeat et quí",
+      "box": [
+        632,
+        1264,
+        915,
+        1281
+      ],
+      "score": 0.8866536617279053
+    },
+    {
+      "text": "vidi te.",
+      "box": [
+        76,
+        1277,
+        110,
+        1288
+      ],
+      "score": 0.9705201387405396
+    },
+    {
+      "text": "49. Respondit ei Nathanael, et ait: Rabbi, ta es Filius Dei,",
+      "box": [
+        82,
+        1284,
+        346,
+        1304
+      ],
+      "score": 0.9637274146080017
+    },
+    {
+      "text": "dilexerunt homines magis tenebras, quam lucem: erant enim",
+      "box": [
+        355,
+        1280,
+        626,
+        1290
+      ],
+      "score": 0.9875181317329407
+    },
+    {
+      "text": "metit,",
+      "box": [
+        634,
+        1276,
+        663,
+        1291
+      ],
+      "score": 0.8874218463897705
+    },
+    {
+      "text": "corum mala opera.",
+      "box": [
+        356,
+        1290,
+        438,
+        1301
+      ],
+      "score": 0.9771184325218201
+    },
+    {
+      "text": "37. In hoc enim est verbum verum: quia alius est qui semi-",
+      "box": [
+        641,
+        1282,
+        915,
+        1300
+      ],
+      "score": 0.9566612243652344
+    },
+    {
+      "text": "tu es Rex Israel.",
+      "box": [
+        75,
+        1295,
+        147,
+        1309
+      ],
+      "score": 0.8479437232017517
+    },
+    {
+      "text": "50. Responslit Jesus, et dixit ei: Quis dixi tibi, Vidi te sub",
+      "box": [
+        81,
+        1303,
+        347,
+        1323
+      ],
+      "score": 0.9095180630683899
+    },
+    {
+      "text": "20. Omuis enim, qui male egit, odit lucem, et non venit ad",
+      "box": [
+        363,
+        1296,
+        628,
+        1312
+      ],
+      "score": 0.9696216583251953
+    },
+    {
+      "text": "nat, et alius est qui metit.",
+      "box": [
+        634,
+        1293,
+        747,
+        1311
+      ],
+      "score": 0.9620033502578735
+    },
+    {
+      "text": "ficu, credlís: majus hia videbís.",
+      "box": [
+        73,
+        1312,
+        210,
+        1331
+      ],
+      "score": 0.7608640193939209
+    },
+    {
+      "text": "lucem, ut non arguantur opera ejus:",
+      "box": [
+        354,
+        1306,
+        514,
+        1322
+      ],
+      "score": 0.9306451082229614
+    },
+    {
+      "text": "88. Ego misi vos metcre quod vos non laborastia: alii labo-",
+      "box": [
+        642,
+        1299,
+        915,
+        1319
+      ],
+      "score": 0.8854617476463318
+    },
+    {
+      "text": "51. Et dicit ei: Amen, amen dico vobts, videbitis celum",
+      "box": [
+        80,
+        1323,
+        347,
+        1344
+      ],
+      "score": 0.9403219223022461
+    },
+    {
+      "text": "21. Qni antem facit veritatem, venit ad lucem, ut mani-",
+      "box": [
+        364,
+        1318,
+        628,
+        1331
+      ],
+      "score": 0.9808411598205566
+    },
+    {
+      "text": "raverunt, et vos in labores eorum introistis.",
+      "box": [
+        634,
+        1310,
+        823,
+        1329
+      ],
+      "score": 0.9435500502586365
+    },
+    {
+      "text": "festentur opera ejus, quia in Deo sunt facta.",
+      "box": [
+        354,
+        1327,
+        548,
+        1342
+      ],
+      "score": 0.9931519627571106
+    },
+    {
+      "text": "à9. Ex civitate autem illa multi crediderant in eum Sama",
+      "box": [
+        643,
+        1319,
+        915,
+        1340
+      ],
+      "score": 0.7718145251274109
+    },
+    {
+      "text": "apertum, et angelos Dei ascendentes, et descendentes supra Pi-",
+      "box": [
+        73,
+        1333,
+        347,
+        1354
+      ],
+      "score": 0.9692855477333069
+    },
+    {
+      "text": "lum hominis.",
+      "box": [
+        74,
+        1342,
+        137,
+        1356
+      ],
+      "score": 0.8726999759674072
+    },
+    {
+      "text": "22. Post hmc venit Jesus et discipuli ejus, in terram Ju-",
+      "box": [
+        361,
+        1337,
+        628,
+        1352
+      ],
+      "score": 0.9620737433433533
+    },
+    {
+      "text": "ritanorum, propter verbum mulieris testimonium perhibentis:",
+      "box": [
+        633,
+        1330,
+        916,
+        1351
+      ],
+      "score": 0.803238034248352
+    }
+  ]
+}

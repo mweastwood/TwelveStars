@@ -1,0 +1,1447 @@
+{
+  "volume": 3,
+  "page_index": 59,
+  "pdf_page": 60,
+  "lines": [
+    {
+      "text": "79",
+      "box": [
+        5,
+        33,
+        25,
+        50
+      ],
+      "score": 0.9957332611083984
+    },
+    {
+      "text": "SALMOS.",
+      "box": [
+        155,
+        31,
+        224,
+        55
+      ],
+      "score": 0.993036150932312
+    },
+    {
+      "text": "SALMO CVIII.",
+      "box": [
+        640,
+        32,
+        745,
+        57
+      ],
+      "score": 0.9909977316856384
+    },
+    {
+      "text": "80",
+      "box": [
+        851,
+        54,
+        868,
+        69
+      ],
+      "score": 0.9998433589935303
+    },
+    {
+      "text": "4. Anduvieron errantes por la soledad, por lugares ári-",
+      "box": [
+        10,
+        76,
+        392,
+        105
+      ],
+      "score": 0.9927618503570557
+    },
+    {
+      "text": "7. Sembraron los campos, y plantaron viñas, que produ-",
+      "box": [
+        505,
+        79,
+        880,
+        116
+      ],
+      "score": 0.9543423652648926
+    },
+    {
+      "text": "dos; sin hallar camino para llegar á alguna ciudad donde al-",
+      "box": [
+        0,
+        94,
+        392,
+        123
+      ],
+      "score": 0.997840940952301
+    },
+    {
+      "text": "jeron abundantes frutos.",
+      "box": [
+        492,
+        100,
+        654,
+        127
+      ],
+      "score": 0.9996466636657715
+    },
+    {
+      "text": "bergarse.",
+      "box": [
+        0,
+        116,
+        62,
+        134
+      ],
+      "score": 0.9998841881752014
+    },
+    {
+      "text": "5. Hambrientos y sedientos, iba desfalleciendo ya su espí-",
+      "box": [
+        12,
+        131,
+        390,
+        156
+      ],
+      "score": 0.9987882971763611
+    },
+    {
+      "text": "y acrecentó sus ganados.",
+      "box": [
+        490,
+        135,
+        655,
+        161
+      ],
+      "score": 0.9951894879341125
+    },
+    {
+      "text": "ritu.",
+      "box": [
+        0,
+        150,
+        37,
+        169
+      ],
+      "score": 0.9998964071273804
+    },
+    {
+      "text": "39. Y vinieron á menos, y fueron oprimidos con trabajos",
+      "box": [
+        505,
+        151,
+        879,
+        181
+      ],
+      "score": 0.9793395400047302
+    },
+    {
+      "text": "6. Clamaron empero al Señor en su tribulacion, y sacólos",
+      "box": [
+        14,
+        164,
+        389,
+        189
+      ],
+      "score": 0.9985097050666809
+    },
+    {
+      "text": "y dolores.",
+      "box": [
+        491,
+        169,
+        562,
+        193
+      ],
+      "score": 0.9991217851638794
+    },
+    {
+      "text": "de sus angustias.",
+      "box": [
+        3,
+        185,
+        114,
+        202
+      ],
+      "score": 0.999707818031311
+    },
+    {
+      "text": "40. Cayó el vilipendio sobre los príncipes: é hízolos an-",
+      "box": [
+        506,
+        187,
+        879,
+        209
+      ],
+      "score": 0.9945811033248901
+    },
+    {
+      "text": "7. Y encaminólos por la via recta, para que llegasen á la",
+      "box": [
+        14,
+        199,
+        390,
+        222
+      ],
+      "score": 0.9985798001289368
+    },
+    {
+      "text": "dar errantes por lugares desiertos, donde no habia senda",
+      "box": [
+        493,
+        204,
+        879,
+        226
+      ],
+      "score": 0.9985960721969604
+    },
+    {
+      "text": "ciudad en que debian habitar.",
+      "box": [
+        2,
+        216,
+        195,
+        236
+      ],
+      "score": 0.998740553855896
+    },
+    {
+      "text": "8. Glorifiquen al Señor por sus misericordias, y por sus",
+      "box": [
+        14,
+        231,
+        389,
+        255
+      ],
+      "score": 0.9942633509635925
+    },
+    {
+      "text": "ninguna.",
+      "box": [
+        495,
+        222,
+        556,
+        240
+      ],
+      "score": 0.9999155402183533
+    },
+    {
+      "text": "41. Y libró al pobre de la miseria: y multiplicó las fami-",
+      "box": [
+        506,
+        235,
+        879,
+        259
+      ],
+      "score": 0.9986992478370667
+    },
+    {
+      "text": "maravillas á favor de los hijos de los hombres",
+      "box": [
+        1,
+        248,
+        292,
+        270
+      ],
+      "score": 0.9840730428695679
+    },
+    {
+      "text": "9. Porque sació al alma sedienta: colmó de bienes al alma",
+      "box": [
+        14,
+        264,
+        390,
+        288
+      ],
+      "score": 0.9907293915748596
+    },
+    {
+      "text": "lias como rebaños de ovejas.",
+      "box": [
+        495,
+        255,
+        675,
+        272
+      ],
+      "score": 0.9996007084846497
+    },
+    {
+      "text": "42. Verán estas cosas los justos y se llenarán de gozo: y",
+      "box": [
+        507,
+        269,
+        879,
+        293
+      ],
+      "score": 0.996362030506134
+    },
+    {
+      "text": "hambrienta.",
+      "box": [
+        2,
+        282,
+        84,
+        300
+      ],
+      "score": 0.999943733215332
+    },
+    {
+      "text": "toda iniquidad cerrará su boca.",
+      "box": [
+        494,
+        286,
+        696,
+        305
+      ],
+      "score": 0.9961827397346497
+    },
+    {
+      "text": "10. Libró á los que yacian entre tinieblas y sombras de",
+      "box": [
+        13,
+        296,
+        389,
+        318
+      ],
+      "score": 0.9872984886169434
+    },
+    {
+      "text": "43. ¿Quién es sábio para conservar estas cosas , y com-",
+      "box": [
+        507,
+        302,
+        880,
+        325
+      ],
+      "score": 0.9874351620674133
+    },
+    {
+      "text": "muerte, aherrojados en la afliccion y entre cadenas.",
+      "box": [
+        0,
+        314,
+        326,
+        334
+      ],
+      "score": 0.9974374771118164
+    },
+    {
+      "text": "11. Mas porque contradijeron las palabras de Dios, y des-",
+      "box": [
+        14,
+        329,
+        390,
+        351
+      ],
+      "score": 0.9994431734085083
+    },
+    {
+      "text": "prender las misericordias del Señor?",
+      "box": [
+        496,
+        322,
+        725,
+        336
+      ],
+      "score": 0.9918035864830017
+    },
+    {
+      "text": "preciaron los designios del Altísimo,",
+      "box": [
+        0,
+        346,
+        231,
+        366
+      ],
+      "score": 0.9990076422691345
+    },
+    {
+      "text": "12. Fué abatido su corazon con los trabajos: quedaron sin",
+      "box": [
+        14,
+        360,
+        390,
+        384
+      ],
+      "score": 0.9888865351676941
+    },
+    {
+      "text": "SALMO CVII",
+      "box": [
+        649,
+        357,
+        738,
+        375
+      ],
+      "score": 0.9993505477905273
+    },
+    {
+      "text": "fuerzas; y no hubo quien los socorriese.",
+      "box": [
+        1,
+        378,
+        254,
+        400
+      ],
+      "score": 0.9904603958129883
+    },
+    {
+      "text": "13. Pero clamaron al Señor viéndose atribulados, y libró-",
+      "box": [
+        15,
+        393,
+        391,
+        418
+      ],
+      "score": 0.9965018033981323
+    },
+    {
+      "text": "Prorumpe David en alabanzas de Dios por sus victorias: las cuales repre-",
+      "box": [
+        497,
+        389,
+        881,
+        409
+      ],
+      "score": 0.9917113184928894
+    },
+    {
+      "text": "los de sus angustias.",
+      "box": [
+        1,
+        411,
+        136,
+        431
+      ],
+      "score": 0.9984498023986816
+    },
+    {
+      "text": "sentan las espirituales conquistas con que Jesu-Christo sometió à su Igle-",
+      "box": [
+        510,
+        408,
+        881,
+        422
+      ],
+      "score": 0.9898203015327454
+    },
+    {
+      "text": "14. Y sacólos de las tinieblas, y sombras de la muerte; y",
+      "box": [
+        15,
+        427,
+        392,
+        453
+      ],
+      "score": 0.9910131096839905
+    },
+    {
+      "text": "sia las naciones infieles.",
+      "box": [
+        511,
+        422,
+        638,
+        435
+      ],
+      "score": 0.9980782866477966
+    },
+    {
+      "text": "rompió sus cadenas.",
+      "box": [
+        2,
+        444,
+        135,
+        466
+      ],
+      "score": 0.9875642657279968
+    },
+    {
+      "text": "15. Glorifiquen al Señor por sus misericordias, y por sus",
+      "box": [
+        15,
+        461,
+        392,
+        485
+      ],
+      "score": 0.9983941316604614
+    },
+    {
+      "text": "1. Cántico y Salmo del mismo David .",
+      "box": [
+        514,
+        455,
+        764,
+        469
+      ],
+      "score": 0.9937400817871094
+    },
+    {
+      "text": "maravillas á favor de los hijos de los hombres.",
+      "box": [
+        1,
+        479,
+        297,
+        498
+      ],
+      "score": 0.9984164237976074
+    },
+    {
+      "text": "2. Dispuesto está mi corazon, oh Dios: mi corazon está",
+      "box": [
+        512,
+        469,
+        882,
+        487
+      ],
+      "score": 0.9897025227546692
+    },
+    {
+      "text": "16. Porque quebrantó las puertas de bronce, é hizo pe-",
+      "box": [
+        16,
+        495,
+        391,
+        519
+      ],
+      "score": 0.9862948656082153
+    },
+    {
+      "text": "dispuesto: cantaré y entonaré salmos en medio de mi gloria.",
+      "box": [
+        499,
+        485,
+        882,
+        504
+      ],
+      "score": 0.9847122430801392
+    },
+    {
+      "text": "3. Despierta pues, oh gloria 4, oh alma mia; apresuraos,",
+      "box": [
+        512,
+        502,
+        883,
+        522
+      ],
+      "score": 0.9829087853431702
+    },
+    {
+      "text": "dazos los cerrojos de hierro.",
+      "box": [
+        3,
+        516,
+        183,
+        531
+      ],
+      "score": 0.9975036382675171
+    },
+    {
+      "text": "17. Recogiólos del camino de su iniquidad; pues por sus",
+      "box": [
+        14,
+        530,
+        393,
+        553
+      ],
+      "score": 0.9986069202423096
+    },
+    {
+      "text": "oh salterio y cítara: yo me levantaré al rayar la aurora,",
+      "box": [
+        499,
+        519,
+        849,
+        539
+      ],
+      "score": 0.9977913498878479
+    },
+    {
+      "text": "maldades habian sido abismados.",
+      "box": [
+        0,
+        547,
+        215,
+        567
+      ],
+      "score": 0.9999071955680847
+    },
+    {
+      "text": "4. Y alabarte he, Señor, en medio de los pueblos, y te",
+      "box": [
+        512,
+        535,
+        883,
+        555
+      ],
+      "score": 0.9976913928985596
+    },
+    {
+      "text": "18. Llegó su alma á aborrecer todo alimento, y llegaron",
+      "box": [
+        14,
+        563,
+        393,
+        586
+      ],
+      "score": 0.9883390069007874
+    },
+    {
+      "text": "cantaré himnos entre las naciones.",
+      "box": [
+        499,
+        553,
+        718,
+        572
+      ],
+      "score": 0.9969251155853271
+    },
+    {
+      "text": "5. Porque es mas grande que los cielos tu misericordia, y",
+      "box": [
+        512,
+        566,
+        883,
+        589
+      ],
+      "score": 0.9966073036193848
+    },
+    {
+      "text": "hasta las puertas de la muerte.",
+      "box": [
+        0,
+        582,
+        202,
+        599
+      ],
+      "score": 0.9998984932899475
+    },
+    {
+      "text": "19. Pero clamaron al Señor al verse atribulados, y librólos",
+      "box": [
+        14,
+        596,
+        393,
+        618
+      ],
+      "score": 0.9988409280776978
+    },
+    {
+      "text": "mas elevada que las nubes la verdad tuya 5.",
+      "box": [
+        499,
+        584,
+        778,
+        605
+      ],
+      "score": 0.9818044900894165
+    },
+    {
+      "text": "6. Ensálzate, oh Dios, sobre los cielos, y ensalza sobre",
+      "box": [
+        513,
+        598,
+        884,
+        621
+      ],
+      "score": 0.9990118145942688
+    },
+    {
+      "text": "de sus angustias.",
+      "box": [
+        1,
+        617,
+        114,
+        631
+      ],
+      "score": 0.9985747337341309
+    },
+    {
+      "text": "toda la tierra tu gloria; para que obtengan la libertad los que",
+      "box": [
+        500,
+        615,
+        883,
+        637
+      ],
+      "score": 0.9984498620033264
+    },
+    {
+      "text": "20. Envió su palabra, y los sanó, y los salvó de su perdicion.",
+      "box": [
+        14,
+        630,
+        392,
+        651
+      ],
+      "score": 0.9910064339637756
+    },
+    {
+      "text": "tú amas.",
+      "box": [
+        502,
+        638,
+        561,
+        652
+      ],
+      "score": 0.9972934722900391
+    },
+    {
+      "text": "21. Glorifiquen al Señor por sus misericordias, y por sus",
+      "box": [
+        14,
+        648,
+        393,
+        667
+      ],
+      "score": 0.9931238293647766
+    },
+    {
+      "text": "7. Sálvame con tu diestra, y atiéndeme.",
+      "box": [
+        514,
+        649,
+        771,
+        669
+      ],
+      "score": 0.9904467463493347
+    },
+    {
+      "text": "maravillas, á favor de los hijos de los hombres.",
+      "box": [
+        0,
+        665,
+        301,
+        684
+      ],
+      "score": 0.993962824344635
+    },
+    {
+      "text": "8. Dios habló desde su Santuario: —y asi regocijarme he,",
+      "box": [
+        513,
+        663,
+        884,
+        686
+      ],
+      "score": 0.9654701948165894
+    },
+    {
+      "text": "22. Y ofrézcanle estos sacrificios de alabanza, y celebren",
+      "box": [
+        16,
+        683,
+        393,
+        700
+      ],
+      "score": 0.9944028258323669
+    },
+    {
+      "text": "y repartiré á Sichem, y mediré el valle de los Tabernáculos.",
+      "box": [
+        500,
+        681,
+        883,
+        702
+      ],
+      "score": 0.9811140298843384
+    },
+    {
+      "text": "con júbilo sus obras. .",
+      "box": [
+        0,
+        699,
+        150,
+        717
+      ],
+      "score": 0.996701717376709
+    },
+    {
+      "text": "9. Mio es Galaad, y mio es Manassés, y Ephraim es la for-",
+      "box": [
+        514,
+        697,
+        884,
+        718
+      ],
+      "score": 0.995570182800293
+    },
+    {
+      "text": "23. Los que surcan el mar con naves, y están maniobrando",
+      "box": [
+        13,
+        713,
+        395,
+        734
+      ],
+      "score": 0.9993576407432556
+    },
+    {
+      "text": "taleza principal mia.—Judá es mi rey6.",
+      "box": [
+        501,
+        715,
+        750,
+        734
+      ],
+      "score": 0.9868338704109192
+    },
+    {
+      "text": "en medio de tantas aguas,",
+      "box": [
+        1,
+        733,
+        176,
+        750
+      ],
+      "score": 0.9979201555252075
+    },
+    {
+      "text": "10. Moab el vaso ú objeto de mi esperanza: yo le conquis-",
+      "box": [
+        514,
+        729,
+        884,
+        752
+      ],
+      "score": 0.982912540435791
+    },
+    {
+      "text": "24. Esos han visto las obras del Señor, y sus maravillas en",
+      "box": [
+        15,
+        746,
+        394,
+        766
+      ],
+      "score": 0.9965380430221558
+    },
+    {
+      "text": "taré. —Por Iduméa extenderé mis plantas 7: se me harán",
+      "box": [
+        501,
+        746,
+        884,
+        767
+      ],
+      "score": 0.9637885689735413
+    },
+    {
+      "text": "el profundo del mar.",
+      "box": [
+        2,
+        766,
+        141,
+        783
+      ],
+      "score": 0.9998292922973633
+    },
+    {
+      "text": "amigos, se me someterán los extranjeros.",
+      "box": [
+        502,
+        765,
+        755,
+        783
+      ],
+      "score": 0.9755525588989258
+    },
+    {
+      "text": "25. Dijo, y sopló el viento tempestuoso, y encrespáronse",
+      "box": [
+        16,
+        780,
+        394,
+        799
+      ],
+      "score": 0.9956998825073242
+    },
+    {
+      "text": "11. ¿Quién me guiará á la ciudad fuerte? ¿Quién me con-",
+      "box": [
+        514,
+        778,
+        885,
+        800
+      ],
+      "score": 0.9942560791969299
+    },
+    {
+      "text": "las olas:",
+      "box": [
+        2,
+        798,
+        63,
+        815
+      ],
+      "score": 0.9998525977134705
+    },
+    {
+      "text": "ducirá hasta la Iduméa?",
+      "box": [
+        502,
+        797,
+        657,
+        815
+      ],
+      "score": 0.994314432144165
+    },
+    {
+      "text": "26. Suben hasta los cielos, y baján hasta los abismos. En",
+      "box": [
+        16,
+        812,
+        394,
+        831
+      ],
+      "score": 0.9922581911087036
+    },
+    {
+      "text": "12. ¿Quién sino tú, oh mi Dios, que nos habias desampa-",
+      "box": [
+        515,
+        810,
+        885,
+        834
+      ],
+      "score": 0.9895559549331665
+    },
+    {
+      "text": "medio de estas angustias desfallecia el alma de ellos.",
+      "box": [
+        3,
+        829,
+        338,
+        848
+      ],
+      "score": 0.9997700452804565
+    },
+    {
+      "text": "rado? ¿No vendrás tú, oh Dios mio, á la cabeza de nuestros",
+      "box": [
+        501,
+        827,
+        885,
+        850
+      ],
+      "score": 0.9898210167884827
+    },
+    {
+      "text": "27. Llenos de turbacion vacilaban como beodos 1, y se",
+      "box": [
+        18,
+        845,
+        395,
+        864
+      ],
+      "score": 0.9742329716682434
+    },
+    {
+      "text": "ejércitos?",
+      "box": [
+        502,
+        847,
+        567,
+        868
+      ],
+      "score": 0.959234893321991
+    },
+    {
+      "text": "desvaneció toda su sabiduría.",
+      "box": [
+        6,
+        864,
+        196,
+        882
+      ],
+      "score": 0.9998840689659119
+    },
+    {
+      "text": "13. Danos tu socorro en la tribulacion; porque la salva-",
+      "box": [
+        515,
+        858,
+        885,
+        884
+      ],
+      "score": 0.9889901280403137
+    },
+    {
+      "text": "28. Pero clamaron al Señor en la tribulacion, y los sacó",
+      "box": [
+        21,
+        881,
+        396,
+        898
+      ],
+      "score": 0.9974026083946228
+    },
+    {
+      "text": "cion en vano se espera del hombre.",
+      "box": [
+        503,
+        878,
+        721,
+        900
+      ],
+      "score": 0.9998117089271545
+    },
+    {
+      "text": "de sus apuros.",
+      "box": [
+        8,
+        900,
+        102,
+        914
+      ],
+      "score": 0.9994202852249146
+    },
+    {
+      "text": "14. Con Dios haremos proezas, y él aniquilará á nuestros",
+      "box": [
+        515,
+        891,
+        886,
+        917
+      ],
+      "score": 0.9868330359458923
+    },
+    {
+      "text": "29. Cambió el huracan en viento suave, y calmaron las",
+      "box": [
+        20,
+        912,
+        397,
+        931
+      ],
+      "score": 0.9992327690124512
+    },
+    {
+      "text": "enemigos.",
+      "box": [
+        502,
+        912,
+        571,
+        935
+      ],
+      "score": 0.9999917149543762
+    },
+    {
+      "text": "olas del mar.",
+      "box": [
+        8,
+        932,
+        96,
+        949
+      ],
+      "score": 0.9998654723167419
+    },
+    {
+      "text": "30. Regocijáronse ellos viendo el mar sosegado, y el Señor",
+      "box": [
+        23,
+        944,
+        398,
+        967
+      ],
+      "score": 0.9800124168395996
+    },
+    {
+      "text": "SALMO CVIII",
+      "box": [
+        647,
+        942,
+        739,
+        959
+      ],
+      "score": 0.9994497895240784
+    },
+    {
+      "text": "los condujo al puerto deseado.",
+      "box": [
+        8,
+        964,
+        203,
+        984
+      ],
+      "score": 0.999393880367279
+    },
+    {
+      "text": "31. Glorifiquen al Señor por sus misericordias, y por sus",
+      "box": [
+        22,
+        977,
+        400,
+        1002
+      ],
+      "score": 0.9909440279006958
+    },
+    {
+      "text": "David en persona de Cristo pide socorro al Pade contra sus pereguido-",
+      "box": [
+        505,
+        970,
+        887,
+        998
+      ],
+      "score": 0.7588067650794983
+    },
+    {
+      "text": "maravillas á favor de los hijos de los hombres.",
+      "box": [
+        10,
+        997,
+        303,
+        1018
+      ],
+      "score": 0.9886532425880432
+    },
+    {
+      "text": "oa l pec de Jud, y e l Js p.",
+      "box": [
+        523,
+        985,
+        867,
+        1012
+      ],
+      "score": 0.5214477181434631
+    },
+    {
+      "text": "32. Y ensalcen su gloria en la congregacion del pueblo, y",
+      "box": [
+        23,
+        1012,
+        400,
+        1035
+      ],
+      "score": 0.9967167377471924
+    },
+    {
+      "text": "alábenle en el consistorio de los ancianos.",
+      "box": [
+        11,
+        1031,
+        276,
+        1051
+      ],
+      "score": 0.9963541030883789
+    },
+    {
+      "text": "1. Salmo de David: para el fin.",
+      "box": [
+        517,
+        1022,
+        720,
+        1049
+      ],
+      "score": 0.9998252391815186
+    },
+    {
+      "text": "33. El Señor convirtió los rios en páramos, y en seque-",
+      "box": [
+        25,
+        1047,
+        398,
+        1067
+      ],
+      "score": 0.9973033666610718
+    },
+    {
+      "text": "2. Oh Dios mio, no calles mi alabanza s; porque el hom-",
+      "box": [
+        515,
+        1036,
+        887,
+        1065
+      ],
+      "score": 0.9684950113296509
+    },
+    {
+      "text": "dales los manantiales de agua:",
+      "box": [
+        13,
+        1067,
+        207,
+        1084
+      ],
+      "score": 0.9969801306724548
+    },
+    {
+      "text": "bre inícuo y el traidor han desatado sus lenguas contra mí.",
+      "box": [
+        502,
+        1052,
+        887,
+        1084
+      ],
+      "score": 0.9986887574195862
+    },
+    {
+      "text": "34. La tierra fructífera en salobreña, por causa de la mali-",
+      "box": [
+        24,
+        1078,
+        399,
+        1103
+      ],
+      "score": 0.9942182898521423
+    },
+    {
+      "text": "3. Con lengua falaz hablaron contra mí; y con discursos",
+      "box": [
+        515,
+        1068,
+        888,
+        1100
+      ],
+      "score": 0.9986535310745239
+    },
+    {
+      "text": "cia de sus habitantes.",
+      "box": [
+        13,
+        1099,
+        149,
+        1118
+      ],
+      "score": 0.9977605938911438
+    },
+    {
+      "text": "odiosos me han cercado, y me han combatido sin motivo",
+      "box": [
+        503,
+        1083,
+        888,
+        1118
+      ],
+      "score": 0.9991657137870789
+    },
+    {
+      "text": "35. Convirtió el Desierto en un país de estanques de",
+      "box": [
+        26,
+        1113,
+        399,
+        1135
+      ],
+      "score": 0.9908144474029541
+    },
+    {
+      "text": "alguno.",
+      "box": [
+        503,
+        1112,
+        558,
+        1135
+      ],
+      "score": 0.9999356269836426
+    },
+    {
+      "text": "aguas, y la tierra seca en manantiales.",
+      "box": [
+        15,
+        1135,
+        252,
+        1149
+      ],
+      "score": 0.9992919564247131
+    },
+    {
+      "text": "4. En vez de amarme, me calumniaban: mas yo oraba.",
+      "box": [
+        516,
+        1115,
+        866,
+        1151
+      ],
+      "score": 0.9856390357017517
+    },
+    {
+      "text": "36. Y estableció en ella á los hambrientos: y fundaron",
+      "box": [
+        29,
+        1149,
+        397,
+        1166
+      ],
+      "score": 0.989210844039917
+    },
+    {
+      "text": "5. Volviéronme mal por bien, y pagáronme con ódio el",
+      "box": [
+        516,
+        1131,
+        890,
+        1167
+      ],
+      "score": 0.9944713115692139
+    },
+    {
+      "text": "ciudades para su habitacion.",
+      "box": [
+        16,
+        1166,
+        194,
+        1183
+      ],
+      "score": 0.9992278814315796
+    },
+    {
+      "text": "amor que yo les tenia.",
+      "box": [
+        503,
+        1157,
+        651,
+        1185
+      ],
+      "score": 0.9784652590751648
+    },
+    {
+      "text": "1 O tambien: sin saber qué hacerse, ni qué partido tomar.",
+      "box": [
+        27,
+        1198,
+        332,
+        1218
+      ],
+      "score": 0.9821637868881226
+    },
+    {
+      "text": "nar, que despues el colector de los Salmos reunió en el Salmo CXIII dos",
+      "box": [
+        503,
+        1180,
+        889,
+        1219
+      ],
+      "score": 0.9856588840484619
+    },
+    {
+      "text": "à O tambien: ¿Qué hombre euerdo no conservará la memoria de estas",
+      "box": [
+        27,
+        1212,
+        400,
+        1233
+      ],
+      "score": 0.9340463876724243
+    },
+    {
+      "text": "salmos del texto hebreo.",
+      "box": [
+        505,
+        1206,
+        640,
+        1231
+      ],
+      "score": 0.9998120665550232
+    },
+    {
+      "text": "cosas, y no procurará, etc.",
+      "box": [
+        16,
+        1228,
+        158,
+        1246
+      ],
+      "score": 0.9953946471214294
+    },
+    {
+      "text": "4 Véase antes Psalm. LVI, v. 9.",
+      "box": [
+        516,
+        1217,
+        695,
+        1243
+      ],
+      "score": 0.9712649583816528
+    },
+    {
+      "text": "3 Los cinco primeros versiculos de este Salmo son los últimos del",
+      "box": [
+        26,
+        1242,
+        399,
+        1261
+      ],
+      "score": 0.9710001945495605
+    },
+    {
+      "text": "6 O de tus promesas.",
+      "box": [
+        516,
+        1233,
+        639,
+        1257
+      ],
+      "score": 0.9705609083175659
+    },
+    {
+      "text": "Salmo LVI; y los restantes son los últimos tambien del LIX. Elcardenal",
+      "box": [
+        17,
+        1257,
+        400,
+        1276
+      ],
+      "score": 0.9950594305992126
+    },
+    {
+      "text": "6 O cabeza de mi reino.",
+      "box": [
+        518,
+        1246,
+        655,
+        1272
+      ],
+      "score": 0.9159882664680481
+    },
+    {
+      "text": "Belarmino cree que fué obra del colector de los Salmos para completar el",
+      "box": [
+        17,
+        1272,
+        401,
+        1292
+      ],
+      "score": 0.9983512163162231
+    },
+    {
+      "text": "O, sujetaré la Iduméa á mi dominio.—Véase el Salmo LIX.",
+      "box": [
+        517,
+        1249,
+        845,
+        1287
+      ],
+      "score": 0.8687059283256531
+    },
+    {
+      "text": "número de CL: aunque confiesa que puede haber otra causa superior,",
+      "box": [
+        16,
+        1285,
+        401,
+        1309
+      ],
+      "score": 0.9868448376655579
+    },
+    {
+      "text": "s O aprobacion de mi buena conducta.",
+      "box": [
+        520,
+        1272,
+        730,
+        1301
+      ],
+      "score": 0.9637795686721802
+    },
+    {
+      "text": "que él no alcanza. Pero pierde toda su fuerza esta conjetura al reflexio-",
+      "box": [
+        16,
+        1301,
+        401,
+        1324
+      ],
+      "score": 0.9558544158935547
+    }
+  ]
+}

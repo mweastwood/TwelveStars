@@ -1,0 +1,37 @@
+{
+  "volume": 2,
+  "page_index": 178,
+  "pdf_page": 179,
+  "lines": [
+    {
+      "text": "5D。n",
+      "box": [
+        161,
+        1749,
+        290,
+        1798
+      ],
+      "score": 0.530592679977417
+    },
+    {
+      "text": "H.PISAN",
+      "box": [
+        1247,
+        1774,
+        1354,
+        1798
+      ],
+      "score": 0.9311524629592896
+    },
+    {
+      "text": "LOS COMPAÑEROS DE JEHÚ ENCUENTRAN LA CABEZA Y LOS MIEMBROS DE JEZABEL",
+      "box": [
+        241,
+        1840,
+        1234,
+        1870
+      ],
+      "score": 0.9962535500526428
+    }
+  ]
+}

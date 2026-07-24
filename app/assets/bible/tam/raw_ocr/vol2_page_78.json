@@ -1,0 +1,967 @@
+{
+  "volume": 2,
+  "page_index": 78,
+  "pdf_page": 79,
+  "lines": [
+    {
+      "text": "LOS REYES",
+      "box": [
+        462,
+        347,
+        943,
+        437
+      ],
+      "score": 0.9997649788856506
+    },
+    {
+      "text": "LIBRO III",
+      "box": [
+        615,
+        475,
+        789,
+        521
+      ],
+      "score": 0.990779459476471
+    },
+    {
+      "text": "CAPITULO PRIMERO",
+      "box": [
+        205,
+        814,
+        447,
+        847
+      ],
+      "score": 0.9997538328170776
+    },
+    {
+      "text": "verdad, oh rey y señor mio, que tú me juraste á mí, esclava",
+      "box": [
+        782,
+        823,
+        1355,
+        848
+      ],
+      "score": 0.9975072741508484
+    },
+    {
+      "text": "tuya, diciendo: Tu hijo Salomon reinará despues de mí; y él",
+      "box": [
+        782,
+        845,
+        1355,
+        872
+      ],
+      "score": 0.999683141708374
+    },
+    {
+      "text": "avid, pasmado de frio en su vejez, recibe por mujer á la jóven Abisag",
+      "box": [
+        0,
+        866,
+        631,
+        919
+      ],
+      "score": 0.99421626329422
+    },
+    {
+      "text": "se sentará en mi trono? pues ¿cómo es que reina Adonías?",
+      "box": [
+        781,
+        869,
+        1317,
+        896
+      ],
+      "score": 0.9916462302207947
+    },
+    {
+      "text": "14. Y antes que tú acabes de hablar al rey, llegaré yo",
+      "box": [
+        803,
+        893,
+        1356,
+        919
+      ],
+      "score": 0.9876741766929626
+    },
+    {
+      "text": "do rey, á pesar de Adonías.",
+      "box": [
+        0,
+        911,
+        275,
+        951
+      ],
+      "score": 0.9880452752113342
+    },
+    {
+      "text": "despues de tí, y apoyaré tus razones.",
+      "box": [
+        783,
+        917,
+        1127,
+        943
+      ],
+      "score": 0.9922995567321777
+    },
+    {
+      "text": "15. Entró pues Bethsabée al cuarto del rey: el cual era ya",
+      "box": [
+        802,
+        940,
+        1358,
+        966
+      ],
+      "score": 0.999471127986908
+    },
+    {
+      "text": "1. El rey David era ya viejo y de edad muy avanzada; y",
+      "box": [
+        0,
+        976,
+        628,
+        1023
+      ],
+      "score": 0.9934214949607849
+    },
+    {
+      "text": "muy viejo; y Abisag, Sunamite, le asistia.",
+      "box": [
+        783,
+        964,
+        1170,
+        991
+      ],
+      "score": 0.9774859547615051
+    },
+    {
+      "text": "16. Bethsabée se inclinó, haciéndole una profunda reve-",
+      "box": [
+        802,
+        987,
+        1360,
+        1013
+      ],
+      "score": 0.990652859210968
+    },
+    {
+      "text": "or mas que le cubrian con ropa, no podia entrar en calor.",
+      "box": [
+        0,
+        1002,
+        627,
+        1046
+      ],
+      "score": 0.9984426498413086
+    },
+    {
+      "text": "rencia. Y el rey le dijo: ¿Qué es lo que quieres?",
+      "box": [
+        781,
+        1011,
+        1226,
+        1037
+      ],
+      "score": 0.9991880059242249
+    },
+    {
+      "text": "2. Por lo que dijéronle sus criados: Buscaremos para el",
+      "box": [
+        0,
+        1026,
+        628,
+        1069
+      ],
+      "score": 0.9899563193321228
+    },
+    {
+      "text": "17. Respondió ella, diciendo: Tú juraste, mi señor, á tu",
+      "box": [
+        802,
+        1034,
+        1360,
+        1059
+      ],
+      "score": 0.9950768351554871
+    },
+    {
+      "text": "ey nuestro señor una vírgen jovencita, que, siendo su espo-",
+      "box": [
+        0,
+        1053,
+        627,
+        1090
+      ],
+      "score": 0.9908673167228699
+    },
+    {
+      "text": "esclava por el Señor Dios tuyo, que Salomon mi hijo reinaria",
+      "box": [
+        782,
+        1057,
+        1362,
+        1083
+      ],
+      "score": 0.9999057054519653
+    },
+    {
+      "text": " 2; viva con el rey y le abrigue, y duerma á su lado para",
+      "box": [
+        0,
+        1077,
+        627,
+        1114
+      ],
+      "score": 0.9642300605773926
+    },
+    {
+      "text": "despues de tí, y se sentaria en tu trono.",
+      "box": [
+        782,
+        1082,
+        1153,
+        1106
+      ],
+      "score": 0.9966926574707031
+    },
+    {
+      "text": "ue le comunique algun calor.",
+      "box": [
+        0,
+        1103,
+        342,
+        1137
+      ],
+      "score": 0.9984862208366394
+    },
+    {
+      "text": "18. Y hé aquí que á estas horas está ya reinando Adonías,",
+      "box": [
+        803,
+        1107,
+        1360,
+        1130
+      ],
+      "score": 0.9986574649810791
+    },
+    {
+      "text": "3. Buscaron pues por todas las tierras de Israél una joven-",
+      "box": [
+        0,
+        1127,
+        625,
+        1161
+      ],
+      "score": 0.9911096096038818
+    },
+    {
+      "text": "sin saberlo tú, oh rey y señor mio.",
+      "box": [
+        782,
+        1129,
+        1104,
+        1154
+      ],
+      "score": 0.9946791529655457
+    },
+    {
+      "text": "ita hermosa, y hallaron á Abisag de Sunam , y trajéronsela",
+      "box": [
+        0,
+        1152,
+        625,
+        1185
+      ],
+      "score": 0.9894219040870667
+    },
+    {
+      "text": "19. Ha hecho degollar bueyes, y toda suerte de víctimas",
+      "box": [
+        802,
+        1153,
+        1361,
+        1177
+      ],
+      "score": 0.9950361251831055
+    },
+    {
+      "text": "l rey.",
+      "box": [
+        0,
+        1179,
+        68,
+        1204
+      ],
+      "score": 0.9845343232154846
+    },
+    {
+      "text": "ó reses cebadas, y muchísimos carneros, y ha convidado á todos",
+      "box": [
+        781,
+        1176,
+        1361,
+        1201
+      ],
+      "score": 0.9971528053283691
+    },
+    {
+      "text": "4. Era esta doncella de extremada hermosura, y dormia",
+      "box": [
+        0,
+        1202,
+        623,
+        1228
+      ],
+      "score": 0.9988877773284912
+    },
+    {
+      "text": "los hijos del rey, y tambien al Sumo Sacerdote Abiathar, y á",
+      "box": [
+        782,
+        1202,
+        1361,
+        1224
+      ],
+      "score": 0.9990137815475464
+    },
+    {
+      "text": "on el rey, y le servia; pero el rey la dejó vírgen.",
+      "box": [
+        0,
+        1227,
+        506,
+        1254
+      ],
+      "score": 0.9972720146179199
+    },
+    {
+      "text": "Joab general del ejército; pero no ha convidado á tu siervo",
+      "box": [
+        780,
+        1224,
+        1360,
+        1249
+      ],
+      "score": 0.9995087385177612
+    },
+    {
+      "text": "5. Entre tanto engreido Adonías, hijo de Haggith 4, dijo:",
+      "box": [
+        0,
+        1247,
+        623,
+        1280
+      ],
+      "score": 0.9935936331748962
+    },
+    {
+      "text": "Salomon.",
+      "box": [
+        780,
+        1247,
+        872,
+        1273
+      ],
+      "score": 0.9999812841415405
+    },
+    {
+      "text": "o reinaré 5. Con esta mira se hizo carrozas y tomó guardias",
+      "box": [
+        0,
+        1273,
+        622,
+        1304
+      ],
+      "score": 0.9876817464828491
+    },
+    {
+      "text": "20. Sin embargo, oh rey y señor mio, todo Israél tiene",
+      "box": [
+        803,
+        1274,
+        1359,
+        1297
+      ],
+      "score": 0.9963772892951965
+    },
+    {
+      "text": "le á caballo, y cincuenta hombres que le escoltasen.",
+      "box": [
+        0,
+        1298,
+        536,
+        1330
+      ],
+      "score": 0.9965954422950745
+    },
+    {
+      "text": "vueltos los ojos hácia tí, esperando que declares quién debe",
+      "box": [
+        782,
+        1298,
+        1358,
+        1321
+      ],
+      "score": 0.9999423623085022
+    },
+    {
+      "text": "6. Ni por eso su padre le reprendió nunca, ni le dijo: ¿Por",
+      "box": [
+        5,
+        1321,
+        622,
+        1355
+      ],
+      "score": 0.9946441054344177
+    },
+    {
+      "text": "sentarse despues de tí en tu solio, oh rey y señor mio.",
+      "box": [
+        781,
+        1323,
+        1286,
+        1346
+      ],
+      "score": 0.9996299743652344
+    },
+    {
+      "text": "ué haces eso? Era Adonías de hermosísima presencia, y el",
+      "box": [
+        0,
+        1346,
+        622,
+        1380
+      ],
+      "score": 0.988660991191864
+    },
+    {
+      "text": "21. Pues sucederá que luego que el rey mi señor hubiere",
+      "box": [
+        801,
+        1346,
+        1358,
+        1369
+      ],
+      "score": 0.9965929388999939
+    },
+    {
+      "text": "egundogénito despues de Absalom.",
+      "box": [
+        0,
+        1376,
+        380,
+        1404
+      ],
+      "score": 0.9998565316200256
+    },
+    {
+      "text": "ido á descansar con sus padres, yo y Salomon mi hijo seremos",
+      "box": [
+        780,
+        1371,
+        1357,
+        1393
+      ],
+      "score": 0.9981760382652283
+    },
+    {
+      "text": "7. Y estaba de inteligencia con Joab, hijo de Sarvia, y con",
+      "box": [
+        10,
+        1393,
+        619,
+        1428
+      ],
+      "score": 0.9987934827804565
+    },
+    {
+      "text": "tratados como criminales 7.",
+      "box": [
+        780,
+        1394,
+        1034,
+        1416
+      ],
+      "score": 0.99479079246521
+    },
+    {
+      "text": "22. Estaba todavía hablando Bethsabée con el rey, cuando",
+      "box": [
+        800,
+        1416,
+        1356,
+        1441
+      ],
+      "score": 0.9886612296104431
+    },
+    {
+      "text": "Abiathar Sumo Sacerdote, los cuales favorecian su partido.",
+      "box": [
+        0,
+        1418,
+        598,
+        1452
+      ],
+      "score": 0.9997494220733643
+    },
+    {
+      "text": "hé aquí que llega el Profeta Nathán.",
+      "box": [
+        781,
+        1441,
+        1124,
+        1465
+      ],
+      "score": 0.9983399510383606
+    },
+    {
+      "text": "8. Mas el otro Sumo Sacerdote Sadoc, Banaias hijo de",
+      "box": [
+        13,
+        1442,
+        620,
+        1477
+      ],
+      "score": 0.9847325682640076
+    },
+    {
+      "text": "23. Y entraron recado al rey, diciendo: Aquí está el Pro-",
+      "box": [
+        800,
+        1464,
+        1356,
+        1489
+      ],
+      "score": 0.9914631247520447
+    },
+    {
+      "text": "Joiada, el Profeta Nathán, y Semei, y Rei, y la principal",
+      "box": [
+        0,
+        1467,
+        621,
+        1503
+      ],
+      "score": 0.9817426800727844
+    },
+    {
+      "text": "feta Nathán. El cual se presentó al rey, y postrándose hasta",
+      "box": [
+        779,
+        1488,
+        1356,
+        1514
+      ],
+      "score": 0.9917077422142029
+    },
+    {
+      "text": "uerza del ejército de David, no estaban por Adonías.",
+      "box": [
+        0,
+        1493,
+        554,
+        1528
+      ],
+      "score": 0.999636709690094
+    },
+    {
+      "text": "el suelo, le hizo profunda reverencia,",
+      "box": [
+        781,
+        1512,
+        1126,
+        1536
+      ],
+      "score": 0.9994475841522217
+    },
+    {
+      "text": "9. Adonías pues habiendo hecho degollar carneros y be-",
+      "box": [
+        14,
+        1516,
+        620,
+        1552
+      ],
+      "score": 0.9981135725975037
+    },
+    {
+      "text": "24. Y le dijo: Oh rey y señor mio: ¿Has dicho tú acaso:",
+      "box": [
+        797,
+        1535,
+        1356,
+        1561
+      ],
+      "score": 0.9992976784706116
+    },
+    {
+      "text": "cerros, y todo género de reses gordas 6, junto á la Peña de",
+      "box": [
+        0,
+        1540,
+        619,
+        1578
+      ],
+      "score": 0.9880210161209106
+    },
+    {
+      "text": "Reine despues de mí Adonías, y sea él el que ocupe mi trono?",
+      "box": [
+        778,
+        1559,
+        1356,
+        1586
+      ],
+      "score": 0.9915964603424072
+    },
+    {
+      "text": "Zoheleth, que está cerca de la Fuente de Rogel, convidó á",
+      "box": [
+        0,
+        1563,
+        619,
+        1604
+      ],
+      "score": 0.9917880296707153
+    },
+    {
+      "text": "25. Porque hoy ha salido, y ha hecho degollar bueyes y",
+      "box": [
+        798,
+        1583,
+        1355,
+        1610
+      ],
+      "score": 0.999480128288269
+    },
+    {
+      "text": "todos sus hermanos hijos del rey, y á todos los varones de",
+      "box": [
+        0,
+        1587,
+        619,
+        1630
+      ],
+      "score": 0.9831156134605408
+    },
+    {
+      "text": "reses gordas, y muchísimos carneros, y ha convidado á todos",
+      "box": [
+        776,
+        1607,
+        1355,
+        1632
+      ],
+      "score": 0.9851912260055542
+    },
+    {
+      "text": "Judá criados del rey:",
+      "box": [
+        0,
+        1622,
+        233,
+        1653
+      ],
+      "score": 0.9998995661735535
+    },
+    {
+      "text": "los hijos del rey y á los caudillos del ejército, y tambien á",
+      "box": [
+        777,
+        1631,
+        1354,
+        1654
+      ],
+      "score": 0.9928686022758484
+    },
+    {
+      "text": "10. Mas no convidó al Profeta Nathán, ni á Banaias, niá",
+      "box": [
+        18,
+        1635,
+        619,
+        1677
+      ],
+      "score": 0.9984490871429443
+    },
+    {
+      "text": "Abiathar Sumo Sacerdote; los cuales han comido y bebido á",
+      "box": [
+        776,
+        1653,
+        1355,
+        1679
+      ],
+      "score": 0.9934647083282471
+    },
+    {
+      "text": "los militares mas valientes, ni á Salomon su hermano.",
+      "box": [
+        0,
+        1662,
+        553,
+        1702
+      ],
+      "score": 0.9983474612236023
+    },
+    {
+      "text": "su lado, diciendo: Viva el rey Adonías.",
+      "box": [
+        777,
+        1678,
+        1144,
+        1701
+      ],
+      "score": 0.998211681842804
+    },
+    {
+      "text": "11. Por lo que dijo Nathán á Bethsabée, madre de Salo-",
+      "box": [
+        19,
+        1684,
+        615,
+        1725
+      ],
+      "score": 0.9872445464134216
+    },
+    {
+      "text": "26. Mas á mí tu siervo, ni al Sumo Sacerdote Sadoc, ni á",
+      "box": [
+        797,
+        1700,
+        1354,
+        1727
+      ],
+      "score": 0.9927695989608765
+    },
+    {
+      "text": "mon: ¿No has oido que Adonías hijo de Haggith se ha hecho",
+      "box": [
+        0,
+        1708,
+        615,
+        1751
+      ],
+      "score": 0.9989078640937805
+    },
+    {
+      "text": "Banaias hijo de Joiada, como ni á tu siervo Salomon, no nos.",
+      "box": [
+        776,
+        1725,
+        1355,
+        1752
+      ],
+      "score": 0.9869548082351685
+    },
+    {
+      "text": "rey, sin que David nuestro señor lo sepa?",
+      "box": [
+        0,
+        1736,
+        420,
+        1776
+      ],
+      "score": 0.9961925745010376
+    },
+    {
+      "text": "ha convidado.",
+      "box": [
+        775,
+        1748,
+        911,
+        1774
+      ],
+      "score": 0.9998856782913208
+    },
+    {
+      "text": "12. Ahora pues ven y toma mi consejo, y salva tu vida y",
+      "box": [
+        19,
+        1755,
+        613,
+        1798
+      ],
+      "score": 0.9941864013671875
+    },
+    {
+      "text": "27. ¿Es posible que mi señor el rey haya dado realmente",
+      "box": [
+        796,
+        1772,
+        1355,
+        1801
+      ],
+      "score": 0.9998899102210999
+    },
+    {
+      "text": "la de tu hijo Salomon:",
+      "box": [
+        0,
+        1788,
+        251,
+        1822
+      ],
+      "score": 0.9996645450592041
+    },
+    {
+      "text": "tal órden? ¿Y que no me hayas comunicado á mí, siervo tuyo,",
+      "box": [
+        775,
+        1795,
+        1354,
+        1826
+      ],
+      "score": 0.994682788848877
+    },
+    {
+      "text": "13. Anda, vé, y preséntate al rey David, y díle : ¿No es",
+      "box": [
+        21,
+        1800,
+        614,
+        1846
+      ],
+      "score": 0.9841315150260925
+    },
+    {
+      "text": "3 Ciudad de la tribu de Issachar.",
+      "box": [
+        791,
+        1840,
+        1057,
+        1862
+      ],
+      "score": 0.999104380607605
+    },
+    {
+      "text": "1 Los muchos y grandes afanes en un reinado de cuarenta años lleno",
+      "box": [
+        20,
+        1845,
+        611,
+        1885
+      ],
+      "score": 0.9965947270393372
+    },
+    {
+      "text": "4 Reina y esposa de David.",
+      "box": [
+        792,
+        1863,
+        1012,
+        1884
+      ],
+      "score": 0.9996752142906189
+    },
+    {
+      "text": "de guerras exteriores, de rebeliones domésticas, y de tantas otras afliccio-",
+      "box": [
+        0,
+        1863,
+        611,
+        1908
+      ],
+      "score": 0.9945551156997681
+    },
+    {
+      "text": "5 O tambien: Yo soy el que he de reinar.",
+      "box": [
+        791,
+        1881,
+        1114,
+        1904
+      ],
+      "score": 0.9820932149887085
+    },
+    {
+      "text": "nes y enfermedades como él mismo describe en los Salmos, habian abati-",
+      "box": [
+        0,
+        1883,
+        610,
+        1928
+      ],
+      "score": 0.9902194142341614
+    },
+    {
+      "text": "6 Para obsequiar á los de su partido.",
+      "box": [
+        792,
+        1902,
+        1089,
+        1925
+      ],
+      "score": 0.9885764122009277
+    },
+    {
+      "text": "do y enervado su cuerpo antes robusto y fuerte, y privádole casi de todo",
+      "box": [
+        1,
+        1904,
+        609,
+        1947
+      ],
+      "score": 0.9990837574005127
+    },
+    {
+      "text": "7. Se me mirará como se mira á una adúltera, yámi hijo como si fuera",
+      "box": [
+        791,
+        1922,
+        1353,
+        1944
+      ],
+      "score": 0.9930205345153809
+    },
+    {
+      "text": "su calor natural.",
+      "box": [
+        3,
+        1936,
+        159,
+        1965
+      ],
+      "score": 0.999896228313446
+    },
+    {
+      "text": "un bastardo.",
+      "box": [
+        775,
+        1945,
+        878,
+        1965
+      ],
+      "score": 0.9999333024024963
+    },
+    {
+      "text": "2 Esta esposa de David, y vírgen, es mirada como figura de la Iglesia.",
+      "box": [
+        25,
+        1947,
+        606,
+        1983
+      ],
+      "score": 0.9985750317573547
+    },
+    {
+      "text": "S. Hier., Epist. II, ad Nepot.",
+      "box": [
+        6,
+        1973,
+        264,
+        2006
+      ],
+      "score": 0.9889565706253052
+    },
+    {
+      "text": "II.-13-",
+      "box": [
+        1246,
+        1984,
+        1317,
+        2012
+      ],
+      "score": 0.8224095702171326
+    }
+  ]
+}

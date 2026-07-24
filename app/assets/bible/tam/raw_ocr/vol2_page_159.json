@@ -1,0 +1,1437 @@
+{
+  "volume": 2,
+  "page_index": 159,
+  "pdf_page": 160,
+  "lines": [
+    {
+      "text": "199",
+      "box": [
+        8,
+        56,
+        47,
+        82
+      ],
+      "score": 0.9999980926513672
+    },
+    {
+      "text": "I.PARALIPOMENON.",
+      "box": [
+        178,
+        61,
+        414,
+        102
+      ],
+      "score": 0.9996255040168762
+    },
+    {
+      "text": "CAPITULO XXIII.",
+      "box": [
+        953,
+        109,
+        1140,
+        132
+      ],
+      "score": 0.9947707056999207
+    },
+    {
+      "text": "25. Dió pues David á Ornan, en pago del sitio, seiscientos",
+      "box": [
+        12,
+        122,
+        600,
+        191
+      ],
+      "score": 0.9870840907096863
+    },
+    {
+      "text": "200",
+      "box": [
+        1275,
+        115,
+        1311,
+        139
+      ],
+      "score": 0.999967098236084
+    },
+    {
+      "text": "siclos de oro de peso muy cabal¹.",
+      "box": [
+        0,
+        154,
+        333,
+        201
+      ],
+      "score": 0.9716184139251709
+    },
+    {
+      "text": "millon de talentos de plata7: el bronce y el hierro es en",
+      "box": [
+        753,
+        171,
+        1321,
+        210
+      ],
+      "score": 0.9917351603507996
+    },
+    {
+      "text": "26. Con eso edificó allí un altar al Señor, y ofreció holo-",
+      "box": [
+        16,
+        183,
+        599,
+        246
+      ],
+      "score": 0.9828220009803772
+    },
+    {
+      "text": "tanta cantidad; que es incalculable: tengo prevenida mucha",
+      "box": [
+        753,
+        199,
+        1319,
+        236
+      ],
+      "score": 0.9991559386253357
+    },
+    {
+      "text": "caustos y víctimas pacíficas, invocando al Señor; el cual",
+      "box": [
+        0,
+        213,
+        601,
+        272
+      ],
+      "score": 0.9940366744995117
+    },
+    {
+      "text": "madera y piedra para todas las obras necesarias 8.",
+      "box": [
+        752,
+        228,
+        1218,
+        259
+      ],
+      "score": 0.9914616346359253
+    },
+    {
+      "text": "le oyó, enviando fuego del cielo sobre el altar del holo-",
+      "box": [
+        0,
+        241,
+        599,
+        298
+      ],
+      "score": 0.9926565885543823
+    },
+    {
+      "text": "15. Tienes tambien muchísimos obreros, canteros, y alba-",
+      "box": [
+        773,
+        253,
+        1317,
+        284
+      ],
+      "score": 0.9996480345726013
+    },
+    {
+      "text": "causto.",
+      "box": [
+        0,
+        270,
+        76,
+        298
+      ],
+      "score": 0.9999698996543884
+    },
+    {
+      "text": "ñiles, y carpinteros, y artífices de toda especie, muy hábiles",
+      "box": [
+        750,
+        276,
+        1317,
+        310
+      ],
+      "score": 0.9990647435188293
+    },
+    {
+      "text": "27. Y dando el Señor órden al Angel, envainó éste su",
+      "box": [
+        20,
+        295,
+        598,
+        351
+      ],
+      "score": 0.994803786277771
+    },
+    {
+      "text": "en todo género de labores,",
+      "box": [
+        752,
+        301,
+        1001,
+        333
+      ],
+      "score": 0.9696388840675354
+    },
+    {
+      "text": "espada.",
+      "box": [
+        0,
+        322,
+        81,
+        353
+      ],
+      "score": 0.9999733567237854
+    },
+    {
+      "text": "16. En oro, plata, bronce, ó hierro, cuya suma es incalcu-",
+      "box": [
+        771,
+        327,
+        1315,
+        357
+      ],
+      "score": 0.9947443604469299
+    },
+    {
+      "text": "28. Inmediatamente David, viendo que el Señor habia",
+      "box": [
+        21,
+        347,
+        597,
+        402
+      ],
+      "score": 0.9996412396430969
+    },
+    {
+      "text": "lable. Anímate, pues, y manos á la obra, y el Señor será",
+      "box": [
+        750,
+        350,
+        1315,
+        382
+      ],
+      "score": 0.9922768473625183
+    },
+    {
+      "text": "oido su oracion en la era de Ornan, Jebuséo, ofreció allí sacri-",
+      "box": [
+        0,
+        373,
+        597,
+        427
+      ],
+      "score": 0.9944901466369629
+    },
+    {
+      "text": "contigo.",
+      "box": [
+        750,
+        376,
+        831,
+        403
+      ],
+      "score": 0.9999814033508301
+    },
+    {
+      "text": "ficios.",
+      "box": [
+        0,
+        402,
+        65,
+        428
+      ],
+      "score": 0.9885269403457642
+    },
+    {
+      "text": "17. Al mismo tiempo mandó David á los príncipes de",
+      "box": [
+        769,
+        398,
+        1312,
+        426
+      ],
+      "score": 0.9976608753204346
+    },
+    {
+      "text": "29. Verdad es que á la sazon el Tabernáculo del Señor,",
+      "box": [
+        20,
+        424,
+        596,
+        478
+      ],
+      "score": 0.9959171414375305
+    },
+    {
+      "text": "Israél, que ayudasen á su hijo Salomon.",
+      "box": [
+        748,
+        422,
+        1122,
+        451
+      ],
+      "score": 0.9984593391418457
+    },
+    {
+      "text": "fabricado por Moysés en el Desierto, y el altar de los holo-",
+      "box": [
+        0,
+        450,
+        597,
+        500
+      ],
+      "score": 0.9869825839996338
+    },
+    {
+      "text": "18. Ya veis, les dijo, que el Señor Dios vuestro está con",
+      "box": [
+        769,
+        444,
+        1312,
+        475
+      ],
+      "score": 0.9998079538345337
+    },
+    {
+      "text": "caustos estaban en la altura de Gabaon:",
+      "box": [
+        0,
+        477,
+        387,
+        517
+      ],
+      "score": 0.9941012263298035
+    },
+    {
+      "text": "vosotros, y que os ha dado paz por todos lados, y entregado",
+      "box": [
+        747,
+        469,
+        1312,
+        499
+      ],
+      "score": 0.9901604056358337
+    },
+    {
+      "text": "30. Mas David no tuvo aliento para ir entonces á aquel",
+      "box": [
+        21,
+        499,
+        596,
+        550
+      ],
+      "score": 0.9902294278144836
+    },
+    {
+      "text": "en vuestras manos todos vuestros enemigos, y que el país",
+      "box": [
+        747,
+        493,
+        1312,
+        523
+      ],
+      "score": 0.999374508857727
+    },
+    {
+      "text": "altar á orar allí á Dios: porque habia quedado muy aterrado",
+      "box": [
+        0,
+        523,
+        596,
+        575
+      ],
+      "score": 0.9828773736953735
+    },
+    {
+      "text": "está sujeto al Señor y á su pueblo.",
+      "box": [
+        748,
+        519,
+        1070,
+        545
+      ],
+      "score": 0.9963597059249878
+    },
+    {
+      "text": "de espanto, al ver la espada del Angel del Señor.",
+      "box": [
+        0,
+        550,
+        477,
+        595
+      ],
+      "score": 0.9921889305114746
+    },
+    {
+      "text": "19. Disponed pues vuestros corazones, preparad vuestras",
+      "box": [
+        767,
+        540,
+        1312,
+        570
+      ],
+      "score": 0.9908158779144287
+    },
+    {
+      "text": "almas, y buscad al Señor Dios vuestro. Ea, manos á la obra,",
+      "box": [
+        747,
+        564,
+        1311,
+        592
+      ],
+      "score": 0.9957102537155151
+    },
+    {
+      "text": "y edificad el Santuario al Señor Dios, para que el Arca de la",
+      "box": [
+        746,
+        587,
+        1311,
+        618
+      ],
+      "score": 0.997884213924408
+    },
+    {
+      "text": "CAPITULO XXII",
+      "box": [
+        217,
+        615,
+        389,
+        648
+      ],
+      "score": 0.999796986579895
+    },
+    {
+      "text": "Alianza del Señor, y los vasos á él consagrados, sean trasla-",
+      "box": [
+        746,
+        610,
+        1312,
+        643
+      ],
+      "score": 0.9834307432174683
+    },
+    {
+      "text": "dados á la Casa que va á edificarse al Nombre del Señor.",
+      "box": [
+        749,
+        637,
+        1269,
+        666
+      ],
+      "score": 0.9987391829490662
+    },
+    {
+      "text": "Prepara David los materiales para la fábrica del templo: manda á Salo-",
+      "box": [
+        0,
+        654,
+        594,
+        700
+      ],
+      "score": 0.9980233311653137
+    },
+    {
+      "text": "mon que le construya; y exhorta á los príncipes de Israél á que le",
+      "box": [
+        16,
+        676,
+        596,
+        720
+      ],
+      "score": 0.9889469742774963
+    },
+    {
+      "text": "ayuden.",
+      "box": [
+        17,
+        700,
+        93,
+        725
+      ],
+      "score": 0.9998589754104614
+    },
+    {
+      "text": "CAPITULO XXIII",
+      "box": [
+        943,
+        691,
+        1117,
+        717
+      ],
+      "score": 0.9995208382606506
+    },
+    {
+      "text": "1. En seguida dijo David: Aquí está la Casa de Dios, y este",
+      "box": [
+        19,
+        749,
+        594,
+        789
+      ],
+      "score": 0.9907432794570923
+    },
+    {
+      "text": "David, ya anciano, despues de haber declarado rey á Salomon, señala",
+      "box": [
+        748,
+        732,
+        1308,
+        766
+      ],
+      "score": 0.9932168126106262
+    },
+    {
+      "text": "los oficios de los Levitas, entre los cuales son contados los hijos de",
+      "box": [
+        764,
+        753,
+        1308,
+        785
+      ],
+      "score": 0.9967343807220459
+    },
+    {
+      "text": "es el altar de los holocaustos de Israél.",
+      "box": [
+        0,
+        775,
+        381,
+        809
+      ],
+      "score": 0.9972089529037476
+    },
+    {
+      "text": "Moysés.",
+      "box": [
+        767,
+        783,
+        834,
+        805
+      ],
+      "score": 0.99978107213974
+    },
+    {
+      "text": "2. Y mandó juntar todos los prosélitos de la tierra de",
+      "box": [
+        20,
+        800,
+        596,
+        837
+      ],
+      "score": 0.9997844696044922
+    },
+    {
+      "text": "Israél ², y entresacó de ellos canteros para cortar y pulir las",
+      "box": [
+        0,
+        827,
+        595,
+        860
+      ],
+      "score": 0.9770533442497253
+    },
+    {
+      "text": "1. Siendo ya David anciano y lleno de dias, constituyó á",
+      "box": [
+        768,
+        819,
+        1306,
+        859
+      ],
+      "score": 0.9942057728767395
+    },
+    {
+      "text": "piedras para la fábrica de la Casa de Díos.",
+      "box": [
+        0,
+        852,
+        412,
+        883
+      ],
+      "score": 0.9849090576171875
+    },
+    {
+      "text": "Salomon, su hijo, por rey de Israél.",
+      "box": [
+        750,
+        852,
+        1069,
+        881
+      ],
+      "score": 0.9815966486930847
+    },
+    {
+      "text": "3. Preparó tambien muchísimo hierro para la clavazon",
+      "box": [
+        22,
+        877,
+        594,
+        907
+      ],
+      "score": 0.9972720742225647
+    },
+    {
+      "text": "2. Y convocó á todos los príncipes de Israél, y á los sacer-",
+      "box": [
+        768,
+        865,
+        1306,
+        908
+      ],
+      "score": 0.992972731590271
+    },
+    {
+      "text": "de las puertas, y para la trabazon de las junturas ³; y canti-",
+      "box": [
+        1,
+        902,
+        594,
+        933
+      ],
+      "score": 0.9853540062904358
+    },
+    {
+      "text": "dotes y Levitas.",
+      "box": [
+        749,
+        901,
+        899,
+        929
+      ],
+      "score": 0.9968998432159424
+    },
+    {
+      "text": "dad inmensa de bronce.",
+      "box": [
+        2,
+        926,
+        245,
+        955
+      ],
+      "score": 0.9999381899833679
+    },
+    {
+      "text": "3. Y contados los Levitas de treinta años arriba, se halla-",
+      "box": [
+        767,
+        910,
+        1304,
+        953
+      ],
+      "score": 0.9971606135368347
+    },
+    {
+      "text": "4. Era igualmente inestimable el acopio de maderas de",
+      "box": [
+        26,
+        951,
+        594,
+        978
+      ],
+      "score": 0.995366632938385
+    },
+    {
+      "text": "ron treinta y ocho mil hombres.",
+      "box": [
+        748,
+        944,
+        1038,
+        975
+      ],
+      "score": 0.9996305704116821
+    },
+    {
+      "text": "cedro, que los Sidonios y Tyrios habian traido á David.",
+      "box": [
+        5,
+        976,
+        537,
+        1003
+      ],
+      "score": 0.9892981648445129
+    },
+    {
+      "text": "4. De estos fueron escogidos, y distribuidos en el servicio",
+      "box": [
+        768,
+        956,
+        1304,
+        1000
+      ],
+      "score": 0.9894247651100159
+    },
+    {
+      "text": "5. Porque dijo David: Mi hijo Salomon es todavía un jó-",
+      "box": [
+        25,
+        998,
+        594,
+        1029
+      ],
+      "score": 0.9937244653701782
+    },
+    {
+      "text": "de la Casa del Señor veinte y cuatro mil: para prefectos y",
+      "box": [
+        748,
+        982,
+        1304,
+        1023
+      ],
+      "score": 0.9994474053382874
+    },
+    {
+      "text": "ven tierno y delicado; y la Casa que quiero que se edifique",
+      "box": [
+        4,
+        1023,
+        596,
+        1055
+      ],
+      "score": 0.9946467876434326
+    },
+    {
+      "text": "jueces seis mil:",
+      "box": [
+        748,
+        1017,
+        893,
+        1046
+      ],
+      "score": 0.995979905128479
+    },
+    {
+      "text": "al Señor debe ser tal, que sea celebrada en todas las naciones:",
+      "box": [
+        5,
+        1048,
+        595,
+        1079
+      ],
+      "score": 0.990491509437561
+    },
+    {
+      "text": "5. Cuatro mil porteros; y otros tantos para salmistas,",
+      "box": [
+        768,
+        1029,
+        1304,
+        1070
+      ],
+      "score": 0.9958996176719666
+    },
+    {
+      "text": "iré pues yo preparando lo necesario. Por esta razon hizo",
+      "box": [
+        7,
+        1072,
+        594,
+        1104
+      ],
+      "score": 0.995379626750946
+    },
+    {
+      "text": "que cantaban las alabanzas del Señor al son de los instru-",
+      "box": [
+        747,
+        1051,
+        1305,
+        1095
+      ],
+      "score": 0.980086624622345
+    },
+    {
+      "text": "mentos, que á este fin habia mandado hacer.",
+      "box": [
+        747,
+        1084,
+        1147,
+        1116
+      ],
+      "score": 0.9947801828384399
+    },
+    {
+      "text": "antes de su muerte, con anticipacion, todos los gastos.",
+      "box": [
+        8,
+        1098,
+        528,
+        1127
+      ],
+      "score": 0.9997262954711914
+    },
+    {
+      "text": "6. Y repartiólos David en sus turnos, segun las familias",
+      "box": [
+        766,
+        1100,
+        1304,
+        1140
+      ],
+      "score": 0.9999036192893982
+    },
+    {
+      "text": "6. Y llamó á su hijo Salomon, y le mandó que edificase la",
+      "box": [
+        28,
+        1119,
+        595,
+        1151
+      ],
+      "score": 0.9853636026382446
+    },
+    {
+      "text": "de los hijos de Leví, que son Gerson, Caath y Merari.",
+      "box": [
+        748,
+        1128,
+        1223,
+        1160
+      ],
+      "score": 0.9978092908859253
+    },
+    {
+      "text": "Casa ó templo al Señor Dios de Israél.",
+      "box": [
+        10,
+        1146,
+        376,
+        1174
+      ],
+      "score": 0.9956981539726257
+    },
+    {
+      "text": "7. Los hijos de Gerson fueron Leedan y Semei.",
+      "box": [
+        768,
+        1151,
+        1196,
+        1183
+      ],
+      "score": 0.9988629817962646
+    },
+    {
+      "text": "7. Añadió David á Salomon: Hijo mio, mi voluntad fué el",
+      "box": [
+        31,
+        1166,
+        594,
+        1197
+      ],
+      "score": 0.9940558671951294
+    },
+    {
+      "text": "8. Hijos de Leedan, tres: el primogénito Jahiel, y Zethán,",
+      "box": [
+        766,
+        1172,
+        1302,
+        1208
+      ],
+      "score": 0.9913128614425659
+    },
+    {
+      "text": "edificar Casa al Nombre de mi Señor Dios 4;",
+      "box": [
+        12,
+        1192,
+        433,
+        1220
+      ],
+      "score": 0.9781790375709534
+    },
+    {
+      "text": "y Joel.",
+      "box": [
+        743,
+        1202,
+        817,
+        1236
+      ],
+      "score": 0.9793679118156433
+    },
+    {
+      "text": "8. Pero el Señor me habló, y dijo: Tú has derramado",
+      "box": [
+        33,
+        1215,
+        595,
+        1243
+      ],
+      "score": 0.9855549931526184
+    },
+    {
+      "text": "9. Hijos de Semei, tres: Salomith, y Hosiel, y Aran. Estos",
+      "box": [
+        767,
+        1218,
+        1303,
+        1256
+      ],
+      "score": 0.9998142719268799
+    },
+    {
+      "text": "mucha sangre, y hecho muchas guerras; y así no puedes",
+      "box": [
+        12,
+        1238,
+        597,
+        1270
+      ],
+      "score": 0.987890899181366
+    },
+    {
+      "text": "eran los príncipes de las familias de Leedan.",
+      "box": [
+        750,
+        1247,
+        1144,
+        1279
+      ],
+      "score": 0.9999732971191406
+    },
+    {
+      "text": "edificar la Casa ámi Nombre, habiendo derramado tanta",
+      "box": [
+        15,
+        1263,
+        597,
+        1292
+      ],
+      "score": 0.9914504885673523
+    },
+    {
+      "text": "10. Hijos de otro Semei, Leheth, y Ziza, y Jaús, y Baria:",
+      "box": [
+        768,
+        1267,
+        1305,
+        1303
+      ],
+      "score": 0.9911845922470093
+    },
+    {
+      "text": "sangre delante de mí.",
+      "box": [
+        15,
+        1289,
+        234,
+        1317
+      ],
+      "score": 0.9876258373260498
+    },
+    {
+      "text": "estos cuatro son los hijos de Semei.",
+      "box": [
+        751,
+        1295,
+        1064,
+        1328
+      ],
+      "score": 0.993306040763855
+    },
+    {
+      "text": "9. Tú tendrás un hijo, el cual será hombre de paz: pues",
+      "box": [
+        37,
+        1314,
+        598,
+        1339
+      ],
+      "score": 0.9892535209655762
+    },
+    {
+      "text": "11. Entre ellos Leheth era el primogénito, Ziza, el segun-",
+      "box": [
+        770,
+        1315,
+        1306,
+        1351
+      ],
+      "score": 0.999799907207489
+    },
+    {
+      "text": "yo haré que no sea perturbado de ninguno de sus enemigos",
+      "box": [
+        17,
+        1336,
+        600,
+        1367
+      ],
+      "score": 0.9999346733093262
+    },
+    {
+      "text": "do: Jaús y Baria no tuvieron muchos hijos; y por eso fueron",
+      "box": [
+        751,
+        1337,
+        1307,
+        1377
+      ],
+      "score": 0.9991876482963562
+    },
+    {
+      "text": "en todos los alrededores; por cuya causa será llamado el",
+      "box": [
+        18,
+        1360,
+        601,
+        1391
+      ],
+      "score": 0.997541069984436
+    },
+    {
+      "text": "contados como una sola familia y casa..",
+      "box": [
+        752,
+        1365,
+        1107,
+        1401
+      ],
+      "score": 0.9964056611061096
+    },
+    {
+      "text": "Pacífico, ó Salomon ; y paz y sosiego daré yo á Israél todo",
+      "box": [
+        19,
+        1385,
+        601,
+        1416
+      ],
+      "score": 0.9702650904655457
+    },
+    {
+      "text": "12. Hijos de Caath, cuatro: Amram,é Isaar, Hebron y",
+      "box": [
+        771,
+        1386,
+        1308,
+        1423
+      ],
+      "score": 0.994202196598053
+    },
+    {
+      "text": "el tiempo de su vida.",
+      "box": [
+        21,
+        1410,
+        230,
+        1439
+      ],
+      "score": 0.9996688365936279
+    },
+    {
+      "text": "Oziel.",
+      "box": [
+        752,
+        1419,
+        810,
+        1448
+      ],
+      "score": 0.9999229311943054
+    },
+    {
+      "text": "10. Él edificará la Casa á mi Nombre, y él me será hijo,",
+      "box": [
+        44,
+        1433,
+        601,
+        1464
+      ],
+      "score": 0.9909611344337463
+    },
+    {
+      "text": "13. Los hijos de Amram: Aaron y Moysés. Mas Aaron fué",
+      "box": [
+        772,
+        1429,
+        1310,
+        1471
+      ],
+      "score": 0.9907841682434082
+    },
+    {
+      "text": "y yo le seré padre; y estableceré el solio de su reino sobre",
+      "box": [
+        20,
+        1454,
+        604,
+        1494
+      ],
+      "score": 0.9717007279396057
+    },
+    {
+      "text": "destinado para el ministerio del Sancta Sanctorum, así él",
+      "box": [
+        754,
+        1456,
+        1310,
+        1493
+      ],
+      "score": 0.996265172958374
+    },
+    {
+      "text": "Israél para siempre.",
+      "box": [
+        24,
+        1487,
+        223,
+        1515
+      ],
+      "score": 0.9922027587890625
+    },
+    {
+      "text": "como sus hijos perpétuamente, para quemar el incienso al",
+      "box": [
+        755,
+        1481,
+        1311,
+        1518
+      ],
+      "score": 0.9923171997070312
+    },
+    {
+      "text": "11. Ahora, pues, hijo mio, el Señor sea contigo, y seas",
+      "box": [
+        47,
+        1506,
+        605,
+        1540
+      ],
+      "score": 0.9951537251472473
+    },
+    {
+      "text": "Señor 9, segun rito, y bendecir su Nombre para siempre.",
+      "box": [
+        755,
+        1507,
+        1263,
+        1541
+      ],
+      "score": 0.993126392364502
+    },
+    {
+      "text": "feliz, y edifica la Casa ó templo al Señor Dios tuyo, como lo",
+      "box": [
+        25,
+        1530,
+        605,
+        1565
+      ],
+      "score": 0.9815199375152588
+    },
+    {
+      "text": "14. Los hijos de Moysés, varon de Dios, fueron alistados",
+      "box": [
+        775,
+        1530,
+        1311,
+        1562
+      ],
+      "score": 0.9997910857200623
+    },
+    {
+      "text": "tiene predicho de tí.",
+      "box": [
+        27,
+        1560,
+        226,
+        1588
+      ],
+      "score": 0.9999428987503052
+    },
+    {
+      "text": "en la tribu de Leví.",
+      "box": [
+        756,
+        1556,
+        931,
+        1587
+      ],
+      "score": 0.9988250732421875
+    },
+    {
+      "text": "12. Concédate asimismo el Señor sabiduría y prudencia",
+      "box": [
+        50,
+        1578,
+        604,
+        1612
+      ],
+      "score": 0.9913424253463745
+    },
+    {
+      "text": "15. Hijos de Moysés: Gersom 10 y Eliezer.",
+      "box": [
+        774,
+        1577,
+        1151,
+        1610
+      ],
+      "score": 0.9749838709831238
+    },
+    {
+      "text": "para poder gobernar á Israél, y guardar la Ley del Señor",
+      "box": [
+        27,
+        1601,
+        607,
+        1641
+      ],
+      "score": 0.9835835099220276
+    },
+    {
+      "text": "16. Hijos de Gersom: Subuel, primogénito.",
+      "box": [
+        776,
+        1603,
+        1170,
+        1632
+      ],
+      "score": 0.978874921798706
+    },
+    {
+      "text": "Dios tuyo.",
+      "box": [
+        31,
+        1638,
+        138,
+        1662
+      ],
+      "score": 0.9999624490737915
+    },
+    {
+      "text": "17. De Eliezer fué hijo Rohobias, cabeza de familia; y no",
+      "box": [
+        775,
+        1624,
+        1315,
+        1657
+      ],
+      "score": 0.9935770034790039
+    },
+    {
+      "text": "13. Porque entonces podrás medrar y ser feliz, si obser-",
+      "box": [
+        53,
+        1648,
+        606,
+        1688
+      ],
+      "score": 0.9997696280479431
+    },
+    {
+      "text": "tuvo Eliezer otros hijos. Pero los hijos de Rohobias fueron",
+      "box": [
+        755,
+        1645,
+        1316,
+        1684
+      ],
+      "score": 0.9992170333862305
+    },
+    {
+      "text": "vares los mandamientos y las leyes intimadas por el Señor",
+      "box": [
+        31,
+        1672,
+        607,
+        1713
+      ],
+      "score": 0.9961869716644287
+    },
+    {
+      "text": "muchísimos.",
+      "box": [
+        756,
+        1678,
+        873,
+        1706
+      ],
+      "score": 0.9999535083770752
+    },
+    {
+      "text": "á Moysés para que las enseñara á Israél. Esfuérzate, y pór-",
+      "box": [
+        32,
+        1698,
+        606,
+        1736
+      ],
+      "score": 0.9958080649375916
+    },
+    {
+      "text": "18. Hijos de Isaar: Salomith, primogénito.",
+      "box": [
+        776,
+        1693,
+        1165,
+        1729
+      ],
+      "score": 0.9962255358695984
+    },
+    {
+      "text": "tate varonilmente: no temas ni te acobardes.",
+      "box": [
+        35,
+        1727,
+        451,
+        1758
+      ],
+      "score": 0.9896812438964844
+    },
+    {
+      "text": "19. Hijos de Hebron: Jeriau, primogénito, Amarias el",
+      "box": [
+        777,
+        1716,
+        1316,
+        1751
+      ],
+      "score": 0.9985554218292236
+    },
+    {
+      "text": "14. Ya ves que yo en mi pobreza 6 he preparado para los",
+      "box": [
+        56,
+        1746,
+        606,
+        1784
+      ],
+      "score": 0.9838671684265137
+    },
+    {
+      "text": "segundo, Jahaziel el tercero, y el cuarto Jecmaam.",
+      "box": [
+        757,
+        1742,
+        1212,
+        1776
+      ],
+      "score": 0.9988054633140564
+    },
+    {
+      "text": "gastos de la Casa del Señor cien mil talentos de oro, y un",
+      "box": [
+        35,
+        1769,
+        606,
+        1809
+      ],
+      "score": 0.9930229187011719
+    },
+    {
+      "text": "6 David, humillado ante el Señor, miraba como pobreza cuanto los",
+      "box": [
+        774,
+        1809,
+        1318,
+        1842
+      ],
+      "score": 0.9944714307785034
+    },
+    {
+      "text": "hombres pueden ofrecer al Criador.",
+      "box": [
+        759,
+        1837,
+        1022,
+        1861
+      ],
+      "score": 0.9999704957008362
+    },
+    {
+      "text": "1 Véase Siclo.",
+      "box": [
+        53,
+        1850,
+        176,
+        1877
+      ],
+      "score": 0.9841232895851135
+    },
+    {
+      "text": "7 Véase Talento.",
+      "box": [
+        776,
+        1860,
+        908,
+        1880
+      ],
+      "score": 0.9717992544174194
+    },
+    {
+      "text": "2 Esto es, los Chananéos destinados al servicio público.",
+      "box": [
+        53,
+        1862,
+        493,
+        1899
+      ],
+      "score": 0.993587851524353
+    },
+    {
+      "text": "8 En el hebreo se añade: Y tú acopiarás mas.",
+      "box": [
+        775,
+        1874,
+        1124,
+        1903
+      ],
+      "score": 0.9837066531181335
+    },
+    {
+      "text": "3 De las maderas y piedras.",
+      "box": [
+        54,
+        1890,
+        283,
+        1921
+      ],
+      "score": 0.987911581993103
+    },
+    {
+      "text": "9 Martini: Para quemar incienso en honor de él perpétuamente.",
+      "box": [
+        774,
+        1890,
+        1259,
+        1926
+      ],
+      "score": 0.9831881523132324
+    },
+    {
+      "text": "4 En algunas Biblias falta Dei.",
+      "box": [
+        54,
+        1909,
+        308,
+        1943
+      ],
+      "score": 0.9989232420921326
+    },
+    {
+      "text": "10 0 Gersam.",
+      "box": [
+        770,
+        1917,
+        881,
+        1945
+      ],
+      "score": 0.9448985457420349
+    },
+    {
+      "text": " csalom, en hebreo significa paz.",
+      "box": [
+        72,
+        1928,
+        380,
+        1965
+      ],
+      "score": 0.9844026565551758
+    }
+  ]
+}
