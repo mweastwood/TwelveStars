@@ -87,36 +87,51 @@ ROMAN_NUMERALS = {
 }
 
 def is_page_header_line(text, y_coord):
-    if y_coord >= 110:
+    if y_coord >= 70:
         return False
     text_clean = text.strip()
-    # If line starts with a verse number, it's scripture, not a header!
+    # 1. Verse lines are NEVER page headers
     if re.match(r'^\d{1,3}\s*[\./,;-]', text_clean):
         return False
+    text_up = text_clean.upper()
+    # 2. Pure page numbers
     if text_clean.isdigit():
         return True
-    text_up = text_clean.upper()
-    if any(h in text_up for h in ["SAGRADA BIBLIA", "ADVERTENCIA"]):
+    # 3. Explicit bible header titles
+    if any(h in text_up for h in ["SAGRADA BIBLIA", "ADVERTENCIA", "LIBRO DE LOS SALMOS"]):
         return True
-    # Match running top headers like "101 I. REYES. CAPITULO VIII. 102"
-    if re.search(r'^\d*\s*(?:[I|V|X|1-4]\.\s*)?[A-ZÁÉÍÓÚÑ\s\.\-]+\s*(?:CAP[IÍ]TULO\s+[A-Z0-9\.]+\s*)?\d*$', text_up):
+    # 4. Running top page headers (e.g. "19 GENESIS. CAPITULO XV. 20")
+    if re.search(r'^\d+\s+[A-ZÁÉÍÓÚÑ\s\.\-]+\d*$', text_up) or re.search(r'^\d*\s+[A-ZÁÉÍÓÚÑ\s\.\-]+\s+\d+$', text_up):
         return True
     return False
 
 def is_footnote_line(text, y_coord):
     text_up = text.upper()
     # Chapter headers are NEVER footnotes, even if located near bottom of page!
-    if any(h in text_up for h in ["CAPITULO", "CAPÍTULO", "CAPUT", "SALMO"]):
+    if re.search(r'\b(C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\b', text_up):
         return False
     if y_coord >= 1140:
         return True
     return False
 
+def is_latin_line(text):
+    text_clean = re.sub(r'[^\w\s]', ' ', text.lower())
+    tokens = text_clean.split()
+    if not tokens:
+        return False
+    latin_words = {
+        'et', 'in', 'est', 'non', 'cum', 'ad', 'sed', 'ut', 'ab', 'ex', 'deus', 'dominus', 'domini', 'domino',
+        'filius', 'filii', 'filios', 'eius', 'eum', 'eos', 'suam', 'suum', 'suis', 'dicit', 'dixit', 'quod', 'quae',
+        'qui', 'fecit', 'factum', 'propter', 'autem', 'enim', 'ergo', 'super', 'sub', 'per'
+    }
+    latin_matches = sum(1 for tok in tokens if tok in latin_words)
+    return (latin_matches / len(tokens)) > 0.40
+
 def clean_text_line(text):
     return " ".join(text.strip().split())
 
 def extract_chapter_number(text):
-    text_clean = re.sub(r'[^\w\s]', '', text.upper())
+    text_clean = re.sub(r'[^\w\s]', ' ', text.upper())
     tokens = text_clean.split()
     for tok in tokens:
         if tok in ROMAN_NUMERALS:
@@ -135,27 +150,24 @@ def parse_args():
     return parser.parse_args()
 
 def split_inline_verses(text):
-    pattern = r'\b(\d{1,3})\s*[\./,;-]+\s*(?=[A-ZÁÉÍÓÚÑ])|\b(\d{1,3})\s+(?=[A-ZÁÉÍÓÚÑ])'
+    text = text.translate(str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹", "0123456789"))
+    pattern = r'(?:^|\s+)(\d{1,3})\s*[\./,;:)\-\—«“]*\s*(?=[A-ZÁÉÍÓÚÑa-z"«“])'
+    
     parts = re.split(pattern, text)
-    if len(parts) == 1:
+    if len(parts) <= 1:
         return [(None, text)]
         
     segments = []
-    i = 0
-    current_v = None
+    if parts[0].strip():
+        segments.append((None, parts[0].strip()))
+        
+    i = 1
     while i < len(parts):
-        part = parts[i]
-        if part is None:
-            i += 1
-            continue
-            
-        if i % 3 == 0:
-            if part.strip():
-                segments.append((current_v, part.strip()))
-        else:
-            if part and re.match(r'^\d+$', part):
-                current_v = int(part)
-        i += 1
+        v_num_str = parts[i]
+        seg_content = parts[i+1] if i+1 < len(parts) else ""
+        if v_num_str and v_num_str.isdigit():
+            segments.append((int(v_num_str), seg_content.strip()))
+        i += 2
         
     return segments
 
@@ -180,10 +192,10 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
             
         page_lines = data.get("lines", [])
         
-        # Filter page headers and footnotes dynamically
+        # Filter page headers, footnotes, and Latin Vulgate parallel notes (40 <= Y < 1140)
         scripture_lines = [
             l for l in page_lines
-            if not is_page_header_line(l['text'], l['box'][1]) and not is_footnote_line(l['text'], l['box'][1])
+            if 40 <= l['box'][1] < 1140 and not is_page_header_line(l['text'], l['box'][1]) and not is_footnote_line(l['text'], l['box'][1]) and not is_latin_line(l['text'])
         ]
         
         # Split columns: Left (X < 400), Right (X >= 400)
@@ -207,8 +219,9 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
             
         text_upper = raw_text.upper()
         
-        # Detect chapter headers (e.g., "CAPITULO II", "CAPÍTULO PRIMERO", "SALMO XXIII", "CAPlTULO III")
-        if re.search(r'\b(CAP[IÍLl1]TULO|CAPUT|SALMO|PSALMO)\b', text_upper) and not re.search(r'^\d+\s+CAP', text_upper):
+        # Detect chapter headers (e.g., "CAPITULO II", "CAPÍTULO PRIMERO", "SALMO XXIII", "ŚALMO LXXII")
+        is_verse_start = bool(re.match(r'^\d{1,3}\s*[\./,;-]', raw_text))
+        if not is_verse_start and re.search(r'\b(C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\b', text_upper) and not re.search(r'^\d+\s+CAP', text_upper):
             ch_num = extract_chapter_number(raw_text)
             if ch_num is not None:
                 current_chapter = ch_num
