@@ -46,9 +46,9 @@ BIBLE_BOOK_MAP = {
     "GEN": (1, 18, 79), "EXO": (1, 80, 119), "LEV": (1, 120, 156), "NUM": (1, 157, 204),
     "DEU": (1, 205, 258), "JOS": (1, 259, 295), "JDG": (1, 296, 329), "RUT": (1, 330, 337),
     # Vol 2
-    "1SA": (2, 11, 49), "2SA": (2, 50, 81), "1KI": (2, 82, 109), "2KI": (2, 110, 138),
+    "1SA": (2, 12, 48), "2SA": (2, 49, 77), "1KI": (2, 78, 108), "2KI": (2, 109, 138),
     "1CH": (2, 139, 168), "2CH": (2, 169, 203), "EZR": (2, 204, 212), "NEH": (2, 213, 228),
-    "TOB": (2, 229, 240), "JDT": (2, 241, 256), "EST": (2, 257, 269), "JOB": (2, 270, 329),
+    "TOB": (2, 229, 240), "JDT": (2, 241, 256), "EST": (2, 257, 269), "JOB": (2, 270, 305),
     # Vol 3
     "PSA": (3, 11, 76), "PRO": (3, 77, 96), "ECC": (3, 97, 105), "SNG": (3, 106, 111),
     "WIS": (3, 112, 125), "SIR": (3, 126, 167), "ISA": (3, 168, 217), "JER": (3, 218, 270),
@@ -63,8 +63,8 @@ BIBLE_BOOK_MAP = {
     "GAL": (4, 249, 259), "EPH": (4, 260, 267), "PHP": (4, 268, 272), "COL": (4, 273, 279),
     "1TH": (4, 280, 284), "2TH": (4, 285, 288), "1TI": (4, 289, 296), "2TI": (4, 297, 303),
     "TIT": (4, 304, 308), "PHM": (4, 309, 309), "HEB": (4, 310, 325), "JAM": (4, 326, 331),
-    "1PE": (4, 332, 337), "2PE": (4, 338, 342), "1JN": (4, 343, 350), "2JN": (4, 351, 351),
-    "3JN": (4, 352, 352), "JUD": (4, 353, 356), "REV": (4, 357, 381)
+    "1PE": (4, 332, 337), "2PE": (4, 338, 342), "1JN": (4, 343, 348), "2JN": (4, 349, 351),
+    "3JN": (4, 352, 352), "JUD": (4, 353, 356), "REV": (4, 357, 377)
 }
 
 ROMAN_NUMERALS = {
@@ -86,6 +86,32 @@ ROMAN_NUMERALS = {
     "PRIMERO": 1, "SEGUNDO": 2, "TERCERO": 3, "CUARTO": 4, "QUINTO": 5, "SEXTO": 6, "SEPTIMO": 7, "SÉPTIMO": 7, "OCTAVO": 8, "NOVENO": 9, "DECIMO": 10, "DÉCIMO": 10
 }
 
+def is_page_header_line(text, y_coord):
+    if y_coord >= 110:
+        return False
+    text_clean = text.strip()
+    # If line starts with a verse number, it's scripture, not a header!
+    if re.match(r'^\d{1,3}\s*[\./,;-]', text_clean):
+        return False
+    if text_clean.isdigit():
+        return True
+    text_up = text_clean.upper()
+    if any(h in text_up for h in ["SAGRADA BIBLIA", "ADVERTENCIA"]):
+        return True
+    # Match running top headers like "101 I. REYES. CAPITULO VIII. 102"
+    if re.search(r'^\d*\s*(?:[I|V|X|1-4]\.\s*)?[A-ZÁÉÍÓÚÑ\s\.\-]+\s*(?:CAP[IÍ]TULO\s+[A-Z0-9\.]+\s*)?\d*$', text_up):
+        return True
+    return False
+
+def is_footnote_line(text, y_coord):
+    text_up = text.upper()
+    # Chapter headers are NEVER footnotes, even if located near bottom of page!
+    if any(h in text_up for h in ["CAPITULO", "CAPÍTULO", "CAPUT", "SALMO"]):
+        return False
+    if y_coord >= 1140:
+        return True
+    return False
+
 def clean_text_line(text):
     return " ".join(text.strip().split())
 
@@ -95,7 +121,7 @@ def extract_chapter_number(text):
     for tok in tokens:
         if tok in ROMAN_NUMERALS:
             return ROMAN_NUMERALS[tok]
-        if tok.isdigit():
+        if re.match(r'^\d+$', tok):
             return int(tok)
     return None
 
@@ -109,7 +135,7 @@ def parse_args():
     return parser.parse_args()
 
 def split_inline_verses(text):
-    pattern = r'\b(\d{1,3})\s*[\./,;-]\s+(?=[A-ZÁÉÍÓÚÑ])|\b(\d{1,3})\s+(?=[A-ZÁÉÍÓÚÑ])'
+    pattern = r'\b(\d{1,3})\s*[\./,;-]+\s*(?=[A-ZÁÉÍÓÚÑ])|\b(\d{1,3})\s+(?=[A-ZÁÉÍÓÚÑ])'
     parts = re.split(pattern, text)
     if len(parts) == 1:
         return [(None, text)]
@@ -127,7 +153,8 @@ def split_inline_verses(text):
             if part.strip():
                 segments.append((current_v, part.strip()))
         else:
-            current_v = int(part)
+            if part and re.match(r'^\d+$', part):
+                current_v = int(part)
         i += 1
         
     return segments
@@ -153,8 +180,11 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
             
         page_lines = data.get("lines", [])
         
-        # Filter page headers (Y < 70) and footnotes (Y >= 1120)
-        scripture_lines = [l for l in page_lines if 70 <= l['box'][1] < 1120]
+        # Filter page headers and footnotes dynamically
+        scripture_lines = [
+            l for l in page_lines
+            if not is_page_header_line(l['text'], l['box'][1]) and not is_footnote_line(l['text'], l['box'][1])
+        ]
         
         # Split columns: Left (X < 400), Right (X >= 400)
         left_column = [l for l in scripture_lines if l['box'][0] < 400]
@@ -164,7 +194,6 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
         left_column.sort(key=lambda l: l['box'][1])
         right_column.sort(key=lambda l: l['box'][1])
         
-        # Sequenced page lines
         all_lines.extend(left_column + right_column)
         
     verses = {}
@@ -178,8 +207,8 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
             
         text_upper = raw_text.upper()
         
-        # Detect chapter headers (e.g., "CAPITULO II", "CAPÍTULO PRIMERO", "SALMO XXIII")
-        if text_upper.startswith("CAPITULO") or text_upper.startswith("CAPÍTULO") or (book_id == "PSA" and text_upper.startswith("SALMO")):
+        # Detect chapter headers (e.g., "CAPITULO II", "CAPÍTULO PRIMERO", "SALMO XXIII", "CAPlTULO III")
+        if re.search(r'\b(CAP[IÍLl1]TULO|CAPUT|SALMO|PSALMO)\b', text_upper) and not re.search(r'^\d+\s+CAP', text_upper):
             ch_num = extract_chapter_number(raw_text)
             if ch_num is not None:
                 current_chapter = ch_num
@@ -188,9 +217,6 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
             current_verse = 0
             if current_chapter not in verses:
                 verses[current_chapter] = {}
-            continue
-            
-        if current_chapter == 0:
             continue
             
         # Parse inline verse structures
@@ -202,20 +228,26 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
                 continue
                 
             if v_num is not None:
+                if current_chapter == 0:
+                    current_chapter = 1
+                    verses[current_chapter] = {}
                 current_verse = v_num
                 if current_verse not in verses[current_chapter]:
                     verses[current_chapter][current_verse] = []
                 verses[current_chapter][current_verse].append(seg_text)
             else:
-                start_match = re.match(r'^(\d+)\s*[\./,;-]*\s+(.*)', seg_text)
+                start_match = re.match(r'^(\d{1,3})\s*[\./,;-]*\s+(.*)', seg_text)
                 if start_match:
+                    if current_chapter == 0:
+                        current_chapter = 1
+                        verses[current_chapter] = {}
                     current_verse = int(start_match.group(1))
                     v_text = start_match.group(2).strip()
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append(v_text)
                 else:
-                    if not seg_text.isdigit() and "—" not in seg_text:
+                    if current_chapter > 0 and not seg_text.isdigit() and "—" not in seg_text:
                         if current_verse not in verses[current_chapter]:
                             verses[current_chapter][current_verse] = []
                         verses[current_chapter][current_verse].append(seg_text)
@@ -280,4 +312,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
