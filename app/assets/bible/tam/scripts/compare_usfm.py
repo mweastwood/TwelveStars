@@ -34,6 +34,26 @@ def parse_usfm_verses(usfm_path):
                     verses[current_chapter][v_num] = v_text
     return verses
 
+def get_unam_chapter(book_id, ocr_chapter):
+    if book_id == "PSA":
+        v_ch = ocr_chapter
+        if v_ch <= 8:
+            return v_ch
+        elif v_ch == 9:
+            return 9
+        elif 10 <= v_ch <= 113:
+            return v_ch + 1
+        elif v_ch == 114:
+            return 115
+        elif v_ch == 115:
+            return 116
+        elif 116 <= v_ch <= 145:
+            return v_ch + 1
+        elif v_ch == 146 or v_ch == 147:
+            return 147
+        return v_ch
+    return ocr_chapter
+
 def compare_book(book_id, ocr_dir, unam_dir, verbose=False):
     # Locate files
     ocr_files = [f for f in os.listdir(ocr_dir) if f"-{book_id}-" in f and f.endswith(".usfm")]
@@ -61,48 +81,43 @@ def compare_book(book_id, ocr_dir, unam_dir, verbose=False):
     if unam_data is None or ocr_data is None:
         return None
         
-    total_unam_verses = 0
+    total_unam_verses = sum(len(v) for v in unam_data.values())
     matched_verses = 0
-    word_sim_sum = 0.0
-    char_sim_sum = 0.0
+    word_sims = []
+    char_sims = []
     
-    for ch in sorted(unam_data.keys()):
-        unam_ch = unam_data[ch]
-        ocr_ch = ocr_data.get(ch, {})
+    for ocr_ch, ocr_v_dict in ocr_data.items():
+        unam_ch = get_unam_chapter(book_id, ocr_ch)
+        unam_ch_data = unam_data.get(unam_ch, {})
         
-        for v in sorted(unam_ch.keys()):
-            total_unam_verses += 1
-            unam_txt = unam_ch[v]
-            
-            if v in ocr_ch:
+        for v, ocr_txt in ocr_v_dict.items():
+            if v in unam_ch_data:
                 matched_verses += 1
-                ocr_txt = ocr_ch[v]
+                unam_txt = unam_ch_data[v]
                 
                 # Word-level similarity
                 unam_words = clean_text(unam_txt).split()
                 ocr_words = clean_text(ocr_txt).split()
-                
                 if unam_words and ocr_words:
                     w_overlap = set(unam_words) & set(ocr_words)
                     w_sim = len(w_overlap) / max(len(unam_words), len(ocr_words))
                 else:
                     w_sim = 0.0
-                    
+                word_sims.append(w_sim)
+                
                 # Character-level similarity
                 c_sim = SequenceMatcher(None, clean_text(unam_txt), clean_text(ocr_txt)).ratio()
-                
-                word_sim_sum += w_sim
-                char_sim_sum += c_sim
+                char_sims.append(c_sim)
                 
                 if verbose:
-                    print(f"  [{book_id}] Ch {ch:2d}:{v:2d} | Word Sim: {w_sim*100:5.1f}% | Char Sim: {c_sim*100:5.1f}%")
+                    print(f"  [{book_id}] Ch {ocr_ch:2d}:{v:2d} | Word Sim: {w_sim*100:5.1f}% | Char Sim: {c_sim*100:5.1f}%")
             else:
                 if verbose:
-                    print(f"  [{book_id}] Ch {ch:2d}:{v:2d} | MISSING")
+                    print(f"  [{book_id}] Ch {ocr_ch:2d}:{v:2d} | MISSING")
                     
-    word_sim_avg = (word_sim_sum / total_unam_verses * 100) if total_unam_verses > 0 else 0.0
-    char_sim_avg = (char_sim_sum / total_unam_verses * 100) if total_unam_verses > 0 else 0.0
     recall_rate = (matched_verses / total_unam_verses * 100) if total_unam_verses > 0 else 0.0
+    word_sim_avg = (sum(word_sims) / total_unam_verses * 100) if total_unam_verses > 0 else 0.0
+    char_sim_avg = (sum(char_sims) / total_unam_verses * 100) if total_unam_verses > 0 else 0.0
     
     return {
         "book_id": book_id,
