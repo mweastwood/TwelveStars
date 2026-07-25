@@ -97,7 +97,7 @@ BIBLE_BOOK_MAP: Dict[str, Tuple[int, int, int]] = {
     "WIS": (3, 112, 125),
     "SIR": (3, 126, 166),
     "ISA": (3, 167, 221),
-    "JER": (3, 222, 270),
+    "JER": (3, 218, 270),
     "LAM": (3, 271, 275),
     "BAR": (3, 276, 283),
     "EZK": (3, 284, 325),
@@ -211,9 +211,10 @@ def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float
     text_clean = text.strip()
     text_up = text_clean.upper()
 
-    # Filter top-right running headers like 'CAPITULO XLIV.' or 'CAPITULO VII.' in volume top margins
+    # Filter top-right running headers like 'CAPITULO XLIV.' or 'CAPITULO VII.' unless on pages with top chapter titles
     if y_coord <= page_h * 0.065 and x_coord > 500 and "CAPITULO" in text_up and text_clean.endswith("."):
-        return True
+        if not re.match(r'^\s*(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+(?:II|LII)\.?\s*$', text_up):
+            return True
 
     if y_coord < page_h * 0.035:
         return True
@@ -463,6 +464,11 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix JER OCR typos and top header guards
+        if book_id == "JER":
+            if current_chapter == 2 and raw_text.startswith("2s. Defiende"):
+                raw_text = "25." + raw_text[3:]
+
         # Fix ISA OCR typos and top header guards
         if book_id == "ISA":
             if current_chapter == 5 and raw_text.startswith(". Ay de vosotros"):
