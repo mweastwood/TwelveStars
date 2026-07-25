@@ -212,6 +212,9 @@ def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float
     text_up = text_clean.upper()
 
     # Filter top-right running headers like 'CAPITULO XLIV.', 'SALMO XXIII.' or 'PSALMO VII.' in top margins across volumes
+    if y_coord <= page_h * 0.065 and x_coord > 500 and re.search(r'\b(C[ÁA]P[IÍLl1]TULO|[PŚS]ALMO)\b', text_up):
+        if not re.match(r'^\s*(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+(?:II|LII)\.?\s*$', text_up):
+            return True
     if y_coord <= page_h * 0.12 and x_coord > 500 and re.search(r'\b(C[ÁA]P[IÍLl1]TULO|[PŚS]ALMO)\b', text_up) and text_clean.endswith("."):
         if not re.match(r'^\s*(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+(?:II|LII)\.?\s*$', text_up):
             return True
@@ -465,6 +468,17 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix ECC OCR typos and verse prefix rules
+        if book_id == "ECC":
+            if current_chapter == 1 and current_verse in [12, 13] and "cuantas pasan" in raw_text:
+                raw_text = "14. " + raw_text
+            elif current_chapter == 2 and current_verse in [3, 4] and "huertos" in raw_text:
+                raw_text = "5. " + raw_text
+            elif current_chapter == 2 and current_verse in [6, 7] and "Juntéme" in raw_text:
+                raw_text = "8. " + raw_text
+            elif current_chapter == 7 and current_verse in [19, 20] and "tampoco tu corazon" in raw_text:
+                raw_text = "21. " + raw_text
+
         # Fix PRO OCR typos and verse prefix rules
         if book_id == "PRO":
             if current_chapter == 9 and current_verse in [9, 10] and "multiplicarán" in raw_text:
