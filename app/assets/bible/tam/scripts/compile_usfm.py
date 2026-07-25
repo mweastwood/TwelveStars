@@ -468,6 +468,17 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix JHN OCR typos and verse prefix rules
+        if book_id == "JHN":
+            if current_chapter == 1 and current_verse in [20, 21] and "deron:" in raw_text:
+                raw_text = raw_text.replace("deron:", "22. deron:")
+            elif current_chapter == 6 and current_verse in [61, 62] and "espíritu es el que da vida" in raw_text:
+                raw_text = "63. " + raw_text
+            elif current_chapter == 18 and current_verse in [5, 6] and "preguntar" in raw_text:
+                raw_text = "7. " + raw_text
+            elif current_chapter == 20 and current_verse in [9, 10] and "estaba llorando" in raw_text:
+                raw_text = "11. " + raw_text
+
         # Fix LUK OCR typos and verse prefix rules
         if book_id == "LUK":
             if current_chapter == 1 and current_verse in [30, 31] and "Éste será grande" in raw_text:
