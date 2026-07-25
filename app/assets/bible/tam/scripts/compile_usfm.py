@@ -465,6 +465,23 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix 2SA OCR typos and verse prefix rules
+        if book_id == "2SA":
+            if current_chapter == 7 and current_verse == 26 and "Oracion" in raw_text:
+                raw_text = "27. " + raw_text
+            elif current_chapter == 7 and current_verse == 27 and "Señor Dios" in raw_text:
+                raw_text = "28. " + raw_text
+            elif current_chapter == 7 and current_verse == 28 and "Ahora pues" in raw_text:
+                raw_text = "29. " + raw_text
+            elif current_chapter == 11 and current_verse == 25 and "mujer" in raw_text:
+                raw_text = "26. " + raw_text
+            elif current_chapter == 18 and current_verse == 32 and "Turbado" in raw_text:
+                raw_text = "33. " + raw_text
+            elif current_chapter == 23 and current_verse == 26 and "Maharai" in raw_text:
+                raw_text = "27. " + raw_text
+            elif current_chapter == 23 and current_verse == 34 and "Eliam" in raw_text:
+                raw_text = "35. " + raw_text
+
         # Fix 1SA OCR typos and verse prefix rules
         if book_id == "1SA":
             if current_chapter == 7 and "CAPIOVILI" in text_upper:
