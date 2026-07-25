@@ -65,29 +65,86 @@ BOOK_NAMES: Dict[str, str] = {
 
 # Volume index and page ranges (start_page, end_page) for all 73 Catholic Bible books
 BIBLE_BOOK_MAP: Dict[str, Tuple[int, int, int]] = {
-    # Vol 1
-    "GEN": (1, 18, 79), "EXO": (1, 80, 119), "LEV": (1, 120, 156), "NUM": (1, 157, 204),
-    "DEU": (1, 205, 258), "JOS": (1, 259, 295), "JDG": (1, 296, 329), "RUT": (1, 330, 337),
-    # Vol 2
-    "1SA": (2, 12, 48), "2SA": (2, 49, 77), "1KI": (2, 78, 108), "2KI": (2, 109, 138),
-    "1CH": (2, 139, 168), "2CH": (2, 169, 203), "EZR": (2, 204, 212), "NEH": (2, 213, 228),
-    "TOB": (2, 229, 240), "JDT": (2, 241, 256), "EST": (2, 257, 269), "JOB": (2, 270, 305),
-    # Vol 3
-    "PSA": (3, 11, 76), "PRO": (3, 77, 96), "ECC": (3, 97, 105), "SNG": (3, 106, 111),
-    "WIS": (3, 112, 125), "SIR": (3, 126, 167), "ISA": (3, 168, 217), "JER": (3, 218, 270),
-    "LAM": (3, 271, 275), "BAR": (3, 276, 283), "EZK": (3, 284, 325), "DAN": (3, 326, 345),
-    "HOS": (3, 346, 352), "JOL": (3, 353, 357), "AMO": (3, 358, 363), "OBA": (3, 363, 363),
-    "JON": (3, 364, 365), "MIC": (3, 366, 371), "NAM": (3, 372, 373), "HAB": (3, 374, 376),
-    "ZEP": (3, 377, 380), "HAG": (3, 381, 382), "ZEC": (3, 383, 389), "MAL": (3, 390, 394),
-    "1MA": (3, 395, 421), "2MA": (3, 422, 440),
-    # Vol 4
-    "MAT": (4, 11, 49), "MRK": (4, 50, 70), "LUK": (4, 71, 109), "JHN": (4, 110, 139),
-    "ACT": (4, 140, 184), "ROM": (4, 185, 210), "1CO": (4, 211, 232), "2CO": (4, 233, 248),
-    "GAL": (4, 249, 259), "EPH": (4, 260, 267), "PHP": (4, 268, 272), "COL": (4, 273, 279),
-    "1TH": (4, 280, 284), "2TH": (4, 285, 288), "1TI": (4, 289, 296), "2TI": (4, 297, 303),
-    "TIT": (4, 304, 308), "PHM": (4, 308, 308), "HEB": (4, 309, 325), "JAM": (4, 326, 331),
-    "1PE": (4, 332, 337), "2PE": (4, 338, 342), "1JN": (4, 343, 348), "2JN": (4, 349, 351),
-    "3JN": (4, 352, 352), "JUD": (4, 353, 356), "REV": (4, 357, 377)
+    # Volume 1
+    "GEN": (1, 18, 73),
+    "EXO": (1, 74, 116),
+    "LEV": (1, 117, 148),
+    "NUM": (1, 149, 204),
+    "DEU": (1, 205, 259),
+    "JOS": (1, 260, 295),
+    "JDG": (1, 296, 329),
+    "RUT": (1, 330, 335),
+
+    # Volume 2
+    "1SA": (2, 12, 48),
+    "2SA": (2, 49, 77),
+    "1KI": (2, 78, 108),
+    "2KI": (2, 109, 139),
+    "1CH": (2, 140, 168),
+    "2CH": (2, 169, 203),
+    "EZR": (2, 204, 212),
+    "NEH": (2, 213, 228),
+    "TOB": (2, 229, 240),
+    "JDT": (2, 241, 256),
+    "EST": (2, 257, 269),
+    "JOB": (2, 270, 305),
+
+    # Volume 3
+    "PSA": (3, 14, 76),
+    "PRO": (3, 77, 96),
+    "ECC": (3, 97, 104),
+    "SNG": (3, 105, 111),
+    "WIS": (3, 112, 125),
+    "SIR": (3, 126, 166),
+    "ISA": (3, 167, 221),
+    "JER": (3, 222, 270),
+    "LAM": (3, 271, 275),
+    "BAR": (3, 276, 283),
+    "EZK": (3, 284, 325),
+    "DAN": (3, 326, 345),
+    "HOS": (3, 346, 352),
+    "JOL": (3, 353, 357),
+    "AMO": (3, 358, 363),
+    "OBA": (3, 363, 363),
+    "JON": (3, 364, 365),
+    "MIC": (3, 366, 371),
+    "NAM": (3, 372, 373),
+    "HAB": (3, 374, 376),
+    "ZEP": (3, 377, 380),
+    "HAG": (3, 381, 382),
+    "ZEC": (3, 383, 389),
+    "MAL": (3, 390, 394),
+    "1MA": (3, 393, 425),
+    "2MA": (3, 426, 450),
+
+    # Volume 4
+    "MAT": (4, 14, 49),
+    "MRK": (4, 50, 70),
+    "LUK": (4, 71, 109),
+    "JHN": (4, 110, 139),
+    "ACT": (4, 140, 184),
+    "ROM": (4, 185, 210),
+    "1CO": (4, 211, 232),
+    "2CO": (4, 233, 248),
+    "GAL": (4, 249, 259),
+    "EPH": (4, 260, 267),
+    "PHP": (4, 268, 272),
+    "COL": (4, 273, 279),
+    "1TH": (4, 280, 284),
+    "2TH": (4, 285, 288),
+    "1TI": (4, 289, 296),
+    "2TI": (4, 297, 303),
+    "TIT": (4, 304, 308),
+    "PHM": (4, 308, 308),
+    "HEB": (4, 309, 325),
+    "JAM": (4, 326, 331),
+    "1PE": (4, 332, 337),
+    "2PE": (4, 338, 342),
+    "1JN": (4, 343, 348),
+    "2JN": (4, 349, 351),
+    "3JN": (4, 352, 352),
+    "JUD": (4, 353, 356),
+    "REV": (4, 357, 377),
 }
 
 # Mapping of Roman numerals and Spanish ordinal words to integers (1-150)
@@ -224,8 +281,15 @@ def extract_chapter_number(text: str, expected_ch: Optional[int] = None) -> Opti
     Extracts chapter numbers from 'CAPITULO IV' or 'SALMO IX' headers.
     Includes sequence-aware error correction for Tesseract OCR Roman numeral misreads (e.g. IV -> IX).
     """
+    # Ignore mid-sentence inline references like 'en el capítulo V', 'en el Salmo segundo'
+    if re.search(r'\b(?:en|del|al|con|sobre)\s+(?:el\s+)?(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\b', text, re.IGNORECASE):
+        return None
+        
     text_clean = re.sub(r'[^\w\s]', ' ', text.upper())
-    match = re.search(r'\b(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+([A-Z0-9ÁÉÍÓÚ]+)', text_clean)
+    match = re.search(r'^\s*(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+([A-Z0-9ÁÉÍÓÚ]+)', text_clean)
+    if not match:
+        match = re.search(r'\b(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+([A-Z0-9ÁÉÍÓÚ]+)', text_clean)
+        
     if match:
         tok = match.group(1)
         val = None
@@ -234,20 +298,24 @@ def extract_chapter_number(text: str, expected_ch: Optional[int] = None) -> Opti
         elif tok.isdigit():
             val = int(tok)
             
-        if expected_ch is not None:
-            if val == expected_ch:
-                return val
-            # Handle specific Tesseract Roman numeral misreads
-            if val == 4 and expected_ch == 9:
-                return 9
-            if val == 6 and expected_ch == 11:
-                return 11
-            if val == 7 and expected_ch == 12:
-                return 12
-            # Prevent regressions to drastically different chapter numbers
-            if val is not None and abs(val - expected_ch) > 3 and expected_ch > 0:
-                return expected_ch
-        return val
+        if val is not None:
+            if expected_ch is not None and expected_ch > 0:
+                if val == expected_ch:
+                    return val
+                # Handle specific Tesseract Roman numeral misreads
+                if val == 4 and expected_ch == 9:
+                    return 9
+                if val == 6 and expected_ch == 11:
+                    return 11
+                if val == 7 and expected_ch == 12:
+                    return 12
+                # Handle Tesseract extra 'X' misread (e.g. XVII -> XXVII where val == expected_ch + 10)
+                if val in (expected_ch + 10, expected_ch + 20):
+                    return expected_ch
+                # Accept sequential transitions (val within 5 of expected_ch)
+                if abs(val - expected_ch) <= 5:
+                    return val
+            return val
     return None
 
 
@@ -361,18 +429,32 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             
         text_upper = raw_text.upper()
         
+        # Check if line is inline verse prefix like 'CAP. 32. Pues...' or 'CaP. 11. El Señor...'
+        cap_v_match = re.match(r'^C[aA][pP]\.?\s*(\d{1,3})[\./,;-]*\s*(.*)', raw_text)
+        if cap_v_match:
+            current_verse = int(cap_v_match.group(1))
+            v_text = cap_v_match.group(2).strip()
+            if current_chapter == 0:
+                current_chapter = 1
+                verses[current_chapter] = {}
+            if current_chapter not in verses:
+                verses[current_chapter] = {}
+            if current_verse not in verses[current_chapter]:
+                verses[current_chapter][current_verse] = []
+            if v_text:
+                verses[current_chapter][current_verse].append(v_text)
+            continue
+            
         # Check for chapter header (e.g. CAPITULO I)
         is_verse_start = bool(re.match(r'^\d{1,3}\s*[\./,;-]', raw_text))
         if not is_verse_start and re.search(r'\b(C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\b', text_upper) and not re.search(r'^\d+\s+CAP', text_upper):
             ch_num = extract_chapter_number(raw_text, expected_ch=current_chapter + 1)
             if ch_num is not None:
                 current_chapter = ch_num
-            else:
-                current_chapter += 1
-            current_verse = 0
-            if current_chapter not in verses:
-                verses[current_chapter] = {}
-            continue
+                current_verse = 0
+                if current_chapter not in verses:
+                    verses[current_chapter] = {}
+                continue
             
         # Parse verses and verse segments
         segments = split_inline_verses(raw_text, current_v=current_verse)
