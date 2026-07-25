@@ -181,7 +181,9 @@ LATIN_STOP_WORDS = {
 # ==============================================================================
 
 def clean_text_line(text: str) -> str:
-    """Normalizes whitespace in a raw OCR string."""
+    """Normalizes whitespace and strips mid-sentence footnote callouts in a raw OCR string."""
+    text = re.sub(r"[⁰¹²³⁴⁵⁶⁷⁸⁹]+", "", text)
+    text = re.sub(r"(?<=[a-zA-ZÁÉÍÓÚÑáéíóúñ])\s+\d{1,2}\b(?=[\s,;:\.A-Za-zÁÉÍÓÚÑáéíóúñ])", "", text)
     return " ".join(text.strip().split())
 
 
