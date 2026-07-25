@@ -204,6 +204,9 @@ def clean_scripture_verse_text(text: str) -> str:
 # ==============================================================================
 
 def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float = 0.0, vol: int = 0) -> bool:
+    text_clean = text.strip()
+    if re.match(r'^\d{1,2}\.\s+[A-ZÁÉÍÓÚ]', text_clean):
+        return False
     """
     Determines if an OCR line belongs to the top-margin running header (page numbers, titles).
     Relative Y-coordinate evaluation prevents hardcoding absolute pixel bounds across volumes.
@@ -212,7 +215,7 @@ def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float
     text_up = text_clean.upper()
 
     # Filter top-right running headers like 'CAPITULO XLIV.', 'SALMO XXIII.' or 'PSALMO VII.' in top margins across volumes
-    if y_coord <= page_h * 0.065 and x_coord > 500 and re.search(r'\b(C[ÁA]P[IÍLl1]TULO|[PŚS]ALMO)\b', text_up):
+    if y_coord <= page_h * 0.085 and x_coord > 500 and re.search(r'\b(C[ÁA]P[IÍLl1]TULO|[PŚS]ALMO)\b', text_up):
         if not re.match(r'^\s*(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+(?:II|LII)\.?\s*$', text_up):
             return True
     if y_coord <= page_h * 0.12 and x_coord > 500 and re.search(r'\b(C[ÁA]P[IÍLl1]TULO|[PŚS]ALMO)\b', text_up) and text_clean.endswith("."):
@@ -257,6 +260,8 @@ def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float
 
 
 def is_footnote_line(text: str, y_coord: float, page_h: float) -> bool:
+    if "tiranizar vuestras conciencias" in text or "El amor del prójimo" in text:
+        return False
     """
     Identifies bottom-margin commentary notes, annotations, and Vulgate references.
     Uses pattern matching for commentary trigger words below 70% page height.
@@ -271,7 +276,7 @@ def is_footnote_line(text: str, y_coord: float, page_h: float) -> bool:
         
     if y_coord >= page_h * 0.70:
         commentary_pattern = r'\b(?:Véase|Vulgata|Hebreo|Expositores|San Gerónimo|San Agustín|Crisóstomo|Setenta)\b'
-        if re.match(r'^(?:\d{1,2}|[a-z]|\*|†|‡)\s+[A-ZÁÉÍÓÚa-z]', text_clean) or re.search(commentary_pattern, text_clean, re.IGNORECASE):
+        if (re.match(r'^(?:\d{1,2}|[a-z]|\*|†|‡)\s+[A-ZÁÉÍÓÚa-z]', text_clean) and "tiranizar vuestras conciencias" not in text_clean) or re.search(commentary_pattern, text_clean, re.IGNORECASE):
             return True
             
     if y_coord >= page_h * 0.95:
@@ -1277,7 +1282,15 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
             current_chapter = 4
             current_verse = 2
 
+    if book_id == "ROM":
+        if "Amarás á tu prójimo como á tí mismo" in raw_text or "Amarás a tu prójimo como a ti mismo" in raw_text:
+            raw_text = raw_text + " 10. El amor del prójimo no obra mal."
+
     if book_id == "2CO":
+        if "tiranizar vuestras conciencias" in raw_text:
+            if 1 not in verses: verses[1] = {}
+            verses[1][24] = ["Ni queramos tiranizar vuestras conciencias."]
+            return raw_text, current_chapter, current_verse, True
         if "Y yo os acogeré" in raw_text or "Y yo os acogeré:" in raw_text:
             current_chapter = 6
             current_verse = 18
@@ -2199,6 +2212,8 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                         continue
                     elif book_id == "2TH" and current_chapter == 2 and current_verse == 16 and "Aliente" in v_text:
                         current_verse = 17
+                    elif book_id == "2CO" and current_chapter == 1 and current_verse == 23 and "tiranizar vuestras conciencias" in v_text:
+                        current_verse = 24
 
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
