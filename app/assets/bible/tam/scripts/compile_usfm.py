@@ -465,6 +465,63 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix JOB OCR typos and verse prefix rules
+        if book_id == "JOB":
+            if current_chapter == 1 and current_verse in [9, 10] and "exed" in raw_text:
+                raw_text = "11. " + raw_text
+            elif current_chapter == 1 and current_verse in [11, 12] and "primogénito" in raw_text:
+                raw_text = "13. " + raw_text
+            elif current_chapter == 1 and current_verse in [12, 13] and "mensajero" in raw_text:
+                raw_text = "14. " + raw_text
+            elif current_chapter == 1 and current_verse in [13, 14] and "Sabeos" in raw_text:
+                raw_text = "15. " + raw_text
+            elif current_chapter == 3 and current_verse in [11, 12] and "con los reyes" in raw_text:
+                raw_text = "13. " + raw_text
+            elif current_chapter == 5 and current_verse in [23, 24] and "estirpe" in raw_text:
+                raw_text = "25. " + raw_text
+            elif current_chapter == 12 and current_verse in [0, 1] and "vosotros sois" in raw_text:
+                raw_text = "2. " + raw_text
+            elif current_chapter == 12 and current_verse in [1, 2] and "tengo corazon" in raw_text:
+                raw_text = "3. " + raw_text
+            elif current_chapter == 13 and current_verse in [21, 22] and "iniquidades" in raw_text:
+                raw_text = "23. " + raw_text
+            elif current_chapter == 13 and current_verse in [22, 23] and "escondes tu rostro" in raw_text:
+                raw_text = "24. " + raw_text
+            elif current_chapter == 16 and current_verse in [9, 10] and "Entregóme Dios" in raw_text:
+                raw_text = "11. " + raw_text
+            elif current_chapter == 16 and current_verse in [10, 11] and "tan opulento" in raw_text:
+                raw_text = "12. " + raw_text
+            elif current_chapter == 16 and current_verse in [11, 12] and "dardos" in raw_text:
+                raw_text = "13. " + raw_text
+            elif current_chapter == 16 and current_verse in [12, 13] and "herida sobre herida" in raw_text:
+                raw_text = "14. " + raw_text
+            elif current_chapter == 16 and current_verse in [13, 14] and "Cosí un saco" in raw_text:
+                raw_text = "15. " + raw_text
+            elif current_chapter == 16 and current_verse in [14, 15] and "hinchado" in raw_text:
+                raw_text = "16. " + raw_text
+            elif current_chapter == 16 and current_verse in [15, 16] and "iniquidad" in raw_text:
+                raw_text = "17. " + raw_text
+            elif current_chapter == 16 and current_verse in [16, 17] and "Tierra" in raw_text:
+                raw_text = "18. " + raw_text
+            elif current_chapter == 16 and current_verse in [17, 18] and "mi testigo" in raw_text:
+                raw_text = "19. " + raw_text
+            elif current_chapter == 16 and current_verse in [18, 19] and "charlatanes" in raw_text:
+                raw_text = "20. " + raw_text
+            elif current_chapter == 16 and current_verse in [19, 20] and "juzgase" in raw_text:
+                raw_text = "21. " + raw_text
+            elif current_chapter == 16 and current_verse in [20, 21] and "breves años" in raw_text:
+                raw_text = "22. " + raw_text
+            elif current_chapter == 16 and current_verse in [21, 22] and "irá consumiendo" in raw_text:
+                raw_text = "23. " + raw_text
+            elif current_chapter == 20 and current_verse in [0, 1] and "diversos pensamientos" in raw_text:
+                raw_text = "2. " + raw_text
+            elif current_chapter == 20 and current_verse in [2, 3] and "¿No sabes tú" in raw_text:
+                raw_text = "4. " + raw_text
+            elif current_chapter == 20 and current_verse in [6, 7] and "sueño que se desvanece" in raw_text:
+                raw_text = "8. " + raw_text
+            elif current_chapter == 26 and current_verse in [7, 8] and "faz de su trono" in raw_text:
+                raw_text = "9. " + raw_text
+
         # Fix NEH OCR typos and verse prefix rules
         if book_id == "NEH":
             if current_chapter == 7 and current_verse in [12, 13] and "Zaccai" in raw_text:
