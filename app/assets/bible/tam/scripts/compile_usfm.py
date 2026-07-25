@@ -455,6 +455,21 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix EXO OCR typos and top header guards
+        if book_id == "EXO":
+            if line_data["box"][1] < 65 and "CAPITULO" in text_upper:
+                continue
+            if current_chapter == 12 and "defecto 7" in raw_text:
+                raw_text = raw_text.replace("defecto 7", "defecto")
+            elif current_chapter == 25 and raw_text.startswith("21. Y la cubrirás"):
+                raw_text = "24." + raw_text[3:]
+            elif current_chapter == 28 and raw_text.startswith("3β."):
+                raw_text = "36." + raw_text[3:]
+            elif current_chapter == 30 and raw_text.startswith("2 Que tenga"):
+                raw_text = "2. Que tenga " + raw_text[11:].strip()
+            elif current_chapter == 34 and raw_text.startswith("1o."):
+                raw_text = "10." + raw_text[3:]
+
         # Fix EZK OCR typos and top header guards
         if book_id == "EZK":
             if line_data["box"][1] < 60 and "CAPITULO" in text_upper:
@@ -674,6 +689,35 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             seg_text = clean_text_line(seg_text)
             if not seg_text:
                 continue
+
+            # EXO verse splits and transitions
+            if book_id == "EXO":
+                if current_chapter == 3 and current_verse == 17 and "Yo ya sé que el Rey" in seg_text:
+                    current_verse = 19
+                elif current_chapter == 3 and current_verse == 19 and "despojareis" in seg_text:
+                    current_verse = 22
+                elif current_chapter == 6 and current_verse == 25 and "sacaran de la tierra" in seg_text:
+                    current_verse = 26
+                elif current_chapter == 6 and current_verse == 26 and "hablaron" in seg_text:
+                    current_verse = 27
+                elif current_chapter == 6 and current_verse == 27 and "de Egypto," in seg_text:
+                    current_verse = 28
+                elif current_chapter == 6 and current_verse == 28 and ("todas las cosas" in seg_text or "Rey de Egypto" in seg_text):
+                    current_verse = 29
+                elif current_chapter == 12 and current_verse == 5 and "guardareis hasta" in seg_text:
+                    current_verse = 6
+                elif current_chapter == 12 and current_verse == 23 and ("ni haceros daño" in seg_text or "Guardareis esta" in seg_text):
+                    current_verse = 24
+                elif current_chapter == 12 and current_verse == 24 and ("dar el Señor, como" in seg_text or "tiene prometido" in seg_text):
+                    current_verse = 25
+                elif current_chapter == 12 and current_verse == 26 and ("cuando pasó de largo" in seg_text or "las casas de los hijos" in seg_text):
+                    current_verse = 27
+                elif current_chapter == 12 and current_verse == 28 and ("muerte á todos los primogénitos" in seg_text or "primogénito de Pharaon" in seg_text):
+                    current_verse = 29
+                elif current_chapter == 30 and current_verse == 35 and ("polvo muy fino" in seg_text or "reducido todo" in seg_text):
+                    current_verse = 36
+                elif current_chapter == 38 and current_verse == 8 and ("Formó despues el atrio" in seg_text or "meridional" in seg_text):
+                    current_verse = 9
 
             # EZK verse splits and transitions
             if book_id == "EZK":
