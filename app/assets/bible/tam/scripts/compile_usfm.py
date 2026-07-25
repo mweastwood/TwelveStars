@@ -465,6 +465,11 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix 2KI OCR typos and verse prefix rules
+        if book_id == "2KI":
+            if current_chapter == 4 and current_verse == 36 and "inclinóse" in raw_text:
+                raw_text = "37. " + raw_text
+
         # Fix 1KI OCR typos and verse prefix rules
         if book_id == "1KI":
             if current_chapter == 1 and current_verse in [50, 51] and "hombre de bien" in raw_text:
