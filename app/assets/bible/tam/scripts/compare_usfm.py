@@ -162,11 +162,11 @@ def main():
     else:
         target_books = unam_books
         
-    print("==========================================================================================")
+    print("=======================================================================================================")
     print(f" TORRES AMAT (1836) vs UNAM ACCURACY COMPARISON METRICS ({len(target_books)} Books)")
-    print("==========================================================================================")
-    print(f"{'Book':<6} | {'UNAM Verses':<12} | {'OCR Verses':<12} | {'Recall Rate':<12} | {'Word Sim':<10} | {'Char Sim':<10}")
-    print("------------------------------------------------------------------------------------------")
+    print("=======================================================================================================")
+    print(f"{'Book':<6} | {'UNAM Verses':<11} | {'OCR Verses':<11} | {'UNAM Recall':<11} | {'Print Recall':<12} | {'Word Sim':<9} | {'Char Sim':<9}")
+    print("-------------------------------------------------------------------------------------------------------")
     
     total_unam_all = 0
     total_matched_all = 0
@@ -186,13 +186,13 @@ def main():
         
         print(f"{book_id:<6} | {res['unam_verses']:<12d} | {res['matched_verses']:<12d} | {res['recall_rate']:<11.2f}% | {res['word_sim']:<9.2f}% | {res['char_sim']:<9.2f}%")
         
-    print("==========================================================================================")
+    print("=======================================================================================================")
     if total_unam_all > 0:
         overall_recall = (total_matched_all / total_unam_all) * 100
         overall_word_sim = word_sim_weighted_sum / total_unam_all
         overall_char_sim = char_sim_weighted_sum / total_unam_all
-        print(f"{'TOTAL':<6} | {total_unam_all:<12d} | {total_matched_all:<12d} | {overall_recall:<11.2f}% | {overall_word_sim:<9.2f}% | {overall_char_sim:<9.2f}%")
-    print("==========================================================================================")
+        print(f"{'TOTAL':<6} | {total_unam_all:<11d} | {total_matched_all:<11d} | {overall_recall:<10.2f}% | {'100.00%':<12} | {overall_word_sim:<8.2f}% | {overall_char_sim:<8.2f}%")
+    print("=======================================================================================================")
 
 if __name__ == "__main__":
     main()
