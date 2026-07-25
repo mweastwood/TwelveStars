@@ -455,6 +455,35 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix EZK OCR typos and top header guards
+        if book_id == "EZK":
+            if line_data["box"][1] < 60 and "CAPITULO" in text_upper:
+                continue
+            if current_chapter == 23 and raw_text.startswith(". Oolla"):
+                raw_text = raw_text.replace(". Oolla", "5. Oolla")
+            elif current_chapter == 28 and "creacion" in raw_text:
+                raw_text = re.sub(r'[\s\d³²¹⁴⁵⁶⁷⁸⁹0-9]+$', '', raw_text)
+            elif current_chapter == 28 and current_verse == 13 and "trono de Dios" in raw_text:
+                raw_text = "14. " + raw_text
+            elif current_chapter == 36 and current_verse > 20 and raw_text.startswith("1 pueblo"):
+                raw_text = raw_text[1:].strip()
+            elif current_chapter == 36 and current_verse == 28 and raw_text.startswith("venir el trigo"):
+                raw_text = "29. " + raw_text
+            elif current_chapter == 36 and current_verse == 29 and raw_text.startswith("frutos de los"):
+                raw_text = "30. " + raw_text
+            elif current_chapter == 37 and current_verse == 14 and raw_text.startswith("16."):
+                raw_text = raw_text.replace("16.", "15.")
+            elif current_chapter == 39 and current_verse > 5 and raw_text.startswith("1 pábulo"):
+                raw_text = raw_text[1:].strip()
+            elif current_chapter == 39 and current_verse == 7 and raw_text.startswith("las picas"):
+                raw_text = "9. " + raw_text
+            elif current_chapter == 39 and current_verse == 9 and raw_text.startswith("armas; y disfrutarán"):
+                raw_text = "10. " + raw_text
+            elif current_chapter == 41 and "Santo de los Santos" in raw_text:
+                raw_text = "4. " + raw_text
+            elif current_chapter == 41 and raw_text.startswith("dor de la casa era de cuatro codos"):
+                raw_text = "5. " + raw_text
+
         # Fix DEU OCR typos and top header guards
         if book_id == "DEU":
             if line_data["box"][1] < 50 and "CAPITULO" in text_upper:
@@ -645,6 +674,55 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             seg_text = clean_text_line(seg_text)
             if not seg_text:
                 continue
+
+            # EZK verse splits and transitions
+            if book_id == "EZK":
+                if current_chapter == 3 and current_verse == 10 and ("fueron traidos" in seg_text or "traidos" in seg_text):
+                    current_verse = 11
+                elif current_chapter == 3 and current_verse == 16 and ("centinela" in seg_text or "boca" in seg_text):
+                    current_verse = 17
+                elif current_chapter == 6 and current_verse == 4 and ("simulacro" in seg_text or "presencia" in seg_text or "cad" in seg_text) and not seg_text.startswith("4."):
+                    current_verse = 5
+                elif current_chapter == 9 and current_verse == 8 and "de piedad" in seg_text:
+                    current_verse = 10
+                elif current_chapter == 9 and current_verse == 10 and "me mandaste" in seg_text:
+                    current_verse = 11
+                elif current_chapter == 12 and current_verse == 21 and "pararán todas las visiones" in seg_text:
+                    current_verse = 22
+                elif current_chapter == 12 and current_verse == 22 and ("vulgo" in seg_text or "llegar los dias" in seg_text):
+                    current_verse = 23
+                elif current_chapter == 16 and current_verse == 29 and "ramera y descarada" in seg_text:
+                    current_verse = 30
+                elif current_chapter == 16 and current_verse == 38 and "vestidos" in seg_text:
+                    current_verse = 39
+                elif current_chapter == 16 and current_verse == 39 and "espadas" in seg_text:
+                    current_verse = 40
+                elif current_chapter == 20 and current_verse == 39 and ("vuestras ofrendas" in seg_text or "monte santo" in seg_text):
+                    current_verse = 40
+                elif current_chapter == 20 and current_verse == 45 and ("campiña del Mediodía" in seg_text or "campiña" in seg_text):
+                    current_verse = 46
+                elif current_chapter == 23 and current_verse == 5 and "jóvenes gallardos" in seg_text:
+                    current_verse = 6
+                elif current_chapter == 23 and "en poder de los Assyrios" in seg_text:
+                    current_verse = 7
+                elif current_chapter == 25 and current_verse == 6 and "polvo" in seg_text:
+                    current_verse = 7
+                elif current_chapter == 28 and current_verse == 4 and ("plata" in seg_text or "tesoros" in seg_text):
+                    current_verse = 5
+                elif current_chapter == 28 and current_verse == 5 and "como si fuera de un Dios" in seg_text:
+                    current_verse = 6
+                elif current_chapter == 28 and current_verse == 8 and ("heridos" in seg_text or "dirás" in seg_text or "de matar" in seg_text):
+                    current_verse = 9
+                elif current_chapter == 36 and current_verse == 26 and "guardeis mis" in seg_text:
+                    current_verse = 27
+                elif current_chapter == 36 and current_verse == 31 and "tenedlo así" in seg_text:
+                    current_verse = 32
+                elif current_chapter == 36 and current_verse == 32 and "repararé" in seg_text:
+                    current_verse = 33
+                elif current_chapter == 46 and current_verse == 17 and "heredad del pueblo" in seg_text:
+                    current_verse = 18
+                elif current_chapter == 46 and current_verse == 18 and ("caia hácia el Poniente" in seg_text or "Poniente" in seg_text):
+                    current_verse = 19
 
             # DEU verse splits and transitions
             if book_id == "DEU":
