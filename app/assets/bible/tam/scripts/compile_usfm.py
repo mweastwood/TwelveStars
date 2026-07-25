@@ -465,6 +465,27 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix LEV OCR typos and top header guards
+        if book_id == "LEV":
+            if current_chapter == 11 and current_verse == 40 and "arrastra" in raw_text:
+                raw_text = "41. " + raw_text
+            elif current_chapter == 11 and current_verse == 41 and "cuatro piés" in raw_text:
+                raw_text = "42. " + raw_text
+            elif current_chapter == 11 and current_verse == 42 and "contaminar" in raw_text:
+                raw_text = "43. " + raw_text
+            elif current_chapter == 17 and current_verse == 0 and "Habló mas el Señor" in raw_text:
+                raw_text = "1. " + raw_text
+            elif current_chapter == 20 and current_verse == 25 and "santos para mí" in raw_text:
+                raw_text = "26. " + raw_text
+            elif current_chapter == 20 and current_verse == 26 and "pitónico" in raw_text:
+                raw_text = "27. " + raw_text
+            elif current_chapter == 22 and current_verse == 27 and "vaca ó oveja" in raw_text:
+                raw_text = "28. " + raw_text
+            elif current_chapter == 22 and current_verse == 31 and "profaneis" in raw_text:
+                raw_text = "32. " + raw_text
+            elif current_chapter == 26 and current_verse == 45 and "Estos son los juicios" in raw_text:
+                raw_text = "46. " + raw_text
+
         # Fix GEN OCR typos and top header guards
         if book_id == "GEN":
             if current_chapter == 14 and "CAPITULO II" in text_upper and line_data["box"][1] > 100:
