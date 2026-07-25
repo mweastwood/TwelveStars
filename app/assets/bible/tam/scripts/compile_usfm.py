@@ -1541,6 +1541,7 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             if v == 0:
                 continue
             v_text = " ".join(verses[ch][v])
+            v_text = re.sub(r"([a-zA-ZÁÉÍÓÚÑáéíóúñ]+)-\s+([a-zA-ZÁÉÍÓÚÑáéíóúñ]+)", r"\1\2", v_text)
             v_text = clean_scripture_verse_text(v_text)
             if book_id == "EST" and ch == 9:
                 v_text = v_text.replace("Pharsandatha", "Farsandata").replace("Delphon", "Delfon").replace("Esphatha", "Esfata").replace("Phoratha", "Forata").replace("Permesta", "Fermesta").replace("Phermesta", "Fermesta")
