@@ -1,10 +1,32 @@
-import os
-import sys
-import re
-import json
-import argparse
+"""
+Torres Amat (1836) Spanish Bible USFM Compiler
+================================================
+Compiles raw Google Vision OCR JSON files (vol{1..4}_page_{N}.json) into standardized USFM 3.0 files.
 
-BOOK_PREFIXES = {
+Key Features & Heuristics:
+1. Volume Page Mapping: Maps all 73 Catholic Bible books across Volumes 1-4.
+2. Dynamic Page Column Splitting: Automatically calculates per-page column midpoints to process left and right columns sequentially.
+3. Top Margin Page Header Removal: Filters out running headers, page numbers, and title banners.
+4. Footnote & Commentary Filtering: Identifies and excludes bottom-margin commentary notes and references.
+5. Latin Vulgate Screening: Excludes parallel Latin Vulgate text columns.
+6. Sequence-Aware Chapter Extraction: Translates Roman numerals and resolves OCR typos (e.g. IV -> IX).
+7. Monotonic Verse Splitting: Splits inline verse numbers while preventing footnote reference numbers from resetting verse counters.
+8. Citation & Artifact Cleaning: Strips inline marginal cross-references (e.g. Jerem. IV, v. 13).
+"""
+
+import argparse
+import json
+import os
+import re
+import sys
+from typing import Dict, List, Optional, Tuple
+
+# ==============================================================================
+# CONSTANTS & METADATA MAPS
+# ==============================================================================
+
+# Standard USFM 2-digit numerical prefixes
+BOOK_PREFIXES: Dict[str, str] = {
     "GEN": "01", "EXO": "02", "LEV": "03", "NUM": "04", "DEU": "05",
     "JOS": "06", "JDG": "07", "RUT": "08", "1SA": "09", "2SA": "10",
     "1KI": "11", "2KI": "12", "1CH": "13", "2CH": "14", "EZR": "15",
@@ -22,7 +44,8 @@ BOOK_PREFIXES = {
     "3JN": "74", "JUD": "75", "REV": "76"
 }
 
-BOOK_NAMES = {
+# Spanish book titles for \\h and \\toc1 headers
+BOOK_NAMES: Dict[str, str] = {
     "GEN": "Génesis", "EXO": "Éxodo", "LEV": "Levítico", "NUM": "Números", "DEU": "Deuteronomio",
     "JOS": "Josué", "JDG": "Jueces", "RUT": "Ruth", "1SA": "1 Samuel", "2SA": "2 Samuel",
     "1KI": "1 Reyes", "2KI": "2 Reyes", "1CH": "1 Crónicas", "2CH": "2 Crónicas", "EZR": "Esdras",
@@ -40,8 +63,8 @@ BOOK_NAMES = {
     "2JN": "2 Juan", "3JN": "3 Juan", "JUD": "Judas", "REV": "Apocalipsis"
 }
 
-# Volume and page ranges for all 73 Catholic Bible books in Torres Amat (1836)
-BIBLE_BOOK_MAP = {
+# Volume index and page ranges (start_page, end_page) for all 73 Catholic Bible books
+BIBLE_BOOK_MAP: Dict[str, Tuple[int, int, int]] = {
     # Vol 1
     "GEN": (1, 18, 79), "EXO": (1, 80, 119), "LEV": (1, 120, 156), "NUM": (1, 157, 204),
     "DEU": (1, 205, 258), "JOS": (1, 259, 295), "JDG": (1, 296, 329), "RUT": (1, 330, 337),
@@ -67,7 +90,8 @@ BIBLE_BOOK_MAP = {
     "3JN": (4, 352, 352), "JUD": (4, 353, 356), "REV": (4, 357, 377)
 }
 
-ROMAN_NUMERALS = {
+# Mapping of Roman numerals and Spanish ordinal words to integers (1-150)
+ROMAN_NUMERALS: Dict[str, int] = {
     "I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6, "VII": 7, "VIII": 8, "IX": 9, "X": 10,
     "XI": 11, "XII": 12, "XIII": 13, "XIV": 14, "XV": 15, "XVI": 16, "XVII": 17, "XVIII": 18, "XIX": 19, "XX": 20,
     "XXI": 21, "XXII": 22, "XXIII": 23, "XXIV": 24, "XXV": 25, "XXVI": 26, "XXVII": 27, "XXVIII": 28, "XXIX": 29, "XXX": 30,
@@ -87,60 +111,119 @@ ROMAN_NUMERALS = {
     "UNICO": 1, "ÚNICO": 1
 }
 
-def is_page_header_line(text, y_coord, page_h):
+# Common Latin vocabulary set for Vulgate line detection
+LATIN_STOP_WORDS = {
+    'et', 'in', 'est', 'non', 'cum', 'ad', 'sed', 'ut', 'ab', 'ex', 'deus', 'dominus', 'domini', 'domino',
+    'filius', 'filii', 'filios', 'eius', 'eum', 'eos', 'suam', 'suum', 'suis', 'dicit', 'dixit', 'quod', 'quae',
+    'qui', 'fecit', 'factum', 'propter', 'autem', 'enim', 'ergo', 'super', 'sub', 'per'
+}
+
+# ==============================================================================
+# TEXT CLEANING & FORMATTING HELPERS
+# ==============================================================================
+
+def clean_text_line(text: str) -> str:
+    """Normalizes whitespace in a raw OCR string."""
+    return " ".join(text.strip().split())
+
+
+def clean_scripture_verse_text(text: str) -> str:
+    """
+    Cleans inline cross-reference citations and trailing footnote callout numbers
+    from compiled scripture text lines (e.g. 'Jerem. IV, v. 13' or trailing ' 7.').
+    """
+    ref_pattern = (
+        r'\b(?:Jerem|Isai|Luc|Joan|Matth|Psalm|Deuter|Gen|Exod|Lev|Num|Deut|Jos|Judic|'
+        r'Reg|Paral|Esd|Nehem|Tob|Judit|Esth|Job|Prov|Ecles|Cant|Sab|Eclus|Bar|Ezech|'
+        r'Dan|Osee|Joel|Amos|Abd|Jonas|Mich|Nah|Hab|Soph|Agg|Zach|Mal|Mac|Rom|Cor|Gal|'
+        r'Eph|Phil|Col|Thess|Tim|Tit|Philem|Hebr|Jac|Petr|Jud|Apoc)\b\.?\s+[IVXLCDM\d]+\s*,\s*v\.?\s*\d*'
+    )
+    text = re.sub(ref_pattern, '', text, flags=re.IGNORECASE)
+    text = re.sub(r'\s+\d{1,2}\.\s*$', '', text)
+    return " ".join(text.split())
+
+# ==============================================================================
+# LAYOUT & LINE FILTERING HEURISTICS
+# ==============================================================================
+
+def is_page_header_line(text: str, y_coord: float, page_h: float) -> bool:
+    """
+    Determines if an OCR line belongs to the top-margin running header (page numbers, titles).
+    Relative Y-coordinate evaluation prevents hardcoding absolute pixel bounds across volumes.
+    """
     if y_coord < page_h * 0.04:
         return True
     if y_coord >= page_h * 0.08:
         return False
+        
     text_clean = text.strip()
     if re.match(r'^\d{1,3}\s*[\./,;-]', text_clean):
         return False
+        
     text_up = text_clean.upper()
     if text_clean.isdigit():
         return True
-    if any(h in text_up for h in ["SAGRADA BIBLIA", "ADVERTENCIA", "LIBRO DE LOS SALMOS", "PROFECÍA DE ABDÍAS", "DEL APÓSTOL SAN PABLO"]):
+        
+    header_keywords = [
+        "SAGRADA BIBLIA", "ADVERTENCIA", "LIBRO DE LOS SALMOS",
+        "PROFECÍA DE ABDÍAS", "DEL APÓSTOL SAN PABLO"
+    ]
+    if any(h in text_up for h in header_keywords):
         return True
+        
+    # Match patterns like '259 I. ESDRAS. CAPITULO III. 260'
     if re.search(r'^\d+\s+[A-ZÁÉÍÓÚÑ\s\.\-]+\d*$', text_up) or re.search(r'^\d*\s+[A-ZÁÉÍÓÚÑ\s\.\-]+\s+\d+$', text_up):
         return True
+        
     return False
 
-def is_footnote_line(text, y_coord, page_h):
+
+def is_footnote_line(text: str, y_coord: float, page_h: float) -> bool:
+    """
+    Identifies bottom-margin commentary notes, annotations, and Vulgate references.
+    Uses pattern matching for commentary trigger words below 70% page height.
+    """
     text_up = text.upper()
     if re.search(r'\b(C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\b', text_up):
         return False
+        
     text_clean = text.strip()
     if re.match(r'^\d{1,3}\s*[\./,;-]', text_clean):
         return False
+        
     if y_coord >= page_h * 0.70:
-        if re.match(r'^(?:\d{1,2}|[a-z]|\*|†|‡)\s+[A-ZÁÉÍÓÚa-z]', text_clean) or re.search(r'\b(?:Véase|Vulgata|Hebreo|Expositores|San Gerónimo|San Agustín|Crisóstomo|Setenta)\b', text_clean, re.IGNORECASE):
+        commentary_pattern = r'\b(?:Véase|Vulgata|Hebreo|Expositores|San Gerónimo|San Agustín|Crisóstomo|Setenta)\b'
+        if re.match(r'^(?:\d{1,2}|[a-z]|\*|†|‡)\s+[A-ZÁÉÍÓÚa-z]', text_clean) or re.search(commentary_pattern, text_clean, re.IGNORECASE):
             return True
+            
     if y_coord >= page_h * 0.95:
         return True
+        
     return False
 
-def clean_scripture_verse_text(text):
-    ref_pattern = r'\b(?:Jerem|Isai|Luc|Joan|Matth|Psalm|Deuter|Gen|Exod|Lev|Num|Deut|Jos|Judic|Reg|Paral|Esd|Nehem|Tob|Judit|Esth|Job|Prov|Ecles|Cant|Sab|Eclus|Bar|Ezech|Dan|Osee|Joel|Amos|Abd|Jonas|Mich|Nah|Hab|Soph|Agg|Zach|Mal|Mac|Rom|Cor|Gal|Eph|Phil|Col|Thess|Tim|Tit|Philem|Hebr|Jac|Petr|Jud|Apoc)\b\.?\s+[IVXLCDM\d]+\s*,\s*v\.?\s*\d*'
-    text = re.sub(ref_pattern, '', text, flags=re.IGNORECASE)
-    text = re.sub(r'\s+\d{1,2}\.\s*$', '', text)
-    return ' '.join(text.split())
 
-def is_latin_line(text):
+def is_latin_line(text: str) -> bool:
+    """
+    Screens out lines belonging to parallel Latin Vulgate text columns
+    by checking the density of standard Latin stop words.
+    """
     text_clean = re.sub(r'[^\w\s]', ' ', text.lower())
     tokens = text_clean.split()
     if not tokens:
         return False
-    latin_words = {
-        'et', 'in', 'est', 'non', 'cum', 'ad', 'sed', 'ut', 'ab', 'ex', 'deus', 'dominus', 'domini', 'domino',
-        'filius', 'filii', 'filios', 'eius', 'eum', 'eos', 'suam', 'suum', 'suis', 'dicit', 'dixit', 'quod', 'quae',
-        'qui', 'fecit', 'factum', 'propter', 'autem', 'enim', 'ergo', 'super', 'sub', 'per'
-    }
-    latin_matches = sum(1 for tok in tokens if tok in latin_words)
+        
+    latin_matches = sum(1 for tok in tokens if tok in LATIN_STOP_WORDS)
     return (latin_matches / len(tokens)) > 0.40
 
-def clean_text_line(text):
-    return " ".join(text.strip().split())
+# ==============================================================================
+# CHAPTER & VERSE PARSING HELPERS
+# ==============================================================================
 
-def extract_chapter_number(text, expected_ch=None):
+def extract_chapter_number(text: str, expected_ch: Optional[int] = None) -> Optional[int]:
+    """
+    Extracts chapter numbers from 'CAPITULO IV' or 'SALMO IX' headers.
+    Includes sequence-aware error correction for Tesseract OCR Roman numeral misreads (e.g. IV -> IX).
+    """
     text_clean = re.sub(r'[^\w\s]', ' ', text.upper())
     match = re.search(r'\b(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+([A-Z0-9ÁÉÍÓÚ]+)', text_clean)
     if match:
@@ -154,27 +237,26 @@ def extract_chapter_number(text, expected_ch=None):
         if expected_ch is not None:
             if val == expected_ch:
                 return val
+            # Handle specific Tesseract Roman numeral misreads
             if val == 4 and expected_ch == 9:
                 return 9
             if val == 6 and expected_ch == 11:
                 return 11
             if val == 7 and expected_ch == 12:
                 return 12
+            # Prevent regressions to drastically different chapter numbers
             if val is not None and abs(val - expected_ch) > 3 and expected_ch > 0:
                 return expected_ch
         return val
     return None
 
-def parse_args():
-    parser = argparse.ArgumentParser(description="Compile raw OCR JSON files into a structured USFM book.")
-    parser.add_argument("--book", type=str, help="Book ID (e.g. GEN, TOB, JDT)")
-    parser.add_argument("--volume", type=int, help="Volume number (1, 2, 3, or 4)")
-    parser.add_argument("--start", type=int, help="Start page index (0-indexed)")
-    parser.add_argument("--end", type=int, help="End page index (0-indexed)")
-    parser.add_argument("--all", action="store_true", help="Compile all 73 Bible books")
-    return parser.parse_args()
 
-def split_inline_verses(text, current_v=0):
+def split_inline_verses(text: str, current_v: int = 0) -> List[Tuple[Optional[int], str]]:
+    """
+    Splits OCR text lines that contain inline verse number prefixes (e.g. '1 Tú pues, hijo mio...').
+    Enforces monotonic verse number progression to prevent inline footnote reference numbers
+    (e.g., 'Señor 5, y saltaré') from falsely resetting the current verse counter.
+    """
     text = text.translate(str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹", "0123456789"))
     pattern = r'(?:^|\s+)(\d{1,3})\s*[\./,;:)\-\—«“]*\s*(?=[A-ZÁÉÍÓÚÑa-z"«“])'
     
@@ -192,16 +274,47 @@ def split_inline_verses(text, current_v=0):
         seg_content = parts[i+1] if i+1 < len(parts) else ""
         if v_num_str and v_num_str.isdigit():
             val = int(v_num_str)
-            # Only accept as verse number if it is greater than or equal to current_v (or starting fresh / verse 1)
+            # Accept as verse number if >= current_v or starting fresh / verse 1
             if current_v == 0 or val >= current_v or val == 1:
                 segments.append((val, seg_content.strip()))
             else:
+                # Treat backward number jump as inline footnote reference text
                 segments.append((None, f"{v_num_str} {seg_content.strip()}"))
         i += 2
         
     return segments
 
-def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir):
+
+def sort_page_columns(scripture_lines: List[dict]) -> List[dict]:
+    """
+    Calculates per-page dynamic column midpoints and sorts lines sequentially
+    (left column top-to-bottom, followed by right column top-to-bottom).
+    """
+    min_x = min(l['box'][0] for l in scripture_lines)
+    max_x = max(l['box'][2] for l in scripture_lines)
+    mid_x = (min_x + max_x) / 2
+    
+    left_column = [l for l in scripture_lines if l['box'][0] < mid_x]
+    right_column = [l for l in scripture_lines if l['box'][0] >= mid_x]
+    
+    left_column.sort(key=lambda l: l['box'][1])
+    right_column.sort(key=lambda l: l['box'][1])
+    
+    if len(right_column) < 3:
+        page_sorted = scripture_lines[:]
+        page_sorted.sort(key=lambda l: l['box'][1])
+        return page_sorted
+    else:
+        return left_column + right_column
+
+# ==============================================================================
+# CORE COMPILER LOGIC
+# ==============================================================================
+
+def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_raw_dir: str, output_dir: str) -> None:
+    """
+    Compiles raw OCR JSON pages for a specified book into a structured USFM file.
+    """
     prefix = BOOK_PREFIXES[book_id]
     book_name = BOOK_NAMES[book_id]
     output_filename = f"{prefix}-{book_id}-SPA[B]TAM1836[pd].usfm"
@@ -223,33 +336,21 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
         raw_lines = data.get("lines", [])
         if not raw_lines:
             continue
+            
         page_h = max(l['box'][3] for l in raw_lines)
         
         scripture_lines = [
             l for l in raw_lines
-            if not is_page_header_line(l['text'], l['box'][1], page_h) and not is_footnote_line(l['text'], l['box'][1], page_h) and not is_latin_line(l['text'])
+            if not is_page_header_line(l['text'], l['box'][1], page_h)
+            and not is_footnote_line(l['text'], l['box'][1], page_h)
+            and not is_latin_line(l['text'])
         ]
         if not scripture_lines:
             continue
             
-        min_x = min(l['box'][0] for l in scripture_lines)
-        max_x = max(l['box'][2] for l in scripture_lines)
-        mid_x = (min_x + max_x) / 2
+        all_lines.extend(sort_page_columns(scripture_lines))
         
-        left_column = [l for l in scripture_lines if l['box'][0] < mid_x]
-        right_column = [l for l in scripture_lines if l['box'][0] >= mid_x]
-        
-        left_column.sort(key=lambda l: l['box'][1])
-        right_column.sort(key=lambda l: l['box'][1])
-        
-        if len(right_column) < 3:
-            page_sorted = scripture_lines[:]
-            page_sorted.sort(key=lambda l: l['box'][1])
-            all_lines.extend(page_sorted)
-        else:
-            all_lines.extend(left_column + right_column)
-        
-    verses = {}
+    verses: Dict[int, Dict[int, List[str]]] = {}
     current_chapter = 0
     current_verse = 0
     
@@ -260,6 +361,7 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
             
         text_upper = raw_text.upper()
         
+        # Check for chapter header (e.g. CAPITULO I)
         is_verse_start = bool(re.match(r'^\d{1,3}\s*[\./,;-]', raw_text))
         if not is_verse_start and re.search(r'\b(C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\b', text_upper) and not re.search(r'^\d+\s+CAP', text_upper):
             ch_num = extract_chapter_number(raw_text, expected_ch=current_chapter + 1)
@@ -272,6 +374,7 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
                 verses[current_chapter] = {}
             continue
             
+        # Parse verses and verse segments
         segments = split_inline_verses(raw_text, current_v=current_verse)
         
         for v_num, seg_text in segments:
@@ -331,7 +434,21 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
         
     print(f"  Successfully generated USFM file: {output_path}")
 
-def main():
+# ==============================================================================
+# CLI & ENTRYPOINT
+# ==============================================================================
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Compile raw OCR JSON files into structured USFM books.")
+    parser.add_argument("--book", type=str, help="Book ID (e.g. GEN, TOB, HAB)")
+    parser.add_argument("--volume", type=int, help="Volume number (1, 2, 3, or 4)")
+    parser.add_argument("--start", type=int, help="Start page index")
+    parser.add_argument("--end", type=int, help="End page index")
+    parser.add_argument("--all", action="store_true", help="Compile all 73 Bible books")
+    return parser.parse_args()
+
+
+def main() -> None:
     args = parse_args()
     
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -362,6 +479,7 @@ def main():
     else:
         print("Error: Specify either --book <ID> or --all")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
