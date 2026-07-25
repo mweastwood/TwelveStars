@@ -80,7 +80,7 @@ BIBLE_BOOK_MAP: Dict[str, Tuple[int, int, int]] = {
     "2SA": (2, 49, 77),
     "1KI": (2, 78, 108),
     "2KI": (2, 109, 139),
-    "1CH": (2, 140, 168),
+    "1CH": (2, 139, 168),
     "2CH": (2, 169, 203),
     "EZR": (2, 204, 212),
     "NEH": (2, 213, 228),
@@ -465,6 +465,49 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix 1CH OCR typos and verse prefix rules
+        if book_id == "1CH":
+            if current_chapter == 2 and current_verse in [37, 38] and "Helez" in raw_text:
+                raw_text = "39. " + raw_text
+            elif current_chapter == 4 and current_verse in [11, 12] and "Hathath" in raw_text:
+                raw_text = "13. " + raw_text
+            elif current_chapter == 4 and current_verse in [36, 37] and "nombrados príncipes" in raw_text:
+                raw_text = "38. " + raw_text
+            elif current_chapter == 5 and current_verse in [16, 17] and "hijos de Ruben" in raw_text:
+                raw_text = "18. " + raw_text
+            elif current_chapter == 8 and current_verse in [16, 17] and "Samarias" in raw_text:
+                raw_text = "18. " + raw_text
+            elif current_chapter == 8 and current_verse in [21, 22] and "Elionai" in raw_text:
+                raw_text = "23. " + raw_text
+            elif current_chapter == 8 and current_verse in [23, 24] and "Iphdaia" in raw_text:
+                raw_text = "25. " + raw_text
+            elif current_chapter == 9 and current_verse in [11, 12] and "hermanos príncipes" in raw_text:
+                raw_text = "13. " + raw_text
+            elif current_chapter == 10 and current_verse in [9, 10] and "Jabes de Galaad" in raw_text:
+                raw_text = "11. " + raw_text
+            elif current_chapter == 10 and current_verse in [10, 11] and "Levantáronse todos" in raw_text:
+                raw_text = "12. " + raw_text
+            elif current_chapter == 10 and current_verse in [11, 12] and "murió Saul" in raw_text:
+                raw_text = "13. " + raw_text
+            elif current_chapter == 10 and current_verse in [12, 13] and "no esperó" in raw_text:
+                raw_text = "14. " + raw_text
+            elif current_chapter == 11 and current_verse in [18, 19] and "Abisai tambien" in raw_text:
+                raw_text = "20. " + raw_text
+            elif current_chapter == 12 and current_verse in [10, 11] and "Johanan" in raw_text:
+                raw_text = "12. " + raw_text
+            elif current_chapter == 12 and current_verse in [26, 27] and "Sadoc asimismo" in raw_text:
+                raw_text = "28. " + raw_text
+            elif current_chapter == 12 and current_verse in [28, 29] and "hijos de Ephraim" in raw_text:
+                raw_text = "30. " + raw_text
+            elif current_chapter == 16 and current_verse in [20, 21] and "toqueis" in raw_text:
+                raw_text = "22. " + raw_text
+            elif current_chapter == 23 and current_verse in [23, 24] and "dijo David" in raw_text:
+                raw_text = "25. " + raw_text
+            elif current_chapter == 24 and current_verse in [12, 13] and "Huppa" in raw_text:
+                raw_text = "14. " + raw_text
+            elif current_chapter == 24 and current_verse in [23, 24] and "Jesia" in raw_text:
+                raw_text = "25. " + raw_text
+
         # Fix 2KI OCR typos and verse prefix rules
         if book_id == "2KI":
             if current_chapter == 4 and current_verse == 36 and "inclinóse" in raw_text:
