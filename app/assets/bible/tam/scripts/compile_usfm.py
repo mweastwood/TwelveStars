@@ -205,10 +205,6 @@ def clean_scripture_verse_text(text: str) -> str:
 
 def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float = 0.0, vol: int = 0) -> bool:
     text_clean = text.strip()
-    text_up = text_clean.upper()
-    if y_coord <= page_h * 0.10 and (re.match(r"^\d{1,3}$", text_clean) or "REYES" in text_up or "PARALIP" in text_up):
-        return True
-    text_clean = text.strip()
     if re.match(r'^\d{1,2}\.\s+[A-ZÁÉÍÓÚ]', text_clean):
         return False
     """
@@ -219,22 +215,23 @@ def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float
     text_up = text_clean.upper()
 
     # Filter top-right running headers like 'CAPITULO XLIV.', 'SALMO XXIII.' or 'PSALMO VII.' in top margins across volumes
-    if y_coord <= page_h * 0.065 and x_coord > 500 and re.search(r'\b(C[ÁA]P[IÍLl1]TULO|[PŚS]ALMO)\b', text_up) and text_clean.endswith("."):
+    if y_coord <= page_h * 0.085 and x_coord > 500 and re.search(r'\b(C[ÁA]P[IÍLl1]TULO|[PŚS]ALMO)\b', text_up):
+        if not re.match(r'^\s*(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+(?:II|LII)\.?\s*$', text_up):
+            return True
+    if y_coord <= page_h * 0.12 and x_coord > 500 and re.search(r'\b(C[ÁA]P[IÍLl1]TULO|[PŚS]ALMO)\b', text_up) and text_clean.endswith("."):
         if not re.match(r'^\s*(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+(?:II|LII)\.?\s*$', text_up):
             return True
 
+    if y_coord < page_h * 0.035:
+        return True
+    if y_coord >= page_h * 0.08:
+        return False
+        
     text_clean = text.strip()
     text_up = text_clean.upper()
 
     # Do NOT filter standalone chapter titles like 'CAPITULO III.'
     if re.match(r'^\s*(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+[IVXLCDM0-9ÁÉÍÓÚ]+\.?\s*$', text_up):
-        if y_coord < 80:
-            return True
-        return False
-
-    if y_coord < page_h * 0.035:
-        return True
-    if y_coord >= page_h * 0.08:
         return False
 
     # Filter running headers like '251 I. A LOS CORINTHIOS. CAPITULO XI. 252' or '561 OSEAS. CAPITULO V. 562'
@@ -263,8 +260,6 @@ def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float
 
 
 def is_footnote_line(text: str, y_coord: float, page_h: float) -> bool:
-    if "Salmo XXI" in text or "Véase tambien el Salmo" in text:
-        return True
     if "tiranizar vuestras conciencias" in text or "El amor del prójimo" in text:
         return False
     """
@@ -506,26 +501,24 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
 
     # Fix MAT OCR typos and verse prefix rules
     if book_id == "MAT":
-        if current_chapter == 6 and "dia de mañana" in raw_text:
-            raw_text = "34. " + raw_text
-        elif current_chapter == 7 and ("Muchos me dirán" in raw_text or "Muchosme dirán" in raw_text):
+        if current_chapter == 6 and current_verse in [33, 34] and "dia de mañana" in raw_text:
+            raw_text = "35. " + raw_text
+        elif current_chapter == 7 and current_verse in [20, 21] and "Muchos me dirán" in raw_text:
             raw_text = "22. " + raw_text
-        elif current_chapter == 17 and current_verse >= 18 and current_verse <= 27:
-            current_verse = current_verse + 1
-        elif current_chapter == 21 and ("autoridad hago estas cosas" in raw_text or "con qué autoridad" in raw_text):
-            if 21 not in verses: verses[21] = {}
-            verses[21][25] = ["El bautismo de Juan ¿de dónde era? ¿del cielo, ó de los hombres?"]
-            verses[21][26] = ["Si decimos que del cielo, nos dirá: ¿Por qué no le creisteis?"]
-        elif current_chapter == 26 and ("aseguradle" in raw_text or "besare" in raw_text):
-            if 26 not in verses: verses[26] = {}
-            verses[26][49] = ["Y al punto acercándose á Jesus, dijo: Dios te guarde, Maestro. Y le besó."]
-        elif current_chapter == 26 and current_verse in [48, 49, 50] and ("prendieron" in raw_text or "dijo: Oh amigo" in raw_text):
-            if 26 not in verses: verses[26] = {}
-            verses[26][51] = ["Y uno de los que estaban con Jesus, echando mano á su espada, hirió á un criado."]
-            verses[26][52] = ["Entonces Jesus le dijo: Vuelve tu espada á su lugar."]
-        elif current_chapter == 27 and ("corona" in raw_text or "eorona" in raw_text):
+        elif current_chapter == 17 and current_verse in [18, 19] and "vuestra poca fé" in raw_text:
+            raw_text = "20. " + raw_text
+        elif current_chapter == 21 and current_verse in [23, 24] and "bautismo de Juan" in raw_text:
+            raw_text = "25. " + raw_text
+        elif current_chapter == 21 and current_verse in [24, 25] and "De los hombres" in raw_text:
+            raw_text = "26. " + raw_text
+        elif current_chapter == 26 and current_verse in [47, 48] and "acercándose á Jesus" in raw_text:
+            raw_text = "49. " + raw_text
+        elif current_chapter == 26 and current_verse in [49, 50] and "uno de los que estaban" in raw_text:
+            raw_text = "51. " + raw_text
+        elif current_chapter == 26 and current_verse in [50, 51] and "Vuelve tu espada" in raw_text:
+            raw_text = "52. " + raw_text
+        elif current_chapter == 27 and current_verse in [27, 28] and "corona de espinas" in raw_text:
             raw_text = "29. " + raw_text
-
 
     # Fix ECC OCR typos and verse prefix rules
     if book_id == "ECC":
@@ -540,71 +533,35 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
 
     # Fix PRO OCR typos and verse prefix rules
     if book_id == "PRO":
-        if current_chapter == 9 and ("dirán años de vida" in raw_text or "añadirán años" in raw_text):
-            raw_text = "11. Porque por mí se multiplicarán tus dias, y se te añadirá años de vida."
-        elif current_chapter == 9 and ("an mofador" in raw_text or "pagarás la pena" in raw_text):
-            raw_text = "12. Si fueres sábio, para ti lo serás: y si fueras mofador, tú solo pagarás la pena."
-        elif current_chapter == 9 and ("que no sabe nada" in raw_text or "alborotadora" in raw_text):
-            raw_text = "13. La mujer fátua es alborotadora, y llena de desverguenzas, y que no sabe nada en absoluto."
-        elif current_chapter == 9 and ("ugar alto" in raw_text or "lugar alto" in raw_text):
-            raw_text = "14. Y se sentó á la puerta de su casa sobre una silla en un lugar alto de la ciudad,"
-        elif current_chapter == 9 and ("an en derechura" in raw_text or "diciéndoles:" in raw_text):
-            raw_text = "15. Para llamar á los que pasan por el camino, y van en derechura por su camino, diciéndoles:"
-        elif current_chapter == 9 and ("al mentecato le dijo" in raw_text or "insipiente venga" in raw_text):
-            raw_text = "16. El que es insipiente venga á mí. Y al mentecato le dijo:"
-        elif current_chapter == 10 and ("130. El justo" in raw_text or "30. El justo" in raw_text or "durarán sobre" in raw_text):
-            raw_text = "30. El justo jamás será conmovido; mas los impíos no durarán sobre la tierra."
-        elif current_chapter == 11 and ("segura la cosecha" in raw_text or "cosecha" in raw_text):
-            raw_text = "18. El impío hace obra incierta; mas el que siembra justicia, tiene segura la cosecha."
-        elif current_chapter == 11 and ("mano sobre mano" in raw_text or "el hombre malvado" in raw_text):
-            raw_text = raw_text.replace("2.", "21.")
-        elif current_chapter == 20 and ("hijos dichosos" in raw_text or "dichosos" in raw_text):
-            raw_text = "7. El justo que camina en su simplicidad, dejará á sus hijos dichosos."
-        elif current_chapter == 22 and ("muerto en medio" in raw_text or "medio de la calle" in raw_text):
-            raw_text = "13. Dice el perezoso: Hay un leon fuera: yo seré muerto en medio de la calle."
-        elif current_chapter == 30 and ("subido al cielo" in raw_text or "-4." in raw_text):
-            raw_text = raw_text.replace("-4.", "4.")
-        elif current_chapter == 30 and ("escudo para los que" in raw_text or "en él confian" in raw_text):
-            raw_text = "5. Toda palabra de Dios es limpia: es un escudo para los que en él confian."
-
-
+        if current_chapter == 9 and current_verse in [9, 10] and "multiplicarán" in raw_text:
+            raw_text = "11. " + raw_text
+        elif current_chapter == 9 and current_verse in [10, 11] and "Si fueres" in raw_text:
+            raw_text = "12. " + raw_text
+        elif current_chapter == 9 and current_verse in [11, 12] and "mujer fátua" in raw_text:
+            raw_text = "13. " + raw_text
+        elif current_chapter == 9 and current_verse in [12, 13] and "sentóse" in raw_text:
+            raw_text = "14. " + raw_text
+        elif current_chapter == 9 and current_verse in [13, 14] and "llamar á los" in raw_text:
+            raw_text = "15. " + raw_text
+        elif current_chapter == 9 and current_verse in [14, 15] and "insipiente" in raw_text:
+            raw_text = "16. " + raw_text
+        elif current_chapter == 10 and current_verse in [28, 29] and "removido" in raw_text:
+            raw_text = "30. " + raw_text
+        elif current_chapter == 11 and current_verse in [16, 17] and "impío hace" in raw_text:
+            raw_text = "18. " + raw_text
+        elif current_chapter == 11 and current_verse in [19, 20] and "Mano á mano" in raw_text:
+            raw_text = "21. " + raw_text
+        elif current_chapter == 20 and current_verse in [5, 6] and "camina" in raw_text:
+            raw_text = "7. " + raw_text
+        elif current_chapter == 22 and current_verse in [11, 12] and "leon" in raw_text:
+            raw_text = "13. " + raw_text
+        elif current_chapter == 30 and current_verse in [2, 3] and "subió al cielo" in raw_text:
+            raw_text = "4. " + raw_text
+        elif current_chapter == 30 and current_verse in [3, 4] and "Toda palabra" in raw_text:
+            raw_text = "5. " + raw_text
 
     # Fix JOB OCR typos and verse prefix rules
     if book_id == "JOB":
-        if current_chapter == 1 and ("darte la noticia" in raw_text or "bueyes estaban" in raw_text):
-            raw_text = "14. Vino pues un mensajero... 15. Y de repente vinieron los Sabeos... " + raw_text
-        elif current_chapter in (14, 15) and ("Tú tienes sellados" in raw_text or "como en una arquilla" in raw_text):
-            return "17. " + raw_text, 14, 17, False
-        elif current_chapter in (14, 15) and ("Los montes van cayendo" in raw_text or "deshaciéndose" in raw_text):
-            return "18. " + raw_text, 14, 18, False
-        elif current_chapter in (14, 15) and ("Las aguas cavan" in raw_text or "tierra batida" in raw_text):
-            return "19. " + raw_text, 14, 19, False
-        elif current_chapter in (14, 15) and ("Le diste vigor" in raw_text or "para que pasase" in raw_text):
-            return "20. " + raw_text, 14, 20, False
-        elif current_chapter in (14, 15) and ("Que sus hijos sean" in raw_text or "él no lo sabe" in raw_text):
-            return "21. " + raw_text, 14, 21, False
-        elif current_chapter in (14, 15) and ("Pero mientras viviere" in raw_text or "su cuerpo sufrirá" in raw_text):
-            return "22. " + raw_text, 14, 22, False
-        elif current_chapter == 3 and ("1. Pues yo ahora estaria" in raw_text or "estaria durmiendo" in raw_text or "estaría durmiendo" in raw_text):
-            raw_text = raw_text.replace("1. Pues", "13. Pues").replace("1. ", "13. ")
-        elif current_chapter == 5 and ("cendencia como la yerba" in raw_text or "yerba del prado" in raw_text):
-            raw_text = "25. " + raw_text
-        elif current_chapter == 12 and ("vosotros morirá la sabiduría" in raw_text or "morirá la sabiduría" in raw_text):
-            raw_text = "2. " + raw_text
-        elif current_chapter == 12 and ("ignore?" in raw_text or "quién las ignore" in raw_text):
-            raw_text = "3. " + raw_text
-        elif current_chapter == 13 and ("crímenes y delitos" in raw_text or "mis crímenes" in raw_text):
-            raw_text = "23. " + raw_text
-        elif current_chapter == 13 and ("enemigo tuyo" in raw_text or "tratas como á enemigo" in raw_text):
-            raw_text = "24. " + raw_text
-        elif current_chapter == 20 and ("varios pensamienos" in raw_text or "arrebatado á diversas" in raw_text):
-            raw_text = "2. " + raw_text
-        elif current_chapter == 20 and ("puesto sobre la tierra" in raw_text or "desde la antigüedad" in raw_text):
-            raw_text = "4. " + raw_text
-        elif current_chapter == 20 and (". Cual sueño" in raw_text or "Cual sueño que volando" in raw_text):
-            raw_text = raw_text.replace(". Cual", "8. Cual").replace("Cual sueño", "8. Cual sueño")
-        elif current_chapter == 26 and ("impide la vista de su trono" in raw_text or "nieblas que forma" in raw_text):
-            raw_text = "9. " + raw_text
         if current_chapter == 1 and current_verse in [9, 10] and "exed" in raw_text:
             raw_text = "11. " + raw_text
         elif current_chapter == 1 and current_verse in [11, 12] and "primogénito" in raw_text:
@@ -732,104 +689,109 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
 
     # Fix 2CH OCR typos and verse prefix rules
     if book_id == "2CH":
-        if line_data["box"][1] < 120 and line_data["box"][0] > 750 and "CAPITULO" in text_upper:
-            return raw_text, current_chapter, current_verse, True
-    if book_id == "2CH":
-        if current_chapter == 6 and "pacto que hizo el Señor" in raw_text:
+        if current_chapter == 6 and current_verse in [9, 10] and "puse el Arca" in raw_text:
             raw_text = "11. " + raw_text
-        elif current_chapter == 6 and "vista de todo el concurso" in raw_text:
+        elif current_chapter == 6 and current_verse in [10, 11] and "Puso pues Salomón" in raw_text:
             raw_text = "12. " + raw_text
-        elif current_chapter == 9 and ("La reina de Sabá" in raw_text or "reina de Sabá" in raw_text):
-            raw_text = "1. " + raw_text
-        elif current_chapter == 10 and ("Vino pues Jeroboam" in raw_text or "Jeroboam" in raw_text):
-            raw_text = "12. " + raw_text
-        elif current_chapter == 12 and ("diez y siete años en Jerusalem" in raw_text or "diez y siete años" in raw_text):
-            raw_text = "13. Reconcilióse pues el rey Roboam... " + raw_text
-        elif current_chapter == 17 and ("leció siempre contra" in raw_text or "leció siempre" in raw_text):
-            raw_text = raw_text + " 2. Y puso guarniciones en todas las ciudades de Judá."
-
-        elif current_chapter == 17 and ("estuvo con Josaphat" in raw_text or "siguió los pasos" in raw_text):
-            raw_text = "3. " + raw_text
-        elif current_chapter == 17 and ("mover guerra contra Josaphat" in raw_text or "guerra contra Josaphat" in raw_text):
-            raw_text = "5. Por lo cual confirmó el Señor... " + raw_text
-        elif current_chapter == 23 and ("pueblo del ñor" in raw_text or "pueblo del Señor" in raw_text):
-            raw_text = "16. Hizo tambien una alianza Joada... " + raw_text
-        elif current_chapter == 23 and "aras." in raw_text:
-            raw_text = "17. Entró luego todo el pueblo... " + raw_text
-        elif current_chapter == 23 and "á lo dispuesto por David" in raw_text:
-            raw_text = "18. Estableció asimismo Joada... " + raw_text
-        elif current_chapter == 23 and ("malete" in raw_text or "príncipes del pueblo" in raw_text):
-            raw_text = "20. Tomó á los centuriones... " + raw_text
-        elif current_chapter == 29 and ("se ofrecieron" in raw_text or "seiscientos bueyes" in raw_text):
+        elif current_chapter == 6 and current_verse in [25, 26] and "Oyela tú desde" in raw_text:
+            raw_text = "27. " + raw_text
+        elif current_chapter == 6 and current_verse in [26, 27] and "Si sobreviniere" in raw_text:
+            raw_text = "28. " + raw_text
+        elif current_chapter == 6 and current_verse in [27, 28] and "Toda oracion" in raw_text:
+            raw_text = "29. " + raw_text
+        elif current_chapter == 6 and current_verse in [28, 29] and "Tú la oirás" in raw_text:
+            raw_text = "30. " + raw_text
+        elif current_chapter == 6 and current_verse in [29, 30] and "Tambien al extranjero" in raw_text:
+            raw_text = "31. " + raw_text
+        elif current_chapter == 6 and current_verse in [30, 31] and "Oye pues" in raw_text:
+            raw_text = "32. " + raw_text
+        elif current_chapter == 6 and current_verse in [31, 32] and "Si hubiere salido" in raw_text:
             raw_text = "33. " + raw_text
-        elif current_chapter == 31 and ("Dividió asimismo Ezechias" in raw_text or "turnos de los sacerdotes" in raw_text or "sacerdotes y Levitas" in raw_text):
+        elif current_chapter == 6 and current_verse in [32, 33] and "Oirás desde el cielo" in raw_text:
+            raw_text = "34. " + raw_text
+        elif current_chapter == 6 and current_verse in [33, 34] and "Y si hubieren pecado" in raw_text:
+            raw_text = "35. " + raw_text
+        elif current_chapter == 6 and current_verse in [34, 35] and "Convertidos de todo corazon" in raw_text:
+            raw_text = "36. " + raw_text
+        elif current_chapter == 6 and current_verse in [35, 36] and "Oirás sus plegarias" in raw_text:
+            raw_text = "37. " + raw_text
+        elif current_chapter == 6 and current_verse in [36, 37] and "Ahora pues, Señor" in raw_text:
+            raw_text = "38. " + raw_text
+        elif current_chapter == 6 and current_verse in [37, 38] and "Levántate Señor" in raw_text:
+            raw_text = "39. " + raw_text
+        elif current_chapter == 6 and current_verse in [38, 39] and "Señor Dios" in raw_text:
+            raw_text = "40. " + raw_text
+        elif current_chapter == 6 and current_verse in [39, 40] and "Tus Sacerdotes" in raw_text:
+            raw_text = "41. " + raw_text
+        elif current_chapter == 6 and current_verse in [40, 41] and "Acuérdate de la piedad" in raw_text:
+            raw_text = "42. " + raw_text
+        elif current_chapter == 9 and current_verse == 0 and "La reina de Sabá" in raw_text:
+            raw_text = "1. " + raw_text
+        elif current_chapter == 10 and current_verse in [10, 11] and "Vino pues Jeroboam" in raw_text:
+            raw_text = "12. " + raw_text
+        elif current_chapter == 12 and current_verse in [11, 12] and "Salieron pues príncipes" in raw_text:
+            raw_text = "13. " + raw_text
+        elif current_chapter == 17 and current_verse in [0, 1] and "En el año segundo" in raw_text:
             raw_text = "2. " + raw_text
-
+        elif current_chapter == 17 and current_verse in [1, 2] and "Y fué el Señor" in raw_text:
+            raw_text = "3. " + raw_text
+        elif current_chapter == 17 and current_verse in [3, 4] and "Por lo cual confirmó" in raw_text:
+            raw_text = "5. " + raw_text
+        elif current_chapter == 23 and current_verse in [14, 15] and "Hizo tambien una alianza" in raw_text:
+            raw_text = "16. " + raw_text
+        elif current_chapter == 23 and current_verse in [15, 16] and "Entró luego el pueblo" in raw_text:
+            raw_text = "17. " + raw_text
+        elif current_chapter == 23 and current_verse in [16, 17] and "Estableció asimismo" in raw_text:
+            raw_text = "18. " + raw_text
+        elif current_chapter == 23 and current_verse in [18, 19] and "Tomó á los centuriones" in raw_text:
+            raw_text = "20. " + raw_text
+        elif current_chapter == 29 and current_verse in [31, 32] and "Y se ofrecieron" in raw_text:
+            raw_text = "33. " + raw_text
+        elif current_chapter == 31 and current_verse in [0, 1] and "Dividió asimismo" in raw_text:
+            raw_text = "2. " + raw_text
 
     # Fix 1CH OCR typos and verse prefix rules
     if book_id == "1CH":
-        if current_chapter == 2 and ("Ethei engendró á Nathán" in raw_text or "Nathán á Zabad" in raw_text):
-            raw_text = "36. " + raw_text
-        elif current_chapter == 2 and ("Zabad engendró á Ophlal" in raw_text or "Ophlal á Obed" in raw_text):
-            raw_text = "37. " + raw_text
-        elif current_chapter == 2 and ("Obed engendró á Jehú" in raw_text or "Obed engendró" in raw_text):
-            raw_text = "38. " + raw_text
-        elif current_chapter == 2 and ("Azarias engendró á Helles" in raw_text or "Helles á Elasa" in raw_text):
+        if current_chapter == 2 and current_verse in [37, 38] and "Helez" in raw_text:
             raw_text = "39. " + raw_text
-        elif current_chapter == 2 and "Sami engendró á Raham" in raw_text:
-            raw_text = raw_text.replace("y Sami engendró á Raham", "39. Y Sami engendró á Raham")
-        elif current_chapter == 4 and ("Hathath" in raw_text or "Hathat" in raw_text):
+        elif current_chapter == 4 and current_verse in [11, 12] and "Hathath" in raw_text:
             raw_text = "13. " + raw_text
-        elif current_chapter == 4 and ("hijo de Samaia" in raw_text or "nombrados príncipes" in raw_text):
-            raw_text = "38. Estos son los nombrados príncipes... " + raw_text
-        elif current_chapter == 5 and "Ruben y de Gad" in raw_text:
+        elif current_chapter == 4 and current_verse in [36, 37] and "nombrados príncipes" in raw_text:
+            raw_text = "38. " + raw_text
+        elif current_chapter == 5 and current_verse in [16, 17] and "hijos de Ruben" in raw_text:
             raw_text = "18. " + raw_text
-        elif current_chapter == 8 and ("Zabadia" in raw_text or "Mosollam" in raw_text):
-            raw_text = "17. " + raw_text
-        elif current_chapter == 8 and ("Jesamari" in raw_text or "Jezlia" in raw_text or "Isamari" in raw_text):
+        elif current_chapter == 8 and current_verse in [16, 17] and "Samarias" in raw_text:
             raw_text = "18. " + raw_text
-        elif current_chapter == 8 and ("Jacim" in raw_text or "Zabdi" in raw_text):
-            raw_text = "19. " + raw_text
-        elif current_chapter == 8 and ("Elioenai" in raw_text or "Selethai" in raw_text):
-            raw_text = "20. " + raw_text
-        elif current_chapter == 8 and ("Adaia" in raw_text or "Baraia" in raw_text):
-            raw_text = "21. " + raw_text
-        elif current_chapter == 8 and ("Jespham" in raw_text or "Heber, y Eliel" in raw_text):
-            raw_text = "22. " + raw_text
-        elif current_chapter == 8 and ("Abdon" in raw_text or "Zechri, y Hanan" in raw_text):
+        elif current_chapter == 8 and current_verse in [21, 22] and "Elionai" in raw_text:
             raw_text = "23. " + raw_text
-        elif current_chapter == 8 and re.match(r"^\d{1,2}\.$", raw_text.strip()):
-            return raw_text, current_chapter, current_verse, True
-        elif current_chapter == 8 and ("Hanania" in raw_text or "Anathothia" in raw_text):
-            raw_text = "24. Y Hanania, y Elam, y Anathothia,"
-        elif current_chapter == 8 and ("Jephdaia" in raw_text or "Phanuel" in raw_text or "Iphdaia" in raw_text):
-            raw_text = "25. Y Jephdaia y Phanuel, hijos de Sesac."
-        elif current_chapter == 8 and ("Bocru" in raw_text or "hijos de Asel" in raw_text):
-            raw_text = "38. Y tuvo Asel seis hijos... " + raw_text
-        elif current_chapter == 9 and ("1Juntamente" in raw_text or "prncipes" in raw_text or "príncipes de sus familias" in raw_text):
-            raw_text = raw_text.replace("1Juntamente", "13. Juntamente").replace("Juntamente", "13. Juntamente")
-        elif current_chapter == 11 and ("tres," in raw_text or "tres ," in raw_text):
-            raw_text = raw_text.replace("tres,", "tres, 20. Abisai hermano de Joab era el primero de los tres")
-        elif current_chapter == 12 and ("Atthai" in raw_text or "Atthaí" in raw_text or "quinto" in raw_text):
-            raw_text = "11. " + raw_text
-        elif current_chapter == 12 and "Johanan el octavo" in raw_text:
-            raw_text = "12. " + raw_text
-        elif current_chapter == 12 and ("cule n fríim" in raw_text or "eele guerrer" in raw_text):
-            raw_text = "2. " + raw_text
-        elif current_chapter == 12 and ("Vino tambien Sadoc" in raw_text or "2. Vino tambien" in raw_text or "excelente índole" in raw_text):
-            raw_text = raw_text.replace("2. Vino", "28. Vino").replace("Vino tambien", "28. Vino tambien")
-        elif current_chapter == 12 and ("veinte mil y ochocientos" in raw_text or "veinte mil bien armados" in raw_text):
-            raw_text = "30. " + raw_text
-        elif current_chapter == 16 and ("hacer daño" in raw_text or "mis profetas" in raw_text):
-            raw_text = "22. " + raw_text
-        elif current_chapter == 23 and ("siempre." in raw_text or "ha dado reposo" in raw_text or "Porque dijo David" in raw_text):
-            raw_text = "25. Porque dijo David: El Señor Dios de Israél... " + raw_text
-        elif current_chapter == 24 and ("Belga" in raw_text or "décimoquinto" in raw_text or "Emmer" in raw_text):
-            raw_text = "14. " + raw_text
-
-        elif current_chapter == 24 and ("Jesia" in raw_text or "Jesías" in raw_text or "Jesias" in raw_text):
+        elif current_chapter == 8 and current_verse in [23, 24] and "Iphdaia" in raw_text:
             raw_text = "25. " + raw_text
-
+        elif current_chapter == 9 and current_verse in [11, 12] and "hermanos príncipes" in raw_text:
+            raw_text = "13. " + raw_text
+        elif current_chapter == 10 and current_verse in [9, 10] and "Jabes de Galaad" in raw_text:
+            raw_text = "11. " + raw_text
+        elif current_chapter == 10 and current_verse in [10, 11] and "Levantáronse todos" in raw_text:
+            raw_text = "12. " + raw_text
+        elif current_chapter == 10 and current_verse in [11, 12] and "murió Saul" in raw_text:
+            raw_text = "13. " + raw_text
+        elif current_chapter == 10 and current_verse in [12, 13] and "no esperó" in raw_text:
+            raw_text = "14. " + raw_text
+        elif current_chapter == 11 and current_verse in [18, 19] and "Abisai tambien" in raw_text:
+            raw_text = "20. " + raw_text
+        elif current_chapter == 12 and current_verse in [10, 11] and "Johanan" in raw_text:
+            raw_text = "12. " + raw_text
+        elif current_chapter == 12 and current_verse in [26, 27] and "Sadoc asimismo" in raw_text:
+            raw_text = "28. " + raw_text
+        elif current_chapter == 12 and current_verse in [28, 29] and "hijos de Ephraim" in raw_text:
+            raw_text = "30. " + raw_text
+        elif current_chapter == 16 and current_verse in [20, 21] and "toqueis" in raw_text:
+            raw_text = "22. " + raw_text
+        elif current_chapter == 23 and current_verse in [23, 24] and "dijo David" in raw_text:
+            raw_text = "25. " + raw_text
+        elif current_chapter == 24 and current_verse in [12, 13] and "Huppa" in raw_text:
+            raw_text = "14. " + raw_text
+        elif current_chapter == 24 and current_verse in [23, 24] and "Jesia" in raw_text:
+            raw_text = "25. " + raw_text
 
     # Fix 2KI OCR typos and verse prefix rules
     if book_id == "2KI":
@@ -838,34 +800,30 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
 
     # Fix 1KI OCR typos and verse prefix rules
     if book_id == "1KI":
-        if "91." in raw_text and current_chapter == 1:
-            raw_text = raw_text.replace("91.", "")
-        if current_chapter == 1 and ("hombre de bien" in raw_text or "Si fuere hombre de bien" in raw_text):
+        if current_chapter == 1 and current_verse in [50, 51] and "hombre de bien" in raw_text:
             raw_text = "52. " + raw_text
-        elif current_chapter == 1 and ("Envió pues el rey" in raw_text or "Envió pues el rey Salomon" in raw_text):
+        elif current_chapter == 1 and current_verse in [51, 52] and "Envió pues el rey" in raw_text:
             raw_text = "53. " + raw_text
-        elif current_chapter == 4 and ("playas del mar" in raw_text or "playas" in raw_text):
-            raw_text = "29. Dió tambien Dios á Salomon la sabiduría... que está en las playas del mar."
-        elif current_chapter == 4 and ("orientales" in raw_text or "Egypcios" in raw_text):
-            raw_text = "30. Y la sabiduría de Salomon excedia á la de todos los orientales y de los Egypcios."
-        elif current_chapter == 4 and ("canas" in raw_text or "Mahol" in raw_text):
-            raw_text = "31. Y fue mas sabio que todos los hombres... canas."
-        elif current_chapter == 4 and ("duría." in raw_text or "oir la sabiduría" in raw_text or "oir la sabiduria" in raw_text):
-            raw_text = "34. Y de todos los pueblos venian á oir la sabiduría de Salomon, y de todos los reyes de la tierra."
-        elif current_chapter == 7 and ("eran de cuatro codos" in raw_text or "cuatro codos" in raw_text):
-            raw_text = "19. Asimismo los capiteles... eran de cuatro codos."
-        elif current_chapter == 7 and ("simetría" in raw_text or "simetria" in raw_text):
-            raw_text = "20. Y de nuevo otros capiteles... simetría."
-        elif current_chapter == 15 and ("todos los pecados" in raw_text or "pecados de su padre" in raw_text):
+        elif current_chapter == 4 and current_verse in [27, 28] and "Dió tambien Dios" in raw_text:
+            raw_text = "29. " + raw_text
+        elif current_chapter == 4 and current_verse in [28, 29] and "sabiduría de Salomón" in raw_text:
+            raw_text = "30. " + raw_text
+        elif current_chapter == 4 and current_verse in [29, 30] and "mas sabio" in raw_text:
+            raw_text = "31. " + raw_text
+        elif current_chapter == 4 and current_verse in [32, 33] and "pueblos" in raw_text:
+            raw_text = "34. " + raw_text
+        elif current_chapter == 7 and current_verse in [17, 18] and "Asimismo los capiteles" in raw_text:
+            raw_text = "19. " + raw_text
+        elif current_chapter == 7 and current_verse in [18, 19] and "de nuevo otros capiteles" in raw_text:
+            raw_text = "20. " + raw_text
+        elif current_chapter == 15 and current_verse in [1, 2] and "todos los pecados" in raw_text:
             raw_text = "3. " + raw_text
-        elif current_chapter == 17 and ("Ruégote que vuelva" in raw_text or "que vuelva el alma" in raw_text):
-            raw_text = "22. Escuchó el Señor la voz de Elías: y volvió el alma al niño, y revivió. " + raw_text
-        elif current_chapter == 18 and "burlábase Elías" in raw_text:
-            raw_text = "25. Dijo pues Elías á los profetas de Baal: Escoged un buey vosotros... " + raw_text
-        elif current_chapter == 20 and ("Mañana pues" in raw_text or "Mañana" in raw_text):
+        elif current_chapter == 17 and current_verse in [20, 21] and "Escuchó el Señor" in raw_text:
+            raw_text = "22. " + raw_text
+        elif current_chapter == 18 and current_verse in [23, 24] and "Dijo pues Elías" in raw_text:
+            raw_text = "25. " + raw_text
+        elif current_chapter == 20 and current_verse in [4, 5] and "Mañana pues" in raw_text:
             raw_text = "6. " + raw_text
-
-
 
     # Fix 2SA OCR typos and verse prefix rules
     if book_id == "2SA":
@@ -1350,61 +1308,6 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
             verses[41][4] = ["Y midió su longitud de veinte codos, y la anchura de veinte codos."]
 
 
-
-
-    if book_id == "JHN":
-        if current_chapter == 1 and current_verse in [21, 22] and "Profeta Isaías" in raw_text:
-            if 1 not in verses: verses[1] = {}
-            verses[1][23] = ["Yo soy la voz del que clama en el desierto: Enderezad el camino del Señor, como dijo el Profeta Isaías."]
-            verses[1][25] = ["Y le preguntaron, y le dijeron: ¿Pues por qué bautizas, si tú no eres el Christo?"]
-            verses[1][26] = ["Respondióles Juan, diciendo: Yo bautizo en agua: mas en medio de vosotros ha estado uno á quien vosotros no conoceis."]
-            verses[1][27] = ["Este es el que ha de venir despues de mí, el cual ha sido preferido á mí: de quien yo no soy digno de desatar la correa de su zapato."]
-        elif current_chapter == 6 and ". 63." in raw_text:
-            raw_text = raw_text.replace(". 63.", " 63.")
-        elif current_chapter == 11 and ("pontífices y Phariséos" in raw_text or "Phariséos tenian" in raw_text):
-            raw_text = "57. " + raw_text
-        elif current_chapter == 18 and current_verse in [6, 7] and ("retrocederon" in raw_text or "cayeron" in raw_text):
-            if 18 not in verses: verses[18] = {}
-            verses[18][7] = ["Volvióles pues á preguntar: ¿A quién buscais? Y ellos dijeron: Á Jesus Nazareno."]
-        elif current_chapter == 20 and ("lágrimas" in raw_text or "cerca del sepulcro" in raw_text):
-            raw_text = "11. " + raw_text
-    if book_id == "LUK":
-        if current_chapter == 4 and ("tar al Señor" in raw_text or "Señor Dios tuyo" in raw_text):
-            if 4 not in verses: verses[4] = {}
-            verses[4][13] = ["Y acabadas todas las tentaciones, el diablo se retiró de él por algun tiempo."]
-        elif current_chapter == 5 and "enfermedades" in raw_text:
-            if 5 not in verses: verses[5] = {}
-            verses[5][15] = ["Y la fama de Jesus se extendia mas y mas."]
-            verses[5][16] = ["Mas él se retiraba á los desiertos."]
-        elif current_chapter == 7 and "entregó á su madre" in raw_text:
-            if 7 not in verses: verses[7] = {}
-            verses[7][16] = ["Y sobrecogió el temor á todos."]
-            verses[7][17] = ["Y corrió esta voz por toda la Judéa."]
-        elif current_chapter == 7 and "enviados de Juan" in raw_text or "Juan los envió" in raw_text:
-            if 7 not in verses: verses[7] = {}
-            verses[7][19] = ["Llamó Juan a dos de sus discípulos."]
-            verses[7][23] = ["Y bienaventurado es aquel que no se escandalizare de mí."]
-        elif current_chapter == 9 and "territorio de Beth" in raw_text or "Beth- saida" in raw_text:
-            if 9 not in verses: verses[9] = {}
-            verses[9][10] = ["Y vueltos los Apóstoles le contaron."]
-            verses[9][11] = ["Lo que entendiendo las gentes le siguieron."]
-            verses[9][12] = ["Y comenzando a declinar el dia."]
-        elif current_chapter == 20 and "β. Y si decimos" in raw_text:
-            raw_text = raw_text.replace("β.", "6.")
-        elif current_chapter == 20 and ("vacías" in raw_text or "sin nada" in raw_text):
-            if 20 not in verses: verses[20] = {}
-            verses[20][10] = ["Y a su tiempo envió un siervo."]
-            verses[20][11] = ["Envió aun á otro siervo."]
-        elif current_chapter == 20 and ("respeto" in raw_text or "colonos" in raw_text):
-            if 20 not in verses: verses[20] = {}
-            verses[20][13] = ["Dijo entonces el Señor de la viña."]
-        elif current_chapter == 20 and ("No lo permita Dios" in raw_text or "dijeron" in raw_text):
-            if 20 not in verses: verses[20] = {}
-            verses[20][16] = ["Vendrá y destruirá a estos viñadores."]
-        elif current_chapter == 20 and ("está escrito" in raw_text or "clavando" in raw_text):
-            if 20 not in verses: verses[20] = {}
-            verses[20][18] = ["Cualquiera que cayere sobre esta piedra."]
-
     if book_id == "ROM":
         if "Amarás á tu prójimo como á tí mismo" in raw_text or "Amarás a tu prójimo como a ti mismo" in raw_text:
             raw_text = raw_text + " 10. El amor del prójimo no obra mal."
@@ -1708,34 +1611,6 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                     current_verse = 11
                 elif current_chapter == 12 and current_verse == 21 and "pararán todas las visiones" in seg_text:
                     current_verse = 22
-                elif current_chapter == 5 and current_verse == 14 and ("enfermedades" in seg_text or "oracion" in seg_text):
-                    current_verse = 15
-                elif current_chapter == 5 and current_verse == 15 and "hacer allí oracion" in seg_text:
-                    current_verse = 16
-                elif current_chapter == 7 and current_verse == 15 and ("regiones" in seg_text or "circunvecinas" in seg_text):
-                    current_verse = 16
-                elif current_chapter == 7 and current_verse == 16 and "por todas las regiones" in seg_text:
-                    current_verse = 17
-                elif current_chapter == 9 and current_verse == 9 and ("Beth- saida" in seg_text or "Bethsaida" in seg_text):
-                    current_verse = 10
-                elif current_chapter == 9 and current_verse == 10 and ("salud á los" in seg_text or "carecian" in seg_text):
-                    current_verse = 11
-                elif current_chapter == 9 and current_verse == 11 and ("doce Apóstoles" in seg_text or "Despacha" in seg_text):
-                    current_verse = 12
-                elif current_chapter == 20 and current_verse == 9 and ("vacías" in seg_text or "sin nada" in seg_text):
-                    current_verse = 10
-                elif current_chapter == 20 and current_verse == 10 and "sin nada" in seg_text:
-                    current_verse = 11
-                elif current_chapter == 20 and current_verse == 12 and ("respeto" in seg_text or "colonos" in seg_text):
-                    current_verse = 13
-                elif current_chapter == 20 and current_verse == 15 and ("No lo permita Dios" in seg_text or "dijeron" in seg_text):
-                    current_verse = 16
-                elif current_chapter == 20 and current_verse == 17 and ("está escrito" in seg_text or "clavando" in seg_text):
-                    current_verse = 18
-                elif current_chapter == 11 and current_verse == 56 and ("pontífices y Phariséos" in seg_text or "Phariséos tenian" in seg_text):
-                    current_verse = 57
-                elif current_chapter == 20 and current_verse == 10 and ("lágrimas" in seg_text or "cerca del sepulcro" in seg_text):
-                    current_verse = 11
                 elif current_chapter == 37 and current_verse == 14 and ("Hablóme nuevamente" in seg_text or "nuevamente el Señor" in seg_text):
                     current_verse = 15
                 elif current_chapter == 39 and current_verse == 9 and ("picas" in seg_text or "armas" in seg_text):
