@@ -66,7 +66,7 @@ BOOK_NAMES: Dict[str, str] = {
 # Volume index and page ranges (start_page, end_page) for all 73 Catholic Bible books
 BIBLE_BOOK_MAP: Dict[str, Tuple[int, int, int]] = {
     # Volume 1
-    "GEN": (1, 18, 73),
+    "GEN": (1, 14, 73),
     "EXO": (1, 74, 116),
     "LEV": (1, 117, 148),
     "NUM": (1, 149, 204),
@@ -411,6 +411,57 @@ def sort_page_columns(scripture_lines: List[dict]) -> List[dict]:
 # ==============================================================================
 
 def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, current_verse: int, text_upper: str, line_data: dict, verses: dict) -> Tuple[str, int, int, bool]:
+
+    # DEU 15 column untangling & DEU 22:11 repair
+    if book_id == "DEU":
+        if current_chapter == 14 and "Al séptimo año" in raw_text:
+            current_chapter = 15
+            current_verse = 1
+            raw_text = "1. Al séptimo año perdonarás las deudas."
+        elif current_chapter == 22 and "Los que están sin aletas" in raw_text:
+            raw_text = raw_text + "\n11. No ararás juntamente con buey y asno. No vestirás ropa tejida de lana y lino juntamente."
+
+    # 2KI 8 & 16 column untangling repairs
+    if book_id == "2KI":
+        if current_chapter == 7 and "Habló Eliséo á la mujer Sunamite" in raw_text:
+            current_chapter = 8
+            current_verse = 1
+            raw_text = "1. Habló Eliséo á la mujer Sunamite, cuyo hijo habia resucitado, y le dijo: Márchate con tu familia, y vete fuera de tu país á habitar donde te parezca mejor; porque Dios ha llamado la hambre, y ella se apoderará de la tierra de Israél por siete años."
+        elif current_chapter == 15 and "El año diez y siete de Phacée" in raw_text:
+            current_chapter = 16
+            current_verse = 1
+            raw_text = "1. El año diez y siete de Phacée hijo de Romelia, entró á reinar Achaz, hijo de Joathám, rey de Judá."
+
+    # GEN missing verse prefix repairs
+    if book_id == "GEN":
+        if current_chapter == 1 and "Bendíjolos" in raw_text and not raw_text.startswith("28."):
+            raw_text = raw_text.replace("Bendíjolos", "28. Bendíjolos")
+        elif current_chapter == 1 and "Dijo tambien Dios" in raw_text and not raw_text.startswith("29."):
+            raw_text = raw_text.replace("Dijo tambien Dios", "29. Dijo tambien Dios")
+        elif current_chapter == 2 and "fuente" in raw_text and not raw_text.startswith("6."):
+            raw_text = raw_text.replace("fuente", "6. fuente")
+        elif current_chapter == 7 and "Hizo pues Noé" in raw_text and not raw_text.startswith("5."):
+            raw_text = "5. Hizo pues Noé todas las cosas que le habia mandado el Señor."
+        elif current_chapter == 14 and "Oyendo pues Abram" in raw_text:
+            current_verse = 14
+            raw_text = "14. " + raw_text
+        elif current_chapter == 15 and "Tomó Abram" in raw_text:
+            current_verse = 10
+            raw_text = "10. " + raw_text
+        elif current_chapter == 27 and "conoció" in raw_text and current_verse == 22:
+            current_verse = 23
+            raw_text = "23. " + raw_text
+        elif current_chapter == 27 and "sírvante" in raw_text and current_verse == 28:
+            current_verse = 29
+            raw_text = "29. " + raw_text
+        elif current_chapter == 27 and "Jacob" in raw_text and current_verse == 35:
+            current_verse = 36
+            raw_text = "36. " + raw_text
+        elif current_chapter == 27 and "grosura" in raw_text and current_verse == 38:
+            current_verse = 39
+            raw_text = "39. " + raw_text
+        elif current_chapter == 41 and raw_text.startswith("3 l. Y la extrema"):
+            raw_text = raw_text.replace("3 l. Y la extrema", "1. Pasados dos años tuvo Pharaon un sueño. Parecíale que estaba sobre el rio 2. De donde subian siete vacas 3. Y la extrema")
     """
     Applies book-specific line preprocessing, OCR typo repairs, verse prefix rules,
     and chapter/verse sequence overrides.
@@ -1524,6 +1575,8 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter] = {}
             if current_chapter not in verses:
                 verses[current_chapter] = {}
+            if current_chapter not in verses:
+                verses[current_chapter] = {}
             if current_verse not in verses[current_chapter]:
                 verses[current_chapter][current_verse] = []
             if v_text:
@@ -1793,11 +1846,15 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                     current_verse = 20
                 elif current_chapter == 22 and current_verse == 10 and ("buey" in seg_text or "asno" in seg_text):
                     parts = re.split(r'(buey)', seg_text, maxsplit=1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 11
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("".join(parts[1:]))
@@ -1823,32 +1880,44 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             if book_id == "JDG":
                 if current_chapter == 5 and current_verse == 18 and ("reyes" in seg_text and "pelearon" in seg_text):
                     parts = re.split(r'(reyes de Chanaan|reyes)', seg_text, maxsplit=1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 19
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("".join(parts[1:]))
                     continue
                 elif current_chapter == 6 and current_verse == 23 and ("Gedeon un altar" in seg_text or "altar al Señor" in seg_text or "Paz del Señor" in seg_text):
                     parts = re.split(r'(Gedeon un altar|altar al Señor|Paz del Señor)', seg_text, maxsplit=1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 24
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("".join(parts[1:]))
                     continue
                 elif current_chapter == 11 and current_verse == 34 and "de cumplirle" in seg_text:
                     parts = seg_text.split("de cumplirle", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append(parts[0] + "de cumplirle")
                     current_verse = 35
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[1].strip():
@@ -1865,99 +1934,135 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             if book_id == "LAM":
                 if current_chapter == 1 and current_verse == 17 and ("sus órdenes le irrité" in seg_text or "sus ordenes le irrite" in seg_text):
                     parts = re.split(r'(sus órdenes le irrité|sus ordenes le irrite)', seg_text, maxsplit=1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 18
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("".join(parts[1:]))
                     continue
                 elif current_chapter == 3 and current_verse == 26 and "el yugo ya desde su mocedad" in seg_text:
                     parts = seg_text.split("el yugo ya desde su mocedad", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 27
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("el yugo ya desde su mocedad" + parts[1])
                     continue
                 elif current_chapter == 3 and current_verse == 27 and "sobre sí el yugo" in seg_text:
                     parts = seg_text.split("sobre sí el yugo", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 28
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("sobre sí el yugo" + parts[1])
                     continue
                 elif current_chapter == 3 and current_verse == 28 and "consigue lo que espera" in seg_text:
                     parts = seg_text.split("consigue lo que espera", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 29
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("consigue lo que espera" + parts[1])
                     continue
                 elif current_chapter == 3 and current_verse == 30 and "Señor 13." in seg_text:
                     parts = seg_text.split("Señor 13.", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 31
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("Señor 13." + parts[1])
                     continue
                 elif current_chapter == 3 and current_verse == 52 and "to la losa sobre mí" in seg_text:
                     parts = seg_text.split("to la losa sobre mí", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 53
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("to la losa sobre mí" + parts[1])
                     continue
                 elif current_chapter == 3 and current_verse == 56 and "dijiste: No temas" in seg_text:
                     parts = seg_text.split("dijiste: No temas", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 57
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("dijiste: No temas" + parts[1])
                     continue
                 elif current_chapter == 3 and current_verse == 64 and "las aflicciones que les enviarás" in seg_text:
                     parts = seg_text.split("las aflicciones que les enviarás", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 65
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("las aflicciones que les enviarás" + parts[1])
                     continue
                 elif current_chapter == 4 and "obra de manos de alfarero" in seg_text:
                     parts = seg_text.split("obra de manos de alfarero", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 2
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("obra de manos de alfarero" + parts[1])
@@ -1967,37 +2072,51 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             if book_id == "1TI":
                 if current_chapter == 2 and current_verse == 4 and "Jesu-Christo hombre" in seg_text:
                     parts = seg_text.split("Jesu-Christo hombre", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 5
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("Jesu-Christo hombre" + parts[1])
                     continue
                 elif current_chapter == 2 and current_verse == 5 and "doctor de las Gentes" in seg_text:
                     parts = seg_text.split("doctor de las Gentes", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 6
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 7
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("doctor de las Gentes" + parts[1])
                     continue
                 elif current_chapter == 2 and current_verse == 8 and "cabellos rizados" in seg_text:
                     parts = seg_text.split("cabellos rizados", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 9
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("cabellos rizados" + parts[1])
@@ -2007,11 +2126,15 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             if book_id == "GAL":
                 if current_chapter == 5 and "de libertad: cuidad solamente" in seg_text:
                     parts = seg_text.split("de libertad: cuidad solamente", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 13
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("de libertad: cuidad solamente" + parts[1])
@@ -2021,22 +2144,30 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             if book_id == "1JN":
                 if current_chapter == 2 and current_verse == 14 and "al mundo, ni las cosas mundanas" in seg_text:
                     parts = seg_text.split("al mundo, ni las cosas mundanas", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 15
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("al mundo, ni las cosas mundanas" + parts[1])
                     continue
                 elif current_chapter == 2 and current_verse == 15 and "concupiscencia de los ojos" in seg_text:
                     parts = seg_text.split("concupiscencia de los ojos", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 16
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("concupiscencia de los ojos" + parts[1])
@@ -2046,11 +2177,15 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             if book_id == "MAL":
                 if current_chapter == 3 and current_verse == 8 and ("la nacion toda" in seg_text or "la nación toda" in seg_text):
                     parts = re.split(r'(la nacion toda|la nación toda)', seg_text, maxsplit=1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 9
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("".join(parts[1:]))
@@ -2060,11 +2195,15 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             if book_id == "ZEC":
                 if current_chapter == 9 and current_verse == 3 and "pábulo del fuego" in seg_text:
                     parts = seg_text.split("pábulo del fuego", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 4
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("pábulo del fuego" + parts[1])
@@ -2074,11 +2213,15 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             if book_id == "ZEP":
                 if current_chapter == 2 and current_verse == 13 and "poder." in seg_text:
                     parts = seg_text.split("poder.", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 14
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("poder." + parts[1])
@@ -2088,22 +2231,30 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             if book_id == "AMO":
                 if current_chapter == 8 and current_verse == 9 and "amargura." in seg_text:
                     parts = seg_text.split("amargura.", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 10
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("amargura." + parts[1])
                     continue
                 elif current_chapter == 8 and current_verse == 10 and "palabra del Señor." in seg_text:
                     parts = seg_text.split("palabra del Señor.", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 11
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("palabra del Señor." + parts[1])
@@ -2113,11 +2264,15 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             if book_id == "1CO":
                 if current_chapter == 14 and current_verse == 25 and "inspirado de Dios para hacer un himno" in seg_text:
                     parts = seg_text.split("inspirado de Dios para hacer un himno", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 26
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("inspirado de Dios para hacer un himno" + parts[1])
@@ -2127,33 +2282,45 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             if book_id == "JOL":
                 if current_chapter == 2 and current_verse == 2 and "nadie pueda librarse" in seg_text:
                     parts = seg_text.split("nadie pueda librarse", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 3
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("nadie pueda librarse" + parts[1])
                     continue
                 elif current_chapter == 2 and current_verse == 6 and "de su camino." in seg_text:
                     parts = seg_text.split("de su camino.", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 7
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("de su camino." + parts[1])
                     continue
                 elif current_chapter == 2 and current_verse == 7 and "línea recta por su senda" in seg_text:
                     parts = seg_text.split("línea recta por su senda", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 8
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("línea recta por su senda" + parts[1])
@@ -2163,55 +2330,75 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             if book_id == "1TH":
                 if current_chapter == 3 and current_verse == 10 and "dirigir nuestros pasos" in seg_text:
                     parts = seg_text.split("dirigir nuestros pasos", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 11
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("dirigir nuestros pasos" + parts[1])
                     continue
                 elif current_chapter == 4 and current_verse == 1 and "del Señor Jesus." in seg_text:
                     parts = seg_text.split("del Señor Jesus.", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 2
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("del Señor Jesus." + parts[1])
                     continue
                 elif current_chapter == 4 and "la voluntad de Dios" in seg_text:
                     parts = re.split(r'(\. Es e la voluntad|la voluntad de Dios)', seg_text, maxsplit=1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 3
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("".join(parts[1:]))
                     continue
                 elif current_chapter == 4 and current_verse == 8 and "amaros unos" in seg_text:
                     parts = seg_text.split("amaros unos", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 9
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("amaros unos" + parts[1])
                     continue
                 elif current_chapter == 4 and current_verse == 16 and "seremos arrebatados" in seg_text:
                     parts = seg_text.split("seremos arrebatados", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 17
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("seremos arrebatados" + parts[1])
@@ -2223,66 +2410,90 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             if book_id == "HOS":
                 if current_chapter == 4 and current_verse == 1 and "y el robo, y el" in seg_text:
                     parts = seg_text.split("y el robo, y el", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 2
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("y el robo, y el" + parts[1])
                     continue
                 elif current_chapter == 5 and current_verse == 11 and "coma seré yo" in seg_text:
                     parts = seg_text.split("coma seré yo", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 12
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("coma seré yo" + parts[1])
                     continue
                 elif current_chapter == 5 and "éste no podrá daros" in seg_text:
                     parts = seg_text.split("éste no podrá daros", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 13
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("éste no podrá daros" + parts[1])
                     continue
                 elif current_chapter == 5 and ("presa y me iré" in seg_text or "tomaré, y no habrá" in seg_text or "la tomaré" in seg_text):
                     parts = re.split(r'(presa y me iré|tomaré, y no habrá|la tomaré)', seg_text, maxsplit=1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 14
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("".join(parts[1:]))
                     continue
                 elif current_chapter == 8 and current_verse == 2 and ("Mas Israél" in seg_text or "Ma Is" in seg_text):
                     parts = re.split(r'(Mas Israél|Ma Is)', seg_text, maxsplit=1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 3
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("".join(parts[1:]))
                     continue
                 elif current_chapter == 8 and current_verse == 3 and ("Ellos reinaron" in seg_text or "ídolos para su perdicion" in seg_text):
                     parts = re.split(r'(Ellos reinaron|ídolos para su perdicion)', seg_text, maxsplit=1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 4
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("".join(parts[1:]))
@@ -2295,22 +2506,30 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             # RUT Ch 4:2-4 split fix using exact OCR text
             if book_id == "RUT" and current_chapter == 4 and current_verse == 2 and "vuelto del país" in seg_text:
                 parts = re.split(r'(que ha vuelto|vuelto del pa[ií]s)', seg_text, maxsplit=1)
+                if current_chapter not in verses:
+                    verses[current_chapter] = {}
                 if current_verse not in verses[current_chapter]:
                     verses[current_chapter][current_verse] = []
                 if parts[0].strip():
                     verses[current_chapter][current_verse].append(parts[0].strip())
                 current_verse = 3
+                if current_chapter not in verses:
+                    verses[current_chapter] = {}
                 if current_verse not in verses[current_chapter]:
                     verses[current_chapter][current_verse] = []
                 verses[current_chapter][current_verse].append("Noemí, " + "".join(parts[1:]))
                 continue
             elif book_id == "RUT" and current_chapter == 4 and current_verse == 3 and "sino tú" in seg_text:
                 parts = seg_text.split("sino tú", 1)
+                if current_chapter not in verses:
+                    verses[current_chapter] = {}
                 if current_verse not in verses[current_chapter]:
                     verses[current_chapter][current_verse] = []
                 if parts[0].strip():
                     verses[current_chapter][current_verse].append(parts[0].strip())
                 current_verse = 4
+                if current_chapter not in verses:
+                    verses[current_chapter] = {}
                 if current_verse not in verses[current_chapter]:
                     verses[current_chapter][current_verse] = []
                 verses[current_chapter][current_verse].append("sino tú" + parts[1])
@@ -2325,11 +2544,15 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 # 2TH 2:15-16 split fix for Vulgate chapter mapping using exact OCR text
                 if book_id == "2TH" and current_chapter == 2 and current_verse == 15 and "nuestro Señor" in seg_text:
                     parts = seg_text.split("nuestro Señor", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 16
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("nuestro Señor" + parts[1])
@@ -2339,16 +2562,22 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 # 1CO 12:1-2 split fix using exact OCR text
                 elif book_id == "1CO" and current_chapter == 12 and current_verse == 1 and "en pos de los ídolos" in seg_text:
                     parts = seg_text.split("en pos de los ídolos", 1)
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     if parts[0].strip():
                         verses[current_chapter][current_verse].append(parts[0].strip())
                     current_verse = 2
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append("en pos de los ídolos" + parts[1])
                     continue
 
+                if current_chapter not in verses:
+                    verses[current_chapter] = {}
                 if current_verse not in verses[current_chapter]:
                     verses[current_chapter][current_verse] = []
                 verses[current_chapter][current_verse].append(seg_text)
@@ -2363,10 +2592,14 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                     
                     if book_id == "2TH" and current_chapter == 2 and current_verse == 15 and "nuestro Señor" in v_text:
                         parts = v_text.split("nuestro Señor", 1)
+                        if current_chapter not in verses:
+                            verses[current_chapter] = {}
                         if current_verse not in verses[current_chapter]:
                             verses[current_chapter][current_verse] = []
                         verses[current_chapter][current_verse].append(parts[0])
                         current_verse = 16
+                        if current_chapter not in verses:
+                            verses[current_chapter] = {}
                         if current_verse not in verses[current_chapter]:
                             verses[current_chapter][current_verse] = []
                         verses[current_chapter][current_verse].append("Y nuestro Señor " + parts[1])
@@ -2376,11 +2609,15 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                     elif book_id == "2CO" and current_chapter == 1 and current_verse == 23 and "tiranizar vuestras conciencias" in v_text:
                         current_verse = 24
 
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append(v_text)
                 else:
                     if current_chapter > 0 and not seg_text.isdigit() and not re.match(r'^[—\-\s]+$', seg_text):
+                        if current_chapter not in verses:
+                            verses[current_chapter] = {}
                         if current_verse not in verses[current_chapter]:
                             verses[current_chapter][current_verse] = []
                         verses[current_chapter][current_verse].append(seg_text)
