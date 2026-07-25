@@ -303,13 +303,13 @@ def extract_chapter_number(text: str, expected_ch: Optional[int] = None) -> Opti
     Includes sequence-aware error correction for Tesseract OCR Roman numeral misreads (e.g. IV -> IX).
     """
     # Ignore mid-sentence inline references like 'en el capítulo V', 'en el Salmo segundo'
-    if re.search(r'\b(?:en|del|al|con|sobre)\s+(?:el\s+)?(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\b', text, re.IGNORECASE):
+    if re.search(r'\b(?:en|del|al|con|sobre)\s+(?:el\s+)?(?:C[ÁA]P[IÍLl1]TUL[OÓ0]|CAPUT|[SŚ]ALMO|PSALMO)\b', text, re.IGNORECASE):
         return None
         
     text_clean = re.sub(r'[^\w\s]', ' ', text.upper())
-    match = re.search(r'^\s*(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+([A-Z0-9ÁÉÍÓÚ]+)', text_clean)
+    match = re.search(r'^\s*(?:C[ÁA]P[IÍLl1]TUL[OÓ0]|CAPUT|[SŚ]ALMO|PSALMO)\s+([A-Z0-9ÁÉÍÓÚ]+)', text_clean)
     if not match:
-        match = re.search(r'\b(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+([A-Z0-9ÁÉÍÓÚ]+)', text_clean)
+        match = re.search(r'\b(?:C[ÁA]P[IÍLl1]TUL[OÓ0]|CAPUT|[SŚ]ALMO|PSALMO)\s+([A-Z0-9ÁÉÍÓÚ]+)', text_clean)
         
     if match:
         tok = match.group(1)
@@ -1388,7 +1388,7 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 current_verse = 14
 
         is_verse_start = bool(re.match(r'^\d{1,3}\s*[\./,;-]', raw_text)) or (book_id == "LAM" and bool(re.match(r'^[A-Z]{1,8}[\.:\s]*\d{1,3}\s*[\./,;-]?', text_upper)))
-        if not is_verse_start and re.search(r'\b(C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\b', text_upper) and not re.search(r'^\d+\s+CAP', text_upper):
+        if not is_verse_start and re.search(r'\b(C[ÁA]P[IÍLl1]TUL[OÓ0]|CAPUT|[SŚ]ALMO|PSALMO)\b', text_upper) and not re.search(r'^\d+\s+CAP', text_upper):
             ch_num = extract_chapter_number(raw_text, expected_ch=current_chapter + 1)
             if ch_num is not None:
                 current_chapter = ch_num
