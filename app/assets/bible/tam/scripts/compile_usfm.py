@@ -231,7 +231,7 @@ def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float
 
     # Do NOT filter standalone chapter titles like 'CAPITULO III.'
     if re.match(r'^\s*(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+[IVXLCDM0-9ÁÉÍÓÚ]+\.?\s*$', text_up):
-        if y_coord < 80:
+        if y_coord < 60 and x_coord > 500:
             return True
         return False
 
@@ -1542,6 +1542,7 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 continue
             v_text = " ".join(verses[ch][v])
             v_text = re.sub(r"([a-zA-ZÁÉÍÓÚÑáéíóúñ]+)-\s+([a-zA-ZÁÉÍÓÚÑáéíóúñ]+)", r"\1\2", v_text)
+            v_text = v_text.replace(" \x27\xba", "").replace(" \xb0", "").replace(" \x27", "")
             v_text = clean_scripture_verse_text(v_text)
             if book_id == "EST" and ch == 9:
                 v_text = v_text.replace("Pharsandatha", "Farsandata").replace("Delphon", "Delfon").replace("Esphatha", "Esfata").replace("Phoratha", "Forata").replace("Permesta", "Fermesta").replace("Phermesta", "Fermesta")

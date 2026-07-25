@@ -29,6 +29,8 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
 
     # GEN missing verse prefix repairs
     if book_id == "GEN":
+        if current_chapter == 3 and "Despues del pecado" in raw_text:
+            return raw_text, current_chapter, current_verse, True
         if current_chapter == 1 and "Bendíjolos" in raw_text and not raw_text.startswith("28."):
             raw_text = raw_text.replace("Bendíjolos", "28. Bendíjolos")
         elif current_chapter == 1 and "Dijo tambien Dios" in raw_text and not raw_text.startswith("29."):
@@ -724,6 +726,8 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
 
     # Fix GEN OCR typos and top header guards
     if book_id == "GEN":
+        if current_chapter == 3 and "Despues del pecado" in raw_text:
+            return raw_text, current_chapter, current_verse, True
         if current_chapter == 14 and "CAPITULO II" in text_upper and line_data["box"][1] > 100:
             current_chapter = 15
             current_verse = 0
