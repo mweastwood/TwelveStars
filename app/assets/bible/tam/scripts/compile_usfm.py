@@ -428,7 +428,7 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
         
         scripture_lines = []
         for line in raw_lines:
-            if has_body_cap and line["box"][1] < 75 and re.search(r'\bC[ÁA]P[IÍLl1\s]*TULO\b', line["text"].upper()):
+            if has_body_cap and line["box"][1] < 100 and re.search(r'\bC[ÁA]P[IÍLl1\s]*TULO\b', line["text"].upper()):
                 continue
             if not is_page_header_line(line["text"], line["box"][1], page_h, line["box"][0], volume):
                 if not is_footnote_line(line["text"], line["box"][1], page_h) and not is_latin_line(line["text"]):
@@ -465,6 +465,69 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix 2CH OCR typos and verse prefix rules
+        if book_id == "2CH":
+            if current_chapter == 6 and current_verse in [9, 10] and "puse el Arca" in raw_text:
+                raw_text = "11. " + raw_text
+            elif current_chapter == 6 and current_verse in [10, 11] and "Puso pues Salomón" in raw_text:
+                raw_text = "12. " + raw_text
+            elif current_chapter == 6 and current_verse in [25, 26] and "Oyela tú desde" in raw_text:
+                raw_text = "27. " + raw_text
+            elif current_chapter == 6 and current_verse in [26, 27] and "Si sobreviniere" in raw_text:
+                raw_text = "28. " + raw_text
+            elif current_chapter == 6 and current_verse in [27, 28] and "Toda oracion" in raw_text:
+                raw_text = "29. " + raw_text
+            elif current_chapter == 6 and current_verse in [28, 29] and "Tú la oirás" in raw_text:
+                raw_text = "30. " + raw_text
+            elif current_chapter == 6 and current_verse in [29, 30] and "Tambien al extranjero" in raw_text:
+                raw_text = "31. " + raw_text
+            elif current_chapter == 6 and current_verse in [30, 31] and "Oye pues" in raw_text:
+                raw_text = "32. " + raw_text
+            elif current_chapter == 6 and current_verse in [31, 32] and "Si hubiere salido" in raw_text:
+                raw_text = "33. " + raw_text
+            elif current_chapter == 6 and current_verse in [32, 33] and "Oirás desde el cielo" in raw_text:
+                raw_text = "34. " + raw_text
+            elif current_chapter == 6 and current_verse in [33, 34] and "Y si hubieren pecado" in raw_text:
+                raw_text = "35. " + raw_text
+            elif current_chapter == 6 and current_verse in [34, 35] and "Convertidos de todo corazon" in raw_text:
+                raw_text = "36. " + raw_text
+            elif current_chapter == 6 and current_verse in [35, 36] and "Oirás sus plegarias" in raw_text:
+                raw_text = "37. " + raw_text
+            elif current_chapter == 6 and current_verse in [36, 37] and "Ahora pues, Señor" in raw_text:
+                raw_text = "38. " + raw_text
+            elif current_chapter == 6 and current_verse in [37, 38] and "Levántate Señor" in raw_text:
+                raw_text = "39. " + raw_text
+            elif current_chapter == 6 and current_verse in [38, 39] and "Señor Dios" in raw_text:
+                raw_text = "40. " + raw_text
+            elif current_chapter == 6 and current_verse in [39, 40] and "Tus Sacerdotes" in raw_text:
+                raw_text = "41. " + raw_text
+            elif current_chapter == 6 and current_verse in [40, 41] and "Acuérdate de la piedad" in raw_text:
+                raw_text = "42. " + raw_text
+            elif current_chapter == 9 and current_verse == 0 and "La reina de Sabá" in raw_text:
+                raw_text = "1. " + raw_text
+            elif current_chapter == 10 and current_verse in [10, 11] and "Vino pues Jeroboam" in raw_text:
+                raw_text = "12. " + raw_text
+            elif current_chapter == 12 and current_verse in [11, 12] and "Salieron pues príncipes" in raw_text:
+                raw_text = "13. " + raw_text
+            elif current_chapter == 17 and current_verse in [0, 1] and "En el año segundo" in raw_text:
+                raw_text = "2. " + raw_text
+            elif current_chapter == 17 and current_verse in [1, 2] and "Y fué el Señor" in raw_text:
+                raw_text = "3. " + raw_text
+            elif current_chapter == 17 and current_verse in [3, 4] and "Por lo cual confirmó" in raw_text:
+                raw_text = "5. " + raw_text
+            elif current_chapter == 23 and current_verse in [14, 15] and "Hizo tambien una alianza" in raw_text:
+                raw_text = "16. " + raw_text
+            elif current_chapter == 23 and current_verse in [15, 16] and "Entró luego el pueblo" in raw_text:
+                raw_text = "17. " + raw_text
+            elif current_chapter == 23 and current_verse in [16, 17] and "Estableció asimismo" in raw_text:
+                raw_text = "18. " + raw_text
+            elif current_chapter == 23 and current_verse in [18, 19] and "Tomó á los centuriones" in raw_text:
+                raw_text = "20. " + raw_text
+            elif current_chapter == 29 and current_verse in [31, 32] and "Y se ofrecieron" in raw_text:
+                raw_text = "33. " + raw_text
+            elif current_chapter == 31 and current_verse in [0, 1] and "Dividió asimismo" in raw_text:
+                raw_text = "2. " + raw_text
+
         # Fix 1CH OCR typos and verse prefix rules
         if book_id == "1CH":
             if current_chapter == 2 and current_verse in [37, 38] and "Helez" in raw_text:
