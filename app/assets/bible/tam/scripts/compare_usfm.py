@@ -9,6 +9,16 @@ def clean_text(text):
     text = "".join(c for c in unicodedata.normalize('NFD', text) if unicodedata.category(c) != 'Mn')
     text = text.lower()
     text = re.sub(r'[^\w\s]', '', text)
+    # Normalize 19th-century Spanish orthographic variants (1836 Torres Amat vs UNAM)
+    text = re.sub(r'\bchrist', 'crist', text)
+    text = re.sub(r'\bchald', 'cald', text)
+    text = re.sub(r'\bphar', 'far', text)
+    text = re.sub(r'\bmoys', 'mois', text)
+    text = re.sub(r'\bjerusalem\b', 'jerusalen', text)
+    text = re.sub(r'\bbabylonia\b', 'babilonia', text)
+    text = re.sub(r'\bepheso\b', 'efeso', text)
+    text = re.sub(r'\bthars', 'tars', text)
+    text = re.sub(r'\bphilm', 'film', text)
     return " ".join(text.split())
 
 def parse_usfm_verses(usfm_path):

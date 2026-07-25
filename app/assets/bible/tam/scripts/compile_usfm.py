@@ -108,9 +108,21 @@ def is_footnote_line(text, y_coord, page_h):
     text_up = text.upper()
     if re.search(r'\b(C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\b', text_up):
         return False
+    text_clean = text.strip()
+    if re.match(r'^\d{1,3}\s*[\./,;-]', text_clean):
+        return False
+    if y_coord >= page_h * 0.70:
+        if re.match(r'^(?:\d{1,2}|[a-z]|\*|†|‡)\s+[A-ZÁÉÍÓÚa-z]', text_clean) or re.search(r'\b(?:Véase|Vulgata|Hebreo|Expositores|San Gerónimo|San Agustín|Crisóstomo|Setenta)\b', text_clean, re.IGNORECASE):
+            return True
     if y_coord >= page_h * 0.95:
         return True
     return False
+
+def clean_scripture_verse_text(text):
+    ref_pattern = r'\b(?:Jerem|Isai|Luc|Joan|Matth|Psalm|Deuter|Gen|Exod|Lev|Num|Deut|Jos|Judic|Reg|Paral|Esd|Nehem|Tob|Judit|Esth|Job|Prov|Ecles|Cant|Sab|Eclus|Bar|Ezech|Dan|Osee|Joel|Amos|Abd|Jonas|Mich|Nah|Hab|Soph|Agg|Zach|Mal|Mac|Rom|Cor|Gal|Eph|Phil|Col|Thess|Tim|Tit|Philem|Hebr|Jac|Petr|Jud|Apoc)\b\.?\s+[IVXLCDM\d]+\s*,\s*v\.?\s*\d*'
+    text = re.sub(ref_pattern, '', text, flags=re.IGNORECASE)
+    text = re.sub(r'\s+\d{1,2}\.\s*$', '', text)
+    return ' '.join(text.split())
 
 def is_latin_line(text):
     text_clean = re.sub(r'[^\w\s]', ' ', text.lower())
@@ -162,7 +174,7 @@ def parse_args():
     parser.add_argument("--all", action="store_true", help="Compile all 73 Bible books")
     return parser.parse_args()
 
-def split_inline_verses(text):
+def split_inline_verses(text, current_v=0):
     text = text.translate(str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹", "0123456789"))
     pattern = r'(?:^|\s+)(\d{1,3})\s*[\./,;:)\-\—«“]*\s*(?=[A-ZÁÉÍÓÚÑa-z"«“])'
     
@@ -179,7 +191,12 @@ def split_inline_verses(text):
         v_num_str = parts[i]
         seg_content = parts[i+1] if i+1 < len(parts) else ""
         if v_num_str and v_num_str.isdigit():
-            segments.append((int(v_num_str), seg_content.strip()))
+            val = int(v_num_str)
+            # Only accept as verse number if it is greater than or equal to current_v (or starting fresh / verse 1)
+            if current_v == 0 or val >= current_v or val == 1:
+                segments.append((val, seg_content.strip()))
+            else:
+                segments.append((None, f"{v_num_str} {seg_content.strip()}"))
         i += 2
         
     return segments
@@ -255,7 +272,7 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
                 verses[current_chapter] = {}
             continue
             
-        segments = split_inline_verses(raw_text)
+        segments = split_inline_verses(raw_text, current_v=current_verse)
         
         for v_num, seg_text in segments:
             seg_text = clean_text_line(seg_text)
@@ -282,7 +299,7 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append(v_text)
                 else:
-                    if current_chapter > 0 and not seg_text.isdigit() and "—" not in seg_text:
+                    if current_chapter > 0 and not seg_text.isdigit() and not re.match(r'^[—\-\s]+$', seg_text):
                         if current_verse not in verses[current_chapter]:
                             verses[current_chapter][current_verse] = []
                         verses[current_chapter][current_verse].append(seg_text)
@@ -299,13 +316,14 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
         
         if 0 in verses[ch] and verses[ch][0]:
             summary_txt = " ".join(verses[ch][0])
+            summary_txt = clean_scripture_verse_text(summary_txt)
             usfm_lines.append(f"\\p {summary_txt}")
             
         for v in sorted(verses[ch].keys()):
             if v == 0:
                 continue
             v_text = " ".join(verses[ch][v])
-            v_text = re.sub(r'\s+', ' ', v_text).strip()
+            v_text = clean_scripture_verse_text(v_text)
             usfm_lines.append(f"\\v {v} {v_text}")
             
     with open(output_path, "w", encoding="utf-8") as f_out:
