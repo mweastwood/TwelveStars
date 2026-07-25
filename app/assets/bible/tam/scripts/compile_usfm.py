@@ -70,7 +70,7 @@ BIBLE_BOOK_MAP: Dict[str, Tuple[int, int, int]] = {
     "EXO": (1, 74, 116),
     "LEV": (1, 117, 148),
     "NUM": (1, 149, 204),
-    "DEU": (1, 205, 259),
+    "DEU": (1, 205, 273),
     "JOS": (1, 260, 295),
     "JDG": (1, 296, 329),
     "RUT": (1, 330, 335),
@@ -455,6 +455,17 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix DEU OCR typos and top header guards
+        if book_id == "DEU":
+            if line_data["box"][1] < 50 and "CAPITULO" in text_upper:
+                continue
+            if current_chapter == 13 and raw_text.startswith("v. Si un hermano"):
+                raw_text = raw_text.replace("v. Si un hermano", "6. Si un hermano")
+            elif current_chapter == 19 and raw_text.startswith(". Allanando"):
+                raw_text = raw_text.replace(". Allanando", "3. Allanando")
+            elif current_chapter == 24 and raw_text.startswith(". Acuérdate"):
+                raw_text = raw_text.replace(". Acuérdate", "22. Acuérdate")
+
         # Fix EST OCR typos and top header guards
         if book_id == "EST":
             if line_data["box"][1] < 100 and re.search(r'\bCAPITULO\s+(III|V|VII|IX|X|XIII|XV|XVI)[\.\s]*$', text_upper):
@@ -634,6 +645,48 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             seg_text = clean_text_line(seg_text)
             if not seg_text:
                 continue
+
+            # DEU verse splits and transitions
+            if book_id == "DEU":
+                if current_chapter == 1 and current_verse == 25 and "á la palabra de Dios" in seg_text:
+                    current_verse = 26
+                elif current_chapter == 3 and current_verse == 28 and ("Phogor" in seg_text or "templo del" in seg_text):
+                    current_verse = 29
+                elif current_chapter == 5 and current_verse == 19 and "falso testimonio" in seg_text:
+                    current_verse = 20
+                elif current_chapter == 11 and current_verse == 21 and "estrechándoos" in seg_text:
+                    current_verse = 22
+                elif current_chapter == 11 and current_verse == 22 and "que vosotros" in seg_text:
+                    current_verse = 23
+                elif current_chapter == 20 and current_verse == 19 and "córtalos" in seg_text:
+                    current_verse = 20
+                elif current_chapter == 22 and current_verse == 10 and ("buey" in seg_text or "asno" in seg_text):
+                    parts = re.split(r'(buey)', seg_text, maxsplit=1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 11
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("".join(parts[1:]))
+                    continue
+                elif current_chapter == 29 and current_verse == 17 and "cuyo corazon" in seg_text:
+                    current_verse = 18
+                elif current_chapter == 29 and current_verse == 18 and "aunque me abandone" in seg_text:
+                    current_verse = 19
+                elif current_chapter == 31 and current_verse == 0 and "cántico" in seg_text:
+                    current_verse = 1
+                elif current_chapter == 31 and current_verse == 1 and ("pasar ese rio" in seg_text or "pasado ese" in seg_text):
+                    current_verse = 2
+                elif current_chapter == 31 and current_verse == 5 and "amedrenteis" in seg_text:
+                    current_verse = 6
+                elif current_chapter == 31 and ("abandonaré" in seg_text or "esconderé" in seg_text):
+                    current_verse = 17
+                elif current_chapter == 32 and current_verse == 44 and ("palabras" in seg_text or "c e preec" in seg_text):
+                    current_verse = 45
+                elif current_chapter == 32 and current_verse == 50 and "aguas de Contradiccion" in seg_text:
+                    current_verse = 51
 
             # JDG verse splits
             if book_id == "JDG":
