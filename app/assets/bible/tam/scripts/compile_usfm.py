@@ -455,6 +455,27 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix JDG OCR typos
+        if book_id == "JDG":
+            if current_chapter == 3 and raw_text.startswith("a0. Quedó"):
+                raw_text = raw_text.replace("a0.", "30.")
+            elif current_chapter == 8 and raw_text.startswith("31. No acordándose"):
+                raw_text = raw_text.replace("31.", "34.")
+            elif current_chapter == 9 and raw_text.startswith("51") and "Abimelech" in raw_text:
+                raw_text = re.sub(r'^51\.?', '54.', raw_text)
+            elif current_chapter == 11 and raw_text.startswith("3. Pero al volver"):
+                raw_text = raw_text.replace("3.", "34.")
+            elif current_chapter == 13 and raw_text.startswith("21. Parió"):
+                raw_text = raw_text.replace("21.", "24.")
+            elif current_chapter == 16 and raw_text.startswith("21. Lo que viendo"):
+                raw_text = raw_text.replace("21.", "24.")
+            elif current_chapter == 1 and raw_text.startswith("10. Y el Señor estuvo"):
+                raw_text = raw_text.replace("10.", "19.")
+            elif current_chapter == 13 and raw_text.startswith("l0."):
+                raw_text = raw_text.replace("l0.", "10.")
+            elif current_chapter == 20 and raw_text.startswith("10. Con esto los hijos"):
+                raw_text = raw_text.replace("10.", "19.")
+
         # Check for chapter header (e.g. CAPITULO I)
         if book_id == "LAM":
             if line_data["box"][1] < 100 and re.search(r'\bCAPITULO\s+(II|III|IV|V)[\.\s]*$', text_upper):
@@ -601,6 +622,48 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             seg_text = clean_text_line(seg_text)
             if not seg_text:
                 continue
+
+            # JDG verse splits
+            if book_id == "JDG":
+                if current_chapter == 5 and current_verse == 18 and ("reyes" in seg_text and "pelearon" in seg_text):
+                    parts = re.split(r'(reyes de Chanaan|reyes)', seg_text, maxsplit=1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 19
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("".join(parts[1:]))
+                    continue
+                elif current_chapter == 6 and current_verse == 23 and ("Gedeon un altar" in seg_text or "altar al Señor" in seg_text or "Paz del Señor" in seg_text):
+                    parts = re.split(r'(Gedeon un altar|altar al Señor|Paz del Señor)', seg_text, maxsplit=1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 24
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("".join(parts[1:]))
+                    continue
+                elif current_chapter == 11 and current_verse == 34 and "de cumplirle" in seg_text:
+                    parts = seg_text.split("de cumplirle", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append(parts[0] + "de cumplirle")
+                    current_verse = 35
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[1].strip():
+                        verses[current_chapter][current_verse].append(parts[1].strip())
+                    continue
+                elif current_chapter == 20 and current_verse == 4 and ("Cuando" in seg_text or "unos hombres" in seg_text):
+                    current_verse = 5
+                elif current_chapter == 20 and current_verse == 5 and ("exceso tan" in seg_text or "abominable" in seg_text):
+                    current_verse = 6
+                elif current_chapter == 20 and current_verse == 6 and ("debeis hacer" in seg_text or "debeis" in seg_text):
+                    current_verse = 7
 
             # LAM verse splits
             if book_id == "LAM":
