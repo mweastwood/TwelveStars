@@ -465,6 +465,37 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix EZR OCR typos and verse prefix rules
+        if book_id == "EZR":
+            if current_chapter == 2 and current_verse in [7, 8] and "Zaccai" in raw_text:
+                raw_text = "9. " + raw_text
+            elif current_chapter == 2 and current_verse in [12, 13] and "Beguai" in raw_text:
+                raw_text = "14. " + raw_text
+            elif current_chapter == 2 and current_verse in [16, 17] and "Jora" in raw_text:
+                raw_text = "18. " + raw_text
+            elif current_chapter == 2 and current_verse in [19, 20] and "Bethlehem" in raw_text:
+                raw_text = "21. " + raw_text
+            elif current_chapter == 2 and current_verse in [21, 22] and "Anathoth" in raw_text:
+                raw_text = "23. " + raw_text
+            elif current_chapter == 2 and current_verse in [30, 31] and "Harem" in raw_text:
+                raw_text = "32. " + raw_text
+            elif current_chapter == 2 and current_verse in [59, 60] and "Habiad" in raw_text:
+                raw_text = "61. " + raw_text
+            elif current_chapter == 3 and current_verse in [0, 1] and "Levantóse pues" in raw_text:
+                raw_text = "2. " + raw_text
+            elif current_chapter == 3 and current_verse in [1, 2] and "asentaron el altar" in raw_text:
+                raw_text = "3. " + raw_text
+            elif current_chapter == 3 and current_verse in [2, 3] and "celebraron la solemnidad" in raw_text:
+                raw_text = "4. " + raw_text
+            elif current_chapter == 3 and current_verse in [3, 4] and "despues de esto" in raw_text:
+                raw_text = "5. " + raw_text
+            elif current_chapter == 3 and current_verse in [4, 5] and "primer dia" in raw_text:
+                raw_text = "6. " + raw_text
+            elif current_chapter == 3 and current_verse in [5, 6] and "Dieron tambien dinero" in raw_text:
+                raw_text = "7. " + raw_text
+            elif current_chapter == 10 and current_verse in [39, 40] and "Selemías" in raw_text:
+                raw_text = "41. " + raw_text
+
         # Fix 2CH OCR typos and verse prefix rules
         if book_id == "2CH":
             if current_chapter == 6 and current_verse in [9, 10] and "puse el Arca" in raw_text:
