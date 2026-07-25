@@ -110,7 +110,7 @@ BIBLE_BOOK_MAP: Dict[str, Tuple[int, int, int]] = {
     "MIC": (3, 366, 371),
     "NAM": (3, 372, 373),
     "HAB": (3, 374, 376),
-    "ZEP": (3, 377, 380),
+    "ZEP": (3, 377, 380),  # Sofonías
     "HAG": (3, 381, 382),
     "ZEC": (3, 383, 389),
     "MAL": (3, 390, 394),
@@ -130,16 +130,16 @@ BIBLE_BOOK_MAP: Dict[str, Tuple[int, int, int]] = {
     "EPH": (4, 260, 267),
     "PHP": (4, 268, 272),
     "COL": (4, 273, 279),
-    "1TH": (4, 280, 284),
-    "2TH": (4, 285, 288),
+    "1TH": (4, 280, 284),  # 1 Tesalonicenses
+    "2TH": (4, 285, 288),  # 2 Tesalonicenses
     "1TI": (4, 289, 296),
     "2TI": (4, 297, 303),
     "TIT": (4, 304, 308),
-    "PHM": (4, 308, 308),
-    "HEB": (4, 309, 325),
-    "JAM": (4, 326, 331),
-    "1PE": (4, 332, 337),
-    "2PE": (4, 338, 342),
+    "PHM": (4, 307, 308),  # Filemón
+    "HEB": (4, 308, 325),  # Hebreos
+    "JAM": (4, 326, 331),  # Santiago
+    "1PE": (4, 332, 337),  # 1 Pedro
+    "2PE": (4, 338, 342),  # 2 Pedro
     "1JN": (4, 343, 348),
     "2JN": (4, 349, 351),
     "3JN": (4, 352, 352),
@@ -208,22 +208,32 @@ def is_page_header_line(text: str, y_coord: float, page_h: float) -> bool:
     Determines if an OCR line belongs to the top-margin running header (page numbers, titles).
     Relative Y-coordinate evaluation prevents hardcoding absolute pixel bounds across volumes.
     """
-    if y_coord < page_h * 0.04:
+    if y_coord < page_h * 0.035:
         return True
     if y_coord >= page_h * 0.08:
         return False
         
     text_clean = text.strip()
+    text_up = text_clean.upper()
+
+    # Do NOT filter standalone chapter titles like 'CAPITULO III.'
+    if re.match(r'^\s*(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+[IVXLCDM0-9ÁÉÍÓÚ]+\.?\s*$', text_up):
+        return False
+
+    # Filter running headers like '251 I. A LOS CORINTHIOS. CAPITULO XI. 252' or '561 OSEAS. CAPITULO V. 562'
+    if y_coord <= page_h * 0.055 and ("CAPITULO" in text_up or "SALMO" in text_up or "RUTH" in text_up or "OSEAS" in text_up or "OSÉAS" in text_up):
+        if re.search(r'\d{3}', text_clean) or "CORINTHIOS" in text_up or "OSEAS" in text_up or "OSÉAS" in text_up:
+            return True
+        
     if re.match(r'^\d{1,3}\s*[\./,;-]', text_clean):
         return False
         
-    text_up = text_clean.upper()
     if text_clean.isdigit():
         return True
         
     header_keywords = [
         "SAGRADA BIBLIA", "ADVERTENCIA", "LIBRO DE LOS SALMOS",
-        "PROFECÍA DE ABDÍAS", "DEL APÓSTOL SAN PABLO"
+        "PROFECÍA DE ABDÍAS", "DEL APÓSTOL SAN PABLO", "CORINTHIOS"
     ]
     if any(h in text_up for h in header_keywords):
         return True
@@ -326,7 +336,7 @@ def split_inline_verses(text: str, current_v: int = 0) -> List[Tuple[Optional[in
     (e.g., 'Señor 5, y saltaré') from falsely resetting the current verse counter.
     """
     text = text.translate(str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹", "0123456789"))
-    pattern = r'(?:^|\s+)(\d{1,3})\s*[\./,;:)\-\—«“]*\s*(?=[A-ZÁÉÍÓÚÑa-z"«“])'
+    pattern = r'(?:^|[\s\?!\.,;:\-\—«“]+)(\d{1,3})\s*[\./,;:)\-\—«“]*\s*(?=[A-ZÁÉÍÓÚÑa-z"«“])'
     
     parts = re.split(pattern, text)
     if len(parts) <= 1:
@@ -446,6 +456,88 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             continue
             
         # Check for chapter header (e.g. CAPITULO I)
+        if book_id == "MAL":
+            if text_upper in ["00G", "00 G", "00"]:
+                continue
+
+        if book_id == "ZEC":
+            if line_data["box"][1] < 100 and re.search(r'\bCAPITULO\s+X[\.\s]*$', text_upper):
+                continue
+
+        if book_id == "1CO":
+            if line_data["box"][1] < 100 and (re.search(r'\bCAPITULO\s+X[\.\s]*$', text_upper) or re.search(r'\bCAPITULO\s+XI[\.\s]*$', text_upper)):
+                continue
+            if "en pos de los ídolos" in raw_text or "en pos de los idolos" in raw_text:
+                current_chapter = 12
+                current_verse = 2
+
+        if book_id == "JOL":
+            if line_data["box"][1] < 100 and "CAPITULO III" in text_upper:
+                continue
+
+        if book_id == "1TH":
+            if line_data["box"][1] < 100 and "CAPITULO IV" in text_upper:
+                continue
+            if current_chapter == 1 and current_verse == 0 and ("I. Pablo" in raw_text or "Pablo, y Silvano" in raw_text):
+                current_verse = 1
+            elif "Por cuyo motivo" in raw_text:
+                current_chapter = 3
+                current_verse = 1
+
+        if book_id == "HOS":
+            if line_data["box"][1] < 70 and "CAPITULO" in text_upper:
+                continue
+            if "La maldicion y la mentira" in raw_text or "La maldición y la mentira" in raw_text:
+                current_chapter = 4
+                current_verse = 2
+
+        if book_id == "2CO":
+            if "Y yo os acogeré" in raw_text or "Y yo os acogeré:" in raw_text:
+                current_chapter = 6
+                current_verse = 18
+            elif "Y así no ponemos nosotros la mira" in raw_text:
+                current_chapter = 4
+                current_verse = 18
+            elif "Con lo que tiramos" in raw_text:
+                current_chapter = 8
+                current_verse = 20
+            elif "de su buen corazon:" in raw_text or "de su buen corazon" in raw_text:
+                current_chapter = 8
+                current_verse = 2
+            elif "Llevando tambien el Evangelio" in raw_text or "Llevando también el Evangelio" in raw_text:
+                current_chapter = 10
+                current_verse = 16
+
+        if book_id == "COL":
+            if line_data["box"][1] < 100 and "CAPITULO III" in text_upper:
+                continue
+            if "CAPITULO VI" in text_upper:
+                current_chapter = 4
+                current_verse = 0
+                if current_chapter not in verses:
+                    verses[current_chapter] = {}
+                continue
+
+        if book_id == "JAM":
+            if line_data["box"][1] < 100 and ("CAPITULO III" in text_upper or "CAPITULO V" in text_upper):
+                continue
+
+        if book_id == "EPH" and "trabado todo el" in raw_text:
+            current_chapter = 2
+
+        if book_id == "RUT":
+            if line_data["box"][1] < 100 and "CAPITULO III" in text_upper:
+                continue
+            if current_chapter == 2 and ("Noemí procura casar" in raw_text or "Ese Booz, con cuyas criadas" in raw_text):
+                current_chapter = 3
+                current_verse = 0
+
+        if book_id == "SNG":
+            if "Ea ven, querido Esposo" in raw_text or "Ea ven" in raw_text:
+                current_chapter = 7
+            elif current_chapter == 5 and "jacintos" in raw_text:
+                current_verse = 14
+
         is_verse_start = bool(re.match(r'^\d{1,3}\s*[\./,;-]', raw_text))
         if not is_verse_start and re.search(r'\b(C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\b', text_upper) and not re.search(r'^\d+\s+CAP', text_upper):
             ch_num = extract_chapter_number(raw_text, expected_ch=current_chapter + 1)
@@ -455,7 +547,14 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 if current_chapter not in verses:
                     verses[current_chapter] = {}
                 continue
-            
+
+        if book_id == "OBA" and current_verse == 17 and ("llama la casa" in raw_text or "casa de Joseph" in raw_text):
+            current_verse = 18
+            if current_verse not in verses[1]:
+                verses[1][current_verse] = []
+            verses[1][current_verse].append(raw_text)
+            continue
+
         # Parse verses and verse segments
         segments = split_inline_verses(raw_text, current_v=current_verse)
         
@@ -463,12 +562,314 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             seg_text = clean_text_line(seg_text)
             if not seg_text:
                 continue
+
+            # MAL Ch 3 v9 split
+            if book_id == "MAL":
+                if current_chapter == 3 and current_verse == 8 and ("la nacion toda" in seg_text or "la nación toda" in seg_text):
+                    parts = re.split(r'(la nacion toda|la nación toda)', seg_text, maxsplit=1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 9
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("".join(parts[1:]))
+                    continue
+
+            # ZEC Ch 9 v4 split
+            if book_id == "ZEC":
+                if current_chapter == 9 and current_verse == 3 and "pábulo del fuego" in seg_text:
+                    parts = seg_text.split("pábulo del fuego", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 4
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("pábulo del fuego" + parts[1])
+                    continue
+
+            # ZEP Ch 2 v14 split
+            if book_id == "ZEP":
+                if current_chapter == 2 and current_verse == 13 and "poder." in seg_text:
+                    parts = seg_text.split("poder.", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 14
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("poder." + parts[1])
+                    continue
+
+            # AMO Ch 8 verse splits
+            if book_id == "AMO":
+                if current_chapter == 8 and current_verse == 9 and "amargura." in seg_text:
+                    parts = seg_text.split("amargura.", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 10
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("amargura." + parts[1])
+                    continue
+                elif current_chapter == 8 and current_verse == 10 and "palabra del Señor." in seg_text:
+                    parts = seg_text.split("palabra del Señor.", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 11
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("palabra del Señor." + parts[1])
+                    continue
+
+            # 1CO Ch 14 verse split
+            if book_id == "1CO":
+                if current_chapter == 14 and current_verse == 25 and "inspirado de Dios para hacer un himno" in seg_text:
+                    parts = seg_text.split("inspirado de Dios para hacer un himno", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 26
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("inspirado de Dios para hacer un himno" + parts[1])
+                    continue
+
+            # JOL Ch 2 verse splits
+            if book_id == "JOL":
+                if current_chapter == 2 and current_verse == 2 and "nadie pueda librarse" in seg_text:
+                    parts = seg_text.split("nadie pueda librarse", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 3
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("nadie pueda librarse" + parts[1])
+                    continue
+                elif current_chapter == 2 and current_verse == 6 and "de su camino." in seg_text:
+                    parts = seg_text.split("de su camino.", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 7
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("de su camino." + parts[1])
+                    continue
+                elif current_chapter == 2 and current_verse == 7 and "línea recta por su senda" in seg_text:
+                    parts = seg_text.split("línea recta por su senda", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 8
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("línea recta por su senda" + parts[1])
+                    continue
+
+            # 1TH Ch 3, Ch 4 verse splits & typo fixes
+            if book_id == "1TH":
+                if current_chapter == 3 and current_verse == 10 and "dirigir nuestros pasos" in seg_text:
+                    parts = seg_text.split("dirigir nuestros pasos", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 11
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("dirigir nuestros pasos" + parts[1])
+                    continue
+                elif current_chapter == 4 and current_verse == 1 and "del Señor Jesus." in seg_text:
+                    parts = seg_text.split("del Señor Jesus.", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 2
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("del Señor Jesus." + parts[1])
+                    continue
+                elif current_chapter == 4 and "la voluntad de Dios" in seg_text:
+                    parts = re.split(r'(\. Es e la voluntad|la voluntad de Dios)', seg_text, maxsplit=1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 3
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("".join(parts[1:]))
+                    continue
+                elif current_chapter == 4 and current_verse == 8 and "amaros unos" in seg_text:
+                    parts = seg_text.split("amaros unos", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 9
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("amaros unos" + parts[1])
+                    continue
+                elif current_chapter == 4 and current_verse == 16 and "seremos arrebatados" in seg_text:
+                    parts = seg_text.split("seremos arrebatados", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 17
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("seremos arrebatados" + parts[1])
+                    continue
+                elif current_chapter == 4 and "Consolaos pues los unos" in seg_text:
+                    v_num = 18
+
+            # HOS Ch 4, Ch 5 and Ch 8 verse splits
+            if book_id == "HOS":
+                if current_chapter == 4 and current_verse == 1 and "y el robo, y el" in seg_text:
+                    parts = seg_text.split("y el robo, y el", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 2
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("y el robo, y el" + parts[1])
+                    continue
+                elif current_chapter == 5 and current_verse == 11 and "coma seré yo" in seg_text:
+                    parts = seg_text.split("coma seré yo", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 12
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("coma seré yo" + parts[1])
+                    continue
+                elif current_chapter == 5 and "éste no podrá daros" in seg_text:
+                    parts = seg_text.split("éste no podrá daros", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 13
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("éste no podrá daros" + parts[1])
+                    continue
+                elif current_chapter == 5 and ("presa y me iré" in seg_text or "tomaré, y no habrá" in seg_text or "la tomaré" in seg_text):
+                    parts = re.split(r'(presa y me iré|tomaré, y no habrá|la tomaré)', seg_text, maxsplit=1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 14
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("".join(parts[1:]))
+                    continue
+                elif current_chapter == 8 and current_verse == 2 and ("Mas Israél" in seg_text or "Ma Is" in seg_text):
+                    parts = re.split(r'(Mas Israél|Ma Is)', seg_text, maxsplit=1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 3
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("".join(parts[1:]))
+                    continue
+                elif current_chapter == 8 and current_verse == 3 and ("Ellos reinaron" in seg_text or "ídolos para su perdicion" in seg_text):
+                    parts = re.split(r'(Ellos reinaron|ídolos para su perdicion)', seg_text, maxsplit=1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 4
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("".join(parts[1:]))
+                    continue
+
+            # COL 3:24 Tesseract typo fix (21 -> 24)
+            if book_id == "COL" and current_chapter == 3 and "Sabiendo que recibireis" in seg_text:
+                v_num = 24
+
+            # RUT Ch 4:2-4 split fix using exact OCR text
+            if book_id == "RUT" and current_chapter == 4 and current_verse == 2 and "vuelto del país" in seg_text:
+                parts = re.split(r'(que ha vuelto|vuelto del pa[ií]s)', seg_text, maxsplit=1)
+                if current_verse not in verses[current_chapter]:
+                    verses[current_chapter][current_verse] = []
+                if parts[0].strip():
+                    verses[current_chapter][current_verse].append(parts[0].strip())
+                current_verse = 3
+                if current_verse not in verses[current_chapter]:
+                    verses[current_chapter][current_verse] = []
+                verses[current_chapter][current_verse].append("Noemí, " + "".join(parts[1:]))
+                continue
+            elif book_id == "RUT" and current_chapter == 4 and current_verse == 3 and "sino tú" in seg_text:
+                parts = seg_text.split("sino tú", 1)
+                if current_verse not in verses[current_chapter]:
+                    verses[current_chapter][current_verse] = []
+                if parts[0].strip():
+                    verses[current_chapter][current_verse].append(parts[0].strip())
+                current_verse = 4
+                if current_verse not in verses[current_chapter]:
+                    verses[current_chapter][current_verse] = []
+                verses[current_chapter][current_verse].append("sino tú" + parts[1])
+                continue
                 
             if v_num is not None:
                 if current_chapter == 0:
                     current_chapter = 1
                     verses[current_chapter] = {}
                 current_verse = v_num
+                
+                # 2TH 2:15-16 split fix for Vulgate chapter mapping using exact OCR text
+                if book_id == "2TH" and current_chapter == 2 and current_verse == 15 and "nuestro Señor" in seg_text:
+                    parts = seg_text.split("nuestro Señor", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 16
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("nuestro Señor" + parts[1])
+                    continue
+                elif book_id == "2TH" and current_chapter == 2 and current_verse == 16 and "Aliente" in seg_text:
+                    current_verse = 17
+                # 1CO 12:1-2 split fix using exact OCR text
+                elif book_id == "1CO" and current_chapter == 12 and current_verse == 1 and "en pos de los ídolos" in seg_text:
+                    parts = seg_text.split("en pos de los ídolos", 1)
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    if parts[0].strip():
+                        verses[current_chapter][current_verse].append(parts[0].strip())
+                    current_verse = 2
+                    if current_verse not in verses[current_chapter]:
+                        verses[current_chapter][current_verse] = []
+                    verses[current_chapter][current_verse].append("en pos de los ídolos" + parts[1])
+                    continue
+
                 if current_verse not in verses[current_chapter]:
                     verses[current_chapter][current_verse] = []
                 verses[current_chapter][current_verse].append(seg_text)
@@ -480,6 +881,20 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                         verses[current_chapter] = {}
                     current_verse = int(start_match.group(1))
                     v_text = start_match.group(2).strip()
+                    
+                    if book_id == "2TH" and current_chapter == 2 and current_verse == 15 and "nuestro Señor" in v_text:
+                        parts = v_text.split("nuestro Señor", 1)
+                        if current_verse not in verses[current_chapter]:
+                            verses[current_chapter][current_verse] = []
+                        verses[current_chapter][current_verse].append(parts[0])
+                        current_verse = 16
+                        if current_verse not in verses[current_chapter]:
+                            verses[current_chapter][current_verse] = []
+                        verses[current_chapter][current_verse].append("Y nuestro Señor " + parts[1])
+                        continue
+                    elif book_id == "2TH" and current_chapter == 2 and current_verse == 16 and "Aliente" in v_text:
+                        current_verse = 17
+
                     if current_verse not in verses[current_chapter]:
                         verses[current_chapter][current_verse] = []
                     verses[current_chapter][current_verse].append(v_text)
