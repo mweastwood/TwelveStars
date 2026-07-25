@@ -455,6 +455,18 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix EST OCR typos and top header guards
+        if book_id == "EST":
+            if line_data["box"][1] < 100 and re.search(r'\bCAPITULO\s+(III|V|VII|IX|X|XIII|XV|XVI)[\.\s]*$', text_upper):
+                continue
+            if current_chapter >= 8 and "CAPITULO IV" in text_upper:
+                raw_text = raw_text.replace("CAPITULO IV", "CAPITULO IX").replace("Capitulo IV", "Capitulo IX")
+                text_upper = raw_text.upper()
+            elif current_chapter == 14 and raw_text.startswith("I. Asimismo"):
+                raw_text = raw_text.replace("I.", "1.")
+            elif current_chapter == 1 and raw_text.startswith("15.'"):
+                raw_text = raw_text.replace("15.'", "15.")
+
         # Fix JDG OCR typos
         if book_id == "JDG":
             if current_chapter == 3 and raw_text.startswith("a0. Quedó"):
@@ -1157,7 +1169,7 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                     verses[current_chapter][current_verse] = []
                 verses[current_chapter][current_verse].append(seg_text)
             else:
-                start_match = re.match(r'^(?:[A-Z]{1,8}[\.:\s]*)?(\d{1,3})\s*[\./,;-]*\s*(.*)', seg_text, re.IGNORECASE) if book_id == "LAM" else re.match(r'^(\d{1,3})\s*[\./,;-]*\s+(.*)', seg_text)
+                start_match = re.match(r'^(?:[A-Z]{1,8}[\.:\s]*)?(\d{1,3})\s*[\./,;-]*\s*(.*)', seg_text, re.IGNORECASE) if book_id == "LAM" else re.match(r'^(\d{1,3})\s*[\./,;-]*\s*(.*)', seg_text)
                 if start_match and start_match.group(1):
                     if current_chapter == 0:
                         current_chapter = 1
@@ -1207,6 +1219,8 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 continue
             v_text = " ".join(verses[ch][v])
             v_text = clean_scripture_verse_text(v_text)
+            if book_id == "EST" and ch == 9:
+                v_text = v_text.replace("Pharsandatha", "Farsandata").replace("Delphon", "Delfon").replace("Esphatha", "Esfata").replace("Phoratha", "Forata").replace("Permesta", "Fermesta").replace("Phermesta", "Fermesta")
             usfm_lines.append(f"\\v {v} {v_text}")
             
     with open(output_path, "w", encoding="utf-8") as f_out:
