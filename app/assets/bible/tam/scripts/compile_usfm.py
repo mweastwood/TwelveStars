@@ -211,8 +211,8 @@ def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float
     text_clean = text.strip()
     text_up = text_clean.upper()
 
-    # Filter top-right running headers like 'CAPITULO XLIV.' or 'CAPITULO VII.' in top margins across volumes
-    if y_coord <= page_h * 0.12 and x_coord > 500 and "CAPITULO" in text_up and text_clean.endswith("."):
+    # Filter top-right running headers like 'CAPITULO XLIV.', 'SALMO XXIII.' or 'PSALMO VII.' in top margins across volumes
+    if y_coord <= page_h * 0.12 and x_coord > 500 and re.search(r'\b(C[ÁA]P[IÍLl1]TULO|[PŚS]ALMO)\b', text_up) and text_clean.endswith("."):
         if not re.match(r'^\s*(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+(?:II|LII)\.?\s*$', text_up):
             return True
 
@@ -428,7 +428,7 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
         
         scripture_lines = []
         for line in raw_lines:
-            if has_body_cap and line["box"][1] < 100 and re.search(r'\bC[ÁA]P[IÍLl1\s]*TULO\b', line["text"].upper()):
+            if has_body_cap and line["box"][1] < 60 and re.search(r'\bC[ÁA]P[IÍLl1\s]*TULO\b', line["text"].upper()):
                 continue
             if not is_page_header_line(line["text"], line["box"][1], page_h, line["box"][0], volume):
                 if not is_footnote_line(line["text"], line["box"][1], page_h) and not is_latin_line(line["text"]):
@@ -465,6 +465,35 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix PRO OCR typos and verse prefix rules
+        if book_id == "PRO":
+            if current_chapter == 9 and current_verse in [9, 10] and "multiplicarán" in raw_text:
+                raw_text = "11. " + raw_text
+            elif current_chapter == 9 and current_verse in [10, 11] and "Si fueres" in raw_text:
+                raw_text = "12. " + raw_text
+            elif current_chapter == 9 and current_verse in [11, 12] and "mujer fátua" in raw_text:
+                raw_text = "13. " + raw_text
+            elif current_chapter == 9 and current_verse in [12, 13] and "sentóse" in raw_text:
+                raw_text = "14. " + raw_text
+            elif current_chapter == 9 and current_verse in [13, 14] and "llamar á los" in raw_text:
+                raw_text = "15. " + raw_text
+            elif current_chapter == 9 and current_verse in [14, 15] and "insipiente" in raw_text:
+                raw_text = "16. " + raw_text
+            elif current_chapter == 10 and current_verse in [28, 29] and "removido" in raw_text:
+                raw_text = "30. " + raw_text
+            elif current_chapter == 11 and current_verse in [16, 17] and "impío hace" in raw_text:
+                raw_text = "18. " + raw_text
+            elif current_chapter == 11 and current_verse in [19, 20] and "Mano á mano" in raw_text:
+                raw_text = "21. " + raw_text
+            elif current_chapter == 20 and current_verse in [5, 6] and "camina" in raw_text:
+                raw_text = "7. " + raw_text
+            elif current_chapter == 22 and current_verse in [11, 12] and "leon" in raw_text:
+                raw_text = "13. " + raw_text
+            elif current_chapter == 30 and current_verse in [2, 3] and "subió al cielo" in raw_text:
+                raw_text = "4. " + raw_text
+            elif current_chapter == 30 and current_verse in [3, 4] and "Toda palabra" in raw_text:
+                raw_text = "5. " + raw_text
+
         # Fix JOB OCR typos and verse prefix rules
         if book_id == "JOB":
             if current_chapter == 1 and current_verse in [9, 10] and "exed" in raw_text:
