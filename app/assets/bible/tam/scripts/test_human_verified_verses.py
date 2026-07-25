@@ -8,6 +8,27 @@ sys.path.append(scripts_dir)
 
 from compare_cpdv import parse_usfm_verses
 
+# Data-driven list of human-verified verses to protect against regressions:
+# Format: (book_id, chapter, verse, expected_text)
+HUMAN_VERIFIED_VERSES = [
+    (
+        "DEU",
+        14,
+        7,
+        "Mas no debeis comer de los que rumian y no tienen la uña hendida, "
+        "como el camello, la liebre, el querogrilo: á estos los tendreis por inmundos, "
+        "porque aunque rumian, no tienen hendida la uña:"
+    ),
+    (
+        "DEU",
+        14,
+        21,
+        "Pero de carne mortecina no comais nada: la darás al extranjero que se halla "
+        "dentro de tus muros para que la coma, ó se la venderás: por cuanto tú eres un pueblo "
+        "consagrado al Señor Dios tuyo. No cocerás el cabrito en la leche de su madre."
+    ),
+]
+
 class TestHumanVerifiedVerses(unittest.TestCase):
     """
     Unit tests to verify human-verified USFM verse text accuracy
@@ -18,36 +39,24 @@ class TestHumanVerifiedVerses(unittest.TestCase):
     def setUpClass(cls):
         cls.ocr_dir = os.path.join(os.path.dirname(scripts_dir), "ocr")
         cls.assertTrue(os.path.exists(cls.ocr_dir), f"OCR directory not found at {cls.ocr_dir}")
+        cls.loaded_books = {}
 
     def _get_verses_for_book(self, book_id: str):
-        files = [f for f in os.listdir(self.ocr_dir) if f"-{book_id}-" in f]
-        self.assertTrue(len(files) > 0, f"No USFM file found for book {book_id}")
-        usfm_path = os.path.join(self.ocr_dir, files[0])
-        return parse_usfm_verses(usfm_path)
+        if book_id not in self.loaded_books:
+            files = [f for f in os.listdir(self.ocr_dir) if f"-{book_id}-" in f]
+            self.assertTrue(len(files) > 0, f"No USFM file found for book {book_id}")
+            usfm_path = os.path.join(self.ocr_dir, files[0])
+            self.loaded_books[book_id] = parse_usfm_verses(usfm_path)
+        return self.loaded_books[book_id]
 
-    def test_deuteronomy_14_7(self):
-        """Verifies Deuteronomy 14:7 text is clean, un-truncated, and without attached verse tails."""
-        verses = self._get_verses_for_book("DEU")
-        expected = (
-            "Mas no debeis comer de los que rumian y no tienen la uña hendida, "
-            "como el camello, la liebre, el querogrilo: á estos los tendreis por inmundos, "
-            "porque aunque rumian, no tienen hendida la uña:"
-        )
-        self.assertIn(14, verses, "Chapter 14 missing from Deuteronomy USFM")
-        self.assertIn(7, verses[14], "Verse 7 missing from Deuteronomy Chapter 14")
-        self.assertEqual(verses[14][7], expected)
-
-    def test_deuteronomy_14_21(self):
-        """Verifies Deuteronomy 14:21 text is complete, de-hyphenated ('consagrado'), and restored."""
-        verses = self._get_verses_for_book("DEU")
-        expected = (
-            "Pero de carne mortecina no comais nada: la darás al extranjero que se halla "
-            "dentro de tus muros para que la coma, ó se la venderás: por cuanto tú eres un pueblo "
-            "consagrado al Señor Dios tuyo. No cocerás el cabrito en la leche de su madre."
-        )
-        self.assertIn(14, verses, "Chapter 14 missing from Deuteronomy USFM")
-        self.assertIn(21, verses[14], "Verse 21 missing from Deuteronomy Chapter 14")
-        self.assertEqual(verses[14][21], expected)
+    def test_human_verified_verses(self):
+        """Iterates through all human-verified (book, chapter, verse) expected text test cases."""
+        for book_id, ch, v, expected in HUMAN_VERIFIED_VERSES:
+            with self.subTest(book=book_id, chapter=ch, verse=v):
+                verses = self._get_verses_for_book(book_id)
+                self.assertIn(ch, verses, f"Chapter {ch} missing from {book_id} USFM")
+                self.assertIn(v, verses[ch], f"Verse {v} missing from {book_id} Chapter {ch}")
+                self.assertEqual(verses[ch][v], expected, f"Verse text mismatch for {book_id} {ch}:{v}")
 
 if __name__ == "__main__":
     unittest.main()
