@@ -53,7 +53,7 @@ BIBLE_BOOK_MAP = {
     "PSA": (3, 11, 76), "PRO": (3, 77, 96), "ECC": (3, 97, 105), "SNG": (3, 106, 111),
     "WIS": (3, 112, 125), "SIR": (3, 126, 167), "ISA": (3, 168, 217), "JER": (3, 218, 270),
     "LAM": (3, 271, 275), "BAR": (3, 276, 283), "EZK": (3, 284, 325), "DAN": (3, 326, 345),
-    "HOS": (3, 346, 352), "JOL": (3, 353, 357), "AMO": (3, 358, 363), "OBA": (3, 364, 365),
+    "HOS": (3, 346, 352), "JOL": (3, 353, 357), "AMO": (3, 358, 363), "OBA": (3, 363, 363),
     "JON": (3, 364, 365), "MIC": (3, 366, 371), "NAM": (3, 372, 373), "HAB": (3, 374, 376),
     "ZEP": (3, 377, 380), "HAG": (3, 381, 382), "ZEC": (3, 383, 389), "MAL": (3, 390, 394),
     "1MA": (3, 395, 421), "2MA": (3, 422, 440),
@@ -62,7 +62,7 @@ BIBLE_BOOK_MAP = {
     "ACT": (4, 140, 184), "ROM": (4, 185, 210), "1CO": (4, 211, 232), "2CO": (4, 233, 248),
     "GAL": (4, 249, 259), "EPH": (4, 260, 267), "PHP": (4, 268, 272), "COL": (4, 273, 279),
     "1TH": (4, 280, 284), "2TH": (4, 285, 288), "1TI": (4, 289, 296), "2TI": (4, 297, 303),
-    "TIT": (4, 304, 308), "PHM": (4, 309, 309), "HEB": (4, 310, 325), "JAM": (4, 326, 331),
+    "TIT": (4, 304, 308), "PHM": (4, 308, 308), "HEB": (4, 309, 325), "JAM": (4, 326, 331),
     "1PE": (4, 332, 337), "2PE": (4, 338, 342), "1JN": (4, 343, 348), "2JN": (4, 349, 351),
     "3JN": (4, 352, 352), "JUD": (4, 353, 356), "REV": (4, 357, 377)
 }
@@ -83,34 +83,32 @@ ROMAN_NUMERALS = {
     "CXXI": 121, "CXXII": 122, "CXXIII": 123, "CXXIV": 124, "CXXV": 125, "CXXVI": 126, "CXXVII": 127, "CXXVIII": 128, "CXXIX": 129, "CXXX": 130,
     "CXXXI": 131, "CXXXII": 132, "CXXXIII": 133, "CXXXIV": 134, "CXXXV": 135, "CXXXVI": 136, "CXXXVII": 137, "CXXXVIII": 138, "CXXXIX": 139, "CXL": 140,
     "CXLI": 141, "CXLII": 142, "CXLIII": 143, "CXLIV": 144, "CXLV": 145, "CXLVI": 146, "CXLVII": 147, "CXLVIII": 148, "CXLIX": 149, "CL": 150,
-    "PRIMERO": 1, "SEGUNDO": 2, "TERCERO": 3, "CUARTO": 4, "QUINTO": 5, "SEXTO": 6, "SEPTIMO": 7, "SÉPTIMO": 7, "OCTAVO": 8, "NOVENO": 9, "DECIMO": 10, "DÉCIMO": 10
+    "PRIMERO": 1, "SEGUNDO": 2, "TERCERO": 3, "CUARTO": 4, "QUINTO": 5, "SEXTO": 6, "SEPTIMO": 7, "SÉPTIMO": 7, "OCTAVO": 8, "NOVENO": 9, "DECIMO": 10, "DÉCIMO": 10,
+    "UNICO": 1, "ÚNICO": 1
 }
 
-def is_page_header_line(text, y_coord):
-    if y_coord >= 70:
+def is_page_header_line(text, y_coord, page_h):
+    if y_coord < page_h * 0.04:
+        return True
+    if y_coord >= page_h * 0.08:
         return False
     text_clean = text.strip()
-    # 1. Verse lines are NEVER page headers
     if re.match(r'^\d{1,3}\s*[\./,;-]', text_clean):
         return False
     text_up = text_clean.upper()
-    # 2. Pure page numbers
     if text_clean.isdigit():
         return True
-    # 3. Explicit bible header titles
-    if any(h in text_up for h in ["SAGRADA BIBLIA", "ADVERTENCIA", "LIBRO DE LOS SALMOS"]):
+    if any(h in text_up for h in ["SAGRADA BIBLIA", "ADVERTENCIA", "LIBRO DE LOS SALMOS", "PROFECÍA DE ABDÍAS", "DEL APÓSTOL SAN PABLO"]):
         return True
-    # 4. Running top page headers (e.g. "19 GENESIS. CAPITULO XV. 20")
     if re.search(r'^\d+\s+[A-ZÁÉÍÓÚÑ\s\.\-]+\d*$', text_up) or re.search(r'^\d*\s+[A-ZÁÉÍÓÚÑ\s\.\-]+\s+\d+$', text_up):
         return True
     return False
 
-def is_footnote_line(text, y_coord):
+def is_footnote_line(text, y_coord, page_h):
     text_up = text.upper()
-    # Chapter headers are NEVER footnotes, even if located near bottom of page!
     if re.search(r'\b(C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\b', text_up):
         return False
-    if y_coord >= 1140:
+    if y_coord >= page_h * 0.95:
         return True
     return False
 
@@ -130,14 +128,29 @@ def is_latin_line(text):
 def clean_text_line(text):
     return " ".join(text.strip().split())
 
-def extract_chapter_number(text):
+def extract_chapter_number(text, expected_ch=None):
     text_clean = re.sub(r'[^\w\s]', ' ', text.upper())
-    tokens = text_clean.split()
-    for tok in tokens:
+    match = re.search(r'\b(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+([A-Z0-9ÁÉÍÓÚ]+)', text_clean)
+    if match:
+        tok = match.group(1)
+        val = None
         if tok in ROMAN_NUMERALS:
-            return ROMAN_NUMERALS[tok]
-        if re.match(r'^\d+$', tok):
-            return int(tok)
+            val = ROMAN_NUMERALS[tok]
+        elif tok.isdigit():
+            val = int(tok)
+            
+        if expected_ch is not None:
+            if val == expected_ch:
+                return val
+            if val == 4 and expected_ch == 9:
+                return 9
+            if val == 6 and expected_ch == 11:
+                return 11
+            if val == 7 and expected_ch == 12:
+                return 12
+            if val is not None and abs(val - expected_ch) > 3 and expected_ch > 0:
+                return expected_ch
+        return val
     return None
 
 def parse_args():
@@ -190,23 +203,34 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
         with open(json_path, "r", encoding="utf-8") as f_json:
             data = json.load(f_json)
             
-        page_lines = data.get("lines", [])
+        raw_lines = data.get("lines", [])
+        if not raw_lines:
+            continue
+        page_h = max(l['box'][3] for l in raw_lines)
         
-        # Filter page headers, footnotes, and Latin Vulgate parallel notes (40 <= Y < 1140)
         scripture_lines = [
-            l for l in page_lines
-            if 40 <= l['box'][1] < 1140 and not is_page_header_line(l['text'], l['box'][1]) and not is_footnote_line(l['text'], l['box'][1]) and not is_latin_line(l['text'])
+            l for l in raw_lines
+            if not is_page_header_line(l['text'], l['box'][1], page_h) and not is_footnote_line(l['text'], l['box'][1], page_h) and not is_latin_line(l['text'])
         ]
+        if not scripture_lines:
+            continue
+            
+        min_x = min(l['box'][0] for l in scripture_lines)
+        max_x = max(l['box'][2] for l in scripture_lines)
+        mid_x = (min_x + max_x) / 2
         
-        # Split columns: Left (X < 400), Right (X >= 400)
-        left_column = [l for l in scripture_lines if l['box'][0] < 400]
-        right_column = [l for l in scripture_lines if l['box'][0] >= 400]
+        left_column = [l for l in scripture_lines if l['box'][0] < mid_x]
+        right_column = [l for l in scripture_lines if l['box'][0] >= mid_x]
         
-        # Sort each column vertically by Y
         left_column.sort(key=lambda l: l['box'][1])
         right_column.sort(key=lambda l: l['box'][1])
         
-        all_lines.extend(left_column + right_column)
+        if len(right_column) < 3:
+            page_sorted = scripture_lines[:]
+            page_sorted.sort(key=lambda l: l['box'][1])
+            all_lines.extend(page_sorted)
+        else:
+            all_lines.extend(left_column + right_column)
         
     verses = {}
     current_chapter = 0
@@ -219,10 +243,9 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
             
         text_upper = raw_text.upper()
         
-        # Detect chapter headers (e.g., "CAPITULO II", "CAPÍTULO PRIMERO", "SALMO XXIII", "ŚALMO LXXII")
         is_verse_start = bool(re.match(r'^\d{1,3}\s*[\./,;-]', raw_text))
         if not is_verse_start and re.search(r'\b(C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\b', text_upper) and not re.search(r'^\d+\s+CAP', text_upper):
-            ch_num = extract_chapter_number(raw_text)
+            ch_num = extract_chapter_number(raw_text, expected_ch=current_chapter + 1)
             if ch_num is not None:
                 current_chapter = ch_num
             else:
@@ -232,7 +255,6 @@ def compile_book(book_id, volume, start_page, end_page, ocr_raw_dir, output_dir)
                 verses[current_chapter] = {}
             continue
             
-        # Parse inline verse structures
         segments = split_inline_verses(raw_text)
         
         for v_num, seg_text in segments:
