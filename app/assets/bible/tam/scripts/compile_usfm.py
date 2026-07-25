@@ -188,6 +188,8 @@ def clean_text_line(text: str) -> str:
 
 
 def clean_scripture_verse_text(text: str) -> str:
+    text = re.sub(r"\s+[a-z0-9]\s*:", ":", text)
+    text = text.replace(" de de ", " de ")
     """
     Cleans inline cross-reference citations and trailing footnote callout numbers
     from compiled scripture text lines (e.g. 'Jerem. IV, v. 13' or trailing ' 7.').
@@ -231,7 +233,7 @@ def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float
 
     # Do NOT filter standalone chapter titles like 'CAPITULO III.'
     if re.match(r'^\s*(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+[IVXLCDM0-9ÁÉÍÓÚ]+\.?\s*$', text_up):
-        if y_coord < 80:
+        if y_coord < 85 and x_coord > 500:
             return True
         return False
 
@@ -284,11 +286,17 @@ def is_footnote_line(text: str, y_coord: float, page_h: float) -> bool:
         
     if y_coord >= page_h * 0.70:
         commentary_pattern = r'\b(?:Véase|Vulgata|Hebreo|Expositores|San Gerónimo|San Agustín|Crisóstomo|Setenta)\b'
-        if (re.match(r'^(?:\d{1,2}|[a-z]|\*|†|‡)\s+[A-ZÁÉÍÓÚa-z]', text_clean) and "tiranizar vuestras conciencias" not in text_clean) or re.search(commentary_pattern, text_clean, re.IGNORECASE):
+        first_w = text_clean.split()[0].lower() if text_clean.split() else ""
+        is_conj = first_w in ("y", "ó", "á", "e", "u", "o", "a")
+        if (not is_conj and re.match(r'^(?:\d{1,2}|[a-z]|\*|†|‡)\s+[A-ZÁÉÍÓÚa-z]', text_clean) and "tiranizar vuestras conciencias" not in text_clean) or re.search(commentary_pattern, text_clean, re.IGNORECASE):
             return True
             
     if y_coord >= page_h * 0.95:
-        return True
+        first_w = text_clean.split()[0].lower() if text_clean.split() else ""
+        is_conj = first_w in ("y", "ó", "á", "e", "u", "o", "a")
+        if re.search(r"\b(?:Véase|Vulgata|Hebreo|Expositores|San Gerónimo|San Agustín|Crisóstomo|Setenta)\b", text_clean, re.IGNORECASE) or (not is_conj and re.match(r"^(?:\d{1,2}|[a-z]|\*|†|‡)\s+[A-ZÁÉÍÓÚa-z]", text_clean)):
+            return True
+        return False
         
     return False
 
@@ -387,10 +395,32 @@ def split_inline_verses(text: str, current_v: int = 0) -> List[Tuple[Optional[in
     return segments
 
 
+def _sort_column_lines(col_lines: List[dict]) -> List[dict]:
+    if not col_lines:
+        return []
+    col_lines = sorted(col_lines, key=lambda l: l['box'][1])
+    bands = []
+    for line in col_lines:
+        y = line['box'][1]
+        placed = False
+        for band in bands:
+            if abs(band[0]['box'][1] - y) <= 12:
+                band.append(line)
+                placed = True
+                break
+        if not placed:
+            bands.append([line])
+    sorted_lines = []
+    for band in bands:
+        sorted_lines.extend(sorted(band, key=lambda l: l['box'][0]))
+    return sorted_lines
+
+
 def sort_page_columns(scripture_lines: List[dict]) -> List[dict]:
     """
     Calculates per-page dynamic column midpoints and sorts lines sequentially
-    (left column top-to-bottom, followed by right column top-to-bottom).
+    (left column top-to-bottom, followed by right column top-to-bottom),
+    grouping inline OCR fragments on the same line band left-to-right.
     """
     min_x = min(l['box'][0] for l in scripture_lines)
     max_x = max(l['box'][2] for l in scripture_lines)
@@ -399,15 +429,13 @@ def sort_page_columns(scripture_lines: List[dict]) -> List[dict]:
     left_column = [l for l in scripture_lines if l['box'][0] < mid_x]
     right_column = [l for l in scripture_lines if l['box'][0] >= mid_x]
     
-    left_column.sort(key=lambda l: l['box'][1])
-    right_column.sort(key=lambda l: l['box'][1])
+    left_sorted = _sort_column_lines(left_column)
+    right_sorted = _sort_column_lines(right_column)
     
     if len(right_column) < 3:
-        page_sorted = scripture_lines[:]
-        page_sorted.sort(key=lambda l: l['box'][1])
-        return page_sorted
+        return _sort_column_lines(scripture_lines)
     else:
-        return left_column + right_column
+        return left_sorted + right_sorted
 
 # ==============================================================================
 # CORE COMPILER LOGIC
@@ -1542,6 +1570,7 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 continue
             v_text = " ".join(verses[ch][v])
             v_text = re.sub(r"([a-zA-ZÁÉÍÓÚÑáéíóúñ]+)-\s+([a-zA-ZÁÉÍÓÚÑáéíóúñ]+)", r"\1\2", v_text)
+            v_text = v_text.replace(" \x27\xba", "").replace(" \xb0", "").replace(" \x27", "")
             v_text = clean_scripture_verse_text(v_text)
             if book_id == "EST" and ch == 9:
                 v_text = v_text.replace("Pharsandatha", "Farsandata").replace("Delphon", "Delfon").replace("Esphatha", "Esfata").replace("Phoratha", "Forata").replace("Permesta", "Fermesta").replace("Phermesta", "Fermesta")
