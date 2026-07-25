@@ -468,6 +468,27 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix MAT OCR typos and verse prefix rules
+        if book_id == "MAT":
+            if current_chapter == 6 and current_verse in [33, 34] and "dia de mañana" in raw_text:
+                raw_text = "35. " + raw_text
+            elif current_chapter == 7 and current_verse in [20, 21] and "Muchos me dirán" in raw_text:
+                raw_text = "22. " + raw_text
+            elif current_chapter == 17 and current_verse in [18, 19] and "vuestra poca fé" in raw_text:
+                raw_text = "20. " + raw_text
+            elif current_chapter == 21 and current_verse in [23, 24] and "bautismo de Juan" in raw_text:
+                raw_text = "25. " + raw_text
+            elif current_chapter == 21 and current_verse in [24, 25] and "De los hombres" in raw_text:
+                raw_text = "26. " + raw_text
+            elif current_chapter == 26 and current_verse in [47, 48] and "acercándose á Jesus" in raw_text:
+                raw_text = "49. " + raw_text
+            elif current_chapter == 26 and current_verse in [49, 50] and "uno de los que estaban" in raw_text:
+                raw_text = "51. " + raw_text
+            elif current_chapter == 26 and current_verse in [50, 51] and "Vuelve tu espada" in raw_text:
+                raw_text = "52. " + raw_text
+            elif current_chapter == 27 and current_verse in [27, 28] and "corona de espinas" in raw_text:
+                raw_text = "29. " + raw_text
+
         # Fix ECC OCR typos and verse prefix rules
         if book_id == "ECC":
             if current_chapter == 1 and current_verse in [12, 13] and "cuantas pasan" in raw_text:
