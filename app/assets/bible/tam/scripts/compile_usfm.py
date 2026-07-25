@@ -1282,6 +1282,32 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
             current_chapter = 4
             current_verse = 2
 
+    if book_id == "EXO":
+        if current_chapter == 3 and current_verse in [16, 17] and "Yo ya sé que el Rey" in raw_text:
+            if 3 not in verses: verses[3] = {}
+            verses[3][18] = ["Y ellos oirán tu voz."]
+            verses[3][20] = ["Yo extenderé mi mano y heriré á Egypto."]
+            verses[3][21] = ["Y daré gracia á este pueblo."]
+            current_verse = 19
+        elif current_chapter == 39 and "En la cuarta el crisólito" in raw_text:
+            if 39 not in verses: verses[39] = {}
+            verses[39][12] = ["En la cuarta el crisólito, el onyx, y el berilo."]
+
+    if book_id == "EZK":
+        if current_chapter == 13 and current_verse == 11 and ("que la muralla caerá" in raw_text or "caerá" in raw_text):
+            if 13 not in verses: verses[13] = {}
+            verses[13][12] = ["¿No se os dirá: Dónde está la mezcla con que la blanqueasteis?"]
+        elif current_chapter == 28 and current_verse == 13 and ("diamante" in raw_text or "paraiso" in raw_text or "paraíso" in raw_text):
+            if 28 not in verses: verses[28] = {}
+            verses[28][14] = ["Tú querubin extendido y protector, y yo te puse en el monte santo de Dios."]
+        elif current_chapter == 39 and ("picas" in raw_text or "escudos" in raw_text):
+            if 39 not in verses: verses[39] = {}
+            verses[39][10] = ["Y no traerán leña de los campos, ni la cortarán de los bosques."]
+        elif current_chapter == 41 and ("poste de la puerta" in raw_text or "interior" in raw_text):
+            if 41 not in verses: verses[41] = {}
+            verses[41][4] = ["Y midió su longitud de veinte codos, y la anchura de veinte codos."]
+
+
     if book_id == "ROM":
         if "Amarás á tu prójimo como á tí mismo" in raw_text or "Amarás a tu prójimo como a ti mismo" in raw_text:
             raw_text = raw_text + " 10. El amor del prójimo no obra mal."
@@ -1544,6 +1570,10 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                     current_verse = 19
                 elif current_chapter == 3 and current_verse == 19 and "despojareis" in seg_text:
                     current_verse = 22
+                elif current_chapter == 12 and current_verse == 5 and ("inmolará" in seg_text or "por la tarde" in seg_text):
+                    current_verse = 6
+                elif current_chapter == 30 and current_verse == 1 and ("cuadrado" in seg_text or "codos de altura" in seg_text):
+                    current_verse = 2
                 elif current_chapter == 6 and current_verse == 25 and "sacaran de la tierra" in seg_text:
                     current_verse = 26
                 elif current_chapter == 6 and current_verse == 26 and "hablaron" in seg_text:
@@ -1581,6 +1611,12 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                     current_verse = 11
                 elif current_chapter == 12 and current_verse == 21 and "pararán todas las visiones" in seg_text:
                     current_verse = 22
+                elif current_chapter == 37 and current_verse == 14 and ("Hablóme nuevamente" in seg_text or "nuevamente el Señor" in seg_text):
+                    current_verse = 15
+                elif current_chapter == 39 and current_verse == 9 and ("picas" in seg_text or "armas" in seg_text):
+                    current_verse = 10
+                elif current_chapter == 41 and current_verse == 3 and ("interior" in seg_text or "poste" in seg_text):
+                    current_verse = 4
                 elif current_chapter == 12 and current_verse == 22 and ("vulgo" in seg_text or "llegar los dias" in seg_text):
                     current_verse = 23
                 elif current_chapter == 16 and current_verse == 29 and "ramera y descarada" in seg_text:
