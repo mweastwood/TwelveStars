@@ -465,6 +465,45 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix NEH OCR typos and verse prefix rules
+        if book_id == "NEH":
+            if current_chapter == 7 and current_verse in [12, 13] and "Zaccai" in raw_text:
+                raw_text = "14. " + raw_text
+            elif current_chapter == 7 and current_verse in [16, 17] and "Adonicam" in raw_text:
+                raw_text = "18. " + raw_text
+            elif current_chapter == 7 and current_verse in [19, 20] and "Ater" in raw_text:
+                raw_text = "21. " + raw_text
+            elif current_chapter == 7 and current_verse in [21, 22] and "Bezai" in raw_text:
+                raw_text = "23. " + raw_text
+            elif current_chapter == 7 and current_verse in [25, 26] and "Anathoth" in raw_text:
+                raw_text = "27. " + raw_text
+            elif current_chapter == 7 and current_verse in [42, 43] and "Asaph" in raw_text:
+                raw_text = "44. " + raw_text
+            elif current_chapter == 10 and current_verse in [5, 6] and "Daniel" in raw_text:
+                raw_text = "7. " + raw_text
+            elif current_chapter == 10 and current_verse in [11, 12] and "Zacchur" in raw_text:
+                raw_text = "13. " + raw_text
+            elif current_chapter == 10 and current_verse in [13, 14] and "Bani" in raw_text:
+                raw_text = "15. " + raw_text
+            elif current_chapter == 10 and current_verse in [15, 16] and "Ater" in raw_text:
+                raw_text = "17. " + raw_text
+            elif current_chapter == 10 and current_verse in [31, 32] and "proposicion" in raw_text:
+                raw_text = "33. " + raw_text
+            elif current_chapter == 10 and current_verse in [32, 33] and "echamos las suertes" in raw_text:
+                raw_text = "34. " + raw_text
+            elif current_chapter == 10 and current_verse in [33, 34] and "primogénitos" in raw_text:
+                raw_text = "35. " + raw_text
+            elif current_chapter == 10 and current_verse in [34, 35] and "nuestros hijos" in raw_text:
+                raw_text = "36. " + raw_text
+            elif current_chapter == 10 and current_verse in [35, 36] and "nuestras viandas" in raw_text:
+                raw_text = "37. " + raw_text
+            elif current_chapter == 10 and current_verse in [36, 37] and "terreno" in raw_text:
+                raw_text = "38. " + raw_text
+            elif current_chapter == 12 and current_verse in [17, 18] and "Jocmon" in raw_text:
+                raw_text = "19. " + raw_text
+            elif current_chapter == 12 and current_verse in [22, 23] and "Hasabías" in raw_text:
+                raw_text = "24. " + raw_text
+
         # Fix EZR OCR typos and verse prefix rules
         if book_id == "EZR":
             if current_chapter == 2 and current_verse in [7, 8] and "Zaccai" in raw_text:
