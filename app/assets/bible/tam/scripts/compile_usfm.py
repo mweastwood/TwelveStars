@@ -203,11 +203,18 @@ def clean_scripture_verse_text(text: str) -> str:
 # LAYOUT & LINE FILTERING HEURISTICS
 # ==============================================================================
 
-def is_page_header_line(text: str, y_coord: float, page_h: float) -> bool:
+def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float = 0.0) -> bool:
     """
     Determines if an OCR line belongs to the top-margin running header (page numbers, titles).
     Relative Y-coordinate evaluation prevents hardcoding absolute pixel bounds across volumes.
     """
+    text_clean = text.strip()
+    text_up = text_clean.upper()
+
+    # Filter top-right running headers like 'CAPITULO XLIV.' or 'CAPITULO VII.' in volume top margins
+    if y_coord <= page_h * 0.065 and x_coord > 500 and "CAPITULO" in text_up and text_clean.endswith("."):
+        return True
+
     if y_coord < page_h * 0.035:
         return True
     if y_coord >= page_h * 0.08:
@@ -418,10 +425,11 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
         page_h = max(l['box'][3] for l in raw_lines)
         
         scripture_lines = [
-            l for l in raw_lines
-            if not is_page_header_line(l['text'], l['box'][1], page_h)
-            and not is_footnote_line(l['text'], l['box'][1], page_h)
-            and not is_latin_line(l['text'])
+            line
+            for line in raw_lines
+            if not is_page_header_line(line["text"], line["box"][1], page_h, line["box"][0])
+            and not is_footnote_line(line["text"], line["box"][1], page_h)
+            and not is_latin_line(line["text"])
         ]
         if not scripture_lines:
             continue
@@ -455,6 +463,71 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix ISA OCR typos and top header guards
+        if book_id == "ISA":
+            if current_chapter == 5 and raw_text.startswith(". Ay de vosotros"):
+                raw_text = "18. Ay de vosotros" + raw_text[16:]
+            elif current_chapter == 22 and line_data["box"][1] < 100 and line_data["box"][0] > 500 and "CAPITULO XXII" in text_upper:
+                current_chapter = 23
+                current_verse = 0
+                if current_chapter not in verses:
+                    verses[current_chapter] = {}
+                continue
+            elif current_chapter == 23 and current_verse == 16 and raw_text.startswith("1. Y sucederá"):
+                raw_text = "17." + raw_text[2:]
+            elif current_chapter == 24 and current_verse == 4 and "inficionada" in raw_text:
+                raw_text = "5. " + raw_text
+            elif current_chapter == 28 and current_verse == 16 and "el granizo destruirá" in raw_text:
+                raw_text = "17. " + raw_text
+            elif current_chapter == 29 and current_verse == 20 and "pecar á los hombres" in raw_text:
+                raw_text = "21. " + raw_text
+            elif current_chapter == 30 and current_verse == 4 and "confundidos de un pueblo" in raw_text:
+                raw_text = "5. " + raw_text
+            elif current_chapter == 30 and current_verse == 26 and "nombre del Señor viene" in raw_text:
+                raw_text = "27. " + raw_text
+            elif current_chapter == 37 and current_verse == 21 and "Despreciote" in raw_text:
+                raw_text = "22. " + raw_text
+            elif current_chapter == 37 and current_verse == 22 and "afrentado" in raw_text:
+                raw_text = "23. " + raw_text
+            elif current_chapter == 37 and current_verse == 36 and ("despavorido" in raw_text or "Sennacherib" in raw_text):
+                raw_text = "37. " + raw_text
+            elif current_chapter == 37 and current_verse == 37 and "adorando" in raw_text:
+                raw_text = "38. " + raw_text
+            elif current_chapter == 38 and current_verse == 4 and "dí á Ezechias" in raw_text:
+                raw_text = "5. " + raw_text
+            elif current_chapter == 38 and current_verse == 19 and "salvo me has hecho" in raw_text:
+                raw_text = "20. " + raw_text
+            elif current_chapter == 38 and current_verse == 20 and "cataplasma" in raw_text:
+                raw_text = "21. " + raw_text
+            elif current_chapter == 38 and current_verse == 21 and "señal habré" in raw_text:
+                raw_text = "22. " + raw_text
+            elif current_chapter == 40 and current_verse == 17 and "quién pues" in raw_text:
+                raw_text = "18. " + raw_text
+            elif current_chapter == 40 and current_verse == 18 and "estatua de fundicion" in raw_text:
+                raw_text = "19. " + raw_text
+            elif current_chapter == 41 and current_verse == 19 and "vean, y sepan" in raw_text:
+                raw_text = "20. " + raw_text
+            elif current_chapter == 44 and current_verse == 10 and "socios suyos" in raw_text:
+                raw_text = "11. " + raw_text
+            elif current_chapter == 44 and current_verse == 12 and "carpintero tendió" in raw_text:
+                raw_text = "13. " + raw_text
+            elif current_chapter == 46 and current_verse == 2 and "Oidme, casa de Jacob" in raw_text:
+                raw_text = "3. " + raw_text
+            elif current_chapter == 47 and current_verse == 9 and "confiado has" in raw_text:
+                raw_text = "10. " + raw_text
+            elif current_chapter == 49 and current_verse == 23 and "quitará" in raw_text:
+                raw_text = "24. " + raw_text
+            elif current_chapter == 50 and current_verse == 6 and "auxiliador" in raw_text:
+                raw_text = "7. " + raw_text
+            elif current_chapter == 50 and current_verse == 8 and "me ayuda" in raw_text:
+                raw_text = "9. " + raw_text
+            elif current_chapter == 58 and current_verse == 4 and "este tal" in raw_text:
+                raw_text = "5. " + raw_text
+            elif current_chapter == 66 and current_verse == 11 and "derramaré" in raw_text:
+                raw_text = "12. " + raw_text
+            elif current_chapter == 66 and current_verse == 12 and "hijo" in raw_text:
+                raw_text = "13. " + raw_text
+
         # Fix EXO OCR typos and top header guards
         if book_id == "EXO":
             if line_data["box"][1] < 65 and "CAPITULO" in text_upper:
