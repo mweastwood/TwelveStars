@@ -465,6 +465,33 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix 1KI OCR typos and verse prefix rules
+        if book_id == "1KI":
+            if current_chapter == 1 and current_verse in [50, 51] and "hombre de bien" in raw_text:
+                raw_text = "52. " + raw_text
+            elif current_chapter == 1 and current_verse in [51, 52] and "Envió pues el rey" in raw_text:
+                raw_text = "53. " + raw_text
+            elif current_chapter == 4 and current_verse in [27, 28] and "Dió tambien Dios" in raw_text:
+                raw_text = "29. " + raw_text
+            elif current_chapter == 4 and current_verse in [28, 29] and "sabiduría de Salomón" in raw_text:
+                raw_text = "30. " + raw_text
+            elif current_chapter == 4 and current_verse in [29, 30] and "mas sabio" in raw_text:
+                raw_text = "31. " + raw_text
+            elif current_chapter == 4 and current_verse in [32, 33] and "pueblos" in raw_text:
+                raw_text = "34. " + raw_text
+            elif current_chapter == 7 and current_verse in [17, 18] and "Asimismo los capiteles" in raw_text:
+                raw_text = "19. " + raw_text
+            elif current_chapter == 7 and current_verse in [18, 19] and "de nuevo otros capiteles" in raw_text:
+                raw_text = "20. " + raw_text
+            elif current_chapter == 15 and current_verse in [1, 2] and "todos los pecados" in raw_text:
+                raw_text = "3. " + raw_text
+            elif current_chapter == 17 and current_verse in [20, 21] and "Escuchó el Señor" in raw_text:
+                raw_text = "22. " + raw_text
+            elif current_chapter == 18 and current_verse in [23, 24] and "Dijo pues Elías" in raw_text:
+                raw_text = "25. " + raw_text
+            elif current_chapter == 20 and current_verse in [4, 5] and "Mañana pues" in raw_text:
+                raw_text = "6. " + raw_text
+
         # Fix 2SA OCR typos and verse prefix rules
         if book_id == "2SA":
             if current_chapter == 7 and current_verse == 26 and "Oracion" in raw_text:
