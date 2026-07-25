@@ -71,7 +71,7 @@ BIBLE_BOOK_MAP: Dict[str, Tuple[int, int, int]] = {
     "LEV": (1, 117, 148),
     "NUM": (1, 149, 204),
     "DEU": (1, 205, 273),
-    "JOS": (1, 260, 295),
+    "JOS": (1, 260, 293),
     "JDG": (1, 296, 329),
     "RUT": (1, 330, 335),
 
@@ -424,11 +424,11 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             continue
             
         page_h = max(l['box'][3] for l in raw_lines)
-        has_body_cap = any(l['box'][1] > 100 and "CAPITULO" in l['text'].upper() for l in raw_lines)
+        has_body_cap = any(l['box'][1] > 100 and re.search(r'\bC[ÁA]P[IÍLl1\s]*TULO\b', l['text'].upper()) for l in raw_lines)
         
         scripture_lines = []
         for line in raw_lines:
-            if has_body_cap and line["box"][1] < 60 and "CAPITULO" in line["text"].upper():
+            if has_body_cap and line["box"][1] < 75 and re.search(r'\bC[ÁA]P[IÍLl1\s]*TULO\b', line["text"].upper()):
                 continue
             if not is_page_header_line(line["text"], line["box"][1], page_h, line["box"][0], volume):
                 if not is_footnote_line(line["text"], line["box"][1], page_h) and not is_latin_line(line["text"]):
@@ -465,6 +465,73 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix JOS OCR typos and verse prefix rules
+        if book_id == "JOS":
+            if current_chapter == 3 and current_verse == 5 and "Tomad la arca" in raw_text:
+                raw_text = "6. " + raw_text
+            elif current_chapter == 3 and current_verse == 7 and "sacerdotes" in raw_text:
+                raw_text = "8. " + raw_text
+            elif current_chapter == 4 and current_verse == 1 and "Escoged doce" in raw_text:
+                raw_text = "2. " + raw_text
+            elif current_chapter == 6 and current_verse == 24 and "Rahab ramera" in raw_text:
+                raw_text = "25. " + raw_text
+            elif current_chapter == 9 and current_verse == 4 and "remiendos" in raw_text:
+                raw_text = "5. " + raw_text
+            elif current_chapter == 9 and current_verse == 5 and "fueron á Josué" in raw_text:
+                raw_text = "6. " + raw_text
+            elif current_chapter == 10 and current_verse == 9 and "aterró" in raw_text:
+                raw_text = "10. " + raw_text
+            elif current_chapter == 11 and current_verse == 6 and "Vino pues Josué" in raw_text:
+                raw_text = "7. " + raw_text
+            elif current_chapter == 11 and current_verse == 9 and "dada la vuelta" in raw_text:
+                raw_text = "10. " + raw_text
+            elif current_chapter == 12 and current_verse == 17 and "Aphaec" in raw_text:
+                raw_text = "18. " + raw_text
+            elif current_chapter == 12 and current_verse == 21 and "Cedes" in raw_text:
+                raw_text = "22. " + raw_text
+            elif current_chapter == 14 and current_verse == 6 and "Cuarenta años" in raw_text:
+                raw_text = "7. " + raw_text
+            elif current_chapter == 14 and current_verse == 7 and "mis hermanos" in raw_text:
+                raw_text = "8. " + raw_text
+            elif current_chapter == 14 and current_verse == 8 and "juró Moysés" in raw_text:
+                raw_text = "9. " + raw_text
+            elif current_chapter == 15 and current_verse == 0 and "Fue pues la suerte" in raw_text:
+                raw_text = "1. " + raw_text
+            elif current_chapter == 15 and current_verse == 26 and "Bethphelet" in raw_text:
+                raw_text = "27. " + raw_text
+            elif current_chapter == 15 and current_verse == 29 and "Horma" in raw_text:
+                raw_text = "30. " + raw_text
+            elif current_chapter == 15 and current_verse == 34 and "Jerimoth" in raw_text:
+                raw_text = "35. " + raw_text
+            elif current_chapter == 15 and current_verse == 39 and "Cabbon" in raw_text:
+                raw_text = "40. " + raw_text
+            elif current_chapter == 15 and current_verse == 47 and "monte Jather" in raw_text:
+                raw_text = "48. " + raw_text
+            elif current_chapter == 15 and current_verse == 54 and "Maon, y Carmel" in raw_text:
+                raw_text = "55. " + raw_text
+            elif current_chapter == 19 and current_verse == 17 and "Jezrael" in raw_text:
+                raw_text = "18. " + raw_text
+            elif current_chapter == 19 and current_verse == 20 and "Remeth" in raw_text:
+                raw_text = "21. " + raw_text
+            elif current_chapter == 21 and current_verse == 1 and "Señor mandó" in raw_text:
+                raw_text = "2. " + raw_text
+            elif current_chapter == 21 and current_verse == 2 and "Dieron pues" in raw_text:
+                raw_text = "3. " + raw_text
+            elif current_chapter == 21 and current_verse == 4 and "demás de los hijos" in raw_text:
+                raw_text = "5. " + raw_text
+            elif current_chapter == 21 and current_verse == 6 and "hijos de Merari" in raw_text:
+                raw_text = "7. " + raw_text
+            elif current_chapter == 21 and current_verse == 7 and "dieron los hijos" in raw_text:
+                raw_text = "8. " + raw_text
+            elif current_chapter == 21 and current_verse == 17 and "Anathoth" in raw_text:
+                raw_text = "18. " + raw_text
+            elif current_chapter == 21 and current_verse == 25 and "Todas las ciudades" in raw_text:
+                raw_text = "26. " + raw_text
+            elif current_chapter == 22 and current_verse == 33 and "hijos de Ruben" in raw_text:
+                raw_text = "34. " + raw_text
+            elif current_chapter == 24 and current_verse == 28 and "murió Josué" in raw_text:
+                raw_text = "29. " + raw_text
+
         # Fix NUM OCR typos and top header guards
         if book_id == "NUM":
             if current_chapter == 10 and "CAPITULO VIII" in text_upper:
