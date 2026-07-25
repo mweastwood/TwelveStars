@@ -465,6 +465,99 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix NUM OCR typos and top header guards
+        if book_id == "NUM":
+            if current_chapter == 10 and "CAPITULO VIII" in text_upper:
+                continue
+            elif current_chapter == 10 and "CAPITULO IX" in text_upper:
+                current_chapter = 11
+                current_verse = 0
+                if current_chapter not in verses:
+                    verses[current_chapter] = {}
+                continue
+            elif current_chapter == 15 and "CAPITULO XIV" in text_upper:
+                current_chapter = 15
+                current_verse = 0
+                if current_chapter not in verses:
+                    verses[current_chapter] = {}
+                continue
+            elif current_chapter == 1 and current_verse == 12 and "Phegiel" in raw_text:
+                raw_text = "13. " + raw_text
+            elif current_chapter == 1 and current_verse == 14 and "Ahira" in raw_text:
+                raw_text = "15. " + raw_text
+            elif current_chapter == 1 and current_verse == 31 and "hijos de Joseph" in raw_text:
+                raw_text = "32. " + raw_text
+            elif current_chapter == 2 and current_verse == 31 and "número de los hijos" in raw_text:
+                raw_text = "32. " + raw_text
+            elif current_chapter == 2 and current_verse == 33 and "hiciéronlo los hijos" in raw_text:
+                raw_text = "34. " + raw_text
+            elif current_chapter == 3 and current_verse == 19 and "hijos de Merari" in raw_text:
+                raw_text = "20. " + raw_text
+            elif current_chapter == 3 and current_verse == 24 and "Tabernáculo del testimonio" in raw_text:
+                raw_text = "25. " + raw_text
+            elif current_chapter == 3 and current_verse == 45 and "rescate de los doscientos" in raw_text:
+                raw_text = "46. " + raw_text
+            elif current_chapter == 4 and current_verse == 43 and "cincuenta" in raw_text:
+                raw_text = "44. " + raw_text
+            elif current_chapter == 4 and current_verse == 44 and "familia" in raw_text:
+                raw_text = "45. " + raw_text
+            elif current_chapter == 7 and current_verse == 29 and "príncipe" in raw_text:
+                raw_text = "30. " + raw_text
+            elif current_chapter == 7 and current_verse == 30 and "escudilla" in raw_text:
+                raw_text = "31. " + raw_text
+            elif current_chapter == 7 and current_verse == 31 and "becerro" in raw_text:
+                raw_text = "32. " + raw_text
+            elif current_chapter == 11 and current_verse == 2 and "Llamóse pues" in raw_text:
+                raw_text = "3. " + raw_text
+            elif current_chapter == 11 and current_verse == 9 and "Oyó pues Moysés" in raw_text:
+                raw_text = "10. " + raw_text
+            elif current_chapter == 12 and current_verse == 6 and "siervo Moysés" in raw_text:
+                raw_text = "7. " + raw_text
+            elif current_chapter == 12 and current_verse == 7 and "boca á boca" in raw_text:
+                raw_text = "8. " + raw_text
+            elif current_chapter == 13 and current_verse == 10 and "tribu de Joseph" in raw_text:
+                raw_text = "11. " + raw_text
+            elif current_chapter == 13 and current_verse == 33 and "mónstruos" in raw_text:
+                raw_text = "34. " + raw_text
+            elif current_chapter == 15 and current_verse == 17 and "Díles: Cuando" in raw_text:
+                raw_text = "18. " + raw_text
+            elif current_chapter == 16 and current_verse == 37 and "cayeron quemados" in raw_text:
+                raw_text = "38. " + raw_text
+            elif current_chapter == 20 and current_verse == 13 and "Envió entre tanto" in raw_text:
+                raw_text = "14. " + raw_text
+            elif current_chapter == 20 and current_verse == 16 and "permitas" in raw_text:
+                raw_text = "17. " + raw_text
+            elif current_chapter == 22 and current_verse == 20 and "Balaam" in raw_text:
+                raw_text = "21. " + raw_text
+            elif current_chapter == 22 and current_verse == 31 and "Angel" in raw_text:
+                raw_text = "32. " + raw_text
+            elif current_chapter == 26 and current_verse == 54 and "distribuirá" in raw_text:
+                raw_text = "55. " + raw_text
+            elif current_chapter == 29 and current_verse == 34 and "octavo" in raw_text:
+                raw_text = "35. " + raw_text
+            elif current_chapter == 31 and current_verse == 21 and "oro, y la plata" in raw_text:
+                raw_text = "22. " + raw_text
+            elif current_chapter == 31 and current_verse == 28 and "Eleázaro" in raw_text:
+                raw_text = "29. " + raw_text
+            elif current_chapter == 31 and current_verse == 30 and "Hiciéronlo pues" in raw_text:
+                raw_text = "31. " + raw_text
+            elif current_chapter == 32 and current_verse == 4 and "Te pedimos" in raw_text:
+                raw_text = "5. " + raw_text
+            elif current_chapter == 32 and current_verse == 29 and "armados" in raw_text:
+                raw_text = "30. " + raw_text
+            elif current_chapter == 33 and current_verse == 49 and "Habló tambien" in raw_text:
+                raw_text = "50. " + raw_text
+            elif current_chapter == 33 and current_verse == 53 and "repartireis" in raw_text:
+                raw_text = "54. " + raw_text
+            elif current_chapter == 34 and current_verse == 27 and "Pedahel" in raw_text:
+                raw_text = "28. " + raw_text
+            elif current_chapter == 35 and current_verse == 7 and "se darán" in raw_text:
+                raw_text = "8. " + raw_text
+            elif current_chapter == 35 and current_verse == 22 and "piedra" in raw_text:
+                raw_text = "23. " + raw_text
+            elif current_chapter == 35 and current_verse == 32 and "contamineis" in raw_text:
+                raw_text = "33. " + raw_text
+
         # Fix LEV OCR typos and top header guards
         if book_id == "LEV":
             if current_chapter == 11 and current_verse == 40 and "arrastra" in raw_text:
