@@ -42,6 +42,36 @@ HUMAN_VERIFIED_VERSES = [
         "con las setenas. Y puso el Señor en Cain una señal, para que ninguno que le "
         "encontrase le matara."
     ),
+    (
+        "JOS",
+        2,
+        13,
+        "Con que salveis á mi padre y madre, á mis hermanos y hermanas, y todos sus bienes, "
+        "y nos libreis de la muerte."
+    ),
+    (
+        "GEN",
+        49,
+        24,
+        "Apoyó su arco, ó su confianza en el fuerte Dios, y fueron desatadas las cadenas "
+        "de sus brazos y manos por la mano del Todo-poderoso Dios de Jacob: de donde "
+        "salió para pastor y piedra fundamental de Israél."
+    ),
+    (
+        "LEV",
+        10,
+        1,
+        "Pero Nadab y Abiú, hijos de Aaron, tomandolos incensarios, pusieron en ellos "
+        "fuego, é incienso encima, ofreciendo ante el Señor fuego extraño: lo cual les "
+        "estaba vedado."
+    ),
+    (
+        "NUM",
+        17,
+        3,
+        "El nombre de Aaron estará en la vara de la tribu de Leví; y cada una de las "
+        "otras familias ó tribus tendrá su vara peculiar."
+    ),
 ]
 
 class TestHumanVerifiedVerses(unittest.TestCase):

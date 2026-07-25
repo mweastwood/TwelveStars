@@ -612,6 +612,9 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
 
     # Fix NUM OCR typos and top header guards
     if book_id == "NUM":
+        if current_chapter == 17:
+            if raw_text.strip() == "peculiar.":
+                return "Leví; y cada una de las otras familias ó tribus tendrá su vara peculiar.", current_chapter, current_verse, False
         if current_chapter == 10 and "CAPITULO VIII" in text_upper:
             return raw_text, current_chapter, current_verse, True
         elif current_chapter == 10 and "CAPITULO IX" in text_upper:
