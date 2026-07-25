@@ -468,6 +468,47 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix MRK OCR typos and verse prefix rules
+        if book_id == "MRK":
+            if current_chapter == 1 and current_verse in [30, 31] and "Llegada la tarde" in raw_text:
+                raw_text = "32. " + raw_text
+            elif current_chapter == 3 and current_verse in [1, 2] and "hombre" in raw_text:
+                raw_text = "3. " + raw_text
+            elif current_chapter == 3 and current_verse in [2, 3] and "¿Es lícito" in raw_text:
+                raw_text = "4. " + raw_text
+            elif current_chapter == 5 and current_verse in [32, 33] and "Hija" in raw_text:
+                raw_text = "34. " + raw_text
+            elif current_chapter == 5 and current_verse in [35, 36] and "siguiese nadie" in raw_text:
+                raw_text = "37. " + raw_text
+            elif current_chapter == 5 and current_verse in [37, 38] and "alborotais" in raw_text:
+                raw_text = "39. " + raw_text
+            elif current_chapter == 5 and current_verse in [38, 39] and "mofaban" in raw_text:
+                raw_text = "40. " + raw_text
+            elif current_chapter == 7 and current_verse in [27, 28] and "esta palabra" in raw_text:
+                raw_text = "29. " + raw_text
+            elif current_chapter == 7 and current_verse in [28, 29] and "llegó ella" in raw_text:
+                raw_text = "30. " + raw_text
+            elif current_chapter == 7 and current_verse in [29, 30] and "saliendo Jesus" in raw_text:
+                raw_text = "31. " + raw_text
+            elif current_chapter == 7 and current_verse in [30, 31] and "presentaron un sordo" in raw_text:
+                raw_text = "32. " + raw_text
+            elif current_chapter == 7 and current_verse in [31, 32] and "tomándole á parte" in raw_text:
+                raw_text = "33. " + raw_text
+            elif current_chapter == 7 and current_verse in [32, 33] and "levantando los ojos" in raw_text:
+                raw_text = "34. " + raw_text
+            elif current_chapter == 7 and current_verse in [33, 34] and "abrieron sus oidos" in raw_text:
+                raw_text = "35. " + raw_text
+            elif current_chapter == 7 and current_verse in [34, 35] and "mandó que no" in raw_text:
+                raw_text = "36. " + raw_text
+            elif current_chapter == 12 and current_verse in [14, 15] and "Presentáronsela" in raw_text:
+                raw_text = "16. " + raw_text
+            elif current_chapter == 14 and current_verse in [19, 20] and "Hijo del hombre" in raw_text:
+                raw_text = "21. " + raw_text
+            elif current_chapter == 15 and current_verse in [0, 1] and "Preguntóle" in raw_text:
+                raw_text = "2. " + raw_text
+            elif current_chapter == 15 and current_verse in [1, 2] and "príncipes de los sacerdotes" in raw_text:
+                raw_text = "3. " + raw_text
+
         # Fix MAT OCR typos and verse prefix rules
         if book_id == "MAT":
             if current_chapter == 6 and current_verse in [33, 34] and "dia de mañana" in raw_text:
