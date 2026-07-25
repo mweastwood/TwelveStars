@@ -468,6 +468,43 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix LUK OCR typos and verse prefix rules
+        if book_id == "LUK":
+            if current_chapter == 1 and current_verse in [30, 31] and "Éste será grande" in raw_text:
+                raw_text = re.sub(r'^\s*3\.\s*', '32. ', raw_text)
+            elif current_chapter == 4 and current_verse in [11, 12] and "acabada toda la tentacion" in raw_text:
+                raw_text = "13. " + raw_text
+            elif current_chapter == 5 and current_verse in [13, 14] and "fama de Jesus" in raw_text:
+                raw_text = "15. " + raw_text
+            elif current_chapter == 5 and current_verse in [14, 15] and "retiraba" in raw_text:
+                raw_text = "16. " + raw_text
+            elif current_chapter == 7 and current_verse in [14, 15] and "apoderó el temor" in raw_text:
+                raw_text = "16. " + raw_text
+            elif current_chapter == 7 and current_verse in [15, 16] and "corrió esta voz" in raw_text:
+                raw_text = "17. " + raw_text
+            elif current_chapter == 7 and current_verse in [17, 18] and "Llamó Juan" in raw_text:
+                raw_text = "19. " + raw_text
+            elif current_chapter == 7 and current_verse in [21, 22] and "bienaventurado es aquel" in raw_text:
+                raw_text = "23. " + raw_text
+            elif current_chapter == 9 and current_verse in [8, 9] and "Vuelta los Apóstoles" in raw_text:
+                raw_text = "10. " + raw_text
+            elif current_chapter == 9 and current_verse in [9, 10] and "entendiendo las gentes" in raw_text:
+                raw_text = "11. " + raw_text
+            elif current_chapter == 9 and current_verse in [10, 11] and "declinar el dia" in raw_text:
+                raw_text = "12. " + raw_text
+            elif current_chapter == 20 and current_verse in [4, 5] and "De los hombres" in raw_text:
+                raw_text = "6. " + raw_text
+            elif current_chapter == 20 and current_verse in [8, 9] and "sazon de los frutos" in raw_text:
+                raw_text = "10. " + raw_text
+            elif current_chapter == 20 and current_verse in [9, 10] and "envió aun á otro" in raw_text:
+                raw_text = "11. " + raw_text
+            elif current_chapter == 20 and current_verse in [11, 12] and "señor de la viña" in raw_text:
+                raw_text = "13. " + raw_text
+            elif current_chapter == 20 and current_verse in [14, 15] and "destruirá" in raw_text:
+                raw_text = "16. " + raw_text
+            elif current_chapter == 20 and current_verse in [16, 17] and "cayere sobre esta piedra" in raw_text:
+                raw_text = "18. " + raw_text
+
         # Fix MRK OCR typos and verse prefix rules
         if book_id == "MRK":
             if current_chapter == 1 and current_verse in [30, 31] and "Llegada la tarde" in raw_text:
