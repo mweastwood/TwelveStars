@@ -203,7 +203,7 @@ def clean_scripture_verse_text(text: str) -> str:
 # LAYOUT & LINE FILTERING HEURISTICS
 # ==============================================================================
 
-def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float = 0.0) -> bool:
+def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float = 0.0, vol: int = 0) -> bool:
     """
     Determines if an OCR line belongs to the top-margin running header (page numbers, titles).
     Relative Y-coordinate evaluation prevents hardcoding absolute pixel bounds across volumes.
@@ -211,8 +211,8 @@ def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float
     text_clean = text.strip()
     text_up = text_clean.upper()
 
-    # Filter top-right running headers like 'CAPITULO XLIV.' or 'CAPITULO VII.' unless on pages with top chapter titles
-    if y_coord <= page_h * 0.065 and x_coord > 500 and "CAPITULO" in text_up and text_clean.endswith("."):
+    # Filter top-right running headers like 'CAPITULO XLIV.' or 'CAPITULO VII.' in volume 3 top margins
+    if vol == 3 and y_coord <= page_h * 0.065 and x_coord > 500 and "CAPITULO" in text_up and text_clean.endswith("."):
         if not re.match(r'^\s*(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+(?:II|LII)\.?\s*$', text_up):
             return True
 
@@ -424,14 +424,15 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             continue
             
         page_h = max(l['box'][3] for l in raw_lines)
+        has_body_cap = any(l['box'][1] > 100 and "CAPITULO" in l['text'].upper() for l in raw_lines)
         
-        scripture_lines = [
-            line
-            for line in raw_lines
-            if not is_page_header_line(line["text"], line["box"][1], page_h, line["box"][0])
-            and not is_footnote_line(line["text"], line["box"][1], page_h)
-            and not is_latin_line(line["text"])
-        ]
+        scripture_lines = []
+        for line in raw_lines:
+            if has_body_cap and line["box"][1] < 60 and "CAPITULO" in line["text"].upper():
+                continue
+            if not is_page_header_line(line["text"], line["box"][1], page_h, line["box"][0], volume):
+                if not is_footnote_line(line["text"], line["box"][1], page_h) and not is_latin_line(line["text"]):
+                    scripture_lines.append(line)
         if not scripture_lines:
             continue
             
@@ -464,6 +465,21 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
                 verses[current_chapter][current_verse].append(v_text)
             continue
             
+        # Fix GEN OCR typos and top header guards
+        if book_id == "GEN":
+            if current_chapter == 14 and "CAPITULO II" in text_upper and line_data["box"][1] > 100:
+                current_chapter = 15
+                current_verse = 0
+                if current_chapter not in verses:
+                    verses[current_chapter] = {}
+                continue
+            elif current_chapter == 27 and "CAPITULO XIX" in text_upper and line_data["box"][1] > 100:
+                current_chapter = 28
+                current_verse = 0
+                if current_chapter not in verses:
+                    verses[current_chapter] = {}
+                continue
+
         # Fix JER OCR typos and top header guards
         if book_id == "JER":
             if current_chapter == 2 and raw_text.startswith("2s. Defiende"):
@@ -768,6 +784,107 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
             seg_text = clean_text_line(seg_text)
             if not seg_text:
                 continue
+
+            # GEN verse splits and transitions
+            if book_id == "GEN":
+                if current_chapter == 1 and current_verse == 27 and "Bendíjolos Dios" in seg_text:
+                    current_verse = 28
+                elif current_chapter == 1 and current_verse == 28 and "Dijo tambien Dios" in seg_text:
+                    current_verse = 29
+                elif current_chapter == 2 and current_verse == 5 and "fuente" in seg_text:
+                    current_verse = 6
+                elif current_chapter == 7 and current_verse == 4 and "Hizo pues Noé" in seg_text:
+                    current_verse = 5
+                elif current_chapter == 7 and current_verse == 23 and "prevalecieron" in seg_text:
+                    current_verse = 24
+                elif current_chapter == 14 and current_verse == 13 and "Oyendo pues Abram" in seg_text:
+                    current_verse = 14
+                elif current_chapter == 14 and current_verse == 14 and "dividiendo" in seg_text:
+                    current_verse = 15
+                elif current_chapter == 14 and current_verse == 15 and "recobró" in seg_text:
+                    current_verse = 16
+                elif current_chapter == 14 and current_verse == 16 and "Salió el rey" in seg_text:
+                    current_verse = 17
+                elif current_chapter == 14 and current_verse == 17 and "Melchisedech" in seg_text:
+                    current_verse = 18
+                elif current_chapter == 14 and current_verse == 18 and "bendijo" in seg_text:
+                    current_verse = 19
+                elif current_chapter == 14 and current_verse == 19 and "bendito sea" in seg_text:
+                    current_verse = 20
+                elif current_chapter == 14 and current_verse == 20 and "Dijo el rey" in seg_text:
+                    current_verse = 21
+                elif current_chapter == 14 and current_verse == 21 and "respondió Abram" in seg_text:
+                    current_verse = 22
+                elif current_chapter == 14 and current_verse == 22 and "hilo" in seg_text:
+                    current_verse = 23
+                elif current_chapter == 14 and current_verse == 23 and "comido" in seg_text:
+                    current_verse = 24
+                elif current_chapter == 15 and current_verse == 9 and "Tomó Abram" in seg_text:
+                    current_verse = 10
+                elif current_chapter == 15 and current_verse == 10 and "descendian" in seg_text:
+                    current_verse = 11
+                elif current_chapter == 15 and current_verse == 11 and "sol" in seg_text:
+                    current_verse = 12
+                elif current_chapter == 24 and current_verse == 37 and "sino que irás" in seg_text:
+                    current_verse = 38
+                elif current_chapter == 26 and current_verse == 23 and "apareciósele" in seg_text:
+                    current_verse = 24
+                elif current_chapter == 27 and current_verse == 22 and "conoció" in seg_text:
+                    current_verse = 23
+                elif current_chapter == 27 and current_verse == 28 and "sírvante" in seg_text:
+                    current_verse = 29
+                elif current_chapter == 27 and current_verse == 35 and "Jacob" in seg_text:
+                    current_verse = 36
+                elif current_chapter == 27 and current_verse == 38 and "grosura" in seg_text:
+                    current_verse = 39
+                elif current_chapter == 27 and current_verse == 39 and "espada" in seg_text:
+                    current_verse = 40
+                elif current_chapter == 27 and current_verse == 40 and "Aborrecia" in seg_text:
+                    current_verse = 41
+                elif current_chapter == 27 and current_verse == 41 and "Avisadas" in seg_text:
+                    current_verse = 42
+                elif current_chapter == 27 and current_verse == 42 and "Ahora pues" in seg_text:
+                    current_verse = 43
+                elif current_chapter == 27 and current_verse == 43 and "mitigue" in seg_text:
+                    current_verse = 44
+                elif current_chapter == 27 and current_verse == 44 and "olvide" in seg_text:
+                    current_verse = 45
+                elif current_chapter == 27 and current_verse == 45 and "Rebecca" in seg_text:
+                    current_verse = 46
+                elif current_chapter == 41 and current_verse == 0 and "Pasados dos años" in seg_text:
+                    current_verse = 1
+                elif current_chapter == 41 and current_verse == 1 and "siete vacas" in seg_text:
+                    current_verse = 2
+                elif current_chapter == 41 and current_verse == 5 and "siete espigas" in seg_text:
+                    current_verse = 6
+                elif current_chapter == 41 and current_verse == 6 and "nacian" in seg_text:
+                    current_verse = 7
+                elif current_chapter == 41 and current_verse == 7 and "recordó" in seg_text:
+                    current_verse = 8
+                elif current_chapter == 41 and current_verse == 8 and "acordándose" in seg_text:
+                    current_verse = 9
+                elif current_chapter == 41 and current_verse == 30 and "desvanecerá" in seg_text:
+                    current_verse = 31
+                elif current_chapter == 41 and current_verse == 41 and "anillo" in seg_text:
+                    current_verse = 42
+                elif current_chapter == 41 and current_verse == 47 and "juntóse" in seg_text:
+                    current_verse = 48
+                elif current_chapter == 48 and current_verse == 14 and "Bendijo Jacob" in seg_text:
+                    current_verse = 15
+                elif current_chapter == 48 and current_verse == 15 and "Angel" in seg_text:
+                    current_verse = 16
+                elif current_chapter == 48 and current_verse == 16 and "Viendo Joseph" in seg_text:
+                    current_verse = 17
+                elif current_chapter == 48 and current_verse == 17 and "Dijo á su padre" in seg_text:
+                    current_verse = 18
+                elif current_chapter == 48 and current_verse == 18 and "no lo quiso" in seg_text:
+                    current_verse = 19
+                elif current_chapter == 48 and current_verse == 19 and "bendíjolos" in seg_text:
+                    current_verse = 20
+                elif current_chapter == 48 and current_verse == 20 and "Dijo mas" in seg_text:
+                    current_verse = 21
+                elif current_chapter == 48 and current_verse == 21 and "Yo te doy" in seg_text:
+                    current_verse = 22
 
             # EXO verse splits and transitions
             if book_id == "EXO":
