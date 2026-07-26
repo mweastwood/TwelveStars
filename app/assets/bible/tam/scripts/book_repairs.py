@@ -45,6 +45,11 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
         elif current_chapter == 15 and "Tomó Abram" in raw_text:
             current_verse = 10
             raw_text = "10. " + raw_text
+        elif current_chapter == 21 and "Así pues que determinó" in raw_text:
+            return raw_text, current_chapter, current_verse, True
+        elif current_chapter == 21 and "Por lo que Abimelech" in raw_text:
+            current_verse = 29
+            raw_text = "29. " + raw_text
         elif current_chapter == 27 and "conoció" in raw_text and current_verse == 22:
             current_verse = 23
             raw_text = "23. " + raw_text
@@ -428,8 +433,10 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
             raw_text = raw_text.replace("y Sami engendró á Raham", "39. Y Sami engendró á Raham")
         elif current_chapter == 4 and ("Hathath" in raw_text or "Hathat" in raw_text):
             raw_text = "13. " + raw_text
-        elif current_chapter == 4 and ("hijo de Samaia" in raw_text or "nombrados príncipes" in raw_text):
-            raw_text = "38. Estos son los nombrados príncipes... " + raw_text
+        elif current_chapter == 4 and ("hijo de Samaia" in raw_text or "nombrados príncipes" in raw_text or "jefes famosos" in raw_text):
+            raw_text = "38. Estos son los jefes famosos de las parentelas ó linajes de la tribu de Simeon, cuyas familias se multiplicaron sobremanera."
+        elif current_chapter == 4 and current_verse == 38 and raw_text == "manera.":
+            return raw_text, current_chapter, current_verse, True
         elif current_chapter == 5 and "Ruben y de Gad" in raw_text:
             raw_text = "18. " + raw_text
         elif current_chapter == 8 and ("Zabadia" in raw_text or "Mosollam" in raw_text):
@@ -751,7 +758,10 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
 
     # Fix ISA OCR typos and top header guards
     if book_id == "ISA":
-        if current_chapter == 5 and raw_text.startswith(". Ay de vosotros"):
+        if current_chapter == 28 and "CAPITULO XXIX" in text_upper:
+            current_chapter = 29
+            current_verse = 0
+        elif current_chapter == 5 and raw_text.startswith(". Ay de vosotros"):
             raw_text = "18. Ay de vosotros" + raw_text[16:]
         elif current_chapter == 22 and line_data["box"][1] < 100 and line_data["box"][0] > 500 and "CAPITULO XXII" in text_upper:
             current_chapter = 23
@@ -765,14 +775,25 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
             raw_text = "5. " + raw_text
         elif current_chapter == 28 and current_verse == 16 and "el granizo destruirá" in raw_text:
             raw_text = "17. " + raw_text
+        elif current_chapter == 29 and ("No es verdad que en breve" in raw_text or "convertirá en un" in raw_text):
+            raw_text = "17. " + raw_text
+        elif "sino de confusion y de." in raw_text and "oprobio" not in raw_text:
+            raw_text = raw_text.replace("sino de confusion y de.", "sino de confusion y de oprobio.")
         elif current_chapter == 29 and current_verse == 20 and "pecar á los hombres" in raw_text:
             raw_text = "21. " + raw_text
         elif current_chapter == 30 and current_verse == 4 and "confundidos de un pueblo" in raw_text:
             raw_text = "5. " + raw_text
+        elif current_chapter == 30 and current_verse == 5 and "sino de confusion y de" in raw_text:
+            raw_text = raw_text.replace("sino de confusion y de.", "sino de confusion y de oprobio.")
         elif current_chapter == 30 and current_verse == 26 and "nombre del Señor viene" in raw_text:
             raw_text = "27. " + raw_text
         elif current_chapter == 37 and current_verse == 21 and "Despreciote" in raw_text:
             raw_text = "22. " + raw_text
+        elif current_chapter == 47 and "Mas vosotros ¿á quién" in raw_text:
+            return raw_text, current_chapter, current_verse, True
+        elif current_chapter == 47 and "Tú, oh hija" in raw_text:
+            current_verse = 5
+            raw_text = "5. " + raw_text
         elif current_chapter == 37 and current_verse == 22 and "afrentado" in raw_text:
             raw_text = "23. " + raw_text
         elif current_chapter == 37 and current_verse == 36 and ("despavorido" in raw_text or "Sennacherib" in raw_text):
@@ -883,7 +904,9 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
 
     # Fix JDG OCR typos
     if book_id == "JDG":
-        if current_chapter == 3 and raw_text.startswith("a0. Quedó"):
+        if current_chapter == 3 and "se iba olvidando ya" in raw_text:
+            return raw_text, current_chapter, current_verse, True
+        elif current_chapter == 3 and raw_text.startswith("a0. Quedó"):
             raw_text = raw_text.replace("a0.", "30.")
         elif current_chapter == 8 and raw_text.startswith("31. No acordándose"):
             raw_text = raw_text.replace("31.", "34.")

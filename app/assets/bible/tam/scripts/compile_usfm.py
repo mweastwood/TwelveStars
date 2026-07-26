@@ -243,6 +243,10 @@ PUNCTUATION_SPACING_PATTERNS: List[Tuple[re.Pattern, str]] = [
     (re.compile(r':(?=[a-zA-ZÁÉÍÓÚÑáéíóúñ])'), ': '),
     # Enforce space after commas when followed by a letter (e.g. 'vieron,quedaron' -> 'vieron, quedaron')
     (re.compile(r',(?=[a-zA-ZÁÉÍÓÚÑáéíóúñ])'), ', '),
+    # Enforce space after question marks when followed by a letter (e.g. 'aplaque?Pues' -> 'aplaque? Pues')
+    (re.compile(r'\?(?=[a-zA-ZÁÉÍÓÚÑáéíóúñ])'), '? '),
+    # Enforce space after exclamation marks when followed by a letter (e.g. 'vosotros!Y' -> 'vosotros! Y')
+    (re.compile(r'!(?=[a-zA-ZÁÉÍÓÚÑáéíóúñ])'), '! '),
 ]
 
 
@@ -256,9 +260,18 @@ def clean_scripture_verse_text(text: str) -> str:
     text = text.replace("Evungel", "Evangel")
     text = text.replace("Isrnél", "Israél")
     text = text.replace("pueolo", "pueblo")
+    text = text.replace("iete corderas", "siete corderas")
     text = text.replace(" de de ", " de ")
-    # Strip inline translator glosses (e.g. 'Martini traduce: ...')
-    text = re.sub(r'\s*Martini traduce:.*$', '', text)
+
+    # Strip standalone single-letter footnote callout tokens between proper names and verbs (e.g. 'Aod s proveyóse' -> 'Aod proveyóse')
+    text = re.sub(r'\b([A-ZÁÉÍÓÚÑ][a-zÁÉÍÓÚÑáéíóúñ]+)\s+[a-z]\s+([a-zÁÉÍÓÚÑáéíóúñ]+)\b', r'\1 \2', text)
+
+    # Strip chronological margin dates (e.g. 'Año del Mundo 2113: antes de Jesu-Christo 1891.')
+    text = re.sub(r'\s*Año del M[uú]s?do\b.*$', '', text, flags=re.IGNORECASE)
+
+    # Strip inline commentary blocks (e.g. 'Entonces Josué & rasgó...')
+    text = re.sub(r'\s*Entonces Josué.*$', '', text, flags=re.IGNORECASE)
+
     # Strip standalone 19th-century printer signature markers (e.g. 'las C cuerdas' -> 'las cuerdas'), excluding Spanish conjunction 'Y'
     text = re.sub(r'\s+[B-XZ]\s+', ' ', text)
     text = re.sub(r"\bIa\b", "la", text)
@@ -291,7 +304,10 @@ def clean_scripture_verse_text(text: str) -> str:
     text = re.sub(r'\s+(?:[I|II]\.?\s*)?\.\s*\.\s*$', '', text)
     text = re.sub(r'\s+\d{1,2}\.\s*$', '', text)
 
-    return " ".join(text.split())
+    res = " ".join(text.split())
+    if res and res[-1] not in ".!?:;,":
+        res += "."
+    return res
 
 # ==============================================================================
 # LAYOUT & LINE FILTERING HEURISTICS
@@ -357,42 +373,28 @@ def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float
 
 
 def is_footnote_line(text: str, y_coord: float, page_h: float) -> bool:
-    if "Salmo XXI" in text or "Véase tambien el Salmo" in text:
-        return True
-    if "tiranizar vuestras conciencias" in text or "El amor del prójimo" in text:
-        return False
     """
-    Identifies bottom-margin commentary notes, annotations, and Vulgate references.
-    Uses pattern matching for commentary trigger words below 65% page height,
-    and classifies all non-verse lines in the bottom margin (>= 80% height) as footnotes.
+    Identifies bottom-margin commentary notes, annotations, and Vulgate references
+    using structural page position (y >= 80%), footnote callout markers (*, †, ‡),
+    and em-dash note separators, without relying on word-matching lists.
     """
-    text_up = text.upper()
-    if re.search(r'\b(C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\b', text_up):
-        return False
-        
     text_clean = text.strip()
-    
+
     # Scripture verse lines start with verse numbers (e.g. '6. Ellos mismos...')
     if re.match(r'^\d{1,3}\s*[\./,;-]', text_clean):
         return False
 
-    # Bottom margin (>= 93% page height): any line not starting a verse is commentary/footnote
-    if y_coord >= page_h * 0.93:
+    # Lines starting with footnote symbols (*, †, ‡) or footnote callouts (e.g. '1 Exod...', '12 En el hebreo...')
+    if re.match(r'^\s*(?:[\*\†\‡]|\d{1,2}\s+[A-ZÁÉÍÓÚÑa-z])', text_clean) and y_coord >= page_h * 0.40:
         return True
-        
-    if y_coord >= page_h * 0.65:
-        commentary_pattern = (
-            r'\b(?:Véase|Vulgata|Hebreo|Expositores|San Gerónimo|San Agustín|San Agustin|'
-            r'Crisóstomo|Setenta|Esto es|profecía|profecia|Bello Jud|rabinos|denota|conviene|'
-            r'tambien los|Carvajal|Apóstoles|proteccion|halaga|instrumento material|mente latino|'
-            r'infierno|despues de su|hermoso sonido|nada siente|nada percibe|Para subsistir)\b'
-        )
-        if "•" in text_clean or ".—" in text_clean:
-            return True
-        first_w = text_clean.split()[0].lower() if text_clean.split() else ""
-        is_conj = first_w in ("y", "ó", "á", "e", "u", "o", "a")
-        if (not is_conj and re.match(r'^(?:\d{1,2}|[a-z]|\*|†|‡)\s+[A-ZÁÉÍÓÚa-z]', text_clean) and "tiranizar vuestras conciencias" not in text_clean) or re.search(commentary_pattern, text_clean, re.IGNORECASE):
-            return True
+
+    # Footnote em-dash separators (e.g. '.—' or '—') in lower page (y >= 45%)
+    if y_coord >= page_h * 0.45 and (".—" in text_clean or text_clean.startswith("—")):
+        return True
+
+    # Bottom margin (>= 82% page height): any line not starting a verse is commentary/footnote
+    if y_coord >= page_h * 0.82:
+        return True
 
     return False
 
@@ -515,23 +517,34 @@ def _sort_column_lines(col_lines: List[dict]) -> List[dict]:
 
 
 def _filter_column_footnotes(col_lines: List[dict], page_h: float) -> List[dict]:
+    """
+    Filters bottom-margin footnote and commentary sections per column based on
+    layout structure and footnote line classification.
+    """
+    if not col_lines:
+        return []
+
     clean = []
     in_fn_block = False
+
     for line in col_lines:
         y = line['box'][1]
         txt = line['text'].strip()
+
         is_fn = is_footnote_line(txt, y, page_h)
-        if y >= page_h * 0.65:
-            if is_fn:
-                in_fn_block = True
+        if y >= page_h * 0.60 and is_fn:
+            in_fn_block = True
+
+        if in_fn_block:
+            # Once in footnote block, recover if line starts a new scripture verse
+            if re.match(r'^\d{1,3}\s*[\./,;-]', txt):
+                in_fn_block = False
+                clean.append(line)
+            else:
                 continue
-            elif in_fn_block:
-                if not re.match(r'^\d{1,3}\s*[\./,;-]', txt):
-                    continue
-                else:
-                    in_fn_block = False
-        if not is_fn:
+        else:
             clean.append(line)
+
     return clean
 
 
@@ -592,13 +605,19 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
         
         scripture_lines = []
         for line in raw_lines:
-            if has_body_cap and line["box"][1] < 60 and re.search(r'\bC[ÁA]P[IÍLl1\s]*TULO\b', line["text"].upper()):
-                # Only drop running page headers (which contain page numbers or running book titles)
-                if re.search(r'\d{3}', line["text"]) or "ISAIAS" in line["text"].upper() or "CORINTHIOS" in line["text"].upper():
-                    continue
-            if not is_page_header_line(line["text"], line["box"][1], page_h, line["box"][0], volume):
-                if not is_footnote_line(line["text"], line["box"][1], page_h) and not is_latin_line(line["text"]):
-                    scripture_lines.append(line)
+            if line.get("score", 1.0) < 0.65:
+                continue
+            if is_page_header_line(line["text"], line["box"][1], page_h, line["box"][0], volume):
+                # Preserve embedded chapter title fragments from running page headers (e.g. '299 ISAÍAS. CAPITULO XXIX. 300')
+                if re.search(r'\bC[ÁA]P[IÍLl1\s]*TULO\s+[IVXLCDM0-9ÁÉÍÓÚ]+\b', line["text"].upper()):
+                    line_copy = dict(line)
+                    m_cap = re.search(r'\b(C[ÁA]P[IÍLl1\s]*TULO\s+[IVXLCDM0-9ÁÉÍÓÚ]+\.?)\b', line["text"].upper())
+                    if m_cap:
+                        line_copy["text"] = m_cap.group(1)
+                        scripture_lines.append(line_copy)
+                continue
+            if not is_footnote_line(line["text"], line["box"][1], page_h) and not is_latin_line(line["text"]):
+                scripture_lines.append(line)
         if not scripture_lines:
             continue
             
