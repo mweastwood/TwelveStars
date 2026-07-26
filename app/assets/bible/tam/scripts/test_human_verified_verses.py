@@ -133,6 +133,36 @@ HUMAN_VERIFIED_VERSES = [
         11,
         "Habrá gritos y quimeras en las calles por la escasez del vino: todo contento queda desterrado, desapareció la alegría de la tierra."
     ),
+    (
+        "ISA",
+        5,
+        18,
+        "¡Ay de vosotros que arrastrais la iniquidad con las cuerdas de la vanidad, y al pecado á manera de carro, del cual tirais como bestias!"
+    ),
+    (
+        "ISA",
+        20,
+        1,
+        "El año en que Tharthan, enviado por Sargon, rey de los Assyrios, llegó á Azoto, y la combatió y la tomó;"
+    ),
+    (
+        "ISA",
+        24,
+        5,
+        "Inficionada está la tierra por sus habitadores, pues han quebrantado las leyes, han alterado el derecho, rompieron la alianza sempiterna."
+    ),
+    (
+        "ISA",
+        28,
+        17,
+        "Y ejerceré el juicio con peso, y la justicia con medida; y un pedrisco trastornará la esperanza puesta en la mentira, y vuestra proteccion quedará sumergida en las aguas de la calamidad."
+    ),
+    (
+        "ISA",
+        30,
+        5,
+        "Todos en Israél quedarán corridos, á causa de un pueblo que de nada les ha podido servir, y que no les ha auxiliado, ni les ha sido de utilidad alguna, sino de confusion y de oprobio."
+    ),
 ]
 
 class TestHumanVerifiedVerses(unittest.TestCase):
