@@ -23,7 +23,8 @@ def parse_usfm_verses(usfm_path):
                 parts = line.split()
                 if len(parts) >= 2 and parts[1].isdigit():
                     current_chapter = int(parts[1])
-                    verses[current_chapter] = {}
+                    if current_chapter not in verses:
+                        verses[current_chapter] = {}
             elif line.startswith(r"\v ") and current_chapter > 0:
                 parts = line.split(maxsplit=2)
                 if len(parts) >= 3 and parts[1].isdigit():

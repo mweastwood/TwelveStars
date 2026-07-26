@@ -56,6 +56,78 @@ HUMAN_VERIFIED_VERSES = [
         "Por lo que Abimelech le dijo: ¿Qué significan esas siete corderas que has separado?"
     ),
     (
+        "GEN",
+        27,
+        45,
+        "Se pase su cólera y se olvide de lo que has hecho contra él: despues enviaré por tí, "
+        "y te traeré acá. ¿Por qué he de perder á mis dos hijos en un dia?"
+    ),
+    (
+        "NUM",
+        15,
+        39,
+        "Para que viéndolas se acuerden de todos los mandamientos del Señor, y no vayan en pos "
+        "de sus pensamientos, ni pongan sus ojos en objetos que corrompan su corazon;"
+    ),
+    (
+        "PSA",
+        73,
+        13,
+        "Tú diste con tu poder solidez á las aguas del mar Rojo: tú quebrantaste las cabezas "
+        "de los dragones, en medio de las aguas."
+    ),
+    (
+        "ISA",
+        42,
+        21,
+        "Y eso que el Señor le tuvo á Israel buena voluntad, escogiéndole para santificarle, "
+        "y para dar á conocer la grandeza y excelencia de su santa Ley."
+    ),
+    (
+        "JER",
+        29,
+        23,
+        "Por haber hecho ellos necedades abominables en Israél, y cometido adulterios "
+        "con las mujeres de sus amigos, y hablado mentirosamente en nombre mio, sin haberles "
+        "yo dado ninguna comision: Yo mismo soy el juez y el testigo de todo eso, dice el Señor."
+    ),
+    (
+        "MAT",
+        8,
+        33,
+        "Los porqueros echaron á huir: y llegados á la ciudad, lo contaron todo, "
+        "y en particular lo de los endemoniados."
+    ),
+    (
+        "LUK",
+        12,
+        56,
+        "Hipócritas, si sabeis pronosticar por los varios aspectos del cielo y de la tierra, "
+        "¿cómo no conoceis este tiempo del Mesías?"
+    ),
+    (
+        "ACT",
+        14,
+        22,
+        "En seguida, habiendo ordenado sacerdotes en cada una de las iglesias, despues de "
+        "oraciones y ayunos, los encomendaron al Señor, en quien habian creido."
+    ),
+    (
+        "ROM",
+        8,
+        34,
+        "¿Quién osará condenarlos? Despues que Jesu-Christo no solamente murió por nosotros, "
+        "sino que tambien resucitó, y está sentado á la diestra de Dios, en donde asimismo "
+        "intercede por nosotros."
+    ),
+    (
+        "REV",
+        10,
+        10,
+        "Entonces recibí el libro de la mano del Angel, y le devoré: y era en mi boca dulce "
+        "como la miel: pero habiéndolo devorado, quedó mi vientre ó interior lleno de amargura:"
+    ),
+    (
         "JOS",
         2,
         13,

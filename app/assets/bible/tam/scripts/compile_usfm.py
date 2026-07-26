@@ -272,6 +272,13 @@ def clean_scripture_verse_text(text: str) -> str:
     # Strip inline commentary blocks (e.g. 'Entonces Josué & rasgó...')
     text = re.sub(r'\s*Entonces Josué.*$', '', text, flags=re.IGNORECASE)
 
+    # General OCR typo fixes
+    text = re.sub(r'\bYeso que el\b', 'Y eso que el', text)
+    text = re.sub(r'\bSoñor\b', 'Señor', text)
+    text = text.replace("tiempo del Mesias!", "tiempo del Mesías?")
+    text = text.replace("ma Roo", "mar Rojo").replace("cabeas de los dagones", "cabezas de los dragones")
+    text = re.sub(r'en medio de las aguas\.\s*aguas\.$', 'en medio de las aguas.', text)
+
     # Strip standalone 19th-century printer signature markers (e.g. 'las C cuerdas' -> 'las cuerdas'), excluding Spanish conjunction 'Y'
     text = re.sub(r'\s+[B-XZ]\s+', ' ', text)
     text = re.sub(r"\bIa\b", "la", text)
@@ -519,7 +526,7 @@ def _sort_column_lines(col_lines: List[dict]) -> List[dict]:
 def _filter_column_footnotes(col_lines: List[dict], page_h: float) -> List[dict]:
     """
     Filters bottom-margin footnote and commentary sections per column based on
-    layout structure and footnote line classification.
+    layout structure, vertical Y-gaps, and footnote line classification.
     """
     if not col_lines:
         return []
@@ -527,13 +534,17 @@ def _filter_column_footnotes(col_lines: List[dict], page_h: float) -> List[dict]
     clean = []
     in_fn_block = False
 
-    for line in col_lines:
+    for i, line in enumerate(col_lines):
         y = line['box'][1]
         txt = line['text'].strip()
 
+        y_gap = (y - col_lines[i-1]['box'][1]) if i > 0 else 0.0
+
         is_fn = is_footnote_line(txt, y, page_h)
         if y >= page_h * 0.60 and is_fn:
-            in_fn_block = True
+            # Only start footnote block if there is a vertical gap from body text or explicit footnote symbol
+            if i == 0 or y_gap >= 22.0 or re.match(r'^\s*[\*\†\‡]', txt) or ".—" in txt or txt.startswith("—"):
+                in_fn_block = True
 
         if in_fn_block:
             # Once in footnote block, recover if line starts a new scripture verse
@@ -559,8 +570,8 @@ def sort_page_columns(scripture_lines: List[dict], page_h: float = 1000.0) -> Li
     max_x = max(l['box'][2] for l in scripture_lines)
     mid_x = (min_x + max_x) / 2
     
-    left_column = [l for l in scripture_lines if l['box'][0] < mid_x]
-    right_column = [l for l in scripture_lines if l['box'][0] >= mid_x]
+    left_column = [l for l in scripture_lines if ((l['box'][0] + l['box'][2]) / 2) < mid_x]
+    right_column = [l for l in scripture_lines if ((l['box'][0] + l['box'][2]) / 2) >= mid_x]
     
     left_sorted = _filter_column_footnotes(_sort_column_lines(left_column), page_h)
     right_sorted = _filter_column_footnotes(_sort_column_lines(right_column), page_h)
@@ -658,7 +669,7 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
         if skip_line:
             continue
         is_verse_start = bool(re.match(r'^\d{1,3}\s*[\./,;-]', raw_text)) or (book_id == "LAM" and bool(re.match(r'^[A-Z]{1,8}[\.:\s]*\d{1,3}\s*[\./,;-]?', text_upper)))
-        if not is_verse_start and re.search(r'\b(C[ÁA]P[IÍLl1]TUL[OÓ0]|CAPUT|[SŚ]ALMO|PSALMO)\b', text_upper) and not re.search(r'^\d+\s+CAP', text_upper):
+        if not is_verse_start and line_data["box"][1] >= 90 and re.search(r'\b(C[ÁA]P[IÍLl1]TUL[OÓ0]|CAPUT|[SŚ]ALMO|PSALMO)\b', text_upper) and not re.search(r'^\d+\s+CAP', text_upper):
             ch_num = extract_chapter_number(raw_text, expected_ch=current_chapter + 1)
             if ch_num is not None:
                 current_chapter = ch_num
