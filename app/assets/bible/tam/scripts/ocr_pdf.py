@@ -13,11 +13,20 @@ os.environ["PADDLE_PDX_ENABLE_MKLDNN_BYDEFAULT"] = "0"
 # Registry of specific PDF page indices (0-indexed) per volume that require high-resolution rendering (scale=4)
 # to accurately capture smudged, faded, or small-font textlines without dropping verses.
 HIGH_RESOLUTION_PAGES = {
+    1: {
+        19,
+        152,
+        153,
+        161,
+    },
     3: {
-        184,  # Vol 3 Page 185 (ISA 24:5 - 'Inficionada está la tierra por sus habitadores...')
-        189,  # Vol 3 Page 190 (ISA 28:17 - 'Y ejerceré el juicio con peso, y la justicia con medida...')
-        190,  # Vol 3 Page 191 (ISA 30:5 - 'Todos se avergonzarán del pueblo...')
-    }
+        20,
+        184,
+        189,
+        190,
+        191,
+        327,
+    },
 }
 
 DEFAULT_RENDER_SCALE = 2  # Standard rendering scale (~150-200 DPI) for normal clean pages
