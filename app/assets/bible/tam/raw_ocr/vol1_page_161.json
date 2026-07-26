@@ -6,1542 +6,1532 @@
     {
       "text": "CAPITULO VII.",
       "box": [
-        682,
-        28,
-        796,
-        50
+        1366,
+        60,
+        1591,
+        100
       ],
-      "score": 0.9828274250030518
+      "score": 0.999270498752594
     },
     {
       "text": "188",
       "box": [
-        892,
-        29,
-        915,
-        47
+        1789,
+        60,
+        1832,
+        89
       ],
-      "score": 0.9999009966850281
+      "score": 0.9999980926513672
     },
     {
       "text": "187",
       "box": [
-        78,
-        52,
-        102,
-        69
+        154,
+        113,
+        197,
+        142
       ],
-      "score": 0.999959409236908
+      "score": 0.9999980926513672
     },
     {
       "text": "NÚMEROS.",
       "box": [
-        205,
-        44,
-        283,
-        69
+        410,
+        100,
+        559,
+        139
       ],
-      "score": 0.9996758699417114
+      "score": 0.9999019503593445
     },
     {
       "text": "57. Un buey de la vacada, un carnero, y un cordero pri-",
       "box": [
-        549,
-        68,
-        922,
-        104
+        1099,
+        138,
+        1844,
+        208
       ],
-      "score": 0.9984630942344666
+      "score": 0.9966346621513367
     },
     {
       "text": "siclos, una taza de plata de setenta siclos, al peso del San-",
       "box": [
-        69,
-        91,
-        432,
-        114
+        138,
+        189,
+        857,
+        234
       ],
-      "score": 0.9988976120948792
+      "score": 0.9869838953018188
+    },
+    {
+      "text": "mal para holocausto,",
+      "box": [
+        1073,
+        199,
+        1352,
+        241
+      ],
+      "score": 0.9999570846557617
     },
     {
       "text": "tuario, entrambas llenas de flor de harina amasada con aceite",
       "box": [
-        68,
-        108,
-        431,
-        132
+        138,
+        223,
+        858,
+        270
       ],
-      "score": 0.9932240843772888
-    },
-    {
-      "text": "mal para holocausto,",
-      "box": [
-        536,
-        97,
-        678,
-        120
-      ],
-      "score": 0.9996423721313477
+      "score": 0.9981086850166321
     },
     {
       "text": "58. Y un macho cabrío por el pecado;",
       "box": [
-        549,
-        107,
-        805,
-        137
+        1099,
+        219,
+        1607,
+        274
       ],
-      "score": 0.9993449449539185
+      "score": 0.997654914855957
     },
     {
       "text": "para el sacrificio:",
       "box": [
-        68,
-        128,
-        174,
-        148
+        139,
+        270,
+        343,
+        303
       ],
-      "score": 0.9920713305473328
+      "score": 0.9787877798080444
     },
     {
       "text": "59. Y para hostias pacíficas, dos bueyes, cinco carneros,",
       "box": [
-        548,
-        122,
-        921,
-        153
+        1097,
+        247,
+        1844,
+        307
       ],
-      "score": 0.9980172514915466
+      "score": 0.9998282194137573
     },
     {
       "text": "26. Una naveta de oro que pesaba diez siclos, llena de",
       "box": [
-        80,
-        140,
-        432,
-        166
+        162,
+        287,
+        860,
+        340
       ],
-      "score": 0.9978851675987244
+      "score": 0.9898398518562317
     },
     {
       "text": "cinco machos cabríos, y cinco corderos primales. Esta fué la",
       "box": [
-        536,
-        140,
-        921,
-        169
+        1071,
+        283,
+        1843,
+        340
       ],
-      "score": 0.990298330783844
+      "score": 0.9918691515922546
     },
     {
       "text": "incienso:",
       "box": [
-        70,
-        163,
-        127,
-        181
+        139,
+        338,
+        248,
+        369
       ],
-      "score": 0.9998640418052673
+      "score": 0.9999849796295166
     },
     {
       "text": "ofrenda de Gamaliel hijo de Phadassur.",
       "box": [
-        535,
-        161,
-        793,
-        186
+        1071,
+        325,
+        1584,
+        373
       ],
-      "score": 0.9998835325241089
+      "score": 0.9999823570251465
     },
     {
       "text": "27. Un buey de la vacada, un carnero, y un cordero primal",
       "box": [
-        79,
-        173,
-        431,
-        199
+        161,
+        352,
+        860,
+        407
       ],
-      "score": 0.9761181473731995
+      "score": 0.9988585114479065
     },
     {
       "text": "60. El dia nono Abidan, hijo de Gedeon, príncipe de los",
       "box": [
-        546,
-        172,
-        921,
-        205
+        1097,
+        350,
+        1843,
+        406
       ],
-      "score": 0.9913501143455505
+      "score": 0.9990502595901489
     },
     {
       "text": "para holocausto,",
       "box": [
-        71,
-        196,
-        170,
-        214
+        142,
+        402,
+        337,
+        435
       ],
-      "score": 0.9997154474258423
+      "score": 0.9999696016311646
     },
     {
       "text": "hijos de Benjamin,",
       "box": [
-        534,
-        199,
-        660,
-        220
+        1069,
+        404,
+        1316,
+        440
       ],
-      "score": 0.9983090162277222
+      "score": 0.9999829530715942
     },
     {
       "text": "28. Y un macho cabrío por el pecado;",
       "box": [
-        81,
-        209,
-        310,
-        230
+        165,
+        427,
+        616,
+        468
       ],
-      "score": 0.9978250861167908
-    },
-    {
-      "text": "29. Y para sacrificios pacíficos, dos bueyes, cinco carneros,",
-      "box": [
-        80,
-        222,
-        431,
-        248
-      ],
-      "score": 0.96112459897995
+      "score": 0.9892258048057556
     },
     {
       "text": "61. Ofreció una fuente de plata, que pesaba ciento y trein-",
       "box": [
-        547,
-        204,
-        922,
-        239
+        1096,
+        417,
+        1844,
+        474
       ],
-      "score": 0.9911878108978271
+      "score": 0.9989588260650635
     },
     {
-      "text": "einco machos cabríos, y cinco corderos primales. Esta fué la",
+      "text": "29. Y para sacrificios pacíficos, dos bueyes, cinco carneros,",
       "box": [
-        67,
-        237,
-        433,
-        265
+        163,
+        450,
+        861,
+        505
       ],
-      "score": 0.777389407157898
+      "score": 0.9937971234321594
     },
     {
       "text": "ta siclos, y una taza de plata de setenta ciclos, al peso del",
       "box": [
-        533,
-        221,
-        922,
-        256
+        1069,
+        450,
+        1844,
+        510
       ],
-      "score": 0.993076503276825
+      "score": 0.9912886619567871
+    },
+    {
+      "text": "cinco machos cabríos, y cinco corderos primales. Esta fué la",
+      "box": [
+        139,
+        480,
+        863,
+        539
+      ],
+      "score": 0.9887769818305969
+    },
+    {
+      "text": "Santuario, entrambas llenas de flor de harina amasada con",
+      "box": [
+        1068,
+        483,
+        1844,
+        542
+      ],
+      "score": 0.999829888343811
     },
     {
       "text": "ofrenda de Eliab hijo de Helon.",
       "box": [
-        70,
-        259,
-        254,
-        279
+        141,
+        528,
+        503,
+        564
       ],
-      "score": 0.996497631072998
-    },
-    {
-      "text": "Santuario, entrambas llenas de flor de harina amasada con",
-      "box": [
-        532,
-        238,
-        922,
-        272
-      ],
-      "score": 0.9931042790412903
-    },
-    {
-      "text": ". El da cuarto Elsur, ho de Sedeur, caudillfe de",
-      "box": [
-        78,
-        268,
-        431,
-        298
-      ],
-      "score": 0.7034194469451904
+      "score": 0.9777740836143494
     },
     {
       "text": "aceite para el sacrificio,",
       "box": [
-        533,
-        265,
-        689,
-        286
+        1068,
+        536,
+        1375,
+        574
       ],
-      "score": 0.996212899684906
+      "score": 0.9995390772819519
     },
     {
-      "text": "los hijos de Ruben,",
+      "text": "30. El dia cuarto Elisur, hijo de Sedeur, caudillo ó jefe de",
       "box": [
-        67,
-        289,
-        184,
-        312
+        163,
+        544,
+        861,
+        601
       ],
-      "score": 0.9788733124732971
+      "score": 0.9875914454460144
     },
     {
       "text": "62. Y una naveta de oro, que pesaba diez siclos, llena de",
       "box": [
-        544,
-        269,
-        922,
-        307
+        1093,
+        546,
+        1844,
+        608
       ],
-      "score": 0.9670013189315796
+      "score": 0.9993907809257507
     },
     {
-      "text": "3l. Ofreció una fuente de plata que pesaba ciento y treinta",
+      "text": "los hijos de Ruben,",
       "box": [
-        78,
-        299,
-        432,
-        329
+        140,
+        593,
+        363,
+        627
       ],
-      "score": 0.9156615138053894
+      "score": 0.9884018301963806
     },
     {
       "text": "incienso:",
       "box": [
-        531,
-        298,
-        596,
-        318
+        1066,
+        604,
+        1185,
+        634
       ],
-      "score": 0.9995317459106445
+      "score": 0.9999880194664001
     },
     {
-      "text": "siclo, u ta de paa de eea sls, al pe del au",
+      "text": "31. Ofreció una fuente de plata que pesaba ciento y treinta",
       "box": [
-        66,
-        316,
-        432,
-        344
+        162,
+        608,
+        863,
+        662
       ],
-      "score": 0.6354360580444336
+      "score": 0.9861185550689697
     },
     {
       "text": "63. Un buey de la vacada, un carnero, y un cordero pri-",
       "box": [
-        543,
-        301,
-        922,
-        338
+        1091,
+        610,
+        1844,
+        674
       ],
-      "score": 0.9872796535491943
+      "score": 0.9985241889953613
     },
     {
-      "text": "rio, entrambas llenas de flor de harina amasada con aceite",
+      "text": "siclos, una taza de plata de setenta siclos, al peso del Santua-",
       "box": [
-        66,
-        332,
-        432,
-        360
+        137,
+        639,
+        863,
+        696
       ],
-      "score": 0.8967936038970947
+      "score": 0.9881891012191772
     },
     {
       "text": "mal para holocausto,",
       "box": [
-        531,
-        331,
-        669,
-        350
+        1066,
+        666,
+        1337,
+        702
       ],
-      "score": 0.9991769790649414
+      "score": 0.9992559552192688
     },
     {
-      "text": "para el sacrificio:",
+      "text": "rio, entrambas llenas de flor de harina amasada con aceite",
       "box": [
-        70,
-        355,
-        173,
-        372
+        137,
+        671,
+        862,
+        725
       ],
-      "score": 0.981833815574646
+      "score": 0.998384416103363
     },
     {
       "text": "64. Y un macho cabrío por el pecado;",
       "box": [
-        543,
-        342,
-        801,
-        368
+        1092,
+        691,
+        1600,
+        735
       ],
-      "score": 0.9871261119842529
+      "score": 0.9910117387771606
     },
     {
-      "text": "3. Una naveta de oro que pesaba diez siclos, llena de",
+      "text": "para el sacrificio:",
       "box": [
-        77,
-        364,
-        431,
-        392
+        140,
+        718,
+        341,
+        751
       ],
-      "score": 0.8987872004508972
+      "score": 0.9982563853263855
     },
     {
       "text": "65. Y para hostias pacíficas, dos bueyes, cinco carneros,",
       "box": [
-        543,
-        351,
-        922,
-        389
+        1088,
+        709,
+        1844,
+        775
       ],
-      "score": 0.9529364109039307
+      "score": 0.9932586550712585
     },
     {
-      "text": "incienso:",
+      "text": "3?. Una naveta de oro que pesaba diez siclos, llena de",
       "box": [
-        69,
-        386,
-        125,
-        404
+        160,
+        734,
+        862,
+        789
       ],
-      "score": 0.9981043934822083
+      "score": 0.9914751648902893
     },
     {
       "text": "cinco machos cabríos, y cinco corderos primales. Esta fué la",
       "box": [
-        530,
-        368,
-        922,
-        406
+        1062,
+        741,
+        1844,
+        810
       ],
-      "score": 0.9804662466049194
+      "score": 0.9996551871299744
+    },
+    {
+      "text": "incienso:",
+      "box": [
+        139,
+        781,
+        245,
+        812
+      ],
+      "score": 0.999919056892395
     },
     {
       "text": "33. Un buey de la vacada, un carnero, y un cordero primal",
       "box": [
-        79,
-        398,
-        430,
-        423
+        162,
+        804,
+        861,
+        851
       ],
-      "score": 0.9618828296661377
+      "score": 0.9868093132972717
     },
     {
       "text": "ofrenda de Abidan, hijo de Gedeon.",
       "box": [
-        532,
-        396,
-        764,
-        417
+        1066,
+        796,
+        1526,
+        834
       ],
-      "score": 0.988236129283905
-    },
-    {
-      "text": "para holocausto,",
-      "box": [
-        67,
-        417,
-        168,
-        438
-      ],
-      "score": 0.9983604550361633
+      "score": 0.9936742186546326
     },
     {
       "text": "66. El dia décimo Ahiezer, hijo de Ammisaddai, príncipe",
       "box": [
-        543,
-        401,
-        922,
-        438
+        1090,
+        809,
+        1844,
+        876
       ],
-      "score": 0.9299141764640808
+      "score": 0.9968839287757874
+    },
+    {
+      "text": "para holocausto,",
+      "box": [
+        139,
+        846,
+        333,
+        881
+      ],
+      "score": 0.9999372959136963
     },
     {
       "text": "34. Y un macho cabrío por el pecado;",
       "box": [
-        79,
-        435,
-        309,
-        452
+        163,
+        874,
+        615,
+        912
       ],
-      "score": 0.9985002875328064
+      "score": 0.9875519275665283
     },
     {
       "text": "de los hijos de Dan,",
       "box": [
-        531,
-        430,
-        660,
-        450
+        1066,
+        865,
+        1321,
+        900
       ],
-      "score": 0.9999305605888367
-    },
-    {
-      "text": "35. Y para hostias pacíficas dos bueyes, cinco carneros,",
-      "box": [
-        78,
-        447,
-        430,
-        470
-      ],
-      "score": 0.9786303639411926
+      "score": 0.999983012676239
     },
     {
       "text": "67. Ofreció una fuente de plata, que pesaba ciento y treinta",
       "box": [
-        543,
-        434,
-        922,
-        472
+        1088,
+        873,
+        1844,
+        943
       ],
-      "score": 0.8887144327163696
+      "score": 0.9796087741851807
+    },
+    {
+      "text": "35. Y para hostias pacíficas dos bueyes, cinco carneros,",
+      "box": [
+        161,
+        901,
+        859,
+        945
+      ],
+      "score": 0.9994987845420837
     },
     {
       "text": "cinco machos cabríos, y cinco corderos primales. Esta fué la",
       "box": [
-        67,
-        463,
-        431,
-        486
+        137,
+        932,
+        859,
+        976
       ],
-      "score": 0.9909470081329346
+      "score": 0.9869602918624878
     },
     {
       "text": "siclos, una taza de plata de setenta siclos, al peso del Santua-",
       "box": [
-        528,
-        450,
-        922,
-        488
+        1061,
+        907,
+        1844,
+        974
       ],
-      "score": 0.8931967616081238
+      "score": 0.9970388412475586
     },
     {
       "text": "ofrenda de Elisur hijo de Sedeur.",
       "box": [
-        71,
-        485,
-        263,
-        499
+        140,
+        973,
+        524,
+        1003
       ],
-      "score": 0.9998403787612915
+      "score": 0.9945492744445801
     },
     {
       "text": "rio, entrambas llenas de flor de harina amasada con aceite",
       "box": [
-        529,
-        466,
-        922,
-        503
+        1062,
+        940,
+        1844,
+        1005
       ],
-      "score": 0.9798840880393982
+      "score": 0.9997533559799194
     },
     {
-      "text": "36. El dia quinto Salamiel, hijo de Surisaddai, caudillo 6",
+      "text": "36. El dia quinto Salamiel, hijo de Surisaddai, caudillo ó",
       "box": [
-        79,
-        496,
-        431,
-        518
+        164,
+        996,
+        860,
+        1039
       ],
-      "score": 0.9672263860702515
+      "score": 0.9995042681694031
     },
     {
       "text": "para el sacrificio:",
       "box": [
-        530,
-        496,
-        643,
-        516
+        1064,
+        994,
+        1287,
+        1034
       ],
-      "score": 0.9881991147994995
+      "score": 0.9919228553771973
     },
     {
       "text": "príncipe de los hijos de Simeon,",
       "box": [
-        69,
+        138,
+        1035,
         516,
-        260,
-        533
+        1072
       ],
-      "score": 0.9987542629241943
+      "score": 0.9995763301849365
     },
     {
       "text": "68. Una naveta de oro, que pesaba diez siclos, llena de",
       "box": [
-        542,
-        500,
-        922,
-        537
+        1089,
+        1005,
+        1844,
+        1072
       ],
-      "score": 0.9918249249458313
+      "score": 0.9976716041564941
     },
     {
       "text": "37. Ofreció una fuente de plata que pesaba ciento y",
       "box": [
-        80,
-        531,
-        430,
-        548
+        161,
+        1063,
+        857,
+        1101
       ],
-      "score": 0.9952391982078552
+      "score": 0.9822423458099365
     },
     {
       "text": "incienso:",
       "box": [
-        531,
-        531,
-        592,
-        549
+        1064,
+        1065,
+        1183,
+        1097
       ],
-      "score": 0.9985106587409973
+      "score": 0.999975860118866
     },
     {
       "text": "treinta siclos, una taza de plata de setenta siclos, al peso del",
       "box": [
-        67,
-        544,
-        431,
-        567
+        137,
+        1096,
+        857,
+        1132
       ],
-      "score": 0.9873760342597961
+      "score": 0.9992051720619202
     },
     {
       "text": "69. Un buey de la vacada, un carnero, y un cordero pri-",
       "box": [
-        543,
-        533,
-        921,
-        568
+        1090,
+        1072,
+        1844,
+        1137
       ],
-      "score": 0.998128354549408
+      "score": 0.9990527033805847
     },
     {
       "text": "Santuario, entrambas llenas de flor de harina amasada con",
       "box": [
-        67,
-        562,
-        429,
-        581
+        135,
+        1128,
+        856,
+        1163
       ],
-      "score": 0.9916342496871948
+      "score": 0.9997085928916931
     },
     {
       "text": "mal para holocausto,",
       "box": [
-        530,
-        561,
-        664,
-        582
+        1065,
+        1128,
+        1332,
+        1164
       ],
-      "score": 0.9993470311164856
+      "score": 0.9999485015869141
     },
     {
       "text": "aceite para el sacrificio:",
       "box": [
-        67,
-        579,
-        209,
-        597
+        136,
+        1164,
+        409,
+        1194
       ],
-      "score": 0.9919176697731018
+      "score": 0.9994363784790039
     },
     {
       "text": "70. Y un macho cabrío por el pecado;",
       "box": [
-        542,
-        572,
-        790,
-        600
+        1093,
+        1154,
+        1581,
+        1196
       ],
-      "score": 0.9988769888877869
+      "score": 0.991776704788208
     },
     {
       "text": "38. Una naveta de oro que pesaba diez siclos, llena de",
       "box": [
-        78,
-        594,
-        429,
-        613
+        158,
+        1191,
+        856,
+        1229
       ],
-      "score": 0.997282862663269
+      "score": 0.9988980293273926
     },
     {
       "text": "71. Y para hostias pacíficas dos bueyes, cinco carneros,",
       "box": [
-        543,
-        583,
-        921,
-        615
+        1091,
+        1171,
+        1843,
+        1232
       ],
-      "score": 0.9772637486457825
+      "score": 0.9995629191398621
     },
     {
       "text": "incienso:",
       "box": [
-        65,
-        611,
-        122,
-        628
+        133,
+        1228,
+        242,
+        1259
       ],
-      "score": 0.999556303024292
+      "score": 0.9999824166297913
     },
     {
       "text": "cinco machos cabríos, y cinco corderos primales. Esta fué la",
       "box": [
-        529,
-        599,
-        922,
-        632
+        1063,
+        1202,
+        1844,
+        1267
       ],
-      "score": 0.9983046054840088
+      "score": 0.9985693693161011
     },
     {
       "text": "39. Un buey de la vacada, un carnero, y un cordero",
       "box": [
-        77,
-        625,
-        429,
-        648
+        159,
+        1256,
+        855,
+        1294
       ],
-      "score": 0.9864948391914368
+      "score": 0.9935776591300964
     },
     {
       "text": "ofrenda de Ahiezer hijo de Ammisaddai.",
       "box": [
-        530,
-        621,
-        785,
-        647
+        1065,
+        1249,
+        1574,
+        1295
       ],
-      "score": 0.9932711720466614
+      "score": 0.9999587535858154
     },
     {
       "text": "primal para holocausto,",
       "box": [
-        68,
-        647,
-        208,
-        664
+        135,
+        1294,
+        411,
+        1327
       ],
-      "score": 0.9999642372131348
+      "score": 0.9904237985610962
     },
     {
       "text": "72. El undécimo dia Phegiel, hijo de Ochran, príncipe de",
       "box": [
-        542,
-        631,
-        921,
-        665
+        1091,
+        1268,
+        1844,
+        1332
       ],
-      "score": 0.9985588788986206
+      "score": 0.9969731569290161
     },
     {
       "text": "40. Y un macho cabrío por el pecado;",
       "box": [
-        78,
-        661,
-        309,
-        680
+        160,
+        1325,
+        612,
+        1359
       ],
-      "score": 0.9929948449134827
+      "score": 0.9996134638786316
     },
     {
       "text": "los hijos de Aser,",
       "box": [
-        530,
-        660,
-        640,
-        677
+        1063,
+        1324,
+        1284,
+        1356
       ],
-      "score": 0.9998929500579834
+      "score": 0.9998302459716797
     },
     {
       "text": "41. Y para hostias pacíficas dos bueyes, cinco carneros,",
       "box": [
-        78,
-        676,
-        427,
-        697
+        159,
+        1355,
+        854,
+        1391
       ],
-      "score": 0.9987086653709412
+      "score": 0.9862437844276428
     },
     {
       "text": "73. Ofreció una fuente de plata de ciento y treinta siclos",
       "box": [
-        542,
-        664,
-        921,
-        697
+        1090,
+        1334,
+        1844,
+        1396
       ],
-      "score": 0.9923755526542664
+      "score": 0.9998220801353455
     },
     {
       "text": "cinco machos cabríos, y cinco corderos primales. Esta fué",
       "box": [
-        67,
-        692,
-        429,
-        713
+        134,
+        1387,
+        855,
+        1423
       ],
-      "score": 0.9879729151725769
+      "score": 0.999691903591156
     },
     {
       "text": "de peso, una taza de plata de setenta siclos, al peso del San-",
       "box": [
-        529,
-        682,
-        922,
-        713
+        1064,
+        1369,
+        1844,
+        1427
       ],
-      "score": 0.995672881603241
+      "score": 0.9887370467185974
     },
     {
       "text": "la ofrenda de Salamiel hijo de Surisaddai.",
       "box": [
-        66,
-        709,
-        315,
-        729
+        133,
+        1420,
+        624,
+        1454
       ],
-      "score": 0.9933546185493469
+      "score": 0.9924840331077576
     },
     {
       "text": "tuario, ambas llenas de flor de harina amasada con aceite",
       "box": [
-        530,
-        700,
-        921,
-        728
+        1065,
+        1404,
+        1843,
+        1457
       ],
-      "score": 0.9993724226951599
+      "score": 0.9977993369102478
     },
     {
       "text": "42. El dia sexto Eliasaph, hijo de Duel, caudillo de los",
       "box": [
-        78,
-        726,
-        428,
-        745
+        159,
+        1451,
+        854,
+        1485
       ],
-      "score": 0.9921948313713074
+      "score": 0.9993749260902405
     },
     {
       "text": "para el sacrificio:",
       "box": [
-        530,
-        723,
-        643,
-        743
+        1066,
+        1453,
+        1289,
+        1485
       ],
-      "score": 0.9886800646781921
+      "score": 0.9976548552513123
     },
     {
       "text": "hijos de Gad,",
       "box": [
-        67,
-        743,
-        148,
-        760
+        134,
+        1483,
+        292,
+        1516
       ],
-      "score": 0.9999366402626038
+      "score": 0.9999854564666748
     },
     {
       "text": "74. Una naveta de oro, que pesaba diez siclos, llena de",
       "box": [
-        538,
-        731,
-        922,
-        761
+        1081,
+        1469,
+        1844,
+        1521
       ],
-      "score": 0.9868881106376648
+      "score": 0.9831597805023193
     },
     {
       "text": "43. Ofreció una fuente de plata que pesaba ciento y treinta",
       "box": [
-        78,
-        758,
-        429,
-        775
+        160,
+        1515,
+        853,
+        1547
       ],
-      "score": 0.9952226877212524
+      "score": 0.9978457093238831
     },
     {
       "text": "incienso:",
       "box": [
-        531,
-        757,
-        592,
-        774
+        1067,
+        1519,
+        1184,
+        1547
       ],
-      "score": 0.9997032880783081
+      "score": 0.9999645948410034
     },
     {
       "text": "siclos, una taza de plata de setenta siclos, segun el peso del",
       "box": [
-        67,
-        775,
-        429,
-        792
+        134,
+        1546,
+        854,
+        1581
       ],
-      "score": 0.9984164237976074
+      "score": 0.9880126714706421
     },
     {
       "text": "75. Un buey de la vacada, un carnero, y un cordero pri-",
       "box": [
-        542,
-        764,
-        921,
-        792
+        1090,
+        1533,
+        1844,
+        1588
       ],
-      "score": 0.9896703362464905
+      "score": 0.9957435727119446
     },
     {
       "text": "Santuario, entrambas llenas de flor de harina amasada con",
       "box": [
-        67,
-        791,
-        428,
-        809
+        133,
+        1579,
+        853,
+        1611
       ],
-      "score": 0.9950844645500183
+      "score": 0.9998877048492432
     },
     {
       "text": "mal para holocausto,",
       "box": [
-        533,
-        791,
-        661,
-        805
+        1068,
+        1585,
+        1325,
+        1612
       ],
-      "score": 0.9851694107055664
+      "score": 0.9999321699142456
     },
     {
       "text": "aceite para el sacrificio:",
       "box": [
-        66,
-        805,
-        207,
-        824
+        134,
+        1609,
+        408,
+        1641
       ],
-      "score": 0.9933990240097046
+      "score": 0.9812149405479431
     },
     {
       "text": "76. Y un macho cabrío por el pecado;",
       "box": [
-        543,
-        799,
-        786,
-        825
+        1094,
+        1608,
+        1575,
+        1648
       ],
-      "score": 0.9991406202316284
+      "score": 0.9959682822227478
     },
     {
       "text": "44. Una naveta de oro que pesaba diez siclos, llena de",
       "box": [
-        77,
-        822,
-        428,
-        841
+        156,
+        1638,
+        855,
+        1677
       ],
-      "score": 0.986974835395813
+      "score": 0.9978076219558716
     },
     {
       "text": "77. Y para hostias pacíficas dos bueyes, cinco carneros,",
       "box": [
-        543,
-        813,
-        921,
-        840
+        1092,
+        1632,
+        1842,
+        1682
       ],
-      "score": 0.9907819032669067
+      "score": 0.9977505803108215
     },
     {
       "text": "incienso:",
       "box": [
-        65,
-        839,
-        123,
-        856
+        132,
+        1675,
+        241,
+        1703
       ],
-      "score": 0.9999478459358215
+      "score": 0.9999905824661255
     },
     {
       "text": "cinco machos cabríos, cinco corderos primales. Esta fué la",
       "box": [
-        531,
-        831,
-        920,
-        856
+        1065,
+        1664,
+        1842,
+        1715
       ],
-      "score": 0.9980370998382568
+      "score": 0.9932676553726196
     },
     {
       "text": "45. Un buey de la vacada, un carnero, y un cordero primal",
       "box": [
-        75,
-        853,
-        429,
-        875
+        156,
+        1701,
+        856,
+        1743
       ],
-      "score": 0.9948623776435852
+      "score": 0.9930409789085388
     },
     {
       "text": "ofrenda de Phegiel hijo de Ochran.",
       "box": [
-        531,
-        851,
-        744,
-        871
+        1067,
+        1708,
+        1492,
+        1741
       ],
-      "score": 0.9964923858642578
+      "score": 0.999979555606842
     },
     {
       "text": "para holocausto,",
       "box": [
-        65,
-        872,
-        164,
-        889
+        130,
+        1737,
+        325,
+        1770
       ],
-      "score": 0.9999688267707825
+      "score": 0.9999724626541138
     },
     {
       "text": "78. El dia duodécimo Ahira, hijo de Enan, príncipe de los",
       "box": [
-        544,
-        861,
-        920,
-        890
+        1092,
+        1727,
+        1843,
+        1780
       ],
-      "score": 0.9877439737319946
+      "score": 0.9997108578681946
     },
     {
       "text": "46. Y un macho cabrío por el pecado;",
       "box": [
-        77,
-        887,
-        308,
-        905
+        156,
+        1771,
+        611,
+        1801
       ],
-      "score": 0.9993700385093689
+      "score": 0.9942983984947205
     },
     {
       "text": "hijos de Nephthalí,",
       "box": [
-        531,
-        884,
-        650,
-        904
+        1067,
+        1773,
+        1302,
+        1805
       ],
-      "score": 0.9989635348320007
+      "score": 0.9931818246841431
     },
     {
       "text": "47. Y para las hostias pacíficas dos bueyes, cinco carneros,",
       "box": [
-        76,
-        903,
-        429,
-        922
+        155,
+        1799,
+        857,
+        1839
       ],
-      "score": 0.9949809908866882
+      "score": 0.9884046316146851
     },
     {
       "text": "79. Ofreció una fuente de plata que pesaba ciento y treinta",
       "box": [
-        544,
-        894,
-        920,
-        921
+        1092,
+        1792,
+        1840,
+        1843
       ],
-      "score": 0.9938288331031799
+      "score": 0.9997557997703552
     },
     {
       "text": "cinco machos cabríos, y cinco corderos primales. Esta fué la",
       "box": [
-        65,
-        921,
-        430,
-        938
+        130,
+        1832,
+        857,
+        1868
       ],
-      "score": 0.99775230884552
+      "score": 0.9979711174964905
     },
     {
       "text": "siclos, una taza de plata de setenta siclos, al peso del Santua-",
       "box": [
-        532,
-        911,
-        920,
-        937
+        1067,
+        1826,
+        1839,
+        1874
       ],
-      "score": 0.9863300323486328
+      "score": 0.9952183961868286
     },
     {
       "text": "ofrenda de Eliasaph hijo de Duel.",
       "box": [
-        66,
-        936,
-        265,
-        953
+        130,
+        1865,
+        527,
+        1896
       ],
-      "score": 0.9999250769615173
+      "score": 0.9999341368675232
     },
     {
       "text": "rio, entrambas llenas de flor de harina amasada con aceite",
       "box": [
-        532,
-        929,
-        918,
-        952
+        1066,
+        1859,
+        1839,
+        1905
       ],
-      "score": 0.9989644885063171
+      "score": 0.9948018789291382
     },
     {
-      "text": "48. El dia séptimo, el príncipe é caudillo de los hijos de",
+      "text": "48. El dia séptimo, el príncipe ócaudillo de los hijos de",
       "box": [
-        75,
-        950,
-        430,
-        971
+        155,
+        1897,
+        856,
+        1931
       ],
-      "score": 0.9814167618751526
+      "score": 0.987838089466095
     },
     {
       "text": "para el sacrificio:",
       "box": [
-        534,
-        950,
-        639,
-        967
+        1068,
+        1900,
+        1278,
+        1932
       ],
-      "score": 0.9931285977363586
+      "score": 0.9963197112083435
     },
     {
       "text": "Ephraim Elisama, hijo de Ammiud,",
       "box": [
-        67,
-        970,
-        276,
-        985
+        131,
+        1931,
+        550,
+        1961
       ],
-      "score": 0.999869704246521
+      "score": 0.9999326467514038
     },
     {
       "text": "80. Una naveta de oro, que pesaba diez siclos, llena de",
       "box": [
-        544,
-        960,
-        919,
-        986
+        1092,
+        1924,
+        1838,
+        1968
       ],
-      "score": 0.9956669807434082
+      "score": 0.9973204731941223
     },
     {
       "text": "49. Ofreció una fuente de plata que pesaba ciento y treinta",
       "box": [
-        78,
-        987,
-        429,
-        1001
+        155,
+        1962,
+        859,
+        1995
       ],
-      "score": 0.9950511455535889
+      "score": 0.9981881380081177
     },
     {
       "text": "incienso:",
       "box": [
-        533,
-        982,
-        591,
-        999
+        1068,
+        1965,
+        1179,
+        1993
       ],
-      "score": 0.9998682737350464
+      "score": 0.9999830722808838
     },
     {
       "text": "siclos, una taza de plata de setenta siclos, al peso del Santua-",
       "box": [
-        66,
-        1003,
-        431,
-        1017
+        130,
+        1995,
+        862,
+        2027
       ],
-      "score": 0.9912904500961304
+      "score": 0.990117073059082
     },
     {
-      "text": "81. Un-buey de la vacada, un carnero, y un cordero pri-",
+      "text": "81. Un buey de la vacada, un carnero, y un cordero pri-",
       "box": [
-        544,
-        994,
-        918,
-        1017
+        1092,
+        1990,
+        1837,
+        2032
       ],
-      "score": 0.99077969789505
+      "score": 0.9921345114707947
     },
     {
       "text": "rio, entrambas llenas de flor de harina amasada con aceite",
       "box": [
-        66,
-        1019,
-        429,
-        1033
+        129,
+        2025,
+        860,
+        2058
       ],
-      "score": 0.9999217391014099
+      "score": 0.9922190308570862
     },
     {
       "text": "mal para holocausto,",
       "box": [
-        533,
-        1014,
-        659,
-        1031
+        1067,
+        2029,
+        1317,
+        2059
       ],
-      "score": 0.9999327659606934
+      "score": 0.9788206219673157
     },
     {
       "text": "para el sacrificio:",
       "box": [
-        64,
-        1033,
-        169,
-        1050
+        129,
+        2059,
+        336,
+        2089
       ],
-      "score": 0.9835441708564758
+      "score": 0.9890839457511902
     },
     {
       "text": "82. Y un macho cabrío por el pecado;",
       "box": [
-        543,
-        1028,
-        784,
-        1048
+        1091,
+        2056,
+        1569,
+        2093
       ],
-      "score": 0.9993391036987305
+      "score": 0.9992057085037231
     },
     {
       "text": "50. Una naveta de oro, que pesaba diez siclos, llena de",
       "box": [
-        76,
-        1049,
-        430,
-        1067
+        153,
+        2089,
+        859,
+        2121
       ],
-      "score": 0.9922972917556763
+      "score": 0.9995396137237549
     },
     {
       "text": "83. Y para hostias pacíficas dos bueyes, cinco carneros,",
       "box": [
-        544,
-        1044,
-        917,
-        1065
+        1090,
+        2090,
+        1833,
+        2126
       ],
-      "score": 0.9940763115882874
+      "score": 0.996143639087677
     },
     {
       "text": "incienso:",
       "box": [
-        63,
-        1065,
-        120,
-        1082
+        127,
+        2121,
+        238,
+        2151
       ],
-      "score": 0.9991261959075928
+      "score": 0.99997878074646
     },
     {
       "text": "cinco machos cabríos, y cinco corderos primales. Esta fué la",
       "box": [
-        531,
-        1059,
-        918,
-        1081
+        1064,
+        2122,
+        1832,
+        2156
       ],
-      "score": 0.9890028834342957
+      "score": 0.9926612973213196
     },
     {
       "text": "51. Un buey de la vacada, un carnero, y un cordero primal",
       "box": [
-        76,
-        1082,
-        430,
-        1099
+        153,
+        2151,
+        860,
+        2186
       ],
-      "score": 0.9975129961967468
+      "score": 0.9976573586463928
     },
     {
       "text": "ofrenda de Ahira hijo de Enan.",
       "box": [
-        533,
-        1078,
-        719,
-        1095
+        1064,
+        2153,
+        1439,
+        2185
       ],
-      "score": 0.9998615980148315
+      "score": 0.9952927827835083
     },
     {
       "text": "para holocausto,",
       "box": [
-        64,
-        1099,
-        164,
-        1113
+        128,
+        2186,
+        327,
+        2216
       ],
-      "score": 0.9999657273292542
+      "score": 0.9999486804008484
     },
     {
-      "text": "84. Las cosas, pues, ofrecidas por los príncipes ó caudillos",
+      "text": "84. Las cosas, pues, ofrecidas por los príncipes ócaudillos",
       "box": [
-        544,
-        1092,
-        918,
-        1112
+        1089,
+        2184,
+        1833,
+        2221
       ],
-      "score": 0.9726704955101013
+      "score": 0.9964756369590759
     },
     {
       "text": "52. Y un macho cabrío por el pecado;",
       "box": [
-        76,
-        1113,
-        310,
-        1130
+        154,
+        2214,
+        619,
+        2248
       ],
-      "score": 0.991797149181366
+      "score": 0.9979539513587952
     },
     {
       "text": "de Israél, en la dedicacion del altar cuando fué consagrado,",
       "box": [
-        533,
-        1110,
-        917,
-        1127
+        1062,
+        2213,
+        1833,
+        2256
       ],
-      "score": 0.9895950555801392
+      "score": 0.9987419247627258
     },
     {
       "text": "53. Y para hostias pacíficas, dos bueyes, cinco carneros,",
       "box": [
-        74,
-        1127,
-        430,
-        1148
+        153,
+        2246,
+        858,
+        2281
       ],
-      "score": 0.9813483953475952
+      "score": 0.9963755011558533
     },
     {
       "text": "fueron estas: doce fuentes de plata: doce tazas de plata: doce",
       "box": [
-        530,
-        1124,
-        917,
-        1145
+        1058,
+        2245,
+        1835,
+        2290
       ],
-      "score": 0.9930788278579712
+      "score": 0.9918553829193115
     },
     {
       "text": "cinco machos cabríos, y cinco corderos primales. Esta fué la",
       "box": [
-        62,
-        1143,
-        431,
-        1163
+        127,
+        2278,
+        859,
+        2312
       ],
-      "score": 0.9935436248779297
+      "score": 0.9958521127700806
     },
     {
       "text": "navetas de oro:",
       "box": [
-        532,
-        1143,
-        623,
-        1158
+        1060,
+        2282,
+        1245,
+        2313
       ],
-      "score": 0.9998156428337097
+      "score": 0.9999369382858276
     },
     {
       "text": "ofrenda de Elisama hijo de Ammiud.",
       "box": [
-        64,
-        1161,
-        283,
-        1175
+        128,
+        2311,
+        566,
+        2338
       ],
-      "score": 0.9996130466461182
+      "score": 0.997911810874939
     },
     {
       "text": "85. Pesando cada fuente ciento y treinta siclos de plata, y",
       "box": [
-        541,
-        1155,
-        917,
-        1179
+        1082,
+        2303,
+        1833,
+        2358
       ],
-      "score": 0.9930735230445862
+      "score": 0.990825891494751
     },
     {
       "text": "54. El dia octavo el príncipe de los hijos de Manassés,",
       "box": [
-        73,
-        1173,
-        429,
-        1195
+        152,
+        2336,
+        858,
+        2376
       ],
-      "score": 0.9900933504104614
+      "score": 0.9998564124107361
     },
     {
       "text": "setenta siclos cada taza; y así pesaban juntos todos los vasos",
       "box": [
-        529,
-        1172,
-        918,
-        1194
+        1054,
+        2336,
+        1835,
+        2388
       ],
-      "score": 0.9901935458183289
+      "score": 0.9960553646087646
     },
     {
       "text": "Gamaliel, hijo de Phadassur,",
       "box": [
-        61,
-        1189,
-        236,
-        1207
+        127,
+        2372,
+        469,
+        2399
       ],
-      "score": 0.9998675584793091
+      "score": 0.9979950785636902
     },
     {
       "text": "de plata dos mil y cuatrocientos siclos al peso del Santuario:",
       "box": [
-        529,
-        1189,
-        917,
-        1208
+        1056,
+        2368,
+        1835,
+        2420
       ],
-      "score": 0.991171658039093
+      "score": 0.9993287324905396
     },
     {
       "text": "55. Ofreció una fuente de plata del peso de ciento y treinta",
       "box": [
-        72,
-        1203,
-        431,
-        1229
+        149,
+        2398,
+        861,
+        2439
       ],
-      "score": 0.9974088668823242
+      "score": 0.9957106113433838
     },
     {
       "text": "86. Las doce navetas de oro llenas de incienso, pesando",
       "box": [
-        541,
-        1204,
-        916,
-        1224
+        1082,
+        2398,
+        1834,
+        2452
       ],
-      "score": 0.994242250919342
+      "score": 0.9998643398284912
     },
     {
       "text": "siclos, una taza de plata que pesaba setenta siclos, al peso del",
       "box": [
-        60,
-        1220,
-        430,
-        1244
+        120,
+        2431,
+        862,
+        2474
       ],
-      "score": 0.9898924827575684
+      "score": 0.9998939037322998
     },
     {
       "text": "cada una diez siclos de oro, y juntas ciento veinte siclos al",
       "box": [
-        531,
-        1221,
-        917,
-        1242
+        1057,
+        2432,
+        1834,
+        2482
       ],
-      "score": 0.9842957854270935
+      "score": 0.9958226084709167
     },
     {
       "text": "Santuario, entrambas llenas de flor de harina amasada con",
       "box": [
-        59,
-        1235,
-        430,
-        1261
+        120,
+        2461,
+        862,
+        2507
       ],
-      "score": 0.9933128356933594
+      "score": 0.9992740154266357
     },
     {
       "text": "peso del Santuario:",
       "box": [
-        530,
-        1238,
-        648,
-        1257
+        1061,
+        2471,
+        1292,
+        2508
       ],
-      "score": 0.9990401864051819
+      "score": 0.9999062418937683
     },
     {
       "text": "aceite para el sacrificio:",
       "box": [
-        60,
-        1253,
-        206,
-        1271
+        124,
+        2497,
+        409,
+        2529
       ],
-      "score": 0.9925850629806519
+      "score": 0.9921812415122986
     },
     {
       "text": "87. Doce bueyes de la vacada para holocausto, carneros",
       "box": [
-        543,
-        1255,
-        916,
-        1272
+        1085,
+        2497,
+        1832,
+        2546
       ],
-      "score": 0.9874135255813599
+      "score": 0.9936299324035645
     },
     {
       "text": "56. Una naveta de oro, del peso de diez siclos, llena de",
       "box": [
-        71,
-        1266,
-        431,
-        1295
+        148,
+        2525,
+        860,
+        2572
       ],
-      "score": 0.9831936955451965
-    },
-    {
-      "text": "doce, corderos primales doce, con sus libaciones; y doce",
-      "box": [
-        530,
-        1268,
-        917,
-        1291
-      ],
-      "score": 0.9852527976036072
+      "score": 0.9907957315444946
     },
     {
       "text": "incienso:",
       "box": [
-        60,
-        1284,
-        119,
-        1301
+        121,
+        2561,
+        235,
+        2592
       ],
-      "score": 0.9998069405555725
+      "score": 0.9999762773513794
     },
     {
       "text": "machos cabríos por el pecado.",
       "box": [
-        529,
-        1283,
-        712,
-        1309
+        1061,
+        2563,
+        1418,
+        2605
       ],
-      "score": 0.9864633083343506
+      "score": 0.9999452233314514
     }
   ]
 }

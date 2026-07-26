@@ -6,1502 +6,1532 @@
     {
       "text": "3",
       "box": [
-        28,
-        38,
-        43,
-        54
+        63,
+        78,
+        83,
+        104
       ],
-      "score": 0.9963842630386353
+      "score": 0.9984614849090576
+    },
+    {
+      "text": "CAPITULOII",
+      "box": [
+        1319,
+        74,
+        1515,
+        108
+      ],
+      "score": 0.9992395639419556
     },
     {
       "text": "GENESIS",
       "box": [
-        176,
-        44,
-        242,
-        60
+        356,
+        89,
+        485,
+        119
       ],
-      "score": 0.9997521042823792
-    },
-    {
-      "text": "CAPITULO II",
-      "box": [
-        658,
-        36,
-        758,
-        54
-      ],
-      "score": 0.9639998078346252
+      "score": 0.999273419380188
     },
     {
       "text": "tes en cada género, animales domésticos', reptiles, y bestias",
       "box": [
-        18,
-        84,
-        415,
-        110
+        38,
+        171,
+        832,
+        218
       ],
-      "score": 0.9913941025733948
+      "score": 0.9714489579200745
     },
     {
       "text": "silvestres de la tierra segun sus especies. Y fué echo así.",
       "box": [
-        18,
-        101,
-        388,
-        127
+        38,
+        203,
+        774,
+        252
       ],
-      "score": 0.9955428242683411
+      "score": 0.9992254376411438
     },
     {
       "text": "toda la superficie de la tierra.",
       "box": [
-        515,
-        101,
-        709,
-        127
+        1036,
+        201,
+        1418,
+        251
       ],
-      "score": 0.9988137483596802
+      "score": 0.9999017119407654
     },
     {
       "text": "25. Hizo pues Dios las bestias silvestres de la tierra segun",
       "box": [
-        33,
-        119,
-        415,
-        143
+        69,
+        238,
+        832,
+        287
       ],
-      "score": 0.9995374083518982
+      "score": 0.9946869015693665
     },
     {
-      "text": "7. Formó pues el Señor Dios al hombre del lodo de la tier-",
+      "text": "7. Formó pues el Señor Dios al hombre del lodo de la tier.",
       "box": [
-        526,
-        117,
-        902,
-        143
+        1059,
+        232,
+        1802,
+        283
       ],
-      "score": 0.9888542890548706
+      "score": 0.993040144443512
     },
     {
       "text": "sus especies, y los animales domésticos, y todo reptil terrestre",
       "box": [
-        18,
-        136,
-        415,
-        160
+        39,
+        274,
+        832,
+        319
       ],
-      "score": 0.9930505752563477
+      "score": 0.9942029714584351
     },
     {
-      "text": "ra, é inspiróle en el rostro un soplo ó espíritu iª de vida, y",
+      "text": "ra, é inspiróle en el rostro un soplo ó espíritu 13 de vida, y",
       "box": [
-        515,
-        135,
-        901,
-        159
+        1033,
+        268,
+        1804,
+        318
       ],
-      "score": 0.9664333462715149
+      "score": 0.9698036909103394
     },
     {
       "text": "segun su especie. Y vió Dios que lo hecho era bueno.",
       "box": [
-        19,
-        154,
-        360,
-        175
+        39,
+        309,
+        718,
+        350
       ],
-      "score": 0.9957031607627869
+      "score": 0.9944661259651184
     },
     {
-      "text": "quedó hecho el hombre viviente con alma rucional \".",
+      "text": "quedó hecho el hombre viviente con alma racional 14.",
       "box": [
-        516,
-        151,
-        859,
-        176
+        1035,
+        301,
+        1715,
+        351
       ],
-      "score": 0.9765345454216003
+      "score": 0.970052182674408
     },
     {
-      "text": "26. Y por fin dijo: Hagamos' al hombre á imágen y seme-",
+      "text": "26. Y por fin dijo: Hagamos al hombre á imágen y seme-",
       "box": [
-        33,
-        170,
-        416,
-        193
+        68,
+        340,
+        834,
+        387
       ],
-      "score": 0.9610921144485474
+      "score": 0.9782875180244446
     },
     {
       "text": "8. Habia plantado el Señor Dios desde el principio un jar-",
       "box": [
-        529,
-        169,
-        901,
-        190
+        1063,
+        338,
+        1802,
+        379
       ],
-      "score": 0.9858806729316711
+      "score": 0.9997093081474304
     },
     {
-      "text": "janza nuestra³; y domine á los peces del mar, y á las aves del",
+      "text": "janza nuestra ³; y domine á los peces del mar, y á las aves del",
       "box": [
-        16,
-        185,
-        416,
-        211
+        37,
+        373,
+        833,
+        420
       ],
-      "score": 0.955264151096344
+      "score": 0.9722913503646851
     },
     {
-      "text": "din delicioso 1*: en que colocó al hombre que habia formado.",
+      "text": "din delicioso is: en que colocó al hombre que habia formado.",
       "box": [
-        518,
-        185,
-        903,
-        207
+        1038,
+        370,
+        1805,
+        412
       ],
-      "score": 0.9693517088890076
+      "score": 0.9792137742042542
     },
     {
       "text": "cielo, y á las bestias, y á toda la tierra, y á todo reptil que se",
       "box": [
-        17,
-        202,
-        416,
-        227
+        40,
+        405,
+        832,
+        454
       ],
-      "score": 0.9685472249984741
+      "score": 0.9825630187988281
     },
     {
       "text": "9. Y en donde el Señor Dios habia hecho nacer de la tierra",
       "box": [
-        529,
-        201,
-        903,
-        223
+        1064,
+        403,
+        1805,
+        442
       ],
-      "score": 0.9923608899116516
+      "score": 0.9990760684013367
     },
     {
       "text": "mueve sobre la tierra.",
       "box": [
-        18,
-        218,
-        166,
-        243
+        40,
+        440,
+        334,
+        480
       ],
-      "score": 0.9978189468383789
+      "score": 0.999965250492096
     },
     {
       "text": "misma toda suerte de árboles hermosos á la vista, y de frutos",
       "box": [
-        517,
-        217,
-        904,
-        239
+        1038,
+        437,
+        1807,
+        476
       ],
-      "score": 0.988122284412384
+      "score": 0.989281952381134
     },
     {
-      "text": "27. Crió pues Dios al hombre á imagen suya: á imágen de",
+      "text": "27. Crió pues Dios al hombre á imágen suya: á imágen de",
       "box": [
-        31,
-        232,
-        416,
-        261
+        66,
+        468,
+        832,
+        521
       ],
-      "score": 0.9613516926765442
+      "score": 0.9936823844909668
     },
     {
       "text": "suaves al paladar: y tambien el árbol de la vida en medio del",
       "box": [
-        516,
-        232,
-        904,
-        256
+        1037,
+        468,
+        1808,
+        510
       ],
-      "score": 0.9986345171928406
+      "score": 0.9942144751548767
     },
     {
-      "text": "Dios le crió : criólos varon y hembra.",
+      "text": "Dios le crió: criólos varon y hembra.",
       "box": [
-        18,
-        251,
-        264,
-        278
+        38,
+        503,
+        530,
+        553
       ],
-      "score": 0.9675140380859375
+      "score": 0.9996148347854614
     },
     {
-      "text": "paraíso, y el árbol de la ciencia del bien y del mal te.",
+      "text": "paraíso, y el árbol de l ciencia del bien y del mal 16.",
       "box": [
-        517,
-        250,
-        854,
-        272
+        1038,
+        501,
+        1703,
+        543
       ],
-      "score": 0.9751438498497009
+      "score": 0.9819994568824768
+    },
+    {
+      "text": "28. Y echóles Dios su bendicion, y dijo®: Creced y multi-",
+      "box": [
+        66,
+        534,
+        833,
+        586
+      ],
+      "score": 0.977216362953186
     },
     {
       "text": "10. De este lugar de delicias salia un rio para regar el pa-",
       "box": [
-        529,
-        266,
-        905,
-        288
+        1065,
+        533,
+        1810,
+        574
       ],
-      "score": 0.9981305599212646
+      "score": 0.9992048740386963
     },
     {
-      "text": "plicaos , y henchid la tierra, y enseñoreaos de ella, y dominad",
+      "text": "plicaos 6, y henchid la tierra, y enseñoreaos de ella, y dominad",
       "box": [
-        17,
-        285,
-        415,
-        308
+        36,
+        569,
+        833,
+        614
       ],
-      "score": 0.9631180167198181
+      "score": 0.9845297336578369
     },
     {
       "text": "raíso, rio que desde allí se dividia en cuatro brazos.",
       "box": [
-        517,
-        283,
-        847,
-        304
+        1037,
+        568,
+        1692,
+        605
       ],
-      "score": 0.99592125415802
+      "score": 0.9910572171211243
     },
     {
       "text": "á los peces del mar, y á las aves del cielo, y á todos los anima-",
       "box": [
-        17,
-        301,
-        416,
-        324
+        38,
+        602,
+        834,
+        646
       ],
-      "score": 0.957439661026001
+      "score": 0.9952833652496338
     },
     {
       "text": "11. Uno se llama Phison: y es el que circula por todo el",
       "box": [
-        528,
-        295,
-        907,
-        321
+        1063,
+        592,
+        1815,
+        641
       ],
-      "score": 0.9950923919677734
+      "score": 0.9902009963989258
     },
     {
       "text": "les que se mueven sobre la tierra.",
       "box": [
-        17,
-        316,
-        240,
-        341
+        39,
+        636,
+        480,
+        677
       ],
-      "score": 0.9941197633743286
+      "score": 0.9830422401428223
     },
     {
       "text": "país de Hevilath, en donde se halla el oro:",
       "box": [
-        517,
-        315,
-        789,
-        335
+        1038,
+        632,
+        1577,
+        669
       ],
-      "score": 0.9946388602256775
+      "score": 0.9999773502349854
     },
     {
-      "text": "12. Y el oro de aquella tierra es finísimo i7: allí se encuen-",
+      "text": "29. Y añadió Dios: Ved que os he dado todas las yerbas",
       "box": [
-        529,
-        329,
-        908,
-        352
+        70,
+        667,
+        832,
+        708
       ],
-      "score": 0.9730709195137024
+      "score": 0.9957020878791809
+    },
+    {
+      "text": "12. Y el oro de aquella tierra es finísimo ¹7: allí se encuen-",
+      "box": [
+        1063,
+        658,
+        1816,
+        703
+      ],
+      "score": 0.9823635220527649
     },
     {
       "text": "las cuales producen simiente sobre la tierra, y todos los ár-",
       "box": [
-        17,
-        349,
-        416,
-        372
+        37,
+        698,
+        832,
+        740
       ],
-      "score": 0.9781604409217834
+      "score": 0.9969632029533386
     },
     {
       "text": "tra el bdelio, y la piedra cornerina.",
       "box": [
-        518,
-        348,
-        745,
-        368
+        1038,
+        698,
+        1491,
+        734
       ],
-      "score": 0.998291552066803
+      "score": 0.9992502331733704
     },
     {
       "text": "boles los cuales tienen en sí mismos simiente de su especie,",
       "box": [
-        18,
-        365,
-        413,
-        387
+        39,
+        732,
+        829,
+        771
       ],
-      "score": 0.9994375705718994
+      "score": 0.9946756958961487
     },
     {
       "text": "13. El nombre del segundo rio es Gehon: este es el que",
       "box": [
-        528,
-        361,
-        910,
-        385
+        1064,
+        723,
+        1819,
+        767
       ],
-      "score": 0.9913957118988037
+      "score": 0.9742404818534851
     },
     {
-      "text": "para que os sirvan de alimento á vosotros';",
+      "text": "para que os sirvan de alimento á vosotros;",
       "box": [
-        17,
-        383,
-        304,
-        403
+        40,
+        768,
+        608,
+        805
       ],
-      "score": 0.9810415506362915
+      "score": 0.9964755177497864
     },
     {
       "text": "rodea toda la tierra de Ethyopia.",
       "box": [
-        518,
-        383,
-        725,
-        399
+        1038,
+        765,
+        1454,
+        798
       ],
-      "score": 0.9997280240058899
+      "score": 0.9999106526374817
     },
     {
       "text": "30. Y á todos los animales de la tierra, y á todas las aves",
       "box": [
-        34,
-        399,
-        414,
-        419
+        72,
+        799,
+        832,
+        839
       ],
-      "score": 0.9942284822463989
+      "score": 0.9881682395935059
     },
     {
       "text": "14. El tercer rio tiene por nombre Tygris: este va corrien-",
       "box": [
-        528,
-        393,
-        910,
-        418
+        1063,
+        788,
+        1821,
+        836
       ],
-      "score": 0.9995604157447815
+      "score": 0.999409019947052
     },
     {
       "text": "del cielo, y á todos cuantos animales vivientes se mueven",
       "box": [
-        18,
-        416,
-        415,
-        436
+        42,
+        834,
+        831,
+        871
       ],
-      "score": 0.9865641593933105
+      "score": 0.9984316825866699
     },
     {
       "text": "do hácia los Assyrios. Y el cuarto rio es el Euphrates.",
       "box": [
-        517,
-        412,
-        858,
-        433
+        1038,
+        827,
+        1718,
+        864
       ],
-      "score": 0.9987767934799194
+      "score": 0.9916525483131409
     },
     {
       "text": "sobre la tierra, á fin de que tengan que comer. Y así se",
       "box": [
-        18,
-        433,
-        415,
-        453
+        39,
+        864,
+        833,
+        906
       ],
-      "score": 0.996386706829071
+      "score": 0.9898087382316589
     },
     {
       "text": "15. Tomó pues el Señor Dios al hombre, y púsole en el",
       "box": [
-        529,
-        427,
-        911,
-        450
+        1064,
+        853,
+        1823,
+        901
       ],
-      "score": 0.9992921352386475
+      "score": 0.9949447512626648
     },
     {
       "text": "hizo.",
       "box": [
-        18,
-        450,
-        58,
-        468
+        40,
+        900,
+        117,
+        932
       ],
-      "score": 0.9999252557754517
+      "score": 0.9999818801879883
     },
     {
-      "text": "paraíso de delicias, para que le cultivase is y guardase:",
+      "text": "paraíso de delicias, para que le cultivase ¹⁸ y guardase:",
       "box": [
-        517,
-        444,
-        870,
-        467
+        1038,
+        890,
+        1741,
+        931
       ],
-      "score": 0.9766771793365479
+      "score": 0.991802990436554
     },
     {
       "text": "31. Y vió Dios todas las cosas que habia hecho: y eran en",
       "box": [
-        32,
-        464,
-        414,
-        485
+        70,
+        930,
+        832,
+        969
       ],
-      "score": 0.9988611340522766
+      "score": 0.994067370891571
     },
     {
-      "text": "16. Dióle tambien este precepto diciendo: Come, si quie-",
+      "text": "16. Dióle tambien este precepto diciendo: Come, si quie.",
       "box": [
-        529,
-        459,
-        913,
-        484
+        1065,
+        919,
+        1825,
+        966
       ],
-      "score": 0.9880437850952148
+      "score": 0.9849106073379517
     },
     {
-      "text": "gran manera buenas». Con lo que de la tarde y de la mañana,",
+      "text": "gran manera buenas®. Con lo que de la tarde y de la mañana,",
       "box": [
-        18,
-        480,
-        414,
-        503
+        42,
+        964,
+        829,
+        1004
       ],
-      "score": 0.9741823673248291
+      "score": 0.9884997606277466
     },
     {
       "text": "res, del fruto de todos los árboles del paraíso;",
       "box": [
-        518,
-        478,
-        811,
-        498
+        1040,
+        960,
+        1622,
+        994
       ],
-      "score": 0.9997649192810059
+      "score": 0.9999679923057556
     },
     {
       "text": "se formó el dia sexto.",
       "box": [
-        19,
-        501,
-        163,
-        518
+        43,
+        1000,
+        329,
+        1034
       ],
-      "score": 0.9997907876968384
+      "score": 0.9999467730522156
     },
     {
       "text": "17. Mas del fruto del árbol de la ciencia del bien y del",
       "box": [
-        530,
-        490,
-        913,
-        516
+        1066,
+        985,
+        1825,
+        1029
       ],
-      "score": 0.9996054768562317
+      "score": 0.9989436864852905
     },
     {
       "text": "mal no comas: porque en cualquier dia que comieres de él,",
       "box": [
-        517,
-        508,
-        914,
-        534
+        1039,
+        1017,
+        1826,
+        1067
       ],
-      "score": 0.9946088790893555
+      "score": 0.9996472001075745
     },
     {
       "text": "CAPITULO II",
       "box": [
-        173,
-        530,
-        266,
-        549
+        352,
+        1062,
+        536,
+        1096
       ],
-      "score": 0.9986476898193359
+      "score": 0.9976152777671814
     },
     {
       "text": "infaliblemente morirás.",
       "box": [
-        518,
-        530,
-        666,
-        548
+        1042,
+        1062,
+        1334,
+        1094
       ],
-      "score": 0.9980480074882507
+      "score": 0.9999584555625916
     },
     {
       "text": "18. Dijo asimismo el Señor Dios: No es bueno que el hom-",
       "box": [
-        529,
-        539,
-        915,
-        566
+        1068,
+        1083,
+        1828,
+        1129
       ],
-      "score": 0.9951969981193542
+      "score": 0.9935889840126038
     },
     {
       "text": "Acabadas las obras de la creacion en los seis dias, descansa Dios en el",
       "box": [
-        20,
-        557,
-        415,
-        577
+        41,
+        1113,
+        833,
+        1154
       ],
-      "score": 0.9940388798713684
+      "score": 0.9997696280479431
     },
     {
       "text": "bre esté solo: hagámosle ayuda y compañía semejante á él.",
       "box": [
-        519,
-        557,
-        898,
-        581
+        1039,
+        1114,
+        1800,
+        1165
       ],
-      "score": 0.9753503203392029
+      "score": 0.9952696561813354
     },
     {
-      "text": "séptimo, y santifica este dia. Coloca al hombre en el paraíso; forma á",
+      "text": "séptimo, y santifica este dia. Coloca al hombre en el paraíso: forma á",
       "box": [
-        32,
-        571,
-        414,
-        592
+        69,
+        1145,
+        832,
+        1183
       ],
-      "score": 0.9832683205604553
+      "score": 0.9988800287246704
     },
     {
       "text": "19. Formado pues que hubo de la tierra el Señor Dios to-",
       "box": [
-        531,
-        573,
-        915,
-        598
+        1069,
+        1147,
+        1829,
+        1196
       ],
-      "score": 0.9982966184616089
+      "score": 0.9999533295631409
     },
     {
-      "text": "Eva, é instituye el matrimonio,",
+      "text": "Eva, é instituye el matrimonio.",
       "box": [
-        32,
-        589,
-        208,
-        607
+        71,
+        1182,
+        416,
+        1211
       ],
-      "score": 0.9768011569976807
+      "score": 0.989474892616272
     },
     {
       "text": "dos los animales terrestres, y todas las aves del cielo, los trajo",
       "box": [
-        518,
-        589,
-        915,
-        614
+        1040,
+        1180,
+        1830,
+        1229
       ],
-      "score": 0.9976567625999451
+      "score": 0.999369204044342
     },
     {
       "text": "1. Quedaron pues acabados los cielos y la tierra, y todo el",
       "box": [
-        34,
-        612,
-        415,
-        637
+        71,
+        1226,
+        834,
+        1273
       ],
-      "score": 0.999811589717865
+      "score": 0.9919703602790833
     },
     {
       "text": "á Adam, para que viese cómo los habia de llamar: y en efecto",
       "box": [
-        517,
-        605,
-        915,
-        631
+        1041,
+        1214,
+        1829,
+        1261
       ],
-      "score": 0.9949440360069275
-    },
-    {
-      "text": "ornato de ellos.",
-      "box": [
-        19,
-        636,
-        124,
-        652
-      ],
-      "score": 0.9746524095535278
+      "score": 0.9996129870414734
     },
     {
       "text": "todos los nombres puestos por Adam á los animales vivientes,",
       "box": [
-        518,
-        622,
-        915,
-        648
+        1041,
+        1247,
+        1828,
+        1293
       ],
-      "score": 0.990850567817688
+      "score": 0.9893152117729187
+    },
+    {
+      "text": "ornato de ellos.",
+      "box": [
+        42,
+        1273,
+        250,
+        1300
+      ],
+      "score": 0.9999332427978516
     },
     {
       "text": "2. Y completó Dios, al séptimo dia, la obra que habia he-",
       "box": [
-        33,
-        644,
-        416,
-        671
+        69,
+        1292,
+        833,
+        1341
       ],
-      "score": 0.9994696378707886
+      "score": 0.9897379875183105
     },
     {
       "text": "esos son sus nombres propios.",
       "box": [
-        518,
-        643,
-        709,
-        664
+        1040,
+        1289,
+        1417,
+        1326
       ],
-      "score": 0.9991319179534912
-    },
-    {
-      "text": "cho: y en el dia séptimo\" reposó ó cesó de todas las obras que",
-      "box": [
-        18,
-        662,
-        415,
-        688
-      ],
-      "score": 0.9805358052253723
+      "score": 0.9939529299736023
     },
     {
       "text": "20. Llamó pues Adam por sus propios nombres á todos los",
       "box": [
-        530,
-        654,
-        917,
-        681
+        1068,
+        1313,
+        1832,
+        1360
       ],
-      "score": 0.9839118719100952
+      "score": 0.987978994846344
     },
     {
-      "text": "habia acabado.",
+      "text": "cho: y en el dia séptimo reposó ócesó de todas las obras que",
       "box": [
-        20,
-        687,
-        122,
-        704
+        39,
+        1326,
+        833,
+        1376
       ],
-      "score": 0.9999655485153198
+      "score": 0.9761978983879089
     },
     {
       "text": "animales, á todas las aves del cielo, y á todas las bestias de",
       "box": [
-        518,
-        672,
-        916,
-        697
+        1042,
+        1348,
+        1831,
+        1392
       ],
-      "score": 0.996152937412262
+      "score": 0.9918442964553833
     },
     {
-      "text": "3. Y bendijo el dia séptimo; y le santificó 1o: por cuanto",
+      "text": "habia acabado.",
       "box": [
-        33,
-        695,
-        415,
-        721
+        42,
+        1376,
+        245,
+        1404
       ],
-      "score": 0.9720714092254639
+      "score": 0.9999396204948425
     },
     {
       "text": "la tierra: mas no se hallaba para Adam ayuda ó compañero á",
       "box": [
-        517,
-        689,
-        918,
-        715
+        1039,
+        1381,
+        1832,
+        1426
       ],
-      "score": 0.9900489449501038
+      "score": 0.9831387996673584
     },
     {
-      "text": "habia Dios cesado en él de todas las obras que crió hasta de-",
+      "text": "3. Y bendijo el dia séptimo; y le santificó ¹o: por cuanto",
       "box": [
-        19,
-        712,
-        416,
-        738
+        72,
+        1391,
+        832,
+        1442
       ],
-      "score": 0.9918966889381409
+      "score": 0.9675093293190002
     },
     {
       "text": "él semejante.",
       "box": [
-        517,
-        712,
-        606,
-        731
+        1041,
+        1426,
+        1213,
+        1458
       ],
-      "score": 0.9996901750564575
+      "score": 0.9999622702598572
     },
     {
-      "text": "jarlas bien acabadas.",
+      "text": "habia Dios cesado en él de todas las obras que crió hasta de-",
       "box": [
-        20,
-        733,
-        161,
-        753
+        41,
+        1425,
+        833,
+        1473
       ],
-      "score": 0.9983865022659302
+      "score": 0.9998396039009094
     },
     {
       "text": "21. Por tanto el Señor Dios hizo caer sobre Adam un pro-",
       "box": [
-        530,
-        723,
-        916,
-        747
+        1067,
+        1449,
+        1831,
+        1491
       ],
-      "score": 0.9959113001823425
+      "score": 0.9927042126655579
+    },
+    {
+      "text": "jarlas bien acabadas.",
+      "box": [
+        43,
+        1470,
+        325,
+        1505
+      ],
+      "score": 0.9990748167037964
+    },
+    {
+      "text": "fundo sueño ¹9: y mientras estaba dormido, le quitó una de",
+      "box": [
+        1041,
+        1485,
+        1831,
+        1523
+      ],
+      "score": 0.9900348782539368
     },
     {
       "text": "4. Tal fué el orígen del cielo y de la tierra, cuando fueron",
       "box": [
-        37,
-        745,
-        415,
-        768
+        75,
+        1490,
+        834,
+        1538
       ],
-      "score": 0.9892351031303406
-    },
-    {
-      "text": "fundo sueño 19: y mientras estaba dormido, le quitó una de",
-      "box": [
-        517,
-        739,
-        917,
-        764
-      ],
-      "score": 0.9764490723609924
-    },
-    {
-      "text": "criados, en aquel dia en que el Señor Dios hizo el cielo y la",
-      "box": [
-        22,
-        763,
-        416,
-        785
-      ],
-      "score": 0.9914892911911011
+      "score": 0.9880362153053284
     },
     {
       "text": "las costillas, y llenó de carne aquel vacío.",
       "box": [
-        519,
-        758,
-        782,
-        780
+        1041,
+        1520,
+        1566,
+        1557
       ],
-      "score": 0.9896767139434814
+      "score": 0.9998701214790344
     },
     {
-      "text": "tierra\",",
+      "text": "criados, en aquel dia en que el Señor Dios hizo el cielo y la",
       "box": [
-        23,
-        783,
-        82,
-        801
+        46,
+        1524,
+        834,
+        1570
       ],
-      "score": 0.9738938808441162
+      "score": 0.9984506368637085
+    },
+    {
+      "text": "tierra¹,",
+      "box": [
+        49,
+        1568,
+        164,
+        1600
+      ],
+      "score": 0.940893292427063
     },
     {
       "text": "22. Y de la costilla aquella que habia sacado de Adam, for-",
       "box": [
-        531,
-        774,
-        915,
-        796
+        1069,
+        1551,
+        1830,
+        1590
       ],
-      "score": 0.9759315252304077
+      "score": 0.9932674765586853
     },
     {
       "text": "5. Y todas las plantas del campo, antes que naciesen en",
       "box": [
-        37,
-        796,
-        416,
-        817
+        77,
+        1592,
+        835,
+        1633
       ],
-      "score": 0.9980897903442383
+      "score": 0.9937322735786438
     },
     {
-      "text": "móel Señor Dios una mujer t9: la cual puso delante de Adam.",
+      "text": "móel Señor Dios una mujer º: la cual puso delante de Adam.",
       "box": [
-        519,
-        791,
-        916,
-        813
+        1041,
+        1583,
+        1830,
+        1625
       ],
-      "score": 0.9737924337387085
+      "score": 0.9779710173606873
+    },
+    {
+      "text": "23. Y dijoóexclamó Adam: Esto es hueso  de mis hue-",
+      "box": [
+        1069,
+        1615,
+        1832,
+        1658
+      ],
+      "score": 0.9614673852920532
     },
     {
       "text": "la tierra, y toda la yerba de la tierra, antes que de ella bro-",
       "box": [
-        24,
-        813,
-        417,
-        834
+        48,
+        1625,
+        836,
+        1667
       ],
-      "score": 0.9996486902236938
-    },
-    {
-      "text": "23. Y dijo ó exclamó Adam: Esto es hueso \" de mis hue-",
-      "box": [
-        531,
-        807,
-        916,
-        830
-      ],
-      "score": 0.9688854813575745
+      "score": 0.9995836019515991
     },
     {
       "text": "tase: porque el Señor Dios no habia aun hecho llover sobre la",
       "box": [
-        24,
-        828,
-        417,
-        851
+        49,
+        1657,
+        837,
+        1700
       ],
-      "score": 0.9994649887084961
+      "score": 0.9999732971191406
     },
     {
       "text": "sos, y carne de mi carne: llamarse ha pues Hembra, porque",
       "box": [
-        518,
-        822,
-        917,
-        848
+        1040,
+        1647,
+        1834,
+        1695
       ],
-      "score": 0.99348384141922
+      "score": 0.9968145489692688
     },
     {
       "text": "tierra, ni habia hombre que la cultivase:",
       "box": [
-        25,
-        847,
-        286,
-        867
+        51,
+        1695,
+        572,
+        1732
       ],
-      "score": 0.9991793632507324
+      "score": 0.9997529983520508
     },
     {
       "text": "del hombre ha sido sacada.",
       "box": [
-        519,
-        842,
-        705,
-        863
+        1043,
+        1686,
+        1410,
+        1724
       ],
-      "score": 0.996440052986145
+      "score": 0.9915816783905029
     },
     {
-      "text": "Animales domésticos. La palabra hebrea  significa aquí los ani-",
+      "text": "1 Animales domésticos. La palabra hebrea  significa aquí los ani-",
       "box": [
-        38,
-        897,
-        418,
-        916
+        78,
+        1794,
+        838,
+        1828
       ],
-      "score": 0.9616731405258179
+      "score": 0.974047064781189
     },
     {
-      "text": "\" Véase Mundo.",
+      "text": "11 Véase Mundo.",
       "box": [
-        531,
-        892,
-        625,
-        911
+        1068,
+        1787,
+        1249,
+        1818
       ],
-      "score": 0.9467726349830627
+      "score": 0.9625322818756104
+    },
+    {
+      "text": "12 Un vapor, otros un raudal.",
+      "box": [
+        1068,
+        1815,
+        1383,
+        1847
+      ],
+      "score": 0.9988498091697693
     },
     {
       "text": "males domésticos, llamados en la Vulgata jumenta, por servir al hombre,",
       "box": [
-        26,
-        911,
-        418,
-        930
+        54,
+        1824,
+        838,
+        1859
       ],
-      "score": 0.9978840947151184
+      "score": 0.9999483227729797
     },
     {
-      "text": "\" Un vapor, otros un raudal.",
+      "text": "13 Un soplo ó espíritu de vida. Esto es, crió el alma racional, y unióla",
       "box": [
-        530,
-        904,
-        692,
-        926
+        1066,
+        1832,
+        1837,
+        1878
       ],
-      "score": 0.9716452360153198
+      "score": 0.9841387271881104
     },
     {
       "text": "ya en sus labores, ya suministrándole alimento y vestido. Por reptiles se",
       "box": [
-        26,
-        925,
-        419,
-        945
+        55,
+        1851,
+        840,
+        1889
       ],
-      "score": 0.9954556226730347
-    },
-    {
-      "text": "\" Un soplo ó espiritu de vida. Esto es, crió el alma racional, y unióla",
-      "box": [
-        531,
-        915,
-        919,
-        939
-      ],
-      "score": 0.9751505255699158
-    },
-    {
-      "text": "denotan los que parece que andan sin piés, ó arrastrando.",
-      "box": [
-        27,
-        940,
-        338,
-        959
-      ],
-      "score": 0.9909517765045166
+      "score": 0.9989644885063171
     },
     {
       "text": "al cuerpo para darle vida y movimiento. No es pues nuestra alma hija de",
       "box": [
-        519,
-        929,
-        919,
-        954
+        1044,
+        1862,
+        1836,
+        1905
       ],
-      "score": 0.9931074380874634
+      "score": 0.992634654045105
     },
     {
-      "text": "En este modo de hablar han reconocido siempre los Santos Padres y",
+      "text": "denotan los que parece que andan sin piés, ó arrastrando.",
       "box": [
-        39,
-        953,
-        419,
-        973
+        56,
+        1881,
+        676,
+        1916
       ],
-      "score": 0.9987647533416748
+      "score": 0.9997536540031433
     },
     {
       "text": "la materia, sino del fondo mismo de Dios; á la manera que nuestro alien-",
       "box": [
-        520,
-        944,
-        919,
-        968
+        1043,
+        1890,
+        1835,
+        1933
       ],
-      "score": 0.9968254566192627
+      "score": 0.9982290267944336
     },
     {
-      "text": "Doctores el profundo misterio de la unidad de Dios en la Trinidad de",
+      "text": "2 En este modo de hablar han reconocido siempre los Santos Padres y",
       "box": [
-        28,
-        968,
-        419,
-        988
+        80,
+        1908,
+        839,
+        1944
       ],
-      "score": 0.9996829032897949
+      "score": 0.9972255229949951
     },
     {
       "text": "to procede del fondo de nuestras entrañas. Las potencias del alma deno-",
       "box": [
-        520,
-        958,
-        920,
-        982
+        1045,
+        1918,
+        1836,
+        1961
       ],
-      "score": 0.9880498051643372
+      "score": 0.9995509386062622
     },
     {
-      "text": "Personas. Habia criado Dios al mundo para el hombre: nhora quiere criar",
+      "text": "Doctores el profundo misterio de la unidad de Dios en la Trinidad de",
       "box": [
-        28,
-        983,
-        419,
-        1002
+        57,
+        1937,
+        840,
+        1972
       ],
-      "score": 0.9867770671844482
+      "score": 0.9932510256767273
     },
     {
       "text": "tan su inmaterialidad é inmortalidad.",
       "box": [
-        520,
-        975,
-        722,
-        996
+        1047,
+        1953,
+        1445,
+        1987
       ],
-      "score": 0.9963904619216919
+      "score": 0.9991262555122375
+    },
+    {
+      "text": "Personas. Habia criado Dios al mundo para el hombre:ahora quiere criar",
+      "box": [
+        57,
+        1966,
+        840,
+        2001
+      ],
+      "score": 0.9947276711463928
+    },
+    {
+      "text": "14 I. Cor. XV, v. 45.",
+      "box": [
+        1069,
+        1983,
+        1287,
+        2014
+      ],
+      "score": 0.9665170311927795
     },
     {
       "text": "al hombre para sí; y le cria á imágen suya, segun el alma; la cual es in-",
       "box": [
-        29,
-        996,
-        420,
-        1016
+        57,
+        1994,
+        841,
+        2032
       ],
-      "score": 0.9918978810310364
+      "score": 0.9981244206428528
     },
     {
-      "text": "1 I. Cor. XV, v. 45.",
+      "text": "15 O deliciosísimo jardin.—Véase Paraíso.",
       "box": [
-        533,
-        992,
-        643,
-        1007
+        1070,
+        2009,
+        1523,
+        2041
       ],
-      "score": 0.9066377878189087
+      "score": 0.9930418133735657
     },
     {
-      "text": "corpórea, inmortal, dotada de entendimiento, voluntad, y libre albedrío;",
+      "text": "corpórea, inmortal, dotada de entendimiento, voluntad, y libre albedrío:",
       "box": [
-        29,
-        1010,
-        420,
-        1031
+        59,
+        2022,
+        841,
+        2060
       ],
-      "score": 0.9858890175819397
-    },
-    {
-      "text": "15 O deliciosísimo jardin.—Véase Parafso.",
-      "box": [
-        532,
-        1002,
-        762,
-        1022
-      ],
-      "score": 0.9471544623374939
-    },
-    {
-      "text": "puede oscurecerse esta imágen por el pecado, mas no borrarse (S. Avg.",
-      "box": [
-        29,
-        1025,
-        419,
-        1045
-      ],
-      "score": 0.9951509237289429
+      "score": 0.9937999248504639
     },
     {
       "text": "16 La Escritura calla la especie de árbol que era: el cual se llama del",
       "box": [
-        531,
-        1014,
-        921,
-        1037
+        1068,
+        2032,
+        1842,
+        2072
       ],
-      "score": 0.9727379083633423
+      "score": 0.9925455451011658
     },
     {
-      "text": "Retract. II, cap. 24). Y domine, etc. Hubiera sido absoluto y perfecto este",
+      "text": "puede oscurecerse esta imágen por el pecado, mas no borrarse (S. Aug.",
       "box": [
-        30,
-        1039,
-        420,
-        1059
+        59,
+        2051,
+        840,
+        2089
       ],
-      "score": 0.986189067363739
+      "score": 0.9948847889900208
     },
     {
       "text": "bien y del mal por el efecto que produjo en el hombre: pues le hizo cono-",
       "box": [
-        521,
-        1029,
-        921,
-        1051
+        1044,
+        2062,
+        1841,
+        2100
       ],
-      "score": 0.9900423884391785
+      "score": 0.9958516955375671
+    },
+    {
+      "text": "Retract. II, cap. 24). Y domine, etc. Hubiera sido absoluto y perfecto este",
+      "box": [
+        58,
+        2078,
+        843,
+        2117
+      ],
+      "score": 0.9882889986038208
+    },
+    {
+      "text": "cer el bien que habia perdido, y el mal en que se habia precipitado, des-",
+      "box": [
+        1044,
+        2090,
+        1840,
+        2128
+      ],
+      "score": 0.9959501624107361
     },
     {
       "text": "dominio, que es como el distintivo de la dignidad del hombre, si éste, obe-",
       "box": [
-        29,
-        1052,
-        420,
-        1074
+        58,
+        2106,
+        840,
+        2144
       ],
-      "score": 0.9899126291275024
-    },
-    {
-      "text": "cer el bien que había perdido, y el mal en que se habia precipitado, des-",
-      "box": [
-        521,
-        1044,
-        921,
-        1065
-      ],
-      "score": 0.9651339054107666
-    },
-    {
-      "text": "diente á las órdenes de Dios, hubiera permanecido en su primera inocencia.",
-      "box": [
-        29,
-        1067,
-        419,
-        1088
-      ],
-      "score": 0.9847026467323303
+      "score": 0.9900636672973633
     },
     {
       "text": "obedeciendo á Dios.—Véase Arbol.",
       "box": [
-        522,
-        1060,
-        709,
-        1079
+        1046,
+        2121,
+        1417,
+        2156
       ],
-      "score": 0.9816669225692749
+      "score": 0.9834463596343994
     },
     {
-      "text": "3 Cap. V, v. I.—LX, v. 6—L. Cor. XI, v. 7.—Colos. III, v. 10.",
+      "text": "diente á las órdenes de Dios, hubiera permanecido en su primera inocencia.",
       "box": [
-        42,
-        1082,
-        372,
-        1101
+        59,
+        2135,
+        840,
+        2173
       ],
-      "score": 0.9514056444168091
+      "score": 0.9976771473884583
     },
     {
-      "text": "i7 Cerca de la Armenia está la Cólchida, tan celebrada por la calidad",
+      "text": "17 Cerca de la Armenia está la Cólchida, tan celebrada por la calidad",
       "box": [
-        531,
-        1072,
-        921,
-        1094
+        1066,
+        2144,
+        1843,
+        2183
       ],
-      "score": 0.9823738932609558
+      "score": 0.9976405501365662
+    },
+    {
+      "text": "Cap. V, v. I.—IX, v. 6 —I. Cor. XI, v. 7.—Colos. III, v. 10.",
+      "box": [
+        97,
+        2162,
+        744,
+        2203
+      ],
+      "score": 0.993030309677124
+    },
+    {
+      "text": "y abundancia de su oro: lo que dió motivo á la famosa fábula del toison",
+      "box": [
+        1043,
+        2171,
+        1844,
+        2216
+      ],
+      "score": 0.9951809048652649
+    },
+    {
+      "text": "4",
+      "box": [
+        88,
+        2205,
+        100,
+        2223
+      ],
+      "score": 0.9703908562660217
     },
     {
       "text": "Sap. II, v. 23.—Eccl. XVII, v. 1.—Matth. XIX, v. 4.",
       "box": [
-        42,
-        1096,
-        340,
-        1115
+        108,
+        2193,
+        681,
+        2231
       ],
-      "score": 0.9614530801773071
-    },
-    {
-      "text": "y abundancia de su oro; lo que dió motivo á la famosa fábula del toison",
-      "box": [
-        520,
-        1085,
-        922,
-        1108
-      ],
-      "score": 0.9893896579742432
-    },
-    {
-      "text": "° Cap. VIII, v. 17.—IX, 1.",
-      "box": [
-        44,
-        1114,
-        195,
-        1128
-      ],
-      "score": 0.9679860472679138
+      "score": 0.9910533428192139
     },
     {
       "text": "ó vellocino de oro. El bdelio es voz poco conocida, y puede significar la",
       "box": [
-        520,
-        1100,
-        922,
-        1122
+        1043,
+        2202,
+        1844,
+        2242
       ],
-      "score": 0.9811683297157288
+      "score": 0.9958900809288025
     },
     {
-      "text": " Promete Dios al hombre y á la mujer la fecundidad, la cual es siem-",
+      "text": "Cap. VIII, v. 17.—IX, 1.",
       "box": [
-        42,
-        1123,
-        420,
-        1143
+        109,
+        2226,
+        390,
+        2257
       ],
-      "score": 0.9936790466308594
+      "score": 0.9808470606803894
     },
     {
       "text": "perla, ó una especie de goma odorífera de que habla Plinio, lib. XII, c. 9.",
       "box": [
-        519,
-        1113,
-        922,
-        1139
+        1042,
+        2227,
+        1844,
+        2275
       ],
-      "score": 0.9697527885437012
+      "score": 0.9965787529945374
     },
     {
-      "text": "pre un don de Dios. Estas palabras son mas bien una aprobacion del ma-",
+      "text": "Promete Dios al hombre y á la mujer la fecundidad, la cual es siem-",
       "box": [
-        31,
-        1138,
-        421,
-        1157
+        103,
+        2247,
+        842,
+        2284
       ],
-      "score": 0.9944900274276733
+      "score": 0.9920858144760132
     },
     {
       "text": "—Eccl. XXIV, v. 35.",
       "box": [
-        521,
-        1132,
-        638,
-        1151
+        1046,
+        2267,
+        1274,
+        2298
       ],
-      "score": 0.9440317749977112
+      "score": 0.9975770711898804
+    },
+    {
+      "text": "pre un don de Dios. Estas palabras son mas bien una aprobacion del ma-",
+      "box": [
+        61,
+        2276,
+        843,
+        2313
+      ],
+      "score": 0.9930475354194641
+    },
+    {
+      "text": "18 Para que le cultivase. No quiere Dios que el hombre, aunque pro-",
+      "box": [
+        1066,
+        2285,
+        1844,
+        2329
+      ],
+      "score": 0.9906907677650452
     },
     {
       "text": "trimonio, que un precepto; y en caso de serlo, nunca se dirigirian á cada",
       "box": [
-        31,
-        1152,
-        422,
-        1171
+        61,
+        2303,
+        847,
+        2341
       ],
-      "score": 0.9832507371902466
-    },
-    {
-      "text": "8 Para gue le cultivase. No quiere Dios que el hombre, aunque pro-",
-      "box": [
-        530,
-        1141,
-        922,
-        1167
-      ],
-      "score": 0.9695751070976257
-    },
-    {
-      "text": "uno en particular de todos los descendientes de Adam, sino á todos en",
-      "box": [
-        31,
-        1166,
-        421,
-        1184
-      ],
-      "score": 0.98984694480896
+      "score": 0.9941496253013611
     },
     {
       "text": "visto de todo, pase el tiempo en la molicie y ociosidad: debia ocuparse,",
       "box": [
-        520,
-        1156,
-        922,
-        1182
+        1042,
+        2314,
+        1844,
+        2359
       ],
-      "score": 0.9852054119110107
+      "score": 0.9981633424758911
     },
     {
-      "text": "general, esto es, á la es pecio humana.—Véase San Pablo, Epíst. I, á los",
+      "text": "uno en particular de todos los descendientes de Adam, sino á todos en",
       "box": [
-        33,
-        1181,
-        420,
-        1195
+        63,
+        2331,
+        844,
+        2366
       ],
-      "score": 0.99350506067276
+      "score": 0.9995526075363159
     },
     {
-      "text": "aun entonces, y despues sus descendientes, en el cultivo del paraíso; bien",
+      "text": "aun entonces, y despues sus descendientes, en el cultivo del paraíso; bicn",
       "box": [
-        520,
-        1170,
-        922,
-        1194
+        1043,
+        2340,
+        1844,
+        2387
       ],
-      "score": 0.9846544861793518
+      "score": 0.9936408996582031
     },
     {
-      "text": "Corinthios; y San Agustin, de Civitate Dei, lib, 14, c. 22.",
+      "text": "general, esto es, á la es pecie humana.—Véase San Pablo, Epíst. I, á los",
       "box": [
-        35,
-        1195,
-        333,
-        1209
+        64,
+        2359,
+        844,
+        2392
       ],
-      "score": 0.9935692548751831
+      "score": 0.9900875091552734
     },
     {
-      "text": "que sin cansancio ní fatiga, como convenia á su estado feliz. San Agustin,",
+      "text": "que sin cansancio ni fatiga, como convenia á su estado feliz. San Agustin,",
       "box": [
-        521,
-        1184,
-        922,
-        1208
+        1043,
+        2369,
+        1844,
+        2416
       ],
-      "score": 0.9741487503051758
+      "score": 0.9975212812423706
     },
     {
-      "text": " Cap. IX, v. 3.",
+      "text": "Corinthios; y San Agustin, de Civitate Dei, lib. 14, c. 22.",
       "box": [
-        47,
-        1208,
-        134,
-        1222
+        66,
+        2388,
+        668,
+        2418
       ],
-      "score": 0.9741102457046509
+      "score": 0.9997740983963013
+    },
+    {
+      "text": "7 Cap. IX, v. 3.",
+      "box": [
+        90,
+        2415,
+        267,
+        2444
+      ],
+      "score": 0.9812538623809814
     },
     {
       "text": "San Juan Crisóstomo, etc.—Véase Paraíso.",
       "box": [
-        520,
-        1200,
-        755,
-        1222
+        1045,
+        2402,
+        1507,
+        2439
       ],
-      "score": 0.9732373952865601
+      "score": 0.992179274559021
     },
     {
-      "text": "* Ecol. XXXIX, v. 21.—Mare. VII, v. 37.",
+      "text": "8 Eccl. XXXIX, v. 21.—Marc. VII, v. 37.",
       "box": [
-        46,
-        1222,
-        272,
-        1236
+        92,
+        2444,
+        545,
+        2468
       ],
-      "score": 0.946870744228363
+      "score": 0.9737602472305298
     },
     {
       "text": "19 O rapto de espíritu.",
       "box": [
-        532,
-        1215,
-        657,
-        1235
+        1069,
+        2433,
+        1313,
+        2467
       ],
-      "score": 0.9648116827011108
+      "score": 0.9951926469802856
     },
     {
-      "text": "Exod. XX, v. 11 —XXXI, v. 17.—Deut. V, v. 14.—Hebr. IV, v. 4.",
+      "text": "9 Exod. XX, v. 11 —XXXI, v. 17.—Deut. V, v. 14.—Hebr. IV, v. 4.",
       "box": [
-        44,
-        1233,
-        410,
-        1252
+        90,
+        2469,
+        821,
+        2499
       ],
-      "score": 0.9561840891838074
+      "score": 0.971461832523346
     },
     {
-      "text": "s0 Ni sacó el Señor á la mujer de la cabeza del hombre, ni tampoco de",
+      "text": "0 Ni sacó el Señor á la mujer de la cabeza del hombre, ni tampoco de",
       "box": [
-        532,
-        1225,
-        922,
-        1250
+        1069,
+        2453,
+        1844,
+        2495
       ],
-      "score": 0.9620072841644287
+      "score": 0.9887410402297974
     },
     {
-      "text": "19 Disponiendo que se dedicase este dia al descanso, y al culto del Cria-",
+      "text": "1º Disponiendo que se dedicase este dia al descanso, y al culto del Cria-",
       "box": [
-        45,
-        1248,
-        422,
-        1267
+        91,
+        2497,
+        845,
+        2529
       ],
-      "score": 0.9888519048690796
+      "score": 0.9961779117584229
     },
     {
       "text": "los piés; como para dar á entender que ni debe ser la señora ni la esclava",
       "box": [
-        520,
-        1238,
-        922,
-        1267
+        1045,
+        2480,
+        1844,
+        2528
       ],
-      "score": 0.9669176340103149
+      "score": 0.99848473072052
     },
     {
       "text": "dor, como despues lo ordenó á su pueblo por medio de Moisés.—Hebr. IV,",
       "box": [
-        34,
-        1262,
-        422,
-        1282
+        69,
+        2527,
+        846,
+        2558
       ],
-      "score": 0.981031060218811
+      "score": 0.9987624883651733
     },
     {
       "text": "del hombre, sino la compañera.",
       "box": [
-        522,
-        1258,
-        691,
-        1280
+        1049,
+        2520,
+        1380,
+        2556
       ],
-      "score": 0.984707772731781
+      "score": 0.9999473094940186
     },
     {
       "text": "v. 3.—Al sábado ha sucedido despues el dia del Señor ó el domingo.—",
       "box": [
-        34,
-        1277,
-        421,
-        1296
+        69,
+        2554,
+        845,
+        2587
       ],
-      "score": 0.9781193733215332
+      "score": 0.9898178577423096
     },
     {
-      "text": "s1 I. Cor. X'I, v. 9.",
+      "text": "21 I. Cor. XI, v. 9.",
       "box": [
-        535,
-        1275,
-        636,
-        1292
+        1074,
+        2551,
+        1274,
+        2581
       ],
-      "score": 0.9381237030029297
+      "score": 0.9663470387458801
     },
     {
-      "text": "Vénse en las Notas generales la palabra Sábado.",
+      "text": "Véase en las Notas generales la palabra Sábado.",
       "box": [
-        36,
-        1291,
-        288,
-        1310
+        71,
+        2582,
+        578,
+        2614
       ],
-      "score": 0.989002525806427
+      "score": 0.9973551034927368
     },
     {
-      "text": "\" Como quien dice Varona, porque del varon ha sido formada.",
+      "text": "* Como quien dice Varona, porque del varon ha sido formada.",
       "box": [
-        534,
-        1280,
-        878,
-        1309
+        1073,
+        2565,
+        1756,
+        2613
       ],
-      "score": 0.9771503806114197
+      "score": 0.9911646246910095
     }
   ]
 }

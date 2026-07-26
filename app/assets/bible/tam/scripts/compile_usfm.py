@@ -259,8 +259,8 @@ def clean_scripture_verse_text(text: str) -> str:
     text = text.replace(" de de ", " de ")
     # Strip inline translator glosses (e.g. 'Martini traduce: ...')
     text = re.sub(r'\s*Martini traduce:.*$', '', text)
-    # Strip standalone 19th-century printer signature markers (e.g. 'las C cuerdas' -> 'las cuerdas')
-    text = re.sub(r'\s+[B-Z]\s+', ' ', text)
+    # Strip standalone 19th-century printer signature markers (e.g. 'las C cuerdas' -> 'las cuerdas'), excluding Spanish conjunction 'Y'
+    text = re.sub(r'\s+[B-XZ]\s+', ' ', text)
     text = re.sub(r"\bIa\b", "la", text)
     text = re.sub(r"\bIos\b", "los", text)
     text = re.sub(r"\bIas\b", "las", text)

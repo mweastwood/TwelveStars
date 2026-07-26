@@ -92,6 +92,24 @@ def compare_book(book_id, ocr_dir, cpdv_dir, verbose=False):
         "extra_verses": extra_verses
     }
 
+def get_missing_verses(target_book=None):
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    ocr_dir = os.path.join(base_dir, "ocr")
+    cpdv_dir = os.path.join(base_dir, "cpdv")
+    if not os.path.exists(cpdv_dir):
+        cpdv_dir = os.path.join(base_dir, "unam")
+        
+    books = [target_book] if target_book else sorted(list(set([
+        f.split("-")[1] for f in os.listdir(cpdv_dir) if "-" in f and (f.endswith(".usfm") or f.endswith(".sfm"))
+    ])))
+    
+    res_map = {}
+    for b in books:
+        res = compare_book(b, ocr_dir, cpdv_dir)
+        if res and res.get("missing_verses"):
+            res_map[b] = res["missing_verses"]
+    return res_map
+
 def main():
     parser = argparse.ArgumentParser(description="Compare generated OCR USFM files against reference CPDV/UNAM files and extract missing verses.")
     parser.add_argument("--book", type=str, help="Book ID to compare (e.g. GEN, MAT, PSA, ISA)")
