@@ -6,1652 +6,1682 @@
     {
       "text": "301",
       "box": [
-        22,
-        12,
-        45,
-        29
+        41,
+        35,
+        87,
+        68
       ],
-      "score": 0.9994556307792664
+      "score": 0.9999830722808838
     },
     {
       "text": "ISAÍAS.",
       "box": [
-        175,
-        13,
-        236,
-        35
+        352,
+        40,
+        474,
+        82
       ],
-      "score": 0.9818442463874817
+      "score": 0.9989138841629028
     },
     {
-      "text": "CHER",
+      "text": "CFER",
       "box": [
-        431,
-        14,
-        470,
-        33
+        868,
+        46,
+        938,
+        76
       ],
-      "score": 0.7868776917457581
+      "score": 0.5786781311035156
     },
     {
       "text": "CAPITULO XXX.",
       "box": [
-        636,
-        20,
-        752,
-        37
+        1271,
+        42,
+        1506,
+        78
       ],
-      "score": 0.9994831085205078
+      "score": 0.9994077086448669
     },
     {
       "text": "302",
       "box": [
-        848,
-        20,
-        872,
-        37
+        1702,
+        42,
+        1748,
+        74
       ],
-      "score": 0.9999825358390808
+      "score": 0.9999942779541016
     },
     {
-      "text": "el Líbano 1 se convertirá en un deliciosísimo Carmelo; y el",
+      "text": "el Líbano¹ se convertirá en un deliciosísimo Carmelo; y el",
       "box": [
-        7,
-        53,
-        403,
-        80
+        12,
+        118,
+        805,
+        173
       ],
-      "score": 0.9769867062568665
-    },
-    {
-      "text": "Carmelo se convertirá en un bosque ?",
-      "box": [
-        8,
-        70,
-        253,
-        94
-      ],
-      "score": 0.9817714691162109
+      "score": 0.9806107878684998
     },
     {
       "text": "son hijos infieles, hijos que no quieren escuchar la Ley de",
       "box": [
-        504,
-        66,
-        879,
-        80
+        1006,
+        128,
+        1767,
+        170
       ],
-      "score": 0.9964900612831116
+      "score": 0.9995740056037903
     },
     {
-      "text": "18. Y en aquel dia los sordos 3 oirán las palabras del libro",
+      "text": "Carmelo se convertirá en un bosque ?",
       "box": [
-        21,
-        85,
-        402,
-        114
+        14,
+        151,
+        510,
+        201
       ],
-      "score": 0.9934948682785034
-    },
-    {
-      "text": "ND DD",
-      "box": [
-        413,
-        90,
-        450,
-        106
-      ],
-      "score": 0.4561583399772644
+      "score": 0.9947097301483154
     },
     {
       "text": "IV",
       "box": [
-        426,
-        82,
-        439,
-        91
+        856,
+        178,
+        879,
+        195
       ],
-      "score": 0.855924129486084
+      "score": 0.8987239003181458
     },
     {
       "text": "Dios:",
       "box": [
-        503,
-        82,
-        541,
-        97
+        1008,
+        171,
+        1079,
+        200
       ],
-      "score": 0.9999163746833801
+      "score": 0.9999821782112122
+    },
+    {
+      "text": "18. Y en aquel dia los sordos 3 oirán las palabras del libro",
+      "box": [
+        40,
+        183,
+        805,
+        242
+      ],
+      "score": 0.9995425343513489
+    },
+    {
+      "text": "わン Xリン",
+      "box": [
+        834,
+        201,
+        900,
+        218
+      ],
+      "score": 0.29311931133270264
+    },
+    {
+      "text": "DIXA NEIX",
+      "box": [
+        908,
+        200,
+        984,
+        217
+      ],
+      "score": 0.6319018602371216
+    },
+    {
+      "text": "10. Que dicen á los que profctizan: No profeticcis; yálos",
+      "box": [
+        1032,
+        195,
+        1764,
+        235
+      ],
+      "score": 0.9602419137954712
     },
     {
       "text": "de la Ley. Y los ojos de los ciegos recibirán la luz, saliendo de",
       "box": [
-        4,
-        100,
-        405,
-        134
+        10,
+        214,
+        808,
+        279
       ],
-      "score": 0.9908236265182495
+      "score": 0.9944019317626953
     },
     {
-      "text": "12 EH",
+      "text": "II",
       "box": [
-        453,
-        94,
-        491,
-        105
+        936,
+        220,
+        955,
+        238
       ],
-      "score": 0.2581668198108673
+      "score": 0.7711615562438965
     },
     {
-      "text": "1",
+      "text": "OV.1X 1",
       "box": [
-        465,
-        104,
-        479,
-        116
+        907,
+        238,
+        983,
+        257
       ],
-      "score": 0.6639814376831055
+      "score": 0.48343849182128906
     },
     {
-      "text": "10. Que dicen á los que profctizan: No profeticcis; y á los",
+      "text": "veyentes ó profetas: No esteis mirando para nosotros óvatici-",
       "box": [
-        517,
-        98,
-        879,
-        115
+        1008,
+        230,
+        1763,
+        267
       ],
-      "score": 0.987163782119751
+      "score": 0.992120087146759
     },
     {
       "text": "las tinieblas y oscuridad.",
       "box": [
-        6,
-        118,
-        171,
-        143
+        10,
+        249,
+        341,
+        295
       ],
-      "score": 0.9997068643569946
-    },
-    {
-      "text": " ",
-      "box": [
-        453,
-        115,
-        492,
-        125
-      ],
-      "score": 0.783938467502594
+      "score": 0.9999310970306396
     },
     {
       "text": "III",
       "box": [
-        465,
-        124,
-        479,
-        136
+        935,
+        260,
+        955,
+        276
       ],
-      "score": 0.7573575973510742
-    },
-    {
-      "text": "veyentes ó profetas: No esteis mirando para nosotros ó vatici-",
-      "box": [
-        503,
-        116,
-        878,
-        130
-      ],
-      "score": 0.9964655637741089
-    },
-    {
-      "text": "19. Y los mansos se alegrarán cada dia mas y mas en el",
-      "box": [
-        18,
-        133,
-        404,
-        169
-      ],
-      "score": 0.996153712272644
-    },
-    {
-      "text": "",
-      "box": [
-        453,
-        135,
-        491,
-        146
-      ],
-      "score": 0.0
+      "score": 0.9861898422241211
     },
     {
       "text": "nándonos cosas rectas, habladnos de cosas placenteras, y pro-",
       "box": [
-        501,
-        129,
-        878,
-        149
+        1008,
+        266,
+        1760,
+        298
       ],
-      "score": 0.9936138987541199
+      "score": 0.9991323947906494
     },
     {
-      "text": "Señor, y los antes pobres 4 se regocijarán en el Santo de Is-",
+      "text": "19. Y los mansos se alegrarán cada dia mas y mas en el",
       "box": [
-        2,
-        151,
-        404,
-        185
+        37,
+        282,
+        809,
+        346
       ],
-      "score": 0.9479953646659851
+      "score": 0.9977080821990967
     },
     {
-      "text": "pzA",
+      "text": "COND CYYS",
       "box": [
-        461,
-        155,
-        492,
-        166
+        906,
+        278,
+        980,
+        297
       ],
-      "score": 0.2651738226413727
+      "score": 0.6149417161941528
     },
     {
       "text": "VI",
       "box": [
-        466,
-        146,
-        479,
-        155
+        934,
+        299,
+        956,
+        315
       ],
-      "score": 0.9859799146652222
+      "score": 0.9728537797927856
     },
     {
-      "text": "fetizadnos cosas alegres, aunque sean falsas-",
+      "text": "fetizadnos cosas alegres, aunque sean falsas.",
       "box": [
-        501,
-        146,
-        775,
-        164
+        1010,
+        300,
+        1550,
+        327
       ],
-      "score": 0.9887207746505737
+      "score": 0.9994841814041138
     },
     {
-      "text": "raél:",
+      "text": "Señor, y los antes pobres 4 se regocijarán en el Santo de Is-",
       "box": [
-        2,
-        168,
-        42,
-        189
+        4,
+        317,
+        808,
+        379
       ],
-      "score": 0.9958508610725403
+      "score": 0.9921431541442871
     },
     {
-      "text": "13:139",
+      "text": " ",
       "box": [
-        465,
-        171,
-        490,
-        182
+        908,
+        319,
+        982,
+        336
       ],
-      "score": 0.4109969139099121
+      "score": 0.5082619190216064
     },
     {
       "text": "11. Quitadnos de delante de los ojos este modo de obrar",
       "box": [
-        516,
-        162,
-        878,
-        181
+        1034,
+        330,
+        1760,
+        361
       ],
-      "score": 0.9974679946899414
+      "score": 0.9996833801269531
     },
     {
-      "text": "20. Porque el soberbio fué abatido, fué consumido el es-",
+      "text": "raél:",
       "box": [
-        15,
-        184,
-        406,
-        219
+        6,
+        354,
+        79,
+        384
       ],
-      "score": 0.9672839045524597
+      "score": 0.9995459318161011
+    },
+    {
+      "text": "LyJYJY",
+      "box": [
+        929,
+        351,
+        981,
+        367
+      ],
+      "score": 0.7899182438850403
     },
     {
       "text": "segun la Ley: alejad de nosotros tal sistema de vida: no nos",
       "box": [
-        502,
-        178,
-        878,
-        197
+        1009,
+        362,
+        1760,
+        394
       ],
-      "score": 0.9871065616607666
+      "score": 0.9991903305053711
+    },
+    {
+      "text": "20. Porque el soberbio ⁵ fué abatido, fué consumido el es-",
+      "box": [
+        32,
+        383,
+        809,
+        445
+      ],
+      "score": 0.9853222966194153
+    },
+    {
+      "text": "vengais siempre con que el Santo de Israél dice ó manda.",
+      "box": [
+        1010,
+        393,
+        1714,
+        426
+      ],
+      "score": 0.9836193323135376
     },
     {
       "text": "carnecedor, y destruidos todos aquellos falsos doctores que",
       "box": [
         0,
-        201,
-        404,
-        236
+        415,
+        810,
+        481
       ],
-      "score": 0.9864761829376221
-    },
-    {
-      "text": "vengais siempre con que el Santo de Israél dice ó manda.",
-      "box": [
-        502,
-        195,
-        856,
-        213
-      ],
-      "score": 0.9967964887619019
-    },
-    {
-      "text": "madrugaban para hacer mal:",
-      "box": [
-        1,
-        219,
-        199,
-        246
-      ],
-      "score": 0.9998377561569214
+      "score": 0.9912055134773254
     },
     {
       "text": "12. Por esto el Santo de Israél dice así: Ya que vosotros",
       "box": [
-        515,
-        210,
-        878,
-        229
+        1034,
+        425,
+        1760,
+        458
       ],
-      "score": 0.9923548698425293
+      "score": 0.9949111342430115
     },
     {
-      "text": "habeis desechado lo que os he mandado, y habeis puesto vues-",
+      "text": "madrugaban para hacer mal:",
       "box": [
-        502,
-        227,
-        878,
-        245
+        2,
+        451,
+        398,
+        500
       ],
-      "score": 0.997585654258728
+      "score": 0.9999411702156067
+    },
+    {
+      "text": "habeis desechado lo que os he mandado, y habeis pucsto vues.",
+      "box": [
+        1009,
+        458,
+        1760,
+        489
+      ],
+      "score": 0.9911516904830933
     },
     {
       "text": "tra confianza en la calumnia, y en la perversidad, y apoyádoos",
       "box": [
-        501,
-        243,
-        877,
-        261
+        1008,
+        490,
+        1760,
+        521
       ],
-      "score": 0.9910576343536377
+      "score": 0.9795546531677246
     },
     {
       "text": "pecar, y armaban lazos al que en la puerta, ó juzgado de la",
       "box": [
         0,
-        253,
-        404,
-        284
+        516,
+        808,
+        577
       ],
-      "score": 0.9926229119300842
+      "score": 0.9966077208518982
+    },
+    {
+      "text": "sobre esas cosas,",
+      "box": [
+        1010,
+        525,
+        1210,
+        552
+      ],
+      "score": 0.9999431371688843
     },
     {
       "text": "ciudad, los reprendia, y sin causa se alejaron del justo yde la",
       "box": [
         0,
-        269,
-        403,
-        300
+        549,
+        807,
+        608
       ],
-      "score": 0.9009339809417725
-    },
-    {
-      "text": "sobre esas cosas,",
-      "box": [
-        503,
-        261,
-        603,
-        275
-      ],
-      "score": 0.9999234676361084
+      "score": 0.9957716464996338
     },
     {
       "text": "13. Por lo mismo esta maldad será para vosotros como un",
       "box": [
-        514,
-        274,
-        877,
-        293
+        1033,
+        553,
+        1760,
+        584
       ],
-      "score": 0.9993931651115417
+      "score": 0.9997835159301758
     },
     {
-      "text": "justicia.",
+      "text": "justicia:",
       "box": [
         0,
-        288,
-        62,
-        305
+        585,
+        119,
+        618
       ],
-      "score": 0.9965449571609497
+      "score": 0.9943342208862305
     },
     {
       "text": "portillo en una alta muralla, que está para caer, y preguntan",
       "box": [
-        501,
-        291,
-        878,
-        309
+        1008,
+        585,
+        1760,
+        617
       ],
-      "score": 0.983417272567749
+      "score": 0.9935575127601624
     },
     {
       "text": "22. Por tanto el Señor que rescató á Abraham 6, habla de",
       "box": [
-        9,
-        301,
-        403,
-        331
+        20,
+        614,
+        804,
+        669
       ],
-      "score": 0.9827844500541687
+      "score": 0.9848881363868713
     },
     {
       "text": "por él, y del cual se origina la ruina repentina en la hora me-",
       "box": [
-        502,
-        309,
-        877,
-        323
+        1007,
+        616,
+        1761,
+        649
       ],
-      "score": 0.998053789138794
+      "score": 0.9971104860305786
     },
     {
       "text": "esta manera á la casa de Jacob: No será ahora confundido",
       "box": [
         0,
-        320,
-        402,
-        346
+        648,
+        804,
+        701
       ],
-      "score": 0.9984016418457031
+      "score": 0.9940904974937439
     },
     {
       "text": "nos pensada;",
       "box": [
-        502,
-        325,
-        584,
-        339
+        1006,
+        649,
+        1172,
+        682
       ],
-      "score": 0.9996288418769836
+      "score": 0.9999054074287415
     },
     {
       "text": "Jacob, ni ahora se cubrirá de vergüenza su cara;",
       "box": [
         0,
-        336,
-        323,
-        362
+        683,
+        646,
+        732
       ],
-      "score": 0.9986514449119568
+      "score": 0.9922506213188171
     },
     {
       "text": "14. Y queda toda hecha pedazos, como se rompe con un",
       "box": [
-        513,
-        339,
-        878,
-        357
+        1033,
+        681,
+        1762,
+        712
       ],
-      "score": 0.9995432496070862
-    },
-    {
-      "text": "23. Sino cuando viere en medio de sí á sus hijos, obra de",
-      "box": [
-        8,
-        353,
-        401,
-        378
-      ],
-      "score": 0.9954167008399963
+      "score": 0.9991567134857178
     },
     {
       "text": "fuerte golpe una vasija de alfarero, sin que ninguno de sus",
       "box": [
-        503,
-        357,
-        878,
-        371
+        1007,
+        713,
+        1763,
+        745
       ],
-      "score": 0.9998313188552856
+      "score": 0.999114453792572
     },
     {
       "text": "mis manos, que glorificarán mi santo Nombre, y alabarán al",
       "box": [
         0,
-        370,
-        401,
-        395
+        748,
+        803,
+        798
       ],
-      "score": 0.9883002042770386
+      "score": 0.9986039996147156
     },
     {
       "text": "tiestos sirva ni aun para llevar una áscua de un hogar, ó para",
       "box": [
-        503,
-        374,
-        878,
-        388
+        1007,
+        746,
+        1763,
+        777
       ],
-      "score": 0.9993471503257751
+      "score": 0.9984614253044128
     },
     {
       "text": "Santo de Jacob 7, y ensalzarán al Dios de Israél.",
       "box": [
         0,
-        387,
-        314,
-        410
+        783,
+        632,
+        829
       ],
-      "score": 0.9956368207931519
+      "score": 0.9908636212348938
     },
     {
       "text": "sacar un poco de agua de una poza.",
       "box": [
-        502,
-        390,
-        721,
-        404
+        1007,
+        780,
+        1450,
+        811
       ],
-      "score": 0.9792487025260925
+      "score": 0.9973009824752808
     },
     {
       "text": "24. Entonces aquellos cuyo espíritu vivia en el error, ten-",
       "box": [
-        7,
-        403,
-        401,
-        428
+        16,
+        814,
+        804,
+        865
       ],
-      "score": 0.9988073110580444
+      "score": 0.9974528551101685
     },
     {
       "text": "15. Porque el Señor Dios, el Santo de Israél dice: Si os vol-",
       "box": [
-        517,
-        406,
-        879,
-        420
+        1034,
+        810,
+        1765,
+        843
       ],
-      "score": 0.9974632263183594
+      "score": 0.9868834018707275
     },
     {
-      "text": "drán la ciencia de la salud 8; y aprenderán la Ley del Señor",
+      "text": "drán la ciencia de la salud &; y aprenderán la Ley del Señor",
       "box": [
         0,
-        420,
-        401,
-        445
+        848,
+        803,
+        896
       ],
-      "score": 0.9834848046302795
+      "score": 0.9827809929847717
     },
     {
       "text": "viereis y os estuviereis quietos, sereis salvos: en la quictud y",
       "box": [
-        503,
-        423,
-        880,
-        437
+        1008,
+        844,
+        1765,
+        877
       ],
-      "score": 0.9982026815414429
+      "score": 0.9996746778488159
     },
     {
-      "text": "los que se burlaban de ella.",
+      "text": "os que se burlaban de ella.",
       "box": [
         0,
-        438,
-        185,
-        459
+        885,
+        372,
+        923
       ],
-      "score": 0.9990605115890503
+      "score": 0.999409556388855
     },
     {
       "text": "en la esperanza estará vuestra fortaleza. Mas vosotros no lo",
       "box": [
-        501,
-        437,
-        881,
-        455
+        1008,
+        876,
+        1766,
+        910
       ],
-      "score": 0.9982283711433411
+      "score": 0.993642270565033
     },
     {
       "text": "quisisteis hacer;",
       "box": [
-        502,
-        455,
-        605,
-        472
+        1008,
+        910,
+        1214,
+        946
       ],
-      "score": 0.9999739527702332
+      "score": 0.9999917149543762
     },
     {
       "text": "16. Sino que dijisteis: De ninguna manera; antes bien hui-",
       "box": [
-        514,
-        469,
-        881,
-        487
+        1033,
+        940,
+        1768,
+        977
       ],
-      "score": 0.997906506061554
+      "score": 0.9809993505477905
     },
     {
       "text": "CAPITULO XXX",
       "box": [
-        148,
-        482,
-        264,
-        496
+        301,
+        970,
+        534,
+        1000
       ],
-      "score": 0.9995487332344055
+      "score": 0.9997183680534363
     },
     {
       "text": "remos 17 á caballo. Pues por eso mismo digo yo, tendreis que",
       "box": [
-        500,
-        486,
-        881,
-        504
+        1007,
+        974,
+        1767,
+        1009
       ],
-      "score": 0.9927803874015808
+      "score": 0.9945365190505981
+    },
+    {
+      "text": "huir de vuestros enemigos. Montaremos, dijistcis, velocísimos",
+      "box": [
+        1008,
+        1006,
+        1768,
+        1043
+      ],
+      "score": 0.9966621398925781
     },
     {
       "text": "Amenazas contra los Judíos, porque desconfiando del Señor pedian",
       "box": [
         0,
-        510,
-        401,
-        531
+        1028,
+        803,
+        1068
       ],
-      "score": 0.9936110377311707
+      "score": 0.9958460330963135
     },
     {
-      "text": "huir de vuestros enemigos. Montaremos, dijistcis, velocísimos",
+      "text": "caballos. Por eso mismo serán mas veloces los que os perse-",
       "box": [
-        500,
-        502,
-        882,
-        521
+        1008,
+        1039,
+        1769,
+        1076
       ],
-      "score": 0.9973329901695251
+      "score": 0.9959008097648621
     },
     {
-      "text": "socorro á los Egypcios. Cuán bueno es Dios para los que acuden á ál.",
+      "text": "socorro á los Egypcios. Cuán bueno es Dios para los que acuden á él.",
       "box": [
-        6,
-        526,
-        399,
-        543
+        12,
+        1055,
+        801,
+        1097
       ],
-      "score": 0.9755727052688599
-    },
-    {
-      "text": "caballos, Por eso mismo serán mas veloces los que os perse-",
-      "box": [
-        501,
-        519,
-        882,
-        538
-      ],
-      "score": 0.9873208999633789
+      "score": 0.9716699123382568
     },
     {
       "text": "Cuán terrible es su juicio contra los impíos.",
       "box": [
-        8,
-        540,
-        260,
-        559
+        19,
+        1087,
+        525,
+        1125
       ],
-      "score": 0.9928992986679077
+      "score": 0.9999812841415405
     },
     {
       "text": "guirán.",
       "box": [
-        501,
-        538,
-        551,
-        556
+        1008,
+        1078,
+        1103,
+        1112
       ],
-      "score": 0.9997916221618652
+      "score": 0.9997299313545227
     },
     {
       "text": "17. Un solo hombre llenará de terror y hará huir á mil de",
       "box": [
-        514,
-        549,
-        882,
-        570
+        1035,
+        1102,
+        1769,
+        1141
       ],
-      "score": 0.9958339333534241
+      "score": 0.9933516383171082
     },
     {
       "text": "1. Ay de vosotros, hijos rebeldes y desertores 9, dice el",
       "box": [
-        7,
-        572,
-        402,
-        593
+        19,
+        1148,
+        805,
+        1197
       ],
-      "score": 0.9941273331642151
+      "score": 0.9960231184959412
     },
     {
-      "text": "los vuestros; y si se presentan cinco, aterrados echareisá huir",
+      "text": "los vuestros; y si se prcscntan cinco, aterrados echareisá huir",
       "box": [
-        500,
-        565,
-        882,
-        587
+        1008,
+        1134,
+        1770,
+        1175
       ],
-      "score": 0.9894687533378601
+      "score": 0.9890992045402527
     },
     {
       "text": "Señor, que formais designios, sin contar conmigo; y urdís",
       "box": [
         0,
-        590,
-        401,
-        610
+        1181,
+        805,
+        1230
       ],
-      "score": 0.997117817401886
+      "score": 0.9878479838371277
     },
     {
       "text": "todos, hasta que los que queden de vosotros scan á manera de",
       "box": [
-        501,
-        581,
-        882,
-        603
+        1009,
+        1165,
+        1771,
+        1208
       ],
-      "score": 0.9943133592605591
+      "score": 0.9998576045036316
     },
     {
-      "text": "una tela to, y no segun mi deseo, para añadir así pecados á",
+      "text": "un árbol altísimo 18 como de navío, sobre la cima de un mon-",
+      "box": [
+        1009,
+        1197,
+        1774,
+        1239
+      ],
+      "score": 0.9948718547821045
+    },
+    {
+      "text": "una tela 10, y no segun mi deseo, para añadir así pecados á",
       "box": [
         0,
-        605,
-        402,
-        628
+        1213,
+        807,
+        1264
       ],
-      "score": 0.9576881527900696
+      "score": 0.9745428562164307
     },
     {
-      "text": "un árbol altisimo 18 como de navío, sobre la cima de un mon-",
+      "text": "te, como bandera sobre un collado 19.",
       "box": [
-        501,
-        597,
-        883,
-        619
+        1008,
+        1232,
+        1470,
+        1274
       ],
-      "score": 0.9798139333724976
+      "score": 0.9856276512145996
     },
     {
       "text": "pecados:",
       "box": [
         0,
-        624,
-        61,
-        642
+        1257,
+        122,
+        1289
       ],
-      "score": 0.9989799857139587
-    },
-    {
-      "text": "te, como bandera sobre un collado 19.",
-      "box": [
-        501,
-        615,
-        733,
-        636
-      ],
-      "score": 0.9951951503753662
-    },
-    {
-      "text": "2. Que estais en camino para bajar á Egypto, y no habeis",
-      "box": [
-        2,
-        637,
-        402,
-        662
-      ],
-      "score": 0.9971088171005249
+      "score": 0.9999411106109619
     },
     {
       "text": "18. Por esto da largas el Señor, para poder usar de mise-",
       "box": [
-        513,
-        630,
-        885,
-        651
+        1035,
+        1261,
+        1776,
+        1304
       ],
-      "score": 0.9962301850318909
+      "score": 0.998976469039917
+    },
+    {
+      "text": "2. Que estais en camino para bajar á Egypto, y no habeis",
+      "box": [
+        7,
+        1279,
+        803,
+        1330
+      ],
+      "score": 0.9884272217750549
+    },
+    {
+      "text": "ricordia con vosotros, y ensalzar su gloria con perdonaros,",
+      "box": [
+        1008,
+        1296,
+        1777,
+        1336
+      ],
+      "score": 0.9992518424987793
     },
     {
       "text": "consultado mi voluntad, esperando el socorro del valor de",
       "box": [
         0,
-        654,
-        402,
-        679
+        1313,
+        803,
+        1362
       ],
-      "score": 0.9991591572761536
+      "score": 0.9894220232963562
     },
     {
-      "text": "ricordia con vosotros, y ensalzar su gloria con perdonaros,",
+      "text": "porque el Señor es Dios justo: bienaventurados todos los que",
       "box": [
-        500,
-        647,
-        885,
-        668
+        1007,
+        1326,
+        1779,
+        1373
       ],
-      "score": 0.9922879338264465
+      "score": 0.9950116276741028
     },
     {
       "text": "Pharaon, y poniendo vuestra confianza en la sombra ó protec-",
       "box": [
         0,
-        671,
-        401,
-        696
+        1346,
+        803,
+        1396
       ],
-      "score": 0.9830282330513
-    },
-    {
-      "text": "porque el Señor es Dios justo: bienaventurados todos los que",
-      "box": [
-        499,
-        662,
-        886,
-        687
-      ],
-      "score": 0.9930785298347473
+      "score": 0.9860910177230835
     },
     {
       "text": "esperan en él.",
       "box": [
-        501,
-        683,
-        591,
-        702
+        1007,
+        1369,
+        1188,
+        1406
       ],
-      "score": 0.9865058660507202
+      "score": 0.9998254179954529
     },
     {
       "text": "cion del Egypto.",
       "box": [
         0,
-        693,
-        113,
-        712
+        1392,
+        230,
+        1427
       ],
-      "score": 0.9918636083602905
+      "score": 0.9997055530548096
     },
     {
-      "text": "3. Pero la fortaleza de Pharaon 11 será la confusion vues-",
+      "text": "19. El pueblo de Sion morará en Jerusalem 0: enjugarás",
       "box": [
-        5,
-        702,
-        400,
-        729
+        1034,
+        1392,
+        1782,
+        1436
       ],
-      "score": 0.9850278496742249
+      "score": 0.9899000525474548
     },
     {
-      "text": "19. El pueblo de Sion morará en Jerusalem 20: enjugarás",
+      "text": "3. Pero la fortaleza de Pharaon i será la confusion vues-",
       "box": [
-        513,
-        696,
-        887,
-        717
+        19,
+        1409,
+        801,
+        1461
       ],
-      "score": 0.9794098734855652
+      "score": 0.9737198352813721
     },
     {
       "text": "tus lágrimas, oh pueblo fiel: el Señor apiadándosc de tí, usará",
       "box": [
-        500,
-        713,
-        888,
-        734
+        1007,
+        1426,
+        1785,
+        1470
       ],
-      "score": 0.9959092736244202
+      "score": 0.99336838722229
     },
     {
       "text": "ra, y la confianza en la proteccion de Egypto, vuestra igno-",
       "box": [
         0,
-        719,
-        400,
-        747
+        1440,
+        801,
+        1497
       ],
-      "score": 0.9909527897834778
+      "score": 0.9992360472679138
     },
     {
-      "text": "contigo de misericordia: al momento que oyere la voz de tu",
+      "text": "contigo de misericordia: al momento que oyere la voz dc tu",
       "box": [
-        500,
-        730,
-        888,
-        750
+        1006,
+        1460,
+        1784,
+        1502
       ],
-      "score": 0.9921890497207642
+      "score": 0.9811666011810303
     },
     {
-      "text": "ninia.",
+      "text": "minia.",
       "box": [
         0,
-        745,
-        43,
-        763
+        1495,
+        88,
+        1529
       ],
-      "score": 0.9745427966117859
-    },
-    {
-      "text": "4. Porque cuando tus príncipes hayan ido hasta Tanis 19, y",
-      "box": [
-        5,
-        748,
-        400,
-        781
-      ],
-      "score": 0.9773311614990234
+      "score": 0.9730233550071716
     },
     {
       "text": "clamor, te responderá benigno.",
       "box": [
-        500,
-        748,
-        695,
-        766
+        1008,
+        1499,
+        1395,
+        1533
       ],
-      "score": 0.9996603727340698
+      "score": 0.999937891960144
     },
     {
-      "text": "13 Hanes tus enviados;",
+      "text": "4. Porque cuando tus príncipes hayan ido hasta Tanis 12, y",
       "box": [
-        130,
-        771,
-        283,
-        790
+        15,
+        1499,
+        799,
+        1564
       ],
-      "score": 0.9765965938568115
+      "score": 0.9840811491012573
     },
     {
       "text": "20. Y antes te dará el Señor pan de dolor, y agua de tribu-",
       "box": [
-        513,
-        763,
-        889,
-        782
+        1032,
+        1527,
+        1785,
+        1566
       ],
-      "score": 0.9888440370559692
+      "score": 0.9875815510749817
     },
     {
-      "text": "nayan llegado hasta",
+      "text": "nayan llegado hasta 13 Hanes tus enviados;",
       "box": [
         0,
-        773,
-        139,
-        797
+        1539,
+        570,
+        1597
       ],
-      "score": 0.9809869527816772
+      "score": 0.9845002293586731
     },
     {
-      "text": "lacion; pero despues hará que jamás se aleje de tí tu macstro,",
+      "text": "lacion; pero despues hará que jamás se aleje de tí tu maestro,",
       "box": [
-        499,
-        783,
-        889,
-        800
+        1002,
+        1562,
+        1784,
+        1602
       ],
-      "score": 0.9951720833778381
+      "score": 0.999687910079956
     },
     {
-      "text": "olo que de nada les ha podido servir, y que no les ha auxília-",
+      "text": "5. Todos en Israél quedarán corridos, á causa de un pue-",
       "box": [
-        0,
+        17,
+        1568,
         799,
-        400,
-        831
+        1629
       ],
-      "score": 0.9862582683563232
+      "score": 0.9782957434654236
     },
     {
       "text": "y tus ojos estarán viendo siempre á tu doctor.",
       "box": [
-        497,
-        798,
-        791,
-        818
+        1001,
+        1597,
+        1586,
+        1637
       ],
-      "score": 0.9980416297912598
+      "score": 0.9873993992805481
+    },
+    {
+      "text": "olo que de nada les ha podido servir, y que no les ha auxilia-",
+      "box": [
+        0,
+        1601,
+        798,
+        1664
+      ],
+      "score": 0.9934177398681641
+    },
+    {
+      "text": "21. Escuchen tus oidos sus palabras cuando yendo tras de",
+      "box": [
+        1027,
+        1632,
+        1784,
+        1668
+      ],
+      "score": 0.9998127818107605
     },
     {
       "text": "do, ni les ha sido de utilidad alguna, sino de confusion y de",
       "box": [
         0,
-        817,
-        399,
-        848
+        1636,
+        796,
+        1696
       ],
-      "score": 0.9816208481788635
-    },
-    {
-      "text": "21. Escuchen tus oidos sus palabras cuando yendo tras de",
-      "box": [
-        511,
-        816,
-        889,
-        834
-      ],
-      "score": 0.9993168711662292
+      "score": 0.9932644367218018
     },
     {
       "text": "tí te grite diciendo: Este es el camino, andad por él; y no tor-",
       "box": [
-        498,
-        834,
-        889,
-        851
+        998,
+        1666,
+        1785,
+        1705
       ],
-      "score": 0.9880449175834656
+      "score": 0.9974344372749329
     },
     {
       "text": "oprobio.",
       "box": [
         0,
-        843,
-        57,
-        863
+        1690,
+        114,
+        1728
       ],
-      "score": 0.9830595254898071
+      "score": 0.9959737658500671
     },
     {
-      "text": "14 contra las bestias de carga del Me-",
+      "text": "zais ni á la derccha ni á la izquierda.",
       "box": [
-        145,
-        856,
-        394,
-        873
+        998,
+        1702,
+        1470,
+        1738
       ],
-      "score": 0.9963650703430176
+      "score": 0.9979920983314514
     },
     {
-      "text": "zais ni á la derecha ni á la izquierda.",
+      "text": "6. Anuncio pesado 14 contra las bestias de carga del Me-",
       "box": [
-        497,
-        851,
-        732,
-        868
+        19,
+        1706,
+        793,
+        1758
       ],
-      "score": 0.9889389276504517
+      "score": 0.9923941493034363
     },
     {
-      "text": "6. Anuncio pesado",
+      "text": "22. Entonces desccharás como cosas profanas esas lámi-",
       "box": [
-        8,
-        857,
-        152,
-        878
+        1025,
+        1738,
+        1781,
+        1770
       ],
-      "score": 0.9993049502372742
+      "score": 0.9997703433036804
     },
     {
       "text": "diodía. Van por tierra de tribulacion, y de angustia (de don-",
       "box": [
         0,
-        870,
-        397,
-        895
+        1742,
+        793,
+        1790
       ],
-      "score": 0.9911272525787354
-    },
-    {
-      "text": "22. Entonces desccharás como cosas profanas esas lámi-",
-      "box": [
-        512,
-        870,
-        887,
-        884
-      ],
-      "score": 0.9920457005500793
+      "score": 0.9891830086708069
     },
     {
       "text": "de salen la lcona y el leon, la víbora y la serpiente que vuela),",
       "box": [
         0,
-        888,
-        396,
-        911
+        1776,
+        792,
+        1823
       ],
-      "score": 0.9823459982872009
+      "score": 0.9996444582939148
     },
     {
-      "text": "nas de plata que cubren tus ídolos; y los preciosos vestidos",
+      "text": "nas de plata que cubren tus ídolos;y los preciosos vestidos",
       "box": [
-        497,
-        887,
-        887,
-        901
+        996,
+        1771,
+        1782,
+        1806
       ],
-      "score": 0.9988638162612915
+      "score": 0.9973604083061218
     },
     {
       "text": "levando sobre lomos de jumentos sus riquezas, y sus tesoros",
       "box": [
         0,
-        905,
-        396,
-        927
+        1811,
+        791,
+        1854
       ],
-      "score": 0.9988589882850647
+      "score": 0.9998195171356201
     },
     {
-      "text": "de tus estátuas de oro; y los arrojarás lejos de tí como el",
+      "text": "de tus estátuas de oro;y los arrojarás lejos de tí como el",
       "box": [
-        497,
-        904,
-        887,
-        918
+        997,
+        1805,
+        1781,
+        1838
       ],
-      "score": 0.9928376078605652
+      "score": 0.9998816251754761
     },
     {
       "text": "sobre el dorso de los camellos, á un pueblo que no podrá ayu-",
       "box": [
         0,
-        922,
-        395,
-        943
+        1843,
+        791,
+        1888
       ],
-      "score": 0.9957665205001831
+      "score": 0.9990083575248718
     },
     {
-      "text": "lienzo mas sucio de una mujer inmunda. Fuera de aquí, les",
+      "text": "lienzo mas sucio de una mujer inmunda.Fuera de aquí,les",
       "box": [
-        494,
-        918,
-        887,
-        936
+        996,
+        1841,
+        1780,
+        1871
       ],
-      "score": 0.9931358098983765
+      "score": 0.9998958110809326
+    },
+    {
+      "text": "dirás 21:",
+      "box": [
+        997,
+        1873,
+        1099,
+        1902
+      ],
+      "score": 0.9403987526893616
     },
     {
       "text": "darlos 15.",
       "box": [
         0,
-        942,
-        63,
-        959
+        1882,
+        126,
+        1921
       ],
-      "score": 0.9936426281929016
+      "score": 0.953593373298645
     },
     {
-      "text": "dirás 21:",
+      "text": "23. Y el Señor enviará lluvia á tus sementeras,en cual-",
       "box": [
-        495,
-        934,
-        550,
-        951
+        1022,
+        1904,
+        1780,
+        1939
       ],
-      "score": 0.8850071430206299
+      "score": 0.9973269104957581
     },
     {
       "text": "7. Porque inútil y en vano será el auxilio que les preste",
       "box": [
-        12,
-        955,
-        394,
-        976
+        26,
+        1910,
+        789,
+        1954
       ],
-      "score": 0.998805582523346
+      "score": 0.9998672008514404
     },
     {
-      "text": "23. Y el Señor enviará lluvia á tus sementeras, en cual-",
+      "text": "quicr parte de la tierra en que hayas sembrado: las mieses",
       "box": [
-        507,
-        950,
-        887,
-        969
+        996,
+        1940,
+        1780,
+        1973
       ],
-      "score": 0.9829489588737488
+      "score": 0.9957902431488037
     },
     {
       "text": "Egypto: por lo mismo clamé yo sobre eso, diciendo: No es mas",
       "box": [
         0,
-        971,
-        396,
-        995
+        1942,
+        792,
+        1990
       ],
-      "score": 0.9921172857284546
+      "score": 0.9988515377044678
     },
     {
-      "text": "quicr parte de la tierra en que hayas sembrado: las mieses",
+      "text": "darán abundante y rico trigo; y al mismo tiempo hallarán tus",
       "box": [
-        494,
-        967,
-        886,
-        986
+        995,
+        1972,
+        1780,
+        2007
       ],
-      "score": 0.9941253066062927
+      "score": 0.9945690631866455
     },
     {
       "text": "que soberbia, no te muevas.",
       "box": [
         0,
-        990,
-        188,
-        1011
+        1982,
+        377,
+        2021
       ],
-      "score": 0.9880006313323975
+      "score": 0.9992839694023132
     },
     {
-      "text": "darán abundante y rico trigo; y al mismo tiempo hallarán tus",
+      "text": "corderos pingües y dilatados pastos en tus hercdadcs,",
       "box": [
-        494,
-        984,
-        886,
-        1003
+        995,
+        2006,
+        1675,
+        2040
       ],
-      "score": 0.9961341619491577
+      "score": 0.9978494644165039
     },
     {
       "text": "8. Anda pues ahora 16 y escríbeles esta prediccion sobre",
       "box": [
-        14,
-        1005,
-        394,
-        1026
+        30,
+        2013,
+        788,
+        2052
       ],
-      "score": 0.9830223917961121
+      "score": 0.9908713698387146
     },
     {
-      "text": "corderos pingües y dilatados pastos en tus heredades,",
+      "text": "24. Y tus bueyes y pollinos, que trabajan la tierra, come-",
       "box": [
-        494,
-        1000,
-        834,
-        1020
+        1022,
+        2038,
+        1780,
+        2074
       ],
-      "score": 0.9965972304344177
+      "score": 0.9915660619735718
     },
     {
       "text": "una tablilla de boj, y regístrala exactamente en un libro, para",
       "box": [
         0,
-        1023,
-        395,
-        1042
+        2048,
+        790,
+        2085
       ],
-      "score": 0.9915047287940979
+      "score": 0.9994438290596008
     },
     {
-      "text": "24. Y tus bueyes y pollinos, que trabajan la tierra, come-",
+      "text": "rán el pienso mezclado con variedad de granos, del modo que",
       "box": [
-        508,
-        1017,
-        886,
-        1036
+        993,
+        2070,
+        1779,
+        2109
       ],
-      "score": 0.9772069454193115
+      "score": 0.997444748878479
     },
     {
       "text": "que sea en los dias venideros un testimonio sempiterno.",
       "box": [
         0,
-        1039,
-        357,
-        1059
+        2079,
+        715,
+        2119
       ],
-      "score": 0.9969106316566467
+      "score": 0.9999327659606934
     },
     {
-      "text": "rán el pienso mezclado con variedad de granos, del modo que",
+      "text": "vienen aventados de la era, ólimpios de paja.",
       "box": [
-        494,
-        1033,
-        885,
-        1054
+        994,
+        2102,
+        1587,
+        2142
       ],
-      "score": 0.9987121820449829
+      "score": 0.9986910223960876
     },
     {
       "text": "9. Porque este es un pueblo que me provoca á ira, y ellos",
       "box": [
-        14,
-        1055,
-        394,
-        1076
+        31,
+        2114,
+        788,
+        2150
       ],
-      "score": 0.9949226379394531
-    },
-    {
-      "text": "vienen aventados de la era, ó limpios de paja.",
-      "box": [
-        494,
-        1051,
-        789,
-        1069
-      ],
-      "score": 0.9838300943374634
+      "score": 0.9891272187232971
     },
     {
       "text": "1 Bosque frondoso, pero infructífero; símbolo de las nacioues gentí-",
       "box": [
-        11,
-        1090,
-        392,
-        1104
+        17,
+        2177,
+        790,
+        2212
       ],
-      "score": 0.9824941158294678
+      "score": 0.9910477995872498
     },
     {
-      "text": "1ª Corte de Pharaon, para refugiarse.",
+      "text": "12 Corte de Pharaon, para refugiarse.",
       "box": [
-        502,
-        1081,
-        705,
-        1099
+        1009,
+        2169,
+        1417,
+        2200
       ],
-      "score": 0.9685659408569336
+      "score": 0.999917209148407
+    },
+    {
+      "text": "13 Hasta la remota ciudad de Hanes.",
+      "box": [
+        1010,
+        2199,
+        1413,
+        2226
+      ],
+      "score": 0.9954255223274231
     },
     {
       "text": "licas.",
       "box": [
         0,
-        1104,
-        37,
-        1118
+        2211,
+        73,
+        2237
       ],
-      "score": 0.9885160326957703
+      "score": 0.9999287128448486
     },
     {
-      "text": "13 Hasta la remota ciudad de Hanes.",
+      "text": "Véase el cumplimiento de esta profecía. Matth. XXI, v. 43.",
       "box": [
-        502,
-        1097,
-        703,
-        1112
+        55,
+        2230,
+        697,
+        2267
       ],
-      "score": 0.9718930125236511
+      "score": 0.9923374652862549
     },
     {
-      "text": "* Véase el cumplimiento de esta profecía. Matth. XXI, v. 43.",
+      "text": "11 Duro vaticinio contra los estólidos Judíos.—Véase San Gerónimo.",
       "box": [
-        11,
-        1114,
-        347,
-        1133
+        1008,
+        2224,
+        1748,
+        2262
       ],
-      "score": 0.9780693054199219
+      "score": 0.992816686630249
     },
     {
-      "text": "i4 Duro vaticinio contra los estólidos Judíos.—Véase San Gerónimo.",
+      "text": "2",
       "box": [
-        501,
-        1110,
-        870,
-        1130
+        29,
+        2239,
+        46,
+        2257
       ],
-      "score": 0.9620632529258728
+      "score": 0.9999581575393677
     },
     {
-      "text": "a Los Gentiles hasta entonces sordos á Dios.",
+      "text": "3",
       "box": [
-        11,
-        1128,
-        262,
-        1146
+        29,
+        2264,
+        46,
+        2284
       ],
-      "score": 0.9782474637031555
+      "score": 0.9999397993087769
+    },
+    {
+      "text": "Los Gentiles hasta entonces sordos á Dios.",
+      "box": [
+        58,
+        2260,
+        525,
+        2290
+      ],
+      "score": 0.9934906959533691
     },
     {
       "text": "15 Ni servirles de provecho alguno.",
       "box": [
-        500,
-        1124,
-        695,
-        1143
+        1009,
+        2255,
+        1392,
+        2285
       ],
-      "score": 0.9804375767707825
+      "score": 0.9851296544075012
     },
     {
       "text": "4",
       "box": [
-        15,
-        1145,
-        25,
-        1155
+        29,
+        2291,
+        46,
+        2311
       ],
-      "score": 0.9999735355377197
+      "score": 0.9987927675247192
     },
     {
       "text": "De bienes espirituales.",
       "box": [
-        29,
-        1143,
-        156,
-        1157
+        58,
+        2285,
+        313,
+        2315
       ],
-      "score": 0.9987737536430359
+      "score": 0.9999819993972778
     },
     {
       "text": "16 A donde estén congregados.",
       "box": [
-        501,
-        1138,
-        671,
-        1157
+        1009,
+        2284,
+        1344,
+        2315
       ],
-      "score": 0.9344642758369446
+      "score": 0.9985803365707397
     },
     {
-      "text": "6",
+      "text": "5",
       "box": [
-        15,
-        1158,
-        26,
-        1167
+        30,
+        2315,
+        47,
+        2335
       ],
-      "score": 0.9955292344093323
+      "score": 0.9854612946510315
     },
     {
       "text": "Martini traduce: il soperchievole.",
       "box": [
-        29,
-        1156,
-        209,
-        1170
+        60,
+        2312,
+        420,
+        2340
       ],
-      "score": 0.9971526861190796
+      "score": 0.9964861273765564
     },
     {
       "text": "17 Jerem. XLIII, v. 2.",
       "box": [
-        503,
-        1155,
-        629,
-        1169
+        1009,
+        2312,
+        1259,
+        2341
       ],
-      "score": 0.9242374897003174
+      "score": 0.9382187128067017
     },
     {
-      "text": " Sacándole de entre los Gentiles.",
+      "text": "6",
       "box": [
-        14,
-        1169,
-        205,
-        1183
+        31,
+        2342,
+        48,
+        2361
       ],
-      "score": 0.9926615357398987
+      "score": 0.9816253185272217
     },
     {
-      "text": "18 La palabra hebrea  táren, á la que corresponde la expresion malus",
+      "text": "Sacándole de entre los Gentiles.",
       "box": [
-        501,
-        1167,
-        882,
-        1186
+        58,
+        2337,
+        411,
+        2367
       ],
-      "score": 0.9707682132720947
+      "score": 0.9969863891601562
     },
     {
-      "text": " Nombre dado al Mesías, que había de nacer del linaje de Jacob,",
+      "text": "18 La palabra hebrca 7 tóren, á la que correspondc la expresion malus",
       "box": [
-        13,
-        1178,
-        394,
-        1204
+        1008,
+        2339,
+        1773,
+        2377
       ],
-      "score": 0.9852270483970642
+      "score": 0.969842791557312
+    },
+    {
+      "text": "Nombre dado al Mesías, que habia de nacer del linaje de Jacob,",
+      "box": [
+        48,
+        2357,
+        789,
+        2408
+      ],
+      "score": 0.9962162375450134
     },
     {
       "text": "navis de que usa la Vulgata, significa cn su raiz un árbol alto y delgado;",
       "box": [
-        493,
-        1182,
-        883,
-        1201
+        992,
+        2366,
+        1772,
+        2407
       ],
-      "score": 0.9820811152458191
+      "score": 0.9949323534965515
     },
     {
       "text": "cuyas ovejas habia de recoger, y formar de ellas y de ótras un solo",
       "box": [
         0,
-        1192,
-        393,
-        1217
+        2383,
+        789,
+        2435
       ],
-      "score": 0.9973303079605103
+      "score": 0.998404860496521
     },
     {
-      "text": "y de aquí por metáfora cl árbol ó mástil del navío. Y parece preferible la",
+      "text": "y de aquí por mctáfora cl árbol ó mástil del navío. Y parece prcferible la",
       "box": [
-        493,
-        1196,
-        882,
-        1215
+        993,
+        2396,
+        1771,
+        2432
       ],
-      "score": 0.9632062911987305
+      "score": 0.9909116625785828
     },
     {
       "text": "rebaño.",
       "box": [
-        2,
-        1208,
-        50,
-        1222
+        4,
+        2419,
+        97,
+        2443
       ],
-      "score": 0.978858470916748
-    },
-    {
-      "text": " Al ver el cumplimiento de las profecías.",
-      "box": [
-        14,
-        1217,
-        246,
-        1239
-      ],
-      "score": 0.967904806137085
+      "score": 0.999967634677887
     },
     {
       "text": "primera acepcion, por decirse despues que el árbol estaba en la cima de",
       "box": [
-        493,
-        1210,
-        882,
-        1229
+        993,
+        2425,
+        1770,
+        2460
       ],
-      "score": 0.9859545826911926
+      "score": 0.9905068874359131
     },
     {
-      "text": "9 Jerem. XLII.—XLIII.",
+      "text": "8 Al ver el cumplimiento de las profecías.",
       "box": [
-        15,
-        1233,
-        160,
-        1247
+        26,
+        2435,
+        495,
+        2477
       ],
-      "score": 0.9530443549156189
+      "score": 0.9916801452636719
+    },
+    {
+      "text": "Jerem. XLII.—XLIII.",
+      "box": [
+        60,
+        2465,
+        321,
+        2492
+      ],
+      "score": 0.9562944173812866
     },
     {
       "text": "un monte.",
       "box": [
-        495,
-        1227,
-        552,
-        1238
+        993,
+        2454,
+        1108,
+        2481
       ],
-      "score": 0.9998655319213867
+      "score": 0.9999783039093018
     },
     {
-      "text": "20",
+      "text": "9",
       "box": [
-        13,
-        1246,
-        34,
-        1258
+        31,
+        2470,
+        50,
+        2488
       ],
-      "score": 0.4967675805091858
-    },
-    {
-      "text": "O emprendeís un proyecto.",
-      "box": [
-        28,
-        1245,
-        179,
-        1261
-      ],
-      "score": 0.980755090713501
+      "score": 0.999721109867096
     },
     {
       "text": "19 Para avisar á todos vucstra total destruccion.",
       "box": [
-        499,
-        1237,
-        763,
-        1255
+        1006,
+        2478,
+        1530,
+        2512
       ],
-      "score": 0.994666337966919
+      "score": 0.9985763430595398
     },
     {
-      "text": "\" Jerem. XLII, v. 15.",
+      "text": "10",
       "box": [
-        12,
-        1258,
-        140,
-        1272
+        24,
+        2493,
+        50,
+        2514
       ],
-      "score": 0.9648650884628296
+      "score": 0.9999546408653259
     },
     {
-      "text": "a» A pesar de sus enemigos.",
+      "text": "O emprendeis un proyecto.",
       "box": [
-        500,
-        1252,
-        656,
-        1268
+        64,
+        2495,
+        357,
+        2519
       ],
-      "score": 0.9700677394866943
+      "score": 0.999463677406311
     },
     {
-      "text": "at O dirás con desprecio á tus ídolos.",
+      "text": "20 A pesar de sus enemigos.",
       "box": [
-        501,
-        1264,
-        703,
-        1283
+        1007,
+        2506,
+        1315,
+        2539
       ],
-      "score": 0.9437242746353149
+      "score": 0.9987145066261292
+    },
+    {
+      "text": "11",
+      "box": [
+        23,
+        2518,
+        48,
+        2539
+      ],
+      "score": 0.9994322061538696
+    },
+    {
+      "text": "Jerem. XLII, v. 15.",
+      "box": [
+        63,
+        2520,
+        279,
+        2544
+      ],
+      "score": 0.9830941557884216
+    },
+    {
+      "text": "21 O dirás con desprecio á tus ídolos.",
+      "box": [
+        1007,
+        2532,
+        1412,
+        2568
+      ],
+      "score": 0.9956596493721008
     }
   ]
 }

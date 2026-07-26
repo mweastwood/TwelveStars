@@ -184,6 +184,13 @@ def clean_text_line(text: str) -> str:
     """Normalizes whitespace and strips mid-sentence footnote callouts in a raw OCR string."""
     text = re.sub(r"[⁰¹²³⁴⁵⁶⁷⁸⁹]+", "", text)
     text = re.sub(r"(?<=[a-zA-ZÁÉÍÓÚÑáéíóúñ])\s+\d{1,2}\b(?=[\s,;:\.A-Za-zÁÉÍÓÚÑáéíóúñ])", "", text)
+    # Convert OCR misread opening Spanish inverted exclamation mark '1' attached to words (e.g. '1Ay' -> '¡Ay')
+    text = re.sub(r'(?<=\s)1([A-ZÁÉÍÓÚa-zÁÉÍÓÚ])', r'¡\1', text)
+    text = re.sub(r'^1([A-ZÁÉÍÓÚa-zÁÉÍÓÚ])', r'¡\1', text)
+    # Strip leading OCR margin footnote symbols (e.g. 'ºtrastornará' -> 'trastornará')
+    text = re.sub(r'^[ºª]\s*', '', text)
+    # Normalize OCR font artifact diacritics (e.g. 'calamidād' -> 'calamidad')
+    text = text.replace("ā", "a")
     return " ".join(text.strip().split())
 
 
@@ -207,10 +214,12 @@ MISSING_SPACE_PREFIX_DICTIONARY: Dict[str, List[str]] = {
     "cuyos": ["nombres", "números", "hijos"],
     "cuyas": ["obras", "palabras"],
 
-    # Common prepositions & quantifiers prone to OCR word concatenation
+    # Common prepositions, contractions & quantifiers prone to OCR word concatenation
+    "del": ["cual", "que", "mismo"],
     "para": ["que", "con", "los", "las"],
     "todo": ["hombre", "lugar", "aquello"],
     "toda": ["carne", "tierra", "cosa"],
+    "pedrisco": ["trastornará"],
 }
 
 # Compiled regex replacement rules for missing space pattern registry
@@ -246,7 +255,12 @@ def clean_scripture_verse_text(text: str) -> str:
     text = text.replace("Evungelio", "Evangelio")
     text = text.replace("Evungel", "Evangel")
     text = text.replace("Isrnél", "Israél")
+    text = text.replace("pueolo", "pueblo")
     text = text.replace(" de de ", " de ")
+    # Strip inline translator glosses (e.g. 'Martini traduce: ...')
+    text = re.sub(r'\s*Martini traduce:.*$', '', text)
+    # Strip standalone 19th-century printer signature markers (e.g. 'las C cuerdas' -> 'las cuerdas')
+    text = re.sub(r'\s+[B-Z]\s+', ' ', text)
     text = re.sub(r"\bIa\b", "la", text)
     text = re.sub(r"\bIos\b", "los", text)
     text = re.sub(r"\bIas\b", "las", text)
@@ -579,7 +593,9 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
         scripture_lines = []
         for line in raw_lines:
             if has_body_cap and line["box"][1] < 60 and re.search(r'\bC[ÁA]P[IÍLl1\s]*TULO\b', line["text"].upper()):
-                continue
+                # Only drop running page headers (which contain page numbers or running book titles)
+                if re.search(r'\d{3}', line["text"]) or "ISAIAS" in line["text"].upper() or "CORINTHIOS" in line["text"].upper():
+                    continue
             if not is_page_header_line(line["text"], line["box"][1], page_h, line["box"][0], volume):
                 if not is_footnote_line(line["text"], line["box"][1], page_h) and not is_latin_line(line["text"]):
                     scripture_lines.append(line)

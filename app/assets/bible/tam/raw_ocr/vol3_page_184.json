@@ -6,1482 +6,1492 @@
     {
       "text": "293",
       "box": [
-        12,
-        4,
-        37,
-        21
+        17,
+        11,
+        53,
+        36
       ],
-      "score": 0.9997577667236328
+      "score": 0.9999969601631165
     },
     {
       "text": "ISAIAS.",
       "box": [
-        168,
-        3,
-        234,
-        24
+        253,
+        10,
+        343,
+        35
       ],
-      "score": 0.9990232586860657
+      "score": 0.9996939897537231
     },
     {
       "text": "CAPITULO XXV.",
       "box": [
-        646,
-        18,
-        764,
-        40
+        973,
+        32,
+        1145,
+        61
       ],
-      "score": 0.9989443421363831
+      "score": 0.999325692653656
     },
     {
       "text": "294",
       "box": [
-        859,
-        29,
-        884,
-        46
+        1292,
+        47,
+        1328,
+        72
       ],
-      "score": 0.9999961256980896
+      "score": 0.9999968409538269
     },
     {
       "text": "17. Y despues de los setenta años el Señor visitará á",
       "box": [
-        14,
-        46,
-        406,
-        67
+        21,
+        73,
+        605,
+        102
       ],
-      "score": 0.9997276663780212
+      "score": 0.9933704137802124
+    },
+    {
+      "text": "14. Estos restos de Israél levantarán su voz, y entonarán",
+      "box": [
+        785,
+        88,
+        1339,
+        140
+      ],
+      "score": 0.9886772632598877
     },
     {
       "text": "Tyro: y la volverá á su tráfico, y tendrá comercio como an-",
       "box": [
         1,
-        63,
-        406,
-        86
+        102,
+        606,
+        129
       ],
-      "score": 0.9906580448150635
+      "score": 0.9915605783462524
     },
     {
-      "text": "14. Estos restos de Israél levantarán su voz, y entonarán",
+      "text": "alabanzas: mostrarán su júbilo desde el mar, luego que fuere",
       "box": [
-        523,
-        55,
-        891,
-        92
+        765,
+        113,
+        1339,
+        166
       ],
-      "score": 0.997036337852478
+      "score": 0.9995349645614624
     },
     {
       "text": "tes con todos los reinos del mundo, en toda la extension de la",
       "box": [
         0,
-        79,
-        406,
-        105
+        126,
+        606,
+        156
       ],
-      "score": 0.9928076863288879
-    },
-    {
-      "text": "alabanzas: mostrarán su júbilo desde el mar, luego que fuere",
-      "box": [
-        510,
-        72,
-        892,
-        109
-      ],
-      "score": 0.9990364909172058
-    },
-    {
-      "text": "tierra.",
-      "box": [
-        1,
-        99,
-        45,
-        118
-      ],
-      "score": 0.9985924959182739
+      "score": 0.9980930089950562
     },
     {
       "text": "el Señor glorificado.",
       "box": [
-        510,
-        91,
-        640,
-        115
+        767,
+        141,
+        956,
+        173
       ],
-      "score": 0.9993459582328796
+      "score": 0.999841570854187
+    },
+    {
+      "text": "tierra.",
+      "box": [
+        0,
+        152,
+        64,
+        177
+      ],
+      "score": 0.9999249577522278
     },
     {
       "text": "18. Alfin Tyro se convertirá, y sus contratos de compra y",
       "box": [
-        14,
-        114,
-        408,
-        143
+        20,
+        176,
+        608,
+        213
       ],
-      "score": 0.985004186630249
+      "score": 0.9880868792533875
     },
     {
       "text": "15. Por tanto glorificad al Señor con la ilustracion de la",
       "box": [
-        523,
-        109,
-        891,
-        143
+        787,
+        167,
+        1337,
+        216
       ],
-      "score": 0.9997138977050781
+      "score": 0.9995588660240173
+    },
+    {
+      "text": "doctrina de la salud: anunciad el Nombre del Señor Dios de",
+      "box": [
+        765,
+        191,
+        1338,
+        242
+      ],
+      "score": 0.9998149871826172
     },
     {
       "text": "venta, y sus ganancias serán consagradas al Señor: no se al-",
       "box": [
         0,
-        133,
-        408,
-        159
+        203,
+        609,
+        238
       ],
-      "score": 0.9940595626831055
+      "score": 0.9845898151397705
     },
     {
-      "text": "doctrina de la salud: anunciad el Nombre del Señor Dios de",
+      "text": "Israél en las islas del mar ó remotas regiones.",
       "box": [
-        510,
-        124,
-        891,
-        161
+        767,
+        216,
+        1192,
+        260
       ],
-      "score": 0.9963023662567139
+      "score": 0.9959584474563599
     },
     {
       "text": "macenarán, ni se reservarán; porque su negocio será para uti-",
       "box": [
         0,
-        150,
-        408,
-        177
+        229,
+        609,
+        265
       ],
-      "score": 0.9898149967193604
+      "score": 0.9989858269691467
     },
     {
-      "text": "Israél en las islas del mar ó remotas regiones.",
+      "text": "16. Desde las extremidades del mundo hemos oido las ala-",
       "box": [
-        510,
-        141,
-        795,
-        174
+        786,
+        240,
+        1337,
+        292
       ],
-      "score": 0.9914831519126892
+      "score": 0.9999246597290039
     },
     {
       "text": "lidad de aquellos que asisten en la presencia del Señor, á fin",
       "box": [
         0,
-        167,
-        408,
-        195
+        254,
+        609,
+        292
       ],
-      "score": 0.9900889992713928
-    },
-    {
-      "text": "16. Desde las extremidades del mundo hemos oido las ala-",
-      "box": [
-        524,
-        159,
-        890,
-        193
-      ],
-      "score": 0.9932212233543396
-    },
-    {
-      "text": "de que tengan alimentos en abundancia, y vestidos que mu-",
-      "box": [
-        1,
-        184,
-        409,
-        214
-      ],
-      "score": 0.9908393025398254
+      "score": 0.9892574548721313
     },
     {
       "text": "banzas que se cantaban á la gloria del justo. Y yo dije: Mi se-",
       "box": [
-        510,
-        175,
-        891,
-        209
+        767,
+        265,
+        1337,
+        316
       ],
-      "score": 0.990275502204895
+      "score": 0.9949716329574585
+    },
+    {
+      "text": "de que tengan alimentos en abundancia, y vestidos que mu-",
+      "box": [
+        0,
+        280,
+        610,
+        319
+      ],
+      "score": 0.997711181640625
     },
     {
       "text": "creto es para mí, mi secreto es para mí: ay de mí! los preva-",
       "box": [
-        510,
-        192,
-        891,
-        226
+        766,
+        292,
+        1337,
+        340
       ],
-      "score": 0.9881815314292908
+      "score": 0.9996617436408997
     },
     {
-      "text": "darse hasta la vejez 1.",
+      "text": "darse hasta la vejez ¹.",
       "box": [
-        2,
-        202,
-        148,
-        228
+        1,
+        305,
+        216,
+        340
       ],
-      "score": 0.9389635324478149
+      "score": 0.9816689491271973
     },
     {
       "text": "ricadores han prevaricado, y han prevaricado con prevaricacion",
       "box": [
-        509,
-        209,
-        889,
-        243
+        767,
+        318,
+        1335,
+        363
       ],
-      "score": 0.995923638343811
+      "score": 0.9986779093742371
     },
     {
       "text": "propia de contumaces.",
       "box": [
-        510,
-        227,
-        653,
-        249
+        766,
+        344,
+        978,
+        373
       ],
-      "score": 0.9998621940612793
+      "score": 0.9999684691429138
     },
     {
       "text": "CAPITULO XXIV",
       "box": [
-        144,
-        243,
-        270,
-        262
+        215,
+        367,
+        399,
+        391
       ],
-      "score": 0.9997177124023438
+      "score": 0.9998022317886353
     },
     {
       "text": "17. El espanto, la fosa y el lazo 9 están reservados para tí,",
       "box": [
-        522,
-        241,
-        888,
-        274
+        784,
+        366,
+        1334,
+        412
       ],
-      "score": 0.9707242250442505
+      "score": 0.9897302389144897
     },
     {
       "text": "que eres habitador de la tierra.",
       "box": [
-        510,
-        260,
-        704,
-        283
+        767,
+        393,
+        1055,
+        424
       ],
-      "score": 0.9993231892585754
+      "score": 0.9999826550483704
     },
     {
       "text": "Profecía de los males que enviará Dios á toda la tierra para castigo de",
       "box": [
-        3,
-        271,
+        0,
         408,
-        298
+        610,
+        447
       ],
-      "score": 0.9974026679992676
-    },
-    {
-      "text": "los pecados de los hombres: el dia del juicio solamente es terrible para",
-      "box": [
-        13,
-        286,
-        409,
-        313
-      ],
-      "score": 0.9637546539306641
+      "score": 0.9947949051856995
     },
     {
       "text": "18. Y sucederá que el que huyere de la espantosa voz, cae-",
       "box": [
-        523,
-        277,
-        887,
-        305
+        785,
+        417,
+        1333,
+        459
       ],
-      "score": 0.996677041053772
+      "score": 0.994106113910675
     },
     {
-      "text": "los malos.",
+      "text": "los pecados de los hombres: el dia del juicio solamente es terrible para",
       "box": [
-        14,
-        301,
-        76,
-        321
+        17,
+        432,
+        610,
+        468
       ],
-      "score": 0.9931583404541016
+      "score": 0.9985783696174622
     },
     {
       "text": "rá en la hoya, y el que escapare de la hoya será preso en el",
       "box": [
-        509,
-        293,
-        887,
-        322
+        765,
+        441,
+        1333,
+        483
       ],
-      "score": 0.9959481358528137
+      "score": 0.9998722672462463
+    },
+    {
+      "text": "los malos.",
+      "box": [
+        18,
+        454,
+        110,
+        480
+      ],
+      "score": 0.9991971254348755
     },
     {
       "text": "lazo; porque se abrirán desde lo alto las cataratas, y se bam-",
       "box": [
-        509,
-        309,
-        887,
-        339
+        763,
+        466,
+        1333,
+        507
       ],
-      "score": 0.9992887377738953
+      "score": 0.9933751225471497
     },
     {
       "text": "bolearán los cimientos de la tierra.",
       "box": [
-        510,
-        327,
-        724,
-        349
+        765,
+        491,
+        1086,
+        523
       ],
-      "score": 0.999924898147583
+      "score": 0.9999746680259705
     },
     {
       "text": "1. Hé aquí que el Señor desolará despues, y despojará la",
       "box": [
-        15,
-        339,
-        409,
-        367
+        22,
+        513,
+        610,
+        550
       ],
-      "score": 0.996172308921814
+      "score": 0.9943895936012268
     },
     {
       "text": "19. Será despedazada con grande estruendo la tierra; hen-",
       "box": [
-        522,
-        342,
-        885,
-        370
+        785,
+        517,
+        1330,
+        553
       ],
-      "score": 0.9933213591575623
+      "score": 0.9928250908851624
     },
     {
       "text": "tierra, y pondrá afligido el aspecto de ella, y esparcirá sus mo-",
       "box": [
-        2,
-        357,
-        410,
-        385
+        0,
+        538,
+        611,
+        576
       ],
-      "score": 0.9799178838729858
+      "score": 0.999557614326477
     },
     {
       "text": "deráse con aberturas grandes: conmovida será con el mayor",
       "box": [
-        509,
-        358,
-        885,
-        387
+        765,
+        541,
+        1329,
+        578
       ],
-      "score": 0.9998355507850647
+      "score": 0.9969699382781982
     },
     {
-      "text": "radores ².",
+      "text": "radores 2.",
       "box": [
-        3,
-        375,
-        73,
-        395
+        0,
+        564,
+        104,
+        591
       ],
-      "score": 0.9305127263069153
+      "score": 0.9405129551887512
     },
     {
       "text": "desconcierto.",
       "box": [
-        510,
-        377,
-        594,
-        397
+        765,
+        566,
+        890,
+        592
       ],
-      "score": 0.999947190284729
+      "score": 0.9999819397926331
     },
     {
-      "text": "2. Y como el pueblo, así será tratado el sacerdote ; y como",
+      "text": "2. Y como el pueblo, así será tratado el sacerdote ³; y como",
       "box": [
-        15,
-        391,
-        410,
-        420
+        21,
+        589,
+        611,
+        628
       ],
-      "score": 0.9857963919639587
+      "score": 0.9801093935966492
     },
     {
-      "text": "20. Estará la tierra ó el hombre en una agitacion semejante",
+      "text": "20. Estará la tierra óel hombre en una agitacion semejante",
       "box": [
-        522,
-        393,
-        884,
-        419
+        785,
+        593,
+        1326,
+        625
       ],
-      "score": 0.9814240336418152
+      "score": 0.9872480034828186
     },
     {
       "text": "el esclavo, así su señor; como la sierva, así su señora; como el",
       "box": [
-        1,
-        408,
-        410,
-        439
+        0,
+        615,
+        611,
+        656
       ],
-      "score": 0.9976457357406616
+      "score": 0.9997513294219971
     },
     {
       "text": "á la de un borracho; y mudará de sitio, como tienda que",
       "box": [
-        508,
-        411,
-        884,
-        436
+        765,
+        618,
+        1326,
+        651
       ],
-      "score": 0.9885537624359131
+      "score": 0.9996410608291626
     },
     {
       "text": "que compra, así el que vende; como el que da prestado, así el",
       "box": [
-        1,
-        427,
-        411,
-        456
+        0,
+        642,
+        611,
+        681
       ],
-      "score": 0.9993460178375244
+      "score": 0.9897932410240173
     },
     {
       "text": "solo se arma para pasar una noche: se verá agobiada con el",
       "box": [
-        510,
-        430,
-        883,
-        451
+        765,
+        644,
+        1327,
+        675
       ],
-      "score": 0.9986642599105835
+      "score": 0.9991704225540161
     },
     {
       "text": "que recibe; como el acreedor, así el deudor.",
       "box": [
-        2,
-        445,
-        294,
-        470
+        0,
+        668,
+        436,
+        705
       ],
-      "score": 0.9988021850585938
+      "score": 0.9932771921157837
     },
     {
       "text": "peso de su propia iniquidad, y caerá, y nunca jamás se levan-",
       "box": [
-        508,
-        445,
-        884,
-        468
+        763,
+        669,
+        1327,
+        701
       ],
-      "score": 0.9982353448867798
+      "score": 0.995708703994751
     },
     {
       "text": "3. Enteramente arruinada quedará la tierra, y totalmente",
       "box": [
-        15,
-        460,
-        410,
-        490
+        21,
+        692,
+        612,
+        733
       ],
-      "score": 0.9811334609985352
+      "score": 0.9832793474197388
     },
     {
       "text": "tará 10.",
       "box": [
-        510,
-        463,
-        555,
-        481
+        764,
+        694,
+        831,
+        719
       ],
-      "score": 0.9052649736404419
+      "score": 0.9461649060249329
     },
     {
       "text": "devastada. Por cuanto el Señor así lo ha pronunciado.",
       "box": [
-        1,
-        477,
-        364,
-        507
+        0,
+        718,
+        541,
+        757
       ],
-      "score": 0.9933899641036987
+      "score": 0.9993570446968079
     },
     {
       "text": "21. Y sucederá que en aquel dia residenciará el Señor",
       "box": [
-        524,
-        481,
-        883,
-        498
+        785,
+        720,
+        1325,
+        746
       ],
-      "score": 0.9997884631156921
+      "score": 0.9930166602134705
     },
     {
       "text": "4. La tierra se deshace en lágrimas, y se consume, y desfa-",
       "box": [
-        16,
-        494,
-        412,
-        526
+        22,
+        743,
+        614,
+        784
       ],
-      "score": 0.962418258190155
+      "score": 0.9907317757606506
     },
     {
       "text": "públicamente á la milicia del cielo allá en lo alto 1: y á los",
       "box": [
-        510,
-        498,
-        882,
-        515
+        764,
+        746,
+        1325,
+        771
       ],
-      "score": 0.9840136766433716
+      "score": 0.9735477566719055
     },
     {
       "text": "llece: consúmese el mundo, consúmense los magnates del pue-",
       "box": [
         0,
-        511,
-        413,
-        545
+        768,
+        613,
+        810
       ],
-      "score": 0.9526922702789307
+      "score": 0.9944395422935486
     },
     {
       "text": "reyes del mundo que están acá en la tierra.",
       "box": [
-        510,
-        513,
-        778,
-        532
+        764,
+        770,
+        1167,
+        795
       ],
-      "score": 0.999584972858429
+      "score": 0.995596170425415
     },
     {
-      "text": "blo.de la tierra.",
+      "text": "blo. de la tierra.",
       "box": [
-        2,
-        529,
-        117,
-        554
+        0,
+        797,
+        168,
+        827
       ],
-      "score": 0.9916434288024902
+      "score": 0.9947129487991333
     },
     {
       "text": "22. Y serán reunidos todos y hacinados en un solo haz, y",
       "box": [
-        522,
-        529,
-        884,
-        550
+        785,
+        795,
+        1325,
+        820
       ],
-      "score": 0.9821914434432983
+      "score": 0.9906916618347168
     },
     {
-      "text": "echados en el lago, y allí serán encerrados en una cárcel;y aun",
+      "text": "5. Inficionada está la tierra por sus habitadores, pues han",
       "box": [
-        510,
-        546,
-        884,
-        566
+        22,
+        820,
+        614,
+        862
       ],
-      "score": 0.9991018772125244
+      "score": 0.9916326999664307
+    },
+    {
+      "text": "echados en el lago, y allí serán encerrados en una cárcel; y aun",
+      "box": [
+        766,
+        820,
+        1326,
+        845
+      ],
+      "score": 0.9901469349861145
     },
     {
       "text": "quebrantado las leyes, han alterado el derecho, rompieron la",
       "box": [
-        1,
-        562,
-        413,
-        594
+        0,
+        847,
+        614,
+        884
       ],
-      "score": 0.9504776000976562
+      "score": 0.9939762353897095
     },
     {
       "text": "despues de muchos dias continuarán en padecer, y eterna-",
       "box": [
-        510,
-        561,
-        885,
-        584
+        765,
+        843,
+        1328,
+        873
       ],
-      "score": 0.9924741387367249
+      "score": 0.9997591972351074
     },
     {
       "text": "alianza sempiterna.",
       "box": [
-        4,
-        581,
-        147,
-        606
+        1,
+        873,
+        211,
+        906
       ],
-      "score": 0.9985235929489136
+      "score": 0.9998717308044434
     },
     {
       "text": "mente serán visitados ó castigados.",
       "box": [
-        511,
-        579,
-        726,
-        599
+        765,
+        868,
+        1089,
+        896
       ],
-      "score": 0.977343738079071
+      "score": 0.9993612170219421
     },
     {
-      "text": "6. Por esto la maldicion devorará la tierra ; porque sus",
+      "text": "6. Por esto la maldicion devorará la tierra ⁴; porque sus",
       "box": [
-        18,
-        598,
-        413,
-        624
+        24,
+        898,
+        615,
+        932
       ],
-      "score": 0.9960308074951172
+      "score": 0.9929277300834656
     },
     {
-      "text": "23. Y se pondrá roja ó de color de sangre la luna , y el sol",
+      "text": "23. Y se pondrá roja ó de color de sangre la luna 1ª, y el sol",
       "box": [
-        523,
-        592,
-        885,
-        616
+        785,
+        891,
+        1329,
+        920
       ],
-      "score": 0.9651941657066345
+      "score": 0.9861159324645996
     },
     {
       "text": "habitantes son pecadores, y por esto perderán el juicio los",
       "box": [
-        2,
-        614,
-        415,
-        643
+        0,
+        923,
+        616,
+        958
       ],
-      "score": 0.9563940167427063
+      "score": 0.9934666752815247
     },
     {
       "text": "se oscurecerá, y avergonzará cuando el Señor Dios de los",
       "box": [
-        509,
-        609,
-        885,
-        633
+        764,
+        914,
+        1329,
+        946
       ],
-      "score": 0.9871988296508789
+      "score": 0.9951775670051575
     },
     {
-      "text": "que en ella moran &, de que solo se libertará un corto nú-",
+      "text": "que en ella moran 5, de que solo se libertará un corto nú-",
       "box": [
-        4,
-        635,
-        413,
-        658
+        0,
+        949,
+        616,
+        984
       ],
-      "score": 0.9914739727973938
+      "score": 0.9883844256401062
     },
     {
       "text": "ejércitos habrá tomado posesion del reino en el monte Sion",
       "box": [
-        510,
-        625,
-        886,
-        650
+        765,
+        938,
+        1330,
+        971
       ],
-      "score": 0.9993448853492737
-    },
-    {
-      "text": "mero.",
-      "box": [
-        4,
-        651,
-        52,
-        673
-      ],
-      "score": 0.9999405145645142
+      "score": 0.9999582171440125
     },
     {
       "text": "y en Jerusalem, y sido glorificado en presencia de sus an-",
       "box": [
-        509,
-        642,
-        887,
-        666
+        764,
+        963,
+        1331,
+        996
       ],
-      "score": 0.9993754625320435
+      "score": 0.997825026512146
+    },
+    {
+      "text": "mero.",
+      "box": [
+        0,
+        980,
+        71,
+        1005
+      ],
+      "score": 0.9999606013298035
     },
     {
       "text": "7. La vendimia está llorando, la vid perdió su vigor: llo-",
       "box": [
-        18,
-        666,
-        414,
-        691
+        24,
+        1001,
+        616,
+        1033
       ],
-      "score": 0.9968724250793457
+      "score": 0.9932398796081543
     },
     {
       "text": "cianos.",
       "box": [
-        512,
-        663,
-        559,
-        681
+        767,
+        996,
+        835,
+        1018
       ],
-      "score": 0.9984880089759827
+      "score": 0.9999678730964661
     },
     {
       "text": "rando están á lágrima viva los que se alegraban de corazon.",
       "box": [
-        4,
-        685,
-        413,
-        708
+        0,
+        1027,
+        615,
+        1060
       ],
-      "score": 0.9994296431541443
+      "score": 0.9971341490745544
     },
     {
       "text": "CAPITULO XXV",
       "box": [
-        644,
-        685,
-        754,
-        702
+        968,
+        1027,
+        1133,
+        1054
       ],
-      "score": 0.9995891451835632
+      "score": 0.9998037815093994
     },
     {
       "text": "8. Cesó el festivo sonido de los panderos, se acabó la alga-",
       "box": [
-        19,
-        702,
-        413,
-        725
+        25,
+        1052,
+        615,
+        1085
       ],
-      "score": 0.9969159960746765
+      "score": 0.9972783923149109
     },
     {
       "text": "zara de las bulliciosas cuadrillas de gente, enmudeció la melo-",
       "box": [
-        4,
-        718,
-        414,
-        743
+        0,
+        1077,
+        616,
+        1111
       ],
-      "score": 0.9825080633163452
+      "score": 0.9941114187240601
     },
     {
       "text": "Cántico de accion de gracias al Señor por los beneficios hechos á su",
       "box": [
-        527,
-        714,
-        873,
-        737
+        792,
+        1072,
+        1310,
+        1102
       ],
-      "score": 0.9815778136253357
+      "score": 0.9994664788246155
+    },
+    {
+      "text": "pucblo.",
+      "box": [
+        1015,
+        1093,
+        1082,
+        1121
+      ],
+      "score": 0.999110758304596
     },
     {
       "text": "diosa cítara:",
       "box": [
-        7,
-        739,
-        100,
-        755
+        3,
+        1110,
+        144,
+        1131
       ],
-      "score": 0.9986161589622498
-    },
-    {
-      "text": "pueblo.",
-      "box": [
-        676,
-        729,
-        722,
-        750
-      ],
-      "score": 0.9908049702644348
+      "score": 0.9998260736465454
     },
     {
       "text": "9. No beberán ya vino en medio de cantares: amargo será",
       "box": [
-        21,
-        751,
-        414,
-        774
+        26,
+        1127,
+        616,
+        1159
       ],
-      "score": 0.9878060221672058
+      "score": 0.9982616305351257
     },
     {
-      "text": "1. Oh Señor! tú eres mi Dios: yo te ensalzaré 13, y bende-",
+      "text": "1. Oh Señor! tú eres mi Dios: yo te ensalzaré i3, y bende-",
       "box": [
-        526,
-        757,
-        887,
-        780
+        789,
+        1137,
+        1331,
+        1168
       ],
-      "score": 0.977284848690033
+      "score": 0.9832488894462585
     },
     {
       "text": "todo licor para los bebedores.",
       "box": [
-        8,
-        772,
-        210,
-        789
+        4,
+        1157,
+        310,
+        1180
       ],
-      "score": 0.9907874464988708
-    },
-    {
-      "text": "10. La ciudad de la vanidad 6 se va destruyendo, todas las",
-      "box": [
-        23,
-        784,
-        415,
-        807
-      ],
-      "score": 0.9881789684295654
+      "score": 0.994865357875824
     },
     {
       "text": "ciré tu Nombre, porque has ejecutado cosas maravillosas, de-",
       "box": [
-        515,
-        775,
-        887,
-        796
+        771,
+        1163,
+        1331,
+        1191
       ],
-      "score": 0.9954280853271484
+      "score": 0.9997997283935547
+    },
+    {
+      "text": "10. La ciudad de la vanidad 6 se va destruyendo, todas las",
+      "box": [
+        28,
+        1177,
+        617,
+        1208
+      ],
+      "score": 0.9956958889961243
     },
     {
       "text": "signios antiguos y fieles ó infalibles. Amen.",
       "box": [
-        515,
-        791,
-        781,
-        813
+        771,
+        1188,
+        1172,
+        1218
       ],
-      "score": 0.9853003621101379
+      "score": 0.9991011023521423
     },
     {
       "text": "casas están cerradas, sin que nadie entre en ellas.",
       "box": [
-        7,
-        804,
-        338,
-        823
+        4,
+        1205,
+        501,
+        1232
       ],
-      "score": 0.9921067357063293
+      "score": 0.9999601244926453
     },
     {
       "text": "2. Bendito seas, porque has convertido en escombros la",
       "box": [
-        526,
-        807,
-        887,
-        830
+        790,
+        1211,
+        1331,
+        1241
       ],
-      "score": 0.9977547526359558
+      "score": 0.999741792678833
     },
     {
       "text": "11. Habrá gritos y quimeras en las calles por la escasez del",
       "box": [
-        23,
-        817,
-        415,
-        842
+        28,
+        1226,
+        618,
+        1259
       ],
-      "score": 0.9973587393760681
+      "score": 0.9995700716972351
     },
     {
       "text": "ciudad: la ciudad poderosa, el alcázar de hombres extranjeros",
       "box": [
-        514,
-        823,
-        887,
-        847
+        771,
+        1236,
+        1330,
+        1266
       ],
-      "score": 0.9986116290092468
+      "score": 0.9993158578872681
     },
     {
       "text": "vino: todo contento queda desterrado, desapareció la alegría",
       "box": [
-        7,
-        835,
-        415,
-        857
+        4,
+        1251,
+        619,
+        1285
       ],
-      "score": 0.9951842427253723
+      "score": 0.9997559189796448
     },
     {
       "text": "en un monton de ruinas, para que cese de ser ciudad, y nunca",
       "box": [
-        514,
-        838,
-        887,
-        864
+        769,
+        1260,
+        1332,
+        1293
       ],
-      "score": 0.9931570887565613
+      "score": 0.9956989288330078
     },
     {
       "text": "de la tierra.",
       "box": [
-        9,
-        855,
-        96,
-        872
+        5,
+        1280,
+        139,
+        1306
       ],
-      "score": 0.9986464381217957
+      "score": 0.9998682737350464
     },
     {
       "text": "12. La ciudad está hecha un páramo, y quedarán destrui-",
       "box": [
-        25,
-        868,
-        417,
-        890
+        29,
+        1302,
+        632,
+        1333
       ],
-      "score": 0.987744152545929
+      "score": 0.9959990978240967
     },
     {
       "text": "jamás sea reedificada.",
       "box": [
-        513,
-        857,
-        651,
-        882
+        769,
+        1289,
+        972,
+        1319
       ],
-      "score": 0.9928903579711914
+      "score": 0.999881386756897
     },
     {
-      "text": "3. Por esto te tributará alabanzas el pueblo fuerte \", te",
+      "text": "3. Por esto te tributará alabanzas el pueblo fuerte 14, te",
       "box": [
-        526,
-        872,
-        887,
-        897
+        789,
+        1308,
+        1332,
+        1343
       ],
-      "score": 0.9810137748718262
+      "score": 0.9859153032302856
     },
     {
       "text": "das sus puertas .",
       "box": [
-        10,
-        889,
-        135,
-        906
+        7,
+        1333,
+        193,
+        1357
       ],
-      "score": 0.9763614535331726
-    },
-    {
-      "text": "13. Tales cosas sucederán en medio de la tierra, en el cen-",
-      "box": [
-        25,
-        902,
-        414,
-        924
-      ],
-      "score": 0.9988939762115479
+      "score": 0.9726935029029846
     },
     {
       "text": "temerá la nueva Jerusalem, la ciudad de las gentes vale-",
       "box": [
-        513,
-        890,
-        887,
-        915
+        769,
+        1335,
+        1332,
+        1368
       ],
-      "score": 0.99170982837677
+      "score": 0.9968752264976501
     },
     {
-      "text": "tro de los pueblos; como cuando vareado el olivo quedan unas",
+      "text": "13. Tales cosas sucederán en medio de la tierra, en el cen-",
       "box": [
-        11,
-        920,
-        414,
-        941
+        30,
+        1353,
+        616,
+        1383
       ],
-      "score": 0.9994164109230042
+      "score": 0.9999122023582458
     },
     {
       "text": "rosas.",
       "box": [
-        515,
-        915,
-        552,
-        930
+        770,
+        1371,
+        826,
+        1392
       ],
-      "score": 0.9982655644416809
+      "score": 0.9995264410972595
+    },
+    {
+      "text": "tro de los pueblos; como cuando vareado el olivo quedan unas",
+      "box": [
+        9,
+        1380,
+        615,
+        1408
+      ],
+      "score": 0.9997444748878479
     },
     {
       "text": "4. Porque tú has sido fortaleza para el menesteroso en su",
       "box": [
-        526,
-        923,
-        888,
-        946
+        790,
+        1383,
+        1333,
+        1417
       ],
-      "score": 0.9923433065414429
+      "score": 0.995027482509613
     },
     {
       "text": "pocas aceitunas en el árbol, y algunos rebuscos despues de",
       "box": [
-        11,
-        935,
-        414,
-        959
+        8,
+        1402,
+        616,
+        1437
       ],
-      "score": 0.9959886074066162
+      "score": 0.994666576385498
     },
     {
       "text": "tribulacion: su esperanza en la tormenta; su refrigerio en",
       "box": [
-        514,
-        940,
-        888,
-        962
+        772,
+        1409,
+        1332,
+        1440
       ],
-      "score": 0.9981486797332764
+      "score": 0.9997155666351318
     },
     {
-      "text": "acabada la vendimia .",
+      "text": "acabada la vendimia 8.",
       "box": [
-        14,
-        957,
-        169,
-        974
+        9,
+        1434,
+        246,
+        1459
       ],
-      "score": 0.9822924733161926
+      "score": 0.9832574725151062
     },
     {
       "text": "8 Parece que alude el Profeta al pequeño número de fieles que per-",
       "box": [
-        526,
-        977,
-        888,
-        998
+        788,
+        1466,
+        1333,
+        1495
       ],
-      "score": 0.9932873845100403
+      "score": 0.9949077367782593
     },
     {
-      "text": "1 El Profeta se trasporta al tiempo de la verdadera felicidad y gran-",
+      "text": "1 El Profeta se trasporta al tiempo de la verdadera felicidad y grai-",
       "box": [
-        24,
-        991,
-        413,
-        1014
+        29,
+        1487,
+        614,
+        1519
       ],
-      "score": 0.9859898686408997
+      "score": 0.9898689389228821
     },
     {
       "text": "manecerán constantes en la fe; los cuales, vencido el Anti-Christo, al",
       "box": [
-        515,
-        991,
-        889,
-        1013
+        770,
+        1487,
+        1334,
+        1517
       ],
-      "score": 0.9856194853782654
+      "score": 0.9889566898345947
     },
     {
       "text": "deza de Tyro, que fué cuando abrazó el Evangelio: tiempo del cual habló",
       "box": [
-        13,
-        1005,
-        414,
-        1030
+        10,
+        1507,
+        615,
+        1543
       ],
-      "score": 0.9726195931434631
+      "score": 0.9993841648101807
     },
     {
       "text": "venir el Salvador á juzgar el mundo, levantarán su voz prorumpiendo en",
       "box": [
-        515,
-        1006,
-        888,
-        1027
+        770,
+        1508,
+        1334,
+        1537
       ],
-      "score": 0.9982328414916992
+      "score": 0.9985637068748474
     },
     {
       "text": "tambien David en el Salmo XLIV, v. 13. En San Mateo, cap. XV, v. 21,",
       "box": [
-        13,
-        1020,
-        413,
-        1045
+        10,
+        1529,
+        614,
+        1565
       ],
-      "score": 0.9825453758239746
+      "score": 0.992883026599884
     },
     {
       "text": "alabanzas y acciones de gracias á su divino Redentor.",
       "box": [
-        515,
-        1020,
-        794,
-        1041
+        772,
+        1530,
+        1189,
+        1557
       ],
-      "score": 0.9880739450454712
+      "score": 0.9965476989746094
     },
     {
       "text": "se habla de la mujer chananéa, la cual fué como las primicias de Tyro y",
       "box": [
-        13,
-        1035,
-        412,
-        1059
+        10,
+        1551,
+        613,
+        1587
       ],
-      "score": 0.9849082231521606
+      "score": 0.9993822574615479
     },
     {
-      "text": "Esto es, todos los males.",
+      "text": "9 Esto es, todos los males.",
       "box": [
-        526,
-        1035,
-        669,
-        1053
+        787,
+        1552,
+        1003,
+        1576
       ],
-      "score": 0.9833268523216248
+      "score": 0.999704897403717
     },
     {
       "text": "Sidon.—Véase San Gerónimo.",
       "box": [
-        16,
-        1056,
-        187,
-        1070
+        13,
+        1582,
+        274,
+        1604
       ],
-      "score": 0.9821955561637878
+      "score": 0.9977623820304871
     },
     {
       "text": "10 Todos los males que sufrirá la tierra al fin del mundo, los considera",
       "box": [
-        522,
-        1045,
-        889,
-        1067
+        781,
+        1568,
+        1335,
+        1597
       ],
-      "score": 0.993668258190155
+      "score": 0.9988009333610535
     },
     {
-      "text": "Segun la opinion de muchos Padres y Expositores, pasa aquíel Pro-",
+      "text": "2 Segun la opinion de muchos Padres y Expositores, pasa aquíel Pro-",
       "box": [
-        25,
-        1061,
-        413,
-        1090
+        32,
+        1593,
+        613,
+        1631
       ],
-      "score": 0.8348024487495422
+      "score": 0.9922164082527161
     },
     {
       "text": "aquí el Profeta como efectos del grandísimo peso de las iniquidades de",
       "box": [
-        514,
-        1058,
-        889,
-        1084
+        771,
+        1587,
+        1335,
+        1623
       ],
-      "score": 0.9851729273796082
+      "score": 0.9999113082885742
     },
     {
       "text": "feta á hablar de los males que inundarán la tierra cerca del fin del",
       "box": [
-        13,
-        1077,
-        412,
-        1103
+        12,
+        1614,
+        613,
+        1653
       ],
-      "score": 0.9558883905410767
+      "score": 0.9875021576881409
     },
     {
       "text": "los hombres.",
       "box": [
-        515,
-        1079,
-        586,
-        1095
+        771,
+        1617,
+        878,
+        1641
       ],
-      "score": 0.9997393488883972
+      "score": 0.983924388885498
     },
     {
-      "text": "mundo: de la ruína final del mundo son como figuras las destrucciones",
+      "text": "i Véase I. Cor. VI, v. 3.—Aunque ya están condenados los ángeles",
       "box": [
-        14,
-        1092,
-        412,
-        1118
+        782,
+        1629,
+        1335,
+        1660
       ],
-      "score": 0.9646346569061279
+      "score": 0.9825305938720703
     },
     {
-      "text": "11 Véase I. Cor. VI, v. 3.—Aunque ya están condenados los ángeles",
+      "text": "mundo: de la ruina final del mundo son como figuras las destrucciones",
       "box": [
-        521,
-        1087,
-        889,
-        1109
+        12,
+        1636,
+        614,
+        1675
       ],
-      "score": 0.9714304804801941
-    },
-    {
-      "text": "y ruinas particulares de grandes ciudades ó regiones. Así tambien el",
-      "box": [
-        14,
-        1106,
-        412,
-        1134
-      ],
-      "score": 0.9559906125068665
+      "score": 0.9976604580879211
     },
     {
       "text": "malos desde que pecaron, con todo serán públicamente juzgados y con-",
       "box": [
-        515,
-        1100,
-        889,
-        1124
+        771,
+        1650,
+        1335,
+        1683
       ],
-      "score": 0.9966959953308105
+      "score": 0.985733151435852
+    },
+    {
+      "text": "y ruinas particulares de grandes ciudades ó regiones. Así tambien el",
+      "box": [
+        13,
+        1658,
+        614,
+        1698
+      ],
+      "score": 0.9841988682746887
+    },
+    {
+      "text": "denados por Jesu-Christo al fin del mundo. Así se dice tambien en el",
+      "box": [
+        771,
+        1669,
+        1336,
+        1704
+      ],
+      "score": 0.9938474297523499
     },
     {
       "text": "Salvador (Matth. XXIV), de la ruina de Jerusalem pasó á hablar de la",
       "box": [
         15,
-        1121,
-        412,
-        1148
+        1679,
+        613,
+        1720
       ],
-      "score": 0.9535374641418457
+      "score": 0.9991826415061951
     },
     {
-      "text": "denados por Jesu-Christo al fin del mundo. Así se dice tambien en el",
+      "text": "Apocalipsi, cap. XX, v. 9.",
       "box": [
-        515,
-        1113,
-        891,
-        1139
+        774,
+        1697,
+        979,
+        1725
       ],
-      "score": 0.987774133682251
+      "score": 0.9880322217941284
     },
     {
       "text": "ruína universal de la tierra.",
       "box": [
         16,
-        1143,
-        175,
-        1159
+        1713,
+        255,
+        1735
       ],
-      "score": 0.9870476126670837
+      "score": 0.9680010080337524
     },
     {
-      "text": "Apocalipsi, cap. XX, v. 9.",
+      "text": "12 Joel. II, v. 31.—Matth. XXIV, v. 29.—Act. II, v. 20. Tal vez se tra-",
       "box": [
-        516,
-        1131,
-        655,
-        1153
+        782,
+        1711,
+        1337,
+        1744
       ],
-      "score": 0.9631827473640442
+      "score": 0.9878054261207581
     },
     {
       "text": "3 Oséas IV, v. 9.",
       "box": [
-        25,
-        1155,
-        132,
-        1175
+        32,
+        1733,
+        188,
+        1759
       ],
-      "score": 0.8842596411705017
+      "score": 0.9901953339576721
     },
     {
-      "text": "ia Joel. II, v. 31.—Matth. XXIV, v. 29.—Act. II, v. 20. Tal vez se tra-",
+      "text": "ducirá mejor: cuando el Señor Dios de los ejércitos haya ejercido su juicio,",
       "box": [
-        522,
-        1140,
-        890,
-        1165
+        770,
+        1730,
+        1339,
+        1769
       ],
-      "score": 0.9332544207572937
+      "score": 0.9820122718811035
     },
     {
-      "text": "La partícula et que usa la Vulgata, es aquí causal, no conjuntiva;",
+      "text": "4 La partícula et que usa la Vulgata, es aquí causal, no conjuntiva;",
       "box": [
-        23,
-        1163,
-        411,
-        1193
+        30,
+        1743,
+        612,
+        1786
       ],
-      "score": 0.8963301181793213
-    },
-    {
-      "text": "duc me: cuand e Señ Ds de lo ee aya eecdo su c,",
-      "box": [
-        514,
-        1153,
-        892,
-        1182
-      ],
-      "score": 0.5281102657318115
+      "score": 0.9898133873939514
     },
     {
       "text": "como Rey supremo, en el monte Sion.",
       "box": [
-        515,
-        1171,
-        709,
-        1195
+        772,
+        1758,
+        1060,
+        1788
       ],
-      "score": 0.9988346695899963
+      "score": 0.9999205470085144
     },
     {
       "text": "segun se ve en el original.",
       "box": [
-        16,
-        1188,
-        164,
-        1202
+        15,
+        1777,
+        239,
+        1801
       ],
-      "score": 0.9990214109420776
+      "score": 0.9995728731155396
     },
     {
-      "text": "is Introduce aquí Isaías á los clegidos y glorificados por Dios; los cuales",
+      "text": "13 Introduce aquí Isaías á los clegidos y glorificados por Dios; los cuales",
       "box": [
-        522,
-        1182,
-        892,
-        1207
+        781,
+        1772,
+        1338,
+        1807
       ],
-      "score": 0.9779652953147888
+      "score": 0.998157262802124
     },
     {
-      "text": "Deuter. XXVIII, v. 28.—Luc. XXI, v. 26.",
+      "text": "6 Deuter. XXVIII, v. 28.—Luc. XXI, v. 26.",
       "box": [
-        25,
-        1198,
-        276,
-        1218
+        32,
+        1794,
+        408,
+        1823
       ],
-      "score": 0.9733397364616394
-    },
-    {
-      "text": "* Tal vez en lugar de traducir ciudad de la vanidad, deberia tradu-",
-      "box": [
-        24,
-        1209,
-        409,
-        1234
-      ],
-      "score": 0.9726893901824951
+      "score": 0.9757477641105652
     },
     {
       "text": "alaban primero la justicia divina por haber humillado y castigado á los",
       "box": [
-        515,
-        1196,
-        892,
-        1222
+        770,
+        1790,
+        1340,
+        1831
       ],
-      "score": 0.9991554021835327
+      "score": 0.9967668652534485
+    },
+    {
+      "text": " Tal vez en lugar de traducir ciudad de la vanidad, deberia tradu-",
+      "box": [
+        31,
+        1808,
+        610,
+        1847
+      ],
+      "score": 0.9962242841720581
     },
     {
       "text": "impíos, y dan despues gracias al Señor por la miscricordia con que á",
       "box": [
-        514,
-        1208,
-        894,
-        1238
+        769,
+        1810,
+        1341,
+        1852
       ],
-      "score": 0.9870221614837646
+      "score": 0.9981408715248108
     },
     {
-      "text": "cirse ciudad idólatra; porque esta es la fuerza de vanitatis en la Vulgata,",
+      "text": "cirse ciudad idólatra; porque esta es la fuerza de vanitatis cn la Vulgata,",
       "box": [
         12,
-        1224,
-        409,
-        1249
+        1831,
+        610,
+        1869
       ],
-      "score": 0.9368166923522949
+      "score": 0.9867511987686157
     },
     {
       "text": "ellos los libró del pecado, y la felicidad que esto les ha acarreado.",
       "box": [
-        515,
-        1223,
-        856,
-        1251
+        772,
+        1832,
+        1284,
+        1871
       ],
-      "score": 0.9925790429115295
+      "score": 0.994609534740448
     },
     {
-      "text": "y del  tohú en el original hebreo. Con todo, por ciudad de la vanidad",
+      "text": "y del n tohú en el original hebreo. Con todo, por ciudad de la vanidad",
       "box": [
         11,
-        1237,
-        409,
-        1264
+        1853,
+        610,
+        1892
       ],
-      "score": 0.8905373215675354
+      "score": 0.9760392308235168
     },
     {
       "text": "14 O escogido: te temerá ó reverenciará la nueva Jerusalem, etc.",
       "box": [
-        521,
-        1236,
-        858,
-        1263
+        782,
+        1854,
+        1288,
+        1889
       ],
-      "score": 0.9682425260543823
+      "score": 0.9925460815429688
     },
     {
       "text": "puede entenderse Babylonia, ó tambien toda la tierra, en la cual todo es",
       "box": [
-        11,
-        1253,
-        410,
-        1279
+        10,
+        1875,
+        612,
+        1915
       ],
-      "score": 0.9710443019866943
+      "score": 0.9978169202804565
     },
     {
       "text": "vanidad, como dijo el Sábio.",
       "box": [
         13,
-        1273,
-        176,
-        1290
+        1906,
+        259,
+        1931
       ],
-      "score": 0.9987103343009949
+      "score": 0.9998629689216614
     },
     {
-      "text": "O los lugares donde solian reunirse en pública asamblea. Puede",
+      "text": "7O los lugares donde solian reunirse en pública asamblea. Puede",
       "box": [
-        22,
-        1282,
-        409,
-        1309
+        29,
+        1918,
+        610,
+        1960
       ],
-      "score": 0.9625294208526611
+      "score": 0.9855564832687378
     },
     {
       "text": "traducirse: y todo será calamidad y desolacion.",
       "box": [
-        12,
-        1301,
-        270,
-        1322
+        14,
+        1950,
+        399,
+        1975
       ],
-      "score": 0.9893103241920471
+      "score": 0.9952190518379211
     }
   ]
 }
