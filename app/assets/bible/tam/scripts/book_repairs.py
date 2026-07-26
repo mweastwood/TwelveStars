@@ -762,11 +762,6 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
         if current_chapter in (73, 74) and ("cabeas de los dagones" in raw_text or "cabezas de los dragones" in raw_text):
             return "", current_chapter, 13, True
 
-    if book_id == "JER":
-        if current_chapter == 29 and "De suerte que todos los que han sido trasladados" in raw_text:
-            current_verse = 23
-            raw_text = "23. Por haber hecho ellos necedades abominables en Israél, y cometido adulterios con las mujeres de sus amigos, y hablado mentirosamente en nombre mio, sin haberles yo dado ninguna comision: Yo mismo soy el juez y el testigo de todo eso, dice el Señor.\n22. De suerte que todos los que han sido trasladados"
-
     # Fix ISA OCR typos and top header guards
     if book_id == "ISA":
         if current_chapter == 28 and "CAPITULO XXIX" in text_upper:
@@ -919,6 +914,7 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
             return raw_text, current_chapter, current_verse, True
         elif current_chapter == 3 and raw_text.startswith("a0. Quedó"):
             raw_text = raw_text.replace("a0.", "30.")
+        # Missing ink on 1836 press makes verse number '34' appear as '31'
         elif current_chapter == 8 and raw_text.startswith("31. No acordándose"):
             raw_text = raw_text.replace("31.", "34.")
         elif current_chapter == 9 and raw_text.startswith("51") and "Abimelech" in raw_text:
