@@ -13,6 +13,13 @@ from compare_cpdv import parse_usfm_verses
 HUMAN_VERIFIED_VERSES = [
     (
         "DEU",
+        7,
+        6,
+        "Porque tú eres un pueblo consagrado al Señor Dios tuyo. Tu Señor Dios te ha escogido "
+        "para que seas pueblo peculiar suyo, entre los pueblos todos que hay sobre la tierra."
+    ),
+    (
+        "DEU",
         14,
         7,
         "Mas no debeis comer de los que rumian y no tienen la uña hendida, "
@@ -43,11 +50,38 @@ HUMAN_VERIFIED_VERSES = [
         "encontrase le matara."
     ),
     (
+        "GEN",
+        21,
+        29,
+        "Por lo que Abimelech le dijo: ¿Qué significan esas siete corderas que has separado?"
+    ),
+    (
         "JOS",
         2,
         13,
         "Con que salveis á mi padre y madre, á mis hermanos y hermanas, y todos sus bienes, "
         "y nos libreis de la muerte."
+    ),
+    (
+        "JDG",
+        3,
+        16,
+        "Aod proveyóse de una daga de dos cortes, con su guarnicion, larga como la palma "
+        "de la mano, y ciñósela debajo del sayo en el muslo derecho."
+    ),
+    (
+        "1CH",
+        4,
+        38,
+        "Estos son los jefes famosos de las parentelas ó linajes de la tribu de Simeon, "
+        "cuyas familias se multiplicaron sobremanera."
+    ),
+    (
+        "JON",
+        1,
+        11,
+        "Entonces le dijeron: ¿Qué haremos de tí, á fin de que la mar se nos aplaque? "
+        "Pues la mar iba embraveciéndose cada vez mas."
     ),
     (
         "GEN",
