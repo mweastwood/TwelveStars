@@ -72,6 +72,67 @@ HUMAN_VERIFIED_VERSES = [
         "El nombre de Aaron estará en la vara de la tribu de Leví; y cada una de las "
         "otras familias ó tribus tendrá su vara peculiar."
     ),
+    (
+        "RUT",
+        3,
+        18,
+        "Dijo entonces Noemí: Espera, hija mia, hasta que veamos en qué para la cosa. "
+        "Porque Booz es hombre honrado, que no parará hasta que cumpla lo que te ha prometido."
+    ),
+    (
+        "2CH",
+        24,
+        13,
+        "Y estos obreros trabajaron con esmero; y repararon las hendiduras de las paredes, "
+        "restituyendo el templo del Señor á su antiguo estado, y consolidándole perfectamente."
+    ),
+    (
+        "OBA",
+        1,
+        7,
+        "Te han arrojado fuera de tu país: todos tus aliados se han burlado de tí, "
+        "se han alzado contra tí los amigos tuyos, aquellos mismos que comian en tu mesa "
+        "te han armado asechanzas. No hay en Edom cordura."
+    ),
+    (
+        "2TI",
+        2,
+        22,
+        "Por tanto huye de las pasiones juveniles, y sigue la justicia, la fe, la caridad, "
+        "y la paz con aquellos que invocan al Señor con limpio corazon y son capaces de ella."
+    ),
+    (
+        "ISA",
+        47,
+        5,
+        "Tú, oh hija de los Chaldéos, infeliz Babylonia, guarda un mudo silencio, "
+        "y escóndete en las tinieblas; porque ya no te llamarán mas la señora de los reinos."
+    ),
+    (
+        "ECC",
+        5,
+        6,
+        "Donde los sueños son muchos, son muchísimas las vanidades, y sin fin las palabras: "
+        "pero tú teme á Dios."
+    ),
+    (
+        "PSA",
+        47,
+        6,
+        "Ellos mismos, cuando la vieron así, quedaron asombrados, llenos de turbacion, conmovidos,"
+    ),
+    (
+        "2TI",
+        3,
+        16,
+        "Toda escritura inspirada de Dios es propia para enseñar, para convencer, para corregir á los pecadores, para dirigir á los buenos en la justicia ó virtud:"
+    ),
+    (
+        "ISA",
+        24,
+        11,
+        "Habrá gritos y quimeras en las calles por la escasez del vino: todo contento queda desterrado, desapareció la alegría de la tierra."
+    ),
 ]
 
 class TestHumanVerifiedVerses(unittest.TestCase):
