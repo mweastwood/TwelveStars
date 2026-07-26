@@ -187,10 +187,60 @@ def clean_text_line(text: str) -> str:
     return " ".join(text.strip().split())
 
 
+# ==============================================================================
+# MISSING SPACE & OCR CORRECTION PATTERN REGISTRY
+# ==============================================================================
+
+# Dictionary of prefix words commonly missing a trailing space before subsequent nouns/adjectives
+# due to 19th-century typographical font descender collisions and tight lead kerning in the 1836 Torres Amat edition.
+#
+# Key Spanish terms:
+# - "cuyo/cuya/cuyos/cuyas": ("whose / of which") relative possessive adjective. The long diagonal 'y' descender
+#   frequently collides with initial consonants (n, m, c, f, p) of following nouns in OCR scanning.
+#   Examples: "cuyonúmero" -> "cuyo número" ("whose number"), "cuyonombre" -> "cuyo nombre" ("whose name")
+# - "para": ("for / in order to") preposition. Examples: "paracon" -> "para con" ("towards / for with")
+# - "todo/toda": ("all / every") quantifier. Examples: "todacarne" -> "toda carne" ("all flesh")
+MISSING_SPACE_PREFIX_DICTIONARY: Dict[str, List[str]] = {
+    # Relative possessive pronouns ("whose / of which")
+    "cuyo": ["número", "nombre", "modo", "fruto", "fin", "pueblo", "reino", "poder"],
+    "cuya": ["causa", "presencia", "voz", "fuerza"],
+    "cuyos": ["nombres", "números", "hijos"],
+    "cuyas": ["obras", "palabras"],
+
+    # Common prepositions & quantifiers prone to OCR word concatenation
+    "para": ["que", "con", "los", "las"],
+    "todo": ["hombre", "lugar", "aquello"],
+    "toda": ["carne", "tierra", "cosa"],
+}
+
+# Compiled regex replacement rules for missing space pattern registry
+MISSING_SPACE_REGEX_RULES: List[Tuple[re.Pattern, str]] = [
+    (re.compile(rf'\b{prefix}({"|".join(targets)})\b'), rf'{prefix} \1')
+    for prefix, targets in MISSING_SPACE_PREFIX_DICTIONARY.items()
+]
+
+# Pre-compiled regex patterns for punctuation spacing heuristics:
+# 1. Enforce space AFTER punctuation (; : ,) when directly followed by a word character
+# 2. Strip space BEFORE punctuation (. , ; : ? ! ))
+# 3. Strip inline footnote callout numbers directly preceding punctuation (e.g., 'convencer 1,' -> 'convencer,')
+PUNCTUATION_SPACING_PATTERNS: List[Tuple[re.Pattern, str]] = [
+    # Strip spaces before punctuation marks (e.g. 'la fe ,' -> 'la fe,')
+    (re.compile(r'\s+([,;\.:\?!\)])'), r'\1'),
+    # Normalize double periods (e.g. 'fe..' -> 'fe.')
+    (re.compile(r'\.\s*\.'), '.'),
+    # Enforce space after semicolons when followed by a non-whitespace character (e.g. 'paz;vosotros' -> 'paz; vosotros')
+    (re.compile(r';(?=[^\s])'), '; '),
+    # Enforce space after colons when followed by a letter (e.g. 'dijo:no' -> 'dijo: no')
+    (re.compile(r':(?=[a-zA-ZÁÉÍÓÚÑáéíóúñ])'), ': '),
+    # Enforce space after commas when followed by a letter (e.g. 'vieron,quedaron' -> 'vieron, quedaron')
+    (re.compile(r',(?=[a-zA-ZÁÉÍÓÚÑáéíóúñ])'), ', '),
+]
+
+
 def clean_scripture_verse_text(text: str) -> str:
     """
     Cleans inline cross-reference citations, footnote callouts, OCR typos,
-    punctuation spacing, and leading spaces before punctuation across all compiled scripture verse lines.
+    punctuation spacing, and missing spaces across all compiled scripture verse lines.
     """
     # 1. Common OCR typo fixes & 'I' for 'l' article misreads (Ia -> la, Ios -> los, etc.)
     text = text.replace("Evungelio", "Evangelio")
@@ -204,21 +254,19 @@ def clean_scripture_verse_text(text: str) -> str:
     text = re.sub(r"\bIe\b", "le", text)
     text = re.sub(r"\s+[a-z0-9]\s*:", ":", text)
 
-    # 2. Punctuation spacing heuristics (remove spaces before punctuation, enforce space after)
-    text = re.sub(r'\s+([,;\.:\?!\)])', r'\1', text)
-    text = re.sub(r'\.\s*\.', '.', text)
-    text = re.sub(r';(?=[^\s])', '; ', text)
-    text = re.sub(r':(?=[a-zA-ZÁÉÍÓÚÑáéíóúñ])', ': ', text)
-    text = re.sub(r',(?=[a-zA-ZÁÉÍÓÚÑáéíóúñ])', ', ', text)
+    # 2. Apply punctuation spacing heuristics
+    for pattern, replacement in PUNCTUATION_SPACING_PATTERNS:
+        text = pattern.sub(replacement, text)
 
-    # Missing space heuristic after cuyo
-    text = re.sub(r'\bcuyo(número|nombre|modo)\b', r'cuyo \1', text)
+    # 3. Apply dictionary database of missing space prefix/word concatenation fixes
+    for pattern, replacement in MISSING_SPACE_REGEX_RULES:
+        text = pattern.sub(replacement, text)
 
-    # 3. Strip OCR footnote callout symbols and inline callout numbers before punctuation (e.g. 'convencer 1,' -> 'convencer,')
+    # 4. Strip OCR footnote callout symbols and inline callout numbers before punctuation (e.g. 'convencer 1,' -> 'convencer,')
     text = re.sub(r'[º°•†‡]', '', text)
     text = re.sub(r'(\b[a-zA-ZÁÉÍÓÚÑáéíóúñ]+)\s+\d{1,2}\s*([,;\.:\?!])', r'\1\2', text)
 
-    # 4. Expanded cross-reference citation pattern cleaning
+    # 5. Expanded cross-reference citation pattern cleaning
     ref_pattern = (
         r'(?:\b[I|II]\.?\s*\.?\s*)?(?:Jerem|Isai|Luc|Joan|Matth|Psalm|Deuter|Gen|Exod|Lev|Num|Deut|Jos|Judic|'
         r'Reg|Paral|Esd|Nehem|Tob|Judit|Esth|Job|Prov|Ecles|Cant|Sab|Eclus|Bar|Ezech|Erech|'
