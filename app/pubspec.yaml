@@ -84,6 +84,8 @@ flutter:
     - assets/bible/jun/usfm/
     - assets/bible/tam/usfm/
     - assets/bible/lectionary.json
+    - assets/catechism/baltimore/
+    - assets/catechism/trent/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
