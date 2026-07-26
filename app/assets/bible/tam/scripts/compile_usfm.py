@@ -187,21 +187,96 @@ def clean_text_line(text: str) -> str:
     return " ".join(text.strip().split())
 
 
+# ==============================================================================
+# MISSING SPACE & OCR CORRECTION PATTERN REGISTRY
+# ==============================================================================
+
+# Dictionary of prefix words commonly missing a trailing space before subsequent nouns/adjectives
+# due to 19th-century typographical font descender collisions and tight lead kerning in the 1836 Torres Amat edition.
+#
+# Key Spanish terms:
+# - "cuyo/cuya/cuyos/cuyas": ("whose / of which") relative possessive adjective. The long diagonal 'y' descender
+#   frequently collides with initial consonants (n, m, c, f, p) of following nouns in OCR scanning.
+#   Examples: "cuyonúmero" -> "cuyo número" ("whose number"), "cuyonombre" -> "cuyo nombre" ("whose name")
+# - "para": ("for / in order to") preposition. Examples: "paracon" -> "para con" ("towards / for with")
+# - "todo/toda": ("all / every") quantifier. Examples: "todacarne" -> "toda carne" ("all flesh")
+MISSING_SPACE_PREFIX_DICTIONARY: Dict[str, List[str]] = {
+    # Relative possessive pronouns ("whose / of which")
+    "cuyo": ["número", "nombre", "modo", "fruto", "fin", "pueblo", "reino", "poder"],
+    "cuya": ["causa", "presencia", "voz", "fuerza"],
+    "cuyos": ["nombres", "números", "hijos"],
+    "cuyas": ["obras", "palabras"],
+
+    # Common prepositions & quantifiers prone to OCR word concatenation
+    "para": ["que", "con", "los", "las"],
+    "todo": ["hombre", "lugar", "aquello"],
+    "toda": ["carne", "tierra", "cosa"],
+}
+
+# Compiled regex replacement rules for missing space pattern registry
+MISSING_SPACE_REGEX_RULES: List[Tuple[re.Pattern, str]] = [
+    (re.compile(rf'\b{prefix}({"|".join(targets)})\b'), rf'{prefix} \1')
+    for prefix, targets in MISSING_SPACE_PREFIX_DICTIONARY.items()
+]
+
+# Pre-compiled regex patterns for punctuation spacing heuristics:
+# 1. Enforce space AFTER punctuation (; : ,) when directly followed by a word character
+# 2. Strip space BEFORE punctuation (. , ; : ? ! ))
+# 3. Strip inline footnote callout numbers directly preceding punctuation (e.g., 'convencer 1,' -> 'convencer,')
+PUNCTUATION_SPACING_PATTERNS: List[Tuple[re.Pattern, str]] = [
+    # Strip spaces before punctuation marks (e.g. 'la fe ,' -> 'la fe,')
+    (re.compile(r'\s+([,;\.:\?!\)])'), r'\1'),
+    # Normalize double periods (e.g. 'fe..' -> 'fe.')
+    (re.compile(r'\.\s*\.'), '.'),
+    # Enforce space after semicolons when followed by a non-whitespace character (e.g. 'paz;vosotros' -> 'paz; vosotros')
+    (re.compile(r';(?=[^\s])'), '; '),
+    # Enforce space after colons when followed by a letter (e.g. 'dijo:no' -> 'dijo: no')
+    (re.compile(r':(?=[a-zA-ZÁÉÍÓÚÑáéíóúñ])'), ': '),
+    # Enforce space after commas when followed by a letter (e.g. 'vieron,quedaron' -> 'vieron, quedaron')
+    (re.compile(r',(?=[a-zA-ZÁÉÍÓÚÑáéíóúñ])'), ', '),
+]
+
+
 def clean_scripture_verse_text(text: str) -> str:
-    text = re.sub(r"\s+[a-z0-9]\s*:", ":", text)
+    """
+    Cleans inline cross-reference citations, footnote callouts, OCR typos,
+    punctuation spacing, and missing spaces across all compiled scripture verse lines.
+    """
+    # 1. Common OCR typo fixes & 'I' for 'l' article misreads (Ia -> la, Ios -> los, etc.)
+    text = text.replace("Evungelio", "Evangelio")
+    text = text.replace("Evungel", "Evangel")
+    text = text.replace("Isrnél", "Israél")
     text = text.replace(" de de ", " de ")
-    """
-    Cleans inline cross-reference citations and trailing footnote callout numbers
-    from compiled scripture text lines (e.g. 'Jerem. IV, v. 13' or trailing ' 7.').
-    """
+    text = re.sub(r"\bIa\b", "la", text)
+    text = re.sub(r"\bIos\b", "los", text)
+    text = re.sub(r"\bIas\b", "las", text)
+    text = re.sub(r"\bIes\b", "les", text)
+    text = re.sub(r"\bIe\b", "le", text)
+    text = re.sub(r"\s+[a-z0-9]\s*:", ":", text)
+
+    # 2. Apply punctuation spacing heuristics
+    for pattern, replacement in PUNCTUATION_SPACING_PATTERNS:
+        text = pattern.sub(replacement, text)
+
+    # 3. Apply dictionary database of missing space prefix/word concatenation fixes
+    for pattern, replacement in MISSING_SPACE_REGEX_RULES:
+        text = pattern.sub(replacement, text)
+
+    # 4. Strip OCR footnote callout symbols and inline callout numbers before punctuation (e.g. 'convencer 1,' -> 'convencer,')
+    text = re.sub(r'[º°•†‡]', '', text)
+    text = re.sub(r'(\b[a-zA-ZÁÉÍÓÚÑáéíóúñ]+)\s+\d{1,2}\s*([,;\.:\?!])', r'\1\2', text)
+
+    # 5. Expanded cross-reference citation pattern cleaning
     ref_pattern = (
-        r'\b(?:Jerem|Isai|Luc|Joan|Matth|Psalm|Deuter|Gen|Exod|Lev|Num|Deut|Jos|Judic|'
-        r'Reg|Paral|Esd|Nehem|Tob|Judit|Esth|Job|Prov|Ecles|Cant|Sab|Eclus|Bar|Ezech|'
+        r'(?:\b[I|II]\.?\s*\.?\s*)?(?:Jerem|Isai|Luc|Joan|Matth|Psalm|Deuter|Gen|Exod|Lev|Num|Deut|Jos|Judic|'
+        r'Reg|Paral|Esd|Nehem|Tob|Judit|Esth|Job|Prov|Ecles|Cant|Sab|Eclus|Bar|Ezech|Erech|'
         r'Dan|Osee|Joel|Amos|Abd|Jonas|Mich|Nah|Hab|Soph|Agg|Zach|Mal|Mac|Rom|Cor|Gal|'
-        r'Eph|Phil|Col|Thess|Tim|Tit|Philem|Hebr|Jac|Petr|Jud|Apoc)\b\.?\s+[IVXLCDM\d]+\s*,\s*v\.?\s*\d*'
+        r'Eph|Phil|Col|Thess|Tim|Tit|Philem|Hebr|Jac|Petr|Jud|Apoc)\b\.?\s+[IVXLCDM\d]+\s*(?:,\s*v\.?\s*\d*)?\.?'
     )
-    text = re.sub(ref_pattern, '', text, flags=re.IGNORECASE)
+    text = re.sub(ref_pattern, '', text)
+    text = re.sub(r'\s+(?:[I|II]\.?\s*)?\.\s*\.\s*$', '', text)
     text = re.sub(r'\s+\d{1,2}\.\s*$', '', text)
+
     return " ".join(text.split())
 
 # ==============================================================================
@@ -231,9 +306,9 @@ def is_page_header_line(text: str, y_coord: float, page_h: float, x_coord: float
     text_clean = text.strip()
     text_up = text_clean.upper()
 
-    # Do NOT filter standalone chapter titles like 'CAPITULO III.'
+    # Do NOT filter standalone chapter titles like 'CAPITULO III.' unless in extreme top margin (< 55px)
     if re.match(r'^\s*(?:C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\s+[IVXLCDM0-9ÁÉÍÓÚ]+\.?\s*$', text_up):
-        if y_coord < 85 and x_coord > 500:
+        if y_coord < 55 and x_coord > 500:
             return True
         return False
 
@@ -274,30 +349,37 @@ def is_footnote_line(text: str, y_coord: float, page_h: float) -> bool:
         return False
     """
     Identifies bottom-margin commentary notes, annotations, and Vulgate references.
-    Uses pattern matching for commentary trigger words below 70% page height.
+    Uses pattern matching for commentary trigger words below 65% page height,
+    and classifies all non-verse lines in the bottom margin (>= 80% height) as footnotes.
     """
     text_up = text.upper()
     if re.search(r'\b(C[ÁA]P[IÍLl1]TULO|CAPUT|[SŚ]ALMO|PSALMO)\b', text_up):
         return False
         
     text_clean = text.strip()
+    
+    # Scripture verse lines start with verse numbers (e.g. '6. Ellos mismos...')
     if re.match(r'^\d{1,3}\s*[\./,;-]', text_clean):
         return False
+
+    # Bottom margin (>= 93% page height): any line not starting a verse is commentary/footnote
+    if y_coord >= page_h * 0.93:
+        return True
         
-    if y_coord >= page_h * 0.70:
-        commentary_pattern = r'\b(?:Véase|Vulgata|Hebreo|Expositores|San Gerónimo|San Agustín|Crisóstomo|Setenta)\b'
+    if y_coord >= page_h * 0.65:
+        commentary_pattern = (
+            r'\b(?:Véase|Vulgata|Hebreo|Expositores|San Gerónimo|San Agustín|San Agustin|'
+            r'Crisóstomo|Setenta|Esto es|profecía|profecia|Bello Jud|rabinos|denota|conviene|'
+            r'tambien los|Carvajal|Apóstoles|proteccion|halaga|instrumento material|mente latino|'
+            r'infierno|despues de su|hermoso sonido|nada siente|nada percibe|Para subsistir)\b'
+        )
+        if "•" in text_clean or ".—" in text_clean:
+            return True
         first_w = text_clean.split()[0].lower() if text_clean.split() else ""
         is_conj = first_w in ("y", "ó", "á", "e", "u", "o", "a")
         if (not is_conj and re.match(r'^(?:\d{1,2}|[a-z]|\*|†|‡)\s+[A-ZÁÉÍÓÚa-z]', text_clean) and "tiranizar vuestras conciencias" not in text_clean) or re.search(commentary_pattern, text_clean, re.IGNORECASE):
             return True
-            
-    if y_coord >= page_h * 0.95:
-        first_w = text_clean.split()[0].lower() if text_clean.split() else ""
-        is_conj = first_w in ("y", "ó", "á", "e", "u", "o", "a")
-        if re.search(r"\b(?:Véase|Vulgata|Hebreo|Expositores|San Gerónimo|San Agustín|Crisóstomo|Setenta)\b", text_clean, re.IGNORECASE) or (not is_conj and re.match(r"^(?:\d{1,2}|[a-z]|\*|†|‡)\s+[A-ZÁÉÍÓÚa-z]", text_clean)):
-            return True
-        return False
-        
+
     return False
 
 
@@ -345,6 +427,8 @@ def extract_chapter_number(text: str, expected_ch: Optional[int] = None) -> Opti
                 if val == expected_ch:
                     return val
                 # Handle specific Tesseract Roman numeral misreads
+                if val == 4 and expected_ch == 3:
+                    return 3
                 if val == 4 and expected_ch == 9:
                     return 9
                 if val == 6 and expected_ch == 11:
@@ -416,11 +500,33 @@ def _sort_column_lines(col_lines: List[dict]) -> List[dict]:
     return sorted_lines
 
 
-def sort_page_columns(scripture_lines: List[dict]) -> List[dict]:
+def _filter_column_footnotes(col_lines: List[dict], page_h: float) -> List[dict]:
+    clean = []
+    in_fn_block = False
+    for line in col_lines:
+        y = line['box'][1]
+        txt = line['text'].strip()
+        is_fn = is_footnote_line(txt, y, page_h)
+        if y >= page_h * 0.65:
+            if is_fn:
+                in_fn_block = True
+                continue
+            elif in_fn_block:
+                if not re.match(r'^\d{1,3}\s*[\./,;-]', txt):
+                    continue
+                else:
+                    in_fn_block = False
+        if not is_fn:
+            clean.append(line)
+    return clean
+
+
+def sort_page_columns(scripture_lines: List[dict], page_h: float = 1000.0) -> List[dict]:
     """
     Calculates per-page dynamic column midpoints and sorts lines sequentially
     (left column top-to-bottom, followed by right column top-to-bottom),
     grouping inline OCR fragments on the same line band left-to-right.
+    Also filters bottom-margin commentary blocks per column.
     """
     min_x = min(l['box'][0] for l in scripture_lines)
     max_x = max(l['box'][2] for l in scripture_lines)
@@ -429,11 +535,11 @@ def sort_page_columns(scripture_lines: List[dict]) -> List[dict]:
     left_column = [l for l in scripture_lines if l['box'][0] < mid_x]
     right_column = [l for l in scripture_lines if l['box'][0] >= mid_x]
     
-    left_sorted = _sort_column_lines(left_column)
-    right_sorted = _sort_column_lines(right_column)
+    left_sorted = _filter_column_footnotes(_sort_column_lines(left_column), page_h)
+    right_sorted = _filter_column_footnotes(_sort_column_lines(right_column), page_h)
     
     if len(right_column) < 3:
-        return _sort_column_lines(scripture_lines)
+        return _filter_column_footnotes(_sort_column_lines(scripture_lines), page_h)
     else:
         return left_sorted + right_sorted
 
@@ -480,7 +586,7 @@ def compile_book(book_id: str, volume: int, start_page: int, end_page: int, ocr_
         if not scripture_lines:
             continue
             
-        all_lines.extend(sort_page_columns(scripture_lines))
+        all_lines.extend(sort_page_columns(scripture_lines, page_h))
         
     verses: Dict[int, Dict[int, List[str]]] = {}
     current_chapter = 0
