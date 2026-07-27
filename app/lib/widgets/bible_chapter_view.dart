@@ -330,6 +330,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
     if (code == 'TAM') return 'Torres Amat (TAM)';
     if (code == 'VUL') return 'Vulgata Clementina (VUL)';
     if (code == 'LXX') return 'Greek Septuagint (LXX)';
+    if (code == 'ORIG') return 'Original Languages (ORIG)';
     return code;
   }
 

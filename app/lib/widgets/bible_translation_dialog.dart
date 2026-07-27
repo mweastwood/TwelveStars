@@ -111,6 +111,17 @@ class _BibleTranslationDialogState extends State<BibleTranslationDialog> {
                   value: 'LXX',
                   theme: theme,
                 ),
+                const SizedBox(height: 8),
+                _buildTranslationOption(
+                  title: 'Original Languages (ORIG)',
+                  origin: 'Hebrew WLC / Greek Septuagint & Byzantine NT',
+                  description:
+                      'The biblical texts in their original languages: Hebrew/Aramaic Old Testament, Greek Septuagint Deuterocanon, and Greek New Testament.',
+                  usage:
+                      'Original language study, side-by-side translation comparison, and exegesis.',
+                  value: 'ORIG',
+                  theme: theme,
+                ),
               ] else ...[
                 _buildTranslationOption(
                   title: 'None (Single View)',
@@ -185,6 +196,17 @@ class _BibleTranslationDialogState extends State<BibleTranslationDialog> {
                   usage:
                       'Greek study, ancient textual comparison, and Old Testament reference.',
                   value: 'LXX',
+                  theme: theme,
+                ),
+                const SizedBox(height: 8),
+                _buildTranslationOption(
+                  title: 'Original Languages (ORIG)',
+                  origin: 'Hebrew WLC / Greek Septuagint & Byzantine NT',
+                  description:
+                      'The biblical texts in their original languages: Hebrew/Aramaic Old Testament, Greek Septuagint Deuterocanon, and Greek New Testament.',
+                  usage:
+                      'Original language study, side-by-side translation comparison, and exegesis.',
+                  value: 'ORIG',
                   theme: theme,
                 ),
               ],
