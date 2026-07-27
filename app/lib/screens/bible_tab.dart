@@ -355,7 +355,7 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       setState(() {
         _compareTranslation = result;
         if (_primaryTranslation == result) {
-          final options = ['CPDV', 'DRC', 'JUN', 'TAM'];
+          final options = ['CPDV', 'DRC', 'JUN', 'TAM', 'VUL'];
           _primaryTranslation = options.firstWhere((o) => o != result);
         }
         _settings?.primaryBibleTranslation = _primaryTranslation;

@@ -83,6 +83,7 @@ flutter:
     - assets/bible/drc/usfm/
     - assets/bible/jun/usfm/
     - assets/bible/tam/usfm/
+    - assets/bible/vul/usfm/
     - assets/bible/lectionary.json
     - assets/catechism/baltimore/
     - assets/catechism/trent/

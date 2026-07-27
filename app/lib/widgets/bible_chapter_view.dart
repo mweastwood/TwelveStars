@@ -328,6 +328,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
     if (code == 'DRC') return 'Douay-Rheims Bible (DRC)';
     if (code == 'JUN') return 'Biblia de Jünemann (JUN)';
     if (code == 'TAM') return 'Torres Amat (TAM)';
+    if (code == 'VUL') return 'Vulgata Clementina (VUL)';
     return code;
   }
 
