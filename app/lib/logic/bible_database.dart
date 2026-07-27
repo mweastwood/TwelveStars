@@ -280,6 +280,8 @@ class BibleDatabase extends _$BibleDatabase {
       } else if (translation == 'VUL') {
         assetPath =
             'assets/bible/vul/usfm/$numStr-$abbrev-LAT[B]VUL1592[pd].usfm';
+      } else if (translation == 'LXX') {
+        assetPath = 'assets/bible/lxx/usfm/$numStr-$abbrev-GRC[B]LXX[pd].usfm';
       } else {
         assetPath =
             'assets/bible/cpdv/usfm/$numStr-$abbrev-ENG[B]CPDV2009[pd].p.sfm';

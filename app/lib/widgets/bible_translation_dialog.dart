@@ -100,6 +100,17 @@ class _BibleTranslationDialogState extends State<BibleTranslationDialog> {
                   value: 'VUL',
                   theme: theme,
                 ),
+                const SizedBox(height: 8),
+                _buildTranslationOption(
+                  title: 'Greek Septuagint (LXX)',
+                  origin: 'Septuaginta / Brenton Edition',
+                  description:
+                      'The ancient Greek translation of the Old Testament and Deuterocanon, used by the Apostles and early Church Fathers.',
+                  usage:
+                      'Greek study, ancient textual comparison, and Old Testament reference.',
+                  value: 'LXX',
+                  theme: theme,
+                ),
               ] else ...[
                 _buildTranslationOption(
                   title: 'None (Single View)',
@@ -163,6 +174,17 @@ class _BibleTranslationDialogState extends State<BibleTranslationDialog> {
                   usage:
                       'Latin study, traditional liturgical reference, and side-by-side translation comparison.',
                   value: 'VUL',
+                  theme: theme,
+                ),
+                const SizedBox(height: 8),
+                _buildTranslationOption(
+                  title: 'Greek Septuagint (LXX)',
+                  origin: 'Septuaginta / Brenton Edition',
+                  description:
+                      'The ancient Greek translation of the Old Testament and Deuterocanon, used by the Apostles and early Church Fathers.',
+                  usage:
+                      'Greek study, ancient textual comparison, and Old Testament reference.',
+                  value: 'LXX',
                   theme: theme,
                 ),
               ],
