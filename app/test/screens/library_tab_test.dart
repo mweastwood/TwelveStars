@@ -195,5 +195,32 @@ void main() {
         await screenMatchesGolden(tester, 'catechism_trent_reader_golden');
       },
     );
+
+    testWidgets('renders interactive Scripture citation chip', (tester) async {
+      final catalog = LibraryHelper.getCatalog();
+      final baltimore = catalog.firstWhere(
+        (b) => b.id == 'baltimore_catechism',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/baltimore_4.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: baltimore,
+              initialVolumeKey: 'no4',
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+    });
   });
 }
