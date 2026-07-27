@@ -35,7 +35,6 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
     current_section = None
     
     # Regex patterns for Baltimore Q&A
-    # Matches: "1. Q. Who made...", "Q. 126. What do...", "{1} Q. 130. Who...", "126. Q."
     q_pattern = re.compile(r'^\s*(?:\{?\d+\}?\s*)?(?:(\d+)\.\s*Q\.|Q\.\s*(\d+)\.?)\s*(.*)', re.IGNORECASE)
     a_pattern = re.compile(r'^\s*A\.\s*(.*)', re.IGNORECASE)
     lesson_pattern = re.compile(r'^\s*(LESSON\s+[A-Z0-9\-\s]+|PRONUNCIATION OF NAMES|PRAYERS)\.?\s*$', re.IGNORECASE)
@@ -101,7 +100,7 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
         match_q = q_pattern.match(stripped)
         if match_q:
             finalize_qa()
-            q_num_str = match_q.group(1) or match_q.group(2)
+            q_num_str = match_q.group(1) if match_q.group(1) is not None else match_q.group(2)
             current_q_num = int(q_num_str) if q_num_str else 0
             current_q_text = match_q.group(3) or ""
             is_answering = False
@@ -135,13 +134,20 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
             current_q_text += " " + stripped
         else:
             if current_section is not None:
-                if current_section["content"] and current_section["content"][-1]["type"] == "text":
-                    current_section["content"][-1]["text"] += "\n" + stripped
-                else:
+                # Check for prayer heading titles like "THE LORD'S PRAYER", "AN ACT OF FAITH"
+                if stripped.isupper() and len(stripped) < 70 and not stripped.startswith("Q.") and not stripped.startswith("A."):
                     current_section["content"].append({
-                        "type": "text",
+                        "type": "heading",
                         "text": stripped
                     })
+                else:
+                    if current_section["content"] and current_section["content"][-1]["type"] == "text":
+                        current_section["content"][-1]["text"] += " " + stripped
+                    else:
+                        current_section["content"].append({
+                            "type": "text",
+                            "text": stripped
+                        })
 
     finalize_qa()
     
@@ -196,8 +202,8 @@ def parse_trent(filepath):
     current_part = "PART I"
     current_section = None
     
-    part_pattern = re.compile(r'^\s*(PART\s+[I|V|X]+)\.?\s*$', re.IGNORECASE)
-    chap_pattern = re.compile(r'^\s*(CHAP(?:TER)?\.?\s+[I|V|X\d]+)\.?(.*)', re.IGNORECASE)
+    part_pattern = re.compile(r'^\s*(PART\s+[I|V|X\d]+)\.?\s*$', re.IGNORECASE)
+    chap_pattern = re.compile(r'^\s*(CHAPTER\s+[I|V|X\d]+)\.?\s*$', re.IGNORECASE)
     question_header_pattern = re.compile(r'^\s*(Que?stion\s+[I|V|X\d]+\.?\s*[\—\–\-]?\s*.*)', re.IGNORECASE)
     
     # Running header & page number cleaner
@@ -221,19 +227,13 @@ def parse_trent(filepath):
             continue
             
         m_chap = chap_pattern.match(stripped)
-        if m_chap and len(stripped) < 80:
+        if m_chap:
             chap_num = m_chap.group(1).upper()
-            chap_num = chap_num.replace('CHAPTEH', 'CHAPTER').replace('QMAPYXR', 'CHAPTER')
-            chap_title = m_chap.group(2).strip(" .—–-")
             sec_id = f"sec_trent_{len(sections) + 1}"
             
-            full_title = f"{current_part}, {chap_num}"
-            if chap_title:
-                full_title += f": {chap_title}"
-                
             current_section = {
                 "id": sec_id,
-                "title": full_title,
+                "title": f"{current_part}, {chap_num}",
                 "part": current_part,
                 "chapter": chap_num,
                 "content": []
@@ -276,9 +276,12 @@ def parse_trent(filepath):
     
     toc = []
     for sec in valid_sections:
+        title = sec["title"]
+        if sec["content"] and sec["content"][0]["type"] == "heading":
+            title += f": {sec['content'][0]['text']}"
         toc.append({
             "id": sec["id"],
-            "title": sec["title"]
+            "title": title
         })
 
     data = {

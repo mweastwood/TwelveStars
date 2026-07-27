@@ -173,11 +173,21 @@ void parseBaltimoreFile(
       currentQText += ' $stripped';
     } else {
       if (sec != null) {
-        final contentList = sec['content'] as List<dynamic>;
-        if (contentList.isNotEmpty && contentList.last['type'] == 'text') {
-          contentList.last['text'] = '${contentList.last['text']}\n$stripped';
+        if (stripped == stripped.toUpperCase() &&
+            stripped.length < 70 &&
+            !stripped.startsWith('Q.') &&
+            !stripped.startsWith('A.')) {
+          (sec['content'] as List<dynamic>).add({
+            'type': 'heading',
+            'text': stripped,
+          });
         } else {
-          contentList.add({'type': 'text', 'text': stripped});
+          final contentList = sec['content'] as List<dynamic>;
+          if (contentList.isNotEmpty && contentList.last['type'] == 'text') {
+            contentList.last['text'] = '${contentList.last['text']} $stripped';
+          } else {
+            contentList.add({'type': 'text', 'text': stripped});
+          }
         }
       }
     }
