@@ -103,63 +103,6 @@ String formatLessonTitle(String raw) {
   return formatTitleCase(cleaned);
 }
 
-String fixTrentOcr(String text) {
-  var t = text;
-  t = t.replaceAll(
-    RegExp(r'\bQuestion\s+X\s+VITI\b', caseSensitive: false),
-    'Question XVIII',
-  );
-  t = t.replaceAll(
-    RegExp(r'\bQuestion\s+ITI\b', caseSensitive: false),
-    'Question III',
-  );
-  t = t.replaceAll(
-    RegExp(r'\bQuestion\s+IT\b', caseSensitive: false),
-    'Question II',
-  );
-  t = t.replaceAll(
-    RegExp(r'\bQuestion\s+XXITI\b', caseSensitive: false),
-    'Question XXIII',
-  );
-  t = t.replaceAll(
-    RegExp(r'\bQuestion\s+XITI\b', caseSensitive: false),
-    'Question XIII',
-  );
-  t = t.replaceAll(
-    RegExp(r'\bQuestion\s+XXVITI\b', caseSensitive: false),
-    'Question XXVIII',
-  );
-  t = t.replaceAll(
-    RegExp(r'\bQuestion\s+1X\b', caseSensitive: false),
-    'Question IX',
-  );
-  t = t.replaceAll(
-    RegExp(r'\bQuestion\s+Ix\b', caseSensitive: false),
-    'Question IX',
-  );
-  t = t.replaceAll(
-    RegExp(r'\bQuestion\s+VIIT\b', caseSensitive: false),
-    'Question VIII',
-  );
-  t = t.replaceAll(
-    RegExp(r'\bQuestion\s+VITI\b', caseSensitive: false),
-    'Question VIII',
-  );
-
-  t = t.replaceAll(RegExp(r'\bt¢\b'), 'it');
-  t = t.replaceAll(RegExp(r'\bSymiol\b'), 'Symbol');
-  t = t.replaceAll(RegExp(r'\bsymiol\b'), 'symbol');
-  t = t.replaceAll(RegExp(r'\bQuxstion\b', caseSensitive: false), 'Question');
-  t = t.replaceAll(RegExp(r'\bWdgment\b', caseSensitive: false), 'judgment');
-  t = t.replaceAll(RegExp(r'\bTZhe\b'), 'The');
-  t = t.replaceAll(RegExp(r'\bZJn\b'), 'In');
-  t = t.replaceAll(RegExp(r'\bJn\b'), 'In');
-  t = t.replaceAll(RegExp(r'\bTs\b'), 'Is');
-  t = t.replaceAll(RegExp(r'\blt\b'), 'It');
-  t = t.replaceAll(RegExp(r'[‘‘’’““””]'), '"');
-  return t;
-}
-
 void parseBaltimoreFile(
   String filepath,
   String bookId,
@@ -180,6 +123,8 @@ void parseBaltimoreFile(
   final List<Map<String, dynamic>> sections = [];
   Map<String, dynamic>? currentSection;
 
+  // Flexible regex for Baltimore Q&A:
+  // Matches "1 Q.", "1. Q.", "*4 Q.", "Q. 126.", "{1} Q. 130."
   final qPattern = RegExp(
     r'^\s*[\*\s]*(?:\{\d+\}\s*)?(?:(\d+)\.?\s*Q\.|Q\.\s*(\d+)\.?)\s*(.*)',
     caseSensitive: false,
@@ -375,155 +320,123 @@ void parseBaltimoreFile(
   );
 }
 
-void parseTrent(String filepath, Directory outputDir) {
-  final file = File(filepath);
+void assembleTrentFromSource(String sourcePath, Directory outputDir) {
+  final file = File(sourcePath);
   if (!file.existsSync()) {
-    print('Error: $filepath not found!');
+    print('Error: $sourcePath not found!');
     return;
   }
 
-  var cleaned = cleanText(file.readAsStringSync());
-  cleaned = fixTrentOcr(cleaned);
-
-  // Fix hyphenated words across line breaks (e.g. "accord- \n ing" -> "according")
-  cleaned = cleaned.replaceAllMapped(
-    RegExp(r'(\b[a-zA-Z]+)-\s*\n\s*([a-zA-Z]+\b)'),
-    (m) => '${m.group(1)}${m.group(2)}',
-  );
-
-  final lines = cleaned.split('\n');
-
-  // Find start of main body (skip Gutenberg headers, Toc, and Prefaces)
-  int mainBodyStartIdx = 0;
-  for (int i = 0; i < lines.length; i++) {
-    if (lines[i].toUpperCase().contains('DECREE OF THE COUNCIL OF TRENT')) {
-      mainBodyStartIdx = i;
-      break;
-    }
-  }
-
-  final bodyLines = lines.sublist(mainBodyStartIdx);
-
+  final rawData = jsonDecode(file.readAsStringSync()) as List<dynamic>;
   final List<Map<String, dynamic>> sections = [];
-  String currentPart = 'Part 1';
-  Map<String, dynamic>? currentSection;
+  final List<Map<String, String>> toc = [];
 
-  final partPattern = RegExp(
-    r'^\s*(PART\s+[I|V|X\d]+)\.?\s*$',
-    caseSensitive: false,
-  );
-  final chapPattern = RegExp(
-    r'^\s*(CHAPTER\s+[I|V|X\d]+)\.?\s*$',
-    caseSensitive: false,
-  );
-  final questionHeaderPattern = RegExp(
-    r'^\s*(Que?stion\s+[I|V|X\d]+\.?\s*[\—\–\-]?\s*.*)',
-    caseSensitive: false,
-  );
-  final runningHeaderPattern = RegExp(
-    r'^\s*(\d+\s+)?(PART\s+[I|V|X]+|CATECHISM|THE TRANSLATOR|PREFACE).*?(\d+)?\s*$',
-    caseSensitive: false,
-  );
-  final pageNumPattern = RegExp(r'^\s*\d+\s*$');
-  final dotsPattern = RegExp(r'(\.\s*){4,}');
+  int secCounter = 1;
 
-  for (final line in bodyLines) {
-    final stripped = line.trim();
-    if (stripped.isEmpty) continue;
+  for (final part in rawData) {
+    final partNum = part['partNumber'] ?? 1;
+    final partTitle = part['title'] as String? ?? 'Part $partNum';
 
-    if (dotsPattern.hasMatch(stripped)) continue;
+    // 1. Part Introduction
+    final intro = part['introduction'] as Map<String, dynamic>?;
+    if (intro != null && intro['sections'] != null) {
+      final secId = 'sec_trent_$secCounter';
+      secCounter++;
 
-    if (pageNumPattern.hasMatch(stripped)) continue;
-    if (runningHeaderPattern.hasMatch(stripped) &&
-        stripped.length < 70 &&
-        !questionHeaderPattern.hasMatch(stripped)) {
-      continue;
-    }
+      final secTitle = 'Part $partNum: $partTitle';
+      const secSub = 'Introduction';
+      final List<Map<String, dynamic>> content = [];
 
-    final mPart = partPattern.firstMatch(stripped);
-    if (mPart != null) {
-      currentPart = formatTitleCase(mPart.group(1)!);
-      continue;
-    }
+      for (final isec in intro['sections'] as List<dynamic>) {
+        final stitle = isec['title'] as String?;
+        if (stitle != null && stitle.isNotEmpty) {
+          content.add({'type': 'heading', 'text': stitle});
+        }
+        for (final p in isec['paragraphs'] as List<dynamic>) {
+          final ptext = (p['text'] as String? ?? '').trim();
+          if (ptext.isNotEmpty) {
+            content.add({'type': 'text', 'text': ptext});
+          }
+        }
+      }
 
-    final mChap = chapPattern.firstMatch(stripped);
-    if (mChap != null) {
-      final chapNum = formatTitleCase(mChap.group(1)!);
-      final secId = 'sec_trent_${sections.length + 1}';
-
-      currentSection = {
-        'id': secId,
-        'title': '$currentPart, $chapNum',
-        'part': currentPart,
-        'chapter': chapNum,
-        'content': <Map<String, dynamic>>[],
-      };
-      sections.add(currentSection);
-      continue;
-    }
-
-    final sec = currentSection;
-    if (sec != null) {
-      final mQHead = questionHeaderPattern.firstMatch(stripped);
-      if (mQHead != null) {
-        var qText = fixTrentOcr(mQHead.group(1)!);
-        (sec['content'] as List<dynamic>).add({
-          'type': 'heading',
-          'text': formatTitleCase(qText.replaceAll(RegExp(r'\s+'), ' ').trim()),
+      if (content.isNotEmpty) {
+        sections.add({
+          'id': secId,
+          'title': secTitle,
+          'subtitle': secSub,
+          'content': content,
         });
-        continue;
+        toc.add({'id': secId, 'title': '$secTitle - $secSub'});
+      }
+    }
+
+    // 2. Part Articles
+    final articles = part['articles'] as List<dynamic>? ?? [];
+    for (final art in articles) {
+      final artNum = art['articleNumber'];
+      final artTitle = art['title'] as String? ?? '';
+      final artHeading = art['heading'] as String? ?? '';
+
+      final secId = 'sec_trent_$secCounter';
+      secCounter++;
+
+      final fullTitle = artNum != null && '$artNum'.isNotEmpty
+          ? 'Part $partNum, Article $artNum'
+          : 'Part $partNum';
+      final subtitle = artTitle.isNotEmpty
+          ? artTitle
+          : (artHeading.length > 60 ? artHeading.substring(0, 60) : artHeading);
+
+      final List<Map<String, dynamic>> content = [];
+      if (artHeading.isNotEmpty && artHeading != artTitle) {
+        content.add({'type': 'heading', 'text': artHeading});
       }
 
-      final fixedLine = fixTrentOcr(stripped);
-      final contentList = sec['content'] as List<dynamic>;
-      if (contentList.isNotEmpty && contentList.last['type'] == 'text') {
-        contentList.last['text'] = '${contentList.last['text']} $fixedLine';
-      } else {
-        contentList.add({'type': 'text', 'text': fixedLine});
+      for (final isec in art['sections'] as List<dynamic>? ?? []) {
+        final stitle = isec['title'] as String?;
+        if (stitle != null && stitle.isNotEmpty) {
+          content.add({'type': 'heading', 'text': stitle});
+        }
+        for (final p in isec['paragraphs'] as List<dynamic>? ?? []) {
+          final ptext = (p['text'] as String? ?? '').trim();
+          if (ptext.isNotEmpty) {
+            content.add({'type': 'text', 'text': ptext});
+          }
+        }
+      }
+
+      if (content.isNotEmpty) {
+        sections.add({
+          'id': secId,
+          'title': fullTitle,
+          'subtitle': subtitle,
+          'content': content,
+        });
+        final tocText = subtitle.isNotEmpty
+            ? '$fullTitle: $subtitle'
+            : fullTitle;
+        toc.add({'id': secId, 'title': tocText});
       }
     }
   }
 
-  for (final sec in sections) {
-    for (final item in sec['content'] as List<dynamic>) {
-      if (item['type'] == 'text') {
-        item['text'] = fixTrentOcr(
-          (item['text'] as String).replaceAll(RegExp(r'\s+'), ' ').trim(),
-        );
-      } else if (item['type'] == 'heading') {
-        item['text'] = fixTrentOcr(
-          (item['text'] as String).replaceAll(RegExp(r'\s+'), ' ').trim(),
-        );
-      }
-    }
-  }
-
-  final validSections = sections
-      .where((s) => (s['content'] as List).isNotEmpty)
-      .toList();
-
-  final toc = validSections.map((secItem) {
-    String title = secItem['title'] as String;
-    final content = secItem['content'] as List<dynamic>;
-    if (content.isNotEmpty && content.first['type'] == 'heading') {
-      title += ': ${content.first['text']}';
-    }
-    return {'id': secItem['id'], 'title': title};
-  }).toList();
-
-  final data = {
+  final finalJson = {
     'bookId': 'council_of_trent',
     'title': 'Catechism of the Council of Trent',
-    'subtitle': 'The Roman Catechism (Translated by Rev. J. Donovan, 1829)',
+    'subtitle':
+        'The Roman Catechism (Translated by Rev. J. A. McHugh & C. J. Callan, 1923)',
     'author': 'Council of Trent / St. Pius V',
     'toc': toc,
-    'sections': validSections,
+    'sections': sections,
   };
 
   final outFile = File(p.join(outputDir.path, 'council_of_trent.json'));
-  outFile.writeAsStringSync(const JsonEncoder.withIndent('  ').convert(data));
+  outFile.writeAsStringSync(
+    const JsonEncoder.withIndent('  ').convert(finalJson),
+  );
   print(
-    'Successfully generated ${outFile.path} (${validSections.length} sections)',
+    'Successfully generated ${outFile.path} (${sections.length} sections, ${toc.length} TOC entries)',
   );
 }
 
@@ -564,8 +477,9 @@ void main() {
     'An Explanation of the Baltimore Catechism (Fr. Kinkead)',
     outputDir,
   );
-  parseTrent(
-    p.join(trentDir, 'catechism_of_the_council_of_trent_donovan_1829.txt'),
+
+  assembleTrentFromSource(
+    p.join(trentDir, 'trent_romanus_source.json'),
     outputDir,
   );
 }
