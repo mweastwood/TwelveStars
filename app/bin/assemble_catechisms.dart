@@ -184,12 +184,20 @@ void parseBaltimoreFile(
 
   int bodyStartIdx = 0;
   int bodyEndIdx = lines.length;
-  if (bookId == 'baltimore_4') {
+  if (bookId == 'baltimore_3') {
+    for (int i = 0; i < lines.length; i++) {
+      if (lines[i].trim() == 'Catechism of Christian Doctrine') {
+        bodyStartIdx = i;
+        break;
+      }
+    }
+  } else if (bookId == 'baltimore_4') {
     bodyStartIdx = 1270;
     bodyEndIdx = 11778;
   }
 
   final bodyLines = lines.sublist(bodyStartIdx, bodyEndIdx);
+  bool isParagraphBreak = false;
 
   for (final line in bodyLines) {
     final stripped = line.trim();
@@ -198,6 +206,12 @@ void parseBaltimoreFile(
         isAnswering = false;
         isExplaining = true;
       }
+      if (isExplaining &&
+          currentExplanation.isNotEmpty &&
+          currentExplanation.last.isNotEmpty) {
+        currentExplanation.add('');
+      }
+      isParagraphBreak = true;
       continue;
     }
 
@@ -211,6 +225,7 @@ void parseBaltimoreFile(
         !qPattern.hasMatch(stripped) &&
         !aPattern.hasMatch(stripped)) {
       finalizeQa();
+      isParagraphBreak = false;
       final secId = 'sec_${sections.length + 1}';
       final formattedTitle = formatLessonTitle(stripped);
       currentSection = {
@@ -233,6 +248,7 @@ void parseBaltimoreFile(
           stripped.startsWith('ON ') ||
           stripped.startsWith('FROM ')) {
         sec['subtitle'] = formatTitleCase(stripped);
+        isParagraphBreak = false;
         continue;
       }
     }
@@ -240,6 +256,7 @@ void parseBaltimoreFile(
     final matchQ = qPattern.firstMatch(stripped);
     if (matchQ != null) {
       finalizeQa();
+      isParagraphBreak = false;
       final qNumStr = matchQ.group(1) ?? matchQ.group(2);
       currentQNum = qNumStr != null ? int.parse(qNumStr) : 0;
       currentQText = matchQ.group(3) ?? '';
@@ -262,6 +279,7 @@ void parseBaltimoreFile(
       currentAText = matchA.group(1) ?? '';
       isAnswering = true;
       isExplaining = false;
+      isParagraphBreak = false;
       continue;
     }
 
@@ -270,20 +288,28 @@ void parseBaltimoreFile(
       if (qTrim.endsWith('?') || qTrim.endsWith(':')) {
         currentAText = stripped;
         isAnswering = true;
+        isParagraphBreak = false;
         continue;
       }
     }
 
     if (isAnswering) {
       currentAText += ' $stripped';
+      isParagraphBreak = false;
     } else if (isExplaining) {
       if (currentExplanation.isNotEmpty) {
-        currentExplanation[currentExplanation.length - 1] += ' $stripped';
+        if (currentExplanation.last.isEmpty) {
+          currentExplanation[currentExplanation.length - 1] = stripped;
+        } else {
+          currentExplanation[currentExplanation.length - 1] += ' $stripped';
+        }
       } else {
         currentExplanation.add(stripped);
       }
+      isParagraphBreak = false;
     } else if (currentQNum != null) {
       currentQText += ' $stripped';
+      isParagraphBreak = false;
     } else {
       if (sec != null) {
         if (stripped == stripped.toUpperCase() &&
@@ -294,13 +320,17 @@ void parseBaltimoreFile(
             'type': 'heading',
             'text': formatTitleCase(stripped),
           });
+          isParagraphBreak = false;
         } else {
           final contentList = sec['content'] as List<dynamic>;
-          if (contentList.isNotEmpty && contentList.last['type'] == 'text') {
+          if (contentList.isNotEmpty &&
+              contentList.last['type'] == 'text' &&
+              !isParagraphBreak) {
             contentList.last['text'] = '${contentList.last['text']} $stripped';
           } else {
             contentList.add({'type': 'text', 'text': stripped});
           }
+          isParagraphBreak = false;
         }
       }
     }

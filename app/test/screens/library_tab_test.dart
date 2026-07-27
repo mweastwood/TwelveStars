@@ -106,5 +106,94 @@ void main() {
 
       expect(find.text('Table of Contents'), findsOneWidget);
     });
+
+    testGoldens(
+      'LibraryReaderScreen renders Baltimore No. 3 with Cross-References',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final baltimore = catalog.firstWhere(
+          (b) => b.id == 'baltimore_catechism',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_3.json',
+          );
+        });
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: baltimore,
+              initialVolumeKey: 'no3',
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'catechism_baltimore_3_reader_golden',
+        );
+      },
+    );
+
+    testGoldens(
+      'LibraryReaderScreen renders Baltimore No. 4 with Explanations',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final baltimore = catalog.firstWhere(
+          (b) => b.id == 'baltimore_catechism',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_4.json',
+          );
+        });
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: baltimore,
+              initialVolumeKey: 'no4',
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'catechism_baltimore_4_reader_golden',
+        );
+      },
+    );
+
+    testGoldens(
+      'LibraryReaderScreen renders Catechism of the Council of Trent',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final trent = catalog.firstWhere((b) => b.id == 'council_of_trent');
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/council_of_trent.json',
+          );
+        });
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(body: LibraryReaderScreen(bookItem: trent)),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'catechism_trent_reader_golden');
+      },
+    );
   });
 }

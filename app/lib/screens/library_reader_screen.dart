@@ -713,13 +713,10 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                               ],
                             ),
                             const SizedBox(height: 8),
-                            Text(
+                            _buildExplanationContent(
                               item.explanation!,
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                fontSize: _fontSize,
-                                height: 1.55,
-                                color: theme.colorScheme.onSurface,
-                              ),
+                              theme,
+                              _fontSize,
                             ),
                           ],
                         ),
@@ -731,12 +728,11 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
             } else {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 16.0),
-                child: Text(
+                child: _buildRichTextWithCitations(
                   item.text ?? '',
-                  style: theme.textTheme.bodyLarge?.copyWith(
-                    fontSize: _fontSize,
-                    height: 1.6,
-                  ),
+                  theme,
+                  fontSize: _fontSize,
+                  height: 1.6,
                 ),
               );
             }
@@ -979,6 +975,92 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
           },
         );
       },
+    );
+  }
+
+  Widget _buildExplanationContent(
+    String rawExplanation,
+    ThemeData theme,
+    double fontSize,
+  ) {
+    final paragraphs = rawExplanation
+        .split('\n\n')
+        .map((p) => p.trim())
+        .where((p) => p.isNotEmpty)
+        .toList();
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        for (int i = 0; i < paragraphs.length; i++) ...[
+          if (i > 0) const SizedBox(height: 12),
+          _buildRichTextWithCitations(
+            paragraphs[i],
+            theme,
+            fontSize: fontSize,
+            height: 1.55,
+          ),
+        ],
+      ],
+    );
+  }
+
+  Widget _buildRichTextWithCitations(
+    String text,
+    ThemeData theme, {
+    required double fontSize,
+    required double height,
+    Color? color,
+  }) {
+    final regExp = RegExp(
+      r'\(((?:Gen|Exod|Lev|Num|Deut|Matt|Mark|Luke|John|Acts|Rom|Cor|Gal|Eph|Phil|Col|Thess|Tim|Heb|Pet|Rev|Ps|Prov|Isa|Jer)\.?\s*\d+[\d\:\,\-\s]*)\)',
+      caseSensitive: false,
+    );
+
+    final matches = regExp.allMatches(text);
+    if (matches.isEmpty) {
+      return Text(
+        text,
+        style: theme.textTheme.bodyLarge?.copyWith(
+          fontSize: fontSize,
+          height: height,
+          color: color ?? theme.colorScheme.onSurface,
+        ),
+      );
+    }
+
+    final spans = <TextSpan>[];
+    int lastEnd = 0;
+
+    for (final m in matches) {
+      if (m.start > lastEnd) {
+        spans.add(TextSpan(text: text.substring(lastEnd, m.start)));
+      }
+      spans.add(
+        TextSpan(
+          text: '(${m.group(1)})',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: theme.colorScheme.primary,
+          ),
+        ),
+      );
+      lastEnd = m.end;
+    }
+
+    if (lastEnd < text.length) {
+      spans.add(TextSpan(text: text.substring(lastEnd)));
+    }
+
+    return RichText(
+      text: TextSpan(
+        style: theme.textTheme.bodyLarge?.copyWith(
+          fontSize: fontSize,
+          height: height,
+          color: color ?? theme.colorScheme.onSurface,
+        ),
+        children: spans,
+      ),
     );
   }
 }
