@@ -1147,7 +1147,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                 });
 
                 return Container(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
                   decoration: BoxDecoration(
                     color: theme.colorScheme.surface,
                     borderRadius: const BorderRadius.vertical(
@@ -1155,35 +1155,34 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                     ),
                   ),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        width: 40,
-                        height: 4,
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.onSurfaceVariant.withValues(
-                            alpha: 0.4,
+                      Center(
+                        child: Container(
+                          width: 40,
+                          height: 4,
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.onSurfaceVariant
+                                .withValues(alpha: 0.4),
+                            borderRadius: BorderRadius.circular(2),
                           ),
-                          borderRadius: BorderRadius.circular(2),
                         ),
                       ),
                       const SizedBox(height: 16),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.auto_stories_rounded,
-                            color: theme.colorScheme.primary,
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Text(
-                              citation.displayLabel,
-                              style: theme.textTheme.titleMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: theme.colorScheme.primary,
-                              ),
-                            ),
-                          ),
-                        ],
+                      Text(
+                        '${citation.bookName} ${citation.chapter}',
+                        style: theme.textTheme.headlineMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: theme.colorScheme.primary,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        'Catholic Public Domain Version (CPDV)',
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          fontStyle: FontStyle.italic,
+                          color: theme.colorScheme.outline,
+                        ),
                       ),
                       const Divider(height: 24),
                       Expanded(
@@ -1197,76 +1196,55 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                                 verse.verseNumber >= targetVerseNum &&
                                 verse.verseNumber <= endVerseNum;
 
-                            return Container(
-                              margin: const EdgeInsets.only(bottom: 10),
-                              padding: const EdgeInsets.all(12),
+                            return AnimatedContainer(
+                              duration: const Duration(milliseconds: 200),
+                              margin: const EdgeInsets.symmetric(vertical: 2.0),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0,
+                                vertical: 6.0,
+                              ),
                               decoration: BoxDecoration(
                                 color: isTarget
                                     ? theme.colorScheme.primaryContainer
                                           .withValues(alpha: 0.4)
-                                    : theme.colorScheme.surfaceContainerLow,
-                                borderRadius: BorderRadius.circular(12),
+                                    : Colors.transparent,
+                                borderRadius: BorderRadius.circular(8.0),
                                 border: isTarget
                                     ? Border(
                                         left: BorderSide(
                                           color: theme.colorScheme.primary,
-                                          width: 4,
+                                          width: 3.5,
                                         ),
                                       )
                                     : null,
                               ),
-                              child: Column(
+                              child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        'Verse ${verse.verseNumber}',
-                                        style: theme.textTheme.labelMedium
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.bold,
-                                              color: isTarget
-                                                  ? theme.colorScheme.primary
-                                                  : theme.colorScheme.outline,
-                                            ),
-                                      ),
-                                      if (isTarget) ...[
-                                        const SizedBox(width: 8),
-                                        Container(
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 6,
-                                            vertical: 2,
-                                          ),
-                                          decoration: BoxDecoration(
+                                  SizedBox(
+                                    width: 28,
+                                    child: Text(
+                                      '${verse.verseNumber}',
+                                      style: theme.textTheme.bodyMedium
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
                                             color: theme.colorScheme.primary,
-                                            borderRadius: BorderRadius.circular(
-                                              4,
-                                            ),
                                           ),
-                                          child: Text(
-                                            'TARGET VERSE',
-                                            style: theme.textTheme.labelSmall
-                                                ?.copyWith(
-                                                  color: theme
-                                                      .colorScheme
-                                                      .onPrimary,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 9,
-                                                ),
-                                          ),
-                                        ),
-                                      ],
-                                    ],
+                                      textAlign: TextAlign.right,
+                                    ),
                                   ),
-                                  const SizedBox(height: 6),
-                                  Text(
-                                    verse.verseText,
-                                    style: theme.textTheme.bodyMedium?.copyWith(
-                                      fontSize: 15,
-                                      height: 1.5,
-                                      fontWeight: isTarget
-                                          ? FontWeight.w600
-                                          : FontWeight.normal,
+                                  const SizedBox(width: 12),
+                                  Expanded(
+                                    child: Text(
+                                      verse.verseText,
+                                      style: theme.textTheme.bodyLarge
+                                          ?.copyWith(
+                                            color: theme.colorScheme.onSurface,
+                                            height: 1.5,
+                                            fontWeight: isTarget
+                                                ? FontWeight.w600
+                                                : FontWeight.normal,
+                                          ),
                                     ),
                                   ),
                                 ],
