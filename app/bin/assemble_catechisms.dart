@@ -146,12 +146,23 @@ void parseBaltimoreFile(
   void finalizeQa() {
     final sec = currentSection;
     if (currentQNum != null && sec != null) {
+      String cleanQ = currentQText.replaceAll(RegExp(r'\s+'), ' ').trim();
+      int? crossRefQNum;
+      final refMatch = RegExp(r'\{(\d+)\}').firstMatch(cleanQ);
+      if (refMatch != null) {
+        crossRefQNum = int.parse(refMatch.group(1)!);
+        cleanQ = cleanQ.replaceAll(RegExp(r'\{(\d+)\}\s*'), '').trim();
+      }
+
       final Map<String, dynamic> entry = {
         'type': 'qa',
         'questionNumber': currentQNum,
-        'question': currentQText.replaceAll(RegExp(r'\s+'), ' ').trim(),
+        'question': cleanQ,
         'answer': currentAText.replaceAll(RegExp(r'\s+'), ' ').trim(),
       };
+      if (crossRefQNum != null) {
+        entry['crossRefQNum'] = crossRefQNum;
+      }
       if (currentExplanation.isNotEmpty) {
         final expText = currentExplanation
             .map((p) => p.replaceAll(RegExp(r'\s+'), ' ').trim())
