@@ -604,27 +604,55 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    RichText(
-                      text: TextSpan(
-                        style: theme.textTheme.bodyLarge?.copyWith(
-                          fontSize: _fontSize,
-                          height: 1.5,
-                          color: theme.colorScheme.onSurface,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: qPrefix,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: theme.colorScheme.primary,
+                    Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      spacing: 8,
+                      runSpacing: 4,
+                      children: [
+                        RichText(
+                          text: TextSpan(
+                            style: theme.textTheme.bodyLarge?.copyWith(
+                              fontSize: _fontSize,
+                              height: 1.5,
+                              color: theme.colorScheme.onSurface,
                             ),
+                            children: [
+                              TextSpan(
+                                text: qPrefix,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.primary,
+                                ),
+                              ),
+                              TextSpan(
+                                text: item.question ?? '',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
                           ),
-                          TextSpan(
-                            text: item.question ?? '',
-                            style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        if (item.crossRefQNum != null)
+                          ActionChip(
+                            avatar: Icon(
+                              Icons.auto_stories_rounded,
+                              size: 14,
+                              color: theme.colorScheme.onPrimaryContainer,
+                            ),
+                            label: Text('Ref: #${item.crossRefQNum}'),
+                            labelStyle: TextStyle(
+                              fontSize: 11,
+                              fontWeight: FontWeight.bold,
+                              color: theme.colorScheme.onPrimaryContainer,
+                            ),
+                            backgroundColor: theme.colorScheme.primaryContainer,
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            visualDensity: VisualDensity.compact,
+                            onPressed: () =>
+                                _showCrossRefModal(item.crossRefQNum!),
                           ),
-                        ],
-                      ),
+                      ],
                     ),
                     const SizedBox(height: 8),
                     RichText(
@@ -716,6 +744,241 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
           const SizedBox(height: 40),
         ],
       ),
+    );
+  }
+
+  Future<void> _showCrossRefModal(int qNum) async {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (ctx) {
+        return DraggableScrollableSheet(
+          expand: false,
+          initialChildSize: 0.65,
+          maxChildSize: 0.9,
+          minChildSize: 0.4,
+          builder: (sheetCtx, scrollController) {
+            return FutureBuilder<List<ParsedBookData?>>(
+              future: Future.wait([
+                LibraryHelper.loadBookData(
+                  'assets/catechism/json/baltimore_2.json',
+                ),
+                LibraryHelper.loadBookData(
+                  'assets/catechism/json/baltimore_4.json',
+                ),
+              ]),
+              builder: (bCtx, snapshot) {
+                if (!snapshot.hasData) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                final vol2 = snapshot.data![0];
+                final vol4 = snapshot.data![1];
+
+                ContentItem? q2Item;
+                int? q2SecIdx;
+                if (vol2 != null) {
+                  for (int s = 0; s < vol2.sections.length; s++) {
+                    for (final item in vol2.sections[s].content) {
+                      if (item.type == 'qa' && item.questionNumber == qNum) {
+                        q2Item = item;
+                        q2SecIdx = s;
+                        break;
+                      }
+                    }
+                    if (q2Item != null) break;
+                  }
+                }
+
+                ContentItem? q4Item;
+                int? q4SecIdx;
+                if (vol4 != null) {
+                  for (int s = 0; s < vol4.sections.length; s++) {
+                    for (final item in vol4.sections[s].content) {
+                      if (item.type == 'qa' && item.questionNumber == qNum) {
+                        q4Item = item;
+                        q4SecIdx = s;
+                        break;
+                      }
+                    }
+                    if (q4Item != null) break;
+                  }
+                }
+
+                final theme = Theme.of(context);
+                return Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: ListView(
+                    controller: scrollController,
+                    children: [
+                      Center(
+                        child: Container(
+                          width: 36,
+                          height: 4,
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.onSurfaceVariant
+                                .withValues(alpha: 0.4),
+                            borderRadius: BorderRadius.circular(2),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.auto_stories_rounded,
+                            color: theme.colorScheme.primary,
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
+                              'Cross-Reference: Master Question #$qNum',
+                              style: theme.textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: theme.colorScheme.primary,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Divider(height: 24),
+                      if (q2Item != null) ...[
+                        Text(
+                          'Baltimore Catechism No. 2 (Confirmation Edition)',
+                          style: theme.textTheme.labelMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: theme.colorScheme.secondary,
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.surfaceContainerLow,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Q. ${q2Item.questionNumber}. ${q2Item.question}',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              Text('A. ${q2Item.answer}'),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                      ],
+                      if (q4Item != null) ...[
+                        Text(
+                          'Baltimore Catechism No. 4 (Fr. Kinkead\'s Explanation)',
+                          style: theme.textTheme.labelMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: theme.colorScheme.primary,
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.surfaceContainerHigh
+                                .withValues(alpha: 0.6),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border(
+                              left: BorderSide(
+                                color: theme.colorScheme.primary,
+                                width: 3,
+                              ),
+                            ),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'EXPLANATION',
+                                style: theme.textTheme.labelSmall?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.primary,
+                                ),
+                              ),
+                              const SizedBox(height: 6),
+                              Text(
+                                q4Item.explanation ?? q4Item.answer ?? '',
+                                style: theme.textTheme.bodyMedium?.copyWith(
+                                  height: 1.5,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                      ],
+                      if (widget.bookItem.isSeries &&
+                          widget.bookItem.volumes != null)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            if (q2SecIdx != null &&
+                                widget.bookItem.volumes!.any(
+                                  (v) => v.volumeKey == 'baltimore_2',
+                                ))
+                              OutlinedButton.icon(
+                                icon: const Icon(
+                                  Icons.bookmark_outline_rounded,
+                                  size: 18,
+                                ),
+                                label: const Text('Open Vol 2'),
+                                onPressed: () {
+                                  Navigator.pop(ctx);
+                                  _switchVolume(
+                                    widget.bookItem.volumes!.firstWhere(
+                                      (v) => v.volumeKey == 'baltimore_2',
+                                    ),
+                                  );
+                                  setState(() {
+                                    _currentSectionIndex = q2SecIdx!;
+                                  });
+                                },
+                              ),
+                            if (q4SecIdx != null &&
+                                widget.bookItem.volumes!.any(
+                                  (v) => v.volumeKey == 'baltimore_4',
+                                ))
+                              FilledButton.icon(
+                                icon: const Icon(
+                                  Icons.menu_book_rounded,
+                                  size: 18,
+                                ),
+                                label: const Text('Open Vol 4'),
+                                onPressed: () {
+                                  Navigator.pop(ctx);
+                                  _switchVolume(
+                                    widget.bookItem.volumes!.firstWhere(
+                                      (v) => v.volumeKey == 'baltimore_4',
+                                    ),
+                                  );
+                                  setState(() {
+                                    _currentSectionIndex = q4SecIdx!;
+                                  });
+                                },
+                              ),
+                          ],
+                        ),
+                    ],
+                  ),
+                );
+              },
+            );
+          },
+        );
+      },
     );
   }
 }
