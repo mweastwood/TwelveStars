@@ -103,6 +103,63 @@ String formatLessonTitle(String raw) {
   return formatTitleCase(cleaned);
 }
 
+String fixTrentOcr(String text) {
+  var t = text;
+  t = t.replaceAll(
+    RegExp(r'\bQuestion\s+X\s+VITI\b', caseSensitive: false),
+    'Question XVIII',
+  );
+  t = t.replaceAll(
+    RegExp(r'\bQuestion\s+ITI\b', caseSensitive: false),
+    'Question III',
+  );
+  t = t.replaceAll(
+    RegExp(r'\bQuestion\s+IT\b', caseSensitive: false),
+    'Question II',
+  );
+  t = t.replaceAll(
+    RegExp(r'\bQuestion\s+XXITI\b', caseSensitive: false),
+    'Question XXIII',
+  );
+  t = t.replaceAll(
+    RegExp(r'\bQuestion\s+XITI\b', caseSensitive: false),
+    'Question XIII',
+  );
+  t = t.replaceAll(
+    RegExp(r'\bQuestion\s+XXVITI\b', caseSensitive: false),
+    'Question XXVIII',
+  );
+  t = t.replaceAll(
+    RegExp(r'\bQuestion\s+1X\b', caseSensitive: false),
+    'Question IX',
+  );
+  t = t.replaceAll(
+    RegExp(r'\bQuestion\s+Ix\b', caseSensitive: false),
+    'Question IX',
+  );
+  t = t.replaceAll(
+    RegExp(r'\bQuestion\s+VIIT\b', caseSensitive: false),
+    'Question VIII',
+  );
+  t = t.replaceAll(
+    RegExp(r'\bQuestion\s+VITI\b', caseSensitive: false),
+    'Question VIII',
+  );
+
+  t = t.replaceAll(RegExp(r'\bt¢\b'), 'it');
+  t = t.replaceAll(RegExp(r'\bSymiol\b'), 'Symbol');
+  t = t.replaceAll(RegExp(r'\bsymiol\b'), 'symbol');
+  t = t.replaceAll(RegExp(r'\bQuxstion\b', caseSensitive: false), 'Question');
+  t = t.replaceAll(RegExp(r'\bWdgment\b', caseSensitive: false), 'judgment');
+  t = t.replaceAll(RegExp(r'\bTZhe\b'), 'The');
+  t = t.replaceAll(RegExp(r'\bZJn\b'), 'In');
+  t = t.replaceAll(RegExp(r'\bJn\b'), 'In');
+  t = t.replaceAll(RegExp(r'\bTs\b'), 'Is');
+  t = t.replaceAll(RegExp(r'\blt\b'), 'It');
+  t = t.replaceAll(RegExp(r'[‘‘’’““””]'), '"');
+  return t;
+}
+
 void parseBaltimoreFile(
   String filepath,
   String bookId,
@@ -123,8 +180,6 @@ void parseBaltimoreFile(
   final List<Map<String, dynamic>> sections = [];
   Map<String, dynamic>? currentSection;
 
-  // Flexible regex for Baltimore Q&A:
-  // Matches "1 Q.", "1. Q.", "*4 Q.", "Q. 126.", "{1} Q. 130."
   final qPattern = RegExp(
     r'^\s*[\*\s]*(?:\{\d+\}\s*)?(?:(\d+)\.?\s*Q\.|Q\.\s*(\d+)\.?)\s*(.*)',
     caseSensitive: false,
@@ -328,6 +383,7 @@ void parseTrent(String filepath, Directory outputDir) {
   }
 
   var cleaned = cleanText(file.readAsStringSync());
+  cleaned = fixTrentOcr(cleaned);
 
   // Fix hyphenated words across line breaks (e.g. "accord- \n ing" -> "according")
   cleaned = cleaned.replaceAllMapped(
@@ -410,15 +466,7 @@ void parseTrent(String filepath, Directory outputDir) {
     if (sec != null) {
       final mQHead = questionHeaderPattern.firstMatch(stripped);
       if (mQHead != null) {
-        var qText = mQHead.group(1)!;
-        qText = qText.replaceAll(
-          RegExp(r'Quxstion', caseSensitive: false),
-          'Question',
-        );
-        qText = qText.replaceAll(
-          RegExp(r'Symiol', caseSensitive: false),
-          'Symbol',
-        );
+        var qText = fixTrentOcr(mQHead.group(1)!);
         (sec['content'] as List<dynamic>).add({
           'type': 'heading',
           'text': formatTitleCase(qText.replaceAll(RegExp(r'\s+'), ' ').trim()),
@@ -426,20 +474,27 @@ void parseTrent(String filepath, Directory outputDir) {
         continue;
       }
 
+      final fixedLine = fixTrentOcr(stripped);
       final contentList = sec['content'] as List<dynamic>;
       if (contentList.isNotEmpty && contentList.last['type'] == 'text') {
-        contentList.last['text'] = '${contentList.last['text']} $stripped';
+        contentList.last['text'] = '${contentList.last['text']} $fixedLine';
       } else {
-        contentList.add({'type': 'text', 'text': stripped});
+        contentList.add({'type': 'text', 'text': fixedLine});
       }
     }
   }
 
   for (final sec in sections) {
     for (final item in sec['content'] as List<dynamic>) {
-      item['text'] = (item['text'] as String)
-          .replaceAll(RegExp(r'\s+'), ' ')
-          .trim();
+      if (item['type'] == 'text') {
+        item['text'] = fixTrentOcr(
+          (item['text'] as String).replaceAll(RegExp(r'\s+'), ' ').trim(),
+        );
+      } else if (item['type'] == 'heading') {
+        item['text'] = fixTrentOcr(
+          (item['text'] as String).replaceAll(RegExp(r'\s+'), ' ').trim(),
+        );
+      }
     }
   }
 

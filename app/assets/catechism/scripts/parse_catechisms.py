@@ -61,6 +61,33 @@ def format_lesson_title(title_raw):
         return f"Lesson {num}"
     return format_title_case(cleaned)
 
+def fix_trent_ocr(text):
+    # Fix Roman numerals in Question headers:
+    text = re.sub(r'\bQuestion\s+X\s+VITI\b', 'Question XVIII', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bQuestion\s+ITI\b', 'Question III', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bQuestion\s+IT\b', 'Question II', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bQuestion\s+XXITI\b', 'Question XXIII', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bQuestion\s+XITI\b', 'Question XIII', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bQuestion\s+XXVITI\b', 'Question XXVIII', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bQuestion\s+1X\b', 'Question IX', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bQuestion\s+Ix\b', 'Question IX', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bQuestion\s+VIIT\b', 'Question VIII', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bQuestion\s+VITI\b', 'Question VIII', text, flags=re.IGNORECASE)
+
+    # Fix common OCR word typos in Donovan 1829 edition:
+    text = re.sub(r'\bt¢\b', 'it', text)
+    text = re.sub(r'\bSymiol\b', 'Symbol', text)
+    text = re.sub(r'\bsymiol\b', 'symbol', text)
+    text = re.sub(r'\bQuxstion\b', 'Question', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bWdgment\b', 'judgment', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bTZhe\b', 'The', text)
+    text = re.sub(r'\bZJn\b', 'In', text)
+    text = re.sub(r'\bJn\b', 'In', text)
+    text = re.sub(r'\bTs\b', 'Is', text)
+    text = re.sub(r'\blt\b', 'It', text)
+    text = re.sub(r'[‘‘’’““””]', '"', text)
+    return text
+
 def parse_baltimore_file(filepath, book_id, title, subtitle):
     with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
         raw = f.read()
@@ -71,8 +98,6 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
     sections = []
     current_section = None
     
-    # Flexible regex for Baltimore Q&A:
-    # Matches "1 Q.", "1. Q.", "*4 Q.", "Q. 126.", "{1} Q. 130."
     q_pattern = re.compile(r'^\s*[\*\s]*(?:\{\d+\}\s*)?(?:(\d+)\.?\s*Q\.|Q\.\s*(\d+)\.?)\s*(.*)', re.IGNORECASE)
     a_pattern = re.compile(r'^\s*A\.\s*(.*)', re.IGNORECASE)
     lesson_pattern = re.compile(r'^\s*(LESSON\s+[A-Z0-9\-\s]+|PRONUNCIATION OF NAMES|PRAYERS)\.?\s*$', re.IGNORECASE)
@@ -115,11 +140,9 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
                 is_explaining = True
             continue
             
-        # Ignore Gutenberg dot leaders (. . . . . . . . . .)
         if dots_pattern.search(stripped):
             continue
 
-        # Check for Lesson Header
         match_lesson = lesson_pattern.match(stripped)
         if match_lesson and len(stripped) < 50 and not q_pattern.match(stripped) and not a_pattern.match(stripped):
             finalize_qa()
@@ -134,13 +157,11 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
             sections.append(current_section)
             continue
             
-        # Check if line is Lesson Subtitle right after Lesson Title
         if current_section is not None and len(current_section["content"]) == 0 and not current_section["subtitle"] and not q_pattern.match(stripped) and not a_pattern.match(stripped):
             if stripped.isupper() or stripped.startswith("ON ") or stripped.startswith("FROM "):
                 current_section["subtitle"] = format_title_case(stripped)
                 continue
 
-        # Check for Question (e.g., "1. Q. Who made...", "*4 Q...", "Q. 126. What...")
         match_q = q_pattern.match(stripped)
         if match_q:
             finalize_qa()
@@ -159,7 +180,6 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
                 sections.append(current_section)
             continue
             
-        # Check for Answer (A.)
         match_a = a_pattern.match(stripped)
         if match_a and current_q_num is not None:
             current_a_text = match_a.group(1) or ""
@@ -168,7 +188,6 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
             continue
             
         if current_q_num is not None and not is_answering and not is_explaining:
-            # Handle cases where answer line omitted leading "A." (e.g. Q630)
             if current_q_text.rstrip().endswith('?') or current_q_text.rstrip().endswith(':'):
                 current_a_text = stripped
                 is_answering = True
@@ -185,7 +204,6 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
             current_q_text += " " + stripped
         else:
             if current_section is not None:
-                # Check for prayer heading titles like "THE LORD'S PRAYER", "AN ACT OF FAITH"
                 if stripped.isupper() and len(stripped) < 70 and not stripped.startswith("Q.") and not stripped.startswith("A."):
                     current_section["content"].append({
                         "type": "heading",
@@ -234,6 +252,7 @@ def parse_trent(filepath):
         raw = f.read()
 
     cleaned = clean_text(raw)
+    cleaned = fix_trent_ocr(cleaned)
     
     # Fix hyphenated words across line breaks (e.g. "accord- \n ing" -> "according")
     cleaned = re.sub(r'(\b[a-zA-Z]+)-\s*\n\s*([a-zA-Z]+\b)', r'\1\2', cleaned)
@@ -257,7 +276,6 @@ def parse_trent(filepath):
     chap_pattern = re.compile(r'^\s*(CHAPTER\s+[I|V|X\d]+)\.?\s*$', re.IGNORECASE)
     question_header_pattern = re.compile(r'^\s*(Que?stion\s+[I|V|X\d]+\.?\s*[\—\–\-]?\s*.*)', re.IGNORECASE)
     
-    # Running header & page number cleaner
     running_header_pattern = re.compile(r'^\s*(\d+\s+)?(PART\s+[I|V|X]+|CATECHISM|THE TRANSLATOR|PREFACE).*?(\d+)?\s*$', re.IGNORECASE)
     page_num_pattern = re.compile(r'^\s*\d+\s*$')
     dots_pattern = re.compile(r'(\.\s*){4,}')
@@ -270,7 +288,6 @@ def parse_trent(filepath):
         if dots_pattern.search(stripped):
             continue
 
-        # Filter out OCR page numbers and running headers
         if page_num_pattern.match(stripped):
             continue
         if running_header_pattern.match(stripped) and len(stripped) < 70 and not question_header_pattern.match(stripped):
@@ -297,35 +314,30 @@ def parse_trent(filepath):
             continue
             
         if current_section is not None:
-            # Check for Question Heading (e.g. "Question I.— What is here meant...")
             m_q_head = question_header_pattern.match(stripped)
             if m_q_head:
-                q_text = m_q_head.group(1)
-                # Fix common OCR typos in question header
-                q_text = re.sub(r'Quxstion', 'Question', q_text, flags=re.IGNORECASE)
-                q_text = re.sub(r'Symiol', 'Symbol', q_text, flags=re.IGNORECASE)
+                q_text = fix_trent_ocr(m_q_head.group(1))
                 current_section["content"].append({
                     "type": "heading",
                     "text": format_title_case(q_text)
                 })
                 continue
                 
-            # Paragraph content
+            fixed_line = fix_trent_ocr(stripped)
             if current_section["content"] and current_section["content"][-1]["type"] == "text":
-                current_section["content"][-1]["text"] += " " + stripped
+                current_section["content"][-1]["text"] += " " + fixed_line
             else:
                 current_section["content"].append({
                     "type": "text",
-                    "text": stripped
+                    "text": fixed_line
                 })
 
-    # Clean up multiline text whitespace
     for sec in sections:
         for item in sec["content"]:
             if item["type"] == "text":
-                item["text"] = re.sub(r'\s+', ' ', item["text"]).strip()
+                item["text"] = fix_trent_ocr(re.sub(r'\s+', ' ', item["text"]).strip())
             elif item["type"] == "heading":
-                item["text"] = re.sub(r'\s+', ' ', item["text"]).strip()
+                item["text"] = fix_trent_ocr(re.sub(r'\s+', ' ', item["text"]).strip())
 
     valid_sections = [s for s in sections if len(s["content"]) > 0]
     
