@@ -24,6 +24,39 @@ def strip_gutenberg_header_footer(text):
         
     return text.strip()
 
+ORDINAL_MAP = {
+    'FIRST': '1', 'SECOND': '2', 'THIRD': '3', 'FOURTH': '4', 'FIFTH': '5',
+    'SIXTH': '6', 'SEVENTH': '7', 'EIGHTH': '8', 'NINTH': '9', 'TENTH': '10',
+    'ELEVENTH': '11', 'TWELFTH': '12', 'THIRTEENTH': '13', 'FOURTEENTH': '14',
+    'FIFTEENTH': '15', 'SIXTEENTH': '16', 'SEVENTEENTH': '17', 'EIGHTEENTH': '18',
+    'NINTEENTH': '19', 'NINETEENTH': '19', 'TWENTIETH': '20',
+    'TWENTY-FIRST': '21', 'TWENTY-SECOND': '22', 'TWENTY-THIRD': '23',
+    'TWENTY-FOURTH': '24', 'TWENTY-FIFTH': '25', 'TWENTY-SIXTH': '26',
+    'TWENTY-SEVENTH': '27', 'TWENTY-EIGHTH': '28', 'TWENTY-NINTH': '29',
+    'THIRTIETH': '30', 'THIRTY-FIRST': '31', 'THIRTY-SECOND': '32',
+    'THIRTY-THIRD': '33', 'THIRTY-FOURTH': '34', 'THIRTY-FIFTH': '35',
+    'THIRTY-SIXTH': '36', 'THIRTY-SEVENTH': '37'
+}
+
+def format_title_case(text):
+    words = text.split()
+    result = []
+    for w in words:
+        if w.isupper() or w.islower():
+            result.append(w.capitalize())
+        else:
+            result.append(w)
+    return " ".join(result)
+
+def format_lesson_title(title_raw):
+    cleaned = title_raw.strip(" .")
+    upper = cleaned.upper()
+    if upper.startswith("LESSON "):
+        ord_part = upper.replace("LESSON ", "").strip()
+        num = ORDINAL_MAP.get(ord_part, ord_part)
+        return f"Lesson {num}"
+    return format_title_case(cleaned)
+
 def parse_baltimore_file(filepath, book_id, title, subtitle):
     with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
         raw = f.read()
@@ -34,8 +67,9 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
     sections = []
     current_section = None
     
-    # Regex patterns for Baltimore Q&A
-    q_pattern = re.compile(r'^\s*(?:\{?\d+\}?\s*)?(?:(\d+)\.\s*Q\.|Q\.\s*(\d+)\.?)\s*(.*)', re.IGNORECASE)
+    # Strict regex for Baltimore Q&A:
+    # Requires explicit braces for prefix numbers (e.g. "{1}"), preventing "10. Q." from splitting into "1" and "0. Q."
+    q_pattern = re.compile(r'^\s*(?:\{\d+\}\s*)?(?:(\d+)\.\s*Q\.|Q\.\s*(\d+)\.?)\s*(.*)', re.IGNORECASE)
     a_pattern = re.compile(r'^\s*A\.\s*(.*)', re.IGNORECASE)
     lesson_pattern = re.compile(r'^\s*(LESSON\s+[A-Z0-9\-\s]+|PRONUNCIATION OF NAMES|PRAYERS)\.?\s*$', re.IGNORECASE)
     
@@ -81,9 +115,10 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
         if match_lesson and len(stripped) < 50 and not q_pattern.match(stripped) and not a_pattern.match(stripped):
             finalize_qa()
             sec_id = f"sec_{len(sections) + 1}"
+            formatted_title = format_lesson_title(stripped)
             current_section = {
                 "id": sec_id,
-                "title": stripped,
+                "title": formatted_title,
                 "subtitle": "",
                 "content": []
             }
@@ -93,7 +128,7 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
         # Check if line is Lesson Subtitle right after Lesson Title
         if current_section is not None and len(current_section["content"]) == 0 and not current_section["subtitle"] and not q_pattern.match(stripped) and not a_pattern.match(stripped):
             if stripped.isupper() or stripped.startswith("ON ") or stripped.startswith("FROM "):
-                current_section["subtitle"] = stripped
+                current_section["subtitle"] = format_title_case(stripped)
                 continue
 
         # Check for Question (e.g., "1. Q. Who made..." or "Q. 126. What...")
@@ -108,7 +143,7 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
             if current_section is None:
                 current_section = {
                     "id": "sec_1",
-                    "title": "PRAYERS & INTRO",
+                    "title": "Prayers & Intro",
                     "subtitle": "",
                     "content": []
                 }
@@ -138,7 +173,7 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
                 if stripped.isupper() and len(stripped) < 70 and not stripped.startswith("Q.") and not stripped.startswith("A."):
                     current_section["content"].append({
                         "type": "heading",
-                        "text": stripped
+                        "text": format_title_case(stripped)
                     })
                 else:
                     if current_section["content"] and current_section["content"][-1]["type"] == "text":
@@ -199,7 +234,7 @@ def parse_trent(filepath):
     body_lines = lines[main_body_start_idx:]
     
     sections = []
-    current_part = "PART I"
+    current_part = "Part 1"
     current_section = None
     
     part_pattern = re.compile(r'^\s*(PART\s+[I|V|X\d]+)\.?\s*$', re.IGNORECASE)
@@ -223,12 +258,12 @@ def parse_trent(filepath):
             
         m_part = part_pattern.match(stripped)
         if m_part:
-            current_part = m_part.group(1).upper()
+            current_part = format_title_case(m_part.group(1))
             continue
             
         m_chap = chap_pattern.match(stripped)
         if m_chap:
-            chap_num = m_chap.group(1).upper()
+            chap_num = format_title_case(m_chap.group(1))
             sec_id = f"sec_trent_{len(sections) + 1}"
             
             current_section = {
@@ -251,7 +286,7 @@ def parse_trent(filepath):
                 q_text = re.sub(r'Symiol', 'Symbol', q_text, flags=re.IGNORECASE)
                 current_section["content"].append({
                     "type": "heading",
-                    "text": q_text
+                    "text": format_title_case(q_text)
                 })
                 continue
                 

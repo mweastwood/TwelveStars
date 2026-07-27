@@ -27,6 +27,74 @@ String stripGutenbergHeaderFooter(String text) {
   return text.trim();
 }
 
+const Map<String, String> ordinalMap = {
+  'FIRST': '1',
+  'SECOND': '2',
+  'THIRD': '3',
+  'FOURTH': '4',
+  'FIFTH': '5',
+  'SIXTH': '6',
+  'SEVENTH': '7',
+  'EIGHTH': '8',
+  'NINTH': '9',
+  'TENTH': '10',
+  'ELEVENTH': '11',
+  'TWELFTH': '12',
+  'THIRTEENTH': '13',
+  'FOURTEENTH': '14',
+  'FIFTEENTH': '15',
+  'SIXTEENTH': '16',
+  'SEVENTEENTH': '17',
+  'EIGHTEENTH': '18',
+  'NINTEENTH': '19',
+  'NINETEENTH': '19',
+  'TWENTIETH': '20',
+  'TWENTY-FIRST': '21',
+  'TWENTY-SECOND': '22',
+  'TWENTY-THIRD': '23',
+  'TWENTY-FOURTH': '24',
+  'TWENTY-FIFTH': '25',
+  'TWENTY-SIXTH': '26',
+  'TWENTY-SEVENTH': '27',
+  'TWENTY-EIGHTH': '28',
+  'TWENTY-NINTH': '29',
+  'THIRTIETH': '30',
+  'THIRTY-FIRST': '31',
+  'THIRTY-SECOND': '32',
+  'THIRTY-THIRD': '33',
+  'THIRTY-FOURTH': '34',
+  'THIRTY-FIFTH': '35',
+  'THIRTY-SIXTH': '36',
+  'THIRTY-SEVENTH': '37',
+};
+
+String formatTitleCase(String text) {
+  final words = text.split(' ');
+  final result = <String>[];
+  for (final w in words) {
+    if (w.isEmpty) continue;
+    if (w == w.toUpperCase() || w == w.toLowerCase()) {
+      result.add(
+        '${w[0].toUpperCase()}${w.length > 1 ? w.substring(1).toLowerCase() : ''}',
+      );
+    } else {
+      result.add(w);
+    }
+  }
+  return result.join(' ');
+}
+
+String formatLessonTitle(String raw) {
+  final cleaned = raw.replaceAll(RegExp(r'[\s\.]+$'), '').trim();
+  final upper = cleaned.toUpperCase();
+  if (upper.startsWith('LESSON ')) {
+    final ordPart = upper.replaceFirst('LESSON ', '').trim();
+    final num = ordinalMap[ordPart] ?? ordPart;
+    return 'Lesson $num';
+  }
+  return formatTitleCase(cleaned);
+}
+
 void parseBaltimoreFile(
   String filepath,
   String bookId,
@@ -47,8 +115,10 @@ void parseBaltimoreFile(
   final List<Map<String, dynamic>> sections = [];
   Map<String, dynamic>? currentSection;
 
+  // Strict regex for Baltimore Q&A:
+  // Requires explicit braces for prefix numbers (e.g. "{1}"), preventing "10. Q." from splitting into "1" and "0. Q."
   final qPattern = RegExp(
-    r'^\s*(?:\{?\d+\}?\s*)?(?:(\d+)\.\s*Q\.|Q\.\s*(\d+)\.?)\s*(.*)',
+    r'^\s*(?:\{\d+\}\s*)?(?:(\d+)\.\s*Q\.|Q\.\s*(\d+)\.?)\s*(.*)',
     caseSensitive: false,
   );
   final aPattern = RegExp(r'^\s*A\.\s*(.*)', caseSensitive: false);
@@ -109,9 +179,10 @@ void parseBaltimoreFile(
         !aPattern.hasMatch(stripped)) {
       finalizeQa();
       final secId = 'sec_${sections.length + 1}';
+      final formattedTitle = formatLessonTitle(stripped);
       currentSection = {
         'id': secId,
-        'title': stripped,
+        'title': formattedTitle,
         'subtitle': '',
         'content': <Map<String, dynamic>>[],
       };
@@ -128,7 +199,7 @@ void parseBaltimoreFile(
       if (stripped == stripped.toUpperCase() ||
           stripped.startsWith('ON ') ||
           stripped.startsWith('FROM ')) {
-        sec['subtitle'] = stripped;
+        sec['subtitle'] = formatTitleCase(stripped);
         continue;
       }
     }
@@ -144,7 +215,7 @@ void parseBaltimoreFile(
       if (currentSection == null) {
         currentSection = {
           'id': 'sec_1',
-          'title': 'PRAYERS & INTRO',
+          'title': 'Prayers & Intro',
           'subtitle': '',
           'content': <Map<String, dynamic>>[],
         };
@@ -179,7 +250,7 @@ void parseBaltimoreFile(
             !stripped.startsWith('A.')) {
           (sec['content'] as List<dynamic>).add({
             'type': 'heading',
-            'text': stripped,
+            'text': formatTitleCase(stripped),
           });
         } else {
           final contentList = sec['content'] as List<dynamic>;
@@ -256,7 +327,7 @@ void parseTrent(String filepath, Directory outputDir) {
   final bodyLines = lines.sublist(mainBodyStartIdx);
 
   final List<Map<String, dynamic>> sections = [];
-  String currentPart = 'PART I';
+  String currentPart = 'Part 1';
   Map<String, dynamic>? currentSection;
 
   final partPattern = RegExp(
@@ -290,13 +361,13 @@ void parseTrent(String filepath, Directory outputDir) {
 
     final mPart = partPattern.firstMatch(stripped);
     if (mPart != null) {
-      currentPart = mPart.group(1)!.toUpperCase();
+      currentPart = formatTitleCase(mPart.group(1)!);
       continue;
     }
 
     final mChap = chapPattern.firstMatch(stripped);
     if (mChap != null) {
-      final chapNum = mChap.group(1)!.toUpperCase();
+      final chapNum = formatTitleCase(mChap.group(1)!);
       final secId = 'sec_trent_${sections.length + 1}';
 
       currentSection = {
@@ -325,7 +396,7 @@ void parseTrent(String filepath, Directory outputDir) {
         );
         (sec['content'] as List<dynamic>).add({
           'type': 'heading',
-          'text': qText.replaceAll(RegExp(r'\s+'), ' ').trim(),
+          'text': formatTitleCase(qText.replaceAll(RegExp(r'\s+'), ' ').trim()),
         });
         continue;
       }
