@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:twelve_stars/logic/bible_citation_parser.dart';
+import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 
 class LibraryReaderScreen extends StatefulWidget {
@@ -728,7 +730,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
             } else {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 16.0),
-                child: _buildRichTextWithCitations(
+                child: _buildInteractiveTextWithCitations(
                   item.text ?? '',
                   theme,
                   fontSize: _fontSize,
@@ -994,7 +996,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
       children: [
         for (int i = 0; i < paragraphs.length; i++) ...[
           if (i > 0) const SizedBox(height: 12),
-          _buildRichTextWithCitations(
+          _buildInteractiveTextWithCitations(
             paragraphs[i],
             theme,
             fontSize: fontSize,
@@ -1005,62 +1007,268 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     );
   }
 
-  Widget _buildRichTextWithCitations(
+  Widget _buildInteractiveTextWithCitations(
     String text,
     ThemeData theme, {
     required double fontSize,
     required double height,
     Color? color,
   }) {
-    final regExp = RegExp(
-      r'\(((?:Gen|Exod|Lev|Num|Deut|Matt|Mark|Luke|John|Acts|Rom|Cor|Gal|Eph|Phil|Col|Thess|Tim|Heb|Pet|Rev|Ps|Prov|Isa|Jer)\.?\s*\d+[\d\:\,\-\s]*)\)',
-      caseSensitive: false,
-    );
+    final segments = BibleCitationParser.parse(text);
 
-    final matches = regExp.allMatches(text);
-    if (matches.isEmpty) {
-      return Text(
-        text,
+    return SelectableText.rich(
+      TextSpan(
         style: theme.textTheme.bodyLarge?.copyWith(
           fontSize: fontSize,
           height: height,
           color: color ?? theme.colorScheme.onSurface,
         ),
-      );
-    }
-
-    final spans = <TextSpan>[];
-    int lastEnd = 0;
-
-    for (final m in matches) {
-      if (m.start > lastEnd) {
-        spans.add(TextSpan(text: text.substring(lastEnd, m.start)));
-      }
-      spans.add(
-        TextSpan(
-          text: '(${m.group(1)})',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: theme.colorScheme.primary,
-          ),
-        ),
-      );
-      lastEnd = m.end;
-    }
-
-    if (lastEnd < text.length) {
-      spans.add(TextSpan(text: text.substring(lastEnd)));
-    }
-
-    return RichText(
-      text: TextSpan(
-        style: theme.textTheme.bodyLarge?.copyWith(
-          fontSize: fontSize,
-          height: height,
-          color: color ?? theme.colorScheme.onSurface,
-        ),
-        children: spans,
+        children: [
+          for (final seg in segments)
+            if (seg.isCitation)
+              WidgetSpan(
+                alignment: PlaceholderAlignment.middle,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                  child: InkWell(
+                    onTap: () => _showScriptureModal(seg.citation!),
+                    borderRadius: BorderRadius.circular(6),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 6,
+                        vertical: 2,
+                      ),
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.primaryContainer.withValues(
+                          alpha: 0.7,
+                        ),
+                        borderRadius: BorderRadius.circular(6),
+                        border: Border.all(
+                          color: theme.colorScheme.primary.withValues(
+                            alpha: 0.3,
+                          ),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.auto_stories_rounded,
+                            size: 13,
+                            color: theme.colorScheme.primary,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            seg.citation!.displayLabel,
+                            style: TextStyle(
+                              fontSize: fontSize * 0.85,
+                              fontWeight: FontWeight.bold,
+                              color: theme.colorScheme.primary,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            else
+              TextSpan(text: seg.text!),
+        ],
       ),
+    );
+  }
+
+  Future<void> _showScriptureModal(BibleCitation citation) async {
+    final theme = Theme.of(context);
+
+    await showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (ctx) {
+        return DraggableScrollableSheet(
+          initialChildSize: 0.65,
+          minChildSize: 0.4,
+          maxChildSize: 0.9,
+          builder: (sheetCtx, scrollController) {
+            return FutureBuilder<List<BibleVerse>>(
+              future: () async {
+                await BibleDatabaseHelper.db.ensureBookPopulated(
+                  citation.bookNumber,
+                  citation.bookName,
+                  citation.abbrev,
+                );
+                return await BibleDatabaseHelper.db.getChapterVerses(
+                  'CPDV',
+                  citation.bookNumber,
+                  citation.chapter,
+                );
+              }(),
+              builder: (bCtx, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.surface,
+                      borderRadius: const BorderRadius.vertical(
+                        top: Radius.circular(24),
+                      ),
+                    ),
+                    child: const Center(child: CircularProgressIndicator()),
+                  );
+                }
+
+                final verses = snapshot.data ?? [];
+                final targetVerseNum = citation.verse;
+                final endVerseNum = citation.endVerse ?? targetVerseNum;
+
+                final minVerse = (targetVerseNum - 1).clamp(1, 999);
+                final maxVerse = endVerseNum + 1;
+
+                final displayedVerses = verses
+                    .where(
+                      (v) =>
+                          v.verseNumber >= minVerse &&
+                          v.verseNumber <= maxVerse,
+                    )
+                    .toList();
+
+                return Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.surface,
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(24),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.onSurfaceVariant.withValues(
+                            alpha: 0.4,
+                          ),
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.auto_stories_rounded,
+                            color: theme.colorScheme.primary,
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              citation.displayLabel,
+                              style: theme.textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: theme.colorScheme.primary,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Divider(height: 24),
+                      Expanded(
+                        child: ListView.builder(
+                          controller: scrollController,
+                          itemCount: displayedVerses.length,
+                          itemBuilder: (lCtx, index) {
+                            final verse = displayedVerses[index];
+                            final isTarget =
+                                verse.verseNumber >= targetVerseNum &&
+                                verse.verseNumber <= endVerseNum;
+
+                            return Container(
+                              margin: const EdgeInsets.only(bottom: 10),
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color: isTarget
+                                    ? theme.colorScheme.primaryContainer
+                                          .withValues(alpha: 0.4)
+                                    : theme.colorScheme.surfaceContainerLow,
+                                borderRadius: BorderRadius.circular(12),
+                                border: isTarget
+                                    ? Border(
+                                        left: BorderSide(
+                                          color: theme.colorScheme.primary,
+                                          width: 4,
+                                        ),
+                                      )
+                                    : null,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Text(
+                                        'Verse ${verse.verseNumber}',
+                                        style: theme.textTheme.labelMedium
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.bold,
+                                              color: isTarget
+                                                  ? theme.colorScheme.primary
+                                                  : theme.colorScheme.outline,
+                                            ),
+                                      ),
+                                      if (isTarget) ...[
+                                        const SizedBox(width: 8),
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 6,
+                                            vertical: 2,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: theme.colorScheme.primary,
+                                            borderRadius: BorderRadius.circular(
+                                              4,
+                                            ),
+                                          ),
+                                          child: Text(
+                                            'TARGET VERSE',
+                                            style: theme.textTheme.labelSmall
+                                                ?.copyWith(
+                                                  color: theme
+                                                      .colorScheme
+                                                      .onPrimary,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 9,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ],
+                                  ),
+                                  const SizedBox(height: 6),
+                                  Text(
+                                    verse.verseText,
+                                    style: theme.textTheme.bodyMedium?.copyWith(
+                                      fontSize: 15,
+                                      height: 1.5,
+                                      fontWeight: isTarget
+                                          ? FontWeight.w600
+                                          : FontWeight.normal,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+          },
+        );
+      },
     );
   }
 }
