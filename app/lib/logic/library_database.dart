@@ -78,6 +78,7 @@ class ParsedBookData {
   final String title;
   final String subtitle;
   final String author;
+  final String verseSystem;
   final List<TocEntry> toc;
   final List<BookSection> sections;
 
@@ -86,6 +87,7 @@ class ParsedBookData {
     required this.title,
     required this.subtitle,
     required this.author,
+    this.verseSystem = 'vulgate',
     required this.toc,
     required this.sections,
   });
@@ -98,6 +100,7 @@ class ParsedBookData {
       title: json['title'] as String? ?? '',
       subtitle: json['subtitle'] as String? ?? '',
       author: json['author'] as String? ?? '',
+      verseSystem: json['verseSystem'] as String? ?? 'vulgate',
       toc: rawToc
           .map((t) => TocEntry.fromJson(t as Map<String, dynamic>))
           .toList(),
@@ -133,6 +136,7 @@ class LibraryBookItem {
   final String description;
   final String? defaultAssetPath;
   final List<BaltimoreVolume>? volumes;
+  final String verseSystem;
 
   const LibraryBookItem({
     required this.id,
@@ -143,6 +147,7 @@ class LibraryBookItem {
     required this.description,
     this.defaultAssetPath,
     this.volumes,
+    this.verseSystem = 'vulgate',
   });
 
   bool get isSeries => volumes != null && volumes!.isNotEmpty;
