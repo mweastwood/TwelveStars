@@ -6,7 +6,6 @@ import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/screens/rosary_screen.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
-import 'package:twelve_stars/screens/calendar_tab.dart';
 import 'package:twelve_stars/screens/missal_tab.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -297,10 +296,10 @@ class _HomeScreenState extends State<HomeScreen> {
           : _error != null
           ? Center(child: Text('Error loading prayers: $_error'))
           : _buildPrayersTab(theme),
-      CalendarTab(initialDate: widget.initialDate),
       MissalTab(
         primaryLanguage: _primaryLanguage,
         compareLanguage: _compareLanguage,
+        initialDate: widget.initialDate,
       ),
       const BibleTab(),
     ];
@@ -381,11 +380,6 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(Icons.menu_book_outlined),
             selectedIcon: Icon(Icons.menu_book),
             label: 'Prayers',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.calendar_month_outlined),
-            selectedIcon: Icon(Icons.calendar_month),
-            label: 'Calendar',
           ),
           NavigationDestination(
             icon: Icon(Icons.auto_stories_outlined),

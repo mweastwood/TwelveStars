@@ -339,7 +339,6 @@ void main() {
 
         // Verify navigation items
         expect(find.text('Prayers'), findsWidgets);
-        expect(find.text('Calendar'), findsWidgets);
         expect(find.text('Missal'), findsWidgets);
         expect(find.text('Bible'), findsWidgets);
 
@@ -361,11 +360,6 @@ void main() {
         // We should be back on the Home/Prayers screen
         expect(find.text('Start Rosary'), findsOneWidget);
         expect(find.text('Our Father'), findsOneWidget);
-
-        // Switch to the Calendar tab
-        await tester.tap(find.text('Calendar').last);
-        await tester.pumpAndSettle();
-        expect(find.text('Color: Green'), findsOneWidget);
 
         // Switch to the Missal tab
         await tester.tap(find.text('Missal').last);
@@ -559,12 +553,7 @@ void main() {
       await tester.pumpAndSettle(); // Let database load
       await screenMatchesGolden(tester, 'home_screen_prayers_tab_golden');
 
-      // 2. Calendar tab golden
-      await tester.tap(find.text('Calendar').last);
-      await tester.pumpAndSettle();
-      await screenMatchesGolden(tester, 'home_screen_calendar_tab_golden');
-
-      // 3. Missal tab golden
+      // 2. Missal tab golden
       await tester.tap(find.text('Missal').last);
       await tester.pumpAndSettle();
       await screenMatchesGolden(tester, 'home_screen_missal_tab_golden');
