@@ -1,0 +1,535 @@
+{
+  "bookId": "baltimore_1",
+  "title": "Baltimore Catechism No. 1",
+  "subtitle": "For First Communion Classes",
+  "author": "Third Plenary Council of Baltimore",
+  "toc": [
+    {
+      "id": "sec_1",
+      "title": "PRAYERS: THE LORD'S PRAYER"
+    },
+    {
+      "id": "sec_2",
+      "title": "LESSON FIRST: ON THE END OF MAN"
+    },
+    {
+      "id": "sec_3",
+      "title": "LESSON SECOND: ON GOD AND HIS PERFECTIONS"
+    },
+    {
+      "id": "sec_4",
+      "title": "LESSON THIRD: ON THE UNITY AND TRINITY OF GOD"
+    },
+    {
+      "id": "sec_5",
+      "title": "LESSON FOURTH: ON THE ANGELS AND OUR FIRST PARENTS"
+    },
+    {
+      "id": "sec_6",
+      "title": "LESSON FIFTH: ON SIN AND ITS KINDS"
+    },
+    {
+      "id": "sec_7",
+      "title": "LESSON SIXTH: ON THE INCARNATION AND REDEMPTION"
+    },
+    {
+      "id": "sec_8",
+      "title": "LESSON SEVENTH: ON OUR LORD'S PASSION, DEATH, RESURRECTION, AND ASCENSION"
+    },
+    {
+      "id": "sec_9",
+      "title": "LESSON EIGHTH: ON THE HOLY GHOST AND HIS DESCENT UPON THE APOSTLES"
+    },
+    {
+      "id": "sec_10",
+      "title": "LESSON NINTH: ON THE EFFECTS OF THE REDEMPTION"
+    },
+    {
+      "id": "sec_11",
+      "title": "LESSON TENTH: ON THE CHURCH"
+    },
+    {
+      "id": "sec_12",
+      "title": "LESSON ELEVENTH: ON THE SACRAMENTS IN GENERAL"
+    },
+    {
+      "id": "sec_13",
+      "title": "LESSON TWELFTH: ON BAPTISM"
+    },
+    {
+      "id": "sec_14",
+      "title": "LESSON THIRTEENTH: ON CONFIRMATION"
+    },
+    {
+      "id": "sec_15",
+      "title": "LESSON FOURTEENTH: ON THE SACRAMENT OF PENANCE"
+    },
+    {
+      "id": "sec_16",
+      "title": "LESSON FIFTEENTH: ON CONTRITION"
+    },
+    {
+      "id": "sec_17",
+      "title": "LESSON SIXTEENTH: ON CONFESSION"
+    },
+    {
+      "id": "sec_18",
+      "title": "LESSON SEVENTEENTH: ON INDULGENCES"
+    },
+    {
+      "id": "sec_19",
+      "title": "LESSON EIGHTEENTH: ON THE HOLY EUCHARIST"
+    },
+    {
+      "id": "sec_20",
+      "title": "LESSON NINTEENTH: ON THE ENDS FOR WHICH THE HOLY EUCHARIST WAS INSTITUTED"
+    },
+    {
+      "id": "sec_21",
+      "title": "LESSON TWENTIETH: ON THE SACRIFICE OF THE MASS"
+    },
+    {
+      "id": "sec_22",
+      "title": "LESSON TWENTY-FIRST: ON EXTREME UNCTION AND HOLY ORDERS"
+    },
+    {
+      "id": "sec_23",
+      "title": "LESSON TWENTY-SECOND: ON MATRIMONY"
+    },
+    {
+      "id": "sec_24",
+      "title": "LESSON TWENTY-THIRD: ON THE SACRAMENTALS"
+    },
+    {
+      "id": "sec_25",
+      "title": "LESSON TWENTY-FOURTH: ON PRAYER"
+    },
+    {
+      "id": "sec_26",
+      "title": "LESSON TWENTY-FIFTH: ON THE COMMANDMENTS OF GOD"
+    },
+    {
+      "id": "sec_27",
+      "title": "LESSON TWENTY-SIXTH: ON THE FIRST COMMANDMENT"
+    },
+    {
+      "id": "sec_28",
+      "title": "LESSON TWENTY-SEVENTH: THE FIRST COMMANDMENT--ON THE HONOR AND INVOCATION OF SAINTS"
+    },
+    {
+      "id": "sec_29",
+      "title": "prayers."
+    },
+    {
+      "id": "sec_30",
+      "title": "LESSON TWENTY-EIGHTH: FROM THE SECOND TO THE FOURTH COMMANDMENT"
+    },
+    {
+      "id": "sec_31",
+      "title": "LESSON TWENTY-NINTH: FROM THE FOURTH TO THE SEVENTH COMMANDMENT"
+    },
+    {
+      "id": "sec_32",
+      "title": "LESSON THIRTIETH: FROM THE SEVENTH TO THE END OF THE TENTH COMMANDMENT"
+    },
+    {
+      "id": "sec_33",
+      "title": "LESSON THIRTY-FIRST: ON THE FIRST AND SECOND COMMANDMENTS OF THE CHURCH"
+    },
+    {
+      "id": "sec_34",
+      "title": "LESSON THIRTY-SECOND: ON THE THIRD, FOURTH, FIFTH AND SIXTH COMMANDMENTS OF THE CHURCH"
+    },
+    {
+      "id": "sec_35",
+      "title": "LESSON THIRTY-THIRD: ON THE LAST JUDGMENT AND THE RESURRECTION, HELL, PURGATORY, AND HEAVEN"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec_1",
+      "title": "PRAYERS",
+      "subtitle": "THE LORD'S PRAYER",
+      "content": [
+        {
+          "type": "text",
+          "text": "Our Father, who art in heaven, hallowed be Thy name: Thy kingdom come;"
+        }
+      ]
+    },
+    {
+      "id": "sec_2",
+      "title": "LESSON FIRST",
+      "subtitle": "ON THE END OF MAN",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Q. Who made the world?"
+        }
+      ]
+    },
+    {
+      "id": "sec_3",
+      "title": "LESSON SECOND",
+      "subtitle": "ON GOD AND HIS PERFECTIONS",
+      "content": [
+        {
+          "type": "text",
+          "text": "13. Q. What is God?"
+        }
+      ]
+    },
+    {
+      "id": "sec_4",
+      "title": "LESSON THIRD",
+      "subtitle": "ON THE UNITY AND TRINITY OF GOD",
+      "content": [
+        {
+          "type": "text",
+          "text": "21. Q. Is there but one God?"
+        }
+      ]
+    },
+    {
+      "id": "sec_5",
+      "title": "LESSON FOURTH",
+      "subtitle": "ON THE ANGELS AND OUR FIRST PARENTS",
+      "content": [
+        {
+          "type": "text",
+          "text": "34. Q. Which are the chief creatures of God?"
+        }
+      ]
+    },
+    {
+      "id": "sec_6",
+      "title": "LESSON FIFTH",
+      "subtitle": "ON SIN AND ITS KINDS",
+      "content": [
+        {
+          "type": "text",
+          "text": "51. Q. Is original sin the only kind of sin?"
+        }
+      ]
+    },
+    {
+      "id": "sec_7",
+      "title": "LESSON SIXTH",
+      "subtitle": "ON THE INCARNATION AND REDEMPTION",
+      "content": [
+        {
+          "type": "text",
+          "text": "60. Q. Did God abandon man after he fell into sin?"
+        }
+      ]
+    },
+    {
+      "id": "sec_8",
+      "title": "LESSON SEVENTH",
+      "subtitle": "ON OUR LORD'S PASSION, DEATH, RESURRECTION, AND ASCENSION",
+      "content": [
+        {
+          "type": "text",
+          "text": "78. Q. What did Jesus Christ suffer?"
+        }
+      ]
+    },
+    {
+      "id": "sec_9",
+      "title": "LESSON EIGHTH",
+      "subtitle": "ON THE HOLY GHOST AND HIS DESCENT UPON THE APOSTLES",
+      "content": [
+        {
+          "type": "text",
+          "text": "94. Q. Who is the Holy Ghost?"
+        }
+      ]
+    },
+    {
+      "id": "sec_10",
+      "title": "LESSON NINTH",
+      "subtitle": "ON THE EFFECTS OF THE REDEMPTION",
+      "content": [
+        {
+          "type": "text",
+          "text": "102. Q. Which are the chief effects of the Redemption?"
+        }
+      ]
+    },
+    {
+      "id": "sec_11",
+      "title": "LESSON TENTH",
+      "subtitle": "ON THE CHURCH",
+      "content": [
+        {
+          "type": "text",
+          "text": "114. Q. Which are the means instituted by our Lord to enable men at all"
+        }
+      ]
+    },
+    {
+      "id": "sec_12",
+      "title": "LESSON ELEVENTH",
+      "subtitle": "ON THE SACRAMENTS IN GENERAL",
+      "content": [
+        {
+          "type": "text",
+          "text": "136. Q. What is a Sacrament?"
+        }
+      ]
+    },
+    {
+      "id": "sec_13",
+      "title": "LESSON TWELFTH",
+      "subtitle": "ON BAPTISM",
+      "content": [
+        {
+          "type": "text",
+          "text": "152. Q. What is Baptism?"
+        }
+      ]
+    },
+    {
+      "id": "sec_14",
+      "title": "LESSON THIRTEENTH",
+      "subtitle": "ON CONFIRMATION",
+      "content": [
+        {
+          "type": "text",
+          "text": "166. Q. What is Confirmation?"
+        }
+      ]
+    },
+    {
+      "id": "sec_15",
+      "title": "LESSON FOURTEENTH",
+      "subtitle": "ON THE SACRAMENT OF PENANCE",
+      "content": [
+        {
+          "type": "text",
+          "text": "187. Q. What is the Sacrament of Penance?"
+        }
+      ]
+    },
+    {
+      "id": "sec_16",
+      "title": "LESSON FIFTEENTH",
+      "subtitle": "ON CONTRITION",
+      "content": [
+        {
+          "type": "text",
+          "text": "195. Q. What is contrition, or sorrow for sin?"
+        }
+      ]
+    },
+    {
+      "id": "sec_17",
+      "title": "LESSON SIXTEENTH",
+      "subtitle": "ON CONFESSION",
+      "content": [
+        {
+          "type": "text",
+          "text": "208. Q. What is Confession?"
+        }
+      ]
+    },
+    {
+      "id": "sec_18",
+      "title": "LESSON SEVENTEENTH",
+      "subtitle": "ON INDULGENCES",
+      "content": [
+        {
+          "type": "text",
+          "text": "231. Q. What is an Indulgence?"
+        }
+      ]
+    },
+    {
+      "id": "sec_19",
+      "title": "LESSON EIGHTEENTH",
+      "subtitle": "ON THE HOLY EUCHARIST",
+      "content": [
+        {
+          "type": "text",
+          "text": "238. Q. What is the Holy Eucharist?"
+        }
+      ]
+    },
+    {
+      "id": "sec_20",
+      "title": "LESSON NINTEENTH",
+      "subtitle": "ON THE ENDS FOR WHICH THE HOLY EUCHARIST WAS INSTITUTED",
+      "content": [
+        {
+          "type": "text",
+          "text": "251. Q. Why did Christ institute the Holy Eucharist?"
+        }
+      ]
+    },
+    {
+      "id": "sec_21",
+      "title": "LESSON TWENTIETH",
+      "subtitle": "ON THE SACRIFICE OF THE MASS",
+      "content": [
+        {
+          "type": "text",
+          "text": "262. Q. When are the bread and wine changed into the body and blood of"
+        }
+      ]
+    },
+    {
+      "id": "sec_22",
+      "title": "LESSON TWENTY-FIRST",
+      "subtitle": "ON EXTREME UNCTION AND HOLY ORDERS",
+      "content": [
+        {
+          "type": "text",
+          "text": "271. Q. What is the Sacrament of Extreme Unction?"
+        }
+      ]
+    },
+    {
+      "id": "sec_23",
+      "title": "LESSON TWENTY-SECOND",
+      "subtitle": "ON MATRIMONY",
+      "content": [
+        {
+          "type": "text",
+          "text": "282. Q. What is the Sacrament of Matrimony?"
+        }
+      ]
+    },
+    {
+      "id": "sec_24",
+      "title": "LESSON TWENTY-THIRD",
+      "subtitle": "ON THE SACRAMENTALS",
+      "content": [
+        {
+          "type": "text",
+          "text": "292. Q. What is a sacramental?"
+        }
+      ]
+    },
+    {
+      "id": "sec_25",
+      "title": "LESSON TWENTY-FOURTH",
+      "subtitle": "ON PRAYER",
+      "content": [
+        {
+          "type": "text",
+          "text": "303. Q. Is there any other means of obtaining God's grace than the"
+        }
+      ]
+    },
+    {
+      "id": "sec_26",
+      "title": "LESSON TWENTY-FIFTH",
+      "subtitle": "ON THE COMMANDMENTS OF GOD",
+      "content": [
+        {
+          "type": "text",
+          "text": "310. Q. Is it enough to belong to God's Church in order to be saved?"
+        }
+      ]
+    },
+    {
+      "id": "sec_27",
+      "title": "LESSON TWENTY-SIXTH",
+      "subtitle": "ON THE FIRST COMMANDMENT",
+      "content": [
+        {
+          "type": "text",
+          "text": "315. Q. What is the first Commandment?"
+        }
+      ]
+    },
+    {
+      "id": "sec_28",
+      "title": "LESSON TWENTY-SEVENTH",
+      "subtitle": "THE FIRST COMMANDMENT--ON THE HONOR AND INVOCATION OF SAINTS",
+      "content": [
+        {
+          "type": "text",
+          "text": "331. Q. Does the first Commandment forbid the honoring of the saints?"
+        }
+      ]
+    },
+    {
+      "id": "sec_29",
+      "title": "prayers.",
+      "subtitle": "",
+      "content": [
+        {
+          "type": "text",
+          "text": "340. Q. Does the first Commandment forbid us to honor relics?"
+        }
+      ]
+    },
+    {
+      "id": "sec_30",
+      "title": "LESSON TWENTY-EIGHTH",
+      "subtitle": "FROM THE SECOND TO THE FOURTH COMMANDMENT",
+      "content": [
+        {
+          "type": "text",
+          "text": "345. Q. What is the second Commandment?"
+        }
+      ]
+    },
+    {
+      "id": "sec_31",
+      "title": "LESSON TWENTY-NINTH",
+      "subtitle": "FROM THE FOURTH TO THE SEVENTH COMMANDMENT",
+      "content": [
+        {
+          "type": "text",
+          "text": "361. Q. What is the fourth Commandment?"
+        }
+      ]
+    },
+    {
+      "id": "sec_32",
+      "title": "LESSON THIRTIETH",
+      "subtitle": "FROM THE SEVENTH TO THE END OF THE TENTH COMMANDMENT",
+      "content": [
+        {
+          "type": "text",
+          "text": "373. Q. What is the seventh Commandment?"
+        }
+      ]
+    },
+    {
+      "id": "sec_33",
+      "title": "LESSON THIRTY-FIRST",
+      "subtitle": "ON THE FIRST AND SECOND COMMANDMENTS OF THE CHURCH",
+      "content": [
+        {
+          "type": "text",
+          "text": "389. Q. Which are the chief commandments of the Church?"
+        }
+      ]
+    },
+    {
+      "id": "sec_34",
+      "title": "LESSON THIRTY-SECOND",
+      "subtitle": "ON THE THIRD, FOURTH, FIFTH AND SIXTH COMMANDMENTS OF THE CHURCH",
+      "content": [
+        {
+          "type": "text",
+          "text": "397. Q. What is meant by the command of confessing at least once a year?"
+        }
+      ]
+    },
+    {
+      "id": "sec_35",
+      "title": "LESSON THIRTY-THIRD",
+      "subtitle": "ON THE LAST JUDGMENT AND THE RESURRECTION, HELL, PURGATORY, AND HEAVEN",
+      "content": [
+        {
+          "type": "text",
+          "text": "408. Q. When will Christ judge us?"
+        }
+      ]
+    }
+  ]
+}

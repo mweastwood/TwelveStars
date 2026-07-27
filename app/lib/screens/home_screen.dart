@@ -7,6 +7,7 @@ import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/screens/rosary_screen.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/screens/missal_tab.dart';
+import 'package:twelve_stars/screens/library_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   final DateTime? initialDate;
@@ -302,6 +303,7 @@ class _HomeScreenState extends State<HomeScreen> {
         initialDate: widget.initialDate,
       ),
       const BibleTab(),
+      const LibraryTab(),
     ];
 
     final scaffold = Scaffold(
@@ -390,6 +392,11 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(Icons.book_outlined),
             selectedIcon: Icon(Icons.book),
             label: 'Bible',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.local_library_outlined),
+            selectedIcon: Icon(Icons.local_library),
+            label: 'Library',
           ),
         ],
       ),
