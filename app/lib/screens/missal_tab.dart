@@ -12,11 +12,13 @@ import 'package:twelve_stars/widgets/mass_reading_card.dart';
 class MissalTab extends StatefulWidget {
   final PrayerLanguage primaryLanguage;
   final PrayerLanguage compareLanguage;
+  final DateTime? initialDate;
 
   const MissalTab({
     super.key,
     required this.primaryLanguage,
     required this.compareLanguage,
+    this.initialDate,
   });
 
   @override
@@ -36,8 +38,8 @@ class _MissalTabState extends State<MissalTab> {
   @override
   void initState() {
     super.initState();
-    final now = TimeHelper.now();
-    _selectedDate = DateTime(now.year, now.month, now.day);
+    final baseDate = widget.initialDate ?? TimeHelper.now();
+    _selectedDate = DateTime(baseDate.year, baseDate.month, baseDate.day);
     _primaryLanguage = widget.primaryLanguage;
     _compareLanguage = widget.compareLanguage;
     _loadData();
@@ -88,6 +90,27 @@ class _MissalTabState extends State<MissalTab> {
     });
   }
 
+  void _changeMonth(int offset) {
+    setState(() {
+      final firstOfTargetMonth = DateTime(
+        _selectedDate.year,
+        _selectedDate.month + offset,
+        1,
+      );
+      final maxDays = DateTime(
+        firstOfTargetMonth.year,
+        firstOfTargetMonth.month + 1,
+        0,
+      ).day;
+      final targetDay = _selectedDate.day.clamp(1, maxDays);
+      _selectedDate = DateTime(
+        firstOfTargetMonth.year,
+        firstOfTargetMonth.month,
+        targetDay,
+      );
+    });
+  }
+
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -120,6 +143,42 @@ class _MissalTabState extends State<MissalTab> {
     ];
     final month = monthNames[date.month - 1];
     return '$weekday, $month ${date.day}, ${date.year}';
+  }
+
+  String _formatMonthYear(DateTime date) {
+    final monthNames = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    return '${monthNames[date.month - 1]} ${date.year}';
+  }
+
+  List<DateTime> _generateMonthDays(DateTime date) {
+    final firstDayOfMonth = DateTime(date.year, date.month, 1);
+    final startOffset = firstDayOfMonth.weekday % 7; // Sunday is 0
+    final firstGridDay = DateTime(
+      firstDayOfMonth.year,
+      firstDayOfMonth.month,
+      firstDayOfMonth.day - startOffset,
+    );
+    return List.generate(
+      42,
+      (index) => DateTime(
+        firstGridDay.year,
+        firstGridDay.month,
+        firstGridDay.day + index,
+      ),
+    );
   }
 
   Prayer? _findPrayer(String id) {
@@ -301,6 +360,8 @@ class _MissalTabState extends State<MissalTab> {
     }
 
     final currentDay = LiturgicalCalendar.computeDay(_selectedDate);
+    final gridDays = _generateMonthDays(_selectedDate);
+    final weekdayLabels = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
     final massGreeting = _findPrayer('mass_greeting');
     final signOfTheCross = _findPrayer('sign_of_the_cross');
@@ -363,6 +424,199 @@ class _MissalTabState extends State<MissalTab> {
                 ),
               ),
               const SizedBox(height: 12),
+
+              // Calendar Month View (Constrained to 480px)
+              Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 480),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      // 1. Month Navigation Header
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.arrow_back_ios, size: 16),
+                            onPressed: () => _changeMonth(-1),
+                            tooltip: 'Previous Month',
+                          ),
+                          Expanded(
+                            child: InkWell(
+                              onTap: () => _selectDate(context),
+                              borderRadius: BorderRadius.circular(8),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 8.0,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      _formatMonthYear(_selectedDate),
+                                      style: theme.textTheme.titleMedium
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                            color: theme.colorScheme.primary,
+                                          ),
+                                    ),
+                                    const SizedBox(width: 6),
+                                    Icon(
+                                      Icons.arrow_drop_down,
+                                      color: theme.colorScheme.primary,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.arrow_forward_ios, size: 16),
+                            onPressed: () => _changeMonth(1),
+                            tooltip: 'Next Month',
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+
+                      // 2. Weekday Label Header
+                      Row(
+                        children: weekdayLabels.map((label) {
+                          return Expanded(
+                            child: Center(
+                              child: Text(
+                                label,
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.onSurfaceVariant
+                                      .withValues(alpha: 0.8),
+                                ),
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                      const SizedBox(height: 8),
+
+                      // 3. Month Grid
+                      GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 7,
+                              childAspectRatio: 1.0,
+                              mainAxisSpacing: 4.0,
+                              crossAxisSpacing: 4.0,
+                            ),
+                        itemCount: gridDays.length,
+                        itemBuilder: (context, index) {
+                          final date = gridDays[index];
+                          final isCurrentMonth =
+                              date.month == _selectedDate.month;
+                          if (!isCurrentMonth) {
+                            return const SizedBox.shrink();
+                          }
+                          final isSelected =
+                              date.year == _selectedDate.year &&
+                              date.month == _selectedDate.month &&
+                              date.day == _selectedDate.day;
+                          final today = TimeHelper.now();
+                          final isToday =
+                              today.year == date.year &&
+                              today.month == date.month &&
+                              today.day == date.day;
+
+                          final dayData = LiturgicalCalendar.computeDay(date);
+
+                          // Colors for cell styling
+                          final baseColor = dayData.colorWidget;
+                          final cellBg = baseColor.withValues(
+                            alpha: isCurrentMonth ? 0.12 : 0.04,
+                          );
+
+                          return InkWell(
+                            onTap: () {
+                              setState(() {
+                                _selectedDate = date;
+                              });
+                            },
+                            borderRadius: BorderRadius.circular(8),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: cellBg,
+                                borderRadius: BorderRadius.circular(8),
+                                border: isSelected
+                                    ? Border.all(
+                                        color: theme.colorScheme.primary,
+                                        width: 2,
+                                      )
+                                    : isToday
+                                    ? Border.all(
+                                        color: theme.colorScheme.outlineVariant,
+                                        width: 1,
+                                      )
+                                    : null,
+                              ),
+                              child: Stack(
+                                children: [
+                                  // Star icon for Feasts/Solemnities
+                                  if (dayData.name != null)
+                                    Positioned(
+                                      top: 2,
+                                      right: 2,
+                                      child: Icon(
+                                        Icons.star,
+                                        size: 8,
+                                        color: Colors.amber[800],
+                                      ),
+                                    ),
+                                  // Day Number
+                                  Center(
+                                    child: Text(
+                                      '${date.day}',
+                                      style: theme.textTheme.bodyMedium
+                                          ?.copyWith(
+                                            fontWeight: isSelected || isToday
+                                                ? FontWeight.bold
+                                                : FontWeight.normal,
+                                            color: isCurrentMonth
+                                                ? theme.colorScheme.onSurface
+                                                : theme.colorScheme.onSurface
+                                                      .withValues(alpha: 0.35),
+                                          ),
+                                    ),
+                                  ),
+                                  // Liturgical Color indicator bar (bottom of cell)
+                                  Positioned(
+                                    bottom: 4,
+                                    left: 0,
+                                    right: 0,
+                                    child: Center(
+                                      child: Container(
+                                        width: 12,
+                                        height: 3,
+                                        decoration: BoxDecoration(
+                                          color: baseColor,
+                                          borderRadius: BorderRadius.circular(
+                                            1.5,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+
               // 1. Date Header & Navigation
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -373,33 +627,13 @@ class _MissalTabState extends State<MissalTab> {
                     tooltip: 'Previous Day',
                   ),
                   Expanded(
-                    child: InkWell(
-                      onTap: () => _selectDate(context),
-                      borderRadius: BorderRadius.circular(8),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Flexible(
-                              child: Text(
-                                _formatFullDate(_selectedDate),
-                                style: theme.textTheme.titleMedium?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: theme.colorScheme.primary,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                            const SizedBox(width: 4),
-                            Icon(
-                              Icons.arrow_drop_down,
-                              color: theme.colorScheme.primary,
-                            ),
-                          ],
-                        ),
+                    child: Text(
+                      _formatFullDate(_selectedDate),
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: theme.colorScheme.secondary,
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                   IconButton(
