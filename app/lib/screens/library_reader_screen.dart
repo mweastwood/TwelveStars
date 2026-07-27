@@ -648,31 +648,52 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                     ),
                     if (item.explanation != null &&
                         item.explanation!.isNotEmpty) ...[
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 12),
                       Container(
                         width: double.infinity,
-                        padding: const EdgeInsets.all(14.0),
+                        padding: const EdgeInsets.all(16.0),
                         decoration: BoxDecoration(
                           color: theme.colorScheme.surfaceContainerHigh
                               .withValues(alpha: 0.6),
                           borderRadius: BorderRadius.circular(12),
                           border: Border(
                             left: BorderSide(
-                              color: theme.colorScheme.primary.withValues(
-                                alpha: 0.7,
-                              ),
-                              width: 3,
+                              color: theme.colorScheme.primary,
+                              width: 4,
                             ),
                           ),
                         ),
-                        child: Text(
-                          item.explanation!,
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            fontSize: _fontSize - 1,
-                            height: 1.5,
-                            fontStyle: FontStyle.italic,
-                            color: theme.colorScheme.onSurfaceVariant,
-                          ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.menu_book_rounded,
+                                  size: 16,
+                                  color: theme.colorScheme.primary,
+                                ),
+                                const SizedBox(width: 6),
+                                Text(
+                                  'EXPLANATION',
+                                  style: theme.textTheme.labelSmall?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 0.8,
+                                    color: theme.colorScheme.primary,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              item.explanation!,
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                fontSize: _fontSize,
+                                height: 1.55,
+                                color: theme.colorScheme.onSurface,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
