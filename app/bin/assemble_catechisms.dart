@@ -171,7 +171,16 @@ void parseBaltimoreFile(
     isExplaining = false;
   }
 
-  for (final line in lines) {
+  int bodyStartIdx = 0;
+  int bodyEndIdx = lines.length;
+  if (bookId == 'baltimore_4') {
+    bodyStartIdx = 1270;
+    bodyEndIdx = 11778;
+  }
+
+  final bodyLines = lines.sublist(bodyStartIdx, bodyEndIdx);
+
+  for (final line in bodyLines) {
     final stripped = line.trim();
     if (stripped.isEmpty) {
       if (isAnswering) {
@@ -289,11 +298,7 @@ void parseBaltimoreFile(
   finalizeQa();
 
   final validSections = sections
-      .where(
-        (s) =>
-            (s['content'] as List).isNotEmpty ||
-            (s['subtitle'] as String).isNotEmpty,
-      )
+      .where((s) => (s['content'] as List).isNotEmpty)
       .toList();
 
   final toc = validSections.map((secItem) {
