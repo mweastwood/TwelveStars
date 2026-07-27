@@ -9,6 +9,7 @@ class BibleCitation {
   final int chapter;
   final int? verse;
   final int? endVerse;
+  final String verseSystem;
 
   bool get isEntireChapter => verse == null;
 
@@ -21,7 +22,22 @@ class BibleCitation {
     required this.chapter,
     this.verse,
     this.endVerse,
+    this.verseSystem = 'vulgate',
   });
+}
+
+class BibleVerseResolver {
+  /// Resolves Vulgate Psalm chapter to Masoretic/Hebrew Psalm chapter number
+  static int vulgateToMasoreticPsalm(int vulgatePsalm) {
+    if (vulgatePsalm <= 8) return vulgatePsalm;
+    if (vulgatePsalm == 9) return 9;
+    if (vulgatePsalm >= 10 && vulgatePsalm <= 112) return vulgatePsalm + 1;
+    if (vulgatePsalm == 113) return 114;
+    if (vulgatePsalm == 114 || vulgatePsalm == 115) return 116;
+    if (vulgatePsalm >= 116 && vulgatePsalm <= 145) return vulgatePsalm + 1;
+    if (vulgatePsalm == 146 || vulgatePsalm == 147) return 147;
+    return vulgatePsalm;
+  }
 }
 
 class CitationSegment {
@@ -296,7 +312,10 @@ class BibleCitationParser {
     caseSensitive: true,
   );
 
-  static List<CitationSegment> parse(String input) {
+  static List<CitationSegment> parse(
+    String input, {
+    String verseSystem = 'vulgate',
+  }) {
     if (input.isEmpty) return [const CitationSegment.text('')];
 
     final segments = <CitationSegment>[];
@@ -354,6 +373,7 @@ class BibleCitationParser {
         chapter: chapter,
         verse: verse,
         endVerse: endVerse,
+        verseSystem: verseSystem,
       );
 
       segments.add(CitationSegment.citation(citation));

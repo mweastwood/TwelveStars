@@ -1016,8 +1016,10 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     required double fontSize,
     required double height,
     Color? color,
+    String? verseSystem,
   }) {
-    final segments = BibleCitationParser.parse(text);
+    final system = verseSystem ?? widget.bookItem.verseSystem;
+    final segments = BibleCitationParser.parse(text, verseSystem: system);
 
     return SelectableText.rich(
       TextSpan(
