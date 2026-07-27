@@ -329,6 +329,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
     if (code == 'JUN') return 'Biblia de Jünemann (JUN)';
     if (code == 'TAM') return 'Torres Amat (TAM)';
     if (code == 'VUL') return 'Vulgata Clementina (VUL)';
+    if (code == 'LXX') return 'Greek Septuagint (LXX)';
     return code;
   }
 
