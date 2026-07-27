@@ -651,6 +651,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                             backgroundColor: theme.colorScheme.primaryContainer,
                             padding: const EdgeInsets.symmetric(horizontal: 4),
                             visualDensity: VisualDensity.compact,
+                            mouseCursor: SystemMouseCursors.click,
                             onPressed: () =>
                                 _showCrossRefModal(item.crossRefQNum!),
                           ),
@@ -749,6 +750,8 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
+      isDismissible: true,
+      enableDrag: true,
       backgroundColor: Theme.of(context).colorScheme.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -1031,6 +1034,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 2.0),
                   child: InkWell(
+                    mouseCursor: SystemMouseCursors.click,
                     onTap: () => _showScriptureModal(seg.citation!),
                     borderRadius: BorderRadius.circular(6),
                     child: Container(
@@ -1085,6 +1089,8 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     await showModalBottomSheet(
       context: context,
       isScrollControlled: true,
+      isDismissible: true,
+      enableDrag: true,
       backgroundColor: Colors.transparent,
       builder: (ctx) {
         return DraggableScrollableSheet(
