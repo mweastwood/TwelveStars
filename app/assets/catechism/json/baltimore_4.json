@@ -6,521 +6,160 @@
   "toc": [
     {
       "id": "sec_1",
-      "title": "Prayers"
-    },
-    {
-      "id": "sec_8",
-      "title": "Lesson 7--ON THE INCARNATION AND REDEMPTION"
-    },
-    {
-      "id": "sec_10",
-      "title": "Lesson 11--ON THE CHURCH"
-    },
-    {
-      "id": "sec_13",
-      "title": "Lesson 15--ON CONFIRMATION"
-    },
-    {
-      "id": "sec_16",
-      "title": "Lesson 19--ON CONFESSION"
-    },
-    {
-      "id": "sec_18",
-      "title": "Lesson 22--ON THE HOLY EUCHARIST"
-    },
-    {
-      "id": "sec_25",
-      "title": "Lesson 30--ON THE FIRST COMMANDMENT"
-    },
-    {
-      "id": "sec_26",
       "title": "Lesson 1: On The End Of Man"
     },
     {
-      "id": "sec_27",
+      "id": "sec_2",
       "title": "Lesson 2: On God And His Perfections"
     },
     {
-      "id": "sec_28",
+      "id": "sec_3",
       "title": "Lesson 3: On The Unity And Trinity Of God"
     },
     {
-      "id": "sec_29",
+      "id": "sec_4",
       "title": "Lesson 4: On Creation"
     },
     {
-      "id": "sec_30",
+      "id": "sec_5",
       "title": "Lesson 5: On Our First Parents And Their Fall"
     },
     {
-      "id": "sec_31",
+      "id": "sec_6",
       "title": "Lesson 6: On Sin And Its Kinds"
     },
     {
-      "id": "sec_32",
+      "id": "sec_7",
       "title": "Lesson 7: On The Incarnation And Redemption"
     },
     {
-      "id": "sec_33",
+      "id": "sec_8",
       "title": "Lesson 8: On Our Lord's Passion, Death, Resurrection, And Ascension"
     },
     {
-      "id": "sec_34",
+      "id": "sec_9",
       "title": "Lesson 9: On The Holy Ghost And His Descent Upon The Apostles"
     },
     {
-      "id": "sec_35",
+      "id": "sec_10",
       "title": "Lesson 10: On The Effects Of The Redemption"
     },
     {
-      "id": "sec_36",
+      "id": "sec_11",
       "title": "Lesson 11: On The Church"
     },
     {
-      "id": "sec_37",
+      "id": "sec_12",
       "title": "Lesson 12: On The Attributes And Marks Of The Church"
     },
     {
-      "id": "sec_38",
+      "id": "sec_13",
       "title": "Lesson 13: On The Sacraments In General"
     },
     {
-      "id": "sec_39",
+      "id": "sec_14",
       "title": "Lesson 14: On Baptism"
     },
     {
-      "id": "sec_40",
+      "id": "sec_15",
       "title": "Lesson 15: On Confirmation"
     },
     {
-      "id": "sec_41",
+      "id": "sec_16",
       "title": "Lesson 16: On The Gifts And Fruits Of The Holy Ghost"
     },
     {
-      "id": "sec_42",
+      "id": "sec_17",
       "title": "Lesson 17: On The Sacrament Of Penance"
     },
     {
-      "id": "sec_43",
+      "id": "sec_18",
       "title": "Lesson 18: On Contrition"
     },
     {
-      "id": "sec_44",
+      "id": "sec_19",
       "title": "Lesson 19: On Confession"
     },
     {
-      "id": "sec_45",
+      "id": "sec_20",
       "title": "Lesson 20: On The Manner Of Making A Good Confession"
     },
     {
-      "id": "sec_46",
+      "id": "sec_21",
       "title": "Lesson 21: On Indulgences"
     },
     {
-      "id": "sec_47",
+      "id": "sec_22",
       "title": "Lesson 22: On The Holy Eucharist"
     },
     {
-      "id": "sec_48",
+      "id": "sec_23",
       "title": "Lesson 23: On The End For Which The Holy Eucharist Was Instituted"
     },
     {
-      "id": "sec_49",
+      "id": "sec_24",
       "title": "Lesson 24: On The Sacrifice Of The Mass"
     },
     {
-      "id": "sec_50",
+      "id": "sec_25",
       "title": "Lesson 25: On Extreme Unction And Holy Orders"
     },
     {
-      "id": "sec_51",
+      "id": "sec_26",
       "title": "Lesson 26: On Matrimony"
     },
     {
-      "id": "sec_52",
+      "id": "sec_27",
       "title": "Lesson 27: On The Sacramentals"
     },
     {
-      "id": "sec_53",
+      "id": "sec_28",
       "title": "Lesson 28: On Prayer"
     },
     {
-      "id": "sec_54",
+      "id": "sec_29",
       "title": "Lesson 29: On The Commandments Of God"
     },
     {
-      "id": "sec_55",
+      "id": "sec_30",
       "title": "Lesson 30: On The First Commandment"
     },
     {
-      "id": "sec_56",
+      "id": "sec_31",
       "title": "Lesson 31: The First Commandment--on The Honor And Invocation Of Saints"
     },
     {
-      "id": "sec_57",
+      "id": "sec_32",
       "title": "Prayers"
     },
     {
-      "id": "sec_58",
+      "id": "sec_33",
       "title": "Lesson 32: From The Second To The Fourth Commandment"
     },
     {
-      "id": "sec_59",
+      "id": "sec_34",
       "title": "Lesson 33: From The Fourth To The Seventh Commandment"
     },
     {
-      "id": "sec_60",
+      "id": "sec_35",
       "title": "Lesson 34: From The Seventh To The End Of The Tenth Commandment"
     },
     {
-      "id": "sec_61",
+      "id": "sec_36",
       "title": "Lesson 35: On The First And Second Commandments Of The Church"
     },
     {
-      "id": "sec_62",
+      "id": "sec_37",
       "title": "Lesson 36: On The Third, Fourth, Fifth, And Sixth Commandments Of The Church"
     },
     {
-      "id": "sec_63",
+      "id": "sec_38",
       "title": "Lesson 37: On The Last Judgment And The Resurrection, Hell, Purgatory, And Heaven"
-    },
-    {
-      "id": "sec_64",
-      "title": "Lesson 1"
-    },
-    {
-      "id": "sec_65",
-      "title": "Lesson 2"
-    },
-    {
-      "id": "sec_66",
-      "title": "Lesson 3"
-    },
-    {
-      "id": "sec_67",
-      "title": "Lesson 4"
-    },
-    {
-      "id": "sec_68",
-      "title": "Lesson 5"
-    },
-    {
-      "id": "sec_69",
-      "title": "Lesson 6"
-    },
-    {
-      "id": "sec_70",
-      "title": "Lesson 7"
-    },
-    {
-      "id": "sec_71",
-      "title": "Lesson 8"
-    },
-    {
-      "id": "sec_72",
-      "title": "Lesson 9"
-    },
-    {
-      "id": "sec_73",
-      "title": "Lesson 10"
-    },
-    {
-      "id": "sec_74",
-      "title": "Lesson 11"
-    },
-    {
-      "id": "sec_75",
-      "title": "Lesson 12"
-    },
-    {
-      "id": "sec_76",
-      "title": "Lesson 13"
-    },
-    {
-      "id": "sec_77",
-      "title": "Lesson 14"
-    },
-    {
-      "id": "sec_78",
-      "title": "Lesson 15"
-    },
-    {
-      "id": "sec_79",
-      "title": "Lesson 16"
-    },
-    {
-      "id": "sec_80",
-      "title": "Lesson 17"
-    },
-    {
-      "id": "sec_81",
-      "title": "Lesson 18"
-    },
-    {
-      "id": "sec_82",
-      "title": "Lesson 19"
-    },
-    {
-      "id": "sec_83",
-      "title": "Lesson 20"
-    },
-    {
-      "id": "sec_84",
-      "title": "Lesson 21"
-    },
-    {
-      "id": "sec_85",
-      "title": "Lesson 22"
-    },
-    {
-      "id": "sec_86",
-      "title": "Lesson 23"
-    },
-    {
-      "id": "sec_87",
-      "title": "Lesson 24"
-    },
-    {
-      "id": "sec_88",
-      "title": "Lesson 25"
-    },
-    {
-      "id": "sec_89",
-      "title": "Lesson 26"
-    },
-    {
-      "id": "sec_90",
-      "title": "Lesson 27"
-    },
-    {
-      "id": "sec_91",
-      "title": "Lesson 28"
-    },
-    {
-      "id": "sec_92",
-      "title": "Lesson 29"
-    },
-    {
-      "id": "sec_93",
-      "title": "Lesson 30"
-    },
-    {
-      "id": "sec_94",
-      "title": "Lesson 31"
-    },
-    {
-      "id": "sec_95",
-      "title": "Lesson 32"
-    },
-    {
-      "id": "sec_96",
-      "title": "Lesson 33"
-    },
-    {
-      "id": "sec_97",
-      "title": "Lesson 34"
-    },
-    {
-      "id": "sec_98",
-      "title": "Lesson 35"
-    },
-    {
-      "id": "sec_99",
-      "title": "Lesson 36"
-    },
-    {
-      "id": "sec_100",
-      "title": "Lesson 37"
     }
   ],
   "sections": [
     {
       "id": "sec_1",
-      "title": "Prayers",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "The Lord's Prayer The Angelical Salutation The Apostles' Creed The Confiteor An Act of Faith An Act of Hope An Act of Love An Act of Contrition The Blessing before Meals Grace after Meals The Manner in Which a Lay Person Is to Baptize in Case of Necessity"
-        },
-        {
-          "type": "heading",
-          "text": "Catechism"
-        }
-      ]
-    },
-    {
-      "id": "sec_8",
-      "title": "Lesson 7--ON THE INCARNATION AND REDEMPTION",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "Lesson 8--On Our Lord's Passion, Death, Resurrection and Ascension Lesson 9--On the Holy Ghost and His Descent upon the Apostles"
-        }
-      ]
-    },
-    {
-      "id": "sec_10",
-      "title": "Lesson 11--ON THE CHURCH",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "Lesson 12--On the Attributes and Marks of the Church"
-        }
-      ]
-    },
-    {
-      "id": "sec_13",
-      "title": "Lesson 15--ON CONFIRMATION",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "Lesson 16--On the Gifts and Fruits of the Holy Ghost"
-        }
-      ]
-    },
-    {
-      "id": "sec_16",
-      "title": "Lesson 19--ON CONFESSION",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "Lesson 20--On the Manner of Making a Good Confession"
-        }
-      ]
-    },
-    {
-      "id": "sec_18",
-      "title": "Lesson 22--ON THE HOLY EUCHARIST",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "Lesson 23--On the Ends for which the Holy Eucharist Was Instituted"
-        }
-      ]
-    },
-    {
-      "id": "sec_25",
-      "title": "Lesson 30--ON THE FIRST COMMANDMENT",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "Lesson 31--The First Commandment--On the Honor and Invocation of the Saints Lesson 32--From the Second to the Fourth Commandment Lesson 33--From the Fourth to the Seventh Commandment Lesson 34--From the Seventh to the Tenth Commandment Lesson 35--On the First and Second Commandments of the Church Lesson 36--On the Third, Fourth, Fifth and Sixth Commandments of the Church Lesson 37--On the Last Judgment and Resurrection, Hell, Purgatory and Heaven"
-        },
-        {
-          "type": "heading",
-          "text": "Preface"
-        },
-        {
-          "type": "text",
-          "text": "It must be evident to all who have had experience in the work of our Sunday schools that much time is wasted in the classes. Many teachers do little more than mark the attendance and hear the lessons; this being done, time hangs heavily on their hands till the school is dismissed. They do not or cannot explain what they are teaching, and the children have no interest in the study. The Explanation of the Baltimore Catechism is intended for their use. The explanations are full and simple. The examples are taken from Holy Scripture, from the parables of Our Lord, from incidents in His life, and from the customs and manners of the people of His time. These are made applicable to our daily lives in reflections and exhortations. The plan of the book makes it very simple and handy. The Catechism is complete and distinct in itself, and may be used with or without the explanations. The teacher is supposed, after hearing the lesson, to read the explanation of the new lesson as far as time will allow. It may be read just as it is, or may be learned by the teacher and given to the children in substance. The Explanation of the Baltimore Catechism will be found very useful also for the instruction of adults and converts. The priest on the mission is often called upon to instruct persons who can come to him but seldom, and only for a short time; and who, moreover, are incapable of using with profit such books as The Faith of Our Fathers, Catholic Belief, or works of controversy. They are simply able to use the Child's Catechism when explained to them. If the Explanation of the Baltimore Catechism is in their hands, they may read the explanations and study the Catechism with pleasure. Indeed the book should do good in any Catholic family. The majority of our people are children as far as their religious knowledge goes. They may, it is true, have books on particular subjects, such as the Duties of Parents to Their Children, The Sure Way to a Happy Marriage, etc.; but a book that explains to them in the simplest manner all the truths of their religion, and applies the same to their daily lives, ought to be useful. The chief aim of the book is to be practical, and to teach Catholics what they should know, and how these truths of their Catechism are constantly coming up in the performance of their everyday duties. It is therefore neither a book of devotion nor of controversy, though it covers the ground of both. As in this book the explanations are interrupted by the questions and answers of the Catechism proper, it will, it is hoped, be read with more pleasure than a book giving solid page after page of instructions. Wherever a fact is mentioned as being taken from Holy Scripture, it will generally be given in substance and not in the exact text; though the reference will always be given, so that those wishing may read it as it is in the Holy Scripture. The children are not supposed to memorize the explanation as they do the Catechism itself, yet the teacher, having once read it to them, should ask questions on it. The book may be used as a textbook or catechism for the more advanced classes, and the complete list of numbered questions on the explanations--given at the end--will render it very serviceable for that purpose. As the same subject often occurs in different parts of the Catechism, explanations already given may sometimes be repeated. This is done either to show the connection between the different parts of the Catechism, or to impress the explanation more deeply on the minds of the children, or to save the teacher the trouble of always turning back to preceding explanations. The numbering of the questions and answers throughout the Catechism, and the complete index of subjects and list of questions at the end, will, it is hoped, make these comparisons and references easy, and the book itself useful. With the hope, then, that the Explanation of the Baltimore Catechism may do all the good intended, I commend it to all who desire a fuller knowledge of their holy religion that they may practice it more faithfully. Rev. Thomas L. Kinkead June 21, 1891, Feast of St. Aloysius An Explanation Of The Baltimore Catechism of Christian Doctrine Basic Catholic Prayers"
-        },
-        {
-          "type": "heading",
-          "text": "The Lord's Prayer"
-        },
-        {
-          "type": "text",
-          "text": "Our Father, Who art in Heaven, hallowed be Thy name. Thy kingdom come. Thy will be done on earth as it is in Heaven. Give us this day our daily bread. And forgive us our trespasses, as we forgive those who trespass against us. And lead us not into temptation, but deliver us from evil. Amen. This is the most beautiful and best of all prayers, because Our Lord Himself made it. (Matt. 6:9; Luke 11:2). One day when He was praying and explaining to His Apostles the great advantages of prayer, one of them said to Him: \"Lord, teach us to pray.\" Then Jesus taught them this prayer. It contains everything we need or could ask for. We cannot see its full meaning at once. The more we think over it, the more clearly we understand it. We could write whole pages on almost every word, and still not say all that could be said about this prayer. It is called \"the Lord's,\" because He made it, and sometimes the \"Our Father,\" from the first words. We say \"Our,\" to show that we are all brethren, and that God is the Father of us all, and therefore we pray not for ourselves alone but for all God's children. We say \"Father,\" because God really is our Father. We do not mean here by Father the First Person of the Blessed Trinity, but the Blessed Trinity itself--one God. What does a father do for his children? He gives them their natural existence, provides them with food and clothing, teaches, protects, and loves them, shares with them all that he has, and when he dies leaves them his possessions. Now, in all these ways, and in a much truer sense, God is our Father. He created us and gives us all that is necessary to sustain life. He gives light, heat, and air, without any one of which we could not live. He provides for us also food and clothing, and long before we need or even think of these things God is thinking of them. Did you ever reflect upon just how much time and trouble it costs to produce for you even one potato, of which you think so little? About two years before you need that potato, God puts it into the mind of the farmer to save the seed that he may plant it the following year. In the proper season he prepares the ground with great care and plants the seed. Then God sends His sunlight and rain to make it grow, but the farmer's work is not yet ended: he must continue to keep the soil in good condition and clear away the weeds. In due time the potato is taken from the ground, brought to the market, carried to your house, cooked and placed before you. You take it without even thinking, perhaps, of all this trouble, or thanking God for His goodness. This is only one article of food, and the same may be said of all the rest. Your clothing is provided for you long before you need it. The little lamb upon whose back the wool is growing, from which your coat is someday to be made, is even now far away on some mountain, growing stronger with the food God gives it till you need its wool. The little pieces of coal, too, that you so carelessly throw upon the fire were formed deep down in the earth hundreds of years ago. God produces all you use, because He foresees and knows you will use it. Moreover He protects us from danger; He teaches us by the voice of our conscience and the ministers of His Church, our priests and bishops. He loves us too, as we may learn from all that He does for us, and from the many times He forgives us our sins. He shares what He possesses with us. He has given us understanding and a free will resembling His own. He has given us immortality, i.e., when once He has created us, we shall exist as long as Himself--that is, forever. When Our Lord died on the Cross, He left us His many possessions--His graces and merits, the holy Sacraments, and Heaven itself. It is surely, then, just and right to call God Father. Our natural fathers give us only what they, themselves, get from God. So even what they give us also comes from Him. Before the time of Our Lord, the people in prayer did not call God Father. They feared Him more than they loved Him. When He spoke to them--as He did when He gave the Commandments to Moses--it was in thunder, lightning, and smoke. (Ex. 19). They looked upon God as a great and terrible king who would destroy them for their sins. He sent the deluge on account of sin, and He destroyed the wicked city of Sodom with fire from Heaven. (Gen. 7:19). They called Him Jehovah, and were afraid sometimes even to pronounce His name. But Our Lord taught that God, besides being a great and powerful king--the Ruler of the universe and Lord of all things--is also a kind and good Father, who wishes His children not to offend Him because they love Him rather than because they fear Him, and therefore He taught His disciples and all Christians to call God by the sweet name of Father. \"Who art in Heaven.\" The Catechism says God is everywhere. Why then do we say, \"Who art in Heaven,\" as if He were no place else? We say so to remind us, first, that Heaven is our true home, and that this world is only a strange land in which we are staying for a while to do the work that God wishes us to do here, and then return to our own home; second, that in Heaven we shall see God face to face and as He is; third, that Heaven is the place where God will be for all eternity with the blessed. \"Hallowed\" means made holy or sacred. Halloween is the name given to the evening before the feast of All Hallows or All Saints. \"Thy kingdom come.\" This petition contains a great deal more than we at first see in it. In it we ask that God may reign in our hearts and in the hearts of all men by His grace in this life, and that we and all men may attain our eternal salvation, and thus be brought to reign forever with God in Heaven--the kingdom of His glory. As the Church on earth is frequently called the kingdom of Christ, and as all the labors of the Church are directed to the salvation of souls, we pray also in this petition that the Church may be extended upon earth, that the true religion may be spread over the whole world, that all men may know and serve the true God and cheerfully obey His holy laws; that the devil may have no dominion over them. While saying this petition we may have it in our minds to pray even for particular ways in which the true religion can be spread; for example, by praying that the missionaries may meet with success and all the missions prosper; that priests and bishops may be ordained to preach the Gospel; that the Church may overcome all her enemies everywhere, and the true religion triumph. \"Thy will be done on earth as it is in Heaven.\" In Heaven all the angels and saints obey God perfectly; they never offend Him; so we pray that it may be on earth as it is in Heaven, all men doing God's will, observing His laws and the laws of His Church, and living without sin. \"Give us this day our daily bread.\" In this petition \"bread\" means not merely bread, but everything we need for our daily lives; such as food, clothing, light, heat, air, and the like; also food for the soul, i.e., grace. If a beggar told you that he had not tasted bread for the whole day, you would never think of asking him if he had eaten any cake, because you would understand by his word bread all kinds of food. We say \"daily,\" to teach us not to be greedy or too careful about ourselves, and not to ask for unnecessary things, but to pray for what we need for our present wants. \"And forgive us our trespasses as we forgive those who trespass against us.\" \"Trespasses\" means here our sins, our offenses against God. When we trespass we enter places we should not, or where we are forbidden to go. So when we sin we go where we should not go, viz., out of the path of virtue that leads to God, and into the way of vice that leads to the devil. \"As we forgive them.\" We take this to mean: we forgive others who have offended us, and for that reason, God, You should forgive us who have offended You. Our Lord told a beautiful parable, i.e., a story by way of illustration, to explain this. (Matt. 18:23). A very rich man had a servant who owed him a large sum of money. One day the master asked the servant for the money, and the poor servant had none to give. Now the law of the country was, that when anyone could not pay his debts, all that he had could be sold and the money given to the one to whom it was due, and if that was not sufficient, he and his wife and his children could be sold as slaves. The servant, knowing this, fell on his knees and begged his master to be patient with him, and to give him time and he would pay all. Then his master was moved to pity, granted not only what he asked, but freed him from the debt altogether. Afterwards when this servant, who had just been forgiven the large sum, was going out, he found one of his fellow servants who owed him a very small sum of money, and taking hold of him by the throat, demanded payment. Now, this poor servant, having nothing to give just then, implored his assailant to be patient with him and he would pay all. But the hard-hearted servant--though he himself had a little while before asked and obtained the very same favor from his own master--would not listen to the request or wait longer, but went and had his fellow servant cast into prison till he should pay the debt. The other servants, seeing how unforgiving this man was who had himself been forgiven, went and told all to their master, and he, being angry at such conduct, had the unforgiving servant brought back and cast into prison. \"And lead us not into temptation.\" \"Temptation\" means a trial to see whether we will do a thing or not. Here it means a trial made by some person or thing--the devil, the world, or our own flesh--to see whether we will sin or not. God does not exactly lead us into temptation; but He allows us to fall into it. He allows others to tempt us. We can overcome any temptation to sin by the help or grace that God gives us. Therefore we ask in this petition that God will always give us the grace to overcome the temptation, and that we may not consent to it. A temptation is not a sin. It becomes sin only when we are overcome by it. When we are tempted we are like soldiers fighting a battle: if the soldiers are conquered by their enemy, they are disgraced; but if they conquer their enemy, they have great glory and great rewards. So, when we overcome temptations, God gives us a new glory and reward for every victory. \"Deliver us from evil.\" From every kind of evil, and especially the evil of being conquered by our spiritual enemies, and thus falling into sin, and offending God by becoming His enemy ourselves. It would be a sin to seek temptation, though we have a reward for resisting it when it comes. \"Amen\" means, be it so. May all we have asked be granted just as we have asked it."
-        },
-        {
-          "type": "heading",
-          "text": "The Angelical Salutation"
-        },
-        {
-          "type": "text",
-          "text": "Hail, Mary, full of grace! the Lord is with thee: blessed art thou amongst women, and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen. Next in beauty to the Lord's Prayer comes this prayer. It is made up of three parts: \"Hail, full of grace! the Lord is with thee: blessed art thou amongst women\" was composed by the angel Gabriel, for these are the words he used when he came to tell the Blessed Virgin that she was selected to be the Mother of God (Luke 1:28). All her people knew that the Redeemer promised from the time of Eve down to the time of the Blessed Virgin was now to be born, and many good women were anxious to be His mother, and they believed the one who would be selected the most blessed and happy of all women. \"The Lord is with thee\" by His grace and favor, since you are the one He loves best. He is with all His creatures, but He is with you in a very special manner. After the visit of the angel, the Blessed Virgin went a good distance to visit her cousin, St. Elizabeth, who was the mother of St. John the Baptist (Luke 1:39). When St. Elizabeth saw her, she, without being told by the Blessed Virgin what the angel had done, knew by the inspiration of the Holy Ghost what had taken place, and said to the Blessed Virgin: \"Blessed art thou amongst women and blessed is the fruit of thy womb.\" That is \"blessed\" because, of all the women that have ever lived or ever shall live, you are the one selected by God to be the mother of His Son and Our Redeemer, and blessed is that Son Himself. This is the second part of the prayer. The third part, from \"Holy Mary\" to the end, was composed by the Church. \"Hail.\" This was the word used by the people of that country in saluting one another when they met. We say when meeting anyone we know, \"Good day,\" or \"How do you do?\" or some such familiar expression used by all in salutation. So these people, instead of saying, \"Good day,\" etc., said \"Hail\" i.e., I wish you health, I greet you, etc. The angel did not say \"Mary,\" because she was the only one present to address. \"Full of grace.\" When anything is full it has no room for more. God's grace and sin cannot exist in the same place. Therefore when the Blessed Virgin was full of grace, there was no room for sin. So she was without any sin and gifted with every virtue. \"Holy Mary,\" because one full of grace must be holy. \"Mother of God,\" because her Son was true God and true man in the one person of Christ, Our Lord. \"Pray for us,\" because she has more power with her Son than all the other saints. \"Sinners,\" and therefore we need forgiveness. \"At the hour of our death\" especially, because that is the most important time for us. No matter how bad we have been during our lives, if God gives us the grace to die in His friendship, we shall be His friends forever. On the other hand, no matter how good we may have been for a part of our lives, if we become bad before death, and die in that state, we shall be separated from God forever, and be condemned to eternal punishment. It would be wrong, therefore, to live in sin, with a promise that we shall die well, for God may not give us the grace or opportunity to repent, and we may die in sin if we have lived in sin. Besides this, the devil knows how much depends upon the state in which we die, and so he perhaps will tempt us more at death than at any other time; for if we yield to him and die in sin, we shall be with him forever--it is his last chance to secure our souls. Besides the Hail Mary there is another beautiful prayer on the same subject, called the Angelus. It is a little history of the Incarnation, and is said morning, noon, and evening in honor of Our Lord's Incarnation, death, and resurrection. It is made up of three parts. The first part tells what the angel did, viz.: \"The angel of the Lord declared unto Mary. And she conceived of the Holy Ghost.\" After saying these words, we say one Hail Mary in honor of the angel's message. The second part tells what Mary answered, viz.: \"Behold the handmaid of the Lord. Be it done unto me according to thy word.\" We say another Hail Mary in honor of Mary's consent. The third part tells how Our Lord became Man, viz.: \"And the Word was made flesh. And dwelt among us.\" The \"Word\" means here the Second Person of the Blessed Trinity; and \"made flesh\" means, became man. Then another Hail Mary is said in honor of Our Lord's goodness in humbling Himself so much for our sake. After these three parts we say: \"Pray for us, O Holy Mother of God! that we may be made worthy of the promises of Christ\"; and, finally, we say a prayer in honor of Our Lord's Incarnation, Passion, and Resurrection. This beautiful prayer is said three times a day in all seminaries, convents, and religious houses. The time for saying it is made known by the ringing of a bell called the \"Angelus bell.\" In many parishes the church bell rings out the Angelus. In Catholic countries the people stop wherever they are and whatever they are doing, and bowing their heads, say the Angelus when they hear its bell. It is a beautiful practice and one most pleasing to our Blessed Lord and His holy Mother. Good Catholics should not neglect it. I might mention here another kind of prayer often said in honor of our blessed Mother. It is the Litany. In this form of prayer we call Our Lady many beautiful names which we know are most dear to her, asking her after each one to pray for us. We address her first by names reminding her that she is the Mother of God and has therefore great influence with her divine Son. We say: Mother of Christ, Mother of Our Creator, Mother of Our Redeemer, etc., pray for us. Next we remind her that she is a virgin and should take pity on us who are exposed to so many temptations against holy purity. We call her virgin most pure, virgin most chaste, etc., and again ask her to pray for us. Lastly we call her all those names that could induce her to hear us. We say: health of the weak, refuge of sinners, help of Christians, pray for us. In addition to the Litany of the Blessed Virgin, we have the Litany of the Holy Name of Jesus, the Litany of the Blessed Sacrament, the Litany of the Sacred Heart, the Litany of St. Joseph, and many others--all made up in the same form. We have also the Litany of all the Saints, in which we beg the help and prayers of the different classes of saints--the Apostles, martyrs, virgins, etc."
-        },
-        {
-          "type": "heading",
-          "text": "The Apostles' Creed"
-        },
-        {
-          "type": "text",
-          "text": "I believe in God, the Father Almighty, Creator of Heaven and earth; and in Jesus Christ, His only Son, Our Lord, Who was conceived by the Holy Ghost, born of the Virgin Mary, suffered under Pontius Pilate, was crucified; died, and was buried. He descended into Hell; the third day He arose again from the dead; He ascended into Heaven, sitteth at the right hand of God, the Father Almighty; from thence He shall come to judge the living and the dead. I believe in the Holy Ghost, the holy Catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and the life everlasting. Amen. A creed is a definite list or summary of all the things one believes. The \"Apostles' Creed\" is therefore a list or collection of all the truths the Apostles believed. The \"Apostles\" were the twelve men that Our Lord selected to be His first bishops. We know they were bishops because they could ordain priests and consecrate other bishops. They lived with Our Lord like a little family during the three and a half years of His public life; they went with Him and learned from Him wherever He preached. Besides these He had also His disciples, i.e., followers who went with Him frequently but did not live with Him. Our Lord wished His doctrine to be taught to all the people of the world, and so He told His Apostles that they must go over the whole world and preach in every country. During the life of Our Lord and for a short time after His death they preached in only one country, viz., Palestine--now called the Holy Land--in which country the Jews, up to that time God's chosen people, lived. Since the Apostles were to preach to all nations, the time came when they must separate, one going to one country, and another to another. In those days there were no steamboats or railroads, no post offices, telegraph offices, telephones, or newspapers. If the Apostles wished to communicate with anyone they had either to go to the place themselves or send a messenger. By walking or riding it might have taken them months or years in those days to make a journey that we can make now in a few days; and for an answer to a message which we can get now by telegraph in a few hours they might have had to wait months. The Apostles knew of all these inconveniences, and before leaving the places they were in pointed out the chief truths that all should know and believe before receiving Baptism, that Christian teachers who should come after them might neglect nothing--just as we use catechisms containing the truths of religion, for fear the teachers might forget to speak of some of them. There are \"twelve articles\" or parts in the Apostles' Creed, and each part is meant to refute some false doctrine taught before the time of the Apostles or while they lived. Thus there were those--as the Romans--who said there were many gods; others said not God, but the devil created the earth; others taught that Our Lord was not the Son of God: and so on for the rest. All these false doctrines are denied and the truth professed when we say the Apostles' Creed. Just as in the Lord's Prayer we do not see all its meaning at first, so in the Apostles' Creed we find many beautiful things only after thinking carefully over every word it contains. \"I believe,\" without the slightest doubt or suspicion that I might be wrong. \"In God\" by the grace that He gives me to believe and have full confidence in Him. \"God,\" to show that there is only one. \"The Father,\" because He brought everything into existence and keeps it so (see Explanation of the Lord's Prayer). \"Almighty,\" i.e., having all might or power; because He can do whatever He wishes. He can make or destroy by merely wishing. \"Creator.\" To create means to make out of nothing. God alone can create. When a carpenter makes a table, he must have wood; when a tailor makes a coat, he must have cloth. They are only makers and not creators. God needs no material or tools. When we make anything, we make it part by part; but God makes the whole at once. He simply wills and it is made. Thus He said in the beginning of the world: \"Let there be light; and light was made.\" For example, suppose I wanted a piano. If I could say, \"Let there be a piano\" and it immediately sprang up without any other effort on my part, although neither the wood, the iron, the wire, the ivory, nor anything else in it ever existed till I said, \"Let there be a piano,\" then it could be said I created a piano. No one could do this, for God alone has such power. \"Heaven and earth\" and everything we can see or know of. \"Jesus Christ.\" Our Lord is called by many names, but you must not be confused by them, for they all mean the same person, and are given only to remind us of some particular thing connected with Our Lord. He is called \"Jesus,\" which signifies Saviour, and \"Christ,\" which means anointed. He is called the \"Second Person of the Blessed Trinity,\" and when we call Him \"Our Lord,\" we mean the Second Person of the Blessed Trinity after He became man. He is called the \"Messias\" and the \"Son of David\" to show that He is the Redeemer promised to the Jews. Also at the end of all our litanies He is called the \"Lamb of God,\" because He was so meek and humble and suffered death so patiently. In the Litany of the Holy Name of Jesus we will find many other beautiful names of Our Lord, all having their special signification. \"His only Son,\" to show that God, the First Person of the Blessed Trinity, was His real Father. We are called God's children, but we are only His created and adopted children. \"Who was conceived,\" i.e., He began to exist by the power of the Holy Ghost in the womb of His Mother, the Blessed Virgin. \"Suffered.\" We shall see in the explanation of the Passion what He suffered. \"Under\" means here, at the time a man named Pontius Pilate was governor. If anyone were put to death today in this country, we should say he was executed under Governor or President so-and-so. \"Crucified,\" i.e., nailed to a cross. We say \"died,\" because Our Lord is the Giver of Life, and no one could take His life away unless He allowed it. Therefore we say He died, and not that He was killed, to show that He died by His own free will and not against His will. \"Was buried.\" This we say to show that He was really dead; because if you bury a man who is not really dead he must die. \"Hell\" here does not mean the place where the damned are, but a place called \"Limbo.\" You know that when our first parents sinned, Heaven was closed against them and us, and no human being could be admitted into it till after the death of Our Lord; for He by His death would redeem us--make amends for our fall and once more open for us Heaven. Now from the time Adam sinned till the time Christ died is about four thousand years. During that time there were at least some good men, like Abraham, Isaac, Jacob, Moses, David, and others, in the world, who tried to serve God as best they could--keeping all the divine laws known to them, and believing that the Messias would some day come to redeem them. When, therefore, they died they could not go to Heaven, because it was closed against them. They could not go to Hell, because they were good men. Neither could they go to Purgatory, because they would have to suffer there. Where could they go? God in His goodness provided a place for them--Limbo--where they could stay without suffering till Our Lord reopened Heaven. Therefore, while Our Lord's body lay in the sepulchre, His soul went down into Limbo, to tell these good men that Heaven was now opened for them, and that at His Ascension He would take them there with Him. \"The third day.\" Not three full days, but the parts of three days, viz., Friday afternoon, Saturday, and Sunday morning. \"He arose\" by His own power: and this was the greatest of all Our Lord's miracles. Some others, like the prophets and Apostles, have, by the power God gave them, raised the dead to life; but no dead person ever raised himself. Our Lord is the first and only one to do this, and by so doing, showed they could not take away His life unless He wished to give it up; for since He could always take back His life, how could they destroy it? \"He ascended\" forty days after His Resurrection. \"Right hand of God.\" We know God is a pure spirit having no body; and if He has no body He can have no hands. Why then do we say right hand? When the President of the United States invites anyone to dine at his house, he makes the invited guest sit at his right hand, and thus shows his respect by giving him the place of highest honor. When Our Lord ascended into Heaven, He went up in the human body He had upon earth, and His Father placed Him as man, in His glorified body, in the place, after His (the Father's) own, the highest in Heaven; but remember, only as man, because as God He is equal to His Father in all things. \"From thence\"--that is, from the right hand of God. \"To judge.\" To examine them, to pronounce sentence upon them; to reward them in Heaven or punish them in Hell. \"The living and the dead.\" We may take this in a double sense. As the general judgment will come suddenly and when not expected, all will be going on in the world as usual--some attending to business, others taking their ease as they do now, or as they were doing when the deluge came upon them. Just when the judgment is about to take place, God will destroy the earth; and then all those living in the world will perish with its destruction and then be judged. The \"dead\" means, therefore, all those who died before the destruction of the world, and the \"living\" all those who were on earth when the time of its destruction came. Or the \"living\" may mean also those in a state of grace, and the \"dead\" those in mortal sin; for God will judge both classes. \"Holy Ghost,\" i.e., the Third Person of the Blessed Trinity. Ghost is an old word meaning spirit. When persons say that a ghost appeared, they mean that the spirit of some dead person appeared. These stories about ghosts are told generally to frighten children or timid persons. If those who thought they saw a ghost always examined what they saw, they would find that the supposed ghost was something very natural; probably a bush swayed by the wind, or a stray animal, or perhaps some person trying to frighten them. Ghost here does not mean the spirit of a dead person, but the Holy Spirit, which is the proper name for the Third Person of the Blessed Trinity. \"The communion of saints.\" There are three parts in the Church. We have, first, the Church Militant, i.e., the fighting Church, made up of all the faithful upon earth, who are still fighting for their salvation. The Holy Scripture tells us our life upon earth is a warfare. We have three enemies to fight. First, the devil, who by every means wishes to keep us out of Heaven--the place he once enjoyed himself. The devil knows well the happiness of Heaven, and does not wish us to have what he cannot have himself; just as you sometimes see persons who, through their own fault, have lost their situation trying to keep others out of it. Our second enemy is the world. This does not mean the earth with all its beauty and riches, but the bad people in the world with their false doctrines; some telling us there is no God, Heaven, or Hell, others that we should pay no attention to the teaching of the Church or the laws of God, and advising us by word and example to resist our lawful superiors in Church or State and give free indulgence to our sinful passions. The third enemy is our own flesh. By this we mean our concupiscence, that is, our passions, evil inclinations, and propensity to do wrong. When God first created man, the soul was always master over the body, and the body obedient to the soul. After Adam sinned, the body rebelled against the soul and tried to lead it into sin. The body is the part of our nature that makes us like the brute animals, while the soul makes us like to God and the angels. When we sin, it is generally to satisfy the body craving for what it has not, or for that which is forbidden. Why did God leave this concupiscence in us? He left it, first, to keep us humble, by reminding us of our former sins, and, secondly, that we might overcome it and have a reward for the victory. The second branch of the Church is called the Church Suffering. It is made up of all those who have gone through this world and are now in Purgatory. Some of them while on earth fought well, but not as well as they could have done; they yielded to some temptations, fell into some small sins, received some slight wounds from their spiritual enemies, or they have not satisfied God entirely for the temporal guilt due to their great sins; therefore they are in Purgatory till they can be completely purified from all their sins and admitted into Heaven. The last or third branch of the Church is called the Church Triumphant, and is made up of the angels and all those who have lived at one time upon earth and who are now in Heaven with God, enjoying their rewards for overcoming their spiritual enemies and serving God while upon earth. They are triumphant or rejoicing because they have reached their heavenly home. You must not think that those only are saints who have been canonized by the Church and whose names are known to us; for all in Heaven are saints, as we also shall be if admitted into that happy eternity. God wishes all to be saints, for He wishes all to be saved. You know we can pray to the saints and ask their help and prayers; but how could we know that certain men or women are really in Heaven? We can know it when the Church canonizes them, and thus gives proof that they were great spiritual heroes in the service of God and can be more confidently appealed to on account of their eminent sanctity and powerful intercession. Therefore the Church by canonization tells us for certain that such and such persons are truly in Heaven. But might not the Church be deceived like ourselves? No! for Christ has promised to be always with His Church, and the Holy Ghost is ever directing her, so that she cannot err in faith or morals. If the Church made us pray to persons who are not saints, she would fall into the worst of errors, and Our Lord would have failed to keep His promise--a saying that would be blasphemous, for Christ, being God, is infinitely true and could not deceive or be deceived. To canonize, therefore, does not mean to make a saint, but to declare to the whole world that such a one was a saint while upon earth. After death we cannot merit, so our reward in Heaven will be just what we have secured up till the moment of our death; hence holiness is acquired in the Church Militant. How does the Church canonize a saint? Let us suppose some good man dies, and all his neighbors talk about his holy fife, how much he did for the poor, how he prayed, fasted, and mortified himself. All these accounts of his life are collected and sent to Rome, to the Holy Father or to the cardinals appointed by him to examine such statements. These accounts must show that the good man practiced virtue in a more than ordinary manner, that he either performed some miracles while he lived, or that God granted miracles after his death through his intercession. These accounts are not examined immediately after his death, but sometimes after a lapse of fifty years or more, so that people might not exaggerate his good works because they knew him personally. When these accounts are examined, one is appointed to prevent, if he can, the canonization. He is sometimes called the devil's advocate, because it is his business to find fault with all the accounts and miracles, and prove them false if possible. This is done to make certain that all the accounts are true and the miracles real. If everything is found as represented, then the good man is declared venerable, later beatified, i.e., called blessed, and still later canonized, i.e., declared a saint. If he is only beatified, he can be honored publicly only in certain places or by certain persons; but if he is canonized, he can be honored throughout the whole Church by all the faithful. Thus we understand the three branches of the one true Church--the Church Militant, i.e., all those who are on earth trying to save their souls; the Church Suffering, those in Purgatory, having their souls purified for Heaven; and the Church Triumphant, those already in Heaven. The \"communion of saints\" means that these three branches of the Church can help one another. We help the souls in Purgatory by our prayers and good works, and the saints in Heaven pray for us. But \"communion of saints\" means still more. Let us take an example. Suppose there are in a family, living together, a mother and three sons. The eldest son earns a large salary, the second son enough to support himself, and the youngest very little. They give their earnings to their mother, who from the combined amounts provides for the wants of all and draws from the large salary of the eldest to supply the needs of the youngest. Thus he who has too little for his support is--through his mother--aided by the one who has more than he needs. Now, the Church is our mother, and some of her children--the great saints--were rich in good works and did more than was necessary to gain Heaven, while others did not do enough. Then our mother, the Church, draws from the abundant satisfaction of her rich children to help those who are poor in merit and good works. The greatest treasure she has to draw from for that purpose is the more than abundant merits of Our Lord and the superabundant satisfaction of the Blessed Virgin and the greatest saints. Our Lord could have redeemed us all by the least suffering, and yet He suffered dreadful torments, and even shed His blood and died for us. The Blessed Virgin never sinned, yet she performed many good works and offered many prayers. Therefore \"communion of saints\" means, also, that we all share in the merits of Christ and in the superabundant satisfaction of the Blessed Virgin and of the saints; also in the prayers and good works of the Church and of her faithful and pious children. \"The forgiveness of sins,\" i.e., by the Sacrament of Penance, through the power that God gave His priests; also by Baptism. \"The resurrection of the body,\" i.e., on the last day (Matt. 24:29; Luke 21:25). When on the last day, at the general judgment, God's angel sounds the great trumpet, all the dead will arise again and come to judgment, in the same bodies they had while living. But you will say: If their bodies are reduced to ashes and mixed with the earth, or if parts of them are in one place and parts in another, how is this possible? Very easily, with God. If He in the beginning could make all the parts out of nothing, with how much ease can He collect them scattered here and there! When God made man He gave him a body and a soul, and wished them never to be separated. Man was to live here upon earth for a time, and then be taken up into Heaven, body and soul, as Our Lord is there now. But when man sinned, in punishment God commanded that he should die; i.e., that these two dear friends, the body and the soul, should be separated for a time. Death is caused by the separation of the soul from the body. The body and soul together make a man, and neither one alone can be called a man. A dead body is only part of a man. At the resurrection every soul will come from Heaven, Purgatory, or Hell, to seek its own body; they will then be united again as they were in life, never to be separated--to be happy together in Heaven if they have been good upon earth, or miserable together in Hell if they have been bad upon earth. \"Life everlasting\"--either, as we have said, in Heaven or Hell. There was a time when we did not exist but it can never be said of us again we do not exist. When once we have been created, we shall live as long as God Himself, i.e., forever. When we have lived a thousand years for every drop of water in the ocean; a thousand years for every grain of sand on the seashore; a thousand years for every blade of grass and every leaf on the earth, we shall still be existing. How short a time, therefore, is a hundred years even if we live so long--and few do--compared with all these millions of years! And yet it depends upon the time we live here whether all these millions of years in the next world will be for us years of happiness or of misery. The whole life of a man extends through the two worlds, viz., from the moment of his creation through all eternity; and surely the little while he stays upon earth must seem very short when, after spending a million of years in the next world, he looks back to his earthly life. There is a good example to illustrate this. If you stand on a railroad, and look away down the track for about a mile, it will seem to you that the rails come nearer and nearer, till at last they touch. It seems so on account of the distance, for where they seem to touch they are just as far apart as where you are standing. So, also, when you look back from eternity, the day of your birth and the day of your death will seem to coincide, and your life on earth appear nothing. Then, if you are among the lost souls you will think, What a fool I was to make myself suffer all this long eternity for that silly bit of earthly pleasure, which is of no benefit to me now! And this thought will serve only to make you more miserable. But, on the other hand, if you look back from a happy eternity, you will wonder at God's goodness in giving you so much happiness for so short a service upon earth."
-        },
-        {
-          "type": "heading",
-          "text": "The Confiteor"
-        },
-        {
-          "type": "text",
-          "text": "I confess to Almighty God, to blessed Mary ever Virgin, to blessed Michael the Archangel, to blessed John the Baptist, to the holy Apostles Peter and Paul, and to all the saints, that I have sinned exceedingly, in thought, word, and deed, through my fault, through my fault, through my most grievous fault. Therefore I beseech blessed Mary ever Virgin, blessed Michael the Archangel, blessed John the Baptist, the holy Apostles Peter and Paul, and all the saints, to pray to the Lord our God for me. May the Almighty God have mercy on me, forgive me my sins, and bring me to everlasting life. Amen. May the Almighty and merciful Lord grant me pardon, absolution, and remission of all my sins. Amen. This is another beautiful prayer. In it we can imagine that we are permitted to enter Heaven. What do we see there? God, the Blessed Virgin, the thousands of angels, the Apostles, all the saints, martyrs, confessors, doctors and virgins. They cease singing God's praises, as we enter, and fix their eyes upon us. Our guardian angel conducts us before the great throne of God, and we kneel down in the presence of the whole court of Heaven, to acknowledge our sins and faults, while all listen attentively. Touched by so sublime a sight and the thought of having offended a God of so much glory, we begin our accusation of ourselves. We fix our eyes first upon God, and say: \"I confess,\" i.e., accuse myself, \"to Almighty God.\" Then we look upon the rest of the blessed, and say: \"to the Blessed Mary ever Virgin,\" etc. Thus we call the whole court of Heaven to be a witness of the fact that we \"have sinned,\" not lightly, but \"exceedingly,\" i.e., very greatly, and in three ways: \"in thought,\" by thinking of things sinful and forbidden; \"in word,\" by lies, curses, slanders, etc.; \"in deed,\" by every bad action that we have committed; and each of us can say: I have done all this \"through my fault,\" i.e., willingly and deliberately; and it was not a small fault, but an exceeding great fault, because God was helping me by His grace to overcome temptations and avoid bad thoughts, words, and actions, and I would not accept His help, but willingly did what was wrong. What am I to do, therefore? Will God pardon all these offenses if I alone ask Him, seeing that all the angels and saints know that I have thus offended Him? What shall I do? I will ask them to help me by their prayers, and to beg God's pardon for me. He may grant their prayers, especially those of the Blessed Mother and of the saints, when He would not grant mine. \"Therefore I beseech the Blessed Mary ever Virgin,\" etc., \"to pray to the Lord our God for me.\" When we kneel down to say the Confiteor, if we could imagine what I have just described to take place, how well we should say it! With what attention, respect, and sorrow we should ask the prayers of the saints! When we say the Confiteor, and indeed any prayer, we say it in the presence of God, and of the whole court of Heaven, though we are not in Heaven and cannot see God. The angels and saints do hear us and will pray for us. When, therefore, you are saying the Confiteor, imagine that you see all I have described, and you will never say it badly."
-        },
-        {
-          "type": "heading",
-          "text": "An Act Of Faith"
-        },
-        {
-          "type": "text",
-          "text": "O my God! I firmly believe that Thou art one God in three divine persons, Father, Son and Holy Ghost; I believe that Thy divine Son became man, and died for our sins, and that He will come to judge the living and the dead. I believe these and all the truths which the Holy Catholic Church teaches, because Thou hast revealed them, Who canst neither deceive nor be deceived. An \"act,\" i.e., a profession, of faith. The whole substance of the act of faith is contained in this: I believe all that God has revealed and the Catholic Church teaches. We might mention one by one all the truths God has revealed, i.e., made known to us, and all the truths the Catholic Church teaches as revealed by God. For example, we might say, I believe in the Holy Trinity, in the Incarnation of Our Lord in the Holy Eucharist, in the Immaculate Conception of the Blessed Virgin, in the infallibility of the Pope, and so on, till we write an act of faith twenty pages long, and yet it would all be contained in the words: I believe all God has revealed and the Catholic Church teaches. Hence we find in prayerbooks and catechisms acts of faith differing in length and words, but they are all the same in substance and have the same meaning. The act of faith in our Catechism gives a few of the chief truths revealed, that it may be neither too short nor too long, and that all may learn the same words."
-        },
-        {
-          "type": "heading",
-          "text": "An Act Of Hope"
-        },
-        {
-          "type": "text",
-          "text": "O my God! relying on Thy almighty power and infinite goodness and promises, I hope to obtain pardon of my sins, the help of Thy grace, and life everlasting, through the merits of Jesus Christ, my Lord and Redeemer. The substance of this act is: I hope for Heaven and the means to obtain it. The means by which I will obtain it are the pardon of my sins by God, and the grace which He will give me in the reception of the Sacraments and in prayer, by which grace I will be able to know Him, love Him, and serve Him, and thus come to be with Him forever. Here again we could make a long act by mentioning all the things we hope for; viz., a good death, a favorable judgment, a place in Heaven, etc."
-        },
-        {
-          "type": "heading",
-          "text": "An Act Of Love"
-        },
-        {
-          "type": "text",
-          "text": "O my God! I love Thee above all things, with my whole heart and soul because Thou art all-good and worthy of all love. I love my neighbor as myself for the love of Thee. I forgive all who have injured me, and ask pardon of all whom I have injured. The substance of this act is: I love God above all things for His own goodness, and my neighbor as myself for the sake of God. An act of love and an act of charity are the same thing with different names. We are accustomed to call such things as the giving of alms or help to the poor, the doing of some good work that we are not bound to do for another, charity. Surely there are many motives that may induce persons to help others in their distress; but what is the chief Christian motive, if it be not the love we bear our brother-man because he is, like ourselves, a child of God, and the desire we have to obey God, who wishes us to help the needy? The sufferings of others excite our pity, and the more we love them the more sorry are we to see them suffer. Thanks to God for all His mercies to us; He might have made us, instead of this man, poor and in suffering, but He has spared us and afflicted him; we know not why God has done so, and therefore we help him, moved by these considerations even when we feel he is not deserving of the help, because we know his unworthiness will not prevent God from rewarding our good intention. We may be charitable to our neighbor by saying nothing hurtful about him, by never telling his faults without necessity, etc. Therefore real charity, in its widest sense, and love are just the same."
-        },
-        {
-          "type": "heading",
-          "text": "An Act Of Contrition"
-        },
-        {
-          "type": "text",
-          "text": "O my God! I am heartily sorry for having offended Thee, and I detest all my sins, because I dread the loss of Heaven and the pains of Hell, but most of all because they offend Thee, my God, Who art all-good and deserving of all my love. I firmly resolve, with the help of Thy grace, to confess my sins, to do penance, and to amend my life. The substance of this act is: O my God! I am very sorry for all my sins, because by them I have offended Thee, and with Thy help, I will never sin again. It is well to know what the acts contain in substance, for we can use these short forms as aspirations during the day, when we probably would not think of saying the long forms. A fuller explanation of the qualities of our contrition will be given in Lesson Eighteen."
-        },
-        {
-          "type": "heading",
-          "text": "The Blessing Before Meals"
-        },
-        {
-          "type": "text",
-          "text": "Bless us, O Lord, and these Thy gifts which we are to receive from Thy bounty, through Christ our lord. Amen."
-        },
-        {
-          "type": "heading",
-          "text": "Grace After Meals"
-        },
-        {
-          "type": "text",
-          "text": "We give Thee thanks for all Thy benefits, O Almighty God, Who livest and reignest forever. And may the souls of the faithful departed, through the mercy of God, rest in peace. Amen. \"Grace\" means thanks. We saw in the explanation of the Our Father how God provides us with all we need, and most frequently with food. It is the least we can do, therefore, to thank Him for it, when it is just placed before us. We should thank Him also after we have eaten it and found it good, pleasing, and refreshing. When God provides us with food He thereby makes a kind of promise that He will allow us to live awhile longer and give us strength to serve Him. How shameful it is, then, to turn God's gifts into a means of offending Him, as some do by the sin of gluttony! Again, it is very wrong to murmur and be dissatisfied with what God gives us. He does not owe us anything, and need not give unless He wishes. What would you think of a beggar of this kind? He comes to your door hungry, and you, instead of simply giving him some bread to appease his hunger, take him into your house and give him a good dinner, new clothing, and some money. Now, instead of being thankful, suppose he should complain because you did not give him a better dinner, finer clothing, and more money, and should look cross and dissatisfied; what would you think of him? Would you not be tempted to turn the ungrateful fellow out of your house, with an order never to come again, telling him he deserved to starve for his ingratitude? We are not quite as ungrateful as the beggar when we neglect grace at meals, because in saying our daily prayers we thank God for all His gifts, our food included, and hence it is not a sin to neglect grace at meals. But do we not show some ingratitude when we murmur, complain, and are dissatisfied with our food, clothing, or homes? God, even when we are ungrateful, still gives; hence His wonderful goodness and mercy to us."
-        },
-        {
-          "type": "heading",
-          "text": "The Manner In Which A Lay Person Is To Baptize In Case Of Necessity"
-        },
-        {
-          "type": "text",
-          "text": "Pour common water on the head or face of the person to be baptized, and say while pouring it: \"I baptize thee in the name of the Father, and of the Son, and of the Holy Ghost.\" N.B. Any person of either sex who has reached the use of reason can baptize in case of necessity."
-        },
-        {
-          "type": "heading",
-          "text": "Catechism"
-        },
-        {
-          "type": "text",
-          "text": "Questions marked * are not in No. 1 Catechism. A catechism is any book made up in question and answer form, no matter what it treats of. We have catechisms of history, of geography, etc. Our Catechism is a book in the same form treating of religion. It is a little compendium of the truths of our religion, of all we must believe and do. It contains, in the simplest form, all that a priest learns during his many years of study. The theology he learns is only a deeper and fuller explanation of the Catechism. A whole book might be written on almost every question. For example, might we not write a book on each of the first three questions--the World, God, and Man? There is consequently much meaning in the Catechism, which must be made known to us by explanation. You should therefore learn the Catechism by heart now, even when you do not fully understand it; because afterwards, when you read books on religion or hear sermons, all these questions and answers will come back to your mind. Sermons will help you to understand the questions, or the questions will help you to understand the sermons."
-        }
-      ]
-    },
-    {
-      "id": "sec_26",
       "title": "Lesson 1",
       "subtitle": "On The End Of Man",
       "content": [
@@ -612,7 +251,7 @@
       ]
     },
     {
-      "id": "sec_27",
+      "id": "sec_2",
       "title": "Lesson 2",
       "subtitle": "On God And His Perfections",
       "content": [
@@ -678,7 +317,7 @@
       ]
     },
     {
-      "id": "sec_28",
+      "id": "sec_3",
       "title": "Lesson 3",
       "subtitle": "On The Unity And Trinity Of God",
       "content": [
@@ -760,7 +399,7 @@
       ]
     },
     {
-      "id": "sec_29",
+      "id": "sec_4",
       "title": "Lesson 4",
       "subtitle": "On Creation",
       "content": [
@@ -817,7 +456,7 @@
       ]
     },
     {
-      "id": "sec_30",
+      "id": "sec_5",
       "title": "Lesson 5",
       "subtitle": "On Our First Parents And Their Fall",
       "content": [
@@ -906,7 +545,7 @@
       ]
     },
     {
-      "id": "sec_31",
+      "id": "sec_6",
       "title": "Lesson 6",
       "subtitle": "On Sin And Its Kinds",
       "content": [
@@ -976,7 +615,7 @@
       ]
     },
     {
-      "id": "sec_32",
+      "id": "sec_7",
       "title": "Lesson 7",
       "subtitle": "On The Incarnation And Redemption",
       "content": [
@@ -1107,7 +746,7 @@
       ]
     },
     {
-      "id": "sec_33",
+      "id": "sec_8",
       "title": "Lesson 8",
       "subtitle": "On Our Lord's Passion, Death, Resurrection, And Ascension",
       "content": [
@@ -1225,7 +864,7 @@
       ]
     },
     {
-      "id": "sec_34",
+      "id": "sec_9",
       "title": "Lesson 9",
       "subtitle": "On The Holy Ghost And His Descent Upon The Apostles",
       "content": [
@@ -1283,7 +922,7 @@
       ]
     },
     {
-      "id": "sec_35",
+      "id": "sec_10",
       "title": "Lesson 10",
       "subtitle": "On The Effects Of The Redemption",
       "content": [
@@ -1372,7 +1011,7 @@
       ]
     },
     {
-      "id": "sec_36",
+      "id": "sec_11",
       "title": "Lesson 11",
       "subtitle": "On The Church",
       "content": [
@@ -1439,7 +1078,7 @@
       ]
     },
     {
-      "id": "sec_37",
+      "id": "sec_12",
       "title": "Lesson 12",
       "subtitle": "On The Attributes And Marks Of The Church",
       "content": [
@@ -1543,7 +1182,7 @@
       ]
     },
     {
-      "id": "sec_38",
+      "id": "sec_13",
       "title": "Lesson 13",
       "subtitle": "On The Sacraments In General",
       "content": [
@@ -1660,7 +1299,7 @@
       ]
     },
     {
-      "id": "sec_39",
+      "id": "sec_14",
       "title": "Lesson 14",
       "subtitle": "On Baptism",
       "content": [
@@ -1760,7 +1399,7 @@
       ]
     },
     {
-      "id": "sec_40",
+      "id": "sec_15",
       "title": "Lesson 15",
       "subtitle": "On Confirmation",
       "content": [
@@ -1833,7 +1472,7 @@
       ]
     },
     {
-      "id": "sec_41",
+      "id": "sec_16",
       "title": "Lesson 16",
       "subtitle": "On The Gifts And Fruits Of The Holy Ghost",
       "content": [
@@ -1914,7 +1553,7 @@
       ]
     },
     {
-      "id": "sec_42",
+      "id": "sec_17",
       "title": "Lesson 17",
       "subtitle": "On The Sacrament Of Penance",
       "content": [
@@ -1979,7 +1618,7 @@
       ]
     },
     {
-      "id": "sec_43",
+      "id": "sec_18",
       "title": "Lesson 18",
       "subtitle": "On Contrition",
       "content": [
@@ -2072,7 +1711,7 @@
       ]
     },
     {
-      "id": "sec_44",
+      "id": "sec_19",
       "title": "Lesson 19",
       "subtitle": "On Confession",
       "content": [
@@ -2186,7 +1825,7 @@
       ]
     },
     {
-      "id": "sec_45",
+      "id": "sec_20",
       "title": "Lesson 20",
       "subtitle": "On The Manner Of Making A Good Confession",
       "content": [
@@ -2238,7 +1877,7 @@
       ]
     },
     {
-      "id": "sec_46",
+      "id": "sec_21",
       "title": "Lesson 21",
       "subtitle": "On Indulgences",
       "content": [
@@ -2292,7 +1931,7 @@
       ]
     },
     {
-      "id": "sec_47",
+      "id": "sec_22",
       "title": "Lesson 22",
       "subtitle": "On The Holy Eucharist",
       "content": [
@@ -2384,7 +2023,7 @@
       ]
     },
     {
-      "id": "sec_48",
+      "id": "sec_23",
       "title": "Lesson 23",
       "subtitle": "On The End For Which The Holy Eucharist Was Instituted",
       "content": [
@@ -2463,7 +2102,7 @@
       ]
     },
     {
-      "id": "sec_49",
+      "id": "sec_24",
       "title": "Lesson 24",
       "subtitle": "On The Sacrifice Of The Mass",
       "content": [
@@ -2530,7 +2169,7 @@
       ]
     },
     {
-      "id": "sec_50",
+      "id": "sec_25",
       "title": "Lesson 25",
       "subtitle": "On Extreme Unction And Holy Orders",
       "content": [
@@ -2615,7 +2254,7 @@
       ]
     },
     {
-      "id": "sec_51",
+      "id": "sec_26",
       "title": "Lesson 26",
       "subtitle": "On Matrimony",
       "content": [
@@ -2691,7 +2330,7 @@
       ]
     },
     {
-      "id": "sec_52",
+      "id": "sec_27",
       "title": "Lesson 27",
       "subtitle": "On The Sacramentals",
       "content": [
@@ -2771,7 +2410,7 @@
       ]
     },
     {
-      "id": "sec_53",
+      "id": "sec_28",
       "title": "Lesson 28",
       "subtitle": "On Prayer",
       "content": [
@@ -2825,7 +2464,7 @@
       ]
     },
     {
-      "id": "sec_54",
+      "id": "sec_29",
       "title": "Lesson 29",
       "subtitle": "On The Commandments Of God",
       "content": [
@@ -2866,7 +2505,7 @@
       ]
     },
     {
-      "id": "sec_55",
+      "id": "sec_30",
       "title": "Lesson 30",
       "subtitle": "On The First Commandment",
       "content": [
@@ -2978,7 +2617,7 @@
       ]
     },
     {
-      "id": "sec_56",
+      "id": "sec_31",
       "title": "Lesson 31",
       "subtitle": "The First Commandment--on The Honor And Invocation Of Saints",
       "content": [
@@ -3005,7 +2644,7 @@
       ]
     },
     {
-      "id": "sec_57",
+      "id": "sec_32",
       "title": "Prayers",
       "subtitle": "",
       "content": [
@@ -3080,7 +2719,7 @@
       ]
     },
     {
-      "id": "sec_58",
+      "id": "sec_33",
       "title": "Lesson 32",
       "subtitle": "From The Second To The Fourth Commandment",
       "content": [
@@ -3195,7 +2834,7 @@
       ]
     },
     {
-      "id": "sec_59",
+      "id": "sec_34",
       "title": "Lesson 33",
       "subtitle": "From The Fourth To The Seventh Commandment",
       "content": [
@@ -3282,7 +2921,7 @@
       ]
     },
     {
-      "id": "sec_60",
+      "id": "sec_35",
       "title": "Lesson 34",
       "subtitle": "From The Seventh To The End Of The Tenth Commandment",
       "content": [
@@ -3393,7 +3032,7 @@
       ]
     },
     {
-      "id": "sec_61",
+      "id": "sec_36",
       "title": "Lesson 35",
       "subtitle": "On The First And Second Commandments Of The Church",
       "content": [
@@ -3453,7 +3092,7 @@
       ]
     },
     {
-      "id": "sec_62",
+      "id": "sec_37",
       "title": "Lesson 36",
       "subtitle": "On The Third, Fourth, Fifth, And Sixth Commandments Of The Church",
       "content": [
@@ -3536,7 +3175,7 @@
       ]
     },
     {
-      "id": "sec_63",
+      "id": "sec_38",
       "title": "Lesson 37",
       "subtitle": "On The Last Judgment And The Resurrection, Hell, Purgatory, And Heaven",
       "content": [
@@ -3631,530 +3270,7 @@
           "questionNumber": 421,
           "question": "What words should we bear always in mind?",
           "answer": "We should bear always in mind these words of Our Lord and Saviour Jesus Christ: \"What doth it profit a man if he gain the whole world and suffer the loss of his own soul, or what exchange shall a man give for his soul? For the Son of man shall come in the glory of His Father with His angels: and then will He render to every man according to his works.\"",
-          "explanation": "What does it benefit the poor creatures in Hell to have been rich, or beautiful, or learned, or powerful? If they had been good, it was all that was necessary to escape all their sufferings. Is there anything on earth that they would not give to be released? Why, then, did they sell their souls for so little while on earth? The present is the only time you have to merit Heaven and escape Hell. The past you cannot recall, and of the future you are not sure. Then use the present well and decide daily whether you wish to be in Heaven or in Hell. NOTE--Wherever in the foregoing pages explanations have been omitted after certain questions or answers it is because the matter they contain has been explained in some preceding question, or is to be explained in some following question, or is clear enough in itself without explanation. The explanations of such questions or answers can be easily found by referring to the index. QUESTIONS ON THE EXPLANATIONS The Lord's Prayer 1. Who made the Lord's Prayer? 2. Why do we say \"our\" and not \"my\" Father? 3. Why do we call God \"Father\"? 4. What person of the Blessed Trinity is meant by \"Father\" in the Lord's Prayer? 5. Was God called \"Father\" before the time of Our Lord? Why? 6. Why do we say \"Who art in Heaven,\" if God is everywhere? 7. What does \"hallowed\" mean? 8. What do we ask for by \"Thy kingdom come\"? 9. What does \"Thy kingdom\" mean here? 10. Who do God's will in Heaven? 11. What do we ask for by \"our daily bread\"? 12. Why do we say \"daily\"? 13. What do \"trespasses\" mean? 14. What do we mean by \"as we forgive those who trespass against us\"? 15. What example did Our Lord give? 16. What is temptation? 17. Does God tempt us to sin? 18. Is it a sin to be tempted? 19. Are there any tempters besides the devil? 20. Should we seek temptation? 21. What does \"Amen\" mean? 22. What does \"Christian\" mean? 23. What makes us Christian? 24. What does \"doctrine\" mean? The Angelical Salutation 25. How many parts in the Hail Mary? 26. What part did the Angel Gabriel make? 27. When did he make it? 28. How did Mary know what the angel's words meant? 29. What part of the Hail Mary did St. Elizabeth make? 30. Who was St. Elizabeth's son? 31. Why is Mary called \"blessed amongst women\"? 32. What part of the Hail Mary did the Church make? 33. What does \"hail\" mean? 34. Why do we say \"full of grace\"? 35. Why is Mary called \"holy\"? 36. Why do we need Mary's prayer at the hour of death? 37. What is the Angelus? 38. What does \"the Word\" mean? 39. What does \"made flesh\" mean in the third part of the Angelus? 40. What is the Litany of the Blessed Virgin? 41. Are there other litanies besides the Litany of the Blessed Virgin? The Apostles' Creed 42. What is a creed? 43. Who were the Apostles? 44. Were the Apostles bishops or priests? 45. How do you know? 46. Who were the disciples of Our Lord? 47. Why did the Apostles make the creed? 48. How many articles or parts in the Apostles' Creed? 49. What does \"Creator\" mean? 50. By what names is Our Lord called? 51. How many sons had God the Father? 52. Why do we say \"died\" instead of \"was killed\"? 53. Why do we say \"He was buried\"? 54. Is Limbo the same as Purgatory? Why? 55. Who were in Limbo at the time Our Lord was crucified? 56. Name some good men who lived before Christ. 57. Did Our Lord's body descend into Limbo? 58. Was Our Lord three full days in the holy sepulchre? 59. How can you prove they could not put Our Lord to death unless He permitted it? 60. Why do we say \"right hand of God\" when God has no hands? 61. What do you mean by \"judge the living and the dead\"? 62. Who are \"the living\"? 63. Who are \"the dead\" mentioned here? 64. What are ghosts? 65. Are there any? 66. What do you mean by the \"Church Militant\"? 67. Who are its members? 68. Who are the enemies of our salvation? 69. Why does the devil wish to keep us out of Heaven? 70. What do we mean when we say \"the world\" is one of our spiritual enemies? 71. Have all the saints their bodies in Heaven? 72. Who are in Heaven in their bodies at present? 73. What is meant by our \"concupiscence\"? 74. Which tempts us most to sin, our soul or our body? Why? 75. Why did God leave concupiscence in us? 76. What do we mean by \"the Church Suffering\"? 77. Who are its members? 78. Why are souls in Purgatory? 79. What do you mean by \"the Church Triumphant\"? 80. Who are its members? 81. Are there any saints in Heaven whose names we do not know? 82. Who are saints? 83. What is the difference between a saint and an angel? 84. Why does the Church canonize holy persons? 85. Does canonization make the person a saint? 86. How does the Church canonize a saint? 87. Explain the \"communion of saints.\" 88. What is the difference between beatification and canonization? 89. How is the resurrection of the body possible? 90. What is death? 91. What does \"life everlasting\" mean? 92. How many fathers had Our Lord? Who were they? 93. How many mothers had He? 94. Of what religion was Pontius Pilate? 95. Are all in Heaven saints? The Confiteor and Acts 96. In how many ways can we sin? 97. What should we think of when we say the Confiteor? 98. What is the substance of the \"act of faith\"? 99. Why do we find different acts of faith? 100. What is the substance of the \"act of hope\"? 101. What is the substance of the \"act of love\"? 102. Do an \"act of love\" and an \"act of charity\" mean the same? 103. How do you show that they are the same? 104. What makes us help others? 105. How may we be charitable to our neighbor? 106. What is the substance of the \"act of contrition\"? 107. What does \"grace\" at meals mean? 108. Why should we say grace at meals? 109. Why should we be content with our food? 110. Is the Apostles' Creed an act of faith? 111. Did John the Baptist institute the Sacrament of Baptism? 112. In giving Baptism, can one pour the water and another say the words? CATECHISM"
-        }
-      ]
-    },
-    {
-      "id": "sec_64",
-      "title": "Lesson 1",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "113. What is a catechism? 114. What does our Catechism contain? 115. Why should we learn the Catechism? 116. What do we mean by the \"end of man\"? 117. For what end was man created? 118. In what respect are all men equal? 119. What is \"woman\"? 120. In the first question, what does \"world\" mean? 121. What is a creature? 122. Is every invisible thing a spirit? 123. Of what use is reason to us? 124. What makes man different from all other animals? 125. Have any brute animals reason? 126. How do you know brute animals have not reason? 127. Can we learn all truths by our reason alone? 128. What is revelation? 129. What is \"free will\" in man? 130. Have brute animals \"free will\"? 131. Why is it necessary for us to know God? 132. What does \"worship\" mean? 133. How do we know when we love God above all? 134. Does the Apostles' Creed contain all the truths we must believe? 135. Name some truths not mentioned in it. 136. Is a tree a creature?"
-        }
-      ]
-    },
-    {
-      "id": "sec_65",
-      "title": "Lesson 2",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "137. What is a spirit? 138. What does \"infinite\" mean? 139. Why does God watch over us? 140. Why is it necessary for God to watch over us? 141. Why must God be \"just\" as well as \"merciful\"?"
-        }
-      ]
-    },
-    {
-      "id": "sec_66",
-      "title": "Lesson 3",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "142. What does \"supreme\" mean? 143. When are two persons said to be equal? 144. From whom does authority come? 145. Is there any difference in the ages of God the Father and God the Son? 146. Do first, second, and third in the Blessed Trinity mean that one person was before the other? 147. Why must we believe mysteries? 148. Must we understand everything we believe?"
-        }
-      ]
-    },
-    {
-      "id": "sec_67",
-      "title": "Lesson 4",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "149. How may the things God created be classed? 150. Why did God create angels? 151. If angels have no bodies, how can they appear? 152. Are the angels all equal in dignity? 153. How many classes of angels are there? 154. What did the Archangel Michael do? 155. What did the Archangel Gabriel do? 156. Who gave the angels their names? 157. What are the duties of the angels? 158. What does our angel guardian do for us? 159. How do you know that the angels offer our prayers and good works to God? 160. Give a short history of Tobias. 161. What do we mean by \"Jacob's ladder\"? 162. Are there other guardian angels besides the guardian angels of persons? 163. Name some persons to whom angels appeared. 164. Were angels ever sent to punish men? 165. If God watches over us, why should angels guard us? 166. What was the devil's name before he was cast out of Heaven? 167. Why was he cast out? 168. Is the Blessed Virgin only a creature? Why?"
-        }
-      ]
-    },
-    {
-      "id": "sec_68",
-      "title": "Lesson 5",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "169. How did God create Eve? 170. What relation was Eve to Adam? 171. Were Adam and Eve created at the same time? 172. What was the \"Garden of Paradise\"? 173. How did Adam commit his first sin? 174. How was Eve tempted to disobey God? 175. In what way do we sometimes imitate Eve's conduct? 176. Why does the devil tempt us? 177. What were the effects of Adam's sin? 178. Why do we suffer for the sin of our first parents? 179. What did Adam lose by his sin? 180. What do you mean when you say Adam's will was weakened by sin? 181. Can we always overcome temptation if we wish? 182. Why was the Blessed Virgin preserved from Original Sin?"
-        }
-      ]
-    },
-    {
-      "id": "sec_69",
-      "title": "Lesson 6",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "183. How is sin divided? 184. In what ways can we commit actual sin? 185. What is a sin of omission? Give an example. 186. How is Heaven a reward? 187. How can we merit it? 188. Are all religions equally good? Why? 189. What do you mean by a person's \"vocation\"? 190. How are we to know our vocation? 191. How should parents act with regard to their children's vocation? 192. When is a soul said to be dead? 193. How can we judge whether a thing is sinful or not? 194. What is a material sin? 195. Why is it wrong to judge others guilty of sin? 196. Why does venial sin lessen the love of God in our hearts? 197. Why are pride, covetousness, etc., called \"capital sins\"? 198. What is meant by our \"predominant\" or \"ruling\" sin? 199. What is pride? 200. Why should we take care of our bodies? 201. What sins follow pride? 202. What is covetousness? 203. What sins follow covetousness? 204. What is lust? 205. What sins follow lust? 206. What is gluttony? 207. What kind of sin is drunkenness? 208. How can we commit gluttony by eating? 209. How can we commit gluttony by drinking? 210. What sins does the drunkard commit? 211. What three great sins should you always guard against? 212. Why are drunkenness, dishonesty, and impurity so dangerous? 213. What is envy? 214. How do we commit the sin of sloth? 215. How can we best destroy sin in our souls? 216. Should we cease striving to be good, if we seem to be making no improvement? Why?"
-        }
-      ]
-    },
-    {
-      "id": "sec_70",
-      "title": "Lesson 7",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "217. What does \"incarnation\" mean? 218. What does \"redemption\" mean? 219. Who are slaves? 220. How were we in slavery by the sin of Adam? 221. What price did Our Lord pay to redeem us? 222. Did Our Lord leave us any means of being redeemed more than once? 223. What does \"abandon\" mean? 224. Has Heaven really gates? 225. What are the \"gates of Heaven\"? 226. Is Our Lord now in Heaven as God or as man? 227. Who was Our Lord's foster-father? 228. What is a foster-father? 229. How many years from the time Adam sinned till the Redeemer came? 230. Why did God allow so long a time to pass before redeeming us? 231. What was the Deluge? 232. When and why did God send it? 233. Who were saved from the Deluge? How? 234. What animals did Noe have in the Ark? 235. What were the \"clean animals\"? Name some. 236. Why did he have more \"clean\" than \"unclean\" animals? 237. How long did Noe spend in making the Ark? 238. How old was Adam when he died? 239. Who was the oldest man? 240. What was his age? 241. How did the Deluge come upon the earth? 242. How long did the Ark float upon the waters? 243. How did Noe learn that the waters were going down? 244. What was the condition of men before the coming of Our Lord? 245. When and to whom did God promise the Redeemer? 246. What did the prophets foretell about Christ? 247. Why was the Redeemer not welcomed by all when He came? 248. What day of the year is Annunciation Day? 249. How could the good people of the Old Law be saved by the merits of Christ, when Christ was not yet born? 250. In what kind of a stable was Our Lord born? 251. Why did the Blessed Virgin and St. Joseph go to Bethlehem before the birth of Our Lord? 252. Who were the Magi? 253. What brought them to Bethlehem? 254. Why did King Herod wish to find the Infant Jesus? 255. On what feast do we commemorate the adoration of the Magi? 256. At what time of the year is the Epiphany? 257. What is the feast of \"Holy Innocents\"? 258. When does it come? 259. Give a short history of Our Lord's life. 260. What do we mean by His \"hidden life\"? 261. What do we mean by His \"public life\"? 262. How old was Our Lord when He began His public life? 263. What do we know of Our Lord's hidden life? 264. Why did He lead a hidden life for so many years? 265. Does \"mankind\" mean men or women? 266. Had Our Lord any brothers or sisters? 267. What did the Angel Gabriel say at the Annunciation?"
-        }
-      ]
-    },
-    {
-      "id": "sec_71",
-      "title": "Lesson 8",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "268. What do you mean by Our Lord's \"Passion\"? 269. When did it begin and when did it end? 270. Give an account of Our Lord's Passion. 271. Where was Gethsemani or the Garden of Olives? 272. Who went into it with Our Lord? 273. What did Our Lord do in this garden? 274. What else happened there? 275. What caused Our Lord's sufferings in the garden? 276. Why could Christ's body suffer greater pain than ours? 277. What do we mean by the \"agony in the garden\"? 278. Who betrayed Our Lord? 279. How did the Jews act unjustly in the trial of Our Lord? 280. What was the \"scourging at the pillar\"? 281. What was the \"crowning with thorns\"? 282. What happened at the death of Our Lord? 283. Where was Calvary? 284. Why were no criminals put to death in Jerusalem? 285. How was the temple of Jerusalem divided? 286. What was the \"Holy of Holies\"? 287. What was the \"Ark of the Covenant,\" and what did it contain? 288. Of what were the ark and its contents figures? 289. What was the veil of the temple? 290. Why was this veil rent asunder at the death of Our Lord? 291. What does Calvary mean? 292. Why was Our Lord crucified between thieves? 293. Why do we call one of these the \"penitent thief\"? 294. Why did Christ suffer more than was necessary? 295. What is a sepulchre? 296. How was Our Lord buried? 297. What did the Jews count the beginning and the end of their day? 298. Was the Jewish religion ever the true religion? 299. What is a miracle? 300. What does a miracle prove? 301. What miracles did Our Lord perform? 302. What was His greatest? 303. What are the qualities of a glorified body? 304. Show that Our Lord's body had all these qualities. 305. What was the \"Transfiguration of Our Lord\"? Describe it. 306. Who were present at it? 307. What happened on the way to Emmaus? 308. What benefit is derived from Thomas the Apostle doubting the resurrection of Our Lord? 309. Will all who rise on the last day have glorified bodies? 310. What does the \"stigmata of Our Lord\" mean? 311. Did anyone ever have it? 312. Was Our Lord visible to everyone during the forty days after His resurrection? 313. About how many times and to whom did He appear during the forty days? 314. Describe Our Lord's Ascension. 315. Did Christ always live at Bethlehem?"
-        }
-      ]
-    },
-    {
-      "id": "sec_72",
-      "title": "Lesson 9",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "316. Did the Holy Ghost ever appear? 317. When and under what forms? 318. What does Whitsunday mean? 319. What does Pentecost mean? 320. What effect did the coming of the Holy Ghost have upon the Apostles? 321. How many temples had the Jews? 322. What was a \"synagogue\"? 323. What was done in the synagogues? 324. How did the synagogues differ from the temple? 325. What did the feast of the Pasch or Passover commemorate? 326. Give a short history of Moses. 327. How did the Israelites come to be in Egypt? 328. Give an account of their sufferings in Egypt. 329. How were they delivered or liberated? 330. Give a short account of Joseph and his family. 331. Why did Joseph's brothers wish to put him to death? 332. What did they do to hide their crime? 333. What did the King of Egypt dream? 334. What did his dream mean? 335. What do we learn from the life of Joseph in Egypt? 336. How was Moses saved on the bank of the Nile? 337. What was the \"burning bush\" that Moses saw? 338. Why did God command Moses to remove his shoes before coming to the \"burning bush\"? 339. Who went with Moses to deliver the Israelites? 340. What signs did God give to Moses to show King Pharao? 341. What did the king's magicians do? 342. What were \"the ten plagues of Egypt\"? 343. Describe each plague. 344. Why did God send them? 345. What was the \"Paschal Lamb\"? 346. Of what was it a figure? 347. What happened to the Israelites and Egyptians at the Red Sea? 348. How long were the Israelites in the desert? 349. What was the \"manna\"? 350. Why were the Israelites so long in the desert? 351. What do you mean by the \"gift of tongues\"? 352. Why did God perform more miracles in the first ages of the Church than now? 353. How and where was St. Peter put to death? 354. How did the other Apostles die? 355. St. Paul? 356. What did the Apostles prove by suffering death for their faith?"
-        }
-      ]
-    },
-    {
-      "id": "sec_73",
-      "title": "Lesson 10",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "357. What do we mean by an effect? 358. What does \"supernatural\" mean? 359. What is merit? 360. What is a virtue? 361. What is a vice? 362. Does habit excuse us for the sins committed through it? 363. When will habit excuse us for the sin? 364. Why do we believe revealed truths? 365. Who is our neighbor? 366. What example did Our Lord give to explain this? 367. How do we love our neighbor as ourselves? 368. Why should we love our neighbor? 369. Can we merit the grace of perseverance?"
-        }
-      ]
-    },
-    {
-      "id": "sec_74",
-      "title": "Lesson 11",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "370. When did men begin to speak different languages? 371. Who were the prophets? 372. Give a short history of religion before the time of Christ. 373. What are the chief works of the Church? 374. Why are our churches holy? 375. What are the catacombs, and why were they made? 376. What are altar stones? 377. Why are relics placed in them? 378. How many general persecutions of the Church were there? 379. Tell what you know of these persecutions. 380. What lessons do we learn from the sufferings of the early Christians? 381. Who are \"lawful pastors\"? 382. Could anyone be Pope without being Bishop of Rome? 383. What does \"vicar\" mean? 384. Why are Catholics called Roman? 385. How could a Protestant be saved?"
-        }
-      ]
-    },
-    {
-      "id": "sec_75",
-      "title": "Lesson 12",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "386. What is an attribute? 387. What is authority? 388. Why is it sinful to resist lawful authority? 389. What does \"cathedra\" mean? 390. Why is the bishop's church called cathedral? 391. How do we know when the Pope speaks \"ex cathedra\"? 392. What is required that the Pope may so speak? 393. Is the Pope infallible in everything he says? 394. What do you mean by \"faith and morals\"? 395. How many Popes from St. Peter to Pius XI? 396. Why should we have the greatest respect for the opinions of the Holy Father on any subject? 397. Why must the Pope sometimes speak on political matters? 398. Can the Pope commit sin? 399. What do we mean by the \"temporal power\" of the Pope? 400. How did he acquire it, and how did he lose it? 401. Why has he need of it? 402. How is the \"temporal power\" useful to the Church? 403. What is \"Peter's pence\"? 404. Does the Church change its doctrines? 405. How can you show that the Church is one in government and doctrine? 406. What is the hierarchy of the Church? 407. Could a person be a Catholic and not believe all the Church teaches? 408. Why are Protestants so called? 409. Why does the Church use Latin as its language? 410. Why does the Church define some truths? 411. Does the Church by defining truths make new doctrines? 412. Give a short history of Luther. 413. Why was he cut off from the true Church? 414. Why did many follow him? 415. How did the first Protestants act towards the Church? 416. What foolish excuses do some give for not becoming Catholics? 417. Why must the true Church be visible? 418. Who are heathens? 419. Who were the \"publicans\" mentioned by Our Lord?"
-        }
-      ]
-    },
-    {
-      "id": "sec_76",
-      "title": "Lesson 13",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "420. What three things are necessary to make a Sacrament? 421. What is the outward sign in Baptism? 422. Why is water used in Baptism? 423. What is the outward sign in Confirmation? 424. Why is oil used in Confirmation? 425. What is the use of the outward sign in the Sacraments? 426. In what ways does the life of the soul resemble the life of the body? 427. What does a \"Sacrament of the dead\" mean? 428. In what ways can we commit sacrilege? 429. What is the sacramental grace given in Penance? 430. What are the \"right dispositions\" for Penance, for Holy Eucharist? 431. What is conditional Baptism, and when is it given? 432. Can all the Sacraments be given conditionally? 433. What is the outward sign in Matrimony? 434. Can a bishop give all the Sacraments? 435. Can a priest? 436. Can a person receive all the Sacraments? 437. Can any of the Sacraments be given to the dead?"
-        }
-      ]
-    },
-    {
-      "id": "sec_77",
-      "title": "Lesson 14",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "438. What is an heir? 439. Why is the Bible called the Old and New Testament? 440. What does the Old Testament contain? 441. What does the New Testament show? 442. What is the difference between Baptism and Penance in the remission of the guilt and punishment? 443. Could a person gain an indulgence immediately after Baptism? Why? 444. What does the \"temporal punishment\" for sin mean? 445. Where will persons go who have never sinned and who die without Baptism? 446. What do we mean by \"the ordinary minister\" of a Sacrament? 447. Can you baptize an infant when its parents are unwilling? 448. What is private Baptism? 449. How is it given? 450. What ceremonies are used in solemn Baptism? 451. What do they signify? 452. What is the baptistery? 453. What do we mean by the \"pomps\" of the devil? 454. What is martyrdom? 455. Who are catechumens? 456. What is necessary that persons may be really martyrs? 457. What is meant by \"patron saint\"? 458. On what day is a saint's feast kept by the Church? 459. What does \"sponsors\" mean? Who are sponsors by proxy? 460. With whom do godparents contract relationship? 461. What names should be given in Baptism?"
-        }
-      ]
-    },
-    {
-      "id": "sec_78",
-      "title": "Lesson 15",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "462. What does balm in the chrism signify? 463. Why should we be proud of the Catholic religion? 464. When are we required to profess our religion?"
-        }
-      ]
-    },
-    {
-      "id": "sec_79",
-      "title": "Lesson 16",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "465. Why is the devil wiser than we are? 466. Who made the Beatitudes? 467. Where did Our Lord generally preach? 468. What do the Beatitudes teach? 469. How is a person \"poor in spirit\"? 470. How can the rich be \"poor in spirit\"? 471. Explain the other Beatitudes."
-        }
-      ]
-    },
-    {
-      "id": "sec_80",
-      "title": "Lesson 17",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "472. How does the institution of Penance show the goodness of Our Lord? 473. What is absolution? 474. How do you know Our Lord could forgive sins? 475. How does the power to forgive sins imply the obligation of going to confession? 476. How do we prepare for confession? 477. What is the best method of examining our conscience? 478. What is the most important part of the Sacrament of Penance? 479. What kind of sorrow should we have for our sins? 480. When should you say the penance given in confession?"
-        }
-      ]
-    },
-    {
-      "id": "sec_81",
-      "title": "Lesson 18",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "481. When is our contrition perfect? 482. What is attrition? 483. How many kinds of occasions of sin are there? 484. Why must we avoid occasions of sin?"
-        }
-      ]
-    },
-    {
-      "id": "sec_82",
-      "title": "Lesson 19",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "485. Who is a \"duly authorized\" priest? 486. How can a dumb man make his confession? 487. What can one do who cannot remember his sins in confession? 488. How can persons whose language the priest cannot understand confess if they are in danger of death? 489. Is it wrong to accuse ourselves of sins we have not committed? 490. Why is it foolish to conceal sins in confession? 491. How were the ancient Christian churches divided? 492. How did the early Christians do penance? 493. Explain the temporal and eternal punishment for sin. 494. Is your confession worthless if you forget to say your penance? 495. What is Lent? 496. What is almsgiving? 497. How can we distinguish between spiritual and corporal works of mercy? 498. When are we obliged to admonish the sinner? 499. What were the Crusades? 500. Why were they commenced? 501. How many Crusades were there? 502. How long did they last? 503. Why were those who took part in these expeditions called Crusaders? 504. What is a pilgrim? 505. How have we been relieved from doing many of the works of mercy ourselves? 506. Who are religious? 507. What is a hermit? 508. What is a general confession? 509. When and why should we make it? 510. Who are scrupulous persons?"
-        }
-      ]
-    },
-    {
-      "id": "sec_83",
-      "title": "Lesson 20",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "511. When is it well to add to our confession a sin of our past life? 512. What duties does the priest perform in the confessional? 513. Show how he is judge, father, teacher, and physician. 514. Why is it well to confess always to the same priest? 515. Can you have half your sins forgiven? 516. When will perfect contrition blot out mortal sin?"
-        }
-      ]
-    },
-    {
-      "id": "sec_84",
-      "title": "Lesson 21",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "517. How does God reward us for good works done in a state of mortal sin? 518. Is it easy to gain a plenary indulgence? Why? 519. What works are generally enjoined for indulgences? 520. What does praying for a \"person's intention\" mean? 521. How can we have the intention of gaining an indulgence? 522. What does \"an indulgence of 40 days,\" etc., mean? 523. Why did the early Christians do more severe penance than we do? 524. Are indulgences attached to anything but prayers?"
-        }
-      ]
-    },
-    {
-      "id": "sec_85",
-      "title": "Lesson 22",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "525. What does \"Eucharist\" mean? 526. What is the difference between Holy Eucharist and Holy Communion? 527. What did Our Lord do at the marriage in Cana? 528. Is Our Lord's body in the Holy Eucharist living or dead? 529. How do you know you receive both the body and the blood of Our Lord under the appearance of bread alone? 530. Why does the Church not give the Holy Eucharist to the people under the appearance of wine also? 531. Could it do so? Did it ever do it? 532. How long does Our Lord remain in the Holy Communion? 533. What is the ciborium? 534. At what part of the Mass are the words of consecration said? 535. What are the parts of the Mass? 536. What is the sacristy? 537. What does the priest prepare for Mass? 538. What is the chalice? 539. What is the paten? 540. What is the purificator? 541. What is the pall? 542. What is the host? 543. Where does the priest get the host? 544. What are the different vestments used at Mass called? 545. What do they signify? 546. What is the \"Offertory\" in the Mass? 547. When does the \"Canon\" of the Mass begin? 548. What is the \"Elevation\" in the Mass? 549. Where does the priest get the Blessed Sacrament he gives to the people? 550. What is the tabernacle? 551. What is Benediction of the Blessed Sacrament? 552. What is the monstrance used at Benediction? 553. Why should we be anxious to attend Benediction? 554. What is the cope? 555. What is the humeral, or Benediction veil? 556. Why does the priest wear vestments? 557. What do their colors signify? 558. Can Holy Communion be given in the afternoon? 559. What is the Holy Eucharist called when received by a person who is not fasting? 560. Can the priest say Mass in the evening? Why? 561. Why does the priest genuflect, etc., during Mass?"
-        }
-      ]
-    },
-    {
-      "id": "sec_86",
-      "title": "Lesson 23",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "562. What should we do if we break our fast before Holy Communion? 563. When is Holy Communion called the \"Viaticum\"? 564. Who offered the first Sacrifice of the Holy Mass?"
-        }
-      ]
-    },
-    {
-      "id": "sec_87",
-      "title": "Lesson 24",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "565. When is the Holy Eucharist a sacrifice? 566. When a Sacrament? 567. What was the temple of the Pantheon in Rome? 568. Who are pagans, idolaters, heathens? 569. How many kinds of sacrifice had the Israelites? 570. How is the Mass a sacrifice? 571. What is the league of the Sacred Heart? 572. Why was it established? 573. What was the origin of offering the priest money for celebrating Mass for your intention? 574. What is the sin of simony? 575. Why is it so called? 576. How are the fruits of the Mass divided? 577. What is a spiritual Communion? 578. How is it made?"
-        }
-      ]
-    },
-    {
-      "id": "sec_88",
-      "title": "Lesson 25",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "579. What does \"unction\" mean? 580. How often in their lives are Catholics anointed? 581. Is it called Extreme Unction even when the person recovers after receiving it? 582. What parts of the body are anointed in Extreme Unction? 583. When should the priest be sent for in cases of sickness? 584. What should you do if the sick Catholic does not wish or refuses to see the priest? 585. How is sickness a benefit to some? 586. What Sacraments are never given in the Church? 587. What things should you prepare when the priest is coming to give the Viaticum or Extreme Unction in your house? 588. How is the Blessed Sacrament carried to the sick in Catholic countries? 589. Who are the \"other ministers of the Church,\" besides bishops and priests? 590. What is the tonsure? 591. Of what does the tonsure remind the priest? 592. What are the duties and privileges of these other ministers of the Church? 593. How many kinds of Masses are there? 594. Do they differ in value, one being better than another? 595. Who is meant by the \"celebrant\" of the Mass? 596. What does the \"master of ceremonies\" do? 597. What is a Requiem Mass? 598. Why is it so called? 599. What is Vespers? 600. Is it a mortal sin to be willingly absent from Vespers? 601. Will Vespers take the place of Mass on Sundays for those who do not attend Mass? 602. Who are cardinals? 603. What are their duties? 604. Who is a monsignor? 605. Who is a vicar general? 606. What is a diocese? 607. What is a parish? 608. Does \"rector\" and \"pastor\" mean the same? 609. What do we mean by \"Suffragan Bishops\"? 610. What is the pallium? 611. Who can wear it?"
-        }
-      ]
-    },
-    {
-      "id": "sec_89",
-      "title": "Lesson 26",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "612. When are persons lawfully married? 613. When was marriage first instituted? 614. What sin is it to marry unlawfully? 615. What are \"impediments to marriage\"? 616. What things should persons tell the priest when they are making arrangements for marriage? 617. Can persons marry invalidly without knowing it? 618. What evils follow divorce? 619. Why should children study? 620. What is meant by the \"civil effects of marriage\"? 621. What are the chief evils of \"mixed marriage\"? 622. What is a \"mixed marriage\"? 623. When are motives for marriage \"worthy\"? 624. How should persons make a choice for marriage? 625. How are parents sometimes guilty of injustice to their children in case of marriage? 626. What is holy oil? 627. When is it blessed? 628. Can a priest bless it in case of necessity? 629. How many kinds of holy oil are there? 630. For what are they used? 631. In the administration of what Sacraments is oil used? 632. Can persons receive the Sacrament of Matrimony more than once? 633. Where and at what time of the day should Catholics be married? 634. What is balm? 635. Was there any Sacrament of Matrimony before the time of Our Lord? 636. Were the people of the Old Law validly married? 637. How did their marriage differ from Christian marriage?"
-        }
-      ]
-    },
-    {
-      "id": "sec_90",
-      "title": "Lesson 27",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "638. Can the Church change the number of sacramentals? Why? 639. Why is it necessary to bless yourself properly? 640. When are candles blessed in the Church? 641. Of what do candles on the altar remind us? 642. When are ashes blessed in the Church? 643. Of what do they remind us? 644. Of what do the palms remind us? 645. What is the difference between a cross and a crucifix? 646. What is the Rosary? 647. How do we say the beads? 648. What is meant by \"Mysteries of the Rosary\"? 649. How many Mysteries of the Rosary are there? 650. How are they divided? 651. Name the different Mysteries of the Rosary. 652. What is the Magnificat? 653. Who baptized Our Lord? 654. Was the baptism of John the Baptist a Sacrament? Why? 655. To whom did Our Lord give an example by His hidden or private life? 656. What did the Church do for slaves? 657. What do the letters \"I.N.R.I.\" over the Cross mean? 658. Did Our Lord claim to be king of the Jews? 659. Why was Our Lord put to death? 660. With whom did the Blessed Virgin live after the death of Our Lord? 661. Who was St. John the Evangelist? 662. What is the Apocalypse? 663. About how long did the Blessed Virgin live on earth after the Ascension of Our Lord? 664. What is meant by the \"Assumption\" of the Blessed Virgin? 665. What proof have we of it? 666. On what days are the different Mysteries of the Rosary said? 667. What does \"I.H.S.\" with a cross over it mean? 668. What is the scapular, and why do we wear it? 669. What is the brown scapular called? 670. How many kinds of scapular are there? 671. What are the \"seven dolors\" of the Blessed Virgin? Name them. 672. What are the seven dolor beads? 673. What are \"religious orders\"? 674. What vows do the members of religious orders take? 675. Why were religious orders founded? 676. Why are there different kinds of religious orders?"
-        }
-      ]
-    },
-    {
-      "id": "sec_91",
-      "title": "Lesson 28",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "677. How many kinds of prayer are there? 678. What is \"meditation\"? 679. What should we do before praying? 680. What do you know of St. Monica? 681. Of St. Augustine? 682. Why does God not always grant our prayers? 683. If prayer is necessary for salvation, how can infants be saved who die without having prayed?"
-        }
-      ]
-    },
-    {
-      "id": "sec_92",
-      "title": "Lesson 29",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "684. Were people obliged to keep the Commandments before the time of Moses? 685. How many kinds of laws had the Israelites? 686. When were these laws abolished? 687. How were the Commandments given to Moses? 688. What was manna? 689. What is the difference between the Commandments of God and the commandments of the Church? 690. What does \"love thy neighbor as thyself\" mean?"
-        }
-      ]
-    },
-    {
-      "id": "sec_93",
-      "title": "Lesson 30",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "691. How did the Israelites come to worship false gods? 692. How do we sometimes worship strange gods? 693. What are \"fortune tellers\"? 694. Why is going to fortune tellers a sin? 695. What are spells, charms? 696. Are medals, scapulars, etc., worn about us charms? 697. What are dreams? 698. Did God ever use them to make known His will? 699. Why does He not use them now? 700. What are mediums and spiritists? 701. How do bad Catholics do injury to the Church? 702. Why did the Christian religion spread so rapidly? 703. Who are atheists, deists, infidels, heretics, apostates, and schismatics? 704. Are all religions equally true? 705. Why is presumption a great sin? 706. How are we frequently presumptuous? 707. Are heretics Christians?"
-        }
-      ]
-    },
-    {
-      "id": "sec_94",
-      "title": "Lesson 31",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "708. What help does God give us to save our souls? 709. How do we honor God by praying to the saints? 710. What is a relic? 711. Have we any relics of Our Lord's body? Why? 712. Why does the Catholic religion suit all classes of persons? 713. Why are there so many kinds of Protestants? 714. Does the Bible contain all the truths of our religion? 715. How did God honor the relics of saints? Give an example. 716. When did the Jewish religion cease to be the true religion?"
-        }
-      ]
-    },
-    {
-      "id": "sec_95",
-      "title": "Lesson 32",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "717. Is it a sin to use the words of Scripture in a bad sense? 718. What is a perjurer? 719. Why was John the Baptist put to death? 720. Why is it sinful to be a member of a secret society? 721. When is an oath rash? 722. What is the difference between blasphemy and cursing? 723. Can we blaspheme by action? 724. Tell what happened to Julian the Apostate. 725. Are there any holy days not of obligation? 726. How is the Sunday well kept? 727. What is a real Catholic newspaper? 728. What books should be found in every Catholic family? 729. What is meant by the Old Law? 730. What by the New? 731. Are we bound to keep an unlawful oath?"
-        }
-      ]
-    },
-    {
-      "id": "sec_96",
-      "title": "Lesson 33",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "732. What do we mean by \"magistrates\"? 733. What should we remember when we are unjustly punished? 734. How does suffering make us more like to Our Lord and His Blessed Mother? 735. Why did the Blessed Virgin suffer so many trials upon earth? 736. What is contempt? 737. What is stubbornness? 738. Why is suicide a mortal sin? 739. What is revenge? 740. Why should we be most careful about the Sixth Commandment? 741. Why should we guard against bad reading? 742. Why should we seek advice?"
-        }
-      ]
-    },
-    {
-      "id": "sec_97",
-      "title": "Lesson 34",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "743. In how many ways may we violate the Seventh Commandment? 744. Why is it unkind and ungrateful not to pay our debts? 745. Is the receiver of stolen goods as bad as the thief? 746. In how many ways may we share in the sin of another? 747. If you bought an article not knowing that it was stolen, would you be obliged to give it up to its owner? 748. What must you do with anything you find? 749. What must you do if you have lost or destroyed the article you stole? 750. Can we always make restitution by giving to the poor? 751. Is it a sin to delay making restitution? 752. What must a person do who cannot restore? 753. What will excuse us for telling another's faults? 754. How can you know when you have injured the character of another? 755. What is detraction? 756. What is calumny? 757. What is slander? 758. How can you make reparation for injuring another's character? 759. Are you bound to do so? 760. What is \"rash judgment\"? 761. What is backbiting? 762. Is it sinful to listen to backbiting, slander, etc? 763. Why is it wrong to tell another's secrets or read another's letters? 764. What does \"covet\" mean?"
-        }
-      ]
-    },
-    {
-      "id": "sec_98",
-      "title": "Lesson 35",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "765. What is meant by a \"serious reason\" for missing Mass? 766. What excuse do some give for not hearing Mass? 767. Why is it wrong to come late for Mass? 768. On what day do we keep a saint's feast? 769. What is the \"divine office\"? 770. How is it divided? 771. Who are excused from fasting? 772. Who are obliged to abstain from flesh-meat on fast-days and days of abstinence? 773. Is every fast-day a day of abstinence?"
-        }
-      ]
-    },
-    {
-      "id": "sec_99",
-      "title": "Lesson 36",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "774. Why should we go to confession even when we have not committed sin since our last confession? 775. When is Trinity Sunday? 776. How was the Holy Land divided? 777. Who were the \"Levites\" in the Old Law? 778. What were \"first fruits\" and tithes in the Old Law? 779. Why was Cain's sacrifice displeasing to God? 780. What relations are within the third degree of kindred? 781. What is a \"dispensation\" granted by the Church? 782. What is meant by the \"natural law\"? 783. When can we obey the laws that the State makes with regard to marriage? 784. What is \"excommunication\"? 785. What effect has it? 786. Who are excluded from Christian burial? 787. How does the Church show its displeasure when Catholics marry persons not Catholics? 788. How should persons prepare for marriage? 789. Are women ever allowed in the Church with their heads uncovered? 790. Can the priest say a \"nuptial Mass\" for a husband or wife after their death?"
-        }
-      ]
-    },
-    {
-      "id": "sec_100",
-      "title": "Lesson 37",
-      "subtitle": "",
-      "content": [
-        {
-          "type": "text",
-          "text": "791. Where will the particular judgment be held? 792. How will it take place? 793. Will the sentence given at the particular judgment be changed at the general judgment? 794. How can we daily prepare for judgment? 795. Who will be judged at the general judgment? 796. How will the general judgment take place? 797. What do we mean by the \"pain of loss\"? 798. What by the \"pain of sense\" that the damned suffer? 799. Why can we not imagine the sufferings of Hell? 800. How does the fire of Hell differ from our fire? 801. Will there be a Purgatory after the general judgment? 802. Why must there be a Purgatory now? 803. If God loves those in Purgatory, why does He punish them? 804. Why do we show respect to the bodies of the dead? 805. What does \"faithful departed\" mean? 806. What does \"rest in peace\" mean? 807. What does \"seeing God face to face\" mean, if God has no face? 808. What is the beatific vision? 809. Of what does our happiness in Heaven consist? 810. How long will Purgatory last?"
-        },
-        {
-          "type": "heading",
-          "text": "General Index"
-        },
-        {
-          "type": "heading",
-          "text": "A"
-        },
-        {
-          "type": "heading",
-          "text": "Question"
-        },
-        {
-          "type": "heading",
-          "text": "B"
-        },
-        {
-          "type": "heading",
-          "text": "C"
-        },
-        {
-          "type": "text",
-          "text": "Church, Militant, Triumphant, Suffering  . . The Apostles' Creed"
-        },
-        {
-          "type": "heading",
-          "text": "D"
-        },
-        {
-          "type": "heading",
-          "text": "E"
-        },
-        {
-          "type": "text",
-          "text": "Extreme Unction, to whom it can be given . . .  Lesson 25, title"
-        },
-        {
-          "type": "heading",
-          "text": "F"
-        },
-        {
-          "type": "heading",
-          "text": "G"
-        },
-        {
-          "type": "heading",
-          "text": "H"
-        },
-        {
-          "type": "heading",
-          "text": "I"
-        },
-        {
-          "type": "heading",
-          "text": "J"
-        },
-        {
-          "type": "heading",
-          "text": "K"
-        },
-        {
-          "type": "heading",
-          "text": "L"
-        },
-        {
-          "type": "heading",
-          "text": "M"
-        },
-        {
-          "type": "heading",
-          "text": "N"
-        },
-        {
-          "type": "heading",
-          "text": "O"
-        },
-        {
-          "type": "heading",
-          "text": "P"
-        },
-        {
-          "type": "heading",
-          "text": "Q"
-        },
-        {
-          "type": "heading",
-          "text": "R"
-        },
-        {
-          "type": "heading",
-          "text": "S"
-        },
-        {
-          "type": "heading",
-          "text": "T"
-        },
-        {
-          "type": "heading",
-          "text": "U"
-        },
-        {
-          "type": "text",
-          "text": "Using the sayings of Holy Scripture in a profane sense . . . 340"
-        },
-        {
-          "type": "heading",
-          "text": "V"
-        },
-        {
-          "type": "text",
-          "text": "Visitation of the Blessed Virgin . . .  The Angelical Salutation"
-        },
-        {
-          "type": "heading",
-          "text": "W"
+          "explanation": "What does it benefit the poor creatures in Hell to have been rich, or beautiful, or learned, or powerful? If they had been good, it was all that was necessary to escape all their sufferings. Is there anything on earth that they would not give to be released? Why, then, did they sell their souls for so little while on earth? The present is the only time you have to merit Heaven and escape Hell. The past you cannot recall, and of the future you are not sure. Then use the present well and decide daily whether you wish to be in Heaven or in Hell. NOTE--Wherever in the foregoing pages explanations have been omitted after certain questions or answers it is because the matter they contain has been explained in some preceding question, or is to be explained in some following question, or is clear enough in itself without explanation. The explanations of such questions or answers can be easily found by referring to the index. QUESTIONS ON THE EXPLANATIONS The Lord's Prayer 1. Who made the Lord's Prayer? 2. Why do we say \"our\" and not \"my\" Father? 3. Why do we call God \"Father\"? 4. What person of the Blessed Trinity is meant by \"Father\" in the Lord's Prayer? 5. Was God called \"Father\" before the time of Our Lord? Why? 6. Why do we say \"Who art in Heaven,\" if God is everywhere? 7. What does \"hallowed\" mean? 8. What do we ask for by \"Thy kingdom come\"? 9. What does \"Thy kingdom\" mean here? 10. Who do God's will in Heaven? 11. What do we ask for by \"our daily bread\"? 12. Why do we say \"daily\"? 13. What do \"trespasses\" mean? 14. What do we mean by \"as we forgive those who trespass against us\"? 15. What example did Our Lord give? 16. What is temptation? 17. Does God tempt us to sin? 18. Is it a sin to be tempted? 19. Are there any tempters besides the devil? 20. Should we seek temptation? 21. What does \"Amen\" mean? 22. What does \"Christian\" mean? 23. What makes us Christian? 24. What does \"doctrine\" mean? The Angelical Salutation 25. How many parts in the Hail Mary? 26. What part did the Angel Gabriel make? 27. When did he make it? 28. How did Mary know what the angel's words meant? 29. What part of the Hail Mary did St. Elizabeth make? 30. Who was St. Elizabeth's son? 31. Why is Mary called \"blessed amongst women\"? 32. What part of the Hail Mary did the Church make? 33. What does \"hail\" mean? 34. Why do we say \"full of grace\"? 35. Why is Mary called \"holy\"? 36. Why do we need Mary's prayer at the hour of death? 37. What is the Angelus? 38. What does \"the Word\" mean? 39. What does \"made flesh\" mean in the third part of the Angelus? 40. What is the Litany of the Blessed Virgin? 41. Are there other litanies besides the Litany of the Blessed Virgin? The Apostles' Creed 42. What is a creed? 43. Who were the Apostles? 44. Were the Apostles bishops or priests? 45. How do you know? 46. Who were the disciples of Our Lord? 47. Why did the Apostles make the creed? 48. How many articles or parts in the Apostles' Creed? 49. What does \"Creator\" mean? 50. By what names is Our Lord called? 51. How many sons had God the Father? 52. Why do we say \"died\" instead of \"was killed\"? 53. Why do we say \"He was buried\"? 54. Is Limbo the same as Purgatory? Why? 55. Who were in Limbo at the time Our Lord was crucified? 56. Name some good men who lived before Christ. 57. Did Our Lord's body descend into Limbo? 58. Was Our Lord three full days in the holy sepulchre? 59. How can you prove they could not put Our Lord to death unless He permitted it? 60. Why do we say \"right hand of God\" when God has no hands? 61. What do you mean by \"judge the living and the dead\"? 62. Who are \"the living\"? 63. Who are \"the dead\" mentioned here? 64. What are ghosts? 65. Are there any? 66. What do you mean by the \"Church Militant\"? 67. Who are its members? 68. Who are the enemies of our salvation? 69. Why does the devil wish to keep us out of Heaven? 70. What do we mean when we say \"the world\" is one of our spiritual enemies? 71. Have all the saints their bodies in Heaven? 72. Who are in Heaven in their bodies at present? 73. What is meant by our \"concupiscence\"? 74. Which tempts us most to sin, our soul or our body? Why? 75. Why did God leave concupiscence in us? 76. What do we mean by \"the Church Suffering\"? 77. Who are its members? 78. Why are souls in Purgatory? 79. What do you mean by \"the Church Triumphant\"? 80. Who are its members? 81. Are there any saints in Heaven whose names we do not know? 82. Who are saints? 83. What is the difference between a saint and an angel? 84. Why does the Church canonize holy persons? 85. Does canonization make the person a saint? 86. How does the Church canonize a saint? 87. Explain the \"communion of saints.\" 88. What is the difference between beatification and canonization? 89. How is the resurrection of the body possible? 90. What is death? 91. What does \"life everlasting\" mean? 92. How many fathers had Our Lord? Who were they? 93. How many mothers had He? 94. Of what religion was Pontius Pilate? 95. Are all in Heaven saints? The Confiteor and Acts"
         }
       ]
     }

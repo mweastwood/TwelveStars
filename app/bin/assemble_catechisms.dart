@@ -146,12 +146,23 @@ void parseBaltimoreFile(
   void finalizeQa() {
     final sec = currentSection;
     if (currentQNum != null && sec != null) {
+      String cleanQ = currentQText.replaceAll(RegExp(r'\s+'), ' ').trim();
+      int? crossRefQNum;
+      final refMatch = RegExp(r'\{(\d+)\}').firstMatch(cleanQ);
+      if (refMatch != null) {
+        crossRefQNum = int.parse(refMatch.group(1)!);
+        cleanQ = cleanQ.replaceAll(RegExp(r'\{(\d+)\}\s*'), '').trim();
+      }
+
       final Map<String, dynamic> entry = {
         'type': 'qa',
         'questionNumber': currentQNum,
-        'question': currentQText.replaceAll(RegExp(r'\s+'), ' ').trim(),
+        'question': cleanQ,
         'answer': currentAText.replaceAll(RegExp(r'\s+'), ' ').trim(),
       };
+      if (crossRefQNum != null) {
+        entry['crossRefQNum'] = crossRefQNum;
+      }
       if (currentExplanation.isNotEmpty) {
         final expText = currentExplanation
             .map((p) => p.replaceAll(RegExp(r'\s+'), ' ').trim())
@@ -171,7 +182,16 @@ void parseBaltimoreFile(
     isExplaining = false;
   }
 
-  for (final line in lines) {
+  int bodyStartIdx = 0;
+  int bodyEndIdx = lines.length;
+  if (bookId == 'baltimore_4') {
+    bodyStartIdx = 1270;
+    bodyEndIdx = 11778;
+  }
+
+  final bodyLines = lines.sublist(bodyStartIdx, bodyEndIdx);
+
+  for (final line in bodyLines) {
     final stripped = line.trim();
     if (stripped.isEmpty) {
       if (isAnswering) {
@@ -289,11 +309,7 @@ void parseBaltimoreFile(
   finalizeQa();
 
   final validSections = sections
-      .where(
-        (s) =>
-            (s['content'] as List).isNotEmpty ||
-            (s['subtitle'] as String).isNotEmpty,
-      )
+      .where((s) => (s['content'] as List).isNotEmpty)
       .toList();
 
   final toc = validSections.map((secItem) {

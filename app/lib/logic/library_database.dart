@@ -18,6 +18,7 @@ class TocEntry {
 class ContentItem {
   final String type; // 'qa', 'text', or 'heading'
   final int? questionNumber;
+  final int? crossRefQNum;
   final String? question;
   final String? answer;
   final String? explanation;
@@ -26,6 +27,7 @@ class ContentItem {
   ContentItem({
     required this.type,
     this.questionNumber,
+    this.crossRefQNum,
     this.question,
     this.answer,
     this.explanation,
@@ -36,6 +38,7 @@ class ContentItem {
     return ContentItem(
       type: json['type'] as String? ?? 'text',
       questionNumber: json['questionNumber'] as int?,
+      crossRefQNum: json['crossRefQNum'] as int?,
       question: json['question'] as String?,
       answer: json['answer'] as String?,
       explanation: json['explanation'] as String?,
