@@ -59,8 +59,7 @@ void main() {
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
 
       // Wait for async load to finish
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 100));
+      await tester.pumpAndSettle();
 
       // Verify title and verses are displayed
       expect(find.text('Genesis 1'), findsNWidgets(2));
