@@ -78,5 +78,28 @@ void main() {
       expect(citations[1].displayLabel, 'Luke 1:28');
       expect(citations[2].displayLabel, 'John 19:28');
     });
+
+    test('parses entire chapter citations', () {
+      final segments = BibleCitationParser.parse(
+        'Read the story of Babel in (Gen. 11) or see (Matt 4).',
+      );
+      final citations = segments
+          .where((s) => s.isCitation)
+          .map((s) => s.citation!)
+          .toList();
+
+      expect(citations.length, 2);
+      expect(citations[0].bookName, 'Genesis');
+      expect(citations[0].chapter, 11);
+      expect(citations[0].verse, null);
+      expect(citations[0].isEntireChapter, true);
+      expect(citations[0].displayLabel, 'Genesis 11');
+
+      expect(citations[1].bookName, 'Matthew');
+      expect(citations[1].chapter, 4);
+      expect(citations[1].verse, null);
+      expect(citations[1].isEntireChapter, true);
+      expect(citations[1].displayLabel, 'Matthew 4');
+    });
   });
 }

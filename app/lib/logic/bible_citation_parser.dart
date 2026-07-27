@@ -7,8 +7,10 @@ class BibleCitation {
   final String bookName;
   final String abbrev;
   final int chapter;
-  final int verse;
+  final int? verse;
   final int? endVerse;
+
+  bool get isEntireChapter => verse == null;
 
   const BibleCitation({
     required this.rawMatch,
@@ -17,7 +19,7 @@ class BibleCitation {
     required this.bookName,
     required this.abbrev,
     required this.chapter,
-    required this.verse,
+    this.verse,
     this.endVerse,
   });
 }
@@ -61,103 +63,236 @@ class BibleCitationParser {
     return result > 0 ? result : 1;
   }
 
-  static const Map<String, int> _aliasToBookNumber = {
-    // Pentateuch
-    'gen': 1, 'genesis': 1,
-    'ex': 2, 'exod': 2, 'exodus': 2,
-    'lev': 3, 'leviticus': 3,
-    'num': 4, 'numbers': 4,
-    'deut': 5, 'deuteronomy': 5,
+  static final Map<String, int> _aliasToBookNumber = () {
+    final map = <String, int>{};
+    for (final book in catholicBooks) {
+      map[book.bookName.toLowerCase()] = book.bookNumber;
+      map[book.abbrev.toLowerCase()] = book.bookNumber;
+    }
 
-    // Historical
-    'jos': 6, 'josh': 6, 'joshua': 6,
-    'jdg': 7, 'judg': 7, 'judges': 7,
-    'rut': 8, 'ruth': 8,
-    '1sa': 9, '1 sam': 9, '1sam': 9, '1 samuel': 9,
-    '2sa': 10, '2 sam': 10, '2sam': 10, '2 samuel': 10,
-    '1ki': 11,
-    '1 ki': 11,
-    '3 kings': 11,
-    '3ki': 11,
-    '1kings': 11,
-    '1 kings': 11,
-    '2ki': 12,
-    '2 ki': 12,
-    '4 kings': 12,
-    '4ki': 12,
-    '2kings': 12,
-    '2 kings': 12,
-    '1ch': 13, '1 chron': 13, '1 par': 13, '1 paralip': 13, '1chron': 13,
-    '2ch': 14, '2 chron': 14, '2 par': 14, '2 paralip': 14, '2chron': 14,
-    'ezr': 15, 'esd': 15, 'esdras': 15, 'ezra': 15,
-    'neh': 16, 'nehemiah': 16,
-    'tob': 17, 'tobias': 17, 'tobit': 17,
-    'jdt': 18, 'judith': 18,
-    'est': 19, 'esth': 19, 'esther': 19,
+    void alias(String a, int num) => map[a.toLowerCase()] = num;
 
-    // Wisdom
-    'job': 20,
-    'psa': 21, 'ps': 21, 'pss': 21, 'psalm': 21, 'psalms': 21,
-    'pro': 22, 'prov': 22, 'proverbs': 22,
-    'ecc': 23, 'eccl': 23, 'eccles': 23, 'ecclesiastes': 23,
-    'sng': 24, 'cant': 24, 'song': 24, 'canticle': 24,
-    'wis': 25, 'wisd': 25, 'wisdom': 25,
-    'sir': 26, 'ecclus': 26, 'sirach': 26, 'ecclesiasticus': 26,
+    alias('gen', 1);
+    alias('genesis', 1);
+    alias('ex', 2);
+    alias('exod', 2);
+    alias('exodus', 2);
+    alias('lev', 3);
+    alias('leviticus', 3);
+    alias('num', 4);
+    alias('numbers', 4);
+    alias('deut', 5);
+    alias('deuteronomy', 5);
+    alias('jos', 6);
+    alias('josh', 6);
+    alias('joshua', 6);
+    alias('jdg', 7);
+    alias('judg', 7);
+    alias('judges', 7);
+    alias('rut', 8);
+    alias('ruth', 8);
+    alias('1sa', 9);
+    alias('1 sam', 9);
+    alias('1sam', 9);
+    alias('1 samuel', 9);
+    alias('2sa', 10);
+    alias('2 sam', 10);
+    alias('2sam', 10);
+    alias('2 samuel', 10);
+    alias('1ki', 11);
+    alias('1 ki', 11);
+    alias('3 kings', 11);
+    alias('3ki', 11);
+    alias('1kings', 11);
+    alias('1 kings', 11);
+    alias('2ki', 12);
+    alias('2 ki', 12);
+    alias('4 kings', 12);
+    alias('4ki', 12);
+    alias('2kings', 12);
+    alias('2 kings', 12);
+    alias('1ch', 13);
+    alias('1 chron', 13);
+    alias('1 par', 13);
+    alias('1 paralip', 13);
+    alias('2ch', 14);
+    alias('2 chron', 14);
+    alias('2 par', 14);
+    alias('2 paralip', 14);
+    alias('ezr', 15);
+    alias('esd', 15);
+    alias('esdras', 15);
+    alias('neh', 16);
+    alias('nehemiah', 16);
+    alias('tob', 17);
+    alias('tobias', 17);
+    alias('tobit', 17);
+    alias('jdt', 18);
+    alias('judith', 18);
+    alias('est', 19);
+    alias('esth', 19);
+    alias('esther', 19);
+    alias('job', 20);
+    alias('psa', 21);
+    alias('ps', 21);
+    alias('pss', 21);
+    alias('psalm', 21);
+    alias('psalms', 21);
+    alias('pro', 22);
+    alias('prov', 22);
+    alias('proverbs', 22);
+    alias('ecc', 23);
+    alias('eccl', 23);
+    alias('eccles', 23);
+    alias('sng', 24);
+    alias('cant', 24);
+    alias('song', 24);
+    alias('canticle', 24);
+    alias('wis', 25);
+    alias('wisd', 25);
+    alias('wisdom', 25);
+    alias('sir', 26);
+    alias('ecclus', 26);
+    alias('sirach', 26);
+    alias('ecclesiasticus', 26);
+    alias('isa', 27);
+    alias('isaias', 27);
+    alias('isaiah', 27);
+    alias('jer', 28);
+    alias('jeremias', 28);
+    alias('jeremiah', 28);
+    alias('lam', 29);
+    alias('lamentations', 29);
+    alias('bar', 30);
+    alias('baruch', 30);
+    alias('eze', 31);
+    alias('ezek', 31);
+    alias('ezekiel', 31);
+    alias('dan', 32);
+    alias('daniel', 32);
+    alias('hos', 33);
+    alias('osee', 33);
+    alias('hosea', 33);
+    alias('joe', 34);
+    alias('joel', 34);
+    alias('amo', 35);
+    alias('amos', 35);
+    alias('oba', 36);
+    alias('abdias', 36);
+    alias('obadiah', 36);
+    alias('jon', 37);
+    alias('jonas', 37);
+    alias('jonah', 37);
+    alias('mic', 38);
+    alias('micheas', 38);
+    alias('micah', 38);
+    alias('nah', 39);
+    alias('nahum', 39);
+    alias('hab', 40);
+    alias('habacuc', 40);
+    alias('habakkuk', 40);
+    alias('zep', 41);
+    alias('sophonias', 41);
+    alias('zephaniah', 41);
+    alias('hag', 42);
+    alias('aggeus', 42);
+    alias('haggai', 42);
+    alias('zech', 43);
+    alias('zacharias', 43);
+    alias('zechariah', 43);
+    alias('mal', 44);
+    alias('malachias', 44);
+    alias('malachi', 44);
+    alias('1ma', 45);
+    alias('1 mach', 45);
+    alias('1mach', 45);
+    alias('1 maccabees', 45);
+    alias('2ma', 46);
+    alias('2 mach', 46);
+    alias('2mach', 46);
+    alias('2 maccabees', 46);
 
-    // Prophets
-    'isa': 27, 'isaias': 27, 'isaiah': 27,
-    'jer': 28, 'jeremias': 28, 'jeremiah': 28,
-    'lam': 29, 'lamentations': 29,
-    'bar': 30, 'baruch': 30,
-    'ezk': 31, 'ezech': 31, 'ezekiel': 31,
-    'dan': 32, 'daniel': 32,
-    'hos': 33, 'osee': 33, 'hosea': 33,
-    'jol': 34, 'joel': 34,
-    'amo': 35, 'amos': 35,
-    'oba': 36, 'abd': 36, 'obadiah': 36,
-    'jon': 37, 'jonas': 37, 'jonah': 37,
-    'mic': 38, 'mich': 38, 'micah': 38,
-    'nam': 39, 'nah': 39, 'nahum': 39,
-    'hab': 40, 'habacuc': 40, 'habakkuk': 40,
-    'zep': 41, 'soph': 41, 'zephaniah': 41,
-    'hag': 42, 'agg': 42, 'haggai': 42,
-    'zec': 43, 'zach': 43, 'zechariah': 43,
-    'mal': 44, 'malachias': 44, 'malachi': 44,
-    '1ma': 45, '1 mach': 45, '1 macc': 45, '1 maccabees': 45,
-    '2ma': 46, '2 mach': 46, '2 macc': 46, '2 maccabees': 46,
+    alias('mat', 49);
+    alias('matt', 49);
+    alias('matthew', 49);
+    alias('mar', 50);
+    alias('mark', 50);
+    alias('luk', 51);
+    alias('luke', 51);
+    alias('joh', 52);
+    alias('john', 52);
+    alias('act', 53);
+    alias('acts', 53);
+    alias('rom', 54);
+    alias('romans', 54);
+    alias('1co', 55);
+    alias('1 cor', 55);
+    alias('1cor', 55);
+    alias('1 corinthians', 55);
+    alias('2co', 56);
+    alias('2 cor', 56);
+    alias('2cor', 56);
+    alias('2 corinthians', 56);
+    alias('gal', 57);
+    alias('galatians', 57);
+    alias('eph', 58);
+    alias('ephesians', 58);
+    alias('php', 59);
+    alias('phil', 59);
+    alias('philippians', 59);
+    alias('col', 60);
+    alias('colossians', 60);
+    alias('1th', 61);
+    alias('1 thes', 61);
+    alias('1thess', 61);
+    alias('1 thessalonians', 61);
+    alias('2th', 62);
+    alias('2 thes', 62);
+    alias('2thess', 62);
+    alias('2 thessalonians', 62);
+    alias('1ti', 63);
+    alias('1 tim', 63);
+    alias('1tim', 63);
+    alias('1 timothy', 63);
+    alias('2ti', 64);
+    alias('2 tim', 64);
+    alias('2tim', 64);
+    alias('2 timothy', 64);
+    alias('tit', 65);
+    alias('titus', 65);
+    alias('phm', 66);
+    alias('philem', 66);
+    alias('philemon', 66);
+    alias('heb', 67);
+    alias('hebrews', 67);
+    alias('jam', 68);
+    alias('james', 68);
+    alias('1pe', 69);
+    alias('1 pet', 69);
+    alias('1pet', 69);
+    alias('1 peter', 69);
+    alias('2pe', 70);
+    alias('2 pet', 70);
+    alias('2pet', 70);
+    alias('2 peter', 70);
+    alias('1jn', 71);
+    alias('1 john', 71);
+    alias('2jn', 72);
+    alias('2 john', 72);
+    alias('3jn', 73);
+    alias('3 john', 73);
+    alias('jud', 75);
+    alias('jude', 75);
+    alias('rev', 76);
+    alias('apoc', 76);
+    alias('apocalypse', 76);
+    alias('revelation', 76);
 
-    // NT
-    'mat': 47, 'matt': 47, 'st. matt': 47, 'matthew': 47,
-    'mrk': 48, 'mark': 48, 'st. mark': 48,
-    'luk': 49, 'luke': 49, 'st. luke': 49,
-    'jhn': 50, 'john': 50, 'st. john': 50,
-    'act': 51, 'acts': 51,
-    'rom': 52, 'romans': 52,
-    '1co': 53, '1 cor': 53, '1 corinthians': 53,
-    '2co': 54, '2 cor': 54, '2 corinthians': 54,
-    'gal': 55, 'galatians': 55,
-    'eph': 56, 'ephesians': 56,
-    'php': 57, 'phil': 57, 'philippians': 57,
-    'col': 58, 'colossians': 58,
-    '1th': 59, '1 thess': 59, '1 thessalonians': 59,
-    '2th': 60, '2 thess': 60, '2 thessalonians': 60,
-    '1ti': 61, '1 tim': 61, '1 timothy': 61,
-    '2ti': 62, '2 tim': 62, '2 timothy': 62,
-    'tit': 63, 'titus': 63,
-    'phm': 64, 'philem': 64, 'philemon': 64,
-    'heb': 65, 'hebrews': 65,
-    'jas': 66, 'james': 66,
-    '1pe': 67, '1 pet': 67, '1 peter': 67,
-    '2pe': 68, '2 pet': 68, '2 peter': 68,
-    '1jn': 69, '1 john': 69,
-    '2jn': 70, '2 john': 70,
-    '3jn': 71, '3 john': 71,
-    'jud': 72, 'jude': 72,
-    'rev': 73, 'apoc': 73, 'apocalypse': 73, 'revelation': 73,
-  };
+    return map;
+  }();
 
   static final RegExp _citationRegex = RegExp(
-    r'\(?\b((?:1|2|3|4)?\s*(?:St\.\s*)?[A-Z][a-z]{1,12}\.?)\s*([0-9ivxlcdm]+)[\:\.\,\s]+([0-9ivxlcdm]+)(?:\-([0-9ivxlcdm]+))?\)?',
+    r'\(?\b((?:1|2|3|4)?\s*(?:St\.\s*)?[A-Z][a-z]{1,12}\.?)\s*([0-9ivxlcdm]+)(?:[\:\.\,\s]+([0-9ivxlcdm]+)(?:\-([0-9ivxlcdm]+))?)?\)?',
     caseSensitive: true,
   );
 
@@ -170,7 +305,7 @@ class BibleCitationParser {
     for (final match in _citationRegex.allMatches(input)) {
       final rawBook = match.group(1)!.trim().replaceAll('.', '');
       final rawChap = match.group(2)!.trim();
-      final rawVerse = match.group(3)!.trim();
+      final rawVerse = match.group(3)?.trim();
       final rawEndVerse = match.group(4)?.trim();
 
       final bookKey = rawBook.toLowerCase();
@@ -186,12 +321,14 @@ class BibleCitationParser {
       );
 
       final chapter = int.tryParse(rawChap) ?? _romanToDecimal(rawChap);
-      final verse = int.tryParse(rawVerse) ?? _romanToDecimal(rawVerse);
+      final verse = rawVerse != null
+          ? (int.tryParse(rawVerse) ?? _romanToDecimal(rawVerse))
+          : null;
       final endVerse = rawEndVerse != null
           ? (int.tryParse(rawEndVerse) ?? _romanToDecimal(rawEndVerse))
           : null;
 
-      if (chapter <= 0 || verse <= 0) continue;
+      if (chapter <= 0 || (verse != null && verse <= 0)) continue;
 
       if (match.start > lastOffset) {
         segments.add(
@@ -199,9 +336,14 @@ class BibleCitationParser {
         );
       }
 
-      final displayLabel = endVerse != null
-          ? '${bookMetadata.bookName} $chapter:$verse-$endVerse'
-          : '${bookMetadata.bookName} $chapter:$verse';
+      final String displayLabel;
+      if (verse == null) {
+        displayLabel = '${bookMetadata.bookName} $chapter';
+      } else if (endVerse != null) {
+        displayLabel = '${bookMetadata.bookName} $chapter:$verse-$endVerse';
+      } else {
+        displayLabel = '${bookMetadata.bookName} $chapter:$verse';
+      }
 
       final citation = BibleCitation(
         rawMatch: match.group(0)!,

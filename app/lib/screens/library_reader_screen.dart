@@ -1125,19 +1125,26 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                 }
 
                 final verses = snapshot.data ?? [];
-                final targetVerseNum = citation.verse;
+                final bool hasTargetVerse = citation.verse != null;
+                final targetVerseNum = citation.verse ?? 1;
                 final endVerseNum = citation.endVerse ?? targetVerseNum;
 
-                final minVerse = (targetVerseNum - 1).clamp(1, 999);
-                final maxVerse = endVerseNum + 1;
-
-                final displayedVerses = verses
-                    .where(
-                      (v) =>
-                          v.verseNumber >= minVerse &&
-                          v.verseNumber <= maxVerse,
-                    )
-                    .toList();
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  if (scrollController.hasClients &&
+                      hasTargetVerse &&
+                      targetVerseNum > 1) {
+                    final targetIndex = verses.indexWhere(
+                      (v) => v.verseNumber == targetVerseNum,
+                    );
+                    if (targetIndex > 0) {
+                      final targetOffset = (targetIndex * 85.0).clamp(
+                        0.0,
+                        scrollController.position.maxScrollExtent,
+                      );
+                      scrollController.jumpTo(targetOffset);
+                    }
+                  }
+                });
 
                 return Container(
                   padding: const EdgeInsets.all(20),
@@ -1182,10 +1189,11 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                       Expanded(
                         child: ListView.builder(
                           controller: scrollController,
-                          itemCount: displayedVerses.length,
+                          itemCount: verses.length,
                           itemBuilder: (lCtx, index) {
-                            final verse = displayedVerses[index];
+                            final verse = verses[index];
                             final isTarget =
+                                hasTargetVerse &&
                                 verse.verseNumber >= targetVerseNum &&
                                 verse.verseNumber <= endVerseNum;
 
