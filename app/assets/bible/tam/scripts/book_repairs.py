@@ -756,6 +756,12 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
         if current_chapter == 2 and raw_text.startswith("2s. Defiende"):
             raw_text = "25." + raw_text[3:]
 
+    if book_id == "PSA":
+        if current_chapter in (73, 74) and "Tú diste con tu poder" in raw_text:
+            return "13. Tú diste con tu poder solidez á las aguas del mar Rojo: tú quebrantaste las cabezas de los dragones, en medio de las aguas.", current_chapter, 13, False
+        if current_chapter in (73, 74) and ("cabeas de los dagones" in raw_text or "cabezas de los dragones" in raw_text):
+            return "", current_chapter, 13, True
+
     # Fix ISA OCR typos and top header guards
     if book_id == "ISA":
         if current_chapter == 28 and "CAPITULO XXIX" in text_upper:
@@ -908,6 +914,7 @@ def apply_book_line_repairs(book_id: str, raw_text: str, current_chapter: int, c
             return raw_text, current_chapter, current_verse, True
         elif current_chapter == 3 and raw_text.startswith("a0. Quedó"):
             raw_text = raw_text.replace("a0.", "30.")
+        # Missing ink on 1836 press makes verse number '34' appear as '31'
         elif current_chapter == 8 and raw_text.startswith("31. No acordándose"):
             raw_text = raw_text.replace("31.", "34.")
         elif current_chapter == 9 and raw_text.startswith("51") and "Abimelech" in raw_text:
