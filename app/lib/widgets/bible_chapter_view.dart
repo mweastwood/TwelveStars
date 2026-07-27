@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/logic/reverse_citation_service.dart';
+import 'package:twelve_stars/screens/library_reader_screen.dart';
 
 class BibleChapterView extends StatefulWidget {
   final BibleBook book;
@@ -79,6 +82,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
     });
 
     try {
+      ReverseCitationService.ensureIndexed().then((_) {
+        if (mounted) setState(() {});
+      });
       final db = BibleDatabaseHelper.db;
       // Load primary translation
       await db.ensureBookPopulated(
@@ -337,6 +343,11 @@ class _BibleChapterViewState extends State<BibleChapterView>
       return Center(child: Text('Error loading Bible: $_error'));
     }
 
+    final chapterCitations = ReverseCitationService.getChapterCitations(
+      widget.book.bookNumber,
+      widget.chapter,
+    );
+
     return Stack(
       children: [
         SingleChildScrollView(
@@ -366,10 +377,45 @@ class _BibleChapterViewState extends State<BibleChapterView>
                   color: theme.colorScheme.outline,
                 ),
               ),
+              if (chapterCitations.isNotEmpty) ...[
+                const SizedBox(height: 10),
+                ActionChip(
+                  avatar: Icon(
+                    Icons.auto_stories_rounded,
+                    size: 16,
+                    color: theme.colorScheme.primary,
+                  ),
+                  label: Text(
+                    '${chapterCitations.length} Catechism Reference${chapterCitations.length > 1 ? "s" : ""} to ${widget.book.bookName} ${widget.chapter}',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
+                      color: theme.colorScheme.primary,
+                    ),
+                  ),
+                  backgroundColor: theme.colorScheme.primaryContainer
+                      .withValues(alpha: 0.5),
+                  side: BorderSide(
+                    color: theme.colorScheme.primary.withValues(alpha: 0.3),
+                  ),
+                  mouseCursor: SystemMouseCursors.click,
+                  onPressed: () => _showReverseCitationsModal(
+                    context: context,
+                    title: '${widget.book.bookName} ${widget.chapter}',
+                    citations: chapterCitations,
+                  ),
+                ),
+              ],
               const Divider(height: 24),
               ..._verses.map((verse) {
                 final isSelected = _isVerseSelected(verse.verseNumber);
                 _verseKeys.putIfAbsent(verse.verseNumber, () => GlobalKey());
+
+                final verseCitations = ReverseCitationService.getVerseCitations(
+                  widget.book.bookNumber,
+                  widget.chapter,
+                  verse.verseNumber,
+                );
 
                 BibleVerse? compareVerse;
                 if (_compareVerses.isNotEmpty) {
@@ -444,6 +490,56 @@ class _BibleChapterViewState extends State<BibleChapterView>
                             ),
                           ),
                         ],
+                        if (verseCitations.isNotEmpty) ...[
+                          const SizedBox(width: 8),
+                          InkWell(
+                            mouseCursor: SystemMouseCursors.click,
+                            onTap: () => _showReverseCitationsModal(
+                              context: context,
+                              title:
+                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                              citations: verseCitations,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 4,
+                              ),
+                              decoration: BoxDecoration(
+                                color: theme.colorScheme.tertiaryContainer
+                                    .withValues(alpha: 0.8),
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(
+                                  color: theme.colorScheme.tertiary.withValues(
+                                    alpha: 0.4,
+                                  ),
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    Icons.auto_stories_rounded,
+                                    size: 13,
+                                    color:
+                                        theme.colorScheme.onTertiaryContainer,
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    '${verseCitations.length}',
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                      color:
+                                          theme.colorScheme.onTertiaryContainer,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
                       ],
                     ),
                   ),
@@ -460,6 +556,193 @@ class _BibleChapterViewState extends State<BibleChapterView>
             child: _buildSelectionActionBar(theme),
           ),
       ],
+    );
+  }
+
+  Future<void> _showReverseCitationsModal({
+    required BuildContext context,
+    required String title,
+    required List<ReverseCitation> citations,
+  }) async {
+    final theme = Theme.of(context);
+
+    await showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      isDismissible: true,
+      enableDrag: true,
+      backgroundColor: Colors.transparent,
+      builder: (ctx) {
+        return GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () => Navigator.of(ctx).pop(),
+          child: GestureDetector(
+            onTap: () {},
+            child: Container(
+              decoration: BoxDecoration(
+                color: theme.colorScheme.surface,
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(24),
+                ),
+              ),
+              child: DraggableScrollableSheet(
+                expand: false,
+                initialChildSize: 0.65,
+                maxChildSize: 0.9,
+                minChildSize: 0.4,
+                builder: (sheetCtx, scrollController) {
+                  return Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Container(
+                            width: 40,
+                            height: 4,
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.onSurfaceVariant
+                                  .withValues(alpha: 0.4),
+                              borderRadius: BorderRadius.circular(2),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.auto_stories_rounded,
+                              color: theme.colorScheme.primary,
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                'Catechism References to $title',
+                                style: theme.textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.primary,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Divider(height: 24),
+                        Expanded(
+                          child: ListView.builder(
+                            controller: scrollController,
+                            itemCount: citations.length,
+                            itemBuilder: (lCtx, index) {
+                              final item = citations[index];
+                              final qText = item.questionNumber != null
+                                  ? 'Q. ${item.questionNumber}. '
+                                  : '';
+
+                              return Container(
+                                margin: const EdgeInsets.only(bottom: 12),
+                                padding: const EdgeInsets.all(12),
+                                decoration: BoxDecoration(
+                                  color: theme.colorScheme.surfaceContainerLow,
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(
+                                    color: theme.colorScheme.outlineVariant
+                                        .withValues(alpha: 0.5),
+                                  ),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            item.sourceBookTitle,
+                                            style: theme.textTheme.labelMedium
+                                                ?.copyWith(
+                                                  fontWeight: FontWeight.bold,
+                                                  color:
+                                                      theme.colorScheme.primary,
+                                                ),
+                                          ),
+                                        ),
+                                        Chip(
+                                          label: Text(
+                                            item.citation.displayLabel,
+                                            style: const TextStyle(
+                                              fontSize: 10,
+                                            ),
+                                          ),
+                                          visualDensity: VisualDensity.compact,
+                                          padding: EdgeInsets.zero,
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      '$qText${item.sectionTitle}',
+                                      style: theme.textTheme.bodyMedium
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                    if (item.snippet.isNotEmpty) ...[
+                                      const SizedBox(height: 6),
+                                      Text(
+                                        item.snippet,
+                                        maxLines: 3,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: theme.textTheme.bodySmall
+                                            ?.copyWith(
+                                              color: theme
+                                                  .colorScheme
+                                                  .onSurfaceVariant,
+                                              height: 1.4,
+                                            ),
+                                      ),
+                                    ],
+                                    const SizedBox(height: 8),
+                                    Align(
+                                      alignment: Alignment.centerRight,
+                                      child: TextButton.icon(
+                                        icon: const Icon(
+                                          Icons.open_in_new_rounded,
+                                          size: 16,
+                                        ),
+                                        label: const Text('Read in Library'),
+                                        onPressed: () {
+                                          Navigator.pop(ctx);
+                                          final catalog =
+                                              LibraryHelper.getCatalog();
+                                          final book = catalog.firstWhere(
+                                            (b) => b.id == item.sourceBookId,
+                                            orElse: () => catalog[0],
+                                          );
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (_) =>
+                                                  LibraryReaderScreen(
+                                                    bookItem: book,
+                                                  ),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
