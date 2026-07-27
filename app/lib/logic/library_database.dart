@@ -16,10 +16,11 @@ class TocEntry {
 }
 
 class ContentItem {
-  final String type; // 'qa' or 'text'
+  final String type; // 'qa', 'text', or 'heading'
   final int? questionNumber;
   final String? question;
   final String? answer;
+  final String? explanation;
   final String? text;
 
   ContentItem({
@@ -27,6 +28,7 @@ class ContentItem {
     this.questionNumber,
     this.question,
     this.answer,
+    this.explanation,
     this.text,
   });
 
@@ -36,6 +38,7 @@ class ContentItem {
       questionNumber: json['questionNumber'] as int?,
       question: json['question'] as String?,
       answer: json['answer'] as String?,
+      explanation: json['explanation'] as String?,
       text: json['text'] as String?,
     );
   }
