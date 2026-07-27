@@ -11,7 +11,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 def clean_text(text):
     text = re.sub(r'\r\n', '\n', text)
     text = re.sub(r'[\r\f]', '', text)
-    return text.strip()
+    return text
 
 def strip_gutenberg_header_footer(text):
     start_match = re.search(r'\*\*\*\s*START OF (THE|THIS) PROJECT GUTENBERG EBOOK.*?\*\*\*', text, re.IGNORECASE)
@@ -28,47 +28,58 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
     with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
         raw = f.read()
         
-    cleaned = strip_gutenberg_header_footer(raw)
+    cleaned = strip_gutenberg_header_footer(clean_text(raw))
     lines = cleaned.splitlines()
     
     sections = []
     current_section = None
     
-    # Regex patterns
-    lesson_pattern = re.compile(r'^\s*(LESSON\s+[A-Z0-9\-]+|LESSON\s+[A-Z\s]+|ON THE LORD\'S PRAYER|THE LORD\'S PRAYER|PRONUNCIATION OF NAMES|PRAYERS)\.?', re.IGNORECASE)
-    q_pattern = re.compile(r'^\s*Q\.\s*(\d+)\.?\s*(.*)', re.IGNORECASE)
+    # Regex patterns for Baltimore Q&A
+    # Matches: "1. Q. Who made...", "Q. 126. What do...", "{1} Q. 130. Who...", "126. Q."
+    q_pattern = re.compile(r'^\s*(?:\{?\d+\}?\s*)?(?:(\d+)\.\s*Q\.|Q\.\s*(\d+)\.?)\s*(.*)', re.IGNORECASE)
     a_pattern = re.compile(r'^\s*A\.\s*(.*)', re.IGNORECASE)
+    lesson_pattern = re.compile(r'^\s*(LESSON\s+[A-Z0-9\-\s]+|PRONUNCIATION OF NAMES|PRAYERS)\.?\s*$', re.IGNORECASE)
     
-    current_q = None
     current_q_num = None
     current_q_text = ""
     current_a_text = ""
+    current_explanation = []
     is_answering = False
+    is_explaining = False
     
     def finalize_qa():
-        nonlocal current_q, current_q_num, current_q_text, current_a_text, is_answering
+        nonlocal current_q_num, current_q_text, current_a_text, current_explanation, is_answering, is_explaining
         if current_q_num is not None and current_section is not None:
-            current_section["content"].append({
+            entry = {
                 "type": "qa",
                 "questionNumber": current_q_num,
-                "question": current_q_text.strip(),
-                "answer": current_a_text.strip()
-            })
+                "question": re.sub(r'\s+', ' ', current_q_text).strip(),
+                "answer": re.sub(r'\s+', ' ', current_a_text).strip()
+            }
+            if current_explanation:
+                exp_text = "\n\n".join([re.sub(r'\s+', ' ', p).strip() for p in current_explanation if p.strip()])
+                if exp_text:
+                    entry["explanation"] = exp_text
+            current_section["content"].append(entry)
+            
         current_q_num = None
         current_q_text = ""
         current_a_text = ""
+        current_explanation = []
         is_answering = False
+        is_explaining = False
 
-    intro_lines = []
-    
     for line in lines:
         stripped = line.strip()
         if not stripped:
+            if is_answering:
+                is_answering = False
+                is_explaining = True
             continue
             
         # Check for Lesson Header
-        match_lesson = re.match(r'^\s*(LESSON\s+[A-Z0-9\-\s]+|PRONUNCIATION OF NAMES|PRAYERS)\.?\s*$', stripped, re.IGNORECASE)
-        if match_lesson and len(stripped) < 40 and not stripped.startswith("Q.") and not stripped.startswith("A."):
+        match_lesson = lesson_pattern.match(stripped)
+        if match_lesson and len(stripped) < 50 and not q_pattern.match(stripped) and not a_pattern.match(stripped):
             finalize_qa()
             sec_id = f"sec_{len(sections) + 1}"
             current_section = {
@@ -81,52 +92,61 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
             continue
             
         # Check if line is Lesson Subtitle right after Lesson Title
-        if current_section is not None and len(current_section["content"]) == 0 and not current_section["subtitle"] and not stripped.startswith("Q.") and not stripped.startswith("A."):
-            if stripped.isupper() or stripped.startswith("ON "):
+        if current_section is not None and len(current_section["content"]) == 0 and not current_section["subtitle"] and not q_pattern.match(stripped) and not a_pattern.match(stripped):
+            if stripped.isupper() or stripped.startswith("ON ") or stripped.startswith("FROM "):
                 current_section["subtitle"] = stripped
                 continue
 
-        # Check for Q. ###
+        # Check for Question (e.g., "1. Q. Who made..." or "Q. 126. What...")
         match_q = q_pattern.match(stripped)
         if match_q:
             finalize_qa()
-            current_q_num = int(match_q.group(1))
-            current_q_text = match_q.group(2)
+            q_num_str = match_q.group(1) or match_q.group(2)
+            current_q_num = int(q_num_str) if q_num_str else 0
+            current_q_text = match_q.group(3) or ""
             is_answering = False
+            is_explaining = False
             if current_section is None:
                 current_section = {
                     "id": "sec_1",
-                    "title": "Introduction & Prayers",
+                    "title": "PRAYERS & INTRO",
                     "subtitle": "",
                     "content": []
                 }
                 sections.append(current_section)
             continue
             
-        # Check for A.
+        # Check for Answer (A.)
         match_a = a_pattern.match(stripped)
         if match_a and current_q_num is not None:
-            current_a_text = match_a.group(1)
+            current_a_text = match_a.group(1) or ""
             is_answering = True
+            is_explaining = False
             continue
             
         if is_answering:
             current_a_text += " " + stripped
+        elif is_explaining:
+            if current_explanation:
+                current_explanation[-1] += " " + stripped
+            else:
+                current_explanation.append(stripped)
         elif current_q_num is not None:
             current_q_text += " " + stripped
         else:
-            if current_section is not None and len(current_section["content"]) == 0:
-                current_section["content"].append({
-                    "type": "text",
-                    "text": stripped
-                })
+            if current_section is not None:
+                if current_section["content"] and current_section["content"][-1]["type"] == "text":
+                    current_section["content"][-1]["text"] += "\n" + stripped
+                else:
+                    current_section["content"].append({
+                        "type": "text",
+                        "text": stripped
+                    })
 
     finalize_qa()
     
-    # Filter empty sections
     valid_sections = [s for s in sections if len(s["content"]) > 0 or s["subtitle"]]
     
-    # Build Table of Contents
     toc = []
     for sec in valid_sections:
         toc_title = sec["title"]
@@ -157,7 +177,20 @@ def parse_trent(filepath):
         raw = f.read()
 
     cleaned = clean_text(raw)
+    
+    # Fix hyphenated words across line breaks (e.g. "accord- \n ing" -> "according")
+    cleaned = re.sub(r'(\b[a-zA-Z]+)-\s*\n\s*([a-zA-Z]+\b)', r'\1\2', cleaned)
+    
     lines = cleaned.splitlines()
+    
+    # Find start of main body (skip Gutenberg headers, Toc, and Prefaces)
+    main_body_start_idx = 0
+    for idx, line in enumerate(lines):
+        if 'DECREE OF THE COUNCIL OF TRENT' in line.upper():
+            main_body_start_idx = idx
+            break
+            
+    body_lines = lines[main_body_start_idx:]
     
     sections = []
     current_part = "PART I"
@@ -165,10 +198,21 @@ def parse_trent(filepath):
     
     part_pattern = re.compile(r'^\s*(PART\s+[I|V|X]+)\.?\s*$', re.IGNORECASE)
     chap_pattern = re.compile(r'^\s*(CHAP(?:TER)?\.?\s+[I|V|X\d]+)\.?(.*)', re.IGNORECASE)
+    question_header_pattern = re.compile(r'^\s*(Que?stion\s+[I|V|X\d]+\.?\s*[\—\–\-]?\s*.*)', re.IGNORECASE)
     
-    for line in lines:
+    # Running header & page number cleaner
+    running_header_pattern = re.compile(r'^\s*(\d+\s+)?(PART\s+[I|V|X]+|CATECHISM|THE TRANSLATOR|PREFACE).*?(\d+)?\s*$', re.IGNORECASE)
+    page_num_pattern = re.compile(r'^\s*\d+\s*$')
+    
+    for line in body_lines:
         stripped = line.strip()
         if not stripped:
+            continue
+            
+        # Filter out OCR page numbers and running headers
+        if page_num_pattern.match(stripped):
+            continue
+        if running_header_pattern.match(stripped) and len(stripped) < 70 and not question_header_pattern.match(stripped):
             continue
             
         m_part = part_pattern.match(stripped)
@@ -179,8 +223,10 @@ def parse_trent(filepath):
         m_chap = chap_pattern.match(stripped)
         if m_chap and len(stripped) < 80:
             chap_num = m_chap.group(1).upper()
+            chap_num = chap_num.replace('CHAPTEH', 'CHAPTER').replace('QMAPYXR', 'CHAPTER')
             chap_title = m_chap.group(2).strip(" .—–-")
             sec_id = f"sec_trent_{len(sections) + 1}"
+            
             full_title = f"{current_part}, {chap_num}"
             if chap_title:
                 full_title += f": {chap_title}"
@@ -196,16 +242,35 @@ def parse_trent(filepath):
             continue
             
         if current_section is not None:
-            # Skip page headers / footers like "PART I. CHAPTER II."
-            if re.match(r'^\s*PART\s+[I|V|X]+.*?CHAPTER.*?\d+\s*$', stripped, re.IGNORECASE):
+            # Check for Question Heading (e.g. "Question I.— What is here meant...")
+            m_q_head = question_header_pattern.match(stripped)
+            if m_q_head:
+                q_text = m_q_head.group(1)
+                # Fix common OCR typos in question header
+                q_text = re.sub(r'Quxstion', 'Question', q_text, flags=re.IGNORECASE)
+                q_text = re.sub(r'Symiol', 'Symbol', q_text, flags=re.IGNORECASE)
+                current_section["content"].append({
+                    "type": "heading",
+                    "text": q_text
+                })
                 continue
-            if len(current_section["content"]) > 0 and current_section["content"][-1]["type"] == "text":
-                current_section["content"][-1]["text"] += "\n" + stripped
+                
+            # Paragraph content
+            if current_section["content"] and current_section["content"][-1]["type"] == "text":
+                current_section["content"][-1]["text"] += " " + stripped
             else:
                 current_section["content"].append({
                     "type": "text",
                     "text": stripped
                 })
+
+    # Clean up multiline text whitespace
+    for sec in sections:
+        for item in sec["content"]:
+            if item["type"] == "text":
+                item["text"] = re.sub(r'\s+', ' ', item["text"]).strip()
+            elif item["type"] == "heading":
+                item["text"] = re.sub(r'\s+', ' ', item["text"]).strip()
 
     valid_sections = [s for s in sections if len(s["content"]) > 0]
     

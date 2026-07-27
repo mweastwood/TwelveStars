@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:path/path.dart' as p;
 
 String cleanText(String text) {
-  return text.replaceAll('\r\n', '\n').replaceAll(RegExp(r'[\r\f]'), '').trim();
+  return text.replaceAll('\r\n', '\n').replaceAll(RegExp(r'[\r\f]'), '');
 }
 
 String stripGutenbergHeaderFooter(String text) {
@@ -41,47 +41,72 @@ void parseBaltimoreFile(
   }
 
   final raw = file.readAsStringSync();
-  final cleaned = stripGutenbergHeaderFooter(raw);
+  final cleaned = stripGutenbergHeaderFooter(cleanText(raw));
   final lines = cleaned.split('\n');
 
   final List<Map<String, dynamic>> sections = [];
   Map<String, dynamic>? currentSection;
 
-  final qPattern = RegExp(r'^\s*Q\.\s*(\d+)\.?\s*(.*)', caseSensitive: false);
+  final qPattern = RegExp(
+    r'^\s*(?:\{?\d+\}?\s*)?(?:(\d+)\.\s*Q\.|Q\.\s*(\d+)\.?)\s*(.*)',
+    caseSensitive: false,
+  );
   final aPattern = RegExp(r'^\s*A\.\s*(.*)', caseSensitive: false);
+  final lessonPattern = RegExp(
+    r'^\s*(LESSON\s+[A-Z0-9\-\s]+|PRONUNCIATION OF NAMES|PRAYERS)\.?\s*$',
+    caseSensitive: false,
+  );
 
   int? currentQNum;
   String currentQText = '';
   String currentAText = '';
+  final List<String> currentExplanation = [];
   bool isAnswering = false;
+  bool isExplaining = false;
 
   void finalizeQa() {
-    if (currentQNum != null && currentSection != null) {
-      (currentSection['content'] as List<dynamic>).add({
+    final sec = currentSection;
+    if (currentQNum != null && sec != null) {
+      final Map<String, dynamic> entry = {
         'type': 'qa',
         'questionNumber': currentQNum,
-        'question': currentQText.trim(),
-        'answer': currentAText.trim(),
-      });
+        'question': currentQText.replaceAll(RegExp(r'\s+'), ' ').trim(),
+        'answer': currentAText.replaceAll(RegExp(r'\s+'), ' ').trim(),
+      };
+      if (currentExplanation.isNotEmpty) {
+        final expText = currentExplanation
+            .map((p) => p.replaceAll(RegExp(r'\s+'), ' ').trim())
+            .where((p) => p.isNotEmpty)
+            .join('\n\n');
+        if (expText.isNotEmpty) {
+          entry['explanation'] = expText;
+        }
+      }
+      (sec['content'] as List<dynamic>).add(entry);
     }
     currentQNum = null;
     currentQText = '';
     currentAText = '';
+    currentExplanation.clear();
     isAnswering = false;
+    isExplaining = false;
   }
 
   for (final line in lines) {
     final stripped = line.trim();
-    if (stripped.isEmpty) continue;
+    if (stripped.isEmpty) {
+      if (isAnswering) {
+        isAnswering = false;
+        isExplaining = true;
+      }
+      continue;
+    }
 
-    final matchLesson = RegExp(
-      r'^\s*(LESSON\s+[A-Z0-9\-\s]+|PRONUNCIATION OF NAMES|PRAYERS)\.?\s*$',
-      caseSensitive: false,
-    ).firstMatch(stripped);
+    final matchLesson = lessonPattern.firstMatch(stripped);
     if (matchLesson != null &&
-        stripped.length < 40 &&
-        !stripped.startsWith('Q.') &&
-        !stripped.startsWith('A.')) {
+        stripped.length < 50 &&
+        !qPattern.hasMatch(stripped) &&
+        !aPattern.hasMatch(stripped)) {
       finalizeQa();
       final secId = 'sec_${sections.length + 1}';
       currentSection = {
@@ -94,13 +119,16 @@ void parseBaltimoreFile(
       continue;
     }
 
-    if (currentSection != null &&
-        (currentSection['content'] as List).isEmpty &&
-        (currentSection['subtitle'] as String).isEmpty &&
-        !stripped.startsWith('Q.') &&
-        !stripped.startsWith('A.')) {
-      if (stripped == stripped.toUpperCase() || stripped.startsWith('ON ')) {
-        currentSection['subtitle'] = stripped;
+    final sec = currentSection;
+    if (sec != null &&
+        (sec['content'] as List).isEmpty &&
+        (sec['subtitle'] as String).isEmpty &&
+        !qPattern.hasMatch(stripped) &&
+        !aPattern.hasMatch(stripped)) {
+      if (stripped == stripped.toUpperCase() ||
+          stripped.startsWith('ON ') ||
+          stripped.startsWith('FROM ')) {
+        sec['subtitle'] = stripped;
         continue;
       }
     }
@@ -108,13 +136,15 @@ void parseBaltimoreFile(
     final matchQ = qPattern.firstMatch(stripped);
     if (matchQ != null) {
       finalizeQa();
-      currentQNum = int.parse(matchQ.group(1)!);
-      currentQText = matchQ.group(2)!;
+      final qNumStr = matchQ.group(1) ?? matchQ.group(2);
+      currentQNum = qNumStr != null ? int.parse(qNumStr) : 0;
+      currentQText = matchQ.group(3) ?? '';
       isAnswering = false;
+      isExplaining = false;
       if (currentSection == null) {
         currentSection = {
           'id': 'sec_1',
-          'title': 'Introduction & Prayers',
+          'title': 'PRAYERS & INTRO',
           'subtitle': '',
           'content': <Map<String, dynamic>>[],
         };
@@ -125,22 +155,30 @@ void parseBaltimoreFile(
 
     final matchA = aPattern.firstMatch(stripped);
     if (matchA != null && currentQNum != null) {
-      currentAText = matchA.group(1)!;
+      currentAText = matchA.group(1) ?? '';
       isAnswering = true;
+      isExplaining = false;
       continue;
     }
 
     if (isAnswering) {
       currentAText += ' $stripped';
+    } else if (isExplaining) {
+      if (currentExplanation.isNotEmpty) {
+        currentExplanation[currentExplanation.length - 1] += ' $stripped';
+      } else {
+        currentExplanation.add(stripped);
+      }
     } else if (currentQNum != null) {
       currentQText += ' $stripped';
     } else {
-      if (currentSection != null &&
-          (currentSection['content'] as List).isEmpty) {
-        (currentSection['content'] as List).add({
-          'type': 'text',
-          'text': stripped,
-        });
+      if (sec != null) {
+        final contentList = sec['content'] as List<dynamic>;
+        if (contentList.isNotEmpty && contentList.last['type'] == 'text') {
+          contentList.last['text'] = '${contentList.last['text']}\n$stripped';
+        } else {
+          contentList.add({'type': 'text', 'text': stripped});
+        }
       }
     }
   }
@@ -155,12 +193,12 @@ void parseBaltimoreFile(
       )
       .toList();
 
-  final toc = validSections.map((sec) {
-    String tocTitle = sec['title'] as String;
-    if ((sec['subtitle'] as String).isNotEmpty) {
-      tocTitle += ': ${sec['subtitle']}';
+  final toc = validSections.map((secItem) {
+    String tocTitle = secItem['title'] as String;
+    if ((secItem['subtitle'] as String).isNotEmpty) {
+      tocTitle += ': ${secItem['subtitle']}';
     }
-    return {'id': sec['id'], 'title': tocTitle};
+    return {'id': secItem['id'], 'title': tocTitle};
   }).toList();
 
   final data = {
@@ -186,26 +224,59 @@ void parseTrent(String filepath, Directory outputDir) {
     return;
   }
 
-  final raw = file.readAsStringSync();
-  final cleaned = cleanText(raw);
+  var cleaned = cleanText(file.readAsStringSync());
+
+  // Fix hyphenated words across line breaks (e.g. "accord- \n ing" -> "according")
+  cleaned = cleaned.replaceAllMapped(
+    RegExp(r'(\b[a-zA-Z]+)-\s*\n\s*([a-zA-Z]+\b)'),
+    (m) => '${m.group(1)}${m.group(2)}',
+  );
+
   final lines = cleaned.split('\n');
+
+  // Find start of main body (skip Gutenberg headers, Toc, and Prefaces)
+  int mainBodyStartIdx = 0;
+  for (int i = 0; i < lines.length; i++) {
+    if (lines[i].toUpperCase().contains('DECREE OF THE COUNCIL OF TRENT')) {
+      mainBodyStartIdx = i;
+      break;
+    }
+  }
+
+  final bodyLines = lines.sublist(mainBodyStartIdx);
 
   final List<Map<String, dynamic>> sections = [];
   String currentPart = 'PART I';
   Map<String, dynamic>? currentSection;
 
   final partPattern = RegExp(
-    r'^\s*(PART\s+[I|V|X]+)\.?\s*$',
+    r'^\s*(PART\s+[I|V|X\d]+)\.?\s*$',
     caseSensitive: false,
   );
   final chapPattern = RegExp(
-    r'^\s*(CHAP(?:TER)?\.?\s+[I|V|X\d]+)\.?(.*)',
+    r'^\s*(CHAPTER\s+[I|V|X\d]+)\.?\s*$',
     caseSensitive: false,
   );
+  final questionHeaderPattern = RegExp(
+    r'^\s*(Que?stion\s+[I|V|X\d]+\.?\s*[\—\–\-]?\s*.*)',
+    caseSensitive: false,
+  );
+  final runningHeaderPattern = RegExp(
+    r'^\s*(\d+\s+)?(PART\s+[I|V|X]+|CATECHISM|THE TRANSLATOR|PREFACE).*?(\d+)?\s*$',
+    caseSensitive: false,
+  );
+  final pageNumPattern = RegExp(r'^\s*\d+\s*$');
 
-  for (final line in lines) {
+  for (final line in bodyLines) {
     final stripped = line.trim();
     if (stripped.isEmpty) continue;
+
+    if (pageNumPattern.hasMatch(stripped)) continue;
+    if (runningHeaderPattern.hasMatch(stripped) &&
+        stripped.length < 70 &&
+        !questionHeaderPattern.hasMatch(stripped)) {
+      continue;
+    }
 
     final mPart = partPattern.firstMatch(stripped);
     if (mPart != null) {
@@ -214,21 +285,13 @@ void parseTrent(String filepath, Directory outputDir) {
     }
 
     final mChap = chapPattern.firstMatch(stripped);
-    if (mChap != null && stripped.length < 80) {
+    if (mChap != null) {
       final chapNum = mChap.group(1)!.toUpperCase();
-      final chapTitle = mChap
-          .group(2)!
-          .replaceAll(RegExp(r'^[\s\.\—\–\-]+'), '')
-          .trim();
       final secId = 'sec_trent_${sections.length + 1}';
-      String fullTitle = '$currentPart, $chapNum';
-      if (chapTitle.isNotEmpty) {
-        fullTitle += ': $chapTitle';
-      }
 
       currentSection = {
         'id': secId,
-        'title': fullTitle,
+        'title': '$currentPart, $chapNum',
         'part': currentPart,
         'chapter': chapNum,
         'content': <Map<String, dynamic>>[],
@@ -237,19 +300,40 @@ void parseTrent(String filepath, Directory outputDir) {
       continue;
     }
 
-    if (currentSection != null) {
-      if (RegExp(
-        r'^\s*PART\s+[I|V|X]+.*?CHAPTER.*?\d+\s*$',
-        caseSensitive: false,
-      ).hasMatch(stripped)) {
+    final sec = currentSection;
+    if (sec != null) {
+      final mQHead = questionHeaderPattern.firstMatch(stripped);
+      if (mQHead != null) {
+        var qText = mQHead.group(1)!;
+        qText = qText.replaceAll(
+          RegExp(r'Quxstion', caseSensitive: false),
+          'Question',
+        );
+        qText = qText.replaceAll(
+          RegExp(r'Symiol', caseSensitive: false),
+          'Symbol',
+        );
+        (sec['content'] as List<dynamic>).add({
+          'type': 'heading',
+          'text': qText.replaceAll(RegExp(r'\s+'), ' ').trim(),
+        });
         continue;
       }
-      final contentList = currentSection['content'] as List<dynamic>;
+
+      final contentList = sec['content'] as List<dynamic>;
       if (contentList.isNotEmpty && contentList.last['type'] == 'text') {
-        contentList.last['text'] = '${contentList.last['text']}\n$stripped';
+        contentList.last['text'] = '${contentList.last['text']} $stripped';
       } else {
         contentList.add({'type': 'text', 'text': stripped});
       }
+    }
+  }
+
+  for (final sec in sections) {
+    for (final item in sec['content'] as List<dynamic>) {
+      item['text'] = (item['text'] as String)
+          .replaceAll(RegExp(r'\s+'), ' ')
+          .trim();
     }
   }
 
@@ -257,8 +341,13 @@ void parseTrent(String filepath, Directory outputDir) {
       .where((s) => (s['content'] as List).isNotEmpty)
       .toList();
 
-  final toc = validSections.map((sec) {
-    return {'id': sec['id'], 'title': sec['title']};
+  final toc = validSections.map((secItem) {
+    String title = secItem['title'] as String;
+    final content = secItem['content'] as List<dynamic>;
+    if (content.isNotEmpty && content.first['type'] == 'heading') {
+      title += ': ${content.first['text']}';
+    }
+    return {'id': secItem['id'], 'title': title};
   }).toList();
 
   final data = {

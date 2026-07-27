@@ -582,9 +582,25 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
 
           // Content Items
           ...sec.content.map((item) {
-            if (item.type == 'qa') {
+            if (item.type == 'heading') {
               return Padding(
-                padding: const EdgeInsets.only(bottom: 18.0),
+                padding: const EdgeInsets.only(top: 20.0, bottom: 12.0),
+                child: Text(
+                  item.text ?? '',
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.primary,
+                    height: 1.4,
+                  ),
+                ),
+              );
+            } else if (item.type == 'qa') {
+              final qPrefix =
+                  (item.questionNumber != null && item.questionNumber! > 0)
+                  ? 'Q. ${item.questionNumber}. '
+                  : 'Q. ';
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -597,7 +613,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                         ),
                         children: [
                           TextSpan(
-                            text: 'Q. ${item.questionNumber}. ',
+                            text: qPrefix,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: theme.colorScheme.primary,
@@ -610,7 +626,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 6),
+                    const SizedBox(height: 8),
                     RichText(
                       text: TextSpan(
                         style: theme.textTheme.bodyLarge?.copyWith(
@@ -630,17 +646,47 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                         ],
                       ),
                     ),
+                    if (item.explanation != null &&
+                        item.explanation!.isNotEmpty) ...[
+                      const SizedBox(height: 10),
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(14.0),
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.surfaceContainerHigh
+                              .withValues(alpha: 0.6),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border(
+                            left: BorderSide(
+                              color: theme.colorScheme.primary.withValues(
+                                alpha: 0.7,
+                              ),
+                              width: 3,
+                            ),
+                          ),
+                        ),
+                        child: Text(
+                          item.explanation!,
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            fontSize: _fontSize - 1,
+                            height: 1.5,
+                            fontStyle: FontStyle.italic,
+                            color: theme.colorScheme.onSurfaceVariant,
+                          ),
+                        ),
+                      ),
+                    ],
                   ],
                 ),
               );
             } else {
               return Padding(
-                padding: const EdgeInsets.only(bottom: 14.0),
+                padding: const EdgeInsets.only(bottom: 16.0),
                 child: Text(
                   item.text ?? '',
                   style: theme.textTheme.bodyLarge?.copyWith(
                     fontSize: _fontSize,
-                    height: 1.5,
+                    height: 1.6,
                   ),
                 ),
               );

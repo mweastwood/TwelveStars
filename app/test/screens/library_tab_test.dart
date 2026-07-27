@@ -46,6 +46,12 @@ void main() {
     testWidgets('tapping volume chip opens LibraryReaderScreen', (
       tester,
     ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/baltimore_1.json',
+        );
+      });
+
       await tester.pumpWidget(
         buildTestableWidget(child: const Scaffold(body: LibraryTab())),
       );
@@ -69,6 +75,12 @@ void main() {
       final baltimore = catalog.firstWhere(
         (b) => b.id == 'baltimore_catechism',
       );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/baltimore_1.json',
+        );
+      });
 
       await tester.pumpWidget(
         buildTestableWidget(
