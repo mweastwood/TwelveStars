@@ -277,6 +277,9 @@ class BibleDatabase extends _$BibleDatabase {
       } else if (translation == 'TAM') {
         assetPath =
             'assets/bible/tam/usfm/$numStr-$abbrev-SPA[B]TAM1836[pd].usfm';
+      } else if (translation == 'VUL') {
+        assetPath =
+            'assets/bible/vul/usfm/$numStr-$abbrev-LAT[B]VUL1592[pd].usfm';
       } else {
         assetPath =
             'assets/bible/cpdv/usfm/$numStr-$abbrev-ENG[B]CPDV2009[pd].p.sfm';

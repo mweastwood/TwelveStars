@@ -89,6 +89,17 @@ class _BibleTranslationDialogState extends State<BibleTranslationDialog> {
                   value: 'TAM',
                   theme: theme,
                 ),
+                const SizedBox(height: 8),
+                _buildTranslationOption(
+                  title: 'Vulgata Clementina (VUL)',
+                  origin: 'Sacra Vulgata Editio Clementina (1592 / 1914)',
+                  description:
+                      'The canonical Latin Vulgate text promulgated by Pope Clement VIII, the official Latin scripture of the Catholic Church.',
+                  usage:
+                      'Latin study, traditional liturgical reference, and side-by-side translation comparison.',
+                  value: 'VUL',
+                  theme: theme,
+                ),
               ] else ...[
                 _buildTranslationOption(
                   title: 'None (Single View)',
@@ -141,6 +152,17 @@ class _BibleTranslationDialogState extends State<BibleTranslationDialog> {
                   usage:
                       'Lenguaje tradicional, devoción personal y comparación histórica.',
                   value: 'TAM',
+                  theme: theme,
+                ),
+                const SizedBox(height: 8),
+                _buildTranslationOption(
+                  title: 'Vulgata Clementina (VUL)',
+                  origin: 'Sacra Vulgata Editio Clementina (1592 / 1914)',
+                  description:
+                      'The canonical Latin Vulgate text promulgated by Pope Clement VIII, the official Latin scripture of the Catholic Church.',
+                  usage:
+                      'Latin study, traditional liturgical reference, and side-by-side translation comparison.',
+                  value: 'VUL',
                   theme: theme,
                 ),
               ],
