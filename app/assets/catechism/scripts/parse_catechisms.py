@@ -22,6 +22,10 @@ def strip_gutenberg_header_footer(text):
     if end_match:
         text = text[:end_match.start()]
         
+    end_match2 = re.search(r'End of (the )?Project Gutenberg', text, re.IGNORECASE)
+    if end_match2:
+        text = text[:end_match2.start()]
+
     return text.strip()
 
 ORDINAL_MAP = {
@@ -67,11 +71,12 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
     sections = []
     current_section = None
     
-    # Strict regex for Baltimore Q&A:
-    # Requires explicit braces for prefix numbers (e.g. "{1}"), preventing "10. Q." from splitting into "1" and "0. Q."
-    q_pattern = re.compile(r'^\s*(?:\{\d+\}\s*)?(?:(\d+)\.\s*Q\.|Q\.\s*(\d+)\.?)\s*(.*)', re.IGNORECASE)
+    # Flexible regex for Baltimore Q&A:
+    # Matches "1 Q.", "1. Q.", "*4 Q.", "Q. 126.", "{1} Q. 130."
+    q_pattern = re.compile(r'^\s*[\*\s]*(?:\{\d+\}\s*)?(?:(\d+)\.?\s*Q\.|Q\.\s*(\d+)\.?)\s*(.*)', re.IGNORECASE)
     a_pattern = re.compile(r'^\s*A\.\s*(.*)', re.IGNORECASE)
     lesson_pattern = re.compile(r'^\s*(LESSON\s+[A-Z0-9\-\s]+|PRONUNCIATION OF NAMES|PRAYERS)\.?\s*$', re.IGNORECASE)
+    dots_pattern = re.compile(r'(\.\s*){4,}')
     
     current_q_num = None
     current_q_text = ""
@@ -110,6 +115,10 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
                 is_explaining = True
             continue
             
+        # Ignore Gutenberg dot leaders (. . . . . . . . . .)
+        if dots_pattern.search(stripped):
+            continue
+
         # Check for Lesson Header
         match_lesson = lesson_pattern.match(stripped)
         if match_lesson and len(stripped) < 50 and not q_pattern.match(stripped) and not a_pattern.match(stripped):
@@ -131,7 +140,7 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
                 current_section["subtitle"] = format_title_case(stripped)
                 continue
 
-        # Check for Question (e.g., "1. Q. Who made..." or "Q. 126. What...")
+        # Check for Question (e.g., "1. Q. Who made...", "*4 Q...", "Q. 126. What...")
         match_q = q_pattern.match(stripped)
         if match_q:
             finalize_qa()
@@ -158,6 +167,13 @@ def parse_baltimore_file(filepath, book_id, title, subtitle):
             is_explaining = False
             continue
             
+        if current_q_num is not None and not is_answering and not is_explaining:
+            # Handle cases where answer line omitted leading "A." (e.g. Q630)
+            if current_q_text.rstrip().endswith('?') or current_q_text.rstrip().endswith(':'):
+                current_a_text = stripped
+                is_answering = True
+                continue
+
         if is_answering:
             current_a_text += " " + stripped
         elif is_explaining:
@@ -244,12 +260,16 @@ def parse_trent(filepath):
     # Running header & page number cleaner
     running_header_pattern = re.compile(r'^\s*(\d+\s+)?(PART\s+[I|V|X]+|CATECHISM|THE TRANSLATOR|PREFACE).*?(\d+)?\s*$', re.IGNORECASE)
     page_num_pattern = re.compile(r'^\s*\d+\s*$')
+    dots_pattern = re.compile(r'(\.\s*){4,}')
     
     for line in body_lines:
         stripped = line.strip()
         if not stripped:
             continue
             
+        if dots_pattern.search(stripped):
+            continue
+
         # Filter out OCR page numbers and running headers
         if page_num_pattern.match(stripped):
             continue

@@ -24,6 +24,14 @@ String stripGutenbergHeaderFooter(String text) {
     text = text.substring(0, endMatch.start);
   }
 
+  final endMatch2 = RegExp(
+    r'End of (the )?Project Gutenberg',
+    caseSensitive: false,
+  ).firstMatch(text);
+  if (endMatch2 != null) {
+    text = text.substring(0, endMatch2.start);
+  }
+
   return text.trim();
 }
 
@@ -115,10 +123,10 @@ void parseBaltimoreFile(
   final List<Map<String, dynamic>> sections = [];
   Map<String, dynamic>? currentSection;
 
-  // Strict regex for Baltimore Q&A:
-  // Requires explicit braces for prefix numbers (e.g. "{1}"), preventing "10. Q." from splitting into "1" and "0. Q."
+  // Flexible regex for Baltimore Q&A:
+  // Matches "1 Q.", "1. Q.", "*4 Q.", "Q. 126.", "{1} Q. 130."
   final qPattern = RegExp(
-    r'^\s*(?:\{\d+\}\s*)?(?:(\d+)\.\s*Q\.|Q\.\s*(\d+)\.?)\s*(.*)',
+    r'^\s*[\*\s]*(?:\{\d+\}\s*)?(?:(\d+)\.?\s*Q\.|Q\.\s*(\d+)\.?)\s*(.*)',
     caseSensitive: false,
   );
   final aPattern = RegExp(r'^\s*A\.\s*(.*)', caseSensitive: false);
@@ -126,6 +134,7 @@ void parseBaltimoreFile(
     r'^\s*(LESSON\s+[A-Z0-9\-\s]+|PRONUNCIATION OF NAMES|PRAYERS)\.?\s*$',
     caseSensitive: false,
   );
+  final dotsPattern = RegExp(r'(\.\s*){4,}');
 
   int? currentQNum;
   String currentQText = '';
@@ -169,6 +178,10 @@ void parseBaltimoreFile(
         isAnswering = false;
         isExplaining = true;
       }
+      continue;
+    }
+
+    if (dotsPattern.hasMatch(stripped)) {
       continue;
     }
 
@@ -230,6 +243,15 @@ void parseBaltimoreFile(
       isAnswering = true;
       isExplaining = false;
       continue;
+    }
+
+    if (currentQNum != null && !isAnswering && !isExplaining) {
+      final qTrim = currentQText.trimRight();
+      if (qTrim.endsWith('?') || qTrim.endsWith(':')) {
+        currentAText = stripped;
+        isAnswering = true;
+        continue;
+      }
     }
 
     if (isAnswering) {
@@ -347,10 +369,13 @@ void parseTrent(String filepath, Directory outputDir) {
     caseSensitive: false,
   );
   final pageNumPattern = RegExp(r'^\s*\d+\s*$');
+  final dotsPattern = RegExp(r'(\.\s*){4,}');
 
   for (final line in bodyLines) {
     final stripped = line.trim();
     if (stripped.isEmpty) continue;
+
+    if (dotsPattern.hasMatch(stripped)) continue;
 
     if (pageNumPattern.hasMatch(stripped)) continue;
     if (runningHeaderPattern.hasMatch(stripped) &&
