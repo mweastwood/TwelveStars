@@ -387,7 +387,7 @@ void main() {
 
       // Verify sign of the cross and Confiteor exist
       expect(find.text('Sign of the Cross'), findsOneWidget);
-      expect(find.text('Confiteor'), findsOneWidget);
+      expect(find.text('Confiteor'), findsWidgets);
 
       // 2. Day Navigation
       await tester.tap(find.byTooltip('Next Day'));

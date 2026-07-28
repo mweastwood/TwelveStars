@@ -231,8 +231,13 @@ class UserSettings {
     orElse: () => PrayerLanguage.english,
   );
 
-  PrayerLanguage get compareLanguage => PrayerLanguage.values.firstWhere(
-    (e) => e.code == compareLanguageCode,
-    orElse: () => PrayerLanguage.latin,
-  );
+  PrayerLanguage? get compareLanguage {
+    if (compareLanguageCode == 'none' || compareLanguageCode.isEmpty) {
+      return null;
+    }
+    final match = PrayerLanguage.values.where(
+      (e) => e.code == compareLanguageCode,
+    );
+    return match.isNotEmpty ? match.first : null;
+  }
 }

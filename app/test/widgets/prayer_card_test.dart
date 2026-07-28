@@ -235,8 +235,29 @@ void main() {
     });
 
     testWidgets(
-      'tapping on an annotated phrase in single-language mode opens side-by-side (dual) mode',
+      'renders single-language mode when compareLanguage is null and side-by-side mode when compareLanguage is set',
       (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: testPrayerWithTokens,
+                  selectedLanguage: PrayerLanguage.english,
+                  compareLanguage: null,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                  onLaunchSource: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        // Verify that in single-language mode, compare title is NOT rendered
+        expect(find.text('Our Father'), findsOneWidget);
+        expect(find.text('Padre Nuestro'), findsNothing);
+
         await tester.pumpWidget(
           buildTestableWidget(
             child: Scaffold(
@@ -254,34 +275,7 @@ void main() {
           ),
         );
 
-        // Verify that initially side-by-side mode is NOT enabled (only one title is rendered)
-        expect(find.text('Our Father'), findsOneWidget);
-        expect(find.text('Padre Nuestro'), findsNothing);
-
-        // Find the RichText widget containing the phrase
-        final richTextFinder = find.byWidgetPredicate(
-          (widget) =>
-              widget is RichText &&
-              widget.text.toPlainText().contains('who art in heaven'),
-        );
-        final richTextWidget =
-            tester.element(richTextFinder).widget as RichText;
-
-        // Traverse the textSpan tree to find the TapGestureRecognizer for the phrase
-        TapGestureRecognizer? recognizer;
-        richTextWidget.text.visitChildren((span) {
-          if (span is TextSpan && span.text == 'who art in heaven') {
-            recognizer = span.recognizer as TapGestureRecognizer?;
-            return false; // stop visiting
-          }
-          return true;
-        });
-
-        expect(recognizer, isNotNull);
-        recognizer!.onTap!();
-        await tester.pumpAndSettle();
-
-        // Verify that side-by-side mode is now enabled (both titles are rendered)
+        // Verify that when secondary language is set, side-by-side mode is enabled
         expect(find.text('Our Father'), findsOneWidget);
         expect(find.text('Padre Nuestro'), findsOneWidget);
       },
@@ -397,16 +391,6 @@ void main() {
         surfaceSize: const Size(450, 3200),
       );
 
-      final compareButtons = find.byTooltip('Compare Translations');
-
-      // Tap the split button in the third scenario (Side-by-Side State) to enable dual mode
-      await tester.tap(compareButtons.at(2));
-      await tester.pumpAndSettle();
-
-      // Tap the split button in the fourth scenario to enable dual mode
-      await tester.tap(compareButtons.at(3));
-      await tester.pumpAndSettle();
-
       // Find the RichText widget inside the fourth scenario containing the phrase
       final richTextFinder = find.byWidgetPredicate(
         (widget) =>
@@ -457,11 +441,6 @@ void main() {
             ),
           ),
         );
-
-        // Enable side-by-side mode first
-        final compareButtons = find.byTooltip('Compare Translations');
-        await tester.tap(compareButtons.first);
-        await tester.pumpAndSettle();
 
         // Find the RichText widget containing the phrase
         final richTextFinder = find.byWidgetPredicate(
@@ -536,11 +515,6 @@ void main() {
         wrapper: materialAppWrapper(),
         surfaceSize: const Size(450, 800),
       );
-
-      // Enable side-by-side mode
-      final compareButtons = find.byTooltip('Compare Translations');
-      await tester.tap(compareButtons.first);
-      await tester.pumpAndSettle();
 
       // Find the RichText widget containing the phrase
       final richTextFinder = find.byWidgetPredicate(

@@ -20,7 +20,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentTab = 0;
   PrayerLanguage _primaryLanguage = PrayerLanguage.english;
-  PrayerLanguage _compareLanguage = PrayerLanguage.latin;
+  PrayerLanguage? _compareLanguage = PrayerLanguage.latin;
+  bool _showLanguageSelectors = false;
   List<Prayer>? _prayers;
   bool _loading = true;
   String? _error;
@@ -86,6 +87,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildGlobalLanguageSelectors(ThemeData theme) {
     return Card(
+      margin: EdgeInsets.zero,
+      elevation: 6.0,
+      shadowColor: Colors.black.withValues(alpha: 0.3),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
         child: Row(
@@ -95,11 +100,17 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Primary Language',
-                    style: theme.textTheme.labelSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.primary,
+                  SizedBox(
+                    height: 20,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Primary Language',
+                        style: theme.textTheme.labelSmall?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: theme.colorScheme.primary,
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -108,19 +119,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       setState(() {
                         _primaryLanguage = lang;
                         if (_compareLanguage == lang) {
-                          // Automatically switch compare language to avoid duplicates
-                          _compareLanguage = PrayerLanguage.values.firstWhere(
-                            (l) => l != lang,
-                          );
+                          _compareLanguage = null;
                         }
-                        _settings?.primaryLanguageCode = lang
-                            .toString()
-                            .split('.')
-                            .last;
-                        _settings?.compareLanguageCode = _compareLanguage
-                            .toString()
-                            .split('.')
-                            .last;
+                        _settings?.primaryLanguageCode = lang.code;
+                        _settings?.compareLanguageCode =
+                            _compareLanguage?.code ?? 'none';
                       });
                       if (_settings != null) {
                         PrayerDatabase.saveSettings(_settings!);
@@ -130,47 +133,95 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            const SizedBox(width: 12),
-            Icon(
-              Icons.swap_horiz,
-              color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
-              size: 20,
-            ),
-            const SizedBox(width: 12),
-            // Right dropdown (Compare Language)
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Compare Language',
-                    style: theme.textTheme.labelSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.secondary,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  _buildGlobalDropdown(_compareLanguage, (lang) {
-                    if (lang != null) {
+            const SizedBox(width: 4),
+            IconButton(
+              icon: Icon(
+                Icons.swap_horiz,
+                color: _compareLanguage != null
+                    ? theme.colorScheme.primary
+                    : theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.3),
+                size: 20,
+              ),
+              tooltip: 'Swap Languages',
+              onPressed: _compareLanguage == null
+                  ? null
+                  : () {
                       setState(() {
-                        _compareLanguage = lang;
-                        if (_primaryLanguage == lang) {
-                          _primaryLanguage = PrayerLanguage.values.firstWhere(
-                            (l) => l != lang,
-                          );
-                        }
-                        _settings?.compareLanguageCode = lang
-                            .toString()
-                            .split('.')
-                            .last;
-                        _settings?.primaryLanguageCode = _primaryLanguage
-                            .toString()
-                            .split('.')
-                            .last;
+                        final temp = _primaryLanguage;
+                        _primaryLanguage = _compareLanguage!;
+                        _compareLanguage = temp;
+                        _settings?.primaryLanguageCode = _primaryLanguage.code;
+                        _settings?.compareLanguageCode =
+                            _compareLanguage?.code ?? 'none';
                       });
                       if (_settings != null) {
                         PrayerDatabase.saveSettings(_settings!);
                       }
+                    },
+            ),
+            const SizedBox(width: 4),
+            // Right dropdown (Secondary Language)
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 20,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Secondary Language',
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: theme.colorScheme.secondary,
+                          ),
+                        ),
+                        Visibility(
+                          visible: _compareLanguage != null,
+                          maintainSize: true,
+                          maintainAnimation: true,
+                          maintainState: true,
+                          child: InkWell(
+                            key: const ValueKey('clear_secondary_language'),
+                            onTap: () {
+                              setState(() {
+                                _compareLanguage = null;
+                                _settings?.compareLanguageCode = 'none';
+                              });
+                              if (_settings != null) {
+                                PrayerDatabase.saveSettings(_settings!);
+                              }
+                            },
+                            borderRadius: BorderRadius.circular(12),
+                            child: Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: Icon(
+                                Icons.close,
+                                size: 16,
+                                color: theme.colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  _buildSecondaryDropdown(_compareLanguage, (lang) {
+                    setState(() {
+                      _compareLanguage = lang;
+                      if (lang != null && _primaryLanguage == lang) {
+                        _primaryLanguage = PrayerLanguage.values.firstWhere(
+                          (l) => l != lang,
+                        );
+                      }
+                      _settings?.compareLanguageCode = lang?.code ?? 'none';
+                      _settings?.primaryLanguageCode = _primaryLanguage.code;
+                    });
+                    if (_settings != null) {
+                      PrayerDatabase.saveSettings(_settings!);
                     }
                   }, theme),
                 ],
@@ -229,6 +280,142 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         items: PrayerLanguage.values.map((lang) {
           return DropdownMenuItem<PrayerLanguage>(
+            value: lang,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                left: 12.0,
+                right: 4.0,
+                top: 2.0,
+                bottom: 2.0,
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(lang.flag, style: const TextStyle(fontSize: 16)),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      lang.nativeName,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+
+  Widget _buildSecondaryDropdown(
+    PrayerLanguage? value,
+    ValueChanged<PrayerLanguage?> onChanged,
+    ThemeData theme,
+  ) {
+    final items = <PrayerLanguage?>[null, ...PrayerLanguage.values];
+    return DropdownButtonHideUnderline(
+      child: DropdownButton<PrayerLanguage?>(
+        value: value,
+        onChanged: onChanged,
+        isDense: true,
+        isExpanded: true,
+        icon: Icon(
+          Icons.arrow_drop_down,
+          color: theme.colorScheme.onSurfaceVariant,
+        ),
+        dropdownColor: theme.colorScheme.surfaceContainer,
+        borderRadius: BorderRadius.circular(12),
+        selectedItemBuilder: (BuildContext context) {
+          return items.map((lang) {
+            if (lang == null) {
+              return Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 12.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(
+                        '🚫',
+                        style: TextStyle(fontSize: 16, height: 1.0),
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        'None',
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
+                          fontStyle: FontStyle.italic,
+                          height: 1.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }
+            return Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 12.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      lang.flag,
+                      style: const TextStyle(fontSize: 16, height: 1.0),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      lang.nativeName,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                        height: 1.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }).toList();
+        },
+        items: items.map((lang) {
+          if (lang == null) {
+            return DropdownMenuItem<PrayerLanguage?>(
+              value: null,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 12.0,
+                  right: 4.0,
+                  top: 2.0,
+                  bottom: 2.0,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text('🚫', style: TextStyle(fontSize: 16)),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        'None',
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
+                          fontStyle: FontStyle.italic,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+          return DropdownMenuItem<PrayerLanguage?>(
             value: lang,
             child: Padding(
               padding: const EdgeInsets.only(
@@ -342,8 +529,28 @@ class _HomeScreenState extends State<HomeScreen> {
                 _searchFocusNode.requestFocus();
               },
             )
-          else if (_currentTab == 0)
-            IconButton(icon: const Icon(Icons.search), onPressed: _openSearch),
+          else if (_currentTab == 0) ...[
+            IconButton(
+              icon: Icon(
+                _showLanguageSelectors
+                    ? Icons.translate
+                    : Icons.translate_outlined,
+              ),
+              tooltip: _showLanguageSelectors
+                  ? 'Hide language options'
+                  : 'Select languages',
+              onPressed: () {
+                setState(() {
+                  _showLanguageSelectors = !_showLanguageSelectors;
+                });
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.search),
+              tooltip: 'Search prayers',
+              onPressed: _openSearch,
+            ),
+          ],
         ],
       ),
       body: SafeArea(child: tabs[_currentTab]),
@@ -459,89 +666,140 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     }).toList();
 
-    return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-      child: Column(
-        children: [
-          _buildGlobalLanguageSelectors(theme),
-          const SizedBox(height: 12),
-          if (filteredPrayers.isEmpty)
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 48),
-                  Text(
-                    'No prayers matching "$_searchQuery"',
-                    style: theme.textTheme.bodyMedium,
-                  ),
-                  const SizedBox(height: 8),
-                  TextButton(
-                    onPressed: () {
-                      setState(() {
-                        _searchController.clear();
-                        _searchQuery = '';
-                      });
-                    },
-                    child: const Text('Clear search'),
-                  ),
-                ],
-              ),
-            )
-          else
-            ...filteredPrayers.map((prayer) {
-              final prefKey = '${prayer.prayerId}_${_primaryLanguage.code}';
-              final initialVersion =
-                  _settings?.preferredVersions
-                      ?.firstWhere(
-                        (p) => p.key == prefKey,
-                        orElse: () => PrayerVersionPreference(),
-                      )
-                      .versionIndex ??
-                  0;
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 12.0,
+            ),
+            child: Column(
+              children: [
+                if (filteredPrayers.isEmpty)
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 48),
+                        Text(
+                          'No prayers matching "$_searchQuery"',
+                          style: theme.textTheme.bodyMedium,
+                        ),
+                        const SizedBox(height: 8),
+                        TextButton(
+                          onPressed: () {
+                            setState(() {
+                              _searchController.clear();
+                              _searchQuery = '';
+                            });
+                          },
+                          child: const Text('Clear search'),
+                        ),
+                      ],
+                    ),
+                  )
+                else
+                  ...filteredPrayers.map((prayer) {
+                    final prefKey =
+                        '${prayer.prayerId}_${_primaryLanguage.code}';
+                    final initialVersion =
+                        _settings?.preferredVersions
+                            ?.firstWhere(
+                              (p) => p.key == prefKey,
+                              orElse: () => PrayerVersionPreference(),
+                            )
+                            .versionIndex ??
+                        0;
 
-              return PrayerCard(
-                prayer: prayer,
-                selectedLanguage: _primaryLanguage,
-                compareLanguage: _compareLanguage,
-                initialVersionIndex: initialVersion,
-                onVersionChanged: (newIndex) async {
-                  if (_settings != null) {
-                    final list = _settings!.preferredVersions ?? [];
-                    final idx = list.indexWhere((p) => p.key == prefKey);
-                    if (idx >= 0) {
-                      list[idx].versionIndex = newIndex;
-                    } else {
-                      list.add(PrayerVersionPreference(prefKey, newIndex));
-                    }
-                    _settings!.preferredVersions = list;
-                    await PrayerDatabase.saveSettings(_settings!);
-                  }
-                },
-                onLaunchSource: _launchSourceUrl,
+                    return PrayerCard(
+                      prayer: prayer,
+                      selectedLanguage: _primaryLanguage,
+                      compareLanguage: _compareLanguage,
+                      initialVersionIndex: initialVersion,
+                      onVersionChanged: (newIndex) async {
+                        if (_settings != null) {
+                          final list = _settings!.preferredVersions ?? [];
+                          final idx = list.indexWhere((p) => p.key == prefKey);
+                          if (idx >= 0) {
+                            list[idx].versionIndex = newIndex;
+                          } else {
+                            list.add(
+                              PrayerVersionPreference(prefKey, newIndex),
+                            );
+                          }
+                          _settings!.preferredVersions = list;
+                          await PrayerDatabase.saveSettings(_settings!);
+                        }
+                      },
+                      onLaunchSource: _launchSourceUrl,
+                    );
+                  }),
+                const SizedBox(height: 24),
+                Text(
+                  '“A great sign appeared in heaven: a woman clothed with the sun, with the moon under her feet, and on her head a crown of twelve stars.”',
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                    fontStyle: FontStyle.italic,
+                    height: 1.4,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  '— Revelation 12:1',
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    color: theme.colorScheme.primary,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 80),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          top: 0,
+          left: 0,
+          right: 0,
+          child: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            switchInCurve: Curves.easeOutCubic,
+            switchOutCurve: Curves.easeInOutCubic,
+            transitionBuilder: (child, animation) {
+              final slideAnimation = Tween<Offset>(
+                begin: const Offset(0, -0.15),
+                end: Offset.zero,
+              ).animate(animation);
+
+              return SlideTransition(
+                position: slideAnimation,
+                child: FadeTransition(
+                  opacity: animation,
+                  child: SizeTransition(
+                    sizeFactor: animation,
+                    alignment: Alignment.topCenter,
+                    child: child,
+                  ),
+                ),
               );
-            }),
-          const SizedBox(height: 24),
-          Text(
-            '“A great sign appeared in heaven: a woman clothed with the sun, with the moon under her feet, and on her head a crown of twelve stars.”',
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
-              fontStyle: FontStyle.italic,
-              height: 1.4,
-            ),
-            textAlign: TextAlign.center,
+            },
+            child: _showLanguageSelectors
+                ? Container(
+                    key: const ValueKey('floating_language_selector'),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: 8.0,
+                    ),
+                    color: Colors.transparent,
+                    child: _buildGlobalLanguageSelectors(theme),
+                  )
+                : const SizedBox.shrink(
+                    key: ValueKey('floating_language_selector_empty'),
+                  ),
           ),
-          const SizedBox(height: 6),
-          Text(
-            '— Revelation 12:1',
-            style: theme.textTheme.labelSmall?.copyWith(
-              color: theme.colorScheme.primary,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 80),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
