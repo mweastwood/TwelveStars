@@ -8,7 +8,7 @@ import 'package:twelve_stars/widgets/rosary_mystery_card.dart';
 class RosaryScreen extends StatefulWidget {
   final List<Prayer>? prayers;
   final PrayerLanguage primaryLanguage;
-  final PrayerLanguage compareLanguage;
+  final PrayerLanguage? compareLanguage;
   final Function(String) onLaunchSource;
   final DateTime? initialDate;
 
@@ -16,7 +16,7 @@ class RosaryScreen extends StatefulWidget {
     super.key,
     this.prayers,
     required this.primaryLanguage,
-    required this.compareLanguage,
+    this.compareLanguage,
     required this.onLaunchSource,
     this.initialDate,
   });

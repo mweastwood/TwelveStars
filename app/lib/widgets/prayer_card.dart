@@ -8,7 +8,7 @@ import 'package:twelve_stars/widgets/translation_explainer_sheet.dart';
 class PrayerCard extends StatefulWidget {
   final Prayer prayer;
   final PrayerLanguage selectedLanguage;
-  final PrayerLanguage compareLanguage;
+  final PrayerLanguage? compareLanguage;
   final int initialVersionIndex;
   final ValueChanged<int> onVersionChanged;
   final Function(String) onLaunchSource;
@@ -17,7 +17,7 @@ class PrayerCard extends StatefulWidget {
     super.key,
     required this.prayer,
     required this.selectedLanguage,
-    required this.compareLanguage,
+    this.compareLanguage,
     required this.initialVersionIndex,
     required this.onVersionChanged,
     required this.onLaunchSource,
@@ -29,10 +29,14 @@ class PrayerCard extends StatefulWidget {
 
 class _PrayerCardState extends State<PrayerCard> {
   int _currentVersionIndex = 0;
-  bool _isDualMode = false;
   String? _selectedPhraseId;
   final LayerLink _layerLink = LayerLink();
   bool _isAiAvailable = false;
+
+  bool get _isDualMode =>
+      widget.compareLanguage != null &&
+      widget.prayer.translations.containsKey(widget.compareLanguage) &&
+      widget.prayer.translations[widget.compareLanguage]!.isNotEmpty;
 
   void _checkAiAvailability() async {
     try {
@@ -62,9 +66,9 @@ class _PrayerCardState extends State<PrayerCard> {
     }
 
     // 2. Try compare translation
-    if (_isDualMode) {
+    if (_isDualMode && widget.compareLanguage != null) {
       final compareTranslations =
-          widget.prayer.translations[widget.compareLanguage];
+          widget.prayer.translations[widget.compareLanguage!];
       if (compareTranslations != null && compareTranslations.isNotEmpty) {
         final compareTrans = compareTranslations[0];
         if (compareTrans.historyDescription.isNotEmpty) return compareTrans;
@@ -86,12 +90,6 @@ class _PrayerCardState extends State<PrayerCard> {
   void initState() {
     super.initState();
     _currentVersionIndex = widget.initialVersionIndex;
-    final hasCompare =
-        widget.prayer.translations.containsKey(widget.compareLanguage) &&
-        widget.prayer.translations[widget.compareLanguage]!.isNotEmpty;
-    if (!hasCompare) {
-      _isDualMode = false;
-    }
     _checkAiAvailability();
   }
 
@@ -103,12 +101,6 @@ class _PrayerCardState extends State<PrayerCard> {
     } else if (oldWidget.selectedLanguage != widget.selectedLanguage ||
         oldWidget.prayer.prayerId != widget.prayer.prayerId) {
       _currentVersionIndex = widget.initialVersionIndex;
-    }
-    final hasCompare =
-        widget.prayer.translations.containsKey(widget.compareLanguage) &&
-        widget.prayer.translations[widget.compareLanguage]!.isNotEmpty;
-    if (!hasCompare) {
-      _isDualMode = false;
     }
     _checkAiAvailability();
   }
@@ -222,9 +214,6 @@ class _PrayerCardState extends State<PrayerCard> {
                                 _selectedPhraseId = null;
                               } else {
                                 _selectedPhraseId = charItem.phraseId;
-                                if (!_isDualMode) {
-                                  _isDualMode = true;
-                                }
                                 _checkAiAvailability();
                               }
                             });
@@ -256,9 +245,6 @@ class _PrayerCardState extends State<PrayerCard> {
                   _selectedPhraseId = null;
                 } else {
                   _selectedPhraseId = token.id;
-                  if (!_isDualMode) {
-                    _isDualMode = true;
-                  }
                   _checkAiAvailability();
                 }
               });
@@ -426,11 +412,12 @@ class _PrayerCardState extends State<PrayerCard> {
 
     // Dual mode compare language resolution
     final hasCompareTranslation =
+        widget.compareLanguage != null &&
         widget.prayer.translations.containsKey(widget.compareLanguage) &&
         widget.prayer.translations[widget.compareLanguage]!.isNotEmpty;
 
     final resolvedCompareLanguage = hasCompareTranslation
-        ? widget.compareLanguage
+        ? widget.compareLanguage!
         : resolvedLanguage;
     final compareTranslations =
         widget.prayer.translations[resolvedCompareLanguage]!;
@@ -701,32 +688,6 @@ class _PrayerCardState extends State<PrayerCard> {
                 ],
               ),
             ),
-            if (hasCompareTranslation)
-              Positioned(
-                top: 8,
-                right: 8,
-                child: IconButton(
-                  icon: RotatedBox(
-                    quarterTurns: 1,
-                    child: Icon(
-                      _isDualMode
-                          ? Icons.splitscreen
-                          : Icons.splitscreen_outlined,
-                      color: _isDualMode
-                          ? theme.colorScheme.primary
-                          : theme.colorScheme.onSurfaceVariant,
-                      size: 20,
-                    ),
-                  ),
-                  tooltip: 'Compare Translations',
-                  onPressed: () {
-                    setState(() {
-                      _isDualMode = !_isDualMode;
-                      _selectedPhraseId = null;
-                    });
-                  },
-                ),
-              ),
             if (_isDualMode && _selectedPhraseId != null && _isAiAvailable)
               CompositedTransformFollower(
                 link: _layerLink,
@@ -851,10 +812,11 @@ class _PrayerCardState extends State<PrayerCard> {
 
     final resolvedLanguage = widget.selectedLanguage;
     final hasCompareTranslation =
-        widget.prayer.translations.containsKey(widget.compareLanguage) &&
-        widget.prayer.translations[widget.compareLanguage]!.isNotEmpty;
+        widget.compareLanguage != null &&
+        widget.prayer.translations.containsKey(widget.compareLanguage!) &&
+        widget.prayer.translations[widget.compareLanguage!]!.isNotEmpty;
     final resolvedCompareLanguage = hasCompareTranslation
-        ? widget.compareLanguage
+        ? widget.compareLanguage!
         : resolvedLanguage;
 
     final translations = widget.prayer.translations[resolvedLanguage]!;

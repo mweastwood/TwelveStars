@@ -11,13 +11,13 @@ import 'package:twelve_stars/widgets/mass_reading_card.dart';
 
 class MissalTab extends StatefulWidget {
   final PrayerLanguage primaryLanguage;
-  final PrayerLanguage compareLanguage;
+  final PrayerLanguage? compareLanguage;
   final DateTime? initialDate;
 
   const MissalTab({
     super.key,
     required this.primaryLanguage,
-    required this.compareLanguage,
+    this.compareLanguage,
     this.initialDate,
   });
 
@@ -32,7 +32,7 @@ class _MissalTabState extends State<MissalTab> {
   List<Prayer>? _prayers;
   UserSettings? _settings;
   late PrayerLanguage _primaryLanguage;
-  late PrayerLanguage _compareLanguage;
+  PrayerLanguage? _compareLanguage;
   bool _showNiceneCreed = true;
 
   @override

@@ -381,6 +381,10 @@ void main() {
       );
       await tester.pumpAndSettle(); // Let database load
 
+      // Tap title bar translate button to expand language selector
+      await tester.tap(find.byIcon(Icons.translate_outlined));
+      await tester.pumpAndSettle();
+
       // Select dropdown for Our Father
       final dropdownFinder = find.byType(DropdownButton<PrayerLanguage>).first;
       await tester.tap(dropdownFinder);
@@ -473,6 +477,37 @@ void main() {
       expect(find.text('Twelve Stars'), findsOneWidget);
     });
 
+    testWidgets('toggles language selector widget via title bar button', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Initially, language selector is hidden
+      expect(find.text('Primary Language'), findsNothing);
+      expect(find.text('Secondary Language'), findsNothing);
+
+      // Tap title bar translate button to show language selectors
+      await tester.tap(find.byIcon(Icons.translate_outlined));
+      await tester.pumpAndSettle();
+
+      // Language selector should now be visible
+      expect(find.text('Primary Language'), findsOneWidget);
+      expect(find.text('Secondary Language'), findsOneWidget);
+
+      // Tap title bar translate button again to hide language selectors
+      await tester.tap(find.byIcon(Icons.translate));
+      await tester.pumpAndSettle();
+
+      // Language selector should be hidden again
+      expect(find.text('Primary Language'), findsNothing);
+      expect(find.text('Secondary Language'), findsNothing);
+    });
+
     testWidgets('persists primary/compare languages and version selections', (
       tester,
     ) async {
@@ -488,6 +523,10 @@ void main() {
           child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
         ),
       );
+      await tester.pumpAndSettle();
+
+      // Tap title bar translate button to expand language selector
+      await tester.tap(find.byIcon(Icons.translate_outlined));
       await tester.pumpAndSettle();
 
       // 1. Verify dropdown selects Traditional Chinese and saves to mockSettings
@@ -540,6 +579,123 @@ void main() {
       // Reset mockSettings to avoid cross-test pollution
       PrayerDatabase.mockSettings = null;
     });
+
+    testWidgets(
+      'clears secondary language via X clear button and None dropdown option',
+      (tester) async {
+        final initialSettings = UserSettings(
+          primaryLanguageCode: 'english',
+          compareLanguageCode: 'latin',
+        );
+        PrayerDatabase.mockSettings = initialSettings;
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Tap title bar translate button to expand language selector
+        await tester.tap(find.byIcon(Icons.translate_outlined));
+        await tester.pumpAndSettle();
+
+        // Verify clear button is visible
+        final clearButtonFinder = find.byKey(
+          const ValueKey('clear_secondary_language'),
+        );
+        expect(clearButtonFinder, findsOneWidget);
+
+        // Tap clear button
+        await tester.tap(clearButtonFinder);
+        await tester.pumpAndSettle();
+
+        expect(PrayerDatabase.mockSettings?.compareLanguageCode, 'none');
+
+        // Select Spanish in secondary dropdown
+        final secondaryDropdownFinder = find
+            .byType(DropdownButton<PrayerLanguage?>)
+            .last;
+        await tester.tap(secondaryDropdownFinder);
+        await tester.pumpAndSettle();
+
+        final spanishItemFinder = find.text('Español').last;
+        await tester.tap(spanishItemFinder);
+        await tester.pumpAndSettle();
+
+        expect(PrayerDatabase.mockSettings?.compareLanguageCode, 'spanish');
+
+        // Reset mockSettings
+        PrayerDatabase.mockSettings = null;
+      },
+    );
+
+    testWidgets('swaps primary and secondary languages via swap button', (
+      tester,
+    ) async {
+      final initialSettings = UserSettings(
+        primaryLanguageCode: 'english',
+        compareLanguageCode: 'latin',
+      );
+      PrayerDatabase.mockSettings = initialSettings;
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Tap title bar translate button to expand language selector
+      await tester.tap(find.byIcon(Icons.translate_outlined));
+      await tester.pumpAndSettle();
+
+      // Tap swap button
+      await tester.tap(find.byIcon(Icons.swap_horiz));
+      await tester.pumpAndSettle();
+
+      expect(PrayerDatabase.mockSettings?.primaryLanguageCode, 'latin');
+      expect(PrayerDatabase.mockSettings?.compareLanguageCode, 'english');
+
+      PrayerDatabase.mockSettings = null;
+    });
+
+    testGoldens(
+      'HomeScreen language selector floating card maintains constant size when secondary language is set vs None',
+      (tester) async {
+        TimeHelper.setCustomTime(DateTime(2026, 7, 6));
+
+        await tester.pumpWidgetBuilder(
+          HomeScreen(initialDate: DateTime(2026, 7, 6)),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(400, 800),
+        );
+        await tester.pump();
+        await tester.pumpAndSettle();
+
+        // Tap title bar translate button to expand language selector card
+        await tester.tap(find.byIcon(Icons.translate_outlined));
+        await tester.pumpAndSettle();
+
+        // Golden 1: Language selector card expanded with Secondary Language (Latin)
+        await screenMatchesGolden(
+          tester,
+          'home_screen_language_selector_expanded_golden',
+        );
+
+        // Tap clear button to clear Secondary Language
+        await tester.tap(
+          find.byKey(const ValueKey('clear_secondary_language')),
+        );
+        await tester.pumpAndSettle();
+
+        // Golden 2: Language selector card expanded with Secondary Language set to None (verifies constant card size!)
+        await screenMatchesGolden(
+          tester,
+          'home_screen_language_selector_none_golden',
+        );
+      },
+    );
 
     testGoldens('HomeScreen renders correctly in all tabs', (tester) async {
       TimeHelper.setCustomTime(DateTime(2026, 7, 6));
