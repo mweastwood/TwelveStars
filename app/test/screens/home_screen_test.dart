@@ -508,6 +508,57 @@ void main() {
       expect(find.text('Secondary Language'), findsNothing);
     });
 
+    testWidgets(
+      'pushes content down when at top of page and preserves scroll viewport when scrolled down',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final scrollableFinder = find.byType(Scrollable).first;
+        final scrollState = tester.state<ScrollableState>(scrollableFinder);
+
+        // 1. At top of page: initial scroll offset is 0.0
+        expect(scrollState.position.pixels, equals(0.0));
+
+        // Tap translate button to expand language selector while at top
+        await tester.tap(find.byIcon(Icons.translate_outlined));
+        await tester.pumpAndSettle();
+
+        // Language selector is visible at top of scroll view and scroll offset stays at 0.0 (pushing prayers down)
+        expect(find.text('Primary Language'), findsOneWidget);
+        expect(scrollState.position.pixels, equals(0.0));
+
+        // Close language selector
+        await tester.tap(find.byIcon(Icons.translate));
+        await tester.pumpAndSettle();
+        expect(find.text('Primary Language'), findsNothing);
+
+        // 2. Scroll down by 200px
+        await tester.drag(scrollableFinder, const Offset(0, -200));
+        await tester.pumpAndSettle();
+        final offsetBefore = scrollState.position.pixels;
+        expect(offsetBefore, greaterThan(5.0));
+
+        // Tap translate button to open selector while scrolled down
+        await tester.tap(find.byIcon(Icons.translate_outlined));
+        await tester.pumpAndSettle();
+
+        // Language selector space created at top, scroll offset increased to preserve viewport contents
+        final offsetAfter = scrollState.position.pixels;
+        expect(offsetAfter, greaterThan(offsetBefore));
+
+        // Scroll back to top (0.0) -> language selector is sitting at top of page
+        await tester.drag(scrollableFinder, const Offset(0, 500));
+        await tester.pumpAndSettle();
+        expect(scrollState.position.pixels, equals(0.0));
+        expect(find.text('Primary Language'), findsOneWidget);
+      },
+    );
+
     testWidgets('persists primary/compare languages and version selections', (
       tester,
     ) async {

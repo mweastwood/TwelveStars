@@ -17,7 +17,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   int _currentTab = 0;
   PrayerLanguage _primaryLanguage = PrayerLanguage.english;
   PrayerLanguage? _compareLanguage = PrayerLanguage.latin;
@@ -32,10 +33,24 @@ class _HomeScreenState extends State<HomeScreen> {
   late final TextEditingController _searchController;
   late final FocusNode _searchFocusNode;
 
+  late final AnimationController _languageSelectorAnimationController;
+  late final CurvedAnimation _languageSelectorAnimation;
+  final ScrollController _prayersScrollController = ScrollController();
+
+  static const double _kLanguageSelectorTopSpacerHeight = 92.0;
+
+  bool _wasScrolledDown = false;
+  double _initialScrollOffset = 0.0;
+
   @override
   void dispose() {
     _searchController.dispose();
     _searchFocusNode.dispose();
+    _languageSelectorAnimationController.removeListener(
+      _onLanguageSelectorAnimationTick,
+    );
+    _languageSelectorAnimationController.dispose();
+    _prayersScrollController.dispose();
     super.dispose();
   }
 
@@ -59,7 +74,57 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _searchController = TextEditingController();
     _searchFocusNode = FocusNode();
+    _languageSelectorAnimationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+      value: _showLanguageSelectors ? 1.0 : 0.0,
+    );
+    _languageSelectorAnimation = CurvedAnimation(
+      parent: _languageSelectorAnimationController,
+      curve: Curves.easeOutCubic,
+      reverseCurve: Curves.easeInOutCubic,
+    );
+    _languageSelectorAnimationController.addListener(
+      _onLanguageSelectorAnimationTick,
+    );
+    _languageSelectorAnimationController.addStatusListener((status) {
+      if (status == AnimationStatus.dismissed ||
+          status == AnimationStatus.completed) {
+        if (mounted) setState(() {});
+      }
+    });
     _loadData();
+  }
+
+  void _toggleLanguageSelectors() {
+    final offset = _prayersScrollController.hasClients
+        ? _prayersScrollController.offset
+        : 0.0;
+    _wasScrolledDown = offset > 5.0;
+    _initialScrollOffset =
+        offset -
+        (_kLanguageSelectorTopSpacerHeight * _languageSelectorAnimation.value);
+
+    if (_showLanguageSelectors) {
+      _showLanguageSelectors = false;
+      _languageSelectorAnimationController.reverse();
+    } else {
+      _showLanguageSelectors = true;
+      _languageSelectorAnimationController.forward();
+    }
+    setState(() {});
+  }
+
+  void _onLanguageSelectorAnimationTick() {
+    if (!_wasScrolledDown || !_prayersScrollController.hasClients) return;
+
+    final targetOffset =
+        _initialScrollOffset +
+        (_kLanguageSelectorTopSpacerHeight * _languageSelectorAnimation.value);
+    final maxExtent =
+        _prayersScrollController.position.maxScrollExtent +
+        _kLanguageSelectorTopSpacerHeight;
+    _prayersScrollController.jumpTo(targetOffset.clamp(0.0, maxExtent));
   }
 
   Future<void> _loadData() async {
@@ -91,6 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
       elevation: 6.0,
       shadowColor: Colors.black.withValues(alpha: 0.3),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+      clipBehavior: Clip.antiAlias,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
         child: Row(
@@ -238,100 +304,22 @@ class _HomeScreenState extends State<HomeScreen> {
     ValueChanged<PrayerLanguage?> onChanged,
     ThemeData theme,
   ) {
-    return DropdownButtonHideUnderline(
-      child: DropdownButton<PrayerLanguage>(
-        value: value,
-        onChanged: onChanged,
-        isDense: true,
-        isExpanded: true,
-        icon: Icon(
-          Icons.arrow_drop_down,
-          color: theme.colorScheme.onSurfaceVariant,
-        ),
-        dropdownColor: theme.colorScheme.surfaceContainer,
-        borderRadius: BorderRadius.circular(12),
-        selectedItemBuilder: (BuildContext context) {
-          return PrayerLanguage.values.map((lang) {
-            return Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 12.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      lang.flag,
-                      style: const TextStyle(fontSize: 16, height: 1.0),
-                    ),
-                    const SizedBox(width: 8),
-                    Text(
-                      lang.nativeName,
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        fontWeight: FontWeight.w500,
-                        height: 1.0,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          }).toList();
-        },
-        items: PrayerLanguage.values.map((lang) {
-          return DropdownMenuItem<PrayerLanguage>(
-            value: lang,
-            child: Padding(
-              padding: const EdgeInsets.only(
-                left: 12.0,
-                right: 4.0,
-                top: 2.0,
-                bottom: 2.0,
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(lang.flag, style: const TextStyle(fontSize: 16)),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Text(
-                      lang.nativeName,
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        fontWeight: FontWeight.w500,
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        }).toList(),
-      ),
-    );
-  }
-
-  Widget _buildSecondaryDropdown(
-    PrayerLanguage? value,
-    ValueChanged<PrayerLanguage?> onChanged,
-    ThemeData theme,
-  ) {
-    final items = <PrayerLanguage?>[null, ...PrayerLanguage.values];
-    return DropdownButtonHideUnderline(
-      child: DropdownButton<PrayerLanguage?>(
-        value: value,
-        onChanged: onChanged,
-        isDense: true,
-        isExpanded: true,
-        icon: Icon(
-          Icons.arrow_drop_down,
-          color: theme.colorScheme.onSurfaceVariant,
-        ),
-        dropdownColor: theme.colorScheme.surfaceContainer,
-        borderRadius: BorderRadius.circular(12),
-        selectedItemBuilder: (BuildContext context) {
-          return items.map((lang) {
-            if (lang == null) {
+    return SizedBox(
+      height: 36,
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton<PrayerLanguage>(
+          value: value,
+          onChanged: onChanged,
+          isDense: true,
+          isExpanded: true,
+          icon: Icon(
+            Icons.arrow_drop_down,
+            color: theme.colorScheme.onSurfaceVariant,
+          ),
+          dropdownColor: theme.colorScheme.surfaceContainer,
+          borderRadius: BorderRadius.circular(12),
+          selectedItemBuilder: (BuildContext context) {
+            return PrayerLanguage.values.map((lang) {
               return Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
@@ -340,16 +328,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Text(
-                        '🚫',
-                        style: TextStyle(fontSize: 16, height: 1.0),
+                      Text(
+                        lang.flag,
+                        style: const TextStyle(fontSize: 16, height: 1.0),
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        'None',
+                        lang.nativeName,
                         style: theme.textTheme.bodyMedium?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
-                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w500,
                           height: 1.0,
                         ),
                       ),
@@ -357,37 +344,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               );
-            }
-            return Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 12.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      lang.flag,
-                      style: const TextStyle(fontSize: 16, height: 1.0),
-                    ),
-                    const SizedBox(width: 8),
-                    Text(
-                      lang.nativeName,
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        fontWeight: FontWeight.w500,
-                        height: 1.0,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          }).toList();
-        },
-        items: items.map((lang) {
-          if (lang == null) {
-            return DropdownMenuItem<PrayerLanguage?>(
-              value: null,
+            }).toList();
+          },
+          items: PrayerLanguage.values.map((lang) {
+            return DropdownMenuItem<PrayerLanguage>(
+              value: lang,
               child: Padding(
                 padding: const EdgeInsets.only(
                   left: 12.0,
@@ -398,14 +359,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text('🚫', style: TextStyle(fontSize: 16)),
+                    Text(lang.flag, style: const TextStyle(fontSize: 16)),
                     const SizedBox(width: 12),
                     Expanded(
                       child: Text(
-                        'None',
+                        lang.nativeName,
                         style: theme.textTheme.bodyMedium?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
-                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w500,
                         ),
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -414,35 +374,147 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             );
-          }
-          return DropdownMenuItem<PrayerLanguage?>(
-            value: lang,
-            child: Padding(
-              padding: const EdgeInsets.only(
-                left: 12.0,
-                right: 4.0,
-                top: 2.0,
-                bottom: 2.0,
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(lang.flag, style: const TextStyle(fontSize: 16)),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Text(
-                      lang.nativeName,
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        fontWeight: FontWeight.w500,
-                      ),
-                      overflow: TextOverflow.ellipsis,
+          }).toList(),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSecondaryDropdown(
+    PrayerLanguage? value,
+    ValueChanged<PrayerLanguage?> onChanged,
+    ThemeData theme,
+  ) {
+    final items = <PrayerLanguage?>[null, ...PrayerLanguage.values];
+    return SizedBox(
+      height: 36,
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton<PrayerLanguage?>(
+          value: value,
+          onChanged: onChanged,
+          isDense: true,
+          isExpanded: true,
+          icon: Icon(
+            Icons.arrow_drop_down,
+            color: theme.colorScheme.onSurfaceVariant,
+          ),
+          dropdownColor: theme.colorScheme.surfaceContainer,
+          borderRadius: BorderRadius.circular(12),
+          selectedItemBuilder: (BuildContext context) {
+            return items.map((lang) {
+              if (lang == null) {
+                return Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 12.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(
+                          '🚫',
+                          style: TextStyle(fontSize: 16, height: 1.0),
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          'None',
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                            fontStyle: FontStyle.italic,
+                            height: 1.0,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
+                );
+              }
+              return Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 12.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        lang.flag,
+                        style: const TextStyle(fontSize: 16, height: 1.0),
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        lang.nativeName,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          fontWeight: FontWeight.w500,
+                          height: 1.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }).toList();
+          },
+          items: items.map((lang) {
+            if (lang == null) {
+              return DropdownMenuItem<PrayerLanguage?>(
+                value: null,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 12.0,
+                    right: 4.0,
+                    top: 2.0,
+                    bottom: 2.0,
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text('🚫', style: TextStyle(fontSize: 16)),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          'None',
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                            fontStyle: FontStyle.italic,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }
+            return DropdownMenuItem<PrayerLanguage?>(
+              value: lang,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 12.0,
+                  right: 4.0,
+                  top: 2.0,
+                  bottom: 2.0,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(lang.flag, style: const TextStyle(fontSize: 16)),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        lang.nativeName,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          fontWeight: FontWeight.w500,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          );
-        }).toList(),
+            );
+          }).toList(),
+        ),
       ),
     );
   }
@@ -539,11 +611,7 @@ class _HomeScreenState extends State<HomeScreen> {
               tooltip: _showLanguageSelectors
                   ? 'Hide language options'
                   : 'Select languages',
-              onPressed: () {
-                setState(() {
-                  _showLanguageSelectors = !_showLanguageSelectors;
-                });
-              },
+              onPressed: _toggleLanguageSelectors,
             ),
             IconButton(
               icon: const Icon(Icons.search),
@@ -670,12 +738,20 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         Positioned.fill(
           child: SingleChildScrollView(
+            controller: _prayersScrollController,
             padding: const EdgeInsets.symmetric(
               horizontal: 16.0,
               vertical: 12.0,
             ),
             child: Column(
               children: [
+                SizeTransition(
+                  sizeFactor: _languageSelectorAnimation,
+                  alignment: Alignment.topCenter,
+                  child: const SizedBox(
+                    height: _kLanguageSelectorTopSpacerHeight,
+                  ),
+                ),
                 if (filteredPrayers.isEmpty)
                   Center(
                     child: Column(
@@ -762,41 +838,24 @@ class _HomeScreenState extends State<HomeScreen> {
           top: 0,
           left: 0,
           right: 0,
-          child: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 300),
-            switchInCurve: Curves.easeOutCubic,
-            switchOutCurve: Curves.easeInOutCubic,
-            transitionBuilder: (child, animation) {
-              final slideAnimation = Tween<Offset>(
-                begin: const Offset(0, -0.15),
-                end: Offset.zero,
-              ).animate(animation);
-
-              return SlideTransition(
-                position: slideAnimation,
-                child: FadeTransition(
-                  opacity: animation,
-                  child: SizeTransition(
-                    sizeFactor: animation,
-                    alignment: Alignment.topCenter,
-                    child: child,
-                  ),
-                ),
-              );
-            },
-            child: _showLanguageSelectors
-                ? Container(
-                    key: const ValueKey('floating_language_selector'),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: 8.0,
-                    ),
-                    color: Colors.transparent,
-                    child: _buildGlobalLanguageSelectors(theme),
-                  )
-                : const SizedBox.shrink(
-                    key: ValueKey('floating_language_selector_empty'),
-                  ),
+          child: SizeTransition(
+            sizeFactor: _languageSelectorAnimation,
+            alignment: Alignment.topCenter,
+            child: FadeTransition(
+              opacity: _languageSelectorAnimation,
+              child:
+                  _showLanguageSelectors ||
+                      _languageSelectorAnimationController.value > 0
+                  ? Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16.0,
+                        vertical: 12.0,
+                      ),
+                      color: Colors.transparent,
+                      child: _buildGlobalLanguageSelectors(theme),
+                    )
+                  : const SizedBox.shrink(),
+            ),
           ),
         ),
       ],
