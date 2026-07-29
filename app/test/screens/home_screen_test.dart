@@ -765,6 +765,17 @@ void main() {
       await tester.pumpAndSettle();
       await screenMatchesGolden(tester, 'home_screen_missal_tab_golden');
 
+      // 3. Missal tab with Language Selector expanded golden
+      await tester.tap(find.byIcon(Icons.translate_outlined));
+      await tester.pumpAndSettle();
+      await screenMatchesGolden(
+        tester,
+        'home_screen_missal_tab_language_selector_golden',
+      );
+      // Close language selector for subsequent steps
+      await tester.tap(find.byIcon(Icons.translate));
+      await tester.pumpAndSettle();
+
       // 4. Search active golden
       // Switch back to Prayers tab
       await tester.tap(find.text('Prayers').last);
