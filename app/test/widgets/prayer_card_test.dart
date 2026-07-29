@@ -591,5 +591,57 @@ void main() {
 
       await screenMatchesGolden(tester, 'prayer_card_copyright_golden');
     });
+
+    testGoldens(
+      'renders phrase highlighting symmetrically in dual compare mode',
+      (tester) async {
+        final mockAi = MockAiService();
+        LocalAgentHelper.instance = mockAi;
+        mockAi.setMockStatus(AiCoreStatus.available);
+
+        await tester.pumpWidgetBuilder(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: testPrayerWithTokens,
+                  selectedLanguage: PrayerLanguage.english,
+                  compareLanguage: PrayerLanguage.spanish,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                  onLaunchSource: (_) {},
+                ),
+              ),
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(500, 600),
+        );
+
+        // Find the RichText widget containing the phrase
+        final richTextFinder = find.byWidgetPredicate(
+          (widget) =>
+              widget is RichText &&
+              widget.text.toPlainText().contains('who art in heaven'),
+        );
+        final richTextWidget =
+            tester.element(richTextFinder).widget as RichText;
+
+        TapGestureRecognizer? recognizer;
+        richTextWidget.text.visitChildren((span) {
+          if (span is TextSpan && span.text == 'who art in heaven') {
+            recognizer = span.recognizer as TapGestureRecognizer?;
+            return false;
+          }
+          return true;
+        });
+
+        expect(recognizer, isNotNull);
+        recognizer!.onTap!();
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'prayer_card_dual_highlight_golden');
+      },
+    );
   });
 }
