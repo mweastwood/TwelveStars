@@ -289,33 +289,73 @@ void main() {
   });
 
   group('Placeholder Tabs Golden Tests', () {
-    testGoldens('MissalTab renders correctly', (tester) async {
+    testGoldens('MissalTab renders correctly collapsed and expanded', (
+      tester,
+    ) async {
       TimeHelper.setCustomTime(DateTime(2026, 7, 4));
-      final builder = GoldenBuilder.column()
-        ..addScenario(
-          'Missal Tab Placeholder',
-          const SizedBox(
-            height: 600,
-            child: Scaffold(
-              body: MissalTab(
-                primaryLanguage: PrayerLanguage.english,
-                compareLanguage: PrayerLanguage.latin,
-              ),
+      await tester.pumpWidgetBuilder(
+        const SizedBox(
+          height: 800,
+          child: Scaffold(
+            body: MissalTab(
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
             ),
           ),
-        );
-
-      await tester.pumpWidgetBuilder(
-        builder.build(),
+        ),
         wrapper: materialAppWrapper(),
         surfaceSize: const Size(480, 800),
       );
+      await tester.pumpAndSettle();
 
       await screenMatchesGolden(tester, 'missal_tab_placeholder_golden');
+
+      // Tap title to expand month calendar
+      await tester.tap(find.text('Saturday, July 4, 2026'));
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'missal_tab_expanded_month_golden');
     });
   });
 
   group('MissalTab Month Grid & Interactive Tests', () {
+    testWidgets('toggles calendar expansion by tapping date title', (
+      tester,
+    ) async {
+      final fixedDate = DateTime(2026, 7, 2);
+      TimeHelper.setCustomTime(fixedDate);
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: MissalTab(
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+              initialDate: fixedDate,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Default: Collapsed Week View
+      expect(find.text('Thursday, July 2, 2026'), findsOneWidget);
+      expect(find.text('July 2026'), findsNothing);
+
+      // Tap title -> Expand Month View
+      await tester.tap(find.text('Thursday, July 2, 2026'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('July 2026'), findsOneWidget);
+      expect(find.text('Thursday, July 2, 2026'), findsNothing);
+
+      // Tap title again -> Collapse Week View
+      await tester.tap(find.text('July 2026'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Thursday, July 2, 2026'), findsOneWidget);
+      expect(find.text('July 2026'), findsNothing);
+    });
+
     testWidgets('allows month navigation and day selection on grid', (
       tester,
     ) async {
@@ -336,15 +376,19 @@ void main() {
 
       // 1. Initial State Check
       expect(find.text('Thursday, July 2, 2026'), findsOneWidget);
-      expect(find.text('July 2026'), findsOneWidget);
       expect(find.textContaining('13th Week in Ordinary Time'), findsWidgets);
+
+      // Expand Calendar to access Month Grid by tapping date title
+      await tester.tap(find.text('Thursday, July 2, 2026'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('July 2026'), findsOneWidget);
 
       // 2. Next Month Navigation
       await tester.tap(find.byTooltip('Next Month'));
       await tester.pumpAndSettle();
 
       expect(find.text('August 2026'), findsOneWidget);
-      expect(find.text('Sunday, August 2, 2026'), findsOneWidget);
 
       // 3. Grid Cell Selection (Select Assumption of BVM - Aug 15)
       final cell15 = find.widgetWithText(InkWell, '15');
