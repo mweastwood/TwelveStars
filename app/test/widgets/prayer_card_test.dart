@@ -490,6 +490,48 @@ void main() {
       },
     );
 
+    testWidgets(
+      'disables phrase tapping and underlining when compareLanguage is null',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: testPrayerWithTokens,
+                  selectedLanguage: PrayerLanguage.english,
+                  compareLanguage: null,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                  onLaunchSource: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        final richTextFinder = find.byWidgetPredicate(
+          (widget) =>
+              widget is RichText &&
+              widget.text.toPlainText().contains('who art in heaven'),
+        );
+        final richTextWidget =
+            tester.element(richTextFinder).widget as RichText;
+
+        TapGestureRecognizer? recognizer;
+        richTextWidget.text.visitChildren((span) {
+          if (span is TextSpan && span.text == 'who art in heaven') {
+            recognizer = span.recognizer as TapGestureRecognizer?;
+            return false;
+          }
+          return true;
+        });
+
+        // Recognizer should be null because tapping is disabled without compare language
+        expect(recognizer, isNull);
+      },
+    );
+
     testGoldens('renders Translation Explainer bottom sheet correctly', (
       tester,
     ) async {
