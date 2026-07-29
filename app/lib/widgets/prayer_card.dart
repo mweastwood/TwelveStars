@@ -106,7 +106,7 @@ class _PrayerCardState extends State<PrayerCard> {
   }
 
   InlineSpan _buildTokenSpan(PrayerToken token, ThemeData theme) {
-    if (token.id == null) {
+    if (token.id == null || !_isDualMode) {
       return TextSpan(
         text: token.text,
         style: TextStyle(
@@ -225,10 +225,11 @@ class _PrayerCardState extends State<PrayerCard> {
                 final isPunct = charItem.pinyin.isEmpty;
                 final isSelected =
                     charItem.phraseId != null &&
-                    charItem.phraseId == _selectedPhraseId;
+                    charItem.phraseId == _selectedPhraseId &&
+                    _isDualMode;
 
                 return GestureDetector(
-                  onTap: charItem.phraseId != null
+                  onTap: (charItem.phraseId != null && _isDualMode)
                       ? () {
                           setState(() {
                             if (_selectedPhraseId == charItem.phraseId) {
