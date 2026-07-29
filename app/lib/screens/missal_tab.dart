@@ -13,12 +13,16 @@ class MissalTab extends StatefulWidget {
   final PrayerLanguage primaryLanguage;
   final PrayerLanguage? compareLanguage;
   final DateTime? initialDate;
+  final Animation<double>? languageSelectorAnimation;
+  final ScrollController? scrollController;
 
   const MissalTab({
     super.key,
     required this.primaryLanguage,
     this.compareLanguage,
     this.initialDate,
+    this.languageSelectorAnimation,
+    this.scrollController,
   });
 
   @override
@@ -408,11 +412,18 @@ class _MissalTabState extends State<MissalTab> {
         ],
       ),
       body: SingleChildScrollView(
+        controller: widget.scrollController,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              if (widget.languageSelectorAnimation != null)
+                SizeTransition(
+                  sizeFactor: widget.languageSelectorAnimation!,
+                  alignment: Alignment.topCenter,
+                  child: const SizedBox(height: 92.0),
+                ),
               Center(
                 child: Text(
                   'Mass Missal',

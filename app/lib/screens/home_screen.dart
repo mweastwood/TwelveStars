@@ -36,11 +36,18 @@ class _HomeScreenState extends State<HomeScreen>
   late final AnimationController _languageSelectorAnimationController;
   late final CurvedAnimation _languageSelectorAnimation;
   final ScrollController _prayersScrollController = ScrollController();
+  final ScrollController _missalScrollController = ScrollController();
 
   static const double _kLanguageSelectorTopSpacerHeight = 92.0;
 
   bool _wasScrolledDown = false;
   double _initialScrollOffset = 0.0;
+
+  ScrollController? get _activeScrollController {
+    if (_currentTab == 0) return _prayersScrollController;
+    if (_currentTab == 1) return _missalScrollController;
+    return null;
+  }
 
   @override
   void dispose() {
@@ -51,6 +58,7 @@ class _HomeScreenState extends State<HomeScreen>
     );
     _languageSelectorAnimationController.dispose();
     _prayersScrollController.dispose();
+    _missalScrollController.dispose();
     super.dispose();
   }
 
@@ -97,8 +105,9 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   void _toggleLanguageSelectors() {
-    final offset = _prayersScrollController.hasClients
-        ? _prayersScrollController.offset
+    final controller = _activeScrollController;
+    final offset = controller != null && controller.hasClients
+        ? controller.offset
         : 0.0;
     _wasScrolledDown = offset > 5.0;
     _initialScrollOffset =
@@ -116,15 +125,17 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   void _onLanguageSelectorAnimationTick() {
-    if (!_wasScrolledDown || !_prayersScrollController.hasClients) return;
+    final controller = _activeScrollController;
+    if (!_wasScrolledDown || controller == null || !controller.hasClients) {
+      return;
+    }
 
     final targetOffset =
         _initialScrollOffset +
         (_kLanguageSelectorTopSpacerHeight * _languageSelectorAnimation.value);
     final maxExtent =
-        _prayersScrollController.position.maxScrollExtent +
-        _kLanguageSelectorTopSpacerHeight;
-    _prayersScrollController.jumpTo(targetOffset.clamp(0.0, maxExtent));
+        controller.position.maxScrollExtent + _kLanguageSelectorTopSpacerHeight;
+    controller.jumpTo(targetOffset.clamp(0.0, maxExtent));
   }
 
   Future<void> _loadData() async {
@@ -560,6 +571,8 @@ class _HomeScreenState extends State<HomeScreen>
         primaryLanguage: _primaryLanguage,
         compareLanguage: _compareLanguage,
         initialDate: widget.initialDate,
+        languageSelectorAnimation: _languageSelectorAnimation,
+        scrollController: _missalScrollController,
       ),
       const BibleTab(),
       const LibraryTab(),
@@ -601,7 +614,7 @@ class _HomeScreenState extends State<HomeScreen>
                 _searchFocusNode.requestFocus();
               },
             )
-          else if (_currentTab == 0) ...[
+          else if (_currentTab == 0 || _currentTab == 1) ...[
             IconButton(
               icon: Icon(
                 _showLanguageSelectors
@@ -613,15 +626,47 @@ class _HomeScreenState extends State<HomeScreen>
                   : 'Select languages',
               onPressed: _toggleLanguageSelectors,
             ),
-            IconButton(
-              icon: const Icon(Icons.search),
-              tooltip: 'Search prayers',
-              onPressed: _openSearch,
-            ),
+            if (_currentTab == 0)
+              IconButton(
+                icon: const Icon(Icons.search),
+                tooltip: 'Search prayers',
+                onPressed: _openSearch,
+              ),
           ],
         ],
       ),
-      body: SafeArea(child: tabs[_currentTab]),
+      body: SafeArea(
+        child: Stack(
+          children: [
+            tabs[_currentTab],
+            if (_currentTab == 0 || _currentTab == 1)
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: SizeTransition(
+                  sizeFactor: _languageSelectorAnimation,
+                  alignment: Alignment.topCenter,
+                  child: FadeTransition(
+                    opacity: _languageSelectorAnimation,
+                    child:
+                        _showLanguageSelectors ||
+                            _languageSelectorAnimationController.value > 0
+                        ? Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16.0,
+                              vertical: 12.0,
+                            ),
+                            color: Colors.transparent,
+                            child: _buildGlobalLanguageSelectors(theme),
+                          )
+                        : const SizedBox.shrink(),
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
       floatingActionButton: _currentTab == 0
           ? FloatingActionButton.extended(
               onPressed: () {
@@ -734,131 +779,93 @@ class _HomeScreenState extends State<HomeScreen>
       });
     }).toList();
 
-    return Stack(
-      children: [
-        Positioned.fill(
-          child: SingleChildScrollView(
-            controller: _prayersScrollController,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 12.0,
-            ),
-            child: Column(
-              children: [
-                SizeTransition(
-                  sizeFactor: _languageSelectorAnimation,
-                  alignment: Alignment.topCenter,
-                  child: const SizedBox(
-                    height: _kLanguageSelectorTopSpacerHeight,
-                  ),
-                ),
-                if (filteredPrayers.isEmpty)
-                  Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const SizedBox(height: 48),
-                        Text(
-                          'No prayers matching "$_searchQuery"',
-                          style: theme.textTheme.bodyMedium,
-                        ),
-                        const SizedBox(height: 8),
-                        TextButton(
-                          onPressed: () {
-                            setState(() {
-                              _searchController.clear();
-                              _searchQuery = '';
-                            });
-                          },
-                          child: const Text('Clear search'),
-                        ),
-                      ],
-                    ),
-                  )
-                else
-                  ...filteredPrayers.map((prayer) {
-                    final prefKey =
-                        '${prayer.prayerId}_${_primaryLanguage.code}';
-                    final initialVersion =
-                        _settings?.preferredVersions
-                            ?.firstWhere(
-                              (p) => p.key == prefKey,
-                              orElse: () => PrayerVersionPreference(),
-                            )
-                            .versionIndex ??
-                        0;
-
-                    return PrayerCard(
-                      prayer: prayer,
-                      selectedLanguage: _primaryLanguage,
-                      compareLanguage: _compareLanguage,
-                      initialVersionIndex: initialVersion,
-                      onVersionChanged: (newIndex) async {
-                        if (_settings != null) {
-                          final list = _settings!.preferredVersions ?? [];
-                          final idx = list.indexWhere((p) => p.key == prefKey);
-                          if (idx >= 0) {
-                            list[idx].versionIndex = newIndex;
-                          } else {
-                            list.add(
-                              PrayerVersionPreference(prefKey, newIndex),
-                            );
-                          }
-                          _settings!.preferredVersions = list;
-                          await PrayerDatabase.saveSettings(_settings!);
-                        }
-                      },
-                      onLaunchSource: _launchSourceUrl,
-                    );
-                  }),
-                const SizedBox(height: 24),
-                Text(
-                  '“A great sign appeared in heaven: a woman clothed with the sun, with the moon under her feet, and on her head a crown of twelve stars.”',
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
-                    fontStyle: FontStyle.italic,
-                    height: 1.4,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  '— Revelation 12:1',
-                  style: theme.textTheme.labelSmall?.copyWith(
-                    color: theme.colorScheme.primary,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 80),
-              ],
-            ),
-          ),
-        ),
-        Positioned(
-          top: 0,
-          left: 0,
-          right: 0,
-          child: SizeTransition(
+    return SingleChildScrollView(
+      controller: _prayersScrollController,
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+      child: Column(
+        children: [
+          SizeTransition(
             sizeFactor: _languageSelectorAnimation,
             alignment: Alignment.topCenter,
-            child: FadeTransition(
-              opacity: _languageSelectorAnimation,
-              child:
-                  _showLanguageSelectors ||
-                      _languageSelectorAnimationController.value > 0
-                  ? Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0,
-                        vertical: 12.0,
-                      ),
-                      color: Colors.transparent,
-                      child: _buildGlobalLanguageSelectors(theme),
-                    )
-                  : const SizedBox.shrink(),
+            child: const SizedBox(height: _kLanguageSelectorTopSpacerHeight),
+          ),
+          if (filteredPrayers.isEmpty)
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 48),
+                  Text(
+                    'No prayers matching "$_searchQuery"',
+                    style: theme.textTheme.bodyMedium,
+                  ),
+                  const SizedBox(height: 8),
+                  TextButton(
+                    onPressed: () {
+                      setState(() {
+                        _searchController.clear();
+                        _searchQuery = '';
+                      });
+                    },
+                    child: const Text('Clear search'),
+                  ),
+                ],
+              ),
+            )
+          else
+            ...filteredPrayers.map((prayer) {
+              final prefKey = '${prayer.prayerId}_${_primaryLanguage.code}';
+              final initialVersion =
+                  _settings?.preferredVersions
+                      ?.firstWhere(
+                        (p) => p.key == prefKey,
+                        orElse: () => PrayerVersionPreference(),
+                      )
+                      .versionIndex ??
+                  0;
+
+              return PrayerCard(
+                prayer: prayer,
+                selectedLanguage: _primaryLanguage,
+                compareLanguage: _compareLanguage,
+                initialVersionIndex: initialVersion,
+                onVersionChanged: (newIndex) async {
+                  if (_settings != null) {
+                    final list = _settings!.preferredVersions ?? [];
+                    final idx = list.indexWhere((p) => p.key == prefKey);
+                    if (idx >= 0) {
+                      list[idx].versionIndex = newIndex;
+                    } else {
+                      list.add(PrayerVersionPreference(prefKey, newIndex));
+                    }
+                    _settings!.preferredVersions = list;
+                    await PrayerDatabase.saveSettings(_settings!);
+                  }
+                },
+                onLaunchSource: _launchSourceUrl,
+              );
+            }),
+          const SizedBox(height: 24),
+          Text(
+            '“A great sign appeared in heaven: a woman clothed with the sun, with the moon under her feet, and on her head a crown of twelve stars.”',
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+              fontStyle: FontStyle.italic,
+              height: 1.4,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 6),
+          Text(
+            '— Revelation 12:1',
+            style: theme.textTheme.labelSmall?.copyWith(
+              color: theme.colorScheme.primary,
+              fontWeight: FontWeight.bold,
             ),
           ),
-        ),
-      ],
+          const SizedBox(height: 80),
+        ],
+      ),
     );
   }
 }
