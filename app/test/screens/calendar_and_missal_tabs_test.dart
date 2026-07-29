@@ -338,8 +338,8 @@ void main() {
       expect(find.text('Thursday, July 2, 2026'), findsOneWidget);
       expect(find.textContaining('13th Week in Ordinary Time'), findsWidgets);
 
-      // Expand Calendar to access Month Grid
-      await tester.tap(find.byTooltip('Expand Calendar'));
+      // Expand Calendar to access Month Grid by tapping date title
+      await tester.tap(find.text('Thursday, July 2, 2026'));
       await tester.pumpAndSettle();
 
       expect(find.text('July 2026'), findsOneWidget);
