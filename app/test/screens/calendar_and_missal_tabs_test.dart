@@ -336,15 +336,19 @@ void main() {
 
       // 1. Initial State Check
       expect(find.text('Thursday, July 2, 2026'), findsOneWidget);
-      expect(find.text('July 2026'), findsOneWidget);
       expect(find.textContaining('13th Week in Ordinary Time'), findsWidgets);
+
+      // Expand Calendar to access Month Grid
+      await tester.tap(find.byTooltip('Expand Calendar'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('July 2026'), findsOneWidget);
 
       // 2. Next Month Navigation
       await tester.tap(find.byTooltip('Next Month'));
       await tester.pumpAndSettle();
 
       expect(find.text('August 2026'), findsOneWidget);
-      expect(find.text('Sunday, August 2, 2026'), findsOneWidget);
 
       // 3. Grid Cell Selection (Select Assumption of BVM - Aug 15)
       final cell15 = find.widgetWithText(InkWell, '15');
