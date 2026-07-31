@@ -791,5 +791,26 @@ void main() {
       await tester.pumpAndSettle();
       await screenMatchesGolden(tester, 'home_screen_search_empty_golden');
     });
+
+    testWidgets('HomeScreen opens font size options modal and adjusts slider', (
+      tester,
+    ) async {
+      TimeHelper.setCustomTime(DateTime(2026, 7, 6));
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Tap text_fields icon in title bar
+      await tester.tap(find.byIcon(Icons.text_fields));
+      await tester.pumpAndSettle();
+
+      // Modal should display 'Reading Options' and 'Font Size: 16 pt'
+      expect(find.text('Reading Options'), findsOneWidget);
+      expect(find.text('Font Size: 16 pt'), findsOneWidget);
+      expect(find.byType(Slider), findsOneWidget);
+    });
   });
 }
