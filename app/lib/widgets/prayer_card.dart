@@ -229,11 +229,12 @@ class _PrayerCardState extends State<PrayerCard> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Amen.',
-                  style: theme.textTheme.bodyLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontStyle: FontStyle.italic,
-                    color: theme.colorScheme.primary,
+                  lang.amenText,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    fontSize: 13.5,
+                    color: theme.colorScheme.onSurfaceVariant.withValues(
+                      alpha: 0.7,
+                    ),
                   ),
                 ),
               ],
