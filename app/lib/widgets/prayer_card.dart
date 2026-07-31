@@ -12,6 +12,7 @@ class PrayerCard extends StatefulWidget {
   final int initialVersionIndex;
   final ValueChanged<int> onVersionChanged;
   final Function(String) onLaunchSource;
+  final double fontSize;
 
   const PrayerCard({
     super.key,
@@ -21,6 +22,7 @@ class PrayerCard extends StatefulWidget {
     required this.initialVersionIndex,
     required this.onVersionChanged,
     required this.onLaunchSource,
+    this.fontSize = 16.0,
   });
 
   @override
@@ -115,7 +117,7 @@ class _PrayerCardState extends State<PrayerCard> {
         text: token.text,
         style: theme.textTheme.bodyLarge?.copyWith(
           height: 1.6,
-          fontSize: 16.0,
+          fontSize: widget.fontSize,
           letterSpacing: 0.2,
           color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
         ),
@@ -135,7 +137,7 @@ class _PrayerCardState extends State<PrayerCard> {
           token.text,
           style: theme.textTheme.bodyLarge?.copyWith(
             height: 1.6,
-            fontSize: 16.0,
+            fontSize: widget.fontSize,
             letterSpacing: 0.2,
             color: theme.colorScheme.onPrimaryContainer,
           ),
@@ -183,7 +185,7 @@ class _PrayerCardState extends State<PrayerCard> {
         },
       style: theme.textTheme.bodyLarge?.copyWith(
         height: 1.6,
-        fontSize: 16.0,
+        fontSize: widget.fontSize,
         letterSpacing: 0.2,
         decoration: TextDecoration.underline,
         decorationStyle: TextDecorationStyle.dashed,
@@ -351,7 +353,7 @@ class _PrayerCardState extends State<PrayerCard> {
         TextSpan(children: spans),
         style: theme.textTheme.bodyLarge?.copyWith(
           height: 1.6,
-          fontSize: 16.0,
+          fontSize: widget.fontSize,
           letterSpacing: 0.2,
         ),
         textAlign: TextAlign.center,
@@ -363,7 +365,7 @@ class _PrayerCardState extends State<PrayerCard> {
         style: theme.textTheme.bodyLarge?.copyWith(
           height: 1.6,
           color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
-          fontSize: 16.0,
+          fontSize: widget.fontSize,
           letterSpacing: 0.2,
         ),
         textAlign: TextAlign.center,

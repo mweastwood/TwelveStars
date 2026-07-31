@@ -7,8 +7,13 @@ import 'package:twelve_stars/logic/prayer_database.dart';
 
 class MassReadingCard extends StatefulWidget {
   final LectionaryReading reading;
+  final double fontSize;
 
-  const MassReadingCard({super.key, required this.reading});
+  const MassReadingCard({
+    super.key,
+    required this.reading,
+    this.fontSize = 16.0,
+  });
 
   @override
   State<MassReadingCard> createState() => _MassReadingCardState();
@@ -245,7 +250,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
                     text: TextSpan(
                       style: theme.textTheme.bodyLarge?.copyWith(
                         height: 1.6,
-                        fontSize: 16.0,
+                        fontSize: widget.fontSize,
                         letterSpacing: 0.2,
                         color: theme.colorScheme.onSurface,
                       ),
@@ -262,7 +267,10 @@ class _MassReadingCardState extends State<MassReadingCard> {
                                   style: theme.textTheme.labelSmall?.copyWith(
                                     fontWeight: FontWeight.bold,
                                     color: theme.colorScheme.primary,
-                                    fontSize: 11,
+                                    fontSize: (widget.fontSize * 0.7).clamp(
+                                      9.0,
+                                      18.0,
+                                    ),
                                   ),
                                 ),
                               ),

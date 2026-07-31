@@ -27,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen>
   bool _loading = true;
   String? _error;
   UserSettings? _settings;
+  double _fontSize = 16.0;
 
   bool _isSearching = false;
   String _searchQuery = '';
@@ -530,6 +531,63 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
+  void _openFontDialog(BuildContext context, ThemeData theme) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setSheetState) {
+            return Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    'Reading Options',
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.primary,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      const Icon(Icons.format_size, size: 16),
+                      const SizedBox(width: 8),
+                      Text(
+                        'Font Size: ${_fontSize.round()} pt',
+                        style: theme.textTheme.bodyMedium,
+                      ),
+                    ],
+                  ),
+                  Slider(
+                    value: _fontSize,
+                    min: 12.0,
+                    max: 28.0,
+                    divisions: 16,
+                    label: '${_fontSize.round()}',
+                    onChanged: (val) {
+                      setSheetState(() {
+                        _fontSize = val;
+                      });
+                      setState(() {
+                        _fontSize = val;
+                      });
+                    },
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
   Future<void> _launchSourceUrl(String urlString) async {
     final Uri url = Uri.parse(urlString);
     try {
@@ -573,6 +631,7 @@ class _HomeScreenState extends State<HomeScreen>
         initialDate: widget.initialDate,
         languageSelectorAnimation: _languageSelectorAnimation,
         scrollController: _missalScrollController,
+        fontSize: _fontSize,
       ),
       const BibleTab(),
       const LibraryTab(),
@@ -615,6 +674,11 @@ class _HomeScreenState extends State<HomeScreen>
               },
             )
           else if (_currentTab == 0 || _currentTab == 1) ...[
+            IconButton(
+              icon: const Icon(Icons.text_fields),
+              tooltip: 'Text Options',
+              onPressed: () => _openFontDialog(context, theme),
+            ),
             IconButton(
               icon: Icon(
                 _showLanguageSelectors
@@ -829,6 +893,7 @@ class _HomeScreenState extends State<HomeScreen>
                 selectedLanguage: _primaryLanguage,
                 compareLanguage: _compareLanguage,
                 initialVersionIndex: initialVersion,
+                fontSize: _fontSize,
                 onVersionChanged: (newIndex) async {
                   if (_settings != null) {
                     final list = _settings!.preferredVersions ?? [];

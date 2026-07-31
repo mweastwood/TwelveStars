@@ -15,6 +15,7 @@ class MissalTab extends StatefulWidget {
   final DateTime? initialDate;
   final Animation<double>? languageSelectorAnimation;
   final ScrollController? scrollController;
+  final double fontSize;
 
   const MissalTab({
     super.key,
@@ -23,6 +24,7 @@ class MissalTab extends StatefulWidget {
     this.initialDate,
     this.languageSelectorAnimation,
     this.scrollController,
+    this.fontSize = 16.0,
   });
 
   @override
@@ -270,6 +272,7 @@ class _MissalTabState extends State<MissalTab> {
       selectedLanguage: _primaryLanguage,
       compareLanguage: _compareLanguage,
       initialVersionIndex: initialVersion,
+      fontSize: widget.fontSize,
       onVersionChanged: (newIndex) async {
         if (_settings != null) {
           final list = _settings!.preferredVersions ?? [];
@@ -999,7 +1002,10 @@ class _MissalTabState extends State<MissalTab> {
                         ...readings.map(
                           (r) => Padding(
                             padding: const EdgeInsets.only(bottom: 12.0),
-                            child: MassReadingCard(reading: r),
+                            child: MassReadingCard(
+                              reading: r,
+                              fontSize: widget.fontSize,
+                            ),
                           ),
                         ),
                     ],
