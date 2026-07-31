@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:drift/native.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/widgets/mass_reading_card.dart';
-import '../test_helper.dart';
+import '../test_helper.dart' hide materialAppWrapper;
 
 void main() {
   late BibleDatabase testDb;
@@ -132,4 +133,67 @@ void main() {
       );
     },
   );
+
+  testGoldens('MassReadingCard renders correctly expanded and collapsed', (
+    tester,
+  ) async {
+    const reading = LectionaryReading(
+      id: 1,
+      readingKey: 'feast_annunciation',
+      readingType: 'first',
+      bookNumber: 1, // Genesis
+      bookName: 'Genesis',
+      chapter: 1,
+      verseRange: '1-2',
+      citation: 'Genesis 1:1-2',
+    );
+
+    await testDb
+        .into(testDb.bibleVerses)
+        .insert(
+          const BibleVerse(
+            id: 1,
+            bookNumber: 1,
+            bookName: 'Genesis',
+            chapter: 1,
+            verseNumber: 1,
+            verseText: 'In the beginning God created heaven, and earth.',
+            translationCode: 'CPDV',
+          ),
+        );
+    await testDb
+        .into(testDb.bibleVerses)
+        .insert(
+          const BibleVerse(
+            id: 2,
+            bookNumber: 1,
+            bookName: 'Genesis',
+            chapter: 1,
+            verseNumber: 2,
+            verseText: 'And the earth was void and empty.',
+            translationCode: 'CPDV',
+          ),
+        );
+
+    final builder = GoldenBuilder.column()
+      ..addScenario(
+        'Mass Reading Card Expanded (Default)',
+        const MassReadingCard(reading: reading),
+      );
+
+    await tester.pumpWidgetBuilder(
+      builder.build(),
+      wrapper: materialAppWrapper(),
+      surfaceSize: const Size(450, 300),
+    );
+    await tester.pumpAndSettle();
+
+    await screenMatchesGolden(tester, 'mass_reading_card_expanded_golden');
+
+    // Tap to collapse
+    await tester.tap(find.byType(MassReadingCard));
+    await tester.pumpAndSettle();
+
+    await screenMatchesGolden(tester, 'mass_reading_card_collapsed_golden');
+  });
 }
