@@ -154,13 +154,16 @@ class _PrayerCardState extends State<PrayerCard> {
       );
 
       if (isTarget) {
-        return WidgetSpan(
-          alignment: PlaceholderAlignment.baseline,
-          baseline: TextBaseline.alphabetic,
-          child: CompositedTransformTarget(
-            link: _layerLink,
-            child: Text.rich(textSpan, style: selectedStyle),
-          ),
+        return TextSpan(
+          children: [
+            textSpan,
+            WidgetSpan(
+              child: CompositedTransformTarget(
+                link: _layerLink,
+                child: const SizedBox(width: 0, height: 0),
+              ),
+            ),
+          ],
         );
       }
 
