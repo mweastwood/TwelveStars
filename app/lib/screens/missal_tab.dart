@@ -294,24 +294,12 @@ class _MissalTabState extends State<MissalTab> {
     ThemeData theme,
   ) {
     return Card(
-      elevation: 0,
-      color: theme.colorScheme.surfaceContainerLow,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: BorderSide(
-          color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5),
-          width: 1,
-        ),
-      ),
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+        padding: const EdgeInsets.all(20.0),
         child: Row(
           children: [
-            Icon(
-              icon,
-              color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6),
-              size: 20,
-            ),
+            Icon(icon, color: theme.colorScheme.primary, size: 22),
             const SizedBox(width: 12),
             Expanded(
               child: Column(
@@ -319,7 +307,7 @@ class _MissalTabState extends State<MissalTab> {
                 children: [
                   Text(
                     title,
-                    style: theme.textTheme.titleSmall?.copyWith(
+                    style: theme.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: theme.colorScheme.onSurface,
                     ),
@@ -330,6 +318,7 @@ class _MissalTabState extends State<MissalTab> {
                       description,
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: theme.colorScheme.onSurfaceVariant,
+                        fontStyle: FontStyle.italic,
                       ),
                     ),
                   ],
@@ -780,10 +769,7 @@ class _MissalTabState extends State<MissalTab> {
 
               // 2. Main Liturgical Card
               Card(
-                elevation: 1,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
+                margin: const EdgeInsets.symmetric(vertical: 8.0),
                 clipBehavior: Clip.antiAlias,
                 child: IntrinsicHeight(
                   child: Row(
@@ -792,7 +778,7 @@ class _MissalTabState extends State<MissalTab> {
                       Container(width: 10, color: currentDay.colorWidget),
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: const EdgeInsets.all(20.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -820,8 +806,9 @@ class _MissalTabState extends State<MissalTab> {
                               const SizedBox(height: 10),
                               Text(
                                 currentDay.weekName,
-                                style: theme.textTheme.titleMedium?.copyWith(
+                                style: theme.textTheme.titleLarge?.copyWith(
                                   fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.onSurface,
                                 ),
                               ),
                               const SizedBox(height: 6),
@@ -849,22 +836,15 @@ class _MissalTabState extends State<MissalTab> {
                   ),
                 ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 8),
 
               // 3. Special Solemnity / Feast Alert Card (if any)
               if (currentDay.name != null) ...[
                 Card(
-                  elevation: 0,
+                  margin: const EdgeInsets.symmetric(vertical: 8.0),
                   color: currentDay.colorWidget.withValues(alpha: 0.1),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    side: BorderSide(
-                      color: currentDay.colorWidget.withValues(alpha: 0.25),
-                      width: 1,
-                    ),
-                  ),
                   child: Padding(
-                    padding: const EdgeInsets.all(12.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: Row(
                       children: [
                         Icon(
@@ -872,7 +852,7 @@ class _MissalTabState extends State<MissalTab> {
                           color: currentDay.colorWidget,
                           size: 28,
                         ),
-                        const SizedBox(width: 12),
+                        const SizedBox(width: 16),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -882,13 +862,15 @@ class _MissalTabState extends State<MissalTab> {
                                 style: theme.textTheme.labelSmall?.copyWith(
                                   fontWeight: FontWeight.bold,
                                   color: currentDay.colorWidget,
+                                  letterSpacing: 1.1,
                                 ),
                               ),
-                              const SizedBox(height: 2),
+                              const SizedBox(height: 4),
                               Text(
                                 currentDay.name!,
-                                style: theme.textTheme.bodyMedium?.copyWith(
+                                style: theme.textTheme.titleLarge?.copyWith(
                                   fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.onSurface,
                                 ),
                               ),
                             ],
@@ -898,7 +880,7 @@ class _MissalTabState extends State<MissalTab> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 8),
               ],
 
               // 4. Introductory Rites Section

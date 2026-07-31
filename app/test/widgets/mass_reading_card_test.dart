@@ -56,79 +56,80 @@ void main() {
     expect(find.byIcon(Icons.auto_stories), findsOneWidget);
   });
 
-  testWidgets('MassReadingCard loads and shows verses when expanded', (
-    WidgetTester tester,
-  ) async {
-    const reading = LectionaryReading(
-      id: 1,
-      readingKey: 'feast_annunciation',
-      readingType: 'first',
-      bookNumber: 1, // Genesis
-      bookName: 'Genesis',
-      chapter: 1,
-      verseRange: '1-2',
-      citation: 'Genesis 1:1-2',
-    );
+  testWidgets(
+    'MassReadingCard loads and shows verses expanded by default, and toggles collapse',
+    (WidgetTester tester) async {
+      const reading = LectionaryReading(
+        id: 1,
+        readingKey: 'feast_annunciation',
+        readingType: 'first',
+        bookNumber: 1, // Genesis
+        bookName: 'Genesis',
+        chapter: 1,
+        verseRange: '1-2',
+        citation: 'Genesis 1:1-2',
+      );
 
-    // Mock verses in db
-    await testDb
-        .into(testDb.bibleVerses)
-        .insert(
-          const BibleVerse(
-            id: 1,
-            bookNumber: 1,
-            bookName: 'Genesis',
-            chapter: 1,
-            verseNumber: 1,
-            verseText: 'In the beginning God created heaven, and earth.',
-            translationCode: 'CPDV',
-          ),
-        );
-    await testDb
-        .into(testDb.bibleVerses)
-        .insert(
-          const BibleVerse(
-            id: 2,
-            bookNumber: 1,
-            bookName: 'Genesis',
-            chapter: 1,
-            verseNumber: 2,
-            verseText: 'And the earth was void and empty.',
-            translationCode: 'CPDV',
-          ),
-        );
+      // Mock verses in db
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 2,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 2,
+              verseText: 'And the earth was void and empty.',
+              translationCode: 'CPDV',
+            ),
+          );
 
-    await tester.pumpWidget(
-      buildTestableWidget(
-        child: const Scaffold(body: MassReadingCard(reading: reading)),
-      ),
-    );
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(body: MassReadingCard(reading: reading)),
+        ),
+      );
+      await tester.pumpAndSettle();
 
-    // Should not show verses initially
-    expect(
-      find.textContaining('In the beginning', findRichText: true),
-      findsNothing,
-    );
+      // Should show verses expanded by default
+      expect(
+        find.textContaining(
+          'In the beginning God created heaven, and earth.',
+          findRichText: true,
+        ),
+        findsOneWidget,
+      );
+      expect(
+        find.textContaining(
+          'And the earth was void and empty.',
+          findRichText: true,
+        ),
+        findsOneWidget,
+      );
 
-    // Tap to expand
-    await tester.tap(find.byType(MassReadingCard));
-    await tester.pump(); // Start load
-    await tester.pumpAndSettle(); // Wait for all async actions to finish
+      // Tap to collapse
+      await tester.tap(find.byType(MassReadingCard));
+      await tester.pumpAndSettle();
 
-    // Should show verses
-    expect(
-      find.textContaining(
-        'In the beginning God created heaven, and earth.',
-        findRichText: true,
-      ),
-      findsOneWidget,
-    );
-    expect(
-      find.textContaining(
-        'And the earth was void and empty.',
-        findRichText: true,
-      ),
-      findsOneWidget,
-    );
-  });
+      // Verses should be collapsed
+      expect(
+        find.textContaining('In the beginning', findRichText: true),
+        findsNothing,
+      );
+    },
+  );
 }
