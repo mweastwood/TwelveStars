@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 103
+default_order: 106
 default_title: Sanctus
 title: Santo
 subtitle: ""

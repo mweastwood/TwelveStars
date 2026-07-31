@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 106
+default_order: 111
 default_title: Blessing & Dismissal
 title: Benedictio et Dismissio
 subtitle: ""

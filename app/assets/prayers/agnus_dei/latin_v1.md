@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 105
+default_order: 109
 default_title: Agnus Dei
 title: Agnus Dei
 subtitle: ""

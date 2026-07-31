@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 104
+default_order: 108
 default_title: Sign of Peace
 title: La paz
 subtitle: ""

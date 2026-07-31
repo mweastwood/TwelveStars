@@ -367,9 +367,14 @@ class _MissalTabState extends State<MissalTab> {
     final niceneCreed = _findPrayer('nicene_creed');
     final apostlesCreed = _findPrayer('apostles_creed');
     final sanctus = _findPrayer('sanctus');
+    final offertoryResponse = _findPrayer('offertory_response');
+    final orateFratres = _findPrayer('orate_fratres');
+    final prefaceDialogue = _findPrayer('preface_dialogue');
+    final mysteryOfFaith = _findPrayer('mystery_of_faith');
     final ourFather = _findPrayer('our_father');
     final signOfPeace = _findPrayer('sign_of_peace');
     final agnusDei = _findPrayer('agnus_dei');
+    final domineNonSumDignus = _findPrayer('domine_non_sum_dignus');
     final dismissal = _findPrayer('dismissal');
 
     return Scaffold(
@@ -1066,6 +1071,18 @@ class _MissalTabState extends State<MissalTab> {
                 theme,
               ),
               const SizedBox(height: 12),
+              if (offertoryResponse != null) ...[
+                _buildPrayerCard(offertoryResponse),
+                const SizedBox(height: 12),
+              ],
+              if (orateFratres != null) ...[
+                _buildPrayerCard(orateFratres),
+                const SizedBox(height: 12),
+              ],
+              if (prefaceDialogue != null) ...[
+                _buildPrayerCard(prefaceDialogue),
+                const SizedBox(height: 12),
+              ],
               if (sanctus != null) ...[
                 _buildPrayerCard(sanctus),
                 const SizedBox(height: 12),
@@ -1085,6 +1102,10 @@ class _MissalTabState extends State<MissalTab> {
                 theme,
               ),
               const SizedBox(height: 12),
+              if (mysteryOfFaith != null) ...[
+                _buildPrayerCard(mysteryOfFaith),
+                const SizedBox(height: 12),
+              ],
               if (ourFather != null) ...[
                 _buildPrayerCard(ourFather),
                 const SizedBox(height: 12),
@@ -1111,6 +1132,10 @@ class _MissalTabState extends State<MissalTab> {
                   Icons.spa,
                   theme,
                 ),
+                const SizedBox(height: 12),
+              ],
+              if (domineNonSumDignus != null) ...[
+                _buildPrayerCard(domineNonSumDignus),
                 const SizedBox(height: 12),
               ],
               _buildMassPartPlaceholder(
