@@ -112,13 +112,16 @@ class _PrayerCardState extends State<PrayerCard> {
     ThemeData theme, {
     bool isTarget = false,
   }) {
+    final baseStyle = theme.textTheme.bodyLarge?.copyWith(
+      height: 1.6,
+      fontSize: widget.fontSize,
+      letterSpacing: 0.2,
+    );
+
     if (token.id == null || !_isDualMode) {
       return TextSpan(
         text: token.text,
-        style: theme.textTheme.bodyLarge?.copyWith(
-          height: 1.6,
-          fontSize: widget.fontSize,
-          letterSpacing: 0.2,
+        style: baseStyle?.copyWith(
           color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
         ),
       );
@@ -127,35 +130,17 @@ class _PrayerCardState extends State<PrayerCard> {
     final isSelected = token.id == _selectedPhraseId;
 
     if (isSelected) {
-      final highlightedWidget = Container(
-        padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 1.0),
-        decoration: BoxDecoration(
-          color: theme.colorScheme.primaryContainer.withValues(alpha: 0.8),
-          borderRadius: BorderRadius.circular(4),
-        ),
-        child: Text(
-          token.text,
-          style: theme.textTheme.bodyLarge?.copyWith(
-            height: 1.6,
-            fontSize: widget.fontSize,
-            letterSpacing: 0.2,
-            color: theme.colorScheme.onPrimaryContainer,
-          ),
+      final selectedStyle = baseStyle?.copyWith(
+        color: theme.colorScheme.onPrimaryContainer,
+        backgroundColor: theme.colorScheme.primaryContainer.withValues(
+          alpha: 0.8,
         ),
       );
 
-      final targetWidget = isTarget
-          ? CompositedTransformTarget(
-              link: _layerLink,
-              child: highlightedWidget,
-            )
-          : highlightedWidget;
-
-      return WidgetSpan(
-        alignment: PlaceholderAlignment.baseline,
-        baseline: TextBaseline.alphabetic,
-        child: GestureDetector(
-          onTap: () {
+      final textSpan = TextSpan(
+        text: token.text,
+        recognizer: TapGestureRecognizer()
+          ..onTap = () {
             setState(() {
               if (_selectedPhraseId == token.id) {
                 _selectedPhraseId = null;
@@ -165,9 +150,21 @@ class _PrayerCardState extends State<PrayerCard> {
               }
             });
           },
-          child: targetWidget,
-        ),
+        style: selectedStyle,
       );
+
+      if (isTarget) {
+        return WidgetSpan(
+          alignment: PlaceholderAlignment.baseline,
+          baseline: TextBaseline.alphabetic,
+          child: CompositedTransformTarget(
+            link: _layerLink,
+            child: Text.rich(textSpan, style: selectedStyle),
+          ),
+        );
+      }
+
+      return textSpan;
     }
 
     return TextSpan(
@@ -183,10 +180,7 @@ class _PrayerCardState extends State<PrayerCard> {
             }
           });
         },
-      style: theme.textTheme.bodyLarge?.copyWith(
-        height: 1.6,
-        fontSize: widget.fontSize,
-        letterSpacing: 0.2,
+      style: baseStyle?.copyWith(
         decoration: TextDecoration.underline,
         decorationStyle: TextDecorationStyle.dashed,
         decorationColor: theme.colorScheme.primary.withValues(alpha: 0.5),
@@ -291,7 +285,7 @@ class _PrayerCardState extends State<PrayerCard> {
                         charItem.char,
                         style: theme.textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                          fontSize: widget.fontSize * 1.125,
                           color: isSelected
                               ? theme.colorScheme.onPrimaryContainer
                               : theme.colorScheme.onSurface,
