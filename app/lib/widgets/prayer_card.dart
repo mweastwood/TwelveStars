@@ -105,7 +105,11 @@ class _PrayerCardState extends State<PrayerCard> {
     _checkAiAvailability();
   }
 
-  InlineSpan _buildTokenSpan(PrayerToken token, ThemeData theme) {
+  InlineSpan _buildTokenSpan(
+    PrayerToken token,
+    ThemeData theme, {
+    bool isTarget = false,
+  }) {
     if (token.id == null || !_isDualMode) {
       return TextSpan(
         text: token.text,
@@ -116,34 +120,63 @@ class _PrayerCardState extends State<PrayerCard> {
     }
 
     final isSelected = token.id == _selectedPhraseId;
-    final recognizer = TapGestureRecognizer()
-      ..onTap = () {
-        setState(() {
-          if (_selectedPhraseId == token.id) {
-            _selectedPhraseId = null;
-          } else {
-            _selectedPhraseId = token.id;
-            _checkAiAvailability();
-          }
-        });
-      };
 
     if (isSelected) {
-      return TextSpan(
-        text: token.text,
-        recognizer: recognizer,
-        style: TextStyle(
-          backgroundColor: theme.colorScheme.primaryContainer.withValues(
-            alpha: 0.8,
+      final highlightedWidget = Container(
+        padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 1.0),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.primaryContainer.withValues(alpha: 0.8),
+          borderRadius: BorderRadius.circular(4),
+        ),
+        child: Text(
+          token.text,
+          style: TextStyle(
+            color: theme.colorScheme.onPrimaryContainer,
+            fontSize: 16.0,
+            height: 1.4,
           ),
-          color: theme.colorScheme.onPrimaryContainer,
+        ),
+      );
+
+      final targetWidget = isTarget
+          ? CompositedTransformTarget(
+              link: _layerLink,
+              child: highlightedWidget,
+            )
+          : highlightedWidget;
+
+      return WidgetSpan(
+        alignment: PlaceholderAlignment.baseline,
+        baseline: TextBaseline.alphabetic,
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              if (_selectedPhraseId == token.id) {
+                _selectedPhraseId = null;
+              } else {
+                _selectedPhraseId = token.id;
+                _checkAiAvailability();
+              }
+            });
+          },
+          child: targetWidget,
         ),
       );
     }
 
     return TextSpan(
       text: token.text,
-      recognizer: recognizer,
+      recognizer: TapGestureRecognizer()
+        ..onTap = () {
+          setState(() {
+            if (_selectedPhraseId == token.id) {
+              _selectedPhraseId = null;
+            } else {
+              _selectedPhraseId = token.id;
+              _checkAiAvailability();
+            }
+          });
+        },
       style: TextStyle(
         decoration: TextDecoration.underline,
         decorationStyle: TextDecorationStyle.dashed,
@@ -186,8 +219,9 @@ class _PrayerCardState extends State<PrayerCard> {
   Widget _buildPrayerText(
     PrayerTranslation trans,
     PrayerLanguage lang,
-    ThemeData theme,
-  ) {
+    ThemeData theme, {
+    bool isTargetColumn = false,
+  }) {
     final Widget? amenWidget = widget.prayer.hasAmen
         ? Padding(
             padding: const EdgeInsets.only(top: 12.0),
@@ -195,12 +229,11 @@ class _PrayerCardState extends State<PrayerCard> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  lang.amenText,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    fontSize: 13.5,
-                    color: theme.colorScheme.onSurfaceVariant.withValues(
-                      alpha: 0.7,
-                    ),
+                  'Amen.',
+                  style: theme.textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    color: theme.colorScheme.primary,
                   ),
                 ),
               ],
@@ -228,6 +261,57 @@ class _PrayerCardState extends State<PrayerCard> {
                     charItem.phraseId == _selectedPhraseId &&
                     _isDualMode;
 
+                final charWidget = Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 1.0,
+                    vertical: 2.0,
+                  ),
+                  decoration: BoxDecoration(
+                    color: isSelected
+                        ? theme.colorScheme.primaryContainer.withValues(
+                            alpha: 0.8,
+                          )
+                        : null,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        charItem.char,
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: isSelected
+                              ? theme.colorScheme.onPrimaryContainer
+                              : theme.colorScheme.onSurface,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        isPunct ? '' : charItem.pinyin,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          fontSize: 10,
+                          color: isSelected
+                              ? theme.colorScheme.onPrimaryContainer.withValues(
+                                  alpha: 0.7,
+                                )
+                              : theme.colorScheme.onSurfaceVariant.withValues(
+                                  alpha: 0.7,
+                                ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+
+                final wrappedChar = (isSelected && isTargetColumn)
+                    ? CompositedTransformTarget(
+                        link: _layerLink,
+                        child: charWidget,
+                      )
+                    : charWidget;
+
                 return GestureDetector(
                   onTap: (charItem.phraseId != null && _isDualMode)
                       ? () {
@@ -241,48 +325,7 @@ class _PrayerCardState extends State<PrayerCard> {
                           });
                         }
                       : null,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 1.0,
-                      vertical: 2.0,
-                    ),
-                    decoration: BoxDecoration(
-                      color: isSelected
-                          ? theme.colorScheme.primaryContainer.withValues(
-                              alpha: 0.8,
-                            )
-                          : null,
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          charItem.char,
-                          style: theme.textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                            color: isSelected
-                                ? theme.colorScheme.onPrimaryContainer
-                                : theme.colorScheme.onSurface,
-                          ),
-                        ),
-                        const SizedBox(height: 2),
-                        Text(
-                          isPunct ? '' : charItem.pinyin,
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            fontSize: 10,
-                            color: isSelected
-                                ? theme.colorScheme.onPrimaryContainer
-                                      .withValues(alpha: 0.7)
-                                : theme.colorScheme.onSurfaceVariant.withValues(
-                                    alpha: 0.7,
-                                  ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  child: wrappedChar,
                 );
               }).toList(),
             ),
@@ -292,7 +335,9 @@ class _PrayerCardState extends State<PrayerCard> {
     } else if (trans.tokens != null && trans.tokens!.isNotEmpty) {
       // Text rendering with phrase alignments
       final spans = trans.tokens!
-          .map((token) => _buildTokenSpan(token, theme))
+          .map(
+            (token) => _buildTokenSpan(token, theme, isTarget: isTargetColumn),
+          )
           .toList();
       bodyWidget = Text.rich(
         TextSpan(children: spans),
@@ -433,40 +478,35 @@ class _PrayerCardState extends State<PrayerCard> {
                             const SizedBox(width: 12),
                             // Right Column Title/Subtitle with padding to avoid overlaying split button
                             Expanded(
-                              child: CompositedTransformTarget(
-                                link: _layerLink,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(right: 36),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 36),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      compareTranslation.title,
+                                      style: theme.textTheme.titleLarge
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                            color: theme.colorScheme.onSurface,
+                                          ),
+                                    ),
+                                    if (compareTranslation
+                                        .subtitle
+                                        .isNotEmpty) ...[
+                                      const SizedBox(height: 2),
                                       Text(
-                                        compareTranslation.title,
-                                        style: theme.textTheme.titleLarge
+                                        compareTranslation.subtitle,
+                                        style: theme.textTheme.bodySmall
                                             ?.copyWith(
-                                              fontWeight: FontWeight.bold,
-                                              color:
-                                                  theme.colorScheme.onSurface,
+                                              color: theme
+                                                  .colorScheme
+                                                  .onSurfaceVariant,
+                                              fontStyle: FontStyle.italic,
                                             ),
                                       ),
-                                      if (compareTranslation
-                                          .subtitle
-                                          .isNotEmpty) ...[
-                                        const SizedBox(height: 2),
-                                        Text(
-                                          compareTranslation.subtitle,
-                                          style: theme.textTheme.bodySmall
-                                              ?.copyWith(
-                                                color: theme
-                                                    .colorScheme
-                                                    .onSurfaceVariant,
-                                                fontStyle: FontStyle.italic,
-                                              ),
-                                        ),
-                                      ],
                                     ],
-                                  ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -519,6 +559,7 @@ class _PrayerCardState extends State<PrayerCard> {
                               translation,
                               resolvedLanguage,
                               theme,
+                              isTargetColumn: false,
                             ),
                           ),
                           const SizedBox(width: 12),
@@ -534,13 +575,19 @@ class _PrayerCardState extends State<PrayerCard> {
                               compareTranslation,
                               resolvedCompareLanguage,
                               theme,
+                              isTargetColumn: true,
                             ),
                           ),
                         ],
                       ),
                     )
                   else
-                    _buildPrayerText(translation, resolvedLanguage, theme),
+                    _buildPrayerText(
+                      translation,
+                      resolvedLanguage,
+                      theme,
+                      isTargetColumn: true,
+                    ),
                   const SizedBox(height: 20),
 
                   // Divider for Footer

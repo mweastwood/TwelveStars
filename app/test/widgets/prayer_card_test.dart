@@ -685,5 +685,67 @@ void main() {
         await screenMatchesGolden(tester, 'prayer_card_dual_highlight_golden');
       },
     );
+
+    testWidgets(
+      'positions AI explainer button adjacent to the highlighted phrase target rather than card title header',
+      (tester) async {
+        final mockAi = MockAiService();
+        LocalAgentHelper.instance = mockAi;
+        mockAi.setMockStatus(AiCoreStatus.available);
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: testPrayerWithTokens,
+                  selectedLanguage: PrayerLanguage.english,
+                  compareLanguage: PrayerLanguage.spanish,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                  onLaunchSource: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        final richTextFinder = find.byWidgetPredicate(
+          (widget) =>
+              widget is RichText &&
+              widget.text.toPlainText().contains('who art in heaven'),
+        );
+        final richTextWidget =
+            tester.element(richTextFinder).widget as RichText;
+
+        TapGestureRecognizer? recognizer;
+        richTextWidget.text.visitChildren((span) {
+          if (span is TextSpan && span.text == 'who art in heaven') {
+            recognizer = span.recognizer as TapGestureRecognizer?;
+            return false;
+          }
+          return true;
+        });
+
+        expect(recognizer, isNotNull);
+        recognizer!.onTap!();
+        await tester.pumpAndSettle();
+
+        final fabFinder = find.byIcon(Icons.auto_awesome);
+        expect(fabFinder, findsOneWidget);
+
+        final fabPos = tester.getTopLeft(fabFinder);
+        final titlePos = tester.getTopLeft(find.text('Our Father'));
+        final targetPos = tester.getTopLeft(
+          find.byType(CompositedTransformTarget),
+        );
+
+        // Verify FAB vertical Y coordinate is significantly below the title header
+        expect(fabPos.dy, greaterThan(titlePos.dy + 30));
+
+        // Verify FAB position is anchored near the phrase target position
+        expect((fabPos.dy - targetPos.dy).abs(), lessThan(40));
+      },
+    );
   });
 }
