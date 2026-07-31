@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 106
+default_order: 105
 default_title: Preface Dialogue
 title: Praefatio
 subtitle: ""

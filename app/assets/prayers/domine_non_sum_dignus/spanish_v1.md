@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 108
+default_order: 110
 default_title: Invitation to Communion
 title: Invitación a la Comunión
 subtitle: ""

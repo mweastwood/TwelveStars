@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 105
+default_order: 104
 default_title: Prayer Over the Offerings
 title: Oración Sobre las Ofrendas
 subtitle: ""

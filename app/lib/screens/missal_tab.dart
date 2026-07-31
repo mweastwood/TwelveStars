@@ -367,6 +367,7 @@ class _MissalTabState extends State<MissalTab> {
     final niceneCreed = _findPrayer('nicene_creed');
     final apostlesCreed = _findPrayer('apostles_creed');
     final sanctus = _findPrayer('sanctus');
+    final offertoryResponse = _findPrayer('offertory_response');
     final orateFratres = _findPrayer('orate_fratres');
     final prefaceDialogue = _findPrayer('preface_dialogue');
     final mysteryOfFaith = _findPrayer('mystery_of_faith');
@@ -1070,6 +1071,10 @@ class _MissalTabState extends State<MissalTab> {
                 theme,
               ),
               const SizedBox(height: 12),
+              if (offertoryResponse != null) ...[
+                _buildPrayerCard(offertoryResponse),
+                const SizedBox(height: 12),
+              ],
               if (orateFratres != null) ...[
                 _buildPrayerCard(orateFratres),
                 const SizedBox(height: 12),
