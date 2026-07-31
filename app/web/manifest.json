@@ -1,6 +1,6 @@
 {
-    "name": "twelve_stars",
-    "short_name": "twelve_stars",
+    "name": "Twelve Stars",
+    "short_name": "Twelve Stars",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#ffffff",
