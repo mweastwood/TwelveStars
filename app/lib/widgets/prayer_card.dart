@@ -673,9 +673,9 @@ class _PrayerCardState extends State<PrayerCard> {
               CompositedTransformFollower(
                 link: _layerLink,
                 showWhenUnlinked: false,
-                targetAnchor: Alignment.topRight,
-                followerAnchor: Alignment.bottomRight,
-                offset: const Offset(0, -6),
+                targetAnchor: Alignment.centerRight,
+                followerAnchor: Alignment.centerLeft,
+                offset: const Offset(12, 0),
                 child: SizedBox(
                   width: 28,
                   height: 28,
