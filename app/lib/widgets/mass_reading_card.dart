@@ -15,10 +15,16 @@ class MassReadingCard extends StatefulWidget {
 }
 
 class _MassReadingCardState extends State<MassReadingCard> {
-  bool _isExpanded = false;
+  bool _isExpanded = true;
   bool _isLoading = false;
   List<BibleVerse>? _verses;
   String? _errorMessage;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadVerses();
+  }
 
   String get _readingTitle {
     switch (widget.reading.readingType) {
@@ -159,20 +165,12 @@ class _MassReadingCardState extends State<MassReadingCard> {
     final theme = Theme.of(context);
 
     return Card(
-      margin: const EdgeInsets.symmetric(vertical: 6.0),
-      elevation: 0,
-      color: theme.colorScheme.surfaceContainerLow,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(
-          color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5),
-        ),
-      ),
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
       child: InkWell(
         onTap: _toggleExpanded,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -182,20 +180,23 @@ class _MassReadingCardState extends State<MassReadingCard> {
                   Icon(
                     _readingIcon,
                     color: theme.colorScheme.primary,
-                    size: 20,
+                    size: 22,
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: 10),
                   Text(
                     _readingTitle,
-                    style: theme.textTheme.titleSmall?.copyWith(
+                    style: theme.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.onSurface,
                     ),
                   ),
+                  const SizedBox(width: 10),
                   Expanded(
                     child: Text(
                       widget.reading.citation,
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        color: theme.colorScheme.secondary,
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                        fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.w500,
                       ),
                       textAlign: TextAlign.end,
@@ -206,21 +207,30 @@ class _MassReadingCardState extends State<MassReadingCard> {
                   const SizedBox(width: 8),
                   Icon(
                     _isExpanded ? Icons.expand_less : Icons.expand_more,
-                    size: 18,
+                    size: 20,
                     color: theme.colorScheme.onSurfaceVariant,
                   ),
                 ],
               ),
               // Expanded content
               if (_isExpanded) ...[
-                const SizedBox(height: 12),
-                const Divider(height: 1),
-                const SizedBox(height: 12),
+                const SizedBox(height: 16),
+                Divider(
+                  height: 1,
+                  color: theme.colorScheme.outlineVariant.withValues(
+                    alpha: 0.3,
+                  ),
+                ),
+                const SizedBox(height: 16),
                 if (_isLoading)
-                  const Center(
-                    child: Padding(
-                      padding: EdgeInsets.all(12.0),
-                      child: CircularProgressIndicator(strokeWidth: 2),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Text(
+                      'Loading scripture...',
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                        fontStyle: FontStyle.italic,
+                      ),
                     ),
                   )
                 else if (_errorMessage != null)
@@ -233,8 +243,10 @@ class _MassReadingCardState extends State<MassReadingCard> {
                 else
                   RichText(
                     text: TextSpan(
-                      style: theme.textTheme.bodyMedium?.copyWith(
+                      style: theme.textTheme.bodyLarge?.copyWith(
                         height: 1.6,
+                        fontSize: 16.0,
+                        letterSpacing: 0.2,
                         color: theme.colorScheme.onSurface,
                       ),
                       children: _verses!.map((v) {
@@ -250,7 +262,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
                                   style: theme.textTheme.labelSmall?.copyWith(
                                     fontWeight: FontWeight.bold,
                                     color: theme.colorScheme.primary,
-                                    fontSize: 10,
+                                    fontSize: 11,
                                   ),
                                 ),
                               ),
