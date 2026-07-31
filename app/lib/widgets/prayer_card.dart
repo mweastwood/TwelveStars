@@ -674,8 +674,8 @@ class _PrayerCardState extends State<PrayerCard> {
                 link: _layerLink,
                 showWhenUnlinked: false,
                 targetAnchor: Alignment.topRight,
-                followerAnchor: Alignment.topRight,
-                offset: const Offset(4, 0),
+                followerAnchor: Alignment.bottomLeft,
+                offset: const Offset(4, -4),
                 child: SizedBox(
                   width: 32,
                   height: 32,
