@@ -113,7 +113,10 @@ class _PrayerCardState extends State<PrayerCard> {
     if (token.id == null || !_isDualMode) {
       return TextSpan(
         text: token.text,
-        style: TextStyle(
+        style: theme.textTheme.bodyLarge?.copyWith(
+          height: 1.6,
+          fontSize: 16.0,
+          letterSpacing: 0.2,
           color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
         ),
       );
@@ -130,10 +133,11 @@ class _PrayerCardState extends State<PrayerCard> {
         ),
         child: Text(
           token.text,
-          style: TextStyle(
-            color: theme.colorScheme.onPrimaryContainer,
+          style: theme.textTheme.bodyLarge?.copyWith(
+            height: 1.6,
             fontSize: 16.0,
-            height: 1.4,
+            letterSpacing: 0.2,
+            color: theme.colorScheme.onPrimaryContainer,
           ),
         ),
       );
@@ -177,7 +181,10 @@ class _PrayerCardState extends State<PrayerCard> {
             }
           });
         },
-      style: TextStyle(
+      style: theme.textTheme.bodyLarge?.copyWith(
+        height: 1.6,
+        fontSize: 16.0,
+        letterSpacing: 0.2,
         decoration: TextDecoration.underline,
         decorationStyle: TextDecorationStyle.dashed,
         decorationColor: theme.colorScheme.primary.withValues(alpha: 0.5),
