@@ -44,6 +44,10 @@ class NotificationService {
 
   /// Calculates next Sunday at 8:00 AM local time.
   static tz.TZDateTime nextSunday8AM([DateTime? fromDate]) {
+    try {
+      tz.initializeTimeZones();
+    } catch (_) {}
+
     final now = fromDate ?? DateTime.now();
     final tzNow = tz.TZDateTime.from(now, tz.local);
 

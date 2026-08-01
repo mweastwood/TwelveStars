@@ -1,8 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/notification_service.dart';
 
 void main() {
+  setUpAll(() {
+    tz.initializeTimeZones();
+  });
+
   group('NotificationService Logic Tests', () {
     test('calculates next Sunday at 8:00 AM accurately', () {
       final monday = DateTime(2026, 7, 6); // Monday
