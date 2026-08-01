@@ -335,7 +335,7 @@ void main() {
 
         // Verify default prayers are loaded in English initially
         expect(find.text('Our Father'), findsOneWidget);
-        expect(find.text('Hail Mary'), findsOneWidget);
+        expect(find.text('Hail Mary', skipOffstage: false), findsOneWidget);
 
         // Verify navigation items
         expect(find.text('Prayers'), findsWidgets);
@@ -412,8 +412,8 @@ void main() {
 
       // Initially all three mock prayers are visible
       expect(find.text('Our Father'), findsOneWidget);
-      expect(find.text('Hail Mary'), findsOneWidget);
-      expect(find.text('Glory Be'), findsOneWidget);
+      expect(find.text('Hail Mary', skipOffstage: false), findsOneWidget);
+      expect(find.text('Glory Be', skipOffstage: false), findsOneWidget);
 
       // Search button should be visible in Prayers tab
       final searchButton = find.byIcon(Icons.search);
@@ -444,8 +444,8 @@ void main() {
 
       // All mock prayers should be visible again
       expect(find.text('Our Father'), findsOneWidget);
-      expect(find.text('Hail Mary'), findsOneWidget);
-      expect(find.text('Glory Be'), findsOneWidget);
+      expect(find.text('Hail Mary', skipOffstage: false), findsOneWidget);
+      expect(find.text('Glory Be', skipOffstage: false), findsOneWidget);
 
       // Type a query that yields no results
       await tester.enterText(searchTextField, 'nonexistentprayer');
