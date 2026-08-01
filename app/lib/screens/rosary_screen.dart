@@ -65,9 +65,19 @@ class _RosaryScreenState extends State<RosaryScreen> {
     _steps = RosaryHelper.generateSteps(_mysteryType);
   }
 
+  void _triggerStepHaptic(int targetStepIndex) {
+    if (targetStepIndex < 0 || targetStepIndex >= _steps.length) return;
+    final step = _steps[targetStepIndex];
+    if (step.prayerId == 'hail_mary' || step.beadType == RosaryBeadType.small) {
+      HapticFeedback.selectionClick();
+    } else {
+      HapticFeedback.lightImpact();
+    }
+  }
+
   void _changeMysteryType(RosaryMysteryType? type) {
     if (type == null || type == _mysteryType) return;
-    HapticFeedback.selectionClick();
+    HapticFeedback.mediumImpact();
     setState(() {
       _mysteryType = type;
       _generateSteps();
@@ -76,8 +86,8 @@ class _RosaryScreenState extends State<RosaryScreen> {
   }
 
   void _nextStep() {
-    HapticFeedback.lightImpact();
     if (_currentStep < _steps.length - 1) {
+      _triggerStepHaptic(_currentStep + 1);
       setState(() {
         _currentStep++;
       });
@@ -88,7 +98,7 @@ class _RosaryScreenState extends State<RosaryScreen> {
 
   void _prevStep() {
     if (_currentStep > 0) {
-      HapticFeedback.lightImpact();
+      _triggerStepHaptic(_currentStep - 1);
       setState(() {
         _currentStep--;
       });
@@ -190,10 +200,12 @@ class _RosaryScreenState extends State<RosaryScreen> {
                   steps: _steps,
                   currentStep: _currentStep,
                   onStepSelected: (index) {
-                    HapticFeedback.selectionClick();
-                    setState(() {
-                      _currentStep = index;
-                    });
+                    if (index != _currentStep) {
+                      _triggerStepHaptic(index);
+                      setState(() {
+                        _currentStep = index;
+                      });
+                    }
                   },
                 ),
                 // Main content area on the right
