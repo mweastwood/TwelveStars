@@ -209,6 +209,23 @@ class PrayerVersionPreference {
   PrayerVersionPreference([this.key = '', this.versionIndex = 0]);
 }
 
+enum AppThemeMode {
+  marianBlue('marian_blue', 'Marian Blue'),
+  liturgical('liturgical', 'Liturgical Season'),
+  system('system', 'System Theme');
+
+  final String code;
+  final String label;
+  const AppThemeMode(this.code, this.label);
+
+  static AppThemeMode fromCode(String? code) {
+    return AppThemeMode.values.firstWhere(
+      (e) => e.code == code,
+      orElse: () => AppThemeMode.marianBlue,
+    );
+  }
+}
+
 class UserSettings {
   int id = 1;
   String primaryLanguageCode;
@@ -217,6 +234,7 @@ class UserSettings {
   String compareBibleTranslation;
   List<PrayerVersionPreference>? preferredVersions;
   bool hapticsEnabled;
+  String appThemeModeCode;
 
   UserSettings({
     this.id = 1,
@@ -226,7 +244,11 @@ class UserSettings {
     this.compareBibleTranslation = 'none',
     this.preferredVersions,
     this.hapticsEnabled = true,
+    this.appThemeModeCode = 'marian_blue',
   });
+
+  AppThemeMode get appThemeMode => AppThemeMode.fromCode(appThemeModeCode);
+  set appThemeMode(AppThemeMode mode) => appThemeModeCode = mode.code;
 
   PrayerLanguage get primaryLanguage => PrayerLanguage.values.firstWhere(
     (e) => e.code == primaryLanguageCode,
