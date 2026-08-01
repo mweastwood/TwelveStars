@@ -153,7 +153,7 @@ class LiturgicalDay {
       case LiturgicalColor.purple:
         return const Color(0xFF6A1B9A);
       case LiturgicalColor.white:
-        return const Color(0xFFE6B800); // Liturgical Gold/White
+        return const Color(0xFFC68A00); // Liturgical Gold/White
       case LiturgicalColor.red:
         return const Color(0xFFC62828);
       case LiturgicalColor.rose:

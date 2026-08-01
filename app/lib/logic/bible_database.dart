@@ -187,6 +187,8 @@ class UserSettingsTable extends Table {
       .nullable()();
   BoolColumn get hapticsEnabled =>
       boolean().withDefault(const Constant(true))();
+  TextColumn get appThemeModeCode =>
+      text().withDefault(const Constant('marian_blue'))();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -201,7 +203,7 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 4;
+  int get schemaVersion => 5;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -217,6 +219,12 @@ class BibleDatabase extends _$BibleDatabase {
       }
       if (from < 4) {
         await m.addColumn(userSettingsTable, userSettingsTable.hapticsEnabled);
+      }
+      if (from < 5) {
+        await m.addColumn(
+          userSettingsTable,
+          userSettingsTable.appThemeModeCode,
+        );
       }
     },
   );
