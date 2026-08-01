@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/widgets/library_toc_drawer.dart';
+import 'package:twelve_stars/widgets/library_section_view.dart';
 
 class LibraryReaderScreen extends StatefulWidget {
   final LibraryBookItem bookItem;
@@ -96,103 +98,14 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     final book = _bookData;
     if (book == null) return;
 
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: theme.colorScheme.surface,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) {
-        return DraggableScrollableSheet(
-          expand: false,
-          initialChildSize: 0.6,
-          minChildSize: 0.4,
-          maxChildSize: 0.9,
-          builder: (context, scrollController) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 12.0,
-              ),
-              child: Column(
-                children: [
-                  Container(
-                    width: 40,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: theme.colorScheme.onSurfaceVariant.withValues(
-                        alpha: 0.4,
-                      ),
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Table of Contents',
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.primary,
-                        ),
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.close),
-                        onPressed: () => Navigator.pop(context),
-                      ),
-                    ],
-                  ),
-                  const Divider(),
-                  Expanded(
-                    child: ListView.builder(
-                      controller: scrollController,
-                      itemCount: book.sections.length,
-                      itemBuilder: (context, idx) {
-                        final sec = book.sections[idx];
-                        final isSelected = idx == _currentSectionIndex;
-                        return ListTile(
-                          selected: isSelected,
-                          selectedTileColor: theme.colorScheme.primaryContainer
-                              .withValues(alpha: 0.3),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          title: Text(
-                            sec.title,
-                            style: theme.textTheme.bodyMedium?.copyWith(
-                              fontWeight: isSelected
-                                  ? FontWeight.bold
-                                  : FontWeight.normal,
-                              color: isSelected
-                                  ? theme.colorScheme.primary
-                                  : theme.colorScheme.onSurface,
-                            ),
-                          ),
-                          subtitle: sec.subtitle.isNotEmpty
-                              ? Text(
-                                  sec.subtitle,
-                                  style: theme.textTheme.bodySmall?.copyWith(
-                                    color: theme.colorScheme.onSurfaceVariant,
-                                  ),
-                                )
-                              : null,
-                          onTap: () {
-                            setState(() {
-                              _currentSectionIndex = idx;
-                            });
-                            Navigator.pop(context);
-                          },
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
+    LibraryTocDrawer.show(
+      context,
+      book: book,
+      currentSectionIndex: _currentSectionIndex,
+      onSectionSelected: (idx) {
+        setState(() {
+          _currentSectionIndex = idx;
+        });
       },
     );
   }
@@ -555,194 +468,12 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
 
     final sec = book.sections[_currentSectionIndex];
 
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Section Title
-          Text(
-            sec.title,
-            style: theme.textTheme.headlineSmall?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: theme.colorScheme.primary,
-            ),
-          ),
-          if (sec.subtitle.isNotEmpty) ...[
-            const SizedBox(height: 6),
-            Text(
-              sec.subtitle,
-              style: theme.textTheme.titleMedium?.copyWith(
-                color: theme.colorScheme.secondary,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ],
-          const SizedBox(height: 16),
-          const Divider(),
-          const SizedBox(height: 16),
-
-          // Content Items
-          ...sec.content.map((item) {
-            if (item.type == 'heading') {
-              return Padding(
-                padding: const EdgeInsets.only(top: 20.0, bottom: 12.0),
-                child: Text(
-                  item.text ?? '',
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: theme.colorScheme.primary,
-                    height: 1.4,
-                  ),
-                ),
-              );
-            } else if (item.type == 'qa') {
-              final qPrefix =
-                  (item.questionNumber != null && item.questionNumber! > 0)
-                  ? 'Q. ${item.questionNumber}. '
-                  : 'Q. ';
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      spacing: 8,
-                      runSpacing: 4,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            style: theme.textTheme.bodyLarge?.copyWith(
-                              fontSize: _fontSize,
-                              height: 1.5,
-                              color: theme.colorScheme.onSurface,
-                            ),
-                            children: [
-                              TextSpan(
-                                text: qPrefix,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: theme.colorScheme.primary,
-                                ),
-                              ),
-                              TextSpan(
-                                text: item.question ?? '',
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        if (item.crossRefQNum != null)
-                          ActionChip(
-                            avatar: Icon(
-                              Icons.auto_stories_rounded,
-                              size: 14,
-                              color: theme.colorScheme.onPrimaryContainer,
-                            ),
-                            label: Text('Ref: #${item.crossRefQNum}'),
-                            labelStyle: TextStyle(
-                              fontSize: 11,
-                              fontWeight: FontWeight.bold,
-                              color: theme.colorScheme.onPrimaryContainer,
-                            ),
-                            backgroundColor: theme.colorScheme.primaryContainer,
-                            padding: const EdgeInsets.symmetric(horizontal: 4),
-                            visualDensity: VisualDensity.compact,
-                            mouseCursor: SystemMouseCursors.click,
-                            onPressed: () =>
-                                _showCrossRefModal(item.crossRefQNum!),
-                          ),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    RichText(
-                      text: TextSpan(
-                        style: theme.textTheme.bodyLarge?.copyWith(
-                          fontSize: _fontSize,
-                          height: 1.5,
-                          color: theme.colorScheme.onSurface,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: 'A. ',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: theme.colorScheme.secondary,
-                            ),
-                          ),
-                          TextSpan(text: item.answer ?? ''),
-                        ],
-                      ),
-                    ),
-                    if (item.explanation != null &&
-                        item.explanation!.isNotEmpty) ...[
-                      const SizedBox(height: 12),
-                      Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(16.0),
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.surfaceContainerHigh
-                              .withValues(alpha: 0.6),
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border(
-                            left: BorderSide(
-                              color: theme.colorScheme.primary,
-                              width: 4,
-                            ),
-                          ),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.menu_book_rounded,
-                                  size: 16,
-                                  color: theme.colorScheme.primary,
-                                ),
-                                const SizedBox(width: 6),
-                                Text(
-                                  'EXPLANATION',
-                                  style: theme.textTheme.labelSmall?.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 0.8,
-                                    color: theme.colorScheme.primary,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 8),
-                            _buildExplanationContent(
-                              item.explanation!,
-                              theme,
-                              _fontSize,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ],
-                ),
-              );
-            } else {
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 16.0),
-                child: _buildInteractiveTextWithCitations(
-                  item.text ?? '',
-                  theme,
-                  fontSize: _fontSize,
-                  height: 1.6,
-                ),
-              );
-            }
-          }),
-          const SizedBox(height: 40),
-        ],
-      ),
+    return LibrarySectionView(
+      section: sec,
+      fontSize: _fontSize,
+      verseSystem: widget.bookItem.verseSystem,
+      onShowCrossRefModal: _showCrossRefModal,
+      onShowScriptureModal: _showScriptureModal,
     );
   }
 
@@ -980,108 +711,6 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
           },
         );
       },
-    );
-  }
-
-  Widget _buildExplanationContent(
-    String rawExplanation,
-    ThemeData theme,
-    double fontSize,
-  ) {
-    final paragraphs = rawExplanation
-        .split('\n\n')
-        .map((p) => p.trim())
-        .where((p) => p.isNotEmpty)
-        .toList();
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        for (int i = 0; i < paragraphs.length; i++) ...[
-          if (i > 0) const SizedBox(height: 12),
-          _buildInteractiveTextWithCitations(
-            paragraphs[i],
-            theme,
-            fontSize: fontSize,
-            height: 1.55,
-          ),
-        ],
-      ],
-    );
-  }
-
-  Widget _buildInteractiveTextWithCitations(
-    String text,
-    ThemeData theme, {
-    required double fontSize,
-    required double height,
-    Color? color,
-    String? verseSystem,
-  }) {
-    final system = verseSystem ?? widget.bookItem.verseSystem;
-    final segments = BibleCitationParser.parse(text, verseSystem: system);
-
-    return SelectableText.rich(
-      TextSpan(
-        style: theme.textTheme.bodyLarge?.copyWith(
-          fontSize: fontSize,
-          height: height,
-          color: color ?? theme.colorScheme.onSurface,
-        ),
-        children: [
-          for (final seg in segments)
-            if (seg.isCitation)
-              WidgetSpan(
-                alignment: PlaceholderAlignment.middle,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                  child: InkWell(
-                    mouseCursor: SystemMouseCursors.click,
-                    onTap: () => _showScriptureModal(seg.citation!),
-                    borderRadius: BorderRadius.circular(6),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 6,
-                        vertical: 2,
-                      ),
-                      decoration: BoxDecoration(
-                        color: theme.colorScheme.primaryContainer.withValues(
-                          alpha: 0.7,
-                        ),
-                        borderRadius: BorderRadius.circular(6),
-                        border: Border.all(
-                          color: theme.colorScheme.primary.withValues(
-                            alpha: 0.3,
-                          ),
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(
-                            Icons.auto_stories_rounded,
-                            size: 13,
-                            color: theme.colorScheme.primary,
-                          ),
-                          const SizedBox(width: 4),
-                          Text(
-                            seg.citation!.displayLabel,
-                            style: TextStyle(
-                              fontSize: fontSize * 0.85,
-                              fontWeight: FontWeight.bold,
-                              color: theme.colorScheme.primary,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              )
-            else
-              TextSpan(text: seg.text!),
-        ],
-      ),
     );
   }
 
