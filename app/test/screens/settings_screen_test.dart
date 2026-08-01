@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/screens/settings_screen.dart';
@@ -63,6 +64,53 @@ void main() {
         PrayerDatabase.mockSettings!.appThemeMode,
         equals(AppThemeMode.liturgical),
       );
+
+      PrayerDatabase.mockSettings = null;
+    });
+
+    testGoldens('SettingsScreen renders options and scenarios correctly', (
+      tester,
+    ) async {
+      PrayerDatabase.mockSettings = UserSettings(
+        appThemeModeCode: 'marian_blue',
+        hapticsEnabled: true,
+      );
+
+      final builder = GoldenBuilder.column()
+        ..addScenario(
+          'Settings Screen Marian Blue Theme',
+          const SizedBox(height: 500, child: SettingsScreen()),
+        );
+
+      await tester.pumpWidgetBuilder(
+        builder.build(),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 600),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'settings_screen_marian_blue_golden');
+
+      // Test Liturgical Theme scenario with Haptics Disabled
+      PrayerDatabase.mockSettings = UserSettings(
+        appThemeModeCode: 'liturgical',
+        hapticsEnabled: false,
+      );
+
+      final liturgicalBuilder = GoldenBuilder.column()
+        ..addScenario(
+          'Settings Screen Liturgical Theme & Haptics Disabled',
+          const SizedBox(height: 500, child: SettingsScreen()),
+        );
+
+      await tester.pumpWidgetBuilder(
+        liturgicalBuilder.build(),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 600),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'settings_screen_liturgical_golden');
 
       PrayerDatabase.mockSettings = null;
     });
