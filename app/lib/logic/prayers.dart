@@ -216,6 +216,7 @@ class UserSettings {
   String primaryBibleTranslation;
   String compareBibleTranslation;
   List<PrayerVersionPreference>? preferredVersions;
+  bool hapticsEnabled;
 
   UserSettings({
     this.id = 1,
@@ -224,6 +225,7 @@ class UserSettings {
     this.primaryBibleTranslation = 'CPDV',
     this.compareBibleTranslation = 'none',
     this.preferredVersions,
+    this.hapticsEnabled = true,
   });
 
   PrayerLanguage get primaryLanguage => PrayerLanguage.values.firstWhere(

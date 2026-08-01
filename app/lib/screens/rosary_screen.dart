@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/rosary_helper.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/widgets/rosary_bead_chain.dart';
@@ -12,6 +13,7 @@ class RosaryScreen extends StatefulWidget {
   final PrayerLanguage? compareLanguage;
   final Function(String) onLaunchSource;
   final DateTime? initialDate;
+  final bool? hapticsEnabled;
 
   const RosaryScreen({
     super.key,
@@ -20,6 +22,7 @@ class RosaryScreen extends StatefulWidget {
     this.compareLanguage,
     required this.onLaunchSource,
     this.initialDate,
+    this.hapticsEnabled,
   });
 
   @override
@@ -31,15 +34,29 @@ class _RosaryScreenState extends State<RosaryScreen> {
   int _currentStep = 0;
   late List<RosaryStep> _steps;
   final Map<String, int> _preferredVersions = {};
+  bool _hapticsEnabled = true;
 
   @override
   void initState() {
     super.initState();
+    _hapticsEnabled = widget.hapticsEnabled ?? true;
+    if (widget.hapticsEnabled == null) {
+      _loadHapticsSetting();
+    }
     _mysteryType = RosaryHelper.getMysteryForDay(
       widget.initialDate ?? DateTime.now(),
     );
     _generateSteps();
     HardwareKeyboard.instance.addHandler(_handleKeyEvent);
+  }
+
+  Future<void> _loadHapticsSetting() async {
+    final settings = await PrayerDatabase.loadSettings();
+    if (mounted) {
+      setState(() {
+        _hapticsEnabled = settings.hapticsEnabled;
+      });
+    }
   }
 
   @override
@@ -66,6 +83,7 @@ class _RosaryScreenState extends State<RosaryScreen> {
   }
 
   void _triggerStepHaptic(int targetStepIndex) {
+    if (!_hapticsEnabled) return;
     if (targetStepIndex < 0 || targetStepIndex >= _steps.length) return;
     final step = _steps[targetStepIndex];
     if (step.prayerId == 'hail_mary' || step.beadType == RosaryBeadType.small) {
@@ -77,7 +95,9 @@ class _RosaryScreenState extends State<RosaryScreen> {
 
   void _changeMysteryType(RosaryMysteryType? type) {
     if (type == null || type == _mysteryType) return;
-    HapticFeedback.mediumImpact();
+    if (_hapticsEnabled) {
+      HapticFeedback.mediumImpact();
+    }
     setState(() {
       _mysteryType = type;
       _generateSteps();
@@ -106,7 +126,9 @@ class _RosaryScreenState extends State<RosaryScreen> {
   }
 
   void _resetRosary() {
-    HapticFeedback.mediumImpact();
+    if (_hapticsEnabled) {
+      HapticFeedback.mediumImpact();
+    }
     setState(() {
       _currentStep = 0;
     });

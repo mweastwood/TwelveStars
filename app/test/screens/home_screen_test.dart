@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/screens/home_screen.dart';
+import 'package:twelve_stars/screens/settings_screen.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:drift/native.dart';
@@ -318,6 +319,35 @@ void main() {
     tearDown(() async {
       TimeHelper.setCustomTime(null);
       await testDb.close();
+    });
+
+    testWidgets('HomeScreen drawer opens and navigates to settings', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Verify drawer is closed initially
+      expect(find.byType(Drawer), findsNothing);
+
+      // Open drawer using the menu icon
+      await tester.tap(find.byIcon(Icons.menu));
+      await tester.pumpAndSettle();
+
+      // Verify drawer is open
+      expect(find.byType(Drawer), findsOneWidget);
+      expect(find.byKey(const Key('drawer_settings_tile')), findsOneWidget);
+
+      // Tap settings tile
+      await tester.tap(find.byKey(const Key('drawer_settings_tile')));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(SettingsScreen), findsOneWidget);
+      expect(find.byKey(const Key('settings_haptics_tile')), findsOneWidget);
     });
 
     testWidgets(

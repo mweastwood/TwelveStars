@@ -185,6 +185,8 @@ class UserSettingsTable extends Table {
   TextColumn get preferredVersions => text()
       .map(NullAwareTypeConverter.wrap(const PreferredVersionsConverter()))
       .nullable()();
+  BoolColumn get hapticsEnabled =>
+      boolean().withDefault(const Constant(true))();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -199,7 +201,7 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 3;
+  int get schemaVersion => 4;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -212,6 +214,9 @@ class BibleDatabase extends _$BibleDatabase {
       if (from < 3) {
         await m.createTable(prayers);
         await m.createTable(userSettingsTable);
+      }
+      if (from < 4) {
+        await m.addColumn(userSettingsTable, userSettingsTable.hapticsEnabled);
       }
     },
   );
