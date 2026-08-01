@@ -1892,6 +1892,21 @@ class $UserSettingsTableTable extends UserSettingsTable
       ).withConverter<List<PrayerVersionPreference>?>(
         $UserSettingsTableTable.$converterpreferredVersions,
       );
+  static const VerificationMeta _hapticsEnabledMeta = const VerificationMeta(
+    'hapticsEnabled',
+  );
+  @override
+  late final GeneratedColumn<bool> hapticsEnabled = GeneratedColumn<bool>(
+    'haptics_enabled',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("haptics_enabled" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
+  );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -1900,6 +1915,7 @@ class $UserSettingsTableTable extends UserSettingsTable
     primaryBibleTranslation,
     compareBibleTranslation,
     preferredVersions,
+    hapticsEnabled,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -1960,6 +1976,15 @@ class $UserSettingsTableTable extends UserSettingsTable
     } else if (isInserting) {
       context.missing(_compareBibleTranslationMeta);
     }
+    if (data.containsKey('haptics_enabled')) {
+      context.handle(
+        _hapticsEnabledMeta,
+        hapticsEnabled.isAcceptableOrUnknown(
+          data['haptics_enabled']!,
+          _hapticsEnabledMeta,
+        ),
+      );
+    }
     return context;
   }
 
@@ -1996,6 +2021,10 @@ class $UserSettingsTableTable extends UserSettingsTable
               data['${effectivePrefix}preferred_versions'],
             ),
           ),
+      hapticsEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}haptics_enabled'],
+      )!,
     );
   }
 
@@ -2017,6 +2046,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
   final Value<String> primaryBibleTranslation;
   final Value<String> compareBibleTranslation;
   final Value<List<PrayerVersionPreference>?> preferredVersions;
+  final Value<bool> hapticsEnabled;
   const UserSettingsTableCompanion({
     this.id = const Value.absent(),
     this.primaryLanguageCode = const Value.absent(),
@@ -2024,6 +2054,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     this.primaryBibleTranslation = const Value.absent(),
     this.compareBibleTranslation = const Value.absent(),
     this.preferredVersions = const Value.absent(),
+    this.hapticsEnabled = const Value.absent(),
   });
   UserSettingsTableCompanion.insert({
     this.id = const Value.absent(),
@@ -2032,6 +2063,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     required String primaryBibleTranslation,
     required String compareBibleTranslation,
     this.preferredVersions = const Value.absent(),
+    this.hapticsEnabled = const Value.absent(),
   }) : primaryLanguageCode = Value(primaryLanguageCode),
        compareLanguageCode = Value(compareLanguageCode),
        primaryBibleTranslation = Value(primaryBibleTranslation),
@@ -2043,6 +2075,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Expression<String>? primaryBibleTranslation,
     Expression<String>? compareBibleTranslation,
     Expression<String>? preferredVersions,
+    Expression<bool>? hapticsEnabled,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -2055,6 +2088,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
       if (compareBibleTranslation != null)
         'compare_bible_translation': compareBibleTranslation,
       if (preferredVersions != null) 'preferred_versions': preferredVersions,
+      if (hapticsEnabled != null) 'haptics_enabled': hapticsEnabled,
     });
   }
 
@@ -2065,6 +2099,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Value<String>? primaryBibleTranslation,
     Value<String>? compareBibleTranslation,
     Value<List<PrayerVersionPreference>?>? preferredVersions,
+    Value<bool>? hapticsEnabled,
   }) {
     return UserSettingsTableCompanion(
       id: id ?? this.id,
@@ -2075,6 +2110,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
       compareBibleTranslation:
           compareBibleTranslation ?? this.compareBibleTranslation,
       preferredVersions: preferredVersions ?? this.preferredVersions,
+      hapticsEnabled: hapticsEnabled ?? this.hapticsEnabled,
     );
   }
 
@@ -2111,6 +2147,9 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
         ),
       );
     }
+    if (hapticsEnabled.present) {
+      map['haptics_enabled'] = Variable<bool>(hapticsEnabled.value);
+    }
     return map;
   }
 
@@ -2122,7 +2161,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
           ..write('compareLanguageCode: $compareLanguageCode, ')
           ..write('primaryBibleTranslation: $primaryBibleTranslation, ')
           ..write('compareBibleTranslation: $compareBibleTranslation, ')
-          ..write('preferredVersions: $preferredVersions')
+          ..write('preferredVersions: $preferredVersions, ')
+          ..write('hapticsEnabled: $hapticsEnabled')
           ..write(')'))
         .toString();
   }
@@ -3153,6 +3193,7 @@ typedef $$UserSettingsTableTableCreateCompanionBuilder =
       required String primaryBibleTranslation,
       required String compareBibleTranslation,
       Value<List<PrayerVersionPreference>?> preferredVersions,
+      Value<bool> hapticsEnabled,
     });
 typedef $$UserSettingsTableTableUpdateCompanionBuilder =
     UserSettingsTableCompanion Function({
@@ -3162,6 +3203,7 @@ typedef $$UserSettingsTableTableUpdateCompanionBuilder =
       Value<String> primaryBibleTranslation,
       Value<String> compareBibleTranslation,
       Value<List<PrayerVersionPreference>?> preferredVersions,
+      Value<bool> hapticsEnabled,
     });
 
 class $$UserSettingsTableTableFilterComposer
@@ -3207,6 +3249,11 @@ class $$UserSettingsTableTableFilterComposer
     column: $table.preferredVersions,
     builder: (column) => ColumnWithTypeConverterFilters(column),
   );
+
+  ColumnFilters<bool> get hapticsEnabled => $composableBuilder(
+    column: $table.hapticsEnabled,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$UserSettingsTableTableOrderingComposer
@@ -3247,6 +3294,11 @@ class $$UserSettingsTableTableOrderingComposer
     column: $table.preferredVersions,
     builder: (column) => ColumnOrderings(column),
   );
+
+  ColumnOrderings<bool> get hapticsEnabled => $composableBuilder(
+    column: $table.hapticsEnabled,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$UserSettingsTableTableAnnotationComposer
@@ -3284,6 +3336,11 @@ class $$UserSettingsTableTableAnnotationComposer
   GeneratedColumnWithTypeConverter<List<PrayerVersionPreference>?, String>
   get preferredVersions => $composableBuilder(
     column: $table.preferredVersions,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get hapticsEnabled => $composableBuilder(
+    column: $table.hapticsEnabled,
     builder: (column) => column,
   );
 }
@@ -3335,6 +3392,7 @@ class $$UserSettingsTableTableTableManager
                 Value<String> compareBibleTranslation = const Value.absent(),
                 Value<List<PrayerVersionPreference>?> preferredVersions =
                     const Value.absent(),
+                Value<bool> hapticsEnabled = const Value.absent(),
               }) => UserSettingsTableCompanion(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -3342,6 +3400,7 @@ class $$UserSettingsTableTableTableManager
                 primaryBibleTranslation: primaryBibleTranslation,
                 compareBibleTranslation: compareBibleTranslation,
                 preferredVersions: preferredVersions,
+                hapticsEnabled: hapticsEnabled,
               ),
           createCompanionCallback:
               ({
@@ -3352,6 +3411,7 @@ class $$UserSettingsTableTableTableManager
                 required String compareBibleTranslation,
                 Value<List<PrayerVersionPreference>?> preferredVersions =
                     const Value.absent(),
+                Value<bool> hapticsEnabled = const Value.absent(),
               }) => UserSettingsTableCompanion.insert(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -3359,6 +3419,7 @@ class $$UserSettingsTableTableTableManager
                 primaryBibleTranslation: primaryBibleTranslation,
                 compareBibleTranslation: compareBibleTranslation,
                 preferredVersions: preferredVersions,
+                hapticsEnabled: hapticsEnabled,
               ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))

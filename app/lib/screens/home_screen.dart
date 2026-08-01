@@ -8,6 +8,7 @@ import 'package:twelve_stars/screens/rosary_screen.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/screens/missal_tab.dart';
 import 'package:twelve_stars/screens/library_tab.dart';
+import 'package:twelve_stars/screens/settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final DateTime? initialDate;
@@ -638,6 +639,7 @@ class _HomeScreenState extends State<HomeScreen>
     ];
 
     final scaffold = Scaffold(
+      drawer: _buildDrawer(context),
       appBar: AppBar(
         title: _isSearching
             ? TextField(
@@ -814,6 +816,45 @@ class _HomeScreenState extends State<HomeScreen>
           },
           child: scaffold,
         ),
+      ),
+    );
+  }
+
+  Widget _buildDrawer(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primaryContainer,
+            ),
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                'Twelve Stars',
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          ListTile(
+            key: const Key('drawer_settings_tile'),
+            leading: const Icon(Icons.settings),
+            title: const Text('Settings'),
+            onTap: () {
+              Navigator.pop(context); // Close drawer
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingsScreen()),
+              ).then((_) {
+                _loadData();
+              });
+            },
+          ),
+        ],
       ),
     );
   }
