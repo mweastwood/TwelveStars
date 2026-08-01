@@ -1919,6 +1919,21 @@ class $UserSettingsTableTable extends UserSettingsTable
     requiredDuringInsert: false,
     defaultValue: const Constant('marian_blue'),
   );
+  static const VerificationMeta _sundayNotificationsEnabledMeta =
+      const VerificationMeta('sundayNotificationsEnabled');
+  @override
+  late final GeneratedColumn<bool> sundayNotificationsEnabled =
+      GeneratedColumn<bool>(
+        'sunday_notifications_enabled',
+        aliasedName,
+        false,
+        type: DriftSqlType.bool,
+        requiredDuringInsert: false,
+        defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("sunday_notifications_enabled" IN (0, 1))',
+        ),
+        defaultValue: const Constant(true),
+      );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -1929,6 +1944,7 @@ class $UserSettingsTableTable extends UserSettingsTable
     preferredVersions,
     hapticsEnabled,
     appThemeModeCode,
+    sundayNotificationsEnabled,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -2007,6 +2023,15 @@ class $UserSettingsTableTable extends UserSettingsTable
         ),
       );
     }
+    if (data.containsKey('sunday_notifications_enabled')) {
+      context.handle(
+        _sundayNotificationsEnabledMeta,
+        sundayNotificationsEnabled.isAcceptableOrUnknown(
+          data['sunday_notifications_enabled']!,
+          _sundayNotificationsEnabledMeta,
+        ),
+      );
+    }
     return context;
   }
 
@@ -2051,6 +2076,10 @@ class $UserSettingsTableTable extends UserSettingsTable
         DriftSqlType.string,
         data['${effectivePrefix}app_theme_mode_code'],
       )!,
+      sundayNotificationsEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}sunday_notifications_enabled'],
+      )!,
     );
   }
 
@@ -2074,6 +2103,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
   final Value<List<PrayerVersionPreference>?> preferredVersions;
   final Value<bool> hapticsEnabled;
   final Value<String> appThemeModeCode;
+  final Value<bool> sundayNotificationsEnabled;
   const UserSettingsTableCompanion({
     this.id = const Value.absent(),
     this.primaryLanguageCode = const Value.absent(),
@@ -2083,6 +2113,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     this.preferredVersions = const Value.absent(),
     this.hapticsEnabled = const Value.absent(),
     this.appThemeModeCode = const Value.absent(),
+    this.sundayNotificationsEnabled = const Value.absent(),
   });
   UserSettingsTableCompanion.insert({
     this.id = const Value.absent(),
@@ -2093,6 +2124,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     this.preferredVersions = const Value.absent(),
     this.hapticsEnabled = const Value.absent(),
     this.appThemeModeCode = const Value.absent(),
+    this.sundayNotificationsEnabled = const Value.absent(),
   }) : primaryLanguageCode = Value(primaryLanguageCode),
        compareLanguageCode = Value(compareLanguageCode),
        primaryBibleTranslation = Value(primaryBibleTranslation),
@@ -2106,6 +2138,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Expression<String>? preferredVersions,
     Expression<bool>? hapticsEnabled,
     Expression<String>? appThemeModeCode,
+    Expression<bool>? sundayNotificationsEnabled,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -2120,6 +2153,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
       if (preferredVersions != null) 'preferred_versions': preferredVersions,
       if (hapticsEnabled != null) 'haptics_enabled': hapticsEnabled,
       if (appThemeModeCode != null) 'app_theme_mode_code': appThemeModeCode,
+      if (sundayNotificationsEnabled != null)
+        'sunday_notifications_enabled': sundayNotificationsEnabled,
     });
   }
 
@@ -2132,6 +2167,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Value<List<PrayerVersionPreference>?>? preferredVersions,
     Value<bool>? hapticsEnabled,
     Value<String>? appThemeModeCode,
+    Value<bool>? sundayNotificationsEnabled,
   }) {
     return UserSettingsTableCompanion(
       id: id ?? this.id,
@@ -2144,6 +2180,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
       preferredVersions: preferredVersions ?? this.preferredVersions,
       hapticsEnabled: hapticsEnabled ?? this.hapticsEnabled,
       appThemeModeCode: appThemeModeCode ?? this.appThemeModeCode,
+      sundayNotificationsEnabled:
+          sundayNotificationsEnabled ?? this.sundayNotificationsEnabled,
     );
   }
 
@@ -2186,6 +2224,11 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     if (appThemeModeCode.present) {
       map['app_theme_mode_code'] = Variable<String>(appThemeModeCode.value);
     }
+    if (sundayNotificationsEnabled.present) {
+      map['sunday_notifications_enabled'] = Variable<bool>(
+        sundayNotificationsEnabled.value,
+      );
+    }
     return map;
   }
 
@@ -2199,7 +2242,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
           ..write('compareBibleTranslation: $compareBibleTranslation, ')
           ..write('preferredVersions: $preferredVersions, ')
           ..write('hapticsEnabled: $hapticsEnabled, ')
-          ..write('appThemeModeCode: $appThemeModeCode')
+          ..write('appThemeModeCode: $appThemeModeCode, ')
+          ..write('sundayNotificationsEnabled: $sundayNotificationsEnabled')
           ..write(')'))
         .toString();
   }
@@ -3232,6 +3276,7 @@ typedef $$UserSettingsTableTableCreateCompanionBuilder =
       Value<List<PrayerVersionPreference>?> preferredVersions,
       Value<bool> hapticsEnabled,
       Value<String> appThemeModeCode,
+      Value<bool> sundayNotificationsEnabled,
     });
 typedef $$UserSettingsTableTableUpdateCompanionBuilder =
     UserSettingsTableCompanion Function({
@@ -3243,6 +3288,7 @@ typedef $$UserSettingsTableTableUpdateCompanionBuilder =
       Value<List<PrayerVersionPreference>?> preferredVersions,
       Value<bool> hapticsEnabled,
       Value<String> appThemeModeCode,
+      Value<bool> sundayNotificationsEnabled,
     });
 
 class $$UserSettingsTableTableFilterComposer
@@ -3298,6 +3344,11 @@ class $$UserSettingsTableTableFilterComposer
     column: $table.appThemeModeCode,
     builder: (column) => ColumnFilters(column),
   );
+
+  ColumnFilters<bool> get sundayNotificationsEnabled => $composableBuilder(
+    column: $table.sundayNotificationsEnabled,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$UserSettingsTableTableOrderingComposer
@@ -3348,6 +3399,11 @@ class $$UserSettingsTableTableOrderingComposer
     column: $table.appThemeModeCode,
     builder: (column) => ColumnOrderings(column),
   );
+
+  ColumnOrderings<bool> get sundayNotificationsEnabled => $composableBuilder(
+    column: $table.sundayNotificationsEnabled,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$UserSettingsTableTableAnnotationComposer
@@ -3395,6 +3451,11 @@ class $$UserSettingsTableTableAnnotationComposer
 
   GeneratedColumn<String> get appThemeModeCode => $composableBuilder(
     column: $table.appThemeModeCode,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get sundayNotificationsEnabled => $composableBuilder(
+    column: $table.sundayNotificationsEnabled,
     builder: (column) => column,
   );
 }
@@ -3448,6 +3509,7 @@ class $$UserSettingsTableTableTableManager
                     const Value.absent(),
                 Value<bool> hapticsEnabled = const Value.absent(),
                 Value<String> appThemeModeCode = const Value.absent(),
+                Value<bool> sundayNotificationsEnabled = const Value.absent(),
               }) => UserSettingsTableCompanion(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -3457,6 +3519,7 @@ class $$UserSettingsTableTableTableManager
                 preferredVersions: preferredVersions,
                 hapticsEnabled: hapticsEnabled,
                 appThemeModeCode: appThemeModeCode,
+                sundayNotificationsEnabled: sundayNotificationsEnabled,
               ),
           createCompanionCallback:
               ({
@@ -3469,6 +3532,7 @@ class $$UserSettingsTableTableTableManager
                     const Value.absent(),
                 Value<bool> hapticsEnabled = const Value.absent(),
                 Value<String> appThemeModeCode = const Value.absent(),
+                Value<bool> sundayNotificationsEnabled = const Value.absent(),
               }) => UserSettingsTableCompanion.insert(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -3478,6 +3542,7 @@ class $$UserSettingsTableTableTableManager
                 preferredVersions: preferredVersions,
                 hapticsEnabled: hapticsEnabled,
                 appThemeModeCode: appThemeModeCode,
+                sundayNotificationsEnabled: sundayNotificationsEnabled,
               ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))

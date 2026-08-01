@@ -235,6 +235,7 @@ class UserSettings {
   List<PrayerVersionPreference>? preferredVersions;
   bool hapticsEnabled;
   String appThemeModeCode;
+  bool sundayNotificationsEnabled;
 
   UserSettings({
     this.id = 1,
@@ -245,6 +246,7 @@ class UserSettings {
     this.preferredVersions,
     this.hapticsEnabled = true,
     this.appThemeModeCode = 'marian_blue',
+    this.sundayNotificationsEnabled = true,
   });
 
   AppThemeMode get appThemeMode => AppThemeMode.fromCode(appThemeModeCode);
