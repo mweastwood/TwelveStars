@@ -19,7 +19,10 @@ void main() {
       expect(find.text('Settings'), findsOneWidget);
       expect(find.byKey(const Key('settings_haptics_tile')), findsOneWidget);
 
-      final switchFinder = find.byType(Switch);
+      final switchFinder = find.descendant(
+        of: find.byKey(const Key('settings_haptics_tile')),
+        matching: find.byType(Switch),
+      );
       expect(switchFinder, findsOneWidget);
       expect(tester.widget<Switch>(switchFinder).value, isTrue);
 
@@ -68,45 +71,81 @@ void main() {
       PrayerDatabase.mockSettings = null;
     });
 
+    testWidgets('renders Sunday notification toggle and persists changes', (
+      tester,
+    ) async {
+      PrayerDatabase.mockSettings = UserSettings(
+        sundayNotificationsEnabled: true,
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const SettingsScreen()),
+      );
+      await tester.pumpAndSettle();
+
+      final tileFinder = find.byKey(
+        const Key('settings_sunday_notifications_tile'),
+      );
+      expect(tileFinder, findsOneWidget);
+
+      final switchFinder = find.descendant(
+        of: tileFinder,
+        matching: find.byType(Switch),
+      );
+      expect(switchFinder, findsOneWidget);
+      expect(tester.widget<Switch>(switchFinder).value, isTrue);
+
+      // Toggle switch off
+      await tester.tap(switchFinder);
+      await tester.pumpAndSettle();
+
+      expect(tester.widget<Switch>(switchFinder).value, isFalse);
+      expect(PrayerDatabase.mockSettings!.sundayNotificationsEnabled, isFalse);
+
+      PrayerDatabase.mockSettings = null;
+    });
+
     testGoldens('SettingsScreen renders options and scenarios correctly', (
       tester,
     ) async {
       PrayerDatabase.mockSettings = UserSettings(
         appThemeModeCode: 'marian_blue',
         hapticsEnabled: true,
+        sundayNotificationsEnabled: true,
       );
 
       final builder = GoldenBuilder.column()
         ..addScenario(
           'Settings Screen Marian Blue Theme',
-          const SizedBox(height: 500, child: SettingsScreen()),
+          const SizedBox(height: 600, child: SettingsScreen()),
         );
 
       await tester.pumpWidgetBuilder(
         builder.build(),
         wrapper: materialAppWrapper(),
-        surfaceSize: const Size(480, 600),
+        surfaceSize: const Size(480, 700),
       );
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(tester, 'settings_screen_marian_blue_golden');
 
-      // Test Liturgical Theme scenario with Haptics Disabled
+      // Test Liturgical Theme scenario with Haptics & Sunday Notifications Disabled
       PrayerDatabase.mockSettings = UserSettings(
         appThemeModeCode: 'liturgical',
         hapticsEnabled: false,
+        sundayNotificationsEnabled: false,
       );
 
       final liturgicalBuilder = GoldenBuilder.column()
         ..addScenario(
-          'Settings Screen Liturgical Theme & Haptics Disabled',
-          const SizedBox(height: 500, child: SettingsScreen()),
+          'Settings Screen Liturgical Theme & Options Disabled',
+          const SizedBox(height: 600, child: SettingsScreen()),
         );
 
       await tester.pumpWidgetBuilder(
         liturgicalBuilder.build(),
         wrapper: materialAppWrapper(),
-        surfaceSize: const Size(480, 600),
+        surfaceSize: const Size(480, 700),
       );
       await tester.pumpAndSettle();
 

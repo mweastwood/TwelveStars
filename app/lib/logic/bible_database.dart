@@ -189,6 +189,8 @@ class UserSettingsTable extends Table {
       boolean().withDefault(const Constant(true))();
   TextColumn get appThemeModeCode =>
       text().withDefault(const Constant('marian_blue'))();
+  BoolColumn get sundayNotificationsEnabled =>
+      boolean().withDefault(const Constant(true))();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -203,7 +205,7 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 5;
+  int get schemaVersion => 6;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -224,6 +226,12 @@ class BibleDatabase extends _$BibleDatabase {
         await m.addColumn(
           userSettingsTable,
           userSettingsTable.appThemeModeCode,
+        );
+      }
+      if (from < 6) {
+        await m.addColumn(
+          userSettingsTable,
+          userSettingsTable.sundayNotificationsEnabled,
         );
       }
     },

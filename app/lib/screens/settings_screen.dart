@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/notification_service.dart';
 import 'package:twelve_stars/main.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -66,6 +67,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
     TwelveStarsApp.themeNotifier.value = mode;
   }
 
+  Future<void> _updateSundayNotifications(bool value) async {
+    if (_settings == null) return;
+    setState(() {
+      _settings!.sundayNotificationsEnabled = value;
+    });
+    await PrayerDatabase.saveSettings(_settings!);
+    await NotificationService.syncSundayNotification(_settings!);
+  }
+
   @override
   Widget build(BuildContext context) {
     final availableModes = _availableThemeModes;
@@ -110,6 +120,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   value: _settings!.hapticsEnabled,
                   onChanged: _updateHaptics,
+                ),
+                const Divider(),
+                SwitchListTile(
+                  key: const Key('settings_sunday_notifications_tile'),
+                  secondary: const Icon(Icons.notifications_active),
+                  title: const Text('Sunday Liturgical Notification'),
+                  subtitle: const Text(
+                    'Weekly Sunday morning reminder with current liturgical season and color accent',
+                  ),
+                  value: _settings!.sundayNotificationsEnabled,
+                  onChanged: _updateSundayNotifications,
                 ),
               ],
             ),
