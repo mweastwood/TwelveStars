@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/prayers.dart';
@@ -144,6 +145,37 @@ void main() {
 
       expect(find.text('Sign of the Cross'), findsWidgets);
     });
+
+    testWidgets(
+      'allows volume up and volume down keys to control Rosary navigation',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: RosaryScreen(
+              prayers: mockPrayers,
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+              onLaunchSource: (_) {},
+              initialDate: DateTime(2026, 7, 27),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Step 0: Sign of the Cross
+        expect(find.text('Sign of the Cross'), findsWidgets);
+
+        // Press Volume Up -> Next step (Our Father)
+        await tester.sendKeyEvent(LogicalKeyboardKey.audioVolumeUp);
+        await tester.pumpAndSettle();
+        expect(find.text('Our Father'), findsWidgets);
+
+        // Press Volume Down -> Back step (Sign of the Cross)
+        await tester.sendKeyEvent(LogicalKeyboardKey.audioVolumeDown);
+        await tester.pumpAndSettle();
+        expect(find.text('Sign of the Cross'), findsWidgets);
+      },
+    );
 
     testWidgets('changing mystery type resets step to 0', (tester) async {
       await tester.pumpWidget(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/rosary_helper.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
@@ -38,14 +39,45 @@ class _RosaryScreenState extends State<RosaryScreen> {
       widget.initialDate ?? DateTime.now(),
     );
     _generateSteps();
+    HardwareKeyboard.instance.addHandler(_handleKeyEvent);
+  }
+
+  @override
+  void dispose() {
+    HardwareKeyboard.instance.removeHandler(_handleKeyEvent);
+    super.dispose();
+  }
+
+  bool _handleKeyEvent(KeyEvent event) {
+    if (event is KeyDownEvent) {
+      if (event.logicalKey == LogicalKeyboardKey.audioVolumeUp) {
+        _nextStep();
+        return true;
+      } else if (event.logicalKey == LogicalKeyboardKey.audioVolumeDown) {
+        _prevStep();
+        return true;
+      }
+    }
+    return false;
   }
 
   void _generateSteps() {
     _steps = RosaryHelper.generateSteps(_mysteryType);
   }
 
+  void _triggerStepHaptic(int targetStepIndex) {
+    if (targetStepIndex < 0 || targetStepIndex >= _steps.length) return;
+    final step = _steps[targetStepIndex];
+    if (step.prayerId == 'hail_mary' || step.beadType == RosaryBeadType.small) {
+      HapticFeedback.selectionClick();
+    } else {
+      HapticFeedback.lightImpact();
+    }
+  }
+
   void _changeMysteryType(RosaryMysteryType? type) {
     if (type == null || type == _mysteryType) return;
+    HapticFeedback.mediumImpact();
     setState(() {
       _mysteryType = type;
       _generateSteps();
@@ -55,6 +87,7 @@ class _RosaryScreenState extends State<RosaryScreen> {
 
   void _nextStep() {
     if (_currentStep < _steps.length - 1) {
+      _triggerStepHaptic(_currentStep + 1);
       setState(() {
         _currentStep++;
       });
@@ -65,6 +98,7 @@ class _RosaryScreenState extends State<RosaryScreen> {
 
   void _prevStep() {
     if (_currentStep > 0) {
+      _triggerStepHaptic(_currentStep - 1);
       setState(() {
         _currentStep--;
       });
@@ -72,6 +106,7 @@ class _RosaryScreenState extends State<RosaryScreen> {
   }
 
   void _resetRosary() {
+    HapticFeedback.mediumImpact();
     setState(() {
       _currentStep = 0;
     });
@@ -165,9 +200,12 @@ class _RosaryScreenState extends State<RosaryScreen> {
                   steps: _steps,
                   currentStep: _currentStep,
                   onStepSelected: (index) {
-                    setState(() {
-                      _currentStep = index;
-                    });
+                    if (index != _currentStep) {
+                      _triggerStepHaptic(index);
+                      setState(() {
+                        _currentStep = index;
+                      });
+                    }
                   },
                 ),
                 // Main content area on the right
