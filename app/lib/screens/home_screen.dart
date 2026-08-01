@@ -843,94 +843,121 @@ class _HomeScreenState extends State<HomeScreen>
       });
     }).toList();
 
-    return SingleChildScrollView(
-      controller: _prayersScrollController,
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-      child: Column(
+    if (filteredPrayers.isEmpty) {
+      return ListView(
+        controller: _prayersScrollController,
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
         children: [
           SizeTransition(
             sizeFactor: _languageSelectorAnimation,
             alignment: Alignment.topCenter,
             child: const SizedBox(height: _kLanguageSelectorTopSpacerHeight),
           ),
-          if (filteredPrayers.isEmpty)
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 48),
-                  Text(
-                    'No prayers matching "$_searchQuery"',
-                    style: theme.textTheme.bodyMedium,
-                  ),
-                  const SizedBox(height: 8),
-                  TextButton(
-                    onPressed: () {
-                      setState(() {
-                        _searchController.clear();
-                        _searchQuery = '';
-                      });
-                    },
-                    child: const Text('Clear search'),
-                  ),
-                ],
-              ),
-            )
-          else
-            ...filteredPrayers.map((prayer) {
-              final prefKey = '${prayer.prayerId}_${_primaryLanguage.code}';
-              final initialVersion =
-                  _settings?.preferredVersions
-                      ?.firstWhere(
-                        (p) => p.key == prefKey,
-                        orElse: () => PrayerVersionPreference(),
-                      )
-                      .versionIndex ??
-                  0;
-
-              return PrayerCard(
-                prayer: prayer,
-                selectedLanguage: _primaryLanguage,
-                compareLanguage: _compareLanguage,
-                initialVersionIndex: initialVersion,
-                fontSize: _fontSize,
-                onVersionChanged: (newIndex) async {
-                  if (_settings != null) {
-                    final list = _settings!.preferredVersions ?? [];
-                    final idx = list.indexWhere((p) => p.key == prefKey);
-                    if (idx >= 0) {
-                      list[idx].versionIndex = newIndex;
-                    } else {
-                      list.add(PrayerVersionPreference(prefKey, newIndex));
-                    }
-                    _settings!.preferredVersions = list;
-                    await PrayerDatabase.saveSettings(_settings!);
-                  }
-                },
-                onLaunchSource: _launchSourceUrl,
-              );
-            }),
-          const SizedBox(height: 24),
-          Text(
-            '“A great sign appeared in heaven: a woman clothed with the sun, with the moon under her feet, and on her head a crown of twelve stars.”',
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
-              fontStyle: FontStyle.italic,
-              height: 1.4,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 6),
-          Text(
-            '— Revelation 12:1',
-            style: theme.textTheme.labelSmall?.copyWith(
-              color: theme.colorScheme.primary,
-              fontWeight: FontWeight.bold,
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 48),
+                Text(
+                  'No prayers matching "$_searchQuery"',
+                  style: theme.textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 8),
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      _searchController.clear();
+                      _searchQuery = '';
+                    });
+                  },
+                  child: const Text('Clear search'),
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: 80),
         ],
-      ),
+      );
+    }
+
+    return ListView.builder(
+      controller: _prayersScrollController,
+      // ignore: deprecated_member_use
+      cacheExtent: 10000.0,
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+      itemCount: filteredPrayers.length + 2,
+      itemBuilder: (context, index) {
+        if (index == 0) {
+          return SizeTransition(
+            sizeFactor: _languageSelectorAnimation,
+            alignment: Alignment.topCenter,
+            child: const SizedBox(height: _kLanguageSelectorTopSpacerHeight),
+          );
+        }
+        if (index == filteredPrayers.length + 1) {
+          return Column(
+            children: [
+              const SizedBox(height: 24),
+              Text(
+                '“A great sign appeared in heaven: a woman clothed with the sun, with the moon under her feet, and on her head a crown of twelve stars.”',
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                  fontStyle: FontStyle.italic,
+                  height: 1.4,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 6),
+              Text(
+                '— Revelation 12:1',
+                style: theme.textTheme.labelSmall?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant.withValues(
+                    alpha: 0.8,
+                  ),
+                  fontWeight: FontWeight.w600,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 24),
+            ],
+          );
+        }
+
+        final prayer = filteredPrayers[index - 1];
+        final prefKey = '${prayer.prayerId}_${_primaryLanguage.code}';
+        final initialVersion =
+            _settings?.preferredVersions
+                ?.firstWhere(
+                  (p) => p.key == prefKey,
+                  orElse: () => PrayerVersionPreference(),
+                )
+                .versionIndex ??
+            0;
+
+        return RepaintBoundary(
+          child: PrayerCard(
+            key: ValueKey(prayer.prayerId),
+            prayer: prayer,
+            selectedLanguage: _primaryLanguage,
+            compareLanguage: _compareLanguage,
+            initialVersionIndex: initialVersion,
+            fontSize: _fontSize,
+            onVersionChanged: (newIndex) async {
+              if (_settings != null) {
+                final list = _settings!.preferredVersions ?? [];
+                final idx = list.indexWhere((p) => p.key == prefKey);
+                if (idx >= 0) {
+                  list[idx].versionIndex = newIndex;
+                } else {
+                  list.add(PrayerVersionPreference(prefKey, newIndex));
+                }
+                _settings!.preferredVersions = list;
+                await PrayerDatabase.saveSettings(_settings!);
+              }
+            },
+            onLaunchSource: _launchSourceUrl,
+          ),
+        );
+      },
     );
   }
 }

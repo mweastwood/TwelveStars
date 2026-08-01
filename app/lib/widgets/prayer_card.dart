@@ -41,15 +41,21 @@ class _PrayerCardState extends State<PrayerCard> {
       widget.prayer.translations[widget.compareLanguage]!.isNotEmpty;
 
   void _checkAiAvailability() async {
+    if (!_isDualMode || _selectedPhraseId == null) {
+      return;
+    }
     try {
       final status = await LocalAgentHelper.instance.checkStatus();
       if (mounted) {
-        setState(() {
-          _isAiAvailable = status == AiCoreStatus.available;
-        });
+        final available = status == AiCoreStatus.available;
+        if (_isAiAvailable != available) {
+          setState(() {
+            _isAiAvailable = available;
+          });
+        }
       }
     } catch (_) {
-      if (mounted) {
+      if (mounted && _isAiAvailable) {
         setState(() {
           _isAiAvailable = false;
         });
