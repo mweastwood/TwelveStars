@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
@@ -15,6 +16,7 @@ class NotificationService {
       mockPlugin ?? _notificationsPlugin;
 
   static Future<void> initialize() async {
+    if (kIsWeb) return;
     if (_isInitialized) return;
 
     try {
@@ -74,6 +76,7 @@ class NotificationService {
 
   /// Updates or cancels Sunday Liturgical Notification based on UserSettings.
   static Future<void> syncSundayNotification([UserSettings? settings]) async {
+    if (kIsWeb) return;
     final userSettings = settings ?? await PrayerDatabase.loadSettings();
 
     try {
