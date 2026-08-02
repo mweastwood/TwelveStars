@@ -568,17 +568,13 @@ void main() {
       // Verify primary selection is updated
       expect(settings.primaryBibleTranslation, equals('DRC'));
 
-      // Switch to Compare target in SegmentedButton
-      await tester.tap(find.textContaining('Compare Mode'));
+      // Enter search text "Catholic Public Domain" to isolate CPDV card
+      await tester.enterText(find.byType(TextField), 'Catholic Public Domain');
       await tester.pumpAndSettle();
 
-      // Enter search text "CPDV" to isolate CPDV card
-      await tester.enterText(find.byType(TextField), 'CPDV');
-      await tester.pumpAndSettle();
-
-      // Tap "Set as Compare" for CPDV
+      // Tap "Set as Secondary" for CPDV
       await tester.tap(
-        find.widgetWithText(ElevatedButton, 'Set as Compare').first,
+        find.widgetWithText(ElevatedButton, 'Set as Secondary').first,
       );
       await tester.pumpAndSettle();
 

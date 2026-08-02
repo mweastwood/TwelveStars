@@ -22,14 +22,27 @@ class BibleTranslationSelectorDialog extends StatefulWidget {
     required ValueChanged<String> onPrimarySelected,
     required ValueChanged<String?> onCompareSelected,
   }) {
-    return showDialog<void>(
+    return showGeneralDialog<void>(
       context: context,
-      builder: (context) => BibleTranslationSelectorDialog(
-        currentPrimaryCode: currentPrimaryCode,
-        currentCompareCode: currentCompareCode,
-        onPrimarySelected: onPrimarySelected,
-        onCompareSelected: onCompareSelected,
-      ),
+      barrierDismissible: true,
+      barrierLabel: 'Bible Translation Selector',
+      barrierColor: Colors.black54,
+      transitionDuration: const Duration(milliseconds: 280),
+      pageBuilder: (context, anim1, anim2) {
+        return BibleTranslationSelectorDialog(
+          currentPrimaryCode: currentPrimaryCode,
+          currentCompareCode: currentCompareCode,
+          onPrimarySelected: onPrimarySelected,
+          onCompareSelected: onCompareSelected,
+        );
+      },
+      transitionBuilder: (context, anim1, anim2, child) {
+        final curvedValue = Curves.easeOutCubic.transform(anim1.value);
+        return Transform.scale(
+          scale: 0.9 + (0.1 * curvedValue),
+          child: Opacity(opacity: anim1.value, child: child),
+        );
+      },
     );
   }
 
@@ -40,29 +53,78 @@ class BibleTranslationSelectorDialog extends StatefulWidget {
 
 class _BibleTranslationSelectorDialogState
     extends State<BibleTranslationSelectorDialog> {
-  late String _activeTarget; // 'primary' or 'compare'
   late String _selectedPrimary;
   late String? _selectedCompare;
   String _searchQuery = '';
-  String _activeFilter =
-      'All'; // 'All', 'Imprimatur', 'English', 'Latin', 'Spanish', 'Ancient'
+  final Set<String> _selectedFilters = <String>{};
+
+  static const List<String> _availableFilters = [
+    'Imprimatur',
+    'English',
+    'Latin',
+    'Spanish',
+    'Ancient',
+  ];
 
   @override
   void initState() {
     super.initState();
-    _activeTarget = 'primary';
     _selectedPrimary = widget.currentPrimaryCode;
     _selectedCompare = widget.currentCompareCode;
   }
 
+  void _swapTranslations() {
+    if (_selectedCompare == null) return;
+    final oldPrimary = _selectedPrimary;
+    final oldCompare = _selectedCompare;
+    setState(() {
+      _selectedPrimary = oldCompare!;
+      _selectedCompare = oldPrimary;
+    });
+    widget.onPrimarySelected(_selectedPrimary);
+    widget.onCompareSelected(_selectedCompare);
+  }
+
+  void _selectPrimary(String code) {
+    setState(() {
+      _selectedPrimary = code;
+      if (_selectedCompare == code) {
+        _selectedCompare = null;
+      }
+    });
+    widget.onPrimarySelected(_selectedPrimary);
+    widget.onCompareSelected(_selectedCompare);
+  }
+
+  void _selectSecondary(String code) {
+    setState(() {
+      if (_selectedPrimary == code) {
+        // Find alternative primary
+        final alt = BibleTranslationInfo.allTranslations
+            .map((t) => t.code)
+            .firstWhere((c) => c != code);
+        _selectedPrimary = alt;
+        widget.onPrimarySelected(_selectedPrimary);
+      }
+      _selectedCompare = code;
+    });
+    widget.onCompareSelected(_selectedCompare);
+  }
+
+  void _clearSecondary() {
+    setState(() {
+      _selectedCompare = null;
+    });
+    widget.onCompareSelected(null);
+  }
+
   List<BibleTranslationInfo> get _filteredTranslations {
     return BibleTranslationInfo.allTranslations.where((t) {
-      // Search query matching
+      // 1. Search Query Filter
       if (_searchQuery.isNotEmpty) {
         final query = _searchQuery.toLowerCase();
         final matchName = t.name.toLowerCase().contains(query);
         final matchShort = t.shortName.toLowerCase().contains(query);
-        final matchCode = t.code.toLowerCase().contains(query);
         final matchLang = t.languages.any(
           (l) => l.toLowerCase().contains(query),
         );
@@ -70,7 +132,6 @@ class _BibleTranslationSelectorDialogState
         final matchUsage = t.churchUsage.toLowerCase().contains(query);
         if (!matchName &&
             !matchShort &&
-            !matchCode &&
             !matchLang &&
             !matchOrigin &&
             !matchUsage) {
@@ -78,23 +139,40 @@ class _BibleTranslationSelectorDialogState
         }
       }
 
-      // Category filter matching
-      switch (_activeFilter) {
-        case 'Imprimatur':
-          return t.approvalStatus == BibleApprovalStatus.imprimatur;
-        case 'English':
-          return t.primaryLanguageCode == 'en';
-        case 'Latin':
-          return t.primaryLanguageCode == 'la';
-        case 'Spanish':
-          return t.primaryLanguageCode == 'es';
-        case 'Ancient':
-          return t.approvalStatus == BibleApprovalStatus.canonicalSourceText ||
-              t.primaryLanguageCode == 'el' ||
-              t.primaryLanguageCode == 'he';
-        default:
-          return true;
+      // 2. Multi-Select Category Filters (MUST match ALL selected filters)
+      for (final filter in _selectedFilters) {
+        switch (filter) {
+          case 'Imprimatur':
+            if (t.approvalStatus != BibleApprovalStatus.imprimatur) {
+              return false;
+            }
+            break;
+          case 'English':
+            if (t.primaryLanguageCode != 'en') {
+              return false;
+            }
+            break;
+          case 'Latin':
+            if (t.primaryLanguageCode != 'la') {
+              return false;
+            }
+            break;
+          case 'Spanish':
+            if (t.primaryLanguageCode != 'es') {
+              return false;
+            }
+            break;
+          case 'Ancient':
+            if (t.approvalStatus != BibleApprovalStatus.canonicalSourceText &&
+                t.primaryLanguageCode != 'el' &&
+                t.primaryLanguageCode != 'he') {
+              return false;
+            }
+            break;
+        }
       }
+
+      return true;
     }).toList();
   }
 
@@ -175,23 +253,29 @@ class _BibleTranslationSelectorDialogState
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final primaryItem = BibleTranslationInfo.getByCode(_selectedPrimary);
+    final compareItem = _selectedCompare == null
+        ? null
+        : BibleTranslationInfo.getByCode(_selectedCompare!);
 
     return Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      elevation: 8.0,
+      shadowColor: Colors.black.withValues(alpha: 0.35),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       insetPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: Container(
-        constraints: const BoxConstraints(maxWidth: 640, maxHeight: 720),
+        constraints: const BoxConstraints(maxWidth: 680, maxHeight: 750),
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Header Title & Close button
+            // Header: Title & Close button
             Row(
               children: [
                 Icon(
                   Icons.menu_book,
                   color: theme.colorScheme.primary,
-                  size: 26,
+                  size: 28,
                 ),
                 const SizedBox(width: 10),
                 Expanded(
@@ -212,37 +296,119 @@ class _BibleTranslationSelectorDialogState
             ),
             const SizedBox(height: 12),
 
-            // Mode Selector: Primary vs Compare
-            SegmentedButton<String>(
-              segments: [
-                ButtonSegment<String>(
-                  value: 'primary',
-                  label: Text('Primary: ${_selectedPrimary.toUpperCase()}'),
-                  icon: const Icon(Icons.star),
-                ),
-                ButtonSegment<String>(
-                  value: 'compare',
-                  label: Text(
-                    _selectedCompare == null
-                        ? 'Compare Mode (Off)'
-                        : 'Compare: ${_selectedCompare!.toUpperCase()}',
+            // Active Primary / Secondary Display Bar with Swap & Clear
+            Card(
+              elevation: 2.0,
+              color: theme.colorScheme.surfaceContainerHigh.withValues(
+                alpha: 0.5,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+                side: BorderSide(
+                  color: theme.colorScheme.outlineVariant.withValues(
+                    alpha: 0.5,
                   ),
-                  icon: const Icon(Icons.compare_arrows),
                 ),
-              ],
-              selected: {_activeTarget},
-              onSelectionChanged: (selection) {
-                setState(() {
-                  _activeTarget = selection.first;
-                });
-              },
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14.0,
+                  vertical: 10.0,
+                ),
+                child: Row(
+                  children: [
+                    // Primary Translation Summary
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Primary Translation',
+                            style: theme.textTheme.labelSmall?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: theme.colorScheme.primary,
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            primaryItem.shortName,
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 4),
+
+                    // Swap Button
+                    IconButton(
+                      icon: Icon(
+                        Icons.swap_horiz,
+                        color: _selectedCompare != null
+                            ? theme.colorScheme.primary
+                            : theme.colorScheme.onSurfaceVariant.withValues(
+                                alpha: 0.3,
+                              ),
+                      ),
+                      tooltip: 'Swap Primary & Secondary',
+                      onPressed: _selectedCompare == null
+                          ? null
+                          : _swapTranslations,
+                    ),
+                    const SizedBox(width: 4),
+
+                    // Secondary Translation Summary & Clear Button
+                    Expanded(
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Secondary Translation',
+                                  style: theme.textTheme.labelSmall?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: theme.colorScheme.secondary,
+                                  ),
+                                ),
+                                const SizedBox(height: 2),
+                                Text(
+                                  compareItem?.shortName ?? 'None',
+                                  style: theme.textTheme.titleMedium?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: compareItem == null
+                                        ? theme.colorScheme.onSurfaceVariant
+                                        : null,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
+                            ),
+                          ),
+                          if (_selectedCompare != null) ...[
+                            IconButton(
+                              icon: const Icon(Icons.close, size: 18),
+                              tooltip: 'Clear Secondary',
+                              onPressed: _clearSecondary,
+                              visualDensity: VisualDensity.compact,
+                            ),
+                          ],
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
             const SizedBox(height: 12),
 
             // Search Bar
             TextField(
               decoration: InputDecoration(
-                hintText: 'Search translations, language, date...',
+                hintText: 'Search by translation name, language, origin...',
                 prefixIcon: const Icon(Icons.search),
                 suffixIcon: _searchQuery.isNotEmpty
                     ? IconButton(
@@ -256,7 +422,7 @@ class _BibleTranslationSelectorDialogState
                     : null,
                 isDense: true,
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(14),
                 ),
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 12,
@@ -271,44 +437,57 @@ class _BibleTranslationSelectorDialogState
             ),
             const SizedBox(height: 8),
 
-            // Filter Chips
+            // Multi-Select Combinable Filter Chips
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children:
-                    [
-                      'All',
-                      'Imprimatur',
-                      'English',
-                      'Latin',
-                      'Spanish',
-                      'Ancient',
-                    ].map((filter) {
-                      final selected = _activeFilter == filter;
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 6.0),
-                        child: FilterChip(
-                          label: Text(filter),
-                          selected: selected,
-                          onSelected: (_) {
-                            setState(() {
-                              _activeFilter = filter;
-                            });
-                          },
-                          visualDensity: VisualDensity.compact,
-                        ),
-                      );
-                    }).toList(),
+                children: [
+                  if (_selectedFilters.isNotEmpty) ...[
+                    Padding(
+                      padding: const EdgeInsets.only(right: 6.0),
+                      child: ActionChip(
+                        avatar: const Icon(Icons.clear_all, size: 16),
+                        label: const Text('Clear Filters'),
+                        onPressed: () {
+                          setState(() {
+                            _selectedFilters.clear();
+                          });
+                        },
+                        visualDensity: VisualDensity.compact,
+                      ),
+                    ),
+                  ],
+                  ..._availableFilters.map((filter) {
+                    final isSelected = _selectedFilters.contains(filter);
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 6.0),
+                      child: FilterChip(
+                        label: Text(filter),
+                        selected: isSelected,
+                        onSelected: (selected) {
+                          setState(() {
+                            if (selected) {
+                              _selectedFilters.add(filter);
+                            } else {
+                              _selectedFilters.remove(filter);
+                            }
+                          });
+                        },
+                        visualDensity: VisualDensity.compact,
+                      ),
+                    );
+                  }),
+                ],
               ),
             ),
             const Divider(height: 20),
 
-            // Translation List
+            // Translation List Cards
             Expanded(
               child: _filteredTranslations.isEmpty
                   ? Center(
                       child: Text(
-                        'No translations matching "$_searchQuery"',
+                        'No translations match the selected criteria.',
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.colorScheme.onSurfaceVariant,
                         ),
@@ -324,19 +503,19 @@ class _BibleTranslationSelectorDialogState
                         final isCompare = _selectedCompare == item.code;
 
                         return Card(
-                          elevation: isPrimary || isCompare ? 2 : 0,
+                          elevation: isPrimary || isCompare ? 3.0 : 0.5,
                           color: isPrimary
                               ? theme.colorScheme.primaryContainer.withValues(
-                                  alpha: 0.3,
+                                  alpha: 0.35,
                                 )
                               : isCompare
                               ? theme.colorScheme.secondaryContainer.withValues(
-                                  alpha: 0.3,
+                                  alpha: 0.35,
                                 )
                               : theme.colorScheme.surfaceContainerHigh
                                     .withValues(alpha: 0.4),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(14),
+                            borderRadius: BorderRadius.circular(16),
                             side: BorderSide(
                               color: isPrimary
                                   ? theme.colorScheme.primary
@@ -353,30 +532,10 @@ class _BibleTranslationSelectorDialogState
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                // Header line: Code & Name + Approval Badge
+                                // Header: Title & Badges
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 8,
-                                        vertical: 4,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: theme.colorScheme.primary
-                                            .withValues(alpha: 0.15),
-                                        borderRadius: BorderRadius.circular(6),
-                                      ),
-                                      child: Text(
-                                        item.code,
-                                        style: theme.textTheme.titleMedium
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.bold,
-                                              color: theme.colorScheme.primary,
-                                            ),
-                                      ),
-                                    ),
-                                    const SizedBox(width: 10),
                                     Expanded(
                                       child: Column(
                                         crossAxisAlignment:
@@ -431,80 +590,60 @@ class _BibleTranslationSelectorDialogState
                                 ),
                                 const SizedBox(height: 12),
 
-                                // Action Buttons
+                                // Dual Buttons: Set as Primary & Set as Secondary
                                 Row(
                                   children: [
-                                    if (_activeTarget == 'primary') ...[
-                                      Expanded(
-                                        child: ElevatedButton.icon(
-                                          icon: Icon(
-                                            isPrimary
-                                                ? Icons.check
-                                                : Icons.star,
-                                          ),
-                                          label: Text(
-                                            isPrimary
-                                                ? 'Primary Selected'
-                                                : 'Set as Primary',
-                                          ),
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor: isPrimary
-                                                ? theme.colorScheme.primary
-                                                : null,
-                                            foregroundColor: isPrimary
-                                                ? theme.colorScheme.onPrimary
-                                                : null,
-                                          ),
-                                          onPressed: () {
-                                            setState(() {
-                                              _selectedPrimary = item.code;
-                                            });
-                                            widget.onPrimarySelected(item.code);
-                                          },
+                                    Expanded(
+                                      child: ElevatedButton.icon(
+                                        icon: Icon(
+                                          isPrimary ? Icons.check : Icons.star,
+                                          size: 18,
                                         ),
+                                        label: Text(
+                                          isPrimary
+                                              ? '✓ Primary'
+                                              : 'Set as Primary',
+                                        ),
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: isPrimary
+                                              ? theme.colorScheme.primary
+                                              : null,
+                                          foregroundColor: isPrimary
+                                              ? theme.colorScheme.onPrimary
+                                              : null,
+                                          visualDensity: VisualDensity.compact,
+                                        ),
+                                        onPressed: () =>
+                                            _selectPrimary(item.code),
                                       ),
-                                    ] else ...[
-                                      Expanded(
-                                        child: ElevatedButton.icon(
-                                          icon: Icon(
-                                            isCompare
-                                                ? Icons.check
-                                                : Icons.compare_arrows,
-                                          ),
-                                          label: Text(
-                                            isCompare
-                                                ? 'Compare Selected'
-                                                : 'Set as Compare',
-                                          ),
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor: isCompare
-                                                ? theme.colorScheme.secondary
-                                                : null,
-                                            foregroundColor: isCompare
-                                                ? theme.colorScheme.onSecondary
-                                                : null,
-                                          ),
-                                          onPressed: () {
-                                            setState(() {
-                                              _selectedCompare = item.code;
-                                            });
-                                            widget.onCompareSelected(item.code);
-                                          },
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Expanded(
+                                      child: ElevatedButton.icon(
+                                        icon: Icon(
+                                          isCompare
+                                              ? Icons.check
+                                              : Icons.compare_arrows,
+                                          size: 18,
                                         ),
+                                        label: Text(
+                                          isCompare
+                                              ? '✓ Secondary'
+                                              : 'Set as Secondary',
+                                        ),
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: isCompare
+                                              ? theme.colorScheme.secondary
+                                              : null,
+                                          foregroundColor: isCompare
+                                              ? theme.colorScheme.onSecondary
+                                              : null,
+                                          visualDensity: VisualDensity.compact,
+                                        ),
+                                        onPressed: () =>
+                                            _selectSecondary(item.code),
                                       ),
-                                      if (isCompare) ...[
-                                        const SizedBox(width: 8),
-                                        OutlinedButton(
-                                          onPressed: () {
-                                            setState(() {
-                                              _selectedCompare = null;
-                                            });
-                                            widget.onCompareSelected(null);
-                                          },
-                                          child: const Text('Clear'),
-                                        ),
-                                      ],
-                                    ],
+                                    ),
                                   ],
                                 ),
                               ],

@@ -46,28 +46,45 @@ void main() {
         expect(find.text('Bible Translations'), findsOneWidget);
 
         // Check translation cards & badges
-        expect(find.textContaining('Douay-Rheims'), findsOneWidget);
+        expect(
+          find.text('Douay-Rheims Bible (Challoner Revision)'),
+          findsOneWidget,
+        );
         expect(find.text('✓ Imprimatur'), findsWidgets);
 
-        // Test Filter Chips
+        // Test Swap Button
+        await tester.tap(find.byTooltip('Swap Primary & Secondary'));
+        await tester.pumpAndSettle();
+
+        expect(primary, equals('DRC'));
+        expect(compare, equals('CPDV'));
+
+        // Test Multi-Select Filter Chips (Spanish + Imprimatur)
+        await tester.tap(find.widgetWithText(FilterChip, 'Spanish'));
+        await tester.pumpAndSettle();
+
         await tester.tap(find.widgetWithText(FilterChip, 'Imprimatur'));
         await tester.pumpAndSettle();
 
-        expect(find.textContaining('Douay-Rheims'), findsOneWidget);
+        expect(find.text('Biblia Torres Amat'), findsOneWidget);
         expect(
-          find.textContaining('Catholic Public Domain Version'),
+          find.text('Douay-Rheims Bible (Challoner Revision)'),
           findsNothing,
         );
 
-        // Test Search Bar
-        await tester.tap(find.widgetWithText(FilterChip, 'All'));
+        // Clear filters
+        await tester.tap(find.widgetWithText(ActionChip, 'Clear Filters'));
         await tester.pumpAndSettle();
 
+        // Test Search Bar
         await tester.enterText(find.byType(TextField), 'Clementine');
         await tester.pumpAndSettle();
 
         expect(find.textContaining('Sixto-Clementine Vulgate'), findsOneWidget);
-        expect(find.textContaining('Douay-Rheims'), findsNothing);
+        expect(
+          find.text('Douay-Rheims Bible (Challoner Revision)'),
+          findsNothing,
+        );
       },
     );
   });

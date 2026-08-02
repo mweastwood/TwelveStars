@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/bible_translation_info.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
@@ -249,7 +250,9 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                               ),
                             ),
                             Text(
-                              _primaryTranslation,
+                              BibleTranslationInfo.getByCode(
+                                _primaryTranslation,
+                              ).shortName,
                               style: theme.textTheme.bodyMedium?.copyWith(
                                 fontWeight: FontWeight.bold,
                               ),
@@ -297,7 +300,9 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                             Text(
                               _compareTranslation == 'none'
                                   ? 'None'
-                                  : _compareTranslation,
+                                  : BibleTranslationInfo.getByCode(
+                                      _compareTranslation,
+                                    ).shortName,
                               style: theme.textTheme.bodyMedium?.copyWith(
                                 fontWeight: FontWeight.bold,
                               ),
