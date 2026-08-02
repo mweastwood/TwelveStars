@@ -21,10 +21,10 @@ class BibleTab extends StatefulWidget {
   const BibleTab({super.key, this.initialVerses});
 
   @override
-  State<BibleTab> createState() => _BibleTabState();
+  BibleTabState createState() => BibleTabState();
 }
 
-class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
+class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   late List<BibleChapterRef> _allChapters;
   late PageController _pageController;
   int _currentPageIndex = 0;
@@ -47,6 +47,8 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   String _primaryTranslation = 'CPDV';
   String _compareTranslation = 'none';
   bool _showTranslationSelectors = true;
+
+  bool get showTranslationSelectors => _showTranslationSelectors;
   late final AnimationController _translationSelectorAnimationController;
   late final CurvedAnimation _translationSelectorAnimation;
 
