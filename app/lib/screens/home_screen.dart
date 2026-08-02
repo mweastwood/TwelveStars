@@ -364,7 +364,9 @@ class _HomeScreenState extends State<HomeScreen>
                 _searchFocusNode.requestFocus();
               },
             )
-          else if (_currentTab == 0 || _currentTab == 1) ...[
+          else if (_currentTab == 0 ||
+              _currentTab == 1 ||
+              _currentTab == 3) ...[
             IconButton(
               icon: const Icon(Icons.text_fields),
               tooltip: 'Text Options',
