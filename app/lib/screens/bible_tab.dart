@@ -5,7 +5,7 @@ import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
-import 'package:twelve_stars/widgets/bible_translation_dialog.dart';
+import 'package:twelve_stars/widgets/bible_translation_selector_dialog.dart';
 
 class BibleChapterRef {
   final BibleBook book;
@@ -317,54 +317,44 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   }
 
   Future<void> _showPrimaryDialog(ThemeData theme) async {
-    final result = await showDialog<String>(
-      context: context,
-      builder: (context) => BibleTranslationDialog(
-        mode: BibleTranslationDialogMode.primary,
-        currentPrimary: _primaryTranslation,
-        currentCompare: _compareTranslation,
-      ),
-    );
-
-    if (result != null && mounted) {
-      setState(() {
-        _primaryTranslation = result;
-        if (_compareTranslation == result) {
-          _compareTranslation = 'none';
+    await BibleTranslationSelectorDialog.show(
+      context,
+      currentPrimaryCode: _primaryTranslation,
+      currentCompareCode: _compareTranslation == 'none'
+          ? null
+          : _compareTranslation,
+      onPrimarySelected: (newPrimary) async {
+        setState(() {
+          _primaryTranslation = newPrimary;
+          if (_compareTranslation == newPrimary) {
+            _compareTranslation = 'none';
+          }
+          _settings?.primaryBibleTranslation = _primaryTranslation;
+          _settings?.compareBibleTranslation = _compareTranslation;
+        });
+        if (_settings != null) {
+          await PrayerDatabase.saveSettings(_settings!);
         }
-        _settings?.primaryBibleTranslation = _primaryTranslation;
-        _settings?.compareBibleTranslation = _compareTranslation;
-      });
-      if (_settings != null) {
-        await PrayerDatabase.saveSettings(_settings!);
-      }
-    }
+      },
+      onCompareSelected: (newCompare) async {
+        setState(() {
+          _compareTranslation = newCompare ?? 'none';
+          if (_primaryTranslation == newCompare) {
+            final options = ['CPDV', 'DRC', 'JUN', 'TAM', 'VUL', 'LXX', 'ORIG'];
+            _primaryTranslation = options.firstWhere((o) => o != newCompare);
+          }
+          _settings?.primaryBibleTranslation = _primaryTranslation;
+          _settings?.compareBibleTranslation = _compareTranslation;
+        });
+        if (_settings != null) {
+          await PrayerDatabase.saveSettings(_settings!);
+        }
+      },
+    );
   }
 
   Future<void> _showCompareDialog(ThemeData theme) async {
-    final result = await showDialog<String>(
-      context: context,
-      builder: (context) => BibleTranslationDialog(
-        mode: BibleTranslationDialogMode.compare,
-        currentPrimary: _primaryTranslation,
-        currentCompare: _compareTranslation,
-      ),
-    );
-
-    if (result != null && mounted) {
-      setState(() {
-        _compareTranslation = result;
-        if (_primaryTranslation == result) {
-          final options = ['CPDV', 'DRC', 'JUN', 'TAM', 'VUL', 'LXX', 'ORIG'];
-          _primaryTranslation = options.firstWhere((o) => o != result);
-        }
-        _settings?.primaryBibleTranslation = _primaryTranslation;
-        _settings?.compareBibleTranslation = _compareTranslation;
-      });
-      if (_settings != null) {
-        await PrayerDatabase.saveSettings(_settings!);
-      }
-    }
+    await _showPrimaryDialog(theme);
   }
 
   @override

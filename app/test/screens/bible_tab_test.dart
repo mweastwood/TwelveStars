@@ -508,8 +508,8 @@ void main() {
 
       await screenMatchesGolden(tester, 'bible_tab_primary_dialog_golden');
 
-      // Tap Cancel to close dialog
-      await tester.tap(find.text('Cancel'));
+      // Tap Close to close dialog
+      await tester.tap(find.byTooltip('Close'));
       await tester.pumpAndSettle();
     });
 
@@ -559,29 +559,27 @@ void main() {
       await tester.tap(find.text('Primary Translation'));
       await tester.pumpAndSettle();
 
-      // Tap DRC option (we find option containing DRC title)
-      await tester.tap(find.text('Douay-Rheims Bible (DRC)').first);
-      await tester.pumpAndSettle();
-
-      // Tap Apply
-      await tester.tap(find.text('Apply'));
+      // Tap "Set as Primary" for DRC
+      await tester.tap(
+        find.widgetWithText(ElevatedButton, 'Set as Primary').first,
+      );
       await tester.pumpAndSettle();
 
       // Verify primary selection is updated
       expect(settings.primaryBibleTranslation, equals('DRC'));
 
-      // 2. Open Comparison Dialog and choose CPDV
-      await tester.tap(find.text('Comparison Translation'));
+      // Switch to Compare target in SegmentedButton
+      await tester.tap(find.textContaining('Compare Mode'));
       await tester.pumpAndSettle();
 
-      // Tap CPDV option
+      // Enter search text "CPDV" to isolate CPDV card
+      await tester.enterText(find.byType(TextField), 'CPDV');
+      await tester.pumpAndSettle();
+
+      // Tap "Set as Compare" for CPDV
       await tester.tap(
-        find.text('Catholic Public Domain Version (CPDV)').first,
+        find.widgetWithText(ElevatedButton, 'Set as Compare').first,
       );
-      await tester.pumpAndSettle();
-
-      // Tap Apply
-      await tester.tap(find.text('Apply'));
       await tester.pumpAndSettle();
 
       // Verify comparison selection is updated
