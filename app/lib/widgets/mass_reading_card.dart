@@ -25,10 +25,21 @@ class _MassReadingCardState extends State<MassReadingCard> {
   List<BibleVerse>? _verses;
   String? _errorMessage;
 
+  String? _loadedTranslation;
+
   @override
   void initState() {
     super.initState();
     _loadVerses();
+  }
+
+  @override
+  void didUpdateWidget(MassReadingCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.reading != widget.reading ||
+        oldWidget.fontSize != widget.fontSize) {
+      _loadVerses(force: true);
+    }
   }
 
   String get _readingTitle {
@@ -60,17 +71,20 @@ class _MassReadingCardState extends State<MassReadingCard> {
     }
   }
 
-  Future<void> _loadVerses() async {
-    if (_verses != null) return;
-    setState(() {
-      _isLoading = true;
-      _errorMessage = null;
-    });
+  Future<void> _loadVerses({bool force = false}) async {
+    final settings = await PrayerDatabase.loadSettings();
+    final translation = settings.primaryBibleTranslation;
+
+    if (_verses != null && _loadedTranslation == translation && !force) return;
+
+    if (mounted) {
+      setState(() {
+        _isLoading = true;
+        _errorMessage = null;
+      });
+    }
 
     try {
-      final settings = await PrayerDatabase.loadSettings();
-      final translation = settings.primaryBibleTranslation;
-
       final db = BibleDatabaseHelper.db;
       final bookMeta = catholicBooks.firstWhere(
         (b) => b.bookNumber == widget.reading.bookNumber,
@@ -143,6 +157,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
       if (mounted) {
         setState(() {
           _verses = verses;
+          _loadedTranslation = translation;
           _isLoading = false;
         });
       }
@@ -246,8 +261,8 @@ class _MassReadingCardState extends State<MassReadingCard> {
                 else if (_verses == null || _verses!.isEmpty)
                   const Text('No verses found for this reading range.')
                 else
-                  RichText(
-                    text: TextSpan(
+                  Text.rich(
+                    TextSpan(
                       style: theme.textTheme.bodyLarge?.copyWith(
                         height: 1.6,
                         fontSize: widget.fontSize,
@@ -263,7 +278,6 @@ class _MassReadingCardState extends State<MassReadingCard> {
                                 padding: const EdgeInsets.only(right: 4.0),
                                 child: Text(
                                   '${v.verseNumber}',
-                                  textScaler: TextScaler.noScaling,
                                   style: theme.textTheme.labelSmall?.copyWith(
                                     fontWeight: FontWeight.bold,
                                     color: theme.colorScheme.primary,
