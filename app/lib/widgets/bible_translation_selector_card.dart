@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_translation_info.dart';
+import 'package:twelve_stars/widgets/bible_translation_selector_dialog.dart';
 
 class BibleTranslationSelectorCard extends StatelessWidget {
   final String primaryCode;
   final String? compareCode;
-  final VoidCallback onOpenSelector;
+  final Function(BibleTranslationTarget target) onOpenSelector;
   final VoidCallback onSwap;
   final VoidCallback onClearCompare;
 
@@ -39,7 +40,7 @@ class BibleTranslationSelectorCard extends StatelessWidget {
             // Primary Translation Selector Button
             Expanded(
               child: InkWell(
-                onTap: onOpenSelector,
+                onTap: () => onOpenSelector(BibleTranslationTarget.primary),
                 borderRadius: BorderRadius.circular(10),
                 child: Padding(
                   padding: const EdgeInsets.all(6.0),
@@ -85,7 +86,7 @@ class BibleTranslationSelectorCard extends StatelessWidget {
             // Secondary Translation Selector Button & Clear Button
             Expanded(
               child: InkWell(
-                onTap: onOpenSelector,
+                onTap: () => onOpenSelector(BibleTranslationTarget.compare),
                 borderRadius: BorderRadius.circular(10),
                 child: Padding(
                   padding: const EdgeInsets.all(6.0),

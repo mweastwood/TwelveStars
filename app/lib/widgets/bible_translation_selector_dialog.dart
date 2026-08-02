@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_translation_info.dart';
 
+enum BibleTranslationTarget { primary, compare }
+
 class BibleTranslationSelectorDialog extends StatefulWidget {
   final String currentPrimaryCode;
   final String? currentCompareCode;
+  final BibleTranslationTarget initialTarget;
   final ValueChanged<String> onPrimarySelected;
   final ValueChanged<String?> onCompareSelected;
 
@@ -11,6 +14,7 @@ class BibleTranslationSelectorDialog extends StatefulWidget {
     super.key,
     required this.currentPrimaryCode,
     required this.currentCompareCode,
+    this.initialTarget = BibleTranslationTarget.primary,
     required this.onPrimarySelected,
     required this.onCompareSelected,
   });
@@ -19,6 +23,7 @@ class BibleTranslationSelectorDialog extends StatefulWidget {
     BuildContext context, {
     required String currentPrimaryCode,
     required String? currentCompareCode,
+    BibleTranslationTarget initialTarget = BibleTranslationTarget.primary,
     required ValueChanged<String> onPrimarySelected,
     required ValueChanged<String?> onCompareSelected,
   }) {
@@ -32,6 +37,7 @@ class BibleTranslationSelectorDialog extends StatefulWidget {
         return BibleTranslationSelectorDialog(
           currentPrimaryCode: currentPrimaryCode,
           currentCompareCode: currentCompareCode,
+          initialTarget: initialTarget,
           onPrimarySelected: onPrimarySelected,
           onCompareSelected: onCompareSelected,
         );
@@ -55,6 +61,7 @@ class _BibleTranslationSelectorDialogState
     extends State<BibleTranslationSelectorDialog> {
   late String _selectedPrimary;
   late String? _selectedCompare;
+  late BibleTranslationTarget _activeTarget;
   String _searchQuery = '';
   final Set<String> _selectedFilters = <String>{};
 
@@ -71,6 +78,7 @@ class _BibleTranslationSelectorDialogState
     super.initState();
     _selectedPrimary = widget.currentPrimaryCode;
     _selectedCompare = widget.currentCompareCode;
+    _activeTarget = widget.initialTarget;
   }
 
   void _swapTranslations() {
@@ -99,7 +107,6 @@ class _BibleTranslationSelectorDialogState
   void _selectSecondary(String code) {
     setState(() {
       if (_selectedPrimary == code) {
-        // Find alternative primary
         final alt = BibleTranslationInfo.allTranslations
             .map((t) => t.code)
             .firstWhere((c) => c != code);
@@ -120,7 +127,6 @@ class _BibleTranslationSelectorDialogState
 
   List<BibleTranslationInfo> get _filteredTranslations {
     return BibleTranslationInfo.allTranslations.where((t) {
-      // 1. Search Query Filter
       if (_searchQuery.isNotEmpty) {
         final query = _searchQuery.toLowerCase();
         final matchName = t.name.toLowerCase().contains(query);
@@ -139,7 +145,6 @@ class _BibleTranslationSelectorDialogState
         }
       }
 
-      // 2. Multi-Select Category Filters (MUST match ALL selected filters)
       for (final filter in _selectedFilters) {
         switch (filter) {
           case 'Imprimatur':
@@ -296,7 +301,7 @@ class _BibleTranslationSelectorDialogState
             ),
             const SizedBox(height: 12),
 
-            // Active Primary / Secondary Display Bar with Swap & Clear
+            // Target Selector Segmented Display Bar (Primary / Secondary)
             Card(
               elevation: 2.0,
               color: theme.colorScheme.surfaceContainerHigh.withValues(
@@ -311,33 +316,74 @@ class _BibleTranslationSelectorDialogState
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 14.0,
-                  vertical: 10.0,
-                ),
+                padding: const EdgeInsets.all(6.0),
                 child: Row(
                   children: [
-                    // Primary Translation Summary
+                    // Primary Target Button
                     Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Primary Translation',
-                            style: theme.textTheme.labelSmall?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: theme.colorScheme.primary,
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            _activeTarget = BibleTranslationTarget.primary;
+                          });
+                        },
+                        borderRadius: BorderRadius.circular(12),
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 200),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            color:
+                                _activeTarget == BibleTranslationTarget.primary
+                                ? theme.colorScheme.primaryContainer
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              color:
+                                  _activeTarget ==
+                                      BibleTranslationTarget.primary
+                                  ? theme.colorScheme.primary
+                                  : Colors.transparent,
+                              width: 1.5,
                             ),
                           ),
-                          const SizedBox(height: 2),
-                          Text(
-                            primaryItem.shortName,
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                            overflow: TextOverflow.ellipsis,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.edit_note,
+                                    size: 14,
+                                    color: theme.colorScheme.primary,
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Flexible(
+                                    child: Text(
+                                      'Selecting Primary',
+                                      style: theme.textTheme.labelSmall
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                            color: theme.colorScheme.primary,
+                                          ),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 2),
+                              Text(
+                                primaryItem.shortName,
+                                style: theme.textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                     ),
                     const SizedBox(width: 4),
@@ -359,44 +405,93 @@ class _BibleTranslationSelectorDialogState
                     ),
                     const SizedBox(width: 4),
 
-                    // Secondary Translation Summary & Clear Button
+                    // Secondary Target Button & Clear Button
                     Expanded(
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Secondary Translation',
-                                  style: theme.textTheme.labelSmall?.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: theme.colorScheme.secondary,
-                                  ),
-                                ),
-                                const SizedBox(height: 2),
-                                Text(
-                                  compareItem?.shortName ?? 'None',
-                                  style: theme.textTheme.titleMedium?.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: compareItem == null
-                                        ? theme.colorScheme.onSurfaceVariant
-                                        : null,
-                                  ),
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ],
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            _activeTarget = BibleTranslationTarget.compare;
+                          });
+                        },
+                        borderRadius: BorderRadius.circular(12),
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 200),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            color:
+                                _activeTarget == BibleTranslationTarget.compare
+                                ? theme.colorScheme.secondaryContainer
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              color:
+                                  _activeTarget ==
+                                      BibleTranslationTarget.compare
+                                  ? theme.colorScheme.secondary
+                                  : Colors.transparent,
+                              width: 1.5,
                             ),
                           ),
-                          if (_selectedCompare != null) ...[
-                            IconButton(
-                              icon: const Icon(Icons.close, size: 18),
-                              tooltip: 'Clear Secondary',
-                              onPressed: _clearSecondary,
-                              visualDensity: VisualDensity.compact,
-                            ),
-                          ],
-                        ],
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.edit_note,
+                                          size: 14,
+                                          color: theme.colorScheme.secondary,
+                                        ),
+                                        const SizedBox(width: 4),
+                                        Flexible(
+                                          child: Text(
+                                            'Selecting Secondary',
+                                            style: theme.textTheme.labelSmall
+                                                ?.copyWith(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: theme
+                                                      .colorScheme
+                                                      .secondary,
+                                                ),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 2),
+                                    Text(
+                                      compareItem?.shortName ?? 'None',
+                                      style: theme.textTheme.titleMedium
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                            color: compareItem == null
+                                                ? theme
+                                                      .colorScheme
+                                                      .onSurfaceVariant
+                                                : null,
+                                          ),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              if (_selectedCompare != null) ...[
+                                IconButton(
+                                  icon: const Icon(Icons.close, size: 18),
+                                  tooltip: 'Clear Secondary',
+                                  onPressed: _clearSecondary,
+                                  visualDensity: VisualDensity.compact,
+                                ),
+                              ],
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -482,7 +577,7 @@ class _BibleTranslationSelectorDialogState
             ),
             const Divider(height: 20),
 
-            // Translation List Cards
+            // Translation List Cards with Single-Tap Selection
             Expanded(
               child: _filteredTranslations.isEmpty
                   ? Center(
@@ -527,126 +622,130 @@ class _BibleTranslationSelectorDialogState
                               width: isPrimary || isCompare ? 2.0 : 1.0,
                             ),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(14.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // Header: Title & Badges
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            item.name,
-                                            style: theme.textTheme.titleMedium
+                          child: InkWell(
+                            onTap: () {
+                              if (_activeTarget ==
+                                  BibleTranslationTarget.primary) {
+                                _selectPrimary(item.code);
+                              } else {
+                                _selectSecondary(item.code);
+                              }
+                            },
+                            borderRadius: BorderRadius.circular(16),
+                            child: Padding(
+                              padding: const EdgeInsets.all(14.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  // Header: Title, Active Selection Badge & Badges
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              item.name,
+                                              style: theme.textTheme.titleMedium
+                                                  ?.copyWith(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: theme
+                                                        .colorScheme
+                                                        .onSurface,
+                                                  ),
+                                            ),
+                                            const SizedBox(height: 2),
+                                            Text(
+                                              '${item.languages.join(", ")} • Date: ${item.publicationDate} • ${item.publicDomainStatus}',
+                                              style: theme.textTheme.bodySmall
+                                                  ?.copyWith(
+                                                    color: theme
+                                                        .colorScheme
+                                                        .onSurfaceVariant,
+                                                  ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      if (isPrimary) ...[
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 10,
+                                            vertical: 4,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: theme.colorScheme.primary,
+                                            borderRadius: BorderRadius.circular(
+                                              8,
+                                            ),
+                                          ),
+                                          child: Text(
+                                            '✓ Primary',
+                                            style: theme.textTheme.labelSmall
                                                 ?.copyWith(
+                                                  color: theme
+                                                      .colorScheme
+                                                      .onPrimary,
                                                   fontWeight: FontWeight.bold,
-                                                  color: theme
-                                                      .colorScheme
-                                                      .onSurface,
                                                 ),
                                           ),
-                                          const SizedBox(height: 2),
-                                          Text(
-                                            '${item.languages.join(", ")} • Date: ${item.publicationDate} • ${item.publicDomainStatus}',
-                                            style: theme.textTheme.bodySmall
+                                        ),
+                                      ] else if (isCompare) ...[
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 10,
+                                            vertical: 4,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: theme.colorScheme.secondary,
+                                            borderRadius: BorderRadius.circular(
+                                              8,
+                                            ),
+                                          ),
+                                          child: Text(
+                                            '✓ Secondary',
+                                            style: theme.textTheme.labelSmall
                                                 ?.copyWith(
                                                   color: theme
                                                       .colorScheme
-                                                      .onSurfaceVariant,
+                                                      .onSecondary,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 8),
-
-                                // Approval badge
-                                _buildApprovalBadge(item.approvalStatus, theme),
-                                const SizedBox(height: 10),
-
-                                // Origin & Church Usage description
-                                Text(
-                                  '🏛️ Origin: ${item.originDescription}',
-                                  style: theme.textTheme.bodySmall?.copyWith(
-                                    color: theme.colorScheme.onSurface,
-                                    height: 1.35,
+                                        ),
+                                      ],
+                                    ],
                                   ),
-                                ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  '✝️ Usage: ${item.churchUsage}',
-                                  style: theme.textTheme.bodySmall?.copyWith(
-                                    color: theme.colorScheme.onSurfaceVariant,
-                                    height: 1.35,
-                                  ),
-                                ),
-                                const SizedBox(height: 12),
+                                  const SizedBox(height: 8),
 
-                                // Dual Buttons: Set as Primary & Set as Secondary
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: ElevatedButton.icon(
-                                        icon: Icon(
-                                          isPrimary ? Icons.check : Icons.star,
-                                          size: 18,
-                                        ),
-                                        label: Text(
-                                          isPrimary
-                                              ? '✓ Primary'
-                                              : 'Set as Primary',
-                                        ),
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: isPrimary
-                                              ? theme.colorScheme.primary
-                                              : null,
-                                          foregroundColor: isPrimary
-                                              ? theme.colorScheme.onPrimary
-                                              : null,
-                                          visualDensity: VisualDensity.compact,
-                                        ),
-                                        onPressed: () =>
-                                            _selectPrimary(item.code),
-                                      ),
+                                  // Approval badge
+                                  _buildApprovalBadge(
+                                    item.approvalStatus,
+                                    theme,
+                                  ),
+                                  const SizedBox(height: 10),
+
+                                  // Origin & Church Usage description
+                                  Text(
+                                    '🏛️ Origin: ${item.originDescription}',
+                                    style: theme.textTheme.bodySmall?.copyWith(
+                                      color: theme.colorScheme.onSurface,
+                                      height: 1.35,
                                     ),
-                                    const SizedBox(width: 8),
-                                    Expanded(
-                                      child: ElevatedButton.icon(
-                                        icon: Icon(
-                                          isCompare
-                                              ? Icons.check
-                                              : Icons.compare_arrows,
-                                          size: 18,
-                                        ),
-                                        label: Text(
-                                          isCompare
-                                              ? '✓ Secondary'
-                                              : 'Set as Secondary',
-                                        ),
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: isCompare
-                                              ? theme.colorScheme.secondary
-                                              : null,
-                                          foregroundColor: isCompare
-                                              ? theme.colorScheme.onSecondary
-                                              : null,
-                                          visualDensity: VisualDensity.compact,
-                                        ),
-                                        onPressed: () =>
-                                            _selectSecondary(item.code),
-                                      ),
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    '✝️ Usage: ${item.churchUsage}',
+                                    style: theme.textTheme.bodySmall?.copyWith(
+                                      color: theme.colorScheme.onSurfaceVariant,
+                                      height: 1.35,
                                     ),
-                                  ],
-                                ),
-                              ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         );

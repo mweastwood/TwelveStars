@@ -244,7 +244,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
             compareCode: _compareTranslation == 'none'
                 ? null
                 : _compareTranslation,
-            onOpenSelector: () => _showPrimaryDialog(theme),
+            onOpenSelector: (target) => _showTranslationSelectorDialog(target),
             onSwap: () {
               if (_compareTranslation != 'none') {
                 setState(() {
@@ -274,13 +274,16 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     );
   }
 
-  Future<void> _showPrimaryDialog(ThemeData theme) async {
+  Future<void> _showTranslationSelectorDialog(
+    BibleTranslationTarget target,
+  ) async {
     await BibleTranslationSelectorDialog.show(
       context,
       currentPrimaryCode: _primaryTranslation,
       currentCompareCode: _compareTranslation == 'none'
           ? null
           : _compareTranslation,
+      initialTarget: target,
       onPrimarySelected: (newPrimary) async {
         setState(() {
           _primaryTranslation = newPrimary;

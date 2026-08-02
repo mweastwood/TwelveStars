@@ -555,27 +555,27 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 100));
 
-      // 1. Open Primary Dialog and choose DRC
+      // 1. Open Primary Dialog
       await tester.tap(find.text('Primary Translation'));
       await tester.pumpAndSettle();
 
-      // Tap "Set as Primary" for DRC
-      await tester.tap(
-        find.widgetWithText(ElevatedButton, 'Set as Primary').first,
-      );
+      // Tap DRC translation card to set as Primary
+      await tester.tap(find.text('Douay-Rheims Bible (Challoner Revision)'));
       await tester.pumpAndSettle();
 
       // Verify primary selection is updated
       expect(settings.primaryBibleTranslation, equals('DRC'));
 
+      // Switch target to Secondary inside dialog
+      await tester.tap(find.text('Selecting Secondary'));
+      await tester.pumpAndSettle();
+
       // Enter search text "Catholic Public Domain" to isolate CPDV card
       await tester.enterText(find.byType(TextField), 'Catholic Public Domain');
       await tester.pumpAndSettle();
 
-      // Tap "Set as Secondary" for CPDV
-      await tester.tap(
-        find.widgetWithText(ElevatedButton, 'Set as Secondary').first,
-      );
+      // Tap CPDV card to set as Secondary
+      await tester.tap(find.text('Catholic Public Domain Version'));
       await tester.pumpAndSettle();
 
       // Verify comparison selection is updated
