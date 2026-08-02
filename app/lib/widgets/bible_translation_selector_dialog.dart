@@ -303,10 +303,8 @@ class _BibleTranslationSelectorDialogState
 
             // Target Selector Segmented Display Bar (Primary / Secondary)
             Card(
-              elevation: 2.0,
-              color: theme.colorScheme.surfaceContainerHigh.withValues(
-                alpha: 0.5,
-              ),
+              elevation: 0,
+              color: theme.colorScheme.surface,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
                 side: BorderSide(
@@ -335,18 +333,21 @@ class _BibleTranslationSelectorDialogState
                             vertical: 8,
                           ),
                           decoration: BoxDecoration(
-                            color:
-                                _activeTarget == BibleTranslationTarget.primary
-                                ? theme.colorScheme.primaryContainer
-                                : Colors.transparent,
+                            color: theme.colorScheme.surface,
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(
                               color:
                                   _activeTarget ==
                                       BibleTranslationTarget.primary
                                   ? theme.colorScheme.primary
-                                  : Colors.transparent,
-                              width: 1.5,
+                                  : theme.colorScheme.outlineVariant.withValues(
+                                      alpha: 0.3,
+                                    ),
+                              width:
+                                  _activeTarget ==
+                                      BibleTranslationTarget.primary
+                                  ? 2.0
+                                  : 1.0,
                             ),
                           ),
                           child: Column(
@@ -421,18 +422,21 @@ class _BibleTranslationSelectorDialogState
                             vertical: 8,
                           ),
                           decoration: BoxDecoration(
-                            color:
-                                _activeTarget == BibleTranslationTarget.compare
-                                ? theme.colorScheme.secondaryContainer
-                                : Colors.transparent,
+                            color: theme.colorScheme.surface,
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(
                               color:
                                   _activeTarget ==
                                       BibleTranslationTarget.compare
                                   ? theme.colorScheme.secondary
-                                  : Colors.transparent,
-                              width: 1.5,
+                                  : theme.colorScheme.outlineVariant.withValues(
+                                      alpha: 0.3,
+                                    ),
+                              width:
+                                  _activeTarget ==
+                                      BibleTranslationTarget.compare
+                                  ? 2.0
+                                  : 1.0,
                             ),
                           ),
                           child: Row(
@@ -598,17 +602,8 @@ class _BibleTranslationSelectorDialogState
                         final isCompare = _selectedCompare == item.code;
 
                         return Card(
-                          elevation: isPrimary || isCompare ? 3.0 : 0.5,
-                          color: isPrimary
-                              ? theme.colorScheme.primaryContainer.withValues(
-                                  alpha: 0.35,
-                                )
-                              : isCompare
-                              ? theme.colorScheme.secondaryContainer.withValues(
-                                  alpha: 0.35,
-                                )
-                              : theme.colorScheme.surfaceContainerHigh
-                                    .withValues(alpha: 0.4),
+                          elevation: isPrimary || isCompare ? 2.0 : 0.5,
+                          color: theme.colorScheme.surface,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                             side: BorderSide(
