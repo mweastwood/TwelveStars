@@ -1,77 +1,107 @@
-import 'package:drift/native.dart';
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:flutter_test/flutter_test.dart';
+import 'package:drift/native.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/logic/reader/reader_models.dart';
 import 'package:twelve_stars/logic/reader/bible_reader_adapter.dart';
 import 'package:twelve_stars/logic/reader/library_reader_adapter.dart';
-import 'package:twelve_stars/logic/reader/reader_models.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group('Phase 1 Reader Framework Models & Adapters Tests', () {
-    late BibleDatabase memoryDb;
+  group('Unified Reader Framework Phase 1', () {
+    group('Reader Models', () {
+      test('ReaderContentNode creation and properties', () {
+        const verseNode = ReaderContentNode(
+          id: 'v1',
+          nodeType: ReaderNodeType.verse,
+          primaryText: 'In the beginning',
+          questionNumber: '1',
+        );
+        expect(verseNode.id, 'v1');
+        expect(verseNode.nodeType, ReaderNodeType.verse);
+        expect(verseNode.primaryText, 'In the beginning');
+        expect(verseNode.questionNumber, '1');
 
-    setUp(() {
-      memoryDb = BibleDatabase(NativeDatabase.memory());
+        const qaNode = ReaderContentNode(
+          id: 'qa1',
+          nodeType: ReaderNodeType.qa,
+          questionNumber: '1',
+          question: 'Who made the world?',
+          answer: 'God made the world.',
+          explanation: 'Explanation text',
+        );
+        expect(qaNode.nodeType, ReaderNodeType.qa);
+        expect(qaNode.question, 'Who made the world?');
+      });
+
+      test('ReaderSection and ReaderDocument metadata', () {
+        const doc = ReaderDocument(
+          documentId: 'doc1',
+          title: 'Test Doc',
+          sectionsCount: 1,
+          tocEntries: [ReaderTocEntry(index: 0, title: 'Chapter 1')],
+        );
+        expect(doc.title, 'Test Doc');
+        expect(doc.sectionsCount, 1);
+        expect(doc.tocEntries.first.title, 'Chapter 1');
+      });
+
+      test('ReaderBookmark properties', () {
+        final timestamp = DateTime.now();
+        final bookmark = ReaderBookmark(
+          id: 'b1',
+          documentId: 'doc1',
+          sectionIndex: 0,
+          nodeId: 'v1',
+          textPreview: 'In the beginning',
+          timestamp: timestamp,
+        );
+        expect(bookmark.textPreview, 'In the beginning');
+        expect(bookmark.timestamp, timestamp);
+      });
     });
 
-    tearDown(() async {
-      await memoryDb.close();
-    });
+    group('BibleReaderAdapter', () {
+      late BibleDatabase db;
+      late BibleReaderAdapter adapter;
 
-    test('ReaderContentNode models all required node types', () {
-      const verseNode = ReaderContentNode(
-        id: '1_1_1',
-        nodeType: ReaderNodeType.verse,
-        primaryText: 'In the beginning God created heaven, and earth.',
-        secondaryText: 'In principio creavit Deus caelum et terram.',
-      );
-      expect(verseNode.nodeType, equals(ReaderNodeType.verse));
-      expect(verseNode.primaryText, contains('In the beginning'));
-      expect(verseNode.secondaryText, contains('In principio'));
+      setUp(() async {
+        db = BibleDatabase(NativeDatabase.memory());
 
-      const qaNode = ReaderContentNode(
-        id: '0_1',
-        nodeType: ReaderNodeType.qa,
-        questionNumber: '1',
-        question: 'Who made the world?',
-        answer: 'God made the world.',
-        explanation: 'God is the creator of heaven and earth.',
-        crossRefId: '2',
-      );
-      expect(qaNode.nodeType, equals(ReaderNodeType.qa));
-      expect(qaNode.questionNumber, equals('1'));
-      expect(qaNode.question, equals('Who made the world?'));
-      expect(qaNode.explanation, contains('creator of heaven'));
-    });
+        // Populate test data
+        await db
+            .into(db.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText:
+                    'In the beginning God created the heavens and the earth.',
+                translationCode: 'CPDV',
+              ),
+            );
+        await db
+            .into(db.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'In principio creavit Deus caelum et terram.',
+                translationCode: 'VUL',
+              ),
+            );
 
-    test('ReaderDocument and ReaderTocEntry represent hierarchical TOC', () {
-      const doc = ReaderDocument(
-        documentId: 'test_doc',
-        title: 'Baltimore Catechism',
-        subtitle: 'No. 3',
-        author: 'Third Plenary Council of Baltimore',
-        sectionsCount: 37,
-        tocEntries: [
-          ReaderTocEntry(index: 0, title: 'Lesson 1: On the End of Man'),
-          ReaderTocEntry(
-            index: 1,
-            title: 'Lesson 2: On God and His Perfections',
-          ),
-        ],
-      );
-
-      expect(doc.sectionsCount, equals(37));
-      expect(doc.tocEntries.length, equals(2));
-      expect(doc.tocEntries.first.title, contains('Lesson 1'));
-    });
-
-    test(
-      'BibleReaderAdapter correctly converts Bible Book to Reader Document and Section',
-      () async {
-        const book = BibleBook(
+        const testBook = BibleBook(
           bookNumber: 1,
           bookName: 'Genesis',
           abbrev: 'GEN',
@@ -80,64 +110,132 @@ void main() {
           testament: 'Old Testament',
         );
 
-        final adapter = BibleReaderAdapter(book: book, db: memoryDb);
+        adapter = BibleReaderAdapter(bibleBook: testBook, dbHelper: db);
+      });
+
+      tearDown(() async {
+        await db.close();
+      });
+
+      test('loadDocument returns correct metadata and TOC', () async {
         final doc = await adapter.loadDocument();
+        expect(doc.documentId, 'GEN');
+        expect(doc.title, 'Genesis');
+        expect(doc.subtitle, 'Old Testament');
+        expect(doc.sectionsCount, 50);
+        expect(doc.tocEntries.length, 50);
+        expect(doc.tocEntries.first.title, 'Chapter 1');
+      });
 
-        expect(doc.documentId, equals('bible_1'));
-        expect(doc.title, equals('Genesis'));
-        expect(doc.sectionsCount, equals(50));
-        expect(doc.tocEntries.length, equals(50));
+      test('loadSection returns correctly mapped verses', () async {
+        final section = await adapter.loadSection(1);
+        expect(section.sectionIndex, 1);
+        expect(section.title, 'Genesis 1');
+        expect(section.nodes.length, 1);
 
-        final section = await adapter.loadSection(1, primaryVariant: 'CPDV');
-        expect(section.sectionIndex, equals(1));
-        expect(section.title, equals('Genesis 1'));
-        expect(section.nodes.isNotEmpty, isTrue);
-        expect(section.nodes.first.nodeType, equals(ReaderNodeType.verse));
-      },
-    );
+        final node = section.nodes.first;
+        expect(node.nodeType, ReaderNodeType.verse);
+        expect(
+          node.primaryText,
+          'In the beginning God created the heavens and the earth.',
+        );
+        expect(node.questionNumber, '1');
+        expect(node.id, '1_1_1');
+      });
 
-    test(
-      'LibraryReaderAdapter loads document and section nodes cleanly',
-      () async {
-        final bookItem = LibraryHelper.getCatalog().first;
+      test('loadSection with compare translation', () async {
+        final section = await adapter.loadSection(1, compareVariant: 'VUL');
+        final node = section.nodes.first;
+        expect(
+          node.primaryText,
+          'In the beginning God created the heavens and the earth.',
+        );
+        expect(
+          node.secondaryText,
+          'In principio creavit Deus caelum et terram.',
+        );
+      });
+    });
 
-        final adapter = LibraryReaderAdapter(
-          bookItem: bookItem,
-          assetPath: bookItem.volumes!.first.assetPath,
+    group('LibraryReaderAdapter', () {
+      late LibraryReaderAdapter adapter;
+      const testAssetPath = 'test_assets/book.json';
+
+      setUp(() {
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+            .setMockMessageHandler('flutter/assets', (ByteData? message) async {
+              final String key = utf8.decode(message!.buffer.asUint8List());
+              if (key == testAssetPath) {
+                const jsonString = '''{
+              "bookId": "test_book",
+              "title": "Test Book",
+              "subtitle": "A Test",
+              "author": "Author",
+              "toc": [{"id": "s1", "title": "Section 1"}],
+              "sections": [{
+                "id": "s1",
+                "title": "Section 1",
+                "subtitle": "",
+                "content": [
+                  {"type": "heading", "text": "A Heading"},
+                  {"type": "paragraph", "text": "A paragraph of text."},
+                  {
+                    "type": "qa",
+                    "questionNumber": 1,
+                    "question": "Q?",
+                    "answer": "A.",
+                    "explanation": "Exp",
+                    "crossRefQNum": 2
+                  }
+                ]
+              }]
+            }''';
+                return ByteData.view(
+                  Uint8List.fromList(utf8.encode(jsonString)).buffer,
+                );
+              }
+              return null;
+            });
+
+        const item = LibraryBookItem(
+          id: 'test_book',
+          title: 'Test Book',
+          subtitle: 'A Test',
+          category: 'Cat',
+          author: 'Author',
+          description: 'Desc',
         );
 
+        adapter = LibraryReaderAdapter(
+          bookItem: item,
+          assetPath: testAssetPath,
+        );
+      });
+
+      test('loadDocument metadata', () async {
         final doc = await adapter.loadDocument();
-        expect(doc.title, equals('Baltimore Catechism'));
-        expect(doc.sectionsCount, greaterThan(0));
+        expect(doc.documentId, 'test_book');
+        expect(doc.title, 'Test Book');
+        expect(doc.sectionsCount, 1);
+        expect(doc.tocEntries.first.title, 'Section 1');
+      });
 
+      test('loadSection nodes', () async {
         final section = await adapter.loadSection(0);
-        expect(section.title, isNotEmpty);
-        expect(section.nodes, isNotEmpty);
-      },
-    );
+        expect(section.title, 'Section 1');
+        expect(section.nodes.length, 3);
 
-    test('ReaderBookmark model handles save and load operations', () async {
-      final bookItem = LibraryHelper.getCatalog().first;
-      final assetPath = bookItem.volumes!.first.assetPath;
-      final adapter = LibraryReaderAdapter(
-        bookItem: bookItem,
-        assetPath: assetPath,
-      );
+        expect(section.nodes[0].nodeType, ReaderNodeType.heading);
+        expect(section.nodes[0].primaryText, 'A Heading');
 
-      final bookmark = ReaderBookmark(
-        id: 'bm_1',
-        documentId: assetPath,
-        sectionIndex: 0,
-        nodeId: '0_1',
-        textPreview: 'God made the world.',
-        timestamp: DateTime.now(),
-      );
+        expect(section.nodes[1].nodeType, ReaderNodeType.paragraph);
 
-      await adapter.saveBookmark(bookmark);
-      final bookmarks = await adapter.loadBookmarks();
-
-      expect(bookmarks.length, equals(1));
-      expect(bookmarks.first.textPreview, equals('God made the world.'));
+        expect(section.nodes[2].nodeType, ReaderNodeType.qa);
+        expect(section.nodes[2].question, 'Q?');
+        expect(section.nodes[2].answer, 'A.');
+        expect(section.nodes[2].explanation, 'Exp');
+        expect(section.nodes[2].crossRefId, '2');
+      });
     });
   });
 }

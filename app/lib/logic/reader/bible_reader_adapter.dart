@@ -5,29 +5,29 @@ import 'reader_adapter.dart';
 import 'reader_models.dart';
 
 class BibleReaderAdapter implements ReaderAdapter {
-  final BibleBook book;
-  final BibleDatabase db;
+  final BibleBook bibleBook;
+  final BibleDatabase dbHelper;
 
-  BibleReaderAdapter({required this.book, BibleDatabase? db})
-    : db = db ?? BibleDatabaseHelper.db;
+  BibleReaderAdapter({required this.bibleBook, BibleDatabase? dbHelper})
+    : dbHelper = dbHelper ?? BibleDatabaseHelper.db;
 
   @override
   Future<ReaderDocument> loadDocument() async {
     final toc = List<ReaderTocEntry>.generate(
-      book.chaptersCount,
+      bibleBook.chaptersCount,
       (index) => ReaderTocEntry(
         index: index + 1,
         title: 'Chapter ${index + 1}',
-        subtitle: '${book.bookName} ${index + 1}',
+        subtitle: '${bibleBook.bookName} ${index + 1}',
       ),
     );
 
     return ReaderDocument(
-      documentId: 'bible_${book.bookNumber}',
-      title: book.bookName,
-      subtitle: book.testament,
+      documentId: bibleBook.abbrev,
+      title: bibleBook.bookName,
+      subtitle: bibleBook.testament,
       author: 'Scripture',
-      sectionsCount: book.chaptersCount,
+      sectionsCount: bibleBook.chaptersCount,
       tocEntries: toc,
     );
   }
@@ -41,30 +41,30 @@ class BibleReaderAdapter implements ReaderAdapter {
     final primaryTrans = primaryVariant ?? 'CPDV';
     final compareTrans = compareVariant ?? 'none';
 
-    await db.ensureBookPopulated(
-      book.bookNumber,
-      book.bookName,
-      book.abbrev,
+    await dbHelper.ensureBookPopulated(
+      bibleBook.bookNumber,
+      bibleBook.bookName,
+      bibleBook.abbrev,
       translation: primaryTrans,
     );
 
-    final primaryVerses = await db.getChapterVerses(
+    final primaryVerses = await dbHelper.getChapterVerses(
       primaryTrans,
-      book.bookNumber,
+      bibleBook.bookNumber,
       sectionIndex,
     );
 
     List<BibleVerse> compareVerses = [];
     if (compareTrans != 'none') {
-      await db.ensureBookPopulated(
-        book.bookNumber,
-        book.bookName,
-        book.abbrev,
+      await dbHelper.ensureBookPopulated(
+        bibleBook.bookNumber,
+        bibleBook.bookName,
+        bibleBook.abbrev,
         translation: compareTrans,
       );
-      compareVerses = await db.getChapterVerses(
+      compareVerses = await dbHelper.getChapterVerses(
         compareTrans,
-        book.bookNumber,
+        bibleBook.bookNumber,
         sectionIndex,
       );
     }
@@ -87,7 +87,7 @@ class BibleReaderAdapter implements ReaderAdapter {
 
     return ReaderSection(
       sectionIndex: sectionIndex,
-      title: '${book.bookName} $sectionIndex',
+      title: '${bibleBook.bookName} $sectionIndex',
       nodes: nodes,
     );
   }
@@ -95,10 +95,10 @@ class BibleReaderAdapter implements ReaderAdapter {
   @override
   Future<void> saveBookmark(ReaderBookmark bookmark) async {
     final verseNum = int.tryParse(bookmark.nodeId.split('_').last) ?? 1;
-    await db.saveFavorite(
+    await dbHelper.saveFavorite(
       FavoritePassagesCompanion.insert(
-        bookNumber: book.bookNumber,
-        bookName: book.bookName,
+        bookNumber: bibleBook.bookNumber,
+        bookName: bibleBook.bookName,
         chapter: bookmark.sectionIndex,
         startVerse: verseNum,
         endVerse: verseNum,
@@ -109,13 +109,13 @@ class BibleReaderAdapter implements ReaderAdapter {
 
   @override
   Future<List<ReaderBookmark>> loadBookmarks() async {
-    final favorites = await db.getFavorites();
+    final favorites = await dbHelper.getFavorites();
     return favorites
-        .where((f) => f.bookNumber == book.bookNumber)
+        .where((f) => f.bookNumber == bibleBook.bookNumber)
         .map(
           (f) => ReaderBookmark(
             id: '${f.id}',
-            documentId: 'bible_${f.bookNumber}',
+            documentId: bibleBook.abbrev,
             sectionIndex: f.chapter,
             nodeId: '${f.bookNumber}_${f.chapter}_${f.startVerse}',
             textPreview: f.textPreview,
