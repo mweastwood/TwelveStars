@@ -40,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen>
   late final CurvedAnimation _languageSelectorAnimation;
   final ScrollController _prayersScrollController = ScrollController();
   final ScrollController _missalScrollController = ScrollController();
+  final GlobalKey<BibleTabState> _bibleTabKey = GlobalKey<BibleTabState>();
 
   static const double _kLanguageSelectorTopSpacerHeight = 92.0;
 
@@ -323,7 +324,7 @@ class _HomeScreenState extends State<HomeScreen>
         scrollController: _missalScrollController,
         fontSize: _fontSize,
       ),
-      const BibleTab(),
+      BibleTab(key: _bibleTabKey),
       const LibraryTab(),
     ];
 
@@ -364,7 +365,9 @@ class _HomeScreenState extends State<HomeScreen>
                 _searchFocusNode.requestFocus();
               },
             )
-          else if (_currentTab == 0 || _currentTab == 1) ...[
+          else if (_currentTab == 0 ||
+              _currentTab == 1 ||
+              _currentTab == 2) ...[
             IconButton(
               icon: const Icon(Icons.text_fields),
               tooltip: 'Text Options',
@@ -372,14 +375,31 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             IconButton(
               icon: Icon(
-                _showLanguageSelectors
-                    ? Icons.translate
-                    : Icons.translate_outlined,
+                _currentTab == 2
+                    ? (_bibleTabKey.currentState?.showTranslationSelectors ??
+                              true
+                          ? Icons.translate
+                          : Icons.translate_outlined)
+                    : (_showLanguageSelectors
+                          ? Icons.translate
+                          : Icons.translate_outlined),
               ),
-              tooltip: _showLanguageSelectors
-                  ? 'Hide language options'
-                  : 'Select languages',
-              onPressed: _toggleLanguageSelectors,
+              tooltip: _currentTab == 2
+                  ? ((_bibleTabKey.currentState?.showTranslationSelectors ??
+                            true)
+                        ? 'Hide translation options'
+                        : 'Select translations')
+                  : (_showLanguageSelectors
+                        ? 'Hide language options'
+                        : 'Select languages'),
+              onPressed: () {
+                if (_currentTab == 2) {
+                  _bibleTabKey.currentState?.toggleTranslationSelectors();
+                  setState(() {});
+                } else {
+                  _toggleLanguageSelectors();
+                }
+              },
             ),
             if (_currentTab == 0)
               IconButton(

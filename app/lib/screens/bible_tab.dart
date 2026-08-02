@@ -5,7 +5,8 @@ import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
-import 'package:twelve_stars/widgets/bible_translation_dialog.dart';
+import 'package:twelve_stars/widgets/bible_translation_selector_card.dart';
+import 'package:twelve_stars/widgets/bible_translation_selector_dialog.dart';
 
 class BibleChapterRef {
   final BibleBook book;
@@ -20,10 +21,10 @@ class BibleTab extends StatefulWidget {
   const BibleTab({super.key, this.initialVerses});
 
   @override
-  State<BibleTab> createState() => _BibleTabState();
+  BibleTabState createState() => BibleTabState();
 }
 
-class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
+class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   late List<BibleChapterRef> _allChapters;
   late PageController _pageController;
   int _currentPageIndex = 0;
@@ -45,6 +46,11 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   UserSettings? _settings;
   String _primaryTranslation = 'CPDV';
   String _compareTranslation = 'none';
+  bool _showTranslationSelectors = true;
+
+  bool get showTranslationSelectors => _showTranslationSelectors;
+  late final AnimationController _translationSelectorAnimationController;
+  late final CurvedAnimation _translationSelectorAnimation;
 
   // Navigation target for favorite scrolling/highlighting
   int? _targetBookNumber;
@@ -55,8 +61,28 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   String? _navigationSessionId;
 
   @override
+  void dispose() {
+    _translationSelectorAnimationController.dispose();
+    _panelController.dispose();
+    _pageController.dispose();
+    _sheetTabController.dispose();
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
+    _translationSelectorAnimationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+      value: _showTranslationSelectors ? 1.0 : 0.0,
+    );
+    _translationSelectorAnimation = CurvedAnimation(
+      parent: _translationSelectorAnimationController,
+      curve: Curves.easeOutCubic,
+      reverseCurve: Curves.easeInOutCubic,
+    );
+
     // Build flat list of all chapters in order
     _allChapters = [];
     for (final book in catholicBooks) {
@@ -120,14 +146,6 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
         });
       }
     }
-  }
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    _panelController.dispose();
-    _sheetTabController.dispose();
-    super.dispose();
   }
 
   void _togglePanel() {
@@ -214,157 +232,97 @@ class _BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   }
 
   Widget _buildTranslationSelectors(ThemeData theme) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 4.0),
-      child: Row(
-        children: [
-          Expanded(
-            child: Card(
-              margin: EdgeInsets.zero,
-              child: InkWell(
-                onTap: () => _showPrimaryDialog(theme),
-                borderRadius: BorderRadius.circular(12),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12.0,
-                    vertical: 10.0,
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.translate,
-                        color: theme.colorScheme.primary,
-                        size: 18,
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Primary Translation',
-                              style: theme.textTheme.labelSmall?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: theme.colorScheme.primary,
-                              ),
-                            ),
-                            Text(
-                              _primaryTranslation,
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+    return SizeTransition(
+      sizeFactor: _translationSelectorAnimation,
+      alignment: Alignment.topCenter,
+      child: FadeTransition(
+        opacity: _translationSelectorAnimation,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 4.0),
+          child: BibleTranslationSelectorCard(
+            primaryCode: _primaryTranslation,
+            compareCode: _compareTranslation == 'none'
+                ? null
+                : _compareTranslation,
+            onOpenSelector: (target) => _showTranslationSelectorDialog(target),
+            onSwap: () {
+              if (_compareTranslation != 'none') {
+                setState(() {
+                  final oldPrimary = _primaryTranslation;
+                  _primaryTranslation = _compareTranslation;
+                  _compareTranslation = oldPrimary;
+                  _settings?.primaryBibleTranslation = _primaryTranslation;
+                  _settings?.compareBibleTranslation = _compareTranslation;
+                });
+                if (_settings != null) {
+                  PrayerDatabase.saveSettings(_settings!);
+                }
+              }
+            },
+            onClearCompare: () {
+              setState(() {
+                _compareTranslation = 'none';
+                _settings?.compareBibleTranslation = 'none';
+              });
+              if (_settings != null) {
+                PrayerDatabase.saveSettings(_settings!);
+              }
+            },
           ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Card(
-              margin: EdgeInsets.zero,
-              child: InkWell(
-                onTap: () => _showCompareDialog(theme),
-                borderRadius: BorderRadius.circular(12),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12.0,
-                    vertical: 10.0,
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.compare_arrows,
-                        color: theme.colorScheme.secondary,
-                        size: 18,
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Comparison Translation',
-                              style: theme.textTheme.labelSmall?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: theme.colorScheme.secondary,
-                              ),
-                            ),
-                            Text(
-                              _compareTranslation == 'none'
-                                  ? 'None'
-                                  : _compareTranslation,
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
 
-  Future<void> _showPrimaryDialog(ThemeData theme) async {
-    final result = await showDialog<String>(
-      context: context,
-      builder: (context) => BibleTranslationDialog(
-        mode: BibleTranslationDialogMode.primary,
-        currentPrimary: _primaryTranslation,
-        currentCompare: _compareTranslation,
-      ),
-    );
-
-    if (result != null && mounted) {
-      setState(() {
-        _primaryTranslation = result;
-        if (_compareTranslation == result) {
-          _compareTranslation = 'none';
+  Future<void> _showTranslationSelectorDialog(
+    BibleTranslationTarget target,
+  ) async {
+    await BibleTranslationSelectorDialog.show(
+      context,
+      currentPrimaryCode: _primaryTranslation,
+      currentCompareCode: _compareTranslation == 'none'
+          ? null
+          : _compareTranslation,
+      initialTarget: target,
+      onPrimarySelected: (newPrimary) async {
+        setState(() {
+          _primaryTranslation = newPrimary;
+          if (_compareTranslation == newPrimary) {
+            _compareTranslation = 'none';
+          }
+          _settings?.primaryBibleTranslation = _primaryTranslation;
+          _settings?.compareBibleTranslation = _compareTranslation;
+        });
+        if (_settings != null) {
+          await PrayerDatabase.saveSettings(_settings!);
         }
-        _settings?.primaryBibleTranslation = _primaryTranslation;
-        _settings?.compareBibleTranslation = _compareTranslation;
-      });
-      if (_settings != null) {
-        await PrayerDatabase.saveSettings(_settings!);
-      }
-    }
+      },
+      onCompareSelected: (newCompare) async {
+        setState(() {
+          _compareTranslation = newCompare ?? 'none';
+          if (_primaryTranslation == newCompare) {
+            final options = ['CPDV', 'DRC', 'JUN', 'TAM', 'VUL', 'LXX', 'ORIG'];
+            _primaryTranslation = options.firstWhere((o) => o != newCompare);
+          }
+          _settings?.primaryBibleTranslation = _primaryTranslation;
+          _settings?.compareBibleTranslation = _compareTranslation;
+        });
+        if (_settings != null) {
+          await PrayerDatabase.saveSettings(_settings!);
+        }
+      },
+    );
   }
 
-  Future<void> _showCompareDialog(ThemeData theme) async {
-    final result = await showDialog<String>(
-      context: context,
-      builder: (context) => BibleTranslationDialog(
-        mode: BibleTranslationDialogMode.compare,
-        currentPrimary: _primaryTranslation,
-        currentCompare: _compareTranslation,
-      ),
-    );
-
-    if (result != null && mounted) {
-      setState(() {
-        _compareTranslation = result;
-        if (_primaryTranslation == result) {
-          final options = ['CPDV', 'DRC', 'JUN', 'TAM', 'VUL', 'LXX', 'ORIG'];
-          _primaryTranslation = options.firstWhere((o) => o != result);
-        }
-        _settings?.primaryBibleTranslation = _primaryTranslation;
-        _settings?.compareBibleTranslation = _compareTranslation;
-      });
-      if (_settings != null) {
-        await PrayerDatabase.saveSettings(_settings!);
+  void toggleTranslationSelectors() {
+    setState(() {
+      _showTranslationSelectors = !_showTranslationSelectors;
+      if (_showTranslationSelectors) {
+        _translationSelectorAnimationController.forward();
+      } else {
+        _translationSelectorAnimationController.reverse();
       }
-    }
+    });
   }
 
   @override
