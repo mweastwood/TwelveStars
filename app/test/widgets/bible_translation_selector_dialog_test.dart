@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:twelve_stars/logic/bible_translation_info.dart';
 import 'package:twelve_stars/widgets/bible_translation_selector_dialog.dart';
 
@@ -87,5 +88,161 @@ void main() {
         );
       },
     );
+
+    // --- GOLDEN TESTS ---
+
+    testGoldens(
+      'renders BibleTranslationSelectorDialog in Primary mode (Light Theme)',
+      (tester) async {
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: BibleTranslationSelectorDialog(
+              currentPrimaryCode: 'CPDV',
+              currentCompareCode: 'DRC',
+              initialTarget: BibleTranslationTarget.primary,
+              onPrimarySelected: (_) {},
+              onCompareSelected: (_) {},
+            ),
+          ),
+          wrapper: materialAppWrapper(
+            theme: ThemeData.light(useMaterial3: true),
+          ),
+          surfaceSize: const Size(600, 800),
+        );
+        await tester.pumpAndSettle();
+        await screenMatchesGolden(
+          tester,
+          'bible_translation_dialog_primary_light',
+        );
+      },
+    );
+
+    testGoldens(
+      'renders BibleTranslationSelectorDialog in Primary mode (Dark Theme)',
+      (tester) async {
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: BibleTranslationSelectorDialog(
+              currentPrimaryCode: 'CPDV',
+              currentCompareCode: 'DRC',
+              initialTarget: BibleTranslationTarget.primary,
+              onPrimarySelected: (_) {},
+              onCompareSelected: (_) {},
+            ),
+          ),
+          wrapper: materialAppWrapper(
+            theme: ThemeData.dark(useMaterial3: true),
+          ),
+          surfaceSize: const Size(600, 800),
+        );
+        await tester.pumpAndSettle();
+        await screenMatchesGolden(
+          tester,
+          'bible_translation_dialog_primary_dark',
+        );
+      },
+    );
+
+    testGoldens(
+      'renders BibleTranslationSelectorDialog in Secondary mode (Light Theme)',
+      (tester) async {
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: BibleTranslationSelectorDialog(
+              currentPrimaryCode: 'CPDV',
+              currentCompareCode: 'DRC',
+              initialTarget: BibleTranslationTarget.compare,
+              onPrimarySelected: (_) {},
+              onCompareSelected: (_) {},
+            ),
+          ),
+          wrapper: materialAppWrapper(
+            theme: ThemeData.light(useMaterial3: true),
+          ),
+          surfaceSize: const Size(600, 800),
+        );
+        await tester.pumpAndSettle();
+        await screenMatchesGolden(
+          tester,
+          'bible_translation_dialog_secondary_light',
+        );
+      },
+    );
+
+    testGoldens(
+      'renders BibleTranslationSelectorDialog with single translation active (No Secondary)',
+      (tester) async {
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: BibleTranslationSelectorDialog(
+              currentPrimaryCode: 'DRC',
+              currentCompareCode: null,
+              initialTarget: BibleTranslationTarget.primary,
+              onPrimarySelected: (_) {},
+              onCompareSelected: (_) {},
+            ),
+          ),
+          wrapper: materialAppWrapper(
+            theme: ThemeData.light(useMaterial3: true),
+          ),
+          surfaceSize: const Size(600, 800),
+        );
+        await tester.pumpAndSettle();
+        await screenMatchesGolden(
+          tester,
+          'bible_translation_dialog_single_active',
+        );
+      },
+    );
+
+    testGoldens('renders BibleTranslationSelectorDialog with filters applied', (
+      tester,
+    ) async {
+      await tester.pumpWidgetBuilder(
+        Scaffold(
+          body: BibleTranslationSelectorDialog(
+            currentPrimaryCode: 'CPDV',
+            currentCompareCode: 'DRC',
+            initialTarget: BibleTranslationTarget.primary,
+            onPrimarySelected: (_) {},
+            onCompareSelected: (_) {},
+          ),
+        ),
+        wrapper: materialAppWrapper(theme: ThemeData.light(useMaterial3: true)),
+        surfaceSize: const Size(600, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.widgetWithText(FilterChip, 'Spanish'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.widgetWithText(FilterChip, 'Imprimatur'));
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'bible_translation_dialog_filtered');
+    });
+
+    testGoldens('renders BibleTranslationSelectorDialog search query state', (
+      tester,
+    ) async {
+      await tester.pumpWidgetBuilder(
+        Scaffold(
+          body: BibleTranslationSelectorDialog(
+            currentPrimaryCode: 'CPDV',
+            currentCompareCode: 'DRC',
+            initialTarget: BibleTranslationTarget.primary,
+            onPrimarySelected: (_) {},
+            onCompareSelected: (_) {},
+          ),
+        ),
+        wrapper: materialAppWrapper(theme: ThemeData.light(useMaterial3: true)),
+        surfaceSize: const Size(600, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.enterText(find.byType(TextField), 'Clementine');
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'bible_translation_dialog_search');
+    });
   });
 }
