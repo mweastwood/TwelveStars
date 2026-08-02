@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/screens/missal_tab.dart';
+import 'package:twelve_stars/widgets/mass_reading_card.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:drift/native.dart';
@@ -535,5 +536,87 @@ void main() {
 
       expect(find.text('Sunday, July 5, 2026'), findsOneWidget);
     });
+
+    testWidgets(
+      'MissalTab readings do not reset to loading spinner on parent rebuild',
+      (tester) async {
+        final fixedDate = DateTime(2026, 7, 2);
+        TimeHelper.setCustomTime(fixedDate);
+
+        bool stateFlag = false;
+
+        await tester.pumpWidget(
+          StatefulBuilder(
+            builder: (context, setState) {
+              return buildTestableWidget(
+                child: Scaffold(
+                  body: Column(
+                    children: [
+                      ElevatedButton(
+                        onPressed: () => setState(() => stateFlag = !stateFlag),
+                        child: Text('Rebuild Parent: $stateFlag'),
+                      ),
+                      Expanded(
+                        child: MissalTab(
+                          primaryLanguage: PrayerLanguage.english,
+                          compareLanguage: PrayerLanguage.latin,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('LITURGY OF THE WORD'), findsOneWidget);
+        expect(find.byType(CircularProgressIndicator), findsNothing);
+
+        // Trigger parent rebuild (simulating translation selector toggle)
+        await tester.tap(find.textContaining('Rebuild Parent'));
+        await tester.pump(); // Single frame pump
+
+        // Verify that FutureBuilder did NOT reset to CircularProgressIndicator
+        expect(find.byType(CircularProgressIndicator), findsNothing);
+        expect(find.text('LITURGY OF THE WORD'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'MassReadingCard uses Text.rich to inherit ambient font size and text scaling',
+      (tester) async {
+        final sampleReading = LectionaryReading(
+          id: 1,
+          readingKey: '2026-07-02',
+          readingType: 'first',
+          citation: 'Gen 1:1-5',
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          verseRange: '1-5',
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: MassReadingCard(reading: sampleReading, fontSize: 22.0),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final textRichWidget = tester.widget<Text>(
+          find.byWidgetPredicate(
+            (w) =>
+                w is Text &&
+                w.textSpan != null &&
+                w.textSpan!.style?.fontSize == 22.0,
+          ),
+        );
+        expect(textRichWidget.textSpan?.style?.fontSize, equals(22.0));
+      },
+    );
   });
 }

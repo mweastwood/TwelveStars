@@ -43,6 +43,17 @@ class _MissalTabState extends State<MissalTab> {
   PrayerLanguage? _compareLanguage;
   bool _showNiceneCreed = true;
 
+  Future<List<LectionaryReading>>? _readingsFuture;
+  String? _cachedLectionaryKey;
+
+  Future<List<LectionaryReading>> _getReadingsForDay(String lectionaryKey) {
+    if (_readingsFuture == null || _cachedLectionaryKey != lectionaryKey) {
+      _cachedLectionaryKey = lectionaryKey;
+      _readingsFuture = BibleDatabaseHelper.db.getReadings(lectionaryKey);
+    }
+    return _readingsFuture!;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -625,9 +636,7 @@ class _MissalTabState extends State<MissalTab> {
               // 5. Liturgy of the Word Section
               _buildSectionHeader('LITURGY OF THE WORD', theme),
               FutureBuilder<List<LectionaryReading>>(
-                future: BibleDatabaseHelper.db.getReadings(
-                  currentDay.lectionaryKey,
-                ),
+                future: _getReadingsForDay(currentDay.lectionaryKey),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const Padding(
