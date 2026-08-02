@@ -1,5 +1,8 @@
 import 'reader_models.dart';
 
+/// Abstract interface defining the data provider contract for the Unified Reader Framework.
+/// Serves as the foundation connecting Reader views with specific content sources
+/// (e.g., [BibleReaderAdapter] for Scripture and [LibraryReaderAdapter] for catechisms/documents).
 abstract class ReaderAdapter {
   Future<ReaderDocument> loadDocument();
   Future<ReaderSection> loadSection(
