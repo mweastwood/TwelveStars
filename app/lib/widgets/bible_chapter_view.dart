@@ -141,7 +141,10 @@ class _BibleChapterViewState extends State<BibleChapterView>
       _temporaryHighlightEnd = widget.highlightEndVerse;
 
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        final key = _verseKeys[widget.scrollToVerse];
+        final targetVerse = _verses
+            .where((v) => v.verseNumber == widget.scrollToVerse)
+            .firstOrNull;
+        final key = targetVerse != null ? _verseKeys[targetVerse.id] : null;
         if (key != null && key.currentContext != null) {
           Scrollable.ensureVisible(
             key.currentContext!,
@@ -412,7 +415,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
               const Divider(height: 24),
               ..._verses.map((verse) {
                 final isSelected = _isVerseSelected(verse.verseNumber);
-                _verseKeys.putIfAbsent(verse.verseNumber, () => GlobalKey());
+                _verseKeys.putIfAbsent(verse.id, () => GlobalKey());
 
                 final verseCitations = ReverseCitationService.getVerseCitations(
                   widget.book.bookNumber,
@@ -431,7 +434,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                 }
 
                 return GestureDetector(
-                  key: _verseKeys[verse.verseNumber],
+                  key: _verseKeys[verse.id],
                   onLongPress: () => _onVerseLongPress(verse.verseNumber),
                   onTap: () => _onVerseTap(verse.verseNumber),
                   behavior: HitTestBehavior.opaque,
