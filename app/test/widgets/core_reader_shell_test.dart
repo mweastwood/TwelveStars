@@ -54,6 +54,17 @@ class MockReaderAdapter implements ReaderAdapter {
   Future<List<ReaderBookmark>> loadBookmarks() async {
     return [];
   }
+
+  @override
+  Future<void> saveComment(ReaderComment comment) async {}
+
+  @override
+  Future<List<ReaderComment>> loadComments({String? nodeId}) async {
+    return [];
+  }
+
+  @override
+  Future<void> deleteComment(String commentId) async {}
 }
 
 void main() {

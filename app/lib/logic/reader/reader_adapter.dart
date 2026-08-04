@@ -12,4 +12,7 @@ abstract class ReaderAdapter {
   });
   Future<void> saveBookmark(ReaderBookmark bookmark);
   Future<List<ReaderBookmark>> loadBookmarks();
+  Future<void> saveComment(ReaderComment comment) async {}
+  Future<List<ReaderComment>> loadComments({String? nodeId}) async => [];
+  Future<void> deleteComment(String commentId) async {}
 }

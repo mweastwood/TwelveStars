@@ -1,3 +1,4 @@
+import 'package:drift/drift.dart' show Value;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 
@@ -123,5 +124,48 @@ class BibleReaderAdapter implements ReaderAdapter {
           ),
         )
         .toList();
+  }
+
+  @override
+  Future<void> saveComment(ReaderComment comment) async {
+    await dbHelper.saveComment(
+      UserCommentsCompanion.insert(
+        documentId: comment.documentId,
+        sectionIndex: comment.sectionIndex,
+        nodeId: comment.nodeId,
+        commentText: comment.text,
+        textPreview: Value(comment.textPreview),
+        createdAt: comment.timestamp,
+      ),
+    );
+  }
+
+  @override
+  Future<List<ReaderComment>> loadComments({String? nodeId}) async {
+    final list = await dbHelper.getComments(
+      documentId: bibleBook.abbrev,
+      nodeId: nodeId,
+    );
+    return list
+        .map(
+          (c) => ReaderComment(
+            id: '${c.id}',
+            documentId: c.documentId,
+            sectionIndex: c.sectionIndex,
+            nodeId: c.nodeId,
+            text: c.commentText,
+            textPreview: c.textPreview,
+            timestamp: c.createdAt,
+          ),
+        )
+        .toList();
+  }
+
+  @override
+  Future<void> deleteComment(String commentId) async {
+    final id = int.tryParse(commentId);
+    if (id != null) {
+      await dbHelper.deleteComment(id);
+    }
   }
 }
