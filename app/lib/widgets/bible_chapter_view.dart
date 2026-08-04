@@ -12,6 +12,8 @@ class BibleChapterView extends StatefulWidget {
   final int chapter;
   final String primaryTranslation;
   final String compareTranslation;
+  final Animation<double>? translationSelectorAnimation;
+  final ScrollController? scrollController;
   final int? scrollToVerse;
   final int? highlightStartVerse;
   final int? highlightEndVerse;
@@ -24,6 +26,8 @@ class BibleChapterView extends StatefulWidget {
     required this.chapter,
     required this.primaryTranslation,
     required this.compareTranslation,
+    this.translationSelectorAnimation,
+    this.scrollController,
     this.scrollToVerse,
     this.highlightStartVerse,
     this.highlightEndVerse,
@@ -141,7 +145,10 @@ class _BibleChapterViewState extends State<BibleChapterView>
       _temporaryHighlightEnd = widget.highlightEndVerse;
 
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        final key = _verseKeys[widget.scrollToVerse];
+        final targetVerse = _verses
+            .where((v) => v.verseNumber == widget.scrollToVerse)
+            .firstOrNull;
+        final key = targetVerse != null ? _verseKeys[targetVerse.id] : null;
         if (key != null && key.currentContext != null) {
           Scrollable.ensureVisible(
             key.currentContext!,
@@ -354,6 +361,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
     return Stack(
       children: [
         SingleChildScrollView(
+          controller: widget.scrollController,
           padding: const EdgeInsets.fromLTRB(
             16.0,
             16.0,
@@ -363,6 +371,12 @@ class _BibleChapterViewState extends State<BibleChapterView>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              if (widget.translationSelectorAnimation != null)
+                SizeTransition(
+                  sizeFactor: widget.translationSelectorAnimation!,
+                  alignment: Alignment.topCenter,
+                  child: const SizedBox(height: 72.0),
+                ),
               Text(
                 '${widget.book.bookName} ${widget.chapter}',
                 style: theme.textTheme.headlineMedium?.copyWith(
@@ -412,7 +426,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
               const Divider(height: 24),
               ..._verses.map((verse) {
                 final isSelected = _isVerseSelected(verse.verseNumber);
-                _verseKeys.putIfAbsent(verse.verseNumber, () => GlobalKey());
+                _verseKeys.putIfAbsent(verse.id, () => GlobalKey());
 
                 final verseCitations = ReverseCitationService.getVerseCitations(
                   widget.book.bookNumber,
@@ -431,7 +445,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                 }
 
                 return GestureDetector(
-                  key: _verseKeys[verse.verseNumber],
+                  key: _verseKeys[verse.id],
                   onLongPress: () => _onVerseLongPress(verse.verseNumber),
                   onTap: () => _onVerseTap(verse.verseNumber),
                   behavior: HitTestBehavior.opaque,

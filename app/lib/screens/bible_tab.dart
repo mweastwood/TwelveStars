@@ -52,6 +52,38 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   late final AnimationController _translationSelectorAnimationController;
   late final CurvedAnimation _translationSelectorAnimation;
 
+  static const double _kTranslationSelectorTopSpacerHeight = 72.0;
+  final Map<int, ScrollController> _chapterScrollControllers = {};
+  double _initialScrollOffset = 0.0;
+  bool _wasScrolledDown = false;
+
+  ScrollController _getScrollController(int index) {
+    return _chapterScrollControllers.putIfAbsent(
+      index,
+      () => ScrollController(),
+    );
+  }
+
+  ScrollController? get _currentChapterScrollController {
+    return _chapterScrollControllers[_currentPageIndex];
+  }
+
+  void _onTranslationSelectorAnimationTick() {
+    final controller = _currentChapterScrollController;
+    if (!_wasScrolledDown || controller == null || !controller.hasClients) {
+      return;
+    }
+
+    final targetOffset =
+        _initialScrollOffset +
+        (_kTranslationSelectorTopSpacerHeight *
+            _translationSelectorAnimation.value);
+    final maxExtent =
+        controller.position.maxScrollExtent +
+        _kTranslationSelectorTopSpacerHeight;
+    controller.jumpTo(targetOffset.clamp(0.0, maxExtent));
+  }
+
   // Navigation target for favorite scrolling/highlighting
   int? _targetBookNumber;
   int? _targetChapter;
@@ -62,6 +94,12 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
 
   @override
   void dispose() {
+    _translationSelectorAnimationController.removeListener(
+      _onTranslationSelectorAnimationTick,
+    );
+    for (final controller in _chapterScrollControllers.values) {
+      controller.dispose();
+    }
     _translationSelectorAnimationController.dispose();
     _panelController.dispose();
     _pageController.dispose();
@@ -76,6 +114,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       vsync: this,
       duration: const Duration(milliseconds: 300),
       value: _showTranslationSelectors ? 1.0 : 0.0,
+    );
+    _translationSelectorAnimationController.addListener(
+      _onTranslationSelectorAnimationTick,
     );
     _translationSelectorAnimation = CurvedAnimation(
       parent: _translationSelectorAnimationController,
@@ -315,6 +356,16 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   }
 
   void toggleTranslationSelectors() {
+    final controller = _currentChapterScrollController;
+    final offset = controller != null && controller.hasClients
+        ? controller.offset
+        : 0.0;
+    _wasScrolledDown = offset > 5.0;
+    _initialScrollOffset =
+        offset -
+        (_kTranslationSelectorTopSpacerHeight *
+            _translationSelectorAnimation.value);
+
     setState(() {
       _showTranslationSelectors = !_showTranslationSelectors;
       if (_showTranslationSelectors) {
@@ -390,309 +441,295 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     final currentRef = _allChapters[_currentPageIndex];
 
     return Scaffold(
-      body: Column(
+      body: Stack(
         children: [
-          _buildTranslationSelectors(theme),
-          Expanded(
-            child: Stack(
-              children: [
-                // 1. Main PageView containing the chapters
-                PageView.builder(
-                  controller: _pageController,
-                  itemCount: _allChapters.length,
-                  onPageChanged: (index) {
-                    setState(() {
-                      _currentPageIndex = index;
-                    });
-                  },
-                  itemBuilder: (context, index) {
-                    final ref = _allChapters[index];
-                    final isTarget =
-                        _targetBookNumber == ref.book.bookNumber &&
-                        _targetChapter == ref.chapter;
-                    return BibleChapterView(
-                      book: ref.book,
-                      chapter: ref.chapter,
-                      primaryTranslation: _primaryTranslation,
-                      compareTranslation: _compareTranslation,
-                      scrollToVerse: isTarget ? _scrollToVerse : null,
-                      highlightStartVerse: isTarget
-                          ? _highlightStartVerse
-                          : null,
-                      highlightEndVerse: isTarget ? _highlightEndVerse : null,
-                      navigationSessionId: isTarget
-                          ? _navigationSessionId
-                          : null,
-                      onFavoriteSaved: _loadFavorites,
-                    );
-                  },
-                ),
+          // 1. Main PageView containing the chapters
+          PageView.builder(
+            controller: _pageController,
+            itemCount: _allChapters.length,
+            onPageChanged: (index) {
+              setState(() {
+                _currentPageIndex = index;
+              });
+            },
+            itemBuilder: (context, index) {
+              final ref = _allChapters[index];
+              final isTarget =
+                  _targetBookNumber == ref.book.bookNumber &&
+                  _targetChapter == ref.chapter;
+              return BibleChapterView(
+                book: ref.book,
+                chapter: ref.chapter,
+                primaryTranslation: _primaryTranslation,
+                compareTranslation: _compareTranslation,
+                translationSelectorAnimation: _translationSelectorAnimation,
+                scrollController: _getScrollController(index),
+                scrollToVerse: isTarget ? _scrollToVerse : null,
+                highlightStartVerse: isTarget ? _highlightStartVerse : null,
+                highlightEndVerse: isTarget ? _highlightEndVerse : null,
+                navigationSessionId: isTarget ? _navigationSessionId : null,
+                onFavoriteSaved: _loadFavorites,
+              );
+            },
+          ),
 
-                // 2. Backdrop Barrier to collapse sheet on tap
-                if (_isPanelExpanded)
-                  Positioned.fill(
-                    child: GestureDetector(
-                      onTap: _collapsePanel,
-                      child: Container(color: Colors.black26),
+          // 2. Floating Translation Selector
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: _buildTranslationSelectors(theme),
+          ),
+
+          // 3. Backdrop Barrier to collapse sheet on tap
+          if (_isPanelExpanded)
+            Positioned.fill(
+              child: GestureDetector(
+                onTap: _collapsePanel,
+                child: Container(color: Colors.black26),
+              ),
+            ),
+
+          // 3. Persistent Peeking Bottom Panel
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: AnimatedBuilder(
+              animation: _panelHeightAnimation,
+              builder: (context, child) {
+                return Container(
+                  height: _panelHeightAnimation.value,
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.surface,
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(28.0),
+                    ),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 10.0,
+                        spreadRadius: 2.0,
+                      ),
+                    ],
+                  ),
+                  child: child,
+                );
+              },
+              child: Column(
+                children: [
+                  // Drag Handle & Location Header
+                  GestureDetector(
+                    onVerticalDragUpdate: _onVerticalDragUpdate,
+                    onVerticalDragEnd: _onVerticalDragEnd,
+                    onTap: _togglePanel,
+                    behavior: HitTestBehavior.translucent,
+                    child: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.only(top: 12.0, bottom: 16.0),
+                      child: Column(
+                        children: [
+                          // Drag Handle Pill
+                          Container(
+                            width: 36,
+                            height: 5,
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.onSurfaceVariant
+                                  .withAlpha(102),
+                              borderRadius: BorderRadius.circular(2.5),
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          // Current location title
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                '${currentRef.book.bookName} ${currentRef.chapter}',
+                                style: theme.textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.primary,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Icon(
+                                _isPanelExpanded
+                                    ? Icons.keyboard_arrow_down
+                                    : Icons.keyboard_arrow_up,
+                                color: theme.colorScheme.primary,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
 
-                // 3. Persistent Peeking Bottom Panel
-                Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  child: AnimatedBuilder(
-                    animation: _panelHeightAnimation,
-                    builder: (context, child) {
-                      return Container(
-                        height: _panelHeightAnimation.value,
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.surface,
-                          borderRadius: const BorderRadius.vertical(
-                            top: Radius.circular(28.0),
-                          ),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: 10.0,
-                              spreadRadius: 2.0,
-                            ),
-                          ],
-                        ),
-                        child: child,
-                      );
-                    },
-                    child: Column(
-                      children: [
-                        // Drag Handle & Location Header
-                        GestureDetector(
-                          onVerticalDragUpdate: _onVerticalDragUpdate,
-                          onVerticalDragEnd: _onVerticalDragEnd,
-                          onTap: _togglePanel,
-                          behavior: HitTestBehavior.translucent,
-                          child: Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.only(
-                              top: 12.0,
-                              bottom: 16.0,
-                            ),
-                            child: Column(
-                              children: [
-                                // Drag Handle Pill
-                                Container(
-                                  width: 36,
-                                  height: 5,
-                                  decoration: BoxDecoration(
-                                    color: theme.colorScheme.onSurfaceVariant
-                                        .withAlpha(102),
-                                    borderRadius: BorderRadius.circular(2.5),
-                                  ),
-                                ),
-                                const SizedBox(height: 12),
-                                // Current location title
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                  // Tab Bar and Tab Views
+                  if (_isPanelExpanded)
+                    Expanded(
+                      child: AnimatedBuilder(
+                        animation: _panelHeightAnimation,
+                        builder: (context, _) {
+                          if (_panelHeightAnimation.value <= 150.0) {
+                            return const SizedBox.shrink();
+                          }
+                          return Column(
+                            children: [
+                              TabBar(
+                                controller: _sheetTabController,
+                                tabs: const [
+                                  Tab(text: 'Books'),
+                                  Tab(text: 'Chapters'),
+                                  Tab(text: 'Favorites'),
+                                ],
+                              ),
+                              Expanded(
+                                child: TabBarView(
+                                  controller: _sheetTabController,
                                   children: [
-                                    Text(
-                                      '${currentRef.book.bookName} ${currentRef.chapter}',
-                                      style: theme.textTheme.titleMedium
-                                          ?.copyWith(
-                                            fontWeight: FontWeight.bold,
-                                            color: theme.colorScheme.primary,
-                                          ),
-                                    ),
-                                    const SizedBox(width: 8),
-                                    Icon(
-                                      _isPanelExpanded
-                                          ? Icons.keyboard_arrow_down
-                                          : Icons.keyboard_arrow_up,
-                                      color: theme.colorScheme.primary,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-
-                        // Tab Bar and Tab Views
-                        if (_isPanelExpanded)
-                          Expanded(
-                            child: AnimatedBuilder(
-                              animation: _panelHeightAnimation,
-                              builder: (context, _) {
-                                if (_panelHeightAnimation.value <= 150.0) {
-                                  return const SizedBox.shrink();
-                                }
-                                return Column(
-                                  children: [
-                                    TabBar(
-                                      controller: _sheetTabController,
-                                      tabs: const [
-                                        Tab(text: 'Books'),
-                                        Tab(text: 'Chapters'),
-                                        Tab(text: 'Favorites'),
+                                    // Tab 1: Book List grouped by Category
+                                    ListView(
+                                      padding: const EdgeInsets.all(16.0),
+                                      children: [
+                                        _buildBookGroup(
+                                          'Pentateuch',
+                                          catholicBooks
+                                              .where(
+                                                (b) =>
+                                                    b.category == 'Pentateuch',
+                                              )
+                                              .toList(),
+                                        ),
+                                        _buildBookGroup(
+                                          'Historical Books',
+                                          catholicBooks
+                                              .where(
+                                                (b) =>
+                                                    b.category ==
+                                                    'Historical Books',
+                                              )
+                                              .toList(),
+                                        ),
+                                        _buildBookGroup(
+                                          'Wisdom Books',
+                                          catholicBooks
+                                              .where(
+                                                (b) =>
+                                                    b.category ==
+                                                    'Wisdom Books',
+                                              )
+                                              .toList(),
+                                        ),
+                                        _buildBookGroup(
+                                          'Prophets',
+                                          catholicBooks
+                                              .where(
+                                                (b) => b.category == 'Prophets',
+                                              )
+                                              .toList(),
+                                        ),
+                                        _buildBookGroup(
+                                          'Gospels & Acts',
+                                          catholicBooks
+                                              .where(
+                                                (b) =>
+                                                    b.category ==
+                                                    'Gospels & Acts',
+                                              )
+                                              .toList(),
+                                        ),
+                                        _buildBookGroup(
+                                          'Epistles',
+                                          catholicBooks
+                                              .where(
+                                                (b) => b.category == 'Epistles',
+                                              )
+                                              .toList(),
+                                        ),
+                                        _buildBookGroup(
+                                          'Prophecy',
+                                          catholicBooks
+                                              .where(
+                                                (b) => b.category == 'Prophecy',
+                                              )
+                                              .toList(),
+                                        ),
                                       ],
                                     ),
-                                    Expanded(
-                                      child: TabBarView(
-                                        controller: _sheetTabController,
-                                        children: [
-                                          // Tab 1: Book List grouped by Category
-                                          ListView(
-                                            padding: const EdgeInsets.all(16.0),
-                                            children: [
-                                              _buildBookGroup(
-                                                'Pentateuch',
-                                                catholicBooks
-                                                    .where(
-                                                      (b) =>
-                                                          b.category ==
-                                                          'Pentateuch',
-                                                    )
-                                                    .toList(),
-                                              ),
-                                              _buildBookGroup(
-                                                'Historical Books',
-                                                catholicBooks
-                                                    .where(
-                                                      (b) =>
-                                                          b.category ==
-                                                          'Historical Books',
-                                                    )
-                                                    .toList(),
-                                              ),
-                                              _buildBookGroup(
-                                                'Wisdom Books',
-                                                catholicBooks
-                                                    .where(
-                                                      (b) =>
-                                                          b.category ==
-                                                          'Wisdom Books',
-                                                    )
-                                                    .toList(),
-                                              ),
-                                              _buildBookGroup(
-                                                'Prophets',
-                                                catholicBooks
-                                                    .where(
-                                                      (b) =>
-                                                          b.category ==
-                                                          'Prophets',
-                                                    )
-                                                    .toList(),
-                                              ),
-                                              _buildBookGroup(
-                                                'Gospels & Acts',
-                                                catholicBooks
-                                                    .where(
-                                                      (b) =>
-                                                          b.category ==
-                                                          'Gospels & Acts',
-                                                    )
-                                                    .toList(),
-                                              ),
-                                              _buildBookGroup(
-                                                'Epistles',
-                                                catholicBooks
-                                                    .where(
-                                                      (b) =>
-                                                          b.category ==
-                                                          'Epistles',
-                                                    )
-                                                    .toList(),
-                                              ),
-                                              _buildBookGroup(
-                                                'Prophecy',
-                                                catholicBooks
-                                                    .where(
-                                                      (b) =>
-                                                          b.category ==
-                                                          'Prophecy',
-                                                    )
-                                                    .toList(),
-                                              ),
-                                            ],
-                                          ),
 
-                                          // Tab 2: Chapter Grid
-                                          GridView.builder(
-                                            padding: const EdgeInsets.all(16.0),
-                                            gridDelegate:
-                                                const SliverGridDelegateWithFixedCrossAxisCount(
-                                                  crossAxisCount: 6,
-                                                  mainAxisSpacing: 12.0,
-                                                  crossAxisSpacing: 12.0,
-                                                ),
-                                            itemCount: _selectedBookForPicker
-                                                .chaptersCount,
-                                            itemBuilder: (context, index) {
-                                              final chapterNum = index + 1;
-                                              return InkWell(
-                                                onTap: () {
-                                                  final pageIndex = _allChapters
-                                                      .indexWhere(
-                                                        (ref) =>
-                                                            ref.book.bookNumber ==
-                                                                _selectedBookForPicker
-                                                                    .bookNumber &&
-                                                            ref.chapter ==
-                                                                chapterNum,
-                                                      );
-                                                  if (pageIndex != -1) {
-                                                    _pageController.jumpToPage(
-                                                      pageIndex,
-                                                    );
-                                                    _collapsePanel();
-                                                  }
-                                                },
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                      color: theme
-                                                          .colorScheme
-                                                          .outlineVariant,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                          8.0,
-                                                        ),
-                                                  ),
-                                                  child: Center(
-                                                    child: Text(
-                                                      '$chapterNum',
-                                                      style: theme
-                                                          .textTheme
-                                                          .bodyMedium
-                                                          ?.copyWith(
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                ),
+                                    // Tab 2: Chapter Grid
+                                    GridView.builder(
+                                      padding: const EdgeInsets.all(16.0),
+                                      gridDelegate:
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                            crossAxisCount: 6,
+                                            mainAxisSpacing: 12.0,
+                                            crossAxisSpacing: 12.0,
+                                          ),
+                                      itemCount:
+                                          _selectedBookForPicker.chaptersCount,
+                                      itemBuilder: (context, index) {
+                                        final chapterNum = index + 1;
+                                        return InkWell(
+                                          onTap: () {
+                                            final pageIndex = _allChapters
+                                                .indexWhere(
+                                                  (ref) =>
+                                                      ref.book.bookNumber ==
+                                                          _selectedBookForPicker
+                                                              .bookNumber &&
+                                                      ref.chapter == chapterNum,
+                                                );
+                                            if (pageIndex != -1) {
+                                              _pageController.jumpToPage(
+                                                pageIndex,
                                               );
-                                            },
+                                              _collapsePanel();
+                                            }
+                                          },
+                                          borderRadius: BorderRadius.circular(
+                                            8.0,
                                           ),
-
-                                          // Tab 3: Favorites List
-                                          _buildFavoritesTab(theme),
-                                        ],
-                                      ),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: theme
+                                                    .colorScheme
+                                                    .outlineVariant,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                '$chapterNum',
+                                                style: theme
+                                                    .textTheme
+                                                    .bodyMedium
+                                                    ?.copyWith(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
                                     ),
+
+                                    // Tab 3: Favorites List
+                                    _buildFavoritesTab(theme),
                                   ],
-                                );
-                              },
-                            ),
-                          ),
-                      ],
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
