@@ -52,6 +52,38 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   late final AnimationController _translationSelectorAnimationController;
   late final CurvedAnimation _translationSelectorAnimation;
 
+  static const double _kTranslationSelectorTopSpacerHeight = 72.0;
+  final Map<int, ScrollController> _chapterScrollControllers = {};
+  double _initialScrollOffset = 0.0;
+  bool _wasScrolledDown = false;
+
+  ScrollController _getScrollController(int index) {
+    return _chapterScrollControllers.putIfAbsent(
+      index,
+      () => ScrollController(),
+    );
+  }
+
+  ScrollController? get _currentChapterScrollController {
+    return _chapterScrollControllers[_currentPageIndex];
+  }
+
+  void _onTranslationSelectorAnimationTick() {
+    final controller = _currentChapterScrollController;
+    if (!_wasScrolledDown || controller == null || !controller.hasClients) {
+      return;
+    }
+
+    final targetOffset =
+        _initialScrollOffset +
+        (_kTranslationSelectorTopSpacerHeight *
+            _translationSelectorAnimation.value);
+    final maxExtent =
+        controller.position.maxScrollExtent +
+        _kTranslationSelectorTopSpacerHeight;
+    controller.jumpTo(targetOffset.clamp(0.0, maxExtent));
+  }
+
   // Navigation target for favorite scrolling/highlighting
   int? _targetBookNumber;
   int? _targetChapter;
@@ -62,6 +94,12 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
 
   @override
   void dispose() {
+    _translationSelectorAnimationController.removeListener(
+      _onTranslationSelectorAnimationTick,
+    );
+    for (final controller in _chapterScrollControllers.values) {
+      controller.dispose();
+    }
     _translationSelectorAnimationController.dispose();
     _panelController.dispose();
     _pageController.dispose();
@@ -76,6 +114,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       vsync: this,
       duration: const Duration(milliseconds: 300),
       value: _showTranslationSelectors ? 1.0 : 0.0,
+    );
+    _translationSelectorAnimationController.addListener(
+      _onTranslationSelectorAnimationTick,
     );
     _translationSelectorAnimation = CurvedAnimation(
       parent: _translationSelectorAnimationController,
@@ -315,6 +356,16 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   }
 
   void toggleTranslationSelectors() {
+    final controller = _currentChapterScrollController;
+    final offset = controller != null && controller.hasClients
+        ? controller.offset
+        : 0.0;
+    _wasScrolledDown = offset > 5.0;
+    _initialScrollOffset =
+        offset -
+        (_kTranslationSelectorTopSpacerHeight *
+            _translationSelectorAnimation.value);
+
     setState(() {
       _showTranslationSelectors = !_showTranslationSelectors;
       if (_showTranslationSelectors) {
@@ -411,6 +462,8 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                 chapter: ref.chapter,
                 primaryTranslation: _primaryTranslation,
                 compareTranslation: _compareTranslation,
+                translationSelectorAnimation: _translationSelectorAnimation,
+                scrollController: _getScrollController(index),
                 scrollToVerse: isTarget ? _scrollToVerse : null,
                 highlightStartVerse: isTarget ? _highlightStartVerse : null,
                 highlightEndVerse: isTarget ? _highlightEndVerse : null,

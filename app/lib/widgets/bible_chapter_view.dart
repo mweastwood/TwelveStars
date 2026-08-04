@@ -12,6 +12,8 @@ class BibleChapterView extends StatefulWidget {
   final int chapter;
   final String primaryTranslation;
   final String compareTranslation;
+  final Animation<double>? translationSelectorAnimation;
+  final ScrollController? scrollController;
   final int? scrollToVerse;
   final int? highlightStartVerse;
   final int? highlightEndVerse;
@@ -24,6 +26,8 @@ class BibleChapterView extends StatefulWidget {
     required this.chapter,
     required this.primaryTranslation,
     required this.compareTranslation,
+    this.translationSelectorAnimation,
+    this.scrollController,
     this.scrollToVerse,
     this.highlightStartVerse,
     this.highlightEndVerse,
@@ -357,6 +361,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
     return Stack(
       children: [
         SingleChildScrollView(
+          controller: widget.scrollController,
           padding: const EdgeInsets.fromLTRB(
             16.0,
             16.0,
@@ -366,6 +371,12 @@ class _BibleChapterViewState extends State<BibleChapterView>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              if (widget.translationSelectorAnimation != null)
+                SizeTransition(
+                  sizeFactor: widget.translationSelectorAnimation!,
+                  alignment: Alignment.topCenter,
+                  child: const SizedBox(height: 72.0),
+                ),
               Text(
                 '${widget.book.bookName} ${widget.chapter}',
                 style: theme.textTheme.headlineMedium?.copyWith(
