@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/services.dart';
+import 'package:drift/drift.dart' show Value;
 import 'package:drift/native.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_database.dart';
@@ -686,6 +687,164 @@ void main() {
 
       // Clean up mock settings
       PrayerDatabase.mockSettings = null;
+    });
+
+    testWidgets('allows adding a comment to a verse via selection action bar', (
+      WidgetTester tester,
+    ) async {
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText:
+                  'In the beginning God created the heaven, and the earth.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: BibleTab())),
+      );
+      await tester.pumpAndSettle();
+
+      // Long press verse to trigger selection bar
+      await tester.longPress(
+        find.text('In the beginning God created the heaven, and the earth.'),
+      );
+      await tester.pumpAndSettle();
+
+      // Tap Add Comment button in selection bar
+      expect(find.byIcon(Icons.comment_outlined), findsOneWidget);
+      await tester.tap(find.byIcon(Icons.comment_outlined));
+      await tester.pumpAndSettle();
+
+      // Verify Add Comment dialog appears
+      expect(find.text('Add Comment for Genesis 1:1'), findsOneWidget);
+      expect(find.byType(TextField), findsOneWidget);
+
+      // Enter comment text and save
+      await tester.enterText(
+        find.byType(TextField),
+        'My Genesis 1:1 reflection',
+      );
+      await tester.tap(find.widgetWithText(FilledButton, 'Save'));
+      await tester.pumpAndSettle();
+
+      // Verify comment saved in DB
+      final commentsInDb = await testDb.getComments(
+        documentId: 'GEN',
+        nodeId: '1_1_1',
+      );
+      expect(commentsInDb.length, 1);
+      expect(commentsInDb.first.commentText, 'My Genesis 1:1 reflection');
+
+      // Verify comment badge is now displayed next to the verse
+      expect(find.byIcon(Icons.comment_rounded), findsOneWidget);
+    });
+
+    testWidgets('opens verse comments modal and deletes comment', (
+      WidgetTester tester,
+    ) async {
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created...',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'GEN',
+          sectionIndex: 1,
+          nodeId: '1_1_1',
+          commentText: 'Existing verse comment',
+          textPreview: const Value('In the beginning God created...'),
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: BibleTab())),
+      );
+      await tester.pumpAndSettle();
+
+      // Verify comment badge is rendered
+      expect(find.byIcon(Icons.comment_rounded), findsOneWidget);
+
+      // Tap comment badge to open modal
+      await tester.tap(find.byIcon(Icons.comment_rounded));
+      await tester.pumpAndSettle();
+
+      // Verify modal content
+      expect(find.text('Comments for Genesis 1:1'), findsOneWidget);
+      expect(find.text('Existing verse comment'), findsOneWidget);
+
+      // Tap delete button in modal
+      expect(find.byIcon(Icons.delete_outline), findsOneWidget);
+      await tester.tap(find.byIcon(Icons.delete_outline));
+      await tester.pumpAndSettle();
+
+      // Verify comment deleted from DB
+      final commentsInDb = await testDb.getComments(
+        documentId: 'GEN',
+        nodeId: '1_1_1',
+      );
+      expect(commentsInDb.isEmpty, isTrue);
+    });
+
+    testGoldens('renders comments tab in bottom panel correctly', (
+      tester,
+    ) async {
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created...',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'GEN',
+          sectionIndex: 1,
+          nodeId: '1_1_1',
+          commentText: 'A note on Genesis 1:1',
+          textPreview: const Value('In the beginning God created...'),
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidgetBuilder(
+        const Scaffold(body: BibleTab()),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      await tester.drag(find.text('Genesis 1').last, const Offset(0.0, -300.0));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Comments'));
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'bible_tab_comments_list_golden');
     });
   });
 }

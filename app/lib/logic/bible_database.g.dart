@@ -1445,6 +1445,475 @@ class FavoritePassagesCompanion extends UpdateCompanion<FavoritePassage> {
   }
 }
 
+class UserComments extends Table with TableInfo<UserComments, UserComment> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  UserComments(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL PRIMARY KEY AUTOINCREMENT',
+  );
+  static const VerificationMeta _documentIdMeta = const VerificationMeta(
+    'documentId',
+  );
+  late final GeneratedColumn<String> documentId = GeneratedColumn<String>(
+    'document_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _sectionIndexMeta = const VerificationMeta(
+    'sectionIndex',
+  );
+  late final GeneratedColumn<int> sectionIndex = GeneratedColumn<int>(
+    'section_index',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _nodeIdMeta = const VerificationMeta('nodeId');
+  late final GeneratedColumn<String> nodeId = GeneratedColumn<String>(
+    'node_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _commentTextMeta = const VerificationMeta(
+    'commentText',
+  );
+  late final GeneratedColumn<String> commentText = GeneratedColumn<String>(
+    'comment_text',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _textPreviewMeta = const VerificationMeta(
+    'textPreview',
+  );
+  late final GeneratedColumn<String> textPreview = GeneratedColumn<String>(
+    'text_preview',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    documentId,
+    sectionIndex,
+    nodeId,
+    commentText,
+    textPreview,
+    createdAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'user_comments';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UserComment> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('document_id')) {
+      context.handle(
+        _documentIdMeta,
+        documentId.isAcceptableOrUnknown(data['document_id']!, _documentIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_documentIdMeta);
+    }
+    if (data.containsKey('section_index')) {
+      context.handle(
+        _sectionIndexMeta,
+        sectionIndex.isAcceptableOrUnknown(
+          data['section_index']!,
+          _sectionIndexMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_sectionIndexMeta);
+    }
+    if (data.containsKey('node_id')) {
+      context.handle(
+        _nodeIdMeta,
+        nodeId.isAcceptableOrUnknown(data['node_id']!, _nodeIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nodeIdMeta);
+    }
+    if (data.containsKey('comment_text')) {
+      context.handle(
+        _commentTextMeta,
+        commentText.isAcceptableOrUnknown(
+          data['comment_text']!,
+          _commentTextMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_commentTextMeta);
+    }
+    if (data.containsKey('text_preview')) {
+      context.handle(
+        _textPreviewMeta,
+        textPreview.isAcceptableOrUnknown(
+          data['text_preview']!,
+          _textPreviewMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  UserComment map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UserComment(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      documentId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}document_id'],
+      )!,
+      sectionIndex: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}section_index'],
+      )!,
+      nodeId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}node_id'],
+      )!,
+      commentText: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}comment_text'],
+      )!,
+      textPreview: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}text_preview'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  UserComments createAlias(String alias) {
+    return UserComments(attachedDatabase, alias);
+  }
+
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class UserComment extends DataClass implements Insertable<UserComment> {
+  final int id;
+  final String documentId;
+  final int sectionIndex;
+  final String nodeId;
+  final String commentText;
+  final String? textPreview;
+  final DateTime createdAt;
+  const UserComment({
+    required this.id,
+    required this.documentId,
+    required this.sectionIndex,
+    required this.nodeId,
+    required this.commentText,
+    this.textPreview,
+    required this.createdAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['document_id'] = Variable<String>(documentId);
+    map['section_index'] = Variable<int>(sectionIndex);
+    map['node_id'] = Variable<String>(nodeId);
+    map['comment_text'] = Variable<String>(commentText);
+    if (!nullToAbsent || textPreview != null) {
+      map['text_preview'] = Variable<String>(textPreview);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  UserCommentsCompanion toCompanion(bool nullToAbsent) {
+    return UserCommentsCompanion(
+      id: Value(id),
+      documentId: Value(documentId),
+      sectionIndex: Value(sectionIndex),
+      nodeId: Value(nodeId),
+      commentText: Value(commentText),
+      textPreview: textPreview == null && nullToAbsent
+          ? const Value.absent()
+          : Value(textPreview),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory UserComment.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UserComment(
+      id: serializer.fromJson<int>(json['id']),
+      documentId: serializer.fromJson<String>(json['document_id']),
+      sectionIndex: serializer.fromJson<int>(json['section_index']),
+      nodeId: serializer.fromJson<String>(json['node_id']),
+      commentText: serializer.fromJson<String>(json['comment_text']),
+      textPreview: serializer.fromJson<String?>(json['text_preview']),
+      createdAt: serializer.fromJson<DateTime>(json['created_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'document_id': serializer.toJson<String>(documentId),
+      'section_index': serializer.toJson<int>(sectionIndex),
+      'node_id': serializer.toJson<String>(nodeId),
+      'comment_text': serializer.toJson<String>(commentText),
+      'text_preview': serializer.toJson<String?>(textPreview),
+      'created_at': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  UserComment copyWith({
+    int? id,
+    String? documentId,
+    int? sectionIndex,
+    String? nodeId,
+    String? commentText,
+    Value<String?> textPreview = const Value.absent(),
+    DateTime? createdAt,
+  }) => UserComment(
+    id: id ?? this.id,
+    documentId: documentId ?? this.documentId,
+    sectionIndex: sectionIndex ?? this.sectionIndex,
+    nodeId: nodeId ?? this.nodeId,
+    commentText: commentText ?? this.commentText,
+    textPreview: textPreview.present ? textPreview.value : this.textPreview,
+    createdAt: createdAt ?? this.createdAt,
+  );
+  UserComment copyWithCompanion(UserCommentsCompanion data) {
+    return UserComment(
+      id: data.id.present ? data.id.value : this.id,
+      documentId: data.documentId.present
+          ? data.documentId.value
+          : this.documentId,
+      sectionIndex: data.sectionIndex.present
+          ? data.sectionIndex.value
+          : this.sectionIndex,
+      nodeId: data.nodeId.present ? data.nodeId.value : this.nodeId,
+      commentText: data.commentText.present
+          ? data.commentText.value
+          : this.commentText,
+      textPreview: data.textPreview.present
+          ? data.textPreview.value
+          : this.textPreview,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserComment(')
+          ..write('id: $id, ')
+          ..write('documentId: $documentId, ')
+          ..write('sectionIndex: $sectionIndex, ')
+          ..write('nodeId: $nodeId, ')
+          ..write('commentText: $commentText, ')
+          ..write('textPreview: $textPreview, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    documentId,
+    sectionIndex,
+    nodeId,
+    commentText,
+    textPreview,
+    createdAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UserComment &&
+          other.id == this.id &&
+          other.documentId == this.documentId &&
+          other.sectionIndex == this.sectionIndex &&
+          other.nodeId == this.nodeId &&
+          other.commentText == this.commentText &&
+          other.textPreview == this.textPreview &&
+          other.createdAt == this.createdAt);
+}
+
+class UserCommentsCompanion extends UpdateCompanion<UserComment> {
+  final Value<int> id;
+  final Value<String> documentId;
+  final Value<int> sectionIndex;
+  final Value<String> nodeId;
+  final Value<String> commentText;
+  final Value<String?> textPreview;
+  final Value<DateTime> createdAt;
+  const UserCommentsCompanion({
+    this.id = const Value.absent(),
+    this.documentId = const Value.absent(),
+    this.sectionIndex = const Value.absent(),
+    this.nodeId = const Value.absent(),
+    this.commentText = const Value.absent(),
+    this.textPreview = const Value.absent(),
+    this.createdAt = const Value.absent(),
+  });
+  UserCommentsCompanion.insert({
+    this.id = const Value.absent(),
+    required String documentId,
+    required int sectionIndex,
+    required String nodeId,
+    required String commentText,
+    this.textPreview = const Value.absent(),
+    required DateTime createdAt,
+  }) : documentId = Value(documentId),
+       sectionIndex = Value(sectionIndex),
+       nodeId = Value(nodeId),
+       commentText = Value(commentText),
+       createdAt = Value(createdAt);
+  static Insertable<UserComment> custom({
+    Expression<int>? id,
+    Expression<String>? documentId,
+    Expression<int>? sectionIndex,
+    Expression<String>? nodeId,
+    Expression<String>? commentText,
+    Expression<String>? textPreview,
+    Expression<DateTime>? createdAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (documentId != null) 'document_id': documentId,
+      if (sectionIndex != null) 'section_index': sectionIndex,
+      if (nodeId != null) 'node_id': nodeId,
+      if (commentText != null) 'comment_text': commentText,
+      if (textPreview != null) 'text_preview': textPreview,
+      if (createdAt != null) 'created_at': createdAt,
+    });
+  }
+
+  UserCommentsCompanion copyWith({
+    Value<int>? id,
+    Value<String>? documentId,
+    Value<int>? sectionIndex,
+    Value<String>? nodeId,
+    Value<String>? commentText,
+    Value<String?>? textPreview,
+    Value<DateTime>? createdAt,
+  }) {
+    return UserCommentsCompanion(
+      id: id ?? this.id,
+      documentId: documentId ?? this.documentId,
+      sectionIndex: sectionIndex ?? this.sectionIndex,
+      nodeId: nodeId ?? this.nodeId,
+      commentText: commentText ?? this.commentText,
+      textPreview: textPreview ?? this.textPreview,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (documentId.present) {
+      map['document_id'] = Variable<String>(documentId.value);
+    }
+    if (sectionIndex.present) {
+      map['section_index'] = Variable<int>(sectionIndex.value);
+    }
+    if (nodeId.present) {
+      map['node_id'] = Variable<String>(nodeId.value);
+    }
+    if (commentText.present) {
+      map['comment_text'] = Variable<String>(commentText.value);
+    }
+    if (textPreview.present) {
+      map['text_preview'] = Variable<String>(textPreview.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserCommentsCompanion(')
+          ..write('id: $id, ')
+          ..write('documentId: $documentId, ')
+          ..write('sectionIndex: $sectionIndex, ')
+          ..write('nodeId: $nodeId, ')
+          ..write('commentText: $commentText, ')
+          ..write('textPreview: $textPreview, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class $PrayersTable extends Prayers with TableInfo<$PrayersTable, Prayer> {
   @override
   final GeneratedDatabase attachedDatabase;
@@ -2255,6 +2724,7 @@ abstract class _$BibleDatabase extends GeneratedDatabase {
   late final BibleVerses bibleVerses = BibleVerses(this);
   late final LectionaryReadings lectionaryReadings = LectionaryReadings(this);
   late final FavoritePassages favoritePassages = FavoritePassages(this);
+  late final UserComments userComments = UserComments(this);
   late final $PrayersTable prayers = $PrayersTable(this);
   late final $UserSettingsTableTable userSettingsTable =
       $UserSettingsTableTable(this);
@@ -2266,6 +2736,7 @@ abstract class _$BibleDatabase extends GeneratedDatabase {
     bibleVerses,
     lectionaryReadings,
     favoritePassages,
+    userComments,
     prayers,
     userSettingsTable,
   ];
@@ -3007,6 +3478,243 @@ typedef $FavoritePassagesProcessedTableManager =
       FavoritePassage,
       PrefetchHooks Function()
     >;
+typedef $UserCommentsCreateCompanionBuilder =
+    UserCommentsCompanion Function({
+      Value<int> id,
+      required String documentId,
+      required int sectionIndex,
+      required String nodeId,
+      required String commentText,
+      Value<String?> textPreview,
+      required DateTime createdAt,
+    });
+typedef $UserCommentsUpdateCompanionBuilder =
+    UserCommentsCompanion Function({
+      Value<int> id,
+      Value<String> documentId,
+      Value<int> sectionIndex,
+      Value<String> nodeId,
+      Value<String> commentText,
+      Value<String?> textPreview,
+      Value<DateTime> createdAt,
+    });
+
+class $UserCommentsFilterComposer
+    extends Composer<_$BibleDatabase, UserComments> {
+  $UserCommentsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get documentId => $composableBuilder(
+    column: $table.documentId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get sectionIndex => $composableBuilder(
+    column: $table.sectionIndex,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get nodeId => $composableBuilder(
+    column: $table.nodeId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get commentText => $composableBuilder(
+    column: $table.commentText,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get textPreview => $composableBuilder(
+    column: $table.textPreview,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $UserCommentsOrderingComposer
+    extends Composer<_$BibleDatabase, UserComments> {
+  $UserCommentsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get documentId => $composableBuilder(
+    column: $table.documentId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get sectionIndex => $composableBuilder(
+    column: $table.sectionIndex,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get nodeId => $composableBuilder(
+    column: $table.nodeId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get commentText => $composableBuilder(
+    column: $table.commentText,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get textPreview => $composableBuilder(
+    column: $table.textPreview,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $UserCommentsAnnotationComposer
+    extends Composer<_$BibleDatabase, UserComments> {
+  $UserCommentsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get documentId => $composableBuilder(
+    column: $table.documentId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get sectionIndex => $composableBuilder(
+    column: $table.sectionIndex,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get nodeId =>
+      $composableBuilder(column: $table.nodeId, builder: (column) => column);
+
+  GeneratedColumn<String> get commentText => $composableBuilder(
+    column: $table.commentText,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get textPreview => $composableBuilder(
+    column: $table.textPreview,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $UserCommentsTableManager
+    extends
+        RootTableManager<
+          _$BibleDatabase,
+          UserComments,
+          UserComment,
+          $UserCommentsFilterComposer,
+          $UserCommentsOrderingComposer,
+          $UserCommentsAnnotationComposer,
+          $UserCommentsCreateCompanionBuilder,
+          $UserCommentsUpdateCompanionBuilder,
+          (
+            UserComment,
+            BaseReferences<_$BibleDatabase, UserComments, UserComment>,
+          ),
+          UserComment,
+          PrefetchHooks Function()
+        > {
+  $UserCommentsTableManager(_$BibleDatabase db, UserComments table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $UserCommentsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $UserCommentsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $UserCommentsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> documentId = const Value.absent(),
+                Value<int> sectionIndex = const Value.absent(),
+                Value<String> nodeId = const Value.absent(),
+                Value<String> commentText = const Value.absent(),
+                Value<String?> textPreview = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+              }) => UserCommentsCompanion(
+                id: id,
+                documentId: documentId,
+                sectionIndex: sectionIndex,
+                nodeId: nodeId,
+                commentText: commentText,
+                textPreview: textPreview,
+                createdAt: createdAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String documentId,
+                required int sectionIndex,
+                required String nodeId,
+                required String commentText,
+                Value<String?> textPreview = const Value.absent(),
+                required DateTime createdAt,
+              }) => UserCommentsCompanion.insert(
+                id: id,
+                documentId: documentId,
+                sectionIndex: sectionIndex,
+                nodeId: nodeId,
+                commentText: commentText,
+                textPreview: textPreview,
+                createdAt: createdAt,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $UserCommentsProcessedTableManager =
+    ProcessedTableManager<
+      _$BibleDatabase,
+      UserComments,
+      UserComment,
+      $UserCommentsFilterComposer,
+      $UserCommentsOrderingComposer,
+      $UserCommentsAnnotationComposer,
+      $UserCommentsCreateCompanionBuilder,
+      $UserCommentsUpdateCompanionBuilder,
+      (UserComment, BaseReferences<_$BibleDatabase, UserComments, UserComment>),
+      UserComment,
+      PrefetchHooks Function()
+    >;
 typedef $$PrayersTableCreateCompanionBuilder =
     PrayersCompanion Function({
       Value<int> isarId,
@@ -3579,6 +4287,8 @@ class $BibleDatabaseManager {
       $LectionaryReadingsTableManager(_db, _db.lectionaryReadings);
   $FavoritePassagesTableManager get favoritePassages =>
       $FavoritePassagesTableManager(_db, _db.favoritePassages);
+  $UserCommentsTableManager get userComments =>
+      $UserCommentsTableManager(_db, _db.userComments);
   $$PrayersTableTableManager get prayers =>
       $$PrayersTableTableManager(_db, _db.prayers);
   $$UserSettingsTableTableTableManager get userSettingsTable =>

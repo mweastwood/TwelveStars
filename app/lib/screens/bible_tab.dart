@@ -43,6 +43,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   List<FavoritePassage> _favorites = [];
   bool _loadingFavorites = true;
 
+  List<UserComment> _comments = [];
+  bool _loadingComments = true;
+
   UserSettings? _settings;
   String _primaryTranslation = 'CPDV';
   String _compareTranslation = 'none';
@@ -152,8 +155,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
           ),
         );
 
-    _sheetTabController = TabController(length: 3, vsync: this);
+    _sheetTabController = TabController(length: 4, vsync: this);
     _loadFavorites();
+    _loadComments();
     _loadSettings();
   }
 
@@ -184,6 +188,25 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       if (mounted) {
         setState(() {
           _loadingFavorites = false;
+        });
+      }
+    }
+  }
+
+  Future<void> _loadComments() async {
+    setState(() => _loadingComments = true);
+    try {
+      final comments = await BibleDatabaseHelper.db.getComments();
+      if (mounted) {
+        setState(() {
+          _comments = comments;
+          _loadingComments = false;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _loadingComments = false;
         });
       }
     }
@@ -582,6 +605,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                                   Tab(text: 'Books'),
                                   Tab(text: 'Chapters'),
                                   Tab(text: 'Favorites'),
+                                  Tab(text: 'Comments'),
                                 ],
                               ),
                               Expanded(
@@ -720,6 +744,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
 
                                     // Tab 3: Favorites List
                                     _buildFavoritesTab(theme),
+
+                                    // Tab 4: Comments List
+                                    _buildCommentsTab(theme),
                                   ],
                                 ),
                               ),
@@ -824,6 +851,127 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                   _scrollToVerse = fav.startVerse;
                   _highlightStartVerse = fav.startVerse;
                   _highlightEndVerse = fav.endVerse;
+                  _navigationSessionId = DateTime.now().millisecondsSinceEpoch
+                      .toString();
+                });
+                _pageController.jumpToPage(pageIndex);
+                _collapsePanel();
+              }
+            },
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildCommentsTab(ThemeData theme) {
+    if (_loadingComments) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    if (_comments.isEmpty) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.comment_outlined,
+                size: 48,
+                color: theme.colorScheme.onSurfaceVariant.withValues(
+                  alpha: 0.5,
+                ),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                'No comments on Bible verses yet.',
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 4),
+              Text(
+                'Long-press on a verse, then tap Comment to add a note.',
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.outline,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    return ListView.builder(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      itemCount: _comments.length,
+      itemBuilder: (context, index) {
+        final comment = _comments[index];
+        final verseNum = int.tryParse(comment.nodeId.split('_').last) ?? 1;
+        final book = catholicBooks.firstWhere(
+          (b) => b.abbrev == comment.documentId,
+          orElse: () => catholicBooks.first,
+        );
+        final citation = '${book.bookName} ${comment.sectionIndex}:$verseNum';
+
+        return Card(
+          margin: const EdgeInsets.symmetric(vertical: 4.0),
+          child: ListTile(
+            title: Text(
+              citation,
+              style: theme.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.primary,
+              ),
+            ),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 2),
+                Text(
+                  comment.commentText,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.onSurface,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                if (comment.textPreview != null &&
+                    comment.textPreview!.isNotEmpty) ...[
+                  const SizedBox(height: 2),
+                  Text(
+                    comment.textPreview!,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      fontStyle: FontStyle.italic,
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+            trailing: IconButton(
+              icon: Icon(Icons.delete_outline, color: theme.colorScheme.error),
+              onPressed: () async {
+                await BibleDatabaseHelper.db.deleteComment(comment.id);
+                await _loadComments();
+              },
+            ),
+            onTap: () {
+              final pageIndex = _allChapters.indexWhere(
+                (ref) =>
+                    ref.book.bookNumber == book.bookNumber &&
+                    ref.chapter == comment.sectionIndex,
+              );
+              if (pageIndex != -1) {
+                setState(() {
+                  _targetBookNumber = book.bookNumber;
+                  _targetChapter = comment.sectionIndex;
+                  _scrollToVerse = verseNum;
+                  _highlightStartVerse = verseNum;
+                  _highlightEndVerse = verseNum;
                   _navigationSessionId = DateTime.now().millisecondsSinceEpoch
                       .toString();
                 });

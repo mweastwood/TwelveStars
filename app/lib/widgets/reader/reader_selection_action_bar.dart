@@ -5,6 +5,7 @@ class ReaderSelectionActionBar extends StatelessWidget {
   final int selectedCount;
   final VoidCallback onSaveFavorite;
   final VoidCallback onCopy;
+  final VoidCallback? onAddComment;
   final VoidCallback? onClearSelection;
 
   const ReaderSelectionActionBar({
@@ -13,6 +14,7 @@ class ReaderSelectionActionBar extends StatelessWidget {
     required this.selectedCount,
     required this.onSaveFavorite,
     required this.onCopy,
+    this.onAddComment,
     this.onClearSelection,
   });
 
@@ -50,6 +52,14 @@ class ReaderSelectionActionBar extends StatelessWidget {
                 ],
               ),
             ),
+            if (onAddComment != null) ...[
+              IconButton(
+                icon: const Icon(Icons.comment_outlined),
+                tooltip: 'Add Comment',
+                onPressed: onAddComment,
+              ),
+              const SizedBox(width: 4),
+            ],
             ElevatedButton.icon(
               icon: const Icon(Icons.star),
               label: const Text('Save'),

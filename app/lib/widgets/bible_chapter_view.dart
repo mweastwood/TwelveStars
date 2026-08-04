@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:drift/drift.dart' show Value;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
@@ -43,6 +44,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
     with AutomaticKeepAliveClientMixin {
   List<BibleVerse> _verses = [];
   List<BibleVerse> _compareVerses = [];
+  List<UserComment> _comments = [];
   bool _loading = true;
   String? _error;
 
@@ -78,6 +80,21 @@ class _BibleChapterViewState extends State<BibleChapterView>
     }
   }
 
+  Future<void> _loadComments() async {
+    try {
+      final comments = await BibleDatabaseHelper.db.getComments(
+        documentId: widget.book.abbrev,
+      );
+      if (mounted) {
+        setState(() {
+          _comments = comments
+              .where((c) => c.sectionIndex == widget.chapter)
+              .toList();
+        });
+      }
+    } catch (_) {}
+  }
+
   Future<void> _loadChapterData() async {
     if (!mounted) return;
     setState(() {
@@ -90,6 +107,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
         if (mounted) setState(() {});
       });
       final db = BibleDatabaseHelper.db;
+      await _loadComments();
       // Load primary translation
       await db.ensureBookPopulated(
         widget.book.bookNumber,
@@ -244,6 +262,17 @@ class _BibleChapterViewState extends State<BibleChapterView>
                 ],
               ),
             ),
+            IconButton(
+              icon: const Icon(Icons.comment_outlined),
+              tooltip: 'Add Comment',
+              onPressed: () => _showAddCommentDialog(
+                context: context,
+                start: start,
+                end: end,
+                citation: citation,
+              ),
+            ),
+            const SizedBox(width: 8),
             ElevatedButton.icon(
               icon: const Icon(Icons.star),
               label: const Text('Save'),
@@ -327,6 +356,236 @@ class _BibleChapterViewState extends State<BibleChapterView>
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> _showAddCommentDialog({
+    required BuildContext context,
+    required int start,
+    required int end,
+    required String citation,
+  }) async {
+    final messenger = ScaffoldMessenger.of(context);
+    final selectedVerses = _verses
+        .where((v) => v.verseNumber >= start && v.verseNumber <= end)
+        .toList();
+    final textPreview = selectedVerses.map((v) => v.verseText).join(' ');
+    final controller = TextEditingController();
+
+    final result = await showDialog<String>(
+      context: context,
+      builder: (ctx) {
+        return AlertDialog(
+          title: Text('Add Comment for $citation'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '"$textPreview"',
+                style: TextStyle(
+                  fontStyle: FontStyle.italic,
+                  color: Theme.of(ctx).colorScheme.outline,
+                ),
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+              ),
+              const SizedBox(height: 12),
+              TextField(
+                controller: controller,
+                maxLines: 3,
+                decoration: const InputDecoration(
+                  hintText: 'Enter your comment...',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: const Text('Cancel'),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.pop(ctx, controller.text.trim()),
+              child: const Text('Save'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (result != null && result.isNotEmpty) {
+      final db = BibleDatabaseHelper.db;
+      final nodeId = '${widget.book.bookNumber}_${widget.chapter}_$start';
+      await db.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: widget.book.abbrev,
+          sectionIndex: widget.chapter,
+          nodeId: nodeId,
+          commentText: result,
+          textPreview: Value(textPreview),
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      if (mounted) {
+        messenger.showSnackBar(
+          SnackBar(
+            content: Text('Saved comment for $citation'),
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+        _clearSelection();
+        await _loadComments();
+      }
+    }
+  }
+
+  Future<void> _showVerseCommentsModal({
+    required BuildContext context,
+    required String title,
+    required String nodeId,
+    required String textPreview,
+    required List<UserComment> comments,
+  }) async {
+    final theme = Theme.of(context);
+
+    await showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: theme.colorScheme.surface,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (ctx) {
+        return StatefulBuilder(
+          builder: (sheetCtx, setSheetState) {
+            return Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Container(
+                      width: 40,
+                      height: 4,
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.onSurfaceVariant.withValues(
+                          alpha: 0.4,
+                        ),
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.comment_rounded,
+                        color: theme.colorScheme.primary,
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          'Comments for $title',
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: theme.colorScheme.primary,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    textPreview,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      fontStyle: FontStyle.italic,
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                  const Divider(height: 24),
+                  if (comments.isEmpty)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 24.0),
+                      child: Center(
+                        child: Text(
+                          'No comments yet.',
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                          ),
+                        ),
+                      ),
+                    )
+                  else
+                    Flexible(
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: comments.length,
+                        itemBuilder: (lCtx, index) {
+                          final comment = comments[index];
+                          final formattedDate =
+                              '${comment.createdAt.year}-${comment.createdAt.month.toString().padLeft(2, '0')}-${comment.createdAt.day.toString().padLeft(2, '0')} ${comment.createdAt.hour.toString().padLeft(2, '0')}:${comment.createdAt.minute.toString().padLeft(2, '0')}';
+                          return Card(
+                            margin: const EdgeInsets.only(bottom: 8),
+                            child: ListTile(
+                              title: Text(comment.commentText),
+                              subtitle: Text(
+                                formattedDate,
+                                style: theme.textTheme.labelSmall?.copyWith(
+                                  color: theme.colorScheme.outline,
+                                ),
+                              ),
+                              trailing: IconButton(
+                                icon: const Icon(
+                                  Icons.delete_outline,
+                                  size: 20,
+                                ),
+                                color: theme.colorScheme.error,
+                                onPressed: () async {
+                                  await BibleDatabaseHelper.db.deleteComment(
+                                    comment.id,
+                                  );
+                                  setSheetState(() {
+                                    comments.removeAt(index);
+                                  });
+                                  await _loadComments();
+                                },
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  const SizedBox(height: 12),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.add_comment),
+                      label: const Text('Add Another Comment'),
+                      onPressed: () async {
+                        Navigator.pop(ctx);
+                        final verseNum =
+                            int.tryParse(nodeId.split('_').last) ?? 1;
+                        _showAddCommentDialog(
+                          context: context,
+                          start: verseNum,
+                          end: verseNum,
+                          citation: title,
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
     );
   }
 
@@ -433,6 +692,12 @@ class _BibleChapterViewState extends State<BibleChapterView>
                   widget.chapter,
                   verse.verseNumber,
                 );
+
+                final nodeId =
+                    '${verse.bookNumber}_${verse.chapter}_${verse.verseNumber}';
+                final verseComments = _comments
+                    .where((c) => c.nodeId == nodeId)
+                    .toList();
 
                 BibleVerse? compareVerse;
                 if (_compareVerses.isNotEmpty) {
@@ -550,6 +815,59 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                       fontWeight: FontWeight.bold,
                                       color:
                                           theme.colorScheme.onTertiaryContainer,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                        if (verseComments.isNotEmpty) ...[
+                          const SizedBox(width: 8),
+                          InkWell(
+                            mouseCursor: SystemMouseCursors.click,
+                            onTap: () => _showVerseCommentsModal(
+                              context: context,
+                              title:
+                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                              nodeId: nodeId,
+                              textPreview: verse.verseText,
+                              comments: verseComments,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 4,
+                              ),
+                              decoration: BoxDecoration(
+                                color: theme.colorScheme.secondaryContainer
+                                    .withValues(alpha: 0.8),
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(
+                                  color: theme.colorScheme.secondary.withValues(
+                                    alpha: 0.4,
+                                  ),
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    Icons.comment_rounded,
+                                    size: 13,
+                                    color:
+                                        theme.colorScheme.onSecondaryContainer,
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    '${verseComments.length}',
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                      color: theme
+                                          .colorScheme
+                                          .onSecondaryContainer,
                                     ),
                                   ),
                                 ],

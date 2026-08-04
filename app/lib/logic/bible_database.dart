@@ -205,7 +205,7 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 6;
+  int get schemaVersion => 7;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -233,6 +233,9 @@ class BibleDatabase extends _$BibleDatabase {
           userSettingsTable,
           userSettingsTable.sundayNotificationsEnabled,
         );
+      }
+      if (from < 7) {
+        await m.createTable(userComments);
       }
     },
   );
@@ -406,6 +409,29 @@ class BibleDatabase extends _$BibleDatabase {
 
   Future<int> deleteFavorite(int id) {
     return (delete(favoritePassages)..where((t) => t.id.equals(id))).go();
+  }
+
+  // User Comments operations
+  Future<List<UserComment>> getComments({String? documentId, String? nodeId}) {
+    final query = select(userComments);
+    if (documentId != null && nodeId != null) {
+      query.where(
+        (t) => t.documentId.equals(documentId) & t.nodeId.equals(nodeId),
+      );
+    } else if (documentId != null) {
+      query.where((t) => t.documentId.equals(documentId));
+    } else if (nodeId != null) {
+      query.where((t) => t.nodeId.equals(nodeId));
+    }
+    return query.get();
+  }
+
+  Future<int> saveComment(UserCommentsCompanion companion) {
+    return into(userComments).insert(companion);
+  }
+
+  Future<int> deleteComment(int id) {
+    return (delete(userComments)..where((t) => t.id.equals(id))).go();
   }
 
   // Prayers operations

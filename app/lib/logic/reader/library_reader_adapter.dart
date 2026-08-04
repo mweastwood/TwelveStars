@@ -80,4 +80,24 @@ class LibraryReaderAdapter implements ReaderAdapter {
   Future<List<ReaderBookmark>> loadBookmarks() async {
     return List.unmodifiable(_bookmarks);
   }
+
+  final List<ReaderComment> _comments = [];
+
+  @override
+  Future<void> saveComment(ReaderComment comment) async {
+    _comments.add(comment);
+  }
+
+  @override
+  Future<List<ReaderComment>> loadComments({String? nodeId}) async {
+    if (nodeId != null) {
+      return _comments.where((c) => c.nodeId == nodeId).toList();
+    }
+    return List.unmodifiable(_comments);
+  }
+
+  @override
+  Future<void> deleteComment(String commentId) async {
+    _comments.removeWhere((c) => c.id == commentId);
+  }
 }

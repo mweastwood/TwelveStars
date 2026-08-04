@@ -65,6 +65,26 @@ void main() {
         expect(bookmark.textPreview, 'In the beginning');
         expect(bookmark.timestamp, timestamp);
       });
+
+      test('ReaderComment properties', () {
+        final timestamp = DateTime.now();
+        final comment = ReaderComment(
+          id: 'c1',
+          documentId: 'GEN',
+          sectionIndex: 1,
+          nodeId: '1_1_1',
+          text: 'Deep theological note',
+          textPreview: 'In the beginning God created',
+          timestamp: timestamp,
+        );
+        expect(comment.id, 'c1');
+        expect(comment.documentId, 'GEN');
+        expect(comment.sectionIndex, 1);
+        expect(comment.nodeId, '1_1_1');
+        expect(comment.text, 'Deep theological note');
+        expect(comment.textPreview, 'In the beginning God created');
+        expect(comment.timestamp, timestamp);
+      });
     });
 
     group('BibleReaderAdapter', () {
@@ -155,6 +175,29 @@ void main() {
           'In principio creavit Deus caelum et terram.',
         );
       });
+
+      test('saveComment, loadComments, deleteComment', () async {
+        final comment = ReaderComment(
+          id: '1',
+          documentId: 'GEN',
+          sectionIndex: 1,
+          nodeId: '1_1_1',
+          text: 'Reflections on Genesis 1:1',
+          textPreview: 'In the beginning...',
+          timestamp: DateTime.now(),
+        );
+
+        await adapter.saveComment(comment);
+
+        final loaded = await adapter.loadComments(nodeId: '1_1_1');
+        expect(loaded.length, 1);
+        expect(loaded.first.text, 'Reflections on Genesis 1:1');
+        expect(loaded.first.nodeId, '1_1_1');
+
+        await adapter.deleteComment(loaded.first.id);
+        final emptyList = await adapter.loadComments(nodeId: '1_1_1');
+        expect(emptyList.isEmpty, true);
+      });
     });
 
     group('LibraryReaderAdapter', () {
@@ -236,6 +279,29 @@ void main() {
         expect(section.nodes[2].explanation, 'Exp');
         expect(section.nodes[2].crossRefId, '2');
       });
+
+      test(
+        'saveComment, loadComments, deleteComment in LibraryReaderAdapter',
+        () async {
+          final comment = ReaderComment(
+            id: 'c_lib_1',
+            documentId: 'test_book',
+            sectionIndex: 0,
+            nodeId: 's1-1',
+            text: 'Comment on paragraph',
+            timestamp: DateTime.now(),
+          );
+
+          await adapter.saveComment(comment);
+          final comments = await adapter.loadComments(nodeId: 's1-1');
+          expect(comments.length, 1);
+          expect(comments.first.text, 'Comment on paragraph');
+
+          await adapter.deleteComment('c_lib_1');
+          final afterDelete = await adapter.loadComments(nodeId: 's1-1');
+          expect(afterDelete.isEmpty, true);
+        },
+      );
     });
   });
 }

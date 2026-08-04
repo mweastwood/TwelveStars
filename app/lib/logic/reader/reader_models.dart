@@ -89,3 +89,23 @@ class ReaderBookmark {
     required this.timestamp,
   });
 }
+
+class ReaderComment {
+  final String id;
+  final String documentId;
+  final int sectionIndex;
+  final String nodeId;
+  final String text;
+  final String? textPreview;
+  final DateTime timestamp;
+
+  const ReaderComment({
+    required this.id,
+    required this.documentId,
+    required this.sectionIndex,
+    required this.nodeId,
+    required this.text,
+    this.textPreview,
+    required this.timestamp,
+  });
+}
