@@ -499,7 +499,7 @@ class UsfmParser {
       if (currentChapter > 0 && currentVerseNumber > 0) {
         var text = currentVerseText;
         // Strip inline footnotes and formatting
-        text = text.replaceAll(RegExp(r'\\f\s+.*\\f\*'), '');
+        text = text.replaceAll(RegExp(r'\\f\s+.*?\\f\*'), '');
         text = text.replaceAll(RegExp(r'\\[a-zA-Z0-9]+(?:\*|\s)?'), '');
         text = text.replaceAll(
           RegExp(r'\|[a-zA-Z0-9_]+="[^"]*"(?:\s+[a-zA-Z0-9_]+="[^"]*")*'),

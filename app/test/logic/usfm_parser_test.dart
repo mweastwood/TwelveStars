@@ -68,6 +68,21 @@ void main() {
       expect(results[1]['verseText'], equals('And the earth was empty.'));
     });
 
+    test('Preserves text between multiple footnotes in a single verse', () {
+      const usfm = r'''
+\c 1
+\v 1 First text \f + First footnote \f* middle text \f + Second footnote \f* final text.
+''';
+
+      final results = UsfmParser.parse(usfm, 'CPDV', 1, 'Genesis');
+
+      expect(results.length, equals(1));
+      expect(
+        results[0]['verseText'],
+        equals('First text middle text final text.'),
+      );
+    });
+
     test('Strips word attributes (like strongs numbers)', () {
       const usfm = r'''
 \c 1
