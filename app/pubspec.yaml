@@ -55,7 +55,7 @@ dev_dependencies:
     sdk: flutter
   http: ^1.2.1
   html: ^0.15.4
-  build_runner: ^2.4.9
+  build_runner: ^2.15.1
   drift_dev: ^2.14.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
