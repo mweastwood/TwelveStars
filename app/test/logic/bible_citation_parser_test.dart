@@ -101,5 +101,39 @@ void main() {
       expect(citations[1].isEntireChapter, true);
       expect(citations[1].displayLabel, 'Matthew 4');
     });
+
+    test('parses New Testament epistle citations correctly', () {
+      final epistles = <String, Map<String, dynamic>>{
+        '(1 Tim. 2:5)': {'bookName': '1 Timothy', 'bookNumber': 64},
+        '(2 Tim. 1:7)': {'bookName': '2 Timothy', 'bookNumber': 65},
+        '(Titus 1:1)': {'bookName': 'Titus', 'bookNumber': 66},
+        '(Philem. 1:4)': {'bookName': 'Philemon', 'bookNumber': 67},
+        '(Heb. 11:1)': {'bookName': 'Hebrews', 'bookNumber': 68},
+        '(James 1:5)': {'bookName': 'James', 'bookNumber': 69},
+        '(1 Pet. 5:7)': {'bookName': '1 Peter', 'bookNumber': 70},
+        '(2 Pet. 3:9)': {'bookName': '2 Peter', 'bookNumber': 71},
+        '(1 John 4:8)': {'bookName': '1 John', 'bookNumber': 72},
+        '(2 John 1:3)': {'bookName': '2 John', 'bookNumber': 73},
+        '(3 John 1:4)': {'bookName': '3 John', 'bookNumber': 74},
+        '(Jude 1:20)': {'bookName': 'Jude', 'bookNumber': 75},
+      };
+
+      for (final entry in epistles.entries) {
+        final segments = BibleCitationParser.parse(entry.key);
+        expect(segments.length, 1, reason: 'Failed parsing ${entry.key}');
+        expect(segments.first.isCitation, true);
+        final cit = segments.first.citation!;
+        expect(
+          cit.bookName,
+          entry.value['bookName'],
+          reason: 'Wrong bookName for ${entry.key}',
+        );
+        expect(
+          cit.bookNumber,
+          entry.value['bookNumber'],
+          reason: 'Wrong bookNumber for ${entry.key}',
+        );
+      }
+    });
   });
 }
