@@ -81,7 +81,7 @@ class NotificationService {
 
     try {
       if (!userSettings.sundayNotificationsEnabled) {
-        await plugin.cancel(1001);
+        await plugin.cancel(id: 1001);
         return;
       }
 
