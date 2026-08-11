@@ -39,7 +39,7 @@ class NotificationService {
     );
 
     try {
-      await plugin.initialize(initSettings);
+      await plugin.initialize(settings: initSettings);
       _isInitialized = true;
     } catch (_) {}
   }
@@ -116,26 +116,22 @@ class NotificationService {
 
       try {
         await plugin.zonedSchedule(
-          1001,
-          title,
-          body,
-          scheduledTime,
-          notificationDetails,
+          id: 1001,
+          title: title,
+          body: body,
+          scheduledDate: scheduledTime,
+          notificationDetails: notificationDetails,
           androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-          uiLocalNotificationDateInterpretation:
-              UILocalNotificationDateInterpretation.absoluteTime,
         );
       } catch (_) {
         try {
           await plugin.zonedSchedule(
-            1001,
-            title,
-            body,
-            scheduledTime,
-            notificationDetails,
+            id: 1001,
+            title: title,
+            body: body,
+            scheduledDate: scheduledTime,
+            notificationDetails: notificationDetails,
             androidScheduleMode: AndroidScheduleMode.inexact,
-            uiLocalNotificationDateInterpretation:
-                UILocalNotificationDateInterpretation.absoluteTime,
           );
         } catch (_) {}
       }
