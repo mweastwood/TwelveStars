@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:drift/drift.dart' show Value;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -56,10 +55,6 @@ class _BibleChapterViewState extends State<BibleChapterView>
   String? _lastProcessedSessionId;
 
   final Map<int, GlobalKey> _verseKeys = {};
-  late final ScrollController _internalScrollController;
-
-  ScrollController get _effectiveScrollController =>
-      widget.scrollController ?? _internalScrollController;
 
   @override
   bool get wantKeepAlive => true; // Cache adjacent chapters in memory
@@ -67,14 +62,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
   @override
   void initState() {
     super.initState();
-    _internalScrollController = ScrollController();
     _loadChapterData();
-  }
-
-  @override
-  void dispose() {
-    _internalScrollController.dispose();
-    super.dispose();
   }
 
   @override
@@ -99,8 +87,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
       );
       if (mounted) {
         setState(() {
-          _comments =
-              comments.where((c) => c.sectionIndex == widget.chapter).toList();
+          _comments = comments
+              .where((c) => c.sectionIndex == widget.chapter)
+              .toList();
         });
       }
     } catch (_) {}
@@ -177,30 +166,13 @@ class _BibleChapterViewState extends State<BibleChapterView>
         final targetVerse = _verses
             .where((v) => v.verseNumber == widget.scrollToVerse)
             .firstOrNull;
-        if (targetVerse == null) return;
-
-        final targetIndex = _verses.indexOf(targetVerse);
-        final controller = _effectiveScrollController;
-
-        if (controller.hasClients) {
-          const double estimatedHeaderHeight = 120.0;
-          const double estimatedVerseHeight = 70.0;
-          final double estimatedOffset =
-              estimatedHeaderHeight + (targetIndex * estimatedVerseHeight);
-
-          final maxExtent = controller.position.maxScrollExtent;
-          controller.jumpTo(estimatedOffset.clamp(0.0, maxExtent));
-
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            final key = _verseKeys[targetVerse.id];
-            if (key != null && key.currentContext != null) {
-              Scrollable.ensureVisible(
-                key.currentContext!,
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOut,
-              );
-            }
-          });
+        final key = targetVerse != null ? _verseKeys[targetVerse.id] : null;
+        if (key != null && key.currentContext != null) {
+          Scrollable.ensureVisible(
+            key.currentContext!,
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeInOut,
+          );
         }
       });
 
@@ -310,8 +282,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
                       (v) => v.verseNumber >= start && v.verseNumber <= end,
                     )
                     .toList();
-                final textPreview =
-                    selectedVerses.map((v) => v.verseText).join(' ');
+                final textPreview = selectedVerses
+                    .map((v) => v.verseText)
+                    .join(' ');
 
                 final favorite = FavoritePassagesCompanion.insert(
                   bookNumber: widget.book.bookNumber,
@@ -344,18 +317,21 @@ class _BibleChapterViewState extends State<BibleChapterView>
               icon: const Icon(Icons.content_copy),
               tooltip: 'Copy selection',
               onPressed: () async {
-                final selectedVerses = _verses
-                    .where(
-                      (v) => v.verseNumber >= start && v.verseNumber <= end,
-                    )
-                    .toList()
-                  ..sort((a, b) => a.verseNumber.compareTo(b.verseNumber));
+                final selectedVerses =
+                    _verses
+                        .where(
+                          (v) => v.verseNumber >= start && v.verseNumber <= end,
+                        )
+                        .toList()
+                      ..sort((a, b) => a.verseNumber.compareTo(b.verseNumber));
 
-                final versesText = selectedVerses.map((v) {
-                  return count == 1
-                      ? v.verseText
-                      : '${v.verseNumber} ${v.verseText}';
-                }).join(count == 1 ? '' : '\n');
+                final versesText = selectedVerses
+                    .map((v) {
+                      return count == 1
+                          ? v.verseText
+                          : '${v.verseNumber} ${v.verseText}';
+                    })
+                    .join(count == 1 ? '' : '\n');
 
                 final clipboardContent = '$citation\n$versesText';
                 await Clipboard.setData(ClipboardData(text: clipboardContent));
@@ -643,7 +619,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
 
     return Stack(
       children: [
-        ListView.builder(
+        SingleChildScrollView(
           controller: _effectiveScrollController,
           padding: const EdgeInsets.fromLTRB(
             16.0,
@@ -651,265 +627,261 @@ class _BibleChapterViewState extends State<BibleChapterView>
             16.0,
             160.0, // space for bottom sheet + action bar
           ),
-          itemCount: _verses.length + 2,
-          itemBuilder: (context, index) {
-            if (index == 0) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (widget.translationSelectorAnimation != null)
-                    SizeTransition(
-                      sizeFactor: widget.translationSelectorAnimation!,
-                      alignment: Alignment.topCenter,
-                      child: const SizedBox(height: 72.0),
-                    ),
-                  Text(
-                    '${widget.book.bookName} ${widget.chapter}',
-                    style: theme.textTheme.headlineMedium?.copyWith(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (widget.translationSelectorAnimation != null)
+                SizeTransition(
+                  sizeFactor: widget.translationSelectorAnimation!,
+                  alignment: Alignment.topCenter,
+                  child: const SizedBox(height: 72.0),
+                ),
+              Text(
+                '${widget.book.bookName} ${widget.chapter}',
+                style: theme.textTheme.headlineMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.primary,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                widget.compareTranslation == 'none'
+                    ? _getTranslationName(widget.primaryTranslation)
+                    : '${_getTranslationName(widget.primaryTranslation)}  |  ${_getTranslationName(widget.compareTranslation)}',
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  fontStyle: FontStyle.italic,
+                  color: theme.colorScheme.outline,
+                ),
+              ),
+              if (chapterCitations.isNotEmpty) ...[
+                const SizedBox(height: 10),
+                ActionChip(
+                  avatar: Icon(
+                    Icons.auto_stories_rounded,
+                    size: 16,
+                    color: theme.colorScheme.primary,
+                  ),
+                  label: Text(
+                    '${chapterCitations.length} Catechism Reference${chapterCitations.length > 1 ? "s" : ""} to ${widget.book.bookName} ${widget.chapter}',
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
+                      fontSize: 12,
                       color: theme.colorScheme.primary,
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  Text(
-                    widget.compareTranslation == 'none'
-                        ? _getTranslationName(widget.primaryTranslation)
-                        : '${_getTranslationName(widget.primaryTranslation)}  |  ${_getTranslationName(widget.compareTranslation)}',
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      fontStyle: FontStyle.italic,
-                      color: theme.colorScheme.outline,
+                  backgroundColor: theme.colorScheme.primaryContainer
+                      .withValues(alpha: 0.5),
+                  side: BorderSide(
+                    color: theme.colorScheme.primary.withValues(alpha: 0.3),
+                  ),
+                  mouseCursor: SystemMouseCursors.click,
+                  onPressed: () => _showReverseCitationsModal(
+                    context: context,
+                    title: '${widget.book.bookName} ${widget.chapter}',
+                    citations: chapterCitations,
+                  ),
+                ),
+              ],
+              const Divider(height: 24),
+              ..._verses.map((verse) {
+                final isSelected = _isVerseSelected(verse.verseNumber);
+                _verseKeys.putIfAbsent(verse.id, () => GlobalKey());
+
+                final verseCitations = ReverseCitationService.getVerseCitations(
+                  widget.book.bookNumber,
+                  widget.chapter,
+                  verse.verseNumber,
+                );
+
+                final nodeId =
+                    '${verse.bookNumber}_${verse.chapter}_${verse.verseNumber}';
+                final verseComments = _comments
+                    .where((c) => c.nodeId == nodeId)
+                    .toList();
+
+                BibleVerse? compareVerse;
+                if (_compareVerses.isNotEmpty) {
+                  for (final cv in _compareVerses) {
+                    if (cv.verseNumber == verse.verseNumber) {
+                      compareVerse = cv;
+                      break;
+                    }
+                  }
+                }
+
+                return GestureDetector(
+                  key: _verseKeys[verse.id],
+                  onLongPress: () => _onVerseLongPress(verse.verseNumber),
+                  onTap: () => _onVerseTap(verse.verseNumber),
+                  behavior: HitTestBehavior.opaque,
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
+                    decoration: BoxDecoration(
+                      color: isSelected
+                          ? theme.colorScheme.primaryContainer.withValues(
+                              alpha: 0.4,
+                            )
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8.0,
+                      vertical: 6.0,
+                    ),
+                    margin: const EdgeInsets.symmetric(vertical: 2.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: 28,
+                          child: Text(
+                            '${verse.verseNumber}',
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: theme.colorScheme.primary,
+                            ),
+                            textAlign: TextAlign.right,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        if (_compareVerses.isEmpty)
+                          Expanded(
+                            child: Text(
+                              verse.verseText,
+                              style: theme.textTheme.bodyLarge?.copyWith(
+                                color: theme.colorScheme.onSurface,
+                              ),
+                            ),
+                          )
+                        else ...[
+                          Expanded(
+                            child: Text(
+                              verse.verseText,
+                              style: theme.textTheme.bodyLarge?.copyWith(
+                                color: theme.colorScheme.onSurface,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: Text(
+                              compareVerse?.verseText ?? '',
+                              style: theme.textTheme.bodyLarge?.copyWith(
+                                color: theme.colorScheme.onSurface,
+                              ),
+                            ),
+                          ),
+                        ],
+                        if (verseCitations.isNotEmpty) ...[
+                          const SizedBox(width: 8),
+                          InkWell(
+                            mouseCursor: SystemMouseCursors.click,
+                            onTap: () => _showReverseCitationsModal(
+                              context: context,
+                              title:
+                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                              citations: verseCitations,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 4,
+                              ),
+                              decoration: BoxDecoration(
+                                color: theme.colorScheme.tertiaryContainer
+                                    .withValues(alpha: 0.8),
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(
+                                  color: theme.colorScheme.tertiary.withValues(
+                                    alpha: 0.4,
+                                  ),
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    Icons.auto_stories_rounded,
+                                    size: 13,
+                                    color:
+                                        theme.colorScheme.onTertiaryContainer,
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    '${verseCitations.length}',
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                      color:
+                                          theme.colorScheme.onTertiaryContainer,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                        if (verseComments.isNotEmpty) ...[
+                          const SizedBox(width: 8),
+                          InkWell(
+                            mouseCursor: SystemMouseCursors.click,
+                            onTap: () => _showVerseCommentsModal(
+                              context: context,
+                              title:
+                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                              nodeId: nodeId,
+                              textPreview: verse.verseText,
+                              comments: verseComments,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 4,
+                              ),
+                              decoration: BoxDecoration(
+                                color: theme.colorScheme.secondaryContainer
+                                    .withValues(alpha: 0.8),
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(
+                                  color: theme.colorScheme.secondary.withValues(
+                                    alpha: 0.4,
+                                  ),
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    Icons.comment_rounded,
+                                    size: 13,
+                                    color:
+                                        theme.colorScheme.onSecondaryContainer,
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    '${verseComments.length}',
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                      color: theme
+                                          .colorScheme
+                                          .onSecondaryContainer,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ],
                     ),
                   ),
-                  if (chapterCitations.isNotEmpty) ...[
-                    const SizedBox(height: 10),
-                    ActionChip(
-                      avatar: Icon(
-                        Icons.auto_stories_rounded,
-                        size: 16,
-                        color: theme.colorScheme.primary,
-                      ),
-                      label: Text(
-                        '${chapterCitations.length} Catechism Reference${chapterCitations.length > 1 ? "s" : ""} to ${widget.book.bookName} ${widget.chapter}',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                          color: theme.colorScheme.primary,
-                        ),
-                      ),
-                      backgroundColor: theme.colorScheme.primaryContainer
-                          .withValues(alpha: 0.5),
-                      side: BorderSide(
-                        color: theme.colorScheme.primary.withValues(alpha: 0.3),
-                      ),
-                      mouseCursor: SystemMouseCursors.click,
-                      onPressed: () => _showReverseCitationsModal(
-                        context: context,
-                        title: '${widget.book.bookName} ${widget.chapter}',
-                        citations: chapterCitations,
-                      ),
-                    ),
-                  ],
-                  const Divider(height: 24),
-                ],
-              );
-            }
-
-            if (index == _verses.length + 1) {
-              return const SizedBox(height: 160.0);
-            }
-
-            final verse = _verses[index - 1];
-            final isSelected = _isVerseSelected(verse.verseNumber);
-            _verseKeys.putIfAbsent(verse.id, () => GlobalKey());
-
-            final verseCitations = ReverseCitationService.getVerseCitations(
-              widget.book.bookNumber,
-              widget.chapter,
-              verse.verseNumber,
-            );
-
-            final nodeId =
-                '${verse.bookNumber}_${verse.chapter}_${verse.verseNumber}';
-            final verseComments = _comments
-                .where((c) => c.nodeId == nodeId)
-                .toList();
-
-            BibleVerse? compareVerse;
-            if (_compareVerses.isNotEmpty) {
-              for (final cv in _compareVerses) {
-                if (cv.verseNumber == verse.verseNumber) {
-                  compareVerse = cv;
-                  break;
-                }
-              }
-            }
-
-            return GestureDetector(
-              key: _verseKeys[verse.id],
-              onLongPress: () => _onVerseLongPress(verse.verseNumber),
-              onTap: () => _onVerseTap(verse.verseNumber),
-              behavior: HitTestBehavior.opaque,
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
-                decoration: BoxDecoration(
-                  color: isSelected
-                      ? theme.colorScheme.primaryContainer.withValues(
-                          alpha: 0.4,
-                        )
-                      : Colors.transparent,
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 8.0,
-                  vertical: 6.0,
-                ),
-                margin: const EdgeInsets.symmetric(vertical: 2.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 28,
-                      child: Text(
-                        '${verse.verseNumber}',
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.primary,
-                        ),
-                        textAlign: TextAlign.right,
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    if (_compareVerses.isEmpty)
-                      Expanded(
-                        child: Text(
-                          verse.verseText,
-                          style: theme.textTheme.bodyLarge?.copyWith(
-                            color: theme.colorScheme.onSurface,
-                          ),
-                        ),
-                      )
-                    else ...[
-                      Expanded(
-                        child: Text(
-                          verse.verseText,
-                          style: theme.textTheme.bodyLarge?.copyWith(
-                            color: theme.colorScheme.onSurface,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Text(
-                          compareVerse?.verseText ?? '',
-                          style: theme.textTheme.bodyLarge?.copyWith(
-                            color: theme.colorScheme.onSurface,
-                          ),
-                        ),
-                      ),
-                    ],
-                    if (verseCitations.isNotEmpty) ...[
-                      const SizedBox(width: 8),
-                      InkWell(
-                        mouseCursor: SystemMouseCursors.click,
-                        onTap: () => _showReverseCitationsModal(
-                          context: context,
-                          title:
-                              '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
-                          citations: verseCitations,
-                        ),
-                        borderRadius: BorderRadius.circular(12),
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.tertiaryContainer
-                                .withValues(alpha: 0.8),
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(
-                              color: theme.colorScheme.tertiary.withValues(
-                                alpha: 0.4,
-                              ),
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                Icons.auto_stories_rounded,
-                                size: 13,
-                                color: theme.colorScheme.onTertiaryContainer,
-                              ),
-                              const SizedBox(width: 4),
-                              Text(
-                                '${verseCitations.length}',
-                                style: TextStyle(
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.bold,
-                                  color: theme.colorScheme.onTertiaryContainer,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                    if (verseComments.isNotEmpty) ...[
-                      const SizedBox(width: 8),
-                      InkWell(
-                        mouseCursor: SystemMouseCursors.click,
-                        onTap: () => _showVerseCommentsModal(
-                          context: context,
-                          title:
-                              '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
-                          nodeId: nodeId,
-                          textPreview: verse.verseText,
-                          comments: verseComments,
-                        ),
-                        borderRadius: BorderRadius.circular(12),
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.secondaryContainer
-                                .withValues(alpha: 0.8),
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(
-                              color: theme.colorScheme.secondary.withValues(
-                                alpha: 0.4,
-                              ),
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                Icons.comment_rounded,
-                                size: 13,
-                                color: theme.colorScheme.onSecondaryContainer,
-                              ),
-                              const SizedBox(width: 4),
-                              Text(
-                                '${verseComments.length}',
-                                style: TextStyle(
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.bold,
-                                  color: theme.colorScheme.onSecondaryContainer,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-            );
-          },
+                );
+              }),
+            ],
+          ),
         ),
         if (_firstSelectedVerseNumber != null)
           Positioned(
@@ -1021,9 +993,10 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                             item.sourceBookTitle,
                                             style: theme.textTheme.labelMedium
                                                 ?.copyWith(
-                                              fontWeight: FontWeight.bold,
-                                              color: theme.colorScheme.primary,
-                                            ),
+                                                  fontWeight: FontWeight.bold,
+                                                  color:
+                                                      theme.colorScheme.primary,
+                                                ),
                                           ),
                                         ),
                                         Chip(
@@ -1041,10 +1014,10 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                     const SizedBox(height: 4),
                                     Text(
                                       '$qText${item.sectionTitle}',
-                                      style:
-                                          theme.textTheme.bodyMedium?.copyWith(
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                      style: theme.textTheme.bodyMedium
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                     ),
                                     if (item.snippet.isNotEmpty) ...[
                                       const SizedBox(height: 6),
@@ -1052,12 +1025,13 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                         item.snippet,
                                         maxLines: 3,
                                         overflow: TextOverflow.ellipsis,
-                                        style:
-                                            theme.textTheme.bodySmall?.copyWith(
-                                          color: theme
-                                              .colorScheme.onSurfaceVariant,
-                                          height: 1.4,
-                                        ),
+                                        style: theme.textTheme.bodySmall
+                                            ?.copyWith(
+                                              color: theme
+                                                  .colorScheme
+                                                  .onSurfaceVariant,
+                                              height: 1.4,
+                                            ),
                                       ),
                                     ],
                                     const SizedBox(height: 8),
@@ -1082,8 +1056,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                             MaterialPageRoute(
                                               builder: (_) =>
                                                   LibraryReaderScreen(
-                                                bookItem: book,
-                                              ),
+                                                    bookItem: book,
+                                                  ),
                                             ),
                                           );
                                         },
