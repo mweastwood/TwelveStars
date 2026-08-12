@@ -121,5 +121,19 @@ void main() {
       expect(stsPeterPaul.name, 'Sts. Peter and Paul, Apostles');
       expect(stsPeterPaul.color, LiturgicalColor.red);
     });
+
+    test('calculates correct Ordinary Time week across November DST transition', () {
+      final nov1 = LiturgicalCalendar.computeDay(DateTime(2026, 11, 1));
+      expect(nov1.weekName, '31st Sunday in Ordinary Time');
+
+      final nov8 = LiturgicalCalendar.computeDay(DateTime(2026, 11, 8));
+      expect(nov8.weekName, '32nd Sunday in Ordinary Time');
+
+      final nov15 = LiturgicalCalendar.computeDay(DateTime(2026, 11, 15));
+      expect(nov15.weekName, '33rd Sunday in Ordinary Time');
+
+      final nov22 = LiturgicalCalendar.computeDay(DateTime(2026, 11, 22));
+      expect(nov22.weekName, '34th Sunday in Ordinary Time');
+    });
   });
 }

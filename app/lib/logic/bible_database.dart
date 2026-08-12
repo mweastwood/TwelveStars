@@ -257,8 +257,33 @@ class BibleDatabase extends _$BibleDatabase {
         .get();
   }
 
+  final Map<String, Future<void>> _inFlightBookPopulations = {};
+
   // Populate a specific book if not already populated
   Future<void> ensureBookPopulated(
+    int bookNumber,
+    String bookName,
+    String abbrev, {
+    String translation = 'CPDV',
+  }) {
+    final key = '$translation:$bookNumber';
+    if (_inFlightBookPopulations.containsKey(key)) {
+      return _inFlightBookPopulations[key]!;
+    }
+
+    final future = _ensureBookPopulatedImpl(
+      bookNumber,
+      bookName,
+      abbrev,
+      translation: translation,
+    );
+    _inFlightBookPopulations[key] = future;
+    return future.whenComplete(() {
+      _inFlightBookPopulations.remove(key);
+    });
+  }
+
+  Future<void> _ensureBookPopulatedImpl(
     int bookNumber,
     String bookName,
     String abbrev, {
