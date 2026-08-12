@@ -34,6 +34,27 @@ class _PrayerCardState extends State<PrayerCard> {
   String? _selectedPhraseId;
   final LayerLink _layerLink = LayerLink();
   bool _isAiAvailable = false;
+  final Map<String, TapGestureRecognizer> _recognizers = {};
+  final Set<String> _activeRecognizerKeys = {};
+
+  @override
+  void dispose() {
+    for (final recognizer in _recognizers.values) {
+      recognizer.dispose();
+    }
+    _recognizers.clear();
+    super.dispose();
+  }
+
+  void _pruneUnusedRecognizers() {
+    _recognizers.removeWhere((key, recognizer) {
+      if (!_activeRecognizerKeys.contains(key)) {
+        recognizer.dispose();
+        return true;
+      }
+      return false;
+    });
+  }
 
   bool get _isDualMode =>
       widget.compareLanguage != null &&
@@ -115,6 +136,7 @@ class _PrayerCardState extends State<PrayerCard> {
 
   InlineSpan _buildTokenSpan(
     PrayerToken token,
+    int index,
     ThemeData theme, {
     bool isTarget = false,
   }) {
@@ -133,6 +155,24 @@ class _PrayerCardState extends State<PrayerCard> {
       );
     }
 
+    final recognizerKey =
+        '${isTarget ? 'target' : 'primary'}_${index}_${token.id}';
+    _activeRecognizerKeys.add(recognizerKey);
+
+    final recognizer = _recognizers.putIfAbsent(
+      recognizerKey,
+      () => TapGestureRecognizer(),
+    )..onTap = () {
+        setState(() {
+          if (_selectedPhraseId == token.id) {
+            _selectedPhraseId = null;
+          } else {
+            _selectedPhraseId = token.id;
+            _checkAiAvailability();
+          }
+        });
+      };
+
     final isSelected = token.id == _selectedPhraseId;
 
     if (isSelected) {
@@ -145,17 +185,7 @@ class _PrayerCardState extends State<PrayerCard> {
 
       final textSpan = TextSpan(
         text: token.text,
-        recognizer: TapGestureRecognizer()
-          ..onTap = () {
-            setState(() {
-              if (_selectedPhraseId == token.id) {
-                _selectedPhraseId = null;
-              } else {
-                _selectedPhraseId = token.id;
-                _checkAiAvailability();
-              }
-            });
-          },
+        recognizer: recognizer,
         style: selectedStyle,
       );
 
@@ -178,17 +208,7 @@ class _PrayerCardState extends State<PrayerCard> {
 
     return TextSpan(
       text: token.text,
-      recognizer: TapGestureRecognizer()
-        ..onTap = () {
-          setState(() {
-            if (_selectedPhraseId == token.id) {
-              _selectedPhraseId = null;
-            } else {
-              _selectedPhraseId = token.id;
-              _checkAiAvailability();
-            }
-          });
-        },
+      recognizer: recognizer,
       style: baseStyle?.copyWith(
         decoration: TextDecoration.underline,
         decorationStyle: TextDecorationStyle.dashed,
@@ -347,11 +367,17 @@ class _PrayerCardState extends State<PrayerCard> {
       );
     } else if (trans.tokens != null && trans.tokens!.isNotEmpty) {
       // Text rendering with phrase alignments
-      final spans = trans.tokens!
-          .map(
-            (token) => _buildTokenSpan(token, theme, isTarget: isTargetColumn),
-          )
-          .toList();
+      final spans = <InlineSpan>[];
+      for (var i = 0; i < trans.tokens!.length; i++) {
+        spans.add(
+          _buildTokenSpan(
+            trans.tokens![i],
+            i,
+            theme,
+            isTarget: isTargetColumn,
+          ),
+        );
+      }
       bodyWidget = Text.rich(
         TextSpan(children: spans),
         style: theme.textTheme.bodyLarge?.copyWith(
@@ -380,11 +406,14 @@ class _PrayerCardState extends State<PrayerCard> {
 
   @override
   Widget build(BuildContext context) {
+    _activeRecognizerKeys.clear();
+
     final hasPrimaryTranslation =
         widget.prayer.translations.containsKey(widget.selectedLanguage) &&
         widget.prayer.translations[widget.selectedLanguage]!.isNotEmpty;
 
     if (!hasPrimaryTranslation) {
+      _pruneUnusedRecognizers();
       return const SizedBox.shrink();
     }
 
@@ -705,6 +734,9 @@ class _PrayerCardState extends State<PrayerCard> {
         ),
       ),
     );
+
+    _pruneUnusedRecognizers();
+    return card;
   }
 
   Widget _buildSourceButton(PrayerTranslation translation, ThemeData theme) {

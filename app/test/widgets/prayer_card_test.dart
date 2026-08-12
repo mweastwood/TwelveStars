@@ -747,5 +747,69 @@ void main() {
         expect((fabPos.dy - targetPos.dy).abs(), lessThan(40));
       },
     );
+
+    testWidgets(
+      'reuses TapGestureRecognizer across rebuilds and disposes on unmount',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: testPrayerWithTokens,
+                  selectedLanguage: PrayerLanguage.english,
+                  compareLanguage: PrayerLanguage.spanish,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                  onLaunchSource: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        final richTextFinder = find.byWidgetPredicate(
+          (widget) =>
+              widget is RichText &&
+              widget.text.toPlainText().contains('who art in heaven'),
+        );
+        final richTextWidget1 =
+            tester.element(richTextFinder).widget as RichText;
+
+        TapGestureRecognizer? recognizer1;
+        richTextWidget1.text.visitChildren((span) {
+          if (span is TextSpan && span.text == 'who art in heaven') {
+            recognizer1 = span.recognizer as TapGestureRecognizer?;
+            return false;
+          }
+          return true;
+        });
+
+        expect(recognizer1, isNotNull);
+
+        // Trigger a rebuild by tapping
+        recognizer1!.onTap!();
+        await tester.pumpAndSettle();
+
+        final richTextWidget2 =
+            tester.element(richTextFinder).widget as RichText;
+        TapGestureRecognizer? recognizer2;
+        richTextWidget2.text.visitChildren((span) {
+          if (span is TextSpan && span.text == 'who art in heaven') {
+            recognizer2 = span.recognizer as TapGestureRecognizer?;
+            return false;
+          }
+          return true;
+        });
+
+        // Verify the exact same recognizer instance is reused
+        expect(identical(recognizer1, recognizer2), isTrue);
+
+        // Unmount widget
+        await tester.pumpWidget(const SizedBox.shrink());
+        await tester.pumpAndSettle();
+      },
+    );
   });
 }
+
