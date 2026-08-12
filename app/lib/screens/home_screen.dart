@@ -631,6 +631,8 @@ class _HomeScreenState extends State<HomeScreen>
 
     return ListView.builder(
       controller: _prayersScrollController,
+      // ignore: deprecated_member_use
+      cacheExtent: 10000.0,
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       itemCount: filteredPrayers.length + 2,
       itemBuilder: (context, index) {
