@@ -39,7 +39,7 @@ dependencies:
     git:
       url: https://github.com/mweastwood/flutter-agent-core.git
       ref: v0.0.16
-  firebase_core: ^4.4.0
+  firebase_core: ^4.13.0
   path_provider: ^2.1.1
   path: ^1.9.0
   yaml: ^3.1.2
