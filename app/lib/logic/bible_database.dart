@@ -259,6 +259,10 @@ class BibleDatabase extends _$BibleDatabase {
 
   final Map<String, Future<void>> _inFlightBookPopulations = {};
 
+  @visibleForTesting
+  Map<String, Future<void>> get inFlightBookPopulations =>
+      _inFlightBookPopulations;
+
   // Populate a specific book if not already populated
   Future<void> ensureBookPopulated(
     int bookNumber,
@@ -267,54 +271,55 @@ class BibleDatabase extends _$BibleDatabase {
     String translation = 'CPDV',
   }) {
     final key = '$translation:$bookNumber';
-    if (_inFlightBookPopulations.containsKey(key)) {
-      return _inFlightBookPopulations[key]!;
+    final inFlight = _inFlightBookPopulations[key];
+    if (inFlight != null) {
+      return inFlight;
     }
 
     final future = _ensureBookPopulatedImpl(
       bookNumber,
       bookName,
       abbrev,
+      key: key,
       translation: translation,
     );
     _inFlightBookPopulations[key] = future;
-    return future.whenComplete(() {
-      _inFlightBookPopulations.remove(key);
-    });
+    return future;
   }
 
   Future<void> _ensureBookPopulatedImpl(
     int bookNumber,
     String bookName,
     String abbrev, {
+    required String key,
     String translation = 'CPDV',
   }) async {
-    final existingCheck =
-        await (select(bibleVerses)
-              ..where(
+    try {
+      final existingCheck =
+          await (select(bibleVerses)
+                ..where(
+                  (t) =>
+                      t.bookNumber.equals(bookNumber) &
+                      t.translationCode.equals(translation),
+                )
+                ..limit(1))
+              .get();
+      if (existingCheck.isNotEmpty) {
+        if (existingCheck.first.verseText.contains('|strong=')) {
+          debugPrint(
+            'Detected strong tags in populated $bookName ($translation). Re-populating...',
+          );
+          await (delete(bibleVerses)..where(
                 (t) =>
                     t.bookNumber.equals(bookNumber) &
                     t.translationCode.equals(translation),
-              )
-              ..limit(1))
-            .get();
-    if (existingCheck.isNotEmpty) {
-      if (existingCheck.first.verseText.contains('|strong=')) {
-        debugPrint(
-          'Detected strong tags in populated $bookName ($translation). Re-populating...',
-        );
-        await (delete(bibleVerses)..where(
-              (t) =>
-                  t.bookNumber.equals(bookNumber) &
-                  t.translationCode.equals(translation),
-            ))
-            .go();
-      } else {
-        return; // Already populated and clean
+              ))
+              .go();
+        } else {
+          return; // Already populated and clean
+        }
       }
-    }
 
-    try {
       final numStr = bookNumber.toString().padLeft(2, '0');
       final String assetPath;
       if (translation == 'DRC') {
@@ -368,6 +373,9 @@ class BibleDatabase extends _$BibleDatabase {
       debugPrint(
         'Error populating book $bookName ($bookNumber) for $translation: $e',
       );
+      rethrow;
+    } finally {
+      _inFlightBookPopulations.remove(key);
     }
   }
 
