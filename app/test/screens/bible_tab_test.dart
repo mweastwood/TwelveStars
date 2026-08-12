@@ -8,6 +8,7 @@ import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+
 import '../test_helper.dart';
 
 void main() {

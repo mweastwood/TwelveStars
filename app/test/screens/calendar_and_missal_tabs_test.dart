@@ -8,6 +8,7 @@ import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:drift/native.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/time_helper.dart';
+
 import '../test_helper.dart';
 
 void main() {
@@ -28,8 +29,7 @@ void main() {
             PrayerTranslation.mock(
               title: 'Sign of the Cross',
               subtitle: 'Signum Crucis',
-              text:
-                  'In the name of the Father, and of the Son, and of the Holy Spirit.',
+              text: 'In the name of the Father, and of the Son, and of the Holy Spirit.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),
@@ -143,8 +143,7 @@ void main() {
           PrayerLanguage.english: [
             PrayerTranslation.mock(
               title: 'Greeting',
-              text:
-                  'Priest: In the name of the Father...\nPeople: Amen.\n\nPriest: The Lord be with you.\nPeople: And with your spirit.',
+              text: 'Priest: In the name of the Father...\nPeople: Amen.\n\nPriest: The Lord be with you.\nPeople: And with your spirit.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),
@@ -152,8 +151,7 @@ void main() {
           PrayerLanguage.latin: [
             PrayerTranslation.mock(
               title: 'Salutatio',
-              text:
-                  'Sacerdos: In nomine Patris...\nPopulus: Amen.\n\nSacerdos: Dominus vobiscum.\nPopulus: Et cum spiritu tuo.',
+              text: 'Sacerdos: In nomine Patris...\nPopulus: Amen.\n\nSacerdos: Dominus vobiscum.\nPopulus: Et cum spiritu tuo.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),
@@ -216,8 +214,7 @@ void main() {
           PrayerLanguage.english: [
             PrayerTranslation.mock(
               title: 'Sign of Peace',
-              text:
-                  'Priest: The peace of the Lord be with you always.\nPeople: And with your spirit.',
+              text: 'Priest: The peace of the Lord be with you always.\nPeople: And with your spirit.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),
@@ -225,8 +222,7 @@ void main() {
           PrayerLanguage.latin: [
             PrayerTranslation.mock(
               title: 'Pax Domini',
-              text:
-                  'Sacerdos: Pax Domini sit semper vobiscum.\nPopulus: Et cum spiritu tuo.',
+              text: 'Sacerdos: Pax Domini sit semper vobiscum.\nPopulus: Et cum spiritu tuo.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),

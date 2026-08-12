@@ -2742,26 +2742,24 @@ abstract class _$BibleDatabase extends GeneratedDatabase {
   ];
 }
 
-typedef $BibleVersesCreateCompanionBuilder =
-    BibleVersesCompanion Function({
-      Value<int> id,
-      required int bookNumber,
-      required String bookName,
-      required int chapter,
-      required int verseNumber,
-      required String verseText,
-      required String translationCode,
-    });
-typedef $BibleVersesUpdateCompanionBuilder =
-    BibleVersesCompanion Function({
-      Value<int> id,
-      Value<int> bookNumber,
-      Value<String> bookName,
-      Value<int> chapter,
-      Value<int> verseNumber,
-      Value<String> verseText,
-      Value<String> translationCode,
-    });
+typedef $BibleVersesCreateCompanionBuilder = BibleVersesCompanion Function({
+  Value<int> id,
+  required int bookNumber,
+  required String bookName,
+  required int chapter,
+  required int verseNumber,
+  required String verseText,
+  required String translationCode,
+});
+typedef $BibleVersesUpdateCompanionBuilder = BibleVersesCompanion Function({
+  Value<int> id,
+  Value<int> bookNumber,
+  Value<String> bookName,
+  Value<int> chapter,
+  Value<int> verseNumber,
+  Value<String> verseText,
+  Value<String> translationCode,
+});
 
 class $BibleVersesFilterComposer
     extends Composer<_$BibleDatabase, BibleVerses> {
@@ -3478,26 +3476,24 @@ typedef $FavoritePassagesProcessedTableManager =
       FavoritePassage,
       PrefetchHooks Function()
     >;
-typedef $UserCommentsCreateCompanionBuilder =
-    UserCommentsCompanion Function({
-      Value<int> id,
-      required String documentId,
-      required int sectionIndex,
-      required String nodeId,
-      required String commentText,
-      Value<String?> textPreview,
-      required DateTime createdAt,
-    });
-typedef $UserCommentsUpdateCompanionBuilder =
-    UserCommentsCompanion Function({
-      Value<int> id,
-      Value<String> documentId,
-      Value<int> sectionIndex,
-      Value<String> nodeId,
-      Value<String> commentText,
-      Value<String?> textPreview,
-      Value<DateTime> createdAt,
-    });
+typedef $UserCommentsCreateCompanionBuilder = UserCommentsCompanion Function({
+  Value<int> id,
+  required String documentId,
+  required int sectionIndex,
+  required String nodeId,
+  required String commentText,
+  Value<String?> textPreview,
+  required DateTime createdAt,
+});
+typedef $UserCommentsUpdateCompanionBuilder = UserCommentsCompanion Function({
+  Value<int> id,
+  Value<String> documentId,
+  Value<int> sectionIndex,
+  Value<String> nodeId,
+  Value<String> commentText,
+  Value<String?> textPreview,
+  Value<DateTime> createdAt,
+});
 
 class $UserCommentsFilterComposer
     extends Composer<_$BibleDatabase, UserComments> {
@@ -3715,28 +3711,26 @@ typedef $UserCommentsProcessedTableManager =
       UserComment,
       PrefetchHooks Function()
     >;
-typedef $$PrayersTableCreateCompanionBuilder =
-    PrayersCompanion Function({
-      Value<int> isarId,
-      required String prayerId,
-      required String defaultTitle,
-      required String category,
-      required int defaultOrder,
-      required bool hasAmen,
-      required String hash,
-      Value<List<LocalizedTranslations>?> localizedTranslations,
-    });
-typedef $$PrayersTableUpdateCompanionBuilder =
-    PrayersCompanion Function({
-      Value<int> isarId,
-      Value<String> prayerId,
-      Value<String> defaultTitle,
-      Value<String> category,
-      Value<int> defaultOrder,
-      Value<bool> hasAmen,
-      Value<String> hash,
-      Value<List<LocalizedTranslations>?> localizedTranslations,
-    });
+typedef $$PrayersTableCreateCompanionBuilder = PrayersCompanion Function({
+  Value<int> isarId,
+  required String prayerId,
+  required String defaultTitle,
+  required String category,
+  required int defaultOrder,
+  required bool hasAmen,
+  required String hash,
+  Value<List<LocalizedTranslations>?> localizedTranslations,
+});
+typedef $$PrayersTableUpdateCompanionBuilder = PrayersCompanion Function({
+  Value<int> isarId,
+  Value<String> prayerId,
+  Value<String> defaultTitle,
+  Value<String> category,
+  Value<int> defaultOrder,
+  Value<bool> hasAmen,
+  Value<String> hash,
+  Value<List<LocalizedTranslations>?> localizedTranslations,
+});
 
 class $$PrayersTableFilterComposer
     extends Composer<_$BibleDatabase, $PrayersTable> {

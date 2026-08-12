@@ -1,4 +1,5 @@
 import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/rosary_helper.dart';
 
@@ -100,9 +101,8 @@ class _RosaryBeadChainState extends State<RosaryBeadChain> {
         return SizedBox(
           width: 64,
           child: ScrollConfiguration(
-            behavior: ScrollConfiguration.of(
-              context,
-            ).copyWith(scrollbars: false),
+            behavior: ScrollConfiguration.of(context)
+                .copyWith(scrollbars: false),
             child: ListView.builder(
               controller: _scrollController,
               itemCount: widget.steps.length,

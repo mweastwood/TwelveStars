@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:drift/drift.dart' show Value;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -729,8 +730,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
 
             final nodeId =
                 '${verse.bookNumber}_${verse.chapter}_${verse.verseNumber}';
-            final verseComments =
-                _comments.where((c) => c.nodeId == nodeId).toList();
+            final verseComments = _comments
+                .where((c) => c.nodeId == nodeId)
+                .toList();
 
             BibleVerse? compareVerse;
             if (_compareVerses.isNotEmpty) {

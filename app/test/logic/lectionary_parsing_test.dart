@@ -300,8 +300,7 @@ void main() {
         ],
       ),
       _TestCase(
-        description:
-            'Psalm 56 (Hebrew 56 maps to Vulgate 55 with -1 chapter and -1 verse shift)',
+        description: 'Psalm 56 (Hebrew 56 maps to Vulgate 55 with -1 chapter and -1 verse shift)',
         bookNumber: 21,
         defaultChapter: 56,
         defaultVerseRange: '2-5',
@@ -349,8 +348,7 @@ void main() {
         ],
       ),
       _TestCase(
-        description:
-            'Psalm 115 (Hebrew 115:1-3 maps to Vulgate 113:9-11 with +8 offset)',
+        description: 'Psalm 115 (Hebrew 115:1-3 maps to Vulgate 113:9-11 with +8 offset)',
         bookNumber: 21,
         defaultChapter: 115,
         defaultVerseRange: '1-3',
@@ -373,8 +371,7 @@ void main() {
         ],
       ),
       _TestCase(
-        description:
-            'Psalm 116:10-15 (Hebrew 116:10-15 maps to Vulgate 115:1-6 with -9 offset)',
+        description: 'Psalm 116:10-15 (Hebrew 116:10-15 maps to Vulgate 115:1-6 with -9 offset)',
         bookNumber: 21,
         defaultChapter: 116,
         defaultVerseRange: '10-15',
@@ -384,8 +381,7 @@ void main() {
         ],
       ),
       _TestCase(
-        description:
-            'Psalm 116:8-12 (Spans across Vulgate split 114 & 115, return first match or 115 depending on content)',
+        description: 'Psalm 116:8-12 (Spans across Vulgate split 114 & 115, return first match or 115 depending on content)',
         bookNumber: 21,
         defaultChapter: 116,
         defaultVerseRange: '8-12',
@@ -451,8 +447,7 @@ void main() {
         ],
       ),
       _TestCase(
-        description:
-            'Psalm 147:12-20 (Hebrew 147:12-20 maps to Vulgate 147:1-9 with -11 offset)',
+        description: 'Psalm 147:12-20 (Hebrew 147:12-20 maps to Vulgate 147:1-9 with -11 offset)',
         bookNumber: 21,
         defaultChapter: 147,
         defaultVerseRange: '12-15',
@@ -1113,8 +1108,7 @@ void main() {
         ],
       ),
       _TestCase(
-        description:
-            'Zechariah shift boundary: Zechariah 2:1-10 shifts verses >= 5 by -4',
+        description: 'Zechariah shift boundary: Zechariah 2:1-10 shifts verses >= 5 by -4',
         bookNumber: 43,
         defaultChapter: 2,
         defaultVerseRange: '1-10',
@@ -1127,8 +1121,7 @@ void main() {
         ],
       ),
       _TestCase(
-        description:
-            'Malachi shift: Malachi 3:19-21 shifts to 4:1-3 (-18 verses into chapter 4)',
+        description: 'Malachi shift: Malachi 3:19-21 shifts to 4:1-3 (-18 verses into chapter 4)',
         bookNumber: 44,
         defaultChapter: 3,
         defaultVerseRange: '19-21',
@@ -1138,8 +1131,7 @@ void main() {
         ],
       ),
       _TestCase(
-        description:
-            'Malachi partial shift: Malachi 3:15-20 shifts verses > 18 to chapter 4',
+        description: 'Malachi partial shift: Malachi 3:15-20 shifts verses > 18 to chapter 4',
         bookNumber: 44,
         defaultChapter: 3,
         defaultVerseRange: '15-20',
@@ -1152,8 +1144,7 @@ void main() {
         ],
       ),
       _TestCase(
-        description:
-            'Acts 14 shift: Acts 14:21-28 shifts to 14:20-27 (-1 verse for verses > 20)',
+        description: 'Acts 14 shift: Acts 14:21-28 shifts to 14:20-27 (-1 verse for verses > 20)',
         bookNumber: 53,
         defaultChapter: 14,
         defaultVerseRange: '21-28',
@@ -1166,8 +1157,7 @@ void main() {
         ],
       ),
       _TestCase(
-        description:
-            'Mark 4:35-41 limits to verse 40 (verse 41 combined into 40 in Vulgate)',
+        description: 'Mark 4:35-41 limits to verse 40 (verse 41 combined into 40 in Vulgate)',
         bookNumber: 50,
         defaultChapter: 4,
         defaultVerseRange: '35-41',

@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/rosary_helper.dart';
 import 'package:twelve_stars/widgets/rosary_mystery_card.dart';
+
 import '../test_helper.dart';
 
 void main() {
@@ -10,8 +11,7 @@ void main() {
     const mockMystery = RosaryMystery(
       number: 1,
       title: 'The Annunciation',
-      description:
-          'The Angel Gabriel appears to Mary to announce that she will conceive the Son of God.',
+      description: 'The Angel Gabriel appears to Mary to announce that she will conceive the Son of God.',
     );
 
     testWidgets('renders all details correctly', (tester) async {

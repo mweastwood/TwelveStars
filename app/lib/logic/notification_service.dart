@@ -93,8 +93,7 @@ class NotificationService {
       final androidDetails = AndroidNotificationDetails(
         'sunday_liturgical_season',
         'Sunday Liturgical Season',
-        channelDescription:
-            'Subtle weekly notification showing the current liturgical season and color accent',
+        channelDescription: 'Subtle weekly notification showing the current liturgical season and color accent',
         importance: Importance.defaultImportance,
         priority: Priority.defaultPriority,
         color: liturgicalDay.colorWidget,

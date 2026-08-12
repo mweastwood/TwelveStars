@@ -512,11 +512,7 @@ class _MissalTabState extends State<MissalTab> {
             padding: const EdgeInsets.all(20.0),
             child: Row(
               children: [
-                Icon(
-                  Icons.church,
-                  color: currentDay.colorWidget,
-                  size: 28,
-                ),
+                Icon(Icons.church, color: currentDay.colorWidget, size: 28),
                 const SizedBox(width: 16),
                 Expanded(
                   child: Column(
@@ -601,9 +597,7 @@ class _MissalTabState extends State<MissalTab> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Padding(
               padding: EdgeInsets.symmetric(vertical: 20.0),
-              child: Center(
-                child: CircularProgressIndicator(strokeWidth: 2),
-              ),
+              child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
             );
           }
           if (snapshot.hasError) {
@@ -616,12 +610,7 @@ class _MissalTabState extends State<MissalTab> {
 
           // Sort readings: First Reading, Responsorial Psalm, Second Reading, Gospel
           readings.sort((a, b) {
-            const order = {
-              'first': 0,
-              'psalm': 1,
-              'second': 2,
-              'gospel': 3,
-            };
+            const order = {'first': 0, 'psalm': 1, 'second': 2, 'gospel': 3};
             final indexA = order[a.readingType] ?? 99;
             final indexB = order[b.readingType] ?? 99;
             return indexA.compareTo(indexB);
@@ -685,14 +674,8 @@ class _MissalTabState extends State<MissalTab> {
       Center(
         child: SegmentedButton<bool>(
           segments: const [
-            ButtonSegment<bool>(
-              value: true,
-              label: Text('Nicene Creed'),
-            ),
-            ButtonSegment<bool>(
-              value: false,
-              label: Text('Apostles\' Creed'),
-            ),
+            ButtonSegment<bool>(value: true, label: Text('Nicene Creed')),
+            ButtonSegment<bool>(value: false, label: Text('Apostles\' Creed')),
           ],
           selected: {_showNiceneCreed},
           onSelectionChanged: (newSelection) {

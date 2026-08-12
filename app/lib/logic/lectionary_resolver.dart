@@ -552,9 +552,8 @@ List<ChapterVerseRange> resolveReadingRanges({
           final leftColonIndex = leftPart.indexOf(':');
           if (leftColonIndex != -1) {
             final leftChapterPart = leftPart.substring(0, leftColonIndex);
-            final leftChapterMatch = RegExp(
-              r'\d+$',
-            ).firstMatch(leftChapterPart.trim());
+            final leftChapterMatch = RegExp(r'\d+$')
+                .firstMatch(leftChapterPart.trim());
             if (leftChapterMatch != null) {
               startChapterVal = int.parse(leftChapterMatch.group(0)!);
             }

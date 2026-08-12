@@ -171,6 +171,7 @@
 
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:html/parser.dart' as html_parser;
 import 'package:http/http.dart' as http;
@@ -270,8 +271,7 @@ void main() {
               .get(
                 uri,
                 headers: {
-                  'User-Agent':
-                      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+                  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
                 },
               )
               .timeout(const Duration(seconds: 15));

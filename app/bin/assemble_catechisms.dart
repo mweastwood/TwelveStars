@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:path/path.dart' as p;
 
 String cleanText(String text) {
@@ -470,8 +471,7 @@ void assembleTrentFromSource(String sourcePath, Directory outputDir) {
   final finalJson = {
     'bookId': 'council_of_trent',
     'title': 'Catechism of the Council of Trent',
-    'subtitle':
-        'The Roman Catechism (Translated by Rev. J. A. McHugh & C. J. Callan, 1923)',
+    'subtitle': 'The Roman Catechism (Translated by Rev. J. A. McHugh & C. J. Callan, 1923)',
     'author': 'Council of Trent / St. Pius V',
     'toc': toc,
     'sections': sections,
