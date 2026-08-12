@@ -17,19 +17,23 @@ void main() {
   });
 
   group('BibleDatabase Concurrent Population Tests', () {
-    test('handles concurrent ensureBookPopulated calls cleanly without duplicate constraint errors', () async {
-      final futures = Future.wait([
-        testDb.ensureBookPopulated(1, 'Genesis', 'GEN', translation: 'VUL'),
-        testDb.ensureBookPopulated(1, 'Genesis', 'GEN', translation: 'VUL'),
-        testDb.ensureBookPopulated(1, 'Genesis', 'GEN', translation: 'VUL'),
-        testDb.ensureBookPopulated(1, 'Genesis', 'GEN', translation: 'VUL'),
-      ]);
+    test(
+      'handles concurrent ensureBookPopulated calls cleanly without '
+      'duplicate constraint errors',
+      () async {
+        final futures = Future.wait([
+          testDb.ensureBookPopulated(1, 'Genesis', 'GEN', translation: 'VUL'),
+          testDb.ensureBookPopulated(1, 'Genesis', 'GEN', translation: 'VUL'),
+          testDb.ensureBookPopulated(1, 'Genesis', 'GEN', translation: 'VUL'),
+          testDb.ensureBookPopulated(1, 'Genesis', 'GEN', translation: 'VUL'),
+        ]);
 
-      await expectLater(futures, completes);
+        await expectLater(futures, completes);
 
-      final verses = await testDb.getChapterVerses('VUL', 1, 1);
-      expect(verses, isNotEmpty);
-      expect(verses.first.translationCode, equals('VUL'));
-    });
+        final verses = await testDb.getChapterVerses('VUL', 1, 1);
+        expect(verses, isNotEmpty);
+        expect(verses.first.translationCode, equals('VUL'));
+      },
+    );
   });
 }

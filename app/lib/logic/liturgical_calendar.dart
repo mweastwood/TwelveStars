@@ -197,7 +197,8 @@ class LiturgicalCalendar {
     return DateTime(year, month, day);
   }
 
-  // Calculate day difference using UTC date-only arithmetic to avoid DST transition miscalculations
+  // Calculate day difference using UTC date-only arithmetic to avoid DST
+  // transition miscalculations
   static int _daysBetween(DateTime a, DateTime b) {
     final utcA = DateTime.utc(a.year, a.month, a.day);
     final utcB = DateTime.utc(b.year, b.month, b.day);
