@@ -6,6 +6,7 @@ import 'package:flutter_agent_core/flutter_agent_core.dart';
 import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
+
 import '../test_helper.dart';
 
 void main() {
@@ -19,15 +20,12 @@ void main() {
           PrayerTranslation.mock(
             title: 'Our Father',
             subtitle: "The Lord's Prayer (Traditional)",
-            text:
-                'Our Father, who art in heaven,\nhallowed be thy name;\nthy kingdom come;\nthy will be done\non earth as it is in heaven.\n\nGive us this day our daily bread;\nand forgive us our trespasses\nas we forgive those who trespass against us;\nand lead us not into temptation,\nbut deliver us from evil.',
+            text: 'Our Father, who art in heaven,\nhallowed be thy name;\nthy kingdom come;\nthy will be done\non earth as it is in heaven.\n\nGive us this day our daily bread;\nand forgive us our trespasses\nas we forgive those who trespass against us;\nand lead us not into temptation,\nbut deliver us from evil.',
             sourceName:
                 'Compendium of the Catechism of the Catholic Church (Vatican)',
-            sourceUrl:
-                'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html',
+            sourceUrl: 'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html',
             historyOrigin: 'Gospel of Matthew 6:9–13',
-            historyDescription:
-                'Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer.',
+            historyDescription: 'Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer.',
           ),
         ],
         PrayerLanguage.spanish: [
@@ -43,8 +41,7 @@ void main() {
           PrayerTranslation.mock(
             title: '天主經',
             subtitle: 'Lord’s Prayer',
-            text:
-                '我們的天父，願祢的名受顯揚；願祢的國來臨；願祢的旨意奉行在人間，如同在天上。求祢今天賞給我們日用的食糧；求祢寬恕我們的罪過，如同我們寬恕別人一樣；不要讓我們陷於誘惑；但救我們免於凶惡。',
+            text: '我們的天父，願祢的名受顯揚；願祢的國來臨；願祢的旨意奉行在人間，如同在天上。求祢今天賞給我們日用的食糧；求祢寬恕我們的罪過，如同我們寬恕別人一樣；不要讓我們陷於誘惑；但救我們免於凶惡。',
             sourceName: 'Wikipedia',
             sourceUrl:
                 'https://zh.wikipedia.org/zh-hant/%E5%A4%A9%E4%B8%BB%E7%B6%93',
@@ -235,54 +232,51 @@ void main() {
       );
     });
 
-    testWidgets(
-      'renders single-language mode when compareLanguage is null '
-      'and side-by-side mode when compareLanguage is set',
-      (tester) async {
-        await tester.pumpWidget(
-          buildTestableWidget(
-            child: Scaffold(
-              body: SingleChildScrollView(
-                child: PrayerCard(
-                  prayer: testPrayerWithTokens,
-                  selectedLanguage: PrayerLanguage.english,
-                  compareLanguage: null,
-                  initialVersionIndex: 0,
-                  onVersionChanged: (_) {},
-                  onLaunchSource: (_) {},
-                ),
+    testWidgets('renders single-language mode when compareLanguage is null '
+        'and side-by-side mode when compareLanguage is set', (tester) async {
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: PrayerCard(
+                prayer: testPrayerWithTokens,
+                selectedLanguage: PrayerLanguage.english,
+                compareLanguage: null,
+                initialVersionIndex: 0,
+                onVersionChanged: (_) {},
+                onLaunchSource: (_) {},
               ),
             ),
           ),
-        );
+        ),
+      );
 
-        // Verify that in single-language mode, compare title is NOT rendered
-        expect(find.text('Our Father'), findsOneWidget);
-        expect(find.text('Padre Nuestro'), findsNothing);
+      // Verify that in single-language mode, compare title is NOT rendered
+      expect(find.text('Our Father'), findsOneWidget);
+      expect(find.text('Padre Nuestro'), findsNothing);
 
-        await tester.pumpWidget(
-          buildTestableWidget(
-            child: Scaffold(
-              body: SingleChildScrollView(
-                child: PrayerCard(
-                  prayer: testPrayerWithTokens,
-                  selectedLanguage: PrayerLanguage.english,
-                  compareLanguage: PrayerLanguage.spanish,
-                  initialVersionIndex: 0,
-                  onVersionChanged: (_) {},
-                  onLaunchSource: (_) {},
-                ),
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: PrayerCard(
+                prayer: testPrayerWithTokens,
+                selectedLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.spanish,
+                initialVersionIndex: 0,
+                onVersionChanged: (_) {},
+                onLaunchSource: (_) {},
               ),
             ),
           ),
-        );
+        ),
+      );
 
-        // Verify that when secondary language is set, side-by-side mode is
-        // enabled
-        expect(find.text('Our Father'), findsOneWidget);
-        expect(find.text('Padre Nuestro'), findsOneWidget);
-      },
-    );
+      // Verify that when secondary language is set, side-by-side mode is
+      // enabled
+      expect(find.text('Our Father'), findsOneWidget);
+      expect(find.text('Padre Nuestro'), findsOneWidget);
+    });
 
     testWidgets(
       'renders SizedBox when selected primary language translation is missing',
@@ -420,80 +414,76 @@ void main() {
       await screenMatchesGolden(tester, 'prayer_card_golden');
     });
 
-    testWidgets(
-      'translation explanation FAB visibility depends on AI service '
-      'availability',
-      (tester) async {
-        final mockAi = MockAiService();
-        LocalAgentHelper.instance = mockAi;
+    testWidgets('translation explanation FAB visibility depends on AI service '
+        'availability', (tester) async {
+      final mockAi = MockAiService();
+      LocalAgentHelper.instance = mockAi;
 
-        // 1. Test when AI is NOT available
-        mockAi.setMockStatus(AiCoreStatus.unavailable);
+      // 1. Test when AI is NOT available
+      mockAi.setMockStatus(AiCoreStatus.unavailable);
 
-        await tester.pumpWidget(
-          buildTestableWidget(
-            child: Scaffold(
-              body: SingleChildScrollView(
-                child: PrayerCard(
-                  prayer: testPrayerWithTokens,
-                  selectedLanguage: PrayerLanguage.english,
-                  compareLanguage: PrayerLanguage.spanish,
-                  initialVersionIndex: 0,
-                  onVersionChanged: (_) {},
-                  onLaunchSource: (_) {},
-                ),
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: PrayerCard(
+                prayer: testPrayerWithTokens,
+                selectedLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.spanish,
+                initialVersionIndex: 0,
+                onVersionChanged: (_) {},
+                onLaunchSource: (_) {},
               ),
             ),
           ),
-        );
+        ),
+      );
 
-        // Find the RichText widget containing the phrase
-        final richTextFinder = find.byWidgetPredicate(
-          (widget) =>
-              widget is RichText &&
-              widget.text.toPlainText().contains('who art in heaven'),
-        );
-        final richTextWidget =
-            tester.element(richTextFinder).widget as RichText;
+      // Find the RichText widget containing the phrase
+      final richTextFinder = find.byWidgetPredicate(
+        (widget) =>
+            widget is RichText &&
+            widget.text.toPlainText().contains('who art in heaven'),
+      );
+      final richTextWidget = tester.element(richTextFinder).widget as RichText;
 
-        TapGestureRecognizer? recognizer;
-        richTextWidget.text.visitChildren((span) {
-          if (span is TextSpan && span.text == 'who art in heaven') {
-            recognizer = span.recognizer as TapGestureRecognizer?;
-            return false;
-          }
-          return true;
-        });
+      TapGestureRecognizer? recognizer;
+      richTextWidget.text.visitChildren((span) {
+        if (span is TextSpan && span.text == 'who art in heaven') {
+          recognizer = span.recognizer as TapGestureRecognizer?;
+          return false;
+        }
+        return true;
+      });
 
-        expect(recognizer, isNotNull);
-        recognizer!.onTap!();
-        await tester.pumpAndSettle();
+      expect(recognizer, isNotNull);
+      recognizer!.onTap!();
+      await tester.pumpAndSettle();
 
-        // FAB should NOT be shown since AI is unavailable
-        expect(find.byIcon(Icons.auto_awesome), findsNothing);
+      // FAB should NOT be shown since AI is unavailable
+      expect(find.byIcon(Icons.auto_awesome), findsNothing);
 
-        // 2. Test when AI IS available
-        mockAi.setMockStatus(AiCoreStatus.available);
+      // 2. Test when AI IS available
+      mockAi.setMockStatus(AiCoreStatus.available);
 
-        // Retap to refresh the state and run the check
-        recognizer!.onTap!(); // untap
-        await tester.pumpAndSettle();
-        recognizer!.onTap!(); // retap
-        await tester.pumpAndSettle();
+      // Retap to refresh the state and run the check
+      recognizer!.onTap!(); // untap
+      await tester.pumpAndSettle();
+      recognizer!.onTap!(); // retap
+      await tester.pumpAndSettle();
 
-        // FAB should be shown now!
-        expect(find.byIcon(Icons.auto_awesome), findsOneWidget);
+      // FAB should be shown now!
+      expect(find.byIcon(Icons.auto_awesome), findsOneWidget);
 
-        // 3. Test tapping the FAB opens the explainer sheet
-        await tester.tap(find.byIcon(Icons.auto_awesome));
-        await tester.pumpAndSettle();
+      // 3. Test tapping the FAB opens the explainer sheet
+      await tester.tap(find.byIcon(Icons.auto_awesome));
+      await tester.pumpAndSettle();
 
-        // Check if bottom sheet is shown with the correct title
-        expect(find.text('Translation Explainer'), findsOneWidget);
-        expect(find.text('who art in heaven'), findsWidgets);
-        expect(find.text('que estás in el cielo'), findsWidgets);
-      },
-    );
+      // Check if bottom sheet is shown with the correct title
+      expect(find.text('Translation Explainer'), findsOneWidget);
+      expect(find.text('who art in heaven'), findsWidgets);
+      expect(find.text('que estás in el cielo'), findsWidgets);
+    });
 
     testWidgets(
       'disables phrase tapping and underlining when compareLanguage is null',
@@ -915,97 +905,94 @@ void main() {
       },
     );
 
-    testWidgets(
-      'prunes unused gesture recognizers when prayer tokens change',
-      (tester) async {
-        await tester.pumpWidget(
-          buildTestableWidget(
-            child: Scaffold(
-              body: SingleChildScrollView(
-                child: PrayerCard(
-                  prayer: testPrayerWithTokens,
-                  selectedLanguage: PrayerLanguage.english,
-                  compareLanguage: PrayerLanguage.spanish,
-                  initialVersionIndex: 0,
-                  onVersionChanged: (_) {},
-                  onLaunchSource: (_) {},
-                ),
+    testWidgets('prunes unused gesture recognizers when prayer tokens change', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: PrayerCard(
+                prayer: testPrayerWithTokens,
+                selectedLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.spanish,
+                initialVersionIndex: 0,
+                onVersionChanged: (_) {},
+                onLaunchSource: (_) {},
               ),
             ),
           ),
-        );
+        ),
+      );
 
-        final richTextFinder = find.byWidgetPredicate(
-          (widget) =>
-              widget is RichText &&
-              widget.text.toPlainText().contains('who art in heaven'),
-        );
-        final richTextWidget1 =
-            tester.element(richTextFinder).widget as RichText;
+      final richTextFinder = find.byWidgetPredicate(
+        (widget) =>
+            widget is RichText &&
+            widget.text.toPlainText().contains('who art in heaven'),
+      );
+      final richTextWidget1 = tester.element(richTextFinder).widget as RichText;
 
-        TapGestureRecognizer? recognizer1;
-        richTextWidget1.text.visitChildren((span) {
-          if (span is TextSpan && span.text == 'who art in heaven') {
-            recognizer1 = span.recognizer as TapGestureRecognizer?;
-            return false;
-          }
-          return true;
-        });
+      TapGestureRecognizer? recognizer1;
+      richTextWidget1.text.visitChildren((span) {
+        if (span is TextSpan && span.text == 'who art in heaven') {
+          recognizer1 = span.recognizer as TapGestureRecognizer?;
+          return false;
+        }
+        return true;
+      });
 
-        expect(recognizer1, isNotNull);
+      expect(recognizer1, isNotNull);
 
-        // Switch to a prayer without tokens (testPrayer)
-        await tester.pumpWidget(
-          buildTestableWidget(
-            child: Scaffold(
-              body: SingleChildScrollView(
-                child: PrayerCard(
-                  prayer: testPrayer,
-                  selectedLanguage: PrayerLanguage.english,
-                  compareLanguage: PrayerLanguage.spanish,
-                  initialVersionIndex: 0,
-                  onVersionChanged: (_) {},
-                  onLaunchSource: (_) {},
-                ),
+      // Switch to a prayer without tokens (testPrayer)
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: PrayerCard(
+                prayer: testPrayer,
+                selectedLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.spanish,
+                initialVersionIndex: 0,
+                onVersionChanged: (_) {},
+                onLaunchSource: (_) {},
               ),
             ),
           ),
-        );
-        await tester.pumpAndSettle();
+        ),
+      );
+      await tester.pumpAndSettle();
 
-        // Switch back to testPrayerWithTokens
-        await tester.pumpWidget(
-          buildTestableWidget(
-            child: Scaffold(
-              body: SingleChildScrollView(
-                child: PrayerCard(
-                  prayer: testPrayerWithTokens,
-                  selectedLanguage: PrayerLanguage.english,
-                  compareLanguage: PrayerLanguage.spanish,
-                  initialVersionIndex: 0,
-                  onVersionChanged: (_) {},
-                  onLaunchSource: (_) {},
-                ),
+      // Switch back to testPrayerWithTokens
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: PrayerCard(
+                prayer: testPrayerWithTokens,
+                selectedLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.spanish,
+                initialVersionIndex: 0,
+                onVersionChanged: (_) {},
+                onLaunchSource: (_) {},
               ),
             ),
           ),
-        );
-        await tester.pumpAndSettle();
+        ),
+      );
+      await tester.pumpAndSettle();
 
-        final richTextWidget2 =
-            tester.element(richTextFinder).widget as RichText;
-        TapGestureRecognizer? recognizer2;
-        richTextWidget2.text.visitChildren((span) {
-          if (span is TextSpan && span.text == 'who art in heaven') {
-            recognizer2 = span.recognizer as TapGestureRecognizer?;
-            return false;
-          }
-          return true;
-        });
+      final richTextWidget2 = tester.element(richTextFinder).widget as RichText;
+      TapGestureRecognizer? recognizer2;
+      richTextWidget2.text.visitChildren((span) {
+        if (span is TextSpan && span.text == 'who art in heaven') {
+          recognizer2 = span.recognizer as TapGestureRecognizer?;
+          return false;
+        }
+        return true;
+      });
 
-        expect(recognizer2, isNotNull);
-        expect(identical(recognizer1, recognizer2), isFalse);
-      },
-    );
+      expect(recognizer2, isNotNull);
+      expect(identical(recognizer1, recognizer2), isFalse);
+    });
   });
 }

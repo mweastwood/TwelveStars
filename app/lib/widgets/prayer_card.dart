@@ -160,19 +160,17 @@ class _PrayerCardState extends State<PrayerCard> {
     _activeRecognizerKeys.add(recognizerKey);
 
     final recognizer =
-        _recognizers.putIfAbsent(
-          recognizerKey,
-          () => TapGestureRecognizer(),
-        )..onTap = () {
-          setState(() {
-            if (_selectedPhraseId == token.id) {
-              _selectedPhraseId = null;
-            } else {
-              _selectedPhraseId = token.id;
-              _checkAiAvailability();
-            }
-          });
-        };
+        _recognizers.putIfAbsent(recognizerKey, () => TapGestureRecognizer())
+          ..onTap = () {
+            setState(() {
+              if (_selectedPhraseId == token.id) {
+                _selectedPhraseId = null;
+              } else {
+                _selectedPhraseId = token.id;
+                _checkAiAvailability();
+              }
+            });
+          };
 
     final isSelected = token.id == _selectedPhraseId;
 
@@ -371,12 +369,7 @@ class _PrayerCardState extends State<PrayerCard> {
       final spans = <InlineSpan>[];
       for (var i = 0; i < trans.tokens!.length; i++) {
         spans.add(
-          _buildTokenSpan(
-            trans.tokens![i],
-            i,
-            theme,
-            isTarget: isTargetColumn,
-          ),
+          _buildTokenSpan(trans.tokens![i], i, theme, isTarget: isTargetColumn),
         );
       }
       bodyWidget = Text.rich(
