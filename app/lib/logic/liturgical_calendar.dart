@@ -197,6 +197,14 @@ class LiturgicalCalendar {
     return DateTime(year, month, day);
   }
 
+  // Calculate day difference using UTC date-only arithmetic to avoid DST
+  // transition miscalculations
+  static int _daysBetween(DateTime a, DateTime b) {
+    final utcA = DateTime.utc(a.year, a.month, a.day);
+    final utcB = DateTime.utc(b.year, b.month, b.day);
+    return utcA.difference(utcB).inDays;
+  }
+
   static DateTime getFirstSundayOfAdvent(int year) {
     final nov30 = DateTime(year, 11, 30);
     final weekday = nov30.weekday;
@@ -391,7 +399,7 @@ class LiturgicalCalendar {
         // --- ADVENT ---
         season = LiturgicalSeason.advent;
         color = LiturgicalColor.purple;
-        final days = localDate.difference(activeAdventStart).inDays;
+        final days = _daysBetween(localDate, activeAdventStart);
         final week = (days ~/ 7) + 1;
         if (localDate.weekday == DateTime.sunday) {
           if (week == 3) {
@@ -443,7 +451,7 @@ class LiturgicalCalendar {
         // --- ORDINARY TIME (PART 1) ---
         season = LiturgicalSeason.ordinaryTime;
         color = LiturgicalColor.green;
-        final days = localDate.difference(activeBaptism).inDays;
+        final days = _daysBetween(localDate, activeBaptism);
         final week = (days ~/ 7) + 1;
         if (localDate.weekday == DateTime.sunday) {
           weekName = '$week${getOrdinalSuffix(week)} Sunday in Ordinary Time';
@@ -456,7 +464,7 @@ class LiturgicalCalendar {
       // --- LENT ---
       season = LiturgicalSeason.lent;
       color = LiturgicalColor.purple;
-      final days = localDate.difference(ashWednesday).inDays;
+      final days = _daysBetween(localDate, ashWednesday);
       if (days == 0) {
         name = 'Ash Wednesday';
         weekName = 'Ash Wednesday';
@@ -505,7 +513,7 @@ class LiturgicalCalendar {
       // --- EASTER SEASON ---
       season = LiturgicalSeason.easter;
       color = LiturgicalColor.white;
-      final days = localDate.difference(activeEaster).inDays;
+      final days = _daysBetween(localDate, activeEaster);
       if (days == 0) {
         name = 'Easter Sunday of the Resurrection of the Lord';
         weekName = 'Easter Sunday';
@@ -542,7 +550,7 @@ class LiturgicalCalendar {
         localDate.day - localDate.weekday % 7,
       );
       final weeksFromAdvent =
-          nextAdvent.difference(sundayOfContainingWeek).inDays ~/ 7;
+          _daysBetween(nextAdvent, sundayOfContainingWeek) ~/ 7;
       final int week = 35 - weeksFromAdvent;
 
       if (localDate.weekday == DateTime.sunday) {
