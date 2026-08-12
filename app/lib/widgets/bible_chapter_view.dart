@@ -670,7 +670,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
                         backgroundColor: theme.colorScheme.primaryContainer
                             .withValues(alpha: 0.5),
                         side: BorderSide(
-                          color: theme.colorScheme.primary.withValues(alpha: 0.3),
+                          color: theme.colorScheme.primary.withValues(
+                            alpha: 0.3,
+                          ),
                         ),
                         mouseCursor: SystemMouseCursors.click,
                         onPressed: () => _showReverseCitationsModal(
@@ -696,10 +698,10 @@ class _BibleChapterViewState extends State<BibleChapterView>
 
                   final verseCitations =
                       ReverseCitationService.getVerseCitations(
-                    widget.book.bookNumber,
-                    widget.chapter,
-                    verse.verseNumber,
-                  );
+                        widget.book.bookNumber,
+                        widget.chapter,
+                        verse.verseNumber,
+                      );
 
                   final nodeId =
                       '${verse.bookNumber}_${verse.chapter}_${verse.verseNumber}';
@@ -801,10 +803,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                       .withValues(alpha: 0.8),
                                   borderRadius: BorderRadius.circular(12),
                                   border: Border.all(
-                                    color:
-                                        theme.colorScheme.tertiary.withValues(
-                                      alpha: 0.4,
-                                    ),
+                                    color: theme.colorScheme.tertiary
+                                        .withValues(alpha: 0.4),
                                   ),
                                 ),
                                 child: Row(
@@ -813,8 +813,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                     Icon(
                                       Icons.auto_stories_rounded,
                                       size: 13,
-                                      color: theme
-                                          .colorScheme.onTertiaryContainer,
+                                      color:
+                                          theme.colorScheme.onTertiaryContainer,
                                     ),
                                     const SizedBox(width: 4),
                                     Text(
@@ -823,7 +823,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                         fontSize: 11,
                                         fontWeight: FontWeight.bold,
                                         color: theme
-                                            .colorScheme.onTertiaryContainer,
+                                            .colorScheme
+                                            .onTertiaryContainer,
                                       ),
                                     ),
                                   ],
@@ -854,10 +855,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                       .withValues(alpha: 0.8),
                                   borderRadius: BorderRadius.circular(12),
                                   border: Border.all(
-                                    color:
-                                        theme.colorScheme.secondary.withValues(
-                                      alpha: 0.4,
-                                    ),
+                                    color: theme.colorScheme.secondary
+                                        .withValues(alpha: 0.4),
                                   ),
                                 ),
                                 child: Row(
@@ -867,7 +866,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                       Icons.comment_rounded,
                                       size: 13,
                                       color: theme
-                                          .colorScheme.onSecondaryContainer,
+                                          .colorScheme
+                                          .onSecondaryContainer,
                                     ),
                                     const SizedBox(width: 4),
                                     Text(
@@ -876,7 +876,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                         fontSize: 11,
                                         fontWeight: FontWeight.bold,
                                         color: theme
-                                            .colorScheme.onSecondaryContainer,
+                                            .colorScheme
+                                            .onSecondaryContainer,
                                       ),
                                     ),
                                   ],
@@ -891,9 +892,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                 },
               ),
             ),
-            const SliverToBoxAdapter(
-              child: SizedBox(height: 160.0),
-            ),
+            const SliverToBoxAdapter(child: SizedBox(height: 160.0)),
           ],
         ),
         if (_firstSelectedVerseNumber != null)

@@ -387,37 +387,6 @@ class _MissalTabState extends State<MissalTab> {
     final domineNonSumDignus = _findPrayer('domine_non_sum_dignus');
     final dismissal = _findPrayer('dismissal');
 
-    return Scaffold(
-      floatingActionButton: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          if (!_isTodaySelected) ...[
-            FloatingActionButton.extended(
-              heroTag: 'missal_today_fab',
-              onPressed: () {
-                setState(() {
-                  final now = TimeHelper.now();
-                  _selectedDate = DateTime(now.year, now.month, now.day);
-                });
-              },
-              icon: const Icon(Icons.restore),
-              label: const Text('Today'),
-            ),
-            const SizedBox(height: 8),
-          ],
-          FloatingActionButton.extended(
-            heroTag: 'missal_next_sunday_fab',
-            onPressed: () {
-              setState(() {
-                _selectedDate = _getNextSunday(_selectedDate);
-              });
-            },
-            icon: const Icon(Icons.navigate_next),
-            label: const Text('Next Sunday'),
-          ),
-        ],
-      ),
     final massParts = [
       // 4. Introductory Rites Section
       _buildSectionHeader('INTRODUCTORY RITES', theme),
@@ -472,9 +441,7 @@ class _MissalTabState extends State<MissalTab> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Padding(
               padding: EdgeInsets.symmetric(vertical: 20.0),
-              child: Center(
-                child: CircularProgressIndicator(strokeWidth: 2),
-              ),
+              child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
             );
           }
           if (snapshot.hasError) {
@@ -487,12 +454,7 @@ class _MissalTabState extends State<MissalTab> {
 
           // Sort readings: First Reading, Responsorial Psalm, Second Reading, Gospel
           readings.sort((a, b) {
-            const order = {
-              'first': 0,
-              'psalm': 1,
-              'second': 2,
-              'gospel': 3,
-            };
+            const order = {'first': 0, 'psalm': 1, 'second': 2, 'gospel': 3};
             final indexA = order[a.readingType] ?? 99;
             final indexB = order[b.readingType] ?? 99;
             return indexA.compareTo(indexB);
@@ -556,14 +518,8 @@ class _MissalTabState extends State<MissalTab> {
       Center(
         child: SegmentedButton<bool>(
           segments: const [
-            ButtonSegment<bool>(
-              value: true,
-              label: Text('Nicene Creed'),
-            ),
-            ButtonSegment<bool>(
-              value: false,
-              label: Text('Apostles\' Creed'),
-            ),
+            ButtonSegment<bool>(value: true, label: Text('Nicene Creed')),
+            ButtonSegment<bool>(value: false, label: Text('Apostles\' Creed')),
           ],
           selected: {_showNiceneCreed},
           onSelectionChanged: (newSelection) {
@@ -799,15 +755,19 @@ class _MissalTabState extends State<MissalTab> {
                                         style: theme.textTheme.labelMedium
                                             ?.copyWith(
                                               fontWeight: FontWeight.bold,
-                                              color: theme.colorScheme.secondary,
+                                              color:
+                                                  theme.colorScheme.secondary,
                                               letterSpacing: 1.1,
                                             ),
                                       ),
                                       Text(
                                         'Cycle ${currentDay.sundayCycle} • Year ${currentDay.weekdayCycle}',
-                                        style: theme.textTheme.labelSmall?.copyWith(
-                                          color: theme.colorScheme.onSurfaceVariant,
-                                        ),
+                                        style: theme.textTheme.labelSmall
+                                            ?.copyWith(
+                                              color: theme
+                                                  .colorScheme
+                                                  .onSurfaceVariant,
+                                            ),
                                       ),
                                     ],
                                   ),
@@ -830,9 +790,12 @@ class _MissalTabState extends State<MissalTab> {
                                       const SizedBox(width: 6),
                                       Text(
                                         'Color: ${currentDay.colorName}',
-                                        style: theme.textTheme.bodySmall?.copyWith(
-                                          color: theme.colorScheme.onSurfaceVariant,
-                                        ),
+                                        style: theme.textTheme.bodySmall
+                                            ?.copyWith(
+                                              color: theme
+                                                  .colorScheme
+                                                  .onSurfaceVariant,
+                                            ),
                                       ),
                                     ],
                                   ),
@@ -901,9 +864,7 @@ class _MissalTabState extends State<MissalTab> {
               itemBuilder: (context, index) => massParts[index],
             ),
           ),
-          const SliverToBoxAdapter(
-            child: SizedBox(height: 120.0),
-          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 120.0)),
         ],
       ),
     );
