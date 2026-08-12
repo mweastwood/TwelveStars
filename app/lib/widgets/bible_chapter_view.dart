@@ -98,9 +98,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
       );
       if (mounted) {
         setState(() {
-          _comments = comments
-              .where((c) => c.sectionIndex == widget.chapter)
-              .toList();
+          _comments =
+              comments.where((c) => c.sectionIndex == widget.chapter).toList();
         });
       }
     } catch (_) {}
@@ -310,9 +309,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
                       (v) => v.verseNumber >= start && v.verseNumber <= end,
                     )
                     .toList();
-                final textPreview = selectedVerses
-                    .map((v) => v.verseText)
-                    .join(' ');
+                final textPreview =
+                    selectedVerses.map((v) => v.verseText).join(' ');
 
                 final favorite = FavoritePassagesCompanion.insert(
                   bookNumber: widget.book.bookNumber,
@@ -345,21 +343,18 @@ class _BibleChapterViewState extends State<BibleChapterView>
               icon: const Icon(Icons.content_copy),
               tooltip: 'Copy selection',
               onPressed: () async {
-                final selectedVerses =
-                    _verses
-                        .where(
-                          (v) => v.verseNumber >= start && v.verseNumber <= end,
-                        )
-                        .toList()
-                      ..sort((a, b) => a.verseNumber.compareTo(b.verseNumber));
+                final selectedVerses = _verses
+                    .where(
+                      (v) => v.verseNumber >= start && v.verseNumber <= end,
+                    )
+                    .toList()
+                  ..sort((a, b) => a.verseNumber.compareTo(b.verseNumber));
 
-                final versesText = selectedVerses
-                    .map((v) {
-                      return count == 1
-                          ? v.verseText
-                          : '${v.verseNumber} ${v.verseText}';
-                    })
-                    .join(count == 1 ? '' : '\n');
+                final versesText = selectedVerses.map((v) {
+                  return count == 1
+                      ? v.verseText
+                      : '${v.verseNumber} ${v.verseText}';
+                }).join(count == 1 ? '' : '\n');
 
                 final clipboardContent = '$citation\n$versesText';
                 await Clipboard.setData(ClipboardData(text: clipboardContent));
@@ -900,8 +895,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                 style: TextStyle(
                                   fontSize: 11,
                                   fontWeight: FontWeight.bold,
-                                  color:
-                                      theme.colorScheme.onSecondaryContainer,
+                                  color: theme.colorScheme.onSecondaryContainer,
                                 ),
                               ),
                             ],
@@ -1025,10 +1019,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                             item.sourceBookTitle,
                                             style: theme.textTheme.labelMedium
                                                 ?.copyWith(
-                                                  fontWeight: FontWeight.bold,
-                                                  color:
-                                                      theme.colorScheme.primary,
-                                                ),
+                                              fontWeight: FontWeight.bold,
+                                              color: theme.colorScheme.primary,
+                                            ),
                                           ),
                                         ),
                                         Chip(
@@ -1046,10 +1039,10 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                     const SizedBox(height: 4),
                                     Text(
                                       '$qText${item.sectionTitle}',
-                                      style: theme.textTheme.bodyMedium
-                                          ?.copyWith(
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                      style:
+                                          theme.textTheme.bodyMedium?.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                     if (item.snippet.isNotEmpty) ...[
                                       const SizedBox(height: 6),
@@ -1057,13 +1050,12 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                         item.snippet,
                                         maxLines: 3,
                                         overflow: TextOverflow.ellipsis,
-                                        style: theme.textTheme.bodySmall
-                                            ?.copyWith(
-                                              color: theme
-                                                  .colorScheme
-                                                  .onSurfaceVariant,
-                                              height: 1.4,
-                                            ),
+                                        style:
+                                            theme.textTheme.bodySmall?.copyWith(
+                                          color: theme
+                                              .colorScheme.onSurfaceVariant,
+                                          height: 1.4,
+                                        ),
                                       ),
                                     ],
                                     const SizedBox(height: 8),
@@ -1088,8 +1080,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                             MaterialPageRoute(
                                               builder: (_) =>
                                                   LibraryReaderScreen(
-                                                    bookItem: book,
-                                                  ),
+                                                bookItem: book,
+                                              ),
                                             ),
                                           );
                                         },

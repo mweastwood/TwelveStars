@@ -270,8 +270,7 @@ class _MissalTabState extends State<MissalTab> {
 
   Widget _buildPrayerCard(Prayer prayer) {
     final prefKey = '${prayer.prayerId}_${_primaryLanguage.code}';
-    final initialVersion =
-        _settings?.preferredVersions
+    final initialVersion = _settings?.preferredVersions
             ?.firstWhere(
               (p) => p.key == prefKey,
               orElse: () => PrayerVersionPreference(),
