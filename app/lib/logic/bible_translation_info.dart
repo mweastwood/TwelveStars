@@ -46,8 +46,10 @@ class BibleTranslationInfo {
       publicationDate: '1749–1752',
       publicDomainStatus: 'Public Domain (Historic)',
       approvalStatus: BibleApprovalStatus.imprimatur,
-      originDescription: 'Translated from the Latin Vulgate by English Catholic scholars at Douai & Rheims in 1582–1610, revised into modern English by Bp. Richard Challoner in 1749–1752.',
-      churchUsage: 'The historic English Catholic standard for over 200 years, widely used in traditional devotions, missals, and litanies.',
+      originDescription:
+          'Translated from the Latin Vulgate by English Catholic scholars at Douai & Rheims in 1582–1610, revised into modern English by Bp. Richard Challoner in 1749–1752.',
+      churchUsage:
+          'The historic English Catholic standard for over 200 years, widely used in traditional devotions, missals, and litanies.',
     ),
     BibleTranslationInfo(
       code: 'VUL',
@@ -58,8 +60,10 @@ class BibleTranslationInfo {
       publicationDate: '1592',
       publicDomainStatus: 'Public Domain (Historic)',
       approvalStatus: BibleApprovalStatus.imprimatur,
-      originDescription: 'Authoritative Latin edition ordered by the Council of Trent and promulgated by Pope Clement VIII in 1592, based on St. Jerome\'s 4th-century translation.',
-      churchUsage: 'The official Latin Bible of the Roman Catholic Church and the Roman Rite liturgy for over 400 years.',
+      originDescription:
+          'Authoritative Latin edition ordered by the Council of Trent and promulgated by Pope Clement VIII in 1592, based on St. Jerome\'s 4th-century translation.',
+      churchUsage:
+          'The official Latin Bible of the Roman Catholic Church and the Roman Rite liturgy for over 400 years.',
     ),
     BibleTranslationInfo(
       code: 'JUN',
@@ -70,8 +74,10 @@ class BibleTranslationInfo {
       publicationDate: '1825',
       publicDomainStatus: 'Public Domain (Historic)',
       approvalStatus: BibleApprovalStatus.imprimatur,
-      originDescription: 'Translated directly from the Latin Vulgate into Spanish by Fr. José Miguel Petisco and Bp. Félix Torres Amat.',
-      churchUsage: 'The most famous historic Spanish Catholic Bible translation, revered throughout Spain and Latin America.',
+      originDescription:
+          'Translated directly from the Latin Vulgate into Spanish by Fr. José Miguel Petisco and Bp. Félix Torres Amat.',
+      churchUsage:
+          'The most famous historic Spanish Catholic Bible translation, revered throughout Spain and Latin America.',
     ),
     BibleTranslationInfo(
       code: 'TAM',
@@ -82,8 +88,10 @@ class BibleTranslationInfo {
       publicationDate: '1790–1793',
       publicDomainStatus: 'Public Domain (Historic)',
       approvalStatus: BibleApprovalStatus.imprimatur,
-      originDescription: 'The first complete Spanish Bible translated from the Latin Vulgate by Bp. Felipe Scío de San Miguel under Royal Decree of King Charles III.',
-      churchUsage: 'Historic standard for Spanish Catholic biblical study in the 18th and 19th centuries.',
+      originDescription:
+          'The first complete Spanish Bible translated from the Latin Vulgate by Bp. Felipe Scío de San Miguel under Royal Decree of King Charles III.',
+      churchUsage:
+          'Historic standard for Spanish Catholic biblical study in the 18th and 19th centuries.',
     ),
     BibleTranslationInfo(
       code: 'CPDV',
@@ -94,8 +102,10 @@ class BibleTranslationInfo {
       publicationDate: '2009',
       publicDomainStatus: 'Public Domain (Open License)',
       approvalStatus: BibleApprovalStatus.noImprimatur,
-      originDescription: 'A modern verse-by-verse English translation of the Clementine Latin Vulgate edited independently by lay scholar Ronald L. Conte Jr. in 2009.',
-      churchUsage: 'Popular for open-source digital study platforms, side-by-side Vulgate reference, and mobile prayer applications.',
+      originDescription:
+          'A modern verse-by-verse English translation of the Clementine Latin Vulgate edited independently by lay scholar Ronald L. Conte Jr. in 2009.',
+      churchUsage:
+          'Popular for open-source digital study platforms, side-by-side Vulgate reference, and mobile prayer applications.',
     ),
     BibleTranslationInfo(
       code: 'LXX',
@@ -106,8 +116,10 @@ class BibleTranslationInfo {
       publicationDate: 'c. 285–150 BC',
       publicDomainStatus: 'Public Domain (Ancient)',
       approvalStatus: BibleApprovalStatus.canonicalSourceText,
-      originDescription: 'Ancient Greek translation of the Old Testament prepared by Jewish scholars in Alexandria, Egypt.',
-      churchUsage: 'The primary Old Testament text quoted by the New Testament writers and Apostles, approved canonically by the Council of Rome (382) and Council of Trent (1546).',
+      originDescription:
+          'Ancient Greek translation of the Old Testament prepared by Jewish scholars in Alexandria, Egypt.',
+      churchUsage:
+          'The primary Old Testament text quoted by the New Testament writers and Apostles, approved canonically by the Council of Rome (382) and Council of Trent (1546).',
     ),
     BibleTranslationInfo(
       code: 'ORIG',
@@ -118,8 +130,10 @@ class BibleTranslationInfo {
       publicationDate: 'Ancient',
       publicDomainStatus: 'Public Domain (Ancient)',
       approvalStatus: BibleApprovalStatus.canonicalSourceText,
-      originDescription: 'The original Hebrew & Aramaic Old Testament manuscripts and Greek New Testament Received Text.',
-      churchUsage: 'Recognized by Pope Pius XII (Divino Afflante Spiritu) and Vatican II (Dei Verbum) as the supreme textual authority for Catholic exegesis.',
+      originDescription:
+          'The original Hebrew & Aramaic Old Testament manuscripts and Greek New Testament Received Text.',
+      churchUsage:
+          'Recognized by Pope Pius XII (Divino Afflante Spiritu) and Vatican II (Dei Verbum) as the supreme textual authority for Catholic exegesis.',
     ),
   ];
 

@@ -191,14 +191,16 @@ class LibraryHelper {
       volumeKey: 'no3',
       name: 'No. 3 (Post-Confirmation Course)',
       shortName: 'No. 3',
-      description: 'Comprehensive 2-year post-confirmation study course (37 Lessons, 1400+ Q&As).',
+      description:
+          'Comprehensive 2-year post-confirmation study course (37 Lessons, 1400+ Q&As).',
       assetPath: 'assets/catechism/json/baltimore_3.json',
     ),
     BaltimoreVolume(
       volumeKey: 'no4',
       name: 'No. 4 (Explanation by Fr. Kinkead)',
       shortName: 'No. 4',
-      description: 'Complete explanation with commentary and pastoral guidance by Rev. Thomas L. Kinkead.',
+      description:
+          'Complete explanation with commentary and pastoral guidance by Rev. Thomas L. Kinkead.',
       assetPath: 'assets/catechism/json/baltimore_4.json',
     ),
   ];
@@ -211,7 +213,8 @@ class LibraryHelper {
         subtitle: 'Third Plenary Council of Baltimore (1885)',
         category: 'Catechisms',
         author: 'Third Plenary Council of Baltimore / Rev. Thomas L. Kinkead',
-        description: 'The official national Catholic catechism of the United States from 1885 to the late 20th century. Features 4 progressive editions for all age levels.',
+        description:
+            'The official national Catholic catechism of the United States from 1885 to the late 20th century. Features 4 progressive editions for all age levels.',
         volumes: baltimoreVolumes,
       ),
       const LibraryBookItem(
@@ -219,8 +222,10 @@ class LibraryHelper {
         title: 'Catechism of the Council of Trent',
         subtitle: 'The Roman Catechism (St. Pius V, 1566)',
         category: 'Catechisms',
-        author: 'Council of Trent / Commission of St. Pius V (Trans. Rev. J. Donovan)',
-        description: 'Promulgated by Pope St. Pius V in 1566. The authoritative Roman Catechism expounding Catholic doctrine, sacraments, commandments, and prayer.',
+        author:
+            'Council of Trent / Commission of St. Pius V (Trans. Rev. J. Donovan)',
+        description:
+            'Promulgated by Pope St. Pius V in 1566. The authoritative Roman Catechism expounding Catholic doctrine, sacraments, commandments, and prayer.',
         defaultAssetPath: 'assets/catechism/json/council_of_trent.json',
       ),
     ];

@@ -173,88 +173,91 @@ void main() {
       }
     });
 
-    test('raw markdown files in each prayer directory have consistent metadata', () {
-      final dir = Directory('assets/prayers');
-      expect(dir.existsSync(), isTrue);
+    test(
+      'raw markdown files in each prayer directory have consistent metadata',
+      () {
+        final dir = Directory('assets/prayers');
+        expect(dir.existsSync(), isTrue);
 
-      final folders = dir.listSync().whereType<Directory>().toList();
-      for (final folder in folders) {
-        final prayerId = folder.path.split(Platform.pathSeparator).last;
-        final mdFiles = folder
-            .listSync()
-            .whereType<File>()
-            .where((f) => f.path.endsWith('.md'))
-            .toList();
+        final folders = dir.listSync().whereType<Directory>().toList();
+        for (final folder in folders) {
+          final prayerId = folder.path.split(Platform.pathSeparator).last;
+          final mdFiles = folder
+              .listSync()
+              .whereType<File>()
+              .where((f) => f.path.endsWith('.md'))
+              .toList();
 
-        if (mdFiles.isEmpty) continue;
+          if (mdFiles.isEmpty) continue;
 
-        String? expectedCategory;
-        int? expectedDefaultOrder;
-        String? expectedDefaultTitle;
-        String? expectedCategorySource;
-        String? expectedDefaultOrderSource;
-        String? expectedDefaultTitleSource;
+          String? expectedCategory;
+          int? expectedDefaultOrder;
+          String? expectedDefaultTitle;
+          String? expectedCategorySource;
+          String? expectedDefaultOrderSource;
+          String? expectedDefaultTitleSource;
 
-        for (final file in mdFiles) {
-          final filename = file.path.split(Platform.pathSeparator).last;
-          final content = file.readAsStringSync();
-          final normalizedContent = content.replaceAll('\r\n', '\n');
-          final parts = normalizedContent.split('---\n');
-          expect(
-            parts.length,
-            greaterThanOrEqualTo(3),
-            reason: 'Invalid markdown structure in ${file.path}',
-          );
-
-          final yamlMap = loadYaml(parts[1]) as YamlMap;
-          final category = yamlMap['category'] as String?;
-          final defaultOrder = yamlMap['default_order'] as int?;
-          final defaultTitle = yamlMap['default_title'] as String?;
-
-          if (expectedCategory == null) {
-            expectedCategory = category;
-            expectedCategorySource = filename;
-          } else {
+          for (final file in mdFiles) {
+            final filename = file.path.split(Platform.pathSeparator).last;
+            final content = file.readAsStringSync();
+            final normalizedContent = content.replaceAll('\r\n', '\n');
+            final parts = normalizedContent.split('---\n');
             expect(
-              category,
-              equals(expectedCategory),
-              reason:
-                  'Inconsistent category for "$prayerId": '
-                  '$expectedCategorySource has "$expectedCategory" but '
-                  '$filename has "$category"',
+              parts.length,
+              greaterThanOrEqualTo(3),
+              reason: 'Invalid markdown structure in ${file.path}',
             );
-          }
 
-          if (expectedDefaultOrder == null) {
-            expectedDefaultOrder = defaultOrder;
-            expectedDefaultOrderSource = filename;
-          } else {
-            expect(
-              defaultOrder,
-              equals(expectedDefaultOrder),
-              reason:
-                  'Inconsistent default_order for "$prayerId": '
-                  '$expectedDefaultOrderSource has "$expectedDefaultOrder" but '
-                  '$filename has "$defaultOrder"',
-            );
-          }
+            final yamlMap = loadYaml(parts[1]) as YamlMap;
+            final category = yamlMap['category'] as String?;
+            final defaultOrder = yamlMap['default_order'] as int?;
+            final defaultTitle = yamlMap['default_title'] as String?;
 
-          if (expectedDefaultTitle == null) {
-            expectedDefaultTitle = defaultTitle;
-            expectedDefaultTitleSource = filename;
-          } else {
-            expect(
-              defaultTitle,
-              equals(expectedDefaultTitle),
-              reason:
-                  'Inconsistent default_title for "$prayerId": '
-                  '$expectedDefaultTitleSource has "$expectedDefaultTitle" but '
-                  '$filename has "$defaultTitle"',
-            );
+            if (expectedCategory == null) {
+              expectedCategory = category;
+              expectedCategorySource = filename;
+            } else {
+              expect(
+                category,
+                equals(expectedCategory),
+                reason:
+                    'Inconsistent category for "$prayerId": '
+                    '$expectedCategorySource has "$expectedCategory" but '
+                    '$filename has "$category"',
+              );
+            }
+
+            if (expectedDefaultOrder == null) {
+              expectedDefaultOrder = defaultOrder;
+              expectedDefaultOrderSource = filename;
+            } else {
+              expect(
+                defaultOrder,
+                equals(expectedDefaultOrder),
+                reason:
+                    'Inconsistent default_order for "$prayerId": '
+                    '$expectedDefaultOrderSource has "$expectedDefaultOrder" but '
+                    '$filename has "$defaultOrder"',
+              );
+            }
+
+            if (expectedDefaultTitle == null) {
+              expectedDefaultTitle = defaultTitle;
+              expectedDefaultTitleSource = filename;
+            } else {
+              expect(
+                defaultTitle,
+                equals(expectedDefaultTitle),
+                reason:
+                    'Inconsistent default_title for "$prayerId": '
+                    '$expectedDefaultTitleSource has "$expectedDefaultTitle" but '
+                    '$filename has "$defaultTitle"',
+              );
+            }
           }
         }
-      }
-    });
+      },
+    );
 
     test('default_order is unique across all prayers', () {
       final dir = Directory('assets/prayers');
@@ -293,53 +296,57 @@ void main() {
       }
     });
 
-    test('consistent handling of punctuation and whitespace within phrase keys', () {
-      for (final p in prayersJson) {
-        final pMap = p as Map<String, dynamic>;
-        final prayerId = pMap['id'] as String;
-        final transMap = pMap['translations'] as Map<String, dynamic>;
+    test(
+      'consistent handling of punctuation and whitespace within phrase keys',
+      () {
+        for (final p in prayersJson) {
+          final pMap = p as Map<String, dynamic>;
+          final prayerId = pMap['id'] as String;
+          final transMap = pMap['translations'] as Map<String, dynamic>;
 
-        for (final entry in transMap.entries) {
-          final lang = entry.key;
-          final transList = entry.value as List<dynamic>;
+          for (final entry in transMap.entries) {
+            final lang = entry.key;
+            final transList = entry.value as List<dynamic>;
 
-          for (
-            int versionIndex = 0;
-            versionIndex < transList.length;
-            versionIndex++
-          ) {
-            final tMap = transList[versionIndex] as Map<String, dynamic>;
-            final tokensList = tMap['tokens'] as List<dynamic>?;
-            if (tokensList == null) continue;
+            for (
+              int versionIndex = 0;
+              versionIndex < transList.length;
+              versionIndex++
+            ) {
+              final tMap = transList[versionIndex] as Map<String, dynamic>;
+              final tokensList = tMap['tokens'] as List<dynamic>?;
+              if (tokensList == null) continue;
 
-            for (final token in tokensList) {
-              final id = token['id'] as String?;
-              if (id == null) continue; // Skip non-phrase tokens
+              for (final token in tokensList) {
+                final id = token['id'] as String?;
+                if (id == null) continue; // Skip non-phrase tokens
 
-              final text = token['text'] as String;
+                final text = token['text'] as String;
 
-              // 1. Must not start or end with whitespace
-              expect(
-                text.trim(),
-                equals(text),
-                reason:
-                    'Phrase "$text" (id: $id) in prayer "$prayerId" ($lang, version ${versionIndex + 1}) has leading or trailing whitespace.',
-              );
+                // 1. Must not start or end with whitespace
+                expect(
+                  text.trim(),
+                  equals(text),
+                  reason:
+                      'Phrase "$text" (id: $id) in prayer "$prayerId" ($lang, version ${versionIndex + 1}) has leading or trailing whitespace.',
+                );
 
-              // 2. Must not start with punctuation
-              final startsWithPunct = RegExp(r'^[.,;:!?，。；：！？«»‘’“”"()]')
-                  .hasMatch(text);
-              expect(
-                startsWithPunct,
-                isFalse,
-                reason:
-                    'Phrase "$text" (id: $id) in prayer "$prayerId" ($lang, version ${versionIndex + 1}) starts with punctuation.',
-              );
+                // 2. Must not start with punctuation
+                final startsWithPunct = RegExp(
+                  r'^[.,;:!?，。；：！？«»‘’“”"()]',
+                ).hasMatch(text);
+                expect(
+                  startsWithPunct,
+                  isFalse,
+                  reason:
+                      'Phrase "$text" (id: $id) in prayer "$prayerId" ($lang, version ${versionIndex + 1}) starts with punctuation.',
+                );
+              }
             }
           }
         }
-      }
-    });
+      },
+    );
 
     test('every prayer has at least one phrase', () {
       for (final p in prayersJson) {

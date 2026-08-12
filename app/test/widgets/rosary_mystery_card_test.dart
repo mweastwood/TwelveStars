@@ -11,7 +11,8 @@ void main() {
     const mockMystery = RosaryMystery(
       number: 1,
       title: 'The Annunciation',
-      description: 'The Angel Gabriel appears to Mary to announce that she will conceive the Son of God.',
+      description:
+          'The Angel Gabriel appears to Mary to announce that she will conceive the Son of God.',
     );
 
     testWidgets('renders all details correctly', (tester) async {

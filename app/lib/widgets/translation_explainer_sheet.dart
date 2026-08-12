@@ -89,7 +89,8 @@ class _TranslationExplainerSheetState extends State<TranslationExplainerSheet> {
       }
       setState(() {
         _isLoading = false;
-        _error = 'Model download taking longer than expected. Please wait or try again.';
+        _error =
+            'Model download taking longer than expected. Please wait or try again.';
       });
     } catch (e) {
       setState(() {
