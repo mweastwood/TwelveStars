@@ -192,7 +192,8 @@ void main() {
             title: 'Padre Nuestro',
             subtitle: 'El Padre Nuestro',
             text:
-                'Padre nuestro, que estás in el cielo, santificado sea tu nombre;',
+                'Padre nuestro, que estás in el cielo, santificado sea tu '
+                'nombre;',
             tokens: [
               PrayerToken('Padre nuestro, ', null),
               PrayerToken('que estás in el cielo', 'heaven'),
@@ -235,7 +236,8 @@ void main() {
     });
 
     testWidgets(
-      'renders single-language mode when compareLanguage is null and side-by-side mode when compareLanguage is set',
+      'renders single-language mode when compareLanguage is null '
+      'and side-by-side mode when compareLanguage is set',
       (tester) async {
         await tester.pumpWidget(
           buildTestableWidget(
@@ -275,7 +277,8 @@ void main() {
           ),
         );
 
-        // Verify that when secondary language is set, side-by-side mode is enabled
+        // Verify that when secondary language is set, side-by-side mode is
+        // enabled
         expect(find.text('Our Father'), findsOneWidget);
         expect(find.text('Padre Nuestro'), findsOneWidget);
       },
@@ -391,7 +394,8 @@ void main() {
         surfaceSize: const Size(450, 3200),
       );
 
-      // Find the RichText widget inside the fourth scenario containing the phrase
+      // Find the RichText widget inside the fourth scenario containing the
+      // phrase
       final richTextFinder = find.byWidgetPredicate(
         (widget) =>
             widget is RichText &&
@@ -417,7 +421,8 @@ void main() {
     });
 
     testWidgets(
-      'translation explanation FAB visibility depends on AI service availability',
+      'translation explanation FAB visibility depends on AI service '
+      'availability',
       (tester) async {
         final mockAi = MockAiService();
         LocalAgentHelper.instance = mockAi;
@@ -527,7 +532,8 @@ void main() {
           return true;
         });
 
-        // Recognizer should be null because tapping is disabled without compare language
+        // Recognizer should be null because tapping is disabled without
+        // compare language
         expect(recognizer, isNull);
       },
     );
@@ -584,7 +590,8 @@ void main() {
       expect(fabFinder, findsOneWidget);
       await tester.tap(fabFinder);
 
-      // Pump and settle to let the sheet animate up and the mock response load completely
+      // Pump and settle to let the sheet animate up and the mock response load
+      // completely
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(tester, 'translation_explainer_sheet_golden');
@@ -604,9 +611,11 @@ void main() {
               title: 'Nicene Creed',
               subtitle: 'Symbolum Nicaenum',
               text:
-                  'I believe in one God, the Father almighty, maker of heaven and earth...',
+                  'I believe in one God, the Father almighty, maker of heaven '
+                  'and earth...',
               copyright:
-                  'English translation of the Nicene Creed © 2010, ICEL. All rights reserved.',
+                  'English translation of the Nicene Creed © 2010, ICEL. '
+                  'All rights reserved.',
             ),
           ],
         },
@@ -687,7 +696,8 @@ void main() {
     );
 
     testWidgets(
-      'positions AI explainer button adjacent to the highlighted phrase target rather than card title header',
+      'positions AI explainer button adjacent to the highlighted phrase '
+      'target rather than card title header',
       (tester) async {
         final mockAi = MockAiService();
         LocalAgentHelper.instance = mockAi;
@@ -740,7 +750,8 @@ void main() {
           find.byType(CompositedTransformTarget),
         );
 
-        // Verify FAB vertical Y coordinate is significantly below the title header
+        // Verify FAB vertical Y coordinate is significantly below the title
+        // header
         expect(fabPos.dy, greaterThan(titlePos.dy + 30));
 
         // Verify FAB position is anchored near the phrase target position

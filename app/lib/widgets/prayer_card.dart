@@ -159,19 +159,20 @@ class _PrayerCardState extends State<PrayerCard> {
         '${isTarget ? 'target' : 'primary'}_${index}_${token.id}';
     _activeRecognizerKeys.add(recognizerKey);
 
-    final recognizer = _recognizers.putIfAbsent(
-      recognizerKey,
-      () => TapGestureRecognizer(),
-    )..onTap = () {
-        setState(() {
-          if (_selectedPhraseId == token.id) {
-            _selectedPhraseId = null;
-          } else {
-            _selectedPhraseId = token.id;
-            _checkAiAvailability();
-          }
-        });
-      };
+    final recognizer =
+        _recognizers.putIfAbsent(
+          recognizerKey,
+          () => TapGestureRecognizer(),
+        )..onTap = () {
+          setState(() {
+            if (_selectedPhraseId == token.id) {
+              _selectedPhraseId = null;
+            } else {
+              _selectedPhraseId = token.id;
+              _checkAiAvailability();
+            }
+          });
+        };
 
     final isSelected = token.id == _selectedPhraseId;
 
@@ -447,7 +448,9 @@ class _PrayerCardState extends State<PrayerCard> {
         if (details.primaryVelocity == null) return;
         if (translations.length <= 1) return;
         if (_isDualMode) {
-          return; // disable swiping version in dual compare mode to avoid visual clutter
+          // Disable swiping version in dual compare mode to avoid visual
+          // clutter
+          return;
         }
 
         if (details.primaryVelocity! < 0) {
@@ -518,7 +521,8 @@ class _PrayerCardState extends State<PrayerCard> {
                                   .withValues(alpha: 0.3),
                             ),
                             const SizedBox(width: 12),
-                            // Right Column Title/Subtitle with padding to avoid overlaying split button
+                            // Right Column Title/Subtitle with padding to avoid
+                            // overlaying split button
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.only(right: 36),
