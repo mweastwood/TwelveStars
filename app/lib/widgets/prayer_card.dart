@@ -442,7 +442,7 @@ class _PrayerCardState extends State<PrayerCard> {
 
     final historyTrans = _activeTranslationWithHistory;
 
-    return GestureDetector(
+    final card = GestureDetector(
       onHorizontalDragEnd: (details) {
         if (details.primaryVelocity == null) return;
         if (translations.length <= 1) return;
