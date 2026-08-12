@@ -621,7 +621,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
     return Stack(
       children: [
         SingleChildScrollView(
-          controller: _effectiveScrollController,
+          controller: widget.scrollController,
           padding: const EdgeInsets.fromLTRB(
             16.0,
             16.0,
