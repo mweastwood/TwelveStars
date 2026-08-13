@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';

@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/bible_database.dart';

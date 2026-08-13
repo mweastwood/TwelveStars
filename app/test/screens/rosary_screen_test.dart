@@ -5,7 +5,6 @@ import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/rosary_helper.dart';
 import 'package:twelve_stars/screens/rosary_screen.dart';
-
 import '../test_helper.dart';
 
 List<Prayer> _createMockPrayers() {

@@ -8,7 +8,6 @@ import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:drift/native.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/time_helper.dart';
-
 import '../test_helper.dart';
 
 void main() {

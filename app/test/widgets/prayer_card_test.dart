@@ -6,7 +6,6 @@ import 'package:flutter_agent_core/flutter_agent_core.dart';
 import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
-
 import '../test_helper.dart';
 
 void main() {
