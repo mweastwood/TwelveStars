@@ -72,89 +72,156 @@ class PrayerDatabase {
 
   static Future<List<Prayer>> _loadPrayersFromWebJson() async {
     final jsonStr = await rootBundle.loadString('assets/prayers.json');
-    final List<dynamic> list = jsonDecode(jsonStr);
+    return loadPrayersFromJson(jsonStr);
+  }
+
+  static List<Prayer> loadPrayersFromJson(String jsonStr) {
+    if (jsonStr.isEmpty) return [];
+
+    final dynamic decoded;
+    try {
+      decoded = jsonDecode(jsonStr);
+    } catch (_) {
+      return [];
+    }
+
+    if (decoded is! List) {
+      return [];
+    }
 
     final List<Prayer> prayers = [];
 
-    for (final item in list) {
-      final pMap = item as Map<String, dynamic>;
-      final prayerId = pMap['id'] as String;
-      final defaultTitle = pMap['default_title'] as String;
-      final category = pMap['category'] as String;
-      final defaultOrder = pMap['default_order'] as int;
+    for (final item in decoded) {
+      if (item is! Map) continue;
+      final pMap = item is Map<String, dynamic>
+          ? item
+          : Map<String, dynamic>.from(item);
+
+      final prayerId = pMap['id'] as String? ?? '';
+      if (prayerId.isEmpty) continue;
+
+      final defaultTitle = pMap['default_title'] as String? ?? '';
+      final category = pMap['category'] as String? ?? '';
+      final defaultOrder = pMap['default_order'] as int? ?? 0;
 
       final List<LocalizedTranslations> localizedTranslations = [];
 
-      final transMap = pMap['translations'] as Map<String, dynamic>;
-      for (final entry in transMap.entries) {
-        final langStr = entry.key;
-        final List<dynamic> transList = entry.value;
-        final List<PrayerTranslation> translationList = [];
+      final rawTrans = pMap['translations'];
+      if (rawTrans is Map) {
+        final transMap = rawTrans is Map<String, dynamic>
+            ? rawTrans
+            : Map<String, dynamic>.from(rawTrans);
 
-        for (final tItem in transList) {
-          final tMap = tItem as Map<String, dynamic>;
-          final title = tMap['title'] as String;
-          final subtitle = tMap['subtitle'] as String? ?? '';
-          final text = tMap['text'] as String;
-          final sourceName = tMap['source_name'] as String? ?? '';
-          final sourceUrl = tMap['source_url'] as String? ?? '';
-          final copyright = tMap['copyright'] as String? ?? '';
-          final historyAuthor = tMap['history_author'] as String? ?? '';
-          final historyOrigin = tMap['history_origin'] as String? ?? '';
-          final historyDescription =
-              tMap['history_description'] as String? ?? '';
+        for (final entry in transMap.entries) {
+          final langStr = entry.key.toString();
+          final rawTransList = entry.value;
+          if (rawTransList is! List) continue;
 
-          final chineseLinesList = tMap['chinese_lines'];
-          List<ChineseLine>? chineseLines;
-          if (chineseLinesList != null) {
-            final List<dynamic> outer = chineseLinesList;
-            chineseLines = outer.map((line) {
-              final List<dynamic> charList = line;
-              final List<ChineseChar> chars = charList.map((c) {
-                final map = c as Map<String, dynamic>;
-                return ChineseChar(
-                  map['char'] as String? ?? '',
-                  map['pinyin'] as String? ?? '',
-                  map['phraseId'] as String?,
-                );
-              }).toList();
-              return ChineseLine(chars: chars);
-            }).toList();
+          final List<PrayerTranslation> translationList = [];
+
+          for (final tItem in rawTransList) {
+            if (tItem is! Map) continue;
+            final tMap = tItem is Map<String, dynamic>
+                ? tItem
+                : Map<String, dynamic>.from(tItem);
+
+            final title = tMap['title'] as String? ?? '';
+            final subtitle = tMap['subtitle'] as String? ?? '';
+            final text = tMap['text'] as String? ?? '';
+            final sourceName = tMap['source_name'] as String? ?? '';
+            final sourceUrl = tMap['source_url'] as String? ?? '';
+            final copyright = tMap['copyright'] as String? ?? '';
+            final historyAuthor = tMap['history_author'] as String? ?? '';
+            final historyOrigin = tMap['history_origin'] as String? ?? '';
+            final historyDescription =
+                tMap['history_description'] as String? ?? '';
+
+            final rawChineseLines = tMap['chinese_lines'];
+            List<ChineseLine>? chineseLines;
+            if (rawChineseLines is List) {
+              chineseLines = [];
+              for (final line in rawChineseLines) {
+                if (line is List) {
+                  final List<ChineseChar> chars = [];
+                  for (final c in line) {
+                    if (c is Map) {
+                      final cMap = c is Map<String, dynamic>
+                          ? c
+                          : Map<String, dynamic>.from(c);
+                      chars.add(
+                        ChineseChar(
+                          cMap['char'] as String? ?? '',
+                          cMap['pinyin'] as String? ?? '',
+                          cMap['phraseId'] as String?,
+                        ),
+                      );
+                    }
+                  }
+                  chineseLines.add(ChineseLine(chars: chars));
+                } else if (line is Map) {
+                  final rawChars = line['chars'];
+                  if (rawChars is List) {
+                    final List<ChineseChar> chars = [];
+                    for (final c in rawChars) {
+                      if (c is Map) {
+                        final cMap = c is Map<String, dynamic>
+                            ? c
+                            : Map<String, dynamic>.from(c);
+                        chars.add(
+                          ChineseChar(
+                            cMap['char'] as String? ?? '',
+                            cMap['pinyin'] as String? ?? '',
+                            cMap['phraseId'] as String?,
+                          ),
+                        );
+                      }
+                    }
+                    chineseLines.add(ChineseLine(chars: chars));
+                  }
+                }
+              }
+            }
+
+            final rawTokens = tMap['tokens'];
+            List<PrayerToken>? tokens;
+            if (rawTokens is List) {
+              tokens = [];
+              for (final tok in rawTokens) {
+                if (tok is Map) {
+                  final tokMap = tok is Map<String, dynamic>
+                      ? tok
+                      : Map<String, dynamic>.from(tok);
+                  tokens.add(
+                    PrayerToken(
+                      tokMap['text'] as String? ?? '',
+                      tokMap['id'] as String?,
+                    ),
+                  );
+                }
+              }
+            }
+
+            translationList.add(
+              PrayerTranslation(
+                title: title,
+                subtitle: subtitle,
+                text: text,
+                sourceName: sourceName,
+                sourceUrl: sourceUrl,
+                historyAuthor: historyAuthor,
+                historyOrigin: historyOrigin,
+                historyDescription: historyDescription,
+                copyright: copyright,
+                chineseLines: chineseLines,
+                tokens: tokens,
+              ),
+            );
           }
 
-          final tokensList = tMap['tokens'];
-          List<PrayerToken>? tokens;
-          if (tokensList != null) {
-            final List<dynamic> parsedList = tokensList;
-            tokens = parsedList.map((tok) {
-              final map = tok as Map<String, dynamic>;
-              return PrayerToken(
-                map['text'] as String? ?? '',
-                map['id'] as String?,
-              );
-            }).toList();
-          }
-
-          translationList.add(
-            PrayerTranslation(
-              title: title,
-              subtitle: subtitle,
-              text: text,
-              sourceName: sourceName,
-              sourceUrl: sourceUrl,
-              historyAuthor: historyAuthor,
-              historyOrigin: historyOrigin,
-              historyDescription: historyDescription,
-              copyright: copyright,
-              chineseLines: chineseLines,
-              tokens: tokens,
-            ),
+          localizedTranslations.add(
+            LocalizedTranslations(languageCode: langStr, list: translationList),
           );
         }
-
-        localizedTranslations.add(
-          LocalizedTranslations(languageCode: langStr, list: translationList),
-        );
       }
 
       final hasAmen = pMap['has_amen'] as bool? ?? false;

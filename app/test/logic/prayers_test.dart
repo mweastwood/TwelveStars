@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:yaml/yaml.dart';
 
 void main() {
@@ -382,6 +383,80 @@ void main() {
           }
         }
       }
+    });
+  });
+
+  group('PrayerDatabase JSON Schema Resilience', () {
+    test('loadPrayersFromJson parses valid compiled JSON properly', () {
+      final jsonFile = File('assets/prayers.json');
+      final prayers = PrayerDatabase.loadPrayersFromJson(
+        jsonFile.readAsStringSync(),
+      );
+      expect(prayers, isNotEmpty);
+      expect(prayers.any((p) => p.prayerId == 'our_father'), isTrue);
+    });
+
+    test(
+      'loadPrayersFromJson safely handles empty and malformed JSON payloads',
+      () {
+        expect(PrayerDatabase.loadPrayersFromJson(''), isEmpty);
+        expect(PrayerDatabase.loadPrayersFromJson('not-valid-json'), isEmpty);
+        expect(
+          PrayerDatabase.loadPrayersFromJson('{"not": "a list"}'),
+          isEmpty,
+        );
+        expect(
+          PrayerDatabase.loadPrayersFromJson('[{"unknown_node": 123}]'),
+          isEmpty,
+        );
+      },
+    );
+
+    test('loadPrayersFromJson handles partial prayer nodes with defaults', () {
+      final partialJson = jsonEncode([
+        {
+          'id': 'test_prayer',
+          'default_title': 'Test Prayer',
+          'category': 'test',
+          'default_order': 5,
+          'translations': {
+            'english': [
+              {'title': 'Test EN', 'text': 'Hello World'},
+            ],
+            'traditionalChinese': [
+              {
+                'title': 'Test TC',
+                'text': '你好',
+                'chinese_lines': [
+                  [
+                    {'char': '你', 'pinyin': 'ni3'},
+                    {'char': '好', 'pinyin': 'hao3'},
+                  ],
+                ],
+                'tokens': [
+                  {'text': '你好', 'id': 'hello'},
+                ],
+              },
+            ],
+          },
+        },
+      ]);
+
+      final result = PrayerDatabase.loadPrayersFromJson(partialJson);
+      expect(result.length, equals(1));
+      final prayer = result.first;
+      expect(prayer.prayerId, equals('test_prayer'));
+      expect(prayer.defaultTitle, equals('Test Prayer'));
+      expect(prayer.localizedTranslations, isNotEmpty);
+      expect(prayer.localizedTranslations!.length, equals(2));
+
+      final tcTrans = prayer.localizedTranslations!.firstWhere(
+        (t) => t.languageCode == 'traditionalChinese',
+      );
+      expect(tcTrans.list, isNotNull);
+      expect(tcTrans.list!.first.chineseLines, isNotNull);
+      expect(tcTrans.list!.first.chineseLines!.first.chars!.length, equals(2));
+      expect(tcTrans.list!.first.tokens!.length, equals(1));
     });
   });
 }

@@ -192,8 +192,47 @@ void parseBaltimoreFile(
       }
     }
   } else if (bookId == 'baltimore_4') {
-    bodyStartIdx = 1270;
-    bodyEndIdx = 11778;
+    int foundStart = -1;
+    int foundEnd = -1;
+    for (int i = 0; i < lines.length; i++) {
+      final stripped = lines[i].trim();
+      if (foundStart == -1) {
+        if (stripped.toUpperCase() == 'CATECHISM') {
+          for (int j = i + 1; j < i + 10 && j < lines.length; j++) {
+            if (lines[j].contains('Questions marked') ||
+                lines[j].trim() == 'Lesson 1' ||
+                lines[j].trim() == 'LESSON 1') {
+              foundStart = i;
+              break;
+            }
+          }
+        }
+      } else {
+        if (stripped.toUpperCase().startsWith(
+              'QUESTIONS ON THE EXPLANATIONS',
+            ) ||
+            stripped.toUpperCase().startsWith('NOTE--WHEREVER')) {
+          foundEnd = i;
+          break;
+        }
+      }
+    }
+
+    if (foundStart != -1) {
+      bodyStartIdx = foundStart;
+    } else {
+      print(
+        'Warning: Start marker for baltimore_4 not found. Defaulting to 0.',
+      );
+    }
+
+    if (foundEnd != -1) {
+      bodyEndIdx = foundEnd;
+    } else {
+      print(
+        'Warning: End marker for baltimore_4 not found. Defaulting to end of file.',
+      );
+    }
   }
 
   final bodyLines = lines.sublist(bodyStartIdx, bodyEndIdx);

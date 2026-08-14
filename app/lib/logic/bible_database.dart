@@ -17,70 +17,101 @@ class LocalizedTranslationsConverter
   List<LocalizedTranslations> fromSql(String fromDb) {
     if (fromDb.isEmpty) return [];
     try {
-      final List<dynamic> list = jsonDecode(fromDb);
-      return list.map((item) {
-        final map = item as Map<String, dynamic>;
+      final dynamic decoded = jsonDecode(fromDb);
+      if (decoded is! List) return [];
+      final List<LocalizedTranslations> results = [];
+      for (final item in decoded) {
+        if (item is! Map) continue;
+        final map = item is Map<String, dynamic>
+            ? item
+            : Map<String, dynamic>.from(item);
         final langStr = map['languageCode'] as String? ?? 'english';
-        final List<dynamic>? transList = map['list'];
-        final List<PrayerTranslation>? translationList = transList?.map((
-          tItem,
-        ) {
-          final tMap = tItem as Map<String, dynamic>;
+        final rawTransList = map['list'];
+        List<PrayerTranslation>? translationList;
+        if (rawTransList is List) {
+          translationList = [];
+          for (final tItem in rawTransList) {
+            if (tItem is! Map) continue;
+            final tMap = tItem is Map<String, dynamic>
+                ? tItem
+                : Map<String, dynamic>.from(tItem);
 
-          final chineseLinesList = tMap['chineseLines'];
-          List<ChineseLine>? chineseLines;
-          if (chineseLinesList != null) {
-            final List<dynamic> outer = chineseLinesList;
-            chineseLines = outer.map((line) {
-              final List<dynamic>? charList = line['chars'];
-              final List<ChineseChar> chars =
-                  charList?.map((c) {
-                    final map = c as Map<String, dynamic>;
-                    return ChineseChar(
-                      map['char'] as String? ?? '',
-                      map['pinyin'] as String? ?? '',
-                      map['phraseId'] as String?,
-                    );
-                  }).toList() ??
-                  [];
-              return ChineseLine(chars: chars);
-            }).toList();
+            final chineseLinesList = tMap['chineseLines'];
+            List<ChineseLine>? chineseLines;
+            if (chineseLinesList is List) {
+              chineseLines = [];
+              for (final line in chineseLinesList) {
+                if (line is Map) {
+                  final lineMap = line is Map<String, dynamic>
+                      ? line
+                      : Map<String, dynamic>.from(line);
+                  final charList = lineMap['chars'];
+                  final List<ChineseChar> chars = [];
+                  if (charList is List) {
+                    for (final c in charList) {
+                      if (c is Map) {
+                        final cMap = c is Map<String, dynamic>
+                            ? c
+                            : Map<String, dynamic>.from(c);
+                        chars.add(
+                          ChineseChar(
+                            cMap['char'] as String? ?? '',
+                            cMap['pinyin'] as String? ?? '',
+                            cMap['phraseId'] as String?,
+                          ),
+                        );
+                      }
+                    }
+                  }
+                  chineseLines.add(ChineseLine(chars: chars));
+                }
+              }
+            }
+
+            final tokensList = tMap['tokens'];
+            List<PrayerToken>? tokens;
+            if (tokensList is List) {
+              tokens = [];
+              for (final tok in tokensList) {
+                if (tok is Map) {
+                  final tokMap = tok is Map<String, dynamic>
+                      ? tok
+                      : Map<String, dynamic>.from(tok);
+                  tokens.add(
+                    PrayerToken(
+                      tokMap['text'] as String? ?? '',
+                      tokMap['id'] as String?,
+                    ),
+                  );
+                }
+              }
+            }
+
+            translationList.add(
+              PrayerTranslation(
+                title: tMap['title'] as String? ?? '',
+                subtitle: tMap['subtitle'] as String? ?? '',
+                text: tMap['text'] as String? ?? '',
+                sourceName: tMap['sourceName'] as String? ?? '',
+                sourceUrl: tMap['sourceUrl'] as String? ?? '',
+                historyAuthor: tMap['historyAuthor'] as String? ?? '',
+                historyOrigin: tMap['historyOrigin'] as String? ?? '',
+                historyDescription: tMap['historyDescription'] as String? ?? '',
+                copyright: tMap['copyright'] as String? ?? '',
+                chineseLines: chineseLines,
+                tokens: tokens,
+              ),
+            );
           }
+        }
 
-          final tokensList = tMap['tokens'];
-          List<PrayerToken>? tokens;
-          if (tokensList != null) {
-            final List<dynamic> parsedList = tokensList;
-            tokens = parsedList.map((tok) {
-              final map = tok as Map<String, dynamic>;
-              return PrayerToken(
-                map['text'] as String? ?? '',
-                map['id'] as String?,
-              );
-            }).toList();
-          }
-
-          return PrayerTranslation(
-            title: tMap['title'] as String? ?? '',
-            subtitle: tMap['subtitle'] as String? ?? '',
-            text: tMap['text'] as String? ?? '',
-            sourceName: tMap['sourceName'] as String? ?? '',
-            sourceUrl: tMap['sourceUrl'] as String? ?? '',
-            historyAuthor: tMap['historyAuthor'] as String? ?? '',
-            historyOrigin: tMap['historyOrigin'] as String? ?? '',
-            historyDescription: tMap['historyDescription'] as String? ?? '',
-            copyright: tMap['copyright'] as String? ?? '',
-            chineseLines: chineseLines,
-            tokens: tokens,
-          );
-        }).toList();
-
-        return LocalizedTranslations(
-          languageCode: langStr,
-          list: translationList,
+        results.add(
+          LocalizedTranslations(languageCode: langStr, list: translationList),
         );
-      }).toList();
-    } catch (_) {
+      }
+      return results;
+    } catch (e, stack) {
+      debugPrint('LocalizedTranslationsConverter.fromSql error: $e\n$stack');
       return [];
     }
   }
@@ -121,7 +152,8 @@ class LocalizedTranslationsConverter
         };
       }).toList();
       return jsonEncode(list);
-    } catch (_) {
+    } catch (e, stack) {
+      debugPrint('LocalizedTranslationsConverter.toSql error: $e\n$stack');
       return '';
     }
   }
@@ -135,15 +167,24 @@ class PreferredVersionsConverter
   List<PrayerVersionPreference> fromSql(String fromDb) {
     if (fromDb.isEmpty) return [];
     try {
-      final List<dynamic> list = jsonDecode(fromDb);
-      return list.map((item) {
-        final map = item as Map<String, dynamic>;
-        return PrayerVersionPreference(
-          map['key'] as String? ?? '',
-          map['versionIndex'] as int? ?? 0,
+      final dynamic decoded = jsonDecode(fromDb);
+      if (decoded is! List) return [];
+      final List<PrayerVersionPreference> results = [];
+      for (final item in decoded) {
+        if (item is! Map) continue;
+        final map = item is Map<String, dynamic>
+            ? item
+            : Map<String, dynamic>.from(item);
+        results.add(
+          PrayerVersionPreference(
+            map['key'] as String? ?? '',
+            map['versionIndex'] as int? ?? 0,
+          ),
         );
-      }).toList();
-    } catch (_) {
+      }
+      return results;
+    } catch (e, stack) {
+      debugPrint('PreferredVersionsConverter.fromSql error: $e\n$stack');
       return [];
     }
   }
@@ -155,7 +196,8 @@ class PreferredVersionsConverter
         return {'key': item.key, 'versionIndex': item.versionIndex};
       }).toList();
       return jsonEncode(list);
-    } catch (_) {
+    } catch (e, stack) {
+      debugPrint('PreferredVersionsConverter.toSql error: $e\n$stack');
       return '';
     }
   }
