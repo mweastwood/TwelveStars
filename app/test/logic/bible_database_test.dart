@@ -74,6 +74,10 @@ void main() {
           compareLanguageCode: 'english',
           primaryBibleTranslation: 'VUL',
           compareBibleTranslation: 'CPDV',
+          preferredVersions: [
+            PrayerVersionPreference('our_father_english', 1),
+            PrayerVersionPreference('hail_mary_latin', 2),
+          ],
           hapticsEnabled: false,
           appThemeModeCode: 'gothic_dark',
           sundayNotificationsEnabled: false,
@@ -83,10 +87,20 @@ void main() {
 
         final retrieved = await testDb.getUserSettings();
         expect(retrieved, isNotNull);
-        expect(retrieved!.primaryLanguageCode, equals('spanish'));
+        expect(retrieved!.id, equals(1));
+        expect(retrieved.primaryLanguageCode, equals('spanish'));
         expect(retrieved.compareLanguageCode, equals('english'));
         expect(retrieved.primaryBibleTranslation, equals('VUL'));
         expect(retrieved.compareBibleTranslation, equals('CPDV'));
+        expect(retrieved.preferredVersions, isNotNull);
+        expect(retrieved.preferredVersions!.length, equals(2));
+        expect(
+          retrieved.preferredVersions![0].key,
+          equals('our_father_english'),
+        );
+        expect(retrieved.preferredVersions![0].versionIndex, equals(1));
+        expect(retrieved.preferredVersions![1].key, equals('hail_mary_latin'));
+        expect(retrieved.preferredVersions![1].versionIndex, equals(2));
         expect(retrieved.hapticsEnabled, isFalse);
         expect(retrieved.appThemeModeCode, equals('gothic_dark'));
         expect(retrieved.sundayNotificationsEnabled, isFalse);
