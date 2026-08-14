@@ -56,15 +56,32 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   late final CurvedAnimation _translationSelectorAnimation;
 
   static const double _kTranslationSelectorTopSpacerHeight = 72.0;
+  static const int _maxCachedControllers = 10;
   final Map<int, ScrollController> _chapterScrollControllers = {};
   double _initialScrollOffset = 0.0;
   bool _wasScrolledDown = false;
 
+  @visibleForTesting
+  Map<int, ScrollController> get chapterScrollControllers =>
+      _chapterScrollControllers;
+
   ScrollController _getScrollController(int index) {
-    return _chapterScrollControllers.putIfAbsent(
-      index,
-      () => ScrollController(),
-    );
+    if (_chapterScrollControllers.containsKey(index)) {
+      final controller = _chapterScrollControllers.remove(index)!;
+      _chapterScrollControllers[index] = controller;
+      return controller;
+    }
+    if (_chapterScrollControllers.length >= _maxCachedControllers) {
+      final evictKey = _chapterScrollControllers.keys.firstWhere(
+        (k) => k != _currentPageIndex,
+        orElse: () => _chapterScrollControllers.keys.first,
+      );
+      final evictController = _chapterScrollControllers.remove(evictKey);
+      evictController?.dispose();
+    }
+    final newController = ScrollController();
+    _chapterScrollControllers[index] = newController;
+    return newController;
   }
 
   ScrollController? get _currentChapterScrollController {

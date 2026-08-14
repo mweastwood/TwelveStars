@@ -905,5 +905,19 @@ void main() {
       // Advance past highlight timer so no pending timers remain after widget disposal
       await tester.pump(const Duration(seconds: 2));
     });
+
+    testWidgets(
+      'enforces maxCachedControllers (10) on chapter scroll controllers',
+      (WidgetTester tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
+
+        final state = tester.state<BibleTabState>(find.byType(BibleTab));
+        expect(state.chapterScrollControllers.length, lessThanOrEqualTo(10));
+      },
+    );
   });
 }

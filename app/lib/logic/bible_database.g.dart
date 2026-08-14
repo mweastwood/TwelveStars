@@ -1914,6 +1914,416 @@ class UserCommentsCompanion extends UpdateCompanion<UserComment> {
   }
 }
 
+class LibraryBookmarks extends Table
+    with TableInfo<LibraryBookmarks, LibraryBookmark> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  LibraryBookmarks(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL PRIMARY KEY AUTOINCREMENT',
+  );
+  static const VerificationMeta _documentIdMeta = const VerificationMeta(
+    'documentId',
+  );
+  late final GeneratedColumn<String> documentId = GeneratedColumn<String>(
+    'document_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _sectionIndexMeta = const VerificationMeta(
+    'sectionIndex',
+  );
+  late final GeneratedColumn<int> sectionIndex = GeneratedColumn<int>(
+    'section_index',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _nodeIdMeta = const VerificationMeta('nodeId');
+  late final GeneratedColumn<String> nodeId = GeneratedColumn<String>(
+    'node_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _textPreviewMeta = const VerificationMeta(
+    'textPreview',
+  );
+  late final GeneratedColumn<String> textPreview = GeneratedColumn<String>(
+    'text_preview',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    documentId,
+    sectionIndex,
+    nodeId,
+    textPreview,
+    createdAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'library_bookmarks';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<LibraryBookmark> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('document_id')) {
+      context.handle(
+        _documentIdMeta,
+        documentId.isAcceptableOrUnknown(data['document_id']!, _documentIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_documentIdMeta);
+    }
+    if (data.containsKey('section_index')) {
+      context.handle(
+        _sectionIndexMeta,
+        sectionIndex.isAcceptableOrUnknown(
+          data['section_index']!,
+          _sectionIndexMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_sectionIndexMeta);
+    }
+    if (data.containsKey('node_id')) {
+      context.handle(
+        _nodeIdMeta,
+        nodeId.isAcceptableOrUnknown(data['node_id']!, _nodeIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nodeIdMeta);
+    }
+    if (data.containsKey('text_preview')) {
+      context.handle(
+        _textPreviewMeta,
+        textPreview.isAcceptableOrUnknown(
+          data['text_preview']!,
+          _textPreviewMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_textPreviewMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  LibraryBookmark map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return LibraryBookmark(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      documentId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}document_id'],
+      )!,
+      sectionIndex: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}section_index'],
+      )!,
+      nodeId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}node_id'],
+      )!,
+      textPreview: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}text_preview'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  LibraryBookmarks createAlias(String alias) {
+    return LibraryBookmarks(attachedDatabase, alias);
+  }
+
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class LibraryBookmark extends DataClass implements Insertable<LibraryBookmark> {
+  final int id;
+  final String documentId;
+  final int sectionIndex;
+  final String nodeId;
+  final String textPreview;
+  final DateTime createdAt;
+  const LibraryBookmark({
+    required this.id,
+    required this.documentId,
+    required this.sectionIndex,
+    required this.nodeId,
+    required this.textPreview,
+    required this.createdAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['document_id'] = Variable<String>(documentId);
+    map['section_index'] = Variable<int>(sectionIndex);
+    map['node_id'] = Variable<String>(nodeId);
+    map['text_preview'] = Variable<String>(textPreview);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  LibraryBookmarksCompanion toCompanion(bool nullToAbsent) {
+    return LibraryBookmarksCompanion(
+      id: Value(id),
+      documentId: Value(documentId),
+      sectionIndex: Value(sectionIndex),
+      nodeId: Value(nodeId),
+      textPreview: Value(textPreview),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory LibraryBookmark.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return LibraryBookmark(
+      id: serializer.fromJson<int>(json['id']),
+      documentId: serializer.fromJson<String>(json['document_id']),
+      sectionIndex: serializer.fromJson<int>(json['section_index']),
+      nodeId: serializer.fromJson<String>(json['node_id']),
+      textPreview: serializer.fromJson<String>(json['text_preview']),
+      createdAt: serializer.fromJson<DateTime>(json['created_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'document_id': serializer.toJson<String>(documentId),
+      'section_index': serializer.toJson<int>(sectionIndex),
+      'node_id': serializer.toJson<String>(nodeId),
+      'text_preview': serializer.toJson<String>(textPreview),
+      'created_at': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  LibraryBookmark copyWith({
+    int? id,
+    String? documentId,
+    int? sectionIndex,
+    String? nodeId,
+    String? textPreview,
+    DateTime? createdAt,
+  }) => LibraryBookmark(
+    id: id ?? this.id,
+    documentId: documentId ?? this.documentId,
+    sectionIndex: sectionIndex ?? this.sectionIndex,
+    nodeId: nodeId ?? this.nodeId,
+    textPreview: textPreview ?? this.textPreview,
+    createdAt: createdAt ?? this.createdAt,
+  );
+  LibraryBookmark copyWithCompanion(LibraryBookmarksCompanion data) {
+    return LibraryBookmark(
+      id: data.id.present ? data.id.value : this.id,
+      documentId: data.documentId.present
+          ? data.documentId.value
+          : this.documentId,
+      sectionIndex: data.sectionIndex.present
+          ? data.sectionIndex.value
+          : this.sectionIndex,
+      nodeId: data.nodeId.present ? data.nodeId.value : this.nodeId,
+      textPreview: data.textPreview.present
+          ? data.textPreview.value
+          : this.textPreview,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('LibraryBookmark(')
+          ..write('id: $id, ')
+          ..write('documentId: $documentId, ')
+          ..write('sectionIndex: $sectionIndex, ')
+          ..write('nodeId: $nodeId, ')
+          ..write('textPreview: $textPreview, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(id, documentId, sectionIndex, nodeId, textPreview, createdAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is LibraryBookmark &&
+          other.id == this.id &&
+          other.documentId == this.documentId &&
+          other.sectionIndex == this.sectionIndex &&
+          other.nodeId == this.nodeId &&
+          other.textPreview == this.textPreview &&
+          other.createdAt == this.createdAt);
+}
+
+class LibraryBookmarksCompanion extends UpdateCompanion<LibraryBookmark> {
+  final Value<int> id;
+  final Value<String> documentId;
+  final Value<int> sectionIndex;
+  final Value<String> nodeId;
+  final Value<String> textPreview;
+  final Value<DateTime> createdAt;
+  const LibraryBookmarksCompanion({
+    this.id = const Value.absent(),
+    this.documentId = const Value.absent(),
+    this.sectionIndex = const Value.absent(),
+    this.nodeId = const Value.absent(),
+    this.textPreview = const Value.absent(),
+    this.createdAt = const Value.absent(),
+  });
+  LibraryBookmarksCompanion.insert({
+    this.id = const Value.absent(),
+    required String documentId,
+    required int sectionIndex,
+    required String nodeId,
+    required String textPreview,
+    required DateTime createdAt,
+  }) : documentId = Value(documentId),
+       sectionIndex = Value(sectionIndex),
+       nodeId = Value(nodeId),
+       textPreview = Value(textPreview),
+       createdAt = Value(createdAt);
+  static Insertable<LibraryBookmark> custom({
+    Expression<int>? id,
+    Expression<String>? documentId,
+    Expression<int>? sectionIndex,
+    Expression<String>? nodeId,
+    Expression<String>? textPreview,
+    Expression<DateTime>? createdAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (documentId != null) 'document_id': documentId,
+      if (sectionIndex != null) 'section_index': sectionIndex,
+      if (nodeId != null) 'node_id': nodeId,
+      if (textPreview != null) 'text_preview': textPreview,
+      if (createdAt != null) 'created_at': createdAt,
+    });
+  }
+
+  LibraryBookmarksCompanion copyWith({
+    Value<int>? id,
+    Value<String>? documentId,
+    Value<int>? sectionIndex,
+    Value<String>? nodeId,
+    Value<String>? textPreview,
+    Value<DateTime>? createdAt,
+  }) {
+    return LibraryBookmarksCompanion(
+      id: id ?? this.id,
+      documentId: documentId ?? this.documentId,
+      sectionIndex: sectionIndex ?? this.sectionIndex,
+      nodeId: nodeId ?? this.nodeId,
+      textPreview: textPreview ?? this.textPreview,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (documentId.present) {
+      map['document_id'] = Variable<String>(documentId.value);
+    }
+    if (sectionIndex.present) {
+      map['section_index'] = Variable<int>(sectionIndex.value);
+    }
+    if (nodeId.present) {
+      map['node_id'] = Variable<String>(nodeId.value);
+    }
+    if (textPreview.present) {
+      map['text_preview'] = Variable<String>(textPreview.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('LibraryBookmarksCompanion(')
+          ..write('id: $id, ')
+          ..write('documentId: $documentId, ')
+          ..write('sectionIndex: $sectionIndex, ')
+          ..write('nodeId: $nodeId, ')
+          ..write('textPreview: $textPreview, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class $PrayersTable extends Prayers with TableInfo<$PrayersTable, Prayer> {
   @override
   final GeneratedDatabase attachedDatabase;
@@ -2725,6 +3135,7 @@ abstract class _$BibleDatabase extends GeneratedDatabase {
   late final LectionaryReadings lectionaryReadings = LectionaryReadings(this);
   late final FavoritePassages favoritePassages = FavoritePassages(this);
   late final UserComments userComments = UserComments(this);
+  late final LibraryBookmarks libraryBookmarks = LibraryBookmarks(this);
   late final $PrayersTable prayers = $PrayersTable(this);
   late final $UserSettingsTableTable userSettingsTable =
       $UserSettingsTableTable(this);
@@ -2737,6 +3148,7 @@ abstract class _$BibleDatabase extends GeneratedDatabase {
     lectionaryReadings,
     favoritePassages,
     userComments,
+    libraryBookmarks,
     prayers,
     userSettingsTable,
   ];
@@ -3715,6 +4127,225 @@ typedef $UserCommentsProcessedTableManager =
       UserComment,
       PrefetchHooks Function()
     >;
+typedef $LibraryBookmarksCreateCompanionBuilder =
+    LibraryBookmarksCompanion Function({
+      Value<int> id,
+      required String documentId,
+      required int sectionIndex,
+      required String nodeId,
+      required String textPreview,
+      required DateTime createdAt,
+    });
+typedef $LibraryBookmarksUpdateCompanionBuilder =
+    LibraryBookmarksCompanion Function({
+      Value<int> id,
+      Value<String> documentId,
+      Value<int> sectionIndex,
+      Value<String> nodeId,
+      Value<String> textPreview,
+      Value<DateTime> createdAt,
+    });
+
+class $LibraryBookmarksFilterComposer
+    extends Composer<_$BibleDatabase, LibraryBookmarks> {
+  $LibraryBookmarksFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get documentId => $composableBuilder(
+    column: $table.documentId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get sectionIndex => $composableBuilder(
+    column: $table.sectionIndex,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get nodeId => $composableBuilder(
+    column: $table.nodeId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get textPreview => $composableBuilder(
+    column: $table.textPreview,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $LibraryBookmarksOrderingComposer
+    extends Composer<_$BibleDatabase, LibraryBookmarks> {
+  $LibraryBookmarksOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get documentId => $composableBuilder(
+    column: $table.documentId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get sectionIndex => $composableBuilder(
+    column: $table.sectionIndex,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get nodeId => $composableBuilder(
+    column: $table.nodeId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get textPreview => $composableBuilder(
+    column: $table.textPreview,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $LibraryBookmarksAnnotationComposer
+    extends Composer<_$BibleDatabase, LibraryBookmarks> {
+  $LibraryBookmarksAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get documentId => $composableBuilder(
+    column: $table.documentId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get sectionIndex => $composableBuilder(
+    column: $table.sectionIndex,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get nodeId =>
+      $composableBuilder(column: $table.nodeId, builder: (column) => column);
+
+  GeneratedColumn<String> get textPreview => $composableBuilder(
+    column: $table.textPreview,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $LibraryBookmarksTableManager
+    extends
+        RootTableManager<
+          _$BibleDatabase,
+          LibraryBookmarks,
+          LibraryBookmark,
+          $LibraryBookmarksFilterComposer,
+          $LibraryBookmarksOrderingComposer,
+          $LibraryBookmarksAnnotationComposer,
+          $LibraryBookmarksCreateCompanionBuilder,
+          $LibraryBookmarksUpdateCompanionBuilder,
+          (
+            LibraryBookmark,
+            BaseReferences<_$BibleDatabase, LibraryBookmarks, LibraryBookmark>,
+          ),
+          LibraryBookmark,
+          PrefetchHooks Function()
+        > {
+  $LibraryBookmarksTableManager(_$BibleDatabase db, LibraryBookmarks table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $LibraryBookmarksFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $LibraryBookmarksOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $LibraryBookmarksAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> documentId = const Value.absent(),
+                Value<int> sectionIndex = const Value.absent(),
+                Value<String> nodeId = const Value.absent(),
+                Value<String> textPreview = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+              }) => LibraryBookmarksCompanion(
+                id: id,
+                documentId: documentId,
+                sectionIndex: sectionIndex,
+                nodeId: nodeId,
+                textPreview: textPreview,
+                createdAt: createdAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String documentId,
+                required int sectionIndex,
+                required String nodeId,
+                required String textPreview,
+                required DateTime createdAt,
+              }) => LibraryBookmarksCompanion.insert(
+                id: id,
+                documentId: documentId,
+                sectionIndex: sectionIndex,
+                nodeId: nodeId,
+                textPreview: textPreview,
+                createdAt: createdAt,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $LibraryBookmarksProcessedTableManager =
+    ProcessedTableManager<
+      _$BibleDatabase,
+      LibraryBookmarks,
+      LibraryBookmark,
+      $LibraryBookmarksFilterComposer,
+      $LibraryBookmarksOrderingComposer,
+      $LibraryBookmarksAnnotationComposer,
+      $LibraryBookmarksCreateCompanionBuilder,
+      $LibraryBookmarksUpdateCompanionBuilder,
+      (
+        LibraryBookmark,
+        BaseReferences<_$BibleDatabase, LibraryBookmarks, LibraryBookmark>,
+      ),
+      LibraryBookmark,
+      PrefetchHooks Function()
+    >;
 typedef $$PrayersTableCreateCompanionBuilder =
     PrayersCompanion Function({
       Value<int> isarId,
@@ -4289,6 +4920,8 @@ class $BibleDatabaseManager {
       $FavoritePassagesTableManager(_db, _db.favoritePassages);
   $UserCommentsTableManager get userComments =>
       $UserCommentsTableManager(_db, _db.userComments);
+  $LibraryBookmarksTableManager get libraryBookmarks =>
+      $LibraryBookmarksTableManager(_db, _db.libraryBookmarks);
   $$PrayersTableTableManager get prayers =>
       $$PrayersTableTableManager(_db, _db.prayers);
   $$UserSettingsTableTableTableManager get userSettingsTable =>

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/library_database.dart';
@@ -24,13 +25,28 @@ class ReverseCitation {
 }
 
 class ReverseCitationService {
-  static final List<ReverseCitation> _index = [];
-  static bool _indexed = false;
+  static const int maxIndexedSources = 5;
+  static final Map<String, List<ReverseCitation>> _indexedSources = {};
+
+  @visibleForTesting
+  static int get indexedSourcesCount => _indexedSources.length;
+
+  @visibleForTesting
+  static int get totalIndexedCitations =>
+      _indexedSources.values.fold(0, (sum, list) => sum + list.length);
+
+  @visibleForTesting
+  static void clear() {
+    _indexedSources.clear();
+  }
+
+  static void prune() {
+    while (_indexedSources.length > maxIndexedSources) {
+      _indexedSources.remove(_indexedSources.keys.first);
+    }
+  }
 
   static Future<void> ensureIndexed() async {
-    if (_indexed) return;
-    _indexed = true;
-
     final catalogPaths = [
       'assets/catechism/json/baltimore_1.json',
       'assets/catechism/json/baltimore_2.json',
@@ -40,17 +56,29 @@ class ReverseCitationService {
     ];
 
     for (final path in catalogPaths) {
+      if (_indexedSources.containsKey(path)) {
+        final existing = _indexedSources.remove(path)!;
+        _indexedSources[path] = existing;
+        continue;
+      }
       try {
         final rawJson = await rootBundle.loadString(path);
         final bookData = ParsedBookData.fromJson(
           jsonDecode(rawJson) as Map<String, dynamic>,
         );
-        _indexBookData(bookData);
+        indexBookData(path, bookData);
       } catch (_) {}
     }
   }
 
-  static void _indexBookData(ParsedBookData bookData) {
+  static void indexBookData(String sourceKey, ParsedBookData bookData) {
+    if (_indexedSources.containsKey(sourceKey)) {
+      _indexedSources.remove(sourceKey);
+    } else if (_indexedSources.length >= maxIndexedSources) {
+      _indexedSources.remove(_indexedSources.keys.first);
+    }
+
+    final List<ReverseCitation> citations = [];
     for (final sec in bookData.sections) {
       for (final item in sec.content) {
         final textToParse = [
@@ -68,7 +96,7 @@ class ReverseCitationService {
         );
         for (final seg in segments) {
           if (seg.isCitation) {
-            _index.add(
+            citations.add(
               ReverseCitation(
                 sourceBookId: bookData.bookId,
                 sourceBookTitle: bookData.title,
@@ -83,18 +111,25 @@ class ReverseCitationService {
         }
       }
     }
+    _indexedSources[sourceKey] = citations;
   }
 
   static List<ReverseCitation> getChapterCitations(
     int bookNumber,
     int chapter,
   ) {
-    return _index.where((rc) {
-      final c = rc.citation;
-      return c.bookNumber == bookNumber &&
-          c.chapter == chapter &&
-          c.isEntireChapter;
-    }).toList();
+    final results = <ReverseCitation>[];
+    for (final list in _indexedSources.values) {
+      for (final rc in list) {
+        final c = rc.citation;
+        if (c.bookNumber == bookNumber &&
+            c.chapter == chapter &&
+            c.isEntireChapter) {
+          results.add(rc);
+        }
+      }
+    }
+    return results;
   }
 
   static List<ReverseCitation> getVerseCitations(
@@ -102,16 +137,21 @@ class ReverseCitationService {
     int chapter,
     int verseNumber,
   ) {
-    return _index.where((rc) {
-      final c = rc.citation;
-      if (c.bookNumber != bookNumber ||
-          c.chapter != chapter ||
-          c.isEntireChapter) {
-        return false;
+    final results = <ReverseCitation>[];
+    for (final list in _indexedSources.values) {
+      for (final rc in list) {
+        final c = rc.citation;
+        if (c.bookNumber == bookNumber &&
+            c.chapter == chapter &&
+            !c.isEntireChapter) {
+          final start = c.verse!;
+          final end = c.endVerse ?? start;
+          if (verseNumber >= start && verseNumber <= end) {
+            results.add(rc);
+          }
+        }
       }
-      final start = c.verse!;
-      final end = c.endVerse ?? start;
-      return verseNumber >= start && verseNumber <= end;
-    }).toList();
+    }
+    return results;
   }
 }

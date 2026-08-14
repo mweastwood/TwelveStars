@@ -201,10 +201,20 @@ void main() {
     });
 
     group('LibraryReaderAdapter', () {
+      late BibleDatabase db;
       late LibraryReaderAdapter adapter;
       const testAssetPath = 'test_assets/book.json';
+      const item = LibraryBookItem(
+        id: 'test_book',
+        title: 'Test Book',
+        subtitle: 'A Test',
+        category: 'Cat',
+        author: 'Author',
+        description: 'Desc',
+      );
 
       setUp(() {
+        db = BibleDatabase(NativeDatabase.memory());
         TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
             .setMockMessageHandler('flutter/assets', (ByteData? message) async {
               final String key = utf8.decode(message!.buffer.asUint8List());
@@ -240,19 +250,15 @@ void main() {
               return null;
             });
 
-        const item = LibraryBookItem(
-          id: 'test_book',
-          title: 'Test Book',
-          subtitle: 'A Test',
-          category: 'Cat',
-          author: 'Author',
-          description: 'Desc',
-        );
-
         adapter = LibraryReaderAdapter(
           bookItem: item,
           assetPath: testAssetPath,
+          dbHelper: db,
         );
+      });
+
+      tearDown(() async {
+        await db.close();
       });
 
       test('loadDocument metadata', () async {
@@ -281,24 +287,63 @@ void main() {
       });
 
       test(
-        'saveComment, loadComments, deleteComment in LibraryReaderAdapter',
+        'saveBookmark and loadBookmarks persist across adapter instances',
+        () async {
+          final now = DateTime.now();
+          final bookmark = ReaderBookmark(
+            id: 'b1',
+            documentId: 'test_book',
+            sectionIndex: 0,
+            nodeId: 's1-0',
+            textPreview: 'A Heading',
+            timestamp: now,
+          );
+
+          await adapter.saveBookmark(bookmark);
+
+          final freshAdapter = LibraryReaderAdapter(
+            bookItem: item,
+            assetPath: testAssetPath,
+            dbHelper: db,
+          );
+
+          final loaded = await freshAdapter.loadBookmarks();
+          expect(loaded.length, 1);
+          expect(loaded.first.documentId, 'test_book');
+          expect(loaded.first.sectionIndex, 0);
+          expect(loaded.first.nodeId, 's1-0');
+          expect(loaded.first.textPreview, 'A Heading');
+        },
+      );
+
+      test(
+        'saveComment, loadComments, deleteComment persist across adapter instances',
         () async {
           final comment = ReaderComment(
-            id: 'c_lib_1',
+            id: '1',
             documentId: 'test_book',
             sectionIndex: 0,
             nodeId: 's1-1',
             text: 'Comment on paragraph',
+            textPreview: 'A paragraph of text.',
             timestamp: DateTime.now(),
           );
 
           await adapter.saveComment(comment);
-          final comments = await adapter.loadComments(nodeId: 's1-1');
+
+          final freshAdapter = LibraryReaderAdapter(
+            bookItem: item,
+            assetPath: testAssetPath,
+            dbHelper: db,
+          );
+
+          final comments = await freshAdapter.loadComments(nodeId: 's1-1');
           expect(comments.length, 1);
           expect(comments.first.text, 'Comment on paragraph');
+          expect(comments.first.textPreview, 'A paragraph of text.');
 
-          await adapter.deleteComment('c_lib_1');
-          final afterDelete = await adapter.loadComments(nodeId: 's1-1');
+          await freshAdapter.deleteComment(comments.first.id);
+          final afterDelete = await freshAdapter.loadComments(nodeId: 's1-1');
           expect(afterDelete.isEmpty, true);
         },
       );
