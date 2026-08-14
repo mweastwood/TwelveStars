@@ -67,7 +67,9 @@ class ReverseCitationService {
           jsonDecode(rawJson) as Map<String, dynamic>,
         );
         indexBookData(path, bookData);
-      } catch (_) {}
+      } catch (e, stack) {
+        debugPrint('ReverseCitationService error indexing $path: $e\n$stack');
+      }
     }
   }
 

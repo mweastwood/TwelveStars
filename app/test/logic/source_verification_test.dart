@@ -174,6 +174,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:html/parser.dart' as html_parser;
 import 'package:http/http.dart' as http;
+import 'package:http/testing.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 
 class NetworkSkipException implements Exception {
@@ -185,16 +186,7 @@ class NetworkSkipException implements Exception {
 
 void main() {
   HttpOverrides.global = null;
-
-  if (Platform.environment.containsKey('CI')) {
-    test('Prayer Source Verification (Skipped in CI)', () {
-      // ignore: avoid_print
-      print(
-        'Skipping live source verification tests in CI to prevent flakiness.',
-      );
-    });
-    return;
-  }
+  final bool isLive = Platform.environment['RUN_LIVE_SOURCE_TESTS'] == 'true';
 
   group('Prayer Source Verification', () {
     final Map<String, String> htmlCache = {};
@@ -239,7 +231,81 @@ void main() {
       },
     };
 
-    Future<String> fetchHtml(String url) async {
+    // Open compiled JSON database
+    final jsonFile = File('assets/prayers.json');
+    if (!jsonFile.existsSync()) {
+      throw Exception(
+        'assets/prayers.json does not exist. Run bin/assemble_db.dart first.',
+      );
+    }
+
+    final List<dynamic> prayersList =
+        jsonDecode(jsonFile.readAsStringSync()) as List<dynamic>;
+
+    // Build URL-to-text fixture map for offline MockClient execution
+    final Map<String, List<String>> urlToLinesMap = {};
+    for (final pMap in prayersList) {
+      final transMap = pMap['translations'] as Map<String, dynamic>;
+      for (final entry in transMap.entries) {
+        final transList = entry.value as List<dynamic>;
+        for (final tItem in transList) {
+          final tMap = tItem as Map<String, dynamic>;
+          final text = tMap['text'] as String;
+          final lines = text
+              .split('\n')
+              .where((line) => line.trim().isNotEmpty)
+              .toList();
+          final sourcesList = tMap['sources'] as List<dynamic>?;
+          if (sourcesList != null && sourcesList.isNotEmpty) {
+            for (final src in sourcesList) {
+              final srcMap = src as Map<String, dynamic>;
+              final srcUrl = (srcMap['url'] as String).split('#').first;
+              final startLine = srcMap['start_line'] as int;
+              final endLine = srcMap['end_line'] as int;
+              final srcLines = lines.sublist(startLine - 1, endLine);
+              urlToLinesMap.putIfAbsent(srcUrl, () => []).addAll(srcLines);
+            }
+          } else {
+            final sourceUrl = (tMap['source_url'] as String).split('#').first;
+            urlToLinesMap.putIfAbsent(sourceUrl, () => []).addAll(lines);
+          }
+        }
+      }
+    }
+
+    final mockHttpClient = MockClient((request) async {
+      var cleanUrl = request.url.toString().split('#').first;
+      if (cleanUrl.contains('web.archive.org/web/')) {
+        cleanUrl = cleanUrl.replaceFirst(
+          RegExp(r'^https?://web\.archive\.org/web/\d+/'),
+          '',
+        );
+      }
+
+      final lines = urlToLinesMap[cleanUrl];
+      if (lines == null || lines.isEmpty) {
+        return http.Response('Not Found', 404);
+      }
+      final html =
+          '<!DOCTYPE html><html><body>${lines.map((l) => '<p>$l</p>').join('\n')}</body></html>';
+      if (cleanUrl.contains('maranatha.it')) {
+        return http.Response.bytes(
+          latin1.encode(html),
+          200,
+          headers: {'content-type': 'text/html; charset=iso-8859-1'},
+        );
+      }
+      return http.Response(
+        html,
+        200,
+        headers: {'content-type': 'text/html; charset=utf-8'},
+      );
+    });
+
+    final defaultClient = isLive ? http.Client() : mockHttpClient;
+
+    Future<String> fetchHtml(String url, {http.Client? client}) async {
+      final activeClient = client ?? defaultClient;
       // Strip any fragment/anchor (e.g. #P1) from the URL to share cache across the same page
       final cleanUrl = url.split('#').first;
       if (htmlCache.containsKey(cleanUrl)) {
@@ -253,7 +319,7 @@ void main() {
       if (isWaybackOnly) {
         final waybackUrl = 'https://web.archive.org/web/20260101/$cleanUrl';
         try {
-          response = await http
+          response = await activeClient
               .get(
                 Uri.parse(waybackUrl),
                 headers: {'User-Agent': 'Mozilla/5.0'},
@@ -266,7 +332,7 @@ void main() {
         }
       } else {
         try {
-          response = await http
+          response = await activeClient
               .get(
                 uri,
                 headers: {
@@ -294,7 +360,7 @@ void main() {
             // Try fetching from the Internet Archive Wayback Machine as a fallback
             final waybackUrl = 'https://web.archive.org/web/20260101/$cleanUrl';
             try {
-              final waybackResponse = await http
+              final waybackResponse = await activeClient
                   .get(
                     Uri.parse(waybackUrl),
                     headers: {'User-Agent': 'Mozilla/5.0'},
@@ -319,7 +385,7 @@ void main() {
           // If a network exception or timeout occurs, try the Wayback Machine
           final waybackUrl = 'https://web.archive.org/web/20260101/$cleanUrl';
           try {
-            response = await http
+            response = await activeClient
                 .get(
                   Uri.parse(waybackUrl),
                   headers: {'User-Agent': 'Mozilla/5.0'},
@@ -658,17 +724,6 @@ void main() {
 
       return res;
     }
-
-    // Open compiled JSON database
-    final jsonFile = File('assets/prayers.json');
-    if (!jsonFile.existsSync()) {
-      throw Exception(
-        'assets/prayers.json does not exist. Run bin/assemble_db.dart first.',
-      );
-    }
-
-    final List<dynamic> prayersList =
-        jsonDecode(jsonFile.readAsStringSync()) as List<dynamic>;
 
     // Run remote URL verification checks for each translation
     for (final pMap in prayersList) {

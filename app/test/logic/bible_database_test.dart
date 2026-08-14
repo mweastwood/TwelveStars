@@ -149,4 +149,41 @@ void main() {
       expect(remaining.first.documentId, equals('council_of_trent'));
     });
   });
+
+  group('TypeConverters Error Resilience', () {
+    const locConverter = LocalizedTranslationsConverter();
+    const prefConverter = PreferredVersionsConverter();
+
+    test(
+      'LocalizedTranslationsConverter handles empty and malformed JSON safely',
+      () {
+        expect(locConverter.fromSql(''), isEmpty);
+        expect(locConverter.fromSql('not-valid-json'), isEmpty);
+        expect(locConverter.fromSql('{"not": "a list"}'), isEmpty);
+        expect(locConverter.fromSql('[{"invalid": "structure"}]'), isNotEmpty);
+        expect(
+          locConverter
+              .fromSql(
+                '[{"languageCode": "en", "list": [{"title": "P", "text": "T"}]}]',
+              )
+              .length,
+          equals(1),
+        );
+      },
+    );
+
+    test(
+      'PreferredVersionsConverter handles empty and malformed JSON safely',
+      () {
+        expect(prefConverter.fromSql(''), isEmpty);
+        expect(prefConverter.fromSql('invalid json string'), isEmpty);
+        expect(prefConverter.fromSql('{"key": "test"}'), isEmpty);
+        expect(
+          prefConverter.fromSql('[{"key": "test", "versionIndex": 2}]').length,
+          equals(1),
+        );
+        expect(prefConverter.toSql([]), equals('[]'));
+      },
+    );
+  });
 }

@@ -139,9 +139,9 @@ class NotificationService {
           notificationDetails: notificationDetails,
           androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
         );
-      } catch (e) {
+      } catch (e, stack) {
         debugPrint(
-          'NotificationService exact schedule failed ($e), falling back to inexact schedule',
+          'NotificationService exact schedule failed ($e), falling back to inexact schedule: $stack',
         );
         try {
           await plugin.zonedSchedule(
