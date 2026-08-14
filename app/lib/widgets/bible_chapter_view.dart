@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 import 'package:drift/drift.dart' show Value;
 import 'package:flutter/material.dart';
@@ -53,6 +54,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
   int? _temporaryHighlightStart;
   int? _temporaryHighlightEnd;
   String? _lastProcessedSessionId;
+  Timer? _highlightTimer;
 
   final Map<int, GlobalKey> _verseKeys = {};
 
@@ -63,6 +65,12 @@ class _BibleChapterViewState extends State<BibleChapterView>
   void initState() {
     super.initState();
     _loadChapterData();
+  }
+
+  @override
+  void dispose() {
+    _highlightTimer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -176,7 +184,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
         }
       });
 
-      Future.delayed(const Duration(seconds: 2), () {
+      _highlightTimer?.cancel();
+      _highlightTimer = Timer(const Duration(seconds: 2), () {
         if (mounted) {
           setState(() {
             _temporaryHighlightStart = null;

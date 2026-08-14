@@ -901,6 +901,9 @@ void main() {
         findsOneWidget,
       );
       expect(scrollController.offset, greaterThan(0.0));
+
+      // Advance past highlight timer so no pending timers remain after widget disposal
+      await tester.pump(const Duration(seconds: 2));
     });
   });
 }
