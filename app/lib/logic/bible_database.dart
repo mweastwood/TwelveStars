@@ -508,6 +508,9 @@ class BibleDatabase extends _$BibleDatabase {
         primaryBibleTranslation: Value(settings.primaryBibleTranslation),
         compareBibleTranslation: Value(settings.compareBibleTranslation),
         preferredVersions: Value(settings.preferredVersions),
+        hapticsEnabled: Value(settings.hapticsEnabled),
+        appThemeModeCode: Value(settings.appThemeModeCode),
+        sundayNotificationsEnabled: Value(settings.sundayNotificationsEnabled),
       ),
     );
   }
