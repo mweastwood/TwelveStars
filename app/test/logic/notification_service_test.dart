@@ -106,28 +106,37 @@ void main() {
       expect(day.color, equals(LiturgicalColor.white));
     });
 
-    test('initializes and cancels notification when Sunday notifications disabled', () async {
-      final settings = UserSettings(sundayNotificationsEnabled: false);
+    test(
+      'initializes and cancels notification when Sunday notifications disabled',
+      () async {
+        final settings = UserSettings(sundayNotificationsEnabled: false);
 
-      await NotificationService.syncSundayNotification(settings);
+        await NotificationService.syncSundayNotification(settings);
 
-      expect(mockPlugin.isInitialized, isTrue);
-      expect(mockPlugin.cancelCalled, isTrue);
-      expect(mockPlugin.cancelledId, equals(1001));
-      expect(mockPlugin.scheduledId, isNull);
-    });
+        expect(mockPlugin.isInitialized, isTrue);
+        expect(mockPlugin.cancelCalled, isTrue);
+        expect(mockPlugin.cancelledId, equals(1001));
+        expect(mockPlugin.scheduledId, isNull);
+      },
+    );
 
-    test('initializes and schedules notification when Sunday notifications enabled', () async {
-      final settings = UserSettings(sundayNotificationsEnabled: true);
+    test(
+      'initializes and schedules notification when Sunday notifications enabled',
+      () async {
+        final settings = UserSettings(sundayNotificationsEnabled: true);
 
-      await NotificationService.syncSundayNotification(settings);
+        await NotificationService.syncSundayNotification(settings);
 
-      expect(mockPlugin.isInitialized, isTrue);
-      expect(mockPlugin.cancelCalled, isFalse);
-      expect(mockPlugin.scheduledId, equals(1001));
-      expect(mockPlugin.scheduledTitle, contains('Liturgical Season:'));
-      expect(mockPlugin.scheduledAndroidScheduleMode, equals(AndroidScheduleMode.exactAllowWhileIdle));
-    });
+        expect(mockPlugin.isInitialized, isTrue);
+        expect(mockPlugin.cancelCalled, isFalse);
+        expect(mockPlugin.scheduledId, equals(1001));
+        expect(mockPlugin.scheduledTitle, contains('Liturgical Season:'));
+        expect(
+          mockPlugin.scheduledAndroidScheduleMode,
+          equals(AndroidScheduleMode.exactAllowWhileIdle),
+        );
+      },
+    );
 
     test('falls back to inexact schedule when exact schedule fails', () async {
       final settings = UserSettings(sundayNotificationsEnabled: true);
@@ -137,7 +146,10 @@ void main() {
 
       expect(mockPlugin.isInitialized, isTrue);
       expect(mockPlugin.scheduledId, equals(1001));
-      expect(mockPlugin.scheduledAndroidScheduleMode, equals(AndroidScheduleMode.inexact));
+      expect(
+        mockPlugin.scheduledAndroidScheduleMode,
+        equals(AndroidScheduleMode.inexact),
+      );
     });
   });
 }

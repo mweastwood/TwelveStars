@@ -28,7 +28,9 @@ class NotificationService {
     try {
       tz.initializeTimeZones();
     } catch (e, stack) {
-      debugPrint('NotificationService timezone initialization error: $e\n$stack');
+      debugPrint(
+        'NotificationService timezone initialization error: $e\n$stack',
+      );
     }
 
     const androidSettings = AndroidInitializationSettings(
@@ -59,7 +61,9 @@ class NotificationService {
     try {
       tz.initializeTimeZones();
     } catch (e, stack) {
-      debugPrint('NotificationService timezone initialization error: $e\n$stack');
+      debugPrint(
+        'NotificationService timezone initialization error: $e\n$stack',
+      );
     }
 
     final now = fromDate ?? DateTime.now();
@@ -136,7 +140,9 @@ class NotificationService {
           androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
         );
       } catch (e) {
-        debugPrint('NotificationService exact schedule failed ($e), falling back to inexact schedule');
+        debugPrint(
+          'NotificationService exact schedule failed ($e), falling back to inexact schedule',
+        );
         try {
           await plugin.zonedSchedule(
             id: 1001,
@@ -151,7 +157,9 @@ class NotificationService {
         }
       }
     } catch (e, stack) {
-      debugPrint('NotificationService syncSundayNotification error: $e\n$stack');
+      debugPrint(
+        'NotificationService syncSundayNotification error: $e\n$stack',
+      );
     }
   }
 }
