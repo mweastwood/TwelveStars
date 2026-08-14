@@ -25,8 +25,9 @@ class MockFlutterLocalNotificationsPlugin extends Fake
   @override
   Future<bool?> initialize({
     required InitializationSettings settings,
-    NotificationResponseCallback? onDidReceiveNotificationResponse,
-    NotificationResponseCallback? onDidReceiveBackgroundNotificationResponse,
+    DidReceiveNotificationResponseCallback? onDidReceiveNotificationResponse,
+    DidReceiveBackgroundNotificationResponseCallback?
+    onDidReceiveBackgroundNotificationResponse,
   }) async {
     isInitialized = true;
     capturedSettings = settings;
@@ -62,9 +63,6 @@ class MockFlutterLocalNotificationsPlugin extends Fake
     scheduledNotificationDetails = notificationDetails;
     scheduledAndroidScheduleMode = androidScheduleMode;
   }
-
-  @override
-  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
 void main() {
