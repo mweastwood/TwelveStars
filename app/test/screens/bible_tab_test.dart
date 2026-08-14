@@ -5,7 +5,9 @@ import 'package:drift/drift.dart' show Value;
 import 'package:drift/native.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
+import 'package:twelve_stars/widgets/bible_chapter_view.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import '../test_helper.dart';
@@ -845,6 +847,60 @@ void main() {
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(tester, 'bible_tab_comments_list_golden');
+    });
+
+    testWidgets('scrollToVerse navigates to off-screen verse in long chapter', (
+      WidgetTester tester,
+    ) async {
+      for (int i = 1; i <= 50; i++) {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: i,
+                verseText:
+                    'Genesis 1 verse $i long content text line for scrolling test verification.',
+                translationCode: 'CPDV',
+              ),
+            );
+      }
+
+      final scrollController = ScrollController();
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: SizedBox(
+              height: 600,
+              child: BibleChapterView(
+                book: catholicBooks.firstWhere((b) => b.bookNumber == 1),
+                chapter: 1,
+                primaryTranslation: 'CPDV',
+                compareTranslation: 'none',
+                scrollController: scrollController,
+                scrollToVerse: 45,
+                highlightStartVerse: 45,
+                highlightEndVerse: 45,
+                navigationSessionId: 'session_test_45',
+              ),
+            ),
+          ),
+        ),
+      );
+
+      await tester.pumpAndSettle();
+
+      // Verify verse 45 is scrolled into view and visible
+      expect(
+        find.text(
+          'Genesis 1 verse 45 long content text line for scrolling test verification.',
+        ),
+        findsOneWidget,
+      );
+      expect(scrollController.offset, greaterThan(0.0));
     });
   });
 }
