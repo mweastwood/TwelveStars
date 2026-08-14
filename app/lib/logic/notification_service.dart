@@ -12,6 +12,12 @@ class NotificationService {
       FlutterLocalNotificationsPlugin();
   static bool _isInitialized = false;
 
+  @visibleForTesting
+  static bool get isInitialized => _isInitialized;
+
+  @visibleForTesting
+  static set isInitialized(bool value) => _isInitialized = value;
+
   static FlutterLocalNotificationsPlugin get plugin =>
       mockPlugin ?? _notificationsPlugin;
 
@@ -21,7 +27,11 @@ class NotificationService {
 
     try {
       tz.initializeTimeZones();
-    } catch (_) {}
+    } catch (e, stack) {
+      debugPrint(
+        'NotificationService timezone initialization error: $e\n$stack',
+      );
+    }
 
     const androidSettings = AndroidInitializationSettings(
       '@mipmap/ic_launcher',
@@ -39,16 +49,22 @@ class NotificationService {
     );
 
     try {
-      await plugin.initialize(initSettings);
+      await plugin.initialize(settings: initSettings);
       _isInitialized = true;
-    } catch (_) {}
+    } catch (e, stack) {
+      debugPrint('NotificationService plugin initialization error: $e\n$stack');
+    }
   }
 
   /// Calculates next Sunday at 8:00 AM local time.
   static tz.TZDateTime nextSunday8AM([DateTime? fromDate]) {
     try {
       tz.initializeTimeZones();
-    } catch (_) {}
+    } catch (e, stack) {
+      debugPrint(
+        'NotificationService timezone initialization error: $e\n$stack',
+      );
+    }
 
     final now = fromDate ?? DateTime.now();
     final tzNow = tz.TZDateTime.from(now, tz.local);
@@ -80,12 +96,12 @@ class NotificationService {
     final userSettings = settings ?? await PrayerDatabase.loadSettings();
 
     try {
+      await initialize();
+
       if (!userSettings.sundayNotificationsEnabled) {
-        await plugin.cancel(1001);
+        await plugin.cancel(id: 1001);
         return;
       }
-
-      await initialize();
 
       final scheduledTime = nextSunday8AM();
       final liturgicalDay = LiturgicalCalendar.computeDay(scheduledTime);
@@ -116,29 +132,34 @@ class NotificationService {
 
       try {
         await plugin.zonedSchedule(
-          1001,
-          title,
-          body,
-          scheduledTime,
-          notificationDetails,
+          id: 1001,
+          title: title,
+          body: body,
+          scheduledDate: scheduledTime,
+          notificationDetails: notificationDetails,
           androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-          uiLocalNotificationDateInterpretation:
-              UILocalNotificationDateInterpretation.absoluteTime,
         );
-      } catch (_) {
+      } catch (e) {
+        debugPrint(
+          'NotificationService exact schedule failed ($e), falling back to inexact schedule',
+        );
         try {
           await plugin.zonedSchedule(
-            1001,
-            title,
-            body,
-            scheduledTime,
-            notificationDetails,
+            id: 1001,
+            title: title,
+            body: body,
+            scheduledDate: scheduledTime,
+            notificationDetails: notificationDetails,
             androidScheduleMode: AndroidScheduleMode.inexact,
-            uiLocalNotificationDateInterpretation:
-                UILocalNotificationDateInterpretation.absoluteTime,
           );
-        } catch (_) {}
+        } catch (e, stack) {
+          debugPrint('NotificationService inexact schedule error: $e\n$stack');
+        }
       }
-    } catch (_) {}
+    } catch (e, stack) {
+      debugPrint(
+        'NotificationService syncSundayNotification error: $e\n$stack',
+      );
+    }
   }
 }
