@@ -106,5 +106,35 @@ void main() {
       );
       expect(invalidResult, isEmpty);
     });
+
+    test(
+      'parseInBackground parses correctly with compute() and UsfmParseParams',
+      () async {
+        const usfm = '''
+\\id GEN
+\\c 1
+\\v 1 In the beginning God created heaven, and earth.
+\\v 2 And the earth was void and empty.
+''';
+
+        const params = UsfmParseParams(
+          usfmContent: usfm,
+          translationCode: 'CPDV',
+          bookNumber: 1,
+          bookName: 'Genesis',
+        );
+
+        final syncResult = UsfmParser.parseInBackground(params);
+        expect(syncResult.length, equals(2));
+        expect(
+          syncResult[0]['verseText'],
+          equals('In the beginning God created heaven, and earth.'),
+        );
+        expect(
+          syncResult[1]['verseText'],
+          equals('And the earth was void and empty.'),
+        );
+      },
+    );
   });
 }

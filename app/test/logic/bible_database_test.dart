@@ -107,4 +107,46 @@ void main() {
       },
     );
   });
+
+  group('Library Bookmarks Operations', () {
+    test('save, get, and delete library bookmarks in BibleDatabase', () async {
+      expect(testDb.schemaVersion, equals(8));
+
+      final now = DateTime.now();
+      await testDb.saveLibraryBookmark(
+        LibraryBookmarksCompanion.insert(
+          documentId: 'baltimore_1',
+          sectionIndex: 2,
+          nodeId: 'b1-s2-3',
+          textPreview: 'What is prayer?',
+          createdAt: now,
+        ),
+      );
+
+      await testDb.saveLibraryBookmark(
+        LibraryBookmarksCompanion.insert(
+          documentId: 'council_of_trent',
+          sectionIndex: 0,
+          nodeId: 'cot-s0-1',
+          textPreview: 'The Creed',
+          createdAt: now,
+        ),
+      );
+
+      final allBookmarks = await testDb.getLibraryBookmarks();
+      expect(allBookmarks.length, equals(2));
+
+      final baltimoreOnly = await testDb.getLibraryBookmarks(
+        documentId: 'baltimore_1',
+      );
+      expect(baltimoreOnly.length, equals(1));
+      expect(baltimoreOnly.first.documentId, equals('baltimore_1'));
+      expect(baltimoreOnly.first.textPreview, equals('What is prayer?'));
+
+      await testDb.deleteLibraryBookmark(baltimoreOnly.first.id);
+      final remaining = await testDb.getLibraryBookmarks();
+      expect(remaining.length, equals(1));
+      expect(remaining.first.documentId, equals('council_of_trent'));
+    });
+  });
 }

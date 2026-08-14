@@ -205,7 +205,7 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 7;
+  int get schemaVersion => 8;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -236,6 +236,9 @@ class BibleDatabase extends _$BibleDatabase {
       }
       if (from < 7) {
         await m.createTable(userComments);
+      }
+      if (from < 8) {
+        await m.createTable(libraryBookmarks);
       }
     },
   );
@@ -344,11 +347,14 @@ class BibleDatabase extends _$BibleDatabase {
       }
 
       final usfmContent = await rootBundle.loadString(assetPath);
-      final parsedVerses = UsfmParser.parse(
-        usfmContent,
-        translation,
-        bookNumber,
-        bookName,
+      final parsedVerses = await compute(
+        UsfmParser.parseInBackground,
+        UsfmParseParams(
+          usfmContent: usfmContent,
+          translationCode: translation,
+          bookNumber: bookNumber,
+          bookName: bookName,
+        ),
       );
 
       await batch((batch) {
@@ -467,6 +473,23 @@ class BibleDatabase extends _$BibleDatabase {
     return (delete(userComments)..where((t) => t.id.equals(id))).go();
   }
 
+  // Library Bookmarks operations
+  Future<List<LibraryBookmark>> getLibraryBookmarks({String? documentId}) {
+    final query = select(libraryBookmarks);
+    if (documentId != null) {
+      query.where((t) => t.documentId.equals(documentId));
+    }
+    return query.get();
+  }
+
+  Future<int> saveLibraryBookmark(LibraryBookmarksCompanion companion) {
+    return into(libraryBookmarks).insert(companion);
+  }
+
+  Future<int> deleteLibraryBookmark(int id) {
+    return (delete(libraryBookmarks)..where((t) => t.id.equals(id))).go();
+  }
+
   // Prayers operations
   Future<List<Prayer>> getAllPrayers() {
     return (select(
@@ -516,8 +539,31 @@ class BibleDatabase extends _$BibleDatabase {
   }
 }
 
+class UsfmParseParams {
+  final String usfmContent;
+  final String translationCode;
+  final int bookNumber;
+  final String bookName;
+
+  const UsfmParseParams({
+    required this.usfmContent,
+    required this.translationCode,
+    required this.bookNumber,
+    required this.bookName,
+  });
+}
+
 // Simple USFM Parser
 class UsfmParser {
+  static List<Map<String, dynamic>> parseInBackground(UsfmParseParams params) {
+    return parse(
+      params.usfmContent,
+      params.translationCode,
+      params.bookNumber,
+      params.bookName,
+    );
+  }
+
   static List<Map<String, dynamic>> parse(
     String usfmContent,
     String translationCode,

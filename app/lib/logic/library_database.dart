@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 class TocEntry {
@@ -168,7 +169,14 @@ class BookSearchResult {
 }
 
 class LibraryHelper {
+  static const int maxCacheSize = 5;
   static final Map<String, ParsedBookData> _cache = {};
+
+  @visibleForTesting
+  static int get cacheSize => _cache.length;
+
+  @visibleForTesting
+  static void clearCache() => _cache.clear();
 
   static const List<BaltimoreVolume> baltimoreVolumes = [
     BaltimoreVolume(
@@ -232,11 +240,16 @@ class LibraryHelper {
 
   static Future<ParsedBookData> loadBookData(String assetPath) async {
     if (_cache.containsKey(assetPath)) {
-      return _cache[assetPath]!;
+      final cached = _cache.remove(assetPath)!;
+      _cache[assetPath] = cached;
+      return cached;
     }
     final rawString = await rootBundle.loadString(assetPath);
     final map = json.decode(rawString) as Map<String, dynamic>;
     final parsed = ParsedBookData.fromJson(map);
+    if (_cache.length >= maxCacheSize) {
+      _cache.remove(_cache.keys.first);
+    }
     _cache[assetPath] = parsed;
     return parsed;
   }

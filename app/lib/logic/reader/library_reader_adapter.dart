@@ -1,12 +1,19 @@
-import 'reader_models.dart';
-import 'reader_adapter.dart';
+import 'package:drift/drift.dart' show Value;
+import '../bible_database.dart';
 import '../library_database.dart';
+import 'reader_adapter.dart';
+import 'reader_models.dart';
 
 class LibraryReaderAdapter implements ReaderAdapter {
   final LibraryBookItem bookItem;
   final String assetPath;
+  final BibleDatabase dbHelper;
 
-  LibraryReaderAdapter({required this.bookItem, required this.assetPath});
+  LibraryReaderAdapter({
+    required this.bookItem,
+    required this.assetPath,
+    BibleDatabase? dbHelper,
+  }) : dbHelper = dbHelper ?? BibleDatabaseHelper.db;
 
   @override
   Future<ReaderDocument> loadDocument() async {
@@ -69,35 +76,78 @@ class LibraryReaderAdapter implements ReaderAdapter {
     );
   }
 
-  final List<ReaderBookmark> _bookmarks = [];
-
   @override
   Future<void> saveBookmark(ReaderBookmark bookmark) async {
-    _bookmarks.add(bookmark);
+    await dbHelper.saveLibraryBookmark(
+      LibraryBookmarksCompanion.insert(
+        documentId: bookItem.id,
+        sectionIndex: bookmark.sectionIndex,
+        nodeId: bookmark.nodeId,
+        textPreview: bookmark.textPreview,
+        createdAt: bookmark.timestamp,
+      ),
+    );
   }
 
   @override
   Future<List<ReaderBookmark>> loadBookmarks() async {
-    return List.unmodifiable(_bookmarks);
+    final list = await dbHelper.getLibraryBookmarks(documentId: bookItem.id);
+    return list
+        .map(
+          (b) => ReaderBookmark(
+            id: '${b.id}',
+            documentId: b.documentId,
+            sectionIndex: b.sectionIndex,
+            nodeId: b.nodeId,
+            textPreview: b.textPreview,
+            timestamp: b.createdAt,
+          ),
+        )
+        .toList();
   }
-
-  final List<ReaderComment> _comments = [];
 
   @override
   Future<void> saveComment(ReaderComment comment) async {
-    _comments.add(comment);
+    await dbHelper.saveComment(
+      UserCommentsCompanion.insert(
+        documentId: comment.documentId.isNotEmpty
+            ? comment.documentId
+            : bookItem.id,
+        sectionIndex: comment.sectionIndex,
+        nodeId: comment.nodeId,
+        commentText: comment.text,
+        textPreview: Value(comment.textPreview),
+        createdAt: comment.timestamp,
+      ),
+    );
   }
 
   @override
   Future<List<ReaderComment>> loadComments({String? nodeId}) async {
-    if (nodeId != null) {
-      return _comments.where((c) => c.nodeId == nodeId).toList();
-    }
-    return List.unmodifiable(_comments);
+    final list = await dbHelper.getComments(
+      documentId: bookItem.id,
+      nodeId: nodeId,
+    );
+    return list
+        .map(
+          (c) => ReaderComment(
+            id: '${c.id}',
+            documentId: c.documentId,
+            sectionIndex: c.sectionIndex,
+            nodeId: c.nodeId,
+            text: c.commentText,
+            textPreview: c.textPreview,
+            timestamp: c.createdAt,
+          ),
+        )
+        .toList();
   }
 
   @override
   Future<void> deleteComment(String commentId) async {
-    _comments.removeWhere((c) => c.id == commentId);
+    final id = int.tryParse(commentId);
+    if (id != null) {
+      await dbHelper.deleteComment(id);
+    }
   }
 }
