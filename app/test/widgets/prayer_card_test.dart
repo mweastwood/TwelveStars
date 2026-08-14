@@ -20,12 +20,15 @@ void main() {
           PrayerTranslation.mock(
             title: 'Our Father',
             subtitle: "The Lord's Prayer (Traditional)",
-            text: 'Our Father, who art in heaven,\nhallowed be thy name;\nthy kingdom come;\nthy will be done\non earth as it is in heaven.\n\nGive us this day our daily bread;\nand forgive us our trespasses\nas we forgive those who trespass against us;\nand lead us not into temptation,\nbut deliver us from evil.',
+            text:
+                'Our Father, who art in heaven,\nhallowed be thy name;\nthy kingdom come;\nthy will be done\non earth as it is in heaven.\n\nGive us this day our daily bread;\nand forgive us our trespasses\nas we forgive those who trespass against us;\nand lead us not into temptation,\nbut deliver us from evil.',
             sourceName:
                 'Compendium of the Catechism of the Catholic Church (Vatican)',
-            sourceUrl: 'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html',
+            sourceUrl:
+                'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html',
             historyOrigin: 'Gospel of Matthew 6:9–13',
-            historyDescription: 'Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer.',
+            historyDescription:
+                'Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer.',
           ),
         ],
         PrayerLanguage.spanish: [
@@ -41,7 +44,8 @@ void main() {
           PrayerTranslation.mock(
             title: '天主經',
             subtitle: 'Lord’s Prayer',
-            text: '我們的天父，願祢的名受顯揚；願祢的國來臨；願祢的旨意奉行在人間，如同在天上。求祢今天賞給我們日用的食糧；求祢寬恕我們的罪過，如同我們寬恕別人一樣；不要讓我們陷於誘惑；但救我們免於凶惡。',
+            text:
+                '我們的天父，願祢的名受顯揚；願祢的國來臨；願祢的旨意奉行在人間，如同在天上。求祢今天賞給我們日用的食糧；求祢寬恕我們的罪過，如同我們寬恕別人一樣；不要讓我們陷於誘惑；但救我們免於凶惡。',
             sourceName: 'Wikipedia',
             sourceUrl:
                 'https://zh.wikipedia.org/zh-hant/%E5%A4%A9%E4%B8%BB%E7%B6%93',
