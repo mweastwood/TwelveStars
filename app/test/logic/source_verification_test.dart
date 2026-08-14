@@ -245,12 +245,16 @@ void main() {
     // Build URL-to-text fixture map for offline MockClient execution
     final Map<String, List<String>> urlToLinesMap = {};
     for (final pMap in prayersList) {
-      final transMap = pMap['translations'] as Map<String, dynamic>;
+      if (pMap is! Map<String, dynamic>) continue;
+      final transMap = pMap['translations'] as Map<String, dynamic>?;
+      if (transMap == null) continue;
       for (final entry in transMap.entries) {
-        final transList = entry.value as List<dynamic>;
+        final transList = entry.value as List<dynamic>?;
+        if (transList == null) continue;
         for (final tItem in transList) {
-          final tMap = tItem as Map<String, dynamic>;
-          final text = tMap['text'] as String;
+          if (tItem is! Map<String, dynamic>) continue;
+          final tMap = tItem;
+          final text = (tMap['text'] as String?) ?? '';
           final lines = text
               .split('\n')
               .where((line) => line.trim().isNotEmpty)
@@ -258,16 +262,24 @@ void main() {
           final sourcesList = tMap['sources'] as List<dynamic>?;
           if (sourcesList != null && sourcesList.isNotEmpty) {
             for (final src in sourcesList) {
-              final srcMap = src as Map<String, dynamic>;
-              final srcUrl = (srcMap['url'] as String).split('#').first;
-              final startLine = srcMap['start_line'] as int;
-              final endLine = srcMap['end_line'] as int;
-              final srcLines = lines.sublist(startLine - 1, endLine);
+              if (src is! Map<String, dynamic>) continue;
+              final srcMap = src;
+              final rawSrcUrl = srcMap['url'] as String?;
+              if (rawSrcUrl == null || rawSrcUrl.isEmpty) continue;
+              final srcUrl = rawSrcUrl.split('#').first;
+              final startLine = (srcMap['start_line'] as int?) ?? 1;
+              final endLine = (srcMap['end_line'] as int?) ?? lines.length;
+              final int startIdx = (startLine - 1).clamp(0, lines.length);
+              final int endIdx = endLine.clamp(startIdx, lines.length);
+              final srcLines = lines.sublist(startIdx, endIdx);
               urlToLinesMap.putIfAbsent(srcUrl, () => []).addAll(srcLines);
             }
           } else {
-            final sourceUrl = (tMap['source_url'] as String).split('#').first;
-            urlToLinesMap.putIfAbsent(sourceUrl, () => []).addAll(lines);
+            final rawSourceUrl = tMap['source_url'] as String?;
+            if (rawSourceUrl != null && rawSourceUrl.isNotEmpty) {
+              final sourceUrl = rawSourceUrl.split('#').first;
+              urlToLinesMap.putIfAbsent(sourceUrl, () => []).addAll(lines);
+            }
           }
         }
       }
@@ -746,8 +758,8 @@ void main() {
           versionIndex++
         ) {
           final tMap = transList[versionIndex] as Map<String, dynamic>;
-          final text = tMap['text'] as String;
-          final sourceUrl = tMap['source_url'] as String;
+          final text = (tMap['text'] as String?) ?? '';
+          final sourceUrl = tMap['source_url'] as String?;
           final suffix = versionCount > 1
               ? ' (Version ${versionIndex + 1})'
               : '';
@@ -772,13 +784,16 @@ void main() {
                 if (sourcesList != null && sourcesList.isNotEmpty) {
                   // Multi-source verification
                   for (final src in sourcesList) {
-                    final srcMap = src as Map<String, dynamic>;
-                    final srcName = srcMap['name'] as String;
-                    final srcUrl = srcMap['url'] as String;
-                    final startLine = srcMap['start_line'] as int;
-                    final endLine = srcMap['end_line'] as int;
+                    if (src is! Map<String, dynamic>) continue;
+                    final srcMap = src;
+                    final srcName = (srcMap['name'] as String?) ?? 'Source';
+                    final rawSrcUrl = srcMap['url'] as String?;
+                    if (rawSrcUrl == null || rawSrcUrl.isEmpty) continue;
+                    final startLine = (srcMap['start_line'] as int?) ?? 1;
+                    final endLine =
+                        (srcMap['end_line'] as int?) ?? lines.length;
 
-                    final html = await fetchHtml(srcUrl);
+                    final html = await fetchHtml(rawSrcUrl);
                     final document = html_parser.parse(html);
                     final pageText = document.body?.text ?? '';
                     final softPage = softNormalize(
@@ -787,16 +802,20 @@ void main() {
                     );
 
                     // Extract the lines belonging to this source (1-based indices)
-                    final srcLines = lines.sublist(startLine - 1, endLine);
+                    final int startIdx = (startLine - 1).clamp(0, lines.length);
+                    final int endIdx = endLine.clamp(startIdx, lines.length);
+                    final srcLines = lines.sublist(startIdx, endIdx);
                     for (final line in srcLines) {
                       if (!softPage.contains(line)) {
                         allLinesMatched = false;
                         missingLines.add(line);
-                        missingDetails.add('"$line" (from $srcName: $srcUrl)');
+                        missingDetails.add(
+                          '"$line" (from $srcName: $rawSrcUrl)',
+                        );
                       }
                     }
                   }
-                } else {
+                } else if (sourceUrl != null && sourceUrl.isNotEmpty) {
                   // Fallback to standard single-source verification
                   final html = await fetchHtml(sourceUrl);
                   final document = html_parser.parse(html);
