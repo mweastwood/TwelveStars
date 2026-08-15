@@ -161,5 +161,103 @@ void main() {
         matchesGoldenFile('goldens/library_reader_screen_golden.png'),
       );
     });
+
+    testWidgets(
+      'LibraryReaderScreen supports swipe navigation between sections',
+      (tester) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData.light(useMaterial3: true),
+            home: LibraryReaderScreen(
+              bookItem: testBookItem,
+              initialAssetPath: 'assets/catechism/json/baltimore_1.json',
+            ),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+
+        expect(find.text('Section 1 of 35'), findsOneWidget);
+
+        // Swipe left (drag left) to go to next section
+        await tester.drag(
+          find.text('Prayers').first,
+          const Offset(-600.0, 0.0),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Section 2 of 35'), findsOneWidget);
+
+        // Swipe right (drag right) to go back to previous section
+        await tester.drag(
+          find.text('Lesson 1').first,
+          const Offset(600.0, 0.0),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Section 1 of 35'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen footer buttons navigate between sections',
+      (tester) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData.light(useMaterial3: true),
+            home: LibraryReaderScreen(
+              bookItem: testBookItem,
+              initialAssetPath: 'assets/catechism/json/baltimore_1.json',
+            ),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+
+        expect(find.text('Section 1 of 35'), findsOneWidget);
+
+        // Tap Next Section
+        await tester.tap(find.byTooltip('Next Section'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Section 2 of 35'), findsOneWidget);
+
+        // Tap Previous Section
+        await tester.tap(find.byTooltip('Previous Section'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Section 1 of 35'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen Table of Contents drawer jumps to selected section',
+      (tester) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData.light(useMaterial3: true),
+            home: LibraryReaderScreen(
+              bookItem: testBookItem,
+              initialAssetPath: 'assets/catechism/json/baltimore_1.json',
+            ),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+
+        expect(find.text('Section 1 of 35'), findsOneWidget);
+
+        // Open Table of Contents
+        await tester.tap(find.byTooltip('Table of Contents'));
+        await tester.pumpAndSettle();
+
+        // Tap a section in the TOC
+        expect(find.text('Lesson 2'), findsOneWidget);
+        await tester.tap(find.text('Lesson 2'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Section 3 of 35'), findsOneWidget);
+      },
+    );
   });
 }
