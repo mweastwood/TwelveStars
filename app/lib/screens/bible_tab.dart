@@ -49,7 +49,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   UserSettings? _settings;
   String _primaryTranslation = 'CPDV';
   String _compareTranslation = 'none';
-  bool _showTranslationSelectors = true;
+  bool _showTranslationSelectors = false;
 
   bool get showTranslationSelectors => _showTranslationSelectors;
   late final AnimationController _translationSelectorAnimationController;
@@ -186,6 +186,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
           _settings = settings;
           _primaryTranslation = settings.primaryBibleTranslation;
           _compareTranslation = settings.compareBibleTranslation;
+          _showTranslationSelectors = settings.showBibleTranslationSelectors;
+          _translationSelectorAnimationController.value =
+              _showTranslationSelectors ? 1.0 : 0.0;
         });
       }
     } catch (_) {}
@@ -413,7 +416,11 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       } else {
         _translationSelectorAnimationController.reverse();
       }
+      _settings?.showBibleTranslationSelectors = _showTranslationSelectors;
     });
+    if (_settings != null) {
+      PrayerDatabase.saveSettings(_settings!);
+    }
   }
 
   @override
