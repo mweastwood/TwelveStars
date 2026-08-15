@@ -10,6 +10,7 @@ import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+
 import '../test_helper.dart';
 
 void main() {
@@ -964,7 +965,10 @@ void main() {
         await tester.pump(const Duration(milliseconds: 350));
 
         expect(state.showTranslationSelectors, isTrue);
-        expect(PrayerDatabase.mockSettings?.showBibleTranslationSelectors, isTrue);
+        expect(
+          PrayerDatabase.mockSettings?.showBibleTranslationSelectors,
+          isTrue,
+        );
 
         // Toggle closed
         state.toggleTranslationSelectors();
@@ -972,7 +976,10 @@ void main() {
         await tester.pump(const Duration(milliseconds: 350));
 
         expect(state.showTranslationSelectors, isFalse);
-        expect(PrayerDatabase.mockSettings?.showBibleTranslationSelectors, isFalse);
+        expect(
+          PrayerDatabase.mockSettings?.showBibleTranslationSelectors,
+          isFalse,
+        );
       },
     );
 
