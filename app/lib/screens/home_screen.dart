@@ -377,7 +377,7 @@ class _HomeScreenState extends State<HomeScreen>
               icon: Icon(
                 _currentTab == 2
                     ? (_bibleTabKey.currentState?.showTranslationSelectors ??
-                              true
+                              false
                           ? Icons.translate
                           : Icons.translate_outlined)
                     : (_showLanguageSelectors
@@ -386,7 +386,7 @@ class _HomeScreenState extends State<HomeScreen>
               ),
               tooltip: _currentTab == 2
                   ? ((_bibleTabKey.currentState?.showTranslationSelectors ??
-                            true)
+                            false)
                         ? 'Hide translation options'
                         : 'Select translations')
                   : (_showLanguageSelectors

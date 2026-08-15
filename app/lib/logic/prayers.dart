@@ -236,6 +236,7 @@ class UserSettings {
   bool hapticsEnabled;
   String appThemeModeCode;
   bool sundayNotificationsEnabled;
+  bool showBibleTranslationSelectors;
 
   UserSettings({
     this.id = 1,
@@ -247,6 +248,7 @@ class UserSettings {
     this.hapticsEnabled = true,
     this.appThemeModeCode = 'marian_blue',
     this.sundayNotificationsEnabled = true,
+    this.showBibleTranslationSelectors = false,
   });
 
   AppThemeMode get appThemeMode => AppThemeMode.fromCode(appThemeModeCode);

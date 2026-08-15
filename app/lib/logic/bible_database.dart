@@ -233,6 +233,8 @@ class UserSettingsTable extends Table {
       text().withDefault(const Constant('marian_blue'))();
   BoolColumn get sundayNotificationsEnabled =>
       boolean().withDefault(const Constant(true))();
+  BoolColumn get showBibleTranslationSelectors =>
+      boolean().withDefault(const Constant(false))();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -247,7 +249,7 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 8;
+  int get schemaVersion => 9;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -281,6 +283,12 @@ class BibleDatabase extends _$BibleDatabase {
       }
       if (from < 8) {
         await m.createTable(libraryBookmarks);
+      }
+      if (from < 9) {
+        await m.addColumn(
+          userSettingsTable,
+          userSettingsTable.showBibleTranslationSelectors,
+        );
       }
     },
   );
@@ -576,6 +584,9 @@ class BibleDatabase extends _$BibleDatabase {
         hapticsEnabled: Value(settings.hapticsEnabled),
         appThemeModeCode: Value(settings.appThemeModeCode),
         sundayNotificationsEnabled: Value(settings.sundayNotificationsEnabled),
+        showBibleTranslationSelectors: Value(
+          settings.showBibleTranslationSelectors,
+        ),
       ),
     );
   }

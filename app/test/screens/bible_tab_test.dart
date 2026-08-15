@@ -10,6 +10,7 @@ import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+
 import '../test_helper.dart';
 
 void main() {
@@ -22,6 +23,7 @@ void main() {
   });
 
   tearDown(() async {
+    PrayerDatabase.mockSettings = null;
     await testDb.close();
   });
 
@@ -482,6 +484,9 @@ void main() {
     });
 
     testGoldens('renders primary translation dialog correctly', (tester) async {
+      final settings = UserSettings(showBibleTranslationSelectors: true);
+      PrayerDatabase.mockSettings = settings;
+
       // 1. Populate database to prevent infinite loading spinner
       await testDb
           .into(testDb.bibleVerses)
@@ -514,6 +519,8 @@ void main() {
       // Tap Close to close dialog
       await tester.tap(find.byTooltip('Close'));
       await tester.pumpAndSettle();
+
+      PrayerDatabase.mockSettings = null;
     });
 
     testWidgets('primary and comparison selection dialogs update preferences', (
@@ -523,6 +530,7 @@ void main() {
       final settings = UserSettings(
         primaryBibleTranslation: 'CPDV',
         compareBibleTranslation: 'none',
+        showBibleTranslationSelectors: true,
       );
       PrayerDatabase.mockSettings = settings;
 
@@ -917,6 +925,80 @@ void main() {
 
         final state = tester.state<BibleTabState>(find.byType(BibleTab));
         expect(state.chapterScrollControllers.length, lessThanOrEqualTo(10));
+      },
+    );
+
+    testWidgets(
+      'initializes with the translation selector collapsed by default',
+      (WidgetTester tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
+
+        final state = tester.state<BibleTabState>(find.byType(BibleTab));
+        expect(state.showTranslationSelectors, isFalse);
+      },
+    );
+
+    testWidgets(
+      'toggling translation selector animates panel and saves state to UserSettings',
+      (WidgetTester tester) async {
+        final initialSettings = UserSettings(
+          showBibleTranslationSelectors: false,
+        );
+        PrayerDatabase.mockSettings = initialSettings;
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
+
+        final state = tester.state<BibleTabState>(find.byType(BibleTab));
+        expect(state.showTranslationSelectors, isFalse);
+
+        // Toggle open
+        state.toggleTranslationSelectors();
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 350));
+
+        expect(state.showTranslationSelectors, isTrue);
+        expect(
+          PrayerDatabase.mockSettings?.showBibleTranslationSelectors,
+          isTrue,
+        );
+
+        // Toggle closed
+        state.toggleTranslationSelectors();
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 350));
+
+        expect(state.showTranslationSelectors, isFalse);
+        expect(
+          PrayerDatabase.mockSettings?.showBibleTranslationSelectors,
+          isFalse,
+        );
+      },
+    );
+
+    testWidgets(
+      'restores open state when initialized with showBibleTranslationSelectors: true in settings',
+      (WidgetTester tester) async {
+        final initialSettings = UserSettings(
+          showBibleTranslationSelectors: true,
+        );
+        PrayerDatabase.mockSettings = initialSettings;
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
+
+        final state = tester.state<BibleTabState>(find.byType(BibleTab));
+        expect(state.showTranslationSelectors, isTrue);
       },
     );
   });

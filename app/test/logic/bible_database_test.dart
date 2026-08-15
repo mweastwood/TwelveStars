@@ -81,6 +81,7 @@ void main() {
           hapticsEnabled: false,
           appThemeModeCode: 'gothic_dark',
           sundayNotificationsEnabled: false,
+          showBibleTranslationSelectors: true,
         );
 
         await testDb.saveUserSettings(settings);
@@ -104,13 +105,14 @@ void main() {
         expect(retrieved.hapticsEnabled, isFalse);
         expect(retrieved.appThemeModeCode, equals('gothic_dark'));
         expect(retrieved.sundayNotificationsEnabled, isFalse);
+        expect(retrieved.showBibleTranslationSelectors, isTrue);
       },
     );
   });
 
   group('Library Bookmarks Operations', () {
     test('save, get, and delete library bookmarks in BibleDatabase', () async {
-      expect(testDb.schemaVersion, equals(8));
+      expect(testDb.schemaVersion, equals(9));
 
       final now = DateTime.now();
       await testDb.saveLibraryBookmark(
