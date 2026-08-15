@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/screens/missal_tab.dart';
+import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/mass_reading_card.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
@@ -586,7 +587,7 @@ void main() {
     );
 
     testWidgets(
-      'MassReadingCard uses Text.rich to inherit ambient font size and text scaling',
+      'MassReadingCard uses BibleVerseRow to inherit ambient font size and text scaling',
       (tester) async {
         final sampleReading = LectionaryReading(
           id: 1,
@@ -608,15 +609,10 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        final textRichWidget = tester.widget<Text>(
-          find.byWidgetPredicate(
-            (w) =>
-                w is Text &&
-                w.textSpan != null &&
-                w.textSpan!.style?.fontSize == 22.0,
-          ),
+        final verseRow = tester.widget<BibleVerseRow>(
+          find.byType(BibleVerseRow).first,
         );
-        expect(textRichWidget.textSpan?.style?.fontSize, equals(22.0));
+        expect(verseRow.fontSize, equals(22.0));
       },
     );
   });
