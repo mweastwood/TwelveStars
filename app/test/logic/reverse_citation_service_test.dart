@@ -26,6 +26,10 @@ void main() {
           gen3v15Citations.any((rc) => rc.citation.bookName == 'Genesis'),
           true,
         );
+        expect(
+          gen3v15Citations.every((rc) => rc.sourceAssetPath.isNotEmpty),
+          true,
+        );
 
         // Verify that chapter citations query works without throwing
         final gen1ChapterCitations = ReverseCitationService.getChapterCitations(

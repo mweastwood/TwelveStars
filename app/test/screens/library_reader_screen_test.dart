@@ -259,5 +259,72 @@ void main() {
         expect(find.text('Section 3 of 35'), findsOneWidget);
       },
     );
+
+    testWidgets(
+      'LibraryReaderScreen navigates directly to initialSectionId and scrolls to question',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData.light(useMaterial3: true),
+            home: LibraryReaderScreen(
+              bookItem: testBookItem,
+              initialAssetPath: 'assets/catechism/json/baltimore_1.json',
+              initialSectionId: 'sec_3',
+              initialQuestionNumber: 15,
+            ),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+        await tester.pumpAndSettle();
+
+        // Check that lesson 2 content is displayed (section 3 in Baltimore 1: Lesson 2 / On God And His Perfections)
+        expect(find.text('Lesson 2'), findsOneWidget);
+        expect(find.text('On God And His Perfections'), findsOneWidget);
+        expect(find.text('Section 3 of 35'), findsOneWidget);
+        expect(
+          find.byWidgetPredicate(
+            (w) =>
+                w is RichText && w.text.toPlainText().contains('Where is God?'),
+          ),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen falls back gracefully to section 0 if initialSectionId not found',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData.light(useMaterial3: true),
+            home: LibraryReaderScreen(
+              bookItem: testBookItem,
+              initialAssetPath: 'assets/catechism/json/baltimore_1.json',
+              initialSectionId: 'non_existent_section',
+            ),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Prayers'), findsOneWidget);
+        expect(find.text("The Lord's Prayer"), findsOneWidget);
+        expect(find.text('Section 1 of 35'), findsOneWidget);
+      },
+    );
   });
 }

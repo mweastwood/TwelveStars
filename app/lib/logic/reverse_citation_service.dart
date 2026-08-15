@@ -6,6 +6,7 @@ import 'package:twelve_stars/logic/library_database.dart';
 
 class ReverseCitation {
   final String sourceBookId;
+  final String sourceAssetPath;
   final String sourceBookTitle;
   final String sectionId;
   final String sectionTitle;
@@ -15,6 +16,7 @@ class ReverseCitation {
 
   const ReverseCitation({
     required this.sourceBookId,
+    required this.sourceAssetPath,
     required this.sourceBookTitle,
     required this.sectionId,
     required this.sectionTitle,
@@ -101,6 +103,7 @@ class ReverseCitationService {
             citations.add(
               ReverseCitation(
                 sourceBookId: bookData.bookId,
+                sourceAssetPath: sourceKey,
                 sourceBookTitle: bookData.title,
                 sectionId: sec.id,
                 sectionTitle: sec.title,
