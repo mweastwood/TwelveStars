@@ -370,7 +370,6 @@ class _MissalTabState extends State<MissalTab> {
     final currentDay = LiturgicalCalendar.computeDay(_selectedDate);
 
     final massGreeting = _findPrayer('mass_greeting');
-    final signOfTheCross = _findPrayer('sign_of_the_cross');
     final confiteor = _findPrayer('confiteor');
     final kyrieEleison = _findPrayer('kyrie_eleison');
     final gloria = _findPrayer('gloria');
@@ -599,10 +598,6 @@ class _MissalTabState extends State<MissalTab> {
               const SizedBox(height: 12),
               if (massGreeting != null) ...[
                 _buildPrayerCard(massGreeting),
-                const SizedBox(height: 12),
-              ],
-              if (signOfTheCross != null) ...[
-                _buildPrayerCard(signOfTheCross),
                 const SizedBox(height: 12),
               ],
               if (confiteor != null) ...[

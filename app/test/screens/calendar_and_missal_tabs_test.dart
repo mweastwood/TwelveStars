@@ -430,8 +430,9 @@ void main() {
       expect(find.text('LITURGY OF THE WORD'), findsOneWidget);
       expect(find.text('LITURGY OF THE EUCHARIST'), findsOneWidget);
 
-      // Verify sign of the cross and Confiteor exist
-      expect(find.text('Sign of the Cross'), findsOneWidget);
+      // Verify greeting and Confiteor exist, standalone Sign of the Cross is not present
+      expect(find.text('Greeting'), findsOneWidget);
+      expect(find.text('Sign of the Cross'), findsNothing);
       expect(find.text('Confiteor'), findsWidgets);
 
       // 2. Day Navigation
