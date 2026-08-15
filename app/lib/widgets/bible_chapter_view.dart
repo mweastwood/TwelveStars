@@ -272,19 +272,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
               ),
             ),
             IconButton(
-              icon: const Icon(Icons.comment_outlined),
-              tooltip: 'Add Comment',
-              onPressed: () => _showAddCommentDialog(
-                context: context,
-                start: start,
-                end: end,
-                citation: citation,
-              ),
-            ),
-            const SizedBox(width: 8),
-            ElevatedButton.icon(
               icon: const Icon(Icons.star),
-              label: const Text('Save'),
+              tooltip: 'Save',
               onPressed: () async {
                 final selectedVerses = _verses
                     .where(
@@ -321,7 +310,16 @@ class _BibleChapterViewState extends State<BibleChapterView>
                 }
               },
             ),
-            const SizedBox(width: 8),
+            IconButton(
+              icon: const Icon(Icons.comment_outlined),
+              tooltip: 'Add Comment',
+              onPressed: () => _showAddCommentDialog(
+                context: context,
+                start: start,
+                end: end,
+                citation: citation,
+              ),
+            ),
             IconButton(
               icon: const Icon(Icons.content_copy),
               tooltip: 'Copy selection',
@@ -356,7 +354,6 @@ class _BibleChapterViewState extends State<BibleChapterView>
                 }
               },
             ),
-            const SizedBox(width: 8),
             IconButton(
               icon: const Icon(Icons.close),
               onPressed: _clearSelection,

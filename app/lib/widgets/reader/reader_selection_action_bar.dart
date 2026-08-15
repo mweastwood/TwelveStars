@@ -52,20 +52,17 @@ class ReaderSelectionActionBar extends StatelessWidget {
                 ],
               ),
             ),
-            if (onAddComment != null) ...[
+            IconButton(
+              icon: const Icon(Icons.star),
+              tooltip: 'Save',
+              onPressed: onSaveFavorite,
+            ),
+            if (onAddComment != null)
               IconButton(
                 icon: const Icon(Icons.comment_outlined),
                 tooltip: 'Add Comment',
                 onPressed: onAddComment,
               ),
-              const SizedBox(width: 4),
-            ],
-            ElevatedButton.icon(
-              icon: const Icon(Icons.star),
-              label: const Text('Save'),
-              onPressed: onSaveFavorite,
-            ),
-            const SizedBox(width: 8),
             IconButton(
               icon: const Icon(Icons.copy),
               tooltip: 'Copy to Clipboard',

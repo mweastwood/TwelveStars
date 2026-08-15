@@ -110,10 +110,12 @@ void main() {
     );
 
     testWidgets(
-      'ReaderSelectionActionBar displays selected citation and triggers Save and Copy',
+      'ReaderSelectionActionBar displays selected citation, correct button order, and triggers callbacks',
       (tester) async {
         bool saved = false;
+        bool commentAdded = false;
         bool copied = false;
+        bool cleared = false;
 
         await tester.pumpWidget(
           MaterialApp(
@@ -128,8 +130,9 @@ void main() {
                       title: 'Genesis 1:1',
                       selectedCount: 1,
                       onSaveFavorite: () => saved = true,
+                      onAddComment: () => commentAdded = true,
                       onCopy: () => copied = true,
-                      onClearSelection: () {},
+                      onClearSelection: () => cleared = true,
                     ),
                   ),
                 ],
@@ -141,13 +144,33 @@ void main() {
         expect(find.text('Genesis 1:1'), findsOneWidget);
         expect(find.text('1 item selected'), findsOneWidget);
 
-        await tester.tap(find.widgetWithText(ElevatedButton, 'Save'));
+        // Verify button order: Save (star) -> Comment (comment_outlined) -> Copy (copy) -> Close (close)
+        final starX = tester.getCenter(find.byIcon(Icons.star)).dx;
+        final commentX = tester
+            .getCenter(find.byIcon(Icons.comment_outlined))
+            .dx;
+        final copyX = tester.getCenter(find.byIcon(Icons.copy)).dx;
+        final closeX = tester.getCenter(find.byIcon(Icons.close)).dx;
+
+        expect(starX, lessThan(commentX));
+        expect(commentX, lessThan(copyX));
+        expect(copyX, lessThan(closeX));
+
+        await tester.tap(find.byIcon(Icons.star));
         await tester.pump();
         expect(saved, isTrue);
+
+        await tester.tap(find.byIcon(Icons.comment_outlined));
+        await tester.pump();
+        expect(commentAdded, isTrue);
 
         await tester.tap(find.byIcon(Icons.copy));
         await tester.pump();
         expect(copied, isTrue);
+
+        await tester.tap(find.byIcon(Icons.close));
+        await tester.pump();
+        expect(cleared, isTrue);
       },
     );
 
