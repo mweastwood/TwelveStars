@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ReaderSelectionActionBar extends StatelessWidget {
   final String title;
   final int selectedCount;
+  final String? itemLabel;
   final VoidCallback onSaveFavorite;
   final VoidCallback onCopy;
   final VoidCallback? onAddComment;
@@ -12,6 +13,7 @@ class ReaderSelectionActionBar extends StatelessWidget {
     super.key,
     required this.title,
     required this.selectedCount,
+    this.itemLabel,
     required this.onSaveFavorite,
     required this.onCopy,
     this.onAddComment,
@@ -44,7 +46,7 @@ class ReaderSelectionActionBar extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '$selectedCount item${selectedCount > 1 ? "s" : ""} selected',
+                    '$selectedCount ${itemLabel ?? "item"}${selectedCount > 1 ? "s" : ""} selected',
                     style: theme.textTheme.bodySmall?.copyWith(
                       color: theme.colorScheme.onSurfaceVariant,
                     ),
@@ -65,7 +67,7 @@ class ReaderSelectionActionBar extends StatelessWidget {
               ),
             IconButton(
               icon: const Icon(Icons.copy),
-              tooltip: 'Copy to Clipboard',
+              tooltip: 'Copy selection',
               onPressed: onCopy,
             ),
             if (onClearSelection != null)

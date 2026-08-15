@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'dart:math';
-import 'package:drift/drift.dart' show Value;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
-import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
-import 'package:twelve_stars/screens/library_reader_screen.dart';
+import 'package:twelve_stars/widgets/bible_verse_modals.dart';
+import 'package:twelve_stars/widgets/bible_verse_row.dart';
+import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 
 class BibleChapterView extends StatefulWidget {
   final BibleBook book;
@@ -241,357 +241,78 @@ class _BibleChapterViewState extends State<BibleChapterView>
         ? '${widget.book.bookName} ${widget.chapter}:$start'
         : '${widget.book.bookName} ${widget.chapter}:$start-$end';
 
-    return Card(
-      elevation: 6,
-      shadowColor: Colors.black38,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: theme.colorScheme.surfaceContainerHighest,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    citation,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.primary,
-                    ),
-                  ),
-                  Text(
-                    '$count verse${count > 1 ? "s" : ""} selected',
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.onSurfaceVariant,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            IconButton(
-              icon: const Icon(Icons.star),
-              tooltip: 'Save',
-              onPressed: () async {
-                final selectedVerses = _verses
-                    .where(
-                      (v) => v.verseNumber >= start && v.verseNumber <= end,
-                    )
-                    .toList();
-                final textPreview = selectedVerses
-                    .map((v) => v.verseText)
-                    .join(' ');
-
-                final favorite = FavoritePassagesCompanion.insert(
-                  bookNumber: widget.book.bookNumber,
-                  bookName: widget.book.bookName,
-                  chapter: widget.chapter,
-                  startVerse: start,
-                  endVerse: end,
-                  textPreview: textPreview,
-                );
-
-                await BibleDatabaseHelper.db.saveFavorite(favorite);
-
-                if (widget.onFavoriteSaved != null) {
-                  widget.onFavoriteSaved!();
-                }
-
-                if (mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Saved $citation to Favorites'),
-                      behavior: SnackBarBehavior.floating,
-                    ),
-                  );
-                  _clearSelection();
-                }
-              },
-            ),
-            IconButton(
-              icon: const Icon(Icons.comment_outlined),
-              tooltip: 'Add Comment',
-              onPressed: () => _showAddCommentDialog(
-                context: context,
-                start: start,
-                end: end,
-                citation: citation,
-              ),
-            ),
-            IconButton(
-              icon: const Icon(Icons.content_copy),
-              tooltip: 'Copy selection',
-              onPressed: () async {
-                final selectedVerses =
-                    _verses
-                        .where(
-                          (v) => v.verseNumber >= start && v.verseNumber <= end,
-                        )
-                        .toList()
-                      ..sort((a, b) => a.verseNumber.compareTo(b.verseNumber));
-
-                final versesText = selectedVerses
-                    .map((v) {
-                      return count == 1
-                          ? v.verseText
-                          : '${v.verseNumber} ${v.verseText}';
-                    })
-                    .join(count == 1 ? '' : '\n');
-
-                final clipboardContent = '$citation\n$versesText';
-                await Clipboard.setData(ClipboardData(text: clipboardContent));
-
-                if (mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Copied $citation to clipboard'),
-                      behavior: SnackBarBehavior.floating,
-                    ),
-                  );
-                  _clearSelection();
-                }
-              },
-            ),
-            IconButton(
-              icon: const Icon(Icons.close),
-              onPressed: _clearSelection,
-              tooltip: 'Cancel selection',
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Future<void> _showAddCommentDialog({
-    required BuildContext context,
-    required int start,
-    required int end,
-    required String citation,
-  }) async {
-    final messenger = ScaffoldMessenger.of(context);
-    final selectedVerses = _verses
-        .where((v) => v.verseNumber >= start && v.verseNumber <= end)
-        .toList();
+    final selectedVerses =
+        _verses
+            .where((v) => v.verseNumber >= start && v.verseNumber <= end)
+            .toList()
+          ..sort((a, b) => a.verseNumber.compareTo(b.verseNumber));
     final textPreview = selectedVerses.map((v) => v.verseText).join(' ');
-    final controller = TextEditingController();
 
-    final result = await showDialog<String>(
-      context: context,
-      builder: (ctx) {
-        return AlertDialog(
-          title: Text('Add Comment for $citation'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                '"$textPreview"',
-                style: TextStyle(
-                  fontStyle: FontStyle.italic,
-                  color: Theme.of(ctx).colorScheme.outline,
-                ),
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-              ),
-              const SizedBox(height: 12),
-              TextField(
-                controller: controller,
-                maxLines: 3,
-                decoration: const InputDecoration(
-                  hintText: 'Enter your comment...',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(ctx),
-              child: const Text('Cancel'),
-            ),
-            FilledButton(
-              onPressed: () => Navigator.pop(ctx, controller.text.trim()),
-              child: const Text('Save'),
-            ),
-          ],
+    return ReaderSelectionActionBar(
+      title: citation,
+      selectedCount: count,
+      itemLabel: 'verse',
+      onSaveFavorite: () async {
+        final favorite = FavoritePassagesCompanion.insert(
+          bookNumber: widget.book.bookNumber,
+          bookName: widget.book.bookName,
+          chapter: widget.chapter,
+          startVerse: start,
+          endVerse: end,
+          textPreview: textPreview,
         );
+
+        await BibleDatabaseHelper.db.saveFavorite(favorite);
+
+        if (widget.onFavoriteSaved != null) {
+          widget.onFavoriteSaved!();
+        }
+
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Saved $citation to Favorites'),
+              behavior: SnackBarBehavior.floating,
+            ),
+          );
+          _clearSelection();
+        }
       },
-    );
-
-    if (result != null && result.isNotEmpty) {
-      final db = BibleDatabaseHelper.db;
-      final nodeId = '${widget.book.bookNumber}_${widget.chapter}_$start';
-      await db.saveComment(
-        UserCommentsCompanion.insert(
-          documentId: widget.book.abbrev,
-          sectionIndex: widget.chapter,
-          nodeId: nodeId,
-          commentText: result,
-          textPreview: Value(textPreview),
-          createdAt: DateTime.now(),
-        ),
-      );
-
-      if (mounted) {
-        messenger.showSnackBar(
-          SnackBar(
-            content: Text('Saved comment for $citation'),
-            behavior: SnackBarBehavior.floating,
-          ),
-        );
-        _clearSelection();
-        await _loadComments();
-      }
-    }
-  }
-
-  Future<void> _showVerseCommentsModal({
-    required BuildContext context,
-    required String title,
-    required String nodeId,
-    required String textPreview,
-    required List<UserComment> comments,
-  }) async {
-    final theme = Theme.of(context);
-
-    await showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: theme.colorScheme.surface,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      onAddComment: () => showAddCommentDialog(
+        context: context,
+        citation: citation,
+        textPreview: textPreview,
+        documentId: widget.book.abbrev,
+        sectionIndex: widget.chapter,
+        nodeId: '${widget.book.bookNumber}_${widget.chapter}_$start',
+        onCommentSaved: () async {
+          _clearSelection();
+          await _loadComments();
+        },
       ),
-      builder: (ctx) {
-        return StatefulBuilder(
-          builder: (sheetCtx, setSheetState) {
-            return Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: Container(
-                      width: 40,
-                      height: 4,
-                      decoration: BoxDecoration(
-                        color: theme.colorScheme.onSurfaceVariant.withValues(
-                          alpha: 0.4,
-                        ),
-                        borderRadius: BorderRadius.circular(2),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.comment_rounded,
-                        color: theme.colorScheme.primary,
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Text(
-                          'Comments for $title',
-                          style: theme.textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: theme.colorScheme.primary,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    textPreview,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      fontStyle: FontStyle.italic,
-                      color: theme.colorScheme.onSurfaceVariant,
-                    ),
-                  ),
-                  const Divider(height: 24),
-                  if (comments.isEmpty)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 24.0),
-                      child: Center(
-                        child: Text(
-                          'No comments yet.',
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            color: theme.colorScheme.onSurfaceVariant,
-                          ),
-                        ),
-                      ),
-                    )
-                  else
-                    Flexible(
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: comments.length,
-                        itemBuilder: (lCtx, index) {
-                          final comment = comments[index];
-                          final formattedDate =
-                              '${comment.createdAt.year}-${comment.createdAt.month.toString().padLeft(2, '0')}-${comment.createdAt.day.toString().padLeft(2, '0')} ${comment.createdAt.hour.toString().padLeft(2, '0')}:${comment.createdAt.minute.toString().padLeft(2, '0')}';
-                          return Card(
-                            margin: const EdgeInsets.only(bottom: 8),
-                            child: ListTile(
-                              title: Text(comment.commentText),
-                              subtitle: Text(
-                                formattedDate,
-                                style: theme.textTheme.labelSmall?.copyWith(
-                                  color: theme.colorScheme.outline,
-                                ),
-                              ),
-                              trailing: IconButton(
-                                icon: const Icon(
-                                  Icons.delete_outline,
-                                  size: 20,
-                                ),
-                                color: theme.colorScheme.error,
-                                onPressed: () async {
-                                  await BibleDatabaseHelper.db.deleteComment(
-                                    comment.id,
-                                  );
-                                  setSheetState(() {
-                                    comments.removeAt(index);
-                                  });
-                                  await _loadComments();
-                                },
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  const SizedBox(height: 12),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton.icon(
-                      icon: const Icon(Icons.add_comment),
-                      label: const Text('Add Another Comment'),
-                      onPressed: () async {
-                        Navigator.pop(ctx);
-                        final verseNum =
-                            int.tryParse(nodeId.split('_').last) ?? 1;
-                        _showAddCommentDialog(
-                          context: context,
-                          start: verseNum,
-                          end: verseNum,
-                          citation: title,
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
+      onCopy: () async {
+        final versesText = selectedVerses
+            .map((v) {
+              return count == 1
+                  ? v.verseText
+                  : '${v.verseNumber} ${v.verseText}';
+            })
+            .join(count == 1 ? '' : '\n');
+
+        final clipboardContent = '$citation\n$versesText';
+        await Clipboard.setData(ClipboardData(text: clipboardContent));
+
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Copied $citation to clipboard'),
+              behavior: SnackBarBehavior.floating,
+            ),
+          );
+          _clearSelection();
+        }
       },
+      onClearSelection: _clearSelection,
     );
   }
 
@@ -681,7 +402,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                     color: theme.colorScheme.primary.withValues(alpha: 0.3),
                   ),
                   mouseCursor: SystemMouseCursors.click,
-                  onPressed: () => _showReverseCitationsModal(
+                  onPressed: () => showReverseCitationsModal(
                     context: context,
                     title: '${widget.book.bookName} ${widget.chapter}',
                     citations: chapterCitations,
@@ -715,173 +436,41 @@ class _BibleChapterViewState extends State<BibleChapterView>
                   }
                 }
 
-                return GestureDetector(
+                return KeyedSubtree(
                   key: _verseKeys[verse.id],
-                  onLongPress: () => _onVerseLongPress(verse.verseNumber),
-                  onTap: () => _onVerseTap(verse.verseNumber),
-                  behavior: HitTestBehavior.opaque,
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 200),
-                    decoration: BoxDecoration(
-                      color: isSelected
-                          ? theme.colorScheme.primaryContainer.withValues(
-                              alpha: 0.4,
-                            )
-                          : Colors.transparent,
-                      borderRadius: BorderRadius.circular(8.0),
+                  child: BibleVerseRow(
+                    verseNumber: verse.verseNumber,
+                    verseText: verse.verseText,
+                    compareVerseText: compareVerse?.verseText,
+                    isSelected: isSelected,
+                    citationsCount: verseCitations.length,
+                    commentsCount: verseComments.length,
+                    onTap: () => _onVerseTap(verse.verseNumber),
+                    onLongPress: () => _onVerseLongPress(verse.verseNumber),
+                    onTapCitations: () => showReverseCitationsModal(
+                      context: context,
+                      title:
+                          '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                      citations: verseCitations,
                     ),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8.0,
-                      vertical: 6.0,
-                    ),
-                    margin: const EdgeInsets.symmetric(vertical: 2.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          width: 28,
-                          child: Text(
-                            '${verse.verseNumber}',
-                            style: theme.textTheme.bodyMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: theme.colorScheme.primary,
-                            ),
-                            textAlign: TextAlign.right,
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        if (_compareVerses.isEmpty)
-                          Expanded(
-                            child: Text(
-                              verse.verseText,
-                              style: theme.textTheme.bodyLarge?.copyWith(
-                                color: theme.colorScheme.onSurface,
-                              ),
-                            ),
-                          )
-                        else ...[
-                          Expanded(
-                            child: Text(
-                              verse.verseText,
-                              style: theme.textTheme.bodyLarge?.copyWith(
-                                color: theme.colorScheme.onSurface,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 16),
-                          Expanded(
-                            child: Text(
-                              compareVerse?.verseText ?? '',
-                              style: theme.textTheme.bodyLarge?.copyWith(
-                                color: theme.colorScheme.onSurface,
-                              ),
-                            ),
-                          ),
-                        ],
-                        if (verseCitations.isNotEmpty) ...[
-                          const SizedBox(width: 8),
-                          InkWell(
-                            mouseCursor: SystemMouseCursors.click,
-                            onTap: () => _showReverseCitationsModal(
-                              context: context,
-                              title:
-                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
-                              citations: verseCitations,
-                            ),
-                            borderRadius: BorderRadius.circular(12),
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 4,
-                              ),
-                              decoration: BoxDecoration(
-                                color: theme.colorScheme.tertiaryContainer
-                                    .withValues(alpha: 0.8),
-                                borderRadius: BorderRadius.circular(12),
-                                border: Border.all(
-                                  color: theme.colorScheme.tertiary.withValues(
-                                    alpha: 0.4,
-                                  ),
-                                ),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Icon(
-                                    Icons.auto_stories_rounded,
-                                    size: 13,
-                                    color:
-                                        theme.colorScheme.onTertiaryContainer,
-                                  ),
-                                  const SizedBox(width: 4),
-                                  Text(
-                                    '${verseCitations.length}',
-                                    style: TextStyle(
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.bold,
-                                      color:
-                                          theme.colorScheme.onTertiaryContainer,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                        if (verseComments.isNotEmpty) ...[
-                          const SizedBox(width: 8),
-                          InkWell(
-                            mouseCursor: SystemMouseCursors.click,
-                            onTap: () => _showVerseCommentsModal(
-                              context: context,
-                              title:
-                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
-                              nodeId: nodeId,
-                              textPreview: verse.verseText,
-                              comments: verseComments,
-                            ),
-                            borderRadius: BorderRadius.circular(12),
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 4,
-                              ),
-                              decoration: BoxDecoration(
-                                color: theme.colorScheme.secondaryContainer
-                                    .withValues(alpha: 0.8),
-                                borderRadius: BorderRadius.circular(12),
-                                border: Border.all(
-                                  color: theme.colorScheme.secondary.withValues(
-                                    alpha: 0.4,
-                                  ),
-                                ),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Icon(
-                                    Icons.comment_rounded,
-                                    size: 13,
-                                    color:
-                                        theme.colorScheme.onSecondaryContainer,
-                                  ),
-                                  const SizedBox(width: 4),
-                                  Text(
-                                    '${verseComments.length}',
-                                    style: TextStyle(
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.bold,
-                                      color: theme
-                                          .colorScheme
-                                          .onSecondaryContainer,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ],
+                    onTapComments: () => showVerseCommentsModal(
+                      context: context,
+                      title:
+                          '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                      nodeId: nodeId,
+                      textPreview: verse.verseText,
+                      comments: verseComments,
+                      onCommentsChanged: _loadComments,
+                      onAddComment: () => showAddCommentDialog(
+                        context: context,
+                        citation:
+                            '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                        textPreview: verse.verseText,
+                        documentId: widget.book.abbrev,
+                        sectionIndex: widget.chapter,
+                        nodeId: nodeId,
+                        onCommentSaved: _loadComments,
+                      ),
                     ),
                   ),
                 );
@@ -897,224 +486,6 @@ class _BibleChapterViewState extends State<BibleChapterView>
             child: _buildSelectionActionBar(theme),
           ),
       ],
-    );
-  }
-
-  Future<void> _showReverseCitationsModal({
-    required BuildContext context,
-    required String title,
-    required List<ReverseCitation> citations,
-  }) async {
-    final theme = Theme.of(context);
-
-    await showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      isDismissible: true,
-      enableDrag: true,
-      backgroundColor: Colors.transparent,
-      builder: (ctx) {
-        return GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: () => Navigator.of(ctx).pop(),
-          child: GestureDetector(
-            onTap: () {},
-            child: Container(
-              decoration: BoxDecoration(
-                color: theme.colorScheme.surface,
-                borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(24),
-                ),
-              ),
-              child: DraggableScrollableSheet(
-                expand: false,
-                initialChildSize: 0.65,
-                maxChildSize: 0.9,
-                minChildSize: 0.4,
-                builder: (sheetCtx, scrollController) {
-                  return Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Center(
-                          child: Container(
-                            width: 40,
-                            height: 4,
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onSurfaceVariant
-                                  .withValues(alpha: 0.4),
-                              borderRadius: BorderRadius.circular(2),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.auto_stories_rounded,
-                              color: theme.colorScheme.primary,
-                            ),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: Text(
-                                'Catechism References to $title',
-                                style: theme.textTheme.titleMedium?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: theme.colorScheme.primary,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Divider(height: 24),
-                        Expanded(
-                          child: ListView.builder(
-                            controller: scrollController,
-                            itemCount: citations.length,
-                            itemBuilder: (lCtx, index) {
-                              final item = citations[index];
-                              final qText = item.questionNumber != null
-                                  ? 'Q. ${item.questionNumber}. '
-                                  : '';
-
-                              return Container(
-                                margin: const EdgeInsets.only(bottom: 12),
-                                padding: const EdgeInsets.all(12),
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.surfaceContainerLow,
-                                  borderRadius: BorderRadius.circular(12),
-                                  border: Border.all(
-                                    color: theme.colorScheme.outlineVariant
-                                        .withValues(alpha: 0.5),
-                                  ),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            item.sourceBookTitle,
-                                            style: theme.textTheme.labelMedium
-                                                ?.copyWith(
-                                                  fontWeight: FontWeight.bold,
-                                                  color:
-                                                      theme.colorScheme.primary,
-                                                ),
-                                          ),
-                                        ),
-                                        Chip(
-                                          label: Text(
-                                            item.citation.displayLabel,
-                                            style: const TextStyle(
-                                              fontSize: 10,
-                                            ),
-                                          ),
-                                          visualDensity: VisualDensity.compact,
-                                          padding: EdgeInsets.zero,
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Text(
-                                      '$qText${item.sectionTitle}',
-                                      style: theme.textTheme.bodyMedium
-                                          ?.copyWith(
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                    ),
-                                    if (item.snippet.isNotEmpty) ...[
-                                      const SizedBox(height: 6),
-                                      Text(
-                                        item.snippet,
-                                        maxLines: 3,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: theme.textTheme.bodySmall
-                                            ?.copyWith(
-                                              color: theme
-                                                  .colorScheme
-                                                  .onSurfaceVariant,
-                                              height: 1.4,
-                                            ),
-                                      ),
-                                    ],
-                                    const SizedBox(height: 8),
-                                    Align(
-                                      alignment: Alignment.centerRight,
-                                      child: TextButton.icon(
-                                        icon: const Icon(
-                                          Icons.open_in_new_rounded,
-                                          size: 16,
-                                        ),
-                                        label: const Text('Read in Library'),
-                                        onPressed: () {
-                                          Navigator.pop(ctx);
-                                          final catalog =
-                                              LibraryHelper.getCatalog();
-                                          final book = catalog.firstWhere(
-                                            (b) => b.id == item.sourceBookId,
-                                            orElse: () => catalog[0],
-                                          );
-
-                                          // For series books, find the volume containing this section
-                                          String? targetAssetPath;
-                                          String? targetVolumeKey;
-                                          if (book.isSeries &&
-                                              book.volumes != null &&
-                                              book.volumes!.isNotEmpty) {
-                                            targetAssetPath =
-                                                item.sourceAssetPath;
-                                            final matchingVol = book.volumes!
-                                                .firstWhere(
-                                                  (v) =>
-                                                      v.assetPath ==
-                                                      targetAssetPath,
-                                                  orElse: () =>
-                                                      book.volumes!.first,
-                                                );
-                                            targetVolumeKey =
-                                                matchingVol.volumeKey;
-                                            targetAssetPath =
-                                                matchingVol.assetPath;
-                                          }
-
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (_) =>
-                                                  LibraryReaderScreen(
-                                                    bookItem: book,
-                                                    initialAssetPath:
-                                                        targetAssetPath,
-                                                    initialVolumeKey:
-                                                        targetVolumeKey,
-                                                    initialSectionId:
-                                                        item.sectionId,
-                                                    initialQuestionNumber:
-                                                        item.questionNumber,
-                                                  ),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-          ),
-        );
-      },
     );
   }
 }
