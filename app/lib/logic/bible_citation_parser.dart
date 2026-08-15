@@ -51,8 +51,14 @@ class CitationSegment {
 }
 
 class BibleCitationParser {
+  static final RegExp _strictRomanRegex = RegExp(
+    r'^(?!$)(?:m{0,4}(?:cm|cd|d?c{0,3})(?:xc|xl|l?x{0,3})(?:ix|iv|v?i{0,3}))$',
+    caseSensitive: false,
+  );
+
   static int _romanToDecimal(String roman) {
     final clean = roman.toLowerCase().trim();
+    if (!_strictRomanRegex.hasMatch(clean)) return 0;
     final romanMap = <String, int>{
       'i': 1,
       'v': 5,
@@ -76,7 +82,7 @@ class BibleCitationParser {
         prevValue = currValue;
       }
     }
-    return result > 0 ? result : 1;
+    return result > 0 ? result : 0;
   }
 
   static final Map<String, int> _aliasToBookNumber = () {
@@ -131,10 +137,12 @@ class BibleCitationParser {
     alias('1 chron', 13);
     alias('1 par', 13);
     alias('1 paralip', 13);
+    alias('1 paralipomenon', 13);
     alias('2ch', 14);
     alias('2 chron', 14);
     alias('2 par', 14);
     alias('2 paralip', 14);
+    alias('2 paralipomenon', 14);
     alias('ezr', 15);
     alias('esd', 15);
     alias('esdras', 15);
@@ -160,10 +168,15 @@ class BibleCitationParser {
     alias('ecc', 23);
     alias('eccl', 23);
     alias('eccles', 23);
+    alias('ecclesiastes', 23);
     alias('sng', 24);
     alias('cant', 24);
     alias('song', 24);
     alias('canticle', 24);
+    alias('canticles', 24);
+    alias('song of songs', 24);
+    alias('song of solomon', 24);
+    alias('canticle of canticles', 24);
     alias('wis', 25);
     alias('wisd', 25);
     alias('wisdom', 25);
@@ -194,6 +207,7 @@ class BibleCitationParser {
     alias('amo', 35);
     alias('amos', 35);
     alias('oba', 36);
+    alias('obad', 36);
     alias('abdias', 36);
     alias('obadiah', 36);
     alias('jon', 37);
@@ -208,6 +222,7 @@ class BibleCitationParser {
     alias('habacuc', 40);
     alias('habakkuk', 40);
     alias('zep', 41);
+    alias('zeph', 41);
     alias('sophonias', 41);
     alias('zephaniah', 41);
     alias('hag', 42);
@@ -222,19 +237,31 @@ class BibleCitationParser {
     alias('1ma', 45);
     alias('1 mach', 45);
     alias('1mach', 45);
+    alias('1 mac', 45);
+    alias('1mac', 45);
+    alias('1 macc', 45);
+    alias('1macc', 45);
     alias('1 maccabees', 45);
     alias('2ma', 46);
     alias('2 mach', 46);
     alias('2mach', 46);
+    alias('2 mac', 46);
+    alias('2mac', 46);
+    alias('2 macc', 46);
+    alias('2macc', 46);
     alias('2 maccabees', 46);
 
+    alias('mt', 49);
     alias('mat', 49);
     alias('matt', 49);
     alias('matthew', 49);
+    alias('mk', 50);
     alias('mar', 50);
     alias('mark', 50);
+    alias('lk', 51);
     alias('luk', 51);
     alias('luke', 51);
+    alias('jn', 52);
     alias('joh', 52);
     alias('john', 52);
     alias('act', 53);
@@ -260,10 +287,12 @@ class BibleCitationParser {
     alias('colossians', 60);
     alias('1th', 61);
     alias('1 thes', 61);
+    alias('1 thess', 61);
     alias('1thess', 61);
     alias('1 thessalonians', 61);
     alias('2th', 62);
     alias('2 thes', 62);
+    alias('2 thess', 62);
     alias('2thess', 62);
     alias('2 thessalonians', 62);
     alias('1ti', 64);
@@ -282,6 +311,7 @@ class BibleCitationParser {
     alias('heb', 68);
     alias('hebrews', 68);
     alias('jam', 69);
+    alias('jas', 69);
     alias('james', 69);
     alias('1pe', 70);
     alias('1 pet', 70);
@@ -292,10 +322,13 @@ class BibleCitationParser {
     alias('2pet', 71);
     alias('2 peter', 71);
     alias('1jn', 72);
+    alias('1 jn', 72);
     alias('1 john', 72);
     alias('2jn', 73);
+    alias('2 jn', 73);
     alias('2 john', 73);
     alias('3jn', 74);
+    alias('3 jn', 74);
     alias('3 john', 74);
     alias('jud', 75);
     alias('jude', 75);
@@ -308,7 +341,17 @@ class BibleCitationParser {
   }();
 
   static final RegExp _citationRegex = RegExp(
-    r'\(?\b((?:1|2|3|4)?\s*(?:St\.\s*)?[A-Z][a-z]{1,12}\.?)\s*([0-9ivxlcdm]+)(?:[\:\.\,\s]+([0-9ivxlcdm]+)(?:\-([0-9ivxlcdm]+))?)?\)?',
+    r'\(?\b((?:[1-4]\s*)?(?:St\.\s*|Saint\s*)?[A-Z][a-zA-Z]{1,16}(?:\s+of\s+[A-Za-z]+)?\.?)'
+    r'(?:'
+    r'(?:\s+|\.)([ivxlcdmIVXLCDM]+)'
+    r'|'
+    r'\s*(\d{1,3})'
+    r')'
+    r'(?:'
+    r'[\:\.\,\s]+([0-9ivxlcdmIVXLCDM]+)'
+    r'(?:\s*[\-\u2013\u2014]\s*([0-9ivxlcdmIVXLCDM]+))?'
+    r')?'
+    r'\)?(?![a-zA-Z0-9])',
     caseSensitive: true,
   );
 
@@ -323,11 +366,15 @@ class BibleCitationParser {
 
     for (final match in _citationRegex.allMatches(input)) {
       final rawBook = match.group(1)!.trim().replaceAll('.', '');
-      final rawChap = match.group(2)!.trim();
-      final rawVerse = match.group(3)?.trim();
-      final rawEndVerse = match.group(4)?.trim();
+      final rawRomanChap = match.group(2)?.trim();
+      final rawArabicChap = match.group(3)?.trim();
+      final rawVerse = match.group(4)?.trim();
+      final rawEndVerse = match.group(5)?.trim();
 
-      final bookKey = rawBook.toLowerCase();
+      var bookKey = rawBook
+          .toLowerCase()
+          .replaceAll(RegExp(r'^(?:st|saint)\s+'), '')
+          .trim();
       final bookNum = _aliasToBookNumber[bookKey];
 
       if (bookNum == null) {
@@ -339,15 +386,44 @@ class BibleCitationParser {
         orElse: () => catholicBooks[0],
       );
 
-      final chapter = int.tryParse(rawChap) ?? _romanToDecimal(rawChap);
-      final verse = rawVerse != null
-          ? (int.tryParse(rawVerse) ?? _romanToDecimal(rawVerse))
-          : null;
-      final endVerse = rawEndVerse != null
-          ? (int.tryParse(rawEndVerse) ?? _romanToDecimal(rawEndVerse))
-          : null;
+      final int chapter;
+      if (rawRomanChap != null) {
+        if (!_strictRomanRegex.hasMatch(rawRomanChap)) continue;
+        chapter = _romanToDecimal(rawRomanChap);
+      } else if (rawArabicChap != null) {
+        chapter = int.tryParse(rawArabicChap) ?? 0;
+      } else {
+        continue;
+      }
 
-      if (chapter <= 0 || (verse != null && verse <= 0)) continue;
+      if (chapter < 1 || chapter > bookMetadata.chaptersCount) {
+        continue;
+      }
+
+      int? verse;
+      if (rawVerse != null) {
+        verse = int.tryParse(rawVerse);
+        if (verse == null && _strictRomanRegex.hasMatch(rawVerse)) {
+          verse = _romanToDecimal(rawVerse);
+        }
+        if (verse == null || verse < 1 || verse > 200) {
+          continue;
+        }
+      }
+
+      int? endVerse;
+      if (rawEndVerse != null) {
+        endVerse = int.tryParse(rawEndVerse);
+        if (endVerse == null && _strictRomanRegex.hasMatch(rawEndVerse)) {
+          endVerse = _romanToDecimal(rawEndVerse);
+        }
+        if (endVerse == null ||
+            endVerse < 1 ||
+            endVerse > 200 ||
+            (verse != null && endVerse < verse)) {
+          continue;
+        }
+      }
 
       if (match.start > lastOffset) {
         segments.add(
