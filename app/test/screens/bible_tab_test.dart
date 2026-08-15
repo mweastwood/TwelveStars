@@ -264,7 +264,7 @@ void main() {
       expect(find.text('2 verses selected'), findsOneWidget);
 
       // Tap Save
-      await tester.tap(find.text('Save'));
+      await tester.tap(find.byIcon(Icons.star));
       await tester.pumpAndSettle();
 
       // Verify SnackBar and favorites list has the favorite
@@ -755,6 +755,68 @@ void main() {
       // Verify comment badge is now displayed next to the verse
       expect(find.byIcon(Icons.comment_rounded), findsOneWidget);
     });
+
+    testWidgets(
+      'Bible verse selection action bar displays buttons in order (Save, Comment, Copy, Close) and saves favorite',
+      (WidgetTester tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText:
+                    'In the beginning God created the heaven, and the earth.',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        // Long press verse to trigger selection bar
+        await tester.longPress(
+          find.text('In the beginning God created the heaven, and the earth.'),
+        );
+        await tester.pumpAndSettle();
+
+        // Verify button order: Save (star) -> Comment (comment_outlined) -> Copy (content_copy) -> Close (close)
+        final starFinder = find.byIcon(Icons.star);
+        final commentFinder = find.byIcon(Icons.comment_outlined);
+        final copyFinder = find.byIcon(Icons.content_copy);
+        final closeFinder = find.byIcon(Icons.close);
+
+        expect(starFinder, findsOneWidget);
+        expect(commentFinder, findsOneWidget);
+        expect(copyFinder, findsOneWidget);
+        expect(closeFinder, findsOneWidget);
+
+        final starX = tester.getCenter(starFinder).dx;
+        final commentX = tester.getCenter(commentFinder).dx;
+        final copyX = tester.getCenter(copyFinder).dx;
+        final closeX = tester.getCenter(closeFinder).dx;
+
+        expect(starX, lessThan(commentX));
+        expect(commentX, lessThan(copyX));
+        expect(copyX, lessThan(closeX));
+
+        // Tap Save (star icon)
+        await tester.tap(starFinder);
+        await tester.pumpAndSettle();
+
+        // Verify favorite is saved in database
+        final favorites = await testDb.getFavorites();
+        expect(favorites.length, 1);
+        expect(favorites.first.bookName, 'Genesis');
+        expect(favorites.first.chapter, 1);
+        expect(favorites.first.startVerse, 1);
+        expect(favorites.first.endVerse, 1);
+      },
+    );
 
     testWidgets('opens verse comments modal and deletes comment', (
       WidgetTester tester,
