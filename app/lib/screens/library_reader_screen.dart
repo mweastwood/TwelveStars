@@ -28,6 +28,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
   String? _error;
   ParsedBookData? _bookData;
 
+  late PageController _pageController;
   int _currentSectionIndex = 0;
   double _fontSize = 16.0;
 
@@ -39,6 +40,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
   @override
   void initState() {
     super.initState();
+    _pageController = PageController(initialPage: _currentSectionIndex);
     if (widget.bookItem.isSeries) {
       _currentVolumeKey =
           widget.initialVolumeKey ?? widget.bookItem.volumes!.first.volumeKey;
@@ -56,11 +58,12 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
 
   @override
   void dispose() {
+    _pageController.dispose();
     _searchController.dispose();
     super.dispose();
   }
 
-  Future<void> _loadBookData() async {
+  Future<void> _loadBookData({int initialSectionIndex = 0}) async {
     setState(() {
       _isLoading = true;
       _error = null;
@@ -69,9 +72,15 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     try {
       final data = await LibraryHelper.loadBookData(_currentAssetPath);
       if (mounted) {
+        if (_pageController.hasClients) {
+          _pageController.jumpToPage(initialSectionIndex);
+        } else {
+          _pageController.dispose();
+          _pageController = PageController(initialPage: initialSectionIndex);
+        }
         setState(() {
           _bookData = data;
-          _currentSectionIndex = 0;
+          _currentSectionIndex = initialSectionIndex;
           _isLoading = false;
         });
       }
@@ -85,13 +94,23 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     }
   }
 
-  void _switchVolume(BaltimoreVolume vol) {
-    if (_currentVolumeKey == vol.volumeKey) return;
+  void _switchVolume(BaltimoreVolume vol, {int initialSectionIndex = 0}) {
+    if (_currentVolumeKey == vol.volumeKey) {
+      if (_currentSectionIndex != initialSectionIndex) {
+        setState(() {
+          _currentSectionIndex = initialSectionIndex;
+        });
+        if (_pageController.hasClients) {
+          _pageController.jumpToPage(initialSectionIndex);
+        }
+      }
+      return;
+    }
     setState(() {
       _currentVolumeKey = vol.volumeKey;
       _currentAssetPath = vol.assetPath;
     });
-    _loadBookData();
+    _loadBookData(initialSectionIndex: initialSectionIndex);
   }
 
   void _openTocSheet(BuildContext context, ThemeData theme) {
@@ -106,6 +125,9 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
         setState(() {
           _currentSectionIndex = idx;
         });
+        if (_pageController.hasClients) {
+          _pageController.jumpToPage(idx);
+        }
       },
     );
   }
@@ -256,6 +278,10 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
             ? IconButton(
                 icon: const Icon(Icons.arrow_back),
                 onPressed: () {
+                  _pageController.dispose();
+                  _pageController = PageController(
+                    initialPage: _currentSectionIndex,
+                  );
                   setState(() {
                     _isSearching = false;
                     _searchQuery = '';
@@ -356,9 +382,16 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                       tooltip: 'Previous Section',
                       onPressed: _currentSectionIndex > 0
                           ? () {
-                              setState(() {
-                                _currentSectionIndex--;
-                              });
+                              if (_pageController.hasClients) {
+                                _pageController.previousPage(
+                                  duration: const Duration(milliseconds: 300),
+                                  curve: Curves.easeInOut,
+                                );
+                              } else {
+                                setState(() {
+                                  _currentSectionIndex--;
+                                });
+                              }
                             }
                           : null,
                     ),
@@ -377,9 +410,16 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                       tooltip: 'Next Section',
                       onPressed: _currentSectionIndex < book.sections.length - 1
                           ? () {
-                              setState(() {
-                                _currentSectionIndex++;
-                              });
+                              if (_pageController.hasClients) {
+                                _pageController.nextPage(
+                                  duration: const Duration(milliseconds: 300),
+                                  curve: Curves.easeInOut,
+                                );
+                              } else {
+                                setState(() {
+                                  _currentSectionIndex++;
+                                });
+                              }
                             }
                           : null,
                     ),
@@ -446,6 +486,8 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                   ) ??
                   -1;
               if (secIdx >= 0) {
+                _pageController.dispose();
+                _pageController = PageController(initialPage: secIdx);
                 setState(() {
                   _currentSectionIndex = secIdx;
                   _isSearching = false;
@@ -466,14 +508,24 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
       return const Center(child: Text('No content found in this volume.'));
     }
 
-    final sec = book.sections[_currentSectionIndex];
-
-    return LibrarySectionView(
-      section: sec,
-      fontSize: _fontSize,
-      verseSystem: widget.bookItem.verseSystem,
-      onShowCrossRefModal: _showCrossRefModal,
-      onShowScriptureModal: _showScriptureModal,
+    return PageView.builder(
+      controller: _pageController,
+      itemCount: book.sections.length,
+      onPageChanged: (index) {
+        setState(() {
+          _currentSectionIndex = index;
+        });
+      },
+      itemBuilder: (context, index) {
+        final sec = book.sections[index];
+        return LibrarySectionView(
+          section: sec,
+          fontSize: _fontSize,
+          verseSystem: widget.bookItem.verseSystem,
+          onShowCrossRefModal: _showCrossRefModal,
+          onShowScriptureModal: _showScriptureModal,
+        );
+      },
     );
   }
 
@@ -673,10 +725,8 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                                     widget.bookItem.volumes!.firstWhere(
                                       (v) => v.volumeKey == 'baltimore_2',
                                     ),
+                                    initialSectionIndex: q2SecIdx!,
                                   );
-                                  setState(() {
-                                    _currentSectionIndex = q2SecIdx!;
-                                  });
                                 },
                               ),
                             if (q4SecIdx != null &&
@@ -695,10 +745,8 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                                     widget.bookItem.volumes!.firstWhere(
                                       (v) => v.volumeKey == 'baltimore_4',
                                     ),
+                                    initialSectionIndex: q4SecIdx!,
                                   );
-                                  setState(() {
-                                    _currentSectionIndex = q4SecIdx!;
-                                  });
                                 },
                               ),
                           ],
