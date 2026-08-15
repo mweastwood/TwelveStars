@@ -1060,12 +1060,43 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                             (b) => b.id == item.sourceBookId,
                                             orElse: () => catalog[0],
                                           );
+
+                                          // For series books, find the volume containing this section
+                                          String? targetAssetPath;
+                                          String? targetVolumeKey;
+                                          if (book.isSeries &&
+                                              book.volumes != null &&
+                                              book.volumes!.isNotEmpty) {
+                                            targetAssetPath =
+                                                item.sourceAssetPath;
+                                            final matchingVol = book.volumes!
+                                                .firstWhere(
+                                                  (v) =>
+                                                      v.assetPath ==
+                                                      targetAssetPath,
+                                                  orElse: () =>
+                                                      book.volumes!.first,
+                                                );
+                                            targetVolumeKey =
+                                                matchingVol.volumeKey;
+                                            targetAssetPath =
+                                                matchingVol.assetPath;
+                                          }
+
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                               builder: (_) =>
                                                   LibraryReaderScreen(
                                                     bookItem: book,
+                                                    initialAssetPath:
+                                                        targetAssetPath,
+                                                    initialVolumeKey:
+                                                        targetVolumeKey,
+                                                    initialSectionId:
+                                                        item.sectionId,
+                                                    initialQuestionNumber:
+                                                        item.questionNumber,
                                                   ),
                                             ),
                                           );

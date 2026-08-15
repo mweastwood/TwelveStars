@@ -8,6 +8,7 @@ class LibrarySectionView extends StatelessWidget {
   final String verseSystem;
   final ValueChanged<int> onShowCrossRefModal;
   final ValueChanged<BibleCitation> onShowScriptureModal;
+  final Map<int, GlobalKey>? questionKeys;
 
   const LibrarySectionView({
     super.key,
@@ -16,6 +17,7 @@ class LibrarySectionView extends StatelessWidget {
     required this.verseSystem,
     required this.onShowCrossRefModal,
     required this.onShowScriptureModal,
+    this.questionKeys,
   });
 
   @override
@@ -69,6 +71,9 @@ class LibrarySectionView extends StatelessWidget {
                   ? 'Q. ${item.questionNumber}. '
                   : 'Q. ';
               return Padding(
+                key: (item.questionNumber != null && questionKeys != null)
+                    ? questionKeys![item.questionNumber!]
+                    : null,
                 padding: const EdgeInsets.only(bottom: 20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
