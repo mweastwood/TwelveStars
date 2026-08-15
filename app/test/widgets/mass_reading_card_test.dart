@@ -1,12 +1,14 @@
+import 'package:drift/drift.dart' show Value;
+import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
-import 'package:drift/native.dart';
-import 'package:drift/drift.dart' show Value;
 import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/reverse_citation_service.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/mass_reading_card.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
@@ -412,4 +414,389 @@ void main() {
 
     await screenMatchesGolden(tester, 'mass_reading_card_collapsed_golden');
   });
+
+  testGoldens('BibleVerseRow renders all visual states correctly', (
+    tester,
+  ) async {
+    final builder = GoldenBuilder.column()
+      ..addScenario(
+        'Default Verse',
+        const BibleVerseRow(
+          verseNumber: 1,
+          verseText: 'In the beginning God created heaven, and earth.',
+        ),
+      )
+      ..addScenario(
+        'Selected Verse',
+        const BibleVerseRow(
+          verseNumber: 2,
+          verseText: 'And the earth was void and empty.',
+          isSelected: true,
+        ),
+      )
+      ..addScenario(
+        'Verse with References Badge',
+        const BibleVerseRow(
+          verseNumber: 3,
+          verseText: 'And God said: Be light made. And light was made.',
+          citationsCount: 3,
+        ),
+      )
+      ..addScenario(
+        'Verse with Comments Badge',
+        const BibleVerseRow(
+          verseNumber: 4,
+          verseText: 'And God saw the light that it was good.',
+          commentsCount: 1,
+        ),
+      )
+      ..addScenario(
+        'Verse with References and Comments Badges',
+        const BibleVerseRow(
+          verseNumber: 5,
+          verseText: 'And he called the light Day, and the darkness Night.',
+          citationsCount: 2,
+          commentsCount: 2,
+        ),
+      )
+      ..addScenario(
+        'Parallel Translation Comparison',
+        const BibleVerseRow(
+          verseNumber: 6,
+          verseText:
+              'And God said: Let there be a firmament made amidst the waters.',
+          compareVerseText:
+              'Dixit quoque Deus: Fiat firmamentum in medio aquarum.',
+        ),
+      );
+
+    await tester.pumpWidgetBuilder(
+      builder.build(),
+      wrapper: materialAppWrapper(),
+      surfaceSize: const Size(500, 680),
+    );
+    await tester.pumpAndSettle();
+
+    await screenMatchesGolden(tester, 'bible_verse_row_scenarios_golden');
+  });
+
+  testGoldens(
+    'MassReadingCard renders references and comments badges correctly',
+    (tester) async {
+      ReverseCitationService.clear();
+      final bookData = ParsedBookData(
+        bookId: 'baltimore_3',
+        title: 'Baltimore Catechism No. 3',
+        subtitle: 'A Catechism of Christian Doctrine',
+        author: 'Third Plenary Council of Baltimore',
+        toc: [],
+        sections: [
+          BookSection(
+            id: 'lesson_1',
+            title: 'On the Creation',
+            subtitle: '',
+            content: [
+              ContentItem(
+                type: 'qa',
+                questionNumber: 14,
+                question: 'Who made the world?',
+                answer: 'God made the world. (Gen. 1:1)',
+              ),
+            ],
+          ),
+        ],
+      );
+      ReverseCitationService.indexBookData(
+        'assets/catechism/json/baltimore_3.json',
+        bookData,
+      );
+
+      const reading = LectionaryReading(
+        id: 1,
+        readingKey: 'feast_annunciation',
+        readingType: 'first',
+        bookNumber: 1, // Genesis
+        bookName: 'Genesis',
+        chapter: 1,
+        verseRange: '1-2',
+        citation: 'Genesis 1:1-2',
+      );
+
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 2,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 2,
+              verseText: 'And the earth was void and empty.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'GEN',
+          sectionIndex: 1,
+          nodeId: '1_1_1',
+          commentText: 'My reflection on the beginning.',
+          textPreview: const Value(
+            'In the beginning God created heaven, and earth.',
+          ),
+          createdAt: DateTime(2026, 8, 15, 12, 0),
+        ),
+      );
+
+      final builder = GoldenBuilder.column()
+        ..addScenario(
+          'Mass Reading Card with Badges',
+          const MassReadingCard(reading: reading),
+        );
+
+      await tester.pumpWidgetBuilder(
+        builder.build(),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(450, 300),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(
+        tester,
+        'mass_reading_card_references_and_comments_golden',
+      );
+    },
+  );
+
+  testGoldens('MassReadingCard renders verse selection and action bar', (
+    tester,
+  ) async {
+    const reading = LectionaryReading(
+      id: 1,
+      readingKey: 'feast_annunciation',
+      readingType: 'first',
+      bookNumber: 1, // Genesis
+      bookName: 'Genesis',
+      chapter: 1,
+      verseRange: '1-2',
+      citation: 'Genesis 1:1-2',
+    );
+
+    await testDb
+        .into(testDb.bibleVerses)
+        .insert(
+          const BibleVerse(
+            id: 1,
+            bookNumber: 1,
+            bookName: 'Genesis',
+            chapter: 1,
+            verseNumber: 1,
+            verseText: 'In the beginning God created heaven, and earth.',
+            translationCode: 'CPDV',
+          ),
+        );
+    await testDb
+        .into(testDb.bibleVerses)
+        .insert(
+          const BibleVerse(
+            id: 2,
+            bookNumber: 1,
+            bookName: 'Genesis',
+            chapter: 1,
+            verseNumber: 2,
+            verseText: 'And the earth was void and empty.',
+            translationCode: 'CPDV',
+          ),
+        );
+
+    await tester.pumpWidgetBuilder(
+      const Scaffold(
+        body: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: MassReadingCard(reading: reading),
+        ),
+      ),
+      wrapper: materialAppWrapper(),
+      surfaceSize: const Size(450, 360),
+    );
+    await tester.pumpAndSettle();
+
+    // Select verses 1 and 2
+    await tester.longPress(
+      find.text('In the beginning God created heaven, and earth.'),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('And the earth was void and empty.'));
+    await tester.pumpAndSettle();
+
+    await screenMatchesGolden(
+      tester,
+      'mass_reading_card_selection_active_golden',
+    );
+  });
+
+  testGoldens('MassReadingCard renders Catechism reverse citations modal', (
+    tester,
+  ) async {
+    ReverseCitationService.clear();
+    final bookData = ParsedBookData(
+      bookId: 'baltimore_3',
+      title: 'Baltimore Catechism No. 3',
+      subtitle: 'A Catechism of Christian Doctrine',
+      author: 'Third Plenary Council of Baltimore',
+      toc: [],
+      sections: [
+        BookSection(
+          id: 'lesson_1',
+          title: 'On the Creation',
+          subtitle: '',
+          content: [
+            ContentItem(
+              type: 'qa',
+              questionNumber: 14,
+              question: 'Who made the world?',
+              answer: 'God made the world. (Gen. 1:1)',
+            ),
+          ],
+        ),
+      ],
+    );
+    ReverseCitationService.indexBookData(
+      'assets/catechism/json/baltimore_3.json',
+      bookData,
+    );
+
+    const reading = LectionaryReading(
+      id: 1,
+      readingKey: 'feast_annunciation',
+      readingType: 'first',
+      bookNumber: 1, // Genesis
+      bookName: 'Genesis',
+      chapter: 1,
+      verseRange: '1-2',
+      citation: 'Genesis 1:1-2',
+    );
+
+    await testDb
+        .into(testDb.bibleVerses)
+        .insert(
+          const BibleVerse(
+            id: 1,
+            bookNumber: 1,
+            bookName: 'Genesis',
+            chapter: 1,
+            verseNumber: 1,
+            verseText: 'In the beginning God created heaven, and earth.',
+            translationCode: 'CPDV',
+          ),
+        );
+
+    await tester.pumpWidgetBuilder(
+      const Scaffold(
+        body: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: MassReadingCard(reading: reading),
+        ),
+      ),
+      wrapper: materialAppWrapper(),
+      surfaceSize: const Size(450, 600),
+    );
+    await tester.pumpAndSettle();
+
+    // Tap citation badge to open bottom sheet
+    await tester.tap(find.byIcon(Icons.auto_stories_rounded));
+    await tester.pumpAndSettle();
+
+    await screenMatchesGolden(
+      tester,
+      'mass_reading_card_reverse_citations_modal_golden',
+    );
+  });
+
+  testGoldens(
+    'MassReadingCard renders verse comments modal and add comment dialog',
+    (tester) async {
+      const reading = LectionaryReading(
+        id: 1,
+        readingKey: 'feast_annunciation',
+        readingType: 'first',
+        bookNumber: 1, // Genesis
+        bookName: 'Genesis',
+        chapter: 1,
+        verseRange: '1-2',
+        citation: 'Genesis 1:1-2',
+      );
+
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'GEN',
+          sectionIndex: 1,
+          nodeId: '1_1_1',
+          commentText: 'My reflection on the beginning.',
+          textPreview: const Value(
+            'In the beginning God created heaven, and earth.',
+          ),
+          createdAt: DateTime(2026, 8, 15, 12, 0),
+        ),
+      );
+
+      await tester.pumpWidgetBuilder(
+        const Scaffold(
+          body: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: MassReadingCard(reading: reading),
+          ),
+        ),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(450, 600),
+      );
+      await tester.pumpAndSettle();
+
+      // Tap comments badge to open bottom sheet
+      await tester.tap(find.byIcon(Icons.comment_rounded));
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(
+        tester,
+        'mass_reading_card_comments_modal_golden',
+      );
+
+      // Tap Add Another Comment to open Add Comment dialog
+      await tester.tap(find.text('Add Another Comment'));
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(
+        tester,
+        'mass_reading_card_add_comment_dialog_golden',
+      );
+    },
+  );
 }
