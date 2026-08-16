@@ -1,0 +1,943 @@
+{
+  "bookId": "didache_lightfoot",
+  "title": "The Didache",
+  "subtitle": "The Teaching of the Twelve Apostles (Trans. J. B. Lightfoot, 1891)",
+  "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+  "verseSystem": "vulgate",
+  "toc": [
+    {
+      "id": "sec_didache_1",
+      "title": "Chapter 1: The Two Ways; The Way of Life"
+    },
+    {
+      "id": "sec_didache_2",
+      "title": "Chapter 2: The Second Commandment; Sins Forbidden"
+    },
+    {
+      "id": "sec_didache_3",
+      "title": "Chapter 3: Other Sins Forbidden; Flee from Evil"
+    },
+    {
+      "id": "sec_didache_4",
+      "title": "Chapter 4: Various Precepts; Commandments and the Way of Life"
+    },
+    {
+      "id": "sec_didache_5",
+      "title": "Chapter 5: The Way of Death; Catalogue of Evils"
+    },
+    {
+      "id": "sec_didache_6",
+      "title": "Chapter 6: Against False Teachers; The Yoke of the Lord"
+    },
+    {
+      "id": "sec_didache_7",
+      "title": "Chapter 7: Concerning Baptism; The Administration of Baptism"
+    },
+    {
+      "id": "sec_didache_8",
+      "title": "Chapter 8: Fasting and Prayer; The Lord's Prayer"
+    },
+    {
+      "id": "sec_didache_9",
+      "title": "Chapter 9: The Eucharistic Thanksgiving; The Cup and Broken Bread"
+    },
+    {
+      "id": "sec_didache_10",
+      "title": "Chapter 10: Prayer After Communion; Thanksgiving and Petition"
+    },
+    {
+      "id": "sec_didache_11",
+      "title": "Chapter 11: Teachers, Apostles, and Prophets; Discerning Ministers"
+    },
+    {
+      "id": "sec_didache_12",
+      "title": "Chapter 12: Reception of Christians; Hospitality and Testing"
+    },
+    {
+      "id": "sec_didache_13",
+      "title": "Chapter 13: Support of Prophets and Teachers; Firstfruits"
+    },
+    {
+      "id": "sec_didache_14",
+      "title": "Chapter 14: The Lord's Day Assembly; The Sunday Sacrifice"
+    },
+    {
+      "id": "sec_didache_15",
+      "title": "Chapter 15: Bishops and Deacons; Christian Reproof"
+    },
+    {
+      "id": "sec_didache_16",
+      "title": "Chapter 16: Watchfulness; The Coming of the Lord"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec_didache_1",
+      "title": "Chapter 1",
+      "subtitle": "The Two Ways; The Way of Life",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. There are two ways, one of life and one of death, and there is a great difference between the two ways."
+        },
+        {
+          "type": "text",
+          "text": "2. The way of life is this."
+        },
+        {
+          "type": "text",
+          "text": "3. First of all, thou shalt love the God that made thee;"
+        },
+        {
+          "type": "text",
+          "text": "4. secondly, thy neighbour as thyself."
+        },
+        {
+          "type": "text",
+          "text": "5. And all things whatsoever thou wouldest not have befal thyself neither do thou unto another."
+        },
+        {
+          "type": "text",
+          "text": "6. Now of these words the doctrine is this."
+        },
+        {
+          "type": "text",
+          "text": "7. Bless them that curse you, and pray for your enemies and fast for them that persecute you;"
+        },
+        {
+          "type": "text",
+          "text": "8. for what thank is it, if ye love them that love you? Do not even the Gentiles the same? But do ye love them that hate you, and ye shall not have an enemy."
+        },
+        {
+          "type": "text",
+          "text": "9. Abstain thou from fleshly and bodily lusts."
+        },
+        {
+          "type": "text",
+          "text": "10. If any man give thee a blow on thy right cheek, turn to him the other also, and thou shalt be perfect;"
+        },
+        {
+          "type": "text",
+          "text": "11. if a man impress thee to go with him, one mile, go with him twain;"
+        },
+        {
+          "type": "text",
+          "text": "12. if a man take away thy cloak, give him thy coat also;"
+        },
+        {
+          "type": "text",
+          "text": "13. if a man take away from thee that which is thine own, ask it not back, for neither art thou able."
+        },
+        {
+          "type": "text",
+          "text": "14. To every man that asketh of thee give, and ask not back;"
+        },
+        {
+          "type": "text",
+          "text": "15. for the Father desireth that gifts be given to all from His own bounties."
+        },
+        {
+          "type": "text",
+          "text": "16. Blessed is he that giveth according to the commandment;"
+        },
+        {
+          "type": "text",
+          "text": "17. for he is guiltless."
+        },
+        {
+          "type": "text",
+          "text": "18. Woe to him that receiveth;"
+        },
+        {
+          "type": "text",
+          "text": "19. for, if a man receiveth having need, he is guiltless;"
+        },
+        {
+          "type": "text",
+          "text": "20. but he that hath no need shall give satisfaction why and wherefore he received;"
+        },
+        {
+          "type": "text",
+          "text": "21. and being put in confinement he shall be examined concerning the deeds that he hath done, and he shall not come out thence until he hath given back the last farthing."
+        },
+        {
+          "type": "text",
+          "text": "22. Yea, as touching this also it is said;"
+        },
+        {
+          "type": "text",
+          "text": "23. Let thine alms sweat into thine hands, until thou shalt have learnt to whom to give."
+        }
+      ]
+    },
+    {
+      "id": "sec_didache_2",
+      "title": "Chapter 2",
+      "subtitle": "The Second Commandment; Sins Forbidden",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. And this is the second commandment of the teaching."
+        },
+        {
+          "type": "text",
+          "text": "2. Thou shalt do no murder, thou shalt not commit adultery, thou shalt not corrupt boys, thou shalt not commit fornication, thou shalt not steal, thou shalt not deal in magic, thou shalt do no sorcery, thou shalt not murder a child by abortion nor kill them when born, thou shalt not covet thy neighbour's goods, thou shalt not perjure thyself, thou shalt not bear false witness, thou shalt not speak evil, thou shalt not cherish a grudge, thou shalt not be double-minded nor double-tongued;"
+        },
+        {
+          "type": "text",
+          "text": "3. for the double tongue is a snare of death."
+        },
+        {
+          "type": "text",
+          "text": "4. Thy word shall not be false or empty, but fulfilled by action."
+        },
+        {
+          "type": "text",
+          "text": "5. Thou shalt not be avaricious nor a plunderer nor a hypocrite nor ill-tempered nor proud."
+        },
+        {
+          "type": "text",
+          "text": "6. Thou shalt not entertain an evil design against thy neighbour."
+        },
+        {
+          "type": "text",
+          "text": "7. Thou shalt not hate any man, but some thou shalt reprove, and for others thou shalt pray, and others thou shalt love more than thy life."
+        }
+      ]
+    },
+    {
+      "id": "sec_didache_3",
+      "title": "Chapter 3",
+      "subtitle": "Other Sins Forbidden; Flee from Evil",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. My child, flee from every evil and everything that resembleth it."
+        },
+        {
+          "type": "text",
+          "text": "2. Be not angry, for anger leadeth to murder, nor jealous nor contentious nor wrathful;"
+        },
+        {
+          "type": "text",
+          "text": "3. for of all these things murders are engendered."
+        },
+        {
+          "type": "text",
+          "text": "4. My child, be not lustful, for lust leadeth to fornication, neither foul-speaking neither with uplifted eyes;"
+        },
+        {
+          "type": "text",
+          "text": "5. for of all these things adulteries are engendered."
+        },
+        {
+          "type": "text",
+          "text": "6. My child, be no dealer in omens, since it leads to idolatry, nor an enchanter nor an astrologer nor a magician, neither be willing to look at them;"
+        },
+        {
+          "type": "text",
+          "text": "7. for from all these things idolatry is engendered."
+        },
+        {
+          "type": "text",
+          "text": "8. My child, be not a liar, since lying leads to theft, neither avaricious neither vainglorious;"
+        },
+        {
+          "type": "text",
+          "text": "9. for from all these things thefts are engendered."
+        },
+        {
+          "type": "text",
+          "text": "10. My child, be not a murmurer, since it leadeth to blasphemy, neither self-willed neither a thinker of evil thoughts;"
+        },
+        {
+          "type": "text",
+          "text": "11. for from all these things blasphemies are engendered."
+        },
+        {
+          "type": "text",
+          "text": "12. But be meek, since the meek shall inherit the earth."
+        },
+        {
+          "type": "text",
+          "text": "13. Be long-suffering and pitiful and guileless and quiet and kindly and always fearing the words which thou hast heard."
+        },
+        {
+          "type": "text",
+          "text": "14. Thou shalt not exalt thyself, neither shalt thou admit boldness into thy soul."
+        },
+        {
+          "type": "text",
+          "text": "15. Thy soul shall not cleave together with the lofty, but with the righteous and humble shalt thou walk."
+        },
+        {
+          "type": "text",
+          "text": "16. The accidents that befal thee thou shalt receive as good, knowing that nothing is done without God."
+        }
+      ]
+    },
+    {
+      "id": "sec_didache_4",
+      "title": "Chapter 4",
+      "subtitle": "Various Precepts; Commandments and the Way of Life",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. My child, thou shalt remember him that speaketh unto thee the word of God night and day, and shalt honour him as the Lord;"
+        },
+        {
+          "type": "text",
+          "text": "2. for whencesoever the Lordship speaketh, there is the Lord."
+        },
+        {
+          "type": "text",
+          "text": "3. Moreover thou shalt seek out day by day the persons of the saints, that thou mayest find rest in their words."
+        },
+        {
+          "type": "text",
+          "text": "4. Thou shalt not make a schism, but thou shalt pacify them that contend;"
+        },
+        {
+          "type": "text",
+          "text": "5. thou shalt judge righteously, thou shalt not make a difference in a person to reprove him for transgressions."
+        },
+        {
+          "type": "text",
+          "text": "6. Thou shalt not doubt whether a thing shall be or not be."
+        },
+        {
+          "type": "text",
+          "text": "7. Be not thou found holding out thy hands to receive, but drawing them in as to giving."
+        },
+        {
+          "type": "text",
+          "text": "8. If thou hast ought passing through thy hands, thou shalt give a ransom for thy sins."
+        },
+        {
+          "type": "text",
+          "text": "9. Thou shalt not hesitate to give, neither shalt thou murmur when giving;"
+        },
+        {
+          "type": "text",
+          "text": "10. for thou shalt know who is the good paymaster of thy reward."
+        },
+        {
+          "type": "text",
+          "text": "11. Thou shalt not turn away from him that is in want, but shalt make thy brother partaker in all things, and shalt not say that anything is thine own."
+        },
+        {
+          "type": "text",
+          "text": "12. For if ye are fellow-partakers in that which is imperishable, how much rather in the things which are perishable? Thou shalt not withhold thy hand from thy son or from thy daughter, but from their youth thou shalt teach them the fear of God."
+        },
+        {
+          "type": "text",
+          "text": "13. Thou shalt not command thy bondservant or thine handmaid in thy bitterness, who trust in the same God as thyself, lest haply they should cease to fear the God who is over both of you;"
+        },
+        {
+          "type": "text",
+          "text": "14. for He cometh, not to call men with respect of persons, but He cometh to those whom the Spirit hath prepared."
+        },
+        {
+          "type": "text",
+          "text": "15. But ye, servants, shall be subject unto your masters, as to a type of God, in shame and fear."
+        },
+        {
+          "type": "text",
+          "text": "16. Thou shalt hate all hypocrisy, and everything that is not pleasing to the Lord."
+        },
+        {
+          "type": "text",
+          "text": "17. Thou shalt never forsake the commandments of the Lord;"
+        },
+        {
+          "type": "text",
+          "text": "18. but shalt keep those things which thou hast received, neither adding to them nor taking away from them."
+        },
+        {
+          "type": "text",
+          "text": "19. In church thou shalt confess thy transgressions, and shalt not betake thyself to prayer with an evil conscience."
+        },
+        {
+          "type": "text",
+          "text": "20. This is the way of life."
+        }
+      ]
+    },
+    {
+      "id": "sec_didache_5",
+      "title": "Chapter 5",
+      "subtitle": "The Way of Death; Catalogue of Evils",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But the way of death is this."
+        },
+        {
+          "type": "text",
+          "text": "2. First of all, it is evil and full of a curse: murders, adulteries, lusts, fornications, thefts, idolatries, magical arts, witchcrafts, plunderings, false witnessings, hypocrisies, doubleness of heart, treachery, pride, malice, stubbornness, covetousness, foul-speaking, jealousy, boldness, exaltation, boastfulness;"
+        },
+        {
+          "type": "text",
+          "text": "3. persecutors of good men, hating truth, loving a lie, not perceiving the reward of righteousness, not cleaving to the good nor to righteous judgment, wakeful not for that which is good but for that which is evil;"
+        },
+        {
+          "type": "text",
+          "text": "4. from whom gentleness and forbearance stand aloof;"
+        },
+        {
+          "type": "text",
+          "text": "5. loving vain things, pursuing a recompense, not pitying the poor man, not toiling for him that is oppressed with toil, not recognizing Him that made them, murderers of children, corrupters of the creatures of God, turning away from him that is in want, oppressing him that is afflicted, advocates of the wealthy, unjust judges of the poor, altogether sinful."
+        },
+        {
+          "type": "text",
+          "text": "6. May ye be delivered, my children, from all these things."
+        }
+      ]
+    },
+    {
+      "id": "sec_didache_6",
+      "title": "Chapter 6",
+      "subtitle": "Against False Teachers; The Yoke of the Lord",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. See lest any man lead you astray from this way of righteousness, for he teacheth thee apart from God."
+        },
+        {
+          "type": "text",
+          "text": "2. For if thou art able to bear the whole yoke of the Lord, thou shalt be perfect;"
+        },
+        {
+          "type": "text",
+          "text": "3. but if thou art not able, do that which thou art able."
+        },
+        {
+          "type": "text",
+          "text": "4. But concerning eating, bear that which thou art able;"
+        },
+        {
+          "type": "text",
+          "text": "5. yet abstain by all means from meat sacrificed to idols;"
+        },
+        {
+          "type": "text",
+          "text": "6. for it is the worship of dead gods."
+        }
+      ]
+    },
+    {
+      "id": "sec_didache_7",
+      "title": "Chapter 7",
+      "subtitle": "Concerning Baptism; The Administration of Baptism",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But concerning baptism, thus shall ye baptize."
+        },
+        {
+          "type": "text",
+          "text": "2. Having first recited all these things, baptize in the name of the Father and of the Son and of the Holy Spirit in living (running) water."
+        },
+        {
+          "type": "text",
+          "text": "3. But if thou hast not living water, then baptize in other water;"
+        },
+        {
+          "type": "text",
+          "text": "4. and if thou art not able in cold, then in warm."
+        },
+        {
+          "type": "text",
+          "text": "5. But if thou hast neither, then pour water on the head thrice in the name of the Father and of the Son and of the Holy Spirit."
+        },
+        {
+          "type": "text",
+          "text": "6. But before the baptism let him that baptizeth and him that is baptized fast, and any others also who are able;"
+        },
+        {
+          "type": "text",
+          "text": "7. and thou shalt order him that is baptized to fast a day or two before."
+        }
+      ]
+    },
+    {
+      "id": "sec_didache_8",
+      "title": "Chapter 8",
+      "subtitle": "Fasting and Prayer; The Lord's Prayer",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. And let not your fastings be with the hypocrites, for they fast on the second and the fifth day of the week;"
+        },
+        {
+          "type": "text",
+          "text": "2. but do ye keep your fast on the fourth and on the preparation (the sixth) day."
+        },
+        {
+          "type": "text",
+          "text": "3. Neither pray ye as the hypocrites, but as the Lord commanded in His Gospel, thus pray ye:"
+        },
+        {
+          "type": "text",
+          "text": "4. Our Father, which art in heaven, hallowed be Thy name;"
+        },
+        {
+          "type": "text",
+          "text": "5. Thy kingdom come;"
+        },
+        {
+          "type": "text",
+          "text": "6. Thy will be done, as in heaven, so also on earth;"
+        },
+        {
+          "type": "text",
+          "text": "7. give us this day our daily bread;"
+        },
+        {
+          "type": "text",
+          "text": "8. and forgive us our debt, as we also forgive our debtors;"
+        },
+        {
+          "type": "text",
+          "text": "9. and lead us not into temptation, but deliver us from the evil one;"
+        },
+        {
+          "type": "text",
+          "text": "10. for Thine is the power and the glory for ever and ever."
+        },
+        {
+          "type": "text",
+          "text": "11. Three times in the day pray ye so."
+        }
+      ]
+    },
+    {
+      "id": "sec_didache_9",
+      "title": "Chapter 9",
+      "subtitle": "The Eucharistic Thanksgiving; The Cup and Broken Bread",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But as touching the eucharistic thanksgiving give ye thanks thus."
+        },
+        {
+          "type": "text",
+          "text": "2. First, as regards the cup:"
+        },
+        {
+          "type": "text",
+          "text": "3. We give Thee thanks, O our Father, for the holy vine of Thy son David, which Thou madest known unto us through Thy Son Jesus;"
+        },
+        {
+          "type": "text",
+          "text": "4. Thine is the glory for ever and ever."
+        },
+        {
+          "type": "text",
+          "text": "5. Then as regards the broken bread:"
+        },
+        {
+          "type": "text",
+          "text": "6. We give Thee thanks, O our Father, for the life and knowledge which Thou didst make known unto us through Thy Son Jesus;"
+        },
+        {
+          "type": "text",
+          "text": "7. Thine is the glory for ever and ever."
+        },
+        {
+          "type": "text",
+          "text": "8. As this broken bread was scattered upon the mountains and being gathered together became one, so may Thy Church be gathered together from the ends of the earth into Thy kingdom;"
+        },
+        {
+          "type": "text",
+          "text": "9. for Thine is the glory and the power through Jesus Christ for ever and ever."
+        },
+        {
+          "type": "text",
+          "text": "10. But let no one eat or drink of this eucharistic thanksgiving, but they that have been baptized into the name of the Lord;"
+        },
+        {
+          "type": "text",
+          "text": "11. for concerning this also the Lord hath said:"
+        },
+        {
+          "type": "text",
+          "text": "12. Give not that which is holy to the dogs."
+        }
+      ]
+    },
+    {
+      "id": "sec_didache_10",
+      "title": "Chapter 10",
+      "subtitle": "Prayer After Communion; Thanksgiving and Petition",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. And after ye are satisfied thus give ye thanks:"
+        },
+        {
+          "type": "text",
+          "text": "2. We give Thee thanks, Holy Father, for Thy holy name, which Thou hast made to tabernacle in our hearts, and for the knowledge and faith and immortality, which Thou hast made known unto us through Thy Son Jesus;"
+        },
+        {
+          "type": "text",
+          "text": "3. Thine is the glory for ever and ever."
+        },
+        {
+          "type": "text",
+          "text": "4. Thou, Almighty Master, didst create all things for Thy name's sake, and didst give food and drink unto men for enjoyment, that they might render thanks to Thee;"
+        },
+        {
+          "type": "text",
+          "text": "5. but didst bestow upon us spiritual food and drink and eternal life through Thy Son."
+        },
+        {
+          "type": "text",
+          "text": "6. Before all things we give Thee thanks that Thou art powerful;"
+        },
+        {
+          "type": "text",
+          "text": "7. Thine is the glory for ever and ever."
+        },
+        {
+          "type": "text",
+          "text": "8. Remember, Lord, Thy Church to deliver it from all evil and to perfect it in Thy love;"
+        },
+        {
+          "type": "text",
+          "text": "9. and gather it together from the four winds—even the Church which has been sanctified—into Thy kingdom which Thou hast prepared for it;"
+        },
+        {
+          "type": "text",
+          "text": "10. for Thine is the power and the glory for ever and ever."
+        },
+        {
+          "type": "text",
+          "text": "11. May grace come and may this world pass away."
+        },
+        {
+          "type": "text",
+          "text": "12. Hosanna to the God of David."
+        },
+        {
+          "type": "text",
+          "text": "13. If any man is holy, let him come;"
+        },
+        {
+          "type": "text",
+          "text": "14. if any man is not, let him repent. Maran Atha. Amen."
+        },
+        {
+          "type": "text",
+          "text": "15. But permit the prophets to offer thanksgiving as much as they desire."
+        }
+      ]
+    },
+    {
+      "id": "sec_didache_11",
+      "title": "Chapter 11",
+      "subtitle": "Teachers, Apostles, and Prophets; Discerning Ministers",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Whosoever therefore shall come and teach you all these things that have been said before, receive him;"
+        },
+        {
+          "type": "text",
+          "text": "2. but if the teacher himself be perverted and teach a different doctrine to the destruction thereof, hear him not;"
+        },
+        {
+          "type": "text",
+          "text": "3. but if to the increase of righteousness and the knowledge of the Lord, receive him as the Lord."
+        },
+        {
+          "type": "text",
+          "text": "4. But concerning the apostles and prophets, so do ye according to the ordinance of the Gospel."
+        },
+        {
+          "type": "text",
+          "text": "5. Let every apostle, when he cometh to you, be received as the Lord;"
+        },
+        {
+          "type": "text",
+          "text": "6. but he shall not abide more than a single day, or if there be need, a second likewise;"
+        },
+        {
+          "type": "text",
+          "text": "7. but if he abide three days, he is a false prophet."
+        },
+        {
+          "type": "text",
+          "text": "8. And when he departeth let the apostle receive nothing save bread, until he findeth shelter;"
+        },
+        {
+          "type": "text",
+          "text": "9. but if he ask money, he is a false prophet."
+        },
+        {
+          "type": "text",
+          "text": "10. And any prophet speaking in the Spirit ye shall not try neither discern;"
+        },
+        {
+          "type": "text",
+          "text": "11. for every sin shall be forgiven, but this sin shall not be forgiven."
+        },
+        {
+          "type": "text",
+          "text": "12. Yet not every one that speaketh in the Spirit is a prophet, but only if he have the ways of the Lord."
+        },
+        {
+          "type": "text",
+          "text": "13. From his ways therefore the false prophet and the prophet shall be recognized."
+        },
+        {
+          "type": "text",
+          "text": "14. And no prophet when he ordereth a table in the Spirit shall eat of it;"
+        },
+        {
+          "type": "text",
+          "text": "15. otherwise he is a false prophet."
+        },
+        {
+          "type": "text",
+          "text": "16. And every prophet teaching the truth, if he doeth not what he teacheth, is a false prophet."
+        },
+        {
+          "type": "text",
+          "text": "17. And every prophet approved and found true, if he doeth ought as an outward mystery typical of the Church, and yet teacheth you not to do all that he himself doeth, shall not be judged before you;"
+        },
+        {
+          "type": "text",
+          "text": "18. he hath his judgment in the presence of God;"
+        },
+        {
+          "type": "text",
+          "text": "19. for in like manner also did the prophets of old time."
+        },
+        {
+          "type": "text",
+          "text": "20. And whosoever shall say in the Spirit, Give me silver or anything else, ye shall not listen to him;"
+        },
+        {
+          "type": "text",
+          "text": "21. but if he tell you to give on behalf of others that are in want, let no man judge him."
+        }
+      ]
+    },
+    {
+      "id": "sec_didache_12",
+      "title": "Chapter 12",
+      "subtitle": "Reception of Christians; Hospitality and Testing",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But let every one that cometh in the name of the Lord be received;"
+        },
+        {
+          "type": "text",
+          "text": "2. and then when ye have tested him ye shall know him, for ye shall have understanding on the right hand and on the left."
+        },
+        {
+          "type": "text",
+          "text": "3. If the comer is a traveller, assist him, so far as ye are able;"
+        },
+        {
+          "type": "text",
+          "text": "4. but he shall not stay with you more than two or three days, if it be necessary."
+        },
+        {
+          "type": "text",
+          "text": "5. But if he wishes to settle with you, being a craftsman, let him work for and eat his bread."
+        },
+        {
+          "type": "text",
+          "text": "6. But if he has no craft, according to your wisdom provide how he shall live as a Christian among you, but not in idleness."
+        },
+        {
+          "type": "text",
+          "text": "7. If he will not do this, he is trafficking upon Christ."
+        },
+        {
+          "type": "text",
+          "text": "8. Beware of such men."
+        }
+      ]
+    },
+    {
+      "id": "sec_didache_13",
+      "title": "Chapter 13",
+      "subtitle": "Support of Prophets and Teachers; Firstfruits",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But every true prophet desiring to settle among you is worthy of his food."
+        },
+        {
+          "type": "text",
+          "text": "2. In like manner a true teacher is also worthy, like the workman, of his food."
+        },
+        {
+          "type": "text",
+          "text": "3. Every firstfruit then of the produce of the wine-vat and of the threshing-floor, of thy oxen and of thy sheep, thou shalt take and give as the firstfruit to the prophets;"
+        },
+        {
+          "type": "text",
+          "text": "4. for they are your chief-priests."
+        },
+        {
+          "type": "text",
+          "text": "5. But if ye have not a prophet, give them to the poor."
+        },
+        {
+          "type": "text",
+          "text": "6. If thou makest bread, take the firstfruit and give according to the commandment."
+        },
+        {
+          "type": "text",
+          "text": "7. In like manner, when thou openest a jar of wine or of oil, take the firstfruit and give to the prophets;"
+        },
+        {
+          "type": "text",
+          "text": "8. yea and of money and raiment and every possession take the firstfruit, as shall seem good to thee, and give according to the commandment."
+        }
+      ]
+    },
+    {
+      "id": "sec_didache_14",
+      "title": "Chapter 14",
+      "subtitle": "The Lord's Day Assembly; The Sunday Sacrifice",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. And on the Lord's own day gather yourselves together and break bread and give thanks, first confessing your transgressions, that your sacrifice may be pure."
+        },
+        {
+          "type": "text",
+          "text": "2. And let no man, having his dispute with his fellow, join your assembly until they have been reconciled, that your sacrifice may not be defiled;"
+        },
+        {
+          "type": "text",
+          "text": "3. for this sacrifice it is that was spoken of by the Lord:"
+        },
+        {
+          "type": "text",
+          "text": "4. In every place and at every time offer Me a pure sacrifice;"
+        },
+        {
+          "type": "text",
+          "text": "5. for I am a great king, saith the Lord and My name is wonderful among the nations."
+        }
+      ]
+    },
+    {
+      "id": "sec_didache_15",
+      "title": "Chapter 15",
+      "subtitle": "Bishops and Deacons; Christian Reproof",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Appoint for yourselves therefore bishops and deacons worthy of the Lord, men who are meek and not lovers of money, and true and approved;"
+        },
+        {
+          "type": "text",
+          "text": "2. for unto you they also perform the service of the prophets and teachers."
+        },
+        {
+          "type": "text",
+          "text": "3. Therefore despise them not;"
+        },
+        {
+          "type": "text",
+          "text": "4. for they are your honourable men along with the prophets and teachers."
+        },
+        {
+          "type": "text",
+          "text": "5. And reprove one another, not in anger but in peace, as ye find in the Gospel;"
+        },
+        {
+          "type": "text",
+          "text": "6. and let no one speak to any that has gone wrong towards his neighbour, neither let him hear a word from you, until he repent."
+        },
+        {
+          "type": "text",
+          "text": "7. But your prayers and your almsgivings and all your deeds so do ye as ye find it in the Gospel of our Lord."
+        }
+      ]
+    },
+    {
+      "id": "sec_didache_16",
+      "title": "Chapter 16",
+      "subtitle": "Watchfulness; The Coming of the Lord",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Be watchful for your life;"
+        },
+        {
+          "type": "text",
+          "text": "2. let your lamps not be quenched and your loins not ungirded, but be ye ready;"
+        },
+        {
+          "type": "text",
+          "text": "3. for ye know not the hour in which our Lord cometh."
+        },
+        {
+          "type": "text",
+          "text": "4. And ye shall gather yourselves together frequently, seeking what is fitting for your souls;"
+        },
+        {
+          "type": "text",
+          "text": "5. for the whole time of your faith shall not profit you, if ye be not perfected at the last season."
+        },
+        {
+          "type": "text",
+          "text": "6. For in the last days the false prophets and corrupters shall be multiplied, and the sheep shall be turned into wolves, and love shall be turned into hate."
+        },
+        {
+          "type": "text",
+          "text": "7. For as lawlessness increaseth, they shall hate one another and shall persecute and betray."
+        },
+        {
+          "type": "text",
+          "text": "8. And then the world-deceiver shall appear as a son of God;"
+        },
+        {
+          "type": "text",
+          "text": "9. and shall work signs and wonders, and the earth shall be delivered into his hands;"
+        },
+        {
+          "type": "text",
+          "text": "10. and he shall do unholy things, which have never been since the world began."
+        },
+        {
+          "type": "text",
+          "text": "11. Then all created mankind shall come to the fire of testing, and many shall be offended and perish;"
+        },
+        {
+          "type": "text",
+          "text": "12. but they that endure in their faith shall be saved by the Curse Himself."
+        },
+        {
+          "type": "text",
+          "text": "13. And then shall the signs of the truth appear;"
+        },
+        {
+          "type": "text",
+          "text": "14. first a sign of a rift in the heaven, then a sign of a voice of a trumpet, and thirdly a resurrection of the dead;"
+        },
+        {
+          "type": "text",
+          "text": "15. yet not of all, but as it was said:"
+        },
+        {
+          "type": "text",
+          "text": "16. The Lord shall come and all His saints with Him."
+        },
+        {
+          "type": "text",
+          "text": "17. Then shall the world see the Lord coming upon the clouds of heaven."
+        }
+      ]
+    }
+  ]
+}

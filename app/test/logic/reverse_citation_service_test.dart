@@ -44,8 +44,8 @@ void main() {
       ReverseCitationService.clear();
       expect(ReverseCitationService.indexedSourcesCount, equals(0));
 
-      // Index 6 sources (max capacity is 5)
-      for (int i = 1; i <= 6; i++) {
+      // Index 11 sources (max capacity is 10)
+      for (int i = 1; i <= 11; i++) {
         final bookData = ParsedBookData(
           bookId: 'book_$i',
           title: 'Book $i',
@@ -64,17 +64,17 @@ void main() {
         ReverseCitationService.indexBookData('source_$i', bookData);
       }
 
-      // Max capacity is 5, so source_1 should have been evicted
-      expect(ReverseCitationService.indexedSourcesCount, equals(5));
+      // Max capacity is 10, so source_1 should have been evicted
+      expect(ReverseCitationService.indexedSourcesCount, equals(10));
 
       // source_1 was evicted (Gen 1:1 has 0 citations from these custom sources)
       final gen1Citations = ReverseCitationService.getVerseCitations(1, 1, 1);
       expect(gen1Citations, isEmpty);
 
-      // source_6 is retained (Gen 6:1 has 1 citation)
-      final gen6Citations = ReverseCitationService.getVerseCitations(1, 6, 1);
-      expect(gen6Citations.length, equals(1));
-      expect(gen6Citations.first.sourceBookId, equals('book_6'));
+      // source_11 is retained (Gen 11:1 has 1 citation)
+      final gen11Citations = ReverseCitationService.getVerseCitations(1, 11, 1);
+      expect(gen11Citations.length, equals(1));
+      expect(gen11Citations.first.sourceBookId, equals('book_11'));
     });
   });
 }

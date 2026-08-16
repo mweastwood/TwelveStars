@@ -525,6 +525,101 @@ void assembleTrentFromSource(String sourcePath, Directory outputDir) {
   );
 }
 
+void parseDidacheFile(String filepath, Directory outputDir) {
+  final file = File(filepath);
+  if (!file.existsSync()) {
+    print('Error: $filepath not found!');
+    return;
+  }
+
+  final raw = file.readAsStringSync();
+  final lines = cleanText(raw).split('\n');
+
+  final List<Map<String, dynamic>> sections = [];
+  final List<Map<String, String>> toc = [];
+
+  Map<String, dynamic>? currentSection;
+  String currentChapterTitle = '';
+  String currentChapterSubtitle = '';
+
+  for (final line in lines) {
+    final stripped = line.trim();
+    if (stripped.isEmpty) continue;
+
+    if (stripped.startsWith('The Didache:') ||
+        stripped.startsWith('Translated by')) {
+      continue;
+    }
+
+    final chapterMatch = RegExp(
+      r'^Chapter\s+(\d+)$',
+      caseSensitive: false,
+    ).firstMatch(stripped);
+    if (chapterMatch != null) {
+      final chapNum = int.parse(chapterMatch.group(1)!);
+      final secId = 'sec_didache_$chapNum';
+      currentChapterTitle = 'Chapter $chapNum';
+      currentChapterSubtitle = '';
+      currentSection = {
+        'id': secId,
+        'title': currentChapterTitle,
+        'subtitle': '',
+        'content': <Map<String, dynamic>>[],
+      };
+      sections.add(currentSection);
+      continue;
+    }
+
+    if (currentSection != null &&
+        (currentSection['subtitle'] as String).isEmpty &&
+        !RegExp(r'^\d+:\d+').hasMatch(stripped)) {
+      currentChapterSubtitle = stripped;
+      currentSection['subtitle'] = currentChapterSubtitle;
+      final tocTitle = currentChapterSubtitle.isNotEmpty
+          ? '${currentSection['title']}: $currentChapterSubtitle'
+          : currentSection['title'] as String;
+      toc.add({'id': currentSection['id'] as String, 'title': tocTitle});
+      continue;
+    }
+
+    if (currentSection != null) {
+      final verseMatch = RegExp(r'^\d+:(\d+)\s*(.*)$').firstMatch(stripped);
+      if (verseMatch != null) {
+        final vNum = verseMatch.group(1)!;
+        final text = verseMatch.group(2)!.trim();
+        (currentSection['content'] as List<dynamic>).add({
+          'type': 'text',
+          'text': '$vNum. $text',
+        });
+      } else {
+        (currentSection['content'] as List<dynamic>).add({
+          'type': 'text',
+          'text': stripped,
+        });
+      }
+    }
+  }
+
+  final finalJson = {
+    'bookId': 'didache_lightfoot',
+    'title': 'The Didache',
+    'subtitle':
+        'The Teaching of the Twelve Apostles (Trans. J. B. Lightfoot, 1891)',
+    'author': 'The Apostolic Fathers (Trans. J. B. Lightfoot)',
+    'verseSystem': 'vulgate',
+    'toc': toc,
+    'sections': sections,
+  };
+
+  final outFile = File(p.join(outputDir.path, 'didache_lightfoot.json'));
+  outFile.writeAsStringSync(
+    const JsonEncoder.withIndent('  ').convert(finalJson),
+  );
+  print(
+    'Successfully generated ${outFile.path} (${sections.length} chapters, ${toc.length} TOC entries)',
+  );
+}
+
 void main() {
   final outputDir = Directory('assets/catechism/json');
   if (!outputDir.existsSync()) {
@@ -533,6 +628,7 @@ void main() {
 
   final baltimoreDir = p.join('assets', 'catechism', 'baltimore');
   final trentDir = p.join('assets', 'catechism', 'trent');
+  final didacheDir = p.join('assets', 'catechism', 'didache');
 
   parseBaltimoreFile(
     p.join(baltimoreDir, 'baltimore_catechism_no1.txt'),
@@ -567,4 +663,6 @@ void main() {
     p.join(trentDir, 'trent_romanus_source.json'),
     outputDir,
   );
+
+  parseDidacheFile(p.join(didacheDir, 'didache_lightfoot.txt'), outputDir);
 }

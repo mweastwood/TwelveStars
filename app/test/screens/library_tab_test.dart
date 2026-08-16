@@ -35,6 +35,7 @@ void main() {
       expect(find.text('CATECHISMS & DOCTRINE'), findsOneWidget);
       expect(find.text('Baltimore Catechism'), findsOneWidget);
       expect(find.text('Catechism of the Council of Trent'), findsOneWidget);
+      expect(find.text('The Didache'), findsOneWidget);
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -64,6 +65,41 @@ void main() {
       // Reader screen should be visible
       expect(find.byType(LibraryReaderScreen), findsOneWidget);
       expect(find.text('Baltimore Catechism'), findsWidgets);
+    });
+
+    testWidgets('tapping Read Book on Didache opens LibraryReaderScreen', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/didache_lightfoot.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final didacheCard = find.ancestor(
+        of: find.text('The Didache'),
+        matching: find.byType(Card),
+      );
+      final readBtn = find.descendant(
+        of: didacheCard,
+        matching: find.widgetWithText(FilledButton, 'Read Book'),
+      );
+
+      await tester.scrollUntilVisible(
+        readBtn,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(readBtn);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('The Didache'), findsWidgets);
     });
   });
 

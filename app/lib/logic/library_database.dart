@@ -235,6 +235,17 @@ class LibraryHelper {
             'Promulgated by Pope St. Pius V in 1566. The authoritative Roman Catechism expounding Catholic doctrine, sacraments, commandments, and prayer.',
         defaultAssetPath: 'assets/catechism/json/council_of_trent.json',
       ),
+      const LibraryBookItem(
+        id: 'didache_lightfoot',
+        title: 'The Didache',
+        subtitle:
+            'The Teaching of the Twelve Apostles (Trans. J. B. Lightfoot, 1891)',
+        category: 'Apostolic Fathers',
+        author: 'The Apostolic Fathers (Trans. J. B. Lightfoot)',
+        description:
+            'The earliest surviving non-canonical Christian treatise (c. 1st century), presenting the doctrine of the Two Ways, early liturgical rites for Baptism and the Eucharist, and instructions on church order.',
+        defaultAssetPath: 'assets/catechism/json/didache_lightfoot.json',
+      ),
     ];
   }
 
