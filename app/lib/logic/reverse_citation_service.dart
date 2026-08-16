@@ -27,7 +27,7 @@ class ReverseCitation {
 }
 
 class ReverseCitationService {
-  static const int maxIndexedSources = 5;
+  static const int maxIndexedSources = 10;
   static final Map<String, List<ReverseCitation>> _indexedSources = {};
 
   @visibleForTesting
@@ -55,6 +55,7 @@ class ReverseCitationService {
       'assets/catechism/json/baltimore_3.json',
       'assets/catechism/json/baltimore_4.json',
       'assets/catechism/json/council_of_trent.json',
+      'assets/catechism/json/didache_lightfoot.json',
     ];
 
     for (final path in catalogPaths) {

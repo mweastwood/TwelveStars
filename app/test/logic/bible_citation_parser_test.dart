@@ -401,5 +401,61 @@ void main() {
         }
       });
     });
+
+    group('Didache Citation Detection & Non-False Positive Tests', () {
+      test('does not misidentify Didache verse numbering as Bible citations', () {
+        final verseTexts = [
+          '1. There are two ways, one of life and one of death, and there is a great difference between the two ways.',
+          '2. The way of life is this.',
+          '3. First of all, thou shalt love the God that made thee;',
+          '7. Bless them that curse you, and pray for your enemies and fast for them that persecute you;',
+          '14. To every man that asketh of thee give, and ask not back;',
+          '23. Let thine alms sweat into thine hands, until thou shalt have learnt to whom to give.',
+        ];
+
+        for (final text in verseTexts) {
+          final segments = BibleCitationParser.parse(text);
+          final citations = segments.where((s) => s.isCitation).toList();
+          expect(
+            citations,
+            isEmpty,
+            reason:
+                'Verse number was falsely identified as citation in: "$text"',
+          );
+        }
+      });
+
+      test(
+        'accurately detects scriptural citations embedded in Didache annotations',
+        () {
+          const textWithCitations =
+              'As quoted in Didache 8:3 from (Matt. 6:9-13) and the Lord\'s prayer, '
+              'as well as the Eucharistic warning (Matt. 7:6) and the prophecy of Malachi (Mal. 1:11).';
+
+          final segments = BibleCitationParser.parse(textWithCitations);
+          final citations = segments
+              .where((s) => s.isCitation)
+              .map((s) => s.citation!)
+              .toList();
+
+          expect(citations.length, 3);
+          expect(citations[0].bookName, 'Matthew');
+          expect(citations[0].chapter, 6);
+          expect(citations[0].verse, 9);
+          expect(citations[0].endVerse, 13);
+          expect(citations[0].displayLabel, 'Matthew 6:9-13');
+
+          expect(citations[1].bookName, 'Matthew');
+          expect(citations[1].chapter, 7);
+          expect(citations[1].verse, 6);
+          expect(citations[1].displayLabel, 'Matthew 7:6');
+
+          expect(citations[2].bookName, 'Malachi');
+          expect(citations[2].chapter, 1);
+          expect(citations[2].verse, 11);
+          expect(citations[2].displayLabel, 'Malachi 1:11');
+        },
+      );
+    });
   });
 }
