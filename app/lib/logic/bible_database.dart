@@ -450,14 +450,30 @@ class BibleDatabase extends _$BibleDatabase {
         .get();
   }
 
+  Future<void>? _inFlightLectionaryPopulation;
+
+  @visibleForTesting
+  Future<void>? get inFlightLectionaryPopulation =>
+      _inFlightLectionaryPopulation;
+
   // Populate lectionary if empty
-  Future<void> _ensureLectionaryPopulated() async {
-    final countCheck = await (select(lectionaryReadings)..limit(1)).get();
-    if (countCheck.isNotEmpty) {
-      return; // Already populated
+  Future<void> _ensureLectionaryPopulated() {
+    if (_inFlightLectionaryPopulation != null) {
+      return _inFlightLectionaryPopulation!;
     }
 
+    final future = _ensureLectionaryPopulatedImpl();
+    _inFlightLectionaryPopulation = future;
+    return future;
+  }
+
+  Future<void> _ensureLectionaryPopulatedImpl() async {
     try {
+      final countCheck = await (select(lectionaryReadings)..limit(1)).get();
+      if (countCheck.isNotEmpty) {
+        return; // Already populated
+      }
+
       final jsonContent = await rootBundle.loadString(
         'assets/bible/lectionary.json',
       );
@@ -484,6 +500,9 @@ class BibleDatabase extends _$BibleDatabase {
       );
     } catch (e) {
       debugPrint('Error seeding lectionary database: $e');
+      rethrow;
+    } finally {
+      _inFlightLectionaryPopulation = null;
     }
   }
 
