@@ -152,6 +152,50 @@ void main() {
     });
   });
 
+  group('User Comments Operations', () {
+    test('save, update, get, and delete comments in BibleDatabase', () async {
+      final now = DateTime.now();
+      final id = await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'GEN',
+          sectionIndex: 1,
+          nodeId: '1_1_1',
+          commentText: 'Initial comment',
+          createdAt: now,
+        ),
+      );
+
+      final comments = await testDb.getComments(
+        documentId: 'GEN',
+        nodeId: '1_1_1',
+      );
+      expect(comments.length, equals(1));
+      expect(comments.first.commentText, equals('Initial comment'));
+
+      // Update comment text
+      final rowsAffected = await testDb.updateComment(
+        id,
+        'Updated comment text',
+      );
+      expect(rowsAffected, equals(1));
+
+      final updatedComments = await testDb.getComments(
+        documentId: 'GEN',
+        nodeId: '1_1_1',
+      );
+      expect(updatedComments.length, equals(1));
+      expect(updatedComments.first.commentText, equals('Updated comment text'));
+
+      // Delete comment
+      await testDb.deleteComment(id);
+      final emptyComments = await testDb.getComments(
+        documentId: 'GEN',
+        nodeId: '1_1_1',
+      );
+      expect(emptyComments, isEmpty);
+    });
+  });
+
   group('TypeConverters Error Resilience', () {
     const locConverter = LocalizedTranslationsConverter();
     const prefConverter = PreferredVersionsConverter();

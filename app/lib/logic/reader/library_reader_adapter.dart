@@ -144,6 +144,14 @@ class LibraryReaderAdapter implements ReaderAdapter {
   }
 
   @override
+  Future<void> updateComment(String commentId, String updatedText) async {
+    final id = int.tryParse(commentId);
+    if (id != null) {
+      await dbHelper.updateComment(id, updatedText);
+    }
+  }
+
+  @override
   Future<void> deleteComment(String commentId) async {
     final id = int.tryParse(commentId);
     if (id != null) {

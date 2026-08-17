@@ -934,6 +934,211 @@ void main() {
       },
     );
 
+    testWidgets(
+      'opens verse comments modal, edits comment, and updates UI and DB',
+      (WidgetTester tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'In the beginning God created...',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'GEN',
+            sectionIndex: 1,
+            nodeId: '1_1_1',
+            commentText: 'Original comment text',
+            textPreview: const Value('In the beginning God created...'),
+            createdAt: DateTime.now(),
+          ),
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        // Tap comment badge to open verse comments modal
+        await tester.tap(find.byIcon(Icons.comment_rounded));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Original comment text'), findsOneWidget);
+        expect(find.byIcon(Icons.edit_outlined), findsOneWidget);
+
+        // Tap edit button
+        await tester.tap(find.byIcon(Icons.edit_outlined));
+        await tester.pumpAndSettle();
+
+        // Verify Edit dialog is opened with pre-populated text
+        expect(find.text('Edit Comment for Genesis 1:1'), findsOneWidget);
+        expect(
+          find.text('Original comment text'),
+          findsNWidgets(2),
+        ); // One in sheet behind, one in textfield
+
+        // Update text in TextField
+        await tester.enterText(
+          find.byType(TextField),
+          'Edited comment text in modal',
+        );
+        await tester.tap(find.widgetWithText(FilledButton, 'Save'));
+        await tester.pumpAndSettle();
+
+        // Verify SnackBar and updated text in modal
+        expect(find.text('Updated comment for Genesis 1:1'), findsOneWidget);
+        expect(find.text('Edited comment text in modal'), findsOneWidget);
+
+        // Verify updated in DB
+        final commentsInDb = await testDb.getComments(
+          documentId: 'GEN',
+          nodeId: '1_1_1',
+        );
+        expect(commentsInDb.length, equals(1));
+        expect(
+          commentsInDb.first.commentText,
+          equals('Edited comment text in modal'),
+        );
+      },
+    );
+
+    testWidgets(
+      'canceling edit comment dialog preserves original comment text',
+      (WidgetTester tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'In the beginning God created...',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'GEN',
+            sectionIndex: 1,
+            nodeId: '1_1_1',
+            commentText: 'Unchanged original comment',
+            textPreview: const Value('In the beginning God created...'),
+            createdAt: DateTime.now(),
+          ),
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        // Open comments modal
+        await tester.tap(find.byIcon(Icons.comment_rounded));
+        await tester.pumpAndSettle();
+
+        // Tap Edit
+        await tester.tap(find.byIcon(Icons.edit_outlined));
+        await tester.pumpAndSettle();
+
+        // Change text but tap Cancel
+        await tester.enterText(
+          find.byType(TextField),
+          'Modified but canceled text',
+        );
+        await tester.tap(find.widgetWithText(TextButton, 'Cancel'));
+        await tester.pumpAndSettle();
+
+        // Verify original text still displayed
+        expect(find.text('Unchanged original comment'), findsOneWidget);
+        expect(find.text('Modified but canceled text'), findsNothing);
+
+        // Verify DB unchanged
+        final commentsInDb = await testDb.getComments(
+          documentId: 'GEN',
+          nodeId: '1_1_1',
+        );
+        expect(
+          commentsInDb.first.commentText,
+          equals('Unchanged original comment'),
+        );
+      },
+    );
+
+    testWidgets('edits comment from Bible tab bottom panel Comments drawer', (
+      WidgetTester tester,
+    ) async {
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created...',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'GEN',
+          sectionIndex: 1,
+          nodeId: '1_1_1',
+          commentText: 'Drawer comment original',
+          textPreview: const Value('In the beginning God created...'),
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: BibleTab())),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      // Expand bottom panel
+      await tester.drag(find.text('Genesis 1').last, const Offset(0.0, -300.0));
+      await tester.pumpAndSettle();
+
+      // Switch to Comments tab
+      await tester.tap(find.text('Comments'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Drawer comment original'), findsOneWidget);
+      expect(find.byIcon(Icons.edit_outlined), findsOneWidget);
+
+      // Tap Edit button
+      await tester.tap(find.byIcon(Icons.edit_outlined));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Edit Comment for Genesis 1:1'), findsOneWidget);
+
+      // Update text and save
+      await tester.enterText(find.byType(TextField), 'Drawer comment updated');
+      await tester.tap(find.widgetWithText(FilledButton, 'Save'));
+      await tester.pumpAndSettle();
+
+      // Verify UI reflects new text
+      expect(find.text('Drawer comment updated'), findsOneWidget);
+
+      // Verify DB update
+      final commentsInDb = await testDb.getComments(
+        documentId: 'GEN',
+        nodeId: '1_1_1',
+      );
+      expect(commentsInDb.first.commentText, equals('Drawer comment updated'));
+    });
+
     testGoldens('renders comments tab in bottom panel correctly', (
       tester,
     ) async {

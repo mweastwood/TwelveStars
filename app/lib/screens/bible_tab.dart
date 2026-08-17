@@ -7,6 +7,7 @@ import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
 import 'package:twelve_stars/widgets/bible_translation_selector_card.dart';
 import 'package:twelve_stars/widgets/bible_translation_selector_dialog.dart';
+import 'package:twelve_stars/widgets/bible_verse_modals.dart';
 
 class BibleChapterRef {
   final BibleBook book;
@@ -976,12 +977,40 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                 ],
               ],
             ),
-            trailing: IconButton(
-              icon: Icon(Icons.delete_outline, color: theme.colorScheme.error),
-              onPressed: () async {
-                await BibleDatabaseHelper.db.deleteComment(comment.id);
-                await _loadComments();
-              },
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  icon: Icon(
+                    Icons.edit_outlined,
+                    color: theme.colorScheme.primary,
+                  ),
+                  tooltip: 'Edit comment',
+                  onPressed: () async {
+                    await showEditCommentDialog(
+                      context: context,
+                      citation: citation,
+                      textPreview: comment.textPreview ?? '',
+                      commentId: comment.id,
+                      initialText: comment.commentText,
+                      onCommentUpdated: (_) async {
+                        await _loadComments();
+                      },
+                    );
+                  },
+                ),
+                IconButton(
+                  icon: Icon(
+                    Icons.delete_outline,
+                    color: theme.colorScheme.error,
+                  ),
+                  tooltip: 'Delete comment',
+                  onPressed: () async {
+                    await BibleDatabaseHelper.db.deleteComment(comment.id);
+                    await _loadComments();
+                  },
+                ),
+              ],
             ),
             onTap: () {
               final pageIndex = _allChapters.indexWhere(
