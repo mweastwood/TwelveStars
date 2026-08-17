@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 
@@ -15,10 +17,56 @@ class _LibraryTabState extends State<LibraryTab> {
   bool _isSearchingGlobal = false;
   List<BookSearchResult> _globalSearchResults = [];
 
+  List<LibraryBookmark> _favorites = [];
+  bool _loadingFavorites = true;
+
+  List<UserComment> _comments = [];
+  bool _loadingComments = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadFavorites();
+    _loadComments();
+  }
+
   @override
   void dispose() {
     _searchController.dispose();
     super.dispose();
+  }
+
+  Future<void> _loadFavorites() async {
+    setState(() => _loadingFavorites = true);
+    try {
+      final favs = await BibleDatabaseHelper.db.getLibraryBookmarks();
+      if (mounted) {
+        setState(() {
+          _favorites = favs;
+          _loadingFavorites = false;
+        });
+      }
+    } catch (_) {
+      if (mounted) setState(() => _loadingFavorites = false);
+    }
+  }
+
+  Future<void> _loadComments() async {
+    setState(() => _loadingComments = true);
+    try {
+      final allComments = await BibleDatabaseHelper.db.getComments();
+      final nonBibleComments = allComments
+          .where((c) => !catholicBooks.any((b) => b.abbrev == c.documentId))
+          .toList();
+      if (mounted) {
+        setState(() {
+          _comments = nonBibleComments;
+          _loadingComments = false;
+        });
+      }
+    } catch (_) {
+      if (mounted) setState(() => _loadingComments = false);
+    }
   }
 
   Future<void> _performGlobalSearch(String query) async {
@@ -73,6 +121,10 @@ class _LibraryTabState extends State<LibraryTab> {
     LibraryBookItem bookItem, {
     String? volumeKey,
     String? assetPath,
+    String? sectionId,
+    int? sectionIndex,
+    int? questionNumber,
+    int? itemIndex,
   }) {
     Navigator.push(
       context,
@@ -81,14 +133,77 @@ class _LibraryTabState extends State<LibraryTab> {
           bookItem: bookItem,
           initialVolumeKey: volumeKey,
           initialAssetPath: assetPath,
+          initialSectionId: sectionId,
+          initialSectionIndex: sectionIndex,
+          initialQuestionNumber: questionNumber,
+          initialItemIndex: itemIndex,
+          navigationSessionId: DateTime.now().millisecondsSinceEpoch.toString(),
+          onFavoriteSaved: _loadFavorites,
         ),
       ),
-    );
+    ).then((_) {
+      _loadFavorites();
+      _loadComments();
+    });
+  }
+
+  (String? volKey, int? itemIdx, int? qNum) _parseNodeId(String nodeId) {
+    String? volumeKey;
+    int? itemIndex;
+    int? questionNumber;
+
+    String cleanNodeId = nodeId;
+    if (nodeId.contains(':')) {
+      final parts = nodeId.split(':');
+      volumeKey = parts.first;
+      cleanNodeId = parts.sublist(1).join(':');
+    }
+
+    if (cleanNodeId.contains('_')) {
+      final lastPart = cleanNodeId.split('_').last;
+      if (lastPart.startsWith('q')) {
+        questionNumber = int.tryParse(lastPart.substring(1));
+      } else {
+        itemIndex = int.tryParse(lastPart);
+      }
+    } else if (cleanNodeId.contains('-')) {
+      final lastPart = cleanNodeId.split('-').last;
+      itemIndex = int.tryParse(lastPart);
+    }
+
+    return (volumeKey, itemIndex, questionNumber);
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+    return DefaultTabController(
+      length: 3,
+      child: Column(
+        children: [
+          TabBar(
+            tabs: const [
+              Tab(text: 'Books'),
+              Tab(text: 'Favorites'),
+              Tab(text: 'Comments'),
+            ],
+          ),
+          Expanded(
+            child: TabBarView(
+              children: [
+                _buildCatalogTab(theme),
+                _buildFavoritesTab(theme),
+                _buildCommentsTab(theme),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCatalogTab(ThemeData theme) {
     final catalog = LibraryHelper.getCatalog();
 
     return SingleChildScrollView(
@@ -219,7 +334,11 @@ class _LibraryTabState extends State<LibraryTab> {
                         ),
                       ],
                     ),
-                    onTap: () => _openReader(context, matchingBook),
+                    onTap: () => _openReader(
+                      context,
+                      matchingBook,
+                      sectionId: res.sectionId,
+                    ),
                   ),
                 );
               }),
@@ -371,6 +490,276 @@ class _LibraryTabState extends State<LibraryTab> {
           ],
         ],
       ),
+    );
+  }
+
+  Widget _buildFavoritesTab(ThemeData theme) {
+    if (_loadingFavorites) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    if (_favorites.isEmpty) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.bookmark_outline,
+                size: 48,
+                color: theme.colorScheme.onSurfaceVariant.withValues(
+                  alpha: 0.5,
+                ),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                'No favorite passages saved in Library yet.',
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 4),
+              Text(
+                'Long-press on any passage in a book to select and save.',
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.outline,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    final catalog = LibraryHelper.getCatalog();
+
+    return ListView.builder(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      itemCount: _favorites.length,
+      itemBuilder: (context, index) {
+        final fav = _favorites[index];
+        final parts = fav.textPreview.split('\n');
+        final citation = parts.first;
+        final preview = parts.length > 1 ? parts.sublist(1).join(' ') : '';
+
+        final (volKey, itemIdx, qNum) = _parseNodeId(fav.nodeId);
+        final book = catalog.where((b) => b.id == fav.documentId).firstOrNull;
+
+        return Card(
+          margin: const EdgeInsets.symmetric(vertical: 4.0),
+          child: ListTile(
+            title: Text(
+              citation,
+              style: theme.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.primary,
+              ),
+            ),
+            subtitle: preview.isNotEmpty
+                ? Text(
+                    preview,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  )
+                : null,
+            trailing: IconButton(
+              icon: Icon(Icons.delete_outline, color: theme.colorScheme.error),
+              onPressed: () async {
+                await BibleDatabaseHelper.db.deleteLibraryBookmark(fav.id);
+                _loadFavorites();
+              },
+            ),
+            onTap: () {
+              if (book == null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Book not found in library'),
+                    behavior: SnackBarBehavior.floating,
+                  ),
+                );
+                return;
+              }
+
+              String? targetAssetPath;
+              String? targetVolKey = volKey;
+              if (book.isSeries && book.volumes != null) {
+                final match =
+                    book.volumes!
+                        .where((v) => v.volumeKey == volKey)
+                        .firstOrNull ??
+                    book.volumes!.firstOrNull;
+                if (match != null) {
+                  targetVolKey = match.volumeKey;
+                  targetAssetPath = match.assetPath;
+                }
+              }
+
+              _openReader(
+                context,
+                book,
+                volumeKey: targetVolKey,
+                assetPath: targetAssetPath,
+                sectionIndex: fav.sectionIndex,
+                itemIndex: itemIdx,
+                questionNumber: qNum,
+              );
+            },
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildCommentsTab(ThemeData theme) {
+    if (_loadingComments) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    if (_comments.isEmpty) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.comment_outlined,
+                size: 48,
+                color: theme.colorScheme.onSurfaceVariant.withValues(
+                  alpha: 0.5,
+                ),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                'No comments on library books yet.',
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 4),
+              Text(
+                'Long-press on a passage, then tap Comment to add a note.',
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.outline,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    final catalog = LibraryHelper.getCatalog();
+
+    return ListView.builder(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      itemCount: _comments.length,
+      itemBuilder: (context, index) {
+        final comment = _comments[index];
+        final book = catalog
+            .where((b) => b.id == comment.documentId)
+            .firstOrNull;
+
+        final (volKey, itemIdx, qNum) = _parseNodeId(comment.nodeId);
+        String header = book?.title ?? comment.documentId;
+        if (book != null &&
+            volKey != null &&
+            book.isSeries &&
+            book.volumes != null) {
+          final vol = book.volumes!
+              .where((v) => v.volumeKey == volKey)
+              .firstOrNull;
+          if (vol != null) {
+            header = '${book.title} (${vol.shortName})';
+          }
+        }
+
+        return Card(
+          margin: const EdgeInsets.symmetric(vertical: 4.0),
+          child: ListTile(
+            title: Text(
+              header,
+              style: theme.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.primary,
+              ),
+            ),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 2),
+                Text(
+                  comment.commentText,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.onSurface,
+                  ),
+                ),
+                if (comment.textPreview != null &&
+                    comment.textPreview!.isNotEmpty) ...[
+                  const SizedBox(height: 4),
+                  Text(
+                    '"${comment.textPreview}"',
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.outline,
+                      fontStyle: FontStyle.italic,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ],
+            ),
+            trailing: IconButton(
+              icon: Icon(Icons.delete_outline, color: theme.colorScheme.error),
+              onPressed: () async {
+                await BibleDatabaseHelper.db.deleteComment(comment.id);
+                _loadComments();
+              },
+            ),
+            onTap: () {
+              if (book == null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Book not found in library'),
+                    behavior: SnackBarBehavior.floating,
+                  ),
+                );
+                return;
+              }
+
+              String? targetAssetPath;
+              String? targetVolKey = volKey;
+              if (book.isSeries && book.volumes != null) {
+                final match =
+                    book.volumes!
+                        .where((v) => v.volumeKey == volKey)
+                        .firstOrNull ??
+                    book.volumes!.firstOrNull;
+                if (match != null) {
+                  targetVolKey = match.volumeKey;
+                  targetAssetPath = match.assetPath;
+                }
+              }
+
+              _openReader(
+                context,
+                book,
+                volumeKey: targetVolKey,
+                assetPath: targetAssetPath,
+                sectionIndex: comment.sectionIndex,
+                itemIndex: itemIdx,
+                questionNumber: qNum,
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }

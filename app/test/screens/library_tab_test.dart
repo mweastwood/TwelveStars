@@ -1,13 +1,27 @@
+import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
+import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/screens/library_tab.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
+import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 import '../test_helper.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+
+  late BibleDatabase testDb;
+
+  setUp(() {
+    testDb = BibleDatabase(NativeDatabase.memory());
+    BibleDatabaseHelper.db = testDb;
+  });
+
+  tearDown(() async {
+    await testDb.close();
+  });
 
   group('LibraryTab Golden & Widget Tests', () {
     testGoldens('LibraryTab renders catalog correctly', (tester) async {
@@ -101,6 +115,72 @@ void main() {
       expect(find.byType(LibraryReaderScreen), findsOneWidget);
       expect(find.text('The Didache'), findsWidgets);
     });
+
+    testWidgets('Favorites tab displays saved bookmarks and can delete them', (
+      tester,
+    ) async {
+      await testDb.saveLibraryBookmark(
+        LibraryBookmarksCompanion.insert(
+          documentId: 'didache',
+          sectionIndex: 0,
+          nodeId: 'ch1_0',
+          textPreview: 'The Didache, Chapter 1, Q. 1\nThere are two ways...',
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      // Tap Favorites tab
+      await tester.tap(find.text('Favorites'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('The Didache, Chapter 1, Q. 1'), findsOneWidget);
+      expect(find.text('There are two ways...'), findsOneWidget);
+
+      // Delete the favorite
+      await tester.tap(find.byIcon(Icons.delete_outline));
+      await tester.pumpAndSettle();
+
+      expect(
+        find.text('No favorite passages saved in Library yet.'),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('Comments tab displays saved comments and can delete them', (
+      tester,
+    ) async {
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'baltimore_catechism',
+          sectionIndex: 0,
+          nodeId: 'no1:lesson_01_1',
+          commentText: 'Important lesson on God.',
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      // Tap Comments tab
+      await tester.tap(find.text('Comments'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Important lesson on God.'), findsOneWidget);
+
+      // Delete the comment
+      await tester.tap(find.byIcon(Icons.delete_outline));
+      await tester.pumpAndSettle();
+
+      expect(find.text('No comments on library books yet.'), findsOneWidget);
+    });
   });
 
   group('LibraryReaderScreen Widget Tests', () {
@@ -142,6 +222,119 @@ void main() {
 
       expect(find.text('Table of Contents'), findsOneWidget);
     });
+
+    testWidgets(
+      'long-press enters selection mode, saves favorite and adds comment',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final didache = catalog.firstWhere((b) => b.id == 'didache_lightfoot');
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/didache_lightfoot.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(body: LibraryReaderScreen(bookItem: didache)),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Long press first content item
+        final firstItem = find.textContaining('There are two ways').first;
+        await tester.longPress(firstItem);
+        await tester.pumpAndSettle();
+
+        // Selection action bar should appear
+        expect(find.byType(ReaderSelectionActionBar), findsOneWidget);
+        expect(find.byIcon(Icons.star), findsOneWidget);
+        expect(find.byIcon(Icons.comment_outlined), findsOneWidget);
+
+        // Tap Save Favorite
+        await tester.tap(find.byIcon(Icons.star));
+        await tester.pumpAndSettle();
+
+        // Check database for bookmark
+        final bookmarks = await testDb.getLibraryBookmarks(
+          documentId: 'didache_lightfoot',
+        );
+        expect(bookmarks.length, 1);
+
+        // Selection cleared after save
+        expect(find.byType(ReaderSelectionActionBar), findsNothing);
+
+        // Long press again to add comment
+        await tester.longPress(firstItem);
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byIcon(Icons.comment_outlined));
+        await tester.pumpAndSettle();
+
+        // Add Comment dialog appears
+        expect(find.text('Cancel'), findsOneWidget);
+        expect(find.text('Save'), findsOneWidget);
+
+        await tester.enterText(
+          find.byType(TextField).last,
+          'My note on the two ways',
+        );
+        await tester.tap(find.text('Save'));
+        await tester.pumpAndSettle();
+
+        final comments = await testDb.getComments(
+          documentId: 'didache_lightfoot',
+        );
+        expect(comments.length, 1);
+        expect(comments.first.commentText, 'My note on the two ways');
+
+        // Verify comment badge is displayed
+        expect(find.byIcon(Icons.comment_rounded), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'displays comment badge on series books with volume-prefixed nodeId',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final baltimore = catalog.firstWhere(
+          (b) => b.id == 'baltimore_catechism',
+        );
+
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'baltimore_catechism',
+            sectionIndex: 0,
+            nodeId: 'no1:sec_1_0',
+            commentText: 'Note on First Communion Q1',
+            createdAt: DateTime.now(),
+          ),
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryReaderScreen(
+                bookItem: baltimore,
+                initialVolumeKey: 'no1',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Verify comment badge is visible on the Baltimore Catechism item
+        expect(find.byIcon(Icons.comment_rounded), findsWidgets);
+        expect(find.text('1'), findsWidgets);
+      },
+    );
 
     testGoldens(
       'LibraryReaderScreen renders Baltimore No. 3 with Cross-References',
