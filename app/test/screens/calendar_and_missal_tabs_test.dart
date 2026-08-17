@@ -8,6 +8,7 @@ import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:drift/native.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/time_helper.dart';
 import '../test_helper.dart';
 
@@ -613,6 +614,65 @@ void main() {
           find.byType(BibleVerseRow).first,
         );
         expect(verseRow.fontSize, equals(22.0));
+      },
+    );
+
+    test(
+      'verifies BibleDatabase getReadings for Christ the King Solemnity across cycles',
+      () async {
+        // Year A (2026-11-22)
+        final dayA = LiturgicalCalendar.computeDay(DateTime(2026, 11, 22));
+        expect(dayA.lectionaryKey, 'season_ordinary_time_34_sunday_a');
+        final readingsA = await BibleDatabaseHelper.db.getReadings(
+          dayA.lectionaryKey,
+        );
+        expect(readingsA, isNotEmpty);
+        expect(readingsA.length, equals(4)); // First, Psalm, Second, Gospel
+
+        // Year B (2024-11-24)
+        final dayB = LiturgicalCalendar.computeDay(DateTime(2024, 11, 24));
+        expect(dayB.lectionaryKey, 'season_ordinary_time_34_sunday_b');
+        final readingsB = await BibleDatabaseHelper.db.getReadings(
+          dayB.lectionaryKey,
+        );
+        expect(readingsB, isNotEmpty);
+        expect(readingsB.length, equals(4));
+
+        // Year C (2025-11-23)
+        final dayC = LiturgicalCalendar.computeDay(DateTime(2025, 11, 23));
+        expect(dayC.lectionaryKey, 'season_ordinary_time_34_sunday_c');
+        final readingsC = await BibleDatabaseHelper.db.getReadings(
+          dayC.lectionaryKey,
+        );
+        expect(readingsC, isNotEmpty);
+        expect(readingsC.length, equals(4));
+      },
+    );
+
+    testWidgets(
+      'MissalTab renders Christ the King readings correctly without showing no readings seeded',
+      (tester) async {
+        TimeHelper.setCustomTime(
+          DateTime(2024, 11, 24),
+        ); // Christ the King Year B
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: MissalTab(
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('No readings seeded for this date.'), findsNothing);
+        expect(find.text('LITURGY OF THE WORD'), findsOneWidget);
+        expect(find.text('First Reading'), findsOneWidget);
+        expect(find.text('Responsorial Psalm'), findsOneWidget);
+        expect(find.text('Second Reading'), findsOneWidget);
+        expect(find.text('Gospel'), findsOneWidget);
       },
     );
   });

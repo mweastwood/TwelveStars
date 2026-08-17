@@ -64,7 +64,7 @@ class LiturgicalDay {
         return 'feast_sacred_heart';
       }
       if (norm.contains('king of the universe')) {
-        return 'feast_christ_the_king';
+        return 'season_ordinary_time_34_sunday_${sundayCycle.toLowerCase()}';
       }
     }
 
@@ -382,10 +382,13 @@ class LiturgicalCalendar {
       activeEaster.month,
       activeEaster.day + 68,
     ); // Friday after 2nd Sunday after Pentecost
+    final nextAdvent = localDate.isBefore(advent)
+        ? advent
+        : getFirstSundayOfAdvent(year + 1);
     final christTheKing = DateTime(
-      activeAdventStart.year,
-      activeAdventStart.month,
-      activeAdventStart.day - 7,
+      nextAdvent.year,
+      nextAdvent.month,
+      nextAdvent.day - 7,
     );
 
     // Seasons checks
