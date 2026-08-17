@@ -92,6 +92,7 @@ flutter:
     - assets/catechism/baltimore/
     - assets/catechism/trent/
     - assets/catechism/didache/
+    - assets/catechism/clement/
     - assets/catechism/json/
 
   # An image asset can refer to one or more resolution-specific "variants", see

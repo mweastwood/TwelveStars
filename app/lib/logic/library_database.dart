@@ -246,6 +246,27 @@ class LibraryHelper {
             'The earliest surviving non-canonical Christian treatise (c. 1st century), presenting the doctrine of the Two Ways, early liturgical rites for Baptism and the Eucharist, and instructions on church order.',
         defaultAssetPath: 'assets/catechism/json/didache_lightfoot.json',
       ),
+      const LibraryBookItem(
+        id: 'first_clement_lightfoot',
+        title: 'First Epistle of Clement',
+        subtitle:
+            'Letter of the Church of Rome to the Corinthians (Trans. J. B. Lightfoot, 1891)',
+        category: 'Apostolic Fathers',
+        author: 'Pope St. Clement of Rome (Trans. J. B. Lightfoot)',
+        description:
+            'Written c. 96 AD from the Church of Rome to Corinth to restore order following a rebellion against the presbyters. An invaluable early witness to apostolic succession, Christian charity, and liturgical order.',
+        defaultAssetPath: 'assets/catechism/json/first_clement_lightfoot.json',
+      ),
+      const LibraryBookItem(
+        id: 'second_clement_lightfoot',
+        title: 'Second Epistle of Clement',
+        subtitle: 'An Ancient Christian Homily (Trans. J. B. Lightfoot, 1891)',
+        category: 'Apostolic Fathers',
+        author: 'The Apostolic Fathers (Trans. J. B. Lightfoot)',
+        description:
+            'The earliest surviving complete Christian sermon/homily outside the New Testament (c. 100–140 AD), exhorting believers to purity of life, repentance, and steadfast hope in the resurrection.',
+        defaultAssetPath: 'assets/catechism/json/second_clement_lightfoot.json',
+      ),
     ];
   }
 

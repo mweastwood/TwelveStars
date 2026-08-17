@@ -525,7 +525,15 @@ void assembleTrentFromSource(String sourcePath, Directory outputDir) {
   );
 }
 
-void parseDidacheFile(String filepath, Directory outputDir) {
+void parseChapteredBookFile({
+  required String filepath,
+  required String bookId,
+  required String secIdPrefix,
+  required String title,
+  required String subtitle,
+  required String author,
+  required Directory outputDir,
+}) {
   final file = File(filepath);
   if (!file.existsSync()) {
     print('Error: $filepath not found!');
@@ -547,6 +555,10 @@ void parseDidacheFile(String filepath, Directory outputDir) {
     if (stripped.isEmpty) continue;
 
     if (stripped.startsWith('The Didache:') ||
+        stripped.startsWith('The First Epistle') ||
+        stripped.startsWith('First Epistle') ||
+        stripped.startsWith('The Second Epistle') ||
+        stripped.startsWith('Second Epistle') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -557,7 +569,7 @@ void parseDidacheFile(String filepath, Directory outputDir) {
     ).firstMatch(stripped);
     if (chapterMatch != null) {
       final chapNum = int.parse(chapterMatch.group(1)!);
-      final secId = 'sec_didache_$chapNum';
+      final secId = 'sec_${secIdPrefix}_$chapNum';
       currentChapterTitle = 'Chapter $chapNum';
       currentChapterSubtitle = '';
       currentSection = {
@@ -601,22 +613,34 @@ void parseDidacheFile(String filepath, Directory outputDir) {
   }
 
   final finalJson = {
-    'bookId': 'didache_lightfoot',
-    'title': 'The Didache',
-    'subtitle':
-        'The Teaching of the Twelve Apostles (Trans. J. B. Lightfoot, 1891)',
-    'author': 'The Apostolic Fathers (Trans. J. B. Lightfoot)',
+    'bookId': bookId,
+    'title': title,
+    'subtitle': subtitle,
+    'author': author,
     'verseSystem': 'vulgate',
     'toc': toc,
     'sections': sections,
   };
 
-  final outFile = File(p.join(outputDir.path, 'didache_lightfoot.json'));
+  final outFile = File(p.join(outputDir.path, '$bookId.json'));
   outFile.writeAsStringSync(
     const JsonEncoder.withIndent('  ').convert(finalJson),
   );
   print(
     'Successfully generated ${outFile.path} (${sections.length} chapters, ${toc.length} TOC entries)',
+  );
+}
+
+void parseDidacheFile(String filepath, Directory outputDir) {
+  parseChapteredBookFile(
+    filepath: filepath,
+    bookId: 'didache_lightfoot',
+    secIdPrefix: 'didache',
+    title: 'The Didache',
+    subtitle:
+        'The Teaching of the Twelve Apostles (Trans. J. B. Lightfoot, 1891)',
+    author: 'The Apostolic Fathers (Trans. J. B. Lightfoot)',
+    outputDir: outputDir,
   );
 }
 
@@ -629,6 +653,7 @@ void main() {
   final baltimoreDir = p.join('assets', 'catechism', 'baltimore');
   final trentDir = p.join('assets', 'catechism', 'trent');
   final didacheDir = p.join('assets', 'catechism', 'didache');
+  final clementDir = p.join('assets', 'catechism', 'clement');
 
   parseBaltimoreFile(
     p.join(baltimoreDir, 'baltimore_catechism_no1.txt'),
@@ -665,4 +690,25 @@ void main() {
   );
 
   parseDidacheFile(p.join(didacheDir, 'didache_lightfoot.txt'), outputDir);
+
+  parseChapteredBookFile(
+    filepath: p.join(clementDir, 'first_clement_lightfoot.txt'),
+    bookId: 'first_clement_lightfoot',
+    secIdPrefix: 'first_clement',
+    title: 'First Epistle of Clement',
+    subtitle:
+        'Letter of the Church of Rome to the Corinthians (Trans. J. B. Lightfoot, 1891)',
+    author: 'Pope St. Clement of Rome (Trans. J. B. Lightfoot)',
+    outputDir: outputDir,
+  );
+
+  parseChapteredBookFile(
+    filepath: p.join(clementDir, 'second_clement_lightfoot.txt'),
+    bookId: 'second_clement_lightfoot',
+    secIdPrefix: 'second_clement',
+    title: 'Second Epistle of Clement',
+    subtitle: 'An Ancient Christian Homily (Trans. J. B. Lightfoot, 1891)',
+    author: 'The Apostolic Fathers (Trans. J. B. Lightfoot)',
+    outputDir: outputDir,
+  );
 }
