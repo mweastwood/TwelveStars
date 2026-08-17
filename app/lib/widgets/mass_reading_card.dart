@@ -30,6 +30,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
   bool _isLoading = false;
   List<BibleVerse>? _verses;
   List<UserComment> _comments = [];
+  List<FavoritePassage> _favorites = [];
   String? _errorMessage;
 
   String? _loadedTranslation;
@@ -82,6 +83,20 @@ class _MassReadingCardState extends State<MassReadingCard> {
     }
   }
 
+  Future<void> _loadFavorites() async {
+    try {
+      final favorites = await BibleDatabaseHelper.db.getFavoritesForChapter(
+        widget.reading.bookNumber,
+        widget.reading.chapter,
+      );
+      if (mounted) {
+        setState(() {
+          _favorites = favorites;
+        });
+      }
+    } catch (_) {}
+  }
+
   Future<void> _loadComments() async {
     try {
       final bookMeta = catholicBooks.firstWhere(
@@ -131,6 +146,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
         translation: translation,
       );
 
+      await _loadFavorites();
       await _loadComments();
 
       final ranges = resolveReadingRanges(
@@ -295,6 +311,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
           );
 
           await BibleDatabaseHelper.db.saveFavorite(favorite);
+          await _loadFavorites();
 
           if (mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -452,6 +469,17 @@ class _MassReadingCardState extends State<MassReadingCard> {
                       .where((c) => c.nodeId == nodeId)
                       .toList();
 
+                  final matchingFavorites = _favorites
+                      .where(
+                        (fav) =>
+                            fav.bookNumber == verse.bookNumber &&
+                            fav.chapter == verse.chapter &&
+                            verse.verseNumber >= fav.startVerse &&
+                            verse.verseNumber <= fav.endVerse,
+                      )
+                      .toList();
+                  final isFavorite = matchingFavorites.isNotEmpty;
+
                   return BibleVerseRow(
                     verseNumber: verse.verseNumber,
                     verseText: verse.verseText,
@@ -459,6 +487,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
                     fontSize: widget.fontSize,
                     citationsCount: verseCitations.length,
                     commentsCount: verseComments.length,
+                    isFavorite: isFavorite,
                     onTap: () => _onVerseTap(index),
                     onLongPress: () => _onVerseLongPress(index),
                     onTapCitations: () => showReverseCitationsModal(
@@ -491,6 +520,13 @@ class _MassReadingCardState extends State<MassReadingCard> {
                         ),
                       );
                     },
+                    onTapFavorite: () => showVerseFavoritesModal(
+                      context: context,
+                      title:
+                          '${verse.bookName} ${verse.chapter}:${verse.verseNumber}',
+                      favorites: matchingFavorites,
+                      onFavoritesChanged: _loadFavorites,
+                    ),
                   );
                 }),
                 if (_firstSelectedVerseIndex != null)
