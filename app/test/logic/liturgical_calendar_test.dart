@@ -71,6 +71,31 @@ void main() {
       expect(day.color, LiturgicalColor.white);
       expect(day.name, 'The Nativity of the Lord (Christmas)');
 
+      // Dec 27, 2026: Holy Family Sunday (Christmas 2026 is Friday)
+      final holyFamily2026 = LiturgicalCalendar.computeDay(
+        DateTime(2026, 12, 27),
+      );
+      expect(holyFamily2026.season, LiturgicalSeason.christmas);
+      expect(holyFamily2026.color, LiturgicalColor.white);
+      expect(holyFamily2026.name, 'The Holy Family of Jesus, Mary and Joseph');
+      expect(holyFamily2026.weekName, 'Feast of the Holy Family');
+
+      // Dec 30, 2022: Holy Family Friday (Christmas 2022 was on Sunday Dec 25)
+      final holyFamily2022 = LiturgicalCalendar.computeDay(
+        DateTime(2022, 12, 30),
+      );
+      expect(holyFamily2022.season, LiturgicalSeason.christmas);
+      expect(holyFamily2022.color, LiturgicalColor.white);
+      expect(holyFamily2022.name, 'The Holy Family of Jesus, Mary and Joseph');
+      expect(holyFamily2022.weekName, 'Feast of the Holy Family');
+
+      // Dec 30, 2016: Holy Family Friday (Christmas 2016 was on Sunday Dec 25)
+      final holyFamily2016 = LiturgicalCalendar.computeDay(
+        DateTime(2016, 12, 30),
+      );
+      expect(holyFamily2016.name, 'The Holy Family of Jesus, Mary and Joseph');
+      expect(holyFamily2016.weekName, 'Feast of the Holy Family');
+
       // Jan 1, 2026: Mary, Mother of God
       final motherOfGod = LiturgicalCalendar.computeDay(DateTime(2026, 1, 1));
       expect(motherOfGod.season, LiturgicalSeason.christmas);

@@ -435,12 +435,14 @@ class LiturgicalCalendar {
             12,
             25,
           );
-          final holyFamilySunday = DateTime(
-            dec25.year,
-            dec25.month,
-            dec25.day + 7 - dec25.weekday % 7,
-          );
-          if (localDate.isAtSameMomentAs(holyFamilySunday)) {
+          final holyFamilyDate = dec25.weekday == DateTime.sunday
+              ? DateTime(dec25.year, 12, 30)
+              : DateTime(
+                  dec25.year,
+                  dec25.month,
+                  dec25.day + 7 - dec25.weekday % 7,
+                );
+          if (localDate.isAtSameMomentAs(holyFamilyDate)) {
             name = 'The Holy Family of Jesus, Mary and Joseph';
             weekName = 'Feast of the Holy Family';
           } else {
