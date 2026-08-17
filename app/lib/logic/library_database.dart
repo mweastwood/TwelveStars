@@ -212,6 +212,65 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> ignatiusVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'ephesians',
+      name: 'Epistle to the Ephesians',
+      shortName: 'Ephesians',
+      description:
+          'On church harmony, unity with the bishop, and the mystery of the Incarnation.',
+      assetPath: 'assets/catechism/json/ignatius_ephesians_lightfoot.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'magnesians',
+      name: 'Epistle to the Magnesians',
+      shortName: 'Magnesians',
+      description:
+          'On the authority of the bishop, the Lord\'s Day, and avoiding Judaizing fables.',
+      assetPath: 'assets/catechism/json/ignatius_magnesians_lightfoot.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'trallians',
+      name: 'Epistle to the Trallians',
+      shortName: 'Trallians',
+      description:
+          'On reverence for the threefold ministry and refuting Docetism with Christ\'s true Passion.',
+      assetPath: 'assets/catechism/json/ignatius_trallians_lightfoot.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'romans',
+      name: 'Epistle to the Romans',
+      shortName: 'Romans',
+      description:
+          'Famous letter on martyrdom: "I am God\'s wheat, to be ground by the teeth of wild beasts."',
+      assetPath: 'assets/catechism/json/ignatius_romans_lightfoot.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'philadelphians',
+      name: 'Epistle to the Philadelphians',
+      shortName: 'Philadelphians',
+      description:
+          'On one altar, one Eucharist, unity around the bishop, and the peace of the Church.',
+      assetPath: 'assets/catechism/json/ignatius_philadelphians_lightfoot.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'smyrnaeans',
+      name: 'Epistle to the Smyrnaeans',
+      shortName: 'Smyrnaeans',
+      description:
+          'Earliest surviving use of "Catholic Church"; defense of Christ\'s true flesh and the Eucharist.',
+      assetPath: 'assets/catechism/json/ignatius_smyrnaeans_lightfoot.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'polycarp',
+      name: 'Epistle to Polycarp',
+      shortName: 'Polycarp',
+      description:
+          'Personal pastoral letter of counsel and encouragement to St. Polycarp, Bishop of Smyrna.',
+      assetPath: 'assets/catechism/json/ignatius_polycarp_lightfoot.json',
+    ),
+  ];
+
   static List<LibraryBookItem> getCatalog() {
     return [
       const LibraryBookItem(
@@ -266,6 +325,16 @@ class LibraryHelper {
         description:
             'The earliest surviving complete Christian sermon/homily outside the New Testament (c. 100–140 AD), exhorting believers to purity of life, repentance, and steadfast hope in the resurrection.',
         defaultAssetPath: 'assets/catechism/json/second_clement_lightfoot.json',
+      ),
+      const LibraryBookItem(
+        id: 'ignatius_epistles',
+        title: 'Epistles of St. Ignatius',
+        subtitle: 'The Seven Authentic Letters (Trans. J. B. Lightfoot, 1891)',
+        category: 'Apostolic Fathers',
+        author: 'St. Ignatius of Antioch (Trans. J. B. Lightfoot)',
+        description:
+            'Written c. 107–110 AD on his way to martyrdom in Rome. The seven authentic letters provide an irreplaceable early witness to the hierarchy of the Church, the Holy Eucharist, the Catholic Church, and Christian martyrdom.',
+        volumes: ignatiusVolumes,
       ),
     ];
   }
