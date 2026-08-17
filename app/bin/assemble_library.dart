@@ -559,6 +559,7 @@ void parseChapteredBookFile({
         stripped.startsWith('First Epistle') ||
         stripped.startsWith('The Second Epistle') ||
         stripped.startsWith('Second Epistle') ||
+        stripped.startsWith('Epistle of Ignatius') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -654,6 +655,7 @@ void main() {
   final trentDir = p.join('assets', 'catechism', 'trent');
   final didacheDir = p.join('assets', 'catechism', 'didache');
   final clementDir = p.join('assets', 'catechism', 'clement');
+  final ignatiusDir = p.join('assets', 'catechism', 'ignatius');
 
   parseBaltimoreFile(
     p.join(baltimoreDir, 'baltimore_catechism_no1.txt'),
@@ -711,4 +713,54 @@ void main() {
     author: 'The Apostolic Fathers (Trans. J. B. Lightfoot)',
     outputDir: outputDir,
   );
+
+  final ignatiusLetters = [
+    (
+      'ephesians',
+      'Epistle of Ignatius to the Ephesians',
+      'To the Ephesians (Trans. J. B. Lightfoot, 1891)',
+    ),
+    (
+      'magnesians',
+      'Epistle of Ignatius to the Magnesians',
+      'To the Magnesians (Trans. J. B. Lightfoot, 1891)',
+    ),
+    (
+      'trallians',
+      'Epistle of Ignatius to the Trallians',
+      'To the Trallians (Trans. J. B. Lightfoot, 1891)',
+    ),
+    (
+      'romans',
+      'Epistle of Ignatius to the Romans',
+      'To the Romans (Trans. J. B. Lightfoot, 1891)',
+    ),
+    (
+      'philadelphians',
+      'Epistle of Ignatius to the Philadelphians',
+      'To the Philadelphians (Trans. J. B. Lightfoot, 1891)',
+    ),
+    (
+      'smyrnaeans',
+      'Epistle of Ignatius to the Smyrnaeans',
+      'To the Smyrnaeans (Trans. J. B. Lightfoot, 1891)',
+    ),
+    (
+      'polycarp',
+      'Epistle of Ignatius to Polycarp',
+      'To Polycarp (Trans. J. B. Lightfoot, 1891)',
+    ),
+  ];
+
+  for (final (slug, title, subtitle) in ignatiusLetters) {
+    parseChapteredBookFile(
+      filepath: p.join(ignatiusDir, 'ignatius_${slug}_lightfoot.txt'),
+      bookId: 'ignatius_${slug}_lightfoot',
+      secIdPrefix: 'ignatius_$slug',
+      title: title,
+      subtitle: subtitle,
+      author: 'St. Ignatius of Antioch (Trans. J. B. Lightfoot)',
+      outputDir: outputDir,
+    );
+  }
 }

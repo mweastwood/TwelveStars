@@ -52,12 +52,18 @@ void main() {
       expect(find.text('The Didache'), findsOneWidget);
       expect(find.text('First Epistle of Clement'), findsOneWidget);
       expect(find.text('Second Epistle of Clement'), findsOneWidget);
+      expect(find.text('Epistles of St. Ignatius'), findsOneWidget);
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
       expect(find.text('No. 2 (Confirmation & Grammar)'), findsOneWidget);
       expect(find.text('No. 3 (Post-Confirmation Course)'), findsOneWidget);
       expect(find.text('No. 4 (Explanation by Fr. Kinkead)'), findsOneWidget);
+
+      // Verify Ignatius volume chips exist
+      expect(find.text('Epistle to the Ephesians'), findsOneWidget);
+      expect(find.text('Epistle to the Romans'), findsOneWidget);
+      expect(find.text('Epistle to the Smyrnaeans'), findsOneWidget);
     });
 
     testWidgets('tapping volume chip opens LibraryReaderScreen', (
@@ -81,6 +87,33 @@ void main() {
       // Reader screen should be visible
       expect(find.byType(LibraryReaderScreen), findsOneWidget);
       expect(find.text('Baltimore Catechism'), findsWidgets);
+    });
+
+    testWidgets('tapping Ignatius volume chip opens LibraryReaderScreen', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/ignatius_romans_lightfoot.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final romansChip = find.text('Epistle to the Romans');
+      await tester.scrollUntilVisible(
+        romansChip,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(romansChip);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('Epistles of St. Ignatius'), findsWidgets);
     });
 
     testWidgets(
@@ -557,6 +590,62 @@ void main() {
 
       await screenMatchesGolden(tester, 'second_clement_reader_golden');
     });
+
+    testGoldens(
+      'LibraryReaderScreen renders Epistles of St. Ignatius (Romans)',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final ignatius = catalog.firstWhere((b) => b.id == 'ignatius_epistles');
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/ignatius_romans_lightfoot.json',
+          );
+        });
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: ignatius,
+              initialVolumeKey: 'romans',
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'ignatius_romans_reader_golden');
+      },
+    );
+
+    testGoldens(
+      'LibraryReaderScreen renders Epistles of St. Ignatius (Ephesians)',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final ignatius = catalog.firstWhere((b) => b.id == 'ignatius_epistles');
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/ignatius_ephesians_lightfoot.json',
+          );
+        });
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: ignatius,
+              initialVolumeKey: 'ephesians',
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'ignatius_ephesians_reader_golden');
+      },
+    );
 
     testWidgets('renders interactive Scripture citation chip', (tester) async {
       final catalog = LibraryHelper.getCatalog();

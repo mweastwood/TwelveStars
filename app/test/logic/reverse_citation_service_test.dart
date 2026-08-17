@@ -57,7 +57,7 @@ void main() {
         await Future.wait([future1, future2, future3]);
 
         expect(ReverseCitationService.isInFlightIndexing, isFalse);
-        expect(ReverseCitationService.indexedSourcesCount, equals(8));
+        expect(ReverseCitationService.indexedSourcesCount, equals(15));
       },
     );
 
@@ -154,8 +154,8 @@ void main() {
         ReverseCitationService.clear();
         expect(ReverseCitationService.indexedSourcesCount, equals(0));
 
-        // Index 11 sources (max capacity is 10)
-        for (int i = 1; i <= 11; i++) {
+        // Index 21 sources (max capacity is 20)
+        for (int i = 1; i <= 21; i++) {
           final bookData = ParsedBookData(
             bookId: 'book_$i',
             title: 'Book $i',
@@ -174,21 +174,24 @@ void main() {
           ReverseCitationService.indexBookData('source_$i', bookData);
         }
 
-        // Max capacity is 10, so source_1 should have been evicted
-        expect(ReverseCitationService.indexedSourcesCount, equals(10));
+        // Max capacity is 20, so source_1 should have been evicted
+        expect(
+          ReverseCitationService.indexedSourcesCount,
+          equals(ReverseCitationService.maxIndexedSources),
+        );
 
         // source_1 was evicted (Gen 1:1 has 0 citations from these custom sources)
         final gen1Citations = ReverseCitationService.getVerseCitations(1, 1, 1);
         expect(gen1Citations, isEmpty);
 
-        // source_11 is retained (Gen 11:1 has 1 citation)
-        final gen11Citations = ReverseCitationService.getVerseCitations(
+        // source_21 is retained (Gen 21:1 has 1 citation)
+        final gen21Citations = ReverseCitationService.getVerseCitations(
           1,
-          11,
+          21,
           1,
         );
-        expect(gen11Citations.length, equals(1));
-        expect(gen11Citations.first.sourceBookId, equals('book_11'));
+        expect(gen21Citations.length, equals(1));
+        expect(gen21Citations.first.sourceBookId, equals('book_21'));
       },
     );
 
