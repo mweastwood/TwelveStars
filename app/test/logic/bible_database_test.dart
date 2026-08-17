@@ -62,6 +62,36 @@ void main() {
       expect(testDb.inFlightBookPopulations.containsKey(key), isFalse);
       expect(testDb.inFlightBookPopulations, isEmpty);
     });
+
+    test(
+      'handles concurrent getReadings and ensurePopulated calls with in-flight deduplication',
+      () async {
+        expect(testDb.inFlightLectionaryPopulation, isNull);
+
+        final future1 = testDb.getReadings('feast_all_saints');
+        final inFlightFuture = testDb.inFlightLectionaryPopulation;
+        expect(inFlightFuture, isNotNull);
+
+        final future2 = testDb.getReadings('feast_all_saints');
+        final future3 = testDb.ensurePopulated();
+
+        // While in flight, the same future is referenced
+        expect(testDb.inFlightLectionaryPopulation, equals(inFlightFuture));
+
+        final results = await Future.wait([future1, future2]);
+        await future3;
+
+        expect(testDb.inFlightLectionaryPopulation, isNull);
+        expect(results[0], isNotEmpty);
+        expect(results[1], isNotEmpty);
+        expect(results[0].length, equals(results[1].length));
+
+        // Subsequent call should succeed and leave inFlightLectionaryPopulation as null
+        final subsequent = await testDb.getReadings('feast_all_saints');
+        expect(subsequent.length, equals(results[0].length));
+        expect(testDb.inFlightLectionaryPopulation, isNull);
+      },
+    );
   });
 
   group('UserSettings Operations', () {
