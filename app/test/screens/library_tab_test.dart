@@ -374,6 +374,33 @@ void main() {
       },
     );
 
+    testGoldens('LibraryReaderScreen renders Baltimore No. 2', (tester) async {
+      final catalog = LibraryHelper.getCatalog();
+      final baltimore = catalog.firstWhere(
+        (b) => b.id == 'baltimore_catechism',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/baltimore_2.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        Scaffold(
+          body: LibraryReaderScreen(
+            bookItem: baltimore,
+            initialVolumeKey: 'no2',
+          ),
+        ),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'catechism_baltimore_2_reader_golden');
+    });
+
     testGoldens(
       'LibraryReaderScreen renders Baltimore No. 3 with Cross-References',
       (tester) async {
@@ -462,6 +489,74 @@ void main() {
         await screenMatchesGolden(tester, 'catechism_trent_reader_golden');
       },
     );
+
+    testGoldens('LibraryReaderScreen renders The Didache', (tester) async {
+      final catalog = LibraryHelper.getCatalog();
+      final didache = catalog.firstWhere((b) => b.id == 'didache_lightfoot');
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/didache_lightfoot.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        Scaffold(body: LibraryReaderScreen(bookItem: didache)),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'didache_reader_golden');
+    });
+
+    testGoldens('LibraryReaderScreen renders First Epistle of Clement', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final firstClement = catalog.firstWhere(
+        (b) => b.id == 'first_clement_lightfoot',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/first_clement_lightfoot.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        Scaffold(body: LibraryReaderScreen(bookItem: firstClement)),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'first_clement_reader_golden');
+    });
+
+    testGoldens('LibraryReaderScreen renders Second Epistle of Clement', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final secondClement = catalog.firstWhere(
+        (b) => b.id == 'second_clement_lightfoot',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/second_clement_lightfoot.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        Scaffold(body: LibraryReaderScreen(bookItem: secondClement)),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'second_clement_reader_golden');
+    });
 
     testWidgets('renders interactive Scripture citation chip', (tester) async {
       final catalog = LibraryHelper.getCatalog();
