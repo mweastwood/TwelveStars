@@ -708,6 +708,45 @@ void main() {
         expect(find.text('Homily Reflection'), findsOneWidget);
       },
     );
+
+    testGoldens(
+      'MissalTab renders Homily section with AI Reflection button and opens modal sheet',
+      (tester) async {
+        LocalAgentHelper.instance = MockMissalAiService();
+        TimeHelper.setCustomTime(DateTime(2024, 11, 24));
+        await tester.pumpWidgetBuilder(
+          const Scaffold(
+            body: MissalTab(
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await tester.ensureVisible(find.text('AI Reflection'));
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'missal_tab_homily_section_golden',
+          customPump: (tester) async => await tester.pump(),
+        );
+
+        await tester.tap(find.text('AI Reflection'));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 300));
+        await tester.pump(const Duration(milliseconds: 300));
+
+        await screenMatchesGolden(
+          tester,
+          'missal_tab_homily_reflection_modal_golden',
+          customPump: (tester) async => await tester.pump(),
+        );
+      },
+    );
   });
 }
 

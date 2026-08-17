@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:flutter_agent_core/flutter_agent_core.dart';
 import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/logic/homily_service.dart';
@@ -16,6 +18,7 @@ class TestAiService implements AiService {
   String? generatedText =
       '## Reflection\n\nToday\'s readings invite us to place our trust in God.';
   bool shouldThrowOnGenerate = false;
+  Completer<String?>? generateCompleter;
 
   @override
   Future<AiCoreStatus> checkStatus() async {
@@ -55,6 +58,9 @@ class TestAiService implements AiService {
     if (shouldThrowOnGenerate) {
       throw Exception('Simulated AI model generation failure');
     }
+    if (generateCompleter != null) {
+      return generateCompleter!.future;
+    }
     return generatedText;
   }
 
@@ -68,6 +74,10 @@ class TestAiService implements AiService {
     generateContentCalls++;
     if (shouldThrowOnGenerate) {
       throw Exception('Simulated AI model generation failure');
+    }
+    if (generateCompleter != null) {
+      final res = await generateCompleter!.future;
+      return AiResponse(text: res ?? '', isTruncated: false);
     }
     return AiResponse(text: generatedText ?? '', isTruncated: false);
   }
@@ -289,5 +299,170 @@ void main() {
       ),
       findsOneWidget,
     );
+  });
+
+  group('HomilyReflectionSheet Golden Tests', () {
+    testGoldens(
+      'renders HomilyReflectionSheet in generated reflection state (Light Theme)',
+      (tester) async {
+        mockAi.status = AiCoreStatus.available;
+        mockAi.generatedText =
+            '### Spiritual Reflection\n\n'
+            'Today\'s readings invite us to place our complete trust in Christ even in the midst of life\'s greatest storms.\n\n'
+            '* **Typological Connection**: Like Elijah on Mount Horeb hearing the still small voice (1 Kgs 19), Jesus reveals Himself in quiet majesty.\n'
+            '* **Spiritual Application**: Step out in faith with eyes fixed on the Lord.';
+
+        await tester.pumpWidgetBuilder(
+          const Scaffold(
+            body: HomilyReflectionSheet(
+              celebrationTitle: '19th Sunday in Ordinary Time',
+              readings: [],
+              preloadedReadingsData: testReadingsData,
+            ),
+          ),
+          wrapper: materialAppWrapper(
+            theme: ThemeData.light(useMaterial3: true),
+          ),
+          surfaceSize: const Size(450, 700),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'homily_reflection_sheet_success_golden',
+        );
+      },
+    );
+
+    testGoldens(
+      'renders HomilyReflectionSheet in generated reflection state (Dark Theme)',
+      (tester) async {
+        mockAi.status = AiCoreStatus.available;
+        mockAi.generatedText =
+            '### Spiritual Reflection\n\n'
+            'Today\'s readings invite us to place our complete trust in Christ even in the midst of life\'s greatest storms.\n\n'
+            '* **Typological Connection**: Like Elijah on Mount Horeb hearing the still small voice (1 Kgs 19), Jesus reveals Himself in quiet majesty.\n'
+            '* **Spiritual Application**: Step out in faith with eyes fixed on the Lord.';
+
+        await tester.pumpWidgetBuilder(
+          const Scaffold(
+            body: HomilyReflectionSheet(
+              celebrationTitle: '19th Sunday in Ordinary Time',
+              readings: [],
+              preloadedReadingsData: testReadingsData,
+            ),
+          ),
+          wrapper: materialAppWrapper(
+            theme: ThemeData.dark(useMaterial3: true),
+          ),
+          surfaceSize: const Size(450, 700),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'homily_reflection_sheet_dark_golden',
+        );
+      },
+    );
+
+    testGoldens('renders HomilyReflectionSheet in loading state', (
+      tester,
+    ) async {
+      mockAi.status = AiCoreStatus.available;
+      mockAi.generateCompleter = Completer<String?>();
+
+      await tester.pumpWidgetBuilder(
+        const Scaffold(
+          body: HomilyReflectionSheet(
+            celebrationTitle: '19th Sunday in Ordinary Time',
+            readings: [],
+            preloadedReadingsData: testReadingsData,
+          ),
+        ),
+        wrapper: materialAppWrapper(theme: ThemeData.light(useMaterial3: true)),
+        surfaceSize: const Size(450, 450),
+      );
+      await tester.pump();
+
+      await screenMatchesGolden(
+        tester,
+        'homily_reflection_sheet_loading_golden',
+        customPump: (tester) async {
+          await tester.pump(const Duration(milliseconds: 100));
+        },
+      );
+      mockAi.generateCompleter!.complete('Done');
+      await tester.pump();
+      await tester.pumpAndSettle();
+    });
+
+    testGoldens('renders HomilyReflectionSheet in AI Core unavailable state', (
+      tester,
+    ) async {
+      mockAi.status = AiCoreStatus.unavailable;
+
+      await tester.pumpWidgetBuilder(
+        const Scaffold(
+          body: HomilyReflectionSheet(
+            celebrationTitle: '19th Sunday in Ordinary Time',
+            readings: [],
+            preloadedReadingsData: testReadingsData,
+          ),
+        ),
+        wrapper: materialAppWrapper(theme: ThemeData.light(useMaterial3: true)),
+        surfaceSize: const Size(450, 500),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(
+        tester,
+        'homily_reflection_sheet_unavailable_golden',
+      );
+    });
+
+    testGoldens('renders HomilyReflectionSheet in downloadable state', (
+      tester,
+    ) async {
+      mockAi.status = AiCoreStatus.downloadable;
+
+      await tester.pumpWidgetBuilder(
+        const Scaffold(
+          body: HomilyReflectionSheet(
+            celebrationTitle: '19th Sunday in Ordinary Time',
+            readings: [],
+            preloadedReadingsData: testReadingsData,
+          ),
+        ),
+        wrapper: materialAppWrapper(theme: ThemeData.light(useMaterial3: true)),
+        surfaceSize: const Size(450, 520),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(
+        tester,
+        'homily_reflection_sheet_downloadable_golden',
+      );
+    });
+
+    testGoldens('renders HomilyReflectionSheet in error state', (tester) async {
+      mockAi.status = AiCoreStatus.available;
+      mockAi.shouldThrowOnGenerate = true;
+
+      await tester.pumpWidgetBuilder(
+        const Scaffold(
+          body: HomilyReflectionSheet(
+            celebrationTitle: '19th Sunday in Ordinary Time',
+            readings: [],
+            preloadedReadingsData: testReadingsData,
+          ),
+        ),
+        wrapper: materialAppWrapper(theme: ThemeData.light(useMaterial3: true)),
+        surfaceSize: const Size(450, 520),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'homily_reflection_sheet_error_golden');
+    });
   });
 }
