@@ -650,5 +650,349 @@ void main() {
         equals('1'),
       );
     });
+
+    test(
+      'vulgateToMasoreticVerse maps Psalm verses accurately across boundaries',
+      () {
+        // Non-Psalm
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 1,
+            chapter: 1,
+            verse: 1,
+          ),
+          equals((chapter: 1, verse: 1)),
+        );
+
+        // Psalms 1-8: Identical
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 1,
+            verse: 1,
+          ),
+          equals((chapter: 1, verse: 1)),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 8,
+            verse: 5,
+          ),
+          equals((chapter: 8, verse: 5)),
+        );
+
+        // Vulgate Psalm 9 (Verses 1-21 -> Masoretic Ps 9:1-21; Verses 22-39 -> Masoretic Ps 10:1-18)
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 9,
+            verse: 1,
+          ),
+          equals((chapter: 9, verse: 1)),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 9,
+            verse: 21,
+          ),
+          equals((chapter: 9, verse: 21)),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 9,
+            verse: 22,
+          ),
+          equals((chapter: 10, verse: 1)),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 9,
+            verse: 39,
+          ),
+          equals((chapter: 10, verse: 18)),
+        );
+
+        // Vulgate Psalm 22 -> Masoretic Psalm 23 (verses 1-6)
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 22,
+            verse: 1,
+          ),
+          equals((chapter: 23, verse: 1)),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 22,
+            verse: 6,
+          ),
+          equals((chapter: 23, verse: 6)),
+        );
+
+        // Vulgate Psalm 113 (Verses 1-8 -> Masoretic Ps 114:1-8; Verses 9-26 -> Masoretic Ps 115:1-18)
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 113,
+            verse: 1,
+          ),
+          equals((chapter: 114, verse: 1)),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 113,
+            verse: 8,
+          ),
+          equals((chapter: 114, verse: 8)),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 113,
+            verse: 9,
+          ),
+          equals((chapter: 115, verse: 1)),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 113,
+            verse: 26,
+          ),
+          equals((chapter: 115, verse: 18)),
+        );
+
+        // Vulgate Psalm 114 (Masoretic Ps 116:1-9)
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 114,
+            verse: 1,
+          ),
+          equals((chapter: 116, verse: 1)),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 114,
+            verse: 9,
+          ),
+          equals((chapter: 116, verse: 9)),
+        );
+
+        // Vulgate Psalm 115 (Masoretic Ps 116:10-19)
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 115,
+            verse: 1,
+          ),
+          equals((chapter: 116, verse: 10)),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 115,
+            verse: 10,
+          ),
+          equals((chapter: 116, verse: 19)),
+        );
+
+        // Vulgate Psalm 146 (Masoretic Ps 147:1-11)
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 146,
+            verse: 1,
+          ),
+          equals((chapter: 147, verse: 1)),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 146,
+            verse: 11,
+          ),
+          equals((chapter: 147, verse: 11)),
+        );
+
+        // Vulgate Psalm 147 (Masoretic Ps 147:12-20)
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 147,
+            verse: 1,
+          ),
+          equals((chapter: 147, verse: 12)),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 147,
+            verse: 9,
+          ),
+          equals((chapter: 147, verse: 20)),
+        );
+
+        // Vulgate Psalm 150 (Identical)
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 21,
+            chapter: 150,
+            verse: 6,
+          ),
+          equals((chapter: 150, verse: 6)),
+        );
+      },
+    );
+
+    test('masoreticToVulgateVerse maps Masoretic verses back accurately', () {
+      // Masoretic Ps 10:1 -> Vulgate Ps 9:22
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 21,
+          chapter: 10,
+          verse: 1,
+        ),
+        equals((chapter: 9, verse: 22)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 21,
+          chapter: 10,
+          verse: 18,
+        ),
+        equals((chapter: 9, verse: 39)),
+      );
+
+      // Masoretic Ps 115:1 -> Vulgate Ps 113:9
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 21,
+          chapter: 115,
+          verse: 1,
+        ),
+        equals((chapter: 113, verse: 9)),
+      );
+
+      // Masoretic Ps 116:10 -> Vulgate Ps 115:1
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 21,
+          chapter: 116,
+          verse: 10,
+        ),
+        equals((chapter: 115, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 21,
+          chapter: 116,
+          verse: 19,
+        ),
+        equals((chapter: 115, verse: 10)),
+      );
+
+      // Masoretic Ps 147:12 -> Vulgate Ps 147:1
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 21,
+          chapter: 147,
+          verse: 12,
+        ),
+        equals((chapter: 147, verse: 1)),
+      );
+    });
+
+    test(
+      'formatVerseDisplay formats verse numbers across numbering systems correctly',
+      () {
+        // Non-Psalm: Genesis 1:1
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 1,
+            chapter: 1,
+            verseNumber: 1,
+            numberingSystem: BibleNumberingSystem.vulgate,
+          ),
+          equals((displayVerseNumber: 1, alternateVerseNumber: null)),
+        );
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 1,
+            chapter: 1,
+            verseNumber: 1,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((displayVerseNumber: 1, alternateVerseNumber: null)),
+        );
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 1,
+            chapter: 1,
+            verseNumber: 1,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals((displayVerseNumber: 1, alternateVerseNumber: null)),
+        );
+
+        // Psalm 22:1 (verse numbers match between systems)
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 21,
+            chapter: 22,
+            verseNumber: 1,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals((displayVerseNumber: 1, alternateVerseNumber: null)),
+        );
+
+        // Psalm 115:1 (Vulgate v1 -> Masoretic Ps 116:10)
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 21,
+            chapter: 115,
+            verseNumber: 1,
+            numberingSystem: BibleNumberingSystem.vulgate,
+          ),
+          equals((displayVerseNumber: 1, alternateVerseNumber: null)),
+        );
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 21,
+            chapter: 115,
+            verseNumber: 1,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((displayVerseNumber: 10, alternateVerseNumber: null)),
+        );
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 21,
+            chapter: 115,
+            verseNumber: 1,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals((displayVerseNumber: 1, alternateVerseNumber: '10')),
+        );
+
+        // Psalm 115:10 (Vulgate v10 -> Masoretic Ps 116:19)
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 21,
+            chapter: 115,
+            verseNumber: 10,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals((displayVerseNumber: 10, alternateVerseNumber: '19')),
+        );
+      },
+    );
   });
 }

@@ -1338,9 +1338,10 @@ void main() {
               BibleVersesCompanion.insert(
                 bookNumber: 21,
                 bookName: 'Psalms',
-                chapter: 22,
+                chapter: 115,
                 verseNumber: 1,
-                verseText: 'The Lord ruleth me: and I shall want nothing.',
+                verseText:
+                    'Alleluia. I had confidence, because of what I was saying, but then I was greatly humbled.',
                 translationCode: 'CPDV',
               ),
             );
@@ -1353,7 +1354,7 @@ void main() {
             child: Scaffold(
               body: BibleChapterView(
                 book: psalmBook,
-                chapter: 22,
+                chapter: 115,
                 primaryTranslation: 'CPDV',
                 compareTranslation: 'none',
                 numberingSystem: BibleNumberingSystem.vulgate,
@@ -1362,7 +1363,8 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
-        expect(find.text('Psalms 22'), findsOneWidget);
+        expect(find.text('Psalms 115'), findsOneWidget);
+        expect(find.text('1'), findsOneWidget);
 
         // 2. Modern Mode
         await tester.pumpWidget(
@@ -1370,7 +1372,7 @@ void main() {
             child: Scaffold(
               body: BibleChapterView(
                 book: psalmBook,
-                chapter: 22,
+                chapter: 115,
                 primaryTranslation: 'CPDV',
                 compareTranslation: 'none',
                 numberingSystem: BibleNumberingSystem.modern,
@@ -1379,7 +1381,8 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
-        expect(find.text('Psalms 23'), findsOneWidget);
+        expect(find.text('Psalms 116'), findsOneWidget);
+        expect(find.text('10'), findsOneWidget);
 
         // 3. Dual Mode
         await tester.pumpWidget(
@@ -1387,7 +1390,7 @@ void main() {
             child: Scaffold(
               body: BibleChapterView(
                 book: psalmBook,
-                chapter: 22,
+                chapter: 115,
                 primaryTranslation: 'CPDV',
                 compareTranslation: 'none',
                 numberingSystem: BibleNumberingSystem.dual,
@@ -1396,33 +1399,38 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
-        expect(find.text('Psalms 22 (Modern 23)'), findsOneWidget);
+        expect(find.text('Psalms 115 (Modern 116)'), findsOneWidget);
+        expect(find.text('1 (10)'), findsOneWidget);
       },
     );
 
     testGoldens(
-      'renders real CPDV Psalm 22 chapter under Vulgate, Modern, and Dual numbering schemes',
+      'renders real CPDV Psalm 115 chapter under Vulgate, Modern, and Dual numbering schemes with verse number shifts',
       (tester) async {
         final psalmBook = catholicBooks.firstWhere((b) => b.bookNumber == 21);
-        final psalm22Verses = [
-          'A Psalm of David. The Lord directs me, and nothing will be lacking to me.',
-          'He has settled me here, in a place of pasture. He has led me out to the water of refreshment.',
-          'He has converted my soul. He has led me away on the paths of justice, for the sake of his name.',
-          'For, even if I should walk in the midst of the shadow of death, I will fear no evils. For you are with me. Your rod and your staff, they have given me consolation.',
-          'You have prepared a table in my sight, opposite those who trouble me. You have anointed my head with oil, and my cup, which inebriates me, how brilliant it is!',
-          'And your mercy will follow me all the days of my life, and so may I dwell in the house of the Lord for length of days.',
+        final psalm115Verses = [
+          'Alleluia. I had confidence, because of what I was saying, but then I was greatly humbled.',
+          'I said in my excess, “Every man is a liar.”',
+          'What shall I repay to the Lord, for all the things that he has repaid to me?',
+          'I will take up the cup of salvation, and I will call upon the name of the Lord.',
+          'I will repay my vows to the Lord, in the sight of all his people.',
+          'Precious in the sight of the Lord is the death of his holy ones.',
+          'O Lord, because I am your servant, your servant and the son of your handmaid, you have broken my bonds.',
+          'I will sacrifice to you the sacrifice of praise, and I will invoke the name of the Lord.',
+          'I will repay my vows to the Lord in the sight of all his people,',
+          'in the courts of the house of the Lord, in your midst, O Jerusalem.',
         ];
 
-        for (var i = 0; i < psalm22Verses.length; i++) {
+        for (var i = 0; i < psalm115Verses.length; i++) {
           await testDb
               .into(testDb.bibleVerses)
               .insert(
                 BibleVersesCompanion.insert(
                   bookNumber: 21,
                   bookName: 'Psalms',
-                  chapter: 22,
+                  chapter: 115,
                   verseNumber: i + 1,
-                  verseText: psalm22Verses[i],
+                  verseText: psalm115Verses[i],
                   translationCode: 'CPDV',
                 ),
               );
@@ -1433,7 +1441,7 @@ void main() {
           Scaffold(
             body: BibleChapterView(
               book: psalmBook,
-              chapter: 22,
+              chapter: 115,
               primaryTranslation: 'CPDV',
               compareTranslation: 'none',
               numberingSystem: BibleNumberingSystem.vulgate,
@@ -1445,7 +1453,7 @@ void main() {
         await tester.pumpAndSettle();
         await screenMatchesGolden(
           tester,
-          'bible_chapter_cpdv_psalm_22_vulgate_golden',
+          'bible_chapter_cpdv_psalm_115_vulgate_golden',
         );
 
         // 2. Modern Numbering Scheme
@@ -1453,7 +1461,7 @@ void main() {
           Scaffold(
             body: BibleChapterView(
               book: psalmBook,
-              chapter: 22,
+              chapter: 115,
               primaryTranslation: 'CPDV',
               compareTranslation: 'none',
               numberingSystem: BibleNumberingSystem.modern,
@@ -1465,7 +1473,7 @@ void main() {
         await tester.pumpAndSettle();
         await screenMatchesGolden(
           tester,
-          'bible_chapter_cpdv_psalm_22_modern_golden',
+          'bible_chapter_cpdv_psalm_115_modern_golden',
         );
 
         // 3. Dual Numbering Scheme
@@ -1473,7 +1481,7 @@ void main() {
           Scaffold(
             body: BibleChapterView(
               book: psalmBook,
-              chapter: 22,
+              chapter: 115,
               primaryTranslation: 'CPDV',
               compareTranslation: 'none',
               numberingSystem: BibleNumberingSystem.dual,
@@ -1485,7 +1493,7 @@ void main() {
         await tester.pumpAndSettle();
         await screenMatchesGolden(
           tester,
-          'bible_chapter_cpdv_psalm_22_dual_golden',
+          'bible_chapter_cpdv_psalm_115_dual_golden',
         );
       },
     );

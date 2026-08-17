@@ -61,7 +61,9 @@ class BibleVerseRow extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              width: hasAlternateVerse ? 44 : 28,
+              width: hasAlternateVerse
+                  ? 52
+                  : (verseNumText.length > 2 ? 34 : 28),
               child: Text(
                 verseNumText,
                 style: theme.textTheme.bodyMedium?.copyWith(

@@ -471,10 +471,18 @@ class _BibleChapterViewState extends State<BibleChapterView>
                   }
                 }
 
+                final verseDisplay = BibleVerseResolver.formatVerseDisplay(
+                  bookNumber: widget.book.bookNumber,
+                  chapter: widget.chapter,
+                  verseNumber: verse.verseNumber,
+                  numberingSystem: widget.numberingSystem,
+                );
+
                 return KeyedSubtree(
                   key: _verseKeys[verse.id],
                   child: BibleVerseRow(
-                    verseNumber: verse.verseNumber,
+                    verseNumber: verseDisplay.displayVerseNumber,
+                    alternateVerseNumber: verseDisplay.alternateVerseNumber,
                     verseText: verse.verseText,
                     compareVerseText: compareVerse?.verseText,
                     isSelected: isSelected,

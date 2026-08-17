@@ -86,6 +86,112 @@ class BibleVerseResolver {
     return masoreticPsalm;
   }
 
+  /// Resolves Vulgate Psalm chapter and verse to Masoretic Psalm chapter and verse
+  static ({int chapter, int verse}) vulgateToMasoreticVerse({
+    required int bookNumber,
+    required int chapter,
+    required int verse,
+  }) {
+    if (bookNumber != 21) {
+      return (chapter: chapter, verse: verse);
+    }
+    final vulgatePsalm = chapter;
+    final vulgateVerse = verse;
+
+    if (vulgatePsalm <= 8) {
+      return (chapter: vulgatePsalm, verse: vulgateVerse);
+    }
+    if (vulgatePsalm == 9) {
+      if (vulgateVerse <= 21) {
+        return (chapter: 9, verse: vulgateVerse);
+      } else {
+        return (chapter: 10, verse: vulgateVerse - 21);
+      }
+    }
+    if (vulgatePsalm >= 10 && vulgatePsalm <= 112) {
+      return (chapter: vulgatePsalm + 1, verse: vulgateVerse);
+    }
+    if (vulgatePsalm == 113) {
+      if (vulgateVerse <= 8) {
+        return (chapter: 114, verse: vulgateVerse);
+      } else {
+        return (chapter: 115, verse: vulgateVerse - 8);
+      }
+    }
+    if (vulgatePsalm == 114) {
+      return (chapter: 116, verse: vulgateVerse);
+    }
+    if (vulgatePsalm == 115) {
+      return (chapter: 116, verse: vulgateVerse + 9);
+    }
+    if (vulgatePsalm >= 116 && vulgatePsalm <= 145) {
+      return (chapter: vulgatePsalm + 1, verse: vulgateVerse);
+    }
+    if (vulgatePsalm == 146) {
+      return (chapter: 147, verse: vulgateVerse);
+    }
+    if (vulgatePsalm == 147) {
+      return (chapter: 147, verse: vulgateVerse + 11);
+    }
+    if (vulgatePsalm >= 148 && vulgatePsalm <= 150) {
+      return (chapter: vulgatePsalm, verse: vulgateVerse);
+    }
+    return (chapter: vulgatePsalm, verse: vulgateVerse);
+  }
+
+  /// Resolves Masoretic Psalm chapter and verse to Vulgate Psalm chapter and verse
+  static ({int chapter, int verse}) masoreticToVulgateVerse({
+    required int bookNumber,
+    required int chapter,
+    required int verse,
+  }) {
+    if (bookNumber != 21) {
+      return (chapter: chapter, verse: verse);
+    }
+    final masoreticPsalm = chapter;
+    final masoreticVerse = verse;
+
+    if (masoreticPsalm <= 8) {
+      return (chapter: masoreticPsalm, verse: masoreticVerse);
+    }
+    if (masoreticPsalm == 9) {
+      return (chapter: 9, verse: masoreticVerse);
+    }
+    if (masoreticPsalm == 10) {
+      return (chapter: 9, verse: masoreticVerse + 21);
+    }
+    if (masoreticPsalm >= 11 && masoreticPsalm <= 113) {
+      return (chapter: masoreticPsalm - 1, verse: masoreticVerse);
+    }
+    if (masoreticPsalm == 114) {
+      return (chapter: 113, verse: masoreticVerse);
+    }
+    if (masoreticPsalm == 115) {
+      return (chapter: 113, verse: masoreticVerse + 8);
+    }
+    if (masoreticPsalm == 116) {
+      if (masoreticVerse <= 9) {
+        return (chapter: 114, verse: masoreticVerse);
+      } else {
+        return (chapter: 115, verse: masoreticVerse - 9);
+      }
+    }
+    if (masoreticPsalm >= 117 && masoreticPsalm <= 146) {
+      return (chapter: masoreticPsalm - 1, verse: masoreticVerse);
+    }
+    if (masoreticPsalm == 147) {
+      if (masoreticVerse <= 11) {
+        return (chapter: 146, verse: masoreticVerse);
+      } else {
+        return (chapter: 147, verse: masoreticVerse - 11);
+      }
+    }
+    if (masoreticPsalm >= 148 && masoreticPsalm <= 150) {
+      return (chapter: masoreticPsalm, verse: masoreticVerse);
+    }
+    return (chapter: masoreticPsalm, verse: masoreticVerse);
+  }
+
   /// Formats chapter title for display in Bible tab and chapter header
   static String formatChapterTitle({
     required int bookNumber,
@@ -132,6 +238,43 @@ class BibleVerseResolver {
           return '$vulgateNum';
         }
         return '$vulgateNum ($masoreticNum)';
+    }
+  }
+
+  /// Formats verse display number and alternate number according to active numbering system
+  static ({int displayVerseNumber, String? alternateVerseNumber})
+  formatVerseDisplay({
+    required int bookNumber,
+    required int chapter,
+    required int verseNumber,
+    required BibleNumberingSystem numberingSystem,
+  }) {
+    if (bookNumber != 21) {
+      return (displayVerseNumber: verseNumber, alternateVerseNumber: null);
+    }
+
+    final masoretic = vulgateToMasoreticVerse(
+      bookNumber: bookNumber,
+      chapter: chapter,
+      verse: verseNumber,
+    );
+
+    switch (numberingSystem) {
+      case BibleNumberingSystem.vulgate:
+        return (displayVerseNumber: verseNumber, alternateVerseNumber: null);
+      case BibleNumberingSystem.modern:
+        return (
+          displayVerseNumber: masoretic.verse,
+          alternateVerseNumber: null,
+        );
+      case BibleNumberingSystem.dual:
+        if (verseNumber == masoretic.verse) {
+          return (displayVerseNumber: verseNumber, alternateVerseNumber: null);
+        }
+        return (
+          displayVerseNumber: verseNumber,
+          alternateVerseNumber: '${masoretic.verse}',
+        );
     }
   }
 }
