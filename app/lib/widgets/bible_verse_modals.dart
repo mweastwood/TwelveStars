@@ -317,18 +317,52 @@ Future<void> showVerseCommentsModal({
                                 color: theme.colorScheme.outline,
                               ),
                             ),
-                            trailing: IconButton(
-                              icon: const Icon(Icons.delete_outline, size: 20),
-                              color: theme.colorScheme.error,
-                              onPressed: () async {
-                                await BibleDatabaseHelper.db.deleteComment(
-                                  comment.id,
-                                );
-                                setSheetState(() {
-                                  comments.removeAt(index);
-                                });
-                                await onCommentsChanged();
-                              },
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                  icon: const Icon(
+                                    Icons.edit_outlined,
+                                    size: 20,
+                                  ),
+                                  tooltip: 'Edit comment',
+                                  color: theme.colorScheme.primary,
+                                  onPressed: () async {
+                                    await showEditCommentDialog(
+                                      context: context,
+                                      citation: title,
+                                      textPreview: textPreview,
+                                      commentId: comment.id,
+                                      initialText: comment.commentText,
+                                      onCommentUpdated: (newText) async {
+                                        setSheetState(() {
+                                          comments[index] = comment.copyWith(
+                                            commentText: newText,
+                                          );
+                                        });
+                                        await onCommentsChanged();
+                                      },
+                                    );
+                                  },
+                                ),
+                                IconButton(
+                                  icon: const Icon(
+                                    Icons.delete_outline,
+                                    size: 20,
+                                  ),
+                                  tooltip: 'Delete comment',
+                                  color: theme.colorScheme.error,
+                                  onPressed: () async {
+                                    await BibleDatabaseHelper.db.deleteComment(
+                                      comment.id,
+                                    );
+                                    setSheetState(() {
+                                      comments.removeAt(index);
+                                    });
+                                    await onCommentsChanged();
+                                  },
+                                ),
+                              ],
                             ),
                           ),
                         );
@@ -354,6 +388,78 @@ Future<void> showVerseCommentsModal({
       );
     },
   );
+}
+
+Future<void> showEditCommentDialog({
+  required BuildContext context,
+  required String citation,
+  required String textPreview,
+  required int commentId,
+  required String initialText,
+  FutureOr<void> Function(String updatedText)? onCommentUpdated,
+}) async {
+  final messenger = ScaffoldMessenger.of(context);
+  final controller = TextEditingController(text: initialText);
+
+  final result = await showDialog<String>(
+    context: context,
+    builder: (ctx) {
+      return AlertDialog(
+        title: Text('Edit Comment for $citation'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (textPreview.isNotEmpty) ...[
+              Text(
+                '"$textPreview"',
+                style: TextStyle(
+                  fontStyle: FontStyle.italic,
+                  color: Theme.of(ctx).colorScheme.outline,
+                ),
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+              ),
+              const SizedBox(height: 12),
+            ],
+            TextField(
+              controller: controller,
+              maxLines: 3,
+              decoration: const InputDecoration(
+                hintText: 'Enter your comment...',
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(ctx, controller.text.trim()),
+            child: const Text('Save'),
+          ),
+        ],
+      );
+    },
+  );
+
+  if (result != null && result.isNotEmpty) {
+    final db = BibleDatabaseHelper.db;
+    await db.updateComment(commentId, result);
+
+    messenger.showSnackBar(
+      SnackBar(
+        content: Text('Updated comment for $citation'),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
+    if (onCommentUpdated != null) {
+      await onCommentUpdated(result);
+    }
+  }
 }
 
 Future<void> showAddCommentDialog({

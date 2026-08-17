@@ -14,5 +14,6 @@ abstract class ReaderAdapter {
   Future<List<ReaderBookmark>> loadBookmarks();
   Future<void> saveComment(ReaderComment comment) async {}
   Future<List<ReaderComment>> loadComments({String? nodeId}) async => [];
+  Future<void> updateComment(String commentId, String updatedText) async {}
   Future<void> deleteComment(String commentId) async {}
 }

@@ -176,7 +176,7 @@ void main() {
         );
       });
 
-      test('saveComment, loadComments, deleteComment', () async {
+      test('saveComment, loadComments, updateComment, deleteComment', () async {
         final comment = ReaderComment(
           id: '1',
           documentId: 'GEN',
@@ -193,6 +193,14 @@ void main() {
         expect(loaded.length, 1);
         expect(loaded.first.text, 'Reflections on Genesis 1:1');
         expect(loaded.first.nodeId, '1_1_1');
+
+        await adapter.updateComment(
+          loaded.first.id,
+          'Updated Genesis reflections',
+        );
+        final updatedList = await adapter.loadComments(nodeId: '1_1_1');
+        expect(updatedList.length, 1);
+        expect(updatedList.first.text, 'Updated Genesis reflections');
 
         await adapter.deleteComment(loaded.first.id);
         final emptyList = await adapter.loadComments(nodeId: '1_1_1');
@@ -317,7 +325,7 @@ void main() {
       );
 
       test(
-        'saveComment, loadComments, deleteComment persist across adapter instances',
+        'saveComment, loadComments, updateComment, deleteComment persist across adapter instances',
         () async {
           final comment = ReaderComment(
             id: '1',
@@ -341,6 +349,16 @@ void main() {
           expect(comments.length, 1);
           expect(comments.first.text, 'Comment on paragraph');
           expect(comments.first.textPreview, 'A paragraph of text.');
+
+          await freshAdapter.updateComment(
+            comments.first.id,
+            'Updated comment on paragraph',
+          );
+          final updatedComments = await freshAdapter.loadComments(
+            nodeId: 's1-1',
+          );
+          expect(updatedComments.length, 1);
+          expect(updatedComments.first.text, 'Updated comment on paragraph');
 
           await freshAdapter.deleteComment(comments.first.id);
           final afterDelete = await freshAdapter.loadComments(nodeId: 's1-1');

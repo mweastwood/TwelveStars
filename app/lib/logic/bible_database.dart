@@ -529,6 +529,12 @@ class BibleDatabase extends _$BibleDatabase {
     return into(userComments).insert(companion);
   }
 
+  Future<int> updateComment(int id, String newText) {
+    return (update(userComments)..where((t) => t.id.equals(id))).write(
+      UserCommentsCompanion(commentText: Value(newText)),
+    );
+  }
+
   Future<int> deleteComment(int id) {
     return (delete(userComments)..where((t) => t.id.equals(id))).go();
   }

@@ -64,6 +64,9 @@ class MockReaderAdapter implements ReaderAdapter {
   }
 
   @override
+  Future<void> updateComment(String commentId, String updatedText) async {}
+
+  @override
   Future<void> deleteComment(String commentId) async {}
 }
 
