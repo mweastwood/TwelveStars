@@ -861,6 +861,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
               section: sec,
               fontSize: _fontSize,
               verseSystem: widget.bookItem.verseSystem,
+              volumeKey: _currentVolumeKey,
               questionKeys: index == _currentSectionIndex
                   ? _questionKeys
                   : null,
@@ -1093,7 +1094,9 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                           children: [
                             if (q2SecIdx != null &&
                                 widget.bookItem.volumes!.any(
-                                  (v) => v.volumeKey == 'baltimore_2',
+                                  (v) =>
+                                      v.volumeKey == 'no2' ||
+                                      v.volumeKey == 'baltimore_2',
                                 ))
                               OutlinedButton.icon(
                                 icon: const Icon(
@@ -1105,7 +1108,9 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                                   Navigator.pop(ctx);
                                   _switchVolume(
                                     widget.bookItem.volumes!.firstWhere(
-                                      (v) => v.volumeKey == 'baltimore_2',
+                                      (v) =>
+                                          v.volumeKey == 'no2' ||
+                                          v.volumeKey == 'baltimore_2',
                                     ),
                                     initialSectionIndex: q2SecIdx!,
                                   );
@@ -1113,7 +1118,9 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                               ),
                             if (q4SecIdx != null &&
                                 widget.bookItem.volumes!.any(
-                                  (v) => v.volumeKey == 'baltimore_4',
+                                  (v) =>
+                                      v.volumeKey == 'no4' ||
+                                      v.volumeKey == 'baltimore_4',
                                 ))
                               FilledButton.icon(
                                 icon: const Icon(
@@ -1125,7 +1132,9 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                                   Navigator.pop(ctx);
                                   _switchVolume(
                                     widget.bookItem.volumes!.firstWhere(
-                                      (v) => v.volumeKey == 'baltimore_4',
+                                      (v) =>
+                                          v.volumeKey == 'no4' ||
+                                          v.volumeKey == 'baltimore_4',
                                     ),
                                     initialSectionIndex: q4SecIdx!,
                                   );

@@ -7,6 +7,7 @@ class LibrarySectionView extends StatelessWidget {
   final BookSection section;
   final double fontSize;
   final String verseSystem;
+  final String? volumeKey;
   final ValueChanged<int> onShowCrossRefModal;
   final ValueChanged<BibleCitation> onShowScriptureModal;
   final Map<int, GlobalKey>? questionKeys;
@@ -29,6 +30,7 @@ class LibrarySectionView extends StatelessWidget {
     required this.section,
     required this.fontSize,
     required this.verseSystem,
+    this.volumeKey,
     required this.onShowCrossRefModal,
     required this.onShowScriptureModal,
     this.questionKeys,
@@ -163,7 +165,8 @@ class LibrarySectionView extends StatelessWidget {
     ContentItem item,
   ) {
     final isSelected = _isItemSelected(index);
-    final nodeId = '${section.id}_$index';
+    final nodeId =
+        '${volumeKey != null ? '$volumeKey:' : ''}${section.id}_$index';
     final comments = commentsMap?[nodeId] ?? [];
     final citation = _getItemCitation(item, index);
     final textPreview = _getItemTextPreview(item);

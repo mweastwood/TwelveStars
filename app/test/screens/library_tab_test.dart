@@ -294,6 +294,48 @@ void main() {
       },
     );
 
+    testWidgets(
+      'displays comment badge on series books with volume-prefixed nodeId',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final baltimore = catalog.firstWhere(
+          (b) => b.id == 'baltimore_catechism',
+        );
+
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'baltimore_catechism',
+            sectionIndex: 0,
+            nodeId: 'no1:sec_1_0',
+            commentText: 'Note on First Communion Q1',
+            createdAt: DateTime.now(),
+          ),
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryReaderScreen(
+                bookItem: baltimore,
+                initialVolumeKey: 'no1',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Verify comment badge is visible on the Baltimore Catechism item
+        expect(find.byIcon(Icons.comment_rounded), findsWidgets);
+        expect(find.text('1'), findsWidgets);
+      },
+    );
+
     testGoldens(
       'LibraryReaderScreen renders Baltimore No. 3 with Cross-References',
       (tester) async {

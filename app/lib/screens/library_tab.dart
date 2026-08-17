@@ -545,10 +545,7 @@ class _LibraryTabState extends State<LibraryTab> {
         final preview = parts.length > 1 ? parts.sublist(1).join(' ') : '';
 
         final (volKey, itemIdx, qNum) = _parseNodeId(fav.nodeId);
-        final book = catalog.firstWhere(
-          (b) => b.id == fav.documentId,
-          orElse: () => catalog.first,
-        );
+        final book = catalog.where((b) => b.id == fav.documentId).firstOrNull;
 
         return Card(
           margin: const EdgeInsets.symmetric(vertical: 4.0),
@@ -578,15 +575,28 @@ class _LibraryTabState extends State<LibraryTab> {
               },
             ),
             onTap: () {
+              if (book == null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Book not found in library'),
+                    behavior: SnackBarBehavior.floating,
+                  ),
+                );
+                return;
+              }
+
               String? targetAssetPath;
               String? targetVolKey = volKey;
               if (book.isSeries && book.volumes != null) {
-                final match = book.volumes!.firstWhere(
-                  (v) => v.volumeKey == volKey,
-                  orElse: () => book.volumes!.first,
-                );
-                targetVolKey = match.volumeKey;
-                targetAssetPath = match.assetPath;
+                final match =
+                    book.volumes!
+                        .where((v) => v.volumeKey == volKey)
+                        .firstOrNull ??
+                    book.volumes!.firstOrNull;
+                if (match != null) {
+                  targetVolKey = match.volumeKey;
+                  targetAssetPath = match.assetPath;
+                }
               }
 
               _openReader(
@@ -652,19 +662,22 @@ class _LibraryTabState extends State<LibraryTab> {
       itemCount: _comments.length,
       itemBuilder: (context, index) {
         final comment = _comments[index];
-        final book = catalog.firstWhere(
-          (b) => b.id == comment.documentId,
-          orElse: () => catalog.first,
-        );
+        final book = catalog
+            .where((b) => b.id == comment.documentId)
+            .firstOrNull;
 
         final (volKey, itemIdx, qNum) = _parseNodeId(comment.nodeId);
-        String header = book.title;
-        if (volKey != null && book.isSeries && book.volumes != null) {
-          final vol = book.volumes!.firstWhere(
-            (v) => v.volumeKey == volKey,
-            orElse: () => book.volumes!.first,
-          );
-          header = '${book.title} (${vol.shortName})';
+        String header = book?.title ?? comment.documentId;
+        if (book != null &&
+            volKey != null &&
+            book.isSeries &&
+            book.volumes != null) {
+          final vol = book.volumes!
+              .where((v) => v.volumeKey == volKey)
+              .firstOrNull;
+          if (vol != null) {
+            header = '${book.title} (${vol.shortName})';
+          }
         }
 
         return Card(
@@ -710,15 +723,28 @@ class _LibraryTabState extends State<LibraryTab> {
               },
             ),
             onTap: () {
+              if (book == null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Book not found in library'),
+                    behavior: SnackBarBehavior.floating,
+                  ),
+                );
+                return;
+              }
+
               String? targetAssetPath;
               String? targetVolKey = volKey;
               if (book.isSeries && book.volumes != null) {
-                final match = book.volumes!.firstWhere(
-                  (v) => v.volumeKey == volKey,
-                  orElse: () => book.volumes!.first,
-                );
-                targetVolKey = match.volumeKey;
-                targetAssetPath = match.assetPath;
+                final match =
+                    book.volumes!
+                        .where((v) => v.volumeKey == volKey)
+                        .firstOrNull ??
+                    book.volumes!.firstOrNull;
+                if (match != null) {
+                  targetVolKey = match.volumeKey;
+                  targetAssetPath = match.assetPath;
+                }
               }
 
               _openReader(
