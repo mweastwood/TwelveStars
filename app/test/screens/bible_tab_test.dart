@@ -1399,5 +1399,95 @@ void main() {
         expect(find.text('Psalms 22 (Modern 23)'), findsOneWidget);
       },
     );
+
+    testGoldens(
+      'renders real CPDV Psalm 22 chapter under Vulgate, Modern, and Dual numbering schemes',
+      (tester) async {
+        final psalmBook = catholicBooks.firstWhere((b) => b.bookNumber == 21);
+        final psalm22Verses = [
+          'A Psalm of David. The Lord directs me, and nothing will be lacking to me.',
+          'He has settled me here, in a place of pasture. He has led me out to the water of refreshment.',
+          'He has converted my soul. He has led me away on the paths of justice, for the sake of his name.',
+          'For, even if I should walk in the midst of the shadow of death, I will fear no evils. For you are with me. Your rod and your staff, they have given me consolation.',
+          'You have prepared a table in my sight, opposite those who trouble me. You have anointed my head with oil, and my cup, which inebriates me, how brilliant it is!',
+          'And your mercy will follow me all the days of my life, and so may I dwell in the house of the Lord for length of days.',
+        ];
+
+        for (var i = 0; i < psalm22Verses.length; i++) {
+          await testDb
+              .into(testDb.bibleVerses)
+              .insert(
+                BibleVersesCompanion.insert(
+                  bookNumber: 21,
+                  bookName: 'Psalms',
+                  chapter: 22,
+                  verseNumber: i + 1,
+                  verseText: psalm22Verses[i],
+                  translationCode: 'CPDV',
+                ),
+              );
+        }
+
+        // 1. Vulgate Numbering Scheme
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: BibleChapterView(
+              book: psalmBook,
+              chapter: 22,
+              primaryTranslation: 'CPDV',
+              compareTranslation: 'none',
+              numberingSystem: BibleNumberingSystem.vulgate,
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+        await screenMatchesGolden(
+          tester,
+          'bible_chapter_cpdv_psalm_22_vulgate_golden',
+        );
+
+        // 2. Modern Numbering Scheme
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: BibleChapterView(
+              book: psalmBook,
+              chapter: 22,
+              primaryTranslation: 'CPDV',
+              compareTranslation: 'none',
+              numberingSystem: BibleNumberingSystem.modern,
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+        await screenMatchesGolden(
+          tester,
+          'bible_chapter_cpdv_psalm_22_modern_golden',
+        );
+
+        // 3. Dual Numbering Scheme
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: BibleChapterView(
+              book: psalmBook,
+              chapter: 22,
+              primaryTranslation: 'CPDV',
+              compareTranslation: 'none',
+              numberingSystem: BibleNumberingSystem.dual,
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+        await screenMatchesGolden(
+          tester,
+          'bible_chapter_cpdv_psalm_22_dual_golden',
+        );
+      },
+    );
   });
 }
