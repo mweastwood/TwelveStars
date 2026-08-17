@@ -2828,6 +2828,18 @@ class $UserSettingsTableTable extends UserSettingsTable
         ),
         defaultValue: const Constant(false),
       );
+  static const VerificationMeta _bibleNumberingSystemCodeMeta =
+      const VerificationMeta('bibleNumberingSystemCode');
+  @override
+  late final GeneratedColumn<String> bibleNumberingSystemCode =
+      GeneratedColumn<String>(
+        'bible_numbering_system_code',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        defaultValue: const Constant('vulgate'),
+      );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -2840,6 +2852,7 @@ class $UserSettingsTableTable extends UserSettingsTable
     appThemeModeCode,
     sundayNotificationsEnabled,
     showBibleTranslationSelectors,
+    bibleNumberingSystemCode,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -2936,6 +2949,15 @@ class $UserSettingsTableTable extends UserSettingsTable
         ),
       );
     }
+    if (data.containsKey('bible_numbering_system_code')) {
+      context.handle(
+        _bibleNumberingSystemCodeMeta,
+        bibleNumberingSystemCode.isAcceptableOrUnknown(
+          data['bible_numbering_system_code']!,
+          _bibleNumberingSystemCodeMeta,
+        ),
+      );
+    }
     return context;
   }
 
@@ -2988,6 +3010,10 @@ class $UserSettingsTableTable extends UserSettingsTable
         DriftSqlType.bool,
         data['${effectivePrefix}show_bible_translation_selectors'],
       )!,
+      bibleNumberingSystemCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}bible_numbering_system_code'],
+      )!,
     );
   }
 
@@ -3013,6 +3039,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
   final Value<String> appThemeModeCode;
   final Value<bool> sundayNotificationsEnabled;
   final Value<bool> showBibleTranslationSelectors;
+  final Value<String> bibleNumberingSystemCode;
   const UserSettingsTableCompanion({
     this.id = const Value.absent(),
     this.primaryLanguageCode = const Value.absent(),
@@ -3024,6 +3051,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     this.appThemeModeCode = const Value.absent(),
     this.sundayNotificationsEnabled = const Value.absent(),
     this.showBibleTranslationSelectors = const Value.absent(),
+    this.bibleNumberingSystemCode = const Value.absent(),
   });
   UserSettingsTableCompanion.insert({
     this.id = const Value.absent(),
@@ -3036,6 +3064,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     this.appThemeModeCode = const Value.absent(),
     this.sundayNotificationsEnabled = const Value.absent(),
     this.showBibleTranslationSelectors = const Value.absent(),
+    this.bibleNumberingSystemCode = const Value.absent(),
   }) : primaryLanguageCode = Value(primaryLanguageCode),
        compareLanguageCode = Value(compareLanguageCode),
        primaryBibleTranslation = Value(primaryBibleTranslation),
@@ -3051,6 +3080,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Expression<String>? appThemeModeCode,
     Expression<bool>? sundayNotificationsEnabled,
     Expression<bool>? showBibleTranslationSelectors,
+    Expression<String>? bibleNumberingSystemCode,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -3069,6 +3099,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
         'sunday_notifications_enabled': sundayNotificationsEnabled,
       if (showBibleTranslationSelectors != null)
         'show_bible_translation_selectors': showBibleTranslationSelectors,
+      if (bibleNumberingSystemCode != null)
+        'bible_numbering_system_code': bibleNumberingSystemCode,
     });
   }
 
@@ -3083,6 +3115,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Value<String>? appThemeModeCode,
     Value<bool>? sundayNotificationsEnabled,
     Value<bool>? showBibleTranslationSelectors,
+    Value<String>? bibleNumberingSystemCode,
   }) {
     return UserSettingsTableCompanion(
       id: id ?? this.id,
@@ -3099,6 +3132,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
           sundayNotificationsEnabled ?? this.sundayNotificationsEnabled,
       showBibleTranslationSelectors:
           showBibleTranslationSelectors ?? this.showBibleTranslationSelectors,
+      bibleNumberingSystemCode:
+          bibleNumberingSystemCode ?? this.bibleNumberingSystemCode,
     );
   }
 
@@ -3151,6 +3186,11 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
         showBibleTranslationSelectors.value,
       );
     }
+    if (bibleNumberingSystemCode.present) {
+      map['bible_numbering_system_code'] = Variable<String>(
+        bibleNumberingSystemCode.value,
+      );
+    }
     return map;
   }
 
@@ -3167,8 +3207,9 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
           ..write('appThemeModeCode: $appThemeModeCode, ')
           ..write('sundayNotificationsEnabled: $sundayNotificationsEnabled, ')
           ..write(
-            'showBibleTranslationSelectors: $showBibleTranslationSelectors',
+            'showBibleTranslationSelectors: $showBibleTranslationSelectors, ',
           )
+          ..write('bibleNumberingSystemCode: $bibleNumberingSystemCode')
           ..write(')'))
         .toString();
   }
@@ -4663,6 +4704,7 @@ typedef $$UserSettingsTableTableCreateCompanionBuilder =
       Value<String> appThemeModeCode,
       Value<bool> sundayNotificationsEnabled,
       Value<bool> showBibleTranslationSelectors,
+      Value<String> bibleNumberingSystemCode,
     });
 typedef $$UserSettingsTableTableUpdateCompanionBuilder =
     UserSettingsTableCompanion Function({
@@ -4676,6 +4718,7 @@ typedef $$UserSettingsTableTableUpdateCompanionBuilder =
       Value<String> appThemeModeCode,
       Value<bool> sundayNotificationsEnabled,
       Value<bool> showBibleTranslationSelectors,
+      Value<String> bibleNumberingSystemCode,
     });
 
 class $$UserSettingsTableTableFilterComposer
@@ -4741,6 +4784,11 @@ class $$UserSettingsTableTableFilterComposer
     column: $table.showBibleTranslationSelectors,
     builder: (column) => ColumnFilters(column),
   );
+
+  ColumnFilters<String> get bibleNumberingSystemCode => $composableBuilder(
+    column: $table.bibleNumberingSystemCode,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$UserSettingsTableTableOrderingComposer
@@ -4799,6 +4847,11 @@ class $$UserSettingsTableTableOrderingComposer
 
   ColumnOrderings<bool> get showBibleTranslationSelectors => $composableBuilder(
     column: $table.showBibleTranslationSelectors,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get bibleNumberingSystemCode => $composableBuilder(
+    column: $table.bibleNumberingSystemCode,
     builder: (column) => ColumnOrderings(column),
   );
 }
@@ -4860,6 +4913,11 @@ class $$UserSettingsTableTableAnnotationComposer
     column: $table.showBibleTranslationSelectors,
     builder: (column) => column,
   );
+
+  GeneratedColumn<String> get bibleNumberingSystemCode => $composableBuilder(
+    column: $table.bibleNumberingSystemCode,
+    builder: (column) => column,
+  );
 }
 
 class $$UserSettingsTableTableTableManager
@@ -4914,6 +4972,7 @@ class $$UserSettingsTableTableTableManager
                 Value<bool> sundayNotificationsEnabled = const Value.absent(),
                 Value<bool> showBibleTranslationSelectors =
                     const Value.absent(),
+                Value<String> bibleNumberingSystemCode = const Value.absent(),
               }) => UserSettingsTableCompanion(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -4925,6 +4984,7 @@ class $$UserSettingsTableTableTableManager
                 appThemeModeCode: appThemeModeCode,
                 sundayNotificationsEnabled: sundayNotificationsEnabled,
                 showBibleTranslationSelectors: showBibleTranslationSelectors,
+                bibleNumberingSystemCode: bibleNumberingSystemCode,
               ),
           createCompanionCallback:
               ({
@@ -4940,6 +5000,7 @@ class $$UserSettingsTableTableTableManager
                 Value<bool> sundayNotificationsEnabled = const Value.absent(),
                 Value<bool> showBibleTranslationSelectors =
                     const Value.absent(),
+                Value<String> bibleNumberingSystemCode = const Value.absent(),
               }) => UserSettingsTableCompanion.insert(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -4951,6 +5012,7 @@ class $$UserSettingsTableTableTableManager
                 appThemeModeCode: appThemeModeCode,
                 sundayNotificationsEnabled: sundayNotificationsEnabled,
                 showBibleTranslationSelectors: showBibleTranslationSelectors,
+                bibleNumberingSystemCode: bibleNumberingSystemCode,
               ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))

@@ -76,6 +76,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
     await NotificationService.syncSundayNotification(_settings!);
   }
 
+  Future<void> _updateBibleNumberingSystem(BibleNumberingSystem system) async {
+    if (_settings == null) return;
+    setState(() {
+      _settings!.bibleNumberingSystem = system;
+    });
+    await PrayerDatabase.saveSettings(_settings!);
+  }
+
   @override
   Widget build(BuildContext context) {
     final availableModes = _availableThemeModes;
@@ -106,6 +114,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     onChanged: (newMode) {
                       if (newMode != null) {
                         _updateThemeMode(newMode);
+                      }
+                    },
+                  ),
+                ),
+                const Divider(),
+                ListTile(
+                  key: const Key('settings_bible_numbering_tile'),
+                  leading: const Icon(Icons.format_list_numbered),
+                  title: const Text('Bible Numbering System'),
+                  subtitle: Text(_settings!.bibleNumberingSystem.description),
+                  trailing: DropdownButton<BibleNumberingSystem>(
+                    key: const Key('settings_bible_numbering_dropdown'),
+                    value: _settings!.bibleNumberingSystem,
+                    items: BibleNumberingSystem.values.map((sys) {
+                      return DropdownMenuItem<BibleNumberingSystem>(
+                        key: Key('settings_bible_numbering_option_${sys.code}'),
+                        value: sys,
+                        child: Text(sys.label),
+                      );
+                    }).toList(),
+                    onChanged: (newSys) {
+                      if (newSys != null) {
+                        _updateBibleNumberingSystem(newSys);
                       }
                     },
                   ),

@@ -105,6 +105,50 @@ void main() {
       PrayerDatabase.mockSettings = null;
     });
 
+    testWidgets(
+      'renders Bible numbering system dropdown and changes numbering preference',
+      (tester) async {
+        PrayerDatabase.mockSettings = UserSettings(
+          bibleNumberingSystemCode: 'vulgate',
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const SettingsScreen()),
+        );
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('settings_bible_numbering_tile')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('settings_bible_numbering_dropdown')),
+          findsOneWidget,
+        );
+
+        // Open dropdown
+        await tester.tap(
+          find.byKey(const Key('settings_bible_numbering_dropdown')),
+        );
+        await tester.pumpAndSettle();
+
+        // Tap 'Modern (Masoretic)'
+        final modernOption = find.byKey(
+          const Key('settings_bible_numbering_option_modern'),
+        );
+        expect(modernOption, findsWidgets);
+        await tester.tap(modernOption.last);
+        await tester.pumpAndSettle();
+
+        expect(
+          PrayerDatabase.mockSettings!.bibleNumberingSystem,
+          equals(BibleNumberingSystem.modern),
+        );
+
+        PrayerDatabase.mockSettings = null;
+      },
+    );
+
     testGoldens('SettingsScreen renders options and scenarios correctly', (
       tester,
     ) async {

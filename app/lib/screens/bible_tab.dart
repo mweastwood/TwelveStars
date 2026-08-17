@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
@@ -510,6 +511,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                 chapter: ref.chapter,
                 primaryTranslation: _primaryTranslation,
                 compareTranslation: _compareTranslation,
+                numberingSystem:
+                    _settings?.bibleNumberingSystem ??
+                    BibleNumberingSystem.vulgate,
                 translationSelectorAnimation: _translationSelectorAnimation,
                 scrollController: _getScrollController(index),
                 scrollToVerse: isTarget ? _scrollToVerse : null,
@@ -593,7 +597,14 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                '${currentRef.book.bookName} ${currentRef.chapter}',
+                                BibleVerseResolver.formatChapterTitle(
+                                  bookNumber: currentRef.book.bookNumber,
+                                  bookName: currentRef.book.bookName,
+                                  chapter: currentRef.chapter,
+                                  numberingSystem:
+                                      _settings?.bibleNumberingSystem ??
+                                      BibleNumberingSystem.vulgate,
+                                ),
                                 style: theme.textTheme.titleMedium?.copyWith(
                                   fontWeight: FontWeight.bold,
                                   color: theme.colorScheme.primary,
@@ -720,6 +731,16 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                                           _selectedBookForPicker.chaptersCount,
                                       itemBuilder: (context, index) {
                                         final chapterNum = index + 1;
+                                        final numbering =
+                                            _settings?.bibleNumberingSystem ??
+                                            BibleNumberingSystem.vulgate;
+                                        final chapterLabel =
+                                            BibleVerseResolver.formatChapterPickerLabel(
+                                              bookNumber: _selectedBookForPicker
+                                                  .bookNumber,
+                                              chapter: chapterNum,
+                                              numberingSystem: numbering,
+                                            );
                                         return InkWell(
                                           onTap: () {
                                             final pageIndex = _allChapters
@@ -752,14 +773,26 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                                             ),
                                             child: Center(
                                               child: Text(
-                                                '$chapterNum',
+                                                chapterLabel,
                                                 style: theme
                                                     .textTheme
                                                     .bodyMedium
                                                     ?.copyWith(
                                                       fontWeight:
                                                           FontWeight.bold,
+                                                      fontSize:
+                                                          _selectedBookForPicker
+                                                                      .bookNumber ==
+                                                                  21 &&
+                                                              numbering ==
+                                                                  BibleNumberingSystem
+                                                                      .dual &&
+                                                              chapterLabel
+                                                                  .contains('(')
+                                                          ? 11.0
+                                                          : null,
                                                     ),
+                                                textAlign: TextAlign.center,
                                               ),
                                             ),
                                           ),

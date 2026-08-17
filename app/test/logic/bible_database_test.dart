@@ -112,6 +112,7 @@ void main() {
           appThemeModeCode: 'gothic_dark',
           sundayNotificationsEnabled: false,
           showBibleTranslationSelectors: true,
+          bibleNumberingSystemCode: 'dual',
         );
 
         await testDb.saveUserSettings(settings);
@@ -136,13 +137,18 @@ void main() {
         expect(retrieved.appThemeModeCode, equals('gothic_dark'));
         expect(retrieved.sundayNotificationsEnabled, isFalse);
         expect(retrieved.showBibleTranslationSelectors, isTrue);
+        expect(retrieved.bibleNumberingSystemCode, equals('dual'));
+        expect(
+          retrieved.bibleNumberingSystem,
+          equals(BibleNumberingSystem.dual),
+        );
       },
     );
   });
 
   group('Library Bookmarks Operations', () {
     test('save, get, and delete library bookmarks in BibleDatabase', () async {
-      expect(testDb.schemaVersion, equals(9));
+      expect(testDb.schemaVersion, equals(10));
 
       final now = DateTime.now();
       await testDb.saveLibraryBookmark(
