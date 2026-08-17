@@ -9,6 +9,7 @@ import 'package:twelve_stars/logic/bible_database.dart'
 import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/widgets/mass_reading_card.dart';
 import 'package:twelve_stars/widgets/missal_calendar_grid.dart';
+import 'package:twelve_stars/widgets/homily_reflection_sheet.dart';
 
 class MissalTab extends StatefulWidget {
   final PrayerLanguage primaryLanguage;
@@ -346,6 +347,76 @@ class _MissalTabState extends State<MissalTab> {
     );
   }
 
+  void _openHomilyReflection(
+    BuildContext context,
+    LiturgicalDay day,
+    List<LectionaryReading> readings,
+  ) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) => HomilyReflectionSheet(
+        celebrationTitle: day.name ?? day.weekName,
+        readings: readings,
+      ),
+    );
+  }
+
+  Widget _buildHomilySection(
+    BuildContext context,
+    LiturgicalDay currentDay,
+    List<LectionaryReading> readings,
+    ThemeData theme,
+  ) {
+    return Card(
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Row(
+          children: [
+            Icon(Icons.hearing, color: theme.colorScheme.primary, size: 22),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Homily',
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.onSurface,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    'Reflective instruction by the priest',
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            if (readings.isNotEmpty) ...[
+              const SizedBox(width: 8),
+              FilledButton.tonalIcon(
+                onPressed: () =>
+                    _openHomilyReflection(context, currentDay, readings),
+                icon: const Icon(Icons.auto_awesome, size: 16),
+                label: const Text('AI Reflection'),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -634,17 +705,40 @@ class _MissalTabState extends State<MissalTab> {
                 future: _getReadingsForDay(currentDay.lectionaryKey),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 20.0),
-                      child: Center(
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      ),
+                    return Column(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 20.0),
+                          child: Center(
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        _buildHomilySection(
+                          context,
+                          currentDay,
+                          const [],
+                          theme,
+                        ),
+                      ],
                     );
                   }
                   if (snapshot.hasError) {
-                    return Text(
-                      'Error loading readings: ${snapshot.error}',
-                      style: TextStyle(color: theme.colorScheme.error),
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(
+                          'Error loading readings: ${snapshot.error}',
+                          style: TextStyle(color: theme.colorScheme.error),
+                        ),
+                        const SizedBox(height: 4),
+                        _buildHomilySection(
+                          context,
+                          currentDay,
+                          const [],
+                          theme,
+                        ),
+                      ],
                     );
                   }
                   final readings = (snapshot.data ?? []).toList();
@@ -665,7 +759,7 @@ class _MissalTabState extends State<MissalTab> {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      if (readings.isEmpty)
+                      if (readings.isEmpty) ...[
                         Card(
                           elevation: 0,
                           color: theme.colorScheme.surfaceContainerHigh,
@@ -692,8 +786,15 @@ class _MissalTabState extends State<MissalTab> {
                               ],
                             ),
                           ),
-                        )
-                      else
+                        ),
+                        const SizedBox(height: 4),
+                        _buildHomilySection(
+                          context,
+                          currentDay,
+                          const [],
+                          theme,
+                        ),
+                      ] else ...[
                         ...readings.map(
                           (r) => Padding(
                             padding: const EdgeInsets.only(bottom: 12.0),
@@ -703,16 +804,17 @@ class _MissalTabState extends State<MissalTab> {
                             ),
                           ),
                         ),
+                        const SizedBox(height: 4),
+                        _buildHomilySection(
+                          context,
+                          currentDay,
+                          readings,
+                          theme,
+                        ),
+                      ],
                     ],
                   );
                 },
-              ),
-              const SizedBox(height: 12),
-              _buildMassPartPlaceholder(
-                'Homily',
-                'Reflective instruction by the priest',
-                Icons.hearing,
-                theme,
               ),
               const SizedBox(height: 12),
 
