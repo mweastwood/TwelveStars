@@ -1,4 +1,5 @@
 import 'bible_metadata.dart';
+import 'prayers.dart';
 
 class BibleCitation {
   final String rawMatch;
@@ -29,14 +30,109 @@ class BibleCitation {
 class BibleVerseResolver {
   /// Resolves Vulgate Psalm chapter to Masoretic/Hebrew Psalm chapter number
   static int vulgateToMasoreticPsalm(int vulgatePsalm) {
-    if (vulgatePsalm <= 8) return vulgatePsalm;
-    if (vulgatePsalm == 9) return 9;
-    if (vulgatePsalm >= 10 && vulgatePsalm <= 112) return vulgatePsalm + 1;
-    if (vulgatePsalm == 113) return 114;
-    if (vulgatePsalm == 114 || vulgatePsalm == 115) return 116;
-    if (vulgatePsalm >= 116 && vulgatePsalm <= 145) return vulgatePsalm + 1;
-    if (vulgatePsalm == 146 || vulgatePsalm == 147) return 147;
+    if (vulgatePsalm <= 8) {
+      return vulgatePsalm;
+    }
+    if (vulgatePsalm == 9) {
+      return 9;
+    }
+    if (vulgatePsalm >= 10 && vulgatePsalm <= 112) {
+      return vulgatePsalm + 1;
+    }
+    if (vulgatePsalm == 113) {
+      return 114;
+    }
+    if (vulgatePsalm == 114 || vulgatePsalm == 115) {
+      return 116;
+    }
+    if (vulgatePsalm >= 116 && vulgatePsalm <= 145) {
+      return vulgatePsalm + 1;
+    }
+    if (vulgatePsalm == 146 || vulgatePsalm == 147) {
+      return 147;
+    }
+    if (vulgatePsalm >= 148 && vulgatePsalm <= 150) {
+      return vulgatePsalm;
+    }
     return vulgatePsalm;
+  }
+
+  /// Resolves Masoretic/Hebrew Psalm chapter to Vulgate Psalm chapter number
+  static int masoreticToVulgatePsalm(int masoreticPsalm) {
+    if (masoreticPsalm <= 8) {
+      return masoreticPsalm;
+    }
+    if (masoreticPsalm == 9 || masoreticPsalm == 10) {
+      return 9;
+    }
+    if (masoreticPsalm >= 11 && masoreticPsalm <= 113) {
+      return masoreticPsalm - 1;
+    }
+    if (masoreticPsalm == 114 || masoreticPsalm == 115) {
+      return 113;
+    }
+    if (masoreticPsalm == 116) {
+      return 114;
+    }
+    if (masoreticPsalm >= 117 && masoreticPsalm <= 146) {
+      return masoreticPsalm - 1;
+    }
+    if (masoreticPsalm == 147) {
+      return 146;
+    }
+    if (masoreticPsalm >= 148 && masoreticPsalm <= 150) {
+      return masoreticPsalm;
+    }
+    return masoreticPsalm;
+  }
+
+  /// Formats chapter title for display in Bible tab and chapter header
+  static String formatChapterTitle({
+    required int bookNumber,
+    required String bookName,
+    required int chapter,
+    required BibleNumberingSystem numberingSystem,
+  }) {
+    if (bookNumber != 21) {
+      return '$bookName $chapter';
+    }
+    final vulgateNum = chapter;
+    final masoreticNum = vulgateToMasoreticPsalm(vulgateNum);
+    switch (numberingSystem) {
+      case BibleNumberingSystem.vulgate:
+        return '$bookName $vulgateNum';
+      case BibleNumberingSystem.modern:
+        return '$bookName $masoreticNum';
+      case BibleNumberingSystem.dual:
+        if (vulgateNum == masoreticNum) {
+          return '$bookName $vulgateNum';
+        }
+        return '$bookName $vulgateNum (Modern $masoreticNum)';
+    }
+  }
+
+  /// Formats chapter label for the chapter picker grid
+  static String formatChapterPickerLabel({
+    required int bookNumber,
+    required int chapter,
+    required BibleNumberingSystem numberingSystem,
+  }) {
+    if (bookNumber != 21) {
+      return '$chapter';
+    }
+    final vulgateNum = chapter;
+    final masoreticNum = vulgateToMasoreticPsalm(vulgateNum);
+    switch (numberingSystem) {
+      case BibleNumberingSystem.vulgate:
+        return '$vulgateNum';
+      case BibleNumberingSystem.modern:
+        return '$masoreticNum';
+      case BibleNumberingSystem.dual:
+        if (vulgateNum == masoreticNum) {
+          return '$vulgateNum';
+        }
+        return '$vulgateNum ($masoreticNum)';
+    }
   }
 }
 

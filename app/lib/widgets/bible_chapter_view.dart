@@ -2,8 +2,10 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
 import 'package:twelve_stars/widgets/bible_verse_modals.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
@@ -14,6 +16,7 @@ class BibleChapterView extends StatefulWidget {
   final int chapter;
   final String primaryTranslation;
   final String compareTranslation;
+  final BibleNumberingSystem numberingSystem;
   final Animation<double>? translationSelectorAnimation;
   final ScrollController? scrollController;
   final int? scrollToVerse;
@@ -28,6 +31,7 @@ class BibleChapterView extends StatefulWidget {
     required this.chapter,
     required this.primaryTranslation,
     required this.compareTranslation,
+    this.numberingSystem = BibleNumberingSystem.vulgate,
     this.translationSelectorAnimation,
     this.scrollController,
     this.scrollToVerse,
@@ -381,7 +385,12 @@ class _BibleChapterViewState extends State<BibleChapterView>
                   child: const SizedBox(height: 72.0),
                 ),
               Text(
-                '${widget.book.bookName} ${widget.chapter}',
+                BibleVerseResolver.formatChapterTitle(
+                  bookNumber: widget.book.bookNumber,
+                  bookName: widget.book.bookName,
+                  chapter: widget.chapter,
+                  numberingSystem: widget.numberingSystem,
+                ),
                 style: theme.textTheme.headlineMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: theme.colorScheme.primary,

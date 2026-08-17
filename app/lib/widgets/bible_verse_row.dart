@@ -4,6 +4,7 @@ class BibleVerseRow extends StatelessWidget {
   final int verseNumber;
   final String verseText;
   final String? compareVerseText;
+  final String? alternateVerseNumber;
   final bool isSelected;
   final double? fontSize;
   final int citationsCount;
@@ -20,6 +21,7 @@ class BibleVerseRow extends StatelessWidget {
     required this.verseNumber,
     required this.verseText,
     this.compareVerseText,
+    this.alternateVerseNumber,
     this.isSelected = false,
     this.fontSize,
     this.citationsCount = 0,
@@ -35,6 +37,11 @@ class BibleVerseRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final hasAlternateVerse =
+        alternateVerseNumber != null && alternateVerseNumber!.isNotEmpty;
+    final verseNumText = hasAlternateVerse
+        ? '$verseNumber ($alternateVerseNumber)'
+        : '$verseNumber';
 
     return GestureDetector(
       onLongPress: onLongPress,
@@ -54,15 +61,15 @@ class BibleVerseRow extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              width: 28,
+              width: hasAlternateVerse ? 44 : 28,
               child: Text(
-                '$verseNumber',
+                verseNumText,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: theme.colorScheme.primary,
                   fontSize: fontSize != null
                       ? (fontSize! * 0.85).clamp(10.0, 20.0)
-                      : null,
+                      : (hasAlternateVerse ? 11.0 : null),
                 ),
                 textAlign: TextAlign.right,
               ),

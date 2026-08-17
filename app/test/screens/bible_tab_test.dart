@@ -1328,5 +1328,76 @@ void main() {
         expect(state.showTranslationSelectors, isTrue);
       },
     );
+
+    testWidgets(
+      'renders Psalm header in Vulgate, Modern, and Dual numbering modes',
+      (WidgetTester tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 21,
+                bookName: 'Psalms',
+                chapter: 22,
+                verseNumber: 1,
+                verseText: 'The Lord ruleth me: and I shall want nothing.',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        final psalmBook = catholicBooks.firstWhere((b) => b.bookNumber == 21);
+
+        // 1. Vulgate Mode
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: BibleChapterView(
+                book: psalmBook,
+                chapter: 22,
+                primaryTranslation: 'CPDV',
+                compareTranslation: 'none',
+                numberingSystem: BibleNumberingSystem.vulgate,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(find.text('Psalms 22'), findsOneWidget);
+
+        // 2. Modern Mode
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: BibleChapterView(
+                book: psalmBook,
+                chapter: 22,
+                primaryTranslation: 'CPDV',
+                compareTranslation: 'none',
+                numberingSystem: BibleNumberingSystem.modern,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(find.text('Psalms 23'), findsOneWidget);
+
+        // 3. Dual Mode
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: BibleChapterView(
+                book: psalmBook,
+                chapter: 22,
+                primaryTranslation: 'CPDV',
+                compareTranslation: 'none',
+                numberingSystem: BibleNumberingSystem.dual,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(find.text('Psalms 22 (Modern 23)'), findsOneWidget);
+      },
+    );
   });
 }

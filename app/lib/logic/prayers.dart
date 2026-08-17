@@ -226,6 +226,36 @@ enum AppThemeMode {
   }
 }
 
+enum BibleNumberingSystem {
+  vulgate(
+    'vulgate',
+    'Latin Vulgate (Traditional)',
+    'Traditional Vulgate / Douay-Rheims / LXX numbering',
+  ),
+  modern(
+    'modern',
+    'Modern (Masoretic)',
+    'Masoretic / Modern English numbering',
+  ),
+  dual(
+    'dual',
+    'Dual Numbering',
+    'Shows primary numbering with alternate in parentheses',
+  );
+
+  final String code;
+  final String label;
+  final String description;
+  const BibleNumberingSystem(this.code, this.label, this.description);
+
+  static BibleNumberingSystem fromCode(String? code) {
+    return BibleNumberingSystem.values.firstWhere(
+      (e) => e.code == code,
+      orElse: () => BibleNumberingSystem.vulgate,
+    );
+  }
+}
+
 class UserSettings {
   int id = 1;
   String primaryLanguageCode;
@@ -237,6 +267,7 @@ class UserSettings {
   String appThemeModeCode;
   bool sundayNotificationsEnabled;
   bool showBibleTranslationSelectors;
+  String bibleNumberingSystemCode;
 
   UserSettings({
     this.id = 1,
@@ -249,10 +280,16 @@ class UserSettings {
     this.appThemeModeCode = 'marian_blue',
     this.sundayNotificationsEnabled = true,
     this.showBibleTranslationSelectors = false,
+    this.bibleNumberingSystemCode = 'vulgate',
   });
 
   AppThemeMode get appThemeMode => AppThemeMode.fromCode(appThemeModeCode);
   set appThemeMode(AppThemeMode mode) => appThemeModeCode = mode.code;
+
+  BibleNumberingSystem get bibleNumberingSystem =>
+      BibleNumberingSystem.fromCode(bibleNumberingSystemCode);
+  set bibleNumberingSystem(BibleNumberingSystem system) =>
+      bibleNumberingSystemCode = system.code;
 
   PrayerLanguage get primaryLanguage => PrayerLanguage.values.firstWhere(
     (e) => e.code == primaryLanguageCode,

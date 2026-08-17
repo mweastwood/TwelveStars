@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
+import 'package:twelve_stars/logic/prayers.dart';
 
 void main() {
   group('BibleCitationParser Unit Tests', () {
@@ -455,6 +456,198 @@ void main() {
           expect(citations[2].verse, 11);
           expect(citations[2].displayLabel, 'Malachi 1:11');
         },
+      );
+    });
+  });
+
+  group('BibleVerseResolver Unit Tests', () {
+    test('vulgateToMasoreticPsalm maps boundary ranges correctly', () {
+      // Pss 1–8: Identical
+      expect(BibleVerseResolver.vulgateToMasoreticPsalm(1), equals(1));
+      expect(BibleVerseResolver.vulgateToMasoreticPsalm(8), equals(8));
+
+      // Ps 9: Combines Masoretic 9 & 10
+      expect(BibleVerseResolver.vulgateToMasoreticPsalm(9), equals(9));
+
+      // Pss 10–112 (Vulgate) -> Pss 11–113 (Masoretic)
+      expect(BibleVerseResolver.vulgateToMasoreticPsalm(10), equals(11));
+      expect(BibleVerseResolver.vulgateToMasoreticPsalm(22), equals(23));
+      expect(BibleVerseResolver.vulgateToMasoreticPsalm(112), equals(113));
+
+      // Ps 113 (Vulgate) -> Masoretic 114 & 115
+      expect(BibleVerseResolver.vulgateToMasoreticPsalm(113), equals(114));
+
+      // Pss 114 & 115 (Vulgate) -> Ps 116 (Masoretic)
+      expect(BibleVerseResolver.vulgateToMasoreticPsalm(114), equals(116));
+      expect(BibleVerseResolver.vulgateToMasoreticPsalm(115), equals(116));
+
+      // Pss 116–145 (Vulgate) -> Pss 117–146 (Masoretic)
+      expect(BibleVerseResolver.vulgateToMasoreticPsalm(116), equals(117));
+      expect(BibleVerseResolver.vulgateToMasoreticPsalm(145), equals(146));
+
+      // Pss 146 & 147 (Vulgate) -> Ps 147 (Masoretic)
+      expect(BibleVerseResolver.vulgateToMasoreticPsalm(146), equals(147));
+      expect(BibleVerseResolver.vulgateToMasoreticPsalm(147), equals(147));
+
+      // Pss 148–150: Identical
+      expect(BibleVerseResolver.vulgateToMasoreticPsalm(148), equals(148));
+      expect(BibleVerseResolver.vulgateToMasoreticPsalm(150), equals(150));
+    });
+
+    test('masoreticToVulgatePsalm maps reverse boundary ranges correctly', () {
+      // Pss 1–8: Identical
+      expect(BibleVerseResolver.masoreticToVulgatePsalm(1), equals(1));
+      expect(BibleVerseResolver.masoreticToVulgatePsalm(8), equals(8));
+
+      // Masoretic 9 & 10 -> Vulgate 9
+      expect(BibleVerseResolver.masoreticToVulgatePsalm(9), equals(9));
+      expect(BibleVerseResolver.masoreticToVulgatePsalm(10), equals(9));
+
+      // Pss 11–113 (Masoretic) -> Pss 10–112 (Vulgate)
+      expect(BibleVerseResolver.masoreticToVulgatePsalm(11), equals(10));
+      expect(BibleVerseResolver.masoreticToVulgatePsalm(23), equals(22));
+      expect(BibleVerseResolver.masoreticToVulgatePsalm(113), equals(112));
+
+      // Masoretic 114 & 115 -> Vulgate 113
+      expect(BibleVerseResolver.masoreticToVulgatePsalm(114), equals(113));
+      expect(BibleVerseResolver.masoreticToVulgatePsalm(115), equals(113));
+
+      // Masoretic 116 -> Vulgate 114
+      expect(BibleVerseResolver.masoreticToVulgatePsalm(116), equals(114));
+
+      // Pss 117–146 (Masoretic) -> Pss 116–145 (Vulgate)
+      expect(BibleVerseResolver.masoreticToVulgatePsalm(117), equals(116));
+      expect(BibleVerseResolver.masoreticToVulgatePsalm(146), equals(145));
+
+      // Masoretic 147 -> Vulgate 146
+      expect(BibleVerseResolver.masoreticToVulgatePsalm(147), equals(146));
+
+      // Pss 148–150: Identical
+      expect(BibleVerseResolver.masoreticToVulgatePsalm(148), equals(148));
+      expect(BibleVerseResolver.masoreticToVulgatePsalm(150), equals(150));
+    });
+
+    test('formatChapterTitle formats correctly across numbering systems', () {
+      // Non-Psalm books should be unaffected
+      expect(
+        BibleVerseResolver.formatChapterTitle(
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          numberingSystem: BibleNumberingSystem.vulgate,
+        ),
+        equals('Genesis 1'),
+      );
+      expect(
+        BibleVerseResolver.formatChapterTitle(
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          numberingSystem: BibleNumberingSystem.modern,
+        ),
+        equals('Genesis 1'),
+      );
+      expect(
+        BibleVerseResolver.formatChapterTitle(
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          numberingSystem: BibleNumberingSystem.dual,
+        ),
+        equals('Genesis 1'),
+      );
+
+      // Psalms 1 (Identical across systems)
+      expect(
+        BibleVerseResolver.formatChapterTitle(
+          bookNumber: 21,
+          bookName: 'Psalms',
+          chapter: 1,
+          numberingSystem: BibleNumberingSystem.vulgate,
+        ),
+        equals('Psalms 1'),
+      );
+      expect(
+        BibleVerseResolver.formatChapterTitle(
+          bookNumber: 21,
+          bookName: 'Psalms',
+          chapter: 1,
+          numberingSystem: BibleNumberingSystem.modern,
+        ),
+        equals('Psalms 1'),
+      );
+      expect(
+        BibleVerseResolver.formatChapterTitle(
+          bookNumber: 21,
+          bookName: 'Psalms',
+          chapter: 1,
+          numberingSystem: BibleNumberingSystem.dual,
+        ),
+        equals('Psalms 1'),
+      );
+
+      // Psalm 22 (Vulgate 22 <-> Modern 23)
+      expect(
+        BibleVerseResolver.formatChapterTitle(
+          bookNumber: 21,
+          bookName: 'Psalms',
+          chapter: 22,
+          numberingSystem: BibleNumberingSystem.vulgate,
+        ),
+        equals('Psalms 22'),
+      );
+      expect(
+        BibleVerseResolver.formatChapterTitle(
+          bookNumber: 21,
+          bookName: 'Psalms',
+          chapter: 22,
+          numberingSystem: BibleNumberingSystem.modern,
+        ),
+        equals('Psalms 23'),
+      );
+      expect(
+        BibleVerseResolver.formatChapterTitle(
+          bookNumber: 21,
+          bookName: 'Psalms',
+          chapter: 22,
+          numberingSystem: BibleNumberingSystem.dual,
+        ),
+        equals('Psalms 22 (Modern 23)'),
+      );
+    });
+
+    test('formatChapterPickerLabel formats picker buttons correctly', () {
+      expect(
+        BibleVerseResolver.formatChapterPickerLabel(
+          bookNumber: 21,
+          chapter: 22,
+          numberingSystem: BibleNumberingSystem.vulgate,
+        ),
+        equals('22'),
+      );
+      expect(
+        BibleVerseResolver.formatChapterPickerLabel(
+          bookNumber: 21,
+          chapter: 22,
+          numberingSystem: BibleNumberingSystem.modern,
+        ),
+        equals('23'),
+      );
+      expect(
+        BibleVerseResolver.formatChapterPickerLabel(
+          bookNumber: 21,
+          chapter: 22,
+          numberingSystem: BibleNumberingSystem.dual,
+        ),
+        equals('22 (23)'),
+      );
+      expect(
+        BibleVerseResolver.formatChapterPickerLabel(
+          bookNumber: 21,
+          chapter: 1,
+          numberingSystem: BibleNumberingSystem.dual,
+        ),
+        equals('1'),
       );
     });
   });
