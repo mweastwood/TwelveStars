@@ -136,8 +136,29 @@ void main() {
         expect(nov15.weekName, '33rd Sunday in Ordinary Time');
 
         final nov22 = LiturgicalCalendar.computeDay(DateTime(2026, 11, 22));
-        expect(nov22.weekName, '34th Sunday in Ordinary Time');
+        expect(nov22.weekName, 'Solemnity of Christ the King');
+        expect(nov22.name, 'Our Lord Jesus Christ, King of the Universe');
       },
     );
+
+    test('verifies Christ the King Solemnity lectionaryKey across cycles', () {
+      // Year A (2026-11-22)
+      final yearA = LiturgicalCalendar.computeDay(DateTime(2026, 11, 22));
+      expect(yearA.name, 'Our Lord Jesus Christ, King of the Universe');
+      expect(yearA.sundayCycle, 'A');
+      expect(yearA.lectionaryKey, 'season_ordinary_time_34_sunday_a');
+
+      // Year B (2024-11-24)
+      final yearB = LiturgicalCalendar.computeDay(DateTime(2024, 11, 24));
+      expect(yearB.name, 'Our Lord Jesus Christ, King of the Universe');
+      expect(yearB.sundayCycle, 'B');
+      expect(yearB.lectionaryKey, 'season_ordinary_time_34_sunday_b');
+
+      // Year C (2025-11-23)
+      final yearC = LiturgicalCalendar.computeDay(DateTime(2025, 11, 23));
+      expect(yearC.name, 'Our Lord Jesus Christ, King of the Universe');
+      expect(yearC.sundayCycle, 'C');
+      expect(yearC.lectionaryKey, 'season_ordinary_time_34_sunday_c');
+    });
   });
 }
