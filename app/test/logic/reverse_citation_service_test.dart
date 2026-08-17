@@ -40,12 +40,160 @@ void main() {
       },
     );
 
-    test('enforces LRU cache bounds on indexed sources', () {
-      ReverseCitationService.clear();
-      expect(ReverseCitationService.indexedSourcesCount, equals(0));
+    test(
+      'deduplicates concurrent ensureIndexed calls with in-flight guard',
+      () async {
+        expect(ReverseCitationService.isInFlightIndexing, isFalse);
 
-      // Index 11 sources (max capacity is 10)
-      for (int i = 1; i <= 11; i++) {
+        final future1 = ReverseCitationService.ensureIndexed();
+        expect(ReverseCitationService.isInFlightIndexing, isTrue);
+
+        final future2 = ReverseCitationService.ensureIndexed();
+        final future3 = ReverseCitationService.ensureIndexed();
+
+        expect(identical(future1, future2), isTrue);
+        expect(identical(future2, future3), isTrue);
+
+        await Future.wait([future1, future2, future3]);
+
+        expect(ReverseCitationService.isInFlightIndexing, isFalse);
+        expect(ReverseCitationService.indexedSourcesCount, equals(6));
+      },
+    );
+
+    test('indexes and retrieves citations spanning verse ranges correctly', () {
+      final bookData = ParsedBookData(
+        bookId: 'test_range_book',
+        title: 'Range Book',
+        subtitle: '',
+        author: '',
+        toc: [],
+        sections: [
+          BookSection(
+            id: 's1',
+            title: 'Section 1',
+            subtitle: '',
+            content: [
+              ContentItem(
+                type: 'text',
+                text: 'See John 3:16-18 and Matthew 5:3 for details.',
+              ),
+            ],
+          ),
+        ],
+      );
+
+      ReverseCitationService.indexBookData('range_source', bookData);
+
+      // John 3:16, 3:17, 3:18 should all index the citation (John is book 52 in Catholic canon)
+      for (int v = 16; v <= 18; v++) {
+        final citations = ReverseCitationService.getVerseCitations(52, 3, v);
+        expect(
+          citations.length,
+          equals(1),
+          reason: 'John 3:$v should have citation',
+        );
+        expect(citations.first.sourceBookId, equals('test_range_book'));
+        expect(citations.first.citation.bookName, equals('John'));
+      }
+
+      // John 3:15 and 3:19 should NOT have this citation
+      expect(ReverseCitationService.getVerseCitations(52, 3, 15), isEmpty);
+      expect(ReverseCitationService.getVerseCitations(52, 3, 19), isEmpty);
+
+      // Matthew 5:3 should index single verse (Matthew is book 49 in Catholic canon)
+      final matt5v3 = ReverseCitationService.getVerseCitations(49, 5, 3);
+      expect(matt5v3.length, equals(1));
+      expect(matt5v3.first.citation.bookName, equals('Matthew'));
+      expect(ReverseCitationService.getVerseCitations(49, 5, 4), isEmpty);
+    });
+
+    test('indexes and retrieves whole chapter citations correctly', () {
+      final bookData = ParsedBookData(
+        bookId: 'chapter_book',
+        title: 'Chapter Book',
+        subtitle: '',
+        author: '',
+        toc: [],
+        sections: [
+          BookSection(
+            id: 's1',
+            title: 'Section 1',
+            subtitle: '',
+            content: [
+              ContentItem(
+                type: 'text',
+                text: 'Refer to Psalm 23 for meditation.',
+              ),
+            ],
+          ),
+        ],
+      );
+
+      ReverseCitationService.indexBookData('chapter_source', bookData);
+
+      // Psalm is book 21 in Catholic canon, chapter 23
+      final psalm23Chapter = ReverseCitationService.getChapterCitations(21, 23);
+      expect(psalm23Chapter.length, equals(1));
+      expect(psalm23Chapter.first.sourceBookId, equals('chapter_book'));
+
+      // Verse citations for Psalm 23 should be empty because it is a whole chapter citation
+      expect(ReverseCitationService.getVerseCitations(21, 23, 1), isEmpty);
+      // Non-indexed chapter should be empty
+      expect(ReverseCitationService.getChapterCitations(21, 24), isEmpty);
+    });
+
+    test('returns empty list for non-existent books, chapters, or verses', () {
+      expect(ReverseCitationService.getVerseCitations(999, 1, 1), isEmpty);
+      expect(ReverseCitationService.getChapterCitations(999, 1), isEmpty);
+    });
+
+    test(
+      'enforces LRU cache bounds on indexed sources and prunes index tables',
+      () {
+        ReverseCitationService.clear();
+        expect(ReverseCitationService.indexedSourcesCount, equals(0));
+
+        // Index 11 sources (max capacity is 10)
+        for (int i = 1; i <= 11; i++) {
+          final bookData = ParsedBookData(
+            bookId: 'book_$i',
+            title: 'Book $i',
+            subtitle: '',
+            author: '',
+            toc: [],
+            sections: [
+              BookSection(
+                id: 's1',
+                title: 'Section 1',
+                subtitle: '',
+                content: [ContentItem(type: 'text', text: 'Citation Gen $i:1')],
+              ),
+            ],
+          );
+          ReverseCitationService.indexBookData('source_$i', bookData);
+        }
+
+        // Max capacity is 10, so source_1 should have been evicted
+        expect(ReverseCitationService.indexedSourcesCount, equals(10));
+
+        // source_1 was evicted (Gen 1:1 has 0 citations from these custom sources)
+        final gen1Citations = ReverseCitationService.getVerseCitations(1, 1, 1);
+        expect(gen1Citations, isEmpty);
+
+        // source_11 is retained (Gen 11:1 has 1 citation)
+        final gen11Citations = ReverseCitationService.getVerseCitations(
+          1,
+          11,
+          1,
+        );
+        expect(gen11Citations.length, equals(1));
+        expect(gen11Citations.first.sourceBookId, equals('book_11'));
+      },
+    );
+
+    test('prune() removes oldest sources and updates index tables', () {
+      for (int i = 1; i <= 5; i++) {
         final bookData = ParsedBookData(
           bookId: 'book_$i',
           title: 'Book $i',
@@ -64,17 +212,27 @@ void main() {
         ReverseCitationService.indexBookData('source_$i', bookData);
       }
 
-      // Max capacity is 10, so source_1 should have been evicted
-      expect(ReverseCitationService.indexedSourcesCount, equals(10));
+      expect(ReverseCitationService.indexedSourcesCount, equals(5));
+      expect(ReverseCitationService.getVerseCitations(1, 1, 1), isNotEmpty);
 
-      // source_1 was evicted (Gen 1:1 has 0 citations from these custom sources)
-      final gen1Citations = ReverseCitationService.getVerseCitations(1, 1, 1);
-      expect(gen1Citations, isEmpty);
+      // Prune when length <= maxIndexedSources does not change anything
+      ReverseCitationService.prune();
+      expect(ReverseCitationService.indexedSourcesCount, equals(5));
+      expect(ReverseCitationService.getVerseCitations(1, 1, 1), isNotEmpty);
+    });
 
-      // source_11 is retained (Gen 11:1 has 1 citation)
-      final gen11Citations = ReverseCitationService.getVerseCitations(1, 11, 1);
-      expect(gen11Citations.length, equals(1));
-      expect(gen11Citations.first.sourceBookId, equals('book_11'));
+    test('clear() resets all caches, indices, and in-flight state', () async {
+      await ReverseCitationService.ensureIndexed();
+      expect(ReverseCitationService.indexedSourcesCount, greaterThan(0));
+      expect(ReverseCitationService.getVerseCitations(1, 3, 15), isNotEmpty);
+
+      ReverseCitationService.clear();
+
+      expect(ReverseCitationService.indexedSourcesCount, equals(0));
+      expect(ReverseCitationService.totalIndexedCitations, equals(0));
+      expect(ReverseCitationService.isInFlightIndexing, isFalse);
+      expect(ReverseCitationService.getVerseCitations(1, 3, 15), isEmpty);
+      expect(ReverseCitationService.getChapterCitations(1, 1), isEmpty);
     });
   });
 }
