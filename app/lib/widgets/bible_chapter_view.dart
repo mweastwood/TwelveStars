@@ -46,6 +46,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
   List<BibleVerse> _verses = [];
   List<BibleVerse> _compareVerses = [];
   List<UserComment> _comments = [];
+  List<FavoritePassage> _favorites = [];
   bool _loading = true;
   String? _error;
 
@@ -88,6 +89,20 @@ class _BibleChapterViewState extends State<BibleChapterView>
     }
   }
 
+  Future<void> _loadFavorites() async {
+    try {
+      final favorites = await BibleDatabaseHelper.db.getFavoritesForChapter(
+        widget.book.bookNumber,
+        widget.chapter,
+      );
+      if (mounted) {
+        setState(() {
+          _favorites = favorites;
+        });
+      }
+    } catch (_) {}
+  }
+
   Future<void> _loadComments() async {
     try {
       final comments = await BibleDatabaseHelper.db.getComments(
@@ -115,6 +130,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
         if (mounted) setState(() {});
       });
       final db = BibleDatabaseHelper.db;
+      await _loadFavorites();
       await _loadComments();
       // Load primary translation
       await db.ensureBookPopulated(
@@ -263,6 +279,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
         );
 
         await BibleDatabaseHelper.db.saveFavorite(favorite);
+        await _loadFavorites();
 
         if (widget.onFavoriteSaved != null) {
           widget.onFavoriteSaved!();
@@ -426,6 +443,15 @@ class _BibleChapterViewState extends State<BibleChapterView>
                     .where((c) => c.nodeId == nodeId)
                     .toList();
 
+                final matchingFavorites = _favorites
+                    .where(
+                      (fav) =>
+                          verse.verseNumber >= fav.startVerse &&
+                          verse.verseNumber <= fav.endVerse,
+                    )
+                    .toList();
+                final isFavorite = matchingFavorites.isNotEmpty;
+
                 BibleVerse? compareVerse;
                 if (_compareVerses.isNotEmpty) {
                   for (final cv in _compareVerses) {
@@ -445,6 +471,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                     isSelected: isSelected,
                     citationsCount: verseCitations.length,
                     commentsCount: verseComments.length,
+                    isFavorite: isFavorite,
                     onTap: () => _onVerseTap(verse.verseNumber),
                     onLongPress: () => _onVerseLongPress(verse.verseNumber),
                     onTapCitations: () => showReverseCitationsModal(
@@ -471,6 +498,18 @@ class _BibleChapterViewState extends State<BibleChapterView>
                         nodeId: nodeId,
                         onCommentSaved: _loadComments,
                       ),
+                    ),
+                    onTapFavorite: () => showVerseFavoritesModal(
+                      context: context,
+                      title:
+                          '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                      favorites: matchingFavorites,
+                      onFavoritesChanged: () async {
+                        await _loadFavorites();
+                        if (widget.onFavoriteSaved != null) {
+                          widget.onFavoriteSaved!();
+                        }
+                      },
                     ),
                   ),
                 );

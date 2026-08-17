@@ -492,6 +492,16 @@ class BibleDatabase extends _$BibleDatabase {
     return select(favoritePassages).get();
   }
 
+  Future<List<FavoritePassage>> getFavoritesForChapter(
+    int bookNumber,
+    int chapter,
+  ) {
+    return (select(favoritePassages)..where(
+          (t) => t.bookNumber.equals(bookNumber) & t.chapter.equals(chapter),
+        ))
+        .get();
+  }
+
   Future<int> saveFavorite(FavoritePassagesCompanion companion) {
     return into(favoritePassages).insert(companion);
   }

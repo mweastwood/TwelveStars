@@ -435,3 +435,129 @@ Future<void> showAddCommentDialog({
     }
   }
 }
+
+Future<void> showVerseFavoritesModal({
+  required BuildContext context,
+  required String title,
+  required List<FavoritePassage> favorites,
+  required FutureOr<void> Function() onFavoritesChanged,
+}) async {
+  final theme = Theme.of(context);
+
+  await showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    backgroundColor: theme.colorScheme.surface,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+    ),
+    builder: (ctx) {
+      return StatefulBuilder(
+        builder: (sheetCtx, setSheetState) {
+          return Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Container(
+                    width: 40,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.onSurfaceVariant.withValues(
+                        alpha: 0.4,
+                      ),
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  children: [
+                    Icon(Icons.star_rounded, color: theme.colorScheme.primary),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        favorites.length > 1
+                            ? 'Favorite Passages for $title'
+                            : 'Favorite Passage for $title',
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: theme.colorScheme.primary,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const Divider(height: 24),
+                if (favorites.isEmpty)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 24.0),
+                    child: Center(
+                      child: Text(
+                        'No favorite passages found.',
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ),
+                  )
+                else
+                  Flexible(
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: favorites.length,
+                      itemBuilder: (lCtx, index) {
+                        final fav = favorites[index];
+                        final citation = fav.startVerse == fav.endVerse
+                            ? '${fav.bookName} ${fav.chapter}:${fav.startVerse}'
+                            : '${fav.bookName} ${fav.chapter}:${fav.startVerse}-${fav.endVerse}';
+
+                        return Card(
+                          margin: const EdgeInsets.only(bottom: 8),
+                          child: ListTile(
+                            title: Text(
+                              citation,
+                              style: theme.textTheme.titleSmall?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: theme.colorScheme.primary,
+                              ),
+                            ),
+                            subtitle: Text(
+                              fav.textPreview,
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                color: theme.colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                            trailing: IconButton(
+                              icon: const Icon(Icons.delete_outline, size: 20),
+                              color: theme.colorScheme.error,
+                              onPressed: () async {
+                                await BibleDatabaseHelper.db.deleteFavorite(
+                                  fav.id,
+                                );
+                                setSheetState(() {
+                                  favorites.removeAt(index);
+                                });
+                                await onFavoritesChanged();
+                                if (favorites.isEmpty && ctx.mounted) {
+                                  Navigator.pop(ctx);
+                                }
+                              },
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+              ],
+            ),
+          );
+        },
+      );
+    },
+  );
+}

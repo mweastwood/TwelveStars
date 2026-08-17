@@ -874,6 +874,66 @@ void main() {
       expect(commentsInDb.isEmpty, isTrue);
     });
 
+    testWidgets(
+      'shows star badge on favorited verse and allows deleting via modal',
+      (WidgetTester tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'In the beginning God created...',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        await testDb.saveFavorite(
+          FavoritePassagesCompanion.insert(
+            bookNumber: 1,
+            bookName: 'Genesis',
+            chapter: 1,
+            startVerse: 1,
+            endVerse: 1,
+            textPreview: 'In the beginning God created...',
+          ),
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        // Verify star badge is rendered next to verse 1
+        expect(find.byIcon(Icons.star_rounded), findsOneWidget);
+
+        // Tap star badge to open favorites modal
+        await tester.tap(find.byIcon(Icons.star_rounded));
+        await tester.pumpAndSettle();
+
+        // Verify modal content
+        expect(find.text('Favorite Passage for Genesis 1:1'), findsOneWidget);
+        expect(
+          find.text('In the beginning God created...'),
+          findsNWidgets(2),
+        ); // in verse row + modal
+
+        // Tap delete button in modal
+        expect(find.byIcon(Icons.delete_outline), findsOneWidget);
+        await tester.tap(find.byIcon(Icons.delete_outline));
+        await tester.pumpAndSettle();
+
+        // Verify favorite deleted from DB
+        final favsInDb = await testDb.getFavorites();
+        expect(favsInDb.isEmpty, isTrue);
+
+        // Star badge should now be removed from verse row
+        expect(find.byIcon(Icons.star_rounded), findsNothing);
+      },
+    );
+
     testGoldens('renders comments tab in bottom panel correctly', (
       tester,
     ) async {

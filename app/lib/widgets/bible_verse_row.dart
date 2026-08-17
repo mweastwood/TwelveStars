@@ -8,10 +8,12 @@ class BibleVerseRow extends StatelessWidget {
   final double? fontSize;
   final int citationsCount;
   final int commentsCount;
+  final bool isFavorite;
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
   final VoidCallback? onTapCitations;
   final VoidCallback? onTapComments;
+  final VoidCallback? onTapFavorite;
 
   const BibleVerseRow({
     super.key,
@@ -22,10 +24,12 @@ class BibleVerseRow extends StatelessWidget {
     this.fontSize,
     this.citationsCount = 0,
     this.commentsCount = 0,
+    this.isFavorite = false,
     this.onTap,
     this.onLongPress,
     this.onTapCitations,
     this.onTapComments,
+    this.onTapFavorite,
   });
 
   @override
@@ -94,6 +98,39 @@ class BibleVerseRow extends StatelessWidget {
                     color: theme.colorScheme.onSurface,
                     fontSize: fontSize,
                     height: 1.5,
+                  ),
+                ),
+              ),
+            ],
+            if (isFavorite) ...[
+              const SizedBox(width: 8),
+              InkWell(
+                mouseCursor: SystemMouseCursors.click,
+                onTap: onTapFavorite,
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.primaryContainer.withValues(
+                      alpha: 0.8,
+                    ),
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      color: theme.colorScheme.primary.withValues(alpha: 0.4),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.star_rounded,
+                        size: 13,
+                        color: theme.colorScheme.onPrimaryContainer,
+                      ),
+                    ],
                   ),
                 ),
               ),

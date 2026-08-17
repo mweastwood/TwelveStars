@@ -208,6 +208,79 @@ void main() {
   );
 
   testWidgets(
+    'MassReadingCard displays favorite star badge and allows removing via favorites modal',
+    (WidgetTester tester) async {
+      const reading = LectionaryReading(
+        id: 1,
+        readingKey: 'feast_annunciation',
+        readingType: 'first',
+        bookNumber: 1, // Genesis
+        bookName: 'Genesis',
+        chapter: 1,
+        verseRange: '1-2',
+        citation: 'Genesis 1:1-2',
+      );
+
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      // Save a favorite for Genesis 1:1
+      await testDb.saveFavorite(
+        FavoritePassagesCompanion.insert(
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          startVerse: 1,
+          endVerse: 1,
+          textPreview: 'In the beginning God created heaven, and earth.',
+        ),
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(body: MassReadingCard(reading: reading)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Check star badge is displayed
+      expect(find.byIcon(Icons.star_rounded), findsOneWidget);
+
+      // Tap star badge -> opens favorites modal
+      await tester.tap(find.byIcon(Icons.star_rounded));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Favorite Passage for Genesis 1:1'), findsOneWidget);
+      expect(
+        find.text('In the beginning God created heaven, and earth.'),
+        findsNWidgets(2),
+      );
+
+      // Delete favorite
+      await tester.tap(find.byIcon(Icons.delete_outline));
+      await tester.pumpAndSettle();
+
+      // Verify favorite is removed from DB
+      final favs = await testDb.getFavorites();
+      expect(favs.isEmpty, isTrue);
+
+      // Star badge should now be gone from verse row
+      expect(find.byIcon(Icons.star_rounded), findsNothing);
+    },
+  );
+
+  testWidgets(
     'MassReadingCard supports verse selection, saving favorite, adding comment, and copying selection',
     (WidgetTester tester) async {
       // Mock Clipboard
@@ -435,26 +508,36 @@ void main() {
         ),
       )
       ..addScenario(
-        'Verse with References Badge',
+        'Verse with Favorite Badge',
         const BibleVerseRow(
           verseNumber: 3,
           verseText: 'And God said: Be light made. And light was made.',
+          isFavorite: true,
+        ),
+      )
+      ..addScenario(
+        'Verse with References Badge',
+        const BibleVerseRow(
+          verseNumber: 4,
+          verseText: 'And God saw the light that it was good.',
           citationsCount: 3,
         ),
       )
       ..addScenario(
         'Verse with Comments Badge',
         const BibleVerseRow(
-          verseNumber: 4,
-          verseText: 'And God saw the light that it was good.',
+          verseNumber: 5,
+          verseText: 'And he called the light Day, and the darkness Night.',
           commentsCount: 1,
         ),
       )
       ..addScenario(
-        'Verse with References and Comments Badges',
+        'Verse with All Badges (Favorite, References, Comments)',
         const BibleVerseRow(
-          verseNumber: 5,
-          verseText: 'And he called the light Day, and the darkness Night.',
+          verseNumber: 6,
+          verseText:
+              'And there was evening and morning that made the first day.',
+          isFavorite: true,
           citationsCount: 2,
           commentsCount: 2,
         ),
@@ -462,7 +545,7 @@ void main() {
       ..addScenario(
         'Parallel Translation Comparison',
         const BibleVerseRow(
-          verseNumber: 6,
+          verseNumber: 7,
           verseText:
               'And God said: Let there be a firmament made amidst the waters.',
           compareVerseText:
@@ -473,7 +556,7 @@ void main() {
     await tester.pumpWidgetBuilder(
       builder.build(),
       wrapper: materialAppWrapper(),
-      surfaceSize: const Size(500, 680),
+      surfaceSize: const Size(500, 800),
     );
     await tester.pumpAndSettle();
 
