@@ -290,6 +290,49 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> irenaeusVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'book1',
+      name: 'Book I (Gnostic Sects)',
+      shortName: 'Book I',
+      description:
+          'Exposition of Gnostic heresies (Valentinus, Simon Magus, Ptolemy) and their mythological systems.',
+      assetPath: 'assets/catechism/json/irenaeus_against_heresies_book1.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book2',
+      name: 'Book II (Refutation)',
+      shortName: 'Book II',
+      description:
+          'Philosophical and logical refutation of Gnostic dualism and the Demiurge; defense of God\'s unity.',
+      assetPath: 'assets/catechism/json/irenaeus_against_heresies_book2.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book3',
+      name: 'Book III (Faith & Tradition)',
+      shortName: 'Book III',
+      description:
+          'The Rule of Faith, Apostolic Succession, the preeminence of the Roman Church, and the fourfold Gospel.',
+      assetPath: 'assets/catechism/json/irenaeus_against_heresies_book3.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book4',
+      name: 'Book IV (Scripture & Law)',
+      shortName: 'Book IV',
+      description:
+          'Unity of the Old and New Testaments; proof from Christ and the Prophets that the Father of Jesus is the Creator.',
+      assetPath: 'assets/catechism/json/irenaeus_against_heresies_book4.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book5',
+      name: 'Book V (Resurrection)',
+      shortName: 'Book V',
+      description:
+          'The Incarnation, the resurrection of the flesh, recapitulation, and the final consummation in the Kingdom of God.',
+      assetPath: 'assets/catechism/json/irenaeus_against_heresies_book5.json',
+    ),
+  ];
+
   static List<LibraryBookItem> getCatalog() {
     return [
       const LibraryBookItem(
@@ -364,6 +407,28 @@ class LibraryHelper {
         description:
             'Written c. 150–155 AD to Emperor Antoninus Pius and the Roman Senate. Famous early defenses of Christian doctrine and morality, featuring the earliest detailed accounts of the Sunday Eucharistic Liturgy and Baptism.',
         volumes: justinVolumes,
+      ),
+      const LibraryBookItem(
+        id: 'irenaeus_against_heresies',
+        title: 'Against Heresies',
+        subtitle: 'Adversus Haereses (Trans. Roberts & Rambaut, 1885)',
+        category: 'Church Fathers',
+        author: 'St. Irenaeus of Lyons (Trans. Roberts & Rambaut)',
+        description:
+            'Written c. 180 AD by the Bishop of Lyons. The monumental 5-book refutation of Gnosticism establishing Apostolic Succession, the authority of the Roman Church, the fourfold Gospel canon, and the resurrection of the body.',
+        volumes: irenaeusVolumes,
+      ),
+      const LibraryBookItem(
+        id: 'athanasius_on_the_incarnation',
+        title: 'On the Incarnation of the Word',
+        subtitle:
+            'De Incarnatione Verbi Dei (Trans. Archibald Robertson, 1892)',
+        category: 'Church Fathers',
+        author: 'St. Athanasius of Alexandria (Trans. Archibald Robertson)',
+        description:
+            'Written c. 318–335 AD by the Patriarch of Alexandria. The classic treatise on why God became man, the redemption of humanity through Christ\'s death and resurrection, and the spiritual renewal of the world.',
+        defaultAssetPath:
+            'assets/catechism/json/athanasius_on_the_incarnation.json',
       ),
     ];
   }
