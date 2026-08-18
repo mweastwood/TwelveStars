@@ -774,6 +774,39 @@ void main() {
         );
       },
     );
+
+    testGoldens(
+      'MissalTab renders Creed section with Apostles Creed active and Nicene Creed peeking',
+      (tester) async {
+        LocalAgentHelper.instance = MockMissalAiService();
+        TimeHelper.setCustomTime(DateTime(2024, 11, 24));
+        await tester.pumpWidgetBuilder(
+          const Scaffold(
+            body: MissalTab(
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        // Scroll down to the Creed carousel
+        await tester.ensureVisible(find.byType(MissalCreedCarousel));
+        await tester.pumpAndSettle();
+
+        // Tap peeking Apostles Creed card to focus it
+        await tester.tap(find.byKey(const Key('apostles_creed_peeking_tap')));
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'missal_tab_apostles_creed_golden',
+          customPump: (tester) async => await tester.pump(),
+        );
+      },
+    );
   });
 }
 

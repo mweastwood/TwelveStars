@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
+import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/widgets/missal_creed_carousel.dart';
+import '../test_helper.dart';
 
 void main() {
   Widget buildTestableCarousel({
@@ -236,6 +240,91 @@ void main() {
 
         expect(find.byType(MissalCreedCarousel), findsOneWidget);
         externalController.dispose();
+      },
+    );
+
+    testGoldens(
+      'MissalCreedCarousel renders Nicene and Apostles Creeds in focused and peeking states',
+      (tester) async {
+        final niceneCard = PrayerCard(
+          prayer: Prayer.mock(
+            id: 'nicene_creed',
+            defaultTitle: 'Nicene Creed',
+            translations: {
+              PrayerLanguage.english: [
+                PrayerTranslation.mock(
+                  title: 'Nicene Creed',
+                  subtitle: 'Symbol of Faith',
+                  text:
+                      'I believe in one God, the Father almighty, maker of heaven and earth, of all things visible and invisible. I believe in one Lord Jesus Christ, the Only Begotten Son of God...',
+                  sourceName: 'Vatican',
+                  sourceUrl: 'https://vatican.va',
+                ),
+              ],
+            },
+          ),
+          selectedLanguage: PrayerLanguage.english,
+          initialVersionIndex: 0,
+          onVersionChanged: (_) {},
+          onLaunchSource: (_) {},
+        );
+
+        final apostlesCard = PrayerCard(
+          prayer: Prayer.mock(
+            id: 'apostles_creed',
+            defaultTitle: 'Apostles\' Creed',
+            translations: {
+              PrayerLanguage.english: [
+                PrayerTranslation.mock(
+                  title: 'Apostles\' Creed',
+                  subtitle: 'Profession of Faith',
+                  text:
+                      'I believe in God, the Father almighty, Creator of heaven and earth, and in Jesus Christ, his only Son, our Lord...',
+                  sourceName: 'Vatican',
+                  sourceUrl: 'https://vatican.va',
+                ),
+              ],
+            },
+          ),
+          selectedLanguage: PrayerLanguage.english,
+          initialVersionIndex: 0,
+          onVersionChanged: (_) {},
+          onLaunchSource: (_) {},
+        );
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: MissalCreedCarousel(
+                  niceneCard: niceneCard,
+                  apostlesCard: apostlesCard,
+                  initialPage: 0,
+                ),
+              ),
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 450),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'missal_creed_carousel_nicene_golden',
+          customPump: (tester) async => await tester.pump(),
+        );
+
+        // Tap peeking Apostles' Creed card
+        await tester.tap(find.byKey(const Key('apostles_creed_peeking_tap')));
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'missal_creed_carousel_apostles_golden',
+          customPump: (tester) async => await tester.pump(),
+        );
       },
     );
   });

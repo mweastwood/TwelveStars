@@ -298,12 +298,9 @@ class _MissalCreedCarouselState extends State<MissalCreedCarousel> {
   }
 
   Widget _buildCardItem(int index, Widget card) {
-    return SingleChildScrollView(
-      physics: const NeverScrollableScrollPhysics(),
-      child: _HeightReporter(
-        onHeightChanged: (h) => _onHeightMeasured(index, h),
-        child: card,
-      ),
+    return _HeightReporter(
+      onHeightChanged: (h) => _onHeightMeasured(index, h),
+      child: card,
     );
   }
 }
