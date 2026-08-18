@@ -566,6 +566,8 @@ void parseChapteredBookFile({
         stripped.startsWith('Second Apology') ||
         stripped.startsWith('Against Heresies:') ||
         stripped.startsWith('On the Incarnation') ||
+        stripped.startsWith('The Confessions of St. Augustine:') ||
+        stripped.startsWith('The City of God:') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -843,4 +845,71 @@ void main() {
     author: 'St. Athanasius of Alexandria (Trans. Archibald Robertson)',
     outputDir: outputDir,
   );
+
+  final augustineDir = p.join('assets', 'catechism', 'augustine');
+
+  final confessionsSubtitles = [
+    'Infancy and Childhood (Trans. E. B. Pusey, 1838)',
+    'Youth and the Pear Tree (Trans. E. B. Pusey, 1838)',
+    'Carthage and Manichaeism (Trans. E. B. Pusey, 1838)',
+    'Teaching Rhetoric and Grief (Trans. E. B. Pusey, 1838)',
+    'Rome and Milan (Trans. E. B. Pusey, 1838)',
+    'Moral Struggles and Friends (Trans. E. B. Pusey, 1838)',
+    'Neoplatonism and the Word (Trans. E. B. Pusey, 1838)',
+    'Conversion in the Garden (Trans. E. B. Pusey, 1838)',
+    'Baptism and Death of Monica (Trans. E. B. Pusey, 1838)',
+    'Memory and Self-Examination (Trans. E. B. Pusey, 1838)',
+    'Time and Eternity (Trans. E. B. Pusey, 1838)',
+    'Heaven, Earth, and Scripture (Trans. E. B. Pusey, 1838)',
+    'The Allegory of Creation (Trans. E. B. Pusey, 1838)',
+  ];
+
+  for (int b = 1; b <= 13; b++) {
+    parseChapteredBookFile(
+      filepath: p.join(augustineDir, 'augustine_confessions_book$b.txt'),
+      bookId: 'augustine_confessions_book$b',
+      secIdPrefix: 'augustine_confessions_b$b',
+      title: 'The Confessions: Book $b',
+      subtitle: confessionsSubtitles[b - 1],
+      author: 'St. Augustine of Hippo (Trans. E. B. Pusey)',
+      outputDir: outputDir,
+    );
+  }
+
+  final cityOfGodSubtitles = [
+    'The Sack of Rome (Trans. Marcus Dods, 1871)',
+    'Moral Evils of Rome (Trans. Marcus Dods, 1871)',
+    'Physical Calamities of Rome (Trans. Marcus Dods, 1871)',
+    'Imperial Greatness and True God (Trans. Marcus Dods, 1871)',
+    'Fate, Providence, and Free Will (Trans. Marcus Dods, 1871)',
+    'Varro and Civil Theology (Trans. Marcus Dods, 1871)',
+    'Natural Theology and Pagan Gods (Trans. Marcus Dods, 1871)',
+    'Platonism and Demonology (Trans. Marcus Dods, 1871)',
+    'Demons vs. Christ the Mediator (Trans. Marcus Dods, 1871)',
+    'Sacrifice, Angels, and Porphyry (Trans. Marcus Dods, 1871)',
+    'Creation and the Two Angelic Cities (Trans. Marcus Dods, 1871)',
+    'The Nature of Angels and Creation of Man (Trans. Marcus Dods, 1871)',
+    'The Fall and Human Mortality (Trans. Marcus Dods, 1871)',
+    'The Two Loves and Two Cities (Trans. Marcus Dods, 1871)',
+    'The Two Cities in Genesis: Cain and Abel (Trans. Marcus Dods, 1871)',
+    'From Noah to the Kings of Israel (Trans. Marcus Dods, 1871)',
+    'The Prophets and King David (Trans. Marcus Dods, 1871)',
+    'Parallel Histories of the Two Cities (Trans. Marcus Dods, 1871)',
+    'Peace and the Supreme Good (Trans. Marcus Dods, 1871)',
+    'The Last Judgment (Trans. Marcus Dods, 1871)',
+    'The Punishment of the Earthly City (Trans. Marcus Dods, 1871)',
+    'The Eternal Bliss of the City of God (Trans. Marcus Dods, 1871)',
+  ];
+
+  for (int b = 1; b <= 22; b++) {
+    parseChapteredBookFile(
+      filepath: p.join(augustineDir, 'augustine_city_of_god_book$b.txt'),
+      bookId: 'augustine_city_of_god_book$b',
+      secIdPrefix: 'augustine_city_of_god_b$b',
+      title: 'The City of God: Book $b',
+      subtitle: cityOfGodSubtitles[b - 1],
+      author: 'St. Augustine of Hippo (Trans. Marcus Dods)',
+      outputDir: outputDir,
+    );
+  }
 }

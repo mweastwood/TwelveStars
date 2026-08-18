@@ -333,6 +333,292 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> confessionsVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'book1',
+      name: 'Book I (Infancy & Childhood)',
+      shortName: 'Book I',
+      description:
+          'Early childhood, school years, learning to speak, and initial prayers.',
+      assetPath: 'assets/catechism/json/augustine_confessions_book1.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book2',
+      name: 'Book II (The Pear Tree)',
+      shortName: 'Book II',
+      description:
+          'Adolescence, awakening desires, and the infamous theft of the pears.',
+      assetPath: 'assets/catechism/json/augustine_confessions_book2.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book3',
+      name: 'Book III (Carthage & Manichaeism)',
+      shortName: 'Book III',
+      description:
+          'Studies in Carthage, love of theatre, fall into Manichaeism, and Monica\'s tears.',
+      assetPath: 'assets/catechism/json/augustine_confessions_book3.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book4',
+      name: 'Book IV (Teaching Rhetoric & Grief)',
+      shortName: 'Book IV',
+      description:
+          'Teaching rhetoric at Tagaste, grief over the death of a close friend, and treatise on beauty.',
+      assetPath: 'assets/catechism/json/augustine_confessions_book4.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book5',
+      name: 'Book V (Rome & Milan)',
+      shortName: 'Book V',
+      description:
+          'Disillusionment with Faustus the Manichaean, move to Rome and Milan, meeting St. Ambrose.',
+      assetPath: 'assets/catechism/json/augustine_confessions_book5.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book6',
+      name: 'Book VI (Moral Struggles & Friends)',
+      shortName: 'Book VI',
+      description:
+          'Friendship with Alypius and Nebridius, worldly ambitions, and search for truth.',
+      assetPath: 'assets/catechism/json/augustine_confessions_book6.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book7',
+      name: 'Book VII (Neoplatonism & the Word)',
+      shortName: 'Book VII',
+      description:
+          'Overcoming materialism, the origin of evil, Platonist philosophy, and Christ the Mediator.',
+      assetPath: 'assets/catechism/json/augustine_confessions_book7.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book8',
+      name: 'Book VIII (Conversion in the Garden)',
+      shortName: 'Book VIII',
+      description:
+          'The struggle of two wills, reading St. Paul, and the voice saying "Tolle, lege" (Take and read).',
+      assetPath: 'assets/catechism/json/augustine_confessions_book8.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book9',
+      name: 'Book IX (Baptism & Death of Monica)',
+      shortName: 'Book IX',
+      description:
+          'Baptism at Milan by St. Ambrose, mystical vision at Ostia, and the holy death of St. Monica.',
+      assetPath: 'assets/catechism/json/augustine_confessions_book9.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book10',
+      name: 'Book X (Memory & Self-Examination)',
+      shortName: 'Book X',
+      description:
+          'Profound exploration of memory, the senses, temptations, and Christ the true Mediator.',
+      assetPath: 'assets/catechism/json/augustine_confessions_book10.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book11',
+      name: 'Book XI (Time & Eternity)',
+      shortName: 'Book XI',
+      description:
+          'The creation narrative in Genesis 1:1, the nature of time, eternity, and psychological perception of time.',
+      assetPath: 'assets/catechism/json/augustine_confessions_book11.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book12',
+      name: 'Book XII (Heaven, Earth & Scripture)',
+      shortName: 'Book XII',
+      description:
+          'Exposition of Genesis 1:1–2, formless matter, spiritual creation, and biblical hermeneutics.',
+      assetPath: 'assets/catechism/json/augustine_confessions_book12.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book13',
+      name: 'Book XIII (The Allegory of Creation)',
+      shortName: 'Book XIII',
+      description:
+          'Spiritual and allegorical interpretation of the Six Days of Creation and God\'s Sabbath rest.',
+      assetPath: 'assets/catechism/json/augustine_confessions_book13.json',
+    ),
+  ];
+
+  static const List<BaltimoreVolume> cityOfGodVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'book1',
+      name: 'Book I (The Sack of Rome)',
+      shortName: 'Book I',
+      description:
+          'Refutation of pagans who blamed Christianity for the sack of Rome; defense of Christian sanctuary.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book1.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book2',
+      name: 'Book II (Moral Evils of Rome)',
+      shortName: 'Book II',
+      description:
+          'Proof that pagan gods failed to protect Rome from moral degeneration and corruption.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book2.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book3',
+      name: 'Book III (Physical Calamities of Rome)',
+      shortName: 'Book III',
+      description:
+          'Survey of disasters, wars, plagues, and civil strife suffered by Rome under pagan rule.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book3.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book4',
+      name: 'Book IV (Imperial Greatness & True God)',
+      shortName: 'Book IV',
+      description:
+          'Kingdoms without justice are great robberies; earthly empire is granted by the one true God.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book4.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book5',
+      name: 'Book V (Fate, Providence & Free Will)',
+      shortName: 'Book V',
+      description:
+          'Refutation of astrological fate; harmony of divine foreknowledge, providence, and human free will.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book5.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book6',
+      name: 'Book VI (Varro & Civil Theology)',
+      shortName: 'Book VI',
+      description:
+          'Refutation of civil theology; Varro\'s classification of gods; pagan gods cannot give eternal life.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book6.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book7',
+      name: 'Book VII (Natural Theology & Pagan Gods)',
+      shortName: 'Book VII',
+      description:
+          'Refutation of physical interpretations of pagan deities; worship belongs to the Creator alone.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book7.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book8',
+      name: 'Book VIII (Platonism & Demonology)',
+      shortName: 'Book VIII',
+      description:
+          'Examination of Platonist philosophy; refutation of Apuleius and demonic mediation; Christ alone is Mediator.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book8.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book9',
+      name: 'Book IX (Demons vs. Christ the Mediator)',
+      shortName: 'Book IX',
+      description:
+          'Demons are spirits of wickedness incapable of mediating; Christ the God-man is our sole Mediator.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book9.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book10',
+      name: 'Book X (Sacrifice, Angels & Porphyry)',
+      shortName: 'Book X',
+      description:
+          'The nature of true worship (latria) and sacrifice; holy angels refuse worship; refutation of Porphyry.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book10.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book11',
+      name: 'Book XI (Creation & the Angelic Cities)',
+      shortName: 'Book XI',
+      description:
+          'The beginning of the City of God; creation of time, light, and separation of holy and fallen angels.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book11.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book12',
+      name: 'Book XII (Angelic Wills & Creation of Man)',
+      shortName: 'Book XII',
+      description:
+          'Good and evil wills of angels; creation of mankind from one man; refutation of cyclical time.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book12.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book13',
+      name: 'Book XIII (The Fall & Human Mortality)',
+      shortName: 'Book XIII',
+      description:
+          'The fall of Adam, original sin, bodily and spiritual death, and restoration through Christ.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book13.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book14',
+      name: 'Book XIV (The Two Loves & Two Cities)',
+      shortName: 'Book XIV',
+      description:
+          'Living according to the flesh vs. spirit; the two loves that founded the two cities (love of self vs. love of God).',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book14.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book15',
+      name: 'Book XV (Two Cities in Genesis: Cain & Abel)',
+      shortName: 'Book XV',
+      description:
+          'The earthly city represented by Cain and heavenly city by Abel; Noah\'s Ark as a figure of the Church.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book15.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book16',
+      name: 'Book XVI (From Noah to the Kings)',
+      shortName: 'Book XVI',
+      description:
+          'Progress of the City of God from Abraham to David; Babel, circumcision, and Old Testament prophecies.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book16.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book17',
+      name: 'Book XVII (The Prophets & King David)',
+      shortName: 'Book XVII',
+      description:
+          'The history of the City of God under the monarchy and prophets; the Davidic Covenant and Messianic Psalms.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book17.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book18',
+      name: 'Book XVIII (Parallel Histories of Two Cities)',
+      shortName: 'Book XVIII',
+      description:
+          'Synchronous history of earthly empires (Assyria, Greece, Rome) and the City of God up to Christ.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book18.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book19',
+      name: 'Book XIX (Peace & the Supreme Good)',
+      shortName: 'Book XIX',
+      description:
+          'The supreme good (summum bonum); definitions of justice, commonwealth, and true peace (tranquillitas ordinis).',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book19.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book20',
+      name: 'Book XX (The Last Judgment)',
+      shortName: 'Book XX',
+      description:
+          'Prophecies of the Final Judgment in the Old and New Testaments; bodily resurrection and Christ as Judge.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book20.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book21',
+      name: 'Book XXI (Punishment of the Earthly City)',
+      shortName: 'Book XXI',
+      description:
+          'The reality and justice of eternal punishment, hellfire, and refutation of universal salvation.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book21.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book22',
+      name: 'Book XXII (Eternal Bliss of City of God)',
+      shortName: 'Book XXII',
+      description:
+          'The resurrection of the flesh, miracles worked by Christ and the martyrs, beatific vision, and the eternal Sabbath.',
+      assetPath: 'assets/catechism/json/augustine_city_of_god_book22.json',
+    ),
+  ];
+
   static List<LibraryBookItem> getCatalog() {
     return [
       const LibraryBookItem(
@@ -429,6 +715,26 @@ class LibraryHelper {
             'Written c. 318–335 AD by the Patriarch of Alexandria. The classic treatise on why God became man, the redemption of humanity through Christ\'s death and resurrection, and the spiritual renewal of the world.',
         defaultAssetPath:
             'assets/catechism/json/athanasius_on_the_incarnation.json',
+      ),
+      const LibraryBookItem(
+        id: 'augustine_confessions',
+        title: 'The Confessions',
+        subtitle: 'Confessiones (Trans. Edward Bouverie Pusey, 1838)',
+        category: 'Church Fathers',
+        author: 'St. Augustine of Hippo (Trans. E. B. Pusey)',
+        description:
+            'Written c. 397–400 AD. The world\'s first spiritual autobiography tracing Augustine\'s journey from sinful youth and Manichaeism to his conversion at Milan ("Tolle, lege"), the life and death of St. Monica, and profound reflections on memory, time, and creation.',
+        volumes: confessionsVolumes,
+      ),
+      const LibraryBookItem(
+        id: 'augustine_city_of_god',
+        title: 'The City of God',
+        subtitle: 'De Civitate Dei contra Paganos (Trans. Marcus Dods, 1871)',
+        category: 'Church Fathers',
+        author: 'St. Augustine of Hippo (Trans. Marcus Dods)',
+        description:
+            'Written c. 413–426 AD following the sack of Rome. Augustine\'s magnum opus in 22 books contrasting the City of God (founded on the love of God) with the City of Man (founded on the love of self), expounding providence, Christian history, true peace, and eternal beatitude.',
+        volumes: cityOfGodVolumes,
       ),
     ];
   }
