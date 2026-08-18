@@ -10,6 +10,7 @@ import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/widgets/mass_reading_card.dart';
 import 'package:twelve_stars/widgets/missal_calendar_grid.dart';
 import 'package:twelve_stars/widgets/homily_reflection_sheet.dart';
+import 'package:twelve_stars/widgets/reader/missal_section_widgets.dart';
 
 class MissalTab extends StatefulWidget {
   final PrayerLanguage primaryLanguage;
@@ -248,27 +249,6 @@ class _MissalTabState extends State<MissalTab> {
     return DateTime(date.year, date.month, date.day + offset);
   }
 
-  Widget _buildSectionHeader(String title, ThemeData theme) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 24.0, bottom: 8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            title,
-            style: theme.textTheme.labelMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: theme.colorScheme.primary,
-              letterSpacing: 1.2,
-            ),
-          ),
-          const SizedBox(height: 4),
-          const Divider(thickness: 1),
-        ],
-      ),
-    );
-  }
-
   Widget _buildPrayerCard(Prayer prayer) {
     final prefKey = '${prayer.prayerId}_${_primaryLanguage.code}';
     final initialVersion =
@@ -303,50 +283,6 @@ class _MissalTabState extends State<MissalTab> {
     );
   }
 
-  Widget _buildMassPartPlaceholder(
-    String title,
-    String description,
-    IconData icon,
-    ThemeData theme,
-  ) {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Row(
-          children: [
-            Icon(icon, color: theme.colorScheme.primary, size: 22),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: theme.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.onSurface,
-                    ),
-                  ),
-                  if (description.isNotEmpty) ...[
-                    const SizedBox(height: 2),
-                    Text(
-                      description,
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                        fontStyle: FontStyle.italic,
-                      ),
-                    ),
-                  ],
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   void _openHomilyReflection(
     BuildContext context,
     LiturgicalDay day,
@@ -362,57 +298,6 @@ class _MissalTabState extends State<MissalTab> {
       builder: (context) => HomilyReflectionSheet(
         celebrationTitle: day.name ?? day.weekName,
         readings: readings,
-      ),
-    );
-  }
-
-  Widget _buildHomilySection(
-    BuildContext context,
-    LiturgicalDay currentDay,
-    List<LectionaryReading> readings,
-    ThemeData theme,
-  ) {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Row(
-          children: [
-            Icon(Icons.hearing, color: theme.colorScheme.primary, size: 22),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Homily',
-                    style: theme.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.onSurface,
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    'Reflective instruction by the priest',
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.onSurfaceVariant,
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            if (readings.isNotEmpty) ...[
-              const SizedBox(width: 8),
-              FilledButton.tonalIcon(
-                onPressed: () =>
-                    _openHomilyReflection(context, currentDay, readings),
-                icon: const Icon(Icons.auto_awesome, size: 16),
-                label: const Text('AI Reflection'),
-              ),
-            ],
-          ],
-        ),
       ),
     );
   }
@@ -543,128 +428,21 @@ class _MissalTabState extends State<MissalTab> {
               const SizedBox(height: 16),
 
               // 2. Main Liturgical Card
-              Card(
-                margin: const EdgeInsets.symmetric(vertical: 8.0),
-                clipBehavior: Clip.antiAlias,
-                child: IntrinsicHeight(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Container(width: 10, color: currentDay.colorWidget),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    currentDay.seasonName.toUpperCase(),
-                                    style: theme.textTheme.labelMedium
-                                        ?.copyWith(
-                                          fontWeight: FontWeight.bold,
-                                          color: theme.colorScheme.secondary,
-                                          letterSpacing: 1.1,
-                                        ),
-                                  ),
-                                  Text(
-                                    'Cycle ${currentDay.sundayCycle} • Year ${currentDay.weekdayCycle}',
-                                    style: theme.textTheme.labelSmall?.copyWith(
-                                      color: theme.colorScheme.onSurfaceVariant,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 10),
-                              Text(
-                                currentDay.weekName,
-                                style: theme.textTheme.titleLarge?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: theme.colorScheme.onSurface,
-                                ),
-                              ),
-                              const SizedBox(height: 6),
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.lens,
-                                    size: 10,
-                                    color: currentDay.colorWidget,
-                                  ),
-                                  const SizedBox(width: 6),
-                                  Text(
-                                    'Color: ${currentDay.colorName}',
-                                    style: theme.textTheme.bodySmall?.copyWith(
-                                      color: theme.colorScheme.onSurfaceVariant,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              MissalLiturgicalCard(currentDay: currentDay),
               const SizedBox(height: 8),
 
               // 3. Special Solemnity / Feast Alert Card (if any)
               if (currentDay.name != null) ...[
-                Card(
-                  margin: const EdgeInsets.symmetric(vertical: 8.0),
-                  color: currentDay.colorWidget.withValues(alpha: 0.1),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.church,
-                          color: currentDay.colorWidget,
-                          size: 28,
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'SOLEMNITY / FEAST',
-                                style: theme.textTheme.labelSmall?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: currentDay.colorWidget,
-                                  letterSpacing: 1.1,
-                                ),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                currentDay.name!,
-                                style: theme.textTheme.titleLarge?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: theme.colorScheme.onSurface,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                MissalFeastAlertCard(currentDay: currentDay),
                 const SizedBox(height: 8),
               ],
 
               // 4. Introductory Rites Section
-              _buildSectionHeader('INTRODUCTORY RITES', theme),
-              _buildMassPartPlaceholder(
-                'Entrance Chant',
-                'Entrance Antiphon of the day',
-                Icons.music_note,
-                theme,
+              const MissalSectionHeader(title: 'INTRODUCTORY RITES'),
+              const MissalMassPartPlaceholder(
+                title: 'Entrance Chant',
+                description: 'Entrance Antiphon of the day',
+                icon: Icons.music_note,
               ),
               const SizedBox(height: 12),
               if (massGreeting != null) ...[
@@ -679,11 +457,10 @@ class _MissalTabState extends State<MissalTab> {
                 _buildPrayerCard(kyrieEleison),
                 const SizedBox(height: 12),
               ] else ...[
-                _buildMassPartPlaceholder(
-                  'Kyrie Eleison',
-                  'Kyrie, eleison (Lord, have mercy...)',
-                  Icons.volunteer_activism,
-                  theme,
+                const MissalMassPartPlaceholder(
+                  title: 'Kyrie Eleison',
+                  description: 'Kyrie, eleison (Lord, have mercy...)',
+                  icon: Icons.volunteer_activism,
                 ),
                 const SizedBox(height: 12),
               ],
@@ -691,16 +468,15 @@ class _MissalTabState extends State<MissalTab> {
                 _buildPrayerCard(gloria),
                 const SizedBox(height: 12),
               ],
-              _buildMassPartPlaceholder(
-                'Collect (Opening Prayer)',
-                'Opening prayer of the day',
-                Icons.bookmark_border,
-                theme,
+              const MissalMassPartPlaceholder(
+                title: 'Collect (Opening Prayer)',
+                description: 'Opening prayer of the day',
+                icon: Icons.bookmark_border,
               ),
               const SizedBox(height: 12),
 
               // 5. Liturgy of the Word Section
-              _buildSectionHeader('LITURGY OF THE WORD', theme),
+              const MissalSectionHeader(title: 'LITURGY OF THE WORD'),
               FutureBuilder<List<LectionaryReading>>(
                 future: _getReadingsForDay(currentDay.lectionaryKey),
                 builder: (context, snapshot) {
@@ -714,11 +490,10 @@ class _MissalTabState extends State<MissalTab> {
                           ),
                         ),
                         const SizedBox(height: 4),
-                        _buildHomilySection(
-                          context,
-                          currentDay,
-                          const [],
-                          theme,
+                        MissalHomilySectionCard(
+                          currentDay: currentDay,
+                          readings: const [],
+                          onOpenHomilyReflection: _openHomilyReflection,
                         ),
                       ],
                     );
@@ -732,11 +507,10 @@ class _MissalTabState extends State<MissalTab> {
                           style: TextStyle(color: theme.colorScheme.error),
                         ),
                         const SizedBox(height: 4),
-                        _buildHomilySection(
-                          context,
-                          currentDay,
-                          const [],
-                          theme,
+                        MissalHomilySectionCard(
+                          currentDay: currentDay,
+                          readings: const [],
+                          onOpenHomilyReflection: _openHomilyReflection,
                         ),
                       ],
                     );
@@ -788,11 +562,10 @@ class _MissalTabState extends State<MissalTab> {
                           ),
                         ),
                         const SizedBox(height: 4),
-                        _buildHomilySection(
-                          context,
-                          currentDay,
-                          const [],
-                          theme,
+                        MissalHomilySectionCard(
+                          currentDay: currentDay,
+                          readings: const [],
+                          onOpenHomilyReflection: _openHomilyReflection,
                         ),
                       ] else ...[
                         ...readings.map(
@@ -805,11 +578,10 @@ class _MissalTabState extends State<MissalTab> {
                           ),
                         ),
                         const SizedBox(height: 4),
-                        _buildHomilySection(
-                          context,
-                          currentDay,
-                          readings,
-                          theme,
+                        MissalHomilySectionCard(
+                          currentDay: currentDay,
+                          readings: readings,
+                          onOpenHomilyReflection: _openHomilyReflection,
                         ),
                       ],
                     ],
@@ -846,21 +618,20 @@ class _MissalTabState extends State<MissalTab> {
               else if (!_showNiceneCreed && apostlesCreed != null)
                 _buildPrayerCard(apostlesCreed),
               const SizedBox(height: 12),
-              _buildMassPartPlaceholder(
-                'Universal Prayer (Prayers of the Faithful)',
-                'Petitions for the Church, the world, and those in need',
-                Icons.people,
-                theme,
+              const MissalMassPartPlaceholder(
+                title: 'Universal Prayer (Prayers of the Faithful)',
+                description:
+                    'Petitions for the Church, the world, and those in need',
+                icon: Icons.people,
               ),
               const SizedBox(height: 12),
 
               // 6. Liturgy of the Eucharist Section
-              _buildSectionHeader('LITURGY OF THE EUCHARIST', theme),
-              _buildMassPartPlaceholder(
-                'Preparation of the Altar (Offertory)',
-                'Presentation and preparation of bread and wine',
-                Icons.restaurant,
-                theme,
+              const MissalSectionHeader(title: 'LITURGY OF THE EUCHARIST'),
+              const MissalMassPartPlaceholder(
+                title: 'Preparation of the Altar (Offertory)',
+                description: 'Presentation and preparation of bread and wine',
+                icon: Icons.restaurant,
               ),
               const SizedBox(height: 12),
               if (offertoryResponse != null) ...[
@@ -879,19 +650,18 @@ class _MissalTabState extends State<MissalTab> {
                 _buildPrayerCard(sanctus),
                 const SizedBox(height: 12),
               ] else ...[
-                _buildMassPartPlaceholder(
-                  'Sanctus (Holy, Holy, Holy)',
-                  'Holy, Holy, Holy Lord God of hosts...',
-                  Icons.notifications_active,
-                  theme,
+                const MissalMassPartPlaceholder(
+                  title: 'Sanctus (Holy, Holy, Holy)',
+                  description: 'Holy, Holy, Holy Lord God of hosts...',
+                  icon: Icons.notifications_active,
                 ),
                 const SizedBox(height: 12),
               ],
-              _buildMassPartPlaceholder(
-                'Eucharistic Prayer & Consecration',
-                'Eucharistic prayer and consecration of bread and wine',
-                Icons.brightness_high,
-                theme,
+              const MissalMassPartPlaceholder(
+                title: 'Eucharistic Prayer & Consecration',
+                description:
+                    'Eucharistic prayer and consecration of bread and wine',
+                icon: Icons.brightness_high,
               ),
               const SizedBox(height: 12),
               if (mysteryOfFaith != null) ...[
@@ -906,11 +676,10 @@ class _MissalTabState extends State<MissalTab> {
                 _buildPrayerCard(signOfPeace),
                 const SizedBox(height: 12),
               ] else ...[
-                _buildMassPartPlaceholder(
-                  'Sign of Peace',
-                  'Greeting one another with a sign of peace',
-                  Icons.handshake,
-                  theme,
+                const MissalMassPartPlaceholder(
+                  title: 'Sign of Peace',
+                  description: 'Greeting one another with a sign of peace',
+                  icon: Icons.handshake,
                 ),
                 const SizedBox(height: 12),
               ],
@@ -918,11 +687,11 @@ class _MissalTabState extends State<MissalTab> {
                 _buildPrayerCard(agnusDei),
                 const SizedBox(height: 12),
               ] else ...[
-                _buildMassPartPlaceholder(
-                  'Agnus Dei (Lamb of God)',
-                  'Lamb of God, you take away the sins of the world...',
-                  Icons.spa,
-                  theme,
+                const MissalMassPartPlaceholder(
+                  title: 'Agnus Dei (Lamb of God)',
+                  description:
+                      'Lamb of God, you take away the sins of the world...',
+                  icon: Icons.spa,
                 ),
                 const SizedBox(height: 12),
               ],
@@ -930,25 +699,24 @@ class _MissalTabState extends State<MissalTab> {
                 _buildPrayerCard(domineNonSumDignus),
                 const SizedBox(height: 12),
               ],
-              _buildMassPartPlaceholder(
-                'Communion Rite',
-                'Reception of Holy Communion and silent thanksgiving',
-                Icons.church,
-                theme,
+              const MissalMassPartPlaceholder(
+                title: 'Communion Rite',
+                description:
+                    'Reception of Holy Communion and silent thanksgiving',
+                icon: Icons.church,
               ),
               const SizedBox(height: 12),
 
               // 7. Concluding Rites Section
-              _buildSectionHeader('CONCLUDING RITES', theme),
+              const MissalSectionHeader(title: 'CONCLUDING RITES'),
               if (dismissal != null) ...[
                 _buildPrayerCard(dismissal),
                 const SizedBox(height: 12),
               ] else ...[
-                _buildMassPartPlaceholder(
-                  'Concluding Blessing & Dismissal',
-                  'Blessing and sending forth: "Go in peace..."',
-                  Icons.logout,
-                  theme,
+                const MissalMassPartPlaceholder(
+                  title: 'Concluding Blessing & Dismissal',
+                  description: 'Blessing and sending forth: "Go in peace..."',
+                  icon: Icons.logout,
                 ),
                 const SizedBox(height: 12),
               ],

@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
@@ -8,7 +7,8 @@ import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
 import 'package:twelve_stars/widgets/bible_translation_selector_card.dart';
 import 'package:twelve_stars/widgets/bible_translation_selector_dialog.dart';
-import 'package:twelve_stars/widgets/bible_verse_modals.dart';
+import 'package:twelve_stars/widgets/reader/bible_bottom_navigation_panel.dart';
+import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 
 class BibleChapterRef {
   final BibleBook book;
@@ -277,46 +277,6 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     }
   }
 
-  Widget _buildBookGroup(String title, List<BibleBook> books) {
-    final theme = Theme.of(context);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 4.0, bottom: 8.0),
-            child: Text(
-              title,
-              style: theme.textTheme.titleSmall?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.secondary,
-              ),
-            ),
-          ),
-          Wrap(
-            spacing: 8.0,
-            runSpacing: 8.0,
-            children: books.map((book) {
-              final isSelected =
-                  _selectedBookForPicker.bookNumber == book.bookNumber;
-              return ChoiceChip(
-                label: Text(book.bookName),
-                selected: isSelected,
-                onSelected: (selected) {
-                  setState(() {
-                    _selectedBookForPicker = book;
-                  });
-                  _sheetTabController.animateTo(1); // Switch to Chapter tab
-                },
-              );
-            }).toList(),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildTranslationSelectors(ThemeData theme) {
     return SizeTransition(
       sizeFactor: _translationSelectorAnimation,
@@ -422,6 +382,61 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     });
     if (_settings != null) {
       PrayerDatabase.saveSettings(_settings!);
+    }
+  }
+
+  void _navigateToChapter(BibleBook book, int chapterNum) {
+    final pageIndex = _allChapters.indexWhere(
+      (ref) =>
+          ref.book.bookNumber == book.bookNumber && ref.chapter == chapterNum,
+    );
+    if (pageIndex != -1) {
+      _pageController.jumpToPage(pageIndex);
+      _collapsePanel();
+    }
+  }
+
+  void _navigateToFavorite(FavoritePassage fav) {
+    final pageIndex = _allChapters.indexWhere(
+      (ref) =>
+          ref.book.bookNumber == fav.bookNumber && ref.chapter == fav.chapter,
+    );
+    if (pageIndex != -1) {
+      setState(() {
+        _targetBookNumber = fav.bookNumber;
+        _targetChapter = fav.chapter;
+        _scrollToVerse = fav.startVerse;
+        _highlightStartVerse = fav.startVerse;
+        _highlightEndVerse = fav.endVerse;
+        _navigationSessionId = DateTime.now().millisecondsSinceEpoch.toString();
+      });
+      _pageController.jumpToPage(pageIndex);
+      _collapsePanel();
+    }
+  }
+
+  void _navigateToComment(UserComment comment) {
+    final verseNum = int.tryParse(comment.nodeId.split('_').last) ?? 1;
+    final book = catholicBooks.firstWhere(
+      (b) => b.abbrev == comment.documentId,
+      orElse: () => catholicBooks.first,
+    );
+    final pageIndex = _allChapters.indexWhere(
+      (ref) =>
+          ref.book.bookNumber == book.bookNumber &&
+          ref.chapter == comment.sectionIndex,
+    );
+    if (pageIndex != -1) {
+      setState(() {
+        _targetBookNumber = book.bookNumber;
+        _targetChapter = comment.sectionIndex;
+        _scrollToVerse = verseNum;
+        _highlightStartVerse = verseNum;
+        _highlightEndVerse = verseNum;
+        _navigationSessionId = DateTime.now().millisecondsSinceEpoch.toString();
+      });
+      _pageController.jumpToPage(pageIndex);
+      _collapsePanel();
     }
   }
 
@@ -542,532 +557,69 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
               ),
             ),
 
-          // 3. Persistent Peeking Bottom Panel
+          // 4. Persistent Peeking Bottom Panel
           Positioned(
             left: 0,
             right: 0,
             bottom: 0,
-            child: AnimatedBuilder(
-              animation: _panelHeightAnimation,
-              builder: (context, child) {
-                return Container(
-                  height: _panelHeightAnimation.value,
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.surface,
-                    borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(28.0),
-                    ),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.black12,
-                        blurRadius: 10.0,
-                        spreadRadius: 2.0,
-                      ),
-                    ],
-                  ),
-                  child: child,
+            child: BibleBottomNavigationPanel(
+              panelHeightAnimation: _panelHeightAnimation,
+              isPanelExpanded: _isPanelExpanded,
+              currentBook: currentRef.book,
+              currentChapter: currentRef.chapter,
+              numberingSystem:
+                  _settings?.bibleNumberingSystem ??
+                  BibleNumberingSystem.vulgate,
+              sheetTabController: _sheetTabController,
+              selectedBookForPicker: _selectedBookForPicker,
+              onBookSelectedForPicker: (book) {
+                setState(() {
+                  _selectedBookForPicker = book;
+                });
+              },
+              onChapterSelected: _navigateToChapter,
+              favorites: _favorites,
+              loadingFavorites: _loadingFavorites,
+              onFavoriteTapped: _navigateToFavorite,
+              onDeleteFavorite: (fav) async {
+                await BibleDatabaseHelper.db.deleteFavorite(fav.id);
+                _loadFavorites();
+              },
+              comments: _comments,
+              loadingComments: _loadingComments,
+              onCommentTapped: _navigateToComment,
+              onEditComment: (comment) async {
+                final verseNum =
+                    int.tryParse(comment.nodeId.split('_').last) ?? 1;
+                final book = catholicBooks.firstWhere(
+                  (b) => b.abbrev == comment.documentId,
+                  orElse: () => catholicBooks.first,
+                );
+                final citation =
+                    '${book.bookName} ${comment.sectionIndex}:$verseNum';
+
+                await showEditCommentDialog(
+                  context: context,
+                  citation: citation,
+                  textPreview: comment.textPreview ?? '',
+                  commentId: comment.id,
+                  initialText: comment.commentText,
+                  onCommentUpdated: (_) async {
+                    await _loadComments();
+                  },
                 );
               },
-              child: Column(
-                children: [
-                  // Drag Handle & Location Header
-                  GestureDetector(
-                    onVerticalDragUpdate: _onVerticalDragUpdate,
-                    onVerticalDragEnd: _onVerticalDragEnd,
-                    onTap: _togglePanel,
-                    behavior: HitTestBehavior.translucent,
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.only(top: 12.0, bottom: 16.0),
-                      child: Column(
-                        children: [
-                          // Drag Handle Pill
-                          Container(
-                            width: 36,
-                            height: 5,
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onSurfaceVariant
-                                  .withAlpha(102),
-                              borderRadius: BorderRadius.circular(2.5),
-                            ),
-                          ),
-                          const SizedBox(height: 12),
-                          // Current location title
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                BibleVerseResolver.formatChapterTitle(
-                                  bookNumber: currentRef.book.bookNumber,
-                                  bookName: currentRef.book.bookName,
-                                  chapter: currentRef.chapter,
-                                  numberingSystem:
-                                      _settings?.bibleNumberingSystem ??
-                                      BibleNumberingSystem.vulgate,
-                                ),
-                                style: theme.textTheme.titleMedium?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: theme.colorScheme.primary,
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              Icon(
-                                _isPanelExpanded
-                                    ? Icons.keyboard_arrow_down
-                                    : Icons.keyboard_arrow_up,
-                                color: theme.colorScheme.primary,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-
-                  // Tab Bar and Tab Views
-                  if (_isPanelExpanded)
-                    Expanded(
-                      child: AnimatedBuilder(
-                        animation: _panelHeightAnimation,
-                        builder: (context, _) {
-                          if (_panelHeightAnimation.value <= 150.0) {
-                            return const SizedBox.shrink();
-                          }
-                          return Column(
-                            children: [
-                              TabBar(
-                                controller: _sheetTabController,
-                                tabs: const [
-                                  Tab(text: 'Books'),
-                                  Tab(text: 'Chapters'),
-                                  Tab(text: 'Favorites'),
-                                  Tab(text: 'Comments'),
-                                ],
-                              ),
-                              Expanded(
-                                child: TabBarView(
-                                  controller: _sheetTabController,
-                                  children: [
-                                    // Tab 1: Book List grouped by Category
-                                    ListView(
-                                      padding: const EdgeInsets.all(16.0),
-                                      children: [
-                                        _buildBookGroup(
-                                          'Pentateuch',
-                                          catholicBooks
-                                              .where(
-                                                (b) =>
-                                                    b.category == 'Pentateuch',
-                                              )
-                                              .toList(),
-                                        ),
-                                        _buildBookGroup(
-                                          'Historical Books',
-                                          catholicBooks
-                                              .where(
-                                                (b) =>
-                                                    b.category ==
-                                                    'Historical Books',
-                                              )
-                                              .toList(),
-                                        ),
-                                        _buildBookGroup(
-                                          'Wisdom Books',
-                                          catholicBooks
-                                              .where(
-                                                (b) =>
-                                                    b.category ==
-                                                    'Wisdom Books',
-                                              )
-                                              .toList(),
-                                        ),
-                                        _buildBookGroup(
-                                          'Prophets',
-                                          catholicBooks
-                                              .where(
-                                                (b) => b.category == 'Prophets',
-                                              )
-                                              .toList(),
-                                        ),
-                                        _buildBookGroup(
-                                          'Gospels & Acts',
-                                          catholicBooks
-                                              .where(
-                                                (b) =>
-                                                    b.category ==
-                                                    'Gospels & Acts',
-                                              )
-                                              .toList(),
-                                        ),
-                                        _buildBookGroup(
-                                          'Epistles',
-                                          catholicBooks
-                                              .where(
-                                                (b) => b.category == 'Epistles',
-                                              )
-                                              .toList(),
-                                        ),
-                                        _buildBookGroup(
-                                          'Prophecy',
-                                          catholicBooks
-                                              .where(
-                                                (b) => b.category == 'Prophecy',
-                                              )
-                                              .toList(),
-                                        ),
-                                      ],
-                                    ),
-
-                                    // Tab 2: Chapter Grid
-                                    GridView.builder(
-                                      padding: const EdgeInsets.all(16.0),
-                                      gridDelegate:
-                                          const SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 6,
-                                            mainAxisSpacing: 12.0,
-                                            crossAxisSpacing: 12.0,
-                                          ),
-                                      itemCount:
-                                          _selectedBookForPicker.chaptersCount,
-                                      itemBuilder: (context, index) {
-                                        final chapterNum = index + 1;
-                                        final numbering =
-                                            _settings?.bibleNumberingSystem ??
-                                            BibleNumberingSystem.vulgate;
-                                        final chapterLabel =
-                                            BibleVerseResolver.formatChapterPickerLabel(
-                                              bookNumber: _selectedBookForPicker
-                                                  .bookNumber,
-                                              chapter: chapterNum,
-                                              numberingSystem: numbering,
-                                            );
-                                        return InkWell(
-                                          onTap: () {
-                                            final pageIndex = _allChapters
-                                                .indexWhere(
-                                                  (ref) =>
-                                                      ref.book.bookNumber ==
-                                                          _selectedBookForPicker
-                                                              .bookNumber &&
-                                                      ref.chapter == chapterNum,
-                                                );
-                                            if (pageIndex != -1) {
-                                              _pageController.jumpToPage(
-                                                pageIndex,
-                                              );
-                                              _collapsePanel();
-                                            }
-                                          },
-                                          borderRadius: BorderRadius.circular(
-                                            8.0,
-                                          ),
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                color: theme
-                                                    .colorScheme
-                                                    .outlineVariant,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            child: Center(
-                                              child: Text(
-                                                chapterLabel,
-                                                style: theme
-                                                    .textTheme
-                                                    .bodyMedium
-                                                    ?.copyWith(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize:
-                                                          _selectedBookForPicker
-                                                                      .bookNumber ==
-                                                                  21 &&
-                                                              numbering ==
-                                                                  BibleNumberingSystem
-                                                                      .dual &&
-                                                              chapterLabel
-                                                                  .contains('(')
-                                                          ? 11.0
-                                                          : null,
-                                                    ),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ),
-
-                                    // Tab 3: Favorites List
-                                    _buildFavoritesTab(theme),
-
-                                    // Tab 4: Comments List
-                                    _buildCommentsTab(theme),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          );
-                        },
-                      ),
-                    ),
-                ],
-              ),
+              onDeleteComment: (comment) async {
+                await BibleDatabaseHelper.db.deleteComment(comment.id);
+                await _loadComments();
+              },
+              onTogglePanel: _togglePanel,
+              onVerticalDragUpdate: _onVerticalDragUpdate,
+              onVerticalDragEnd: _onVerticalDragEnd,
             ),
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildFavoritesTab(ThemeData theme) {
-    if (_loadingFavorites) {
-      return const Center(child: CircularProgressIndicator());
-    }
-    if (_favorites.isEmpty) {
-      return Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.bookmark_outline,
-                size: 48,
-                color: theme.colorScheme.onSurfaceVariant.withValues(
-                  alpha: 0.5,
-                ),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                'No favorite passages saved yet.',
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'Long-press on a verse to start selection, then save.',
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.outline,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ),
-      );
-    }
-
-    return ListView.builder(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      itemCount: _favorites.length,
-      itemBuilder: (context, index) {
-        final fav = _favorites[index];
-        final citation = fav.startVerse == fav.endVerse
-            ? '${fav.bookName} ${fav.chapter}:${fav.startVerse}'
-            : '${fav.bookName} ${fav.chapter}:${fav.startVerse}-${fav.endVerse}';
-
-        return Card(
-          margin: const EdgeInsets.symmetric(vertical: 4.0),
-          child: ListTile(
-            title: Text(
-              citation,
-              style: theme.textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.primary,
-              ),
-            ),
-            subtitle: Text(
-              fav.textPreview,
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.colorScheme.onSurfaceVariant,
-              ),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
-            trailing: IconButton(
-              icon: Icon(Icons.delete_outline, color: theme.colorScheme.error),
-              onPressed: () async {
-                await BibleDatabaseHelper.db.deleteFavorite(fav.id);
-                _loadFavorites();
-              },
-            ),
-            onTap: () {
-              final pageIndex = _allChapters.indexWhere(
-                (ref) =>
-                    ref.book.bookNumber == fav.bookNumber &&
-                    ref.chapter == fav.chapter,
-              );
-              if (pageIndex != -1) {
-                setState(() {
-                  _targetBookNumber = fav.bookNumber;
-                  _targetChapter = fav.chapter;
-                  _scrollToVerse = fav.startVerse;
-                  _highlightStartVerse = fav.startVerse;
-                  _highlightEndVerse = fav.endVerse;
-                  _navigationSessionId = DateTime.now().millisecondsSinceEpoch
-                      .toString();
-                });
-                _pageController.jumpToPage(pageIndex);
-                _collapsePanel();
-              }
-            },
-          ),
-        );
-      },
-    );
-  }
-
-  Widget _buildCommentsTab(ThemeData theme) {
-    if (_loadingComments) {
-      return const Center(child: CircularProgressIndicator());
-    }
-    if (_comments.isEmpty) {
-      return Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.comment_outlined,
-                size: 48,
-                color: theme.colorScheme.onSurfaceVariant.withValues(
-                  alpha: 0.5,
-                ),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                'No comments on Bible verses yet.',
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'Long-press on a verse, then tap Comment to add a note.',
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.outline,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ),
-      );
-    }
-
-    return ListView.builder(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      itemCount: _comments.length,
-      itemBuilder: (context, index) {
-        final comment = _comments[index];
-        final verseNum = int.tryParse(comment.nodeId.split('_').last) ?? 1;
-        final book = catholicBooks.firstWhere(
-          (b) => b.abbrev == comment.documentId,
-          orElse: () => catholicBooks.first,
-        );
-        final citation = '${book.bookName} ${comment.sectionIndex}:$verseNum';
-
-        return Card(
-          margin: const EdgeInsets.symmetric(vertical: 4.0),
-          child: ListTile(
-            title: Text(
-              citation,
-              style: theme.textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.primary,
-              ),
-            ),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 2),
-                Text(
-                  comment.commentText,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: theme.colorScheme.onSurface,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                if (comment.textPreview != null &&
-                    comment.textPreview!.isNotEmpty) ...[
-                  const SizedBox(height: 2),
-                  Text(
-                    comment.textPreview!,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      fontStyle: FontStyle.italic,
-                      color: theme.colorScheme.onSurfaceVariant,
-                    ),
-                  ),
-                ],
-              ],
-            ),
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                IconButton(
-                  icon: Icon(
-                    Icons.edit_outlined,
-                    color: theme.colorScheme.primary,
-                  ),
-                  tooltip: 'Edit comment',
-                  onPressed: () async {
-                    await showEditCommentDialog(
-                      context: context,
-                      citation: citation,
-                      textPreview: comment.textPreview ?? '',
-                      commentId: comment.id,
-                      initialText: comment.commentText,
-                      onCommentUpdated: (_) async {
-                        await _loadComments();
-                      },
-                    );
-                  },
-                ),
-                IconButton(
-                  icon: Icon(
-                    Icons.delete_outline,
-                    color: theme.colorScheme.error,
-                  ),
-                  tooltip: 'Delete comment',
-                  onPressed: () async {
-                    await BibleDatabaseHelper.db.deleteComment(comment.id);
-                    await _loadComments();
-                  },
-                ),
-              ],
-            ),
-            onTap: () {
-              final pageIndex = _allChapters.indexWhere(
-                (ref) =>
-                    ref.book.bookNumber == book.bookNumber &&
-                    ref.chapter == comment.sectionIndex,
-              );
-              if (pageIndex != -1) {
-                setState(() {
-                  _targetBookNumber = book.bookNumber;
-                  _targetChapter = comment.sectionIndex;
-                  _scrollToVerse = verseNum;
-                  _highlightStartVerse = verseNum;
-                  _highlightEndVerse = verseNum;
-                  _navigationSessionId = DateTime.now().millisecondsSinceEpoch
-                      .toString();
-                });
-                _pageController.jumpToPage(pageIndex);
-                _collapsePanel();
-              }
-            },
-          ),
-        );
-      },
     );
   }
 }
