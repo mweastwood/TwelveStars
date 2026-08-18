@@ -53,6 +53,7 @@ void main() {
       expect(find.text('First Epistle of Clement'), findsOneWidget);
       expect(find.text('Second Epistle of Clement'), findsOneWidget);
       expect(find.text('Epistles of St. Ignatius'), findsOneWidget);
+      expect(find.text('Apologies of St. Justin Martyr'), findsOneWidget);
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -64,6 +65,37 @@ void main() {
       expect(find.text('Epistle to the Ephesians'), findsOneWidget);
       expect(find.text('Epistle to the Romans'), findsOneWidget);
       expect(find.text('Epistle to the Smyrnaeans'), findsOneWidget);
+
+      // Verify Justin Martyr volume chips exist
+      expect(find.text('First Apology'), findsOneWidget);
+      expect(find.text('Second Apology'), findsOneWidget);
+    });
+
+    testWidgets('tapping Justin Martyr volume chip opens LibraryReaderScreen', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/justin_first_apology_dods.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final apologyChip = find.text('First Apology');
+      await tester.scrollUntilVisible(
+        apologyChip,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(apologyChip);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('Apologies of St. Justin Martyr'), findsWidgets);
     });
 
     testWidgets('tapping volume chip opens LibraryReaderScreen', (
@@ -646,6 +678,64 @@ void main() {
         await screenMatchesGolden(tester, 'ignatius_ephesians_reader_golden');
       },
     );
+
+    testGoldens('LibraryReaderScreen renders First Apology of Justin Martyr', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final justin = catalog.firstWhere(
+        (b) => b.id == 'justin_martyr_apologies',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/justin_first_apology_dods.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        Scaffold(
+          body: LibraryReaderScreen(
+            bookItem: justin,
+            initialVolumeKey: 'first_apology',
+          ),
+        ),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'justin_first_apology_reader_golden');
+    });
+
+    testGoldens('LibraryReaderScreen renders Second Apology of Justin Martyr', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final justin = catalog.firstWhere(
+        (b) => b.id == 'justin_martyr_apologies',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/justin_second_apology_dods.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        Scaffold(
+          body: LibraryReaderScreen(
+            bookItem: justin,
+            initialVolumeKey: 'second_apology',
+          ),
+        ),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'justin_second_apology_reader_golden');
+    });
 
     testWidgets('renders interactive Scripture citation chip', (tester) async {
       final catalog = LibraryHelper.getCatalog();

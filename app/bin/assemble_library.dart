@@ -560,6 +560,10 @@ void parseChapteredBookFile({
         stripped.startsWith('The Second Epistle') ||
         stripped.startsWith('Second Epistle') ||
         stripped.startsWith('Epistle of Ignatius') ||
+        stripped.startsWith('The First Apology') ||
+        stripped.startsWith('The Second Apology') ||
+        stripped.startsWith('First Apology') ||
+        stripped.startsWith('Second Apology') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -656,6 +660,7 @@ void main() {
   final didacheDir = p.join('assets', 'catechism', 'didache');
   final clementDir = p.join('assets', 'catechism', 'clement');
   final ignatiusDir = p.join('assets', 'catechism', 'ignatius');
+  final justinDir = p.join('assets', 'catechism', 'justin');
 
   parseBaltimoreFile(
     p.join(baltimoreDir, 'baltimore_catechism_no1.txt'),
@@ -763,4 +768,24 @@ void main() {
       outputDir: outputDir,
     );
   }
+
+  parseChapteredBookFile(
+    filepath: p.join(justinDir, 'justin_first_apology_dods.txt'),
+    bookId: 'justin_first_apology_dods',
+    secIdPrefix: 'justin_first_apology',
+    title: 'The First Apology of St. Justin Martyr',
+    subtitle: 'Addressed to Emperor Antoninus Pius (Trans. Marcus Dods, 1885)',
+    author: 'St. Justin Martyr (Trans. Marcus Dods)',
+    outputDir: outputDir,
+  );
+
+  parseChapteredBookFile(
+    filepath: p.join(justinDir, 'justin_second_apology_dods.txt'),
+    bookId: 'justin_second_apology_dods',
+    secIdPrefix: 'justin_second_apology',
+    title: 'The Second Apology of St. Justin Martyr',
+    subtitle: 'Addressed to the Roman Senate (Trans. Marcus Dods, 1885)',
+    author: 'St. Justin Martyr (Trans. Marcus Dods)',
+    outputDir: outputDir,
+  );
 }
