@@ -1,5 +1,12 @@
+import 'dart:convert';
+
+import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/logic/reader/library_reader_adapter.dart';
 import 'package:twelve_stars/logic/reader/reader_adapter.dart';
 import 'package:twelve_stars/logic/reader/reader_models.dart';
 import 'package:twelve_stars/widgets/reader/core_reader_shell.dart';
@@ -17,9 +24,9 @@ class MockReaderAdapter implements ReaderAdapter {
       author: 'Mock Author',
       sectionsCount: 3,
       tocEntries: [
-        ReaderTocEntry(index: 1, title: 'Chapter 1'),
-        ReaderTocEntry(index: 2, title: 'Chapter 2'),
-        ReaderTocEntry(index: 3, title: 'Chapter 3'),
+        ReaderTocEntry(index: 0, title: 'Chapter 1'),
+        ReaderTocEntry(index: 1, title: 'Chapter 2'),
+        ReaderTocEntry(index: 2, title: 'Chapter 3'),
       ],
     );
   }
@@ -30,16 +37,17 @@ class MockReaderAdapter implements ReaderAdapter {
     String? primaryVariant,
     String? compareVariant,
   }) async {
+    final displayIndex = sectionIndex + 1;
     return ReaderSection(
       sectionIndex: sectionIndex,
-      title: 'Chapter $sectionIndex',
+      title: 'Chapter $displayIndex',
       nodes: [
         ReaderContentNode(
           id: '${sectionIndex}_1',
           nodeType: ReaderNodeType.verse,
-          primaryText: 'Primary verse content for chapter $sectionIndex.',
+          primaryText: 'Primary verse content for chapter $displayIndex.',
           secondaryText: compareVariant != null && compareVariant != 'none'
-              ? 'Secondary verse content for chapter $sectionIndex.'
+              ? 'Secondary verse content for chapter $displayIndex.'
               : null,
           questionNumber: '1',
         ),
@@ -180,10 +188,10 @@ void main() {
     testWidgets(
       'ReaderTocBottomSheet displays section list and selects chapter',
       (tester) async {
-        int selectedSection = 0;
+        int selectedSection = -1;
         const entries = [
-          ReaderTocEntry(index: 1, title: 'Genesis 1'),
-          ReaderTocEntry(index: 2, title: 'Genesis 2'),
+          ReaderTocEntry(index: 0, title: 'Genesis 1'),
+          ReaderTocEntry(index: 1, title: 'Genesis 2'),
         ];
 
         await tester.pumpWidget(
@@ -196,7 +204,7 @@ void main() {
                       context,
                       documentTitle: 'Genesis',
                       tocEntries: entries,
-                      currentSectionIndex: 1,
+                      currentSectionIndex: 0,
                       onSectionSelected: (idx) => selectedSection = idx,
                     );
                   },
@@ -217,7 +225,7 @@ void main() {
         await tester.tap(find.text('Genesis 2'));
         await tester.pumpAndSettle();
 
-        expect(selectedSection, equals(2));
+        expect(selectedSection, equals(1));
       },
     );
 
@@ -227,9 +235,7 @@ void main() {
       final mockAdapter = MockReaderAdapter();
 
       await tester.pumpWidget(
-        MaterialApp(
-          home: CoreReaderShell(adapter: mockAdapter, initialSectionIndex: 1),
-        ),
+        MaterialApp(home: CoreReaderShell(adapter: mockAdapter)),
       );
 
       await tester.pumpAndSettle();
@@ -245,5 +251,204 @@ void main() {
       expect(find.byIcon(Icons.text_fields), findsOneWidget);
       expect(find.byIcon(Icons.list), findsOneWidget);
     });
+
+    testWidgets(
+      'CoreReaderShell navigates sections via TOC sheet without underflow',
+      (tester) async {
+        final mockAdapter = MockReaderAdapter();
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: CoreReaderShell(adapter: mockAdapter, initialSectionIndex: 0),
+          ),
+        );
+
+        await tester.pumpAndSettle();
+        expect(find.text('Chapter 1'), findsOneWidget);
+
+        // Open TOC and jump to Chapter 2 (index 1)
+        await tester.tap(find.byIcon(Icons.list));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Chapter 2'), findsOneWidget);
+        await tester.tap(find.text('Chapter 2'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Chapter 2'), findsOneWidget);
+        expect(
+          find.textContaining('Primary verse content for chapter 2.'),
+          findsOneWidget,
+        );
+
+        // Open TOC and jump back to Chapter 1 (index 0) - tests 0-index jump without underflow (-1 crash)
+        await tester.tap(find.byIcon(Icons.list));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Chapter 1'), findsWidgets);
+        await tester.tap(find.text('Chapter 1').last);
+        await tester.pumpAndSettle();
+
+        expect(find.text('Chapter 1'), findsOneWidget);
+        expect(
+          find.textContaining('Primary verse content for chapter 1.'),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'CoreReaderShell renders single-section document with LibraryReaderAdapter without RangeError',
+      (tester) async {
+        final db = BibleDatabase(NativeDatabase.memory());
+        const singleSectionAsset = 'test_assets/single_section_doc.json';
+        const singleItem = LibraryBookItem(
+          id: 'single_doc',
+          title: 'Single Section Book',
+          subtitle: 'The Epistle',
+          category: 'Cat',
+          author: 'Author',
+          description: 'Desc',
+        );
+
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+            .setMockMessageHandler('flutter/assets', (ByteData? message) async {
+              final String key = utf8.decode(message!.buffer.asUint8List());
+              if (key == singleSectionAsset) {
+                const jsonString = '''{
+                  "bookId": "single_doc",
+                  "title": "Single Section Book",
+                  "subtitle": "The Epistle",
+                  "author": "Author",
+                  "toc": [{"id": "s1", "title": "Opening"}],
+                  "sections": [{
+                    "id": "s1",
+                    "title": "Opening",
+                    "subtitle": "",
+                    "content": [
+                      {"type": "paragraph", "text": "First and only section content."}
+                    ]
+                  }]
+                }''';
+                return ByteData.view(
+                  Uint8List.fromList(utf8.encode(jsonString)).buffer,
+                );
+              }
+              return null;
+            });
+
+        final adapter = LibraryReaderAdapter(
+          bookItem: singleItem,
+          assetPath: singleSectionAsset,
+          dbHelper: db,
+        );
+
+        await tester.pumpWidget(
+          MaterialApp(home: CoreReaderShell(adapter: adapter)),
+        );
+
+        await tester.pumpAndSettle();
+
+        expect(find.text('Single Section Book'), findsOneWidget);
+        expect(find.text('Opening'), findsOneWidget);
+        expect(find.text('First and only section content.'), findsOneWidget);
+
+        await db.close();
+      },
+    );
+
+    testWidgets(
+      'CoreReaderShell correctly loads first section (index 0) of multi-section LibraryReaderAdapter',
+      (tester) async {
+        final db = BibleDatabase(NativeDatabase.memory());
+        const multiSectionAsset = 'test_assets/multi_section_doc.json';
+        const multiItem = LibraryBookItem(
+          id: 'multi_doc',
+          title: 'Multi Section Book',
+          subtitle: 'Catechism',
+          category: 'Cat',
+          author: 'Author',
+          description: 'Desc',
+        );
+
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+            .setMockMessageHandler('flutter/assets', (ByteData? message) async {
+              final String key = utf8.decode(message!.buffer.asUint8List());
+              if (key == multiSectionAsset) {
+                const jsonString = '''{
+                  "bookId": "multi_doc",
+                  "title": "Multi Section Book",
+                  "subtitle": "Catechism",
+                  "author": "Author",
+                  "toc": [
+                    {"id": "s1", "title": "Section 1"},
+                    {"id": "s2", "title": "Section 2"}
+                  ],
+                  "sections": [
+                    {
+                      "id": "s1",
+                      "title": "Section 1",
+                      "subtitle": "",
+                      "content": [
+                        {"type": "paragraph", "text": "Content of Section 1"}
+                      ]
+                    },
+                    {
+                      "id": "s2",
+                      "title": "Section 2",
+                      "subtitle": "",
+                      "content": [
+                        {"type": "paragraph", "text": "Content of Section 2"}
+                      ]
+                    }
+                  ]
+                }''';
+                return ByteData.view(
+                  Uint8List.fromList(utf8.encode(jsonString)).buffer,
+                );
+              }
+              return null;
+            });
+
+        final adapter = LibraryReaderAdapter(
+          bookItem: multiItem,
+          assetPath: multiSectionAsset,
+          dbHelper: db,
+        );
+
+        await tester.pumpWidget(
+          MaterialApp(home: CoreReaderShell(adapter: adapter)),
+        );
+
+        await tester.pumpAndSettle();
+
+        // Verify that Section 1 (index 0) is loaded first, not skipped
+        expect(find.text('Multi Section Book'), findsOneWidget);
+        expect(find.text('Section 1'), findsOneWidget);
+        expect(find.text('Content of Section 1'), findsOneWidget);
+        expect(find.text('Section 2'), findsNothing);
+
+        // Open TOC and jump to Section 2 (index 1)
+        await tester.tap(find.byIcon(Icons.list));
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.text('Section 2'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Section 2'), findsOneWidget);
+        expect(find.text('Content of Section 2'), findsOneWidget);
+
+        // Open TOC and jump back to Section 1 (index 0)
+        await tester.tap(find.byIcon(Icons.list));
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.text('Section 1'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Section 1'), findsOneWidget);
+        expect(find.text('Content of Section 1'), findsOneWidget);
+
+        await db.close();
+      },
+    );
   });
 }

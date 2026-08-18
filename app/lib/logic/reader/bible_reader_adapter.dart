@@ -17,7 +17,7 @@ class BibleReaderAdapter implements ReaderAdapter {
     final toc = List<ReaderTocEntry>.generate(
       bibleBook.chaptersCount,
       (index) => ReaderTocEntry(
-        index: index + 1,
+        index: index,
         title: 'Chapter ${index + 1}',
         subtitle: '${bibleBook.bookName} ${index + 1}',
       ),
@@ -49,10 +49,12 @@ class BibleReaderAdapter implements ReaderAdapter {
       translation: primaryTrans,
     );
 
+    final chapterNumber = sectionIndex + 1;
+
     final primaryVerses = await dbHelper.getChapterVerses(
       primaryTrans,
       bibleBook.bookNumber,
-      sectionIndex,
+      chapterNumber,
     );
 
     List<BibleVerse> compareVerses = [];
@@ -66,7 +68,7 @@ class BibleReaderAdapter implements ReaderAdapter {
       compareVerses = await dbHelper.getChapterVerses(
         compareTrans,
         bibleBook.bookNumber,
-        sectionIndex,
+        chapterNumber,
       );
     }
 
@@ -88,7 +90,7 @@ class BibleReaderAdapter implements ReaderAdapter {
 
     return ReaderSection(
       sectionIndex: sectionIndex,
-      title: '${bibleBook.bookName} $sectionIndex',
+      title: '${bibleBook.bookName} $chapterNumber',
       nodes: nodes,
     );
   }
@@ -100,7 +102,7 @@ class BibleReaderAdapter implements ReaderAdapter {
       FavoritePassagesCompanion.insert(
         bookNumber: bibleBook.bookNumber,
         bookName: bibleBook.bookName,
-        chapter: bookmark.sectionIndex,
+        chapter: bookmark.sectionIndex + 1,
         startVerse: verseNum,
         endVerse: verseNum,
         textPreview: bookmark.textPreview,
@@ -117,7 +119,7 @@ class BibleReaderAdapter implements ReaderAdapter {
           (f) => ReaderBookmark(
             id: '${f.id}',
             documentId: bibleBook.abbrev,
-            sectionIndex: f.chapter,
+            sectionIndex: f.chapter - 1,
             nodeId: '${f.bookNumber}_${f.chapter}_${f.startVerse}',
             textPreview: f.textPreview,
             timestamp: DateTime.now(),

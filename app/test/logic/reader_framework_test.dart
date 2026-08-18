@@ -144,12 +144,13 @@ void main() {
         expect(doc.subtitle, 'Old Testament');
         expect(doc.sectionsCount, 50);
         expect(doc.tocEntries.length, 50);
+        expect(doc.tocEntries.first.index, 0);
         expect(doc.tocEntries.first.title, 'Chapter 1');
       });
 
       test('loadSection returns correctly mapped verses', () async {
-        final section = await adapter.loadSection(1);
-        expect(section.sectionIndex, 1);
+        final section = await adapter.loadSection(0);
+        expect(section.sectionIndex, 0);
         expect(section.title, 'Genesis 1');
         expect(section.nodes.length, 1);
 
@@ -164,7 +165,7 @@ void main() {
       });
 
       test('loadSection with compare translation', () async {
-        final section = await adapter.loadSection(1, compareVariant: 'VUL');
+        final section = await adapter.loadSection(0, compareVariant: 'VUL');
         final node = section.nodes.first;
         expect(
           node.primaryText,
@@ -176,11 +177,32 @@ void main() {
         );
       });
 
+      test(
+        'saveBookmark and loadBookmarks with 0-based sectionIndex',
+        () async {
+          final bookmark = ReaderBookmark(
+            id: 'b1',
+            documentId: 'GEN',
+            sectionIndex: 0,
+            nodeId: '1_1_1',
+            textPreview: 'In the beginning...',
+            timestamp: DateTime.now(),
+          );
+
+          await adapter.saveBookmark(bookmark);
+
+          final bookmarks = await adapter.loadBookmarks();
+          expect(bookmarks.length, 1);
+          expect(bookmarks.first.sectionIndex, 0);
+          expect(bookmarks.first.documentId, 'GEN');
+        },
+      );
+
       test('saveComment, loadComments, updateComment, deleteComment', () async {
         final comment = ReaderComment(
           id: '1',
           documentId: 'GEN',
-          sectionIndex: 1,
+          sectionIndex: 0,
           nodeId: '1_1_1',
           text: 'Reflections on Genesis 1:1',
           textPreview: 'In the beginning...',
