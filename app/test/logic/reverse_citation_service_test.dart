@@ -57,7 +57,7 @@ void main() {
         await Future.wait([future1, future2, future3]);
 
         expect(ReverseCitationService.isInFlightIndexing, isFalse);
-        expect(ReverseCitationService.indexedSourcesCount, equals(23));
+        expect(ReverseCitationService.indexedSourcesCount, equals(58));
       },
     );
 
@@ -144,8 +144,9 @@ void main() {
         ReverseCitationService.clear();
         expect(ReverseCitationService.indexedSourcesCount, equals(0));
 
-        // Index 36 sources (max capacity is 35)
-        for (int i = 1; i <= 36; i++) {
+        // Index 71 sources (max capacity is 70)
+        // Psalm has 150 chapters, so Ps $i:1 is valid for all i in 1..71
+        for (int i = 1; i <= 71; i++) {
           final bookData = ParsedBookData(
             bookId: 'book_$i',
             title: 'Book $i',
@@ -157,37 +158,37 @@ void main() {
                 id: 's1',
                 title: 'Section 1',
                 subtitle: '',
-                content: [ContentItem(type: 'text', text: 'Citation Gen $i:1')],
+                content: [ContentItem(type: 'text', text: 'Citation Ps $i:1')],
               ),
             ],
           );
           ReverseCitationService.indexBookData('source_$i', bookData);
         }
 
-        // Cache count should be capped at maxIndexedSources (35)
+        // Cache count should be capped at maxIndexedSources (70)
         expect(
           ReverseCitationService.indexedSourcesCount,
           equals(ReverseCitationService.maxIndexedSources),
         );
 
-        // Oldest source (source_1) was evicted
-        final gen1Citations = ReverseCitationService.getVerseCitations(1, 1, 1);
-        expect(gen1Citations, isEmpty);
+        // Oldest source (source_1) was evicted (Psalm is book 21 in Catholic canon)
+        final ps1Citations = ReverseCitationService.getVerseCitations(21, 1, 1);
+        expect(ps1Citations, isEmpty);
 
-        // Newest source (source_36) remains present
-        final gen36Citations = ReverseCitationService.getVerseCitations(
-          1,
-          36,
+        // Newest source (source_71) remains present
+        final ps71Citations = ReverseCitationService.getVerseCitations(
+          21,
+          71,
           1,
         );
-        expect(gen36Citations.length, equals(1));
+        expect(ps71Citations.length, equals(1));
       },
     );
 
     test('prune() removes oldest sources and updates index tables', () {
       ReverseCitationService.clear();
 
-      for (int i = 1; i <= 37; i++) {
+      for (int i = 1; i <= 72; i++) {
         final bookData = ParsedBookData(
           bookId: 'prune_book_$i',
           title: 'Prune Book $i',
@@ -199,7 +200,7 @@ void main() {
               id: 's1',
               title: 'Section 1',
               subtitle: '',
-              content: [ContentItem(type: 'text', text: 'Citation Ex $i:1')],
+              content: [ContentItem(type: 'text', text: 'Citation Ps $i:1')],
             ),
           ],
         );

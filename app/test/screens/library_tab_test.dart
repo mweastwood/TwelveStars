@@ -56,6 +56,8 @@ void main() {
       expect(find.text('Apologies of St. Justin Martyr'), findsOneWidget);
       expect(find.text('Against Heresies'), findsOneWidget);
       expect(find.text('On the Incarnation of the Word'), findsOneWidget);
+      expect(find.text('The Confessions'), findsOneWidget);
+      expect(find.text('The City of God'), findsOneWidget);
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -75,6 +77,66 @@ void main() {
       // Verify Irenaeus volume chips exist
       expect(find.text('Book I (Gnostic Sects)'), findsOneWidget);
       expect(find.text('Book III (Faith & Tradition)'), findsOneWidget);
+
+      // Verify Augustine volume chips exist
+      expect(find.text('Book I (Infancy & Childhood)'), findsOneWidget);
+      expect(find.text('Book VIII (Conversion in the Garden)'), findsOneWidget);
+      expect(find.text('Book I (The Sack of Rome)'), findsOneWidget);
+      expect(find.text('Book XIX (Peace & the Supreme Good)'), findsOneWidget);
+    });
+
+    testWidgets('tapping Confessions volume chip opens LibraryReaderScreen', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/augustine_confessions_book8.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final book8Chip = find.text('Book VIII (Conversion in the Garden)');
+      await tester.scrollUntilVisible(
+        book8Chip,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(book8Chip);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('The Confessions'), findsWidgets);
+    });
+
+    testWidgets('tapping City of God volume chip opens LibraryReaderScreen', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/augustine_city_of_god_book19.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final book19Chip = find.text('Book XIX (Peace & the Supreme Good)');
+      await tester.scrollUntilVisible(
+        book19Chip,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(book19Chip);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('The City of God'), findsWidgets);
     });
 
     testWidgets('tapping Irenaeus volume chip opens LibraryReaderScreen', (
@@ -821,6 +883,64 @@ void main() {
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(tester, 'athanasius_incarnation_reader_golden');
+    });
+
+    testGoldens('LibraryReaderScreen renders The Confessions (Book VIII)', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final confessions = catalog.firstWhere(
+        (b) => b.id == 'augustine_confessions',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/augustine_confessions_book8.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        Scaffold(
+          body: LibraryReaderScreen(
+            bookItem: confessions,
+            initialVolumeKey: 'book8',
+          ),
+        ),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'augustine_confessions_book8_golden');
+    });
+
+    testGoldens('LibraryReaderScreen renders The City of God (Book XIX)', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final cityOfGod = catalog.firstWhere(
+        (b) => b.id == 'augustine_city_of_god',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/augustine_city_of_god_book19.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        Scaffold(
+          body: LibraryReaderScreen(
+            bookItem: cityOfGod,
+            initialVolumeKey: 'book19',
+          ),
+        ),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'augustine_city_of_god_book19_golden');
     });
 
     testWidgets('renders interactive Scripture citation chip', (tester) async {

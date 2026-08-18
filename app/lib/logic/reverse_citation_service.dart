@@ -27,7 +27,7 @@ class ReverseCitation {
 }
 
 class ReverseCitationService {
-  static const int maxIndexedSources = 35;
+  static const int maxIndexedSources = 70;
   static final Map<String, List<ReverseCitation>> _indexedSources = {};
   static final Map<int, Map<int, List<ReverseCitation>>> _chapterIndex = {};
   static final Map<int, Map<int, Map<int, List<ReverseCitation>>>> _verseIndex =
@@ -91,6 +91,41 @@ class ReverseCitationService {
           'assets/catechism/json/irenaeus_against_heresies_book4.json',
           'assets/catechism/json/irenaeus_against_heresies_book5.json',
           'assets/catechism/json/athanasius_on_the_incarnation.json',
+          'assets/catechism/json/augustine_confessions_book1.json',
+          'assets/catechism/json/augustine_confessions_book2.json',
+          'assets/catechism/json/augustine_confessions_book3.json',
+          'assets/catechism/json/augustine_confessions_book4.json',
+          'assets/catechism/json/augustine_confessions_book5.json',
+          'assets/catechism/json/augustine_confessions_book6.json',
+          'assets/catechism/json/augustine_confessions_book7.json',
+          'assets/catechism/json/augustine_confessions_book8.json',
+          'assets/catechism/json/augustine_confessions_book9.json',
+          'assets/catechism/json/augustine_confessions_book10.json',
+          'assets/catechism/json/augustine_confessions_book11.json',
+          'assets/catechism/json/augustine_confessions_book12.json',
+          'assets/catechism/json/augustine_confessions_book13.json',
+          'assets/catechism/json/augustine_city_of_god_book1.json',
+          'assets/catechism/json/augustine_city_of_god_book2.json',
+          'assets/catechism/json/augustine_city_of_god_book3.json',
+          'assets/catechism/json/augustine_city_of_god_book4.json',
+          'assets/catechism/json/augustine_city_of_god_book5.json',
+          'assets/catechism/json/augustine_city_of_god_book6.json',
+          'assets/catechism/json/augustine_city_of_god_book7.json',
+          'assets/catechism/json/augustine_city_of_god_book8.json',
+          'assets/catechism/json/augustine_city_of_god_book9.json',
+          'assets/catechism/json/augustine_city_of_god_book10.json',
+          'assets/catechism/json/augustine_city_of_god_book11.json',
+          'assets/catechism/json/augustine_city_of_god_book12.json',
+          'assets/catechism/json/augustine_city_of_god_book13.json',
+          'assets/catechism/json/augustine_city_of_god_book14.json',
+          'assets/catechism/json/augustine_city_of_god_book15.json',
+          'assets/catechism/json/augustine_city_of_god_book16.json',
+          'assets/catechism/json/augustine_city_of_god_book17.json',
+          'assets/catechism/json/augustine_city_of_god_book18.json',
+          'assets/catechism/json/augustine_city_of_god_book19.json',
+          'assets/catechism/json/augustine_city_of_god_book20.json',
+          'assets/catechism/json/augustine_city_of_god_book21.json',
+          'assets/catechism/json/augustine_city_of_god_book22.json',
         ];
 
         for (final path in catalogPaths) {
