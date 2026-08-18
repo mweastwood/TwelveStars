@@ -454,7 +454,7 @@ void main() {
     });
 
     testWidgets(
-      'Creed carousel switches between Nicene and Apostles Creeds via swipe and tap',
+      'Creed carousel switches between Nicene and Apostles Creeds via swipe and tap on peeking card',
       (tester) async {
         final fixedDate = DateTime(2026, 7, 2);
         TimeHelper.setCustomTime(fixedDate);
@@ -478,26 +478,33 @@ void main() {
         await tester.ensureVisible(find.byType(MissalCreedCarousel));
         await tester.pumpAndSettle();
 
-        // Swipe left on the PageView to bring in Apostles' Creed
-        await tester.drag(find.byType(PageView), const Offset(-600, 0));
+        // Swipe left on the MissalCreedCarousel to bring in Apostles' Creed
+        await tester.drag(
+          find.byType(MissalCreedCarousel),
+          const Offset(-600, 0),
+        );
         await tester.pumpAndSettle();
 
         // Verify Apostles' Creed subtitle is present
         expect(find.text('Profession of Faith'), findsOneWidget);
 
-        // Swipe right on the PageView to navigate back
-        await tester.drag(find.byType(PageView), const Offset(600, 0));
+        // Swipe right on the MissalCreedCarousel to navigate back
+        await tester.drag(
+          find.byType(MissalCreedCarousel),
+          const Offset(600, 0),
+        );
         await tester.pumpAndSettle();
 
         expect(find.text('Symbol of Faith'), findsOneWidget);
 
-        // Switch via indicator chip tap
-        await tester.tap(find.byKey(const Key('apostles_creed_chip')));
+        // Switch via tapping peeking Apostles' Creed card
+        await tester.tap(find.byKey(const Key('apostles_creed_peeking_tap')));
         await tester.pumpAndSettle();
 
         expect(find.text('Profession of Faith'), findsOneWidget);
 
-        await tester.tap(find.byKey(const Key('nicene_creed_chip')));
+        // Switch back via tapping peeking Nicene Creed card
+        await tester.tap(find.byKey(const Key('nicene_creed_peeking_tap')));
         await tester.pumpAndSettle();
 
         expect(find.text('Symbol of Faith'), findsOneWidget);
