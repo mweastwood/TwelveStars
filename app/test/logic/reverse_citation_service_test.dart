@@ -57,7 +57,7 @@ void main() {
         await Future.wait([future1, future2, future3]);
 
         expect(ReverseCitationService.isInFlightIndexing, isFalse);
-        expect(ReverseCitationService.indexedSourcesCount, equals(15));
+        expect(ReverseCitationService.indexedSourcesCount, equals(17));
       },
     );
 
@@ -154,8 +154,8 @@ void main() {
         ReverseCitationService.clear();
         expect(ReverseCitationService.indexedSourcesCount, equals(0));
 
-        // Index 21 sources (max capacity is 20)
-        for (int i = 1; i <= 21; i++) {
+        // Index 26 sources (max capacity is 25)
+        for (int i = 1; i <= 26; i++) {
           final bookData = ParsedBookData(
             bookId: 'book_$i',
             title: 'Book $i',
@@ -174,7 +174,7 @@ void main() {
           ReverseCitationService.indexBookData('source_$i', bookData);
         }
 
-        // Max capacity is 20, so source_1 should have been evicted
+        // Max capacity is 25, so source_1 should have been evicted
         expect(
           ReverseCitationService.indexedSourcesCount,
           equals(ReverseCitationService.maxIndexedSources),
@@ -184,14 +184,14 @@ void main() {
         final gen1Citations = ReverseCitationService.getVerseCitations(1, 1, 1);
         expect(gen1Citations, isEmpty);
 
-        // source_21 is retained (Gen 21:1 has 1 citation)
-        final gen21Citations = ReverseCitationService.getVerseCitations(
+        // source_26 is retained (Gen 26:1 has 1 citation)
+        final gen26Citations = ReverseCitationService.getVerseCitations(
           1,
-          21,
+          26,
           1,
         );
-        expect(gen21Citations.length, equals(1));
-        expect(gen21Citations.first.sourceBookId, equals('book_21'));
+        expect(gen26Citations.length, equals(1));
+        expect(gen26Citations.first.sourceBookId, equals('book_26'));
       },
     );
 

@@ -67,10 +67,21 @@ class NotificationService {
     }
 
     final now = fromDate ?? DateTime.now();
-    final tzNow = tz.TZDateTime.from(now, tz.local);
+    final tzNow = now is tz.TZDateTime
+        ? now
+        : tz.TZDateTime(
+            tz.local,
+            now.year,
+            now.month,
+            now.day,
+            now.hour,
+            now.minute,
+            now.second,
+            now.millisecond,
+          );
 
     // Days until next Sunday (Sunday is 7 in DateTime.weekday)
-    int daysUntilSunday = DateTime.sunday - now.weekday;
+    int daysUntilSunday = DateTime.sunday - tzNow.weekday;
     if (daysUntilSunday < 0) {
       daysUntilSunday += 7;
     } else if (daysUntilSunday == 0) {

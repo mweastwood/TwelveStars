@@ -271,6 +271,25 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> justinVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'first_apology',
+      name: 'First Apology',
+      shortName: 'First Apology',
+      description:
+          'Addressed to Antoninus Pius; refutes charges of atheism and describes early Christian Baptism and the Sunday Eucharist.',
+      assetPath: 'assets/catechism/json/justin_first_apology_dods.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'second_apology',
+      name: 'Second Apology',
+      shortName: 'Second Apology',
+      description:
+          'Addressed to the Roman Senate; defends Christian fortitude under unjust executions and expounds the Logos in creation.',
+      assetPath: 'assets/catechism/json/justin_second_apology_dods.json',
+    ),
+  ];
+
   static List<LibraryBookItem> getCatalog() {
     return [
       const LibraryBookItem(
@@ -335,6 +354,16 @@ class LibraryHelper {
         description:
             'Written c. 107–110 AD on his way to martyrdom in Rome. The seven authentic letters provide an irreplaceable early witness to the hierarchy of the Church, the Holy Eucharist, the Catholic Church, and Christian martyrdom.',
         volumes: ignatiusVolumes,
+      ),
+      const LibraryBookItem(
+        id: 'justin_martyr_apologies',
+        title: 'Apologies of St. Justin Martyr',
+        subtitle: 'The First and Second Apologies (Trans. Marcus Dods, 1885)',
+        category: 'Early Apologists',
+        author: 'St. Justin Martyr (Trans. Marcus Dods)',
+        description:
+            'Written c. 150–155 AD to Emperor Antoninus Pius and the Roman Senate. Famous early defenses of Christian doctrine and morality, featuring the earliest detailed accounts of the Sunday Eucharistic Liturgy and Baptism.',
+        volumes: justinVolumes,
       ),
     ];
   }
