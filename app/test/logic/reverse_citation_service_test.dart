@@ -237,5 +237,132 @@ void main() {
       expect(ReverseCitationService.getVerseCitations(1, 3, 15), isEmpty);
       expect(ReverseCitationService.getChapterCitations(1, 1), isEmpty);
     });
+
+    test(
+      'incremental indexing aggregates citations across multiple sources',
+      () {
+        final book1 = ParsedBookData(
+          bookId: 'book_a',
+          title: 'Book A',
+          subtitle: '',
+          author: '',
+          toc: [],
+          sections: [
+            BookSection(
+              id: 's1',
+              title: 'Section 1',
+              subtitle: '',
+              content: [
+                ContentItem(type: 'text', text: 'Citation Matt 5:3 and Gen 1'),
+              ],
+            ),
+          ],
+        );
+
+        final book2 = ParsedBookData(
+          bookId: 'book_b',
+          title: 'Book B',
+          subtitle: '',
+          author: '',
+          toc: [],
+          sections: [
+            BookSection(
+              id: 's1',
+              title: 'Section 1',
+              subtitle: '',
+              content: [
+                ContentItem(
+                  type: 'text',
+                  text: 'Citation Matt 5:3-4 and John 1:1',
+                ),
+              ],
+            ),
+          ],
+        );
+
+        ReverseCitationService.indexBookData('src_a', book1);
+        ReverseCitationService.indexBookData('src_b', book2);
+
+        expect(ReverseCitationService.indexedSourcesCount, equals(2));
+
+        // Matt 5:3 should have citations from both Book A and Book B
+        final matt5v3 = ReverseCitationService.getVerseCitations(49, 5, 3);
+        expect(matt5v3.length, equals(2));
+        expect(
+          matt5v3.map((c) => c.sourceBookId).toSet(),
+          equals({'book_a', 'book_b'}),
+        );
+
+        // Matt 5:4 should only have Book B
+        final matt5v4 = ReverseCitationService.getVerseCitations(49, 5, 4);
+        expect(matt5v4.length, equals(1));
+        expect(matt5v4.first.sourceBookId, equals('book_b'));
+
+        // Genesis 1 entire chapter should have Book A
+        final gen1 = ReverseCitationService.getChapterCitations(1, 1);
+        expect(gen1.length, equals(1));
+        expect(gen1.first.sourceBookId, equals('book_a'));
+
+        // John 1:1 should have Book B
+        final john1v1 = ReverseCitationService.getVerseCitations(52, 1, 1);
+        expect(john1v1.length, equals(1));
+        expect(john1v1.first.sourceBookId, equals('book_b'));
+      },
+    );
+
+    test(
+      'overwriting an existing source triggers rebuild and purges old citations',
+      () {
+        final initialBook = ParsedBookData(
+          bookId: 'custom_doc',
+          title: 'Custom Doc v1',
+          subtitle: '',
+          author: '',
+          toc: [],
+          sections: [
+            BookSection(
+              id: 's1',
+              title: 'Section 1',
+              subtitle: '',
+              content: [ContentItem(type: 'text', text: 'Citation Matt 28:19')],
+            ),
+          ],
+        );
+
+        ReverseCitationService.indexBookData('custom_key', initialBook);
+        expect(
+          ReverseCitationService.getVerseCitations(49, 28, 19).length,
+          equals(1),
+        );
+        expect(ReverseCitationService.getVerseCitations(49, 28, 20), isEmpty);
+
+        // Overwrite custom_key with different citations
+        final updatedBook = ParsedBookData(
+          bookId: 'custom_doc',
+          title: 'Custom Doc v2',
+          subtitle: '',
+          author: '',
+          toc: [],
+          sections: [
+            BookSection(
+              id: 's1',
+              title: 'Section 1',
+              subtitle: '',
+              content: [ContentItem(type: 'text', text: 'Citation Matt 28:20')],
+            ),
+          ],
+        );
+
+        ReverseCitationService.indexBookData('custom_key', updatedBook);
+        expect(ReverseCitationService.indexedSourcesCount, equals(1));
+
+        // Old citation Matt 28:19 should no longer be present
+        expect(ReverseCitationService.getVerseCitations(49, 28, 19), isEmpty);
+        // New citation Matt 28:20 should be present
+        final matt28v20 = ReverseCitationService.getVerseCitations(49, 28, 20);
+        expect(matt28v20.length, equals(1));
+        expect(matt28v20.first.sourceBookTitle, equals('Custom Doc v2'));
+      },
+    );
   });
 }
