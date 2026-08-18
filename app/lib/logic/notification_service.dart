@@ -73,9 +73,18 @@ class NotificationService {
     int daysUntilSunday = DateTime.sunday - now.weekday;
     if (daysUntilSunday < 0) {
       daysUntilSunday += 7;
-    } else if (daysUntilSunday == 0 &&
-        (now.hour > 8 || (now.hour == 8 && now.minute > 0))) {
-      daysUntilSunday = 7;
+    } else if (daysUntilSunday == 0) {
+      final targetToday8AM = tz.TZDateTime(
+        tz.local,
+        tzNow.year,
+        tzNow.month,
+        tzNow.day,
+        8,
+        0,
+      );
+      if (!tzNow.isBefore(targetToday8AM)) {
+        daysUntilSunday = 7;
+      }
     }
 
     final scheduledDate = tz.TZDateTime(
