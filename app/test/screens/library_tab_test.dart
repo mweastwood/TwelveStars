@@ -54,6 +54,8 @@ void main() {
       expect(find.text('Second Epistle of Clement'), findsOneWidget);
       expect(find.text('Epistles of St. Ignatius'), findsOneWidget);
       expect(find.text('Apologies of St. Justin Martyr'), findsOneWidget);
+      expect(find.text('Against Heresies'), findsOneWidget);
+      expect(find.text('On the Incarnation of the Word'), findsOneWidget);
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -69,6 +71,37 @@ void main() {
       // Verify Justin Martyr volume chips exist
       expect(find.text('First Apology'), findsOneWidget);
       expect(find.text('Second Apology'), findsOneWidget);
+
+      // Verify Irenaeus volume chips exist
+      expect(find.text('Book I (Gnostic Sects)'), findsOneWidget);
+      expect(find.text('Book III (Faith & Tradition)'), findsOneWidget);
+    });
+
+    testWidgets('tapping Irenaeus volume chip opens LibraryReaderScreen', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/irenaeus_against_heresies_book3.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final book3Chip = find.text('Book III (Faith & Tradition)');
+      await tester.scrollUntilVisible(
+        book3Chip,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(book3Chip);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('Against Heresies'), findsWidgets);
     });
 
     testWidgets('tapping Justin Martyr volume chip opens LibraryReaderScreen', (
@@ -735,6 +768,59 @@ void main() {
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(tester, 'justin_second_apology_reader_golden');
+    });
+
+    testGoldens('LibraryReaderScreen renders Against Heresies (Book III)', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final irenaeus = catalog.firstWhere(
+        (b) => b.id == 'irenaeus_against_heresies',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/irenaeus_against_heresies_book3.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        Scaffold(
+          body: LibraryReaderScreen(
+            bookItem: irenaeus,
+            initialVolumeKey: 'book3',
+          ),
+        ),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'irenaeus_book3_reader_golden');
+    });
+
+    testGoldens('LibraryReaderScreen renders On the Incarnation of the Word', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final athanasius = catalog.firstWhere(
+        (b) => b.id == 'athanasius_on_the_incarnation',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/athanasius_on_the_incarnation.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        Scaffold(body: LibraryReaderScreen(bookItem: athanasius)),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'athanasius_incarnation_reader_golden');
     });
 
     testWidgets('renders interactive Scripture citation chip', (tester) async {

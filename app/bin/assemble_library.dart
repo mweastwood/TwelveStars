@@ -564,6 +564,8 @@ void parseChapteredBookFile({
         stripped.startsWith('The Second Apology') ||
         stripped.startsWith('First Apology') ||
         stripped.startsWith('Second Apology') ||
+        stripped.startsWith('Against Heresies:') ||
+        stripped.startsWith('On the Incarnation') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -786,6 +788,59 @@ void main() {
     title: 'The Second Apology of St. Justin Martyr',
     subtitle: 'Addressed to the Roman Senate (Trans. Marcus Dods, 1885)',
     author: 'St. Justin Martyr (Trans. Marcus Dods)',
+    outputDir: outputDir,
+  );
+
+  final irenaeusDir = p.join('assets', 'catechism', 'irenaeus');
+  final athanasiusDir = p.join('assets', 'catechism', 'athanasius');
+
+  final irenaeusBooks = [
+    (
+      'book1',
+      'Against Heresies: Book I',
+      'Gnostic Sects and Heresies (Trans. Roberts & Rambaut, 1885)',
+    ),
+    (
+      'book2',
+      'Against Heresies: Book II',
+      'Refutation of Gnosticism (Trans. Roberts & Rambaut, 1885)',
+    ),
+    (
+      'book3',
+      'Against Heresies: Book III',
+      'The Rule of Faith and Apostolic Succession (Trans. Roberts & Rambaut, 1885)',
+    ),
+    (
+      'book4',
+      'Against Heresies: Book IV',
+      'Unity of Old and New Testaments (Trans. Roberts & Rambaut, 1885)',
+    ),
+    (
+      'book5',
+      'Against Heresies: Book V',
+      'The Incarnation and Resurrection of the Flesh (Trans. Roberts & Rambaut, 1885)',
+    ),
+  ];
+
+  for (final (slug, title, subtitle) in irenaeusBooks) {
+    parseChapteredBookFile(
+      filepath: p.join(irenaeusDir, 'irenaeus_against_heresies_$slug.txt'),
+      bookId: 'irenaeus_against_heresies_$slug',
+      secIdPrefix: 'irenaeus_$slug',
+      title: title,
+      subtitle: subtitle,
+      author: 'St. Irenaeus of Lyons (Trans. Roberts & Rambaut)',
+      outputDir: outputDir,
+    );
+  }
+
+  parseChapteredBookFile(
+    filepath: p.join(athanasiusDir, 'athanasius_on_the_incarnation.txt'),
+    bookId: 'athanasius_on_the_incarnation',
+    secIdPrefix: 'athanasius_incarnation',
+    title: 'On the Incarnation of the Word',
+    subtitle: 'De Incarnatione Verbi Dei (Trans. Archibald Robertson, 1892)',
+    author: 'St. Athanasius of Alexandria (Trans. Archibald Robertson)',
     outputDir: outputDir,
   );
 }
