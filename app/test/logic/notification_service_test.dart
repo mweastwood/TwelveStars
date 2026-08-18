@@ -84,15 +84,76 @@ void main() {
   });
 
   group('NotificationService Logic Tests', () {
-    test('calculates next Sunday at 8:00 AM accurately', () {
-      final monday = DateTime(2026, 7, 6); // Monday
-      final nextSunday = NotificationService.nextSunday8AM(monday);
+    group('nextSunday8AM', () {
+      test('schedules next Sunday from a non-Sunday day (Monday)', () {
+        final monday = DateTime(2026, 7, 6, 14, 30); // Monday
+        final nextSunday = NotificationService.nextSunday8AM(monday);
 
-      expect(nextSunday.year, equals(2026));
-      expect(nextSunday.month, equals(7));
-      expect(nextSunday.day, equals(12)); // Sunday July 12
-      expect(nextSunday.hour, equals(8));
-      expect(nextSunday.minute, equals(0));
+        expect(nextSunday.year, equals(2026));
+        expect(nextSunday.month, equals(7));
+        expect(nextSunday.day, equals(12)); // Sunday July 12
+        expect(nextSunday.hour, equals(8));
+        expect(nextSunday.minute, equals(0));
+        expect(nextSunday.second, equals(0));
+      });
+
+      test('schedules today at 8:00 AM on Sunday before 8:00 AM', () {
+        final sundayBefore8 = DateTime(2026, 7, 12, 7, 59, 59);
+        final nextSunday = NotificationService.nextSunday8AM(sundayBefore8);
+
+        expect(nextSunday.year, equals(2026));
+        expect(nextSunday.month, equals(7));
+        expect(nextSunday.day, equals(12)); // Today July 12
+        expect(nextSunday.hour, equals(8));
+        expect(nextSunday.minute, equals(0));
+        expect(nextSunday.second, equals(0));
+      });
+
+      test('schedules next Sunday on Sunday at exactly 8:00:00 AM', () {
+        final sundayAt8 = DateTime(2026, 7, 12, 8, 0, 0);
+        final nextSunday = NotificationService.nextSunday8AM(sundayAt8);
+
+        expect(nextSunday.year, equals(2026));
+        expect(nextSunday.month, equals(7));
+        expect(nextSunday.day, equals(19)); // Next Sunday July 19
+        expect(nextSunday.hour, equals(8));
+        expect(nextSunday.minute, equals(0));
+        expect(nextSunday.second, equals(0));
+      });
+
+      test(
+        'schedules next Sunday on Sunday at 8:00 AM with non-zero seconds',
+        () {
+          final sundayAt8WithSec = DateTime(2026, 7, 12, 8, 0, 30);
+          final nextSunday = NotificationService.nextSunday8AM(
+            sundayAt8WithSec,
+          );
+
+          expect(nextSunday.year, equals(2026));
+          expect(nextSunday.month, equals(7));
+          expect(nextSunday.day, equals(19)); // Next Sunday July 19
+          expect(nextSunday.hour, equals(8));
+          expect(nextSunday.minute, equals(0));
+          expect(nextSunday.second, equals(0));
+        },
+      );
+
+      test(
+        'schedules next Sunday on Sunday at 8:00 AM with non-zero milliseconds',
+        () {
+          final sundayAt8WithMillis = DateTime(2026, 7, 12, 8, 0, 0, 500);
+          final nextSunday = NotificationService.nextSunday8AM(
+            sundayAt8WithMillis,
+          );
+
+          expect(nextSunday.year, equals(2026));
+          expect(nextSunday.month, equals(7));
+          expect(nextSunday.day, equals(19)); // Next Sunday July 19
+          expect(nextSunday.hour, equals(8));
+          expect(nextSunday.minute, equals(0));
+          expect(nextSunday.second, equals(0));
+        },
+      );
     });
 
     test('evaluates liturgical season & color for Sunday notification', () {
