@@ -14,7 +14,7 @@ class CoreReaderShell extends StatefulWidget {
   const CoreReaderShell({
     super.key,
     required this.adapter,
-    this.initialSectionIndex = 1,
+    this.initialSectionIndex = 0,
     this.primaryVariant,
     this.compareVariant,
     this.extraActions,
@@ -35,9 +35,7 @@ class _CoreReaderShellState extends State<CoreReaderShell> {
   void initState() {
     super.initState();
     _currentSectionIndex = widget.initialSectionIndex;
-    _pageController = PageController(
-      initialPage: widget.initialSectionIndex - 1,
-    );
+    _pageController = PageController(initialPage: widget.initialSectionIndex);
     _loadDocument();
   }
 
@@ -68,7 +66,7 @@ class _CoreReaderShellState extends State<CoreReaderShell> {
         setState(() {
           _currentSectionIndex = index;
         });
-        _pageController.jumpToPage(index - 1);
+        _pageController.jumpToPage(index);
       },
     );
   }
@@ -138,11 +136,11 @@ class _CoreReaderShellState extends State<CoreReaderShell> {
         itemCount: doc.sectionsCount,
         onPageChanged: (pageIndex) {
           setState(() {
-            _currentSectionIndex = pageIndex + 1;
+            _currentSectionIndex = pageIndex;
           });
         },
         itemBuilder: (context, pageIndex) {
-          final sectionIdx = pageIndex + 1;
+          final sectionIdx = pageIndex;
           return FutureBuilder<ReaderSection>(
             future: widget.adapter.loadSection(
               sectionIdx,
