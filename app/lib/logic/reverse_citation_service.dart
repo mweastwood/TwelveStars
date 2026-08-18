@@ -111,40 +111,47 @@ class ReverseCitationService {
     return future;
   }
 
-  static void _rebuildIndices() {
-    _chapterIndex.clear();
-    _verseIndex.clear();
+  static void _insertCitations(Iterable<ReverseCitation> citations) {
+    for (final rc in citations) {
+      final c = rc.citation;
+      final b = c.bookNumber;
+      final ch = c.chapter;
 
-    for (final citations in _indexedSources.values) {
-      for (final rc in citations) {
-        final c = rc.citation;
-        final b = c.bookNumber;
-        final ch = c.chapter;
-
-        if (c.isEntireChapter) {
-          _chapterIndex
-              .putIfAbsent(b, () => {})
-              .putIfAbsent(ch, () => [])
-              .add(rc);
-        } else if (c.verse != null) {
-          final start = c.verse!;
-          final end = c.endVerse ?? start;
-          final bookChapterMap = _verseIndex
-              .putIfAbsent(b, () => {})
-              .putIfAbsent(ch, () => {});
-          for (int v = start; v <= end; v++) {
-            bookChapterMap.putIfAbsent(v, () => []).add(rc);
-          }
+      if (c.isEntireChapter) {
+        _chapterIndex
+            .putIfAbsent(b, () => {})
+            .putIfAbsent(ch, () => [])
+            .add(rc);
+      } else if (c.verse != null) {
+        final start = c.verse!;
+        final end = c.endVerse ?? start;
+        final bookChapterMap = _verseIndex
+            .putIfAbsent(b, () => {})
+            .putIfAbsent(ch, () => {});
+        for (int v = start; v <= end; v++) {
+          bookChapterMap.putIfAbsent(v, () => []).add(rc);
         }
       }
     }
   }
 
+  static void _rebuildIndices() {
+    _chapterIndex.clear();
+    _verseIndex.clear();
+
+    for (final citations in _indexedSources.values) {
+      _insertCitations(citations);
+    }
+  }
+
   static void indexBookData(String sourceKey, ParsedBookData bookData) {
+    bool needsFullRebuild = false;
     if (_indexedSources.containsKey(sourceKey)) {
       _indexedSources.remove(sourceKey);
+      needsFullRebuild = true;
     } else if (_indexedSources.length >= maxIndexedSources) {
       _indexedSources.remove(_indexedSources.keys.first);
+      needsFullRebuild = true;
     }
 
     final List<ReverseCitation> citations = [];
@@ -182,7 +189,11 @@ class ReverseCitationService {
       }
     }
     _indexedSources[sourceKey] = citations;
-    _rebuildIndices();
+    if (needsFullRebuild) {
+      _rebuildIndices();
+    } else {
+      _insertCitations(citations);
+    }
   }
 
   static List<ReverseCitation> getChapterCitations(
