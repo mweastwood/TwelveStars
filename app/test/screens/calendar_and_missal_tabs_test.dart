@@ -490,6 +490,17 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(find.text('Symbol of Faith'), findsOneWidget);
+
+        // Switch via indicator chip tap
+        await tester.tap(find.byKey(const Key('apostles_creed_chip')));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Profession of Faith'), findsOneWidget);
+
+        await tester.tap(find.byKey(const Key('nicene_creed_chip')));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Symbol of Faith'), findsOneWidget);
       },
     );
 

@@ -58,7 +58,7 @@ void main() {
     });
 
     testWidgets(
-      'renders PageView with both cards, default page 0 and swipe navigation',
+      'renders PageView with indicator chips, default page 0, and swipe navigation',
       (tester) async {
         int? changedPage;
         await tester.pumpWidget(
@@ -79,12 +79,28 @@ void main() {
         expect(find.byType(PageView), findsOneWidget);
         expect(find.text('Nicene Content'), findsOneWidget);
 
-        // Swipe left to transition to page 1 (Apostles' Creed)
-        await tester.fling(find.byType(PageView), const Offset(-400, 0), 1000);
+        // Indicator chips should be present
+        final niceneChipFinder = find.byKey(const Key('nicene_creed_chip'));
+        final apostlesChipFinder = find.byKey(const Key('apostles_creed_chip'));
+        expect(niceneChipFinder, findsOneWidget);
+        expect(apostlesChipFinder, findsOneWidget);
+
+        ChoiceChip niceneChip = tester.widget(niceneChipFinder);
+        ChoiceChip apostlesChip = tester.widget(apostlesChipFinder);
+        expect(niceneChip.selected, isTrue);
+        expect(apostlesChip.selected, isFalse);
+
+        // Tap Apostles' Creed chip to navigate
+        await tester.tap(apostlesChipFinder);
         await tester.pumpAndSettle();
 
         expect(changedPage, 1);
         expect(find.text('Apostles Content'), findsOneWidget);
+
+        niceneChip = tester.widget(niceneChipFinder);
+        apostlesChip = tester.widget(apostlesChipFinder);
+        expect(niceneChip.selected, isFalse);
+        expect(apostlesChip.selected, isTrue);
 
         // Swipe right to transition back to page 0 (Nicene Creed)
         await tester.fling(find.byType(PageView), const Offset(400, 0), 1000);
@@ -92,13 +108,18 @@ void main() {
 
         expect(changedPage, 0);
         expect(find.text('Nicene Content'), findsOneWidget);
+
+        niceneChip = tester.widget(niceneChipFinder);
+        apostlesChip = tester.widget(apostlesChipFinder);
+        expect(niceneChip.selected, isTrue);
+        expect(apostlesChip.selected, isFalse);
       },
     );
 
-    testWidgets('renders cards with full width matching parent container', (
+    testWidgets('renders cards with viewportFraction edge peeking', (
       tester,
     ) async {
-      const parentWidth = 360.0;
+      const parentWidth = 400.0;
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -124,10 +145,47 @@ void main() {
       );
       await tester.pumpAndSettle();
 
+      final pageView = tester.widget<PageView>(find.byType(PageView));
+      expect(pageView.controller!.viewportFraction, equals(0.92));
+
       final niceneBox = tester.getRect(
         find.byKey(const Key('nicene_container')),
       );
-      expect(niceneBox.width, equals(parentWidth));
+      // Card width should be (parentWidth * viewportFraction) minus horizontal padding (8.0)
+      expect(niceneBox.width, closeTo(parentWidth * 0.92 - 8.0, 0.1));
     });
+
+    testWidgets(
+      'handles didUpdateWidget when controller changes and disposes owned controller',
+      (tester) async {
+        final externalController = PageController(
+          initialPage: 0,
+          viewportFraction: 0.92,
+        );
+
+        await tester.pumpWidget(
+          buildTestableCarousel(
+            niceneCard: const Text('Nicene'),
+            apostlesCard: const Text('Apostles'),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Update with external controller
+        await tester.pumpWidget(
+          buildTestableCarousel(
+            niceneCard: const Text('Nicene'),
+            apostlesCard: const Text('Apostles'),
+            controller: externalController,
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final pageView = tester.widget<PageView>(find.byType(PageView));
+        expect(pageView.controller, equals(externalController));
+
+        externalController.dispose();
+      },
+    );
   });
 }

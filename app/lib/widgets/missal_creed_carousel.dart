@@ -2,12 +2,15 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 /// A horizontal swipeable carousel for displaying the Nicene Creed and
-/// Apostles' Creed with matching full card width.
+/// Apostles' Creed with viewport-fraction edge peeking and interactive indicator chips.
 class MissalCreedCarousel extends StatefulWidget {
   final Widget? niceneCard;
   final Widget? apostlesCard;
   final PageController? controller;
   final ValueChanged<int>? onPageChanged;
+  final double viewportFraction;
+  final String niceneLabel;
+  final String apostlesLabel;
 
   const MissalCreedCarousel({
     super.key,
@@ -15,6 +18,9 @@ class MissalCreedCarousel extends StatefulWidget {
     this.apostlesCard,
     this.controller,
     this.onPageChanged,
+    this.viewportFraction = 0.92,
+    this.niceneLabel = 'Nicene Creed',
+    this.apostlesLabel = "Apostles' Creed",
   });
 
   @override
@@ -22,18 +28,42 @@ class MissalCreedCarousel extends StatefulWidget {
 }
 
 class _MissalCreedCarouselState extends State<MissalCreedCarousel> {
-  late final PageController _pageController;
+  late PageController _pageController;
   bool _ownsController = false;
+  int _currentPage = 0;
   final Map<int, double> _cardHeights = {};
 
   @override
   void initState() {
     super.initState();
+    _initController();
+  }
+
+  void _initController() {
     if (widget.controller != null) {
       _pageController = widget.controller!;
+      _ownsController = false;
+      _currentPage = _pageController.hasClients && _pageController.page != null
+          ? _pageController.page!.round()
+          : _pageController.initialPage;
     } else {
-      _pageController = PageController(initialPage: 0);
+      _pageController = PageController(
+        initialPage: 0,
+        viewportFraction: widget.viewportFraction,
+      );
       _ownsController = true;
+      _currentPage = 0;
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant MissalCreedCarousel oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.controller != widget.controller) {
+      if (_ownsController) {
+        _pageController.dispose();
+      }
+      _initController();
     }
   }
 
@@ -51,6 +81,21 @@ class _MissalCreedCarouselState extends State<MissalCreedCarousel> {
         _cardHeights[index] = height;
       });
     }
+  }
+
+  void _onChipSelected(int index) {
+    if (_currentPage == index) return;
+    setState(() {
+      _currentPage = index;
+    });
+    if (_pageController.hasClients) {
+      _pageController.animateToPage(
+        index,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
+    widget.onPageChanged?.call(index);
   }
 
   @override
@@ -71,28 +116,68 @@ class _MissalCreedCarouselState extends State<MissalCreedCarousel> {
         ? 450.0
         : _cardHeights.values.fold<double>(0.0, math.max);
 
-    return SizedBox(
-      height: calculatedHeight,
-      child: PageView(
-        controller: _pageController,
-        physics: const BouncingScrollPhysics(),
-        onPageChanged: (page) {
-          widget.onPageChanged?.call(page);
-        },
-        children: [
-          _buildPageItem(0, widget.niceneCard!),
-          _buildPageItem(1, widget.apostlesCard!),
-        ],
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ChoiceChip(
+                key: const Key('nicene_creed_chip'),
+                label: Text(widget.niceneLabel),
+                selected: _currentPage == 0,
+                onSelected: (selected) {
+                  if (selected) {
+                    _onChipSelected(0);
+                  }
+                },
+              ),
+              const SizedBox(width: 8.0),
+              ChoiceChip(
+                key: const Key('apostles_creed_chip'),
+                label: Text(widget.apostlesLabel),
+                selected: _currentPage == 1,
+                onSelected: (selected) {
+                  if (selected) {
+                    _onChipSelected(1);
+                  }
+                },
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: calculatedHeight,
+          child: PageView(
+            controller: _pageController,
+            physics: const BouncingScrollPhysics(),
+            onPageChanged: (page) {
+              setState(() {
+                _currentPage = page;
+              });
+              widget.onPageChanged?.call(page);
+            },
+            children: [
+              _buildPageItem(0, widget.niceneCard!),
+              _buildPageItem(1, widget.apostlesCard!),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
   Widget _buildPageItem(int index, Widget card) {
-    return SingleChildScrollView(
-      physics: const NeverScrollableScrollPhysics(),
-      child: _HeightReporter(
-        onHeightChanged: (h) => _onHeightMeasured(index, h),
-        child: card,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+      child: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
+        child: _HeightReporter(
+          onHeightChanged: (h) => _onHeightMeasured(index, h),
+          child: card,
+        ),
       ),
     );
   }
