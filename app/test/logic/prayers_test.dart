@@ -1,7 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
+import 'package:twelve_stars/logic/prayers.dart';
 import 'package:yaml/yaml.dart';
 
 void main() {
@@ -457,6 +460,112 @@ void main() {
       expect(tcTrans.list!.first.chineseLines, isNotNull);
       expect(tcTrans.list!.first.chineseLines!.first.chars!.length, equals(2));
       expect(tcTrans.list!.first.tokens!.length, equals(1));
+    });
+  });
+
+  group('PrayerDatabase Performance and Caching', () {
+    late BibleDatabase db;
+
+    setUp(() {
+      TestWidgetsFlutterBinding.ensureInitialized();
+      db = BibleDatabase(NativeDatabase.memory());
+      BibleDatabaseHelper.db = db;
+      PrayerDatabase.mockPrayers = null;
+      PrayerDatabase.mockSettings = null;
+      PrayerDatabase.resetCache();
+    });
+
+    tearDown(() async {
+      PrayerDatabase.mockPrayers = null;
+      PrayerDatabase.mockSettings = null;
+      PrayerDatabase.resetCache();
+      await db.close();
+    });
+
+    test('cold start seeds database and sets prayerCatalogVersion', () async {
+      final prayers = await PrayerDatabase.loadPrayers();
+      expect(prayers, isNotEmpty);
+
+      final dbPrayers = await db.getAllPrayers();
+      expect(dbPrayers.length, equals(prayers.length));
+
+      final settings = await db.getUserSettings();
+      expect(settings, isNotNull);
+      expect(
+        settings!.prayerCatalogVersion,
+        equals(PrayerDatabase.kPrayerCatalogVersion),
+      );
+    });
+
+    test('warm start returns in-memory cache directly', () async {
+      final firstCall = await PrayerDatabase.loadPrayers();
+      final secondCall = await PrayerDatabase.loadPrayers();
+
+      expect(identical(firstCall, secondCall), isTrue);
+    });
+
+    test(
+      'warm start after cache reset retrieves from DB without re-updating when catalog version matches',
+      () async {
+        // First populate
+        await PrayerDatabase.loadPrayers();
+
+        // Reset in-memory cache
+        PrayerDatabase.resetCache();
+
+        // Second call with warm DB
+        final prayers = await PrayerDatabase.loadPrayers();
+        expect(prayers, isNotEmpty);
+
+        final settings = await db.getUserSettings();
+        expect(
+          settings?.prayerCatalogVersion,
+          equals(PrayerDatabase.kPrayerCatalogVersion),
+        );
+      },
+    );
+
+    test(
+      're-seeds and updates version when catalog version is outdated',
+      () async {
+        // Seed with outdated catalog version
+        await PrayerDatabase.loadPrayers();
+        final settings = await db.getUserSettings();
+        expect(settings, isNotNull);
+
+        // Force outdated catalog version
+        settings!.prayerCatalogVersion = 0;
+        await db.saveUserSettings(settings);
+        PrayerDatabase.resetCache();
+
+        // Next load should detect mismatched catalog version and re-populate
+        final prayers = await PrayerDatabase.loadPrayers();
+        expect(prayers, isNotEmpty);
+
+        final updatedSettings = await db.getUserSettings();
+        expect(
+          updatedSettings?.prayerCatalogVersion,
+          equals(PrayerDatabase.kPrayerCatalogVersion),
+        );
+      },
+    );
+
+    test('mockPrayers override bypasses cache and database', () async {
+      final mockList = [
+        Prayer.mock(
+          id: 'custom_prayer',
+          defaultTitle: 'Custom Prayer',
+          translations: {
+            PrayerLanguage.english: [
+              PrayerTranslation(title: 'Custom', text: 'Custom prayer text'),
+            ],
+          },
+        ),
+      ];
+
+      PrayerDatabase.mockPrayers = mockList;
+      final loaded = await PrayerDatabase.loadPrayers();
+      expect(loaded, equals(mockList));
     });
   });
 }

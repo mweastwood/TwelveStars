@@ -1,47 +1,54 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 
 class PrayerDatabase {
+  static const int kPrayerCatalogVersion = 1;
+
   static List<Prayer>? mockPrayers;
   static UserSettings? mockSettings;
+  static List<Prayer>? _cachedPrayers;
+
+  @visibleForTesting
+  static void resetCache() {
+    _cachedPrayers = null;
+  }
 
   // Fetch all prayers from the database
   static Future<List<Prayer>> loadPrayers() async {
     if (mockPrayers != null) {
       return mockPrayers!;
     }
+    if (_cachedPrayers != null) {
+      return _cachedPrayers!;
+    }
 
     final db = BibleDatabaseHelper.db;
     final list = await db.getAllPrayers();
+    final settings = await db.getUserSettings();
+
+    if (list.isNotEmpty &&
+        settings?.prayerCatalogVersion == kPrayerCatalogVersion) {
+      _cachedPrayers = list;
+      return list;
+    }
+
     final compiledPrayers = await _loadPrayersFromWebJson();
-
-    bool needsUpdate = list.length != compiledPrayers.length;
-    if (!needsUpdate) {
-      for (final p in list) {
-        final cp = compiledPrayers.firstWhere(
-          (element) => element.prayerId == p.prayerId,
-          orElse: () => p,
-        );
-        if (p.hash != cp.hash) {
-          needsUpdate = true;
-          break;
-        }
-      }
+    int autoId = 1;
+    for (final prayer in compiledPrayers) {
+      prayer.isarId = autoId++;
     }
+    await db.updatePrayers(compiledPrayers);
+    compiledPrayers.sort((a, b) => a.defaultOrder.compareTo(b.defaultOrder));
 
-    if (needsUpdate) {
-      int autoId = 1;
-      for (final prayer in compiledPrayers) {
-        prayer.isarId = autoId++;
-      }
-      await db.updatePrayers(compiledPrayers);
-      compiledPrayers.sort((a, b) => a.defaultOrder.compareTo(b.defaultOrder));
-      return compiledPrayers;
-    }
+    final currentSettings = settings ?? UserSettings();
+    currentSettings.prayerCatalogVersion = kPrayerCatalogVersion;
+    await db.saveUserSettings(currentSettings);
 
-    return list;
+    _cachedPrayers = compiledPrayers;
+    return compiledPrayers;
   }
 
   static Future<UserSettings> loadSettings() async {
