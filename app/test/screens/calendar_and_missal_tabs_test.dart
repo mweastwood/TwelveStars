@@ -474,20 +474,19 @@ void main() {
         expect(find.text('Nicene Creed'), findsWidgets);
         expect(find.text('Symbol of Faith'), findsOneWidget); // Nicene subtitle
 
-        // Ensure carousel is visible
+        // Scroll down to center the carousel in viewport
         await tester.ensureVisible(find.byType(MissalCreedCarousel));
         await tester.pumpAndSettle();
 
         // Swipe left on the PageView to bring in Apostles' Creed
-        await tester.drag(find.byType(PageView), const Offset(-400, 0));
+        await tester.drag(find.byType(PageView), const Offset(-600, 0));
         await tester.pumpAndSettle();
 
         // Verify Apostles' Creed subtitle is present
         expect(find.text('Profession of Faith'), findsOneWidget);
 
-        // Tap Nicene Creed indicator chip to navigate back
-        final niceneChip = find.widgetWithText(InkWell, 'Nicene Creed');
-        await tester.tap(niceneChip);
+        // Swipe right on the PageView to navigate back
+        await tester.drag(find.byType(PageView), const Offset(600, 0));
         await tester.pumpAndSettle();
 
         expect(find.text('Symbol of Faith'), findsOneWidget);

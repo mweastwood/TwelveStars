@@ -58,7 +58,7 @@ void main() {
     });
 
     testWidgets(
-      'renders PageView with both cards and defaults to page 0 (Nicene)',
+      'renders PageView with both cards, default page 0 and swipe navigation',
       (tester) async {
         int? changedPage;
         await tester.pumpWidget(
@@ -77,44 +77,57 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(find.byType(PageView), findsOneWidget);
-        expect(find.text('Nicene Creed'), findsOneWidget);
-        expect(find.text('Apostles\' Creed'), findsOneWidget);
         expect(find.text('Nicene Content'), findsOneWidget);
-        expect(find.text('Apostles Content'), findsOneWidget);
 
         // Swipe left to transition to page 1 (Apostles' Creed)
-        await tester.drag(find.byType(PageView), const Offset(-400, 0));
+        await tester.fling(find.byType(PageView), const Offset(-400, 0), 1000);
         await tester.pumpAndSettle();
 
         expect(changedPage, 1);
+        expect(find.text('Apostles Content'), findsOneWidget);
 
-        // Tap the Nicene Creed chip to transition back
-        final niceneChip = find.widgetWithText(InkWell, 'Nicene Creed');
-        await tester.tap(niceneChip);
+        // Swipe right to transition back to page 0 (Nicene Creed)
+        await tester.fling(find.byType(PageView), const Offset(400, 0), 1000);
         await tester.pumpAndSettle();
 
         expect(changedPage, 0);
+        expect(find.text('Nicene Content'), findsOneWidget);
       },
     );
 
-    testWidgets('tapping indicator chip smoothly navigates pages', (
+    testWidgets('renders cards with full width matching parent container', (
       tester,
     ) async {
-      int? changedPage;
+      const parentWidth = 360.0;
       await tester.pumpWidget(
-        buildTestableCarousel(
-          niceneCard: const Text('Card 1'),
-          apostlesCard: const Text('Card 2'),
-          onPageChanged: (p) => changedPage = p,
+        MaterialApp(
+          home: Scaffold(
+            body: Center(
+              child: SizedBox(
+                width: parentWidth,
+                child: MissalCreedCarousel(
+                  niceneCard: Container(
+                    key: const Key('nicene_container'),
+                    height: 100,
+                    color: Colors.blue,
+                  ),
+                  apostlesCard: Container(
+                    key: const Key('apostles_container'),
+                    height: 100,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+            ),
+          ),
         ),
       );
       await tester.pumpAndSettle();
 
-      final apostlesChip = find.widgetWithText(InkWell, 'Apostles\' Creed');
-      await tester.tap(apostlesChip);
-      await tester.pumpAndSettle();
-
-      expect(changedPage, 1);
+      final niceneBox = tester.getRect(
+        find.byKey(const Key('nicene_container')),
+      );
+      expect(niceneBox.width, equals(parentWidth));
     });
   });
 }
