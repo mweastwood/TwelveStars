@@ -2840,6 +2840,17 @@ class $UserSettingsTableTable extends UserSettingsTable
         requiredDuringInsert: false,
         defaultValue: const Constant('vulgate'),
       );
+  static const VerificationMeta _prayerCatalogVersionMeta =
+      const VerificationMeta('prayerCatalogVersion');
+  @override
+  late final GeneratedColumn<int> prayerCatalogVersion = GeneratedColumn<int>(
+    'prayer_catalog_version',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -2853,6 +2864,7 @@ class $UserSettingsTableTable extends UserSettingsTable
     sundayNotificationsEnabled,
     showBibleTranslationSelectors,
     bibleNumberingSystemCode,
+    prayerCatalogVersion,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -2958,6 +2970,15 @@ class $UserSettingsTableTable extends UserSettingsTable
         ),
       );
     }
+    if (data.containsKey('prayer_catalog_version')) {
+      context.handle(
+        _prayerCatalogVersionMeta,
+        prayerCatalogVersion.isAcceptableOrUnknown(
+          data['prayer_catalog_version']!,
+          _prayerCatalogVersionMeta,
+        ),
+      );
+    }
     return context;
   }
 
@@ -3014,6 +3035,10 @@ class $UserSettingsTableTable extends UserSettingsTable
         DriftSqlType.string,
         data['${effectivePrefix}bible_numbering_system_code'],
       )!,
+      prayerCatalogVersion: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}prayer_catalog_version'],
+      )!,
     );
   }
 
@@ -3040,6 +3065,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
   final Value<bool> sundayNotificationsEnabled;
   final Value<bool> showBibleTranslationSelectors;
   final Value<String> bibleNumberingSystemCode;
+  final Value<int> prayerCatalogVersion;
   const UserSettingsTableCompanion({
     this.id = const Value.absent(),
     this.primaryLanguageCode = const Value.absent(),
@@ -3052,6 +3078,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     this.sundayNotificationsEnabled = const Value.absent(),
     this.showBibleTranslationSelectors = const Value.absent(),
     this.bibleNumberingSystemCode = const Value.absent(),
+    this.prayerCatalogVersion = const Value.absent(),
   });
   UserSettingsTableCompanion.insert({
     this.id = const Value.absent(),
@@ -3065,6 +3092,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     this.sundayNotificationsEnabled = const Value.absent(),
     this.showBibleTranslationSelectors = const Value.absent(),
     this.bibleNumberingSystemCode = const Value.absent(),
+    this.prayerCatalogVersion = const Value.absent(),
   }) : primaryLanguageCode = Value(primaryLanguageCode),
        compareLanguageCode = Value(compareLanguageCode),
        primaryBibleTranslation = Value(primaryBibleTranslation),
@@ -3081,6 +3109,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Expression<bool>? sundayNotificationsEnabled,
     Expression<bool>? showBibleTranslationSelectors,
     Expression<String>? bibleNumberingSystemCode,
+    Expression<int>? prayerCatalogVersion,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -3101,6 +3130,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
         'show_bible_translation_selectors': showBibleTranslationSelectors,
       if (bibleNumberingSystemCode != null)
         'bible_numbering_system_code': bibleNumberingSystemCode,
+      if (prayerCatalogVersion != null)
+        'prayer_catalog_version': prayerCatalogVersion,
     });
   }
 
@@ -3116,6 +3147,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Value<bool>? sundayNotificationsEnabled,
     Value<bool>? showBibleTranslationSelectors,
     Value<String>? bibleNumberingSystemCode,
+    Value<int>? prayerCatalogVersion,
   }) {
     return UserSettingsTableCompanion(
       id: id ?? this.id,
@@ -3134,6 +3166,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
           showBibleTranslationSelectors ?? this.showBibleTranslationSelectors,
       bibleNumberingSystemCode:
           bibleNumberingSystemCode ?? this.bibleNumberingSystemCode,
+      prayerCatalogVersion: prayerCatalogVersion ?? this.prayerCatalogVersion,
     );
   }
 
@@ -3191,6 +3224,9 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
         bibleNumberingSystemCode.value,
       );
     }
+    if (prayerCatalogVersion.present) {
+      map['prayer_catalog_version'] = Variable<int>(prayerCatalogVersion.value);
+    }
     return map;
   }
 
@@ -3209,7 +3245,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
           ..write(
             'showBibleTranslationSelectors: $showBibleTranslationSelectors, ',
           )
-          ..write('bibleNumberingSystemCode: $bibleNumberingSystemCode')
+          ..write('bibleNumberingSystemCode: $bibleNumberingSystemCode, ')
+          ..write('prayerCatalogVersion: $prayerCatalogVersion')
           ..write(')'))
         .toString();
   }
@@ -4705,6 +4742,7 @@ typedef $$UserSettingsTableTableCreateCompanionBuilder =
       Value<bool> sundayNotificationsEnabled,
       Value<bool> showBibleTranslationSelectors,
       Value<String> bibleNumberingSystemCode,
+      Value<int> prayerCatalogVersion,
     });
 typedef $$UserSettingsTableTableUpdateCompanionBuilder =
     UserSettingsTableCompanion Function({
@@ -4719,6 +4757,7 @@ typedef $$UserSettingsTableTableUpdateCompanionBuilder =
       Value<bool> sundayNotificationsEnabled,
       Value<bool> showBibleTranslationSelectors,
       Value<String> bibleNumberingSystemCode,
+      Value<int> prayerCatalogVersion,
     });
 
 class $$UserSettingsTableTableFilterComposer
@@ -4789,6 +4828,11 @@ class $$UserSettingsTableTableFilterComposer
     column: $table.bibleNumberingSystemCode,
     builder: (column) => ColumnFilters(column),
   );
+
+  ColumnFilters<int> get prayerCatalogVersion => $composableBuilder(
+    column: $table.prayerCatalogVersion,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$UserSettingsTableTableOrderingComposer
@@ -4852,6 +4896,11 @@ class $$UserSettingsTableTableOrderingComposer
 
   ColumnOrderings<String> get bibleNumberingSystemCode => $composableBuilder(
     column: $table.bibleNumberingSystemCode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get prayerCatalogVersion => $composableBuilder(
+    column: $table.prayerCatalogVersion,
     builder: (column) => ColumnOrderings(column),
   );
 }
@@ -4918,6 +4967,11 @@ class $$UserSettingsTableTableAnnotationComposer
     column: $table.bibleNumberingSystemCode,
     builder: (column) => column,
   );
+
+  GeneratedColumn<int> get prayerCatalogVersion => $composableBuilder(
+    column: $table.prayerCatalogVersion,
+    builder: (column) => column,
+  );
 }
 
 class $$UserSettingsTableTableTableManager
@@ -4973,6 +5027,7 @@ class $$UserSettingsTableTableTableManager
                 Value<bool> showBibleTranslationSelectors =
                     const Value.absent(),
                 Value<String> bibleNumberingSystemCode = const Value.absent(),
+                Value<int> prayerCatalogVersion = const Value.absent(),
               }) => UserSettingsTableCompanion(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -4985,6 +5040,7 @@ class $$UserSettingsTableTableTableManager
                 sundayNotificationsEnabled: sundayNotificationsEnabled,
                 showBibleTranslationSelectors: showBibleTranslationSelectors,
                 bibleNumberingSystemCode: bibleNumberingSystemCode,
+                prayerCatalogVersion: prayerCatalogVersion,
               ),
           createCompanionCallback:
               ({
@@ -5001,6 +5057,7 @@ class $$UserSettingsTableTableTableManager
                 Value<bool> showBibleTranslationSelectors =
                     const Value.absent(),
                 Value<String> bibleNumberingSystemCode = const Value.absent(),
+                Value<int> prayerCatalogVersion = const Value.absent(),
               }) => UserSettingsTableCompanion.insert(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -5013,6 +5070,7 @@ class $$UserSettingsTableTableTableManager
                 sundayNotificationsEnabled: sundayNotificationsEnabled,
                 showBibleTranslationSelectors: showBibleTranslationSelectors,
                 bibleNumberingSystemCode: bibleNumberingSystemCode,
+                prayerCatalogVersion: prayerCatalogVersion,
               ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))

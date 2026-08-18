@@ -237,6 +237,8 @@ class UserSettingsTable extends Table {
       boolean().withDefault(const Constant(false))();
   TextColumn get bibleNumberingSystemCode =>
       text().withDefault(const Constant('vulgate'))();
+  IntColumn get prayerCatalogVersion =>
+      integer().withDefault(const Constant(0))();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -251,7 +253,7 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 10;
+  int get schemaVersion => 11;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -296,6 +298,12 @@ class BibleDatabase extends _$BibleDatabase {
         await m.addColumn(
           userSettingsTable,
           userSettingsTable.bibleNumberingSystemCode,
+        );
+      }
+      if (from < 11) {
+        await m.addColumn(
+          userSettingsTable,
+          userSettingsTable.prayerCatalogVersion,
         );
       }
     },
@@ -631,6 +639,7 @@ class BibleDatabase extends _$BibleDatabase {
           settings.showBibleTranslationSelectors,
         ),
         bibleNumberingSystemCode: Value(settings.bibleNumberingSystemCode),
+        prayerCatalogVersion: Value(settings.prayerCatalogVersion),
       ),
     );
   }

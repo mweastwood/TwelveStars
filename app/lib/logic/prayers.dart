@@ -268,6 +268,7 @@ class UserSettings {
   bool sundayNotificationsEnabled;
   bool showBibleTranslationSelectors;
   String bibleNumberingSystemCode;
+  int prayerCatalogVersion;
 
   UserSettings({
     this.id = 1,
@@ -281,6 +282,7 @@ class UserSettings {
     this.sundayNotificationsEnabled = true,
     this.showBibleTranslationSelectors = false,
     this.bibleNumberingSystemCode = 'vulgate',
+    this.prayerCatalogVersion = 0,
   });
 
   AppThemeMode get appThemeMode => AppThemeMode.fromCode(appThemeModeCode);

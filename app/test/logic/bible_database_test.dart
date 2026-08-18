@@ -113,6 +113,7 @@ void main() {
           sundayNotificationsEnabled: false,
           showBibleTranslationSelectors: true,
           bibleNumberingSystemCode: 'dual',
+          prayerCatalogVersion: 1,
         );
 
         await testDb.saveUserSettings(settings);
@@ -142,13 +143,14 @@ void main() {
           retrieved.bibleNumberingSystem,
           equals(BibleNumberingSystem.dual),
         );
+        expect(retrieved.prayerCatalogVersion, equals(1));
       },
     );
   });
 
   group('Library Bookmarks Operations', () {
     test('save, get, and delete library bookmarks in BibleDatabase', () async {
-      expect(testDb.schemaVersion, equals(10));
+      expect(testDb.schemaVersion, equals(11));
 
       final now = DateTime.now();
       await testDb.saveLibraryBookmark(
