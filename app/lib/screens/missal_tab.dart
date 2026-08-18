@@ -11,6 +11,7 @@ import 'package:twelve_stars/widgets/mass_reading_card.dart';
 import 'package:twelve_stars/widgets/missal_calendar_grid.dart';
 import 'package:twelve_stars/widgets/homily_reflection_sheet.dart';
 import 'package:twelve_stars/widgets/reader/missal_section_widgets.dart';
+import 'package:twelve_stars/widgets/missal_creed_carousel.dart';
 
 class MissalTab extends StatefulWidget {
   final PrayerLanguage primaryLanguage;
@@ -43,7 +44,6 @@ class _MissalTabState extends State<MissalTab> {
   UserSettings? _settings;
   late PrayerLanguage _primaryLanguage;
   PrayerLanguage? _compareLanguage;
-  bool _showNiceneCreed = true;
 
   Future<List<LectionaryReading>>? _readingsFuture;
   String? _cachedLectionaryKey;
@@ -590,33 +590,15 @@ class _MissalTabState extends State<MissalTab> {
               ),
               const SizedBox(height: 12),
 
-              // Creed segment selector
-              Center(
-                child: SegmentedButton<bool>(
-                  segments: const [
-                    ButtonSegment<bool>(
-                      value: true,
-                      label: Text('Nicene Creed'),
-                    ),
-                    ButtonSegment<bool>(
-                      value: false,
-                      label: Text('Apostles\' Creed'),
-                    ),
-                  ],
-                  selected: {_showNiceneCreed},
-                  onSelectionChanged: (newSelection) {
-                    setState(() {
-                      _showNiceneCreed = newSelection.first;
-                    });
-                  },
-                  showSelectedIcon: false,
-                ),
+              // Creed swipeable carousel
+              MissalCreedCarousel(
+                niceneCard: niceneCreed != null
+                    ? _buildPrayerCard(niceneCreed)
+                    : null,
+                apostlesCard: apostlesCreed != null
+                    ? _buildPrayerCard(apostlesCreed)
+                    : null,
               ),
-              const SizedBox(height: 12),
-              if (_showNiceneCreed && niceneCreed != null)
-                _buildPrayerCard(niceneCreed)
-              else if (!_showNiceneCreed && apostlesCreed != null)
-                _buildPrayerCard(apostlesCreed),
               const SizedBox(height: 12),
               const MissalMassPartPlaceholder(
                 title: 'Universal Prayer (Prayers of the Faithful)',

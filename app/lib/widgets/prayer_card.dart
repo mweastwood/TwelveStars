@@ -437,33 +437,29 @@ class _PrayerCardState extends State<PrayerCard> {
     final historyTrans = _activeTranslationWithHistory;
 
     final card = GestureDetector(
-      onHorizontalDragEnd: (details) {
-        if (details.primaryVelocity == null) return;
-        if (translations.length <= 1) return;
-        if (_isDualMode) {
-          // Disable swiping version in dual compare mode to avoid visual
-          // clutter
-          return;
-        }
-
-        if (details.primaryVelocity! < 0) {
-          // Swiped left -> next version
-          final newIndex = (_currentVersionIndex + 1) % translations.length;
-          setState(() {
-            _currentVersionIndex = newIndex;
-          });
-          widget.onVersionChanged(newIndex);
-        } else if (details.primaryVelocity! > 0) {
-          // Swiped right -> previous version
-          final newIndex =
-              (_currentVersionIndex - 1 + translations.length) %
-              translations.length;
-          setState(() {
-            _currentVersionIndex = newIndex;
-          });
-          widget.onVersionChanged(newIndex);
-        }
-      },
+      onHorizontalDragEnd: (translations.length > 1 && !_isDualMode)
+          ? (details) {
+              if (details.primaryVelocity == null) return;
+              if (details.primaryVelocity! < 0) {
+                // Swiped left -> next version
+                final newIndex =
+                    (_currentVersionIndex + 1) % translations.length;
+                setState(() {
+                  _currentVersionIndex = newIndex;
+                });
+                widget.onVersionChanged(newIndex);
+              } else if (details.primaryVelocity! > 0) {
+                // Swiped right -> previous version
+                final newIndex =
+                    (_currentVersionIndex - 1 + translations.length) %
+                    translations.length;
+                setState(() {
+                  _currentVersionIndex = newIndex;
+                });
+                widget.onVersionChanged(newIndex);
+              }
+            }
+          : null,
       child: Card(
         margin: const EdgeInsets.symmetric(vertical: 8),
         child: Stack(

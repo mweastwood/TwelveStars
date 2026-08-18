@@ -5,6 +5,7 @@ import 'package:twelve_stars/screens/missal_tab.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/mass_reading_card.dart';
 import 'package:twelve_stars/widgets/homily_reflection_sheet.dart';
+import 'package:twelve_stars/widgets/missal_creed_carousel.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:drift/native.dart';
@@ -452,37 +453,63 @@ void main() {
       expect(find.text('Thursday, July 2, 2026'), findsOneWidget);
     });
 
-    testWidgets('Creed toggle switches between Nicene and Apostles Creeds', (
-      tester,
-    ) async {
-      final fixedDate = DateTime(2026, 7, 2);
-      TimeHelper.setCustomTime(fixedDate);
-      await tester.pumpWidget(
-        buildTestableWidget(
-          child: Scaffold(
-            body: MissalTab(
-              primaryLanguage: PrayerLanguage.english,
-              compareLanguage: PrayerLanguage.latin,
+    testWidgets(
+      'Creed carousel switches between Nicene and Apostles Creeds via swipe and tap on peeking card',
+      (tester) async {
+        final fixedDate = DateTime(2026, 7, 2);
+        TimeHelper.setCustomTime(fixedDate);
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: MissalTab(
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
             ),
           ),
-        ),
-      );
-      await tester.pumpAndSettle();
+        );
+        await tester.pumpAndSettle();
 
-      // Default is Nicene Creed
-      expect(find.text('Nicene Creed'), findsWidgets);
-      expect(find.text('Symbol of Faith'), findsOneWidget); // Nicene subtitle
+        // Default is Nicene Creed
+        expect(find.text('Nicene Creed'), findsWidgets);
+        expect(find.text('Symbol of Faith'), findsOneWidget); // Nicene subtitle
 
-      // Tap on Apostles' Creed segment
-      final apostlesCreedSegment = find.text('Apostles\' Creed');
-      await tester.ensureVisible(apostlesCreedSegment);
-      await tester.tap(apostlesCreedSegment);
-      await tester.pumpAndSettle();
+        // Scroll down to center the carousel in viewport
+        await tester.ensureVisible(find.byType(MissalCreedCarousel));
+        await tester.pumpAndSettle();
 
-      // Verify Apostles' Creed subtitle
-      expect(find.text('Profession of Faith'), findsOneWidget);
-      expect(find.text('Symbol of Faith'), findsNothing);
-    });
+        // Swipe left on the MissalCreedCarousel to bring in Apostles' Creed
+        await tester.drag(
+          find.byType(MissalCreedCarousel),
+          const Offset(-600, 0),
+        );
+        await tester.pumpAndSettle();
+
+        // Verify Apostles' Creed subtitle is present
+        expect(find.text('Profession of Faith'), findsOneWidget);
+
+        // Swipe right on the MissalCreedCarousel to navigate back
+        await tester.drag(
+          find.byType(MissalCreedCarousel),
+          const Offset(600, 0),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Symbol of Faith'), findsOneWidget);
+
+        // Switch via tapping peeking Apostles' Creed card
+        await tester.tap(find.byKey(const Key('apostles_creed_peeking_tap')));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Profession of Faith'), findsOneWidget);
+
+        // Switch back via tapping peeking Nicene Creed card
+        await tester.tap(find.byKey(const Key('nicene_creed_peeking_tap')));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Symbol of Faith'), findsOneWidget);
+      },
+    );
 
     testWidgets('Today FAB visibility and click behavior', (tester) async {
       final fixedDate = DateTime(2026, 7, 2);
@@ -743,6 +770,39 @@ void main() {
         await screenMatchesGolden(
           tester,
           'missal_tab_homily_reflection_modal_golden',
+          customPump: (tester) async => await tester.pump(),
+        );
+      },
+    );
+
+    testGoldens(
+      'MissalTab renders Creed section with Apostles Creed active and Nicene Creed peeking',
+      (tester) async {
+        LocalAgentHelper.instance = MockMissalAiService();
+        TimeHelper.setCustomTime(DateTime(2024, 11, 24));
+        await tester.pumpWidgetBuilder(
+          const Scaffold(
+            body: MissalTab(
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        // Scroll down to the Creed carousel
+        await tester.ensureVisible(find.byType(MissalCreedCarousel));
+        await tester.pumpAndSettle();
+
+        // Tap peeking Apostles Creed card to focus it
+        await tester.tap(find.byKey(const Key('apostles_creed_peeking_tap')));
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'missal_tab_apostles_creed_golden',
           customPump: (tester) async => await tester.pump(),
         );
       },
