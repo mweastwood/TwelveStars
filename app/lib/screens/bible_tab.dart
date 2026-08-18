@@ -184,6 +184,23 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     try {
       final settings = await PrayerDatabase.loadSettings();
       if (mounted) {
+        final targetIndex = _allChapters.indexWhere(
+          (ref) =>
+              ref.book.bookNumber == settings.lastBibleBookNumber &&
+              ref.chapter == settings.lastBibleChapter,
+        );
+        final initialIndex = targetIndex != -1 ? targetIndex : 0;
+        if (_currentPageIndex != initialIndex) {
+          if (_pageController.hasClients) {
+            _pageController.jumpToPage(initialIndex);
+          } else {
+            _pageController.dispose();
+            _pageController = PageController(initialPage: initialIndex);
+          }
+          _currentPageIndex = initialIndex;
+          _selectedBookForPicker = _allChapters[initialIndex].book;
+        }
+
         setState(() {
           _settings = settings;
           _primaryTranslation = settings.primaryBibleTranslation;
@@ -194,6 +211,24 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
         });
       }
     } catch (_) {}
+  }
+
+  void _saveReadingPosition(int index) {
+    if (index >= 0 && index < _allChapters.length) {
+      final ref = _allChapters[index];
+      if (_settings != null) {
+        _settings!.lastBibleBookNumber = ref.book.bookNumber;
+        _settings!.lastBibleChapter = ref.chapter;
+        PrayerDatabase.saveSettings(_settings!);
+      } else {
+        PrayerDatabase.loadSettings().then((s) {
+          _settings = s;
+          s.lastBibleBookNumber = ref.book.bookNumber;
+          s.lastBibleChapter = ref.chapter;
+          PrayerDatabase.saveSettings(s);
+        });
+      }
+    }
   }
 
   Future<void> _loadFavorites() async {
@@ -385,6 +420,10 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     }
   }
 
+  @visibleForTesting
+  void navigateToChapter(BibleBook book, int chapterNum) =>
+      _navigateToChapter(book, chapterNum);
+
   void _navigateToChapter(BibleBook book, int chapterNum) {
     final pageIndex = _allChapters.indexWhere(
       (ref) =>
@@ -393,6 +432,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     if (pageIndex != -1) {
       _pageController.jumpToPage(pageIndex);
       _collapsePanel();
+      _saveReadingPosition(pageIndex);
     }
   }
 
@@ -412,6 +452,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       });
       _pageController.jumpToPage(pageIndex);
       _collapsePanel();
+      _saveReadingPosition(pageIndex);
     }
   }
 
@@ -437,6 +478,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       });
       _pageController.jumpToPage(pageIndex);
       _collapsePanel();
+      _saveReadingPosition(pageIndex);
     }
   }
 
@@ -514,7 +556,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
             onPageChanged: (index) {
               setState(() {
                 _currentPageIndex = index;
+                _selectedBookForPicker = _allChapters[index].book;
               });
+              _saveReadingPosition(index);
             },
             itemBuilder: (context, index) {
               final ref = _allChapters[index];

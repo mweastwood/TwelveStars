@@ -269,6 +269,8 @@ class UserSettings {
   bool showBibleTranslationSelectors;
   String bibleNumberingSystemCode;
   int prayerCatalogVersion;
+  int lastBibleBookNumber;
+  int lastBibleChapter;
 
   UserSettings({
     this.id = 1,
@@ -283,6 +285,8 @@ class UserSettings {
     this.showBibleTranslationSelectors = false,
     this.bibleNumberingSystemCode = 'vulgate',
     this.prayerCatalogVersion = 0,
+    this.lastBibleBookNumber = 1,
+    this.lastBibleChapter = 1,
   });
 
   AppThemeMode get appThemeMode => AppThemeMode.fromCode(appThemeModeCode);

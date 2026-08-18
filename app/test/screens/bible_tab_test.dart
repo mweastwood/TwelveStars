@@ -79,6 +79,42 @@ void main() {
       expect(find.text('And the earth was void and empty.'), findsOneWidget);
     });
 
+    testWidgets(
+      'restores saved Bible reading position and persists new position on navigation',
+      (WidgetTester tester) async {
+        final genesisBook = catholicBooks.firstWhere((b) => b.bookNumber == 1);
+
+        await tester.runAsync(() async {
+          await testDb.ensureBookPopulated(2, 'Exodus', 'EXO');
+          await testDb.ensureBookPopulated(1, 'Genesis', 'GEN');
+        });
+
+        final settings = UserSettings(
+          lastBibleBookNumber: 2, // Exodus
+          lastBibleChapter: 1,
+        );
+        await testDb.saveUserSettings(settings);
+        PrayerDatabase.mockPrayers = null;
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        // Verify it restored to Exodus 1
+        expect(find.text('Exodus 1'), findsNWidgets(2));
+
+        // Navigate to Genesis 2
+        final state = tester.state<BibleTabState>(find.byType(BibleTab));
+        state.navigateToChapter(genesisBook, 2);
+        await tester.pumpAndSettle();
+
+        final updatedSettings = await testDb.getUserSettings();
+        expect(updatedSettings?.lastBibleBookNumber, equals(1));
+        expect(updatedSettings?.lastBibleChapter, equals(2));
+      },
+    );
+
     testGoldens('renders correctly', (tester) async {
       final builder = GoldenBuilder.column()
         ..addScenario(

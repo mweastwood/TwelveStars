@@ -48,6 +48,10 @@ CREATE TABLE library_bookmarks (
     created_at DATETIME NOT NULL
 );
 
-
-
-
+CREATE TABLE book_reading_positions (
+    book_id TEXT NOT NULL PRIMARY KEY,
+    volume_key TEXT,
+    section_index INT NOT NULL DEFAULT 0,
+    section_id TEXT,
+    updated_at DATETIME NOT NULL
+);
