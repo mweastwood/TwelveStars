@@ -80,6 +80,7 @@ flutter:
 
   assets:
     - assets/prayers.json
+    - assets/saints.json
     - assets/pinyin_dict.txt
     - assets/bible/cpdv/usfm/
     - assets/bible/drc/usfm/

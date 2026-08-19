@@ -9,6 +9,7 @@ import 'package:twelve_stars/screens/rosary_screen.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/screens/missal_tab.dart';
 import 'package:twelve_stars/screens/library_tab.dart';
+import 'package:twelve_stars/screens/saints_screen.dart';
 import 'package:twelve_stars/screens/settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -548,6 +549,18 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
               ),
             ),
+          ),
+          ListTile(
+            key: const Key('drawer_saints_tile'),
+            leading: const Icon(Icons.workspace_premium_outlined),
+            title: const Text('Saint Database'),
+            onTap: () {
+              Navigator.pop(context); // Close drawer
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SaintsScreen()),
+              );
+            },
           ),
           ListTile(
             key: const Key('drawer_settings_tile'),
