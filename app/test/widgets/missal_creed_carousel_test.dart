@@ -83,6 +83,7 @@ void main() {
                   child: MissalCreedCarousel(
                     peekOffset: peekOffset,
                     cardGap: cardGap,
+                    horizontalPadding: 0.0,
                     niceneCard: Container(
                       key: const Key('nicene_content'),
                       height: 200,
@@ -177,6 +178,91 @@ void main() {
       },
     );
 
+    testWidgets(
+      'aligns active card with horizontalPadding and bleeds peeking card to screen edge',
+      (tester) async {
+        const containerWidth = 400.0;
+        const peekOffset = 24.0;
+        const cardGap = 8.0;
+        const horizontalPadding = 16.0;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: Center(
+                child: SizedBox(
+                  width: containerWidth,
+                  child: MissalCreedCarousel(
+                    peekOffset: peekOffset,
+                    cardGap: cardGap,
+                    horizontalPadding: horizontalPadding,
+                    niceneCard: Container(
+                      key: const Key('nicene_content_pad'),
+                      height: 200,
+                      color: Colors.blue,
+                      child: const Text('Nicene Content'),
+                    ),
+                    apostlesCard: Container(
+                      key: const Key('apostles_content_pad'),
+                      height: 200,
+                      color: Colors.red,
+                      child: const Text('Apostles Content'),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final carouselRect = tester.getRect(find.byType(MissalCreedCarousel));
+        final niceneWrapperRect = tester.getRect(
+          find.byKey(const Key('nicene_card_wrapper')),
+        );
+        final apostlesWrapperRect = tester.getRect(
+          find.byKey(const Key('apostles_card_wrapper')),
+        );
+
+        // Page 0: Nicene card is indented by horizontalPadding (16px)
+        expect(
+          niceneWrapperRect.left,
+          closeTo(carouselRect.left + horizontalPadding, 0.1),
+        );
+        const expectedCardWidth =
+            containerWidth - horizontalPadding - peekOffset - cardGap;
+        expect(niceneWrapperRect.width, closeTo(expectedCardWidth, 0.1));
+
+        // Apostles card peeks right at edge: begins at containerWidth - peekOffset
+        expect(
+          apostlesWrapperRect.left,
+          closeTo(carouselRect.right - peekOffset, 0.1),
+        );
+
+        // Tap peeking Apostles Creed card
+        await tester.tap(find.byKey(const Key('apostles_creed_peeking_tap')));
+        await tester.pumpAndSettle();
+
+        // Page 1: Apostles Creed active, indented by horizontalPadding on right
+        final apostlesWrapperRectPage1 = tester.getRect(
+          find.byKey(const Key('apostles_card_wrapper')),
+        );
+        final niceneWrapperRectPage1 = tester.getRect(
+          find.byKey(const Key('nicene_card_wrapper')),
+        );
+
+        expect(
+          apostlesWrapperRectPage1.right,
+          closeTo(carouselRect.right - horizontalPadding, 0.1),
+        );
+        // Nicene card peeks on the left edge: ends at left + peekOffset
+        expect(
+          niceneWrapperRectPage1.right,
+          closeTo(carouselRect.left + peekOffset, 0.1),
+        );
+      },
+    );
+
     testWidgets('supports horizontal swipe gesture navigation', (tester) async {
       int? changedPage;
       await tester.pumpWidget(
@@ -214,6 +300,91 @@ void main() {
 
       expect(changedPage, 0);
     });
+
+    testWidgets(
+      'dynamically scales container height to active card content height and animates on transition',
+      (tester) async {
+        const double niceneHeight = 350.0;
+        const double apostlesHeight = 180.0;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: Center(
+                child: SizedBox(
+                  width: 400,
+                  child: MissalCreedCarousel(
+                    niceneCard: Container(
+                      key: const Key('tall_nicene_card'),
+                      height: niceneHeight,
+                      color: Colors.blue,
+                    ),
+                    apostlesCard: Container(
+                      key: const Key('short_apostles_card'),
+                      height: apostlesHeight,
+                      color: Colors.red,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // 1. On page 0, carousel height should scale to niceneHeight
+        final animatedContainer0 = tester.widget<AnimatedContainer>(
+          find.byType(AnimatedContainer),
+        );
+        expect(animatedContainer0.constraints?.maxHeight, equals(niceneHeight));
+
+        // 2. Switch to page 1 via peeking tap
+        await tester.tap(find.byKey(const Key('apostles_creed_peeking_tap')));
+        await tester.pumpAndSettle();
+
+        // On page 1, carousel height should scale to apostlesHeight
+        final animatedContainer1 = tester.widget<AnimatedContainer>(
+          find.byType(AnimatedContainer),
+        );
+        expect(
+          animatedContainer1.constraints?.maxHeight,
+          equals(apostlesHeight),
+        );
+
+        // 3. Switch back to page 0 via peeking tap
+        await tester.tap(find.byKey(const Key('nicene_creed_peeking_tap')));
+        await tester.pumpAndSettle();
+
+        final animatedContainer0Again = tester.widget<AnimatedContainer>(
+          find.byType(AnimatedContainer),
+        );
+        expect(
+          animatedContainer0Again.constraints?.maxHeight,
+          equals(niceneHeight),
+        );
+      },
+    );
+
+    testWidgets(
+      'SingleChildScrollView uses clipBehavior Clip.none to prevent 1px border clipping',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableCarousel(
+            niceneCard: const SizedBox(height: 100, child: Text('Nicene')),
+            apostlesCard: const SizedBox(height: 100, child: Text('Apostles')),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final scrollView = tester.widget<SingleChildScrollView>(
+          find.descendant(
+            of: find.byType(MissalCreedCarousel),
+            matching: find.byType(SingleChildScrollView),
+          ),
+        );
+        expect(scrollView.clipBehavior, equals(Clip.none));
+      },
+    );
 
     testWidgets(
       'handles didUpdateWidget when controller changes and cleanly disposes owned controller',
@@ -295,13 +466,10 @@ void main() {
         await tester.pumpWidgetBuilder(
           Scaffold(
             body: Center(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: MissalCreedCarousel(
-                  niceneCard: niceneCard,
-                  apostlesCard: apostlesCard,
-                  initialPage: 0,
-                ),
+              child: MissalCreedCarousel(
+                niceneCard: niceneCard,
+                apostlesCard: apostlesCard,
+                initialPage: 0,
               ),
             ),
           ),
