@@ -116,7 +116,7 @@ class _LibraryTabState extends State<LibraryTab> {
     }
   }
 
-  void _openReader(
+  Future<void> _openReader(
     BuildContext context,
     LibraryBookItem bookItem, {
     String? volumeKey,
@@ -125,16 +125,50 @@ class _LibraryTabState extends State<LibraryTab> {
     int? sectionIndex,
     int? questionNumber,
     int? itemIndex,
-  }) {
+  }) async {
+    String? targetVolumeKey = volumeKey;
+    String? targetAssetPath = assetPath;
+    String? targetSectionId = sectionId;
+    int? targetSectionIndex = sectionIndex;
+
+    if (volumeKey == null &&
+        assetPath == null &&
+        sectionId == null &&
+        sectionIndex == null &&
+        questionNumber == null &&
+        itemIndex == null) {
+      try {
+        final savedPos = await BibleDatabaseHelper.db.getBookReadingPosition(
+          bookItem.id,
+        );
+        if (savedPos != null) {
+          if (bookItem.isSeries && savedPos.volumeKey != null) {
+            final vol = bookItem.volumes?.firstWhere(
+              (v) => v.volumeKey == savedPos.volumeKey,
+              orElse: () => bookItem.volumes!.first,
+            );
+            if (vol != null) {
+              targetVolumeKey = vol.volumeKey;
+              targetAssetPath = vol.assetPath;
+            }
+          }
+          targetSectionIndex = savedPos.sectionIndex;
+          targetSectionId = savedPos.sectionId;
+        }
+      } catch (_) {}
+    }
+
+    if (!context.mounted) return;
+
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => LibraryReaderScreen(
           bookItem: bookItem,
-          initialVolumeKey: volumeKey,
-          initialAssetPath: assetPath,
-          initialSectionId: sectionId,
-          initialSectionIndex: sectionIndex,
+          initialVolumeKey: targetVolumeKey,
+          initialAssetPath: targetAssetPath,
+          initialSectionId: targetSectionId,
+          initialSectionIndex: targetSectionIndex,
           initialQuestionNumber: questionNumber,
           initialItemIndex: itemIndex,
           navigationSessionId: DateTime.now().millisecondsSinceEpoch.toString(),

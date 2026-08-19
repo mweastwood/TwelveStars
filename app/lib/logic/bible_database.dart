@@ -239,6 +239,9 @@ class UserSettingsTable extends Table {
       text().withDefault(const Constant('vulgate'))();
   IntColumn get prayerCatalogVersion =>
       integer().withDefault(const Constant(0))();
+  IntColumn get lastBibleBookNumber =>
+      integer().withDefault(const Constant(1))();
+  IntColumn get lastBibleChapter => integer().withDefault(const Constant(1))();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -253,7 +256,7 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 11;
+  int get schemaVersion => 12;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -305,6 +308,17 @@ class BibleDatabase extends _$BibleDatabase {
           userSettingsTable,
           userSettingsTable.prayerCatalogVersion,
         );
+      }
+      if (from < 12) {
+        await m.addColumn(
+          userSettingsTable,
+          userSettingsTable.lastBibleBookNumber,
+        );
+        await m.addColumn(
+          userSettingsTable,
+          userSettingsTable.lastBibleChapter,
+        );
+        await m.createTable(bookReadingPositions);
       }
     },
   );
@@ -640,6 +654,33 @@ class BibleDatabase extends _$BibleDatabase {
         ),
         bibleNumberingSystemCode: Value(settings.bibleNumberingSystemCode),
         prayerCatalogVersion: Value(settings.prayerCatalogVersion),
+        lastBibleBookNumber: Value(settings.lastBibleBookNumber),
+        lastBibleChapter: Value(settings.lastBibleChapter),
+      ),
+    );
+  }
+
+  // Book Reading Position operations
+  Future<BookReadingPosition?> getBookReadingPosition(String bookId) {
+    return (select(bookReadingPositions)
+          ..where((t) => t.bookId.equals(bookId))
+          ..limit(1))
+        .getSingleOrNull();
+  }
+
+  Future<void> saveBookReadingPosition({
+    required String bookId,
+    String? volumeKey,
+    required int sectionIndex,
+    String? sectionId,
+  }) {
+    return into(bookReadingPositions).insertOnConflictUpdate(
+      BookReadingPositionsCompanion(
+        bookId: Value(bookId),
+        volumeKey: Value(volumeKey),
+        sectionIndex: Value(sectionIndex),
+        sectionId: Value(sectionId),
+        updatedAt: Value(DateTime.now()),
       ),
     );
   }

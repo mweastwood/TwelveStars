@@ -969,5 +969,89 @@ void main() {
 
       expect(find.byType(LibraryReaderScreen), findsOneWidget);
     });
+
+    testWidgets(
+      'LibraryReaderScreen restores saved reading position and updates on navigation',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final confessions = catalog.firstWhere(
+          (b) => b.id == 'augustine_confessions',
+        );
+
+        await testDb.saveBookReadingPosition(
+          bookId: 'augustine_confessions',
+          volumeKey: 'book8',
+          sectionIndex: 2,
+          sectionId: 'sec_augustine_confessions_b8_3',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/augustine_confessions_book8.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(body: LibraryReaderScreen(bookItem: confessions)),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        // Verify Section 3 of 12 (index 2) is displayed
+        expect(find.text('Section 3 of 12'), findsOneWidget);
+
+        // Tap Next Section
+        final nextBtn = find.byTooltip('Next Section');
+        expect(nextBtn, findsOneWidget);
+        await tester.tap(nextBtn);
+        await tester.pumpAndSettle();
+
+        final updatedPos = await testDb.getBookReadingPosition(
+          'augustine_confessions',
+        );
+        expect(updatedPos, isNotNull);
+        expect(updatedPos!.sectionIndex, equals(3));
+      },
+    );
+
+    testWidgets(
+      'LibraryTab resumes from saved reading position when opening book',
+      (tester) async {
+        await testDb.saveBookReadingPosition(
+          bookId: 'didache_lightfoot',
+          sectionIndex: 1,
+          sectionId: 'sec_didache_lightfoot_2',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/didache_lightfoot.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        // Scroll and find "Read Book" for Didache
+        final didacheCard = find.ancestor(
+          of: find.text('The Didache'),
+          matching: find.byType(Card),
+        );
+        final readBtn = find.descendant(
+          of: didacheCard,
+          matching: find.widgetWithText(FilledButton, 'Read Book'),
+        );
+        await tester.ensureVisible(readBtn);
+        await tester.tap(readBtn);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('Section 2 of 16'), findsOneWidget);
+      },
+    );
   });
 }

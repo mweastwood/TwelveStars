@@ -188,6 +188,23 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     }
   }
 
+  Future<void> _saveReadingPosition(int sectionIndex) async {
+    if (_bookData == null ||
+        sectionIndex < 0 ||
+        sectionIndex >= _bookData!.sections.length) {
+      return;
+    }
+    final section = _bookData!.sections[sectionIndex];
+    try {
+      await BibleDatabaseHelper.db.saveBookReadingPosition(
+        bookId: widget.bookItem.id,
+        volumeKey: _currentVolumeKey,
+        sectionIndex: sectionIndex,
+        sectionId: section.id,
+      );
+    } catch (_) {}
+  }
+
   Future<void> _loadBookData({
     bool isInitialLoad = false,
     int initialSectionIndex = 0,
@@ -202,6 +219,33 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     });
 
     try {
+      BookReadingPosition? savedPos;
+      if (isInitialLoad &&
+          widget.initialSectionIndex == null &&
+          widget.initialSectionId == null) {
+        try {
+          savedPos = await BibleDatabaseHelper.db.getBookReadingPosition(
+            widget.bookItem.id,
+          );
+        } catch (_) {}
+      }
+
+      if (isInitialLoad &&
+          savedPos != null &&
+          widget.bookItem.isSeries &&
+          widget.initialVolumeKey == null &&
+          widget.initialAssetPath == null &&
+          savedPos.volumeKey != null) {
+        final matchingVol = widget.bookItem.volumes?.firstWhere(
+          (v) => v.volumeKey == savedPos!.volumeKey,
+          orElse: () => widget.bookItem.volumes!.first,
+        );
+        if (matchingVol != null) {
+          _currentVolumeKey = matchingVol.volumeKey;
+          _currentAssetPath = matchingVol.assetPath;
+        }
+      }
+
       final data = await LibraryHelper.loadBookData(_currentAssetPath);
       if (mounted) {
         int resolvedIndex = initialSectionIndex;
@@ -211,7 +255,35 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
           );
           if (idx >= 0) resolvedIndex = idx;
         } else if (isInitialLoad && widget.initialSectionIndex != null) {
-          resolvedIndex = widget.initialSectionIndex!;
+          resolvedIndex = widget.initialSectionIndex!.clamp(
+            0,
+            max(0, data.sections.length - 1),
+          );
+        } else if (isInitialLoad && savedPos != null) {
+          final isMatchingVolume =
+              !widget.bookItem.isSeries ||
+              savedPos.volumeKey == null ||
+              savedPos.volumeKey == _currentVolumeKey;
+          if (isMatchingVolume) {
+            if (savedPos.sectionId != null) {
+              final idx = data.sections.indexWhere(
+                (s) => s.id == savedPos!.sectionId,
+              );
+              if (idx >= 0) {
+                resolvedIndex = idx;
+              } else {
+                resolvedIndex = savedPos.sectionIndex.clamp(
+                  0,
+                  max(0, data.sections.length - 1),
+                );
+              }
+            } else {
+              resolvedIndex = savedPos.sectionIndex.clamp(
+                0,
+                max(0, data.sections.length - 1),
+              );
+            }
+          }
         }
         _populateKeys(data, resolvedIndex);
 
@@ -228,6 +300,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
           _isLoading = false;
         });
 
+        _saveReadingPosition(resolvedIndex);
         _scrollToAndHighlightTarget();
       }
     } catch (e) {
@@ -250,6 +323,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
         if (_pageController.hasClients) {
           _pageController.jumpToPage(initialSectionIndex);
         }
+        _saveReadingPosition(initialSectionIndex);
       }
       return;
     }
@@ -430,6 +504,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
         if (_pageController.hasClients) {
           _pageController.jumpToPage(idx);
         }
+        _saveReadingPosition(idx);
       },
     );
   }
@@ -630,6 +705,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                             _searchController.clear();
                             _searchResults = [];
                           });
+                          _saveReadingPosition(secIdx);
                         }
                       },
                     )
@@ -675,6 +751,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                                     _currentSectionIndex,
                                   );
                                 });
+                                _saveReadingPosition(_currentSectionIndex);
                               }
                             }
                           : null,
@@ -708,6 +785,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                                     _currentSectionIndex,
                                   );
                                 });
+                                _saveReadingPosition(_currentSectionIndex);
                               }
                             }
                           : null,
@@ -762,6 +840,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
               _populateKeys(_bookData, index);
               _clearSelection();
             });
+            _saveReadingPosition(index);
           },
           itemBuilder: (context, index) {
             final sec = book.sections[index];

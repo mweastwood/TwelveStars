@@ -1,14 +1,27 @@
+import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
+import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/widgets/library_toc_drawer.dart';
 import 'package:twelve_stars/widgets/library_section_view.dart';
 
 void main() {
+  late BibleDatabase testDb;
+
   setUpAll(() async {
     await loadAppFonts();
+  });
+
+  setUp(() {
+    testDb = BibleDatabase(NativeDatabase.memory());
+    BibleDatabaseHelper.db = testDb;
+  });
+
+  tearDown(() async {
+    await testDb.close();
   });
 
   group('LibraryReaderScreen Widget & Golden Tests', () {

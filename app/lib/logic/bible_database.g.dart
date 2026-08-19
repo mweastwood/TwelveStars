@@ -2324,6 +2324,382 @@ class LibraryBookmarksCompanion extends UpdateCompanion<LibraryBookmark> {
   }
 }
 
+class BookReadingPositions extends Table
+    with TableInfo<BookReadingPositions, BookReadingPosition> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  BookReadingPositions(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _bookIdMeta = const VerificationMeta('bookId');
+  late final GeneratedColumn<String> bookId = GeneratedColumn<String>(
+    'book_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL PRIMARY KEY',
+  );
+  static const VerificationMeta _volumeKeyMeta = const VerificationMeta(
+    'volumeKey',
+  );
+  late final GeneratedColumn<String> volumeKey = GeneratedColumn<String>(
+    'volume_key',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  static const VerificationMeta _sectionIndexMeta = const VerificationMeta(
+    'sectionIndex',
+  );
+  late final GeneratedColumn<int> sectionIndex = GeneratedColumn<int>(
+    'section_index',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL DEFAULT 0',
+    defaultValue: const CustomExpression('0'),
+  );
+  static const VerificationMeta _sectionIdMeta = const VerificationMeta(
+    'sectionId',
+  );
+  late final GeneratedColumn<String> sectionId = GeneratedColumn<String>(
+    'section_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    bookId,
+    volumeKey,
+    sectionIndex,
+    sectionId,
+    updatedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'book_reading_positions';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<BookReadingPosition> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('book_id')) {
+      context.handle(
+        _bookIdMeta,
+        bookId.isAcceptableOrUnknown(data['book_id']!, _bookIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_bookIdMeta);
+    }
+    if (data.containsKey('volume_key')) {
+      context.handle(
+        _volumeKeyMeta,
+        volumeKey.isAcceptableOrUnknown(data['volume_key']!, _volumeKeyMeta),
+      );
+    }
+    if (data.containsKey('section_index')) {
+      context.handle(
+        _sectionIndexMeta,
+        sectionIndex.isAcceptableOrUnknown(
+          data['section_index']!,
+          _sectionIndexMeta,
+        ),
+      );
+    }
+    if (data.containsKey('section_id')) {
+      context.handle(
+        _sectionIdMeta,
+        sectionId.isAcceptableOrUnknown(data['section_id']!, _sectionIdMeta),
+      );
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {bookId};
+  @override
+  BookReadingPosition map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return BookReadingPosition(
+      bookId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}book_id'],
+      )!,
+      volumeKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}volume_key'],
+      ),
+      sectionIndex: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}section_index'],
+      )!,
+      sectionId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}section_id'],
+      ),
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+    );
+  }
+
+  @override
+  BookReadingPositions createAlias(String alias) {
+    return BookReadingPositions(attachedDatabase, alias);
+  }
+
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class BookReadingPosition extends DataClass
+    implements Insertable<BookReadingPosition> {
+  final String bookId;
+  final String? volumeKey;
+  final int sectionIndex;
+  final String? sectionId;
+  final DateTime updatedAt;
+  const BookReadingPosition({
+    required this.bookId,
+    this.volumeKey,
+    required this.sectionIndex,
+    this.sectionId,
+    required this.updatedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['book_id'] = Variable<String>(bookId);
+    if (!nullToAbsent || volumeKey != null) {
+      map['volume_key'] = Variable<String>(volumeKey);
+    }
+    map['section_index'] = Variable<int>(sectionIndex);
+    if (!nullToAbsent || sectionId != null) {
+      map['section_id'] = Variable<String>(sectionId);
+    }
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    return map;
+  }
+
+  BookReadingPositionsCompanion toCompanion(bool nullToAbsent) {
+    return BookReadingPositionsCompanion(
+      bookId: Value(bookId),
+      volumeKey: volumeKey == null && nullToAbsent
+          ? const Value.absent()
+          : Value(volumeKey),
+      sectionIndex: Value(sectionIndex),
+      sectionId: sectionId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(sectionId),
+      updatedAt: Value(updatedAt),
+    );
+  }
+
+  factory BookReadingPosition.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return BookReadingPosition(
+      bookId: serializer.fromJson<String>(json['book_id']),
+      volumeKey: serializer.fromJson<String?>(json['volume_key']),
+      sectionIndex: serializer.fromJson<int>(json['section_index']),
+      sectionId: serializer.fromJson<String?>(json['section_id']),
+      updatedAt: serializer.fromJson<DateTime>(json['updated_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'book_id': serializer.toJson<String>(bookId),
+      'volume_key': serializer.toJson<String?>(volumeKey),
+      'section_index': serializer.toJson<int>(sectionIndex),
+      'section_id': serializer.toJson<String?>(sectionId),
+      'updated_at': serializer.toJson<DateTime>(updatedAt),
+    };
+  }
+
+  BookReadingPosition copyWith({
+    String? bookId,
+    Value<String?> volumeKey = const Value.absent(),
+    int? sectionIndex,
+    Value<String?> sectionId = const Value.absent(),
+    DateTime? updatedAt,
+  }) => BookReadingPosition(
+    bookId: bookId ?? this.bookId,
+    volumeKey: volumeKey.present ? volumeKey.value : this.volumeKey,
+    sectionIndex: sectionIndex ?? this.sectionIndex,
+    sectionId: sectionId.present ? sectionId.value : this.sectionId,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
+  BookReadingPosition copyWithCompanion(BookReadingPositionsCompanion data) {
+    return BookReadingPosition(
+      bookId: data.bookId.present ? data.bookId.value : this.bookId,
+      volumeKey: data.volumeKey.present ? data.volumeKey.value : this.volumeKey,
+      sectionIndex: data.sectionIndex.present
+          ? data.sectionIndex.value
+          : this.sectionIndex,
+      sectionId: data.sectionId.present ? data.sectionId.value : this.sectionId,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('BookReadingPosition(')
+          ..write('bookId: $bookId, ')
+          ..write('volumeKey: $volumeKey, ')
+          ..write('sectionIndex: $sectionIndex, ')
+          ..write('sectionId: $sectionId, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(bookId, volumeKey, sectionIndex, sectionId, updatedAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is BookReadingPosition &&
+          other.bookId == this.bookId &&
+          other.volumeKey == this.volumeKey &&
+          other.sectionIndex == this.sectionIndex &&
+          other.sectionId == this.sectionId &&
+          other.updatedAt == this.updatedAt);
+}
+
+class BookReadingPositionsCompanion
+    extends UpdateCompanion<BookReadingPosition> {
+  final Value<String> bookId;
+  final Value<String?> volumeKey;
+  final Value<int> sectionIndex;
+  final Value<String?> sectionId;
+  final Value<DateTime> updatedAt;
+  final Value<int> rowid;
+  const BookReadingPositionsCompanion({
+    this.bookId = const Value.absent(),
+    this.volumeKey = const Value.absent(),
+    this.sectionIndex = const Value.absent(),
+    this.sectionId = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  BookReadingPositionsCompanion.insert({
+    required String bookId,
+    this.volumeKey = const Value.absent(),
+    this.sectionIndex = const Value.absent(),
+    this.sectionId = const Value.absent(),
+    required DateTime updatedAt,
+    this.rowid = const Value.absent(),
+  }) : bookId = Value(bookId),
+       updatedAt = Value(updatedAt);
+  static Insertable<BookReadingPosition> custom({
+    Expression<String>? bookId,
+    Expression<String>? volumeKey,
+    Expression<int>? sectionIndex,
+    Expression<String>? sectionId,
+    Expression<DateTime>? updatedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (bookId != null) 'book_id': bookId,
+      if (volumeKey != null) 'volume_key': volumeKey,
+      if (sectionIndex != null) 'section_index': sectionIndex,
+      if (sectionId != null) 'section_id': sectionId,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  BookReadingPositionsCompanion copyWith({
+    Value<String>? bookId,
+    Value<String?>? volumeKey,
+    Value<int>? sectionIndex,
+    Value<String?>? sectionId,
+    Value<DateTime>? updatedAt,
+    Value<int>? rowid,
+  }) {
+    return BookReadingPositionsCompanion(
+      bookId: bookId ?? this.bookId,
+      volumeKey: volumeKey ?? this.volumeKey,
+      sectionIndex: sectionIndex ?? this.sectionIndex,
+      sectionId: sectionId ?? this.sectionId,
+      updatedAt: updatedAt ?? this.updatedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (bookId.present) {
+      map['book_id'] = Variable<String>(bookId.value);
+    }
+    if (volumeKey.present) {
+      map['volume_key'] = Variable<String>(volumeKey.value);
+    }
+    if (sectionIndex.present) {
+      map['section_index'] = Variable<int>(sectionIndex.value);
+    }
+    if (sectionId.present) {
+      map['section_id'] = Variable<String>(sectionId.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('BookReadingPositionsCompanion(')
+          ..write('bookId: $bookId, ')
+          ..write('volumeKey: $volumeKey, ')
+          ..write('sectionIndex: $sectionIndex, ')
+          ..write('sectionId: $sectionId, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class $PrayersTable extends Prayers with TableInfo<$PrayersTable, Prayer> {
   @override
   final GeneratedDatabase attachedDatabase;
@@ -2851,6 +3227,29 @@ class $UserSettingsTableTable extends UserSettingsTable
     requiredDuringInsert: false,
     defaultValue: const Constant(0),
   );
+  static const VerificationMeta _lastBibleBookNumberMeta =
+      const VerificationMeta('lastBibleBookNumber');
+  @override
+  late final GeneratedColumn<int> lastBibleBookNumber = GeneratedColumn<int>(
+    'last_bible_book_number',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(1),
+  );
+  static const VerificationMeta _lastBibleChapterMeta = const VerificationMeta(
+    'lastBibleChapter',
+  );
+  @override
+  late final GeneratedColumn<int> lastBibleChapter = GeneratedColumn<int>(
+    'last_bible_chapter',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(1),
+  );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -2865,6 +3264,8 @@ class $UserSettingsTableTable extends UserSettingsTable
     showBibleTranslationSelectors,
     bibleNumberingSystemCode,
     prayerCatalogVersion,
+    lastBibleBookNumber,
+    lastBibleChapter,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -2979,6 +3380,24 @@ class $UserSettingsTableTable extends UserSettingsTable
         ),
       );
     }
+    if (data.containsKey('last_bible_book_number')) {
+      context.handle(
+        _lastBibleBookNumberMeta,
+        lastBibleBookNumber.isAcceptableOrUnknown(
+          data['last_bible_book_number']!,
+          _lastBibleBookNumberMeta,
+        ),
+      );
+    }
+    if (data.containsKey('last_bible_chapter')) {
+      context.handle(
+        _lastBibleChapterMeta,
+        lastBibleChapter.isAcceptableOrUnknown(
+          data['last_bible_chapter']!,
+          _lastBibleChapterMeta,
+        ),
+      );
+    }
     return context;
   }
 
@@ -3039,6 +3458,14 @@ class $UserSettingsTableTable extends UserSettingsTable
         DriftSqlType.int,
         data['${effectivePrefix}prayer_catalog_version'],
       )!,
+      lastBibleBookNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}last_bible_book_number'],
+      )!,
+      lastBibleChapter: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}last_bible_chapter'],
+      )!,
     );
   }
 
@@ -3066,6 +3493,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
   final Value<bool> showBibleTranslationSelectors;
   final Value<String> bibleNumberingSystemCode;
   final Value<int> prayerCatalogVersion;
+  final Value<int> lastBibleBookNumber;
+  final Value<int> lastBibleChapter;
   const UserSettingsTableCompanion({
     this.id = const Value.absent(),
     this.primaryLanguageCode = const Value.absent(),
@@ -3079,6 +3508,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     this.showBibleTranslationSelectors = const Value.absent(),
     this.bibleNumberingSystemCode = const Value.absent(),
     this.prayerCatalogVersion = const Value.absent(),
+    this.lastBibleBookNumber = const Value.absent(),
+    this.lastBibleChapter = const Value.absent(),
   });
   UserSettingsTableCompanion.insert({
     this.id = const Value.absent(),
@@ -3093,6 +3524,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     this.showBibleTranslationSelectors = const Value.absent(),
     this.bibleNumberingSystemCode = const Value.absent(),
     this.prayerCatalogVersion = const Value.absent(),
+    this.lastBibleBookNumber = const Value.absent(),
+    this.lastBibleChapter = const Value.absent(),
   }) : primaryLanguageCode = Value(primaryLanguageCode),
        compareLanguageCode = Value(compareLanguageCode),
        primaryBibleTranslation = Value(primaryBibleTranslation),
@@ -3110,6 +3543,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Expression<bool>? showBibleTranslationSelectors,
     Expression<String>? bibleNumberingSystemCode,
     Expression<int>? prayerCatalogVersion,
+    Expression<int>? lastBibleBookNumber,
+    Expression<int>? lastBibleChapter,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -3132,6 +3567,9 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
         'bible_numbering_system_code': bibleNumberingSystemCode,
       if (prayerCatalogVersion != null)
         'prayer_catalog_version': prayerCatalogVersion,
+      if (lastBibleBookNumber != null)
+        'last_bible_book_number': lastBibleBookNumber,
+      if (lastBibleChapter != null) 'last_bible_chapter': lastBibleChapter,
     });
   }
 
@@ -3148,6 +3586,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Value<bool>? showBibleTranslationSelectors,
     Value<String>? bibleNumberingSystemCode,
     Value<int>? prayerCatalogVersion,
+    Value<int>? lastBibleBookNumber,
+    Value<int>? lastBibleChapter,
   }) {
     return UserSettingsTableCompanion(
       id: id ?? this.id,
@@ -3167,6 +3607,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
       bibleNumberingSystemCode:
           bibleNumberingSystemCode ?? this.bibleNumberingSystemCode,
       prayerCatalogVersion: prayerCatalogVersion ?? this.prayerCatalogVersion,
+      lastBibleBookNumber: lastBibleBookNumber ?? this.lastBibleBookNumber,
+      lastBibleChapter: lastBibleChapter ?? this.lastBibleChapter,
     );
   }
 
@@ -3227,6 +3669,12 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     if (prayerCatalogVersion.present) {
       map['prayer_catalog_version'] = Variable<int>(prayerCatalogVersion.value);
     }
+    if (lastBibleBookNumber.present) {
+      map['last_bible_book_number'] = Variable<int>(lastBibleBookNumber.value);
+    }
+    if (lastBibleChapter.present) {
+      map['last_bible_chapter'] = Variable<int>(lastBibleChapter.value);
+    }
     return map;
   }
 
@@ -3246,7 +3694,9 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
             'showBibleTranslationSelectors: $showBibleTranslationSelectors, ',
           )
           ..write('bibleNumberingSystemCode: $bibleNumberingSystemCode, ')
-          ..write('prayerCatalogVersion: $prayerCatalogVersion')
+          ..write('prayerCatalogVersion: $prayerCatalogVersion, ')
+          ..write('lastBibleBookNumber: $lastBibleBookNumber, ')
+          ..write('lastBibleChapter: $lastBibleChapter')
           ..write(')'))
         .toString();
   }
@@ -3260,6 +3710,9 @@ abstract class _$BibleDatabase extends GeneratedDatabase {
   late final FavoritePassages favoritePassages = FavoritePassages(this);
   late final UserComments userComments = UserComments(this);
   late final LibraryBookmarks libraryBookmarks = LibraryBookmarks(this);
+  late final BookReadingPositions bookReadingPositions = BookReadingPositions(
+    this,
+  );
   late final $PrayersTable prayers = $PrayersTable(this);
   late final $UserSettingsTableTable userSettingsTable =
       $UserSettingsTableTable(this);
@@ -3273,6 +3726,7 @@ abstract class _$BibleDatabase extends GeneratedDatabase {
     favoritePassages,
     userComments,
     libraryBookmarks,
+    bookReadingPositions,
     prayers,
     userSettingsTable,
   ];
@@ -4470,6 +4924,218 @@ typedef $LibraryBookmarksProcessedTableManager =
       LibraryBookmark,
       PrefetchHooks Function()
     >;
+typedef $BookReadingPositionsCreateCompanionBuilder =
+    BookReadingPositionsCompanion Function({
+      required String bookId,
+      Value<String?> volumeKey,
+      Value<int> sectionIndex,
+      Value<String?> sectionId,
+      required DateTime updatedAt,
+      Value<int> rowid,
+    });
+typedef $BookReadingPositionsUpdateCompanionBuilder =
+    BookReadingPositionsCompanion Function({
+      Value<String> bookId,
+      Value<String?> volumeKey,
+      Value<int> sectionIndex,
+      Value<String?> sectionId,
+      Value<DateTime> updatedAt,
+      Value<int> rowid,
+    });
+
+class $BookReadingPositionsFilterComposer
+    extends Composer<_$BibleDatabase, BookReadingPositions> {
+  $BookReadingPositionsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get bookId => $composableBuilder(
+    column: $table.bookId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get volumeKey => $composableBuilder(
+    column: $table.volumeKey,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get sectionIndex => $composableBuilder(
+    column: $table.sectionIndex,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get sectionId => $composableBuilder(
+    column: $table.sectionId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $BookReadingPositionsOrderingComposer
+    extends Composer<_$BibleDatabase, BookReadingPositions> {
+  $BookReadingPositionsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get bookId => $composableBuilder(
+    column: $table.bookId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get volumeKey => $composableBuilder(
+    column: $table.volumeKey,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get sectionIndex => $composableBuilder(
+    column: $table.sectionIndex,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get sectionId => $composableBuilder(
+    column: $table.sectionId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $BookReadingPositionsAnnotationComposer
+    extends Composer<_$BibleDatabase, BookReadingPositions> {
+  $BookReadingPositionsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get bookId =>
+      $composableBuilder(column: $table.bookId, builder: (column) => column);
+
+  GeneratedColumn<String> get volumeKey =>
+      $composableBuilder(column: $table.volumeKey, builder: (column) => column);
+
+  GeneratedColumn<int> get sectionIndex => $composableBuilder(
+    column: $table.sectionIndex,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get sectionId =>
+      $composableBuilder(column: $table.sectionId, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+}
+
+class $BookReadingPositionsTableManager
+    extends
+        RootTableManager<
+          _$BibleDatabase,
+          BookReadingPositions,
+          BookReadingPosition,
+          $BookReadingPositionsFilterComposer,
+          $BookReadingPositionsOrderingComposer,
+          $BookReadingPositionsAnnotationComposer,
+          $BookReadingPositionsCreateCompanionBuilder,
+          $BookReadingPositionsUpdateCompanionBuilder,
+          (
+            BookReadingPosition,
+            BaseReferences<
+              _$BibleDatabase,
+              BookReadingPositions,
+              BookReadingPosition
+            >,
+          ),
+          BookReadingPosition,
+          PrefetchHooks Function()
+        > {
+  $BookReadingPositionsTableManager(
+    _$BibleDatabase db,
+    BookReadingPositions table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $BookReadingPositionsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $BookReadingPositionsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $BookReadingPositionsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> bookId = const Value.absent(),
+                Value<String?> volumeKey = const Value.absent(),
+                Value<int> sectionIndex = const Value.absent(),
+                Value<String?> sectionId = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => BookReadingPositionsCompanion(
+                bookId: bookId,
+                volumeKey: volumeKey,
+                sectionIndex: sectionIndex,
+                sectionId: sectionId,
+                updatedAt: updatedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String bookId,
+                Value<String?> volumeKey = const Value.absent(),
+                Value<int> sectionIndex = const Value.absent(),
+                Value<String?> sectionId = const Value.absent(),
+                required DateTime updatedAt,
+                Value<int> rowid = const Value.absent(),
+              }) => BookReadingPositionsCompanion.insert(
+                bookId: bookId,
+                volumeKey: volumeKey,
+                sectionIndex: sectionIndex,
+                sectionId: sectionId,
+                updatedAt: updatedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $BookReadingPositionsProcessedTableManager =
+    ProcessedTableManager<
+      _$BibleDatabase,
+      BookReadingPositions,
+      BookReadingPosition,
+      $BookReadingPositionsFilterComposer,
+      $BookReadingPositionsOrderingComposer,
+      $BookReadingPositionsAnnotationComposer,
+      $BookReadingPositionsCreateCompanionBuilder,
+      $BookReadingPositionsUpdateCompanionBuilder,
+      (
+        BookReadingPosition,
+        BaseReferences<
+          _$BibleDatabase,
+          BookReadingPositions,
+          BookReadingPosition
+        >,
+      ),
+      BookReadingPosition,
+      PrefetchHooks Function()
+    >;
 typedef $$PrayersTableCreateCompanionBuilder =
     PrayersCompanion Function({
       Value<int> isarId,
@@ -4743,6 +5409,8 @@ typedef $$UserSettingsTableTableCreateCompanionBuilder =
       Value<bool> showBibleTranslationSelectors,
       Value<String> bibleNumberingSystemCode,
       Value<int> prayerCatalogVersion,
+      Value<int> lastBibleBookNumber,
+      Value<int> lastBibleChapter,
     });
 typedef $$UserSettingsTableTableUpdateCompanionBuilder =
     UserSettingsTableCompanion Function({
@@ -4758,6 +5426,8 @@ typedef $$UserSettingsTableTableUpdateCompanionBuilder =
       Value<bool> showBibleTranslationSelectors,
       Value<String> bibleNumberingSystemCode,
       Value<int> prayerCatalogVersion,
+      Value<int> lastBibleBookNumber,
+      Value<int> lastBibleChapter,
     });
 
 class $$UserSettingsTableTableFilterComposer
@@ -4833,6 +5503,16 @@ class $$UserSettingsTableTableFilterComposer
     column: $table.prayerCatalogVersion,
     builder: (column) => ColumnFilters(column),
   );
+
+  ColumnFilters<int> get lastBibleBookNumber => $composableBuilder(
+    column: $table.lastBibleBookNumber,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get lastBibleChapter => $composableBuilder(
+    column: $table.lastBibleChapter,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$UserSettingsTableTableOrderingComposer
@@ -4901,6 +5581,16 @@ class $$UserSettingsTableTableOrderingComposer
 
   ColumnOrderings<int> get prayerCatalogVersion => $composableBuilder(
     column: $table.prayerCatalogVersion,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lastBibleBookNumber => $composableBuilder(
+    column: $table.lastBibleBookNumber,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lastBibleChapter => $composableBuilder(
+    column: $table.lastBibleChapter,
     builder: (column) => ColumnOrderings(column),
   );
 }
@@ -4972,6 +5662,16 @@ class $$UserSettingsTableTableAnnotationComposer
     column: $table.prayerCatalogVersion,
     builder: (column) => column,
   );
+
+  GeneratedColumn<int> get lastBibleBookNumber => $composableBuilder(
+    column: $table.lastBibleBookNumber,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get lastBibleChapter => $composableBuilder(
+    column: $table.lastBibleChapter,
+    builder: (column) => column,
+  );
 }
 
 class $$UserSettingsTableTableTableManager
@@ -5028,6 +5728,8 @@ class $$UserSettingsTableTableTableManager
                     const Value.absent(),
                 Value<String> bibleNumberingSystemCode = const Value.absent(),
                 Value<int> prayerCatalogVersion = const Value.absent(),
+                Value<int> lastBibleBookNumber = const Value.absent(),
+                Value<int> lastBibleChapter = const Value.absent(),
               }) => UserSettingsTableCompanion(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -5041,6 +5743,8 @@ class $$UserSettingsTableTableTableManager
                 showBibleTranslationSelectors: showBibleTranslationSelectors,
                 bibleNumberingSystemCode: bibleNumberingSystemCode,
                 prayerCatalogVersion: prayerCatalogVersion,
+                lastBibleBookNumber: lastBibleBookNumber,
+                lastBibleChapter: lastBibleChapter,
               ),
           createCompanionCallback:
               ({
@@ -5058,6 +5762,8 @@ class $$UserSettingsTableTableTableManager
                     const Value.absent(),
                 Value<String> bibleNumberingSystemCode = const Value.absent(),
                 Value<int> prayerCatalogVersion = const Value.absent(),
+                Value<int> lastBibleBookNumber = const Value.absent(),
+                Value<int> lastBibleChapter = const Value.absent(),
               }) => UserSettingsTableCompanion.insert(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -5071,6 +5777,8 @@ class $$UserSettingsTableTableTableManager
                 showBibleTranslationSelectors: showBibleTranslationSelectors,
                 bibleNumberingSystemCode: bibleNumberingSystemCode,
                 prayerCatalogVersion: prayerCatalogVersion,
+                lastBibleBookNumber: lastBibleBookNumber,
+                lastBibleChapter: lastBibleChapter,
               ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
@@ -5111,6 +5819,8 @@ class $BibleDatabaseManager {
       $UserCommentsTableManager(_db, _db.userComments);
   $LibraryBookmarksTableManager get libraryBookmarks =>
       $LibraryBookmarksTableManager(_db, _db.libraryBookmarks);
+  $BookReadingPositionsTableManager get bookReadingPositions =>
+      $BookReadingPositionsTableManager(_db, _db.bookReadingPositions);
   $$PrayersTableTableManager get prayers =>
       $$PrayersTableTableManager(_db, _db.prayers);
   $$UserSettingsTableTableTableManager get userSettingsTable =>

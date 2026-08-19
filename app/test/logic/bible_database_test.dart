@@ -114,6 +114,8 @@ void main() {
           showBibleTranslationSelectors: true,
           bibleNumberingSystemCode: 'dual',
           prayerCatalogVersion: 1,
+          lastBibleBookNumber: 19,
+          lastBibleChapter: 23,
         );
 
         await testDb.saveUserSettings(settings);
@@ -144,13 +146,50 @@ void main() {
           equals(BibleNumberingSystem.dual),
         );
         expect(retrieved.prayerCatalogVersion, equals(1));
+        expect(retrieved.lastBibleBookNumber, equals(19));
+        expect(retrieved.lastBibleChapter, equals(23));
       },
     );
   });
 
+  group('Book Reading Position Operations', () {
+    test('save and get book reading positions', () async {
+      expect(testDb.schemaVersion, equals(12));
+
+      await testDb.saveBookReadingPosition(
+        bookId: 'baltimore_catechism',
+        volumeKey: 'baltimore_3',
+        sectionIndex: 5,
+        sectionId: 'lesson_5',
+      );
+
+      final pos = await testDb.getBookReadingPosition('baltimore_catechism');
+      expect(pos, isNotNull);
+      expect(pos!.bookId, equals('baltimore_catechism'));
+      expect(pos.volumeKey, equals('baltimore_3'));
+      expect(pos.sectionIndex, equals(5));
+      expect(pos.sectionId, equals('lesson_5'));
+
+      // Update position
+      await testDb.saveBookReadingPosition(
+        bookId: 'baltimore_catechism',
+        volumeKey: 'baltimore_3',
+        sectionIndex: 6,
+        sectionId: 'lesson_6',
+      );
+
+      final updatedPos = await testDb.getBookReadingPosition(
+        'baltimore_catechism',
+      );
+      expect(updatedPos, isNotNull);
+      expect(updatedPos!.sectionIndex, equals(6));
+      expect(updatedPos.sectionId, equals('lesson_6'));
+    });
+  });
+
   group('Library Bookmarks Operations', () {
     test('save, get, and delete library bookmarks in BibleDatabase', () async {
-      expect(testDb.schemaVersion, equals(11));
+      expect(testDb.schemaVersion, equals(12));
 
       final now = DateTime.now();
       await testDb.saveLibraryBookmark(
