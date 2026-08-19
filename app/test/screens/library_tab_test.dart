@@ -58,6 +58,7 @@ void main() {
       expect(find.text('On the Incarnation of the Word'), findsOneWidget);
       expect(find.text('The Confessions'), findsOneWidget);
       expect(find.text('The City of God'), findsOneWidget);
+      expect(find.text('Catechetical Lectures'), findsOneWidget);
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -83,6 +84,37 @@ void main() {
       expect(find.text('Book VIII (Conversion in the Garden)'), findsOneWidget);
       expect(find.text('Book I (The Sack of Rome)'), findsOneWidget);
       expect(find.text('Book XIX (Peace & the Supreme Good)'), findsOneWidget);
+
+      // Verify Cyril volume chips exist
+      expect(find.text('Vol. I (Procatechesis & Faith)'), findsOneWidget);
+      expect(find.text('Vol. IV (The Mysteries)'), findsOneWidget);
+    });
+
+    testWidgets('tapping Cyril volume chip opens LibraryReaderScreen', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/cyril_catechetical_lectures_vol4.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final vol4Chip = find.text('Vol. IV (The Mysteries)');
+      await tester.scrollUntilVisible(
+        vol4Chip,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(vol4Chip);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('Catechetical Lectures'), findsWidgets);
     });
 
     testWidgets('tapping Confessions volume chip opens LibraryReaderScreen', (
@@ -942,6 +974,36 @@ void main() {
 
       await screenMatchesGolden(tester, 'augustine_city_of_god_book19_golden');
     });
+
+    testGoldens(
+      'LibraryReaderScreen renders Cyril Catechetical Lectures (Vol. IV)',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final cyril = catalog.firstWhere(
+          (b) => b.id == 'cyril_catechetical_lectures',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/cyril_catechetical_lectures_vol4.json',
+          );
+        });
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: cyril,
+              initialVolumeKey: 'vol4',
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'cyril_lectures_vol4_golden');
+      },
+    );
 
     testWidgets('renders interactive Scripture citation chip', (tester) async {
       final catalog = LibraryHelper.getCatalog();
