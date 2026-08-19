@@ -191,6 +191,65 @@ void main() {
       },
     );
 
+    test(
+      'searchSaints finds St. Carlo Acutis and Vietnamese Martyrs',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+
+        // Check St. Carlo Acutis presence and queries (both Carlo and Carlos)
+        final carlo = saints.firstWhere((s) => s.id == 'carlo-acutis');
+        expect(carlo.name, 'St. Carlo Acutis');
+        expect(carlo.birthDate, '1991');
+        expect(carlo.deathDate, '2006');
+        expect(carlo.isDoctor, false);
+        expect(carlo.feastDay, 'October 12');
+
+        final carloResults = SaintDatabase.searchSaints(saints, query: 'Carlo');
+        expect(carloResults.any((s) => s.id == 'carlo-acutis'), isTrue);
+
+        final carlosResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Carlos',
+        );
+        expect(carlosResults.any((s) => s.id == 'carlo-acutis'), isTrue);
+
+        final programmerResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Programmer',
+        );
+        expect(programmerResults.any((s) => s.id == 'carlo-acutis'), isTrue);
+
+        // Check Vietnamese Martyrs presence and queries
+        final vietnamese = saints.firstWhere(
+          (s) => s.id == 'vietnamese-martyrs',
+        );
+        expect(
+          vietnamese.name,
+          'The Vietnamese Martyrs (St. Andrew Dũng-Lạc & Companions)',
+        );
+        expect(vietnamese.isDoctor, false);
+        expect(vietnamese.feastDay, 'November 24');
+
+        final vietResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Vietnamese',
+        );
+        expect(vietResults.any((s) => s.id == 'vietnamese-martyrs'), isTrue);
+
+        final martyrsResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Martyrs',
+        );
+        expect(martyrsResults.any((s) => s.id == 'vietnamese-martyrs'), isTrue);
+
+        final dungLacResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Dũng-Lạc',
+        );
+        expect(dungLacResults.any((s) => s.id == 'vietnamese-martyrs'), isTrue);
+      },
+    );
+
     test('searchSaints filters Doctors of the Church correctly', () async {
       final saints = await SaintDatabase.loadSaints();
 

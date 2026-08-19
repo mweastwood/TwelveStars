@@ -192,6 +192,18 @@
     "summary": "Founded the great monastic community of Kildare, renowned for generous hospitality, miracles of healing, and weaving the Brigid's Cross."
   },
   {
+    "id": "carlo-acutis",
+    "name": "St. Carlo Acutis",
+    "birthDate": "1991",
+    "deathDate": "2006",
+    "nationality": "Italian / British",
+    "profession": "Student, Programmer & Cyber-Apostle of the Eucharist",
+    "isDoctor": false,
+    "feastDay": "October 12",
+    "patronage": "Youth, Students, Programmers, Computer Users, Internet, Webmasters, Digital Evangelization",
+    "summary": "Italian teenager and computer programmer (often celebrated as St. Carlos Acutis) who documented Eucharistic miracles and approved Marian apparitions on a website he designed before dying of leukemia at age 15, offering his suffering for the Church and the Pope."
+  },
+  {
     "id": "catherine-of-siena",
     "name": "St. Catherine of Siena",
     "birthDate": "1347",
@@ -1042,5 +1054,17 @@
     "feastDay": "September 27",
     "patronage": "Charitable Societies, Hospitals, Volunteers, Prisoners",
     "summary": "Dedicated his priesthood to the relief of the impoverished and sick, founding the Vincentian Fathers and co-founding Daughters of Charity."
+  },
+  {
+    "id": "vietnamese-martyrs",
+    "name": "The Vietnamese Martyrs (St. Andrew Dũng-Lạc & Companions)",
+    "birthDate": "1745",
+    "deathDate": "1862",
+    "nationality": "Vietnamese, French, Spanish",
+    "profession": "Priests, Catechists, Religious & Lay Martyrs",
+    "isDoctor": false,
+    "feastDay": "November 24",
+    "patronage": "Vietnam, Vietnamese People, Persecuted Christians, Catechists, Martyrs",
+    "summary": "A collective group of 117 martyrs—including Vietnamese diocesan priest St. Andrew Dũng-Lạc, 96 Vietnamese Catholics, 11 Spanish Dominicans, and 10 French missionaries—who were executed between 1745 and 1862 under the persecution of the Trịnh and Nguyễn dynasties for their steadfast Christian faith."
   }
 ]
