@@ -250,6 +250,116 @@ void main() {
       },
     );
 
+    test(
+      'searchSaints finds named angels (Archangels Michael, Gabriel, Raphael)',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+
+        // 1. St. Michael the Archangel
+        final michael = saints.firstWhere(
+          (s) => s.id == 'michael-the-archangel',
+        );
+        expect(michael.name, 'St. Michael the Archangel');
+        expect(michael.isDoctor, false);
+        expect(michael.feastDay, 'September 29');
+        expect(michael.nationality, 'Angelic / Heavenly');
+        expect(
+          michael.profession,
+          'Archangel, Prince of the Heavenly Host & Defender of the Church',
+        );
+
+        final michaelResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Michael',
+        );
+        expect(
+          michaelResults.any((s) => s.id == 'michael-the-archangel'),
+          isTrue,
+        );
+
+        final policeResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Police',
+        );
+        expect(
+          policeResults.any((s) => s.id == 'michael-the-archangel'),
+          isTrue,
+        );
+
+        // 2. St. Gabriel the Archangel
+        final gabriel = saints.firstWhere(
+          (s) => s.id == 'gabriel-the-archangel',
+        );
+        expect(gabriel.name, 'St. Gabriel the Archangel');
+        expect(gabriel.isDoctor, false);
+        expect(gabriel.feastDay, 'September 29');
+        expect(gabriel.nationality, 'Angelic / Heavenly');
+
+        final gabrielResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Gabriel',
+        );
+        expect(
+          gabrielResults.any((s) => s.id == 'gabriel-the-archangel'),
+          isTrue,
+        );
+
+        final annunciationResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Annunciation',
+        );
+        expect(
+          annunciationResults.any((s) => s.id == 'gabriel-the-archangel'),
+          isTrue,
+        );
+
+        // 3. St. Raphael the Archangel
+        final raphael = saints.firstWhere(
+          (s) => s.id == 'raphael-the-archangel',
+        );
+        expect(raphael.name, 'St. Raphael the Archangel');
+        expect(raphael.isDoctor, false);
+        expect(raphael.feastDay, 'September 29');
+        expect(raphael.nationality, 'Angelic / Heavenly');
+
+        final raphaelResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Raphael',
+        );
+        expect(
+          raphaelResults.any((s) => s.id == 'raphael-the-archangel'),
+          isTrue,
+        );
+
+        final tobiasResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Tobias',
+        );
+        expect(
+          tobiasResults.any((s) => s.id == 'raphael-the-archangel'),
+          isTrue,
+        );
+
+        // 4. Common search for Archangels
+        final archangelResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Archangel',
+        );
+        expect(
+          archangelResults.any((s) => s.id == 'michael-the-archangel'),
+          isTrue,
+        );
+        expect(
+          archangelResults.any((s) => s.id == 'gabriel-the-archangel'),
+          isTrue,
+        );
+        expect(
+          archangelResults.any((s) => s.id == 'raphael-the-archangel'),
+          isTrue,
+        );
+      },
+    );
+
     test('searchSaints filters Doctors of the Church correctly', () async {
       final saints = await SaintDatabase.loadSaints();
 
