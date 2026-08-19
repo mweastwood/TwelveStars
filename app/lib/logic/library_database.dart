@@ -619,6 +619,41 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> cyrilVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'vol1',
+      name: 'Vol. I (Procatechesis & Faith)',
+      shortName: 'Vol. I',
+      description:
+          'Preparation for illumination, repentance, remission of sins, baptism, the 10 doctrinal points, and living faith.',
+      assetPath: 'assets/catechism/json/cyril_catechetical_lectures_vol1.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'vol2',
+      name: 'Vol. II (The Father & The Son)',
+      shortName: 'Vol. II',
+      description:
+          'Exposition of the Jerusalem Creed: God the Father Almighty, Maker of heaven and earth, and the eternal divinity of the Son.',
+      assetPath: 'assets/catechism/json/cyril_catechetical_lectures_vol2.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'vol3',
+      name: 'Vol. III (Incarnation, Spirit & Church)',
+      shortName: 'Vol. III',
+      description:
+          'The Virgin Birth, the Passion and Cross, Resurrection, Ascension, Second Coming, Holy Spirit, Catholic Church, and the resurrection of the body.',
+      assetPath: 'assets/catechism/json/cyril_catechetical_lectures_vol3.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'vol4',
+      name: 'Vol. IV (The Mysteries)',
+      shortName: 'Vol. IV',
+      description:
+          'Post-baptismal lectures on the sacred mysteries: the rites of Baptism, Holy Chrism (Confirmation), the Real Presence in the Eucharist, and the Divine Liturgy.',
+      assetPath: 'assets/catechism/json/cyril_catechetical_lectures_vol4.json',
+    ),
+  ];
+
   static List<LibraryBookItem> getCatalog() {
     return [
       const LibraryBookItem(
@@ -735,6 +770,16 @@ class LibraryHelper {
         description:
             'Written c. 413–426 AD following the sack of Rome. Augustine\'s magnum opus in 22 books contrasting the City of God (founded on the love of God) with the City of Man (founded on the love of self), expounding providence, Christian history, true peace, and eternal beatitude.',
         volumes: cityOfGodVolumes,
+      ),
+      const LibraryBookItem(
+        id: 'cyril_catechetical_lectures',
+        title: 'Catechetical Lectures',
+        subtitle: 'Catecheses (Trans. Edwin Hamilton Gifford, 1893)',
+        category: 'Church Fathers',
+        author: 'St. Cyril of Jerusalem (Trans. E. H. Gifford)',
+        description:
+            'Delivered c. 348–350 AD in the Church of the Holy Sepulchre. St. Cyril\'s 24 lectures form the Church\'s classic manual of baptismal catechesis, expounding the Jerusalem Creed, Christian moral life, and the Mystagogical rites of Baptism, Chrism, and the Holy Eucharist.',
+        volumes: cyrilVolumes,
       ),
     ];
   }

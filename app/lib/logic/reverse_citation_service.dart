@@ -27,15 +27,79 @@ class ReverseCitation {
 }
 
 class ReverseCitationService {
-  static const int maxIndexedSources = 70;
+  static const int maxIndexedSources = 80;
   static final Map<String, List<ReverseCitation>> _indexedSources = {};
   static final Map<int, Map<int, List<ReverseCitation>>> _chapterIndex = {};
   static final Map<int, Map<int, Map<int, List<ReverseCitation>>>> _verseIndex =
       {};
   static Future<void>? _inFlightIndexing;
 
-  @visibleForTesting
   static int get indexedSourcesCount => _indexedSources.length;
+
+  static List<String> get catalogPaths => const [
+    'assets/catechism/json/baltimore_1.json',
+    'assets/catechism/json/baltimore_2.json',
+    'assets/catechism/json/baltimore_3.json',
+    'assets/catechism/json/baltimore_4.json',
+    'assets/catechism/json/council_of_trent.json',
+    'assets/catechism/json/didache_lightfoot.json',
+    'assets/catechism/json/first_clement_lightfoot.json',
+    'assets/catechism/json/second_clement_lightfoot.json',
+    'assets/catechism/json/ignatius_ephesians_lightfoot.json',
+    'assets/catechism/json/ignatius_magnesians_lightfoot.json',
+    'assets/catechism/json/ignatius_trallians_lightfoot.json',
+    'assets/catechism/json/ignatius_romans_lightfoot.json',
+    'assets/catechism/json/ignatius_philadelphians_lightfoot.json',
+    'assets/catechism/json/ignatius_smyrnaeans_lightfoot.json',
+    'assets/catechism/json/ignatius_polycarp_lightfoot.json',
+    'assets/catechism/json/justin_first_apology_dods.json',
+    'assets/catechism/json/justin_second_apology_dods.json',
+    'assets/catechism/json/irenaeus_against_heresies_book1.json',
+    'assets/catechism/json/irenaeus_against_heresies_book2.json',
+    'assets/catechism/json/irenaeus_against_heresies_book3.json',
+    'assets/catechism/json/irenaeus_against_heresies_book4.json',
+    'assets/catechism/json/irenaeus_against_heresies_book5.json',
+    'assets/catechism/json/athanasius_on_the_incarnation.json',
+    'assets/catechism/json/augustine_confessions_book1.json',
+    'assets/catechism/json/augustine_confessions_book2.json',
+    'assets/catechism/json/augustine_confessions_book3.json',
+    'assets/catechism/json/augustine_confessions_book4.json',
+    'assets/catechism/json/augustine_confessions_book5.json',
+    'assets/catechism/json/augustine_confessions_book6.json',
+    'assets/catechism/json/augustine_confessions_book7.json',
+    'assets/catechism/json/augustine_confessions_book8.json',
+    'assets/catechism/json/augustine_confessions_book9.json',
+    'assets/catechism/json/augustine_confessions_book10.json',
+    'assets/catechism/json/augustine_confessions_book11.json',
+    'assets/catechism/json/augustine_confessions_book12.json',
+    'assets/catechism/json/augustine_confessions_book13.json',
+    'assets/catechism/json/augustine_city_of_god_book1.json',
+    'assets/catechism/json/augustine_city_of_god_book2.json',
+    'assets/catechism/json/augustine_city_of_god_book3.json',
+    'assets/catechism/json/augustine_city_of_god_book4.json',
+    'assets/catechism/json/augustine_city_of_god_book5.json',
+    'assets/catechism/json/augustine_city_of_god_book6.json',
+    'assets/catechism/json/augustine_city_of_god_book7.json',
+    'assets/catechism/json/augustine_city_of_god_book8.json',
+    'assets/catechism/json/augustine_city_of_god_book9.json',
+    'assets/catechism/json/augustine_city_of_god_book10.json',
+    'assets/catechism/json/augustine_city_of_god_book11.json',
+    'assets/catechism/json/augustine_city_of_god_book12.json',
+    'assets/catechism/json/augustine_city_of_god_book13.json',
+    'assets/catechism/json/augustine_city_of_god_book14.json',
+    'assets/catechism/json/augustine_city_of_god_book15.json',
+    'assets/catechism/json/augustine_city_of_god_book16.json',
+    'assets/catechism/json/augustine_city_of_god_book17.json',
+    'assets/catechism/json/augustine_city_of_god_book18.json',
+    'assets/catechism/json/augustine_city_of_god_book19.json',
+    'assets/catechism/json/augustine_city_of_god_book20.json',
+    'assets/catechism/json/augustine_city_of_god_book21.json',
+    'assets/catechism/json/augustine_city_of_god_book22.json',
+    'assets/catechism/json/cyril_catechetical_lectures_vol1.json',
+    'assets/catechism/json/cyril_catechetical_lectures_vol2.json',
+    'assets/catechism/json/cyril_catechetical_lectures_vol3.json',
+    'assets/catechism/json/cyril_catechetical_lectures_vol4.json',
+  ];
 
   @visibleForTesting
   static int get totalIndexedCitations =>
@@ -67,66 +131,7 @@ class ReverseCitationService {
     if (_inFlightIndexing != null) return _inFlightIndexing!;
     final future = () async {
       try {
-        final catalogPaths = [
-          'assets/catechism/json/baltimore_1.json',
-          'assets/catechism/json/baltimore_2.json',
-          'assets/catechism/json/baltimore_3.json',
-          'assets/catechism/json/baltimore_4.json',
-          'assets/catechism/json/council_of_trent.json',
-          'assets/catechism/json/didache_lightfoot.json',
-          'assets/catechism/json/first_clement_lightfoot.json',
-          'assets/catechism/json/second_clement_lightfoot.json',
-          'assets/catechism/json/ignatius_ephesians_lightfoot.json',
-          'assets/catechism/json/ignatius_magnesians_lightfoot.json',
-          'assets/catechism/json/ignatius_trallians_lightfoot.json',
-          'assets/catechism/json/ignatius_romans_lightfoot.json',
-          'assets/catechism/json/ignatius_philadelphians_lightfoot.json',
-          'assets/catechism/json/ignatius_smyrnaeans_lightfoot.json',
-          'assets/catechism/json/ignatius_polycarp_lightfoot.json',
-          'assets/catechism/json/justin_first_apology_dods.json',
-          'assets/catechism/json/justin_second_apology_dods.json',
-          'assets/catechism/json/irenaeus_against_heresies_book1.json',
-          'assets/catechism/json/irenaeus_against_heresies_book2.json',
-          'assets/catechism/json/irenaeus_against_heresies_book3.json',
-          'assets/catechism/json/irenaeus_against_heresies_book4.json',
-          'assets/catechism/json/irenaeus_against_heresies_book5.json',
-          'assets/catechism/json/athanasius_on_the_incarnation.json',
-          'assets/catechism/json/augustine_confessions_book1.json',
-          'assets/catechism/json/augustine_confessions_book2.json',
-          'assets/catechism/json/augustine_confessions_book3.json',
-          'assets/catechism/json/augustine_confessions_book4.json',
-          'assets/catechism/json/augustine_confessions_book5.json',
-          'assets/catechism/json/augustine_confessions_book6.json',
-          'assets/catechism/json/augustine_confessions_book7.json',
-          'assets/catechism/json/augustine_confessions_book8.json',
-          'assets/catechism/json/augustine_confessions_book9.json',
-          'assets/catechism/json/augustine_confessions_book10.json',
-          'assets/catechism/json/augustine_confessions_book11.json',
-          'assets/catechism/json/augustine_confessions_book12.json',
-          'assets/catechism/json/augustine_confessions_book13.json',
-          'assets/catechism/json/augustine_city_of_god_book1.json',
-          'assets/catechism/json/augustine_city_of_god_book2.json',
-          'assets/catechism/json/augustine_city_of_god_book3.json',
-          'assets/catechism/json/augustine_city_of_god_book4.json',
-          'assets/catechism/json/augustine_city_of_god_book5.json',
-          'assets/catechism/json/augustine_city_of_god_book6.json',
-          'assets/catechism/json/augustine_city_of_god_book7.json',
-          'assets/catechism/json/augustine_city_of_god_book8.json',
-          'assets/catechism/json/augustine_city_of_god_book9.json',
-          'assets/catechism/json/augustine_city_of_god_book10.json',
-          'assets/catechism/json/augustine_city_of_god_book11.json',
-          'assets/catechism/json/augustine_city_of_god_book12.json',
-          'assets/catechism/json/augustine_city_of_god_book13.json',
-          'assets/catechism/json/augustine_city_of_god_book14.json',
-          'assets/catechism/json/augustine_city_of_god_book15.json',
-          'assets/catechism/json/augustine_city_of_god_book16.json',
-          'assets/catechism/json/augustine_city_of_god_book17.json',
-          'assets/catechism/json/augustine_city_of_god_book18.json',
-          'assets/catechism/json/augustine_city_of_god_book19.json',
-          'assets/catechism/json/augustine_city_of_god_book20.json',
-          'assets/catechism/json/augustine_city_of_god_book21.json',
-          'assets/catechism/json/augustine_city_of_god_book22.json',
-        ];
+        final catalogPaths = ReverseCitationService.catalogPaths;
 
         for (final path in catalogPaths) {
           if (_indexedSources.containsKey(path)) {

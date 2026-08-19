@@ -568,6 +568,7 @@ void parseChapteredBookFile({
         stripped.startsWith('On the Incarnation') ||
         stripped.startsWith('The Confessions of St. Augustine:') ||
         stripped.startsWith('The City of God:') ||
+        stripped.startsWith('Catechetical Lectures:') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -909,6 +910,43 @@ void main() {
       title: 'The City of God: Book $b',
       subtitle: cityOfGodSubtitles[b - 1],
       author: 'St. Augustine of Hippo (Trans. Marcus Dods)',
+      outputDir: outputDir,
+    );
+  }
+
+  final cyrilDir = p.join('assets', 'catechism', 'cyril');
+
+  final cyrilVolumes = [
+    (
+      'vol1',
+      'Catechetical Lectures: Vol. I',
+      'Procatechesis & General Catechesis (Trans. E. H. Gifford, 1893)',
+    ),
+    (
+      'vol2',
+      'Catechetical Lectures: Vol. II',
+      'The Creed: God the Father & The Son (Trans. E. H. Gifford, 1893)',
+    ),
+    (
+      'vol3',
+      'Catechetical Lectures: Vol. III',
+      'The Creed: Incarnation, Spirit & Church (Trans. E. H. Gifford, 1893)',
+    ),
+    (
+      'vol4',
+      'Catechetical Lectures: Vol. IV',
+      'The Mystagogical Lectures (Trans. E. H. Gifford, 1893)',
+    ),
+  ];
+
+  for (final (slug, title, subtitle) in cyrilVolumes) {
+    parseChapteredBookFile(
+      filepath: p.join(cyrilDir, 'cyril_catechetical_lectures_$slug.txt'),
+      bookId: 'cyril_catechetical_lectures_$slug',
+      secIdPrefix: 'cyril_lectures_$slug',
+      title: title,
+      subtitle: subtitle,
+      author: 'St. Cyril of Jerusalem (Trans. E. H. Gifford)',
       outputDir: outputDir,
     );
   }

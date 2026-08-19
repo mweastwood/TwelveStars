@@ -55,7 +55,7 @@ dev_dependencies:
     sdk: flutter
   http: ^1.2.1
   html: ^0.15.4
-  build_runner: ^2.16.0
+  build_runner: ^2.15.1
   drift_dev: ^2.34.5
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -98,6 +98,7 @@ flutter:
     - assets/catechism/irenaeus/
     - assets/catechism/athanasius/
     - assets/catechism/augustine/
+    - assets/catechism/cyril/
     - assets/catechism/json/
 
   # An image asset can refer to one or more resolution-specific "variants", see

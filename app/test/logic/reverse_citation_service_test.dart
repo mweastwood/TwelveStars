@@ -57,7 +57,7 @@ void main() {
         await Future.wait([future1, future2, future3]);
 
         expect(ReverseCitationService.isInFlightIndexing, isFalse);
-        expect(ReverseCitationService.indexedSourcesCount, equals(58));
+        expect(ReverseCitationService.indexedSourcesCount, equals(62));
       },
     );
 
@@ -144,9 +144,9 @@ void main() {
         ReverseCitationService.clear();
         expect(ReverseCitationService.indexedSourcesCount, equals(0));
 
-        // Index 71 sources (max capacity is 70)
-        // Psalm has 150 chapters, so Ps $i:1 is valid for all i in 1..71
-        for (int i = 1; i <= 71; i++) {
+        // Index 81 sources (max capacity is 80)
+        // Psalm has 150 chapters, so Ps $i:1 is valid for all i in 1..81
+        for (int i = 1; i <= 81; i++) {
           final bookData = ParsedBookData(
             bookId: 'book_$i',
             title: 'Book $i',
@@ -165,7 +165,7 @@ void main() {
           ReverseCitationService.indexBookData('source_$i', bookData);
         }
 
-        // Cache count should be capped at maxIndexedSources (70)
+        // Cache count should be capped at maxIndexedSources (80)
         expect(
           ReverseCitationService.indexedSourcesCount,
           equals(ReverseCitationService.maxIndexedSources),
@@ -175,20 +175,20 @@ void main() {
         final ps1Citations = ReverseCitationService.getVerseCitations(21, 1, 1);
         expect(ps1Citations, isEmpty);
 
-        // Newest source (source_71) remains present
-        final ps71Citations = ReverseCitationService.getVerseCitations(
+        // Newest source (source_81) remains present
+        final ps81Citations = ReverseCitationService.getVerseCitations(
           21,
-          71,
+          81,
           1,
         );
-        expect(ps71Citations.length, equals(1));
+        expect(ps81Citations.length, equals(1));
       },
     );
 
     test('prune() removes oldest sources and updates index tables', () {
       ReverseCitationService.clear();
 
-      for (int i = 1; i <= 72; i++) {
+      for (int i = 1; i <= 85; i++) {
         final bookData = ParsedBookData(
           bookId: 'prune_book_$i',
           title: 'Prune Book $i',
