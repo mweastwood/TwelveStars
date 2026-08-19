@@ -95,7 +95,6 @@ void main() {
             prayers: mockPrayers,
             primaryLanguage: PrayerLanguage.english,
             compareLanguage: PrayerLanguage.latin,
-            onLaunchSource: (_) {},
             initialDate: DateTime(
               2026,
               7,
@@ -155,7 +154,6 @@ void main() {
               prayers: mockPrayers,
               primaryLanguage: PrayerLanguage.english,
               compareLanguage: PrayerLanguage.latin,
-              onLaunchSource: (_) {},
               initialDate: DateTime(2026, 7, 27),
             ),
           ),
@@ -184,7 +182,6 @@ void main() {
             prayers: mockPrayers,
             primaryLanguage: PrayerLanguage.english,
             compareLanguage: PrayerLanguage.latin,
-            onLaunchSource: (_) {},
             initialDate: DateTime(
               2026,
               7,
@@ -224,7 +221,6 @@ void main() {
             prayers: mockPrayers,
             primaryLanguage: PrayerLanguage.english,
             compareLanguage: PrayerLanguage.latin,
-            onLaunchSource: (_) {},
             initialDate: DateTime(2026, 7, 9), // Thursday
           ),
         ),
@@ -244,7 +240,6 @@ void main() {
               prayers: mockPrayers,
               primaryLanguage: PrayerLanguage.english,
               compareLanguage: PrayerLanguage.latin,
-              onLaunchSource: (_) {},
               initialDate: DateTime(
                 2026,
                 7,

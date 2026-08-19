@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
@@ -280,33 +279,6 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  Future<void> _launchSourceUrl(String urlString) async {
-    final Uri url = Uri.parse(urlString);
-    try {
-      if (await canLaunchUrl(url)) {
-        await launchUrl(url, mode: LaunchMode.externalApplication);
-      } else {
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text('Could not launch source URL: $urlString'),
-              behavior: SnackBarBehavior.floating,
-            ),
-          );
-        }
-      }
-    } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Error opening link: $e'),
-            behavior: SnackBarBehavior.floating,
-          ),
-        );
-      }
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -453,7 +425,6 @@ class _HomeScreenState extends State<HomeScreen>
                       prayers: _prayers,
                       primaryLanguage: _primaryLanguage,
                       compareLanguage: _compareLanguage,
-                      onLaunchSource: _launchSourceUrl,
                       initialDate: widget.initialDate,
                     ),
                   ),
@@ -717,7 +688,6 @@ class _HomeScreenState extends State<HomeScreen>
                 await PrayerDatabase.saveSettings(_settings!);
               }
             },
-            onLaunchSource: _launchSourceUrl,
           ),
         );
       },

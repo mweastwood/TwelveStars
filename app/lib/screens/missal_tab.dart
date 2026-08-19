@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
@@ -210,33 +209,6 @@ class _MissalTabState extends State<MissalTab> {
     }
   }
 
-  Future<void> _launchSourceUrl(String urlString) async {
-    final Uri url = Uri.parse(urlString);
-    try {
-      if (await canLaunchUrl(url)) {
-        await launchUrl(url, mode: LaunchMode.externalApplication);
-      } else {
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text('Could not launch source URL: $urlString'),
-              behavior: SnackBarBehavior.floating,
-            ),
-          );
-        }
-      }
-    } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Error opening link: $e'),
-            behavior: SnackBarBehavior.floating,
-          ),
-        );
-      }
-    }
-  }
-
   bool get _isTodaySelected {
     final now = TimeHelper.now();
     return _selectedDate.year == now.year &&
@@ -279,7 +251,6 @@ class _MissalTabState extends State<MissalTab> {
           await PrayerDatabase.saveSettings(_settings!);
         }
       },
-      onLaunchSource: _launchSourceUrl,
     );
   }
 

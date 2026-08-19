@@ -11,7 +11,6 @@ class RosaryScreen extends StatefulWidget {
   final List<Prayer>? prayers;
   final PrayerLanguage primaryLanguage;
   final PrayerLanguage? compareLanguage;
-  final Function(String) onLaunchSource;
   final DateTime? initialDate;
   final bool? hapticsEnabled;
 
@@ -20,7 +19,6 @@ class RosaryScreen extends StatefulWidget {
     this.prayers,
     required this.primaryLanguage,
     this.compareLanguage,
-    required this.onLaunchSource,
     this.initialDate,
     this.hapticsEnabled,
   });
@@ -306,7 +304,6 @@ class _RosaryScreenState extends State<RosaryScreen> {
                                                 newIndex;
                                           });
                                         },
-                                        onLaunchSource: widget.onLaunchSource,
                                       ),
                                     ] else ...[
                                       Card(
@@ -343,7 +340,6 @@ class _RosaryScreenState extends State<RosaryScreen> {
                                                 newIndex;
                                           });
                                         },
-                                        onLaunchSource: widget.onLaunchSource,
                                       ),
                                     ],
                                     // Prayer Card 3 (if Sign of the Cross closing prayer is also present in step)
@@ -364,7 +360,6 @@ class _RosaryScreenState extends State<RosaryScreen> {
                                                 newIndex;
                                           });
                                         },
-                                        onLaunchSource: widget.onLaunchSource,
                                       ),
                                     ],
                                   ],
