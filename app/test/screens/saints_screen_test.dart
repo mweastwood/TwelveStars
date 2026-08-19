@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/screens/home_screen.dart';
 import 'package:twelve_stars/screens/saints_screen.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
@@ -254,6 +255,40 @@ void main() {
         // Verify SaintsScreen is shown
         expect(find.byType(SaintsScreen), findsOneWidget);
         expect(find.text('Saint Database'), findsOneWidget);
+      },
+    );
+
+    testGoldens(
+      'SaintsScreen renders populated list, doctor filter, and detail sheet',
+      (tester) async {
+        // 1. Populated Saints Screen
+        await tester.pumpWidgetBuilder(
+          const SaintsScreen(),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'saints_screen_golden');
+
+        // 2. Doctors filter active
+        await tester.tap(find.byKey(const Key('doctor_filter_chip')));
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'saints_screen_doctors_filter_golden',
+        );
+
+        // Reset filter for next step
+        await tester.tap(find.byKey(const Key('doctor_filter_chip')));
+        await tester.pumpAndSettle();
+
+        // 3. Saint details modal bottom sheet
+        await tester.tap(find.byKey(const Key('saint_tile_thomas-aquinas')));
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'saints_screen_detail_sheet_golden');
       },
     );
   });
