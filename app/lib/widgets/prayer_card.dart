@@ -11,7 +11,6 @@ class PrayerCard extends StatefulWidget {
   final PrayerLanguage? compareLanguage;
   final int initialVersionIndex;
   final ValueChanged<int> onVersionChanged;
-  final Function(String) onLaunchSource;
   final double fontSize;
 
   const PrayerCard({
@@ -21,7 +20,6 @@ class PrayerCard extends StatefulWidget {
     this.compareLanguage,
     required this.initialVersionIndex,
     required this.onVersionChanged,
-    required this.onLaunchSource,
     this.fontSize = 16.0,
   });
 
@@ -623,51 +621,19 @@ class _PrayerCardState extends State<PrayerCard> {
                       theme,
                       isTargetColumn: true,
                     ),
-                  const SizedBox(height: 20),
-
-                  // Divider for Footer
-                  Divider(
-                    color: theme.colorScheme.outlineVariant.withValues(
-                      alpha: 0.3,
-                    ),
-                    height: 1,
-                  ),
-                  const SizedBox(height: 12),
-
-                  // 3. Source Row: Source Buttons
-                  if (_isDualMode)
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Center(
-                            child: _buildSourceButton(translation, theme),
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        const SizedBox(
-                          width: 1,
-                        ), // spacer matching vertical divider
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: Center(
-                            child: _buildSourceButton(
-                              compareTranslation,
-                              theme,
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
-                  else ...[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Flexible(child: _buildSourceButton(translation, theme)),
-                      ],
+                  // Footer Divider & Sections (only rendered if history or version dots exist)
+                  if (historyTrans != null ||
+                      (translations.length > 1 && !_isDualMode)) ...[
+                    const SizedBox(height: 20),
+                    Divider(
+                      color: theme.colorScheme.outlineVariant.withValues(
+                        alpha: 0.3,
+                      ),
+                      height: 1,
                     ),
                   ],
 
-                  // 4. Historical Context Row: Rendered below Source
+                  // 3. Historical Context Row
                   if (historyTrans != null) ...[
                     const SizedBox(height: 12),
                     _buildHistoryPanel(
@@ -677,7 +643,7 @@ class _PrayerCardState extends State<PrayerCard> {
                     ),
                   ],
 
-                  // 5. Version indicator dots
+                  // 4. Version indicator dots
                   if (translations.length > 1 && !_isDualMode) ...[
                     const SizedBox(height: 16),
                     Row(
@@ -730,44 +696,6 @@ class _PrayerCardState extends State<PrayerCard> {
 
     _pruneUnusedRecognizers();
     return card;
-  }
-
-  Widget _buildSourceButton(PrayerTranslation translation, ThemeData theme) {
-    if (translation.sourceUrl.isEmpty) return const SizedBox.shrink();
-    return InkWell(
-      onTap: () => widget.onLaunchSource(translation.sourceUrl),
-      borderRadius: BorderRadius.circular(8),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.menu_book, size: 14, color: theme.colorScheme.primary),
-            const SizedBox(width: 6),
-            Flexible(
-              child: Text(
-                'Source: ${translation.sourceName}',
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.primary,
-                  decoration: TextDecoration.underline,
-                  decorationColor: theme.colorScheme.primary.withValues(
-                    alpha: 0.5,
-                  ),
-                ),
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-            const SizedBox(width: 4),
-            Icon(
-              Icons.open_in_new,
-              size: 12,
-              color: theme.colorScheme.primary.withValues(alpha: 0.7),
-            ),
-          ],
-        ),
-      ),
-    );
   }
 
   Widget _buildHistoryPanel(

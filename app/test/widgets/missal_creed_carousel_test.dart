@@ -437,7 +437,6 @@ void main() {
           selectedLanguage: PrayerLanguage.english,
           initialVersionIndex: 0,
           onVersionChanged: (_) {},
-          onLaunchSource: (_) {},
         );
 
         final apostlesCard = PrayerCard(
@@ -460,7 +459,6 @@ void main() {
           selectedLanguage: PrayerLanguage.english,
           initialVersionIndex: 0,
           onVersionChanged: (_) {},
-          onLaunchSource: (_) {},
         );
 
         await tester.pumpWidgetBuilder(

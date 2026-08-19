@@ -220,7 +220,6 @@ void main() {
                 compareLanguage: PrayerLanguage.spanish,
                 initialVersionIndex: 0,
                 onVersionChanged: (_) {},
-                onLaunchSource: (_) {},
               ),
             ),
           ),
@@ -230,10 +229,8 @@ void main() {
       expect(find.text('Our Father'), findsOneWidget);
       expect(find.textContaining("The Lord's Prayer"), findsOneWidget);
       expect(find.textContaining('who art in heaven'), findsOneWidget);
-      expect(
-        find.textContaining('Compendium of the Catechism'),
-        findsOneWidget,
-      );
+      expect(find.textContaining('Source:'), findsNothing);
+      expect(find.textContaining('Gospel of Matthew 6:9–13'), findsOneWidget);
     });
 
     testWidgets('renders single-language mode when compareLanguage is null '
@@ -248,7 +245,6 @@ void main() {
                 compareLanguage: null,
                 initialVersionIndex: 0,
                 onVersionChanged: (_) {},
-                onLaunchSource: (_) {},
               ),
             ),
           ),
@@ -269,7 +265,6 @@ void main() {
                 compareLanguage: PrayerLanguage.spanish,
                 initialVersionIndex: 0,
                 onVersionChanged: (_) {},
-                onLaunchSource: (_) {},
               ),
             ),
           ),
@@ -295,7 +290,6 @@ void main() {
                   compareLanguage: PrayerLanguage.spanish,
                   initialVersionIndex: 0,
                   onVersionChanged: (_) {},
-                  onLaunchSource: (_) {},
                 ),
               ),
             ),
@@ -322,7 +316,6 @@ void main() {
                 compareLanguage: PrayerLanguage.french,
                 initialVersionIndex: 0,
                 onVersionChanged: (_) {},
-                onLaunchSource: (_) {},
               ),
             ),
           ),
@@ -349,7 +342,6 @@ void main() {
             compareLanguage: PrayerLanguage.spanish,
             initialVersionIndex: 0,
             onVersionChanged: (_) {},
-            onLaunchSource: (_) {},
           ),
         )
         ..addScenario(
@@ -360,7 +352,6 @@ void main() {
             compareLanguage: PrayerLanguage.spanish,
             initialVersionIndex: 0,
             onVersionChanged: (_) {},
-            onLaunchSource: (_) {},
           ),
         )
         ..addScenario(
@@ -371,7 +362,6 @@ void main() {
             compareLanguage: PrayerLanguage.spanish,
             initialVersionIndex: 0,
             onVersionChanged: (_) {},
-            onLaunchSource: (_) {},
           ),
         )
         ..addScenario(
@@ -382,7 +372,6 @@ void main() {
             compareLanguage: PrayerLanguage.spanish,
             initialVersionIndex: 0,
             onVersionChanged: (_) {},
-            onLaunchSource: (_) {},
           ),
         );
 
@@ -436,7 +425,6 @@ void main() {
                 compareLanguage: PrayerLanguage.spanish,
                 initialVersionIndex: 0,
                 onVersionChanged: (_) {},
-                onLaunchSource: (_) {},
               ),
             ),
           ),
@@ -502,7 +490,6 @@ void main() {
                   compareLanguage: null,
                   initialVersionIndex: 0,
                   onVersionChanged: (_) {},
-                  onLaunchSource: (_) {},
                 ),
               ),
             ),
@@ -549,7 +536,6 @@ void main() {
                 compareLanguage: PrayerLanguage.spanish,
                 initialVersionIndex: 0,
                 onVersionChanged: (_) {},
-                onLaunchSource: (_) {},
               ),
             ),
           ),
@@ -624,7 +610,6 @@ void main() {
             compareLanguage: PrayerLanguage.spanish,
             initialVersionIndex: 0,
             onVersionChanged: (_) {},
-            onLaunchSource: (_) {},
           ),
         );
 
@@ -654,7 +639,6 @@ void main() {
                   compareLanguage: PrayerLanguage.spanish,
                   initialVersionIndex: 0,
                   onVersionChanged: (_) {},
-                  onLaunchSource: (_) {},
                 ),
               ),
             ),
@@ -707,7 +691,6 @@ void main() {
                   compareLanguage: PrayerLanguage.spanish,
                   initialVersionIndex: 0,
                   onVersionChanged: (_) {},
-                  onLaunchSource: (_) {},
                 ),
               ),
             ),
@@ -766,7 +749,6 @@ void main() {
                   compareLanguage: PrayerLanguage.spanish,
                   initialVersionIndex: 0,
                   onVersionChanged: (_) {},
-                  onLaunchSource: (_) {},
                 ),
               ),
             ),
@@ -829,7 +811,6 @@ void main() {
                   compareLanguage: PrayerLanguage.spanish,
                   initialVersionIndex: 0,
                   onVersionChanged: (_) {},
-                  onLaunchSource: (_) {},
                 ),
               ),
             ),
@@ -866,7 +847,6 @@ void main() {
                   compareLanguage: null,
                   initialVersionIndex: 0,
                   onVersionChanged: (_) {},
-                  onLaunchSource: (_) {},
                 ),
               ),
             ),
@@ -885,7 +865,6 @@ void main() {
                   compareLanguage: PrayerLanguage.spanish,
                   initialVersionIndex: 0,
                   onVersionChanged: (_) {},
-                  onLaunchSource: (_) {},
                 ),
               ),
             ),
@@ -922,7 +901,6 @@ void main() {
                 compareLanguage: PrayerLanguage.spanish,
                 initialVersionIndex: 0,
                 onVersionChanged: (_) {},
-                onLaunchSource: (_) {},
               ),
             ),
           ),
@@ -958,7 +936,6 @@ void main() {
                 compareLanguage: PrayerLanguage.spanish,
                 initialVersionIndex: 0,
                 onVersionChanged: (_) {},
-                onLaunchSource: (_) {},
               ),
             ),
           ),
@@ -977,7 +954,6 @@ void main() {
                 compareLanguage: PrayerLanguage.spanish,
                 initialVersionIndex: 0,
                 onVersionChanged: (_) {},
-                onLaunchSource: (_) {},
               ),
             ),
           ),
@@ -997,6 +973,225 @@ void main() {
 
       expect(recognizer2, isNotNull);
       expect(identical(recognizer1, recognizer2), isFalse);
+    });
+
+    testWidgets(
+      'does not render source links, buttons, or icons in single or dual mode',
+      (tester) async {
+        // Single mode
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: testPrayer,
+                  selectedLanguage: PrayerLanguage.english,
+                  compareLanguage: null,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        expect(find.textContaining('Source:'), findsNothing);
+        expect(find.byIcon(Icons.open_in_new), findsNothing);
+        expect(find.byIcon(Icons.menu_book), findsNothing);
+
+        // Dual mode
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: testPrayer,
+                  selectedLanguage: PrayerLanguage.english,
+                  compareLanguage: PrayerLanguage.spanish,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        expect(find.textContaining('Source:'), findsNothing);
+        expect(find.byIcon(Icons.open_in_new), findsNothing);
+        expect(find.byIcon(Icons.menu_book), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'renders copyright disclaimers properly in single and dual comparison modes',
+      (tester) async {
+        final prayerWithCopyright = Prayer.mock(
+          id: 'creed_test',
+          defaultTitle: 'Nicene Creed',
+          translations: {
+            PrayerLanguage.english: [
+              PrayerTranslation.mock(
+                title: 'Nicene Creed',
+                subtitle: 'Symbolum Nicaenum',
+                text: 'I believe in one God, the Father almighty...',
+                copyright:
+                    'English translation © 2010, ICEL. All rights reserved.',
+              ),
+            ],
+            PrayerLanguage.spanish: [
+              PrayerTranslation.mock(
+                title: 'Credo Niceno',
+                subtitle: 'Símbolo Niceno',
+                text: 'Creo en un solo Dios, Padre todopoderoso...',
+                copyright: 'Texto litúrgico © Obispos de México.',
+              ),
+            ],
+          },
+        );
+
+        // Single-language mode
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: prayerWithCopyright,
+                  selectedLanguage: PrayerLanguage.english,
+                  compareLanguage: null,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        expect(
+          find.text('English translation © 2010, ICEL. All rights reserved.'),
+          findsOneWidget,
+        );
+        expect(find.text('Texto litúrgico © Obispos de México.'), findsNothing);
+
+        // Dual-language comparison mode
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: prayerWithCopyright,
+                  selectedLanguage: PrayerLanguage.english,
+                  compareLanguage: PrayerLanguage.spanish,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        expect(
+          find.text('English translation © 2010, ICEL. All rights reserved.'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('Texto litúrgico © Obispos de México.'),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets('renders bottom divider only when history or version dots exist', (
+      tester,
+    ) async {
+      final simplePrayer = Prayer.mock(
+        id: 'simple_prayer',
+        defaultTitle: 'Simple Prayer',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Simple Prayer',
+              text: 'A simple prayer with no history description.',
+              copyright: 'Copyright Notice',
+            ),
+          ],
+        },
+      );
+
+      // 1. Prayer with no history and single version: exactly 1 Divider (header divider only)
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: PrayerCard(
+                prayer: simplePrayer,
+                selectedLanguage: PrayerLanguage.english,
+                compareLanguage: null,
+                initialVersionIndex: 0,
+                onVersionChanged: (_) {},
+              ),
+            ),
+          ),
+        ),
+      );
+
+      // Header divider exists (1), but no footer divider
+      expect(find.byType(Divider), findsOneWidget);
+
+      // 2. Prayer with historical context: 2 Dividers (header + footer)
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: PrayerCard(
+                prayer: testPrayer,
+                selectedLanguage: PrayerLanguage.english,
+                compareLanguage: null,
+                initialVersionIndex: 0,
+                onVersionChanged: (_) {},
+              ),
+            ),
+          ),
+        ),
+      );
+
+      expect(find.byType(Divider), findsNWidgets(2));
+      expect(find.text('HISTORICAL CONTEXT'), findsOneWidget);
+
+      // 3. Multi-version prayer without history: 2 Dividers (header + footer above dots)
+      final multiVersionPrayer = Prayer.mock(
+        id: 'multi_prayer',
+        defaultTitle: 'Multi Version Prayer',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Version 1',
+              text: 'Text of version 1',
+            ),
+            PrayerTranslation.mock(
+              title: 'Version 2',
+              text: 'Text of version 2',
+            ),
+          ],
+        },
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: PrayerCard(
+                prayer: multiVersionPrayer,
+                selectedLanguage: PrayerLanguage.english,
+                compareLanguage: null,
+                initialVersionIndex: 0,
+                onVersionChanged: (_) {},
+              ),
+            ),
+          ),
+        ),
+      );
+
+      expect(find.byType(Divider), findsNWidgets(2));
     });
   });
 }
