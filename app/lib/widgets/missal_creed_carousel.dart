@@ -70,6 +70,7 @@ class MissalCreedCarousel extends StatefulWidget {
   final ValueChanged<int>? onPageChanged;
   final double peekOffset;
   final double cardGap;
+  final double horizontalPadding;
   final int initialPage;
 
   const MissalCreedCarousel({
@@ -80,6 +81,7 @@ class MissalCreedCarousel extends StatefulWidget {
     this.onPageChanged,
     this.peekOffset = 24.0,
     this.cardGap = 8.0,
+    this.horizontalPadding = 16.0,
     this.initialPage = 0,
   });
 
@@ -190,16 +192,21 @@ class _MissalCreedCarouselState extends State<MissalCreedCarousel> {
       return widget.apostlesCard!;
     }
 
-    final calculatedHeight = _cardHeights.values.isEmpty
-        ? 450.0
-        : _cardHeights.values.fold<double>(0.0, math.max);
+    final calculatedHeight =
+        _cardHeights[_currentPage] ??
+        (_cardHeights.values.isNotEmpty
+            ? _cardHeights.values.fold<double>(0.0, math.max)
+            : 450.0);
 
     return LayoutBuilder(
       builder: (context, constraints) {
         final totalWidth = constraints.maxWidth;
         final cardWidth = math.max(
           0.0,
-          totalWidth - widget.peekOffset - widget.cardGap,
+          totalWidth -
+              widget.horizontalPadding -
+              widget.peekOffset -
+              widget.cardGap,
         );
         final maxScrollExtent = math.max(
           0.0,
@@ -219,9 +226,12 @@ class _MissalCreedCarouselState extends State<MissalCreedCarousel> {
           });
         }
 
-        return SizedBox(
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOutCubic,
           height: calculatedHeight,
           child: Stack(
+            clipBehavior: Clip.none,
             children: [
               NotificationListener<ScrollNotification>(
                 onNotification: (notification) {
@@ -239,6 +249,7 @@ class _MissalCreedCarouselState extends State<MissalCreedCarousel> {
                   return false;
                 },
                 child: SingleChildScrollView(
+                  clipBehavior: Clip.none,
                   controller: _scrollController,
                   scrollDirection: Axis.horizontal,
                   physics: const CarouselSnapScrollPhysics(
@@ -247,19 +258,27 @@ class _MissalCreedCarouselState extends State<MissalCreedCarousel> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      if (widget.horizontalPadding > 0)
+                        SizedBox(width: widget.horizontalPadding),
                       // Page 0: Nicene Creed Card
                       SizedBox(
                         key: const Key('nicene_card_wrapper'),
                         width: cardWidth,
-                        child: _buildCardItem(0, widget.niceneCard!),
+                        child: _buildCardItem(0, widget.niceneCard!, cardWidth),
                       ),
                       SizedBox(width: widget.cardGap),
                       // Page 1: Apostles' Creed Card
                       SizedBox(
                         key: const Key('apostles_card_wrapper'),
                         width: cardWidth,
-                        child: _buildCardItem(1, widget.apostlesCard!),
+                        child: _buildCardItem(
+                          1,
+                          widget.apostlesCard!,
+                          cardWidth,
+                        ),
                       ),
+                      if (widget.horizontalPadding > 0)
+                        SizedBox(width: widget.horizontalPadding),
                     ],
                   ),
                 ),
@@ -297,10 +316,17 @@ class _MissalCreedCarouselState extends State<MissalCreedCarousel> {
     );
   }
 
-  Widget _buildCardItem(int index, Widget card) {
-    return _HeightReporter(
-      onHeightChanged: (h) => _onHeightMeasured(index, h),
-      child: card,
+  Widget _buildCardItem(int index, Widget card, double cardWidth) {
+    return OverflowBox(
+      alignment: Alignment.topCenter,
+      minWidth: cardWidth,
+      maxWidth: cardWidth,
+      minHeight: 0.0,
+      maxHeight: double.infinity,
+      child: _HeightReporter(
+        onHeightChanged: (h) => _onHeightMeasured(index, h),
+        child: SizedBox(width: cardWidth, child: card),
+      ),
     );
   }
 }
@@ -322,16 +348,16 @@ class _HeightReporterState extends State<_HeightReporter> {
   @override
   void initState() {
     super.initState();
-    _reportHeight();
+    _scheduleHeightReport();
   }
 
   @override
   void didUpdateWidget(covariant _HeightReporter oldWidget) {
     super.didUpdateWidget(oldWidget);
-    _reportHeight();
+    _scheduleHeightReport();
   }
 
-  void _reportHeight() {
+  void _scheduleHeightReport() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       final renderBox = _key.currentContext?.findRenderObject() as RenderBox?;
@@ -347,6 +373,7 @@ class _HeightReporterState extends State<_HeightReporter> {
 
   @override
   Widget build(BuildContext context) {
+    _scheduleHeightReport();
     return Container(key: _key, child: widget.child);
   }
 }
