@@ -1301,6 +1301,7 @@
     "nationality": "Chilean / Argentine",
     "profession": "Salesian Pupil & Virgin",
     "isDoctor": false,
+    "isBlessed": true,
     "feastDay": "January 22",
     "patronage": "Abuse Victims, Argentina, Incest Victims, Loss of Parents",
     "summary": "Twelve-year-old Chilean Salesian student in Argentina who offered her life to God for the conversion and spiritual liberation of her mother."
@@ -1575,6 +1576,7 @@
     "nationality": "Mexican",
     "profession": "Jesuit Priest & Cristero Era Martyr",
     "isDoctor": false,
+    "isBlessed": true,
     "feastDay": "November 23",
     "patronage": "Mexico, Persecuted Clergy, Special Ops",
     "summary": "Mexican Jesuit priest who carried out clandestine pastoral ministry disguised in various occupations during the Calles presidency before execution by firing squad."

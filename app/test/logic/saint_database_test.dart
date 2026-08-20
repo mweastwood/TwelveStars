@@ -15,6 +15,7 @@ void main() {
         'nationality': 'Italian',
         'profession': 'Dominican Friar & Theologian',
         'isDoctor': true,
+        'isBlessed': false,
         'feastDay': 'January 28',
         'patronage': 'Academics, Students, Theologians',
         'summary': 'Author of the Summa Theologiae.',
@@ -28,6 +29,7 @@ void main() {
       expect(saint.nationality, 'Italian');
       expect(saint.profession, 'Dominican Friar & Theologian');
       expect(saint.isDoctor, true);
+      expect(saint.isBlessed, false);
       expect(saint.feastDay, 'January 28');
       expect(saint.patronage, 'Academics, Students, Theologians');
       expect(saint.summary, 'Author of the Summa Theologiae.');
@@ -36,7 +38,17 @@ void main() {
       final serialized = saint.toJson();
       expect(serialized['id'], 'thomas-aquinas');
       expect(serialized['isDoctor'], true);
+      expect(serialized['isBlessed'], null);
       expect(serialized['patronage'], 'Academics, Students, Theologians');
+
+      const blessedSaint = Saint(
+        id: 'miguel-pro',
+        name: 'Blessed Miguel Pro',
+        nationality: 'Mexican',
+        profession: 'Priest',
+        isBlessed: true,
+      );
+      expect(blessedSaint.toJson()['isBlessed'], true);
     });
 
     test('dateRange formats different combinations of dates', () {
@@ -376,13 +388,48 @@ void main() {
       expect(spanishDoctors.every((s) => s.isDoctor), isTrue);
     });
 
+    test('Database maintains exactly 37 Doctors of the Church', () async {
+      final saints = await SaintDatabase.loadSaints();
+      final doctors = saints.where((s) => s.isDoctor).toList();
+      expect(
+        doctors.length,
+        equals(37),
+        reason: 'Expected exactly 37 Doctors of the Church',
+      );
+    });
+
+    test(
+      'loadSaints correctly identifies beatified entries with isBlessed',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+        final blessedEntries = saints.where((s) => s.isBlessed).toList();
+
+        expect(blessedEntries.length, equals(2));
+        for (final blessed in blessedEntries) {
+          expect(
+            blessed.name.startsWith('Blessed '),
+            isTrue,
+            reason: '${blessed.name} should start with Blessed',
+          );
+        }
+
+        final miguelPro = saints.firstWhere((s) => s.id == 'miguel-pro');
+        expect(miguelPro.name, 'Blessed Miguel Pro');
+        expect(miguelPro.isBlessed, isTrue);
+
+        final lauraVicuna = saints.firstWhere((s) => s.id == 'laura-vicuna');
+        expect(lauraVicuna.name, 'Blessed Laura Vicuña');
+        expect(lauraVicuna.isBlessed, isTrue);
+      },
+    );
+
     test(
       'loadSaints validates expanded dataset size and unique identifiers',
       () async {
         final saints = await SaintDatabase.loadSaints();
 
-        // Database has been doubled from original 92 to >= 184 saints
-        expect(saints.length, greaterThanOrEqualTo(184));
+        // Database has been doubled from original 92 to >= 187 saints
+        expect(saints.length, greaterThanOrEqualTo(187));
 
         // Invariant: IDs must all be unique and non-empty
         final idSet = <String>{};
