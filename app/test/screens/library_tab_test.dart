@@ -62,6 +62,7 @@ void main() {
       expect(find.text('The Confessions'), findsOneWidget);
       expect(find.text('The City of God'), findsOneWidget);
       expect(find.text('Catechetical Lectures'), findsOneWidget);
+      expect(find.text('On the Holy Spirit'), findsOneWidget);
       expect(find.text('The Five Theological Orations'), findsOneWidget);
       expect(find.text('Proslogion'), findsOneWidget);
       expect(find.text('Cur Deus Homo'), findsOneWidget);
@@ -694,6 +695,42 @@ void main() {
 
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
         expect(find.text('On the Mysteries'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'tapping Read Book on Basil on the Holy Spirit opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/basil_on_the_holy_spirit.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final basilCard = find.ancestor(
+          of: find.text('On the Holy Spirit'),
+          matching: find.byType(Card),
+        );
+        final readBtn = find.descendant(
+          of: basilCard,
+          matching: find.widgetWithText(FilledButton, 'Read Book'),
+        );
+
+        await tester.scrollUntilVisible(
+          readBtn,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(readBtn);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('On the Holy Spirit'), findsWidgets);
       },
     );
 
@@ -1552,6 +1589,30 @@ void main() {
       await screenMatchesGolden(tester, 'ambrose_mysteries_reader_golden');
     });
 
+    testGoldens('LibraryReaderScreen renders St. Basil On the Holy Spirit', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final basil = catalog.firstWhere(
+        (b) => b.id == 'basil_on_the_holy_spirit',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/basil_on_the_holy_spirit.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        Scaffold(body: LibraryReaderScreen(bookItem: basil)),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'basil_holy_spirit_reader_golden');
+    });
+
     testWidgets(
       'LibraryReaderScreen renders Aquinas Compendium of Theology (Part I)',
       (tester) async {
@@ -1743,6 +1804,7 @@ void main() {
         );
       },
     );
+
     testWidgets('renders interactive Scripture citation chip', (tester) async {
       final catalog = LibraryHelper.getCatalog();
       final baltimore = catalog.firstWhere(

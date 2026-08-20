@@ -1028,6 +1028,16 @@ class LibraryHelper {
         volumes: cyrilVolumes,
       ),
       const LibraryBookItem(
+        id: 'basil_on_the_holy_spirit',
+        title: 'On the Holy Spirit',
+        subtitle: 'De Spiritu Sancto (Trans. Blomfield Jackson, 1895)',
+        category: 'Church Fathers',
+        author: 'St. Basil the Great (Trans. Blomfield Jackson)',
+        description:
+            'Written c. 375 AD to St. Amphilochius of Iconium. The classic patristic treatise defending the consubstantial divinity and co-equal worship of the Holy Spirit with the Father and the Son, expounding the doxology, baptismal formula, and unwritten Apostolic Tradition.',
+        defaultAssetPath: 'assets/catechism/json/basil_on_the_holy_spirit.json',
+      ),
+      const LibraryBookItem(
         id: 'gregory_theological_orations',
         title: 'The Five Theological Orations',
         subtitle: 'Orations 27–31 (Trans. Browne & Swallow, 1894)',
