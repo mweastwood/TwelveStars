@@ -339,5 +339,60 @@ void main() {
         expect(find.text('Section 1 of 35'), findsOneWidget);
       },
     );
+
+    testWidgets(
+      'LibraryReaderScreen loads St. Justin Martyr (Dialogue with Trypho) and TOC traverses chapters',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final tryphoItem = catalog.firstWhere(
+          (b) => b.id == 'justin_dialogue_trypho',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/justin_dialogue_trypho_dods.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData.light(useMaterial3: true),
+            home: LibraryReaderScreen(
+              bookItem: tryphoItem,
+              initialAssetPath:
+                  'assets/catechism/json/justin_dialogue_trypho_dods.json',
+            ),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Section 1 of 142'), findsOneWidget);
+        expect(find.text('Chapter 1'), findsOneWidget);
+        expect(find.text('Introduction'), findsOneWidget);
+
+        // Open Table of Contents drawer
+        await tester.tap(find.byTooltip('Table of Contents'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Table of Contents'), findsOneWidget);
+        expect(find.text('Introduction'), findsWidgets);
+
+        // Tap Chapter 2 in TOC
+        await tester.tap(
+          find.text('Justin describes his studies in philosophy'),
+        );
+        await tester.pumpAndSettle();
+
+        // Check that chapter 2 is loaded
+        expect(find.text('Section 2 of 142'), findsOneWidget);
+        expect(find.text('Chapter 2'), findsOneWidget);
+        expect(
+          find.text('Justin describes his studies in philosophy'),
+          findsWidgets,
+        );
+      },
+    );
   });
 }

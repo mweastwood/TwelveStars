@@ -730,6 +730,18 @@ class LibraryHelper {
         volumes: justinVolumes,
       ),
       const LibraryBookItem(
+        id: 'justin_dialogue_trypho',
+        title: 'Dialogue with Trypho',
+        subtitle:
+            'Dialogus cum Tryphone Judaeo (Trans. Marcus Dods & George Reith, 1885)',
+        category: 'Early Apologists',
+        author: 'St. Justin Martyr (Trans. Marcus Dods & George Reith)',
+        description:
+            'Written c. 155–160 AD. The most extensive 2nd-century patristic dialogue exploring Old Testament typology, Messianic prophecies, the divinity of Christ the Logos, the abrogation of the Old Law, and the Church as the new spiritual Israel.',
+        defaultAssetPath:
+            'assets/catechism/json/justin_dialogue_trypho_dods.json',
+      ),
+      const LibraryBookItem(
         id: 'irenaeus_against_heresies',
         title: 'Against Heresies',
         subtitle: 'Adversus Haereses (Trans. Roberts & Rambaut, 1885)',
