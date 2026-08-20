@@ -573,6 +573,11 @@ void parseChapteredBookFile({
         stripped.startsWith('The Five Theological Orations') ||
         stripped.startsWith('Theological Orations') ||
         stripped.startsWith('Oration ') ||
+        stripped.startsWith('Ascent of Mount Carmel') ||
+        stripped.startsWith('Subida del Monte Carmelo') ||
+        stripped.startsWith('Dark Night of the Soul') ||
+        stripped.startsWith('Noche Oscura del Alma') ||
+        stripped.startsWith('By St. John of the Cross') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -1007,4 +1012,30 @@ void main() {
       outputDir: outputDir,
     );
   }
+
+  final johnCrossDir = p.join('assets', 'catechism', 'john_of_the_cross');
+
+  // 1. Ascent of Mount Carmel
+  parseChapteredBookFile(
+    filepath: p.join(johnCrossDir, 'john_cross_ascent_mount_carmel.txt'),
+    bookId: 'john_cross_ascent_mount_carmel',
+    secIdPrefix: 'john_cross_ascent_mount_carmel',
+    title: 'Ascent of Mount Carmel',
+    subtitle:
+        'Subida del Monte Carmelo (Trans. David Lewis, Rev. Benedict Zimmerman, O.C.D.)',
+    author: 'St. John of the Cross',
+    outputDir: outputDir,
+  );
+
+  // 2. Dark Night of the Soul
+  parseChapteredBookFile(
+    filepath: p.join(johnCrossDir, 'john_cross_dark_night_soul.txt'),
+    bookId: 'john_cross_dark_night_soul',
+    secIdPrefix: 'john_cross_dark_night_soul',
+    title: 'Dark Night of the Soul',
+    subtitle:
+        'Noche Oscura del Alma (Trans. David Lewis, Rev. Benedict Zimmerman, O.C.D.)',
+    author: 'St. John of the Cross',
+    outputDir: outputDir,
+  );
 }

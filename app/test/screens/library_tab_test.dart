@@ -61,6 +61,8 @@ void main() {
       expect(find.text('The City of God'), findsOneWidget);
       expect(find.text('Catechetical Lectures'), findsOneWidget);
       expect(find.text('The Five Theological Orations'), findsOneWidget);
+      expect(find.text('Ascent of Mount Carmel'), findsOneWidget);
+      expect(find.text('Dark Night of the Soul'), findsOneWidget);
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -1215,6 +1217,78 @@ void main() {
 
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
         expect(find.text('Dialogue with Trypho'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'tapping Read Book on Ascent of Mount Carmel opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/john_cross_ascent_mount_carmel.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final ascentCard = find.ancestor(
+          of: find.text('Ascent of Mount Carmel'),
+          matching: find.byType(Card),
+        );
+        final readBtn = find.descendant(
+          of: ascentCard,
+          matching: find.widgetWithText(FilledButton, 'Read Book'),
+        );
+
+        await tester.scrollUntilVisible(
+          readBtn,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(readBtn);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('Ascent of Mount Carmel'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'tapping Read Book on Dark Night of the Soul opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/john_cross_dark_night_soul.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final darkNightCard = find.ancestor(
+          of: find.text('Dark Night of the Soul'),
+          matching: find.byType(Card),
+        );
+        final readBtn = find.descendant(
+          of: darkNightCard,
+          matching: find.widgetWithText(FilledButton, 'Read Book'),
+        );
+
+        await tester.scrollUntilVisible(
+          readBtn,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(readBtn);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('Dark Night of the Soul'), findsWidgets);
       },
     );
   });

@@ -851,6 +851,30 @@ class LibraryHelper {
             'Delivered c. 380 AD in Constantinople by "Gregory the Theologian." The definitive patristic exposition and defense of the Holy Trinity, the eternal divinity of the Son, and the consubstantial deity and procession of the Holy Spirit.',
         volumes: gregoryVolumes,
       ),
+      const LibraryBookItem(
+        id: 'john_cross_ascent_mount_carmel',
+        title: 'Ascent of Mount Carmel',
+        subtitle:
+            'Subida del Monte Carmelo (Trans. David Lewis, Rev. Benedict Zimmerman, O.C.D.)',
+        category: 'Doctors of the Church / Spiritual Classics',
+        author: 'St. John of the Cross',
+        description:
+            'c. 1578–1585. St. John of the Cross\'s classic systematic treatise on active purification of the senses and spiritual faculties (intellect, memory, and will) through the theological virtues of Faith, Hope, and Charity leading to divine union.',
+        defaultAssetPath:
+            'assets/catechism/json/john_cross_ascent_mount_carmel.json',
+      ),
+      const LibraryBookItem(
+        id: 'john_cross_dark_night_soul',
+        title: 'Dark Night of the Soul',
+        subtitle:
+            'Noche Oscura del Alma (Trans. David Lewis, Rev. Benedict Zimmerman, O.C.D.)',
+        category: 'Doctors of the Church / Spiritual Classics',
+        author: 'St. John of the Cross',
+        description:
+            'c. 1584–1586. The companion masterpiece on passive purification of the sensory and spiritual appetites, guiding the soul through dark contemplation and the ten steps of the ladder of divine love into mystical union with God.',
+        defaultAssetPath:
+            'assets/catechism/json/john_cross_dark_night_soul.json',
+      ),
     ];
   }
 
