@@ -62,6 +62,8 @@ void main() {
       expect(find.text('The City of God'), findsOneWidget);
       expect(find.text('Catechetical Lectures'), findsOneWidget);
       expect(find.text('The Five Theological Orations'), findsOneWidget);
+      expect(find.text('Proslogion'), findsOneWidget);
+      expect(find.text('Cur Deus Homo'), findsOneWidget);
       expect(find.text('Ascent of Mount Carmel'), findsOneWidget);
       expect(find.text('Dark Night of the Soul'), findsOneWidget);
       expect(find.text('True Devotion to Mary'), findsOneWidget);
@@ -102,6 +104,10 @@ void main() {
       // Verify Gregory volume chips exist
       expect(find.text('Oration I (Against the Eunomians)'), findsOneWidget);
       expect(find.text('Oration V (On the Holy Spirit)'), findsOneWidget);
+
+      // Verify Anselm volume chips exist
+      expect(find.text('Book I: The Necessity of Redemption'), findsOneWidget);
+      expect(find.text('Book II: The God-Man and Atonement'), findsOneWidget);
     });
 
     testWidgets('tapping Gregory volume chip opens LibraryReaderScreen', (
@@ -476,6 +482,68 @@ void main() {
 
       expect(find.byType(LibraryReaderScreen), findsOneWidget);
       expect(find.text('The Didache'), findsWidgets);
+    });
+
+    testWidgets('tapping Cur Deus Homo volume chip opens LibraryReaderScreen', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/anselm_cur_deus_homo_book1.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final book1Chip = find.text('Book I: The Necessity of Redemption');
+      await tester.scrollUntilVisible(
+        book1Chip,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(book1Chip);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('Cur Deus Homo'), findsWidgets);
+    });
+
+    testWidgets('tapping Read Book on Proslogion opens LibraryReaderScreen', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/anselm_proslogion.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final proslogionCard = find.ancestor(
+        of: find.text('Proslogion'),
+        matching: find.byType(Card),
+      );
+      final readBtn = find.descendant(
+        of: proslogionCard,
+        matching: find.widgetWithText(FilledButton, 'Read Book'),
+      );
+
+      await tester.scrollUntilVisible(
+        readBtn,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(readBtn);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('Proslogion'), findsWidgets);
     });
 
     testWidgets('Favorites tab displays saved bookmarks and can delete them', (
@@ -1415,5 +1483,85 @@ void main() {
         expect(find.text('Dark Night of the Soul'), findsWidgets);
       },
     );
+
+    testWidgets('LibraryReaderScreen renders Proslogion', (tester) async {
+      final catalog = LibraryHelper.getCatalog();
+      final proslogion = catalog.firstWhere((b) => b.id == 'anselm_proslogion');
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/anselm_proslogion.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(body: LibraryReaderScreen(bookItem: proslogion)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('Proslogion'), findsWidgets);
+      expect(find.text('Section 1 of 26'), findsOneWidget);
+    });
+
+    testWidgets('LibraryReaderScreen renders Cur Deus Homo (Book I)', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final curDeus = catalog.firstWhere((b) => b.id == 'anselm_cur_deus_homo');
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/anselm_cur_deus_homo_book1.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: curDeus,
+              initialVolumeKey: 'book1',
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('Cur Deus Homo'), findsWidgets);
+      expect(find.text('Section 1 of 25'), findsOneWidget);
+    });
+
+    testWidgets('LibraryReaderScreen renders Cur Deus Homo (Book II)', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final curDeus = catalog.firstWhere((b) => b.id == 'anselm_cur_deus_homo');
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/anselm_cur_deus_homo_book2.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: curDeus,
+              initialVolumeKey: 'book2',
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('Cur Deus Homo'), findsWidgets);
+      expect(find.text('Section 1 of 22'), findsOneWidget);
+    });
   });
 }
