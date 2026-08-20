@@ -721,6 +721,70 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> aquinasCompendiumVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'part1',
+      name: 'Part I (On Faith)',
+      shortName: 'Part I',
+      description:
+          'Treatise on the theological virtue of Faith: the Trinity, Creation, Providence, the Fall, Incarnation, Sacraments, and the General Judgment (Chapters 1–246).',
+      assetPath:
+          'assets/catechism/json/aquinas_compendium_of_theology_part1.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'part2',
+      name: 'Part II (On Hope)',
+      shortName: 'Part II',
+      description:
+          'Treatise on the theological virtue of Hope, prayer, and the seven petitions of the Lord\'s Prayer (Chapters 1–10).',
+      assetPath:
+          'assets/catechism/json/aquinas_compendium_of_theology_part2.json',
+    ),
+  ];
+
+  static const List<BaltimoreVolume> aquinasCatecheticalVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'creed',
+      name: 'Part I (The Apostles\' Creed)',
+      shortName: 'The Creed',
+      description:
+          'Exposition of the Twelve Articles of Faith contained in the Apostles\' Creed.',
+      assetPath: 'assets/catechism/json/aquinas_catechetical_creed.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'sacraments',
+      name: 'Part II (The Sacraments)',
+      shortName: 'Sacraments',
+      description:
+          'Treatise on the nature, necessity, minister, and effects of the Seven Sacraments.',
+      assetPath: 'assets/catechism/json/aquinas_catechetical_sacraments.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'commandments',
+      name: 'Part III (The Commandments)',
+      shortName: 'Commandments',
+      description:
+          'Exposition of the Two Precepts of Charity and the Ten Commandments of the Decalogue.',
+      assetPath: 'assets/catechism/json/aquinas_catechetical_commandments.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'prayer',
+      name: 'Part IV (The Lord\'s Prayer)',
+      shortName: 'Lord\'s Prayer',
+      description:
+          'Exposition of the excellence, qualities, and Seven Petitions of the Our Father.',
+      assetPath: 'assets/catechism/json/aquinas_catechetical_prayer.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'hail_mary',
+      name: 'Part V (The Hail Mary)',
+      shortName: 'Hail Mary',
+      description:
+          'Exposition of the Angelic Salutation, its triple dignity, and the fullness of grace.',
+      assetPath: 'assets/catechism/json/aquinas_catechetical_hail_mary.json',
+    ),
+  ];
+
   static const List<BaltimoreVolume> anselmCurDeusHomoVolumes = [
     BaltimoreVolume(
       volumeKey: 'book1',
@@ -998,6 +1062,27 @@ class LibraryHelper {
             'c. 1584–1586. The companion masterpiece on passive purification of the sensory and spiritual appetites, guiding the soul through dark contemplation and the ten steps of the ladder of divine love into mystical union with God.',
         defaultAssetPath:
             'assets/catechism/json/john_cross_dark_night_soul.json',
+      ),
+      const LibraryBookItem(
+        id: 'aquinas_compendium_of_theology',
+        title: 'Compendium of Theology',
+        subtitle: 'Compendium Theologiae (Trans. Cyril Vollert, S.J., 1947)',
+        category: 'Doctors of the Church',
+        author: 'St. Thomas Aquinas (Trans. Cyril Vollert)',
+        description:
+            'Written c. 1273 by the Angelic Doctor. A concise, systematic handbook of Catholic theology organized around the Theological Virtues (Faith and Hope), presenting the essence of the Summa Theologiae.',
+        volumes: aquinasCompendiumVolumes,
+      ),
+      const LibraryBookItem(
+        id: 'aquinas_catechetical_instructions',
+        title: 'The Catechetical Instructions',
+        subtitle:
+            'Expositions on the Creed, Sacraments, Commandments & Prayer (Trans. Joseph B. Collins, 1939)',
+        category: 'Doctors of the Church',
+        author: 'St. Thomas Aquinas (Trans. Joseph B. Collins)',
+        description:
+            'Lenten sermon-conferences delivered in 1273 at Naples. Accessible, profound expositions of the Apostles\' Creed, the Seven Sacraments, the Ten Commandments, the Lord\'s Prayer, and the Hail Mary.',
+        volumes: aquinasCatecheticalVolumes,
       ),
       const LibraryBookItem(
         id: 'montfort_true_devotion',

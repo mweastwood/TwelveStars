@@ -67,6 +67,8 @@ void main() {
       expect(find.text('Cur Deus Homo'), findsOneWidget);
       expect(find.text('Ascent of Mount Carmel'), findsOneWidget);
       expect(find.text('Dark Night of the Soul'), findsOneWidget);
+      expect(find.text('Compendium of Theology'), findsOneWidget);
+      expect(find.text('The Catechetical Instructions'), findsOneWidget);
       expect(find.text('True Devotion to Mary'), findsOneWidget);
       expect(find.text('The Rule of St. Benedict'), findsOneWidget);
       expect(find.text('Introduction to the Devout Life'), findsOneWidget);
@@ -111,6 +113,15 @@ void main() {
       expect(find.text('Oration I (Against the Eunomians)'), findsOneWidget);
       expect(find.text('Oration V (On the Holy Spirit)'), findsOneWidget);
 
+      // Verify Aquinas volume chips exist
+      expect(find.text('Part I (On Faith)'), findsOneWidget);
+      expect(find.text('Part II (On Hope)'), findsOneWidget);
+      expect(find.text('Part I (The Apostles\' Creed)'), findsOneWidget);
+      expect(find.text('Part II (The Sacraments)'), findsOneWidget);
+      expect(find.text('Part III (The Commandments)'), findsOneWidget);
+      expect(find.text('Part IV (The Lord\'s Prayer)'), findsOneWidget);
+      expect(find.text('Part V (The Hail Mary)'), findsOneWidget);
+
       // Verify Anselm volume chips exist
       expect(find.text('Book I: The Necessity of Redemption'), findsOneWidget);
       expect(find.text('Book II: The God-Man and Atonement'), findsOneWidget);
@@ -149,6 +160,62 @@ void main() {
       expect(find.byType(LibraryReaderScreen), findsOneWidget);
       expect(find.text('The Five Theological Orations'), findsWidgets);
     });
+
+    testWidgets(
+      'tapping Aquinas Compendium volume chip opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/aquinas_compendium_of_theology_part1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final part1Chip = find.text('Part I (On Faith)');
+        await tester.scrollUntilVisible(
+          part1Chip,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(part1Chip);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('Compendium of Theology'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'tapping Aquinas Catechetical volume chip opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/aquinas_catechetical_creed.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final creedChip = find.text('Part I (The Apostles\' Creed)');
+        await tester.scrollUntilVisible(
+          creedChip,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(creedChip);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('The Catechetical Instructions'), findsWidgets);
+      },
+    );
 
     testWidgets(
       'tapping St. Francis de Sales volume chip opens LibraryReaderScreen',
@@ -1420,6 +1487,68 @@ void main() {
           tester,
           'gregory_theological_orations_oration1_golden',
         );
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen renders Aquinas Compendium of Theology (Part I)',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final compendium = catalog.firstWhere(
+          (b) => b.id == 'aquinas_compendium_of_theology',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/aquinas_compendium_of_theology_part1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryReaderScreen(
+                bookItem: compendium,
+                initialVolumeKey: 'part1',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('Compendium of Theology'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen renders Aquinas Catechetical Instructions (The Apostles\' Creed)',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final catechetical = catalog.firstWhere(
+          (b) => b.id == 'aquinas_catechetical_instructions',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/aquinas_catechetical_creed.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryReaderScreen(
+                bookItem: catechetical,
+                initialVolumeKey: 'creed',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('The Catechetical Instructions'), findsWidgets);
       },
     );
 

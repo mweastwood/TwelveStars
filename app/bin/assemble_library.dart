@@ -592,6 +592,8 @@ void parseChapteredBookFile({
         stripped.startsWith('De Imitatione Christi') ||
         stripped.startsWith("The Mind's Road to God") ||
         stripped.startsWith('Itinerarium Mentis in Deum') ||
+        stripped.startsWith('Compendium of Theology:') ||
+        stripped.startsWith('The Catechetical Instructions:') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -1085,6 +1087,73 @@ void main() {
     author: 'St. John of the Cross',
     outputDir: outputDir,
   );
+
+  final aquinasDir = p.join('assets', 'catechism', 'aquinas');
+
+  final compendiumVolumes = [
+    (
+      'part1',
+      'Compendium of Theology: Part I',
+      'On Faith (Trans. Cyril Vollert, S.J., 1947)',
+    ),
+    (
+      'part2',
+      'Compendium of Theology: Part II',
+      'On Hope (Trans. Cyril Vollert, S.J., 1947)',
+    ),
+  ];
+
+  for (final (slug, title, subtitle) in compendiumVolumes) {
+    parseChapteredBookFile(
+      filepath: p.join(aquinasDir, 'aquinas_compendium_of_theology_$slug.txt'),
+      bookId: 'aquinas_compendium_of_theology_$slug',
+      secIdPrefix: 'aquinas_compendium_$slug',
+      title: title,
+      subtitle: subtitle,
+      author: 'St. Thomas Aquinas (Trans. Cyril Vollert)',
+      outputDir: outputDir,
+    );
+  }
+
+  final catecheticalVolumes = [
+    (
+      'creed',
+      'The Catechetical Instructions: Part I',
+      'The Apostles\' Creed (Trans. Joseph B. Collins, 1939)',
+    ),
+    (
+      'sacraments',
+      'The Catechetical Instructions: Part II',
+      'The Sacraments of the Church (Trans. Joseph B. Collins, 1939)',
+    ),
+    (
+      'commandments',
+      'The Catechetical Instructions: Part III',
+      'The Ten Commandments (Trans. Joseph B. Collins, 1939)',
+    ),
+    (
+      'prayer',
+      'The Catechetical Instructions: Part IV',
+      'The Lord\'s Prayer (Trans. Joseph B. Collins, 1939)',
+    ),
+    (
+      'hail_mary',
+      'The Catechetical Instructions: Part V',
+      'The Hail Mary (Trans. Joseph B. Collins, 1939)',
+    ),
+  ];
+
+  for (final (slug, title, subtitle) in catecheticalVolumes) {
+    parseChapteredBookFile(
+      filepath: p.join(aquinasDir, 'aquinas_catechetical_$slug.txt'),
+      bookId: 'aquinas_catechetical_$slug',
+      secIdPrefix: 'aquinas_catechetical_$slug',
+      title: title,
+      subtitle: subtitle,
+      author: 'St. Thomas Aquinas (Trans. Joseph B. Collins)',
+      outputDir: outputDir,
+    );
+  }
 
   final montfortDir = p.join('assets', 'catechism', 'montfort');
   parseChapteredBookFile(

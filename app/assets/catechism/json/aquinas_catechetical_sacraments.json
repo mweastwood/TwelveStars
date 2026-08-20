@@ -1,0 +1,215 @@
+{
+  "bookId": "aquinas_catechetical_sacraments",
+  "title": "The Catechetical Instructions: Part II",
+  "subtitle": "The Sacraments of the Church (Trans. Joseph B. Collins, 1939)",
+  "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+  "verseSystem": "vulgate",
+  "toc": [
+    {
+      "id": "sec_aquinas_catechetical_sacraments_1",
+      "title": "Chapter 1: The Nature, Necessity, and Number of the Sacraments"
+    },
+    {
+      "id": "sec_aquinas_catechetical_sacraments_2",
+      "title": "Chapter 2: The Sacrament of Baptism: Gateway to the Spiritual Life"
+    },
+    {
+      "id": "sec_aquinas_catechetical_sacraments_3",
+      "title": "Chapter 3: The Sacrament of Confirmation: Strength in the Holy Ghost"
+    },
+    {
+      "id": "sec_aquinas_catechetical_sacraments_4",
+      "title": "Chapter 4: The Sacrament of the Holy Eucharist: Real Presence and Sacrifice"
+    },
+    {
+      "id": "sec_aquinas_catechetical_sacraments_5",
+      "title": "Chapter 5: The Sacrament of Penance: Contrition, Confession, and Satisfaction"
+    },
+    {
+      "id": "sec_aquinas_catechetical_sacraments_6",
+      "title": "Chapter 6: The Sacrament of Extreme Unction: Spiritual Healing and Comfort"
+    },
+    {
+      "id": "sec_aquinas_catechetical_sacraments_7",
+      "title": "Chapter 7: The Sacrament of Holy Orders: The Sacred Priesthood"
+    },
+    {
+      "id": "sec_aquinas_catechetical_sacraments_8",
+      "title": "Chapter 8: The Sacrament of Matrimony: Indissoluble Union of Spouses"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec_aquinas_catechetical_sacraments_1",
+      "title": "Chapter 1",
+      "subtitle": "The Nature, Necessity, and Number of the Sacraments",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. A sacrament is a visible sign of invisible grace, instituted by Jesus Christ for our sanctification."
+        },
+        {
+          "type": "text",
+          "text": "2. Just as the natural life of man requires birth, growth, nourishment, healing from disease, recovery of strength, social governance, and propagation, so the supernatural life of grace requires the seven Sacraments."
+        },
+        {
+          "type": "text",
+          "text": "3. The seven Sacraments of the New Law are: Baptism, Confirmation, the Holy Eucharist, Penance, Extreme Unction, Holy Orders, and Matrimony."
+        },
+        {
+          "type": "text",
+          "text": "4. Each sacrament consists of sensible matter (actions or elements) and sacred form (the words spoken by the minister), conferring grace through the power of Christ's Passion."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_sacraments_2",
+      "title": "Chapter 2",
+      "subtitle": "The Sacrament of Baptism: Gateway to the Spiritual Life",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Baptism is the sacrament of spiritual regeneration through water and the Word of God, as Christ commanded in Matthew 28:19: \"Baptizing them in the name of the Father, and of the Son, and of the Holy Ghost.\""
+        },
+        {
+          "type": "text",
+          "text": "2. It cleanses the soul from original sin and all actual sins, remits all eternal and temporal punishment due to sin, and imprints an indelible spiritual character marking the recipient as a member of Christ."
+        },
+        {
+          "type": "text",
+          "text": "3. It infuses sanctifying grace, the theological virtues of faith, hope, and charity, and makes the baptized an adopted child of God and heir to the kingdom of heaven (John 3:5)."
+        },
+        {
+          "type": "text",
+          "text": "4. The ordinary minister of Baptism is a bishop, priest, or deacon, but in case of necessity any person using true water and the Trinitarian form can validly baptize."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_sacraments_3",
+      "title": "Chapter 3",
+      "subtitle": "The Sacrament of Confirmation: Strength in the Holy Ghost",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Confirmation is the sacrament that strengthens and matures the spiritual life begun in Baptism, making the recipient a strong and perfect Christian and soldier of Jesus Christ."
+        },
+        {
+          "type": "text",
+          "text": "2. The matter of this sacrament is the anointing with holy chrism (consecrated olive oil and balsam) on the forehead accompanied by the imposition of hands by the Bishop (Acts 8:14-17)."
+        },
+        {
+          "type": "text",
+          "text": "3. The form consists of the words: \"I sign thee with the sign of the Cross, and I confirm thee with the chrism of salvation, in the name of the Father, and of the Son, and of the Holy Ghost.\""
+        },
+        {
+          "type": "text",
+          "text": "4. It imprints an indelible character and imparts the sevenfold gifts of the Holy Ghost: Wisdom, Understanding, Counsel, Fortitude, Knowledge, Piety, and Fear of the Lord (Isaiah 11:2)."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_sacraments_4",
+      "title": "Chapter 4",
+      "subtitle": "The Sacrament of the Holy Eucharist: Real Presence and Sacrifice",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Holy Eucharist is the greatest of all sacraments, containing really, truly, and substantially the Body, Blood, Soul, and Divinity of our Lord Jesus Christ under the appearances of bread and wine."
+        },
+        {
+          "type": "text",
+          "text": "2. At the Last Supper, Christ instituted this sublime sacrament and sacrifice when He took bread, blessed, broke, and gave it to His disciples, saying: \"This is My Body,\" and over the chalice: \"This is My Blood of the new testament, which shall be shed for many unto remission of sins\" (Matthew 26:26-28)."
+        },
+        {
+          "type": "text",
+          "text": "3. By the words of consecration spoken by the priest, the whole substance of the bread is converted into the Body of Christ, and the whole substance of the wine into His Blood, which marvelous change the Church terms Transubstantiation."
+        },
+        {
+          "type": "text",
+          "text": "4. The Eucharist is both a sacrament that nourishes the soul with divine life and the Holy Sacrifice of the Mass that perpetuates Calvary upon our altars (John 6:54)."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_sacraments_5",
+      "title": "Chapter 5",
+      "subtitle": "The Sacrament of Penance: Contrition, Confession, and Satisfaction",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Penance is the sacrament instituted by Christ for the forgiveness of sins committed after Baptism (John 20:23)."
+        },
+        {
+          "type": "text",
+          "text": "2. The essential acts of the penitent are three: Contrition (heartfelt sorrow for sin with purpose of amendment), Confession (sincere accusation of all mortal sins to an authorized priest), and Satisfaction (performance of the penance enjoined by the confessor)."
+        },
+        {
+          "type": "text",
+          "text": "3. The form of the sacrament is the judicial absolution pronounced by the priest: \"I absolve thee from thy sins in the name of the Father, and of the Son, and of the Holy Ghost.\""
+        },
+        {
+          "type": "text",
+          "text": "4. This sacrament restores sanctifying grace, reconciles the sinner with God and the Church, and revives merits lost through sin."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_sacraments_6",
+      "title": "Chapter 6",
+      "subtitle": "The Sacrament of Extreme Unction: Spiritual Healing and Comfort",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Extreme Unction (the Anointing of the Sick) is the sacrament instituted by Christ to confer spiritual comfort, strength, and bodily relief to the faithful who are in danger of death through sickness or old age."
+        },
+        {
+          "type": "text",
+          "text": "2. The Apostle James describes this sacrament in James 5:14-15: \"Is any man sick among you? Let him bring in the priests of the Church, and let them pray over him, anointing him with oil in the name of the Lord. And the prayer of faith shall save the sick man: and the Lord shall raise him up: and if he be in sins, they shall be forgiven him.\""
+        },
+        {
+          "type": "text",
+          "text": "3. It remits venial sins, cleanses remaining temporal punishment, strengthens the soul against final demonic assaults, and restores bodily health if expedient for the soul's salvation."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_sacraments_7",
+      "title": "Chapter 7",
+      "subtitle": "The Sacrament of Holy Orders: The Sacred Priesthood",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Holy Orders is the sacrament by which spiritual power and grace are conferred upon bishops, priests, and deacons to exercise sacred liturgical ministries and shepherd the flock of Christ."
+        },
+        {
+          "type": "text",
+          "text": "2. The essential rite consists of the imposition of hands by the consecrating bishop and the solemn consecratory prayer (2 Timothy 1:6)."
+        },
+        {
+          "type": "text",
+          "text": "3. It imprints an indelible spiritual character upon the soul of the minister, configuring him to Christ the eternal High Priest and granting power to consecrate the Holy Eucharist and forgive sins."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_sacraments_8",
+      "title": "Chapter 8",
+      "subtitle": "The Sacrament of Matrimony: Indissoluble Union of Spouses",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Matrimony is the sacrament instituted by God in Paradise and elevated by Christ to sacramental dignity, uniting a Christian man and woman in an indissoluble bond of marital fidelity (Genesis 2:24; Matthew 19:6)."
+        },
+        {
+          "type": "text",
+          "text": "2. It signifies the mystical union between Christ and His holy Church, as the Apostle Paul teaches in Ephesians 5:32: \"This is a great sacrament; but I speak in Christ and in the Church.\""
+        },
+        {
+          "type": "text",
+          "text": "3. It confers special grace upon the spouses to live in mutual love, assist each other in holiness, and raise children in the fear and love of God."
+        }
+      ]
+    }
+  ]
+}

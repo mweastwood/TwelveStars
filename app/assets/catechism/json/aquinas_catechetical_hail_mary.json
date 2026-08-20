@@ -1,0 +1,111 @@
+{
+  "bookId": "aquinas_catechetical_hail_mary",
+  "title": "The Catechetical Instructions: Part V",
+  "subtitle": "The Hail Mary (Trans. Joseph B. Collins, 1939)",
+  "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+  "verseSystem": "vulgate",
+  "toc": [
+    {
+      "id": "sec_aquinas_catechetical_hail_mary_1",
+      "title": "Chapter 1: The Triple Dignity and Excellence of the Angelic Salutation"
+    },
+    {
+      "id": "sec_aquinas_catechetical_hail_mary_2",
+      "title": "Chapter 2: Hail, Full of Grace: The Plenitude of Divine Gifts"
+    },
+    {
+      "id": "sec_aquinas_catechetical_hail_mary_3",
+      "title": "Chapter 3: The Lord Is with Thee: Sublime Intimacy with the Blessed Trinity"
+    },
+    {
+      "id": "sec_aquinas_catechetical_hail_mary_4",
+      "title": "Chapter 4: Blessed Art Thou Among Women, and Blessed Is the Fruit of Thy Womb"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec_aquinas_catechetical_hail_mary_1",
+      "title": "Chapter 1",
+      "subtitle": "The Triple Dignity and Excellence of the Angelic Salutation",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Angelic Salutation (the Hail Mary) is a most sublime and efficacious prayer, composed of the greeting of the Archangel Gabriel (Luke 1:28), the praise of Saint Elizabeth (Luke 1:42), and the prayer of the Church."
+        },
+        {
+          "type": "text",
+          "text": "2. It surpasses every other praise of creatures in three principal aspects: the dignity of the person greeting (the Archangel Gabriel), the dignity of the Virgin greeted (the Mother of God), and the dignity of the fruit of her womb (Jesus Christ our Lord)."
+        },
+        {
+          "type": "text",
+          "text": "3. In this salutation we render fitting honor to the Mother of God, profess the mystery of the Incarnation, and implore her maternal intercession in all our necessities."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_hail_mary_2",
+      "title": "Chapter 2",
+      "subtitle": "Hail, Full of Grace: The Plenitude of Divine Gifts",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Archangel addressed the Blessed Virgin with profound reverence, saying: \"Hail, full of grace\" (Luke 1:28)."
+        },
+        {
+          "type": "text",
+          "text": "2. Mary was \"full of grace\" because she was chosen from all eternity to be the Mother of the Word Incarnate, and was preserved free from all stain of original sin in her Immaculate Conception."
+        },
+        {
+          "type": "text",
+          "text": "3. She possessed a plenitude of grace surpassing all angels and men: grace overflowing in her soul through all virtues, and grace overflowing into her bodily womb to conceive the Son of God."
+        },
+        {
+          "type": "text",
+          "text": "4. Because of this fullness of grace, she is our powerful advocate and refuge, obtaining for us from her Divine Son all heavenly blessings."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_hail_mary_3",
+      "title": "Chapter 3",
+      "subtitle": "The Lord Is with Thee: Sublime Intimacy with the Blessed Trinity",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Angel continues: \"The Lord is with thee\" (Luke 1:28)."
+        },
+        {
+          "type": "text",
+          "text": "2. The Lord God is with Mary in a manner more intimate and sublime than with any other creature: the Father is with her as His beloved Daughter, the Son is with her as her Divine Offspring, and the Holy Ghost is with her as His spotless Spouse."
+        },
+        {
+          "type": "text",
+          "text": "3. She is the living temple of the Blessed Trinity, the Ark of the New Covenant, and the tabernacle of the Most High."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_hail_mary_4",
+      "title": "Chapter 4",
+      "subtitle": "Blessed Art Thou Among Women, and Blessed Is the Fruit of Thy Womb",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Saint Elizabeth, filled with the Holy Ghost, cried out: \"Blessed art thou among women, and blessed is the fruit of thy womb\" (Luke 1:42)."
+        },
+        {
+          "type": "text",
+          "text": "2. Mary is blessed among all women because she was exempt from the curse of Eve, bringing forth the Author of life and salvation without pain or loss of virginity."
+        },
+        {
+          "type": "text",
+          "text": "3. The fruit of her womb is Jesus Christ, who is blessed above all things forever (Romans 9:5), the source of all grace, truth, and eternal life."
+        },
+        {
+          "type": "text",
+          "text": "4. The holy Church rightly adds: \"Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.\""
+        }
+      ]
+    }
+  ]
+}
