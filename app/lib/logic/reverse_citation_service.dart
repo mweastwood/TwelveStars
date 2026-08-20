@@ -105,6 +105,8 @@ class ReverseCitationService {
     'assets/catechism/json/cyril_catechetical_lectures_vol4.json',
     'assets/catechism/json/john_cross_ascent_mount_carmel.json',
     'assets/catechism/json/john_cross_dark_night_soul.json',
+    'assets/catechism/json/ambrose_on_the_mysteries.json',
+    'assets/catechism/json/ambrose_on_the_sacraments.json',
     'assets/catechism/json/aquinas_compendium_of_theology_part1.json',
     'assets/catechism/json/aquinas_compendium_of_theology_part2.json',
     'assets/catechism/json/aquinas_catechetical_creed.json',

@@ -579,6 +579,10 @@ void parseChapteredBookFile({
         stripped.startsWith('Dark Night of the Soul') ||
         stripped.startsWith('Noche Oscura del Alma') ||
         stripped.startsWith('By St. John of the Cross') ||
+        stripped.startsWith('On the Mysteries') ||
+        stripped.startsWith('On the Sacraments') ||
+        stripped.startsWith('De Mysteriis') ||
+        stripped.startsWith('De Sacramentis') ||
         stripped.startsWith('True Devotion to Mary:') ||
         stripped.startsWith('Proslogion') ||
         stripped.startsWith('Cur Deus Homo') ||
@@ -1085,6 +1089,27 @@ void main() {
     subtitle:
         'Noche Oscura del Alma (Trans. David Lewis, Rev. Benedict Zimmerman, O.C.D.)',
     author: 'St. John of the Cross',
+    outputDir: outputDir,
+  );
+
+  final ambroseDir = p.join('assets', 'catechism', 'ambrose');
+  parseChapteredBookFile(
+    filepath: p.join(ambroseDir, 'ambrose_on_the_mysteries.txt'),
+    bookId: 'ambrose_on_the_mysteries',
+    secIdPrefix: 'ambrose_mysteries',
+    title: 'On the Mysteries',
+    subtitle: 'De Mysteriis (Trans. Thompson & Srawley, 1919)',
+    author: 'St. Ambrose of Milan (Trans. T. Thompson & J. H. Srawley)',
+    outputDir: outputDir,
+  );
+
+  parseChapteredBookFile(
+    filepath: p.join(ambroseDir, 'ambrose_on_the_sacraments.txt'),
+    bookId: 'ambrose_on_the_sacraments',
+    secIdPrefix: 'ambrose_sacraments',
+    title: 'On the Sacraments',
+    subtitle: 'De Sacramentis (Trans. Thompson & Srawley, 1919)',
+    author: 'St. Ambrose of Milan (Trans. T. Thompson & J. H. Srawley)',
     outputDir: outputDir,
   );
 

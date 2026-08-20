@@ -721,6 +721,25 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> ambroseVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'on_the_mysteries',
+      name: 'On the Mysteries (De Mysteriis)',
+      shortName: 'On the Mysteries',
+      description:
+          'Nine mystagogical instructions for the newly baptized explaining the rites of Christian initiation: Baptism, the spiritual seal of Confirmation, and the Eucharistic sacrifice.',
+      assetPath: 'assets/catechism/json/ambrose_on_the_mysteries.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'on_the_sacraments',
+      name: 'On the Sacraments (De Sacramentis)',
+      shortName: 'On the Sacraments',
+      description:
+          'Six post-baptismal sermons expounding the sacramental mysteries: the baptismal font, chrismation, the Eucharistic canon, consecration by Christ\'s words, and the Lord\'s Prayer.',
+      assetPath: 'assets/catechism/json/ambrose_on_the_sacraments.json',
+    ),
+  ];
+
   static const List<BaltimoreVolume> aquinasCompendiumVolumes = [
     BaltimoreVolume(
       volumeKey: 'part1',
@@ -1017,6 +1036,17 @@ class LibraryHelper {
         description:
             'Delivered c. 380 AD in Constantinople by "Gregory the Theologian." The definitive patristic exposition and defense of the Holy Trinity, the eternal divinity of the Son, and the consubstantial deity and procession of the Holy Spirit.',
         volumes: gregoryVolumes,
+      ),
+      const LibraryBookItem(
+        id: 'ambrose_mysteries_and_sacraments',
+        title: 'On the Mysteries & On the Sacraments',
+        subtitle:
+            'De Mysteriis & De Sacramentis (Trans. Thompson & Srawley, 1919)',
+        category: 'Church Fathers',
+        author: 'St. Ambrose of Milan (Trans. T. Thompson & J. H. Srawley)',
+        description:
+            'Delivered c. 387–390 AD by the Bishop of Milan and Doctor of the Church. Foundational mystagogical works of the Western Church expounding Christian initiation: Baptism, Confirmation (the spiritual seal), the Lord\'s Prayer, and the Real Presence and Sacrifice in the Holy Eucharist.',
+        volumes: ambroseVolumes,
       ),
       const LibraryBookItem(
         id: 'anselm_proslogion',

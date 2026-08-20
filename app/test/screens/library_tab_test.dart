@@ -67,6 +67,7 @@ void main() {
       expect(find.text('Cur Deus Homo'), findsOneWidget);
       expect(find.text('Ascent of Mount Carmel'), findsOneWidget);
       expect(find.text('Dark Night of the Soul'), findsOneWidget);
+      expect(find.text('On the Mysteries & On the Sacraments'), findsOneWidget);
       expect(find.text('Compendium of Theology'), findsOneWidget);
       expect(find.text('The Catechetical Instructions'), findsOneWidget);
       expect(find.text('True Devotion to Mary'), findsOneWidget);
@@ -79,30 +80,23 @@ void main() {
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
       expect(find.text('No. 2 (Confirmation & Grammar)'), findsOneWidget);
-      expect(find.text('No. 3 (Post-Confirmation Course)'), findsOneWidget);
-      expect(find.text('No. 4 (Explanation by Fr. Kinkead)'), findsOneWidget);
+      expect(find.text('No. 3 (Two Years\' Course)'), findsOneWidget);
+      expect(find.text('No. 4 (Teachers & Advanced)'), findsOneWidget);
 
       // Verify Ignatius volume chips exist
       expect(find.text('Epistle to the Ephesians'), findsOneWidget);
-      expect(find.text('Epistle to the Romans'), findsOneWidget);
-      expect(find.text('Epistle to the Smyrnaeans'), findsOneWidget);
+      expect(find.text('Epistle to Polycarp'), findsOneWidget);
 
       // Verify Polycarp volume chips exist
       expect(find.text('Epistle to the Philippians'), findsOneWidget);
       expect(find.text('The Martyrdom of Polycarp'), findsOneWidget);
 
-      // Verify Justin Martyr volume chips exist
+      // Verify Justin volume chips exist
       expect(find.text('First Apology'), findsOneWidget);
       expect(find.text('Second Apology'), findsOneWidget);
 
-      // Verify Irenaeus volume chips exist
-      expect(find.text('Book I (Gnostic Sects)'), findsOneWidget);
-      expect(find.text('Book III (Faith & Tradition)'), findsOneWidget);
-
-      // Verify Augustine volume chips exist
-      expect(find.text('Book I (Infancy & Childhood)'), findsOneWidget);
-      expect(find.text('Book VIII (Conversion in the Garden)'), findsOneWidget);
-      expect(find.text('Book I (The Sack of Rome)'), findsOneWidget);
+      // Verify Augustine City of God volume chips exist
+      expect(find.text('Book I (The Pagan Gods)'), findsOneWidget);
       expect(find.text('Book XIX (Peace & the Supreme Good)'), findsOneWidget);
 
       // Verify Cyril volume chips exist
@@ -112,6 +106,10 @@ void main() {
       // Verify Gregory volume chips exist
       expect(find.text('Oration I (Against the Eunomians)'), findsOneWidget);
       expect(find.text('Oration V (On the Holy Spirit)'), findsOneWidget);
+
+      // Verify Ambrose volume chips exist
+      expect(find.text('On the Mysteries (De Mysteriis)'), findsOneWidget);
+      expect(find.text('On the Sacraments (De Sacramentis)'), findsOneWidget);
 
       // Verify Aquinas volume chips exist
       expect(find.text('Part I (On Faith)'), findsOneWidget);
@@ -664,6 +662,34 @@ void main() {
       expect(find.text('The Didache'), findsWidgets);
     });
 
+    testWidgets(
+      'tapping Ambrose On the Mysteries volume chip opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/ambrose_on_the_mysteries.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final mysteriesChip = find.text('On the Mysteries (De Mysteriis)');
+        await tester.scrollUntilVisible(
+          mysteriesChip,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(mysteriesChip);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('On the Mysteries'), findsWidgets);
+      },
+    );
+
     testWidgets('tapping Cur Deus Homo volume chip opens LibraryReaderScreen', (
       tester,
     ) async {
@@ -795,6 +821,19 @@ void main() {
 
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
         expect(find.text("The Mind's Road to God"), findsWidgets);
+=======
+        final mysteriesChip = find.text('On the Mysteries (De Mysteriis)');
+        await tester.scrollUntilVisible(
+          mysteriesChip,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(mysteriesChip);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('On the Mysteries'), findsWidgets);
+>>>>>>> 75f995e (feat(library): add St. Ambrose of Milan — On the Mysteries & On the Sacraments (#346))
       },
     );
 
@@ -1490,6 +1529,35 @@ void main() {
       },
     );
 
+    testGoldens('LibraryReaderScreen renders St. Ambrose On the Mysteries', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final ambrose = catalog.firstWhere(
+        (b) => b.id == 'ambrose_mysteries_and_sacraments',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/ambrose_on_the_mysteries.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        Scaffold(
+          body: LibraryReaderScreen(
+            bookItem: ambrose,
+            initialVolumeKey: 'on_the_mysteries',
+          ),
+        ),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'ambrose_mysteries_reader_golden');
+    });
+
     testWidgets(
       'LibraryReaderScreen renders Aquinas Compendium of Theology (Part I)',
       (tester) async {
@@ -1681,7 +1749,6 @@ void main() {
         );
       },
     );
-
     testWidgets('renders interactive Scripture citation chip', (tester) async {
       final catalog = LibraryHelper.getCatalog();
       final baltimore = catalog.firstWhere(
