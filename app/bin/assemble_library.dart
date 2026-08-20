@@ -570,6 +570,9 @@ void parseChapteredBookFile({
         stripped.startsWith('The Confessions of St. Augustine:') ||
         stripped.startsWith('The City of God:') ||
         stripped.startsWith('Catechetical Lectures:') ||
+        stripped.startsWith('The Five Theological Orations') ||
+        stripped.startsWith('Theological Orations') ||
+        stripped.startsWith('Oration ') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -959,6 +962,48 @@ void main() {
       title: title,
       subtitle: subtitle,
       author: 'St. Cyril of Jerusalem (Trans. E. H. Gifford)',
+      outputDir: outputDir,
+    );
+  }
+
+  final gregoryDir = p.join('assets', 'catechism', 'gregory');
+
+  final gregoryOrations = [
+    (
+      'oration1',
+      'The Five Theological Orations: Oration I',
+      'Oration 27: Against the Eunomians (Trans. Browne & Swallow, 1894)',
+    ),
+    (
+      'oration2',
+      'The Five Theological Orations: Oration II',
+      'Oration 28: On the Doctrine of God (Trans. Browne & Swallow, 1894)',
+    ),
+    (
+      'oration3',
+      'The Five Theological Orations: Oration III',
+      'Oration 29: On the Son — I (Trans. Browne & Swallow, 1894)',
+    ),
+    (
+      'oration4',
+      'The Five Theological Orations: Oration IV',
+      'Oration 30: On the Son — II (Trans. Browne & Swallow, 1894)',
+    ),
+    (
+      'oration5',
+      'The Five Theological Orations: Oration V',
+      'Oration 31: On the Holy Spirit (Trans. Browne & Swallow, 1894)',
+    ),
+  ];
+
+  for (final (slug, title, subtitle) in gregoryOrations) {
+    parseChapteredBookFile(
+      filepath: p.join(gregoryDir, 'gregory_theological_orations_$slug.txt'),
+      bookId: 'gregory_theological_orations_$slug',
+      secIdPrefix: 'gregory_theological_orations_$slug',
+      title: title,
+      subtitle: subtitle,
+      author: 'St. Gregory of Nazianzus (Trans. Browne & Swallow)',
       outputDir: outputDir,
     );
   }

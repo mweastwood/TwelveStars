@@ -654,6 +654,54 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> gregoryVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'oration1',
+      name: 'Oration I (Against the Eunomians)',
+      shortName: 'Oration I',
+      description:
+          'On the qualifications, dispositions, and reverence required for theological contemplation.',
+      assetPath:
+          'assets/catechism/json/gregory_theological_orations_oration1.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'oration2',
+      name: 'Oration II (On the Doctrine of God)',
+      shortName: 'Oration II',
+      description:
+          'On the nature, majesty, and incomprehensibility of the divine essence.',
+      assetPath:
+          'assets/catechism/json/gregory_theological_orations_oration2.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'oration3',
+      name: 'Oration III (On the Son — I)',
+      shortName: 'Oration III',
+      description:
+          'Refutation of Eunomian objections; defense of the eternal generation and co-equality of the Son.',
+      assetPath:
+          'assets/catechism/json/gregory_theological_orations_oration3.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'oration4',
+      name: 'Oration IV (On the Son — II)',
+      shortName: 'Oration IV',
+      description:
+          'Exegesis of biblical titles and scriptural passages concerning Christ\'s divinity and humanity.',
+      assetPath:
+          'assets/catechism/json/gregory_theological_orations_oration4.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'oration5',
+      name: 'Oration V (On the Holy Spirit)',
+      shortName: 'Oration V',
+      description:
+          'The definitive defense of the consubstantial divinity, procession, and co-worship of the Holy Spirit.',
+      assetPath:
+          'assets/catechism/json/gregory_theological_orations_oration5.json',
+    ),
+  ];
+
   static List<LibraryBookItem> getCatalog() {
     return [
       const LibraryBookItem(
@@ -792,6 +840,16 @@ class LibraryHelper {
         description:
             'Delivered c. 348–350 AD in the Church of the Holy Sepulchre. St. Cyril\'s 24 lectures form the Church\'s classic manual of baptismal catechesis, expounding the Jerusalem Creed, Christian moral life, and the Mystagogical rites of Baptism, Chrism, and the Holy Eucharist.',
         volumes: cyrilVolumes,
+      ),
+      const LibraryBookItem(
+        id: 'gregory_theological_orations',
+        title: 'The Five Theological Orations',
+        subtitle: 'Orations 27–31 (Trans. Browne & Swallow, 1894)',
+        category: 'Church Fathers',
+        author: 'St. Gregory of Nazianzus (Trans. Browne & Swallow)',
+        description:
+            'Delivered c. 380 AD in Constantinople by "Gregory the Theologian." The definitive patristic exposition and defense of the Holy Trinity, the eternal divinity of the Son, and the consubstantial deity and procession of the Holy Spirit.',
+        volumes: gregoryVolumes,
       ),
     ];
   }
