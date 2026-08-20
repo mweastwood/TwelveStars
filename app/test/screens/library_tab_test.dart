@@ -71,6 +71,7 @@ void main() {
       expect(find.text('The Rule of St. Benedict'), findsOneWidget);
       expect(find.text('Introduction to the Devout Life'), findsOneWidget);
       expect(find.text('The Interior Castle'), findsOneWidget);
+      expect(find.text('The Imitation of Christ'), findsOneWidget);
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -521,6 +522,42 @@ void main() {
 
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
         expect(find.text('True Devotion to Mary'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'tapping Read Book on The Imitation of Christ opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/kempis_imitation_of_christ.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final kempisCard = find.ancestor(
+          of: find.text('The Imitation of Christ'),
+          matching: find.byType(Card),
+        );
+        final readBtn = find.descendant(
+          of: kempisCard,
+          matching: find.widgetWithText(FilledButton, 'Read Book'),
+        );
+
+        await tester.scrollUntilVisible(
+          readBtn,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(readBtn);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('The Imitation of Christ'), findsWidgets);
       },
     );
 
@@ -1422,6 +1459,33 @@ void main() {
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(tester, 'teresa_interior_castle_golden');
+    });
+
+    testWidgets('LibraryReaderScreen renders The Imitation of Christ', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final kempis = catalog.firstWhere(
+        (b) => b.id == 'kempis_imitation_of_christ',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/kempis_imitation_of_christ.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(body: LibraryReaderScreen(bookItem: kempis)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('The Imitation of Christ'), findsWidgets);
+      expect(find.text('Chapter 1'), findsWidgets);
+      expect(find.text('Section 1 of 114'), findsOneWidget);
     });
 
     testWidgets('renders interactive Scripture citation chip', (tester) async {
