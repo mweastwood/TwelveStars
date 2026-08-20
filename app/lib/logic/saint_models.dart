@@ -1,3 +1,8 @@
+/// Representation of a Catholic saint or blessed in the database.
+///
+/// Canonized saints use the standard prefix "St." in [name] (or "The ...", e.g. "The Vietnamese Martyrs"),
+/// while beatified figures not yet canonized use "Blessed" and are flagged with [isBlessed] = true.
+/// Recognized Doctors of the Church are flagged with [isDoctor] = true.
 class Saint {
   final String id;
   final String name;
@@ -6,6 +11,8 @@ class Saint {
   final String nationality; // e.g. "Italian", "French", "Roman"
   final String profession; // e.g. "Theologian, Philosopher", "Nun, Mystic"
   final bool isDoctor; // true if recognized as Doctor of the Church
+  final bool
+  isBlessed; // true if beatified ('Blessed') rather than canonized ('St.')
   final String? feastDay; // e.g. "January 28"
   final String? patronage; // e.g. "Students, Academics, Theologians"
   final String? summary; // Short historical biographical context
@@ -18,6 +25,7 @@ class Saint {
     required this.nationality,
     required this.profession,
     this.isDoctor = false,
+    this.isBlessed = false,
     this.feastDay,
     this.patronage,
     this.summary,
@@ -43,6 +51,7 @@ class Saint {
       nationality: json['nationality'] as String? ?? '',
       profession: json['profession'] as String? ?? '',
       isDoctor: json['isDoctor'] as bool? ?? false,
+      isBlessed: json['isBlessed'] as bool? ?? false,
       feastDay: json['feastDay'] as String?,
       patronage: json['patronage'] as String?,
       summary: json['summary'] as String?,
@@ -58,6 +67,7 @@ class Saint {
       'nationality': nationality,
       'profession': profession,
       'isDoctor': isDoctor,
+      if (isBlessed) 'isBlessed': isBlessed,
       if (feastDay != null) 'feastDay': feastDay,
       if (patronage != null) 'patronage': patronage,
       if (summary != null) 'summary': summary,

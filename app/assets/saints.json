@@ -12,6 +12,18 @@
     "summary": "Twelve-year-old Roman maiden who consecrated her virginity to Christ and joyfully embraced martyrdom during Diocletian's persecution."
   },
   {
+    "id": "aidan-of-lindisfarne",
+    "name": "St. Aidan of Lindisfarne",
+    "birthDate": "c. 590",
+    "deathDate": "651",
+    "nationality": "Irish / Scottish",
+    "profession": "Bishop of Lindisfarne & Apostle of Northumbria",
+    "isDoctor": false,
+    "feastDay": "August 31",
+    "patronage": "Northumbria, Firefighters",
+    "summary": "Irish monk from Iona who founded the monastery on Holy Island (Lindisfarne) at the request of King Oswald, evangelizing the kingdom of Northumbria on foot."
+  },
+  {
     "id": "albert-the-great",
     "name": "St. Albert the Great",
     "birthDate": "c. 1200",
@@ -22,6 +34,18 @@
     "feastDay": "November 15",
     "patronage": "Scientists, Philosophers, Natural Sciences, Medical Technicians",
     "summary": "Renowned Dominican scholar and mentor of St. Thomas Aquinas. He mastered theology, philosophy, physics, botany, and zoology, demonstrating harmony between faith and reason."
+  },
+  {
+    "id": "aloysius-gonzaga",
+    "name": "St. Aloysius Gonzaga",
+    "birthDate": "1568",
+    "deathDate": "1591",
+    "nationality": "Italian",
+    "profession": "Jesuit Scholastic & Patron of Youth",
+    "isDoctor": false,
+    "feastDay": "June 21",
+    "patronage": "Catholic Youth, Students, AIDS Patients and Caregivers, Purity",
+    "summary": "Italian aristocrat who renounced his noble inheritance to enter the Society of Jesus, dying at age twenty-three from the plague contracted while caring for the sick."
   },
   {
     "id": "alphonsus-liguori",
@@ -46,6 +70,30 @@
     "feastDay": "December 7",
     "patronage": "Bishops, Beekeepers, Candle-makers, Milan",
     "summary": "Eloquent preacher and administrator who defended orthodoxy against Arianism and baptized St. Augustine of Hippo. One of the four original Latin Doctors."
+  },
+  {
+    "id": "anastasia-of-sirmium",
+    "name": "St. Anastasia of Sirmium",
+    "birthDate": "c. 3rd Century",
+    "deathDate": "304",
+    "nationality": "Roman",
+    "profession": "Virgin, Healer & Great Martyr",
+    "isDoctor": false,
+    "feastDay": "December 25",
+    "patronage": "Poison Sufferers, Weavers, Widows, Martyrs",
+    "summary": "Noble Roman matron who ministered to persecuted Christians in prisons and was martyred at Sirmium; traditionally commemorated at Christmas Day dawn Mass and in the Roman Canon."
+  },
+  {
+    "id": "andre-bessette",
+    "name": "St. André Bessette (Brother André of Montreal)",
+    "birthDate": "1845",
+    "deathDate": "1937",
+    "nationality": "Canadian / French-Canadian",
+    "profession": "Congregation of Holy Cross Lay Brother & Doorkeeper",
+    "isDoctor": false,
+    "feastDay": "January 6",
+    "patronage": "Caregivers, Family Members, Montreal, St. Joseph's Oratory",
+    "summary": "Humble Holy Cross doorkeeper at Notre Dame College in Montreal whose deep devotion to St. Joseph led to thousands of miraculous cures and the founding of Saint Joseph's Oratory."
   },
   {
     "id": "andrew-the-apostle",
@@ -84,6 +132,30 @@
     "summary": "Famed Franciscan orator celebrated for profound biblical knowledge, powerful preaching, and numerous miracles."
   },
   {
+    "id": "anthony-the-great",
+    "name": "St. Anthony the Great",
+    "birthDate": "251",
+    "deathDate": "356",
+    "nationality": "Egyptian",
+    "profession": "Desert Father & Patriarch of Christian Monasticism",
+    "isDoctor": false,
+    "feastDay": "January 17",
+    "patronage": "Monks, Skin Diseases, Basket Makers, Butchers, Domestic Animals",
+    "summary": "Father of all monks who renounced his worldly wealth to live in the Egyptian desert, enduring spiritual warfare and inspiring generations of hermits."
+  },
+  {
+    "id": "apollonia",
+    "name": "St. Apollonia",
+    "birthDate": "c. 2nd Century",
+    "deathDate": "249",
+    "nationality": "Egyptian / Roman (Alexandrian)",
+    "profession": "Deaconess, Virgin & Martyr",
+    "isDoctor": false,
+    "feastDay": "February 9",
+    "patronage": "Dentists, Toothache, Dental Diseases",
+    "summary": "Elderly deaconess of Alexandria whose teeth were violently extracted during an anti-Christian uprising before she willingly threw herself into the flames rather than renounce Christ."
+  },
+  {
     "id": "athanasius-of-alexandria",
     "name": "St. Athanasius of Alexandria",
     "birthDate": "c. 296",
@@ -106,6 +178,42 @@
     "feastDay": "August 28",
     "patronage": "Theologians, Printers, Brewers, Searchers of Truth",
     "summary": "Converted through the prayers of St. Monica and guidance of St. Ambrose. Author of Confessions and The City of God, towering figure in Christian thought."
+  },
+  {
+    "id": "barbara",
+    "name": "St. Barbara",
+    "birthDate": "c. 3rd Century",
+    "deathDate": "c. 306",
+    "nationality": "Greek / Roman (Heliopolis)",
+    "profession": "Virgin & Martyr",
+    "isDoctor": false,
+    "feastDay": "December 4",
+    "patronage": "Miners, Artillerymen, Firefighters, Architects, Sudden Death",
+    "summary": "Early martyr imprisoned in a tower by her pagan father for embracing Christianity; venerated as one of the Fourteen Holy Helpers invoked against sudden death and lightning."
+  },
+  {
+    "id": "barnabas",
+    "name": "St. Barnabas",
+    "birthDate": "c. 1 AD",
+    "deathDate": "c. 61 AD",
+    "nationality": "Cypriot / Jewish",
+    "profession": "Apostle & Missionary Companion of St. Paul",
+    "isDoctor": false,
+    "feastDay": "June 11",
+    "patronage": "Cyprus, Peacemakers, Antioch, Hailstorms",
+    "summary": "Early Christian disciple and apostle who introduced St. Paul to the Jerusalem community and undertook the first missionary journey to Cyprus and Asia Minor."
+  },
+  {
+    "id": "bartholomew-the-apostle",
+    "name": "St. Bartholomew the Apostle",
+    "birthDate": "c. 1st Century",
+    "deathDate": "c. 1st Century",
+    "nationality": "Galilean / Judean",
+    "profession": "Apostle & Martyr (Nathanael)",
+    "isDoctor": false,
+    "feastDay": "August 24",
+    "patronage": "Tanners, Leatherworkers, Plasterers, Armenia",
+    "summary": "Identified with Nathanael of Cana, praised by Jesus as 'an Israelite in whom there is no guile'. Preached in Armenia and India, where he was flayed and martyred."
   },
   {
     "id": "basil-the-great",
@@ -168,6 +276,18 @@
     "summary": "Major Cistercian reformer, contemplative mystic, and adviser to popes and kings, renowned for fervent Marian devotion and theological eloquence."
   },
   {
+    "id": "blaise",
+    "name": "St. Blaise",
+    "birthDate": "c. 3rd Century",
+    "deathDate": "316",
+    "nationality": "Armenian / Roman",
+    "profession": "Bishop of Sebaste & Physician",
+    "isDoctor": false,
+    "feastDay": "February 3",
+    "patronage": "Throat Ailments, Veterinarians, Wool Combers",
+    "summary": "Bishop and physician martyred in Armenia who famously saved a young boy choking on a fishbone; honored with the annual Blessing of the Throats."
+  },
+  {
     "id": "bonaventure",
     "name": "St. Bonaventure",
     "birthDate": "1221",
@@ -178,6 +298,18 @@
     "feastDay": "July 15",
     "patronage": "Franciscan Order, Bowel Disorders",
     "summary": "Franciscan philosopher and theologian who synthesized mystical devotion and scholastic philosophy in works like The Mind's Road to God."
+  },
+  {
+    "id": "bridget-of-sweden",
+    "name": "St. Bridget of Sweden (Birgitta)",
+    "birthDate": "1303",
+    "deathDate": "1373",
+    "nationality": "Swedish",
+    "profession": "Mystic, Founder (Bridgettines) & Patroness of Europe",
+    "isDoctor": false,
+    "feastDay": "July 23",
+    "patronage": "Sweden, Europe, Widows, Holy Death",
+    "summary": "Swedish noblewoman and mother of eight who experienced mystical revelations of the Passion of Christ, founded the Bridgettine Order, and worked for papal return to Rome."
   },
   {
     "id": "brigid-of-kildare",
@@ -192,6 +324,30 @@
     "summary": "Founded the great monastic community of Kildare, renowned for generous hospitality, miracles of healing, and weaving the Brigid's Cross."
   },
   {
+    "id": "bruno-of-cologne",
+    "name": "St. Bruno of Cologne",
+    "birthDate": "c. 1030",
+    "deathDate": "1101",
+    "nationality": "German / French",
+    "profession": "Founder of the Carthusian Order",
+    "isDoctor": false,
+    "feastDay": "October 6",
+    "patronage": "Carthusian Order, Calabria",
+    "summary": "Distinguished theology master who withdrew to the isolated valley of the Grande Chartreuse to found the contemplative Carthusians, dedicated to unbroken prayer and silence."
+  },
+  {
+    "id": "camillus-de-lellis",
+    "name": "St. Camillus de Lellis",
+    "birthDate": "1550",
+    "deathDate": "1614",
+    "nationality": "Italian",
+    "profession": "Priest & Founder of the Camillians (Ministers of the Sick)",
+    "isDoctor": false,
+    "feastDay": "July 14",
+    "patronage": "Hospitals, Nurses, Sick People, Healthcare Workers",
+    "summary": "Former gambler and soldier who founded the Order of Clerks Regular, Ministers to the Sick (Camillians), pioneering modern emergency medicine and hospital care."
+  },
+  {
     "id": "carlo-acutis",
     "name": "St. Carlo Acutis",
     "birthDate": "1991",
@@ -202,6 +358,30 @@
     "feastDay": "October 12",
     "patronage": "Youth, Students, Programmers, Computer Users, Internet, Webmasters, Digital Evangelization",
     "summary": "Italian teenager and computer programmer (often celebrated as St. Carlos Acutis) who documented Eucharistic miracles and approved Marian apparitions on a website he designed before dying of leukemia at age 15, offering his suffering for the Church and the Pope."
+  },
+  {
+    "id": "casimir",
+    "name": "St. Casimir",
+    "birthDate": "1458",
+    "deathDate": "1484",
+    "nationality": "Polish / Lithuanian",
+    "profession": "Crown Prince of Poland & Grand Duchy of Lithuania",
+    "isDoctor": false,
+    "feastDay": "March 4",
+    "patronage": "Poland, Lithuania, Youth, Celibates",
+    "summary": "Royal prince known for heroic chastity, love of the poor, intense Marian devotion (celebrated through the hymn Omni die dic Mariae), and peaceful statecraft."
+  },
+  {
+    "id": "catherine-of-bologna",
+    "name": "St. Catherine of Bologna",
+    "birthDate": "1413",
+    "deathDate": "1463",
+    "nationality": "Italian",
+    "profession": "Poor Clare Nun, Mystic & Artist",
+    "isDoctor": false,
+    "feastDay": "March 9",
+    "patronage": "Artists, Painters, Temptations, Liberal Arts",
+    "summary": "Italian Poor Clare abbess, calligrapher, and mystic whose spiritual reflections and preserved paintings inspired Renaissance religious devotion."
   },
   {
     "id": "catherine-of-siena",
@@ -228,6 +408,18 @@
     "summary": "Roman noble martyr who sang in her heart to God during her wedding and survived executioners before surrendering her spirit."
   },
   {
+    "id": "charbel-makhlouf",
+    "name": "St. Charbel Makhlouf",
+    "birthDate": "1828",
+    "deathDate": "1898",
+    "nationality": "Lebanese / Maronite",
+    "profession": "Maronite Monk & Hermit of Annaya",
+    "isDoctor": false,
+    "feastDay": "July 24",
+    "patronage": "Lebanon, Unity of Christians, Miraculous Healings",
+    "summary": "Maronite monk and hermit who lived twenty-three years of solitary prayer, fasting, and Eucharistic contemplation, source of thousands of documented healings."
+  },
+  {
     "id": "charles-borromeo",
     "name": "St. Charles Borromeo",
     "birthDate": "1538",
@@ -240,6 +432,42 @@
     "summary": "Leading figure of the Council of Trent, instituted modern seminary education and personally nursed plague victims in Milan."
   },
   {
+    "id": "charles-de-foucauld",
+    "name": "St. Charles de Foucauld",
+    "birthDate": "1858",
+    "deathDate": "1916",
+    "nationality": "French",
+    "profession": "Cavalry Officer, Hermit & Universal Brother",
+    "isDoctor": false,
+    "feastDay": "December 1",
+    "patronage": "Hermits, Unbelievers, Universal Brotherhood",
+    "summary": "French explorer and soldier who experienced deep conversion, living as a hermit among the Tuareg in the Algerian Sahara as a 'universal brother'."
+  },
+  {
+    "id": "charles-lwanga-and-ugandan-martyrs",
+    "name": "St. Charles Lwanga & the Ugandan Martyrs",
+    "birthDate": "1860",
+    "deathDate": "1886",
+    "nationality": "Ugandan",
+    "profession": "Royal Page & 22 Catholic Martyrs of Uganda",
+    "isDoctor": false,
+    "feastDay": "June 3",
+    "patronage": "African Youth, Catholic Action, Torture Victims",
+    "summary": "Chief page in the court of Mwanga II who protected younger pages and willingly chose martyrdom by fire at Namugongo for refusing to renounce Christ."
+  },
+  {
+    "id": "christopher",
+    "name": "St. Christopher",
+    "birthDate": "c. 3rd Century",
+    "deathDate": "c. 251",
+    "nationality": "Canaanite / Roman",
+    "profession": "Martyr & Christ-Bearer",
+    "isDoctor": false,
+    "feastDay": "July 25",
+    "patronage": "Travelers, Motorists, Drivers, Sailors, Athletes",
+    "summary": "Early Christian martyr commemorated for carrying a child across a dangerous river, discovering the child was Christ carrying the weight of the whole world."
+  },
+  {
     "id": "clare-of-assisi",
     "name": "St. Clare of Assisi",
     "birthDate": "1194",
@@ -250,6 +478,66 @@
     "feastDay": "August 11",
     "patronage": "Television, Eye Disease, Embroiderers",
     "summary": "First follower of St. Francis who founded the Order of Poor Ladies (Poor Clares) and protected her monastery by raising the Blessed Sacrament against invaders."
+  },
+  {
+    "id": "clare-of-montefalco",
+    "name": "St. Clare of Montefalco (St. Clare of the Cross)",
+    "birthDate": "1268",
+    "deathDate": "1308",
+    "nationality": "Italian",
+    "profession": "Augustinian Abbess & Mystic",
+    "isDoctor": false,
+    "feastDay": "August 17",
+    "patronage": "Montefalco, Heart Patients",
+    "summary": "Augustinian contemplative mystic who devoted her life to the Passion of Christ; upon her death, symbols of the Crucifixion were found imprinted upon her heart."
+  },
+  {
+    "id": "clement-of-rome",
+    "name": "St. Clement of Rome",
+    "birthDate": "c. 35",
+    "deathDate": "99",
+    "nationality": "Roman",
+    "profession": "Pope, Apostolic Father & Martyr",
+    "isDoctor": false,
+    "feastDay": "November 23",
+    "patronage": "Mariners, Sailors, Stonecutters",
+    "summary": "Fourth Pope of the Catholic Church who wrote the historic Epistle to the Corinthians asserting apostolic succession and unity within the Church."
+  },
+  {
+    "id": "columba-of-iona",
+    "name": "St. Columba of Iona (Colmcille)",
+    "birthDate": "521",
+    "deathDate": "597",
+    "nationality": "Irish",
+    "profession": "Abbot & Apostle of Scotland",
+    "isDoctor": false,
+    "feastDay": "June 9",
+    "patronage": "Scotland, Ireland, Poets, Bookbinders, Floods",
+    "summary": "One of the Twelve Apostles of Ireland who founded the influential abbey of Iona off the Scottish coast, leading the Christianization of the Picts and Scots."
+  },
+  {
+    "id": "columbanus",
+    "name": "St. Columbanus",
+    "birthDate": "543",
+    "deathDate": "615",
+    "nationality": "Irish",
+    "profession": "Monk, Missionary & Abbot",
+    "isDoctor": false,
+    "feastDay": "November 23",
+    "patronage": "Motorcyclists, Europe",
+    "summary": "Irish missionary abbot who established monastic communities across the Frankish and Lombard kingdoms, including Luxeuil and Bobbio, reviving Christian culture across Europe."
+  },
+  {
+    "id": "cuthbert-of-lindisfarne",
+    "name": "St. Cuthbert of Lindisfarne",
+    "birthDate": "c. 634",
+    "deathDate": "687",
+    "nationality": "Anglo-Saxon / English",
+    "profession": "Bishop of Lindisfarne, Monk & Hermit",
+    "isDoctor": false,
+    "feastDay": "March 20",
+    "patronage": "Northern England, Sailors, Shepherds, Durham",
+    "summary": "Beloved Anglo-Saxon prior and bishop known for his pastoral journeys across the border hills, deep prayer life on Inner Farne, and posthumous incorrupt relics."
   },
   {
     "id": "cyril-of-alexandria",
@@ -276,6 +564,18 @@
     "summary": "Delivered the celebrated Catechetical Lectures illuminating baptism, confirmation, the Eucharist, and the Creed for early Christian converts."
   },
   {
+    "id": "damasus-i",
+    "name": "St. Damasus I",
+    "birthDate": "c. 305",
+    "deathDate": "384",
+    "nationality": "Roman / Hispanic",
+    "profession": "Pope & Patron of the Latin Vulgate",
+    "isDoctor": false,
+    "feastDay": "December 11",
+    "patronage": "Archaeologists, Catacombs",
+    "summary": "37th Pope who preserved the catacombs with carved epigrams and commissioned St. Jerome to produce the Latin Vulgate translation of the Sacred Scriptures."
+  },
+  {
     "id": "damien-of-molokai",
     "name": "St. Damien of Molokai",
     "birthDate": "1840",
@@ -286,18 +586,6 @@
     "feastDay": "May 10",
     "patronage": "Leprosy, Hawaii, Outcasts, People with HIV/AIDS",
     "summary": "Volunteered to minister indefinitely to the banished leper colony on the island of Molokai, building homes and churches until succumbing to the disease."
-  },
-  {
-    "id": "dominic-savio",
-    "name": "St. Dominic Savio",
-    "birthDate": "1842",
-    "deathDate": "1857",
-    "nationality": "Italian",
-    "profession": "Student & Pupil of Don Bosco",
-    "isDoctor": false,
-    "feastDay": "May 6",
-    "patronage": "Choirboys, Juveniles, the Falsely Accused",
-    "summary": "Pupil of Don Bosco who lived by the motto 'Death rather than sin' and showed that holiness is reachable even in youth before dying at fourteen."
   },
   {
     "id": "dominic-de-guzman",
@@ -312,6 +600,54 @@
     "summary": "Founded the Order of Preachers (Dominicans) committed to rigorous study, itinerant poverty, combating heresy, and praying the Holy Rosary."
   },
   {
+    "id": "dominic-savio",
+    "name": "St. Dominic Savio",
+    "birthDate": "1842",
+    "deathDate": "1857",
+    "nationality": "Italian",
+    "profession": "Student & Pupil of Don Bosco",
+    "isDoctor": false,
+    "feastDay": "May 6",
+    "patronage": "Choirboys, Juveniles, the Falsely Accused",
+    "summary": "Pupil of Don Bosco who lived by the motto 'Death rather than sin' and showed that holiness is reachable even in youth before dying at fourteen."
+  },
+  {
+    "id": "dunstan",
+    "name": "St. Dunstan",
+    "birthDate": "909",
+    "deathDate": "988",
+    "nationality": "English / Anglo-Saxon",
+    "profession": "Archbishop of Canterbury, Reformer & Craftsman",
+    "isDoctor": false,
+    "feastDay": "May 19",
+    "patronage": "Blacksmiths, Goldsmiths, Jewelers, Musicians, Armorers",
+    "summary": "English monastic reformer, skilled artisan, and statesman who restored monastic life in England and devised the royal coronation service still used today."
+  },
+  {
+    "id": "edmund-campion",
+    "name": "St. Edmund Campion",
+    "birthDate": "1540",
+    "deathDate": "1581",
+    "nationality": "English",
+    "profession": "Jesuit Priest & Martyr (Forty Martyrs of England and Wales)",
+    "isDoctor": false,
+    "feastDay": "December 1",
+    "patronage": "English Martyrs, Converts",
+    "summary": "Brilliant Oxford scholar who entered the Society of Jesus and returned secretly to England to minister to underground Catholics, composing 'Campion's Brag' before his martyrdom at Tyburn."
+  },
+  {
+    "id": "edward-the-confessor",
+    "name": "St. Edward the Confessor",
+    "birthDate": "1003",
+    "deathDate": "1066",
+    "nationality": "English / Anglo-Saxon",
+    "profession": "King of England & Founder of Westminster Abbey",
+    "isDoctor": false,
+    "feastDay": "October 13",
+    "patronage": "Kings, Difficult Marriages, Separated Spouses, England",
+    "summary": "Pious Anglo-Saxon monarch renowned for his charity, justice, preserved chastity in marriage, and construction of Westminster Abbey."
+  },
+  {
     "id": "elizabeth-ann-seton",
     "name": "St. Elizabeth Ann Seton",
     "birthDate": "1774",
@@ -324,6 +660,18 @@
     "summary": "First native-born American canonized saint. Established the first free Catholic girls' school in America and founded the Sisters of Charity of St. Joseph."
   },
   {
+    "id": "elizabeth-of-hungary",
+    "name": "St. Elizabeth of Hungary",
+    "birthDate": "1207",
+    "deathDate": "1231",
+    "nationality": "Hungarian / German",
+    "profession": "Princess of Hungary & Third Order Franciscan",
+    "isDoctor": false,
+    "feastDay": "November 17",
+    "patronage": "Bakers, Beggars, Charitable Societies, Hospitals, Widows",
+    "summary": "Hungarian princess who used her royal wealth to care for the sick and poor, joining the Third Order of St. Francis and establishing a hospital at Marburg."
+  },
+  {
     "id": "ephrem-the-syrian",
     "name": "St. Ephrem the Syrian",
     "birthDate": "c. 306",
@@ -334,6 +682,18 @@
     "feastDay": "June 9",
     "patronage": "Spiritual Directors, Hymnographers, Poets",
     "summary": "Prolific Syriac poet, deacon, and theologian whose theological hymns combat heresies and glorify the mystery of the Incarnation and Blessed Mother."
+  },
+  {
+    "id": "eric-of-sweden",
+    "name": "St. Eric IX of Sweden (Eric the Holy)",
+    "birthDate": "c. 1120",
+    "deathDate": "1160",
+    "nationality": "Swedish",
+    "profession": "King of Sweden & Martyr",
+    "isDoctor": false,
+    "feastDay": "May 18",
+    "patronage": "Sweden, Stockholm",
+    "summary": "Swedish monarch who codified Christian laws, supported missionary work in Finland, and was martyred by Danish rebels after attending Ascension Day Mass."
   },
   {
     "id": "faustina-kowalska",
@@ -360,16 +720,16 @@
     "summary": "First United States citizen canonized. Built hospitals, schools, and orphanages across the Americas serving disenfranchised immigrant communities."
   },
   {
-    "id": "francis-xavier",
-    "name": "St. Francis Xavier",
-    "birthDate": "1506",
-    "deathDate": "1552",
-    "nationality": "Spanish (Navarrese)",
-    "profession": "Jesuit Priest & Apostle of the Indies and Japan",
+    "id": "francis-borgia",
+    "name": "St. Francis Borgia",
+    "birthDate": "1510",
+    "deathDate": "1572",
+    "nationality": "Spanish",
+    "profession": "Duke of Gandía & Third Superior General of the Jesuits",
     "isDoctor": false,
-    "feastDay": "December 3",
-    "patronage": "Foreign Missions, Missionaries, Navigators",
-    "summary": "Co-founder of the Jesuits and one of history's greatest missionaries, baptizing hundreds of thousands across India, the Moluccas, and Japan."
+    "feastDay": "October 10",
+    "patronage": "Earthquakes, Rulers, Portugal",
+    "summary": "Spanish grandee and Duke of Gandía who entered the Society of Jesus after the death of his wife and Empress Isabella, expanding Jesuit overseas missions across America and Asia."
   },
   {
     "id": "francis-de-sales",
@@ -396,6 +756,18 @@
     "summary": "Renounced wealth to embrace Lady Poverty, rebuilt the Church by living the Gospel, received the stigmata on Mount La Verna."
   },
   {
+    "id": "francis-xavier",
+    "name": "St. Francis Xavier",
+    "birthDate": "1506",
+    "deathDate": "1552",
+    "nationality": "Spanish (Navarrese)",
+    "profession": "Jesuit Priest & Apostle of the Indies and Japan",
+    "isDoctor": false,
+    "feastDay": "December 3",
+    "patronage": "Foreign Missions, Missionaries, Navigators",
+    "summary": "Co-founder of the Jesuits and one of history's greatest missionaries, baptizing hundreds of thousands across India, the Moluccas, and Japan."
+  },
+  {
     "id": "gabriel-the-archangel",
     "name": "St. Gabriel the Archangel",
     "nationality": "Angelic / Heavenly",
@@ -418,6 +790,18 @@
     "summary": "Roman officer of the Guard who was tortured and beheaded for refusing to sacrifice to pagan gods; emblem of Christian chivalry."
   },
   {
+    "id": "gertrude-the-great",
+    "name": "St. Gertrude the Great (Gertrude of Helfta)",
+    "birthDate": "1256",
+    "deathDate": "c. 1302",
+    "nationality": "German",
+    "profession": "Benedictine Nun, Mystic & Theologian",
+    "isDoctor": false,
+    "feastDay": "November 16",
+    "patronage": "Holy Souls in Purgatory, Travelers",
+    "summary": "German mystic of the monastery of Helfta, early visionary champion of the Sacred Heart of Jesus, and author of The Herald of Divine Love."
+  },
+  {
     "id": "gianna-beretta-molla",
     "name": "St. Gianna Beretta Molla",
     "birthDate": "1922",
@@ -428,6 +812,18 @@
     "feastDay": "April 28",
     "patronage": "Mothers, Physicians, Unborn Children",
     "summary": "Devout pediatrician and mother who chose to carry her fourth child to term knowing it risked her life, exemplifying sacrificial maternal love."
+  },
+  {
+    "id": "giuseppe-moscati",
+    "name": "St. Giuseppe Moscati",
+    "birthDate": "1880",
+    "deathDate": "1927",
+    "nationality": "Italian",
+    "profession": "Doctor, Medical Researcher & Layman",
+    "isDoctor": false,
+    "feastDay": "November 16",
+    "patronage": "Physicians, Medical Students, Anatomists, Bachelorhood",
+    "summary": "Pioneering medical researcher and physician in Naples who treated the poor for free and combined brilliant medical skill with holy personal piety."
   },
   {
     "id": "gregory-of-narek",
@@ -490,6 +886,18 @@
     "summary": "Benedictine abbess and universal genius who produced visionary theological works (Scivias), medicinal treatises, and liturgical music of transcendent beauty."
   },
   {
+    "id": "ignatius-of-antioch",
+    "name": "St. Ignatius of Antioch",
+    "birthDate": "c. 35",
+    "deathDate": "c. 108",
+    "nationality": "Syrian / Greek",
+    "profession": "Bishop of Antioch, Apostolic Father & Martyr (Theophorus)",
+    "isDoctor": false,
+    "feastDay": "October 17",
+    "patronage": "Church in the Eastern Mediterranean, Throat Diseases",
+    "summary": "Third Bishop of Antioch and disciple of John who wrote seven profound pastoral epistles on the episcopacy and the Eucharist on his journey to Rome to be thrown to wild beasts."
+  },
+  {
     "id": "ignatius-of-loyola",
     "name": "St. Ignatius of Loyola",
     "birthDate": "1491",
@@ -526,6 +934,18 @@
     "summary": "Last of the ancient Western Church Fathers. Compiled the Etymologiae, preserving Greco-Roman classical learning for medieval Europe."
   },
   {
+    "id": "jacques-berthieu",
+    "name": "St. Jacques Berthieu",
+    "birthDate": "1838",
+    "deathDate": "1896",
+    "nationality": "French",
+    "profession": "Jesuit Priest, Missionary & First Martyr of Madagascar",
+    "isDoctor": false,
+    "feastDay": "June 8",
+    "patronage": "Madagascar Missions",
+    "summary": "French Jesuit priest who tirelessly evangelized rural Madagascar, murdered during the Menalamba rebellion for refusing to renounce his Christian faith."
+  },
+  {
     "id": "james-the-greater",
     "name": "St. James the Greater",
     "birthDate": "c. 1 AD",
@@ -536,6 +956,30 @@
     "feastDay": "July 25",
     "patronage": "Pilgrims, Spain, Santiago de Compostela, Laborers",
     "summary": "Son of Zebedee and brother of John, witnessed the Transfiguration and Agony in the Garden; first apostle martyred."
+  },
+  {
+    "id": "james-the-lesser",
+    "name": "St. James the Lesser",
+    "birthDate": "c. 1st Century",
+    "deathDate": "c. 62 AD",
+    "nationality": "Galilean / Judean",
+    "profession": "Apostle & Bishop of Jerusalem (James son of Alphaeus)",
+    "isDoctor": false,
+    "feastDay": "May 3",
+    "patronage": "Pharmacists, Fullers, Hatmakers",
+    "summary": "Apostle and leader of the early Jerusalem Christian community who played a prominent role at the Council of Jerusalem and authored the Epistle of James."
+  },
+  {
+    "id": "jane-frances-de-chantal",
+    "name": "St. Jane Frances de Chantal",
+    "birthDate": "1572",
+    "deathDate": "1641",
+    "nationality": "French",
+    "profession": "Foundress of the Order of the Visitation of Holy Mary",
+    "isDoctor": false,
+    "feastDay": "August 12",
+    "patronage": "Widows, Forgotten People, Parents Separated from Children",
+    "summary": "French noblewoman, mother, and widow who collaborated with St. Francis de Sales to found the Visitation Order for women rejected by other austere orders."
   },
   {
     "id": "jerome",
@@ -560,6 +1004,18 @@
     "feastDay": "May 30",
     "patronage": "France, Soldiers, Captives, Martyrs",
     "summary": "Led French armies to victory during the Hundred Years' War guided by heavenly voices of St. Michael and St. Catherine, martyred at nineteen in Rouen."
+  },
+  {
+    "id": "john-berchmans",
+    "name": "St. John Berchmans",
+    "birthDate": "1599",
+    "deathDate": "1621",
+    "nationality": "Flemish / Belgian",
+    "profession": "Jesuit Scholastic",
+    "isDoctor": false,
+    "feastDay": "November 26",
+    "patronage": "Altar Servers, Jesuit Students, Youth",
+    "summary": "Belgian Jesuit youth celebrated for achieving heroic sanctity through the perfection of ordinary daily duties and intense devotion to the Blessed Sacrament."
   },
   {
     "id": "john-bosco",
@@ -598,16 +1054,40 @@
     "summary": "Monk of Mar Saba near Jerusalem who defended holy images during the Iconoclast controversy and authored The Fountain of Wisdom."
   },
   {
-    "id": "john-paul-ii",
-    "name": "St. John Paul II (Karol Wojtyła)",
-    "birthDate": "1920",
-    "deathDate": "2005",
-    "nationality": "Polish",
-    "profession": "Pope, Philosopher, Poet & World Youth Day Founder",
+    "id": "john-henry-newman",
+    "name": "St. John Henry Newman",
+    "birthDate": "1801",
+    "deathDate": "1890",
+    "nationality": "English",
+    "profession": "Cardinal, Oratorian, Theologian & Philosopher",
     "isDoctor": false,
-    "feastDay": "October 22",
-    "patronage": "World Youth Day, Young Families, Krakow",
-    "summary": "Pilgrim Pope who traveled to 129 countries, survived assassination, contributed to the fall of European communism, and authored Theology of the Body."
+    "feastDay": "October 9",
+    "patronage": "Scholars, University Students, Converts, Catholic Education",
+    "summary": "Leader of the Oxford Movement who entered full communion with the Catholic Church, author of The Idea of a University and Essay on the Development of Christian Doctrine."
+  },
+  {
+    "id": "john-of-avila",
+    "name": "St. John of Ávila",
+    "birthDate": "1499",
+    "deathDate": "1569",
+    "nationality": "Spanish",
+    "profession": "Priest, Preacher & Apostle of Andalusia",
+    "isDoctor": true,
+    "feastDay": "May 10",
+    "patronage": "Spanish Diocesan Clergy, Spiritual Directors",
+    "summary": "Priest and master spiritual director who reformed Spanish clergy, mentored Teresa of Ávila and John of God, and wrote Audi, Filia."
+  },
+  {
+    "id": "john-of-nepomuk",
+    "name": "St. John of Nepomuk",
+    "birthDate": "c. 1345",
+    "deathDate": "1393",
+    "nationality": "Bohemian / Czech",
+    "profession": "Canon of Prague & Martyr of the Confessional",
+    "isDoctor": false,
+    "feastDay": "May 16",
+    "patronage": "Confessors, Seal of Confession, Bridges, Floods, Bohemia",
+    "summary": "Vicar General of Prague drowned in the Vltava River by King Wenceslaus IV for refusing to break the sacred seal of confession regarding the Queen's sins."
   },
   {
     "id": "john-of-the-cross",
@@ -622,16 +1102,16 @@
     "summary": "Discalced Carmelite reformer alongside St. Teresa of Ávila. Author of sublime mystical treatises including Dark Night of the Soul and Ascent of Mount Carmel."
   },
   {
-    "id": "john-of-avila",
-    "name": "St. John of Ávila",
-    "birthDate": "1499",
-    "deathDate": "1569",
-    "nationality": "Spanish",
-    "profession": "Priest, Preacher & Apostle of Andalusia",
-    "isDoctor": true,
-    "feastDay": "May 10",
-    "patronage": "Spanish Diocesan Clergy, Spiritual Directors",
-    "summary": "Priest and master spiritual director who reformed Spanish clergy, mentored Teresa of Ávila and John of God, and wrote Audi, Filia."
+    "id": "john-paul-ii",
+    "name": "St. John Paul II (Karol Wojtyła)",
+    "birthDate": "1920",
+    "deathDate": "2005",
+    "nationality": "Polish",
+    "profession": "Pope, Philosopher, Poet & World Youth Day Founder",
+    "isDoctor": false,
+    "feastDay": "October 22",
+    "patronage": "World Youth Day, Young Families, Krakow",
+    "summary": "Pilgrim Pope who traveled to 129 countries, survived assassination, contributed to the fall of European communism, and authored Theology of the Body."
   },
   {
     "id": "john-the-apostle",
@@ -658,6 +1138,54 @@
     "summary": "The voice crying out in the wilderness preparing the way of the Lord. Baptized Jesus in the Jordan River and bore witness with his martyrdom."
   },
   {
+    "id": "john-vianney",
+    "name": "St. John Vianney (Curé of Ars)",
+    "birthDate": "1786",
+    "deathDate": "1859",
+    "nationality": "French",
+    "profession": "Parish Priest of Ars & Patron of Parish Priests",
+    "isDoctor": false,
+    "feastDay": "August 4",
+    "patronage": "Parish Priests, Confessors, Clergy",
+    "summary": "Humble French parish priest renowned for spending up to sixteen hours daily hearing confessions, spiritual discernment, and converting the village of Ars."
+  },
+  {
+    "id": "john-xxiii",
+    "name": "St. John XXIII (Angelo Roncalli)",
+    "birthDate": "1881",
+    "deathDate": "1963",
+    "nationality": "Italian",
+    "profession": "Pope (The Good Pope) & Initiator of Second Vatican Council",
+    "isDoctor": false,
+    "feastDay": "October 11",
+    "patronage": "Papal Delegates, Second Vatican Council, Christian Unity",
+    "summary": "Beloved 261st Pope who convened the Second Vatican Council (1962–1965) to promote pastoral renewal and Christian unity, author of Pacem in Terris."
+  },
+  {
+    "id": "jose-sanchez-del-rio",
+    "name": "St. José Sánchez del Río",
+    "birthDate": "1913",
+    "deathDate": "1928",
+    "nationality": "Mexican",
+    "profession": "Cristero Boy Martyr",
+    "isDoctor": false,
+    "feastDay": "February 10",
+    "patronage": "Persecuted Christians, Youth, Children, Sahuayo",
+    "summary": "Fourteen-year-old Mexican Cristero youth who was tortured and killed during the Cristero War, crying out '¡Viva Cristo Rey!' with his dying breath."
+  },
+  {
+    "id": "josemaria-escriva",
+    "name": "St. Josemaría Escrivá",
+    "birthDate": "1902",
+    "deathDate": "1975",
+    "nationality": "Spanish",
+    "profession": "Priest & Founder of Opus Dei",
+    "isDoctor": false,
+    "feastDay": "June 26",
+    "patronage": "Opus Dei, Ordinary Work, Diabetes Sufferers",
+    "summary": "Spanish priest who founded Opus Dei, teaching the universal call to holiness and sanctification of ordinary daily work and family life."
+  },
+  {
     "id": "joseph",
     "name": "St. Joseph",
     "birthDate": "c. 100 BC",
@@ -668,6 +1196,30 @@
     "feastDay": "March 19 / May 1",
     "patronage": "Universal Church, Fathers, Workers, Carpenters, Dying, Unborn",
     "summary": "Husband of the Blessed Virgin Mary and foster father of Jesus Christ. Declared Patron of the Universal Church and Terror of Demons."
+  },
+  {
+    "id": "joseph-of-cupertino",
+    "name": "St. Joseph of Cupertino",
+    "birthDate": "1603",
+    "deathDate": "1663",
+    "nationality": "Italian",
+    "profession": "Conventual Franciscan Friar & Mystic",
+    "isDoctor": false,
+    "feastDay": "September 18",
+    "patronage": "Test Takers, Students, Aviators, Pilots, Air Travelers",
+    "summary": "Humble Franciscan friar known for profound ecstatic levitations during prayer and Mass, venerated as the patron of struggling students and examinees."
+  },
+  {
+    "id": "juan-diego",
+    "name": "St. Juan Diego Cuauhtlatoatzin",
+    "birthDate": "1474",
+    "deathDate": "1548",
+    "nationality": "Indigenous Mexican (Chichimeca / Aztec)",
+    "profession": "Lay Hermit & Visionary of Our Lady of Guadalupe",
+    "isDoctor": false,
+    "feastDay": "December 9",
+    "patronage": "Indigenous Peoples, Mexico, the Americas",
+    "summary": "Humble Chichimeca layman to whom the Blessed Virgin Mary appeared at Tepeyac Hill as Our Lady of Guadalupe, leaving her miraculous image on his tilma."
   },
   {
     "id": "jude-thaddeus",
@@ -682,6 +1234,30 @@
     "summary": "Apostle and author of the Epistle of Jude. Revered worldwide as the patron saint of impossible and desperate situations."
   },
   {
+    "id": "junipero-serra",
+    "name": "St. Junípero Serra",
+    "birthDate": "1713",
+    "deathDate": "1784",
+    "nationality": "Spanish / Mallorcan",
+    "profession": "Franciscan Friar & Apostle of California",
+    "isDoctor": false,
+    "feastDay": "July 1",
+    "patronage": "California, Hispanic Americans, Vocations",
+    "summary": "Mallorcan Franciscan friar who founded nine of the twenty-one Spanish missions in California under the motto 'Siempre adelante' (Always forward)."
+  },
+  {
+    "id": "justin-martyr",
+    "name": "St. Justin Martyr",
+    "birthDate": "c. 100",
+    "deathDate": "165",
+    "nationality": "Samaritan / Roman",
+    "profession": "Philosopher, Apologist & Martyr",
+    "isDoctor": false,
+    "feastDay": "June 1",
+    "patronage": "Philosophers, Apologists, Lecturers",
+    "summary": "Early Christian philosopher who wrote the First and Second Apologies to the Roman Emperor defending Christian belief and providing the earliest detailed account of the Holy Mass."
+  },
+  {
     "id": "kateri-tekakwitha",
     "name": "St. Kateri Tekakwitha",
     "birthDate": "1656",
@@ -692,6 +1268,43 @@
     "feastDay": "July 14",
     "patronage": "Native Americans, Ecology, Orphaned Children",
     "summary": "First Native American recognized as a saint. Converted to Catholicism despite harsh ostracism, living a life of heroic chastity, penance, and love for Christ."
+  },
+  {
+    "id": "katharine-drexel",
+    "name": "St. Katharine Drexel",
+    "birthDate": "1858",
+    "deathDate": "1955",
+    "nationality": "American",
+    "profession": "Foundress of the Sisters of the Blessed Sacrament",
+    "isDoctor": false,
+    "feastDay": "March 3",
+    "patronage": "Philanthropy, Racial Justice, Native and African Americans",
+    "summary": "Philadelphia heiress who gave her entire inherited fortune to establish schools and missions for Native Americans and African Americans across the United States."
+  },
+  {
+    "id": "korean-martyrs",
+    "name": "St. Andrew Kim Taegon & the Korean Martyrs",
+    "birthDate": "1821",
+    "deathDate": "1846",
+    "nationality": "Korean",
+    "profession": "First Native Korean Catholic Priest & 103 Martyrs",
+    "isDoctor": false,
+    "feastDay": "September 20",
+    "patronage": "Korean Clergy, Korea",
+    "summary": "First native Korean priest and 102 lay martyrs who planted and defended the Catholic faith in Joseon Korea during severe 19th-century persecutions."
+  },
+  {
+    "id": "laura-vicuna",
+    "name": "Blessed Laura Vicuña",
+    "birthDate": "1891",
+    "deathDate": "1904",
+    "nationality": "Chilean / Argentine",
+    "profession": "Salesian Pupil & Virgin",
+    "isDoctor": false,
+    "isBlessed": true,
+    "feastDay": "January 22",
+    "patronage": "Abuse Victims, Argentina, Incest Victims, Loss of Parents",
+    "summary": "Twelve-year-old Chilean Salesian student in Argentina who offered her life to God for the conversion and spiritual liberation of her mother."
   },
   {
     "id": "lawrence-of-brindisi",
@@ -742,6 +1355,30 @@
     "summary": "First Filipino saint, martyred in Nagasaki, Japan. Proclaimed: 'I am a Catholic and will remain a Catholic until death. Even if I had a thousand lives, I would give them all to God.'"
   },
   {
+    "id": "louis-ix-of-france",
+    "name": "St. Louis IX of France",
+    "birthDate": "1214",
+    "deathDate": "1270",
+    "nationality": "French",
+    "profession": "King of France & Third Order Franciscan",
+    "isDoctor": false,
+    "feastDay": "August 25",
+    "patronage": "France, Kings, Builders, Hairdressers, Secular Franciscans",
+    "summary": "Devout French monarch celebrated for fair judicial reforms, feeding the poor from his own table, building Sainte-Chapelle, and leading crusades with deep Christian chivalry."
+  },
+  {
+    "id": "louise-de-marillac",
+    "name": "St. Louise de Marillac",
+    "birthDate": "1591",
+    "deathDate": "1660",
+    "nationality": "French",
+    "profession": "Foundress of the Daughters of Charity",
+    "isDoctor": false,
+    "feastDay": "May 9",
+    "patronage": "Social Workers, Sick People, Widows",
+    "summary": "Collaborated with St. Vincent de Paul to organize rural relief and found the Daughters of Charity, pioneering non-cloistered religious life dedicated to serving the poor."
+  },
+  {
     "id": "lucy-of-syracuse",
     "name": "St. Lucy of Syracuse",
     "birthDate": "c. 283",
@@ -766,6 +1403,30 @@
     "summary": "Beloved physician, traveling companion of St. Paul, and inspired author of the Third Gospel and the Acts of the Apostles."
   },
   {
+    "id": "margaret-clitherow",
+    "name": "St. Margaret Clitherow (Pearl of York)",
+    "birthDate": "1556",
+    "deathDate": "1586",
+    "nationality": "English",
+    "profession": "Wife, Mother & Martyr",
+    "isDoctor": false,
+    "feastDay": "March 26",
+    "patronage": "Catholic Women's League, Converts, Businesswomen",
+    "summary": "York housewife who hid Catholic priests and hosted secret Masses in her home, martyred by being pressed to death under heavy stones to protect her children from testifying."
+  },
+  {
+    "id": "margaret-of-scotland",
+    "name": "St. Margaret of Scotland",
+    "birthDate": "c. 1045",
+    "deathDate": "1093",
+    "nationality": "Anglo-Saxon / Scottish",
+    "profession": "Queen Consort of Scotland & Reformer",
+    "isDoctor": false,
+    "feastDay": "November 16",
+    "patronage": "Scotland, Large Families, Queens, Learning",
+    "summary": "English princess who married King Malcolm III of Scotland, transforming court life through piety, education, charity, and church reforms."
+  },
+  {
     "id": "maria-goretti",
     "name": "St. Maria Goretti",
     "birthDate": "1890",
@@ -778,6 +1439,18 @@
     "summary": "Eleven-year-old martyr who chose physical death rather than surrender her purity, forgiving her attacker from her deathbed."
   },
   {
+    "id": "marianne-cope",
+    "name": "St. Marianne Cope (Mother Marianne of Molokai)",
+    "birthDate": "1838",
+    "deathDate": "1918",
+    "nationality": "German / American",
+    "profession": "Franciscan Sister & Missionary to Molokai",
+    "isDoctor": false,
+    "feastDay": "January 23",
+    "patronage": "Leprosy Patients, Outcasts, Hawaii",
+    "summary": "Sisters of Saint Francis of Syracuse leader who volunteered to care for quarantined Hansen's disease (leprosy) patients on Molokai, continuing St. Damien's mission."
+  },
+  {
     "id": "mark-the-evangelist",
     "name": "St. Mark the Evangelist",
     "birthDate": "c. 12 AD",
@@ -788,6 +1461,42 @@
     "feastDay": "April 25",
     "patronage": "Notaries, Venice, Egypt, Barristers",
     "summary": "Companion of St. Peter in Rome and founder of the Church of Alexandria; author of the Second Gospel."
+  },
+  {
+    "id": "martin-de-porres",
+    "name": "St. Martin de Porres",
+    "birthDate": "1579",
+    "deathDate": "1639",
+    "nationality": "Peruvian / Afro-Peruvian",
+    "profession": "Dominican Lay Brother & Wonderworker",
+    "isDoctor": false,
+    "feastDay": "November 3",
+    "patronage": "Racial Harmony, Social Justice, Barbers, Public Health, Innkeepers",
+    "summary": "Afro-Peruvian Dominican brother renowned for humility, spiritual gifts, caring for the sick of all races, and miraculous compassion for all living creatures."
+  },
+  {
+    "id": "martin-of-tours",
+    "name": "St. Martin of Tours",
+    "birthDate": "316",
+    "deathDate": "397",
+    "nationality": "Pannonian / Roman (Hungarian / French)",
+    "profession": "Roman Soldier, Bishop of Tours & Monastic Pioneer",
+    "isDoctor": false,
+    "feastDay": "November 11",
+    "patronage": "Soldiers, Cavalry, Beggars, France, Wine Makers",
+    "summary": "Roman soldier who famously cut his military cloak in half to clothe a freezing beggar, who was revealed in a vision as Jesus Christ; later founded French monasteries and became Bishop of Tours."
+  },
+  {
+    "id": "mary-mackillop",
+    "name": "St. Mary MacKillop (St. Mary of the Cross)",
+    "birthDate": "1842",
+    "deathDate": "1909",
+    "nationality": "Australian",
+    "profession": "Foundress of the Sisters of St. Joseph of the Sacred Heart",
+    "isDoctor": false,
+    "feastDay": "August 8",
+    "patronage": "Australia, Adelaide, Brisbanites, Teachers",
+    "summary": "First canonized saint of Australia who co-founded the Josephites to establish free schools for impoverished rural children and shelters for orphans."
   },
   {
     "id": "mary-magdalene",
@@ -814,6 +1523,18 @@
     "summary": "Left his tax booth upon Jesus's call: 'Follow me.' Authored the First Gospel directed to Jewish Christians."
   },
   {
+    "id": "matthias",
+    "name": "St. Matthias",
+    "birthDate": "c. 1 AD",
+    "deathDate": "c. 80 AD",
+    "nationality": "Judean",
+    "profession": "Apostle chosen to replace Judas Iscariot",
+    "isDoctor": false,
+    "feastDay": "May 14",
+    "patronage": "Alcoholics, Carpenters, Smallpox, Tailors",
+    "summary": "Disciple chosen by lot among the followers of Jesus after the Ascension to complete the Twelve Apostles, witnessing Christ's resurrection."
+  },
+  {
     "id": "maximilian-kolbe",
     "name": "St. Maximilian Kolbe",
     "birthDate": "1894",
@@ -826,6 +1547,18 @@
     "summary": "Franciscan missionary who founded the Militia Immaculatae and gave his life voluntarily in the starvation bunker at Auschwitz in place of a stranger."
   },
   {
+    "id": "mechtilde-of-hackeborn",
+    "name": "St. Mechtilde of Hackeborn",
+    "birthDate": "1241",
+    "deathDate": "1298",
+    "nationality": "German",
+    "profession": "Benedictine Nun & Mystic",
+    "isDoctor": false,
+    "feastDay": "November 19",
+    "patronage": "Choir Singers, Mystics",
+    "summary": "Choirmistress and mystic at the Helfta monastery whose heavenly visions and deep liturgical spirituality were recorded in The Book of Special Grace."
+  },
+  {
     "id": "michael-the-archangel",
     "name": "St. Michael the Archangel",
     "nationality": "Angelic / Heavenly",
@@ -834,6 +1567,115 @@
     "feastDay": "September 29",
     "patronage": "Police Officers, Military, Soldiers, Paramedics, Grocers, Mariners, Radiologists, The Dying, Protection Against Evil",
     "summary": "Leader of the heavenly host ('Who is like God?') who cast Lucifer and the rebel angels out of heaven in the Book of Revelation. Revered as the defender of the Church, guardian of the faithful, and champion in spiritual warfare."
+  },
+  {
+    "id": "miguel-pro",
+    "name": "Blessed Miguel Pro",
+    "birthDate": "1891",
+    "deathDate": "1927",
+    "nationality": "Mexican",
+    "profession": "Jesuit Priest & Cristero Era Martyr",
+    "isDoctor": false,
+    "isBlessed": true,
+    "feastDay": "November 23",
+    "patronage": "Mexico, Persecuted Clergy, Special Ops",
+    "summary": "Mexican Jesuit priest who carried out clandestine pastoral ministry disguised in various occupations during the Calles presidency before execution by firing squad."
+  },
+  {
+    "id": "mother-teresa",
+    "name": "St. Teresa of Calcutta (Mother Teresa)",
+    "birthDate": "1910",
+    "deathDate": "1997",
+    "nationality": "Albanian / Indian",
+    "profession": "Foundress of the Missionaries of Charity",
+    "isDoctor": false,
+    "feastDay": "September 5",
+    "patronage": "Missionaries of Charity, World Youth Day, the Poor",
+    "summary": "Nobel laureate who served 'the poorest of the poor' in the slums of Calcutta, answering Jesus's call to quench His thirst on the Cross."
+  },
+  {
+    "id": "nicholas-of-myra",
+    "name": "St. Nicholas of Myra",
+    "birthDate": "270",
+    "deathDate": "343",
+    "nationality": "Greek / Lycian",
+    "profession": "Bishop of Myra & Wonderworker (Thaumaturgus)",
+    "isDoctor": false,
+    "feastDay": "December 6",
+    "patronage": "Children, Sailors, Merchants, Pawnbrokers, Russia, Greece",
+    "summary": "Generous Bishop of Myra famed for secret gift-giving, defending the poor, and attending the Council of Nicaea; the historical inspiration for Santa Claus."
+  },
+  {
+    "id": "nimatullah-kassab",
+    "name": "St. Nimatullah Kassab Al-Hardini",
+    "birthDate": "1808",
+    "deathDate": "1858",
+    "nationality": "Lebanese / Maronite",
+    "profession": "Maronite Monk, Scholar & Theologian",
+    "isDoctor": false,
+    "feastDay": "December 14",
+    "patronage": "Maronite Order, Teachers",
+    "summary": "Lebanese Maronite monk and teacher of St. Charbel Makhlouf, renowned for deep adoration of the Blessed Sacrament, humble manual labor, and binding books."
+  },
+  {
+    "id": "olaf-ii-of-norway",
+    "name": "St. Olaf II of Norway",
+    "birthDate": "995",
+    "deathDate": "1030",
+    "nationality": "Norwegian",
+    "profession": "King of Norway & Martyr (Rex Perpetuus Norvegiae)",
+    "isDoctor": false,
+    "feastDay": "July 29",
+    "patronage": "Norway, Carvers, Difficult Marriages",
+    "summary": "King of Norway who unified his country and introduced Christian laws; slain in the Battle of Stiklestad and venerated as the Eternal King of Norway."
+  },
+  {
+    "id": "oscar-romero",
+    "name": "St. Óscar Romero",
+    "birthDate": "1917",
+    "deathDate": "1980",
+    "nationality": "Salvadoran",
+    "profession": "Archbishop of San Salvador & Martyr",
+    "isDoctor": false,
+    "feastDay": "March 24",
+    "patronage": "El Salvador, Americas, Persecuted Christians, Human Rights",
+    "summary": "Archbishop of San Salvador who courageously spoke out against social injustice, poverty, and state violence, assassinated while celebrating Holy Mass."
+  },
+  {
+    "id": "pachomius",
+    "name": "St. Pachomius the Great",
+    "birthDate": "c. 292",
+    "deathDate": "348",
+    "nationality": "Egyptian",
+    "profession": "Founder of Cenobitic (Communal) Monasticism",
+    "isDoctor": false,
+    "feastDay": "May 9",
+    "patronage": "Monastic Communities",
+    "summary": "Desert Father who founded the first Christian communal monasteries along the Nile, establishing written monastic rules that shaped Eastern and Western monastic life."
+  },
+  {
+    "id": "padre-pio",
+    "name": "St. Pio of Pietrelcina (Padre Pio)",
+    "birthDate": "1887",
+    "deathDate": "1968",
+    "nationality": "Italian",
+    "profession": "Capuchin Friar, Priest, Confessor & Stigmatist",
+    "isDoctor": false,
+    "feastDay": "September 23",
+    "patronage": "Confessors, Adolescents, Stress Relief, Pietrelcina",
+    "summary": "Capuchin priest who bore the stigmata for fifty years, gifted with bilocation and reading souls in the confessional; famous for: 'Pray, hope, and don't worry.'"
+  },
+  {
+    "id": "pancras",
+    "name": "St. Pancras of Rome",
+    "birthDate": "c. 289",
+    "deathDate": "c. 304",
+    "nationality": "Phrygian / Roman",
+    "profession": "Child Martyr",
+    "isDoctor": false,
+    "feastDay": "May 12",
+    "patronage": "Children, Jobs, Employment, False Witness Protection",
+    "summary": "Fourteen-year-old orphan convert who was beheaded under Emperor Diocletian for refusing to offer sacrifice to pagan gods."
   },
   {
     "id": "patrick-of-ireland",
@@ -848,6 +1690,30 @@
     "summary": "Kidnapped into Irish slavery as a youth, escaped, then returned as bishop to evangelize the Irish people and establish churches across the island."
   },
   {
+    "id": "paul-miki-and-companions",
+    "name": "St. Paul Miki & Companions (Twenty-Six Martyrs of Japan)",
+    "birthDate": "c. 1562",
+    "deathDate": "1597",
+    "nationality": "Japanese",
+    "profession": "Jesuit Seminarian & 26 Martyrs of Nagasaki",
+    "isDoctor": false,
+    "feastDay": "February 6",
+    "patronage": "Japan, Japanese Missions",
+    "summary": "Japanese Jesuit preacher who, along with twenty-five Franciscan and Jesuit companions, was crucified on a hill in Nagasaki, forgiving his executioners from the cross."
+  },
+  {
+    "id": "paul-of-the-cross",
+    "name": "St. Paul of the Cross",
+    "birthDate": "1694",
+    "deathDate": "1775",
+    "nationality": "Italian",
+    "profession": "Priest, Mystic & Founder of the Passionists",
+    "isDoctor": false,
+    "feastDay": "October 19",
+    "patronage": "Passionist Congregation, Preachers",
+    "summary": "Italian preacher and mystic who founded the Congregation of the Passion (Passionists) to promote memory of Christ's Passion as the most efficacious remedy for moral evils."
+  },
+  {
     "id": "paul-the-apostle",
     "name": "St. Paul the Apostle",
     "birthDate": "c. 5 AD",
@@ -860,6 +1726,30 @@
     "summary": "Converted on the road to Damascus after persecuting the Church. Prolific missionary whose epistles comprise much of the New Testament."
   },
   {
+    "id": "paul-the-first-hermit",
+    "name": "St. Paul the First Hermit",
+    "birthDate": "c. 227",
+    "deathDate": "c. 342",
+    "nationality": "Egyptian",
+    "profession": "First Christian Hermit",
+    "isDoctor": false,
+    "feastDay": "January 15",
+    "patronage": "Hermits, Weavers",
+    "summary": "Regarded by St. Jerome as the first Christian hermit, who lived over ninety years of prayer and contemplation alone in the Egyptian desert fed daily by a raven."
+  },
+  {
+    "id": "paul-vi",
+    "name": "St. Paul VI (Giovanni Battista Montini)",
+    "birthDate": "1897",
+    "deathDate": "1978",
+    "nationality": "Italian",
+    "profession": "Pope & Concluder of Second Vatican Council",
+    "isDoctor": false,
+    "feastDay": "May 29",
+    "patronage": "Unborn Children, Large Families, Popes",
+    "summary": "262nd Pope who brought the Second Vatican Council to completion, promulgated the Missal of Paul VI, and authored the encyclical Humanae Vitae."
+  },
+  {
     "id": "pedro-calungsod",
     "name": "St. Pedro Calungsod",
     "birthDate": "1654",
@@ -870,6 +1760,18 @@
     "feastDay": "April 2",
     "patronage": "Filipino Youth, Catechists, Overseas Workers",
     "summary": "Teenage Visayan catechist missionary in Guam who assisted Fr. Diego Luis de San Vitores and was martyred while defending his priest with heroic courage."
+  },
+  {
+    "id": "perpetua-and-felicity",
+    "name": "Sts. Perpetua and Felicity",
+    "birthDate": "c. 181",
+    "deathDate": "203",
+    "nationality": "North African / Roman",
+    "profession": "Martyrs of Carthage",
+    "isDoctor": false,
+    "feastDay": "March 7",
+    "patronage": "Mothers, Pregnant Women, Expectant Mothers, Butchers",
+    "summary": "Noblewoman Perpetua and her enslaved companion Felicity, young mothers who fearlessly stood firm in their faith and were martyred in the amphitheater at Carthage."
   },
   {
     "id": "peter-canisius",
@@ -896,6 +1798,18 @@
     "summary": "Archbishop of Ravenna renowned for concise, luminous homilies explaining the Incarnation, the Apostles' Creed, and Christian moral life."
   },
   {
+    "id": "peter-claver",
+    "name": "St. Peter Claver",
+    "birthDate": "1580",
+    "deathDate": "1654",
+    "nationality": "Spanish / Colombian",
+    "profession": "Jesuit Priest & 'Slave of the Slaves Forever'",
+    "isDoctor": false,
+    "feastDay": "September 9",
+    "patronage": "African Missions, Human Rights, Colombia, Interracial Justice",
+    "summary": "Spanish Jesuit missionary who spent forty years at the port of Cartagena ministering to enslaved Africans, personally feeding, tending, and baptizing over 300,000 people."
+  },
+  {
     "id": "peter-damian",
     "name": "St. Peter Damian",
     "birthDate": "c. 1007",
@@ -920,6 +1834,18 @@
     "summary": "Leader of the Twelve Apostles, given the keys of the kingdom of heaven by Jesus Christ. Martyred in Rome by crucifixion upside-down."
   },
   {
+    "id": "philip-howard",
+    "name": "St. Philip Howard",
+    "birthDate": "1557",
+    "deathDate": "1595",
+    "nationality": "English",
+    "profession": "Earl of Arundel & Martyr",
+    "isDoctor": false,
+    "feastDay": "October 19",
+    "patronage": "Difficult Marriages, Atticus Patients, Betrayed Spouses",
+    "summary": "English nobleman and courtier who converted to Catholicism, spending ten years imprisoned in the Tower of London for his faith until his death."
+  },
+  {
     "id": "philip-neri",
     "name": "St. Philip Neri",
     "birthDate": "1515",
@@ -932,16 +1858,52 @@
     "summary": "Joyful Roman priest whose warm humor, street ministry, and musical gatherings at the Oratory revitalized the spiritual heart of Rome."
   },
   {
-    "id": "padre-pio",
-    "name": "St. Pio of Pietrelcina (Padre Pio)",
-    "birthDate": "1887",
-    "deathDate": "1968",
-    "nationality": "Italian",
-    "profession": "Capuchin Friar, Priest, Confessor & Stigmatist",
+    "id": "philip-the-apostle",
+    "name": "St. Philip the Apostle",
+    "birthDate": "c. 5 AD",
+    "deathDate": "c. 80 AD",
+    "nationality": "Galilean / Judean",
+    "profession": "Apostle of Jesus Christ",
     "isDoctor": false,
-    "feastDay": "September 23",
-    "patronage": "Confessors, Adolescents, Stress Relief, Pietrelcina",
-    "summary": "Capuchin priest who bore the stigmata for fifty years, gifted with bilocation and reading souls in the confessional; famous for: 'Pray, hope, and don't worry.'"
+    "feastDay": "May 3",
+    "patronage": "Hatters, Pastry Chefs, Uruguay",
+    "summary": "Apostle from Bethsaida who brought Nathanael (Bartholomew) to Jesus and asked the Lord to 'show us the Father' at the Last Supper."
+  },
+  {
+    "id": "pius-x",
+    "name": "St. Pius X (Giuseppe Sarto)",
+    "birthDate": "1835",
+    "deathDate": "1914",
+    "nationality": "Italian",
+    "profession": "Pope & Reformer of Church Music and Canon Law",
+    "isDoctor": false,
+    "feastDay": "August 21",
+    "patronage": "First Communicants, Catechists, Pilgrims, Emigrants",
+    "summary": "257th Pope who lowered the age of First Communion to the age of discretion, encouraged frequent reception of the Eucharist, and initiated the 1917 Code of Canon Law."
+  },
+  {
+    "id": "polycarp-of-smyrna",
+    "name": "St. Polycarp of Smyrna",
+    "birthDate": "69",
+    "deathDate": "155",
+    "nationality": "Greek / Anatolian",
+    "profession": "Bishop of Smyrna & Apostolic Father",
+    "isDoctor": false,
+    "feastDay": "February 23",
+    "patronage": "Earache, Dysentery",
+    "summary": "Disciple of St. John the Apostle and Bishop of Smyrna. Martyred by fire and sword after famously declaring he could not blaspheme the King who had saved him for 86 years."
+  },
+  {
+    "id": "rafqa-pietra-choboq-ar-rayes",
+    "name": "St. Rafqa Pietra Choboq Ar-Rayès (Rebecca)",
+    "birthDate": "1832",
+    "deathDate": "1914",
+    "nationality": "Lebanese / Maronite",
+    "profession": "Maronite Nun & Mystic",
+    "isDoctor": false,
+    "feastDay": "March 23",
+    "patronage": "Loss of Parents, Sick People, Blindness, Bodily Ills",
+    "summary": "Maronite nun who joyfully united her intense physical suffering—blindness and paralysis—with the Passion of Jesus Christ in total serenity and love."
   },
   {
     "id": "raphael-the-archangel",
@@ -954,6 +1916,18 @@
     "summary": "The archangel of healing ('God heals') who disguised himself as Azarias to guide Tobias on his journey in the Book of Tobit, healed Tobit's blindness with fish gall, delivered Sarah from demonic oppression, and revealed himself as one of the seven angels who stand in the glorious presence of the Lord."
   },
   {
+    "id": "rita-of-cascia",
+    "name": "St. Rita of Cascia",
+    "birthDate": "1381",
+    "deathDate": "1457",
+    "nationality": "Italian",
+    "profession": "Augustinian Nun & Mystic",
+    "isDoctor": false,
+    "feastDay": "May 22",
+    "patronage": "Impossible Causes, Difficult Marriages, Infertility, Wounded Sufferers",
+    "summary": "Italian mystic and Augustinian sister who bore the sorrow of a difficult marriage, family tragedy, and received a miraculous partial stigmata wound of the Crown of Thorns."
+  },
+  {
     "id": "robert-bellarmine",
     "name": "St. Robert Bellarmine",
     "birthDate": "1542",
@@ -964,6 +1938,42 @@
     "feastDay": "September 17",
     "patronage": "Catechists, Canon Lawyers, Diocesan Clergy",
     "summary": "Leading apologist of the Counter-Reformation, author of Disputationes de Controversiis, and spiritual director to St. Aloysius Gonzaga."
+  },
+  {
+    "id": "roch",
+    "name": "St. Roch (St. Rocco)",
+    "birthDate": "c. 1348",
+    "deathDate": "1376",
+    "nationality": "French",
+    "profession": "Pilgrim & Healer",
+    "isDoctor": false,
+    "feastDay": "August 16",
+    "patronage": "Plague Sufferers, Epidemics, Dogs, Invalids, Knee Problems",
+    "summary": "French nobleman who distributed his wealth to pilgrims and cured plague victims across Italy, comforted during his own sickness by a faithful dog that brought him bread."
+  },
+  {
+    "id": "romuald",
+    "name": "St. Romuald",
+    "birthDate": "c. 951",
+    "deathDate": "1027",
+    "nationality": "Italian",
+    "profession": "Abbot & Founder of the Camaldolese Order",
+    "isDoctor": false,
+    "feastDay": "June 19",
+    "patronage": "Camaldolese Order, Hermits",
+    "summary": "Italian ascetic and reformer who combined Eastern eremitic solitude with Western cenobitic community life in founding the Camaldolese monastic family."
+  },
+  {
+    "id": "rose-of-lima",
+    "name": "St. Rose of Lima (Isabel Flores de Oliva)",
+    "birthDate": "1586",
+    "deathDate": "1617",
+    "nationality": "Peruvian",
+    "profession": "Third Order Dominican & First Canonized Saint of the Americas",
+    "isDoctor": false,
+    "feastDay": "August 23",
+    "patronage": "The Americas, Peru, Florists, Gardeners, Embroiderers",
+    "summary": "Peruvian mystic and tertiary Dominican renowned for her beauty, intense prayer, penance, and loving service to the sick and impoverished."
   },
   {
     "id": "scholastica",
@@ -990,6 +2000,30 @@
     "summary": "Imperial guard officer who secretly aided imprisoned Christians, survived being shot with arrows, and was beaten to death for confronting the Emperor."
   },
   {
+    "id": "simon-the-zealot",
+    "name": "St. Simon the Zealot",
+    "birthDate": "c. 1st Century",
+    "deathDate": "c. 1st Century",
+    "nationality": "Galilean / Judean",
+    "profession": "Apostle of Jesus Christ",
+    "isDoctor": false,
+    "feastDay": "October 28",
+    "patronage": "Couriers, Tanners, Sawyers",
+    "summary": "One of the Twelve Apostles, known for his zeal for the Jewish law before following Christ, who preached the Gospel in Egypt and Persia."
+  },
+  {
+    "id": "stanislaus-kostka",
+    "name": "St. Stanislaus Kostka",
+    "birthDate": "1550",
+    "deathDate": "1568",
+    "nationality": "Polish",
+    "profession": "Jesuit Novice",
+    "isDoctor": false,
+    "feastDay": "November 13",
+    "patronage": "Poland, Jesuit Novices, Students, Dying",
+    "summary": "Young Polish noble who walked hundreds of miles to Rome to fulfill his vocation in the Society of Jesus, dying in holiness at age seventeen."
+  },
+  {
     "id": "stephen-first-martyr",
     "name": "St. Stephen",
     "birthDate": "c. 5 AD",
@@ -1002,16 +2036,40 @@
     "summary": "First Christian martyr, full of grace and power, who prayed for his persecutors as he was stoned to death outside Jerusalem."
   },
   {
-    "id": "mother-teresa",
-    "name": "St. Teresa of Calcutta (Mother Teresa)",
-    "birthDate": "1910",
-    "deathDate": "1997",
-    "nationality": "Albanian / Indian",
-    "profession": "Foundress of the Missionaries of Charity",
+    "id": "stephen-of-hungary",
+    "name": "St. Stephen I of Hungary",
+    "birthDate": "c. 975",
+    "deathDate": "1038",
+    "nationality": "Hungarian",
+    "profession": "First King of Hungary & Apostolic King",
     "isDoctor": false,
-    "feastDay": "September 5",
-    "patronage": "Missionaries of Charity, World Youth Day, the Poor",
-    "summary": "Nobel laureate who served 'the poorest of the poor' in the slums of Calcutta, answering Jesus's call to quench His thirst on the Cross."
+    "feastDay": "August 16",
+    "patronage": "Hungary, Kings, Bricklayers, Stonemasons",
+    "summary": "First King of Hungary who united the Magyar tribes, established the Church throughout the kingdom, and dedicated his nation to the Blessed Virgin Mary."
+  },
+  {
+    "id": "tarcisius",
+    "name": "St. Tarcisius",
+    "birthDate": "c. 263",
+    "deathDate": "275",
+    "nationality": "Roman",
+    "profession": "Acolyte & Eucharistic Martyr",
+    "isDoctor": false,
+    "feastDay": "August 15",
+    "patronage": "Altar Servers, First Communicants",
+    "summary": "Young Roman acolyte beaten to death by a pagan mob while carrying the Blessed Sacrament to imprisoned Christians, choosing death rather than surrender the Holy Eucharist."
+  },
+  {
+    "id": "teresa-benedicta-of-the-cross",
+    "name": "St. Teresa Benedicta of the Cross (Edith Stein)",
+    "birthDate": "1891",
+    "deathDate": "1942",
+    "nationality": "German / Jewish",
+    "profession": "Discalced Carmelite Nun, Philosopher & Patroness of Europe",
+    "isDoctor": false,
+    "feastDay": "August 9",
+    "patronage": "Europe, Loss of Parents, Philosophers, Converts, Martyrs",
+    "summary": "Jewish-born phenomenologist philosopher who converted to Catholicism, entered the Carmelites, and was martyred at Auschwitz-Birkenau in solidarity with her people."
   },
   {
     "id": "teresa-of-avila",
@@ -1026,6 +2084,18 @@
     "summary": "First female Doctor of the Church. Reformed the Carmelites and wrote spiritual masterpieces on contemplation such as The Interior Castle and The Way of Perfection."
   },
   {
+    "id": "therese-of-lisieux",
+    "name": "St. Thérèse of Lisieux",
+    "birthDate": "1873",
+    "deathDate": "1897",
+    "nationality": "French",
+    "profession": "Discalced Carmelite Nun (The Little Flower, Doctor Amoris)",
+    "isDoctor": true,
+    "feastDay": "October 1",
+    "patronage": "Missions, Florists, France, Aviators, Illness",
+    "summary": "Carmelite nun known for her 'Little Way' of spiritual childhood, trust, and complete abandonment to God's merciful love in Story of a Soul."
+  },
+  {
     "id": "thomas-aquinas",
     "name": "St. Thomas Aquinas",
     "birthDate": "1225",
@@ -1036,6 +2106,18 @@
     "feastDay": "January 28",
     "patronage": "Academics, Students, Theologians, Catholic Schools, Apologists",
     "summary": "Master of scholastic theology whose Summa Theologiae and Eucharistic hymns (such as Pange Lingua and Panis Angelicus) form the foundation of Catholic doctrine and philosophy."
+  },
+  {
+    "id": "thomas-becket",
+    "name": "St. Thomas Becket",
+    "birthDate": "1118",
+    "deathDate": "1170",
+    "nationality": "English",
+    "profession": "Archbishop of Canterbury & Martyr",
+    "isDoctor": false,
+    "feastDay": "December 29",
+    "patronage": "Secular Clergy, England, Portsmouth",
+    "summary": "Lord Chancellor who was made Archbishop of Canterbury and steadfastly defended the rights and independence of the Church against King Henry II, martyred in his cathedral."
   },
   {
     "id": "thomas-more",
@@ -1062,16 +2144,76 @@
     "summary": "Famous for his confession 'My Lord and my God!' after seeing the risen Christ. Evangelized Persia and India, where he was martyred."
   },
   {
-    "id": "therese-of-lisieux",
-    "name": "St. Thérèse of Lisieux",
-    "birthDate": "1873",
-    "deathDate": "1897",
-    "nationality": "French",
-    "profession": "Discalced Carmelite Nun (The Little Flower, Doctor Amoris)",
-    "isDoctor": true,
-    "feastDay": "October 1",
-    "patronage": "Missions, Florists, France, Aviators, Illness",
-    "summary": "Carmelite nun known for her 'Little Way' of spiritual childhood, trust, and complete abandonment to God's merciful love in Story of a Soul."
+    "id": "timothy",
+    "name": "St. Timothy",
+    "birthDate": "c. 17 AD",
+    "deathDate": "c. 97 AD",
+    "nationality": "Greek / Jewish (Lycaonian)",
+    "profession": "Bishop of Ephesus & Disciple of St. Paul",
+    "isDoctor": false,
+    "feastDay": "January 26",
+    "patronage": "Stomach Disorders, Intestinal Complaints",
+    "summary": "Beloved disciple and companion of St. Paul who became the first Bishop of Ephesus and received two Pauline pastoral epistles."
+  },
+  {
+    "id": "titus",
+    "name": "St. Titus",
+    "birthDate": "c. 10 AD",
+    "deathDate": "c. 96 AD",
+    "nationality": "Greek / Gentile",
+    "profession": "Bishop of Crete & Disciple of St. Paul",
+    "isDoctor": false,
+    "feastDay": "January 26",
+    "patronage": "Crete",
+    "summary": "Gentile convert and trusted co-worker of St. Paul who was appointed Bishop of Crete to organize the local church and ordain presbyters."
+  },
+  {
+    "id": "titus-brandsma",
+    "name": "St. Titus Brandsma",
+    "birthDate": "1881",
+    "deathDate": "1942",
+    "nationality": "Dutch",
+    "profession": "Carmelite Priest, Professor & Martyr of Dachau",
+    "isDoctor": false,
+    "feastDay": "July 27",
+    "patronage": "Catholic Journalists, The Netherlands, Press Freedom",
+    "summary": "Dutch Carmelite friar and university rector who defied Nazi anti-Catholic propaganda and press censorship, murdered by lethal injection in Dachau concentration camp."
+  },
+  {
+    "id": "turibius-of-mogrovejo",
+    "name": "St. Turibius of Mogrovejo",
+    "birthDate": "1538",
+    "deathDate": "1606",
+    "nationality": "Spanish / Peruvian",
+    "profession": "Archbishop of Lima & Missionary Reformer",
+    "isDoctor": false,
+    "feastDay": "March 23",
+    "patronage": "Latin American Bishops, Native Rights, Peru",
+    "summary": "Archbishop of Lima who traveled over 15,000 miles across the Andes on foot, learning indigenous languages and defending native peoples' human dignity."
+  },
+  {
+    "id": "valentine",
+    "name": "St. Valentine of Rome",
+    "birthDate": "c. 226",
+    "deathDate": "269",
+    "nationality": "Roman",
+    "profession": "Priest / Bishop & Martyr",
+    "isDoctor": false,
+    "feastDay": "February 14",
+    "patronage": "Love, Marriages, Betrothed Couples, Beekeepers, Epilepsy",
+    "summary": "Roman clergyman who ministered to persecuted Christians and performed secret marriages for Christian soldiers, martyred during the reign of Claudius Gothicus."
+  },
+  {
+    "id": "vietnamese-martyrs",
+    "name": "The Vietnamese Martyrs (St. Andrew Dũng-Lạc & Companions)",
+    "birthDate": "1745",
+    "deathDate": "1862",
+    "nationality": "Vietnamese, French, Spanish",
+    "profession": "Priests, Catechists, Religious & Lay Martyrs",
+    "isDoctor": false,
+    "feastDay": "November 24",
+    "patronage": "Vietnam, Vietnamese People, Persecuted Christians, Catechists, Martyrs",
+    "summary": "A collective group of 117 martyrs—including Vietnamese diocesan priest St. Andrew Dũng-Lạc, 96 Vietnamese Catholics, 11 Spanish Dominicans, and 10 French missionaries—who were executed between 1745 and 1862 under the persecution of the Trịnh and Nguyễn dynasties for their steadfast Christian faith."
   },
   {
     "id": "vincent-de-paul",
@@ -1086,15 +2228,15 @@
     "summary": "Dedicated his priesthood to the relief of the impoverished and sick, founding the Vincentian Fathers and co-founding Daughters of Charity."
   },
   {
-    "id": "vietnamese-martyrs",
-    "name": "The Vietnamese Martyrs (St. Andrew Dũng-Lạc & Companions)",
-    "birthDate": "1745",
-    "deathDate": "1862",
-    "nationality": "Vietnamese, French, Spanish",
-    "profession": "Priests, Catechists, Religious & Lay Martyrs",
+    "id": "wenceslaus",
+    "name": "St. Wenceslaus (Václav)",
+    "birthDate": "c. 907",
+    "deathDate": "935",
+    "nationality": "Bohemian / Czech",
+    "profession": "Duke of Bohemia & Martyr (Good King Wenceslas)",
     "isDoctor": false,
-    "feastDay": "November 24",
-    "patronage": "Vietnam, Vietnamese People, Persecuted Christians, Catechists, Martyrs",
-    "summary": "A collective group of 117 martyrs—including Vietnamese diocesan priest St. Andrew Dũng-Lạc, 96 Vietnamese Catholics, 11 Spanish Dominicans, and 10 French missionaries—who were executed between 1745 and 1862 under the persecution of the Trịnh and Nguyễn dynasties for their steadfast Christian faith."
+    "feastDay": "September 28",
+    "patronage": "Czech Republic, Bohemia, Prague, Brewers",
+    "summary": "Righteous Duke of Bohemia raised by St. Ludmila who promoted Christianity and justice, murdered by his pagan brother Boleslaus and immortalized as a model of Christian charity."
   }
 ]

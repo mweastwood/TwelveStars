@@ -15,6 +15,7 @@ void main() {
         'nationality': 'Italian',
         'profession': 'Dominican Friar & Theologian',
         'isDoctor': true,
+        'isBlessed': false,
         'feastDay': 'January 28',
         'patronage': 'Academics, Students, Theologians',
         'summary': 'Author of the Summa Theologiae.',
@@ -28,6 +29,7 @@ void main() {
       expect(saint.nationality, 'Italian');
       expect(saint.profession, 'Dominican Friar & Theologian');
       expect(saint.isDoctor, true);
+      expect(saint.isBlessed, false);
       expect(saint.feastDay, 'January 28');
       expect(saint.patronage, 'Academics, Students, Theologians');
       expect(saint.summary, 'Author of the Summa Theologiae.');
@@ -36,7 +38,17 @@ void main() {
       final serialized = saint.toJson();
       expect(serialized['id'], 'thomas-aquinas');
       expect(serialized['isDoctor'], true);
+      expect(serialized['isBlessed'], null);
       expect(serialized['patronage'], 'Academics, Students, Theologians');
+
+      const blessedSaint = Saint(
+        id: 'miguel-pro',
+        name: 'Blessed Miguel Pro',
+        nationality: 'Mexican',
+        profession: 'Priest',
+        isBlessed: true,
+      );
+      expect(blessedSaint.toJson()['isBlessed'], true);
     });
 
     test('dateRange formats different combinations of dates', () {
@@ -375,5 +387,154 @@ void main() {
       expect(spanishDoctors.isNotEmpty, isTrue);
       expect(spanishDoctors.every((s) => s.isDoctor), isTrue);
     });
+
+    test('Database maintains exactly 37 Doctors of the Church', () async {
+      final saints = await SaintDatabase.loadSaints();
+      final doctors = saints.where((s) => s.isDoctor).toList();
+      expect(
+        doctors.length,
+        equals(37),
+        reason: 'Expected exactly 37 Doctors of the Church',
+      );
+    });
+
+    test(
+      'loadSaints correctly identifies beatified entries with isBlessed',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+        final blessedEntries = saints.where((s) => s.isBlessed).toList();
+
+        expect(blessedEntries.length, equals(2));
+        for (final blessed in blessedEntries) {
+          expect(
+            blessed.name.startsWith('Blessed '),
+            isTrue,
+            reason: '${blessed.name} should start with Blessed',
+          );
+        }
+
+        final miguelPro = saints.firstWhere((s) => s.id == 'miguel-pro');
+        expect(miguelPro.name, 'Blessed Miguel Pro');
+        expect(miguelPro.isBlessed, isTrue);
+
+        final lauraVicuna = saints.firstWhere((s) => s.id == 'laura-vicuna');
+        expect(lauraVicuna.name, 'Blessed Laura Vicuña');
+        expect(lauraVicuna.isBlessed, isTrue);
+      },
+    );
+
+    test(
+      'loadSaints validates expanded dataset size and unique identifiers',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+
+        // Database has been doubled from original 92 to >= 187 saints
+        expect(saints.length, greaterThanOrEqualTo(187));
+
+        // Invariant: IDs must all be unique and non-empty
+        final idSet = <String>{};
+        for (final saint in saints) {
+          expect(saint.id.isNotEmpty, isTrue);
+          expect(saint.name.isNotEmpty, isTrue);
+          expect(saint.nationality.isNotEmpty, isTrue);
+          expect(saint.profession.isNotEmpty, isTrue);
+          expect(
+            idSet.add(saint.id),
+            isTrue,
+            reason: 'Duplicate saint ID found: ${saint.id}',
+          );
+        }
+      },
+    );
+
+    test(
+      'searchSaints finds newly added saints across historical and geographical categories',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+
+        // 1. Early Church Martyrs & Apostles
+        final barnabas = SaintDatabase.searchSaints(saints, query: 'Barnabas');
+        expect(barnabas.any((s) => s.id == 'barnabas'), isTrue);
+
+        final perpetua = SaintDatabase.searchSaints(saints, query: 'Perpetua');
+        expect(perpetua.any((s) => s.id == 'perpetua-and-felicity'), isTrue);
+
+        final nicholas = SaintDatabase.searchSaints(
+          saints,
+          query: 'Nicholas of Myra',
+        );
+        expect(nicholas.any((s) => s.id == 'nicholas-of-myra'), isTrue);
+
+        // 2. Desert Fathers & Monastic Pioneers
+        final anthonyGreat = SaintDatabase.searchSaints(
+          saints,
+          query: 'Anthony the Great',
+        );
+        expect(anthonyGreat.any((s) => s.id == 'anthony-the-great'), isTrue);
+
+        final columba = SaintDatabase.searchSaints(saints, query: 'Columba');
+        expect(columba.any((s) => s.id == 'columba-of-iona'), isTrue);
+
+        // 3. Medieval Saints, Sovereigns & Mystics
+        final louis = SaintDatabase.searchSaints(saints, query: 'Louis IX');
+        expect(louis.any((s) => s.id == 'louis-ix-of-france'), isTrue);
+
+        final rita = SaintDatabase.searchSaints(
+          saints,
+          query: 'Rita of Cascia',
+        );
+        expect(rita.any((s) => s.id == 'rita-of-cascia'), isTrue);
+
+        final wenceslaus = SaintDatabase.searchSaints(
+          saints,
+          query: 'Wenceslaus',
+        );
+        expect(wenceslaus.any((s) => s.id == 'wenceslaus'), isTrue);
+
+        // 4. Counter-Reformation & Global Missionaries
+        final martinDePorres = SaintDatabase.searchSaints(
+          saints,
+          query: 'Martin de Porres',
+        );
+        expect(martinDePorres.any((s) => s.id == 'martin-de-porres'), isTrue);
+
+        final juanDiego = SaintDatabase.searchSaints(
+          saints,
+          query: 'Juan Diego',
+        );
+        expect(juanDiego.any((s) => s.id == 'juan-diego'), isTrue);
+
+        final peterClaver = SaintDatabase.searchSaints(
+          saints,
+          query: 'Peter Claver',
+        );
+        expect(peterClaver.any((s) => s.id == 'peter-claver'), isTrue);
+
+        // 5. 19th & 20th Century Saints & Global Martyrs
+        final charbel = SaintDatabase.searchSaints(saints, query: 'Charbel');
+        expect(charbel.any((s) => s.id == 'charbel-makhlouf'), isTrue);
+
+        final vianney = SaintDatabase.searchSaints(saints, query: 'Vianney');
+        expect(vianney.any((s) => s.id == 'john-vianney'), isTrue);
+
+        final korean = SaintDatabase.searchSaints(saints, query: 'Korean');
+        expect(korean.any((s) => s.id == 'korean-martyrs'), isTrue);
+
+        final ugandan = SaintDatabase.searchSaints(saints, query: 'Ugandan');
+        expect(
+          ugandan.any((s) => s.id == 'charles-lwanga-and-ugandan-martyrs'),
+          isTrue,
+        );
+
+        final romero = SaintDatabase.searchSaints(saints, query: 'Romero');
+        expect(romero.any((s) => s.id == 'oscar-romero'), isTrue);
+
+        final mackillop = SaintDatabase.searchSaints(
+          saints,
+          query: 'MacKillop',
+        );
+        expect(mackillop.any((s) => s.id == 'mary-mackillop'), isTrue);
+      },
+    );
   });
 }
