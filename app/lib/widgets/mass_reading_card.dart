@@ -11,6 +11,11 @@ import 'package:twelve_stars/widgets/bible_verse_modals.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 
+/// Renders an individual reading for the Catholic Mass lectionary.
+///
+/// Automatically indexes reverse Bible citations across Catechism and Patristic
+/// sources via [ReverseCitationService], displaying citation badges on verse rows
+/// and opening reverse citations modals on tap.
 class MassReadingCard extends StatefulWidget {
   final LectionaryReading reading;
   final double fontSize;
