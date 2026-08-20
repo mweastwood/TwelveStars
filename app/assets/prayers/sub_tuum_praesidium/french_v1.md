@@ -7,6 +7,10 @@ subtitle: Français
 source_name: Eglise Catholique en France
 source_url: https://eglise.catholique.fr/approfondir-sa-foi/prier/prieres/372074-sous-labri-de-ta-misericorde/
 has_amen: false
+history_author: "Traditional"
+history_origin: "Egyptian Greek Papyrus Rylands 470 (c. 250 AD)"
+history_context: "The oldest preserved hymn and prayer to Mary as the Mother of God (Theotokos), seeking refuge and protection in trials."
+history_description: "The oldest preserved hymn and prayer to Mary as the Mother of God (Theotokos), seeking refuge and protection in trials."
 ---
 
 {Sous l’abri de ta miséricorde,|sub_tuum_praesidium_1}

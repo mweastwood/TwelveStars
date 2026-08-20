@@ -7,6 +7,10 @@ subtitle: Tagalog
 source_name: Awit at Papuri
 source_url: https://www.awitatpapuri.com/2020/03/26/sa-iyong-pag-iingat-sub-tuum-praesidium/
 has_amen: false
+history_author: "Traditional"
+history_origin: "Egyptian Greek Papyrus Rylands 470 (c. 250 AD)"
+history_context: "The oldest preserved hymn and prayer to Mary as the Mother of God (Theotokos), seeking refuge and protection in trials."
+history_description: "The oldest preserved hymn and prayer to Mary as the Mother of God (Theotokos), seeking refuge and protection in trials."
 ---
 
 {Sa iyong pag-iingat kami ay lumalapit,|sub_tuum_praesidium_1}

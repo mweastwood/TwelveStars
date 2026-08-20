@@ -6,8 +6,11 @@ title: Letanías de la Humildad
 subtitle: Litaniae Humilitatis
 source_name: ACI Prensa
 source_url: https://www.aciprensa.com/recursos/letanias-de-la-humildad-725
-history_author: Cardenal Rafael Merry del Val
 has_amen: true
+history_author: "Cardinal Rafael Merry del Val"
+history_origin: "Late 19th / Early 20th Century"
+history_context: "A devotional prayer seeking deliverance from pride and the desire for worldly esteem, composed by the Secretary of State to Pope Pius X."
+history_description: "A devotional prayer seeking deliverance from pride and the desire for worldly esteem, composed by the Secretary of State to Pope Pius X."
 ---
 
 {Jesús manso y humilde de Corazón, Escúchame.|litany_1}

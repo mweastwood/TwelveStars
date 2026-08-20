@@ -6,10 +6,11 @@ title: "Oratio Sancti Francisci"
 subtitle: "Oratio pro Pace"
 source_name: "Traditio Franciscana"
 source_url: "https://www.preces-latinae.org/thesaurus/Sancti/SFranciscusAssisiensis/PrayerofSF.html"
-history_author: "Anonymus (Sancto Francisco attributa)"
-history_origin: "La Clochette (1912)"
-history_description: "Primum sine nomine editum mense Decembri anno 1912 in libello gallico La Clochette a patre Esther Bouquerel. Anno 1916 in L'Osservatore Romano editum est. Circa annum 1920 in chartula pacis cum imagine Sancti Francisci Assisiensis in tergo impressum est, unde orta est popularis sed falsa attributio huic sancto."
 has_amen: true
+history_author: "Father Esther Bouquerel (1912)"
+history_origin: "La Clochette (1912); popularized during World War I"
+history_context: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
+history_description: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
 ---
 {Domine, fac me servum pacis tuae|st_francis_1},
 {ubi odium, amorem seram|st_francis_2};

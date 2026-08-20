@@ -6,9 +6,6 @@ title: "Angélus"
 subtitle: "L'ange du Seigneur apporta l'annonce à Marie"
 source_name: "Wikipedia"
 source_url: "https://fr.wikipedia.org/wiki/Ang%C3%A9lus"
-history_author: "Traditional"
-history_origin: "Roman Catholic Devotion (c. 13th century)"
-history_description: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ, recited three times daily."
 has_amen: true
 sources:
   - name: "Wikipedia Angélus"
@@ -39,6 +36,10 @@ sources:
     url: "https://fr.wikipedia.org/wiki/Ang%C3%A9lus"
     start_line: 13
     end_line: 16
+history_author: "Traditional"
+history_origin: "Roman Catholic Devotion (c. 13th century)"
+history_context: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
+history_description: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
 ---
 ℣. {L’ange du Seigneur apporta l'annonce à Marie,|angelus_1}
 ℟. {Et elle conçut du Saint-Esprit.|angelus_2}

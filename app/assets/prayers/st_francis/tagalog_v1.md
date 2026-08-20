@@ -6,10 +6,11 @@ title: "Panalangin ni San Francisco"
 subtitle: "Panalangin para sa Kapayapaan"
 source_name: "Tradisyong Pransiskano"
 source_url: "https://pagbubulaybulay.wordpress.com/2010/03/17/prayer-of-st-francis-of-assisipanalangin-ni-san-francisco-de-asis/"
-history_author: "Hindi kilala (ipinapalagay na kay San Francisco)"
-history_origin: "La Clochette (1912)"
-history_description: "Unang nailathala nang walang pangalan noong Disyembre 1912 sa Pranses na magasin na La Clochette ni Padre Esther Bouquerel. Noong 1916, inilathala ito sa L'Osservatore Romano. Noong 1920, inilimbag ito sa isang postcard ng kapayapaan na may larawan ni San Francisco sa likod, na naging dahilan ng maling pag-aangkin nito sa santo."
 has_amen: true
+history_author: "Father Esther Bouquerel (1912)"
+history_origin: "La Clochette (1912); popularized during World War I"
+history_context: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
+history_description: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
 ---
 {Panginoon, itulot Mong alang-alang sa Iyo ay mapalaganap ko ang Iyong Kapayapaan|st_francis_1}:
 {mapagkasundo ko ang mga may alitan|st_francis_2};

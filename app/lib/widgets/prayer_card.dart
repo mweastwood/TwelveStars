@@ -89,7 +89,11 @@ class _PrayerCardState extends State<PrayerCard> {
     if (selectedTranslations != null &&
         _currentVersionIndex < selectedTranslations.length) {
       final selectedTrans = selectedTranslations[_currentVersionIndex];
-      if (selectedTrans.historyDescription.isNotEmpty) return selectedTrans;
+      if (selectedTrans.historyOrigin.isNotEmpty ||
+          selectedTrans.historyContext.isNotEmpty ||
+          selectedTrans.historyDescription.isNotEmpty) {
+        return selectedTrans;
+      }
     }
 
     // 2. Try compare translation
@@ -98,7 +102,11 @@ class _PrayerCardState extends State<PrayerCard> {
           widget.prayer.translations[widget.compareLanguage!];
       if (compareTranslations != null && compareTranslations.isNotEmpty) {
         final compareTrans = compareTranslations[0];
-        if (compareTrans.historyDescription.isNotEmpty) return compareTrans;
+        if (compareTrans.historyOrigin.isNotEmpty ||
+            compareTrans.historyContext.isNotEmpty ||
+            compareTrans.historyDescription.isNotEmpty) {
+          return compareTrans;
+        }
       }
     }
 
@@ -107,7 +115,11 @@ class _PrayerCardState extends State<PrayerCard> {
         widget.prayer.translations[PrayerLanguage.english];
     if (englishTranslations != null && englishTranslations.isNotEmpty) {
       final englishTrans = englishTranslations[0];
-      if (englishTrans.historyDescription.isNotEmpty) return englishTrans;
+      if (englishTrans.historyOrigin.isNotEmpty ||
+          englishTrans.historyContext.isNotEmpty ||
+          englishTrans.historyDescription.isNotEmpty) {
+        return englishTrans;
+      }
     }
 
     return null;
@@ -638,7 +650,9 @@ class _PrayerCardState extends State<PrayerCard> {
                     const SizedBox(height: 12),
                     _buildHistoryPanel(
                       historyTrans.historyOrigin,
-                      historyTrans.historyDescription,
+                      historyTrans.historyContext.isNotEmpty
+                          ? historyTrans.historyContext
+                          : historyTrans.historyDescription,
                       theme,
                     ),
                   ],
@@ -700,7 +714,7 @@ class _PrayerCardState extends State<PrayerCard> {
 
   Widget _buildHistoryPanel(
     String origin,
-    String description,
+    String contextText,
     ThemeData theme,
   ) {
     return Column(
@@ -713,7 +727,7 @@ class _PrayerCardState extends State<PrayerCard> {
             const SizedBox(width: 6),
             Expanded(
               child: Text(
-                'HISTORICAL CONTEXT',
+                'HISTORICAL BACKGROUND',
                 style: theme.textTheme.labelSmall?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: theme.colorScheme.primary,
@@ -723,24 +737,55 @@ class _PrayerCardState extends State<PrayerCard> {
             ),
           ],
         ),
-        const SizedBox(height: 6),
-        Text(
-          'Origin: $origin',
-          style: theme.textTheme.bodySmall?.copyWith(
-            fontWeight: FontWeight.bold,
-            fontSize: 12,
-            color: theme.colorScheme.onSurface,
+        if (origin.isNotEmpty) ...[
+          const SizedBox(height: 6),
+          Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: 'Origin: ',
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                    color: theme.colorScheme.onSurface,
+                  ),
+                ),
+                TextSpan(
+                  text: origin,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    fontSize: 12,
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-        const SizedBox(height: 2),
-        Text(
-          description,
-          style: theme.textTheme.bodySmall?.copyWith(
-            fontSize: 11,
-            color: theme.colorScheme.onSurfaceVariant,
-            height: 1.3,
+        ],
+        if (contextText.isNotEmpty) ...[
+          const SizedBox(height: 4),
+          Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: 'Context: ',
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 11,
+                    color: theme.colorScheme.onSurface,
+                  ),
+                ),
+                TextSpan(
+                  text: contextText,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    fontSize: 11,
+                    color: theme.colorScheme.onSurfaceVariant,
+                    height: 1.3,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
+        ],
       ],
     );
   }

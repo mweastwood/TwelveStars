@@ -6,9 +6,10 @@ title: "Panalangin ng Pagsisisi"
 subtitle: "Pagsisisi"
 source_name: "iPray"
 source_url: "https://rosary.ipray.eu/atto_di_dolore_tg.htm"
+has_amen: true
 history_author: "Traditional"
 history_origin: "Catholic Devotional Tradition"
-history_description: "An expression of sorrow for sin and a resolution to amend one's life, widely used in the Sacrament of Reconciliation."
-has_amen: true
+history_context: "An expression of sorrow for sin and a resolution to amend one's life, widely used in the Sacrament of Reconciliation and night examination of conscience."
+history_description: "An expression of sorrow for sin and a resolution to amend one's life, widely used in the Sacrament of Reconciliation and night examination of conscience."
 ---
 {O Diyos ko, ikinalulungkot ko nang buong puso ang pagkakasala ko sa Iyo|act_of_contrition_1}. {Kinasusuklaman ko ang lahat ng aking kasalanan dahil sa takot sa Iyong makatarungang hatol|act_of_contrition_2}, {ngunit higit sa lahat, dahil ito'y nakakasakit sa Iyong kalooban, Diyos na walang hanggan ang kabutihan at nararapat na ibigin nang walang katapusan|act_of_contrition_3}. {Matibay akong nagtitika na ikukumpisal ko ang aking mga kasalanan, tutuparin ang tagubiling pagsisisi|act_of_contrition_4}, {at sa tulong ng Iyong biyaya ay magbabagong-buhay|act_of_contrition_5}.

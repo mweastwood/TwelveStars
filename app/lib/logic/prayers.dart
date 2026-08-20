@@ -84,6 +84,7 @@ class PrayerTranslation {
   String sourceUrl;
   String historyAuthor;
   String historyOrigin;
+  String historyContext;
   String historyDescription;
   String copyright;
   List<ChineseLine>? chineseLines;
@@ -97,11 +98,18 @@ class PrayerTranslation {
     this.sourceUrl = '',
     this.historyAuthor = '',
     this.historyOrigin = '',
+    this.historyContext = '',
     this.historyDescription = '',
     this.copyright = '',
     this.chineseLines,
     this.tokens,
-  });
+  }) {
+    if (historyContext.isEmpty && historyDescription.isNotEmpty) {
+      historyContext = historyDescription;
+    } else if (historyDescription.isEmpty && historyContext.isNotEmpty) {
+      historyDescription = historyContext;
+    }
+  }
 
   factory PrayerTranslation.mock({
     String title = '',
@@ -111,6 +119,7 @@ class PrayerTranslation {
     String sourceUrl = '',
     String historyAuthor = '',
     String historyOrigin = '',
+    String historyContext = '',
     String historyDescription = '',
     String copyright = '',
     List<List<ChineseChar>>? chineseLines,
@@ -124,6 +133,7 @@ class PrayerTranslation {
       sourceUrl: sourceUrl,
       historyAuthor: historyAuthor,
       historyOrigin: historyOrigin,
+      historyContext: historyContext,
       historyDescription: historyDescription,
       copyright: copyright,
       chineseLines: chineseLines

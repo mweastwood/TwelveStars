@@ -6,10 +6,11 @@ title: "Angelus"
 subtitle: "L'Angelo del Signore portò l'annunzio a Maria"
 source_name: "Wikipedia"
 source_url: "https://it.wikipedia.org/wiki/Angelus"
+has_amen: true
 history_author: "Traditional"
 history_origin: "Roman Catholic Devotion (c. 13th century)"
-history_description: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ, recited three times daily."
-has_amen: true
+history_context: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
+history_description: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
 ---
 ℣. {L'Angelo del Signore portò l'annunzio a Maria.|angelus_1}
 ℟. {Ed ella concepì per opera dello Spirito Santo.|angelus_2}

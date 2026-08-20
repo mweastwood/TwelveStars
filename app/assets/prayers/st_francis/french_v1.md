@@ -6,10 +6,11 @@ title: "Prière de Saint François"
 subtitle: "Prière pour la Paix"
 source_name: "Tradition Franciscaine"
 source_url: "https://fr.wikipedia.org/wiki/Pri%C3%A8re_de_saint_Fran%C3%A7ois"
-history_author: "Anonyme (attribué à Saint François)"
-history_origin: "La Clochette (1912)"
-history_description: "Publiée pour la première fois de manière anonyme en décembre 1912 dans la revue spirituelle La Clochette par le père Esther Bouquerel. En 1916, elle parut dans L'Osservatore Romano. Vers 1920, elle fut imprimée sur une carte postale de paix avec une image de Saint François d'Assise au verso, entraînant son attribution populaire mais erronée au saint."
 has_amen: true
+history_author: "Father Esther Bouquerel (1912)"
+history_origin: "La Clochette (1912); popularized during World War I"
+history_context: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
+history_description: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
 ---
 {Seigneur, faites de moi un instrument de votre paix|st_francis_1}.
 {Là où il y a de la haine, que je mette l'amour|st_francis_2}.

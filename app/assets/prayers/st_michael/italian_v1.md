@@ -6,10 +6,11 @@ title: "Preghiera a San Michele Arcangelo"
 subtitle: "Preghiera di Leone XIII"
 source_name: "Sala Stampa della Santa Sede"
 source_url: "https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2018/09/29/0707/01504.html"
+has_amen: true
 history_author: "Pope Leo XIII"
 history_origin: "Leonine Prayers (1886)"
+history_context: "Recited after Low Mass to invoke the archangel's defense against evil and the spiritual ruin of souls."
 history_description: "Recited after Low Mass to invoke the archangel's defense against evil and the spiritual ruin of souls."
-has_amen: true
 ---
 {San Michele Arcangelo, difendici nella lotta|st_michael_1}, {sii nostro presidio contro le malvagità e le insidie del demonio|st_michael_2}. {|st_michael_3}{Capo supremo delle milizie celesti, fa' sprofondare nell'inferno, con la forza di Dio, Satana e gli altri spiriti maligni che vagano per il mondo per la perdizione delle anime|st_michael_4}.
 

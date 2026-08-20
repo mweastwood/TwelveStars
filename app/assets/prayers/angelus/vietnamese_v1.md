@@ -6,9 +6,6 @@ title: "Kinh Truyền Tin"
 subtitle: "Đức Chúa Trời sai thánh thiên thần truyền tin"
 source_name: "Wikipedia"
 source_url: "https://vi.wikipedia.org/wiki/Kinh_Truy%E1%BB%81n_Tin"
-history_author: "Traditional"
-history_origin: "Roman Catholic Devotion (c. 13th century)"
-history_description: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ, recited three times daily."
 has_amen: true
 sources:
   - name: "Wikipedia Kinh Truyền Tin"
@@ -39,6 +36,10 @@ sources:
     url: "https://vi.wikipedia.org/wiki/Kinh_Truy%E1%BB%81n_Tin"
     start_line: 13
     end_line: 16
+history_author: "Traditional"
+history_origin: "Roman Catholic Devotion (c. 13th century)"
+history_context: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
+history_description: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
 ---
 Người xướng: {Đức Chúa Trời sai thánh thiên thần truyền tin cho rất thánh Đức Bà Maria.|angelus_1}
 Người đáp: {Và rất thánh Đức Bà chịu thai bởi phép Đức Chúa Thánh Thần.|angelus_2}

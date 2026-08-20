@@ -7,6 +7,10 @@ subtitle: "Cántico de María"
 source_name: "Vatican"
 source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html"
 has_amen: false
+history_author: "Traditional"
+history_origin: "Gospel of Luke 1:46–55"
+history_context: "The Canticle of Mary spoken during the Visitation, exalting God's mercy and prayed daily as the evangelical canticle of Vespers."
+history_description: "The Canticle of Mary spoken during the Visitation, exalting God's mercy and prayed daily as the evangelical canticle of Vespers."
 ---
 
 {Proclama mi alma la grandeza del Señor,|magnificat_1}

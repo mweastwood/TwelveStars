@@ -6,10 +6,11 @@ title: "Our Father"
 subtitle: "The Lord's Prayer (Modern)"
 source_name: "English Language Liturgical Consultation (ELLC)"
 source_url: "https://en.wikipedia.org/wiki/Lord%27s_Prayer"
-history_author: "Jesus Christ"
-history_origin: "Gospel of Matthew 6:9–13"
-history_description: "Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer."
 has_amen: true
+history_author: "Traditional"
+history_origin: "Gospel of Matthew 6:9–13 & Gospel of Luke 11:2–4"
+history_context: "Taught directly by Jesus Christ to His disciples when they asked Him how to pray; the fundamental Christian prayer."
+history_description: "Taught directly by Jesus Christ to His disciples when they asked Him how to pray; the fundamental Christian prayer."
 ---
 {Our Father|our_father_1} {in heaven|our_father_2},
 {hallowed be your name|our_father_3},

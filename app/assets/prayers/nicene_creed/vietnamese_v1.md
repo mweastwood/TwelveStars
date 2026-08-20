@@ -6,11 +6,12 @@ title: "Kinh Tin Kính Nicene"
 subtitle: "Kinh Tin Kính"
 source_name: "Tin Mừng"
 source_url: "http://tinmung.net/giaohoi/namductin/KinhNDT/Kinh-Tin-Kinh.htm"
-history_author: "First Council of Nicaea & Constantinople"
-history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
-history_description: "The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity."
 has_amen: true
 copyright: "Văn bản Phụng vụ © Hội đồng Giám mục Việt Nam (HĐGMVN). Giữ toàn quyền."
+history_author: "Traditional"
+history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
+history_context: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
+history_description: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
 ---
 {Tôi tin kính một Thiên Chúa là Cha toàn năng, Đấng tạo thành trời đất, muôn vật hữu hình và vô hình|nicene_creed_1}.
 

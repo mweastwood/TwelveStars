@@ -6,9 +6,6 @@ title: "Ángelus"
 subtitle: "El ángel del Señor anunció a María"
 source_name: "Wikipedia"
 source_url: "https://es.wikipedia.org/wiki/%C3%81ngelus"
-history_author: "Traditional"
-history_origin: "Roman Catholic Devotion (c. 13th century)"
-history_description: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ, recited three times daily."
 has_amen: true
 sources:
   - name: "Wikipedia Ángelus"
@@ -39,6 +36,10 @@ sources:
     url: "https://es.wikipedia.org/wiki/%C3%81ngelus"
     start_line: 13
     end_line: 16
+history_author: "Traditional"
+history_origin: "Roman Catholic Devotion (c. 13th century)"
+history_context: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
+history_description: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
 ---
 ℣. {El ángel del Señor anunció a María,|angelus_1}
 ℟. {y concibió por obra y gracia del Espíritu Santo.|angelus_2}

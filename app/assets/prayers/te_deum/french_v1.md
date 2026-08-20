@@ -7,6 +7,10 @@ subtitle: Français
 source_name: Vatican
 source_url: https://www.vatican.va/roman_curia/pontifical_councils/hlthcare/documents/rc_pc_hlthcare_doc_20110211_xvi-giorn-malato_fr.html
 has_amen: false
+history_author: "Attr. St. Nicetas of Remesiana / St. Ambrose"
+history_origin: "Ancient Latin Hymnody (c. 4th–5th century)"
+history_context: "An ancient Latin Christian hymn of praise and thanksgiving, chanted at the end of the Office of Readings and on solemn occasions."
+history_description: "An ancient Latin Christian hymn of praise and thanksgiving, chanted at the end of the Office of Readings and on solemn occasions."
 ---
 
 {À toi Dieu, notre louange !|te_deum_1} {Nous t'acclamons, tu es le Seigneur !|te_deum_2}

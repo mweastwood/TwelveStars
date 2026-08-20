@@ -6,8 +6,11 @@ title: 謙德禱文
 subtitle: Litaniae Humilitatis
 source_name: 天主教祈禱網
 source_url: https://www.catholic-prayer.com/litany-of-humility.html
-history_author: 瑪利德瓦樞機
 has_amen: true
+history_author: "Cardinal Rafael Merry del Val"
+history_origin: "Late 19th / Early 20th Century"
+history_context: "A devotional prayer seeking deliverance from pride and the desire for worldly esteem, composed by the Secretary of State to Pope Pius X."
+history_description: "A devotional prayer seeking deliverance from pride and the desire for worldly esteem, composed by the Secretary of State to Pope Pius X."
 ---
 
 {耶穌，良善心謙的耶穌，求祢俯聽我。|litany_1}

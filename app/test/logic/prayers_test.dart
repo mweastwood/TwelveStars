@@ -461,6 +461,95 @@ void main() {
       expect(tcTrans.list!.first.chineseLines!.first.chars!.length, equals(2));
       expect(tcTrans.list!.first.tokens!.length, equals(1));
     });
+
+    test(
+      'loadPrayersFromJson parses history_origin and history_context with backwards compatibility',
+      () {
+        final jsonWithHistory = jsonEncode([
+          {
+            'id': 'history_prayer',
+            'default_title': 'History Prayer',
+            'category': 'test',
+            'default_order': 1,
+            'translations': {
+              'english': [
+                {
+                  'title': 'Prayer With Context',
+                  'text': 'Prayer text',
+                  'history_author': 'Author Name',
+                  'history_origin': 'Ancient Antioch',
+                  'history_context': 'Liturgical setting in the early church',
+                },
+                {
+                  'title': 'Prayer With Description Fallback',
+                  'text': 'Prayer text 2',
+                  'history_author': 'Author 2',
+                  'history_origin': 'Rome',
+                  'history_description': 'Legacy description string',
+                },
+              ],
+            },
+          },
+        ]);
+
+        final result = PrayerDatabase.loadPrayersFromJson(jsonWithHistory);
+        expect(result.length, equals(1));
+        final transList = result.first.localizedTranslations!.first.list!;
+        expect(transList.length, equals(2));
+
+        // First translation with explicit history_context
+        expect(transList[0].historyAuthor, equals('Author Name'));
+        expect(transList[0].historyOrigin, equals('Ancient Antioch'));
+        expect(
+          transList[0].historyContext,
+          equals('Liturgical setting in the early church'),
+        );
+        expect(
+          transList[0].historyDescription,
+          equals('Liturgical setting in the early church'),
+        );
+
+        // Second translation falling back from history_description
+        expect(transList[1].historyAuthor, equals('Author 2'));
+        expect(transList[1].historyOrigin, equals('Rome'));
+        expect(
+          transList[1].historyContext,
+          equals('Legacy description string'),
+        );
+        expect(
+          transList[1].historyDescription,
+          equals('Legacy description string'),
+        );
+      },
+    );
+
+    test(
+      'all compiled prayers have non-empty history_origin and history_context',
+      () {
+        final jsonFile = File('assets/prayers.json');
+        final prayers = PrayerDatabase.loadPrayersFromJson(
+          jsonFile.readAsStringSync(),
+        );
+        for (final prayer in prayers) {
+          final enTrans = prayer.translations[PrayerLanguage.english];
+          expect(
+            enTrans,
+            isNotNull,
+            reason: 'Prayer ${prayer.prayerId} has no English translation',
+          );
+          expect(
+            enTrans!.first.historyOrigin.isNotEmpty,
+            isTrue,
+            reason: 'Prayer ${prayer.prayerId} has empty historyOrigin',
+          );
+          expect(
+            enTrans.first.historyContext.isNotEmpty,
+            isTrue,
+            reason: 'Prayer ${prayer.prayerId} has empty historyContext',
+          );
+        }
+      },
+    );
   });
 
   group('PrayerDatabase Performance and Caching', () {

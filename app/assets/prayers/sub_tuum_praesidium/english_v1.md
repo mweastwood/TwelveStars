@@ -6,10 +6,11 @@ title: Sub Tuum Praesidium
 subtitle: We Fly to Thy Protection
 source_name: EWTN
 source_url: https://www.ewtn.com/catholicism/devotions/we-fly-to-thy-patronage-366
-history_author: "Unknown (Early Christian Community)"
-history_origin: "c. 250 AD (Egypt)"
-history_description: "The oldest preserved hymn and prayer to Mary as the Mother of God (Theotokos), found on a Greek papyrus dating to the mid-3rd century."
 has_amen: false
+history_author: "Traditional"
+history_origin: "Egyptian Greek Papyrus Rylands 470 (c. 250 AD)"
+history_context: "The oldest preserved hymn and prayer to Mary as the Mother of God (Theotokos), seeking refuge and protection in trials."
+history_description: "The oldest preserved hymn and prayer to Mary as the Mother of God (Theotokos), seeking refuge and protection in trials."
 ---
 
 {We fly to thy patronage,|sub_tuum_praesidium_1}

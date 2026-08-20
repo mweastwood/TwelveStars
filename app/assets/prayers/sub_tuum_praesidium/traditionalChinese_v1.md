@@ -7,6 +7,10 @@ subtitle: 繁體中文
 source_name: Wikipedia
 source_url: https://zh.wikipedia.org/wiki/%E6%89%98%E5%BA%87%E7%A5%9E%E8%81%96%E4%B9%8B%E6%AF%8D
 has_amen: false
+history_author: "Traditional"
+history_origin: "Egyptian Greek Papyrus Rylands 470 (c. 250 AD)"
+history_context: "The oldest preserved hymn and prayer to Mary as the Mother of God (Theotokos), seeking refuge and protection in trials."
+history_description: "The oldest preserved hymn and prayer to Mary as the Mother of God (Theotokos), seeking refuge and protection in trials."
 ---
 
 {我們投奔到妳的庇佑之下；|sub_tuum_praesidium_1}

@@ -6,10 +6,11 @@ title: "Kaluluwa ni Kristo"
 subtitle: "Anima Christi"
 source_name: "iPray"
 source_url: "https://rosary.ipray.eu/anima_christi_tg.htm"
-history_author: "Pope John XXII (attributed)"
-history_origin: "Medieval Christian Devotion (c. 14th century)"
-history_description: "A prayer of intimate union with Jesus Christ, focusing on His body, blood, passion, and wounds, often recited after Communion."
 has_amen: true
+history_author: "Traditional"
+history_origin: "Medieval Christian Devotion (c. 14th century, attr. Pope John XXII)"
+history_context: "A prayer of intimate union with Jesus Christ focusing on His body, blood, passion, and wounds, widely prayed after Communion."
+history_description: "A prayer of intimate union with Jesus Christ focusing on His body, blood, passion, and wounds, widely prayed after Communion."
 ---
 {Kaluluwa ni Kristo, pabanalin mo ako.|anima_christi_1}
 {Katawan ni Kristo, iligtas mo ako.|anima_christi_2}

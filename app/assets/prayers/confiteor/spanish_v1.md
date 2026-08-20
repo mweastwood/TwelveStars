@@ -6,10 +6,11 @@ title: "Yo Confieso"
 subtitle: "Acto Penitencial"
 source_name: "Ordinario de la Misa (Maranatha)"
 source_url: "https://www.maranatha.it/MobileEdition/02-Liturgia/testiPDA/ritomessa/ordmisa.htm"
-history_author: "Traditional"
-history_origin: "Missale Romanum"
-history_description: "Oración de arrepentimiento y confesión de los pecados al inicio de la Santa Misa."
 copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reservados todos los derechos."
+history_author: "Traditional"
+history_origin: "Early Medieval Western Liturgy (standardized in the Roman Missal)"
+history_context: "An act of confession and penitence recited during the Penitential Act at the beginning of the Catholic Mass."
+history_description: "An act of confession and penitence recited during the Penitential Act at the beginning of the Catholic Mass."
 ---
 {Yo confieso ante Dios todopoderoso|confiteor_1} {y ante vosotros, hermanos|confiteor_2}: {que he pecado mucho|confiteor_3} {de pensamiento, palabra|confiteor_4}, {obra y omisión|confiteor_5}.
 

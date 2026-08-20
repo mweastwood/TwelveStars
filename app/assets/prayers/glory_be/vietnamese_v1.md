@@ -6,10 +6,11 @@ title: "Kinh Sáng Danh"
 subtitle: "Kinh Sáng Danh"
 source_name: "VEYM"
 source_url: "https://veym.net/resources/prayers"
-history_author: "Early Church Fathers"
-history_origin: "Traditional Christian Doxology"
-history_description: "A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, tracing back to the early Councils."
 has_amen: true
+history_author: "Traditional"
+history_origin: "Early Christian Doxology (formalized 4th century)"
+history_context: "A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, concluding psalms, canticles, and Rosary decades."
+history_description: "A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, concluding psalms, canticles, and Rosary decades."
 ---
 {Sáng danh Đức Chúa Cha|glory_be_1},
 {và Đức Chúa Con|glory_be_2},

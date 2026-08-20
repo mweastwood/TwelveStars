@@ -6,10 +6,11 @@ title: "Ama Namin"
 subtitle: "Panalangin ng Panginoon (Tradisyonal)"
 source_name: "Wikipedia"
 source_url: "https://tl.wikipedia.org/wiki/Ama_Namin"
-history_author: "Jesus Christ"
-history_origin: "Gospel of Matthew 6:9–13"
-history_description: "Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer."
 has_amen: true
+history_author: "Traditional"
+history_origin: "Gospel of Matthew 6:9–13 & Gospel of Luke 11:2–4"
+history_context: "Taught directly by Jesus Christ to His disciples when they asked Him how to pray; the fundamental Christian prayer."
+history_description: "Taught directly by Jesus Christ to His disciples when they asked Him how to pray; the fundamental Christian prayer."
 ---
 {Ama namin|our_father_1}, {sumasalangit Ka|our_father_2}.
 {Sambahin ang ngalan Mo|our_father_3}.

@@ -6,10 +6,11 @@ title: Te Deum
 subtitle: English
 source_name: EWTN
 source_url: https://www.ewtn.com/catholicism/devotions/te-deum-389
-history_author: "Attributed to St. Ambrose or St. Augustine"
-history_origin: "4th Century"
-history_description: "An ancient Latin Christian hymn of praise, thanksgiving, and petition, traditionally sung at the end of Matins or on occasions of great solemnity and thanksgiving."
 has_amen: false
+history_author: "Attr. St. Nicetas of Remesiana / St. Ambrose"
+history_origin: "Ancient Latin Hymnody (c. 4th–5th century)"
+history_context: "An ancient Latin Christian hymn of praise and thanksgiving, chanted at the end of the Office of Readings and on solemn occasions."
+history_description: "An ancient Latin Christian hymn of praise and thanksgiving, chanted at the end of the Office of Readings and on solemn occasions."
 ---
 
 {O God, we praise Thee:|te_deum_1} {we acknowledge Thee to be the Lord.|te_deum_2}

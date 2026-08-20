@@ -7,6 +7,10 @@ subtitle: "Magnificat"
 source_name: "Bible Gateway"
 source_url: "https://www.biblegateway.com/passage/?search=Lucas+1%3A46-55&version=MBBTAG"
 has_amen: false
+history_author: "Traditional"
+history_origin: "Gospel of Luke 1:46–55"
+history_context: "The Canticle of Mary spoken during the Visitation, exalting God's mercy and prayed daily as the evangelical canticle of Vespers."
+history_description: "The Canticle of Mary spoken during the Visitation, exalting God's mercy and prayed daily as the evangelical canticle of Vespers."
 ---
 
 {Ang puso ko'y nagpupuri sa Panginoon,|magnificat_1}

@@ -6,10 +6,11 @@ title: "Preghiera Semplice"
 subtitle: "Preghiera per la Pace"
 source_name: "Tradizione Francescana"
 source_url: "https://it.wikipedia.org/wiki/Preghiera_semplice"
-history_author: "Anonimo (attribuito a San Francesco)"
-history_origin: "La Clochette (1912)"
-history_description: "Pubblicata per la prima volta in forma anonima nel dicembre 1912 sulla rivista spirituale francese La Clochette da padre Esther Bouquerel. Nel 1916 fu pubblicata sull'Osservatore Romano. Intorno al 1920 fu stampata su una cartolina della pace con l'immagine di San Francesco d'Assisi sul retro, dando origine alla sua popolare ma errata attribuzione al santo."
 has_amen: true
+history_author: "Father Esther Bouquerel (1912)"
+history_origin: "La Clochette (1912); popularized during World War I"
+history_context: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
+history_description: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
 ---
 {O Signore, fa' di me uno strumento della tua Pace|st_francis_1}:
 {Dove c'è odio, fa' ch'io porti l'Amore|st_francis_2}.

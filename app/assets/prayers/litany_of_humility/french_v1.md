@@ -6,8 +6,11 @@ title: Litanies de l'Humilité
 subtitle: Litaniae Humilitatis
 source_name: Hozana
 source_url: https://hozana.org/priere/litanie/humilite
-history_author: Cardinal Rafael Merry del Val
 has_amen: true
+history_author: "Cardinal Rafael Merry del Val"
+history_origin: "Late 19th / Early 20th Century"
+history_context: "A devotional prayer seeking deliverance from pride and the desire for worldly esteem, composed by the Secretary of State to Pope Pius X."
+history_description: "A devotional prayer seeking deliverance from pride and the desire for worldly esteem, composed by the Secretary of State to Pope Pius X."
 ---
 
 {O Jésus, doux et humble de cœur, exaucez-moi.|litany_1}

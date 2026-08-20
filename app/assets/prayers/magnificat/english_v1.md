@@ -6,10 +6,11 @@ title: "Canticle of Mary"
 subtitle: "Magnificat"
 source_name: "Vatican"
 source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html"
-history_author: "Mary, the Mother of Jesus"
-history_origin: "Gospel of Luke 1:46–55"
-history_description: "The Canticle of Mary, spoken by the Blessed Virgin Mary during her visit to her cousin Elizabeth. It is one of the eight ancient Christian hymns and a core part of Vespers (Evening Prayer)."
 has_amen: false
+history_author: "Traditional"
+history_origin: "Gospel of Luke 1:46–55"
+history_context: "The Canticle of Mary spoken during the Visitation, exalting God's mercy and prayed daily as the evangelical canticle of Vespers."
+history_description: "The Canticle of Mary spoken during the Visitation, exalting God's mercy and prayed daily as the evangelical canticle of Vespers."
 ---
 
 {My soul glorifies the Lord,|magnificat_1}

@@ -6,10 +6,11 @@ title: "Gloria"
 subtitle: "Gloria in excelsis Deo"
 source_name: "Thesaurus Precum Latinarum"
 source_url: "https://www.preces-latinae.org/thesaurus/Trinitas/Gloria.html"
-history_author: "Traditional"
-history_origin: "Missale Romanum"
-history_description: "Doxologia maior est antiquus et venerabilis hymnus, quo Ecclesia in Spiritu Sancto congregata Patrem et Agnum glorificat et deprecatur."
 has_amen: true
+history_author: "Traditional"
+history_origin: "Ancient Greek Christian Hymn (c. 2nd–4th century; Roman Missal)"
+history_context: "The 'Greater Doxology' sung during the Introductory Rites of Sunday and feast day Masses to glorify God the Father and the Lamb."
+history_description: "The 'Greater Doxology' sung during the Introductory Rites of Sunday and feast day Masses to glorify God the Father and the Lamb."
 ---
 {Gloria in excelsis Deo|gloria_1} {et in terra pax hominibus bonae voluntatis|gloria_2}.
 

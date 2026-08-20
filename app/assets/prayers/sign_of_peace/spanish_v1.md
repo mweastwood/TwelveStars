@@ -6,10 +6,11 @@ title: La paz
 subtitle: ""
 source_name: Ordinario de la Misa (Maranatha)
 source_url: https://www.maranatha.it/MobileEdition/02-Liturgia/testiPDA/ritomessa/ordmisa.htm
-history_author: ""
-history_origin: ""
-history_description: ""
 copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reservados todos los derechos."
+history_author: "Traditional"
+history_origin: "Gospel of Matthew 5:23–24, Romans 16:16 & Early Liturgies"
+history_context: "The liturgical rite in which the faithful express peace, communion, and mutual charity before approaching Holy Communion."
+history_description: "The liturgical rite in which the faithful express peace, communion, and mutual charity before approaching Holy Communion."
 ---
 Sacerdote: {La paz del Señor esté siempre con vosotros.|sign_of_peace_1}
 Asamblea: {Y con tu espíritu.|sign_of_peace_2}

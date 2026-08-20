@@ -6,10 +6,11 @@ title: "Oración de San Francisco"
 subtitle: "Oración por la Paz"
 source_name: "Directorio Franciscano"
 source_url: "https://www.franciscanos.org/oracion/orarpaz.html"
-history_author: "Anónimo (atribuido a San Francisco)"
-history_origin: "La Clochette (1912)"
-history_description: "Publicada por primera vez de forma anónima en diciembre de 1912 en la revista francesa La Clochette por el padre Esther Bouquerel. En 1916 se publicó en L'Osservatore Romano. Hacia 1920 se imprimió en una postal de paz con una imagen de San Francisco de Asís en el reverso, lo que originó su popular pero errónea atribución al santo."
 has_amen: true
+history_author: "Father Esther Bouquerel (1912)"
+history_origin: "La Clochette (1912); popularized during World War I"
+history_context: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
+history_description: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
 ---
 ¡{Señor, haz de mí un instrumento de tu paz|st_francis_1}!
 {Que allí donde haya odio, ponga yo amor|st_francis_2};

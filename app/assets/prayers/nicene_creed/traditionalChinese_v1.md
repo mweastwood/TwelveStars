@@ -6,11 +6,12 @@ title: "尼西亞信經"
 subtitle: "信經"
 source_name: "天主教常用經文"
 source_url: "https://zh.wikipedia.org/wiki/%E5%B0%BC%E8%A5%BF%E4%BA%9E%E4%BF%A1%E7%B6%93"
-history_author: "First Council of Nicaea & Constantinople"
-history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
-history_description: "The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity."
 has_amen: true
 copyright: "禮儀文本 © 天主教台灣地區主教團 / 香港教區。版權所有。"
+history_author: "Traditional"
+history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
+history_context: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
+history_description: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
 ---
 {我信唯一的天主，全能的聖父，天地萬物，無論有形無形，都是祂所創造的|nicene_creed_1}。
 

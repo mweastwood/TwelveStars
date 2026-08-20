@@ -6,10 +6,11 @@ title: "Acordaos"
 subtitle: "Acordaos, oh piadosísima Virgen María"
 source_name: "Compendium of the Catechism of the Catholic Church (Vatican)"
 source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html"
-history_author: "Fr. Claude Bernard (popularized)"
-history_origin: "Traditional Marian Prayer"
-history_description: "A 15th-century Roman Catholic prayer expressing confidence in the intercession of the Blessed Virgin Mary."
 has_amen: true
+history_author: "Attr. St. Bernard of Clairvaux / Fr. Claude Bernard"
+history_origin: "Traditional Marian Prayer (c. 15th–17th century)"
+history_context: "An ancient Catholic prayer expressing confidence in the intercession of the Blessed Virgin Mary, trusting no one who sought her help was left unaided."
+history_description: "An ancient Catholic prayer expressing confidence in the intercession of the Blessed Virgin Mary, trusting no one who sought her help was left unaided."
 ---
 {Acordaos, oh piadosísima Virgen María,|memorare_1}
 {que jamás se ha oído decir que ninguno de los que han acudido a tu protección,|memorare_2}

@@ -6,11 +6,12 @@ title: "Sumasampalataya Ako"
 subtitle: "Sumasampalataya Ako"
 source_name: "iPray"
 source_url: "https://rosary.ipray.eu/credo_apostolico_tg.htm"
-history_author: "Apostles of Christ (Traditional)"
-history_origin: "Early Roman Church (c. 2nd–5th century)"
-history_description: "A summary of Christian faith used in baptism and the Rosary, reflecting early apostolic teachings."
 has_amen: true
 copyright: "Teksto sa liturhiya © Catholic Bishops' Conference of the Philippines (CBCP). Lahat ng karapatan ay reserbado."
+history_author: "Traditional"
+history_origin: "Early Roman Church (c. 2nd–5th century)"
+history_context: "An ancient summary of apostolic doctrine used as the primary baptismal profession of faith and opening creed for the Rosary."
+history_description: "An ancient summary of apostolic doctrine used as the primary baptismal profession of faith and opening creed for the Rosary."
 ---
 {Sumasampalataya ako sa Diyos, Amang makapangyarihan sa lahat|apostles_creed_1}, {na may gawa ng langit at lupa|apostles_creed_2}.
 

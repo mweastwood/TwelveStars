@@ -6,10 +6,11 @@ title: "Angelus"
 subtitle: "The Angel of the Lord declared unto Mary"
 source_name: "Wikipedia"
 source_url: "https://en.wikipedia.org/wiki/Angelus"
+has_amen: true
 history_author: "Traditional"
 history_origin: "Roman Catholic Devotion (c. 13th century)"
-history_description: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ, recited three times daily."
-has_amen: true
+history_context: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
+history_description: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
 ---
 ℣. {The Angel of the Lord declared unto Mary,|angelus_1}
 ℟. {And she conceived of the Holy Spirit.|angelus_2}

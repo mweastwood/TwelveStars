@@ -6,11 +6,12 @@ title: "Credo de Nicée-Constantinople"
 subtitle: "Symbole de Nicée-Constantinople"
 source_name: "Compendium du Catéchisme de l'Église Catholique"
 source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html"
-history_author: "First Council of Nicaea & Constantinople"
-history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
-history_description: "The ecumenical statement of belief used in the Christian liturgy, defining Orthodox Christian teachings on the Holy Trinity."
 has_amen: true
 copyright: "Texte liturgique officiel © AELF. Tous droits réservés."
+history_author: "Traditional"
+history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
+history_context: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
+history_description: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
 ---
 {Je crois en un seul Dieu, le Père tout-puissant, Créateur du ciel et de la terre, de l’univers visible et invisible|nicene_creed_1}.
 

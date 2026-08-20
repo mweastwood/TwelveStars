@@ -7,6 +7,10 @@ subtitle: Nunc Dimittis
 source_name: Wikipedia
 source_url: https://zh.wikipedia.org/zh-tw/%E8%A5%BF%E9%9D%A2%E9%A0%8C
 has_amen: false
+history_author: "Traditional"
+history_origin: "Gospel of Luke 2:29–32"
+history_context: "The Canticle of Simeon spoken when Jesus was presented in the Temple, traditionally prayed every evening during Compline (Night Prayer)."
+history_description: "The Canticle of Simeon spoken when Jesus was presented in the Temple, traditionally prayed every evening during Compline (Night Prayer)."
 ---
 
 {主啊，如今可以照你的話，|nunc_dimittis_1} 

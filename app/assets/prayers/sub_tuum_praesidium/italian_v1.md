@@ -7,6 +7,10 @@ subtitle: Italiano
 source_name: Vatican
 source_url: https://www.vatican.va/roman_curia/pontifical_councils/hlthcare/documents/rc_pc_hlthcare_doc_20110211_xvi-giorn-malato_it.html
 has_amen: false
+history_author: "Traditional"
+history_origin: "Egyptian Greek Papyrus Rylands 470 (c. 250 AD)"
+history_context: "The oldest preserved hymn and prayer to Mary as the Mother of God (Theotokos), seeking refuge and protection in trials."
+history_description: "The oldest preserved hymn and prayer to Mary as the Mother of God (Theotokos), seeking refuge and protection in trials."
 ---
 
 {Sotto la tua protezione cerchiamo rifugio,|sub_tuum_praesidium_1}

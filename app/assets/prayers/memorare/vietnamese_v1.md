@@ -6,10 +6,11 @@ title: "Kinh Hãy Nhớ"
 subtitle: "Lạy Thánh Nữ Đồng Trinh Maria là Mẹ rất nhân từ"
 source_name: "Wikipedia"
 source_url: "https://vi.wikipedia.org/wiki/Kinh_H%C3%A3y_Nh%E1%BB%9B"
-history_author: "Fr. Claude Bernard (popularized)"
-history_origin: "Traditional Marian Prayer"
-history_description: "A 15th-century Roman Catholic prayer expressing confidence in the intercession of the Blessed Virgin Mary."
 has_amen: true
+history_author: "Attr. St. Bernard of Clairvaux / Fr. Claude Bernard"
+history_origin: "Traditional Marian Prayer (c. 15th–17th century)"
+history_context: "An ancient Catholic prayer expressing confidence in the intercession of the Blessed Virgin Mary, trusting no one who sought her help was left unaided."
+history_description: "An ancient Catholic prayer expressing confidence in the intercession of the Blessed Virgin Mary, trusting no one who sought her help was left unaided."
 ---
 {Lạy Thánh Nữ Đồng Trinh Maria là Mẹ rất nhân từ, xin hãy nhớ|memorare_1}
 {xưa nay chưa từng nghe có người nào chạy đến cùng Đức Mẹ|memorare_2}

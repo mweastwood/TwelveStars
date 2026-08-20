@@ -6,8 +6,11 @@ title: Litanie dell'Umiltà
 subtitle: Litaniae Humilitatis
 source_name: Cathopedia
 source_url: https://it.cathopedia.org/wiki/Litanie_dell%27umilt%C3%A0
-history_author: Cardinale Rafael Merry del Val
 has_amen: true
+history_author: "Cardinal Rafael Merry del Val"
+history_origin: "Late 19th / Early 20th Century"
+history_context: "A devotional prayer seeking deliverance from pride and the desire for worldly esteem, composed by the Secretary of State to Pope Pius X."
+history_description: "A devotional prayer seeking deliverance from pride and the desire for worldly esteem, composed by the Secretary of State to Pope Pius X."
 ---
 
 {O Gesù, mite e umile di cuore, esaudiscimi.|litany_1}

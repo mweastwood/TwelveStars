@@ -6,10 +6,11 @@ title: "Padre Nostro"
 subtitle: "Preghiera del Signore"
 source_name: "Compendio del Catechismo della Chiesa Cattolica (Vatican)"
 source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html"
-history_author: "Jesus Christ"
-history_origin: "Gospel of Matthew 6:9–13"
-history_description: "Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer."
 has_amen: true
+history_author: "Traditional"
+history_origin: "Gospel of Matthew 6:9–13 & Gospel of Luke 11:2–4"
+history_context: "Taught directly by Jesus Christ to His disciples when they asked Him how to pray; the fundamental Christian prayer."
+history_description: "Taught directly by Jesus Christ to His disciples when they asked Him how to pray; the fundamental Christian prayer."
 ---
 {Padre nostro|our_father_1}, {che sei nei cieli|our_father_2},
 {sia santificato il tuo nome|our_father_3},

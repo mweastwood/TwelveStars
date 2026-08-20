@@ -5,7 +5,7 @@ import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 
 class PrayerDatabase {
-  static const int kPrayerCatalogVersion = 1;
+  static const int kPrayerCatalogVersion = 2;
 
   static List<Prayer>? mockPrayers;
   static UserSettings? mockSettings;
@@ -140,8 +140,12 @@ class PrayerDatabase {
             final copyright = tMap['copyright'] as String? ?? '';
             final historyAuthor = tMap['history_author'] as String? ?? '';
             final historyOrigin = tMap['history_origin'] as String? ?? '';
+            final historyContext =
+                tMap['history_context'] as String? ??
+                tMap['history_description'] as String? ??
+                '';
             final historyDescription =
-                tMap['history_description'] as String? ?? '';
+                tMap['history_description'] as String? ?? historyContext;
 
             final rawChineseLines = tMap['chinese_lines'];
             List<ChineseLine>? chineseLines;
@@ -217,6 +221,7 @@ class PrayerDatabase {
                 sourceUrl: sourceUrl,
                 historyAuthor: historyAuthor,
                 historyOrigin: historyOrigin,
+                historyContext: historyContext,
                 historyDescription: historyDescription,
                 copyright: copyright,
                 chineseLines: chineseLines,

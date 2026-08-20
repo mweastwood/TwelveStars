@@ -1155,7 +1155,7 @@ void main() {
       );
 
       expect(find.byType(Divider), findsNWidgets(2));
-      expect(find.text('HISTORICAL CONTEXT'), findsOneWidget);
+      expect(find.text('HISTORICAL BACKGROUND'), findsOneWidget);
 
       // 3. Multi-version prayer without history: 2 Dividers (header + footer above dots)
       final multiVersionPrayer = Prayer.mock(
@@ -1193,5 +1193,54 @@ void main() {
 
       expect(find.byType(Divider), findsNWidgets(2));
     });
+
+    testWidgets(
+      'renders both Historical Origin and Historical Context sections distinctly on PrayerCard',
+      (tester) async {
+        final prayerWithOriginAndContext = Prayer.mock(
+          id: 'test_origin_context',
+          defaultTitle: 'Test Prayer',
+          translations: {
+            PrayerLanguage.english: [
+              PrayerTranslation.mock(
+                title: 'Test Prayer',
+                text: 'Prayer text content.',
+                historyOrigin: '1st Century Jerusalem',
+                historyContext:
+                    'What this prayer was when it first appeared in early liturgies.',
+              ),
+            ],
+          },
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: prayerWithOriginAndContext,
+                  selectedLanguage: PrayerLanguage.english,
+                  compareLanguage: null,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        expect(find.text('HISTORICAL BACKGROUND'), findsOneWidget);
+        expect(
+          find.textContaining('Origin: 1st Century Jerusalem'),
+          findsOneWidget,
+        );
+        expect(
+          find.textContaining(
+            'Context: What this prayer was when it first appeared in early liturgies.',
+          ),
+          findsOneWidget,
+        );
+      },
+    );
   });
 }

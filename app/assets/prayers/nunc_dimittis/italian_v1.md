@@ -7,6 +7,10 @@ subtitle: Nunc Dimittis
 source_name: Wikipedia
 source_url: https://it.wikipedia.org/wiki/Nunc_dimittis
 has_amen: false
+history_author: "Traditional"
+history_origin: "Gospel of Luke 2:29–32"
+history_context: "The Canticle of Simeon spoken when Jesus was presented in the Temple, traditionally prayed every evening during Compline (Night Prayer)."
+history_description: "The Canticle of Simeon spoken when Jesus was presented in the Temple, traditionally prayed every evening during Compline (Night Prayer)."
 ---
 
 {Ora lascia, o Signore, che il tuo servo|nunc_dimittis_1} 

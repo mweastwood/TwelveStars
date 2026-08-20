@@ -6,9 +6,6 @@ title: "三鐘經"
 subtitle: "主的天使向瑪利亞報喜"
 source_name: "Wikipedia"
 source_url: "https://zh.wikipedia.org/zh-hant/%E4%B8%89%E9%90%98%E7%B6%93"
-history_author: "Traditional"
-history_origin: "Roman Catholic Devotion (c. 13th century)"
-history_description: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ, recited three times daily."
 has_amen: true
 sources:
   - name: "Wikipedia 三鐘經"
@@ -39,6 +36,10 @@ sources:
     url: "https://zh.wikipedia.org/zh-hant/%E4%B8%89%E9%90%98%E7%B6%93"
     start_line: 13
     end_line: 16
+history_author: "Traditional"
+history_origin: "Roman Catholic Devotion (c. 13th century)"
+history_context: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
+history_description: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
 ---
 啟：{主的天使向瑪利亞報喜，|angelus_1}
 應：{她因聖神受孕。|angelus_2}

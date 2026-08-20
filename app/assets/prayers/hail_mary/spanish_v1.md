@@ -6,10 +6,11 @@ title: "Ave María"
 subtitle: "El Ave María"
 source_name: "Catecismo de la Iglesia Católica (Vatican)"
 source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html"
-history_author: "Angel Gabriel & St. Elizabeth"
-history_origin: "Gospel of Luke 1:28, 42"
-history_description: "Combines the Angelic Salutation, Elizabeth’s greeting, and an ecclesial petition finalized in the 16th century."
 has_amen: true
+history_author: "Traditional"
+history_origin: "Gospel of Luke 1:28, 42; petition finalized in the 16th century"
+history_context: "Combines the Angelic Salutation of Gabriel, Elizabeth’s greeting, and an ecclesial petition finalized in the Roman Breviary."
+history_description: "Combines the Angelic Salutation of Gabriel, Elizabeth’s greeting, and an ecclesial petition finalized in the Roman Breviary."
 ---
 {Dios te salve, María, llena eres de gracia|hail_mary_1},
 {el Señor es contigo|hail_mary_2}.

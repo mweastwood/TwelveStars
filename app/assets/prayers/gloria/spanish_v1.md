@@ -6,11 +6,12 @@ title: "Gloria"
 subtitle: "Gloria a Dios en el Cielo"
 source_name: "Ordinario de la Misa (Maranatha)"
 source_url: "https://www.maranatha.it/MobileEdition/02-Liturgia/testiPDA/ritomessa/ordmisa.htm"
-history_author: "Traditional"
-history_origin: "Missale Romanum"
-history_description: "Himno litúrgico de alabanza cantado o recitado durante el Ordinario de la Misa."
 has_amen: true
 copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reservados todos los derechos."
+history_author: "Traditional"
+history_origin: "Ancient Greek Christian Hymn (c. 2nd–4th century; Roman Missal)"
+history_context: "The 'Greater Doxology' sung during the Introductory Rites of Sunday and feast day Masses to glorify God the Father and the Lamb."
+history_description: "The 'Greater Doxology' sung during the Introductory Rites of Sunday and feast day Masses to glorify God the Father and the Lamb."
 ---
 {Gloria a Dios en el cielo|gloria_1}, {y en la tierra paz a los hombres que ama el Señor|gloria_2}.
 

@@ -6,10 +6,11 @@ title: "Memorare"
 subtitle: "Remember, O most gracious Virgin Mary"
 source_name: "Compendium of the Catechism of the Catholic Church (Vatican)"
 source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html"
-history_author: "Fr. Claude Bernard (popularized)"
-history_origin: "Traditional Marian Prayer"
-history_description: "A 15th-century Roman Catholic prayer expressing confidence in the intercession of the Blessed Virgin Mary."
 has_amen: true
+history_author: "Attr. St. Bernard of Clairvaux / Fr. Claude Bernard"
+history_origin: "Traditional Marian Prayer (c. 15th–17th century)"
+history_context: "An ancient Catholic prayer expressing confidence in the intercession of the Blessed Virgin Mary, trusting no one who sought her help was left unaided."
+history_description: "An ancient Catholic prayer expressing confidence in the intercession of the Blessed Virgin Mary, trusting no one who sought her help was left unaided."
 ---
 {Remember, O most gracious Virgin Mary,|memorare_1}
 {that never was it known that anyone who fled to thy protection,|memorare_2}

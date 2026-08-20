@@ -6,10 +6,11 @@ title: "Kinh Lạy Cha"
 subtitle: "Kinh Lạy Cha"
 source_name: "VEYM"
 source_url: "https://veym.net/resources/prayers"
-history_author: "Jesus Christ"
-history_origin: "Gospel of Matthew 6:9–13"
-history_description: "Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer."
 has_amen: true
+history_author: "Traditional"
+history_origin: "Gospel of Matthew 6:9–13 & Gospel of Luke 11:2–4"
+history_context: "Taught directly by Jesus Christ to His disciples when they asked Him how to pray; the fundamental Christian prayer."
+history_description: "Taught directly by Jesus Christ to His disciples when they asked Him how to pray; the fundamental Christian prayer."
 ---
 {Lạy Cha chúng con|our_father_1} {ở trên trời|our_father_2},
 {chúng con nguyện danh Cha cả sáng|our_father_3},

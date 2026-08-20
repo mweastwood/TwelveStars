@@ -7,6 +7,10 @@ subtitle: "Domine, non sum dignus"
 source_name: Roman Missal
 source_url: https://www.universalis.com/static/mass/orderofmass.htm
 copyright: "English translation of the Order of Mass excerpts © 2010, ICEL. All rights reserved."
+history_author: "Traditional"
+history_origin: "Gospel of Matthew 8:8 & 10th-century Roman Liturgy"
+history_context: "A prayer of humility and faith recited immediately before receiving Holy Communion, echoing the Roman Centurion's plea."
+history_description: "A prayer of humility and faith recited immediately before receiving Holy Communion, echoing the Roman Centurion's plea."
 ---
 Priest: {Behold the Lamb of God, behold him who takes away the sins of the world. Blessed are those called to the supper of the Lamb.|domine_non_sum_dignus_1}
 People: {Lord, I am not worthy that you should enter under my roof, but only say the word and my soul shall be healed.|domine_non_sum_dignus_2}

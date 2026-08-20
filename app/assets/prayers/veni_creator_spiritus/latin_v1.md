@@ -7,6 +7,10 @@ subtitle: ""
 source_name: "Vatican"
 source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html"
 has_amen: true
+history_author: "Attr. Rabanus Maurus"
+history_origin: "Carolingian Hymnody (c. 9th century)"
+history_context: "A traditional Christian hymn invocation to the Holy Spirit, sung at Pentecost, ordinations, conclaves, and church dedications."
+history_description: "A traditional Christian hymn invocation to the Holy Spirit, sung at Pentecost, ordinations, conclaves, and church dedications."
 ---
 
 {Veni, creator Spiritus,|veni_creator_spiritus_1}

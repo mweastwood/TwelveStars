@@ -87,6 +87,15 @@ class LocalizedTranslationsConverter
               }
             }
 
+            final historyAuthor = tMap['historyAuthor'] as String? ?? '';
+            final historyOrigin = tMap['historyOrigin'] as String? ?? '';
+            final historyContext =
+                tMap['historyContext'] as String? ??
+                tMap['historyDescription'] as String? ??
+                '';
+            final historyDescription =
+                tMap['historyDescription'] as String? ?? historyContext;
+
             translationList.add(
               PrayerTranslation(
                 title: tMap['title'] as String? ?? '',
@@ -94,9 +103,10 @@ class LocalizedTranslationsConverter
                 text: tMap['text'] as String? ?? '',
                 sourceName: tMap['sourceName'] as String? ?? '',
                 sourceUrl: tMap['sourceUrl'] as String? ?? '',
-                historyAuthor: tMap['historyAuthor'] as String? ?? '',
-                historyOrigin: tMap['historyOrigin'] as String? ?? '',
-                historyDescription: tMap['historyDescription'] as String? ?? '',
+                historyAuthor: historyAuthor,
+                historyOrigin: historyOrigin,
+                historyContext: historyContext,
+                historyDescription: historyDescription,
                 copyright: tMap['copyright'] as String? ?? '',
                 chineseLines: chineseLines,
                 tokens: tokens,
@@ -131,6 +141,7 @@ class LocalizedTranslationsConverter
               'sourceUrl': trans.sourceUrl,
               'historyAuthor': trans.historyAuthor,
               'historyOrigin': trans.historyOrigin,
+              'historyContext': trans.historyContext,
               'historyDescription': trans.historyDescription,
               'copyright': trans.copyright,
               'chineseLines': trans.chineseLines?.map((line) {

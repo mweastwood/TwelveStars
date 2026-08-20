@@ -6,10 +6,11 @@ title: "Kinh Hòa Bình"
 subtitle: "Lời nguyện của Thánh Phanxicô"
 source_name: "Wikipedia"
 source_url: "https://vi.wikipedia.org/wiki/Kinh_H%C3%B2a_B%C3%ACnh"
-history_author: "St. Francis of Assisi"
-history_origin: "Traditional French Prayer (c. 1912)"
-history_description: "A popular prayer for peace, famously set to music in Vietnamese by Father Kim Long, expressing the Franciscan spirit of self-giving love."
 has_amen: true
+history_author: "Father Esther Bouquerel (1912)"
+history_origin: "La Clochette (1912); popularized during World War I"
+history_context: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
+history_description: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
 ---
 {Lạy Chúa xin hãy dùng con như khí cụ bình an của Chúa|st_francis_1}
 {để con đem yêu thương vào nơi oán thù|st_francis_2},

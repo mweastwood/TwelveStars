@@ -7,6 +7,10 @@ subtitle: Tagalog
 source_name: Awit at Papuri
 source_url: https://www.awitatpapuri.com/te-deum
 has_amen: false
+history_author: "Attr. St. Nicetas of Remesiana / St. Ambrose"
+history_origin: "Ancient Latin Hymnody (c. 4th–5th century)"
+history_context: "An ancient Latin Christian hymn of praise and thanksgiving, chanted at the end of the Office of Readings and on solemn occasions."
+history_description: "An ancient Latin Christian hymn of praise and thanksgiving, chanted at the end of the Office of Readings and on solemn occasions."
 ---
 
 {Pinupuri Ka namin, O Diyos,|te_deum_1} {ipinapahayag Ka namin na Panginoon.|te_deum_2}

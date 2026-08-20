@@ -6,10 +6,11 @@ title: "Luwalhati sa Ama"
 subtitle: "Luwalhati"
 source_name: "Wikipedia"
 source_url: "https://tl.wikipedia.org/wiki/Luwalhati_sa_Ama"
-history_author: "Early Church Fathers"
-history_origin: "Traditional Christian Doxology"
-history_description: "A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, tracing back to the early Councils."
 has_amen: true
+history_author: "Traditional"
+history_origin: "Early Christian Doxology (formalized 4th century)"
+history_context: "A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, concluding psalms, canticles, and Rosary decades."
+history_description: "A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, concluding psalms, canticles, and Rosary decades."
 ---
 {Luwalhati sa Ama|glory_be_1}, {at sa Anak|glory_be_2}, {at sa Espiritu Santo|glory_be_3}.
 

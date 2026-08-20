@@ -7,6 +7,10 @@ subtitle: Tiếng Việt
 source_name: TGP Sài Gòn
 source_url: https://tgpsaigon.net/bai-viet/kinh-te-deum
 has_amen: false
+history_author: "Attr. St. Nicetas of Remesiana / St. Ambrose"
+history_origin: "Ancient Latin Hymnody (c. 4th–5th century)"
+history_context: "An ancient Latin Christian hymn of praise and thanksgiving, chanted at the end of the Office of Readings and on solemn occasions."
+history_description: "An ancient Latin Christian hymn of praise and thanksgiving, chanted at the end of the Office of Readings and on solemn occasions."
 ---
 
 {Lạy Thiên Chúa, chúng con xin ca ngợi hát khen,|te_deum_1} {tuyên xưng Ngài là Chúa tể đất trời.|te_deum_2}

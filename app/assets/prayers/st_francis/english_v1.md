@@ -6,10 +6,11 @@ title: "Prayer of St. Francis"
 subtitle: "Prayer for Peace"
 source_name: "Franciscan Tradition"
 source_url: "https://en.wikipedia.org/wiki/Prayer_of_Saint_Francis"
-history_author: "Anonymous (attributed to St. Francis)"
-history_origin: "La Clochette (1912)"
-history_description: "First published anonymously in December 1912 in the French spiritual magazine La Clochette by Father Esther Bouquerel. In 1916, it was published in L'Osservatore Romano. Around 1920, it was printed on a peace postcard with an image of St. Francis of Assisi on the back, establishing its popular but mistaken attribution to the saint."
 has_amen: true
+history_author: "Father Esther Bouquerel (1912)"
+history_origin: "La Clochette (1912); popularized during World War I"
+history_context: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
+history_description: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
 ---
 {Lord, make me an instrument of your peace|st_francis_1}.
 {Where there is hatred, let me bring love|st_francis_2}.

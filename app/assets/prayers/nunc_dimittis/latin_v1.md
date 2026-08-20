@@ -7,6 +7,10 @@ subtitle: Nunc Dimittis
 source_name: Vatican
 source_url: https://www.vatican.va/roman_curia/institutions_connected/isbe/documents/rc_ic_isbe_doc_19790425_nova-vulgata-lucam_lt.html
 has_amen: false
+history_author: "Traditional"
+history_origin: "Gospel of Luke 2:29–32"
+history_context: "The Canticle of Simeon spoken when Jesus was presented in the Temple, traditionally prayed every evening during Compline (Night Prayer)."
+history_description: "The Canticle of Simeon spoken when Jesus was presented in the Temple, traditionally prayed every evening during Compline (Night Prayer)."
 ---
 
 {Nunc dimittis servum tuum, Domine,|nunc_dimittis_1} 

@@ -7,6 +7,10 @@ subtitle: "Magnificat"
 source_name: "Wikipedia"
 source_url: "https://vi.wikipedia.org/wiki/Magnificat"
 has_amen: false
+history_author: "Traditional"
+history_origin: "Gospel of Luke 1:46–55"
+history_context: "The Canticle of Mary spoken during the Visitation, exalting God's mercy and prayed daily as the evangelical canticle of Vespers."
+history_description: "The Canticle of Mary spoken during the Visitation, exalting God's mercy and prayed daily as the evangelical canticle of Vespers."
 ---
 
 {Linh hồn tôi ngợi khen Đức Chúa,|magnificat_1}
