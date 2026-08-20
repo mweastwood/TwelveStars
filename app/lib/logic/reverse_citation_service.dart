@@ -27,7 +27,7 @@ class ReverseCitation {
 }
 
 class ReverseCitationService {
-  static const int maxIndexedSources = 80;
+  static const int maxIndexedSources = 100;
   static final Map<String, List<ReverseCitation>> _indexedSources = {};
   static final Map<int, Map<int, List<ReverseCitation>>> _chapterIndex = {};
   static final Map<int, Map<int, Map<int, List<ReverseCitation>>>> _verseIndex =
@@ -117,6 +117,7 @@ class ReverseCitationService {
     'assets/catechism/json/sales_devout_life_part5.json',
     'assets/catechism/json/teresa_interior_castle.json',
     'assets/catechism/json/kempis_imitation_of_christ.json',
+    'assets/catechism/json/bonaventure_minds_road_to_god.json',
   ];
 
   @visibleForTesting

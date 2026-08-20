@@ -590,6 +590,8 @@ void parseChapteredBookFile({
         stripped.startsWith('By St. Teresa') ||
         stripped.startsWith('The Imitation of Christ') ||
         stripped.startsWith('De Imitatione Christi') ||
+        stripped.startsWith("The Mind's Road to God") ||
+        stripped.startsWith('Itinerarium Mentis in Deum') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -1208,6 +1210,18 @@ void main() {
     subtitle:
         'De Imitatione Christi (Trans. Richard Challoner / William Benham)',
     author: 'Thomas à Kempis',
+    outputDir: outputDir,
+  );
+
+  final bonaventureDir = p.join('assets', 'catechism', 'bonaventure');
+
+  parseChapteredBookFile(
+    filepath: p.join(bonaventureDir, 'bonaventure_minds_road_to_god.txt'),
+    bookId: 'bonaventure_minds_road_to_god',
+    secIdPrefix: 'bonaventure_minds_road',
+    title: "The Mind's Road to God",
+    subtitle: 'Itinerarium Mentis in Deum (Trans. George Boas, 1953)',
+    author: 'St. Bonaventure (Trans. George Boas)',
     outputDir: outputDir,
   );
 }
