@@ -57,7 +57,10 @@ void main() {
         await Future.wait([future1, future2, future3]);
 
         expect(ReverseCitationService.isInFlightIndexing, isFalse);
-        expect(ReverseCitationService.indexedSourcesCount, equals(65));
+        expect(
+          ReverseCitationService.indexedSourcesCount,
+          equals(ReverseCitationService.catalogPaths.length),
+        );
       },
     );
 

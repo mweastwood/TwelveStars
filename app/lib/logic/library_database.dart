@@ -875,6 +875,17 @@ class LibraryHelper {
         defaultAssetPath:
             'assets/catechism/json/john_cross_dark_night_soul.json',
       ),
+      const LibraryBookItem(
+        id: 'montfort_true_devotion',
+        title: 'True Devotion to Mary',
+        subtitle:
+            'Traité de la vraie dévotion (Trans. Fr. Frederick W. Faber, 1862)',
+        category: 'Marian & Spiritual Classics',
+        author: 'St. Louis-Marie de Montfort (Trans. Fr. Frederick W. Faber)',
+        description:
+            'Written 1712 (first published 1843). St. Louis de Montfort\'s crowning Catholic spiritual classic on Total Consecration to Jesus through Mary ("Holy Slavery of Love"), presenting the shortest, easiest, most secure, and most perfect path to total transformation in Christ.',
+        defaultAssetPath: 'assets/catechism/json/montfort_true_devotion.json',
+      ),
     ];
   }
 

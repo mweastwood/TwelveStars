@@ -578,6 +578,7 @@ void parseChapteredBookFile({
         stripped.startsWith('Dark Night of the Soul') ||
         stripped.startsWith('Noche Oscura del Alma') ||
         stripped.startsWith('By St. John of the Cross') ||
+        stripped.startsWith('True Devotion to Mary:') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -1036,6 +1037,18 @@ void main() {
     subtitle:
         'Noche Oscura del Alma (Trans. David Lewis, Rev. Benedict Zimmerman, O.C.D.)',
     author: 'St. John of the Cross',
+    outputDir: outputDir,
+  );
+
+  final montfortDir = p.join('assets', 'catechism', 'montfort');
+  parseChapteredBookFile(
+    filepath: p.join(montfortDir, 'montfort_true_devotion.txt'),
+    bookId: 'montfort_true_devotion',
+    secIdPrefix: 'montfort_true_devotion',
+    title: 'True Devotion to Mary',
+    subtitle:
+        'Traité de la vraie dévotion (Trans. Fr. Frederick W. Faber, 1862)',
+    author: 'St. Louis-Marie de Montfort (Trans. Fr. Frederick W. Faber)',
     outputDir: outputDir,
   );
 }
