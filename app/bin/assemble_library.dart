@@ -581,6 +581,8 @@ void parseChapteredBookFile({
         stripped.startsWith('True Devotion to Mary:') ||
         stripped.startsWith('Proslogion') ||
         stripped.startsWith('Cur Deus Homo') ||
+        stripped.startsWith('The Rule of St. Benedict') ||
+        stripped.startsWith('Regula Sancti Benedicti') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -1105,6 +1107,18 @@ void main() {
     title: 'Cur Deus Homo: Book II',
     subtitle: 'The God-Man and Atonement (Trans. Sidney Norton Deane, 1903)',
     author: 'St. Anselm of Canterbury (Trans. Sidney Norton Deane)',
+    outputDir: outputDir,
+  );
+
+  final benedictDir = p.join('assets', 'catechism', 'benedict');
+  parseChapteredBookFile(
+    filepath: p.join(benedictDir, 'benedict_rule.txt'),
+    bookId: 'benedict_rule',
+    secIdPrefix: 'benedict_rule',
+    title: 'The Rule of St. Benedict',
+    subtitle:
+        'Regula Sancti Benedicti (Trans. Rev. Boniface Verheyen, O.S.B., 1928)',
+    author: 'St. Benedict of Nursia (Trans. Rev. Boniface Verheyen, O.S.B.)',
     outputDir: outputDir,
   );
 }
