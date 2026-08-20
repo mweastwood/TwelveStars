@@ -455,5 +455,55 @@ void main() {
         );
       },
     );
+
+    testWidgets(
+      'LibraryReaderScreen loads The Epistle to Diognetus and TOC traverses all 12 chapters',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final diognetusItem = catalog.firstWhere(
+          (b) => b.id == 'diognetus_lightfoot',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/diognetus_lightfoot.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData.light(useMaterial3: true),
+            home: LibraryReaderScreen(
+              bookItem: diognetusItem,
+              initialAssetPath:
+                  'assets/catechism/json/diognetus_lightfoot.json',
+            ),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Section 1 of 12'), findsOneWidget);
+        expect(find.text('Chapter 1'), findsOneWidget);
+        expect(find.text('Occasion of the Epistle'), findsOneWidget);
+
+        // Open Table of Contents drawer
+        await tester.tap(find.byTooltip('Table of Contents'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Table of Contents'), findsOneWidget);
+        expect(find.text('Occasion of the Epistle'), findsWidgets);
+
+        // Tap Chapter 2 in TOC
+        await tester.tap(find.text('The Vanity of Idols'));
+        await tester.pumpAndSettle();
+
+        // Check that chapter 2 is loaded
+        expect(find.text('Section 2 of 12'), findsOneWidget);
+        expect(find.text('Chapter 2'), findsOneWidget);
+        expect(find.text('The Vanity of Idols'), findsWidgets);
+      },
+    );
   });
 }
