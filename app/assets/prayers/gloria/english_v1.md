@@ -11,7 +11,6 @@ copyright: "English translation of the Gloria © 2010, ICEL. All rights reserved
 history_author: "Traditional"
 history_origin: "Ancient Greek Christian Hymn (c. 2nd–4th century; Roman Missal)"
 history_context: "The 'Greater Doxology' sung during the Introductory Rites of Sunday and feast day Masses to glorify God the Father and the Lamb."
-history_description: "The 'Greater Doxology' sung during the Introductory Rites of Sunday and feast day Masses to glorify God the Father and the Lamb."
 ---
 {Glory to God in the highest|gloria_1}, {and on earth peace to people of good will|gloria_2}.
 

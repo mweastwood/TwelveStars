@@ -10,6 +10,5 @@ has_amen: true
 history_author: "Traditional"
 history_origin: "Collect from the Feast of the Holy Rosary"
 history_context: "A concluding petition asking God that by meditating on the mysteries of the Rosary, we may imitate what they contain and obtain what they promise."
-history_description: "A concluding petition asking God that by meditating on the mysteries of the Rosary, we may imitate what they contain and obtain what they promise."
 ---
 {Deus, cuius Unigenitus per vitam, mortem et resurrectionem suam nobis salutis aeternae praemia comparavit|final_prayer_rosary_1}, {concede, quaesumus: ut haec mysteria sacratissimo beatae Mariae Virginis Rosario recolentes|final_prayer_rosary_2}, {et imitemur quod continent|final_prayer_rosary_3}, {et quod promittunt assequamur|final_prayer_rosary_4}. {Per Christum Dominum nostrum|final_prayer_rosary_5}.

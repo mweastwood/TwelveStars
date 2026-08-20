@@ -10,7 +10,6 @@ has_amen: true
 history_author: "Traditional"
 history_origin: "Gospel of Luke 1:28, 42; petition finalized in the 16th century"
 history_context: "Combines the Angelic Salutation of Gabriel, Elizabeth’s greeting, and an ecclesial petition finalized in the Roman Breviary."
-history_description: "Combines the Angelic Salutation of Gabriel, Elizabeth’s greeting, and an ecclesial petition finalized in the Roman Breviary."
 ---
 {Dios te salve, María, llena eres de gracia|hail_mary_1},
 {el Señor es contigo|hail_mary_2}.

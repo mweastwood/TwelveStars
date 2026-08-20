@@ -10,7 +10,6 @@ has_amen: true
 history_author: "Cardinal Rafael Merry del Val"
 history_origin: "Late 19th / Early 20th Century"
 history_context: "A devotional prayer seeking deliverance from pride and the desire for worldly esteem, composed by the Secretary of State to Pope Pius X."
-history_description: "A devotional prayer seeking deliverance from pride and the desire for worldly esteem, composed by the Secretary of State to Pope Pius X."
 ---
 
 {O Jesus! meek and humble of heart, Hear me.|litany_1}

@@ -10,7 +10,6 @@ has_amen: true
 history_author: "Father Esther Bouquerel (1912)"
 history_origin: "La Clochette (1912); popularized during World War I"
 history_context: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
-history_description: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
 ---
 {Lạy Chúa xin hãy dùng con như khí cụ bình an của Chúa|st_francis_1}
 {để con đem yêu thương vào nơi oán thù|st_francis_2},

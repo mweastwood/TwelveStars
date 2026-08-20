@@ -10,7 +10,6 @@ has_amen: false
 history_author: "Attr. St. Nicetas of Remesiana / St. Ambrose"
 history_origin: "Ancient Latin Hymnody (c. 4th–5th century)"
 history_context: "An ancient Latin Christian hymn of praise and thanksgiving, chanted at the end of the Office of Readings and on solemn occasions."
-history_description: "An ancient Latin Christian hymn of praise and thanksgiving, chanted at the end of the Office of Readings and on solemn occasions."
 ---
 
 {天主，我們讚美祢；|te_deum_1} {上主，我們頌揚祢；|te_deum_2}

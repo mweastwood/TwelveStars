@@ -90,8 +90,7 @@ class _PrayerCardState extends State<PrayerCard> {
         _currentVersionIndex < selectedTranslations.length) {
       final selectedTrans = selectedTranslations[_currentVersionIndex];
       if (selectedTrans.historyOrigin.isNotEmpty ||
-          selectedTrans.historyContext.isNotEmpty ||
-          selectedTrans.historyDescription.isNotEmpty) {
+          selectedTrans.historyContext.isNotEmpty) {
         return selectedTrans;
       }
     }
@@ -103,8 +102,7 @@ class _PrayerCardState extends State<PrayerCard> {
       if (compareTranslations != null && compareTranslations.isNotEmpty) {
         final compareTrans = compareTranslations[0];
         if (compareTrans.historyOrigin.isNotEmpty ||
-            compareTrans.historyContext.isNotEmpty ||
-            compareTrans.historyDescription.isNotEmpty) {
+            compareTrans.historyContext.isNotEmpty) {
           return compareTrans;
         }
       }
@@ -116,8 +114,7 @@ class _PrayerCardState extends State<PrayerCard> {
     if (englishTranslations != null && englishTranslations.isNotEmpty) {
       final englishTrans = englishTranslations[0];
       if (englishTrans.historyOrigin.isNotEmpty ||
-          englishTrans.historyContext.isNotEmpty ||
-          englishTrans.historyDescription.isNotEmpty) {
+          englishTrans.historyContext.isNotEmpty) {
         return englishTrans;
       }
     }
@@ -650,9 +647,7 @@ class _PrayerCardState extends State<PrayerCard> {
                     const SizedBox(height: 12),
                     _buildHistoryPanel(
                       historyTrans.historyOrigin,
-                      historyTrans.historyContext.isNotEmpty
-                          ? historyTrans.historyContext
-                          : historyTrans.historyDescription,
+                      historyTrans.historyContext,
                       theme,
                     ),
                   ],

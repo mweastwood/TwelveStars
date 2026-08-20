@@ -10,7 +10,6 @@ has_amen: true
 history_author: "Pope Leo XIII"
 history_origin: "Leonine Prayers (1886)"
 history_context: "Recited after Low Mass to invoke the archangel's defense against evil and the spiritual ruin of souls."
-history_description: "Recited after Low Mass to invoke the archangel's defense against evil and the spiritual ruin of souls."
 ---
 {Sancte Michael Archangele, defende nos in proelio|st_michael_1}; {contra nequitiam et insidias diaboli esto praesidium|st_michael_2}. {Imperet illi Deus, supplices deprecamur|st_michael_3}: {tuque, Princeps militiae caelestis, Satanam aliosque spiritus malignos, qui ad perditionem animarum pervagantur in mundo, divina virtute, in infernum detrude|st_michael_4}.
 

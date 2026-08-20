@@ -10,7 +10,6 @@ copyright: "English translation of the Agnus Dei © 2010, ICEL. All rights reser
 history_author: "Traditional"
 history_origin: "Gospel of John 1:29; introduced into the Roman Rite Mass by Pope Sergius I (c. 7th century)"
 history_context: "Chanted during the Fraction rite (breaking of the Bread) before Communion, invoking Christ as the Lamb of God who takes away the sins of the world."
-history_description: "Chanted during the Fraction rite (breaking of the Bread) before Communion, invoking Christ as the Lamb of God who takes away the sins of the world."
 ---
 {Lamb of God|agnus_dei_1}, {you take away the sins of the world|agnus_dei_2}, {have mercy on us|agnus_dei_3}.
 {Lamb of God|agnus_dei_4}, {you take away the sins of the world|agnus_dei_5}, {have mercy on us|agnus_dei_6}.

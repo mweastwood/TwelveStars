@@ -10,7 +10,6 @@ copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reser
 history_author: "Traditional"
 history_origin: "Gospel of John 1:29; introduced into the Roman Rite Mass by Pope Sergius I (c. 7th century)"
 history_context: "Chanted during the Fraction rite (breaking of the Bread) before Communion, invoking Christ as the Lamb of God who takes away the sins of the world."
-history_description: "Chanted during the Fraction rite (breaking of the Bread) before Communion, invoking Christ as the Lamb of God who takes away the sins of the world."
 ---
 {Cordero de Dios|agnus_dei_1}, {que quitas el pecado del mundo|agnus_dei_2}, {ten piedad de nosotros|agnus_dei_3}.
 {Cordero de Dios|agnus_dei_4}, {que quitas el pecado del mundo|agnus_dei_5}, {ten piedad de nosotros|agnus_dei_6}.

@@ -10,7 +10,6 @@ has_amen: true
 history_author: "Attr. St. Bernard of Clairvaux / Fr. Claude Bernard"
 history_origin: "Traditional Marian Prayer (c. 15th–17th century)"
 history_context: "An ancient Catholic prayer expressing confidence in the intercession of the Blessed Virgin Mary, trusting no one who sought her help was left unaided."
-history_description: "An ancient Catholic prayer expressing confidence in the intercession of the Blessed Virgin Mary, trusting no one who sought her help was left unaided."
 ---
 {Souvenez-vous, ô très miséricordieuse Vierge Marie,|memorare_1}
 {qu'on n'a jamais entendu dire qu'aucun de ceux qui avaient eu recours à votre protection,|memorare_2}

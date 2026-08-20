@@ -11,7 +11,6 @@ copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reser
 history_author: "Traditional"
 history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
 history_context: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
-history_description: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
 ---
 {Creo en un solo Dios, Padre todopoderoso, Creador del cielo y de la tierra, de todo lo visible y lo invisible|nicene_creed_1}.
 

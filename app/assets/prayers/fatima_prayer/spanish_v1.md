@@ -10,6 +10,5 @@ has_amen: true
 history_author: "Traditional"
 history_origin: "Apparition at Fatima (1917)"
 history_context: "Taught by the Virgin Mary to the three shepherd children in Fatima, Portugal, to be recited after each decade of the Rosary."
-history_description: "Taught by the Virgin Mary to the three shepherd children in Fatima, Portugal, to be recited after each decade of the Rosary."
 ---
 {Oh Jesús mío, perdona nuestros pecados|fatima_prayer_1}, {líbranos del fuego del infierno|fatima_prayer_2}, {lleva al cielo a todas las almas|fatima_prayer_3}, {especialmente a las más necesitadas de Tu misericordia|fatima_prayer_4}.

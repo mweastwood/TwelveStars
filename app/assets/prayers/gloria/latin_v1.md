@@ -10,7 +10,6 @@ has_amen: true
 history_author: "Traditional"
 history_origin: "Ancient Greek Christian Hymn (c. 2nd–4th century; Roman Missal)"
 history_context: "The 'Greater Doxology' sung during the Introductory Rites of Sunday and feast day Masses to glorify God the Father and the Lamb."
-history_description: "The 'Greater Doxology' sung during the Introductory Rites of Sunday and feast day Masses to glorify God the Father and the Lamb."
 ---
 {Gloria in excelsis Deo|gloria_1} {et in terra pax hominibus bonae voluntatis|gloria_2}.
 

@@ -10,7 +10,6 @@ copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reser
 history_author: "Traditional"
 history_origin: "Ancient Roman Mass Liturgy (c. 4th–5th century)"
 history_context: "The concluding liturgical dismissal at Mass, sending the faithful forth into the world to love and serve the Lord."
-history_description: "The concluding liturgical dismissal at Mass, sending the faithful forth into the world to love and serve the Lord."
 ---
 Sacerdote: {El Señor esté con vosotros.|dismissal_1}
 Asamblea: {Y con tu espíritu.|dismissal_2}

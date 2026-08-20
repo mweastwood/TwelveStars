@@ -10,7 +10,6 @@ copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reser
 history_author: "Traditional"
 history_origin: "Early Medieval Western Liturgy (standardized in the Roman Missal)"
 history_context: "An act of confession and penitence recited during the Penitential Act at the beginning of the Catholic Mass."
-history_description: "An act of confession and penitence recited during the Penitential Act at the beginning of the Catholic Mass."
 ---
 {Yo confieso ante Dios todopoderoso|confiteor_1} {y ante vosotros, hermanos|confiteor_2}: {que he pecado mucho|confiteor_3} {de pensamiento, palabra|confiteor_4}, {obra y omisión|confiteor_5}.
 

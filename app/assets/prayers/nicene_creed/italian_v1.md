@@ -11,7 +11,6 @@ copyright: "Testo liturgico © Conferenza Episcopale Italiana (CEI). Tutti i dir
 history_author: "Traditional"
 history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
 history_context: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
-history_description: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
 ---
 {Credo in un solo Dio, Padre onnipotente, Creatore del cielo e della terra, di tutte le cose visibili e invisibili|nicene_creed_1}.
 

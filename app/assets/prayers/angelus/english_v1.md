@@ -10,7 +10,6 @@ has_amen: true
 history_author: "Traditional"
 history_origin: "Roman Catholic Devotion (c. 13th century)"
 history_context: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
-history_description: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
 ---
 ℣. {The Angel of the Lord declared unto Mary,|angelus_1}
 ℟. {And she conceived of the Holy Spirit.|angelus_2}

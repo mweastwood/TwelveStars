@@ -10,7 +10,6 @@ has_amen: true
 history_author: "Father Esther Bouquerel (1912)"
 history_origin: "La Clochette (1912); popularized during World War I"
 history_context: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
-history_description: "A devotional prayer for peace and charity first published in 1912, popularly attributed to St. Francis of Assisi after being printed on holy cards."
 ---
 {O Signore, fa' di me uno strumento della tua Pace|st_francis_1}:
 {Dove c'è odio, fa' ch'io porti l'Amore|st_francis_2}.

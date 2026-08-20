@@ -10,7 +10,6 @@ copyright: "English translation of the Sanctus © 2010, ICEL. All rights reserve
 history_author: "Traditional"
 history_origin: "Book of Isaiah 6:3 & Gospel of Matthew 21:9 (c. 4th century)"
 history_context: "The angelic hymn ('Holy, Holy, Holy') sung at the conclusion of the Preface, uniting the Church's praise with the heavenly hosts."
-history_description: "The angelic hymn ('Holy, Holy, Holy') sung at the conclusion of the Preface, uniting the Church's praise with the heavenly hosts."
 ---
 {Holy, Holy, Holy Lord God of hosts.|sanctus_1}
 {Heaven and earth are full of your glory.|sanctus_2}

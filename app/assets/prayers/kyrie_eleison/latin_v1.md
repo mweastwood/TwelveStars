@@ -9,7 +9,6 @@ source_url: "https://www.maranatha.it/RitoMessa/missaetext.htm"
 history_author: "Traditional"
 history_origin: "Ancient Greek Christian Litany (c. 5th–6th century)"
 history_context: "The opening penitential acclamation of the Mass, retaining its original Greek phrasing in the Latin Rite to plead for Christ's mercy."
-history_description: "The opening penitential acclamation of the Mass, retaining its original Greek phrasing in the Latin Rite to plead for Christ's mercy."
 ---
 Sacerdos: {Kyrie, eleison.|kyrie_eleison_1}
 Populus: {Kyrie, eleison.|kyrie_eleison_2}

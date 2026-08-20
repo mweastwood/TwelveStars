@@ -10,6 +10,5 @@ has_amen: true
 history_author: "Traditional"
 history_origin: "Collect from the Feast of the Holy Rosary"
 history_context: "A concluding petition asking God that by meditating on the mysteries of the Rosary, we may imitate what they contain and obtain what they promise."
-history_description: "A concluding petition asking God that by meditating on the mysteries of the Rosary, we may imitate what they contain and obtain what they promise."
 ---
 {O Dio, il tuo unico Figlio ci ha acquistato con la sua vita, morte e risurrezione i beni della salvezza eterna|final_prayer_rosary_1}: {concedi a noi che, venerando questi misteri del santo Rosario della Vergine Maria|final_prayer_rosary_2}, {imitiamo ciò che contengono|final_prayer_rosary_3} {e otteniamo ciò che promettono|final_prayer_rosary_4}. {Per Cristo nostro Signore|final_prayer_rosary_5}.

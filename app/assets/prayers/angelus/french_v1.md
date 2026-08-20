@@ -39,7 +39,6 @@ sources:
 history_author: "Traditional"
 history_origin: "Roman Catholic Devotion (c. 13th century)"
 history_context: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
-history_description: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
 ---
 ℣. {L’ange du Seigneur apporta l'annonce à Marie,|angelus_1}
 ℟. {Et elle conçut du Saint-Esprit.|angelus_2}

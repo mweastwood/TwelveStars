@@ -39,7 +39,6 @@ sources:
 history_author: "Traditional"
 history_origin: "Roman Catholic Devotion (c. 13th century)"
 history_context: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
-history_description: "A traditional Catholic devotion commemorating the Incarnation of Jesus Christ and the Annunciation to Mary, recited three times daily."
 ---
 Người xướng: {Đức Chúa Trời sai thánh thiên thần truyền tin cho rất thánh Đức Bà Maria.|angelus_1}
 Người đáp: {Và rất thánh Đức Bà chịu thai bởi phép Đức Chúa Thánh Thần.|angelus_2}

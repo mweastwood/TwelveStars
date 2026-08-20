@@ -10,7 +10,6 @@ copyright: "English translation of the Order of Mass excerpts © 2010, ICEL. All
 history_author: "Traditional"
 history_origin: "Ancient Roman Mass Liturgy (c. 4th–5th century)"
 history_context: "The concluding liturgical dismissal at Mass, sending the faithful forth into the world to love and serve the Lord."
-history_description: "The concluding liturgical dismissal at Mass, sending the faithful forth into the world to love and serve the Lord."
 ---
 Priest: {The Lord be with you.|dismissal_1}
 People: {And with your spirit.|dismissal_2}

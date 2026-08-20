@@ -10,7 +10,6 @@ has_amen: true
 history_author: "Attr. St. Bernard of Clairvaux / Fr. Claude Bernard"
 history_origin: "Traditional Marian Prayer (c. 15th–17th century)"
 history_context: "An ancient Catholic prayer expressing confidence in the intercession of the Blessed Virgin Mary, trusting no one who sought her help was left unaided."
-history_description: "An ancient Catholic prayer expressing confidence in the intercession of the Blessed Virgin Mary, trusting no one who sought her help was left unaided."
 ---
 {Alalahanin mo, O pinagpalang Birheng Maria,|memorare_1}
 {na 'di kailanman nangyari sa sinumang dumulog sa iyong pagkalinga,|memorare_2}

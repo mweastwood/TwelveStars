@@ -93,8 +93,6 @@ class LocalizedTranslationsConverter
                 tMap['historyContext'] as String? ??
                 tMap['historyDescription'] as String? ??
                 '';
-            final historyDescription =
-                tMap['historyDescription'] as String? ?? historyContext;
 
             translationList.add(
               PrayerTranslation(
@@ -106,7 +104,6 @@ class LocalizedTranslationsConverter
                 historyAuthor: historyAuthor,
                 historyOrigin: historyOrigin,
                 historyContext: historyContext,
-                historyDescription: historyDescription,
                 copyright: tMap['copyright'] as String? ?? '',
                 chineseLines: chineseLines,
                 tokens: tokens,
@@ -142,7 +139,6 @@ class LocalizedTranslationsConverter
               'historyAuthor': trans.historyAuthor,
               'historyOrigin': trans.historyOrigin,
               'historyContext': trans.historyContext,
-              'historyDescription': trans.historyDescription,
               'copyright': trans.copyright,
               'chineseLines': trans.chineseLines?.map((line) {
                 return {

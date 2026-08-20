@@ -10,7 +10,6 @@ copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reser
 history_author: "Traditional"
 history_origin: "Ancient Greek Christian Litany (c. 5th–6th century)"
 history_context: "The opening penitential acclamation of the Mass, retaining its original Greek phrasing in the Latin Rite to plead for Christ's mercy."
-history_description: "The opening penitential acclamation of the Mass, retaining its original Greek phrasing in the Latin Rite to plead for Christ's mercy."
 ---
 Sacerdote: {Señor, ten piedad.|kyrie_eleison_1}
 Asamblea: {Señor, ten piedad.|kyrie_eleison_2}

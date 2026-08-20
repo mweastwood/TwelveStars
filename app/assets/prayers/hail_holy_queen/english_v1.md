@@ -9,7 +9,6 @@ source_url: "https://www.preces-latinae.org/thesaurus/BVM/SalveRegina.html"
 history_author: "Attr. Bl. Hermann of Reichenau"
 history_origin: "Marian Antiphon (c. 11th century)"
 history_context: "One of the four Marian antiphons, traditionally recited at the end of the Rosary and Compline as a plea for protection and mercy."
-history_description: "One of the four Marian antiphons, traditionally recited at the end of the Rosary and Compline as a plea for protection and mercy."
 ---
 {Hail, holy Queen, Mother of mercy, our life, our sweetness, and our hope|hail_holy_queen_1}. {To thee do we cry, poor banished children of Eve|hail_holy_queen_2}. {To thee do we send up our sighs, mourning and weeping in this valley of tears|hail_holy_queen_3}.
 

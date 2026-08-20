@@ -144,8 +144,6 @@ class PrayerDatabase {
                 tMap['history_context'] as String? ??
                 tMap['history_description'] as String? ??
                 '';
-            final historyDescription =
-                tMap['history_description'] as String? ?? historyContext;
 
             final rawChineseLines = tMap['chinese_lines'];
             List<ChineseLine>? chineseLines;
@@ -222,7 +220,6 @@ class PrayerDatabase {
                 historyAuthor: historyAuthor,
                 historyOrigin: historyOrigin,
                 historyContext: historyContext,
-                historyDescription: historyDescription,
                 copyright: copyright,
                 chineseLines: chineseLines,
                 tokens: tokens,

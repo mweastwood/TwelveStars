@@ -10,7 +10,6 @@ copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reser
 history_author: "Traditional"
 history_origin: "Ancient Jewish Berakah blessings & Roman Missal"
 history_context: "The acclamation recited during the preparation and presentation of the bread and wine at the altar."
-history_description: "The acclamation recited during the preparation and presentation of the bread and wine at the altar."
 ---
 Sacerdote: {Bendito seas, Señor, Dios del universo, por este pan, fruto de la tierra y del trabajo del hombre, que recibimos de tu generosidad y ahora te presentamos; él será para nosotros pan de vida.|offertory_response_1}
 Asamblea: {Bendito seas por siempre, Señor.|offertory_response_2}

@@ -10,7 +10,6 @@ has_amen: false
 history_author: "Attr. St. Nicetas of Remesiana / St. Ambrose"
 history_origin: "Ancient Latin Hymnody (c. 4th–5th century)"
 history_context: "An ancient Latin Christian hymn of praise and thanksgiving, chanted at the end of the Office of Readings and on solemn occasions."
-history_description: "An ancient Latin Christian hymn of praise and thanksgiving, chanted at the end of the Office of Readings and on solemn occasions."
 ---
 
 {Te Deum laudamus:|te_deum_1} {te Dominum confitemur.|te_deum_2}

@@ -10,7 +10,6 @@ has_amen: true
 history_author: "Traditional"
 history_origin: "Early Christian Doxology (formalized 4th century)"
 history_context: "A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, concluding psalms, canticles, and Rosary decades."
-history_description: "A trinitarian doxology used to glorify the Father, Son, and Holy Spirit, concluding psalms, canticles, and Rosary decades."
 ---
 {Gloria al Padre|glory_be_1} {e al Figlio|glory_be_2}
 {e allo Spirito Santo|glory_be_3}.

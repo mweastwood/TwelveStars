@@ -27,7 +27,7 @@ void main() {
             sourceUrl:
                 'https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html',
             historyOrigin: 'Gospel of Matthew 6:9–13',
-            historyDescription:
+            historyContext:
                 'Taught directly by Jesus to His disciples when they asked Him how to pray. It is the fundamental Christian prayer.',
           ),
         ],

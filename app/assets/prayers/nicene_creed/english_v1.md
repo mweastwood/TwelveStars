@@ -11,7 +11,6 @@ copyright: "English translation of the Nicene Creed © 2010, ICEL. All rights re
 history_author: "Traditional"
 history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
 history_context: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
-history_description: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
 ---
 {I believe in one God, the Father almighty, maker of heaven and earth, of all things visible and invisible|nicene_creed_1}.
 

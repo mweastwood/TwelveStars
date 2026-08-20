@@ -9,6 +9,5 @@ source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_200
 history_author: "Traditional"
 history_origin: "Catholic Devotional Tradition"
 history_context: "An expression of sorrow for sin and a resolution to amend one's life, widely used in the Sacrament of Reconciliation and night examination of conscience."
-history_description: "An expression of sorrow for sin and a resolution to amend one's life, widely used in the Sacrament of Reconciliation and night examination of conscience."
 ---
 {Mio Dio, mi pento e mi dolgo con tutto il cuore dei miei peccati|act_of_contrition_1}, {perché peccando ho meritato i tuoi castighi|act_of_contrition_2}, {e molto più perché ho offeso te, infinitamente buono e degno di essere amato sopra ogni cosa|act_of_contrition_3}. {Propongo con il tuo santo aiuto di non offenderti mai più|act_of_contrition_4} {e di fuggire le occasioni prossime di peccato. Signore, misericordia, perdonami|act_of_contrition_5}.

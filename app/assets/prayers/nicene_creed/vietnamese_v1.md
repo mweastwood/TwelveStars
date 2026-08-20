@@ -11,7 +11,6 @@ copyright: "Văn bản Phụng vụ © Hội đồng Giám mục Việt Nam (HĐ
 history_author: "Traditional"
 history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
 history_context: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
-history_description: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
 ---
 {Tôi tin kính một Thiên Chúa là Cha toàn năng, Đấng tạo thành trời đất, muôn vật hữu hình và vô hình|nicene_creed_1}.
 

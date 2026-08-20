@@ -10,7 +10,6 @@ has_amen: false
 history_author: "Traditional"
 history_origin: "Gospel of Luke 2:29–32"
 history_context: "The Canticle of Simeon spoken when Jesus was presented in the Temple, traditionally prayed every evening during Compline (Night Prayer)."
-history_description: "The Canticle of Simeon spoken when Jesus was presented in the Temple, traditionally prayed every evening during Compline (Night Prayer)."
 ---
 
 {Ahora, Señor, según tu promesa,|nunc_dimittis_1} 

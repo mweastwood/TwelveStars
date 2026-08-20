@@ -10,7 +10,6 @@ has_amen: true
 history_author: "Traditional"
 history_origin: "Medieval Christian Devotion (c. 14th century, attr. Pope John XXII)"
 history_context: "A prayer of intimate union with Jesus Christ focusing on His body, blood, passion, and wounds, widely prayed after Communion."
-history_description: "A prayer of intimate union with Jesus Christ focusing on His body, blood, passion, and wounds, widely prayed after Communion."
 ---
 {願基督的靈魂聖化我，|anima_christi_1}{基督的聖體拯救我，|anima_christi_2}{基督的聖血陶醉我，|anima_christi_3}{基督肋旁的水洗滌我，|anima_christi_4}{基督的苦難堅強我。|anima_christi_5}
 

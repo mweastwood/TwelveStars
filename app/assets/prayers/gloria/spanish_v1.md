@@ -11,7 +11,6 @@ copyright: "Textos litúrgicos © Conferencia Episcopal Española / CELAM. Reser
 history_author: "Traditional"
 history_origin: "Ancient Greek Christian Hymn (c. 2nd–4th century; Roman Missal)"
 history_context: "The 'Greater Doxology' sung during the Introductory Rites of Sunday and feast day Masses to glorify God the Father and the Lamb."
-history_description: "The 'Greater Doxology' sung during the Introductory Rites of Sunday and feast day Masses to glorify God the Father and the Lamb."
 ---
 {Gloria a Dios en el cielo|gloria_1}, {y en la tierra paz a los hombres que ama el Señor|gloria_2}.
 

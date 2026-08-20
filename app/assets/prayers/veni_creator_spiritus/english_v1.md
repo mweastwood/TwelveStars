@@ -10,7 +10,6 @@ has_amen: true
 history_author: "Attr. Rabanus Maurus"
 history_origin: "Carolingian Hymnody (c. 9th century)"
 history_context: "A traditional Christian hymn invocation to the Holy Spirit, sung at Pentecost, ordinations, conclaves, and church dedications."
-history_description: "A traditional Christian hymn invocation to the Holy Spirit, sung at Pentecost, ordinations, conclaves, and church dedications."
 ---
 
 {Come, Holy Spirit, Creator come,|veni_creator_spiritus_1}

@@ -10,6 +10,5 @@ has_amen: true
 history_author: "Traditional"
 history_origin: "Catholic Devotional Tradition"
 history_context: "An expression of sorrow for sin and a resolution to amend one's life, widely used in the Sacrament of Reconciliation and night examination of conscience."
-history_description: "An expression of sorrow for sin and a resolution to amend one's life, widely used in the Sacrament of Reconciliation and night examination of conscience."
 ---
 {O my God, I am heartily sorry for having offended Thee|act_of_contrition_1}, {and I detest all my sins because of Thy just punishments|act_of_contrition_2}, {but most of all because they offend Thee, my God, who art all good and deserving of all my love|act_of_contrition_3}. {I firmly resolve with the help of Thy grace to sin no more|act_of_contrition_4} {and to avoid the near occasion of sin|act_of_contrition_5}.

@@ -11,7 +11,6 @@ copyright: "Teksto sa liturhiya © Catholic Bishops' Conference of the Philippin
 history_author: "Traditional"
 history_origin: "Early Roman Church (c. 2nd–5th century)"
 history_context: "An ancient summary of apostolic doctrine used as the primary baptismal profession of faith and opening creed for the Rosary."
-history_description: "An ancient summary of apostolic doctrine used as the primary baptismal profession of faith and opening creed for the Rosary."
 ---
 {Sumasampalataya ako sa Diyos, Amang makapangyarihan sa lahat|apostles_creed_1}, {na may gawa ng langit at lupa|apostles_creed_2}.
 

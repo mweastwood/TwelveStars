@@ -11,7 +11,6 @@ copyright: "Texte liturgique officiel © AELF. Tous droits réservés."
 history_author: "Traditional"
 history_origin: "Councils of Nicaea (325 AD) & Constantinople (381 AD)"
 history_context: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
-history_description: "The ecumenical statement of belief used in the Christian liturgy, defining orthodox Christian teachings on the Holy Trinity and Incarnation."
 ---
 {Je crois en un seul Dieu, le Père tout-puissant, Créateur du ciel et de la terre, de l’univers visible et invisible|nicene_creed_1}.
 

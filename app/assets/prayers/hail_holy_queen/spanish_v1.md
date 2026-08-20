@@ -9,7 +9,6 @@ source_url: "https://www.vatican.va/archive/compendium_ccc/documents/archive_200
 history_author: "Attr. Bl. Hermann of Reichenau"
 history_origin: "Marian Antiphon (c. 11th century)"
 history_context: "One of the four Marian antiphons, traditionally recited at the end of the Rosary and Compline as a plea for protection and mercy."
-history_description: "One of the four Marian antiphons, traditionally recited at the end of the Rosary and Compline as a plea for protection and mercy."
 ---
 {Dios te salve, Reina y Madre de misericordia, vida, dulzura y esperanza nuestra; Dios te salve|hail_holy_queen_1}. {A ti llamamos los desterrados hijos de Eva|hail_holy_queen_2}; {a ti suspiramos, gimiendo y llorando en este valle de lágrimas|hail_holy_queen_3}. {Ea, pues, Señora, abogada nuestra, vuelve a nosotros esos tus ojos misericordiosos|hail_holy_queen_4}; {y después de este destierro, muéstranos a Jesús, fruto bendito de tu vientre|hail_holy_queen_5}. ¡{Oh, clementísima, oh piadosa, oh dulce Virgen María|hail_holy_queen_6}!
 

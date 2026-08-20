@@ -10,7 +10,6 @@ has_amen: true
 history_author: "Traditional"
 history_origin: "Gospel of Matthew 6:9–13 & Gospel of Luke 11:2–4"
 history_context: "Taught directly by Jesus Christ to His disciples when they asked Him how to pray; the fundamental Christian prayer."
-history_description: "Taught directly by Jesus Christ to His disciples when they asked Him how to pray; the fundamental Christian prayer."
 ---
 {Notre Père|our_father_1}, {qui es aux cieux|our_father_2},
 {que ton Nom soit sanctifié|our_father_3},

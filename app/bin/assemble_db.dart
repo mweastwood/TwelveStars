@@ -109,8 +109,6 @@ void main() {
         yaml['history_context'] as String? ??
         yaml['history_description'] as String? ??
         '';
-    final historyDescription =
-        yaml['history_description'] as String? ?? historyContext;
     final hasAmen = yaml['has_amen'] as bool? ?? false;
 
     List<Map<String, dynamic>>? sources;
@@ -193,7 +191,6 @@ void main() {
       'history_author': historyAuthor,
       'history_origin': historyOrigin,
       'history_context': historyContext,
-      'history_description': historyDescription,
       'chinese_lines': chineseLines,
       'tokens': tokens,
       'sources': sources,
@@ -220,7 +217,6 @@ void main() {
           'history_author': t['history_author'],
           'history_origin': t['history_origin'],
           'history_context': t['history_context'],
-          'history_description': t['history_description'],
           'chinese_lines': t['chinese_lines'],
           'tokens': t['tokens'],
           'sources': t['sources'],

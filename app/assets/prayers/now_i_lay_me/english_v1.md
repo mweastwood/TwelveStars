@@ -10,7 +10,6 @@ has_amen: true
 history_author: "Traditional"
 history_origin: "Classic Bedtime Prayer (c. 18th century, The New England Primer)"
 history_context: "A popular children's bedtime prayer commending the child's soul to God's divine protection throughout the night."
-history_description: "A popular children's bedtime prayer commending the child's soul to God's divine protection throughout the night."
 ---
 {Now I lay me down to sleep|now_i_lay_me_1},
 {I pray Thee, Lord, my soul to keep|now_i_lay_me_2}.

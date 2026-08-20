@@ -85,10 +85,12 @@ class PrayerTranslation {
   String historyAuthor;
   String historyOrigin;
   String historyContext;
-  String historyDescription;
   String copyright;
   List<ChineseLine>? chineseLines;
   List<PrayerToken>? tokens;
+
+  String get historyDescription => historyContext;
+  set historyDescription(String value) => historyContext = value;
 
   PrayerTranslation({
     this.title = '',
@@ -99,15 +101,15 @@ class PrayerTranslation {
     this.historyAuthor = '',
     this.historyOrigin = '',
     this.historyContext = '',
-    this.historyDescription = '',
+    String? historyDescription,
     this.copyright = '',
     this.chineseLines,
     this.tokens,
   }) {
-    if (historyContext.isEmpty && historyDescription.isNotEmpty) {
+    if (historyContext.isEmpty &&
+        historyDescription != null &&
+        historyDescription.isNotEmpty) {
       historyContext = historyDescription;
-    } else if (historyDescription.isEmpty && historyContext.isNotEmpty) {
-      historyDescription = historyContext;
     }
   }
 
@@ -120,7 +122,7 @@ class PrayerTranslation {
     String historyAuthor = '',
     String historyOrigin = '',
     String historyContext = '',
-    String historyDescription = '',
+    String? historyDescription,
     String copyright = '',
     List<List<ChineseChar>>? chineseLines,
     List<PrayerToken>? tokens,
@@ -133,8 +135,9 @@ class PrayerTranslation {
       sourceUrl: sourceUrl,
       historyAuthor: historyAuthor,
       historyOrigin: historyOrigin,
-      historyContext: historyContext,
-      historyDescription: historyDescription,
+      historyContext: historyContext.isNotEmpty
+          ? historyContext
+          : (historyDescription ?? ''),
       copyright: copyright,
       chineseLines: chineseLines
           ?.map((line) => ChineseLine(chars: line))
