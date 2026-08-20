@@ -790,6 +790,18 @@
     "summary": "Roman officer of the Guard who was tortured and beheaded for refusing to sacrifice to pagan gods; emblem of Christian chivalry."
   },
   {
+    "id": "gerard-majella",
+    "name": "St. Gerard Majella",
+    "birthDate": "1726",
+    "deathDate": "1755",
+    "nationality": "Italian",
+    "profession": "Redemptorist Lay Brother & Mystic",
+    "isDoctor": false,
+    "feastDay": "October 16",
+    "patronage": "Expectant Mothers, Unborn Children, Pregnant Women, Childbirth, Falsely Accused, Motherhood",
+    "summary": "Italian Redemptorist lay brother renowned for his profound humility, extraordinary charity, gift of reading hearts, and miraculous intercession for mothers and safe childbirth."
+  },
+  {
     "id": "gertrude-the-great",
     "name": "St. Gertrude the Great (Gertrude of Helfta)",
     "birthDate": "1256",
@@ -1760,6 +1772,18 @@
     "feastDay": "April 2",
     "patronage": "Filipino Youth, Catechists, Overseas Workers",
     "summary": "Teenage Visayan catechist missionary in Guam who assisted Fr. Diego Luis de San Vitores and was martyred while defending his priest with heroic courage."
+  },
+  {
+    "id": "peregrine-laziosi",
+    "name": "St. Peregrine Laziosi",
+    "birthDate": "1265",
+    "deathDate": "1345",
+    "nationality": "Italian",
+    "profession": "Servite Priest & Friar",
+    "isDoctor": false,
+    "feastDay": "May 1",
+    "patronage": "Cancer Patients, Persons Afflicted with Serious Illnesses, Foot and Leg Conditions",
+    "summary": "Italian Servite friar who experienced a miraculous vision of Christ descending from the Cross to heal his cancerous leg on the eve of a scheduled amputation; patron saint of cancer patients."
   },
   {
     "id": "perpetua-and-felicity",
