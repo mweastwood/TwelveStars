@@ -100,6 +100,8 @@ class ReverseCitationService {
     'assets/catechism/json/cyril_catechetical_lectures_vol2.json',
     'assets/catechism/json/cyril_catechetical_lectures_vol3.json',
     'assets/catechism/json/cyril_catechetical_lectures_vol4.json',
+    'assets/catechism/json/john_cross_ascent_mount_carmel.json',
+    'assets/catechism/json/john_cross_dark_night_soul.json',
   ];
 
   @visibleForTesting

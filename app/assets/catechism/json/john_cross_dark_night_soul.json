@@ -1,0 +1,995 @@
+{
+  "bookId": "john_cross_dark_night_soul",
+  "title": "Dark Night of the Soul",
+  "subtitle": "Noche Oscura del Alma (Trans. David Lewis, Rev. Benedict Zimmerman, O.C.D.)",
+  "author": "St. John of the Cross",
+  "verseSystem": "vulgate",
+  "toc": [
+    {
+      "id": "sec_john_cross_dark_night_soul_1",
+      "title": "Chapter 1: Prologue: The Stanzas of the Soul and the Scope of the Passive Night"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_2",
+      "title": "Chapter 2: Book I — Chapter 1: The Imperfections of Spiritual Beginners: Spiritual Pride"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_3",
+      "title": "Chapter 3: Book I — Chapter 2: The Imperfections of Beginners: Spiritual Avarice and Attachment to Books and Relics"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_4",
+      "title": "Chapter 4: Book I — Chapter 3: The Imperfections of Beginners: Spiritual Luxury and Unchaste Impulses"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_5",
+      "title": "Chapter 5: Book I — Chapter 4: The Imperfections of Beginners: Spiritual Anger and Impatience"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_6",
+      "title": "Chapter 6: Book I — Chapter 5: The Imperfections of Beginners: Spiritual Gluttony and Seeking Sensible Sweetness"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_7",
+      "title": "Chapter 7: Book I — Chapter 6: The Imperfections of Beginners: Spiritual Envy and Sloth"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_8",
+      "title": "Chapter 8: Book I — Chapter 7: The Need for Passive Purgation: The Dark Night as God's Cleansing Work"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_9",
+      "title": "Chapter 9: Book I — Chapter 8: Entry into the Dark Night of the Senses: Three Infallible Signs"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_10",
+      "title": "Chapter 10: Book I — Chapter 9: The Nature of Contemplative Aridity: Secret and Peaceful Infusion of Love"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_11",
+      "title": "Chapter 11: Book I — Chapter 10: How Souls Must Conduct Themselves in the Sensory Dark Night"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_12",
+      "title": "Chapter 12: Book I — Chapter 11: Exposition of the First Stanza: The Soul's Joyful Escape from Sense"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_13",
+      "title": "Chapter 13: Book I — Chapter 12: Spiritual Benefits of the Night of Sense: Self-Knowledge and Humility"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_14",
+      "title": "Chapter 14: Book I — Chapter 13: Further Benefits: Reverence for God, Submission, and Spiritual Liberty"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_15",
+      "title": "Chapter 15: Book I — Chapter 14: Concluding Exposition of the Stanza: The Peaceful House of Sensuality"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_16",
+      "title": "Chapter 16: Book II — Chapter 1: Transition to the Dark Night of the Spirit and the Purgation of the Roots"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_17",
+      "title": "Chapter 17: Book II — Chapter 2: Continuation: The Profound Obscurity and Sufferings of the Spiritual Night"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_18",
+      "title": "Chapter 18: Book II — Chapter 3: The Severe Trials and Afflictions of the Soul Under Divine Cleansing"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_19",
+      "title": "Chapter 19: Book II — Chapter 4: The Soul's Interior Purgation: The Wound of Divine Light in Darkness"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_20",
+      "title": "Chapter 20: Book II — Chapter 5: Dark Contemplation as Ineffable Light: The Allegory of Weak Eyes and the Sun"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_21",
+      "title": "Chapter 21: Book II — Chapter 6: The Torment of the Soul: Feeling Rejected, Impure, and Bereft of God"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_22",
+      "title": "Chapter 22: Book II — Chapter 7: Other Purgative Afflictions: Loss of Memory, Powerlessness, and Agony"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_23",
+      "title": "Chapter 23: Book II — Chapter 8: Other Afflictions of the Will: Desolation and Solitude"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_24",
+      "title": "Chapter 24: Book II — Chapter 9: How Contemplation Though Dark is the True Ray of Divine Wisdom"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_25",
+      "title": "Chapter 25: Book II — Chapter 10: The Metaphor of Wood Consumed by Fire: Cleansing, Heating, and Enkindling"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_26",
+      "title": "Chapter 26: Book II — Chapter 11: The Enkindling of the Spirit: Passionate Longings of Love for God"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_27",
+      "title": "Chapter 27: Book II — Chapter 12: How the Terrible Night Becomes a Purgatory on Earth Leading to Glory"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_28",
+      "title": "Chapter 28: Book II — Chapter 13: Other Sweet Effects and Consolations in the Midst of Spiritual Darkness"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_29",
+      "title": "Chapter 29: Book II — Chapter 14: Exposition of the Stanza: In Darkness and in Safety by the Secret Ladder"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_30",
+      "title": "Chapter 30: Book II — Chapter 15: Why Contemplation is Called a Secret Ladder: Ineffable Wisdom"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_31",
+      "title": "Chapter 31: Book II — Chapter 16: The Disguise of the Soul: The Three Virtues of Faith, Hope, and Charity"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_32",
+      "title": "Chapter 32: Book II — Chapter 17: The White Garment of Faith: Protection Against the World and Understanding"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_33",
+      "title": "Chapter 33: Book II — Chapter 18: The Green Vesture of Hope: Protection Against the Devil and Memory"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_34",
+      "title": "Chapter 34: Book II — Chapter 19: The Purple Robe of Charity: Protection Against the Flesh and Will"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_35",
+      "title": "Chapter 35: Book II — Chapter 20: The Mystical Ladder of Divine Love: The Ten Steps (St. Bernard & St. Thomas)"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_36",
+      "title": "Chapter 36: Book II — Chapter 21: The Upper Steps of the Ladder of Love: Union, Assimilation, and Divine Marriage"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_37",
+      "title": "Chapter 37: Book II — Chapter 22: Blessed Happy Night: Safe from the Enemy and All Passions Quieted"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_38",
+      "title": "Chapter 38: Book II — Chapter 23: The Soul in Hidden Solitude: The Divine Touch and Transforming Union"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_39",
+      "title": "Chapter 39: Book II — Chapter 24: Exposition of the Final Stanzas: Resting in the Beloved Amidst Lilies"
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_40",
+      "title": "Chapter 40: Book II — Chapter 25: Concluding Stanzas: Perfect Peace, Self-Oblivion, and Divine Union"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec_john_cross_dark_night_soul_1",
+      "title": "Chapter 1",
+      "subtitle": "Prologue: The Stanzas of the Soul and the Scope of the Passive Night",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. On an obscure night, kindled in love with yearnings—oh, happy chance!—I went forth unobserved, my house being now at rest."
+        },
+        {
+          "type": "text",
+          "text": "2. In darkness and secure, by the secret ladder, disguised—oh, happy chance!—in darkness and in concealment, my house being now at rest."
+        },
+        {
+          "type": "text",
+          "text": "3. In the happy night, in secret, when none saw me, nor I beheld aught, without light or guide, save that which burned in my heart."
+        },
+        {
+          "type": "text",
+          "text": "4. This light guided me more surely than the light of noonday to the place where He was waiting for me—a place where none appeared."
+        },
+        {
+          "type": "text",
+          "text": "5. O night that guided me, O night more lovely than the dawn, O night that joined Beloved with lover, lover transformed in the Beloved!"
+        },
+        {
+          "type": "text",
+          "text": "6. Upon my flowery breast, kept wholly for Himself alone, there He stayed sleeping, and I caressed Him, and the fanning of the cedars made a breeze."
+        },
+        {
+          "type": "text",
+          "text": "7. The breeze blew from the turret as I parted His locks; with His gentle hand He wounded my neck and caused all my senses to be suspended."
+        },
+        {
+          "type": "text",
+          "text": "8. I remained, lost in oblivion; my face I reclined on the Beloved. All ceased and I abandoned myself, leaving my cares forgotten among the lilies."
+        },
+        {
+          "type": "text",
+          "text": "9. In this treatise we explain the dark night of passive purgation, wherein God Himself acts directly upon the soul to cleanse it of all imperfections, vices, and natural attachments which human effort alone could never eradicate."
+        },
+        {
+          "type": "text",
+          "text": "10. The passive night is twofold: the night of the senses, which is the purgation of beginners; and the night of the spirit, which is the severe and sublime purgation of the proficient preparing them for the divine union of love. (Job 19:21; Hebrews 12:6; Psalm 139:11-12)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_2",
+      "title": "Chapter 2",
+      "subtitle": "Book I — Chapter 1: The Imperfections of Spiritual Beginners: Spiritual Pride",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. When souls begin to give themselves to the service of God and experience sweetness in prayer and spiritual exercises, they often fall into many subtle imperfections."
+        },
+        {
+          "type": "text",
+          "text": "2. The first is spiritual pride: finding complacency in their own devotion, they begin to judge others who do not seem as spiritual as themselves. (Luke 18:11-12)"
+        },
+        {
+          "type": "text",
+          "text": "3. They are eager to speak of spiritual matters and teach others rather than learn; they desire to be praised for their piety, and feel great secret satisfaction when their virtues are noticed by others. (Matthew 6:1; 1 Corinthians 8:1)"
+        },
+        {
+          "type": "text",
+          "text": "4. When their confessors do not approve of their conduct or inclinations, they are aggrieved and change confessors, seeking those who will flatter their self-esteem."
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_3",
+      "title": "Chapter 3",
+      "subtitle": "Book I — Chapter 2: The Imperfections of Beginners: Spiritual Avarice and Attachment to Books and Relics",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The second imperfection is spiritual avarice: beginners are never satisfied with the spiritual instructions they receive or the devotions they practice."
+        },
+        {
+          "type": "text",
+          "text": "2. They amass spiritual books, rosaries, crucifixes, and relics, seeking elaborate, ornate, and curious articles rather than cultivating poverty of spirit and interior recollection."
+        },
+        {
+          "type": "text",
+          "text": "3. They load themselves with devotions and exterior practices, placing their confidence in the quantity of their prayers rather than in the quality of true love and humble surrender to God. (Ecclesiastes 5:2; Matthew 6:7)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_4",
+      "title": "Chapter 4",
+      "subtitle": "Book I — Chapter 3: The Imperfections of Beginners: Spiritual Luxury and Unchaste Impulses",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The third imperfection is spiritual luxury (or spiritual lust), which consists in disordered movements of the flesh stirred up during spiritual exercises."
+        },
+        {
+          "type": "text",
+          "text": "2. This arises from three sources: first, from the lower nature reacting to the sweetness received in the spirit, because the human vessel is too weak to endure spiritual joy without sensible reverberations."
+        },
+        {
+          "type": "text",
+          "text": "3. Second, from the devil, who excites impurity during prayer and the Sacraments in order to trouble the soul and cause it to abandon holy communion and meditation."
+        },
+        {
+          "type": "text",
+          "text": "4. Third, from fear itself: souls of a timid temperament become so terrified of impure thoughts that the very fear evokes the images they seek to avoid. (Romans 7:22-23; 2 Corinthians 12:7)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_5",
+      "title": "Chapter 5",
+      "subtitle": "Book I — Chapter 4: The Imperfections of Beginners: Spiritual Anger and Impatience",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The fourth imperfection is spiritual anger: when sensible sweetness in prayer ceases, beginners become gloomy, irritable, and peevish over trivial things."
+        },
+        {
+          "type": "text",
+          "text": "2. They are impatient with their own weaknesses, falling into fretful indignation when they commit a fault, which is a sign of wounded pride rather than genuine humility. (Galatians 5:19-20; James 1:19-20)"
+        },
+        {
+          "type": "text",
+          "text": "3. They desire to become saints in a day, and are angry with themselves because they are not yet perfect, failing to understand that patience with one's own infirmities is a great virtue. (Luke 21:19)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_6",
+      "title": "Chapter 6",
+      "subtitle": "Book I — Chapter 5: The Imperfections of Beginners: Spiritual Gluttony and Seeking Sensible Sweetness",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The fifth imperfection is spiritual gluttony, which is the disordered appetite for sensible sweetness and emotional consolation in prayer."
+        },
+        {
+          "type": "text",
+          "text": "2. These souls seek sensible delight rather than the cross of Christ; they practice excessive penances without obedience, merely to satisfy their spiritual greed."
+        },
+        {
+          "type": "text",
+          "text": "3. When consolations are withdrawn by God, they feel discouraged and believe they have lost grace, proving that they were seeking their own pleasure rather than the will of God. (John 6:26; Romans 14:17)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_7",
+      "title": "Chapter 7",
+      "subtitle": "Book I — Chapter 6: The Imperfections of Beginners: Spiritual Envy and Sloth",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The sixth imperfection is spiritual envy: beginners grieve when they see others making greater spiritual progress or receiving greater praise for their virtue."
+        },
+        {
+          "type": "text",
+          "text": "2. The seventh is spiritual sloth: they feel distaste and weariness when commanded to perform duties that lack sensible delight, shrinking from the rugged way of self-denial and the cross. (Matthew 20:15; Hebrews 12:1-2)"
+        },
+        {
+          "type": "text",
+          "text": "3. Because of these seven capital imperfections, it is necessary that God should lead beginners into the passive dark night of the senses to purify their love."
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_8",
+      "title": "Chapter 8",
+      "subtitle": "Book I — Chapter 7: The Need for Passive Purgation: The Dark Night as God's Cleansing Work",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. No matter how diligently a beginner labors in active mortification, he cannot completely root out these deep-seated imperfections by his own strength."
+        },
+        {
+          "type": "text",
+          "text": "2. God therefore intervenes with His own purifying hand, stripping the soul of sensible sweetness and weaning it from the breast of sensible consolations."
+        },
+        {
+          "type": "text",
+          "text": "3. As a mother weans her child with bitter aloes so that it may learn to eat solid food, so God weans the soul from sensible sweetness so that it may walk in the robust strength of pure faith. (Hebrews 5:12-14; Psalm 131:2)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_9",
+      "title": "Chapter 9",
+      "subtitle": "Book I — Chapter 8: Entry into the Dark Night of the Senses: Three Infallible Signs",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The soul enters the dark night of the senses when it experiences three infallible signs."
+        },
+        {
+          "type": "text",
+          "text": "2. First: when it finds no comfort, satisfaction, or sweetness either in the things of God or in any created thing. (Ecclesiastes 1:2; Psalm 77:2)"
+        },
+        {
+          "type": "text",
+          "text": "3. Second: when the memory ordinarily dwells upon God with painful care and solicitous fear, thinking that it is serving God poorly or turning back. (Psalm 38:18; 2 Corinthians 7:11)"
+        },
+        {
+          "type": "text",
+          "text": "4. Third: when it cannot meditate or make use of the imaginative faculties in prayer, because God has begun to communicate Himself through the quiet infusion of contemplative love. (Psalm 46:10)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_10",
+      "title": "Chapter 10",
+      "subtitle": "Book I — Chapter 9: The Nature of Contemplative Aridity: Secret and Peaceful Infusion of Love",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. This aridity in prayer is not caused by lukewarmness or sin, but by the beginning of contemplation."
+        },
+        {
+          "type": "text",
+          "text": "2. Contemplation is nothing else than a secret, peaceful, and loving infusion of God, which, if permitted, enkindles the soul in the spirit of love."
+        },
+        {
+          "type": "text",
+          "text": "3. The reason why the soul does not perceive this divine communication is that it is purely spiritual, and the lower sensory nature cannot taste what belongs to the spirit. (1 Corinthians 2:14; John 3:8)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_11",
+      "title": "Chapter 11",
+      "subtitle": "Book I — Chapter 10: How Souls Must Conduct Themselves in the Sensory Dark Night",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In this dark night of the senses, souls must remain patient, tranquil, and resigned, abandoning all effort to force sensible feelings or active meditations."
+        },
+        {
+          "type": "text",
+          "text": "2. Let them abide in peaceful, loving attention upon God, content to remain in silence and rest without any particular desire or anxiety. (Isaiah 30:15; Lamentations 3:26)"
+        },
+        {
+          "type": "text",
+          "text": "3. Even though it seems to them that they are doing nothing and wasting time, this loving waiting upon God is of immense value and prepares the soul for divine union. (Psalm 62:1)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_12",
+      "title": "Chapter 12",
+      "subtitle": "Book I — Chapter 11: Exposition of the First Stanza: The Soul's Joyful Escape from Sense",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The soul now sings with overflowing gratitude of its departure from the sensory house of appetites:"
+        },
+        {
+          "type": "text",
+          "text": "2. \"On an obscure night, kindled in love with yearnings—oh, happy chance!—I went forth unobserved, my house being now at rest.\""
+        },
+        {
+          "type": "text",
+          "text": "3. Oh, happy chance indeed, for the soul has been delivered by God from the slavery of the senses and has entered into the freedom of the children of God! (Romans 8:21; Galatians 5:1)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_13",
+      "title": "Chapter 13",
+      "subtitle": "Book I — Chapter 12: Spiritual Benefits of the Night of Sense: Self-Knowledge and Humility",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The night of sense produces abundant fruits of holiness in the soul."
+        },
+        {
+          "type": "text",
+          "text": "2. First and foremost, it imparts profound self-knowledge: seeing itself dry, helpless, and devoid of sensible devotion, the soul realizes its own nothingness and misery. (Genesis 18:27; Job 42:6)"
+        },
+        {
+          "type": "text",
+          "text": "3. From self-knowledge springs genuine humility: the soul no longer judges others or thinks itself superior, but regards itself as the most unworthy of all sinners. (1 Timothy 1:15; Luke 18:13)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_14",
+      "title": "Chapter 14",
+      "subtitle": "Book I — Chapter 13: Further Benefits: Reverence for God, Submission, and Spiritual Liberty",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. From this purgation arises a deep and reverent fear of God's infinite majesty, together with holy obedience and submission to superiors."
+        },
+        {
+          "type": "text",
+          "text": "2. The soul is purged of spiritual avarice, luxury, anger, gluttony, envy, and sloth, and its heart is adorned with the twelve fruits of the Holy Ghost: charity, joy, peace, patience, benignity, goodness, longanimity, mildness, faith, modesty, continency, and chastity. (Galatians 5:22-23)"
+        },
+        {
+          "type": "text",
+          "text": "3. The soul enjoys true spiritual liberty, walking with joyful lightness along the path of God's commandments. (Psalm 119:32)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_15",
+      "title": "Chapter 15",
+      "subtitle": "Book I — Chapter 14: Concluding Exposition of the Stanza: The Peaceful House of Sensuality",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. When the lower sensory appetites and passions have been completely subdued and pacified, the house of the senses is truly at rest."
+        },
+        {
+          "type": "text",
+          "text": "2. The soul is no longer agitated by worldly desires or disturbed by demonic temptations against the senses."
+        },
+        {
+          "type": "text",
+          "text": "3. It is now prepared to enter the second and far deeper dark night: the passive night of the spirit. (Philippians 4:7; Colossians 3:15)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_16",
+      "title": "Chapter 16",
+      "subtitle": "Book II — Chapter 1: Transition to the Dark Night of the Spirit and the Purgation of the Roots",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The night of sense purges only the branches of imperfection; the night of the spirit must now descend to eradicate the very roots embedded in the spiritual substance of the soul."
+        },
+        {
+          "type": "text",
+          "text": "2. This night is reserved for those proficients whom God intends to elevate to the high state of transforming union and spiritual marriage."
+        },
+        {
+          "type": "text",
+          "text": "3. It is a severe, profound, and terrible purgation, wherein the soul is stripped of all natural and habitual reliance upon its intellect, memory, and will. (Malachi 3:2-3; 1 Corinthians 3:13-15)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_17",
+      "title": "Chapter 17",
+      "subtitle": "Book II — Chapter 2: Continuation: The Profound Obscurity and Sufferings of the Spiritual Night",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In this night, God communicates Himself no longer through the senses, but purely through infused contemplation, which is a ray of divine darkness to the unpurified spirit."
+        },
+        {
+          "type": "text",
+          "text": "2. Because the divine light is infinitely pure and the soul is still full of habitual impurities, the impact of this light causes agonizing pain and darkness."
+        },
+        {
+          "type": "text",
+          "text": "3. As the eye blinded by the direct brilliance of the sun experiences darkness, so the spirit blinded by divine truth experiences its own wretchedness with overwhelming intensity. (Job 10:21-22; Psalm 88:6-7)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_18",
+      "title": "Chapter 18",
+      "subtitle": "Book II — Chapter 3: The Severe Trials and Afflictions of the Soul Under Divine Cleansing",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The soul in this night feels as if it were cast into a dark prison or swallowed alive into the belly of the whale, like the prophet Jonah. (Jonah 2:1-7)"
+        },
+        {
+          "type": "text",
+          "text": "2. It experiences intense abandonment, feeling that God has cast it off forever and that no creature on earth can offer it comfort or advice. (Psalm 22:1-2; Lamentations 3:1-9)"
+        },
+        {
+          "type": "text",
+          "text": "3. All its past virtues and good works appear stained, hollow, and worthless in the blazing light of divine justice. (Isaiah 64:6)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_19",
+      "title": "Chapter 19",
+      "subtitle": "Book II — Chapter 4: The Soul's Interior Purgation: The Wound of Divine Light in Darkness",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. This terrible trial is described in the second stanza of the poem:"
+        },
+        {
+          "type": "text",
+          "text": "2. \"In darkness and secure, by the secret ladder, disguised—oh, happy chance!—in darkness and in concealment, my house being now at rest.\""
+        },
+        {
+          "type": "text",
+          "text": "3. Although the soul feels lost and ruined, it is in reality traveling in supreme security, because God Himself is secretly directing every step of its journey. (Psalm 91:1-4; Deuteronomy 32:39)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_20",
+      "title": "Chapter 20",
+      "subtitle": "Book II — Chapter 5: Dark Contemplation as Ineffable Light: The Allegory of Weak Eyes and the Sun",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Contemplation is called dark because it transcends the natural capacity of the created intellect."
+        },
+        {
+          "type": "text",
+          "text": "2. When a bright light shines upon weak and diseased eyes, it causes them pain and seems to plunge them into darkness."
+        },
+        {
+          "type": "text",
+          "text": "3. In the same way, the infinite light of the Holy Ghost, entering the soul to burn away its deepest imperfections, causes the intellect to feel blind and helpless. (John 1:5; 1 Corinthians 2:9-10)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_21",
+      "title": "Chapter 21",
+      "subtitle": "Book II — Chapter 6: The Torment of the Soul: Feeling Rejected, Impure, and Bereft of God",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The greatest torment of this night is the profound feeling of being rejected and abhorred by God."
+        },
+        {
+          "type": "text",
+          "text": "2. The soul perceives its own baseness so vividly against the backdrop of God's infinite purity that it feels utterly unworthy of divine mercy."
+        },
+        {
+          "type": "text",
+          "text": "3. It cries out with Job: \"Why hast Thou set me opposite to Thee, and I am become burdensome to myself?\" (Job 7:20; Psalm 6:1-3)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_22",
+      "title": "Chapter 22",
+      "subtitle": "Book II — Chapter 7: Other Purgative Afflictions: Loss of Memory, Powerlessness, and Agony",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The memory in this state is so completely stripped of its natural operations that the soul forgets the names of familiar things, cannot recall past thoughts, and feels powerless to perform ordinary reflections."
+        },
+        {
+          "type": "text",
+          "text": "2. The intellect cannot formulate prayers, and the will cannot feel any warmth of devotion."
+        },
+        {
+          "type": "text",
+          "text": "3. The entire spiritual organism is suspended in helpless surrender upon the altar of God. (Psalm 77:3-4; Lamentations 3:17-18)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_23",
+      "title": "Chapter 23",
+      "subtitle": "Book II — Chapter 8: Other Afflictions of the Will: Desolation and Solitude",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The will suffers agonizing thirst and hunger for God, yet feels incapable of reaching Him."
+        },
+        {
+          "type": "text",
+          "text": "2. \"My soul hath thirsted after the strong living God; when shall I come and appear before the face of God?\" (Psalm 42:2; Psalm 63:1)"
+        },
+        {
+          "type": "text",
+          "text": "3. In this spiritual desert, all created consolations become dry ashes, leaving the soul in absolute solitude."
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_24",
+      "title": "Chapter 24",
+      "subtitle": "Book II — Chapter 9: How Contemplation Though Dark is the True Ray of Divine Wisdom",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Although this contemplation appears to be a dark cloud of sorrow, it is in truth the luminous ray of divine wisdom illuminating the spirit."
+        },
+        {
+          "type": "text",
+          "text": "2. As fire purifies raw gold by melting it in the crucible, so this divine fire melts the soul to reshape it in the image of Christ. (Proverbs 17:3; 1 Peter 1:7)"
+        },
+        {
+          "type": "text",
+          "text": "3. Once the dross of self-love is burned away, the soul shines with heavenly splendor."
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_25",
+      "title": "Chapter 25",
+      "subtitle": "Book II — Chapter 10: The Metaphor of Wood Consumed by Fire: Cleansing, Heating, and Enkindling",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Consider the action of material fire upon a piece of green wood:"
+        },
+        {
+          "type": "text",
+          "text": "2. First, the fire attacks the wood, drying out its moisture, driving out its sap and black smoke, making it look ugly, black, and foul-smelling."
+        },
+        {
+          "type": "text",
+          "text": "3. But as the fire continues its work, the wood becomes hot, then red, and finally is transformed entirely into glowing fire, possessing all the heat, brightness, and properties of the flame itself."
+        },
+        {
+          "type": "text",
+          "text": "4. In exactly the same manner, the divine fire of contemplation first drives out the moisture and black smoke of our sins and imperfections, making the soul feel wretched and dark, until at last it transforms the soul entirely into the living flame of divine love. (Hebrews 12:29; Luke 12:49)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_26",
+      "title": "Chapter 26",
+      "subtitle": "Book II — Chapter 11: The Enkindling of the Spirit: Passionate Longings of Love for God",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. As the purgation nears its completion, the soul begins to feel the divine fire enkindling its spirit with passionate yearnings of supernatural love."
+        },
+        {
+          "type": "text",
+          "text": "2. It is wounded with love for its Beloved, crying out with the Bride in the Canticle: \"I adjure you, O daughters of Jerusalem, if you find my Beloved, that you tell Him that I languish with love.\" (Song of Solomon 5:8; Psalm 84:2)"
+        },
+        {
+          "type": "text",
+          "text": "3. This love is strong, pure, and ready to endure all martyrdom for God."
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_27",
+      "title": "Chapter 27",
+      "subtitle": "Book II — Chapter 12: How the Terrible Night Becomes a Purgatory on Earth Leading to Glory",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. This passive night of the spirit is nothing less than a purgatory on earth, wherein the soul pays its entire debt of temporal punishment and is cleansed of every stain of sin."
+        },
+        {
+          "type": "text",
+          "text": "2. Souls that pass through this night in this life do not pass through the fires of purgatory after death, but fly immediately into the beatific vision of God. (1 Corinthians 3:15; Revelation 14:13)"
+        },
+        {
+          "type": "text",
+          "text": "3. They are adorned with the robes of glory even before leaving this earthly tabernacle."
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_28",
+      "title": "Chapter 28",
+      "subtitle": "Book II — Chapter 13: Other Sweet Effects and Consolations in the Midst of Spiritual Darkness",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In the midst of this darkness, God occasionally grants brief touches of ineffable sweetness and glimpses of divine glory."
+        },
+        {
+          "type": "text",
+          "text": "2. These moments of divine visitation refresh the soul and give it strength to persevere in its purgative journey. (Psalm 94:19; 2 Corinthians 1:5)"
+        },
+        {
+          "type": "text",
+          "text": "3. The soul tastes the foretaste of eternal life and is filled with immense peace."
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_29",
+      "title": "Chapter 29",
+      "subtitle": "Book II — Chapter 14: Exposition of the Stanza: In Darkness and in Safety by the Secret Ladder",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In the second stanza, the soul rejoices in having climbed the \"secret ladder\" disguised:"
+        },
+        {
+          "type": "text",
+          "text": "2. \"In darkness and secure, by the secret ladder, disguised—oh, happy chance!—in darkness and in concealment, my house being now at rest.\""
+        },
+        {
+          "type": "text",
+          "text": "3. Contemplation is called a ladder because it raises the soul step by step to God, and secret because it is hidden from human reason and demonic perception. (Genesis 28:12; 1 Corinthians 2:7-8)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_30",
+      "title": "Chapter 30",
+      "subtitle": "Book II — Chapter 15: Why Contemplation is Called a Secret Ladder: Ineffable Wisdom",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Contemplation is secret because it is infused directly into the soul by the Holy Ghost without the mediation of concepts or sensory images."
+        },
+        {
+          "type": "text",
+          "text": "2. Neither the soul itself nor any theologian can fully describe this mystical wisdom in words, for it belongs to the language of eternity. (2 Corinthians 12:4; Wisdom 7:22-26)"
+        },
+        {
+          "type": "text",
+          "text": "3. It is communicated secretly in the innermost center of the heart."
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_31",
+      "title": "Chapter 31",
+      "subtitle": "Book II — Chapter 16: The Disguise of the Soul: The Three Virtues of Faith, Hope, and Charity",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The soul travels disguised under a threefold garment consisting of the three theological virtues:"
+        },
+        {
+          "type": "text",
+          "text": "2. The white tunic of Faith, the green vesture of Hope, and the purple robe of Charity."
+        },
+        {
+          "type": "text",
+          "text": "3. Clothed in this heavenly disguise, the soul escapes all the ambushes of the world, the devil, and the flesh. (Revelation 19:8; 1 Thessalonians 5:8)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_32",
+      "title": "Chapter 32",
+      "subtitle": "Book II — Chapter 17: The White Garment of Faith: Protection Against the World and Understanding",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The white garment of Faith covers the intellect, rendering it blind to worldly vanities and preserving it in spotless purity before God."
+        },
+        {
+          "type": "text",
+          "text": "2. Against this white armor of Faith, all the sophistries of the world and doubts of human reason are shattered. (1 John 5:4; Ephesians 6:16)"
+        },
+        {
+          "type": "text",
+          "text": "3. Faith makes the soul pleasing in the sight of the Beloved."
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_33",
+      "title": "Chapter 33",
+      "subtitle": "Book II — Chapter 18: The Green Vesture of Hope: Protection Against the Devil and Memory",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The green vesture of Hope covers the memory, fixing all its desires on the eternal goods of heaven."
+        },
+        {
+          "type": "text",
+          "text": "2. Against this green robe, the devil cannot cast his hooks of despair, worldly ambition, or earthly entanglements. (Hebrews 6:19; Psalm 91:2)"
+        },
+        {
+          "type": "text",
+          "text": "3. Hope keeps the soul buoyant in the midst of the tempest."
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_34",
+      "title": "Chapter 34",
+      "subtitle": "Book II — Chapter 19: The Purple Robe of Charity: Protection Against the Flesh and Will",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The purple robe of Charity covers the will, inflaming it with divine love and uniting it inextricably with God."
+        },
+        {
+          "type": "text",
+          "text": "2. Charity is the crown and queen of all virtues, mortifying all fleshly desires and overcoming all fear of suffering or death. (Song of Solomon 8:6-7; Colossians 3:14)"
+        },
+        {
+          "type": "text",
+          "text": "3. Clothed in white, green, and purple, the soul enters safely into the bridal chamber of the King."
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_35",
+      "title": "Chapter 35",
+      "subtitle": "Book II — Chapter 20: The Mystical Ladder of Divine Love: The Ten Steps (St. Bernard & St. Thomas)",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The mystical ladder of divine love contains ten progressive steps, as taught by St. Bernard and St. Thomas Aquinas:"
+        },
+        {
+          "type": "text",
+          "text": "2. Step 1: The soul is made sick with holy languor for God. (Song of Solomon 5:8)"
+        },
+        {
+          "type": "text",
+          "text": "3. Step 2: The soul seeks God unceasingly in all things. (Psalm 105:4)"
+        },
+        {
+          "type": "text",
+          "text": "4. Step 3: The soul performs great works and labors for God, yet counts them as nothing. (Genesis 29:20)"
+        },
+        {
+          "type": "text",
+          "text": "5. Step 4: The soul suffers without weariness for the sake of the Beloved. (2 Corinthians 12:10)"
+        },
+        {
+          "type": "text",
+          "text": "6. Step 5: The soul desires and pants after God with vehement impatience. (Psalm 42:1)"
+        },
+        {
+          "type": "text",
+          "text": "7. Step 6: The soul runs swiftly in the ways of virtue without fatigue. (Isaiah 40:31)"
+        },
+        {
+          "type": "text",
+          "text": "8. Step 7: The soul attains to great holy boldness and vehement confidence in prayer. (1 John 4:18)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_36",
+      "title": "Chapter 36",
+      "subtitle": "Book II — Chapter 21: The Upper Steps of the Ladder of Love: Union, Assimilation, and Divine Marriage",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Step 8: The soul holds fast to the Beloved in indissoluble union. (Song of Solomon 3:4)"
+        },
+        {
+          "type": "text",
+          "text": "2. Step 9: The soul burns with sweet and consuming fire, transformed into God by grace. (Romans 8:38-39)"
+        },
+        {
+          "type": "text",
+          "text": "3. Step 10: The soul is assimilated completely to God in the beatific vision of glory, having stepped from the ladder of this life into the eternal embrace of the Blessed Trinity. (1 John 3:2; Psalm 17:15)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_37",
+      "title": "Chapter 37",
+      "subtitle": "Book II — Chapter 22: Blessed Happy Night: Safe from the Enemy and All Passions Quieted",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In the third stanza the soul proclaims the blessedness of this obscure night:"
+        },
+        {
+          "type": "text",
+          "text": "2. \"In the happy night, in secret, when none saw me, nor I beheld aught, without light or guide, save that which burned in my heart.\""
+        },
+        {
+          "type": "text",
+          "text": "3. In this hidden darkness, the soul was hidden from the sight of Satan, freed from the tyranny of the passions, and guided solely by the burning flame of divine love. (Colossians 3:3; Psalm 31:20)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_38",
+      "title": "Chapter 38",
+      "subtitle": "Book II — Chapter 23: The Soul in Hidden Solitude: The Divine Touch and Transforming Union",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In the secret sanctuary of the spirit, God imparts the transforming touch of divine love."
+        },
+        {
+          "type": "text",
+          "text": "2. The soul is admitted into the inner wine cellar of the King, where the spiritual marriage is celebrated in ineffable peace and joy. (Song of Solomon 1:4; Song of Solomon 2:4)"
+        },
+        {
+          "type": "text",
+          "text": "3. Two natures—human and divine—are united in one spirit of love. (1 Corinthians 6:17)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_39",
+      "title": "Chapter 39",
+      "subtitle": "Book II — Chapter 24: Exposition of the Final Stanzas: Resting in the Beloved Amidst Lilies",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. \"Upon my flowery breast, kept wholly for Himself alone, there He stayed sleeping, and I caressed Him, and the fanning of the cedars made a breeze.\""
+        },
+        {
+          "type": "text",
+          "text": "2. The flowery breast is the soul adorned with all virtues and purged of all vices, where Christ rests as in His peaceful garden. (Song of Solomon 4:12-16)"
+        },
+        {
+          "type": "text",
+          "text": "3. The breeze from the turret is the gentle breathing of the Holy Ghost, filling the soul with heavenly fragrance and suspending all sensory activity in sublime ecstasy. (John 20:22)"
+        }
+      ]
+    },
+    {
+      "id": "sec_john_cross_dark_night_soul_40",
+      "title": "Chapter 40",
+      "subtitle": "Book II — Chapter 25: Concluding Stanzas: Perfect Peace, Self-Oblivion, and Divine Union",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. \"I remained, lost in oblivion; my face I reclined on the Beloved. All ceased and I abandoned myself, leaving my cares forgotten among the lilies.\""
+        },
+        {
+          "type": "text",
+          "text": "2. In this final state of mystical union, all self-seeking ceases, all anxiety is swallowed up in peace, and the soul rests eternally in the bosom of God."
+        },
+        {
+          "type": "text",
+          "text": "3. \"He that is joined unto the Lord is one spirit.\" (1 Corinthians 6:17; Revelation 21:3-4) To the King of ages, immortal, invisible, the only God, be honor and glory forever and ever. Amen. (1 Timothy 1:17)"
+        }
+      ]
+    }
+  ]
+}
