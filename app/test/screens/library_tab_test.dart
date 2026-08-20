@@ -68,6 +68,7 @@ void main() {
       expect(find.text('Dark Night of the Soul'), findsOneWidget);
       expect(find.text('True Devotion to Mary'), findsOneWidget);
       expect(find.text('The Rule of St. Benedict'), findsOneWidget);
+      expect(find.text('Introduction to the Devout Life'), findsOneWidget);
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -109,6 +110,13 @@ void main() {
       // Verify Anselm volume chips exist
       expect(find.text('Book I: The Necessity of Redemption'), findsOneWidget);
       expect(find.text('Book II: The God-Man and Atonement'), findsOneWidget);
+
+      // Verify St. Francis de Sales volume chips exist
+      expect(find.text('Part I (First Desire for Devotion)'), findsOneWidget);
+      expect(
+        find.text('Part V (Renewing the Soul in Devotion)'),
+        findsOneWidget,
+      );
     });
 
     testWidgets('tapping Gregory volume chip opens LibraryReaderScreen', (
@@ -137,6 +145,34 @@ void main() {
       expect(find.byType(LibraryReaderScreen), findsOneWidget);
       expect(find.text('The Five Theological Orations'), findsWidgets);
     });
+
+    testWidgets(
+      'tapping St. Francis de Sales volume chip opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/sales_devout_life_part1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final part1Chip = find.text('Part I (First Desire for Devotion)');
+        await tester.scrollUntilVisible(
+          part1Chip,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(part1Chip);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('Introduction to the Devout Life'), findsWidgets);
+      },
+    );
 
     testWidgets('tapping Cyril volume chip opens LibraryReaderScreen', (
       tester,

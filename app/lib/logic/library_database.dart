@@ -740,6 +740,49 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> devoutLifeVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'part1',
+      name: 'Part I (First Desire for Devotion)',
+      shortName: 'Part I',
+      description:
+          'Defines true devotion, general purification from mortal and venial sin, affections for evil things, and the 10 foundational meditations.',
+      assetPath: 'assets/catechism/json/sales_devout_life_part1.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'part2',
+      name: 'Part II (Prayer & Sacraments)',
+      shortName: 'Part II',
+      description:
+          'Instructions on the presence of God, invocations, meditation techniques, spiritual dryness, morning and evening prayers, Holy Mass, Confession, and frequent reception of Holy Communion.',
+      assetPath: 'assets/catechism/json/sales_devout_life_part2.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'part3',
+      name: 'Part III (Practice of Virtues)',
+      shortName: 'Part III',
+      description:
+          'Practical directives for daily life: choice of virtues, patience, exterior and interior humility, meekness, gentleness, obedience, chastity, holy friendships, mortification, and modesty in attire and speech.',
+      assetPath: 'assets/catechism/json/sales_devout_life_part3.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'part4',
+      name: 'Part IV (Against Ordinary Temptations)',
+      shortName: 'Part IV',
+      description:
+          'Strategies for spiritual combat: despising temptations, handling anxiety and disquietude, overcoming sadness, managing consolations and spiritual dryness, and examination during trials.',
+      assetPath: 'assets/catechism/json/sales_devout_life_part4.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'part5',
+      name: 'Part V (Renewing the Soul in Devotion)',
+      shortName: 'Part V',
+      description:
+          'Annual spiritual renewal and retreat: examination of spiritual progress towards God, self, and neighbor; renewal of good resolutions; final protestations; and perseverance in holiness.',
+      assetPath: 'assets/catechism/json/sales_devout_life_part5.json',
+    ),
+  ];
+
   static List<LibraryBookItem> getCatalog() {
     return [
       const LibraryBookItem(
@@ -968,6 +1011,17 @@ class LibraryHelper {
         description:
             'Written c. 516–530 AD at Monte Cassino. The foundational charter of Western monasticism and European Christian culture, establishing the rhythm of prayer, work, and community life ("Ora et Labora").',
         defaultAssetPath: 'assets/catechism/json/benedict_rule.json',
+      ),
+      const LibraryBookItem(
+        id: 'francis_de_sales_devout_life',
+        title: 'Introduction to the Devout Life',
+        subtitle:
+            'Introduction à la vie dévote (Trans. Allan Ross / Rivingtons)',
+        category: 'Spiritual Classics',
+        author: 'St. Francis de Sales (Trans. Allan Ross)',
+        description:
+            'Written in 1609 by the Bishop of Geneva and Doctor of the Church. The universal spiritual classic showing that authentic holiness is attainable and necessary for persons in every state of life.',
+        volumes: devoutLifeVolumes,
       ),
     ];
   }
