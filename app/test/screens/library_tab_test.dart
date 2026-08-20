@@ -59,6 +59,7 @@ void main() {
       expect(find.text('The Confessions'), findsOneWidget);
       expect(find.text('The City of God'), findsOneWidget);
       expect(find.text('Catechetical Lectures'), findsOneWidget);
+      expect(find.text('The Five Theological Orations'), findsOneWidget);
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -88,6 +89,37 @@ void main() {
       // Verify Cyril volume chips exist
       expect(find.text('Vol. I (Procatechesis & Faith)'), findsOneWidget);
       expect(find.text('Vol. IV (The Mysteries)'), findsOneWidget);
+
+      // Verify Gregory volume chips exist
+      expect(find.text('Oration I (Against the Eunomians)'), findsOneWidget);
+      expect(find.text('Oration V (On the Holy Spirit)'), findsOneWidget);
+    });
+
+    testWidgets('tapping Gregory volume chip opens LibraryReaderScreen', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/gregory_theological_orations_oration5.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final oration5Chip = find.text('Oration V (On the Holy Spirit)');
+      await tester.scrollUntilVisible(
+        oration5Chip,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(oration5Chip);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('The Five Theological Orations'), findsWidgets);
     });
 
     testWidgets('tapping Cyril volume chip opens LibraryReaderScreen', (
@@ -1002,6 +1034,39 @@ void main() {
         await tester.pumpAndSettle();
 
         await screenMatchesGolden(tester, 'cyril_lectures_vol4_golden');
+      },
+    );
+
+    testGoldens(
+      'LibraryReaderScreen renders St. Gregory The Five Theological Orations',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final gregory = catalog.firstWhere(
+          (b) => b.id == 'gregory_theological_orations',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/gregory_theological_orations_oration1.json',
+          );
+        });
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: gregory,
+              initialVolumeKey: 'oration1',
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'gregory_theological_orations_oration1_golden',
+        );
       },
     );
 
