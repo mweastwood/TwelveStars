@@ -69,6 +69,7 @@ void main() {
       expect(find.text('True Devotion to Mary'), findsOneWidget);
       expect(find.text('The Rule of St. Benedict'), findsOneWidget);
       expect(find.text('Introduction to the Devout Life'), findsOneWidget);
+      expect(find.text('The Interior Castle'), findsOneWidget);
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -1362,6 +1363,30 @@ void main() {
       expect(find.text('Section 1 of 74'), findsOneWidget);
     });
 
+    testGoldens('LibraryReaderScreen renders St. Teresa The Interior Castle', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final teresa = catalog.firstWhere(
+        (b) => b.id == 'teresa_interior_castle',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/teresa_interior_castle.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        Scaffold(body: LibraryReaderScreen(bookItem: teresa)),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'teresa_interior_castle_golden');
+    });
+
     testWidgets('renders interactive Scripture citation chip', (tester) async {
       final catalog = LibraryHelper.getCatalog();
       final baltimore = catalog.firstWhere(
@@ -1660,5 +1685,41 @@ void main() {
       expect(find.text('Cur Deus Homo'), findsWidgets);
       expect(find.text('Section 1 of 22'), findsOneWidget);
     });
+
+    testWidgets(
+      'tapping Read Book on The Interior Castle opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/teresa_interior_castle.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final teresaCard = find.ancestor(
+          of: find.text('The Interior Castle'),
+          matching: find.byType(Card),
+        );
+        final readBtn = find.descendant(
+          of: teresaCard,
+          matching: find.widgetWithText(FilledButton, 'Read Book'),
+        );
+
+        await tester.scrollUntilVisible(
+          readBtn,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(readBtn);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('The Interior Castle'), findsWidgets);
+      },
+    );
   });
 }
