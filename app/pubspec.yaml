@@ -93,6 +93,7 @@ flutter:
     - assets/catechism/baltimore/
     - assets/catechism/trent/
     - assets/catechism/didache/
+    - assets/catechism/polycarp/
     - assets/catechism/clement/
     - assets/catechism/ignatius/
     - assets/catechism/justin/

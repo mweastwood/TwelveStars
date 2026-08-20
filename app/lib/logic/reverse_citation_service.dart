@@ -52,6 +52,8 @@ class ReverseCitationService {
     'assets/catechism/json/ignatius_philadelphians_lightfoot.json',
     'assets/catechism/json/ignatius_smyrnaeans_lightfoot.json',
     'assets/catechism/json/ignatius_polycarp_lightfoot.json',
+    'assets/catechism/json/polycarp_philippians_lightfoot.json',
+    'assets/catechism/json/polycarp_martyrdom_lightfoot.json',
     'assets/catechism/json/justin_first_apology_dods.json',
     'assets/catechism/json/justin_second_apology_dods.json',
     'assets/catechism/json/justin_dialogue_trypho_dods.json',

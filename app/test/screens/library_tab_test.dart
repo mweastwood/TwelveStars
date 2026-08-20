@@ -53,6 +53,7 @@ void main() {
       expect(find.text('First Epistle of Clement'), findsOneWidget);
       expect(find.text('Second Epistle of Clement'), findsOneWidget);
       expect(find.text('Epistles of St. Ignatius'), findsOneWidget);
+      expect(find.text('Epistle & Martyrdom of St. Polycarp'), findsOneWidget);
       expect(find.text('Apologies of St. Justin Martyr'), findsOneWidget);
       expect(find.text('Dialogue with Trypho'), findsOneWidget);
       expect(find.text('Against Heresies'), findsOneWidget);
@@ -74,6 +75,10 @@ void main() {
       expect(find.text('Epistle to the Ephesians'), findsOneWidget);
       expect(find.text('Epistle to the Romans'), findsOneWidget);
       expect(find.text('Epistle to the Smyrnaeans'), findsOneWidget);
+
+      // Verify Polycarp volume chips exist
+      expect(find.text('Epistle to the Philippians'), findsOneWidget);
+      expect(find.text('The Martyrdom of Polycarp'), findsOneWidget);
 
       // Verify Justin Martyr volume chips exist
       expect(find.text('First Apology'), findsOneWidget);
@@ -309,6 +314,61 @@ void main() {
       expect(find.byType(LibraryReaderScreen), findsOneWidget);
       expect(find.text('Epistles of St. Ignatius'), findsWidgets);
     });
+
+    testWidgets('tapping Polycarp volume chip opens LibraryReaderScreen', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/polycarp_philippians_lightfoot.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final philChip = find.text('Epistle to the Philippians');
+      await tester.scrollUntilVisible(
+        philChip,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(philChip);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('Epistle & Martyrdom of St. Polycarp'), findsWidgets);
+    });
+
+    testWidgets(
+      'tapping Polycarp Martyrdom volume chip opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/polycarp_martyrdom_lightfoot.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final martChip = find.text('The Martyrdom of Polycarp');
+        await tester.scrollUntilVisible(
+          martChip,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(martChip);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('Epistle & Martyrdom of St. Polycarp'), findsWidgets);
+      },
+    );
 
     testWidgets(
       'tapping Read Book on First Clement opens LibraryReaderScreen',
