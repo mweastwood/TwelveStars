@@ -672,6 +672,7 @@ void main() {
   final baltimoreDir = p.join('assets', 'catechism', 'baltimore');
   final trentDir = p.join('assets', 'catechism', 'trent');
   final didacheDir = p.join('assets', 'catechism', 'didache');
+  final polycarpDir = p.join('assets', 'catechism', 'polycarp');
   final clementDir = p.join('assets', 'catechism', 'clement');
   final ignatiusDir = p.join('assets', 'catechism', 'ignatius');
   final justinDir = p.join('assets', 'catechism', 'justin');
@@ -782,6 +783,27 @@ void main() {
       outputDir: outputDir,
     );
   }
+
+  parseChapteredBookFile(
+    filepath: p.join(polycarpDir, 'polycarp_philippians_lightfoot.txt'),
+    bookId: 'polycarp_philippians_lightfoot',
+    secIdPrefix: 'polycarp_philippians',
+    title: 'Epistle of Polycarp to the Philippians',
+    subtitle: 'To the Church of God at Philippi (Trans. J. B. Lightfoot, 1891)',
+    author: 'St. Polycarp of Smyrna (Trans. J. B. Lightfoot)',
+    outputDir: outputDir,
+  );
+
+  parseChapteredBookFile(
+    filepath: p.join(polycarpDir, 'polycarp_martyrdom_lightfoot.txt'),
+    bookId: 'polycarp_martyrdom_lightfoot',
+    secIdPrefix: 'polycarp_martyrdom',
+    title: 'The Martyrdom of Polycarp',
+    subtitle:
+        'Encyclical Epistle of the Church at Smyrna (Trans. J. B. Lightfoot, 1891)',
+    author: 'The Church of Smyrna (Trans. J. B. Lightfoot)',
+    outputDir: outputDir,
+  );
 
   parseChapteredBookFile(
     filepath: p.join(justinDir, 'justin_first_apology_dods.txt'),

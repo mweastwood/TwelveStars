@@ -271,6 +271,25 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> polycarpVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'philippians',
+      name: 'Epistle to the Philippians',
+      shortName: 'Philippians',
+      description:
+          'Written c. 110–140 AD. Pastoral exhortation on righteousness, faith, charity, and steadfastness in Christ against early heresies.',
+      assetPath: 'assets/catechism/json/polycarp_philippians_lightfoot.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'martyrdom',
+      name: 'The Martyrdom of Polycarp',
+      shortName: 'Martyrdom',
+      description:
+          'Written c. 155–160 AD by the Church of Smyrna. The earliest surviving authentic account of Christian martyrdom outside the New Testament ("Eighty and six years have I served Him, and He never did me any injury: how then can I blaspheme my King and my Saviour?").',
+      assetPath: 'assets/catechism/json/polycarp_martyrdom_lightfoot.json',
+    ),
+  ];
+
   static const List<BaltimoreVolume> justinVolumes = [
     BaltimoreVolume(
       volumeKey: 'first_apology',
@@ -766,6 +785,18 @@ class LibraryHelper {
         description:
             'Written c. 107–110 AD on his way to martyrdom in Rome. The seven authentic letters provide an irreplaceable early witness to the hierarchy of the Church, the Holy Eucharist, the Catholic Church, and Christian martyrdom.',
         volumes: ignatiusVolumes,
+      ),
+      const LibraryBookItem(
+        id: 'polycarp_writings',
+        title: 'Epistle & Martyrdom of St. Polycarp',
+        subtitle:
+            'Epistle to the Philippians & Martyrdom of Polycarp (Trans. J. B. Lightfoot, 1891)',
+        category: 'Apostolic Fathers',
+        author:
+            'St. Polycarp of Smyrna / Church of Smyrna (Trans. J. B. Lightfoot)',
+        description:
+            'Writings related to St. Polycarp of Smyrna (c. 69–156 AD), Bishop of Smyrna and disciple of St. John the Apostle. Includes his pastoral Epistle to the Philippians and the Martyrdom of Polycarp, the earliest surviving authentic account of Christian martyrdom outside the New Testament.',
+        volumes: polycarpVolumes,
       ),
       const LibraryBookItem(
         id: 'justin_martyr_apologies',

@@ -1,0 +1,529 @@
+{
+  "bookId": "polycarp_martyrdom_lightfoot",
+  "title": "The Martyrdom of Polycarp",
+  "subtitle": "Encyclical Epistle of the Church at Smyrna (Trans. J. B. Lightfoot, 1891)",
+  "author": "The Church of Smyrna (Trans. J. B. Lightfoot)",
+  "verseSystem": "vulgate",
+  "toc": [
+    {
+      "id": "sec_polycarp_martyrdom_1",
+      "title": "Chapter 1: Subject of Which We Write"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_2",
+      "title": "Chapter 2: The Fortitude and Holy Patience of the Martyrs"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_3",
+      "title": "Chapter 3: The Bravery of Germanicus and the Cry for Polycarp"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_4",
+      "title": "Chapter 4: The Rashness and Apostasy of Quintus the Phrygian"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_5",
+      "title": "Chapter 5: Polycarp Departs into Retirement and Sees a Vision"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_6",
+      "title": "Chapter 6: Polycarp Betrayed by a Household Servant"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_7",
+      "title": "Chapter 7: The Apprehension of Polycarp"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_8",
+      "title": "Chapter 8: Polycarp Brought into the City and Tempted by Herod"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_9",
+      "title": "Chapter 9: Polycarp Refuses to Deny Christ Before the Proconsul"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_10",
+      "title": "Chapter 10: Polycarp Confesses Himself a Christian"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_11",
+      "title": "Chapter 11: Polycarp Threatens the Proconsul with Unquenchable Fire"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_12",
+      "title": "Chapter 12: The Proconsul Condemns Polycarp to the Stake"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_13",
+      "title": "Chapter 13: The Fuel is Prepared and Polycarp Prepared for the Stake"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_14",
+      "title": "Chapter 14: The Sublime Prayer of Polycarp at the Stake"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_15",
+      "title": "Chapter 15: The Miracle of the Fire and the Fragrant Aroma"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_16",
+      "title": "Chapter 16: The Death of Polycarp by the Dagger"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_17",
+      "title": "Chapter 17: The Jews Prevent the Christians from Taking the Body"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_18",
+      "title": "Chapter 18: The Christians Gather the Bones of the Martyr"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_19",
+      "title": "Chapter 19: The Great Praise and Crown of Polycarp"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_20",
+      "title": "Chapter 20: Concluding Exhortations and Salutations"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_21",
+      "title": "Chapter 21: The Date of Polycarp's Martyrdom"
+    },
+    {
+      "id": "sec_polycarp_martyrdom_22",
+      "title": "Chapter 22: Salutations and Epilogue of the Transcribers"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec_polycarp_martyrdom_1",
+      "title": "Chapter 1",
+      "subtitle": "Subject of Which We Write",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Church of God which sojourneth at Smyrna, to the Church of God which sojourneth in Philomelium, and to all the brotherhoods of the holy and universal Church in every place; Mercy, peace, and love from God the Father and our Lord Jesus Christ, be multiplied."
+        },
+        {
+          "type": "text",
+          "text": "2. We write unto you, brethren, an account of what befell those that suffered martyrdom, and especially the blessed Polycarp, who by his martyrdom brought, as it were, a seal to the persecution, putting an end to it. For almost all the things that happened beforehand occurred in order that the Lord might show us from above a martyrdom according to the Gospel."
+        },
+        {
+          "type": "text",
+          "text": "3. For he waited that he might be delivered up, even as the Lord did, to the end that we too might become imitators of him, \"not looking only to that which concerneth ourselves, but also to that which concerneth our neighbours.\" For it is the part of true and steadfast love, not only to desire that oneself should be saved, but also all the brethren."
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_2",
+      "title": "Chapter 2",
+      "subtitle": "The Fortitude and Holy Patience of the Martyrs",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. All the martyrdoms, then, were blessed and noble which took place according to the will of God. For it becometh us who are very religious to ascribe to God the power over all."
+        },
+        {
+          "type": "text",
+          "text": "2. For who would not admire their noble spirit, their patient endurance, their love of the Master? For some were torn by scourges until the structure of their flesh was revealed even unto the inner veins and arteries, yet they endured, so that even the bystanders had pity and wept;"
+        },
+        {
+          "type": "text",
+          "text": "3. while they reached such a pitch of bravery that not one of them let a cry or a groan escape them, thus showing to us all that the martyrs of Christ in that hour of torture were absent from the flesh, or rather that the Lord was standing by and conversing with them."
+        },
+        {
+          "type": "text",
+          "text": "4. And giving heed unto the grace of Christ, they despised the world's torments, purchasing through the suffering of one hour an exemption from eternal punishment. And the fire of their cruel torturers seemed cold to them; for they had before their eyes how to escape from the fire which is eternal and never quenched, and with the eyes of their heart they looked up to the good things which are reserved for those that endure, which \"eye hath not seen, nor ear heard, neither have entered into the heart of man,\" but were shown by the Lord to them, seeing that they were now no longer men, but had already become angels."
+        },
+        {
+          "type": "text",
+          "text": "5. In like manner they also that were condemned to the wild beasts endured dreadful punishments, being made to lie on sharp shells and buffeted with other kinds of varied torments, that if possible the tyrant might bring them to a denial of the faith by means of the continuous punishment."
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_3",
+      "title": "Chapter 3",
+      "subtitle": "The Bravery of Germanicus and the Cry for Polycarp",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. For the devil devised many things against them. But thanks be to God, for He prevailed against all. For the right noble Germanicus strengthened their cowardice through the patience that was in him; who also fought with the wild beasts in a distinguished manner."
+        },
+        {
+          "type": "text",
+          "text": "2. For when the proconsul wished to persuade him and bade him have pity on his youth, he dragged the wild beast violently towards him, desiring to be released more quickly from their unrighteous and lawless life."
+        },
+        {
+          "type": "text",
+          "text": "3. Hereupon the whole multitude, wondering at the bravery of the God-loving and God-fearing race of Christians, cried out: \"Away with the Atheists! Let Polycarp be sought for!\""
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_4",
+      "title": "Chapter 4",
+      "subtitle": "The Rashness and Apostasy of Quintus the Phrygian",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Now one named Quintus, a Phrygian, who had lately come from Phrygia, when he saw the wild beasts, became terrified. This was the man who had forced both himself and some others to come forward of their own accord [to the trial]."
+        },
+        {
+          "type": "text",
+          "text": "2. Him the proconsul, after many entreaties, persuaded to swear and offer sacrifice. Wherefore, brethren, we do not praise those who give themselves up, since the Gospel does not teach us so to do."
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_5",
+      "title": "Chapter 5",
+      "subtitle": "Polycarp Departs into Retirement and Sees a Vision",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But the most admirable Polycarp, when first he heard these things, was not dismayed, but was minded to remain in the city. But the majority persuaded him to withdraw privately. He therefore withdrew to a little estate not very far from the city, and passed his time with a few companions, doing nothing else night and day but praying for all men, and for the Churches throughout the world, as was his custom."
+        },
+        {
+          "type": "text",
+          "text": "2. And while he was praying, three days before his apprehension, he saw a vision; and lo! his pillow was consumed with fire. And he turned and said unto them that were with him: \"I must be burned alive.\""
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_6",
+      "title": "Chapter 6",
+      "subtitle": "Polycarp Betrayed by a Household Servant",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. And when those who sought him persisted in their search, he moved to another farm; and immediately his pursuers came upon him. And not finding him, they seized two young slaves, one of whom confessed under torture."
+        },
+        {
+          "type": "text",
+          "text": "2. For it was indeed impossible that he should remain hidden, since the very persons who betrayed him were of his own household. And the irenarch, who is also called the clerk of the peace, Herod by name, was in haste to bring him into the stadium, that he might fulfill his own appointed lot by becoming a partaker of Christ, while they that betrayed him should undergo the punishment of Judas himself."
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_7",
+      "title": "Chapter 7",
+      "subtitle": "The Apprehension of Polycarp",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Taking the slave with them then, on Friday about supper time, the pursuers and horsemen went forth with their usual arms, \"as against a robber.\" And coming all together to the place late in the evening, they found him in a small cottage lying in the upper room. And he might have escaped thence to another place, but he would not, saying: \"The will of God be done.\""
+        },
+        {
+          "type": "text",
+          "text": "2. So when he heard that they were come, he went down and spoke with them, while those that were present marvelled at his age and his constancy, and wondered why there was so much eagerness to apprehend an old man like him."
+        },
+        {
+          "type": "text",
+          "text": "3. Thereupon he immediately ordered that a table should be set for them at that hour to eat and drink as much as they would, and he asked them to give him one hour that he might pray without disturbance."
+        },
+        {
+          "type": "text",
+          "text": "4. And when they gave him permission, he stood up and prayed, being so full of the grace of God that for two hours he could not cease, and those that heard were astonished, and many repented that they had come against such a venerable, godly old man."
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_8",
+      "title": "Chapter 8",
+      "subtitle": "Polycarp Brought into the City and Tempted by Herod",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Now when at length he had ceased from his prayer, having made mention of all with whom he had ever met, small and great, noble and ignoble, and of the whole Catholic Church throughout the world, the hour of departure having arrived, they set him on an ass and brought him into the city, it being the great Sabbath."
+        },
+        {
+          "type": "text",
+          "text": "2. And there met him the irenarch Herod and his father Nicetes, who removed him into their carriage, and sat by his side and tried to persuade him, saying: \"Why, what harm is it to say, 'Caesar is Lord,' and to offer incense, and all that pertains thereto, and so to save thy life?\""
+        },
+        {
+          "type": "text",
+          "text": "3. But he at first made no answer. But when they persisted, he said: \"I will not do what ye advise me.\""
+        },
+        {
+          "type": "text",
+          "text": "4. So when they failed to persuade him, they spoke threatening words, and cast him down hastily from the carriage, so that in descending he bruised his shin. But he, without turning round, as though having suffered nothing, walked on zealously with speed, being conducted to the stadium, there being such a tumult in the stadium that nobody could be heard at all."
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_9",
+      "title": "Chapter 9",
+      "subtitle": "Polycarp Refuses to Deny Christ Before the Proconsul",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But as Polycarp entered into the stadium, there came a voice to him from heaven: \"Be strong, Polycarp, and play the man.\" And the speaker no man saw, but the voice was heard by those of our people who were present."
+        },
+        {
+          "type": "text",
+          "text": "2. And when he was brought forward, there was a great tumult when they heard that Polycarp was taken. So when he came near, the proconsul asked him if he were Polycarp. And on his confessing that he was, he sought to persuade him to a denial, saying: \"Have respect to thine age,\" and other things following these, as is their custom to say: \"Swear by the genius of Caesar; repent; say, 'Away with the Atheists!'\""
+        },
+        {
+          "type": "text",
+          "text": "3. But Polycarp, with solemn countenance, looked upon the whole multitude of lawless heathen in the stadium, and waved his hand towards them; then groaning and looking up to heaven, he said: \"Away with the Atheists!\""
+        },
+        {
+          "type": "text",
+          "text": "4. But when the magistrate pressed him hard and said, \"Swear the oath, and I release thee; revile the Christ,\" Polycarp said: \"Eighty and six years have I served Him, and He never did me any injury: how then can I blaspheme my King and my Saviour?\""
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_10",
+      "title": "Chapter 10",
+      "subtitle": "Polycarp Confesses Himself a Christian",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But when the proconsul again pressed him, saying: \"Swear by the genius of Caesar,\" he answered: \"If thou vainly supposest that I will swear by the genius of Caesar, as thou sayest, pretending that thou knowest not who I am, hear thou plainly: I am a Christian. And if thou wishest to learn the doctrine of Christianity, assign a day and give me a hearing.\""
+        },
+        {
+          "type": "text",
+          "text": "2. The proconsul said: \"Persuade the people.\" And Polycarp said: \"To thee I have deemed it right to offer an account; for we have been taught to give all due honour, which is not hurtful to ourselves, to the powers and authorities ordained by God; but as for these, I do not think them worthy that I should defend myself before them.\""
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_11",
+      "title": "Chapter 11",
+      "subtitle": "Polycarp Threatens the Proconsul with Unquenchable Fire",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The proconsul said: \"I have wild beasts; I will deliver thee to them, unless thou repent.\" And he said: \"Call for them; for repentance from the better to the worse is not a change permitted to us; but it is noble to change from that which is grievous to righteousness.\""
+        },
+        {
+          "type": "text",
+          "text": "2. But he said again unto him: \"I will cause thee to be consumed with fire, seeing thou despisest the wild beasts, if thou wilt not repent.\" But Polycarp said: \"Thou threatenest me with fire which burneth for an hour, and after a little is extinguished; for thou knowest not the fire of the future judgment and of eternal punishment, reserved for the ungodly. But why delayest thou? Bring what thou wilt.\""
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_12",
+      "title": "Chapter 12",
+      "subtitle": "The Proconsul Condemns Polycarp to the Stake",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. While he spoke these and many other things, he was filled with boldness and joy, and his countenance was full of grace, so that not only did it not fall with dismay at the things said to him, but on the contrary the proconsul was astonished, and sent his own herald to proclaim thrice in the midst of the stadium: \"Polycarp has confessed himself to be a Christian.\""
+        },
+        {
+          "type": "text",
+          "text": "2. When this was spoken by the herald, the whole multitude, both of Gentiles and of Jews who dwelt in Smyrna, with uncontrollable wrath and with a loud shout cried out: \"This is the teacher of Asia, the father of the Christians, the puller down of our gods, who teacheth many not to sacrifice, nor yet to worship!\""
+        },
+        {
+          "type": "text",
+          "text": "3. Saying these things, they shouted and asked Philip the Asiarch to let loose a lion upon Polycarp. But he said that it was not lawful for him to do so, since he had finished the sports in the arena."
+        },
+        {
+          "type": "text",
+          "text": "4. Then it pleased them to cry out with one accord that Polycarp should be burned alive. For it was necessary that the vision should be fulfilled which had been shown him concerning his pillow, when he saw it burning while he was praying, and turned round and said prophetically to the faithful that were with him: \"I must be burned alive.\""
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_13",
+      "title": "Chapter 13",
+      "subtitle": "The Fuel is Prepared and Polycarp Prepared for the Stake",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. These things were done with great speed, more quickly than they were spoken, the crowds immediately gathering timber and faggots from the workshops and the baths, the Jews especially assisting them zealously in this, as is their custom."
+        },
+        {
+          "type": "text",
+          "text": "2. And when the pyre was prepared, he took off all his upper garments and loosed his girdle, and endeavored also to take off his shoes, which he had not been accustomed to do before, because all the faithful always vied with one another which of them should soonest touch his flesh; for he had been treated with all respect on account of the blamelessness of his life, even before his hair was grey."
+        },
+        {
+          "type": "text",
+          "text": "3. Immediately then the instruments that were prepared for the pyre were placed around him; and when they were also about to nail him, he said: \"Leave me as I am; for He that giveth me power to endure the fire will also grant me without your making me fast with the nails to remain upon the pyre without moving.\""
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_14",
+      "title": "Chapter 14",
+      "subtitle": "The Sublime Prayer of Polycarp at the Stake",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. So they did not nail him, but tied him. He therefore, with his hands bound behind him, like a noble ram chosen from a great flock for sacrifice, an acceptable burnt-offering prepared for God, looked up to heaven and said:"
+        },
+        {
+          "type": "text",
+          "text": "2. \"O Lord God Almighty, Father of Thy beloved and blessed Son Jesus Christ, through whom we have received the knowledge of Thee, the God of angels and powers and of all creation, and of the whole race of the righteous who live in Thy presence;"
+        },
+        {
+          "type": "text",
+          "text": "3. I bless Thee that Thou hast counted me worthy of this day and hour, that I might have a share in the number of the martyrs, in the cup of Thy Christ, unto the resurrection of eternal life, both of the soul and of the body, in the incorruption of the Holy Spirit;"
+        },
+        {
+          "type": "text",
+          "text": "4. among whom may I be received this day in Thy presence as an acceptable and fat sacrifice, even as Thou, the true and faithful God, hast foreshown, and hast revealed, and hast fulfilled."
+        },
+        {
+          "type": "text",
+          "text": "5. For this cause yea, and for all things, I praise Thee, I bless Thee, I glorify Thee, through the eternal and heavenly High Priest, Jesus Christ, Thy beloved Son, through whom to Thee with Him and the Holy Spirit be glory both now and for the ages to come. Amen.\""
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_15",
+      "title": "Chapter 15",
+      "subtitle": "The Miracle of the Fire and the Fragrant Aroma",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. When he had offered up the Amen and finished his prayer, the men of the fire kindled the flame. And a great flame bursting forth, we to whom it was given to see saw a marvel, and we were preserved that we might announce to others what had happened."
+        },
+        {
+          "type": "text",
+          "text": "2. For the fire, shaping itself into the form of an arch, like the sail of a ship filled with the wind, encompassed the body of the martyr as with a wall; and he was in the midst, not like flesh burning, but as bread that is baked, or as gold and silver glowing in a furnace."
+        },
+        {
+          "type": "text",
+          "text": "3. And we also perceived such a fragrant odour, as if it were the scent of incense or of some other precious spices."
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_16",
+      "title": "Chapter 16",
+      "subtitle": "The Death of Polycarp by the Dagger",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. So at length the lawless men, seeing that his body could not be consumed by the fire, ordered an executioner to go up to him and thrust a dagger into him."
+        },
+        {
+          "type": "text",
+          "text": "2. And when he had done this, there came forth a dove, and a quantity of blood, so that it extinguished the fire; and all the multitude marvelled that there should be such a difference between the unbelievers and the elect;"
+        },
+        {
+          "type": "text",
+          "text": "3. of whom this most admirable Polycarp was one, having in our times been an apostolic and prophetic teacher, and bishop of the Catholic Church which is in Smyrna. For every word which he uttered from his mouth was accomplished and will be accomplished."
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_17",
+      "title": "Chapter 17",
+      "subtitle": "The Jews Prevent the Christians from Taking the Body",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But the jealous and envious Evil One, the adversary of the race of the righteous, seeing the greatness of his martyrdom and the blamelessness of his life from the beginning, and that he was now adorned with the crown of incorruption and had carried off an uncontested prize, took care that not even his poor body should be taken away by us, though many desired to do so and to have fellowship with his holy flesh."
+        },
+        {
+          "type": "text",
+          "text": "2. He therefore prompted Nicetes, the father of Herod and brother of Alce, to entreat the magistrate not to give up his body, \"lest,\" said he, \"they abandon the Crucified One and begin to worship this one.\""
+        },
+        {
+          "type": "text",
+          "text": "3. And this they said at the suggestion and instigation of the Jews, who also watched us when we were about to take it from the fire; they being ignorant that it is neither possible for us ever to forsake Christ, who suffered for the salvation of the whole world of them that are saved, the blameless for the sinners, nor to worship any other."
+        },
+        {
+          "type": "text",
+          "text": "4. For Him, being the Son of God, we adore, but the martyrs as disciples and imitators of the Lord we love, by reason of their unsurpassed affection towards their own King and Teacher; of whom may we also become partners and fellow-disciples!"
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_18",
+      "title": "Chapter 18",
+      "subtitle": "The Christians Gather the Bones of the Martyr",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The centurion then, seeing the contention raised by the Jews, placed the body in the midst of the fire, and burned it, according to their custom."
+        },
+        {
+          "type": "text",
+          "text": "2. And so we afterwards gathered up his bones, which were more valuable than precious stones and finer than refined gold, and deposited them in a suitable place;"
+        },
+        {
+          "type": "text",
+          "text": "3. where, as far as is possible, the Lord will grant us to assemble with joy and gladness to celebrate the birthday of his martyrdom, both in memory of those who have already fought the good fight, and for the training and preparation of those who are yet to come."
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_19",
+      "title": "Chapter 19",
+      "subtitle": "The Great Praise and Crown of Polycarp",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Such is the account of the blessed Polycarp, who, together with those of Philadelphia, was the twelfth who suffered martyrdom in Smyrna; but he alone is especially held in memory by all, so that he is spoken of everywhere, even by the Gentiles."
+        },
+        {
+          "type": "text",
+          "text": "2. He was not only a distinguished teacher, but also an eminent martyr, whose martyrdom all desire to imitate, as having been according to the Gospel of Christ."
+        },
+        {
+          "type": "text",
+          "text": "3. For having by patience overcome the unjust ruler, and having thus received the crown of incorruption, he rejoiceth with the apostles and all the righteous, glorifying God and the Father Almighty, and blessing our Lord Jesus Christ, the Saviour of our souls, and Governor of our bodies, and Shepherd of the Catholic Church throughout the world."
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_20",
+      "title": "Chapter 20",
+      "subtitle": "Concluding Exhortations and Salutations",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Ye requested, indeed, that a full account of the things that were done should be written to you; but we have for the present only briefly indicated them through our brother Marcion. When therefore ye have read this epistle, send it on to the brethren that are further off, that they also may glorify the Lord, who maketh choice of His own servants."
+        },
+        {
+          "type": "text",
+          "text": "2. Now unto Him that is able by His grace and bounty to bring us all into His eternal kingdom, through His only-begotten Son Jesus Christ, be glory, honour, power, and majesty forever. Amen."
+        },
+        {
+          "type": "text",
+          "text": "3. Greet all the saints. They that are with us greet you, and Evarestus, who wrote the epistle, with his whole house."
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_21",
+      "title": "Chapter 21",
+      "subtitle": "The Date of Polycarp's Martyrdom",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Now the blessed Polycarp suffered martyrdom on the second day of the month Xanthicus, seven days before the Kalends of March, on the great Sabbath, at the eighth hour."
+        },
+        {
+          "type": "text",
+          "text": "2. He was apprehended by Herod, when Philip of Tralles was high priest, and Statius Quadratus was proconsul, but Jesus Christ was reigning forever, to whom be glory, honour, majesty, and an eternal throne, from generation to generation. Amen."
+        }
+      ]
+    },
+    {
+      "id": "sec_polycarp_martyrdom_22",
+      "title": "Chapter 22",
+      "subtitle": "Salutations and Epilogue of the Transcribers",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. We bid you, brethren, farewell, while ye walk according to the Gospel of Jesus Christ; with whom be glory to God the Father and the Holy Spirit, for the salvation of His holy elect, after whose example the blessed Polycarp suffered martyrdom, in whose footsteps may it be our lot to be found in the kingdom of Jesus Christ!"
+        },
+        {
+          "type": "text",
+          "text": "2. These things did Gaius transcribe from the copy of Irenaeus, who had been a disciple of Polycarp, and who also lived with Polycarp. And I, Socrates, wrote them down in Corinth from the copy of Gaius. Grace be with you all."
+        },
+        {
+          "type": "text",
+          "text": "3. And I again, Pionius, wrote them from the previously written copy, having searched them out, when the blessed Polycarp had revealed them to me in a vision, as I shall explain in the sequel, gathering them together when they were almost worn out with time, that the Lord Jesus Christ may also gather me with His elect into His heavenly kingdom, to whom, with the Father and the Holy Spirit, be glory forever and ever. Amen."
+        }
+      ]
+    }
+  ]
+}
