@@ -80,23 +80,30 @@ void main() {
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
       expect(find.text('No. 2 (Confirmation & Grammar)'), findsOneWidget);
-      expect(find.text('No. 3 (Two Years\' Course)'), findsOneWidget);
-      expect(find.text('No. 4 (Teachers & Advanced)'), findsOneWidget);
+      expect(find.text('No. 3 (Post-Confirmation Course)'), findsOneWidget);
+      expect(find.text('No. 4 (Explanation by Fr. Kinkead)'), findsOneWidget);
 
       // Verify Ignatius volume chips exist
       expect(find.text('Epistle to the Ephesians'), findsOneWidget);
-      expect(find.text('Epistle to Polycarp'), findsOneWidget);
+      expect(find.text('Epistle to the Romans'), findsOneWidget);
+      expect(find.text('Epistle to the Smyrnaeans'), findsOneWidget);
 
       // Verify Polycarp volume chips exist
       expect(find.text('Epistle to the Philippians'), findsOneWidget);
       expect(find.text('The Martyrdom of Polycarp'), findsOneWidget);
 
-      // Verify Justin volume chips exist
+      // Verify Justin Martyr volume chips exist
       expect(find.text('First Apology'), findsOneWidget);
       expect(find.text('Second Apology'), findsOneWidget);
 
-      // Verify Augustine City of God volume chips exist
-      expect(find.text('Book I (The Pagan Gods)'), findsOneWidget);
+      // Verify Irenaeus volume chips exist
+      expect(find.text('Book I (Gnostic Sects)'), findsOneWidget);
+      expect(find.text('Book III (Faith & Tradition)'), findsOneWidget);
+
+      // Verify Augustine volume chips exist
+      expect(find.text('Book I (Infancy & Childhood)'), findsOneWidget);
+      expect(find.text('Book VIII (Conversion in the Garden)'), findsOneWidget);
+      expect(find.text('Book I (The Sack of Rome)'), findsOneWidget);
       expect(find.text('Book XIX (Peace & the Supreme Good)'), findsOneWidget);
 
       // Verify Cyril volume chips exist
@@ -821,19 +828,6 @@ void main() {
 
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
         expect(find.text("The Mind's Road to God"), findsWidgets);
-=======
-        final mysteriesChip = find.text('On the Mysteries (De Mysteriis)');
-        await tester.scrollUntilVisible(
-          mysteriesChip,
-          200,
-          scrollable: find.byType(Scrollable).first,
-        );
-        await tester.tap(mysteriesChip);
-        await tester.pumpAndSettle();
-
-        expect(find.byType(LibraryReaderScreen), findsOneWidget);
-        expect(find.text('On the Mysteries'), findsWidgets);
->>>>>>> 75f995e (feat(library): add St. Ambrose of Milan — On the Mysteries & On the Sacraments (#346))
       },
     );
 
