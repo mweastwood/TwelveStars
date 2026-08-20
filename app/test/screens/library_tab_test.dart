@@ -54,6 +54,7 @@ void main() {
       expect(find.text('Second Epistle of Clement'), findsOneWidget);
       expect(find.text('Epistles of St. Ignatius'), findsOneWidget);
       expect(find.text('Apologies of St. Justin Martyr'), findsOneWidget);
+      expect(find.text('Dialogue with Trypho'), findsOneWidget);
       expect(find.text('Against Heresies'), findsOneWidget);
       expect(find.text('On the Incarnation of the Word'), findsOneWidget);
       expect(find.text('The Confessions'), findsOneWidget);
@@ -1113,6 +1114,42 @@ void main() {
 
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
         expect(find.text('Section 2 of 16'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'tapping Read Book on Dialogue with Trypho opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/justin_dialogue_trypho_dods.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final tryphoCard = find.ancestor(
+          of: find.text('Dialogue with Trypho'),
+          matching: find.byType(Card),
+        );
+        final readBtn = find.descendant(
+          of: tryphoCard,
+          matching: find.widgetWithText(FilledButton, 'Read Book'),
+        );
+
+        await tester.scrollUntilVisible(
+          readBtn,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(readBtn);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('Dialogue with Trypho'), findsWidgets);
       },
     );
   });

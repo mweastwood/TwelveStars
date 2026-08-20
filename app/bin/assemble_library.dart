@@ -564,6 +564,7 @@ void parseChapteredBookFile({
         stripped.startsWith('The Second Apology') ||
         stripped.startsWith('First Apology') ||
         stripped.startsWith('Second Apology') ||
+        stripped.startsWith('Dialogue with Trypho') ||
         stripped.startsWith('Against Heresies:') ||
         stripped.startsWith('On the Incarnation') ||
         stripped.startsWith('The Confessions of St. Augustine:') ||
@@ -791,6 +792,17 @@ void main() {
     title: 'The Second Apology of St. Justin Martyr',
     subtitle: 'Addressed to the Roman Senate (Trans. Marcus Dods, 1885)',
     author: 'St. Justin Martyr (Trans. Marcus Dods)',
+    outputDir: outputDir,
+  );
+
+  parseChapteredBookFile(
+    filepath: p.join(justinDir, 'justin_dialogue_trypho_dods.txt'),
+    bookId: 'justin_dialogue_trypho_dods',
+    secIdPrefix: 'justin_dialogue_trypho',
+    title: 'Dialogue with Trypho',
+    subtitle:
+        'Dialogus cum Tryphone Judaeo (Trans. Marcus Dods & George Reith, 1885)',
+    author: 'St. Justin Martyr (Trans. Marcus Dods & George Reith)',
     outputDir: outputDir,
   );
 
