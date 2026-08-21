@@ -600,6 +600,9 @@ void parseChapteredBookFile({
         stripped.startsWith('Itinerarium Mentis in Deum') ||
         stripped.startsWith('Compendium of Theology:') ||
         stripped.startsWith('The Catechetical Instructions:') ||
+        stripped.startsWith('On the Priesthood') ||
+        stripped.startsWith('De Sacerdotio') ||
+        stripped.startsWith('St. John Chrysostom') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -1331,4 +1334,57 @@ void main() {
     author: 'St. Basil the Great (Trans. Blomfield Jackson)',
     outputDir: outputDir,
   );
+
+  final chrysostomDir = p.join('assets', 'catechism', 'chrysostom');
+
+  final chrysostomBooks = [
+    (
+      'book1',
+      'b1',
+      'On the Priesthood: Book I',
+      'Youth & the Holy Scheme (Trans. W. R. W. Stephens, 1889)',
+    ),
+    (
+      'book2',
+      'b2',
+      'On the Priesthood: Book II',
+      'The Pastoral Office & Shepherding (Trans. W. R. W. Stephens, 1889)',
+    ),
+    (
+      'book3',
+      'b3',
+      'On the Priesthood: Book III',
+      'The Sublime Dignity & Eucharistic Mystery (Trans. W. R. W. Stephens, 1889)',
+    ),
+    (
+      'book4',
+      'b4',
+      'On the Priesthood: Book IV',
+      'The Ministry of the Word & Refuting Heresy (Trans. W. R. W. Stephens, 1889)',
+    ),
+    (
+      'book5',
+      'b5',
+      'On the Priesthood: Book V',
+      'Trials & Temptations of Preaching (Trans. W. R. W. Stephens, 1889)',
+    ),
+    (
+      'book6',
+      'b6',
+      'On the Priesthood: Book VI',
+      'Purity of Heart & Final Reconciliation (Trans. W. R. W. Stephens, 1889)',
+    ),
+  ];
+
+  for (final (slug, secPrefix, title, subtitle) in chrysostomBooks) {
+    parseChapteredBookFile(
+      filepath: p.join(chrysostomDir, 'chrysostom_on_the_priesthood_$slug.txt'),
+      bookId: 'chrysostom_on_the_priesthood_$slug',
+      secIdPrefix: 'chrysostom_on_the_priesthood_$secPrefix',
+      title: title,
+      subtitle: subtitle,
+      author: 'St. John Chrysostom (Trans. W. R. W. Stephens)',
+      outputDir: outputDir,
+    );
+  }
 }

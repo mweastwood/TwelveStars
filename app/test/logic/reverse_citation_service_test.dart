@@ -147,9 +147,10 @@ void main() {
         ReverseCitationService.clear();
         expect(ReverseCitationService.indexedSourcesCount, equals(0));
 
-        // Index 101 sources (max capacity is 100)
-        // Psalm has 150 chapters, so Ps $i:1 is valid for all i in 1..101
-        for (int i = 1; i <= 101; i++) {
+        // Index maxIndexedSources + 1 sources
+        // Psalm has 150 chapters, so Ps $i:1 is valid for all i in 1..121
+        final count = ReverseCitationService.maxIndexedSources + 1;
+        for (int i = 1; i <= count; i++) {
           final bookData = ParsedBookData(
             bookId: 'book_$i',
             title: 'Book $i',
@@ -168,7 +169,7 @@ void main() {
           ReverseCitationService.indexBookData('source_$i', bookData);
         }
 
-        // Cache count should be capped at maxIndexedSources (100)
+        // Cache count should be capped at maxIndexedSources
         expect(
           ReverseCitationService.indexedSourcesCount,
           equals(ReverseCitationService.maxIndexedSources),
@@ -178,20 +179,21 @@ void main() {
         final ps1Citations = ReverseCitationService.getVerseCitations(21, 1, 1);
         expect(ps1Citations, isEmpty);
 
-        // Newest source (source_101) remains present
-        final ps101Citations = ReverseCitationService.getVerseCitations(
+        // Newest source (source_count) remains present
+        final psNewestCitations = ReverseCitationService.getVerseCitations(
           21,
-          101,
+          count,
           1,
         );
-        expect(ps101Citations.length, equals(1));
+        expect(psNewestCitations.length, equals(1));
       },
     );
 
     test('prune() removes oldest sources and updates index tables', () {
       ReverseCitationService.clear();
 
-      for (int i = 1; i <= 105; i++) {
+      final count = ReverseCitationService.maxIndexedSources + 5;
+      for (int i = 1; i <= count; i++) {
         final bookData = ParsedBookData(
           bookId: 'prune_book_$i',
           title: 'Prune Book $i',
@@ -355,6 +357,30 @@ void main() {
         final matt28v20 = ReverseCitationService.getVerseCitations(49, 28, 20);
         expect(matt28v20.length, equals(1));
         expect(matt28v20.first.sourceBookTitle, equals('Custom Doc v2'));
+      },
+    );
+
+    test(
+      'indexes St. John Chrysostom On the Priesthood across all 6 books',
+      () async {
+        await ReverseCitationService.ensureIndexed();
+
+        final chrysostomPaths = [
+          'assets/catechism/json/chrysostom_on_the_priesthood_book1.json',
+          'assets/catechism/json/chrysostom_on_the_priesthood_book2.json',
+          'assets/catechism/json/chrysostom_on_the_priesthood_book3.json',
+          'assets/catechism/json/chrysostom_on_the_priesthood_book4.json',
+          'assets/catechism/json/chrysostom_on_the_priesthood_book5.json',
+          'assets/catechism/json/chrysostom_on_the_priesthood_book6.json',
+        ];
+
+        for (final path in chrysostomPaths) {
+          expect(
+            ReverseCitationService.catalogPaths.contains(path),
+            isTrue,
+            reason: '$path should be registered in catalogPaths',
+          );
+        }
       },
     );
   });

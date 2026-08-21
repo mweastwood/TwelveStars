@@ -64,6 +64,7 @@ void main() {
       expect(find.text('Catechetical Lectures'), findsOneWidget);
       expect(find.text('On the Holy Spirit'), findsOneWidget);
       expect(find.text('The Five Theological Orations'), findsOneWidget);
+      expect(find.text('On the Priesthood'), findsOneWidget);
       expect(find.text('Proslogion'), findsOneWidget);
       expect(find.text('Cur Deus Homo'), findsOneWidget);
       expect(find.text('Ascent of Mount Carmel'), findsOneWidget);
@@ -114,6 +115,13 @@ void main() {
       // Verify Gregory volume chips exist
       expect(find.text('Oration I (Against the Eunomians)'), findsOneWidget);
       expect(find.text('Oration V (On the Holy Spirit)'), findsOneWidget);
+
+      // Verify Chrysostom volume chips exist
+      expect(find.text('Book I (Youth & the Holy Scheme)'), findsOneWidget);
+      expect(
+        find.text('Book VI (Purity of Heart & Final Reconciliation)'),
+        findsOneWidget,
+      );
 
       // Verify Ambrose volume chips exist
       expect(find.text('On the Mysteries (De Mysteriis)'), findsOneWidget);
@@ -1611,6 +1619,131 @@ void main() {
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(tester, 'basil_holy_spirit_reader_golden');
+    });
+
+    testGoldens(
+      'LibraryReaderScreen renders St. John Chrysostom On the Priesthood (Book I)',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final chrysostom = catalog.firstWhere(
+          (b) => b.id == 'chrysostom_on_the_priesthood',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/chrysostom_on_the_priesthood_book1.json',
+          );
+        });
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: chrysostom,
+              initialVolumeKey: 'book1',
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'chrysostom_priesthood_reader_golden',
+        );
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen renders Chrysostom On the Priesthood (Book III)',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final chrysostom = catalog.firstWhere(
+          (b) => b.id == 'chrysostom_on_the_priesthood',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/chrysostom_on_the_priesthood_book3.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryReaderScreen(
+                bookItem: chrysostom,
+                initialVolumeKey: 'book3',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('On the Priesthood'), findsWidgets);
+        expect(find.text('Section 1 of 17'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen renders Chrysostom On the Priesthood (Book VI)',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final chrysostom = catalog.firstWhere(
+          (b) => b.id == 'chrysostom_on_the_priesthood',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/chrysostom_on_the_priesthood_book6.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryReaderScreen(
+                bookItem: chrysostom,
+                initialVolumeKey: 'book6',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('On the Priesthood'), findsWidgets);
+        expect(find.text('Section 1 of 13'), findsOneWidget);
+      },
+    );
+
+    testWidgets('tapping Chrysostom volume chip opens LibraryReaderScreen', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/chrysostom_on_the_priesthood_book1.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final chip = find.text('Book I (Youth & the Holy Scheme)');
+      await tester.scrollUntilVisible(
+        chip,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(chip);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('On the Priesthood'), findsWidgets);
+      expect(find.text('Section 1 of 8'), findsOneWidget);
     });
 
     testWidgets(

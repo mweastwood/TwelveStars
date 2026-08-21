@@ -721,6 +721,63 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> chrysostomOnThePriesthoodVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'book1',
+      name: 'Book I (Youth & the Holy Scheme)',
+      shortName: 'Book I',
+      description:
+          'Early friendship with Basil, proposal for shared ascetical life, rumors of ordination, and Chrysostom avoiding consecration.',
+      assetPath:
+          'assets/catechism/json/chrysostom_on_the_priesthood_book1.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book2',
+      name: 'Book II (The Pastoral Office & Shepherding)',
+      shortName: 'Book II',
+      description:
+          'Justification of his action; the immense spiritual responsibility, perils, and discernment demanded of the shepherd of souls.',
+      assetPath:
+          'assets/catechism/json/chrysostom_on_the_priesthood_book2.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book3',
+      name: 'Book III (The Sublime Dignity & Eucharistic Mystery)',
+      shortName: 'Book III',
+      description:
+          'The heavenly dignity and terrors of the sacred priesthood, the Holy Sacrifice of the Altar, power of the keys, and perils of unworthy candidates.',
+      assetPath:
+          'assets/catechism/json/chrysostom_on_the_priesthood_book3.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book4',
+      name: 'Book IV (The Ministry of the Word & Refuting Heresy)',
+      shortName: 'Book IV',
+      description:
+          'Necessity of sound doctrine and pastoral preaching; wielding Scripture to heal souls and defend against error.',
+      assetPath:
+          'assets/catechism/json/chrysostom_on_the_priesthood_book4.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book5',
+      name: 'Book V (Trials & Temptations of Preaching)',
+      shortName: 'Book V',
+      description:
+          'Temptations facing the preacher: flattery, popular applause, censure, and the discipline of seeking God\'s glory over human praise.',
+      assetPath:
+          'assets/catechism/json/chrysostom_on_the_priesthood_book5.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book6',
+      name: 'Book VI (Purity of Heart & Final Reconciliation)',
+      shortName: 'Book VI',
+      description:
+          'The angelic sanctity demanded of secular priests versus hermits, spiritual vigilance in the world, and prayerful conclusion.',
+      assetPath:
+          'assets/catechism/json/chrysostom_on_the_priesthood_book6.json',
+    ),
+  ];
+
   static const List<BaltimoreVolume> ambroseVolumes = [
     BaltimoreVolume(
       volumeKey: 'on_the_mysteries',
@@ -1046,6 +1103,16 @@ class LibraryHelper {
         description:
             'Delivered c. 380 AD in Constantinople by "Gregory the Theologian." The definitive patristic exposition and defense of the Holy Trinity, the eternal divinity of the Son, and the consubstantial deity and procession of the Holy Spirit.',
         volumes: gregoryVolumes,
+      ),
+      const LibraryBookItem(
+        id: 'chrysostom_on_the_priesthood',
+        title: 'On the Priesthood',
+        subtitle: 'De Sacerdotio (Trans. W. R. W. Stephens, 1889)',
+        category: 'Church Fathers',
+        author: 'St. John Chrysostom (Trans. W. R. W. Stephens)',
+        description:
+            'Written c. 386–390 AD. The classic patristic masterwork on the sacred dignity, moral gravity, perils, and pastoral duties of the Catholic priesthood, expounding the Eucharistic Sacrifice, spiritual warfare, and the ministry of preaching.',
+        volumes: chrysostomOnThePriesthoodVolumes,
       ),
       const LibraryBookItem(
         id: 'ambrose_mysteries_and_sacraments',
