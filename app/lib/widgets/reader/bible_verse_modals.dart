@@ -64,7 +64,7 @@ Future<void> showReverseCitationsModal({
                           const SizedBox(width: 8),
                           Expanded(
                             child: Text(
-                              'Catechism References to $title',
+                              'Library References to $title',
                               style: theme.textTheme.titleMedium?.copyWith(
                                 fontWeight: FontWeight.bold,
                                 color: theme.colorScheme.primary,

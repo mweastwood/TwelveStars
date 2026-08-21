@@ -732,7 +732,7 @@ void main() {
     );
   });
 
-  testGoldens('MassReadingCard renders Catechism reverse citations modal', (
+  testGoldens('MassReadingCard renders Library reverse citations modal', (
     tester,
   ) async {
     ReverseCitationService.clear();

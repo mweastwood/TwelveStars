@@ -415,7 +415,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                     color: theme.colorScheme.primary,
                   ),
                   label: Text(
-                    '${chapterCitations.length} Catechism Reference${chapterCitations.length > 1 ? "s" : ""} to ${widget.book.bookName} ${widget.chapter}',
+                    '${chapterCitations.length} Library Reference${chapterCitations.length > 1 ? "s" : ""} to ${widget.book.bookName} ${widget.chapter}',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 12,
