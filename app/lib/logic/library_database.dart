@@ -1056,6 +1056,17 @@ class LibraryHelper {
         defaultAssetPath:
             'assets/catechism/json/kempis_imitation_of_christ.json',
       ),
+      const LibraryBookItem(
+        id: 'bonaventure_minds_road_to_god',
+        title: "The Mind's Road to God",
+        subtitle: 'Itinerarium Mentis in Deum (Trans. George Boas, 1953)',
+        category: 'Doctors of the Church',
+        author: 'St. Bonaventure (Trans. George Boas)',
+        description:
+            'Written 1259 AD on Mount La Verna. The Seraphic Doctor\'s mystical and philosophical masterpiece charting the soul\'s ascent to God through six progressive stages of contemplation—from the vestiges in the universe and sensory world, through the divine image in the mind\'s natural faculties and renewed by grace, to the contemplation of divine unity (Being) and the Trinity (Goodness), culminating in ecstatic union and mystical rest in God.',
+        defaultAssetPath:
+            'assets/catechism/json/bonaventure_minds_road_to_god.json',
+      ),
     ];
   }
 

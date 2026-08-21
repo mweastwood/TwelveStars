@@ -72,6 +72,7 @@ void main() {
       expect(find.text('Introduction to the Devout Life'), findsOneWidget);
       expect(find.text('The Interior Castle'), findsOneWidget);
       expect(find.text('The Imitation of Christ'), findsOneWidget);
+      expect(find.text("The Mind's Road to God"), findsOneWidget);
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -691,6 +692,42 @@ void main() {
 
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
         expect(find.text('The Rule of St. Benedict'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'tapping Read Book on The Mind\'s Road to God opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/bonaventure_minds_road_to_god.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final bonaventureCard = find.ancestor(
+          of: find.text("The Mind's Road to God"),
+          matching: find.byType(Card),
+        );
+        final readBtn = find.descendant(
+          of: bonaventureCard,
+          matching: find.widgetWithText(FilledButton, 'Read Book'),
+        );
+
+        await tester.scrollUntilVisible(
+          readBtn,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(readBtn);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text("The Mind's Road to God"), findsWidgets);
       },
     );
 
@@ -1487,6 +1524,34 @@ void main() {
       expect(find.text('Chapter 1'), findsWidgets);
       expect(find.text('Section 1 of 114'), findsOneWidget);
     });
+
+    testGoldens(
+      'LibraryReaderScreen renders St. Bonaventure The Mind\'s Road to God correctly',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final bonaventure = catalog.firstWhere(
+          (b) => b.id == 'bonaventure_minds_road_to_god',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/bonaventure_minds_road_to_god.json',
+          );
+        });
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(body: LibraryReaderScreen(bookItem: bonaventure)),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'bonaventure_minds_road_to_god_golden',
+        );
+      },
+    );
 
     testWidgets('renders interactive Scripture citation chip', (tester) async {
       final catalog = LibraryHelper.getCatalog();
