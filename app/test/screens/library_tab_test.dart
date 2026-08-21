@@ -67,6 +67,7 @@ void main() {
       expect(find.text('Cur Deus Homo'), findsOneWidget);
       expect(find.text('Ascent of Mount Carmel'), findsOneWidget);
       expect(find.text('Dark Night of the Soul'), findsOneWidget);
+      expect(find.text('On the Mysteries & On the Sacraments'), findsOneWidget);
       expect(find.text('Compendium of Theology'), findsOneWidget);
       expect(find.text('The Catechetical Instructions'), findsOneWidget);
       expect(find.text('True Devotion to Mary'), findsOneWidget);
@@ -112,6 +113,10 @@ void main() {
       // Verify Gregory volume chips exist
       expect(find.text('Oration I (Against the Eunomians)'), findsOneWidget);
       expect(find.text('Oration V (On the Holy Spirit)'), findsOneWidget);
+
+      // Verify Ambrose volume chips exist
+      expect(find.text('On the Mysteries (De Mysteriis)'), findsOneWidget);
+      expect(find.text('On the Sacraments (De Sacramentis)'), findsOneWidget);
 
       // Verify Aquinas volume chips exist
       expect(find.text('Part I (On Faith)'), findsOneWidget);
@@ -663,6 +668,34 @@ void main() {
       expect(find.byType(LibraryReaderScreen), findsOneWidget);
       expect(find.text('The Didache'), findsWidgets);
     });
+
+    testWidgets(
+      'tapping Ambrose On the Mysteries volume chip opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/ambrose_on_the_mysteries.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final mysteriesChip = find.text('On the Mysteries (De Mysteriis)');
+        await tester.scrollUntilVisible(
+          mysteriesChip,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(mysteriesChip);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('On the Mysteries'), findsWidgets);
+      },
+    );
 
     testWidgets('tapping Cur Deus Homo volume chip opens LibraryReaderScreen', (
       tester,
@@ -1490,6 +1523,35 @@ void main() {
       },
     );
 
+    testGoldens('LibraryReaderScreen renders St. Ambrose On the Mysteries', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final ambrose = catalog.firstWhere(
+        (b) => b.id == 'ambrose_mysteries_and_sacraments',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/ambrose_on_the_mysteries.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        Scaffold(
+          body: LibraryReaderScreen(
+            bookItem: ambrose,
+            initialVolumeKey: 'on_the_mysteries',
+          ),
+        ),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'ambrose_mysteries_reader_golden');
+    });
+
     testWidgets(
       'LibraryReaderScreen renders Aquinas Compendium of Theology (Part I)',
       (tester) async {
@@ -1681,7 +1743,6 @@ void main() {
         );
       },
     );
-
     testWidgets('renders interactive Scripture citation chip', (tester) async {
       final catalog = LibraryHelper.getCatalog();
       final baltimore = catalog.firstWhere(
