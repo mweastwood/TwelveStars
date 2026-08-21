@@ -64,6 +64,7 @@ class ReverseCitationService {
     'assets/catechism/json/irenaeus_against_heresies_book4.json',
     'assets/catechism/json/irenaeus_against_heresies_book5.json',
     'assets/catechism/json/athanasius_on_the_incarnation.json',
+    'assets/catechism/json/athanasius_life_of_anthony.json',
     'assets/catechism/json/augustine_confessions_book1.json',
     'assets/catechism/json/augustine_confessions_book2.json',
     'assets/catechism/json/augustine_confessions_book3.json',
