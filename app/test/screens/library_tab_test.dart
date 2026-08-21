@@ -778,6 +778,42 @@ void main() {
       },
     );
 
+    testWidgets(
+      'tapping Read Book on Life of St. Anthony opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/athanasius_life_of_anthony.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final anthonyCard = find.ancestor(
+          of: find.text('Life of St. Anthony'),
+          matching: find.byType(Card),
+        );
+        final readBtn = find.descendant(
+          of: anthonyCard,
+          matching: find.widgetWithText(FilledButton, 'Read Book'),
+        );
+
+        await tester.scrollUntilVisible(
+          readBtn,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(readBtn);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('Life of St. Anthony'), findsWidgets);
+      },
+    );
+
     testWidgets('tapping Cur Deus Homo volume chip opens LibraryReaderScreen', (
       tester,
     ) async {
@@ -1683,6 +1719,34 @@ void main() {
     );
 
     testGoldens(
+      'LibraryReaderScreen renders St. Athanasius Life of St. Anthony',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final anthony = catalog.firstWhere(
+          (b) => b.id == 'athanasius_life_of_anthony',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/athanasius_life_of_anthony.json',
+          );
+        });
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(body: LibraryReaderScreen(bookItem: anthony)),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'athanasius_life_of_anthony_reader_golden',
+        );
+      },
+    );
+
+    testGoldens(
       'LibraryReaderScreen renders St. John Chrysostom On the Priesthood (Book I)',
       (tester) async {
         final catalog = LibraryHelper.getCatalog();
@@ -2358,6 +2422,33 @@ void main() {
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
         expect(find.text('The Commonitory'), findsWidgets);
         expect(find.text('Section 1 of 33'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen renders St. Athanasius Life of St. Anthony',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final anthony = catalog.firstWhere(
+          (b) => b.id == 'athanasius_life_of_anthony',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/athanasius_life_of_anthony.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(body: LibraryReaderScreen(bookItem: anthony)),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('Life of St. Anthony'), findsWidgets);
+        expect(find.text('Section 1 of 94'), findsOneWidget);
       },
     );
   });

@@ -394,5 +394,17 @@ void main() {
         reason: '$vincentPath should be registered in catalogPaths',
       );
     });
+
+    test('indexes St. Athanasius Life of St. Anthony', () async {
+      await ReverseCitationService.ensureIndexed();
+
+      const anthonyPath =
+          'assets/catechism/json/athanasius_life_of_anthony.json';
+      expect(
+        ReverseCitationService.catalogPaths.contains(anthonyPath),
+        isTrue,
+        reason: '$anthonyPath should be registered in catalogPaths',
+      );
+    });
   });
 }

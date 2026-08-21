@@ -607,6 +607,10 @@ void parseChapteredBookFile({
         stripped.startsWith('Commonitorium') ||
         stripped.startsWith('St. Vincent of Lérins') ||
         stripped.startsWith('By St. Vincent') ||
+        stripped.startsWith('Life of St. Anthony') ||
+        stripped.startsWith('Vita Antonii') ||
+        stripped.startsWith('St. Athanasius of Alexandria') ||
+        stripped.startsWith('By St. Athanasius') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -925,6 +929,16 @@ void main() {
     secIdPrefix: 'athanasius_incarnation',
     title: 'On the Incarnation of the Word',
     subtitle: 'De Incarnatione Verbi Dei (Trans. Archibald Robertson, 1892)',
+    author: 'St. Athanasius of Alexandria (Trans. Archibald Robertson)',
+    outputDir: outputDir,
+  );
+
+  parseChapteredBookFile(
+    filepath: p.join(athanasiusDir, 'athanasius_life_of_anthony.txt'),
+    bookId: 'athanasius_life_of_anthony',
+    secIdPrefix: 'athanasius_anthony',
+    title: 'Life of St. Anthony',
+    subtitle: 'Vita Antonii (Trans. Archibald Robertson, 1892)',
     author: 'St. Athanasius of Alexandria (Trans. Archibald Robertson)',
     outputDir: outputDir,
   );

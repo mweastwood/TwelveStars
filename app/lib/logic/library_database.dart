@@ -1055,6 +1055,17 @@ class LibraryHelper {
             'assets/catechism/json/athanasius_on_the_incarnation.json',
       ),
       const LibraryBookItem(
+        id: 'athanasius_life_of_anthony',
+        title: 'Life of St. Anthony',
+        subtitle: 'Vita Antonii (Trans. Archibald Robertson, 1892)',
+        category: 'Church Fathers',
+        author: 'St. Athanasius of Alexandria (Trans. Archibald Robertson)',
+        description:
+            'Written c. 357 AD by the Patriarch of Alexandria shortly after the death of St. Anthony the Great. The foundational spiritual biography that sparked the Christian monastic movement across the East and West and inspired the conversion of St. Augustine.',
+        defaultAssetPath:
+            'assets/catechism/json/athanasius_life_of_anthony.json',
+      ),
+      const LibraryBookItem(
         id: 'augustine_confessions',
         title: 'The Confessions',
         subtitle: 'Confessiones (Trans. Edward Bouverie Pusey, 1838)',
