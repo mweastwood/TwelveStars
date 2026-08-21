@@ -583,6 +583,8 @@ void parseChapteredBookFile({
         stripped.startsWith('On the Sacraments') ||
         stripped.startsWith('De Mysteriis') ||
         stripped.startsWith('De Sacramentis') ||
+        stripped.startsWith('On the Holy Spirit') ||
+        stripped.startsWith('De Spiritu Sancto') ||
         stripped.startsWith('True Devotion to Mary:') ||
         stripped.startsWith('Proslogion') ||
         stripped.startsWith('Cur Deus Homo') ||
@@ -1316,6 +1318,17 @@ void main() {
     title: "The Mind's Road to God",
     subtitle: 'Itinerarium Mentis in Deum (Trans. George Boas, 1953)',
     author: 'St. Bonaventure (Trans. George Boas)',
+    outputDir: outputDir,
+  );
+
+  final basilDir = p.join('assets', 'catechism', 'basil');
+  parseChapteredBookFile(
+    filepath: p.join(basilDir, 'basil_on_the_holy_spirit.txt'),
+    bookId: 'basil_on_the_holy_spirit',
+    secIdPrefix: 'basil_holy_spirit',
+    title: 'On the Holy Spirit',
+    subtitle: 'De Spiritu Sancto (Trans. Blomfield Jackson, 1895)',
+    author: 'St. Basil the Great (Trans. Blomfield Jackson)',
     outputDir: outputDir,
   );
 }
