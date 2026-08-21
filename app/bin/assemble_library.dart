@@ -583,6 +583,7 @@ void parseChapteredBookFile({
         stripped.startsWith('Cur Deus Homo') ||
         stripped.startsWith('The Rule of St. Benedict') ||
         stripped.startsWith('Regula Sancti Benedicti') ||
+        stripped.startsWith('Introduction to the Devout Life:') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -1121,4 +1122,51 @@ void main() {
     author: 'St. Benedict of Nursia (Trans. Rev. Boniface Verheyen, O.S.B.)',
     outputDir: outputDir,
   );
+
+  final salesDir = p.join('assets', 'catechism', 'francis_de_sales');
+
+  final salesParts = [
+    (
+      'part1',
+      'p1',
+      'Introduction to the Devout Life: Part I',
+      'Counsels & Exercises for the Soul\'s First Desire (Trans. Allan Ross / Rivingtons)',
+    ),
+    (
+      'part2',
+      'p2',
+      'Introduction to the Devout Life: Part II',
+      'Counsels for Elevating the Soul in Prayer & Sacraments (Trans. Allan Ross / Rivingtons)',
+    ),
+    (
+      'part3',
+      'p3',
+      'Introduction to the Devout Life: Part III',
+      'Counsels Concerning the Practice of Virtues (Trans. Allan Ross / Rivingtons)',
+    ),
+    (
+      'part4',
+      'p4',
+      'Introduction to the Devout Life: Part IV',
+      'Necessary Counsels Against Ordinary Temptations (Trans. Allan Ross / Rivingtons)',
+    ),
+    (
+      'part5',
+      'p5',
+      'Introduction to the Devout Life: Part V',
+      'Exercises & Counsels for Renewing the Soul in Devotion (Trans. Allan Ross / Rivingtons)',
+    ),
+  ];
+
+  for (final (partSlug, secPrefix, title, subtitle) in salesParts) {
+    parseChapteredBookFile(
+      filepath: p.join(salesDir, 'sales_devout_life_$partSlug.txt'),
+      bookId: 'sales_devout_life_$partSlug',
+      secIdPrefix: 'sales_devout_life_$secPrefix',
+      title: title,
+      subtitle: subtitle,
+      author: 'St. Francis de Sales (Trans. Allan Ross)',
+      outputDir: outputDir,
+    );
+  }
 }
