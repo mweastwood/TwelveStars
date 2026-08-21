@@ -116,6 +116,7 @@ class ReverseCitationService {
     'assets/catechism/json/sales_devout_life_part4.json',
     'assets/catechism/json/sales_devout_life_part5.json',
     'assets/catechism/json/teresa_interior_castle.json',
+    'assets/catechism/json/kempis_imitation_of_christ.json',
   ];
 
   @visibleForTesting

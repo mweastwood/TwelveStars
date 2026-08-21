@@ -588,6 +588,8 @@ void parseChapteredBookFile({
         stripped.startsWith('The Interior Castle') ||
         stripped.startsWith('El Castillo Interior') ||
         stripped.startsWith('By St. Teresa') ||
+        stripped.startsWith('The Imitation of Christ') ||
+        stripped.startsWith('De Imitatione Christi') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -1194,6 +1196,18 @@ void main() {
     subtitle:
         'El Castillo Interior / Las Moradas (Trans. Benedictines of Stanbrook, 1906)',
     author: 'St. Teresa of Ávila (Trans. Benedictines of Stanbrook)',
+    outputDir: outputDir,
+  );
+
+  final kempisDir = p.join('assets', 'catechism', 'kempis');
+  parseChapteredBookFile(
+    filepath: p.join(kempisDir, 'kempis_imitation_of_christ.txt'),
+    bookId: 'kempis_imitation_of_christ',
+    secIdPrefix: 'kempis_imitation',
+    title: 'The Imitation of Christ',
+    subtitle:
+        'De Imitatione Christi (Trans. Richard Challoner / William Benham)',
+    author: 'Thomas à Kempis',
     outputDir: outputDir,
   );
 }

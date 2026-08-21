@@ -1044,6 +1044,18 @@ class LibraryHelper {
             'Written in 1577 by the Doctor of the Church. St. Teresa\'s definitive masterpiece on the interior journey through the Seven Mansions of the soul, from vocal prayer and purification to spiritual betrothal, transforming union, and the indwelling of the Most Holy Trinity.',
         defaultAssetPath: 'assets/catechism/json/teresa_interior_castle.json',
       ),
+      const LibraryBookItem(
+        id: 'kempis_imitation_of_christ',
+        title: 'The Imitation of Christ',
+        subtitle:
+            'De Imitatione Christi (Trans. Richard Challoner / William Benham)',
+        category: 'Spiritual Classics',
+        author: 'Thomas à Kempis',
+        description:
+            'Written c. 1418–1427. The most widely read devotional classic in Christian history after Sacred Scripture, providing profound guidance on spiritual interiority, peace in trials, humility, the Royal Road of the Cross, and devout preparation for the Holy Eucharist.',
+        defaultAssetPath:
+            'assets/catechism/json/kempis_imitation_of_christ.json',
+      ),
     ];
   }
 
