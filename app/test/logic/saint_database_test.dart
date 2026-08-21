@@ -491,6 +491,15 @@ void main() {
         );
         expect(wenceslaus.any((s) => s.id == 'wenceslaus'), isTrue);
 
+        final peregrine = SaintDatabase.searchSaints(
+          saints,
+          query: 'Peregrine',
+        );
+        expect(peregrine.any((s) => s.id == 'peregrine-laziosi'), isTrue);
+
+        final cancer = SaintDatabase.searchSaints(saints, query: 'Cancer');
+        expect(cancer.any((s) => s.id == 'peregrine-laziosi'), isTrue);
+
         // 4. Counter-Reformation & Global Missionaries
         final martinDePorres = SaintDatabase.searchSaints(
           saints,
@@ -509,6 +518,18 @@ void main() {
           query: 'Peter Claver',
         );
         expect(peterClaver.any((s) => s.id == 'peter-claver'), isTrue);
+
+        final gerard = SaintDatabase.searchSaints(
+          saints,
+          query: 'Gerard Majella',
+        );
+        expect(gerard.any((s) => s.id == 'gerard-majella'), isTrue);
+
+        final expectantMothers = SaintDatabase.searchSaints(
+          saints,
+          query: 'Expectant Mothers',
+        );
+        expect(expectantMothers.any((s) => s.id == 'gerard-majella'), isTrue);
 
         // 5. 19th & 20th Century Saints & Global Martyrs
         final charbel = SaintDatabase.searchSaints(saints, query: 'Charbel');
