@@ -1126,6 +1126,17 @@ class LibraryHelper {
         volumes: ambroseVolumes,
       ),
       const LibraryBookItem(
+        id: 'vincent_commonitory',
+        title: 'The Commonitory',
+        subtitle:
+            'For the Antiquity and Universality of the Catholic Faith (Trans. C. A. Heurtley, 1894)',
+        category: 'Church Fathers',
+        author: 'St. Vincent of Lérins (Trans. C. A. Heurtley)',
+        description:
+            'Written c. 434 AD on the island of Lérins. The classic patristic masterwork establishing the Vincentian Canon on Sacred Tradition ("quod ubique, quod semper, quod ab omnibus creditum est") and formulating the orthodox standard for the legitimate organic development of Christian doctrine.',
+        defaultAssetPath: 'assets/catechism/json/vincent_commonitory.json',
+      ),
+      const LibraryBookItem(
         id: 'anselm_proslogion',
         title: 'Proslogion',
         subtitle:

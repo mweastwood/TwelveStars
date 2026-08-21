@@ -383,5 +383,16 @@ void main() {
         }
       },
     );
+
+    test('indexes St. Vincent of Lérins The Commonitory', () async {
+      await ReverseCitationService.ensureIndexed();
+
+      const vincentPath = 'assets/catechism/json/vincent_commonitory.json';
+      expect(
+        ReverseCitationService.catalogPaths.contains(vincentPath),
+        isTrue,
+        reason: '$vincentPath should be registered in catalogPaths',
+      );
+    });
   });
 }
