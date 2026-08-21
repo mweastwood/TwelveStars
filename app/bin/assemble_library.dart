@@ -559,6 +559,7 @@ void parseChapteredBookFile({
         stripped.startsWith('First Epistle') ||
         stripped.startsWith('The Second Epistle') ||
         stripped.startsWith('Second Epistle') ||
+        stripped.startsWith('The Epistle to Diognetus') ||
         stripped.startsWith('Epistle of Ignatius') ||
         stripped.startsWith('The First Apology') ||
         stripped.startsWith('The Second Apology') ||
@@ -679,6 +680,7 @@ void main() {
   final trentDir = p.join('assets', 'catechism', 'trent');
   final didacheDir = p.join('assets', 'catechism', 'didache');
   final polycarpDir = p.join('assets', 'catechism', 'polycarp');
+  final diognetusDir = p.join('assets', 'catechism', 'diognetus');
   final clementDir = p.join('assets', 'catechism', 'clement');
   final ignatiusDir = p.join('assets', 'catechism', 'ignatius');
   final justinDir = p.join('assets', 'catechism', 'justin');
@@ -808,6 +810,16 @@ void main() {
     subtitle:
         'Encyclical Epistle of the Church at Smyrna (Trans. J. B. Lightfoot, 1891)',
     author: 'The Church of Smyrna (Trans. J. B. Lightfoot)',
+    outputDir: outputDir,
+  );
+
+  parseChapteredBookFile(
+    filepath: p.join(diognetusDir, 'diognetus_lightfoot.txt'),
+    bookId: 'diognetus_lightfoot',
+    secIdPrefix: 'diognetus',
+    title: 'The Epistle to Diognetus',
+    subtitle: 'Letter to Diognetus (Trans. J. B. Lightfoot, 1891)',
+    author: 'The Apostolic Fathers (Trans. J. B. Lightfoot)',
     outputDir: outputDir,
   );
 

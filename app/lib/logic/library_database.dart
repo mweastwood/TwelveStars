@@ -861,6 +861,16 @@ class LibraryHelper {
         volumes: polycarpVolumes,
       ),
       const LibraryBookItem(
+        id: 'diognetus_lightfoot',
+        title: 'The Epistle to Diognetus',
+        subtitle: 'Letter to Diognetus (Trans. J. B. Lightfoot, 1891)',
+        category: 'Apostolic Fathers',
+        author: 'The Apostolic Fathers (Trans. J. B. Lightfoot)',
+        description:
+            'An early Christian apologetic work (c. 130–200 AD) addressed to Diognetus, defending Christianity against paganism and Judaism, and offering a profound exposition of the Christian life in the world ("what the soul is in the body, that the Christians are in the world") and the Incarnation.',
+        defaultAssetPath: 'assets/catechism/json/diognetus_lightfoot.json',
+      ),
+      const LibraryBookItem(
         id: 'justin_martyr_apologies',
         title: 'Apologies of St. Justin Martyr',
         subtitle: 'The First and Second Apologies (Trans. Marcus Dods, 1885)',

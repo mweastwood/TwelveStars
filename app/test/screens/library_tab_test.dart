@@ -54,6 +54,7 @@ void main() {
       expect(find.text('Second Epistle of Clement'), findsOneWidget);
       expect(find.text('Epistles of St. Ignatius'), findsOneWidget);
       expect(find.text('Epistle & Martyrdom of St. Polycarp'), findsOneWidget);
+      expect(find.text('The Epistle to Diognetus'), findsOneWidget);
       expect(find.text('Apologies of St. Justin Martyr'), findsOneWidget);
       expect(find.text('Dialogue with Trypho'), findsOneWidget);
       expect(find.text('Against Heresies'), findsOneWidget);
@@ -411,6 +412,42 @@ void main() {
 
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
         expect(find.text('Epistle & Martyrdom of St. Polycarp'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'tapping Read Book on The Epistle to Diognetus opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/diognetus_lightfoot.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final diognetusCard = find.ancestor(
+          of: find.text('The Epistle to Diognetus'),
+          matching: find.byType(Card),
+        );
+        final readBtn = find.descendant(
+          of: diognetusCard,
+          matching: find.widgetWithText(FilledButton, 'Read Book'),
+        );
+
+        await tester.scrollUntilVisible(
+          readBtn,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(readBtn);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('The Epistle to Diognetus'), findsWidgets);
       },
     );
 

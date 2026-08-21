@@ -94,6 +94,7 @@ flutter:
     - assets/catechism/trent/
     - assets/catechism/didache/
     - assets/catechism/polycarp/
+    - assets/catechism/diognetus/
     - assets/catechism/clement/
     - assets/catechism/ignatius/
     - assets/catechism/justin/
