@@ -603,6 +603,10 @@ void parseChapteredBookFile({
         stripped.startsWith('On the Priesthood') ||
         stripped.startsWith('De Sacerdotio') ||
         stripped.startsWith('St. John Chrysostom') ||
+        stripped.startsWith('The Commonitory') ||
+        stripped.startsWith('Commonitorium') ||
+        stripped.startsWith('St. Vincent of Lérins') ||
+        stripped.startsWith('By St. Vincent') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -1387,4 +1391,16 @@ void main() {
       outputDir: outputDir,
     );
   }
+
+  final vincentDir = p.join('assets', 'catechism', 'vincent');
+  parseChapteredBookFile(
+    filepath: p.join(vincentDir, 'vincent_commonitory.txt'),
+    bookId: 'vincent_commonitory',
+    secIdPrefix: 'vincent_commonitory',
+    title: 'The Commonitory',
+    subtitle:
+        'For the Antiquity and Universality of the Catholic Faith (Trans. C. A. Heurtley, 1894)',
+    author: 'St. Vincent of Lérins (Trans. C. A. Heurtley)',
+    outputDir: outputDir,
+  );
 }

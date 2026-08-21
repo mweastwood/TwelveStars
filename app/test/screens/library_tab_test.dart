@@ -742,6 +742,42 @@ void main() {
       },
     );
 
+    testWidgets(
+      'tapping Read Book on The Commonitory opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/vincent_commonitory.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final vincentCard = find.ancestor(
+          of: find.text('The Commonitory'),
+          matching: find.byType(Card),
+        );
+        final readBtn = find.descendant(
+          of: vincentCard,
+          matching: find.widgetWithText(FilledButton, 'Read Book'),
+        );
+
+        await tester.scrollUntilVisible(
+          readBtn,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(readBtn);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('The Commonitory'), findsWidgets);
+      },
+    );
+
     testWidgets('tapping Cur Deus Homo volume chip opens LibraryReaderScreen', (
       tester,
     ) async {
@@ -1622,6 +1658,31 @@ void main() {
     });
 
     testGoldens(
+      'LibraryReaderScreen renders St. Vincent of Lérins The Commonitory',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final vincent = catalog.firstWhere(
+          (b) => b.id == 'vincent_commonitory',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/vincent_commonitory.json',
+          );
+        });
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(body: LibraryReaderScreen(bookItem: vincent)),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'vincent_commonitory_reader_golden');
+      },
+    );
+
+    testGoldens(
       'LibraryReaderScreen renders St. John Chrysostom On the Priesthood (Book I)',
       (tester) async {
         final catalog = LibraryHelper.getCatalog();
@@ -2270,6 +2331,33 @@ void main() {
 
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
         expect(find.text('The Interior Castle'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen renders St. Vincent of Lérins The Commonitory',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final vincent = catalog.firstWhere(
+          (b) => b.id == 'vincent_commonitory',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/vincent_commonitory.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(body: LibraryReaderScreen(bookItem: vincent)),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('The Commonitory'), findsWidgets);
+        expect(find.text('Section 1 of 33'), findsOneWidget);
       },
     );
   });
