@@ -1033,6 +1033,17 @@ class LibraryHelper {
             'Written in 1609 by the Bishop of Geneva and Doctor of the Church. The universal spiritual classic showing that authentic holiness is attainable and necessary for persons in every state of life.',
         volumes: devoutLifeVolumes,
       ),
+      const LibraryBookItem(
+        id: 'teresa_interior_castle',
+        title: 'The Interior Castle',
+        subtitle:
+            'El Castillo Interior / Las Moradas (Trans. Benedictines of Stanbrook, 1906)',
+        category: 'Spiritual Classics',
+        author: 'St. Teresa of Ávila (Trans. Benedictines of Stanbrook)',
+        description:
+            'Written in 1577 by the Doctor of the Church. St. Teresa\'s definitive masterpiece on the interior journey through the Seven Mansions of the soul, from vocal prayer and purification to spiritual betrothal, transforming union, and the indwelling of the Most Holy Trinity.',
+        defaultAssetPath: 'assets/catechism/json/teresa_interior_castle.json',
+      ),
     ];
   }
 

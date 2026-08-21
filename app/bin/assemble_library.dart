@@ -585,6 +585,9 @@ void parseChapteredBookFile({
         stripped.startsWith('The Rule of St. Benedict') ||
         stripped.startsWith('Regula Sancti Benedicti') ||
         stripped.startsWith('Introduction to the Devout Life:') ||
+        stripped.startsWith('The Interior Castle') ||
+        stripped.startsWith('El Castillo Interior') ||
+        stripped.startsWith('By St. Teresa') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -1181,4 +1184,16 @@ void main() {
       outputDir: outputDir,
     );
   }
+
+  final teresaDir = p.join('assets', 'catechism', 'teresa');
+  parseChapteredBookFile(
+    filepath: p.join(teresaDir, 'teresa_interior_castle.txt'),
+    bookId: 'teresa_interior_castle',
+    secIdPrefix: 'teresa_interior_castle',
+    title: 'The Interior Castle',
+    subtitle:
+        'El Castillo Interior / Las Moradas (Trans. Benedictines of Stanbrook, 1906)',
+    author: 'St. Teresa of Ávila (Trans. Benedictines of Stanbrook)',
+    outputDir: outputDir,
+  );
 }
