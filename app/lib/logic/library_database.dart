@@ -721,6 +721,25 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> anselmCurDeusHomoVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'book1',
+      name: 'Book I: The Necessity of Redemption',
+      shortName: 'Book I',
+      description:
+          'Anselm and Boso examine the objections of unbelievers, showing the necessity of satisfaction for sin and why salvation is impossible without a Savior.',
+      assetPath: 'assets/catechism/json/anselm_cur_deus_homo_book1.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book2',
+      name: 'Book II: The God-Man and Atonement',
+      shortName: 'Book II',
+      description:
+          'Demonstrates why only a person who is both truly God and truly man can offer the infinite satisfaction required to redeem mankind.',
+      assetPath: 'assets/catechism/json/anselm_cur_deus_homo_book2.json',
+    ),
+  ];
+
   static List<LibraryBookItem> getCatalog() {
     return [
       const LibraryBookItem(
@@ -881,6 +900,27 @@ class LibraryHelper {
         description:
             'Delivered c. 380 AD in Constantinople by "Gregory the Theologian." The definitive patristic exposition and defense of the Holy Trinity, the eternal divinity of the Son, and the consubstantial deity and procession of the Holy Spirit.',
         volumes: gregoryVolumes,
+      ),
+      const LibraryBookItem(
+        id: 'anselm_proslogion',
+        title: 'Proslogion',
+        subtitle:
+            'Faith Seeking Understanding (Trans. Sidney Norton Deane, 1903)',
+        category: 'Doctors of the Church',
+        author: 'St. Anselm of Canterbury (Trans. Sidney Norton Deane)',
+        description:
+            'Written c. 1077–1078 AD. The classic philosophical and devotional masterpiece formulating the ontological argument for the existence of God ("that than which nothing greater can be conceived") and exploring the divine attributes through prayer and reason.',
+        defaultAssetPath: 'assets/catechism/json/anselm_proslogion.json',
+      ),
+      const LibraryBookItem(
+        id: 'anselm_cur_deus_homo',
+        title: 'Cur Deus Homo',
+        subtitle: 'Why God Became Man (Trans. Sidney Norton Deane, 1903)',
+        category: 'Doctors of the Church',
+        author: 'St. Anselm of Canterbury (Trans. Sidney Norton Deane)',
+        description:
+            'Written c. 1098 AD. The foundational scholastic treatise in soteriology, structured as a dialogue between Anselm and Boso, developing the satisfaction theory of the Atonement and explaining the necessity of the Incarnation.',
+        volumes: anselmCurDeusHomoVolumes,
       ),
       const LibraryBookItem(
         id: 'john_cross_ascent_mount_carmel',

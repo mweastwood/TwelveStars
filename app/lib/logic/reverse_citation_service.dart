@@ -105,6 +105,9 @@ class ReverseCitationService {
     'assets/catechism/json/john_cross_ascent_mount_carmel.json',
     'assets/catechism/json/john_cross_dark_night_soul.json',
     'assets/catechism/json/montfort_true_devotion.json',
+    'assets/catechism/json/anselm_proslogion.json',
+    'assets/catechism/json/anselm_cur_deus_homo_book1.json',
+    'assets/catechism/json/anselm_cur_deus_homo_book2.json',
   ];
 
   @visibleForTesting

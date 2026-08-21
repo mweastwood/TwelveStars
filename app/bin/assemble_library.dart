@@ -579,6 +579,8 @@ void parseChapteredBookFile({
         stripped.startsWith('Noche Oscura del Alma') ||
         stripped.startsWith('By St. John of the Cross') ||
         stripped.startsWith('True Devotion to Mary:') ||
+        stripped.startsWith('Proslogion') ||
+        stripped.startsWith('Cur Deus Homo') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -1071,6 +1073,38 @@ void main() {
     subtitle:
         'Traité de la vraie dévotion (Trans. Fr. Frederick W. Faber, 1862)',
     author: 'St. Louis-Marie de Montfort (Trans. Fr. Frederick W. Faber)',
+    outputDir: outputDir,
+  );
+
+  final anselmDir = p.join('assets', 'catechism', 'anselm');
+
+  parseChapteredBookFile(
+    filepath: p.join(anselmDir, 'anselm_proslogion.txt'),
+    bookId: 'anselm_proslogion',
+    secIdPrefix: 'anselm_proslogion',
+    title: 'Proslogion',
+    subtitle: 'Faith Seeking Understanding (Trans. Sidney Norton Deane, 1903)',
+    author: 'St. Anselm of Canterbury (Trans. Sidney Norton Deane)',
+    outputDir: outputDir,
+  );
+
+  parseChapteredBookFile(
+    filepath: p.join(anselmDir, 'anselm_cur_deus_homo_book1.txt'),
+    bookId: 'anselm_cur_deus_homo_book1',
+    secIdPrefix: 'anselm_cur_deus_b1',
+    title: 'Cur Deus Homo: Book I',
+    subtitle: 'The Necessity of Redemption (Trans. Sidney Norton Deane, 1903)',
+    author: 'St. Anselm of Canterbury (Trans. Sidney Norton Deane)',
+    outputDir: outputDir,
+  );
+
+  parseChapteredBookFile(
+    filepath: p.join(anselmDir, 'anselm_cur_deus_homo_book2.txt'),
+    bookId: 'anselm_cur_deus_homo_book2',
+    secIdPrefix: 'anselm_cur_deus_b2',
+    title: 'Cur Deus Homo: Book II',
+    subtitle: 'The God-Man and Atonement (Trans. Sidney Norton Deane, 1903)',
+    author: 'St. Anselm of Canterbury (Trans. Sidney Norton Deane)',
     outputDir: outputDir,
   );
 }
