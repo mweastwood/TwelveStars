@@ -104,6 +104,7 @@ flutter:
     - assets/catechism/cyril/
     - assets/catechism/gregory/
     - assets/catechism/john_of_the_cross/
+    - assets/catechism/aquinas/
     - assets/catechism/montfort/
     - assets/catechism/anselm/
     - assets/catechism/benedict/

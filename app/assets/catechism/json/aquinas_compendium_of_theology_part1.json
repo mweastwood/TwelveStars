@@ -1,0 +1,908 @@
+{
+  "bookId": "aquinas_compendium_of_theology_part1",
+  "title": "Compendium of Theology: Part I",
+  "subtitle": "On Faith (Trans. Cyril Vollert, S.J., 1947)",
+  "author": "St. Thomas Aquinas (Trans. Cyril Vollert)",
+  "verseSystem": "vulgate",
+  "toc": [
+    {
+      "id": "sec_aquinas_compendium_part1_1",
+      "title": "Chapter 1: The Scope of the Work: Faith, Hope, and Charity"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_2",
+      "title": "Chapter 2: The Object of Faith: The Unity and Trinity of God"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_3",
+      "title": "Chapter 3: The Existence of God"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_4",
+      "title": "Chapter 4: Proof from Motion: The Unmoved Mover"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_5",
+      "title": "Chapter 5: Proof from Efficient Causality: The First Cause"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_6",
+      "title": "Chapter 6: God is Necessary Being"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_7",
+      "title": "Chapter 7: God is Supreme Goodness and Perfection"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_8",
+      "title": "Chapter 8: God is Infinite and Measureless"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_9",
+      "title": "Chapter 9: The Divine Immateriality and Simplicity"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_10",
+      "title": "Chapter 10: God is Not a Body"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_11",
+      "title": "Chapter 11: God is His Own Essence"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_12",
+      "title": "Chapter 12: God is Eternal and Immutable"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_13",
+      "title": "Chapter 13: The Unity of God"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_14",
+      "title": "Chapter 14: The Divine Knowledge and Wisdom"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_15",
+      "title": "Chapter 15: The Divine Will and Love"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_16",
+      "title": "Chapter 16: The Generation of the Word: The Son of God"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_17",
+      "title": "Chapter 17: The Procession of Love: The Holy Ghost"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_18",
+      "title": "Chapter 18: Distinction of the Three Divine Persons"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_19",
+      "title": "Chapter 19: The Trinity in Unity"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_20",
+      "title": "Chapter 20: Creation of the Universe from Nothing"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_21",
+      "title": "Chapter 21: The Creation and Hierarchy of the Angels"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_22",
+      "title": "Chapter 22: The Creation and Nature of Man: Body and Rational Soul"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_23",
+      "title": "Chapter 23: Divine Providence and the Governance of All Things"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_24",
+      "title": "Chapter 24: Evil and the Permission of Sin"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_25",
+      "title": "Chapter 25: The State of Original Innocence and Justice"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_26",
+      "title": "Chapter 26: The Fall of Man and Original Sin"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_27",
+      "title": "Chapter 27: The Mystery of the Incarnation"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_28",
+      "title": "Chapter 28: The Hypostatic Union: Two Natures in One Divine Person"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_29",
+      "title": "Chapter 29: The Conception, Virgin Birth, and Sacred Humanity of Christ"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_30",
+      "title": "Chapter 30: The Passion, Death, and Crucifixion of our Savior"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_31",
+      "title": "Chapter 31: The Descent into Hell and Resurrection from the Dead"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_32",
+      "title": "Chapter 32: The Ascension into Heaven and Session at the Right Hand of the Father"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_33",
+      "title": "Chapter 33: The Seven Sacraments as Instruments of Grace"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_34",
+      "title": "Chapter 34: The General Resurrection of the Flesh"
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_35",
+      "title": "Chapter 35: The Final Judgment and Eternal Retribution"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec_aquinas_compendium_part1_1",
+      "title": "Chapter 1",
+      "subtitle": "The Scope of the Work: Faith, Hope, and Charity",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. All our efforts in the acquisition of knowledge should have as their goal the attainment of the ultimate beatitude and eternal truth."
+        },
+        {
+          "type": "text",
+          "text": "2. The shortest and most direct road to this eternal beatitude is the three theological virtues: faith, hope, and charity, as the Apostle Paul teaches in 1 Corinthians 13:13: \"Now there remain faith, hope, and charity, these three: but the greatest of these is charity.\""
+        },
+        {
+          "type": "text",
+          "text": "3. Faith is the beginning and foundation of all supernatural life, directing the human intellect to know God as He is in Himself; hope raises the will to desire and expect eternal life and divine assistance; while charity unites the soul to God in the bond of divine friendship and love."
+        },
+        {
+          "type": "text",
+          "text": "4. In this compendium we shall expound the truths of our holy religion in accordance with this threefold division, commencing with the virtue of faith, which is the source of all our spiritual vision."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_2",
+      "title": "Chapter 2",
+      "subtitle": "The Object of Faith: The Unity and Trinity of God",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The primary object of Christian faith is the Supreme Truth, God Himself, who is one in essence and three in persons."
+        },
+        {
+          "type": "text",
+          "text": "2. For all truths that we believe concerning created things are directed toward God as their origin and last end."
+        },
+        {
+          "type": "text",
+          "text": "3. Therefore, faith first instructs our minds concerning the divine essence and its perfection, and subsequently concerning the mystery of the Blessed Trinity and the works of divine creation, providence, and redemption."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_3",
+      "title": "Chapter 3",
+      "subtitle": "The Existence of God",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. That God exists is a truth demonstrable by the natural light of human reason from the effects that He has produced in creation, as Romans 1:20 declares: \"For the invisible things of Him from the creation of the world are clearly seen, being understood by the things that are made.\""
+        },
+        {
+          "type": "text",
+          "text": "2. For whatever is moved is moved by another, and whatever is in potentiality is brought into act only by that which is already in act."
+        },
+        {
+          "type": "text",
+          "text": "3. Since an infinite series of moved movers or intermediate causes is impossible, we must inevitably arrive at a First Mover who is unmoved by any other, and this First Mover is God."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_4",
+      "title": "Chapter 4",
+      "subtitle": "Proof from Motion: The Unmoved Mover",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Everything that is in motion must be set in motion by another; for nothing is moved except insofar as it is in potentiality to that toward which it is moved, whereas a thing moves inasmuch as it is in act."
+        },
+        {
+          "type": "text",
+          "text": "2. Motion is nothing other than the reduction of potentiality to actuality."
+        },
+        {
+          "type": "text",
+          "text": "3. It is impossible that the same thing should be in potentiality and in act at the same time in the same respect."
+        },
+        {
+          "type": "text",
+          "text": "4. If that by which a thing is moved is itself in motion, then this also must be moved by another, and that by another again."
+        },
+        {
+          "type": "text",
+          "text": "5. But this cannot proceed to infinity, because then there would be no first mover, and consequently no other mover; for intermediate movers move only inasmuch as they are put in motion by the first mover."
+        },
+        {
+          "type": "text",
+          "text": "6. Therefore it is necessary to arrive at a first mover, put in motion by no other; and this everyone understands to be God."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_5",
+      "title": "Chapter 5",
+      "subtitle": "Proof from Efficient Causality: The First Cause",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In the world of sense we find there is an order of efficient causes."
+        },
+        {
+          "type": "text",
+          "text": "2. There is no case known (neither is it, indeed, possible) in which a thing is found to be the efficient cause of itself; for so it would be prior to itself, which is impossible."
+        },
+        {
+          "type": "text",
+          "text": "3. Now in efficient causes it is not possible to go on to infinity, because in all efficient causes following in order, the first is the cause of the intermediate cause, and the intermediate is the cause of the ultimate cause."
+        },
+        {
+          "type": "text",
+          "text": "4. Now to take away the cause is to take away the effect. Therefore, if there be no first cause among efficient causes, there will be no ultimate, nor any intermediate cause."
+        },
+        {
+          "type": "text",
+          "text": "5. But if in efficient causes it is possible to go on to infinity, there will be no first efficient cause, neither will there be an ultimate effect, nor any intermediate efficient causes; all of which is plainly false."
+        },
+        {
+          "type": "text",
+          "text": "6. Therefore it is necessary to admit a first efficient cause, to which everyone gives the name of God."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_6",
+      "title": "Chapter 6",
+      "subtitle": "God is Necessary Being",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In nature we find things that are possible to be and not to be, since they are found to be generated, and to corrupt, and consequently, they are possible to be and not to be."
+        },
+        {
+          "type": "text",
+          "text": "2. But it is impossible for these always to exist, for that which can not-be at some time is not."
+        },
+        {
+          "type": "text",
+          "text": "3. Therefore, if everything is possible not to be, then at one time there could have been nothing in existence."
+        },
+        {
+          "type": "text",
+          "text": "4. Now if this were true, even now there would be nothing in existence, because that which does not exist only begins to exist by something already existing."
+        },
+        {
+          "type": "text",
+          "text": "5. Therefore, not all beings are merely possible, but there must exist something the existence of which is necessary."
+        },
+        {
+          "type": "text",
+          "text": "6. This necessary being has of itself its own necessity, and is the cause of the necessity of other things; this all men speak of as God."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_7",
+      "title": "Chapter 7",
+      "subtitle": "God is Supreme Goodness and Perfection",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Among beings there are some more and some less good, true, noble and the like."
+        },
+        {
+          "type": "text",
+          "text": "2. But 'more' or 'less' are predicated of different things, according as they resemble in their different ways something which is the maximum, as a thing is said to be hotter according as it resembles that which is hottest."
+        },
+        {
+          "type": "text",
+          "text": "3. Therefore there must also be something which is to all beings the cause of their being, goodness, and every other perfection; and this we call God."
+        },
+        {
+          "type": "text",
+          "text": "4. God is therefore absolute perfection, lacking nothing of the fullness of being."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_8",
+      "title": "Chapter 8",
+      "subtitle": "God is Infinite and Measureless",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The divine being is not limited or circumscribed by any potentiality, matter, or external limitation."
+        },
+        {
+          "type": "text",
+          "text": "2. Because God is pure actuality without any passive potentiality, His existence and essence are boundless and measureless."
+        },
+        {
+          "type": "text",
+          "text": "3. As the Psalmist sings in Psalm 144:3: \"Great is the Lord, and greatly to be praised: and His greatness is unsearchable.\""
+        },
+        {
+          "type": "text",
+          "text": "4. His infinity is not an infinity of magnitude or quantity, but of spiritual perfection and illimitable essence."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_9",
+      "title": "Chapter 9",
+      "subtitle": "The Divine Immateriality and Simplicity",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. God is altogether simple, having no composition of parts, whether quantitative, essential, or accidental."
+        },
+        {
+          "type": "text",
+          "text": "2. In God there is no distinction between essence and existence; His essence is His very act of being (Ipsum Esse Subsistens)."
+        },
+        {
+          "type": "text",
+          "text": "3. God does not enter into composition with any other being, nor is He composed of matter and form."
+        },
+        {
+          "type": "text",
+          "text": "4. For every composite being is dependent upon its constituent components and upon the cause that assembled them, whereas God is the First Cause and completely independent."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_10",
+      "title": "Chapter 10",
+      "subtitle": "God is Not a Body",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. No body moves unless it is moved; but God is the first unmoved mover, as has been shown."
+        },
+        {
+          "type": "text",
+          "text": "2. Therefore it is evident that God is not a body or corporeal substance."
+        },
+        {
+          "type": "text",
+          "text": "3. Every body is composite and divisible, whereas God is supreme simplicity."
+        },
+        {
+          "type": "text",
+          "text": "4. As our Lord declared to the Samaritan woman in John 4:24: \"God is a spirit; and they that adore Him, must adore Him in spirit and in truth.\""
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_11",
+      "title": "Chapter 11",
+      "subtitle": "God is His Own Essence",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In material things, the individual supposit contains individuating matter which is not part of the abstract essence, so that man is not identical with humanity."
+        },
+        {
+          "type": "text",
+          "text": "2. But in God, who is immaterial and completely simple, there is no individuating matter or distinction of accidents."
+        },
+        {
+          "type": "text",
+          "text": "3. Hence God is His own Godhead, His own Wisdom, His own Goodness, and His own Life."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_12",
+      "title": "Chapter 12",
+      "subtitle": "God is Eternal and Immutable",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Since God is pure act without any admixture of potentiality, He is entirely devoid of change or alteration."
+        },
+        {
+          "type": "text",
+          "text": "2. Change implies the loss of what was possessed or the acquisition of what was lacking, neither of which can apply to the supreme perfection of God."
+        },
+        {
+          "type": "text",
+          "text": "3. As James 1:17 proclaims: \"With whom there is no change, nor shadow of alteration.\""
+        },
+        {
+          "type": "text",
+          "text": "4. God is therefore eternal, possessing all His boundless life simultaneously, without beginning, succession, or end."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_13",
+      "title": "Chapter 13",
+      "subtitle": "The Unity of God",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. God is uniquely one, for there cannot be multiple supreme beings or first causes."
+        },
+        {
+          "type": "text",
+          "text": "2. If there were two gods, they would differ in some respect, and one would lack what the other possesses, so that neither would be absolutely perfect."
+        },
+        {
+          "type": "text",
+          "text": "3. Sacred Scripture solemnly confesses this truth in Deuteronomy 6:4: \"Hear, O Israel, the Lord our God is one Lord.\""
+        },
+        {
+          "type": "text",
+          "text": "4. The unity of the universe and the concord of created nature also witness to the single supreme Governor of all things."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_14",
+      "title": "Chapter 14",
+      "subtitle": "The Divine Knowledge and Wisdom",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. God is supremely intelligent, knowing Himself and all things through His divine essence."
+        },
+        {
+          "type": "text",
+          "text": "2. In knowing Himself, He comprehends every possible creature and every actual creature in past, present, and future time."
+        },
+        {
+          "type": "text",
+          "text": "3. His knowledge is not discursive or acquired through sensible images, but is one eternal, intuitive vision."
+        },
+        {
+          "type": "text",
+          "text": "4. As Hebrews 4:13 declares: \"All things are naked and open to His eyes.\""
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_15",
+      "title": "Chapter 15",
+      "subtitle": "The Divine Will and Love",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Because God possesses supreme intellect, He likewise possesses supreme will, which is ordered to the divine goodness as its proper object."
+        },
+        {
+          "type": "text",
+          "text": "2. God loves Himself necessarily, and He loves all created things by willing goodness to them according to the order of His wisdom."
+        },
+        {
+          "type": "text",
+          "text": "3. In Wisdom 11:25 it is written: \"For Thou lovest all things that are, and hatest none of the things which Thou hast made.\""
+        },
+        {
+          "type": "text",
+          "text": "4. The divine will is efficacious, all-powerful, and the source of all created good."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_16",
+      "title": "Chapter 16",
+      "subtitle": "The Generation of the Word: The Son of God",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In an intelligent nature, the act of understanding produces an interior concept or intellectual word."
+        },
+        {
+          "type": "text",
+          "text": "2. In God, whose understanding is identical with His eternal being, this interior Word is not an accidental thought, but a substantial, subsisting Divine Person."
+        },
+        {
+          "type": "text",
+          "text": "3. This eternal Word is the Only-Begotten Son of God, as John 1:1 testifies: \"In the beginning was the Word, and the Word was with God, and the Word was God.\""
+        },
+        {
+          "type": "text",
+          "text": "4. The Son proceeds from the Father by way of spiritual generation, possessing the identical nature, power, and eternity of the Father."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_17",
+      "title": "Chapter 17",
+      "subtitle": "The Procession of Love: The Holy Ghost",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. From the mutual knowledge and love of the Father and the Son proceeds the Holy Spirit, who is the substantial Love of God."
+        },
+        {
+          "type": "text",
+          "text": "2. This procession is by way of the will and love, not by way of generation."
+        },
+        {
+          "type": "text",
+          "text": "3. The Holy Spirit is true God, consubstantial and co-eternal with the Father and the Son, proceeding from both as from one single principle."
+        },
+        {
+          "type": "text",
+          "text": "4. As Romans 5:5 declares: \"The charity of God is poured forth in our hearts, by the Holy Ghost, who is given to us.\""
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_18",
+      "title": "Chapter 18",
+      "subtitle": "Distinction of the Three Divine Persons",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In the Godhead there is no distinction of nature, power, or essence, for all three Persons share the one undivided divine essence."
+        },
+        {
+          "type": "text",
+          "text": "2. The distinction of the Persons rests entirely upon the eternal relations of origin: Paternity, Filiation, and Spiration."
+        },
+        {
+          "type": "text",
+          "text": "3. The Father is unbegotten and is the principle of origin; the Son is eternally begotten of the Father; the Holy Ghost eternally proceeds from the Father and the Son."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_19",
+      "title": "Chapter 19",
+      "subtitle": "The Trinity in Unity",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Catholic faith teaches us to venerate one God in Trinity, and Trinity in Unity, neither confounding the Persons nor dividing the Substance."
+        },
+        {
+          "type": "text",
+          "text": "2. The Father is God, the Son is God, and the Holy Ghost is God; yet they are not three gods, but one God."
+        },
+        {
+          "type": "text",
+          "text": "3. As our Lord commanded in Matthew 28:19: \"Going therefore, teach ye all nations; baptizing them in the name of the Father, and of the Son, and of the Holy Ghost.\""
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_20",
+      "title": "Chapter 20",
+      "subtitle": "Creation of the Universe from Nothing",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. God produced all creatures from nothing (ex nihilo), without any pre-existing subject or matter."
+        },
+        {
+          "type": "text",
+          "text": "2. Creation is the communication of being from the First Cause to all secondary beings."
+        },
+        {
+          "type": "text",
+          "text": "3. As Genesis 1:1 reveals: \"In the beginning God created heaven, and earth.\""
+        },
+        {
+          "type": "text",
+          "text": "4. God created the universe freely out of His infinite goodness, that His perfection might be manifested and shared."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_21",
+      "title": "Chapter 21",
+      "subtitle": "The Creation and Hierarchy of the Angels",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. God created purely spiritual creatures, namely the angels, who are immaterial intellectual substances."
+        },
+        {
+          "type": "text",
+          "text": "2. The angels are endowed with lofty intelligence, free will, and immense power, ordered into nine choirs according to their celestial illumination."
+        },
+        {
+          "type": "text",
+          "text": "3. Lucifer and many angels fell through pride and rebellion against God, becoming demons who seek to tempt and ruin mankind."
+        },
+        {
+          "type": "text",
+          "text": "4. The holy angels remain in eternal glory and are appointed by divine providence as guardians and ministering spirits for human salvation (Hebrews 1:14)."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_22",
+      "title": "Chapter 22",
+      "subtitle": "The Creation and Nature of Man: Body and Rational Soul",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Man is the composite masterpiece of visible creation, composed of a material body and an immortal rational soul."
+        },
+        {
+          "type": "text",
+          "text": "2. The rational soul is created directly by God and is the substantial form of the human body."
+        },
+        {
+          "type": "text",
+          "text": "3. Man was made in the image and likeness of God according to his intellect and will, capable of knowing and loving his Creator (Genesis 1:26-27)."
+        },
+        {
+          "type": "text",
+          "text": "4. Because of the rational soul, man possesses free choice and moral responsibility for his actions."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_23",
+      "title": "Chapter 23",
+      "subtitle": "Divine Providence and the Governance of All Things",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. God preserves and governs all created things by His all-embracing divine providence."
+        },
+        {
+          "type": "text",
+          "text": "2. Nothing happens in the universe outside the ordination of divine wisdom, which directs all things to their appointed ends."
+        },
+        {
+          "type": "text",
+          "text": "3. Divine providence does not destroy secondary causes or human free will, but moves all things sweetly and powerfully according to their proper nature (Wisdom 8:1)."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_24",
+      "title": "Chapter 24",
+      "subtitle": "Evil and the Permission of Sin",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Evil is not a positive substance or nature created by God, but the privation of a due good in an existing subject."
+        },
+        {
+          "type": "text",
+          "text": "2. God is in no way the author of moral evil or sin; sin arises solely from the defect and abuse of free will in rational creatures."
+        },
+        {
+          "type": "text",
+          "text": "3. God permits evil to occur only because His infinite wisdom and omnipotence are able to bring forth greater goods from it, as in the redemption of mankind."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_25",
+      "title": "Chapter 25",
+      "subtitle": "The State of Original Innocence and Justice",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. God created our first parents, Adam and Eve, in a state of original innocence and justice."
+        },
+        {
+          "type": "text",
+          "text": "2. In this state, reason was subject to God, the passions were subject to reason, and the body was subject to the soul with the gifts of immortality and freedom from suffering."
+        },
+        {
+          "type": "text",
+          "text": "3. This original justice was a supernatural and preternatural gift conferred upon human nature in its head."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_26",
+      "title": "Chapter 26",
+      "subtitle": "The Fall of Man and Original Sin",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Tempted by the serpent, Adam transgressed the divine precept through pride and disobedience (Genesis 3:6)."
+        },
+        {
+          "type": "text",
+          "text": "2. By this original sin, Adam lost the grace of original justice for himself and all his descendants."
+        },
+        {
+          "type": "text",
+          "text": "3. Human nature was wounded in its powers: the intellect darkened, the will weakened, concupiscence unbridled, and the body subjected to death (Romans 5:12)."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_27",
+      "title": "Chapter 27",
+      "subtitle": "The Mystery of the Incarnation",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. To repair the ruin of the human race and reconcile mankind to God, the eternal Word took flesh of the Virgin Mary."
+        },
+        {
+          "type": "text",
+          "text": "2. The Incarnation was motivated by God's supreme mercy and love, as John 3:16 proclaims: \"For God so loved the world, as to give His only begotten Son.\""
+        },
+        {
+          "type": "text",
+          "text": "3. By becoming man, Christ became our Teacher, our Model of holiness, and our Redeemer who offers infinite satisfaction for sin."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_28",
+      "title": "Chapter 28",
+      "subtitle": "The Hypostatic Union: Two Natures in One Divine Person",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In Christ Jesus there are two distinct natures, the divine and the human, united without confusion, change, division, or separation."
+        },
+        {
+          "type": "text",
+          "text": "2. Both natures subsist in the single Person (hypostasis) of the eternal Word of God."
+        },
+        {
+          "type": "text",
+          "text": "3. Christ possesses a true human body, a rational human soul, a human will, and a divine will, operating in perfect harmony."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_29",
+      "title": "Chapter 29",
+      "subtitle": "The Conception, Virgin Birth, and Sacred Humanity of Christ",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Christ was conceived in the womb of the Blessed Virgin Mary by the overshadowing power of the Holy Ghost, without human father (Luke 1:35)."
+        },
+        {
+          "type": "text",
+          "text": "2. Mary remained a perpetual virgin before, during, and after the birth of her Divine Son, and is truly the Mother of God (Theotokos)."
+        },
+        {
+          "type": "text",
+          "text": "3. The human soul of Christ possessed from the moment of conception the beatific vision, infused knowledge, and the plenitude of grace."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_30",
+      "title": "Chapter 30",
+      "subtitle": "The Passion, Death, and Crucifixion of our Savior",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Out of obedience to the Father and burning charity for souls, Christ underwent His bitter Passion and crucifixion under Pontius Pilate."
+        },
+        {
+          "type": "text",
+          "text": "2. His death upon the Cross was a true, voluntary sacrifice of infinite value, redeeming us from sin, Satan, and death (1 Peter 2:24)."
+        },
+        {
+          "type": "text",
+          "text": "3. By His blood, the gates of heaven were reopened and divine grace was merited for all humanity."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_31",
+      "title": "Chapter 31",
+      "subtitle": "The Descent into Hell and Resurrection from the Dead",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Following His death, Christ's holy soul descended into the Limbo of the Fathers to deliver the just who awaited their Redeemer (1 Peter 3:19)."
+        },
+        {
+          "type": "text",
+          "text": "2. On the third day, by His own divine power, Christ reunited His soul and body, rising glorious and immortal from the sepulcher."
+        },
+        {
+          "type": "text",
+          "text": "3. The Resurrection is the crowning proof of His divinity and the pledge of our own future resurrection (1 Corinthians 15:20)."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_32",
+      "title": "Chapter 32",
+      "subtitle": "The Ascension into Heaven and Session at the Right Hand of the Father",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Forty days after His resurrection, Christ ascended bodily into heaven in the sight of His Apostles (Acts 1:9)."
+        },
+        {
+          "type": "text",
+          "text": "2. He sits at the right hand of God the Father Almighty, reigning as King of kings and making intercession for us as eternal High Priest (Hebrews 7:25)."
+        },
+        {
+          "type": "text",
+          "text": "3. He has taken possession of His kingdom and prepared a dwelling place for His faithful followers."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_33",
+      "title": "Chapter 33",
+      "subtitle": "The Seven Sacraments as Instruments of Grace",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Christ instituted the seven Sacraments of the New Law as visible signs and efficacious channels of sanctifying grace."
+        },
+        {
+          "type": "text",
+          "text": "2. These are: Baptism (regeneration), Confirmation (fortitude), the Holy Eucharist (spiritual nourishment), Penance (healing of sin), Extreme Unction (spiritual comfort), Holy Orders (sacred ministry), and Matrimony (sanctification of wedlock)."
+        },
+        {
+          "type": "text",
+          "text": "3. Through the Sacraments, the merits of Christ's Passion are applied to individual souls throughout the ages."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_34",
+      "title": "Chapter 34",
+      "subtitle": "The General Resurrection of the Flesh",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. At the end of the world, all the dead will rise again with their own identical bodies, both the just and the unjust (John 5:28-29)."
+        },
+        {
+          "type": "text",
+          "text": "2. The bodies of the blessed will be glorified, endowed with impassibility, clarity, agility, and subtility."
+        },
+        {
+          "type": "text",
+          "text": "3. The bodies of the reprobate will rise to endure eternal punishment without dissolution."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_compendium_part1_35",
+      "title": "Chapter 35",
+      "subtitle": "The Final Judgment and Eternal Retribution",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Christ will come again in glory and majesty to judge all nations and render to every man according to his works (Matthew 25:31-46)."
+        },
+        {
+          "type": "text",
+          "text": "2. The wicked shall be cast into hell for everlasting torment with the devil and his angels."
+        },
+        {
+          "type": "text",
+          "text": "3. The righteous shall enter into the beatific vision of God, beholding the Blessed Trinity face to face in endless joy, peace, and love."
+        }
+      ]
+    }
+  ]
+}

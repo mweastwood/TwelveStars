@@ -1,0 +1,245 @@
+{
+  "bookId": "aquinas_catechetical_commandments",
+  "title": "The Catechetical Instructions: Part III",
+  "subtitle": "The Ten Commandments (Trans. Joseph B. Collins, 1939)",
+  "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+  "verseSystem": "vulgate",
+  "toc": [
+    {
+      "id": "sec_aquinas_catechetical_commandments_1",
+      "title": "Chapter 1: The Law of God and the Two Precepts of Charity"
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_2",
+      "title": "Chapter 2: The First Commandment: Thou Shalt Not Have Strange Gods Before Me"
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_3",
+      "title": "Chapter 3: The Second Commandment: Thou Shalt Not Take the Name of the Lord Thy God in Vain"
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_4",
+      "title": "Chapter 4: The Third Commandment: Remember that Thou Keep Holy the Sabbath Day"
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_5",
+      "title": "Chapter 5: The Fourth Commandment: Honor Thy Father and Thy Mother"
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_6",
+      "title": "Chapter 6: The Fifth Commandment: Thou Shalt Not Kill"
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_7",
+      "title": "Chapter 7: The Sixth Commandment: Thou Shalt Not Commit Adultery"
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_8",
+      "title": "Chapter 8: The Seventh Commandment: Thou Shalt Not Steal"
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_9",
+      "title": "Chapter 9: The Eighth Commandment: Thou Shalt Not Bear False Witness Against Thy Neighbor"
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_10",
+      "title": "Chapter 10: The Ninth and Tenth Commandments: Thou Shalt Not Covet Thy Neighbor's Wife or Goods"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec_aquinas_catechetical_commandments_1",
+      "title": "Chapter 1",
+      "subtitle": "The Law of God and the Two Precepts of Charity",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. All divine law is fulfilled and summarized in the two great precepts of charity: \"Thou shalt love the Lord thy God with thy whole heart, and with thy whole soul, and with thy whole mind,\" and \"Thou shalt love thy neighbor as thyself\" (Matthew 22:37-39)."
+        },
+        {
+          "type": "text",
+          "text": "2. The Ten Commandments of the Decalogue, written by the finger of God upon two tables of stone on Mount Sinai (Exodus 20:1-17), are natural and divine precepts that explicate these two laws of love."
+        },
+        {
+          "type": "text",
+          "text": "3. The first three commandments on the first table direct our love and duty toward God; the remaining seven on the second table direct our love and justice toward our neighbor."
+        },
+        {
+          "type": "text",
+          "text": "4. Obedience to God's commandments is the sure sign of true charity, as our Lord said in John 14:15: \"If you love Me, keep My commandments.\""
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_2",
+      "title": "Chapter 2",
+      "subtitle": "The First Commandment: Thou Shalt Not Have Strange Gods Before Me",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The First Commandment forbids idolatry, superstition, divination, sacrilege, heresy, and apostasy, enjoining the true interior and exterior worship of the one true God (Exodus 20:2-3)."
+        },
+        {
+          "type": "text",
+          "text": "2. We fulfill this commandment through the virtues of faith, hope, charity, and religion, adoring God alone as our Creator and Sovereign Lord."
+        },
+        {
+          "type": "text",
+          "text": "3. Veneration of the angels and saints, and honor paid to their holy relics and sacred images, does not violate this precept, for such honor terminates in God who is glorified in His saints (Psalm 150:1)."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_3",
+      "title": "Chapter 3",
+      "subtitle": "The Second Commandment: Thou Shalt Not Take the Name of the Lord Thy God in Vain",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Second Commandment commands reverence for the holy name of God and forbids all profanity, blasphemy, perjury, and unlawful oaths (Exodus 20:7)."
+        },
+        {
+          "type": "text",
+          "text": "2. We honor God's holy name by praising Him, invoking His assistance in prayer, preaching His truth, and fulfilling lawful vows made to Him."
+        },
+        {
+          "type": "text",
+          "text": "3. To take God's name as witness to a falsehood or in an oath without truth, justice, and judgment is a grave offense against the divine majesty (Jeremiah 4:2)."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_4",
+      "title": "Chapter 4",
+      "subtitle": "The Third Commandment: Remember that Thou Keep Holy the Sabbath Day",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Third Commandment commands us to set aside holy days for the worship of God, spiritual rest, and works of charity (Exodus 20:8-11)."
+        },
+        {
+          "type": "text",
+          "text": "2. In the New Law, the Church transferred the solemnity of the Sabbath to the Lord's Day (Sunday), commemorating the glorious Resurrection of Christ and the descent of the Holy Ghost at Pentecost."
+        },
+        {
+          "type": "text",
+          "text": "3. We keep Sunday holy by assisting devoutly at the Holy Sacrifice of the Mass and abstaining from unnecessary servile work."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_5",
+      "title": "Chapter 5",
+      "subtitle": "The Fourth Commandment: Honor Thy Father and Thy Mother",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Fourth Commandment heads the second table, enjoining honor, love, obedience, gratitude, and assistance to our parents (Exodus 20:12; Ephesians 6:1-3)."
+        },
+        {
+          "type": "text",
+          "text": "2. This commandment also extends to all lawful authorities who participate in parental governance: bishops, priests, civil magistrates, teachers, and employers."
+        },
+        {
+          "type": "text",
+          "text": "3. Parents in turn are bound to nourish, instruct, correct, and provide for the spiritual and temporal welfare of their children."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_6",
+      "title": "Chapter 6",
+      "subtitle": "The Fifth Commandment: Thou Shalt Not Kill",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Fifth Commandment forbids all unjust killing, murder, abortion, suicide, assault, mutilation, and hatred of one's neighbor (Exodus 20:13; 1 John 3:15)."
+        },
+        {
+          "type": "text",
+          "text": "2. It commands us to preserve our own physical and spiritual life and that of our neighbor, fostering peace, patience, forgiveness, and mutual assistance."
+        },
+        {
+          "type": "text",
+          "text": "3. Legitimate defense, lawful capital punishment executed by public authority, and just warfare for the defense of the common good do not violate this precept."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_7",
+      "title": "Chapter 7",
+      "subtitle": "The Sixth Commandment: Thou Shalt Not Commit Adultery",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Sixth Commandment protects the sanctity of marriage and purity of life, forbidding adultery, fornication, and all lustful acts and impure speech (Exodus 20:14; 1 Corinthians 6:9-10)."
+        },
+        {
+          "type": "text",
+          "text": "2. It commands the practice of chastity and modesty according to one's state in life, whether in holy virginity, celibacy, or Christian marriage."
+        },
+        {
+          "type": "text",
+          "text": "3. As our Lord warned in Matthew 5:28, internal lustful desires deliberately consented to already constitute sin in the heart."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_8",
+      "title": "Chapter 8",
+      "subtitle": "The Seventh Commandment: Thou Shalt Not Steal",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Seventh Commandment forbids all unjust taking or retaining of the property of another, whether by theft, robbery, usury, fraud, or extortion (Exodus 20:15)."
+        },
+        {
+          "type": "text",
+          "text": "2. It commands strict justice in contracts, fair wages for laborers, honesty in business, and the restitution of ill-gotten goods."
+        },
+        {
+          "type": "text",
+          "text": "3. Almsgiving and generous assistance to the poor and needy are also commanded as fruit of Christian justice and charity (Luke 11:41)."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_9",
+      "title": "Chapter 9",
+      "subtitle": "The Eighth Commandment: Thou Shalt Not Bear False Witness Against Thy Neighbor",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Eighth Commandment forbids all lying, perjury, slander, detraction, calumny, tale-bearing, and rash judgment (Exodus 20:16; Ephesians 4:25)."
+        },
+        {
+          "type": "text",
+          "text": "2. It commands strict love of the truth in speech and conduct, defense of our neighbor's good name and honor, and reparation for damage caused by calumny."
+        },
+        {
+          "type": "text",
+          "text": "3. Sincerity and truthfulness are essential pillars of social life and Christian holiness."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_commandments_10",
+      "title": "Chapter 10",
+      "subtitle": "The Ninth and Tenth Commandments: Thou Shalt Not Covet Thy Neighbor's Wife or Goods",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Ninth Commandment forbids all internal inordinate desires and lustful consent toward another's spouse (Exodus 20:17; Matthew 5:28)."
+        },
+        {
+          "type": "text",
+          "text": "2. The Tenth Commandment forbids all inordinate desire, avarice, and envy regarding the temporal possessions and goods of another (Exodus 20:17; 1 Timothy 6:10)."
+        },
+        {
+          "type": "text",
+          "text": "3. These two concluding commandments purify the very root of human action, which is the heart and interior will, directing all our desires toward the supreme goodness of God."
+        }
+      ]
+    }
+  ]
+}

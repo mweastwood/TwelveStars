@@ -1,0 +1,311 @@
+{
+  "bookId": "aquinas_catechetical_creed",
+  "title": "The Catechetical Instructions: Part I",
+  "subtitle": "The Apostles' Creed (Trans. Joseph B. Collins, 1939)",
+  "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+  "verseSystem": "vulgate",
+  "toc": [
+    {
+      "id": "sec_aquinas_catechetical_creed_1",
+      "title": "Chapter 1: The Nature, Necessity, and Benefits of Faith"
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_2",
+      "title": "Chapter 2: First Article: I Believe in God the Father Almighty, Creator of Heaven and Earth"
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_3",
+      "title": "Chapter 3: Second Article: And in Jesus Christ, His Only Son, Our Lord"
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_4",
+      "title": "Chapter 4: Third Article: Who Was Conceived by the Holy Ghost, Born of the Virgin Mary"
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_5",
+      "title": "Chapter 5: Fourth Article: Suffered Under Pontius Pilate, Was Crucified, Died, and Was Buried"
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_6",
+      "title": "Chapter 6: Fifth Article: He Descended into Hell; the Third Day He Rose Again from the Dead"
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_7",
+      "title": "Chapter 7: Sixth Article: He Ascended into Heaven, and Sitteth at the Right Hand of God the Father Almighty"
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_8",
+      "title": "Chapter 8: Seventh Article: From Thence He Shall Come to Judge the Living and the Dead"
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_9",
+      "title": "Chapter 9: Eighth Article: I Believe in the Holy Ghost"
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_10",
+      "title": "Chapter 10: Ninth Article: The Holy Catholic Church, the Communion of Saints"
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_11",
+      "title": "Chapter 11: Tenth Article: The Forgiveness of Sins"
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_12",
+      "title": "Chapter 12: Eleventh and Twelfth Articles: The Resurrection of the Body and Life Everlasting"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec_aquinas_catechetical_creed_1",
+      "title": "Chapter 1",
+      "subtitle": "The Nature, Necessity, and Benefits of Faith",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Faith is the theological virtue by which our intellect assents firmly to the truths revealed by God on the authority of God Himself, who can neither deceive nor be deceived."
+        },
+        {
+          "type": "text",
+          "text": "2. The Apostle Paul declares in Hebrews 11:1: \"Now faith is the substance of things to be hoped for, the evidence of things that appear not.\""
+        },
+        {
+          "type": "text",
+          "text": "3. Without faith it is impossible to please God, for faith is the root and beginning of all human justification and salvation (Hebrews 11:6)."
+        },
+        {
+          "type": "text",
+          "text": "4. Faith produces four great blessings in the soul: it unites the soul to God in spiritual wedlock, it introduces eternal life within us, it gives direction to our present mortal life, and it enables us to overcome all spiritual adversaries and temptations (1 John 5:4)."
+        },
+        {
+          "type": "text",
+          "text": "5. The Apostles' Creed summarizes in twelve distinct articles the essential mysteries of Christian faith revealed by Christ and handed down by the Apostles."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_2",
+      "title": "Chapter 2",
+      "subtitle": "First Article: I Believe in God the Father Almighty, Creator of Heaven and Earth",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In the first article we confess that there is only one supreme, eternal God who is the Father of all creation and the Father of our Lord Jesus Christ."
+        },
+        {
+          "type": "text",
+          "text": "2. By calling God \"Almighty,\" we profess that His power is boundless, and that nothing is impossible with Him (Luke 1:37)."
+        },
+        {
+          "type": "text",
+          "text": "3. By calling Him \"Creator of heaven and earth,\" we reject all pagan errors and Manichaean dualism, confessing that God made all visible and invisible things out of nothing by His infinite wisdom and power (Genesis 1:1)."
+        },
+        {
+          "type": "text",
+          "text": "4. This article teaches us to place all our trust in God, to give Him thanks for all creation, and to reverence His holy majesty in all circumstances."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_3",
+      "title": "Chapter 3",
+      "subtitle": "Second Article: And in Jesus Christ, His Only Son, Our Lord",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The second article professes our faith in the Redeemer, Jesus Christ, the eternal and only-begotten Son of God."
+        },
+        {
+          "type": "text",
+          "text": "2. The name \"Jesus\" signifies Savior, for He saves His people from their sins (Matthew 1:21)."
+        },
+        {
+          "type": "text",
+          "text": "3. The title \"Christ\" signifies Anointed, denoting that He is our supreme King, Prophet, and High Priest, anointed with the Holy Ghost above all His fellows (Psalm 44:8)."
+        },
+        {
+          "type": "text",
+          "text": "4. He is true God of true God, consubstantial with the Father, and our Lord by right of creation, redemption, and supreme dominion."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_4",
+      "title": "Chapter 4",
+      "subtitle": "Third Article: Who Was Conceived by the Holy Ghost, Born of the Virgin Mary",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In the third article we confess the glorious mystery of the Incarnation of the Word."
+        },
+        {
+          "type": "text",
+          "text": "2. Christ was conceived in the womb of the Blessed Virgin Mary not by human seed, but by the miraculous operation of the Holy Ghost (Luke 1:35)."
+        },
+        {
+          "type": "text",
+          "text": "3. The Blessed Virgin Mary was preserved spotless and ever-virgin, becoming the true Mother of God through the conception of Christ according to His human nature."
+        },
+        {
+          "type": "text",
+          "text": "4. Through this mystery, Christ took our true human flesh to sanctify humanity, to deliver us from bondage to Satan, and to leave us an example of perfect humility and obedience."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_5",
+      "title": "Chapter 5",
+      "subtitle": "Fourth Article: Suffered Under Pontius Pilate, Was Crucified, Died, and Was Buried",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The fourth article proclaims the Passion, crucifixion, and death of our Lord for our redemption."
+        },
+        {
+          "type": "text",
+          "text": "2. Christ suffered willingly under the Roman governor Pontius Pilate, bearing the bitter scourging, crowning with thorns, carrying of the Cross, and crucifixion upon Calvary (Isaiah 53:5)."
+        },
+        {
+          "type": "text",
+          "text": "3. By His voluntary death upon the Cross, Christ offered an infinite satisfaction for the sins of the whole world, reconciling us to God (Romans 5:10)."
+        },
+        {
+          "type": "text",
+          "text": "4. His sacred body was taken down from the Cross and laid in a new sepulcher, sanctifying the grave for all the faithful."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_6",
+      "title": "Chapter 6",
+      "subtitle": "Fifth Article: He Descended into Hell; the Third Day He Rose Again from the Dead",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Following His death, Christ's soul descended into the Limbo of the Fathers to console the just patriarchs and prophets and announce their imminent deliverance (1 Peter 3:19)."
+        },
+        {
+          "type": "text",
+          "text": "2. On the third day, Easter Sunday, Christ arose triumphant from the dead in a glorified and immortal body, having conquered death and the devil."
+        },
+        {
+          "type": "text",
+          "text": "3. His Resurrection is the foundation of our faith and the pledge of our own resurrection on the last day (1 Corinthians 15:14-20)."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_7",
+      "title": "Chapter 7",
+      "subtitle": "Sixth Article: He Ascended into Heaven, and Sitteth at the Right Hand of God the Father Almighty",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Forty days after His resurrection, Christ ascended bodily into heaven in the presence of His holy Mother and the Apostles (Acts 1:9)."
+        },
+        {
+          "type": "text",
+          "text": "2. By sitting at the right hand of God, Christ exercises supreme royal dignity and judicial power over all creatures in His human nature."
+        },
+        {
+          "type": "text",
+          "text": "3. His Ascension elevates our human nature above the highest angelic choirs and opens the kingdom of heaven for all who follow Him in faith and charity."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_8",
+      "title": "Chapter 8",
+      "subtitle": "Seventh Article: From Thence He Shall Come to Judge the Living and the Dead",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The seventh article professes that at the end of time, Christ will return in power and great glory to judge the living and the dead (Matthew 25:31-32)."
+        },
+        {
+          "type": "text",
+          "text": "2. In this general judgment, all hidden secrets of hearts will be laid bare, all injustices will be redressed, and every person will receive eternal retribution according to their works."
+        },
+        {
+          "type": "text",
+          "text": "3. The thought of this judgment inspires salutary holy fear, deters from sin, and consoles the afflicted who suffer for righteousness' sake."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_9",
+      "title": "Chapter 9",
+      "subtitle": "Eighth Article: I Believe in the Holy Ghost",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The eighth article confesses the third Person of the Blessed Trinity, the Holy Ghost."
+        },
+        {
+          "type": "text",
+          "text": "2. The Holy Ghost is true God, proceeding eternally from the Father and the Son, equal in majesty, power, and glory (John 15:26)."
+        },
+        {
+          "type": "text",
+          "text": "3. He is the Sanctifier of souls, imparting sanctifying grace, the seven gifts of the Spirit, and the theological and moral virtues."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_10",
+      "title": "Chapter 10",
+      "subtitle": "Ninth Article: The Holy Catholic Church, the Communion of Saints",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The ninth article professes faith in the one, holy, catholic, and apostolic Church founded by Jesus Christ upon the Apostle Peter (Matthew 16:18)."
+        },
+        {
+          "type": "text",
+          "text": "2. The Church is the mystical Body of Christ, possessing unity of faith, sacraments, and governance under the Roman Pontiff."
+        },
+        {
+          "type": "text",
+          "text": "3. Under the \"Communion of Saints\" we understand the mutual sharing of spiritual goods, prayers, merits, and sacraments among the Church triumphant in heaven, the Church suffering in purgatory, and the Church militant on earth."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_11",
+      "title": "Chapter 11",
+      "subtitle": "Tenth Article: The Forgiveness of Sins",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The tenth article teaches that Christ conferred upon His Church the power to forgive all sins through the sacraments (John 20:23)."
+        },
+        {
+          "type": "text",
+          "text": "2. Original sin and personal sins are washed away in Baptism, while sins committed after baptism are forgiven through the sacrament of Penance."
+        },
+        {
+          "type": "text",
+          "text": "3. No sin is so grievous that it cannot be pardoned by the infinite mercy of God if the sinner approaches with true contrition and confession."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_creed_12",
+      "title": "Chapter 12",
+      "subtitle": "Eleventh and Twelfth Articles: The Resurrection of the Body and Life Everlasting",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In the eleventh article we profess that at the end of the world, all human bodies will be raised and reunited with their immortal souls (John 5:28-29)."
+        },
+        {
+          "type": "text",
+          "text": "2. In the twelfth article we profess life everlasting, which is the ultimate end of all Christian hope and desire."
+        },
+        {
+          "type": "text",
+          "text": "3. The blessed in heaven will behold God face to face in the beatific vision, possessing unfailing joy, perfect peace, and eternal companionship with all the saints and angels (1 Corinthians 13:12; Revelation 21:4)."
+        }
+      ]
+    }
+  ]
+}

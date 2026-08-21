@@ -1,0 +1,199 @@
+{
+  "bookId": "aquinas_catechetical_prayer",
+  "title": "The Catechetical Instructions: Part IV",
+  "subtitle": "The Lord's Prayer (Trans. Joseph B. Collins, 1939)",
+  "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+  "verseSystem": "vulgate",
+  "toc": [
+    {
+      "id": "sec_aquinas_catechetical_prayer_1",
+      "title": "Chapter 1: The Excellence, Dignity, and Five Qualities of Prayer"
+    },
+    {
+      "id": "sec_aquinas_catechetical_prayer_2",
+      "title": "Chapter 2: The Opening Invocation: Our Father Who Art in Heaven"
+    },
+    {
+      "id": "sec_aquinas_catechetical_prayer_3",
+      "title": "Chapter 3: The First Petition: Hallowed Be Thy Name"
+    },
+    {
+      "id": "sec_aquinas_catechetical_prayer_4",
+      "title": "Chapter 4: The Second Petition: Thy Kingdom Come"
+    },
+    {
+      "id": "sec_aquinas_catechetical_prayer_5",
+      "title": "Chapter 5: The Third Petition: Thy Will Be Done on Earth as It Is in Heaven"
+    },
+    {
+      "id": "sec_aquinas_catechetical_prayer_6",
+      "title": "Chapter 6: The Fourth Petition: Give Us This Day Our Daily Bread"
+    },
+    {
+      "id": "sec_aquinas_catechetical_prayer_7",
+      "title": "Chapter 7: The Fifth Petition: And Forgive Us Our Debts, As We Also Forgive Our Debtors"
+    },
+    {
+      "id": "sec_aquinas_catechetical_prayer_8",
+      "title": "Chapter 8: The Sixth and Seventh Petitions: Lead Us Not into Temptation, But Deliver Us from Evil"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec_aquinas_catechetical_prayer_1",
+      "title": "Chapter 1",
+      "subtitle": "The Excellence, Dignity, and Five Qualities of Prayer",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Prayer is the raising of the human mind and heart to God to praise Him, thank Him, and ask of Him fitting blessings."
+        },
+        {
+          "type": "text",
+          "text": "2. The Lord's Prayer excels all other prayers in five supreme qualities: it is confident, ordered, suitable, devout, and humble."
+        },
+        {
+          "type": "text",
+          "text": "3. It is confident because it was composed by our Advocate and Savior Jesus Christ, who assures us that the Father will grant whatever we ask in His name (John 16:23)."
+        },
+        {
+          "type": "text",
+          "text": "4. It is ordered because it places spiritual and eternal blessings before temporal needs; suitable because it asks only what is truly beneficial; devout because it stirs up filial love; and humble because it acknowledges our complete dependence upon divine grace."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_prayer_2",
+      "title": "Chapter 2",
+      "subtitle": "The Opening Invocation: Our Father Who Art in Heaven",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The prayer opens with words that inspire profound trust and fraternal charity: \"Our Father\" (Matthew 6:9)."
+        },
+        {
+          "type": "text",
+          "text": "2. We say \"Father\" because God has adopted us as His sons through Christ; we say \"Our\" because all Christians are brethren in the household of faith."
+        },
+        {
+          "type": "text",
+          "text": "3. The clause \"Who art in heaven\" directs our gaze upward to the eternal beatitude prepared for us, detachment from transient worldly vanities, and reverence for God's infinite majesty."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_prayer_3",
+      "title": "Chapter 3",
+      "subtitle": "The First Petition: Hallowed Be Thy Name",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The first petition asks: \"Hallowed be Thy name\" (Matthew 6:9)."
+        },
+        {
+          "type": "text",
+          "text": "2. We pray that God's name may be praised, honored, and manifested in the lives and hearts of all men through true faith, good works, and holiness."
+        },
+        {
+          "type": "text",
+          "text": "3. For when Christians live holy lives, men glorify our Father who is in heaven (Matthew 5:16)."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_prayer_4",
+      "title": "Chapter 4",
+      "subtitle": "The Second Petition: Thy Kingdom Come",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In the second petition we pray: \"Thy kingdom come\" (Matthew 6:10)."
+        },
+        {
+          "type": "text",
+          "text": "2. We ask that the kingdom of grace may reign within our hearts, delivering us from the dominion of sin and Satan."
+        },
+        {
+          "type": "text",
+          "text": "3. We also pray for the glorious consummation of the kingdom of God in heaven, when the saints will reign with Christ forever in unending bliss."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_prayer_5",
+      "title": "Chapter 5",
+      "subtitle": "The Third Petition: Thy Will Be Done on Earth as It Is in Heaven",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In the third petition we pray: \"Thy will be done on earth as it is in heaven\" (Matthew 6:10)."
+        },
+        {
+          "type": "text",
+          "text": "2. We ask that we may obey the divine commandments on earth with the same fervor and perfection as the blessed angels and saints in heaven."
+        },
+        {
+          "type": "text",
+          "text": "3. We pray for patience in adversity and conformity of our will to the will of God in all occurrences of life."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_prayer_6",
+      "title": "Chapter 6",
+      "subtitle": "The Fourth Petition: Give Us This Day Our Daily Bread",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In the fourth petition we pray: \"Give us this day our daily bread\" (Matthew 6:11)."
+        },
+        {
+          "type": "text",
+          "text": "2. We petition God for our daily bodily sustenance, learning contentment with what is necessary and avoiding greedy avarice (Proverbs 30:8)."
+        },
+        {
+          "type": "text",
+          "text": "3. We also petition for our spiritual food, which is the Word of God and the Most Holy Eucharist, without which our souls cannot live (John 6:51)."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_prayer_7",
+      "title": "Chapter 7",
+      "subtitle": "The Fifth Petition: And Forgive Us Our Debts, As We Also Forgive Our Debtors",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In the fifth petition we pray: \"And forgive us our debts, as we also forgive our debtors\" (Matthew 6:12)."
+        },
+        {
+          "type": "text",
+          "text": "2. We confess that we are sinners in need of daily divine mercy and remission of our offenses."
+        },
+        {
+          "type": "text",
+          "text": "3. God places a condition upon our pardon: that we also forgive from the heart all those who have offended or injured us (Matthew 6:14-15)."
+        }
+      ]
+    },
+    {
+      "id": "sec_aquinas_catechetical_prayer_8",
+      "title": "Chapter 8",
+      "subtitle": "The Sixth and Seventh Petitions: Lead Us Not into Temptation, But Deliver Us from Evil",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In the sixth petition we pray: \"And lead us not into temptation\" (Matthew 6:13), asking that God may not permit us to be overcome by the assaults of the world, the flesh, or the devil."
+        },
+        {
+          "type": "text",
+          "text": "2. In the seventh petition we conclude: \"But deliver us from evil\" (Matthew 6:13), begging for deliverance from all present afflictions, past sins, future perils, and eternal death."
+        },
+        {
+          "type": "text",
+          "text": "3. The word \"Amen\" signifies our firm assent and confident hope that our petitions will be heard and granted by our heavenly Father."
+        }
+      ]
+    }
+  ]
+}
