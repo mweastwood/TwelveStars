@@ -1,0 +1,568 @@
+{
+  "bookId": "montfort_true_devotion",
+  "title": "True Devotion to Mary",
+  "subtitle": "Traité de la vraie dévotion (Trans. Fr. Frederick W. Faber, 1862)",
+  "author": "St. Louis-Marie de Montfort (Trans. Fr. Frederick W. Faber)",
+  "verseSystem": "vulgate",
+  "toc": [
+    {
+      "id": "sec_montfort_true_devotion_1",
+      "title": "Chapter 1: Translator's Preface (Fr. Frederick William Faber, 1862)"
+    },
+    {
+      "id": "sec_montfort_true_devotion_2",
+      "title": "Chapter 2: St. Louis de Montfort's Prayer to Jesus"
+    },
+    {
+      "id": "sec_montfort_true_devotion_3",
+      "title": "Chapter 3: First Principles of Devotion to the Blessed Virgin: Mary's Role in the Incarnation and the Latter Times"
+    },
+    {
+      "id": "sec_montfort_true_devotion_4",
+      "title": "Chapter 4: Five Fundamental Truths of Devotion to the Blessed Virgin"
+    },
+    {
+      "id": "sec_montfort_true_devotion_5",
+      "title": "Chapter 5: Marks of False Devotions and Characteristics of True Devotion to Mary"
+    },
+    {
+      "id": "sec_montfort_true_devotion_6",
+      "title": "Chapter 6: The Nature and Extent of Perfect Consecration to Jesus through Mary"
+    },
+    {
+      "id": "sec_montfort_true_devotion_7",
+      "title": "Chapter 7: Eight Motives for this Devotion"
+    },
+    {
+      "id": "sec_montfort_true_devotion_8",
+      "title": "Chapter 8: Biblical Figure of this Devotion: Rebecca and Jacob"
+    },
+    {
+      "id": "sec_montfort_true_devotion_9",
+      "title": "Chapter 9: Wonderful Effects Produced in the Soul"
+    },
+    {
+      "id": "sec_montfort_true_devotion_10",
+      "title": "Chapter 10: Particular Practices of this Devotion: Exterior and Interior Practices"
+    },
+    {
+      "id": "sec_montfort_true_devotion_11",
+      "title": "Chapter 11: Act of Consecration to Jesus Christ, the Incarnate Wisdom, through the Hands of Mary"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec_montfort_true_devotion_1",
+      "title": "Chapter 1",
+      "subtitle": "Translator's Preface (Fr. Frederick William Faber, 1862)",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. I have translated the whole treatise of the Venerable Grignion de Montfort on True Devotion to the Blessed Virgin. It was written in 1712, and the author died in 1716. It was discovered in 1842, in a chest at St. Laurent-sur-Sèvre, where it had been hidden during the French Revolution, and was published in 1843."
+        },
+        {
+          "type": "text",
+          "text": "2. The publication of this treatise marked a new era in the history of devotion to the Blessed Virgin. It was not merely a new book, but a new method, a new spirit, an immense grace bestowed on the Church in the latter times for the sanctification of souls and the spread of the Kingdom of Jesus Christ."
+        },
+        {
+          "type": "text",
+          "text": "3. The venerable author's own words have a remarkable prophecy concerning this work: 'I clearly foresee,' he says, 'that raging beasts will come in fury to tear with their diabolical teeth this little writing and him whom the Holy Ghost has used to write it, or at least to bury it in the darkness and silence of a coffer, that it may not appear. They will even attack and persecute those who read it and put it in practice. But what matter? On the contrary, so much the better! This vision encourages me and makes me hope for huge success, that is to say, for a great squadron of brave and valiant soldiers of Jesus and Mary, of both sexes, to combat the world, the devil, and corrupted nature, in the perilous times which are more than ever coming.'"
+        },
+        {
+          "type": "text",
+          "text": "4. The essence of this devotion consists in giving oneself entirely to the Blessed Virgin, in order to belong entirely to Jesus Christ through her. It is not an ordinary devotion of saying prayers or performing certain exterior practices, though these are not neglected; it is an interior state, a permanent transformation of life, whereby a soul does all its actions by Mary, with Mary, in Mary, and for Mary."
+        },
+        {
+          "type": "text",
+          "text": "5. May Mary, our Mother and Queen, bless this translation and use it for the salvation of many souls, for the greater glory of God, and for the advancement of the reign of Jesus Christ through her maternal heart."
+        }
+      ]
+    },
+    {
+      "id": "sec_montfort_true_devotion_2",
+      "title": "Chapter 2",
+      "subtitle": "St. Louis de Montfort's Prayer to Jesus",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. O most loving Jesus, allow me to address to Thee my thanks for the grace Thou hast given me in submitting myself to Thy holy Mother by the devotion of holy bondage, that so I may be Thy true servant and slave for the love of Thee."
+        },
+        {
+          "type": "text",
+          "text": "2. But, alas, how ungrateful and miserable have I been! How often have I broken the promises I made to Thee in baptism! I have not kept my obligations; I am not worthy to be called Thy child or Thy slave; and as there is nothing in me which does not merit Thy rejection and Thy wrath, I dare not come by myself before Thy holy and august Majesty."
+        },
+        {
+          "type": "text",
+          "text": "3. It is on this account that I have recourse to the intercession of Thy most holy Mother, whom Thou hast given me for a mediatrix with Thee. It is through her that I hope to obtain of Thee contrition and the pardon of my sins, the acquisition and preservation of wisdom, and the grace to persevere in Thy holy love."
+        },
+        {
+          "type": "text",
+          "text": "4. O Sovereign Lord Jesus! Receive me, then, through this good Mother, as Thy slave of love. Convert me, sanctify me, and unite me entirely to Thyself, that I may glorify Thy holy Name, now and forever. Amen."
+        }
+      ]
+    },
+    {
+      "id": "sec_montfort_true_devotion_3",
+      "title": "Chapter 3",
+      "subtitle": "First Principles of Devotion to the Blessed Virgin: Mary's Role in the Incarnation and the Latter Times",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. It was through the most holy Virgin Mary that Jesus Christ came into the world, and it is also through her that He has to reign in the world."
+        },
+        {
+          "type": "text",
+          "text": "2. Mary was singularly hidden during her life. It is on this account that the Holy Ghost and the Church call her Alma Mater—Mother secret and hidden. Her humility was so profound that she had no greater or more constant desire than to hide herself from herself and from every creature, so as to be known to God alone."
+        },
+        {
+          "type": "text",
+          "text": "3. God the Father consented that she should do no miracle in her life, at least no public one, though He had given her the power to do so. God the Son consented that she should hardly speak at all, though He had communicated His wisdom to her. God the Holy Ghost consented that His Apostles and Evangelists should say very little of her, only what was necessary to make Jesus Christ known, though she was His faithful Spouse."
+        },
+        {
+          "type": "text",
+          "text": "4. Mary is the excellent masterpiece of the Most High, the knowledge and possession of which He has reserved to Himself. Mary is the admirable Mother of the Son, who took pleasure to humble and conceal her during her life, in order to favor her humility, calling her 'Woman,' as if she were a stranger, although in His Heart He esteemed and loved her more than all angels and all men."
+        },
+        {
+          "type": "text",
+          "text": "5. Mary is the sealed fountain and the faithful Spouse of the Holy Ghost, where He alone can enter. Mary is the sanctuary and the repose of the Holy Trinity, where God dwells more magnificently and divinely than in any other place in the universe, without excepting His dwelling between the Cherubim and Seraphim."
+        },
+        {
+          "type": "text",
+          "text": "6. With the whole Church I say: Mary being a mere creature that has come from the hands of the Most High, compared to His infinite Majesty is less than an atom, or rather is nothing at all, because He only is 'He Who Is.' Consequently that grand Lord, always independent and self-sufficient, never had and has not now any absolute need of the holy Virgin for the accomplishment of His will and for the manifestation of His glory. God has only to will, and all is done."
+        },
+        {
+          "type": "text",
+          "text": "7. Nevertheless, things being as they are, God having willed to commence and complete His greatest works by the most holy Virgin ever since He created her, we may well think He will not change His conduct in the eternal ages; for He is God, and He changes not, either in His sentiments or in His conduct."
+        },
+        {
+          "type": "text",
+          "text": "8. God the Father gathered all the waters together and called them the ocean (maria). He has gathered all His graces together and called them Mary (Maria). God the Most High has a treasury, a storehouse of all His riches, and that treasury is Mary."
+        },
+        {
+          "type": "text",
+          "text": "9. God the Son has communicated to His Mother all that He acquired by His life and His death, His infinite merits and His admirable virtues; and He has made her the treasurer of all that His Father gave Him for His inheritance. It is by her that He applies His merits to His members, and that He communicates His virtues and distributes His graces. She is His mystical channel; she is His aqueduct, through which He makes His mercies pass gently and abundantly."
+        },
+        {
+          "type": "text",
+          "text": "10. God the Holy Ghost has communicated to Mary, His faithful Spouse, His unspeakable gifts; and He has chosen her to be the dispensatress of all He possesses, in such wise that of all His gifts and graces she distributes to whom she wills, as much as she wills, how she wills, and when she wills, and no celestial gift is given to men without passing through her virginal hands."
+        },
+        {
+          "type": "text",
+          "text": "11. As in the natural order of generation a child must have a father and a mother, so in the order of grace a true child of the Church must have God for his Father and Mary for his Mother. If anyone prides himself on having God for his Father, yet has not the tender and true love of a child for Mary, he is an impostor whose father is the devil."
+        },
+        {
+          "type": "text",
+          "text": "12. The formation and education of the great saints who will come at the end of the world are reserved for her; for it is only that singular and miraculous Virgin who can produce in union with the Holy Ghost things singular and extraordinary."
+        },
+        {
+          "type": "text",
+          "text": "13. Mary must shine forth more than ever in mercy, in might, and in grace in these latter times: in mercy, to bring back and lovingly receive the poor strayed sinners who will be converted and will return to the Catholic Church; in might, against the enemies of God, idolaters, schismatics, Mohammedans, Jews, and souls hardened in impiety, who will rise in terrible revolt to seduce all those who are contrary to them; and finally, she must shine forth in grace, to animate and sustain the valiant soldiers and faithful servants of Jesus Christ who will battle for His interests."
+        },
+        {
+          "type": "text",
+          "text": "14. Mary must be terrible to the devil and his crew, like an army in battle array, chiefly in these latter times, because the devil, knowing that he has little time, and now much less than ever, to destroy souls, will every day redouble his efforts and his combats."
+        },
+        {
+          "type": "text",
+          "text": "15. God has never made and formed but one enmity; but it is an irreconcilable one, which shall endure and grow even to the end. It is between Mary, His worthy Mother, and the devil; between the children and servants of the Blessed Virgin, and the children and instruments of Lucifer. The humblest and poorest will be raised up by Mary, and with the heel of their humility, in union with her, they will crush the serpent's head."
+        }
+      ]
+    },
+    {
+      "id": "sec_montfort_true_devotion_4",
+      "title": "Chapter 4",
+      "subtitle": "Five Fundamental Truths of Devotion to the Blessed Virgin",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. First Truth: Jesus Christ our Savior, true God and true Man, must be the ultimate end of all our devotions; otherwise they would be false and misleading. Jesus Christ is the Alpha and the Omega, the beginning and the end of all things. If we establish a solid devotion to our Blessed Lady, it is only to establish more perfectly the devotion to Jesus Christ, and to provide an easy and secure means for finding Jesus Christ."
+        },
+        {
+          "type": "text",
+          "text": "2. Second Truth: We belong to Jesus Christ and Mary not only as servants, but as slaves. There are two kinds of slavery: a slavery of nature and a slavery of the will. All creatures are slaves of God in the first sense, but the just are slaves of God in the second sense, by their own voluntary choice and love."
+        },
+        {
+          "type": "text",
+          "text": "3. There is a vast difference between a servant and a slave: a servant does not give all that he is, nor all that he has, nor all that he acquires, to his master; but a slave gives himself entirely, without exception, with all his goods and all his capacity, for time and for eternity, without claiming any wages or recompense."
+        },
+        {
+          "type": "text",
+          "text": "4. Third Truth: We must empty ourselves of whatever is evil in us, because our nature has been corrupted by original sin and by our actual sins. Our soul is so blind that it sees nothing of itself; our heart is so hardened that it can do no supernatural good without the grace of God; our will is so corrupted that it chooses evil instead of good."
+        },
+        {
+          "type": "text",
+          "text": "5. To empty ourselves of ourselves, we must die daily to our self-love, renouncing our own senses, our own passions, and our own will. We must choose the shortest, easiest, and most secure way to attain this death to self, which is the perfect devotion to the Blessed Virgin."
+        },
+        {
+          "type": "text",
+          "text": "6. Fourth Truth: It is more perfect for us to have a mediator with the Mediator Himself, Jesus Christ. Our Lord is our Advocate and our High Priest with God the Father, but His infinite majesty and holiness may make us tremble on account of our sins and miseries. God has therefore given us Mary as our Mediatrix of intercession with the Son."
+        },
+        {
+          "type": "text",
+          "text": "7. To go to Jesus by Mary is to honor Jesus Christ, because it shows that we do not consider ourselves worthy to approach His infinite purity directly, but approach Him through the Mother whom He has purified, elevated, and crowned."
+        },
+        {
+          "type": "text",
+          "text": "8. Fifth Truth: It is extremely difficult for us, on account of our weakness and inconstancy, to preserve the graces and treasures we have received from God. We carry this heavenly treasure in fragile earthen vessels; the world is full of corruption and snares; the devils are full of malice and cunning; and our own flesh is prone to evil."
+        },
+        {
+          "type": "text",
+          "text": "9. Mary is the Virgin most faithful, who by her union with God preserves all that is entrusted to her, without losing the least atom. In giving ourselves and our treasures to Mary, we deposit them in a secure fortress where no thief can enter to steal them."
+        }
+      ]
+    },
+    {
+      "id": "sec_montfort_true_devotion_5",
+      "title": "Chapter 5",
+      "subtitle": "Marks of False Devotions and Characteristics of True Devotion to Mary",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. There are false devotions and true devotions to the Blessed Virgin. It is of the highest importance to recognize the false in order to avoid them, and the true in order to embrace them."
+        },
+        {
+          "type": "text",
+          "text": "2. The first class of false devotees are the Critical Devotees. These are proud scholars and opinionated minds who have at bottom some devotion to the holy Virgin, but who criticize all the practices of piety which simple and good people pay to her, treating them as superstitions and exaggerations."
+        },
+        {
+          "type": "text",
+          "text": "3. The second class are the Scrupulous Devotees. These are persons who fear that by honoring the Mother they will dishonor the Son, or that by exalting Mary they will diminish Jesus Christ. They cannot understand that Jesus is glorified in Mary and Mary in Jesus."
+        },
+        {
+          "type": "text",
+          "text": "4. The third class are the Exterior Devotees. These are persons who make all their devotion to Mary consist in exterior practices, such as reciting many rosaries hurriedly, wearing the scapular or medals without any interior amendment of life or reform of heart."
+        },
+        {
+          "type": "text",
+          "text": "5. The fourth class are the Presumptuous Devotees. These are sinners abandoned to their passions, who under the pretext of being devoted to Mary, remain peacefully in their sins, expecting that through Mary's intercession they will not die without confession and will be saved despite their bad lives."
+        },
+        {
+          "type": "text",
+          "text": "6. The fifth class are the Inconstant Devotees. These are persons whose devotion to the Blessed Virgin goes by fits and starts; one day they are full of fervor, and the next day they neglect everything; they are changed by every wind."
+        },
+        {
+          "type": "text",
+          "text": "7. The sixth class are the Hypocritical Devotees. These are persons who cloak their vices and sins under the mantle of the Blessed Virgin, in order to pass in the eyes of men for good and devout Christians."
+        },
+        {
+          "type": "text",
+          "text": "8. The seventh class are the Self-Interested Devotees. These are persons who have recourse to Mary only to win a lawsuit, to avoid a loss, to recover from an illness, or for some other temporal advantage, without any desire for spiritual perfection."
+        },
+        {
+          "type": "text",
+          "text": "9. True Devotion to the Blessed Virgin has five essential characteristics: it is interior, tender, holy, constant, and disinterested."
+        },
+        {
+          "type": "text",
+          "text": "10. True devotion is Interior: it comes from the spirit and from the heart; it flows from the esteem we have of Mary, the high idea we have formed of her greatness, and the love which we have for her."
+        },
+        {
+          "type": "text",
+          "text": "11. True devotion is Tender: it is full of confidence in Mary, like a child's confidence in its loving mother. It causes the soul to have recourse to her in all its necessities of body and soul with great simplicity, trust, and affection."
+        },
+        {
+          "type": "text",
+          "text": "12. True devotion is Holy: it leads the soul to avoid sin and to imitate the virtues of the Blessed Virgin, particularly her deep humility, her lively faith, her continual prayer, her universal mortification, her divine purity, her ardent charity, and her heroic patience."
+        },
+        {
+          "type": "text",
+          "text": "13. True devotion is Constant: it confirms the soul in good, and prevents it from easily giving up its spiritual practices. It renders it courageous in opposing the fashion of the world, patient in bearing trials, and steadfast in the service of Jesus and Mary."
+        },
+        {
+          "type": "text",
+          "text": "14. True devotion is Disinterested: it inspires the soul to seek not itself, but God alone in His holy Mother. A true client of Mary does not serve this august Queen from a spirit of lucre or interest, nor for its own temporal or eternal good, but solely because she has the right to be served, and God alone in her."
+        }
+      ]
+    },
+    {
+      "id": "sec_montfort_true_devotion_6",
+      "title": "Chapter 6",
+      "subtitle": "The Nature and Extent of Perfect Consecration to Jesus through Mary",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. All perfection consists in being conformed, united, and consecrated to Jesus Christ; and therefore the most perfect of all devotions is without doubt that which conforms, unites, and consecrates us most perfectly to Jesus Christ."
+        },
+        {
+          "type": "text",
+          "text": "2. Now, Mary being the most conformed of all creatures to Jesus Christ, it follows that of all devotions that which consecrates and conforms the soul most to Our Lord is devotion to His holy Mother; and that the more a soul is consecrated to Mary, the more it will be consecrated to Jesus Christ."
+        },
+        {
+          "type": "text",
+          "text": "3. Perfect consecration to Jesus Christ is nothing else than a perfect and entire consecration of oneself to the Blessed Virgin, which is the devotion that I teach; or in other words, it is a perfect renewal of the vows and promises of holy baptism."
+        },
+        {
+          "type": "text",
+          "text": "4. This devotion consists in giving oneself entirely to the Blessed Virgin, in order to belong entirely to Jesus Christ through her. We must give her: first, our body, with all its senses and members; secondly, our soul, with all its powers; thirdly, our exterior goods, present and to come; fourthly, our interior and spiritual goods, which are our merits, our graces, our virtues, and our good works, past, present, and future."
+        },
+        {
+          "type": "text",
+          "text": "5. We give her all that we have in the order of nature and in the order of grace, and all that we may acquire in the future in nature, grace, and glory; and this we do without any reserve of the least farthing, the least hair, or the least good action."
+        },
+        {
+          "type": "text",
+          "text": "6. We do this for all eternity, without claiming or hoping for any other recompense for our offering than the honor of belonging to Jesus Christ through Mary and in Mary, even as if that amiable Queen were not, as she always is, the most liberal and grateful of all queens."
+        },
+        {
+          "type": "text",
+          "text": "7. In this devotion we sacrifice to Jesus Christ by Mary the right to dispose of the value of all our good actions, which is called the satisfactory and impetratory value. We leave to her entire disposal the application of all our prayers and satisfactions, to apply them to whomsoever she wills, whether to the souls in Purgatory or to living sinners on earth."
+        },
+        {
+          "type": "text",
+          "text": "8. This is the Holy Slavery of Love. It is called slavery because a slave has no property of his own, but everything belongs to his master; and it is called of love because it is embraced freely and joyfully out of pure love for Jesus and Mary."
+        }
+      ]
+    },
+    {
+      "id": "sec_montfort_true_devotion_7",
+      "title": "Chapter 7",
+      "subtitle": "Eight Motives for this Devotion",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. First Motive: It devotes us entirely to the service of God. It is a sacrifice of all that we are and all that we have, which is the most acceptable homage a creature can render to its Creator."
+        },
+        {
+          "type": "text",
+          "text": "2. Second Motive: It makes us imitate the example of Jesus Christ, who lived thirty years subject to Mary and Joseph in the holy house of Nazareth, and who came to us through Mary."
+        },
+        {
+          "type": "text",
+          "text": "3. Third Motive: It obtains for us the maternal favor and good offices of the Blessed Virgin. She gives herself in an unspeakable manner to him who gives himself entirely to her. She purifies our gifts, adorns them with her own merits, and presents them to Jesus Christ."
+        },
+        {
+          "type": "text",
+          "text": "4. Fourth Motive: It is an excellent means of giving great glory to God. It practices humility in the highest degree, and glorifies Jesus Christ by recognizing Mary as His masterpiece and our Mediatrix."
+        },
+        {
+          "type": "text",
+          "text": "5. Fifth Motive: It is an easy, short, perfect, and secure way to arrive at union with Our Lord, in which Christian perfection consists."
+        },
+        {
+          "type": "text",
+          "text": "6. It is an Easy Way: it is a way which Jesus Christ has trodden in coming to us, and where there is no obstacle in reaching Him. In this way one advances more in a short time than in years of other practices, because Mary carries her children in her maternal arms and smooths every difficulty."
+        },
+        {
+          "type": "text",
+          "text": "7. It is a Short Way: it leads us straight to Jesus Christ without wandering, keeping us in the direct path of holiness."
+        },
+        {
+          "type": "text",
+          "text": "8. It is a Perfect Way: it was chosen by the Holy Ghost and practiced by Jesus Christ Himself during His mortal life."
+        },
+        {
+          "type": "text",
+          "text": "9. It is a Secure Way: Mary is the secure refuge of sinners and the terror of demons. The devil cannot deceive or conquer a soul that is completely dedicated and abandoned to Mary."
+        },
+        {
+          "type": "text",
+          "text": "10. Sixth Motive: It gives great liberty of spirit, which is the freedom of the children of God. Because we become slaves of love to Jesus through Mary, love casts out servile fear and fills the heart with holy joy and confidence."
+        },
+        {
+          "type": "text",
+          "text": "11. Seventh Motive: It procures great benefits for our neighbor. By placing the satisfactory value of all our prayers and actions into Mary's hands, we allow her wisdom to apply them where they will produce the greatest good for souls and for the Church."
+        },
+        {
+          "type": "text",
+          "text": "12. Eighth Motive: It is an admirable means of perseverance in grace. Mary, the Virgin most faithful, watches over her consecrated slaves, guards them from falling, and restores them promptly if through human weakness they stumble."
+        }
+      ]
+    },
+    {
+      "id": "sec_montfort_true_devotion_8",
+      "title": "Chapter 8",
+      "subtitle": "Biblical Figure of this Devotion: Rebecca and Jacob",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Holy Ghost gives us in Holy Scripture, in the history of Jacob and Esau (Genesis 27), an admirable figure of the reprobate and the elect, and of the true devotion to the Blessed Virgin Mary."
+        },
+        {
+          "type": "text",
+          "text": "2. Esau, the elder son, represents the reprobate. He was strong, robust, and skilled in hunting; he trusted in his own strength, despised his birthright for a mess of pottage, stayed far from home in the fields, and loved the world and its pleasures."
+        },
+        {
+          "type": "text",
+          "text": "3. Jacob, the younger son, represents the elect and the true devotees of Mary. He was gentle, peaceful, stayed at home with his mother Rebecca, loved her company, and obeyed her in all things without hesitation."
+        },
+        {
+          "type": "text",
+          "text": "4. Rebecca, the mother, represents the Blessed Virgin Mary. She loved Jacob tenderly because of his docility and obedience, while she mourned over the wildness and pride of Esau."
+        },
+        {
+          "type": "text",
+          "text": "5. When Isaac was old and wished to bless his elder son, Rebecca instructed Jacob how to obtain the paternal blessing. She commanded him to fetch two kids from the flock, which she prepared with exquisite seasoning, clothed him in the best garments of Esau, covered his neck and hands with skins, and sent him to Isaac."
+        },
+        {
+          "type": "text",
+          "text": "6. Isaac, smelling the fragrant garments and feeling the smooth skins, imparted to Jacob the full blessing of the firstborn, which could never be revoked."
+        },
+        {
+          "type": "text",
+          "text": "7. In like manner, Mary, our loving Mother, prepares the elect. She clothes them with the merits and virtues of Jesus Christ; she covers their defects with her own maternal mantle; she seasons their works and prayers with her heavenly grace; and she presents them to the Heavenly Father, who receives them with divine favor and blesses them with eternal life."
+        },
+        {
+          "type": "text",
+          "text": "8. The reprobate, like Esau, trust in their own good works and natural righteousness, wander far from the interior life of Mary, and lose the blessing of the Father; while the elect, like Jacob, remain under the guidance of Mary and receive the inheritance of grace and glory."
+        }
+      ]
+    },
+    {
+      "id": "sec_montfort_true_devotion_9",
+      "title": "Chapter 9",
+      "subtitle": "Wonderful Effects Produced in the Soul",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. When a soul faithfully practices the interior and exterior devotions of this holy slavery of love, the Blessed Virgin produces in it wonderful effects of grace."
+        },
+        {
+          "type": "text",
+          "text": "2. First Effect: Knowledge and contempt of self. By the light which Mary communicates to the soul, it discovers its own corruption, misery, and incapacity for any supernatural good, and is filled with profound humility and holy self-contempt."
+        },
+        {
+          "type": "text",
+          "text": "3. Second Effect: Participation in the faith of Mary. Mary communicates to her faithful servant a portion of her own lively, luminous, and heroic faith—a faith which makes the soul steadfast in trials, pure in intention, and fervent in charity."
+        },
+        {
+          "type": "text",
+          "text": "4. Third Effect: The grace of pure love. The Blessed Virgin fills the soul with pure love for God, freeing it from scruples, servile fear, and self-seeking, and directing all its affections to the sovereign good of Jesus Christ."
+        },
+        {
+          "type": "text",
+          "text": "5. Fourth Effect: Great confidence in God and Mary. The soul acquires an unbounded trust in the maternal goodness of Mary, viewing her as its advocate, protector, and treasury of all divine graces."
+        },
+        {
+          "type": "text",
+          "text": "6. Fifth Effect: Communication of the spirit of Mary. The soul is so transformed by the presence of Mary that her spirit takes the place of our spirit, to rejoice in God her Savior and to praise Him continually."
+        },
+        {
+          "type": "text",
+          "text": "7. Sixth Effect: Transformation into the likeness of Jesus and Mary. Mary is the great mold of God (forma Dei), in which the Son of God was formed; and a soul cast into this divine mold is quickly and easily transformed into the perfect image and likeness of Jesus Christ."
+        },
+        {
+          "type": "text",
+          "text": "8. Seventh Effect: Greater glory to Jesus Christ. Jesus Christ is never more glorified than when He is glorified in Mary; and the soul that belongs totally to Mary brings the highest glory to the Incarnate Word."
+        }
+      ]
+    },
+    {
+      "id": "sec_montfort_true_devotion_10",
+      "title": "Chapter 10",
+      "subtitle": "Particular Practices of this Devotion: Exterior and Interior Practices",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The practices of this devotion are divided into exterior practices and interior practices. Both are important, but the interior practices constitute the soul and essence of the devotion."
+        },
+        {
+          "type": "text",
+          "text": "2. First Exterior Practice: Preparation for Consecration. The soul spends thirty-three days in spiritual preparation: twelve days emptying itself of the spirit of the world; three weeks acquiring the knowledge of self, the knowledge of the Blessed Virgin, and the knowledge of Jesus Christ."
+        },
+        {
+          "type": "text",
+          "text": "3. Second Exterior Practice: Recitation of the Little Crown of the Blessed Virgin Mary, composed of three Our Fathers and twelve Hail Marys, in honor of the twelve privileges and crowns of Our Lady."
+        },
+        {
+          "type": "text",
+          "text": "4. Third Exterior Practice: The wearing of little iron chains, as a sign and reminder of our holy slavery of love to Jesus and Mary, preserving us from the shameful chains of sin and the devil."
+        },
+        {
+          "type": "text",
+          "text": "5. Fourth Exterior Practice: Special devotion to the mystery of the Incarnation (March 25), which is the proper feast of this devotion, since Jesus became a slave in Mary's virginal womb."
+        },
+        {
+          "type": "text",
+          "text": "6. Fifth Exterior Practice: Great devotion to the recitation of the Hail Mary and the Holy Rosary, meditating on the mysteries of the life, death, and glory of Jesus and Mary."
+        },
+        {
+          "type": "text",
+          "text": "7. Sixth Exterior Practice: Recitation of the Magnificat, the glorious canticle of Mary, to thank God for His immense mercies."
+        },
+        {
+          "type": "text",
+          "text": "8. Seventh Exterior Practice: Contempt and detachment from the world, avoiding its maxims, fashions, and vain pomps."
+        },
+        {
+          "type": "text",
+          "text": "9. The Interior Practices consist in doing all our actions: With Mary, In Mary, Through Mary, and For Mary."
+        },
+        {
+          "type": "text",
+          "text": "10. Doing all actions With Mary: we take Mary as our model in all our virtues and actions, looking to her intentions and sentiments in order to conform our own to hers."
+        },
+        {
+          "type": "text",
+          "text": "11. Doing all actions In Mary: we accustom ourselves to dwell interiorly within Mary, as in a paradise of delights, a sanctuary of grace, and a tower of strength."
+        },
+        {
+          "type": "text",
+          "text": "12. Doing all actions Through Mary: we never approach Jesus Christ except through the intercession and hands of His holy Mother, offering all our prayers through her."
+        },
+        {
+          "type": "text",
+          "text": "13. Doing all actions For Mary: we do all our works as her faithful slaves, for her service and glory, that through her we may glorify Jesus Christ more perfectly."
+        },
+        {
+          "type": "text",
+          "text": "14. Manner of Practicing this Devotion at Holy Communion: Before Communion, humble yourself with Mary, renounce your own unworthiness, and invite Mary to receive her divine Son in your heart. At Communion, offer Jesus to Mary and Mary to Jesus in holy adoration. After Communion, remain in deep silence and thanksgiving, allowing Mary to entertain Jesus with her pure love."
+        }
+      ]
+    },
+    {
+      "id": "sec_montfort_true_devotion_11",
+      "title": "Chapter 11",
+      "subtitle": "Act of Consecration to Jesus Christ, the Incarnate Wisdom, through the Hands of Mary",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. O Eternal and Incarnate Wisdom! O sweetest and most adorable Jesus! True God and true Man, only Son of the Eternal Father, and of Mary always Virgin! I adore Thee profoundly in the bosom and splendors of Thy Father during eternity; and I adore Thee also in the virginal womb of Mary, Thy most worthy Mother, in the time of Thine Incarnation."
+        },
+        {
+          "type": "text",
+          "text": "2. I give Thee thanks that Thou hast annihilated Thyself, taking the form of a slave, in order to rescue me from the cruel slavery of the devil. I praise and glorify Thee that Thou hast been pleased to submit Thyself to Mary, Thy holy Mother, in all things, in order to make me Thy faithful slave through her."
+        },
+        {
+          "type": "text",
+          "text": "3. But, alas, ungrateful and faithless as I have been, I have not kept the promises which I made so solemnly to Thee in my baptism; I have not fulfilled my obligations; I do not deserve to be called Thy child, nor even Thy slave; and as there is nothing in me which does not merit Thy anger and Thy repulse, I dare no more come by myself before Thy most holy and august Majesty."
+        },
+        {
+          "type": "text",
+          "text": "4. It is on this account that I have recourse to the intercession of Thy most holy Mother, whom Thou hast given me for a mediatrix with Thee. It is through her that I hope to obtain of Thee contrition, the pardon of my sins, and the acquisition and preservation of wisdom."
+        },
+        {
+          "type": "text",
+          "text": "5. Hail, then, O Immaculate Mary, living tabernacle of the Divinity, where the Eternal Wisdom willed to be hidden and to be adored by angels and by men! Hail, O Queen of Heaven and Earth, to whose empire everything is subject which is under God!"
+        },
+        {
+          "type": "text",
+          "text": "6. Hail, O sure refuge of sinners, whose mercy fails no one! Hear the desires which I have of the Divine Wisdom; and for that end receive the vows and offerings which in my lowliness I present to thee."
+        },
+        {
+          "type": "text",
+          "text": "7. I, N., a faithless sinner, renew and ratify today in thy hands the vows of my baptism; I renounce forever Satan, his pomps and works; and I give myself entirely to Jesus Christ, the Incarnate Wisdom, to carry my cross after Him all the days of my life, and to be more faithful to Him than I have ever been before."
+        },
+        {
+          "type": "text",
+          "text": "8. In the presence of all the heavenly court I choose thee this day for my Mother and Mistress. I deliver and consecrate to thee, as thy slave, my body and soul, my goods, both interior and exterior, and even the value of all my good actions, past, present, and future; leaving to thee the entire and full right of disposing of me, and all that belongs to me, without exception, according to thy good pleasure, for the greater glory of God, in time and in eternity."
+        },
+        {
+          "type": "text",
+          "text": "9. Receive, O gracious Virgin, this little offering of my slavery, in honor of, and in union with, that subjection which the Eternal Wisdom deigned to have to thy maternity; in homage to the power which both of you have over this poor little worm and miserable sinner, and in thanksgiving for the privileges with which the Holy Trinity has favored thee."
+        },
+        {
+          "type": "text",
+          "text": "10. I declare that I wish henceforth, as thy true slave, to seek thy honor and to obey thee in all things. O admirable Mother, present me to thy dear Son as His eternal slave, so that as He has redeemed me by thee, by thee He may receive me!"
+        },
+        {
+          "type": "text",
+          "text": "11. O Mother of mercy, grant me the grace to obtain the true Wisdom of God; and for that end receive me among those whom thou lovest and teachest, whom thou leadest, nourishest, and protectest as thy children and thy slaves."
+        },
+        {
+          "type": "text",
+          "text": "12. O faithful Virgin, make me in all things so perfect a disciple, imitator, and slave of the Incarnate Wisdom, Jesus Christ thy Son, that I may attain, by thine intercession and by thine example, to the fullness of His age on earth and of His glory in heaven. Amen."
+        }
+      ]
+    }
+  ]
+}

@@ -64,6 +64,7 @@ void main() {
       expect(find.text('The Five Theological Orations'), findsOneWidget);
       expect(find.text('Ascent of Mount Carmel'), findsOneWidget);
       expect(find.text('Dark Night of the Soul'), findsOneWidget);
+      expect(find.text('True Devotion to Mary'), findsOneWidget);
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -403,6 +404,42 @@ void main() {
 
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
         expect(find.text('First Epistle of Clement'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'tapping Read Book on True Devotion to Mary opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/montfort_true_devotion.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final montfortCard = find.ancestor(
+          of: find.text('True Devotion to Mary'),
+          matching: find.byType(Card),
+        );
+        final readBtn = find.descendant(
+          of: montfortCard,
+          matching: find.widgetWithText(FilledButton, 'Read Book'),
+        );
+
+        await tester.scrollUntilVisible(
+          readBtn,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(readBtn);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('True Devotion to Mary'), findsWidgets);
       },
     );
 
@@ -1132,6 +1169,33 @@ void main() {
         );
       },
     );
+
+    testWidgets('LibraryReaderScreen renders True Devotion to Mary', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final montfort = catalog.firstWhere(
+        (b) => b.id == 'montfort_true_devotion',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/montfort_true_devotion.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(body: LibraryReaderScreen(bookItem: montfort)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('True Devotion to Mary'), findsWidgets);
+      expect(find.text('Chapter 1'), findsWidgets);
+      expect(find.text('Section 1 of 11'), findsOneWidget);
+    });
 
     testWidgets('renders interactive Scripture citation chip', (tester) async {
       final catalog = LibraryHelper.getCatalog();
