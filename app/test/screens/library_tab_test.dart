@@ -67,6 +67,7 @@ void main() {
       expect(find.text('Ascent of Mount Carmel'), findsOneWidget);
       expect(find.text('Dark Night of the Soul'), findsOneWidget);
       expect(find.text('True Devotion to Mary'), findsOneWidget);
+      expect(find.text('The Rule of St. Benedict'), findsOneWidget);
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -545,6 +546,42 @@ void main() {
       expect(find.byType(LibraryReaderScreen), findsOneWidget);
       expect(find.text('Proslogion'), findsWidgets);
     });
+
+    testWidgets(
+      'tapping Read Book on The Rule of St. Benedict opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/benedict_rule.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final benedictCard = find.ancestor(
+          of: find.text('The Rule of St. Benedict'),
+          matching: find.byType(Card),
+        );
+        final readBtn = find.descendant(
+          of: benedictCard,
+          matching: find.widgetWithText(FilledButton, 'Read Book'),
+        );
+
+        await tester.scrollUntilVisible(
+          readBtn,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(readBtn);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('The Rule of St. Benedict'), findsWidgets);
+      },
+    );
 
     testWidgets('Favorites tab displays saved bookmarks and can delete them', (
       tester,
@@ -1263,6 +1300,30 @@ void main() {
       expect(find.text('True Devotion to Mary'), findsWidgets);
       expect(find.text('Chapter 1'), findsWidgets);
       expect(find.text('Section 1 of 11'), findsOneWidget);
+    });
+
+    testWidgets('LibraryReaderScreen renders The Rule of St. Benedict', (
+      tester,
+    ) async {
+      final catalog = LibraryHelper.getCatalog();
+      final benedict = catalog.firstWhere((b) => b.id == 'benedict_rule');
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/benedict_rule.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(body: LibraryReaderScreen(bookItem: benedict)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('The Rule of St. Benedict'), findsWidgets);
+      expect(find.text('Section 1 of 74'), findsOneWidget);
     });
 
     testWidgets('renders interactive Scripture citation chip', (tester) async {

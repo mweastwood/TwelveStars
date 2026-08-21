@@ -108,6 +108,7 @@ class ReverseCitationService {
     'assets/catechism/json/anselm_proslogion.json',
     'assets/catechism/json/anselm_cur_deus_homo_book1.json',
     'assets/catechism/json/anselm_cur_deus_homo_book2.json',
+    'assets/catechism/json/benedict_rule.json',
   ];
 
   @visibleForTesting

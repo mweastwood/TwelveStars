@@ -957,6 +957,18 @@ class LibraryHelper {
             'Written 1712 (first published 1843). St. Louis de Montfort\'s crowning Catholic spiritual classic on Total Consecration to Jesus through Mary ("Holy Slavery of Love"), presenting the shortest, easiest, most secure, and most perfect path to total transformation in Christ.',
         defaultAssetPath: 'assets/catechism/json/montfort_true_devotion.json',
       ),
+      const LibraryBookItem(
+        id: 'benedict_rule',
+        title: 'The Rule of St. Benedict',
+        subtitle:
+            'Regula Sancti Benedicti (Trans. Rev. Boniface Verheyen, O.S.B., 1928)',
+        category: 'Monastic & Spiritual Classics',
+        author:
+            'St. Benedict of Nursia (Trans. Rev. Boniface Verheyen, O.S.B.)',
+        description:
+            'Written c. 516–530 AD at Monte Cassino. The foundational charter of Western monasticism and European Christian culture, establishing the rhythm of prayer, work, and community life ("Ora et Labora").',
+        defaultAssetPath: 'assets/catechism/json/benedict_rule.json',
+      ),
     ];
   }
 
