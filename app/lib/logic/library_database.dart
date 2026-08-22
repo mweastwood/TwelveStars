@@ -942,6 +942,25 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> teresaWayOfPerfectionVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'part1',
+      name: 'Vol. I: The Way of Prayer & Evangelical Counsels',
+      shortName: 'Vol. I',
+      description:
+          'Motives for founding St. Joseph\'s, the three evangelical foundations (detachment, mutual love, humility), mental vs. vocal prayer, and preparation for the spiritual journey (Chapters 1–18).',
+      assetPath: 'assets/catechism/json/teresa_way_perfection_part1.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'part2',
+      name: 'Vol. II: Contemplation & Meditation on the Lord\'s Prayer',
+      shortName: 'Vol. II',
+      description:
+          'The living water, prayer of recollection, prayer of quiet, contemplation, and clause-by-clause commentary on the Our Father (Chapters 19–42).',
+      assetPath: 'assets/catechism/json/teresa_way_perfection_part2.json',
+    ),
+  ];
+
   static List<LibraryBookItem> getCatalog() {
     return [
       const LibraryBookItem(
@@ -1287,6 +1306,16 @@ class LibraryHelper {
         description:
             'Written in 1577 by the Doctor of the Church. St. Teresa\'s definitive masterpiece on the interior journey through the Seven Mansions of the soul, from vocal prayer and purification to spiritual betrothal, transforming union, and the indwelling of the Most Holy Trinity.',
         defaultAssetPath: 'assets/catechism/json/teresa_interior_castle.json',
+      ),
+      const LibraryBookItem(
+        id: 'teresa_way_of_perfection',
+        title: 'The Way of Perfection',
+        subtitle: 'Camino de Perfección (Trans. Benedictines of Stanbrook)',
+        category: 'Spiritual Classics',
+        author: 'St. Teresa of Ávila (Trans. Benedictines of Stanbrook)',
+        description:
+            'Written in 1566 by the Great Reformer of Carmel and Doctor of the Church. A masterwork on the practice of prayer, detachment, and love of neighbor, concluding with an exposition of the Our Father.',
+        volumes: teresaWayOfPerfectionVolumes,
       ),
       const LibraryBookItem(
         id: 'kempis_imitation_of_christ',
