@@ -148,19 +148,48 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     }
   }
 
+  bool _hasProcessedInitialTarget = false;
+
   void _scrollToAndHighlightTarget() {
-    if ((widget.initialItemIndex != null ||
-            widget.initialQuestionNumber != null) &&
-        widget.navigationSessionId != _lastProcessedSessionId) {
+    final hasTarget =
+        widget.initialItemIndex != null || widget.initialQuestionNumber != null;
+    if (!hasTarget) return;
+
+    final shouldProcess = widget.navigationSessionId != null
+        ? widget.navigationSessionId != _lastProcessedSessionId
+        : !_hasProcessedInitialTarget;
+
+    if (shouldProcess) {
+      _hasProcessedInitialTarget = true;
       _lastProcessedSessionId = widget.navigationSessionId;
-      _temporaryHighlightStartIndex = widget.initialItemIndex;
-      _temporaryHighlightEndIndex = widget.initialItemIndex;
+
+      int? effectiveItemIndex = widget.initialItemIndex;
+      if (effectiveItemIndex == null &&
+          widget.initialQuestionNumber != null &&
+          _bookData != null &&
+          _currentSectionIndex >= 0 &&
+          _currentSectionIndex < _bookData!.sections.length) {
+        final sec = _bookData!.sections[_currentSectionIndex];
+        final idx = sec.content.indexWhere(
+          (it) =>
+              it.type == 'qa' &&
+              it.questionNumber == widget.initialQuestionNumber,
+        );
+        if (idx >= 0) {
+          effectiveItemIndex = idx;
+        }
+      }
+
+      setState(() {
+        _temporaryHighlightStartIndex = effectiveItemIndex;
+        _temporaryHighlightEndIndex = effectiveItemIndex;
+      });
 
       WidgetsBinding.instance.addPostFrameCallback((_) {
         GlobalKey? targetKey;
-        if (widget.initialItemIndex != null &&
-            _itemKeys.containsKey(widget.initialItemIndex!)) {
-          targetKey = _itemKeys[widget.initialItemIndex!];
+        if (effectiveItemIndex != null &&
+            _itemKeys.containsKey(effectiveItemIndex)) {
+          targetKey = _itemKeys[effectiveItemIndex];
         } else if (widget.initialQuestionNumber != null &&
             _questionKeys.containsKey(widget.initialQuestionNumber!)) {
           targetKey = _questionKeys[widget.initialQuestionNumber!];
@@ -355,6 +384,8 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     setState(() {
       _firstSelectedItemIndex = null;
       _lastSelectedItemIndex = null;
+      _temporaryHighlightStartIndex = null;
+      _temporaryHighlightEndIndex = null;
     });
   }
 
