@@ -504,15 +504,9 @@ void main() {
           saints,
           query: 'Raymond Nonnatus',
         );
-        expect(
-          raymondNonnatus.any((s) => s.id == 'raymond-nonnatus'),
-          isTrue,
-        );
+        expect(raymondNonnatus.any((s) => s.id == 'raymond-nonnatus'), isTrue);
 
-        final midwives = SaintDatabase.searchSaints(
-          saints,
-          query: 'Midwives',
-        );
+        final midwives = SaintDatabase.searchSaints(saints, query: 'Midwives');
         expect(midwives.any((s) => s.id == 'raymond-nonnatus'), isTrue);
 
         final wenceslaus = SaintDatabase.searchSaints(
