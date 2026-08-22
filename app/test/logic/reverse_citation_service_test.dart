@@ -526,6 +526,28 @@ void main() {
       },
     );
 
+    test(
+      'indexes St. Francis de Sales Treatise on the Love of God across all 4 volumes',
+      () async {
+        await ReverseCitationService.ensureIndexed();
+
+        final salesLoveOfGodPaths = [
+          'assets/catechism/json/sales_love_of_god_vol1.json',
+          'assets/catechism/json/sales_love_of_god_vol2.json',
+          'assets/catechism/json/sales_love_of_god_vol3.json',
+          'assets/catechism/json/sales_love_of_god_vol4.json',
+        ];
+
+        for (final path in salesLoveOfGodPaths) {
+          expect(
+            ReverseCitationService.catalogPaths.contains(path),
+            isTrue,
+            reason: '$path should be registered in catalogPaths',
+          );
+        }
+      },
+    );
+
     group('extractSentences & Contextual Windowing', () {
       test('extracts sentences while respecting abbreviations', () {
         const text =

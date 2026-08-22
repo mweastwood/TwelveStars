@@ -75,6 +75,7 @@ void main() {
       expect(find.text('True Devotion to Mary'), findsOneWidget);
       expect(find.text('The Rule of St. Benedict'), findsOneWidget);
       expect(find.text('Introduction to the Devout Life'), findsOneWidget);
+      expect(find.text('Treatise on the Love of God'), findsOneWidget);
       expect(find.text('The Interior Castle'), findsOneWidget);
       expect(find.text('The Imitation of Christ'), findsOneWidget);
       expect(find.text("The Mind's Road to God"), findsOneWidget);
@@ -2843,6 +2844,68 @@ void main() {
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
         expect(find.text('Pastoral Rule'), findsWidgets);
         expect(find.text('Section 1 of 11'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'tapping St. Francis de Sales Treatise on the Love of God volume chip opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/sales_love_of_god_vol1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final vol1Chip = find.text(
+          'Vol. I (Origin and Motives of Divine Love)',
+        );
+        await tester.scrollUntilVisible(
+          vol1Chip,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(vol1Chip);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('Treatise on the Love of God'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen renders St. Francis de Sales Treatise on the Love of God',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final loveOfGod = catalog.firstWhere(
+          (b) => b.id == 'francis_de_sales_love_of_god',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/sales_love_of_god_vol1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryReaderScreen(
+                bookItem: loveOfGod,
+                initialVolumeKey: 'vol1',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('Treatise on the Love of God'), findsWidgets);
+        expect(find.text('Section 1 of 66'), findsOneWidget);
       },
     );
   });
