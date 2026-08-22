@@ -8,6 +8,7 @@ class ReverseCitation {
   final String sourceBookId;
   final String sourceAssetPath;
   final String sourceBookTitle;
+  final String sourceAuthor;
   final String sectionId;
   final String sectionTitle;
   final int? questionNumber;
@@ -19,6 +20,7 @@ class ReverseCitation {
     required this.sourceBookId,
     required this.sourceAssetPath,
     required this.sourceBookTitle,
+    this.sourceAuthor = '',
     required this.sectionId,
     required this.sectionTitle,
     this.questionNumber,
@@ -573,6 +575,7 @@ class ReverseCitationService {
                     sourceBookId: bookData.bookId,
                     sourceAssetPath: sourceKey,
                     sourceBookTitle: bookData.title,
+                    sourceAuthor: bookData.author,
                     sectionId: sec.id,
                     sectionTitle: sec.title,
                     questionNumber: item.questionNumber,

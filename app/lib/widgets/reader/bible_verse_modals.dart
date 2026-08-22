@@ -121,6 +121,19 @@ Future<void> showReverseCitationsModal({
                                       ),
                                     ],
                                   ),
+                                  if (item.sourceAuthor.isNotEmpty) ...[
+                                    const SizedBox(height: 2),
+                                    Text(
+                                      'By ${item.sourceAuthor}',
+                                      style: theme.textTheme.bodySmall
+                                          ?.copyWith(
+                                            color: theme
+                                                .colorScheme
+                                                .onSurfaceVariant,
+                                            fontStyle: FontStyle.italic,
+                                          ),
+                                    ),
+                                  ],
                                   const SizedBox(height: 4),
                                   Text(
                                     '$qText${item.sectionTitle}',
