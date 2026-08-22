@@ -797,6 +797,25 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> leoGreatVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'tome_and_letters',
+      name: 'Vol. I (The Tome to Flavian & Christological Letters)',
+      shortName: 'Vol. I (Tome & Letters)',
+      description:
+          'The definitive dogmatic Tome to Flavian defining the two natures in one person of Christ, acclaimed at Chalcedon, with key Christological letters to Emperor Theodosius, Empress Pulcheria, and the Monks of Palestine.',
+      assetPath: 'assets/catechism/json/leo_tome_and_letters.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'selected_sermons',
+      name: 'Vol. II (Selected Festal Sermons & Epistles on Church Order)',
+      shortName: 'Vol. II (Sermons & Epistles)',
+      description:
+          'Celebrated sermons on the Nativity, Epiphany, Lent, Passion, Resurrection, Ascension, and Petrine Primacy, alongside pastoral epistles on Church order and episcopal unity.',
+      assetPath: 'assets/catechism/json/leo_selected_sermons.json',
+    ),
+  ];
+
   static const List<BaltimoreVolume> aquinasCompendiumVolumes = [
     BaltimoreVolume(
       volumeKey: 'part1',
@@ -1146,6 +1165,17 @@ class LibraryHelper {
         description:
             'Written c. 434 AD on the island of Lérins. The classic patristic masterwork establishing the Vincentian Canon on Sacred Tradition ("quod ubique, quod semper, quod ab omnibus creditum est") and formulating the orthodox standard for the legitimate organic development of Christian doctrine.',
         defaultAssetPath: 'assets/catechism/json/vincent_commonitory.json',
+      ),
+      const LibraryBookItem(
+        id: 'leo_great_tome_and_sermons',
+        title: 'The Tome & Selected Works',
+        subtitle:
+            'Tome to Flavian, Sermons & Letters (Trans. Charles Feltoe, NPNF II/12)',
+        category: 'Church Fathers',
+        author: 'Pope St. Leo the Great (Trans. Charles Feltoe)',
+        description:
+            'Written in the 5th century by the Pope and Doctor of the Church. Features the definitive dogmatic Tome to Flavian acclaimed at Chalcedon alongside celebrated sermons on the Incarnation and Petrine primacy.',
+        volumes: leoGreatVolumes,
       ),
       const LibraryBookItem(
         id: 'anselm_proslogion',

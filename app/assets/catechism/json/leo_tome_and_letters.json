@@ -1,0 +1,405 @@
+{
+  "bookId": "leo_tome_and_letters",
+  "title": "The Tome to Flavian & Christological Letters",
+  "subtitle": "The Dogmatic Tome & Selected Letters (Trans. Charles Feltoe, 1894)",
+  "author": "Pope St. Leo the Great (Trans. Charles Feltoe)",
+  "verseSystem": "vulgate",
+  "toc": [
+    {
+      "id": "sec_leo_tome_and_letters_1",
+      "title": "Chapter 1: Letter XXVIII (The Tome to Flavian) — Eutyches' Ignorance and Error"
+    },
+    {
+      "id": "sec_leo_tome_and_letters_2",
+      "title": "Chapter 2: Letter XXVIII (The Tome to Flavian) — The Mystery of the Incarnation"
+    },
+    {
+      "id": "sec_leo_tome_and_letters_3",
+      "title": "Chapter 3: Letter XXVIII (The Tome to Flavian) — The Two Natures in One Person"
+    },
+    {
+      "id": "sec_leo_tome_and_letters_4",
+      "title": "Chapter 4: Letter XXVIII (The Tome to Flavian) — Distinction and Operation of the Two Natures"
+    },
+    {
+      "id": "sec_leo_tome_and_letters_5",
+      "title": "Chapter 5: Letter XXVIII (The Tome to Flavian) — The Communication of Idioms"
+    },
+    {
+      "id": "sec_leo_tome_and_letters_6",
+      "title": "Chapter 6: Letter XXVIII (The Tome to Flavian) — Condemnation of Eutyches and Terms of Restoration"
+    },
+    {
+      "id": "sec_leo_tome_and_letters_7",
+      "title": "Chapter 7: Letter XXIX — To Theodosius Augustus"
+    },
+    {
+      "id": "sec_leo_tome_and_letters_8",
+      "title": "Chapter 8: Letter XXXI — To Empress Pulcheria"
+    },
+    {
+      "id": "sec_leo_tome_and_letters_9",
+      "title": "Chapter 9: Letter CXXIV — To the Monks of Palestine"
+    },
+    {
+      "id": "sec_leo_tome_and_letters_10",
+      "title": "Chapter 10: Letter CXLIV — To Julian, Bishop of Cos, on the Incarnation"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec_leo_tome_and_letters_1",
+      "title": "Chapter 1",
+      "subtitle": "Letter XXVIII (The Tome to Flavian) — Eutyches' Ignorance and Error",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Having read your letter, dearly beloved brother, at the lateness of which we are surprised, and having also examined the record of the episcopal proceedings, we now understand the cause of the scandal which had arisen amongst you against the purity of the Catholic Faith."
+        },
+        {
+          "type": "text",
+          "text": "2. What previously seemed obscure has now been made plain and manifest to us. Eutyches, who appeared worthy of respect for his presbyteral title, is shown to be exceedingly reckless and uncommonly ignorant."
+        },
+        {
+          "type": "text",
+          "text": "3. The words of the prophet apply to him: \"He refused to understand in order that he might do well: he devised wickedness upon his bed.\""
+        },
+        {
+          "type": "text",
+          "text": "4. For what can be more wicked than to harbour ungodly opinions and refuse to yield to those who are wiser and more learned?"
+        },
+        {
+          "type": "text",
+          "text": "5. Into this foolishness do those men fall who, when hindered by some obscurity in knowing the truth, have recourse not to the voices of the Prophets, not to the letters of the Apostles, nor to the authorities of the Gospels, but to themselves."
+        },
+        {
+          "type": "text",
+          "text": "6. Thus they become teachers of error because they would not be disciples of truth."
+        },
+        {
+          "type": "text",
+          "text": "7. For what learning has he acquired from the sacred pages of the New and the Old Testament, who does not even grasp the first beginnings of the Creed? And that which is voiced throughout the whole world by the tongue of every candidate for baptism has not yet been taken into the heart of this aged man."
+        }
+      ]
+    },
+    {
+      "id": "sec_leo_tome_and_letters_2",
+      "title": "Chapter 2",
+      "subtitle": "Letter XXVIII (The Tome to Flavian) — The Mystery of the Incarnation",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Not knowing, then, what he ought to think about the Incarnation of the Word of God, and unwilling to labour in the wide field of Holy Scripture to obtain the light of understanding, he should at least have listened attentively to the common and uniform confession which all the faithful profess:"
+        },
+        {
+          "type": "text",
+          "text": "2. \"I believe in God the Father Almighty, and in Jesus Christ His only Son, our Lord, who was born of the Holy Ghost and the Virgin Mary.\""
+        },
+        {
+          "type": "text",
+          "text": "3. By these three sentences the machinations of almost all heretics are shattered."
+        },
+        {
+          "type": "text",
+          "text": "4. For when God is believed to be both \"Almighty\" and \"Father\", the Son is shown to be co-eternal with Him, in no way differing from the Father, because He is God of God, Almighty of Almighty, Begotten of the Eternal as co-eternal; not later in time, not lower in power, not unlike in glory, not divided in essence."
+        },
+        {
+          "type": "text",
+          "text": "5. And this same Eternal, Only-Begotten of the Eternal Father was \"born of the Holy Ghost and the Virgin Mary.\""
+        },
+        {
+          "type": "text",
+          "text": "6. This birth in time took nothing from, and added nothing to, that divine and eternal birth, but bestowed itself wholly upon the restoration of man who had been deceived; that it might overcome death and destroy by its power the devil who held the power of death."
+        },
+        {
+          "type": "text",
+          "text": "7. For we could not overcome the author of sin and death unless He took our nature and made it His own, whom neither sin could stain nor death hold captive."
+        },
+        {
+          "type": "text",
+          "text": "8. For He was conceived by the Holy Ghost in the womb of the Virgin Mother, who brought Him forth without the loss of her virginity, just as she conceived Him without the loss of her virginity."
+        }
+      ]
+    },
+    {
+      "id": "sec_leo_tome_and_letters_3",
+      "title": "Chapter 3",
+      "subtitle": "Letter XXVIII (The Tome to Flavian) — The Two Natures in One Person",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Therefore, while the properties of each nature were preserved intact and came together in one Person, lowliness was taken up by majesty, weakness by power, mortality by eternity."
+        },
+        {
+          "type": "text",
+          "text": "2. To pay the debt of our condition, an inviolable nature was united to a passible nature, so that, as was appropriate for our healing, one and the same Mediator between God and men, the man Christ Jesus, was able to die in one nature and unable to die in the other."
+        },
+        {
+          "type": "text",
+          "text": "3. In the whole and perfect nature of true man, therefore, true God was born, complete in what was His own, complete in what was ours."
+        },
+        {
+          "type": "text",
+          "text": "4. By \"ours\" we mean what the Creator placed in us from the beginning and what He assumed to restore."
+        },
+        {
+          "type": "text",
+          "text": "5. For that which the deceiver brought in and which man, being deceived, admitted, had no trace in the Saviour."
+        },
+        {
+          "type": "text",
+          "text": "6. Nor, because He entered into a share of human infirmities, did He thereby become a partaker of our transgressions."
+        },
+        {
+          "type": "text",
+          "text": "7. He took the form of a servant without the defilement of sin, enriching what was human and not diminishing what was divine."
+        },
+        {
+          "type": "text",
+          "text": "8. For that \"emptying of Himself\" whereby the Invisible made Himself visible, and the Creator and Lord of all willed to be one among mortals, was a condescension of compassion, not a failure of power."
+        }
+      ]
+    },
+    {
+      "id": "sec_leo_tome_and_letters_4",
+      "title": "Chapter 4",
+      "subtitle": "Letter XXVIII (The Tome to Flavian) — Distinction and Operation of the Two Natures",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Son of God therefore descends from His heavenly throne, not departing from the Father's glory, entering this lower world, generated in a new order, by a new nativity."
+        },
+        {
+          "type": "text",
+          "text": "2. In a new order, because being invisible in His own nature He became visible in ours; being incomprehensible He willed to be comprehended; remaining before all time He began to exist in time."
+        },
+        {
+          "type": "text",
+          "text": "3. The Lord of the universe veiled the dignity of His majesty and took the form of a servant; the impassible God did not disdain to be a suffering man, and the Immortal to be subject to the laws of death."
+        },
+        {
+          "type": "text",
+          "text": "4. For each nature performs what is proper to it in communion with the other: the Word performing what belongs to the Word, and the flesh carrying out what belongs to the flesh."
+        },
+        {
+          "type": "text",
+          "text": "5. The one shines forth in miracles, the other succumbs to injuries."
+        },
+        {
+          "type": "text",
+          "text": "6. And as the Word does not withdraw from equality with the Father's glory, so neither does the flesh abandon the nature of our race."
+        },
+        {
+          "type": "text",
+          "text": "7. For one and the same Person is truly the Son of God and truly the Son of Man: God in the beginning, who was with God; Man in time, who was made flesh and dwelt among us."
+        },
+        {
+          "type": "text",
+          "text": "8. It does not belong to the same nature to say: \"I and the Father are one,\" and to say: \"The Father is greater than I.\""
+        },
+        {
+          "type": "text",
+          "text": "9. For although in the Lord Jesus Christ there is one Person of God and man, yet that whence the suffering is common to both is one thing, and that whence the glory is common to both is another."
+        }
+      ]
+    },
+    {
+      "id": "sec_leo_tome_and_letters_5",
+      "title": "Chapter 5",
+      "subtitle": "Letter XXVIII (The Tome to Flavian) — The Communication of Idioms",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Because of this unity of Person to be understood in both natures, we read on the one hand that the Son of Man descended from heaven, when the Son of God took flesh of the Virgin; and on the other hand, the Son of God is said to have been crucified and buried, though He suffered these things not in the Godhead itself, wherein the Only-Begotten is co-eternal and consubstantial with the Father, but in the weakness of human nature."
+        },
+        {
+          "type": "text",
+          "text": "2. Whence it is that in the Creed we all confess that the Only-Begotten Son of God was crucified and buried, according to that saying of the Apostle: \"For had they known it, they would not have crucified the Lord of glory.\""
+        },
+        {
+          "type": "text",
+          "text": "3. But when our Lord and Saviour Himself was instructing the faith of His disciples by His questions, He asked: \"Whom do men say that I, the Son of Man, am?\""
+        },
+        {
+          "type": "text",
+          "text": "4. And when they recounted various human opinions, He said: \"But whom say ye that I am?\"—I, that is, who am the Son of Man, and whom you behold in the form of a servant and in real flesh: whom do you declare Me to be?"
+        },
+        {
+          "type": "text",
+          "text": "5. Whereupon blessed Peter, divinely inspired and destined by his confession to benefit all nations, replied: \"Thou art the Christ, the Son of the living God.\""
+        },
+        {
+          "type": "text",
+          "text": "6. Deservedly was he pronounced blessed by the Lord, and from the principal Rock derived the firmness of both his power and his name; who, through the revelation of the Father, confessed the same Person to be both the Son of God and the Christ."
+        },
+        {
+          "type": "text",
+          "text": "7. For to receive one of these without the other was of no profit unto salvation; and it was equally dangerous to believe the Lord Jesus Christ to be only God without man, or only man without God."
+        },
+        {
+          "type": "text",
+          "text": "8. After His resurrection, which was the resurrection of a real body, what else was accomplished during the forty days than the cleansing of our faith from all darkness?"
+        }
+      ]
+    },
+    {
+      "id": "sec_leo_tome_and_letters_6",
+      "title": "Chapter 6",
+      "subtitle": "Letter XXVIII (The Tome to Flavian) — Condemnation of Eutyches and Terms of Restoration",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. When Eutyches, therefore, in your examination answered: \"I confess that our Lord was of two natures before the union, but after the union I confess one nature,\" I am astonished that so absurd and perverse a profession met with no rebuke from the judges."
+        },
+        {
+          "type": "text",
+          "text": "2. It is just as impious to say that the Son of God was of two natures before the Incarnation, as it is monstrous to assert that after the Word was made flesh there was only one nature."
+        },
+        {
+          "type": "text",
+          "text": "3. Lest Eutyches should think his opinion right because it was not explicitly refuted by your sentence, we urge your pastoral solicitude, beloved brother, that if the case by God's mercy is brought to a good issue, the foolish man may be purged of this pestilent doctrine."
+        },
+        {
+          "type": "text",
+          "text": "4. If, through the inspiration of God's mercy, he accepts correction and condemns in writing all his errors, let him not be denied mercy."
+        },
+        {
+          "type": "text",
+          "text": "5. Our Lord, the true and good Shepherd, who laid down His life for His sheep, came not to destroy men's souls, but to save them."
+        },
+        {
+          "type": "text",
+          "text": "6. For the defense of the whole Catholic Faith, we have sent our brothers, Julius the Bishop and Renatus the Presbyter of the title of Saint Clement, and also my son Hilarus the Deacon, with whom we have associated Dulcitius the Notary, whose faith has been tested by us, trusting that God's assistance will be with them, so that he who had erred may be saved upon condemning his perverse opinion."
+        }
+      ]
+    },
+    {
+      "id": "sec_leo_tome_and_letters_7",
+      "title": "Chapter 7",
+      "subtitle": "Letter XXIX — To Theodosius Augustus",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. From the letter of your Clemency, which in your love of the Catholic Faith you sent to the Apostolic See, we have received great confidence in the defense of Christian peace."
+        },
+        {
+          "type": "text",
+          "text": "2. You desire that the integrity of the true faith be maintained without disturbance, and that all error should be removed by the authority of a sacerdotal council."
+        },
+        {
+          "type": "text",
+          "text": "3. But the matter is so clear that it does not stand in need of long inquiry. Eutyches has exhibited gross ignorance regarding the mystery of Christ's Incarnation, departing from the confession of the universal Church."
+        },
+        {
+          "type": "text",
+          "text": "4. We have therefore sent our representatives with full instructions, carrying our dogmatic letters, that all who love the Catholic truth may agree in the one confession."
+        },
+        {
+          "type": "text",
+          "text": "5. May your Imperial Piety, which is illuminated by the Holy Spirit, protect the peace of the Church and preserve the faith delivered by the Apostles unimpaired."
+        }
+      ]
+    },
+    {
+      "id": "sec_leo_tome_and_letters_8",
+      "title": "Chapter 8",
+      "subtitle": "Letter XXXI — To Empress Pulcheria",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. How great protection the Lord has prepared for His Church through your royal piety, we have frequently experienced in various necessities."
+        },
+        {
+          "type": "text",
+          "text": "2. Whatever attacks the enemy of the human race prepares against the members of Christ, the Lord's right hand crushes through your faithful vigilance."
+        },
+        {
+          "type": "text",
+          "text": "3. Now again, when the heresy of Eutyches attempts to corrupt the purity of the Gospel, your devotion to the Catholic Faith shines forth as a beacon of truth."
+        },
+        {
+          "type": "text",
+          "text": "4. We have addressed our dogmatic letter to our brother Flavian, setting forth the apostolic teaching concerning the two natures in our one Lord Jesus Christ."
+        },
+        {
+          "type": "text",
+          "text": "5. We entreat your Imperial Clemency to extend your royal protection to this holy cause, so that the blasphemies of heretics may be silenced and the ancient peace of the Church restored."
+        },
+        {
+          "type": "text",
+          "text": "6. For the crown of your empire is then most glorious when the sovereignty of the King of kings is worshipped in the purity of the true faith."
+        }
+      ]
+    },
+    {
+      "id": "sec_leo_tome_and_letters_9",
+      "title": "Chapter 9",
+      "subtitle": "Letter CXXIV — To the Monks of Palestine",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The letters which you sent to us by your brethren showed your anxiety for the Catholic Faith, but also revealed that some amongst you have been disturbed by the craftiness of the enemies of truth."
+        },
+        {
+          "type": "text",
+          "text": "2. The holy Synod of Chalcedon, assembled in the Holy Spirit, has defined nothing contrary to the ancient faith, but has confirmed the apostolic doctrine which we received from the Fathers."
+        },
+        {
+          "type": "text",
+          "text": "3. We do not divide Christ into two persons, nor do we confound the two natures into one substance."
+        },
+        {
+          "type": "text",
+          "text": "4. For we acknowledge in the one Lord Jesus Christ both the true divinity of the Father and the true humanity of the Virgin Mother."
+        },
+        {
+          "type": "text",
+          "text": "5. The deity did not suffer, nor was the flesh of celestial origin; but He who was impassible in His divinity suffered in His humanity for our redemption."
+        },
+        {
+          "type": "text",
+          "text": "6. Cease, therefore, from all contentious disputes, and do not let yourselves be deceived by the vain words of those who pervert the doctrine of the holy council."
+        },
+        {
+          "type": "text",
+          "text": "7. Cleave to the unity of the Catholic Church, which is built upon the solid rock of Peter's confession."
+        },
+        {
+          "type": "text",
+          "text": "8. For in this faith alone is life eternal and victory over the prince of darkness."
+        }
+      ]
+    },
+    {
+      "id": "sec_leo_tome_and_letters_10",
+      "title": "Chapter 10",
+      "subtitle": "Letter CXLIV — To Julian, Bishop of Cos, on the Incarnation",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. We have received your fraternity's letter with joy, discerning in it your constant zeal for the apostolic faith and your tireless vigilance against heretical depravity."
+        },
+        {
+          "type": "text",
+          "text": "2. It is necessary that we continually confess the reality of the Lord's body which was born of the Virgin Mary, against those who imagine a phantasmal appearance or a confusion of substances."
+        },
+        {
+          "type": "text",
+          "text": "3. For if Christ did not possess true human flesh, He did not truly die; and if He did not truly die, our redemption is made void."
+        },
+        {
+          "type": "text",
+          "text": "4. But because He is true God and true Man, He offered for us a true sacrifice, taking away the sin of the world by His blood."
+        },
+        {
+          "type": "text",
+          "text": "5. Let all the faithful, then, reject the fables of heretics and hold fast to the mystery of our salvation in simplicity and truth."
+        },
+        {
+          "type": "text",
+          "text": "6. May the grace of our Lord Jesus Christ and the love of God the Father and the communion of the Holy Spirit preserve your charity in unbroken peace."
+        }
+      ]
+    }
+  ]
+}

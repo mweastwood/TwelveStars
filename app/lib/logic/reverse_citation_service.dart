@@ -136,6 +136,8 @@ class ReverseCitationService {
     'assets/catechism/json/chrysostom_on_the_priesthood_book5.json',
     'assets/catechism/json/chrysostom_on_the_priesthood_book6.json',
     'assets/catechism/json/vincent_commonitory.json',
+    'assets/catechism/json/leo_tome_and_letters.json',
+    'assets/catechism/json/leo_selected_sermons.json',
   ];
 
   @visibleForTesting

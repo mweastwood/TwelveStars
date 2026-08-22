@@ -607,6 +607,11 @@ void parseChapteredBookFile({
         stripped.startsWith('Commonitorium') ||
         stripped.startsWith('St. Vincent of Lérins') ||
         stripped.startsWith('By St. Vincent') ||
+        stripped.startsWith('The Tome of St. Leo') ||
+        stripped.startsWith('Selected Festal Sermons') ||
+        stripped.startsWith('Pope St. Leo the Great') ||
+        stripped.startsWith('By Pope St. Leo') ||
+        stripped.startsWith('St. Leo the Great') ||
         stripped.startsWith('Life of St. Anthony') ||
         stripped.startsWith('Vita Antonii') ||
         stripped.startsWith('St. Athanasius of Alexandria') ||
@@ -1415,6 +1420,29 @@ void main() {
     subtitle:
         'For the Antiquity and Universality of the Catholic Faith (Trans. C. A. Heurtley, 1894)',
     author: 'St. Vincent of Lérins (Trans. C. A. Heurtley)',
+    outputDir: outputDir,
+  );
+
+  final leoDir = p.join('assets', 'catechism', 'leo_great');
+  parseChapteredBookFile(
+    filepath: p.join(leoDir, 'leo_tome_and_letters.txt'),
+    bookId: 'leo_tome_and_letters',
+    secIdPrefix: 'leo_tome_and_letters',
+    title: 'The Tome to Flavian & Christological Letters',
+    subtitle:
+        'The Dogmatic Tome & Selected Letters (Trans. Charles Feltoe, 1894)',
+    author: 'Pope St. Leo the Great (Trans. Charles Feltoe)',
+    outputDir: outputDir,
+  );
+
+  parseChapteredBookFile(
+    filepath: p.join(leoDir, 'leo_selected_sermons.txt'),
+    bookId: 'leo_selected_sermons',
+    secIdPrefix: 'leo_selected_sermons',
+    title: 'Selected Festal Sermons & Epistles on Church Order',
+    subtitle:
+        'Sermons on the Mysteries of Christ & Epistles on Church Unity (Trans. Charles Feltoe, 1894)',
+    author: 'Pope St. Leo the Great (Trans. Charles Feltoe)',
     outputDir: outputDir,
   );
 }

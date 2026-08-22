@@ -78,6 +78,7 @@ void main() {
       expect(find.text('The Interior Castle'), findsOneWidget);
       expect(find.text('The Imitation of Christ'), findsOneWidget);
       expect(find.text("The Mind's Road to God"), findsOneWidget);
+      expect(find.text('The Tome & Selected Works'), findsOneWidget);
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -126,6 +127,18 @@ void main() {
       // Verify Ambrose volume chips exist
       expect(find.text('On the Mysteries (De Mysteriis)'), findsOneWidget);
       expect(find.text('On the Sacraments (De Sacramentis)'), findsOneWidget);
+
+      // Verify St. Leo the Great volume chips exist
+      expect(
+        find.text('Vol. I (The Tome to Flavian & Christological Letters)'),
+        findsOneWidget,
+      );
+      expect(
+        find.text(
+          'Vol. II (Selected Festal Sermons & Epistles on Church Order)',
+        ),
+        findsOneWidget,
+      );
 
       // Verify Aquinas volume chips exist
       expect(find.text('Part I (On Faith)'), findsOneWidget);
@@ -2449,6 +2462,100 @@ void main() {
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
         expect(find.text('Life of St. Anthony'), findsWidgets);
         expect(find.text('Section 1 of 94'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen renders Pope St. Leo the Great Tome and Sermons Vol. 1',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final leo = catalog.firstWhere(
+          (b) => b.id == 'leo_great_tome_and_sermons',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/leo_tome_and_letters.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryReaderScreen(
+                bookItem: leo,
+                initialVolumeKey: 'tome_and_letters',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('The Tome & Selected Works'), findsWidgets);
+        expect(find.text('Section 1 of 10'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen renders Pope St. Leo the Great Tome and Sermons Vol. 2',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final leo = catalog.firstWhere(
+          (b) => b.id == 'leo_great_tome_and_sermons',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/leo_selected_sermons.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryReaderScreen(
+                bookItem: leo,
+                initialVolumeKey: 'selected_sermons',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('The Tome & Selected Works'), findsWidgets);
+        expect(find.text('Section 1 of 12'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'tapping St. Leo the Great volume chip opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/leo_tome_and_letters.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final chip = find.text(
+          'Vol. I (The Tome to Flavian & Christological Letters)',
+        );
+        await tester.scrollUntilVisible(
+          chip,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(chip);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('The Tome & Selected Works'), findsWidgets);
       },
     );
   });

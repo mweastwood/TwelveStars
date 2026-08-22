@@ -406,5 +406,25 @@ void main() {
         reason: '$anthonyPath should be registered in catalogPaths',
       );
     });
+
+    test(
+      'indexes Pope St. Leo the Great Tome and Sermons across both volumes',
+      () async {
+        await ReverseCitationService.ensureIndexed();
+
+        final leoPaths = [
+          'assets/catechism/json/leo_tome_and_letters.json',
+          'assets/catechism/json/leo_selected_sermons.json',
+        ];
+
+        for (final path in leoPaths) {
+          expect(
+            ReverseCitationService.catalogPaths.contains(path),
+            isTrue,
+            reason: '$path should be registered in catalogPaths',
+          );
+        }
+      },
+    );
   });
 }
