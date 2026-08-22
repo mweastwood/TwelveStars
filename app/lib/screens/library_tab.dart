@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
+import 'package:twelve_stars/widgets/saint_details_sheet.dart';
 
 class LibraryTab extends StatefulWidget {
   const LibraryTab({super.key});
@@ -855,13 +857,50 @@ class _LibraryTabState extends State<LibraryTab> {
                                   ),
                                 ),
                                 const SizedBox(height: 4),
-                                Text(
-                                  'By ${bookItem.author}',
-                                  style: theme.textTheme.bodySmall?.copyWith(
-                                    color: theme.colorScheme.onSurfaceVariant,
-                                    fontStyle: FontStyle.italic,
+                                if (bookItem.authorSaintId != null)
+                                  InkWell(
+                                    borderRadius: BorderRadius.circular(8),
+                                    onTap: () async {
+                                      final saint =
+                                          await SaintDatabase.getSaintById(
+                                            bookItem.authorSaintId!,
+                                          );
+                                      if (mounted && saint != null) {
+                                        SaintDetailsSheet.show(context, saint);
+                                      }
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Flexible(
+                                          child: Text(
+                                            'By ${bookItem.author}',
+                                            style: theme.textTheme.bodySmall
+                                                ?.copyWith(
+                                                  color:
+                                                      theme.colorScheme.primary,
+                                                  fontStyle: FontStyle.italic,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 4),
+                                        Icon(
+                                          Icons.info_outline,
+                                          size: 14,
+                                          color: theme.colorScheme.primary,
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                else
+                                  Text(
+                                    'By ${bookItem.author}',
+                                    style: theme.textTheme.bodySmall?.copyWith(
+                                      color: theme.colorScheme.onSurfaceVariant,
+                                      fontStyle: FontStyle.italic,
+                                    ),
                                   ),
-                                ),
                                 const SizedBox(height: 6),
                                 // Metadata Badges
                                 Wrap(
