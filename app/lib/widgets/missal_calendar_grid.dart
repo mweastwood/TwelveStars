@@ -13,6 +13,7 @@ class MissalCalendarGrid extends StatelessWidget {
   final String Function(DateTime) formatFullDate;
   final List<DateTime> Function(DateTime) generateWeekDays;
   final List<DateTime> Function(DateTime) generateMonthGrid;
+  final bool Function(DateTime date)? hasSaintFeast;
 
   const MissalCalendarGrid({
     super.key,
@@ -26,6 +27,7 @@ class MissalCalendarGrid extends StatelessWidget {
     required this.formatFullDate,
     required this.generateWeekDays,
     required this.generateMonthGrid,
+    this.hasSaintFeast,
   });
 
   static const List<String> _weekdayLabels = [
@@ -192,6 +194,8 @@ class MissalCalendarGrid extends StatelessWidget {
     final dayData = LiturgicalCalendar.computeDay(date);
     final baseColor = dayData.colorWidget;
     final cellBg = baseColor.withValues(alpha: isCurrentMonth ? 0.12 : 0.04);
+    final hasFeast =
+        dayData.name != null || (hasSaintFeast != null && hasSaintFeast!(date));
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 2.0),
@@ -215,7 +219,7 @@ class MissalCalendarGrid extends StatelessWidget {
             ),
             child: Stack(
               children: [
-                if (dayData.name != null)
+                if (hasFeast)
                   Positioned(
                     top: 2,
                     right: 2,

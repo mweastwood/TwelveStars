@@ -557,5 +557,82 @@ void main() {
         expect(mackillop.any((s) => s.id == 'mary-mackillop'), isTrue);
       },
     );
+
+    test(
+      'buildFeastDayMap and getSaintsForDate correctly match feast days',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+        final feastMap = SaintDatabase.buildFeastDayMap(saints);
+
+        // 1. Single-date feast: St. Thomas Aquinas (January 28)
+        final jan28Saints = SaintDatabase.getSaintsForDate(
+          DateTime(2026, 1, 28),
+          saints,
+        );
+        expect(jan28Saints.any((s) => s.id == 'thomas-aquinas'), isTrue);
+        expect(feastMap['1_28']!.any((s) => s.id == 'thomas-aquinas'), isTrue);
+
+        // 2. Multi-date feast: St. John the Baptist ("June 24 / August 29")
+        final jun24Saints = SaintDatabase.getSaintsForDate(
+          DateTime(2026, 6, 24),
+          saints,
+        );
+        final aug29Saints = SaintDatabase.getSaintsForDate(
+          DateTime(2026, 8, 29),
+          saints,
+        );
+        expect(jun24Saints.any((s) => s.id == 'john-the-baptist'), isTrue);
+        expect(aug29Saints.any((s) => s.id == 'john-the-baptist'), isTrue);
+        expect(
+          feastMap['6_24']!.any((s) => s.id == 'john-the-baptist'),
+          isTrue,
+        );
+        expect(
+          feastMap['8_29']!.any((s) => s.id == 'john-the-baptist'),
+          isTrue,
+        );
+
+        // Multi-date feast: St. Joseph ("March 19 / May 1")
+        final mar19Saints = SaintDatabase.getSaintsForDate(
+          DateTime(2026, 3, 19),
+          saints,
+        );
+        final may1Saints = SaintDatabase.getSaintsForDate(
+          DateTime(2026, 5, 1),
+          saints,
+        );
+        expect(mar19Saints.any((s) => s.id == 'joseph'), isTrue);
+        expect(may1Saints.any((s) => s.id == 'joseph'), isTrue);
+        expect(feastMap['3_19']!.any((s) => s.id == 'joseph'), isTrue);
+        expect(feastMap['5_1']!.any((s) => s.id == 'joseph'), isTrue);
+
+        // 3. Days with multiple saints: September 29 (Archangels Michael, Gabriel, Raphael)
+        final sep29Saints = SaintDatabase.getSaintsForDate(
+          DateTime(2026, 9, 29),
+          saints,
+        );
+        expect(sep29Saints.length, greaterThanOrEqualTo(3));
+        expect(sep29Saints.any((s) => s.id == 'michael-the-archangel'), isTrue);
+        expect(sep29Saints.any((s) => s.id == 'gabriel-the-archangel'), isTrue);
+        expect(sep29Saints.any((s) => s.id == 'raphael-the-archangel'), isTrue);
+        expect(feastMap['9_29']!.length, greaterThanOrEqualTo(3));
+
+        // June 29: Peter and Paul
+        final jun29Saints = SaintDatabase.getSaintsForDate(
+          DateTime(2026, 6, 29),
+          saints,
+        );
+        expect(jun29Saints.any((s) => s.id == 'peter-the-apostle'), isTrue);
+        expect(jun29Saints.any((s) => s.id == 'paul-the-apostle'), isTrue);
+
+        // 4. Date without saints
+        final jul4Saints = SaintDatabase.getSaintsForDate(
+          DateTime(2026, 7, 4),
+          saints,
+        );
+        expect(jul4Saints, isEmpty);
+        expect(feastMap.containsKey('7_4'), isFalse);
+      },
+    );
   });
 }
