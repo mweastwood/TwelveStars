@@ -152,7 +152,18 @@ class LibraryBookItem {
   });
 
   bool get isSeries => volumes != null && volumes!.isNotEmpty;
+
+  List<String> get allAssetPaths {
+    if (isSeries && volumes != null) {
+      return volumes!.map((v) => v.assetPath).toList();
+    } else if (defaultAssetPath != null) {
+      return [defaultAssetPath!];
+    }
+    return const [];
+  }
 }
+
+typedef LibraryDatabase = LibraryHelper;
 
 class BookSearchResult {
   final String bookTitle;
@@ -1506,6 +1517,14 @@ class LibraryHelper {
             'assets/catechism/json/bonaventure_minds_road_to_god.json',
       ),
     ];
+  }
+
+  static List<String> getAllCatalogPaths() {
+    final paths = <String>[];
+    for (final item in getCatalog()) {
+      paths.addAll(item.allAssetPaths);
+    }
+    return paths;
   }
 
   static Future<ParsedBookData> loadBookData(String assetPath) async {
