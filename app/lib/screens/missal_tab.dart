@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
+import 'package:twelve_stars/logic/saint_models.dart';
+import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/logic/time_helper.dart';
 import 'package:twelve_stars/logic/bible_database.dart'
     show LectionaryReading, BibleDatabaseHelper;
@@ -11,6 +13,7 @@ import 'package:twelve_stars/widgets/missal_calendar_grid.dart';
 import 'package:twelve_stars/widgets/homily_reflection_sheet.dart';
 import 'package:twelve_stars/widgets/reader/missal_section_widgets.dart';
 import 'package:twelve_stars/widgets/missal_creed_carousel.dart';
+import 'package:twelve_stars/widgets/saint_details_modal.dart';
 
 class MissalTab extends StatefulWidget {
   final PrayerLanguage primaryLanguage;
@@ -41,6 +44,8 @@ class _MissalTabState extends State<MissalTab> {
   String? _error;
   List<Prayer>? _prayers;
   UserSettings? _settings;
+  List<Saint>? _saints;
+  Map<String, List<Saint>>? _feastDayMap;
   late PrayerLanguage _primaryLanguage;
   PrayerLanguage? _compareLanguage;
 
@@ -81,10 +86,13 @@ class _MissalTabState extends State<MissalTab> {
     try {
       final prayers = await PrayerDatabase.loadPrayers();
       final settings = await PrayerDatabase.loadSettings();
+      final saints = await SaintDatabase.loadSaints();
       if (mounted) {
         setState(() {
           _prayers = prayers;
           _settings = settings;
+          _saints = saints;
+          _feastDayMap = SaintDatabase.buildFeastDayMap(saints);
           _primaryLanguage = settings.primaryLanguage;
           _compareLanguage = settings.compareLanguage;
           _loading = false;
@@ -295,6 +303,11 @@ class _MissalTabState extends State<MissalTab> {
     }
 
     final currentDay = LiturgicalCalendar.computeDay(_selectedDate);
+    final saintsForSelectedDate =
+        _feastDayMap?['${_selectedDate.month}_${_selectedDate.day}'] ??
+        (_saints != null
+            ? SaintDatabase.getSaintsForDate(_selectedDate, _saints!)
+            : <Saint>[]);
 
     final massGreeting = _findPrayer('mass_greeting');
     final confiteor = _findPrayer('confiteor');
@@ -379,6 +392,11 @@ class _MissalTabState extends State<MissalTab> {
                       child: MissalCalendarGrid(
                         selectedDate: _selectedDate,
                         isExpanded: _calendarExpanded,
+                        hasSaintFeast: (date) =>
+                            _feastDayMap?.containsKey(
+                              '${date.month}_${date.day}',
+                            ) ??
+                            false,
                         onDateSelected: (date) {
                           setState(() {
                             _selectedDate = date;
@@ -409,6 +427,19 @@ class _MissalTabState extends State<MissalTab> {
                   if (currentDay.name != null) ...[
                     MissalFeastAlertCard(currentDay: currentDay),
                     const SizedBox(height: 8),
+                  ],
+
+                  // Saint Feast / Memorial Cards (if any)
+                  if (saintsForSelectedDate.isNotEmpty) ...[
+                    ...saintsForSelectedDate.map(
+                      (saint) => Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: MissalSaintFeastCard(
+                          saint: saint,
+                          onTap: () => showSaintDetailsModal(context, saint),
+                        ),
+                      ),
+                    ),
                   ],
 
                   // 4. Introductory Rites Section
