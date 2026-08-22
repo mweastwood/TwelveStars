@@ -17,6 +17,7 @@ class _SaintsScreenState extends State<SaintsScreen> {
   String? _error;
   String _searchQuery = '';
   bool _doctorsOnly = false;
+  String? _selectedGender;
 
   @override
   void initState() {
@@ -89,7 +90,10 @@ class _SaintsScreenState extends State<SaintsScreen> {
       _allSaints,
       query: _searchQuery,
       doctorsOnly: _doctorsOnly,
+      gender: _selectedGender,
     );
+    final hasActiveFilters =
+        _searchQuery.isNotEmpty || _doctorsOnly || _selectedGender != null;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Saint Database')),
@@ -141,24 +145,69 @@ class _SaintsScreenState extends State<SaintsScreen> {
             ),
             child: Row(
               children: [
-                FilterChip(
-                  key: const Key('doctor_filter_chip'),
-                  label: const Text('Doctors of the Church only'),
-                  avatar: Icon(
-                    Icons.star,
-                    color: _doctorsOnly
-                        ? Colors.amber
-                        : theme.colorScheme.onSurfaceVariant,
-                    size: 16,
+                Expanded(
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        FilterChip(
+                          key: const Key('doctor_filter_chip'),
+                          label: const Text('Doctors of the Church only'),
+                          avatar: Icon(
+                            Icons.star,
+                            color: _doctorsOnly
+                                ? Colors.amber
+                                : theme.colorScheme.onSurfaceVariant,
+                            size: 16,
+                          ),
+                          selected: _doctorsOnly,
+                          onSelected: (selected) {
+                            setState(() {
+                              _doctorsOnly = selected;
+                            });
+                          },
+                        ),
+                        const SizedBox(width: 8),
+                        FilterChip(
+                          key: const Key('men_filter_chip'),
+                          label: const Text('Men'),
+                          avatar: Icon(
+                            Icons.male,
+                            color: _selectedGender == 'male'
+                                ? theme.colorScheme.primary
+                                : theme.colorScheme.onSurfaceVariant,
+                            size: 16,
+                          ),
+                          selected: _selectedGender == 'male',
+                          onSelected: (selected) {
+                            setState(() {
+                              _selectedGender = selected ? 'male' : null;
+                            });
+                          },
+                        ),
+                        const SizedBox(width: 8),
+                        FilterChip(
+                          key: const Key('women_filter_chip'),
+                          label: const Text('Women'),
+                          avatar: Icon(
+                            Icons.female,
+                            color: _selectedGender == 'female'
+                                ? theme.colorScheme.primary
+                                : theme.colorScheme.onSurfaceVariant,
+                            size: 16,
+                          ),
+                          selected: _selectedGender == 'female',
+                          onSelected: (selected) {
+                            setState(() {
+                              _selectedGender = selected ? 'female' : null;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
                   ),
-                  selected: _doctorsOnly,
-                  onSelected: (selected) {
-                    setState(() {
-                      _doctorsOnly = selected;
-                    });
-                  },
                 ),
-                const Spacer(),
+                const SizedBox(width: 8),
                 Text(
                   '${filteredSaints.length} ${filteredSaints.length == 1 ? "saint" : "saints"}',
                   style: theme.textTheme.bodySmall?.copyWith(
@@ -189,14 +238,19 @@ class _SaintsScreenState extends State<SaintsScreen> {
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          _doctorsOnly
+                          _doctorsOnly && _selectedGender != null
+                              ? 'No ${_selectedGender == "male" ? "male" : "female"} Doctors of the Church match your query.'
+                              : _doctorsOnly
                               ? 'No Doctors of the Church match your query.'
+                              : _selectedGender != null
+                              ? 'No ${_selectedGender == "male" ? "male" : "female"} saints match your query.'
                               : 'Try searching for a different keyword or name.',
                           style: theme.textTheme.bodyMedium?.copyWith(
                             color: theme.colorScheme.onSurfaceVariant,
                           ),
+                          textAlign: TextAlign.center,
                         ),
-                        if (_searchQuery.isNotEmpty || _doctorsOnly) ...[
+                        if (hasActiveFilters) ...[
                           const SizedBox(height: 16),
                           OutlinedButton(
                             key: const Key('reset_filters_button'),
@@ -205,6 +259,7 @@ class _SaintsScreenState extends State<SaintsScreen> {
                                 _searchController.clear();
                                 _searchQuery = '';
                                 _doctorsOnly = false;
+                                _selectedGender = null;
                               });
                             },
                             child: const Text('Reset filters'),

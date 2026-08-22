@@ -16,6 +16,7 @@ class Saint {
   final String? feastDay; // e.g. "January 28"
   final String? patronage; // e.g. "Students, Academics, Theologians"
   final String? summary; // Short historical biographical context
+  final String? gender; // 'male', 'female', or 'group'
 
   const Saint({
     required this.id,
@@ -29,7 +30,11 @@ class Saint {
     this.feastDay,
     this.patronage,
     this.summary,
+    this.gender,
   });
+
+  bool get isMale => gender == 'male';
+  bool get isFemale => gender == 'female';
 
   String get dateRange {
     if (birthDate != null && deathDate != null) {
@@ -55,6 +60,7 @@ class Saint {
       feastDay: json['feastDay'] as String?,
       patronage: json['patronage'] as String?,
       summary: json['summary'] as String?,
+      gender: json['gender'] as String?,
     );
   }
 
@@ -71,6 +77,7 @@ class Saint {
       if (feastDay != null) 'feastDay': feastDay,
       if (patronage != null) 'patronage': patronage,
       if (summary != null) 'summary': summary,
+      if (gender != null) 'gender': gender,
     };
   }
 }

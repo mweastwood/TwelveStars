@@ -19,6 +19,7 @@ void main() {
         'feastDay': 'January 28',
         'patronage': 'Academics, Students, Theologians',
         'summary': 'Author of the Summa Theologiae.',
+        'gender': 'male',
       };
 
       final saint = Saint.fromJson(json);
@@ -33,6 +34,9 @@ void main() {
       expect(saint.feastDay, 'January 28');
       expect(saint.patronage, 'Academics, Students, Theologians');
       expect(saint.summary, 'Author of the Summa Theologiae.');
+      expect(saint.gender, 'male');
+      expect(saint.isMale, isTrue);
+      expect(saint.isFemale, isFalse);
       expect(saint.dateRange, '1225 – 1274');
 
       final serialized = saint.toJson();
@@ -40,15 +44,21 @@ void main() {
       expect(serialized['isDoctor'], true);
       expect(serialized['isBlessed'], null);
       expect(serialized['patronage'], 'Academics, Students, Theologians');
+      expect(serialized['gender'], 'male');
 
       const blessedSaint = Saint(
-        id: 'miguel-pro',
-        name: 'Blessed Miguel Pro',
-        nationality: 'Mexican',
-        profession: 'Priest',
+        id: 'laura-vicuna',
+        name: 'Blessed Laura Vicuña',
+        nationality: 'Chilean / Argentine',
+        profession: 'Salesian Pupil & Virgin',
         isBlessed: true,
+        gender: 'female',
       );
       expect(blessedSaint.toJson()['isBlessed'], true);
+      expect(blessedSaint.gender, 'female');
+      expect(blessedSaint.isFemale, isTrue);
+      expect(blessedSaint.isMale, isFalse);
+      expect(blessedSaint.toJson()['gender'], 'female');
     });
 
     test('dateRange formats different combinations of dates', () {
@@ -695,5 +705,111 @@ void main() {
         expect(feastMap.containsKey('7_4'), isFalse);
       },
     );
+
+    test(
+      'loadSaints validates that all saints have valid gender attributes',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+        expect(saints, isNotEmpty);
+
+        final validGenders = {'male', 'female', 'group'};
+        for (final saint in saints) {
+          expect(
+            saint.gender,
+            isNotNull,
+            reason: '${saint.id} should have non-null gender',
+          );
+          expect(
+            validGenders.contains(saint.gender),
+            isTrue,
+            reason:
+                '${saint.id} has invalid gender ${saint.gender}, expected male, female, or group',
+          );
+        }
+
+        final femaleSaints = saints.where((s) => s.isFemale).toList();
+        final maleSaints = saints.where((s) => s.isMale).toList();
+        final groupSaints = saints.where((s) => s.gender == 'group').toList();
+
+        expect(femaleSaints.length, 42);
+        expect(maleSaints.length, 149);
+        expect(groupSaints.length, 4);
+
+        // Verify specific prominent female saints
+        final agnes = saints.firstWhere((s) => s.id == 'agnes-of-rome');
+        expect(agnes.gender, 'female');
+        expect(agnes.isFemale, isTrue);
+
+        final therese = saints.firstWhere((s) => s.id == 'therese-of-lisieux');
+        expect(therese.gender, 'female');
+        expect(therese.isFemale, isTrue);
+
+        // Verify specific group saints
+        final vietnamese = saints.firstWhere(
+          (s) => s.id == 'vietnamese-martyrs',
+        );
+        expect(vietnamese.gender, 'group');
+        expect(vietnamese.isMale, isFalse);
+        expect(vietnamese.isFemale, isFalse);
+      },
+    );
+
+    test('searchSaints filters by gender and combined criteria', () async {
+      final saints = await SaintDatabase.loadSaints();
+
+      // 1. Male saints filter
+      final men = SaintDatabase.searchSaints(saints, gender: 'male');
+      expect(men.length, 149);
+      expect(men.every((s) => s.isMale), isTrue);
+
+      // 2. Female saints filter
+      final women = SaintDatabase.searchSaints(saints, gender: 'female');
+      expect(women.length, 42);
+      expect(women.every((s) => s.isFemale), isTrue);
+
+      // 3. Female Doctors of the Church (4 total)
+      final femaleDoctors = SaintDatabase.searchSaints(
+        saints,
+        gender: 'female',
+        doctorsOnly: true,
+      );
+      expect(femaleDoctors.length, 4);
+      expect(femaleDoctors.every((s) => s.isDoctor && s.isFemale), isTrue);
+      expect(femaleDoctors.map((s) => s.id).toSet(), {
+        'catherine-of-siena',
+        'hildegard-of-bingen',
+        'teresa-of-avila',
+        'therese-of-lisieux',
+      });
+
+      // 4. Male Doctors of the Church (33 total)
+      final maleDoctors = SaintDatabase.searchSaints(
+        saints,
+        gender: 'male',
+        doctorsOnly: true,
+      );
+      expect(maleDoctors.length, 33);
+      expect(maleDoctors.every((s) => s.isDoctor && s.isMale), isTrue);
+
+      // 5. Keyword search matching gender terms
+      final womenKeywords = SaintDatabase.searchSaints(saints, query: 'women');
+      expect(womenKeywords.length, greaterThanOrEqualTo(42));
+      expect(womenKeywords.any((s) => s.id == 'agnes-of-rome'), isTrue);
+
+      final menKeywords = SaintDatabase.searchSaints(saints, query: 'men');
+      expect(menKeywords.length, greaterThanOrEqualTo(149));
+      expect(menKeywords.any((s) => s.id == 'thomas-aquinas'), isTrue);
+
+      // 6. Search with gender + query
+      final frenchWomen = SaintDatabase.searchSaints(
+        saints,
+        query: 'French',
+        gender: 'female',
+      );
+      expect(frenchWomen.isNotEmpty, isTrue);
+      expect(frenchWomen.every((s) => s.isFemale), isTrue);
+      expect(frenchWomen.any((s) => s.id == 'joan-of-arc'), isTrue);
+      expect(frenchWomen.any((s) => s.id == 'therese-of-lisieux'), isTrue);
+    });
   });
 }

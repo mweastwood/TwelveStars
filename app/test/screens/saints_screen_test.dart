@@ -22,6 +22,7 @@ void main() {
       feastDay: 'January 28',
       patronage: 'Students, Academics, Theologians',
       summary: 'Angelic Doctor of the Church, author of Summa Theologiae.',
+      gender: 'male',
     ),
     const Saint(
       id: 'francis-of-assisi',
@@ -34,6 +35,7 @@ void main() {
       feastDay: 'October 4',
       patronage: 'Animals, Ecology, Peace',
       summary: 'Founder of Franciscan Orders, received the stigmata.',
+      gender: 'male',
     ),
     const Saint(
       id: 'therese-of-lisieux',
@@ -46,6 +48,7 @@ void main() {
       feastDay: 'October 1',
       patronage: 'Missions, Florists',
       summary: 'Doctor of the Church known for the Little Way.',
+      gender: 'female',
     ),
   ];
 
@@ -76,7 +79,7 @@ void main() {
 
   group('SaintsScreen Widget Tests', () {
     testWidgets(
-      'Renders SaintsScreen with search bar, doctor filter, and saint tiles',
+      'Renders SaintsScreen with search bar, doctor and gender filters, and saint tiles',
       (tester) async {
         await tester.pumpWidget(
           buildTestableWidget(child: const SaintsScreen()),
@@ -86,6 +89,8 @@ void main() {
         expect(find.text('Saint Database'), findsOneWidget);
         expect(find.byKey(const Key('saints_search_field')), findsOneWidget);
         expect(find.byKey(const Key('doctor_filter_chip')), findsOneWidget);
+        expect(find.byKey(const Key('men_filter_chip')), findsOneWidget);
+        expect(find.byKey(const Key('women_filter_chip')), findsOneWidget);
         expect(find.text('3 saints'), findsOneWidget);
 
         expect(
@@ -178,6 +183,50 @@ void main() {
       expect(find.text('2 saints'), findsOneWidget);
     });
 
+    testWidgets('Filters by Men and Women gender chips', (tester) async {
+      await tester.pumpWidget(buildTestableWidget(child: const SaintsScreen()));
+      await tester.pumpAndSettle();
+
+      // Tap Men filter
+      await tester.tap(find.byKey(const Key('men_filter_chip')));
+      await tester.pumpAndSettle();
+
+      expect(
+        find.byKey(const Key('saint_tile_thomas-aquinas')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const Key('saint_tile_francis-of-assisi')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const Key('saint_tile_therese-of-lisieux')),
+        findsNothing,
+      );
+      expect(find.text('2 saints'), findsOneWidget);
+
+      // Tap Women filter (switches selection)
+      await tester.tap(find.byKey(const Key('women_filter_chip')));
+      await tester.pumpAndSettle();
+
+      expect(
+        find.byKey(const Key('saint_tile_therese-of-lisieux')),
+        findsOneWidget,
+      );
+      expect(find.byKey(const Key('saint_tile_thomas-aquinas')), findsNothing);
+      expect(
+        find.byKey(const Key('saint_tile_francis-of-assisi')),
+        findsNothing,
+      );
+      expect(find.text('1 saint'), findsOneWidget);
+
+      // Untap Women filter (clears selection)
+      await tester.tap(find.byKey(const Key('women_filter_chip')));
+      await tester.pumpAndSettle();
+
+      expect(find.text('3 saints'), findsOneWidget);
+    });
+
     testWidgets(
       'Displays empty state and reset button when search yields no results',
       (tester) async {
@@ -206,7 +255,7 @@ void main() {
     );
 
     testWidgets(
-      'Tapping a saint tile opens bottom sheet with complete details',
+      'Tapping a saint tile opens bottom sheet with complete details including gender',
       (tester) async {
         await tester.pumpWidget(
           buildTestableWidget(child: const SaintsScreen()),
@@ -220,6 +269,8 @@ void main() {
         expect(find.text('Doctor'), findsOneWidget);
         expect(find.text('1225 – 1274'), findsWidgets);
         expect(find.text('January 28'), findsOneWidget);
+        expect(find.text('Gender: '), findsOneWidget);
+        expect(find.text('Male'), findsOneWidget);
         expect(find.text('Italian'), findsOneWidget);
         expect(find.text('Dominican Friar & Theologian'), findsOneWidget);
         expect(find.text('Students, Academics, Theologians'), findsOneWidget);

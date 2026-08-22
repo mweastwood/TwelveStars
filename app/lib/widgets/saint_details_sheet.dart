@@ -123,6 +123,22 @@ class SaintDetailsSheet extends StatelessWidget {
                 const SizedBox(height: 12),
               ],
 
+              if (saint.gender != null && saint.gender!.isNotEmpty) ...[
+                _buildInfoRow(
+                  context,
+                  icon: Icons.person_outline,
+                  label: 'Gender',
+                  value: saint.gender == 'male'
+                      ? 'Male'
+                      : saint.gender == 'female'
+                      ? 'Female'
+                      : saint.gender == 'group'
+                      ? 'Group'
+                      : saint.gender!,
+                ),
+                const SizedBox(height: 12),
+              ],
+
               _buildInfoRow(
                 context,
                 icon: Icons.public_outlined,
