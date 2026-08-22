@@ -1,3 +1,4 @@
+import 'package:drift/drift.dart' hide isNull, isNotNull;
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -38,6 +39,173 @@ void main() {
       );
 
       await screenMatchesGolden(tester, 'library_tab_catalog_golden');
+    });
+
+    testGoldens('LibraryTab renders continue reading hero card correctly', (
+      tester,
+    ) async {
+      await testDb.saveBookReadingPosition(
+        bookId: 'didache_lightfoot',
+        sectionIndex: 2,
+        sectionId: 'ch3',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/didache_lightfoot.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        const Scaffold(body: LibraryTab()),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(
+        tester,
+        'library_tab_continue_reading_hero_golden',
+      );
+    });
+
+    testGoldens('LibraryTab renders category filter state correctly', (
+      tester,
+    ) async {
+      await tester.pumpWidgetBuilder(
+        const Scaffold(body: LibraryTab()),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.widgetWithText(FilterChip, 'Apostolic Fathers'));
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'library_tab_category_filter_golden');
+    });
+
+    testGoldens('LibraryTab renders volume picker modal sheet correctly', (
+      tester,
+    ) async {
+      await tester.pumpWidgetBuilder(
+        const Scaffold(body: LibraryTab()),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      final browseBtn = find.widgetWithText(TextButton, 'Browse All ▾').first;
+      await tester.tap(browseBtn);
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(
+        tester,
+        'library_tab_volume_picker_modal_golden',
+      );
+    });
+
+    testGoldens('LibraryTab renders global search results correctly', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/didache_lightfoot.json',
+        );
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/first_clement_lightfoot.json',
+        );
+      });
+
+      await tester.pumpWidgetBuilder(
+        const Scaffold(body: LibraryTab()),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      final searchField = find.byType(TextField).first;
+      await tester.runAsync(() async {
+        await tester.enterText(searchField, 'Baptism');
+        await Future<void>.delayed(const Duration(milliseconds: 1000));
+      });
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'library_tab_search_results_golden');
+    });
+
+    testGoldens('LibraryTab renders favorites tab correctly', (tester) async {
+      await testDb.saveLibraryBookmark(
+        LibraryBookmarksCompanion.insert(
+          documentId: 'didache_lightfoot',
+          sectionIndex: 0,
+          nodeId: 'ch1_0',
+          textPreview:
+              'The Didache, Chapter 1\nThere are two ways, one of life and one of death...',
+          createdAt: DateTime.now(),
+        ),
+      );
+      await testDb.saveLibraryBookmark(
+        LibraryBookmarksCompanion.insert(
+          documentId: 'first_clement_lightfoot',
+          sectionIndex: 0,
+          nodeId: 'ch1_0',
+          textPreview:
+              'First Clement, Chapter 1\nThe Church of God which sojourneth at Rome...',
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidgetBuilder(
+        const Scaffold(body: LibraryTab()),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Favorites'));
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'library_tab_favorites_tab_golden');
+    });
+
+    testGoldens('LibraryTab renders comments tab correctly', (tester) async {
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'didache_lightfoot',
+          sectionIndex: 0,
+          nodeId: 'ch1_0',
+          commentText: 'Insight on the two ways in early Christian teaching',
+          textPreview: const Value(
+            'There are two ways, one of life and one of death',
+          ),
+          createdAt: DateTime.now(),
+        ),
+      );
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'baltimore_catechism',
+          sectionIndex: 0,
+          nodeId: 'no1:lesson_01_1',
+          commentText: 'Explanation of the end of man',
+          textPreview: const Value('Who made the world? God made the world.'),
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidgetBuilder(
+        const Scaffold(body: LibraryTab()),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Comments'));
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(tester, 'library_tab_comments_tab_golden');
     });
 
     testWidgets('renders catalog header and book cards', (tester) async {
@@ -1090,6 +1258,245 @@ void main() {
 
       expect(find.text('No comments on library books yet.'), findsOneWidget);
     });
+
+    testWidgets('category filter chips filter books correctly', (tester) async {
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      // Initially All is selected and all categories are present
+      expect(find.widgetWithText(FilterChip, 'All'), findsOneWidget);
+      expect(find.widgetWithText(FilterChip, 'Catechisms'), findsOneWidget);
+      expect(
+        find.widgetWithText(FilterChip, 'Apostolic Fathers'),
+        findsOneWidget,
+      );
+      expect(find.widgetWithText(FilterChip, 'Church Fathers'), findsOneWidget);
+      expect(
+        find.widgetWithText(FilterChip, 'Early Apologists'),
+        findsOneWidget,
+      );
+
+      expect(find.text('Baltimore Catechism'), findsOneWidget);
+      expect(find.text('The Didache'), findsOneWidget);
+
+      // Select 'Apostolic Fathers'
+      await tester.tap(find.widgetWithText(FilterChip, 'Apostolic Fathers'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Baltimore Catechism'), findsNothing);
+      expect(find.text('The Didache'), findsOneWidget);
+      expect(find.text('First Epistle of Clement'), findsOneWidget);
+      expect(find.text('Epistles of St. Ignatius'), findsOneWidget);
+
+      // Select 'Catechisms'
+      await tester.tap(find.widgetWithText(FilterChip, 'Catechisms'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Baltimore Catechism'), findsOneWidget);
+      expect(find.text('Catechism of the Council of Trent'), findsOneWidget);
+      expect(find.text('The Didache'), findsNothing);
+
+      // Select 'All'
+      await tester.tap(find.widgetWithText(FilterChip, 'All'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Baltimore Catechism'), findsOneWidget);
+      expect(find.text('The Didache'), findsOneWidget);
+    });
+
+    testWidgets('renders continue reading hero card and resumes reading', (
+      tester,
+    ) async {
+      await testDb.saveBookReadingPosition(
+        bookId: 'didache_lightfoot',
+        sectionIndex: 2,
+        sectionId: 'ch3',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/didache_lightfoot.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('CONTINUE READING'), findsOneWidget);
+      expect(find.text('The Didache'), findsWidgets);
+      expect(find.text('Resume'), findsOneWidget);
+
+      await tester.tap(find.text('Resume'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('The Didache'), findsWidgets);
+    });
+
+    testWidgets('renders era badges and volume counts on book cards', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('1885 AD'), findsWidgets);
+      expect(find.text('c. 96 AD'), findsWidgets);
+      expect(find.text('1566 AD'), findsWidgets);
+      expect(find.text('4 Volumes'), findsWidgets);
+      expect(find.text('22 Volumes'), findsWidgets);
+    });
+
+    testWidgets('tapping Browse All opens volume picker modal sheet', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/baltimore_2.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final browseBtn = find.widgetWithText(TextButton, 'Browse All ▾').first;
+      await tester.tap(browseBtn);
+      await tester.pumpAndSettle();
+
+      // Modal sheet should display all volumes
+      expect(find.text('Select from 4 volumes'), findsOneWidget);
+      expect(find.text('No. 2 (Confirmation & Grammar)'), findsWidgets);
+
+      // Tap volume 2 in modal
+      await tester.tap(find.text('No. 2 (Confirmation & Grammar)').last);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('Baltimore Catechism'), findsWidgets);
+    });
+
+    testWidgets('global search groups results by book with match counts', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/didache_lightfoot.json',
+        );
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/first_clement_lightfoot.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final searchField = find.byType(TextField).first;
+      await tester.runAsync(() async {
+        await tester.enterText(searchField, 'Baptism');
+        await Future<void>.delayed(const Duration(milliseconds: 1000));
+      });
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+
+      expect(find.text('SEARCH RESULTS'), findsOneWidget);
+      expect(find.textContaining('match'), findsWidgets);
+    });
+
+    testWidgets('favorites tab filters bookmarks by book', (tester) async {
+      await testDb.saveLibraryBookmark(
+        LibraryBookmarksCompanion.insert(
+          documentId: 'didache_lightfoot',
+          sectionIndex: 0,
+          nodeId: 'ch1_0',
+          textPreview: 'The Didache, Chapter 1\nThere are two ways...',
+          createdAt: DateTime.now(),
+        ),
+      );
+      await testDb.saveLibraryBookmark(
+        LibraryBookmarksCompanion.insert(
+          documentId: 'first_clement_lightfoot',
+          sectionIndex: 0,
+          nodeId: 'ch1_0',
+          textPreview: 'First Clement, Chapter 1\nThe Church of God...',
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Favorites'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('All (2)'), findsOneWidget);
+      expect(find.text('The Didache, Chapter 1'), findsOneWidget);
+      expect(find.text('First Clement, Chapter 1'), findsOneWidget);
+
+      // Filter to Didache
+      await tester.tap(find.widgetWithText(FilterChip, 'The Didache (1)'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('The Didache, Chapter 1'), findsOneWidget);
+      expect(find.text('First Clement, Chapter 1'), findsNothing);
+
+      // Return to All
+      await tester.tap(find.widgetWithText(FilterChip, 'All (2)'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('The Didache, Chapter 1'), findsOneWidget);
+      expect(find.text('First Clement, Chapter 1'), findsOneWidget);
+    });
+
+    testWidgets('comments tab filters comments by book', (tester) async {
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'didache_lightfoot',
+          sectionIndex: 0,
+          nodeId: 'ch1_0',
+          commentText: 'Note on Didache',
+          createdAt: DateTime.now(),
+        ),
+      );
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'baltimore_catechism',
+          sectionIndex: 0,
+          nodeId: 'no1:lesson_01_1',
+          commentText: 'Note on Baltimore',
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Comments'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('All (2)'), findsOneWidget);
+      expect(find.text('Note on Didache'), findsOneWidget);
+      expect(find.text('Note on Baltimore'), findsOneWidget);
+
+      // Filter to Didache
+      await tester.tap(find.widgetWithText(FilterChip, 'The Didache (1)'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Note on Didache'), findsOneWidget);
+      expect(find.text('Note on Baltimore'), findsNothing);
+    });
   });
 
   group('LibraryReaderScreen Widget Tests', () {
@@ -1948,7 +2355,7 @@ void main() {
       expect(find.text('Section 1 of 8'), findsOneWidget);
     });
 
-    testWidgets(
+    testGoldens(
       'LibraryReaderScreen renders Aquinas Compendium of Theology (Part I)',
       (tester) async {
         final catalog = LibraryHelper.getCatalog();
@@ -1962,24 +2369,26 @@ void main() {
           );
         });
 
-        await tester.pumpWidget(
-          buildTestableWidget(
-            child: Scaffold(
-              body: LibraryReaderScreen(
-                bookItem: compendium,
-                initialVolumeKey: 'part1',
-              ),
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: compendium,
+              initialVolumeKey: 'part1',
             ),
           ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
         );
         await tester.pumpAndSettle();
 
-        expect(find.byType(LibraryReaderScreen), findsOneWidget);
-        expect(find.text('Compendium of Theology'), findsWidgets);
+        await screenMatchesGolden(
+          tester,
+          'aquinas_compendium_part1_reader_golden',
+        );
       },
     );
 
-    testWidgets(
+    testGoldens(
       'LibraryReaderScreen renders Aquinas Catechetical Instructions (The Apostles\' Creed)',
       (tester) async {
         final catalog = LibraryHelper.getCatalog();
@@ -1993,24 +2402,26 @@ void main() {
           );
         });
 
-        await tester.pumpWidget(
-          buildTestableWidget(
-            child: Scaffold(
-              body: LibraryReaderScreen(
-                bookItem: catechetical,
-                initialVolumeKey: 'creed',
-              ),
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: catechetical,
+              initialVolumeKey: 'creed',
             ),
           ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
         );
         await tester.pumpAndSettle();
 
-        expect(find.byType(LibraryReaderScreen), findsOneWidget);
-        expect(find.text('The Catechetical Instructions'), findsWidgets);
+        await screenMatchesGolden(
+          tester,
+          'aquinas_catechetical_creed_reader_golden',
+        );
       },
     );
 
-    testWidgets('LibraryReaderScreen renders True Devotion to Mary', (
+    testGoldens('LibraryReaderScreen renders True Devotion to Mary', (
       tester,
     ) async {
       final catalog = LibraryHelper.getCatalog();
@@ -2024,20 +2435,17 @@ void main() {
         );
       });
 
-      await tester.pumpWidget(
-        buildTestableWidget(
-          child: Scaffold(body: LibraryReaderScreen(bookItem: montfort)),
-        ),
+      await tester.pumpWidgetBuilder(
+        Scaffold(body: LibraryReaderScreen(bookItem: montfort)),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
       );
       await tester.pumpAndSettle();
 
-      expect(find.byType(LibraryReaderScreen), findsOneWidget);
-      expect(find.text('True Devotion to Mary'), findsWidgets);
-      expect(find.text('Chapter 1'), findsWidgets);
-      expect(find.text('Section 1 of 11'), findsOneWidget);
+      await screenMatchesGolden(tester, 'montfort_true_devotion_reader_golden');
     });
 
-    testWidgets('LibraryReaderScreen renders The Rule of St. Benedict', (
+    testGoldens('LibraryReaderScreen renders The Rule of St. Benedict', (
       tester,
     ) async {
       final catalog = LibraryHelper.getCatalog();
@@ -2049,16 +2457,14 @@ void main() {
         );
       });
 
-      await tester.pumpWidget(
-        buildTestableWidget(
-          child: Scaffold(body: LibraryReaderScreen(bookItem: benedict)),
-        ),
+      await tester.pumpWidgetBuilder(
+        Scaffold(body: LibraryReaderScreen(bookItem: benedict)),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
       );
       await tester.pumpAndSettle();
 
-      expect(find.byType(LibraryReaderScreen), findsOneWidget);
-      expect(find.text('The Rule of St. Benedict'), findsWidgets);
-      expect(find.text('Section 1 of 74'), findsOneWidget);
+      await screenMatchesGolden(tester, 'benedict_rule_reader_golden');
     });
 
     testGoldens('LibraryReaderScreen renders St. Teresa The Interior Castle', (
@@ -2085,7 +2491,7 @@ void main() {
       await screenMatchesGolden(tester, 'teresa_interior_castle_golden');
     });
 
-    testWidgets('LibraryReaderScreen renders The Imitation of Christ', (
+    testGoldens('LibraryReaderScreen renders The Imitation of Christ', (
       tester,
     ) async {
       final catalog = LibraryHelper.getCatalog();
@@ -2099,17 +2505,14 @@ void main() {
         );
       });
 
-      await tester.pumpWidget(
-        buildTestableWidget(
-          child: Scaffold(body: LibraryReaderScreen(bookItem: kempis)),
-        ),
+      await tester.pumpWidgetBuilder(
+        Scaffold(body: LibraryReaderScreen(bookItem: kempis)),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
       );
       await tester.pumpAndSettle();
 
-      expect(find.byType(LibraryReaderScreen), findsOneWidget);
-      expect(find.text('The Imitation of Christ'), findsWidgets);
-      expect(find.text('Chapter 1'), findsWidgets);
-      expect(find.text('Section 1 of 114'), findsOneWidget);
+      await screenMatchesGolden(tester, 'kempis_imitation_reader_golden');
     });
 
     testGoldens(
@@ -2359,7 +2762,91 @@ void main() {
       },
     );
 
-    testWidgets('LibraryReaderScreen renders Proslogion', (tester) async {
+    testGoldens(
+      'LibraryReaderScreen renders St. Justin Martyr Dialogue with Trypho',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final trypho = catalog.firstWhere(
+          (b) => b.id == 'justin_dialogue_trypho',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/justin_dialogue_trypho_dods.json',
+          );
+        });
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(body: LibraryReaderScreen(bookItem: trypho)),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'justin_dialogue_trypho_reader_golden',
+        );
+      },
+    );
+
+    testGoldens(
+      'LibraryReaderScreen renders St. John of the Cross Ascent of Mount Carmel',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final ascent = catalog.firstWhere(
+          (b) => b.id == 'john_cross_ascent_mount_carmel',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/john_cross_ascent_mount_carmel.json',
+          );
+        });
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(body: LibraryReaderScreen(bookItem: ascent)),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'john_cross_ascent_mount_carmel_reader_golden',
+        );
+      },
+    );
+
+    testGoldens(
+      'LibraryReaderScreen renders St. John of the Cross Dark Night of the Soul',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final darkNight = catalog.firstWhere(
+          (b) => b.id == 'john_cross_dark_night_soul',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/john_cross_dark_night_soul.json',
+          );
+        });
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(body: LibraryReaderScreen(bookItem: darkNight)),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'john_cross_dark_night_soul_reader_golden',
+        );
+      },
+    );
+
+    testGoldens('LibraryReaderScreen renders Proslogion', (tester) async {
       final catalog = LibraryHelper.getCatalog();
       final proslogion = catalog.firstWhere((b) => b.id == 'anselm_proslogion');
 
@@ -2369,19 +2856,17 @@ void main() {
         );
       });
 
-      await tester.pumpWidget(
-        buildTestableWidget(
-          child: Scaffold(body: LibraryReaderScreen(bookItem: proslogion)),
-        ),
+      await tester.pumpWidgetBuilder(
+        Scaffold(body: LibraryReaderScreen(bookItem: proslogion)),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
       );
       await tester.pumpAndSettle();
 
-      expect(find.byType(LibraryReaderScreen), findsOneWidget);
-      expect(find.text('Proslogion'), findsWidgets);
-      expect(find.text('Section 1 of 26'), findsOneWidget);
+      await screenMatchesGolden(tester, 'anselm_proslogion_reader_golden');
     });
 
-    testWidgets('LibraryReaderScreen renders Cur Deus Homo (Book I)', (
+    testGoldens('LibraryReaderScreen renders Cur Deus Homo (Book I)', (
       tester,
     ) async {
       final catalog = LibraryHelper.getCatalog();
@@ -2393,21 +2878,22 @@ void main() {
         );
       });
 
-      await tester.pumpWidget(
-        buildTestableWidget(
-          child: Scaffold(
-            body: LibraryReaderScreen(
-              bookItem: curDeus,
-              initialVolumeKey: 'book1',
-            ),
+      await tester.pumpWidgetBuilder(
+        Scaffold(
+          body: LibraryReaderScreen(
+            bookItem: curDeus,
+            initialVolumeKey: 'book1',
           ),
         ),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
       );
       await tester.pumpAndSettle();
 
-      expect(find.byType(LibraryReaderScreen), findsOneWidget);
-      expect(find.text('Cur Deus Homo'), findsWidgets);
-      expect(find.text('Section 1 of 25'), findsOneWidget);
+      await screenMatchesGolden(
+        tester,
+        'anselm_cur_deus_homo_book1_reader_golden',
+      );
     });
 
     testWidgets('LibraryReaderScreen renders Cur Deus Homo (Book II)', (
@@ -2529,7 +3015,7 @@ void main() {
       },
     );
 
-    testWidgets(
+    testGoldens(
       'LibraryReaderScreen renders Pope St. Leo the Great Tome and Sermons Vol. 1',
       (tester) async {
         final catalog = LibraryHelper.getCatalog();
@@ -2543,21 +3029,22 @@ void main() {
           );
         });
 
-        await tester.pumpWidget(
-          buildTestableWidget(
-            child: Scaffold(
-              body: LibraryReaderScreen(
-                bookItem: leo,
-                initialVolumeKey: 'tome_and_letters',
-              ),
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: leo,
+              initialVolumeKey: 'tome_and_letters',
             ),
           ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
         );
         await tester.pumpAndSettle();
 
-        expect(find.byType(LibraryReaderScreen), findsOneWidget);
-        expect(find.text('The Tome & Selected Works'), findsWidgets);
-        expect(find.text('Section 1 of 10'), findsOneWidget);
+        await screenMatchesGolden(
+          tester,
+          'leo_great_tome_and_letters_reader_golden',
+        );
       },
     );
 
@@ -2623,7 +3110,7 @@ void main() {
       },
     );
 
-    testWidgets(
+    testGoldens(
       'LibraryReaderScreen renders St. Teresa The Way of Perfection (Vol. I)',
       (tester) async {
         final catalog = LibraryHelper.getCatalog();
@@ -2637,21 +3124,22 @@ void main() {
           );
         });
 
-        await tester.pumpWidget(
-          buildTestableWidget(
-            child: Scaffold(
-              body: LibraryReaderScreen(
-                bookItem: teresa,
-                initialVolumeKey: 'part1',
-              ),
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: teresa,
+              initialVolumeKey: 'part1',
             ),
           ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
         );
         await tester.pumpAndSettle();
 
-        expect(find.byType(LibraryReaderScreen), findsOneWidget);
-        expect(find.text('The Way of Perfection'), findsWidgets);
-        expect(find.text('Section 1 of 18'), findsOneWidget);
+        await screenMatchesGolden(
+          tester,
+          'teresa_way_perfection_part1_reader_golden',
+        );
       },
     );
 
@@ -2687,7 +3175,7 @@ void main() {
       },
     );
 
-    testWidgets(
+    testGoldens(
       'LibraryReaderScreen renders St. Cyprian of Carthage On the Unity of the Church & Treatises',
       (tester) async {
         final catalog = LibraryHelper.getCatalog();
@@ -2701,24 +3189,22 @@ void main() {
           );
         });
 
-        await tester.pumpWidget(
-          buildTestableWidget(
-            child: Scaffold(
-              body: LibraryReaderScreen(
-                bookItem: cyprian,
-                initialVolumeKey: 'unity_and_lapsed',
-              ),
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: cyprian,
+              initialVolumeKey: 'unity_and_lapsed',
             ),
           ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
         );
         await tester.pumpAndSettle();
 
-        expect(find.byType(LibraryReaderScreen), findsOneWidget);
-        expect(
-          find.text('On the Unity of the Church & Treatises'),
-          findsWidgets,
+        await screenMatchesGolden(
+          tester,
+          'cyprian_unity_and_lapsed_reader_golden',
         );
-        expect(find.text('Section 1 of 63'), findsOneWidget);
       },
     );
 
@@ -2752,7 +3238,7 @@ void main() {
       );
     });
 
-    testWidgets(
+    testGoldens(
       'LibraryReaderScreen renders St. John Damascene An Exact Exposition of the Orthodox Faith',
       (tester) async {
         final catalog = LibraryHelper.getCatalog();
@@ -2766,24 +3252,22 @@ void main() {
           );
         });
 
-        await tester.pumpWidget(
-          buildTestableWidget(
-            child: Scaffold(
-              body: LibraryReaderScreen(
-                bookItem: damascene,
-                initialVolumeKey: 'book1',
-              ),
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: damascene,
+              initialVolumeKey: 'book1',
             ),
           ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
         );
         await tester.pumpAndSettle();
 
-        expect(find.byType(LibraryReaderScreen), findsOneWidget);
-        expect(
-          find.text('An Exact Exposition of the Orthodox Faith'),
-          findsWidgets,
+        await screenMatchesGolden(
+          tester,
+          'damascene_orthodox_faith_book1_reader_golden',
         );
-        expect(find.text('Section 1 of 14'), findsOneWidget);
       },
     );
 
@@ -2815,7 +3299,7 @@ void main() {
       },
     );
 
-    testWidgets(
+    testGoldens(
       'LibraryReaderScreen renders Pope St. Gregory the Great Pastoral Rule',
       (tester) async {
         final catalog = LibraryHelper.getCatalog();
@@ -2829,21 +3313,22 @@ void main() {
           );
         });
 
-        await tester.pumpWidget(
-          buildTestableWidget(
-            child: Scaffold(
-              body: LibraryReaderScreen(
-                bookItem: gregory,
-                initialVolumeKey: 'book1',
-              ),
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: gregory,
+              initialVolumeKey: 'book1',
             ),
           ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
         );
         await tester.pumpAndSettle();
 
-        expect(find.byType(LibraryReaderScreen), findsOneWidget);
-        expect(find.text('Pastoral Rule'), findsWidgets);
-        expect(find.text('Section 1 of 11'), findsOneWidget);
+        await screenMatchesGolden(
+          tester,
+          'gregory_pastoral_rule_book1_reader_golden',
+        );
       },
     );
 
@@ -2877,7 +3362,7 @@ void main() {
       },
     );
 
-    testWidgets(
+    testGoldens(
       'LibraryReaderScreen renders St. Francis de Sales Treatise on the Love of God',
       (tester) async {
         final catalog = LibraryHelper.getCatalog();
@@ -2891,21 +3376,22 @@ void main() {
           );
         });
 
-        await tester.pumpWidget(
-          buildTestableWidget(
-            child: Scaffold(
-              body: LibraryReaderScreen(
-                bookItem: loveOfGod,
-                initialVolumeKey: 'vol1',
-              ),
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: LibraryReaderScreen(
+              bookItem: loveOfGod,
+              initialVolumeKey: 'vol1',
             ),
           ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
         );
         await tester.pumpAndSettle();
 
-        expect(find.byType(LibraryReaderScreen), findsOneWidget);
-        expect(find.text('Treatise on the Love of God'), findsWidgets);
-        expect(find.text('Section 1 of 66'), findsOneWidget);
+        await screenMatchesGolden(
+          tester,
+          'sales_love_of_god_vol1_reader_golden',
+        );
       },
     );
   });
