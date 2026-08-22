@@ -591,6 +591,7 @@ void main() {
           sourceAssetPath:
               'assets/catechism/json/augustine_confessions_book1.json',
           sourceBookTitle: 'The Confessions',
+          sourceAuthor: 'St. Augustine of Hippo',
           sectionId: 'book1_ch1',
           sectionTitle: 'Book I, Chapter 1',
           itemIndex: 0,
@@ -630,6 +631,7 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(find.text('Library References to Psalms 144:3'), findsOneWidget);
+        expect(find.text('By St. Augustine of Hippo'), findsOneWidget);
         expect(find.text('Book I, Chapter 1'), findsOneWidget);
         expect(
           find.text(

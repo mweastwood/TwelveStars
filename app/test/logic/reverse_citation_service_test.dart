@@ -30,6 +30,7 @@ void main() {
           gen3v15Citations.every((rc) => rc.sourceAssetPath.isNotEmpty),
           true,
         );
+        expect(gen3v15Citations.any((rc) => rc.sourceAuthor.isNotEmpty), true);
 
         // Verify that chapter citations query works without throwing
         final gen1ChapterCitations = ReverseCitationService.getChapterCitations(
@@ -99,6 +100,33 @@ void main() {
       final mattCitations = ReverseCitationService.getVerseCitations(49, 5, 3);
       expect(mattCitations.length, equals(1));
       expect(mattCitations.first.sourceBookId, equals('test_range_book'));
+    });
+
+    test('populates sourceAuthor on ReverseCitation during indexing', () {
+      final bookData = ParsedBookData(
+        bookId: 'test_author_book',
+        title: 'Author Book',
+        subtitle: 'A Work of Theology',
+        author: 'St. Augustine of Hippo',
+        toc: [],
+        sections: [
+          BookSection(
+            id: 's1',
+            title: 'Section 1',
+            subtitle: '',
+            content: [
+              ContentItem(type: 'text', text: 'As written in John 3:16.'),
+            ],
+          ),
+        ],
+      );
+
+      ReverseCitationService.indexBookData('author_source', bookData);
+
+      final citations = ReverseCitationService.getVerseCitations(52, 3, 16);
+      expect(citations, isNotEmpty);
+      expect(citations.first.sourceAuthor, equals('St. Augustine of Hippo'));
+      expect(citations.first.sourceBookTitle, equals('Author Book'));
     });
 
     test('indexes and retrieves whole chapter citations correctly', () {
