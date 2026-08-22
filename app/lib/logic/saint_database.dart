@@ -68,11 +68,12 @@ class SaintDatabase {
     return saints;
   }
 
-  /// Filters saints according to search query keywords and doctor status.
+  /// Filters saints according to search query keywords, doctor status, and gender.
   static List<Saint> searchSaints(
     List<Saint> saints, {
     String query = '',
     bool doctorsOnly = false,
+    String? gender,
   }) {
     final trimmed = query.trim().toLowerCase();
     final words = trimmed
@@ -82,6 +83,9 @@ class SaintDatabase {
 
     return saints.where((saint) {
       if (doctorsOnly && !saint.isDoctor) {
+        return false;
+      }
+      if (gender != null && gender.isNotEmpty && saint.gender != gender) {
         return false;
       }
       if (words.isEmpty) {
@@ -95,9 +99,19 @@ class SaintDatabase {
       final summary = (saint.summary ?? '').toLowerCase();
       final feastDay = (saint.feastDay ?? '').toLowerCase();
       final dates = saint.dateRange.toLowerCase();
+      final saintGender = (saint.gender ?? '').toLowerCase();
 
       return words.every((word) {
-        return name.contains(word) ||
+        final matchesGenderWord =
+            (saintGender == 'male' &&
+                (word == 'male' || word == 'men' || word == 'man')) ||
+            (saintGender == 'female' &&
+                (word == 'female' || word == 'women' || word == 'woman')) ||
+            (saintGender == 'group' &&
+                (word == 'group' || word == 'groups' || word == 'companions'));
+
+        return matchesGenderWord ||
+            name.contains(word) ||
             nationality.contains(word) ||
             profession.contains(word) ||
             patronage.contains(word) ||
