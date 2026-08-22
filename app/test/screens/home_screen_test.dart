@@ -820,6 +820,8 @@ void main() {
       await tester.enterText(find.byType(TextField), 'nonexistentprayer');
       await tester.pumpAndSettle();
       await screenMatchesGolden(tester, 'home_screen_search_empty_golden');
+      await tester.tap(find.byIcon(Icons.arrow_back));
+      await tester.pumpAndSettle();
     });
 
     testWidgets('HomeScreen opens font size options modal and adjusts slider', (
@@ -841,6 +843,42 @@ void main() {
       expect(find.text('Reading Options'), findsOneWidget);
       expect(find.text('Font Size: 16 pt'), findsOneWidget);
       expect(find.byType(Slider), findsOneWidget);
+
+      // Close modal
+      Navigator.of(tester.element(find.text('Reading Options'))).pop();
+      await tester.pumpAndSettle();
     });
+
+    testGoldens(
+      'widescreen layout renders NavigationRail and double-column prayer masonry list',
+      (tester) async {
+        TimeHelper.setCustomTime(DateTime(2026, 7, 6));
+        await tester.pumpWidgetBuilder(
+          HomeScreen(initialDate: DateTime(2026, 7, 6)),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(1024, 768),
+        );
+        await tester.pump();
+        await tester.pumpAndSettle();
+
+        // On widescreen (width >= 600):
+        // 1. NavigationRail should be present, NavigationBar at bottom should not be present
+        expect(find.byType(NavigationRail), findsOneWidget);
+        expect(find.byType(NavigationBar), findsNothing);
+
+        // 2. Double column prayer list should be present
+        expect(find.text('Our Father'), findsOneWidget);
+        expect(find.text('Hail Mary', skipOffstage: false), findsOneWidget);
+
+        // 3. NavigationRail navigation works
+        await tester.tap(find.text('Missal').last);
+        await tester.pumpAndSettle();
+        expect(find.text('Mass Missal'), findsOneWidget);
+
+        await tester.tap(find.text('Prayers').last);
+        await tester.pumpAndSettle();
+        expect(find.text('Our Father'), findsOneWidget);
+      },
+    );
   });
 }
