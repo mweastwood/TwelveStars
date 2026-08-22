@@ -618,6 +618,18 @@ void parseChapteredBookFile({
         stripped.startsWith('Vita Antonii') ||
         stripped.startsWith('St. Athanasius of Alexandria') ||
         stripped.startsWith('By St. Athanasius') ||
+        stripped.startsWith('On the Unity of the Church') ||
+        stripped.startsWith('De Catholicae Ecclesiae Unitate') ||
+        stripped.startsWith('On the Lapsed') ||
+        stripped.startsWith('De Lapsis') ||
+        stripped.startsWith("On the Lord's Prayer") ||
+        stripped.startsWith('De Dominica Oratione') ||
+        stripped.startsWith('On the Mortality') ||
+        stripped.startsWith('De Mortalitate') ||
+        stripped.startsWith('On Works and Alms') ||
+        stripped.startsWith('De Opere et Eleemosynis') ||
+        stripped.startsWith('St. Cyprian of Carthage') ||
+        stripped.startsWith('By St. Cyprian') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -1474,6 +1486,27 @@ void main() {
     subtitle:
         'Sermons on the Mysteries of Christ & Epistles on Church Unity (Trans. Charles Feltoe, 1894)',
     author: 'Pope St. Leo the Great (Trans. Charles Feltoe)',
+    outputDir: outputDir,
+  );
+
+  final cyprianDir = p.join('assets', 'catechism', 'cyprian_carthage');
+  parseChapteredBookFile(
+    filepath: p.join(cyprianDir, 'cyprian_unity_and_lapsed.txt'),
+    bookId: 'cyprian_unity_and_lapsed',
+    secIdPrefix: 'cyprian_unity_lapsed',
+    title: 'On the Unity of the Church & The Lapsed',
+    subtitle: 'Treatises I & III (Trans. Robert Ernest Wallis, 1886)',
+    author: 'St. Cyprian of Carthage (Trans. Robert Ernest Wallis)',
+    outputDir: outputDir,
+  );
+
+  parseChapteredBookFile(
+    filepath: p.join(cyprianDir, 'cyprian_prayer_and_treatises.txt'),
+    bookId: 'cyprian_prayer_and_treatises',
+    secIdPrefix: 'cyprian_prayer_treatises',
+    title: 'On the Lord\'s Prayer & Christian Life',
+    subtitle: 'Treatises IV, VII & VIII (Trans. Robert Ernest Wallis, 1886)',
+    author: 'St. Cyprian of Carthage (Trans. Robert Ernest Wallis)',
     outputDir: outputDir,
   );
 }

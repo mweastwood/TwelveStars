@@ -79,6 +79,10 @@ void main() {
       expect(find.text('The Imitation of Christ'), findsOneWidget);
       expect(find.text("The Mind's Road to God"), findsOneWidget);
       expect(find.text('The Tome & Selected Works'), findsOneWidget);
+      expect(
+        find.text('On the Unity of the Church & Treatises'),
+        findsOneWidget,
+      );
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -157,6 +161,16 @@ void main() {
       expect(find.text('Part I (First Desire for Devotion)'), findsOneWidget);
       expect(
         find.text('Part V (Renewing the Soul in Devotion)'),
+        findsOneWidget,
+      );
+
+      // Verify Cyprian volume chips exist
+      expect(
+        find.text('Vol. I: On the Unity of the Church & The Lapsed'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('Vol. II: On the Lord\'s Prayer & Christian Life'),
         findsOneWidget,
       );
     });
@@ -2650,6 +2664,41 @@ void main() {
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
         expect(find.text('The Way of Perfection'), findsWidgets);
         expect(find.text('Section 1 of 24'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen renders St. Cyprian of Carthage On the Unity of the Church & Treatises',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final cyprian = catalog.firstWhere(
+          (b) => b.id == 'cyprian_unity_of_church',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/cyprian_unity_and_lapsed.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryReaderScreen(
+                bookItem: cyprian,
+                initialVolumeKey: 'unity_and_lapsed',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(
+          find.text('On the Unity of the Church & Treatises'),
+          findsWidgets,
+        );
+        expect(find.text('Section 1 of 63'), findsOneWidget);
       },
     );
   });

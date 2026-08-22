@@ -448,5 +448,25 @@ void main() {
         );
       },
     );
+
+    test(
+      'indexes St. Cyprian of Carthage On the Unity of the Church & Treatises',
+      () async {
+        await ReverseCitationService.ensureIndexed();
+
+        final cyprianPaths = [
+          'assets/catechism/json/cyprian_unity_and_lapsed.json',
+          'assets/catechism/json/cyprian_prayer_and_treatises.json',
+        ];
+
+        for (final path in cyprianPaths) {
+          expect(
+            ReverseCitationService.catalogPaths.contains(path),
+            isTrue,
+            reason: '$path should be registered in catalogPaths',
+          );
+        }
+      },
+    );
   });
 }
