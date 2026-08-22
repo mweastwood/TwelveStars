@@ -778,6 +778,41 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> damasceneOrthodoxFaithVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'book1',
+      name: 'Book I (The Godhead & the Trinity)',
+      shortName: 'Book I',
+      description:
+          'Chapters 1–14: On the incomprehensibility of God, divine nature and attributes, Trinity of Persons, generation of the Son, and procession of the Holy Spirit.',
+      assetPath: 'assets/catechism/json/damascene_orthodox_faith_book1.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book2',
+      name: 'Book II (Creation, Angels & Man)',
+      shortName: 'Book II',
+      description:
+          'Chapters 1–30: On creation ex nihilo, angelic hierarchy, devil and demons, visible creation, human nature (soul and body), passions, free will, and divine providence.',
+      assetPath: 'assets/catechism/json/damascene_orthodox_faith_book2.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book3',
+      name: 'Book III (Incarnation & Christology)',
+      shortName: 'Book III',
+      description:
+          'Chapters 1–29: On the Divine Economy, the Incarnation, two natures in Christ, hypostatic union, communication of idioms, two wills and operations, and the Theotokos.',
+      assetPath: 'assets/catechism/json/damascene_orthodox_faith_book3.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book4',
+      name: 'Book IV (Resurrection, Sacraments & Icons)',
+      shortName: 'Book IV',
+      description:
+          'Chapters 1–27: On the Resurrection, faith, Baptism, Holy Eucharist, Holy Cross, worship toward the East, veneration of sacred icons and relics, Scripture, and virginity.',
+      assetPath: 'assets/catechism/json/damascene_orthodox_faith_book4.json',
+    ),
+  ];
+
   static const List<BaltimoreVolume> ambroseVolumes = [
     BaltimoreVolume(
       volumeKey: 'on_the_mysteries',
@@ -1225,6 +1260,16 @@ class LibraryHelper {
         description:
             'Written in 251 AD by the Bishop and Martyr of Carthage. The foundational early patristic treatise on the unity of the Church and the Chair of Peter, together with his commentary on the Lord\'s Prayer.',
         volumes: cyprianVolumes,
+      ),
+      const LibraryBookItem(
+        id: 'john_damascene_orthodox_faith',
+        title: 'An Exact Exposition of the Orthodox Faith',
+        subtitle: 'De Fide Orthodoxa (Trans. S. D. F. Salmond, NPNF II/9)',
+        category: 'Patristics',
+        author: 'St. John Damascene (Trans. S. D. F. Salmond)',
+        description:
+            'Written in the 8th century by the last of the Eastern Fathers and Doctor of the Church. The monumental systematic summa of Christian dogma covering the Trinity, Creation, Christology, Sacraments, and Holy Icons.',
+        volumes: damasceneOrthodoxFaithVolumes,
       ),
       const LibraryBookItem(
         id: 'anselm_proslogion',

@@ -148,9 +148,10 @@ void main() {
         expect(ReverseCitationService.indexedSourcesCount, equals(0));
 
         // Index maxIndexedSources + 1 sources
-        // Psalm has 150 chapters, so Ps $i:1 is valid for all i in 1..121
         final count = ReverseCitationService.maxIndexedSources + 1;
         for (int i = 1; i <= count; i++) {
+          final ch = ((i - 1) % 150) + 1;
+          final v = ((i - 1) ~/ 150) + 1;
           final bookData = ParsedBookData(
             bookId: 'book_$i',
             title: 'Book $i',
@@ -162,7 +163,9 @@ void main() {
                 id: 's1',
                 title: 'Section 1',
                 subtitle: '',
-                content: [ContentItem(type: 'text', text: 'Citation Ps $i:1')],
+                content: [
+                  ContentItem(type: 'text', text: 'Citation Ps $ch:$v'),
+                ],
               ),
             ],
           );
@@ -180,10 +183,12 @@ void main() {
         expect(ps1Citations, isEmpty);
 
         // Newest source (source_count) remains present
+        final newestCh = ((count - 1) % 150) + 1;
+        final newestV = ((count - 1) ~/ 150) + 1;
         final psNewestCitations = ReverseCitationService.getVerseCitations(
           21,
-          count,
-          1,
+          newestCh,
+          newestV,
         );
         expect(psNewestCitations.length, equals(1));
       },
@@ -194,6 +199,8 @@ void main() {
 
       final count = ReverseCitationService.maxIndexedSources + 5;
       for (int i = 1; i <= count; i++) {
+        final ch = ((i - 1) % 150) + 1;
+        final v = ((i - 1) ~/ 150) + 1;
         final bookData = ParsedBookData(
           bookId: 'prune_book_$i',
           title: 'Prune Book $i',
@@ -205,7 +212,7 @@ void main() {
               id: 's1',
               title: 'Section 1',
               subtitle: '',
-              content: [ContentItem(type: 'text', text: 'Citation Ps $i:1')],
+              content: [ContentItem(type: 'text', text: 'Citation Ps $ch:$v')],
             ),
           ],
         );
@@ -460,6 +467,28 @@ void main() {
         ];
 
         for (final path in cyprianPaths) {
+          expect(
+            ReverseCitationService.catalogPaths.contains(path),
+            isTrue,
+            reason: '$path should be registered in catalogPaths',
+          );
+        }
+      },
+    );
+
+    test(
+      'indexes St. John Damascene An Exact Exposition of the Orthodox Faith across all 4 books',
+      () async {
+        await ReverseCitationService.ensureIndexed();
+
+        final damascenePaths = [
+          'assets/catechism/json/damascene_orthodox_faith_book1.json',
+          'assets/catechism/json/damascene_orthodox_faith_book2.json',
+          'assets/catechism/json/damascene_orthodox_faith_book3.json',
+          'assets/catechism/json/damascene_orthodox_faith_book4.json',
+        ];
+
+        for (final path in damascenePaths) {
           expect(
             ReverseCitationService.catalogPaths.contains(path),
             isTrue,

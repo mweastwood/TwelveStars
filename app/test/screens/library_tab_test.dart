@@ -83,6 +83,10 @@ void main() {
         find.text('On the Unity of the Church & Treatises'),
         findsOneWidget,
       );
+      expect(
+        find.text('An Exact Exposition of the Orthodox Faith'),
+        findsOneWidget,
+      );
 
       // Verify Baltimore Catechism volume chips exist
       expect(find.text('No. 1 (First Communion)'), findsOneWidget);
@@ -171,6 +175,13 @@ void main() {
       );
       expect(
         find.text('Vol. II: On the Lord\'s Prayer & Christian Life'),
+        findsOneWidget,
+      );
+
+      // Verify St. John Damascene volume chips exist
+      expect(find.text('Book I (The Godhead & the Trinity)'), findsOneWidget);
+      expect(
+        find.text('Book IV (Resurrection, Sacraments & Icons)'),
         findsOneWidget,
       );
     });
@@ -2699,6 +2710,71 @@ void main() {
           findsWidgets,
         );
         expect(find.text('Section 1 of 63'), findsOneWidget);
+      },
+    );
+
+    testWidgets('tapping Damascene volume chip opens LibraryReaderScreen', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/damascene_orthodox_faith_book1.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final book1Chip = find.text('Book I (The Godhead & the Trinity)');
+      await tester.scrollUntilVisible(
+        book1Chip,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(book1Chip);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(
+        find.text('An Exact Exposition of the Orthodox Faith'),
+        findsWidgets,
+      );
+    });
+
+    testWidgets(
+      'LibraryReaderScreen renders St. John Damascene An Exact Exposition of the Orthodox Faith',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final damascene = catalog.firstWhere(
+          (b) => b.id == 'john_damascene_orthodox_faith',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/damascene_orthodox_faith_book1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryReaderScreen(
+                bookItem: damascene,
+                initialVolumeKey: 'book1',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(
+          find.text('An Exact Exposition of the Orthodox Faith'),
+          findsWidgets,
+        );
+        expect(find.text('Section 1 of 14'), findsOneWidget);
       },
     );
   });
