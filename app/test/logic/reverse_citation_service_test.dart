@@ -548,6 +548,111 @@ void main() {
       },
     );
 
+    test(
+      'catalogPaths matches LibraryDatabase.getAllCatalogPaths() and includes all volumes',
+      () {
+        final dbPaths = LibraryDatabase.getAllCatalogPaths();
+        expect(ReverseCitationService.catalogPaths, equals(dbPaths));
+        expect(ReverseCitationService.catalogPaths.isNotEmpty, isTrue);
+      },
+    );
+
+    test(
+      'indexes St. Gregory of Nazianzus Five Theological Orations across all 5 volumes',
+      () async {
+        await ReverseCitationService.ensureIndexed();
+
+        final gregoryPaths = [
+          'assets/catechism/json/gregory_theological_orations_oration1.json',
+          'assets/catechism/json/gregory_theological_orations_oration2.json',
+          'assets/catechism/json/gregory_theological_orations_oration3.json',
+          'assets/catechism/json/gregory_theological_orations_oration4.json',
+          'assets/catechism/json/gregory_theological_orations_oration5.json',
+        ];
+
+        for (final path in gregoryPaths) {
+          expect(
+            ReverseCitationService.catalogPaths.contains(path),
+            isTrue,
+            reason: '$path should be registered in catalogPaths',
+          );
+        }
+      },
+    );
+
+    group(
+      'LibraryBookItem.allAssetPaths & LibraryDatabase.getAllCatalogPaths',
+      () {
+        test(
+          'returns defaultAssetPath as single element list for non-series item',
+          () {
+            const item = LibraryBookItem(
+              id: 'test_single',
+              title: 'Test Single',
+              subtitle: '',
+              category: 'Catechisms',
+              author: 'Author',
+              description: 'Desc',
+              defaultAssetPath: 'assets/catechism/json/test_single.json',
+            );
+            expect(
+              item.allAssetPaths,
+              equals(['assets/catechism/json/test_single.json']),
+            );
+          },
+        );
+
+        test('returns volume assetPaths for series item', () {
+          const item = LibraryBookItem(
+            id: 'test_series',
+            title: 'Test Series',
+            subtitle: '',
+            category: 'Catechisms',
+            author: 'Author',
+            description: 'Desc',
+            volumes: [
+              BaltimoreVolume(
+                volumeKey: 'v1',
+                name: 'Vol 1',
+                shortName: 'V1',
+                description: 'D1',
+                assetPath: 'assets/catechism/json/v1.json',
+              ),
+              BaltimoreVolume(
+                volumeKey: 'v2',
+                name: 'Vol 2',
+                shortName: 'V2',
+                description: 'D2',
+                assetPath: 'assets/catechism/json/v2.json',
+              ),
+            ],
+          );
+          expect(
+            item.allAssetPaths,
+            equals([
+              'assets/catechism/json/v1.json',
+              'assets/catechism/json/v2.json',
+            ]),
+          );
+        });
+
+        test(
+          'returns empty list when neither defaultAssetPath nor volumes is provided',
+          () {
+            const item = LibraryBookItem(
+              id: 'test_empty',
+              title: 'Test Empty',
+              subtitle: '',
+              category: 'Catechisms',
+              author: 'Author',
+              description: 'Desc',
+            );
+            expect(item.allAssetPaths, isEmpty);
+          },
+        );
+      },
+    );
+
     group('extractSentences & Contextual Windowing', () {
       test('extracts sentences while respecting abbreviations', () {
         const text =
