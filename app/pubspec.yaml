@@ -119,6 +119,7 @@ flutter:
     - assets/catechism/vincent/
     - assets/catechism/leo_great/
     - assets/catechism/cyprian_carthage/
+    - assets/catechism/john_damascene/
     - assets/catechism/json/
 
   # An image asset can refer to one or more resolution-specific "variants", see

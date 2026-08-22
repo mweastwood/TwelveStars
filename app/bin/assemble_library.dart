@@ -630,6 +630,11 @@ void parseChapteredBookFile({
         stripped.startsWith('De Opere et Eleemosynis') ||
         stripped.startsWith('St. Cyprian of Carthage') ||
         stripped.startsWith('By St. Cyprian') ||
+        stripped.startsWith('An Exact Exposition') ||
+        stripped.startsWith('De Fide Orthodoxa') ||
+        stripped.startsWith('St. John Damascene') ||
+        stripped.startsWith('St. John of Damascus') ||
+        stripped.startsWith('By St. John') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -1509,4 +1514,45 @@ void main() {
     author: 'St. Cyprian of Carthage (Trans. Robert Ernest Wallis)',
     outputDir: outputDir,
   );
+
+  final damasceneDir = p.join('assets', 'catechism', 'john_damascene');
+
+  final damasceneBooks = [
+    (
+      'book1',
+      'b1',
+      'An Exact Exposition of the Orthodox Faith: Book I',
+      'The Godhead and the Holy Trinity (Trans. S. D. F. Salmond, 1898)',
+    ),
+    (
+      'book2',
+      'b2',
+      'An Exact Exposition of the Orthodox Faith: Book II',
+      'Creation, Angels, Visible Universe, and Man (Trans. S. D. F. Salmond, 1898)',
+    ),
+    (
+      'book3',
+      'b3',
+      'An Exact Exposition of the Orthodox Faith: Book III',
+      'The Incarnation and Christology (Trans. S. D. F. Salmond, 1898)',
+    ),
+    (
+      'book4',
+      'b4',
+      'An Exact Exposition of the Orthodox Faith: Book IV',
+      'Resurrection, Faith, Sacraments, and Sacred Images (Trans. S. D. F. Salmond, 1898)',
+    ),
+  ];
+
+  for (final (slug, secPrefix, title, subtitle) in damasceneBooks) {
+    parseChapteredBookFile(
+      filepath: p.join(damasceneDir, 'damascene_orthodox_faith_$slug.txt'),
+      bookId: 'damascene_orthodox_faith_$slug',
+      secIdPrefix: 'damascene_orthodox_faith_$secPrefix',
+      title: title,
+      subtitle: subtitle,
+      author: 'St. John Damascene (Trans. S. D. F. Salmond)',
+      outputDir: outputDir,
+    );
+  }
 }
