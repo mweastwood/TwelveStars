@@ -27,6 +27,16 @@ class SaintDatabase {
     return saints;
   }
 
+  /// Looks up a Saint by [id].
+  static Future<Saint?> getSaintById(String id) async {
+    final saints = await loadSaints();
+    try {
+      return saints.firstWhere((s) => s.id == id);
+    } catch (_) {
+      return null;
+    }
+  }
+
   /// Parses JSON string into a list of Saint objects.
   static List<Saint> loadSaintsFromJson(String jsonStr) {
     if (jsonStr.isEmpty) return [];

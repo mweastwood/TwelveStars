@@ -557,5 +557,42 @@ void main() {
         expect(mackillop.any((s) => s.id == 'mary-mackillop'), isTrue);
       },
     );
+
+    test(
+      'getSaintById retrieves saint by ID or returns null if not found',
+      () async {
+        final aquinas = await SaintDatabase.getSaintById('thomas-aquinas');
+        expect(aquinas, isNotNull);
+        expect(aquinas!.id, 'thomas-aquinas');
+        expect(aquinas.name, 'St. Thomas Aquinas');
+
+        final cyprian = await SaintDatabase.getSaintById('cyprian-of-carthage');
+        expect(cyprian, isNotNull);
+        expect(cyprian!.id, 'cyprian-of-carthage');
+        expect(cyprian.name, 'St. Cyprian of Carthage');
+
+        final vincent = await SaintDatabase.getSaintById('vincent-of-lerins');
+        expect(vincent, isNotNull);
+        expect(vincent!.id, 'vincent-of-lerins');
+        expect(vincent.name, 'St. Vincent of Lérins');
+
+        final montfort = await SaintDatabase.getSaintById(
+          'louis-marie-de-montfort',
+        );
+        expect(montfort, isNotNull);
+        expect(montfort!.id, 'louis-marie-de-montfort');
+        expect(montfort.name, 'St. Louis-Marie de Montfort');
+
+        final piusV = await SaintDatabase.getSaintById('pius-v');
+        expect(piusV, isNotNull);
+        expect(piusV!.id, 'pius-v');
+        expect(piusV.name, contains('Pius V'));
+
+        final nonExistent = await SaintDatabase.getSaintById(
+          'unknown-saint-id',
+        );
+        expect(nonExistent, isNull);
+      },
+    );
   });
 }

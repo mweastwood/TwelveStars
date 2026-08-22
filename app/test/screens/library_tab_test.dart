@@ -5,9 +5,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/screens/library_tab.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
+import 'package:twelve_stars/widgets/saint_details_sheet.dart';
 import '../test_helper.dart';
 
 void main() {
@@ -207,6 +209,38 @@ void main() {
 
       await screenMatchesGolden(tester, 'library_tab_comments_tab_golden');
     });
+
+    testGoldens(
+      'LibraryTab renders saint details sheet when author is tapped',
+      (tester) async {
+        await tester.runAsync(() async {
+          await SaintDatabase.loadSaints();
+        });
+
+        await tester.pumpWidgetBuilder(
+          const Scaffold(body: LibraryTab()),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        final authorFinder = find.text(
+          'By Pope St. Clement of Rome (Trans. J. B. Lightfoot)',
+        );
+        await tester.scrollUntilVisible(
+          authorFinder,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(authorFinder);
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'library_tab_saint_details_sheet_golden',
+        );
+      },
+    );
 
     testWidgets('renders catalog header and book cards', (tester) async {
       await tester.pumpWidget(
@@ -3392,6 +3426,63 @@ void main() {
           tester,
           'sales_love_of_god_vol1_reader_golden',
         );
+      },
+    );
+
+    testWidgets(
+      'tapping author of book with authorSaintId opens SaintDetailsSheet',
+      (tester) async {
+        await tester.runAsync(() async {
+          await SaintDatabase.loadSaints();
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final authorFinder = find.text(
+          'By Pope St. Clement of Rome (Trans. J. B. Lightfoot)',
+        );
+        await tester.scrollUntilVisible(
+          authorFinder,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(authorFinder);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(SaintDetailsSheet), findsOneWidget);
+        expect(find.text('St. Clement of Rome'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'tapping Doctor of Church author opens SaintDetailsSheet with Doctor badge',
+      (tester) async {
+        await tester.runAsync(() async {
+          await SaintDatabase.loadSaints();
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final authorFinder = find.text(
+          'By St. Thomas Aquinas (Trans. Cyril Vollert)',
+        );
+        await tester.scrollUntilVisible(
+          authorFinder,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(authorFinder);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(SaintDetailsSheet), findsOneWidget);
+        expect(find.text('St. Thomas Aquinas'), findsWidgets);
+        expect(find.text('Doctor'), findsOneWidget);
       },
     );
   });
