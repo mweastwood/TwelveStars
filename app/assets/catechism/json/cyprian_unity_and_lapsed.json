@@ -1,0 +1,1956 @@
+{
+  "bookId": "cyprian_unity_and_lapsed",
+  "title": "On the Unity of the Church & The Lapsed",
+  "subtitle": "Treatises I & III (Trans. Robert Ernest Wallis, 1886)",
+  "author": "St. Cyprian of Carthage (Trans. Robert Ernest Wallis)",
+  "verseSystem": "vulgate",
+  "toc": [
+    {
+      "id": "sec_cyprian_unity_lapsed_1",
+      "title": "Chapter 1: An Exhortation to Constant Vigilance"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_2",
+      "title": "Chapter 2: Walking in the Footsteps of Christ"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_3",
+      "title": "Chapter 3: The Subtlety of the Enemy and the Inception of Heresies"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_4",
+      "title": "Chapter 4: The Unity of the Church Founded Upon Peter"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_5",
+      "title": "Chapter 5: The One Episcopate and the Indivisible Body"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_6",
+      "title": "Chapter 6: The Church as the Bride and Mother of Christians"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_7",
+      "title": "Chapter 7: The Seamless Tunic of Christ as Symbol of Unity"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_8",
+      "title": "Chapter 8: The Symbol of the Dove and Fraternal Charity"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_9",
+      "title": "Chapter 9: The Departure of False Brethren and the Danger of Schism"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_10",
+      "title": "Chapter 10: Self-Appointed Leaders and False Teachers"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_11",
+      "title": "Chapter 11: Illegitimate Altars and the Sin of Dissension"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_12",
+      "title": "Chapter 12: Where Two or Three Are Gathered in Unity"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_13",
+      "title": "Chapter 13: The Necessity of Brotherly Concord and Forgiveness in Prayer"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_14",
+      "title": "Chapter 14: Martyrdom Outside the Church Cannot Wash Away Schism"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_15",
+      "title": "Chapter 15: Spiritual Gifts and Miracles Profit Nothing Without Charity"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_16",
+      "title": "Chapter 16: Predictions of Perils and Corruptions in the Latter Times"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_17",
+      "title": "Chapter 17: Faithfulness Amidst the Apostasy of the Unstable"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_18",
+      "title": "Chapter 18: Divine Punishment of Korah, Dathan, and Abiram"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_19",
+      "title": "Chapter 19: The Severity of Sacrilege and Contempt of Unity"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_20",
+      "title": "Chapter 20: Steadfastness When Some Confessors Fall Away"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_21",
+      "title": "Chapter 21: Confession is the Beginning, Not the End, of Glory"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_22",
+      "title": "Chapter 22: The Warning of Judas and the Need for Perseverance"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_23",
+      "title": "Chapter 23: Pastoral Exhortation for the Return of Wandering Brethren"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_24",
+      "title": "Chapter 24: Scriptural Admonitions Against Communion with Schismatics"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_25",
+      "title": "Chapter 25: The Apostolic Unanimity of the Early Church"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_26",
+      "title": "Chapter 26: The Decay of Zeal, Charity, and Generosity"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_27",
+      "title": "Chapter 27: Exhortation to Watchfulness for the Lord's Return"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_28",
+      "title": "Chapter 28: Peace Restored to the Church and Joy of the Faithful"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_29",
+      "title": "Chapter 29: The Glorious Constancy of the Army of Confessors"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_30",
+      "title": "Chapter 30: The Indelible Crown of Faithfulness in Persecution"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_31",
+      "title": "Chapter 31: Pastoral Grief Over the Fall of the Lapsed"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_32",
+      "title": "Chapter 32: The Persecution as a Chastisement for Worldly Laxity"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_33",
+      "title": "Chapter 33: The Corruption of Morals Preceding the Trial"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_34",
+      "title": "Chapter 34: The Lord's Forewarnings and the Neglect of Discipline"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_35",
+      "title": "Chapter 35: The Cowardice and Voluntary Surrender of Many"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_36",
+      "title": "Chapter 36: Blindness of Those Who Sacrificed Willingly"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_37",
+      "title": "Chapter 37: Worldly Possessions and Wealth as Chains of the Soul"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_38",
+      "title": "Chapter 38: Riches Should Be Used to Redeem the Soul"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_39",
+      "title": "Chapter 39: The Pitiable State of Children Defiled by Parents' Sins"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_40",
+      "title": "Chapter 40: The Guilt of Those Who Acquired False Certificates (Libellatici)"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_41",
+      "title": "Chapter 41: No Sin Can Be Hidden from the All-Seeing God"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_42",
+      "title": "Chapter 42: The Peril of Premature and False Peace"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_43",
+      "title": "Chapter 43: Presumptuous Absolution Without Genuine Repentance"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_44",
+      "title": "Chapter 44: True Healing Requires Faithful Penitential Discipline"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_45",
+      "title": "Chapter 45: God Alone Possesses the Authority to Forgive Sins"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_46",
+      "title": "Chapter 46: The Intercession of Martyrs Cannot Contradict the Law of God"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_47",
+      "title": "Chapter 47: Martyrs Desire That God's Precepts Be Kept"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_48",
+      "title": "Chapter 48: The Necessity of Sincere Contrition Before God"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_49",
+      "title": "Chapter 49: Manifest Divine Judgments upon Sacrilegious Communicants"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_50",
+      "title": "Chapter 50: The Miracle of the Child Defiled at the Holy Table"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_51",
+      "title": "Chapter 51: Divine Chastenings of Unworthy Receivers of the Eucharist"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_52",
+      "title": "Chapter 52: Hidden Thoughts and Doubts Must Be Humbly Confessed"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_53",
+      "title": "Chapter 53: Exhortation to Immediate Confession While Life Remains"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_54",
+      "title": "Chapter 54: The Deceit of Easy Absolution Leads to Greater Ruin"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_55",
+      "title": "Chapter 55: The Practice of True and Patient Penance (Exomologesis)"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_56",
+      "title": "Chapter 56: True Mourning, Fasting, and Weeping for Sins"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_57",
+      "title": "Chapter 57: Renunciation of Worldly Luxuries and Costly Apparel"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_58",
+      "title": "Chapter 58: Fleeing from Seducers and Preachers of False Peace"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_59",
+      "title": "Chapter 59: Earnest Prayer, Sincere Humility, and Works of Mercy"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_60",
+      "title": "Chapter 60: The Abundant Mercy of God for the Penitent"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_61",
+      "title": "Chapter 61: The Joyful Restoration and Healing of Contrite Souls"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_62",
+      "title": "Chapter 62: The Crown of Glory for Those Who Persevere in Penance"
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_63",
+      "title": "Chapter 63: Conclusion: Seeking God's Mercy with Wholehearted Faith"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec_cyprian_unity_lapsed_1",
+      "title": "Chapter 1",
+      "subtitle": "An Exhortation to Constant Vigilance",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Since the Lord warns us, saying, You are the salt of the earth, Matthew 5:13 and since He bids us to be simple to harmlessness, and yet with our simplicity to be prudent, what else, beloved brethren, befits us, than to use foresight and watching with an anxious heart, both to perceive and to beware of the wiles of the crafty foe, that we, who have put on Christ the wisdom of God the Father, may not seem to be wanting in wisdom in the matter of providing for our salvation?"
+        },
+        {
+          "type": "text",
+          "text": "2. For it is not persecution alone that is to be feared; nor those things which advance by open attack to overwhelm and cast down the servants of God. Caution is more easy where danger is manifest, and the mind is prepared beforehand for the contest when the adversary avows himself."
+        },
+        {
+          "type": "text",
+          "text": "3. The enemy is more to be feared and to be guarded against, when he creeps on us secretly; when, deceiving by the appearance of peace, he steals forward by hidden approaches, whence also he has received the name of the Serpent. That is always his subtlety; that is his dark and stealthy artifice for circumventing man."
+        },
+        {
+          "type": "text",
+          "text": "4. Thus from the very beginning of the world he deceived; and flattering with lying words, he misled inexperienced souls by an incautious credulity. Thus he endeavoured to tempt the Lord Himself: he secretly approached Him, as if he would creep on Him again, and deceive; yet he was understood, and beaten back, and therefore prostrated, because he was recognised and detected."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_2",
+      "title": "Chapter 2",
+      "subtitle": "Walking in the Footsteps of Christ",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. From which an example is given us to avoid the way of the old man, to stand in the footsteps of a conquering Christ, that we may not again be incautiously turned back into the nets of death, but, foreseeing our danger, may possess the immortality that we have received."
+        },
+        {
+          "type": "text",
+          "text": "2. But how can we possess immortality, unless we keep those commands of Christ whereby death is driven out and overcome, when He Himself warns us, and says, If you will enter into life, keep the commandments? Matthew 19:17 And again: If you do the things that I command you, henceforth I call you not servants, but friends."
+        },
+        {
+          "type": "text",
+          "text": "3. John 15:14-15 Finally, these persons He calls strong and steadfast; these He declares to be founded in robust security upon the rock, established with immoveable and unshaken firmness, in opposition to all the tempests and hurricanes of the world."
+        },
+        {
+          "type": "text",
+          "text": "4. Whosoever, says He, hears my words, and does them, I will liken him unto a wise man, that built his house upon a rock: the rain descended, the floods came, the winds blew, and beat upon that house; and it fell not: for it was founded upon a rock. Matthew 7:24 We ought therefore to stand fast on His words, to learn and do whatever He both taught and did."
+        },
+        {
+          "type": "text",
+          "text": "5. But how can a man say that he believes in Christ, who does not do what Christ commanded him to do? Or whence shall he attain to the reward of faith, who will not keep the faith of the commandment?"
+        },
+        {
+          "type": "text",
+          "text": "6. He must of necessity waver and wander, and, caught away by a spirit of error, like dust which is shaken by the wind, be blown about; and he will make no advance in his walk towards salvation, because he does not keep the truth of the way of salvation."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_3",
+      "title": "Chapter 3",
+      "subtitle": "The Subtlety of the Enemy and the Inception of Heresies",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But, beloved brethren, not only must we beware of what is open and manifest, but also of what deceives by the craft of subtle fraud."
+        },
+        {
+          "type": "text",
+          "text": "2. And what can be more crafty, or what more subtle, than for this enemy, detected and cast down by the advent of Christ, after light has come to the nations, and saving rays have shone for the preservation of men, that the deaf might receive the hearing of spiritual grace, the blind might open their eyes to God, the weak might grow strong again with eternal health, the lame might run to the church, the dumb might pray with clear voices and prayers— seeing his idols forsaken, and his lanes and his temples deserted by the numerous concourse of believers— to devise a new fraud, and under the very title of the Christian name to deceive the incautious?"
+        },
+        {
+          "type": "text",
+          "text": "3. He has invented heresies and schisms, whereby he might subvert the faith, might corrupt the truth, might divide the unity. Those whom he cannot keep in the darkness of the old way, he circumvents and deceives by the error of a new way."
+        },
+        {
+          "type": "text",
+          "text": "4. He snatches men from the Church itself; and while they seem to themselves to have already approached to the light, and to have escaped the night of the world, he pours over them again, in their unconsciousness, new darkness; so that, although they do not stand firm with the Gospel of Christ, and with the observation and law of Christ, they still call themselves Christians, and, walking in darkness, they think that they have the light, while the adversary is flattering and deceiving, who, according to the apostle's word, transforms himself into an angel of light, and equips his ministers as if they were the ministers of righteousness, who maintain night instead of day, death for salvation, despair under the offer of hope, perfidy under the pretext of faith, antichrist under the name of Christ; so that, while they feign things like the truth, they make void the truth by their subtlety."
+        },
+        {
+          "type": "text",
+          "text": "5. This happens, beloved brethren, so long as we do not return to the source of truth, as we do not seek the head nor keep the teaching of the heavenly Master."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_4",
+      "title": "Chapter 4",
+      "subtitle": "The Unity of the Church Founded Upon Peter",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. If any one consider and examine these things, there is no need for lengthened discussion and arguments. There is easy proof for faith in a short summary of the truth. The Lord speaks to Peter, saying, I say unto you, that you are Peter; and upon this rock I will build my Church, and the gates of hell shall not prevail against it."
+        },
+        {
+          "type": "text",
+          "text": "2. And I will give unto you the keys of the kingdom of heaven; and whatsoever you shall bind on earth shall be bound also in heaven, and whatsoever you shall loose on earth shall be loosed in heaven. And again to the same He says, after His resurrection, Feed my sheep."
+        },
+        {
+          "type": "text",
+          "text": "3. And although to all the apostles, after His resurrection, He gives an equal power, and says, As the Father has sent me, even so send I you: Receive the Holy Ghost: Whose soever sins you remit, they shall be remitted unto him; and whose soever sins you retain, they shall be retained; John 20:21 yet, that He might set forth unity, He arranged by His authority the origin of that unity, as beginning from one."
+        },
+        {
+          "type": "text",
+          "text": "4. Assuredly the rest of the apostles were also the same as was Peter, endowed with a like partnership both of honour and power; but the beginning proceeds from unity. Which one Church, also, the Holy Spirit in the Song of Songs designated in the person of our Lord, and says, My dove, my spotless one, is but one. She is the only one of her mother, elect of her that bare her."
+        },
+        {
+          "type": "text",
+          "text": "5. Song of Songs 6:9 Does he who does not hold this unity of the Church think that he holds the faith? Does he who strives against and resists the Church trust that he is in the Church, when moreover the blessed Apostle Paul teaches the same thing, and sets forth the sacrament of unity, saying, There is one body and one spirit, one hope of your calling, one Lord, one faith, one baptism, one God?"
+        },
+        {
+          "type": "text",
+          "text": "6. Ephesians 4:4"
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_5",
+      "title": "Chapter 5",
+      "subtitle": "The One Episcopate and the Indivisible Body",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. And this unity we ought firmly to hold and assert, especially those of us that are bishops who preside in the Church, that we may also prove the episcopate itself to be one and undivided. Let no one deceive the brotherhood by a falsehood: let no one corrupt the truth of the faith by perfidious prevarication. The episcopate is one, each part of which is held by each one for the whole."
+        },
+        {
+          "type": "text",
+          "text": "2. The Church also is one, which is spread abroad far and wide into a multitude by an increase of fruitfulness."
+        },
+        {
+          "type": "text",
+          "text": "3. As there are many rays of the sun, but one light; and many branches of a tree, but one strength based in its tenacious root; and since from one spring flow many streams, although the multiplicity seems diffused in the liberality of an overflowing abundance, yet the unity is still preserved in the source."
+        },
+        {
+          "type": "text",
+          "text": "4. Separate a ray of the sun from its body of light, its unity does not allow a division of light; break a branch from a tree — when broken, it will not be able to bud; cut off the stream from its fountain, and that which is cut off dries up."
+        },
+        {
+          "type": "text",
+          "text": "5. Thus also the Church, shone over with the light of the Lord, sheds forth her rays over the whole world, yet it is one light which is everywhere diffused, nor is the unity of the body separated. Her fruitful abundance spreads her branches over the whole world."
+        },
+        {
+          "type": "text",
+          "text": "6. She broadly expands her rivers, liberally flowing, yet her head is one, her source one; and she is one mother, plentiful in the results of fruitfulness: from her womb we are born, by her milk we are nourished, by her spirit we are animated."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_6",
+      "title": "Chapter 6",
+      "subtitle": "The Church as the Bride and Mother of Christians",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The spouse of Christ cannot be adulterous; she is uncorrupted and pure. She knows one home; she guards with chaste modesty the sanctity of one couch. She keeps us for God. She appoints the sons whom she has born for the kingdom."
+        },
+        {
+          "type": "text",
+          "text": "2. Whoever is separated from the Church and is joined to an adulteress, is separated from the promises of the Church; nor can he who forsakes the Church of Christ attain to the rewards of Christ. He is a stranger; he is profane; he is an enemy. He can no longer have God for his Father, who has not the Church for his mother."
+        },
+        {
+          "type": "text",
+          "text": "3. If any one could escape who was outside the Ark of Noah, then he also may escape who shall be outside of the Church. The Lord warns, saying, He who is not with me is against me, and he who gathers not with me scatters. Matthew 12:30 He who breaks the peace and the concord of Christ, does so in opposition to Christ; he who gathers elsewhere than in the Church, scatters the Church of Christ."
+        },
+        {
+          "type": "text",
+          "text": "4. The Lord says, I and the Father are one; John 10:30 and again it is written of the Father, and of the Son, and of the Holy Spirit, And these three are one. 1 John 5:7 And does any one believe that this unity which thus comes from the divine strength and coheres in celestial sacraments, can be divided in the Church, and can be separated by the parting asunder of opposing wills?"
+        },
+        {
+          "type": "text",
+          "text": "5. He who does not hold this unity does not hold God's law, does not hold the faith of the Father and the Son, does not hold life and salvation."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_7",
+      "title": "Chapter 7",
+      "subtitle": "The Seamless Tunic of Christ as Symbol of Unity",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. This sacrament of unity, this bond of a concord inseparably cohering, is set forth where in the Gospel the coat of the Lord Jesus Christ is not at all divided nor cut, but is received as an entire garment, and is possessed as an uninjured and undivided robe by those who cast lots concerning Christ's garment, who should rather put on Christ."
+        },
+        {
+          "type": "text",
+          "text": "2. Holy Scripture speaks, saying, But of the coat, because it was not sewed, but woven from the top throughout, they said one to another, Let us not rend it, but cast lots whose it shall be."
+        },
+        {
+          "type": "text",
+          "text": "3. John 19:23-24 That coat bore with it an unity that came down from the top, that is, that came from heaven and the Father, which was not to be at all rent by the receiver and the possessor, but without separation we obtain a whole and substantial entireness. He cannot possess the garment of Christ who parts and divides the Church of Christ."
+        },
+        {
+          "type": "text",
+          "text": "4. On the other hand, again, when at Solomon's death his kingdom and people were divided, Abijah the prophet, meeting Jeroboam the king in the field, divided his garment into twelve sections, saying, Take you ten pieces; for thus says the Lord, Behold, I will rend the kingdom out of the hand of Solomon, and I will give ten sceptres unto you; and two sceptres shall be unto him for my servant David's sake, and for Jerusalem, the city which I have chosen to place my name there. 1 Kings 11:31 As the twelve tribes of Israel were divided, the prophet Abijah rent his garment."
+        },
+        {
+          "type": "text",
+          "text": "5. But because Christ's people cannot be rent, His robe, woven and united throughout, is not divided by those who possess it; undivided, united, connected, it shows the coherent concord of our people who put on Christ. By the sacrament and sign of His garment, He has declared the unity of the Church."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_8",
+      "title": "Chapter 8",
+      "subtitle": "The Symbol of the Dove and Fraternal Charity",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Who, then, is so wicked and faithless, who is so insane with the madness of discord, that either he should believe that the unity of God can be divided, or should dare to rend it — the garment of the Lord — the Church of Christ? He Himself in His Gospel warns us, and teaches, saying, And there shall be one flock and one shepherd."
+        },
+        {
+          "type": "text",
+          "text": "2. John 10:16 And does any one believe that in one place there can be either many shepherds or many flocks?"
+        },
+        {
+          "type": "text",
+          "text": "3. The Apostle Paul, moreover, urging upon us this same unity, beseeches and exhorts, saving, I beseech you, brethren, by the name of our Lord Jesus Christ, that you all speak the same thing, and that there be no schisms among you; but that you be joined together in the same mind and in the same judgment. 1 Corinthians 1:10 And again, he says, Forbearing one another in love, endeavouring to keep the unity of the Spirit in the bond of peace."
+        },
+        {
+          "type": "text",
+          "text": "4. Ephesians 4:3 Do you think that you can stand and live if you withdraw from the Church, building for yourself other homes and a different dwelling, when it is said to Rahab, in whom was prefigured the Church, Your father, and your mother, and your brethren, and all the house of your father, you shall gather unto you into your house; and it shall come to pass, whosoever shall go abroad beyond the door of your house, his blood shall be upon his own head?"
+        },
+        {
+          "type": "text",
+          "text": "5. Joshua 2:19 Also, the sacrament of the passover contains nothing else in the law of the Exodus than that the lamb which is slain in the figure of Christ should be eaten in one house. God speaks, saying, In one house shall you eat it; you shall not send its flesh abroad from the house."
+        },
+        {
+          "type": "text",
+          "text": "6. Exodus 12:46 The flesh of Christ, and the holy of the Lord, cannot be sent abroad, nor is there any other home to believers but the one Church. This home, this household of unanimity, the Holy Spirit designates and points out in the Psalms, saying, God, who makes men to dwell with one mind in a house."
+        },
+        {
+          "type": "text",
+          "text": "7. Psalm 68:6 In the house of God, in the Church of Christ, men dwell with one mind, and continue in concord and simplicity:"
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_9",
+      "title": "Chapter 9",
+      "subtitle": "The Departure of False Brethren and the Danger of Schism",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Therefore also the Holy Spirit came as a dove, a simple and joyous creature, not bitter with gall, not cruel in its bite, not violent with the rending of its claws, loving human dwellings, knowing the association of one home; when they have young, bringing forth their young together; when they fly abroad, remaining in their flights by the side of one another, spending their life in mutual intercourse, acknowledging the concord of peace with the kiss of the beak, in all things fulfilling the law of unanimity."
+        },
+        {
+          "type": "text",
+          "text": "2. This is the simplicity that ought to be known in the Church, this is the charity that ought to be attained, that so the love of the brotherhood may imitate the doves, that their gentleness and meekness may be like the lambs and sheep. What does the fierceness of wolves do in the Christian breast?"
+        },
+        {
+          "type": "text",
+          "text": "3. What the savageness of dogs, and the deadly venom of serpents, and the sanguinary cruelty of wild beasts? We are to be congratulated when such as these are separated from the Church, lest they should lay waste the doves and sheep of Christ with their cruel and envenomed contagion."
+        },
+        {
+          "type": "text",
+          "text": "4. Bitterness cannot consist and be associated with sweetness, darkness with light, rain with clearness, battle with peace, barrenness with fertility, drought with springs, storm with tranquillity. Let none think that the good can depart from the Church. The wind does not carry away the wheat, nor does the hurricane uproot the tree that is based on a solid root."
+        },
+        {
+          "type": "text",
+          "text": "5. The light straws are tossed about by the tempest, the feeble trees are overthrown by the onset of the whirlwind. The Apostle John execrates and severely assails these, when he says, They went forth from us, but they were not of us; for if they had been of us, surely they would have continued with us. 1 John 2:19"
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_10",
+      "title": "Chapter 10",
+      "subtitle": "Self-Appointed Leaders and False Teachers",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Hence heresies not only have frequently been originated, but continue to be so; while the perverted mind has no peace — while a discordant faithlessness does not maintain unity."
+        },
+        {
+          "type": "text",
+          "text": "2. But the Lord permits and suffers these things to be, while the choice of one's own liberty remains, so that while the discrimination of truth is testing our hearts and our minds, the sound faith of those that are approved may shine forth with manifest light."
+        },
+        {
+          "type": "text",
+          "text": "3. The Holy Spirit forewarns and says by the apostle, It is needful also that there should be heresies, that they which are approved may be made manifest among you. 1 Corinthians 11:19 Thus the faithful are approved, thus the perfidious are detected; thus even here, before the day of judgment, the souls of the righteous and of the unrighteous are already divided, and the chaff is separated from the wheat."
+        },
+        {
+          "type": "text",
+          "text": "4. These are they who of their own accord, without any divine arrangement, set themselves to preside among the daring strangers assembled, who appoint themselves prelates without any law of ordination, who assume to themselves the name of bishop, although no one gives them the episcopate; whom the Holy Spirit points out in the Psalms as sitting in the seat of pestilence, plagues, and spots of the faith, deceiving with serpent's tongue, and artful in corrupting the truth, vomiting forth deadly poisons from pestilential tongues; whose speech does creep like a cancer, whose discourse forms a deadly poison in the heart and breast of every one."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_11",
+      "title": "Chapter 11",
+      "subtitle": "Illegitimate Altars and the Sin of Dissension",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Against people of this kind the Lord cries; from these He restrains and recalls His erring people, saying, Hearken not unto the words of the false prophets; for the visions of their hearts deceive them. They speak, but not out of the mouth of the Lord. They say to those who cast away the word of God, You shall have peace, and every one that walks after his own will."
+        },
+        {
+          "type": "text",
+          "text": "2. Every one who walks in the error of his heart, no evil shall come upon him. I have not spoken to them, yet they prophesied. If they had stood on my foundation (substantia, ὑποστα'σει), and had heard my words, and taught my people, I would have turned them from their evil thoughts."
+        },
+        {
+          "type": "text",
+          "text": "3. Jeremiah 23:16-21 Again, the Lord points out and designates these same, saying, They have forsaken me, the fountain of living waters, and have hewed them out broken cisterns which can hold no water. Jeremiah 2:13 Although there can be no other baptism but one, they think that they can baptize; although they forsake the fountain of life, they promise the grace of living and saving water."
+        },
+        {
+          "type": "text",
+          "text": "4. Men are not washed among them, but rather are made foul; nor are sins purged away, but are even accumulated. Such a nativity does not generate sons to God, but to the devil. By a falsehood they are born, and they do not receive the promises of truth. Begotten of perfidy, they lose the grace of faith."
+        },
+        {
+          "type": "text",
+          "text": "5. They cannot attain to the reward of peace, since they have broken the Lord's peace with the madness of discord."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_12",
+      "title": "Chapter 12",
+      "subtitle": "Where Two or Three Are Gathered in Unity",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Nor let any deceive themselves by a futile interpretation, in respect of the Lord having said, Wheresoever two or three are gathered together in my name, there am I in the midst of them."
+        },
+        {
+          "type": "text",
+          "text": "2. Matthew 18:20 Corrupters and false interpreters of the Gospel quote the last words, and lay aside the former ones, remembering part, and craftily suppressing part: as they themselves are separated from the Church, so they cut off the substance of one section."
+        },
+        {
+          "type": "text",
+          "text": "3. For the Lord, when He would urge unanimity and peace upon His disciples, said, I say unto you, That if two of you shall agree on earth touching anything that you shall ask, it shall be given you by my Father which is in heaven. For wheresoever two or three are gathered together in my name, I am with them; showing that most is given, not to the multitude, but to the unanimity of those that pray."
+        },
+        {
+          "type": "text",
+          "text": "4. If, He says, two of you shall agree on earth: He placed agreement first; He has made the concord of peace a prerequisite; He taught that we should agree firmly and faithfully. But how can he agree with any one who does not agree with the body of the Church itself, and with the universal brotherhood?"
+        },
+        {
+          "type": "text",
+          "text": "5. How can two or three be assembled together in Christ's name, who, it is evident, are separated from Christ and from His Gospel? For we have not withdrawn from them, but they from us; and since heresies and schisms have risen subsequently, from their establishment for themselves of diverse places of worship, they have forsaken the Head and Source of the truth."
+        },
+        {
+          "type": "text",
+          "text": "6. But the Lord speaks concerning His Church, and to those also who are in the Church He speaks, that if they are in agreement, if according to what He commanded and admonished, although only two or three gathered together with unanimity should pray— though they be only two or three — they may obtain from the majesty of God what they ask."
+        },
+        {
+          "type": "text",
+          "text": "7. Wheresoever two or three are gathered together in my name, I, slays He, am with them; that is, with the simple and peaceable — with those who fear God and keep God's commandments."
+        },
+        {
+          "type": "text",
+          "text": "8. With these, although only two or three, He said that He was, in the same manner as He was with the three youths in the fiery furnace; and because they abode towards God in simplicity, and in unanimity among themselves, He animated them, in the midst of the surrounding flames, with the breath of dew: in the way in which, with the two apostles shut up in prison, because they were simple-minded and of one mind, He Himself was present; He Himself, having loosed the bolts of the dungeon, placed them again in the market-place, that they might declare to the multitude the word which they faithfully preached."
+        },
+        {
+          "type": "text",
+          "text": "9. When, therefore, in His commandments He lays it down, and says, Where two or three are gathered together in my name, I am with them, He does not divide men from the Church, seeing that He Himself ordained and made the Church; but rebuking the faithless for their discord, and commending peace by His word to the faithful, He shows that He is rather with two or three who pray with one mind, than with a great many who differ, and that more can be obtained by the concordant prayer of a few, than by the discordant supplication of many."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_13",
+      "title": "Chapter 13",
+      "subtitle": "The Necessity of Brotherly Concord and Forgiveness in Prayer",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Thus, also, when He gave the law of prayer, He added, saying, And when you stand praying, forgive, if you have ought against any; that your Father also which is in heaven may forgive you your trespasses."
+        },
+        {
+          "type": "text",
+          "text": "2. And He calls back from the altar one who comes to the sacrifice in strife, and bids him first agree with his brother, and then return with peace and offer his gift to God: for God had not respect unto Cain's offerings; for he could not have God at peace with him, who through envious discord had not peace with his brother. What peace, then, do the enemies of the brethren promise to themselves?"
+        },
+        {
+          "type": "text",
+          "text": "3. What sacrifices do those who are rivals of the priests think that they celebrate? Do they deem that they have Christ with them when they are collected together, who are gathered together outside the Church of Christ?"
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_14",
+      "title": "Chapter 14",
+      "subtitle": "Martyrdom Outside the Church Cannot Wash Away Schism",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Even if such men were slain in confession of the Name, that stain is not even washed away by blood: the inexpiable and grave fault of discord is not even purged by suffering. He cannot be a martyr who is not in the Church; he cannot attain unto the kingdom who forsakes that which shall reign there. Christ gave us peace; He bade us be in agreement, and of one mind."
+        },
+        {
+          "type": "text",
+          "text": "2. He charged the bonds of love and charity to be kept uncorrupted and inviolate; he cannot show himself a martyr who has not maintained brotherly love. Paul the apostle teaches this, and testifies, saying, And though I have faith, so that I can remove mountains, and have not charity, I am nothing."
+        },
+        {
+          "type": "text",
+          "text": "3. And though I give all my goods to feed the poor, and though I give my body to be burned, and have not charity, it profits me nothing. Charity is magnanimous; charity is kind; charity envies not; charity acts not vainly, is not puffed up, is not easily provoked, thinks no evil; loves all things, believes all things, hopes all things, endures all things. Charity never fails."
+        },
+        {
+          "type": "text",
+          "text": "4. Charity, says he, never fails. For she will ever be in the kingdom, she will endure for ever in the unity of a brotherhood linked to herself. Discord cannot attain to the kingdom of heaven; to the rewards of Christ, who said, This is my commandment that you love one another even as I have loved you: John 15:12 he cannot attain who has violated the love of Christ by faithless dissension."
+        },
+        {
+          "type": "text",
+          "text": "5. He who has not charity has not God. The word of the blessed Apostle John is: God, says he, is love; and he that dwells in love dwells in God, and God dwells in him. 1 John 4:16 They cannot dwell with God who would not be of one mind in God's Church."
+        },
+        {
+          "type": "text",
+          "text": "6. Although they burn, given up to flames and fires, or lay down their lives, thrown to the wild beasts, that will not be the crown of faith, but the punishment of perfidy; nor will it be the glorious ending of religious valour, but the destruction of despair. Such a one may be slain; crowned he cannot be."
+        },
+        {
+          "type": "text",
+          "text": "7. He professes himself to be a Christian in such a way as the devil often feigns himself to be Christ, as the Lord Himself forewarns us, and says, Many shall come in my name, saying, I am Christ, and shall deceive many. Mark 13:6 As he is not Christ, although he deceives in respect of the name; so neither can he appear as a Christian who does not abide in the truth of His Gospel and of faith."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_15",
+      "title": "Chapter 15",
+      "subtitle": "Spiritual Gifts and Miracles Profit Nothing Without Charity",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. For both to prophesy and to cast out devils, and to do great acts upon the earth is certainly a sublime and an admirable thing; but one does not attain the kingdom of heaven although he is found in all these things, unless he walks in the observance of the right and just way."
+        },
+        {
+          "type": "text",
+          "text": "2. The Lord denounces, and says, Many shall say to me in that day, Lord, Lord, have we not prophesied in Your name, and in Your name have cast out devils, and in Your name done many wonderful works? And then will I profess unto them, I never knew you: depart from me, you that work iniquity."
+        },
+        {
+          "type": "text",
+          "text": "3. Matthew 7:22-23 There is need of righteousness, that one may deserve well of God the Judge; we must obey His precepts and warnings, that our merits may receive their reward."
+        },
+        {
+          "type": "text",
+          "text": "4. The Lord in His Gospel, when He would direct the way of our hope and faith in a brief summary, said, The Lord your God is one God: and you shall love the Lord your God with all your heart, and with all your soul, and with all your strength. This is the first commandment; and the second is like it: You shall love your neighbour as yourself."
+        },
+        {
+          "type": "text",
+          "text": "5. On these two commandments hang all the law and the prophets. Mark 12:29-31 He taught, at the same time, love and unity by His instruction. He has included all the prophets and the law in two precepts."
+        },
+        {
+          "type": "text",
+          "text": "6. But what unity does he keep, what love does he maintain or consider, who, savage with the madness of discord, divides the Church, destroys the faith, disturbs the peace, dissipates charity, profanes the sacrament?"
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_16",
+      "title": "Chapter 16",
+      "subtitle": "Predictions of Perils and Corruptions in the Latter Times",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. This evil, most faithful brethren, had long ago begun, but now the mischievous destruction of the same evil has increased, and the envenomed plague of heretical perversity and schisms has begun to spring forth and shoot anew; because even thus it must be in the decline of the world, since the Holy Spirit foretells and forewarns us by the apostle, saying, In the last days, says he, perilous times shall come, and men shall be lovers of their own selves, proud, boasters, covetous, blasphemers, disobedient to parents, unthankful, unholy, without natural affection, truce-breakers, false accusers, incontinent, fierce, hating the good, traitors, heady, high-minded, lovers of pleasures more than lovers of God, having a sort of form of religion, but denying the power thereof."
+        },
+        {
+          "type": "text",
+          "text": "2. Of this sort are they who creep into houses, and lead captive silly women laden with sins, which are led away with various lusts; ever learning, and never coming to the knowledge of the truth. And as Jannes and Jambres withstood Moses, so do these also resist the truth; but they shall proceed no further, for their folly shall be manifest unto all men, even as theirs also was."
+        },
+        {
+          "type": "text",
+          "text": "3. Whatever things were predicted are fulfilled; and as the end of the world is approaching, they have come for the probation as well of the men as of the times. Error deceives as the adversary rages more and more; senselessness lifts up, envy inflames, covetousness makes blind, impiety depraves, pride puffs up, discord exasperates, anger hurries headlong."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_17",
+      "title": "Chapter 17",
+      "subtitle": "Faithfulness Amidst the Apostasy of the Unstable",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Yet let not the excessive and headlong faithlessness of many move or disturb us, but rather strengthen our faith in the truthfulness which has foretold the matter."
+        },
+        {
+          "type": "text",
+          "text": "2. As some have become such, because these things were predicted beforehand, so let other brethren beware of matters of a like kind, because these also were predicted beforehand, even as the Lord instructs us, and says, But take heed: behold, I have told you all things."
+        },
+        {
+          "type": "text",
+          "text": "3. Mark 13:23 Avoid, I beseech you, brethren, men of this kind, and drive away from your side and from your ears, as if it were the contagion of death, their mischievous conversation; as it is written, Hedge your ears about with thorns, and refuse to hear a wicked tongue. And again, Evil communications corrupt good manners. 1 Corinthians 15:33 The Lord teaches and warns us to depart from such."
+        },
+        {
+          "type": "text",
+          "text": "4. He says, They are blind leaders of the blind; and if the blind lead the blind, they shall both fall into the ditch. Matthew 15:14 Such a one is to be turned away from and avoided, whosoever he may be, that is separated from the Church. Such a one is perverted and sins, and is condemned of his own self."
+        },
+        {
+          "type": "text",
+          "text": "5. Does he think that he has Christ, who acts in opposition to Christ's priests, who separates himself from the company of His clergy and people? He bears arms against the Church, he contends against God's appointment."
+        },
+        {
+          "type": "text",
+          "text": "6. An enemy of the altar, a rebel against Christ's sacrifice, for the faith faithless, for religion profane, a disobedient servant, an impious son, a hostile brother, despising the bishops, and forsaking God's priests, he dares to set up another altar, to make another prayer with unauthorized words, to profane the truth of the Lord's offering by false sacrifices, and not to know that he who strives against the appointment of God, is punished on account of the daring of his temerity by divine visitation."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_18",
+      "title": "Chapter 18",
+      "subtitle": "Divine Punishment of Korah, Dathan, and Abiram",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Thus Korah, Dathan, and Abiram, who endeavoured to claim to themselves the power of sacrificing in opposition to Moses and Aaron the priest, underwent immediate punishment for their attempts. The earth, breaking its fastenings, gaped open into a deep gulf, and the cleft of the receding ground swallowed up the men standing and living."
+        },
+        {
+          "type": "text",
+          "text": "2. Nor did the anger of the indignant God strike only those who had been the movers (of the sedition); but two hundred and fifty sharers and associates of that madness besides, who had been mingled with them in that boldness, the fire that went out from the Lord consumed with a hasty revenge; doubtless to admonish and show that whatever those wicked men had endeavoured, in order by human will to overthrow God's appointment, had been done in opposition to God."
+        },
+        {
+          "type": "text",
+          "text": "3. Thus also Uzziah the king — when he bare the censer and violently claimed to himself to sacrifice against God's law, and when Azariah the priest withstood him, would not be obedient and yield — was confounded by the divine indignation, and was polluted upon his forehead by the spot of leprosy: he was marked by an offended Lord in that part of his body where they are signed who deserve well of the Lord."
+        },
+        {
+          "type": "text",
+          "text": "4. And the sons of Aaron, who placed strange fire upon the altar, which the Lord had not commanded, were at once extinguished in the presence of an avenging Lord."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_19",
+      "title": "Chapter 19",
+      "subtitle": "The Severity of Sacrilege and Contempt of Unity",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. These, doubtless, they imitate and follow, who, despising God's tradition, seek after strange doctrines, and bring in teachings of human appointment, whom the Lord rebukes and reproves in His Gospel, saying, You reject the commandment of God, that you may keep your own tradition."
+        },
+        {
+          "type": "text",
+          "text": "2. Mark 7:9 This is a worse crime than that which the lapsed seem to have fallen into, who nevertheless, standing as penitents for their crime, beseech God with full satisfactions."
+        },
+        {
+          "type": "text",
+          "text": "3. In this case, the Church is sought after and entreated; in that case, the Church is resisted: here it is possible that there has been necessity; there the will is engaged in the wickedness: on the one hand, he who has lapsed has only injured himself; on the other, he who has endeavoured to cause a heresy or a schism has deceived many by drawing them with him."
+        },
+        {
+          "type": "text",
+          "text": "4. In the former, it is the loss of one soul; in the latter, the risk of many. Certainly the one both understands that he has sinned, and laments and bewails it; the other, puffed up in his heart, and pleasing himself in his very crimes, separates sons from their Mother, entices sheep from their shepherd, disturbs the sacraments of God; and while the lapsed has sinned but once, he sins daily."
+        },
+        {
+          "type": "text",
+          "text": "5. Finally, the lapsed, who has subsequently attained to martyrdom, may receive the promises of the kingdom; while the other, if he have been slain without the Church, cannot attain to the rewards of the Church."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_20",
+      "title": "Chapter 20",
+      "subtitle": "Steadfastness When Some Confessors Fall Away",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Nor let any one marvel, beloved brethren, that even some of the confessors advance to these lengths, and thence also that some others sin thus wickedly, thus grievously."
+        },
+        {
+          "type": "text",
+          "text": "2. For neither does confession make a man free from the snares of the devil, nor does it defend a man who is still placed in the world, with a perpetual security from temptations, and dangers, and onsets, and attacks of the world; otherwise we should never see in confessors those subsequent frauds, and fornications, and adulteries, which now with groans and sorrow we witness in some."
+        },
+        {
+          "type": "text",
+          "text": "3. Whosoever that confessor is, he is not greater, or better, or dearer to God than Solomon, who, although so long as he walked in God's ways, retained that grace which he had received from the Lord, yet after he forsook the Lord's way he lost also the Lord's grace. And therefore it is written, Hold fast that which you have, lest another take your crown."
+        },
+        {
+          "type": "text",
+          "text": "4. Revelation 3:11 But assuredly the Lord would not threaten that the crown of righteousness might be taken away, were it not that, when righteousness departs, the crown must also depart."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_21",
+      "title": "Chapter 21",
+      "subtitle": "Confession is the Beginning, Not the End, of Glory",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Confession is the beginning of glory, not the full desert of the crown; nor does it perfect our praise, but it initiates our dignity; and since it is written, He that endures to the end, the same shall be saved, Matthew 10:22 whatever has been before the end is a step by which we ascend to the summit of salvation, not a terminus wherein the full result of the ascent is already gained."
+        },
+        {
+          "type": "text",
+          "text": "2. He is a confessor; but after confession his peril is greater, because the adversary is more provoked. He is a confessor; for this cause he ought the more to stand on the side of the Lord's Gospel, since he has by the Gospel attained glory from the Lord. For the Lord says, To whom much is given, of him much shall be required; and to whom more dignity is ascribed, of him more service is exacted."
+        },
+        {
+          "type": "text",
+          "text": "3. Luke 12:48 Let no one perish by the example of a confessor; let no one learn injustice, let no one learn arrogance, let no one learn treachery, from the manners of a confessor. He is a confessor, let him be lowly and quiet; let him be in his doings modest with discipline, so that he who is called a confessor of Christ may imitate Christ whom he confesses."
+        },
+        {
+          "type": "text",
+          "text": "4. For since He says, Whosoever exalts himself shall be abased, and he who humbles himself shall be exalted; Luke 18:14 and since He Himself has been exalted by the Father, because as the Word, and the strength, and the wisdom of God the Father, He humbled Himself upon earth, how can He love arrogance, who even by His own law enjoined upon us humility, and Himself received the highest name from the Father as the reward of His humility?"
+        },
+        {
+          "type": "text",
+          "text": "5. He is a confessor of Christ, but only so if the majesty and dignity of Christ be not afterwards blasphemed by him. Let not the tongue which has confessed Christ be evil-speaking; let it not be turbulent, let it not be heard jarring with reproaches and quarrels, let it not after words of praise, dart forth serpents' venom against the brethren and God's priests."
+        },
+        {
+          "type": "text",
+          "text": "6. But if one shall have subsequently been blameworthy and obnoxious; if he shall have wasted his confession by evil conversation; if he shall have stained his life by disgraceful foulness; if, finally, forsaking the Church in which he has become a confessor, and severing the concord of unity, he shall have exchanged his first faith for a subsequent unbelief, he may not flatter himself on account of his confession that he is elected to the reward of glory, when from this very fact his deserving of punishment has become the greater."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_22",
+      "title": "Chapter 22",
+      "subtitle": "The Warning of Judas and the Need for Perseverance",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. For the Lord chose Judas also among the apostles, and yet afterwards Judas betrayed the Lord. Yet not on that account did the faith and firmness of the apostles fail, because the traitor Judas failed from their fellowship: so also in the case in question the holiness and dignity of confessors is not immediately diminished, because the faith of some of them is broken."
+        },
+        {
+          "type": "text",
+          "text": "2. The blessed Apostle Paul in his epistle speaks in this manner: For what if some of them fall away from the faith, shall their unbelief make the faith of God without effect? God forbid: for God is true, though every man be a liar."
+        },
+        {
+          "type": "text",
+          "text": "3. Romans 3:3 The greater and better part of the confessors stand firm in the strength of their faith, and in the truth of the law and discipline of the Lord; neither do they depart from the peace of the Church, who remember that they have obtained grace in the Church by the condescension of God; and by this very thing they obtain a higher praise of their faith, that they have separated from the faithlessness of those who have been associated with them in the fellowship of confession, and withdrawn from the contagion of crime."
+        },
+        {
+          "type": "text",
+          "text": "4. Illuminated by the true light of the Gospel, shone upon with the Lord's pure and white brightness, they are as praiseworthy in maintaining the peace of Christ, as they have been victorious in their combat with the devil."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_23",
+      "title": "Chapter 23",
+      "subtitle": "Pastoral Exhortation for the Return of Wandering Brethren",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. I indeed desire, beloved brethren, and I equally endeavour and exhort, that if it be possible, none of the brethren should perish, and that our rejoicing Mother may enclose in her bosom the one body of a people at agreement."
+        },
+        {
+          "type": "text",
+          "text": "2. Yet if wholesome counsel cannot recall to the way of salvation certain leaders of schisms and originators of dissensions, who abide in blind and obstinate madness, yet do you others, if either taken in simplicity, or induced by error, or deceived by some craftiness of misleading cunning, loose yourselves from the nets of deceit, free your wandering steps from errors, acknowledge the straight way of the heavenly road."
+        },
+        {
+          "type": "text",
+          "text": "3. The word of the witnessing apostle is: We command you, says he, in the name of our Lord Jesus Christ, that you withdraw yourselves from all brethren that walk disorderly, and not after the tradition that they have received from us. 2 Thessalonians 3:6 And again he says, Let no man deceive you with vain words; for because of these things comes the wrath of God upon the children of disobedience."
+        },
+        {
+          "type": "text",
+          "text": "4. Be not therefore partakers with them. Ephesians 5:6 We must withdraw, nay rather must flee, from those who fall away, lest, while any one is associated with those who walk wickedly, and goes on in ways of error and of sin, he himself also, wandering away from the path of the true road, should be found in like guilt."
+        },
+        {
+          "type": "text",
+          "text": "5. God is one, and Christ is one, and His Church is one, and the faith is one, and the people is joined into a substantial unity of body by the cement of concord. Unity cannot be severed; nor can one body be separated by a division of its structure, nor torn into pieces, with its entrails wrenched asunder by laceration."
+        },
+        {
+          "type": "text",
+          "text": "6. Whatever has proceeded from the womb cannot live and breathe in its detached condition, but loses the substance of health."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_24",
+      "title": "Chapter 24",
+      "subtitle": "Scriptural Admonitions Against Communion with Schismatics",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The Holy Spirit warns us, and says, What man is he that desires to live, and would fain see good days? Refrain your tongue from evil, and your lips that they speak no guile. Eschew evil, and do good; seek peace, and ensue it. The son of peace ought to seek peace and ensue it. He who knows and loves the bond of charity, ought to refrain his tongue from the evil of dissension."
+        },
+        {
+          "type": "text",
+          "text": "2. Among His divine commands and salutary teachings, the Lord, when He was now very near to His passion, added this one, saying, Peace I leave with you, my peace I give unto you. John 14:27 He gave this to us as an heritage; He promised all the gifts and rewards of which He spoke through the preservation of peace."
+        },
+        {
+          "type": "text",
+          "text": "3. If we are fellow-heirs with Christ, let us abide in the peace of Christ; if we are sons of God, we ought to be peacemakers. Blessed, says He, are the peacemakers; for they shall be called the sons of God. Matthew 5:9 It behooves the sons of God to be peacemakers, gentle in heart, simple in speech, agreeing in affection, faithfully linked to one another in the bonds of unanimity."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_25",
+      "title": "Chapter 25",
+      "subtitle": "The Apostolic Unanimity of the Early Church",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. This unanimity formerly prevailed among the apostles; and thus the new assembly of believers, keeping the Lord's commandments, maintained its charity. Divine Scripture proves this, when it says, But the multitude of them which believed were of one heart and of one soul. And again: These all continued with one mind in prayer with the women, and Mary the mother of Jesus, and with His brethren."
+        },
+        {
+          "type": "text",
+          "text": "2. Acts 1:14 And thus they prayed with effectual prayers; thus they were able with confidence to obtain whatever they asked from the Lord's mercy."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_26",
+      "title": "Chapter 26",
+      "subtitle": "The Decay of Zeal, Charity, and Generosity",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But in us unanimity is diminished in proportion as liberality of working is decayed. Then they used to give for sale houses and estates; and that they might lay up for themselves treasures in heaven, presented to the apostles the price of them, to be distributed for the use of the poor."
+        },
+        {
+          "type": "text",
+          "text": "2. But now we do not even give the tenths from our patrimony; and while our Lord bids us sell, we rather buy and increase our store. Thus has the vigour of faith dwindled away among us; thus has the strength of believers grown weak. And therefore the Lord, looking to our days, says in His Gospel, When the Son of man comes, think you that He shall find faith on the earth?"
+        },
+        {
+          "type": "text",
+          "text": "3. Luke 18:8 We see that what He foretold has come to pass. There is no faith in the fear of God, in the law of righteousness, in love, in labour; none considers the fear of futurity, and none takes to heart the day of the Lord, and the wrath of God, and the punishments to come upon unbelievers, and the eternal torments decreed for the faithless."
+        },
+        {
+          "type": "text",
+          "text": "4. That which our conscience would fear if it believed, it fears not because it does not at all believe. But if it believed, it would also take heed; and if it took heed, it would escape."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_27",
+      "title": "Chapter 27",
+      "subtitle": "Exhortation to Watchfulness for the Lord's Return",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Let us, beloved brethren, arouse ourselves as much as we can; and breaking the slumber of our ancient listlessness, let us be watchful to observe and to do the Lord's precepts."
+        },
+        {
+          "type": "text",
+          "text": "2. Let us be such as He Himself has bidden us to be, saying, Let your loins be girt, and your lamps burning; and you yourselves like men that wait for their Lord, when He shall come from the wedding, that when He comes and knocks, they may open to Him. Blessed are those servants whom their Lord, when He comes, shall find watching."
+        },
+        {
+          "type": "text",
+          "text": "3. Luke 12:35 We ought to be girt about, lest, when the day of setting forth comes, it should find us burdened and entangled. Let our light shine in good works, and glow in such wise as to lead us from the night of this world to the daylight of eternal brightness."
+        },
+        {
+          "type": "text",
+          "text": "4. Let us always with solicitude and caution wait for the sudden coming of the Lord, that when He shall knock, our faith may be on the watch, and receive from the Lord the reward of our vigilance. If these commands be observed, if these warnings and precepts be kept, we cannot be overtaken in slumber by the deceit of the devil; but we shall reign with Christ in His kingdom as servants that watch."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_28",
+      "title": "Chapter 28",
+      "subtitle": "Peace Restored to the Church and Joy of the Faithful",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Behold, beloved brethren, peace is restored to the Church; and although it lately seemed to incredulous people difficult, and to traitors impossible, our security is by divine aid and retribution re-established. Our minds return to gladness; and the season of affliction and the cloud being dispersed, tranquillity and serenity have shone forth once more."
+        },
+        {
+          "type": "text",
+          "text": "2. Praises must be given to God, and His benefits and gifts must be celebrated with giving of thanks, although even in the time of persecution our voice has not ceased to give thanks. For not even an enemy has so much power as to prevent us, who love the Lord with our whole heart, and life, and strength, from declaring His blessings and praises always and everywhere with glory."
+        },
+        {
+          "type": "text",
+          "text": "3. The day earnestly desired, by the prayers of all has come; and after the dreadful and loathsome darkness of a long night, the world has shone forth irradiated by the light of the Lord."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_29",
+      "title": "Chapter 29",
+      "subtitle": "The Glorious Constancy of the Army of Confessors",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. We look with glad countenances upon confessors illustrious with the heraldry of a good name, and glorious with the praises of virtue and of faith; clinging to them with holy kisses, we embrace them long desired with insatiable eagerness."
+        },
+        {
+          "type": "text",
+          "text": "2. The white-robed cohort of Christ's soldiers is here, who in the fierce conflict have broken the ferocious turbulence of an urgent persecution, having been prepared for the suffering of the dungeon, armed for the endurance of death. Bravely you have resisted the world: you have afforded a glorious spectacle in the sight of God; you have been an example to your brethren that shall follow you."
+        },
+        {
+          "type": "text",
+          "text": "3. That religious voice has named the name of Christ, in whom it has once confessed that it believed; those illustrious hands, which had only been accustomed to divine works, have resisted the sacrilegious sacrifices; those lips, sanctified by heavenly food after the body and blood of the Lord, have rejected the profane contacts and the leavings of the idols."
+        },
+        {
+          "type": "text",
+          "text": "4. Your head has remained free from the impious and wicked veil with which the captive heads of those who sacrificed were there veiled; your brow, pure with the sign of God, could not bear the crown of the devil, but reserved itself for the Lord's crown. How joyously does your Mother Church receive you in her bosom, as you return from the battle!"
+        },
+        {
+          "type": "text",
+          "text": "5. How blissfully, how gladly, does she open her gates, that in united bands you may enter, bearing the trophies from a prostrate enemy! With the triumphing men come women also, who, while contending with the world, have also overcome their sex; and virgins also come with the double glory of their warfare, and boys transcending their years with their virtues."
+        },
+        {
+          "type": "text",
+          "text": "6. Moreover, also, the rest of the multitude of those who stand fast follow your glory, and accompany your footsteps with the insignia of praise, very near to, and almost joined with, your own. In them also is the same sincerity of heart, the same soundness of a tenacious faith."
+        },
+        {
+          "type": "text",
+          "text": "7. Resting on the unshaken roots of the heavenly precepts, and strengthened by the evangelical traditions, the prescribed banishment, the destined tortures, the loss of property, the bodily punishments, have not terrified them."
+        },
+        {
+          "type": "text",
+          "text": "8. The days for proving their faith were limited beforehand; but he who remembers that he has renounced the world knows no day of worldly appointment, neither does he who hopes for eternity from God calculate the seasons of earth any more."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_30",
+      "title": "Chapter 30",
+      "subtitle": "The Indelible Crown of Faithfulness in Persecution",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Let none, my beloved brethren, let none depreciate this glory; let none by malignant dispraise detract from the uncorrupted steadfastness of those who have stood. When the day appointed for denying had gone by, every one who had not professed within that time not to be a Christian, confessed that he was a Christian."
+        },
+        {
+          "type": "text",
+          "text": "2. It is the first title to victory to confess the Lord under the violence of the hands of the Gentiles. It is the second step to glory to be withdrawn by a cautious retirement, and to be reserved for the Lord. The former is a public, the latter is a private confession."
+        },
+        {
+          "type": "text",
+          "text": "3. The former overcomes the judge of this world; the latter, content with God as its judge, keeps a pure conscience in integrity of heart. In the former case there is a readier fortitude; in the latter, solicitude is more secure."
+        },
+        {
+          "type": "text",
+          "text": "4. The former, as his hour approached, was already found mature; the latter perhaps was delayed, who, leaving his estate, withdrew for a while, because he would not deny, but would certainly confess if he too had been apprehended."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_31",
+      "title": "Chapter 31",
+      "subtitle": "Pastoral Grief Over the Fall of the Lapsed",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. One cause of grief saddens these heavenly crowns of martyrs, these glorious spiritual confessions, these very great and illustrious virtues of the brethren who stand; which is, that the hostile violence has torn away a part of our own bowels, and thrown it away in the destructiveness of its own cruelty. What shall I do in this matter, beloved brethren?"
+        },
+        {
+          "type": "text",
+          "text": "2. Wavering in the various tide of feeling, what or how shall I speak? I need tears rather than words to express the sorrow with which the wound of our body should be bewailed, with which the manifold loss of a people once numerous should be lamented."
+        },
+        {
+          "type": "text",
+          "text": "3. For whose heart is so hard or cruel, who is so unmindful of brotherly love, as, among the varied ruins of his friends, and the mournful relics disfigured with all degradation, to be able to stand and to keep dry eyes, and not in the breaking out of his grief to express his groanings rather with tears than with words?"
+        },
+        {
+          "type": "text",
+          "text": "4. I grieve, brethren, I grieve with you; nor does my own integrity and my personal soundness beguile me to the soothing of my griefs, since it is the shepherd that is chiefly wounded in the wound of his flock. I join my breast with each one, and I share in the grievous burden of sorrow and mourning."
+        },
+        {
+          "type": "text",
+          "text": "5. I wail with the wailing, I weep with the weeping, I regard myself as prostrated with those that are prostrate. My limbs are at the same time stricken with those darts of the raging enemy; their cruel swords have pierced through my bowels; my mind could not remain untouched and free from the inroad of persecution among my downfallen brethren; sympathy has cast me down also."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_32",
+      "title": "Chapter 32",
+      "subtitle": "The Persecution as a Chastisement for Worldly Laxity",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Yet, beloved brethren, the cause of truth is to be had in view; nor ought the gloomy darkness of the terrible persecution so to have blinded the mind and feeling, that there should remain no light and illumination whence the divine precepts may be beheld. If the cause of disaster is recognised, there is at once found a remedy for the wound."
+        },
+        {
+          "type": "text",
+          "text": "2. The Lord has desired His family to be proved; and because a long peace had corrupted the discipline that had been divinely delivered to us, the heavenly rebuke has aroused our faith, which was giving way, and I had almost said slumbering; and although we deserved more for our sins, yet the most merciful Lord has so moderated all things, that all which has happened has rather seemed a trial than a persecution."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_33",
+      "title": "Chapter 33",
+      "subtitle": "The Corruption of Morals Preceding the Trial",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Each one was desirous of increasing his estate; and forgetful of what believers had either done before in the times of the apostles, or always ought to do, they, with the insatiable ardour of covetousness, devoted themselves to the increase of their property."
+        },
+        {
+          "type": "text",
+          "text": "2. Among the priests there was no devotedness of religion; among the ministers there was no sound faith: in their works there was no mercy; in their manners there was no discipline. In men, their beards were defaced; in women, their complexion was dyed: the eyes were falsified from what God's hand had made them; their hair was stained with a falsehood."
+        },
+        {
+          "type": "text",
+          "text": "3. Crafty frauds were used to deceive the hearts of the simple, subtle meanings for circumventing the brethren. They united in the bond of marriage with unbelievers; they prostituted the members of Christ to the Gentiles."
+        },
+        {
+          "type": "text",
+          "text": "4. They would swear not only rashly, but even more, would swear falsely; would despise those set over them with haughty swelling, would speak evil of one another with envenomed tongue, would quarrel with one another with obstinate hatred."
+        },
+        {
+          "type": "text",
+          "text": "5. Not a few bishops who ought to furnish both exhortation and example to others, despising their divine charge, became agents in secular business, forsook their throne, deserted their people, wandered about over foreign provinces, hunted the markets for gainful merchandise, while brethren were starving in the Church."
+        },
+        {
+          "type": "text",
+          "text": "6. They sought to possess money in hoards, they seized estates by crafty deceits, they increased their gains by multiplying usuries."
+        },
+        {
+          "type": "text",
+          "text": "7. What do not such as we deserve to suffer for sins of this kind, when even already the divine rebuke has forewarned us, and said, If they shall forsake my law, and walk not in my judgments; if they shall profane my statutes, and shall not observe my precepts, I will visit their offenses with a rod, and their sins with scourges?"
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_34",
+      "title": "Chapter 34",
+      "subtitle": "The Lord's Forewarnings and the Neglect of Discipline",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. These things were before declared to us, and predicted. But we, forgetful of the law and obedience required of us, have so acted by our sins, that while we despise the Lord's commandments, we have come by severer remedies to the correction of our sin and probation of our faith."
+        },
+        {
+          "type": "text",
+          "text": "2. Nor indeed have we at last been converted to the fear of the Lord, so as to undergo patiently and courageously this our correction and divine proof. Immediately at the first words of the threatening foe, the greatest number of the brethren betrayed their faith, and were cast down, not by the onset of persecution, but cast themselves down by voluntary lapse."
+        },
+        {
+          "type": "text",
+          "text": "3. What unheard-of thing, I beg of you, what new thing had happened, that, as if on the occurrence of things unknown and unexpected, the obligation to Christ should be dissolved with headlong rashness? Have not prophets aforetime, and subsequently apostles, told of these things?"
+        },
+        {
+          "type": "text",
+          "text": "4. Have not they, full of the Holy Spirit, predicted the afflictions of the righteous, and always the injuries of the heathens? Does not the sacred Scripture, which ever arms our faith and strengthens with a voice from heaven the servants of God, say, You shall worship the Lord your God, and Him only shall you serve?"
+        },
+        {
+          "type": "text",
+          "text": "5. Deuteronomy 6:13 Does it not again show the anger of the divine indignation, and warn of the fear of punishment beforehand, when it says, They worshipped them whom their fingers have made; and the mean man bows down, and the great man humbles himself, and I will forgive them not?"
+        },
+        {
+          "type": "text",
+          "text": "6. Isaiah 2:8-9 And again, God speaks, and says, He that sacrifices unto any gods, save unto the Lord only, shall be destroyed. Exodus 22:20 In the Gospel also subsequently, the Lord, who instructs by His words and fulfils by His deeds, teaching what should be done, and doing whatever He had taught, did He not before admonish us of whatever is now done and shall be done?"
+        },
+        {
+          "type": "text",
+          "text": "7. Did He not before ordain both for those who deny Him eternal punishments, and for those that confess Him saving rewards?"
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_35",
+      "title": "Chapter 35",
+      "subtitle": "The Cowardice and Voluntary Surrender of Many",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. From some — ah, misery!— all these things have fallen away, and have passed from memory. They indeed did not wait to be apprehended ere they ascended, or to be interrogated ere they denied. Many were conquered before the battle, prostrated before the attack. Nor did they even leave it to be said for them, that they seemed to sacrifice to idols unwillingly."
+        },
+        {
+          "type": "text",
+          "text": "2. They ran to the market-place of their own accord; freely they hastened to death, as if they had formerly wished it, as if they would embrace an opportunity now given which they had always desired. How many were put off by the magistrates at that time, when evening was coming on; how many even asked that their destruction might not be delayed! What violence can such a one plead as an excuse?"
+        },
+        {
+          "type": "text",
+          "text": "3. How can he purge his crime, when it was he himself who rather used force to bring about his own ruin? When they came voluntarily to the Capitol — when they freely approached to the obedience of the terrible wickedness — did not their tread falter? Did not their sight darken, their heart tremble, their arms fall helplessly down?"
+        },
+        {
+          "type": "text",
+          "text": "4. Did not their senses fail, their tongue cleave to their mouth, their speech grow weak? Could the servant of God stand there, and speak and renounce Christ, when he had already renounced the devil and the world? Was not that altar, whither he drew near to perish, to him a funeral pile?"
+        },
+        {
+          "type": "text",
+          "text": "5. Ought he not to shudder at and flee from the devil's altar, which he had seen to smoke, and to be redolent of a foul rector, as if it were the funeral and sepulchre of his life? Why bring with you, O wretched man, a sacrifice? Why immolate a victim?"
+        },
+        {
+          "type": "text",
+          "text": "6. You yourself have come to the altar an offering; you yourself have come a victim: there you have immolated your salvation, your hope; there you have burnt up your faith in those deadly fires."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_36",
+      "title": "Chapter 36",
+      "subtitle": "Blindness of Those Who Sacrificed Willingly",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But to many their own destruction was not sufficient. With mutual exhortations, people were urged to their ruin; death was pledged by turns in the deadly cup. And that nothing might be wanting to aggravate the crime, infants also, in the arms of their parents, either carried or conducted, lost, while yet little ones, what in the very first beginning of their nativity they had gained."
+        },
+        {
+          "type": "text",
+          "text": "2. Will not they, when the day of judgment comes, say, We have done nothing; nor have we forsaken the Lord's bread and cup to hasten freely to a profane contact; the faithlessness of others has ruined us."
+        },
+        {
+          "type": "text",
+          "text": "3. We have found our parents our murderers; they have denied to us the Church as a Mother; they have denied God as a Father: so that, while we were little, and unforeseeing, and unconscious of such a crime, we were associated by others to the partnership of wickedness, and we were snared by the deceit of others?"
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_37",
+      "title": "Chapter 37",
+      "subtitle": "Worldly Possessions and Wealth as Chains of the Soul",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Nor is there, alas, any just and weighty reason which excuses such a crime. One's country was to be left, and loss of one's estate was to be suffered. Yet to whom that is born and dies is there not a necessity at some time to leave his country, and to suffer the loss of his estate? But let not Christ be forsaken, so that the loss of salvation and of an eternal home should be feared."
+        },
+        {
+          "type": "text",
+          "text": "2. Behold, the Holy Spirit cries by the prophet, Depart, depart, get out of there, touch not the unclean thing; get out of her midst, and be separate,you who bear the vessels of the Lord."
+        },
+        {
+          "type": "text",
+          "text": "3. Isaiah 52:11 Yet those who are the vessels of the Lord and the temple of God do not go out from the midst, nor depart, that they may not be compelled to touch the unclean thing, and to be polluted and corrupted with deadly food."
+        },
+        {
+          "type": "text",
+          "text": "4. Elsewhere also a voice is heard from heaven, forewarning what is becoming for the servants of God to do, saying, Come out of her, my people, that you be not partakers of her sins, and that you receive not of her plagues. Revelation 18:4 He who goes out and departs does not become a partaker of the guilt; but he will be wounded with the plagues who is found a companion in the crime."
+        },
+        {
+          "type": "text",
+          "text": "5. And therefore the Lord commanded us in the persecution to depart and to flee; and both taught that this should be done, and Himself did it."
+        },
+        {
+          "type": "text",
+          "text": "6. For as the crown is given of the condescension of God, and cannot be received unless the hour comes for accepting it, whosoever abiding in Christ departs for a while does not deny his faith, but waits for the time; but he who has fallen, after refusing to depart, remained to deny it."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_38",
+      "title": "Chapter 38",
+      "subtitle": "Riches Should Be Used to Redeem the Soul",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The truth, brethren, must not be disguised; nor must the matter and cause of our wound be concealed. A blind love of one's own property has deceived many; nor could they be prepared for, or at ease in, departing when their wealth fettered them like a chain."
+        },
+        {
+          "type": "text",
+          "text": "2. Those were the chains to them that remained — those were the bonds by which both virtue was retarded, and faith burdened, and the spirit bound, and the soul hindered; so that they who were involved in earthly things might become a booty and food for the serpent, which, according to God's sentence, feeds upon earth."
+        },
+        {
+          "type": "text",
+          "text": "3. And therefore the Lord the teacher of good things, forewarning for the future time, says, If you will be perfect, go, sell all that you have, and give to the poor, and you shall have treasure in heaven: and come and follow me. Matthew 19:21 If rich men did this, they would not perish by their riches; if they laid up treasure in heaven, they would not now have a domestic enemy and assailant."
+        },
+        {
+          "type": "text",
+          "text": "4. Heart and mind and feeling would be in heaven, if the treasure were in heaven; nor could he be overcome by the world who had nothing in the world whereby he could be overcome. He would follow the Lord loosed and free, as did the apostles, and many in the times of the apostles, and many who forsook both their means and their relatives, and clave to Christ with undivided ties."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_39",
+      "title": "Chapter 39",
+      "subtitle": "The Pitiable State of Children Defiled by Parents' Sins",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But how can they follow Christ, who are held back by the chain of their wealth? Or how can they seek heaven, and climb to sublime and lofty heights, who are weighed down by earthly desires? They think that they possess, when they are rather possessed; as slaves of their profit, and not lords with respect to their own money, but rather the bond-slaves of their money."
+        },
+        {
+          "type": "text",
+          "text": "2. These times and these men are indicated by the apostle, when he says, But they that will be rich, fall into temptation, and a snare, and into many foolish and hurtful lusts, which drown men in destruction and in perdition."
+        },
+        {
+          "type": "text",
+          "text": "3. For the root of all evil is the love of money, which, while some have coveted, they have erred from the faith, and pierced themselves through with many sorrows. 1 Timothy 6:9 But with what rewards does the Lord invite us to contempt of worldly wealth? With what compensations does He atone for the small and trifling losses of this present time?"
+        },
+        {
+          "type": "text",
+          "text": "4. There is no man, says He, that leaves house, or land, or parents, or brethren, or wife, or children, for the kingdom of God's sake, but he shall receive seven fold even in this time, but in the world to come life everlasting."
+        },
+        {
+          "type": "text",
+          "text": "5. Mark 10:29 If we know these things, and have found them out from the truth of the Lord who promises, not only is not loss of this kind to be feared, but even to be desired; as the Lord Himself again announces and warns us, Blessed are you when men shall persecute you, and when they shall separate you from their company, and shall cast you out, and shall speak of your name as evil, for the Son of man's sake!"
+        },
+        {
+          "type": "text",
+          "text": "6. Rejoice on that day, and leap for joy; for, behold, your reward is great in heaven. Luke 6:22"
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_40",
+      "title": "Chapter 40",
+      "subtitle": "The Guilt of Those Who Acquired False Certificates (Libellatici)",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But (say they) subsequently tortures had come, and severe sufferings were threatening those who resisted. He may complain of tortures who has been overcome by tortures; he may offer the excuse of suffering who has been vanquished in suffering."
+        },
+        {
+          "type": "text",
+          "text": "2. Such a one may ask, and say, I wished indeed to strive bravely, and, remembering my oath, I took up the arms of devotion and faith; but as I was struggling in the encounter, varied tortures and long-continued sufferings overcame me."
+        },
+        {
+          "type": "text",
+          "text": "3. My mind stood firm, and my faith was strong, and my soul struggled long, unshaken with the torturing pains; but when, with the renewed barbarity of the most cruel judge, wearied out as I was, the scourges were now tearing me, the clubs bruised me, the rack strained me, the claw dug into me, the fire roasted me; my flesh deserted me in the struggle, the weakness of my bodily frame gave way — not my mind, but my body, yielded in the suffering."
+        },
+        {
+          "type": "text",
+          "text": "4. Such a plea may readily avail to forgiveness; an apology of that kind may excite compassion. Thus at one time the Lord forgave Castus and Aemilius; thus, overcome in the first encounter, they were made victors in the second battle. So that they who had formerly given way to the fires became stronger than the fires, and in that in which they had been vanquished they were conquerors."
+        },
+        {
+          "type": "text",
+          "text": "5. They entreated not for pity of their tears, but of their wounds; nor with a lamentable voice alone, but with laceration and suffering of body. Blood flowed instead of weeping; and instead of tears, gore poured forth from their half-scorched entrails."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_41",
+      "title": "Chapter 41",
+      "subtitle": "No Sin Can Be Hidden from the All-Seeing God",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But now, what wounds can those who are overcome show? What gashes of gaping entrails, what tortures of the limbs, in cases where it was not faith that fell in the encounter, but faithlessness that anticipated the struggle? Nor does the necessity of the crime excuse the person compelled, where the crime is committed of free will."
+        },
+        {
+          "type": "text",
+          "text": "2. Nor do I say this in such a way as that I would burden the cases of the brethren, but that I may rather instigate the brethren to a prayer of atonement. For, as it is written, They who call you happy cause you to err, and destroy the paths of your feet, Isaiah 3:12 he who soothes the sinner with flattering blandishments furnishes the stimulus to sin; nor does he repress, but nourishes wrong-doing."
+        },
+        {
+          "type": "text",
+          "text": "3. But he who, with braver counsels, rebukes at the same time that he instructs a brother, urges him onward to salvation. As many as I love, says the Lord, I rebuke and chasten. Revelation 3:19 And thus also it behooves the Lord's priest not to mislead by deceiving concessions, but to provide with salutary remedies."
+        },
+        {
+          "type": "text",
+          "text": "4. He is an unskilful physician who handles the swelling edges of wounds with a tender hand, and, by retaining the poison shut up in the deep recesses of the body, increases it. The wound, must be opened, and cut, and healed by the stronger remedy of cutting out the corrupting parts."
+        },
+        {
+          "type": "text",
+          "text": "5. The sick man may cry out, may vociferate, and may complain, in impatience of the pain; but he will afterwards give thanks when he has felt that he is cured."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_42",
+      "title": "Chapter 42",
+      "subtitle": "The Peril of Premature and False Peace",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Moreover, beloved brethren, a new kind of devastation has appeared; and, as if the storm of persecution had raged too little, there has been added to the heap, under the title of mercy, a deceiving mischief and a fair-seeming calamity."
+        },
+        {
+          "type": "text",
+          "text": "2. Contrary to the vigour of the Gospel, contrary to the law of the Lord and God, by the temerity of some, communion is relaxed to heedless persons — a vain and false peace, dangerous to those who grant it, and likely to avail nothing to those who receive it. They do not seek for the patience necessary to health nor the true medicine derived from atonement."
+        },
+        {
+          "type": "text",
+          "text": "3. Penitence is driven forth from their breasts, and the memory of their very grave and extreme sin is taken away. The wounds of the dying are covered over, and the deadly blow that is planted in the deep and secret entrails is concealed by a dissimulated suffering."
+        },
+        {
+          "type": "text",
+          "text": "4. Returning from the altars of the devil, they draw near to the holy place of the Lord, with hands filthy and reeking with smell, still almost breathing of the plague-bearing idol-meats; and even with jaws still exhaling their crime, and reeking with the fatal contact, they intrude on the body of the Lord, although the sacred Scripture stands in their way, and cries, saying, Every one that is clean shall eat of the flesh; and whatever soul eats of the flesh of the saving sacrifice, which is the Lord's, having his uncleanness upon him, that soul shall be cut off from his people."
+        },
+        {
+          "type": "text",
+          "text": "5. Leviticus 7:20 Also, the apostle testifies, and says, You cannot drink the cup of the Lord and the cup of devils; you cannot be partakers of the Lord's table and of the table of devils. 1 Corinthians 10:21 He threatens, moreover, the stubborn and Lord unworthily, is guilty of the body and blood of the Lord. 1 Corinthians 11:27"
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_43",
+      "title": "Chapter 43",
+      "subtitle": "Presumptuous Absolution Without Genuine Repentance",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. All these warnings being scorned and contemned — before their sin is expiated, before confession has been made of their crime, before their conscience has been purged by sacrifice and by the hand of the priest, before the offense of an angry and threatening Lord has been appeased, violence is done to His body and blood; and they sin now against their Lord more with their hand and mouth than when they denied their Lord."
+        },
+        {
+          "type": "text",
+          "text": "2. They think that that is peace which some with deceiving words are blazoning forth: that is not peace, but war; and he is not joined to the Church who is separated from the Gospel. Why do they call an injury a kindness? Why do they call impiety by the name of piety?"
+        },
+        {
+          "type": "text",
+          "text": "3. Why do they hinder those who ought to weep continually and to entreat their Lord, from the sorrowing of repentance, and pretend to receive them to communion? This is the same kind of thing to the lapsed as hail to the harvests; as the stormy star to the trees; as the destruction of pestilence to the herds; as the raging tempest to shipping."
+        },
+        {
+          "type": "text",
+          "text": "4. They take away the consolation of eternal hope; they overturn the tree from the roots; they creep on to a deadly contagion with their pestilent words; they dash the ship on the rocks, so that it may not reach to the harbour. Such a facility does not grant peace, but takes it away; nor does it give communion, but it hinders from salvation."
+        },
+        {
+          "type": "text",
+          "text": "5. This is another persecution, and another temptation, by which the crafty enemy still further assaults the lapsed; attacking them by a secret corruption, that their lamentation may be hushed, that their grief may be silent, that the memory of their sin may pass away, that the groaning of their heart may be repressed, that the weeping of their eyes may be quenched; nor long and full penitence deprecate the Lord so grievously offended, although it is written, Remember from whence you are fallen, and repent."
+        },
+        {
+          "type": "text",
+          "text": "6. Revelation 2:5"
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_44",
+      "title": "Chapter 44",
+      "subtitle": "True Healing Requires Faithful Penitential Discipline",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Let no one cheat himself, let no one deceive himself. The Lord alone can have mercy. He alone can bestow pardon for sins which have been committed against Himself, who bare our sins, who sorrowed for us, whom God delivered up for our sins."
+        },
+        {
+          "type": "text",
+          "text": "2. Man cannot be greater than God, nor can a servant remit or forego by his indulgence what has been committed by a greater crime against the Lord, lest to the person lapsed this be moreover added to his sin, if he be ignorant that it is declared, Cursed is the man that puts his hope in man. Jeremiah 17:5 The Lord must be besought."
+        },
+        {
+          "type": "text",
+          "text": "3. The Lord must be appeased by our atonement, who has said, that him that denies Him He will deny, who alone has received all judgment from His Father."
+        },
+        {
+          "type": "text",
+          "text": "4. We believe, indeed, that the merits of martyrs and the works of the righteous are of great avail with the Judge; but that will be when the day of judgment shall come; when, after the conclusion of this life and the world, His people shall stand before the tribunal of Christ."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_45",
+      "title": "Chapter 45",
+      "subtitle": "God Alone Possesses the Authority to Forgive Sins",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But if any one, by an overhurried haste, rashly thinks that he can give remission of sins to all, or dares to rescind the Lord's precepts, not only does it in no respect advantage the lapsed, but it does them harm."
+        },
+        {
+          "type": "text",
+          "text": "2. Not to have observed His judgment is to have provoked His, wrath, and to think that the mercy of God must not first of all be entreated, and, despising the Lord, to presume on His power. Under the altar of God the souls of the slain martyrs cry with a loud voice, saying, How long, O Lord, holy and true, do You not judge and avenge our blood upon those who dwell on the earth?"
+        },
+        {
+          "type": "text",
+          "text": "3. Revelation 6:10 And they are bidden to rest, and still to keep patience. And does any one think that, in opposition to the Judge, a man can become of avail for the general remission and pardon of sins, or that he can shield others before he himself is vindicated?"
+        },
+        {
+          "type": "text",
+          "text": "4. The martyrs order something to be done; but only if this thing be just and lawful, if it can be done without opposing the Lord Himself by God's priest, if the consent of the obeying party be easy and yielding, if the moderation of the asking party be religious."
+        },
+        {
+          "type": "text",
+          "text": "5. The martyrs order something to be done; but if what they order be not written in the law of the Lord, we must first know that they have obtained what they ask from God, and then do what they command. For that may not always appear to be immediately conceded by the divine majesty, which has been promised by man's undertaking."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_46",
+      "title": "Chapter 46",
+      "subtitle": "The Intercession of Martyrs Cannot Contradict the Law of God",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. For Moses also besought for the sins of the people; and yet, when he had sought pardon for these sinners, he did not receive it. I pray You, said he, O Lord, this people have sinned a great sin, and have made them gods of gold. Yet now, if You will forgive their sin, forgive it; but if not, blot me out of the book which You have written."
+        },
+        {
+          "type": "text",
+          "text": "2. And the Lord said to Moses, Whosoever has sinned against me, him will I blot out of my book. Exodus 32:31 He, the friend of God; he who had often spoken face to face with the Lord, could not obtain what he asked, nor could appease the wrath of an indignant God by his entreaty."
+        },
+        {
+          "type": "text",
+          "text": "3. God praises Jeremiah, and announces, saying, Before I formed you in the belly, I knew you; and before you came out of the womb I sanctified you, and I ordained you a prophet unto the nations."
+        },
+        {
+          "type": "text",
+          "text": "4. Jeremiah 1:5 And to the same man He says, when he often entreated and prayed for the sins of the people, Pray not for this people, neither lift up cry nor prayer for them; for I will not hear them in the time wherein they call on me, in the time of their affliction. Jeremiah 7:16 But who was more righteous than Noah, who, when the earth was filled with sins, was alone found righteous on the earth?"
+        },
+        {
+          "type": "text",
+          "text": "5. Who more glorious than Daniel? Who more strong for suffering martyrdom in firmness of faith, more happy in God's condescension, who so many times, both when he was in conflict conquered, and, when he had conquered, lived on? Was any more ready in good works than Job, braver in temptations, more patient in sufferings, more submissive in his fear, more true in his faith?"
+        },
+        {
+          "type": "text",
+          "text": "6. And yet God said that He would not grant to them if they were to seek. When the prophet Ezekiel entreated for the sin of the people, Whatsoever land, said He, shall sin against me by trespassing grievously, I will stretch out mine hand upon it, and will break the staff of bread thereof, and will send famine upon it, and will cut off man and beast from it."
+        },
+        {
+          "type": "text",
+          "text": "7. Though these three men, Noah, Daniel, and Job, were in it, they should deliver neither sons nor daughters; but they only should be delivered themselves. Ezekiel 14:13 Thus, not everything that is asked is in the pre-judgment of the asker, but in the free will of the giver; neither can human judgment claim to itself or usurp anything, unless the divine pleasure approve."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_47",
+      "title": "Chapter 47",
+      "subtitle": "Martyrs Desire That God's Precepts Be Kept",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. In the Gospel the Lord speaks, and says, Whosoever shall confess me before men, him will I also confess before my Father which is in heaven: but he that denies me, him will I also deny. Luke 12:8 If He does not deny him that denies, neither does He confess him that confesses; the Gospel cannot be sound in one part and waver in another."
+        },
+        {
+          "type": "text",
+          "text": "2. Either both must stand firm, or both must lose the force of truth. If they who deny shall not be guilty of a crime, neither shall they who confess receive the reward of a virtue. Again, if faith which has conquered be crowned, it is of necessity that faithlessness which is conquered should be punished."
+        },
+        {
+          "type": "text",
+          "text": "3. Thus the martyrs can either do nothing if the Gospel may be broken; or if the Gospel cannot be broken, they can do nothing against the Gospel, since they become martyrs on account of the Gospel. Let no one, beloved brethren, let no one decry the dignity of martyrs, let no one degrade their glories and their crowns."
+        },
+        {
+          "type": "text",
+          "text": "4. The strength of their uncorrupted faith abides sound; nor can he either say or do anything against Christ, whose hope, and faith, and virtue, and glory, are all in Christ: those cannot be the authority for the bishops doing anything against God's command, who themselves have done God's command."
+        },
+        {
+          "type": "text",
+          "text": "5. Is any one greater than God, or more merciful than God's goodness, that he should either wish that undone which God has suffered to be done, or, as if God had too little power to protect His Church, should think that we could be preserved by his help?"
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_48",
+      "title": "Chapter 48",
+      "subtitle": "The Necessity of Sincere Contrition Before God",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Unless, perchance, these things have been done without God's knowledge, or all these things have happened without His permission; although Holy Scripture teaches the indocile, and admonishes the unmindful, where it speaks, saying, Who gave Jacob for a spoil, and Israel to those who made a booty of him?"
+        },
+        {
+          "type": "text",
+          "text": "2. Did not the Lord against whom they sinned, and would not walk in His ways, neither were obedient unto His law? And He has poured upon them the fury of His anger. Isaiah 13:24 And elsewhere it testifies and says, Is the Lord's hand shortened, that it cannot save; or His ear heavy, that it cannot hear?"
+        },
+        {
+          "type": "text",
+          "text": "3. But your iniquities separate between you and your God; and because of your sins He has hid His face from you, that He may not have mercy."
+        },
+        {
+          "type": "text",
+          "text": "4. Isaiah 59:1 Let us rather consider our offenses, revolving our doings and the secrets of our mind; let us weigh the deserts of our conscience; let it come back upon our heart that we have not walked in the Lord's ways, and have cast away God's law, and have never been willing to keep His precepts and saving counsels."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_49",
+      "title": "Chapter 49",
+      "subtitle": "Manifest Divine Judgments upon Sacrilegious Communicants",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. What good can you think of him, what fear can you suppose to have been with him, or what faith, whom neither fear could correct nor persecution itself could reform? His high and rigid neck, even when it has fallen, is unbent; his swelling and haughty soul is not broken, even when it is conquered. Prostrate, he threatens those who stand; and wounded, the sound."
+        },
+        {
+          "type": "text",
+          "text": "2. And because he may not at once receive the body of the Lord in his polluted hands, the sacrilegious one is angry with the priests."
+        },
+        {
+          "type": "text",
+          "text": "3. And — oh your excessive madness, O frantic one — you are angry with him who endeavours to avert the anger of God from you; you threaten him who beseeches the divine mercy on your behalf, who feels your wound which you yourself do not feel, who sheds tears for you, which perhaps you never shed yourself."
+        },
+        {
+          "type": "text",
+          "text": "4. You are still aggravating and. enhancing your crime; and while you yourself are implacable against the ministers and priests of God, do you think that the Lord can be appeased concerning you?"
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_50",
+      "title": "Chapter 50",
+      "subtitle": "The Miracle of the Child Defiled at the Holy Table",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Receive rather, and admit what we say. Why do your deaf ears not hear the salutary precepts with which we warn you? Why do your blind eyes not see the way of repentance which we point out? Why does your stricken and alienated mind not perceive the lively remedies which we both learn and teach from the heavenly Scriptures?"
+        },
+        {
+          "type": "text",
+          "text": "2. Or if some unbelievers have little faith in future events, let them be terrified with present ones. Lo, what punishments do we behold of those who have denied! What sad deaths of theirs do we bewail! Not even here can they be without punishment, although the day of punishment has not yet arrived. Some are punished in the meantime, that others may be corrected."
+        },
+        {
+          "type": "text",
+          "text": "3. The torments of a few are the examples of all."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_51",
+      "title": "Chapter 51",
+      "subtitle": "Divine Chastenings of Unworthy Receivers of the Eucharist",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. One of those who of his own will ascended the Capitol to make denial, after he had denied Christ, became dumb. The punishment began from that point whence the crime also began; so that now he could not ask, since he had no words for entreating mercy."
+        },
+        {
+          "type": "text",
+          "text": "2. Another, who was in the baths, (for this was wanting to her crime and to her misfortunes, that she even went at once to the baths, when she had lost the grace of the layer of life); there, unclean as she was, was seized by an unclean spirit, and tore with her teeth the tongue with which she had either impiously eaten or spoken."
+        },
+        {
+          "type": "text",
+          "text": "3. After the wicked food had been taken, the madness of the mouth was armed to its own destruction. She herself was her own executioner, nor did she long continue to live afterwards: tortured with pangs of the belly and bowels, she expired."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_52",
+      "title": "Chapter 52",
+      "subtitle": "Hidden Thoughts and Doubts Must Be Humbly Confessed",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Learn what occurred when I myself was present and a witness Some parents who by chance were escaping, being little careful on account of their terror, left a little daughter under the care of a wet-nurse. The nurse gave up the forsaken child to the magistrates."
+        },
+        {
+          "type": "text",
+          "text": "2. They gave it, in the presence of an idol whither the people flocked (because it was not yet able to eat flesh on account of its years), bread mingled with wine, which however itself was the remainder of what had been used in the immolation of those that had perished. Subsequently the mother recovered her child."
+        },
+        {
+          "type": "text",
+          "text": "3. But the girl was no more able to speak, or to indicate the crime that had been committed, than she had before been able to understand or to prevent it. Therefore it happened unawares in their ignorance, that when we were sacrificing, the mother brought it in with her."
+        },
+        {
+          "type": "text",
+          "text": "4. Moreover, the girl mingled with the saints, became impatient of our prayer and supplications, and was at one moment shaken with weeping, and at another tossed about like a wave of the sea by the violent excitement of her mind; as if by the compulsion of a torturer the soul of that still tender child confessed a consciousness of the fact with such signs as it could."
+        },
+        {
+          "type": "text",
+          "text": "5. When, however, the solemnities were finished, and the deacon began to offer the cup to those present, and when, as the rest received it, its turn approached, the little child, by the instinct of the divine majesty, turned away its face, compressed its mouth with resisting lips, and refused the cup."
+        },
+        {
+          "type": "text",
+          "text": "6. Still the deacon persisted, and, although against her efforts, forced on her some of the sacrament of the cup. Then there followed a sobbing and vomiting. In a profane body and mouth the Eucharist could not remain; the draught sanctified in the blood of the Lord burst forth from the polluted stomach. So great is the Lord's power, so great is His majesty."
+        },
+        {
+          "type": "text",
+          "text": "7. The secrets of darkness were disclosed under His light, and not even hidden crimes deceived God's priest."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_53",
+      "title": "Chapter 53",
+      "subtitle": "Exhortation to Immediate Confession While Life Remains",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. This much about an infant, which was not yet of an age to speak of the crime committed by others in respect of herself."
+        },
+        {
+          "type": "text",
+          "text": "2. But the woman who in advanced life and of more mature age secretly crept in among us when we were sacrificing, received not food, but a sword for herself; and as if taking some deadly poison into her jaws and body, began presently to be tortured, and to become stiffened with frenzy; and suffering the misery no longer of persecution, but of her crime, shivering and trembling, she fell down."
+        },
+        {
+          "type": "text",
+          "text": "3. The crime of her dissimulated conscience was not long unpunished or concealed. She who had deceived man, felt that God was taking vengeance. And another woman, when she tried with unworthy hands to open her box, in which was the holy (body) of the Lord, was deterred by fire rising from it from daring to touch it."
+        },
+        {
+          "type": "text",
+          "text": "4. And when one, who himself was defiled, dared with the rest to receive secretly a part of the sacrifice celebrated by the priest; he could not eat nor handle the holy of the Lord, but found in his hands when opened that he had a cinder."
+        },
+        {
+          "type": "text",
+          "text": "5. Thus by the experience of one it was shown that the Lord withdraws when He is denied; nor does that which is received benefit the undeserving for salvation, since saving grace is changed by the departure of the sanctity into a cinder. How many there are daily who do not repent nor make confession of the consciousness of their crime, who are filled with unclean spirits!"
+        },
+        {
+          "type": "text",
+          "text": "6. How many are shaken even to unsoundness of mind and idiotcy by the raging of madness! Nor is there any need to go through the deaths of individuals, since through the manifold lapses occurring in the world the punishment of their sins is as varied as the multitude, of sinners is abundant."
+        },
+        {
+          "type": "text",
+          "text": "7. Let each one consider not what another has suffered, but what he himself deserves to suffer; nor think that he has escaped if his punishment delay for a time, since he ought to fear it the more that the wrath of God the judge has reserved it for Himself."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_54",
+      "title": "Chapter 54",
+      "subtitle": "The Deceit of Easy Absolution Leads to Greater Ruin",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Nor let those persons flatter themselves that they need repent the less, who, although they have not polluted their hands with abominable sacrifices, yet have defiled their conscience with certificates. That profession of one who denies, is the testimony of a, Christian disowning what he had been."
+        },
+        {
+          "type": "text",
+          "text": "2. He says that he has done what another has actually committed; and although it is written, You cannot serve two masters, Matthew 6:24 he has served an earthly master in that he has obeyed his edict; he has been more obedient to human authority than to God. It matters not whether he has published what he has done with less either of disgrace or of guilt among men."
+        },
+        {
+          "type": "text",
+          "text": "3. Be that as it may, he will not be able to escape and avoid God his judge, seeing that the Holy Spirit says in the Psalms, Your eyes saw my substance, that it was imperfect, and in Your book shall all men be written."
+        },
+        {
+          "type": "text",
+          "text": "4. And again: Man sees the outward appearance, but God sees the heart. 1 Samuel 16:7 The Lord Himself also forewarns and prepares us, saying, And all the churches shall know that I am He which searches the reins and the heart."
+        },
+        {
+          "type": "text",
+          "text": "5. Revelation 2:23 He looks into the hidden and secret things, and considers those things which are concealed; nor can any one evade the eyes of the Lord, who says, I am a God at hand, and not a God afar off. If a man be hidden in secret places, shall not I therefore see him? Do not I fill heaven and earth?"
+        },
+        {
+          "type": "text",
+          "text": "6. Jeremiah 23:23 He sees the heart and mind of every person; and He will judge not alone of our deeds, but even of our words and thoughts. He looks into the minds, and the wills, and conceptions of all men, in the very lurking-places of the heart that is still closed up."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_55",
+      "title": "Chapter 55",
+      "subtitle": "The Practice of True and Patient Penance (Exomologesis)",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Moreover, how much are they both greater in faith and better in their fear, who, although bound by no crime of sacrifice to idols or of certificate, yet, since they have even thought of such things, with grief and simplicity confess this very thing to God's priests, and make the conscientious avowal, put off from them the load of their minds, and seek out the salutary medicine even for slight and moderate wounds, knowing that it is written, God is not mocked."
+        },
+        {
+          "type": "text",
+          "text": "2. Galatians 6:7 God cannot be mocked, nor deceived, nor deluded by any deceptive cunning. Yea, he sins the more, who, thinking that God is like man, believes that he evades the penalty of his crime if he has not openly admitted his crime. Christ says in His precepts, Whosoever shall be ashamed of me, of him shall the Son of man be ashamed."
+        },
+        {
+          "type": "text",
+          "text": "3. Mark 6:83 And does he think that he is a Christian, who is either ashamed or afraid to be a Christian? How can he be one with Christ, who either blushes or fears to belong to Christ?"
+        },
+        {
+          "type": "text",
+          "text": "4. He will certainly have sinned less, by not seeing the idols, and not profaning the sanctity of the faith under the eyes of a people standing round and insulting, and not polluting his hands by the deadly sacrifices, nor defiling his lips with the wicked food. This is advantageous to this extent, that the fault is less, not that the conscience is guiltless."
+        },
+        {
+          "type": "text",
+          "text": "5. He can more easily attain to pardon of his crime, yet he is not free from crime; and let him not cease to carry out his repentance, and to entreat the Lord's mercy, lest what seems to be less in the quality of his fault, should be increased by his neglect of atonement."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_56",
+      "title": "Chapter 56",
+      "subtitle": "True Mourning, Fasting, and Weeping for Sins",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. I entreat you, beloved brethren, that each one should confess his own sin, while he who has sinned is still in this world, while his confession may be received, while the satisfaction and remission made by the priests are pleasing to the Lord. Let us turn to the Lord with our whole heart, and, expressing our repentance for our sin with true grief, let us entreat God's mercy."
+        },
+        {
+          "type": "text",
+          "text": "2. Let our soul lie low before Him. Let our mourning atone to Him. Let all our hope lean upon Him. He Himself tells us in what manner we ought to ask. Turn to me, He says, with all your heart, and at the same time with fasting, and with weeping, and with mourning; and rend your hearts, and not your garments. Joel 2:12 Let us return to the Lord with our whole heart."
+        },
+        {
+          "type": "text",
+          "text": "3. Let us appease His wrath and indignation with fastings, with weeping, with mourning, as He Himself admonishes us."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_57",
+      "title": "Chapter 57",
+      "subtitle": "Renunciation of Worldly Luxuries and Costly Apparel",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Do we believe that a man is lamenting with his whole heart, that he is entreating the Lord with fasting, and with weeping, and with mourning, who from the first day of his sin daily frequents the bathing-places with women; who, feeding at rich banquets, and puffed out with fuller dainties, belches forth on the next day his indigestions, and does not dispense of his meat and drink so as to aid the necessity of the poor?"
+        },
+        {
+          "type": "text",
+          "text": "2. How does he who walks with joyous and glad step mourn for his death? And although it is written, You shall not mar the figure of your beard, Leviticus 19:27 he plucks out his beard, and dresses his hair; and does he now study to please any one who displeases God?"
+        },
+        {
+          "type": "text",
+          "text": "3. Or does she groan and lament who has time to put on the clothing of precious apparel, and not to consider the robe of Christ which she has lost; to receive valuable ornaments and richly wrought necklaces, and not to bewail the loss of divine and heavenly ornament?"
+        },
+        {
+          "type": "text",
+          "text": "4. Although you clothe yourself in foreign garments and silken robes, you are naked; although you adorn yourself to excess both in pearls, and gems, and gold, yet without the adornment of Christ you are unsightly."
+        },
+        {
+          "type": "text",
+          "text": "5. And you who stain your hair, now at least cease in the midst of sorrows; and you who paint the edges of your eyes with a line drawn around them of black powder, now at least wash your eyes with tears."
+        },
+        {
+          "type": "text",
+          "text": "6. If you had lost any dear one of your friends by the death incident to mortality, you would groan grievously, and weep with disordered countenance, with changed dress, with neglected hair, with clouded face, with dejected appearance, you would show the signs of grief."
+        },
+        {
+          "type": "text",
+          "text": "7. Miserable creature, you have lost your soul; spiritually dead here, you are continuing to live to yourself, and although yourself walking about, you have begun to carry your own death with you. And do you not bitterly moan; do you not continually groan; do you not hide yourself, either for shame of your sin or for continuance of your lamentation?"
+        },
+        {
+          "type": "text",
+          "text": "8. Behold, these are still worse wounds of sinning; behold, these are greater crimes — to have sinned, and not to make atonement — to have committed crimes, and not to bewail your crimes."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_58",
+      "title": "Chapter 58",
+      "subtitle": "Fleeing from Seducers and Preachers of False Peace",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Ananias, Azarias, and Misael, the illustrious and noble youths, even amid the flames and the ardours of a raging furnace, did not desist from making public confession to God."
+        },
+        {
+          "type": "text",
+          "text": "2. Although possessed of a good conscience, and having often deserved well of the Lord by obedience of faith and fear, yet they did not cease from maintaining their humility, and from making atonement to the Lord, even amid the glorious martyrdoms of their virtues."
+        },
+        {
+          "type": "text",
+          "text": "3. The sacred Scripture speaks, saying, Azarias stood up and prayed, and, opening his mouth, made confession before God together with his companions in the midst of the fire."
+        },
+        {
+          "type": "text",
+          "text": "4. Daniel also, after the manifold grace of his faith and innocency, after the condescension of the Lord often repeated in respect of his virtues and praises, strives by fastings still further to deserve well of God, wraps himself in sackcloth and ashes, sorrowfully making confession, and saying, O Lord God, great, and strong, and dreadful, keeping Your covenant and mercy for them that love You and keep Your commandments, we have sinned, we have committed iniquity, and have done wickedly: we have transgressed, and departed from Your precepts, and from Your judgments; neither have we hearkened to the words of Your servants the prophets, which they spoke in Your name to our kings, and to all the nations, and to all the earth."
+        },
+        {
+          "type": "text",
+          "text": "5. O Lord, righteousness belongs unto You, but unto us confusion. Daniel 9:4"
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_59",
+      "title": "Chapter 59",
+      "subtitle": "Earnest Prayer, Sincere Humility, and Works of Mercy",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. These things were done by men, meek, simple, innocent, in deserving well of the majesty of God; and now those who have denied the Lord refuse to make atonement to the Lord, and to entreat Him."
+        },
+        {
+          "type": "text",
+          "text": "2. I beg you, brethren, acquiesce in wholesome remedies, obey better counsels, associate your tears with our tears, join your groans with ours; we beseech you in order that we may beseech God for you: we turn our very prayers to you first; our prayers with which we pray God for you that He would pity you. Repent abundantly, prove the sorrow of a grieving and lamenting mind."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_60",
+      "title": "Chapter 60",
+      "subtitle": "The Abundant Mercy of God for the Penitent",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Neither let that imprudent error or vain stupor of some move you, who, although they are involved in so grave a crime, are struck with blindness of mind, so that they neither understand nor lament their sins. This is the greater visitation of an angry God; as it is written, And God gave them the spirit of deadness. And again: They received not the love of the truth, that they might be saved."
+        },
+        {
+          "type": "text",
+          "text": "2. And for this cause God shall send them the working of error, that they should believe a lie; that they all might be damned who believed not the truth, but had pleasure in unrighteousness. 2 Thessalonians 2:10 Unrighteously pleasing themselves, and mad with the alienation of a hardened mind, they despise the Lord's precepts, neglect the medicine for their wound, and will not repent."
+        },
+        {
+          "type": "text",
+          "text": "3. Thoughtless before their sin was acknowledged, after their sin they are obstinate; neither steadfast before, nor suppliant afterwards: when they ought to have stood fast, they fell; when they ought to fall and prostrate themselves to God, they think they stand fast."
+        },
+        {
+          "type": "text",
+          "text": "4. They have taken peace for themselves of their own accord when nobody granted it; seduced by false promises, and linked with apostates and unbelievers, they take hold of error instead of truth: they regard a communion as valid with those who are not communicants; they believe men against God, although they have not believed God against men."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_61",
+      "title": "Chapter 61",
+      "subtitle": "The Joyful Restoration and Healing of Contrite Souls",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Flee from such men as much as you can; avoid with a wholesome caution those who adhere to their mischievous contact. Their word does eat as does a cancer; their conversation advances like a contagion; their noxious and envenomed persuasion kills worse than persecution itself. In such a case there remains only penitence which can make atonement."
+        },
+        {
+          "type": "text",
+          "text": "2. But they who take away repentance for a crime, close the way of atonement. Thus it happens that, while by the rashness of some a false safety is either promised or trusted, the hope of true safety is taken away."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_62",
+      "title": "Chapter 62",
+      "subtitle": "The Crown of Glory for Those Who Persevere in Penance",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. But you, beloved brethren, whose fear is ready towards God, and whose mind, although it is placed in the midst of lapse, is mindful of its misery, do you in repentance and grief look into your sins; acknowledge the very grave sin of your conscience; open the eyes of your heart to the understanding of your sin, neither despairing of the Lord's mercy nor yet at once claiming His pardon."
+        },
+        {
+          "type": "text",
+          "text": "2. God, in proportion as with the affection of a Father He is always indulgent and good, in the same proportion is to be dreaded with the majesty of a judge. Even as we have sinned greatly, so let us greatly lament. To a deep wound let there not be wanting a long and careful treatment; let not the repentance be less than the sin."
+        },
+        {
+          "type": "text",
+          "text": "3. Think you that the Lord can be quickly appeased, whom with faithless words you have denied, to whom you have rather preferred your worldly estate, whose temple you have violated with a sacrilegious contact? Think you that He will easily have mercy upon you whom you have declared not to be your God?"
+        },
+        {
+          "type": "text",
+          "text": "4. You must pray more eagerly and entreat; you must spend the day in grief; wear out nights in watchings and weepings; occupy all your time in wailful lamentations; lying stretched on the ground, you must cling close to the ashes, be surrounded with sackcloth and filth; after losing the raiment of Christ, you must be willing now to have no clothing; after the devil's meat, you must prefer fasting; be earnest in righteous works, whereby sins may be purged; frequently apply yourself to almsgiving, whereby souls are freed from death."
+        },
+        {
+          "type": "text",
+          "text": "5. What the adversary took from you, let Christ receive; nor ought your estate now either to be held or loved, by which you have been both deceived and conquered. Wealth must be avoided as an enemy; must be fled from as a robber; must be dreaded by its possessors as a sword and as poison. To this end only so much as remains should be of service, that by it the crime and the fault may be redeemed."
+        },
+        {
+          "type": "text",
+          "text": "6. Let good works be done without delay, and largely; let all your estate be laid out for the healing of your wound; let us lend of our wealth and our means to the Lord, who shall judge concerning us."
+        },
+        {
+          "type": "text",
+          "text": "7. Thus faith flourished in the time of the apostles; thus the first people of believers kept Christ's commands: they were prompt, they were liberal, they gave their all to be distributed by the apostles; and yet they were not redeeming sins of such a character as these."
+        }
+      ]
+    },
+    {
+      "id": "sec_cyprian_unity_lapsed_63",
+      "title": "Chapter 63",
+      "subtitle": "Conclusion: Seeking God's Mercy with Wholehearted Faith",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. If a man make prayer with his whole heart, if he groan with the true lamentations and tears of repentance, if be incline the Lord to pardon of his sin by righteous and continual works, he who expressed His mercy in these words may pity such men: When you turn and lament, then shall you be saved, and shall know where you have been."
+        },
+        {
+          "type": "text",
+          "text": "2. Isaiah 30:51 And again: I have no pleasure in the death of him that dies, says the Lord, hut that he should return and live. Ezekiel 33:11 And Joel the prophet declares the mercy of the Lord in the Lord's own admonition, when he says: Turn to the Lord your God, for He is merciful and gracious, and patient, and of great mercy, and repents Him with respect to the evil that He has inflicted."
+        },
+        {
+          "type": "text",
+          "text": "3. Joel 2:13 He can show mercy; He can turn back His judgment. He can mercifully pardon the repenting, the labouring, the beseeching sinner. He can regard as effectual whatever, in behalf of such as these, either martyrs have besought or priests have done."
+        },
+        {
+          "type": "text",
+          "text": "4. Or if any one move Him still more by his own atonement, if he appease His anger, if he appease the wrath of an indignant God by righteous entreaty, He gives arms again whereby the vanquished may be armed; He restores and confirms the strength whereby the refreshed faith may be invigorated."
+        },
+        {
+          "type": "text",
+          "text": "5. The soldier will seek his contest anew; he will repeat the fight, he will provoke the enemy, and indeed by his very suffering he is made braver for the battle."
+        },
+        {
+          "type": "text",
+          "text": "6. He who has thus made atonement to God; he who by repentance for his deed, who by shame for his sin, has conceived more both of virtue and of faith from the very grief of his fall, heard and aided by the Lord, shall make the Church which he had lately saddened glad, and shall now deserve of the Lord not only pardon, but a crown."
+        }
+      ]
+    }
+  ]
+}

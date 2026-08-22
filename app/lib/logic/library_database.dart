@@ -816,6 +816,25 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> cyprianVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'unity_and_lapsed',
+      name: 'Vol. I: On the Unity of the Church & The Lapsed',
+      shortName: 'Vol. I (Unity & The Lapsed)',
+      description:
+          'Treatise I on the unity of the Catholic Church, the Chair of Peter, and schism, together with Treatise III on the reconciliation of the lapsed after persecution.',
+      assetPath: 'assets/catechism/json/cyprian_unity_and_lapsed.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'prayer_and_treatises',
+      name: 'Vol. II: On the Lord\'s Prayer & Christian Life',
+      shortName: 'Vol. II (Lord\'s Prayer & Treatises)',
+      description:
+          'Treatise IV commenting on the Lord\'s Prayer, Treatise VII on mortality during plague, and Treatise VIII on works and almsgiving.',
+      assetPath: 'assets/catechism/json/cyprian_prayer_and_treatises.json',
+    ),
+  ];
+
   static const List<BaltimoreVolume> aquinasCompendiumVolumes = [
     BaltimoreVolume(
       volumeKey: 'part1',
@@ -1195,6 +1214,17 @@ class LibraryHelper {
         description:
             'Written in the 5th century by the Pope and Doctor of the Church. Features the definitive dogmatic Tome to Flavian acclaimed at Chalcedon alongside celebrated sermons on the Incarnation and Petrine primacy.',
         volumes: leoGreatVolumes,
+      ),
+      const LibraryBookItem(
+        id: 'cyprian_unity_of_church',
+        title: 'On the Unity of the Church & Treatises',
+        subtitle:
+            'De Catholicae Ecclesiae Unitate (Trans. Robert Wallis, ANF Vol. 5)',
+        category: 'Patristics',
+        author: 'St. Cyprian of Carthage (Trans. Robert Ernest Wallis)',
+        description:
+            'Written in 251 AD by the Bishop and Martyr of Carthage. The foundational early patristic treatise on the unity of the Church and the Chair of Peter, together with his commentary on the Lord\'s Prayer.',
+        volumes: cyprianVolumes,
       ),
       const LibraryBookItem(
         id: 'anselm_proslogion',

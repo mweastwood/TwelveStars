@@ -140,6 +140,8 @@ class ReverseCitationService {
     'assets/catechism/json/vincent_commonitory.json',
     'assets/catechism/json/leo_tome_and_letters.json',
     'assets/catechism/json/leo_selected_sermons.json',
+    'assets/catechism/json/cyprian_unity_and_lapsed.json',
+    'assets/catechism/json/cyprian_prayer_and_treatises.json',
   ];
 
   @visibleForTesting
