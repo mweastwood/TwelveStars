@@ -1031,6 +1031,41 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> salesLoveOfGodVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'vol1',
+      name: 'Vol. I (Origin and Motives of Divine Love)',
+      shortName: 'Vol. I',
+      description:
+          'Books I–IV: Foundation of love, natural inclination towards God, divine love in creation and redemption, progress and perfection of love, and the decay and ruin of charity.',
+      assetPath: 'assets/catechism/json/sales_love_of_god_vol1.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'vol2',
+      name: 'Vol. II (The Operations of Love in Prayer)',
+      shortName: 'Vol. II',
+      description:
+          'Books V–VII: Affective and effective love, holy complacency and benevolence, meditation, contemplation, prayer of quiet and union, ecstasy, and spiritual dereliction.',
+      assetPath: 'assets/catechism/json/sales_love_of_god_vol2.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'vol3',
+      name: 'Vol. III (Conformity to God\'s Will & Holy Indifference)',
+      shortName: 'Vol. III',
+      description:
+          'Books VIII–IX: Conformity to God\'s signified will in commandments and counsels, submission to His good pleasure in trials and spiritual afflictions, and holy indifference.',
+      assetPath: 'assets/catechism/json/sales_love_of_god_vol3.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'vol4',
+      name: 'Vol. IV (Practical Charity, Virtues & Sovereign Perfection)',
+      shortName: 'Vol. IV',
+      description:
+          'Books X–XII: The commandment of loving God above all things, love of neighbor, supreme authority of charity over all virtues, and practical counsels for advancement in love.',
+      assetPath: 'assets/catechism/json/sales_love_of_god_vol4.json',
+    ),
+  ];
+
   static const List<BaltimoreVolume> teresaWayOfPerfectionVolumes = [
     BaltimoreVolume(
       volumeKey: 'part1',
@@ -1415,6 +1450,16 @@ class LibraryHelper {
         description:
             'Written in 1609 by the Bishop of Geneva and Doctor of the Church. The universal spiritual classic showing that authentic holiness is attainable and necessary for persons in every state of life.',
         volumes: devoutLifeVolumes,
+      ),
+      const LibraryBookItem(
+        id: 'francis_de_sales_love_of_god',
+        title: 'Treatise on the Love of God',
+        subtitle: 'Traité de l\'Amour de Dieu (Trans. H. B. Mackey, O.S.B.)',
+        category: 'Spiritual Classics',
+        author: 'St. Francis de Sales (Trans. H. B. Mackey, O.S.B.)',
+        description:
+            'Written in 1616 by the Doctor of Charity. An exhaustive and sublime treatise on the origin, progress, nature, and sovereign perfection of divine love in the soul.',
+        volumes: salesLoveOfGodVolumes,
       ),
       const LibraryBookItem(
         id: 'teresa_interior_castle',

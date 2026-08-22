@@ -640,6 +640,10 @@ void parseChapteredBookFile({
         stripped.startsWith('St. John Damascene') ||
         stripped.startsWith('St. John of Damascus') ||
         stripped.startsWith('By St. John') ||
+        stripped.startsWith('Treatise on the Love of God') ||
+        stripped.startsWith('Traité de l\'Amour de Dieu') ||
+        stripped.startsWith('St. Francis de Sales') ||
+        stripped.startsWith('By St. Francis') ||
         stripped.startsWith('Translated by')) {
       continue;
     }
@@ -1370,6 +1374,45 @@ void main() {
       title: title,
       subtitle: subtitle,
       author: 'St. Francis de Sales (Trans. Allan Ross)',
+      outputDir: outputDir,
+    );
+  }
+
+  final salesLoveOfGodVolumes = [
+    (
+      'vol1',
+      'v1',
+      'Treatise on the Love of God: Vol. I',
+      'Origin and Motives of Divine Love (Trans. H. B. Mackey, O.S.B., 1884)',
+    ),
+    (
+      'vol2',
+      'v2',
+      'Treatise on the Love of God: Vol. II',
+      'The Operations of Love in Prayer (Trans. H. B. Mackey, O.S.B., 1884)',
+    ),
+    (
+      'vol3',
+      'v3',
+      'Treatise on the Love of God: Vol. III',
+      'Conformity to the Will of God & Holy Indifference (Trans. H. B. Mackey, O.S.B., 1884)',
+    ),
+    (
+      'vol4',
+      'v4',
+      'Treatise on the Love of God: Vol. IV',
+      'Practical Charity, Virtues, and Sovereign Perfection (Trans. H. B. Mackey, O.S.B., 1884)',
+    ),
+  ];
+
+  for (final (volSlug, secPrefix, title, subtitle) in salesLoveOfGodVolumes) {
+    parseChapteredBookFile(
+      filepath: p.join(salesDir, 'sales_love_of_god_$volSlug.txt'),
+      bookId: 'sales_love_of_god_$volSlug',
+      secIdPrefix: 'sales_love_of_god_$secPrefix',
+      title: title,
+      subtitle: subtitle,
+      author: 'St. Francis de Sales (Trans. H. B. Mackey, O.S.B.)',
       outputDir: outputDir,
     );
   }
