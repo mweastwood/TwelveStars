@@ -426,5 +426,27 @@ void main() {
         }
       },
     );
+
+    test(
+      'indexes St. Teresa of Ávila The Way of Perfection across both volumes',
+      () async {
+        await ReverseCitationService.ensureIndexed();
+
+        const teresaPart1 =
+            'assets/catechism/json/teresa_way_perfection_part1.json';
+        const teresaPart2 =
+            'assets/catechism/json/teresa_way_perfection_part2.json';
+        expect(
+          ReverseCitationService.catalogPaths.contains(teresaPart1),
+          isTrue,
+          reason: '$teresaPart1 should be registered in catalogPaths',
+        );
+        expect(
+          ReverseCitationService.catalogPaths.contains(teresaPart2),
+          isTrue,
+          reason: '$teresaPart2 should be registered in catalogPaths',
+        );
+      },
+    );
   });
 }

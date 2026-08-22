@@ -593,6 +593,8 @@ void parseChapteredBookFile({
         stripped.startsWith('Introduction to the Devout Life:') ||
         stripped.startsWith('The Interior Castle') ||
         stripped.startsWith('El Castillo Interior') ||
+        stripped.startsWith('The Way of Perfection') ||
+        stripped.startsWith('Camino de Perfección') ||
         stripped.startsWith('By St. Teresa') ||
         stripped.startsWith('The Imitation of Christ') ||
         stripped.startsWith('De Imitatione Christi') ||
@@ -1322,6 +1324,35 @@ void main() {
     author: 'St. Teresa of Ávila (Trans. Benedictines of Stanbrook)',
     outputDir: outputDir,
   );
+
+  final teresaAvilaDir = p.join('assets', 'catechism', 'teresa_avila');
+
+  final teresaWayVolumes = [
+    (
+      'part1',
+      'p1',
+      'The Way of Perfection: Vol. I',
+      'The Way of Prayer & Evangelical Counsels (Trans. Benedictines of Stanbrook, 1911)',
+    ),
+    (
+      'part2',
+      'p2',
+      'The Way of Perfection: Vol. II',
+      'Contemplation & Meditation on the Lord\'s Prayer (Trans. Benedictines of Stanbrook, 1911)',
+    ),
+  ];
+
+  for (final (slug, secPrefix, title, subtitle) in teresaWayVolumes) {
+    parseChapteredBookFile(
+      filepath: p.join(teresaAvilaDir, 'teresa_way_perfection_$slug.txt'),
+      bookId: 'teresa_way_perfection_$slug',
+      secIdPrefix: 'teresa_way_perfection_$secPrefix',
+      title: title,
+      subtitle: subtitle,
+      author: 'St. Teresa of Ávila (Trans. Benedictines of Stanbrook)',
+      outputDir: outputDir,
+    );
+  }
 
   final kempisDir = p.join('assets', 'catechism', 'kempis');
   parseChapteredBookFile(

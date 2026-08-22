@@ -126,6 +126,8 @@ class ReverseCitationService {
     'assets/catechism/json/sales_devout_life_part4.json',
     'assets/catechism/json/sales_devout_life_part5.json',
     'assets/catechism/json/teresa_interior_castle.json',
+    'assets/catechism/json/teresa_way_perfection_part1.json',
+    'assets/catechism/json/teresa_way_perfection_part2.json',
     'assets/catechism/json/kempis_imitation_of_christ.json',
     'assets/catechism/json/bonaventure_minds_road_to_god.json',
     'assets/catechism/json/basil_on_the_holy_spirit.json',

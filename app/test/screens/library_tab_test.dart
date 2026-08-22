@@ -827,6 +827,36 @@ void main() {
       },
     );
 
+    testWidgets(
+      'tapping The Way of Perfection volume chip opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/teresa_way_perfection_part1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final part1Chip = find.text(
+          'Vol. I: The Way of Prayer & Evangelical Counsels',
+        );
+        await tester.scrollUntilVisible(
+          part1Chip,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(part1Chip);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('The Way of Perfection'), findsWidgets);
+      },
+    );
+
     testWidgets('tapping Cur Deus Homo volume chip opens LibraryReaderScreen', (
       tester,
     ) async {
@@ -2556,6 +2586,70 @@ void main() {
 
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
         expect(find.text('The Tome & Selected Works'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen renders St. Teresa The Way of Perfection (Vol. I)',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final teresa = catalog.firstWhere(
+          (b) => b.id == 'teresa_way_of_perfection',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/teresa_way_perfection_part1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryReaderScreen(
+                bookItem: teresa,
+                initialVolumeKey: 'part1',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('The Way of Perfection'), findsWidgets);
+        expect(find.text('Section 1 of 18'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen renders St. Teresa The Way of Perfection (Vol. II)',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final teresa = catalog.firstWhere(
+          (b) => b.id == 'teresa_way_of_perfection',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/teresa_way_perfection_part2.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryReaderScreen(
+                bookItem: teresa,
+                initialVolumeKey: 'part2',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('The Way of Perfection'), findsWidgets);
+        expect(find.text('Section 1 of 24'), findsOneWidget);
       },
     );
   });
