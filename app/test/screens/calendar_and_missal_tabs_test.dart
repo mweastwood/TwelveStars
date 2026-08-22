@@ -922,6 +922,46 @@ void main() {
         findsOneWidget,
       );
     });
+
+    testGoldens(
+      'MissalTab renders saint feast card and opens saint details modal',
+      (tester) async {
+        final fixedDate = DateTime(2026, 1, 28);
+        TimeHelper.setCustomTime(fixedDate);
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: MissalTab(
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+              initialDate: fixedDate,
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'missal_tab_saint_feast_card_golden',
+          customPump: (tester) async => await tester.pump(),
+        );
+
+        // Tap the saint feast card to open the details modal
+        await tester.tap(
+          find.byKey(const Key('missal_saint_card_thomas-aquinas')),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 300));
+        await tester.pump(const Duration(milliseconds: 300));
+
+        await screenMatchesGolden(
+          tester,
+          'missal_tab_saint_details_modal_golden',
+          customPump: (tester) async => await tester.pump(),
+        );
+      },
+    );
   });
 }
 
