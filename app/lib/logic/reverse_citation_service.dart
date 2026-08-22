@@ -40,6 +40,14 @@ class ReverseCitationService {
 
   static int get indexedSourcesCount => _indexedSources.length;
 
+  static final RegExp _digitRegex = RegExp(r'\d');
+  static final RegExp _wordBoundaryRegex = RegExp(
+    r'[\s\(\[\{\<"]|[\u201C\u201D\u2018\u2019]',
+  );
+  static final RegExp _wordTrimRegex = RegExp(r'^[^\w]+|[^\w]+$');
+  static final RegExp _singleLetterRegex = RegExp(r'[a-zA-Z]');
+  static final RegExp _whitespaceRegex = RegExp(r'\s');
+
   static const Set<String> _abbreviations = {
     'st',
     'saint',
@@ -240,27 +248,25 @@ class ReverseCitationService {
           // Decimal check (digit before and digit after)
           if (i > 0 &&
               i + 1 < len &&
-              RegExp(r'\d').hasMatch(clean[i - 1]) &&
-              RegExp(r'\d').hasMatch(clean[i + 1])) {
+              _digitRegex.hasMatch(clean[i - 1]) &&
+              _digitRegex.hasMatch(clean[i + 1])) {
             continue;
           }
 
           // Word preceding period check
           int wordStart = i - 1;
           while (wordStart >= start &&
-              !RegExp(
-                r'[\s\(\[\{\<\"]|[\u201C\u201D\u2018\u2019]',
-              ).hasMatch(clean[wordStart])) {
+              !_wordBoundaryRegex.hasMatch(clean[wordStart])) {
             wordStart--;
           }
           wordStart++;
           final word = clean
               .substring(wordStart, i)
               .toLowerCase()
-              .replaceAll(RegExp(r'^[^\w]+|[^\w]+$'), '');
+              .replaceAll(_wordTrimRegex, '');
 
           // Single letter initial check like "J." in "J. B. Lightfoot"
-          if (word.length == 1 && RegExp(r'[a-zA-Z]').hasMatch(word)) {
+          if (word.length == 1 && _singleLetterRegex.hasMatch(word)) {
             continue;
           }
 
@@ -283,13 +289,14 @@ class ReverseCitationService {
 
         // Check if end of text or followed by whitespace
         if (endPunct + 1 >= len ||
-            RegExp(r'\s').hasMatch(clean[endPunct + 1])) {
+            _whitespaceRegex.hasMatch(clean[endPunct + 1])) {
           final sentence = clean.substring(start, endPunct + 1).trim();
           if (sentence.isNotEmpty) {
             sentences.add(sentence);
           }
           int nextStart = endPunct + 1;
-          while (nextStart < len && RegExp(r'\s').hasMatch(clean[nextStart])) {
+          while (nextStart < len &&
+              _whitespaceRegex.hasMatch(clean[nextStart])) {
             nextStart++;
           }
           start = nextStart;
