@@ -721,6 +721,41 @@ class LibraryHelper {
     ),
   ];
 
+  static const List<BaltimoreVolume> gregoryPastoralRuleVolumes = [
+    BaltimoreVolume(
+      volumeKey: 'book1',
+      name: 'Book I (The Pastoral Office)',
+      shortName: 'Book I',
+      description:
+          'How one ought to arrive at the office of spiritual leadership; motives, qualifications, and the peril of unworthy ambition.',
+      assetPath: 'assets/catechism/json/gregory_pastoral_rule_book1.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book2',
+      name: 'Book II (The Life of the Pastor)',
+      shortName: 'Book II',
+      description:
+          'The personal conduct, interior life, compassion, contemplation, and moral vigilance required of a pastor.',
+      assetPath: 'assets/catechism/json/gregory_pastoral_rule_book2.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book3',
+      name: 'Book III (Discretion in Preaching)',
+      shortName: 'Book III',
+      description:
+          'Discretion and spiritual discernment in exhorting diverse classes and dispositions of people.',
+      assetPath: 'assets/catechism/json/gregory_pastoral_rule_book3.json',
+    ),
+    BaltimoreVolume(
+      volumeKey: 'book4',
+      name: 'Book IV (Humility & Self-Examination)',
+      shortName: 'Book IV',
+      description:
+          'How the pastor, having discharged his duty well, must enter into himself to guard against vain glory and pride.',
+      assetPath: 'assets/catechism/json/gregory_pastoral_rule_book4.json',
+    ),
+  ];
+
   static const List<BaltimoreVolume> chrysostomOnThePriesthoodVolumes = [
     BaltimoreVolume(
       volumeKey: 'book1',
@@ -1249,6 +1284,16 @@ class LibraryHelper {
         description:
             'Written in the 5th century by the Pope and Doctor of the Church. Features the definitive dogmatic Tome to Flavian acclaimed at Chalcedon alongside celebrated sermons on the Incarnation and Petrine primacy.',
         volumes: leoGreatVolumes,
+      ),
+      const LibraryBookItem(
+        id: 'gregory_pastoral_rule',
+        title: 'Pastoral Rule',
+        subtitle: 'Liber Regulae Pastoralis (Trans. James Barmby, 1895)',
+        category: 'Church Fathers',
+        author: 'Pope St. Gregory the Great (Trans. James Barmby)',
+        description:
+            'Written c. 590 AD by Pope St. Gregory the Great upon his accession to the Papacy. The premier 4-book guide for bishops, priests, and spiritual directors on pastoral care, discretionary preaching to diverse souls, and the preservation of humility.',
+        volumes: gregoryPastoralRuleVolumes,
       ),
       const LibraryBookItem(
         id: 'cyprian_unity_of_church',

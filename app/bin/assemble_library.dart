@@ -614,6 +614,11 @@ void parseChapteredBookFile({
         stripped.startsWith('Pope St. Leo the Great') ||
         stripped.startsWith('By Pope St. Leo') ||
         stripped.startsWith('St. Leo the Great') ||
+        stripped.startsWith('Pastoral Rule') ||
+        stripped.startsWith('Liber Regulae Pastoralis') ||
+        stripped.startsWith('Pope St. Gregory the Great') ||
+        stripped.startsWith('St. Gregory the Great') ||
+        stripped.startsWith('By Pope St. Gregory') ||
         stripped.startsWith('Life of St. Anthony') ||
         stripped.startsWith('Vita Antonii') ||
         stripped.startsWith('St. Athanasius of Alexandria') ||
@@ -1109,6 +1114,45 @@ void main() {
       title: title,
       subtitle: subtitle,
       author: 'St. Gregory of Nazianzus (Trans. Browne & Swallow)',
+      outputDir: outputDir,
+    );
+  }
+
+  final gregoryPastoralRuleBooks = [
+    (
+      'book1',
+      'b1',
+      'Pastoral Rule: Book I',
+      'The Office of Pastor (Trans. James Barmby, 1895)',
+    ),
+    (
+      'book2',
+      'b2',
+      'Pastoral Rule: Book II',
+      'The Life of the Pastor (Trans. James Barmby, 1895)',
+    ),
+    (
+      'book3',
+      'b3',
+      'Pastoral Rule: Book III',
+      'The Preaching and Admonition of the Pastor (Trans. James Barmby, 1895)',
+    ),
+    (
+      'book4',
+      'b4',
+      'Pastoral Rule: Book IV',
+      'Self-Examination and Humility (Trans. James Barmby, 1895)',
+    ),
+  ];
+
+  for (final (slug, secPrefix, title, subtitle) in gregoryPastoralRuleBooks) {
+    parseChapteredBookFile(
+      filepath: p.join(gregoryDir, 'gregory_pastoral_rule_$slug.txt'),
+      bookId: 'gregory_pastoral_rule_$slug',
+      secIdPrefix: 'gregory_pastoral_rule_$secPrefix',
+      title: title,
+      subtitle: subtitle,
+      author: 'Pope St. Gregory the Great (Trans. James Barmby)',
       outputDir: outputDir,
     );
   }
