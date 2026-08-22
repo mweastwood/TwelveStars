@@ -497,5 +497,186 @@ void main() {
         }
       },
     );
+
+    group('extractSentences & Contextual Windowing', () {
+      test('extracts sentences while respecting abbreviations', () {
+        const text =
+            'St. Peter spoke to Fr. John and Dr. Smith. '
+            'See e.g. no. 4, ch. 2, v. 5. '
+            'We read in Rom 8:28 that all things work for good! '
+            'Is this clear? Yes, J. B. Lightfoot agrees...';
+
+        final sentences = ReverseCitationService.extractSentences(text);
+        expect(sentences.length, equals(5));
+        expect(
+          sentences[0],
+          equals('St. Peter spoke to Fr. John and Dr. Smith.'),
+        );
+        expect(sentences[1], equals('See e.g. no. 4, ch. 2, v. 5.'));
+        expect(
+          sentences[2],
+          equals('We read in Rom 8:28 that all things work for good!'),
+        );
+        expect(sentences[3], equals('Is this clear?'));
+        expect(sentences[4], equals('Yes, J. B. Lightfoot agrees...'));
+      });
+
+      test(
+        'extracts 3 to 5 sentence window with ellipsis prefix when truncated',
+        () {
+          final bookData = ParsedBookData(
+            bookId: 'window_test_book',
+            title: 'Window Test Book',
+            subtitle: '',
+            author: '',
+            toc: [],
+            sections: [
+              BookSection(
+                id: 'sec_window',
+                title: 'Window Section',
+                subtitle: '',
+                content: [
+                  ContentItem(
+                    type: 'text',
+                    text:
+                        'Sentence one. '
+                        'Sentence two. '
+                        'Sentence three. '
+                        'Sentence four. '
+                        'Sentence five. '
+                        'Sentence six citing John 3:16. '
+                        'Sentence seven. '
+                        'Sentence eight.',
+                  ),
+                ],
+              ),
+            ],
+          );
+
+          ReverseCitationService.indexBookData('window_src', bookData);
+          final citations = ReverseCitationService.getVerseCitations(52, 3, 16);
+
+          expect(citations.length, equals(1));
+          final citation = citations.first;
+          expect(citation.itemIndex, equals(0));
+          // Window should contain 5 sentences (2 through 6) with '... ' prefix
+          expect(citation.snippet.startsWith('... '), isTrue);
+          expect(citation.snippet.contains('Sentence two.'), isTrue);
+          expect(citation.snippet.contains('Sentence three.'), isTrue);
+          expect(citation.snippet.contains('Sentence four.'), isTrue);
+          expect(citation.snippet.contains('Sentence five.'), isTrue);
+          expect(
+            citation.snippet.contains('Sentence six citing John 3:16.'),
+            isTrue,
+          );
+          expect(citation.snippet.contains('Sentence one.'), isFalse);
+          expect(citation.snippet.contains('Sentence seven.'), isFalse);
+        },
+      );
+
+      test(
+        'formats Q&A contextual snippet accurately with question and answer',
+        () {
+          final bookData = ParsedBookData(
+            bookId: 'baltimore_test',
+            title: 'Baltimore Catechism',
+            subtitle: '',
+            author: '',
+            toc: [],
+            sections: [
+              BookSection(
+                id: 'sec_qa',
+                title: 'On Creation',
+                subtitle: '',
+                content: [
+                  ContentItem(
+                    type: 'qa',
+                    questionNumber: 15,
+                    question: 'Who made the world?',
+                    answer:
+                        'God made the world. '
+                        'He made heaven and earth from nothing (Gen 1:1).',
+                  ),
+                ],
+              ),
+            ],
+          );
+
+          ReverseCitationService.indexBookData('baltimore_src', bookData);
+          final citations = ReverseCitationService.getVerseCitations(1, 1, 1);
+
+          expect(citations.length, equals(1));
+          final citation = citations.first;
+          expect(citation.questionNumber, equals(15));
+          expect(citation.itemIndex, equals(0));
+          expect(
+            citation.snippet.startsWith('Q. Who made the world?\nA. '),
+            isTrue,
+          );
+          expect(
+            citation.snippet.contains(
+              'God made the world. He made heaven and earth from nothing (Gen 1:1).',
+            ),
+            isTrue,
+          );
+        },
+      );
+
+      test('preserves itemIndex across multiple content items in section', () {
+        final bookData = ParsedBookData(
+          bookId: 'multi_item_book',
+          title: 'Multi Item Book',
+          subtitle: '',
+          author: '',
+          toc: [],
+          sections: [
+            BookSection(
+              id: 'sec_multi',
+              title: 'Multi Section',
+              subtitle: '',
+              content: [
+                ContentItem(type: 'heading', text: 'Chapter 1: The Beginning'),
+                ContentItem(
+                  type: 'text',
+                  text: 'Here is introductory text without citations.',
+                ),
+                ContentItem(
+                  type: 'text',
+                  text: 'Here we cite Matthew 5:3 in the third item.',
+                ),
+                ContentItem(
+                  type: 'qa',
+                  questionNumber: 42,
+                  question: 'What about Luke?',
+                  answer: 'See Luke 1:26 for the Annunciation.',
+                ),
+              ],
+            ),
+          ],
+        );
+
+        ReverseCitationService.indexBookData('multi_src', bookData);
+
+        // Matthew 5:3 is in content[2]
+        final mattCitations = ReverseCitationService.getVerseCitations(
+          49,
+          5,
+          3,
+        );
+        expect(mattCitations.length, equals(1));
+        expect(mattCitations.first.itemIndex, equals(2));
+        expect(mattCitations.first.questionNumber, isNull);
+
+        // Luke 1:26 is in content[3]
+        final lukeCitations = ReverseCitationService.getVerseCitations(
+          51,
+          1,
+          26,
+        );
+        expect(lukeCitations.length, equals(1));
+        expect(lukeCitations.first.itemIndex, equals(3));
+        expect(lukeCitations.first.questionNumber, equals(42));
+      });
+    });
   });
 }

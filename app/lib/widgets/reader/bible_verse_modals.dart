@@ -132,7 +132,7 @@ Future<void> showReverseCitationsModal({
                                     const SizedBox(height: 6),
                                     Text(
                                       item.snippet,
-                                      maxLines: 3,
+                                      maxLines: 6,
                                       overflow: TextOverflow.ellipsis,
                                       style: theme.textTheme.bodySmall
                                           ?.copyWith(
@@ -157,7 +157,16 @@ Future<void> showReverseCitationsModal({
                                         final catalog =
                                             LibraryHelper.getCatalog();
                                         final book = catalog.firstWhere(
-                                          (b) => b.id == item.sourceBookId,
+                                          (b) =>
+                                              b.id == item.sourceBookId ||
+                                              b.defaultAssetPath ==
+                                                  item.sourceAssetPath ||
+                                              (b.volumes?.any(
+                                                    (v) =>
+                                                        v.assetPath ==
+                                                        item.sourceAssetPath,
+                                                  ) ??
+                                                  false),
                                           orElse: () => catalog[0],
                                         );
 
@@ -167,13 +176,11 @@ Future<void> showReverseCitationsModal({
                                         if (book.isSeries &&
                                             book.volumes != null &&
                                             book.volumes!.isNotEmpty) {
-                                          targetAssetPath =
-                                              item.sourceAssetPath;
                                           final matchingVol = book.volumes!
                                               .firstWhere(
                                                 (v) =>
                                                     v.assetPath ==
-                                                    targetAssetPath,
+                                                    item.sourceAssetPath,
                                                 orElse: () =>
                                                     book.volumes!.first,
                                               );
@@ -181,6 +188,9 @@ Future<void> showReverseCitationsModal({
                                               matchingVol.volumeKey;
                                           targetAssetPath =
                                               matchingVol.assetPath;
+                                        } else {
+                                          targetAssetPath =
+                                              item.sourceAssetPath;
                                         }
 
                                         Navigator.push(
@@ -193,6 +203,11 @@ Future<void> showReverseCitationsModal({
                                               initialSectionId: item.sectionId,
                                               initialQuestionNumber:
                                                   item.questionNumber,
+                                              initialItemIndex: item.itemIndex,
+                                              navigationSessionId:
+                                                  DateTime.now()
+                                                      .millisecondsSinceEpoch
+                                                      .toString(),
                                             ),
                                           ),
                                         );

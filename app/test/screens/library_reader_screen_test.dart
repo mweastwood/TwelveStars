@@ -2,11 +2,14 @@ import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
+import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/logic/reverse_citation_service.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/widgets/library_toc_drawer.dart';
 import 'package:twelve_stars/widgets/library_section_view.dart';
+import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 
 void main() {
   late BibleDatabase testDb;
@@ -503,6 +506,147 @@ void main() {
         expect(find.text('Section 2 of 12'), findsOneWidget);
         expect(find.text('Chapter 2'), findsOneWidget);
         expect(find.text('The Vanity of Idols'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen highlights target item with initialItemIndex and navigationSessionId, then clears after timer',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData.light(useMaterial3: true),
+            home: LibraryReaderScreen(
+              bookItem: testBookItem,
+              initialAssetPath: 'assets/catechism/json/baltimore_1.json',
+              initialSectionId: 'sec_3',
+              initialItemIndex: 1,
+              navigationSessionId: 'session_123',
+            ),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+
+        // Question 14 (item index 1 in sec_3) should be rendered and highlighted
+        expect(find.text('Lesson 2'), findsOneWidget);
+        expect(find.text('Section 3 of 35'), findsOneWidget);
+
+        // Find AnimatedContainer widgets in LibrarySectionView
+        final animatedContainers = tester.widgetList<AnimatedContainer>(
+          find.descendant(
+            of: find.byType(LibrarySectionView),
+            matching: find.byType(AnimatedContainer),
+          ),
+        );
+        // At least one container has a non-transparent background color (highlighted)
+        expect(
+          animatedContainers.any((c) {
+            final dec = c.decoration as BoxDecoration?;
+            return dec != null &&
+                dec.color != null &&
+                dec.color != Colors.transparent;
+          }),
+          isTrue,
+        );
+
+        // Fast forward 2.5 seconds to expire highlight timer
+        await tester.pump(const Duration(milliseconds: 2500));
+
+        final updatedContainers = tester.widgetList<AnimatedContainer>(
+          find.descendant(
+            of: find.byType(LibrarySectionView),
+            matching: find.byType(AnimatedContainer),
+          ),
+        );
+        // All containers should now be transparent
+        expect(
+          updatedContainers.every((c) {
+            final dec = c.decoration as BoxDecoration?;
+            return dec == null ||
+                dec.color == null ||
+                dec.color == Colors.transparent;
+          }),
+          isTrue,
+        );
+      },
+    );
+
+    testWidgets(
+      'showReverseCitationsModal resolves multi-volume catalog book and opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/augustine_confessions_book1.json',
+          );
+        });
+
+        final citation = ReverseCitation(
+          sourceBookId: 'augustine_confessions_book1',
+          sourceAssetPath:
+              'assets/catechism/json/augustine_confessions_book1.json',
+          sourceBookTitle: 'The Confessions',
+          sectionId: 'book1_ch1',
+          sectionTitle: 'Book I, Chapter 1',
+          itemIndex: 0,
+          snippet:
+              'Great art thou, O Lord, and greatly to be praised (Ps 144:3).',
+          citation: const BibleCitation(
+            rawMatch: 'Ps 144:3',
+            displayLabel: 'Psalms 144:3',
+            bookNumber: 21,
+            bookName: 'Psalms',
+            abbrev: 'Ps',
+            chapter: 144,
+            verse: 3,
+          ),
+        );
+
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData.light(useMaterial3: true),
+            home: Scaffold(
+              body: Builder(
+                builder: (ctx) => ElevatedButton(
+                  onPressed: () => showReverseCitationsModal(
+                    context: ctx,
+                    title: 'Psalms 144:3',
+                    citations: [citation],
+                  ),
+                  child: const Text('Open Modal'),
+                ),
+              ),
+            ),
+          ),
+        );
+
+        // Open modal
+        await tester.tap(find.text('Open Modal'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Library References to Psalms 144:3'), findsOneWidget);
+        expect(find.text('Book I, Chapter 1'), findsOneWidget);
+        expect(
+          find.text(
+            'Great art thou, O Lord, and greatly to be praised (Ps 144:3).',
+          ),
+          findsOneWidget,
+        );
+
+        // Tap "Read in Library"
+        await tester.tap(find.text('Read in Library'));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+        await tester.pumpAndSettle();
+
+        // Should open LibraryReaderScreen for The Confessions
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('The Confessions'), findsOneWidget);
       },
     );
   });
