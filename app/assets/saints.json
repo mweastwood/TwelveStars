@@ -1940,6 +1940,30 @@
     "summary": "The archangel of healing ('God heals') who disguised himself as Azarias to guide Tobias on his journey in the Book of Tobit, healed Tobit's blindness with fish gall, delivered Sarah from demonic oppression, and revealed himself as one of the seven angels who stand in the glorious presence of the Lord."
   },
   {
+    "id": "raymond-nonnatus",
+    "name": "St. Raymond Nonnatus",
+    "birthDate": "1204",
+    "deathDate": "1240",
+    "nationality": "Spanish / Catalan",
+    "profession": "Mercedarian Priest, Cardinal & Confessor",
+    "isDoctor": false,
+    "feastDay": "August 31",
+    "patronage": "Expectant Mothers, Pregnant Women, Midwives, Newborns, Obstetricians, Falsely Accused",
+    "summary": "Spanish Mercedarian friar who devoted his life to ransoming Christians held in captivity in North Africa, suffering torture and imprisonment for preaching the Gospel; renowned patron of expectant mothers and safe deliveries."
+  },
+  {
+    "id": "raymond-of-penafort",
+    "name": "St. Raymond of Peñafort",
+    "birthDate": "c. 1175",
+    "deathDate": "1275",
+    "nationality": "Spanish / Catalan",
+    "profession": "Dominican Friar, Canonist & Master General of the Order of Preachers",
+    "isDoctor": false,
+    "feastDay": "January 7",
+    "patronage": "Canon Lawyers, Lawyers, Attorneys, Legal Profession, Medical Record Librarians",
+    "summary": "Catalan Dominican friar, renowned master of canon law who compiled the Decretals of Gregory IX (Liber Extra), co-founded the Order of Our Lady of Mercy (Mercedarians), and served as the third Master General of the Dominican Order."
+  },
+  {
     "id": "rita-of-cascia",
     "name": "St. Rita of Cascia",
     "birthDate": "1381",

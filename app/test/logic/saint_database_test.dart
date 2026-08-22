@@ -485,6 +485,36 @@ void main() {
         );
         expect(rita.any((s) => s.id == 'rita-of-cascia'), isTrue);
 
+        final raymondOfPenafort = SaintDatabase.searchSaints(
+          saints,
+          query: 'Raymond of Peñafort',
+        );
+        expect(
+          raymondOfPenafort.any((s) => s.id == 'raymond-of-penafort'),
+          isTrue,
+        );
+
+        final canonLawyers = SaintDatabase.searchSaints(
+          saints,
+          query: 'Canon Lawyers',
+        );
+        expect(canonLawyers.any((s) => s.id == 'raymond-of-penafort'), isTrue);
+
+        final raymondNonnatus = SaintDatabase.searchSaints(
+          saints,
+          query: 'Raymond Nonnatus',
+        );
+        expect(
+          raymondNonnatus.any((s) => s.id == 'raymond-nonnatus'),
+          isTrue,
+        );
+
+        final midwives = SaintDatabase.searchSaints(
+          saints,
+          query: 'Midwives',
+        );
+        expect(midwives.any((s) => s.id == 'raymond-nonnatus'), isTrue);
+
         final wenceslaus = SaintDatabase.searchSaints(
           saints,
           query: 'Wenceslaus',
