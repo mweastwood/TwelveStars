@@ -668,6 +668,16 @@ class BibleDatabase extends _$BibleDatabase {
         .getSingleOrNull();
   }
 
+  Future<BookReadingPosition?> getLatestBookReadingPosition() {
+    return (select(bookReadingPositions)
+          ..orderBy([
+            (t) =>
+                OrderingTerm(expression: t.updatedAt, mode: OrderingMode.desc),
+          ])
+          ..limit(1))
+        .getSingleOrNull();
+  }
+
   Future<void> saveBookReadingPosition({
     required String bookId,
     String? volumeKey,

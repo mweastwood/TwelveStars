@@ -1090,6 +1090,245 @@ void main() {
 
       expect(find.text('No comments on library books yet.'), findsOneWidget);
     });
+
+    testWidgets('category filter chips filter books correctly', (tester) async {
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      // Initially All is selected and all categories are present
+      expect(find.widgetWithText(FilterChip, 'All'), findsOneWidget);
+      expect(find.widgetWithText(FilterChip, 'Catechisms'), findsOneWidget);
+      expect(
+        find.widgetWithText(FilterChip, 'Apostolic Fathers'),
+        findsOneWidget,
+      );
+      expect(find.widgetWithText(FilterChip, 'Church Fathers'), findsOneWidget);
+      expect(
+        find.widgetWithText(FilterChip, 'Early Apologists'),
+        findsOneWidget,
+      );
+
+      expect(find.text('Baltimore Catechism'), findsOneWidget);
+      expect(find.text('The Didache'), findsOneWidget);
+
+      // Select 'Apostolic Fathers'
+      await tester.tap(find.widgetWithText(FilterChip, 'Apostolic Fathers'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Baltimore Catechism'), findsNothing);
+      expect(find.text('The Didache'), findsOneWidget);
+      expect(find.text('First Epistle of Clement'), findsOneWidget);
+      expect(find.text('Epistles of St. Ignatius'), findsOneWidget);
+
+      // Select 'Catechisms'
+      await tester.tap(find.widgetWithText(FilterChip, 'Catechisms'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Baltimore Catechism'), findsOneWidget);
+      expect(find.text('Catechism of the Council of Trent'), findsOneWidget);
+      expect(find.text('The Didache'), findsNothing);
+
+      // Select 'All'
+      await tester.tap(find.widgetWithText(FilterChip, 'All'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Baltimore Catechism'), findsOneWidget);
+      expect(find.text('The Didache'), findsOneWidget);
+    });
+
+    testWidgets('renders continue reading hero card and resumes reading', (
+      tester,
+    ) async {
+      await testDb.saveBookReadingPosition(
+        bookId: 'didache_lightfoot',
+        sectionIndex: 2,
+        sectionId: 'ch3',
+      );
+
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/didache_lightfoot.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('CONTINUE READING'), findsOneWidget);
+      expect(find.text('The Didache'), findsWidgets);
+      expect(find.text('Resume'), findsOneWidget);
+
+      await tester.tap(find.text('Resume'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('The Didache'), findsWidgets);
+    });
+
+    testWidgets('renders era badges and volume counts on book cards', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('1885 AD'), findsWidgets);
+      expect(find.text('c. 96 AD'), findsWidgets);
+      expect(find.text('1566 AD'), findsWidgets);
+      expect(find.text('4 Volumes'), findsWidgets);
+      expect(find.text('22 Volumes'), findsWidgets);
+    });
+
+    testWidgets('tapping Browse All opens volume picker modal sheet', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/baltimore_2.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final browseBtn = find.widgetWithText(TextButton, 'Browse All ▾').first;
+      await tester.tap(browseBtn);
+      await tester.pumpAndSettle();
+
+      // Modal sheet should display all volumes
+      expect(find.text('Select from 4 volumes'), findsOneWidget);
+      expect(find.text('No. 2 (Confirmation & Grammar)'), findsWidgets);
+
+      // Tap volume 2 in modal
+      await tester.tap(find.text('No. 2 (Confirmation & Grammar)').last);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      expect(find.text('Baltimore Catechism'), findsWidgets);
+    });
+
+    testWidgets('global search groups results by book with match counts', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/didache_lightfoot.json',
+        );
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/first_clement_lightfoot.json',
+        );
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final searchField = find.byType(TextField).first;
+      await tester.runAsync(() async {
+        await tester.enterText(searchField, 'Baptism');
+        await Future<void>.delayed(const Duration(milliseconds: 1000));
+      });
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+
+      expect(find.text('SEARCH RESULTS'), findsOneWidget);
+      expect(find.textContaining('match'), findsWidgets);
+    });
+
+    testWidgets('favorites tab filters bookmarks by book', (tester) async {
+      await testDb.saveLibraryBookmark(
+        LibraryBookmarksCompanion.insert(
+          documentId: 'didache_lightfoot',
+          sectionIndex: 0,
+          nodeId: 'ch1_0',
+          textPreview: 'The Didache, Chapter 1\nThere are two ways...',
+          createdAt: DateTime.now(),
+        ),
+      );
+      await testDb.saveLibraryBookmark(
+        LibraryBookmarksCompanion.insert(
+          documentId: 'first_clement_lightfoot',
+          sectionIndex: 0,
+          nodeId: 'ch1_0',
+          textPreview: 'First Clement, Chapter 1\nThe Church of God...',
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Favorites'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('All (2)'), findsOneWidget);
+      expect(find.text('The Didache, Chapter 1'), findsOneWidget);
+      expect(find.text('First Clement, Chapter 1'), findsOneWidget);
+
+      // Filter to Didache
+      await tester.tap(find.widgetWithText(FilterChip, 'The Didache (1)'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('The Didache, Chapter 1'), findsOneWidget);
+      expect(find.text('First Clement, Chapter 1'), findsNothing);
+
+      // Return to All
+      await tester.tap(find.widgetWithText(FilterChip, 'All (2)'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('The Didache, Chapter 1'), findsOneWidget);
+      expect(find.text('First Clement, Chapter 1'), findsOneWidget);
+    });
+
+    testWidgets('comments tab filters comments by book', (tester) async {
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'didache_lightfoot',
+          sectionIndex: 0,
+          nodeId: 'ch1_0',
+          commentText: 'Note on Didache',
+          createdAt: DateTime.now(),
+        ),
+      );
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'baltimore_catechism',
+          sectionIndex: 0,
+          nodeId: 'no1:lesson_01_1',
+          commentText: 'Note on Baltimore',
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Comments'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('All (2)'), findsOneWidget);
+      expect(find.text('Note on Didache'), findsOneWidget);
+      expect(find.text('Note on Baltimore'), findsOneWidget);
+
+      // Filter to Didache
+      await tester.tap(find.widgetWithText(FilterChip, 'The Didache (1)'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Note on Didache'), findsOneWidget);
+      expect(find.text('Note on Baltimore'), findsNothing);
+    });
   });
 
   group('LibraryReaderScreen Widget Tests', () {
