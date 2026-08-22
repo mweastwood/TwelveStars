@@ -79,6 +79,7 @@ void main() {
       expect(find.text('The Imitation of Christ'), findsOneWidget);
       expect(find.text("The Mind's Road to God"), findsOneWidget);
       expect(find.text('The Tome & Selected Works'), findsOneWidget);
+      expect(find.text('Pastoral Rule'), findsOneWidget);
       expect(
         find.text('On the Unity of the Church & Treatises'),
         findsOneWidget,
@@ -145,6 +146,13 @@ void main() {
         find.text(
           'Vol. II (Selected Festal Sermons & Epistles on Church Order)',
         ),
+        findsOneWidget,
+      );
+
+      // Verify Gregory the Great Pastoral Rule volume chips exist
+      expect(find.text('Book I (The Pastoral Office)'), findsOneWidget);
+      expect(
+        find.text('Book IV (Humility & Self-Examination)'),
         findsOneWidget,
       );
 
@@ -2775,6 +2783,66 @@ void main() {
           findsWidgets,
         );
         expect(find.text('Section 1 of 14'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'tapping Gregory Pastoral Rule volume chip opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/gregory_pastoral_rule_book1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final book1Chip = find.text('Book I (The Pastoral Office)');
+        await tester.scrollUntilVisible(
+          book1Chip,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(book1Chip);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('Pastoral Rule'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'LibraryReaderScreen renders Pope St. Gregory the Great Pastoral Rule',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final gregory = catalog.firstWhere(
+          (b) => b.id == 'gregory_pastoral_rule',
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/gregory_pastoral_rule_book1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryReaderScreen(
+                bookItem: gregory,
+                initialVolumeKey: 'book1',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(find.text('Pastoral Rule'), findsWidgets);
+        expect(find.text('Section 1 of 11'), findsOneWidget);
       },
     );
   });
