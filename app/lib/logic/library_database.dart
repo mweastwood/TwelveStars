@@ -134,6 +134,7 @@ class LibraryBookItem {
   final String subtitle;
   final String category;
   final String author;
+  final String? authorSaintId;
   final String description;
   final String? era;
   final String? defaultAssetPath;
@@ -146,6 +147,7 @@ class LibraryBookItem {
     required this.subtitle,
     required this.category,
     required this.author,
+    this.authorSaintId,
     required this.description,
     this.era,
     this.defaultAssetPath,
@@ -1118,6 +1120,7 @@ class LibraryHelper {
         category: 'Catechisms',
         author:
             'Council of Trent / Commission of St. Pius V (Trans. Rev. J. Donovan)',
+        authorSaintId: 'pius-v',
         era: '1566 AD',
         description:
             'Promulgated by Pope St. Pius V in 1566. The authoritative Roman Catechism expounding Catholic doctrine, sacraments, commandments, and prayer.',
@@ -1142,6 +1145,7 @@ class LibraryHelper {
             'Letter of the Church of Rome to the Corinthians (Trans. J. B. Lightfoot, 1891)',
         category: 'Apostolic Fathers',
         author: 'Pope St. Clement of Rome (Trans. J. B. Lightfoot)',
+        authorSaintId: 'clement-of-rome',
         era: 'c. 96 AD',
         description:
             'Written c. 96 AD from the Church of Rome to Corinth to restore order following a rebellion against the presbyters. An invaluable early witness to apostolic succession, Christian charity, and liturgical order.',
@@ -1164,6 +1168,7 @@ class LibraryHelper {
         subtitle: 'The Seven Authentic Letters (Trans. J. B. Lightfoot, 1891)',
         category: 'Apostolic Fathers',
         author: 'St. Ignatius of Antioch (Trans. J. B. Lightfoot)',
+        authorSaintId: 'ignatius-of-antioch',
         era: 'c. 107–110 AD',
         description:
             'Written c. 107–110 AD on his way to martyrdom in Rome. The seven authentic letters provide an irreplaceable early witness to the hierarchy of the Church, the Holy Eucharist, the Catholic Church, and Christian martyrdom.',
@@ -1177,6 +1182,7 @@ class LibraryHelper {
         category: 'Apostolic Fathers',
         author:
             'St. Polycarp of Smyrna / Church of Smyrna (Trans. J. B. Lightfoot)',
+        authorSaintId: 'polycarp-of-smyrna',
         era: 'c. 110–156 AD',
         description:
             'Writings related to St. Polycarp of Smyrna (c. 69–156 AD), Bishop of Smyrna and disciple of St. John the Apostle. Includes his pastoral Epistle to the Philippians and the Martyrdom of Polycarp, the earliest surviving authentic account of Christian martyrdom outside the New Testament.',
@@ -1199,6 +1205,7 @@ class LibraryHelper {
         subtitle: 'The First and Second Apologies (Trans. Marcus Dods, 1885)',
         category: 'Early Apologists',
         author: 'St. Justin Martyr (Trans. Marcus Dods)',
+        authorSaintId: 'justin-martyr',
         era: 'c. 150–155 AD',
         description:
             'Written c. 150–155 AD to Emperor Antoninus Pius and the Roman Senate. Famous early defenses of Christian doctrine and morality, featuring the earliest detailed accounts of the Sunday Eucharistic Liturgy and Baptism.',
@@ -1211,6 +1218,7 @@ class LibraryHelper {
             'Dialogus cum Tryphone Judaeo (Trans. Marcus Dods & George Reith, 1885)',
         category: 'Early Apologists',
         author: 'St. Justin Martyr (Trans. Marcus Dods & George Reith)',
+        authorSaintId: 'justin-martyr',
         era: 'c. 155–160 AD',
         description:
             'Written c. 155–160 AD. The most extensive 2nd-century patristic dialogue exploring Old Testament typology, Messianic prophecies, the divinity of Christ the Logos, the abrogation of the Old Law, and the Church as the new spiritual Israel.',
@@ -1223,6 +1231,7 @@ class LibraryHelper {
         subtitle: 'Adversus Haereses (Trans. Roberts & Rambaut, 1885)',
         category: 'Church Fathers',
         author: 'St. Irenaeus of Lyons (Trans. Roberts & Rambaut)',
+        authorSaintId: 'irenaeus-of-lyons',
         era: 'c. 180 AD',
         description:
             'Written c. 180 AD by the Bishop of Lyons. The monumental 5-book refutation of Gnosticism establishing Apostolic Succession, the authority of the Roman Church, the fourfold Gospel canon, and the resurrection of the body.',
@@ -1235,6 +1244,7 @@ class LibraryHelper {
             'De Incarnatione Verbi Dei (Trans. Archibald Robertson, 1892)',
         category: 'Church Fathers',
         author: 'St. Athanasius of Alexandria (Trans. Archibald Robertson)',
+        authorSaintId: 'athanasius-of-alexandria',
         era: 'c. 318–335 AD',
         description:
             'Written c. 318–335 AD by the Patriarch of Alexandria. The classic treatise on why God became man, the redemption of humanity through Christ\'s death and resurrection, and the spiritual renewal of the world.',
@@ -1247,6 +1257,7 @@ class LibraryHelper {
         subtitle: 'Vita Antonii (Trans. Archibald Robertson, 1892)',
         category: 'Church Fathers',
         author: 'St. Athanasius of Alexandria (Trans. Archibald Robertson)',
+        authorSaintId: 'athanasius-of-alexandria',
         era: 'c. 357 AD',
         description:
             'Written c. 357 AD by the Patriarch of Alexandria shortly after the death of St. Anthony the Great. The foundational spiritual biography that sparked the Christian monastic movement across the East and West and inspired the conversion of St. Augustine.',
@@ -1259,6 +1270,7 @@ class LibraryHelper {
         subtitle: 'Confessiones (Trans. Edward Bouverie Pusey, 1838)',
         category: 'Church Fathers',
         author: 'St. Augustine of Hippo (Trans. E. B. Pusey)',
+        authorSaintId: 'augustine-of-hippo',
         era: 'c. 397–400 AD',
         description:
             'Written c. 397–400 AD. The world\'s first spiritual autobiography tracing Augustine\'s journey from sinful youth and Manichaeism to his conversion at Milan ("Tolle, lege"), the life and death of St. Monica, and profound reflections on memory, time, and creation.',
@@ -1270,6 +1282,7 @@ class LibraryHelper {
         subtitle: 'De Civitate Dei contra Paganos (Trans. Marcus Dods, 1871)',
         category: 'Church Fathers',
         author: 'St. Augustine of Hippo (Trans. Marcus Dods)',
+        authorSaintId: 'augustine-of-hippo',
         era: 'c. 413–426 AD',
         description:
             'Written c. 413–426 AD following the sack of Rome. Augustine\'s magnum opus in 22 books contrasting the City of God (founded on the love of God) with the City of Man (founded on the love of self), expounding providence, Christian history, true peace, and eternal beatitude.',
@@ -1281,6 +1294,7 @@ class LibraryHelper {
         subtitle: 'Catecheses (Trans. Edwin Hamilton Gifford, 1893)',
         category: 'Church Fathers',
         author: 'St. Cyril of Jerusalem (Trans. E. H. Gifford)',
+        authorSaintId: 'cyril-of-jerusalem',
         era: 'c. 348–350 AD',
         description:
             'Delivered c. 348–350 AD in the Church of the Holy Sepulchre. St. Cyril\'s 24 lectures form the Church\'s classic manual of baptismal catechesis, expounding the Jerusalem Creed, Christian moral life, and the Mystagogical rites of Baptism, Chrism, and the Holy Eucharist.',
@@ -1292,6 +1306,7 @@ class LibraryHelper {
         subtitle: 'De Spiritu Sancto (Trans. Blomfield Jackson, 1895)',
         category: 'Church Fathers',
         author: 'St. Basil the Great (Trans. Blomfield Jackson)',
+        authorSaintId: 'basil-the-great',
         era: 'c. 375 AD',
         description:
             'Written c. 375 AD to St. Amphilochius of Iconium. The classic patristic treatise defending the consubstantial divinity and co-equal worship of the Holy Spirit with the Father and the Son, expounding the doxology, baptismal formula, and unwritten Apostolic Tradition.',
@@ -1303,6 +1318,7 @@ class LibraryHelper {
         subtitle: 'Orations 27–31 (Trans. Browne & Swallow, 1894)',
         category: 'Church Fathers',
         author: 'St. Gregory of Nazianzus (Trans. Browne & Swallow)',
+        authorSaintId: 'gregory-of-nazianzus',
         era: 'c. 380 AD',
         description:
             'Delivered c. 380 AD in Constantinople by "Gregory the Theologian." The definitive patristic exposition and defense of the Holy Trinity, the eternal divinity of the Son, and the consubstantial deity and procession of the Holy Spirit.',
@@ -1314,6 +1330,7 @@ class LibraryHelper {
         subtitle: 'De Sacerdotio (Trans. W. R. W. Stephens, 1889)',
         category: 'Church Fathers',
         author: 'St. John Chrysostom (Trans. W. R. W. Stephens)',
+        authorSaintId: 'john-chrysostom',
         era: 'c. 386–390 AD',
         description:
             'Written c. 386–390 AD. The classic patristic masterwork on the sacred dignity, moral gravity, perils, and pastoral duties of the Catholic priesthood, expounding the Eucharistic Sacrifice, spiritual warfare, and the ministry of preaching.',
@@ -1326,6 +1343,7 @@ class LibraryHelper {
             'De Mysteriis & De Sacramentis (Trans. Thompson & Srawley, 1919)',
         category: 'Church Fathers',
         author: 'St. Ambrose of Milan (Trans. T. Thompson & J. H. Srawley)',
+        authorSaintId: 'ambrose',
         era: 'c. 387–390 AD',
         description:
             'Delivered c. 387–390 AD by the Bishop of Milan and Doctor of the Church. Foundational mystagogical works of the Western Church expounding Christian initiation: Baptism, Confirmation (the spiritual seal), the Lord\'s Prayer, and the Real Presence and Sacrifice in the Holy Eucharist.',
@@ -1338,6 +1356,7 @@ class LibraryHelper {
             'For the Antiquity and Universality of the Catholic Faith (Trans. C. A. Heurtley, 1894)',
         category: 'Church Fathers',
         author: 'St. Vincent of Lérins (Trans. C. A. Heurtley)',
+        authorSaintId: 'vincent-of-lerins',
         era: 'c. 434 AD',
         description:
             'Written c. 434 AD on the island of Lérins. The classic patristic masterwork establishing the Vincentian Canon on Sacred Tradition ("quod ubique, quod semper, quod ab omnibus creditum est") and formulating the orthodox standard for the legitimate organic development of Christian doctrine.',
@@ -1350,6 +1369,7 @@ class LibraryHelper {
             'Tome to Flavian, Sermons & Letters (Trans. Charles Feltoe, NPNF II/12)',
         category: 'Church Fathers',
         author: 'Pope St. Leo the Great (Trans. Charles Feltoe)',
+        authorSaintId: 'leo-the-great',
         era: '5th Cent.',
         description:
             'Written in the 5th century by the Pope and Doctor of the Church. Features the definitive dogmatic Tome to Flavian acclaimed at Chalcedon alongside celebrated sermons on the Incarnation and Petrine primacy.',
@@ -1361,6 +1381,7 @@ class LibraryHelper {
         subtitle: 'Liber Regulae Pastoralis (Trans. James Barmby, 1895)',
         category: 'Church Fathers',
         author: 'Pope St. Gregory the Great (Trans. James Barmby)',
+        authorSaintId: 'gregory-the-great',
         era: 'c. 590 AD',
         description:
             'Written c. 590 AD by Pope St. Gregory the Great upon his accession to the Papacy. The premier 4-book guide for bishops, priests, and spiritual directors on pastoral care, discretionary preaching to diverse souls, and the preservation of humility.',
@@ -1373,6 +1394,7 @@ class LibraryHelper {
             'De Catholicae Ecclesiae Unitate (Trans. Robert Wallis, ANF Vol. 5)',
         category: 'Patristics',
         author: 'St. Cyprian of Carthage (Trans. Robert Ernest Wallis)',
+        authorSaintId: 'cyprian-of-carthage',
         era: '251 AD',
         description:
             'Written in 251 AD by the Bishop and Martyr of Carthage. The foundational early patristic treatise on the unity of the Church and the Chair of Peter, together with his commentary on the Lord\'s Prayer.',
@@ -1384,6 +1406,7 @@ class LibraryHelper {
         subtitle: 'De Fide Orthodoxa (Trans. S. D. F. Salmond, NPNF II/9)',
         category: 'Patristics',
         author: 'St. John Damascene (Trans. S. D. F. Salmond)',
+        authorSaintId: 'john-damascene',
         era: '8th Cent.',
         description:
             'Written in the 8th century by the last of the Eastern Fathers and Doctor of the Church. The monumental systematic summa of Christian dogma covering the Trinity, Creation, Christology, Sacraments, and Holy Icons.',
@@ -1396,6 +1419,7 @@ class LibraryHelper {
             'Faith Seeking Understanding (Trans. Sidney Norton Deane, 1903)',
         category: 'Doctors of the Church',
         author: 'St. Anselm of Canterbury (Trans. Sidney Norton Deane)',
+        authorSaintId: 'anselm-of-canterbury',
         era: 'c. 1077–1078 AD',
         description:
             'Written c. 1077–1078 AD. The classic philosophical and devotional masterpiece formulating the ontological argument for the existence of God ("that than which nothing greater can be conceived") and exploring the divine attributes through prayer and reason.',
@@ -1407,6 +1431,7 @@ class LibraryHelper {
         subtitle: 'Why God Became Man (Trans. Sidney Norton Deane, 1903)',
         category: 'Doctors of the Church',
         author: 'St. Anselm of Canterbury (Trans. Sidney Norton Deane)',
+        authorSaintId: 'anselm-of-canterbury',
         era: 'c. 1098 AD',
         description:
             'Written c. 1098 AD. The foundational scholastic treatise in soteriology, structured as a dialogue between Anselm and Boso, developing the satisfaction theory of the Atonement and explaining the necessity of the Incarnation.',
@@ -1419,6 +1444,7 @@ class LibraryHelper {
             'Subida del Monte Carmelo (Trans. David Lewis, Rev. Benedict Zimmerman, O.C.D.)',
         category: 'Doctors of the Church / Spiritual Classics',
         author: 'St. John of the Cross',
+        authorSaintId: 'john-of-the-cross',
         era: 'c. 1578–1585 AD',
         description:
             'c. 1578–1585. St. John of the Cross\'s classic systematic treatise on active purification of the senses and spiritual faculties (intellect, memory, and will) through the theological virtues of Faith, Hope, and Charity leading to divine union.',
@@ -1432,6 +1458,7 @@ class LibraryHelper {
             'Noche Oscura del Alma (Trans. David Lewis, Rev. Benedict Zimmerman, O.C.D.)',
         category: 'Doctors of the Church / Spiritual Classics',
         author: 'St. John of the Cross',
+        authorSaintId: 'john-of-the-cross',
         era: 'c. 1584–1586 AD',
         description:
             'c. 1584–1586. The companion masterpiece on passive purification of the sensory and spiritual appetites, guiding the soul through dark contemplation and the ten steps of the ladder of divine love into mystical union with God.',
@@ -1444,6 +1471,7 @@ class LibraryHelper {
         subtitle: 'Compendium Theologiae (Trans. Cyril Vollert, S.J., 1947)',
         category: 'Doctors of the Church',
         author: 'St. Thomas Aquinas (Trans. Cyril Vollert)',
+        authorSaintId: 'thomas-aquinas',
         era: 'c. 1273 AD',
         description:
             'Written c. 1273 by the Angelic Doctor. A concise, systematic handbook of Catholic theology organized around the Theological Virtues (Faith and Hope), presenting the essence of the Summa Theologiae.',
@@ -1456,6 +1484,7 @@ class LibraryHelper {
             'Expositions on the Creed, Sacraments, Commandments & Prayer (Trans. Joseph B. Collins, 1939)',
         category: 'Doctors of the Church',
         author: 'St. Thomas Aquinas (Trans. Joseph B. Collins)',
+        authorSaintId: 'thomas-aquinas',
         era: '1273 AD',
         description:
             'Lenten sermon-conferences delivered in 1273 at Naples. Accessible, profound expositions of the Apostles\' Creed, the Seven Sacraments, the Ten Commandments, the Lord\'s Prayer, and the Hail Mary.',
@@ -1468,6 +1497,7 @@ class LibraryHelper {
             'Traité de la vraie dévotion (Trans. Fr. Frederick W. Faber, 1862)',
         category: 'Marian & Spiritual Classics',
         author: 'St. Louis-Marie de Montfort (Trans. Fr. Frederick W. Faber)',
+        authorSaintId: 'louis-marie-de-montfort',
         era: '1712 AD',
         description:
             'Written 1712 (first published 1843). St. Louis de Montfort\'s crowning Catholic spiritual classic on Total Consecration to Jesus through Mary ("Holy Slavery of Love"), presenting the shortest, easiest, most secure, and most perfect path to total transformation in Christ.',
@@ -1481,6 +1511,7 @@ class LibraryHelper {
         category: 'Monastic & Spiritual Classics',
         author:
             'St. Benedict of Nursia (Trans. Rev. Boniface Verheyen, O.S.B.)',
+        authorSaintId: 'benedict-of-nursia',
         era: 'c. 516–530 AD',
         description:
             'Written c. 516–530 AD at Monte Cassino. The foundational charter of Western monasticism and European Christian culture, establishing the rhythm of prayer, work, and community life ("Ora et Labora").',
@@ -1493,6 +1524,7 @@ class LibraryHelper {
             'Introduction à la vie dévote (Trans. Allan Ross / Rivingtons)',
         category: 'Spiritual Classics',
         author: 'St. Francis de Sales (Trans. Allan Ross)',
+        authorSaintId: 'francis-de-sales',
         era: '1609 AD',
         description:
             'Written in 1609 by the Bishop of Geneva and Doctor of the Church. The universal spiritual classic showing that authentic holiness is attainable and necessary for persons in every state of life.',
@@ -1504,6 +1536,7 @@ class LibraryHelper {
         subtitle: 'Traité de l\'Amour de Dieu (Trans. H. B. Mackey, O.S.B.)',
         category: 'Spiritual Classics',
         author: 'St. Francis de Sales (Trans. H. B. Mackey, O.S.B.)',
+        authorSaintId: 'francis-de-sales',
         era: '1616 AD',
         description:
             'Written in 1616 by the Doctor of Charity. An exhaustive and sublime treatise on the origin, progress, nature, and sovereign perfection of divine love in the soul.',
@@ -1516,6 +1549,7 @@ class LibraryHelper {
             'El Castillo Interior / Las Moradas (Trans. Benedictines of Stanbrook, 1906)',
         category: 'Spiritual Classics',
         author: 'St. Teresa of Ávila (Trans. Benedictines of Stanbrook)',
+        authorSaintId: 'teresa-of-avila',
         era: '1577 AD',
         description:
             'Written in 1577 by the Doctor of the Church. St. Teresa\'s definitive masterpiece on the interior journey through the Seven Mansions of the soul, from vocal prayer and purification to spiritual betrothal, transforming union, and the indwelling of the Most Holy Trinity.',
@@ -1527,6 +1561,7 @@ class LibraryHelper {
         subtitle: 'Camino de Perfección (Trans. Benedictines of Stanbrook)',
         category: 'Spiritual Classics',
         author: 'St. Teresa of Ávila (Trans. Benedictines of Stanbrook)',
+        authorSaintId: 'teresa-of-avila',
         era: '1566 AD',
         description:
             'Written in 1566 by the Great Reformer of Carmel and Doctor of the Church. A masterwork on the practice of prayer, detachment, and love of neighbor, concluding with an exposition of the Our Father.',
@@ -1551,6 +1586,7 @@ class LibraryHelper {
         subtitle: 'Itinerarium Mentis in Deum (Trans. George Boas, 1953)',
         category: 'Doctors of the Church',
         author: 'St. Bonaventure (Trans. George Boas)',
+        authorSaintId: 'bonaventure',
         era: '1259 AD',
         description:
             'Written 1259 AD on Mount La Verna. The Seraphic Doctor\'s mystical and philosophical masterpiece charting the soul\'s ascent to God through six progressive stages of contemplation—from the vestiges in the universe and sensory world, through the divine image in the mind\'s natural faculties and renewed by grace, to the contemplation of divine unity (Being) and the Trinity (Goodness), culminating in ecstatic union and mystical rest in God.',

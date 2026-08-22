@@ -540,6 +540,18 @@
     "summary": "Beloved Anglo-Saxon prior and bishop known for his pastoral journeys across the border hills, deep prayer life on Inner Farne, and posthumous incorrupt relics."
   },
   {
+    "id": "cyprian-of-carthage",
+    "name": "St. Cyprian of Carthage",
+    "birthDate": "c. 210",
+    "deathDate": "258",
+    "nationality": "North African / Roman",
+    "profession": "Bishop of Carthage & Martyr",
+    "isDoctor": false,
+    "feastDay": "September 16",
+    "patronage": "North Africa, Algeria",
+    "summary": "Third-century Bishop of Carthage, influential Latin Church Father and martyr during Valerian's persecution, famed for his treatises On the Unity of the Church and On the Lord's Prayer."
+  },
+  {
     "id": "cyril-of-alexandria",
     "name": "St. Cyril of Alexandria",
     "birthDate": "c. 376",
@@ -1379,6 +1391,18 @@
     "summary": "Devout French monarch celebrated for fair judicial reforms, feeding the poor from his own table, building Sainte-Chapelle, and leading crusades with deep Christian chivalry."
   },
   {
+    "id": "louis-marie-de-montfort",
+    "name": "St. Louis-Marie de Montfort",
+    "birthDate": "1673",
+    "deathDate": "1716",
+    "nationality": "French",
+    "profession": "Priest, Apostolic Missionary & Marian Theologian",
+    "isDoctor": false,
+    "feastDay": "April 28",
+    "patronage": "Preachers, Marian Consecration, Company of Mary",
+    "summary": "French priest and missionary renowned for his devotion to the Blessed Virgin Mary and the Holy Rosary, author of True Devotion to Mary and apostle of Total Consecration to Jesus through Mary."
+  },
+  {
     "id": "louise-de-marillac",
     "name": "St. Louise de Marillac",
     "birthDate": "1591",
@@ -1894,6 +1918,18 @@
     "summary": "Apostle from Bethsaida who brought Nathanael (Bartholomew) to Jesus and asked the Lord to 'show us the Father' at the Last Supper."
   },
   {
+    "id": "pius-v",
+    "name": "Pope St. Pius V (Antonio Ghislieri)",
+    "birthDate": "1504",
+    "deathDate": "1572",
+    "nationality": "Italian",
+    "profession": "Pope & Dominican Friar",
+    "isDoctor": false,
+    "feastDay": "April 30",
+    "patronage": "First Holy Communicants, Bosco Marengo, Pietrelcina",
+    "summary": "Dominican Pope who implemented the decrees of the Council of Trent, promulgated the Roman Catechism, standardized the Roman Missal, and established the feast of Our Lady of Victory following the Battle of Lepanto."
+  },
+  {
     "id": "pius-x",
     "name": "St. Pius X (Giuseppe Sarto)",
     "birthDate": "1835",
@@ -2250,6 +2286,18 @@
     "feastDay": "September 27",
     "patronage": "Charitable Societies, Hospitals, Volunteers, Prisoners",
     "summary": "Dedicated his priesthood to the relief of the impoverished and sick, founding the Vincentian Fathers and co-founding Daughters of Charity."
+  },
+  {
+    "id": "vincent-of-lerins",
+    "name": "St. Vincent of Lérins",
+    "birthDate": "c. 390",
+    "deathDate": "c. 445",
+    "nationality": "Gaulish / Roman",
+    "profession": "Monk & Theologian",
+    "isDoctor": false,
+    "feastDay": "May 24",
+    "patronage": "Theologians, Monks of Lérins",
+    "summary": "Fifth-century monk on the island of Lérins and Church Father celebrated for his Commonitorium, which established the Vincentian Canon for Catholic orthodoxy: what has been believed everywhere, always, and by all."
   },
   {
     "id": "wenceslaus",
