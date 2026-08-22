@@ -6,8 +6,11 @@ import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/mass_reading_card.dart';
 import 'package:twelve_stars/widgets/homily_reflection_sheet.dart';
 import 'package:twelve_stars/widgets/missal_creed_carousel.dart';
+import 'package:twelve_stars/widgets/reader/missal_section_widgets.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
+import 'package:twelve_stars/logic/saint_models.dart';
+import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_agent_core/flutter_agent_core.dart';
 import 'package:twelve_stars/logic/ai_service_helper.dart';
@@ -287,12 +290,40 @@ void main() {
         },
       ),
     ];
+
+    SaintDatabase.mockSaints = [
+      const Saint(
+        id: 'thomas-aquinas',
+        name: 'St. Thomas Aquinas',
+        birthDate: '1225',
+        deathDate: '1274',
+        nationality: 'Italian',
+        profession: 'Dominican Friar & Theologian',
+        isDoctor: true,
+        feastDay: 'January 28',
+        patronage: 'Students, Academics, Theologians',
+        summary: 'Angelic Doctor of the Church, author of Summa Theologiae.',
+      ),
+      const Saint(
+        id: 'francis-of-assisi',
+        name: 'St. Francis of Assisi',
+        birthDate: '1181',
+        deathDate: '1226',
+        nationality: 'Italian',
+        profession: 'Friar Minor & Founder',
+        isDoctor: false,
+        feastDay: 'October 4',
+        patronage: 'Animals, Ecology, Peace',
+        summary: 'Founder of Franciscan Orders, received the stigmata.',
+      ),
+    ];
   });
 
   tearDown(() async {
     TimeHelper.setCustomTime(null);
     await testDb.close();
     PrayerDatabase.mockPrayers = null;
+    SaintDatabase.mockSaints = null;
   });
 
   group('Placeholder Tabs Golden Tests', () {
@@ -807,6 +838,90 @@ void main() {
         );
       },
     );
+
+    testWidgets(
+      'displays saint feast card when date has a saint feast and tapping opens saint details modal',
+      (tester) async {
+        final fixedDate = DateTime(2026, 1, 28); // St. Thomas Aquinas feast day
+        TimeHelper.setCustomTime(fixedDate);
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: MissalTab(
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+                initialDate: fixedDate,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Check header and date
+        expect(find.text('Wednesday, January 28, 2026'), findsOneWidget);
+
+        // Check saint feast card is rendered
+        expect(find.byType(MissalSaintFeastCard), findsOneWidget);
+        expect(
+          find.byKey(const Key('missal_saint_card_thomas-aquinas')),
+          findsOneWidget,
+        );
+        expect(find.text('SAINT MEMORIAL / FEAST'), findsOneWidget);
+        expect(find.text('St. Thomas Aquinas (1225 – 1274)'), findsOneWidget);
+        expect(
+          find.text('Italian • Dominican Friar & Theologian'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('Patron of Students, Academics, Theologians'),
+          findsOneWidget,
+        );
+        expect(find.text('Doctor'), findsOneWidget);
+
+        // Tap the card to open the bottom sheet
+        await tester.tap(
+          find.byKey(const Key('missal_saint_card_thomas-aquinas')),
+        );
+        await tester.pumpAndSettle();
+
+        // Verify saint details bottom sheet
+        expect(find.byType(DraggableScrollableSheet), findsOneWidget);
+        expect(find.text('January 28'), findsOneWidget);
+        expect(find.text('Biography & Significance'), findsOneWidget);
+        expect(
+          find.text(
+            'Angelic Doctor of the Church, author of Summa Theologiae.',
+          ),
+          findsWidgets,
+        );
+      },
+    );
+
+    testWidgets('calendar grid renders star markers on saint feast days', (
+      tester,
+    ) async {
+      final fixedDate = DateTime(2026, 1, 28);
+      TimeHelper.setCustomTime(fixedDate);
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: MissalTab(
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+              initialDate: fixedDate,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // The day cell for 28th should have a star indicator icon
+      final cell28 = find.widgetWithText(InkWell, '28').first;
+      expect(
+        find.descendant(of: cell28, matching: find.byIcon(Icons.star)),
+        findsOneWidget,
+      );
+    });
   });
 }
 
