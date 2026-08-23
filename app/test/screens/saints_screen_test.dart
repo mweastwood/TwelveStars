@@ -394,7 +394,7 @@ void main() {
     );
 
     testGoldens(
-      'SaintsScreen renders populated list, doctor filter, and detail sheet',
+      'SaintsScreen renders populated list, filters, sort sheet, detail sheet, and widescreen layout',
       (tester) async {
         // 1. Populated Saints Screen
         await tester.pumpWidgetBuilder(
@@ -415,15 +415,55 @@ void main() {
           'saints_screen_doctors_filter_golden',
         );
 
-        // Reset filter for next step
+        // Reset filter
         await tester.tap(find.byKey(const Key('doctor_filter_chip')));
         await tester.pumpAndSettle();
 
-        // 3. Saint details modal bottom sheet
+        // 3. Category filter active (Priests & Religious)
+        final chipFinder = find.byKey(const Key('religious_filter_chip'));
+        await tester.ensureVisible(chipFinder);
+        await tester.pumpAndSettle();
+        await tester.tap(chipFinder);
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'saints_screen_religious_filter_golden',
+        );
+
+        // Reset category filter
+        await tester.tap(chipFinder);
+        await tester.pumpAndSettle();
+
+        // 4. Sort bottom sheet open
+        await tester.tap(find.byKey(const Key('saints_sort_button')));
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'saints_screen_sort_sheet_golden');
+
+        // Close sort modal
+        await tester.tapAt(const Offset(10, 10));
+        await tester.pumpAndSettle();
+
+        // 5. Saint details modal bottom sheet
         await tester.tap(find.byKey(const Key('saint_tile_thomas-aquinas')));
         await tester.pumpAndSettle();
 
         await screenMatchesGolden(tester, 'saints_screen_detail_sheet_golden');
+
+        // Close details sheet
+        await tester.tapAt(const Offset(10, 10));
+        await tester.pumpAndSettle();
+
+        // 6. Widescreen 2-column layout
+        await tester.pumpWidgetBuilder(
+          const SaintsScreen(),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(1024, 768),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'saints_screen_widescreen_golden');
       },
     );
   });
