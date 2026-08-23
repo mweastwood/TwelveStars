@@ -178,9 +178,6 @@ class Saint {
     final nameLower = name.toLowerCase();
     final natLower = nationality.toLowerCase();
 
-    if (profLower.contains('evangelist') || nameLower.contains('evangelist')) {
-      return SaintCategory.evangelist;
-    }
     if (natLower.contains('angelic') ||
         profLower.contains('archangel') ||
         nameLower.contains('archangel') ||
@@ -194,8 +191,10 @@ class Saint {
       'bartholomew-the-apostle',
       'james-the-greater',
       'james-the-lesser',
+      'john-the-apostle',
       'jude-thaddeus',
       'mary-magdalene',
+      'matthew-the-apostle',
       'matthias',
       'paul-the-apostle',
       'peter-the-apostle',
@@ -217,6 +216,9 @@ class Saint {
                 nameLower.contains('thaddeus') ||
                 nameLower.contains('zealot')))) {
       return SaintCategory.apostle;
+    }
+    if (profLower.contains('evangelist') || nameLower.contains('evangelist')) {
+      return SaintCategory.evangelist;
     }
     if (profLower.contains('martyr') || nameLower.contains('martyrs')) {
       return SaintCategory.martyr;

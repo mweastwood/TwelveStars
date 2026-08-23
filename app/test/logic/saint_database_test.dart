@@ -1004,7 +1004,7 @@ void main() {
           saints,
           category: SaintCategory.apostle,
         );
-        expect(apostles.length, 13);
+        expect(apostles.length, 15);
         expect(
           apostles.every((s) => s.category == SaintCategory.apostle),
           isTrue,
@@ -1014,9 +1014,11 @@ void main() {
         expect(apostles.any((s) => s.id == 'andrew-the-apostle'), isTrue);
         expect(apostles.any((s) => s.id == 'james-the-greater'), isTrue);
         expect(apostles.any((s) => s.id == 'james-the-lesser'), isTrue);
+        expect(apostles.any((s) => s.id == 'john-the-apostle'), isTrue);
         expect(apostles.any((s) => s.id == 'philip-the-apostle'), isTrue);
         expect(apostles.any((s) => s.id == 'bartholomew-the-apostle'), isTrue);
         expect(apostles.any((s) => s.id == 'thomas-the-apostle'), isTrue);
+        expect(apostles.any((s) => s.id == 'matthew-the-apostle'), isTrue);
         expect(apostles.any((s) => s.id == 'jude-thaddeus'), isTrue);
         expect(apostles.any((s) => s.id == 'simon-the-zealot'), isTrue);
         expect(apostles.any((s) => s.id == 'matthias'), isTrue);
@@ -1038,7 +1040,7 @@ void main() {
           saints,
           category: SaintCategory.evangelist,
         );
-        expect(evangelists.length, 4);
+        expect(evangelists.length, 2);
         expect(
           evangelists.every((s) => s.category == SaintCategory.evangelist),
           isTrue,
