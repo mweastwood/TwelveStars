@@ -14,6 +14,7 @@ enum SaintCategory {
   virgin,
   monarch,
   healerMissionary,
+  laity,
   other;
 
   String get label {
@@ -40,6 +41,8 @@ enum SaintCategory {
         return 'Ruler & Monarch';
       case SaintCategory.healerMissionary:
         return 'Healer & Missionary';
+      case SaintCategory.laity:
+        return 'Laity & Holy Family';
       case SaintCategory.other:
         return 'Saint';
     }
@@ -194,7 +197,11 @@ class Saint {
         profLower.contains('cardinal')) {
       return SaintCategory.popeBishop;
     }
-    if (profLower.contains('mystic') || profLower.contains('stigmatist')) {
+    if (profLower.contains('mystic') ||
+        profLower.contains('stigmatist') ||
+        profLower.contains('visionary') ||
+        profLower.contains('contemplative') ||
+        profLower.contains('divine mercy')) {
       return SaintCategory.mystic;
     }
     if (profLower.contains('king') ||
@@ -208,17 +215,36 @@ class Saint {
         profLower.contains('duchess')) {
       return SaintCategory.monarch;
     }
+    if (profLower.contains('foster father') ||
+        profLower.contains('carpenter') ||
+        profLower.contains('father of jesus') ||
+        profLower.contains('mother') ||
+        profLower.contains('parent') ||
+        profLower.contains('layman') ||
+        profLower.contains('laywoman') ||
+        profLower.contains('lay') ||
+        profLower.contains('student') ||
+        profLower.contains('pupil') ||
+        profLower.contains('youth') ||
+        profLower.contains('child') ||
+        profLower.contains('matron') ||
+        profLower.contains('widow') ||
+        profLower.contains('homemaker')) {
+      return SaintCategory.laity;
+    }
     if (profLower.contains('physician') ||
+        profLower.contains('pediatrician') ||
         profLower.contains('doctor') ||
         profLower.contains('healer') ||
         profLower.contains('nurse') ||
         profLower.contains('missionary') ||
+        profLower.contains('missionaries') ||
         profLower.contains('apostle of')) {
       return SaintCategory.healerMissionary;
     }
     if (profLower.contains('virgin') ||
-        profLower.contains('matron') ||
-        profLower.contains('widow')) {
+        profLower.contains('lily of the mohawks') ||
+        profLower.contains('consecrated')) {
       return SaintCategory.virgin;
     }
     if (profLower.contains('priest') ||
@@ -229,14 +255,22 @@ class Saint {
         profLower.contains('abbess') ||
         profLower.contains('deacon') ||
         profLower.contains('brother') ||
+        profLower.contains('sister') ||
+        profLower.contains('sisters') ||
         profLower.contains('hermit') ||
         profLower.contains('religious') ||
         profLower.contains('founder') ||
+        profLower.contains('foundress') ||
         profLower.contains('carmelite') ||
         profLower.contains('franciscan') ||
         profLower.contains('dominican') ||
         profLower.contains('jesuit') ||
-        profLower.contains('benedictine')) {
+        profLower.contains('benedictine') ||
+        profLower.contains('salesian') ||
+        profLower.contains('clares') ||
+        profLower.contains('charity') ||
+        profLower.contains('visitation') ||
+        profLower.contains('sacrament')) {
       return SaintCategory.priestReligious;
     }
     return SaintCategory.other;
@@ -267,6 +301,8 @@ class Saint {
         return Icons.workspace_premium_rounded;
       case SaintCategory.healerMissionary:
         return Icons.healing_rounded;
+      case SaintCategory.laity:
+        return Icons.family_restroom_rounded;
       case SaintCategory.other:
         return Icons.person_rounded;
     }
@@ -297,6 +333,8 @@ class Saint {
         return AppThemeTokens.liturgicalPurple;
       case SaintCategory.healerMissionary:
         return const Color(0xFF00897B); // Teal 600
+      case SaintCategory.laity:
+        return const Color(0xFF5C6BC0); // Indigo 400
       case SaintCategory.other:
         return theme.colorScheme.primary;
     }

@@ -495,6 +495,27 @@ class _SaintsScreenState extends State<SaintsScreen> {
                     },
                   ),
                   const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('laity_filter_chip'),
+                    label: const Text('Laity & Holy Family'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.family_restroom,
+                      color: _selectedCategory == SaintCategory.laity
+                          ? const Color(0xFF5C6BC0)
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.laity,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.laity
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
                   PopupMenuButton<SaintEra>(
                     tooltip: 'Filter by Era',
                     initialValue: _selectedEra,

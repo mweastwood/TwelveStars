@@ -1015,5 +1015,40 @@ void main() {
         expect(octoberSaints.any((s) => s.id == 'carlo-acutis'), isTrue);
       },
     );
+
+    test(
+      'all saints in the dataset are assigned a specific, non-generic category',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+        final unclassified = saints
+            .where((s) => s.category == SaintCategory.other)
+            .toList();
+        expect(
+          unclassified,
+          isEmpty,
+          reason:
+              'All saints should be classified into a specific category, but found unclassified: ${unclassified.map((s) => s.id).toList()}',
+        );
+
+        // Verify Laity & Holy Family
+        final joseph = saints.firstWhere((s) => s.id == 'joseph');
+        expect(joseph.category, SaintCategory.laity);
+
+        final dominicSavio = saints.firstWhere((s) => s.id == 'dominic-savio');
+        expect(dominicSavio.category, SaintCategory.laity);
+
+        final gianna = saints.firstWhere((s) => s.id == 'gianna-beretta-molla');
+        expect(gianna.category, SaintCategory.laity);
+
+        // Verify Mystics & Visionaries
+        final faustina = saints.firstWhere((s) => s.id == 'faustina-kowalska');
+        expect(faustina.category, SaintCategory.mystic);
+
+        final bernadette = saints.firstWhere(
+          (s) => s.id == 'bernadette-soubirous',
+        );
+        expect(bernadette.category, SaintCategory.mystic);
+      },
+    );
   });
 }
