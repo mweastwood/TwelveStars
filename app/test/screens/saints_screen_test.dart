@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/screens/home_screen.dart';
 import 'package:twelve_stars/screens/saints_screen.dart';
+import 'package:twelve_stars/widgets/saint_details_sheet.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
@@ -266,23 +267,106 @@ void main() {
         await tester.pumpAndSettle();
 
         // Verify bottom sheet contents
-        expect(find.text('Doctor'), findsOneWidget);
-        expect(find.text('1225 – 1274'), findsWidgets);
-        expect(find.text('January 28'), findsOneWidget);
-        expect(find.text('Gender: '), findsOneWidget);
-        expect(find.text('Male'), findsOneWidget);
-        expect(find.text('Italian'), findsOneWidget);
-        expect(find.text('Dominican Friar & Theologian'), findsOneWidget);
-        expect(find.text('Students, Academics, Theologians'), findsOneWidget);
+        final sheetFinder = find.byType(SaintDetailsSheet);
+        expect(sheetFinder, findsOneWidget);
         expect(
-          find.text(
-            'Angelic Doctor of the Church, author of Summa Theologiae.',
+          find.descendant(of: sheetFinder, matching: find.text('Doctor')),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(of: sheetFinder, matching: find.text('1225 – 1274')),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(of: sheetFinder, matching: find.text('January 28')),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(of: sheetFinder, matching: find.text('Gender: ')),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(of: sheetFinder, matching: find.text('Male')),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(of: sheetFinder, matching: find.text('Italian')),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(
+            of: sheetFinder,
+            matching: find.text('Dominican Friar & Theologian'),
           ),
           findsOneWidget,
         );
-        expect(find.textContaining('Confirmation Tip:'), findsOneWidget);
+        expect(
+          find.descendant(
+            of: sheetFinder,
+            matching: find.text('Students, Academics, Theologians'),
+          ),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(
+            of: sheetFinder,
+            matching: find.text(
+              'Angelic Doctor of the Church, author of Summa Theologiae.',
+            ),
+          ),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(
+            of: sheetFinder,
+            matching: find.textContaining('Confirmation Tip:'),
+          ),
+          findsOneWidget,
+        );
       },
     );
+
+    testWidgets('Filters by category chips (Priests & Religious)', (
+      tester,
+    ) async {
+      await tester.pumpWidget(buildTestableWidget(child: const SaintsScreen()));
+      await tester.pumpAndSettle();
+
+      final chipFinder = find.byKey(const Key('religious_filter_chip'));
+      await tester.ensureVisible(chipFinder);
+      await tester.pumpAndSettle();
+      await tester.tap(chipFinder);
+      await tester.pumpAndSettle();
+
+      expect(
+        find.byKey(const Key('saint_tile_francis-of-assisi')),
+        findsOneWidget,
+      );
+      expect(find.byKey(const Key('saint_tile_thomas-aquinas')), findsNothing);
+      expect(
+        find.byKey(const Key('saint_tile_therese-of-lisieux')),
+        findsNothing,
+      );
+      expect(find.text('1 saint'), findsOneWidget);
+    });
+
+    testWidgets('Opens sort modal and changes sort option', (tester) async {
+      await tester.pumpWidget(buildTestableWidget(child: const SaintsScreen()));
+      await tester.pumpAndSettle();
+
+      // Open sort bottom sheet
+      expect(find.byKey(const Key('saints_sort_button')), findsOneWidget);
+      await tester.tap(find.byKey(const Key('saints_sort_button')));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Sort Saints'), findsOneWidget);
+      expect(find.byKey(const Key('sort_option_nameDesc')), findsOneWidget);
+
+      await tester.tap(find.byKey(const Key('sort_option_nameDesc')));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Name (Z–A)'), findsOneWidget);
+    });
 
     testWidgets(
       'Navigation from HomeScreen drawer to SaintsScreen works properly',
@@ -310,7 +394,7 @@ void main() {
     );
 
     testGoldens(
-      'SaintsScreen renders populated list, doctor filter, and detail sheet',
+      'SaintsScreen renders populated list, filters, sort sheet, detail sheet, and widescreen layout',
       (tester) async {
         // 1. Populated Saints Screen
         await tester.pumpWidgetBuilder(
@@ -331,15 +415,55 @@ void main() {
           'saints_screen_doctors_filter_golden',
         );
 
-        // Reset filter for next step
+        // Reset filter
         await tester.tap(find.byKey(const Key('doctor_filter_chip')));
         await tester.pumpAndSettle();
 
-        // 3. Saint details modal bottom sheet
+        // 3. Category filter active (Priests & Religious)
+        final chipFinder = find.byKey(const Key('religious_filter_chip'));
+        await tester.ensureVisible(chipFinder);
+        await tester.pumpAndSettle();
+        await tester.tap(chipFinder);
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'saints_screen_religious_filter_golden',
+        );
+
+        // Reset category filter
+        await tester.tap(chipFinder);
+        await tester.pumpAndSettle();
+
+        // 4. Sort bottom sheet open
+        await tester.tap(find.byKey(const Key('saints_sort_button')));
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'saints_screen_sort_sheet_golden');
+
+        // Close sort modal
+        await tester.tapAt(const Offset(10, 10));
+        await tester.pumpAndSettle();
+
+        // 5. Saint details modal bottom sheet
         await tester.tap(find.byKey(const Key('saint_tile_thomas-aquinas')));
         await tester.pumpAndSettle();
 
         await screenMatchesGolden(tester, 'saints_screen_detail_sheet_golden');
+
+        // Close details sheet
+        await tester.tapAt(const Offset(10, 10));
+        await tester.pumpAndSettle();
+
+        // 6. Widescreen 2-column layout
+        await tester.pumpWidgetBuilder(
+          const SaintsScreen(),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(1024, 768),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'saints_screen_widescreen_golden');
       },
     );
   });
