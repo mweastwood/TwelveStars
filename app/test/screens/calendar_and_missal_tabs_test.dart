@@ -218,6 +218,34 @@ void main() {
         },
       ),
       Prayer.mock(
+        id: 'embolism',
+        defaultTitle: 'Embolism & Doxology',
+        category: 'liturgy',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Embolism & Doxology',
+              subtitle: 'For the kingdom, the power and the glory',
+              text:
+                  'Priest: Deliver us, Lord, we pray, from every evil, graciously grant peace in our days, that, by the help of your mercy, we may be always free from sin and safe from all distress, as we await the blessed hope and the coming of our Savior, Jesus Christ.\nPeople: For the kingdom, the power and the glory are yours now and for ever.',
+              sourceName: 'Roman Missal',
+              sourceUrl:
+                  'https://www.universalis.com/static/mass/orderofmass.htm',
+            ),
+          ],
+          PrayerLanguage.latin: [
+            PrayerTranslation.mock(
+              title: 'Embolismus',
+              subtitle: 'Quia tuum est regnum',
+              text:
+                  'Sacerdos: Libera nos, quaesumus, Domine, ab omnibus malis, da propitius pacem in diebus nostris, ut, ope misericordiae tuae adiuti, et a peccato simus semper liberi et ab omni perturbatione securi: expectantes beatam spem et adventum Salvatoris nostri Iesu Christi.\nPopulus: Quia tuum est regnum, et potestas, et gloria in saecula.',
+              sourceName: 'Maranatha',
+              sourceUrl: 'https://www.maranatha.it/RitoMessa/missaetext.htm',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
         id: 'sign_of_peace',
         defaultTitle: 'Sign of Peace',
         category: 'liturgy',
@@ -1103,6 +1131,57 @@ void main() {
           find.byKey(const ValueKey('missal_filter_mass_greeting')),
         );
         expect(reEnabledGreetingChip.selected, isTrue);
+      },
+    );
+
+    testWidgets(
+      'renders Embolism & Doxology prayer card and toggles with filter chip',
+      (tester) async {
+        final fixedDate = DateTime(2026, 7, 4);
+        TimeHelper.setCustomTime(fixedDate);
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: MissalTab(
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const ValueKey('missal_filter_embolism')),
+          findsOneWidget,
+        );
+
+        // Verify Embolism prayer card is visible
+        expect(find.text('Embolism & Doxology'), findsWidgets);
+
+        // Ensure chip is scrolled into view before tapping
+        await tester.ensureVisible(
+          find.byKey(const ValueKey('missal_filter_embolism')),
+        );
+        await tester.pumpAndSettle();
+
+        // Tap Embolism chip to unselect / hide it
+        await tester.tap(find.byKey(const ValueKey('missal_filter_embolism')));
+        await tester.pumpAndSettle();
+
+        final updatedEmbolismChip = tester.widget<FilterChip>(
+          find.byKey(const ValueKey('missal_filter_embolism')),
+        );
+        expect(updatedEmbolismChip.selected, isFalse);
+
+        // Tap Embolism chip again to re-enable
+        await tester.tap(find.byKey(const ValueKey('missal_filter_embolism')));
+        await tester.pumpAndSettle();
+
+        final reEnabledEmbolismChip = tester.widget<FilterChip>(
+          find.byKey(const ValueKey('missal_filter_embolism')),
+        );
+        expect(reEnabledEmbolismChip.selected, isTrue);
       },
     );
 

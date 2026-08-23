@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 111
+default_order: 112
 default_title: Blessing & Dismissal
 title: Phép Lành và Giải Tán
 subtitle: ""
