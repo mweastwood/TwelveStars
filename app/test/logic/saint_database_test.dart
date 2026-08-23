@@ -977,16 +977,38 @@ void main() {
         expect(angels.every((s) => s.category == SaintCategory.angel), isTrue);
         expect(angels.any((s) => s.id == 'michael-the-archangel'), isTrue);
 
-        // Category filter: Apostles
+        // Category filter: Apostles (strictly Biblical Apostles)
         final apostles = SaintDatabase.searchSaints(
           saints,
           category: SaintCategory.apostle,
         );
+        expect(apostles.length, 12);
         expect(
           apostles.every((s) => s.category == SaintCategory.apostle),
           isTrue,
         );
         expect(apostles.any((s) => s.id == 'peter-the-apostle'), isTrue);
+        expect(apostles.any((s) => s.id == 'paul-the-apostle'), isTrue);
+        expect(apostles.any((s) => s.id == 'andrew-the-apostle'), isTrue);
+        expect(apostles.any((s) => s.id == 'james-the-greater'), isTrue);
+        expect(apostles.any((s) => s.id == 'james-the-lesser'), isTrue);
+        expect(apostles.any((s) => s.id == 'philip-the-apostle'), isTrue);
+        expect(apostles.any((s) => s.id == 'bartholomew-the-apostle'), isTrue);
+        expect(apostles.any((s) => s.id == 'thomas-the-apostle'), isTrue);
+        expect(apostles.any((s) => s.id == 'jude-thaddeus'), isTrue);
+        expect(apostles.any((s) => s.id == 'simon-the-zealot'), isTrue);
+        expect(apostles.any((s) => s.id == 'matthias'), isTrue);
+        expect(apostles.any((s) => s.id == 'barnabas'), isTrue);
+
+        // Non-biblical saints with honorary "Apostle of..." titles should not be in apostle category
+        expect(apostles.any((s) => s.id == 'patrick-of-ireland'), isFalse);
+        expect(apostles.any((s) => s.id == 'aidan-of-lindisfarne'), isFalse);
+        expect(apostles.any((s) => s.id == 'francis-xavier'), isFalse);
+        expect(apostles.any((s) => s.id == 'columba-of-iona'), isFalse);
+        expect(apostles.any((s) => s.id == 'damien-of-molokai'), isFalse);
+        expect(apostles.any((s) => s.id == 'junipero-serra'), isFalse);
+        expect(apostles.any((s) => s.id == 'philip-neri'), isFalse);
+        expect(apostles.any((s) => s.id == 'carlo-acutis'), isFalse);
 
         // Category filter: Evangelists
         final evangelists = SaintDatabase.searchSaints(

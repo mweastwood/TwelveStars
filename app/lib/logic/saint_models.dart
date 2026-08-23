@@ -188,7 +188,32 @@ class Saint {
         RegExp(r'\barchangels?\b|\bangels?\b').hasMatch(nameLower)) {
       return SaintCategory.angel;
     }
-    if (profLower.contains('apostle') || nameLower.contains('apostle')) {
+    final isBiblicalApostle = const {
+      'andrew-the-apostle',
+      'barnabas',
+      'bartholomew-the-apostle',
+      'james-the-greater',
+      'james-the-lesser',
+      'jude-thaddeus',
+      'matthias',
+      'paul-the-apostle',
+      'peter-the-apostle',
+      'philip-the-apostle',
+      'simon-the-zealot',
+      'thomas-the-apostle',
+    }.contains(id);
+
+    if (isBiblicalApostle ||
+        (profLower.contains('apostle') &&
+            !profLower.contains('apostle of') &&
+            !profLower.contains('apostle to') &&
+            !profLower.contains('cyber-apostle') &&
+            !profLower.contains('apostola') &&
+            (nameLower.contains('the apostle') ||
+                nameLower.contains('barnabas') ||
+                nameLower.contains('matthias') ||
+                nameLower.contains('thaddeus') ||
+                nameLower.contains('zealot')))) {
       return SaintCategory.apostle;
     }
     if (profLower.contains('martyr') || nameLower.contains('martyrs')) {
