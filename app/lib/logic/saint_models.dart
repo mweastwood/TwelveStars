@@ -178,9 +178,6 @@ class Saint {
     final nameLower = name.toLowerCase();
     final natLower = nationality.toLowerCase();
 
-    if (profLower.contains('evangelist') || nameLower.contains('evangelist')) {
-      return SaintCategory.evangelist;
-    }
     if (natLower.contains('angelic') ||
         profLower.contains('archangel') ||
         nameLower.contains('archangel') ||
@@ -188,8 +185,40 @@ class Saint {
         RegExp(r'\barchangels?\b|\bangels?\b').hasMatch(nameLower)) {
       return SaintCategory.angel;
     }
-    if (profLower.contains('apostle') || nameLower.contains('apostle')) {
+    final isBiblicalApostle = const {
+      'andrew-the-apostle',
+      'barnabas',
+      'bartholomew-the-apostle',
+      'james-the-greater',
+      'james-the-lesser',
+      'john-the-apostle',
+      'jude-thaddeus',
+      'mary-magdalene',
+      'matthew-the-apostle',
+      'matthias',
+      'paul-the-apostle',
+      'peter-the-apostle',
+      'philip-the-apostle',
+      'simon-the-zealot',
+      'thomas-the-apostle',
+    }.contains(id);
+
+    if (isBiblicalApostle ||
+        profLower.contains('apostle to the apostles') ||
+        profLower.contains('apostola apostolorum') ||
+        (profLower.contains('apostle') &&
+            !profLower.contains('apostle of') &&
+            !profLower.contains('apostle to') &&
+            !profLower.contains('cyber-apostle') &&
+            (nameLower.contains('the apostle') ||
+                nameLower.contains('barnabas') ||
+                nameLower.contains('matthias') ||
+                nameLower.contains('thaddeus') ||
+                nameLower.contains('zealot')))) {
       return SaintCategory.apostle;
+    }
+    if (profLower.contains('evangelist') || nameLower.contains('evangelist')) {
+      return SaintCategory.evangelist;
     }
     if (profLower.contains('martyr') || nameLower.contains('martyrs')) {
       return SaintCategory.martyr;

@@ -154,6 +154,8 @@ class SaintDetailsSheet extends StatelessWidget {
                       ? 'Female'
                       : saint.gender == 'group'
                       ? 'Group'
+                      : saint.gender == 'other'
+                      ? 'Other (Pure Spirit)'
                       : saint.gender!,
                 ),
                 const SizedBox(height: 12),

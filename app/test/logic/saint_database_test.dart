@@ -713,7 +713,7 @@ void main() {
         final saints = await SaintDatabase.loadSaints();
         expect(saints, isNotEmpty);
 
-        final validGenders = {'male', 'female', 'group'};
+        final validGenders = {'male', 'female', 'group', 'other'};
         for (final saint in saints) {
           expect(
             saint.gender,
@@ -731,10 +731,32 @@ void main() {
         final femaleSaints = saints.where((s) => s.isFemale).toList();
         final maleSaints = saints.where((s) => s.isMale).toList();
         final groupSaints = saints.where((s) => s.gender == 'group').toList();
+        final otherGenderSaints = saints
+            .where((s) => s.gender == 'other')
+            .toList();
 
         expect(femaleSaints.length, 43);
-        expect(maleSaints.length, 149);
+        expect(maleSaints.length, 146);
         expect(groupSaints.length, 4);
+        expect(otherGenderSaints.length, 3);
+
+        // Verify angels have gender 'other'
+        final michael = saints.firstWhere(
+          (s) => s.id == 'michael-the-archangel',
+        );
+        expect(michael.gender, 'other');
+        expect(michael.isMale, isFalse);
+        expect(michael.isFemale, isFalse);
+
+        final gabriel = saints.firstWhere(
+          (s) => s.id == 'gabriel-the-archangel',
+        );
+        expect(gabriel.gender, 'other');
+
+        final raphael = saints.firstWhere(
+          (s) => s.id == 'raphael-the-archangel',
+        );
+        expect(raphael.gender, 'other');
 
         // Verify specific prominent female saints
         final mary = saints.firstWhere((s) => s.id == 'mary-mother-of-god');
@@ -764,7 +786,7 @@ void main() {
 
       // 1. Male saints filter
       final men = SaintDatabase.searchSaints(saints, gender: 'male');
-      expect(men.length, 149);
+      expect(men.length, 146);
       expect(men.every((s) => s.isMale), isTrue);
 
       // 2. Female saints filter
@@ -977,23 +999,48 @@ void main() {
         expect(angels.every((s) => s.category == SaintCategory.angel), isTrue);
         expect(angels.any((s) => s.id == 'michael-the-archangel'), isTrue);
 
-        // Category filter: Apostles
+        // Category filter: Apostles (Biblical Apostles & Apostle to the Apostles)
         final apostles = SaintDatabase.searchSaints(
           saints,
           category: SaintCategory.apostle,
         );
+        expect(apostles.length, 15);
         expect(
           apostles.every((s) => s.category == SaintCategory.apostle),
           isTrue,
         );
         expect(apostles.any((s) => s.id == 'peter-the-apostle'), isTrue);
+        expect(apostles.any((s) => s.id == 'paul-the-apostle'), isTrue);
+        expect(apostles.any((s) => s.id == 'andrew-the-apostle'), isTrue);
+        expect(apostles.any((s) => s.id == 'james-the-greater'), isTrue);
+        expect(apostles.any((s) => s.id == 'james-the-lesser'), isTrue);
+        expect(apostles.any((s) => s.id == 'john-the-apostle'), isTrue);
+        expect(apostles.any((s) => s.id == 'philip-the-apostle'), isTrue);
+        expect(apostles.any((s) => s.id == 'bartholomew-the-apostle'), isTrue);
+        expect(apostles.any((s) => s.id == 'thomas-the-apostle'), isTrue);
+        expect(apostles.any((s) => s.id == 'matthew-the-apostle'), isTrue);
+        expect(apostles.any((s) => s.id == 'jude-thaddeus'), isTrue);
+        expect(apostles.any((s) => s.id == 'simon-the-zealot'), isTrue);
+        expect(apostles.any((s) => s.id == 'matthias'), isTrue);
+        expect(apostles.any((s) => s.id == 'barnabas'), isTrue);
+        expect(apostles.any((s) => s.id == 'mary-magdalene'), isTrue);
+
+        // Non-biblical saints with honorary "Apostle of..." titles should not be in apostle category
+        expect(apostles.any((s) => s.id == 'patrick-of-ireland'), isFalse);
+        expect(apostles.any((s) => s.id == 'aidan-of-lindisfarne'), isFalse);
+        expect(apostles.any((s) => s.id == 'francis-xavier'), isFalse);
+        expect(apostles.any((s) => s.id == 'columba-of-iona'), isFalse);
+        expect(apostles.any((s) => s.id == 'damien-of-molokai'), isFalse);
+        expect(apostles.any((s) => s.id == 'junipero-serra'), isFalse);
+        expect(apostles.any((s) => s.id == 'philip-neri'), isFalse);
+        expect(apostles.any((s) => s.id == 'carlo-acutis'), isFalse);
 
         // Category filter: Evangelists
         final evangelists = SaintDatabase.searchSaints(
           saints,
           category: SaintCategory.evangelist,
         );
-        expect(evangelists.length, 4);
+        expect(evangelists.length, 2);
         expect(
           evangelists.every((s) => s.category == SaintCategory.evangelist),
           isTrue,
