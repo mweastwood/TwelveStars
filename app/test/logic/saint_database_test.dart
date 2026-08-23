@@ -621,7 +621,7 @@ void main() {
         final piusV = await SaintDatabase.getSaintById('pius-v');
         expect(piusV, isNotNull);
         expect(piusV!.id, 'pius-v');
-        expect(piusV.name, contains('Pius V'));
+        expect(piusV.name, 'St. Pius V (Antonio Ghislieri)');
 
         final nonExistent = await SaintDatabase.getSaintById(
           'unknown-saint-id',
@@ -1107,6 +1107,29 @@ void main() {
           (s) => s.id == 'bernadette-soubirous',
         );
         expect(bernadette.category, SaintCategory.mystic);
+      },
+    );
+
+    test(
+      'all saints follow standard name prefixing conventions and no saint starts with Pope St.',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+        const validPrefixes = ['St. ', 'Sts. ', 'Blessed ', 'The '];
+
+        for (final saint in saints) {
+          expect(
+            saint.name.startsWith('Pope St.'),
+            isFalse,
+            reason:
+                'Saint ${saint.id} (${saint.name}) should not start with "Pope St."',
+          );
+          expect(
+            validPrefixes.any((prefix) => saint.name.startsWith(prefix)),
+            isTrue,
+            reason:
+                'Saint ${saint.id} (${saint.name}) should start with one of: $validPrefixes',
+          );
+        }
       },
     );
   });
