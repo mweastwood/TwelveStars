@@ -161,7 +161,7 @@ void main() {
 
   group('Book Reading Position Operations', () {
     test('save and get book reading positions', () async {
-      expect(testDb.schemaVersion, equals(13));
+      expect(testDb.schemaVersion, equals(14));
 
       await testDb.saveBookReadingPosition(
         bookId: 'baltimore_catechism',
@@ -196,7 +196,7 @@ void main() {
 
   group('Library Bookmarks Operations', () {
     test('save, get, and delete library bookmarks in BibleDatabase', () async {
-      expect(testDb.schemaVersion, equals(13));
+      expect(testDb.schemaVersion, equals(14));
 
       final now = DateTime.now();
       await testDb.saveLibraryBookmark(
@@ -330,5 +330,231 @@ void main() {
         equals('["item1","item2"]'),
       );
     });
+  });
+
+  group('Database Migration Tests', () {
+    test(
+      'migrates from schema version 1 to 14 creating lectionary_readings and seeding data',
+      () async {
+        final rawDb = NativeDatabase.memory(
+          setup: (db) {
+            db.execute('''
+              CREATE TABLE bible_verses (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                book_number INT NOT NULL,
+                book_name TEXT NOT NULL,
+                chapter INT NOT NULL,
+                verse_number INT NOT NULL,
+                verse_text TEXT NOT NULL,
+                translation_code TEXT NOT NULL
+              );
+              PRAGMA user_version = 1;
+            ''');
+          },
+        );
+        final migratedDb = BibleDatabase(rawDb);
+        addTearDown(migratedDb.close);
+
+        expect(migratedDb.schemaVersion, equals(14));
+
+        final readings = await migratedDb.getReadings('feast_all_saints');
+        expect(readings, isNotEmpty);
+        expect(readings.first.readingKey, equals('feast_all_saints'));
+      },
+    );
+
+    test(
+      'migrates from schema version 13 to 14 when lectionary_readings table is missing',
+      () async {
+        final rawDb = NativeDatabase.memory(
+          setup: (db) {
+            db.execute('''
+              CREATE TABLE bible_verses (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                book_number INT NOT NULL,
+                book_name TEXT NOT NULL,
+                chapter INT NOT NULL,
+                verse_number INT NOT NULL,
+                verse_text TEXT NOT NULL,
+                translation_code TEXT NOT NULL
+              );
+              CREATE TABLE favorite_passages (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                book_number INT NOT NULL,
+                book_name TEXT NOT NULL,
+                chapter INT NOT NULL,
+                start_verse INT NOT NULL,
+                end_verse INT NOT NULL,
+                text_preview TEXT NOT NULL
+              );
+              CREATE TABLE prayers (
+                isar_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                prayer_id TEXT NOT NULL UNIQUE,
+                default_title TEXT NOT NULL,
+                category TEXT NOT NULL,
+                default_order INT NOT NULL,
+                has_amen INTEGER NOT NULL,
+                hash TEXT NOT NULL,
+                localized_translations TEXT
+              );
+              CREATE TABLE user_settings (
+                id INTEGER NOT NULL DEFAULT 1,
+                primary_language_code TEXT NOT NULL,
+                compare_language_code TEXT NOT NULL,
+                primary_bible_translation TEXT NOT NULL,
+                compare_bible_translation TEXT NOT NULL,
+                preferred_versions TEXT,
+                haptics_enabled INTEGER NOT NULL DEFAULT 1,
+                app_theme_mode_code TEXT NOT NULL DEFAULT 'marian_blue',
+                sunday_notifications_enabled INTEGER NOT NULL DEFAULT 1,
+                show_bible_translation_selectors INTEGER NOT NULL DEFAULT 0,
+                bible_numbering_system_code TEXT NOT NULL DEFAULT 'vulgate',
+                prayer_catalog_version INT NOT NULL DEFAULT 0,
+                last_bible_book_number INT NOT NULL DEFAULT 1,
+                last_bible_chapter INT NOT NULL DEFAULT 1,
+                missal_readings_only INTEGER NOT NULL DEFAULT 0,
+                missal_hidden_prayers TEXT,
+                PRIMARY KEY (id)
+              );
+              CREATE TABLE user_comments (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                document_id TEXT NOT NULL,
+                section_index INT NOT NULL,
+                node_id TEXT NOT NULL,
+                comment_text TEXT NOT NULL,
+                text_preview TEXT,
+                created_at DATETIME NOT NULL
+              );
+              CREATE TABLE library_bookmarks (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                document_id TEXT NOT NULL,
+                section_index INT NOT NULL,
+                node_id TEXT NOT NULL,
+                text_preview TEXT NOT NULL,
+                created_at DATETIME NOT NULL
+              );
+              CREATE TABLE book_reading_positions (
+                book_id TEXT NOT NULL PRIMARY KEY,
+                volume_key TEXT,
+                section_index INT NOT NULL DEFAULT 0,
+                section_id TEXT,
+                updated_at DATETIME NOT NULL
+              );
+              PRAGMA user_version = 13;
+            ''');
+          },
+        );
+        final migratedDb = BibleDatabase(rawDb);
+        addTearDown(migratedDb.close);
+
+        expect(migratedDb.schemaVersion, equals(14));
+
+        final readings = await migratedDb.getReadings('feast_all_saints');
+        expect(readings, isNotEmpty);
+        expect(readings.first.readingKey, equals('feast_all_saints'));
+      },
+    );
+
+    test(
+      'migrates from schema version 13 to 14 when lectionary_readings table already exists',
+      () async {
+        final rawDb = NativeDatabase.memory(
+          setup: (db) {
+            db.execute('''
+              CREATE TABLE bible_verses (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                book_number INT NOT NULL,
+                book_name TEXT NOT NULL,
+                chapter INT NOT NULL,
+                verse_number INT NOT NULL,
+                verse_text TEXT NOT NULL,
+                translation_code TEXT NOT NULL
+              );
+              CREATE TABLE lectionary_readings (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                reading_key TEXT NOT NULL,
+                reading_type TEXT NOT NULL,
+                book_number INT NOT NULL,
+                book_name TEXT NOT NULL,
+                chapter INT NOT NULL,
+                verse_range TEXT NOT NULL,
+                citation TEXT NOT NULL
+              );
+              CREATE TABLE favorite_passages (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                book_number INT NOT NULL,
+                book_name TEXT NOT NULL,
+                chapter INT NOT NULL,
+                start_verse INT NOT NULL,
+                end_verse INT NOT NULL,
+                text_preview TEXT NOT NULL
+              );
+              CREATE TABLE prayers (
+                isar_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                prayer_id TEXT NOT NULL UNIQUE,
+                default_title TEXT NOT NULL,
+                category TEXT NOT NULL,
+                default_order INT NOT NULL,
+                has_amen INTEGER NOT NULL,
+                hash TEXT NOT NULL,
+                localized_translations TEXT
+              );
+              CREATE TABLE user_settings (
+                id INTEGER NOT NULL DEFAULT 1,
+                primary_language_code TEXT NOT NULL,
+                compare_language_code TEXT NOT NULL,
+                primary_bible_translation TEXT NOT NULL,
+                compare_bible_translation TEXT NOT NULL,
+                preferred_versions TEXT,
+                haptics_enabled INTEGER NOT NULL DEFAULT 1,
+                app_theme_mode_code TEXT NOT NULL DEFAULT 'marian_blue',
+                sunday_notifications_enabled INTEGER NOT NULL DEFAULT 1,
+                show_bible_translation_selectors INTEGER NOT NULL DEFAULT 0,
+                bible_numbering_system_code TEXT NOT NULL DEFAULT 'vulgate',
+                prayer_catalog_version INT NOT NULL DEFAULT 0,
+                last_bible_book_number INT NOT NULL DEFAULT 1,
+                last_bible_chapter INT NOT NULL DEFAULT 1,
+                missal_readings_only INTEGER NOT NULL DEFAULT 0,
+                missal_hidden_prayers TEXT,
+                PRIMARY KEY (id)
+              );
+              CREATE TABLE user_comments (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                document_id TEXT NOT NULL,
+                section_index INT NOT NULL,
+                node_id TEXT NOT NULL,
+                comment_text TEXT NOT NULL,
+                text_preview TEXT,
+                created_at DATETIME NOT NULL
+              );
+              CREATE TABLE library_bookmarks (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                document_id TEXT NOT NULL,
+                section_index INT NOT NULL,
+                node_id TEXT NOT NULL,
+                text_preview TEXT NOT NULL,
+                created_at DATETIME NOT NULL
+              );
+              CREATE TABLE book_reading_positions (
+                book_id TEXT NOT NULL PRIMARY KEY,
+                volume_key TEXT,
+                section_index INT NOT NULL DEFAULT 0,
+                section_id TEXT,
+                updated_at DATETIME NOT NULL
+              );
+              PRAGMA user_version = 13;
+            ''');
+          },
+        );
+        final migratedDb = BibleDatabase(rawDb);
+        addTearDown(migratedDb.close);
+
+        expect(migratedDb.schemaVersion, equals(14));
+
+        final readings = await migratedDb.getReadings('feast_all_saints');
+        expect(readings, isNotEmpty);
+        expect(readings.first.readingKey, equals('feast_all_saints'));
+      },
+    );
   });
 }
