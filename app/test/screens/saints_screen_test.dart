@@ -382,6 +382,24 @@ void main() {
             feastDay: 'October 18',
             gender: 'male',
           ),
+          const Saint(
+            id: 'joseph',
+            name: 'St. Joseph',
+            nationality: 'Judean',
+            profession: 'Carpenter (Tekton) & Foster Father of Jesus',
+            isDoctor: false,
+            feastDay: 'March 19',
+            gender: 'male',
+          ),
+          const Saint(
+            id: 'dominic-savio',
+            name: 'St. Dominic Savio',
+            nationality: 'Italian',
+            profession: 'Student & Pupil of Don Bosco',
+            isDoctor: false,
+            feastDay: 'May 6',
+            gender: 'male',
+          ),
         ];
 
         await tester.pumpWidget(
@@ -445,6 +463,35 @@ void main() {
           find.byKey(const Key('saint_tile_peter-the-apostle')),
           findsNothing,
         );
+
+        // Untap Evangelists, tap Holy Family
+        await tester.tap(evangelistsChip);
+        await tester.pumpAndSettle();
+
+        final holyFamilyChip = find.byKey(const Key('holy_family_filter_chip'));
+        await tester.ensureVisible(holyFamilyChip);
+        await tester.pumpAndSettle();
+        await tester.tap(holyFamilyChip);
+        await tester.pumpAndSettle();
+
+        expect(find.byKey(const Key('saint_tile_joseph')), findsOneWidget);
+        expect(find.byKey(const Key('saint_tile_dominic-savio')), findsNothing);
+
+        // Untap Holy Family, tap Laity
+        await tester.tap(holyFamilyChip);
+        await tester.pumpAndSettle();
+
+        final laityChip = find.byKey(const Key('laity_filter_chip'));
+        await tester.ensureVisible(laityChip);
+        await tester.pumpAndSettle();
+        await tester.tap(laityChip);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_dominic-savio')),
+          findsOneWidget,
+        );
+        expect(find.byKey(const Key('saint_tile_joseph')), findsNothing);
       },
     );
 

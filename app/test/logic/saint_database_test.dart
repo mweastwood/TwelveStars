@@ -1030,12 +1030,15 @@ void main() {
               'All saints should be classified into a specific category, but found unclassified: ${unclassified.map((s) => s.id).toList()}',
         );
 
-        // Verify Laity & Holy Family
+        // Verify Holy Family
         final joseph = saints.firstWhere((s) => s.id == 'joseph');
-        expect(joseph.category, SaintCategory.laity);
+        expect(joseph.category, SaintCategory.holyFamily);
+        expect(joseph.categoryIcon, Icons.family_restroom_rounded);
 
+        // Verify Laity
         final dominicSavio = saints.firstWhere((s) => s.id == 'dominic-savio');
         expect(dominicSavio.category, SaintCategory.laity);
+        expect(dominicSavio.categoryIcon, Icons.groups_rounded);
 
         final gianna = saints.firstWhere((s) => s.id == 'gianna-beretta-molla');
         expect(gianna.category, SaintCategory.laity);

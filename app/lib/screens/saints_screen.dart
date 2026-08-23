@@ -496,11 +496,32 @@ class _SaintsScreenState extends State<SaintsScreen> {
                   ),
                   const SizedBox(width: 8),
                   FilterChip(
-                    key: const Key('laity_filter_chip'),
-                    label: const Text('Laity & Holy Family'),
+                    key: const Key('holy_family_filter_chip'),
+                    label: const Text('Holy Family'),
                     showCheckmark: false,
                     avatar: Icon(
                       Icons.family_restroom,
+                      color: _selectedCategory == SaintCategory.holyFamily
+                          ? const Color(0xFFAD1457)
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.holyFamily,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.holyFamily
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('laity_filter_chip'),
+                    label: const Text('Laity'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.groups,
                       color: _selectedCategory == SaintCategory.laity
                           ? const Color(0xFF5C6BC0)
                           : theme.colorScheme.onSurfaceVariant,

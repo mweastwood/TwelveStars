@@ -168,10 +168,12 @@ class SaintDatabase {
           }
           final aIsSpecial =
               a.category == SaintCategory.angel ||
+              a.category == SaintCategory.holyFamily ||
               a.category == SaintCategory.apostle ||
               a.category == SaintCategory.evangelist;
           final bIsSpecial =
               b.category == SaintCategory.angel ||
+              b.category == SaintCategory.holyFamily ||
               b.category == SaintCategory.apostle ||
               b.category == SaintCategory.evangelist;
           if (aIsSpecial != bIsSpecial) {

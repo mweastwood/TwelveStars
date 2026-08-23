@@ -5,6 +5,7 @@ import 'package:twelve_stars/theme/app_theme_tokens.dart';
 enum SaintCategory {
   doctor,
   angel,
+  holyFamily,
   apostle,
   evangelist,
   martyr,
@@ -23,6 +24,8 @@ enum SaintCategory {
         return 'Doctor of the Church';
       case SaintCategory.angel:
         return 'Archangel & Angel';
+      case SaintCategory.holyFamily:
+        return 'Holy Family';
       case SaintCategory.apostle:
         return 'Apostle';
       case SaintCategory.evangelist:
@@ -42,7 +45,7 @@ enum SaintCategory {
       case SaintCategory.healerMissionary:
         return 'Healer & Missionary';
       case SaintCategory.laity:
-        return 'Laity & Holy Family';
+        return 'Laity';
       case SaintCategory.other:
         return 'Saint';
     }
@@ -216,9 +219,16 @@ class Saint {
       return SaintCategory.monarch;
     }
     if (profLower.contains('foster father') ||
-        profLower.contains('carpenter') ||
         profLower.contains('father of jesus') ||
-        profLower.contains('mother') ||
+        profLower.contains('spouse of mary') ||
+        profLower.contains('spouse of the virgin mary') ||
+        profLower.contains('mother of god') ||
+        profLower.contains('holy family') ||
+        (nameLower.contains('joseph') && profLower.contains('carpenter'))) {
+      return SaintCategory.holyFamily;
+    }
+    if (profLower.contains('mother') ||
+        profLower.contains('father') ||
         profLower.contains('parent') ||
         profLower.contains('layman') ||
         profLower.contains('laywoman') ||
@@ -229,7 +239,9 @@ class Saint {
         profLower.contains('child') ||
         profLower.contains('matron') ||
         profLower.contains('widow') ||
-        profLower.contains('homemaker')) {
+        profLower.contains('homemaker') ||
+        profLower.contains('worker') ||
+        profLower.contains('carpenter')) {
       return SaintCategory.laity;
     }
     if (profLower.contains('physician') ||
@@ -283,6 +295,8 @@ class Saint {
         return Icons.menu_book_rounded;
       case SaintCategory.angel:
         return Icons.flare_rounded;
+      case SaintCategory.holyFamily:
+        return Icons.family_restroom_rounded;
       case SaintCategory.apostle:
         return Icons.stars_rounded;
       case SaintCategory.evangelist:
@@ -302,7 +316,7 @@ class Saint {
       case SaintCategory.healerMissionary:
         return Icons.healing_rounded;
       case SaintCategory.laity:
-        return Icons.family_restroom_rounded;
+        return Icons.groups_rounded;
       case SaintCategory.other:
         return Icons.person_rounded;
     }
@@ -315,6 +329,8 @@ class Saint {
         return AppThemeTokens.liturgicalGold;
       case SaintCategory.angel:
         return const Color(0xFF00ACC1); // Cyan 600
+      case SaintCategory.holyFamily:
+        return const Color(0xFFAD1457); // Crimson / Rose 800
       case SaintCategory.apostle:
         return AppThemeTokens.marianBlue;
       case SaintCategory.evangelist:
