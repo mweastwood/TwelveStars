@@ -340,7 +340,20 @@ void main() {
 
       // Verify drawer is open
       expect(find.byType(Drawer), findsOneWidget);
+      expect(
+        find.descendant(of: find.byType(Drawer), matching: find.text('Menu')),
+        findsOneWidget,
+      );
+      expect(find.byKey(const Key('drawer_saints_tile')), findsOneWidget);
       expect(find.byKey(const Key('drawer_settings_tile')), findsOneWidget);
+      expect(find.byKey(const Key('drawer_version_tile')), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byKey(const Key('drawer_version_tile')),
+          matching: find.text('v0.0.0-dev'),
+        ),
+        findsOneWidget,
+      );
 
       // Tap settings tile
       await tester.tap(find.byKey(const Key('drawer_settings_tile')));

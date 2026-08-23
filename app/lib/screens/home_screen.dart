@@ -12,6 +12,7 @@ import 'package:twelve_stars/screens/library_tab.dart';
 import 'package:twelve_stars/screens/saints_screen.dart';
 import 'package:twelve_stars/screens/settings_screen.dart';
 import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
+import 'package:twelve_stars/logic/utils/app_version.dart';
 
 class HomeScreen extends StatefulWidget {
   final DateTime? initialDate;
@@ -546,21 +547,16 @@ class _HomeScreenState extends State<HomeScreen>
 
   Widget _buildDrawer(BuildContext context) {
     return Drawer(
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primaryContainer,
-            ),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
-                'Twelve Stars',
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  color: Theme.of(context).colorScheme.onPrimaryContainer,
-                  fontWeight: FontWeight.bold,
-                ),
+                'Menu',
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
           ),
@@ -589,6 +585,13 @@ class _HomeScreenState extends State<HomeScreen>
                 _loadData();
               });
             },
+          ),
+          const Divider(),
+          ListTile(
+            key: const Key('drawer_version_tile'),
+            leading: const Icon(Icons.info_outline),
+            title: Text(AppVersion.display),
+            enabled: false,
           ),
         ],
       ),
