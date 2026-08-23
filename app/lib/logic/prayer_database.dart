@@ -5,7 +5,7 @@ import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 
 class PrayerDatabase {
-  static const int kPrayerCatalogVersion = 1;
+  static const int kPrayerCatalogVersion = 2;
 
   static List<Prayer>? mockPrayers;
   static UserSettings? mockSettings;
