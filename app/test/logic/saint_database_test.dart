@@ -713,7 +713,7 @@ void main() {
         final saints = await SaintDatabase.loadSaints();
         expect(saints, isNotEmpty);
 
-        final validGenders = {'male', 'female', 'group'};
+        final validGenders = {'male', 'female', 'group', 'other'};
         for (final saint in saints) {
           expect(
             saint.gender,
@@ -731,10 +731,32 @@ void main() {
         final femaleSaints = saints.where((s) => s.isFemale).toList();
         final maleSaints = saints.where((s) => s.isMale).toList();
         final groupSaints = saints.where((s) => s.gender == 'group').toList();
+        final otherGenderSaints = saints
+            .where((s) => s.gender == 'other')
+            .toList();
 
         expect(femaleSaints.length, 43);
-        expect(maleSaints.length, 149);
+        expect(maleSaints.length, 146);
         expect(groupSaints.length, 4);
+        expect(otherGenderSaints.length, 3);
+
+        // Verify angels have gender 'other'
+        final michael = saints.firstWhere(
+          (s) => s.id == 'michael-the-archangel',
+        );
+        expect(michael.gender, 'other');
+        expect(michael.isMale, isFalse);
+        expect(michael.isFemale, isFalse);
+
+        final gabriel = saints.firstWhere(
+          (s) => s.id == 'gabriel-the-archangel',
+        );
+        expect(gabriel.gender, 'other');
+
+        final raphael = saints.firstWhere(
+          (s) => s.id == 'raphael-the-archangel',
+        );
+        expect(raphael.gender, 'other');
 
         // Verify specific prominent female saints
         final mary = saints.firstWhere((s) => s.id == 'mary-mother-of-god');
@@ -764,7 +786,7 @@ void main() {
 
       // 1. Male saints filter
       final men = SaintDatabase.searchSaints(saints, gender: 'male');
-      expect(men.length, 149);
+      expect(men.length, 146);
       expect(men.every((s) => s.isMale), isTrue);
 
       // 2. Female saints filter
