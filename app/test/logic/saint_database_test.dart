@@ -880,9 +880,21 @@ void main() {
         final agnes = saints.firstWhere((s) => s.id == 'agnes-of-rome');
         expect(agnes.category, SaintCategory.martyr);
 
-        // Popes & Bishops
+        // Popes
+        final piusV = saints.firstWhere((s) => s.id == 'pius-v');
+        expect(piusV.category, SaintCategory.pope);
+        expect(piusV.categoryIcon, Icons.vpn_key_rounded);
+
+        final johnPaulII = saints.firstWhere((s) => s.id == 'john-paul-ii');
+        expect(johnPaulII.category, SaintCategory.pope);
+
+        // Bishops
         final nicholas = saints.firstWhere((s) => s.id == 'nicholas-of-myra');
-        expect(nicholas.category, SaintCategory.popeBishop);
+        expect(nicholas.category, SaintCategory.bishop);
+        expect(nicholas.categoryIcon, Icons.account_balance_rounded);
+
+        final borromeo = saints.firstWhere((s) => s.id == 'charles-borromeo');
+        expect(borromeo.category, SaintCategory.bishop);
 
         // Martyrs (including martyr bishops like Cyprian)
         final cyprian = saints.firstWhere((s) => s.id == 'cyprian-of-carthage');
@@ -1047,6 +1059,33 @@ void main() {
         );
         expect(evangelists.any((s) => s.id == 'luke-the-evangelist'), isTrue);
         expect(evangelists.any((s) => s.id == 'mark-the-evangelist'), isTrue);
+
+        // Category filter: Popes
+        final popes = SaintDatabase.searchSaints(
+          saints,
+          category: SaintCategory.pope,
+        );
+        expect(popes.length, 7);
+        expect(popes.every((s) => s.category == SaintCategory.pope), isTrue);
+        expect(popes.any((s) => s.id == 'pius-v'), isTrue);
+        expect(popes.any((s) => s.id == 'pius-x'), isTrue);
+        expect(popes.any((s) => s.id == 'john-paul-ii'), isTrue);
+        expect(popes.any((s) => s.id == 'clement-of-rome'), isTrue);
+
+        // Category filter: Bishops
+        final bishops = SaintDatabase.searchSaints(
+          saints,
+          category: SaintCategory.bishop,
+        );
+        expect(bishops.length, 15);
+        expect(
+          bishops.every((s) => s.category == SaintCategory.bishop),
+          isTrue,
+        );
+        expect(bishops.any((s) => s.id == 'nicholas-of-myra'), isTrue);
+        expect(bishops.any((s) => s.id == 'charles-borromeo'), isTrue);
+        expect(bishops.any((s) => s.id == 'patrick-of-ireland'), isTrue);
+        expect(bishops.any((s) => s.id == 'aidan-of-lindisfarne'), isTrue);
 
         // Era filter: Modern
         final modernSaints = SaintDatabase.searchSaints(

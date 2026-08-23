@@ -9,7 +9,8 @@ enum SaintCategory {
   apostle,
   evangelist,
   martyr,
-  popeBishop,
+  pope,
+  bishop,
   priestReligious,
   mystic,
   virgin,
@@ -32,8 +33,10 @@ enum SaintCategory {
         return 'Evangelist';
       case SaintCategory.martyr:
         return 'Martyr';
-      case SaintCategory.popeBishop:
-        return 'Pope & Bishop';
+      case SaintCategory.pope:
+        return 'Pope';
+      case SaintCategory.bishop:
+        return 'Bishop';
       case SaintCategory.priestReligious:
         return 'Priest & Religious';
       case SaintCategory.mystic:
@@ -220,14 +223,16 @@ class Saint {
     if (profLower.contains('evangelist') || nameLower.contains('evangelist')) {
       return SaintCategory.evangelist;
     }
+    if (profLower.contains('pope') || nameLower.contains('pope')) {
+      return SaintCategory.pope;
+    }
     if (profLower.contains('martyr') || nameLower.contains('martyrs')) {
       return SaintCategory.martyr;
     }
-    if (profLower.contains('pope') ||
-        profLower.contains('bishop') ||
+    if (profLower.contains('bishop') ||
         profLower.contains('patriarch') ||
         profLower.contains('cardinal')) {
-      return SaintCategory.popeBishop;
+      return SaintCategory.bishop;
     }
     if (profLower.contains('mystic') ||
         profLower.contains('stigmatist') ||
@@ -334,7 +339,9 @@ class Saint {
         return Icons.auto_stories_rounded;
       case SaintCategory.martyr:
         return Icons.local_fire_department_rounded;
-      case SaintCategory.popeBishop:
+      case SaintCategory.pope:
+        return Icons.vpn_key_rounded;
+      case SaintCategory.bishop:
         return Icons.account_balance_rounded;
       case SaintCategory.priestReligious:
         return Icons.church_rounded;
@@ -368,7 +375,9 @@ class Saint {
         return const Color(0xFFE65100); // Deep Orange 900
       case SaintCategory.martyr:
         return AppThemeTokens.liturgicalRed;
-      case SaintCategory.popeBishop:
+      case SaintCategory.pope:
+        return const Color(0xFFD97706); // Papal Amber / Gold
+      case SaintCategory.bishop:
         return AppThemeTokens.liturgicalPurple;
       case SaintCategory.priestReligious:
         return AppThemeTokens.liturgicalGreen;
