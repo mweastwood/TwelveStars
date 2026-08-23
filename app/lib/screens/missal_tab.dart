@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
@@ -14,6 +15,37 @@ import 'package:twelve_stars/widgets/homily_reflection_sheet.dart';
 import 'package:twelve_stars/widgets/reader/missal_section_widgets.dart';
 import 'package:twelve_stars/widgets/missal_creed_carousel.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
+
+class MissalPrayerFilterOption {
+  final String id;
+  final String label;
+
+  const MissalPrayerFilterOption({required this.id, required this.label});
+}
+
+const List<MissalPrayerFilterOption> kMissalPrayerFilterOptions = [
+  MissalPrayerFilterOption(id: 'mass_greeting', label: 'Mass Greeting'),
+  MissalPrayerFilterOption(id: 'confiteor', label: 'Confiteor'),
+  MissalPrayerFilterOption(id: 'kyrie_eleison', label: 'Kyrie Eleison'),
+  MissalPrayerFilterOption(id: 'gloria', label: 'Gloria'),
+  MissalPrayerFilterOption(id: 'creed', label: 'Creed (Nicene / Apostles\')'),
+  MissalPrayerFilterOption(
+    id: 'offertory_response',
+    label: 'Offertory Response',
+  ),
+  MissalPrayerFilterOption(id: 'orate_fratres', label: 'Orate Fratres'),
+  MissalPrayerFilterOption(id: 'preface_dialogue', label: 'Preface Dialogue'),
+  MissalPrayerFilterOption(id: 'sanctus', label: 'Sanctus'),
+  MissalPrayerFilterOption(id: 'mystery_of_faith', label: 'Mystery of Faith'),
+  MissalPrayerFilterOption(id: 'our_father', label: 'Our Father'),
+  MissalPrayerFilterOption(id: 'sign_of_peace', label: 'Sign of Peace'),
+  MissalPrayerFilterOption(id: 'agnus_dei', label: 'Agnus Dei'),
+  MissalPrayerFilterOption(
+    id: 'domine_non_sum_dignus',
+    label: 'Domine Non Sum Dignus',
+  ),
+  MissalPrayerFilterOption(id: 'dismissal', label: 'Dismissal'),
+];
 
 class MissalTab extends StatefulWidget {
   final PrayerLanguage primaryLanguage;
@@ -262,6 +294,78 @@ class _MissalTabState extends State<MissalTab> {
     );
   }
 
+  bool get _isReadingsOnly => _settings?.missalReadingsOnly ?? false;
+
+  bool _isPrayerVisible(String id) {
+    if (_settings == null) return true;
+    if (_settings!.missalReadingsOnly) return false;
+    final hidden = _settings!.missalHiddenPrayers ?? [];
+    return !hidden.contains(id);
+  }
+
+  Future<void> _toggleReadingsOnly(bool enabled) async {
+    if (_settings == null) return;
+    setState(() {
+      _settings!.missalReadingsOnly = enabled;
+    });
+    await PrayerDatabase.saveSettings(_settings!);
+    await UserSettingsController.instance.update(_settings!);
+  }
+
+  Future<void> _togglePrayerFilter(String prayerId, bool enabled) async {
+    if (_settings == null) return;
+    setState(() {
+      final list = List<String>.from(_settings!.missalHiddenPrayers ?? []);
+      if (enabled) {
+        list.remove(prayerId);
+      } else {
+        if (!list.contains(prayerId)) {
+          list.add(prayerId);
+        }
+      }
+      _settings!.missalHiddenPrayers = list;
+      if (_settings!.missalReadingsOnly) {
+        _settings!.missalReadingsOnly = false;
+      }
+    });
+    await PrayerDatabase.saveSettings(_settings!);
+    await UserSettingsController.instance.update(_settings!);
+  }
+
+  Widget _buildFilterChips(BuildContext context) {
+    final isReadingsOnly = _settings?.missalReadingsOnly ?? false;
+    final hiddenPrayers = _settings?.missalHiddenPrayers ?? <String>[];
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          FilterChip(
+            key: const ValueKey('missal_filter_readings_only'),
+            label: const Text('Readings Only'),
+            selected: isReadingsOnly,
+            onSelected: (selected) => _toggleReadingsOnly(selected),
+          ),
+          const SizedBox(width: 8),
+          ...kMissalPrayerFilterOptions.map((option) {
+            final isSelected =
+                !isReadingsOnly && !hiddenPrayers.contains(option.id);
+            return Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: FilterChip(
+                key: ValueKey('missal_filter_${option.id}'),
+                label: Text(option.label),
+                selected: isSelected,
+                onSelected: (selected) =>
+                    _togglePrayerFilter(option.id, selected),
+              ),
+            );
+          }),
+        ],
+      ),
+    );
+  }
+
   void _openHomilyReflection(
     BuildContext context,
     LiturgicalDay day,
@@ -442,43 +546,50 @@ class _MissalTabState extends State<MissalTab> {
                     ),
                   ],
 
-                  // 4. Introductory Rites Section
-                  const MissalSectionHeader(title: 'INTRODUCTORY RITES'),
-                  const MissalMassPartPlaceholder(
-                    title: 'Entrance Chant',
-                    description: 'Entrance Antiphon of the day',
-                    icon: Icons.music_note,
-                  ),
+                  // Filter Chips
+                  _buildFilterChips(context),
                   const SizedBox(height: 12),
-                  if (massGreeting != null) ...[
-                    _buildPrayerCard(massGreeting),
-                    const SizedBox(height: 12),
-                  ],
-                  if (confiteor != null) ...[
-                    _buildPrayerCard(confiteor),
-                    const SizedBox(height: 12),
-                  ],
-                  if (kyrieEleison != null) ...[
-                    _buildPrayerCard(kyrieEleison),
-                    const SizedBox(height: 12),
-                  ] else ...[
+
+                  // 4. Introductory Rites Section
+                  if (!_isReadingsOnly) ...[
+                    const MissalSectionHeader(title: 'INTRODUCTORY RITES'),
                     const MissalMassPartPlaceholder(
-                      title: 'Kyrie Eleison',
-                      description: 'Kyrie, eleison (Lord, have mercy...)',
-                      icon: Icons.volunteer_activism,
+                      title: 'Entrance Chant',
+                      description: 'Entrance Antiphon of the day',
+                      icon: Icons.music_note,
+                    ),
+                    const SizedBox(height: 12),
+                    if (_isPrayerVisible('mass_greeting') &&
+                        massGreeting != null) ...[
+                      _buildPrayerCard(massGreeting),
+                      const SizedBox(height: 12),
+                    ],
+                    if (_isPrayerVisible('confiteor') && confiteor != null) ...[
+                      _buildPrayerCard(confiteor),
+                      const SizedBox(height: 12),
+                    ],
+                    if (_isPrayerVisible('kyrie_eleison')) ...[
+                      if (kyrieEleison != null)
+                        _buildPrayerCard(kyrieEleison)
+                      else
+                        const MissalMassPartPlaceholder(
+                          title: 'Kyrie Eleison',
+                          description: 'Kyrie, eleison (Lord, have mercy...)',
+                          icon: Icons.volunteer_activism,
+                        ),
+                      const SizedBox(height: 12),
+                    ],
+                    if (_isPrayerVisible('gloria') && gloria != null) ...[
+                      _buildPrayerCard(gloria),
+                      const SizedBox(height: 12),
+                    ],
+                    const MissalMassPartPlaceholder(
+                      title: 'Collect (Opening Prayer)',
+                      description: 'Opening prayer of the day',
+                      icon: Icons.bookmark_border,
                     ),
                     const SizedBox(height: 12),
                   ],
-                  if (gloria != null) ...[
-                    _buildPrayerCard(gloria),
-                    const SizedBox(height: 12),
-                  ],
-                  const MissalMassPartPlaceholder(
-                    title: 'Collect (Opening Prayer)',
-                    description: 'Opening prayer of the day',
-                    icon: Icons.bookmark_border,
-                  ),
-                  const SizedBox(height: 12),
 
                   // 5. Liturgy of the Word Section
                   const MissalSectionHeader(title: 'LITURGY OF THE WORD'),
@@ -601,131 +712,154 @@ class _MissalTabState extends State<MissalTab> {
                 ],
               ),
             ),
-            const SizedBox(height: 12),
-
-            // Creed swipeable carousel
-            MissalCreedCarousel(
-              niceneCard: niceneCreed != null
-                  ? _buildPrayerCard(niceneCreed)
-                  : null,
-              apostlesCard: apostlesCreed != null
-                  ? _buildPrayerCard(apostlesCreed)
-                  : null,
-            ),
-            const SizedBox(height: 12),
-
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 120.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const MissalMassPartPlaceholder(
-                    title: 'Universal Prayer (Prayers of the Faithful)',
-                    description:
-                        'Petitions for the Church, the world, and those in need',
-                    icon: Icons.people,
-                  ),
-                  const SizedBox(height: 12),
-
-                  // 6. Liturgy of the Eucharist Section
-                  const MissalSectionHeader(title: 'LITURGY OF THE EUCHARIST'),
-                  const MissalMassPartPlaceholder(
-                    title: 'Preparation of the Altar (Offertory)',
-                    description:
-                        'Presentation and preparation of bread and wine',
-                    icon: Icons.restaurant,
-                  ),
-                  const SizedBox(height: 12),
-                  if (offertoryResponse != null) ...[
-                    _buildPrayerCard(offertoryResponse),
-                    const SizedBox(height: 12),
-                  ],
-                  if (orateFratres != null) ...[
-                    _buildPrayerCard(orateFratres),
-                    const SizedBox(height: 12),
-                  ],
-                  if (prefaceDialogue != null) ...[
-                    _buildPrayerCard(prefaceDialogue),
-                    const SizedBox(height: 12),
-                  ],
-                  if (sanctus != null) ...[
-                    _buildPrayerCard(sanctus),
-                    const SizedBox(height: 12),
-                  ] else ...[
-                    const MissalMassPartPlaceholder(
-                      title: 'Sanctus (Holy, Holy, Holy)',
-                      description: 'Holy, Holy, Holy Lord God of hosts...',
-                      icon: Icons.notifications_active,
-                    ),
-                    const SizedBox(height: 12),
-                  ],
-                  const MissalMassPartPlaceholder(
-                    title: 'Eucharistic Prayer & Consecration',
-                    description:
-                        'Eucharistic prayer and consecration of bread and wine',
-                    icon: Icons.brightness_high,
-                  ),
-                  const SizedBox(height: 12),
-                  if (mysteryOfFaith != null) ...[
-                    _buildPrayerCard(mysteryOfFaith),
-                    const SizedBox(height: 12),
-                  ],
-                  if (ourFather != null) ...[
-                    _buildPrayerCard(ourFather),
-                    const SizedBox(height: 12),
-                  ],
-                  if (signOfPeace != null) ...[
-                    _buildPrayerCard(signOfPeace),
-                    const SizedBox(height: 12),
-                  ] else ...[
-                    const MissalMassPartPlaceholder(
-                      title: 'Sign of Peace',
-                      description: 'Greeting one another with a sign of peace',
-                      icon: Icons.handshake,
-                    ),
-                    const SizedBox(height: 12),
-                  ],
-                  if (agnusDei != null) ...[
-                    _buildPrayerCard(agnusDei),
-                    const SizedBox(height: 12),
-                  ] else ...[
-                    const MissalMassPartPlaceholder(
-                      title: 'Agnus Dei (Lamb of God)',
-                      description:
-                          'Lamb of God, you take away the sins of the world...',
-                      icon: Icons.spa,
-                    ),
-                    const SizedBox(height: 12),
-                  ],
-                  if (domineNonSumDignus != null) ...[
-                    _buildPrayerCard(domineNonSumDignus),
-                    const SizedBox(height: 12),
-                  ],
-                  const MissalMassPartPlaceholder(
-                    title: 'Communion Rite',
-                    description:
-                        'Reception of Holy Communion and silent thanksgiving',
-                    icon: Icons.church,
-                  ),
-                  const SizedBox(height: 12),
-
-                  // 7. Concluding Rites Section
-                  const MissalSectionHeader(title: 'CONCLUDING RITES'),
-                  if (dismissal != null) ...[
-                    _buildPrayerCard(dismissal),
-                    const SizedBox(height: 12),
-                  ] else ...[
-                    const MissalMassPartPlaceholder(
-                      title: 'Concluding Blessing & Dismissal',
-                      description:
-                          'Blessing and sending forth: "Go in peace..."',
-                      icon: Icons.logout,
-                    ),
-                    const SizedBox(height: 12),
-                  ],
-                ],
+            if (!_isReadingsOnly && _isPrayerVisible('creed')) ...[
+              const SizedBox(height: 12),
+              // Creed swipeable carousel
+              MissalCreedCarousel(
+                niceneCard: niceneCreed != null
+                    ? _buildPrayerCard(niceneCreed)
+                    : null,
+                apostlesCard: apostlesCreed != null
+                    ? _buildPrayerCard(apostlesCreed)
+                    : null,
               ),
-            ),
+            ],
+            if (!_isReadingsOnly) ...[
+              const SizedBox(height: 12),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: MissalMassPartPlaceholder(
+                  title: 'Universal Prayer (Prayers of the Faithful)',
+                  description:
+                      'Petitions for the Church, the world, and those in need',
+                  icon: Icons.people,
+                ),
+              ),
+              const SizedBox(height: 12),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    // 6. Liturgy of the Eucharist Section
+                    const MissalSectionHeader(
+                      title: 'LITURGY OF THE EUCHARIST',
+                    ),
+                    const MissalMassPartPlaceholder(
+                      title: 'Preparation of the Altar (Offertory)',
+                      description:
+                          'Presentation and preparation of bread and wine',
+                      icon: Icons.restaurant,
+                    ),
+                    const SizedBox(height: 12),
+                    if (_isPrayerVisible('offertory_response') &&
+                        offertoryResponse != null) ...[
+                      _buildPrayerCard(offertoryResponse),
+                      const SizedBox(height: 12),
+                    ],
+                    if (_isPrayerVisible('orate_fratres') &&
+                        orateFratres != null) ...[
+                      _buildPrayerCard(orateFratres),
+                      const SizedBox(height: 12),
+                    ],
+                    if (_isPrayerVisible('preface_dialogue') &&
+                        prefaceDialogue != null) ...[
+                      _buildPrayerCard(prefaceDialogue),
+                      const SizedBox(height: 12),
+                    ],
+                    if (_isPrayerVisible('sanctus')) ...[
+                      if (sanctus != null)
+                        _buildPrayerCard(sanctus)
+                      else
+                        const MissalMassPartPlaceholder(
+                          title: 'Sanctus (Holy, Holy, Holy)',
+                          description: 'Holy, Holy, Holy Lord God of hosts...',
+                          icon: Icons.notifications_active,
+                        ),
+                      const SizedBox(height: 12),
+                    ],
+                    const MissalMassPartPlaceholder(
+                      title: 'Eucharistic Prayer & Consecration',
+                      description:
+                          'Eucharistic prayer and consecration of bread and wine',
+                      icon: Icons.brightness_high,
+                    ),
+                    const SizedBox(height: 12),
+                    if (_isPrayerVisible('mystery_of_faith') &&
+                        mysteryOfFaith != null) ...[
+                      _buildPrayerCard(mysteryOfFaith),
+                      const SizedBox(height: 12),
+                    ],
+                    if (_isPrayerVisible('our_father') &&
+                        ourFather != null) ...[
+                      _buildPrayerCard(ourFather),
+                      const SizedBox(height: 12),
+                    ],
+                    if (_isPrayerVisible('sign_of_peace')) ...[
+                      if (signOfPeace != null)
+                        _buildPrayerCard(signOfPeace)
+                      else
+                        const MissalMassPartPlaceholder(
+                          title: 'Sign of Peace',
+                          description:
+                              'Greeting one another with a sign of peace',
+                          icon: Icons.handshake,
+                        ),
+                      const SizedBox(height: 12),
+                    ],
+                    if (_isPrayerVisible('agnus_dei')) ...[
+                      if (agnusDei != null)
+                        _buildPrayerCard(agnusDei)
+                      else
+                        const MissalMassPartPlaceholder(
+                          title: 'Agnus Dei (Lamb of God)',
+                          description:
+                              'Lamb of God, you take away the sins of the world...',
+                          icon: Icons.spa,
+                        ),
+                      const SizedBox(height: 12),
+                    ],
+                    if (_isPrayerVisible('domine_non_sum_dignus') &&
+                        domineNonSumDignus != null) ...[
+                      _buildPrayerCard(domineNonSumDignus),
+                      const SizedBox(height: 12),
+                    ],
+                    const MissalMassPartPlaceholder(
+                      title: 'Communion Rite',
+                      description:
+                          'Reception of Holy Communion and silent thanksgiving',
+                      icon: Icons.church,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+            if (!_isReadingsOnly && _isPrayerVisible('dismissal')) ...[
+              const SizedBox(height: 12),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    // 7. Concluding Rites Section
+                    const MissalSectionHeader(title: 'CONCLUDING RITES'),
+                    if (dismissal != null) ...[
+                      _buildPrayerCard(dismissal),
+                      const SizedBox(height: 12),
+                    ] else ...[
+                      const MissalMassPartPlaceholder(
+                        title: 'Concluding Blessing & Dismissal',
+                        description:
+                            'Blessing and sending forth: "Go in peace..."',
+                        icon: Icons.logout,
+                      ),
+                      const SizedBox(height: 12),
+                    ],
+                  ],
+                ),
+              ),
+            ],
+            const SizedBox(height: 120),
           ],
         ),
       ),

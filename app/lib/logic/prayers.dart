@@ -271,6 +271,8 @@ class UserSettings {
   int prayerCatalogVersion;
   int lastBibleBookNumber;
   int lastBibleChapter;
+  bool missalReadingsOnly;
+  List<String>? missalHiddenPrayers;
 
   UserSettings({
     this.id = 1,
@@ -287,6 +289,8 @@ class UserSettings {
     this.prayerCatalogVersion = 0,
     this.lastBibleBookNumber = 1,
     this.lastBibleChapter = 1,
+    this.missalReadingsOnly = false,
+    this.missalHiddenPrayers,
   });
 
   AppThemeMode get appThemeMode => AppThemeMode.fromCode(appThemeModeCode);
