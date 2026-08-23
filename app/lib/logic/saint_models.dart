@@ -4,7 +4,9 @@ import 'package:twelve_stars/theme/app_theme_tokens.dart';
 /// Major categorization of saints for visual icon representation and filtering.
 enum SaintCategory {
   doctor,
+  angel,
   apostle,
+  evangelist,
   martyr,
   popeBishop,
   priestReligious,
@@ -18,8 +20,12 @@ enum SaintCategory {
     switch (this) {
       case SaintCategory.doctor:
         return 'Doctor of the Church';
+      case SaintCategory.angel:
+        return 'Archangel & Angel';
       case SaintCategory.apostle:
-        return 'Apostle & Evangelist';
+        return 'Apostle';
+      case SaintCategory.evangelist:
+        return 'Evangelist';
       case SaintCategory.martyr:
         return 'Martyr';
       case SaintCategory.popeBishop:
@@ -164,12 +170,19 @@ class Saint {
     }
     final profLower = profession.toLowerCase();
     final nameLower = name.toLowerCase();
+    final natLower = nationality.toLowerCase();
 
-    if (profLower.contains('apostle') ||
-        profLower.contains('evangelist') ||
+    if (profLower.contains('evangelist') || nameLower.contains('evangelist')) {
+      return SaintCategory.evangelist;
+    }
+    if (natLower.contains('angelic') ||
         profLower.contains('archangel') ||
         nameLower.contains('archangel') ||
-        nameLower.contains('apostle')) {
+        RegExp(r'\barchangels?\b|\bangels?\b').hasMatch(profLower) ||
+        RegExp(r'\barchangels?\b|\bangels?\b').hasMatch(nameLower)) {
+      return SaintCategory.angel;
+    }
+    if (profLower.contains('apostle') || nameLower.contains('apostle')) {
       return SaintCategory.apostle;
     }
     if (profLower.contains('martyr') || nameLower.contains('martyrs')) {
@@ -234,7 +247,11 @@ class Saint {
     switch (category) {
       case SaintCategory.doctor:
         return Icons.menu_book_rounded;
+      case SaintCategory.angel:
+        return Icons.flare_rounded;
       case SaintCategory.apostle:
+        return Icons.stars_rounded;
+      case SaintCategory.evangelist:
         return Icons.auto_stories_rounded;
       case SaintCategory.martyr:
         return Icons.local_fire_department_rounded;
@@ -260,8 +277,12 @@ class Saint {
     switch (category) {
       case SaintCategory.doctor:
         return AppThemeTokens.liturgicalGold;
+      case SaintCategory.angel:
+        return const Color(0xFF00ACC1); // Cyan 600
       case SaintCategory.apostle:
         return AppThemeTokens.marianBlue;
+      case SaintCategory.evangelist:
+        return const Color(0xFFE65100); // Deep Orange 900
       case SaintCategory.martyr:
         return AppThemeTokens.liturgicalRed;
       case SaintCategory.popeBishop:

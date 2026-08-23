@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
@@ -821,9 +822,33 @@ void main() {
         final aquinas = saints.firstWhere((s) => s.id == 'thomas-aquinas');
         expect(aquinas.category, SaintCategory.doctor);
 
-        // Apostles & Evangelists
+        // Angels
+        final michael = saints.firstWhere(
+          (s) => s.id == 'michael-the-archangel',
+        );
+        expect(michael.category, SaintCategory.angel);
+        expect(michael.categoryIcon, Icons.flare_rounded);
+
+        final gabriel = saints.firstWhere(
+          (s) => s.id == 'gabriel-the-archangel',
+        );
+        expect(gabriel.category, SaintCategory.angel);
+
+        // Apostles
         final peter = saints.firstWhere((s) => s.id == 'peter-the-apostle');
         expect(peter.category, SaintCategory.apostle);
+        expect(peter.categoryIcon, Icons.stars_rounded);
+
+        final paul = saints.firstWhere((s) => s.id == 'paul-the-apostle');
+        expect(paul.category, SaintCategory.apostle);
+
+        // Evangelists
+        final luke = saints.firstWhere((s) => s.id == 'luke-the-evangelist');
+        expect(luke.category, SaintCategory.evangelist);
+        expect(luke.categoryIcon, Icons.auto_stories_rounded);
+
+        final mark = saints.firstWhere((s) => s.id == 'mark-the-evangelist');
+        expect(mark.category, SaintCategory.evangelist);
 
         // Martyrs
         final agnes = saints.firstWhere((s) => s.id == 'agnes-of-rome');
@@ -938,6 +963,39 @@ void main() {
           martyrs.every((s) => s.category == SaintCategory.martyr),
           isTrue,
         );
+
+        // Category filter: Angels
+        final angels = SaintDatabase.searchSaints(
+          saints,
+          category: SaintCategory.angel,
+        );
+        expect(angels.length, 3);
+        expect(angels.every((s) => s.category == SaintCategory.angel), isTrue);
+        expect(angels.any((s) => s.id == 'michael-the-archangel'), isTrue);
+
+        // Category filter: Apostles
+        final apostles = SaintDatabase.searchSaints(
+          saints,
+          category: SaintCategory.apostle,
+        );
+        expect(
+          apostles.every((s) => s.category == SaintCategory.apostle),
+          isTrue,
+        );
+        expect(apostles.any((s) => s.id == 'peter-the-apostle'), isTrue);
+
+        // Category filter: Evangelists
+        final evangelists = SaintDatabase.searchSaints(
+          saints,
+          category: SaintCategory.evangelist,
+        );
+        expect(evangelists.length, 4);
+        expect(
+          evangelists.every((s) => s.category == SaintCategory.evangelist),
+          isTrue,
+        );
+        expect(evangelists.any((s) => s.id == 'luke-the-evangelist'), isTrue);
+        expect(evangelists.any((s) => s.id == 'mark-the-evangelist'), isTrue);
 
         // Era filter: Modern
         final modernSaints = SaintDatabase.searchSaints(

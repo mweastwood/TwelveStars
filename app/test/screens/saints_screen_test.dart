@@ -350,6 +350,104 @@ void main() {
       expect(find.text('1 saint'), findsOneWidget);
     });
 
+    testWidgets(
+      'Filters by category chips (Angels, Apostles, and Evangelists)',
+      (tester) async {
+        SaintDatabase.mockSaints = [
+          ...mockSaintsList,
+          const Saint(
+            id: 'michael-the-archangel',
+            name: 'St. Michael the Archangel',
+            nationality: 'Angelic / Heavenly',
+            profession: 'Archangel & Defender of the Church',
+            isDoctor: false,
+            feastDay: 'September 29',
+            gender: 'group',
+          ),
+          const Saint(
+            id: 'peter-the-apostle',
+            name: 'St. Peter the Apostle',
+            nationality: 'Jewish / Roman',
+            profession: 'Fisherman, Apostle & First Pope',
+            isDoctor: false,
+            feastDay: 'June 29',
+            gender: 'male',
+          ),
+          const Saint(
+            id: 'luke-the-evangelist',
+            name: 'St. Luke the Evangelist',
+            nationality: 'Greek / Syrian',
+            profession: 'Physician, Historian & Evangelist',
+            isDoctor: false,
+            feastDay: 'October 18',
+            gender: 'male',
+          ),
+        ];
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const SaintsScreen()),
+        );
+        await tester.pumpAndSettle();
+
+        // Test Angels filter
+        final angelsChip = find.byKey(const Key('angels_filter_chip'));
+        await tester.ensureVisible(angelsChip);
+        await tester.pumpAndSettle();
+        await tester.tap(angelsChip);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_michael-the-archangel')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_peter-the-apostle')),
+          findsNothing,
+        );
+        expect(find.text('1 saint'), findsOneWidget);
+
+        // Untap Angels, tap Apostles
+        await tester.tap(angelsChip);
+        await tester.pumpAndSettle();
+
+        final apostlesChip = find.byKey(const Key('apostles_filter_chip'));
+        await tester.ensureVisible(apostlesChip);
+        await tester.pumpAndSettle();
+        await tester.tap(apostlesChip);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_peter-the-apostle')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_luke-the-evangelist')),
+          findsNothing,
+        );
+
+        // Untap Apostles, tap Evangelists
+        await tester.tap(apostlesChip);
+        await tester.pumpAndSettle();
+
+        final evangelistsChip = find.byKey(
+          const Key('evangelists_filter_chip'),
+        );
+        await tester.ensureVisible(evangelistsChip);
+        await tester.pumpAndSettle();
+        await tester.tap(evangelistsChip);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_luke-the-evangelist')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_peter-the-apostle')),
+          findsNothing,
+        );
+      },
+    );
+
     testWidgets('Opens sort modal and changes sort option', (tester) async {
       await tester.pumpWidget(buildTestableWidget(child: const SaintsScreen()));
       await tester.pumpAndSettle();
