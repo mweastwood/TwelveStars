@@ -150,12 +150,25 @@
  - `st_michael` — https://zh.wikipedia.org/wiki/%E7%B1%B3%E8%BF%A6%E5%8B%92
 
 ### Vietnamese
-**Passed (6)**:
+**Passed (19)**:
+ - `agnus_dei` — https://hdgmvietnam.com
+ - `confiteor` — https://hdgmvietnam.com
+ - `dismissal` — https://hdgmvietnam.com
+ - `domine_non_sum_dignus` — https://hdgmvietnam.com
  - `fatima_prayer` — https://vi.wikipedia.org/wiki/Kinh_M%C3%A2n_C%C3%B4i
+ - `gloria` — https://hdgmvietnam.com
  - `glory_be` — https://vi.wikipedia.org/wiki/Kinh_S%C3%A1ng_Danh
  - `hail_mary` — https://vi.wikipedia.org/wiki/Kinh_K%C3%ADnh_M%E1%BB%ABng
+ - `kyrie_eleison` — https://hdgmvietnam.com
+ - `mass_greeting` — https://hdgmvietnam.com
+ - `mystery_of_faith` — https://hdgmvietnam.com
  - `nicene_creed` — https://vi.wikipedia.org/wiki/T%C3%ADn_bi%E1%BB%83u_Nicaea
+ - `offertory_response` — https://hdgmvietnam.com
+ - `orate_fratres` — https://hdgmvietnam.com
  - `our_father` — https://vi.wikipedia.org/wiki/Kinh_L%E1%BA%A1y_Cha
+ - `preface_dialogue` — https://hdgmvietnam.com
+ - `sanctus` — https://hdgmvietnam.com
+ - `sign_of_peace` — https://hdgmvietnam.com
  - `st_francis` — https://vi.wikipedia.org/wiki/Kinh_H%C3%B2a_B%C3%ACnh
 
 **Failed (8)**:
@@ -463,6 +476,11 @@ void main() {
           .replaceAll('đọc chung', '')
           .replaceAll('xướng', '')
           .replaceAll('đáp', '')
+          .replaceAll('linh mục', '')
+          .replaceAll('chủ tế', '')
+          .replaceAll('cộng đoàn', '')
+          .replaceAll('giáo dân', '')
+          .replaceAll('phó tế', '')
           .replaceAll('啟：', '')
           .replaceAll('應：', '')
           .replaceAll('啟', '')
@@ -729,6 +747,11 @@ void main() {
           .replaceAll('sacerdote', '')
           .replaceAll('asamblea', '')
           .replaceAll('diácono', '')
+          .replaceAll('linhmục', '')
+          .replaceAll('chủtế', '')
+          .replaceAll('cộngđoàn', '')
+          .replaceAll('giáodân', '')
+          .replaceAll('phótế', '')
           .replaceAll('✠', '')
           .replaceAll('†', '')
           .replaceAll('&#10016;', '')
