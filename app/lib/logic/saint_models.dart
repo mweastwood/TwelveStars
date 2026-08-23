@@ -4,7 +4,10 @@ import 'package:twelve_stars/theme/app_theme_tokens.dart';
 /// Major categorization of saints for visual icon representation and filtering.
 enum SaintCategory {
   doctor,
+  angel,
+  holyFamily,
   apostle,
+  evangelist,
   martyr,
   popeBishop,
   priestReligious,
@@ -12,14 +15,21 @@ enum SaintCategory {
   virgin,
   monarch,
   healerMissionary,
+  laity,
   other;
 
   String get label {
     switch (this) {
       case SaintCategory.doctor:
         return 'Doctor of the Church';
+      case SaintCategory.angel:
+        return 'Archangel & Angel';
+      case SaintCategory.holyFamily:
+        return 'Holy Family';
       case SaintCategory.apostle:
-        return 'Apostle & Evangelist';
+        return 'Apostle';
+      case SaintCategory.evangelist:
+        return 'Evangelist';
       case SaintCategory.martyr:
         return 'Martyr';
       case SaintCategory.popeBishop:
@@ -34,6 +44,8 @@ enum SaintCategory {
         return 'Ruler & Monarch';
       case SaintCategory.healerMissionary:
         return 'Healer & Missionary';
+      case SaintCategory.laity:
+        return 'Laity';
       case SaintCategory.other:
         return 'Saint';
     }
@@ -164,12 +176,19 @@ class Saint {
     }
     final profLower = profession.toLowerCase();
     final nameLower = name.toLowerCase();
+    final natLower = nationality.toLowerCase();
 
-    if (profLower.contains('apostle') ||
-        profLower.contains('evangelist') ||
+    if (profLower.contains('evangelist') || nameLower.contains('evangelist')) {
+      return SaintCategory.evangelist;
+    }
+    if (natLower.contains('angelic') ||
         profLower.contains('archangel') ||
         nameLower.contains('archangel') ||
-        nameLower.contains('apostle')) {
+        RegExp(r'\barchangels?\b|\bangels?\b').hasMatch(profLower) ||
+        RegExp(r'\barchangels?\b|\bangels?\b').hasMatch(nameLower)) {
+      return SaintCategory.angel;
+    }
+    if (profLower.contains('apostle') || nameLower.contains('apostle')) {
       return SaintCategory.apostle;
     }
     if (profLower.contains('martyr') || nameLower.contains('martyrs')) {
@@ -181,8 +200,23 @@ class Saint {
         profLower.contains('cardinal')) {
       return SaintCategory.popeBishop;
     }
-    if (profLower.contains('mystic') || profLower.contains('stigmatist')) {
+    if (profLower.contains('mystic') ||
+        profLower.contains('stigmatist') ||
+        profLower.contains('visionary') ||
+        profLower.contains('contemplative') ||
+        profLower.contains('divine mercy')) {
       return SaintCategory.mystic;
+    }
+    if (profLower.contains('foster father') ||
+        profLower.contains('father of jesus') ||
+        profLower.contains('spouse of mary') ||
+        profLower.contains('spouse of the virgin mary') ||
+        profLower.contains('mother of god') ||
+        profLower.contains('theotokos') ||
+        profLower.contains('holy family') ||
+        nameLower.contains('blessed virgin mary') ||
+        (nameLower.contains('joseph') && profLower.contains('carpenter'))) {
+      return SaintCategory.holyFamily;
     }
     if (profLower.contains('king') ||
         profLower.contains('queen') ||
@@ -195,17 +229,36 @@ class Saint {
         profLower.contains('duchess')) {
       return SaintCategory.monarch;
     }
+    if (profLower.contains('mother') ||
+        profLower.contains('father') ||
+        profLower.contains('parent') ||
+        profLower.contains('layman') ||
+        profLower.contains('laywoman') ||
+        profLower.contains('lay') ||
+        profLower.contains('student') ||
+        profLower.contains('pupil') ||
+        profLower.contains('youth') ||
+        profLower.contains('child') ||
+        profLower.contains('matron') ||
+        profLower.contains('widow') ||
+        profLower.contains('homemaker') ||
+        profLower.contains('worker') ||
+        profLower.contains('carpenter')) {
+      return SaintCategory.laity;
+    }
     if (profLower.contains('physician') ||
+        profLower.contains('pediatrician') ||
         profLower.contains('doctor') ||
         profLower.contains('healer') ||
         profLower.contains('nurse') ||
         profLower.contains('missionary') ||
+        profLower.contains('missionaries') ||
         profLower.contains('apostle of')) {
       return SaintCategory.healerMissionary;
     }
     if (profLower.contains('virgin') ||
-        profLower.contains('matron') ||
-        profLower.contains('widow')) {
+        profLower.contains('lily of the mohawks') ||
+        profLower.contains('consecrated')) {
       return SaintCategory.virgin;
     }
     if (profLower.contains('priest') ||
@@ -216,14 +269,22 @@ class Saint {
         profLower.contains('abbess') ||
         profLower.contains('deacon') ||
         profLower.contains('brother') ||
+        profLower.contains('sister') ||
+        profLower.contains('sisters') ||
         profLower.contains('hermit') ||
         profLower.contains('religious') ||
         profLower.contains('founder') ||
+        profLower.contains('foundress') ||
         profLower.contains('carmelite') ||
         profLower.contains('franciscan') ||
         profLower.contains('dominican') ||
         profLower.contains('jesuit') ||
-        profLower.contains('benedictine')) {
+        profLower.contains('benedictine') ||
+        profLower.contains('salesian') ||
+        profLower.contains('clares') ||
+        profLower.contains('charity') ||
+        profLower.contains('visitation') ||
+        profLower.contains('sacrament')) {
       return SaintCategory.priestReligious;
     }
     return SaintCategory.other;
@@ -234,7 +295,13 @@ class Saint {
     switch (category) {
       case SaintCategory.doctor:
         return Icons.menu_book_rounded;
+      case SaintCategory.angel:
+        return Icons.flare_rounded;
+      case SaintCategory.holyFamily:
+        return Icons.family_restroom_rounded;
       case SaintCategory.apostle:
+        return Icons.stars_rounded;
+      case SaintCategory.evangelist:
         return Icons.auto_stories_rounded;
       case SaintCategory.martyr:
         return Icons.local_fire_department_rounded;
@@ -250,6 +317,8 @@ class Saint {
         return Icons.workspace_premium_rounded;
       case SaintCategory.healerMissionary:
         return Icons.healing_rounded;
+      case SaintCategory.laity:
+        return Icons.groups_rounded;
       case SaintCategory.other:
         return Icons.person_rounded;
     }
@@ -260,8 +329,14 @@ class Saint {
     switch (category) {
       case SaintCategory.doctor:
         return AppThemeTokens.liturgicalGold;
+      case SaintCategory.angel:
+        return const Color(0xFF00ACC1); // Cyan 600
+      case SaintCategory.holyFamily:
+        return const Color(0xFFAD1457); // Crimson / Rose 800
       case SaintCategory.apostle:
         return AppThemeTokens.marianBlue;
+      case SaintCategory.evangelist:
+        return const Color(0xFFE65100); // Deep Orange 900
       case SaintCategory.martyr:
         return AppThemeTokens.liturgicalRed;
       case SaintCategory.popeBishop:
@@ -276,6 +351,8 @@ class Saint {
         return AppThemeTokens.liturgicalPurple;
       case SaintCategory.healerMissionary:
         return const Color(0xFF00897B); // Teal 600
+      case SaintCategory.laity:
+        return const Color(0xFF5C6BC0); // Indigo 400
       case SaintCategory.other:
         return theme.colorScheme.primary;
     }

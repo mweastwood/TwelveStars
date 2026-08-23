@@ -1486,7 +1486,7 @@
     "birthDate": "c. 1600",
     "deathDate": "1637",
     "nationality": "Filipino / Chinese",
-    "profession": "Calligrapher, Sacristan & First Filipino Saint",
+    "profession": "Calligrapher, Sacristan, Martyr & First Filipino Saint",
     "gender": "male",
     "isDoctor": false,
     "feastDay": "September 28",
@@ -1661,6 +1661,19 @@
     "feastDay": "August 8",
     "patronage": "Australia, Adelaide, Brisbanites, Teachers",
     "summary": "First canonized saint of Australia who co-founded the Josephites to establish free schools for impoverished rural children and shelters for orphans."
+  },
+  {
+    "id": "mary-mother-of-god",
+    "name": "Blessed Virgin Mary (Our Lady)",
+    "birthDate": "c. 20 BC",
+    "deathDate": "c. 48 AD",
+    "nationality": "Judean / Heavenly",
+    "profession": "Mother of God (Theotokos), Spouse of the Holy Spirit & Queen of All Saints",
+    "gender": "female",
+    "isDoctor": false,
+    "feastDay": "January 1 / August 15 / December 8",
+    "patronage": "All Humanity, The Catholic Church, Mothers, Pro-Life, The Americas (Our Lady of Guadalupe)",
+    "summary": "The Mother of Jesus Christ and Mother of God (Theotokos). Conceived without original sin (Immaculate Conception) and assumed body and soul into heavenly glory (Assumption), she is the Queen of Heaven, Mother of the Church, and Queen of All Saints."
   },
   {
     "id": "mary-magdalene",

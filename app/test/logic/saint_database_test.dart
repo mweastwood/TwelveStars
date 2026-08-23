@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
@@ -731,11 +732,15 @@ void main() {
         final maleSaints = saints.where((s) => s.isMale).toList();
         final groupSaints = saints.where((s) => s.gender == 'group').toList();
 
-        expect(femaleSaints.length, 42);
+        expect(femaleSaints.length, 43);
         expect(maleSaints.length, 149);
         expect(groupSaints.length, 4);
 
         // Verify specific prominent female saints
+        final mary = saints.firstWhere((s) => s.id == 'mary-mother-of-god');
+        expect(mary.gender, 'female');
+        expect(mary.isFemale, isTrue);
+
         final agnes = saints.firstWhere((s) => s.id == 'agnes-of-rome');
         expect(agnes.gender, 'female');
         expect(agnes.isFemale, isTrue);
@@ -764,7 +769,7 @@ void main() {
 
       // 2. Female saints filter
       final women = SaintDatabase.searchSaints(saints, gender: 'female');
-      expect(women.length, 42);
+      expect(women.length, 43);
       expect(women.every((s) => s.isFemale), isTrue);
 
       // 3. Female Doctors of the Church (4 total)
@@ -821,9 +826,33 @@ void main() {
         final aquinas = saints.firstWhere((s) => s.id == 'thomas-aquinas');
         expect(aquinas.category, SaintCategory.doctor);
 
-        // Apostles & Evangelists
+        // Angels
+        final michael = saints.firstWhere(
+          (s) => s.id == 'michael-the-archangel',
+        );
+        expect(michael.category, SaintCategory.angel);
+        expect(michael.categoryIcon, Icons.flare_rounded);
+
+        final gabriel = saints.firstWhere(
+          (s) => s.id == 'gabriel-the-archangel',
+        );
+        expect(gabriel.category, SaintCategory.angel);
+
+        // Apostles
         final peter = saints.firstWhere((s) => s.id == 'peter-the-apostle');
         expect(peter.category, SaintCategory.apostle);
+        expect(peter.categoryIcon, Icons.stars_rounded);
+
+        final paul = saints.firstWhere((s) => s.id == 'paul-the-apostle');
+        expect(paul.category, SaintCategory.apostle);
+
+        // Evangelists
+        final luke = saints.firstWhere((s) => s.id == 'luke-the-evangelist');
+        expect(luke.category, SaintCategory.evangelist);
+        expect(luke.categoryIcon, Icons.auto_stories_rounded);
+
+        final mark = saints.firstWhere((s) => s.id == 'mark-the-evangelist');
+        expect(mark.category, SaintCategory.evangelist);
 
         // Martyrs
         final agnes = saints.firstWhere((s) => s.id == 'agnes-of-rome');
@@ -939,6 +968,39 @@ void main() {
           isTrue,
         );
 
+        // Category filter: Angels
+        final angels = SaintDatabase.searchSaints(
+          saints,
+          category: SaintCategory.angel,
+        );
+        expect(angels.length, 3);
+        expect(angels.every((s) => s.category == SaintCategory.angel), isTrue);
+        expect(angels.any((s) => s.id == 'michael-the-archangel'), isTrue);
+
+        // Category filter: Apostles
+        final apostles = SaintDatabase.searchSaints(
+          saints,
+          category: SaintCategory.apostle,
+        );
+        expect(
+          apostles.every((s) => s.category == SaintCategory.apostle),
+          isTrue,
+        );
+        expect(apostles.any((s) => s.id == 'peter-the-apostle'), isTrue);
+
+        // Category filter: Evangelists
+        final evangelists = SaintDatabase.searchSaints(
+          saints,
+          category: SaintCategory.evangelist,
+        );
+        expect(evangelists.length, 4);
+        expect(
+          evangelists.every((s) => s.category == SaintCategory.evangelist),
+          isTrue,
+        );
+        expect(evangelists.any((s) => s.id == 'luke-the-evangelist'), isTrue);
+        expect(evangelists.any((s) => s.id == 'mark-the-evangelist'), isTrue);
+
         // Era filter: Modern
         final modernSaints = SaintDatabase.searchSaints(
           saints,
@@ -955,6 +1017,49 @@ void main() {
         expect(octoberSaints.any((s) => s.id == 'therese-of-lisieux'), isTrue);
         expect(octoberSaints.any((s) => s.id == 'francis-of-assisi'), isTrue);
         expect(octoberSaints.any((s) => s.id == 'carlo-acutis'), isTrue);
+      },
+    );
+
+    test(
+      'all saints in the dataset are assigned a specific, non-generic category',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+        final unclassified = saints
+            .where((s) => s.category == SaintCategory.other)
+            .toList();
+        expect(
+          unclassified,
+          isEmpty,
+          reason:
+              'All saints should be classified into a specific category, but found unclassified: ${unclassified.map((s) => s.id).toList()}',
+        );
+
+        // Verify Holy Family
+        final mary = saints.firstWhere((s) => s.id == 'mary-mother-of-god');
+        expect(mary.category, SaintCategory.holyFamily);
+        expect(mary.categoryIcon, Icons.family_restroom_rounded);
+        expect(mary.isFemale, isTrue);
+
+        final joseph = saints.firstWhere((s) => s.id == 'joseph');
+        expect(joseph.category, SaintCategory.holyFamily);
+        expect(joseph.categoryIcon, Icons.family_restroom_rounded);
+
+        // Verify Laity
+        final dominicSavio = saints.firstWhere((s) => s.id == 'dominic-savio');
+        expect(dominicSavio.category, SaintCategory.laity);
+        expect(dominicSavio.categoryIcon, Icons.groups_rounded);
+
+        final gianna = saints.firstWhere((s) => s.id == 'gianna-beretta-molla');
+        expect(gianna.category, SaintCategory.laity);
+
+        // Verify Mystics & Visionaries
+        final faustina = saints.firstWhere((s) => s.id == 'faustina-kowalska');
+        expect(faustina.category, SaintCategory.mystic);
+
+        final bernadette = saints.firstWhere(
+          (s) => s.id == 'bernadette-soubirous',
+        );
+        expect(bernadette.category, SaintCategory.mystic);
       },
     );
   });

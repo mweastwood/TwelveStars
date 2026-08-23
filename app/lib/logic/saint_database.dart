@@ -166,10 +166,18 @@ class SaintDatabase {
           if (a.isDoctor != b.isDoctor) {
             return a.isDoctor ? -1 : 1;
           }
-          final aIsApostle = a.category == SaintCategory.apostle;
-          final bIsApostle = b.category == SaintCategory.apostle;
-          if (aIsApostle != bIsApostle) {
-            return aIsApostle ? -1 : 1;
+          final aIsSpecial =
+              a.category == SaintCategory.angel ||
+              a.category == SaintCategory.holyFamily ||
+              a.category == SaintCategory.apostle ||
+              a.category == SaintCategory.evangelist;
+          final bIsSpecial =
+              b.category == SaintCategory.angel ||
+              b.category == SaintCategory.holyFamily ||
+              b.category == SaintCategory.apostle ||
+              b.category == SaintCategory.evangelist;
+          if (aIsSpecial != bIsSpecial) {
+            return aIsSpecial ? -1 : 1;
           }
           return a.name.toLowerCase().compareTo(b.name.toLowerCase());
       }

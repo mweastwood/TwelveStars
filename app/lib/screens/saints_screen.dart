@@ -390,11 +390,32 @@ class _SaintsScreenState extends State<SaintsScreen> {
                   ),
                   const SizedBox(width: 8),
                   FilterChip(
+                    key: const Key('angels_filter_chip'),
+                    label: const Text('Angels'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.flare,
+                      color: _selectedCategory == SaintCategory.angel
+                          ? const Color(0xFF00ACC1)
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.angel,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.angel
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
                     key: const Key('apostles_filter_chip'),
                     label: const Text('Apostles'),
                     showCheckmark: false,
                     avatar: Icon(
-                      Icons.auto_stories,
+                      Icons.stars,
                       color: _selectedCategory == SaintCategory.apostle
                           ? theme.colorScheme.primary
                           : theme.colorScheme.onSurfaceVariant,
@@ -405,6 +426,27 @@ class _SaintsScreenState extends State<SaintsScreen> {
                       setState(() {
                         _selectedCategory = selected
                             ? SaintCategory.apostle
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('evangelists_filter_chip'),
+                    label: const Text('Evangelists'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.auto_stories,
+                      color: _selectedCategory == SaintCategory.evangelist
+                          ? const Color(0xFFE65100)
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.evangelist,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.evangelist
                             : null;
                       });
                     },
@@ -448,6 +490,48 @@ class _SaintsScreenState extends State<SaintsScreen> {
                       setState(() {
                         _selectedCategory = selected
                             ? SaintCategory.priestReligious
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('holy_family_filter_chip'),
+                    label: const Text('Holy Family'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.family_restroom,
+                      color: _selectedCategory == SaintCategory.holyFamily
+                          ? const Color(0xFFAD1457)
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.holyFamily,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.holyFamily
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('laity_filter_chip'),
+                    label: const Text('Laity'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.groups,
+                      color: _selectedCategory == SaintCategory.laity
+                          ? const Color(0xFF5C6BC0)
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.laity,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.laity
                             : null;
                       });
                     },
