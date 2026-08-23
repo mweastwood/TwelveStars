@@ -195,6 +195,7 @@ class Saint {
       'james-the-greater',
       'james-the-lesser',
       'jude-thaddeus',
+      'mary-magdalene',
       'matthias',
       'paul-the-apostle',
       'peter-the-apostle',
@@ -204,11 +205,12 @@ class Saint {
     }.contains(id);
 
     if (isBiblicalApostle ||
+        profLower.contains('apostle to the apostles') ||
+        profLower.contains('apostola apostolorum') ||
         (profLower.contains('apostle') &&
             !profLower.contains('apostle of') &&
             !profLower.contains('apostle to') &&
             !profLower.contains('cyber-apostle') &&
-            !profLower.contains('apostola') &&
             (nameLower.contains('the apostle') ||
                 nameLower.contains('barnabas') ||
                 nameLower.contains('matthias') ||

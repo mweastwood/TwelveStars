@@ -999,12 +999,12 @@ void main() {
         expect(angels.every((s) => s.category == SaintCategory.angel), isTrue);
         expect(angels.any((s) => s.id == 'michael-the-archangel'), isTrue);
 
-        // Category filter: Apostles (strictly Biblical Apostles)
+        // Category filter: Apostles (Biblical Apostles & Apostle to the Apostles)
         final apostles = SaintDatabase.searchSaints(
           saints,
           category: SaintCategory.apostle,
         );
-        expect(apostles.length, 12);
+        expect(apostles.length, 13);
         expect(
           apostles.every((s) => s.category == SaintCategory.apostle),
           isTrue,
@@ -1021,6 +1021,7 @@ void main() {
         expect(apostles.any((s) => s.id == 'simon-the-zealot'), isTrue);
         expect(apostles.any((s) => s.id == 'matthias'), isTrue);
         expect(apostles.any((s) => s.id == 'barnabas'), isTrue);
+        expect(apostles.any((s) => s.id == 'mary-magdalene'), isTrue);
 
         // Non-biblical saints with honorary "Apostle of..." titles should not be in apostle category
         expect(apostles.any((s) => s.id == 'patrick-of-ireland'), isFalse);
