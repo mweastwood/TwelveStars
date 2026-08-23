@@ -68,12 +68,17 @@ class SaintDatabase {
     return saints;
   }
 
-  /// Filters saints according to search query keywords, doctor status, and gender.
+  /// Filters and sorts saints according to search query keywords, doctor status,
+  /// gender, role category, historical era, feast month, and sorting criteria.
   static List<Saint> searchSaints(
     List<Saint> saints, {
     String query = '',
     bool doctorsOnly = false,
     String? gender,
+    SaintCategory? category,
+    SaintEra era = SaintEra.all,
+    int? feastMonth,
+    SaintSortOption sortBy = SaintSortOption.nameAsc,
   }) {
     final trimmed = query.trim().toLowerCase();
     final words = trimmed
@@ -81,11 +86,20 @@ class SaintDatabase {
         .where((w) => w.isNotEmpty)
         .toList();
 
-    return saints.where((saint) {
+    final filtered = saints.where((saint) {
       if (doctorsOnly && !saint.isDoctor) {
         return false;
       }
       if (gender != null && gender.isNotEmpty && saint.gender != gender) {
+        return false;
+      }
+      if (category != null && saint.category != category) {
+        return false;
+      }
+      if (era != SaintEra.all && saint.era != era) {
+        return false;
+      }
+      if (feastMonth != null && saint.feastMonth != feastMonth) {
         return false;
       }
       if (words.isEmpty) {
@@ -100,6 +114,7 @@ class SaintDatabase {
       final feastDay = (saint.feastDay ?? '').toLowerCase();
       final dates = saint.dateRange.toLowerCase();
       final saintGender = (saint.gender ?? '').toLowerCase();
+      final categoryLabel = saint.category.label.toLowerCase();
 
       return words.every((word) {
         final matchesGenderWord =
@@ -117,9 +132,50 @@ class SaintDatabase {
             patronage.contains(word) ||
             summary.contains(word) ||
             feastDay.contains(word) ||
-            dates.contains(word);
+            dates.contains(word) ||
+            categoryLabel.contains(word);
       });
     }).toList();
+
+    // Apply sorting
+    filtered.sort((a, b) {
+      switch (sortBy) {
+        case SaintSortOption.nameAsc:
+          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+        case SaintSortOption.nameDesc:
+          return b.name.toLowerCase().compareTo(a.name.toLowerCase());
+        case SaintSortOption.feastDay:
+          final aMonth = a.feastMonth ?? 99;
+          final bMonth = b.feastMonth ?? 99;
+          if (aMonth != bMonth) return aMonth.compareTo(bMonth);
+          final aDay = a.feastDayOfMonth ?? 99;
+          final bDay = b.feastDayOfMonth ?? 99;
+          if (aDay != bDay) return aDay.compareTo(bDay);
+          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+        case SaintSortOption.chronologicalAsc:
+          final aYear = a.approximateYear ?? 9999;
+          final bYear = b.approximateYear ?? 9999;
+          if (aYear != bYear) return aYear.compareTo(bYear);
+          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+        case SaintSortOption.chronologicalDesc:
+          final aYear = a.approximateYear ?? -9999;
+          final bYear = b.approximateYear ?? -9999;
+          if (aYear != bYear) return bYear.compareTo(aYear);
+          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+        case SaintSortOption.doctorsFirst:
+          if (a.isDoctor != b.isDoctor) {
+            return a.isDoctor ? -1 : 1;
+          }
+          final aIsApostle = a.category == SaintCategory.apostle;
+          final bIsApostle = b.category == SaintCategory.apostle;
+          if (aIsApostle != bIsApostle) {
+            return aIsApostle ? -1 : 1;
+          }
+          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+      }
+    });
+
+    return filtered;
   }
 
   static final RegExp _datePartRegex = RegExp(r'([A-Za-z]+)\s+(\d+)');

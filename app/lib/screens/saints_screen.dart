@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
-import 'package:twelve_stars/widgets/saint_details_sheet.dart';
+import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
+import 'package:twelve_stars/widgets/saint_card.dart';
 
 class SaintsScreen extends StatefulWidget {
   const SaintsScreen({super.key});
@@ -18,6 +19,10 @@ class _SaintsScreenState extends State<SaintsScreen> {
   String _searchQuery = '';
   bool _doctorsOnly = false;
   String? _selectedGender;
+  SaintCategory? _selectedCategory;
+  SaintEra _selectedEra = SaintEra.all;
+  int? _selectedFeastMonth;
+  SaintSortOption _sortOption = SaintSortOption.nameAsc;
 
   @override
   void initState() {
@@ -50,9 +55,139 @@ class _SaintsScreenState extends State<SaintsScreen> {
     }
   }
 
+  void _resetAllFilters() {
+    setState(() {
+      _searchController.clear();
+      _searchQuery = '';
+      _doctorsOnly = false;
+      _selectedGender = null;
+      _selectedCategory = null;
+      _selectedEra = SaintEra.all;
+      _selectedFeastMonth = null;
+    });
+  }
+
+  void _openSortDialog(BuildContext context, ThemeData theme) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(vertical: 20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: Row(
+                    children: [
+                      Icon(Icons.sort, color: theme.colorScheme.primary),
+                      const SizedBox(width: 8),
+                      Text(
+                        'Sort Saints',
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: theme.colorScheme.primary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 12),
+                const Divider(height: 1),
+                ...SaintSortOption.values.map((option) {
+                  final isSelected = _sortOption == option;
+                  return ListTile(
+                    key: Key('sort_option_${option.name}'),
+                    leading: Icon(
+                      option.icon,
+                      color: isSelected
+                          ? theme.colorScheme.primary
+                          : theme.colorScheme.onSurfaceVariant,
+                    ),
+                    title: Text(
+                      option.label,
+                      style: TextStyle(
+                        fontWeight: isSelected
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                        color: isSelected ? theme.colorScheme.primary : null,
+                      ),
+                    ),
+                    trailing: isSelected
+                        ? Icon(
+                            Icons.check_circle,
+                            color: theme.colorScheme.primary,
+                          )
+                        : null,
+                    onTap: () {
+                      setState(() {
+                        _sortOption = option;
+                      });
+                      Navigator.pop(context);
+                    },
+                  );
+                }),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildFooterQuote(ThemeData theme) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+      child: Column(
+        children: [
+          Text(
+            '“Therefore, since we are surrounded by so great a cloud of witnesses, let us also lay aside every weight, and run with perseverance the race that is set before us.”',
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+              fontStyle: FontStyle.italic,
+              height: 1.4,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 6),
+          Text(
+            '— Hebrews 12:1',
+            style: theme.textTheme.labelSmall?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.8),
+              fontWeight: FontWeight.w600,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+  }
+
+  static const List<String> _months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isWide = isWideScreen(context);
 
     if (_loading) {
       return Scaffold(
@@ -91,16 +226,43 @@ class _SaintsScreenState extends State<SaintsScreen> {
       query: _searchQuery,
       doctorsOnly: _doctorsOnly,
       gender: _selectedGender,
+      category: _selectedCategory,
+      era: _selectedEra,
+      feastMonth: _selectedFeastMonth,
+      sortBy: _sortOption,
     );
+
     final hasActiveFilters =
-        _searchQuery.isNotEmpty || _doctorsOnly || _selectedGender != null;
+        _searchQuery.isNotEmpty ||
+        _doctorsOnly ||
+        _selectedGender != null ||
+        _selectedCategory != null ||
+        _selectedEra != SaintEra.all ||
+        _selectedFeastMonth != null;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Saint Database')),
+      appBar: AppBar(
+        title: const Text('Saint Database'),
+        actions: [
+          IconButton(
+            key: const Key('saints_sort_button'),
+            icon: Icon(_sortOption.icon),
+            tooltip: 'Sort: ${_sortOption.label}',
+            onPressed: () => _openSortDialog(context, theme),
+          ),
+          if (hasActiveFilters)
+            IconButton(
+              icon: const Icon(Icons.filter_alt_off_outlined),
+              tooltip: 'Reset all filters',
+              onPressed: _resetAllFilters,
+            ),
+        ],
+      ),
       body: Column(
         children: [
+          // 1. Search Box
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 6),
             child: TextField(
               key: const Key('saints_search_field'),
               controller: _searchController,
@@ -138,190 +300,344 @@ class _SaintsScreenState extends State<SaintsScreen> {
               },
             ),
           ),
+
+          // 2. Horizontal Filter Ribbon
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 16.0,
-              vertical: 4.0,
+              vertical: 2.0,
             ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        FilterChip(
-                          key: const Key('doctor_filter_chip'),
-                          label: const Text('Doctors of the Church only'),
-                          avatar: Icon(
-                            Icons.star,
-                            color: _doctorsOnly
-                                ? Colors.amber
-                                : theme.colorScheme.onSurfaceVariant,
-                            size: 16,
-                          ),
-                          selected: _doctorsOnly,
-                          onSelected: (selected) {
-                            setState(() {
-                              _doctorsOnly = selected;
-                            });
-                          },
-                        ),
-                        const SizedBox(width: 8),
-                        FilterChip(
-                          key: const Key('men_filter_chip'),
-                          label: const Text('Men'),
-                          avatar: Icon(
-                            Icons.male,
-                            color: _selectedGender == 'male'
-                                ? theme.colorScheme.primary
-                                : theme.colorScheme.onSurfaceVariant,
-                            size: 16,
-                          ),
-                          selected: _selectedGender == 'male',
-                          onSelected: (selected) {
-                            setState(() {
-                              _selectedGender = selected ? 'male' : null;
-                            });
-                          },
-                        ),
-                        const SizedBox(width: 8),
-                        FilterChip(
-                          key: const Key('women_filter_chip'),
-                          label: const Text('Women'),
-                          avatar: Icon(
-                            Icons.female,
-                            color: _selectedGender == 'female'
-                                ? theme.colorScheme.primary
-                                : theme.colorScheme.onSurfaceVariant,
-                            size: 16,
-                          ),
-                          selected: _selectedGender == 'female',
-                          onSelected: (selected) {
-                            setState(() {
-                              _selectedGender = selected ? 'female' : null;
-                            });
-                          },
-                        ),
-                      ],
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  FilterChip(
+                    key: const Key('doctor_filter_chip'),
+                    label: const Text('Doctors of the Church only'),
+                    avatar: Icon(
+                      Icons.star,
+                      color: _doctorsOnly
+                          ? Colors.amber
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _doctorsOnly,
+                    onSelected: (selected) {
+                      setState(() {
+                        _doctorsOnly = selected;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('men_filter_chip'),
+                    label: const Text('Men'),
+                    avatar: Icon(
+                      Icons.male,
+                      color: _selectedGender == 'male'
+                          ? theme.colorScheme.primary
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedGender == 'male',
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedGender = selected ? 'male' : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('women_filter_chip'),
+                    label: const Text('Women'),
+                    avatar: Icon(
+                      Icons.female,
+                      color: _selectedGender == 'female'
+                          ? theme.colorScheme.primary
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedGender == 'female',
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedGender = selected ? 'female' : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('martyrs_filter_chip'),
+                    label: const Text('Martyrs'),
+                    avatar: Icon(
+                      Icons.local_fire_department,
+                      color: _selectedCategory == SaintCategory.martyr
+                          ? Colors.red
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.martyr,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.martyr
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('apostles_filter_chip'),
+                    label: const Text('Apostles'),
+                    avatar: Icon(
+                      Icons.auto_stories,
+                      color: _selectedCategory == SaintCategory.apostle
+                          ? theme.colorScheme.primary
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.apostle,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.apostle
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('bishops_filter_chip'),
+                    label: const Text('Bishops & Popes'),
+                    avatar: Icon(
+                      Icons.account_balance,
+                      color: _selectedCategory == SaintCategory.popeBishop
+                          ? theme.colorScheme.primary
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.popeBishop,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.popeBishop
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('religious_filter_chip'),
+                    label: const Text('Priests & Religious'),
+                    avatar: Icon(
+                      Icons.church,
+                      color: _selectedCategory == SaintCategory.priestReligious
+                          ? Colors.green
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected:
+                        _selectedCategory == SaintCategory.priestReligious,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.priestReligious
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  PopupMenuButton<SaintEra>(
+                    tooltip: 'Filter by Era',
+                    initialValue: _selectedEra,
+                    onSelected: (era) {
+                      setState(() {
+                        _selectedEra = era;
+                      });
+                    },
+                    itemBuilder: (context) => SaintEra.values.map((era) {
+                      return PopupMenuItem(value: era, child: Text(era.label));
+                    }).toList(),
+                    child: Chip(
+                      avatar: Icon(
+                        Icons.history_toggle_off,
+                        size: 16,
+                        color: _selectedEra != SaintEra.all
+                            ? theme.colorScheme.primary
+                            : theme.colorScheme.onSurfaceVariant,
+                      ),
+                      label: Text(
+                        _selectedEra == SaintEra.all
+                            ? 'All Eras'
+                            : _selectedEra.label,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(width: 8),
+                  const SizedBox(width: 8),
+                  PopupMenuButton<int?>(
+                    tooltip: 'Filter by Feast Month',
+                    initialValue: _selectedFeastMonth,
+                    onSelected: (month) {
+                      setState(() {
+                        _selectedFeastMonth = month;
+                      });
+                    },
+                    itemBuilder: (context) => [
+                      const PopupMenuItem(
+                        value: null,
+                        child: Text('All Months'),
+                      ),
+                      ...List.generate(12, (index) {
+                        return PopupMenuItem(
+                          value: index + 1,
+                          child: Text(_months[index]),
+                        );
+                      }),
+                    ],
+                    child: Chip(
+                      avatar: Icon(
+                        Icons.calendar_month,
+                        size: 16,
+                        color: _selectedFeastMonth != null
+                            ? theme.colorScheme.primary
+                            : theme.colorScheme.onSurfaceVariant,
+                      ),
+                      label: Text(
+                        _selectedFeastMonth == null
+                            ? 'All Months'
+                            : _months[_selectedFeastMonth! - 1],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          // 3. Count & Active Info Row
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16.0, 4.0, 16.0, 4.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
                 Text(
                   '${filteredSaints.length} ${filteredSaints.length == 1 ? "saint" : "saints"}',
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                Text(
+                  _sortOption.label,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.primary,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
             ),
           ),
           const Divider(height: 1),
+
+          // 4. Saints Cards List
           Expanded(
             child: filteredSaints.isEmpty
                 ? Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.person_search_outlined,
-                          size: 48,
-                          color: theme.colorScheme.onSurfaceVariant.withValues(
-                            alpha: 0.5,
+                    child: Padding(
+                      padding: const EdgeInsets.all(24.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.person_search_outlined,
+                            size: 48,
+                            color: theme.colorScheme.onSurfaceVariant
+                                .withValues(alpha: 0.5),
                           ),
-                        ),
-                        const SizedBox(height: 12),
-                        Text(
-                          'No saints found',
-                          style: theme.textTheme.titleMedium,
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          _doctorsOnly && _selectedGender != null
-                              ? 'No ${_selectedGender == "male" ? "male" : "female"} Doctors of the Church match your query.'
-                              : _doctorsOnly
-                              ? 'No Doctors of the Church match your query.'
-                              : _selectedGender != null
-                              ? 'No ${_selectedGender == "male" ? "male" : "female"} saints match your query.'
-                              : 'Try searching for a different keyword or name.',
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            color: theme.colorScheme.onSurfaceVariant,
+                          const SizedBox(height: 12),
+                          Text(
+                            'No saints found',
+                            style: theme.textTheme.titleMedium,
                           ),
-                          textAlign: TextAlign.center,
-                        ),
-                        if (hasActiveFilters) ...[
-                          const SizedBox(height: 16),
-                          OutlinedButton(
-                            key: const Key('reset_filters_button'),
-                            onPressed: () {
-                              setState(() {
-                                _searchController.clear();
-                                _searchQuery = '';
-                                _doctorsOnly = false;
-                                _selectedGender = null;
-                              });
-                            },
-                            child: const Text('Reset filters'),
+                          const SizedBox(height: 4),
+                          Text(
+                            _doctorsOnly && _selectedGender != null
+                                ? 'No ${_selectedGender == "male" ? "male" : "female"} Doctors of the Church match your query.'
+                                : _doctorsOnly
+                                ? 'No Doctors of the Church match your query.'
+                                : _selectedGender != null
+                                ? 'No ${_selectedGender == "male" ? "male" : "female"} saints match your query.'
+                                : 'Try searching for a different keyword or name.',
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: theme.colorScheme.onSurfaceVariant,
+                            ),
+                            textAlign: TextAlign.center,
                           ),
+                          if (hasActiveFilters) ...[
+                            const SizedBox(height: 16),
+                            OutlinedButton(
+                              key: const Key('reset_filters_button'),
+                              onPressed: _resetAllFilters,
+                              child: const Text('Reset filters'),
+                            ),
+                          ],
                         ],
-                      ],
+                      ),
                     ),
                   )
-                : ListView.builder(
-                    itemCount: filteredSaints.length,
-                    itemBuilder: (context, index) {
-                      final saint = filteredSaints[index];
-                      final titleText = saint.dateRange.isNotEmpty
-                          ? '${saint.name} (${saint.dateRange})'
-                          : saint.name;
-
-                      return ListTile(
-                        key: Key('saint_tile_${saint.id}'),
-                        leading: saint.isDoctor
-                            ? Tooltip(
-                                message: 'Doctor of the Church',
-                                child: const Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
-                                ),
-                              )
-                            : Icon(
-                                Icons.person_outline,
-                                color: theme.colorScheme.onSurfaceVariant
-                                    .withValues(alpha: 0.6),
-                              ),
-                        title: Text(
-                          titleText,
-                          style: TextStyle(
-                            fontWeight: saint.isDoctor
-                                ? FontWeight.bold
-                                : FontWeight.w600,
-                          ),
+                : isWide
+                ? CustomScrollView(
+                    slivers: [
+                      SliverPadding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16.0,
+                          vertical: 12.0,
                         ),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '${saint.nationality} • ${saint.profession}',
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            if (saint.patronage != null &&
-                                saint.patronage!.isNotEmpty)
-                              Text(
-                                'Patron: ${saint.patronage}',
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: theme.textTheme.bodySmall?.copyWith(
-                                  color: theme.colorScheme.secondary,
-                                ),
+                        sliver: SliverCrossAxisGroup(
+                          slivers: [
+                            SliverCrossAxisExpanded(
+                              flex: 1,
+                              sliver: SliverList.builder(
+                                itemCount: (filteredSaints.length + 1) ~/ 2,
+                                itemBuilder: (context, index) {
+                                  return SaintCard(
+                                    saint: filteredSaints[index * 2],
+                                  );
+                                },
                               ),
+                            ),
+                            const SliverConstrainedCrossAxis(
+                              maxExtent: 12.0,
+                              sliver: SliverToBoxAdapter(),
+                            ),
+                            SliverCrossAxisExpanded(
+                              flex: 1,
+                              sliver: SliverList.builder(
+                                itemCount: filteredSaints.length ~/ 2,
+                                itemBuilder: (context, index) {
+                                  return SaintCard(
+                                    saint: filteredSaints[index * 2 + 1],
+                                  );
+                                },
+                              ),
+                            ),
                           ],
                         ),
-                        trailing: const Icon(Icons.chevron_right),
-                        onTap: () => SaintDetailsSheet.show(context, saint),
-                      );
+                      ),
+                      SliverToBoxAdapter(child: _buildFooterQuote(theme)),
+                    ],
+                  )
+                : ListView.builder(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: 12.0,
+                    ),
+                    itemCount: filteredSaints.length + 1,
+                    itemBuilder: (context, index) {
+                      if (index == filteredSaints.length) {
+                        return _buildFooterQuote(theme);
+                      }
+                      final saint = filteredSaints[index];
+                      return SaintCard(saint: saint);
                     },
                   ),
           ),

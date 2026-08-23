@@ -52,6 +52,26 @@ class SaintDetailsSheet extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Container(
+                    width: 44,
+                    height: 44,
+                    decoration: BoxDecoration(
+                      color: saint.categoryColor(theme).withValues(alpha: 0.15),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: saint
+                            .categoryColor(theme)
+                            .withValues(alpha: 0.3),
+                        width: 1,
+                      ),
+                    ),
+                    child: Icon(
+                      saint.categoryIcon,
+                      color: saint.categoryColor(theme),
+                      size: 22,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
                   Expanded(
                     child: Text(
                       saint.name,

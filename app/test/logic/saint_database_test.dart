@@ -811,5 +811,151 @@ void main() {
       expect(frenchWomen.any((s) => s.id == 'joan-of-arc'), isTrue);
       expect(frenchWomen.any((s) => s.id == 'therese-of-lisieux'), isTrue);
     });
+
+    test(
+      'Saint category classification and icon mapping works properly',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+
+        // Doctors
+        final aquinas = saints.firstWhere((s) => s.id == 'thomas-aquinas');
+        expect(aquinas.category, SaintCategory.doctor);
+
+        // Apostles & Evangelists
+        final peter = saints.firstWhere((s) => s.id == 'peter-the-apostle');
+        expect(peter.category, SaintCategory.apostle);
+
+        // Martyrs
+        final agnes = saints.firstWhere((s) => s.id == 'agnes-of-rome');
+        expect(agnes.category, SaintCategory.martyr);
+
+        // Popes & Bishops
+        final nicholas = saints.firstWhere((s) => s.id == 'nicholas-of-myra');
+        expect(nicholas.category, SaintCategory.popeBishop);
+
+        // Martyrs (including martyr bishops like Cyprian)
+        final cyprian = saints.firstWhere((s) => s.id == 'cyprian-of-carthage');
+        expect(cyprian.category, SaintCategory.martyr);
+
+        // Priests & Religious
+        final francis = saints.firstWhere((s) => s.id == 'francis-of-assisi');
+        expect(francis.category, SaintCategory.priestReligious);
+
+        // Monarchs / Royalty
+        final louis = saints.firstWhere((s) => s.id == 'louis-ix-of-france');
+        expect(louis.category, SaintCategory.monarch);
+      },
+    );
+
+    test(
+      'Saint approximateYear and era parsing work across historical periods',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+
+        // Early Church (<= 500)
+        final polycarp = saints.firstWhere((s) => s.id == 'polycarp-of-smyrna');
+        expect(polycarp.era, SaintEra.earlyChurch);
+
+        // Medieval (501 - 1499)
+        final aquinas = saints.firstWhere((s) => s.id == 'thomas-aquinas');
+        expect(aquinas.era, SaintEra.medieval);
+
+        // Reformation / Early Modern (1500 - 1799)
+        final aloysius = saints.firstWhere((s) => s.id == 'aloysius-gonzaga');
+        expect(aloysius.era, SaintEra.reformation);
+
+        // Modern (1800+)
+        final carlo = saints.firstWhere((s) => s.id == 'carlo-acutis');
+        expect(carlo.era, SaintEra.modern);
+        expect(carlo.approximateYear, 2006);
+      },
+    );
+
+    test(
+      'searchSaints sorts properly across all SaintSortOption values',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+
+        // 1. Name Ascending (A-Z)
+        final nameAsc = SaintDatabase.searchSaints(
+          saints,
+          sortBy: SaintSortOption.nameAsc,
+        );
+        expect(nameAsc.first.name.compareTo(nameAsc.last.name), lessThan(0));
+
+        // 2. Name Descending (Z-A)
+        final nameDesc = SaintDatabase.searchSaints(
+          saints,
+          sortBy: SaintSortOption.nameDesc,
+        );
+        expect(
+          nameDesc.first.name.compareTo(nameDesc.last.name),
+          greaterThan(0),
+        );
+
+        // 3. Feast Day (Jan - Dec)
+        final feastSorted = SaintDatabase.searchSaints(
+          saints,
+          sortBy: SaintSortOption.feastDay,
+        );
+        expect(feastSorted.first.feastMonth, 1); // January
+        expect(feastSorted.last.feastMonth, 12); // December
+
+        // 4. Chronological Ascending (Oldest first)
+        final chronoAsc = SaintDatabase.searchSaints(
+          saints,
+          sortBy: SaintSortOption.chronologicalAsc,
+        );
+        expect(chronoAsc.first.approximateYear, lessThanOrEqualTo(100));
+
+        // 5. Chronological Descending (Newest first)
+        final chronoDesc = SaintDatabase.searchSaints(
+          saints,
+          sortBy: SaintSortOption.chronologicalDesc,
+        );
+        expect(chronoDesc.first.approximateYear, greaterThanOrEqualTo(2000));
+
+        // 6. Doctors First
+        final doctorsFirst = SaintDatabase.searchSaints(
+          saints,
+          sortBy: SaintSortOption.doctorsFirst,
+        );
+        expect(doctorsFirst.first.isDoctor, isTrue);
+      },
+    );
+
+    test(
+      'searchSaints filters by category, era, and feastMonth correctly',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+
+        // Category filter: Martyrs
+        final martyrs = SaintDatabase.searchSaints(
+          saints,
+          category: SaintCategory.martyr,
+        );
+        expect(
+          martyrs.every((s) => s.category == SaintCategory.martyr),
+          isTrue,
+        );
+
+        // Era filter: Modern
+        final modernSaints = SaintDatabase.searchSaints(
+          saints,
+          era: SaintEra.modern,
+        );
+        expect(modernSaints.every((s) => s.era == SaintEra.modern), isTrue);
+
+        // Feast Month filter: October (Month 10)
+        final octoberSaints = SaintDatabase.searchSaints(
+          saints,
+          feastMonth: 10,
+        );
+        expect(octoberSaints.every((s) => s.feastMonth == 10), isTrue);
+        expect(octoberSaints.any((s) => s.id == 'therese-of-lisieux'), isTrue);
+        expect(octoberSaints.any((s) => s.id == 'francis-of-assisi'), isTrue);
+        expect(octoberSaints.any((s) => s.id == 'carlo-acutis'), isTrue);
+      },
+    );
   });
 }
