@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
@@ -10,6 +11,7 @@ import 'package:twelve_stars/screens/missal_tab.dart';
 import 'package:twelve_stars/screens/library_tab.dart';
 import 'package:twelve_stars/screens/saints_screen.dart';
 import 'package:twelve_stars/screens/settings_screen.dart';
+import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
 
 class HomeScreen extends StatefulWidget {
   final DateTime? initialDate;
@@ -279,16 +281,26 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
+  void _onTabSelected(int index) {
+    setState(() {
+      _currentTab = index;
+      if (index != 0 && _isSearching) {
+        _closeSearch();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isWide = isWideScreen(context);
 
     final tabs = [
       _loading
           ? const Center(child: CircularProgressIndicator())
           : _error != null
           ? Center(child: Text('Error loading prayers: $_error'))
-          : _buildPrayersTab(theme),
+          : _buildPrayersTab(theme, isWide: isWide),
       MissalTab(
         primaryLanguage: _primaryLanguage,
         compareLanguage: _compareLanguage,
@@ -300,6 +312,37 @@ class _HomeScreenState extends State<HomeScreen>
       BibleTab(key: _bibleTabKey),
       const LibraryTab(),
     ];
+
+    final content = Stack(
+      children: [
+        tabs[_currentTab],
+        if (_currentTab == 0 || _currentTab == 1)
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: SizeTransition(
+              sizeFactor: _languageSelectorAnimation,
+              alignment: Alignment.topCenter,
+              child: FadeTransition(
+                opacity: _languageSelectorAnimation,
+                child:
+                    _showLanguageSelectors ||
+                        _languageSelectorAnimationController.value > 0
+                    ? Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16.0,
+                          vertical: 12.0,
+                        ),
+                        color: Colors.transparent,
+                        child: _buildGlobalLanguageSelectors(theme),
+                      )
+                    : const SizedBox.shrink(),
+              ),
+            ),
+          ),
+      ],
+    );
 
     final scaffold = Scaffold(
       drawer: _buildDrawer(context),
@@ -384,36 +427,41 @@ class _HomeScreenState extends State<HomeScreen>
         ],
       ),
       body: SafeArea(
-        child: Stack(
-          children: [
-            tabs[_currentTab],
-            if (_currentTab == 0 || _currentTab == 1)
-              Positioned(
-                top: 0,
-                left: 0,
-                right: 0,
-                child: SizeTransition(
-                  sizeFactor: _languageSelectorAnimation,
-                  alignment: Alignment.topCenter,
-                  child: FadeTransition(
-                    opacity: _languageSelectorAnimation,
-                    child:
-                        _showLanguageSelectors ||
-                            _languageSelectorAnimationController.value > 0
-                        ? Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 16.0,
-                              vertical: 12.0,
-                            ),
-                            color: Colors.transparent,
-                            child: _buildGlobalLanguageSelectors(theme),
-                          )
-                        : const SizedBox.shrink(),
+        child: isWide
+            ? Row(
+                children: [
+                  NavigationRail(
+                    selectedIndex: _currentTab,
+                    onDestinationSelected: _onTabSelected,
+                    labelType: NavigationRailLabelType.all,
+                    destinations: const [
+                      NavigationRailDestination(
+                        icon: Icon(Icons.menu_book_outlined),
+                        selectedIcon: Icon(Icons.menu_book),
+                        label: Text('Prayers'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.auto_stories_outlined),
+                        selectedIcon: Icon(Icons.auto_stories),
+                        label: Text('Missal'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.book_outlined),
+                        selectedIcon: Icon(Icons.book),
+                        label: Text('Bible'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.local_library_outlined),
+                        selectedIcon: Icon(Icons.local_library),
+                        label: Text('Library'),
+                      ),
+                    ],
                   ),
-                ),
-              ),
-          ],
-        ),
+                  const VerticalDivider(thickness: 1, width: 1),
+                  Expanded(child: content),
+                ],
+              )
+            : content,
       ),
       floatingActionButton: _currentTab == 0
           ? FloatingActionButton.extended(
@@ -434,39 +482,34 @@ class _HomeScreenState extends State<HomeScreen>
               label: const Text('Start Rosary'),
             )
           : null,
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _currentTab,
-        onDestinationSelected: (index) {
-          setState(() {
-            _currentTab = index;
-            if (index != 0 && _isSearching) {
-              _closeSearch();
-            }
-          });
-        },
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(Icons.menu_book_outlined),
-            selectedIcon: Icon(Icons.menu_book),
-            label: 'Prayers',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.auto_stories_outlined),
-            selectedIcon: Icon(Icons.auto_stories),
-            label: 'Missal',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.book_outlined),
-            selectedIcon: Icon(Icons.book),
-            label: 'Bible',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.local_library_outlined),
-            selectedIcon: Icon(Icons.local_library),
-            label: 'Library',
-          ),
-        ],
-      ),
+      bottomNavigationBar: isWide
+          ? null
+          : NavigationBar(
+              selectedIndex: _currentTab,
+              onDestinationSelected: _onTabSelected,
+              destinations: const [
+                NavigationDestination(
+                  icon: Icon(Icons.menu_book_outlined),
+                  selectedIcon: Icon(Icons.menu_book),
+                  label: 'Prayers',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.auto_stories_outlined),
+                  selectedIcon: Icon(Icons.auto_stories),
+                  label: 'Missal',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.book_outlined),
+                  selectedIcon: Icon(Icons.book),
+                  label: 'Bible',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.local_library_outlined),
+                  selectedIcon: Icon(Icons.local_library),
+                  label: 'Library',
+                ),
+              ],
+            ),
     );
 
     return CallbackShortcuts(
@@ -552,7 +595,70 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  Widget _buildPrayersTab(ThemeData theme) {
+  Widget _buildPrayerCard(Prayer prayer) {
+    final prefKey = '${prayer.prayerId}_${_primaryLanguage.code}';
+    final initialVersion =
+        _settings?.preferredVersions
+            ?.firstWhere(
+              (p) => p.key == prefKey,
+              orElse: () => PrayerVersionPreference(),
+            )
+            .versionIndex ??
+        0;
+
+    return RepaintBoundary(
+      child: PrayerCard(
+        key: ValueKey(prayer.prayerId),
+        prayer: prayer,
+        selectedLanguage: _primaryLanguage,
+        compareLanguage: _compareLanguage,
+        initialVersionIndex: initialVersion,
+        fontSize: _fontSize,
+        onVersionChanged: (newIndex) async {
+          if (_settings != null) {
+            final list = _settings!.preferredVersions ?? [];
+            final idx = list.indexWhere((p) => p.key == prefKey);
+            if (idx >= 0) {
+              list[idx].versionIndex = newIndex;
+            } else {
+              list.add(PrayerVersionPreference(prefKey, newIndex));
+            }
+            _settings!.preferredVersions = list;
+            await PrayerDatabase.saveSettings(_settings!);
+          }
+        },
+      ),
+    );
+  }
+
+  Widget _buildFooterQuote(ThemeData theme) {
+    return Column(
+      children: [
+        const SizedBox(height: 24),
+        Text(
+          '“A great sign appeared in heaven: a woman clothed with the sun, with the moon under her feet, and on her head a crown of twelve stars.”',
+          style: theme.textTheme.bodySmall?.copyWith(
+            color: theme.colorScheme.onSurfaceVariant,
+            fontStyle: FontStyle.italic,
+            height: 1.4,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 6),
+        Text(
+          '— Revelation 12:1',
+          style: theme.textTheme.labelSmall?.copyWith(
+            color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.8),
+            fontWeight: FontWeight.w600,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 24),
+      ],
+    );
+  }
+
+  Widget _buildPrayersTab(ThemeData theme, {required bool isWide}) {
     final prayers = _prayers;
     if (prayers == null || prayers.isEmpty) {
       return const Center(child: Text('No prayers found.'));
@@ -613,10 +719,73 @@ class _HomeScreenState extends State<HomeScreen>
       );
     }
 
+    if (isWide) {
+      return CustomScrollView(
+        controller: _prayersScrollController,
+        scrollCacheExtent: const ScrollCacheExtent.pixels(10000.0),
+        slivers: [
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                left: 16.0,
+                right: 16.0,
+                top: 12.0,
+              ),
+              child: SizeTransition(
+                sizeFactor: _languageSelectorAnimation,
+                alignment: Alignment.topCenter,
+                child: const SizedBox(
+                  height: _kLanguageSelectorTopSpacerHeight,
+                ),
+              ),
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            sliver: SliverCrossAxisGroup(
+              slivers: [
+                SliverCrossAxisExpanded(
+                  flex: 1,
+                  sliver: SliverList.builder(
+                    itemCount: (filteredPrayers.length + 1) ~/ 2,
+                    itemBuilder: (context, index) {
+                      return _buildPrayerCard(filteredPrayers[index * 2]);
+                    },
+                  ),
+                ),
+                const SliverConstrainedCrossAxis(
+                  maxExtent: 12.0,
+                  sliver: SliverToBoxAdapter(),
+                ),
+                SliverCrossAxisExpanded(
+                  flex: 1,
+                  sliver: SliverList.builder(
+                    itemCount: filteredPrayers.length ~/ 2,
+                    itemBuilder: (context, index) {
+                      return _buildPrayerCard(filteredPrayers[index * 2 + 1]);
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                left: 16.0,
+                right: 16.0,
+                bottom: 12.0,
+              ),
+              child: _buildFooterQuote(theme),
+            ),
+          ),
+        ],
+      );
+    }
+
     return ListView.builder(
       controller: _prayersScrollController,
-      // ignore: deprecated_member_use
-      cacheExtent: 10000.0,
+      scrollCacheExtent: const ScrollCacheExtent.pixels(10000.0),
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       itemCount: filteredPrayers.length + 2,
       itemBuilder: (context, index) {
@@ -628,68 +797,11 @@ class _HomeScreenState extends State<HomeScreen>
           );
         }
         if (index == filteredPrayers.length + 1) {
-          return Column(
-            children: [
-              const SizedBox(height: 24),
-              Text(
-                '“A great sign appeared in heaven: a woman clothed with the sun, with the moon under her feet, and on her head a crown of twelve stars.”',
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                  fontStyle: FontStyle.italic,
-                  height: 1.4,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 6),
-              Text(
-                '— Revelation 12:1',
-                style: theme.textTheme.labelSmall?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant.withValues(
-                    alpha: 0.8,
-                  ),
-                  fontWeight: FontWeight.w600,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 24),
-            ],
-          );
+          return _buildFooterQuote(theme);
         }
 
         final prayer = filteredPrayers[index - 1];
-        final prefKey = '${prayer.prayerId}_${_primaryLanguage.code}';
-        final initialVersion =
-            _settings?.preferredVersions
-                ?.firstWhere(
-                  (p) => p.key == prefKey,
-                  orElse: () => PrayerVersionPreference(),
-                )
-                .versionIndex ??
-            0;
-
-        return RepaintBoundary(
-          child: PrayerCard(
-            key: ValueKey(prayer.prayerId),
-            prayer: prayer,
-            selectedLanguage: _primaryLanguage,
-            compareLanguage: _compareLanguage,
-            initialVersionIndex: initialVersion,
-            fontSize: _fontSize,
-            onVersionChanged: (newIndex) async {
-              if (_settings != null) {
-                final list = _settings!.preferredVersions ?? [];
-                final idx = list.indexWhere((p) => p.key == prefKey);
-                if (idx >= 0) {
-                  list[idx].versionIndex = newIndex;
-                } else {
-                  list.add(PrayerVersionPreference(prefKey, newIndex));
-                }
-                _settings!.preferredVersions = list;
-                await PrayerDatabase.saveSettings(_settings!);
-              }
-            },
-          ),
-        );
+        return _buildPrayerCard(prayer);
       },
     );
   }
