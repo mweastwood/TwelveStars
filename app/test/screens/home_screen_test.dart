@@ -870,10 +870,22 @@ void main() {
         expect(find.text('Our Father'), findsOneWidget);
         expect(find.text('Hail Mary', skipOffstage: false), findsOneWidget);
 
+        // Golden: widescreen Prayers tab with NavigationRail and double-column layout
+        await screenMatchesGolden(
+          tester,
+          'home_screen_widescreen_prayers_tab_golden',
+        );
+
         // 3. NavigationRail navigation works
         await tester.tap(find.text('Missal').last);
         await tester.pumpAndSettle();
         expect(find.text('Mass Missal'), findsOneWidget);
+
+        // Golden: widescreen Missal tab via NavigationRail
+        await screenMatchesGolden(
+          tester,
+          'home_screen_widescreen_missal_tab_golden',
+        );
 
         await tester.tap(find.text('Prayers').last);
         await tester.pumpAndSettle();
