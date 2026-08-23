@@ -865,10 +865,19 @@ void main() {
         // 1. NavigationRail should be present, NavigationBar at bottom should not be present
         expect(find.byType(NavigationRail), findsOneWidget);
         expect(find.byType(NavigationBar), findsNothing);
+        expect(find.byType(SliverCrossAxisGroup), findsOneWidget);
 
-        // 2. Double column prayer list should be present
+        // 2. Double column prayer list should be present with correct column placement
+        expect(find.text('Sign of the Cross'), findsOneWidget);
         expect(find.text('Our Father'), findsOneWidget);
         expect(find.text('Hail Mary', skipOffstage: false), findsOneWidget);
+
+        // Verify left column items have a smaller X offset than right column items
+        final signCrossOffset = tester.getTopLeft(
+          find.text('Sign of the Cross'),
+        );
+        final ourFatherOffset = tester.getTopLeft(find.text('Our Father'));
+        expect(signCrossOffset.dx, lessThan(ourFatherOffset.dx));
 
         // Golden: widescreen Prayers tab with NavigationRail and double-column layout
         await screenMatchesGolden(
@@ -890,6 +899,48 @@ void main() {
         await tester.tap(find.text('Prayers').last);
         await tester.pumpAndSettle();
         expect(find.text('Our Father'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'HomeScreen dynamically adapts between narrow and widescreen layouts on resize',
+      (tester) async {
+        TimeHelper.setCustomTime(DateTime(2026, 7, 6));
+
+        // 1. Start with wide layout (>= 600px)
+        tester.view.physicalSize = const Size(1024, 768);
+        tester.view.devicePixelRatio = 1.0;
+        addTearDown(() {
+          tester.view.resetPhysicalSize();
+          tester.view.resetDevicePixelRatio();
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(NavigationRail), findsOneWidget);
+        expect(find.byType(NavigationBar), findsNothing);
+        expect(find.byType(SliverCrossAxisGroup), findsOneWidget);
+
+        // 2. Resize dynamically to narrow layout (< 600px)
+        tester.view.physicalSize = const Size(400, 800);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(NavigationRail), findsNothing);
+        expect(find.byType(NavigationBar), findsOneWidget);
+        expect(find.byType(SliverCrossAxisGroup), findsNothing);
+
+        // 3. Resize back to wide layout (>= 600px)
+        tester.view.physicalSize = const Size(1024, 768);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(NavigationRail), findsOneWidget);
+        expect(find.byType(NavigationBar), findsNothing);
+        expect(find.byType(SliverCrossAxisGroup), findsOneWidget);
       },
     );
   });

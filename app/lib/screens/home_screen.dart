@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
@@ -280,16 +281,26 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
+  void _onTabSelected(int index) {
+    setState(() {
+      _currentTab = index;
+      if (index != 0 && _isSearching) {
+        _closeSearch();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isWide = isWideScreen(context);
 
     final tabs = [
       _loading
           ? const Center(child: CircularProgressIndicator())
           : _error != null
           ? Center(child: Text('Error loading prayers: $_error'))
-          : _buildPrayersTab(theme),
+          : _buildPrayersTab(theme, isWide: isWide),
       MissalTab(
         primaryLanguage: _primaryLanguage,
         compareLanguage: _compareLanguage,
@@ -301,8 +312,6 @@ class _HomeScreenState extends State<HomeScreen>
       BibleTab(key: _bibleTabKey),
       const LibraryTab(),
     ];
-
-    final isWide = isWideScreen(context);
 
     final content = Stack(
       children: [
@@ -423,14 +432,7 @@ class _HomeScreenState extends State<HomeScreen>
                 children: [
                   NavigationRail(
                     selectedIndex: _currentTab,
-                    onDestinationSelected: (index) {
-                      setState(() {
-                        _currentTab = index;
-                        if (index != 0 && _isSearching) {
-                          _closeSearch();
-                        }
-                      });
-                    },
+                    onDestinationSelected: _onTabSelected,
                     labelType: NavigationRailLabelType.all,
                     destinations: const [
                       NavigationRailDestination(
@@ -484,14 +486,7 @@ class _HomeScreenState extends State<HomeScreen>
           ? null
           : NavigationBar(
               selectedIndex: _currentTab,
-              onDestinationSelected: (index) {
-                setState(() {
-                  _currentTab = index;
-                  if (index != 0 && _isSearching) {
-                    _closeSearch();
-                  }
-                });
-              },
+              onDestinationSelected: _onTabSelected,
               destinations: const [
                 NavigationDestination(
                   icon: Icon(Icons.menu_book_outlined),
@@ -663,7 +658,7 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  Widget _buildPrayersTab(ThemeData theme) {
+  Widget _buildPrayersTab(ThemeData theme, {required bool isWide}) {
     final prayers = _prayers;
     if (prayers == null || prayers.isEmpty) {
       return const Center(child: Text('No prayers found.'));
@@ -724,53 +719,73 @@ class _HomeScreenState extends State<HomeScreen>
       );
     }
 
-    final isWide = isWideScreen(context);
-
     if (isWide) {
-      return ListView(
+      return CustomScrollView(
         controller: _prayersScrollController,
-        // ignore: deprecated_member_use
-        cacheExtent: 10000.0,
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-        children: [
-          SizeTransition(
-            sizeFactor: _languageSelectorAnimation,
-            alignment: Alignment.topCenter,
-            child: const SizedBox(height: _kLanguageSelectorTopSpacerHeight),
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    for (int i = 0; i < filteredPrayers.length; i += 2)
-                      _buildPrayerCard(filteredPrayers[i]),
-                  ],
+        scrollCacheExtent: const ScrollCacheExtent.pixels(10000.0),
+        slivers: [
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                left: 16.0,
+                right: 16.0,
+                top: 12.0,
+              ),
+              child: SizeTransition(
+                sizeFactor: _languageSelectorAnimation,
+                alignment: Alignment.topCenter,
+                child: const SizedBox(
+                  height: _kLanguageSelectorTopSpacerHeight,
                 ),
               ),
-              const SizedBox(width: 12.0),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    for (int i = 1; i < filteredPrayers.length; i += 2)
-                      _buildPrayerCard(filteredPrayers[i]),
-                  ],
-                ),
-              ),
-            ],
+            ),
           ),
-          _buildFooterQuote(theme),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            sliver: SliverCrossAxisGroup(
+              slivers: [
+                SliverCrossAxisExpanded(
+                  flex: 1,
+                  sliver: SliverList.builder(
+                    itemCount: (filteredPrayers.length + 1) ~/ 2,
+                    itemBuilder: (context, index) {
+                      return _buildPrayerCard(filteredPrayers[index * 2]);
+                    },
+                  ),
+                ),
+                const SliverConstrainedCrossAxis(
+                  maxExtent: 12.0,
+                  sliver: SliverToBoxAdapter(),
+                ),
+                SliverCrossAxisExpanded(
+                  flex: 1,
+                  sliver: SliverList.builder(
+                    itemCount: filteredPrayers.length ~/ 2,
+                    itemBuilder: (context, index) {
+                      return _buildPrayerCard(filteredPrayers[index * 2 + 1]);
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                left: 16.0,
+                right: 16.0,
+                bottom: 12.0,
+              ),
+              child: _buildFooterQuote(theme),
+            ),
+          ),
         ],
       );
     }
 
     return ListView.builder(
       controller: _prayersScrollController,
-      // ignore: deprecated_member_use
-      cacheExtent: 10000.0,
+      scrollCacheExtent: const ScrollCacheExtent.pixels(10000.0),
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       itemCount: filteredPrayers.length + 2,
       itemBuilder: (context, index) {
