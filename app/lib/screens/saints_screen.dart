@@ -314,6 +314,7 @@ class _SaintsScreenState extends State<SaintsScreen> {
                   FilterChip(
                     key: const Key('doctor_filter_chip'),
                     label: const Text('Doctors of the Church only'),
+                    showCheckmark: false,
                     avatar: Icon(
                       Icons.star,
                       color: _doctorsOnly
@@ -332,6 +333,7 @@ class _SaintsScreenState extends State<SaintsScreen> {
                   FilterChip(
                     key: const Key('men_filter_chip'),
                     label: const Text('Men'),
+                    showCheckmark: false,
                     avatar: Icon(
                       Icons.male,
                       color: _selectedGender == 'male'
@@ -350,6 +352,7 @@ class _SaintsScreenState extends State<SaintsScreen> {
                   FilterChip(
                     key: const Key('women_filter_chip'),
                     label: const Text('Women'),
+                    showCheckmark: false,
                     avatar: Icon(
                       Icons.female,
                       color: _selectedGender == 'female'
@@ -368,6 +371,7 @@ class _SaintsScreenState extends State<SaintsScreen> {
                   FilterChip(
                     key: const Key('martyrs_filter_chip'),
                     label: const Text('Martyrs'),
+                    showCheckmark: false,
                     avatar: Icon(
                       Icons.local_fire_department,
                       color: _selectedCategory == SaintCategory.martyr
@@ -388,6 +392,7 @@ class _SaintsScreenState extends State<SaintsScreen> {
                   FilterChip(
                     key: const Key('apostles_filter_chip'),
                     label: const Text('Apostles'),
+                    showCheckmark: false,
                     avatar: Icon(
                       Icons.auto_stories,
                       color: _selectedCategory == SaintCategory.apostle
@@ -408,6 +413,7 @@ class _SaintsScreenState extends State<SaintsScreen> {
                   FilterChip(
                     key: const Key('bishops_filter_chip'),
                     label: const Text('Bishops & Popes'),
+                    showCheckmark: false,
                     avatar: Icon(
                       Icons.account_balance,
                       color: _selectedCategory == SaintCategory.popeBishop
@@ -428,6 +434,7 @@ class _SaintsScreenState extends State<SaintsScreen> {
                   FilterChip(
                     key: const Key('religious_filter_chip'),
                     label: const Text('Priests & Religious'),
+                    showCheckmark: false,
                     avatar: Icon(
                       Icons.church,
                       color: _selectedCategory == SaintCategory.priestReligious
