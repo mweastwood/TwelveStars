@@ -207,6 +207,17 @@ class Saint {
         profLower.contains('divine mercy')) {
       return SaintCategory.mystic;
     }
+    if (profLower.contains('foster father') ||
+        profLower.contains('father of jesus') ||
+        profLower.contains('spouse of mary') ||
+        profLower.contains('spouse of the virgin mary') ||
+        profLower.contains('mother of god') ||
+        profLower.contains('theotokos') ||
+        profLower.contains('holy family') ||
+        nameLower.contains('blessed virgin mary') ||
+        (nameLower.contains('joseph') && profLower.contains('carpenter'))) {
+      return SaintCategory.holyFamily;
+    }
     if (profLower.contains('king') ||
         profLower.contains('queen') ||
         profLower.contains('emperor') ||
@@ -217,15 +228,6 @@ class Saint {
         profLower.contains('duke') ||
         profLower.contains('duchess')) {
       return SaintCategory.monarch;
-    }
-    if (profLower.contains('foster father') ||
-        profLower.contains('father of jesus') ||
-        profLower.contains('spouse of mary') ||
-        profLower.contains('spouse of the virgin mary') ||
-        profLower.contains('mother of god') ||
-        profLower.contains('holy family') ||
-        (nameLower.contains('joseph') && profLower.contains('carpenter'))) {
-      return SaintCategory.holyFamily;
     }
     if (profLower.contains('mother') ||
         profLower.contains('father') ||

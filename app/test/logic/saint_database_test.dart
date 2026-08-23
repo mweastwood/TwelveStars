@@ -732,11 +732,15 @@ void main() {
         final maleSaints = saints.where((s) => s.isMale).toList();
         final groupSaints = saints.where((s) => s.gender == 'group').toList();
 
-        expect(femaleSaints.length, 42);
+        expect(femaleSaints.length, 43);
         expect(maleSaints.length, 149);
         expect(groupSaints.length, 4);
 
         // Verify specific prominent female saints
+        final mary = saints.firstWhere((s) => s.id == 'mary-mother-of-god');
+        expect(mary.gender, 'female');
+        expect(mary.isFemale, isTrue);
+
         final agnes = saints.firstWhere((s) => s.id == 'agnes-of-rome');
         expect(agnes.gender, 'female');
         expect(agnes.isFemale, isTrue);
@@ -765,7 +769,7 @@ void main() {
 
       // 2. Female saints filter
       final women = SaintDatabase.searchSaints(saints, gender: 'female');
-      expect(women.length, 42);
+      expect(women.length, 43);
       expect(women.every((s) => s.isFemale), isTrue);
 
       // 3. Female Doctors of the Church (4 total)
@@ -1031,6 +1035,11 @@ void main() {
         );
 
         // Verify Holy Family
+        final mary = saints.firstWhere((s) => s.id == 'mary-mother-of-god');
+        expect(mary.category, SaintCategory.holyFamily);
+        expect(mary.categoryIcon, Icons.family_restroom_rounded);
+        expect(mary.isFemale, isTrue);
+
         final joseph = saints.firstWhere((s) => s.id == 'joseph');
         expect(joseph.category, SaintCategory.holyFamily);
         expect(joseph.categoryIcon, Icons.family_restroom_rounded);
