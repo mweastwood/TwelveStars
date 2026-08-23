@@ -1300,6 +1300,8 @@ void main() {
         // 6. St. Teresa of Ávila & St. Catherine of Siena
         final teresaAvila = saints.firstWhere((s) => s.id == 'teresa-of-avila');
         expect(teresaAvila.categories, contains(SaintCategory.doctor));
+        expect(teresaAvila.categories, contains(SaintCategory.mystic));
+        expect(teresaAvila.categories, contains(SaintCategory.virgin));
         expect(teresaAvila.categories, contains(SaintCategory.priestReligious));
 
         final catherineSiena = saints.firstWhere(
@@ -1307,6 +1309,7 @@ void main() {
         );
         expect(catherineSiena.categories, contains(SaintCategory.doctor));
         expect(catherineSiena.categories, contains(SaintCategory.mystic));
+        expect(catherineSiena.categories, contains(SaintCategory.virgin));
         expect(
           catherineSiena.categories,
           contains(SaintCategory.priestReligious),
@@ -1324,7 +1327,60 @@ void main() {
 
         final louisIX = saints.firstWhere((s) => s.id == 'louis-ix-of-france');
         expect(louisIX.categories, contains(SaintCategory.monarch));
+        expect(louisIX.categories, contains(SaintCategory.laity));
         expect(louisIX.categories, contains(SaintCategory.priestReligious));
+
+        // 9. Apostles who were also Martyrs / Popes / Evangelists / Missionaries
+        final peter = saints.firstWhere((s) => s.id == 'peter-the-apostle');
+        expect(peter.categories, contains(SaintCategory.apostle));
+        expect(peter.categories, contains(SaintCategory.pope));
+        expect(peter.categories, contains(SaintCategory.martyr));
+
+        final paul = saints.firstWhere((s) => s.id == 'paul-the-apostle');
+        expect(paul.categories, contains(SaintCategory.apostle));
+        expect(paul.categories, contains(SaintCategory.martyr));
+        expect(paul.categories, contains(SaintCategory.healerMissionary));
+
+        final matthew = saints.firstWhere((s) => s.id == 'matthew-the-apostle');
+        expect(matthew.categories, contains(SaintCategory.apostle));
+        expect(matthew.categories, contains(SaintCategory.evangelist));
+        expect(matthew.categories, contains(SaintCategory.martyr));
+
+        // 10. Popes who are Martyrs / Priests / Religious
+        final clement = saints.firstWhere((s) => s.id == 'clement-of-rome');
+        expect(clement.categories, contains(SaintCategory.pope));
+        expect(clement.categories, contains(SaintCategory.martyr));
+
+        final piusV = saints.firstWhere((s) => s.id == 'pius-v');
+        expect(piusV.categories, contains(SaintCategory.pope));
+        expect(piusV.categories, contains(SaintCategory.priestReligious));
+
+        // 11. Holy Family: Mary & Joseph
+        final mary = saints.firstWhere((s) => s.id == 'mary-mother-of-god');
+        expect(mary.categories, contains(SaintCategory.holyFamily));
+        expect(mary.categories, contains(SaintCategory.mystic));
+        expect(mary.categories, contains(SaintCategory.virgin));
+
+        final joseph = saints.firstWhere((s) => s.id == 'joseph');
+        expect(joseph.categories, contains(SaintCategory.holyFamily));
+        expect(joseph.categories, contains(SaintCategory.laity));
+
+        // 12. Missionaries & Healers: Mother Teresa, Damien, Cabrini, Martin de Porres
+        final motherTeresa = saints.firstWhere((s) => s.id == 'mother-teresa');
+        expect(
+          motherTeresa.categories,
+          contains(SaintCategory.healerMissionary),
+        );
+        expect(motherTeresa.categories, contains(SaintCategory.mystic));
+        expect(motherTeresa.categories, contains(SaintCategory.virgin));
+        expect(
+          motherTeresa.categories,
+          contains(SaintCategory.priestReligious),
+        );
+
+        final damien = saints.firstWhere((s) => s.id == 'damien-of-molokai');
+        expect(damien.categories, contains(SaintCategory.healerMissionary));
+        expect(damien.categories, contains(SaintCategory.priestReligious));
       },
     );
 
