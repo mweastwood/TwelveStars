@@ -453,21 +453,42 @@ class _SaintsScreenState extends State<SaintsScreen> {
                   ),
                   const SizedBox(width: 8),
                   FilterChip(
+                    key: const Key('popes_filter_chip'),
+                    label: const Text('Popes'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.vpn_key,
+                      color: _selectedCategory == SaintCategory.pope
+                          ? const Color(0xFFD97706)
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.pope,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.pope
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
                     key: const Key('bishops_filter_chip'),
-                    label: const Text('Bishops & Popes'),
+                    label: const Text('Bishops'),
                     showCheckmark: false,
                     avatar: Icon(
                       Icons.account_balance,
-                      color: _selectedCategory == SaintCategory.popeBishop
+                      color: _selectedCategory == SaintCategory.bishop
                           ? theme.colorScheme.primary
                           : theme.colorScheme.onSurfaceVariant,
                       size: 16,
                     ),
-                    selected: _selectedCategory == SaintCategory.popeBishop,
+                    selected: _selectedCategory == SaintCategory.bishop,
                     onSelected: (selected) {
                       setState(() {
                         _selectedCategory = selected
-                            ? SaintCategory.popeBishop
+                            ? SaintCategory.bishop
                             : null;
                       });
                     },

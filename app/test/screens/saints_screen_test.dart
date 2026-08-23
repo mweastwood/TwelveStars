@@ -400,6 +400,24 @@ void main() {
             feastDay: 'May 6',
             gender: 'male',
           ),
+          const Saint(
+            id: 'pius-v',
+            name: 'St. Pius V (Antonio Ghislieri)',
+            nationality: 'Italian',
+            profession: 'Pope & Dominican Friar',
+            isDoctor: false,
+            feastDay: 'April 30',
+            gender: 'male',
+          ),
+          const Saint(
+            id: 'nicholas-of-myra',
+            name: 'St. Nicholas of Myra',
+            nationality: 'Greek / Roman',
+            profession: 'Bishop of Myra & Wonderworker',
+            isDoctor: false,
+            feastDay: 'December 6',
+            gender: 'male',
+          ),
         ];
 
         await tester.pumpWidget(
@@ -464,8 +482,40 @@ void main() {
           findsNothing,
         );
 
-        // Untap Evangelists, tap Holy Family
+        // Untap Evangelists, tap Popes
         await tester.tap(evangelistsChip);
+        await tester.pumpAndSettle();
+
+        final popesChip = find.byKey(const Key('popes_filter_chip'));
+        await tester.ensureVisible(popesChip);
+        await tester.pumpAndSettle();
+        await tester.tap(popesChip);
+        await tester.pumpAndSettle();
+
+        expect(find.byKey(const Key('saint_tile_pius-v')), findsOneWidget);
+        expect(
+          find.byKey(const Key('saint_tile_nicholas-of-myra')),
+          findsNothing,
+        );
+
+        // Untap Popes, tap Bishops
+        await tester.tap(popesChip);
+        await tester.pumpAndSettle();
+
+        final bishopsChip = find.byKey(const Key('bishops_filter_chip'));
+        await tester.ensureVisible(bishopsChip);
+        await tester.pumpAndSettle();
+        await tester.tap(bishopsChip);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_nicholas-of-myra')),
+          findsOneWidget,
+        );
+        expect(find.byKey(const Key('saint_tile_pius-v')), findsNothing);
+
+        // Untap Bishops, tap Holy Family
+        await tester.tap(bishopsChip);
         await tester.pumpAndSettle();
 
         final holyFamilyChip = find.byKey(const Key('holy_family_filter_chip'));
