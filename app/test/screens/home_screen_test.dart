@@ -340,7 +340,20 @@ void main() {
 
       // Verify drawer is open
       expect(find.byType(Drawer), findsOneWidget);
+      expect(
+        find.descendant(of: find.byType(Drawer), matching: find.text('Menu')),
+        findsOneWidget,
+      );
+      expect(find.byKey(const Key('drawer_saints_tile')), findsOneWidget);
       expect(find.byKey(const Key('drawer_settings_tile')), findsOneWidget);
+      expect(find.byKey(const Key('drawer_version_tile')), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byKey(const Key('drawer_version_tile')),
+          matching: find.text('v0.0.0-dev'),
+        ),
+        findsOneWidget,
+      );
 
       // Tap settings tile
       await tester.tap(find.byKey(const Key('drawer_settings_tile')));
@@ -822,6 +835,41 @@ void main() {
       await screenMatchesGolden(tester, 'home_screen_search_empty_golden');
       await tester.tap(find.byIcon(Icons.arrow_back));
       await tester.pumpAndSettle();
+    });
+
+    testGoldens('HomeScreen drawer menu renders correctly', (tester) async {
+      TimeHelper.setCustomTime(DateTime(2026, 7, 6));
+      await tester.pumpWidgetBuilder(
+        HomeScreen(initialDate: DateTime(2026, 7, 6)),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(400, 800),
+      );
+      await tester.pump();
+      await tester.pumpAndSettle();
+
+      // Open drawer using the menu icon
+      await tester.tap(find.byIcon(Icons.menu));
+      await tester.pumpAndSettle();
+
+      // Verify drawer is open with expected items
+      expect(find.byType(Drawer), findsOneWidget);
+      expect(
+        find.descendant(of: find.byType(Drawer), matching: find.text('Menu')),
+        findsOneWidget,
+      );
+      expect(find.byKey(const Key('drawer_saints_tile')), findsOneWidget);
+      expect(find.byKey(const Key('drawer_settings_tile')), findsOneWidget);
+      expect(find.byKey(const Key('drawer_version_tile')), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byKey(const Key('drawer_version_tile')),
+          matching: find.text('v0.0.0-dev'),
+        ),
+        findsOneWidget,
+      );
+
+      // Golden: Drawer / Hamburger menu open state
+      await screenMatchesGolden(tester, 'home_screen_drawer_golden');
     });
 
     testWidgets('HomeScreen opens font size options modal and adjusts slider', (
