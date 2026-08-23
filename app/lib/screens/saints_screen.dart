@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
+import 'package:twelve_stars/theme/app_theme_tokens.dart';
 import 'package:twelve_stars/widgets/saint_card.dart';
 
 class SaintsScreen extends StatefulWidget {
@@ -511,6 +512,91 @@ class _SaintsScreenState extends State<SaintsScreen> {
                       setState(() {
                         _selectedCategory = selected
                             ? SaintCategory.priestReligious
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('mystics_filter_chip'),
+                    label: const Text('Mystics & Contemplatives'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.wb_sunny,
+                      color: _selectedCategory == SaintCategory.mystic
+                          ? AppThemeTokens.liturgicalRose
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.mystic,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.mystic
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('virgins_filter_chip'),
+                    label: const Text('Virgins & Consecrated'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.local_florist,
+                      color: _selectedCategory == SaintCategory.virgin
+                          ? AppThemeTokens.marianBlue
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.virgin,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.virgin
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('monarchs_filter_chip'),
+                    label: const Text('Rulers & Monarchs'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.workspace_premium,
+                      color: _selectedCategory == SaintCategory.monarch
+                          ? AppThemeTokens.liturgicalPurple
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.monarch,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.monarch
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('healers_filter_chip'),
+                    label: const Text('Healers & Missionaries'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.healing,
+                      color: _selectedCategory == SaintCategory.healerMissionary
+                          ? const Color(0xFF00897B)
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected:
+                        _selectedCategory == SaintCategory.healerMissionary,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.healerMissionary
                             : null;
                       });
                     },

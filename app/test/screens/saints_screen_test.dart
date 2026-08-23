@@ -342,16 +342,19 @@ void main() {
         find.byKey(const Key('saint_tile_francis-of-assisi')),
         findsOneWidget,
       );
-      expect(find.byKey(const Key('saint_tile_thomas-aquinas')), findsNothing);
+      expect(
+        find.byKey(const Key('saint_tile_thomas-aquinas')),
+        findsOneWidget,
+      );
       expect(
         find.byKey(const Key('saint_tile_therese-of-lisieux')),
-        findsNothing,
+        findsOneWidget,
       );
-      expect(find.text('1 saint'), findsOneWidget);
+      expect(find.text('3 saints'), findsOneWidget);
     });
 
     testWidgets(
-      'Filters by category chips (Angels, Apostles, and Evangelists)',
+      'Filters by category chips (Angels, Apostles, Evangelists, Popes, Bishops, Mystics, Virgins, Monarchs, Healers, Holy Family, Laity)',
       (tester) async {
         SaintDatabase.mockSaints = [
           ...mockSaintsList,
@@ -362,7 +365,7 @@ void main() {
             profession: 'Archangel & Defender of the Church',
             isDoctor: false,
             feastDay: 'September 29',
-            gender: 'group',
+            gender: 'other',
           ),
           const Saint(
             id: 'peter-the-apostle',
@@ -417,6 +420,42 @@ void main() {
             isDoctor: false,
             feastDay: 'December 6',
             gender: 'male',
+          ),
+          const Saint(
+            id: 'padre-pio',
+            name: 'St. Pio of Pietrelcina (Padre Pio)',
+            nationality: 'Italian',
+            profession: 'Capuchin Friar, Priest & Stigmatist',
+            isDoctor: false,
+            feastDay: 'September 23',
+            gender: 'male',
+          ),
+          const Saint(
+            id: 'kateri-tekakwitha',
+            name: 'St. Kateri Tekakwitha',
+            nationality: 'Mohawk / Algonquin',
+            profession: 'Lay Consecrated Virgin & Lily of the Mohawks',
+            isDoctor: false,
+            feastDay: 'July 14',
+            gender: 'female',
+          ),
+          const Saint(
+            id: 'louis-ix-of-france',
+            name: 'St. Louis IX of France',
+            nationality: 'French',
+            profession: 'King of France & Third Order Franciscan',
+            isDoctor: false,
+            feastDay: 'August 25',
+            gender: 'male',
+          ),
+          const Saint(
+            id: 'gianna-beretta-molla',
+            name: 'St. Gianna Beretta Molla',
+            nationality: 'Italian',
+            profession: 'Pediatrician & Mother',
+            isDoctor: false,
+            feastDay: 'April 28',
+            gender: 'female',
           ),
         ];
 
@@ -494,8 +533,8 @@ void main() {
 
         expect(find.byKey(const Key('saint_tile_pius-v')), findsOneWidget);
         expect(
-          find.byKey(const Key('saint_tile_nicholas-of-myra')),
-          findsNothing,
+          find.byKey(const Key('saint_tile_peter-the-apostle')),
+          findsOneWidget,
         );
 
         // Untap Popes, tap Bishops
@@ -514,8 +553,78 @@ void main() {
         );
         expect(find.byKey(const Key('saint_tile_pius-v')), findsNothing);
 
-        // Untap Bishops, tap Holy Family
+        // Untap Bishops, tap Mystics
         await tester.tap(bishopsChip);
+        await tester.pumpAndSettle();
+
+        final mysticsChip = find.byKey(const Key('mystics_filter_chip'));
+        await tester.ensureVisible(mysticsChip);
+        await tester.pumpAndSettle();
+        await tester.tap(mysticsChip);
+        await tester.pumpAndSettle();
+
+        expect(find.byKey(const Key('saint_tile_padre-pio')), findsOneWidget);
+        expect(
+          find.byKey(const Key('saint_tile_nicholas-of-myra')),
+          findsNothing,
+        );
+
+        // Untap Mystics, tap Virgins
+        await tester.tap(mysticsChip);
+        await tester.pumpAndSettle();
+
+        final virginsChip = find.byKey(const Key('virgins_filter_chip'));
+        await tester.ensureVisible(virginsChip);
+        await tester.pumpAndSettle();
+        await tester.tap(virginsChip);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_kateri-tekakwitha')),
+          findsOneWidget,
+        );
+        expect(find.byKey(const Key('saint_tile_padre-pio')), findsNothing);
+
+        // Untap Virgins, tap Monarchs
+        await tester.tap(virginsChip);
+        await tester.pumpAndSettle();
+
+        final monarchsChip = find.byKey(const Key('monarchs_filter_chip'));
+        await tester.ensureVisible(monarchsChip);
+        await tester.pumpAndSettle();
+        await tester.tap(monarchsChip);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_louis-ix-of-france')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_kateri-tekakwitha')),
+          findsNothing,
+        );
+
+        // Untap Monarchs, tap Healers & Missionaries
+        await tester.tap(monarchsChip);
+        await tester.pumpAndSettle();
+
+        final healersChip = find.byKey(const Key('healers_filter_chip'));
+        await tester.ensureVisible(healersChip);
+        await tester.pumpAndSettle();
+        await tester.tap(healersChip);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_gianna-beretta-molla')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_luke-the-evangelist')),
+          findsOneWidget,
+        );
+
+        // Untap Healers, tap Holy Family
+        await tester.tap(healersChip);
         await tester.pumpAndSettle();
 
         final holyFamilyChip = find.byKey(const Key('holy_family_filter_chip'));
@@ -541,7 +650,67 @@ void main() {
           find.byKey(const Key('saint_tile_dominic-savio')),
           findsOneWidget,
         );
-        expect(find.byKey(const Key('saint_tile_joseph')), findsNothing);
+        expect(
+          find.byKey(const Key('saint_tile_gianna-beretta-molla')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_kateri-tekakwitha')),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'Renders dual and triple category badges on SaintCard and SaintDetailsSheet',
+      (tester) async {
+        final multiSaint = const Saint(
+          id: 'test-multi-saint',
+          name: 'St. Test Multi Saint',
+          nationality: 'Italian',
+          profession: 'Doctor of the Church, Carmelite Priest & Mystic',
+          isDoctor: true,
+          gender: 'male',
+        );
+        SaintDatabase.mockSaints = [multiSaint];
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const SaintsScreen()),
+        );
+        await tester.pumpAndSettle();
+
+        // 1. SaintCard should display badges for Doctor, Mystic, and Priest & Religious
+        expect(find.text('Doctor of the Church'), findsOneWidget);
+        expect(find.text('Mystic & Contemplative'), findsOneWidget);
+        expect(find.text('Priest & Religious'), findsOneWidget);
+
+        // 2. Open details sheet
+        await tester.tap(find.byKey(const Key('saint_tile_test-multi-saint')));
+        await tester.pumpAndSettle();
+
+        final sheetFinder = find.byType(SaintDetailsSheet);
+        expect(sheetFinder, findsOneWidget);
+        expect(
+          find.descendant(
+            of: sheetFinder,
+            matching: find.text('Doctor of the Church'),
+          ),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(
+            of: sheetFinder,
+            matching: find.text('Mystic & Contemplative'),
+          ),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(
+            of: sheetFinder,
+            matching: find.text('Priest & Religious'),
+          ),
+          findsOneWidget,
+        );
       },
     );
 

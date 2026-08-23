@@ -53,6 +53,78 @@ enum SaintCategory {
         return 'Saint';
     }
   }
+
+  /// Icon corresponding to the category.
+  IconData get icon {
+    switch (this) {
+      case SaintCategory.doctor:
+        return Icons.menu_book_rounded;
+      case SaintCategory.angel:
+        return Icons.flare_rounded;
+      case SaintCategory.holyFamily:
+        return Icons.family_restroom_rounded;
+      case SaintCategory.apostle:
+        return Icons.stars_rounded;
+      case SaintCategory.evangelist:
+        return Icons.auto_stories_rounded;
+      case SaintCategory.martyr:
+        return Icons.local_fire_department_rounded;
+      case SaintCategory.pope:
+        return Icons.vpn_key_rounded;
+      case SaintCategory.bishop:
+        return Icons.account_balance_rounded;
+      case SaintCategory.priestReligious:
+        return Icons.church_rounded;
+      case SaintCategory.mystic:
+        return Icons.wb_sunny_rounded;
+      case SaintCategory.virgin:
+        return Icons.local_florist_rounded;
+      case SaintCategory.monarch:
+        return Icons.workspace_premium_rounded;
+      case SaintCategory.healerMissionary:
+        return Icons.healing_rounded;
+      case SaintCategory.laity:
+        return Icons.groups_rounded;
+      case SaintCategory.other:
+        return Icons.person_rounded;
+    }
+  }
+
+  /// Color tint for category badge/icon.
+  Color color(ThemeData theme) {
+    switch (this) {
+      case SaintCategory.doctor:
+        return AppThemeTokens.liturgicalGold;
+      case SaintCategory.angel:
+        return const Color(0xFF00ACC1); // Cyan 600
+      case SaintCategory.holyFamily:
+        return const Color(0xFFAD1457); // Crimson / Rose 800
+      case SaintCategory.apostle:
+        return AppThemeTokens.marianBlue;
+      case SaintCategory.evangelist:
+        return const Color(0xFFE65100); // Deep Orange 900
+      case SaintCategory.martyr:
+        return AppThemeTokens.liturgicalRed;
+      case SaintCategory.pope:
+        return const Color(0xFFD97706); // Papal Amber / Gold
+      case SaintCategory.bishop:
+        return AppThemeTokens.liturgicalPurple;
+      case SaintCategory.priestReligious:
+        return AppThemeTokens.liturgicalGreen;
+      case SaintCategory.mystic:
+        return AppThemeTokens.liturgicalRose;
+      case SaintCategory.virgin:
+        return AppThemeTokens.marianBlue;
+      case SaintCategory.monarch:
+        return AppThemeTokens.liturgicalPurple;
+      case SaintCategory.healerMissionary:
+        return const Color(0xFF00897B); // Teal 600
+      case SaintCategory.laity:
+        return const Color(0xFF5C6BC0); // Indigo 400
+      case SaintCategory.other:
+        return theme.colorScheme.primary;
+    }
+  }
 }
 
 /// Historical eras for timeline filtering.
@@ -172,22 +244,28 @@ class Saint {
     return '';
   }
 
-  /// Categorizes saint according to titles, doctor status, and profession.
-  SaintCategory get category {
-    if (isDoctor) {
-      return SaintCategory.doctor;
-    }
+  /// Returns all categories matching this saint based on status, titles, profession, and history.
+  List<SaintCategory> get categories {
+    final List<SaintCategory> list = [];
     final profLower = profession.toLowerCase();
     final nameLower = name.toLowerCase();
     final natLower = nationality.toLowerCase();
 
+    // 1. Doctor of the Church
+    if (isDoctor) {
+      list.add(SaintCategory.doctor);
+    }
+
+    // 2. Angel
     if (natLower.contains('angelic') ||
         profLower.contains('archangel') ||
         nameLower.contains('archangel') ||
         RegExp(r'\barchangels?\b|\bangels?\b').hasMatch(profLower) ||
         RegExp(r'\barchangels?\b|\bangels?\b').hasMatch(nameLower)) {
-      return SaintCategory.angel;
+      list.add(SaintCategory.angel);
     }
+
+    // 3. Apostle
     final isBiblicalApostle = const {
       'andrew-the-apostle',
       'barnabas',
@@ -218,29 +296,42 @@ class Saint {
                 nameLower.contains('matthias') ||
                 nameLower.contains('thaddeus') ||
                 nameLower.contains('zealot')))) {
-      return SaintCategory.apostle;
+      list.add(SaintCategory.apostle);
     }
+
+    // 4. Evangelist
     if (profLower.contains('evangelist') || nameLower.contains('evangelist')) {
-      return SaintCategory.evangelist;
+      list.add(SaintCategory.evangelist);
     }
+
+    // 5. Pope
     if (profLower.contains('pope') || nameLower.contains('pope')) {
-      return SaintCategory.pope;
+      list.add(SaintCategory.pope);
     }
+
+    // 6. Martyr
     if (profLower.contains('martyr') || nameLower.contains('martyrs')) {
-      return SaintCategory.martyr;
+      list.add(SaintCategory.martyr);
     }
+
+    // 7. Bishop
     if (profLower.contains('bishop') ||
         profLower.contains('patriarch') ||
-        profLower.contains('cardinal')) {
-      return SaintCategory.bishop;
+        profLower.contains('cardinal') ||
+        profLower.contains('archbishop')) {
+      list.add(SaintCategory.bishop);
     }
+
+    // 8. Mystic & Contemplative
     if (profLower.contains('mystic') ||
         profLower.contains('stigmatist') ||
         profLower.contains('visionary') ||
         profLower.contains('contemplative') ||
         profLower.contains('divine mercy')) {
-      return SaintCategory.mystic;
+      list.add(SaintCategory.mystic);
     }
+
+    // 9. Holy Family
     if (profLower.contains('foster father') ||
         profLower.contains('father of jesus') ||
         profLower.contains('spouse of mary') ||
@@ -250,51 +341,107 @@ class Saint {
         profLower.contains('holy family') ||
         nameLower.contains('blessed virgin mary') ||
         (nameLower.contains('joseph') && profLower.contains('carpenter'))) {
-      return SaintCategory.holyFamily;
+      list.add(SaintCategory.holyFamily);
     }
-    if (profLower.contains('king') ||
-        profLower.contains('queen') ||
+
+    // 10. Monarch / Ruler
+    final isMonarchTitle =
+        profLower.contains('king') ||
+        (profLower.contains('queen') &&
+            !profLower.contains('queen of heaven') &&
+            !profLower.contains('queen of all saints') &&
+            !profLower.contains('queen of the apostles')) ||
         profLower.contains('emperor') ||
         profLower.contains('empress') ||
         profLower.contains('ruler') ||
-        profLower.contains('prince') ||
+        (profLower.contains('prince') &&
+            !profLower.contains('prince of the heavenly') &&
+            !profLower.contains('prince of the apostles')) ||
         profLower.contains('princess') ||
         profLower.contains('duke') ||
-        profLower.contains('duchess')) {
-      return SaintCategory.monarch;
+        profLower.contains('duchess') ||
+        profLower.contains('monarch');
+    if (isMonarchTitle) {
+      list.add(SaintCategory.monarch);
     }
-    if (profLower.contains('mother') ||
-        profLower.contains('father') ||
-        profLower.contains('parent') ||
+
+    // 11. Laity
+    final isLayPerson =
         profLower.contains('layman') ||
         profLower.contains('laywoman') ||
-        profLower.contains('lay') ||
-        profLower.contains('student') ||
+        profLower.contains('layperson') ||
+        profLower.contains('laity') ||
+        profLower.contains('lay ') ||
+        profLower.contains('married') ||
+        (profLower.contains('mother') &&
+            !profLower.contains('mother of god') &&
+            !profLower.contains('mother cabrini') &&
+            !profLower.contains('mother teresa') &&
+            !profLower.contains('mother marianne') &&
+            !profLower.contains('mother superior') &&
+            !profLower.contains('foundress & mother')) ||
+        (profLower.contains('father') &&
+            !profLower.contains('church father') &&
+            !profLower.contains('desert father') &&
+            !profLower.contains('father of the church') &&
+            !profLower.contains('father of western monasticism') &&
+            !profLower.contains('foster father') &&
+            !profLower.contains('holy father')) ||
+        profLower.contains('parent') ||
+        profLower.contains('matron') ||
+        profLower.contains('homemaker') ||
         profLower.contains('pupil') ||
+        profLower.contains('student') ||
         profLower.contains('youth') ||
         profLower.contains('child') ||
-        profLower.contains('matron') ||
-        profLower.contains('widow') ||
-        profLower.contains('homemaker') ||
-        profLower.contains('worker') ||
-        profLower.contains('carpenter')) {
-      return SaintCategory.laity;
+        (profLower.contains('carpenter') &&
+            !profLower.contains('foster father')) ||
+        (profLower.contains('scholar') &&
+            !profLower.contains('theologian') &&
+            !profLower.contains('friar') &&
+            !profLower.contains('priest') &&
+            !profLower.contains('bishop') &&
+            !isDoctor) ||
+        profLower.contains('web developer') ||
+        profLower.contains('craftsman') ||
+        profLower.contains('lawyer') ||
+        profLower.contains('statesman') ||
+        profLower.contains('chancellor') ||
+        (isMonarchTitle &&
+            (profLower.contains('tertiary') ||
+                profLower.contains('penitent') ||
+                !list.any(
+                  (c) =>
+                      c == SaintCategory.priestReligious ||
+                      c == SaintCategory.bishop ||
+                      c == SaintCategory.pope,
+                )));
+
+    if (isLayPerson) {
+      list.add(SaintCategory.laity);
     }
+
+    // 12. Healer & Missionary
     if (profLower.contains('physician') ||
         profLower.contains('pediatrician') ||
-        profLower.contains('doctor') ||
+        profLower.contains('surgeon') ||
         profLower.contains('healer') ||
         profLower.contains('nurse') ||
+        profLower.contains('medical') ||
         profLower.contains('missionary') ||
         profLower.contains('missionaries') ||
         profLower.contains('apostle of')) {
-      return SaintCategory.healerMissionary;
+      list.add(SaintCategory.healerMissionary);
     }
+
+    // 13. Virgin & Consecrated
     if (profLower.contains('virgin') ||
         profLower.contains('lily of the mohawks') ||
         profLower.contains('consecrated')) {
-      return SaintCategory.virgin;
+      list.add(SaintCategory.virgin);
     }
+
+    // 14. Priest & Religious
     if (profLower.contains('priest') ||
         profLower.contains('friar') ||
         profLower.contains('monk') ||
@@ -307,8 +454,8 @@ class Saint {
         profLower.contains('sisters') ||
         profLower.contains('hermit') ||
         profLower.contains('religious') ||
-        profLower.contains('founder') ||
-        profLower.contains('foundress') ||
+        ((profLower.contains('founder') || profLower.contains('foundress')) &&
+            !profLower.contains('founder of westminster')) ||
         profLower.contains('carmelite') ||
         profLower.contains('franciscan') ||
         profLower.contains('dominican') ||
@@ -318,83 +465,26 @@ class Saint {
         profLower.contains('clares') ||
         profLower.contains('charity') ||
         profLower.contains('visitation') ||
-        profLower.contains('sacrament')) {
-      return SaintCategory.priestReligious;
+        profLower.contains('sacrament') ||
+        profLower.contains('tertiary')) {
+      list.add(SaintCategory.priestReligious);
     }
-    return SaintCategory.other;
+
+    if (list.isEmpty) {
+      list.add(SaintCategory.other);
+    }
+
+    return list.toSet().toList();
   }
+
+  /// Primary category for backward compatibility.
+  SaintCategory get category => categories.first;
 
   /// Icon corresponding to the category.
-  IconData get categoryIcon {
-    switch (category) {
-      case SaintCategory.doctor:
-        return Icons.menu_book_rounded;
-      case SaintCategory.angel:
-        return Icons.flare_rounded;
-      case SaintCategory.holyFamily:
-        return Icons.family_restroom_rounded;
-      case SaintCategory.apostle:
-        return Icons.stars_rounded;
-      case SaintCategory.evangelist:
-        return Icons.auto_stories_rounded;
-      case SaintCategory.martyr:
-        return Icons.local_fire_department_rounded;
-      case SaintCategory.pope:
-        return Icons.vpn_key_rounded;
-      case SaintCategory.bishop:
-        return Icons.account_balance_rounded;
-      case SaintCategory.priestReligious:
-        return Icons.church_rounded;
-      case SaintCategory.mystic:
-        return Icons.wb_sunny_rounded;
-      case SaintCategory.virgin:
-        return Icons.local_florist_rounded;
-      case SaintCategory.monarch:
-        return Icons.workspace_premium_rounded;
-      case SaintCategory.healerMissionary:
-        return Icons.healing_rounded;
-      case SaintCategory.laity:
-        return Icons.groups_rounded;
-      case SaintCategory.other:
-        return Icons.person_rounded;
-    }
-  }
+  IconData get categoryIcon => category.icon;
 
   /// Color tint for category badge/icon.
-  Color categoryColor(ThemeData theme) {
-    switch (category) {
-      case SaintCategory.doctor:
-        return AppThemeTokens.liturgicalGold;
-      case SaintCategory.angel:
-        return const Color(0xFF00ACC1); // Cyan 600
-      case SaintCategory.holyFamily:
-        return const Color(0xFFAD1457); // Crimson / Rose 800
-      case SaintCategory.apostle:
-        return AppThemeTokens.marianBlue;
-      case SaintCategory.evangelist:
-        return const Color(0xFFE65100); // Deep Orange 900
-      case SaintCategory.martyr:
-        return AppThemeTokens.liturgicalRed;
-      case SaintCategory.pope:
-        return const Color(0xFFD97706); // Papal Amber / Gold
-      case SaintCategory.bishop:
-        return AppThemeTokens.liturgicalPurple;
-      case SaintCategory.priestReligious:
-        return AppThemeTokens.liturgicalGreen;
-      case SaintCategory.mystic:
-        return AppThemeTokens.liturgicalRose;
-      case SaintCategory.virgin:
-        return AppThemeTokens.marianBlue;
-      case SaintCategory.monarch:
-        return AppThemeTokens.liturgicalPurple;
-      case SaintCategory.healerMissionary:
-        return const Color(0xFF00897B); // Teal 600
-      case SaintCategory.laity:
-        return const Color(0xFF5C6BC0); // Indigo 400
-      case SaintCategory.other:
-        return theme.colorScheme.primary;
-    }
-  }
+  Color categoryColor(ThemeData theme) => category.color(theme);
 
   /// Extracts numeric year for chronological sorting.
   int? get approximateYear {
