@@ -962,6 +962,200 @@ void main() {
         );
       },
     );
+
+    testWidgets(
+      'filter chips bar renders above introductory rites with all options',
+      (tester) async {
+        final fixedDate = DateTime(2026, 7, 4);
+        TimeHelper.setCustomTime(fixedDate);
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: MissalTab(
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Check Readings Only chip is present and unselected by default
+        expect(
+          find.byKey(const ValueKey('missal_filter_readings_only')),
+          findsOneWidget,
+        );
+        final readingsOnlyChip = tester.widget<FilterChip>(
+          find.byKey(const ValueKey('missal_filter_readings_only')),
+        );
+        expect(readingsOnlyChip.selected, isFalse);
+
+        // Check prayer filter chips are present and selected by default
+        expect(
+          find.byKey(const ValueKey('missal_filter_mass_greeting')),
+          findsOneWidget,
+        );
+        final massGreetingChip = tester.widget<FilterChip>(
+          find.byKey(const ValueKey('missal_filter_mass_greeting')),
+        );
+        expect(massGreetingChip.selected, isTrue);
+
+        expect(
+          find.byKey(const ValueKey('missal_filter_confiteor')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const ValueKey('missal_filter_kyrie_eleison')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const ValueKey('missal_filter_gloria')),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'toggling Readings Only chip hides prayers and keeps readings visible',
+      (tester) async {
+        final fixedDate = DateTime(2026, 7, 4);
+        TimeHelper.setCustomTime(fixedDate);
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: MissalTab(
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Initially, INTRODUCTORY RITES and LITURGY OF THE WORD are present
+        expect(find.text('INTRODUCTORY RITES'), findsOneWidget);
+        expect(find.text('LITURGY OF THE WORD'), findsOneWidget);
+
+        // Tap "Readings Only" chip
+        await tester.tap(
+          find.byKey(const ValueKey('missal_filter_readings_only')),
+        );
+        await tester.pumpAndSettle();
+
+        // Now INTRODUCTORY RITES should be hidden, LITURGY OF THE WORD remains visible
+        expect(find.text('INTRODUCTORY RITES'), findsNothing);
+        expect(find.text('LITURGY OF THE WORD'), findsOneWidget);
+        expect(find.text('LITURGY OF THE EUCHARIST'), findsNothing);
+        expect(find.text('CONCLUDING RITES'), findsNothing);
+
+        // Toggle "Readings Only" chip off again
+        await tester.tap(
+          find.byKey(const ValueKey('missal_filter_readings_only')),
+        );
+        await tester.pumpAndSettle();
+
+        // INTRODUCTORY RITES is restored
+        expect(find.text('INTRODUCTORY RITES'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'toggling individual prayer chips hides and reveals corresponding prayers',
+      (tester) async {
+        final fixedDate = DateTime(2026, 7, 4);
+        TimeHelper.setCustomTime(fixedDate);
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: MissalTab(
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Ensure Mass Greeting prayer chip is selected
+        expect(
+          find.byKey(const ValueKey('missal_filter_mass_greeting')),
+          findsOneWidget,
+        );
+
+        // Tap Mass Greeting chip to unselect / hide it
+        await tester.tap(
+          find.byKey(const ValueKey('missal_filter_mass_greeting')),
+        );
+        await tester.pumpAndSettle();
+
+        final updatedGreetingChip = tester.widget<FilterChip>(
+          find.byKey(const ValueKey('missal_filter_mass_greeting')),
+        );
+        expect(updatedGreetingChip.selected, isFalse);
+
+        // Tap Mass Greeting chip again to re-enable
+        await tester.tap(
+          find.byKey(const ValueKey('missal_filter_mass_greeting')),
+        );
+        await tester.pumpAndSettle();
+
+        final reEnabledGreetingChip = tester.widget<FilterChip>(
+          find.byKey(const ValueKey('missal_filter_mass_greeting')),
+        );
+        expect(reEnabledGreetingChip.selected, isTrue);
+      },
+    );
+
+    testWidgets(
+      'filter chip preferences persist and restore across MissalTab reloads',
+      (tester) async {
+        final fixedDate = DateTime(2026, 7, 4);
+        TimeHelper.setCustomTime(fixedDate);
+        PrayerDatabase.mockSettings = UserSettings();
+
+        // 1. Initial render and toggle preferences
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: MissalTab(
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Toggle Confiteor off
+        await tester.tap(find.byKey(const ValueKey('missal_filter_confiteor')));
+        await tester.pumpAndSettle();
+
+        // Verify settings in mock settings
+        expect(
+          PrayerDatabase.mockSettings?.missalHiddenPrayers,
+          contains('confiteor'),
+        );
+
+        // 2. Re-instantiate / reload MissalTab
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: MissalTab(
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Confiteor chip should still be unselected
+        final reloadedConfiteorChip = tester.widget<FilterChip>(
+          find.byKey(const ValueKey('missal_filter_confiteor')),
+        );
+        expect(reloadedConfiteorChip.selected, isFalse);
+      },
+    );
   });
 }
 

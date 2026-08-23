@@ -203,6 +203,33 @@ class PreferredVersionsConverter
   }
 }
 
+class StringListConverter extends TypeConverter<List<String>, String> {
+  const StringListConverter();
+
+  @override
+  List<String> fromSql(String fromDb) {
+    if (fromDb.isEmpty) return [];
+    try {
+      final dynamic decoded = jsonDecode(fromDb);
+      if (decoded is! List) return [];
+      return decoded.map((e) => e.toString()).toList();
+    } catch (e, stack) {
+      debugPrint('StringListConverter.fromSql error: $e\n$stack');
+      return [];
+    }
+  }
+
+  @override
+  String toSql(List<String> value) {
+    try {
+      return jsonEncode(value);
+    } catch (e, stack) {
+      debugPrint('StringListConverter.toSql error: $e\n$stack');
+      return '[]';
+    }
+  }
+}
+
 @UseRowClass(Prayer)
 class Prayers extends Table {
   IntColumn get isarId => integer().autoIncrement()();
@@ -242,6 +269,11 @@ class UserSettingsTable extends Table {
   IntColumn get lastBibleBookNumber =>
       integer().withDefault(const Constant(1))();
   IntColumn get lastBibleChapter => integer().withDefault(const Constant(1))();
+  BoolColumn get missalReadingsOnly =>
+      boolean().withDefault(const Constant(false))();
+  TextColumn get missalHiddenPrayers => text()
+      .map(NullAwareTypeConverter.wrap(const StringListConverter()))
+      .nullable()();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -256,7 +288,7 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 12;
+  int get schemaVersion => 13;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -319,6 +351,16 @@ class BibleDatabase extends _$BibleDatabase {
           userSettingsTable.lastBibleChapter,
         );
         await m.createTable(bookReadingPositions);
+      }
+      if (from < 13) {
+        await m.addColumn(
+          userSettingsTable,
+          userSettingsTable.missalReadingsOnly,
+        );
+        await m.addColumn(
+          userSettingsTable,
+          userSettingsTable.missalHiddenPrayers,
+        );
       }
     },
   );
@@ -656,6 +698,8 @@ class BibleDatabase extends _$BibleDatabase {
         prayerCatalogVersion: Value(settings.prayerCatalogVersion),
         lastBibleBookNumber: Value(settings.lastBibleBookNumber),
         lastBibleChapter: Value(settings.lastBibleChapter),
+        missalReadingsOnly: Value(settings.missalReadingsOnly),
+        missalHiddenPrayers: Value(settings.missalHiddenPrayers),
       ),
     );
   }

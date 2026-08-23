@@ -3250,6 +3250,32 @@ class $UserSettingsTableTable extends UserSettingsTable
     requiredDuringInsert: false,
     defaultValue: const Constant(1),
   );
+  static const VerificationMeta _missalReadingsOnlyMeta =
+      const VerificationMeta('missalReadingsOnly');
+  @override
+  late final GeneratedColumn<bool> missalReadingsOnly = GeneratedColumn<bool>(
+    'missal_readings_only',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("missal_readings_only" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  @override
+  late final GeneratedColumnWithTypeConverter<List<String>?, String>
+  missalHiddenPrayers =
+      GeneratedColumn<String>(
+        'missal_hidden_prayers',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      ).withConverter<List<String>?>(
+        $UserSettingsTableTable.$convertermissalHiddenPrayers,
+      );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -3266,6 +3292,8 @@ class $UserSettingsTableTable extends UserSettingsTable
     prayerCatalogVersion,
     lastBibleBookNumber,
     lastBibleChapter,
+    missalReadingsOnly,
+    missalHiddenPrayers,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -3398,6 +3426,15 @@ class $UserSettingsTableTable extends UserSettingsTable
         ),
       );
     }
+    if (data.containsKey('missal_readings_only')) {
+      context.handle(
+        _missalReadingsOnlyMeta,
+        missalReadingsOnly.isAcceptableOrUnknown(
+          data['missal_readings_only']!,
+          _missalReadingsOnlyMeta,
+        ),
+      );
+    }
     return context;
   }
 
@@ -3466,6 +3503,17 @@ class $UserSettingsTableTable extends UserSettingsTable
         DriftSqlType.int,
         data['${effectivePrefix}last_bible_chapter'],
       )!,
+      missalReadingsOnly: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}missal_readings_only'],
+      )!,
+      missalHiddenPrayers: $UserSettingsTableTable.$convertermissalHiddenPrayers
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.string,
+              data['${effectivePrefix}missal_hidden_prayers'],
+            ),
+          ),
     );
   }
 
@@ -3478,6 +3526,8 @@ class $UserSettingsTableTable extends UserSettingsTable
   $converterpreferredVersions = NullAwareTypeConverter.wrap(
     const PreferredVersionsConverter(),
   );
+  static TypeConverter<List<String>?, String?> $convertermissalHiddenPrayers =
+      NullAwareTypeConverter.wrap(const StringListConverter());
 }
 
 class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
@@ -3495,6 +3545,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
   final Value<int> prayerCatalogVersion;
   final Value<int> lastBibleBookNumber;
   final Value<int> lastBibleChapter;
+  final Value<bool> missalReadingsOnly;
+  final Value<List<String>?> missalHiddenPrayers;
   const UserSettingsTableCompanion({
     this.id = const Value.absent(),
     this.primaryLanguageCode = const Value.absent(),
@@ -3510,6 +3562,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     this.prayerCatalogVersion = const Value.absent(),
     this.lastBibleBookNumber = const Value.absent(),
     this.lastBibleChapter = const Value.absent(),
+    this.missalReadingsOnly = const Value.absent(),
+    this.missalHiddenPrayers = const Value.absent(),
   });
   UserSettingsTableCompanion.insert({
     this.id = const Value.absent(),
@@ -3526,6 +3580,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     this.prayerCatalogVersion = const Value.absent(),
     this.lastBibleBookNumber = const Value.absent(),
     this.lastBibleChapter = const Value.absent(),
+    this.missalReadingsOnly = const Value.absent(),
+    this.missalHiddenPrayers = const Value.absent(),
   }) : primaryLanguageCode = Value(primaryLanguageCode),
        compareLanguageCode = Value(compareLanguageCode),
        primaryBibleTranslation = Value(primaryBibleTranslation),
@@ -3545,6 +3601,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Expression<int>? prayerCatalogVersion,
     Expression<int>? lastBibleBookNumber,
     Expression<int>? lastBibleChapter,
+    Expression<bool>? missalReadingsOnly,
+    Expression<String>? missalHiddenPrayers,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -3570,6 +3628,10 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
       if (lastBibleBookNumber != null)
         'last_bible_book_number': lastBibleBookNumber,
       if (lastBibleChapter != null) 'last_bible_chapter': lastBibleChapter,
+      if (missalReadingsOnly != null)
+        'missal_readings_only': missalReadingsOnly,
+      if (missalHiddenPrayers != null)
+        'missal_hidden_prayers': missalHiddenPrayers,
     });
   }
 
@@ -3588,6 +3650,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Value<int>? prayerCatalogVersion,
     Value<int>? lastBibleBookNumber,
     Value<int>? lastBibleChapter,
+    Value<bool>? missalReadingsOnly,
+    Value<List<String>?>? missalHiddenPrayers,
   }) {
     return UserSettingsTableCompanion(
       id: id ?? this.id,
@@ -3609,6 +3673,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
       prayerCatalogVersion: prayerCatalogVersion ?? this.prayerCatalogVersion,
       lastBibleBookNumber: lastBibleBookNumber ?? this.lastBibleBookNumber,
       lastBibleChapter: lastBibleChapter ?? this.lastBibleChapter,
+      missalReadingsOnly: missalReadingsOnly ?? this.missalReadingsOnly,
+      missalHiddenPrayers: missalHiddenPrayers ?? this.missalHiddenPrayers,
     );
   }
 
@@ -3675,6 +3741,16 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     if (lastBibleChapter.present) {
       map['last_bible_chapter'] = Variable<int>(lastBibleChapter.value);
     }
+    if (missalReadingsOnly.present) {
+      map['missal_readings_only'] = Variable<bool>(missalReadingsOnly.value);
+    }
+    if (missalHiddenPrayers.present) {
+      map['missal_hidden_prayers'] = Variable<String>(
+        $UserSettingsTableTable.$convertermissalHiddenPrayers.toSql(
+          missalHiddenPrayers.value,
+        ),
+      );
+    }
     return map;
   }
 
@@ -3696,7 +3772,9 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
           ..write('bibleNumberingSystemCode: $bibleNumberingSystemCode, ')
           ..write('prayerCatalogVersion: $prayerCatalogVersion, ')
           ..write('lastBibleBookNumber: $lastBibleBookNumber, ')
-          ..write('lastBibleChapter: $lastBibleChapter')
+          ..write('lastBibleChapter: $lastBibleChapter, ')
+          ..write('missalReadingsOnly: $missalReadingsOnly, ')
+          ..write('missalHiddenPrayers: $missalHiddenPrayers')
           ..write(')'))
         .toString();
   }
@@ -5411,6 +5489,8 @@ typedef $$UserSettingsTableTableCreateCompanionBuilder =
       Value<int> prayerCatalogVersion,
       Value<int> lastBibleBookNumber,
       Value<int> lastBibleChapter,
+      Value<bool> missalReadingsOnly,
+      Value<List<String>?> missalHiddenPrayers,
     });
 typedef $$UserSettingsTableTableUpdateCompanionBuilder =
     UserSettingsTableCompanion Function({
@@ -5428,6 +5508,8 @@ typedef $$UserSettingsTableTableUpdateCompanionBuilder =
       Value<int> prayerCatalogVersion,
       Value<int> lastBibleBookNumber,
       Value<int> lastBibleChapter,
+      Value<bool> missalReadingsOnly,
+      Value<List<String>?> missalHiddenPrayers,
     });
 
 class $$UserSettingsTableTableFilterComposer
@@ -5513,6 +5595,17 @@ class $$UserSettingsTableTableFilterComposer
     column: $table.lastBibleChapter,
     builder: (column) => ColumnFilters(column),
   );
+
+  ColumnFilters<bool> get missalReadingsOnly => $composableBuilder(
+    column: $table.missalReadingsOnly,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+  get missalHiddenPrayers => $composableBuilder(
+    column: $table.missalHiddenPrayers,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 }
 
 class $$UserSettingsTableTableOrderingComposer
@@ -5591,6 +5684,16 @@ class $$UserSettingsTableTableOrderingComposer
 
   ColumnOrderings<int> get lastBibleChapter => $composableBuilder(
     column: $table.lastBibleChapter,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get missalReadingsOnly => $composableBuilder(
+    column: $table.missalReadingsOnly,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get missalHiddenPrayers => $composableBuilder(
+    column: $table.missalHiddenPrayers,
     builder: (column) => ColumnOrderings(column),
   );
 }
@@ -5672,6 +5775,17 @@ class $$UserSettingsTableTableAnnotationComposer
     column: $table.lastBibleChapter,
     builder: (column) => column,
   );
+
+  GeneratedColumn<bool> get missalReadingsOnly => $composableBuilder(
+    column: $table.missalReadingsOnly,
+    builder: (column) => column,
+  );
+
+  GeneratedColumnWithTypeConverter<List<String>?, String>
+  get missalHiddenPrayers => $composableBuilder(
+    column: $table.missalHiddenPrayers,
+    builder: (column) => column,
+  );
 }
 
 class $$UserSettingsTableTableTableManager
@@ -5730,6 +5844,8 @@ class $$UserSettingsTableTableTableManager
                 Value<int> prayerCatalogVersion = const Value.absent(),
                 Value<int> lastBibleBookNumber = const Value.absent(),
                 Value<int> lastBibleChapter = const Value.absent(),
+                Value<bool> missalReadingsOnly = const Value.absent(),
+                Value<List<String>?> missalHiddenPrayers = const Value.absent(),
               }) => UserSettingsTableCompanion(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -5745,6 +5861,8 @@ class $$UserSettingsTableTableTableManager
                 prayerCatalogVersion: prayerCatalogVersion,
                 lastBibleBookNumber: lastBibleBookNumber,
                 lastBibleChapter: lastBibleChapter,
+                missalReadingsOnly: missalReadingsOnly,
+                missalHiddenPrayers: missalHiddenPrayers,
               ),
           createCompanionCallback:
               ({
@@ -5764,6 +5882,8 @@ class $$UserSettingsTableTableTableManager
                 Value<int> prayerCatalogVersion = const Value.absent(),
                 Value<int> lastBibleBookNumber = const Value.absent(),
                 Value<int> lastBibleChapter = const Value.absent(),
+                Value<bool> missalReadingsOnly = const Value.absent(),
+                Value<List<String>?> missalHiddenPrayers = const Value.absent(),
               }) => UserSettingsTableCompanion.insert(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -5779,6 +5899,8 @@ class $$UserSettingsTableTableTableManager
                 prayerCatalogVersion: prayerCatalogVersion,
                 lastBibleBookNumber: lastBibleBookNumber,
                 lastBibleChapter: lastBibleChapter,
+                missalReadingsOnly: missalReadingsOnly,
+                missalHiddenPrayers: missalHiddenPrayers,
               ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))

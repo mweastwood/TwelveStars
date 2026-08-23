@@ -116,6 +116,8 @@ void main() {
           prayerCatalogVersion: 1,
           lastBibleBookNumber: 19,
           lastBibleChapter: 23,
+          missalReadingsOnly: true,
+          missalHiddenPrayers: ['mass_greeting', 'gloria'],
         );
 
         await testDb.saveUserSettings(settings);
@@ -148,13 +150,18 @@ void main() {
         expect(retrieved.prayerCatalogVersion, equals(1));
         expect(retrieved.lastBibleBookNumber, equals(19));
         expect(retrieved.lastBibleChapter, equals(23));
+        expect(retrieved.missalReadingsOnly, isTrue);
+        expect(
+          retrieved.missalHiddenPrayers,
+          equals(['mass_greeting', 'gloria']),
+        );
       },
     );
   });
 
   group('Book Reading Position Operations', () {
     test('save and get book reading positions', () async {
-      expect(testDb.schemaVersion, equals(12));
+      expect(testDb.schemaVersion, equals(13));
 
       await testDb.saveBookReadingPosition(
         bookId: 'baltimore_catechism',
@@ -189,7 +196,7 @@ void main() {
 
   group('Library Bookmarks Operations', () {
     test('save, get, and delete library bookmarks in BibleDatabase', () async {
-      expect(testDb.schemaVersion, equals(12));
+      expect(testDb.schemaVersion, equals(13));
 
       final now = DateTime.now();
       await testDb.saveLibraryBookmark(
@@ -308,5 +315,20 @@ void main() {
         expect(prefConverter.toSql([]), equals('[]'));
       },
     );
+
+    test('StringListConverter handles empty and malformed JSON safely', () {
+      const stringListConverter = StringListConverter();
+      expect(stringListConverter.fromSql(''), isEmpty);
+      expect(stringListConverter.fromSql('invalid json string'), isEmpty);
+      expect(stringListConverter.fromSql('{"key": "test"}'), isEmpty);
+      expect(
+        stringListConverter.fromSql('["item1", "item2"]'),
+        equals(['item1', 'item2']),
+      );
+      expect(
+        stringListConverter.toSql(['item1', 'item2']),
+        equals('["item1","item2"]'),
+      );
+    });
   });
 }
