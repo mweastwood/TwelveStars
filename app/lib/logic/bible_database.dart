@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
@@ -288,79 +289,118 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 13;
+  int get schemaVersion => 14;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
     onUpgrade: (m, from, to) async {
+      Future<void> createTableIfNotExists(TableInfo table) async {
+        final tableCheck = await customSelect(
+          "SELECT count(*) AS cnt FROM sqlite_master WHERE type = 'table' AND name = '${table.actualTableName}'",
+        ).getSingle();
+        if ((tableCheck.data['cnt'] as num? ?? 0) == 0) {
+          await m.createTable(table);
+        }
+      }
+
+      Future<void> addColumnIfNotExists(
+        TableInfo table,
+        GeneratedColumn column,
+      ) async {
+        final cols = await customSelect(
+          "PRAGMA table_info('${table.actualTableName}')",
+        ).get();
+        final colNames = cols.map((r) => r.data['name'] as String).toSet();
+        if (!colNames.contains(column.$name)) {
+          await m.addColumn(table, column);
+        }
+      }
+
       if (from < 2) {
-        await m.createTable(favoritePassages);
+        await createTableIfNotExists(favoritePassages);
         // Clear bible_verses to force re-population with the corrected UsfmParser
         await delete(bibleVerses).go();
       }
       if (from < 3) {
-        await m.createTable(prayers);
-        await m.createTable(userSettingsTable);
+        await createTableIfNotExists(prayers);
+        await createTableIfNotExists(userSettingsTable);
       }
       if (from < 4) {
-        await m.addColumn(userSettingsTable, userSettingsTable.hapticsEnabled);
+        await addColumnIfNotExists(
+          userSettingsTable,
+          userSettingsTable.hapticsEnabled,
+        );
       }
       if (from < 5) {
-        await m.addColumn(
+        await addColumnIfNotExists(
           userSettingsTable,
           userSettingsTable.appThemeModeCode,
         );
       }
       if (from < 6) {
-        await m.addColumn(
+        await addColumnIfNotExists(
           userSettingsTable,
           userSettingsTable.sundayNotificationsEnabled,
         );
       }
       if (from < 7) {
-        await m.createTable(userComments);
+        await createTableIfNotExists(userComments);
       }
       if (from < 8) {
-        await m.createTable(libraryBookmarks);
+        await createTableIfNotExists(libraryBookmarks);
       }
       if (from < 9) {
-        await m.addColumn(
+        await addColumnIfNotExists(
           userSettingsTable,
           userSettingsTable.showBibleTranslationSelectors,
         );
       }
       if (from < 10) {
-        await m.addColumn(
+        await addColumnIfNotExists(
           userSettingsTable,
           userSettingsTable.bibleNumberingSystemCode,
         );
       }
       if (from < 11) {
-        await m.addColumn(
+        await addColumnIfNotExists(
           userSettingsTable,
           userSettingsTable.prayerCatalogVersion,
         );
       }
       if (from < 12) {
-        await m.addColumn(
+        await addColumnIfNotExists(
           userSettingsTable,
           userSettingsTable.lastBibleBookNumber,
         );
-        await m.addColumn(
+        await addColumnIfNotExists(
           userSettingsTable,
           userSettingsTable.lastBibleChapter,
         );
-        await m.createTable(bookReadingPositions);
+        await createTableIfNotExists(bookReadingPositions);
       }
       if (from < 13) {
-        await m.addColumn(
+        await addColumnIfNotExists(
           userSettingsTable,
           userSettingsTable.missalReadingsOnly,
         );
-        await m.addColumn(
+        await addColumnIfNotExists(
           userSettingsTable,
           userSettingsTable.missalHiddenPrayers,
         );
+      }
+      if (from < 14) {
+        await createTableIfNotExists(lectionaryReadings);
+      }
+    },
+    beforeOpen: (details) async {
+      if (details.hadUpgrade) {
+        scheduleMicrotask(() {
+          _ensureLectionaryPopulated().catchError((e) {
+            debugPrint(
+              'Could not immediately seed lectionary during migration beforeOpen: $e',
+            );
+          });
+        });
       }
     },
   );
