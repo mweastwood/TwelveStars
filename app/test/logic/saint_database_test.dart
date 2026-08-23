@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
@@ -15,6 +18,7 @@ void main() {
         'deathDate': '1274',
         'nationality': 'Italian',
         'profession': 'Dominican Friar & Theologian',
+        'categories': ['doctor', 'priestReligious', 'mystic'],
         'isDoctor': true,
         'isBlessed': false,
         'feastDay': 'January 28',
@@ -30,6 +34,11 @@ void main() {
       expect(saint.deathDate, '1274');
       expect(saint.nationality, 'Italian');
       expect(saint.profession, 'Dominican Friar & Theologian');
+      expect(saint.categories, [
+        SaintCategory.doctor,
+        SaintCategory.priestReligious,
+        SaintCategory.mystic,
+      ]);
       expect(saint.isDoctor, true);
       expect(saint.isBlessed, false);
       expect(saint.feastDay, 'January 28');
@@ -42,6 +51,7 @@ void main() {
 
       final serialized = saint.toJson();
       expect(serialized['id'], 'thomas-aquinas');
+      expect(serialized['categories'], ['doctor', 'priestReligious', 'mystic']);
       expect(serialized['isDoctor'], true);
       expect(serialized['isBlessed'], null);
       expect(serialized['patronage'], 'Academics, Students, Theologians');
@@ -52,10 +62,12 @@ void main() {
         name: 'Blessed Laura Vicuña',
         nationality: 'Chilean / Argentine',
         profession: 'Salesian Pupil & Virgin',
+        categories: [SaintCategory.laity, SaintCategory.virgin],
         isBlessed: true,
         gender: 'female',
       );
       expect(blessedSaint.toJson()['isBlessed'], true);
+      expect(blessedSaint.toJson()['categories'], ['laity', 'virgin']);
       expect(blessedSaint.gender, 'female');
       expect(blessedSaint.isFemale, isTrue);
       expect(blessedSaint.isMale, isFalse);
@@ -1416,6 +1428,43 @@ void main() {
           isTrue,
         );
         expect(healerResults.any((s) => s.id == 'luke-the-evangelist'), isTrue);
+      },
+    );
+
+    test(
+      'every saint entry in assets/saints.json contains a non-empty categories array with valid enum values',
+      () async {
+        final file = File('assets/saints.json');
+        final jsonString = file.readAsStringSync();
+        final list = jsonDecode(jsonString) as List<dynamic>;
+
+        expect(list, isNotEmpty);
+        for (final item in list) {
+          final map = item as Map<String, dynamic>;
+          expect(
+            map.containsKey('categories'),
+            isTrue,
+            reason: 'Saint ${map['id']} should have a categories key',
+          );
+          final categories = map['categories'] as List<dynamic>;
+          expect(
+            categories,
+            isNotEmpty,
+            reason: 'Saint ${map['id']} should have at least one category',
+          );
+
+          for (final catName in categories) {
+            final matchedEnum = SaintCategory.values
+                .cast<SaintCategory?>()
+                .firstWhere((c) => c?.name == catName, orElse: () => null);
+            expect(
+              matchedEnum,
+              isNotNull,
+              reason:
+                  'Saint ${map['id']} has invalid category string: "$catName"',
+            );
+          }
+        }
       },
     );
   });

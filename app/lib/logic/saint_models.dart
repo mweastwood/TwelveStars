@@ -207,6 +207,7 @@ class Saint {
   final String? deathDate; // e.g. "1274", "c. 304"
   final String nationality; // e.g. "Italian", "French", "Roman"
   final String profession; // e.g. "Theologian, Philosopher", "Nun, Mystic"
+  final List<SaintCategory> _explicitCategories;
   final bool isDoctor; // true if recognized as Doctor of the Church
   final bool
   isBlessed; // true if beatified ('Blessed') rather than canonized ('St.')
@@ -222,13 +223,14 @@ class Saint {
     this.deathDate,
     required this.nationality,
     required this.profession,
+    List<SaintCategory> categories = const [],
     this.isDoctor = false,
     this.isBlessed = false,
     this.feastDay,
     this.patronage,
     this.summary,
     this.gender,
-  });
+  }) : _explicitCategories = categories;
 
   bool get isMale => gender == 'male';
   bool get isFemale => gender == 'female';
@@ -244,8 +246,28 @@ class Saint {
     return '';
   }
 
-  /// Returns all categories matching this saint based on status, titles, profession, and history.
+  /// Returns all categories matching this saint based on explicit categories or historical fallback.
   List<SaintCategory> get categories {
+    if (_explicitCategories.isNotEmpty) {
+      return _explicitCategories;
+    }
+    return computeCategories(
+      id: id,
+      name: name,
+      nationality: nationality,
+      profession: profession,
+      isDoctor: isDoctor,
+    );
+  }
+
+  /// Returns all categories matching this saint based on status, titles, profession, and history.
+  static List<SaintCategory> computeCategories({
+    required String id,
+    required String name,
+    required String nationality,
+    required String profession,
+    bool isDoctor = false,
+  }) {
     final List<SaintCategory> list = [];
     final profLower = profession.toLowerCase();
     final nameLower = name.toLowerCase();
@@ -787,6 +809,21 @@ class Saint {
   }
 
   factory Saint.fromJson(Map<String, dynamic> json) {
+    final List<SaintCategory> categories = [];
+    if (json['categories'] is List) {
+      for (final item in json['categories'] as List) {
+        if (item is String) {
+          final cat = SaintCategory.values.cast<SaintCategory?>().firstWhere(
+            (c) => c?.name == item,
+            orElse: () => null,
+          );
+          if (cat != null) {
+            categories.add(cat);
+          }
+        }
+      }
+    }
+
     return Saint(
       id: json['id'] as String? ?? '',
       name: json['name'] as String? ?? '',
@@ -794,6 +831,7 @@ class Saint {
       deathDate: json['deathDate'] as String?,
       nationality: json['nationality'] as String? ?? '',
       profession: json['profession'] as String? ?? '',
+      categories: categories,
       isDoctor: json['isDoctor'] as bool? ?? false,
       isBlessed: json['isBlessed'] as bool? ?? false,
       feastDay: json['feastDay'] as String?,
@@ -811,12 +849,14 @@ class Saint {
       if (deathDate != null) 'deathDate': deathDate,
       'nationality': nationality,
       'profession': profession,
+      if (categories.isNotEmpty)
+        'categories': categories.map((c) => c.name).toList(),
+      if (gender != null) 'gender': gender,
       'isDoctor': isDoctor,
       if (isBlessed) 'isBlessed': isBlessed,
       if (feastDay != null) 'feastDay': feastDay,
       if (patronage != null) 'patronage': patronage,
       if (summary != null) 'summary': summary,
-      if (gender != null) 'gender': gender,
     };
   }
 }

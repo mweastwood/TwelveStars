@@ -6,6 +6,10 @@
     "deathDate": "c. 304",
     "nationality": "Roman",
     "profession": "Virgin & Martyr",
+    "categories": [
+      "martyr",
+      "virgin"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "January 21",
@@ -19,6 +23,10 @@
     "deathDate": "651",
     "nationality": "Irish / Scottish",
     "profession": "Bishop of Lindisfarne & Apostle of Northumbria",
+    "categories": [
+      "bishop",
+      "healerMissionary"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "August 31",
@@ -32,6 +40,11 @@
     "deathDate": "1280",
     "nationality": "German",
     "profession": "Dominican Friar, Bishop & Universal Doctor (Doctor Universalis)",
+    "categories": [
+      "doctor",
+      "bishop",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "November 15",
@@ -45,6 +58,10 @@
     "deathDate": "1591",
     "nationality": "Italian",
     "profession": "Jesuit Scholastic & Patron of Youth",
+    "categories": [
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "June 21",
@@ -58,6 +75,11 @@
     "deathDate": "1787",
     "nationality": "Italian",
     "profession": "Bishop, Founder (Redemptorists) & Moral Theologian (Doctor Zelantissimus)",
+    "categories": [
+      "doctor",
+      "bishop",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "August 1",
@@ -71,6 +93,10 @@
     "deathDate": "397",
     "nationality": "Roman / Italian",
     "profession": "Bishop of Milan & Latin Church Father",
+    "categories": [
+      "doctor",
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "December 7",
@@ -84,6 +110,11 @@
     "deathDate": "304",
     "nationality": "Roman",
     "profession": "Virgin, Healer & Great Martyr",
+    "categories": [
+      "martyr",
+      "healerMissionary",
+      "virgin"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "December 25",
@@ -97,6 +128,11 @@
     "deathDate": "1937",
     "nationality": "Canadian / French-Canadian",
     "profession": "Congregation of Holy Cross Lay Brother & Doorkeeper",
+    "categories": [
+      "laity",
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "January 6",
@@ -110,6 +146,10 @@
     "deathDate": "c. 60 AD",
     "nationality": "Galilean / Judean",
     "profession": "Fisherman & First-Called Apostle (Protokletos)",
+    "categories": [
+      "apostle",
+      "martyr"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "November 30",
@@ -123,6 +163,11 @@
     "deathDate": "1109",
     "nationality": "Italian / English",
     "profession": "Benedictine Abbot, Archbishop of Canterbury & Philosopher (Doctor Magnificus)",
+    "categories": [
+      "doctor",
+      "bishop",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "April 21",
@@ -136,6 +181,11 @@
     "deathDate": "1231",
     "nationality": "Portuguese / Italian",
     "profession": "Franciscan Priest, Preacher & Evangelical Doctor (Doctor Evangelicus)",
+    "categories": [
+      "doctor",
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "June 13",
@@ -149,6 +199,10 @@
     "deathDate": "356",
     "nationality": "Egyptian",
     "profession": "Desert Father & Patriarch of Christian Monasticism",
+    "categories": [
+      "mystic",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "January 17",
@@ -162,6 +216,11 @@
     "deathDate": "249",
     "nationality": "Egyptian / Roman (Alexandrian)",
     "profession": "Deaconess, Virgin & Martyr",
+    "categories": [
+      "martyr",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "February 9",
@@ -175,6 +234,10 @@
     "deathDate": "373",
     "nationality": "Egyptian",
     "profession": "Patriarch of Alexandria & Theologian (Doctor of the Incarnation)",
+    "categories": [
+      "doctor",
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "May 2",
@@ -188,6 +251,11 @@
     "deathDate": "430",
     "nationality": "Roman / Numidian",
     "profession": "Bishop of Hippo, Theologian & Doctor of Grace (Doctor Gratiae)",
+    "categories": [
+      "doctor",
+      "bishop",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "August 28",
@@ -201,6 +269,10 @@
     "deathDate": "c. 306",
     "nationality": "Greek / Roman (Heliopolis)",
     "profession": "Virgin & Martyr",
+    "categories": [
+      "martyr",
+      "virgin"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "December 4",
@@ -214,6 +286,11 @@
     "deathDate": "c. 61 AD",
     "nationality": "Cypriot / Jewish",
     "profession": "Apostle & Missionary Companion of St. Paul",
+    "categories": [
+      "apostle",
+      "martyr",
+      "healerMissionary"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "June 11",
@@ -227,6 +304,10 @@
     "deathDate": "c. 1st Century",
     "nationality": "Galilean / Judean",
     "profession": "Apostle & Martyr (Nathanael)",
+    "categories": [
+      "apostle",
+      "martyr"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "August 24",
@@ -240,6 +321,11 @@
     "deathDate": "379",
     "nationality": "Greek / Cappadocian",
     "profession": "Bishop of Caesarea, Monastic Founder & Cappadocian Father",
+    "categories": [
+      "doctor",
+      "bishop",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "January 2",
@@ -253,6 +339,10 @@
     "deathDate": "735",
     "nationality": "English",
     "profession": "Benedictine Monk, Historian & Scriptural Scholar (Doctor Anglorum)",
+    "categories": [
+      "doctor",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "May 25",
@@ -266,6 +356,9 @@
     "deathDate": "548",
     "nationality": "Italian",
     "profession": "Abbot & Father of Western Monasticism",
+    "categories": [
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "July 11",
@@ -279,6 +372,11 @@
     "deathDate": "1879",
     "nationality": "French",
     "profession": "Sisters of Charity of Nevers & Lourdes Visionary",
+    "categories": [
+      "mystic",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "April 16",
@@ -292,6 +390,11 @@
     "deathDate": "1153",
     "nationality": "French",
     "profession": "Cistercian Abbot, Reformer & Mellifluous Doctor (Doctor Mellifluus)",
+    "categories": [
+      "doctor",
+      "mystic",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "August 20",
@@ -305,6 +408,10 @@
     "deathDate": "316",
     "nationality": "Armenian / Roman",
     "profession": "Bishop of Sebaste & Physician",
+    "categories": [
+      "bishop",
+      "healerMissionary"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "February 3",
@@ -318,6 +425,12 @@
     "deathDate": "1274",
     "nationality": "Italian",
     "profession": "Cardinal Bishop, Minister General of Franciscans & Seraphic Doctor (Doctor Seraphicus)",
+    "categories": [
+      "doctor",
+      "bishop",
+      "mystic",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "July 15",
@@ -331,6 +444,11 @@
     "deathDate": "1373",
     "nationality": "Swedish",
     "profession": "Mystic, Founder (Bridgettines) & Patroness of Europe",
+    "categories": [
+      "mystic",
+      "laity",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "July 23",
@@ -344,6 +462,9 @@
     "deathDate": "525",
     "nationality": "Irish",
     "profession": "Abbess & Co-Patroness of Ireland (Mary of the Gael)",
+    "categories": [
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "February 1",
@@ -357,6 +478,9 @@
     "deathDate": "1101",
     "nationality": "German / French",
     "profession": "Founder of the Carthusian Order",
+    "categories": [
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "October 6",
@@ -370,6 +494,10 @@
     "deathDate": "1614",
     "nationality": "Italian",
     "profession": "Priest & Founder of the Camillians (Ministers of the Sick)",
+    "categories": [
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "July 14",
@@ -383,6 +511,10 @@
     "deathDate": "2006",
     "nationality": "Italian / British",
     "profession": "Student, Programmer & Cyber-Apostle of the Eucharist",
+    "categories": [
+      "laity",
+      "healerMissionary"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "October 12",
@@ -396,6 +528,10 @@
     "deathDate": "1484",
     "nationality": "Polish / Lithuanian",
     "profession": "Crown Prince of Poland & Grand Duchy of Lithuania",
+    "categories": [
+      "monarch",
+      "laity"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "March 4",
@@ -409,6 +545,11 @@
     "deathDate": "1463",
     "nationality": "Italian",
     "profession": "Poor Clare Nun, Mystic & Artist",
+    "categories": [
+      "mystic",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "March 9",
@@ -422,6 +563,12 @@
     "deathDate": "1380",
     "nationality": "Italian",
     "profession": "Dominican Tertiary, Mystic & Co-Patron of Europe",
+    "categories": [
+      "doctor",
+      "mystic",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": true,
     "feastDay": "April 29",
@@ -435,6 +582,11 @@
     "deathDate": "c. 230",
     "nationality": "Roman",
     "profession": "Noblewoman, Virgin & Martyr",
+    "categories": [
+      "martyr",
+      "laity",
+      "virgin"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "November 22",
@@ -448,6 +600,10 @@
     "deathDate": "1898",
     "nationality": "Lebanese / Maronite",
     "profession": "Maronite Monk & Hermit of Annaya",
+    "categories": [
+      "mystic",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "July 24",
@@ -461,6 +617,10 @@
     "deathDate": "1584",
     "nationality": "Italian",
     "profession": "Cardinal Archbishop of Milan & Council of Trent Reformer",
+    "categories": [
+      "bishop",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "November 4",
@@ -474,6 +634,10 @@
     "deathDate": "1916",
     "nationality": "French",
     "profession": "Cavalry Officer, Hermit & Universal Brother",
+    "categories": [
+      "laity",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "December 1",
@@ -487,6 +651,10 @@
     "deathDate": "1886",
     "nationality": "Ugandan",
     "profession": "Royal Page & 22 Catholic Martyrs of Uganda",
+    "categories": [
+      "martyr",
+      "laity"
+    ],
     "gender": "group",
     "isDoctor": false,
     "feastDay": "June 3",
@@ -500,6 +668,9 @@
     "deathDate": "c. 251",
     "nationality": "Canaanite / Roman",
     "profession": "Martyr & Christ-Bearer",
+    "categories": [
+      "martyr"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "July 25",
@@ -513,6 +684,11 @@
     "deathDate": "1253",
     "nationality": "Italian",
     "profession": "Foundress of the Poor Clares & Contemplative",
+    "categories": [
+      "mystic",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "August 11",
@@ -526,6 +702,11 @@
     "deathDate": "1308",
     "nationality": "Italian",
     "profession": "Augustinian Abbess & Mystic",
+    "categories": [
+      "mystic",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "August 17",
@@ -539,6 +720,10 @@
     "deathDate": "99",
     "nationality": "Roman",
     "profession": "Pope, Apostolic Father & Martyr",
+    "categories": [
+      "pope",
+      "martyr"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "November 23",
@@ -552,6 +737,10 @@
     "deathDate": "597",
     "nationality": "Irish",
     "profession": "Abbot & Apostle of Scotland",
+    "categories": [
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "June 9",
@@ -565,6 +754,10 @@
     "deathDate": "615",
     "nationality": "Irish",
     "profession": "Monk, Missionary & Abbot",
+    "categories": [
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "November 23",
@@ -578,6 +771,10 @@
     "deathDate": "687",
     "nationality": "Anglo-Saxon / English",
     "profession": "Bishop of Lindisfarne, Monk & Hermit",
+    "categories": [
+      "bishop",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "March 20",
@@ -591,6 +788,10 @@
     "deathDate": "258",
     "nationality": "North African / Roman",
     "profession": "Bishop of Carthage & Martyr",
+    "categories": [
+      "martyr",
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "September 16",
@@ -604,6 +805,11 @@
     "deathDate": "444",
     "nationality": "Egyptian",
     "profession": "Patriarch of Alexandria & Theologian (Doctor Incarnationis)",
+    "categories": [
+      "doctor",
+      "bishop",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "June 27",
@@ -617,6 +823,10 @@
     "deathDate": "386",
     "nationality": "Roman / Judean",
     "profession": "Patriarch of Jerusalem, Theologian & Catechist",
+    "categories": [
+      "doctor",
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "March 18",
@@ -630,6 +840,9 @@
     "deathDate": "384",
     "nationality": "Roman / Hispanic",
     "profession": "Pope & Patron of the Latin Vulgate",
+    "categories": [
+      "pope"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "December 11",
@@ -643,6 +856,10 @@
     "deathDate": "1889",
     "nationality": "Belgian",
     "profession": "Priest (Picpus Fathers) & Apostle to the Lepers",
+    "categories": [
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "May 10",
@@ -656,6 +873,9 @@
     "deathDate": "1221",
     "nationality": "Spanish",
     "profession": "Priest & Founder of the Order of Preachers (Dominicans)",
+    "categories": [
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "August 8",
@@ -669,6 +889,10 @@
     "deathDate": "1857",
     "nationality": "Italian",
     "profession": "Student & Pupil of Don Bosco",
+    "categories": [
+      "laity",
+      "virgin"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "May 6",
@@ -682,6 +906,9 @@
     "deathDate": "988",
     "nationality": "English / Anglo-Saxon",
     "profession": "Archbishop of Canterbury, Reformer & Craftsman",
+    "categories": [
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "May 19",
@@ -695,6 +922,10 @@
     "deathDate": "1581",
     "nationality": "English",
     "profession": "Jesuit Priest & Martyr (Forty Martyrs of England and Wales)",
+    "categories": [
+      "martyr",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "December 1",
@@ -708,6 +939,10 @@
     "deathDate": "1066",
     "nationality": "English / Anglo-Saxon",
     "profession": "King of England & Founder of Westminster Abbey",
+    "categories": [
+      "monarch",
+      "laity"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "October 13",
@@ -721,6 +956,10 @@
     "deathDate": "1821",
     "nationality": "American",
     "profession": "Foundress (Sisters of Charity) & Catholic School Pioneer",
+    "categories": [
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "January 4",
@@ -734,6 +973,11 @@
     "deathDate": "1231",
     "nationality": "Hungarian / German",
     "profession": "Princess of Hungary & Third Order Franciscan",
+    "categories": [
+      "monarch",
+      "laity",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "November 17",
@@ -747,6 +991,10 @@
     "deathDate": "373",
     "nationality": "Syrian",
     "profession": "Deacon, Hymnographer, Poet & Harp of the Holy Spirit",
+    "categories": [
+      "doctor",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "June 9",
@@ -760,6 +1008,11 @@
     "deathDate": "1160",
     "nationality": "Swedish",
     "profession": "King of Sweden & Martyr",
+    "categories": [
+      "martyr",
+      "monarch",
+      "laity"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "May 18",
@@ -773,6 +1026,11 @@
     "deathDate": "1938",
     "nationality": "Polish",
     "profession": "Sister of Our Lady of Mercy & Secretary of Divine Mercy",
+    "categories": [
+      "mystic",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "October 5",
@@ -786,6 +1044,11 @@
     "deathDate": "1917",
     "nationality": "Italian / American",
     "profession": "Foundress (Missionary Sisters of the Sacred Heart)",
+    "categories": [
+      "healerMissionary",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "November 13",
@@ -799,6 +1062,11 @@
     "deathDate": "1572",
     "nationality": "Spanish",
     "profession": "Duke of Gandía & Third Superior General of the Jesuits",
+    "categories": [
+      "monarch",
+      "laity",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "October 10",
@@ -812,6 +1080,12 @@
     "deathDate": "1622",
     "nationality": "Savoyard / French",
     "profession": "Bishop of Geneva, Writer & Doctor of Charity (Doctor Caritatis)",
+    "categories": [
+      "doctor",
+      "bishop",
+      "mystic",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "January 24",
@@ -825,6 +1099,10 @@
     "deathDate": "1226",
     "nationality": "Italian",
     "profession": "Friar Minor & Founder of Franciscan Orders",
+    "categories": [
+      "mystic",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "October 4",
@@ -838,6 +1116,10 @@
     "deathDate": "1552",
     "nationality": "Spanish (Navarrese)",
     "profession": "Jesuit Priest & Apostle of the Indies and Japan",
+    "categories": [
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "December 3",
@@ -849,6 +1131,9 @@
     "name": "St. Gabriel the Archangel",
     "nationality": "Angelic / Heavenly",
     "profession": "Archangel & Heavenly Messenger",
+    "categories": [
+      "angel"
+    ],
     "gender": "other",
     "isDoctor": false,
     "feastDay": "September 29",
@@ -862,6 +1147,9 @@
     "deathDate": "303",
     "nationality": "Greek / Cappadocian",
     "profession": "Roman Officer & Great Martyr (Megalomaityr)",
+    "categories": [
+      "martyr"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "April 23",
@@ -875,6 +1163,11 @@
     "deathDate": "1755",
     "nationality": "Italian",
     "profession": "Redemptorist Lay Brother & Mystic",
+    "categories": [
+      "mystic",
+      "laity",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "October 16",
@@ -888,6 +1181,11 @@
     "deathDate": "c. 1302",
     "nationality": "German",
     "profession": "Benedictine Nun, Mystic & Theologian",
+    "categories": [
+      "mystic",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "November 16",
@@ -901,6 +1199,10 @@
     "deathDate": "1962",
     "nationality": "Italian",
     "profession": "Pediatrician & Mother",
+    "categories": [
+      "laity",
+      "healerMissionary"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "April 28",
@@ -914,6 +1216,10 @@
     "deathDate": "1927",
     "nationality": "Italian",
     "profession": "Doctor, Medical Researcher & Layman",
+    "categories": [
+      "laity",
+      "healerMissionary"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "November 16",
@@ -927,6 +1233,11 @@
     "deathDate": "1003",
     "nationality": "Armenian",
     "profession": "Monk, Mystic, Poet & Theologian",
+    "categories": [
+      "doctor",
+      "mystic",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "February 27",
@@ -940,6 +1251,10 @@
     "deathDate": "390",
     "nationality": "Greek / Cappadocian",
     "profession": "Archbishop of Constantinople & The Theologian",
+    "categories": [
+      "doctor",
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "January 2",
@@ -953,6 +1268,11 @@
     "deathDate": "604",
     "nationality": "Roman / Italian",
     "profession": "Pope, Monk, Reformer & Latin Church Father",
+    "categories": [
+      "doctor",
+      "pope",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "September 3",
@@ -966,6 +1286,10 @@
     "deathDate": "367",
     "nationality": "Gallo-Roman / French",
     "profession": "Bishop of Poitiers & The Hammer of the Arians (Malleus Arianorum)",
+    "categories": [
+      "doctor",
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "January 13",
@@ -979,6 +1303,12 @@
     "deathDate": "1179",
     "nationality": "German",
     "profession": "Benedictine Abbess, Polymath, Composer & Mystic (Sibyl of the Rhine)",
+    "categories": [
+      "doctor",
+      "mystic",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": true,
     "feastDay": "September 17",
@@ -992,6 +1322,10 @@
     "deathDate": "c. 108",
     "nationality": "Syrian / Greek",
     "profession": "Bishop of Antioch, Apostolic Father & Martyr (Theophorus)",
+    "categories": [
+      "martyr",
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "October 17",
@@ -1005,6 +1339,10 @@
     "deathDate": "1556",
     "nationality": "Spanish (Basque)",
     "profession": "Knight, Priest & Founder of the Society of Jesus (Jesuits)",
+    "categories": [
+      "mystic",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "July 31",
@@ -1018,6 +1356,11 @@
     "deathDate": "c. 202",
     "nationality": "Greek / Gallo-Roman",
     "profession": "Bishop of Lugdunum, Martyr & Doctor of Unity (Doctor Unitatis)",
+    "categories": [
+      "doctor",
+      "martyr",
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "June 28",
@@ -1031,6 +1374,10 @@
     "deathDate": "636",
     "nationality": "Spanish / Visigothic",
     "profession": "Archbishop of Seville, Encyclopedist & Scholar (Doctor Egregius)",
+    "categories": [
+      "doctor",
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "April 4",
@@ -1044,6 +1391,11 @@
     "deathDate": "1896",
     "nationality": "French",
     "profession": "Jesuit Priest, Missionary & First Martyr of Madagascar",
+    "categories": [
+      "martyr",
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "June 8",
@@ -1057,6 +1409,10 @@
     "deathDate": "44 AD",
     "nationality": "Galilean / Judean",
     "profession": "Fisherman & Apostle",
+    "categories": [
+      "apostle",
+      "martyr"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "July 25",
@@ -1070,6 +1426,11 @@
     "deathDate": "c. 62 AD",
     "nationality": "Galilean / Judean",
     "profession": "Apostle & Bishop of Jerusalem (James son of Alphaeus)",
+    "categories": [
+      "apostle",
+      "martyr",
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "May 3",
@@ -1083,6 +1444,10 @@
     "deathDate": "1641",
     "nationality": "French",
     "profession": "Foundress of the Order of the Visitation of Holy Mary",
+    "categories": [
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "August 12",
@@ -1096,6 +1461,10 @@
     "deathDate": "420",
     "nationality": "Roman / Illyrian",
     "profession": "Priest, Scripture Scholar, Translator & Hermit",
+    "categories": [
+      "doctor",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "September 30",
@@ -1109,6 +1478,11 @@
     "deathDate": "1431",
     "nationality": "French",
     "profession": "Peasant Girl, Military Commander & Martyr (Maid of Orléans)",
+    "categories": [
+      "martyr",
+      "laity",
+      "virgin"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "May 30",
@@ -1122,6 +1496,10 @@
     "deathDate": "1621",
     "nationality": "Flemish / Belgian",
     "profession": "Jesuit Scholastic",
+    "categories": [
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "November 26",
@@ -1135,6 +1513,10 @@
     "deathDate": "1888",
     "nationality": "Italian",
     "profession": "Priest, Educator & Founder of the Salesians",
+    "categories": [
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "January 31",
@@ -1148,6 +1530,11 @@
     "deathDate": "407",
     "nationality": "Greek / Syrian",
     "profession": "Archbishop of Constantinople & Golden-Mouthed Preacher",
+    "categories": [
+      "doctor",
+      "bishop",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "September 13",
@@ -1161,6 +1548,10 @@
     "deathDate": "749",
     "nationality": "Syrian / Arab",
     "profession": "Priest, Monk, Hymnographer & Defender of Icons",
+    "categories": [
+      "doctor",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "December 4",
@@ -1174,6 +1565,10 @@
     "deathDate": "1890",
     "nationality": "English",
     "profession": "Cardinal, Oratorian, Theologian & Philosopher",
+    "categories": [
+      "bishop",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "October 9",
@@ -1187,6 +1582,11 @@
     "deathDate": "1569",
     "nationality": "Spanish",
     "profession": "Priest, Preacher & Apostle of Andalusia",
+    "categories": [
+      "doctor",
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "May 10",
@@ -1200,6 +1600,9 @@
     "deathDate": "1393",
     "nationality": "Bohemian / Czech",
     "profession": "Canon of Prague & Martyr of the Confessional",
+    "categories": [
+      "martyr"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "May 16",
@@ -1213,6 +1616,11 @@
     "deathDate": "1591",
     "nationality": "Spanish",
     "profession": "Carmelite Priest, Reformer, Poet & Mystical Doctor (Doctor Mysticus)",
+    "categories": [
+      "doctor",
+      "mystic",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "December 14",
@@ -1226,6 +1634,10 @@
     "deathDate": "2005",
     "nationality": "Polish",
     "profession": "Pope, Philosopher, Poet & World Youth Day Founder",
+    "categories": [
+      "pope",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "October 22",
@@ -1239,6 +1651,10 @@
     "deathDate": "c. 100 AD",
     "nationality": "Galilean / Judean",
     "profession": "Fisherman, Apostle & Evangelist (The Beloved Disciple)",
+    "categories": [
+      "apostle",
+      "evangelist"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "December 27",
@@ -1252,6 +1668,9 @@
     "deathDate": "c. 30 AD",
     "nationality": "Judean",
     "profession": "Prophet, Forerunner & Martyr",
+    "categories": [
+      "martyr"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "June 24 / August 29",
@@ -1265,6 +1684,9 @@
     "deathDate": "1859",
     "nationality": "French",
     "profession": "Parish Priest of Ars & Patron of Parish Priests",
+    "categories": [
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "August 4",
@@ -1278,6 +1700,9 @@
     "deathDate": "1963",
     "nationality": "Italian",
     "profession": "Pope (The Good Pope) & Initiator of Second Vatican Council",
+    "categories": [
+      "pope"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "October 11",
@@ -1291,6 +1716,10 @@
     "deathDate": "1928",
     "nationality": "Mexican",
     "profession": "Cristero Boy Martyr",
+    "categories": [
+      "martyr",
+      "laity"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "February 10",
@@ -1304,6 +1733,9 @@
     "deathDate": "1975",
     "nationality": "Spanish",
     "profession": "Priest & Founder of Opus Dei",
+    "categories": [
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "June 26",
@@ -1317,6 +1749,10 @@
     "deathDate": "c. 20 AD",
     "nationality": "Judean",
     "profession": "Carpenter (Tekton) & Foster Father of Jesus",
+    "categories": [
+      "holyFamily",
+      "laity"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "March 19 / May 1",
@@ -1330,6 +1766,10 @@
     "deathDate": "1663",
     "nationality": "Italian",
     "profession": "Conventual Franciscan Friar & Mystic",
+    "categories": [
+      "mystic",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "September 18",
@@ -1343,6 +1783,11 @@
     "deathDate": "1548",
     "nationality": "Indigenous Mexican (Chichimeca / Aztec)",
     "profession": "Lay Hermit & Visionary of Our Lady of Guadalupe",
+    "categories": [
+      "mystic",
+      "laity",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "December 9",
@@ -1356,6 +1801,10 @@
     "deathDate": "c. 65 AD",
     "nationality": "Galilean / Judean",
     "profession": "Apostle & Author of Epistle of Jude",
+    "categories": [
+      "apostle",
+      "martyr"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "October 28",
@@ -1369,6 +1818,10 @@
     "deathDate": "1784",
     "nationality": "Spanish / Mallorcan",
     "profession": "Franciscan Friar & Apostle of California",
+    "categories": [
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "July 1",
@@ -1382,6 +1835,9 @@
     "deathDate": "165",
     "nationality": "Samaritan / Roman",
     "profession": "Philosopher, Apologist & Martyr",
+    "categories": [
+      "martyr"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "June 1",
@@ -1395,6 +1851,11 @@
     "deathDate": "1680",
     "nationality": "Mohawk / Native American",
     "profession": "Lily of the Mohawks & Laywoman",
+    "categories": [
+      "mystic",
+      "laity",
+      "virgin"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "July 14",
@@ -1408,6 +1869,10 @@
     "deathDate": "1955",
     "nationality": "American",
     "profession": "Foundress of the Sisters of the Blessed Sacrament",
+    "categories": [
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "March 3",
@@ -1421,6 +1886,11 @@
     "deathDate": "1846",
     "nationality": "Korean",
     "profession": "First Native Korean Catholic Priest & 103 Martyrs",
+    "categories": [
+      "martyr",
+      "laity",
+      "priestReligious"
+    ],
     "gender": "group",
     "isDoctor": false,
     "feastDay": "September 20",
@@ -1434,6 +1904,11 @@
     "deathDate": "1904",
     "nationality": "Chilean / Argentine",
     "profession": "Salesian Pupil & Virgin",
+    "categories": [
+      "laity",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "isBlessed": true,
@@ -1448,6 +1923,11 @@
     "deathDate": "1619",
     "nationality": "Italian",
     "profession": "Capuchin Priest, Diplomat & Apostolic Doctor (Doctor Apostolicus)",
+    "categories": [
+      "doctor",
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "July 21",
@@ -1461,6 +1941,10 @@
     "deathDate": "258",
     "nationality": "Spanish / Roman",
     "profession": "Archdeacon of Rome & Martyr",
+    "categories": [
+      "martyr",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "August 10",
@@ -1474,6 +1958,10 @@
     "deathDate": "461",
     "nationality": "Roman / Italian",
     "profession": "Pope & Latin Church Father (Doctor Unitatis Ecclesiae)",
+    "categories": [
+      "doctor",
+      "pope"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "November 10",
@@ -1487,6 +1975,10 @@
     "deathDate": "1637",
     "nationality": "Filipino / Chinese",
     "profession": "Calligrapher, Sacristan, Martyr & First Filipino Saint",
+    "categories": [
+      "martyr",
+      "laity"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "September 28",
@@ -1500,6 +1992,11 @@
     "deathDate": "1270",
     "nationality": "French",
     "profession": "King of France & Third Order Franciscan",
+    "categories": [
+      "monarch",
+      "laity",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "August 25",
@@ -1513,6 +2010,10 @@
     "deathDate": "1716",
     "nationality": "French",
     "profession": "Priest, Apostolic Missionary & Marian Theologian",
+    "categories": [
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "April 28",
@@ -1526,6 +2027,10 @@
     "deathDate": "1660",
     "nationality": "French",
     "profession": "Foundress of the Daughters of Charity",
+    "categories": [
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "May 9",
@@ -1539,6 +2044,10 @@
     "deathDate": "c. 304",
     "nationality": "Sicilian / Roman",
     "profession": "Virgin & Martyr",
+    "categories": [
+      "martyr",
+      "virgin"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "December 13",
@@ -1552,6 +2061,10 @@
     "deathDate": "c. 84 AD",
     "nationality": "Greek / Syrian (Antioch)",
     "profession": "Physician, Historian & Evangelist",
+    "categories": [
+      "evangelist",
+      "healerMissionary"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "October 18",
@@ -1565,6 +2078,10 @@
     "deathDate": "1586",
     "nationality": "English",
     "profession": "Wife, Mother & Martyr",
+    "categories": [
+      "martyr",
+      "laity"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "March 26",
@@ -1578,6 +2095,10 @@
     "deathDate": "1093",
     "nationality": "Anglo-Saxon / Scottish",
     "profession": "Queen Consort of Scotland & Reformer",
+    "categories": [
+      "monarch",
+      "laity"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "November 16",
@@ -1591,6 +2112,11 @@
     "deathDate": "1902",
     "nationality": "Italian",
     "profession": "Peasant Girl, Virgin & Martyr",
+    "categories": [
+      "martyr",
+      "laity",
+      "virgin"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "July 6",
@@ -1604,6 +2130,11 @@
     "deathDate": "1918",
     "nationality": "German / American",
     "profession": "Franciscan Sister & Missionary to Molokai",
+    "categories": [
+      "healerMissionary",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "January 23",
@@ -1617,6 +2148,10 @@
     "deathDate": "c. 68 AD",
     "nationality": "Judean / Roman",
     "profession": "Companion of Peter and Paul & Evangelist",
+    "categories": [
+      "evangelist",
+      "martyr"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "April 25",
@@ -1630,6 +2165,11 @@
     "deathDate": "1639",
     "nationality": "Peruvian / Afro-Peruvian",
     "profession": "Dominican Lay Brother & Wonderworker",
+    "categories": [
+      "laity",
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "November 3",
@@ -1643,6 +2183,10 @@
     "deathDate": "397",
     "nationality": "Pannonian / Roman (Hungarian / French)",
     "profession": "Roman Soldier, Bishop of Tours & Monastic Pioneer",
+    "categories": [
+      "bishop",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "November 11",
@@ -1656,6 +2200,10 @@
     "deathDate": "1909",
     "nationality": "Australian",
     "profession": "Foundress of the Sisters of St. Joseph of the Sacred Heart",
+    "categories": [
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "August 8",
@@ -1669,6 +2217,11 @@
     "deathDate": "c. 48 AD",
     "nationality": "Judean / Heavenly",
     "profession": "Mother of God (Theotokos), Spouse of the Holy Spirit & Queen of All Saints",
+    "categories": [
+      "holyFamily",
+      "mystic",
+      "virgin"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "January 1 / August 15 / December 8",
@@ -1682,6 +2235,10 @@
     "deathDate": "c. 60 AD",
     "nationality": "Galilean / Judean",
     "profession": "Disciple & Apostle to the Apostles (Apostola Apostolorum)",
+    "categories": [
+      "apostle",
+      "mystic"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "July 22",
@@ -1695,6 +2252,11 @@
     "deathDate": "c. 74 AD",
     "nationality": "Galilean / Judean",
     "profession": "Tax Collector, Apostle & Evangelist",
+    "categories": [
+      "apostle",
+      "evangelist",
+      "martyr"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "September 21",
@@ -1708,6 +2270,10 @@
     "deathDate": "c. 80 AD",
     "nationality": "Judean",
     "profession": "Apostle chosen to replace Judas Iscariot",
+    "categories": [
+      "apostle",
+      "martyr"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "May 14",
@@ -1721,6 +2287,10 @@
     "deathDate": "1941",
     "nationality": "Polish",
     "profession": "Conventual Franciscan Friar, Publisher & Martyr of Charity",
+    "categories": [
+      "martyr",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "August 14",
@@ -1734,6 +2304,11 @@
     "deathDate": "1298",
     "nationality": "German",
     "profession": "Benedictine Nun & Mystic",
+    "categories": [
+      "mystic",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "November 19",
@@ -1745,6 +2320,9 @@
     "name": "St. Michael the Archangel",
     "nationality": "Angelic / Heavenly",
     "profession": "Archangel, Prince of the Heavenly Host & Defender of the Church",
+    "categories": [
+      "angel"
+    ],
     "gender": "other",
     "isDoctor": false,
     "feastDay": "September 29",
@@ -1758,6 +2336,10 @@
     "deathDate": "1927",
     "nationality": "Mexican",
     "profession": "Jesuit Priest & Cristero Era Martyr",
+    "categories": [
+      "martyr",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "isBlessed": true,
@@ -1772,6 +2354,12 @@
     "deathDate": "1997",
     "nationality": "Albanian / Indian",
     "profession": "Foundress of the Missionaries of Charity",
+    "categories": [
+      "mystic",
+      "healerMissionary",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "September 5",
@@ -1785,6 +2373,10 @@
     "deathDate": "343",
     "nationality": "Greek / Lycian",
     "profession": "Bishop of Myra & Wonderworker (Thaumaturgus)",
+    "categories": [
+      "bishop",
+      "healerMissionary"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "December 6",
@@ -1798,6 +2390,9 @@
     "deathDate": "1858",
     "nationality": "Lebanese / Maronite",
     "profession": "Maronite Monk, Scholar & Theologian",
+    "categories": [
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "December 14",
@@ -1811,6 +2406,11 @@
     "deathDate": "1030",
     "nationality": "Norwegian",
     "profession": "King of Norway & Martyr (Rex Perpetuus Norvegiae)",
+    "categories": [
+      "martyr",
+      "monarch",
+      "laity"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "July 29",
@@ -1824,6 +2424,10 @@
     "deathDate": "1980",
     "nationality": "Salvadoran",
     "profession": "Archbishop of San Salvador & Martyr",
+    "categories": [
+      "martyr",
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "March 24",
@@ -1837,6 +2441,9 @@
     "deathDate": "348",
     "nationality": "Egyptian",
     "profession": "Founder of Cenobitic (Communal) Monasticism",
+    "categories": [
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "May 9",
@@ -1850,6 +2457,10 @@
     "deathDate": "1968",
     "nationality": "Italian",
     "profession": "Capuchin Friar, Priest, Confessor & Stigmatist",
+    "categories": [
+      "mystic",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "September 23",
@@ -1863,6 +2474,10 @@
     "deathDate": "c. 304",
     "nationality": "Phrygian / Roman",
     "profession": "Child Martyr",
+    "categories": [
+      "martyr",
+      "laity"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "May 12",
@@ -1876,6 +2491,10 @@
     "deathDate": "c. 461",
     "nationality": "Romano-British",
     "profession": "Bishop & Apostle of Ireland",
+    "categories": [
+      "bishop",
+      "healerMissionary"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "March 17",
@@ -1889,6 +2508,10 @@
     "deathDate": "1597",
     "nationality": "Japanese",
     "profession": "Jesuit Seminarian & 26 Martyrs of Nagasaki",
+    "categories": [
+      "martyr",
+      "priestReligious"
+    ],
     "gender": "group",
     "isDoctor": false,
     "feastDay": "February 6",
@@ -1902,6 +2525,10 @@
     "deathDate": "1775",
     "nationality": "Italian",
     "profession": "Priest, Mystic & Founder of the Passionists",
+    "categories": [
+      "mystic",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "October 19",
@@ -1915,6 +2542,11 @@
     "deathDate": "c. 67 AD",
     "nationality": "Roman / Judean (Tarsus)",
     "profession": "Tentmaker, Apostle to the Gentiles & Author of Epistles",
+    "categories": [
+      "apostle",
+      "martyr",
+      "healerMissionary"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "June 29",
@@ -1928,6 +2560,9 @@
     "deathDate": "c. 342",
     "nationality": "Egyptian",
     "profession": "First Christian Hermit",
+    "categories": [
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "January 15",
@@ -1941,6 +2576,9 @@
     "deathDate": "1978",
     "nationality": "Italian",
     "profession": "Pope & Concluder of Second Vatican Council",
+    "categories": [
+      "pope"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "May 29",
@@ -1954,6 +2592,11 @@
     "deathDate": "1672",
     "nationality": "Filipino (Visayan)",
     "profession": "Migrant, Sacristan, Catechist & Martyr",
+    "categories": [
+      "martyr",
+      "laity",
+      "healerMissionary"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "April 2",
@@ -1967,6 +2610,9 @@
     "deathDate": "1345",
     "nationality": "Italian",
     "profession": "Servite Priest & Friar",
+    "categories": [
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "May 1",
@@ -1980,6 +2626,10 @@
     "deathDate": "203",
     "nationality": "North African / Roman",
     "profession": "Martyrs of Carthage",
+    "categories": [
+      "martyr",
+      "laity"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "March 7",
@@ -1993,6 +2643,11 @@
     "deathDate": "1597",
     "nationality": "Dutch / German",
     "profession": "Jesuit Priest, Catechist & Second Apostle of Germany",
+    "categories": [
+      "doctor",
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "December 21",
@@ -2006,6 +2661,10 @@
     "deathDate": "450",
     "nationality": "Roman / Italian",
     "profession": "Archbishop of Ravenna & Doctor of Short Sermons (Golden-Worded)",
+    "categories": [
+      "doctor",
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "July 30",
@@ -2019,6 +2678,10 @@
     "deathDate": "1654",
     "nationality": "Spanish / Colombian",
     "profession": "Jesuit Priest & 'Slave of the Slaves Forever'",
+    "categories": [
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "September 9",
@@ -2032,6 +2695,12 @@
     "deathDate": "1072",
     "nationality": "Italian",
     "profession": "Benedictine Monk, Cardinal Bishop & Church Reformer",
+    "categories": [
+      "doctor",
+      "bishop",
+      "mystic",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "February 21",
@@ -2045,6 +2714,11 @@
     "deathDate": "c. 64 AD",
     "nationality": "Galilean / Judean",
     "profession": "Fisherman, Apostle & First Pope",
+    "categories": [
+      "apostle",
+      "pope",
+      "martyr"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "June 29",
@@ -2058,6 +2732,10 @@
     "deathDate": "1595",
     "nationality": "English",
     "profession": "Earl of Arundel & Martyr",
+    "categories": [
+      "martyr",
+      "laity"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "October 19",
@@ -2071,6 +2749,10 @@
     "deathDate": "1595",
     "nationality": "Italian",
     "profession": "Priest, Founder (Oratorians) & Apostle of Rome",
+    "categories": [
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "May 26",
@@ -2084,6 +2766,11 @@
     "deathDate": "c. 80 AD",
     "nationality": "Galilean / Judean",
     "profession": "Apostle of Jesus Christ",
+    "categories": [
+      "apostle",
+      "martyr",
+      "healerMissionary"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "May 3",
@@ -2097,6 +2784,10 @@
     "deathDate": "1572",
     "nationality": "Italian",
     "profession": "Pope & Dominican Friar",
+    "categories": [
+      "pope",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "April 30",
@@ -2110,6 +2801,9 @@
     "deathDate": "1914",
     "nationality": "Italian",
     "profession": "Pope & Reformer of Church Music and Canon Law",
+    "categories": [
+      "pope"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "August 21",
@@ -2123,6 +2817,10 @@
     "deathDate": "155",
     "nationality": "Greek / Anatolian",
     "profession": "Bishop of Smyrna & Apostolic Father",
+    "categories": [
+      "martyr",
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "February 23",
@@ -2136,6 +2834,11 @@
     "deathDate": "1914",
     "nationality": "Lebanese / Maronite",
     "profession": "Maronite Nun & Mystic",
+    "categories": [
+      "mystic",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "March 23",
@@ -2147,6 +2850,10 @@
     "name": "St. Raphael the Archangel",
     "nationality": "Angelic / Heavenly",
     "profession": "Archangel & Divine Healer",
+    "categories": [
+      "angel",
+      "healerMissionary"
+    ],
     "gender": "other",
     "isDoctor": false,
     "feastDay": "September 29",
@@ -2160,6 +2867,10 @@
     "deathDate": "1240",
     "nationality": "Spanish / Catalan",
     "profession": "Mercedarian Priest, Cardinal & Confessor",
+    "categories": [
+      "bishop",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "August 31",
@@ -2173,6 +2884,9 @@
     "deathDate": "1275",
     "nationality": "Spanish / Catalan",
     "profession": "Dominican Friar, Canonist & Master General of the Order of Preachers",
+    "categories": [
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "January 7",
@@ -2186,6 +2900,11 @@
     "deathDate": "1457",
     "nationality": "Italian",
     "profession": "Augustinian Nun & Mystic",
+    "categories": [
+      "mystic",
+      "laity",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "May 22",
@@ -2199,6 +2918,11 @@
     "deathDate": "1621",
     "nationality": "Italian",
     "profession": "Jesuit Cardinal, Theologian & Apologist",
+    "categories": [
+      "doctor",
+      "bishop",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "September 17",
@@ -2212,6 +2936,10 @@
     "deathDate": "1376",
     "nationality": "French",
     "profession": "Pilgrim & Healer",
+    "categories": [
+      "laity",
+      "healerMissionary"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "August 16",
@@ -2225,6 +2953,9 @@
     "deathDate": "1027",
     "nationality": "Italian",
     "profession": "Abbot & Founder of the Camaldolese Order",
+    "categories": [
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "June 19",
@@ -2238,6 +2969,11 @@
     "deathDate": "1617",
     "nationality": "Peruvian",
     "profession": "Third Order Dominican & First Canonized Saint of the Americas",
+    "categories": [
+      "mystic",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "August 23",
@@ -2251,6 +2987,10 @@
     "deathDate": "543",
     "nationality": "Italian",
     "profession": "Benedictine Nun & Abbess",
+    "categories": [
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "February 10",
@@ -2264,6 +3004,9 @@
     "deathDate": "c. 288",
     "nationality": "Gallo-Roman / Italian",
     "profession": "Praetorian Guard Officer & Martyr",
+    "categories": [
+      "martyr"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "January 20",
@@ -2277,6 +3020,11 @@
     "deathDate": "c. 1st Century",
     "nationality": "Galilean / Judean",
     "profession": "Apostle of Jesus Christ",
+    "categories": [
+      "apostle",
+      "martyr",
+      "healerMissionary"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "October 28",
@@ -2290,6 +3038,10 @@
     "deathDate": "1568",
     "nationality": "Polish",
     "profession": "Jesuit Novice",
+    "categories": [
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "November 13",
@@ -2303,6 +3055,10 @@
     "deathDate": "c. 34 AD",
     "nationality": "Hellenistic Judean",
     "profession": "Deacon & Protomartyr of Christianity",
+    "categories": [
+      "martyr",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "December 26",
@@ -2316,6 +3072,10 @@
     "deathDate": "1038",
     "nationality": "Hungarian",
     "profession": "First King of Hungary & Apostolic King",
+    "categories": [
+      "monarch",
+      "laity"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "August 16",
@@ -2329,6 +3089,10 @@
     "deathDate": "275",
     "nationality": "Roman",
     "profession": "Acolyte & Eucharistic Martyr",
+    "categories": [
+      "martyr",
+      "laity"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "August 15",
@@ -2342,6 +3106,12 @@
     "deathDate": "1942",
     "nationality": "German / Jewish",
     "profession": "Discalced Carmelite Nun, Philosopher & Patroness of Europe",
+    "categories": [
+      "martyr",
+      "mystic",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": false,
     "feastDay": "August 9",
@@ -2355,6 +3125,12 @@
     "deathDate": "1582",
     "nationality": "Spanish",
     "profession": "Carmelite Nun, Reformer & Seraphic Mother (Doctor of Prayer)",
+    "categories": [
+      "doctor",
+      "mystic",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": true,
     "feastDay": "October 15",
@@ -2368,6 +3144,12 @@
     "deathDate": "1897",
     "nationality": "French",
     "profession": "Discalced Carmelite Nun (The Little Flower, Doctor Amoris)",
+    "categories": [
+      "doctor",
+      "mystic",
+      "virgin",
+      "priestReligious"
+    ],
     "gender": "female",
     "isDoctor": true,
     "feastDay": "October 1",
@@ -2381,6 +3163,11 @@
     "deathDate": "1274",
     "nationality": "Italian",
     "profession": "Dominican Friar, Philosopher, Theologian & Angelic Doctor (Doctor Angelicus)",
+    "categories": [
+      "doctor",
+      "mystic",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": true,
     "feastDay": "January 28",
@@ -2394,6 +3181,10 @@
     "deathDate": "1170",
     "nationality": "English",
     "profession": "Archbishop of Canterbury & Martyr",
+    "categories": [
+      "martyr",
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "December 29",
@@ -2407,6 +3198,10 @@
     "deathDate": "1535",
     "nationality": "English",
     "profession": "Lord Chancellor of England, Statesman & Martyr",
+    "categories": [
+      "martyr",
+      "laity"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "June 22",
@@ -2420,6 +3215,11 @@
     "deathDate": "72 AD",
     "nationality": "Galilean / Judean",
     "profession": "Builder, Apostle & Missionary to India",
+    "categories": [
+      "apostle",
+      "martyr",
+      "healerMissionary"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "July 3",
@@ -2433,6 +3233,9 @@
     "deathDate": "c. 97 AD",
     "nationality": "Greek / Jewish (Lycaonian)",
     "profession": "Bishop of Ephesus & Disciple of St. Paul",
+    "categories": [
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "January 26",
@@ -2446,6 +3249,9 @@
     "deathDate": "c. 96 AD",
     "nationality": "Greek / Gentile",
     "profession": "Bishop of Crete & Disciple of St. Paul",
+    "categories": [
+      "bishop"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "January 26",
@@ -2459,6 +3265,11 @@
     "deathDate": "1942",
     "nationality": "Dutch",
     "profession": "Carmelite Priest, Professor & Martyr of Dachau",
+    "categories": [
+      "martyr",
+      "mystic",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "July 27",
@@ -2472,6 +3283,10 @@
     "deathDate": "1606",
     "nationality": "Spanish / Peruvian",
     "profession": "Archbishop of Lima & Missionary Reformer",
+    "categories": [
+      "bishop",
+      "healerMissionary"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "March 23",
@@ -2485,6 +3300,11 @@
     "deathDate": "269",
     "nationality": "Roman",
     "profession": "Priest / Bishop & Martyr",
+    "categories": [
+      "martyr",
+      "bishop",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "February 14",
@@ -2498,6 +3318,11 @@
     "deathDate": "1862",
     "nationality": "Vietnamese, French, Spanish",
     "profession": "Priests, Catechists, Religious & Lay Martyrs",
+    "categories": [
+      "martyr",
+      "laity",
+      "priestReligious"
+    ],
     "gender": "group",
     "isDoctor": false,
     "feastDay": "November 24",
@@ -2511,6 +3336,10 @@
     "deathDate": "1660",
     "nationality": "French",
     "profession": "Priest & Founder (Vincentians & Daughters of Charity)",
+    "categories": [
+      "healerMissionary",
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "September 27",
@@ -2524,6 +3353,9 @@
     "deathDate": "c. 445",
     "nationality": "Gaulish / Roman",
     "profession": "Monk & Theologian",
+    "categories": [
+      "priestReligious"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "May 24",
@@ -2537,6 +3369,11 @@
     "deathDate": "935",
     "nationality": "Bohemian / Czech",
     "profession": "Duke of Bohemia & Martyr (Good King Wenceslas)",
+    "categories": [
+      "martyr",
+      "monarch",
+      "laity"
+    ],
     "gender": "male",
     "isDoctor": false,
     "feastDay": "September 28",
