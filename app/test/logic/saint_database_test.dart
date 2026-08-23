@@ -998,9 +998,12 @@ void main() {
           category: SaintCategory.martyr,
         );
         expect(
-          martyrs.every((s) => s.category == SaintCategory.martyr),
+          martyrs.every((s) => s.categories.contains(SaintCategory.martyr)),
           isTrue,
         );
+        expect(martyrs.any((s) => s.id == 'agnes-of-rome'), isTrue);
+        expect(martyrs.any((s) => s.id == 'thomas-more'), isTrue);
+        expect(martyrs.any((s) => s.id == 'wenceslaus'), isTrue);
 
         // Category filter: Angels
         final angels = SaintDatabase.searchSaints(
@@ -1008,7 +1011,10 @@ void main() {
           category: SaintCategory.angel,
         );
         expect(angels.length, 3);
-        expect(angels.every((s) => s.category == SaintCategory.angel), isTrue);
+        expect(
+          angels.every((s) => s.categories.contains(SaintCategory.angel)),
+          isTrue,
+        );
         expect(angels.any((s) => s.id == 'michael-the-archangel'), isTrue);
 
         // Category filter: Apostles (Biblical Apostles & Apostle to the Apostles)
@@ -1018,7 +1024,7 @@ void main() {
         );
         expect(apostles.length, 15);
         expect(
-          apostles.every((s) => s.category == SaintCategory.apostle),
+          apostles.every((s) => s.categories.contains(SaintCategory.apostle)),
           isTrue,
         );
         expect(apostles.any((s) => s.id == 'peter-the-apostle'), isTrue);
@@ -1052,40 +1058,106 @@ void main() {
           saints,
           category: SaintCategory.evangelist,
         );
-        expect(evangelists.length, 2);
+        expect(evangelists.length, 4); // Matthew, Mark, Luke, John
         expect(
-          evangelists.every((s) => s.category == SaintCategory.evangelist),
+          evangelists.every(
+            (s) => s.categories.contains(SaintCategory.evangelist),
+          ),
           isTrue,
         );
         expect(evangelists.any((s) => s.id == 'luke-the-evangelist'), isTrue);
         expect(evangelists.any((s) => s.id == 'mark-the-evangelist'), isTrue);
+        expect(evangelists.any((s) => s.id == 'matthew-the-apostle'), isTrue);
+        expect(evangelists.any((s) => s.id == 'john-the-apostle'), isTrue);
 
         // Category filter: Popes
         final popes = SaintDatabase.searchSaints(
           saints,
           category: SaintCategory.pope,
         );
-        expect(popes.length, 7);
-        expect(popes.every((s) => s.category == SaintCategory.pope), isTrue);
+        expect(popes.length, greaterThanOrEqualTo(7));
+        expect(
+          popes.every((s) => s.categories.contains(SaintCategory.pope)),
+          isTrue,
+        );
         expect(popes.any((s) => s.id == 'pius-v'), isTrue);
         expect(popes.any((s) => s.id == 'pius-x'), isTrue);
         expect(popes.any((s) => s.id == 'john-paul-ii'), isTrue);
         expect(popes.any((s) => s.id == 'clement-of-rome'), isTrue);
+        expect(popes.any((s) => s.id == 'peter-the-apostle'), isTrue);
 
         // Category filter: Bishops
         final bishops = SaintDatabase.searchSaints(
           saints,
           category: SaintCategory.bishop,
         );
-        expect(bishops.length, 15);
         expect(
-          bishops.every((s) => s.category == SaintCategory.bishop),
+          bishops.every((s) => s.categories.contains(SaintCategory.bishop)),
           isTrue,
         );
         expect(bishops.any((s) => s.id == 'nicholas-of-myra'), isTrue);
         expect(bishops.any((s) => s.id == 'charles-borromeo'), isTrue);
         expect(bishops.any((s) => s.id == 'patrick-of-ireland'), isTrue);
         expect(bishops.any((s) => s.id == 'aidan-of-lindisfarne'), isTrue);
+        expect(bishops.any((s) => s.id == 'augustine-of-hippo'), isTrue);
+        expect(bishops.any((s) => s.id == 'alphonsus-liguori'), isTrue);
+
+        // Category filter: Mystics & Contemplatives
+        final mystics = SaintDatabase.searchSaints(
+          saints,
+          category: SaintCategory.mystic,
+        );
+        expect(
+          mystics.every((s) => s.categories.contains(SaintCategory.mystic)),
+          isTrue,
+        );
+        expect(mystics.any((s) => s.id == 'padre-pio'), isTrue);
+        expect(mystics.any((s) => s.id == 'john-of-the-cross'), isTrue);
+        expect(mystics.any((s) => s.id == 'faustina-kowalska'), isTrue);
+        expect(mystics.any((s) => s.id == 'catherine-of-siena'), isTrue);
+
+        // Category filter: Healers & Missionaries
+        final healers = SaintDatabase.searchSaints(
+          saints,
+          category: SaintCategory.healerMissionary,
+        );
+        expect(
+          healers.every(
+            (s) => s.categories.contains(SaintCategory.healerMissionary),
+          ),
+          isTrue,
+        );
+        expect(healers.any((s) => s.id == 'gianna-beretta-molla'), isTrue);
+        expect(healers.any((s) => s.id == 'giuseppe-moscati'), isTrue);
+        expect(healers.any((s) => s.id == 'francis-xavier'), isTrue);
+        expect(healers.any((s) => s.id == 'mother-teresa'), isTrue);
+
+        // Category filter: Rulers & Monarchs
+        final monarchs = SaintDatabase.searchSaints(
+          saints,
+          category: SaintCategory.monarch,
+        );
+        expect(
+          monarchs.every((s) => s.categories.contains(SaintCategory.monarch)),
+          isTrue,
+        );
+        expect(monarchs.any((s) => s.id == 'louis-ix-of-france'), isTrue);
+        expect(monarchs.any((s) => s.id == 'wenceslaus'), isTrue);
+        expect(monarchs.any((s) => s.id == 'edward-the-confessor'), isTrue);
+
+        // Category filter: Virgins & Consecrated
+        final virgins = SaintDatabase.searchSaints(
+          saints,
+          category: SaintCategory.virgin,
+        );
+        expect(
+          virgins.every((s) => s.categories.contains(SaintCategory.virgin)),
+          isTrue,
+        );
+        expect(virgins.any((s) => s.id == 'agnes-of-rome'), isTrue);
+        expect(virgins.any((s) => s.id == 'kateri-tekakwitha'), isTrue);
+        expect(virgins.any((s) => s.id == 'laura-vicuna'), isTrue);
+        expect(virgins.any((s) => s.id == 'cecilia'), isTrue);
 
         // Era filter: Modern
         final modernSaints = SaintDatabase.searchSaints(
@@ -1169,6 +1241,125 @@ void main() {
                 'Saint ${saint.id} (${saint.name}) should start with one of: $validPrefixes',
           );
         }
+      },
+    );
+
+    test(
+      'multi-category resolution resolves dual and triple category memberships correctly',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+
+        // 1. Priests that are also mystics
+        final padrePio = saints.firstWhere((s) => s.id == 'padre-pio');
+        expect(padrePio.categories, contains(SaintCategory.mystic));
+        expect(padrePio.categories, contains(SaintCategory.priestReligious));
+
+        // 2. Doctor, mystic, and priest
+        final johnOfTheCross = saints.firstWhere(
+          (s) => s.id == 'john-of-the-cross',
+        );
+        expect(johnOfTheCross.categories, contains(SaintCategory.doctor));
+        expect(johnOfTheCross.categories, contains(SaintCategory.mystic));
+        expect(
+          johnOfTheCross.categories,
+          contains(SaintCategory.priestReligious),
+        );
+
+        // 3. Martyrs that were also laity
+        final thomasMore = saints.firstWhere((s) => s.id == 'thomas-more');
+        expect(thomasMore.categories, contains(SaintCategory.martyr));
+        expect(thomasMore.categories, contains(SaintCategory.laity));
+
+        // 4. Blessed Laura Vicuña: Virgin, Laity, Religious
+        final lauraVicuna = saints.firstWhere((s) => s.id == 'laura-vicuna');
+        expect(lauraVicuna.categories, contains(SaintCategory.laity));
+        expect(lauraVicuna.categories, contains(SaintCategory.virgin));
+
+        // 5. Doctor, Bishop, and Priest / Religious
+        final augustine = saints.firstWhere(
+          (s) => s.id == 'augustine-of-hippo',
+        );
+        expect(augustine.categories, contains(SaintCategory.doctor));
+        expect(augustine.categories, contains(SaintCategory.bishop));
+
+        final alphonsus = saints.firstWhere((s) => s.id == 'alphonsus-liguori');
+        expect(alphonsus.categories, contains(SaintCategory.doctor));
+        expect(alphonsus.categories, contains(SaintCategory.bishop));
+        expect(alphonsus.categories, contains(SaintCategory.priestReligious));
+
+        final anselm = saints.firstWhere((s) => s.id == 'anselm-of-canterbury');
+        expect(anselm.categories, contains(SaintCategory.doctor));
+        expect(anselm.categories, contains(SaintCategory.bishop));
+        expect(anselm.categories, contains(SaintCategory.priestReligious));
+
+        final bonaventure = saints.firstWhere((s) => s.id == 'bonaventure');
+        expect(bonaventure.categories, contains(SaintCategory.doctor));
+        expect(bonaventure.categories, contains(SaintCategory.bishop));
+        expect(bonaventure.categories, contains(SaintCategory.priestReligious));
+
+        // 6. St. Teresa of Ávila & St. Catherine of Siena
+        final teresaAvila = saints.firstWhere((s) => s.id == 'teresa-of-avila');
+        expect(teresaAvila.categories, contains(SaintCategory.doctor));
+        expect(teresaAvila.categories, contains(SaintCategory.priestReligious));
+
+        final catherineSiena = saints.firstWhere(
+          (s) => s.id == 'catherine-of-siena',
+        );
+        expect(catherineSiena.categories, contains(SaintCategory.doctor));
+        expect(catherineSiena.categories, contains(SaintCategory.mystic));
+        expect(
+          catherineSiena.categories,
+          contains(SaintCategory.priestReligious),
+        );
+
+        // 7. St. Gianna: Laity & Healer
+        final gianna = saints.firstWhere((s) => s.id == 'gianna-beretta-molla');
+        expect(gianna.categories, contains(SaintCategory.laity));
+        expect(gianna.categories, contains(SaintCategory.healerMissionary));
+
+        // 8. Rulers & Monarchs
+        final wenceslaus = saints.firstWhere((s) => s.id == 'wenceslaus');
+        expect(wenceslaus.categories, contains(SaintCategory.martyr));
+        expect(wenceslaus.categories, contains(SaintCategory.monarch));
+
+        final louisIX = saints.firstWhere((s) => s.id == 'louis-ix-of-france');
+        expect(louisIX.categories, contains(SaintCategory.monarch));
+        expect(louisIX.categories, contains(SaintCategory.priestReligious));
+      },
+    );
+
+    test(
+      'searchSaints text search matches keywords across all assigned category labels',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+
+        // Search for "Mystic" should find Padre Pio and John of the Cross
+        final mysticResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Mystic',
+        );
+        expect(mysticResults.any((s) => s.id == 'padre-pio'), isTrue);
+        expect(mysticResults.any((s) => s.id == 'john-of-the-cross'), isTrue);
+        expect(mysticResults.any((s) => s.id == 'faustina-kowalska'), isTrue);
+
+        // Search for "Monarch" should find Louis IX and Wenceslaus
+        final monarchResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Monarch',
+        );
+        expect(monarchResults.any((s) => s.id == 'louis-ix-of-france'), isTrue);
+        expect(monarchResults.any((s) => s.id == 'wenceslaus'), isTrue);
+
+        // Search for "Healer" should find Gianna and Luke
+        final healerResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Healer',
+        );
+        expect(
+          healerResults.any((s) => s.id == 'gianna-beretta-molla'),
+          isTrue,
+        );
+        expect(healerResults.any((s) => s.id == 'luke-the-evangelist'), isTrue);
       },
     );
   });

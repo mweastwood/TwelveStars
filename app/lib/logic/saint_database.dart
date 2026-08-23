@@ -93,7 +93,7 @@ class SaintDatabase {
       if (gender != null && gender.isNotEmpty && saint.gender != gender) {
         return false;
       }
-      if (category != null && saint.category != category) {
+      if (category != null && !saint.categories.contains(category)) {
         return false;
       }
       if (era != SaintEra.all && saint.era != era) {
@@ -114,7 +114,9 @@ class SaintDatabase {
       final feastDay = (saint.feastDay ?? '').toLowerCase();
       final dates = saint.dateRange.toLowerCase();
       final saintGender = (saint.gender ?? '').toLowerCase();
-      final categoryLabel = saint.category.label.toLowerCase();
+      final categoryLabels = saint.categories
+          .map((c) => c.label.toLowerCase())
+          .toList();
 
       return words.every((word) {
         final matchesGenderWord =
@@ -133,7 +135,7 @@ class SaintDatabase {
             summary.contains(word) ||
             feastDay.contains(word) ||
             dates.contains(word) ||
-            categoryLabel.contains(word);
+            categoryLabels.any((label) => label.contains(word));
       });
     }).toList();
 

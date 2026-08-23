@@ -156,7 +156,7 @@ class SaintCard extends StatelessWidget {
 
               const SizedBox(height: 10),
 
-              // 2. Metadata Tags: Feast Day, Nationality, Category
+              // 2. Metadata Tags: Feast Day, Nationality, Categories
               Wrap(
                 spacing: 6,
                 runSpacing: 4,
@@ -174,12 +174,13 @@ class SaintCard extends StatelessWidget {
                       icon: Icons.public_outlined,
                       label: saint.nationality,
                     ),
-                  _buildPill(
-                    theme,
-                    icon: saint.categoryIcon,
-                    label: saint.category.label,
-                    tintColor: catColor,
-                  ),
+                  for (final cat in saint.categories)
+                    _buildPill(
+                      theme,
+                      icon: cat.icon,
+                      label: cat.label,
+                      tintColor: cat.color(theme),
+                    ),
                 ],
               ),
 
