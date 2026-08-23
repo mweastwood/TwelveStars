@@ -265,7 +265,20 @@ class Saint {
       list.add(SaintCategory.angel);
     }
 
-    // 3. Apostle
+    // 3. Holy Family
+    if (profLower.contains('foster father') ||
+        profLower.contains('father of jesus') ||
+        profLower.contains('spouse of mary') ||
+        profLower.contains('spouse of the virgin mary') ||
+        profLower.contains('mother of god') ||
+        profLower.contains('theotokos') ||
+        profLower.contains('holy family') ||
+        nameLower.contains('blessed virgin mary') ||
+        (nameLower.contains('joseph') && profLower.contains('carpenter'))) {
+      list.add(SaintCategory.holyFamily);
+    }
+
+    // 4. Apostle
     final isBiblicalApostle = const {
       'andrew-the-apostle',
       'barnabas',
@@ -299,52 +312,56 @@ class Saint {
       list.add(SaintCategory.apostle);
     }
 
-    // 4. Evangelist
+    // 5. Evangelist
     if (profLower.contains('evangelist') || nameLower.contains('evangelist')) {
       list.add(SaintCategory.evangelist);
     }
 
-    // 5. Pope
+    // 6. Pope
     if (profLower.contains('pope') || nameLower.contains('pope')) {
       list.add(SaintCategory.pope);
     }
 
-    // 6. Martyr
-    if (profLower.contains('martyr') || nameLower.contains('martyrs')) {
+    // 7. Martyr
+    final isMartyredApostleOrEvangelist = const {
+      'peter-the-apostle',
+      'paul-the-apostle',
+      'andrew-the-apostle',
+      'james-the-greater',
+      'james-the-lesser',
+      'philip-the-apostle',
+      'bartholomew-the-apostle',
+      'thomas-the-apostle',
+      'matthew-the-apostle',
+      'jude-thaddeus',
+      'simon-the-zealot',
+      'matthias',
+      'barnabas',
+      'mark-the-evangelist',
+      'polycarp-of-smyrna',
+      'teresa-benedicta-of-the-cross',
+      'john-of-nepomuk',
+    }.contains(id);
+
+    if (profLower.contains('martyr') ||
+        nameLower.contains('martyrs') ||
+        isMartyredApostleOrEvangelist) {
       list.add(SaintCategory.martyr);
     }
 
-    // 7. Bishop
-    if (profLower.contains('bishop') ||
-        profLower.contains('patriarch') ||
+    // 8. Bishop
+    final isEpiscopalTitle =
+        profLower.contains('bishop') ||
+        profLower.contains('archbishop') ||
         profLower.contains('cardinal') ||
-        profLower.contains('archbishop')) {
+        (profLower.contains('patriarch') &&
+            !profLower.contains('patriarch of christian monasticism') &&
+            !profLower.contains('patriarch of western monasticism'));
+    if (isEpiscopalTitle) {
       list.add(SaintCategory.bishop);
     }
 
-    // 8. Mystic & Contemplative
-    if (profLower.contains('mystic') ||
-        profLower.contains('stigmatist') ||
-        profLower.contains('visionary') ||
-        profLower.contains('contemplative') ||
-        profLower.contains('divine mercy')) {
-      list.add(SaintCategory.mystic);
-    }
-
-    // 9. Holy Family
-    if (profLower.contains('foster father') ||
-        profLower.contains('father of jesus') ||
-        profLower.contains('spouse of mary') ||
-        profLower.contains('spouse of the virgin mary') ||
-        profLower.contains('mother of god') ||
-        profLower.contains('theotokos') ||
-        profLower.contains('holy family') ||
-        nameLower.contains('blessed virgin mary') ||
-        (nameLower.contains('joseph') && profLower.contains('carpenter'))) {
-      list.add(SaintCategory.holyFamily);
-    }
-
-    // 10. Monarch / Ruler
+    // 9. Monarch / Ruler
     final isMonarchTitle =
         profLower.contains('king') ||
         (profLower.contains('queen') &&
@@ -365,64 +382,192 @@ class Saint {
       list.add(SaintCategory.monarch);
     }
 
-    // 11. Laity
-    final isLayPerson =
-        profLower.contains('layman') ||
-        profLower.contains('laywoman') ||
-        profLower.contains('layperson') ||
-        profLower.contains('laity') ||
-        profLower.contains('lay ') ||
-        profLower.contains('married') ||
-        (profLower.contains('mother') &&
-            !profLower.contains('mother of god') &&
-            !profLower.contains('mother cabrini') &&
-            !profLower.contains('mother teresa') &&
-            !profLower.contains('mother marianne') &&
-            !profLower.contains('mother superior') &&
-            !profLower.contains('foundress & mother')) ||
-        (profLower.contains('father') &&
-            !profLower.contains('church father') &&
-            !profLower.contains('desert father') &&
-            !profLower.contains('father of the church') &&
-            !profLower.contains('father of western monasticism') &&
-            !profLower.contains('foster father') &&
-            !profLower.contains('holy father')) ||
-        profLower.contains('parent') ||
-        profLower.contains('matron') ||
-        profLower.contains('homemaker') ||
-        profLower.contains('pupil') ||
-        profLower.contains('student') ||
-        profLower.contains('youth') ||
-        profLower.contains('child') ||
-        (profLower.contains('carpenter') &&
-            !profLower.contains('foster father')) ||
-        (profLower.contains('scholar') &&
-            !profLower.contains('theologian') &&
-            !profLower.contains('friar') &&
-            !profLower.contains('priest') &&
-            !profLower.contains('bishop') &&
-            !isDoctor) ||
-        profLower.contains('web developer') ||
-        profLower.contains('craftsman') ||
-        profLower.contains('lawyer') ||
-        profLower.contains('statesman') ||
-        profLower.contains('chancellor') ||
-        (isMonarchTitle &&
-            (profLower.contains('tertiary') ||
-                profLower.contains('penitent') ||
-                !list.any(
-                  (c) =>
-                      c == SaintCategory.priestReligious ||
-                      c == SaintCategory.bishop ||
-                      c == SaintCategory.pope,
-                )));
+    // 10. Mystic & Contemplative
+    final isProminentMystic = const {
+      'mary-mother-of-god',
+      'mary-magdalene',
+      'anthony-the-great',
+      'thomas-aquinas',
+      'bonaventure',
+      'bernard-of-clairvaux',
+      'francis-de-sales',
+      'francis-of-assisi',
+      'ignatius-of-loyola',
+      'peter-damian',
+      'gregory-of-narek',
+      'charbel-makhlouf',
+      'joseph-of-cupertino',
+      'paul-of-the-cross',
+      'gerard-majella',
+      'rita-of-cascia',
+      'rafqa-pietra-choboq-ar-rayes',
+      'kateri-tekakwitha',
+      'rose-of-lima',
+      'titus-brandsma',
+      'mother-teresa',
+      'teresa-of-avila',
+      'therese-of-lisieux',
+      'john-of-the-cross',
+      'catherine-of-siena',
+      'faustina-kowalska',
+      'bernadette-soubirous',
+      'bridget-of-sweden',
+      'clare-of-assisi',
+      'clare-of-montefalco',
+      'gertrude-the-great',
+      'mechtilde-of-hackeborn',
+      'hildegard-of-bingen',
+      'padre-pio',
+      'juan-diego',
+      'teresa-benedicta-of-the-cross',
+    }.contains(id);
 
-    if (isLayPerson) {
+    if (isProminentMystic ||
+        profLower.contains('mystic') ||
+        profLower.contains('stigmatist') ||
+        profLower.contains('visionary') ||
+        profLower.contains('contemplative') ||
+        profLower.contains('divine mercy')) {
+      list.add(SaintCategory.mystic);
+    }
+
+    // 11. Laity
+    final isKnownLaySaint = const {
+      'joseph',
+      'carlo-acutis',
+      'gianna-beretta-molla',
+      'giuseppe-moscati',
+      'kateri-tekakwitha',
+      'thomas-more',
+      'margaret-clitherow',
+      'maria-goretti',
+      'laura-vicuna',
+      'dominic-savio',
+      'pancras',
+      'tarcisius',
+      'jose-sanchez-del-rio',
+      'pedro-calungsod',
+      'lorenzo-ruiz',
+      'perpetua-and-felicity',
+      'charles-lwanga-and-ugandan-martyrs',
+      'roch',
+      'philip-howard',
+      'cecilia',
+      'juan-diego',
+      'joan-of-arc',
+      'bridget-of-sweden',
+      'rita-of-cascia',
+      'andre-bessette',
+      'martin-de-porres',
+      'gerard-majella',
+      'louis-ix-of-france',
+      'elizabeth-of-hungary',
+      'wenceslaus',
+      'edward-the-confessor',
+      'margaret-of-scotland',
+      'stephen-of-hungary',
+      'eric-of-sweden',
+      'olaf-ii-of-norway',
+      'casimir',
+      'francis-borgia',
+      'vietnamese-martyrs',
+      'korean-martyrs',
+    }.contains(id);
+
+    final isExplicitLayKeyword =
+        (profLower.contains('layman') ||
+            profLower.contains('laywoman') ||
+            profLower.contains('layperson') ||
+            profLower.contains('laity') ||
+            profLower.contains('lay ') ||
+            profLower.contains('student') ||
+            profLower.contains('pupil') ||
+            profLower.contains('peasant girl') ||
+            profLower.contains('pediatrician') ||
+            profLower.contains('calligrapher') ||
+            profLower.contains('programmer') ||
+            profLower.contains('web developer') ||
+            profLower.contains('married') ||
+            profLower.contains('homemaker') ||
+            profLower.contains('matron') ||
+            profLower.contains('craftsman') ||
+            profLower.contains('lawyer') ||
+            profLower.contains('statesman') ||
+            profLower.contains('chancellor') ||
+            profLower.contains('cavalry officer') ||
+            (profLower.contains('carpenter') &&
+                !profLower.contains('foster father')) ||
+            (profLower.contains('mother') &&
+                !profLower.contains('mother of god') &&
+                !profLower.contains('mother cabrini') &&
+                !profLower.contains('mother teresa') &&
+                !profLower.contains('mother marianne') &&
+                !profLower.contains('mother superior') &&
+                !profLower.contains('foundress') &&
+                !profLower.contains('seraphic mother')) ||
+            (profLower.contains('father') &&
+                !profLower.contains('church father') &&
+                !profLower.contains('desert father') &&
+                !profLower.contains('apostolic father') &&
+                !profLower.contains('cappadocian father') &&
+                !profLower.contains('latin church father') &&
+                !profLower.contains('father of the church') &&
+                !profLower.contains('father of western monasticism') &&
+                !profLower.contains('father of christian monasticism') &&
+                !profLower.contains('foster father') &&
+                !profLower.contains('picpus fathers') &&
+                !profLower.contains('holy father'))) &&
+        !list.contains(SaintCategory.bishop) &&
+        !list.contains(SaintCategory.pope);
+
+    if (isExplicitLayKeyword || isKnownLaySaint) {
       list.add(SaintCategory.laity);
     }
 
     // 12. Healer & Missionary
-    if (profLower.contains('physician') ||
+    final isKnownHealerOrMissionary = const {
+      'francis-xavier',
+      'damien-of-molokai',
+      'marianne-cope',
+      'mother-teresa',
+      'frances-xavier-cabrini',
+      'junipero-serra',
+      'peter-claver',
+      'camillus-de-lellis',
+      'vincent-de-paul',
+      'john-bosco',
+      'andre-bessette',
+      'martin-de-porres',
+      'giuseppe-moscati',
+      'gianna-beretta-molla',
+      'roch',
+      'blaise',
+      'luke-the-evangelist',
+      'raphael-the-archangel',
+      'patrick-of-ireland',
+      'aidan-of-lindisfarne',
+      'columba-of-iona',
+      'columbanus',
+      'peter-canisius',
+      'lawrence-of-brindisi',
+      'john-of-avila',
+      'louis-marie-de-montfort',
+      'turibius-of-mogrovejo',
+      'jacques-berthieu',
+      'pedro-calungsod',
+      'carlo-acutis',
+      'barnabas',
+      'philip-the-apostle',
+      'thomas-the-apostle',
+      'simon-the-zealot',
+      'paul-the-apostle',
+      'nicholas-of-myra',
+      'anastasia-of-sirmium',
+      'anthony-of-padua',
+    }.contains(id);
+
+    if (isKnownHealerOrMissionary ||
+        profLower.contains('physician') ||
         profLower.contains('pediatrician') ||
         profLower.contains('surgeon') ||
         profLower.contains('healer') ||
@@ -430,12 +575,56 @@ class Saint {
         profLower.contains('medical') ||
         profLower.contains('missionary') ||
         profLower.contains('missionaries') ||
-        profLower.contains('apostle of')) {
+        profLower.contains('apostle of') ||
+        profLower.contains('apostle to the lepers') ||
+        profLower.contains('cyber-apostle')) {
       list.add(SaintCategory.healerMissionary);
     }
 
     // 13. Virgin & Consecrated
-    if (profLower.contains('virgin') ||
+    final isKnownVirginOrConsecrated = const {
+      'mary-mother-of-god',
+      'agnes-of-rome',
+      'barbara',
+      'cecilia',
+      'lucy-of-syracuse',
+      'maria-goretti',
+      'apollonia',
+      'anastasia-of-sirmium',
+      'kateri-tekakwitha',
+      'rose-of-lima',
+      'laura-vicuna',
+      'scholastica',
+      'clare-of-assisi',
+      'clare-of-montefalco',
+      'catherine-of-bologna',
+      'gertrude-the-great',
+      'mechtilde-of-hackeborn',
+      'rafqa-pietra-choboq-ar-rayes',
+      'teresa-of-avila',
+      'therese-of-lisieux',
+      'catherine-of-siena',
+      'hildegard-of-bingen',
+      'bernadette-soubirous',
+      'faustina-kowalska',
+      'joan-of-arc',
+      'teresa-benedicta-of-the-cross',
+      'dominic-savio',
+      'aloysius-gonzaga',
+      'stanislaus-kostka',
+      'john-berchmans',
+      'elizabeth-ann-seton',
+      'frances-xavier-cabrini',
+      'katharine-drexel',
+      'louise-de-marillac',
+      'marianne-cope',
+      'mary-mackillop',
+      'mother-teresa',
+      'jane-frances-de-chantal',
+    }.contains(id);
+
+    if (isKnownVirginOrConsecrated ||
+        profLower.contains('virgin') ||
         profLower.contains('lily of the mohawks') ||
         profLower.contains('consecrated')) {
       list.add(SaintCategory.virgin);
@@ -454,6 +643,9 @@ class Saint {
         profLower.contains('sisters') ||
         profLower.contains('hermit') ||
         profLower.contains('religious') ||
+        profLower.contains('desert father') ||
+        profLower.contains('monastic') ||
+        profLower.contains('oratorian') ||
         ((profLower.contains('founder') || profLower.contains('foundress')) &&
             !profLower.contains('founder of westminster')) ||
         profLower.contains('carmelite') ||
@@ -466,7 +658,22 @@ class Saint {
         profLower.contains('charity') ||
         profLower.contains('visitation') ||
         profLower.contains('sacrament') ||
-        profLower.contains('tertiary')) {
+        profLower.contains('tertiary') ||
+        const {
+          'anthony-the-great',
+          'pachomius',
+          'paul-the-first-hermit',
+          'charbel-makhlouf',
+          'martin-of-tours',
+          'basil-the-great',
+          'john-chrysostom',
+          'augustine-of-hippo',
+          'cyril-of-alexandria',
+          'john-henry-newman',
+          'charles-borromeo',
+          'pius-v',
+          'gregory-the-great',
+        }.contains(id)) {
       list.add(SaintCategory.priestReligious);
     }
 
@@ -478,7 +685,10 @@ class Saint {
   }
 
   /// Primary category for backward compatibility.
-  SaintCategory get category => categories.first;
+  SaintCategory get category {
+    if (id == 'francis-of-assisi') return SaintCategory.priestReligious;
+    return categories.first;
+  }
 
   /// Icon corresponding to the category.
   IconData get categoryIcon => category.icon;
