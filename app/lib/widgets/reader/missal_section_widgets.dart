@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_database.dart' show LectionaryReading;
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
+import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 
 class MissalSectionHeader extends StatelessWidget {
@@ -36,12 +37,14 @@ class MissalMassPartPlaceholder extends StatelessWidget {
   final String title;
   final String description;
   final IconData icon;
+  final Widget? action;
 
   const MissalMassPartPlaceholder({
     super.key,
     required this.title,
     required this.description,
     required this.icon,
+    this.action,
   });
 
   @override
@@ -79,9 +82,38 @@ class MissalMassPartPlaceholder extends StatelessWidget {
                 ],
               ),
             ),
+            if (action != null) ...[const SizedBox(width: 8), action!],
           ],
         ),
       ),
+    );
+  }
+}
+
+class MissalCommunionSectionCard extends StatelessWidget {
+  final Prayer? animaChristi;
+  final void Function(BuildContext context, Prayer prayer)? onOpenAnimaChristi;
+
+  const MissalCommunionSectionCard({
+    super.key,
+    this.animaChristi,
+    this.onOpenAnimaChristi,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return MissalMassPartPlaceholder(
+      title: 'Communion Rite',
+      description: 'Reception of Holy Communion and silent thanksgiving',
+      icon: Icons.church,
+      action: (animaChristi != null && onOpenAnimaChristi != null)
+          ? FilledButton.tonalIcon(
+              key: const ValueKey('missal_anima_christi_button'),
+              onPressed: () => onOpenAnimaChristi!(context, animaChristi!),
+              icon: const Icon(Icons.auto_stories, size: 16),
+              label: const Text('Anima Christi'),
+            )
+          : null,
     );
   }
 }
