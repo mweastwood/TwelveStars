@@ -1566,5 +1566,457 @@ void main() {
         await screenMatchesGolden(tester, 'prayer_card_italics_golden');
       },
     );
+
+    group('Missal Response Text Bolding', () {
+      testWidgets(
+        'renders celebrant lines with normal weight and congregation response lines with bold weight in English and Latin',
+        (tester) async {
+          final dialoguePrayer = Prayer.mock(
+            id: 'mass_greeting',
+            defaultTitle: 'Greeting',
+            translations: {
+              PrayerLanguage.english: [
+                PrayerTranslation.mock(
+                  title: 'Greeting',
+                  text:
+                      'Priest: In the name of the Father, and of the Son, and of the Holy Spirit.\nPeople: Amen.\n\nPriest: The Lord be with you.\nPeople: And with your spirit.',
+                  tokens: [
+                    PrayerToken('Priest: ', null),
+                    PrayerToken(
+                      'In the name of the Father, and of the Son, and of the Holy Spirit.',
+                      'mass_greeting_1',
+                    ),
+                    PrayerToken('\nPeople: ', null),
+                    PrayerToken('Amen.', 'mass_greeting_2'),
+                    PrayerToken('\n\nPriest: ', null),
+                    PrayerToken('The Lord be with you.', 'mass_greeting_3'),
+                    PrayerToken('\nPeople: ', null),
+                    PrayerToken('And with your spirit.', 'mass_greeting_4'),
+                  ],
+                ),
+              ],
+              PrayerLanguage.latin: [
+                PrayerTranslation.mock(
+                  title: 'Salutatio',
+                  text:
+                      'Sacerdos: In nomine Patris, et Filii, et Spiritus Sancti.\nPopulus: Amen.\n\nSacerdos: Dominus vobiscum.\nPopulus: Et cum spiritu tuo.',
+                  tokens: [
+                    PrayerToken('Sacerdos: ', null),
+                    PrayerToken(
+                      'In nomine Patris, et Filii, et Spiritus Sancti.',
+                      'mass_greeting_1',
+                    ),
+                    PrayerToken('\nPopulus: ', null),
+                    PrayerToken('Amen.', 'mass_greeting_2'),
+                    PrayerToken('\n\nSacerdos: ', null),
+                    PrayerToken('Dominus vobiscum.', 'mass_greeting_3'),
+                    PrayerToken('\nPopulus: ', null),
+                    PrayerToken('Et cum spiritu tuo.', 'mass_greeting_4'),
+                  ],
+                ),
+              ],
+            },
+          );
+
+          await tester.pumpWidget(
+            buildTestableWidget(
+              child: Scaffold(
+                body: PrayerCard(
+                  prayer: dialoguePrayer,
+                  selectedLanguage: PrayerLanguage.english,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                ),
+              ),
+            ),
+          );
+
+          final richTexts = tester
+              .widgetList<RichText>(find.byType(RichText))
+              .toList();
+          final richText = richTexts.last;
+
+          final spanStyles = <String, FontWeight?>{};
+          void collectSpans(InlineSpan span) {
+            if (span is TextSpan) {
+              if (span.text != null && span.text!.trim().isNotEmpty) {
+                spanStyles[span.text!.trim()] = span.style?.fontWeight;
+              }
+              span.children?.forEach(collectSpans);
+            }
+          }
+
+          collectSpans(richText.text);
+
+          expect(
+            spanStyles['Priest:'],
+            anyOf(isNull, equals(FontWeight.normal)),
+          );
+          expect(
+            spanStyles['In the name of the Father, and of the Son, and of the Holy Spirit.'],
+            anyOf(isNull, equals(FontWeight.normal)),
+          );
+          expect(
+            spanStyles['The Lord be with you.'],
+            anyOf(isNull, equals(FontWeight.normal)),
+          );
+
+          expect(spanStyles['People:'], equals(FontWeight.bold));
+          expect(spanStyles['Amen.'], equals(FontWeight.bold));
+          expect(spanStyles['And with your spirit.'], equals(FontWeight.bold));
+        },
+      );
+
+      testWidgets(
+        'renders response bolding symmetrically in dual-language comparison mode',
+        (tester) async {
+          final dialoguePrayer = Prayer.mock(
+            id: 'mass_greeting',
+            defaultTitle: 'Greeting',
+            translations: {
+              PrayerLanguage.english: [
+                PrayerTranslation.mock(
+                  title: 'Greeting',
+                  text:
+                      'Priest: The Lord be with you.\nPeople: And with your spirit.',
+                  tokens: [
+                    PrayerToken('Priest: ', null),
+                    PrayerToken('The Lord be with you.', 'p1'),
+                    PrayerToken('\nPeople: ', null),
+                    PrayerToken('And with your spirit.', 'p2'),
+                  ],
+                ),
+              ],
+              PrayerLanguage.latin: [
+                PrayerTranslation.mock(
+                  title: 'Salutatio',
+                  text:
+                      'Sacerdos: Dominus vobiscum.\nPopulus: Et cum spiritu tuo.',
+                  tokens: [
+                    PrayerToken('Sacerdos: ', null),
+                    PrayerToken('Dominus vobiscum.', 'p1'),
+                    PrayerToken('\nPopulus: ', null),
+                    PrayerToken('Et cum spiritu tuo.', 'p2'),
+                  ],
+                ),
+              ],
+            },
+          );
+
+          await tester.pumpWidget(
+            buildTestableWidget(
+              child: Scaffold(
+                body: PrayerCard(
+                  prayer: dialoguePrayer,
+                  selectedLanguage: PrayerLanguage.english,
+                  compareLanguage: PrayerLanguage.latin,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                ),
+              ),
+            ),
+          );
+
+          final richTexts = tester
+              .widgetList<RichText>(find.byType(RichText))
+              .toList();
+          expect(richTexts.length, greaterThanOrEqualTo(2));
+
+          final allStyles = <String, FontWeight?>{};
+          void collectSpans(InlineSpan span) {
+            if (span is TextSpan) {
+              if (span.text != null && span.text!.trim().isNotEmpty) {
+                allStyles[span.text!.trim()] = span.style?.fontWeight;
+              }
+              span.children?.forEach(collectSpans);
+            }
+          }
+
+          for (final rt in richTexts) {
+            collectSpans(rt.text);
+          }
+
+          // English Column
+          expect(
+            allStyles['Priest:'],
+            anyOf(isNull, equals(FontWeight.normal)),
+          );
+          expect(
+            allStyles['The Lord be with you.'],
+            anyOf(isNull, equals(FontWeight.normal)),
+          );
+          expect(allStyles['People:'], equals(FontWeight.bold));
+          expect(allStyles['And with your spirit.'], equals(FontWeight.bold));
+
+          // Latin Column
+          expect(
+            allStyles['Sacerdos:'],
+            anyOf(isNull, equals(FontWeight.normal)),
+          );
+          expect(
+            allStyles['Dominus vobiscum.'],
+            anyOf(isNull, equals(FontWeight.normal)),
+          );
+          expect(allStyles['Populus:'], equals(FontWeight.bold));
+          expect(allStyles['Et cum spiritu tuo.'], equals(FontWeight.bold));
+        },
+      );
+
+      testWidgets(
+        'renders various liturgical response indicators (Asamblea, Cộng đoàn, Bayan, R., ℟.) as bold',
+        (tester) async {
+          final prayersToTest = [
+            PrayerTranslation.mock(
+              title: 'Spanish',
+              text:
+                  'Sacerdote: El Señor esté con vosotros.\nAsamblea: Y con tu espíritu.',
+              tokens: [
+                PrayerToken('Sacerdote: ', null),
+                PrayerToken('El Señor esté con vosotros.', 's1'),
+                PrayerToken('\nAsamblea: ', null),
+                PrayerToken('Y con tu espíritu.', 's2'),
+              ],
+            ),
+            PrayerTranslation.mock(
+              title: 'Vietnamese',
+              text:
+                  'Linh mục: Chúa ở cùng anh chị em.\nCộng đoàn: Và ở cùng cha.',
+              tokens: [
+                PrayerToken('Linh mục: ', null),
+                PrayerToken('Chúa ở cùng anh chị em.', 'v1'),
+                PrayerToken('\nCộng đoàn: ', null),
+                PrayerToken('Và ở cùng cha.', 'v2'),
+              ],
+            ),
+            PrayerTranslation.mock(
+              title: 'Versicle & Response',
+              text:
+                  '℣. Domine, labia mea aperies.\n℟. Et os meum annuntiabit laudem tuam.',
+              tokens: [
+                PrayerToken('℣. ', null),
+                PrayerToken('Domine, labia mea aperies.', 'r1'),
+                PrayerToken('\n℟. ', null),
+                PrayerToken('Et os meum annuntiabit laudem tuam.', 'r2'),
+              ],
+            ),
+            PrayerTranslation.mock(
+              title: 'R. Response Indicator',
+              text: 'Reader: The Word of the Lord.\nR. Thanks be to God.',
+              tokens: [
+                PrayerToken('Reader: ', null),
+                PrayerToken('The Word of the Lord.', 'rd1'),
+                PrayerToken('\nR. ', null),
+                PrayerToken('Thanks be to God.', 'rd2'),
+              ],
+            ),
+          ];
+
+          for (final trans in prayersToTest) {
+            final prayer = Prayer.mock(
+              id: 'test_dialogue',
+              defaultTitle: 'Dialogue',
+              translations: {
+                PrayerLanguage.english: [trans],
+              },
+            );
+
+            await tester.pumpWidget(
+              buildTestableWidget(
+                child: Scaffold(
+                  body: PrayerCard(
+                    prayer: prayer,
+                    selectedLanguage: PrayerLanguage.english,
+                    initialVersionIndex: 0,
+                    onVersionChanged: (_) {},
+                  ),
+                ),
+              ),
+            );
+
+            final richTexts = tester
+                .widgetList<RichText>(find.byType(RichText))
+                .toList();
+            final richText = richTexts.last;
+            final styles = <String, FontWeight?>{};
+            void collectSpans(InlineSpan span) {
+              if (span is TextSpan) {
+                if (span.text != null && span.text!.trim().isNotEmpty) {
+                  styles[span.text!.trim()] = span.style?.fontWeight;
+                }
+                span.children?.forEach(collectSpans);
+              }
+            }
+
+            collectSpans(richText.text);
+
+            if (styles.containsKey('Sacerdote:')) {
+              expect(
+                styles['Sacerdote:'],
+                anyOf(isNull, equals(FontWeight.normal)),
+              );
+              expect(
+                styles['El Señor esté con vosotros.'],
+                anyOf(isNull, equals(FontWeight.normal)),
+              );
+              expect(styles['Asamblea:'], equals(FontWeight.bold));
+              expect(styles['Y con tu espíritu.'], equals(FontWeight.bold));
+            } else if (styles.containsKey('Linh mục:')) {
+              expect(
+                styles['Linh mục:'],
+                anyOf(isNull, equals(FontWeight.normal)),
+              );
+              expect(
+                styles['Chúa ở cùng anh chị em.'],
+                anyOf(isNull, equals(FontWeight.normal)),
+              );
+              expect(styles['Cộng đoàn:'], equals(FontWeight.bold));
+              expect(styles['Và ở cùng cha.'], equals(FontWeight.bold));
+            } else if (styles.containsKey('℣.')) {
+              expect(styles['℣.'], anyOf(isNull, equals(FontWeight.normal)));
+              expect(
+                styles['Domine, labia mea aperies.'],
+                anyOf(isNull, equals(FontWeight.normal)),
+              );
+              expect(styles['℟.'], equals(FontWeight.bold));
+              expect(
+                styles['Et os meum annuntiabit laudem tuam.'],
+                equals(FontWeight.bold),
+              );
+            } else if (styles.containsKey('Reader:')) {
+              expect(
+                styles['Reader:'],
+                anyOf(isNull, equals(FontWeight.normal)),
+              );
+              expect(
+                styles['The Word of the Lord.'],
+                anyOf(isNull, equals(FontWeight.normal)),
+              );
+              expect(styles['R.'], equals(FontWeight.bold));
+              expect(styles['Thanks be to God.'], equals(FontWeight.bold));
+            }
+          }
+        },
+      );
+
+      testWidgets(
+        'renders Traditional Chinese dialogue prayers with normal weight for leader and bold for response',
+        (tester) async {
+          final chinesePrayer = Prayer.mock(
+            id: 'chinese_dialogue',
+            defaultTitle: '信友禱詞',
+            translations: {
+              PrayerLanguage.traditionalChinese: [
+                PrayerTranslation.mock(
+                  title: '信友禱詞',
+                  chineseLines: [
+                    [
+                      ChineseChar('領', 'lǐng'),
+                      ChineseChar('經', 'jīng'),
+                      ChineseChar('者', 'zhě'),
+                      ChineseChar(':', ''),
+                      ChineseChar(' ', ''),
+                      ChineseChar('為', 'wèi'),
+                      ChineseChar('此', 'cǐ'),
+                    ],
+                    [
+                      ChineseChar('全', 'quán'),
+                      ChineseChar('體', 'tǐ'),
+                      ChineseChar(':', ''),
+                      ChineseChar(' ', ''),
+                      ChineseChar('求', 'qiú'),
+                      ChineseChar('主', 'zhǔ'),
+                    ],
+                  ],
+                ),
+              ],
+            },
+          );
+
+          await tester.pumpWidget(
+            buildTestableWidget(
+              child: Scaffold(
+                body: PrayerCard(
+                  prayer: chinesePrayer,
+                  selectedLanguage: PrayerLanguage.traditionalChinese,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                ),
+              ),
+            ),
+          );
+
+          final textWidgets = tester
+              .widgetList<Text>(find.byType(Text))
+              .toList();
+
+          // Find leader char '領' and response char '全'
+          final leaderCharWidget = textWidgets.firstWhere((w) => w.data == '領');
+          final responseCharWidget = textWidgets.firstWhere(
+            (w) => w.data == '全',
+          );
+
+          expect(leaderCharWidget.style?.fontWeight, equals(FontWeight.normal));
+          expect(responseCharWidget.style?.fontWeight, equals(FontWeight.bold));
+        },
+      );
+
+      testWidgets(
+        'renders fallback plain text dialogue prayers with bold responses and normal celebrant lines',
+        (tester) async {
+          final plainPrayer = Prayer.mock(
+            id: 'plain_dialogue',
+            defaultTitle: 'Dialogue',
+            translations: {
+              PrayerLanguage.english: [
+                PrayerTranslation(
+                  title: 'Dialogue',
+                  text:
+                      'Priest: Let us give thanks to the Lord our God.\nPeople: It is right and just.',
+                  tokens: null,
+                ),
+              ],
+            },
+          );
+
+          await tester.pumpWidget(
+            buildTestableWidget(
+              child: Scaffold(
+                body: PrayerCard(
+                  prayer: plainPrayer,
+                  selectedLanguage: PrayerLanguage.english,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                ),
+              ),
+            ),
+          );
+
+          final richTexts = tester
+              .widgetList<RichText>(find.byType(RichText))
+              .toList();
+          final richText = richTexts.last;
+          final styles = <String, FontWeight?>{};
+          void collectSpans(InlineSpan span) {
+            if (span is TextSpan) {
+              if (span.text != null && span.text!.trim().isNotEmpty) {
+                styles[span.text!.trim()] = span.style?.fontWeight;
+              }
+              span.children?.forEach(collectSpans);
+            }
+          }
+
+          collectSpans(richText.text);
+
+          expect(
+            styles['Priest: Let us give thanks to the Lord our God.'],
+            anyOf(isNull, equals(FontWeight.normal)),
+          );
+          expect(
+            styles['People: It is right and just.'],
+            equals(FontWeight.bold),
+          );
+        },
+      );
+    });
   });
 }
