@@ -1444,5 +1444,127 @@ void main() {
         );
       },
     );
+
+    testGoldens(
+      'renders Nicene Creed with italicized Incarnation clause in single and dual modes',
+      (tester) async {
+        final mockAi = MockAiService();
+        LocalAgentHelper.instance = mockAi;
+        mockAi.setMockStatus(AiCoreStatus.available);
+
+        final niceneCreedPrayer = Prayer.mock(
+          id: 'nicene_creed',
+          defaultTitle: 'Nicene Creed',
+          hasAmen: true,
+          translations: {
+            PrayerLanguage.english: [
+              PrayerTranslation.mock(
+                title: 'Nicene Creed',
+                subtitle: 'Symbol of Faith',
+                text:
+                    'For us men and for our salvation he came down from heaven, *and by the Holy Spirit was incarnate of the Virgin Mary, and became man*. For our sake he was crucified under Pontius Pilate, he suffered death and was buried, and rose again on the third day in accordance with the Scriptures.',
+                tokens: [
+                  PrayerToken(
+                    'For us men and for our salvation he came down from heaven, *and by the Holy Spirit was incarnate of the Virgin Mary, and became man*',
+                    'nicene_creed_4',
+                  ),
+                  PrayerToken('. ', null),
+                  PrayerToken(
+                    'For our sake he was crucified under Pontius Pilate, he suffered death and was buried, and rose again on the third day in accordance with the Scriptures',
+                    'nicene_creed_5',
+                  ),
+                  PrayerToken('.', null),
+                ],
+                copyright:
+                    'English translation of the Nicene Creed © 2010, ICEL. All rights reserved.',
+              ),
+            ],
+            PrayerLanguage.latin: [
+              PrayerTranslation.mock(
+                title: 'Symbolum Nicaenum',
+                subtitle: 'Professio Fidei',
+                text:
+                    'Qui propter nos homines et propter nostram salutem descendit de caelis. *Et incarnatus est de Spiritu Sancto ex Maria Virgine, et homo factus est*. Crucifixus etiam pro nobis sub Pontio Pilato; passus et sepultus est, et resurrexit tertia die, secundum Scripturas.',
+                tokens: [
+                  PrayerToken(
+                    'Qui propter nos homines et propter nostram salutem descendit de caelis. *Et incarnatus est de Spiritu Sancto ex Maria Virgine, et homo factus est*',
+                    'nicene_creed_4',
+                  ),
+                  PrayerToken('. ', null),
+                  PrayerToken(
+                    'Crucifixus etiam pro nobis sub Pontio Pilato; passus et sepultus est, et resurrexit tertia die, secundum Scripturas',
+                    'nicene_creed_5',
+                  ),
+                  PrayerToken('.', null),
+                ],
+              ),
+            ],
+          },
+        );
+
+        final builder = GoldenBuilder.column()
+          ..addScenario(
+            'Single Language with Italic Bowing Clause',
+            PrayerCard(
+              prayer: niceneCreedPrayer,
+              selectedLanguage: PrayerLanguage.english,
+              initialVersionIndex: 0,
+              onVersionChanged: (_) {},
+            ),
+          )
+          ..addScenario(
+            'Dual Language Comparison Mode with Italics',
+            PrayerCard(
+              prayer: niceneCreedPrayer,
+              selectedLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+              initialVersionIndex: 0,
+              onVersionChanged: (_) {},
+            ),
+          )
+          ..addScenario(
+            'Dual Language with Selected Italicized Phrase',
+            PrayerCard(
+              prayer: niceneCreedPrayer,
+              selectedLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+              initialVersionIndex: 0,
+              onVersionChanged: (_) {},
+            ),
+          );
+
+        await tester.pumpWidgetBuilder(
+          builder.build(),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(500, 1600),
+        );
+
+        // Find the RichText widget inside the third scenario to highlight the phrase
+        final richTextFinder = find.byWidgetPredicate(
+          (widget) =>
+              widget is RichText &&
+              widget.text.toPlainText().contains('Holy Spirit was incarnate'),
+        );
+        final richTextWidget =
+            tester.element(richTextFinder.last).widget as RichText;
+
+        TapGestureRecognizer? recognizer;
+        richTextWidget.text.visitChildren((span) {
+          if (span is TextSpan &&
+              span.text ==
+                  'and by the Holy Spirit was incarnate of the Virgin Mary, and became man') {
+            recognizer = span.recognizer as TapGestureRecognizer?;
+            return false;
+          }
+          return true;
+        });
+
+        expect(recognizer, isNotNull);
+        recognizer!.onTap!();
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'prayer_card_italics_golden');
+      },
+    );
   });
 }
