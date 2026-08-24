@@ -24,6 +24,7 @@ void main() {
   late BibleDatabase testDb;
 
   setUp(() async {
+    PrayerDatabase.mockSettings = null;
     testDb = BibleDatabase(NativeDatabase.memory());
     BibleDatabaseHelper.db = testDb;
     await testDb.ensurePopulated();
