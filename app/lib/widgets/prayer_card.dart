@@ -132,6 +132,48 @@ class _PrayerCardState extends State<PrayerCard> {
     _checkAiAvailability();
   }
 
+  List<InlineSpan> _parseItalicsSpans(
+    String text,
+    TextStyle? style, {
+    GestureRecognizer? recognizer,
+  }) {
+    final spans = <InlineSpan>[];
+    final regex = RegExp(r'\*([^*]+)\*');
+    int lastMatchEnd = 0;
+
+    for (final match in regex.allMatches(text)) {
+      if (match.start > lastMatchEnd) {
+        spans.add(
+          TextSpan(
+            text: text.substring(lastMatchEnd, match.start),
+            style: style,
+            recognizer: recognizer,
+          ),
+        );
+      }
+      spans.add(
+        TextSpan(
+          text: match.group(1),
+          style: style?.copyWith(fontStyle: FontStyle.italic),
+          recognizer: recognizer,
+        ),
+      );
+      lastMatchEnd = match.end;
+    }
+
+    if (lastMatchEnd < text.length) {
+      spans.add(
+        TextSpan(
+          text: text.substring(lastMatchEnd),
+          style: style,
+          recognizer: recognizer,
+        ),
+      );
+    }
+
+    return spans;
+  }
+
   InlineSpan _buildTokenSpan(
     PrayerToken token,
     int index,
@@ -145,12 +187,10 @@ class _PrayerCardState extends State<PrayerCard> {
     );
 
     if (token.id == null || !_isDualMode) {
-      return TextSpan(
-        text: token.text,
-        style: baseStyle?.copyWith(
-          color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
-        ),
+      final style = baseStyle?.copyWith(
+        color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
       );
+      return TextSpan(children: _parseItalicsSpans(token.text, style));
     }
 
     final recognizerKey =
@@ -181,9 +221,11 @@ class _PrayerCardState extends State<PrayerCard> {
       );
 
       final textSpan = TextSpan(
-        text: token.text,
-        recognizer: recognizer,
-        style: selectedStyle,
+        children: _parseItalicsSpans(
+          token.text,
+          selectedStyle,
+          recognizer: recognizer,
+        ),
       );
 
       if (isTarget) {
@@ -203,14 +245,18 @@ class _PrayerCardState extends State<PrayerCard> {
       return textSpan;
     }
 
+    final unselectedStyle = baseStyle?.copyWith(
+      decoration: TextDecoration.underline,
+      decorationStyle: TextDecorationStyle.dashed,
+      decorationColor: theme.colorScheme.primary.withValues(alpha: 0.5),
+      color: theme.colorScheme.onSurface,
+    );
+
     return TextSpan(
-      text: token.text,
-      recognizer: recognizer,
-      style: baseStyle?.copyWith(
-        decoration: TextDecoration.underline,
-        decorationStyle: TextDecorationStyle.dashed,
-        decorationColor: theme.colorScheme.primary.withValues(alpha: 0.5),
-        color: theme.colorScheme.onSurface,
+      children: _parseItalicsSpans(
+        token.text,
+        unselectedStyle,
+        recognizer: recognizer,
       ),
     );
   }
@@ -381,14 +427,14 @@ class _PrayerCardState extends State<PrayerCard> {
       );
     } else {
       // Fallback: plain text
-      bodyWidget = Text(
-        trans.text,
-        style: theme.textTheme.bodyLarge?.copyWith(
-          height: 1.6,
-          color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
-          fontSize: widget.fontSize,
-          letterSpacing: 0.2,
-        ),
+      final fallbackStyle = theme.textTheme.bodyLarge?.copyWith(
+        height: 1.6,
+        color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
+        fontSize: widget.fontSize,
+        letterSpacing: 0.2,
+      );
+      bodyWidget = Text.rich(
+        TextSpan(children: _parseItalicsSpans(trans.text, fallbackStyle)),
         textAlign: TextAlign.center,
       );
     }
@@ -749,7 +795,7 @@ class _PrayerCardState extends State<PrayerCard> {
     if (trans.tokens == null) return '';
     return trans.tokens!
         .where((t) => t.id == phraseId)
-        .map((t) => t.text)
+        .map((t) => t.text.replaceAll('*', ''))
         .join('')
         .trim();
   }
