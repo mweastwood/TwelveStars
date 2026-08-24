@@ -38,6 +38,7 @@ const List<MissalPrayerFilterOption> kMissalPrayerFilterOptions = [
   MissalPrayerFilterOption(id: 'sanctus', label: 'Sanctus'),
   MissalPrayerFilterOption(id: 'mystery_of_faith', label: 'Mystery of Faith'),
   MissalPrayerFilterOption(id: 'our_father', label: 'Our Father'),
+  MissalPrayerFilterOption(id: 'embolism', label: 'Embolism & Doxology'),
   MissalPrayerFilterOption(id: 'sign_of_peace', label: 'Sign of Peace'),
   MissalPrayerFilterOption(id: 'agnus_dei', label: 'Agnus Dei'),
   MissalPrayerFilterOption(
@@ -425,6 +426,7 @@ class _MissalTabState extends State<MissalTab> {
     final prefaceDialogue = _findPrayer('preface_dialogue');
     final mysteryOfFaith = _findPrayer('mystery_of_faith');
     final ourFather = _findPrayer('our_father');
+    final embolism = _findPrayer('embolism');
     final signOfPeace = _findPrayer('sign_of_peace');
     final agnusDei = _findPrayer('agnus_dei');
     final domineNonSumDignus = _findPrayer('domine_non_sum_dignus');
@@ -793,6 +795,10 @@ class _MissalTabState extends State<MissalTab> {
                     if (_isPrayerVisible('our_father') &&
                         ourFather != null) ...[
                       _buildPrayerCard(ourFather),
+                      const SizedBox(height: 12),
+                    ],
+                    if (_isPrayerVisible('embolism') && embolism != null) ...[
+                      _buildPrayerCard(embolism),
                       const SizedBox(height: 12),
                     ],
                     if (_isPrayerVisible('sign_of_peace')) ...[
