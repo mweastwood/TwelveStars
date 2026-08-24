@@ -5,7 +5,9 @@ import 'package:drift/drift.dart' hide Column;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/lectionary_resolver.dart';
+import 'package:twelve_stars/logic/lectionary_responses.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
+import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
 import 'package:twelve_stars/widgets/bible_verse_modals.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
@@ -19,11 +21,15 @@ import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 class MassReadingCard extends StatefulWidget {
   final LectionaryReading reading;
   final double fontSize;
+  final PrayerLanguage primaryLanguage;
+  final PrayerLanguage? compareLanguage;
 
   const MassReadingCard({
     super.key,
     required this.reading,
     this.fontSize = 16.0,
+    this.primaryLanguage = PrayerLanguage.english,
+    this.compareLanguage,
   });
 
   @override
@@ -56,6 +62,9 @@ class _MassReadingCardState extends State<MassReadingCard> {
       _firstSelectedVerseIndex = null;
       _lastSelectedVerseIndex = null;
       _loadVerses(force: true);
+    } else if (oldWidget.primaryLanguage != widget.primaryLanguage ||
+        oldWidget.compareLanguage != widget.compareLanguage) {
+      setState(() {});
     }
   }
 
@@ -456,6 +465,8 @@ class _MassReadingCardState extends State<MassReadingCard> {
               else if (_verses == null || _verses!.isEmpty)
                 const Text('No verses found for this reading range.')
               else ...[
+                if (widget.reading.readingType.toLowerCase() == 'gospel')
+                  _buildIntroDialogue(theme),
                 ..._verses!.asMap().entries.map((entry) {
                   final index = entry.key;
                   final verse = entry.value;
@@ -534,6 +545,8 @@ class _MassReadingCardState extends State<MassReadingCard> {
                     ),
                   );
                 }),
+                if (_buildConcludingAcclamation(theme) != null)
+                  _buildConcludingAcclamation(theme)!,
                 if (_firstSelectedVerseIndex != null)
                   _buildSelectionActionBar(theme),
               ],
@@ -541,6 +554,195 @@ class _MassReadingCardState extends State<MassReadingCard> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildDialogueItem(
+    ThemeData theme,
+    LiturgicalDialogue primary,
+    LiturgicalDialogue? compare,
+  ) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Minister line
+          Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: '${primary.ministerCue}: ',
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    fontStyle: FontStyle.italic,
+                    color: theme.colorScheme.onSurfaceVariant,
+                    fontSize: widget.fontSize,
+                  ),
+                ),
+                TextSpan(
+                  text: primary.ministerText,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.onSurface,
+                    fontSize: widget.fontSize,
+                  ),
+                ),
+                if (compare != null) ...[
+                  TextSpan(
+                    text: '\n${compare.ministerCue}: ',
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      fontStyle: FontStyle.italic,
+                      color: theme.colorScheme.onSurfaceVariant.withValues(
+                        alpha: 0.8,
+                      ),
+                      fontSize: (widget.fontSize * 0.95).clamp(12.0, 30.0),
+                    ),
+                  ),
+                  TextSpan(
+                    text: compare.ministerText,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      fontStyle: FontStyle.italic,
+                      color: theme.colorScheme.onSurfaceVariant,
+                      fontSize: (widget.fontSize * 0.95).clamp(12.0, 30.0),
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          const SizedBox(height: 2),
+          // People line
+          Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: '${primary.peopleCue}: ',
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    fontStyle: FontStyle.italic,
+                    color: theme.colorScheme.onSurfaceVariant,
+                    fontSize: widget.fontSize,
+                  ),
+                ),
+                TextSpan(
+                  text: primary.peopleText,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.onSurface,
+                    fontSize: widget.fontSize,
+                  ),
+                ),
+                if (compare != null) ...[
+                  TextSpan(
+                    text: '\n${compare.peopleCue}: ',
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      fontStyle: FontStyle.italic,
+                      color: theme.colorScheme.onSurfaceVariant.withValues(
+                        alpha: 0.8,
+                      ),
+                      fontSize: (widget.fontSize * 0.95).clamp(12.0, 30.0),
+                    ),
+                  ),
+                  TextSpan(
+                    text: compare.peopleText,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.onSurfaceVariant,
+                      fontSize: (widget.fontSize * 0.95).clamp(12.0, 30.0),
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildIntroDialogue(ThemeData theme) {
+    final evangelist =
+        Evangelist.fromBookNumber(widget.reading.bookNumber) ??
+        Evangelist.fromBookName(widget.reading.bookName);
+
+    final primaryGreeting = LectionaryResponses.getGospelIntroGreeting(
+      widget.primaryLanguage,
+    );
+    final compareGreeting = widget.compareLanguage != null
+        ? LectionaryResponses.getGospelIntroGreeting(widget.compareLanguage!)
+        : null;
+
+    final primaryAnnouncement = LectionaryResponses.getGospelIntroAnnouncement(
+      widget.primaryLanguage,
+      evangelist,
+    );
+    final compareAnnouncement = widget.compareLanguage != null
+        ? LectionaryResponses.getGospelIntroAnnouncement(
+            widget.compareLanguage!,
+            evangelist,
+          )
+        : null;
+
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12.0),
+      padding: const EdgeInsets.all(12.0),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.4),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildDialogueItem(theme, primaryGreeting, compareGreeting),
+          const SizedBox(height: 6),
+          _buildDialogueItem(theme, primaryAnnouncement, compareAnnouncement),
+        ],
+      ),
+    );
+  }
+
+  Widget? _buildConcludingAcclamation(ThemeData theme) {
+    final readingType = widget.reading.readingType.toLowerCase();
+    if (readingType == 'psalm') {
+      return null;
+    }
+
+    if (readingType == 'gospel') {
+      final primary = LectionaryResponses.getGospelConcludingDialogue(
+        widget.primaryLanguage,
+      );
+      final compare = widget.compareLanguage != null
+          ? LectionaryResponses.getGospelConcludingDialogue(
+              widget.compareLanguage!,
+            )
+          : null;
+      return Container(
+        margin: const EdgeInsets.only(top: 12.0),
+        padding: const EdgeInsets.all(12.0),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surfaceContainerHighest.withValues(
+            alpha: 0.4,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: _buildDialogueItem(theme, primary, compare),
+      );
+    }
+
+    final primary = LectionaryResponses.getReadingConcludingDialogue(
+      widget.primaryLanguage,
+    );
+    final compare = widget.compareLanguage != null
+        ? LectionaryResponses.getReadingConcludingDialogue(
+            widget.compareLanguage!,
+          )
+        : null;
+    return Container(
+      margin: const EdgeInsets.only(top: 12.0),
+      padding: const EdgeInsets.all(12.0),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.4),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: _buildDialogueItem(theme, primary, compare),
     );
   }
 }

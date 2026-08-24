@@ -475,7 +475,7 @@ void main() {
     await tester.pumpWidgetBuilder(
       builder.build(),
       wrapper: materialAppWrapper(),
-      surfaceSize: const Size(450, 300),
+      surfaceSize: const Size(450, 420),
     );
     await tester.pumpAndSettle();
 
@@ -487,6 +487,78 @@ void main() {
 
     await screenMatchesGolden(tester, 'mass_reading_card_collapsed_golden');
   });
+
+  testGoldens(
+    'MassReadingCard renders Gospel reading correctly expanded and collapsed',
+    (tester) async {
+      const reading = LectionaryReading(
+        id: 4,
+        readingKey: 'feast_annunciation',
+        readingType: 'gospel',
+        bookNumber: 51, // Luke
+        bookName: 'Luke',
+        chapter: 1,
+        verseRange: '26-27',
+        citation: 'Luke 1:26-27',
+      );
+
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 51,
+              bookName: 'Luke',
+              chapter: 1,
+              verseNumber: 26,
+              verseText:
+                  'And in the sixth month, the angel Gabriel was sent from God into a city of Galilee, called Nazareth,',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 2,
+              bookNumber: 51,
+              bookName: 'Luke',
+              chapter: 1,
+              verseNumber: 27,
+              verseText:
+                  'To a virgin espoused to a man whose name was Joseph, of the house of David; and the virgin\'s name was Mary.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      final builder = GoldenBuilder.column()
+        ..addScenario(
+          'Mass Reading Card Gospel Expanded (Default)',
+          const MassReadingCard(reading: reading),
+        );
+
+      await tester.pumpWidgetBuilder(
+        builder.build(),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(450, 680),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(
+        tester,
+        'mass_reading_card_gospel_expanded_golden',
+      );
+
+      // Tap header to collapse
+      await tester.tap(find.text('Gospel'));
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(
+        tester,
+        'mass_reading_card_gospel_collapsed_golden',
+      );
+    },
+  );
 
   testGoldens('BibleVerseRow renders all visual states correctly', (
     tester,
@@ -654,7 +726,7 @@ void main() {
       await tester.pumpWidgetBuilder(
         builder.build(),
         wrapper: materialAppWrapper(),
-        surfaceSize: const Size(450, 300),
+        surfaceSize: const Size(450, 420),
       );
       await tester.pumpAndSettle();
 
@@ -714,7 +786,7 @@ void main() {
         ),
       ),
       wrapper: materialAppWrapper(),
-      surfaceSize: const Size(450, 360),
+      surfaceSize: const Size(450, 480),
     );
     await tester.pumpAndSettle();
 
@@ -882,4 +954,337 @@ void main() {
       );
     },
   );
+
+  group('MassReadingCard Liturgical Responses Tests', () {
+    testWidgets(
+      'First Reading displays "The word of the Lord" and "Thanks be to God" at bottom',
+      (WidgetTester tester) async {
+        const reading = LectionaryReading(
+          id: 1,
+          readingKey: 'feast_annunciation',
+          readingType: 'first',
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          verseRange: '1-2',
+          citation: 'Genesis 1:1-2',
+        );
+
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              const BibleVerse(
+                id: 1,
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'In the beginning God created heaven, and earth.',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: MassReadingCard(
+                reading: reading,
+                primaryLanguage: PrayerLanguage.english,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(
+          find.textContaining('The word of the Lord.', findRichText: true),
+          findsOneWidget,
+        );
+        expect(
+          find.textContaining('Thanks be to God.', findRichText: true),
+          findsOneWidget,
+        );
+        expect(
+          find.textContaining('Lector:', findRichText: true),
+          findsOneWidget,
+        );
+        expect(
+          find.textContaining('People:', findRichText: true),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets('Second Reading displays concluding response in Spanish', (
+      WidgetTester tester,
+    ) async {
+      const reading = LectionaryReading(
+        id: 2,
+        readingKey: 'feast_annunciation',
+        readingType: 'second',
+        bookNumber: 58,
+        bookName: 'Hebrews',
+        chapter: 10,
+        verseRange: '4-10',
+        citation: 'Hebrews 10:4-10',
+      );
+
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 58,
+              bookName: 'Hebrews',
+              chapter: 10,
+              verseNumber: 4,
+              verseText:
+                  'For it is impossible for the blood of bulls and goats to take away sins.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(
+            body: MassReadingCard(
+              reading: reading,
+              primaryLanguage: PrayerLanguage.spanish,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(
+        find.textContaining('Palabra de Dios.', findRichText: true),
+        findsOneWidget,
+      );
+      expect(
+        find.textContaining('Te alabamos, Señor.', findRichText: true),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('Responsorial Psalm does not display concluding acclamation', (
+      WidgetTester tester,
+    ) async {
+      const reading = LectionaryReading(
+        id: 3,
+        readingKey: 'feast_annunciation',
+        readingType: 'psalm',
+        bookNumber: 21,
+        bookName: 'Psalms',
+        chapter: 40,
+        verseRange: '7-11',
+        citation: 'Psalms 40:7-11',
+      );
+
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 21,
+              bookName: 'Psalms',
+              chapter: 40,
+              verseNumber: 7,
+              verseText: 'Sacrifice and oblation thou didst not desire.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(
+            body: MassReadingCard(
+              reading: reading,
+              primaryLanguage: PrayerLanguage.english,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(
+        find.textContaining('The word of the Lord.', findRichText: true),
+        findsNothing,
+      );
+      expect(
+        find.textContaining('Thanks be to God.', findRichText: true),
+        findsNothing,
+      );
+      expect(
+        find.textContaining('The Gospel of the Lord.', findRichText: true),
+        findsNothing,
+      );
+    });
+
+    testWidgets(
+      'Gospel displays introductory dialogue and concluding acclamation with localized evangelist',
+      (WidgetTester tester) async {
+        const reading = LectionaryReading(
+          id: 4,
+          readingKey: 'feast_annunciation',
+          readingType: 'gospel',
+          bookNumber: 51,
+          bookName: 'Luke',
+          chapter: 1,
+          verseRange: '26-38',
+          citation: 'Luke 1:26-38',
+        );
+
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              const BibleVerse(
+                id: 1,
+                bookNumber: 51,
+                bookName: 'Luke',
+                chapter: 1,
+                verseNumber: 26,
+                verseText:
+                    'And in the sixth month, the angel Gabriel was sent from God into a city of Galilee, called Nazareth,',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: MassReadingCard(
+                reading: reading,
+                primaryLanguage: PrayerLanguage.english,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Introductory Greeting
+        expect(
+          find.textContaining('The Lord be with you.', findRichText: true),
+          findsOneWidget,
+        );
+        expect(
+          find.textContaining('And with your spirit.', findRichText: true),
+          findsOneWidget,
+        );
+
+        // Introductory Announcement
+        expect(
+          find.textContaining(
+            'A reading from the holy Gospel according to Luke.',
+            findRichText: true,
+          ),
+          findsOneWidget,
+        );
+        expect(
+          find.textContaining('Glory to you, O Lord.', findRichText: true),
+          findsOneWidget,
+        );
+
+        // Concluding Acclamation
+        expect(
+          find.textContaining('The Gospel of the Lord.', findRichText: true),
+          findsOneWidget,
+        );
+        expect(
+          find.textContaining(
+            'Praise to you, Lord Jesus Christ.',
+            findRichText: true,
+          ),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets('Gospel displays Latin dialogue and comparison language', (
+      WidgetTester tester,
+    ) async {
+      const reading = LectionaryReading(
+        id: 5,
+        readingKey: 'feast_annunciation',
+        readingType: 'gospel',
+        bookNumber: 49,
+        bookName: 'Matthew',
+        chapter: 1,
+        verseRange: '1-16',
+        citation: 'Matthew 1:1-16',
+      );
+
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 49,
+              bookName: 'Matthew',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'The book of the genealogy of Jesus Christ.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(
+            body: MassReadingCard(
+              reading: reading,
+              primaryLanguage: PrayerLanguage.latin,
+              compareLanguage: PrayerLanguage.english,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Primary Latin
+      expect(
+        find.textContaining('Dóminus vobíscum.', findRichText: true),
+        findsOneWidget,
+      );
+      expect(
+        find.textContaining('Et cum spíritu tuo.', findRichText: true),
+        findsOneWidget,
+      );
+      expect(
+        find.textContaining(
+          'Léctio sancti Evangélii secúndum Matthǽum.',
+          findRichText: true,
+        ),
+        findsOneWidget,
+      );
+      expect(
+        find.textContaining('Glória tibi, Dómine.', findRichText: true),
+        findsOneWidget,
+      );
+      expect(
+        find.textContaining('Verbum Dómini.', findRichText: true),
+        findsOneWidget,
+      );
+      expect(
+        find.textContaining('Laus tibi, Christe.', findRichText: true),
+        findsOneWidget,
+      );
+
+      // Compare English
+      expect(
+        find.textContaining('The Lord be with you.', findRichText: true),
+        findsOneWidget,
+      );
+      expect(
+        find.textContaining('And with your spirit.', findRichText: true),
+        findsOneWidget,
+      );
+      expect(
+        find.textContaining(
+          'Praise to you, Lord Jesus Christ.',
+          findRichText: true,
+        ),
+        findsOneWidget,
+      );
+    });
+  });
 }

@@ -710,6 +710,8 @@ class _MissalTabState extends State<MissalTab> {
                                 child: MassReadingCard(
                                   reading: r,
                                   fontSize: widget.fontSize,
+                                  primaryLanguage: _primaryLanguage,
+                                  compareLanguage: _compareLanguage,
                                 ),
                               ),
                             ),
