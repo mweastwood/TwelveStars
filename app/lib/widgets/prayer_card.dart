@@ -174,16 +174,31 @@ class _PrayerCardState extends State<PrayerCard> {
     return spans;
   }
 
+  static final RegExp _responsePrefixRegex = RegExp(
+    r'^\s*(?:(?:People|Response|All|Populus|Omnes|Asamblea|Pueblo|Todos|Cộng\s+đoàn|Người\s+đáp|Tất\s+cả|Peuple|Tous|Fidèles|Popolo|Tutti|Bayan|Lahat|信友|全體|答|應|眾|會眾|同答)\s*[:：]|℟\.?|R\.|R:)',
+    caseSensitive: false,
+    multiLine: true,
+  );
+
+  static final RegExp _celebrantPrefixRegex = RegExp(
+    r'^\s*(?:(?:Priest|Celebrant|Reader|Lector|Lecteur|Lettore|Sacerdos|Diaconus|Sacerdote|Diácono|Linh\s+mục|Phó\s+tế|Người\s+xướng|Người\s+đọc|Namumuno|領經者|主祭|司鐸|執事|讀經者|主禮|啟)\s*[:：]|℣\.?|V\.|V:)',
+    caseSensitive: false,
+    multiLine: true,
+  );
+
   InlineSpan _buildTokenSpan(
     PrayerToken token,
     int index,
     ThemeData theme, {
     bool isTarget = false,
+    bool isResponse = false,
   }) {
+    final fontWeight = isResponse ? FontWeight.bold : null;
     final baseStyle = theme.textTheme.bodyLarge?.copyWith(
       height: 1.6,
       fontSize: widget.fontSize,
       letterSpacing: 0.2,
+      fontWeight: fontWeight,
     );
 
     if (token.id == null || !_isDualMode) {
@@ -323,6 +338,10 @@ class _PrayerCardState extends State<PrayerCard> {
     if (trans.chineseLines != null) {
       bodyWidget = Column(
         children: trans.chineseLines!.map((line) {
+          final lineText = (line.chars ?? []).map((c) => c.char).join('');
+          final isCelebrant = _celebrantPrefixRegex.hasMatch(lineText);
+          final fontWeight = isCelebrant ? FontWeight.normal : FontWeight.bold;
+
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 4.0),
             child: Wrap(
@@ -356,7 +375,7 @@ class _PrayerCardState extends State<PrayerCard> {
                       Text(
                         charItem.char,
                         style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
+                          fontWeight: fontWeight,
                           fontSize: widget.fontSize * 1.125,
                           color: isSelected
                               ? theme.colorScheme.onPrimaryContainer
@@ -410,12 +429,118 @@ class _PrayerCardState extends State<PrayerCard> {
       );
     } else if (trans.tokens != null && trans.tokens!.isNotEmpty) {
       // Text rendering with phrase alignments
+      final fullText = trans.tokens!.map((t) => t.text).join('');
+      final hasResponses = _responsePrefixRegex.hasMatch(fullText);
+
       final spans = <InlineSpan>[];
-      for (var i = 0; i < trans.tokens!.length; i++) {
-        spans.add(
-          _buildTokenSpan(trans.tokens![i], i, theme, isTarget: isTargetColumn),
-        );
+
+      if (!hasResponses) {
+        for (var i = 0; i < trans.tokens!.length; i++) {
+          spans.add(
+            _buildTokenSpan(
+              trans.tokens![i],
+              i,
+              theme,
+              isTarget: isTargetColumn,
+              isResponse: false,
+            ),
+          );
+        }
+      } else {
+        final lines = fullText.split('\n');
+        final isResponseLineList = lines
+            .map((l) => _responsePrefixRegex.hasMatch(l))
+            .toList();
+
+        final lineStartIndices = <int>[];
+        int currentStart = 0;
+        for (final line in lines) {
+          lineStartIndices.add(currentStart);
+          currentStart += line.length + 1; // +1 for '\n'
+        }
+
+        int getLineIndexAt(int charOffset) {
+          if (charOffset <= 0) return 0;
+          int idx = 0;
+          for (int i = 0; i < lineStartIndices.length; i++) {
+            if (lineStartIndices[i] <= charOffset) {
+              idx = i;
+            } else {
+              break;
+            }
+          }
+          return idx;
+        }
+
+        int charOffset = 0;
+
+        for (var i = 0; i < trans.tokens!.length; i++) {
+          final token = trans.tokens![i];
+          final tokenStart = charOffset;
+          final tokenEnd = charOffset + token.text.length;
+          charOffset = tokenEnd;
+
+          if (token.id != null) {
+            final lineIdx = getLineIndexAt(tokenStart);
+            final isResponse =
+                lineIdx < isResponseLineList.length &&
+                isResponseLineList[lineIdx];
+            spans.add(
+              _buildTokenSpan(
+                token,
+                i,
+                theme,
+                isTarget: isTargetColumn,
+                isResponse: isResponse,
+              ),
+            );
+          } else {
+            if (!token.text.contains('\n')) {
+              final lineIdx = getLineIndexAt(tokenStart);
+              final isResponse =
+                  lineIdx < isResponseLineList.length &&
+                  isResponseLineList[lineIdx];
+              spans.add(
+                _buildTokenSpan(
+                  token,
+                  i,
+                  theme,
+                  isTarget: isTargetColumn,
+                  isResponse: isResponse,
+                ),
+              );
+            } else {
+              final parts = token.text.split('\n');
+              int subOffset = tokenStart;
+              for (var p = 0; p < parts.length; p++) {
+                if (p > 0) {
+                  spans.add(const TextSpan(text: '\n'));
+                  subOffset += 1;
+                }
+                final partText = parts[p];
+                if (partText.isNotEmpty) {
+                  final lineIdx = getLineIndexAt(subOffset);
+                  final isResponse =
+                      lineIdx < isResponseLineList.length &&
+                      isResponseLineList[lineIdx];
+                  final partToken = PrayerToken(partText, null);
+                  spans.add(
+                    _buildTokenSpan(
+                      partToken,
+                      i,
+                      theme,
+                      isTarget: isTargetColumn,
+                      isResponse: isResponse,
+                    ),
+                  );
+                  subOffset += partText.length;
+                }
+              }
+            }
+          }
+        }
       }
+
       bodyWidget = Text.rich(
         TextSpan(children: spans),
         style: theme.textTheme.bodyLarge?.copyWith(
@@ -427,16 +552,43 @@ class _PrayerCardState extends State<PrayerCard> {
       );
     } else {
       // Fallback: plain text
-      final fallbackStyle = theme.textTheme.bodyLarge?.copyWith(
-        height: 1.6,
-        color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
-        fontSize: widget.fontSize,
-        letterSpacing: 0.2,
-      );
-      bodyWidget = Text.rich(
-        TextSpan(children: _parseItalicsSpans(trans.text, fallbackStyle)),
-        textAlign: TextAlign.center,
-      );
+      final hasResponses = _responsePrefixRegex.hasMatch(trans.text);
+      if (!hasResponses) {
+        final fallbackStyle = theme.textTheme.bodyLarge?.copyWith(
+          height: 1.6,
+          color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
+          fontSize: widget.fontSize,
+          letterSpacing: 0.2,
+        );
+        bodyWidget = Text.rich(
+          TextSpan(children: _parseItalicsSpans(trans.text, fallbackStyle)),
+          textAlign: TextAlign.center,
+        );
+      } else {
+        final lines = trans.text.split('\n');
+        final spans = <InlineSpan>[];
+        for (var i = 0; i < lines.length; i++) {
+          if (i > 0) {
+            spans.add(const TextSpan(text: '\n'));
+          }
+          final line = lines[i];
+          if (line.isNotEmpty) {
+            final isResponse = _responsePrefixRegex.hasMatch(line);
+            final lineStyle = theme.textTheme.bodyLarge?.copyWith(
+              height: 1.6,
+              color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
+              fontSize: widget.fontSize,
+              letterSpacing: 0.2,
+              fontWeight: isResponse ? FontWeight.bold : null,
+            );
+            spans.addAll(_parseItalicsSpans(line, lineStyle));
+          }
+        }
+        bodyWidget = Text.rich(
+          TextSpan(children: spans),
+          textAlign: TextAlign.center,
+        );
+      }
     }
 
     return _wrapWithFooter(bodyWidget, amenWidget, trans.copyright, theme);
