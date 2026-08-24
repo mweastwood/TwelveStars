@@ -204,7 +204,7 @@ void main() {
               title: 'Universal Prayer',
               subtitle: 'Oratio Universalis / Prayers of the Faithful',
               text:
-                  'Priest: Dear brothers and sisters, let us offer our prayers...\nReader: For the holy Church of God...\nReader: Let us pray to the Lord.\nPeople: Lord, hear our prayer.\nPriest: Almighty and ever-living God...\nPeople: Amen.',
+                  'Reader: Let us pray to the Lord.\nPeople: Lord, hear our prayer.',
               sourceName: 'Roman Missal',
               sourceUrl:
                   'https://www.universalis.com/static/mass/orderofmass.htm',
@@ -215,7 +215,7 @@ void main() {
               title: 'Oratio Universalis',
               subtitle: 'Preces Universales',
               text:
-                  'Sacerdos: Fratres carissimi...\nLector: Pro sancta Ecclesia Dei...\nLector: Te rogamus, audi nos.\nPopulus: Te rogamus, audi nos.\nSacerdos: Deus, refugium nostrum...\nPopulus: Amen.',
+                  'Lector: Te rogamus, audi nos.\nPopulus: Te rogamus, audi nos.',
               sourceName: 'Maranatha',
               sourceUrl: 'https://www.maranatha.it/RitoMessa/missaetext.htm',
             ),
