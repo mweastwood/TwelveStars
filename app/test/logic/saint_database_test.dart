@@ -1499,5 +1499,69 @@ void main() {
         }
       },
     );
+
+    test(
+      'every saint adheres to state-of-life exclusivity rules (exactly one religious state for individuals, zero for angels, multiple for groups)',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+        const stateOfLifeCategories = {
+          SaintCategory.pope,
+          SaintCategory.bishop,
+          SaintCategory.priest,
+          SaintCategory.deacon,
+          SaintCategory.brother,
+          SaintCategory.nun,
+          SaintCategory.laity,
+        };
+
+        for (final saint in saints) {
+          final assignedStates = saint.categories
+              .where(stateOfLifeCategories.contains)
+              .toList();
+
+          if (saint.categories.contains(SaintCategory.angel)) {
+            // Angels are pure celestial spirits and have 0 human states of life
+            expect(
+              assignedStates,
+              isEmpty,
+              reason:
+                  'Angel saint ${saint.id} (${saint.name}) should have no human state of life, but found $assignedStates',
+            );
+          } else if (saint.categories.contains(SaintCategory.group)) {
+            // Groups can contain a mixture of clergy, religious, and laity
+            expect(
+              assignedStates,
+              isNotEmpty,
+              reason:
+                  'Group saint ${saint.id} (${saint.name}) should have at least one state of life, but found none',
+            );
+          } else {
+            // Every individual human saint MUST have EXACTLY ONE state of life
+            expect(
+              assignedStates.length,
+              1,
+              reason:
+                  'Individual saint ${saint.id} (${saint.name}) must have exactly one religious state of life, but found ${assignedStates.map((c) => c.name).toList()}',
+            );
+          }
+        }
+      },
+    );
+
+    test('every saint categories array follows canonical UI ordering', () async {
+      final saints = await SaintDatabase.loadSaints();
+      for (final saint in saints) {
+        for (var i = 0; i < saint.categories.length - 1; i++) {
+          final curr = saint.categories[i].index;
+          final next = saint.categories[i + 1].index;
+          expect(
+            curr <= next,
+            isTrue,
+            reason:
+                'Categories for saint ${saint.id} (${saint.name}) are not in canonical order: ${saint.categories.map((c) => c.name).toList()}',
+          );
+        }
+      }
+    });
   });
 }
