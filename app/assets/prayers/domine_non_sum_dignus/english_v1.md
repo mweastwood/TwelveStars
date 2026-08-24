@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 111
+default_order: 112
 default_title: Invitation to Communion
 title: Invitation to Communion
 subtitle: "Domine, non sum dignus"

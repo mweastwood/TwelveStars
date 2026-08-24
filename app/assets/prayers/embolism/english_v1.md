@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 108
+default_order: 109
 default_title: Embolism & Doxology
 title: Embolism & Doxology
 subtitle: "For the kingdom, the power and the glory"

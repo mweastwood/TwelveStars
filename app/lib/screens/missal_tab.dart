@@ -30,6 +30,7 @@ const List<MissalPrayerFilterOption> kMissalPrayerFilterOptions = [
   MissalPrayerFilterOption(id: 'kyrie_eleison', label: 'Kyrie Eleison'),
   MissalPrayerFilterOption(id: 'gloria', label: 'Gloria'),
   MissalPrayerFilterOption(id: 'creed', label: 'Creed (Nicene / Apostles\')'),
+  MissalPrayerFilterOption(id: 'universal_prayer', label: 'Universal Prayer'),
   MissalPrayerFilterOption(
     id: 'offertory_response',
     label: 'Offertory Response',
@@ -432,6 +433,7 @@ class _MissalTabState extends State<MissalTab> {
     final gloria = _findPrayer('gloria');
     final niceneCreed = _findPrayer('nicene_creed');
     final apostlesCreed = _findPrayer('apostles_creed');
+    final universalPrayer = _findPrayer('universal_prayer');
     final sanctus = _findPrayer('sanctus');
     final offertoryResponse = _findPrayer('offertory_response');
     final orateFratres = _findPrayer('orate_fratres');
@@ -742,16 +744,20 @@ class _MissalTabState extends State<MissalTab> {
               ),
             ],
             if (!_isReadingsOnly) ...[
-              const SizedBox(height: 12),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: MissalMassPartPlaceholder(
-                  title: 'Universal Prayer (Prayers of the Faithful)',
-                  description:
-                      'Petitions for the Church, the world, and those in need',
-                  icon: Icons.people,
+              if (_isPrayerVisible('universal_prayer')) ...[
+                const SizedBox(height: 12),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: universalPrayer != null
+                      ? _buildPrayerCard(universalPrayer)
+                      : const MissalMassPartPlaceholder(
+                          title: 'Universal Prayer (Prayers of the Faithful)',
+                          description:
+                              'Petitions for the Church, the world, and those in need',
+                          icon: Icons.people,
+                        ),
                 ),
-              ),
+              ],
               const SizedBox(height: 12),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),

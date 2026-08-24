@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 108
+default_order: 109
 default_title: Embolism & Doxology
 title: Embolismo y Doxología
 subtitle: "Tuyo es el reino"
