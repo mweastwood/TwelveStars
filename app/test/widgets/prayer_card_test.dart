@@ -1462,13 +1462,13 @@ void main() {
                 title: 'Nicene Creed',
                 subtitle: 'Symbol of Faith',
                 text:
-                    'For us men and for our salvation he came down from heaven, *and by the Holy Spirit was incarnate of the Virgin Mary, and became man*. For our sake he was crucified under Pontius Pilate, he suffered death and was buried, and rose again on the third day in accordance with the Scriptures.',
+                    'For us men and for our salvation he came down from heaven, *and by the Holy Spirit was incarnate of the Virgin Mary, and became man*.\n\nFor our sake he was crucified under Pontius Pilate, he suffered death and was buried, and rose again on the third day in accordance with the Scriptures.',
                 tokens: [
                   PrayerToken(
                     'For us men and for our salvation he came down from heaven, *and by the Holy Spirit was incarnate of the Virgin Mary, and became man*',
                     'nicene_creed_4',
                   ),
-                  PrayerToken('. ', null),
+                  PrayerToken('.\n\n', null),
                   PrayerToken(
                     'For our sake he was crucified under Pontius Pilate, he suffered death and was buried, and rose again on the third day in accordance with the Scriptures',
                     'nicene_creed_5',
@@ -1484,13 +1484,13 @@ void main() {
                 title: 'Symbolum Nicaenum',
                 subtitle: 'Professio Fidei',
                 text:
-                    'Qui propter nos homines et propter nostram salutem descendit de caelis. *Et incarnatus est de Spiritu Sancto ex Maria Virgine, et homo factus est*. Crucifixus etiam pro nobis sub Pontio Pilato; passus et sepultus est, et resurrexit tertia die, secundum Scripturas.',
+                    'Qui propter nos homines et propter nostram salutem descendit de caelis. *Et incarnatus est de Spiritu Sancto ex Maria Virgine, et homo factus est*.\n\nCrucifixus etiam pro nobis sub Pontio Pilato; passus et sepultus est, et resurrexit tertia die, secundum Scripturas.',
                 tokens: [
                   PrayerToken(
                     'Qui propter nos homines et propter nostram salutem descendit de caelis. *Et incarnatus est de Spiritu Sancto ex Maria Virgine, et homo factus est*',
                     'nicene_creed_4',
                   ),
-                  PrayerToken('. ', null),
+                  PrayerToken('.\n\n', null),
                   PrayerToken(
                     'Crucifixus etiam pro nobis sub Pontio Pilato; passus et sepultus est, et resurrexit tertia die, secundum Scripturas',
                     'nicene_creed_5',
@@ -1536,7 +1536,7 @@ void main() {
         await tester.pumpWidgetBuilder(
           builder.build(),
           wrapper: materialAppWrapper(),
-          surfaceSize: const Size(500, 1600),
+          surfaceSize: const Size(500, 1800),
         );
 
         // Find the RichText widget inside the third scenario to highlight the phrase
