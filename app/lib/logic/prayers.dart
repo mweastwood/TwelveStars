@@ -273,6 +273,19 @@ class UserSettings {
   int lastBibleChapter;
   bool missalReadingsOnly;
   List<String>? missalHiddenPrayers;
+  bool angelusReminderEnabled;
+  bool angelusMorningEnabled;
+  bool angelusMiddayEnabled;
+  bool angelusEveningEnabled;
+  bool rosaryReminderEnabled;
+  int rosaryReminderHour;
+  int rosaryReminderMinute;
+  bool morningPrayerReminderEnabled;
+  int morningPrayerReminderHour;
+  int morningPrayerReminderMinute;
+  bool nightPrayerReminderEnabled;
+  int nightPrayerReminderHour;
+  int nightPrayerReminderMinute;
 
   UserSettings({
     this.id = 1,
@@ -291,6 +304,19 @@ class UserSettings {
     this.lastBibleChapter = 1,
     this.missalReadingsOnly = false,
     this.missalHiddenPrayers,
+    this.angelusReminderEnabled = false,
+    this.angelusMorningEnabled = false,
+    this.angelusMiddayEnabled = true,
+    this.angelusEveningEnabled = false,
+    this.rosaryReminderEnabled = false,
+    this.rosaryReminderHour = 20,
+    this.rosaryReminderMinute = 0,
+    this.morningPrayerReminderEnabled = false,
+    this.morningPrayerReminderHour = 7,
+    this.morningPrayerReminderMinute = 0,
+    this.nightPrayerReminderEnabled = false,
+    this.nightPrayerReminderHour = 21,
+    this.nightPrayerReminderMinute = 30,
   });
 
   AppThemeMode get appThemeMode => AppThemeMode.fromCode(appThemeModeCode);
