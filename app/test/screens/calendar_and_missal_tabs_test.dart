@@ -5,6 +5,7 @@ import 'package:twelve_stars/screens/missal_tab.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/mass_reading_card.dart';
 import 'package:twelve_stars/widgets/homily_reflection_sheet.dart';
+import 'package:twelve_stars/widgets/anima_christi_sheet.dart';
 import 'package:twelve_stars/widgets/missal_creed_carousel.dart';
 import 'package:twelve_stars/widgets/reader/missal_section_widgets.dart';
 import 'package:twelve_stars/logic/prayers.dart';
@@ -311,6 +312,33 @@ void main() {
             PrayerTranslation.mock(
               title: 'Benedictio et Dismissio',
               text: 'Ite, missa est.\nPopulus: Deo gratias.',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
+        id: 'anima_christi',
+        defaultTitle: 'Anima Christi',
+        category: 'devotion',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Anima Christi',
+              subtitle: 'Soul of Christ',
+              text:
+                  'Soul of Christ, sanctify me. Body of Christ, save me. Blood of Christ, inebriate me.',
+              sourceName: 'Vatican',
+              sourceUrl: 'https://vatican.va',
+            ),
+          ],
+          PrayerLanguage.latin: [
+            PrayerTranslation.mock(
+              title: 'Anima Christi',
+              subtitle: 'Corpus Christi',
+              text:
+                  'Anima Christi, sanctifica me. Corpus Christi, salva me. Sanguis Christi, inebria me.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),
@@ -1233,6 +1261,145 @@ void main() {
           find.byKey(const ValueKey('missal_filter_confiteor')),
         );
         expect(reloadedConfiteorChip.selected, isFalse);
+      },
+    );
+
+    testGoldens(
+      'MissalTab renders Communion Rite section with Anima Christi button and opens modal sheet',
+      (tester) async {
+        LocalAgentHelper.instance = MockMissalAiService();
+        final fixedDate = DateTime(2026, 7, 4);
+        TimeHelper.setCustomTime(fixedDate);
+        await tester.pumpWidgetBuilder(
+          const Scaffold(
+            body: MissalTab(
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await tester.ensureVisible(
+          find.byKey(const ValueKey('missal_anima_christi_button')),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'missal_tab_communion_section_golden',
+          customPump: (tester) async => await tester.pump(),
+        );
+
+        await tester.tap(
+          find.byKey(const ValueKey('missal_anima_christi_button')),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 300));
+        await tester.pump(const Duration(milliseconds: 300));
+
+        await screenMatchesGolden(
+          tester,
+          'missal_tab_anima_christi_modal_golden',
+          customPump: (tester) async => await tester.pump(),
+        );
+      },
+    );
+
+    testWidgets(
+      'MissalTab renders Communion Rite section with Anima Christi button and tapping opens modal sheet',
+      (tester) async {
+        final fixedDate = DateTime(2026, 7, 4);
+        TimeHelper.setCustomTime(fixedDate);
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: MissalTab(
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Scroll down to Communion Rite
+        await tester.ensureVisible(
+          find.byKey(const ValueKey('missal_anima_christi_button')),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Communion Rite'), findsOneWidget);
+        expect(
+          find.byKey(const ValueKey('missal_anima_christi_button')),
+          findsOneWidget,
+        );
+        expect(find.text('Anima Christi'), findsOneWidget);
+
+        // Tap the Anima Christi button to open the modal bottom sheet
+        await tester.tap(
+          find.byKey(const ValueKey('missal_anima_christi_button')),
+        );
+        await tester.pumpAndSettle();
+
+        // Verify the Anima Christi bottom sheet opened
+        expect(find.byType(AnimaChristiSheet), findsOneWidget);
+        expect(find.text('Thanksgiving after Communion'), findsOneWidget);
+        expect(
+          find.textContaining('Soul of Christ, sanctify me.'),
+          findsOneWidget,
+        );
+        // Dual language display
+        expect(
+          find.textContaining('Anima Christi, sanctifica me.'),
+          findsOneWidget,
+        );
+
+        // Close the modal
+        await tester.tap(find.byIcon(Icons.close));
+        await tester.pumpAndSettle();
+
+        expect(find.byType(AnimaChristiSheet), findsNothing);
+        expect(find.text('Communion Rite'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'MissalTab Anima Christi button is hidden when Readings Only filter is active',
+      (tester) async {
+        final fixedDate = DateTime(2026, 7, 4);
+        TimeHelper.setCustomTime(fixedDate);
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: MissalTab(
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Ensure visible initially
+        expect(
+          find.byKey(const ValueKey('missal_anima_christi_button')),
+          findsOneWidget,
+        );
+
+        // Toggle Readings Only filter chip
+        await tester.tap(
+          find.byKey(const ValueKey('missal_filter_readings_only')),
+        );
+        await tester.pumpAndSettle();
+
+        // Liturgy of Eucharist & Anima Christi button should not be present
+        expect(
+          find.byKey(const ValueKey('missal_anima_christi_button')),
+          findsNothing,
+        );
       },
     );
   });

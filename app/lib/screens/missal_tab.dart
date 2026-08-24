@@ -15,6 +15,7 @@ import 'package:twelve_stars/widgets/homily_reflection_sheet.dart';
 import 'package:twelve_stars/widgets/reader/missal_section_widgets.dart';
 import 'package:twelve_stars/widgets/missal_creed_carousel.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
+import 'package:twelve_stars/widgets/anima_christi_sheet.dart';
 
 class MissalPrayerFilterOption {
   final String id;
@@ -386,6 +387,17 @@ class _MissalTabState extends State<MissalTab> {
     );
   }
 
+  void _openAnimaChristiModal(BuildContext context, Prayer prayer) {
+    AnimaChristiSheet.show(
+      context,
+      prayer: prayer,
+      primaryLanguage: _primaryLanguage,
+      compareLanguage: _compareLanguage,
+      fontSize: widget.fontSize,
+      settings: _settings,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -431,6 +443,7 @@ class _MissalTabState extends State<MissalTab> {
     final agnusDei = _findPrayer('agnus_dei');
     final domineNonSumDignus = _findPrayer('domine_non_sum_dignus');
     final dismissal = _findPrayer('dismissal');
+    final animaChristi = _findPrayer('anima_christi');
 
     return Scaffold(
       floatingActionButton: Column(
@@ -830,11 +843,9 @@ class _MissalTabState extends State<MissalTab> {
                       _buildPrayerCard(domineNonSumDignus),
                       const SizedBox(height: 12),
                     ],
-                    const MissalMassPartPlaceholder(
-                      title: 'Communion Rite',
-                      description:
-                          'Reception of Holy Communion and silent thanksgiving',
-                      icon: Icons.church,
+                    MissalCommunionSectionCard(
+                      animaChristi: animaChristi,
+                      onOpenAnimaChristi: _openAnimaChristiModal,
                     ),
                   ],
                 ),
