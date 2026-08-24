@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/widgets/anima_christi_sheet.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
+import '../test_helper.dart';
 
 void main() {
   group('AnimaChristiSheet Tests', () {
@@ -175,6 +177,70 @@ void main() {
 
         expect(changedVersion, equals(1));
       }
+    });
+
+    group('AnimaChristiSheet Golden Tests', () {
+      testGoldens('renders AnimaChristiSheet in English (Light Theme)', (
+        WidgetTester tester,
+      ) async {
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: AnimaChristiSheet(
+              prayer: animaChristiPrayer,
+              primaryLanguage: PrayerLanguage.english,
+            ),
+          ),
+          wrapper: materialAppWrapper(
+            theme: ThemeData.light(useMaterial3: true),
+          ),
+          surfaceSize: const Size(450, 700),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'anima_christi_sheet_light_golden');
+      });
+
+      testGoldens('renders AnimaChristiSheet in English (Dark Theme)', (
+        WidgetTester tester,
+      ) async {
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: AnimaChristiSheet(
+              prayer: animaChristiPrayer,
+              primaryLanguage: PrayerLanguage.english,
+            ),
+          ),
+          wrapper: materialAppWrapper(
+            theme: ThemeData.dark(useMaterial3: true),
+          ),
+          surfaceSize: const Size(450, 700),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'anima_christi_sheet_dark_golden');
+      });
+
+      testGoldens(
+        'renders AnimaChristiSheet in Dual Language mode (English & Latin)',
+        (WidgetTester tester) async {
+          await tester.pumpWidgetBuilder(
+            Scaffold(
+              body: AnimaChristiSheet(
+                prayer: animaChristiPrayer,
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+            wrapper: materialAppWrapper(
+              theme: ThemeData.light(useMaterial3: true),
+            ),
+            surfaceSize: const Size(500, 750),
+          );
+          await tester.pumpAndSettle();
+
+          await screenMatchesGolden(tester, 'anima_christi_sheet_dual_golden');
+        },
+      );
     });
   });
 }

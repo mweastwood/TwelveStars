@@ -1185,6 +1185,50 @@ void main() {
       },
     );
 
+    testGoldens(
+      'MissalTab renders Communion Rite section with Anima Christi button and opens modal sheet',
+      (tester) async {
+        LocalAgentHelper.instance = MockMissalAiService();
+        final fixedDate = DateTime(2026, 7, 4);
+        TimeHelper.setCustomTime(fixedDate);
+        await tester.pumpWidgetBuilder(
+          const Scaffold(
+            body: MissalTab(
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await tester.ensureVisible(
+          find.byKey(const ValueKey('missal_anima_christi_button')),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'missal_tab_communion_section_golden',
+          customPump: (tester) async => await tester.pump(),
+        );
+
+        await tester.tap(
+          find.byKey(const ValueKey('missal_anima_christi_button')),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 300));
+        await tester.pump(const Duration(milliseconds: 300));
+
+        await screenMatchesGolden(
+          tester,
+          'missal_tab_anima_christi_modal_golden',
+          customPump: (tester) async => await tester.pump(),
+        );
+      },
+    );
+
     testWidgets(
       'MissalTab renders Communion Rite section with Anima Christi button and tapping opens modal sheet',
       (tester) async {
