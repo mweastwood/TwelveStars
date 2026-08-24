@@ -14,7 +14,11 @@ copyright: "Testo liturgico © Conferenza Episcopale Italiana (CEI). Tutti i dir
 ---
 {Credo in un solo Dio, Padre onnipotente, Creatore del cielo e della terra, di tutte le cose visibili e invisibili|nicene_creed_1}.
 
-{Credo in un solo Signore, Gesù Cristo, unigenito Figlio di Dio, nato dal Padre prima di tutti i secoli|nicene_creed_2}: {Dio da Dio, Luce da Luce, Dio vero da Dio vero, generato, non creato, della stessa sostanza del Padre; per mezzo di lui tutte le cose sono state create|nicene_creed_3}. {Per noi uomini e per la nostra salvezza discese dal cielo, e per opera dello Spirito Santo si è incarnato nel seno della Vergine Maria e si è fatto uomo|nicene_creed_4}. {Fu crocifisso per noi sotto Ponzio Pilato, mori e fu sepolto. Il terzo giorno è risuscitato, secondo le Scritture|nicene_creed_5}, {è salito al cielo, siede alla destra del Padre|nicene_creed_6}. {E di nuovo verrà, nella gloria, per giudicare i vivi e i morti, e il suo regno non avrà fine|nicene_creed_7}.
+{Credo in un solo Signore, Gesù Cristo, unigenito Figlio di Dio, nato dal Padre prima di tutti i secoli|nicene_creed_2}: {Dio da Dio, Luce da Luce, Dio vero da Dio vero, generato, non creato, della stessa sostanza del Padre; per mezzo di lui tutte le cose sono state create|nicene_creed_3}.
+
+{Per noi uomini e per la nostra salvezza discese dal cielo, *e per opera dello Spirito Santo si è incarnato nel seno della Vergine Maria e si è fatto uomo*|nicene_creed_4}.
+
+{Fu crocifisso per noi sotto Ponzio Pilato, mori e fu sepolto. Il terzo giorno è risuscitato, secondo le Scritture|nicene_creed_5}, {è salito al cielo, siede alla destra del Padre|nicene_creed_6}. {E di nuovo verrà, nella gloria, per giudicare i vivi e i morti, e il suo regno non avrà fine|nicene_creed_7}.
 
 {Credo nello Spirito Santo, che è Signore e dà la vita, e procede dal Padre e dal Figlio|nicene_creed_8}. {Con il Padre e il Figlio è adorato e glorificato, e ha parlato per mezzo dei profeti|nicene_creed_9}.
 

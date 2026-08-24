@@ -14,7 +14,11 @@ copyright: "Teksto sa liturhiya © Catholic Bishops' Conference of the Philippin
 ---
 {Sumasampalataya ako sa iisang Diyos, Amang makapangyarihan sa lahat, na may gawa ng langit at lupa, ng lahat ng nakikita at hindi nakikita|nicene_creed_1}.
 
-{Sumasampalataya ako sa isang Panginoong Hesukristo, bugtong na anak ng Diyos, sumilang sa Ama bago pa magkapanahon|nicene_creed_2}. {Diyos buhat ng Diyos, liwanag buhat ng liwanag, Diyos na totoo buhat ng Diyos na totoo, sumilang at hindi ginawa, kaisa ng Ama sa pagka-Diyos, at sa pamamagitan Niya ay ginawa ang lahat|nicene_creed_3}. {Dahil sa pawang mga tao at dahil sa ating kaligtasan, Siya ay nanaog mula sa kalangitan. Nagkatawang tao Siya lalang ng Espiritu Santo kay Mariang birhen at naging tao|nicene_creed_4}. {Ipinako sa krus dahil sa atin. Nagpakasakit sa hatol ni Poncio Pilato, namatay at inilibing. Muling Siyang nabuhay sa ikatlong araw ayon sa banal na Kasulatan|nicene_creed_5}. {umakyat Siya sa kalangitan at lumuklok sa kanan ng Amang Maykapal|nicene_creed_6}. {Paririto Siyang muli na may dakilang kapangyarihan, upang hukuman ang mga buhay at mga patay|nicene_creed_7}.
+{Sumasampalataya ako sa isang Panginoong Hesukristo, bugtong na anak ng Diyos, sumilang sa Ama bago pa magkapanahon|nicene_creed_2}. {Diyos buhat ng Diyos, liwanag buhat ng liwanag, Diyos na totoo buhat ng Diyos na totoo, sumilang at hindi ginawa, kaisa ng Ama sa pagka-Diyos, at sa pamamagitan Niya ay ginawa ang lahat|nicene_creed_3}.
+
+{Dahil sa pawang mga tao at dahil sa ating kaligtasan, Siya ay nanaog mula sa kalangitan. *Nagkatawang tao Siya lalang ng Espiritu Santo kay Mariang birhen at naging tao*|nicene_creed_4}.
+
+{Ipinako sa krus dahil sa atin. Nagpakasakit sa hatol ni Poncio Pilato, namatay at inilibing. Muling Siyang nabuhay sa ikatlong araw ayon sa banal na Kasulatan|nicene_creed_5}. {umakyat Siya sa kalangitan at lumuklok sa kanan ng Amang Maykapal|nicene_creed_6}. {Paririto Siyang muli na may dakilang kapangyarihan, upang hukuman ang mga buhay at mga patay|nicene_creed_7}.
 
 {Sumasampalataya ako sa Espiritu Santo, Panginoon at nagbibigay-buhay na nanggagaling sa Ama at sa Anak|nicene_creed_8}. {Sinasamba siya at pinararangalan kaisa ng Ama at ng Anak. Nagsalita siya sa pamamagitan ng mga propeta|nicene_creed_9}.
 

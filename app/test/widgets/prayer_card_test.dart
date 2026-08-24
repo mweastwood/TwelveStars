@@ -1193,5 +1193,378 @@ void main() {
 
       expect(find.byType(Divider), findsNWidgets(2));
     });
+
+    testWidgets(
+      'renders inline markdown italics with FontStyle.italic within tokenized prayers',
+      (tester) async {
+        final prayerWithItalics = Prayer.mock(
+          id: 'nicene_test',
+          defaultTitle: 'Nicene Creed',
+          translations: {
+            PrayerLanguage.english: [
+              PrayerTranslation.mock(
+                title: 'Nicene Creed',
+                text:
+                    'For us men and for our salvation he came down from heaven, *and by the Holy Spirit was incarnate of the Virgin Mary, and became man*.',
+                tokens: [
+                  PrayerToken(
+                    'For us men and for our salvation he came down from heaven, *and by the Holy Spirit was incarnate of the Virgin Mary, and became man*',
+                    'incarnation',
+                  ),
+                  PrayerToken('.', null),
+                ],
+              ),
+            ],
+          },
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: prayerWithItalics,
+                  selectedLanguage: PrayerLanguage.english,
+                  compareLanguage: null,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        final richTextFinder = find.byWidgetPredicate(
+          (widget) =>
+              widget is RichText &&
+              widget.text.toPlainText().contains('Holy Spirit was incarnate'),
+        );
+        expect(richTextFinder, findsOneWidget);
+        final richTextWidget =
+            tester.element(richTextFinder).widget as RichText;
+
+        TextSpan? normalSpan;
+        TextSpan? italicSpan;
+
+        richTextWidget.text.visitChildren((span) {
+          if (span is TextSpan) {
+            if (span.text ==
+                'For us men and for our salvation he came down from heaven, ') {
+              normalSpan = span;
+            } else if (span.text ==
+                'and by the Holy Spirit was incarnate of the Virgin Mary, and became man') {
+              italicSpan = span;
+            }
+          }
+          return true;
+        });
+
+        expect(normalSpan, isNotNull);
+        expect(normalSpan!.style?.fontStyle, isNot(FontStyle.italic));
+
+        expect(italicSpan, isNotNull);
+        expect(italicSpan!.style?.fontStyle, equals(FontStyle.italic));
+      },
+    );
+
+    testWidgets(
+      'renders inline markdown italics with FontStyle.italic in fallback non-tokenized prayers',
+      (tester) async {
+        final plainPrayerWithItalics = Prayer.mock(
+          id: 'plain_creed',
+          defaultTitle: 'Nicene Creed',
+          translations: {
+            PrayerLanguage.english: [
+              PrayerTranslation.mock(
+                title: 'Nicene Creed',
+                text:
+                    'Introductory text. *Italicized bowing text*. Concluding text.',
+              ),
+            ],
+          },
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: plainPrayerWithItalics,
+                  selectedLanguage: PrayerLanguage.english,
+                  compareLanguage: null,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        final richTextFinder = find.byWidgetPredicate(
+          (widget) =>
+              widget is RichText &&
+              widget.text.toPlainText().contains('Italicized bowing text'),
+        );
+        expect(richTextFinder, findsOneWidget);
+        final richTextWidget =
+            tester.element(richTextFinder).widget as RichText;
+
+        TextSpan? normalSpan;
+        TextSpan? italicSpan;
+
+        richTextWidget.text.visitChildren((span) {
+          if (span is TextSpan) {
+            if (span.text == 'Introductory text. ') {
+              normalSpan = span;
+            } else if (span.text == 'Italicized bowing text') {
+              italicSpan = span;
+            }
+          }
+          return true;
+        });
+
+        expect(normalSpan, isNotNull);
+        expect(normalSpan!.style?.fontStyle, isNot(FontStyle.italic));
+
+        expect(italicSpan, isNotNull);
+        expect(italicSpan!.style?.fontStyle, equals(FontStyle.italic));
+      },
+    );
+
+    testWidgets(
+      'allows tapping on italicized sub-spans to select phrase and highlight entire token in dual mode',
+      (tester) async {
+        final dualPrayerWithItalics = Prayer.mock(
+          id: 'nicene_dual',
+          defaultTitle: 'Nicene Creed',
+          translations: {
+            PrayerLanguage.english: [
+              PrayerTranslation.mock(
+                title: 'Nicene Creed',
+                text:
+                    'For us men and for our salvation he came down from heaven, *and by the Holy Spirit was incarnate of the Virgin Mary, and became man*.',
+                tokens: [
+                  PrayerToken(
+                    'For us men and for our salvation he came down from heaven, *and by the Holy Spirit was incarnate of the Virgin Mary, and became man*',
+                    'nicene_creed_4',
+                  ),
+                  PrayerToken('.', null),
+                ],
+              ),
+            ],
+            PrayerLanguage.latin: [
+              PrayerTranslation.mock(
+                title: 'Symbolum Nicaenum',
+                text:
+                    'Qui propter nos homines et propter nostram salutem descendit de caelis. *Et incarnatus est de Spiritu Sancto ex Maria Virgine, et homo factus est*.',
+                tokens: [
+                  PrayerToken(
+                    'Qui propter nos homines et propter nostram salutem descendit de caelis. *Et incarnatus est de Spiritu Sancto ex Maria Virgine, et homo factus est*',
+                    'nicene_creed_4',
+                  ),
+                  PrayerToken('.', null),
+                ],
+              ),
+            ],
+          },
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerCard(
+                  prayer: dualPrayerWithItalics,
+                  selectedLanguage: PrayerLanguage.english,
+                  compareLanguage: PrayerLanguage.latin,
+                  initialVersionIndex: 0,
+                  onVersionChanged: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        final richTextFinder = find.byWidgetPredicate(
+          (widget) =>
+              widget is RichText &&
+              widget.text.toPlainText().contains('Holy Spirit was incarnate'),
+        );
+        final richTextWidget =
+            tester.element(richTextFinder).widget as RichText;
+
+        TapGestureRecognizer? italicRecognizer;
+        richTextWidget.text.visitChildren((span) {
+          if (span is TextSpan &&
+              span.text ==
+                  'and by the Holy Spirit was incarnate of the Virgin Mary, and became man') {
+            italicRecognizer = span.recognizer as TapGestureRecognizer?;
+            return false;
+          }
+          return true;
+        });
+
+        expect(italicRecognizer, isNotNull);
+        italicRecognizer!.onTap!();
+        await tester.pumpAndSettle();
+
+        // After tapping italicized portion, both normal and italic segments in the token
+        // should receive selected background/container color styling
+        final selectedRichTextWidget =
+            tester.element(richTextFinder).widget as RichText;
+
+        TextSpan? selectedNormalSpan;
+        TextSpan? selectedItalicSpan;
+
+        selectedRichTextWidget.text.visitChildren((span) {
+          if (span is TextSpan) {
+            if (span.text ==
+                'For us men and for our salvation he came down from heaven, ') {
+              selectedNormalSpan = span;
+            } else if (span.text ==
+                'and by the Holy Spirit was incarnate of the Virgin Mary, and became man') {
+              selectedItalicSpan = span;
+            }
+          }
+          return true;
+        });
+
+        expect(selectedNormalSpan, isNotNull);
+        expect(selectedItalicSpan, isNotNull);
+
+        // Verify that the italic styling is preserved when selected
+        expect(selectedNormalSpan!.style?.fontStyle, isNot(FontStyle.italic));
+        expect(selectedItalicSpan!.style?.fontStyle, equals(FontStyle.italic));
+
+        // Verify that both spans share the selected background color
+        expect(selectedNormalSpan!.style?.backgroundColor, isNotNull);
+        expect(
+          selectedNormalSpan!.style?.backgroundColor,
+          equals(selectedItalicSpan!.style?.backgroundColor),
+        );
+      },
+    );
+
+    testGoldens(
+      'renders Nicene Creed with italicized Incarnation clause in single and dual modes',
+      (tester) async {
+        final mockAi = MockAiService();
+        LocalAgentHelper.instance = mockAi;
+        mockAi.setMockStatus(AiCoreStatus.available);
+
+        final niceneCreedPrayer = Prayer.mock(
+          id: 'nicene_creed',
+          defaultTitle: 'Nicene Creed',
+          hasAmen: true,
+          translations: {
+            PrayerLanguage.english: [
+              PrayerTranslation.mock(
+                title: 'Nicene Creed',
+                subtitle: 'Symbol of Faith',
+                text:
+                    'For us men and for our salvation he came down from heaven, *and by the Holy Spirit was incarnate of the Virgin Mary, and became man*.\n\nFor our sake he was crucified under Pontius Pilate, he suffered death and was buried, and rose again on the third day in accordance with the Scriptures.',
+                tokens: [
+                  PrayerToken(
+                    'For us men and for our salvation he came down from heaven, *and by the Holy Spirit was incarnate of the Virgin Mary, and became man*',
+                    'nicene_creed_4',
+                  ),
+                  PrayerToken('.\n\n', null),
+                  PrayerToken(
+                    'For our sake he was crucified under Pontius Pilate, he suffered death and was buried, and rose again on the third day in accordance with the Scriptures',
+                    'nicene_creed_5',
+                  ),
+                  PrayerToken('.', null),
+                ],
+                copyright:
+                    'English translation of the Nicene Creed © 2010, ICEL. All rights reserved.',
+              ),
+            ],
+            PrayerLanguage.latin: [
+              PrayerTranslation.mock(
+                title: 'Symbolum Nicaenum',
+                subtitle: 'Professio Fidei',
+                text:
+                    'Qui propter nos homines et propter nostram salutem descendit de caelis. *Et incarnatus est de Spiritu Sancto ex Maria Virgine, et homo factus est*.\n\nCrucifixus etiam pro nobis sub Pontio Pilato; passus et sepultus est, et resurrexit tertia die, secundum Scripturas.',
+                tokens: [
+                  PrayerToken(
+                    'Qui propter nos homines et propter nostram salutem descendit de caelis. *Et incarnatus est de Spiritu Sancto ex Maria Virgine, et homo factus est*',
+                    'nicene_creed_4',
+                  ),
+                  PrayerToken('.\n\n', null),
+                  PrayerToken(
+                    'Crucifixus etiam pro nobis sub Pontio Pilato; passus et sepultus est, et resurrexit tertia die, secundum Scripturas',
+                    'nicene_creed_5',
+                  ),
+                  PrayerToken('.', null),
+                ],
+              ),
+            ],
+          },
+        );
+
+        final builder = GoldenBuilder.column()
+          ..addScenario(
+            'Single Language with Italic Bowing Clause',
+            PrayerCard(
+              prayer: niceneCreedPrayer,
+              selectedLanguage: PrayerLanguage.english,
+              initialVersionIndex: 0,
+              onVersionChanged: (_) {},
+            ),
+          )
+          ..addScenario(
+            'Dual Language Comparison Mode with Italics',
+            PrayerCard(
+              prayer: niceneCreedPrayer,
+              selectedLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+              initialVersionIndex: 0,
+              onVersionChanged: (_) {},
+            ),
+          )
+          ..addScenario(
+            'Dual Language with Selected Italicized Phrase',
+            PrayerCard(
+              prayer: niceneCreedPrayer,
+              selectedLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+              initialVersionIndex: 0,
+              onVersionChanged: (_) {},
+            ),
+          );
+
+        await tester.pumpWidgetBuilder(
+          builder.build(),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(500, 1800),
+        );
+
+        // Find the RichText widget inside the third scenario to highlight the phrase
+        final richTextFinder = find.byWidgetPredicate(
+          (widget) =>
+              widget is RichText &&
+              widget.text.toPlainText().contains('Holy Spirit was incarnate'),
+        );
+        final richTextWidget =
+            tester.element(richTextFinder.last).widget as RichText;
+
+        TapGestureRecognizer? recognizer;
+        richTextWidget.text.visitChildren((span) {
+          if (span is TextSpan &&
+              span.text ==
+                  'and by the Holy Spirit was incarnate of the Virgin Mary, and became man') {
+            recognizer = span.recognizer as TapGestureRecognizer?;
+            return false;
+          }
+          return true;
+        });
+
+        expect(recognizer, isNotNull);
+        recognizer!.onTap!();
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(tester, 'prayer_card_italics_golden');
+      },
+    );
   });
 }

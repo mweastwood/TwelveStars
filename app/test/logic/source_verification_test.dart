@@ -724,10 +724,10 @@ void main() {
       // Strip all straight quotes first
       res = res.replaceAll('"', '').replaceAll("'", '');
 
-      // Strip all punctuation and whitespace to do a character-sequence only match.
+      // Strip all punctuation, markdown italics asterisks, and whitespace to do a character-sequence only match.
       // This includes Western and Chinese full-width punctuation.
       res = res.replaceAll(
-        RegExp(r"[.,;:!?\-\(\)«»‘’“”\s\u00A0\u200b，。、；：！？「」『』/]+"),
+        RegExp(r"[*.,;:!?\-\(\)«»‘’“”\s\u00A0\u200b，。、；：！？「」『』/]+"),
         '',
       );
 
