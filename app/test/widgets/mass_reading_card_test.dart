@@ -488,6 +488,78 @@ void main() {
     await screenMatchesGolden(tester, 'mass_reading_card_collapsed_golden');
   });
 
+  testGoldens(
+    'MassReadingCard renders Gospel reading correctly expanded and collapsed',
+    (tester) async {
+      const reading = LectionaryReading(
+        id: 4,
+        readingKey: 'feast_annunciation',
+        readingType: 'gospel',
+        bookNumber: 51, // Luke
+        bookName: 'Luke',
+        chapter: 1,
+        verseRange: '26-27',
+        citation: 'Luke 1:26-27',
+      );
+
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 51,
+              bookName: 'Luke',
+              chapter: 1,
+              verseNumber: 26,
+              verseText:
+                  'And in the sixth month, the angel Gabriel was sent from God into a city of Galilee, called Nazareth,',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 2,
+              bookNumber: 51,
+              bookName: 'Luke',
+              chapter: 1,
+              verseNumber: 27,
+              verseText:
+                  'To a virgin espoused to a man whose name was Joseph, of the house of David; and the virgin\'s name was Mary.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      final builder = GoldenBuilder.column()
+        ..addScenario(
+          'Mass Reading Card Gospel Expanded (Default)',
+          const MassReadingCard(reading: reading),
+        );
+
+      await tester.pumpWidgetBuilder(
+        builder.build(),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(450, 680),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(
+        tester,
+        'mass_reading_card_gospel_expanded_golden',
+      );
+
+      // Tap header to collapse
+      await tester.tap(find.text('Gospel'));
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(
+        tester,
+        'mass_reading_card_gospel_collapsed_golden',
+      );
+    },
+  );
+
   testGoldens('BibleVerseRow renders all visual states correctly', (
     tester,
   ) async {
