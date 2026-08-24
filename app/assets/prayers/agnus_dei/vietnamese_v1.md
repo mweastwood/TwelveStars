@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 110
+default_order: 111
 default_title: Agnus Dei
 title: Kinh Chiên Thiên Chúa
 subtitle: "Chiên Thiên Chúa"

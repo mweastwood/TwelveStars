@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 110
+default_order: 111
 default_title: Agnus Dei
 title: Agnus Dei
 subtitle: "Lamb of God"

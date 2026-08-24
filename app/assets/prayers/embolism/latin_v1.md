@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 108
+default_order: 109
 default_title: Embolism & Doxology
 title: Embolismus
 subtitle: "Quia tuum est regnum"

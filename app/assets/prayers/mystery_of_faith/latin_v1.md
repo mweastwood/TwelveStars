@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 107
+default_order: 108
 default_title: Mystery of Faith
 title: Mysterium Fidei
 subtitle: ""

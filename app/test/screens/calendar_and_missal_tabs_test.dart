@@ -195,6 +195,34 @@ void main() {
         },
       ),
       Prayer.mock(
+        id: 'universal_prayer',
+        defaultTitle: 'Universal Prayer (Prayers of the Faithful)',
+        category: 'liturgy',
+        translations: {
+          PrayerLanguage.english: [
+            PrayerTranslation.mock(
+              title: 'Universal Prayer',
+              subtitle: 'Oratio Universalis / Prayers of the Faithful',
+              text:
+                  'Priest: Dear brothers and sisters, let us offer our prayers...\nReader: For the holy Church of God...\nReader: Let us pray to the Lord.\nPeople: Lord, hear our prayer.\nPriest: Almighty and ever-living God...\nPeople: Amen.',
+              sourceName: 'Roman Missal',
+              sourceUrl:
+                  'https://www.universalis.com/static/mass/orderofmass.htm',
+            ),
+          ],
+          PrayerLanguage.latin: [
+            PrayerTranslation.mock(
+              title: 'Oratio Universalis',
+              subtitle: 'Preces Universales',
+              text:
+                  'Sacerdos: Fratres carissimi...\nLector: Pro sancta Ecclesia Dei...\nLector: Te rogamus, audi nos.\nPopulus: Te rogamus, audi nos.\nSacerdos: Deus, refugium nostrum...\nPopulus: Amen.',
+              sourceName: 'Maranatha',
+              sourceUrl: 'https://www.maranatha.it/RitoMessa/missaetext.htm',
+            ),
+          ],
+        },
+      ),
+      Prayer.mock(
         id: 'sanctus',
         defaultTitle: 'Sanctus',
         category: 'liturgy',
@@ -1400,6 +1428,82 @@ void main() {
           find.byKey(const ValueKey('missal_anima_christi_button')),
           findsNothing,
         );
+      },
+    );
+
+    testWidgets('renders Universal Prayer card and toggles with filter chip', (
+      tester,
+    ) async {
+      final fixedDate = DateTime(2026, 7, 4);
+      TimeHelper.setCustomTime(fixedDate);
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(
+            body: MissalTab(
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(
+        find.byKey(const ValueKey('missal_filter_universal_prayer')),
+        findsOneWidget,
+      );
+
+      // Verify Universal Prayer card is visible
+      expect(find.text('Universal Prayer'), findsWidgets);
+
+      // Ensure chip is scrolled into view before tapping
+      await tester.ensureVisible(
+        find.byKey(const ValueKey('missal_filter_universal_prayer')),
+      );
+      await tester.pumpAndSettle();
+
+      // Tap Universal Prayer chip to unselect / hide it
+      await tester.tap(
+        find.byKey(const ValueKey('missal_filter_universal_prayer')),
+      );
+      await tester.pumpAndSettle();
+
+      final updatedChip = tester.widget<FilterChip>(
+        find.byKey(const ValueKey('missal_filter_universal_prayer')),
+      );
+      expect(updatedChip.selected, isFalse);
+
+      // Tap Universal Prayer chip again to re-enable
+      await tester.tap(
+        find.byKey(const ValueKey('missal_filter_universal_prayer')),
+      );
+      await tester.pumpAndSettle();
+
+      final reEnabledChip = tester.widget<FilterChip>(
+        find.byKey(const ValueKey('missal_filter_universal_prayer')),
+      );
+      expect(reEnabledChip.selected, isTrue);
+    });
+
+    testWidgets(
+      'renders Universal Prayer side-by-side in dual language comparison mode',
+      (tester) async {
+        final fixedDate = DateTime(2026, 7, 4);
+        TimeHelper.setCustomTime(fixedDate);
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: MissalTab(
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Universal Prayer'), findsWidgets);
+        expect(find.text('Oratio Universalis'), findsWidgets);
       },
     );
   });

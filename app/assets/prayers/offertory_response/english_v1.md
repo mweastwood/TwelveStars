@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 103
+default_order: 104
 default_title: Offertory Responses
 title: Presentation of the Gifts
 subtitle: "Offertory Responses"

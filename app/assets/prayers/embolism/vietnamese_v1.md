@@ -1,6 +1,6 @@
 ---
 category: liturgy
-default_order: 108
+default_order: 109
 default_title: Embolism & Doxology
 title: Lời Nguyện Thuyên Giảm & Lời Tung Hô
 subtitle: "Vì vương quyền, uy lực và vinh quang"
