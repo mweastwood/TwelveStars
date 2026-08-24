@@ -3276,6 +3276,180 @@ class $UserSettingsTableTable extends UserSettingsTable
       ).withConverter<List<String>?>(
         $UserSettingsTableTable.$convertermissalHiddenPrayers,
       );
+  static const VerificationMeta _angelusReminderEnabledMeta =
+      const VerificationMeta('angelusReminderEnabled');
+  @override
+  late final GeneratedColumn<bool> angelusReminderEnabled =
+      GeneratedColumn<bool>(
+        'angelus_reminder_enabled',
+        aliasedName,
+        false,
+        type: DriftSqlType.bool,
+        requiredDuringInsert: false,
+        defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("angelus_reminder_enabled" IN (0, 1))',
+        ),
+        defaultValue: const Constant(false),
+      );
+  static const VerificationMeta _angelusMorningEnabledMeta =
+      const VerificationMeta('angelusMorningEnabled');
+  @override
+  late final GeneratedColumn<bool> angelusMorningEnabled =
+      GeneratedColumn<bool>(
+        'angelus_morning_enabled',
+        aliasedName,
+        false,
+        type: DriftSqlType.bool,
+        requiredDuringInsert: false,
+        defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("angelus_morning_enabled" IN (0, 1))',
+        ),
+        defaultValue: const Constant(false),
+      );
+  static const VerificationMeta _angelusMiddayEnabledMeta =
+      const VerificationMeta('angelusMiddayEnabled');
+  @override
+  late final GeneratedColumn<bool> angelusMiddayEnabled = GeneratedColumn<bool>(
+    'angelus_midday_enabled',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("angelus_midday_enabled" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
+  );
+  static const VerificationMeta _angelusEveningEnabledMeta =
+      const VerificationMeta('angelusEveningEnabled');
+  @override
+  late final GeneratedColumn<bool> angelusEveningEnabled =
+      GeneratedColumn<bool>(
+        'angelus_evening_enabled',
+        aliasedName,
+        false,
+        type: DriftSqlType.bool,
+        requiredDuringInsert: false,
+        defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("angelus_evening_enabled" IN (0, 1))',
+        ),
+        defaultValue: const Constant(false),
+      );
+  static const VerificationMeta _rosaryReminderEnabledMeta =
+      const VerificationMeta('rosaryReminderEnabled');
+  @override
+  late final GeneratedColumn<bool> rosaryReminderEnabled =
+      GeneratedColumn<bool>(
+        'rosary_reminder_enabled',
+        aliasedName,
+        false,
+        type: DriftSqlType.bool,
+        requiredDuringInsert: false,
+        defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("rosary_reminder_enabled" IN (0, 1))',
+        ),
+        defaultValue: const Constant(false),
+      );
+  static const VerificationMeta _rosaryReminderHourMeta =
+      const VerificationMeta('rosaryReminderHour');
+  @override
+  late final GeneratedColumn<int> rosaryReminderHour = GeneratedColumn<int>(
+    'rosary_reminder_hour',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(20),
+  );
+  static const VerificationMeta _rosaryReminderMinuteMeta =
+      const VerificationMeta('rosaryReminderMinute');
+  @override
+  late final GeneratedColumn<int> rosaryReminderMinute = GeneratedColumn<int>(
+    'rosary_reminder_minute',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _morningPrayerReminderEnabledMeta =
+      const VerificationMeta('morningPrayerReminderEnabled');
+  @override
+  late final GeneratedColumn<bool> morningPrayerReminderEnabled =
+      GeneratedColumn<bool>(
+        'morning_prayer_reminder_enabled',
+        aliasedName,
+        false,
+        type: DriftSqlType.bool,
+        requiredDuringInsert: false,
+        defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("morning_prayer_reminder_enabled" IN (0, 1))',
+        ),
+        defaultValue: const Constant(false),
+      );
+  static const VerificationMeta _morningPrayerReminderHourMeta =
+      const VerificationMeta('morningPrayerReminderHour');
+  @override
+  late final GeneratedColumn<int> morningPrayerReminderHour =
+      GeneratedColumn<int>(
+        'morning_prayer_reminder_hour',
+        aliasedName,
+        false,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+        defaultValue: const Constant(7),
+      );
+  static const VerificationMeta _morningPrayerReminderMinuteMeta =
+      const VerificationMeta('morningPrayerReminderMinute');
+  @override
+  late final GeneratedColumn<int> morningPrayerReminderMinute =
+      GeneratedColumn<int>(
+        'morning_prayer_reminder_minute',
+        aliasedName,
+        false,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+        defaultValue: const Constant(0),
+      );
+  static const VerificationMeta _nightPrayerReminderEnabledMeta =
+      const VerificationMeta('nightPrayerReminderEnabled');
+  @override
+  late final GeneratedColumn<bool> nightPrayerReminderEnabled =
+      GeneratedColumn<bool>(
+        'night_prayer_reminder_enabled',
+        aliasedName,
+        false,
+        type: DriftSqlType.bool,
+        requiredDuringInsert: false,
+        defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("night_prayer_reminder_enabled" IN (0, 1))',
+        ),
+        defaultValue: const Constant(false),
+      );
+  static const VerificationMeta _nightPrayerReminderHourMeta =
+      const VerificationMeta('nightPrayerReminderHour');
+  @override
+  late final GeneratedColumn<int> nightPrayerReminderHour =
+      GeneratedColumn<int>(
+        'night_prayer_reminder_hour',
+        aliasedName,
+        false,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+        defaultValue: const Constant(21),
+      );
+  static const VerificationMeta _nightPrayerReminderMinuteMeta =
+      const VerificationMeta('nightPrayerReminderMinute');
+  @override
+  late final GeneratedColumn<int> nightPrayerReminderMinute =
+      GeneratedColumn<int>(
+        'night_prayer_reminder_minute',
+        aliasedName,
+        false,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+        defaultValue: const Constant(30),
+      );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -3294,6 +3468,19 @@ class $UserSettingsTableTable extends UserSettingsTable
     lastBibleChapter,
     missalReadingsOnly,
     missalHiddenPrayers,
+    angelusReminderEnabled,
+    angelusMorningEnabled,
+    angelusMiddayEnabled,
+    angelusEveningEnabled,
+    rosaryReminderEnabled,
+    rosaryReminderHour,
+    rosaryReminderMinute,
+    morningPrayerReminderEnabled,
+    morningPrayerReminderHour,
+    morningPrayerReminderMinute,
+    nightPrayerReminderEnabled,
+    nightPrayerReminderHour,
+    nightPrayerReminderMinute,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -3435,6 +3622,123 @@ class $UserSettingsTableTable extends UserSettingsTable
         ),
       );
     }
+    if (data.containsKey('angelus_reminder_enabled')) {
+      context.handle(
+        _angelusReminderEnabledMeta,
+        angelusReminderEnabled.isAcceptableOrUnknown(
+          data['angelus_reminder_enabled']!,
+          _angelusReminderEnabledMeta,
+        ),
+      );
+    }
+    if (data.containsKey('angelus_morning_enabled')) {
+      context.handle(
+        _angelusMorningEnabledMeta,
+        angelusMorningEnabled.isAcceptableOrUnknown(
+          data['angelus_morning_enabled']!,
+          _angelusMorningEnabledMeta,
+        ),
+      );
+    }
+    if (data.containsKey('angelus_midday_enabled')) {
+      context.handle(
+        _angelusMiddayEnabledMeta,
+        angelusMiddayEnabled.isAcceptableOrUnknown(
+          data['angelus_midday_enabled']!,
+          _angelusMiddayEnabledMeta,
+        ),
+      );
+    }
+    if (data.containsKey('angelus_evening_enabled')) {
+      context.handle(
+        _angelusEveningEnabledMeta,
+        angelusEveningEnabled.isAcceptableOrUnknown(
+          data['angelus_evening_enabled']!,
+          _angelusEveningEnabledMeta,
+        ),
+      );
+    }
+    if (data.containsKey('rosary_reminder_enabled')) {
+      context.handle(
+        _rosaryReminderEnabledMeta,
+        rosaryReminderEnabled.isAcceptableOrUnknown(
+          data['rosary_reminder_enabled']!,
+          _rosaryReminderEnabledMeta,
+        ),
+      );
+    }
+    if (data.containsKey('rosary_reminder_hour')) {
+      context.handle(
+        _rosaryReminderHourMeta,
+        rosaryReminderHour.isAcceptableOrUnknown(
+          data['rosary_reminder_hour']!,
+          _rosaryReminderHourMeta,
+        ),
+      );
+    }
+    if (data.containsKey('rosary_reminder_minute')) {
+      context.handle(
+        _rosaryReminderMinuteMeta,
+        rosaryReminderMinute.isAcceptableOrUnknown(
+          data['rosary_reminder_minute']!,
+          _rosaryReminderMinuteMeta,
+        ),
+      );
+    }
+    if (data.containsKey('morning_prayer_reminder_enabled')) {
+      context.handle(
+        _morningPrayerReminderEnabledMeta,
+        morningPrayerReminderEnabled.isAcceptableOrUnknown(
+          data['morning_prayer_reminder_enabled']!,
+          _morningPrayerReminderEnabledMeta,
+        ),
+      );
+    }
+    if (data.containsKey('morning_prayer_reminder_hour')) {
+      context.handle(
+        _morningPrayerReminderHourMeta,
+        morningPrayerReminderHour.isAcceptableOrUnknown(
+          data['morning_prayer_reminder_hour']!,
+          _morningPrayerReminderHourMeta,
+        ),
+      );
+    }
+    if (data.containsKey('morning_prayer_reminder_minute')) {
+      context.handle(
+        _morningPrayerReminderMinuteMeta,
+        morningPrayerReminderMinute.isAcceptableOrUnknown(
+          data['morning_prayer_reminder_minute']!,
+          _morningPrayerReminderMinuteMeta,
+        ),
+      );
+    }
+    if (data.containsKey('night_prayer_reminder_enabled')) {
+      context.handle(
+        _nightPrayerReminderEnabledMeta,
+        nightPrayerReminderEnabled.isAcceptableOrUnknown(
+          data['night_prayer_reminder_enabled']!,
+          _nightPrayerReminderEnabledMeta,
+        ),
+      );
+    }
+    if (data.containsKey('night_prayer_reminder_hour')) {
+      context.handle(
+        _nightPrayerReminderHourMeta,
+        nightPrayerReminderHour.isAcceptableOrUnknown(
+          data['night_prayer_reminder_hour']!,
+          _nightPrayerReminderHourMeta,
+        ),
+      );
+    }
+    if (data.containsKey('night_prayer_reminder_minute')) {
+      context.handle(
+        _nightPrayerReminderMinuteMeta,
+        nightPrayerReminderMinute.isAcceptableOrUnknown(
+          data['night_prayer_reminder_minute']!,
+          _nightPrayerReminderMinuteMeta,
+        ),
+      );
+    }
     return context;
   }
 
@@ -3514,6 +3818,58 @@ class $UserSettingsTableTable extends UserSettingsTable
               data['${effectivePrefix}missal_hidden_prayers'],
             ),
           ),
+      angelusReminderEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}angelus_reminder_enabled'],
+      )!,
+      angelusMorningEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}angelus_morning_enabled'],
+      )!,
+      angelusMiddayEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}angelus_midday_enabled'],
+      )!,
+      angelusEveningEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}angelus_evening_enabled'],
+      )!,
+      rosaryReminderEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}rosary_reminder_enabled'],
+      )!,
+      rosaryReminderHour: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}rosary_reminder_hour'],
+      )!,
+      rosaryReminderMinute: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}rosary_reminder_minute'],
+      )!,
+      morningPrayerReminderEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}morning_prayer_reminder_enabled'],
+      )!,
+      morningPrayerReminderHour: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}morning_prayer_reminder_hour'],
+      )!,
+      morningPrayerReminderMinute: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}morning_prayer_reminder_minute'],
+      )!,
+      nightPrayerReminderEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}night_prayer_reminder_enabled'],
+      )!,
+      nightPrayerReminderHour: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}night_prayer_reminder_hour'],
+      )!,
+      nightPrayerReminderMinute: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}night_prayer_reminder_minute'],
+      )!,
     );
   }
 
@@ -3547,6 +3903,19 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
   final Value<int> lastBibleChapter;
   final Value<bool> missalReadingsOnly;
   final Value<List<String>?> missalHiddenPrayers;
+  final Value<bool> angelusReminderEnabled;
+  final Value<bool> angelusMorningEnabled;
+  final Value<bool> angelusMiddayEnabled;
+  final Value<bool> angelusEveningEnabled;
+  final Value<bool> rosaryReminderEnabled;
+  final Value<int> rosaryReminderHour;
+  final Value<int> rosaryReminderMinute;
+  final Value<bool> morningPrayerReminderEnabled;
+  final Value<int> morningPrayerReminderHour;
+  final Value<int> morningPrayerReminderMinute;
+  final Value<bool> nightPrayerReminderEnabled;
+  final Value<int> nightPrayerReminderHour;
+  final Value<int> nightPrayerReminderMinute;
   const UserSettingsTableCompanion({
     this.id = const Value.absent(),
     this.primaryLanguageCode = const Value.absent(),
@@ -3564,6 +3933,19 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     this.lastBibleChapter = const Value.absent(),
     this.missalReadingsOnly = const Value.absent(),
     this.missalHiddenPrayers = const Value.absent(),
+    this.angelusReminderEnabled = const Value.absent(),
+    this.angelusMorningEnabled = const Value.absent(),
+    this.angelusMiddayEnabled = const Value.absent(),
+    this.angelusEveningEnabled = const Value.absent(),
+    this.rosaryReminderEnabled = const Value.absent(),
+    this.rosaryReminderHour = const Value.absent(),
+    this.rosaryReminderMinute = const Value.absent(),
+    this.morningPrayerReminderEnabled = const Value.absent(),
+    this.morningPrayerReminderHour = const Value.absent(),
+    this.morningPrayerReminderMinute = const Value.absent(),
+    this.nightPrayerReminderEnabled = const Value.absent(),
+    this.nightPrayerReminderHour = const Value.absent(),
+    this.nightPrayerReminderMinute = const Value.absent(),
   });
   UserSettingsTableCompanion.insert({
     this.id = const Value.absent(),
@@ -3582,6 +3964,19 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     this.lastBibleChapter = const Value.absent(),
     this.missalReadingsOnly = const Value.absent(),
     this.missalHiddenPrayers = const Value.absent(),
+    this.angelusReminderEnabled = const Value.absent(),
+    this.angelusMorningEnabled = const Value.absent(),
+    this.angelusMiddayEnabled = const Value.absent(),
+    this.angelusEveningEnabled = const Value.absent(),
+    this.rosaryReminderEnabled = const Value.absent(),
+    this.rosaryReminderHour = const Value.absent(),
+    this.rosaryReminderMinute = const Value.absent(),
+    this.morningPrayerReminderEnabled = const Value.absent(),
+    this.morningPrayerReminderHour = const Value.absent(),
+    this.morningPrayerReminderMinute = const Value.absent(),
+    this.nightPrayerReminderEnabled = const Value.absent(),
+    this.nightPrayerReminderHour = const Value.absent(),
+    this.nightPrayerReminderMinute = const Value.absent(),
   }) : primaryLanguageCode = Value(primaryLanguageCode),
        compareLanguageCode = Value(compareLanguageCode),
        primaryBibleTranslation = Value(primaryBibleTranslation),
@@ -3603,6 +3998,19 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Expression<int>? lastBibleChapter,
     Expression<bool>? missalReadingsOnly,
     Expression<String>? missalHiddenPrayers,
+    Expression<bool>? angelusReminderEnabled,
+    Expression<bool>? angelusMorningEnabled,
+    Expression<bool>? angelusMiddayEnabled,
+    Expression<bool>? angelusEveningEnabled,
+    Expression<bool>? rosaryReminderEnabled,
+    Expression<int>? rosaryReminderHour,
+    Expression<int>? rosaryReminderMinute,
+    Expression<bool>? morningPrayerReminderEnabled,
+    Expression<int>? morningPrayerReminderHour,
+    Expression<int>? morningPrayerReminderMinute,
+    Expression<bool>? nightPrayerReminderEnabled,
+    Expression<int>? nightPrayerReminderHour,
+    Expression<int>? nightPrayerReminderMinute,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -3632,6 +4040,32 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
         'missal_readings_only': missalReadingsOnly,
       if (missalHiddenPrayers != null)
         'missal_hidden_prayers': missalHiddenPrayers,
+      if (angelusReminderEnabled != null)
+        'angelus_reminder_enabled': angelusReminderEnabled,
+      if (angelusMorningEnabled != null)
+        'angelus_morning_enabled': angelusMorningEnabled,
+      if (angelusMiddayEnabled != null)
+        'angelus_midday_enabled': angelusMiddayEnabled,
+      if (angelusEveningEnabled != null)
+        'angelus_evening_enabled': angelusEveningEnabled,
+      if (rosaryReminderEnabled != null)
+        'rosary_reminder_enabled': rosaryReminderEnabled,
+      if (rosaryReminderHour != null)
+        'rosary_reminder_hour': rosaryReminderHour,
+      if (rosaryReminderMinute != null)
+        'rosary_reminder_minute': rosaryReminderMinute,
+      if (morningPrayerReminderEnabled != null)
+        'morning_prayer_reminder_enabled': morningPrayerReminderEnabled,
+      if (morningPrayerReminderHour != null)
+        'morning_prayer_reminder_hour': morningPrayerReminderHour,
+      if (morningPrayerReminderMinute != null)
+        'morning_prayer_reminder_minute': morningPrayerReminderMinute,
+      if (nightPrayerReminderEnabled != null)
+        'night_prayer_reminder_enabled': nightPrayerReminderEnabled,
+      if (nightPrayerReminderHour != null)
+        'night_prayer_reminder_hour': nightPrayerReminderHour,
+      if (nightPrayerReminderMinute != null)
+        'night_prayer_reminder_minute': nightPrayerReminderMinute,
     });
   }
 
@@ -3652,6 +4086,19 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Value<int>? lastBibleChapter,
     Value<bool>? missalReadingsOnly,
     Value<List<String>?>? missalHiddenPrayers,
+    Value<bool>? angelusReminderEnabled,
+    Value<bool>? angelusMorningEnabled,
+    Value<bool>? angelusMiddayEnabled,
+    Value<bool>? angelusEveningEnabled,
+    Value<bool>? rosaryReminderEnabled,
+    Value<int>? rosaryReminderHour,
+    Value<int>? rosaryReminderMinute,
+    Value<bool>? morningPrayerReminderEnabled,
+    Value<int>? morningPrayerReminderHour,
+    Value<int>? morningPrayerReminderMinute,
+    Value<bool>? nightPrayerReminderEnabled,
+    Value<int>? nightPrayerReminderHour,
+    Value<int>? nightPrayerReminderMinute,
   }) {
     return UserSettingsTableCompanion(
       id: id ?? this.id,
@@ -3675,6 +4122,29 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
       lastBibleChapter: lastBibleChapter ?? this.lastBibleChapter,
       missalReadingsOnly: missalReadingsOnly ?? this.missalReadingsOnly,
       missalHiddenPrayers: missalHiddenPrayers ?? this.missalHiddenPrayers,
+      angelusReminderEnabled:
+          angelusReminderEnabled ?? this.angelusReminderEnabled,
+      angelusMorningEnabled:
+          angelusMorningEnabled ?? this.angelusMorningEnabled,
+      angelusMiddayEnabled: angelusMiddayEnabled ?? this.angelusMiddayEnabled,
+      angelusEveningEnabled:
+          angelusEveningEnabled ?? this.angelusEveningEnabled,
+      rosaryReminderEnabled:
+          rosaryReminderEnabled ?? this.rosaryReminderEnabled,
+      rosaryReminderHour: rosaryReminderHour ?? this.rosaryReminderHour,
+      rosaryReminderMinute: rosaryReminderMinute ?? this.rosaryReminderMinute,
+      morningPrayerReminderEnabled:
+          morningPrayerReminderEnabled ?? this.morningPrayerReminderEnabled,
+      morningPrayerReminderHour:
+          morningPrayerReminderHour ?? this.morningPrayerReminderHour,
+      morningPrayerReminderMinute:
+          morningPrayerReminderMinute ?? this.morningPrayerReminderMinute,
+      nightPrayerReminderEnabled:
+          nightPrayerReminderEnabled ?? this.nightPrayerReminderEnabled,
+      nightPrayerReminderHour:
+          nightPrayerReminderHour ?? this.nightPrayerReminderHour,
+      nightPrayerReminderMinute:
+          nightPrayerReminderMinute ?? this.nightPrayerReminderMinute,
     );
   }
 
@@ -3751,6 +4221,67 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
         ),
       );
     }
+    if (angelusReminderEnabled.present) {
+      map['angelus_reminder_enabled'] = Variable<bool>(
+        angelusReminderEnabled.value,
+      );
+    }
+    if (angelusMorningEnabled.present) {
+      map['angelus_morning_enabled'] = Variable<bool>(
+        angelusMorningEnabled.value,
+      );
+    }
+    if (angelusMiddayEnabled.present) {
+      map['angelus_midday_enabled'] = Variable<bool>(
+        angelusMiddayEnabled.value,
+      );
+    }
+    if (angelusEveningEnabled.present) {
+      map['angelus_evening_enabled'] = Variable<bool>(
+        angelusEveningEnabled.value,
+      );
+    }
+    if (rosaryReminderEnabled.present) {
+      map['rosary_reminder_enabled'] = Variable<bool>(
+        rosaryReminderEnabled.value,
+      );
+    }
+    if (rosaryReminderHour.present) {
+      map['rosary_reminder_hour'] = Variable<int>(rosaryReminderHour.value);
+    }
+    if (rosaryReminderMinute.present) {
+      map['rosary_reminder_minute'] = Variable<int>(rosaryReminderMinute.value);
+    }
+    if (morningPrayerReminderEnabled.present) {
+      map['morning_prayer_reminder_enabled'] = Variable<bool>(
+        morningPrayerReminderEnabled.value,
+      );
+    }
+    if (morningPrayerReminderHour.present) {
+      map['morning_prayer_reminder_hour'] = Variable<int>(
+        morningPrayerReminderHour.value,
+      );
+    }
+    if (morningPrayerReminderMinute.present) {
+      map['morning_prayer_reminder_minute'] = Variable<int>(
+        morningPrayerReminderMinute.value,
+      );
+    }
+    if (nightPrayerReminderEnabled.present) {
+      map['night_prayer_reminder_enabled'] = Variable<bool>(
+        nightPrayerReminderEnabled.value,
+      );
+    }
+    if (nightPrayerReminderHour.present) {
+      map['night_prayer_reminder_hour'] = Variable<int>(
+        nightPrayerReminderHour.value,
+      );
+    }
+    if (nightPrayerReminderMinute.present) {
+      map['night_prayer_reminder_minute'] = Variable<int>(
+        nightPrayerReminderMinute.value,
+      );
+    }
     return map;
   }
 
@@ -3774,7 +4305,22 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
           ..write('lastBibleBookNumber: $lastBibleBookNumber, ')
           ..write('lastBibleChapter: $lastBibleChapter, ')
           ..write('missalReadingsOnly: $missalReadingsOnly, ')
-          ..write('missalHiddenPrayers: $missalHiddenPrayers')
+          ..write('missalHiddenPrayers: $missalHiddenPrayers, ')
+          ..write('angelusReminderEnabled: $angelusReminderEnabled, ')
+          ..write('angelusMorningEnabled: $angelusMorningEnabled, ')
+          ..write('angelusMiddayEnabled: $angelusMiddayEnabled, ')
+          ..write('angelusEveningEnabled: $angelusEveningEnabled, ')
+          ..write('rosaryReminderEnabled: $rosaryReminderEnabled, ')
+          ..write('rosaryReminderHour: $rosaryReminderHour, ')
+          ..write('rosaryReminderMinute: $rosaryReminderMinute, ')
+          ..write(
+            'morningPrayerReminderEnabled: $morningPrayerReminderEnabled, ',
+          )
+          ..write('morningPrayerReminderHour: $morningPrayerReminderHour, ')
+          ..write('morningPrayerReminderMinute: $morningPrayerReminderMinute, ')
+          ..write('nightPrayerReminderEnabled: $nightPrayerReminderEnabled, ')
+          ..write('nightPrayerReminderHour: $nightPrayerReminderHour, ')
+          ..write('nightPrayerReminderMinute: $nightPrayerReminderMinute')
           ..write(')'))
         .toString();
   }
@@ -5491,6 +6037,19 @@ typedef $$UserSettingsTableTableCreateCompanionBuilder =
       Value<int> lastBibleChapter,
       Value<bool> missalReadingsOnly,
       Value<List<String>?> missalHiddenPrayers,
+      Value<bool> angelusReminderEnabled,
+      Value<bool> angelusMorningEnabled,
+      Value<bool> angelusMiddayEnabled,
+      Value<bool> angelusEveningEnabled,
+      Value<bool> rosaryReminderEnabled,
+      Value<int> rosaryReminderHour,
+      Value<int> rosaryReminderMinute,
+      Value<bool> morningPrayerReminderEnabled,
+      Value<int> morningPrayerReminderHour,
+      Value<int> morningPrayerReminderMinute,
+      Value<bool> nightPrayerReminderEnabled,
+      Value<int> nightPrayerReminderHour,
+      Value<int> nightPrayerReminderMinute,
     });
 typedef $$UserSettingsTableTableUpdateCompanionBuilder =
     UserSettingsTableCompanion Function({
@@ -5510,6 +6069,19 @@ typedef $$UserSettingsTableTableUpdateCompanionBuilder =
       Value<int> lastBibleChapter,
       Value<bool> missalReadingsOnly,
       Value<List<String>?> missalHiddenPrayers,
+      Value<bool> angelusReminderEnabled,
+      Value<bool> angelusMorningEnabled,
+      Value<bool> angelusMiddayEnabled,
+      Value<bool> angelusEveningEnabled,
+      Value<bool> rosaryReminderEnabled,
+      Value<int> rosaryReminderHour,
+      Value<int> rosaryReminderMinute,
+      Value<bool> morningPrayerReminderEnabled,
+      Value<int> morningPrayerReminderHour,
+      Value<int> morningPrayerReminderMinute,
+      Value<bool> nightPrayerReminderEnabled,
+      Value<int> nightPrayerReminderHour,
+      Value<int> nightPrayerReminderMinute,
     });
 
 class $$UserSettingsTableTableFilterComposer
@@ -5606,6 +6178,71 @@ class $$UserSettingsTableTableFilterComposer
     column: $table.missalHiddenPrayers,
     builder: (column) => ColumnWithTypeConverterFilters(column),
   );
+
+  ColumnFilters<bool> get angelusReminderEnabled => $composableBuilder(
+    column: $table.angelusReminderEnabled,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get angelusMorningEnabled => $composableBuilder(
+    column: $table.angelusMorningEnabled,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get angelusMiddayEnabled => $composableBuilder(
+    column: $table.angelusMiddayEnabled,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get angelusEveningEnabled => $composableBuilder(
+    column: $table.angelusEveningEnabled,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get rosaryReminderEnabled => $composableBuilder(
+    column: $table.rosaryReminderEnabled,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rosaryReminderHour => $composableBuilder(
+    column: $table.rosaryReminderHour,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rosaryReminderMinute => $composableBuilder(
+    column: $table.rosaryReminderMinute,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get morningPrayerReminderEnabled => $composableBuilder(
+    column: $table.morningPrayerReminderEnabled,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get morningPrayerReminderHour => $composableBuilder(
+    column: $table.morningPrayerReminderHour,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get morningPrayerReminderMinute => $composableBuilder(
+    column: $table.morningPrayerReminderMinute,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get nightPrayerReminderEnabled => $composableBuilder(
+    column: $table.nightPrayerReminderEnabled,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get nightPrayerReminderHour => $composableBuilder(
+    column: $table.nightPrayerReminderHour,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get nightPrayerReminderMinute => $composableBuilder(
+    column: $table.nightPrayerReminderMinute,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$UserSettingsTableTableOrderingComposer
@@ -5694,6 +6331,71 @@ class $$UserSettingsTableTableOrderingComposer
 
   ColumnOrderings<String> get missalHiddenPrayers => $composableBuilder(
     column: $table.missalHiddenPrayers,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get angelusReminderEnabled => $composableBuilder(
+    column: $table.angelusReminderEnabled,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get angelusMorningEnabled => $composableBuilder(
+    column: $table.angelusMorningEnabled,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get angelusMiddayEnabled => $composableBuilder(
+    column: $table.angelusMiddayEnabled,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get angelusEveningEnabled => $composableBuilder(
+    column: $table.angelusEveningEnabled,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get rosaryReminderEnabled => $composableBuilder(
+    column: $table.rosaryReminderEnabled,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rosaryReminderHour => $composableBuilder(
+    column: $table.rosaryReminderHour,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rosaryReminderMinute => $composableBuilder(
+    column: $table.rosaryReminderMinute,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get morningPrayerReminderEnabled => $composableBuilder(
+    column: $table.morningPrayerReminderEnabled,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get morningPrayerReminderHour => $composableBuilder(
+    column: $table.morningPrayerReminderHour,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get morningPrayerReminderMinute => $composableBuilder(
+    column: $table.morningPrayerReminderMinute,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get nightPrayerReminderEnabled => $composableBuilder(
+    column: $table.nightPrayerReminderEnabled,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get nightPrayerReminderHour => $composableBuilder(
+    column: $table.nightPrayerReminderHour,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get nightPrayerReminderMinute => $composableBuilder(
+    column: $table.nightPrayerReminderMinute,
     builder: (column) => ColumnOrderings(column),
   );
 }
@@ -5786,6 +6488,71 @@ class $$UserSettingsTableTableAnnotationComposer
     column: $table.missalHiddenPrayers,
     builder: (column) => column,
   );
+
+  GeneratedColumn<bool> get angelusReminderEnabled => $composableBuilder(
+    column: $table.angelusReminderEnabled,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get angelusMorningEnabled => $composableBuilder(
+    column: $table.angelusMorningEnabled,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get angelusMiddayEnabled => $composableBuilder(
+    column: $table.angelusMiddayEnabled,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get angelusEveningEnabled => $composableBuilder(
+    column: $table.angelusEveningEnabled,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get rosaryReminderEnabled => $composableBuilder(
+    column: $table.rosaryReminderEnabled,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get rosaryReminderHour => $composableBuilder(
+    column: $table.rosaryReminderHour,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get rosaryReminderMinute => $composableBuilder(
+    column: $table.rosaryReminderMinute,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get morningPrayerReminderEnabled => $composableBuilder(
+    column: $table.morningPrayerReminderEnabled,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get morningPrayerReminderHour => $composableBuilder(
+    column: $table.morningPrayerReminderHour,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get morningPrayerReminderMinute => $composableBuilder(
+    column: $table.morningPrayerReminderMinute,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get nightPrayerReminderEnabled => $composableBuilder(
+    column: $table.nightPrayerReminderEnabled,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get nightPrayerReminderHour => $composableBuilder(
+    column: $table.nightPrayerReminderHour,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get nightPrayerReminderMinute => $composableBuilder(
+    column: $table.nightPrayerReminderMinute,
+    builder: (column) => column,
+  );
 }
 
 class $$UserSettingsTableTableTableManager
@@ -5846,6 +6613,19 @@ class $$UserSettingsTableTableTableManager
                 Value<int> lastBibleChapter = const Value.absent(),
                 Value<bool> missalReadingsOnly = const Value.absent(),
                 Value<List<String>?> missalHiddenPrayers = const Value.absent(),
+                Value<bool> angelusReminderEnabled = const Value.absent(),
+                Value<bool> angelusMorningEnabled = const Value.absent(),
+                Value<bool> angelusMiddayEnabled = const Value.absent(),
+                Value<bool> angelusEveningEnabled = const Value.absent(),
+                Value<bool> rosaryReminderEnabled = const Value.absent(),
+                Value<int> rosaryReminderHour = const Value.absent(),
+                Value<int> rosaryReminderMinute = const Value.absent(),
+                Value<bool> morningPrayerReminderEnabled = const Value.absent(),
+                Value<int> morningPrayerReminderHour = const Value.absent(),
+                Value<int> morningPrayerReminderMinute = const Value.absent(),
+                Value<bool> nightPrayerReminderEnabled = const Value.absent(),
+                Value<int> nightPrayerReminderHour = const Value.absent(),
+                Value<int> nightPrayerReminderMinute = const Value.absent(),
               }) => UserSettingsTableCompanion(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -5863,6 +6643,19 @@ class $$UserSettingsTableTableTableManager
                 lastBibleChapter: lastBibleChapter,
                 missalReadingsOnly: missalReadingsOnly,
                 missalHiddenPrayers: missalHiddenPrayers,
+                angelusReminderEnabled: angelusReminderEnabled,
+                angelusMorningEnabled: angelusMorningEnabled,
+                angelusMiddayEnabled: angelusMiddayEnabled,
+                angelusEveningEnabled: angelusEveningEnabled,
+                rosaryReminderEnabled: rosaryReminderEnabled,
+                rosaryReminderHour: rosaryReminderHour,
+                rosaryReminderMinute: rosaryReminderMinute,
+                morningPrayerReminderEnabled: morningPrayerReminderEnabled,
+                morningPrayerReminderHour: morningPrayerReminderHour,
+                morningPrayerReminderMinute: morningPrayerReminderMinute,
+                nightPrayerReminderEnabled: nightPrayerReminderEnabled,
+                nightPrayerReminderHour: nightPrayerReminderHour,
+                nightPrayerReminderMinute: nightPrayerReminderMinute,
               ),
           createCompanionCallback:
               ({
@@ -5884,6 +6677,19 @@ class $$UserSettingsTableTableTableManager
                 Value<int> lastBibleChapter = const Value.absent(),
                 Value<bool> missalReadingsOnly = const Value.absent(),
                 Value<List<String>?> missalHiddenPrayers = const Value.absent(),
+                Value<bool> angelusReminderEnabled = const Value.absent(),
+                Value<bool> angelusMorningEnabled = const Value.absent(),
+                Value<bool> angelusMiddayEnabled = const Value.absent(),
+                Value<bool> angelusEveningEnabled = const Value.absent(),
+                Value<bool> rosaryReminderEnabled = const Value.absent(),
+                Value<int> rosaryReminderHour = const Value.absent(),
+                Value<int> rosaryReminderMinute = const Value.absent(),
+                Value<bool> morningPrayerReminderEnabled = const Value.absent(),
+                Value<int> morningPrayerReminderHour = const Value.absent(),
+                Value<int> morningPrayerReminderMinute = const Value.absent(),
+                Value<bool> nightPrayerReminderEnabled = const Value.absent(),
+                Value<int> nightPrayerReminderHour = const Value.absent(),
+                Value<int> nightPrayerReminderMinute = const Value.absent(),
               }) => UserSettingsTableCompanion.insert(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -5901,6 +6707,19 @@ class $$UserSettingsTableTableTableManager
                 lastBibleChapter: lastBibleChapter,
                 missalReadingsOnly: missalReadingsOnly,
                 missalHiddenPrayers: missalHiddenPrayers,
+                angelusReminderEnabled: angelusReminderEnabled,
+                angelusMorningEnabled: angelusMorningEnabled,
+                angelusMiddayEnabled: angelusMiddayEnabled,
+                angelusEveningEnabled: angelusEveningEnabled,
+                rosaryReminderEnabled: rosaryReminderEnabled,
+                rosaryReminderHour: rosaryReminderHour,
+                rosaryReminderMinute: rosaryReminderMinute,
+                morningPrayerReminderEnabled: morningPrayerReminderEnabled,
+                morningPrayerReminderHour: morningPrayerReminderHour,
+                morningPrayerReminderMinute: morningPrayerReminderMinute,
+                nightPrayerReminderEnabled: nightPrayerReminderEnabled,
+                nightPrayerReminderHour: nightPrayerReminderHour,
+                nightPrayerReminderMinute: nightPrayerReminderMinute,
               ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))

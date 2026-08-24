@@ -275,6 +275,32 @@ class UserSettingsTable extends Table {
   TextColumn get missalHiddenPrayers => text()
       .map(NullAwareTypeConverter.wrap(const StringListConverter()))
       .nullable()();
+  BoolColumn get angelusReminderEnabled =>
+      boolean().withDefault(const Constant(false))();
+  BoolColumn get angelusMorningEnabled =>
+      boolean().withDefault(const Constant(false))();
+  BoolColumn get angelusMiddayEnabled =>
+      boolean().withDefault(const Constant(true))();
+  BoolColumn get angelusEveningEnabled =>
+      boolean().withDefault(const Constant(false))();
+  BoolColumn get rosaryReminderEnabled =>
+      boolean().withDefault(const Constant(false))();
+  IntColumn get rosaryReminderHour =>
+      integer().withDefault(const Constant(20))();
+  IntColumn get rosaryReminderMinute =>
+      integer().withDefault(const Constant(0))();
+  BoolColumn get morningPrayerReminderEnabled =>
+      boolean().withDefault(const Constant(false))();
+  IntColumn get morningPrayerReminderHour =>
+      integer().withDefault(const Constant(7))();
+  IntColumn get morningPrayerReminderMinute =>
+      integer().withDefault(const Constant(0))();
+  BoolColumn get nightPrayerReminderEnabled =>
+      boolean().withDefault(const Constant(false))();
+  IntColumn get nightPrayerReminderHour =>
+      integer().withDefault(const Constant(21))();
+  IntColumn get nightPrayerReminderMinute =>
+      integer().withDefault(const Constant(30))();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -289,7 +315,7 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 14;
+  int get schemaVersion => 15;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -390,6 +416,60 @@ class BibleDatabase extends _$BibleDatabase {
       }
       if (from < 14) {
         await createTableIfNotExists(lectionaryReadings);
+      }
+      if (from < 15) {
+        await addColumnIfNotExists(
+          userSettingsTable,
+          userSettingsTable.angelusReminderEnabled,
+        );
+        await addColumnIfNotExists(
+          userSettingsTable,
+          userSettingsTable.angelusMorningEnabled,
+        );
+        await addColumnIfNotExists(
+          userSettingsTable,
+          userSettingsTable.angelusMiddayEnabled,
+        );
+        await addColumnIfNotExists(
+          userSettingsTable,
+          userSettingsTable.angelusEveningEnabled,
+        );
+        await addColumnIfNotExists(
+          userSettingsTable,
+          userSettingsTable.rosaryReminderEnabled,
+        );
+        await addColumnIfNotExists(
+          userSettingsTable,
+          userSettingsTable.rosaryReminderHour,
+        );
+        await addColumnIfNotExists(
+          userSettingsTable,
+          userSettingsTable.rosaryReminderMinute,
+        );
+        await addColumnIfNotExists(
+          userSettingsTable,
+          userSettingsTable.morningPrayerReminderEnabled,
+        );
+        await addColumnIfNotExists(
+          userSettingsTable,
+          userSettingsTable.morningPrayerReminderHour,
+        );
+        await addColumnIfNotExists(
+          userSettingsTable,
+          userSettingsTable.morningPrayerReminderMinute,
+        );
+        await addColumnIfNotExists(
+          userSettingsTable,
+          userSettingsTable.nightPrayerReminderEnabled,
+        );
+        await addColumnIfNotExists(
+          userSettingsTable,
+          userSettingsTable.nightPrayerReminderHour,
+        );
+        await addColumnIfNotExists(
+          userSettingsTable,
+          userSettingsTable.nightPrayerReminderMinute,
+        );
       }
     },
     beforeOpen: (details) async {
@@ -740,6 +820,23 @@ class BibleDatabase extends _$BibleDatabase {
         lastBibleChapter: Value(settings.lastBibleChapter),
         missalReadingsOnly: Value(settings.missalReadingsOnly),
         missalHiddenPrayers: Value(settings.missalHiddenPrayers),
+        angelusReminderEnabled: Value(settings.angelusReminderEnabled),
+        angelusMorningEnabled: Value(settings.angelusMorningEnabled),
+        angelusMiddayEnabled: Value(settings.angelusMiddayEnabled),
+        angelusEveningEnabled: Value(settings.angelusEveningEnabled),
+        rosaryReminderEnabled: Value(settings.rosaryReminderEnabled),
+        rosaryReminderHour: Value(settings.rosaryReminderHour),
+        rosaryReminderMinute: Value(settings.rosaryReminderMinute),
+        morningPrayerReminderEnabled: Value(
+          settings.morningPrayerReminderEnabled,
+        ),
+        morningPrayerReminderHour: Value(settings.morningPrayerReminderHour),
+        morningPrayerReminderMinute: Value(
+          settings.morningPrayerReminderMinute,
+        ),
+        nightPrayerReminderEnabled: Value(settings.nightPrayerReminderEnabled),
+        nightPrayerReminderHour: Value(settings.nightPrayerReminderHour),
+        nightPrayerReminderMinute: Value(settings.nightPrayerReminderMinute),
       ),
     );
   }
