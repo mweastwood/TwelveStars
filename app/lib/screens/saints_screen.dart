@@ -369,22 +369,44 @@ class _SaintsScreenState extends State<SaintsScreen> {
                     },
                   ),
                   const SizedBox(width: 8),
+                  // Standard Category Order
                   FilterChip(
-                    key: const Key('martyrs_filter_chip'),
-                    label: const Text('Martyrs'),
+                    key: const Key('group_filter_chip'),
+                    label: const Text('Group'),
                     showCheckmark: false,
                     avatar: Icon(
-                      Icons.local_fire_department,
-                      color: _selectedCategory == SaintCategory.martyr
-                          ? Colors.red
+                      Icons.groups_3_rounded,
+                      color: _selectedCategory == SaintCategory.group
+                          ? const Color(0xFF4B5563)
                           : theme.colorScheme.onSurfaceVariant,
                       size: 16,
                     ),
-                    selected: _selectedCategory == SaintCategory.martyr,
+                    selected: _selectedCategory == SaintCategory.group,
                     onSelected: (selected) {
                       setState(() {
                         _selectedCategory = selected
-                            ? SaintCategory.martyr
+                            ? SaintCategory.group
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('holy_family_filter_chip'),
+                    label: const Text('Holy Family'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.family_restroom,
+                      color: _selectedCategory == SaintCategory.holyFamily
+                          ? const Color(0xFFAD1457)
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.holyFamily,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.holyFamily
                             : null;
                       });
                     },
@@ -496,65 +518,83 @@ class _SaintsScreenState extends State<SaintsScreen> {
                   ),
                   const SizedBox(width: 8),
                   FilterChip(
-                    key: const Key('religious_filter_chip'),
-                    label: const Text('Priests & Religious'),
+                    key: const Key('priests_filter_chip'),
+                    label: const Text('Priests'),
                     showCheckmark: false,
                     avatar: Icon(
                       Icons.church,
-                      color: _selectedCategory == SaintCategory.priestReligious
-                          ? Colors.green
+                      color: _selectedCategory == SaintCategory.priest
+                          ? AppThemeTokens.liturgicalGreen
                           : theme.colorScheme.onSurfaceVariant,
                       size: 16,
                     ),
-                    selected:
-                        _selectedCategory == SaintCategory.priestReligious,
+                    selected: _selectedCategory == SaintCategory.priest,
                     onSelected: (selected) {
                       setState(() {
                         _selectedCategory = selected
-                            ? SaintCategory.priestReligious
+                            ? SaintCategory.priest
                             : null;
                       });
                     },
                   ),
                   const SizedBox(width: 8),
                   FilterChip(
-                    key: const Key('mystics_filter_chip'),
-                    label: const Text('Mystics & Contemplatives'),
+                    key: const Key('deacons_filter_chip'),
+                    label: const Text('Deacons'),
                     showCheckmark: false,
                     avatar: Icon(
-                      Icons.wb_sunny,
-                      color: _selectedCategory == SaintCategory.mystic
-                          ? AppThemeTokens.liturgicalRose
+                      Icons.volunteer_activism,
+                      color: _selectedCategory == SaintCategory.deacon
+                          ? const Color(0xFF0284C7)
                           : theme.colorScheme.onSurfaceVariant,
                       size: 16,
                     ),
-                    selected: _selectedCategory == SaintCategory.mystic,
+                    selected: _selectedCategory == SaintCategory.deacon,
                     onSelected: (selected) {
                       setState(() {
                         _selectedCategory = selected
-                            ? SaintCategory.mystic
+                            ? SaintCategory.deacon
                             : null;
                       });
                     },
                   ),
                   const SizedBox(width: 8),
                   FilterChip(
-                    key: const Key('virgins_filter_chip'),
-                    label: const Text('Virgins & Consecrated'),
+                    key: const Key('brothers_filter_chip'),
+                    label: const Text('Brothers'),
                     showCheckmark: false,
                     avatar: Icon(
-                      Icons.local_florist,
-                      color: _selectedCategory == SaintCategory.virgin
-                          ? AppThemeTokens.marianBlue
+                      Icons.diversity_3,
+                      color: _selectedCategory == SaintCategory.brother
+                          ? const Color(0xFF00897B)
                           : theme.colorScheme.onSurfaceVariant,
                       size: 16,
                     ),
-                    selected: _selectedCategory == SaintCategory.virgin,
+                    selected: _selectedCategory == SaintCategory.brother,
                     onSelected: (selected) {
                       setState(() {
                         _selectedCategory = selected
-                            ? SaintCategory.virgin
+                            ? SaintCategory.brother
                             : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('nuns_filter_chip'),
+                    label: const Text('Nuns'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.auto_awesome,
+                      color: _selectedCategory == SaintCategory.nun
+                          ? const Color(0xFF7B1FA2)
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.nun,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected ? SaintCategory.nun : null;
                       });
                     },
                   ),
@@ -575,6 +615,27 @@ class _SaintsScreenState extends State<SaintsScreen> {
                       setState(() {
                         _selectedCategory = selected
                             ? SaintCategory.monarch
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('martyrs_filter_chip'),
+                    label: const Text('Martyrs'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.local_fire_department,
+                      color: _selectedCategory == SaintCategory.martyr
+                          ? Colors.red
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.martyr,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.martyr
                             : null;
                       });
                     },
@@ -603,21 +664,42 @@ class _SaintsScreenState extends State<SaintsScreen> {
                   ),
                   const SizedBox(width: 8),
                   FilterChip(
-                    key: const Key('holy_family_filter_chip'),
-                    label: const Text('Holy Family'),
+                    key: const Key('virgins_filter_chip'),
+                    label: const Text('Virgins & Consecrated'),
                     showCheckmark: false,
                     avatar: Icon(
-                      Icons.family_restroom,
-                      color: _selectedCategory == SaintCategory.holyFamily
-                          ? const Color(0xFFAD1457)
+                      Icons.local_florist,
+                      color: _selectedCategory == SaintCategory.virgin
+                          ? AppThemeTokens.marianBlue
                           : theme.colorScheme.onSurfaceVariant,
                       size: 16,
                     ),
-                    selected: _selectedCategory == SaintCategory.holyFamily,
+                    selected: _selectedCategory == SaintCategory.virgin,
                     onSelected: (selected) {
                       setState(() {
                         _selectedCategory = selected
-                            ? SaintCategory.holyFamily
+                            ? SaintCategory.virgin
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('mystics_filter_chip'),
+                    label: const Text('Mystics & Contemplatives'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.wb_sunny,
+                      color: _selectedCategory == SaintCategory.mystic
+                          ? AppThemeTokens.liturgicalRose
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.mystic,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.mystic
                             : null;
                       });
                     },

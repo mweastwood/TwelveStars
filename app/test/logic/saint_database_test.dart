@@ -18,7 +18,7 @@ void main() {
         'deathDate': '1274',
         'nationality': 'Italian',
         'profession': 'Dominican Friar & Theologian',
-        'categories': ['doctor', 'priestReligious', 'mystic'],
+        'categories': ['doctor', 'priest', 'mystic'],
         'isDoctor': true,
         'isBlessed': false,
         'feastDay': 'January 28',
@@ -36,7 +36,7 @@ void main() {
       expect(saint.profession, 'Dominican Friar & Theologian');
       expect(saint.categories, [
         SaintCategory.doctor,
-        SaintCategory.priestReligious,
+        SaintCategory.priest,
         SaintCategory.mystic,
       ]);
       expect(saint.isDoctor, true);
@@ -51,7 +51,7 @@ void main() {
 
       final serialized = saint.toJson();
       expect(serialized['id'], 'thomas-aquinas');
-      expect(serialized['categories'], ['doctor', 'priestReligious', 'mystic']);
+      expect(serialized['categories'], ['doctor', 'priest', 'mystic']);
       expect(serialized['isDoctor'], true);
       expect(serialized['isBlessed'], null);
       expect(serialized['patronage'], 'Academics, Students, Theologians');
@@ -67,7 +67,7 @@ void main() {
         gender: 'female',
       );
       expect(blessedSaint.toJson()['isBlessed'], true);
-      expect(blessedSaint.toJson()['categories'], ['laity', 'virgin']);
+      expect(blessedSaint.toJson()['categories'], ['virgin', 'laity']);
       expect(blessedSaint.gender, 'female');
       expect(blessedSaint.isFemale, isTrue);
       expect(blessedSaint.isMale, isFalse);
@@ -908,13 +908,14 @@ void main() {
         final borromeo = saints.firstWhere((s) => s.id == 'charles-borromeo');
         expect(borromeo.category, SaintCategory.bishop);
 
-        // Martyrs (including martyr bishops like Cyprian)
+        // Bishops & Martyrs
         final cyprian = saints.firstWhere((s) => s.id == 'cyprian-of-carthage');
-        expect(cyprian.category, SaintCategory.martyr);
+        expect(cyprian.category, SaintCategory.bishop);
+        expect(cyprian.categories, contains(SaintCategory.martyr));
 
-        // Priests & Religious
+        // Priests, Brothers & Religious
         final francis = saints.firstWhere((s) => s.id == 'francis-of-assisi');
-        expect(francis.category, SaintCategory.priestReligious);
+        expect(francis.category, SaintCategory.brother);
 
         // Monarchs / Royalty
         final louis = saints.firstWhere((s) => s.id == 'louis-ix-of-france');
@@ -1216,20 +1217,23 @@ void main() {
 
         // Verify Laity
         final dominicSavio = saints.firstWhere((s) => s.id == 'dominic-savio');
-        expect(dominicSavio.category, SaintCategory.laity);
-        expect(dominicSavio.categoryIcon, Icons.groups_rounded);
+        expect(dominicSavio.categories, contains(SaintCategory.laity));
+        expect(dominicSavio.categories, contains(SaintCategory.virgin));
 
         final gianna = saints.firstWhere((s) => s.id == 'gianna-beretta-molla');
-        expect(gianna.category, SaintCategory.laity);
+        expect(gianna.categories, contains(SaintCategory.laity));
+        expect(gianna.categories, contains(SaintCategory.healerMissionary));
 
         // Verify Mystics & Visionaries
         final faustina = saints.firstWhere((s) => s.id == 'faustina-kowalska');
-        expect(faustina.category, SaintCategory.mystic);
+        expect(faustina.categories, contains(SaintCategory.mystic));
+        expect(faustina.categories, contains(SaintCategory.nun));
 
         final bernadette = saints.firstWhere(
           (s) => s.id == 'bernadette-soubirous',
         );
-        expect(bernadette.category, SaintCategory.mystic);
+        expect(bernadette.categories, contains(SaintCategory.mystic));
+        expect(bernadette.categories, contains(SaintCategory.nun));
       },
     );
 
@@ -1264,7 +1268,7 @@ void main() {
         // 1. Priests that are also mystics
         final padrePio = saints.firstWhere((s) => s.id == 'padre-pio');
         expect(padrePio.categories, contains(SaintCategory.mystic));
-        expect(padrePio.categories, contains(SaintCategory.priestReligious));
+        expect(padrePio.categories, contains(SaintCategory.priest));
 
         // 2. Doctor, mystic, and priest
         final johnOfTheCross = saints.firstWhere(
@@ -1272,22 +1276,19 @@ void main() {
         );
         expect(johnOfTheCross.categories, contains(SaintCategory.doctor));
         expect(johnOfTheCross.categories, contains(SaintCategory.mystic));
-        expect(
-          johnOfTheCross.categories,
-          contains(SaintCategory.priestReligious),
-        );
+        expect(johnOfTheCross.categories, contains(SaintCategory.priest));
 
         // 3. Martyrs that were also laity
         final thomasMore = saints.firstWhere((s) => s.id == 'thomas-more');
         expect(thomasMore.categories, contains(SaintCategory.martyr));
         expect(thomasMore.categories, contains(SaintCategory.laity));
 
-        // 4. Blessed Laura Vicuña: Virgin, Laity, Religious
+        // 4. Blessed Laura Vicuña: Virgin, Laity
         final lauraVicuna = saints.firstWhere((s) => s.id == 'laura-vicuna');
         expect(lauraVicuna.categories, contains(SaintCategory.laity));
         expect(lauraVicuna.categories, contains(SaintCategory.virgin));
 
-        // 5. Doctor, Bishop, and Priest / Religious
+        // 5. Doctor and Bishop
         final augustine = saints.firstWhere(
           (s) => s.id == 'augustine-of-hippo',
         );
@@ -1297,24 +1298,21 @@ void main() {
         final alphonsus = saints.firstWhere((s) => s.id == 'alphonsus-liguori');
         expect(alphonsus.categories, contains(SaintCategory.doctor));
         expect(alphonsus.categories, contains(SaintCategory.bishop));
-        expect(alphonsus.categories, contains(SaintCategory.priestReligious));
 
         final anselm = saints.firstWhere((s) => s.id == 'anselm-of-canterbury');
         expect(anselm.categories, contains(SaintCategory.doctor));
         expect(anselm.categories, contains(SaintCategory.bishop));
-        expect(anselm.categories, contains(SaintCategory.priestReligious));
 
         final bonaventure = saints.firstWhere((s) => s.id == 'bonaventure');
         expect(bonaventure.categories, contains(SaintCategory.doctor));
         expect(bonaventure.categories, contains(SaintCategory.bishop));
-        expect(bonaventure.categories, contains(SaintCategory.priestReligious));
 
         // 6. St. Teresa of Ávila & St. Catherine of Siena
         final teresaAvila = saints.firstWhere((s) => s.id == 'teresa-of-avila');
         expect(teresaAvila.categories, contains(SaintCategory.doctor));
         expect(teresaAvila.categories, contains(SaintCategory.mystic));
         expect(teresaAvila.categories, contains(SaintCategory.virgin));
-        expect(teresaAvila.categories, contains(SaintCategory.priestReligious));
+        expect(teresaAvila.categories, contains(SaintCategory.nun));
 
         final catherineSiena = saints.firstWhere(
           (s) => s.id == 'catherine-of-siena',
@@ -1322,10 +1320,7 @@ void main() {
         expect(catherineSiena.categories, contains(SaintCategory.doctor));
         expect(catherineSiena.categories, contains(SaintCategory.mystic));
         expect(catherineSiena.categories, contains(SaintCategory.virgin));
-        expect(
-          catherineSiena.categories,
-          contains(SaintCategory.priestReligious),
-        );
+        expect(catherineSiena.categories, contains(SaintCategory.nun));
 
         // 7. St. Gianna: Laity & Healer
         final gianna = saints.firstWhere((s) => s.id == 'gianna-beretta-molla');
@@ -1340,7 +1335,6 @@ void main() {
         final louisIX = saints.firstWhere((s) => s.id == 'louis-ix-of-france');
         expect(louisIX.categories, contains(SaintCategory.monarch));
         expect(louisIX.categories, contains(SaintCategory.laity));
-        expect(louisIX.categories, contains(SaintCategory.priestReligious));
 
         // 9. Apostles who were also Martyrs / Popes / Evangelists / Missionaries
         final peter = saints.firstWhere((s) => s.id == 'peter-the-apostle');
@@ -1358,14 +1352,13 @@ void main() {
         expect(matthew.categories, contains(SaintCategory.evangelist));
         expect(matthew.categories, contains(SaintCategory.martyr));
 
-        // 10. Popes who are Martyrs / Priests / Religious
+        // 10. Popes who are Martyrs
         final clement = saints.firstWhere((s) => s.id == 'clement-of-rome');
         expect(clement.categories, contains(SaintCategory.pope));
         expect(clement.categories, contains(SaintCategory.martyr));
 
         final piusV = saints.firstWhere((s) => s.id == 'pius-v');
         expect(piusV.categories, contains(SaintCategory.pope));
-        expect(piusV.categories, contains(SaintCategory.priestReligious));
 
         // 11. Holy Family: Mary & Joseph
         final mary = saints.firstWhere((s) => s.id == 'mary-mother-of-god');
@@ -1385,14 +1378,53 @@ void main() {
         );
         expect(motherTeresa.categories, contains(SaintCategory.mystic));
         expect(motherTeresa.categories, contains(SaintCategory.virgin));
-        expect(
-          motherTeresa.categories,
-          contains(SaintCategory.priestReligious),
-        );
+        expect(motherTeresa.categories, contains(SaintCategory.nun));
 
         final damien = saints.firstWhere((s) => s.id == 'damien-of-molokai');
         expect(damien.categories, contains(SaintCategory.healerMissionary));
-        expect(damien.categories, contains(SaintCategory.priestReligious));
+        expect(damien.categories, contains(SaintCategory.priest));
+
+        // 13. Deacons: Stephen, Lawrence, Ephrem
+        final stephen = saints.firstWhere(
+          (s) => s.id == 'stephen-first-martyr',
+        );
+        expect(stephen.categories, contains(SaintCategory.deacon));
+        expect(stephen.categories, contains(SaintCategory.martyr));
+
+        final lawrence = saints.firstWhere((s) => s.id == 'lawrence-of-rome');
+        expect(lawrence.categories, contains(SaintCategory.deacon));
+        expect(lawrence.categories, contains(SaintCategory.martyr));
+
+        final ephrem = saints.firstWhere((s) => s.id == 'ephrem-the-syrian');
+        expect(ephrem.categories, contains(SaintCategory.doctor));
+        expect(ephrem.categories, contains(SaintCategory.deacon));
+
+        // 14. Groups with mixed states of life
+        final vietnamese = saints.firstWhere(
+          (s) => s.id == 'vietnamese-martyrs',
+        );
+        expect(vietnamese.categories, contains(SaintCategory.group));
+        expect(vietnamese.categories, contains(SaintCategory.bishop));
+        expect(vietnamese.categories, contains(SaintCategory.priest));
+        expect(vietnamese.categories, contains(SaintCategory.brother));
+        expect(vietnamese.categories, contains(SaintCategory.martyr));
+        expect(vietnamese.categories, contains(SaintCategory.laity));
+
+        final korean = saints.firstWhere((s) => s.id == 'korean-martyrs');
+        expect(korean.categories, contains(SaintCategory.group));
+        expect(korean.categories, contains(SaintCategory.bishop));
+        expect(korean.categories, contains(SaintCategory.priest));
+        expect(korean.categories, contains(SaintCategory.martyr));
+        expect(korean.categories, contains(SaintCategory.laity));
+
+        final paulMiki = saints.firstWhere(
+          (s) => s.id == 'paul-miki-and-companions',
+        );
+        expect(paulMiki.categories, contains(SaintCategory.group));
+        expect(paulMiki.categories, contains(SaintCategory.priest));
+        expect(paulMiki.categories, contains(SaintCategory.brother));
+        expect(paulMiki.categories, contains(SaintCategory.martyr));
+        expect(paulMiki.categories, contains(SaintCategory.laity));
       },
     );
 
@@ -1467,5 +1499,69 @@ void main() {
         }
       },
     );
+
+    test(
+      'every saint adheres to state-of-life exclusivity rules (exactly one religious state for individuals, zero for angels, multiple for groups)',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+        const stateOfLifeCategories = {
+          SaintCategory.pope,
+          SaintCategory.bishop,
+          SaintCategory.priest,
+          SaintCategory.deacon,
+          SaintCategory.brother,
+          SaintCategory.nun,
+          SaintCategory.laity,
+        };
+
+        for (final saint in saints) {
+          final assignedStates = saint.categories
+              .where(stateOfLifeCategories.contains)
+              .toList();
+
+          if (saint.categories.contains(SaintCategory.angel)) {
+            // Angels are pure celestial spirits and have 0 human states of life
+            expect(
+              assignedStates,
+              isEmpty,
+              reason:
+                  'Angel saint ${saint.id} (${saint.name}) should have no human state of life, but found $assignedStates',
+            );
+          } else if (saint.categories.contains(SaintCategory.group)) {
+            // Groups can contain a mixture of clergy, religious, and laity
+            expect(
+              assignedStates,
+              isNotEmpty,
+              reason:
+                  'Group saint ${saint.id} (${saint.name}) should have at least one state of life, but found none',
+            );
+          } else {
+            // Every individual human saint MUST have EXACTLY ONE state of life
+            expect(
+              assignedStates.length,
+              1,
+              reason:
+                  'Individual saint ${saint.id} (${saint.name}) must have exactly one religious state of life, but found ${assignedStates.map((c) => c.name).toList()}',
+            );
+          }
+        }
+      },
+    );
+
+    test('every saint categories array follows canonical UI ordering', () async {
+      final saints = await SaintDatabase.loadSaints();
+      for (final saint in saints) {
+        for (var i = 0; i < saint.categories.length - 1; i++) {
+          final curr = saint.categories[i].index;
+          final next = saint.categories[i + 1].index;
+          expect(
+            curr <= next,
+            isTrue,
+            reason:
+                'Categories for saint ${saint.id} (${saint.name}) are not in canonical order: ${saint.categories.map((c) => c.name).toList()}',
+          );
+        }
+      }
+    });
   });
 }

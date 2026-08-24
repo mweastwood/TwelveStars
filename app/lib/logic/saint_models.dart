@@ -3,50 +3,62 @@ import 'package:twelve_stars/theme/app_theme_tokens.dart';
 
 /// Major categorization of saints for visual icon representation and filtering.
 enum SaintCategory {
-  doctor,
-  angel,
+  group,
   holyFamily,
+  angel,
   apostle,
   evangelist,
-  martyr,
+  doctor,
   pope,
   bishop,
-  priestReligious,
-  mystic,
-  virgin,
+  priest,
+  deacon,
+  brother,
+  nun,
   monarch,
+  martyr,
   healerMissionary,
+  virgin,
+  mystic,
   laity,
   other;
 
   String get label {
     switch (this) {
-      case SaintCategory.doctor:
-        return 'Doctor of the Church';
-      case SaintCategory.angel:
-        return 'Archangel & Angel';
+      case SaintCategory.group:
+        return 'Group';
       case SaintCategory.holyFamily:
         return 'Holy Family';
+      case SaintCategory.angel:
+        return 'Archangel & Angel';
       case SaintCategory.apostle:
         return 'Apostle';
       case SaintCategory.evangelist:
         return 'Evangelist';
-      case SaintCategory.martyr:
-        return 'Martyr';
+      case SaintCategory.doctor:
+        return 'Doctor of the Church';
       case SaintCategory.pope:
         return 'Pope';
       case SaintCategory.bishop:
         return 'Bishop';
-      case SaintCategory.priestReligious:
-        return 'Priest & Religious';
-      case SaintCategory.mystic:
-        return 'Mystic & Contemplative';
-      case SaintCategory.virgin:
-        return 'Virgin & Consecrated';
+      case SaintCategory.priest:
+        return 'Priest';
+      case SaintCategory.deacon:
+        return 'Deacon';
+      case SaintCategory.brother:
+        return 'Brother';
+      case SaintCategory.nun:
+        return 'Nun';
       case SaintCategory.monarch:
         return 'Ruler & Monarch';
+      case SaintCategory.martyr:
+        return 'Martyr';
       case SaintCategory.healerMissionary:
         return 'Healer & Missionary';
+      case SaintCategory.virgin:
+        return 'Virgin & Consecrated';
+      case SaintCategory.mystic:
+        return 'Mystic & Contemplative';
       case SaintCategory.laity:
         return 'Laity';
       case SaintCategory.other:
@@ -57,32 +69,40 @@ enum SaintCategory {
   /// Icon corresponding to the category.
   IconData get icon {
     switch (this) {
-      case SaintCategory.doctor:
-        return Icons.menu_book_rounded;
-      case SaintCategory.angel:
-        return Icons.flare_rounded;
+      case SaintCategory.group:
+        return Icons.groups_3_rounded;
       case SaintCategory.holyFamily:
         return Icons.family_restroom_rounded;
+      case SaintCategory.angel:
+        return Icons.flare_rounded;
       case SaintCategory.apostle:
         return Icons.stars_rounded;
       case SaintCategory.evangelist:
         return Icons.auto_stories_rounded;
-      case SaintCategory.martyr:
-        return Icons.local_fire_department_rounded;
+      case SaintCategory.doctor:
+        return Icons.menu_book_rounded;
       case SaintCategory.pope:
         return Icons.vpn_key_rounded;
       case SaintCategory.bishop:
         return Icons.account_balance_rounded;
-      case SaintCategory.priestReligious:
+      case SaintCategory.priest:
         return Icons.church_rounded;
-      case SaintCategory.mystic:
-        return Icons.wb_sunny_rounded;
-      case SaintCategory.virgin:
-        return Icons.local_florist_rounded;
+      case SaintCategory.deacon:
+        return Icons.volunteer_activism_rounded;
+      case SaintCategory.brother:
+        return Icons.diversity_3_rounded;
+      case SaintCategory.nun:
+        return Icons.auto_awesome_rounded;
       case SaintCategory.monarch:
         return Icons.workspace_premium_rounded;
+      case SaintCategory.martyr:
+        return Icons.local_fire_department_rounded;
       case SaintCategory.healerMissionary:
         return Icons.healing_rounded;
+      case SaintCategory.virgin:
+        return Icons.local_florist_rounded;
+      case SaintCategory.mystic:
+        return Icons.wb_sunny_rounded;
       case SaintCategory.laity:
         return Icons.groups_rounded;
       case SaintCategory.other:
@@ -93,32 +113,40 @@ enum SaintCategory {
   /// Color tint for category badge/icon.
   Color color(ThemeData theme) {
     switch (this) {
-      case SaintCategory.doctor:
-        return AppThemeTokens.liturgicalGold;
-      case SaintCategory.angel:
-        return const Color(0xFF00ACC1); // Cyan 600
+      case SaintCategory.group:
+        return const Color(0xFF4B5563); // Gray 600
       case SaintCategory.holyFamily:
         return const Color(0xFFAD1457); // Crimson / Rose 800
+      case SaintCategory.angel:
+        return const Color(0xFF00ACC1); // Cyan 600
       case SaintCategory.apostle:
         return AppThemeTokens.marianBlue;
       case SaintCategory.evangelist:
         return const Color(0xFFE65100); // Deep Orange 900
-      case SaintCategory.martyr:
-        return AppThemeTokens.liturgicalRed;
+      case SaintCategory.doctor:
+        return AppThemeTokens.liturgicalGold;
       case SaintCategory.pope:
         return const Color(0xFFD97706); // Papal Amber / Gold
       case SaintCategory.bishop:
         return AppThemeTokens.liturgicalPurple;
-      case SaintCategory.priestReligious:
+      case SaintCategory.priest:
         return AppThemeTokens.liturgicalGreen;
-      case SaintCategory.mystic:
-        return AppThemeTokens.liturgicalRose;
-      case SaintCategory.virgin:
-        return AppThemeTokens.marianBlue;
+      case SaintCategory.deacon:
+        return const Color(0xFF0284C7); // Sky 600
+      case SaintCategory.brother:
+        return const Color(0xFF00897B); // Teal 600
+      case SaintCategory.nun:
+        return const Color(0xFF7B1FA2); // Purple 700
       case SaintCategory.monarch:
         return AppThemeTokens.liturgicalPurple;
+      case SaintCategory.martyr:
+        return AppThemeTokens.liturgicalRed;
       case SaintCategory.healerMissionary:
         return const Color(0xFF00897B); // Teal 600
+      case SaintCategory.virgin:
+        return AppThemeTokens.marianBlue;
+      case SaintCategory.mystic:
+        return AppThemeTokens.liturgicalRose;
       case SaintCategory.laity:
         return const Color(0xFF5C6BC0); // Indigo 400
       case SaintCategory.other:
@@ -246,18 +274,21 @@ class Saint {
     return '';
   }
 
-  /// Returns all categories matching this saint based on explicit categories or historical fallback.
+  /// Returns all categories matching this saint based on explicit categories or historical fallback,
+  /// ordered consistently according to the standard UI category hierarchy.
   List<SaintCategory> get categories {
-    if (_explicitCategories.isNotEmpty) {
-      return _explicitCategories;
-    }
-    return computeCategories(
-      id: id,
-      name: name,
-      nationality: nationality,
-      profession: profession,
-      isDoctor: isDoctor,
-    );
+    final raw = _explicitCategories.isNotEmpty
+        ? _explicitCategories
+        : computeCategories(
+            id: id,
+            name: name,
+            nationality: nationality,
+            profession: profession,
+            isDoctor: isDoctor,
+          );
+    final sorted = List<SaintCategory>.from(raw)
+      ..sort((a, b) => a.index.compareTo(b.index));
+    return sorted;
   }
 
   /// Returns all categories matching this saint based on status, titles, profession, and history.
@@ -272,6 +303,23 @@ class Saint {
     final profLower = profession.toLowerCase();
     final nameLower = name.toLowerCase();
     final natLower = nationality.toLowerCase();
+
+    // 0. Group
+    final isKnownGroup = const {
+      'vietnamese-martyrs',
+      'korean-martyrs',
+      'paul-miki-and-companions',
+      'charles-lwanga-and-ugandan-martyrs',
+      'perpetua-and-felicity',
+    }.contains(id);
+
+    if (isKnownGroup ||
+        profLower.contains('martyrs of') ||
+        profLower.contains('companions') ||
+        nameLower.contains('companions') ||
+        nameLower.contains('martyrs')) {
+      list.add(SaintCategory.group);
+    }
 
     // 1. Doctor of the Church
     if (isDoctor) {
@@ -652,51 +700,151 @@ class Saint {
       list.add(SaintCategory.virgin);
     }
 
-    // 14. Priest & Religious
-    if (profLower.contains('priest') ||
-        profLower.contains('friar') ||
-        profLower.contains('monk') ||
+    // 14. Priest
+    final isKnownPriest = const {
+      'anthony-of-padua',
+      'bede-the-venerable',
+      'bernard-of-clairvaux',
+      'bruno-of-cologne',
+      'camillus-de-lellis',
+      'charbel-makhlouf',
+      'charles-de-foucauld',
+      'columba-of-iona',
+      'columbanus',
+      'damien-of-molokai',
+      'dominic-de-guzman',
+      'edmund-campion',
+      'francis-borgia',
+      'francis-xavier',
+      'gregory-of-narek',
+      'ignatius-of-loyola',
+      'jacques-berthieu',
+      'jerome',
+      'john-bosco',
+      'john-damascene',
+      'john-of-avila',
+      'john-of-nepomuk',
+      'john-of-the-cross',
+      'john-vianney',
+      'josemaria-escriva',
+      'joseph-of-cupertino',
+      'junipero-serra',
+      'lawrence-of-brindisi',
+      'louis-marie-de-montfort',
+      'maximilian-kolbe',
+      'miguel-pro',
+      'nimatullah-kassab',
+      'padre-pio',
+      'paul-of-the-cross',
+      'peregrine-laziosi',
+      'peter-canisius',
+      'peter-claver',
+      'philip-neri',
+      'raymond-of-penafort',
+      'thomas-aquinas',
+      'titus-brandsma',
+      'vincent-de-paul',
+    }.contains(id);
+
+    if (isKnownPriest ||
+        ((profLower.contains('priest') ||
+                profLower.contains('presbyter') ||
+                profLower.contains('parish priest') ||
+                profLower.contains('curé') ||
+                profLower.contains('confessor')) &&
+            !list.contains(SaintCategory.pope) &&
+            !list.contains(SaintCategory.bishop))) {
+      list.add(SaintCategory.priest);
+    }
+
+    // 14.5 Deacon
+    final isKnownDeacon = const {
+      'stephen-first-martyr',
+      'lawrence-of-rome',
+      'ephrem-the-syrian',
+    }.contains(id);
+
+    if (isKnownDeacon ||
+        ((profLower.contains('deacon') || profLower.contains('archdeacon')) &&
+            !profLower.contains('deaconess') &&
+            !list.contains(SaintCategory.pope) &&
+            !list.contains(SaintCategory.bishop) &&
+            !list.contains(SaintCategory.priest))) {
+      list.add(SaintCategory.deacon);
+    }
+
+    // 15. Brother
+    final isKnownBrother = const {
+      'aloysius-gonzaga',
+      'andre-bessette',
+      'anthony-the-great',
+      'benedict-of-nursia',
+      'francis-of-assisi',
+      'gerard-majella',
+      'john-berchmans',
+      'martin-de-porres',
+      'pachomius',
+      'paul-miki-and-companions',
+      'paul-the-first-hermit',
+      'romuald',
+      'stanislaus-kostka',
+      'vincent-of-lerins',
+    }.contains(id);
+
+    if (isKnownBrother ||
+        ((profLower.contains('brother') ||
+                profLower.contains('friar') ||
+                profLower.contains('monk') ||
+                profLower.contains('abbot') ||
+                profLower.contains('hermit') ||
+                profLower.contains('novice') ||
+                profLower.contains('scholastic')) &&
+            !list.contains(SaintCategory.pope) &&
+            !list.contains(SaintCategory.bishop) &&
+            !list.contains(SaintCategory.priest) &&
+            !list.contains(SaintCategory.deacon))) {
+      list.add(SaintCategory.brother);
+    }
+
+    // 16. Nun
+    final isKnownNun = const {
+      'bernadette-soubirous',
+      'bridget-of-sweden',
+      'brigid-of-kildare',
+      'catherine-of-bologna',
+      'catherine-of-siena',
+      'clare-of-assisi',
+      'clare-of-montefalco',
+      'elizabeth-ann-seton',
+      'faustina-kowalska',
+      'frances-xavier-cabrini',
+      'gertrude-the-great',
+      'hildegard-of-bingen',
+      'jane-frances-de-chantal',
+      'katharine-drexel',
+      'louise-de-marillac',
+      'marianne-cope',
+      'mary-mackillop',
+      'mechtilde-of-hackeborn',
+      'mother-teresa',
+      'rafqa-pietra-choboq-ar-rayes',
+      'rita-of-cascia',
+      'rose-of-lima',
+      'scholastica',
+      'teresa-benedicta-of-the-cross',
+      'teresa-of-avila',
+      'teresa-of-the-andes',
+      'therese-of-lisieux',
+    }.contains(id);
+
+    if (isKnownNun ||
         profLower.contains('nun') ||
-        profLower.contains('abbot') ||
         profLower.contains('abbess') ||
-        profLower.contains('deacon') ||
-        profLower.contains('brother') ||
         profLower.contains('sister') ||
         profLower.contains('sisters') ||
-        profLower.contains('hermit') ||
-        profLower.contains('religious') ||
-        profLower.contains('desert father') ||
-        profLower.contains('monastic') ||
-        profLower.contains('oratorian') ||
-        ((profLower.contains('founder') || profLower.contains('foundress')) &&
-            !profLower.contains('founder of westminster')) ||
-        profLower.contains('carmelite') ||
-        profLower.contains('franciscan') ||
-        profLower.contains('dominican') ||
-        profLower.contains('jesuit') ||
-        profLower.contains('benedictine') ||
-        profLower.contains('salesian') ||
-        profLower.contains('clares') ||
-        profLower.contains('charity') ||
-        profLower.contains('visitation') ||
-        profLower.contains('sacrament') ||
-        profLower.contains('tertiary') ||
-        const {
-          'anthony-the-great',
-          'pachomius',
-          'paul-the-first-hermit',
-          'charbel-makhlouf',
-          'martin-of-tours',
-          'basil-the-great',
-          'john-chrysostom',
-          'augustine-of-hippo',
-          'cyril-of-alexandria',
-          'john-henry-newman',
-          'charles-borromeo',
-          'pius-v',
-          'gregory-the-great',
-        }.contains(id)) {
-      list.add(SaintCategory.priestReligious);
+        profLower.contains('foundress') ||
+        profLower.contains('clares')) {
+      list.add(SaintCategory.nun);
     }
 
     if (list.isEmpty) {
@@ -707,10 +855,7 @@ class Saint {
   }
 
   /// Primary category for backward compatibility.
-  SaintCategory get category {
-    if (id == 'francis-of-assisi') return SaintCategory.priestReligious;
-    return categories.first;
-  }
+  SaintCategory get category => categories.first;
 
   /// Icon corresponding to the category.
   IconData get categoryIcon => category.icon;

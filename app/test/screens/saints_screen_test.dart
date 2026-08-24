@@ -326,32 +326,108 @@ void main() {
       },
     );
 
-    testWidgets('Filters by category chips (Priests & Religious)', (
-      tester,
-    ) async {
-      await tester.pumpWidget(buildTestableWidget(child: const SaintsScreen()));
-      await tester.pumpAndSettle();
+    testWidgets(
+      'Filters by category chips (Priests, Deacons, Brothers, Nuns)',
+      (tester) async {
+        SaintDatabase.mockSaints = [
+          ...mockSaintsList,
+          const Saint(
+            id: 'stephen-first-martyr',
+            name: 'St. Stephen',
+            nationality: 'Jewish / Hellenistic',
+            profession: 'Deacon & Protomartyr of Christianity',
+            categories: [SaintCategory.deacon, SaintCategory.martyr],
+            isDoctor: false,
+            feastDay: 'December 26',
+            gender: 'male',
+          ),
+        ];
 
-      final chipFinder = find.byKey(const Key('religious_filter_chip'));
-      await tester.ensureVisible(chipFinder);
-      await tester.pumpAndSettle();
-      await tester.tap(chipFinder);
-      await tester.pumpAndSettle();
+        await tester.pumpWidget(
+          buildTestableWidget(child: const SaintsScreen()),
+        );
+        await tester.pumpAndSettle();
 
-      expect(
-        find.byKey(const Key('saint_tile_francis-of-assisi')),
-        findsOneWidget,
-      );
-      expect(
-        find.byKey(const Key('saint_tile_thomas-aquinas')),
-        findsOneWidget,
-      );
-      expect(
-        find.byKey(const Key('saint_tile_therese-of-lisieux')),
-        findsOneWidget,
-      );
-      expect(find.text('3 saints'), findsOneWidget);
-    });
+        // Test Priests filter
+        final priestsChipFinder = find.byKey(const Key('priests_filter_chip'));
+        await tester.ensureVisible(priestsChipFinder);
+        await tester.pumpAndSettle();
+        await tester.tap(priestsChipFinder);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_thomas-aquinas')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_francis-of-assisi')),
+          findsNothing,
+        );
+        expect(find.text('1 saint'), findsOneWidget);
+
+        // Untap Priests, tap Deacons
+        await tester.tap(priestsChipFinder);
+        await tester.pumpAndSettle();
+
+        final deaconsChipFinder = find.byKey(const Key('deacons_filter_chip'));
+        await tester.ensureVisible(deaconsChipFinder);
+        await tester.pumpAndSettle();
+        await tester.tap(deaconsChipFinder);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_stephen-first-martyr')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_thomas-aquinas')),
+          findsNothing,
+        );
+        expect(find.text('1 saint'), findsOneWidget);
+
+        // Untap Deacons, tap Brothers
+        await tester.tap(deaconsChipFinder);
+        await tester.pumpAndSettle();
+
+        final brothersChipFinder = find.byKey(
+          const Key('brothers_filter_chip'),
+        );
+        await tester.ensureVisible(brothersChipFinder);
+        await tester.pumpAndSettle();
+        await tester.tap(brothersChipFinder);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_francis-of-assisi')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_thomas-aquinas')),
+          findsNothing,
+        );
+        expect(find.text('1 saint'), findsOneWidget);
+
+        // Untap Brothers, tap Nuns
+        await tester.tap(brothersChipFinder);
+        await tester.pumpAndSettle();
+
+        final nunsChipFinder = find.byKey(const Key('nuns_filter_chip'));
+        await tester.ensureVisible(nunsChipFinder);
+        await tester.pumpAndSettle();
+        await tester.tap(nunsChipFinder);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_therese-of-lisieux')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_thomas-aquinas')),
+          findsNothing,
+        );
+        expect(find.text('1 saint'), findsOneWidget);
+      },
+    );
 
     testWidgets(
       'Filters by category chips (Angels, Apostles, Evangelists, Popes, Bishops, Mystics, Virgins, Monarchs, Healers, Holy Family, Laity)',
@@ -457,11 +533,49 @@ void main() {
             feastDay: 'April 28',
             gender: 'female',
           ),
+          const Saint(
+            id: 'vietnamese-martyrs',
+            name: 'The Vietnamese Martyrs (St. Andrew Dũng-Lạc & Companions)',
+            nationality: 'Vietnamese / French / Spanish',
+            profession: 'Priests, Catechists, Religious & Lay Martyrs',
+            categories: [
+              SaintCategory.group,
+              SaintCategory.bishop,
+              SaintCategory.priest,
+              SaintCategory.brother,
+              SaintCategory.martyr,
+              SaintCategory.laity,
+            ],
+            isDoctor: false,
+            feastDay: 'November 24',
+            gender: 'other',
+          ),
         ];
 
         await tester.pumpWidget(
           buildTestableWidget(child: const SaintsScreen()),
         );
+        await tester.pumpAndSettle();
+
+        // Test Group filter
+        final groupChip = find.byKey(const Key('group_filter_chip'));
+        await tester.ensureVisible(groupChip);
+        await tester.pumpAndSettle();
+        await tester.tap(groupChip);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_vietnamese-martyrs')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_michael-the-archangel')),
+          findsNothing,
+        );
+        expect(find.text('1 saint'), findsOneWidget);
+
+        // Untap Group, tap Angels
+        await tester.tap(groupChip);
         await tester.pumpAndSettle();
 
         // Test Angels filter
@@ -679,10 +793,10 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        // 1. SaintCard should display badges for Doctor, Mystic, and Priest & Religious
+        // 1. SaintCard should display badges for Doctor, Mystic, and Priest
         expect(find.text('Doctor of the Church'), findsOneWidget);
         expect(find.text('Mystic & Contemplative'), findsOneWidget);
-        expect(find.text('Priest & Religious'), findsOneWidget);
+        expect(find.text('Priest'), findsOneWidget);
 
         // 2. Open details sheet
         await tester.tap(find.byKey(const Key('saint_tile_test-multi-saint')));
@@ -705,10 +819,7 @@ void main() {
           findsOneWidget,
         );
         expect(
-          find.descendant(
-            of: sheetFinder,
-            matching: find.text('Priest & Religious'),
-          ),
+          find.descendant(of: sheetFinder, matching: find.text('Priest')),
           findsOneWidget,
         );
       },
@@ -783,8 +894,8 @@ void main() {
         await tester.tap(find.byKey(const Key('doctor_filter_chip')));
         await tester.pumpAndSettle();
 
-        // 3. Category filter active (Priests & Religious)
-        final chipFinder = find.byKey(const Key('religious_filter_chip'));
+        // 3. Category filter active (Priests)
+        final chipFinder = find.byKey(const Key('priests_filter_chip'));
         await tester.ensureVisible(chipFinder);
         await tester.pumpAndSettle();
         await tester.tap(chipFinder);
@@ -792,7 +903,7 @@ void main() {
 
         await screenMatchesGolden(
           tester,
-          'saints_screen_religious_filter_golden',
+          'saints_screen_priests_filter_golden',
         );
 
         // Reset category filter
