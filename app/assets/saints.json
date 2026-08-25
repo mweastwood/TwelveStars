@@ -1888,24 +1888,6 @@
     "summary": "First native Korean priest and 102 lay martyrs who planted and defended the Catholic faith in Joseon Korea during severe 19th-century persecutions."
   },
   {
-    "id": "laura-vicuna",
-    "name": "Blessed Laura Vicu\u00f1a",
-    "birthDate": "1891",
-    "deathDate": "1904",
-    "nationality": "Chilean / Argentine",
-    "profession": "Salesian Pupil & Virgin",
-    "categories": [
-      "virgin",
-      "laity"
-    ],
-    "gender": "female",
-    "isDoctor": false,
-    "isBlessed": true,
-    "feastDay": "January 22",
-    "patronage": "Abuse Victims, Argentina, Incest Victims, Loss of Parents",
-    "summary": "Twelve-year-old Chilean Salesian student in Argentina who offered her life to God for the conversion and spiritual liberation of her mother."
-  },
-  {
     "id": "lawrence-of-brindisi",
     "name": "St. Lawrence of Brindisi",
     "birthDate": "1559",
@@ -2318,24 +2300,6 @@
     "feastDay": "September 29",
     "patronage": "Police Officers, Military, Soldiers, Paramedics, Grocers, Mariners, Radiologists, The Dying, Protection Against Evil",
     "summary": "Leader of the heavenly host ('Who is like God?') who cast Lucifer and the rebel angels out of heaven in the Book of Revelation. Revered as the defender of the Church, guardian of the faithful, and champion in spiritual warfare."
-  },
-  {
-    "id": "miguel-pro",
-    "name": "Blessed Miguel Pro",
-    "birthDate": "1891",
-    "deathDate": "1927",
-    "nationality": "Mexican",
-    "profession": "Jesuit Priest & Cristero Era Martyr",
-    "categories": [
-      "priest",
-      "martyr"
-    ],
-    "gender": "male",
-    "isDoctor": false,
-    "isBlessed": true,
-    "feastDay": "November 23",
-    "patronage": "Mexico, Persecuted Clergy, Special Ops",
-    "summary": "Mexican Jesuit priest who carried out clandestine pastoral ministry disguised in various occupations during the Calles presidency before execution by firing squad."
   },
   {
     "id": "mother-teresa",

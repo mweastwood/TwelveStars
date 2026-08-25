@@ -425,24 +425,7 @@ void main() {
       'loadSaints correctly identifies beatified entries with isBlessed',
       () async {
         final saints = await SaintDatabase.loadSaints();
-        final blessedEntries = saints.where((s) => s.isBlessed).toList();
-
-        expect(blessedEntries.length, equals(2));
-        for (final blessed in blessedEntries) {
-          expect(
-            blessed.name.startsWith('Blessed '),
-            isTrue,
-            reason: '${blessed.name} should start with Blessed',
-          );
-        }
-
-        final miguelPro = saints.firstWhere((s) => s.id == 'miguel-pro');
-        expect(miguelPro.name, 'Blessed Miguel Pro');
-        expect(miguelPro.isBlessed, isTrue);
-
-        final lauraVicuna = saints.firstWhere((s) => s.id == 'laura-vicuna');
-        expect(lauraVicuna.name, 'Blessed Laura Vicuña');
-        expect(lauraVicuna.isBlessed, isTrue);
+        expect(saints.where((s) => s.isBlessed), isEmpty);
       },
     );
 
@@ -747,8 +730,8 @@ void main() {
             .where((s) => s.gender == 'other')
             .toList();
 
-        expect(femaleSaints.length, 43);
-        expect(maleSaints.length, 146);
+        expect(femaleSaints.length, 42);
+        expect(maleSaints.length, 145);
         expect(groupSaints.length, 4);
         expect(otherGenderSaints.length, 3);
 
@@ -798,12 +781,12 @@ void main() {
 
       // 1. Male saints filter
       final men = SaintDatabase.searchSaints(saints, gender: 'male');
-      expect(men.length, 146);
+      expect(men.length, 145);
       expect(men.every((s) => s.isMale), isTrue);
 
       // 2. Female saints filter
       final women = SaintDatabase.searchSaints(saints, gender: 'female');
-      expect(women.length, 43);
+      expect(women.length, 42);
       expect(women.every((s) => s.isFemale), isTrue);
 
       // 3. Female Doctors of the Church (4 total)
@@ -1169,7 +1152,7 @@ void main() {
         );
         expect(virgins.any((s) => s.id == 'agnes-of-rome'), isTrue);
         expect(virgins.any((s) => s.id == 'kateri-tekakwitha'), isTrue);
-        expect(virgins.any((s) => s.id == 'laura-vicuna'), isTrue);
+        expect(virgins.any((s) => s.id == 'maria-goretti'), isTrue);
         expect(virgins.any((s) => s.id == 'cecilia'), isTrue);
 
         // Era filter: Modern
@@ -1283,10 +1266,10 @@ void main() {
         expect(thomasMore.categories, contains(SaintCategory.martyr));
         expect(thomasMore.categories, contains(SaintCategory.laity));
 
-        // 4. Blessed Laura Vicuña: Virgin, Laity
-        final lauraVicuna = saints.firstWhere((s) => s.id == 'laura-vicuna');
-        expect(lauraVicuna.categories, contains(SaintCategory.laity));
-        expect(lauraVicuna.categories, contains(SaintCategory.virgin));
+        // 4. St. Dominic Savio: Virgin, Laity
+        final dominicSavio = saints.firstWhere((s) => s.id == 'dominic-savio');
+        expect(dominicSavio.categories, contains(SaintCategory.laity));
+        expect(dominicSavio.categories, contains(SaintCategory.virgin));
 
         // 5. Doctor and Bishop
         final augustine = saints.firstWhere(
