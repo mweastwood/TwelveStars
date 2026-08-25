@@ -21,6 +21,7 @@ void main() {
       () {
         final controller = UserSettingsController.instance;
 
+        expect(controller.isInitialized, isFalse);
         expect(controller.value, isNotNull);
         expect(controller.value.primaryLanguageCode, equals('english'));
         expect(controller.value.compareLanguageCode, equals('latin'));
@@ -146,6 +147,7 @@ void main() {
           expect(controller.value.appThemeModeCode, equals('gold'));
           expect(controller.value.sundayNotificationsEnabled, isFalse);
           expect(controller.value.showBibleTranslationSelectors, isTrue);
+          expect(controller.value.bibleNumberingSystemCode, equals('vulgate'));
           expect(controller.value.missalReadingsOnly, isTrue);
 
           expect(PrayerDatabase.mockSettings, equals(updatedSettings));
