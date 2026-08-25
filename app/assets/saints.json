@@ -147,8 +147,7 @@
     "profession": "Fisherman & First-Called Apostle (Protokletos)",
     "categories": [
       "apostle",
-      "martyr",
-      "laity"
+      "martyr"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -288,8 +287,7 @@
     "categories": [
       "apostle",
       "martyr",
-      "healerMissionary",
-      "laity"
+      "healerMissionary"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -306,8 +304,7 @@
     "profession": "Apostle & Martyr (Nathanael)",
     "categories": [
       "apostle",
-      "martyr",
-      "laity"
+      "martyr"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -1403,8 +1400,7 @@
     "profession": "Fisherman & Apostle",
     "categories": [
       "apostle",
-      "martyr",
-      "laity"
+      "martyr"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -1644,8 +1640,7 @@
     "profession": "Fisherman, Apostle & Evangelist (The Beloved Disciple)",
     "categories": [
       "apostle",
-      "evangelist",
-      "laity"
+      "evangelist"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -1795,8 +1790,7 @@
     "profession": "Apostle & Author of Epistle of Jude",
     "categories": [
       "apostle",
-      "martyr",
-      "laity"
+      "martyr"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -2233,8 +2227,7 @@
     "profession": "Disciple & Apostle to the Apostles (Apostola Apostolorum)",
     "categories": [
       "apostle",
-      "mystic",
-      "laity"
+      "mystic"
     ],
     "gender": "female",
     "isDoctor": false,
@@ -2252,8 +2245,7 @@
     "categories": [
       "apostle",
       "evangelist",
-      "martyr",
-      "laity"
+      "martyr"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -2270,8 +2262,7 @@
     "profession": "Apostle chosen to replace Judas Iscariot",
     "categories": [
       "apostle",
-      "martyr",
-      "laity"
+      "martyr"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -2547,8 +2538,7 @@
     "categories": [
       "apostle",
       "martyr",
-      "healerMissionary",
-      "laity"
+      "healerMissionary"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -2772,8 +2762,7 @@
     "categories": [
       "apostle",
       "martyr",
-      "healerMissionary",
-      "laity"
+      "healerMissionary"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -3024,8 +3013,7 @@
     "categories": [
       "apostle",
       "martyr",
-      "healerMissionary",
-      "laity"
+      "healerMissionary"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -3220,8 +3208,7 @@
     "categories": [
       "apostle",
       "martyr",
-      "healerMissionary",
-      "laity"
+      "healerMissionary"
     ],
     "gender": "male",
     "isDoctor": false,

@@ -1500,11 +1500,58 @@ void main() {
       },
     );
 
+    test('no saint can be labeled as apostle and laity simultaneously', () async {
+      final saints = await SaintDatabase.loadSaints();
+      for (final saint in saints) {
+        final isApostle = saint.categories.contains(SaintCategory.apostle);
+        final isLaity = saint.categories.contains(SaintCategory.laity);
+        expect(
+          isApostle && isLaity,
+          isFalse,
+          reason:
+              'Saint ${saint.id} (${saint.name}) cannot be labeled as both apostle and laity simultaneously',
+        );
+      }
+
+      // Also test dynamic category inference on individual Saint models
+      for (final id in const [
+        'andrew-the-apostle',
+        'barnabas',
+        'bartholomew-the-apostle',
+        'james-the-greater',
+        'james-the-lesser',
+        'john-the-apostle',
+        'jude-thaddeus',
+        'mary-magdalene',
+        'matthew-the-apostle',
+        'matthias',
+        'paul-the-apostle',
+        'peter-the-apostle',
+        'philip-the-apostle',
+        'simon-the-zealot',
+        'thomas-the-apostle',
+      ]) {
+        final inferred = Saint.computeCategories(
+          id: id,
+          name: 'Apostle Test',
+          nationality: 'Galilean',
+          profession: 'Fisherman & Apostle',
+        );
+        expect(inferred.contains(SaintCategory.apostle), isTrue);
+        expect(
+          inferred.contains(SaintCategory.laity),
+          isFalse,
+          reason: 'Inferred categories for $id must not include laity',
+        );
+      }
+    });
+
     test(
       'every saint adheres to state-of-life exclusivity rules (exactly one religious state for individuals, zero for angels, multiple for groups)',
       () async {
         final saints = await SaintDatabase.loadSaints();
         const stateOfLifeCategories = {
+          SaintCategory.apostle,
           SaintCategory.pope,
           SaintCategory.bishop,
           SaintCategory.priest,
@@ -1534,6 +1581,16 @@ void main() {
               isNotEmpty,
               reason:
                   'Group saint ${saint.id} (${saint.name}) should have at least one state of life, but found none',
+            );
+          } else if (saint.categories.contains(SaintCategory.apostle) &&
+              (saint.categories.contains(SaintCategory.pope) ||
+                  saint.categories.contains(SaintCategory.bishop))) {
+            // Apostles who were also Popes (Peter) or Bishops (James the Lesser) hold dual apostolic/episcopal office
+            expect(
+              assignedStates.length,
+              2,
+              reason:
+                  'Apostle saint ${saint.id} (${saint.name}) holding episcopal/papal office must have exactly two states of life (apostle + pope/bishop), but found ${assignedStates.map((c) => c.name).toList()}',
             );
           } else {
             // Every individual human saint MUST have EXACTLY ONE state of life

@@ -588,9 +588,11 @@ class Saint {
                 !profLower.contains('picpus fathers') &&
                 !profLower.contains('holy father'))) &&
         !list.contains(SaintCategory.bishop) &&
-        !list.contains(SaintCategory.pope);
+        !list.contains(SaintCategory.pope) &&
+        !list.contains(SaintCategory.apostle);
 
-    if (isExplicitLayKeyword || isKnownLaySaint) {
+    if ((isExplicitLayKeyword || isKnownLaySaint) &&
+        !list.contains(SaintCategory.apostle)) {
       list.add(SaintCategory.laity);
     }
 
