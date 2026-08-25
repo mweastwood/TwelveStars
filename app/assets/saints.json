@@ -1,5 +1,21 @@
 [
   {
+    "id": "abraham-the-patriarch",
+    "name": "St. Abraham the Patriarch",
+    "birthDate": "c. 18th c. BC",
+    "deathDate": "c. 18th c. BC",
+    "nationality": "Hebrew",
+    "profession": "Patriarch & Father of Faith",
+    "categories": [
+      "laity"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "October 9",
+    "patronage": "Hospitality, Monotheism, Fathers",
+    "summary": "Father in faith of all believers, called by God to leave Ur to inherit the Promised Land, who demonstrated steadfast obedience and covenant fidelity."
+  },
+  {
     "id": "agnes-of-rome",
     "name": "St. Agnes of Rome",
     "birthDate": "c. 291",
@@ -123,7 +139,7 @@
   },
   {
     "id": "andre-bessette",
-    "name": "St. Andr\u00e9 Bessette (Brother Andr\u00e9 of Montreal)",
+    "name": "St. André Bessette (Brother André of Montreal)",
     "birthDate": "1845",
     "deathDate": "1937",
     "nationality": "Canadian / French-Canadian",
@@ -153,7 +169,7 @@
     "isDoctor": false,
     "feastDay": "November 30",
     "patronage": "Scotland, Russia, Greece, Fishermen, Fishmongers",
-    "summary": "One of the Twelve Apostles and brother of Simon Peter, recognized Jesus as the Lamb of God and was the First-Called Apostle (Jn 1:35\u201342; Mt 10:2), bringing Peter to Christ. Martyred in Greece on an X-shaped cross."
+    "summary": "One of the Twelve Apostles and brother of Simon Peter, recognized Jesus as the Lamb of God and was the First-Called Apostle (Jn 1:35–42; Mt 10:2), bringing Peter to Christ. Martyred in Greece on an X-shaped cross."
   },
   {
     "id": "anselm-of-canterbury",
@@ -293,7 +309,7 @@
     "isDoctor": false,
     "feastDay": "June 11",
     "patronage": "Cyprus, Peacemakers, Antioch, Hailstorms",
-    "summary": "Added as an Apostle alongside Paul when set apart and sent forth by the Holy Spirit at Antioch for the First Missionary Journey (Acts 13:2\u20133; Acts 14:14). Levite from Cyprus called the 'Son of Encouragement' (Acts 4:36) who introduced Paul to the Jerusalem Apostles."
+    "summary": "Added as an Apostle alongside Paul when set apart and sent forth by the Holy Spirit at Antioch for the First Missionary Journey (Acts 13:2–3; Acts 14:14). Levite from Cyprus called the 'Son of Encouragement' (Acts 4:36) who introduced Paul to the Jerusalem Apostles."
   },
   {
     "id": "bartholomew-the-apostle",
@@ -310,7 +326,7 @@
     "isDoctor": false,
     "feastDay": "August 24",
     "patronage": "Tanners, Leatherworkers, Plasterers, Armenia",
-    "summary": "One of the Twelve Apostles, identified with Nathanael of Cana, called through Philip and praised by Jesus as an 'Israelite in whom there is no guile' (Jn 1:45\u201351; Mt 10:3). Preached in Armenia and India, where he was martyred."
+    "summary": "One of the Twelve Apostles, identified with Nathanael of Cana, called through Philip and praised by Jesus as an 'Israelite in whom there is no guile' (Jn 1:45–51; Mt 10:3). Preached in Armenia and India, where he was martyred."
   },
   {
     "id": "basil-the-great",
@@ -860,8 +876,41 @@
     "summary": "Volunteered to minister indefinitely to the banished leper colony on the island of Molokai, building homes and churches until succumbing to the disease."
   },
   {
+    "id": "daniel-the-prophet",
+    "name": "St. Daniel the Prophet",
+    "birthDate": "c. 6th c. BC",
+    "deathDate": "c. 6th c. BC",
+    "nationality": "Judean",
+    "profession": "Major Prophet & Court Official",
+    "categories": [
+      "laity"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "July 21",
+    "patronage": "Statesmen, Interpreters of Dreams, Protection against Wild Beasts",
+    "summary": "Faithful prophet in Babylon who was preserved unharmed in the lion's den and received apocalyptic visions of the Son of Man and the eternal Kingdom of God."
+  },
+  {
+    "id": "david-the-king",
+    "name": "St. David the King & Prophet",
+    "birthDate": "c. 1040 BC",
+    "deathDate": "c. 970 BC",
+    "nationality": "Israelite",
+    "profession": "King of Israel, Prophet & Psalmist",
+    "categories": [
+      "monarch",
+      "laity"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "December 29",
+    "patronage": "Poets, Musicians, Composers, Rulers",
+    "summary": "Second King of Israel who united the tribes, authored the Psalms, and was promised an eternal dynasty fulfilled in Jesus Christ."
+  },
+  {
     "id": "dominic-de-guzman",
-    "name": "St. Dominic de Guzm\u00e1n",
+    "name": "St. Dominic de Guzmán",
     "birthDate": "1170",
     "deathDate": "1221",
     "nationality": "Spanish",
@@ -941,6 +990,38 @@
     "feastDay": "October 13",
     "patronage": "Kings, Difficult Marriages, Separated Spouses, England",
     "summary": "Pious Anglo-Saxon monarch renowned for his charity, justice, preserved chastity in marriage, and construction of Westminster Abbey."
+  },
+  {
+    "id": "elijah-the-prophet",
+    "name": "St. Elijah the Prophet",
+    "birthDate": "c. 9th c. BC",
+    "deathDate": "c. 9th c. BC",
+    "nationality": "Israelite",
+    "profession": "Prophet & Spiritual Father of the Carmelites",
+    "categories": [
+      "laity"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "July 20",
+    "patronage": "Carmelites, Solitaries, Protection from Fire",
+    "summary": "Great prophet of the Northern Kingdom who defended the worship of Yahweh against Baal on Mount Carmel and was taken up into heaven in a chariot of fire."
+  },
+  {
+    "id": "elisha-the-prophet",
+    "name": "St. Elisha the Prophet",
+    "birthDate": "c. 9th c. BC",
+    "deathDate": "c. 9th c. BC",
+    "nationality": "Israelite",
+    "profession": "Prophet & Wonderworker",
+    "categories": [
+      "laity"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "June 14",
+    "patronage": "Carmelites, Farmers",
+    "summary": "Disciple and successor of Elijah who inherited a double portion of his spirit and performed numerous miracles for the people of Israel."
   },
   {
     "id": "elizabeth-ann-seton",
@@ -1053,7 +1134,7 @@
     "birthDate": "1510",
     "deathDate": "1572",
     "nationality": "Spanish",
-    "profession": "Duke of Gand\u00eda & Third Superior General of the Jesuits",
+    "profession": "Duke of Gandía & Third Superior General of the Jesuits",
     "categories": [
       "priest",
       "monarch"
@@ -1062,7 +1143,7 @@
     "isDoctor": false,
     "feastDay": "October 10",
     "patronage": "Earthquakes, Rulers, Portugal",
-    "summary": "Spanish grandee and Duke of Gand\u00eda who entered the Society of Jesus after the death of his wife and Empress Isabella, expanding Jesuit overseas missions across America and Asia."
+    "summary": "Spanish grandee and Duke of Gandía who entered the Society of Jesus after the death of his wife and Empress Isabella, expanding Jesuit overseas missions across America and Asia."
   },
   {
     "id": "francis-de-sales",
@@ -1357,6 +1438,23 @@
     "summary": "Disciple of St. Polycarp of Smyrna. Refuted Gnosticism in Against Heresies, defending apostolic tradition, the fourfold Gospel, and unity of faith."
   },
   {
+    "id": "isaiah-the-prophet",
+    "name": "St. Isaiah the Prophet",
+    "birthDate": "c. 8th c. BC",
+    "deathDate": "c. 8th c. BC",
+    "nationality": "Judean",
+    "profession": "Major Prophet & Martyr",
+    "categories": [
+      "martyr",
+      "laity"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "May 9",
+    "patronage": "Missionaries, Writers, Theologians",
+    "summary": "Major prophet of Judah known as the \"Fifth Evangelist\" for his vivid prophecies of the Messiah's Virgin birth, suffering Servant songs, and redemption."
+  },
+  {
     "id": "isidore-of-seville",
     "name": "St. Isidore of Seville",
     "birthDate": "c. 560",
@@ -1406,7 +1504,7 @@
     "isDoctor": false,
     "feastDay": "July 25",
     "patronage": "Pilgrims, Spain, Santiago de Compostela, Laborers",
-    "summary": "One of the Twelve Apostles, son of Zebedee and brother of John, called by Jesus while mending nets on the Sea of Galilee (Mt 4:21\u201322; Mt 10:2). Witnessed the Transfiguration and Agony in the Garden; first of the Apostles martyred (Acts 12:2)."
+    "summary": "One of the Twelve Apostles, son of Zebedee and brother of John, called by Jesus while mending nets on the Sea of Galilee (Mt 4:21–22; Mt 10:2). Witnessed the Transfiguration and Agony in the Garden; first of the Apostles martyred (Acts 12:2)."
   },
   {
     "id": "james-the-lesser",
@@ -1444,6 +1542,22 @@
     "summary": "French noblewoman, mother, and widow who collaborated with St. Francis de Sales to found the Visitation Order for women rejected by other austere orders."
   },
   {
+    "id": "jeremiah-the-prophet",
+    "name": "St. Jeremiah the Prophet",
+    "birthDate": "c. 650 BC",
+    "deathDate": "c. 570 BC",
+    "nationality": "Judean",
+    "profession": "Major Prophet & Author",
+    "categories": [
+      "laity"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "May 1",
+    "patronage": "Mourners, Intercessors",
+    "summary": "Prophet who called Judah to repentance before the Babylonian exile and prophesied the New Covenant written on the hearts of believers."
+  },
+  {
     "id": "jerome",
     "name": "St. Jerome",
     "birthDate": "c. 347",
@@ -1466,7 +1580,7 @@
     "birthDate": "1412",
     "deathDate": "1431",
     "nationality": "French",
-    "profession": "Peasant Girl, Military Commander & Martyr (Maid of Orl\u00e9ans)",
+    "profession": "Peasant Girl, Military Commander & Martyr (Maid of Orléans)",
     "categories": [
       "martyr",
       "virgin",
@@ -1477,6 +1591,22 @@
     "feastDay": "May 30",
     "patronage": "France, Soldiers, Captives, Martyrs",
     "summary": "Led French armies to victory during the Hundred Years' War guided by heavenly voices of St. Michael and St. Catherine, martyred at nineteen in Rouen."
+  },
+  {
+    "id": "job-the-righteous",
+    "name": "St. Job the Righteous",
+    "birthDate": "c. 2nd Millennium BC",
+    "deathDate": "c. 2nd Millennium BC",
+    "nationality": "Uzite / Ancient Near East",
+    "profession": "Patriarch & Man of Patience",
+    "categories": [
+      "laity"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "May 10",
+    "patronage": "Those suffering loss, Patience, Perseverance",
+    "summary": "Righteous and blameless figure celebrated for his enduring fidelity to God in the midst of profound suffering and steadfast faith in the Redeemer."
   },
   {
     "id": "john-berchmans",
@@ -1564,7 +1694,7 @@
   },
   {
     "id": "john-of-avila",
-    "name": "St. John of \u00c1vila",
+    "name": "St. John of Ávila",
     "birthDate": "1499",
     "deathDate": "1569",
     "nationality": "Spanish",
@@ -1578,7 +1708,7 @@
     "isDoctor": true,
     "feastDay": "May 10",
     "patronage": "Spanish Diocesan Clergy, Spiritual Directors",
-    "summary": "Priest and master spiritual director who reformed Spanish clergy, mentored Teresa of \u00c1vila and John of God, and wrote Audi, Filia."
+    "summary": "Priest and master spiritual director who reformed Spanish clergy, mentored Teresa of Ávila and John of God, and wrote Audi, Filia."
   },
   {
     "id": "john-of-nepomuk",
@@ -1613,11 +1743,11 @@
     "isDoctor": true,
     "feastDay": "December 14",
     "patronage": "Contemplatives, Spanish Poets, Mystics",
-    "summary": "Discalced Carmelite reformer alongside St. Teresa of \u00c1vila. Author of sublime mystical treatises including Dark Night of the Soul and Ascent of Mount Carmel."
+    "summary": "Discalced Carmelite reformer alongside St. Teresa of Ávila. Author of sublime mystical treatises including Dark Night of the Soul and Ascent of Mount Carmel."
   },
   {
     "id": "john-paul-ii",
-    "name": "St. John Paul II (Karol Wojty\u0142a)",
+    "name": "St. John Paul II (Karol Wojtyła)",
     "birthDate": "1920",
     "deathDate": "2005",
     "nationality": "Polish",
@@ -1646,7 +1776,7 @@
     "isDoctor": false,
     "feastDay": "December 27",
     "patronage": "Theologians, Authors, Love, Loyalty, Friendship",
-    "summary": "One of the Twelve Apostles and author of the Fourth Gospel, called with his brother James by Jesus (Mt 4:21\u201322; Mt 10:2). The 'Beloved Disciple' who reclined next to Jesus at the Last Supper and stood faithfully at the foot of the Cross (Jn 19:26\u201327)."
+    "summary": "One of the Twelve Apostles and author of the Fourth Gospel, called with his brother James by Jesus (Mt 4:21–22; Mt 10:2). The 'Beloved Disciple' who reclined next to Jesus at the Last Supper and stood faithfully at the foot of the Cross (Jn 19:26–27)."
   },
   {
     "id": "john-the-baptist",
@@ -1667,7 +1797,7 @@
   },
   {
     "id": "john-vianney",
-    "name": "St. John Vianney (Cur\u00e9 of Ars)",
+    "name": "St. John Vianney (Curé of Ars)",
     "birthDate": "1786",
     "deathDate": "1859",
     "nationality": "French",
@@ -1695,11 +1825,11 @@
     "isDoctor": false,
     "feastDay": "October 11",
     "patronage": "Papal Delegates, Second Vatican Council, Christian Unity",
-    "summary": "Beloved 261st Pope who convened the Second Vatican Council (1962\u20131965) to promote pastoral renewal and Christian unity, author of Pacem in Terris."
+    "summary": "Beloved 261st Pope who convened the Second Vatican Council (1962–1965) to promote pastoral renewal and Christian unity, author of Pacem in Terris."
   },
   {
     "id": "jose-sanchez-del-rio",
-    "name": "St. Jos\u00e9 S\u00e1nchez del R\u00edo",
+    "name": "St. José Sánchez del Río",
     "birthDate": "1913",
     "deathDate": "1928",
     "nationality": "Mexican",
@@ -1712,11 +1842,11 @@
     "isDoctor": false,
     "feastDay": "February 10",
     "patronage": "Persecuted Christians, Youth, Children, Sahuayo",
-    "summary": "Fourteen-year-old Mexican Cristero youth who was tortured and killed during the Cristero War, crying out '\u00a1Viva Cristo Rey!' with his dying breath."
+    "summary": "Fourteen-year-old Mexican Cristero youth who was tortured and killed during the Cristero War, crying out '¡Viva Cristo Rey!' with his dying breath."
   },
   {
     "id": "josemaria-escriva",
-    "name": "St. Josemar\u00eda Escriv\u00e1",
+    "name": "St. Josemaría Escrivá",
     "birthDate": "1902",
     "deathDate": "1975",
     "nationality": "Spanish",
@@ -1800,7 +1930,7 @@
   },
   {
     "id": "junipero-serra",
-    "name": "St. Jun\u00edpero Serra",
+    "name": "St. Junípero Serra",
     "birthDate": "1713",
     "deathDate": "1784",
     "nationality": "Spanish / Mallorcan",
@@ -1887,7 +2017,7 @@
     "patronage": "Korean Clergy, Korea",
     "summary": "First native Korean priest and 102 lay martyrs who planted and defended the Catholic faith in Joseon Korea during severe 19th-century persecutions."
   },
-  {
+
     "id": "lawrence-of-brindisi",
     "name": "St. Lawrence of Brindisi",
     "birthDate": "1559",
@@ -2182,6 +2312,23 @@
     "summary": "First canonized saint of Australia who co-founded the Josephites to establish free schools for impoverished rural children and shelters for orphans."
   },
   {
+    "id": "mary-magdalene",
+    "name": "St. Mary Magdalene",
+    "birthDate": "c. 1 AD",
+    "deathDate": "c. 60 AD",
+    "nationality": "Galilean / Judean",
+    "profession": "Disciple & Apostle to the Apostles (Apostola Apostolorum)",
+    "categories": [
+      "apostle",
+      "mystic"
+    ],
+    "gender": "female",
+    "isDoctor": false,
+    "feastDay": "July 22",
+    "patronage": "Contemplatives, Converts, Penitent Sinners, Women",
+    "summary": "Added and honored with the ancient title 'Apostle to the Apostles' (Apostola Apostolorum), having been commissioned directly by the Risen Christ on Easter morning at the empty tomb to announce His Resurrection to the Twelve (Jn 20:11–18; Mk 16:9–11)."
+  },
+  {
     "id": "mary-mother-of-god",
     "name": "Blessed Virgin Mary (Our Lady)",
     "birthDate": "c. 20 BC",
@@ -2199,23 +2346,6 @@
     "feastDay": "January 1 / August 15 / December 8",
     "patronage": "All Humanity, The Catholic Church, Mothers, Pro-Life, The Americas (Our Lady of Guadalupe)",
     "summary": "The Mother of Jesus Christ and Mother of God (Theotokos). Conceived without original sin (Immaculate Conception) and assumed body and soul into heavenly glory (Assumption), she is the Queen of Heaven, Mother of the Church, and Queen of All Saints."
-  },
-  {
-    "id": "mary-magdalene",
-    "name": "St. Mary Magdalene",
-    "birthDate": "c. 1 AD",
-    "deathDate": "c. 60 AD",
-    "nationality": "Galilean / Judean",
-    "profession": "Disciple & Apostle to the Apostles (Apostola Apostolorum)",
-    "categories": [
-      "apostle",
-      "mystic"
-    ],
-    "gender": "female",
-    "isDoctor": false,
-    "feastDay": "July 22",
-    "patronage": "Contemplatives, Converts, Penitent Sinners, Women",
-    "summary": "Added and honored with the ancient title 'Apostle to the Apostles' (Apostola Apostolorum), having been commissioned directly by the Risen Christ on Easter morning at the empty tomb to announce His Resurrection to the Twelve (Jn 20:11\u201318; Mk 16:9\u201311)."
   },
   {
     "id": "matthew-the-apostle",
@@ -2250,7 +2380,7 @@
     "isDoctor": false,
     "feastDay": "May 14",
     "patronage": "Alcoholics, Carpenters, Smallpox, Tailors",
-    "summary": "Added to the Twelve Apostles after the Ascension to replace Judas Iscariot (Acts 1:15\u201326). Having accompanied Jesus throughout His public ministry from John's baptism to the Resurrection, he was chosen by prayer and lots to restore the twelve-fold college."
+    "summary": "Added to the Twelve Apostles after the Ascension to replace Judas Iscariot (Acts 1:15–26). Having accompanied Jesus throughout His public ministry from John's baptism to the Resurrection, he was chosen by prayer and lots to restore the twelve-fold college."
   },
   {
     "id": "maximilian-kolbe",
@@ -2300,6 +2430,22 @@
     "feastDay": "September 29",
     "patronage": "Police Officers, Military, Soldiers, Paramedics, Grocers, Mariners, Radiologists, The Dying, Protection Against Evil",
     "summary": "Leader of the heavenly host ('Who is like God?') who cast Lucifer and the rebel angels out of heaven in the Book of Revelation. Revered as the defender of the Church, guardian of the faithful, and champion in spiritual warfare."
+  },
+  {
+    "id": "moses-the-prophet",
+    "name": "St. Moses the Prophet",
+    "birthDate": "c. 1391 BC",
+    "deathDate": "c. 1271 BC",
+    "nationality": "Hebrew / Israelite",
+    "profession": "Prophet, Lawgiver & Leader of Israel",
+    "categories": [
+      "laity"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "September 4",
+    "patronage": "Lawyers, Judges, Legislators",
+    "summary": "Delivered Israel from bondage in Egypt, received the Ten Commandments on Mount Sinai, and led the Chosen People to the border of the Promised Land."
   },
   {
     "id": "mother-teresa",
@@ -2373,7 +2519,7 @@
   },
   {
     "id": "oscar-romero",
-    "name": "St. \u00d3scar Romero",
+    "name": "St. Óscar Romero",
     "birthDate": "1917",
     "deathDate": "1980",
     "nationality": "Salvadoran",
@@ -2508,7 +2654,7 @@
     "isDoctor": false,
     "feastDay": "June 29",
     "patronage": "Missionaries, Evangelists, Writers, Publishers, Rome",
-    "summary": "Added as the 'Apostle to the Gentiles' through a direct revelation and calling from the Risen Christ on the road to Damascus (Acts 9:1\u201319; Gal 1:1, 15\u201316). Prolific missionary and author of fourteen New Testament epistles who was martyred in Rome."
+    "summary": "Added as the 'Apostle to the Gentiles' through a direct revelation and calling from the Risen Christ on the road to Damascus (Acts 9:1–19; Gal 1:1, 15–16). Prolific missionary and author of fourteen New Testament epistles who was martyred in Rome."
   },
   {
     "id": "paul-the-first-hermit",
@@ -2680,7 +2826,7 @@
     "isDoctor": false,
     "feastDay": "June 29",
     "patronage": "Popes, Fishermen, Netmakers, Locksmiths, Rome",
-    "summary": "Leader and spokesman of the Twelve Apostles, called by Jesus along the Sea of Galilee to be a 'fisher of men' (Mt 4:18\u201319; Mt 10:2), given the keys of the kingdom of heaven by Christ (Mt 16:18\u201319), and martyred in Rome by upside-down crucifixion."
+    "summary": "Leader and spokesman of the Twelve Apostles, called by Jesus along the Sea of Galilee to be a 'fisher of men' (Mt 4:18–19; Mt 10:2), given the keys of the kingdom of heaven by Christ (Mt 16:18–19), and martyred in Rome by upside-down crucifixion."
   },
   {
     "id": "philip-howard",
@@ -2732,7 +2878,7 @@
     "isDoctor": false,
     "feastDay": "May 3",
     "patronage": "Hatters, Pastry Chefs, Uruguay",
-    "summary": "One of the Twelve Apostles, called directly by Jesus from Bethsaida with the words 'Follow Me' (Jn 1:43\u201344; Mt 10:3), who then brought Nathanael (Bartholomew) to Christ and asked Jesus to 'show us the Father' at the Last Supper (Jn 14:8)."
+    "summary": "One of the Twelve Apostles, called directly by Jesus from Bethsaida with the words 'Follow Me' (Jn 1:43–44; Mt 10:3), who then brought Nathanael (Bartholomew) to Christ and asked Jesus to 'show us the Father' at the Last Supper (Jn 14:8)."
   },
   {
     "id": "pius-v",
@@ -2785,7 +2931,7 @@
   },
   {
     "id": "rafqa-pietra-choboq-ar-rayes",
-    "name": "St. Rafqa Pietra Choboq Ar-Ray\u00e8s (Rebecca)",
+    "name": "St. Rafqa Pietra Choboq Ar-Rayès (Rebecca)",
     "birthDate": "1832",
     "deathDate": "1914",
     "nationality": "Lebanese / Maronite",
@@ -2799,7 +2945,7 @@
     "isDoctor": false,
     "feastDay": "March 23",
     "patronage": "Loss of Parents, Sick People, Blindness, Bodily Ills",
-    "summary": "Maronite nun who joyfully united her intense physical suffering\u2014blindness and paralysis\u2014with the Passion of Jesus Christ in total serenity and love."
+    "summary": "Maronite nun who joyfully united her intense physical suffering—blindness and paralysis—with the Passion of Jesus Christ in total serenity and love."
   },
   {
     "id": "raphael-the-archangel",
@@ -2834,7 +2980,7 @@
   },
   {
     "id": "raymond-of-penafort",
-    "name": "St. Raymond of Pe\u00f1afort",
+    "name": "St. Raymond of Peñafort",
     "birthDate": "c. 1175",
     "deathDate": "1275",
     "nationality": "Spanish / Catalan",
@@ -2932,6 +3078,22 @@
     "feastDay": "August 23",
     "patronage": "The Americas, Peru, Florists, Gardeners, Embroiderers",
     "summary": "Peruvian mystic and tertiary Dominican renowned for her beauty, intense prayer, penance, and loving service to the sick and impoverished."
+  },
+  {
+    "id": "samuel-the-prophet",
+    "name": "St. Samuel the Prophet",
+    "birthDate": "c. 11th c. BC",
+    "deathDate": "c. 11th c. BC",
+    "nationality": "Israelite",
+    "profession": "Prophet & Judge",
+    "categories": [
+      "laity"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "August 20",
+    "patronage": "Hearing God's Call, Discernment",
+    "summary": "Last of the Hebrew Judges and first of the major biblical prophets who anointed both Saul and David as kings over Israel."
   },
   {
     "id": "scholastica",
@@ -3074,7 +3236,7 @@
   },
   {
     "id": "teresa-of-avila",
-    "name": "St. Teresa of \u00c1vila",
+    "name": "St. Teresa of Ávila",
     "birthDate": "1515",
     "deathDate": "1582",
     "nationality": "Spanish",
@@ -3093,7 +3255,7 @@
   },
   {
     "id": "therese-of-lisieux",
-    "name": "St. Th\u00e9r\u00e8se of Lisieux",
+    "name": "St. Thérèse of Lisieux",
     "birthDate": "1873",
     "deathDate": "1897",
     "nationality": "French",
@@ -3178,7 +3340,7 @@
     "isDoctor": false,
     "feastDay": "July 3",
     "patronage": "Architects, Builders, India, Doubters",
-    "summary": "One of the Twelve Apostles called by Jesus (Mt 10:3; Jn 11:16), renowned for his profound profession of faith 'My Lord and my God!' upon encountering the Risen Christ (Jn 20:24\u201329), who later evangelized India."
+    "summary": "One of the Twelve Apostles called by Jesus (Mt 10:3; Jn 11:16), renowned for his profound profession of faith 'My Lord and my God!' upon encountering the Risen Christ (Jn 20:24–29), who later evangelized India."
   },
   {
     "id": "timothy",
@@ -3266,7 +3428,7 @@
   },
   {
     "id": "vietnamese-martyrs",
-    "name": "The Vietnamese Martyrs (St. Andrew D\u0169ng-L\u1ea1c & Companions)",
+    "name": "The Vietnamese Martyrs (St. Andrew Dũng-Lạc & Companions)",
     "birthDate": "1745",
     "deathDate": "1862",
     "nationality": "Vietnamese, French, Spanish",
@@ -3283,7 +3445,7 @@
     "isDoctor": false,
     "feastDay": "November 24",
     "patronage": "Vietnam, Vietnamese People, Persecuted Christians, Catechists, Martyrs",
-    "summary": "A collective group of 117 martyrs\u2014including Vietnamese diocesan priest St. Andrew D\u0169ng-L\u1ea1c, 96 Vietnamese Catholics, 11 Spanish Dominicans, and 10 French missionaries\u2014who were executed between 1745 and 1862 under the persecution of the Tr\u1ecbnh and Nguy\u1ec5n dynasties for their steadfast Christian faith."
+    "summary": "A collective group of 117 martyrs—including Vietnamese diocesan priest St. Andrew Dũng-Lạc, 96 Vietnamese Catholics, 11 Spanish Dominicans, and 10 French missionaries—who were executed between 1745 and 1862 under the persecution of the Trịnh and Nguyễn dynasties for their steadfast Christian faith."
   },
   {
     "id": "vincent-de-paul",
@@ -3304,7 +3466,7 @@
   },
   {
     "id": "vincent-of-lerins",
-    "name": "St. Vincent of L\u00e9rins",
+    "name": "St. Vincent of Lérins",
     "birthDate": "c. 390",
     "deathDate": "c. 445",
     "nationality": "Gaulish / Roman",
@@ -3315,12 +3477,12 @@
     "gender": "male",
     "isDoctor": false,
     "feastDay": "May 24",
-    "patronage": "Theologians, Monks of L\u00e9rins",
-    "summary": "Fifth-century monk on the island of L\u00e9rins and Church Father celebrated for his Commonitorium, which established the Vincentian Canon for Catholic orthodoxy: what has been believed everywhere, always, and by all."
+    "patronage": "Theologians, Monks of Lérins",
+    "summary": "Fifth-century monk on the island of Lérins and Church Father celebrated for his Commonitorium, which established the Vincentian Canon for Catholic orthodoxy: what has been believed everywhere, always, and by all."
   },
   {
     "id": "wenceslaus",
-    "name": "St. Wenceslaus (V\u00e1clav)",
+    "name": "St. Wenceslaus (Václav)",
     "birthDate": "c. 907",
     "deathDate": "935",
     "nationality": "Bohemian / Czech",

@@ -731,7 +731,7 @@ void main() {
             .toList();
 
         expect(femaleSaints.length, 42);
-        expect(maleSaints.length, 145);
+        expect(maleSaints.length, 155);
         expect(groupSaints.length, 4);
         expect(otherGenderSaints.length, 3);
 
@@ -781,7 +781,7 @@ void main() {
 
       // 1. Male saints filter
       final men = SaintDatabase.searchSaints(saints, gender: 'male');
-      expect(men.length, 145);
+      expect(men.length, 155);
       expect(men.every((s) => s.isMale), isTrue);
 
       // 2. Female saints filter
@@ -1603,5 +1603,182 @@ void main() {
         }
       }
     });
+
+    test(
+      'Old Testament saints are loaded, categorized, and searchable',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+
+        final otIds = [
+          'moses-the-prophet',
+          'elijah-the-prophet',
+          'abraham-the-patriarch',
+          'david-the-king',
+          'isaiah-the-prophet',
+          'jeremiah-the-prophet',
+          'daniel-the-prophet',
+          'elisha-the-prophet',
+          'samuel-the-prophet',
+          'job-the-righteous',
+        ];
+
+        for (final id in otIds) {
+          final saint = await SaintDatabase.getSaintById(id);
+          expect(
+            saint,
+            isNotNull,
+            reason: 'Saint $id should exist in database',
+          );
+          expect(saint!.gender, 'male');
+          expect(saint.isDoctor, isFalse);
+          expect(saint.isBlessed, isFalse);
+          expect(saint.era, SaintEra.earlyChurch);
+          expect(saint.categories, contains(SaintCategory.laity));
+        }
+
+        // Check specific details
+        final moses = await SaintDatabase.getSaintById('moses-the-prophet');
+        expect(moses!.name, 'St. Moses the Prophet');
+        expect(moses.feastDay, 'September 4');
+        expect(moses.approximateYear, -1271);
+
+        final elijah = await SaintDatabase.getSaintById('elijah-the-prophet');
+        expect(elijah!.name, 'St. Elijah the Prophet');
+        expect(elijah.feastDay, 'July 20');
+        expect(elijah.approximateYear, -850);
+
+        final abraham = await SaintDatabase.getSaintById(
+          'abraham-the-patriarch',
+        );
+        expect(abraham!.name, 'St. Abraham the Patriarch');
+        expect(abraham.feastDay, 'October 9');
+        expect(abraham.approximateYear, -1750);
+
+        final david = await SaintDatabase.getSaintById('david-the-king');
+        expect(david!.name, 'St. David the King & Prophet');
+        expect(david.feastDay, 'December 29');
+        expect(david.categories, contains(SaintCategory.monarch));
+        expect(david.approximateYear, -970);
+
+        final isaiah = await SaintDatabase.getSaintById('isaiah-the-prophet');
+        expect(isaiah!.name, 'St. Isaiah the Prophet');
+        expect(isaiah.feastDay, 'May 9');
+        expect(isaiah.categories, contains(SaintCategory.martyr));
+        expect(isaiah.approximateYear, -750);
+
+        final jeremiah = await SaintDatabase.getSaintById(
+          'jeremiah-the-prophet',
+        );
+        expect(jeremiah!.name, 'St. Jeremiah the Prophet');
+        expect(jeremiah.feastDay, 'May 1');
+        expect(jeremiah.approximateYear, -570);
+
+        final daniel = await SaintDatabase.getSaintById('daniel-the-prophet');
+        expect(daniel!.name, 'St. Daniel the Prophet');
+        expect(daniel.feastDay, 'July 21');
+        expect(daniel.approximateYear, -550);
+
+        final elisha = await SaintDatabase.getSaintById('elisha-the-prophet');
+        expect(elisha!.name, 'St. Elisha the Prophet');
+        expect(elisha.feastDay, 'June 14');
+        expect(elisha.approximateYear, -850);
+
+        final samuel = await SaintDatabase.getSaintById('samuel-the-prophet');
+        expect(samuel!.name, 'St. Samuel the Prophet');
+        expect(samuel.feastDay, 'August 20');
+        expect(samuel.approximateYear, -1050);
+
+        final job = await SaintDatabase.getSaintById('job-the-righteous');
+        expect(job!.name, 'St. Job the Righteous');
+        expect(job.feastDay, 'May 10');
+        expect(job.approximateYear, -1500);
+
+        // Verify search queries find OT saints
+        expect(
+          SaintDatabase.searchSaints(
+            saints,
+            query: 'Moses',
+          ).any((s) => s.id == 'moses-the-prophet'),
+          isTrue,
+        );
+        expect(
+          SaintDatabase.searchSaints(
+            saints,
+            query: 'Elijah',
+          ).any((s) => s.id == 'elijah-the-prophet'),
+          isTrue,
+        );
+        expect(
+          SaintDatabase.searchSaints(
+            saints,
+            query: 'Abraham',
+          ).any((s) => s.id == 'abraham-the-patriarch'),
+          isTrue,
+        );
+        expect(
+          SaintDatabase.searchSaints(
+            saints,
+            query: 'David',
+          ).any((s) => s.id == 'david-the-king'),
+          isTrue,
+        );
+        expect(
+          SaintDatabase.searchSaints(
+            saints,
+            query: 'Isaiah',
+          ).any((s) => s.id == 'isaiah-the-prophet'),
+          isTrue,
+        );
+        expect(
+          SaintDatabase.searchSaints(
+            saints,
+            query: 'Jeremiah',
+          ).any((s) => s.id == 'jeremiah-the-prophet'),
+          isTrue,
+        );
+        expect(
+          SaintDatabase.searchSaints(
+            saints,
+            query: 'Daniel',
+          ).any((s) => s.id == 'daniel-the-prophet'),
+          isTrue,
+        );
+        expect(
+          SaintDatabase.searchSaints(
+            saints,
+            query: 'Elisha',
+          ).any((s) => s.id == 'elisha-the-prophet'),
+          isTrue,
+        );
+        expect(
+          SaintDatabase.searchSaints(
+            saints,
+            query: 'Samuel',
+          ).any((s) => s.id == 'samuel-the-prophet'),
+          isTrue,
+        );
+        expect(
+          SaintDatabase.searchSaints(
+            saints,
+            query: 'Job',
+          ).any((s) => s.id == 'job-the-righteous'),
+          isTrue,
+        );
+
+        // Verify chronological sorting puts Abraham, Job, Moses first (excluding angelic -9999)
+        final chronoAsc = SaintDatabase.searchSaints(
+          saints,
+          sortBy: SaintSortOption.chronologicalAsc,
+        );
+        final humanChrono = chronoAsc
+            .where(
+              (s) => s.approximateYear != null && s.approximateYear! > -9000,
+            )
+            .toList();
+        expect(humanChrono.first.id, 'abraham-the-patriarch');
+        expect(humanChrono[1].id, 'job-the-righteous');
+        expect(humanChrono[2].id, 'moses-the-prophet');
+      },
+    );
   });
 }
