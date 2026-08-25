@@ -231,6 +231,45 @@ class StringListConverter extends TypeConverter<List<String>, String> {
   }
 }
 
+class BibleRibbonsConverter
+    extends TypeConverter<List<BibleRibbonBookmark>, String> {
+  const BibleRibbonsConverter();
+
+  @override
+  List<BibleRibbonBookmark> fromSql(String fromDb) {
+    if (fromDb.isEmpty) return [];
+    try {
+      final dynamic decoded = jsonDecode(fromDb);
+      if (decoded is! List) return [];
+      final List<BibleRibbonBookmark> results = [];
+      for (final item in decoded) {
+        if (item is! Map) continue;
+        final map = item is Map<String, dynamic>
+            ? item
+            : Map<String, dynamic>.from(item);
+        results.add(BibleRibbonBookmark.fromJson(map));
+      }
+      return results;
+    } catch (e, stack) {
+      debugPrint('BibleRibbonsConverter.fromSql error: $e\n$stack');
+      return [];
+    }
+  }
+
+  @override
+  String toSql(List<BibleRibbonBookmark> value) {
+    try {
+      final List<Map<String, dynamic>> list = value
+          .map((item) => item.toJson())
+          .toList();
+      return jsonEncode(list);
+    } catch (e, stack) {
+      debugPrint('BibleRibbonsConverter.toSql error: $e\n$stack');
+      return '[]';
+    }
+  }
+}
+
 @UseRowClass(Prayer)
 class Prayers extends Table {
   IntColumn get isarId => integer().autoIncrement()();
@@ -301,6 +340,9 @@ class UserSettingsTable extends Table {
       integer().withDefault(const Constant(21))();
   IntColumn get nightPrayerReminderMinute =>
       integer().withDefault(const Constant(30))();
+  TextColumn get bibleRibbons => text()
+      .map(NullAwareTypeConverter.wrap(const BibleRibbonsConverter()))
+      .nullable()();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -315,7 +357,7 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 15;
+  int get schemaVersion => 16;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -469,6 +511,12 @@ class BibleDatabase extends _$BibleDatabase {
         await addColumnIfNotExists(
           userSettingsTable,
           userSettingsTable.nightPrayerReminderMinute,
+        );
+      }
+      if (from < 16) {
+        await addColumnIfNotExists(
+          userSettingsTable,
+          userSettingsTable.bibleRibbons,
         );
       }
     },
@@ -837,6 +885,7 @@ class BibleDatabase extends _$BibleDatabase {
         nightPrayerReminderEnabled: Value(settings.nightPrayerReminderEnabled),
         nightPrayerReminderHour: Value(settings.nightPrayerReminderHour),
         nightPrayerReminderMinute: Value(settings.nightPrayerReminderMinute),
+        bibleRibbons: Value(settings.bibleRibbons),
       ),
     );
   }

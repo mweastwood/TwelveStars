@@ -128,6 +128,13 @@ void main() {
           showBibleTranslationSelectors: true,
           bibleNumberingSystemCode: 'vulgate',
           missalReadingsOnly: true,
+          bibleRibbons: [
+            const BibleRibbonBookmark(
+              ribbonIndex: 0,
+              bookNumber: 1,
+              chapter: 1,
+            ),
+          ],
         );
 
         int notificationCount = 0;
@@ -149,6 +156,9 @@ void main() {
           expect(controller.value.showBibleTranslationSelectors, isTrue);
           expect(controller.value.bibleNumberingSystemCode, equals('vulgate'));
           expect(controller.value.missalReadingsOnly, isTrue);
+          expect(controller.value.bibleRibbons, isNotNull);
+          expect(controller.value.bibleRibbons!.length, equals(1));
+          expect(controller.value.bibleRibbons!.first.ribbonIndex, equals(0));
 
           expect(PrayerDatabase.mockSettings, equals(updatedSettings));
           expect(

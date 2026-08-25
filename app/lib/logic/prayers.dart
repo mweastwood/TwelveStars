@@ -256,6 +256,44 @@ enum BibleNumberingSystem {
   }
 }
 
+class BibleRibbonBookmark {
+  final int ribbonIndex; // 0 to 3
+  final int bookNumber;
+  final int chapter;
+
+  const BibleRibbonBookmark({
+    required this.ribbonIndex,
+    required this.bookNumber,
+    required this.chapter,
+  });
+
+  Map<String, dynamic> toJson() => {
+    'ribbonIndex': ribbonIndex,
+    'bookNumber': bookNumber,
+    'chapter': chapter,
+  };
+
+  factory BibleRibbonBookmark.fromJson(Map<String, dynamic> json) =>
+      BibleRibbonBookmark(
+        ribbonIndex: json['ribbonIndex'] as int? ?? 0,
+        bookNumber: json['bookNumber'] as int? ?? 1,
+        chapter: json['chapter'] as int? ?? 1,
+      );
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BibleRibbonBookmark &&
+          runtimeType == other.runtimeType &&
+          ribbonIndex == other.ribbonIndex &&
+          bookNumber == other.bookNumber &&
+          chapter == other.chapter;
+
+  @override
+  int get hashCode =>
+      ribbonIndex.hashCode ^ bookNumber.hashCode ^ chapter.hashCode;
+}
+
 class UserSettings {
   int id = 1;
   String primaryLanguageCode;
@@ -286,6 +324,7 @@ class UserSettings {
   bool nightPrayerReminderEnabled;
   int nightPrayerReminderHour;
   int nightPrayerReminderMinute;
+  List<BibleRibbonBookmark>? bibleRibbons;
 
   UserSettings({
     this.id = 1,
@@ -317,6 +356,7 @@ class UserSettings {
     this.nightPrayerReminderEnabled = false,
     this.nightPrayerReminderHour = 21,
     this.nightPrayerReminderMinute = 30,
+    this.bibleRibbons,
   });
 
   AppThemeMode get appThemeMode => AppThemeMode.fromCode(appThemeModeCode);

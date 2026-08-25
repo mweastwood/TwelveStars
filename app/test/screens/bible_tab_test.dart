@@ -1533,5 +1533,113 @@ void main() {
         );
       },
     );
+
+    testWidgets('tapping unassigned ribbon shows instructional snackbar', (
+      WidgetTester tester,
+    ) async {
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            BibleVersesCompanion.insert(
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning...',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: BibleTab())),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byKey(const Key('bible_ribbon_0')));
+      await tester.pump();
+
+      expect(
+        find.text('Long press this ribbon to bookmark the current chapter'),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets(
+      'long pressing ribbon bookmarks current chapter and updates settings',
+      (WidgetTester tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'In the beginning...',
+                translationCode: 'CPDV',
+              ),
+            );
+        PrayerDatabase.mockPrayers = null;
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        await tester.longPress(find.byKey(const Key('bible_ribbon_2')));
+        await tester.pump();
+
+        expect(find.text('Bookmarked Genesis 1 to ribbon'), findsOneWidget);
+
+        final settings = await testDb.getUserSettings();
+        expect(settings?.bibleRibbons, isNotNull);
+        expect(settings!.bibleRibbons!.length, equals(1));
+        expect(settings.bibleRibbons!.first.ribbonIndex, equals(2));
+        expect(settings.bibleRibbons!.first.bookNumber, equals(1));
+        expect(settings.bibleRibbons!.first.chapter, equals(1));
+      },
+    );
+
+    testWidgets('tapping assigned ribbon jumps to bookmarked chapter', (
+      WidgetTester tester,
+    ) async {
+      await tester.runAsync(() async {
+        await testDb.ensureBookPopulated(1, 'Genesis', 'GEN');
+        await testDb.ensureBookPopulated(2, 'Exodus', 'EXO');
+      });
+
+      final settings = UserSettings(
+        lastBibleBookNumber: 1, // Genesis 1
+        lastBibleChapter: 1,
+        bibleRibbons: [
+          const BibleRibbonBookmark(
+            ribbonIndex: 1,
+            bookNumber: 2,
+            chapter: 1,
+          ), // Exodus 1
+        ],
+      );
+      await testDb.saveUserSettings(settings);
+      PrayerDatabase.mockPrayers = null;
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: BibleTab())),
+      );
+      await tester.pumpAndSettle();
+
+      // Starts on Genesis 1
+      expect(find.text('Genesis 1'), findsNWidgets(2));
+
+      // Tap ribbon 1 (Gold Ribbon -> Exodus 1)
+      await tester.tap(find.byKey(const Key('bible_ribbon_1')));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Jumped to Exodus 1'), findsOneWidget);
+      expect(find.text('Exodus 1'), findsNWidgets(2));
+
+      final updatedSettings = await testDb.getUserSettings();
+      expect(updatedSettings?.lastBibleBookNumber, equals(2));
+      expect(updatedSettings?.lastBibleChapter, equals(1));
+    });
   });
 }
