@@ -3451,6 +3451,21 @@ class $UserSettingsTableTable extends UserSettingsTable
         defaultValue: const Constant(30),
       );
   @override
+  late final GeneratedColumnWithTypeConverter<
+    List<BibleRibbonBookmark>?,
+    String
+  >
+  bibleRibbons =
+      GeneratedColumn<String>(
+        'bible_ribbons',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      ).withConverter<List<BibleRibbonBookmark>?>(
+        $UserSettingsTableTable.$converterbibleRibbons,
+      );
+  @override
   List<GeneratedColumn> get $columns => [
     id,
     primaryLanguageCode,
@@ -3481,6 +3496,7 @@ class $UserSettingsTableTable extends UserSettingsTable
     nightPrayerReminderEnabled,
     nightPrayerReminderHour,
     nightPrayerReminderMinute,
+    bibleRibbons,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -3870,6 +3886,12 @@ class $UserSettingsTableTable extends UserSettingsTable
         DriftSqlType.int,
         data['${effectivePrefix}night_prayer_reminder_minute'],
       )!,
+      bibleRibbons: $UserSettingsTableTable.$converterbibleRibbons.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}bible_ribbons'],
+        ),
+      ),
     );
   }
 
@@ -3884,6 +3906,10 @@ class $UserSettingsTableTable extends UserSettingsTable
   );
   static TypeConverter<List<String>?, String?> $convertermissalHiddenPrayers =
       NullAwareTypeConverter.wrap(const StringListConverter());
+  static TypeConverter<List<BibleRibbonBookmark>?, String?>
+  $converterbibleRibbons = NullAwareTypeConverter.wrap(
+    const BibleRibbonsConverter(),
+  );
 }
 
 class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
@@ -3916,6 +3942,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
   final Value<bool> nightPrayerReminderEnabled;
   final Value<int> nightPrayerReminderHour;
   final Value<int> nightPrayerReminderMinute;
+  final Value<List<BibleRibbonBookmark>?> bibleRibbons;
   const UserSettingsTableCompanion({
     this.id = const Value.absent(),
     this.primaryLanguageCode = const Value.absent(),
@@ -3946,6 +3973,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     this.nightPrayerReminderEnabled = const Value.absent(),
     this.nightPrayerReminderHour = const Value.absent(),
     this.nightPrayerReminderMinute = const Value.absent(),
+    this.bibleRibbons = const Value.absent(),
   });
   UserSettingsTableCompanion.insert({
     this.id = const Value.absent(),
@@ -3977,6 +4005,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     this.nightPrayerReminderEnabled = const Value.absent(),
     this.nightPrayerReminderHour = const Value.absent(),
     this.nightPrayerReminderMinute = const Value.absent(),
+    this.bibleRibbons = const Value.absent(),
   }) : primaryLanguageCode = Value(primaryLanguageCode),
        compareLanguageCode = Value(compareLanguageCode),
        primaryBibleTranslation = Value(primaryBibleTranslation),
@@ -4011,6 +4040,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Expression<bool>? nightPrayerReminderEnabled,
     Expression<int>? nightPrayerReminderHour,
     Expression<int>? nightPrayerReminderMinute,
+    Expression<String>? bibleRibbons,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -4066,6 +4096,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
         'night_prayer_reminder_hour': nightPrayerReminderHour,
       if (nightPrayerReminderMinute != null)
         'night_prayer_reminder_minute': nightPrayerReminderMinute,
+      if (bibleRibbons != null) 'bible_ribbons': bibleRibbons,
     });
   }
 
@@ -4099,6 +4130,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
     Value<bool>? nightPrayerReminderEnabled,
     Value<int>? nightPrayerReminderHour,
     Value<int>? nightPrayerReminderMinute,
+    Value<List<BibleRibbonBookmark>?>? bibleRibbons,
   }) {
     return UserSettingsTableCompanion(
       id: id ?? this.id,
@@ -4145,6 +4177,7 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
           nightPrayerReminderHour ?? this.nightPrayerReminderHour,
       nightPrayerReminderMinute:
           nightPrayerReminderMinute ?? this.nightPrayerReminderMinute,
+      bibleRibbons: bibleRibbons ?? this.bibleRibbons,
     );
   }
 
@@ -4282,6 +4315,13 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
         nightPrayerReminderMinute.value,
       );
     }
+    if (bibleRibbons.present) {
+      map['bible_ribbons'] = Variable<String>(
+        $UserSettingsTableTable.$converterbibleRibbons.toSql(
+          bibleRibbons.value,
+        ),
+      );
+    }
     return map;
   }
 
@@ -4320,7 +4360,8 @@ class UserSettingsTableCompanion extends UpdateCompanion<UserSettings> {
           ..write('morningPrayerReminderMinute: $morningPrayerReminderMinute, ')
           ..write('nightPrayerReminderEnabled: $nightPrayerReminderEnabled, ')
           ..write('nightPrayerReminderHour: $nightPrayerReminderHour, ')
-          ..write('nightPrayerReminderMinute: $nightPrayerReminderMinute')
+          ..write('nightPrayerReminderMinute: $nightPrayerReminderMinute, ')
+          ..write('bibleRibbons: $bibleRibbons')
           ..write(')'))
         .toString();
   }
@@ -6050,6 +6091,7 @@ typedef $$UserSettingsTableTableCreateCompanionBuilder =
       Value<bool> nightPrayerReminderEnabled,
       Value<int> nightPrayerReminderHour,
       Value<int> nightPrayerReminderMinute,
+      Value<List<BibleRibbonBookmark>?> bibleRibbons,
     });
 typedef $$UserSettingsTableTableUpdateCompanionBuilder =
     UserSettingsTableCompanion Function({
@@ -6082,6 +6124,7 @@ typedef $$UserSettingsTableTableUpdateCompanionBuilder =
       Value<bool> nightPrayerReminderEnabled,
       Value<int> nightPrayerReminderHour,
       Value<int> nightPrayerReminderMinute,
+      Value<List<BibleRibbonBookmark>?> bibleRibbons,
     });
 
 class $$UserSettingsTableTableFilterComposer
@@ -6243,6 +6286,16 @@ class $$UserSettingsTableTableFilterComposer
     column: $table.nightPrayerReminderMinute,
     builder: (column) => ColumnFilters(column),
   );
+
+  ColumnWithTypeConverterFilters<
+    List<BibleRibbonBookmark>?,
+    List<BibleRibbonBookmark>,
+    String
+  >
+  get bibleRibbons => $composableBuilder(
+    column: $table.bibleRibbons,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 }
 
 class $$UserSettingsTableTableOrderingComposer
@@ -6396,6 +6449,11 @@ class $$UserSettingsTableTableOrderingComposer
 
   ColumnOrderings<int> get nightPrayerReminderMinute => $composableBuilder(
     column: $table.nightPrayerReminderMinute,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get bibleRibbons => $composableBuilder(
+    column: $table.bibleRibbons,
     builder: (column) => ColumnOrderings(column),
   );
 }
@@ -6553,6 +6611,12 @@ class $$UserSettingsTableTableAnnotationComposer
     column: $table.nightPrayerReminderMinute,
     builder: (column) => column,
   );
+
+  GeneratedColumnWithTypeConverter<List<BibleRibbonBookmark>?, String>
+  get bibleRibbons => $composableBuilder(
+    column: $table.bibleRibbons,
+    builder: (column) => column,
+  );
 }
 
 class $$UserSettingsTableTableTableManager
@@ -6626,6 +6690,8 @@ class $$UserSettingsTableTableTableManager
                 Value<bool> nightPrayerReminderEnabled = const Value.absent(),
                 Value<int> nightPrayerReminderHour = const Value.absent(),
                 Value<int> nightPrayerReminderMinute = const Value.absent(),
+                Value<List<BibleRibbonBookmark>?> bibleRibbons =
+                    const Value.absent(),
               }) => UserSettingsTableCompanion(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -6656,6 +6722,7 @@ class $$UserSettingsTableTableTableManager
                 nightPrayerReminderEnabled: nightPrayerReminderEnabled,
                 nightPrayerReminderHour: nightPrayerReminderHour,
                 nightPrayerReminderMinute: nightPrayerReminderMinute,
+                bibleRibbons: bibleRibbons,
               ),
           createCompanionCallback:
               ({
@@ -6690,6 +6757,8 @@ class $$UserSettingsTableTableTableManager
                 Value<bool> nightPrayerReminderEnabled = const Value.absent(),
                 Value<int> nightPrayerReminderHour = const Value.absent(),
                 Value<int> nightPrayerReminderMinute = const Value.absent(),
+                Value<List<BibleRibbonBookmark>?> bibleRibbons =
+                    const Value.absent(),
               }) => UserSettingsTableCompanion.insert(
                 id: id,
                 primaryLanguageCode: primaryLanguageCode,
@@ -6720,6 +6789,7 @@ class $$UserSettingsTableTableTableManager
                 nightPrayerReminderEnabled: nightPrayerReminderEnabled,
                 nightPrayerReminderHour: nightPrayerReminderHour,
                 nightPrayerReminderMinute: nightPrayerReminderMinute,
+                bibleRibbons: bibleRibbons,
               ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))

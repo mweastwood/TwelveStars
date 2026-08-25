@@ -1,13 +1,16 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
 import 'package:twelve_stars/widgets/bible_translation_selector_card.dart';
 import 'package:twelve_stars/widgets/bible_translation_selector_dialog.dart';
 import 'package:twelve_stars/widgets/reader/bible_bottom_navigation_panel.dart';
+import 'package:twelve_stars/widgets/reader/bible_ribbons_widget.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 
 class BibleChapterRef {
@@ -482,6 +485,81 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     }
   }
 
+  void _onRibbonTap(int index, BibleRibbonBookmark? bookmark) {
+    if (bookmark != null) {
+      final book = catholicBooks.firstWhere(
+        (b) => b.bookNumber == bookmark.bookNumber,
+        orElse: () => catholicBooks.first,
+      );
+      _navigateToChapter(book, bookmark.chapter);
+      setState(() {
+        _selectedBookForPicker = book;
+      });
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Jumped to ${book.bookName} ${bookmark.chapter}'),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Long press this ribbon to bookmark the current chapter',
+          ),
+          duration: Duration(seconds: 2),
+        ),
+      );
+    }
+  }
+
+  Future<void> _onRibbonLongPress(int index) async {
+    final currentRef = _allChapters[_currentPageIndex];
+    if (_settings?.hapticsEnabled ?? true) {
+      HapticFeedback.mediumImpact();
+    }
+    final newBookmark = BibleRibbonBookmark(
+      ribbonIndex: index,
+      bookNumber: currentRef.book.bookNumber,
+      chapter: currentRef.chapter,
+    );
+
+    var settings = _settings;
+    if (settings == null) {
+      settings = await PrayerDatabase.loadSettings();
+      _settings = settings;
+    }
+
+    final updatedRibbons = List<BibleRibbonBookmark>.from(
+      settings.bibleRibbons ?? [],
+    );
+    updatedRibbons.removeWhere((b) => b.ribbonIndex == index);
+    updatedRibbons.add(newBookmark);
+    updatedRibbons.sort((a, b) => a.ribbonIndex.compareTo(b.ribbonIndex));
+    settings.bibleRibbons = updatedRibbons;
+
+    setState(() {
+      _settings = settings;
+    });
+
+    await PrayerDatabase.saveSettings(settings);
+    await UserSettingsController.instance.update(settings);
+
+    if (mounted) {
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'Bookmarked ${currentRef.book.bookName} ${currentRef.chapter} to ribbon',
+          ),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -584,7 +662,18 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
             },
           ),
 
-          // 2. Floating Translation Selector
+          // 2. Ribbons Bookmark Overlay
+          Positioned(
+            top: 0,
+            right: 16,
+            child: BibleRibbonsWidget(
+              bookmarks: _settings?.bibleRibbons,
+              onRibbonTap: _onRibbonTap,
+              onRibbonLongPress: _onRibbonLongPress,
+            ),
+          ),
+
+          // 3. Floating Translation Selector
           Positioned(
             top: 0,
             left: 0,
