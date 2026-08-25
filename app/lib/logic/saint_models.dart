@@ -376,10 +376,7 @@ class Saint {
     final isBiblicalPatriarch = const {
       'abraham-the-patriarch',
       'job-the-righteous',
-      'aaron-the-high-priest',
       'abel-the-righteous',
-      'eleazar-the-scribe',
-      'ezra-the-scribe',
       'melchizedek-the-king',
     }.contains(id);
 
@@ -426,14 +423,11 @@ class Saint {
     // 3.3 Judge
     final isBiblicalJudge = const {
       'samuel-the-prophet',
-      'moses-the-prophet',
       'gideon-the-judge',
       'joshua-the-judge',
     }.contains(id);
 
-    if (isBiblicalJudge ||
-        profLower.contains('judge') ||
-        profLower.contains('lawgiver')) {
+    if (isBiblicalJudge || profLower.contains('judge')) {
       list.add(SaintCategory.judge);
     }
 
@@ -687,6 +681,7 @@ class Saint {
                 !profLower.contains('foster father') &&
                 !profLower.contains('picpus fathers') &&
                 !profLower.contains('holy father'))) &&
+        !list.contains(SaintCategory.holyFamily) &&
         !list.contains(SaintCategory.bishop) &&
         !list.contains(SaintCategory.pope) &&
         !list.contains(SaintCategory.apostle) &&
@@ -695,6 +690,7 @@ class Saint {
         !list.contains(SaintCategory.judge);
 
     if ((isExplicitLayKeyword || isKnownLaySaint) &&
+        !list.contains(SaintCategory.holyFamily) &&
         !list.contains(SaintCategory.apostle) &&
         !list.contains(SaintCategory.patriarch) &&
         !list.contains(SaintCategory.prophet) &&
@@ -809,6 +805,10 @@ class Saint {
 
     // 14. Priest
     final isKnownPriest = const {
+      'aaron-the-high-priest',
+      'ezekiel-the-prophet',
+      'ezra-the-scribe',
+      'zechariah-the-prophet',
       'anthony-of-padua',
       'bede-the-venerable',
       'bernard-of-clairvaux',
