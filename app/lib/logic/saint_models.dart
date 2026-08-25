@@ -6,6 +6,9 @@ enum SaintCategory {
   group,
   holyFamily,
   angel,
+  patriarch,
+  prophet,
+  judge,
   apostle,
   evangelist,
   doctor,
@@ -31,6 +34,12 @@ enum SaintCategory {
         return 'Holy Family';
       case SaintCategory.angel:
         return 'Archangel & Angel';
+      case SaintCategory.patriarch:
+        return 'Patriarch';
+      case SaintCategory.prophet:
+        return 'Prophet';
+      case SaintCategory.judge:
+        return 'Judge';
       case SaintCategory.apostle:
         return 'Apostle';
       case SaintCategory.evangelist:
@@ -75,6 +84,12 @@ enum SaintCategory {
         return Icons.family_restroom_rounded;
       case SaintCategory.angel:
         return Icons.flare_rounded;
+      case SaintCategory.patriarch:
+        return Icons.foundation_rounded;
+      case SaintCategory.prophet:
+        return Icons.record_voice_over_rounded;
+      case SaintCategory.judge:
+        return Icons.gavel_rounded;
       case SaintCategory.apostle:
         return Icons.stars_rounded;
       case SaintCategory.evangelist:
@@ -119,6 +134,12 @@ enum SaintCategory {
         return const Color(0xFFAD1457); // Crimson / Rose 800
       case SaintCategory.angel:
         return const Color(0xFF00ACC1); // Cyan 600
+      case SaintCategory.patriarch:
+        return const Color(0xFF8D6E63); // Brown 400
+      case SaintCategory.prophet:
+        return const Color(0xFFC2410C); // Deep Orange / Terracotta 700
+      case SaintCategory.judge:
+        return const Color(0xFF475569); // Slate 600
       case SaintCategory.apostle:
         return AppThemeTokens.marianBlue;
       case SaintCategory.evangelist:
@@ -158,7 +179,8 @@ enum SaintCategory {
 /// Historical eras for timeline filtering.
 enum SaintEra {
   all,
-  earlyChurch, // 1st - 5th Century (<= 500)
+  oldCovenant, // Old Testament / BC (<= 0)
+  earlyChurch, // 1st - 5th Century (1 - 500)
   medieval, // 6th - 14th Century (501 - 1499)
   reformation, // 15th - 18th Century (1500 - 1799)
   modern; // 19th - 21st Century (1800+)
@@ -167,6 +189,8 @@ enum SaintEra {
     switch (this) {
       case SaintEra.all:
         return 'All Eras';
+      case SaintEra.oldCovenant:
+        return 'Old Covenant (BC)';
       case SaintEra.earlyChurch:
         return 'Early Church (1st–5th c.)';
       case SaintEra.medieval:
@@ -348,6 +372,71 @@ class Saint {
       list.add(SaintCategory.holyFamily);
     }
 
+    // 3.1 Patriarch
+    final isBiblicalPatriarch = const {
+      'abraham-the-patriarch',
+      'job-the-righteous',
+      'aaron-the-high-priest',
+      'abel-the-righteous',
+      'eleazar-the-scribe',
+      'ezra-the-scribe',
+      'melchizedek-the-king',
+    }.contains(id);
+
+    if (isBiblicalPatriarch ||
+        profLower.contains('patriarch & father of faith') ||
+        profLower.contains('patriarch & man of patience') ||
+        nameLower.contains('the patriarch')) {
+      list.add(SaintCategory.patriarch);
+    }
+
+    // 3.2 Prophet
+    final isBiblicalProphet = const {
+      'moses-the-prophet',
+      'elijah-the-prophet',
+      'elisha-the-prophet',
+      'isaiah-the-prophet',
+      'jeremiah-the-prophet',
+      'daniel-the-prophet',
+      'samuel-the-prophet',
+      'david-the-king',
+      'aaron-the-high-priest',
+      'amos-the-prophet',
+      'ezekiel-the-prophet',
+      'ezra-the-scribe',
+      'habakkuk-the-prophet',
+      'haggai-the-prophet',
+      'hosea-the-prophet',
+      'joel-the-prophet',
+      'jonah-the-prophet',
+      'joshua-the-judge',
+      'micah-the-prophet',
+      'nahum-the-prophet',
+      'obadiah-the-prophet',
+      'zechariah-the-prophet',
+      'zephaniah-the-prophet',
+    }.contains(id);
+
+    if (isBiblicalProphet ||
+        profLower.contains('prophet') ||
+        nameLower.contains('the prophet')) {
+      list.add(SaintCategory.prophet);
+    }
+
+    // 3.3 Judge
+    final isBiblicalJudge = const {
+      'samuel-the-prophet',
+      'moses-the-prophet',
+      'gideon-the-judge',
+      'joshua-the-judge',
+    }.contains(id);
+
+    if (isBiblicalJudge ||
+        profLower.contains('judge') ||
+        profLower.contains('lawgiver')) {
+      list.add(SaintCategory.judge);
+    }
+
     // 4. Apostle
     final isBiblicalApostle = const {
       'andrew-the-apostle',
@@ -426,7 +515,17 @@ class Saint {
         profLower.contains('cardinal') ||
         (profLower.contains('patriarch') &&
             !profLower.contains('patriarch of christian monasticism') &&
-            !profLower.contains('patriarch of western monasticism'));
+            !profLower.contains('patriarch of western monasticism') &&
+            !profLower.contains('patriarch & father of faith') &&
+            !profLower.contains('patriarch & man of patience') &&
+            !profLower.contains('holy patriarch') &&
+            !id.contains('abraham') &&
+            !id.contains('job') &&
+            !id.contains('aaron') &&
+            !id.contains('abel') &&
+            !id.contains('eleazar') &&
+            !id.contains('ezra') &&
+            !id.contains('melchizedek'));
     if (isEpiscopalTitle) {
       list.add(SaintCategory.bishop);
     }
@@ -583,15 +682,23 @@ class Saint {
                 !profLower.contains('father of the church') &&
                 !profLower.contains('father of western monasticism') &&
                 !profLower.contains('father of christian monasticism') &&
+                !profLower.contains('father of faith') &&
+                !profLower.contains('spiritual father') &&
                 !profLower.contains('foster father') &&
                 !profLower.contains('picpus fathers') &&
                 !profLower.contains('holy father'))) &&
         !list.contains(SaintCategory.bishop) &&
         !list.contains(SaintCategory.pope) &&
-        !list.contains(SaintCategory.apostle);
+        !list.contains(SaintCategory.apostle) &&
+        !list.contains(SaintCategory.patriarch) &&
+        !list.contains(SaintCategory.prophet) &&
+        !list.contains(SaintCategory.judge);
 
     if ((isExplicitLayKeyword || isKnownLaySaint) &&
-        !list.contains(SaintCategory.apostle)) {
+        !list.contains(SaintCategory.apostle) &&
+        !list.contains(SaintCategory.patriarch) &&
+        !list.contains(SaintCategory.prophet) &&
+        !list.contains(SaintCategory.judge)) {
       list.add(SaintCategory.laity);
     }
 
@@ -752,7 +859,10 @@ class Saint {
                 profLower.contains('curé') ||
                 profLower.contains('confessor')) &&
             !list.contains(SaintCategory.pope) &&
-            !list.contains(SaintCategory.bishop))) {
+            !list.contains(SaintCategory.bishop) &&
+            !list.contains(SaintCategory.patriarch) &&
+            !list.contains(SaintCategory.prophet) &&
+            !list.contains(SaintCategory.judge))) {
       list.add(SaintCategory.priest);
     }
 
@@ -870,32 +980,31 @@ class Saint {
       return null;
     }
     final lower = dateStr.toLowerCase();
-    if (lower.contains('1st century')) return 50;
-    if (lower.contains('2nd century')) return 150;
-    if (lower.contains('3rd century')) return 250;
-    if (lower.contains('4th century')) return 350;
-    if (lower.contains('5th century')) return 450;
-    if (lower.contains('6th century')) return 550;
-    if (lower.contains('7th century')) return 650;
-    if (lower.contains('8th century')) return 750;
-    if (lower.contains('9th century')) return 850;
-    if (lower.contains('10th century')) return 950;
-    if (lower.contains('11th century')) return 1050;
-    if (lower.contains('12th century')) return 1150;
-    if (lower.contains('13th century')) return 1250;
-    if (lower.contains('14th century')) return 1350;
-    if (lower.contains('15th century')) return 1450;
-    if (lower.contains('16th century')) return 1550;
-    if (lower.contains('17th century')) return 1650;
-    if (lower.contains('18th century')) return 1750;
-    if (lower.contains('19th century')) return 1850;
-    if (lower.contains('20th century')) return 1950;
+    final isBc = lower.contains('bc') || lower.contains('b.c.');
+
+    final millenniumMatch = RegExp(
+      r'(\d+)(?:st|nd|rd|th)?\s+millennium',
+    ).firstMatch(lower);
+    if (millenniumMatch != null) {
+      final m = int.parse(millenniumMatch.group(1)!);
+      final year = m * 1000 - 500;
+      return isBc ? -year : year;
+    }
+
+    final centuryMatch = RegExp(
+      r'(\d+)(?:st|nd|rd|th)?\s+(?:c\.|cent\.|century\b|c\b|cent\b)',
+    ).firstMatch(lower);
+    if (centuryMatch != null) {
+      final c = int.parse(centuryMatch.group(1)!);
+      final year = c * 100 - 50;
+      return isBc ? -year : year;
+    }
 
     final match = RegExp(r'(\d{1,4})').firstMatch(dateStr);
     if (match != null) {
       var year = int.tryParse(match.group(1)!);
       if (year != null) {
-        if (lower.contains('bc') || lower.contains('b.c.')) {
+        if (isBc) {
           year = -year;
         }
         return year;
@@ -906,8 +1015,10 @@ class Saint {
 
   /// Historical era based on approximate year.
   SaintEra get era {
+    if (nationality.toLowerCase().contains('angelic')) return SaintEra.all;
     final year = approximateYear;
     if (year == null) return SaintEra.all;
+    if (year <= 0) return SaintEra.oldCovenant;
     if (year <= 500) return SaintEra.earlyChurch;
     if (year <= 1499) return SaintEra.medieval;
     if (year <= 1799) return SaintEra.reformation;
