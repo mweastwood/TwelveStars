@@ -1,13 +1,13 @@
 [
   {
     "id": "abraham-the-patriarch",
-    "name": "St. Abraham the Patriarch",
+    "name": "Abraham the Patriarch",
     "birthDate": "c. 18th c. BC",
     "deathDate": "c. 18th c. BC",
     "nationality": "Hebrew",
     "profession": "Patriarch & Father of Faith",
     "categories": [
-      "laity"
+      "patriarch"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -877,13 +877,13 @@
   },
   {
     "id": "daniel-the-prophet",
-    "name": "St. Daniel the Prophet",
+    "name": "Daniel the Prophet",
     "birthDate": "c. 6th c. BC",
     "deathDate": "c. 6th c. BC",
     "nationality": "Judean",
     "profession": "Major Prophet & Court Official",
     "categories": [
-      "laity"
+      "prophet"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -893,14 +893,14 @@
   },
   {
     "id": "david-the-king",
-    "name": "St. David the King & Prophet",
+    "name": "David the King & Prophet",
     "birthDate": "c. 1040 BC",
     "deathDate": "c. 970 BC",
     "nationality": "Israelite",
     "profession": "King of Israel, Prophet & Psalmist",
     "categories": [
-      "monarch",
-      "laity"
+      "prophet",
+      "monarch"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -993,13 +993,13 @@
   },
   {
     "id": "elijah-the-prophet",
-    "name": "St. Elijah the Prophet",
+    "name": "Elijah the Prophet",
     "birthDate": "c. 9th c. BC",
     "deathDate": "c. 9th c. BC",
     "nationality": "Israelite",
     "profession": "Prophet & Spiritual Father of the Carmelites",
     "categories": [
-      "laity"
+      "prophet"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -1009,13 +1009,13 @@
   },
   {
     "id": "elisha-the-prophet",
-    "name": "St. Elisha the Prophet",
+    "name": "Elisha the Prophet",
     "birthDate": "c. 9th c. BC",
     "deathDate": "c. 9th c. BC",
     "nationality": "Israelite",
     "profession": "Prophet & Wonderworker",
     "categories": [
-      "laity"
+      "prophet"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -1439,14 +1439,14 @@
   },
   {
     "id": "isaiah-the-prophet",
-    "name": "St. Isaiah the Prophet",
+    "name": "Isaiah the Prophet",
     "birthDate": "c. 8th c. BC",
     "deathDate": "c. 8th c. BC",
     "nationality": "Judean",
     "profession": "Major Prophet & Martyr",
     "categories": [
-      "martyr",
-      "laity"
+      "prophet",
+      "martyr"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -1543,13 +1543,13 @@
   },
   {
     "id": "jeremiah-the-prophet",
-    "name": "St. Jeremiah the Prophet",
+    "name": "Jeremiah the Prophet",
     "birthDate": "c. 650 BC",
     "deathDate": "c. 570 BC",
     "nationality": "Judean",
     "profession": "Major Prophet & Author",
     "categories": [
-      "laity"
+      "prophet"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -1594,13 +1594,13 @@
   },
   {
     "id": "job-the-righteous",
-    "name": "St. Job the Righteous",
+    "name": "Job the Righteous",
     "birthDate": "c. 2nd Millennium BC",
     "deathDate": "c. 2nd Millennium BC",
     "nationality": "Uzite / Ancient Near East",
     "profession": "Patriarch & Man of Patience",
     "categories": [
-      "laity"
+      "patriarch"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -2433,13 +2433,14 @@
   },
   {
     "id": "moses-the-prophet",
-    "name": "St. Moses the Prophet",
+    "name": "Moses the Prophet",
     "birthDate": "c. 1391 BC",
     "deathDate": "c. 1271 BC",
     "nationality": "Hebrew / Israelite",
     "profession": "Prophet, Lawgiver & Leader of Israel",
     "categories": [
-      "laity"
+      "prophet",
+      "judge"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -3081,13 +3082,14 @@
   },
   {
     "id": "samuel-the-prophet",
-    "name": "St. Samuel the Prophet",
+    "name": "Samuel the Prophet",
     "birthDate": "c. 11th c. BC",
     "deathDate": "c. 11th c. BC",
     "nationality": "Israelite",
     "profession": "Prophet & Judge",
     "categories": [
-      "laity"
+      "prophet",
+      "judge"
     ],
     "gender": "male",
     "isDoctor": false,

@@ -550,6 +550,36 @@ void main() {
             feastDay: 'November 24',
             gender: 'other',
           ),
+          const Saint(
+            id: 'abraham-the-patriarch',
+            name: 'Abraham the Patriarch',
+            nationality: 'Hebrew',
+            profession: 'Patriarch & Father of Faith',
+            categories: [SaintCategory.patriarch],
+            isDoctor: false,
+            feastDay: 'October 9',
+            gender: 'male',
+          ),
+          const Saint(
+            id: 'moses-the-prophet',
+            name: 'Moses the Prophet',
+            nationality: 'Hebrew / Israelite',
+            profession: 'Prophet, Lawgiver & Leader of Israel',
+            categories: [SaintCategory.prophet, SaintCategory.judge],
+            isDoctor: false,
+            feastDay: 'September 4',
+            gender: 'male',
+          ),
+          const Saint(
+            id: 'samuel-the-prophet',
+            name: 'Samuel the Prophet',
+            nationality: 'Israelite',
+            profession: 'Prophet & Judge',
+            categories: [SaintCategory.prophet, SaintCategory.judge],
+            isDoctor: false,
+            feastDay: 'August 20',
+            gender: 'male',
+          ),
         ];
 
         await tester.pumpWidget(
@@ -595,8 +625,73 @@ void main() {
         );
         expect(find.text('1 saint'), findsOneWidget);
 
-        // Untap Angels, tap Apostles
+        // Untap Angels, tap Patriarchs
         await tester.tap(angelsChip);
+        await tester.pumpAndSettle();
+
+        final patriarchsChip = find.byKey(const Key('patriarchs_filter_chip'));
+        await tester.ensureVisible(patriarchsChip);
+        await tester.pumpAndSettle();
+        await tester.tap(patriarchsChip);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_abraham-the-patriarch')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_moses-the-prophet')),
+          findsNothing,
+        );
+
+        // Untap Patriarchs, tap Prophets
+        await tester.tap(patriarchsChip);
+        await tester.pumpAndSettle();
+
+        final prophetsChip = find.byKey(const Key('prophets_filter_chip'));
+        await tester.ensureVisible(prophetsChip);
+        await tester.pumpAndSettle();
+        await tester.tap(prophetsChip);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_moses-the-prophet')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_samuel-the-prophet')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_abraham-the-patriarch')),
+          findsNothing,
+        );
+
+        // Untap Prophets, tap Judges
+        await tester.tap(prophetsChip);
+        await tester.pumpAndSettle();
+
+        final judgesChip = find.byKey(const Key('judges_filter_chip'));
+        await tester.ensureVisible(judgesChip);
+        await tester.pumpAndSettle();
+        await tester.tap(judgesChip);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('saint_tile_moses-the-prophet')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_samuel-the-prophet')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('saint_tile_abraham-the-patriarch')),
+          findsNothing,
+        );
+
+        // Untap Judges, tap Apostles
+        await tester.tap(judgesChip);
         await tester.pumpAndSettle();
 
         final apostlesChip = find.byKey(const Key('apostles_filter_chip'));

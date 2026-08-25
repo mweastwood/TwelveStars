@@ -6,6 +6,9 @@ enum SaintCategory {
   group,
   holyFamily,
   angel,
+  patriarch,
+  prophet,
+  judge,
   apostle,
   evangelist,
   doctor,
@@ -31,6 +34,12 @@ enum SaintCategory {
         return 'Holy Family';
       case SaintCategory.angel:
         return 'Archangel & Angel';
+      case SaintCategory.patriarch:
+        return 'Patriarch';
+      case SaintCategory.prophet:
+        return 'Prophet';
+      case SaintCategory.judge:
+        return 'Judge';
       case SaintCategory.apostle:
         return 'Apostle';
       case SaintCategory.evangelist:
@@ -75,6 +84,12 @@ enum SaintCategory {
         return Icons.family_restroom_rounded;
       case SaintCategory.angel:
         return Icons.flare_rounded;
+      case SaintCategory.patriarch:
+        return Icons.foundation_rounded;
+      case SaintCategory.prophet:
+        return Icons.record_voice_over_rounded;
+      case SaintCategory.judge:
+        return Icons.gavel_rounded;
       case SaintCategory.apostle:
         return Icons.stars_rounded;
       case SaintCategory.evangelist:
@@ -119,6 +134,12 @@ enum SaintCategory {
         return const Color(0xFFAD1457); // Crimson / Rose 800
       case SaintCategory.angel:
         return const Color(0xFF00ACC1); // Cyan 600
+      case SaintCategory.patriarch:
+        return const Color(0xFF8D6E63); // Brown 400
+      case SaintCategory.prophet:
+        return const Color(0xFFC2410C); // Deep Orange / Terracotta 700
+      case SaintCategory.judge:
+        return const Color(0xFF475569); // Slate 600
       case SaintCategory.apostle:
         return AppThemeTokens.marianBlue;
       case SaintCategory.evangelist:
@@ -158,7 +179,8 @@ enum SaintCategory {
 /// Historical eras for timeline filtering.
 enum SaintEra {
   all,
-  earlyChurch, // 1st - 5th Century (<= 500)
+  oldCovenant, // Old Testament / BC (<= 0)
+  earlyChurch, // 1st - 5th Century (1 - 500)
   medieval, // 6th - 14th Century (501 - 1499)
   reformation, // 15th - 18th Century (1500 - 1799)
   modern; // 19th - 21st Century (1800+)
@@ -167,6 +189,8 @@ enum SaintEra {
     switch (this) {
       case SaintEra.all:
         return 'All Eras';
+      case SaintEra.oldCovenant:
+        return 'Old Covenant (BC)';
       case SaintEra.earlyChurch:
         return 'Early Church (1st–5th c.)';
       case SaintEra.medieval:
@@ -346,6 +370,49 @@ class Saint {
         nameLower.contains('blessed virgin mary') ||
         (nameLower.contains('joseph') && profLower.contains('carpenter'))) {
       list.add(SaintCategory.holyFamily);
+    }
+
+    // 3.1 Patriarch
+    final isBiblicalPatriarch = const {
+      'abraham-the-patriarch',
+      'job-the-righteous',
+    }.contains(id);
+
+    if (isBiblicalPatriarch ||
+        profLower.contains('patriarch & father of faith') ||
+        profLower.contains('patriarch & man of patience') ||
+        nameLower.contains('the patriarch')) {
+      list.add(SaintCategory.patriarch);
+    }
+
+    // 3.2 Prophet
+    final isBiblicalProphet = const {
+      'moses-the-prophet',
+      'elijah-the-prophet',
+      'elisha-the-prophet',
+      'isaiah-the-prophet',
+      'jeremiah-the-prophet',
+      'daniel-the-prophet',
+      'samuel-the-prophet',
+      'david-the-king',
+    }.contains(id);
+
+    if (isBiblicalProphet ||
+        profLower.contains('prophet') ||
+        nameLower.contains('the prophet')) {
+      list.add(SaintCategory.prophet);
+    }
+
+    // 3.3 Judge
+    final isBiblicalJudge = const {
+      'samuel-the-prophet',
+      'moses-the-prophet',
+    }.contains(id);
+
+    if (isBiblicalJudge ||
+        profLower.contains('judge') ||
+        profLower.contains('lawgiver')) {
+      list.add(SaintCategory.judge);
     }
 
     // 4. Apostle
@@ -546,16 +613,6 @@ class Saint {
       'francis-borgia',
       'vietnamese-martyrs',
       'korean-martyrs',
-      'abraham-the-patriarch',
-      'moses-the-prophet',
-      'elijah-the-prophet',
-      'david-the-king',
-      'isaiah-the-prophet',
-      'jeremiah-the-prophet',
-      'daniel-the-prophet',
-      'elisha-the-prophet',
-      'samuel-the-prophet',
-      'job-the-righteous',
     }.contains(id);
 
     final isExplicitLayKeyword =
@@ -920,8 +977,10 @@ class Saint {
 
   /// Historical era based on approximate year.
   SaintEra get era {
+    if (nationality.toLowerCase().contains('angelic')) return SaintEra.all;
     final year = approximateYear;
     if (year == null) return SaintEra.all;
+    if (year <= 0) return SaintEra.oldCovenant;
     if (year <= 500) return SaintEra.earlyChurch;
     if (year <= 1499) return SaintEra.medieval;
     if (year <= 1799) return SaintEra.reformation;

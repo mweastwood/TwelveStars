@@ -117,6 +117,7 @@ class SaintDatabase {
       final categoryLabels = saint.categories
           .map((c) => c.label.toLowerCase())
           .toList();
+      final eraLabel = saint.era.label.toLowerCase();
 
       return words.every((word) {
         final matchesGenderWord =
@@ -135,6 +136,7 @@ class SaintDatabase {
             summary.contains(word) ||
             feastDay.contains(word) ||
             dates.contains(word) ||
+            eraLabel.contains(word) ||
             categoryLabels.any((label) => label.contains(word));
       });
     }).toList();
@@ -171,11 +173,17 @@ class SaintDatabase {
           final aIsSpecial =
               a.category == SaintCategory.angel ||
               a.category == SaintCategory.holyFamily ||
+              a.category == SaintCategory.patriarch ||
+              a.category == SaintCategory.prophet ||
+              a.category == SaintCategory.judge ||
               a.category == SaintCategory.apostle ||
               a.category == SaintCategory.evangelist;
           final bIsSpecial =
               b.category == SaintCategory.angel ||
               b.category == SaintCategory.holyFamily ||
+              b.category == SaintCategory.patriarch ||
+              b.category == SaintCategory.prophet ||
+              b.category == SaintCategory.judge ||
               b.category == SaintCategory.apostle ||
               b.category == SaintCategory.evangelist;
           if (aIsSpecial != bIsSpecial) {

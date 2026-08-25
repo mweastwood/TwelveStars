@@ -434,6 +434,69 @@ class _SaintsScreenState extends State<SaintsScreen> {
                   ),
                   const SizedBox(width: 8),
                   FilterChip(
+                    key: const Key('patriarchs_filter_chip'),
+                    label: const Text('Patriarchs'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.foundation,
+                      color: _selectedCategory == SaintCategory.patriarch
+                          ? const Color(0xFF8D6E63)
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.patriarch,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.patriarch
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('prophets_filter_chip'),
+                    label: const Text('Prophets'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.record_voice_over,
+                      color: _selectedCategory == SaintCategory.prophet
+                          ? const Color(0xFFC2410C)
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.prophet,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.prophet
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
+                    key: const Key('judges_filter_chip'),
+                    label: const Text('Judges'),
+                    showCheckmark: false,
+                    avatar: Icon(
+                      Icons.gavel,
+                      color: _selectedCategory == SaintCategory.judge
+                          ? const Color(0xFF475569)
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: 16,
+                    ),
+                    selected: _selectedCategory == SaintCategory.judge,
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategory = selected
+                            ? SaintCategory.judge
+                            : null;
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  FilterChip(
                     key: const Key('apostles_filter_chip'),
                     label: const Text('Apostles'),
                     showCheckmark: false,
