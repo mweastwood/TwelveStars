@@ -2,6 +2,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/main.dart';
 
 void main() {
