@@ -376,6 +376,11 @@ class Saint {
     final isBiblicalPatriarch = const {
       'abraham-the-patriarch',
       'job-the-righteous',
+      'aaron-the-high-priest',
+      'abel-the-righteous',
+      'eleazar-the-scribe',
+      'ezra-the-scribe',
+      'melchizedek-the-king',
     }.contains(id);
 
     if (isBiblicalPatriarch ||
@@ -395,6 +400,21 @@ class Saint {
       'daniel-the-prophet',
       'samuel-the-prophet',
       'david-the-king',
+      'aaron-the-high-priest',
+      'amos-the-prophet',
+      'ezekiel-the-prophet',
+      'ezra-the-scribe',
+      'habakkuk-the-prophet',
+      'haggai-the-prophet',
+      'hosea-the-prophet',
+      'joel-the-prophet',
+      'jonah-the-prophet',
+      'joshua-the-judge',
+      'micah-the-prophet',
+      'nahum-the-prophet',
+      'obadiah-the-prophet',
+      'zechariah-the-prophet',
+      'zephaniah-the-prophet',
     }.contains(id);
 
     if (isBiblicalProphet ||
@@ -407,6 +427,8 @@ class Saint {
     final isBiblicalJudge = const {
       'samuel-the-prophet',
       'moses-the-prophet',
+      'gideon-the-judge',
+      'joshua-the-judge',
     }.contains(id);
 
     if (isBiblicalJudge ||
@@ -498,7 +520,12 @@ class Saint {
             !profLower.contains('patriarch & man of patience') &&
             !profLower.contains('holy patriarch') &&
             !id.contains('abraham') &&
-            !id.contains('job'));
+            !id.contains('job') &&
+            !id.contains('aaron') &&
+            !id.contains('abel') &&
+            !id.contains('eleazar') &&
+            !id.contains('ezra') &&
+            !id.contains('melchizedek'));
     if (isEpiscopalTitle) {
       list.add(SaintCategory.bishop);
     }
@@ -832,7 +859,10 @@ class Saint {
                 profLower.contains('curé') ||
                 profLower.contains('confessor')) &&
             !list.contains(SaintCategory.pope) &&
-            !list.contains(SaintCategory.bishop))) {
+            !list.contains(SaintCategory.bishop) &&
+            !list.contains(SaintCategory.patriarch) &&
+            !list.contains(SaintCategory.prophet) &&
+            !list.contains(SaintCategory.judge))) {
       list.add(SaintCategory.priest);
     }
 

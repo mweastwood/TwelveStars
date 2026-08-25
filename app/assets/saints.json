@@ -1,5 +1,39 @@
 [
   {
+    "id": "aaron-the-high-priest",
+    "name": "Aaron the High Priest",
+    "birthDate": "c. 14th c. BC",
+    "deathDate": "c. 13th c. BC",
+    "nationality": "Hebrew / Levite",
+    "profession": "First High Priest of Israel & Prophet",
+    "categories": [
+      "patriarch",
+      "prophet"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "July 1",
+    "patronage": "Priests, Levites",
+    "summary": "Elder brother of Moses and first High Priest of Israel who spoke before Pharaoh and established the Levitical priesthood under the Old Covenant."
+  },
+  {
+    "id": "abel-the-righteous",
+    "name": "Abel the Righteous",
+    "birthDate": "c. 4th Millennium BC",
+    "deathDate": "c. 4th Millennium BC",
+    "nationality": "Antediluvian / Hebrew tradition",
+    "profession": "First Martyr & Righteous Shepherd",
+    "categories": [
+      "patriarch",
+      "martyr"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "January 3",
+    "patronage": "Innocent Victims, Shepherds",
+    "summary": "Second son of Adam and Eve whose pleasing sacrifice was accepted by God and who was killed by his brother Cain, venerated in the Roman Canon as the first righteous martyr."
+  },
+  {
     "id": "abraham-the-patriarch",
     "name": "Abraham the Patriarch",
     "birthDate": "c. 18th c. BC",
@@ -117,6 +151,22 @@
     "feastDay": "December 7",
     "patronage": "Bishops, Beekeepers, Candle-makers, Milan",
     "summary": "Eloquent preacher and administrator who defended orthodoxy against Arianism and baptized St. Augustine of Hippo. One of the four original Latin Doctors."
+  },
+  {
+    "id": "amos-the-prophet",
+    "name": "Amos the Prophet",
+    "birthDate": "c. 8th c. BC",
+    "deathDate": "c. 8th c. BC",
+    "nationality": "Judean / Israelite",
+    "profession": "Prophet & Shepherd of Tekoa",
+    "categories": [
+      "prophet"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "June 15",
+    "patronage": "Agricultural Workers, Shepherds, Social Justice",
+    "summary": "Shepherd of Tekoa called by God to prophesy against social injustice, oppression of the poor, and religious complacency in the Northern Kingdom of Israel."
   },
   {
     "id": "anastasia-of-sirmium",
@@ -992,6 +1042,23 @@
     "summary": "Pious Anglo-Saxon monarch renowned for his charity, justice, preserved chastity in marriage, and construction of Westminster Abbey."
   },
   {
+    "id": "eleazar-the-scribe",
+    "name": "Eleazar the Scribe & Martyr",
+    "birthDate": "c. 2nd c. BC",
+    "deathDate": "c. 167 BC",
+    "nationality": "Judean",
+    "profession": "Elder Scribe & Martyr of the Old Law",
+    "categories": [
+      "patriarch",
+      "martyr"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "August 1",
+    "patronage": "The Elderly, Integrity, Fidelity to God's Law",
+    "summary": "Venerable Jewish elder and scribe who chose martyrdom under King Antiochus IV Epiphanes rather than violate God's law or set a scandalous example for youth (2 Macc 6:18–31)."
+  },
+  {
     "id": "elijah-the-prophet",
     "name": "Elijah the Prophet",
     "birthDate": "c. 9th c. BC",
@@ -1091,6 +1158,39 @@
     "feastDay": "May 18",
     "patronage": "Sweden, Stockholm",
     "summary": "Swedish monarch who codified Christian laws, supported missionary work in Finland, and was martyred by Danish rebels after attending Ascension Day Mass."
+  },
+  {
+    "id": "ezekiel-the-prophet",
+    "name": "Ezekiel the Prophet",
+    "birthDate": "c. 622 BC",
+    "deathDate": "c. 570 BC",
+    "nationality": "Judean",
+    "profession": "Major Prophet & Priest",
+    "categories": [
+      "prophet"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "July 23",
+    "patronage": "Exiles, Intercessors",
+    "summary": "Priest and major prophet in Babylonian exile who received profound apocalyptic visions of the Glory of the Lord, the valley of dry bones restored to life, and the new Temple."
+  },
+  {
+    "id": "ezra-the-scribe",
+    "name": "Ezra the Priest & Scribe",
+    "birthDate": "c. 5th c. BC",
+    "deathDate": "c. 5th c. BC",
+    "nationality": "Judean",
+    "profession": "Priest & Scribe of the Law of God",
+    "categories": [
+      "patriarch",
+      "prophet"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "July 13",
+    "patronage": "Scribes, Scholars of Sacred Scripture",
+    "summary": "Priest and scribe of the Law who led the second group of returning exiles from Babylon to Jerusalem, reviving religious fidelity and public reading of the Torah."
   },
   {
     "id": "faustina-kowalska",
@@ -1281,6 +1381,22 @@
     "summary": "Devout pediatrician and mother who chose to carry her fourth child to term knowing it risked her life, exemplifying sacrificial maternal love."
   },
   {
+    "id": "gideon-the-judge",
+    "name": "Gideon the Judge",
+    "birthDate": "c. 12th c. BC",
+    "deathDate": "c. 12th c. BC",
+    "nationality": "Israelite",
+    "profession": "Judge & Military Leader of Israel",
+    "categories": [
+      "judge"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "September 26",
+    "patronage": "Soldiers, Discernment of God's Will",
+    "summary": "Judge of Israel who tore down the altar of Baal and, confirmed by the miraculous sign of the fleece, routed the vast Midianite army with only 300 men (Judges 6–8)."
+  },
+  {
     "id": "giuseppe-moscati",
     "name": "St. Giuseppe Moscati",
     "birthDate": "1880",
@@ -1350,6 +1466,38 @@
     "summary": "Benedictine pope known for pastoral care, liturgical and Gregorian chant reforms, and sending St. Augustine of Canterbury to evangelize England."
   },
   {
+    "id": "habakkuk-the-prophet",
+    "name": "Habakkuk the Prophet",
+    "birthDate": "c. 7th c. BC",
+    "deathDate": "c. 7th c. BC",
+    "nationality": "Judean",
+    "profession": "Minor Prophet",
+    "categories": [
+      "prophet"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "December 2",
+    "patronage": "Those in Doubt, Watchmen, Musicians",
+    "summary": "Prophet of Judah who wrestled in prayer over divine justice, authoring the renowned declaration that 'the righteous shall live by faith' (Hab 2:4) and a hymn of radiant hope in God."
+  },
+  {
+    "id": "haggai-the-prophet",
+    "name": "Haggai the Prophet",
+    "birthDate": "c. 6th c. BC",
+    "deathDate": "c. 6th c. BC",
+    "nationality": "Judean",
+    "profession": "Minor Prophet",
+    "categories": [
+      "prophet"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "December 16",
+    "patronage": "Builders, Architects of Churches",
+    "summary": "Post-exilic prophet who exhorted Zerubbabel and the returning Jewish community to complete the rebuilding of the Second Temple in Jerusalem, foretelling its future glory."
+  },
+  {
     "id": "hilary-of-poitiers",
     "name": "St. Hilary of Poitiers",
     "birthDate": "c. 310",
@@ -1384,6 +1532,22 @@
     "feastDay": "September 17",
     "patronage": "Musicians, Writers, Natural Scientists, Esperantists",
     "summary": "Benedictine abbess and universal genius who produced visionary theological works (Scivias), medicinal treatises, and liturgical music of transcendent beauty."
+  },
+  {
+    "id": "hosea-the-prophet",
+    "name": "Hosea the Prophet",
+    "birthDate": "c. 8th c. BC",
+    "deathDate": "c. 8th c. BC",
+    "nationality": "Israelite",
+    "profession": "Minor Prophet",
+    "categories": [
+      "prophet"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "October 17",
+    "patronage": "Reconciliation, Marital Fidelity",
+    "summary": "Prophet of the Northern Kingdom whose marriage to an unfaithful wife served as a living parable of God's enduring, unconditional, and forgiving love for Israel."
   },
   {
     "id": "ignatius-of-antioch",
@@ -1609,6 +1773,22 @@
     "summary": "Righteous and blameless figure celebrated for his enduring fidelity to God in the midst of profound suffering and steadfast faith in the Redeemer."
   },
   {
+    "id": "joel-the-prophet",
+    "name": "Joel the Prophet",
+    "birthDate": "c. 8th c. BC",
+    "deathDate": "c. 8th c. BC",
+    "nationality": "Judean",
+    "profession": "Minor Prophet",
+    "categories": [
+      "prophet"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "October 19",
+    "patronage": "Farmers, Days of Penance and Fasting",
+    "summary": "Prophet of Judah who called the nation to fasting, weeping, and rending of hearts, and famously prophesied the universal outpouring of the Holy Spirit (Joel 2:28; Acts 2:17)."
+  },
+  {
     "id": "john-berchmans",
     "name": "St. John Berchmans",
     "birthDate": "1599",
@@ -1828,6 +2008,22 @@
     "summary": "Beloved 261st Pope who convened the Second Vatican Council (1962–1965) to promote pastoral renewal and Christian unity, author of Pacem in Terris."
   },
   {
+    "id": "jonah-the-prophet",
+    "name": "Jonah the Prophet",
+    "birthDate": "c. 8th c. BC",
+    "deathDate": "c. 8th c. BC",
+    "nationality": "Israelite",
+    "profession": "Prophet & Preacher of Repentance",
+    "categories": [
+      "prophet"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "September 21",
+    "patronage": "Sailors, Travelers, Repentant Sinners",
+    "summary": "Prophet sent to preach repentance to the great city of Nineveh; after three days and nights in the belly of a great fish, he fulfilled his mission, prefiguring Christ's Resurrection."
+  },
+  {
     "id": "jose-sanchez-del-rio",
     "name": "St. José Sánchez del Río",
     "birthDate": "1913",
@@ -1893,6 +2089,23 @@
     "feastDay": "September 18",
     "patronage": "Test Takers, Students, Aviators, Pilots, Air Travelers",
     "summary": "Humble Franciscan friar known for profound ecstatic levitations during prayer and Mass, venerated as the patron of struggling students and examinees."
+  },
+  {
+    "id": "joshua-the-judge",
+    "name": "Joshua the Judge & Leader",
+    "birthDate": "c. 14th c. BC",
+    "deathDate": "c. 13th c. BC",
+    "nationality": "Israelite",
+    "profession": "Leader of Israel, Judge & Successor of Moses",
+    "categories": [
+      "prophet",
+      "judge"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "September 1",
+    "patronage": "Military Personnel, Leaders",
+    "summary": "Loyal companion and successor of Moses who led the Israelites across the Jordan River into the Promised Land, conquered Jericho, and declared 'as for me and my house, we will serve the Lord' (Josh 24:15)."
   },
   {
     "id": "juan-diego",
@@ -2017,7 +2230,7 @@
     "patronage": "Korean Clergy, Korea",
     "summary": "First native Korean priest and 102 lay martyrs who planted and defended the Catholic faith in Joseon Korea during severe 19th-century persecutions."
   },
-
+  {
     "id": "lawrence-of-brindisi",
     "name": "St. Lawrence of Brindisi",
     "birthDate": "1559",
@@ -2418,6 +2631,39 @@
     "summary": "Choirmistress and mystic at the Helfta monastery whose heavenly visions and deep liturgical spirituality were recorded in The Book of Special Grace."
   },
   {
+    "id": "melchizedek-the-king",
+    "name": "Melchizedek King & Priest",
+    "birthDate": "c. 18th c. BC",
+    "deathDate": "c. 18th c. BC",
+    "nationality": "Canaanite / Ancient Near East",
+    "profession": "King of Salem & Priest of God Most High",
+    "categories": [
+      "patriarch",
+      "monarch"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "August 26",
+    "patronage": "Priests, Eucharistic Ministers",
+    "summary": "King of Salem and 'Priest of God Most High' who brought out bread and wine to bless Abraham, prefiguring the Eucharistic sacrifice and eternal High Priesthood of Christ (Ps 110:4; Heb 7)."
+  },
+  {
+    "id": "micah-the-prophet",
+    "name": "Micah the Prophet",
+    "birthDate": "c. 8th c. BC",
+    "deathDate": "c. 8th c. BC",
+    "nationality": "Judean",
+    "profession": "Minor Prophet",
+    "categories": [
+      "prophet"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "December 21",
+    "patronage": "The Poor, Advocates for Social Justice",
+    "summary": "Prophet from Moresheth who defended the impoverished against oppression, proclaimed that God requires us 'to do justice, and to love kindness, and to walk humbly with your God' (Mic 6:8), and foretold the Messiah's birth in Bethlehem (Mic 5:2)."
+  },
+  {
     "id": "michael-the-archangel",
     "name": "St. Michael the Archangel",
     "nationality": "Angelic / Heavenly",
@@ -2468,6 +2714,22 @@
     "summary": "Nobel laureate who served 'the poorest of the poor' in the slums of Calcutta, answering Jesus's call to quench His thirst on the Cross."
   },
   {
+    "id": "nahum-the-prophet",
+    "name": "Nahum the Prophet",
+    "birthDate": "c. 7th c. BC",
+    "deathDate": "c. 7th c. BC",
+    "nationality": "Judean / Elkoshite",
+    "profession": "Minor Prophet",
+    "categories": [
+      "prophet"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "December 1",
+    "patronage": "Comfort, Oppressed Peoples",
+    "summary": "Prophet of Elkosh who proclaimed the impending fall of the tyrannical city of Nineveh, heralding peace and deliverance for the afflicted people of Judah."
+  },
+  {
     "id": "nicholas-of-myra",
     "name": "St. Nicholas of Myra",
     "birthDate": "270",
@@ -2499,6 +2761,22 @@
     "feastDay": "December 14",
     "patronage": "Maronite Order, Teachers",
     "summary": "Lebanese Maronite monk and teacher of St. Charbel Makhlouf, renowned for deep adoration of the Blessed Sacrament, humble manual labor, and binding books."
+  },
+  {
+    "id": "obadiah-the-prophet",
+    "name": "Obadiah the Prophet",
+    "birthDate": "c. 6th c. BC",
+    "deathDate": "c. 6th c. BC",
+    "nationality": "Judean",
+    "profession": "Minor Prophet",
+    "categories": [
+      "prophet"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "November 19",
+    "patronage": "Justice, Peace between Nations",
+    "summary": "Author of the shortest Old Testament book, who denounced the pride of Edom and proclaimed the ultimate victory and sovereignty of the Kingdom of God."
   },
   {
     "id": "olaf-ii-of-norway",
@@ -3499,5 +3777,37 @@
     "feastDay": "September 28",
     "patronage": "Czech Republic, Bohemia, Prague, Brewers",
     "summary": "Righteous Duke of Bohemia raised by St. Ludmila who promoted Christianity and justice, murdered by his pagan brother Boleslaus and immortalized as a model of Christian charity."
+  },
+  {
+    "id": "zechariah-the-prophet",
+    "name": "Zechariah the Prophet",
+    "birthDate": "c. 6th c. BC",
+    "deathDate": "c. 6th c. BC",
+    "nationality": "Judean",
+    "profession": "Minor Prophet & Priest",
+    "categories": [
+      "prophet"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "September 6",
+    "patronage": "Builders, Hope",
+    "summary": "Post-exilic prophet and priest who championed the reconstruction of the Temple in Jerusalem and prophesied the coming King entering Zion riding upon a colt (Zech 9:9)."
+  },
+  {
+    "id": "zephaniah-the-prophet",
+    "name": "Zephaniah the Prophet",
+    "birthDate": "c. 7th c. BC",
+    "deathDate": "c. 7th c. BC",
+    "nationality": "Judean",
+    "profession": "Minor Prophet",
+    "categories": [
+      "prophet"
+    ],
+    "gender": "male",
+    "isDoctor": false,
+    "feastDay": "December 3",
+    "patronage": "The Humble, Seekers of God",
+    "summary": "Prophet of royal lineage who proclaimed the Day of the Lord against idolatry and sin during the reign of King Josiah, promising joy and restoration to a humble and lowly remnant."
   }
 ]

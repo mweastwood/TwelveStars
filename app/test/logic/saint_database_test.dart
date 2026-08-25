@@ -731,7 +731,7 @@ void main() {
             .toList();
 
         expect(femaleSaints.length, 42);
-        expect(maleSaints.length, 155);
+        expect(maleSaints.length, 174);
         expect(groupSaints.length, 4);
         expect(otherGenderSaints.length, 3);
 
@@ -781,7 +781,7 @@ void main() {
 
       // 1. Male saints filter
       final men = SaintDatabase.searchSaints(saints, gender: 'male');
-      expect(men.length, 155);
+      expect(men.length, 174);
       expect(men.every((s) => s.isMale), isTrue);
 
       // 2. Female saints filter
@@ -1732,16 +1732,35 @@ void main() {
         final saints = await SaintDatabase.loadSaints();
 
         final otIds = [
-          'moses-the-prophet',
-          'elijah-the-prophet',
+          'aaron-the-high-priest',
+          'abel-the-righteous',
           'abraham-the-patriarch',
+          'amos-the-prophet',
+          'daniel-the-prophet',
           'david-the-king',
+          'eleazar-the-scribe',
+          'elijah-the-prophet',
+          'elisha-the-prophet',
+          'ezekiel-the-prophet',
+          'ezra-the-scribe',
+          'gideon-the-judge',
+          'habakkuk-the-prophet',
+          'haggai-the-prophet',
+          'hosea-the-prophet',
           'isaiah-the-prophet',
           'jeremiah-the-prophet',
-          'daniel-the-prophet',
-          'elisha-the-prophet',
-          'samuel-the-prophet',
           'job-the-righteous',
+          'joel-the-prophet',
+          'jonah-the-prophet',
+          'joshua-the-judge',
+          'melchizedek-the-king',
+          'micah-the-prophet',
+          'moses-the-prophet',
+          'nahum-the-prophet',
+          'obadiah-the-prophet',
+          'samuel-the-prophet',
+          'zechariah-the-prophet',
+          'zephaniah-the-prophet',
         ];
 
         for (final id in otIds) {
@@ -1767,7 +1786,27 @@ void main() {
           );
         }
 
-        // Check specific details
+        // Check specific details for sample OT figures
+        final abel = await SaintDatabase.getSaintById('abel-the-righteous');
+        expect(abel!.name, 'Abel the Righteous');
+        expect(abel.feastDay, 'January 3');
+        expect(abel.categories, contains(SaintCategory.patriarch));
+        expect(abel.categories, contains(SaintCategory.martyr));
+        expect(abel.approximateYear, -3500);
+
+        final aaron = await SaintDatabase.getSaintById('aaron-the-high-priest');
+        expect(aaron!.name, 'Aaron the High Priest');
+        expect(aaron.feastDay, 'July 1');
+        expect(aaron.categories, contains(SaintCategory.patriarch));
+        expect(aaron.categories, contains(SaintCategory.prophet));
+        expect(aaron.approximateYear, -1250);
+
+        final amos = await SaintDatabase.getSaintById('amos-the-prophet');
+        expect(amos!.name, 'Amos the Prophet');
+        expect(amos.feastDay, 'June 15');
+        expect(amos.categories, contains(SaintCategory.prophet));
+        expect(amos.approximateYear, -750);
+
         final moses = await SaintDatabase.getSaintById('moses-the-prophet');
         expect(moses!.name, 'Moses the Prophet');
         expect(moses.feastDay, 'September 4');
@@ -1836,7 +1875,62 @@ void main() {
         expect(job.categories, contains(SaintCategory.patriarch));
         expect(job.approximateYear, -1500);
 
+        final ezekiel = await SaintDatabase.getSaintById('ezekiel-the-prophet');
+        expect(ezekiel!.name, 'Ezekiel the Prophet');
+        expect(ezekiel.feastDay, 'July 23');
+        expect(ezekiel.categories, contains(SaintCategory.prophet));
+        expect(ezekiel.approximateYear, -570);
+
+        final eleazar = await SaintDatabase.getSaintById('eleazar-the-scribe');
+        expect(eleazar!.name, 'Eleazar the Scribe & Martyr');
+        expect(eleazar.feastDay, 'August 1');
+        expect(eleazar.categories, contains(SaintCategory.patriarch));
+        expect(eleazar.categories, contains(SaintCategory.martyr));
+        expect(eleazar.approximateYear, -167);
+
+        final melchizedek = await SaintDatabase.getSaintById(
+          'melchizedek-the-king',
+        );
+        expect(melchizedek!.name, 'Melchizedek King & Priest');
+        expect(melchizedek.feastDay, 'August 26');
+        expect(melchizedek.categories, contains(SaintCategory.patriarch));
+        expect(melchizedek.categories, contains(SaintCategory.monarch));
+        expect(melchizedek.approximateYear, -1750);
+
+        final joshua = await SaintDatabase.getSaintById('joshua-the-judge');
+        expect(joshua!.name, 'Joshua the Judge & Leader');
+        expect(joshua.feastDay, 'September 1');
+        expect(joshua.categories, contains(SaintCategory.judge));
+        expect(joshua.categories, contains(SaintCategory.prophet));
+        expect(joshua.approximateYear, -1250);
+
+        final gideon = await SaintDatabase.getSaintById('gideon-the-judge');
+        expect(gideon!.name, 'Gideon the Judge');
+        expect(gideon.feastDay, 'September 26');
+        expect(gideon.categories, contains(SaintCategory.judge));
+        expect(gideon.approximateYear, -1150);
+
+        final jonah = await SaintDatabase.getSaintById('jonah-the-prophet');
+        expect(jonah!.name, 'Jonah the Prophet');
+        expect(jonah.feastDay, 'September 21');
+        expect(jonah.categories, contains(SaintCategory.prophet));
+        expect(jonah.approximateYear, -750);
+
         // Verify search queries find OT figures
+        expect(
+          SaintDatabase.searchSaints(
+            saints,
+            query: 'Abel',
+          ).any((s) => s.id == 'abel-the-righteous'),
+          isTrue,
+        );
+        expect(
+          SaintDatabase.searchSaints(
+            saints,
+            query: 'Aaron',
+          ).any((s) => s.id == 'aaron-the-high-priest'),
+          isTrue,
+        );
         expect(
           SaintDatabase.searchSaints(
             saints,
@@ -1907,13 +2001,34 @@ void main() {
           ).any((s) => s.id == 'job-the-righteous'),
           isTrue,
         );
+        expect(
+          SaintDatabase.searchSaints(
+            saints,
+            query: 'Melchizedek',
+          ).any((s) => s.id == 'melchizedek-the-king'),
+          isTrue,
+        );
+        expect(
+          SaintDatabase.searchSaints(
+            saints,
+            query: 'Gideon',
+          ).any((s) => s.id == 'gideon-the-judge'),
+          isTrue,
+        );
+        expect(
+          SaintDatabase.searchSaints(
+            saints,
+            query: 'Joshua',
+          ).any((s) => s.id == 'joshua-the-judge'),
+          isTrue,
+        );
 
-        // Verify Era filter for Old Covenant returns all 10 OT figures
+        // Verify Era filter for Old Covenant returns all 29 OT figures
         final oldCovenantSaints = SaintDatabase.searchSaints(
           saints,
           era: SaintEra.oldCovenant,
         );
-        expect(oldCovenantSaints.length, 10);
+        expect(oldCovenantSaints.length, 29);
         for (final id in otIds) {
           expect(oldCovenantSaints.any((s) => s.id == id), isTrue);
         }
@@ -1925,6 +2040,9 @@ void main() {
         );
         expect(patriarchs.any((s) => s.id == 'abraham-the-patriarch'), isTrue);
         expect(patriarchs.any((s) => s.id == 'job-the-righteous'), isTrue);
+        expect(patriarchs.any((s) => s.id == 'abel-the-righteous'), isTrue);
+        expect(patriarchs.any((s) => s.id == 'aaron-the-high-priest'), isTrue);
+        expect(patriarchs.any((s) => s.id == 'melchizedek-the-king'), isTrue);
 
         final prophets = SaintDatabase.searchSaints(
           saints,
@@ -1934,6 +2052,8 @@ void main() {
         expect(prophets.any((s) => s.id == 'elijah-the-prophet'), isTrue);
         expect(prophets.any((s) => s.id == 'david-the-king'), isTrue);
         expect(prophets.any((s) => s.id == 'isaiah-the-prophet'), isTrue);
+        expect(prophets.any((s) => s.id == 'amos-the-prophet'), isTrue);
+        expect(prophets.any((s) => s.id == 'ezekiel-the-prophet'), isTrue);
 
         final judges = SaintDatabase.searchSaints(
           saints,
@@ -1941,8 +2061,10 @@ void main() {
         );
         expect(judges.any((s) => s.id == 'moses-the-prophet'), isTrue);
         expect(judges.any((s) => s.id == 'samuel-the-prophet'), isTrue);
+        expect(judges.any((s) => s.id == 'gideon-the-judge'), isTrue);
+        expect(judges.any((s) => s.id == 'joshua-the-judge'), isTrue);
 
-        // Verify chronological sorting puts Abraham, Job, Moses first (excluding angelic -9999)
+        // Verify chronological sorting puts Abel, Abraham, Melchizedek, Job first (excluding angelic -9999)
         final chronoAsc = SaintDatabase.searchSaints(
           saints,
           sortBy: SaintSortOption.chronologicalAsc,
@@ -1952,9 +2074,9 @@ void main() {
               (s) => s.approximateYear != null && s.approximateYear! > -9000,
             )
             .toList();
-        expect(humanChrono.first.id, 'abraham-the-patriarch');
-        expect(humanChrono[1].id, 'job-the-righteous');
-        expect(humanChrono[2].id, 'moses-the-prophet');
+        expect(humanChrono.first.id, 'abel-the-righteous');
+        expect(humanChrono.any((s) => s.id == 'abraham-the-patriarch'), isTrue);
+        expect(humanChrono.any((s) => s.id == 'job-the-righteous'), isTrue);
       },
     );
   });
