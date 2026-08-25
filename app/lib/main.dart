@@ -1,4 +1,4 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
@@ -58,15 +58,15 @@ class _TwelveStarsAppState extends State<TwelveStarsApp> {
       valueListenable: TwelveStarsApp.themeNotifier,
       builder: (context, themeMode, child) {
         return DynamicColorBuilder(
-          builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
+          builder: (dynamic lightDynamic, dynamic darkDynamic) {
             ColorScheme lightScheme;
             ColorScheme darkScheme;
 
             if (themeMode == AppThemeMode.system &&
                 lightDynamic != null &&
                 darkDynamic != null) {
-              lightScheme = lightDynamic;
-              darkScheme = darkDynamic;
+              lightScheme = lightDynamic as dynamic;
+              darkScheme = darkDynamic as dynamic;
             } else {
               final seedColor = _getSeedColor(themeMode);
               lightScheme = ColorScheme.fromSeed(
