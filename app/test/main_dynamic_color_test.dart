@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/main.dart';
-import 'package:twelve_stars/logic/prayers.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

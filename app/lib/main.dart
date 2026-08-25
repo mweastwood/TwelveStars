@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:material_ui/material_ui.dart' as material_ui;
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+export 'package:twelve_stars/logic/prayers.dart' show AppThemeMode;
 import 'screens/home_screen.dart';
 
 void main() {
@@ -17,6 +19,60 @@ enum AppEnvironment { dev, prod }
 
 class AppConfig {
   static AppEnvironment environment = AppEnvironment.dev;
+}
+
+extension MaterialUiColorSchemeMapper on material_ui.ColorScheme {
+  ColorScheme toFlutterColorScheme() {
+    return ColorScheme(
+      brightness: brightness,
+      primary: primary,
+      onPrimary: onPrimary,
+      primaryContainer: primaryContainer,
+      onPrimaryContainer: onPrimaryContainer,
+      primaryFixed: primaryFixed,
+      primaryFixedDim: primaryFixedDim,
+      onPrimaryFixed: onPrimaryFixed,
+      onPrimaryFixedVariant: onPrimaryFixedVariant,
+      secondary: secondary,
+      onSecondary: onSecondary,
+      secondaryContainer: secondaryContainer,
+      onSecondaryContainer: onSecondaryContainer,
+      secondaryFixed: secondaryFixed,
+      secondaryFixedDim: secondaryFixedDim,
+      onSecondaryFixed: onSecondaryFixed,
+      onSecondaryFixedVariant: onSecondaryFixedVariant,
+      tertiary: tertiary,
+      onTertiary: onTertiary,
+      tertiaryContainer: tertiaryContainer,
+      onTertiaryContainer: onTertiaryContainer,
+      tertiaryFixed: tertiaryFixed,
+      tertiaryFixedDim: tertiaryFixedDim,
+      onTertiaryFixed: onTertiaryFixed,
+      onTertiaryFixedVariant: onTertiaryFixedVariant,
+      error: error,
+      onError: onError,
+      errorContainer: errorContainer,
+      onErrorContainer: onErrorContainer,
+      surface: surface,
+      onSurface: onSurface,
+      surfaceDim: surfaceDim,
+      surfaceBright: surfaceBright,
+      surfaceContainerLowest: surfaceContainerLowest,
+      surfaceContainerLow: surfaceContainerLow,
+      surfaceContainer: surfaceContainer,
+      surfaceContainerHigh: surfaceContainerHigh,
+      surfaceContainerHighest: surfaceContainerHighest,
+      onSurfaceVariant: onSurfaceVariant,
+      outline: outline,
+      outlineVariant: outlineVariant,
+      shadow: shadow,
+      scrim: scrim,
+      inverseSurface: inverseSurface,
+      onInverseSurface: onInverseSurface,
+      inversePrimary: inversePrimary,
+      surfaceTint: surfaceTint,
+    );
+  }
 }
 
 class TwelveStarsApp extends StatefulWidget {
@@ -58,35 +114,45 @@ class _TwelveStarsAppState extends State<TwelveStarsApp> {
       valueListenable: TwelveStarsApp.themeNotifier,
       builder: (context, themeMode, child) {
         return DynamicColorBuilder(
-          builder: (dynamic lightDynamic, dynamic darkDynamic) {
-            ColorScheme lightScheme;
-            ColorScheme darkScheme;
+          builder:
+              (
+                material_ui.ColorScheme? lightDynamic,
+                material_ui.ColorScheme? darkDynamic,
+              ) {
+                ColorScheme lightScheme;
+                ColorScheme darkScheme;
 
-            if (themeMode == AppThemeMode.system &&
-                lightDynamic != null &&
-                darkDynamic != null) {
-              lightScheme = lightDynamic as dynamic;
-              darkScheme = darkDynamic as dynamic;
-            } else {
-              final seedColor = _getSeedColor(themeMode);
-              lightScheme = ColorScheme.fromSeed(
-                seedColor: seedColor,
-                brightness: Brightness.light,
-              );
-              darkScheme = ColorScheme.fromSeed(
-                seedColor: seedColor,
-                brightness: Brightness.dark,
-              );
-            }
+                if (themeMode == AppThemeMode.system &&
+                    lightDynamic != null &&
+                    darkDynamic != null) {
+                  lightScheme = lightDynamic.toFlutterColorScheme();
+                  darkScheme = darkDynamic.toFlutterColorScheme();
+                } else {
+                  final seedColor = _getSeedColor(themeMode);
+                  lightScheme = ColorScheme.fromSeed(
+                    seedColor: seedColor,
+                    brightness: Brightness.light,
+                  );
+                  darkScheme = ColorScheme.fromSeed(
+                    seedColor: seedColor,
+                    brightness: Brightness.dark,
+                  );
+                }
 
-            return MaterialApp(
-              title: 'Twelve Stars',
-              theme: ThemeData(colorScheme: lightScheme, useMaterial3: true),
-              darkTheme: ThemeData(colorScheme: darkScheme, useMaterial3: true),
-              home: const HomeScreen(),
-              debugShowCheckedModeBanner: false,
-            );
-          },
+                return MaterialApp(
+                  title: 'Twelve Stars',
+                  theme: ThemeData(
+                    colorScheme: lightScheme,
+                    useMaterial3: true,
+                  ),
+                  darkTheme: ThemeData(
+                    colorScheme: darkScheme,
+                    useMaterial3: true,
+                  ),
+                  home: const HomeScreen(),
+                  debugShowCheckedModeBanner: false,
+                );
+              },
         );
       },
     );
