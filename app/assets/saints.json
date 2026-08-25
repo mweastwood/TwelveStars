@@ -7,8 +7,8 @@
     "nationality": "Hebrew / Levite",
     "profession": "First High Priest of Israel & Prophet",
     "categories": [
-      "patriarch",
-      "prophet"
+      "prophet",
+      "priest"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -1049,7 +1049,6 @@
     "nationality": "Judean",
     "profession": "Elder Scribe & Martyr of the Old Law",
     "categories": [
-      "patriarch",
       "martyr"
     ],
     "gender": "male",
@@ -1167,7 +1166,8 @@
     "nationality": "Judean",
     "profession": "Major Prophet & Priest",
     "categories": [
-      "prophet"
+      "prophet",
+      "priest"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -1183,8 +1183,8 @@
     "nationality": "Judean",
     "profession": "Priest & Scribe of the Law of God",
     "categories": [
-      "patriarch",
-      "prophet"
+      "prophet",
+      "priest"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -2064,8 +2064,7 @@
     "nationality": "Judean",
     "profession": "Carpenter (Tekton) & Foster Father of Jesus",
     "categories": [
-      "holyFamily",
-      "laity"
+      "holyFamily"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -2551,8 +2550,7 @@
     "categories": [
       "holyFamily",
       "virgin",
-      "mystic",
-      "laity"
+      "mystic"
     ],
     "gender": "female",
     "isDoctor": false,
@@ -2685,8 +2683,7 @@
     "nationality": "Hebrew / Israelite",
     "profession": "Prophet, Lawgiver & Leader of Israel",
     "categories": [
-      "prophet",
-      "judge"
+      "prophet"
     ],
     "gender": "male",
     "isDoctor": false,
@@ -3786,7 +3783,8 @@
     "nationality": "Judean",
     "profession": "Minor Prophet & Priest",
     "categories": [
-      "prophet"
+      "prophet",
+      "priest"
     ],
     "gender": "male",
     "isDoctor": false,

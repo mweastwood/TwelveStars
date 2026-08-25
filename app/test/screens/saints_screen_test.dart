@@ -565,7 +565,7 @@ void main() {
             name: 'Moses the Prophet',
             nationality: 'Hebrew / Israelite',
             profession: 'Prophet, Lawgiver & Leader of Israel',
-            categories: [SaintCategory.prophet, SaintCategory.judge],
+            categories: [SaintCategory.prophet],
             isDoctor: false,
             feastDay: 'September 4',
             gender: 'male',
@@ -679,7 +679,7 @@ void main() {
 
         expect(
           find.byKey(const Key('saint_tile_moses-the-prophet')),
-          findsOneWidget,
+          findsNothing,
         );
         expect(
           find.byKey(const Key('saint_tile_samuel-the-prophet')),
