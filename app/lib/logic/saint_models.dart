@@ -426,7 +426,11 @@ class Saint {
         profLower.contains('cardinal') ||
         (profLower.contains('patriarch') &&
             !profLower.contains('patriarch of christian monasticism') &&
-            !profLower.contains('patriarch of western monasticism'));
+            !profLower.contains('patriarch of western monasticism') &&
+            !profLower.contains('father of faith') &&
+            !profLower.contains('man of patience') &&
+            !id.contains('abraham') &&
+            !id.contains('job'));
     if (isEpiscopalTitle) {
       list.add(SaintCategory.bishop);
     }
@@ -542,6 +546,16 @@ class Saint {
       'francis-borgia',
       'vietnamese-martyrs',
       'korean-martyrs',
+      'abraham-the-patriarch',
+      'moses-the-prophet',
+      'elijah-the-prophet',
+      'elisha-the-prophet',
+      'isaiah-the-prophet',
+      'jeremiah-the-prophet',
+      'daniel-the-prophet',
+      'samuel-the-prophet',
+      'david-the-king',
+      'job-the-righteous',
     }.contains(id);
 
     final isExplicitLayKeyword =
@@ -871,26 +885,38 @@ class Saint {
       return null;
     }
     final lower = dateStr.toLowerCase();
-    if (lower.contains('1st century')) return 50;
-    if (lower.contains('2nd century')) return 150;
-    if (lower.contains('3rd century')) return 250;
-    if (lower.contains('4th century')) return 350;
-    if (lower.contains('5th century')) return 450;
-    if (lower.contains('6th century')) return 550;
-    if (lower.contains('7th century')) return 650;
-    if (lower.contains('8th century')) return 750;
-    if (lower.contains('9th century')) return 850;
-    if (lower.contains('10th century')) return 950;
-    if (lower.contains('11th century')) return 1050;
-    if (lower.contains('12th century')) return 1150;
-    if (lower.contains('13th century')) return 1250;
-    if (lower.contains('14th century')) return 1350;
-    if (lower.contains('15th century')) return 1450;
-    if (lower.contains('16th century')) return 1550;
-    if (lower.contains('17th century')) return 1650;
-    if (lower.contains('18th century')) return 1750;
-    if (lower.contains('19th century')) return 1850;
-    if (lower.contains('20th century')) return 1950;
+
+    // 1. Millennia (e.g. "c. 2nd millennium BC", "2nd Millennium BC")
+    final millMatch = RegExp(
+      r'(\d{1,2})(?:st|nd|rd|th)?\s*(?:millennium|mill\.)',
+      caseSensitive: false,
+    ).firstMatch(lower);
+    if (millMatch != null) {
+      final mNum = int.tryParse(millMatch.group(1)!);
+      if (mNum != null) {
+        var year = (mNum - 1) * 1000 + 500;
+        if (lower.contains('bc') || lower.contains('b.c.')) {
+          year = -year;
+        }
+        return year;
+      }
+    }
+
+    // 2. Centuries (e.g. "1st century", "c. 9th c. BC", "c. 18th c. BC", "3rd Century")
+    final centMatch = RegExp(
+      r'(\d{1,2})(?:st|nd|rd|th)?\s*(?:century|cent\.|c\.)',
+      caseSensitive: false,
+    ).firstMatch(lower);
+    if (centMatch != null) {
+      final cNum = int.tryParse(centMatch.group(1)!);
+      if (cNum != null) {
+        var year = (cNum - 1) * 100 + 50;
+        if (lower.contains('bc') || lower.contains('b.c.')) {
+          year = -year;
+        }
+        return year;
+      }
+    }
 
     final match = RegExp(r'(\d{1,4})').firstMatch(dateStr);
     if (match != null) {
