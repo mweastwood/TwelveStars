@@ -1539,6 +1539,101 @@ void main() {
       }
     });
 
+    test('Old Covenant figures category inference does not include laity', () {
+      final otEntries = [
+        (
+          'abraham-the-patriarch',
+          'Abraham the Patriarch',
+          'Hebrew',
+          'Patriarch & Father of Faith',
+          SaintCategory.patriarch,
+        ),
+        (
+          'job-the-righteous',
+          'Job the Righteous',
+          'Uzite / Ancient Near East',
+          'Patriarch & Man of Patience',
+          SaintCategory.patriarch,
+        ),
+        (
+          'moses-the-prophet',
+          'Moses the Prophet',
+          'Hebrew / Israelite',
+          'Prophet, Lawgiver & Leader of Israel',
+          SaintCategory.prophet,
+        ),
+        (
+          'elijah-the-prophet',
+          'Elijah the Prophet',
+          'Israelite',
+          'Prophet & Spiritual Father of the Carmelites',
+          SaintCategory.prophet,
+        ),
+        (
+          'elisha-the-prophet',
+          'Elisha the Prophet',
+          'Israelite',
+          'Prophet & Wonderworker',
+          SaintCategory.prophet,
+        ),
+        (
+          'isaiah-the-prophet',
+          'Isaiah the Prophet',
+          'Judean',
+          'Major Prophet & Martyr',
+          SaintCategory.prophet,
+        ),
+        (
+          'jeremiah-the-prophet',
+          'Jeremiah the Prophet',
+          'Judean',
+          'Major Prophet & Author',
+          SaintCategory.prophet,
+        ),
+        (
+          'daniel-the-prophet',
+          'Daniel the Prophet',
+          'Judean',
+          'Major Prophet & Court Official',
+          SaintCategory.prophet,
+        ),
+        (
+          'samuel-the-prophet',
+          'Samuel the Prophet',
+          'Israelite',
+          'Prophet & Judge',
+          SaintCategory.prophet,
+        ),
+        (
+          'david-the-king',
+          'David the King & Prophet',
+          'Israelite',
+          'King of Israel, Prophet & Psalmist',
+          SaintCategory.prophet,
+        ),
+      ];
+
+      for (final entry in otEntries) {
+        final inferred = Saint.computeCategories(
+          id: entry.$1,
+          name: entry.$2,
+          nationality: entry.$3,
+          profession: entry.$4,
+        );
+        expect(
+          inferred.contains(entry.$5),
+          isTrue,
+          reason:
+              'Inferred categories for ${entry.$1} should contain ${entry.$5.name}',
+        );
+        expect(
+          inferred.contains(SaintCategory.laity),
+          isFalse,
+          reason: 'Inferred categories for ${entry.$1} must not include laity',
+        );
+      }
+    });
+
     test(
       'every saint adheres to state-of-life exclusivity rules (exactly one religious state for individuals, zero for angels, multiple for groups)',
       () async {

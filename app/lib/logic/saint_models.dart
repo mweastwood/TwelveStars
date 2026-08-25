@@ -655,15 +655,23 @@ class Saint {
                 !profLower.contains('father of the church') &&
                 !profLower.contains('father of western monasticism') &&
                 !profLower.contains('father of christian monasticism') &&
+                !profLower.contains('father of faith') &&
+                !profLower.contains('spiritual father') &&
                 !profLower.contains('foster father') &&
                 !profLower.contains('picpus fathers') &&
                 !profLower.contains('holy father'))) &&
         !list.contains(SaintCategory.bishop) &&
         !list.contains(SaintCategory.pope) &&
-        !list.contains(SaintCategory.apostle);
+        !list.contains(SaintCategory.apostle) &&
+        !list.contains(SaintCategory.patriarch) &&
+        !list.contains(SaintCategory.prophet) &&
+        !list.contains(SaintCategory.judge);
 
     if ((isExplicitLayKeyword || isKnownLaySaint) &&
-        !list.contains(SaintCategory.apostle)) {
+        !list.contains(SaintCategory.apostle) &&
+        !list.contains(SaintCategory.patriarch) &&
+        !list.contains(SaintCategory.prophet) &&
+        !list.contains(SaintCategory.judge)) {
       list.add(SaintCategory.laity);
     }
 
