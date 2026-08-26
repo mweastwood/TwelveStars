@@ -80,6 +80,40 @@ void main() {
     });
 
     test(
+      'selectQuestions respects count < 6 without returning extra questions',
+      () {
+        final selected = ConfirmationDiscernmentEngine.selectQuestions(
+          count: 5,
+          random: Random(42),
+        );
+        expect(selected.length, 5);
+      },
+    );
+
+    test(
+      'generateTournamentSeeds handles fewer than 16 candidates by cycling',
+      () async {
+        SaintDatabase.mockSaints = null;
+        final allSaints = (await SaintDatabase.loadSaints()).take(5).toList();
+        expect(allSaints.length, 5);
+
+        final userVector = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+
+        final seeds = ConfirmationDiscernmentEngine.generateTournamentSeeds(
+          allSaints: allSaints,
+          userVector: userVector,
+          count: 16,
+        );
+
+        expect(seeds.length, 16);
+        final tournament = ConfirmationDiscernmentEngine.createTournament(
+          seeds,
+        );
+        expect(tournament.initialSeeds.length, 16);
+      },
+    );
+
+    test(
       'generateTournamentSeeds generates 16 seeds with match scores and highlights',
       () async {
         SaintDatabase.mockSaints = null;

@@ -900,6 +900,7 @@ class ConfirmationDiscernmentEngine {
 
     // 2. Pick 1 question from each of the 6 primary axes
     for (final axis in DiscernmentAxis.values) {
+      if (selected.length >= count) break;
       final list = axisGroups[axis];
       if (list != null && list.isNotEmpty) {
         final chosen = list[rng.nextInt(list.length)];
@@ -1000,6 +1001,10 @@ class ConfirmationDiscernmentEngine {
   }) {
     final rng = random ?? Random();
 
+    if (allSaints.isEmpty) {
+      return [];
+    }
+
     // Calculate score for each saint
     final List<MapEntry<Saint, double>> scored = [];
     for (final saint in allSaints) {
@@ -1015,8 +1020,14 @@ class ConfirmationDiscernmentEngine {
     // Sort descending by match score
     scored.sort((a, b) => b.value.compareTo(a.value));
 
-    // Extract top `count`
-    final topEntries = scored.take(count).toList();
+    // Extract top `count`, cycling candidates if candidate count is below `count`
+    final List<MapEntry<Saint, double>> topEntries = [];
+    while (topEntries.length < count) {
+      for (final entry in scored) {
+        if (topEntries.length >= count) break;
+        topEntries.add(entry);
+      }
+    }
 
     // Map into tournament seeds
     final List<TournamentSeed> seeds = [];
