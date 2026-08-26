@@ -6,8 +6,6 @@ import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'screens/home_screen.dart';
 
-export 'package:twelve_stars/logic/prayers.dart' show AppThemeMode;
-
 void main() {
   mainCommon();
 }
