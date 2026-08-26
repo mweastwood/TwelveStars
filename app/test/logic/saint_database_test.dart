@@ -49,6 +49,31 @@ void main() {
       expect(saint.isMale, isTrue);
       expect(saint.isFemale, isFalse);
       expect(saint.dateRange, '1225 – 1274');
+      expect(saint.shortName, 'Thomas Aquinas');
+
+      const testBlessedSaint = Saint(
+        id: 'carlo-acutis',
+        name: 'Blessed Carlo Acutis',
+        nationality: 'Italian',
+        profession: 'Gamer & Computer Programmer',
+      );
+      expect(testBlessedSaint.shortName, 'Carlo Acutis');
+
+      const testGroupSaint = Saint(
+        id: 'vietnamese-martyrs',
+        name: 'The Vietnamese Martyrs',
+        nationality: 'Vietnamese',
+        profession: 'Martyrs',
+      );
+      expect(testGroupSaint.shortName, 'Vietnamese Martyrs');
+
+      const testOtSaint = Saint(
+        id: 'moses-the-prophet',
+        name: 'Moses the Prophet',
+        nationality: 'Israelite',
+        profession: 'Prophet',
+      );
+      expect(testOtSaint.shortName, 'Moses the Prophet');
 
       final serialized = saint.toJson();
       expect(serialized['id'], 'thomas-aquinas');

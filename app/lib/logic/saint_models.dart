@@ -399,6 +399,11 @@ class Saint {
     return '';
   }
 
+  /// Returns a clean short name by stripping honorific prefixes ("St.", "Blessed", "The", "Ven.").
+  String get shortName {
+    return name.replaceFirst(RegExp(r'^(St\.|Blessed|The|Ven\.)\s+'), '');
+  }
+
   /// Returns all categories matching this saint based on explicit categories or historical fallback,
   /// ordered consistently according to the standard UI category hierarchy.
   List<SaintCategory> get categories {

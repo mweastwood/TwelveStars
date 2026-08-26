@@ -759,7 +759,7 @@ class _ConfirmationDiscernmentScreenState
                     key: Key('${keyPrefix}_select_button'),
                     icon: const Icon(Icons.check, size: 18),
                     label: Text(
-                      'Choose ${saint.name.replaceFirst('St. ', '')}',
+                      'Choose ${saint.shortName}',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -971,12 +971,22 @@ class _ConfirmationDiscernmentScreenState
                       ],
                     ),
                     const SizedBox(height: 10),
-                    Text(
-                      'St. ${saint.name.replaceFirst('St. ', '')}, you lived a life of extraordinary holiness, faith, and love for Jesus Christ. As I prepare for the Sacrament of Confirmation, I choose you as my patron and intercessor before the throne of God. Pray for me that the gifts of the Holy Spirit may be stirred into flame in my life, that I may witness to the Gospel with courage and truth. Amen.',
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        fontStyle: FontStyle.italic,
-                        height: 1.4,
-                      ),
+                    Builder(
+                      builder: (context) {
+                        final invocationName =
+                            saint.name.startsWith('St. ') ||
+                                saint.name.startsWith('Blessed ') ||
+                                saint.name.startsWith('The ')
+                            ? saint.name
+                            : 'St. ${saint.shortName}';
+                        return Text(
+                          '$invocationName, you lived a life of extraordinary holiness, faith, and love for Jesus Christ. As I prepare for the Sacrament of Confirmation, I choose you as my patron and intercessor before the throne of God. Pray for me that the gifts of the Holy Spirit may be stirred into flame in my life, that I may witness to the Gospel with courage and truth. Amen.',
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            fontStyle: FontStyle.italic,
+                            height: 1.4,
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -989,6 +999,12 @@ class _ConfirmationDiscernmentScreenState
                 icon: const Icon(Icons.copy),
                 label: const Text('Copy Confirmation Saint Dossier'),
                 onPressed: () {
+                  final invocationName =
+                      saint.name.startsWith('St. ') ||
+                          saint.name.startsWith('Blessed ') ||
+                          saint.name.startsWith('The ')
+                      ? saint.name
+                      : 'St. ${saint.shortName}';
                   final dossier =
                       '''
 CONFIRMATION SAINT DOSSIER
@@ -1003,7 +1019,7 @@ BIOGRAPHY & SIGNIFICANCE:
 ${saint.summary ?? ''}
 
 CONFIRMATION PRAYER:
-St. ${saint.name.replaceFirst('St. ', '')}, pray for me as I receive the gifts of the Holy Spirit in Confirmation, that I may follow Christ faithfully all the days of my life. Amen.
+$invocationName, pray for me as I receive the gifts of the Holy Spirit in Confirmation, that I may follow Christ faithfully all the days of my life. Amen.
 ''';
                   Clipboard.setData(ClipboardData(text: dossier));
                   ScaffoldMessenger.of(context).showSnackBar(
