@@ -321,7 +321,7 @@ void main() {
             of: sheetFinder,
             matching: find.textContaining('Confirmation Tip:'),
           ),
-          findsOneWidget,
+          findsNothing,
         );
       },
     );

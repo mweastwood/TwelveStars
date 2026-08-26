@@ -214,20 +214,19 @@ class SaintDetailsSheet extends StatelessWidget {
                 label: 'Vocation & Profession',
                 value: saint.profession,
               ),
-              const SizedBox(height: 12),
 
               if (saint.patronage != null && saint.patronage!.isNotEmpty) ...[
+                const SizedBox(height: 12),
                 _buildInfoRow(
                   context,
                   icon: Icons.shield_outlined,
                   label: 'Patronage',
                   value: saint.patronage!,
                 ),
-                const SizedBox(height: 12),
               ],
 
               if (saint.summary != null && saint.summary!.isNotEmpty) ...[
-                const SizedBox(height: 8),
+                const SizedBox(height: 16),
                 Text(
                   'Biography & Significance',
                   style: theme.textTheme.titleSmall?.copyWith(
@@ -240,36 +239,7 @@ class SaintDetailsSheet extends StatelessWidget {
                   saint.summary!,
                   style: theme.textTheme.bodyMedium?.copyWith(height: 1.5),
                 ),
-                const SizedBox(height: 16),
               ],
-
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.primaryContainer.withValues(
-                    alpha: 0.4,
-                  ),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.lightbulb_outline,
-                      color: theme.colorScheme.primary,
-                      size: 20,
-                    ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: Text(
-                        'Confirmation Tip: Choose a confirmation patron saint whose virtues and life inspire your Christian vocation.',
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onPrimaryContainer,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
               const SizedBox(height: 24),
             ],
           ),
