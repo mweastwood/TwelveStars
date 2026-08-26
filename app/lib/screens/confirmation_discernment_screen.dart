@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/confirmation_discernment.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
-import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
 import 'package:twelve_stars/widgets/confirmation_bracket_view.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
 
@@ -483,6 +482,7 @@ class _ConfirmationDiscernmentScreenState
                               onSelect: () => _selectWinner(match.entrant1!),
                               theme: theme,
                               keyPrefix: 'entrant_1',
+                              isSideBySide: true,
                             ),
                           ),
                           Padding(
@@ -517,6 +517,7 @@ class _ConfirmationDiscernmentScreenState
                               onSelect: () => _selectWinner(match.entrant2!),
                               theme: theme,
                               keyPrefix: 'entrant_2',
+                              isSideBySide: true,
                             ),
                           ),
                         ],
@@ -535,6 +536,7 @@ class _ConfirmationDiscernmentScreenState
                           onSelect: () => _selectWinner(match.entrant1!),
                           theme: theme,
                           keyPrefix: 'entrant_1',
+                          isSideBySide: false,
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 10.0),
@@ -566,6 +568,7 @@ class _ConfirmationDiscernmentScreenState
                           onSelect: () => _selectWinner(match.entrant2!),
                           theme: theme,
                           keyPrefix: 'entrant_2',
+                          isSideBySide: false,
                         ),
                       ],
                     ),
@@ -585,6 +588,7 @@ class _ConfirmationDiscernmentScreenState
     required VoidCallback onSelect,
     required ThemeData theme,
     required String keyPrefix,
+    required bool isSideBySide,
   }) {
     final saint = seed.saint;
 
@@ -720,7 +724,7 @@ class _ConfirmationDiscernmentScreenState
 
             // Summary excerpt
             if (saint.summary != null) ...[
-              if (isWideScreen(context))
+              if (isSideBySide)
                 Expanded(
                   child: SingleChildScrollView(
                     child: Text(

@@ -233,5 +233,36 @@ void main() {
         );
       },
     );
+
+    testWidgets(
+      'renders tournament stage without layout crash on 600-699px screen width',
+      (tester) async {
+        tester.view.physicalSize = const Size(650, 800);
+        tester.view.devicePixelRatio = 1.0;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+
+        await tester.runAsync(() async {
+          await SaintDatabase.loadSaints();
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const ConfirmationDiscernmentScreen()),
+        );
+        await tester.pumpAndSettle();
+
+        // Complete 7 questions
+        for (int q = 0; q < 7; q++) {
+          await tester.tap(find.byKey(const Key('discernment_option_0')));
+          await tester.pumpAndSettle();
+          await tester.tap(find.byKey(const Key('discernment_next_button')));
+          await tester.pumpAndSettle();
+        }
+
+        // Verify Tournament Arena renders cleanly on 650px width (stacked layout, no RenderFlex overflow)
+        expect(find.text('Saint Showdown'), findsOneWidget);
+        expect(find.text('VS'), findsWidgets);
+      },
+    );
   });
 }
