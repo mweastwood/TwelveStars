@@ -859,7 +859,7 @@ class _ConfirmationDiscernmentScreenState
                         vertical: 6,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.8),
+                        color: theme.colorScheme.surface.withValues(alpha: 0.8),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Text(

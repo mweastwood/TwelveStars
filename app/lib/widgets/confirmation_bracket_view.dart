@@ -167,11 +167,14 @@ class ConfirmationBracketView extends StatelessWidget {
     ThemeData theme,
   ) {
     if (entrant == null) {
-      return const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
         child: Text(
           'TBD',
-          style: TextStyle(fontStyle: FontStyle.italic, color: Colors.grey),
+          style: TextStyle(
+            fontStyle: FontStyle.italic,
+            color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
+          ),
         ),
       );
     }
