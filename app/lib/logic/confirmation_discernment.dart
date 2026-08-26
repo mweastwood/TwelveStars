@@ -907,11 +907,22 @@ class ConfirmationDiscernmentEngine {
       }
     }
 
-    // 3. Pick remaining questions from cross-cutting (or extra from bank)
+    // 3. Pick remaining questions from cross-cutting
     if (crossCutting.isNotEmpty && selected.length < count) {
       final shuffledCross = List<DiscernmentQuestion>.from(crossCutting)
         ..shuffle(rng);
       for (final q in shuffledCross) {
+        if (selected.length >= count) break;
+        selected.add(q);
+      }
+    }
+
+    // 4. Backfill from remaining unselected questions in bank if count is not yet reached
+    if (selected.length < count) {
+      final unselected =
+          questionBank.where((q) => !selected.contains(q)).toList()
+            ..shuffle(rng);
+      for (final q in unselected) {
         if (selected.length >= count) break;
         selected.add(q);
       }

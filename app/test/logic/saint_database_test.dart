@@ -66,14 +66,57 @@ void main() {
         profession: 'Martyrs',
       );
       expect(testGroupSaint.shortName, 'Vietnamese Martyrs');
+      expect(testGroupSaint.invocationName, 'The Vietnamese Martyrs');
+
+      const testPluralSaint = Saint(
+        id: 'perpetua-felicity',
+        name: 'Sts. Perpetua and Felicity',
+        nationality: 'Roman',
+        profession: 'Martyrs',
+      );
+      expect(testPluralSaint.shortName, 'Perpetua and Felicity');
+      expect(testPluralSaint.invocationName, 'Sts. Perpetua and Felicity');
+
+      const testAbbrevBlessedSaint = Saint(
+        id: 'bl-pier-giorgio',
+        name: 'Bl. Pier Giorgio Frassati',
+        nationality: 'Italian',
+        profession: 'Lay Dominican',
+      );
+      expect(testAbbrevBlessedSaint.shortName, 'Pier Giorgio Frassati');
+      expect(
+        testAbbrevBlessedSaint.invocationName,
+        'Bl. Pier Giorgio Frassati',
+      );
+
+      const testVenerableSaint = Saint(
+        id: 'venerable-fulton-sheen',
+        name: 'Venerable Fulton Sheen',
+        nationality: 'American',
+        profession: 'Archbishop',
+      );
+      expect(testVenerableSaint.shortName, 'Fulton Sheen');
+      expect(testVenerableSaint.invocationName, 'Venerable Fulton Sheen');
+
+      const testVenSaint = Saint(
+        id: 'ven-alois',
+        name: 'Ven. Aloysius',
+        nationality: 'Italian',
+        profession: 'Monk',
+      );
+      expect(testVenSaint.shortName, 'Aloysius');
+      expect(testVenSaint.invocationName, 'Ven. Aloysius');
 
       const testOtSaint = Saint(
         id: 'moses-the-prophet',
         name: 'Moses the Prophet',
+        birthDate: 'c. 1527 BC',
+        deathDate: 'c. 1407 BC',
         nationality: 'Israelite',
         profession: 'Prophet',
       );
       expect(testOtSaint.shortName, 'Moses the Prophet');
+      expect(testOtSaint.invocationName, 'Moses the Prophet');
 
       final serialized = saint.toJson();
       expect(serialized['id'], 'thomas-aquinas');

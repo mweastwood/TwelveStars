@@ -47,6 +47,18 @@ void main() {
       }
     });
 
+    test(
+      'selectQuestions backfills from unselected questions when count > 8',
+      () {
+        final selected = ConfirmationDiscernmentEngine.selectQuestions(
+          count: 12,
+          random: Random(42),
+        );
+        expect(selected.length, 12);
+        expect(selected.toSet().length, 12); // All unique questions
+      },
+    );
+
     test('calculateUserVector returns normalized 6D preference vector', () {
       final questions = ConfirmationDiscernmentEngine.selectQuestions(
         count: 7,

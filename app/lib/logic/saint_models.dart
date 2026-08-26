@@ -399,9 +399,29 @@ class Saint {
     return '';
   }
 
-  /// Returns a clean short name by stripping honorific prefixes ("St.", "Blessed", "The", "Ven.").
+  /// Returns a clean short name by stripping honorific prefixes ("St.", "Sts.", "Blessed", "Bl.", "The", "Venerable", "Ven.").
   String get shortName {
-    return name.replaceFirst(RegExp(r'^(St\.|Blessed|The|Ven\.)\s+'), '');
+    return name.replaceFirst(
+      RegExp(r'^(Sts\.|St\.|Blessed|Bl\.|Venerable|Ven\.|The)\s+'),
+      '',
+    );
+  }
+
+  /// Returns the invocation name suitable for intercessory prayers and dossiers.
+  /// For Old Covenant figures and entries with existing honorific prefixes, returns [name] directly.
+  /// Otherwise defaults to "St. [shortName]".
+  String get invocationName {
+    if (era == SaintEra.oldCovenant ||
+        name.startsWith('St. ') ||
+        name.startsWith('Sts. ') ||
+        name.startsWith('Blessed ') ||
+        name.startsWith('Bl. ') ||
+        name.startsWith('The ') ||
+        name.startsWith('Ven. ') ||
+        name.startsWith('Venerable ')) {
+      return name;
+    }
+    return 'St. $shortName';
   }
 
   /// Returns all categories matching this saint based on explicit categories or historical fallback,

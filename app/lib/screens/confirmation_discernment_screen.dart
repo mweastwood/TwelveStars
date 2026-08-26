@@ -973,12 +973,7 @@ class _ConfirmationDiscernmentScreenState
                     const SizedBox(height: 10),
                     Builder(
                       builder: (context) {
-                        final invocationName =
-                            saint.name.startsWith('St. ') ||
-                                saint.name.startsWith('Blessed ') ||
-                                saint.name.startsWith('The ')
-                            ? saint.name
-                            : 'St. ${saint.shortName}';
+                        final invocationName = saint.invocationName;
                         return Text(
                           '$invocationName, you lived a life of extraordinary holiness, faith, and love for Jesus Christ. As I prepare for the Sacrament of Confirmation, I choose you as my patron and intercessor before the throne of God. Pray for me that the gifts of the Holy Spirit may be stirred into flame in my life, that I may witness to the Gospel with courage and truth. Amen.',
                           style: theme.textTheme.bodyMedium?.copyWith(
@@ -999,12 +994,7 @@ class _ConfirmationDiscernmentScreenState
                 icon: const Icon(Icons.copy),
                 label: const Text('Copy Confirmation Saint Dossier'),
                 onPressed: () {
-                  final invocationName =
-                      saint.name.startsWith('St. ') ||
-                          saint.name.startsWith('Blessed ') ||
-                          saint.name.startsWith('The ')
-                      ? saint.name
-                      : 'St. ${saint.shortName}';
+                  final invocationName = saint.invocationName;
                   final dossier =
                       '''
 CONFIRMATION SAINT DOSSIER

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
+import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/screens/confirmation_discernment_screen.dart';
 import 'package:twelve_stars/widgets/confirmation_bracket_view.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
@@ -161,5 +162,76 @@ void main() {
       // Verify SaintDetailsSheet opened
       expect(find.byType(SaintDetailsSheet), findsOneWidget);
     });
+
+    testWidgets(
+      'handles Old Testament saints in intercessory prayer and dossier without improper St. prefix',
+      (tester) async {
+        final mockOtSaint = const Saint(
+          id: 'moses-the-prophet',
+          name: 'Moses the Prophet',
+          birthDate: 'c. 1527 BC',
+          deathDate: 'c. 1407 BC',
+          nationality: 'Israelite',
+          profession: 'Prophet',
+        );
+
+        final List<Saint> testSaints = [
+          mockOtSaint,
+          for (int i = 2; i <= 16; i++)
+            Saint(
+              id: 'saint-$i',
+              name: 'St. Saint $i',
+              nationality: 'Roman',
+              profession: 'Martyr',
+            ),
+        ];
+
+        SaintDatabase.mockSaints = testSaints;
+        addTearDown(() {
+          SaintDatabase.mockSaints = null;
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const ConfirmationDiscernmentScreen()),
+        );
+        await tester.pumpAndSettle();
+
+        // Complete 7 questions
+        for (int q = 0; q < 7; q++) {
+          await tester.tap(find.byKey(const Key('discernment_option_0')));
+          await tester.pumpAndSettle();
+          await tester.tap(find.byKey(const Key('discernment_next_button')));
+          await tester.pumpAndSettle();
+        }
+
+        // Play 15 matches, always choosing entrant 1
+        for (int m = 0; m < 15; m++) {
+          await tester.tap(find.byKey(const Key('entrant_1_select_button')));
+          await tester.pumpAndSettle();
+        }
+
+        // Verify champion screen for Moses the Prophet
+        expect(find.text('Confirmation Patron Chosen'), findsOneWidget);
+        expect(find.text('Moses the Prophet'), findsWidgets);
+        expect(find.textContaining('St. Moses the Prophet'), findsNothing);
+
+        // Verify Intercessory Prayer start text
+        expect(
+          find.textContaining('Moses the Prophet, you lived a life'),
+          findsOneWidget,
+        );
+
+        // Scroll and tap Copy Dossier
+        final copyBtn = find.byKey(const Key('copy_dossier_button'));
+        await tester.scrollUntilVisible(copyBtn, 300);
+        await tester.tap(copyBtn);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.text('Confirmation dossier copied to clipboard!'),
+          findsOneWidget,
+        );
+      },
+    );
   });
 }
