@@ -214,20 +214,19 @@ class SaintDetailsSheet extends StatelessWidget {
                 label: 'Vocation & Profession',
                 value: saint.profession,
               ),
-              const SizedBox(height: 12),
 
               if (saint.patronage != null && saint.patronage!.isNotEmpty) ...[
+                const SizedBox(height: 12),
                 _buildInfoRow(
                   context,
                   icon: Icons.shield_outlined,
                   label: 'Patronage',
                   value: saint.patronage!,
                 ),
-                const SizedBox(height: 12),
               ],
 
               if (saint.summary != null && saint.summary!.isNotEmpty) ...[
-                const SizedBox(height: 8),
+                const SizedBox(height: 16),
                 Text(
                   'Biography & Significance',
                   style: theme.textTheme.titleSmall?.copyWith(
