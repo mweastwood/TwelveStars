@@ -14,7 +14,15 @@
     "isDoctor": false,
     "feastDay": "July 1",
     "patronage": "Priests, Levites",
-    "summary": "Elder brother of Moses and first High Priest of Israel who spoke before Pharaoh and established the Levitical priesthood under the Old Covenant."
+    "summary": "Elder brother of Moses and first High Priest of Israel who spoke before Pharaoh and established the Levitical priesthood under the Old Covenant.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "abel-the-righteous",
@@ -31,7 +39,15 @@
     "isDoctor": false,
     "feastDay": "January 3",
     "patronage": "Innocent Victims, Shepherds",
-    "summary": "Second son of Adam and Eve whose pleasing sacrifice was accepted by God and who was killed by his brother Cain, venerated in the Roman Canon as the first righteous martyr."
+    "summary": "Second son of Adam and Eve whose pleasing sacrifice was accepted by God and who was killed by his brother Cain, venerated in the Roman Canon as the first righteous martyr.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "abraham-the-patriarch",
@@ -47,7 +63,15 @@
     "isDoctor": false,
     "feastDay": "October 9",
     "patronage": "Hospitality, Monotheism, Fathers",
-    "summary": "Father in faith of all believers, called by God to leave Ur to inherit the Promised Land, who demonstrated steadfast obedience and covenant fidelity."
+    "summary": "Father in faith of all believers, called by God to leave Ur to inherit the Promised Land, who demonstrated steadfast obedience and covenant fidelity.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "agnes-of-rome",
@@ -65,7 +89,15 @@
     "isDoctor": false,
     "feastDay": "January 21",
     "patronage": "Young Girls, Chastity, Betrothed Couples, Girl Guides",
-    "summary": "Twelve-year-old Roman maiden who consecrated her virginity to Christ and joyfully embraced martyrdom during Diocletian's persecution."
+    "summary": "Twelve-year-old Roman maiden who consecrated her virginity to Christ and joyfully embraced martyrdom during Diocletian's persecution.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "aidan-of-lindisfarne",
@@ -82,7 +114,15 @@
     "isDoctor": false,
     "feastDay": "August 31",
     "patronage": "Northumbria, Firefighters",
-    "summary": "Irish monk from Iona who founded the monastery on Holy Island (Lindisfarne) at the request of King Oswald, evangelizing the kingdom of Northumbria on foot."
+    "summary": "Irish monk from Iona who founded the monastery on Holy Island (Lindisfarne) at the request of King Oswald, evangelizing the kingdom of Northumbria on foot.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": -0.55,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "albert-the-great",
@@ -99,7 +139,15 @@
     "isDoctor": true,
     "feastDay": "November 15",
     "patronage": "Scientists, Philosophers, Natural Sciences, Medical Technicians",
-    "summary": "Renowned Dominican scholar and mentor of St. Thomas Aquinas. He mastered theology, philosophy, physics, botany, and zoology, demonstrating harmony between faith and reason."
+    "summary": "Renowned Dominican scholar and mentor of St. Thomas Aquinas. He mastered theology, philosophy, physics, botany, and zoology, demonstrating harmony between faith and reason.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "aloysius-gonzaga",
@@ -116,7 +164,15 @@
     "isDoctor": false,
     "feastDay": "June 21",
     "patronage": "Catholic Youth, Students, AIDS Patients and Caregivers, Purity",
-    "summary": "Italian aristocrat who renounced his noble inheritance to enter the Society of Jesus, dying at age twenty-three from the plague contracted while caring for the sick."
+    "summary": "Italian aristocrat who renounced his noble inheritance to enter the Society of Jesus, dying at age twenty-three from the plague contracted while caring for the sick.",
+    "embedding": {
+      "contemplativeVsActive": -0.3,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "alphonsus-liguori",
@@ -133,7 +189,15 @@
     "isDoctor": true,
     "feastDay": "August 1",
     "patronage": "Confessors, Moral Theologians, Lawyers, Scrupulous Persons",
-    "summary": "Founder of the Congregation of the Most Holy Redeemer (Redemptorists). Master of moral theology and author of beloved devotional classics like The Glories of Mary."
+    "summary": "Founder of the Congregation of the Most Holy Redeemer (Redemptorists). Master of moral theology and author of beloved devotional classics like The Glories of Mary.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": -0.2
+    }
   },
   {
     "id": "ambrose",
@@ -150,7 +214,15 @@
     "isDoctor": true,
     "feastDay": "December 7",
     "patronage": "Bishops, Beekeepers, Candle-makers, Milan",
-    "summary": "Eloquent preacher and administrator who defended orthodoxy against Arianism and baptized St. Augustine of Hippo. One of the four original Latin Doctors."
+    "summary": "Eloquent preacher and administrator who defended orthodoxy against Arianism and baptized St. Augustine of Hippo. One of the four original Latin Doctors.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "amos-the-prophet",
@@ -166,7 +238,15 @@
     "isDoctor": false,
     "feastDay": "June 15",
     "patronage": "Agricultural Workers, Shepherds, Social Justice",
-    "summary": "Shepherd of Tekoa called by God to prophesy against social injustice, oppression of the poor, and religious complacency in the Northern Kingdom of Israel."
+    "summary": "Shepherd of Tekoa called by God to prophesy against social injustice, oppression of the poor, and religious complacency in the Northern Kingdom of Israel.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "anastasia-of-sirmium",
@@ -185,7 +265,15 @@
     "isDoctor": false,
     "feastDay": "December 25",
     "patronage": "Poison Sufferers, Weavers, Widows, Martyrs",
-    "summary": "Noble Roman matron who ministered to persecuted Christians in prisons and was martyred at Sirmium; traditionally commemorated at Christmas Day dawn Mass and in the Roman Canon."
+    "summary": "Noble Roman matron who ministered to persecuted Christians in prisons and was martyred at Sirmium; traditionally commemorated at Christmas Day dawn Mass and in the Roman Canon.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": -0.1,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "andre-bessette",
@@ -202,7 +290,15 @@
     "isDoctor": false,
     "feastDay": "January 6",
     "patronage": "Caregivers, Family Members, Montreal, St. Joseph's Oratory",
-    "summary": "Humble Holy Cross doorkeeper at Notre Dame College in Montreal whose deep devotion to St. Joseph led to thousands of miraculous cures and the founding of Saint Joseph's Oratory."
+    "summary": "Humble Holy Cross doorkeeper at Notre Dame College in Montreal whose deep devotion to St. Joseph led to thousands of miraculous cures and the founding of Saint Joseph's Oratory.",
+    "embedding": {
+      "contemplativeVsActive": 0.4,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "andrew-the-apostle",
@@ -219,7 +315,15 @@
     "isDoctor": false,
     "feastDay": "November 30",
     "patronage": "Scotland, Russia, Greece, Fishermen, Fishmongers",
-    "summary": "One of the Twelve Apostles and brother of Simon Peter, recognized Jesus as the Lamb of God and was the First-Called Apostle (Jn 1:35–42; Mt 10:2), bringing Peter to Christ. Martyred in Greece on an X-shaped cross."
+    "summary": "One of the Twelve Apostles and brother of Simon Peter, recognized Jesus as the Lamb of God and was the First-Called Apostle (Jn 1:35–42; Mt 10:2), bringing Peter to Christ. Martyred in Greece on an X-shaped cross.",
+    "embedding": {
+      "contemplativeVsActive": 0.5,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.5
+    }
   },
   {
     "id": "anselm-of-canterbury",
@@ -236,7 +340,15 @@
     "isDoctor": true,
     "feastDay": "April 21",
     "patronage": "Philosophers, Educators",
-    "summary": "Originator of the ontological argument for the existence of God and father of Scholasticism, famous for the principle of 'fides quaerens intellectum' (faith seeking understanding)."
+    "summary": "Originator of the ontological argument for the existence of God and father of Scholasticism, famous for the principle of 'fides quaerens intellectum' (faith seeking understanding).",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "anthony-of-padua",
@@ -254,7 +366,15 @@
     "isDoctor": true,
     "feastDay": "June 13",
     "patronage": "Lost Things, the Poor, Travelers, Sailors, Lisbon",
-    "summary": "Famed Franciscan orator celebrated for profound biblical knowledge, powerful preaching, and numerous miracles."
+    "summary": "Famed Franciscan orator celebrated for profound biblical knowledge, powerful preaching, and numerous miracles.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "anthony-the-great",
@@ -271,7 +391,15 @@
     "isDoctor": false,
     "feastDay": "January 17",
     "patronage": "Monks, Skin Diseases, Basket Makers, Butchers, Domestic Animals",
-    "summary": "Father of all monks who renounced his worldly wealth to live in the Egyptian desert, enduring spiritual warfare and inspiring generations of hermits."
+    "summary": "Father of all monks who renounced his worldly wealth to live in the Egyptian desert, enduring spiritual warfare and inspiring generations of hermits.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "apollonia",
@@ -289,7 +417,15 @@
     "isDoctor": false,
     "feastDay": "February 9",
     "patronage": "Dentists, Toothache, Dental Diseases",
-    "summary": "Elderly deaconess of Alexandria whose teeth were violently extracted during an anti-Christian uprising before she willingly threw herself into the flames rather than renounce Christ."
+    "summary": "Elderly deaconess of Alexandria whose teeth were violently extracted during an anti-Christian uprising before she willingly threw herself into the flames rather than renounce Christ.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "athanasius-of-alexandria",
@@ -306,7 +442,15 @@
     "isDoctor": true,
     "feastDay": "May 2",
     "patronage": "Theologians, Defenders of the Faith",
-    "summary": "Staunch defender of the divinity of Christ against the Arian heresy at the Council of Nicaea (325). Endured five exiles for Catholic orthodoxy."
+    "summary": "Staunch defender of the divinity of Christ against the Arian heresy at the Council of Nicaea (325). Endured five exiles for Catholic orthodoxy.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "augustine-of-hippo",
@@ -323,7 +467,15 @@
     "isDoctor": true,
     "feastDay": "August 28",
     "patronage": "Theologians, Printers, Brewers, Searchers of Truth",
-    "summary": "Converted through the prayers of St. Monica and guidance of St. Ambrose. Author of Confessions and The City of God, towering figure in Christian thought."
+    "summary": "Converted through the prayers of St. Monica and guidance of St. Ambrose. Author of Confessions and The City of God, towering figure in Christian thought.",
+    "embedding": {
+      "contemplativeVsActive": -0.4,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": -0.2,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.6,
+      "pioneeringVsPreservation": 0.7
+    }
   },
   {
     "id": "barbara",
@@ -341,7 +493,15 @@
     "isDoctor": false,
     "feastDay": "December 4",
     "patronage": "Miners, Artillerymen, Firefighters, Architects, Sudden Death",
-    "summary": "Early martyr imprisoned in a tower by her pagan father for embracing Christianity; venerated as one of the Fourteen Holy Helpers invoked against sudden death and lightning."
+    "summary": "Early martyr imprisoned in a tower by her pagan father for embracing Christianity; venerated as one of the Fourteen Holy Helpers invoked against sudden death and lightning.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "barnabas",
@@ -359,7 +519,15 @@
     "isDoctor": false,
     "feastDay": "June 11",
     "patronage": "Cyprus, Peacemakers, Antioch, Hailstorms",
-    "summary": "Added as an Apostle alongside Paul when set apart and sent forth by the Holy Spirit at Antioch for the First Missionary Journey (Acts 13:2–3; Acts 14:14). Levite from Cyprus called the 'Son of Encouragement' (Acts 4:36) who introduced Paul to the Jerusalem Apostles."
+    "summary": "Added as an Apostle alongside Paul when set apart and sent forth by the Holy Spirit at Antioch for the First Missionary Journey (Acts 13:2–3; Acts 14:14). Levite from Cyprus called the 'Son of Encouragement' (Acts 4:36) who introduced Paul to the Jerusalem Apostles.",
+    "embedding": {
+      "contemplativeVsActive": 1.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.1,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -1.0
+    }
   },
   {
     "id": "bartholomew-the-apostle",
@@ -376,7 +544,15 @@
     "isDoctor": false,
     "feastDay": "August 24",
     "patronage": "Tanners, Leatherworkers, Plasterers, Armenia",
-    "summary": "One of the Twelve Apostles, identified with Nathanael of Cana, called through Philip and praised by Jesus as an 'Israelite in whom there is no guile' (Jn 1:45–51; Mt 10:3). Preached in Armenia and India, where he was martyred."
+    "summary": "One of the Twelve Apostles, identified with Nathanael of Cana, called through Philip and praised by Jesus as an 'Israelite in whom there is no guile' (Jn 1:45–51; Mt 10:3). Preached in Armenia and India, where he was martyred.",
+    "embedding": {
+      "contemplativeVsActive": 0.5,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.85,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.5
+    }
   },
   {
     "id": "basil-the-great",
@@ -393,7 +569,15 @@
     "isDoctor": true,
     "feastDay": "January 2",
     "patronage": "Hospital Workers, Monks, Reformers",
-    "summary": "One of the three Cappadocian Fathers. Formulated the definitive Eastern monastic rule and vigorously defended the divinity of the Holy Spirit."
+    "summary": "One of the three Cappadocian Fathers. Formulated the definitive Eastern monastic rule and vigorously defended the divinity of the Holy Spirit.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": -0.2
+    }
   },
   {
     "id": "bede-the-venerable",
@@ -410,7 +594,15 @@
     "isDoctor": true,
     "feastDay": "May 25",
     "patronage": "Historians, Scholars, English Clergy",
-    "summary": "Monk of Wearmouth-Jarrow and author of the Ecclesiastical History of the English People. The only English native Doctor of the Church."
+    "summary": "Monk of Wearmouth-Jarrow and author of the Ecclesiastical History of the English People. The only English native Doctor of the Church.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.55,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "benedict-of-nursia",
@@ -426,7 +618,15 @@
     "isDoctor": false,
     "feastDay": "July 11",
     "patronage": "Europe, Monks, Poison Protection, Students",
-    "summary": "Founded Monte Cassino and wrote the famous Rule of Saint Benedict based on 'Ora et Labora' (Pray and Work), shaping Western civilization."
+    "summary": "Founded Monte Cassino and wrote the famous Rule of Saint Benedict based on 'Ora et Labora' (Pray and Work), shaping Western civilization.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.55,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "bernadette-soubirous",
@@ -444,7 +644,15 @@
     "isDoctor": false,
     "feastDay": "April 16",
     "patronage": "Illness, Lourdes, Shepherds, Poverty",
-    "summary": "Humble shepherd girl to whom the Immaculate Conception appeared eighteen times at the grotto of Massabielle in Lourdes."
+    "summary": "Humble shepherd girl to whom the Immaculate Conception appeared eighteen times at the grotto of Massabielle in Lourdes.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": 0.65,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "bernard-of-clairvaux",
@@ -462,7 +670,15 @@
     "isDoctor": true,
     "feastDay": "August 20",
     "patronage": "Beekeepers, Candlemakers, Gibraltar",
-    "summary": "Major Cistercian reformer, contemplative mystic, and adviser to popes and kings, renowned for fervent Marian devotion and theological eloquence."
+    "summary": "Major Cistercian reformer, contemplative mystic, and adviser to popes and kings, renowned for fervent Marian devotion and theological eloquence.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.9
+    }
   },
   {
     "id": "blaise",
@@ -479,7 +695,15 @@
     "isDoctor": false,
     "feastDay": "February 3",
     "patronage": "Throat Ailments, Veterinarians, Wool Combers",
-    "summary": "Bishop and physician martyred in Armenia who famously saved a young boy choking on a fishbone; honored with the annual Blessing of the Throats."
+    "summary": "Bishop and physician martyred in Armenia who famously saved a young boy choking on a fishbone; honored with the annual Blessing of the Throats.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "bonaventure",
@@ -497,7 +721,15 @@
     "isDoctor": true,
     "feastDay": "July 15",
     "patronage": "Franciscan Order, Bowel Disorders",
-    "summary": "Franciscan philosopher and theologian who synthesized mystical devotion and scholastic philosophy in works like The Mind's Road to God."
+    "summary": "Franciscan philosopher and theologian who synthesized mystical devotion and scholastic philosophy in works like The Mind's Road to God.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "bridget-of-sweden",
@@ -514,7 +746,15 @@
     "isDoctor": false,
     "feastDay": "July 23",
     "patronage": "Sweden, Europe, Widows, Holy Death",
-    "summary": "Swedish noblewoman and mother of eight who experienced mystical revelations of the Passion of Christ, founded the Bridgettine Order, and worked for papal return to Rome."
+    "summary": "Swedish noblewoman and mother of eight who experienced mystical revelations of the Passion of Christ, founded the Bridgettine Order, and worked for papal return to Rome.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "brigid-of-kildare",
@@ -530,7 +770,15 @@
     "isDoctor": false,
     "feastDay": "February 1",
     "patronage": "Ireland, Dairy Workers, Nuns, Healers, Poets",
-    "summary": "Founded the great monastic community of Kildare, renowned for generous hospitality, miracles of healing, and weaving the Brigid's Cross."
+    "summary": "Founded the great monastic community of Kildare, renowned for generous hospitality, miracles of healing, and weaving the Brigid's Cross.",
+    "embedding": {
+      "contemplativeVsActive": -0.3,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.55,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "bruno-of-cologne",
@@ -546,7 +794,15 @@
     "isDoctor": false,
     "feastDay": "October 6",
     "patronage": "Carthusian Order, Calabria",
-    "summary": "Distinguished theology master who withdrew to the isolated valley of the Grande Chartreuse to found the contemplative Carthusians, dedicated to unbroken prayer and silence."
+    "summary": "Distinguished theology master who withdrew to the isolated valley of the Grande Chartreuse to found the contemplative Carthusians, dedicated to unbroken prayer and silence.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.3,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "camillus-de-lellis",
@@ -563,7 +819,15 @@
     "isDoctor": false,
     "feastDay": "July 14",
     "patronage": "Hospitals, Nurses, Sick People, Healthcare Workers",
-    "summary": "Former gambler and soldier who founded the Order of Clerks Regular, Ministers to the Sick (Camillians), pioneering modern emergency medicine and hospital care."
+    "summary": "Former gambler and soldier who founded the Order of Clerks Regular, Ministers to the Sick (Camillians), pioneering modern emergency medicine and hospital care.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "carlo-acutis",
@@ -580,7 +844,15 @@
     "isDoctor": false,
     "feastDay": "October 12",
     "patronage": "Youth, Students, Programmers, Computer Users, Internet, Webmasters, Digital Evangelization",
-    "summary": "Italian teenager and computer programmer (often celebrated as St. Carlos Acutis) who documented Eucharistic miracles and approved Marian apparitions on a website he designed before dying of leukemia at age 15, offering his suffering for the Church and the Pope."
+    "summary": "Italian teenager and computer programmer (often celebrated as St. Carlos Acutis) who documented Eucharistic miracles and approved Marian apparitions on a website he designed before dying of leukemia at age 15, offering his suffering for the Church and the Pope.",
+    "embedding": {
+      "contemplativeVsActive": 0.3,
+      "intellectualVsDevotional": 0.4,
+      "courageVsMercy": 0.3,
+      "ancientVsModern": 1.0,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "casimir",
@@ -597,7 +869,15 @@
     "isDoctor": false,
     "feastDay": "March 4",
     "patronage": "Poland, Lithuania, Youth, Celibates",
-    "summary": "Royal prince known for heroic chastity, love of the poor, intense Marian devotion (celebrated through the hymn Omni die dic Mariae), and peaceful statecraft."
+    "summary": "Royal prince known for heroic chastity, love of the poor, intense Marian devotion (celebrated through the hymn Omni die dic Mariae), and peaceful statecraft.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.4,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "catherine-of-bologna",
@@ -615,7 +895,15 @@
     "isDoctor": false,
     "feastDay": "March 9",
     "patronage": "Artists, Painters, Temptations, Liberal Arts",
-    "summary": "Italian Poor Clare abbess, calligrapher, and mystic whose spiritual reflections and preserved paintings inspired Renaissance religious devotion."
+    "summary": "Italian Poor Clare abbess, calligrapher, and mystic whose spiritual reflections and preserved paintings inspired Renaissance religious devotion.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "catherine-of-siena",
@@ -634,7 +922,15 @@
     "isDoctor": true,
     "feastDay": "April 29",
     "patronage": "Italy, Europe, Nurses, Fire Prevention",
-    "summary": "Dominican mystic who counseled Pope Gregory XI to return the papacy from Avignon to Rome. Author of The Dialogue and patron of Europe."
+    "summary": "Dominican mystic who counseled Pope Gregory XI to return the papacy from Avignon to Rome. Author of The Dialogue and patron of Europe.",
+    "embedding": {
+      "contemplativeVsActive": 0.2,
+      "intellectualVsDevotional": -0.5,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.3,
+      "pioneeringVsPreservation": -0.6
+    }
   },
   {
     "id": "cecilia",
@@ -652,7 +948,15 @@
     "isDoctor": false,
     "feastDay": "November 22",
     "patronage": "Musicians, Composers, Singers, Instrument Makers",
-    "summary": "Roman noble martyr who sang in her heart to God during her wedding and survived executioners before surrendering her spirit."
+    "summary": "Roman noble martyr who sang in her heart to God during her wedding and survived executioners before surrendering her spirit.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "charbel-makhlouf",
@@ -669,7 +973,15 @@
     "isDoctor": false,
     "feastDay": "July 24",
     "patronage": "Lebanon, Unity of Christians, Miraculous Healings",
-    "summary": "Maronite monk and hermit who lived twenty-three years of solitary prayer, fasting, and Eucharistic contemplation, source of thousands of documented healings."
+    "summary": "Maronite monk and hermit who lived twenty-three years of solitary prayer, fasting, and Eucharistic contemplation, source of thousands of documented healings.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": 0.3,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.65,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "charles-borromeo",
@@ -685,7 +997,15 @@
     "isDoctor": false,
     "feastDay": "November 4",
     "patronage": "Bishops, Catechists, Seminarians, Lombardy",
-    "summary": "Leading figure of the Council of Trent, instituted modern seminary education and personally nursed plague victims in Milan."
+    "summary": "Leading figure of the Council of Trent, instituted modern seminary education and personally nursed plague victims in Milan.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.9
+    }
   },
   {
     "id": "charles-de-foucauld",
@@ -701,7 +1021,15 @@
     "isDoctor": false,
     "feastDay": "December 1",
     "patronage": "Hermits, Unbelievers, Universal Brotherhood",
-    "summary": "French explorer and soldier who experienced deep conversion, living as a hermit among the Tuareg in the Algerian Sahara as a 'universal brother'."
+    "summary": "French explorer and soldier who experienced deep conversion, living as a hermit among the Tuareg in the Algerian Sahara as a 'universal brother'.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "charles-lwanga-and-ugandan-martyrs",
@@ -719,7 +1047,15 @@
     "isDoctor": false,
     "feastDay": "June 3",
     "patronage": "African Youth, Catholic Action, Torture Victims",
-    "summary": "Chief page in the court of Mwanga II who protected younger pages and willingly chose martyrdom by fire at Namugongo for refusing to renounce Christ."
+    "summary": "Chief page in the court of Mwanga II who protected younger pages and willingly chose martyrdom by fire at Namugongo for refusing to renounce Christ.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.4,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": 0.65,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "christopher",
@@ -736,7 +1072,15 @@
     "isDoctor": false,
     "feastDay": "July 25",
     "patronage": "Travelers, Motorists, Drivers, Sailors, Athletes",
-    "summary": "Early Christian martyr commemorated for carrying a child across a dangerous river, discovering the child was Christ carrying the weight of the whole world."
+    "summary": "Early Christian martyr commemorated for carrying a child across a dangerous river, discovering the child was Christ carrying the weight of the whole world.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "clare-of-assisi",
@@ -754,7 +1098,15 @@
     "isDoctor": false,
     "feastDay": "August 11",
     "patronage": "Television, Eye Disease, Embroiderers",
-    "summary": "First follower of St. Francis who founded the Order of Poor Ladies (Poor Clares) and protected her monastery by raising the Blessed Sacrament against invaders."
+    "summary": "First follower of St. Francis who founded the Order of Poor Ladies (Poor Clares) and protected her monastery by raising the Blessed Sacrament against invaders.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "clare-of-montefalco",
@@ -772,7 +1124,15 @@
     "isDoctor": false,
     "feastDay": "August 17",
     "patronage": "Montefalco, Heart Patients",
-    "summary": "Augustinian contemplative mystic who devoted her life to the Passion of Christ; upon her death, symbols of the Crucifixion were found imprinted upon her heart."
+    "summary": "Augustinian contemplative mystic who devoted her life to the Passion of Christ; upon her death, symbols of the Crucifixion were found imprinted upon her heart.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "clement-of-rome",
@@ -789,7 +1149,15 @@
     "isDoctor": false,
     "feastDay": "November 23",
     "patronage": "Mariners, Sailors, Stonecutters",
-    "summary": "Fourth Pope of the Catholic Church who wrote the historic Epistle to the Corinthians asserting apostolic succession and unity within the Church."
+    "summary": "Fourth Pope of the Catholic Church who wrote the historic Epistle to the Corinthians asserting apostolic succession and unity within the Church.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.9,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "columba-of-iona",
@@ -806,7 +1174,15 @@
     "isDoctor": false,
     "feastDay": "June 9",
     "patronage": "Scotland, Ireland, Poets, Bookbinders, Floods",
-    "summary": "One of the Twelve Apostles of Ireland who founded the influential abbey of Iona off the Scottish coast, leading the Christianization of the Picts and Scots."
+    "summary": "One of the Twelve Apostles of Ireland who founded the influential abbey of Iona off the Scottish coast, leading the Christianization of the Picts and Scots.",
+    "embedding": {
+      "contemplativeVsActive": 0.1,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": -0.55,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "columbanus",
@@ -823,7 +1199,15 @@
     "isDoctor": false,
     "feastDay": "November 23",
     "patronage": "Motorcyclists, Europe",
-    "summary": "Irish missionary abbot who established monastic communities across the Frankish and Lombard kingdoms, including Luxeuil and Bobbio, reviving Christian culture across Europe."
+    "summary": "Irish missionary abbot who established monastic communities across the Frankish and Lombard kingdoms, including Luxeuil and Bobbio, reviving Christian culture across Europe.",
+    "embedding": {
+      "contemplativeVsActive": 0.1,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": -0.55,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "cuthbert-of-lindisfarne",
@@ -839,7 +1223,15 @@
     "isDoctor": false,
     "feastDay": "March 20",
     "patronage": "Northern England, Sailors, Shepherds, Durham",
-    "summary": "Beloved Anglo-Saxon prior and bishop known for his pastoral journeys across the border hills, deep prayer life on Inner Farne, and posthumous incorrupt relics."
+    "summary": "Beloved Anglo-Saxon prior and bishop known for his pastoral journeys across the border hills, deep prayer life on Inner Farne, and posthumous incorrupt relics.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": 0.3,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.55,
+      "simplicityVsLeadership": -0.1,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "cyprian-of-carthage",
@@ -856,7 +1248,15 @@
     "isDoctor": false,
     "feastDay": "September 16",
     "patronage": "North Africa, Algeria",
-    "summary": "Third-century Bishop of Carthage, influential Latin Church Father and martyr during Valerian's persecution, famed for his treatises On the Unity of the Church and On the Lord's Prayer."
+    "summary": "Third-century Bishop of Carthage, influential Latin Church Father and martyr during Valerian's persecution, famed for his treatises On the Unity of the Church and On the Lord's Prayer.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.3,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "cyril-of-alexandria",
@@ -873,7 +1273,15 @@
     "isDoctor": true,
     "feastDay": "June 27",
     "patronage": "Alexandria, Defenders of the Incarnation",
-    "summary": "Leader at the Council of Ephesus (431) defending Mary as Theotokos (Mother of God) against Nestorianism and affirming the hypostatic union of Christ."
+    "summary": "Leader at the Council of Ephesus (431) defending Mary as Theotokos (Mother of God) against Nestorianism and affirming the hypostatic union of Christ.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "cyril-of-jerusalem",
@@ -890,7 +1298,15 @@
     "isDoctor": true,
     "feastDay": "March 18",
     "patronage": "Catechists, Catechumens",
-    "summary": "Delivered the celebrated Catechetical Lectures illuminating baptism, confirmation, the Eucharist, and the Creed for early Christian converts."
+    "summary": "Delivered the celebrated Catechetical Lectures illuminating baptism, confirmation, the Eucharist, and the Creed for early Christian converts.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "damasus-i",
@@ -906,7 +1322,15 @@
     "isDoctor": false,
     "feastDay": "December 11",
     "patronage": "Archaeologists, Catacombs",
-    "summary": "37th Pope who preserved the catacombs with carved epigrams and commissioned St. Jerome to produce the Latin Vulgate translation of the Sacred Scriptures."
+    "summary": "37th Pope who preserved the catacombs with carved epigrams and commissioned St. Jerome to produce the Latin Vulgate translation of the Sacred Scriptures.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.9,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "damien-of-molokai",
@@ -923,7 +1347,15 @@
     "isDoctor": false,
     "feastDay": "May 10",
     "patronage": "Leprosy, Hawaii, Outcasts, People with HIV/AIDS",
-    "summary": "Volunteered to minister indefinitely to the banished leper colony on the island of Molokai, building homes and churches until succumbing to the disease."
+    "summary": "Volunteered to minister indefinitely to the banished leper colony on the island of Molokai, building homes and churches until succumbing to the disease.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.65,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "daniel-the-prophet",
@@ -939,7 +1371,15 @@
     "isDoctor": false,
     "feastDay": "July 21",
     "patronage": "Statesmen, Interpreters of Dreams, Protection against Wild Beasts",
-    "summary": "Faithful prophet in Babylon who was preserved unharmed in the lion's den and received apocalyptic visions of the Son of Man and the eternal Kingdom of God."
+    "summary": "Faithful prophet in Babylon who was preserved unharmed in the lion's den and received apocalyptic visions of the Son of Man and the eternal Kingdom of God.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "david-the-king",
@@ -956,7 +1396,15 @@
     "isDoctor": false,
     "feastDay": "December 29",
     "patronage": "Poets, Musicians, Composers, Rulers",
-    "summary": "Second King of Israel who united the tribes, authored the Psalms, and was promised an eternal dynasty fulfilled in Jesus Christ."
+    "summary": "Second King of Israel who united the tribes, authored the Psalms, and was promised an eternal dynasty fulfilled in Jesus Christ.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.8,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "dominic-de-guzman",
@@ -972,7 +1420,15 @@
     "isDoctor": false,
     "feastDay": "August 8",
     "patronage": "Astronomers, Dominican Order, Falsely Accused",
-    "summary": "Founded the Order of Preachers (Dominicans) committed to rigorous study, itinerant poverty, combating heresy, and praying the Holy Rosary."
+    "summary": "Founded the Order of Preachers (Dominicans) committed to rigorous study, itinerant poverty, combating heresy, and praying the Holy Rosary.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "dominic-savio",
@@ -989,7 +1445,15 @@
     "isDoctor": false,
     "feastDay": "May 6",
     "patronage": "Choirboys, Juveniles, the Falsely Accused",
-    "summary": "Pupil of Don Bosco who lived by the motto 'Death rather than sin' and showed that holiness is reachable even in youth before dying at fourteen."
+    "summary": "Pupil of Don Bosco who lived by the motto 'Death rather than sin' and showed that holiness is reachable even in youth before dying at fourteen.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": 0.65,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "dunstan",
@@ -1005,7 +1469,15 @@
     "isDoctor": false,
     "feastDay": "May 19",
     "patronage": "Blacksmiths, Goldsmiths, Jewelers, Musicians, Armorers",
-    "summary": "English monastic reformer, skilled artisan, and statesman who restored monastic life in England and devised the royal coronation service still used today."
+    "summary": "English monastic reformer, skilled artisan, and statesman who restored monastic life in England and devised the royal coronation service still used today.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.55,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.9
+    }
   },
   {
     "id": "edmund-campion",
@@ -1022,7 +1494,15 @@
     "isDoctor": false,
     "feastDay": "December 1",
     "patronage": "English Martyrs, Converts",
-    "summary": "Brilliant Oxford scholar who entered the Society of Jesus and returned secretly to England to minister to underground Catholics, composing 'Campion's Brag' before his martyrdom at Tyburn."
+    "summary": "Brilliant Oxford scholar who entered the Society of Jesus and returned secretly to England to minister to underground Catholics, composing 'Campion's Brag' before his martyrdom at Tyburn.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "edward-the-confessor",
@@ -1039,7 +1519,15 @@
     "isDoctor": false,
     "feastDay": "October 13",
     "patronage": "Kings, Difficult Marriages, Separated Spouses, England",
-    "summary": "Pious Anglo-Saxon monarch renowned for his charity, justice, preserved chastity in marriage, and construction of Westminster Abbey."
+    "summary": "Pious Anglo-Saxon monarch renowned for his charity, justice, preserved chastity in marriage, and construction of Westminster Abbey.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.2,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "eleazar-the-scribe",
@@ -1055,7 +1543,15 @@
     "isDoctor": false,
     "feastDay": "August 1",
     "patronage": "The Elderly, Integrity, Fidelity to God's Law",
-    "summary": "Venerable Jewish elder and scribe who chose martyrdom under King Antiochus IV Epiphanes rather than violate God's law or set a scandalous example for youth (2 Macc 6:18–31)."
+    "summary": "Venerable Jewish elder and scribe who chose martyrdom under King Antiochus IV Epiphanes rather than violate God's law or set a scandalous example for youth (2 Macc 6:18–31).",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.7,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "elijah-the-prophet",
@@ -1071,7 +1567,15 @@
     "isDoctor": false,
     "feastDay": "July 20",
     "patronage": "Carmelites, Solitaries, Protection from Fire",
-    "summary": "Great prophet of the Northern Kingdom who defended the worship of Yahweh against Baal on Mount Carmel and was taken up into heaven in a chariot of fire."
+    "summary": "Great prophet of the Northern Kingdom who defended the worship of Yahweh against Baal on Mount Carmel and was taken up into heaven in a chariot of fire.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "elisha-the-prophet",
@@ -1087,7 +1591,15 @@
     "isDoctor": false,
     "feastDay": "June 14",
     "patronage": "Carmelites, Farmers",
-    "summary": "Disciple and successor of Elijah who inherited a double portion of his spirit and performed numerous miracles for the people of Israel."
+    "summary": "Disciple and successor of Elijah who inherited a double portion of his spirit and performed numerous miracles for the people of Israel.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "elizabeth-ann-seton",
@@ -1104,7 +1616,15 @@
     "isDoctor": false,
     "feastDay": "January 4",
     "patronage": "Catholic Schools, Educators, Loss of Parents, Widows",
-    "summary": "First native-born American canonized saint. Established the first free Catholic girls' school in America and founded the Sisters of Charity of St. Joseph."
+    "summary": "First native-born American canonized saint. Established the first free Catholic girls' school in America and founded the Sisters of Charity of St. Joseph.",
+    "embedding": {
+      "contemplativeVsActive": 0.4,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": 0.65,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "elizabeth-of-hungary",
@@ -1121,7 +1641,15 @@
     "isDoctor": false,
     "feastDay": "November 17",
     "patronage": "Bakers, Beggars, Charitable Societies, Hospitals, Widows",
-    "summary": "Hungarian princess who used her royal wealth to care for the sick and poor, joining the Third Order of St. Francis and establishing a hospital at Marburg."
+    "summary": "Hungarian princess who used her royal wealth to care for the sick and poor, joining the Third Order of St. Francis and establishing a hospital at Marburg.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "ephrem-the-syrian",
@@ -1138,7 +1666,15 @@
     "isDoctor": true,
     "feastDay": "June 9",
     "patronage": "Spiritual Directors, Hymnographers, Poets",
-    "summary": "Prolific Syriac poet, deacon, and theologian whose theological hymns combat heresies and glorify the mystery of the Incarnation and Blessed Mother."
+    "summary": "Prolific Syriac poet, deacon, and theologian whose theological hymns combat heresies and glorify the mystery of the Incarnation and Blessed Mother.",
+    "embedding": {
+      "contemplativeVsActive": 0.4,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "eric-of-sweden",
@@ -1156,7 +1692,15 @@
     "isDoctor": false,
     "feastDay": "May 18",
     "patronage": "Sweden, Stockholm",
-    "summary": "Swedish monarch who codified Christian laws, supported missionary work in Finland, and was martyred by Danish rebels after attending Ascension Day Mass."
+    "summary": "Swedish monarch who codified Christian laws, supported missionary work in Finland, and was martyred by Danish rebels after attending Ascension Day Mass.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.2,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "ezekiel-the-prophet",
@@ -1173,7 +1717,15 @@
     "isDoctor": false,
     "feastDay": "July 23",
     "patronage": "Exiles, Intercessors",
-    "summary": "Priest and major prophet in Babylonian exile who received profound apocalyptic visions of the Glory of the Lord, the valley of dry bones restored to life, and the new Temple."
+    "summary": "Priest and major prophet in Babylonian exile who received profound apocalyptic visions of the Glory of the Lord, the valley of dry bones restored to life, and the new Temple.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "ezra-the-scribe",
@@ -1190,7 +1742,15 @@
     "isDoctor": false,
     "feastDay": "July 13",
     "patronage": "Scribes, Scholars of Sacred Scripture",
-    "summary": "Priest and scribe of the Law who led the second group of returning exiles from Babylon to Jerusalem, reviving religious fidelity and public reading of the Torah."
+    "summary": "Priest and scribe of the Law who led the second group of returning exiles from Babylon to Jerusalem, reviving religious fidelity and public reading of the Torah.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.7,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "faustina-kowalska",
@@ -1208,7 +1768,15 @@
     "isDoctor": false,
     "feastDay": "October 5",
     "patronage": "Mercy, World Youth Day",
-    "summary": "Mystic entrusted with Jesus's message of Divine Mercy, resulting in the Divine Mercy Chaplet, the Image of Divine Mercy, and Divine Mercy Sunday."
+    "summary": "Mystic entrusted with Jesus's message of Divine Mercy, resulting in the Divine Mercy Chaplet, the Image of Divine Mercy, and Divine Mercy Sunday.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 1.0,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "frances-xavier-cabrini",
@@ -1226,7 +1794,15 @@
     "isDoctor": false,
     "feastDay": "November 13",
     "patronage": "Immigrants, Hospital Administrators, Orphanages",
-    "summary": "First United States citizen canonized. Built hospitals, schools, and orphanages across the Americas serving disenfranchised immigrant communities."
+    "summary": "First United States citizen canonized. Built hospitals, schools, and orphanages across the Americas serving disenfranchised immigrant communities.",
+    "embedding": {
+      "contemplativeVsActive": 0.4,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 1.0,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "francis-borgia",
@@ -1243,7 +1819,15 @@
     "isDoctor": false,
     "feastDay": "October 10",
     "patronage": "Earthquakes, Rulers, Portugal",
-    "summary": "Spanish grandee and Duke of Gandía who entered the Society of Jesus after the death of his wife and Empress Isabella, expanding Jesuit overseas missions across America and Asia."
+    "summary": "Spanish grandee and Duke of Gandía who entered the Society of Jesus after the death of his wife and Empress Isabella, expanding Jesuit overseas missions across America and Asia.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "francis-de-sales",
@@ -1261,7 +1845,15 @@
     "isDoctor": true,
     "feastDay": "January 24",
     "patronage": "Writers, Catholic Journalists, the Deaf, Educators",
-    "summary": "Gentle pastor and bishop who emphasized universal call to holiness in Introduction to the Devout Life and co-founded the Order of the Visitation."
+    "summary": "Gentle pastor and bishop who emphasized universal call to holiness in Introduction to the Devout Life and co-founded the Order of the Visitation.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "francis-of-assisi",
@@ -1278,7 +1870,15 @@
     "isDoctor": false,
     "feastDay": "October 4",
     "patronage": "Animals, Ecology, Peace, Italy, Merchants",
-    "summary": "Renounced wealth to embrace Lady Poverty, rebuilt the Church by living the Gospel, received the stigmata on Mount La Verna."
+    "summary": "Renounced wealth to embrace Lady Poverty, rebuilt the Church by living the Gospel, received the stigmata on Mount La Verna.",
+    "embedding": {
+      "contemplativeVsActive": 0.2,
+      "intellectualVsDevotional": 0.8,
+      "courageVsMercy": 0.6,
+      "ancientVsModern": -0.3,
+      "simplicityVsLeadership": -1.0,
+      "pioneeringVsPreservation": -0.8
+    }
   },
   {
     "id": "francis-xavier",
@@ -1295,7 +1895,15 @@
     "isDoctor": false,
     "feastDay": "December 3",
     "patronage": "Foreign Missions, Missionaries, Navigators",
-    "summary": "Co-founder of the Jesuits and one of history's greatest missionaries, baptizing hundreds of thousands across India, the Moluccas, and Japan."
+    "summary": "Co-founder of the Jesuits and one of history's greatest missionaries, baptizing hundreds of thousands across India, the Moluccas, and Japan.",
+    "embedding": {
+      "contemplativeVsActive": 0.95,
+      "intellectualVsDevotional": -0.2,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": 0.25,
+      "simplicityVsLeadership": -0.4,
+      "pioneeringVsPreservation": -0.95
+    }
   },
   {
     "id": "gabriel-the-archangel",
@@ -1309,7 +1917,15 @@
     "isDoctor": false,
     "feastDay": "September 29",
     "patronage": "Messengers, Postal Workers, Telecommunications, Broadcasters, Diplomats, Radio Workers, Journalists",
-    "summary": "The archangel of the Annunciation ('Strength of God') who interpreted visions for the prophet Daniel, announced the birth of John the Baptist to Zechariah, and delivered the heavenly greeting to the Virgin Mary that she would conceive the Son of God."
+    "summary": "The archangel of the Annunciation ('Strength of God') who interpreted visions for the prophet Daniel, announced the birth of John the Baptist to Zechariah, and delivered the heavenly greeting to the Virgin Mary that she would conceive the Son of God.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "george",
@@ -1326,7 +1942,15 @@
     "isDoctor": false,
     "feastDay": "April 23",
     "patronage": "Soldiers, Scouts, Knights, England, Georgia",
-    "summary": "Roman officer of the Guard who was tortured and beheaded for refusing to sacrifice to pagan gods; emblem of Christian chivalry."
+    "summary": "Roman officer of the Guard who was tortured and beheaded for refusing to sacrifice to pagan gods; emblem of Christian chivalry.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "gerard-majella",
@@ -1343,7 +1967,15 @@
     "isDoctor": false,
     "feastDay": "October 16",
     "patronage": "Expectant Mothers, Unborn Children, Pregnant Women, Childbirth, Falsely Accused, Motherhood",
-    "summary": "Italian Redemptorist lay brother renowned for his profound humility, extraordinary charity, gift of reading hearts, and miraculous intercession for mothers and safe childbirth."
+    "summary": "Italian Redemptorist lay brother renowned for his profound humility, extraordinary charity, gift of reading hearts, and miraculous intercession for mothers and safe childbirth.",
+    "embedding": {
+      "contemplativeVsActive": -0.2,
+      "intellectualVsDevotional": 0.3,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "gertrude-the-great",
@@ -1361,7 +1993,15 @@
     "isDoctor": false,
     "feastDay": "November 16",
     "patronage": "Holy Souls in Purgatory, Travelers",
-    "summary": "German mystic of the monastery of Helfta, early visionary champion of the Sacred Heart of Jesus, and author of The Herald of Divine Love."
+    "summary": "German mystic of the monastery of Helfta, early visionary champion of the Sacred Heart of Jesus, and author of The Herald of Divine Love.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": -0.2,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "gianna-beretta-molla",
@@ -1378,7 +2018,15 @@
     "isDoctor": false,
     "feastDay": "April 28",
     "patronage": "Mothers, Physicians, Unborn Children",
-    "summary": "Devout pediatrician and mother who chose to carry her fourth child to term knowing it risked her life, exemplifying sacrificial maternal love."
+    "summary": "Devout pediatrician and mother who chose to carry her fourth child to term knowing it risked her life, exemplifying sacrificial maternal love.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "gideon-the-judge",
@@ -1394,7 +2042,15 @@
     "isDoctor": false,
     "feastDay": "September 26",
     "patronage": "Soldiers, Discernment of God's Will",
-    "summary": "Judge of Israel who tore down the altar of Baal and, confirmed by the miraculous sign of the fleece, routed the vast Midianite army with only 300 men (Judges 6–8)."
+    "summary": "Judge of Israel who tore down the altar of Baal and, confirmed by the miraculous sign of the fleece, routed the vast Midianite army with only 300 men (Judges 6–8).",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.5,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "giuseppe-moscati",
@@ -1411,7 +2067,15 @@
     "isDoctor": false,
     "feastDay": "November 16",
     "patronage": "Physicians, Medical Students, Anatomists, Bachelorhood",
-    "summary": "Pioneering medical researcher and physician in Naples who treated the poor for free and combined brilliant medical skill with holy personal piety."
+    "summary": "Pioneering medical researcher and physician in Naples who treated the poor for free and combined brilliant medical skill with holy personal piety.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.3,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "gregory-of-narek",
@@ -1429,7 +2093,15 @@
     "isDoctor": true,
     "feastDay": "February 27",
     "patronage": "Armenia, Poets, Contemplatives",
-    "summary": "Armenian monk whose masterpiece, The Book of Lamentations (Narek), is an enduring summit of mystical prayer, contrition, and lyrical theology."
+    "summary": "Armenian monk whose masterpiece, The Book of Lamentations (Narek), is an enduring summit of mystical prayer, contrition, and lyrical theology.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": -0.6,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "gregory-of-nazianzus",
@@ -1446,7 +2118,15 @@
     "isDoctor": true,
     "feastDay": "January 2",
     "patronage": "Poets, Theologians, Paris",
-    "summary": "Cappadocian Father whose Five Theological Orations decisively shaped orthodox Trinitarian theology at the First Council of Constantinople (381)."
+    "summary": "Cappadocian Father whose Five Theological Orations decisively shaped orthodox Trinitarian theology at the First Council of Constantinople (381).",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "gregory-the-great",
@@ -1463,7 +2143,15 @@
     "isDoctor": true,
     "feastDay": "September 3",
     "patronage": "Popes, Musicians, Teachers, Singers, England",
-    "summary": "Benedictine pope known for pastoral care, liturgical and Gregorian chant reforms, and sending St. Augustine of Canterbury to evangelize England."
+    "summary": "Benedictine pope known for pastoral care, liturgical and Gregorian chant reforms, and sending St. Augustine of Canterbury to evangelize England.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.55,
+      "simplicityVsLeadership": 0.9,
+      "pioneeringVsPreservation": 0.9
+    }
   },
   {
     "id": "habakkuk-the-prophet",
@@ -1479,7 +2167,15 @@
     "isDoctor": false,
     "feastDay": "December 2",
     "patronage": "Those in Doubt, Watchmen, Musicians",
-    "summary": "Prophet of Judah who wrestled in prayer over divine justice, authoring the renowned declaration that 'the righteous shall live by faith' (Hab 2:4) and a hymn of radiant hope in God."
+    "summary": "Prophet of Judah who wrestled in prayer over divine justice, authoring the renowned declaration that 'the righteous shall live by faith' (Hab 2:4) and a hymn of radiant hope in God.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.3,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "haggai-the-prophet",
@@ -1495,7 +2191,15 @@
     "isDoctor": false,
     "feastDay": "December 16",
     "patronage": "Builders, Architects of Churches",
-    "summary": "Post-exilic prophet who exhorted Zerubbabel and the returning Jewish community to complete the rebuilding of the Second Temple in Jerusalem, foretelling its future glory."
+    "summary": "Post-exilic prophet who exhorted Zerubbabel and the returning Jewish community to complete the rebuilding of the Second Temple in Jerusalem, foretelling its future glory.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "hilary-of-poitiers",
@@ -1512,7 +2216,15 @@
     "isDoctor": true,
     "feastDay": "January 13",
     "patronage": "Lawyers, Backward Children, Poitiers",
-    "summary": "Staunch defender of the Council of Nicaea in the Western Church, author of De Trinitate, and influential early Latin Christian writer."
+    "summary": "Staunch defender of the Council of Nicaea in the Western Church, author of De Trinitate, and influential early Latin Christian writer.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "hildegard-of-bingen",
@@ -1531,7 +2243,15 @@
     "isDoctor": true,
     "feastDay": "September 17",
     "patronage": "Musicians, Writers, Natural Scientists, Esperantists",
-    "summary": "Benedictine abbess and universal genius who produced visionary theological works (Scivias), medicinal treatises, and liturgical music of transcendent beauty."
+    "summary": "Benedictine abbess and universal genius who produced visionary theological works (Scivias), medicinal treatises, and liturgical music of transcendent beauty.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": -0.4,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "hosea-the-prophet",
@@ -1547,7 +2267,15 @@
     "isDoctor": false,
     "feastDay": "October 17",
     "patronage": "Reconciliation, Marital Fidelity",
-    "summary": "Prophet of the Northern Kingdom whose marriage to an unfaithful wife served as a living parable of God's enduring, unconditional, and forgiving love for Israel."
+    "summary": "Prophet of the Northern Kingdom whose marriage to an unfaithful wife served as a living parable of God's enduring, unconditional, and forgiving love for Israel.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "ignatius-of-antioch",
@@ -1564,7 +2292,15 @@
     "isDoctor": false,
     "feastDay": "October 17",
     "patronage": "Church in the Eastern Mediterranean, Throat Diseases",
-    "summary": "Third Bishop of Antioch and disciple of John who wrote seven profound pastoral epistles on the episcopacy and the Eucharist on his journey to Rome to be thrown to wild beasts."
+    "summary": "Third Bishop of Antioch and disciple of John who wrote seven profound pastoral epistles on the episcopacy and the Eucharist on his journey to Rome to be thrown to wild beasts.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "ignatius-of-loyola",
@@ -1581,7 +2317,15 @@
     "isDoctor": false,
     "feastDay": "July 31",
     "patronage": "Spiritual Exercises, Retreats, Soldiers, Educators",
-    "summary": "Wounded soldier converted during convalescence who authored the Spiritual Exercises and founded the Jesuits for the greater glory of God (AMDG)."
+    "summary": "Wounded soldier converted during convalescence who authored the Spiritual Exercises and founded the Jesuits for the greater glory of God (AMDG).",
+    "embedding": {
+      "contemplativeVsActive": 0.5,
+      "intellectualVsDevotional": -0.7,
+      "courageVsMercy": -0.7,
+      "ancientVsModern": 0.25,
+      "simplicityVsLeadership": 0.4,
+      "pioneeringVsPreservation": -0.8
+    }
   },
   {
     "id": "irenaeus-of-lyons",
@@ -1599,7 +2343,15 @@
     "isDoctor": true,
     "feastDay": "June 28",
     "patronage": "Catechists, Church Unity, Lyons",
-    "summary": "Disciple of St. Polycarp of Smyrna. Refuted Gnosticism in Against Heresies, defending apostolic tradition, the fourfold Gospel, and unity of faith."
+    "summary": "Disciple of St. Polycarp of Smyrna. Refuted Gnosticism in Against Heresies, defending apostolic tradition, the fourfold Gospel, and unity of faith.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "isaiah-the-prophet",
@@ -1616,7 +2368,15 @@
     "isDoctor": false,
     "feastDay": "May 9",
     "patronage": "Missionaries, Writers, Theologians",
-    "summary": "Major prophet of Judah known as the \"Fifth Evangelist\" for his vivid prophecies of the Messiah's Virgin birth, suffering Servant songs, and redemption."
+    "summary": "Major prophet of Judah known as the \"Fifth Evangelist\" for his vivid prophecies of the Messiah's Virgin birth, suffering Servant songs, and redemption.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -1.0,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "isidore-of-seville",
@@ -1633,7 +2393,15 @@
     "isDoctor": true,
     "feastDay": "April 4",
     "patronage": "The Internet, Computer Users, Programmers, Students",
-    "summary": "Last of the ancient Western Church Fathers. Compiled the Etymologiae, preserving Greco-Roman classical learning for medieval Europe."
+    "summary": "Last of the ancient Western Church Fathers. Compiled the Etymologiae, preserving Greco-Roman classical learning for medieval Europe.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.55,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "jacques-berthieu",
@@ -1651,7 +2419,15 @@
     "isDoctor": false,
     "feastDay": "June 8",
     "patronage": "Madagascar Missions",
-    "summary": "French Jesuit priest who tirelessly evangelized rural Madagascar, murdered during the Menalamba rebellion for refusing to renounce his Christian faith."
+    "summary": "French Jesuit priest who tirelessly evangelized rural Madagascar, murdered during the Menalamba rebellion for refusing to renounce his Christian faith.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.1,
+      "ancientVsModern": 0.65,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "james-the-greater",
@@ -1668,7 +2444,15 @@
     "isDoctor": false,
     "feastDay": "July 25",
     "patronage": "Pilgrims, Spain, Santiago de Compostela, Laborers",
-    "summary": "One of the Twelve Apostles, son of Zebedee and brother of John, called by Jesus while mending nets on the Sea of Galilee (Mt 4:21–22; Mt 10:2). Witnessed the Transfiguration and Agony in the Garden; first of the Apostles martyred (Acts 12:2)."
+    "summary": "One of the Twelve Apostles, son of Zebedee and brother of John, called by Jesus while mending nets on the Sea of Galilee (Mt 4:21–22; Mt 10:2). Witnessed the Transfiguration and Agony in the Garden; first of the Apostles martyred (Acts 12:2).",
+    "embedding": {
+      "contemplativeVsActive": 0.5,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.5
+    }
   },
   {
     "id": "james-the-lesser",
@@ -1686,7 +2470,15 @@
     "isDoctor": false,
     "feastDay": "May 3",
     "patronage": "Pharmacists, Fullers, Hatmakers",
-    "summary": "One of the Twelve Apostles, son of Alphaeus, called by Jesus into the apostolic college (Mt 10:3; Mk 3:18). Later served as Bishop of Jerusalem, presided at the Council of Jerusalem (Acts 15), and authored the Epistle of James."
+    "summary": "One of the Twelve Apostles, son of Alphaeus, called by Jesus into the apostolic college (Mt 10:3; Mk 3:18). Later served as Bishop of Jerusalem, presided at the Council of Jerusalem (Acts 15), and authored the Epistle of James.",
+    "embedding": {
+      "contemplativeVsActive": 0.5,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "jane-frances-de-chantal",
@@ -1703,7 +2495,15 @@
     "isDoctor": false,
     "feastDay": "August 12",
     "patronage": "Widows, Forgotten People, Parents Separated from Children",
-    "summary": "French noblewoman, mother, and widow who collaborated with St. Francis de Sales to found the Visitation Order for women rejected by other austere orders."
+    "summary": "French noblewoman, mother, and widow who collaborated with St. Francis de Sales to found the Visitation Order for women rejected by other austere orders.",
+    "embedding": {
+      "contemplativeVsActive": -0.3,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "jeremiah-the-prophet",
@@ -1719,7 +2519,15 @@
     "isDoctor": false,
     "feastDay": "May 1",
     "patronage": "Mourners, Intercessors",
-    "summary": "Prophet who called Judah to repentance before the Babylonian exile and prophesied the New Covenant written on the hearts of believers."
+    "summary": "Prophet who called Judah to repentance before the Babylonian exile and prophesied the New Covenant written on the hearts of believers.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "jerome",
@@ -1736,7 +2544,15 @@
     "isDoctor": true,
     "feastDay": "September 30",
     "patronage": "Translators, Librarians, Scriptural Scholars, Archeologists",
-    "summary": "Translated Sacred Scripture from Hebrew and Greek into Latin (the Vulgate). Famously wrote: 'Ignorance of Scripture is ignorance of Christ.'"
+    "summary": "Translated Sacred Scripture from Hebrew and Greek into Latin (the Vulgate). Famously wrote: 'Ignorance of Scripture is ignorance of Christ.'",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "joan-of-arc",
@@ -1754,7 +2570,15 @@
     "isDoctor": false,
     "feastDay": "May 30",
     "patronage": "France, Soldiers, Captives, Martyrs",
-    "summary": "Led French armies to victory during the Hundred Years' War guided by heavenly voices of St. Michael and St. Catherine, martyred at nineteen in Rouen."
+    "summary": "Led French armies to victory during the Hundred Years' War guided by heavenly voices of St. Michael and St. Catherine, martyred at nineteen in Rouen.",
+    "embedding": {
+      "contemplativeVsActive": 0.8,
+      "intellectualVsDevotional": 0.6,
+      "courageVsMercy": -1.0,
+      "ancientVsModern": -0.2,
+      "simplicityVsLeadership": -0.4,
+      "pioneeringVsPreservation": -0.6
+    }
   },
   {
     "id": "job-the-righteous",
@@ -1770,7 +2594,15 @@
     "isDoctor": false,
     "feastDay": "May 10",
     "patronage": "Those suffering loss, Patience, Perseverance",
-    "summary": "Righteous and blameless figure celebrated for his enduring fidelity to God in the midst of profound suffering and steadfast faith in the Redeemer."
+    "summary": "Righteous and blameless figure celebrated for his enduring fidelity to God in the midst of profound suffering and steadfast faith in the Redeemer.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "joel-the-prophet",
@@ -1786,7 +2618,15 @@
     "isDoctor": false,
     "feastDay": "October 19",
     "patronage": "Farmers, Days of Penance and Fasting",
-    "summary": "Prophet of Judah who called the nation to fasting, weeping, and rending of hearts, and famously prophesied the universal outpouring of the Holy Spirit (Joel 2:28; Acts 2:17)."
+    "summary": "Prophet of Judah who called the nation to fasting, weeping, and rending of hearts, and famously prophesied the universal outpouring of the Holy Spirit (Joel 2:28; Acts 2:17).",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "john-berchmans",
@@ -1803,7 +2643,15 @@
     "isDoctor": false,
     "feastDay": "November 26",
     "patronage": "Altar Servers, Jesuit Students, Youth",
-    "summary": "Belgian Jesuit youth celebrated for achieving heroic sanctity through the perfection of ordinary daily duties and intense devotion to the Blessed Sacrament."
+    "summary": "Belgian Jesuit youth celebrated for achieving heroic sanctity through the perfection of ordinary daily duties and intense devotion to the Blessed Sacrament.",
+    "embedding": {
+      "contemplativeVsActive": -0.3,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "john-bosco",
@@ -1820,7 +2668,15 @@
     "isDoctor": false,
     "feastDay": "January 31",
     "patronage": "Youth, Apprentices, Magicians, Editors",
-    "summary": "Pioneered the 'Preventive System' of education rooted in reason, religion, and loving-kindness, sheltering and mentoring disadvantaged youth in Turin."
+    "summary": "Pioneered the 'Preventive System' of education rooted in reason, religion, and loving-kindness, sheltering and mentoring disadvantaged youth in Turin.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.65,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "john-chrysostom",
@@ -1837,7 +2693,15 @@
     "isDoctor": true,
     "feastDay": "September 13",
     "patronage": "Orators, Preachers, Lectors, Public Speakers",
-    "summary": "Renowned for fiery, eloquent preaching on social justice, repentance, and the Eucharist (the Divine Liturgy of St. John Chrysostom)."
+    "summary": "Renowned for fiery, eloquent preaching on social justice, repentance, and the Eucharist (the Divine Liturgy of St. John Chrysostom).",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "john-damascene",
@@ -1854,7 +2718,15 @@
     "isDoctor": true,
     "feastDay": "December 4",
     "patronage": "Iconographers, Pharmacists, Theologians",
-    "summary": "Monk of Mar Saba near Jerusalem who defended holy images during the Iconoclast controversy and authored The Fountain of Wisdom."
+    "summary": "Monk of Mar Saba near Jerusalem who defended holy images during the Iconoclast controversy and authored The Fountain of Wisdom.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.55,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.9
+    }
   },
   {
     "id": "john-henry-newman",
@@ -1870,7 +2742,15 @@
     "isDoctor": false,
     "feastDay": "October 9",
     "patronage": "Scholars, University Students, Converts, Catholic Education",
-    "summary": "Leader of the Oxford Movement who entered full communion with the Catholic Church, author of The Idea of a University and Essay on the Development of Christian Doctrine."
+    "summary": "Leader of the Oxford Movement who entered full communion with the Catholic Church, author of The Idea of a University and Essay on the Development of Christian Doctrine.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.7,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.65,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "john-of-avila",
@@ -1888,7 +2768,15 @@
     "isDoctor": true,
     "feastDay": "May 10",
     "patronage": "Spanish Diocesan Clergy, Spiritual Directors",
-    "summary": "Priest and master spiritual director who reformed Spanish clergy, mentored Teresa of Ávila and John of God, and wrote Audi, Filia."
+    "summary": "Priest and master spiritual director who reformed Spanish clergy, mentored Teresa of Ávila and John of God, and wrote Audi, Filia.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "john-of-nepomuk",
@@ -1905,7 +2793,15 @@
     "isDoctor": false,
     "feastDay": "May 16",
     "patronage": "Confessors, Seal of Confession, Bridges, Floods, Bohemia",
-    "summary": "Vicar General of Prague drowned in the Vltava River by King Wenceslaus IV for refusing to break the sacred seal of confession regarding the Queen's sins."
+    "summary": "Vicar General of Prague drowned in the Vltava River by King Wenceslaus IV for refusing to break the sacred seal of confession regarding the Queen's sins.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "john-of-the-cross",
@@ -1923,7 +2819,15 @@
     "isDoctor": true,
     "feastDay": "December 14",
     "patronage": "Contemplatives, Spanish Poets, Mystics",
-    "summary": "Discalced Carmelite reformer alongside St. Teresa of Ávila. Author of sublime mystical treatises including Dark Night of the Soul and Ascent of Mount Carmel."
+    "summary": "Discalced Carmelite reformer alongside St. Teresa of Ávila. Author of sublime mystical treatises including Dark Night of the Soul and Ascent of Mount Carmel.",
+    "embedding": {
+      "contemplativeVsActive": -0.95,
+      "intellectualVsDevotional": -0.7,
+      "courageVsMercy": -0.3,
+      "ancientVsModern": 0.25,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": -0.6
+    }
   },
   {
     "id": "john-paul-ii",
@@ -1939,7 +2843,15 @@
     "isDoctor": false,
     "feastDay": "October 22",
     "patronage": "World Youth Day, Young Families, Krakow",
-    "summary": "Pilgrim Pope who traveled to 129 countries, survived assassination, contributed to the fall of European communism, and authored Theology of the Body."
+    "summary": "Pilgrim Pope who traveled to 129 countries, survived assassination, contributed to the fall of European communism, and authored Theology of the Body.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": -0.6,
+      "courageVsMercy": -0.5,
+      "ancientVsModern": 0.95,
+      "simplicityVsLeadership": 0.95,
+      "pioneeringVsPreservation": -0.4
+    }
   },
   {
     "id": "john-the-apostle",
@@ -1956,7 +2868,15 @@
     "isDoctor": false,
     "feastDay": "December 27",
     "patronage": "Theologians, Authors, Love, Loyalty, Friendship",
-    "summary": "One of the Twelve Apostles and author of the Fourth Gospel, called with his brother James by Jesus (Mt 4:21–22; Mt 10:2). The 'Beloved Disciple' who reclined next to Jesus at the Last Supper and stood faithfully at the foot of the Cross (Jn 19:26–27)."
+    "summary": "One of the Twelve Apostles and author of the Fourth Gospel, called with his brother James by Jesus (Mt 4:21–22; Mt 10:2). The 'Beloved Disciple' who reclined next to Jesus at the Last Supper and stood faithfully at the foot of the Cross (Jn 19:26–27).",
+    "embedding": {
+      "contemplativeVsActive": 0.5,
+      "intellectualVsDevotional": -0.5,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.5
+    }
   },
   {
     "id": "john-the-baptist",
@@ -1973,7 +2893,15 @@
     "isDoctor": false,
     "feastDay": "June 24 / August 29",
     "patronage": "Baptism, Conversion, Monks, Tailors",
-    "summary": "The voice crying out in the wilderness preparing the way of the Lord. Baptized Jesus in the Jordan River and bore witness with his martyrdom."
+    "summary": "The voice crying out in the wilderness preparing the way of the Lord. Baptized Jesus in the Jordan River and bore witness with his martyrdom.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "john-vianney",
@@ -1989,7 +2917,15 @@
     "isDoctor": false,
     "feastDay": "August 4",
     "patronage": "Parish Priests, Confessors, Clergy",
-    "summary": "Humble French parish priest renowned for spending up to sixteen hours daily hearing confessions, spiritual discernment, and converting the village of Ars."
+    "summary": "Humble French parish priest renowned for spending up to sixteen hours daily hearing confessions, spiritual discernment, and converting the village of Ars.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.65,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "john-xxiii",
@@ -2005,7 +2941,15 @@
     "isDoctor": false,
     "feastDay": "October 11",
     "patronage": "Papal Delegates, Second Vatican Council, Christian Unity",
-    "summary": "Beloved 261st Pope who convened the Second Vatican Council (1962–1965) to promote pastoral renewal and Christian unity, author of Pacem in Terris."
+    "summary": "Beloved 261st Pope who convened the Second Vatican Council (1962–1965) to promote pastoral renewal and Christian unity, author of Pacem in Terris.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": 0.9,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "jonah-the-prophet",
@@ -2021,7 +2965,15 @@
     "isDoctor": false,
     "feastDay": "September 21",
     "patronage": "Sailors, Travelers, Repentant Sinners",
-    "summary": "Prophet sent to preach repentance to the great city of Nineveh; after three days and nights in the belly of a great fish, he fulfilled his mission, prefiguring Christ's Resurrection."
+    "summary": "Prophet sent to preach repentance to the great city of Nineveh; after three days and nights in the belly of a great fish, he fulfilled his mission, prefiguring Christ's Resurrection.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "jose-sanchez-del-rio",
@@ -2038,7 +2990,15 @@
     "isDoctor": false,
     "feastDay": "February 10",
     "patronage": "Persecuted Christians, Youth, Children, Sahuayo",
-    "summary": "Fourteen-year-old Mexican Cristero youth who was tortured and killed during the Cristero War, crying out '¡Viva Cristo Rey!' with his dying breath."
+    "summary": "Fourteen-year-old Mexican Cristero youth who was tortured and killed during the Cristero War, crying out '¡Viva Cristo Rey!' with his dying breath.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.4,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "josemaria-escriva",
@@ -2054,7 +3014,15 @@
     "isDoctor": false,
     "feastDay": "June 26",
     "patronage": "Opus Dei, Ordinary Work, Diabetes Sufferers",
-    "summary": "Spanish priest who founded Opus Dei, teaching the universal call to holiness and sanctification of ordinary daily work and family life."
+    "summary": "Spanish priest who founded Opus Dei, teaching the universal call to holiness and sanctification of ordinary daily work and family life.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "joseph",
@@ -2070,7 +3038,15 @@
     "isDoctor": false,
     "feastDay": "March 19 / May 1",
     "patronage": "Universal Church, Fathers, Workers, Carpenters, Dying, Unborn",
-    "summary": "Husband of the Blessed Virgin Mary and foster father of Jesus Christ. Declared Patron of the Universal Church and Terror of Demons."
+    "summary": "Husband of the Blessed Virgin Mary and foster father of Jesus Christ. Declared Patron of the Universal Church and Terror of Demons.",
+    "embedding": {
+      "contemplativeVsActive": -0.5,
+      "intellectualVsDevotional": 0.7,
+      "courageVsMercy": 0.8,
+      "ancientVsModern": -0.9,
+      "simplicityVsLeadership": -0.9,
+      "pioneeringVsPreservation": 0.8
+    }
   },
   {
     "id": "joseph-of-cupertino",
@@ -2087,7 +3063,15 @@
     "isDoctor": false,
     "feastDay": "September 18",
     "patronage": "Test Takers, Students, Aviators, Pilots, Air Travelers",
-    "summary": "Humble Franciscan friar known for profound ecstatic levitations during prayer and Mass, venerated as the patron of struggling students and examinees."
+    "summary": "Humble Franciscan friar known for profound ecstatic levitations during prayer and Mass, venerated as the patron of struggling students and examinees.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": 0.3,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "joshua-the-judge",
@@ -2104,7 +3088,15 @@
     "isDoctor": false,
     "feastDay": "September 1",
     "patronage": "Military Personnel, Leaders",
-    "summary": "Loyal companion and successor of Moses who led the Israelites across the Jordan River into the Promised Land, conquered Jericho, and declared 'as for me and my house, we will serve the Lord' (Josh 24:15)."
+    "summary": "Loyal companion and successor of Moses who led the Israelites across the Jordan River into the Promised Land, conquered Jericho, and declared 'as for me and my house, we will serve the Lord' (Josh 24:15).",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.5,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "juan-diego",
@@ -2121,7 +3113,15 @@
     "isDoctor": false,
     "feastDay": "December 9",
     "patronage": "Indigenous Peoples, Mexico, the Americas",
-    "summary": "Humble Chichimeca layman to whom the Blessed Virgin Mary appeared at Tepeyac Hill as Our Lady of Guadalupe, leaving her miraculous image on his tilma."
+    "summary": "Humble Chichimeca layman to whom the Blessed Virgin Mary appeared at Tepeyac Hill as Our Lady of Guadalupe, leaving her miraculous image on his tilma.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "jude-thaddeus",
@@ -2138,7 +3138,15 @@
     "isDoctor": false,
     "feastDay": "October 28",
     "patronage": "Desperate Situations, Lost Causes, Hospitals",
-    "summary": "One of the Twelve Apostles (also called Thaddeus), called by Jesus (Mt 10:3; Lk 6:16) who asked Christ at the Last Supper how He would manifest Himself to them (Jn 14:22). Author of the Epistle of Jude and patron of desperate situations."
+    "summary": "One of the Twelve Apostles (also called Thaddeus), called by Jesus (Mt 10:3; Lk 6:16) who asked Christ at the Last Supper how He would manifest Himself to them (Jn 14:22). Author of the Epistle of Jude and patron of desperate situations.",
+    "embedding": {
+      "contemplativeVsActive": 0.5,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.5
+    }
   },
   {
     "id": "junipero-serra",
@@ -2155,7 +3163,15 @@
     "isDoctor": false,
     "feastDay": "July 1",
     "patronage": "California, Hispanic Americans, Vocations",
-    "summary": "Mallorcan Franciscan friar who founded nine of the twenty-one Spanish missions in California under the motto 'Siempre adelante' (Always forward)."
+    "summary": "Mallorcan Franciscan friar who founded nine of the twenty-one Spanish missions in California under the motto 'Siempre adelante' (Always forward).",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "justin-martyr",
@@ -2172,7 +3188,15 @@
     "isDoctor": false,
     "feastDay": "June 1",
     "patronage": "Philosophers, Apologists, Lecturers",
-    "summary": "Early Christian philosopher who wrote the First and Second Apologies to the Roman Emperor defending Christian belief and providing the earliest detailed account of the Holy Mass."
+    "summary": "Early Christian philosopher who wrote the First and Second Apologies to the Roman Emperor defending Christian belief and providing the earliest detailed account of the Holy Mass.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.7,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "kateri-tekakwitha",
@@ -2190,7 +3214,15 @@
     "isDoctor": false,
     "feastDay": "July 14",
     "patronage": "Native Americans, Ecology, Orphaned Children",
-    "summary": "First Native American recognized as a saint. Converted to Catholicism despite harsh ostracism, living a life of heroic chastity, penance, and love for Christ."
+    "summary": "First Native American recognized as a saint. Converted to Catholicism despite harsh ostracism, living a life of heroic chastity, penance, and love for Christ.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "katharine-drexel",
@@ -2207,7 +3239,15 @@
     "isDoctor": false,
     "feastDay": "March 3",
     "patronage": "Philanthropy, Racial Justice, Native and African Americans",
-    "summary": "Philadelphia heiress who gave her entire inherited fortune to establish schools and missions for Native Americans and African Americans across the United States."
+    "summary": "Philadelphia heiress who gave her entire inherited fortune to establish schools and missions for Native Americans and African Americans across the United States.",
+    "embedding": {
+      "contemplativeVsActive": -0.3,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "korean-martyrs",
@@ -2227,7 +3267,15 @@
     "isDoctor": false,
     "feastDay": "September 20",
     "patronage": "Korean Clergy, Korea",
-    "summary": "First native Korean priest and 102 lay martyrs who planted and defended the Catholic faith in Joseon Korea during severe 19th-century persecutions."
+    "summary": "First native Korean priest and 102 lay martyrs who planted and defended the Catholic faith in Joseon Korea during severe 19th-century persecutions.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": 0.65,
+      "simplicityVsLeadership": 0.1,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "lawrence-of-brindisi",
@@ -2245,7 +3293,15 @@
     "isDoctor": true,
     "feastDay": "July 21",
     "patronage": "Brindisi, Preachers, Missionaries",
-    "summary": "Linguist, diplomat, and Capuchin leader who preached throughout Europe, rallying forces against Ottoman expansion and converting many to the Catholic faith."
+    "summary": "Linguist, diplomat, and Capuchin leader who preached throughout Europe, rallying forces against Ottoman expansion and converting many to the Catholic faith.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "lawrence-of-rome",
@@ -2262,7 +3318,15 @@
     "isDoctor": false,
     "feastDay": "August 10",
     "patronage": "Deacons, Cooks, Chefs, Comedians, the Poor",
-    "summary": "Deacon entrusted with Church treasures who presented the poor and sick as the true wealth of the Church before dying cheerfully upon a gridiron."
+    "summary": "Deacon entrusted with Church treasures who presented the poor and sick as the true wealth of the Church before dying cheerfully upon a gridiron.",
+    "embedding": {
+      "contemplativeVsActive": 0.4,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "leo-the-great",
@@ -2279,7 +3343,15 @@
     "isDoctor": true,
     "feastDay": "November 10",
     "patronage": "Popes, Rome, Diplomats",
-    "summary": "Asserted papal primacy, confronted Attila the Hun to save Rome, and authored the Tome of Leo defining Christ's two natures at the Council of Chalcedon (451)."
+    "summary": "Asserted papal primacy, confronted Attila the Hun to save Rome, and authored the Tome of Leo defining Christ's two natures at the Council of Chalcedon (451).",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.9,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "lorenzo-ruiz",
@@ -2296,7 +3368,15 @@
     "isDoctor": false,
     "feastDay": "September 28",
     "patronage": "The Philippines, Filipino Migrant Workers, Poor",
-    "summary": "First Filipino saint, martyred in Nagasaki, Japan. Proclaimed: 'I am a Catholic and will remain a Catholic until death. Even if I had a thousand lives, I would give them all to God.'"
+    "summary": "First Filipino saint, martyred in Nagasaki, Japan. Proclaimed: 'I am a Catholic and will remain a Catholic until death. Even if I had a thousand lives, I would give them all to God.'",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "louis-ix-of-france",
@@ -2313,7 +3393,15 @@
     "isDoctor": false,
     "feastDay": "August 25",
     "patronage": "France, Kings, Builders, Hairdressers, Secular Franciscans",
-    "summary": "Devout French monarch celebrated for fair judicial reforms, feeding the poor from his own table, building Sainte-Chapelle, and leading crusades with deep Christian chivalry."
+    "summary": "Devout French monarch celebrated for fair judicial reforms, feeding the poor from his own table, building Sainte-Chapelle, and leading crusades with deep Christian chivalry.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "louis-marie-de-montfort",
@@ -2330,7 +3418,15 @@
     "isDoctor": false,
     "feastDay": "April 28",
     "patronage": "Preachers, Marian Consecration, Company of Mary",
-    "summary": "French priest and missionary renowned for his devotion to the Blessed Virgin Mary and the Holy Rosary, author of True Devotion to Mary and apostle of Total Consecration to Jesus through Mary."
+    "summary": "French priest and missionary renowned for his devotion to the Blessed Virgin Mary and the Holy Rosary, author of True Devotion to Mary and apostle of Total Consecration to Jesus through Mary.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": -0.7,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "louise-de-marillac",
@@ -2347,7 +3443,15 @@
     "isDoctor": false,
     "feastDay": "May 9",
     "patronage": "Social Workers, Sick People, Widows",
-    "summary": "Collaborated with St. Vincent de Paul to organize rural relief and found the Daughters of Charity, pioneering non-cloistered religious life dedicated to serving the poor."
+    "summary": "Collaborated with St. Vincent de Paul to organize rural relief and found the Daughters of Charity, pioneering non-cloistered religious life dedicated to serving the poor.",
+    "embedding": {
+      "contemplativeVsActive": -0.2,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "lucy-of-syracuse",
@@ -2365,7 +3469,15 @@
     "isDoctor": false,
     "feastDay": "December 13",
     "patronage": "Blindness, Eye Disorders, Syracuse, Authors",
-    "summary": "Martyr of Syracuse who distributed her dowry to the poor and stood unmovable through torment for the name of Christ."
+    "summary": "Martyr of Syracuse who distributed her dowry to the poor and stood unmovable through torment for the name of Christ.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "luke-the-evangelist",
@@ -2383,7 +3495,15 @@
     "isDoctor": false,
     "feastDay": "October 18",
     "patronage": "Physicians, Surgeons, Artists, Painters, Brewers",
-    "summary": "Beloved physician, traveling companion of St. Paul, and inspired author of the Third Gospel and the Acts of the Apostles."
+    "summary": "Beloved physician, traveling companion of St. Paul, and inspired author of the Third Gospel and the Acts of the Apostles.",
+    "embedding": {
+      "contemplativeVsActive": 1.0,
+      "intellectualVsDevotional": -0.5,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": -0.5
+    }
   },
   {
     "id": "margaret-clitherow",
@@ -2400,7 +3520,15 @@
     "isDoctor": false,
     "feastDay": "March 26",
     "patronage": "Catholic Women's League, Converts, Businesswomen",
-    "summary": "York housewife who hid Catholic priests and hosted secret Masses in her home, martyred by being pressed to death under heavy stones to protect her children from testifying."
+    "summary": "York housewife who hid Catholic priests and hosted secret Masses in her home, martyred by being pressed to death under heavy stones to protect her children from testifying.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "margaret-of-scotland",
@@ -2417,7 +3545,15 @@
     "isDoctor": false,
     "feastDay": "November 16",
     "patronage": "Scotland, Large Families, Queens, Learning",
-    "summary": "English princess who married King Malcolm III of Scotland, transforming court life through piety, education, charity, and church reforms."
+    "summary": "English princess who married King Malcolm III of Scotland, transforming court life through piety, education, charity, and church reforms.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.3,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.2,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "maria-goretti",
@@ -2435,7 +3571,15 @@
     "isDoctor": false,
     "feastDay": "July 6",
     "patronage": "Teenagers, Purity, Rape Victims, Forgiveness",
-    "summary": "Eleven-year-old martyr who chose physical death rather than surrender her purity, forgiving her attacker from her deathbed."
+    "summary": "Eleven-year-old martyr who chose physical death rather than surrender her purity, forgiving her attacker from her deathbed.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "marianne-cope",
@@ -2453,7 +3597,15 @@
     "isDoctor": false,
     "feastDay": "January 23",
     "patronage": "Leprosy Patients, Outcasts, Hawaii",
-    "summary": "Sisters of Saint Francis of Syracuse leader who volunteered to care for quarantined Hansen's disease (leprosy) patients on Molokai, continuing St. Damien's mission."
+    "summary": "Sisters of Saint Francis of Syracuse leader who volunteered to care for quarantined Hansen's disease (leprosy) patients on Molokai, continuing St. Damien's mission.",
+    "embedding": {
+      "contemplativeVsActive": 0.4,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 1.0,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "mark-the-evangelist",
@@ -2471,7 +3623,15 @@
     "isDoctor": false,
     "feastDay": "April 25",
     "patronage": "Notaries, Venice, Egypt, Barristers",
-    "summary": "Companion of St. Peter in Rome and founder of the Church of Alexandria; author of the Second Gospel."
+    "summary": "Companion of St. Peter in Rome and founder of the Church of Alexandria; author of the Second Gospel.",
+    "embedding": {
+      "contemplativeVsActive": 0.5,
+      "intellectualVsDevotional": -0.5,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": -0.5
+    }
   },
   {
     "id": "martin-de-porres",
@@ -2488,7 +3648,15 @@
     "isDoctor": false,
     "feastDay": "November 3",
     "patronage": "Racial Harmony, Social Justice, Barbers, Public Health, Innkeepers",
-    "summary": "Afro-Peruvian Dominican brother renowned for humility, spiritual gifts, caring for the sick of all races, and miraculous compassion for all living creatures."
+    "summary": "Afro-Peruvian Dominican brother renowned for humility, spiritual gifts, caring for the sick of all races, and miraculous compassion for all living creatures.",
+    "embedding": {
+      "contemplativeVsActive": 0.4,
+      "intellectualVsDevotional": 0.3,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "martin-of-tours",
@@ -2504,7 +3672,15 @@
     "isDoctor": false,
     "feastDay": "November 11",
     "patronage": "Soldiers, Cavalry, Beggars, France, Wine Makers",
-    "summary": "Roman soldier who famously cut his military cloak in half to clothe a freezing beggar, who was revealed in a vision as Jesus Christ; later founded French monasteries and became Bishop of Tours."
+    "summary": "Roman soldier who famously cut his military cloak in half to clothe a freezing beggar, who was revealed in a vision as Jesus Christ; later founded French monasteries and became Bishop of Tours.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "mary-mackillop",
@@ -2521,7 +3697,15 @@
     "isDoctor": false,
     "feastDay": "August 8",
     "patronage": "Australia, Adelaide, Brisbanites, Teachers",
-    "summary": "First canonized saint of Australia who co-founded the Josephites to establish free schools for impoverished rural children and shelters for orphans."
+    "summary": "First canonized saint of Australia who co-founded the Josephites to establish free schools for impoverished rural children and shelters for orphans.",
+    "embedding": {
+      "contemplativeVsActive": -0.3,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "mary-magdalene",
@@ -2538,7 +3722,15 @@
     "isDoctor": false,
     "feastDay": "July 22",
     "patronage": "Contemplatives, Converts, Penitent Sinners, Women",
-    "summary": "Added and honored with the ancient title 'Apostle to the Apostles' (Apostola Apostolorum), having been commissioned directly by the Risen Christ on Easter morning at the empty tomb to announce His Resurrection to the Twelve (Jn 20:11–18; Mk 16:9–11)."
+    "summary": "Added and honored with the ancient title 'Apostle to the Apostles' (Apostola Apostolorum), having been commissioned directly by the Risen Christ on Easter morning at the empty tomb to announce His Resurrection to the Twelve (Jn 20:11–18; Mk 16:9–11).",
+    "embedding": {
+      "contemplativeVsActive": -0.1,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.5
+    }
   },
   {
     "id": "mary-mother-of-god",
@@ -2556,7 +3748,15 @@
     "isDoctor": false,
     "feastDay": "January 1 / August 15 / December 8",
     "patronage": "All Humanity, The Catholic Church, Mothers, Pro-Life, The Americas (Our Lady of Guadalupe)",
-    "summary": "The Mother of Jesus Christ and Mother of God (Theotokos). Conceived without original sin (Immaculate Conception) and assumed body and soul into heavenly glory (Assumption), she is the Queen of Heaven, Mother of the Church, and Queen of All Saints."
+    "summary": "The Mother of Jesus Christ and Mother of God (Theotokos). Conceived without original sin (Immaculate Conception) and assumed body and soul into heavenly glory (Assumption), she is the Queen of Heaven, Mother of the Church, and Queen of All Saints.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": 0.9,
+      "courageVsMercy": 0.9,
+      "ancientVsModern": -0.9,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": 0.9
+    }
   },
   {
     "id": "matthew-the-apostle",
@@ -2574,7 +3774,15 @@
     "isDoctor": false,
     "feastDay": "September 21",
     "patronage": "Accountants, Bankers, Tax Collectors, Customs Officers",
-    "summary": "One of the Twelve Apostles and author of the First Gospel, called by Jesus from his tax collection booth in Capernaum with the words 'Follow Me' (Mt 9:9; Mt 10:3), leaving all things behind to follow Christ."
+    "summary": "One of the Twelve Apostles and author of the First Gospel, called by Jesus from his tax collection booth in Capernaum with the words 'Follow Me' (Mt 9:9; Mt 10:3), leaving all things behind to follow Christ.",
+    "embedding": {
+      "contemplativeVsActive": 0.5,
+      "intellectualVsDevotional": -0.5,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.5
+    }
   },
   {
     "id": "matthias",
@@ -2591,7 +3799,15 @@
     "isDoctor": false,
     "feastDay": "May 14",
     "patronage": "Alcoholics, Carpenters, Smallpox, Tailors",
-    "summary": "Added to the Twelve Apostles after the Ascension to replace Judas Iscariot (Acts 1:15–26). Having accompanied Jesus throughout His public ministry from John's baptism to the Resurrection, he was chosen by prayer and lots to restore the twelve-fold college."
+    "summary": "Added to the Twelve Apostles after the Ascension to replace Judas Iscariot (Acts 1:15–26). Having accompanied Jesus throughout His public ministry from John's baptism to the Resurrection, he was chosen by prayer and lots to restore the twelve-fold college.",
+    "embedding": {
+      "contemplativeVsActive": 0.5,
+      "intellectualVsDevotional": 0.3,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.5
+    }
   },
   {
     "id": "maximilian-kolbe",
@@ -2608,7 +3824,15 @@
     "isDoctor": false,
     "feastDay": "August 14",
     "patronage": "Journalists, Families, Drug Addicts, Prisoners",
-    "summary": "Franciscan missionary who founded the Militia Immaculatae and gave his life voluntarily in the starvation bunker at Auschwitz in place of a stranger."
+    "summary": "Franciscan missionary who founded the Militia Immaculatae and gave his life voluntarily in the starvation bunker at Auschwitz in place of a stranger.",
+    "embedding": {
+      "contemplativeVsActive": 0.6,
+      "intellectualVsDevotional": -0.3,
+      "courageVsMercy": -0.9,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": -0.3,
+      "pioneeringVsPreservation": -0.6
+    }
   },
   {
     "id": "mechtilde-of-hackeborn",
@@ -2626,7 +3850,15 @@
     "isDoctor": false,
     "feastDay": "November 19",
     "patronage": "Choir Singers, Mystics",
-    "summary": "Choirmistress and mystic at the Helfta monastery whose heavenly visions and deep liturgical spirituality were recorded in The Book of Special Grace."
+    "summary": "Choirmistress and mystic at the Helfta monastery whose heavenly visions and deep liturgical spirituality were recorded in The Book of Special Grace.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "melchizedek-the-king",
@@ -2643,7 +3875,15 @@
     "isDoctor": false,
     "feastDay": "August 26",
     "patronage": "Priests, Eucharistic Ministers",
-    "summary": "King of Salem and 'Priest of God Most High' who brought out bread and wine to bless Abraham, prefiguring the Eucharistic sacrifice and eternal High Priesthood of Christ (Ps 110:4; Heb 7)."
+    "summary": "King of Salem and 'Priest of God Most High' who brought out bread and wine to bless Abraham, prefiguring the Eucharistic sacrifice and eternal High Priesthood of Christ (Ps 110:4; Heb 7).",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "micah-the-prophet",
@@ -2659,7 +3899,15 @@
     "isDoctor": false,
     "feastDay": "December 21",
     "patronage": "The Poor, Advocates for Social Justice",
-    "summary": "Prophet from Moresheth who defended the impoverished against oppression, proclaimed that God requires us 'to do justice, and to love kindness, and to walk humbly with your God' (Mic 6:8), and foretold the Messiah's birth in Bethlehem (Mic 5:2)."
+    "summary": "Prophet from Moresheth who defended the impoverished against oppression, proclaimed that God requires us 'to do justice, and to love kindness, and to walk humbly with your God' (Mic 6:8), and foretold the Messiah's birth in Bethlehem (Mic 5:2).",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "michael-the-archangel",
@@ -2673,7 +3921,15 @@
     "isDoctor": false,
     "feastDay": "September 29",
     "patronage": "Police Officers, Military, Soldiers, Paramedics, Grocers, Mariners, Radiologists, The Dying, Protection Against Evil",
-    "summary": "Leader of the heavenly host ('Who is like God?') who cast Lucifer and the rebel angels out of heaven in the Book of Revelation. Revered as the defender of the Church, guardian of the faithful, and champion in spiritual warfare."
+    "summary": "Leader of the heavenly host ('Who is like God?') who cast Lucifer and the rebel angels out of heaven in the Book of Revelation. Revered as the defender of the Church, guardian of the faithful, and champion in spiritual warfare.",
+    "embedding": {
+      "contemplativeVsActive": 0.8,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -1.0,
+      "ancientVsModern": 0.0,
+      "simplicityVsLeadership": 0.8,
+      "pioneeringVsPreservation": 0.9
+    }
   },
   {
     "id": "moses-the-prophet",
@@ -2689,7 +3945,15 @@
     "isDoctor": false,
     "feastDay": "September 4",
     "patronage": "Lawyers, Judges, Legislators",
-    "summary": "Delivered Israel from bondage in Egypt, received the Ten Commandments on Mount Sinai, and led the Chosen People to the border of the Promised Land."
+    "summary": "Delivered Israel from bondage in Egypt, received the Ten Commandments on Mount Sinai, and led the Chosen People to the border of the Promised Land.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "mother-teresa",
@@ -2708,7 +3972,15 @@
     "isDoctor": false,
     "feastDay": "September 5",
     "patronage": "Missionaries of Charity, World Youth Day, the Poor",
-    "summary": "Nobel laureate who served 'the poorest of the poor' in the slums of Calcutta, answering Jesus's call to quench His thirst on the Cross."
+    "summary": "Nobel laureate who served 'the poorest of the poor' in the slums of Calcutta, answering Jesus's call to quench His thirst on the Cross.",
+    "embedding": {
+      "contemplativeVsActive": -0.2,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 1.0,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "nahum-the-prophet",
@@ -2724,7 +3996,15 @@
     "isDoctor": false,
     "feastDay": "December 1",
     "patronage": "Comfort, Oppressed Peoples",
-    "summary": "Prophet of Elkosh who proclaimed the impending fall of the tyrannical city of Nineveh, heralding peace and deliverance for the afflicted people of Judah."
+    "summary": "Prophet of Elkosh who proclaimed the impending fall of the tyrannical city of Nineveh, heralding peace and deliverance for the afflicted people of Judah.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "nicholas-of-myra",
@@ -2741,7 +4021,15 @@
     "isDoctor": false,
     "feastDay": "December 6",
     "patronage": "Children, Sailors, Merchants, Pawnbrokers, Russia, Greece",
-    "summary": "Generous Bishop of Myra famed for secret gift-giving, defending the poor, and attending the Council of Nicaea; the historical inspiration for Santa Claus."
+    "summary": "Generous Bishop of Myra famed for secret gift-giving, defending the poor, and attending the Council of Nicaea; the historical inspiration for Santa Claus.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.1,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "nimatullah-kassab",
@@ -2757,7 +4045,15 @@
     "isDoctor": false,
     "feastDay": "December 14",
     "patronage": "Maronite Order, Teachers",
-    "summary": "Lebanese Maronite monk and teacher of St. Charbel Makhlouf, renowned for deep adoration of the Blessed Sacrament, humble manual labor, and binding books."
+    "summary": "Lebanese Maronite monk and teacher of St. Charbel Makhlouf, renowned for deep adoration of the Blessed Sacrament, humble manual labor, and binding books.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": -0.7,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.65,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "obadiah-the-prophet",
@@ -2773,7 +4069,15 @@
     "isDoctor": false,
     "feastDay": "November 19",
     "patronage": "Justice, Peace between Nations",
-    "summary": "Author of the shortest Old Testament book, who denounced the pride of Edom and proclaimed the ultimate victory and sovereignty of the Kingdom of God."
+    "summary": "Author of the shortest Old Testament book, who denounced the pride of Edom and proclaimed the ultimate victory and sovereignty of the Kingdom of God.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "olaf-ii-of-norway",
@@ -2791,7 +4095,15 @@
     "isDoctor": false,
     "feastDay": "July 29",
     "patronage": "Norway, Carvers, Difficult Marriages",
-    "summary": "King of Norway who unified his country and introduced Christian laws; slain in the Battle of Stiklestad and venerated as the Eternal King of Norway."
+    "summary": "King of Norway who unified his country and introduced Christian laws; slain in the Battle of Stiklestad and venerated as the Eternal King of Norway.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.2,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "oscar-romero",
@@ -2808,7 +4120,15 @@
     "isDoctor": false,
     "feastDay": "March 24",
     "patronage": "El Salvador, Americas, Persecuted Christians, Human Rights",
-    "summary": "Archbishop of San Salvador who courageously spoke out against social injustice, poverty, and state violence, assassinated while celebrating Holy Mass."
+    "summary": "Archbishop of San Salvador who courageously spoke out against social injustice, poverty, and state violence, assassinated while celebrating Holy Mass.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "pachomius",
@@ -2824,7 +4144,15 @@
     "isDoctor": false,
     "feastDay": "May 9",
     "patronage": "Monastic Communities",
-    "summary": "Desert Father who founded the first Christian communal monasteries along the Nile, establishing written monastic rules that shaped Eastern and Western monastic life."
+    "summary": "Desert Father who founded the first Christian communal monasteries along the Nile, establishing written monastic rules that shaped Eastern and Western monastic life.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "padre-pio",
@@ -2841,7 +4169,15 @@
     "isDoctor": false,
     "feastDay": "September 23",
     "patronage": "Confessors, Adolescents, Stress Relief, Pietrelcina",
-    "summary": "Capuchin priest who bore the stigmata for fifty years, gifted with bilocation and reading souls in the confessional; famous for: 'Pray, hope, and don't worry.'"
+    "summary": "Capuchin priest who bore the stigmata for fifty years, gifted with bilocation and reading souls in the confessional; famous for: 'Pray, hope, and don't worry.'",
+    "embedding": {
+      "contemplativeVsActive": -0.8,
+      "intellectualVsDevotional": 0.6,
+      "courageVsMercy": -0.5,
+      "ancientVsModern": 0.8,
+      "simplicityVsLeadership": -0.7,
+      "pioneeringVsPreservation": 0.7
+    }
   },
   {
     "id": "pancras",
@@ -2858,7 +4194,15 @@
     "isDoctor": false,
     "feastDay": "May 12",
     "patronage": "Children, Jobs, Employment, False Witness Protection",
-    "summary": "Fourteen-year-old orphan convert who was beheaded under Emperor Diocletian for refusing to offer sacrifice to pagan gods."
+    "summary": "Fourteen-year-old orphan convert who was beheaded under Emperor Diocletian for refusing to offer sacrifice to pagan gods.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "patrick-of-ireland",
@@ -2875,7 +4219,15 @@
     "isDoctor": false,
     "feastDay": "March 17",
     "patronage": "Ireland, Engineers, Against Snakes",
-    "summary": "Kidnapped into Irish slavery as a youth, escaped, then returned as bishop to evangelize the Irish people and establish churches across the island."
+    "summary": "Kidnapped into Irish slavery as a youth, escaped, then returned as bishop to evangelize the Irish people and establish churches across the island.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "paul-miki-and-companions",
@@ -2895,7 +4247,15 @@
     "isDoctor": false,
     "feastDay": "February 6",
     "patronage": "Japan, Japanese Missions",
-    "summary": "Japanese Jesuit preacher who, along with twenty-five Franciscan and Jesuit companions, was crucified on a hill in Nagasaki, forgiving his executioners from the cross."
+    "summary": "Japanese Jesuit preacher who, along with twenty-five Franciscan and Jesuit companions, was crucified on a hill in Nagasaki, forgiving his executioners from the cross.",
+    "embedding": {
+      "contemplativeVsActive": -0.3,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "paul-of-the-cross",
@@ -2912,7 +4272,15 @@
     "isDoctor": false,
     "feastDay": "October 19",
     "patronage": "Passionist Congregation, Preachers",
-    "summary": "Italian preacher and mystic who founded the Congregation of the Passion (Passionists) to promote memory of Christ's Passion as the most efficacious remedy for moral evils."
+    "summary": "Italian preacher and mystic who founded the Congregation of the Passion (Passionists) to promote memory of Christ's Passion as the most efficacious remedy for moral evils.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "paul-the-apostle",
@@ -2930,7 +4298,15 @@
     "isDoctor": false,
     "feastDay": "June 29",
     "patronage": "Missionaries, Evangelists, Writers, Publishers, Rome",
-    "summary": "Added as the 'Apostle to the Gentiles' through a direct revelation and calling from the Risen Christ on the road to Damascus (Acts 9:1–19; Gal 1:1, 15–16). Prolific missionary and author of fourteen New Testament epistles who was martyred in Rome."
+    "summary": "Added as the 'Apostle to the Gentiles' through a direct revelation and calling from the Risen Christ on the road to Damascus (Acts 9:1–19; Gal 1:1, 15–16). Prolific missionary and author of fourteen New Testament epistles who was martyred in Rome.",
+    "embedding": {
+      "contemplativeVsActive": 0.85,
+      "intellectualVsDevotional": -0.85,
+      "courageVsMercy": -0.9,
+      "ancientVsModern": -0.9,
+      "simplicityVsLeadership": 0.5,
+      "pioneeringVsPreservation": -0.9
+    }
   },
   {
     "id": "paul-the-first-hermit",
@@ -2946,7 +4322,15 @@
     "isDoctor": false,
     "feastDay": "January 15",
     "patronage": "Hermits, Weavers",
-    "summary": "Regarded by St. Jerome as the first Christian hermit, who lived over ninety years of prayer and contemplation alone in the Egyptian desert fed daily by a raven."
+    "summary": "Regarded by St. Jerome as the first Christian hermit, who lived over ninety years of prayer and contemplation alone in the Egyptian desert fed daily by a raven.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.3,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "paul-vi",
@@ -2962,7 +4346,15 @@
     "isDoctor": false,
     "feastDay": "May 29",
     "patronage": "Unborn Children, Large Families, Popes",
-    "summary": "262nd Pope who brought the Second Vatican Council to completion, promulgated the Missal of Paul VI, and authored the encyclical Humanae Vitae."
+    "summary": "262nd Pope who brought the Second Vatican Council to completion, promulgated the Missal of Paul VI, and authored the encyclical Humanae Vitae.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": 0.9,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "pedro-calungsod",
@@ -2980,7 +4372,15 @@
     "isDoctor": false,
     "feastDay": "April 2",
     "patronage": "Filipino Youth, Catechists, Overseas Workers",
-    "summary": "Teenage Visayan catechist missionary in Guam who assisted Fr. Diego Luis de San Vitores and was martyred while defending his priest with heroic courage."
+    "summary": "Teenage Visayan catechist missionary in Guam who assisted Fr. Diego Luis de San Vitores and was martyred while defending his priest with heroic courage.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.4,
+      "courageVsMercy": -0.1,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "peregrine-laziosi",
@@ -2996,7 +4396,15 @@
     "isDoctor": false,
     "feastDay": "May 1",
     "patronage": "Cancer Patients, Persons Afflicted with Serious Illnesses, Foot and Leg Conditions",
-    "summary": "Italian Servite friar who experienced a miraculous vision of Christ descending from the Cross to heal his cancerous leg on the eve of a scheduled amputation; patron saint of cancer patients."
+    "summary": "Italian Servite friar who experienced a miraculous vision of Christ descending from the Cross to heal his cancerous leg on the eve of a scheduled amputation; patron saint of cancer patients.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "perpetua-and-felicity",
@@ -3014,7 +4422,15 @@
     "isDoctor": false,
     "feastDay": "March 7",
     "patronage": "Mothers, Pregnant Women, Expectant Mothers, Butchers",
-    "summary": "Noblewoman Perpetua and her enslaved companion Felicity, young mothers who fearlessly stood firm in their faith and were martyred in the amphitheater at Carthage."
+    "summary": "Noblewoman Perpetua and her enslaved companion Felicity, young mothers who fearlessly stood firm in their faith and were martyred in the amphitheater at Carthage.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "peter-canisius",
@@ -3032,7 +4448,15 @@
     "isDoctor": true,
     "feastDay": "December 21",
     "patronage": "Catholic School Teachers, Writers, Germany",
-    "summary": "Key leader of the Catholic Counter-Reformation in Central Europe, establishing Jesuit colleges and authoring widely used catechisms."
+    "summary": "Key leader of the Catholic Counter-Reformation in Central Europe, establishing Jesuit colleges and authoring widely used catechisms.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "peter-chrysologus",
@@ -3049,7 +4473,15 @@
     "isDoctor": true,
     "feastDay": "July 30",
     "patronage": "Ravenna, Preachers",
-    "summary": "Archbishop of Ravenna renowned for concise, luminous homilies explaining the Incarnation, the Apostles' Creed, and Christian moral life."
+    "summary": "Archbishop of Ravenna renowned for concise, luminous homilies explaining the Incarnation, the Apostles' Creed, and Christian moral life.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "peter-claver",
@@ -3066,7 +4498,15 @@
     "isDoctor": false,
     "feastDay": "September 9",
     "patronage": "African Missions, Human Rights, Colombia, Interracial Justice",
-    "summary": "Spanish Jesuit missionary who spent forty years at the port of Cartagena ministering to enslaved Africans, personally feeding, tending, and baptizing over 300,000 people."
+    "summary": "Spanish Jesuit missionary who spent forty years at the port of Cartagena ministering to enslaved Africans, personally feeding, tending, and baptizing over 300,000 people.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "peter-damian",
@@ -3084,7 +4524,15 @@
     "isDoctor": true,
     "feastDay": "February 21",
     "patronage": "Faenza, Spiritual Reformers",
-    "summary": "Camaldolese monk and cardinal who spearheaded Gregorian reforms, combating simony and clerical corruption with rigorous ascetical discipline."
+    "summary": "Camaldolese monk and cardinal who spearheaded Gregorian reforms, combating simony and clerical corruption with rigorous ascetical discipline.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.9
+    }
   },
   {
     "id": "peter-the-apostle",
@@ -3102,7 +4550,15 @@
     "isDoctor": false,
     "feastDay": "June 29",
     "patronage": "Popes, Fishermen, Netmakers, Locksmiths, Rome",
-    "summary": "Leader and spokesman of the Twelve Apostles, called by Jesus along the Sea of Galilee to be a 'fisher of men' (Mt 4:18–19; Mt 10:2), given the keys of the kingdom of heaven by Christ (Mt 16:18–19), and martyred in Rome by upside-down crucifixion."
+    "summary": "Leader and spokesman of the Twelve Apostles, called by Jesus along the Sea of Galilee to be a 'fisher of men' (Mt 4:18–19; Mt 10:2), given the keys of the kingdom of heaven by Christ (Mt 16:18–19), and martyred in Rome by upside-down crucifixion.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.3,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.9,
+      "simplicityVsLeadership": 0.9,
+      "pioneeringVsPreservation": 0.6
+    }
   },
   {
     "id": "philip-howard",
@@ -3119,7 +4575,15 @@
     "isDoctor": false,
     "feastDay": "October 19",
     "patronage": "Difficult Marriages, Atticus Patients, Betrayed Spouses",
-    "summary": "English nobleman and courtier who converted to Catholicism, spending ten years imprisoned in the Tower of London for his faith until his death."
+    "summary": "English nobleman and courtier who converted to Catholicism, spending ten years imprisoned in the Tower of London for his faith until his death.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "philip-neri",
@@ -3136,7 +4600,15 @@
     "isDoctor": false,
     "feastDay": "May 26",
     "patronage": "Rome, Joy, Comedians, Humor",
-    "summary": "Joyful Roman priest whose warm humor, street ministry, and musical gatherings at the Oratory revitalized the spiritual heart of Rome."
+    "summary": "Joyful Roman priest whose warm humor, street ministry, and musical gatherings at the Oratory revitalized the spiritual heart of Rome.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "philip-the-apostle",
@@ -3154,7 +4626,15 @@
     "isDoctor": false,
     "feastDay": "May 3",
     "patronage": "Hatters, Pastry Chefs, Uruguay",
-    "summary": "One of the Twelve Apostles, called directly by Jesus from Bethsaida with the words 'Follow Me' (Jn 1:43–44; Mt 10:3), who then brought Nathanael (Bartholomew) to Christ and asked Jesus to 'show us the Father' at the Last Supper (Jn 14:8)."
+    "summary": "One of the Twelve Apostles, called directly by Jesus from Bethsaida with the words 'Follow Me' (Jn 1:43–44; Mt 10:3), who then brought Nathanael (Bartholomew) to Christ and asked Jesus to 'show us the Father' at the Last Supper (Jn 14:8).",
+    "embedding": {
+      "contemplativeVsActive": 1.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.1,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.5
+    }
   },
   {
     "id": "pius-v",
@@ -3170,7 +4650,15 @@
     "isDoctor": false,
     "feastDay": "April 30",
     "patronage": "First Holy Communicants, Bosco Marengo, Pietrelcina",
-    "summary": "Dominican Pope who implemented the decrees of the Council of Trent, promulgated the Roman Catechism, standardized the Roman Missal, and established the feast of Our Lady of Victory following the Battle of Lepanto."
+    "summary": "Dominican Pope who implemented the decrees of the Council of Trent, promulgated the Roman Catechism, standardized the Roman Missal, and established the feast of Our Lady of Victory following the Battle of Lepanto.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.9,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "pius-x",
@@ -3186,7 +4674,15 @@
     "isDoctor": false,
     "feastDay": "August 21",
     "patronage": "First Communicants, Catechists, Pilgrims, Emigrants",
-    "summary": "257th Pope who lowered the age of First Communion to the age of discretion, encouraged frequent reception of the Eucharist, and initiated the 1917 Code of Canon Law."
+    "summary": "257th Pope who lowered the age of First Communion to the age of discretion, encouraged frequent reception of the Eucharist, and initiated the 1917 Code of Canon Law.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": 0.9,
+      "pioneeringVsPreservation": 0.9
+    }
   },
   {
     "id": "polycarp-of-smyrna",
@@ -3203,7 +4699,15 @@
     "isDoctor": false,
     "feastDay": "February 23",
     "patronage": "Earache, Dysentery",
-    "summary": "Disciple of St. John the Apostle and Bishop of Smyrna. Martyred by fire and sword after famously declaring he could not blaspheme the King who had saved him for 86 years."
+    "summary": "Disciple of St. John the Apostle and Bishop of Smyrna. Martyred by fire and sword after famously declaring he could not blaspheme the King who had saved him for 86 years.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "rafqa-pietra-choboq-ar-rayes",
@@ -3221,7 +4725,15 @@
     "isDoctor": false,
     "feastDay": "March 23",
     "patronage": "Loss of Parents, Sick People, Blindness, Bodily Ills",
-    "summary": "Maronite nun who joyfully united her intense physical suffering—blindness and paralysis—with the Passion of Jesus Christ in total serenity and love."
+    "summary": "Maronite nun who joyfully united her intense physical suffering—blindness and paralysis—with the Passion of Jesus Christ in total serenity and love.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "raphael-the-archangel",
@@ -3236,7 +4748,15 @@
     "isDoctor": false,
     "feastDay": "September 29",
     "patronage": "Travelers, The Blind, Physicians, Nurses, Pharmacists, Medical Workers, Matchmakers, Lovers, Healers",
-    "summary": "The archangel of healing ('God heals') who disguised himself as Azarias to guide Tobias on his journey in the Book of Tobit, healed Tobit's blindness with fish gall, delivered Sarah from demonic oppression, and revealed himself as one of the seven angels who stand in the glorious presence of the Lord."
+    "summary": "The archangel of healing ('God heals') who disguised himself as Azarias to guide Tobias on his journey in the Book of Tobit, healed Tobit's blindness with fish gall, delivered Sarah from demonic oppression, and revealed himself as one of the seven angels who stand in the glorious presence of the Lord.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "raymond-nonnatus",
@@ -3252,7 +4772,15 @@
     "isDoctor": false,
     "feastDay": "August 31",
     "patronage": "Expectant Mothers, Pregnant Women, Midwives, Newborns, Obstetricians, Falsely Accused",
-    "summary": "Spanish Mercedarian friar who devoted his life to ransoming Christians held in captivity in North Africa, suffering torture and imprisonment for preaching the Gospel; renowned patron of expectant mothers and safe deliveries."
+    "summary": "Spanish Mercedarian friar who devoted his life to ransoming Christians held in captivity in North Africa, suffering torture and imprisonment for preaching the Gospel; renowned patron of expectant mothers and safe deliveries.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "raymond-of-penafort",
@@ -3268,7 +4796,15 @@
     "isDoctor": false,
     "feastDay": "January 7",
     "patronage": "Canon Lawyers, Lawyers, Attorneys, Legal Profession, Medical Record Librarians",
-    "summary": "Catalan Dominican friar, renowned master of canon law who compiled the Decretals of Gregory IX (Liber Extra), co-founded the Order of Our Lady of Mercy (Mercedarians), and served as the third Master General of the Dominican Order."
+    "summary": "Catalan Dominican friar, renowned master of canon law who compiled the Decretals of Gregory IX (Liber Extra), co-founded the Order of Our Lady of Mercy (Mercedarians), and served as the third Master General of the Dominican Order.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "rita-of-cascia",
@@ -3285,7 +4821,15 @@
     "isDoctor": false,
     "feastDay": "May 22",
     "patronage": "Impossible Causes, Difficult Marriages, Infertility, Wounded Sufferers",
-    "summary": "Italian mystic and Augustinian sister who bore the sorrow of a difficult marriage, family tragedy, and received a miraculous partial stigmata wound of the Crown of Thorns."
+    "summary": "Italian mystic and Augustinian sister who bore the sorrow of a difficult marriage, family tragedy, and received a miraculous partial stigmata wound of the Crown of Thorns.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "robert-bellarmine",
@@ -3302,7 +4846,15 @@
     "isDoctor": true,
     "feastDay": "September 17",
     "patronage": "Catechists, Canon Lawyers, Diocesan Clergy",
-    "summary": "Leading apologist of the Counter-Reformation, author of Disputationes de Controversiis, and spiritual director to St. Aloysius Gonzaga."
+    "summary": "Leading apologist of the Counter-Reformation, author of Disputationes de Controversiis, and spiritual director to St. Aloysius Gonzaga.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": -0.9,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "roch",
@@ -3319,7 +4871,15 @@
     "isDoctor": false,
     "feastDay": "August 16",
     "patronage": "Plague Sufferers, Epidemics, Dogs, Invalids, Knee Problems",
-    "summary": "French nobleman who distributed his wealth to pilgrims and cured plague victims across Italy, comforted during his own sickness by a faithful dog that brought him bread."
+    "summary": "French nobleman who distributed his wealth to pilgrims and cured plague victims across Italy, comforted during his own sickness by a faithful dog that brought him bread.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "romuald",
@@ -3335,7 +4895,15 @@
     "isDoctor": false,
     "feastDay": "June 19",
     "patronage": "Camaldolese Order, Hermits",
-    "summary": "Italian ascetic and reformer who combined Eastern eremitic solitude with Western cenobitic community life in founding the Camaldolese monastic family."
+    "summary": "Italian ascetic and reformer who combined Eastern eremitic solitude with Western cenobitic community life in founding the Camaldolese monastic family.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "rose-of-lima",
@@ -3353,7 +4921,15 @@
     "isDoctor": false,
     "feastDay": "August 23",
     "patronage": "The Americas, Peru, Florists, Gardeners, Embroiderers",
-    "summary": "Peruvian mystic and tertiary Dominican renowned for her beauty, intense prayer, penance, and loving service to the sick and impoverished."
+    "summary": "Peruvian mystic and tertiary Dominican renowned for her beauty, intense prayer, penance, and loving service to the sick and impoverished.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.8,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "samuel-the-prophet",
@@ -3370,7 +4946,15 @@
     "isDoctor": false,
     "feastDay": "August 20",
     "patronage": "Hearing God's Call, Discernment",
-    "summary": "Last of the Hebrew Judges and first of the major biblical prophets who anointed both Saul and David as kings over Israel."
+    "summary": "Last of the Hebrew Judges and first of the major biblical prophets who anointed both Saul and David as kings over Israel.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.5,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "scholastica",
@@ -3387,7 +4971,15 @@
     "isDoctor": false,
     "feastDay": "February 10",
     "patronage": "Nuns, Convulsive Children, Rain, Storms",
-    "summary": "Twin sister of St. Benedict who led Benedictine nuns, celebrated for her deep prayer life that moved God to send a storm so she could converse with her brother."
+    "summary": "Twin sister of St. Benedict who led Benedictine nuns, celebrated for her deep prayer life that moved God to send a storm so she could converse with her brother.",
+    "embedding": {
+      "contemplativeVsActive": -0.3,
+      "intellectualVsDevotional": 0.8,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": -0.55,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "sebastian",
@@ -3404,7 +4996,15 @@
     "isDoctor": false,
     "feastDay": "January 20",
     "patronage": "Athletes, Soldiers, Plague Victims, Archers",
-    "summary": "Imperial guard officer who secretly aided imprisoned Christians, survived being shot with arrows, and was beaten to death for confronting the Emperor."
+    "summary": "Imperial guard officer who secretly aided imprisoned Christians, survived being shot with arrows, and was beaten to death for confronting the Emperor.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "simon-the-zealot",
@@ -3422,7 +5022,15 @@
     "isDoctor": false,
     "feastDay": "October 28",
     "patronage": "Couriers, Tanners, Sawyers",
-    "summary": "One of the Twelve Apostles called by Jesus (Mt 10:4; Lk 6:15), known for his religious zeal for the Jewish law before channeling his devotion entirely into preaching the Gospel across Egypt and Persia."
+    "summary": "One of the Twelve Apostles called by Jesus (Mt 10:4; Lk 6:15), known for his religious zeal for the Jewish law before channeling his devotion entirely into preaching the Gospel across Egypt and Persia.",
+    "embedding": {
+      "contemplativeVsActive": 1.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.1,
+      "ancientVsModern": -0.85,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.5
+    }
   },
   {
     "id": "stanislaus-kostka",
@@ -3439,7 +5047,15 @@
     "isDoctor": false,
     "feastDay": "November 13",
     "patronage": "Poland, Jesuit Novices, Students, Dying",
-    "summary": "Young Polish noble who walked hundreds of miles to Rome to fulfill his vocation in the Society of Jesus, dying in holiness at age seventeen."
+    "summary": "Young Polish noble who walked hundreds of miles to Rome to fulfill his vocation in the Society of Jesus, dying in holiness at age seventeen.",
+    "embedding": {
+      "contemplativeVsActive": -0.3,
+      "intellectualVsDevotional": 0.5,
+      "courageVsMercy": 0.4,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "stephen-first-martyr",
@@ -3456,7 +5072,15 @@
     "isDoctor": false,
     "feastDay": "December 26",
     "patronage": "Deacons, Altar Servers, Stonemasons, Headaches",
-    "summary": "First Christian martyr, full of grace and power, who prayed for his persecutors as he was stoned to death outside Jerusalem."
+    "summary": "First Christian martyr, full of grace and power, who prayed for his persecutors as he was stoned to death outside Jerusalem.",
+    "embedding": {
+      "contemplativeVsActive": 0.4,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "stephen-of-hungary",
@@ -3473,7 +5097,15 @@
     "isDoctor": false,
     "feastDay": "August 16",
     "patronage": "Hungary, Kings, Bricklayers, Stonemasons",
-    "summary": "First King of Hungary who united the Magyar tribes, established the Church throughout the kingdom, and dedicated his nation to the Blessed Virgin Mary."
+    "summary": "First King of Hungary who united the Magyar tribes, established the Church throughout the kingdom, and dedicated his nation to the Blessed Virgin Mary.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.2,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "tarcisius",
@@ -3490,7 +5122,15 @@
     "isDoctor": false,
     "feastDay": "August 15",
     "patronage": "Altar Servers, First Communicants",
-    "summary": "Young Roman acolyte beaten to death by a pagan mob while carrying the Blessed Sacrament to imprisoned Christians, choosing death rather than surrender the Holy Eucharist."
+    "summary": "Young Roman acolyte beaten to death by a pagan mob while carrying the Blessed Sacrament to imprisoned Christians, choosing death rather than surrender the Holy Eucharist.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.6,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "teresa-benedicta-of-the-cross",
@@ -3509,7 +5149,15 @@
     "isDoctor": false,
     "feastDay": "August 9",
     "patronage": "Europe, Loss of Parents, Philosophers, Converts, Martyrs",
-    "summary": "Jewish-born phenomenologist philosopher who converted to Catholicism, entered the Carmelites, and was martyred at Auschwitz-Birkenau in solidarity with her people."
+    "summary": "Jewish-born phenomenologist philosopher who converted to Catholicism, entered the Carmelites, and was martyred at Auschwitz-Birkenau in solidarity with her people.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": -0.2,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": -0.5,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "teresa-of-avila",
@@ -3528,7 +5176,15 @@
     "isDoctor": true,
     "feastDay": "October 15",
     "patronage": "Spain, Illness, Loss of Parents, People in Need of Grace",
-    "summary": "First female Doctor of the Church. Reformed the Carmelites and wrote spiritual masterpieces on contemplation such as The Interior Castle and The Way of Perfection."
+    "summary": "First female Doctor of the Church. Reformed the Carmelites and wrote spiritual masterpieces on contemplation such as The Interior Castle and The Way of Perfection.",
+    "embedding": {
+      "contemplativeVsActive": -0.8,
+      "intellectualVsDevotional": -0.6,
+      "courageVsMercy": -0.4,
+      "ancientVsModern": 0.25,
+      "simplicityVsLeadership": 0.2,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "therese-of-lisieux",
@@ -3547,7 +5203,15 @@
     "isDoctor": true,
     "feastDay": "October 1",
     "patronage": "Missions, Florists, France, Aviators, Illness",
-    "summary": "Carmelite nun known for her 'Little Way' of spiritual childhood, trust, and complete abandonment to God's merciful love in Story of a Soul."
+    "summary": "Carmelite nun known for her 'Little Way' of spiritual childhood, trust, and complete abandonment to God's merciful love in Story of a Soul.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": 0.9,
+      "courageVsMercy": 0.8,
+      "ancientVsModern": 0.65,
+      "simplicityVsLeadership": -0.9,
+      "pioneeringVsPreservation": -0.4
+    }
   },
   {
     "id": "thomas-aquinas",
@@ -3565,7 +5229,15 @@
     "isDoctor": true,
     "feastDay": "January 28",
     "patronage": "Academics, Students, Theologians, Catholic Schools, Apologists",
-    "summary": "Master of scholastic theology whose Summa Theologiae and Eucharistic hymns (such as Pange Lingua and Panis Angelicus) form the foundation of Catholic doctrine and philosophy."
+    "summary": "Master of scholastic theology whose Summa Theologiae and Eucharistic hymns (such as Pange Lingua and Panis Angelicus) form the foundation of Catholic doctrine and philosophy.",
+    "embedding": {
+      "contemplativeVsActive": -0.3,
+      "intellectualVsDevotional": -1.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": -0.1,
+      "pioneeringVsPreservation": 0.8
+    }
   },
   {
     "id": "thomas-becket",
@@ -3582,7 +5254,15 @@
     "isDoctor": false,
     "feastDay": "December 29",
     "patronage": "Secular Clergy, England, Portsmouth",
-    "summary": "Lord Chancellor who was made Archbishop of Canterbury and steadfastly defended the rights and independence of the Church against King Henry II, martyred in his cathedral."
+    "summary": "Lord Chancellor who was made Archbishop of Canterbury and steadfastly defended the rights and independence of the Church against King Henry II, martyred in his cathedral.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.25,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "thomas-more",
@@ -3599,7 +5279,15 @@
     "isDoctor": false,
     "feastDay": "June 22",
     "patronage": "Statesmen, Politicians, Lawyers, Civil Servants",
-    "summary": "Statesman and author of Utopia who chose death rather than compromise his conscience against King Henry VIII: 'The King's good servant, but God's first.'"
+    "summary": "Statesman and author of Utopia who chose death rather than compromise his conscience against King Henry VIII: 'The King's good servant, but God's first.'",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.2,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "thomas-the-apostle",
@@ -3617,7 +5305,15 @@
     "isDoctor": false,
     "feastDay": "July 3",
     "patronage": "Architects, Builders, India, Doubters",
-    "summary": "One of the Twelve Apostles called by Jesus (Mt 10:3; Jn 11:16), renowned for his profound profession of faith 'My Lord and my God!' upon encountering the Risen Christ (Jn 20:24–29), who later evangelized India."
+    "summary": "One of the Twelve Apostles called by Jesus (Mt 10:3; Jn 11:16), renowned for his profound profession of faith 'My Lord and my God!' upon encountering the Risen Christ (Jn 20:24–29), who later evangelized India.",
+    "embedding": {
+      "contemplativeVsActive": 1.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.1,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -1.0
+    }
   },
   {
     "id": "timothy",
@@ -3633,7 +5329,15 @@
     "isDoctor": false,
     "feastDay": "January 26",
     "patronage": "Stomach Disorders, Intestinal Complaints",
-    "summary": "Beloved disciple and companion of St. Paul who became the first Bishop of Ephesus and received two Pauline pastoral epistles."
+    "summary": "Beloved disciple and companion of St. Paul who became the first Bishop of Ephesus and received two Pauline pastoral epistles.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "titus",
@@ -3649,7 +5353,15 @@
     "isDoctor": false,
     "feastDay": "January 26",
     "patronage": "Crete",
-    "summary": "Gentile convert and trusted co-worker of St. Paul who was appointed Bishop of Crete to organize the local church and ordain presbyters."
+    "summary": "Gentile convert and trusted co-worker of St. Paul who was appointed Bishop of Crete to organize the local church and ordain presbyters.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "titus-brandsma",
@@ -3667,7 +5379,15 @@
     "isDoctor": false,
     "feastDay": "July 27",
     "patronage": "Catholic Journalists, The Netherlands, Press Freedom",
-    "summary": "Dutch Carmelite friar and university rector who defied Nazi anti-Catholic propaganda and press censorship, murdered by lethal injection in Dachau concentration camp."
+    "summary": "Dutch Carmelite friar and university rector who defied Nazi anti-Catholic propaganda and press censorship, murdered by lethal injection in Dachau concentration camp.",
+    "embedding": {
+      "contemplativeVsActive": -0.6,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": 0.85,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "turibius-of-mogrovejo",
@@ -3684,7 +5404,15 @@
     "isDoctor": false,
     "feastDay": "March 23",
     "patronage": "Latin American Bishops, Native Rights, Peru",
-    "summary": "Archbishop of Lima who traveled over 15,000 miles across the Andes on foot, learning indigenous languages and defending native peoples' human dignity."
+    "summary": "Archbishop of Lima who traveled over 15,000 miles across the Andes on foot, learning indigenous languages and defending native peoples' human dignity.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.2
+    }
   },
   {
     "id": "valentine",
@@ -3701,7 +5429,15 @@
     "isDoctor": false,
     "feastDay": "February 14",
     "patronage": "Love, Marriages, Betrothed Couples, Beekeepers, Epilepsy",
-    "summary": "Roman clergyman who ministered to persecuted Christians and performed secret marriages for Christian soldiers, martyred during the reign of Claudius Gothicus."
+    "summary": "Roman clergyman who ministered to persecuted Christians and performed secret marriages for Christian soldiers, martyred during the reign of Claudius Gothicus.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": 0.7,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "vietnamese-martyrs",
@@ -3722,7 +5458,15 @@
     "isDoctor": false,
     "feastDay": "November 24",
     "patronage": "Vietnam, Vietnamese People, Persecuted Christians, Catechists, Martyrs",
-    "summary": "A collective group of 117 martyrs—including Vietnamese diocesan priest St. Andrew Dũng-Lạc, 96 Vietnamese Catholics, 11 Spanish Dominicans, and 10 French missionaries—who were executed between 1745 and 1862 under the persecution of the Trịnh and Nguyễn dynasties for their steadfast Christian faith."
+    "summary": "A collective group of 117 martyrs—including Vietnamese diocesan priest St. Andrew Dũng-Lạc, 96 Vietnamese Catholics, 11 Spanish Dominicans, and 10 French missionaries—who were executed between 1745 and 1862 under the persecution of the Trịnh and Nguyễn dynasties for their steadfast Christian faith.",
+    "embedding": {
+      "contemplativeVsActive": -0.3,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": 0.65,
+      "simplicityVsLeadership": -0.1,
+      "pioneeringVsPreservation": 0.5
+    }
   },
   {
     "id": "vincent-de-paul",
@@ -3739,7 +5483,15 @@
     "isDoctor": false,
     "feastDay": "September 27",
     "patronage": "Charitable Societies, Hospitals, Volunteers, Prisoners",
-    "summary": "Dedicated his priesthood to the relief of the impoverished and sick, founding the Vincentian Fathers and co-founding Daughters of Charity."
+    "summary": "Dedicated his priesthood to the relief of the impoverished and sick, founding the Vincentian Fathers and co-founding Daughters of Charity.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": 0.7,
+      "ancientVsModern": 0.2,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": -0.7
+    }
   },
   {
     "id": "vincent-of-lerins",
@@ -3755,7 +5507,15 @@
     "isDoctor": false,
     "feastDay": "May 24",
     "patronage": "Theologians, Monks of Lérins",
-    "summary": "Fifth-century monk on the island of Lérins and Church Father celebrated for his Commonitorium, which established the Vincentian Canon for Catholic orthodoxy: what has been believed everywhere, always, and by all."
+    "summary": "Fifth-century monk on the island of Lérins and Church Father celebrated for his Commonitorium, which established the Vincentian Canon for Catholic orthodoxy: what has been believed everywhere, always, and by all.",
+    "embedding": {
+      "contemplativeVsActive": -0.9,
+      "intellectualVsDevotional": -0.7,
+      "courageVsMercy": 0.0,
+      "ancientVsModern": -0.8,
+      "simplicityVsLeadership": -0.8,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "wenceslaus",
@@ -3773,7 +5533,15 @@
     "isDoctor": false,
     "feastDay": "September 28",
     "patronage": "Czech Republic, Bohemia, Prague, Brewers",
-    "summary": "Righteous Duke of Bohemia raised by St. Ludmila who promoted Christianity and justice, murdered by his pagan brother Boleslaus and immortalized as a model of Christian charity."
+    "summary": "Righteous Duke of Bohemia raised by St. Ludmila who promoted Christianity and justice, murdered by his pagan brother Boleslaus and immortalized as a model of Christian charity.",
+    "embedding": {
+      "contemplativeVsActive": 0.7,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.8,
+      "ancientVsModern": -0.55,
+      "simplicityVsLeadership": 0.2,
+      "pioneeringVsPreservation": 0.0
+    }
   },
   {
     "id": "zechariah-the-prophet",
@@ -3790,7 +5558,15 @@
     "isDoctor": false,
     "feastDay": "September 6",
     "patronage": "Builders, Hope",
-    "summary": "Post-exilic prophet and priest who championed the reconstruction of the Temple in Jerusalem and prophesied the coming King entering Zion riding upon a colt (Zech 9:9)."
+    "summary": "Post-exilic prophet and priest who championed the reconstruction of the Temple in Jerusalem and prophesied the coming King entering Zion riding upon a colt (Zech 9:9).",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   },
   {
     "id": "zephaniah-the-prophet",
@@ -3806,6 +5582,14 @@
     "isDoctor": false,
     "feastDay": "December 3",
     "patronage": "The Humble, Seekers of God",
-    "summary": "Prophet of royal lineage who proclaimed the Day of the Lord against idolatry and sin during the reign of King Josiah, promising joy and restoration to a humble and lowly remnant."
+    "summary": "Prophet of royal lineage who proclaimed the Day of the Lord against idolatry and sin during the reign of King Josiah, promising joy and restoration to a humble and lowly remnant.",
+    "embedding": {
+      "contemplativeVsActive": 0.0,
+      "intellectualVsDevotional": 0.0,
+      "courageVsMercy": -0.6,
+      "ancientVsModern": -1.0,
+      "simplicityVsLeadership": 0.0,
+      "pioneeringVsPreservation": 0.4
+    }
   }
 ]

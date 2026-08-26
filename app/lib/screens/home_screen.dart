@@ -10,6 +10,7 @@ import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/screens/missal_tab.dart';
 import 'package:twelve_stars/screens/library_tab.dart';
 import 'package:twelve_stars/screens/saints_screen.dart';
+import 'package:twelve_stars/screens/confirmation_discernment_screen.dart';
 import 'package:twelve_stars/screens/settings_screen.dart';
 import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
 import 'package:twelve_stars/logic/utils/app_version.dart';
@@ -569,6 +570,20 @@ class _HomeScreenState extends State<HomeScreen>
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const SaintsScreen()),
+              );
+            },
+          ),
+          ListTile(
+            key: const Key('drawer_confirmation_tile'),
+            leading: const Icon(Icons.psychology_alt_outlined),
+            title: const Text('Confirmation Discernment'),
+            onTap: () {
+              Navigator.pop(context); // Close drawer
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ConfirmationDiscernmentScreen(),
+                ),
               );
             },
           ),
