@@ -180,5 +180,65 @@ void main() {
         expect(tournament.champion!.seed, 1);
       },
     );
+
+    test('selectQuestions returns mockQuestions when set', () {
+      final customMockQuestions = ConfirmationDiscernmentEngine.questionBank
+          .take(3)
+          .toList();
+      ConfirmationDiscernmentEngine.mockQuestions = customMockQuestions;
+      addTearDown(() {
+        ConfirmationDiscernmentEngine.mockQuestions = null;
+      });
+
+      final result = ConfirmationDiscernmentEngine.selectQuestions(count: 7);
+      expect(result.length, 3);
+      expect(result, equals(customMockQuestions));
+    });
+
+    test('selectQuestions uses mockRandom when provided', () {
+      ConfirmationDiscernmentEngine.mockRandom = Random(999);
+      addTearDown(() {
+        ConfirmationDiscernmentEngine.mockRandom = null;
+      });
+
+      final set1 = ConfirmationDiscernmentEngine.selectQuestions(count: 7);
+
+      ConfirmationDiscernmentEngine.mockRandom = Random(999);
+      final set2 = ConfirmationDiscernmentEngine.selectQuestions(count: 7);
+
+      expect(
+        set1.map((q) => q.id).toList(),
+        equals(set2.map((q) => q.id).toList()),
+      );
+    });
+
+    test(
+      'generateTournamentSeeds uses mockRandom for deterministic seeding',
+      () async {
+        SaintDatabase.mockSaints = null;
+        final allSaints = await SaintDatabase.loadSaints();
+        final userVector = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+
+        ConfirmationDiscernmentEngine.mockRandom = Random(777);
+        final seeds1 = ConfirmationDiscernmentEngine.generateTournamentSeeds(
+          allSaints: allSaints,
+          userVector: userVector,
+        );
+
+        ConfirmationDiscernmentEngine.mockRandom = Random(777);
+        final seeds2 = ConfirmationDiscernmentEngine.generateTournamentSeeds(
+          allSaints: allSaints,
+          userVector: userVector,
+        );
+        addTearDown(() {
+          ConfirmationDiscernmentEngine.mockRandom = null;
+        });
+
+        expect(
+          seeds1.map((s) => s.saint.id).toList(),
+          equals(seeds2.map((s) => s.saint.id).toList()),
+        );
+      },
+    );
   });
 }

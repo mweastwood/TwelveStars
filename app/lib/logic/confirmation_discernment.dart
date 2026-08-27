@@ -205,6 +205,12 @@ class TournamentState {
 /// Core logic engine for the 32-question bank, stratified down-selection,
 /// vector matching, and bracket generation.
 class ConfirmationDiscernmentEngine {
+  /// Optional mock questions list for deterministic testing.
+  static List<DiscernmentQuestion>? mockQuestions;
+
+  /// Optional mock Random generator for deterministic testing.
+  static Random? mockRandom;
+
   /// The curated bank of 32 discernment questions spanning all 6 axes and cross-cutting gifts.
   static const List<DiscernmentQuestion> questionBank = [
     // --- AXIS 1: Contemplation vs. Active Mission (5 Questions) ---
@@ -882,7 +888,10 @@ class ConfirmationDiscernmentEngine {
     int count = 7,
     Random? random,
   }) {
-    final rng = random ?? Random();
+    if (mockQuestions != null) {
+      return List<DiscernmentQuestion>.from(mockQuestions!);
+    }
+    final rng = random ?? mockRandom ?? Random();
 
     // 1. Group questions by primary axis
     final Map<DiscernmentAxis, List<DiscernmentQuestion>> axisGroups = {};
@@ -999,7 +1008,7 @@ class ConfirmationDiscernmentEngine {
     Random? random,
     int count = 16,
   }) {
-    final rng = random ?? Random();
+    final rng = random ?? mockRandom ?? Random();
 
     if (allSaints.isEmpty) {
       return [];

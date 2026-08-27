@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
+import 'package:twelve_stars/logic/confirmation_discernment.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/screens/confirmation_discernment_screen.dart';
@@ -253,17 +254,30 @@ void main() {
   group('ConfirmationDiscernmentScreen Golden Tests', () {
     setUp(() {
       SaintDatabase.mockSaints = _buildMockSaints();
+      ConfirmationDiscernmentEngine.mockQuestions = null;
+      ConfirmationDiscernmentEngine.mockRandom = null;
     });
 
     tearDown(() {
       SaintDatabase.mockSaints = null;
+      ConfirmationDiscernmentEngine.mockQuestions = null;
+      ConfirmationDiscernmentEngine.mockRandom = null;
     });
 
     testGoldens(
       'renders Quiz Stage — Question 1 (light theme, no answer selected)',
       (tester) async {
+        final mockQuestions = [
+          ConfirmationDiscernmentEngine.questionBank.firstWhere(
+            (q) => q.id == 'q25_daily_calling',
+          ),
+          ...ConfirmationDiscernmentEngine.questionBank
+              .where((q) => q.id != 'q25_daily_calling')
+              .take(6),
+        ];
+
         await tester.pumpWidgetBuilder(
-          const ConfirmationDiscernmentScreen(),
+          ConfirmationDiscernmentScreen(initialQuestions: mockQuestions),
           wrapper: materialAppWrapper(
             theme: ThemeData(
               colorScheme: ColorScheme.fromSeed(
@@ -289,8 +303,17 @@ void main() {
     testGoldens(
       'renders Quiz Stage — Question 1 with option 0 selected (dark theme)',
       (tester) async {
+        final mockQuestions = [
+          ConfirmationDiscernmentEngine.questionBank.firstWhere(
+            (q) => q.id == 'q26_geographic_calling',
+          ),
+          ...ConfirmationDiscernmentEngine.questionBank
+              .where((q) => q.id != 'q26_geographic_calling')
+              .take(6),
+        ];
+
         await tester.pumpWidgetBuilder(
-          const ConfirmationDiscernmentScreen(),
+          ConfirmationDiscernmentScreen(initialQuestions: mockQuestions),
           wrapper: materialAppWrapper(
             theme: ThemeData(
               colorScheme: ColorScheme.fromSeed(

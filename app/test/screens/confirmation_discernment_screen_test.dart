@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:twelve_stars/logic/confirmation_discernment.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/screens/confirmation_discernment_screen.dart';
@@ -233,5 +234,39 @@ void main() {
         );
       },
     );
+
+    testWidgets('renders custom initialQuestions when provided', (
+      tester,
+    ) async {
+      final customQuestions = [
+        const DiscernmentQuestion(
+          id: 'custom_q1',
+          title: 'Custom Title for Discernment Test',
+          options: [
+            DiscernmentOption(
+              text: 'Custom Option A',
+              weights: {DiscernmentAxis.contemplativeVsActive: 1.0},
+            ),
+            DiscernmentOption(
+              text: 'Custom Option B',
+              weights: {DiscernmentAxis.contemplativeVsActive: -1.0},
+            ),
+          ],
+        ),
+      ];
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: ConfirmationDiscernmentScreen(
+            initialQuestions: customQuestions,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('Custom Title for Discernment Test'), findsOneWidget);
+      expect(find.text('Custom Option A'), findsOneWidget);
+      expect(find.text('Custom Option B'), findsOneWidget);
+    });
   });
 }

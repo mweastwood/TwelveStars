@@ -12,7 +12,9 @@ enum DiscernmentStage { quiz, tournament, champion }
 /// Interactive Confirmation Saint Discernment screen featuring a dynamic quiz,
 /// vector-similarity seeding, and a 16-entrant head-to-head tournament bracket.
 class ConfirmationDiscernmentScreen extends StatefulWidget {
-  const ConfirmationDiscernmentScreen({super.key});
+  final List<DiscernmentQuestion>? initialQuestions;
+
+  const ConfirmationDiscernmentScreen({super.key, this.initialQuestions});
 
   @override
   State<ConfirmationDiscernmentScreen> createState() =>
@@ -41,7 +43,9 @@ class _ConfirmationDiscernmentScreenState
   Future<void> _initialize() async {
     try {
       final saints = await SaintDatabase.loadSaints();
-      final questions = ConfirmationDiscernmentEngine.selectQuestions(count: 7);
+      final questions =
+          widget.initialQuestions ??
+          ConfirmationDiscernmentEngine.selectQuestions(count: 7);
       if (mounted) {
         setState(() {
           _allSaints = saints;
@@ -64,9 +68,9 @@ class _ConfirmationDiscernmentScreenState
       _stage = DiscernmentStage.quiz;
       _currentQuestionIndex = 0;
       _selectedAnswers.clear();
-      _activeQuestions = ConfirmationDiscernmentEngine.selectQuestions(
-        count: 7,
-      );
+      _activeQuestions =
+          widget.initialQuestions ??
+          ConfirmationDiscernmentEngine.selectQuestions(count: 7);
       _tournament = null;
     });
   }
