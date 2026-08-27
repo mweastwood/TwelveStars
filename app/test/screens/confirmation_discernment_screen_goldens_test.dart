@@ -358,8 +358,8 @@ void main() {
       await tester.pump();
       await tester.pumpAndSettle();
 
-      // Answer all 7 questions (always option 0) to enter tournament
-      for (int q = 0; q < 7; q++) {
+      // Answer all 14 questions (always option 0) to enter tournament
+      for (int q = 0; q < 14; q++) {
         await tester.tap(find.byKey(const Key('discernment_option_0')));
         await tester.pumpAndSettle();
         await tester.tap(find.byKey(const Key('discernment_next_button')));
@@ -394,7 +394,7 @@ void main() {
       await tester.pump();
       await tester.pumpAndSettle();
 
-      for (int q = 0; q < 7; q++) {
+      for (int q = 0; q < 14; q++) {
         await tester.tap(find.byKey(const Key('discernment_option_0')));
         await tester.pumpAndSettle();
         await tester.tap(find.byKey(const Key('discernment_next_button')));
@@ -428,8 +428,8 @@ void main() {
         await tester.pump();
         await tester.pumpAndSettle();
 
-        // Answer 7 quiz questions
-        for (int q = 0; q < 7; q++) {
+        // Answer 14 quiz questions
+        for (int q = 0; q < 14; q++) {
           await tester.tap(find.byKey(const Key('discernment_option_0')));
           await tester.pumpAndSettle();
           await tester.tap(find.byKey(const Key('discernment_next_button')));
@@ -471,7 +471,7 @@ void main() {
         await tester.pump();
         await tester.pumpAndSettle();
 
-        for (int q = 0; q < 7; q++) {
+        for (int q = 0; q < 14; q++) {
           await tester.tap(find.byKey(const Key('discernment_option_0')));
           await tester.pumpAndSettle();
           await tester.tap(find.byKey(const Key('discernment_next_button')));

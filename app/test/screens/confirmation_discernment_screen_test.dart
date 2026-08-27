@@ -35,10 +35,10 @@ void main() {
 
       // Verify Quiz stage loaded
       expect(find.text('Confirmation Discernment'), findsOneWidget);
-      expect(find.textContaining('QUESTION 1 OF'), findsOneWidget);
+      expect(find.textContaining('QUESTION 1 OF 14'), findsOneWidget);
 
-      // Answer all 7 questions
-      for (int q = 0; q < 7; q++) {
+      // Answer all 14 questions
+      for (int q = 0; q < 14; q++) {
         // Select option 0
         final optionFinder = find.byKey(const Key('discernment_option_0'));
         expect(optionFinder, findsOneWidget);
@@ -106,6 +106,21 @@ void main() {
       );
     });
 
+    testWidgets('does not display axis badge in quiz screen', (tester) async {
+      await tester.runAsync(() async {
+        await SaintDatabase.loadSaints();
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const ConfirmationDiscernmentScreen()),
+      );
+      await tester.pumpAndSettle();
+
+      for (final axis in DiscernmentAxis.values) {
+        expect(find.text(axis.name), findsNothing);
+      }
+    });
+
     testWidgets('navigates back and forth between questions in quiz', (
       tester,
     ) async {
@@ -147,8 +162,8 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      // Quick answer 7 questions to enter tournament
-      for (int q = 0; q < 7; q++) {
+      // Quick answer 14 questions to enter tournament
+      for (int q = 0; q < 14; q++) {
         await tester.tap(find.byKey(const Key('discernment_option_0')));
         await tester.pumpAndSettle();
         await tester.tap(find.byKey(const Key('discernment_next_button')));
@@ -197,8 +212,8 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        // Complete 7 questions
-        for (int q = 0; q < 7; q++) {
+        // Complete 14 questions
+        for (int q = 0; q < 14; q++) {
           await tester.tap(find.byKey(const Key('discernment_option_0')));
           await tester.pumpAndSettle();
           await tester.tap(find.byKey(const Key('discernment_next_button')));

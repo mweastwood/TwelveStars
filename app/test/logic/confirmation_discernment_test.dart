@@ -25,37 +25,56 @@ void main() {
       }
     });
 
-    test('Stratified question down-selection covers all 6 dimensions', () {
+    test(
+      'Stratified question down-selection covers all 6 dimensions with default 14 questions',
+      () {
+        final selected = ConfirmationDiscernmentEngine.selectQuestions(
+          count: 14,
+          random: Random(42),
+        );
+        expect(selected.length, 14);
+
+        final axesCovered = <DiscernmentAxis, int>{};
+        int crossCuttingCount = 0;
+        for (final q in selected) {
+          if (q.primaryAxis != null) {
+            axesCovered[q.primaryAxis!] =
+                (axesCovered[q.primaryAxis!] ?? 0) + 1;
+          } else {
+            crossCuttingCount++;
+          }
+        }
+
+        // All 6 core dimensions must have 2 questions
+        for (final axis in DiscernmentAxis.values) {
+          expect(
+            axesCovered[axis],
+            2,
+            reason: 'Axis $axis must have 2 questions',
+          );
+        }
+        // 2 cross-cutting questions
+        expect(crossCuttingCount, 2);
+      },
+    );
+
+    test('selectQuestions default parameter returns 14 questions', () {
       final selected = ConfirmationDiscernmentEngine.selectQuestions(
-        count: 7,
         random: Random(42),
       );
-      expect(selected.length, 7);
-
-      final axesCovered = selected
-          .where((q) => q.primaryAxis != null)
-          .map((q) => q.primaryAxis!)
-          .toSet();
-
-      // All 6 core dimensions must be represented
-      for (final axis in DiscernmentAxis.values) {
-        expect(
-          axesCovered.contains(axis),
-          isTrue,
-          reason: 'Axis $axis must be covered',
-        );
-      }
+      expect(selected.length, 14);
+      expect(selected.toSet().length, 14);
     });
 
     test(
-      'selectQuestions backfills from unselected questions when count > 8',
+      'selectQuestions backfills from unselected questions when count > 14',
       () {
         final selected = ConfirmationDiscernmentEngine.selectQuestions(
-          count: 12,
+          count: 20,
           random: Random(42),
         );
-        expect(selected.length, 12);
-        expect(selected.toSet().length, 12); // All unique questions
+        expect(selected.length, 20);
+        expect(selected.toSet().length, 20); // All unique questions
       },
     );
 

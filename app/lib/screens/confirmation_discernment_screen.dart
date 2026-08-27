@@ -45,7 +45,7 @@ class _ConfirmationDiscernmentScreenState
       final saints = await SaintDatabase.loadSaints();
       final questions =
           widget.initialQuestions ??
-          ConfirmationDiscernmentEngine.selectQuestions(count: 7);
+          ConfirmationDiscernmentEngine.selectQuestions(count: 14);
       if (mounted) {
         setState(() {
           _allSaints = saints;
@@ -70,7 +70,7 @@ class _ConfirmationDiscernmentScreenState
       _selectedAnswers.clear();
       _activeQuestions =
           widget.initialQuestions ??
-          ConfirmationDiscernmentEngine.selectQuestions(count: 7);
+          ConfirmationDiscernmentEngine.selectQuestions(count: 14);
       _tournament = null;
     });
   }
@@ -200,26 +200,6 @@ class _ConfirmationDiscernmentScreenState
                       color: theme.colorScheme.primary,
                     ),
                   ),
-                  if (currentQ.primaryAxis != null)
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 3,
-                      ),
-                      decoration: BoxDecoration(
-                        color: theme.colorScheme.primaryContainer.withValues(
-                          alpha: 0.3,
-                        ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Text(
-                        currentQ.primaryAxis!.name,
-                        style: theme.textTheme.labelSmall?.copyWith(
-                          fontSize: 10,
-                          color: theme.colorScheme.onPrimaryContainer,
-                        ),
-                      ),
-                    ),
                 ],
               ),
             ),
