@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/theme/app_theme_tokens.dart';
 
@@ -247,6 +249,103 @@ enum SaintSortOption {
   }
 }
 
+/// Multi-dimensional spiritual feature embedding representing a saint's
+/// charism, temperament, era, and vocational profile.
+class SaintEmbedding {
+  /// Contemplative / Monastic / Hermit (-1.0) vs Active Charity / Missionary (+1.0).
+  final double contemplativeVsActive;
+
+  /// Intellectual / Doctor / Theologian (-1.0) vs Heart-Centered / Devotional / Simple Faith (+1.0).
+  final double intellectualVsDevotional;
+
+  /// Bold Courage / Martyr / Defender (-1.0) vs Gentle Mercy / Peacemaker / Quiet Service (+1.0).
+  final double courageVsMercy;
+
+  /// Ancient / Biblical / Early Church (-1.0) vs Modern / Contemporary (+1.0).
+  final double ancientVsModern;
+
+  /// Obscurity / Poverty / Mendicant (-1.0) vs Pope / Bishop / Monarch / Leadership (+1.0).
+  final double simplicityVsLeadership;
+
+  /// Missionary Pioneer / Founder / Innovator (-1.0) vs Preserver of Tradition / Doctrinal Fidelity (+1.0).
+  final double pioneeringVsPreservation;
+
+  const SaintEmbedding({
+    this.contemplativeVsActive = 0.0,
+    this.intellectualVsDevotional = 0.0,
+    this.courageVsMercy = 0.0,
+    this.ancientVsModern = 0.0,
+    this.simplicityVsLeadership = 0.0,
+    this.pioneeringVsPreservation = 0.0,
+  });
+
+  /// Converts the embedding fields into a fixed-order list of doubles.
+  List<double> toVector() => [
+    contemplativeVsActive,
+    intellectualVsDevotional,
+    courageVsMercy,
+    ancientVsModern,
+    simplicityVsLeadership,
+    pioneeringVsPreservation,
+  ];
+
+  /// Computes cosine similarity with [userVector] with optional random jitter [noiseMagnitude].
+  double similarityWith(
+    List<double> userVector, {
+    double noiseMagnitude = 0.0,
+    Random? random,
+  }) {
+    final v = toVector();
+    if (v.length != userVector.length) return 0.0;
+
+    double dotProduct = 0.0;
+    double normA = 0.0;
+    double normB = 0.0;
+
+    for (int i = 0; i < v.length; i++) {
+      dotProduct += v[i] * userVector[i];
+      normA += v[i] * v[i];
+      normB += userVector[i] * userVector[i];
+    }
+
+    if (normA == 0.0 || normB == 0.0) return 0.0;
+    final baseSim = dotProduct / (sqrt(normA) * sqrt(normB));
+
+    if (noiseMagnitude > 0.0) {
+      final rng = random ?? Random();
+      // Jitter in [-noiseMagnitude, +noiseMagnitude]
+      final jitter = (rng.nextDouble() * 2.0 - 1.0) * noiseMagnitude;
+      return (baseSim + jitter).clamp(-1.0, 1.0);
+    }
+
+    return baseSim;
+  }
+
+  Map<String, dynamic> toJson() => {
+    'contemplativeVsActive': contemplativeVsActive,
+    'intellectualVsDevotional': intellectualVsDevotional,
+    'courageVsMercy': courageVsMercy,
+    'ancientVsModern': ancientVsModern,
+    'simplicityVsLeadership': simplicityVsLeadership,
+    'pioneeringVsPreservation': pioneeringVsPreservation,
+  };
+
+  factory SaintEmbedding.fromJson(Map<String, dynamic> json) {
+    return SaintEmbedding(
+      contemplativeVsActive:
+          (json['contemplativeVsActive'] as num?)?.toDouble() ?? 0.0,
+      intellectualVsDevotional:
+          (json['intellectualVsDevotional'] as num?)?.toDouble() ?? 0.0,
+      courageVsMercy: (json['courageVsMercy'] as num?)?.toDouble() ?? 0.0,
+      ancientVsModern: (json['ancientVsModern'] as num?)?.toDouble() ?? 0.0,
+      simplicityVsLeadership:
+          (json['simplicityVsLeadership'] as num?)?.toDouble() ?? 0.0,
+      pioneeringVsPreservation:
+          (json['pioneeringVsPreservation'] as num?)?.toDouble() ?? 0.0,
+    );
+  }
+}
+
 /// Representation of a Catholic saint or blessed in the database.
 ///
 /// Canonized saints use the standard prefix "St." in [name] (or "The ...", e.g. "The Vietnamese Martyrs"),
@@ -267,6 +366,7 @@ class Saint {
   final String? patronage; // e.g. "Students, Academics, Theologians"
   final String? summary; // Short historical biographical context
   final String? gender; // 'male', 'female', or 'group'
+  final SaintEmbedding? embedding; // Multi-dimensional spiritual feature vector
 
   const Saint({
     required this.id,
@@ -282,6 +382,7 @@ class Saint {
     this.patronage,
     this.summary,
     this.gender,
+    this.embedding,
   }) : _explicitCategories = categories;
 
   bool get isMale => gender == 'male';
@@ -296,6 +397,31 @@ class Saint {
       return 'd. $deathDate';
     }
     return '';
+  }
+
+  /// Returns a clean short name by stripping honorific prefixes ("St.", "Sts.", "Blessed", "Bl.", "The", "Venerable", "Ven.").
+  String get shortName {
+    return name.replaceFirst(
+      RegExp(r'^(Sts\.|St\.|Blessed|Bl\.|Venerable|Ven\.|The)\s+'),
+      '',
+    );
+  }
+
+  /// Returns the invocation name suitable for intercessory prayers and dossiers.
+  /// For Old Covenant figures and entries with existing honorific prefixes, returns [name] directly.
+  /// Otherwise defaults to "St. [shortName]".
+  String get invocationName {
+    if (era == SaintEra.oldCovenant ||
+        name.startsWith('St. ') ||
+        name.startsWith('Sts. ') ||
+        name.startsWith('Blessed ') ||
+        name.startsWith('Bl. ') ||
+        name.startsWith('The ') ||
+        name.startsWith('Ven. ') ||
+        name.startsWith('Venerable ')) {
+      return name;
+    }
+    return 'St. $shortName';
   }
 
   /// Returns all categories matching this saint based on explicit categories or historical fallback,
@@ -1093,6 +1219,10 @@ class Saint {
       patronage: json['patronage'] as String?,
       summary: json['summary'] as String?,
       gender: json['gender'] as String?,
+      embedding:
+          json['embedding'] != null && json['embedding'] is Map<String, dynamic>
+          ? SaintEmbedding.fromJson(json['embedding'] as Map<String, dynamic>)
+          : null,
     );
   }
 
@@ -1112,6 +1242,7 @@ class Saint {
       if (feastDay != null) 'feastDay': feastDay,
       if (patronage != null) 'patronage': patronage,
       if (summary != null) 'summary': summary,
+      if (embedding != null) 'embedding': embedding!.toJson(),
     };
   }
 }

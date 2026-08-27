@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
+import 'package:twelve_stars/screens/confirmation_discernment_screen.dart';
 import 'package:twelve_stars/theme/app_theme_tokens.dart';
 import 'package:twelve_stars/widgets/saint_card.dart';
 
@@ -245,6 +246,19 @@ class _SaintsScreenState extends State<SaintsScreen> {
       appBar: AppBar(
         title: const Text('Saint Database'),
         actions: [
+          IconButton(
+            key: const Key('confirmation_discernment_button'),
+            icon: const Icon(Icons.psychology_alt_outlined),
+            tooltip: 'Confirmation Saint Discernment',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ConfirmationDiscernmentScreen(),
+                ),
+              );
+            },
+          ),
           IconButton(
             key: const Key('saints_sort_button'),
             icon: Icon(_sortOption.icon),

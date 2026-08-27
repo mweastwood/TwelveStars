@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -48,6 +49,74 @@ void main() {
       expect(saint.isMale, isTrue);
       expect(saint.isFemale, isFalse);
       expect(saint.dateRange, '1225 – 1274');
+      expect(saint.shortName, 'Thomas Aquinas');
+
+      const testBlessedSaint = Saint(
+        id: 'carlo-acutis',
+        name: 'Blessed Carlo Acutis',
+        nationality: 'Italian',
+        profession: 'Gamer & Computer Programmer',
+      );
+      expect(testBlessedSaint.shortName, 'Carlo Acutis');
+
+      const testGroupSaint = Saint(
+        id: 'vietnamese-martyrs',
+        name: 'The Vietnamese Martyrs',
+        nationality: 'Vietnamese',
+        profession: 'Martyrs',
+      );
+      expect(testGroupSaint.shortName, 'Vietnamese Martyrs');
+      expect(testGroupSaint.invocationName, 'The Vietnamese Martyrs');
+
+      const testPluralSaint = Saint(
+        id: 'perpetua-felicity',
+        name: 'Sts. Perpetua and Felicity',
+        nationality: 'Roman',
+        profession: 'Martyrs',
+      );
+      expect(testPluralSaint.shortName, 'Perpetua and Felicity');
+      expect(testPluralSaint.invocationName, 'Sts. Perpetua and Felicity');
+
+      const testAbbrevBlessedSaint = Saint(
+        id: 'bl-pier-giorgio',
+        name: 'Bl. Pier Giorgio Frassati',
+        nationality: 'Italian',
+        profession: 'Lay Dominican',
+      );
+      expect(testAbbrevBlessedSaint.shortName, 'Pier Giorgio Frassati');
+      expect(
+        testAbbrevBlessedSaint.invocationName,
+        'Bl. Pier Giorgio Frassati',
+      );
+
+      const testVenerableSaint = Saint(
+        id: 'venerable-fulton-sheen',
+        name: 'Venerable Fulton Sheen',
+        nationality: 'American',
+        profession: 'Archbishop',
+      );
+      expect(testVenerableSaint.shortName, 'Fulton Sheen');
+      expect(testVenerableSaint.invocationName, 'Venerable Fulton Sheen');
+
+      const testVenSaint = Saint(
+        id: 'ven-alois',
+        name: 'Ven. Aloysius',
+        nationality: 'Italian',
+        profession: 'Monk',
+      );
+      expect(testVenSaint.shortName, 'Aloysius');
+      expect(testVenSaint.invocationName, 'Ven. Aloysius');
+
+      const testOtSaint = Saint(
+        id: 'moses-the-prophet',
+        name: 'Moses the Prophet',
+        birthDate: 'c. 1527 BC',
+        deathDate: 'c. 1407 BC',
+        nationality: 'Israelite',
+        profession: 'Prophet',
+      );
+      expect(testOtSaint.shortName, 'Moses the Prophet');
+      expect(testOtSaint.invocationName, 'Moses the Prophet');
 
       final serialized = saint.toJson();
       expect(serialized['id'], 'thomas-aquinas');
@@ -2090,6 +2159,72 @@ void main() {
         expect(humanChrono.first.id, 'abel-the-righteous');
         expect(humanChrono.any((s) => s.id == 'abraham-the-patriarch'), isTrue);
         expect(humanChrono.any((s) => s.id == 'job-the-righteous'), isTrue);
+      },
+    );
+
+    test(
+      'SaintEmbedding computes similarity correctly and loads on all bundled saints',
+      () async {
+        final json = {
+          'id': 'test-saint',
+          'name': 'Test Saint',
+          'nationality': 'Roman',
+          'profession': 'Martyr',
+          'categories': ['martyr'],
+          'embedding': {
+            'contemplativeVsActive': -0.5,
+            'intellectualVsDevotional': 0.8,
+            'courageVsMercy': -0.9,
+            'ancientVsModern': -0.8,
+            'simplicityVsLeadership': -0.4,
+            'pioneeringVsPreservation': 0.5,
+          },
+        };
+
+        final saint = Saint.fromJson(json);
+        expect(saint.embedding, isNotNull);
+        expect(saint.embedding!.contemplativeVsActive, -0.5);
+        expect(saint.embedding!.intellectualVsDevotional, 0.8);
+        expect(saint.embedding!.courageVsMercy, -0.9);
+        expect(saint.embedding!.ancientVsModern, -0.8);
+        expect(saint.embedding!.simplicityVsLeadership, -0.4);
+        expect(saint.embedding!.pioneeringVsPreservation, 0.5);
+
+        final vector = saint.embedding!.toVector();
+        expect(vector, [-0.5, 0.8, -0.9, -0.8, -0.4, 0.5]);
+
+        // Cosine similarity with self is 1.0
+        final selfSim = saint.embedding!.similarityWith(vector);
+        expect(selfSim, closeTo(1.0, 0.0001));
+
+        // With noise
+        final jitteredSim = saint.embedding!.similarityWith(
+          vector,
+          noiseMagnitude: 0.1,
+          random: Random(42),
+        );
+        expect(jitteredSim, isNot(1.0));
+        expect(jitteredSim, inInclusiveRange(-1.0, 1.0));
+
+        // Check serialization
+        final serialized = saint.toJson();
+        expect(serialized['embedding'], isNotNull);
+        expect(serialized['embedding']['courageVsMercy'], -0.9);
+
+        // Check that all bundled saints have valid embeddings
+        SaintDatabase.mockSaints = null;
+        final saints = await SaintDatabase.loadSaints();
+        for (final s in saints) {
+          expect(
+            s.embedding,
+            isNotNull,
+            reason: '${s.id} should have embedding',
+          );
+          final v = s.embedding!.toVector();
+          for (final val in v) {
+            expect(val, inInclusiveRange(-1.0, 1.0));
+          }
+        }
       },
     );
   });

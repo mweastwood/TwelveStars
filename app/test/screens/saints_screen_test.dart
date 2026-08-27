@@ -88,6 +88,10 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(find.text('Saint Database'), findsOneWidget);
+        expect(
+          find.byKey(const Key('confirmation_discernment_button')),
+          findsOneWidget,
+        );
         expect(find.byKey(const Key('saints_search_field')), findsOneWidget);
         expect(find.byKey(const Key('doctor_filter_chip')), findsOneWidget);
         expect(find.byKey(const Key('men_filter_chip')), findsOneWidget);
