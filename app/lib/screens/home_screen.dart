@@ -52,8 +52,8 @@ class _HomeScreenState extends State<HomeScreen>
   double _initialScrollOffset = 0.0;
 
   ScrollController? get _activeScrollController {
-    if (_currentTab == 0) return _prayersScrollController;
-    if (_currentTab == 1) return _missalScrollController;
+    if (_currentTab == 0) return _missalScrollController;
+    if (_currentTab == 1) return _prayersScrollController;
     return null;
   }
 
@@ -286,7 +286,7 @@ class _HomeScreenState extends State<HomeScreen>
   void _onTabSelected(int index) {
     setState(() {
       _currentTab = index;
-      if (index != 0 && _isSearching) {
+      if (index != 1 && _isSearching) {
         _closeSearch();
       }
     });
@@ -298,11 +298,6 @@ class _HomeScreenState extends State<HomeScreen>
     final isWide = isWideScreen(context);
 
     final tabs = [
-      _loading
-          ? const Center(child: CircularProgressIndicator())
-          : _error != null
-          ? Center(child: Text('Error loading prayers: $_error'))
-          : _buildPrayersTab(theme, isWide: isWide),
       MissalTab(
         primaryLanguage: _primaryLanguage,
         compareLanguage: _compareLanguage,
@@ -311,6 +306,11 @@ class _HomeScreenState extends State<HomeScreen>
         scrollController: _missalScrollController,
         fontSize: _fontSize,
       ),
+      _loading
+          ? const Center(child: CircularProgressIndicator())
+          : _error != null
+          ? Center(child: Text('Error loading prayers: $_error'))
+          : _buildPrayersTab(theme, isWide: isWide),
       BibleTab(key: _bibleTabKey),
       const LibraryTab(),
     ];
@@ -419,7 +419,7 @@ class _HomeScreenState extends State<HomeScreen>
                 }
               },
             ),
-            if (_currentTab == 0)
+            if (_currentTab == 1)
               IconButton(
                 icon: const Icon(Icons.search),
                 tooltip: 'Search prayers',
@@ -438,14 +438,14 @@ class _HomeScreenState extends State<HomeScreen>
                     labelType: NavigationRailLabelType.all,
                     destinations: const [
                       NavigationRailDestination(
-                        icon: Icon(Icons.menu_book_outlined),
-                        selectedIcon: Icon(Icons.menu_book),
-                        label: Text('Prayers'),
-                      ),
-                      NavigationRailDestination(
                         icon: Icon(Icons.auto_stories_outlined),
                         selectedIcon: Icon(Icons.auto_stories),
                         label: Text('Missal'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.menu_book_outlined),
+                        selectedIcon: Icon(Icons.menu_book),
+                        label: Text('Prayers'),
                       ),
                       NavigationRailDestination(
                         icon: Icon(Icons.book_outlined),
@@ -465,7 +465,7 @@ class _HomeScreenState extends State<HomeScreen>
               )
             : content,
       ),
-      floatingActionButton: _currentTab == 0
+      floatingActionButton: _currentTab == 1
           ? FloatingActionButton.extended(
               onPressed: () {
                 Navigator.push(
@@ -491,14 +491,14 @@ class _HomeScreenState extends State<HomeScreen>
               onDestinationSelected: _onTabSelected,
               destinations: const [
                 NavigationDestination(
-                  icon: Icon(Icons.menu_book_outlined),
-                  selectedIcon: Icon(Icons.menu_book),
-                  label: 'Prayers',
-                ),
-                NavigationDestination(
                   icon: Icon(Icons.auto_stories_outlined),
                   selectedIcon: Icon(Icons.auto_stories),
                   label: 'Missal',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.menu_book_outlined),
+                  selectedIcon: Icon(Icons.menu_book),
+                  label: 'Prayers',
                 ),
                 NavigationDestination(
                   icon: Icon(Icons.book_outlined),
@@ -520,7 +520,7 @@ class _HomeScreenState extends State<HomeScreen>
           final primaryFocus = FocusManager.instance.primaryFocus;
           final isEditableFocused =
               primaryFocus?.context?.widget is EditableText;
-          if (_currentTab == 0 && !_isSearching && !isEditableFocused) {
+          if (_currentTab == 1 && !_isSearching && !isEditableFocused) {
             _openSearch();
           }
         },

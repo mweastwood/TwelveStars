@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
+import 'package:drift/native.dart';
+import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/screens/home_screen.dart';
 import 'package:twelve_stars/screens/saints_screen.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
@@ -11,6 +13,8 @@ import 'package:twelve_stars/logic/prayer_database.dart';
 import '../test_helper.dart';
 
 void main() {
+  late BibleDatabase testDb;
+
   final mockSaintsList = [
     const Saint(
       id: 'thomas-aquinas',
@@ -53,7 +57,10 @@ void main() {
     ),
   ];
 
-  setUp(() {
+  setUp(() async {
+    testDb = BibleDatabase(NativeDatabase.memory());
+    BibleDatabaseHelper.db = testDb;
+    await testDb.ensurePopulated();
     SaintDatabase.mockSaints = mockSaintsList;
     PrayerDatabase.mockPrayers = [
       Prayer.mock(
@@ -73,9 +80,10 @@ void main() {
     ];
   });
 
-  tearDown(() {
+  tearDown(() async {
     SaintDatabase.mockSaints = null;
     PrayerDatabase.mockPrayers = null;
+    await testDb.close();
   });
 
   group('SaintsScreen Widget Tests', () {

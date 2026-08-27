@@ -391,7 +391,7 @@ void main() {
     );
 
     testWidgets(
-      'renders initial tab (Prayers), launches Rosary via FAB, and navigates tabs',
+      'renders initial tab (Missal), launches Rosary via FAB on Prayers tab, and navigates tabs',
       (tester) async {
         await tester.pumpWidget(
           buildTestableWidget(
@@ -403,14 +403,22 @@ void main() {
         // Verify app bar and header are present
         expect(find.text('Twelve Stars'), findsOneWidget);
 
+        // Verify initial tab is Missal
+        expect(find.text('Mass Missal'), findsOneWidget);
+
+        // Verify navigation items
+        expect(find.text('Missal'), findsWidgets);
+        expect(find.text('Prayers'), findsWidgets);
+        expect(find.text('Bible'), findsWidgets);
+        expect(find.text('Library'), findsWidgets);
+
+        // Switch to the Prayers tab
+        await tester.tap(find.text('Prayers').last);
+        await tester.pumpAndSettle();
+
         // Verify default prayers are loaded in English initially
         expect(find.text('Our Father'), findsOneWidget);
         expect(find.text('Hail Mary', skipOffstage: false), findsOneWidget);
-
-        // Verify navigation items
-        expect(find.text('Prayers'), findsWidgets);
-        expect(find.text('Missal'), findsWidgets);
-        expect(find.text('Bible'), findsWidgets);
 
         // Verify FAB to start Rosary is present
         expect(find.text('Start Rosary'), findsOneWidget);
@@ -451,6 +459,10 @@ void main() {
       );
       await tester.pumpAndSettle(); // Let database load
 
+      // Switch to Prayers tab
+      await tester.tap(find.text('Prayers').last);
+      await tester.pumpAndSettle();
+
       // Tap title bar translate button to expand language selector
       await tester.tap(find.byIcon(Icons.translate_outlined));
       await tester.pumpAndSettle();
@@ -479,6 +491,10 @@ void main() {
         ),
       );
       await tester.pumpAndSettle(); // Let database load
+
+      // Switch to Prayers tab
+      await tester.tap(find.text('Prayers').last);
+      await tester.pumpAndSettle();
 
       // Initially all three mock prayers are visible
       expect(find.text('Our Father'), findsOneWidget);
@@ -588,6 +604,10 @@ void main() {
         );
         await tester.pumpAndSettle();
 
+        // Switch to Prayers tab
+        await tester.tap(find.text('Prayers').last);
+        await tester.pumpAndSettle();
+
         final scrollableFinder = find.byType(Scrollable).first;
         final scrollState = tester.state<ScrollableState>(scrollableFinder);
 
@@ -646,6 +666,10 @@ void main() {
       );
       await tester.pumpAndSettle();
 
+      // Switch to Prayers tab
+      await tester.tap(find.text('Prayers').last);
+      await tester.pumpAndSettle();
+
       // Tap title bar translate button to expand language selector
       await tester.tap(find.byIcon(Icons.translate_outlined));
       await tester.pumpAndSettle();
@@ -680,6 +704,10 @@ void main() {
           ),
         ),
       );
+      await tester.pumpAndSettle();
+
+      // Switch to Prayers tab
+      await tester.tap(find.text('Prayers').last);
       await tester.pumpAndSettle();
 
       expect(find.text('Our Father (Modern)'), findsOneWidget);
@@ -820,7 +848,7 @@ void main() {
 
     testGoldens('HomeScreen renders correctly in all tabs', (tester) async {
       TimeHelper.setCustomTime(DateTime(2026, 7, 6));
-      // 1. Initial/Prayers tab golden (with Start Rosary FAB!)
+      // 1. Initial Missal tab golden
       await tester.pumpWidgetBuilder(
         HomeScreen(initialDate: DateTime(2026, 7, 6)),
         wrapper: materialAppWrapper(),
@@ -828,14 +856,9 @@ void main() {
       );
       await tester.pump(); // Start database loading
       await tester.pumpAndSettle(); // Let database load
-      await screenMatchesGolden(tester, 'home_screen_prayers_tab_golden');
-
-      // 2. Missal tab golden
-      await tester.tap(find.text('Missal').last);
-      await tester.pumpAndSettle();
       await screenMatchesGolden(tester, 'home_screen_missal_tab_golden');
 
-      // 3. Missal tab with Language Selector expanded golden
+      // 2. Missal tab with Language Selector expanded golden
       await tester.tap(find.byIcon(Icons.translate_outlined));
       await tester.pumpAndSettle();
       await screenMatchesGolden(
@@ -846,10 +869,12 @@ void main() {
       await tester.tap(find.byIcon(Icons.translate));
       await tester.pumpAndSettle();
 
-      // 4. Search active golden
-      // Switch back to Prayers tab
+      // 3. Prayers tab golden (with Start Rosary FAB!)
       await tester.tap(find.text('Prayers').last);
       await tester.pumpAndSettle();
+      await screenMatchesGolden(tester, 'home_screen_prayers_tab_golden');
+
+      // 4. Search active golden
       // Tap search button to open search
       await tester.tap(find.byIcon(Icons.search));
       await tester.pumpAndSettle();
@@ -940,9 +965,21 @@ void main() {
         // 1. NavigationRail should be present, NavigationBar at bottom should not be present
         expect(find.byType(NavigationRail), findsOneWidget);
         expect(find.byType(NavigationBar), findsNothing);
+
+        // Golden: widescreen Missal tab (default tab) via NavigationRail
+        expect(find.text('Mass Missal'), findsOneWidget);
+        await screenMatchesGolden(
+          tester,
+          'home_screen_widescreen_missal_tab_golden',
+        );
+
+        // 2. Switch to Prayers tab
+        await tester.tap(find.text('Prayers').last);
+        await tester.pumpAndSettle();
+
         expect(find.byType(SliverCrossAxisGroup), findsOneWidget);
 
-        // 2. Double column prayer list should be present with correct column placement
+        // Double column prayer list should be present with correct column placement
         expect(find.text('Sign of the Cross'), findsOneWidget);
         expect(find.text('Our Father'), findsOneWidget);
         expect(find.text('Hail Mary', skipOffstage: false), findsOneWidget);
@@ -959,21 +996,6 @@ void main() {
           tester,
           'home_screen_widescreen_prayers_tab_golden',
         );
-
-        // 3. NavigationRail navigation works
-        await tester.tap(find.text('Missal').last);
-        await tester.pumpAndSettle();
-        expect(find.text('Mass Missal'), findsOneWidget);
-
-        // Golden: widescreen Missal tab via NavigationRail
-        await screenMatchesGolden(
-          tester,
-          'home_screen_widescreen_missal_tab_golden',
-        );
-
-        await tester.tap(find.text('Prayers').last);
-        await tester.pumpAndSettle();
-        expect(find.text('Our Father'), findsOneWidget);
       },
     );
 
@@ -995,6 +1017,10 @@ void main() {
             child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
           ),
         );
+        await tester.pumpAndSettle();
+
+        // Switch to Prayers tab to verify prayer masonry grid dynamic adaptation
+        await tester.tap(find.text('Prayers').last);
         await tester.pumpAndSettle();
 
         expect(find.byType(NavigationRail), findsOneWidget);

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
+import 'package:drift/native.dart';
+import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
@@ -12,6 +14,8 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('Prayers Screen Theme Golden Tests', () {
+    late BibleDatabase testDb;
+
     final mockPrayers = [
       Prayer.mock(
         id: 'our_father',
@@ -45,14 +49,18 @@ void main() {
       ),
     ];
 
-    setUp(() {
+    setUp(() async {
+      testDb = BibleDatabase(NativeDatabase.memory());
+      BibleDatabaseHelper.db = testDb;
+      await testDb.ensurePopulated();
       PrayerDatabase.mockPrayers = mockPrayers;
     });
 
-    tearDown(() {
+    tearDown(() async {
       TimeHelper.setCustomTime(null);
       PrayerDatabase.mockPrayers = null;
       PrayerDatabase.mockSettings = null;
+      await testDb.close();
     });
 
     testGoldens('renders Prayers Screen under Marian Blue theme', (
@@ -77,6 +85,9 @@ void main() {
         surfaceSize: const Size(400, 800),
       );
       await tester.pump();
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Prayers').last);
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(
@@ -113,6 +124,9 @@ void main() {
       await tester.pump();
       await tester.pumpAndSettle();
 
+      await tester.tap(find.text('Prayers').last);
+      await tester.pumpAndSettle();
+
       await screenMatchesGolden(
         tester,
         'prayers_screen_theme_liturgical_ordinary_time_green_golden',
@@ -145,6 +159,9 @@ void main() {
         surfaceSize: const Size(400, 800),
       );
       await tester.pump();
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Prayers').last);
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(
@@ -181,6 +198,9 @@ void main() {
         await tester.pump();
         await tester.pumpAndSettle();
 
+        await tester.tap(find.text('Prayers').last);
+        await tester.pumpAndSettle();
+
         await screenMatchesGolden(
           tester,
           'prayers_screen_theme_liturgical_easter_gold_golden',
@@ -214,6 +234,9 @@ void main() {
         surfaceSize: const Size(400, 800),
       );
       await tester.pump();
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Prayers').last);
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(
@@ -252,6 +275,9 @@ void main() {
         surfaceSize: const Size(400, 800),
       );
       await tester.pump();
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Prayers').last);
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(
