@@ -885,7 +885,7 @@ class ConfirmationDiscernmentEngine {
 
   /// Down-selects a stratified set of questions from the bank (guaranteeing coverage across all 6 axes).
   static List<DiscernmentQuestion> selectQuestions({
-    int count = 7,
+    int count = 14,
     Random? random,
   }) {
     if (mockQuestions != null) {
@@ -907,13 +907,22 @@ class ConfirmationDiscernmentEngine {
 
     final List<DiscernmentQuestion> selected = [];
 
-    // 2. Pick 1 question from each of the 6 primary axes
+    // 2. Determine questions per axis (e.g. 2 per axis when count >= 12)
+    final int perAxis = (count >= 12) ? (count ~/ 6).clamp(1, 5) : 1;
+
     for (final axis in DiscernmentAxis.values) {
       if (selected.length >= count) break;
       final list = axisGroups[axis];
       if (list != null && list.isNotEmpty) {
-        final chosen = list[rng.nextInt(list.length)];
-        selected.add(chosen);
+        final shuffledAxis = List<DiscernmentQuestion>.from(list)..shuffle(rng);
+        for (final q in shuffledAxis) {
+          if (selected.where((item) => item.primaryAxis == axis).length >=
+              perAxis) {
+            break;
+          }
+          if (selected.length >= count) break;
+          selected.add(q);
+        }
       }
     }
 
