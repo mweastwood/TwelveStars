@@ -1641,5 +1641,113 @@ void main() {
       expect(updatedSettings?.lastBibleBookNumber, equals(2));
       expect(updatedSettings?.lastBibleChapter, equals(1));
     });
+
+    testWidgets(
+      'long-pressing a ribbon immediately renders vertical page ribbon on current chapter',
+      (WidgetTester tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'Genesis 1 Verse 1',
+                translationCode: 'CPDV',
+              ),
+            );
+        PrayerDatabase.mockPrayers = null;
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        // Initially no page ribbon
+        expect(find.byKey(const Key('bible_page_ribbon_2')), findsNothing);
+
+        // Long press green ribbon (ribbon 2)
+        await tester.longPress(find.byKey(const Key('bible_ribbon_2')));
+        await tester.pumpAndSettle();
+
+        // Page ribbon should now appear
+        expect(find.byKey(const Key('bible_page_ribbon_2')), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'swiping between bookmarked and unbookmarked chapters updates page ribbon visibility',
+      (WidgetTester tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'Genesis 1 Verse 1',
+                translationCode: 'CPDV',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 2,
+                verseNumber: 1,
+                verseText: 'Genesis 2 Verse 1',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        final settings = UserSettings(
+          lastBibleBookNumber: 1,
+          lastBibleChapter: 1,
+          bibleRibbons: [
+            const BibleRibbonBookmark(
+              ribbonIndex: 0,
+              bookNumber: 1,
+              chapter: 1,
+            ),
+          ],
+        );
+        await testDb.saveUserSettings(settings);
+        PrayerDatabase.mockPrayers = null;
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        // On Genesis 1, red page ribbon (index 0) is visible
+        expect(find.byKey(const Key('bible_page_ribbon_0')), findsOneWidget);
+
+        // Swipe to Genesis 2
+        await tester.drag(
+          find.text('Genesis 1 Verse 1'),
+          const Offset(-400.0, 0.0),
+        );
+        await tester.pumpAndSettle();
+
+        // On Genesis 2, no page ribbon
+        expect(find.text('Genesis 2 Verse 1'), findsOneWidget);
+        expect(find.byKey(const Key('bible_page_ribbon_0')), findsNothing);
+
+        // Swipe back to Genesis 1
+        await tester.drag(
+          find.text('Genesis 2 Verse 1'),
+          const Offset(400.0, 0.0),
+        );
+        await tester.pumpAndSettle();
+
+        // On Genesis 1 again, page ribbon is visible
+        expect(find.text('Genesis 1 Verse 1'), findsOneWidget);
+        expect(find.byKey(const Key('bible_page_ribbon_0')), findsOneWidget);
+      },
+    );
   });
 }

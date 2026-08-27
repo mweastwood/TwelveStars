@@ -658,6 +658,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                 highlightEndVerse: isTarget ? _highlightEndVerse : null,
                 navigationSessionId: isTarget ? _navigationSessionId : null,
                 onFavoriteSaved: _loadFavorites,
+                bookmarks: _settings?.bibleRibbons,
               );
             },
           ),

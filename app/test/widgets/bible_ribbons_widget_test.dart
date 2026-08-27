@@ -161,5 +161,146 @@ void main() {
         expect(clipper.shouldReclip(const RibbonClipper()), isFalse);
       },
     );
+
+    test(
+      'PageRibbonClipper produces expected full-length vertical path with bottom notch and does not reclip',
+      () {
+        const clipper = PageRibbonClipper();
+        const size = Size(8.0, 600.0);
+        final path = clipper.getClip(size);
+
+        expect(path, isNotNull);
+        expect(path.contains(const Offset(4.0, 10.0)), isTrue);
+        expect(path.contains(const Offset(4.0, 300.0)), isTrue);
+        // The notch cuts out bottom center (4.0, 598.0)
+        expect(path.contains(const Offset(4.0, 598.0)), isFalse);
+
+        expect(clipper.shouldReclip(const PageRibbonClipper()), isFalse);
+      },
+    );
+
+    testWidgets(
+      'BiblePageRibbonsWidget renders nothing for null or unbookmarked chapters',
+      (WidgetTester tester) async {
+        // 1. Null bookmarks
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(
+              body: Stack(
+                children: [
+                  BiblePageRibbonsWidget(
+                    bookmarks: null,
+                    bookNumber: 1,
+                    chapter: 1,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+        expect(find.byType(BiblePageRibbon), findsNothing);
+
+        // 2. Bookmarks for a different chapter
+        const bookmarks = [
+          BibleRibbonBookmark(ribbonIndex: 0, bookNumber: 1, chapter: 2),
+          BibleRibbonBookmark(ribbonIndex: 1, bookNumber: 2, chapter: 1),
+        ];
+
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(
+              body: Stack(
+                children: [
+                  BiblePageRibbonsWidget(
+                    bookmarks: bookmarks,
+                    bookNumber: 1,
+                    chapter: 1,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+        expect(find.byType(BiblePageRibbon), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'BiblePageRibbonsWidget renders ribbon with matching color and key for bookmarked chapter',
+      (WidgetTester tester) async {
+        const bookmarks = [
+          BibleRibbonBookmark(ribbonIndex: 0, bookNumber: 1, chapter: 1),
+        ];
+
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(
+              body: Stack(
+                children: [
+                  BiblePageRibbonsWidget(
+                    bookmarks: bookmarks,
+                    bookNumber: 1,
+                    chapter: 1,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+
+        expect(find.byKey(const Key('bible_page_ribbon_0')), findsOneWidget);
+        final physicalShape = tester.widget<PhysicalShape>(
+          find.byKey(const Key('bible_page_ribbon_0')),
+        );
+        expect(physicalShape.color, equals(AppThemeTokens.liturgicalRed));
+        expect(physicalShape.elevation, equals(2.0));
+      },
+    );
+
+    testWidgets(
+      'BiblePageRibbonsWidget renders multiple ribbons side-by-side when multiple bookmarks match the same chapter',
+      (WidgetTester tester) async {
+        const bookmarks = [
+          BibleRibbonBookmark(ribbonIndex: 3, bookNumber: 19, chapter: 23),
+          BibleRibbonBookmark(ribbonIndex: 1, bookNumber: 19, chapter: 23),
+        ];
+
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(
+              body: Stack(
+                children: [
+                  BiblePageRibbonsWidget(
+                    bookmarks: bookmarks,
+                    bookNumber: 19,
+                    chapter: 23,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+
+        expect(find.byKey(const Key('bible_page_ribbon_1')), findsOneWidget);
+        expect(find.byKey(const Key('bible_page_ribbon_3')), findsOneWidget);
+
+        final ribbons = tester
+            .widgetList<BiblePageRibbon>(find.byType(BiblePageRibbon))
+            .toList();
+        expect(ribbons.length, equals(2));
+        // Bookmarks should be sorted by ribbonIndex
+        expect(ribbons[0].ribbonIndex, equals(1));
+        expect(ribbons[1].ribbonIndex, equals(3));
+
+        final physicalShapes = tester
+            .widgetList<PhysicalShape>(find.byType(PhysicalShape))
+            .toList();
+        expect(physicalShapes[0].color, equals(AppThemeTokens.liturgicalGold));
+        expect(
+          physicalShapes[1].color,
+          equals(AppThemeTokens.liturgicalPurple),
+        );
+      },
+    );
   });
 }

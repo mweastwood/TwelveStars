@@ -9,6 +9,7 @@ import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
 import 'package:twelve_stars/widgets/bible_verse_modals.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
+import 'package:twelve_stars/widgets/reader/bible_ribbons_widget.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 
 class BibleChapterView extends StatefulWidget {
@@ -24,6 +25,7 @@ class BibleChapterView extends StatefulWidget {
   final int? highlightEndVerse;
   final String? navigationSessionId;
   final VoidCallback? onFavoriteSaved;
+  final List<BibleRibbonBookmark>? bookmarks;
 
   const BibleChapterView({
     super.key,
@@ -39,6 +41,7 @@ class BibleChapterView extends StatefulWidget {
     this.highlightEndVerse,
     this.navigationSessionId,
     this.onFavoriteSaved,
+    this.bookmarks,
   });
 
   @override
@@ -533,6 +536,11 @@ class _BibleChapterViewState extends State<BibleChapterView>
               }),
             ],
           ),
+        ),
+        BiblePageRibbonsWidget(
+          bookmarks: widget.bookmarks,
+          bookNumber: widget.book.bookNumber,
+          chapter: widget.chapter,
         ),
         if (_firstSelectedVerseNumber != null)
           Positioned(

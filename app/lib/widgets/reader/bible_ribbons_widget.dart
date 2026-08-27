@@ -110,3 +110,98 @@ class BibleRibbonsWidget extends StatelessWidget {
     );
   }
 }
+
+class PageRibbonClipper extends CustomClipper<Path> {
+  const PageRibbonClipper();
+
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+    const double notchHeight = 8.0;
+
+    path.moveTo(0, 0);
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width, size.height);
+    path.lineTo(size.width / 2, size.height - notchHeight);
+    path.lineTo(0, size.height);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+class BiblePageRibbon extends StatelessWidget {
+  final int ribbonIndex;
+
+  const BiblePageRibbon({super.key, required this.ribbonIndex});
+
+  @override
+  Widget build(BuildContext context) {
+    final color =
+        (ribbonIndex >= 0 &&
+            ribbonIndex < BibleRibbonsWidget.ribbonColors.length)
+        ? BibleRibbonsWidget.ribbonColors[ribbonIndex]
+        : BibleRibbonsWidget.ribbonColors[0];
+
+    return PhysicalShape(
+      key: Key('bible_page_ribbon_$ribbonIndex'),
+      clipper: const PageRibbonClipper(),
+      elevation: 2.0,
+      shadowColor: Colors.black38,
+      color: color,
+      child: const SizedBox(width: 8.0),
+    );
+  }
+}
+
+class BiblePageRibbonsWidget extends StatelessWidget {
+  final List<BibleRibbonBookmark>? bookmarks;
+  final int bookNumber;
+  final int chapter;
+
+  static const List<Color> ribbonColors = BibleRibbonsWidget.ribbonColors;
+
+  const BiblePageRibbonsWidget({
+    super.key,
+    this.bookmarks,
+    required this.bookNumber,
+    required this.chapter,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    if (bookmarks == null || bookmarks!.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
+    final matchingBookmarks =
+        bookmarks!
+            .where((b) => b.bookNumber == bookNumber && b.chapter == chapter)
+            .toList()
+          ..sort((a, b) => a.ribbonIndex.compareTo(b.ribbonIndex));
+
+    if (matchingBookmarks.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
+    return Positioned(
+      top: 0,
+      bottom: 0,
+      left: 4.0,
+      child: IgnorePointer(
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: matchingBookmarks.map((b) {
+            return Padding(
+              padding: const EdgeInsets.only(right: 2.0),
+              child: BiblePageRibbon(ribbonIndex: b.ribbonIndex),
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
+}
