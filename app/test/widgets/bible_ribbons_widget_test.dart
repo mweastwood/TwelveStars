@@ -260,7 +260,7 @@ void main() {
     );
 
     testWidgets(
-      'BiblePageRibbonsWidget renders multiple ribbons side-by-side when multiple bookmarks match the same chapter',
+      'BiblePageRibbonsWidget renders at most one ribbon when matching bookmarks are provided',
       (WidgetTester tester) async {
         const bookmarks = [
           BibleRibbonBookmark(ribbonIndex: 3, bookNumber: 19, chapter: 23),
@@ -283,25 +283,19 @@ void main() {
           ),
         );
 
-        expect(find.byKey(const Key('bible_page_ribbon_1')), findsOneWidget);
         expect(find.byKey(const Key('bible_page_ribbon_3')), findsOneWidget);
+        expect(find.byKey(const Key('bible_page_ribbon_1')), findsNothing);
 
         final ribbons = tester
             .widgetList<BiblePageRibbon>(find.byType(BiblePageRibbon))
             .toList();
-        expect(ribbons.length, equals(2));
-        // Bookmarks should be sorted by ribbonIndex
-        expect(ribbons[0].ribbonIndex, equals(1));
-        expect(ribbons[1].ribbonIndex, equals(3));
+        expect(ribbons.length, equals(1));
+        expect(ribbons[0].ribbonIndex, equals(3));
 
-        final physicalShapes = tester
-            .widgetList<PhysicalShape>(find.byType(PhysicalShape))
-            .toList();
-        expect(physicalShapes[0].color, equals(AppThemeTokens.liturgicalGold));
-        expect(
-          physicalShapes[1].color,
-          equals(AppThemeTokens.liturgicalPurple),
+        final physicalShape = tester.widget<PhysicalShape>(
+          find.byType(PhysicalShape),
         );
+        expect(physicalShape.color, equals(AppThemeTokens.liturgicalPurple));
       },
     );
 
@@ -355,7 +349,7 @@ void main() {
             ),
           )
           ..addScenario(
-            'BiblePageRibbonsWidget Multiple Ribbons (Red, Gold, Green, Purple)',
+            'BiblePageRibbonsWidget Single Ribbon (Liturgical Green)',
             SizedBox(
               height: 120,
               width: 200,
@@ -364,28 +358,13 @@ void main() {
                   BiblePageRibbonsWidget(
                     bookmarks: [
                       BibleRibbonBookmark(
-                        ribbonIndex: 0,
-                        bookNumber: 1,
-                        chapter: 1,
-                      ),
-                      BibleRibbonBookmark(
-                        ribbonIndex: 1,
-                        bookNumber: 1,
-                        chapter: 1,
-                      ),
-                      BibleRibbonBookmark(
                         ribbonIndex: 2,
-                        bookNumber: 1,
-                        chapter: 1,
-                      ),
-                      BibleRibbonBookmark(
-                        ribbonIndex: 3,
-                        bookNumber: 1,
-                        chapter: 1,
+                        bookNumber: 19,
+                        chapter: 23,
                       ),
                     ],
-                    bookNumber: 1,
-                    chapter: 1,
+                    bookNumber: 19,
+                    chapter: 23,
                   ),
                 ],
               ),

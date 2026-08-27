@@ -176,13 +176,15 @@ class BiblePageRibbonsWidget extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    final matchingBookmarks =
-        bookmarks!
-            .where((b) => b.bookNumber == bookNumber && b.chapter == chapter)
-            .toList()
-          ..sort((a, b) => a.ribbonIndex.compareTo(b.ribbonIndex));
+    BibleRibbonBookmark? matchingBookmark;
+    for (final b in bookmarks!) {
+      if (b.bookNumber == bookNumber && b.chapter == chapter) {
+        matchingBookmark = b;
+        break;
+      }
+    }
 
-    if (matchingBookmarks.isEmpty) {
+    if (matchingBookmark == null) {
       return const SizedBox.shrink();
     }
 
@@ -191,16 +193,7 @@ class BiblePageRibbonsWidget extends StatelessWidget {
       bottom: 0,
       left: 4.0,
       child: IgnorePointer(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: matchingBookmarks.map((b) {
-            return Padding(
-              padding: const EdgeInsets.only(right: 2.0),
-              child: BiblePageRibbon(ribbonIndex: b.ribbonIndex),
-            );
-          }).toList(),
-        ),
+        child: BiblePageRibbon(ribbonIndex: matchingBookmark.ribbonIndex),
       ),
     );
   }

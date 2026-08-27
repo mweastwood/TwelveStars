@@ -536,6 +536,11 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       settings.bibleRibbons ?? [],
     );
     updatedRibbons.removeWhere((b) => b.ribbonIndex == index);
+    updatedRibbons.removeWhere(
+      (b) =>
+          b.bookNumber == currentRef.book.bookNumber &&
+          b.chapter == currentRef.chapter,
+    );
     updatedRibbons.add(newBookmark);
     updatedRibbons.sort((a, b) => a.ribbonIndex.compareTo(b.ribbonIndex));
     settings.bibleRibbons = updatedRibbons;

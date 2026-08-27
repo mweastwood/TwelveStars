@@ -1750,6 +1750,60 @@ void main() {
       },
     );
 
+    testWidgets(
+      'long pressing a ribbon replaces any existing ribbon on the current chapter (one ribbon per page)',
+      (WidgetTester tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'Genesis 1 Verse 1',
+                translationCode: 'CPDV',
+              ),
+            );
+        final initialSettings = UserSettings(
+          lastBibleBookNumber: 1,
+          lastBibleChapter: 1,
+          bibleRibbons: [
+            const BibleRibbonBookmark(
+              ribbonIndex: 0,
+              bookNumber: 1,
+              chapter: 1,
+            ),
+          ],
+        );
+        await testDb.saveUserSettings(initialSettings);
+        PrayerDatabase.mockPrayers = null;
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        // Ribbon 0 is initially present
+        expect(find.byKey(const Key('bible_page_ribbon_0')), findsOneWidget);
+
+        // Long press green ribbon (ribbon 2) on Genesis 1
+        await tester.longPress(find.byKey(const Key('bible_ribbon_2')));
+        await tester.pumpAndSettle();
+
+        // Ribbon 0 should be replaced by ribbon 2 on the page
+        expect(find.byKey(const Key('bible_page_ribbon_0')), findsNothing);
+        expect(find.byKey(const Key('bible_page_ribbon_2')), findsOneWidget);
+
+        final updatedSettings = await testDb.getUserSettings();
+        expect(updatedSettings?.bibleRibbons, isNotNull);
+        expect(updatedSettings!.bibleRibbons!.length, equals(1));
+        expect(updatedSettings.bibleRibbons!.first.ribbonIndex, equals(2));
+        expect(updatedSettings.bibleRibbons!.first.bookNumber, equals(1));
+        expect(updatedSettings.bibleRibbons!.first.chapter, equals(1));
+      },
+    );
+
     testGoldens('renders vertical page ribbons on bookmarked Bible chapter', (
       tester,
     ) async {
@@ -1797,7 +1851,11 @@ void main() {
         lastBibleChapter: 1,
         bibleRibbons: [
           const BibleRibbonBookmark(ribbonIndex: 0, bookNumber: 1, chapter: 1),
-          const BibleRibbonBookmark(ribbonIndex: 2, bookNumber: 1, chapter: 1),
+          const BibleRibbonBookmark(
+            ribbonIndex: 2,
+            bookNumber: 19,
+            chapter: 23,
+          ),
         ],
       );
       await testDb.saveUserSettings(settings);
