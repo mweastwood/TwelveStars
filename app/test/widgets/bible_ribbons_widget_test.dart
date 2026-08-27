@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/theme/app_theme_tokens.dart';
 import 'package:twelve_stars/widgets/reader/bible_ribbons_widget.dart';
+import '../test_helper.dart';
 
 void main() {
   group('BibleRibbonsWidget Tests', () {
@@ -299,6 +301,105 @@ void main() {
         expect(
           physicalShapes[1].color,
           equals(AppThemeTokens.liturgicalPurple),
+        );
+      },
+    );
+
+    testGoldens(
+      'renders BiblePageRibbonsWidget and BibleRibbonsWidget scenarios',
+      (tester) async {
+        final builder = GoldenBuilder.column()
+          ..addScenario(
+            'BibleRibbonsWidget Header (Unassigned)',
+            BibleRibbonsWidget(
+              bookmarks: null,
+              onRibbonTap: (index, bookmark) {},
+              onRibbonLongPress: (_) {},
+            ),
+          )
+          ..addScenario(
+            'BibleRibbonsWidget Header (Red and Green Assigned)',
+            BibleRibbonsWidget(
+              bookmarks: const [
+                BibleRibbonBookmark(ribbonIndex: 0, bookNumber: 1, chapter: 1),
+                BibleRibbonBookmark(
+                  ribbonIndex: 2,
+                  bookNumber: 19,
+                  chapter: 23,
+                ),
+              ],
+              onRibbonTap: (index, bookmark) {},
+              onRibbonLongPress: (_) {},
+            ),
+          )
+          ..addScenario(
+            'BiblePageRibbonsWidget Single Ribbon (Liturgical Red)',
+            SizedBox(
+              height: 120,
+              width: 200,
+              child: Stack(
+                children: const [
+                  BiblePageRibbonsWidget(
+                    bookmarks: [
+                      BibleRibbonBookmark(
+                        ribbonIndex: 0,
+                        bookNumber: 1,
+                        chapter: 1,
+                      ),
+                    ],
+                    bookNumber: 1,
+                    chapter: 1,
+                  ),
+                ],
+              ),
+            ),
+          )
+          ..addScenario(
+            'BiblePageRibbonsWidget Multiple Ribbons (Red, Gold, Green, Purple)',
+            SizedBox(
+              height: 120,
+              width: 200,
+              child: Stack(
+                children: const [
+                  BiblePageRibbonsWidget(
+                    bookmarks: [
+                      BibleRibbonBookmark(
+                        ribbonIndex: 0,
+                        bookNumber: 1,
+                        chapter: 1,
+                      ),
+                      BibleRibbonBookmark(
+                        ribbonIndex: 1,
+                        bookNumber: 1,
+                        chapter: 1,
+                      ),
+                      BibleRibbonBookmark(
+                        ribbonIndex: 2,
+                        bookNumber: 1,
+                        chapter: 1,
+                      ),
+                      BibleRibbonBookmark(
+                        ribbonIndex: 3,
+                        bookNumber: 1,
+                        chapter: 1,
+                      ),
+                    ],
+                    bookNumber: 1,
+                    chapter: 1,
+                  ),
+                ],
+              ),
+            ),
+          );
+
+        await tester.pumpWidgetBuilder(
+          builder.build(),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(400, 600),
+        );
+        await screenMatchesGolden(
+          tester,
+          'bible_ribbons_widget_scenarios_golden',
         );
       },
     );
