@@ -286,7 +286,7 @@ class LiturgicalCalendar {
       activeYear = year - 1;
     }
     // Year 2020 was cycle A (starts Dec 2019)
-    final remainder = (activeYear - 2019) % 3;
+    final remainder = ((activeYear - 2019) % 3 + 3) % 3;
     switch (remainder) {
       case 0:
         return 'A';
@@ -310,7 +310,7 @@ class LiturgicalCalendar {
       activeYear = year - 1;
     }
     final liturgicalYear = activeYear + 1;
-    return liturgicalYear % 2 == 1 ? 'I' : 'II';
+    return liturgicalYear.isOdd ? 'I' : 'II';
   }
 
   static LiturgicalDay computeDay(DateTime date) {
