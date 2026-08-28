@@ -15,19 +15,38 @@ class LocalAgentHelper {
 
 class CachingAiService implements AiService {
   final AiService delegate;
-  Future<AiCoreStatus>? _statusFuture;
+  AiCoreStatus? _cachedStatus;
+  Future<AiCoreStatus>? _inFlightStatus;
 
   CachingAiService(this.delegate);
 
   @override
-  Future<AiCoreStatus> checkStatus() {
-    _statusFuture ??= delegate.checkStatus();
-    return _statusFuture!;
+  Future<AiCoreStatus> checkStatus() async {
+    if (_cachedStatus == AiCoreStatus.available) {
+      return _cachedStatus!;
+    }
+    if (_inFlightStatus != null) {
+      return _inFlightStatus!;
+    }
+
+    final future = delegate.checkStatus();
+    _inFlightStatus = future;
+
+    try {
+      final status = await future;
+      if (status == AiCoreStatus.available) {
+        _cachedStatus = status;
+      }
+      return status;
+    } finally {
+      _inFlightStatus = null;
+    }
   }
 
   @override
   Future<void> triggerDownload() {
-    _statusFuture = null;
+    _cachedStatus = null;
+    _inFlightStatus = null;
     return delegate.triggerDownload();
   }
 
