@@ -352,6 +352,19 @@ class SaintEmbedding {
 /// while beatified figures not yet canonized use "Blessed" and are flagged with [isBlessed] = true.
 /// Recognized Doctors of the Church are flagged with [isDoctor] = true.
 class Saint {
+  static final RegExp _prefixRegex = RegExp(
+    r'^(Sts\.|St\.|Blessed|Bl\.|Venerable|Ven\.|The)\s+',
+  );
+  static final RegExp _angelRegex = RegExp(r'\barchangels?\b|\bangels?\b');
+  static final RegExp _millenniumRegex = RegExp(
+    r'(\d+)(?:st|nd|rd|th)?\s+millennium',
+  );
+  static final RegExp _centuryRegex = RegExp(
+    r'(\d+)(?:st|nd|rd|th)?\s+(?:c\.|cent\.|century\b|c\b|cent\b)',
+  );
+  static final RegExp _yearNumberRegex = RegExp(r'(\d{1,4})');
+  static final RegExp _feastDayRegex = RegExp(r'([A-Za-z]+)\s+(\d+)');
+
   final String id;
   final String name;
   final String? birthDate; // e.g. "1225", "c. 280"
@@ -401,10 +414,7 @@ class Saint {
 
   /// Returns a clean short name by stripping honorific prefixes ("St.", "Sts.", "Blessed", "Bl.", "The", "Venerable", "Ven.").
   String get shortName {
-    return name.replaceFirst(
-      RegExp(r'^(Sts\.|St\.|Blessed|Bl\.|Venerable|Ven\.|The)\s+'),
-      '',
-    );
+    return name.replaceFirst(_prefixRegex, '');
   }
 
   /// Returns the invocation name suitable for intercessory prayers and dossiers.
@@ -480,8 +490,8 @@ class Saint {
     if (natLower.contains('angelic') ||
         profLower.contains('archangel') ||
         nameLower.contains('archangel') ||
-        RegExp(r'\barchangels?\b|\bangels?\b').hasMatch(profLower) ||
-        RegExp(r'\barchangels?\b|\bangels?\b').hasMatch(nameLower)) {
+        _angelRegex.hasMatch(profLower) ||
+        _angelRegex.hasMatch(nameLower)) {
       list.add(SaintCategory.angel);
     }
 
@@ -1108,25 +1118,21 @@ class Saint {
     final lower = dateStr.toLowerCase();
     final isBc = lower.contains('bc') || lower.contains('b.c.');
 
-    final millenniumMatch = RegExp(
-      r'(\d+)(?:st|nd|rd|th)?\s+millennium',
-    ).firstMatch(lower);
+    final millenniumMatch = _millenniumRegex.firstMatch(lower);
     if (millenniumMatch != null) {
       final m = int.parse(millenniumMatch.group(1)!);
       final year = m * 1000 - 500;
       return isBc ? -year : year;
     }
 
-    final centuryMatch = RegExp(
-      r'(\d+)(?:st|nd|rd|th)?\s+(?:c\.|cent\.|century\b|c\b|cent\b)',
-    ).firstMatch(lower);
+    final centuryMatch = _centuryRegex.firstMatch(lower);
     if (centuryMatch != null) {
       final c = int.parse(centuryMatch.group(1)!);
       final year = c * 100 - 50;
       return isBc ? -year : year;
     }
 
-    final match = RegExp(r'(\d{1,4})').firstMatch(dateStr);
+    final match = _yearNumberRegex.firstMatch(dateStr);
     if (match != null) {
       var year = int.tryParse(match.group(1)!);
       if (year != null) {
@@ -1169,7 +1175,7 @@ class Saint {
   /// Month number (1-12) of feast day, if specified.
   int? get feastMonth {
     if (feastDay == null || feastDay!.isEmpty) return null;
-    final match = RegExp(r'([A-Za-z]+)\s+(\d+)').firstMatch(feastDay!);
+    final match = _feastDayRegex.firstMatch(feastDay!);
     if (match != null) {
       final mStr = match.group(1)?.toLowerCase();
       if (mStr != null && _monthMap.containsKey(mStr)) {
@@ -1182,7 +1188,7 @@ class Saint {
   /// Day of month (1-31) of feast day, if specified.
   int? get feastDayOfMonth {
     if (feastDay == null || feastDay!.isEmpty) return null;
-    final match = RegExp(r'([A-Za-z]+)\s+(\d+)').firstMatch(feastDay!);
+    final match = _feastDayRegex.firstMatch(feastDay!);
     if (match != null) {
       return int.tryParse(match.group(2)!);
     }

@@ -180,6 +180,120 @@ void main() {
       );
       expect(s4.dateRange, '');
     });
+
+    test(
+      'approximateYear correctly parses various date formats using precompiled regexes',
+      () {
+        const millenniumBc = Saint(
+          id: 'm-bc',
+          name: 'Millennium BC Saint',
+          birthDate: '2nd millennium BC',
+          nationality: 'Ancient',
+          profession: 'Patriarch',
+        );
+        expect(millenniumBc.approximateYear, -1500);
+
+        const millenniumAd = Saint(
+          id: 'm-ad',
+          name: 'Millennium AD Saint',
+          birthDate: '1st millennium',
+          nationality: 'Ancient',
+          profession: 'Patriarch',
+        );
+        expect(millenniumAd.approximateYear, 500);
+
+        const centuryBc = Saint(
+          id: 'c-bc',
+          name: 'Century BC Saint',
+          birthDate: '5th century BC',
+          nationality: 'Ancient',
+          profession: 'Prophet',
+        );
+        expect(centuryBc.approximateYear, -450);
+
+        const centuryAd = Saint(
+          id: 'c-ad',
+          name: 'Century AD Saint',
+          birthDate: '4th c.',
+          nationality: 'Roman',
+          profession: 'Bishop',
+        );
+        expect(centuryAd.approximateYear, 350);
+
+        const yearNumeric = Saint(
+          id: 'y-num',
+          name: 'Numeric Year Saint',
+          deathDate: '1274',
+          nationality: 'Italian',
+          profession: 'Doctor',
+        );
+        expect(yearNumeric.approximateYear, 1274);
+
+        const yearBcNumeric = Saint(
+          id: 'y-bc-num',
+          name: 'Numeric Year BC Saint',
+          deathDate: 'c. 1407 BC',
+          nationality: 'Israelite',
+          profession: 'Prophet',
+        );
+        expect(yearBcNumeric.approximateYear, -1407);
+
+        const angelicSaint = Saint(
+          id: 'angelic',
+          name: 'Angel Saint',
+          nationality: 'Angelic / Heavenly',
+          profession: 'Archangel',
+        );
+        expect(angelicSaint.approximateYear, -9999);
+      },
+    );
+
+    test(
+      'feastMonth and feastDayOfMonth parse feast days using precompiled regex',
+      () {
+        const saintWithFeast = Saint(
+          id: 'feast-test',
+          name: 'Feast Saint',
+          feastDay: 'October 12',
+          nationality: 'Italian',
+          profession: 'Programmer',
+        );
+        expect(saintWithFeast.feastMonth, 10);
+        expect(saintWithFeast.feastDayOfMonth, 12);
+
+        const saintWithoutFeast = Saint(
+          id: 'no-feast',
+          name: 'No Feast Saint',
+          nationality: 'Unknown',
+          profession: 'Unknown',
+        );
+        expect(saintWithoutFeast.feastMonth, isNull);
+        expect(saintWithoutFeast.feastDayOfMonth, isNull);
+
+        const invalidFeast = Saint(
+          id: 'inv-feast',
+          name: 'Invalid Feast',
+          feastDay: 'NotADate',
+          nationality: 'Unknown',
+          profession: 'Unknown',
+        );
+        expect(invalidFeast.feastMonth, isNull);
+        expect(invalidFeast.feastDayOfMonth, isNull);
+      },
+    );
+
+    test(
+      'computeCategories detects angel category using precompiled angel regex',
+      () {
+        final categories = Saint.computeCategories(
+          id: 'custom-angel',
+          name: 'Holy Angel of Peace',
+          nationality: 'Heavenly',
+          profession: 'Archangel messenger',
+        );
+        expect(categories, contains(SaintCategory.angel));
+      },
+    );
   });
 
   group('SaintDatabase Unit Tests', () {
