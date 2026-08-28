@@ -8,6 +8,9 @@ class SaintDatabase {
   static List<Saint>? mockSaints;
   static List<Saint>? _cachedSaints;
 
+  static final RegExp _whitespaceSplitRegex = RegExp(r'\s+');
+  static final RegExp _feastDaySplitRegex = RegExp(r'[/,;&]');
+
   @visibleForTesting
   static void resetCache() {
     _cachedSaints = null;
@@ -82,7 +85,7 @@ class SaintDatabase {
   }) {
     final trimmed = query.trim().toLowerCase();
     final words = trimmed
-        .split(RegExp(r'\s+'))
+        .split(_whitespaceSplitRegex)
         .where((w) => w.isNotEmpty)
         .toList();
 
@@ -218,7 +221,7 @@ class SaintDatabase {
     final Map<String, List<Saint>> map = {};
     for (final saint in saints) {
       if (saint.feastDay == null || saint.feastDay!.isEmpty) continue;
-      final parts = saint.feastDay!.split(RegExp(r'[/,;&]'));
+      final parts = saint.feastDay!.split(_feastDaySplitRegex);
       for (final part in parts) {
         final match = _datePartRegex.firstMatch(part.trim());
         if (match != null) {
@@ -248,7 +251,7 @@ class SaintDatabase {
     final List<Saint> matching = [];
     for (final saint in saints) {
       if (saint.feastDay == null || saint.feastDay!.isEmpty) continue;
-      final parts = saint.feastDay!.split(RegExp(r'[/,;&]'));
+      final parts = saint.feastDay!.split(_feastDaySplitRegex);
       for (final part in parts) {
         final match = _datePartRegex.firstMatch(part.trim());
         if (match != null) {
