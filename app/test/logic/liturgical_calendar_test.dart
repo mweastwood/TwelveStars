@@ -186,4 +186,141 @@ void main() {
       expect(yearC.lectionaryKey, 'season_ordinary_time_34_sunday_c');
     });
   });
+
+  group('LiturgicalCalendar Sunday & Weekday Cycle Calculations', () {
+    test('calculates correct Sunday cycle for pre-2019 historical years', () {
+      // 2018 Advent start is Dec 2, 2018
+      final advent2018 = LiturgicalCalendar.getFirstSundayOfAdvent(2018);
+      // Mid-year 2018 (activeYear = 2017): Year B
+      expect(
+        LiturgicalCalendar.calculateSundayCycle(
+          2018,
+          DateTime(2018, 6, 1),
+          advent2018,
+        ),
+        'B',
+      );
+      // Advent 2018 (activeYear = 2018): Year C
+      expect(
+        LiturgicalCalendar.calculateSundayCycle(
+          2018,
+          DateTime(2018, 12, 2),
+          advent2018,
+        ),
+        'C',
+      );
+
+      // 2017 Advent start is Dec 3, 2017
+      final advent2017 = LiturgicalCalendar.getFirstSundayOfAdvent(2017);
+      // Mid-year 2017 (activeYear = 2016): Year A
+      expect(
+        LiturgicalCalendar.calculateSundayCycle(
+          2017,
+          DateTime(2017, 6, 1),
+          advent2017,
+        ),
+        'A',
+      );
+      // Advent 2017 (activeYear = 2017): Year B
+      expect(
+        LiturgicalCalendar.calculateSundayCycle(
+          2017,
+          DateTime(2017, 12, 3),
+          advent2017,
+        ),
+        'B',
+      );
+
+      // 2016 Advent start is Nov 27, 2016
+      final advent2016 = LiturgicalCalendar.getFirstSundayOfAdvent(2016);
+      // Mid-year 2016 (activeYear = 2015): Year C
+      expect(
+        LiturgicalCalendar.calculateSundayCycle(
+          2016,
+          DateTime(2016, 6, 1),
+          advent2016,
+        ),
+        'C',
+      );
+      // Advent 2016 (activeYear = 2016): Year A
+      expect(
+        LiturgicalCalendar.calculateSundayCycle(
+          2016,
+          DateTime(2016, 11, 27),
+          advent2016,
+        ),
+        'A',
+      );
+
+      // 2015 Advent start is Nov 29, 2015
+      final advent2015 = LiturgicalCalendar.getFirstSundayOfAdvent(2015);
+      // Mid-year 2015 (activeYear = 2014): Year B
+      expect(
+        LiturgicalCalendar.calculateSundayCycle(
+          2015,
+          DateTime(2015, 6, 1),
+          advent2015,
+        ),
+        'B',
+      );
+      // Advent 2015 (activeYear = 2015): Year C
+      expect(
+        LiturgicalCalendar.calculateSundayCycle(
+          2015,
+          DateTime(2015, 11, 29),
+          advent2015,
+        ),
+        'C',
+      );
+    });
+
+    test(
+      'computeDay returns correct Sunday and weekday cycles for historical dates',
+      () {
+        // 2016
+        final day2016Mid = LiturgicalCalendar.computeDay(DateTime(2016, 6, 1));
+        expect(day2016Mid.sundayCycle, 'C');
+        expect(day2016Mid.weekdayCycle, 'II');
+
+        final day2016Advent = LiturgicalCalendar.computeDay(
+          DateTime(2016, 11, 27),
+        );
+        expect(day2016Advent.sundayCycle, 'A');
+        expect(day2016Advent.weekdayCycle, 'I');
+
+        // 2017
+        final day2017Mid = LiturgicalCalendar.computeDay(DateTime(2017, 6, 1));
+        expect(day2017Mid.sundayCycle, 'A');
+        expect(day2017Mid.weekdayCycle, 'I');
+
+        final day2017Advent = LiturgicalCalendar.computeDay(
+          DateTime(2017, 12, 3),
+        );
+        expect(day2017Advent.sundayCycle, 'B');
+        expect(day2017Advent.weekdayCycle, 'II');
+
+        // 2018
+        final day2018Mid = LiturgicalCalendar.computeDay(DateTime(2018, 6, 1));
+        expect(day2018Mid.sundayCycle, 'B');
+        expect(day2018Mid.weekdayCycle, 'II');
+
+        final day2018Advent = LiturgicalCalendar.computeDay(
+          DateTime(2018, 12, 2),
+        );
+        expect(day2018Advent.sundayCycle, 'C');
+        expect(day2018Advent.weekdayCycle, 'I');
+
+        // 2019
+        final day2019Mid = LiturgicalCalendar.computeDay(DateTime(2019, 6, 1));
+        expect(day2019Mid.sundayCycle, 'C');
+        expect(day2019Mid.weekdayCycle, 'I');
+
+        final day2019Advent = LiturgicalCalendar.computeDay(
+          DateTime(2019, 12, 1),
+        );
+        expect(day2019Advent.sundayCycle, 'A');
+        expect(day2019Advent.weekdayCycle, 'II');
+      },
+    );
+  });
 }
