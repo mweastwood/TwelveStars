@@ -942,6 +942,15 @@ class UsfmParseParams {
 
 // Simple USFM Parser
 class UsfmParser {
+  static final RegExp _footnoteRegex = RegExp(r'\\f\s+.*?\\f\*');
+  static final RegExp _tagRegex = RegExp(r'\\[a-zA-Z0-9]+(?:\*|\s)?');
+  static final RegExp _attributeRegex = RegExp(
+    r'\|[a-zA-Z0-9_]+="[^"]*"(?:\s+[a-zA-Z0-9_]+="[^"]*")*',
+  );
+  static final RegExp _multiSpaceRegex = RegExp(r'\s+');
+  static final RegExp _chapterRegex = RegExp(r'^\\c\s+(\d+)');
+  static final RegExp _verseRegex = RegExp(r'\\v\s+(\d+)\s*(.*)');
+
   static List<Map<String, dynamic>> parseInBackground(UsfmParseParams params) {
     return parse(
       params.usfmContent,
@@ -968,15 +977,12 @@ class UsfmParser {
       if (currentChapter > 0 && currentVerseNumber > 0) {
         var text = currentVerseText;
         // Strip inline footnotes and formatting
-        text = text.replaceAll(RegExp(r'\\f\s+.*?\\f\*'), '');
-        text = text.replaceAll(RegExp(r'\\[a-zA-Z0-9]+(?:\*|\s)?'), '');
-        text = text.replaceAll(
-          RegExp(r'\|[a-zA-Z0-9_]+="[^"]*"(?:\s+[a-zA-Z0-9_]+="[^"]*")*'),
-          '',
-        );
+        text = text.replaceAll(_footnoteRegex, '');
+        text = text.replaceAll(_tagRegex, '');
+        text = text.replaceAll(_attributeRegex, '');
         text = text.trim();
         // Remove multiple consecutive spaces
-        text = text.replaceAll(RegExp(r'\s+'), ' ');
+        text = text.replaceAll(_multiSpaceRegex, ' ');
 
         verses.add({
           'bookNumber': bookNumber,
@@ -989,14 +995,11 @@ class UsfmParser {
       }
     }
 
-    final chapterRegex = RegExp(r'^\\c\s+(\d+)');
-    final verseRegex = RegExp(r'\\v\s+(\d+)\s*(.*)');
-
     for (var line in lines) {
       line = line.trim();
       if (line.isEmpty) continue;
 
-      final chapterMatch = chapterRegex.firstMatch(line);
+      final chapterMatch = _chapterRegex.firstMatch(line);
       if (chapterMatch != null) {
         saveCurrentVerse();
         currentChapter = int.parse(chapterMatch.group(1)!);
@@ -1005,7 +1008,7 @@ class UsfmParser {
         continue;
       }
 
-      final verseMatch = verseRegex.firstMatch(line);
+      final verseMatch = _verseRegex.firstMatch(line);
       if (verseMatch != null) {
         saveCurrentVerse();
         currentVerseNumber = int.parse(verseMatch.group(1)!);
