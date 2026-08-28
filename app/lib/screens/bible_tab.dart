@@ -536,6 +536,11 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       settings.bibleRibbons ?? [],
     );
     updatedRibbons.removeWhere((b) => b.ribbonIndex == index);
+    updatedRibbons.removeWhere(
+      (b) =>
+          b.bookNumber == currentRef.book.bookNumber &&
+          b.chapter == currentRef.chapter,
+    );
     updatedRibbons.add(newBookmark);
     updatedRibbons.sort((a, b) => a.ribbonIndex.compareTo(b.ribbonIndex));
     settings.bibleRibbons = updatedRibbons;
@@ -658,6 +663,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                 highlightEndVerse: isTarget ? _highlightEndVerse : null,
                 navigationSessionId: isTarget ? _navigationSessionId : null,
                 onFavoriteSaved: _loadFavorites,
+                bookmarks: _settings?.bibleRibbons,
               );
             },
           ),
