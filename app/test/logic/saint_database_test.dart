@@ -294,6 +294,64 @@ void main() {
         expect(categories, contains(SaintCategory.angel));
       },
     );
+
+    test('SaintCategory exposes valid filterChipKey for each value', () {
+      for (final cat in SaintCategory.values) {
+        expect(cat.filterChipKey, isNotEmpty);
+        expect(cat.filterChipKey.endsWith('_filter_chip'), isTrue);
+      }
+      expect(SaintCategory.group.filterChipKey, 'group_filter_chip');
+      expect(SaintCategory.holyFamily.filterChipKey, 'holy_family_filter_chip');
+      expect(SaintCategory.angel.filterChipKey, 'angels_filter_chip');
+      expect(SaintCategory.patriarch.filterChipKey, 'patriarchs_filter_chip');
+      expect(SaintCategory.prophet.filterChipKey, 'prophets_filter_chip');
+      expect(SaintCategory.judge.filterChipKey, 'judges_filter_chip');
+      expect(SaintCategory.apostle.filterChipKey, 'apostles_filter_chip');
+      expect(SaintCategory.evangelist.filterChipKey, 'evangelists_filter_chip');
+      expect(SaintCategory.doctor.filterChipKey, 'doctor_filter_chip');
+      expect(SaintCategory.pope.filterChipKey, 'popes_filter_chip');
+      expect(SaintCategory.bishop.filterChipKey, 'bishops_filter_chip');
+      expect(SaintCategory.priest.filterChipKey, 'priests_filter_chip');
+      expect(SaintCategory.deacon.filterChipKey, 'deacons_filter_chip');
+      expect(SaintCategory.brother.filterChipKey, 'brothers_filter_chip');
+      expect(SaintCategory.nun.filterChipKey, 'nuns_filter_chip');
+      expect(SaintCategory.monarch.filterChipKey, 'monarchs_filter_chip');
+      expect(SaintCategory.martyr.filterChipKey, 'martyrs_filter_chip');
+      expect(
+        SaintCategory.healerMissionary.filterChipKey,
+        'healers_filter_chip',
+      );
+      expect(SaintCategory.virgin.filterChipKey, 'virgins_filter_chip');
+      expect(SaintCategory.mystic.filterChipKey, 'mystics_filter_chip');
+      expect(SaintCategory.laity.filterChipKey, 'laity_filter_chip');
+      expect(SaintCategory.other.filterChipKey, 'other_filter_chip');
+
+      expect(SaintCategory.group.filterLabel, 'Group');
+      expect(SaintCategory.holyFamily.filterLabel, 'Holy Family');
+      expect(SaintCategory.angel.filterLabel, 'Angels');
+      expect(SaintCategory.patriarch.filterLabel, 'Patriarchs');
+      expect(SaintCategory.prophet.filterLabel, 'Prophets');
+      expect(SaintCategory.judge.filterLabel, 'Judges');
+      expect(SaintCategory.apostle.filterLabel, 'Apostles');
+      expect(SaintCategory.evangelist.filterLabel, 'Evangelists');
+      expect(SaintCategory.doctor.filterLabel, 'Doctors of the Church');
+      expect(SaintCategory.pope.filterLabel, 'Popes');
+      expect(SaintCategory.bishop.filterLabel, 'Bishops');
+      expect(SaintCategory.priest.filterLabel, 'Priests');
+      expect(SaintCategory.deacon.filterLabel, 'Deacons');
+      expect(SaintCategory.brother.filterLabel, 'Brothers');
+      expect(SaintCategory.nun.filterLabel, 'Nuns');
+      expect(SaintCategory.monarch.filterLabel, 'Rulers & Monarchs');
+      expect(SaintCategory.martyr.filterLabel, 'Martyrs');
+      expect(
+        SaintCategory.healerMissionary.filterLabel,
+        'Healers & Missionaries',
+      );
+      expect(SaintCategory.virgin.filterLabel, 'Virgins & Consecrated');
+      expect(SaintCategory.mystic.filterLabel, 'Mystics & Contemplatives');
+      expect(SaintCategory.laity.filterLabel, 'Laity');
+      expect(SaintCategory.other.filterLabel, 'Other');
+    });
   });
 
   group('SaintDatabase Unit Tests', () {
