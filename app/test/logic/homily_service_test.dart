@@ -16,6 +16,7 @@ class MockAiServiceForHomily implements AiService {
   int generateContentCallCount = 0;
   String lastPromptPassed = '';
   int mockTokenCount = 500;
+  bool shouldThrowOnCountTokens = false;
   String mockResponseText =
       'This is a Catholic homily reflection connecting the Old Testament typology to Christ in the Gospel.';
 
@@ -43,6 +44,9 @@ class MockAiServiceForHomily implements AiService {
   }) async {
     countTokensCallCount++;
     lastPromptPassed = prompt;
+    if (shouldThrowOnCountTokens) {
+      throw Exception('AICore model not loaded');
+    }
     return mockTokenCount;
   }
 
@@ -308,6 +312,168 @@ void main() {
 
       expect(prompt, contains('[excerpt]'));
     });
+
+    test(
+      'returns full prompt without compression when countTokens returns 0 and heuristic is under ceiling',
+      () async {
+        final mockAi = MockAiServiceForHomily();
+        mockAi.mockTokenCount = 0;
+
+        final readings = [
+          const HomilyReadingData(
+            readingType: 'first',
+            citation: 'Gen 1',
+            text: 'First reading text',
+          ),
+          const HomilyReadingData(
+            readingType: 'psalm',
+            citation: 'Ps 23',
+            text: 'The Lord is my shepherd; there is nothing I lack.',
+          ),
+          const HomilyReadingData(
+            readingType: 'second',
+            citation: 'Rom 8',
+            text: 'If God is for us, who can be against us?',
+          ),
+          const HomilyReadingData(
+            readingType: 'gospel',
+            citation: 'Jn 1',
+            text: 'In the beginning was the Word.',
+          ),
+        ];
+
+        final prompt = await HomilyService.preparePromptWithTokenBudget(
+          readings,
+          aiService: mockAi,
+          tokenCeiling: 2048,
+        );
+
+        expect(prompt, contains('The Lord is my shepherd'));
+        expect(prompt, contains('If God is for us'));
+        expect(prompt, isNot(contains('[excerpt]')));
+        expect(mockAi.countTokensCallCount, 1);
+      },
+    );
+
+    test(
+      'returns full prompt without compression when countTokens throws exception and heuristic is under ceiling',
+      () async {
+        final mockAi = MockAiServiceForHomily();
+        mockAi.shouldThrowOnCountTokens = true;
+
+        final readings = [
+          const HomilyReadingData(
+            readingType: 'first',
+            citation: 'Gen 1',
+            text: 'First reading text',
+          ),
+          const HomilyReadingData(
+            readingType: 'psalm',
+            citation: 'Ps 23',
+            text: 'The Lord is my shepherd; there is nothing I lack.',
+          ),
+          const HomilyReadingData(
+            readingType: 'second',
+            citation: 'Rom 8',
+            text: 'If God is for us, who can be against us?',
+          ),
+          const HomilyReadingData(
+            readingType: 'gospel',
+            citation: 'Jn 1',
+            text: 'In the beginning was the Word.',
+          ),
+        ];
+
+        final prompt = await HomilyService.preparePromptWithTokenBudget(
+          readings,
+          aiService: mockAi,
+          tokenCeiling: 2048,
+        );
+
+        expect(prompt, contains('The Lord is my shepherd'));
+        expect(prompt, contains('If God is for us'));
+        expect(prompt, isNot(contains('[excerpt]')));
+        expect(mockAi.countTokensCallCount, 1);
+      },
+    );
+
+    test(
+      'applies compression using heuristic token estimation when countTokens returns 0 but prompt is oversized',
+      () async {
+        final mockAi = MockAiServiceForHomily();
+        mockAi.mockTokenCount = 0;
+
+        final readings = [
+          const HomilyReadingData(
+            readingType: 'first',
+            citation: '1 Kgs 19',
+            text: 'First reading content',
+          ),
+          HomilyReadingData(
+            readingType: 'psalm',
+            citation: 'Ps 85',
+            text: 'Psalm verse content ' * 50,
+          ),
+          HomilyReadingData(
+            readingType: 'second',
+            citation: 'Rom 9',
+            text: 'Second reading content ' * 50,
+          ),
+          const HomilyReadingData(
+            readingType: 'gospel',
+            citation: 'Mt 14',
+            text: 'Gospel content',
+          ),
+        ];
+
+        final prompt = await HomilyService.preparePromptWithTokenBudget(
+          readings,
+          aiService: mockAi,
+          tokenCeiling: 100, // force compression via heuristic token estimate
+        );
+
+        expect(prompt, contains('[excerpt]'));
+      },
+    );
+
+    test(
+      'applies compression using heuristic token estimation when countTokens throws exception and prompt is oversized',
+      () async {
+        final mockAi = MockAiServiceForHomily();
+        mockAi.shouldThrowOnCountTokens = true;
+
+        final readings = [
+          const HomilyReadingData(
+            readingType: 'first',
+            citation: '1 Kgs 19',
+            text: 'First reading content',
+          ),
+          HomilyReadingData(
+            readingType: 'psalm',
+            citation: 'Ps 85',
+            text: 'Psalm verse content ' * 50,
+          ),
+          HomilyReadingData(
+            readingType: 'second',
+            citation: 'Rom 9',
+            text: 'Second reading content ' * 50,
+          ),
+          const HomilyReadingData(
+            readingType: 'gospel',
+            citation: 'Mt 14',
+            text: 'Gospel content',
+          ),
+        ];
+
+        final prompt = await HomilyService.preparePromptWithTokenBudget(
+          readings,
+          aiService: mockAi,
+          tokenCeiling: 100, // force compression via heuristic token estimate
+        );
+
+        expect(prompt, contains('[excerpt]'));
+      },
+    );
   });
 
   group('HomilyService.generateReflection', () {

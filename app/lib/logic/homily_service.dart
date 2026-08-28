@@ -217,6 +217,18 @@ class HomilyService {
     return buffer.toString();
   }
 
+  static Future<int> _countTokens(AiService ai, String prompt) async {
+    try {
+      final count = await ai.countTokens(prompt: prompt);
+      if (count > 0) {
+        return count;
+      }
+    } catch (_) {
+      // Fall back to heuristic estimation on error
+    }
+    return (prompt.length / 4).ceil();
+  }
+
   /// Calculates token count and applies prioritized compression if token budget is exceeded.
   static Future<String> preparePromptWithTokenBudget(
     List<HomilyReadingData> readings, {
@@ -227,14 +239,9 @@ class HomilyService {
 
     // 1. Initial uncompressed prompt
     String prompt = buildPrompt(readings);
-    int tokens = 0;
-    try {
-      tokens = await ai.countTokens(prompt: prompt);
-    } catch (_) {
-      tokens = 0;
-    }
+    int tokens = await _countTokens(ai, prompt);
 
-    if (tokens <= tokenCeiling && tokens > 0) {
+    if (tokens <= tokenCeiling) {
       return prompt;
     }
 
@@ -244,10 +251,8 @@ class HomilyService {
     );
     if (hasPsalm) {
       prompt = buildPrompt(readings, compressPsalm: true);
-      try {
-        tokens = await ai.countTokens(prompt: prompt);
-      } catch (_) {}
-      if (tokens <= tokenCeiling && tokens > 0) {
+      tokens = await _countTokens(ai, prompt);
+      if (tokens <= tokenCeiling) {
         return prompt;
       }
     }
@@ -262,10 +267,8 @@ class HomilyService {
         compressPsalm: true,
         compressSecondReading: true,
       );
-      try {
-        tokens = await ai.countTokens(prompt: prompt);
-      } catch (_) {}
-      if (tokens <= tokenCeiling && tokens > 0) {
+      tokens = await _countTokens(ai, prompt);
+      if (tokens <= tokenCeiling) {
         return prompt;
       }
     }
