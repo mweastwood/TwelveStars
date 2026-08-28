@@ -176,6 +176,106 @@ enum SaintCategory {
         return theme.colorScheme.primary;
     }
   }
+
+  /// Identifier key used for UI filter chips and testing.
+  String get filterChipKey {
+    switch (this) {
+      case SaintCategory.group:
+        return 'group_filter_chip';
+      case SaintCategory.holyFamily:
+        return 'holy_family_filter_chip';
+      case SaintCategory.angel:
+        return 'angels_filter_chip';
+      case SaintCategory.patriarch:
+        return 'patriarchs_filter_chip';
+      case SaintCategory.prophet:
+        return 'prophets_filter_chip';
+      case SaintCategory.judge:
+        return 'judges_filter_chip';
+      case SaintCategory.apostle:
+        return 'apostles_filter_chip';
+      case SaintCategory.evangelist:
+        return 'evangelists_filter_chip';
+      case SaintCategory.doctor:
+        return 'doctor_filter_chip';
+      case SaintCategory.pope:
+        return 'popes_filter_chip';
+      case SaintCategory.bishop:
+        return 'bishops_filter_chip';
+      case SaintCategory.priest:
+        return 'priests_filter_chip';
+      case SaintCategory.deacon:
+        return 'deacons_filter_chip';
+      case SaintCategory.brother:
+        return 'brothers_filter_chip';
+      case SaintCategory.nun:
+        return 'nuns_filter_chip';
+      case SaintCategory.monarch:
+        return 'monarchs_filter_chip';
+      case SaintCategory.martyr:
+        return 'martyrs_filter_chip';
+      case SaintCategory.healerMissionary:
+        return 'healers_filter_chip';
+      case SaintCategory.virgin:
+        return 'virgins_filter_chip';
+      case SaintCategory.mystic:
+        return 'mystics_filter_chip';
+      case SaintCategory.laity:
+        return 'laity_filter_chip';
+      case SaintCategory.other:
+        return 'other_filter_chip';
+    }
+  }
+
+  /// Display label formatted for plural filter chips in UI filtering.
+  String get filterLabel {
+    switch (this) {
+      case SaintCategory.group:
+        return 'Group';
+      case SaintCategory.holyFamily:
+        return 'Holy Family';
+      case SaintCategory.angel:
+        return 'Angels';
+      case SaintCategory.patriarch:
+        return 'Patriarchs';
+      case SaintCategory.prophet:
+        return 'Prophets';
+      case SaintCategory.judge:
+        return 'Judges';
+      case SaintCategory.apostle:
+        return 'Apostles';
+      case SaintCategory.evangelist:
+        return 'Evangelists';
+      case SaintCategory.doctor:
+        return 'Doctors of the Church';
+      case SaintCategory.pope:
+        return 'Popes';
+      case SaintCategory.bishop:
+        return 'Bishops';
+      case SaintCategory.priest:
+        return 'Priests';
+      case SaintCategory.deacon:
+        return 'Deacons';
+      case SaintCategory.brother:
+        return 'Brothers';
+      case SaintCategory.nun:
+        return 'Nuns';
+      case SaintCategory.monarch:
+        return 'Rulers & Monarchs';
+      case SaintCategory.martyr:
+        return 'Martyrs';
+      case SaintCategory.healerMissionary:
+        return 'Healers & Missionaries';
+      case SaintCategory.virgin:
+        return 'Virgins & Consecrated';
+      case SaintCategory.mystic:
+        return 'Mystics & Contemplatives';
+      case SaintCategory.laity:
+        return 'Laity';
+      case SaintCategory.other:
+        return 'Other';
+    }
+  }
 }
 
 /// Historical eras for timeline filtering.
