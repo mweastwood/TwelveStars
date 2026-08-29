@@ -204,57 +204,59 @@ class MissalCalendarGrid extends StatelessWidget {
         child: InkWell(
           onTap: onTap ?? () => onDateSelected(date),
           borderRadius: BorderRadius.circular(8),
-          child: Container(
-            decoration: BoxDecoration(
-              color: cellBg,
-              borderRadius: BorderRadius.circular(8),
-              border: isSelected
-                  ? Border.all(color: theme.colorScheme.primary, width: 2)
-                  : isToday
-                  ? Border.all(
-                      color: theme.colorScheme.outlineVariant,
-                      width: 1,
-                    )
-                  : null,
-            ),
-            child: Stack(
-              children: [
-                if (hasFeast)
-                  Positioned(
-                    top: 2,
-                    right: 2,
-                    child: Icon(Icons.star, size: 8, color: Colors.amber[800]),
-                  ),
-                Center(
-                  child: Text(
-                    '${date.day}',
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      fontWeight: isSelected || isToday
-                          ? FontWeight.bold
-                          : FontWeight.normal,
-                      color: isCurrentMonth
-                          ? theme.colorScheme.onSurface
-                          : theme.colorScheme.onSurface.withValues(alpha: 0.35),
-                    ),
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: cellBg,
+                    borderRadius: BorderRadius.circular(8),
+                    border: isSelected
+                        ? Border.all(color: theme.colorScheme.primary, width: 2)
+                        : isToday
+                        ? Border.all(
+                            color: theme.colorScheme.outlineVariant,
+                            width: 1,
+                          )
+                        : null,
                   ),
                 ),
+              ),
+              if (hasFeast)
                 Positioned(
-                  bottom: 4,
-                  left: 0,
-                  right: 0,
-                  child: Center(
-                    child: Container(
-                      width: 12,
-                      height: 3,
-                      decoration: BoxDecoration(
-                        color: baseColor,
-                        borderRadius: BorderRadius.circular(1.5),
-                      ),
+                  top: 2,
+                  right: 2,
+                  child: Icon(Icons.star, size: 8, color: Colors.amber[800]),
+                ),
+              Center(
+                child: Text(
+                  '${date.day}',
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    fontWeight: isSelected || isToday
+                        ? FontWeight.bold
+                        : FontWeight.normal,
+                    color: isCurrentMonth
+                        ? theme.colorScheme.onSurface
+                        : theme.colorScheme.onSurface.withValues(alpha: 0.35),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 4,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 12,
+                    height: 3,
+                    decoration: BoxDecoration(
+                      color: baseColor,
+                      borderRadius: BorderRadius.circular(1.5),
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

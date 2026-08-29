@@ -254,18 +254,16 @@ class MissalSaintFeastCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final cardColor = theme.colorScheme.primaryContainer.withValues(
-      alpha: 0.25,
-    );
-    final borderColor = theme.colorScheme.primary.withValues(alpha: 0.2);
 
     return Card(
       key: Key('missal_saint_card_${saint.id}'),
       margin: const EdgeInsets.symmetric(vertical: 6.0),
-      color: cardColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: borderColor, width: 1),
+        side: BorderSide(
+          color: theme.colorScheme.outlineVariant.withValues(alpha: 0.4),
+          width: 1,
+        ),
       ),
       child: InkWell(
         onTap: onTap,
