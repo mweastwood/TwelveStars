@@ -389,10 +389,15 @@ void main() {
         expect(text25.style?.fontWeight, equals(FontWeight.bold));
 
         // Check border decoration of selected day '25'
-        final inkWell = tester.widget<InkWell>(
-          find.ancestor(of: day25TextFinder, matching: find.byType(InkWell)),
+        final inkWellFinder = find.ancestor(
+          of: day25TextFinder,
+          matching: find.byType(InkWell),
         );
-        final container = inkWell.child as Container;
+        final container = tester.widget<Container>(
+          find
+              .descendant(of: inkWellFinder, matching: find.byType(Container))
+              .first,
+        );
         final decoration = container.decoration as BoxDecoration;
         expect(decoration.border, isNotNull);
         expect(decoration.border?.top.color, equals(theme.colorScheme.primary));
@@ -446,10 +451,15 @@ void main() {
         expect(text24.style?.fontWeight, equals(FontWeight.bold));
 
         // Check today day '24' has outlineVariant border
-        final inkWell24 = tester.widget<InkWell>(
-          find.ancestor(of: day24TextFinder, matching: find.byType(InkWell)),
+        final inkWell24Finder = find.ancestor(
+          of: day24TextFinder,
+          matching: find.byType(InkWell),
         );
-        final container24 = inkWell24.child as Container;
+        final container24 = tester.widget<Container>(
+          find
+              .descendant(of: inkWell24Finder, matching: find.byType(Container))
+              .first,
+        );
         final decoration24 = container24.decoration as BoxDecoration;
         expect(decoration24.border, isNotNull);
         expect(
@@ -466,10 +476,15 @@ void main() {
         final text26 = tester.widget<Text>(day26TextFinder);
         expect(text26.style?.fontWeight, equals(FontWeight.normal));
 
-        final inkWell26 = tester.widget<InkWell>(
-          find.ancestor(of: day26TextFinder, matching: find.byType(InkWell)),
+        final inkWell26Finder = find.ancestor(
+          of: day26TextFinder,
+          matching: find.byType(InkWell),
         );
-        final container26 = inkWell26.child as Container;
+        final container26 = tester.widget<Container>(
+          find
+              .descendant(of: inkWell26Finder, matching: find.byType(Container))
+              .first,
+        );
         final decoration26 = container26.decoration as BoxDecoration;
         expect(decoration26.border, isNull);
       });
@@ -497,10 +512,15 @@ void main() {
             matching: find.text('15'),
           );
 
-          final inkWell = tester.widget<InkWell>(
-            find.ancestor(of: day15TextFinder, matching: find.byType(InkWell)),
+          final inkWellFinder = find.ancestor(
+            of: day15TextFinder,
+            matching: find.byType(InkWell),
           );
-          final container = inkWell.child as Container;
+          final container = tester.widget<Container>(
+            find
+                .descendant(of: inkWellFinder, matching: find.byType(Container))
+                .first,
+          );
           final decoration = container.decoration as BoxDecoration;
 
           // Cell background is tinted with liturgical color (alpha 0.12 for current month)
