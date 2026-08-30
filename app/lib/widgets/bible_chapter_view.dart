@@ -460,7 +460,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                       ],
                     ),
                   ),
-                  const Divider(height: 24),
+                  const Divider(height: 24, indent: 16),
                   ..._verses.map((verse) {
                     final isSelected = _isVerseSelected(verse.verseNumber);
                     _verseKeys.putIfAbsent(verse.id, () => GlobalKey());
