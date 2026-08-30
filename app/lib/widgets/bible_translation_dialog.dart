@@ -20,6 +20,9 @@ class BibleTranslationDialog extends StatelessWidget {
     return BibleTranslationSelectorDialog(
       currentPrimaryCode: currentPrimary,
       currentCompareCode: currentCompare == 'none' ? null : currentCompare,
+      initialTarget: mode == BibleTranslationDialogMode.compare
+          ? BibleTranslationTarget.compare
+          : BibleTranslationTarget.primary,
       onPrimarySelected: (newPrimary) {
         Navigator.of(context).pop(newPrimary);
       },
