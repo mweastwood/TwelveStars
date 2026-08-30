@@ -41,14 +41,9 @@ class BibleVerseRow extends StatelessWidget {
       onTap: onTapFavorite,
       borderRadius: BorderRadius.circular(12),
       child: Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 8,
-          vertical: 4,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         decoration: BoxDecoration(
-          color: theme.colorScheme.primaryContainer.withValues(
-            alpha: 0.8,
-          ),
+          color: theme.colorScheme.primaryContainer.withValues(alpha: 0.8),
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color: theme.colorScheme.primary.withValues(alpha: 0.4),
@@ -74,14 +69,9 @@ class BibleVerseRow extends StatelessWidget {
       onTap: onTapCitations,
       borderRadius: BorderRadius.circular(12),
       child: Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 8,
-          vertical: 4,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         decoration: BoxDecoration(
-          color: theme.colorScheme.tertiaryContainer.withValues(
-            alpha: 0.8,
-          ),
+          color: theme.colorScheme.tertiaryContainer.withValues(alpha: 0.8),
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color: theme.colorScheme.tertiary.withValues(alpha: 0.4),
@@ -116,14 +106,9 @@ class BibleVerseRow extends StatelessWidget {
       onTap: onTapComments,
       borderRadius: BorderRadius.circular(12),
       child: Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 8,
-          vertical: 4,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         decoration: BoxDecoration(
-          color: theme.colorScheme.secondaryContainer.withValues(
-            alpha: 0.8,
-          ),
+          color: theme.colorScheme.secondaryContainer.withValues(alpha: 0.8),
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color: theme.colorScheme.secondary.withValues(alpha: 0.4),
