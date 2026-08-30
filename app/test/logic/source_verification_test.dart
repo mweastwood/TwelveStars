@@ -1,187 +1,3 @@
-/*
-## Prayer Source Verification Report (Generated: 2026-07-03)
-
-### English
-**Passed (18)**:
- - `act_of_contrition` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `anima_christi` — https://www.usccb.org/prayers/anima-christi
- - `apostles_creed` — https://en.wikipedia.org/wiki/Apostles%27_Creed
- - `confiteor` — https://www.universalis.com/static/mass/orderofmass.htm
- - `fatima_prayer` — https://www.ewtn.com/catholicism/teachings/fatima-prayer-102
- - `final_prayer_rosary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `gloria` — https://www.universalis.com/static/mass/orderofmass.htm
- - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `hail_holy_queen` — https://www.preces-latinae.org/thesaurus/BVM/SalveRegina.html
- - `hail_mary (Version 1)` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `hail_mary (Version 2)` — https://en.wikipedia.org/wiki/Hail_Mary
- - `nicene_creed` — https://www.loyolapress.com/catholic-resources/prayer/traditional-catholic-prayers/prayers-every-catholic-should-know/nicene-creed/
- - `now_i_lay_me` — https://www.catholicprayer.ca/Prayers/Now-I-Lay-Me-Down-To-Sleep.html
- - `our_father (Version 1)` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `our_father (Version 2)` — https://en.wikipedia.org/wiki/Lord%27s_Prayer
- - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `st_francis` — https://en.wikipedia.org/wiki/Prayer_of_Saint_Francis
- - `st_michael` — https://www.ewtn.com/catholicism/devotions/prayer-to-st-michael-the-archangel-371
-
-**Failed (0)**:
- *None*
-
-### French
-**Passed (14)**:
- - `act_of_contrition` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
- - `anima_christi` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
- - `apostles_creed` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
- - `fatima_prayer` — https://www.fatima.pt/fr/pages/prieres-de-fatima
- - `final_prayer_rosary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
- - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
- - `hail_holy_queen` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
- - `hail_mary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
- - `nicene_creed` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
- - `our_father (Version 1)` — https://fr.wikipedia.org/wiki/Notre_P%C3%A8re
- - `our_father (Version 2)` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
- - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_fr.html
- - `st_francis` — https://fr.wikipedia.org/wiki/Pri%C3%A8re_de_saint_Fran%C3%A7ois
- - `st_michael` — https://www.orleans.catholique.fr/vivre-ma-foi/prier-et-celebrer/5408-prier-archange-st-michel/
-
-**Failed (0)**:
-*None*
-
-### Italian
-**Passed (13)**:
- - `act_of_contrition` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
- - `anima_christi` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
- - `apostles_creed` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
- - `fatima_prayer` — https://www.fatima.pt/it/pages/preghiere-di-fatima
- - `final_prayer_rosary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
- - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
- - `hail_holy_queen` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
- - `hail_mary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
- - `nicene_creed` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
- - `our_father` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
- - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_it.html
- - `st_francis` — https://it.wikipedia.org/wiki/Preghiera_semplice
- - `st_michael` — https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2018/09/29/0707/01504.html
-
-**Failed (0)**:
-*None*
-
-### Latin
-**Passed (21)**:
- - `act_of_contrition` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `agnus_dei` — https://www.maranatha.it/RitoMessa/missaetext.htm
- - `anima_christi` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `apostles_creed` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `confiteor` — https://www.preces-latinae.org/thesaurus/Basics/Confiteor.html
- - `dismissal` — https://www.maranatha.it/RitoMessa/missaetext.htm
- - `fatima_prayer` — https://www.preces-latinae.org/thesaurus/BVM/Rosarium.html
- - `final_prayer_rosary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `gloria` — https://www.preces-latinae.org/thesaurus/Trinitas/Gloria.html
- - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `hail_holy_queen` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `hail_mary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `kyrie_eleison` — https://www.maranatha.it/RitoMessa/missaetext.htm
- - `mass_greeting` — https://www.maranatha.it/RitoMessa/missaetext.htm
- - `nicene_creed` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `our_father` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `sanctus` — https://www.maranatha.it/RitoMessa/missaetext.htm
- - `sign_of_peace` — https://www.maranatha.it/RitoMessa/missaetext.htm
- - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
- - `st_francis` — https://www.preces-latinae.org/thesaurus/Sancti/SFranciscusAssisiensis/PrayerofSF.html
- - `st_michael` — https://www.preces-latinae.org/thesaurus/Angeli/SancteMichael.html
-
-**Failed (0)**:
-*None*
-
-### Spanish
-**Passed (6)**:
- - `apostles_creed` — https://es.wikipedia.org/wiki/Credo_de_los_Ap%C3%B3stoles
- - `glory_be` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html
- - `hail_mary` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html
- - `our_father` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html
- - `sign_of_the_cross` — https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html
- - `st_francis` — https://es.wikipedia.org/wiki/Oraci%C3%B3n_de_San_Francisco
-
-**Failed (8)**:
- - `act_of_contrition` — https://es.wikipedia.org/wiki/Acto_de_contrici%C3%B3n
- - `anima_christi` — https://es.wikipedia.org/wiki/Anima_Christi
- - `fatima_prayer` — https://es.wikipedia.org/wiki/Misterios_del_rosario
- - `final_prayer_rosary` — https://es.wikipedia.org/wiki/Rosario_(catolicismo)
- - `hail_holy_queen` — https://es.wikipedia.org/wiki/Salve
- - `nicene_creed` — https://es.wikipedia.org/wiki/Credo_Niceno-Constantinopolitano
- - `now_i_lay_me` — https://en.wikipedia.org/wiki/Now_I_Lay_Me_Down_to_Sleep
- - `st_michael` — https://es.wikipedia.org/wiki/Oraci%C3%B3n_a_san_Miguel_Arc%C3%A1ngel
-
-### Tagalog
-**Passed (5)**:
- - `glory_be` — https://tl.wikipedia.org/wiki/Luwalhati_sa_Ama
- - `hail_mary` — https://tl.wikipedia.org/wiki/Aba_Ginoong_Maria
- - `our_father (Version 1)` — https://tl.wikipedia.org/wiki/Ama_Namin
- - `our_father (Version 2)` — https://tl.wikipedia.org/wiki/Ama_Namin
- - `st_francis` — https://pagbubulaybulay.wordpress.com/2010/03/17/prayer-of-st-francis-of-assisipanalangin-ni-san-francisco-de-asis/
-
-**Failed (10)**:
- - `act_of_contrition` — https://www.tagaloglang.com/act-of-contrition-in-tagalog/
- - `anima_christi` — https://tl.wikipedia.org/wiki/Anima_Christi
- - `apostles_creed` — https://tl.wikipedia.org/wiki/Sumasampalataya_Ako
- - `fatima_prayer` — https://www.youtube.com
- - `final_prayer_rosary` — https://www.swordofgodrosaries.com/tl/sorrowful-mysteries
- - `hail_holy_queen` — https://tl.wikipedia.org/wiki/Aba_Po,_Santa_Mariang_Hari
- - `nicene_creed` — https://tl.wikipedia.org/wiki/Sumasampalataya
- - `now_i_lay_me` — https://wikipedia.org
- - `sign_of_the_cross` — https://www.vatican.va
- - `st_michael` — https://tl.wikipedia.org/wiki/Miguel
-
-### Traditional Chinese
-**Passed (7)**:
- - `apostles_creed` — https://zh.wikipedia.org/wiki/%E4%BD%BF%E5%BE%92%E4%BF%A1%E7%B6%93
- - `glory_be` — https://zh.wikipedia.org/zh-hant/%E6%A6%AE%E8%80%80%E9%A0%8C
- - `hail_holy_queen` — https://zh.wikipedia.org/wiki/%E5%8F%88%E8%81%96%E6%AF%8D%E7%B6%93
- - `hail_mary` — https://zh.wikipedia.org/zh-hant/%E8%81%96%E6%AF%8D%E7%B6%93
- - `nicene_creed` — https://zh.wikipedia.org/wiki/%E5%B0%BC%E8%A5%BF%E4%BA%9E%E4%BF%A1%E7%B6%93
- - `our_father` — https://zh.wikipedia.org/zh-hant/%E5%A4%A9%E4%B8%BB%E7%B6%93
- - `st_francis` — https://zh.wikipedia.org/zh-hant/%E8%81%96%E6%96%B9%E6%BF%9F%E5%90%84%E7%A6%B1%E6%96%87
-
-**Failed (7)**:
- - `act_of_contrition` — https://zh.wikipedia.org/wiki/%E6%99%82%E8%BE%B0%E7%A6%AE%E5%84%80
- - `anima_christi` — https://zh.wikipedia.org/wiki/%E5%9F%BA%E7%9D%A3%E7%9A%84%E9%9D%88%E9%AD%82
- - `fatima_prayer` — https://zh.wikipedia.org/wiki/%E7%8E%AB%E7%91%B0%E7%B6%93
- - `final_prayer_rosary` — https://zh.wikipedia.org/wiki/%E7%8E%AB%E7%91%B0%E7%B6%93
- - `now_i_lay_me` — https://zh.wikipedia.org/wiki/Now_I_lay_me_down_to_sleep
- - `sign_of_the_cross` — https://www.vatican.va
- - `st_michael` — https://zh.wikipedia.org/wiki/%E7%B1%B3%E8%BF%A6%E5%8B%92
-
-### Vietnamese
-**Passed (19)**:
- - `agnus_dei` — https://hdgmvietnam.com
- - `confiteor` — https://hdgmvietnam.com
- - `dismissal` — https://hdgmvietnam.com
- - `domine_non_sum_dignus` — https://hdgmvietnam.com
- - `fatima_prayer` — https://vi.wikipedia.org/wiki/Kinh_M%C3%A2n_C%C3%B4i
- - `gloria` — https://hdgmvietnam.com
- - `glory_be` — https://vi.wikipedia.org/wiki/Kinh_S%C3%A1ng_Danh
- - `hail_mary` — https://vi.wikipedia.org/wiki/Kinh_K%C3%ADnh_M%E1%BB%ABng
- - `kyrie_eleison` — https://hdgmvietnam.com
- - `mass_greeting` — https://hdgmvietnam.com
- - `mystery_of_faith` — https://hdgmvietnam.com
- - `nicene_creed` — https://vi.wikipedia.org/wiki/T%C3%ADn_bi%E1%BB%83u_Nicaea
- - `offertory_response` — https://hdgmvietnam.com
- - `orate_fratres` — https://hdgmvietnam.com
- - `our_father` — https://vi.wikipedia.org/wiki/Kinh_L%E1%BA%A1y_Cha
- - `preface_dialogue` — https://hdgmvietnam.com
- - `sanctus` — https://hdgmvietnam.com
- - `sign_of_peace` — https://hdgmvietnam.com
- - `st_francis` — https://vi.wikipedia.org/wiki/Kinh_H%C3%B2a_B%C3%ACnh
-
-**Failed (8)**:
- - `act_of_contrition` — https://vi.wikipedia.org/wiki/Kinh_%C4%82n_N%C4%83n_T%E1%BB%99i
- - `anima_christi` — https://conggiao.org
- - `apostles_creed` — https://vi.wikipedia.org/wiki/T%C3%ADn_bi%E1%BB%83u_c%C3%A1c_t%C3%B4ng_%C4%91%E1%BB%93
- - `final_prayer_rosary` — https://giaophanlongxuyen.org
- - `hail_holy_queen` — https://vi.wikipedia.org/wiki/Kinh_M%C3%A2n_C%C3%B4i
- - `now_i_lay_me` — https://vi.wikipedia.org/wiki/Now_I_lay_me_down_to_sleep
- - `sign_of_the_cross` — https://www.vatican.va
- - `st_michael` — https://vi.wikipedia.org/wiki/Micae
-*/
-
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
@@ -190,61 +6,284 @@ import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 
-class NetworkSkipException implements Exception {
-  final String message;
-  NetworkSkipException(this.message);
-  @override
-  String toString() => 'NetworkSkipException: $message';
-}
+import '../../bin/verify_sources.dart';
 
 void main() {
-  HttpOverrides.global = null;
-  final bool isLive = Platform.environment['RUN_LIVE_SOURCE_TESTS'] == 'true';
+  group('softNormalize', () {
+    test('strips Western punctuation, quotes, and whitespace', () {
+      const input = 'Hello, world! (This is a test: "quotes" and \'single\').';
+      final result = softNormalize(input, language: PrayerLanguage.english);
+      expect(result, 'helloworldthisisatestquotesandsingle');
+    });
 
-  group('Prayer Source Verification', () {
-    final Map<String, String> htmlCache = {};
+    test('strips non-breaking and zero-width spaces', () {
+      const input = 'Word1\u00A0Word2\u200bWord3';
+      final result = softNormalize(input, language: PrayerLanguage.english);
+      expect(result, 'word1word2word3');
+    });
 
-    // List of domains that have Cloudflare/bot protection and should be fetched from the Wayback Machine directly.
-    const waybackOnlyDomains = {'usccb.org', 'www.usccb.org'};
+    test('strips smart quotes and angle brackets', () {
+      const input = '«“Smart Quotes” and ‘Single Quotes’»';
+      final result = softNormalize(input, language: PrayerLanguage.english);
+      expect(result, 'smartquotesandsinglequotes');
+    });
 
-    // Map of known typographical errors on external source pages to their correct spellings, categorized by language.
-    const sourceTypoFixes = {
-      PrayerLanguage.latin: {
-        'víirgine': 'virgine',
-        'viirgine': 'virgine',
-        '&uacutes': 'us',
-        '&iacute': 'i',
-        '&oacute': 'o',
-        '&aelig': 'ae',
-      },
-      PrayerLanguage.spanish: {
-        // In 2010, the Real Academia Española (RAE) updated the spelling rules and officially
-        // eliminated the accent mark on "sólo" (meaning "only" or "just"). Today, the correct spelling is
-        // simply "solo" without an accent. Our database uses the modern spelling "solo", but older web sources
-        // still use "sólo". We normalize "sólo" to "solo" to prevent accent mismatch failures.
-        'sólo': 'solo',
-      },
-      PrayerLanguage.vietnamese: {
-        // VEYM website has a typo "Đức Chúa Chúa Thánh Thần" in the Apostles' Creed.
-        'chúa chúa': 'chúa',
-        // VEYM website has a typo "lương thực hàng ngày" instead of "hằng ngày" in the Our Father.
-        'hàng ngày': 'hằng ngày',
-        // VEYM website has a typo "khi nay" instead of "khi này" in the Hail Mary.
-        'khi nay': 'khi này',
-        // VEYM website has a typo "nhầt" instead of "nhất" in the Fatima Prayer.
-        'nhầt': 'nhất',
-        // VietCatholic uses the spelling "quỉ", while we use "quỷ". We normalize to "quỷ" to prevent mismatch.
-        'quỉ': 'quỷ',
-        // VietCatholic has a typo "cơ bình" instead of "cơ binh" in the St. Michael prayer.
-        'cơ bình': 'cơ binh',
-      },
-      PrayerLanguage.traditionalChinese: {
-        // Diocesan Family Commission has a typo "遣責" instead of "譴責".
-        '遣責': '譴責',
-      },
-    };
+    test('strips Chinese full-width punctuation', () {
+      const input = '「我們的天父，願祢的名受顯揚；願祢的國來臨！」';
+      final result = softNormalize(
+        input,
+        language: PrayerLanguage.traditionalChinese,
+      );
+      expect(result, '我們的天父願祢的名受顯揚願祢的國來臨');
+    });
 
-    // Open compiled JSON database
+    test('strips Wikipedia footnote reference tags and brackets', () {
+      const input = 'Text with footnotes[1][a][123] and [bracketed content]';
+      final result = softNormalize(input, language: PrayerLanguage.english);
+      expect(result, 'textwithfootnotesandbracketedcontent');
+    });
+
+    test('strips liturgical role labels and call/response markers', () {
+      const input =
+          '℣. Namumuno: Bayan: Linh mục: Chủ tế: Cộng đoàn: Giáo dân: Phó tế: '
+          'Người đọc: Người xướng: Người đáp: Đọc chung: 領經者: 主祭: 全體: 啟： 應： ✠ † '
+          'Pax vobiscum ℟. Et cum spiritu tuo';
+      final result = softNormalize(input, language: PrayerLanguage.latin);
+      expect(result, 'paxvobiscumetcumspiritutuo');
+    });
+
+    test('strips Amen across multiple languages', () {
+      expect(softNormalize('Amen', language: PrayerLanguage.english), '');
+      expect(softNormalize('Amén', language: PrayerLanguage.spanish), '');
+      expect(softNormalize('Amên', language: PrayerLanguage.vietnamese), '');
+      expect(
+        softNormalize('亞孟', language: PrayerLanguage.traditionalChinese),
+        '',
+      );
+      expect(
+        softNormalize('阿們', language: PrayerLanguage.traditionalChinese),
+        '',
+      );
+      expect(
+        softNormalize('阿門', language: PrayerLanguage.traditionalChinese),
+        '',
+      );
+    });
+
+    group('Latin normalization', () {
+      test('strips pronunciation accents and normalizes j to i', () {
+        const input = 'María, Dóminus tecum, Jesus Christus';
+        final result = softNormalize(input, language: PrayerLanguage.latin);
+        expect(result, 'mariadominustecumiesuschristus');
+      });
+
+      test('expands ligatures æ, œ, ǽ to ae and oe', () {
+        const input = 'cælis, cœli, ǽternam';
+        final result = softNormalize(input, language: PrayerLanguage.latin);
+        expect(result, 'caeliscoeliaeternam');
+      });
+
+      test('strips macron and other Latin liturgical diacritics', () {
+        const input = 'ā ă ą ē ĕ ė ę ě ī ĭ į ı ō ŏ ő ū ŭ ů ű ų';
+        final result = softNormalize(input, language: PrayerLanguage.latin);
+        expect(result, 'aaaeeeeeiiiiooouuuuu');
+      });
+    });
+
+    group('Vietnamese normalization', () {
+      test('normalizes Icelandic Eth to đ', () {
+        const input = 'kinh ðức chúa trời';
+        final result = softNormalize(
+          input,
+          language: PrayerLanguage.vietnamese,
+        );
+        expect(result, 'kinhđứcchúatrời');
+      });
+
+      test('composes decomposed Unicode combining diacritics', () {
+        // Decomposed ă (a + \u0306), â (a + \u0302), đ (d + \u0335)
+        const input = 'a\u0306 a\u0302 e\u0302 o\u0302 o\u031b u\u031b d\u0335';
+        final result = softNormalize(
+          input,
+          language: PrayerLanguage.vietnamese,
+        );
+        expect(result, 'ăâêôơưđ');
+      });
+
+      test('composes decomposed Unicode tone marks', () {
+        // a + grave (\u0300), a + acute (\u0301), a + hook (\u0309), a + tilde (\u0303), a + dot (\u0323)
+        const input = 'a\u0300 a\u0301 a\u0309 a\u0303 a\u0323';
+        final result = softNormalize(
+          input,
+          language: PrayerLanguage.vietnamese,
+        );
+        expect(result, 'àáảãạ');
+      });
+
+      test(
+        'normalizes old-style diphthong accent placement to modern style',
+        () {
+          const input = 'hoà oá uý oé';
+          final result = softNormalize(
+            input,
+            language: PrayerLanguage.vietnamese,
+          );
+          expect(result, 'hòaóaúyóe');
+        },
+      );
+    });
+
+    group('Spanish normalization', () {
+      test('normalizes sólo to solo (RAE 2010 rule update)', () {
+        const input = 'Tú sólo eres Santo, sólo Tú Señor';
+        final result = softNormalize(input, language: PrayerLanguage.spanish);
+        expect(result, 'túsoloeressantosolotúseñor');
+      });
+    });
+
+    group('Traditional Chinese normalization', () {
+      test('replaces known typo 遣責 with 譴責', () {
+        const input = '遣責罪惡';
+        final result = softNormalize(
+          input,
+          language: PrayerLanguage.traditionalChinese,
+        );
+        expect(result, '譴責罪惡');
+      });
+    });
+  });
+
+  group('sourceTypoFixes', () {
+    test('Latin typo replacements work in softNormalize', () {
+      expect(
+        softNormalize(
+          'víirgine viirgine &uacutes &iacute &oacute &aelig',
+          language: PrayerLanguage.latin,
+        ),
+        'virginevirgineusioae',
+      );
+    });
+
+    test('Spanish typo replacements work in softNormalize', () {
+      expect(softNormalize('sólo', language: PrayerLanguage.spanish), 'solo');
+    });
+
+    test('Vietnamese typo replacements work in softNormalize', () {
+      expect(
+        softNormalize(
+          'chúa chúa hàng ngày khi nay nhầt quỉ cơ bình',
+          language: PrayerLanguage.vietnamese,
+        ),
+        'chúahằngngàykhinàynhấtqủycơbinh',
+      );
+    });
+
+    test('Traditional Chinese typo replacements work in softNormalize', () {
+      expect(
+        softNormalize('遣責', language: PrayerLanguage.traditionalChinese),
+        '譴責',
+      );
+    });
+  });
+
+  group('slicePrayerLines', () {
+    final sampleLines = ['Line 1', 'Line 2', 'Line 3', 'Line 4', 'Line 5'];
+
+    test('slices 1-indexed range correctly', () {
+      final slice1 = slicePrayerLines(sampleLines, startLine: 1, endLine: 3);
+      expect(slice1, ['Line 1', 'Line 2', 'Line 3']);
+
+      final slice2 = slicePrayerLines(sampleLines, startLine: 3, endLine: 4);
+      expect(slice2, ['Line 3', 'Line 4']);
+
+      final slice3 = slicePrayerLines(sampleLines, startLine: 4, endLine: 5);
+      expect(slice3, ['Line 4', 'Line 5']);
+    });
+
+    test('handles default bounds when startLine or endLine are omitted', () {
+      final slice = slicePrayerLines(sampleLines);
+      expect(slice, sampleLines);
+    });
+
+    test('clamps out-of-bounds startLine and endLine safely', () {
+      final slice = slicePrayerLines(sampleLines, startLine: -5, endLine: 100);
+      expect(slice, sampleLines);
+    });
+  });
+
+  group('HTTP Response Handling & Decoding', () {
+    test('decodes standard UTF-8 response bytes', () {
+      const original = '<p>Kính Mừng Maria, đầy ơn phúc</p>';
+      final bytes = utf8.encode(original);
+      final decoded = decodeHtmlBytes(bytes, 'https://example.com/prayer');
+      expect(decoded, original);
+    });
+
+    test('decodes Latin-1 bytes for maranatha.it', () {
+      const original = '<p>Signore, pietà. Cristo, pietà.</p>';
+      final bytes = latin1.encode(original);
+      final decoded = decodeHtmlBytes(
+        bytes,
+        'https://www.maranatha.it/RitoMessa/missaetext.htm',
+      );
+      expect(decoded, original);
+    });
+
+    test('recovers from malformed UTF-8 bytes with fallback', () {
+      final malformedBytes = [0xFF, 0xFE, 0x41, 0x42];
+      final decoded = decodeHtmlBytes(
+        malformedBytes,
+        'https://example.com/page',
+      );
+      expect(decoded.isNotEmpty, isTrue);
+    });
+
+    test('fetchHtml throws HttpException when response is not 200', () async {
+      final mockClient = MockClient((request) async {
+        if (request.url.path.contains('not-found')) {
+          return http.Response('Not Found', 404);
+        }
+        return http.Response('Internal Error', 500);
+      });
+
+      expect(
+        () => fetchHtml('https://example.com/not-found', client: mockClient),
+        throwsA(isA<HttpException>()),
+      );
+
+      expect(
+        () => fetchHtml('https://example.com/server-error', client: mockClient),
+        throwsA(isA<HttpException>()),
+      );
+    });
+
+    test('parses HTML and extracts body text cleanly', () {
+      const html = '''
+<!DOCTYPE html>
+<html>
+  <head><title>Test Prayer</title></head>
+  <body>
+    <h1>Our Father</h1>
+    <p>Our Father, who art in heaven,</p>
+    <p>hallowed be thy name;</p>
+    <div><span>thy kingdom come;</span></div>
+  </body>
+</html>
+''';
+      final document = html_parser.parse(html);
+      final pageText = document.body?.text ?? '';
+      final normalized = softNormalize(
+        pageText,
+        language: PrayerLanguage.english,
+      );
+
+      expect(normalized, contains('ourfatherwhoartinheaven'));
+      expect(normalized, contains('hallowedbethyname'));
+      expect(normalized, contains('thykingdomcome'));
+    });
+  });
+
+  group('Offline Prayer Database Source Verification (MockClient)', () {
     final jsonFile = File('assets/prayers.json');
     if (!jsonFile.existsSync()) {
       throw Exception(
@@ -255,7 +294,7 @@ void main() {
     final List<dynamic> prayersList =
         jsonDecode(jsonFile.readAsStringSync()) as List<dynamic>;
 
-    // Build URL-to-text fixture map for offline MockClient execution
+    // Build URL-to-text fixture map for deterministic offline MockClient execution
     final Map<String, List<String>> urlToLinesMap = {};
     for (final pMap in prayersList) {
       if (pMap is! Map<String, dynamic>) continue;
@@ -282,9 +321,11 @@ void main() {
               final srcUrl = rawSrcUrl.split('#').first;
               final startLine = (srcMap['start_line'] as int?) ?? 1;
               final endLine = (srcMap['end_line'] as int?) ?? lines.length;
-              final int startIdx = (startLine - 1).clamp(0, lines.length);
-              final int endIdx = endLine.clamp(startIdx, lines.length);
-              final srcLines = lines.sublist(startIdx, endIdx);
+              final srcLines = slicePrayerLines(
+                lines,
+                startLine: startLine,
+                endLine: endLine,
+              );
               urlToLinesMap.putIfAbsent(srcUrl, () => []).addAll(srcLines);
             }
           } else {
@@ -327,458 +368,8 @@ void main() {
       );
     });
 
-    final defaultClient = isLive ? http.Client() : mockHttpClient;
+    final Map<String, String> htmlCache = {};
 
-    Future<String> fetchHtml(String url, {http.Client? client}) async {
-      final activeClient = client ?? defaultClient;
-      // Strip any fragment/anchor (e.g. #P1) from the URL to share cache across the same page
-      final cleanUrl = url.split('#').first;
-      if (htmlCache.containsKey(cleanUrl)) {
-        return htmlCache[cleanUrl]!;
-      }
-
-      final uri = Uri.parse(cleanUrl);
-      final isWaybackOnly = waybackOnlyDomains.contains(uri.host);
-
-      http.Response response;
-      if (isWaybackOnly) {
-        final waybackUrl = 'https://web.archive.org/web/20260101/$cleanUrl';
-        try {
-          response = await activeClient
-              .get(
-                Uri.parse(waybackUrl),
-                headers: {'User-Agent': 'Mozilla/5.0'},
-              )
-              .timeout(const Duration(seconds: 15));
-        } catch (e) {
-          throw NetworkSkipException(
-            'Failed to fetch from Wayback Machine: $e',
-          );
-        }
-      } else {
-        try {
-          response = await activeClient
-              .get(
-                uri,
-                headers: {
-                  'User-Agent':
-                      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-                },
-              )
-              .timeout(const Duration(seconds: 15));
-
-          final pageText = response.body.toLowerCase();
-          final isBlocked =
-              response.statusCode == 403 ||
-              response.statusCode == 503 ||
-              pageText.contains('cloudflare') ||
-              pageText.contains('security check') ||
-              (pageText.contains('captcha') &&
-                  !pageText.contains('wgconfirmedit')) ||
-              pageText.contains('sucuri') ||
-              pageText.contains('access denied') ||
-              pageText.contains('challenge-platform') ||
-              pageText.contains('ray id') ||
-              pageText.contains('please enable cookies');
-
-          if (isBlocked) {
-            // Try fetching from the Internet Archive Wayback Machine as a fallback
-            final waybackUrl = 'https://web.archive.org/web/20260101/$cleanUrl';
-            try {
-              final waybackResponse = await activeClient
-                  .get(
-                    Uri.parse(waybackUrl),
-                    headers: {'User-Agent': 'Mozilla/5.0'},
-                  )
-                  .timeout(const Duration(seconds: 15));
-              if (waybackResponse.statusCode == 200) {
-                response = waybackResponse;
-              } else {
-                throw NetworkSkipException(
-                  'Blocked on live site and Wayback Machine returned HTTP ${waybackResponse.statusCode}',
-                );
-              }
-            } catch (e) {
-              if (e is NetworkSkipException) rethrow;
-              throw NetworkSkipException(
-                'Blocked on live site and Wayback Machine fetch failed: $e',
-              );
-            }
-          }
-        } catch (e) {
-          if (e is NetworkSkipException) rethrow;
-          // If a network exception or timeout occurs, try the Wayback Machine
-          final waybackUrl = 'https://web.archive.org/web/20260101/$cleanUrl';
-          try {
-            response = await activeClient
-                .get(
-                  Uri.parse(waybackUrl),
-                  headers: {'User-Agent': 'Mozilla/5.0'},
-                )
-                .timeout(const Duration(seconds: 15));
-          } catch (we) {
-            throw NetworkSkipException(
-              'Live fetch failed ($e) and Wayback Machine fetch failed ($we)',
-            );
-          }
-        }
-      }
-
-      if (response.statusCode != 200) {
-        throw NetworkSkipException(
-          'Failed to fetch $cleanUrl: HTTP ${response.statusCode}',
-        );
-      }
-
-      // Convert body to UTF-8, fall back to Latin-1 if it fails (e.g. windows-1252 pages)
-      // For maranatha.it, we decode directly as Latin-1. For others, we try strict UTF-8 first,
-      // falling back to UTF-8 with malformed replacement to recover valid characters, and finally to Latin-1.
-      String html;
-      if (cleanUrl.contains('maranatha.it')) {
-        html = latin1.decode(response.bodyBytes);
-      } else {
-        try {
-          html = utf8.decode(response.bodyBytes);
-        } catch (_) {
-          try {
-            html = utf8.decode(response.bodyBytes, allowMalformed: true);
-          } catch (_) {
-            html = latin1.decode(response.bodyBytes);
-          }
-        }
-      }
-      htmlCache[cleanUrl] = html;
-      return html;
-    }
-
-    // A robust soft normalization to handle HTML tag spacing, punctuation, accents, and casing.
-    String softNormalize(String text, {required PrayerLanguage language}) {
-      // Strip Wikipedia footnote reference tags like [a] or [1]
-      String res = text
-          .replaceAll(RegExp(r'\[\w\]'), '')
-          .replaceAll(RegExp(r'\[\d+\]'), '');
-      // Strip bracket symbols themselves but preserve their inner content (e.g. for [Như đã có...])
-      res = res.replaceAll('[', '').replaceAll(']', '');
-
-      res = res.toLowerCase();
-
-      // Strip call/response symbols, role labels, and prompt headers that are
-      // present in web sources but omitted in the application's local text database.
-      // This is done before stripping whitespace and punctuation so that multi-word
-      // labels (like "người xướng" and "đọc chung") can be matched accurately.
-      res = res
-          .replaceAll(RegExp(r'(^|\s)[℣℟vVrR]\.?(\s|$)'), ' ')
-          .replaceAll(RegExp(r'(^|\s)[vVrR]/(\s|$)'), ' ')
-          .replaceAll('namumuno', '')
-          .replaceAll('bayan', '')
-          .replaceAll('người đọc', '')
-          .replaceAll('người xướng', '')
-          .replaceAll('người đáp', '')
-          .replaceAll('đọc chung', '')
-          .replaceAll('xướng', '')
-          .replaceAll('đáp', '')
-          .replaceAll('linh mục', '')
-          .replaceAll('chủ tế', '')
-          .replaceAll('cộng đoàn', '')
-          .replaceAll('giáo dân', '')
-          .replaceAll('phó tế', '')
-          .replaceAll('領經者', '')
-          .replaceAll('主祭', '')
-          .replaceAll('全體', '')
-          .replaceAll('啟：', '')
-          .replaceAll('應：', '')
-          .replaceAll('啟', '')
-          .replaceAll('應', '');
-
-      // Apply language-specific external source typo fixes
-      final fixesForLanguage = sourceTypoFixes[language];
-      if (fixesForLanguage != null) {
-        for (final entry in fixesForLanguage.entries) {
-          res = res.replaceAll(entry.key, entry.value);
-        }
-      }
-
-      if (language == PrayerLanguage.latin) {
-        res = res
-            .replaceAll('á', 'a')
-            .replaceAll('é', 'e')
-            .replaceAll('í', 'i')
-            .replaceAll('ó', 'o')
-            .replaceAll('ú', 'u')
-            .replaceAll('ý', 'y')
-            .replaceAll('æ', 'ae')
-            .replaceAll('œ', 'oe')
-            .replaceAll('ǽ', 'ae');
-      }
-
-      if (language == PrayerLanguage.vietnamese) {
-        // Normalize Icelandic Eth (used on older sites like conggiao.org) to Vietnamese D-with-stroke
-        res = res.replaceAll('ð', 'đ');
-
-        // Compose decomposed Unicode combining diacritics into precomposed NFC characters
-        const baseMap = {
-          'a\u0306': 'ă',
-          'a\u0302': 'â',
-          'e\u0302': 'ê',
-          'o\u0302': 'ô',
-          'o\u031b': 'ơ',
-          'u\u031b': 'ư',
-          'd\u0335': 'đ',
-        };
-        for (final entry in baseMap.entries) {
-          res = res.replaceAll(entry.key, entry.value);
-        }
-
-        const toneMap = {
-          'a\u0300': 'à',
-          'a\u0301': 'á',
-          'a\u0309': 'ả',
-          'a\u0303': 'ã',
-          'a\u0323': 'ạ',
-          'ă\u0300': 'ằ',
-          'ă\u0301': 'ắ',
-          'ă\u0309': 'ẳ',
-          'ă\u0303': 'ẵ',
-          'ă\u0323': 'ặ',
-          'â\u0300': 'ầ',
-          'â\u0301': 'ấ',
-          'â\u0309': 'ẩ',
-          'â\u0303': 'ẫ',
-          'â\u0323': 'ậ',
-          'e\u0300': 'è',
-          'e\u0301': 'é',
-          'e\u0309': 'ẻ',
-          'e\u0303': 'ẽ',
-          'e\u0323': 'ẹ',
-          'ê\u0300': 'ề',
-          'ê\u0301': 'ế',
-          'ê\u0309': 'ể',
-          'ê\u0303': 'ễ',
-          'ê\u0323': 'ệ',
-          'i\u0300': 'ì',
-          'i\u0301': 'í',
-          'i\u0309': 'ỉ',
-          'i\u0303': 'ĩ',
-          'i\u0323': 'ị',
-          'o\u0300': 'ò',
-          'o\u0301': 'ó',
-          'o\u0309': 'ỏ',
-          'o\u0303': 'õ',
-          'o\u0323': 'ọ',
-          'ô\u0300': 'ồ',
-          'ô\u0301': 'ố',
-          'ô\u0309': 'ổ',
-          'ô\u0303': 'ỗ',
-          'ô\u0323': 'ộ',
-          'ơ\u0300': 'ờ',
-          'ơ\u0301': 'ớ',
-          'ơ\u0309': 'ở',
-          'ơ\u0303': 'ỡ',
-          'ơ\u0323': 'ợ',
-          'u\u0300': 'ù',
-          'u\u0301': 'ú',
-          'u\u0309': 'ủ',
-          'u\u0303': 'ũ',
-          'u\u0323': 'ụ',
-          'ư\u0300': 'ừ',
-          'ư\u0301': 'ứ',
-          'ư\u0309': 'ử',
-          'ư\u0303': 'ữ',
-          'ư\u0323': 'ự',
-          'y\u0300': 'ỳ',
-          'y\u0301': 'ý',
-          'y\u0309': 'ỷ',
-          'y\u0303': 'ỹ',
-          'y\u0323': 'ỵ',
-        };
-        for (final entry in toneMap.entries) {
-          res = res.replaceAll(entry.key, entry.value);
-        }
-
-        // Normalize old-style diphthong accent placement to modern-style
-        const diphthongMap = {
-          'oá': 'óa',
-          'oà': 'òa',
-          'oả': 'ỏa',
-          'oã': 'õa',
-          'oạ': 'ọa',
-          'uý': 'úy',
-          'uỳ': 'ùy',
-          'uỷ': 'ủy',
-          'uỹ': 'ũy',
-          'uỵ': 'ụy',
-          'oé': 'óe',
-          'oè': 'òe',
-          'oẻ': 'ỏe',
-          'oẽ': 'õe',
-          'oẹ': 'ọe',
-        };
-        for (final entry in diphthongMap.entries) {
-          res = res.replaceAll(entry.key, entry.value);
-        }
-      }
-
-      final isLatin = language == PrayerLanguage.latin;
-      if (isLatin) {
-        // Latin is normalized (accent/diacritic stripping and ligature expansion) because:
-        // 1. Liturgical Latin source texts (like the Vatican Compendium) use variable pronunciation/chanting
-        //    accents (e.g. 'Dóminus', 'María') that do not alter grammatical meaning, unlike modern languages
-        //    (e.g., Spanish, French, Vietnamese) where accents change word meaning.
-        // 2. Different sources use ligatures (æ/œ) interchangeably with standard letter pairings (ae/oe).
-        // Stripping accents/ligatures only for Latin prevents false mismatches due to style and typography
-        // while preserving strict accent checks for modern languages.
-        res = res
-            .replaceAll('j', 'i')
-            .replaceAll('æ', 'ae')
-            .replaceAll('ǽ', 'ae')
-            .replaceAll('œ', 'oe')
-            .replaceAll('à', 'a')
-            .replaceAll('á', 'a')
-            .replaceAll('â', 'a')
-            .replaceAll('ã', 'a')
-            .replaceAll('ä', 'a')
-            .replaceAll('å', 'a')
-            .replaceAll('ā', 'a')
-            .replaceAll('ă', 'a')
-            .replaceAll('ą', 'a')
-            .replaceAll('è', 'e')
-            .replaceAll('é', 'e')
-            .replaceAll('ê', 'e')
-            .replaceAll('ë', 'e')
-            .replaceAll('ē', 'e')
-            .replaceAll('ĕ', 'e')
-            .replaceAll('ė', 'e')
-            .replaceAll('ę', 'e')
-            .replaceAll('ě', 'e')
-            .replaceAll('ì', 'i')
-            .replaceAll('í', 'i')
-            .replaceAll('î', 'i')
-            .replaceAll('ï', 'i')
-            .replaceAll('ĩ', 'i')
-            .replaceAll('ī', 'i')
-            .replaceAll('ĭ', 'i')
-            .replaceAll('į', 'i')
-            .replaceAll('ı', 'i')
-            .replaceAll('ò', 'o')
-            .replaceAll('ó', 'o')
-            .replaceAll('ô', 'o')
-            .replaceAll('õ', 'o')
-            .replaceAll('ö', 'o')
-            .replaceAll('ø', 'o')
-            .replaceAll('ō', 'o')
-            .replaceAll('ŏ', 'o')
-            .replaceAll('ő', 'o')
-            .replaceAll('ù', 'u')
-            .replaceAll('ú', 'u')
-            .replaceAll('û', 'u')
-            .replaceAll('ü', 'u')
-            .replaceAll('ũ', 'u')
-            .replaceAll('ū', 'u')
-            .replaceAll('ŭ', 'u')
-            .replaceAll('ů', 'u')
-            .replaceAll('ű', 'u')
-            .replaceAll('ų', 'u')
-            .replaceAll('ç', 'c')
-            .replaceAll('ć', 'c')
-            .replaceAll('ĉ', 'c')
-            .replaceAll('ċ', 'c')
-            .replaceAll('č', 'c')
-            .replaceAll('ď', 'd')
-            .replaceAll('đ', 'd')
-            .replaceAll('ĝ', 'g')
-            .replaceAll('ğ', 'g')
-            .replaceAll('ġ', 'g')
-            .replaceAll('ģ', 'g')
-            .replaceAll('ĥ', 'h')
-            .replaceAll('ħ', 'h')
-            .replaceAll('ĵ', 'j')
-            .replaceAll('ķ', 'k')
-            .replaceAll('ĺ', 'l')
-            .replaceAll('ļ', 'l')
-            .replaceAll('ľ', 'l')
-            .replaceAll('ł', 'l')
-            .replaceAll('ń', 'n')
-            .replaceAll('ņ', 'n')
-            .replaceAll('ň', 'n')
-            .replaceAll('ŉ', 'n')
-            .replaceAll('ŕ', 'r')
-            .replaceAll('ŗ', 'r')
-            .replaceAll('ř', 'r')
-            .replaceAll('ś', 's')
-            .replaceAll('ŝ', 's')
-            .replaceAll('ş', 's')
-            .replaceAll('š', 's')
-            .replaceAll('ţ', 't')
-            .replaceAll('ť', 't')
-            .replaceAll('ŧ', 't')
-            .replaceAll('ŵ', 'w')
-            .replaceAll('ŷ', 'y')
-            .replaceAll('ÿ', 'y')
-            .replaceAll('ź', 'z')
-            .replaceAll('ż', 'z')
-            .replaceAll('ž', 'z');
-      }
-
-      res = res
-          .replaceAll('’', "'")
-          .replaceAll('‘', "'")
-          .replaceAll('“', '"')
-          .replaceAll('”', '"');
-
-      // Strip all straight quotes first
-      res = res.replaceAll('"', '').replaceAll("'", '');
-
-      // Strip all punctuation, markdown italics asterisks, and whitespace to do a character-sequence only match.
-      // This includes Western and Chinese full-width punctuation.
-      res = res.replaceAll(
-        RegExp(r"[*.,;:!?\-\(\)«»‘’“”\s\u00A0\u200b，。、；：！？「」『』/]+"),
-        '',
-      );
-
-      res = res
-          .replaceAll('amen', '')
-          .replaceAll('amén', '')
-          .replaceAll('amên', '')
-          .replaceAll('亞孟', '')
-          .replaceAll('阿們', '')
-          .replaceAll('阿門', '')
-          .replaceAll('priest', '')
-          .replaceAll('people', '')
-          .replaceAll('deacon', '')
-          .replaceAll('reader', '')
-          .replaceAll('sacerdos', '')
-          .replaceAll('populus', '')
-          .replaceAll('diaconus', '')
-          .replaceAll('lector', '')
-          .replaceAll('sacerdote', '')
-          .replaceAll('asamblea', '')
-          .replaceAll('pueblo', '')
-          .replaceAll('diácono', '')
-          .replaceAll('linhmục', '')
-          .replaceAll('chủtế', '')
-          .replaceAll('cộngđoàn', '')
-          .replaceAll('giáodân', '')
-          .replaceAll('phótế', '')
-          .replaceAll('ngườiđọc', '')
-          .replaceAll('prêtre', '')
-          .replaceAll('lecteur', '')
-          .replaceAll('popolo', '')
-          .replaceAll('lettore', '')
-          .replaceAll('pari', '')
-          .replaceAll('namumuno', '')
-          .replaceAll('bayan', '')
-          .replaceAll('領經者', '')
-          .replaceAll('主祭', '')
-          .replaceAll('全體', '')
-          .replaceAll('✠', '')
-          .replaceAll('†', '')
-          .replaceAll('&#10016;', '')
-          .replaceAll('&#8224;', '');
-
-      return res;
-    }
-
-    // Run remote URL verification checks for each translation
     for (final pMap in prayersList) {
       final prayerId = pMap['id'] as String;
       final transMap = pMap['translations'] as Map<String, dynamic>;
@@ -786,7 +377,7 @@ void main() {
       for (final entry in transMap.entries) {
         final languageStr = entry.key;
         final language = PrayerLanguage.values.firstWhere(
-          (e) => e.toString().split('.').last == languageStr,
+          (e) => e.code == languageStr,
           orElse: () => PrayerLanguage.english,
         );
 
@@ -808,87 +399,91 @@ void main() {
           test(
             'Verify $prayerId in ${language.name}$suffix matches source text',
             () async {
-              try {
-                final sourcesList = tMap['sources'] as List<dynamic>?;
+              final sourcesList = tMap['sources'] as List<dynamic>?;
 
-                // Split the prayer into lines by newline to verify each line exists on the page.
-                final lines = text
-                    .split('\n')
-                    .where((line) => line.trim().isNotEmpty)
-                    .map((line) => softNormalize(line, language: language))
-                    .toList();
+              final lines = text
+                  .split('\n')
+                  .where((line) => line.trim().isNotEmpty)
+                  .map((line) => softNormalize(line, language: language))
+                  .toList();
 
-                bool allLinesMatched = true;
-                final missingLines = <String>[];
-                final missingDetails = <String>[];
+              bool allLinesMatched = true;
+              final missingDetails = <String>[];
 
-                if (sourcesList != null && sourcesList.isNotEmpty) {
-                  // Multi-source verification
-                  for (final src in sourcesList) {
-                    if (src is! Map<String, dynamic>) continue;
-                    final srcMap = src;
-                    final srcName = (srcMap['name'] as String?) ?? 'Source';
-                    final rawSrcUrl = srcMap['url'] as String?;
-                    if (rawSrcUrl == null || rawSrcUrl.isEmpty) continue;
-                    final startLine = (srcMap['start_line'] as int?) ?? 1;
-                    final endLine =
-                        (srcMap['end_line'] as int?) ?? lines.length;
+              if (sourcesList != null && sourcesList.isNotEmpty) {
+                for (final src in sourcesList) {
+                  if (src is! Map<String, dynamic>) continue;
+                  final srcName = (src['name'] as String?) ?? 'Source';
+                  final rawSrcUrl = src['url'] as String?;
+                  if (rawSrcUrl == null || rawSrcUrl.isEmpty) continue;
+                  final startLine = src['start_line'] as int?;
+                  final endLine = src['end_line'] as int?;
 
-                    final html = await fetchHtml(rawSrcUrl);
-                    final document = html_parser.parse(html);
-                    final pageText = document.body?.text ?? '';
-                    final softPage = softNormalize(
-                      pageText,
-                      language: language,
-                    );
-
-                    // Extract the lines belonging to this source (1-based indices)
-                    final int startIdx = (startLine - 1).clamp(0, lines.length);
-                    final int endIdx = endLine.clamp(startIdx, lines.length);
-                    final srcLines = lines.sublist(startIdx, endIdx);
-                    for (final line in srcLines) {
-                      if (!softPage.contains(line)) {
-                        allLinesMatched = false;
-                        missingLines.add(line);
-                        missingDetails.add(
-                          '"$line" (from $srcName: $rawSrcUrl)',
-                        );
-                      }
-                    }
-                  }
-                } else if (sourceUrl != null && sourceUrl.isNotEmpty) {
-                  // Fallback to standard single-source verification
-                  final html = await fetchHtml(sourceUrl);
+                  final html = await fetchHtml(
+                    rawSrcUrl,
+                    client: mockHttpClient,
+                    cache: htmlCache,
+                  );
                   final document = html_parser.parse(html);
                   final pageText = document.body?.text ?? '';
                   final softPage = softNormalize(pageText, language: language);
 
-                  for (final line in lines) {
+                  final srcLines = slicePrayerLines(
+                    lines,
+                    startLine: startLine,
+                    endLine: endLine,
+                  );
+
+                  for (final line in srcLines) {
                     if (!softPage.contains(line)) {
                       allLinesMatched = false;
-                      missingLines.add(line);
-                      missingDetails.add('"$line" (from $sourceUrl)');
+                      missingLinesDetails(
+                        missingDetails,
+                        line,
+                        '$srcName: $rawSrcUrl',
+                      );
                     }
                   }
                 }
+              } else if (sourceUrl != null && sourceUrl.isNotEmpty) {
+                final html = await fetchHtml(
+                  sourceUrl,
+                  client: mockHttpClient,
+                  cache: htmlCache,
+                );
+                final document = html_parser.parse(html);
+                final pageText = document.body?.text ?? '';
+                final softPage = softNormalize(pageText, language: language);
 
-                if (!allLinesMatched) {
-                  final errorMsg =
-                      'Prayer text was not found in the source URLs:\n'
-                      'Missing lines:\n${missingDetails.join('\n')}';
-                  fail(errorMsg);
+                for (final line in lines) {
+                  if (!softPage.contains(line)) {
+                    allLinesMatched = false;
+                    missingLinesDetails(missingDetails, line, sourceUrl);
+                  }
                 }
-
-                expect(allLinesMatched, isTrue);
-              } on NetworkSkipException catch (e) {
-                // ignore: avoid_print
-                print('Skipping test due to network/blocking issue: $e');
+              } else {
+                allLinesMatched = false;
+                missingDetails.add(
+                  'No source URL configured for $prayerId [$languageStr]',
+                );
               }
+
+              if (!allLinesMatched) {
+                final errorMsg =
+                    'Prayer text was not found in the source URLs:\n'
+                    'Missing lines:\n${missingDetails.join('\n')}';
+                fail(errorMsg);
+              }
+
+              expect(allLinesMatched, isTrue);
             },
-            timeout: const Timeout(Duration(seconds: 30)),
           );
         }
       }
     }
   });
+}
+
+void missingLinesDetails(List<String> details, String line, String source) {
+  details.add('"$line" (from $source)');
 }
