@@ -151,7 +151,7 @@ class BiblePageRibbon extends StatelessWidget {
       elevation: 2.0,
       shadowColor: Colors.black38,
       color: color,
-      child: const SizedBox(width: 8.0),
+      child: const SizedBox(width: 16.0),
     );
   }
 }
@@ -160,6 +160,9 @@ class BiblePageRibbonsWidget extends StatelessWidget {
   final List<BibleRibbonBookmark>? bookmarks;
   final int bookNumber;
   final int chapter;
+  final double top;
+  final double bottom;
+  final double left;
 
   static const List<Color> ribbonColors = BibleRibbonsWidget.ribbonColors;
 
@@ -168,6 +171,9 @@ class BiblePageRibbonsWidget extends StatelessWidget {
     this.bookmarks,
     required this.bookNumber,
     required this.chapter,
+    this.top = 0.0,
+    this.bottom = 0.0,
+    this.left = 4.0,
   });
 
   @override
@@ -189,9 +195,9 @@ class BiblePageRibbonsWidget extends StatelessWidget {
     }
 
     return Positioned(
-      top: 0,
-      bottom: 0,
-      left: 4.0,
+      top: top,
+      bottom: bottom,
+      left: left,
       child: IgnorePointer(
         child: BiblePageRibbon(ribbonIndex: matchingBookmark.ribbonIndex),
       ),
