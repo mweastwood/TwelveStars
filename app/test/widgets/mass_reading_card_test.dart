@@ -636,6 +636,85 @@ void main() {
   });
 
   testGoldens(
+    'BibleVerseRow renders all visual states correctly on widescreen',
+    (tester) async {
+      final builder = GoldenBuilder.column()
+        ..addScenario(
+          'Default Verse',
+          const BibleVerseRow(
+            verseNumber: 1,
+            verseText: 'In the beginning God created heaven, and earth.',
+          ),
+        )
+        ..addScenario(
+          'Selected Verse',
+          const BibleVerseRow(
+            verseNumber: 2,
+            verseText: 'And the earth was void and empty.',
+            isSelected: true,
+          ),
+        )
+        ..addScenario(
+          'Verse with Favorite Badge',
+          const BibleVerseRow(
+            verseNumber: 3,
+            verseText: 'And God said: Be light made. And light was made.',
+            isFavorite: true,
+          ),
+        )
+        ..addScenario(
+          'Verse with References Badge',
+          const BibleVerseRow(
+            verseNumber: 4,
+            verseText: 'And God saw the light that it was good.',
+            citationsCount: 3,
+          ),
+        )
+        ..addScenario(
+          'Verse with Comments Badge',
+          const BibleVerseRow(
+            verseNumber: 5,
+            verseText: 'And he called the light Day, and the darkness Night.',
+            commentsCount: 1,
+          ),
+        )
+        ..addScenario(
+          'Verse with All Badges (Favorite, References, Comments)',
+          const BibleVerseRow(
+            verseNumber: 6,
+            verseText:
+                'And there was evening and morning that made the first day.',
+            isFavorite: true,
+            citationsCount: 2,
+            commentsCount: 2,
+          ),
+        )
+        ..addScenario(
+          'Parallel Translation Comparison',
+          const BibleVerseRow(
+            verseNumber: 7,
+            verseText:
+                'And God said: Let there be a firmament made amidst the waters.',
+            compareVerseText:
+                'Dixit quoque Deus: Fiat firmamentum in medio aquarum.',
+          ),
+        );
+
+      await tester.pumpWidgetBuilder(
+        builder.build(),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(800, 800),
+      );
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(
+        tester,
+        'bible_verse_row_scenarios_widescreen_golden',
+      );
+    },
+  );
+
+  testGoldens(
     'MassReadingCard renders references and comments badges correctly',
     (tester) async {
       ReverseCitationService.clear();
