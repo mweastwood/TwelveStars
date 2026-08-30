@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
 
 class BibleVerseRow extends StatelessWidget {
   final int verseNumber;
@@ -34,14 +35,123 @@ class BibleVerseRow extends StatelessWidget {
     this.onTapFavorite,
   });
 
+  Widget _buildFavoriteChip(BuildContext context, ThemeData theme) {
+    return InkWell(
+      mouseCursor: SystemMouseCursors.click,
+      onTap: onTapFavorite,
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.primaryContainer.withValues(alpha: 0.8),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: theme.colorScheme.primary.withValues(alpha: 0.4),
+          ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.star_rounded,
+              size: 13,
+              color: theme.colorScheme.onPrimaryContainer,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCitationsChip(BuildContext context, ThemeData theme) {
+    return InkWell(
+      mouseCursor: SystemMouseCursors.click,
+      onTap: onTapCitations,
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.tertiaryContainer.withValues(alpha: 0.8),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: theme.colorScheme.tertiary.withValues(alpha: 0.4),
+          ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.auto_stories_rounded,
+              size: 13,
+              color: theme.colorScheme.onTertiaryContainer,
+            ),
+            const SizedBox(width: 4),
+            Text(
+              '$citationsCount',
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.onTertiaryContainer,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCommentsChip(BuildContext context, ThemeData theme) {
+    return InkWell(
+      mouseCursor: SystemMouseCursors.click,
+      onTap: onTapComments,
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.secondaryContainer.withValues(alpha: 0.8),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: theme.colorScheme.secondary.withValues(alpha: 0.4),
+          ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.comment_rounded,
+              size: 13,
+              color: theme.colorScheme.onSecondaryContainer,
+            ),
+            const SizedBox(width: 4),
+            Text(
+              '$commentsCount',
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.onSecondaryContainer,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isWide = isWideScreen(context);
     final hasAlternateVerse =
         alternateVerseNumber != null && alternateVerseNumber!.isNotEmpty;
     final verseNumText = hasAlternateVerse
         ? '$verseNumber ($alternateVerseNumber)'
         : '$verseNumber';
+
+    final chips = <Widget>[
+      if (isFavorite) _buildFavoriteChip(context, theme),
+      if (citationsCount > 0) _buildCitationsChip(context, theme),
+      if (commentsCount > 0) _buildCommentsChip(context, theme),
+    ];
 
     return GestureDetector(
       onLongPress: onLongPress,
@@ -111,122 +221,29 @@ class BibleVerseRow extends StatelessWidget {
                 ),
               ),
             ],
-            if (isFavorite) ...[
+            if (chips.isNotEmpty) ...[
               const SizedBox(width: 8),
-              InkWell(
-                mouseCursor: SystemMouseCursors.click,
-                onTap: onTapFavorite,
-                borderRadius: BorderRadius.circular(12),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.primaryContainer.withValues(
-                      alpha: 0.8,
-                    ),
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(
-                      color: theme.colorScheme.primary.withValues(alpha: 0.4),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(
-                        Icons.star_rounded,
-                        size: 13,
-                        color: theme.colorScheme.onPrimaryContainer,
-                      ),
+              if (isWide)
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    for (int i = 0; i < chips.length; i++) ...[
+                      if (i > 0) const SizedBox(width: 8),
+                      chips[i],
                     ],
-                  ),
-                ),
-              ),
-            ],
-            if (citationsCount > 0) ...[
-              const SizedBox(width: 8),
-              InkWell(
-                mouseCursor: SystemMouseCursors.click,
-                onTap: onTapCitations,
-                borderRadius: BorderRadius.circular(12),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.tertiaryContainer.withValues(
-                      alpha: 0.8,
-                    ),
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(
-                      color: theme.colorScheme.tertiary.withValues(alpha: 0.4),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(
-                        Icons.auto_stories_rounded,
-                        size: 13,
-                        color: theme.colorScheme.onTertiaryContainer,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        '$citationsCount',
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.onTertiaryContainer,
-                        ),
-                      ),
+                  ],
+                )
+              else
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    for (int i = 0; i < chips.length; i++) ...[
+                      if (i > 0) const SizedBox(height: 4),
+                      chips[i],
                     ],
-                  ),
+                  ],
                 ),
-              ),
-            ],
-            if (commentsCount > 0) ...[
-              const SizedBox(width: 8),
-              InkWell(
-                mouseCursor: SystemMouseCursors.click,
-                onTap: onTapComments,
-                borderRadius: BorderRadius.circular(12),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.secondaryContainer.withValues(
-                      alpha: 0.8,
-                    ),
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(
-                      color: theme.colorScheme.secondary.withValues(alpha: 0.4),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(
-                        Icons.comment_rounded,
-                        size: 13,
-                        color: theme.colorScheme.onSecondaryContainer,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        '$commentsCount',
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.onSecondaryContainer,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
             ],
           ],
         ),
