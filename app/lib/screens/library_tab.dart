@@ -522,7 +522,7 @@ class _LibraryTabState extends State<LibraryTab> {
             child: TabBarView(
               children: [
                 _buildCatalogTab(theme),
-                const ThematicQuoteBrowserScreen(),
+                const ThematicQuoteBrowserScreen(embedded: true),
                 _buildFavoritesTab(theme),
                 _buildCommentsTab(theme),
               ],

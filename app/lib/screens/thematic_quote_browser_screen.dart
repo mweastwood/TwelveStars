@@ -9,8 +9,13 @@ import 'package:twelve_stars/widgets/saint_details_sheet.dart';
 
 class ThematicQuoteBrowserScreen extends StatefulWidget {
   final String? initialThemeId;
+  final bool embedded;
 
-  const ThematicQuoteBrowserScreen({super.key, this.initialThemeId});
+  const ThematicQuoteBrowserScreen({
+    super.key,
+    this.initialThemeId,
+    this.embedded = false,
+  });
 
   @override
   State<ThematicQuoteBrowserScreen> createState() =>
@@ -131,40 +136,111 @@ class _ThematicQuoteBrowserScreenState
   void _openReaderContext(ThematicPassage passage) {
     final catalog = LibraryHelper.getCatalog();
     LibraryBookItem? matchedBook;
+    String? matchedVolumeKey;
+    String? matchedAssetPath;
 
     for (final b in catalog) {
       if (b.id == passage.bookId) {
         matchedBook = b;
+        matchedAssetPath = b.defaultAssetPath;
+        break;
+      }
+      if (b.defaultAssetPath != null &&
+          (b.defaultAssetPath == passage.bookId ||
+              b.defaultAssetPath!.endsWith('/${passage.bookId}.json') ||
+              b.defaultAssetPath!.contains(passage.bookId))) {
+        matchedBook = b;
+        matchedAssetPath = b.defaultAssetPath;
         break;
       }
       if (b.volumes != null) {
         for (final v in b.volumes!) {
           if (v.volumeKey == passage.bookId ||
+              v.assetPath == passage.bookId ||
+              v.assetPath.endsWith('/${passage.bookId}.json') ||
               v.assetPath.contains(passage.bookId)) {
             matchedBook = b;
+            matchedVolumeKey = v.volumeKey;
+            matchedAssetPath = v.assetPath;
             break;
           }
         }
       }
+      if (matchedBook != null) break;
     }
 
-    matchedBook ??= LibraryBookItem(
-      id: passage.bookId,
-      title: passage.bookTitle,
-      subtitle: '',
-      category: 'Catechisms',
-      author: passage.author,
-      description: '',
-      defaultAssetPath: 'assets/catechism/json/${passage.bookId}.json',
-    );
+    if (matchedBook == null) {
+      // Robust category inference for non-catechism passages (e.g. Fathers, Doctors, Scriptures)
+      String inferredCategory = 'Theology';
+      final lowerTitle = passage.bookTitle.toLowerCase();
+      final lowerAuthor = passage.author.toLowerCase();
+      final lowerId = passage.bookId.toLowerCase();
+
+      if (lowerTitle.contains('catechism') ||
+          lowerId.contains('baltimore') ||
+          lowerId.contains('trent')) {
+        inferredCategory = 'Catechisms';
+      } else if (lowerAuthor.contains('apostolic') ||
+          lowerId.contains('didache') ||
+          lowerId.contains('clement') ||
+          lowerId.contains('ignatius') ||
+          lowerId.contains('polycarp') ||
+          lowerId.contains('diognetus')) {
+        inferredCategory = 'Apostolic Fathers';
+      } else if (lowerAuthor.contains('augustine') ||
+          lowerAuthor.contains('chrysostom') ||
+          lowerAuthor.contains('athanasius') ||
+          lowerAuthor.contains('ambrose') ||
+          lowerAuthor.contains('basil') ||
+          lowerAuthor.contains('gregory') ||
+          lowerAuthor.contains('jerome') ||
+          lowerAuthor.contains('cyprian') ||
+          lowerAuthor.contains('cyril') ||
+          lowerAuthor.contains('damascene') ||
+          lowerAuthor.contains('irenaeus') ||
+          lowerAuthor.contains('justin')) {
+        inferredCategory = 'Early Church Fathers';
+      } else if (lowerAuthor.contains('aquinas') ||
+          lowerAuthor.contains('anselm') ||
+          lowerAuthor.contains('bonaventure') ||
+          lowerAuthor.contains('teresa') ||
+          lowerAuthor.contains('john of the cross') ||
+          lowerAuthor.contains('francis de sales')) {
+        inferredCategory = 'Doctor of the Church';
+      }
+
+      String assetPath = passage.bookId;
+      if (!assetPath.startsWith('assets/')) {
+        if (!assetPath.endsWith('.json')) {
+          assetPath = 'assets/catechism/json/$assetPath.json';
+        } else {
+          assetPath = 'assets/catechism/json/$assetPath';
+        }
+      }
+
+      matchedBook = LibraryBookItem(
+        id: passage.bookId,
+        title: passage.bookTitle,
+        subtitle: '',
+        category: inferredCategory,
+        author: passage.author,
+        authorSaintId: passage.authorSaintId,
+        description: '',
+        defaultAssetPath: assetPath,
+      );
+      matchedAssetPath = assetPath;
+    }
 
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => LibraryReaderScreen(
           bookItem: matchedBook!,
+          initialVolumeKey: matchedVolumeKey,
+          initialAssetPath: matchedAssetPath,
           initialSectionId: passage.sectionId,
           initialItemIndex: passage.itemIndex,
+          initialQuestionNumber: passage.questionNumber,
           navigationSessionId: DateTime.now().millisecondsSinceEpoch.toString(),
         ),
       ),
@@ -328,49 +404,138 @@ class _ThematicQuoteBrowserScreenState
     );
   }
 
+  Widget _buildThemeSelectorButton(ThemeData theme, String themeTitle) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(20),
+      onTap: () => _showThemePickerSheet(theme),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surfaceContainerHigh,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: theme.colorScheme.primary.withValues(alpha: 0.3),
+          ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Flexible(
+              child: Text(
+                themeTitle,
+                style: theme.textTheme.titleSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.primary,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            const SizedBox(width: 4),
+            Icon(
+              Icons.arrow_drop_down,
+              size: 20,
+              color: theme.colorScheme.primary,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final themeTitle = ThematicHelper.getThemeTitle(_selectedThemeId);
 
-    return Scaffold(
-      appBar: AppBar(
-        titleSpacing: 0,
-        title: InkWell(
-          borderRadius: BorderRadius.circular(20),
-          onTap: () => _showThemePickerSheet(theme),
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
-            decoration: BoxDecoration(
-              color: theme.colorScheme.surfaceContainerHigh,
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(
-                color: theme.colorScheme.primary.withValues(alpha: 0.3),
+    final bodyContent = _isLoading
+        ? const Center(child: CircularProgressIndicator())
+        : _passages.isEmpty
+        ? _buildEmptyState(theme)
+        : Stack(
+            children: [
+              PageView.builder(
+                controller: _pageController,
+                scrollDirection: Axis.vertical,
+                itemCount: _passages.length,
+                onPageChanged: (idx) {
+                  setState(() => _currentIndex = idx);
+                },
+                itemBuilder: (context, index) {
+                  return _buildInstagramQuoteCard(
+                    theme,
+                    _passages[index],
+                    index,
+                    _passages.length,
+                  );
+                },
               ),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Flexible(
-                  child: Text(
-                    themeTitle,
-                    style: theme.textTheme.titleSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.primary,
+              // Counter Pill top-right
+              Positioned(
+                top: 12,
+                right: 16,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.surface.withValues(alpha: 0.85),
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: theme.colorScheme.outlineVariant.withValues(
+                        alpha: 0.5,
+                      ),
                     ),
-                    overflow: TextOverflow.ellipsis,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withValues(alpha: 0.05),
+                        blurRadius: 4,
+                      ),
+                    ],
+                  ),
+                  child: Text(
+                    '${_currentIndex + 1} / ${_passages.length}',
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
                   ),
                 ),
-                const SizedBox(width: 4),
-                Icon(
-                  Icons.arrow_drop_down,
-                  size: 20,
-                  color: theme.colorScheme.primary,
+              ),
+            ],
+          );
+
+    if (widget.embedded) {
+      return Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: _buildThemeSelectorButton(theme, themeTitle),
+                  ),
+                ),
+                IconButton(
+                  tooltip: 'Reshuffle Quotes',
+                  icon: const Icon(Icons.shuffle_rounded),
+                  onPressed: () => _loadThemeData(reshuffle: true),
                 ),
               ],
             ),
           ),
-        ),
+          const Divider(height: 1),
+          Expanded(child: bodyContent),
+        ],
+      );
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        titleSpacing: 0,
+        title: _buildThemeSelectorButton(theme, themeTitle),
         actions: [
           IconButton(
             tooltip: 'Reshuffle Quotes',
@@ -379,63 +544,7 @@ class _ThematicQuoteBrowserScreenState
           ),
         ],
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : _passages.isEmpty
-          ? _buildEmptyState(theme)
-          : Stack(
-              children: [
-                PageView.builder(
-                  controller: _pageController,
-                  scrollDirection: Axis.vertical,
-                  itemCount: _passages.length,
-                  onPageChanged: (idx) {
-                    setState(() => _currentIndex = idx);
-                  },
-                  itemBuilder: (context, index) {
-                    return _buildInstagramQuoteCard(
-                      theme,
-                      _passages[index],
-                      index,
-                      _passages.length,
-                    );
-                  },
-                ),
-                // Counter Pill top-right
-                Positioned(
-                  top: 12,
-                  right: 16,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: theme.colorScheme.surface.withValues(alpha: 0.85),
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(
-                        color: theme.colorScheme.outlineVariant.withValues(
-                          alpha: 0.5,
-                        ),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.05),
-                          blurRadius: 4,
-                        ),
-                      ],
-                    ),
-                    child: Text(
-                      '${_currentIndex + 1} / ${_passages.length}',
-                      style: theme.textTheme.labelSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: theme.colorScheme.onSurfaceVariant,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+      body: bodyContent,
     );
   }
 
