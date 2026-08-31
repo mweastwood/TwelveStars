@@ -1,0 +1,3378 @@
+{
+  "generatedAt": "2026-08-30T22:03:14.133764",
+  "totalPassages": 218,
+  "passages": [
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 0,
+      "primaryTheme": "sacraments.general_liturgy",
+      "secondaryThemes": [
+        "theology.holy_spirit_grace",
+        "theology.christ_incarnation"
+      ],
+      "keyExcerpt": "A sacrament is a visible sign of invisible grace, instituted by Jesus Christ for our sanctification.",
+      "oneSentenceSummary": "St. Thomas defines a sacrament as an efficacious outward sign instituted by Christ to confer invisible sanctifying grace.",
+      "fullText": "1. A sacrament is a visible sign of invisible grace, instituted by Jesus Christ for our sanctification."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 1,
+      "primaryTheme": "sacraments.general_liturgy",
+      "secondaryThemes": [
+        "theology.holy_spirit_grace"
+      ],
+      "keyExcerpt": "Just as the natural life of man requires birth, growth, nourishment, healing from disease, recovery of strength, social governance, and propagation, so the supernatural life of grace requires the seven Sacraments.",
+      "oneSentenceSummary": "The seven sacraments correspond by divine design to the essential stages, needs, and preservation of human bodily and social life.",
+      "fullText": "2. Just as the natural life of man requires birth, growth, nourishment, healing from disease, recovery of strength, social governance, and propagation, so the supernatural life of grace requires the seven Sacraments."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 2,
+      "primaryTheme": "sacraments.general_liturgy",
+      "secondaryThemes": [],
+      "keyExcerpt": "The seven Sacraments of the New Law are: Baptism, Confirmation, the Holy Eucharist, Penance, Extreme Unction, Holy Orders, and Matrimony.",
+      "oneSentenceSummary": "St. Thomas provides the definitive list of the seven Sacraments established under the New Law.",
+      "fullText": "3. The seven Sacraments of the New Law are: Baptism, Confirmation, the Holy Eucharist, Penance, Extreme Unction, Holy Orders, and Matrimony."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 3,
+      "primaryTheme": "sacraments.general_liturgy",
+      "secondaryThemes": [
+        "theology.redemption_cross",
+        "theology.holy_spirit_grace"
+      ],
+      "keyExcerpt": "Each sacrament consists of sensible matter (actions or elements) and sacred form (the words spoken by the minister), conferring grace through the power of Christ's Passion.",
+      "oneSentenceSummary": "Sacraments are intrinsically constituted of sensible matter and sacred form, deriving their grace-conferring power from Christ's Passion.",
+      "fullText": "4. Each sacrament consists of sensible matter (actions or elements) and sacred form (the words spoken by the minister), conferring grace through the power of Christ's Passion."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_2",
+      "sectionTitle": "Chapter 2",
+      "itemIndex": 0,
+      "primaryTheme": "sacraments.baptism",
+      "secondaryThemes": [
+        "theology.trinity",
+        "theology.scripture_tradition"
+      ],
+      "keyExcerpt": "Baptism is the sacrament of spiritual regeneration through water and the Word of God, as Christ commanded in Matthew 28:19: \"Baptizing them in the name of the Father, and of the Son, and of the Holy Ghost.\"",
+      "oneSentenceSummary": "Baptism is defined as the sacrament of spiritual rebirth through water and the Word in obedience to Christ's Great Commission.",
+      "fullText": "1. Baptism is the sacrament of spiritual regeneration through water and the Word of God, as Christ commanded in Matthew 28:19: \"Baptizing them in the name of the Father, and of the Son, and of the Holy Ghost.\""
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_2",
+      "sectionTitle": "Chapter 2",
+      "itemIndex": 1,
+      "primaryTheme": "sacraments.baptism",
+      "secondaryThemes": [
+        "combat.temptation_sin",
+        "theology.christ_incarnation"
+      ],
+      "keyExcerpt": "It cleanses the soul from original sin and all actual sins, remits all eternal and temporal punishment due to sin, and imprints an indelible spiritual character marking the recipient as a member of Christ.",
+      "oneSentenceSummary": "Baptism entirely removes original and actual guilt, remits all due punishment, and imprints an indelible character incorporating the soul into Christ.",
+      "fullText": "2. It cleanses the soul from original sin and all actual sins, remits all eternal and temporal punishment due to sin, and imprints an indelible spiritual character marking the recipient as a member of Christ."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_2",
+      "sectionTitle": "Chapter 2",
+      "itemIndex": 2,
+      "primaryTheme": "sacraments.baptism",
+      "secondaryThemes": [
+        "virtues.faith_hope_charity",
+        "theology.holy_spirit_grace"
+      ],
+      "keyExcerpt": "It infuses sanctifying grace, the theological virtues of faith, hope, and charity, and makes the baptized an adopted child of God and heir to the kingdom of heaven (John 3:5).",
+      "oneSentenceSummary": "By imparting sanctifying grace and the theological virtues, Baptism establishes divine filiation and makes the recipient an heir of heaven.",
+      "fullText": "3. It infuses sanctifying grace, the theological virtues of faith, hope, and charity, and makes the baptized an adopted child of God and heir to the kingdom of heaven (John 3:5)."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_2",
+      "sectionTitle": "Chapter 2",
+      "itemIndex": 3,
+      "primaryTheme": "sacraments.baptism",
+      "secondaryThemes": [
+        "ecclesiology.apostolic_succession",
+        "theology.trinity"
+      ],
+      "keyExcerpt": "The ordinary minister of Baptism is a bishop, priest, or deacon, but in case of necessity any person using true water and the Trinitarian form can validly baptize.",
+      "oneSentenceSummary": "While ordained ministers are the ordinary ministers of Baptism, necessity permits anyone to validly baptize with water and the Trinitarian form.",
+      "fullText": "4. The ordinary minister of Baptism is a bishop, priest, or deacon, but in case of necessity any person using true water and the Trinitarian form can validly baptize."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 0,
+      "primaryTheme": "sacraments.confirmation",
+      "secondaryThemes": [
+        "combat.spiritual_warfare",
+        "sacraments.baptism"
+      ],
+      "keyExcerpt": "Confirmation is the sacrament that strengthens and matures the spiritual life begun in Baptism, making the recipient a strong and perfect Christian and soldier of Jesus Christ.",
+      "oneSentenceSummary": "Confirmation perfects baptismal grace, bringing spiritual maturity and strengthening the believer to act as a soldier of Jesus Christ.",
+      "fullText": "1. Confirmation is the sacrament that strengthens and matures the spiritual life begun in Baptism, making the recipient a strong and perfect Christian and soldier of Jesus Christ."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 1,
+      "primaryTheme": "sacraments.confirmation",
+      "secondaryThemes": [
+        "ecclesiology.apostolic_succession",
+        "theology.scripture_tradition"
+      ],
+      "keyExcerpt": "The matter of this sacrament is the anointing with holy chrism (consecrated olive oil and balsam) on the forehead accompanied by the imposition of hands by the Bishop (Acts 8:14-17).",
+      "oneSentenceSummary": "The sacramental matter of Confirmation comprises anointing with consecrated chrism on the forehead and the episcopal imposition of hands.",
+      "fullText": "2. The matter of this sacrament is the anointing with holy chrism (consecrated olive oil and balsam) on the forehead accompanied by the imposition of hands by the Bishop (Acts 8:14-17)."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 2,
+      "primaryTheme": "sacraments.confirmation",
+      "secondaryThemes": [
+        "theology.trinity",
+        "theology.redemption_cross"
+      ],
+      "keyExcerpt": "The form consists of the words: \"I sign thee with the sign of the Cross, and I confirm thee with the chrism of salvation, in the name of the Father, and of the Son, and of the Holy Ghost.\"",
+      "oneSentenceSummary": "The essential form of Confirmation invokes the Sign of the Cross, the chrism of salvation, and the Most Holy Trinity.",
+      "fullText": "3. The form consists of the words: \"I sign thee with the sign of the Cross, and I confirm thee with the chrism of salvation, in the name of the Father, and of the Son, and of the Holy Ghost.\""
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 3,
+      "primaryTheme": "sacraments.confirmation",
+      "secondaryThemes": [
+        "theology.holy_spirit_grace",
+        "theology.scripture_tradition"
+      ],
+      "keyExcerpt": "It imprints an indelible character and imparts the sevenfold gifts of the Holy Ghost: Wisdom, Understanding, Counsel, Fortitude, Knowledge, Piety, and Fear of the Lord (Isaiah 11:2).",
+      "oneSentenceSummary": "Confirmation seals the recipient with an indelible spiritual character and bestows the sevenfold gifts of the Holy Ghost.",
+      "fullText": "4. It imprints an indelible character and imparts the sevenfold gifts of the Holy Ghost: Wisdom, Understanding, Counsel, Fortitude, Knowledge, Piety, and Fear of the Lord (Isaiah 11:2)."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 0,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "theology.christ_incarnation"
+      ],
+      "keyExcerpt": "The Holy Eucharist is the greatest of all sacraments, containing really, truly, and substantially the Body, Blood, Soul, and Divinity of our Lord Jesus Christ under the appearances of bread and wine.",
+      "oneSentenceSummary": "The Holy Eucharist is the preeminent sacrament because it contains the true, real, and substantial presence of Christ's Body, Blood, Soul, and Divinity under the species of bread and wine.",
+      "fullText": "1. The Holy Eucharist is the greatest of all sacraments, containing really, truly, and substantially the Body, Blood, Soul, and Divinity of our Lord Jesus Christ under the appearances of bread and wine."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 1,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "theology.redemption_cross",
+        "theology.christ_incarnation"
+      ],
+      "keyExcerpt": "At the Last Supper, Christ instituted this sublime sacrament and sacrifice when He took bread, blessed, broke, and gave it to His disciples, saying: \"This is My Body,\"",
+      "oneSentenceSummary": "Christ instituted the Holy Eucharist at the Last Supper as both a sacrament and sacrifice of the New Covenant for the forgiveness of sins.",
+      "fullText": "2. At the Last Supper, Christ instituted this sublime sacrament and sacrifice when He took bread, blessed, broke, and gave it to His disciples, saying: \"This is My Body,\" and over the chalice: \"This is My Blood of the new testament, which shall be shed for many unto remission of sins\" (Matthew 26:26-28)."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 2,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "sacraments.holy_orders"
+      ],
+      "keyExcerpt": "By the words of consecration spoken by the priest, the whole substance of the bread is converted into the Body of Christ, and the whole substance of the wine into His Blood, which marvelous change the Church terms Transubstantiation.",
+      "oneSentenceSummary": "Transubstantiation is the complete conversion of the substance of bread and wine into the Body and Blood of Christ effected by the priest's words of consecration.",
+      "fullText": "3. By the words of consecration spoken by the priest, the whole substance of the bread is converted into the Body of Christ, and the whole substance of the wine into His Blood, which marvelous change the Church terms Transubstantiation."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 3,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "theology.redemption_cross"
+      ],
+      "keyExcerpt": "The Eucharist is both a sacrament that nourishes the soul with divine life and the Holy Sacrifice of the Mass that perpetuates Calvary upon our altars (John 6:54).",
+      "oneSentenceSummary": "The Eucharist simultaneously nourishes the soul with divine life as a sacrament and perpetuates the sacrifice of Calvary on the altar as the Mass.",
+      "fullText": "4. The Eucharist is both a sacrament that nourishes the soul with divine life and the Holy Sacrifice of the Mass that perpetuates Calvary upon our altars (John 6:54)."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_5",
+      "sectionTitle": "Chapter 5",
+      "itemIndex": 0,
+      "primaryTheme": "sacraments.penance",
+      "secondaryThemes": [
+        "sacraments.baptism",
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "Penance is the sacrament instituted by Christ for the forgiveness of sins committed after Baptism (John 20:23).",
+      "oneSentenceSummary": "The Sacrament of Penance was instituted by Christ to provide spiritual healing and pardon for sins committed after Baptism.",
+      "fullText": "1. Penance is the sacrament instituted by Christ for the forgiveness of sins committed after Baptism (John 20:23)."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_5",
+      "sectionTitle": "Chapter 5",
+      "itemIndex": 1,
+      "primaryTheme": "sacraments.penance",
+      "secondaryThemes": [
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "The essential acts of the penitent are three: Contrition (heartfelt sorrow for sin with purpose of amendment), Confession (sincere accusation of all mortal sins to an authorized priest), and Satisfaction (performance of the penance enjoined by the confessor).",
+      "oneSentenceSummary": "A valid reception of Penance requires three essential acts from the penitent: contrition, confession of mortal sins, and satisfaction.",
+      "fullText": "2. The essential acts of the penitent are three: Contrition (heartfelt sorrow for sin with purpose of amendment), Confession (sincere accusation of all mortal sins to an authorized priest), and Satisfaction (performance of the penance enjoined by the confessor)."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_5",
+      "sectionTitle": "Chapter 5",
+      "itemIndex": 2,
+      "primaryTheme": "sacraments.penance",
+      "secondaryThemes": [
+        "sacraments.holy_orders",
+        "theology.trinity"
+      ],
+      "keyExcerpt": "The form of the sacrament is the judicial absolution pronounced by the priest: \"I absolve thee from thy sins in the name of the Father, and of the Son, and of the Holy Ghost.\"",
+      "oneSentenceSummary": "The sacramental form of Penance is the judicial formula of absolution pronounced by the priest in the name of the Holy Trinity.",
+      "fullText": "3. The form of the sacrament is the judicial absolution pronounced by the priest: \"I absolve thee from thy sins in the name of the Father, and of the Son, and of the Holy Ghost.\""
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_5",
+      "sectionTitle": "Chapter 5",
+      "itemIndex": 3,
+      "primaryTheme": "sacraments.penance",
+      "secondaryThemes": [
+        "theology.holy_spirit_grace",
+        "ecclesiology.church_unity_papacy"
+      ],
+      "keyExcerpt": "This sacrament restores sanctifying grace, reconciles the sinner with God and the Church, and revives merits lost through sin.",
+      "oneSentenceSummary": "The effects of Penance include the restoration of sanctifying grace, ecclesial and divine reconciliation, and the revival of lost merits.",
+      "fullText": "4. This sacrament restores sanctifying grace, reconciles the sinner with God and the Church, and revives merits lost through sin."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_6",
+      "sectionTitle": "Chapter 6",
+      "itemIndex": 0,
+      "primaryTheme": "sacraments.anointing_of_sick",
+      "secondaryThemes": [
+        "eschatology.death_judgment",
+        "combat.suffering_cross"
+      ],
+      "keyExcerpt": "Extreme Unction (the Anointing of the Sick) is the sacrament instituted by Christ to confer spiritual comfort, strength, and bodily relief to the faithful who are in danger of death through sickness or old age.",
+      "oneSentenceSummary": "Extreme Unction provides spiritual comfort, fortitude, and physical relief for the faithful in proximate danger of death from sickness or aging.",
+      "fullText": "1. Extreme Unction (the Anointing of the Sick) is the sacrament instituted by Christ to confer spiritual comfort, strength, and bodily relief to the faithful who are in danger of death through sickness or old age."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_6",
+      "sectionTitle": "Chapter 6",
+      "itemIndex": 1,
+      "primaryTheme": "sacraments.anointing_of_sick",
+      "secondaryThemes": [
+        "theology.scripture_tradition",
+        "sacraments.holy_orders"
+      ],
+      "keyExcerpt": "\"Is any man sick among you? Let him bring in the priests of the Church, and let them pray over him, anointing him with oil in the name of the Lord. And the prayer of faith shall save the sick man: and the Lord shall raise him up: and if he be in sins, they shall be forgiven him.\"",
+      "oneSentenceSummary": "Sacred Scripture through the Epistle of St. James explicitly attests to the apostolic practice of anointing the sick with oil by the priests for healing and forgiveness.",
+      "fullText": "2. The Apostle James describes this sacrament in James 5:14-15: \"Is any man sick among you? Let him bring in the priests of the Church, and let them pray over him, anointing him with oil in the name of the Lord. And the prayer of faith shall save the sick man: and the Lord shall raise him up: and if he be in sins, they shall be forgiven him.\""
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_6",
+      "sectionTitle": "Chapter 6",
+      "itemIndex": 2,
+      "primaryTheme": "sacraments.anointing_of_sick",
+      "secondaryThemes": [
+        "combat.spiritual_warfare",
+        "eschatology.death_judgment"
+      ],
+      "keyExcerpt": "It remits venial sins, cleanses remaining temporal punishment, strengthens the soul against final demonic assaults, and restores bodily health if expedient for the soul's salvation.",
+      "oneSentenceSummary": "Extreme Unction cleanses venial sins and temporal punishment, fortifies against demonic temptation at the hour of death, and confers bodily healing when spiritually expedient.",
+      "fullText": "3. It remits venial sins, cleanses remaining temporal punishment, strengthens the soul against final demonic assaults, and restores bodily health if expedient for the soul's salvation."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_7",
+      "sectionTitle": "Chapter 7",
+      "itemIndex": 0,
+      "primaryTheme": "sacraments.holy_orders",
+      "secondaryThemes": [
+        "ecclesiology.apostolic_succession",
+        "sacraments.general_liturgy"
+      ],
+      "keyExcerpt": "Holy Orders is the sacrament by which spiritual power and grace are conferred upon bishops, priests, and deacons to exercise sacred liturgical ministries and shepherd the flock of Christ.",
+      "oneSentenceSummary": "Holy Orders confers sacramental power and grace on the ordained hierarchy to conduct liturgical worship and pastor the Church.",
+      "fullText": "1. Holy Orders is the sacrament by which spiritual power and grace are conferred upon bishops, priests, and deacons to exercise sacred liturgical ministries and shepherd the flock of Christ."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_7",
+      "sectionTitle": "Chapter 7",
+      "itemIndex": 1,
+      "primaryTheme": "sacraments.holy_orders",
+      "secondaryThemes": [
+        "ecclesiology.apostolic_succession"
+      ],
+      "keyExcerpt": "The essential rite consists of the imposition of hands by the consecrating bishop and the solemn consecratory prayer (2 Timothy 1:6).",
+      "oneSentenceSummary": "The essential matter and form of Holy Orders consist in the bishop's laying on of hands and the solemn prayer of consecration.",
+      "fullText": "2. The essential rite consists of the imposition of hands by the consecrating bishop and the solemn consecratory prayer (2 Timothy 1:6)."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_7",
+      "sectionTitle": "Chapter 7",
+      "itemIndex": 2,
+      "primaryTheme": "sacraments.holy_orders",
+      "secondaryThemes": [
+        "sacraments.eucharist",
+        "sacraments.penance"
+      ],
+      "keyExcerpt": "It imprints an indelible spiritual character upon the soul of the minister, configuring him to Christ the eternal High Priest and granting power to consecrate the Holy Eucharist and forgive sins.",
+      "oneSentenceSummary": "Holy Orders imprints an indelible sacramental character configuring the ordained minister to Christ the High Priest and imparting sacred authority to consecrate the Eucharist and absolve sins.",
+      "fullText": "3. It imprints an indelible spiritual character upon the soul of the minister, configuring him to Christ the eternal High Priest and granting power to consecrate the Holy Eucharist and forgive sins."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_8",
+      "sectionTitle": "Chapter 8",
+      "itemIndex": 0,
+      "primaryTheme": "sacraments.matrimony",
+      "secondaryThemes": [
+        "theology.creation_providence"
+      ],
+      "keyExcerpt": "Matrimony is the sacrament instituted by God in Paradise and elevated by Christ to sacramental dignity, uniting a Christian man and woman in an indissoluble bond of marital fidelity (Genesis 2:24; Matthew 19:6).",
+      "oneSentenceSummary": "Instituted in the state of innocence and elevated by Christ, Holy Matrimony establishes an indissoluble sacramental union of fidelity between husband and wife.",
+      "fullText": "1. Matrimony is the sacrament instituted by God in Paradise and elevated by Christ to sacramental dignity, uniting a Christian man and woman in an indissoluble bond of marital fidelity (Genesis 2:24; Matthew 19:6)."
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_8",
+      "sectionTitle": "Chapter 8",
+      "itemIndex": 1,
+      "primaryTheme": "sacraments.matrimony",
+      "secondaryThemes": [
+        "ecclesiology.church_unity_papacy"
+      ],
+      "keyExcerpt": "It signifies the mystical union between Christ and His holy Church, as the Apostle Paul teaches in Ephesians 5:32: \"This is a great sacrament; but I speak in Christ and in the Church.\"",
+      "oneSentenceSummary": "Christian marriage serves as an efficacious sign and reflection of the mystical, unbreakable union between Christ and His Bride, the Church.",
+      "fullText": "2. It signifies the mystical union between Christ and His holy Church, as the Apostle Paul teaches in Ephesians 5:32: \"This is a great sacrament; but I speak in Christ and in the Church.\""
+    },
+    {
+      "bookId": "aquinas_catechetical_sacraments",
+      "bookTitle": "The Catechetical Instructions: Part II",
+      "author": "St. Thomas Aquinas (Trans. Joseph B. Collins)",
+      "sectionId": "sec_aquinas_catechetical_sacraments_8",
+      "sectionTitle": "Chapter 8",
+      "itemIndex": 2,
+      "primaryTheme": "sacraments.matrimony",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "It confers special grace upon the spouses to live in mutual love, assist each other in holiness, and raise children in the fear and love of God.",
+      "oneSentenceSummary": "Matrimony imparts actual and sanctifying grace enabling spouses to foster mutual charity, advance in Christian perfection, and faithfully educate their children in the love of God.",
+      "fullText": "3. It confers special grace upon the spouses to live in mutual love, assist each other in holiness, and raise children in the fear and love of God."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 0,
+      "primaryTheme": "virtues.daily_duties_state_in_life",
+      "secondaryThemes": [
+        "eschatology.death_judgment",
+        "combat.spiritual_warfare"
+      ],
+      "keyExcerpt": "There are two ways, one of life and one of death, and there is a great difference between the two ways.",
+      "oneSentenceSummary": "The fundamental moral and spiritual choice confronting humanity is between the Way of Life and the Way of Death.",
+      "fullText": "1. There are two ways, one of life and one of death, and there is a great difference between the two ways."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 1,
+      "primaryTheme": "virtues.daily_duties_state_in_life",
+      "secondaryThemes": [
+        "virtues.faith_hope_charity"
+      ],
+      "keyExcerpt": "The way of life is this.",
+      "oneSentenceSummary": "The teaching introduces the specific moral and spiritual precepts that constitute the Way of Life.",
+      "fullText": "2. The way of life is this."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 2,
+      "primaryTheme": "virtues.faith_hope_charity",
+      "secondaryThemes": [
+        "theology.creation_providence"
+      ],
+      "keyExcerpt": "First of all, thou shalt love the God that made thee;",
+      "oneSentenceSummary": "The primary obligation and foundation of the Christian life is love of God, our Creator.",
+      "fullText": "3. First of all, thou shalt love the God that made thee;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 3,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "virtues.faith_hope_charity"
+      ],
+      "keyExcerpt": "secondly, thy neighbour as thyself.",
+      "oneSentenceSummary": "The second great commandment of the Way of Life is to love one's neighbor as oneself.",
+      "fullText": "4. secondly, thy neighbour as thyself."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 4,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "And all things whatsoever thou wouldest not have befal thyself neither do thou unto another.",
+      "oneSentenceSummary": "The negative formulation of the Golden Rule commands Christians to refrain from doing to others whatever they would not wish done to themselves.",
+      "fullText": "5. And all things whatsoever thou wouldest not have befal thyself neither do thou unto another."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 5,
+      "primaryTheme": "theology.scripture_tradition",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "Now of these words the doctrine is this.",
+      "oneSentenceSummary": "The text marks the transition to the specific apostolic doctrine and moral instructions expounding the Great Commandments.",
+      "fullText": "6. Now of these words the doctrine is this."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 6,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "prayer.vocal_mental_meditation",
+        "combat.mortification_detachment"
+      ],
+      "keyExcerpt": "Bless them that curse you, and pray for your enemies and fast for them that persecute you;",
+      "oneSentenceSummary": "Christians are called to radical charity by blessing, praying for, and offering bodily penance on behalf of their persecutors and enemies.",
+      "fullText": "7. Bless them that curse you, and pray for your enemies and fast for them that persecute you;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 7,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "virtues.faith_hope_charity"
+      ],
+      "keyExcerpt": "But do ye love them that hate you, and ye shall not have an enemy.",
+      "oneSentenceSummary": "True Christian charity exceeds pagan morality by actively loving those who hate us, thereby overcoming enmity through supernatural love.",
+      "fullText": "8. for what thank is it, if ye love them that love you? Do not even the Gentiles the same? But do ye love them that hate you, and ye shall not have an enemy."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 8,
+      "primaryTheme": "virtues.purity_modesty",
+      "secondaryThemes": [
+        "combat.mortification_detachment",
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "Abstain thou from fleshly and bodily lusts.",
+      "oneSentenceSummary": "The disciple of Christ must maintain purity of heart and body by renouncing carnal desires and passions.",
+      "fullText": "9. Abstain thou from fleshly and bodily lusts."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 9,
+      "primaryTheme": "virtues.humility_meekness",
+      "secondaryThemes": [
+        "combat.suffering_cross",
+        "virtues.mercy_neighbor_almsgiving"
+      ],
+      "keyExcerpt": "If any man give thee a blow on thy right cheek, turn to him the other also, and thou shalt be perfect;",
+      "oneSentenceSummary": "Christian perfection entails heroic meekness and patient non-retaliation when enduring personal insults and injuries.",
+      "fullText": "10. If any man give thee a blow on thy right cheek, turn to him the other also, and thou shalt be perfect;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 10,
+      "primaryTheme": "virtues.humility_meekness",
+      "secondaryThemes": [
+        "virtues.mercy_neighbor_almsgiving",
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "if a man impress thee to go with him, one mile, go with him twain;",
+      "oneSentenceSummary": "The follower of Christ responds to unjust coercion and demands with generous humility and service beyond what is required.",
+      "fullText": "11. if a man impress thee to go with him, one mile, go with him twain;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 11,
+      "primaryTheme": "combat.mortification_detachment",
+      "secondaryThemes": [
+        "virtues.humility_meekness",
+        "virtues.mercy_neighbor_almsgiving"
+      ],
+      "keyExcerpt": "if a man take away thy cloak, give him thy coat also;",
+      "oneSentenceSummary": "Evangelical perfection requires complete detachment from material possessions and the peaceful surrender of earthly goods.",
+      "fullText": "12. if a man take away thy cloak, give him thy coat also;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 12,
+      "primaryTheme": "combat.mortification_detachment",
+      "secondaryThemes": [
+        "virtues.humility_meekness"
+      ],
+      "keyExcerpt": "if a man take away from thee that which is thine own, ask it not back, for neither art thou able.",
+      "oneSentenceSummary": "Christians are called to radical detachment from earthly possessions and non-retaliation when deprived of their goods.",
+      "fullText": "13. if a man take away from thee that which is thine own, ask it not back, for neither art thou able."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 13,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "combat.mortification_detachment"
+      ],
+      "keyExcerpt": "To every man that asketh of thee give, and ask not back;",
+      "oneSentenceSummary": "The Way of Life requires universal generosity and open-handed charity without demanding repayment.",
+      "fullText": "14. To every man that asketh of thee give, and ask not back;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 14,
+      "primaryTheme": "theology.creation_providence",
+      "secondaryThemes": [
+        "virtues.mercy_neighbor_almsgiving"
+      ],
+      "keyExcerpt": "for the Father desireth that gifts be given to all from His own bounties.",
+      "oneSentenceSummary": "God the Father wills that the bounties of His creation be freely shared among all people.",
+      "fullText": "15. for the Father desireth that gifts be given to all from His own bounties."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 15,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "virtues.faith_hope_charity"
+      ],
+      "keyExcerpt": "Blessed is he that giveth according to the commandment;",
+      "oneSentenceSummary": "Special beatitude and spiritual blessing belong to the believer who practices almsgiving in obedience to divine command.",
+      "fullText": "16. Blessed is he that giveth according to the commandment;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 16,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "eschatology.death_judgment"
+      ],
+      "keyExcerpt": "for he is guiltless.",
+      "oneSentenceSummary": "The faithful giver who shares according to God's commandment stands blameless before the Lord.",
+      "fullText": "17. for he is guiltless."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 17,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "virtues.mercy_neighbor_almsgiving",
+        "eschatology.death_judgment"
+      ],
+      "keyExcerpt": "Woe to him that receiveth;",
+      "oneSentenceSummary": "A severe spiritual warning is pronounced against those who receive charity deceitfully or covetously.",
+      "fullText": "18. Woe to him that receiveth;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 18,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "for, if a man receiveth having need, he is guiltless;",
+      "oneSentenceSummary": "Those who receive alms out of genuine poverty incur no guilt or moral fault.",
+      "fullText": "19. for, if a man receiveth having need, he is guiltless;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 19,
+      "primaryTheme": "eschatology.death_judgment",
+      "secondaryThemes": [
+        "combat.temptation_sin",
+        "virtues.mercy_neighbor_almsgiving"
+      ],
+      "keyExcerpt": "but he that hath no need shall give satisfaction why and wherefore he received;",
+      "oneSentenceSummary": "Anyone who takes charity without actual need will be held strictly accountable at judgment for their motives and actions.",
+      "fullText": "20. but he that hath no need shall give satisfaction why and wherefore he received;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 20,
+      "primaryTheme": "eschatology.purgatory_hell",
+      "secondaryThemes": [
+        "eschatology.death_judgment",
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "and being put in confinement he shall be examined concerning the deeds that he hath done, and he shall not come out thence until he hath given back the last farthing.",
+      "oneSentenceSummary": "Those who exploit charity will undergo rigorous examination and detention until full satisfaction and restitution are rendered.",
+      "fullText": "21. and being put in confinement he shall be examined concerning the deeds that he hath done, and he shall not come out thence until he hath given back the last farthing."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 21,
+      "primaryTheme": "theology.scripture_tradition",
+      "secondaryThemes": [
+        "virtues.mercy_neighbor_almsgiving"
+      ],
+      "keyExcerpt": "Yea, as touching this also it is said;",
+      "oneSentenceSummary": "The text appeals to authoritative traditional wisdom concerning the practice of almsgiving.",
+      "fullText": "22. Yea, as touching this also it is said;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_1",
+      "sectionTitle": "Chapter 1",
+      "itemIndex": 22,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "combat.spiritual_warfare"
+      ],
+      "keyExcerpt": "Let thine alms sweat into thine hands, until thou shalt have learnt to whom to give.",
+      "oneSentenceSummary": "Christians are instructed to exercise prudence, sweat, and careful discernment before dispensing their alms.",
+      "fullText": "23. Let thine alms sweat into thine hands, until thou shalt have learnt to whom to give."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_10",
+      "sectionTitle": "Chapter 10",
+      "itemIndex": 0,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "sacraments.general_liturgy",
+        "prayer.vocal_mental_meditation"
+      ],
+      "keyExcerpt": "And after ye are satisfied thus give ye thanks:",
+      "oneSentenceSummary": "The Didache instructs the faithful on the proper liturgical thanksgiving to offer immediately following the reception of Holy Communion.",
+      "fullText": "1. And after ye are satisfied thus give ye thanks:"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_10",
+      "sectionTitle": "Chapter 10",
+      "itemIndex": 1,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "theology.holy_spirit_grace",
+        "theology.christ_incarnation"
+      ],
+      "keyExcerpt": "We give Thee thanks, Holy Father, for Thy holy name, which Thou hast made to tabernacle in our hearts, and for the knowledge and faith and immortality, which Thou hast made known unto us through Thy Son Jesus;",
+      "oneSentenceSummary": "The post-Communion thanksgiving praises the Father for the indwelling of His Holy Name in believers' hearts and for the gifts of faith, divine knowledge, and immortality revealed in Christ.",
+      "fullText": "2. We give Thee thanks, Holy Father, for Thy holy name, which Thou hast made to tabernacle in our hearts, and for the knowledge and faith and immortality, which Thou hast made known unto us through Thy Son Jesus;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_10",
+      "sectionTitle": "Chapter 10",
+      "itemIndex": 2,
+      "primaryTheme": "theology.trinity",
+      "secondaryThemes": [
+        "prayer.vocal_mental_meditation",
+        "sacraments.eucharist"
+      ],
+      "keyExcerpt": "Thine is the glory for ever and ever.",
+      "oneSentenceSummary": "A solemn liturgical doxology rendering perpetual glory and worship to God.",
+      "fullText": "3. Thine is the glory for ever and ever."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_10",
+      "sectionTitle": "Chapter 10",
+      "itemIndex": 3,
+      "primaryTheme": "theology.creation_providence",
+      "secondaryThemes": [
+        "prayer.vocal_mental_meditation",
+        "sacraments.eucharist"
+      ],
+      "keyExcerpt": "Thou, Almighty Master, didst create all things for Thy name's sake, and didst give food and drink unto men for enjoyment, that they might render thanks to Thee;",
+      "oneSentenceSummary": "God the Almighty Creator made the universe for His glory and graciously provided material food and drink to sustain mankind and elicit grateful praise.",
+      "fullText": "4. Thou, Almighty Master, didst create all things for Thy name's sake, and didst give food and drink unto men for enjoyment, that they might render thanks to Thee;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_10",
+      "sectionTitle": "Chapter 10",
+      "itemIndex": 4,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "theology.christ_incarnation",
+        "eschatology.heaven_beatific_vision"
+      ],
+      "keyExcerpt": "but didst bestow upon us spiritual food and drink and eternal life through Thy Son.",
+      "oneSentenceSummary": "Beyond natural sustenance, God bestows the supernatural grace of spiritual food, drink, and eternal life upon believers through His Son in the Eucharist.",
+      "fullText": "5. but didst bestow upon us spiritual food and drink and eternal life through Thy Son."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_10",
+      "sectionTitle": "Chapter 10",
+      "itemIndex": 5,
+      "primaryTheme": "theology.trinity",
+      "secondaryThemes": [
+        "prayer.vocal_mental_meditation",
+        "sacraments.eucharist"
+      ],
+      "keyExcerpt": "Before all things we give Thee thanks that Thou art powerful;",
+      "oneSentenceSummary": "The Eucharistic prayer renders primary thanksgiving to God for His transcendent, sovereign omnipotence.",
+      "fullText": "6. Before all things we give Thee thanks that Thou art powerful;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_10",
+      "sectionTitle": "Chapter 10",
+      "itemIndex": 6,
+      "primaryTheme": "theology.trinity",
+      "secondaryThemes": [
+        "prayer.vocal_mental_meditation",
+        "sacraments.eucharist"
+      ],
+      "keyExcerpt": "Thine is the glory for ever and ever.",
+      "oneSentenceSummary": "A recurring liturgical acclamation acknowledging the eternal majesty and glory belonging to God alone.",
+      "fullText": "7. Thine is the glory for ever and ever."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_10",
+      "sectionTitle": "Chapter 10",
+      "itemIndex": 7,
+      "primaryTheme": "ecclesiology.church_unity_papacy",
+      "secondaryThemes": [
+        "combat.spiritual_warfare",
+        "prayer.vocal_mental_meditation"
+      ],
+      "keyExcerpt": "Remember, Lord, Thy Church to deliver it from all evil and to perfect it in Thy love;",
+      "oneSentenceSummary": "The Church petitions the Lord for divine preservation against all evil and for her sanctification and perfection in charity.",
+      "fullText": "8. Remember, Lord, Thy Church to deliver it from all evil and to perfect it in Thy love;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_10",
+      "sectionTitle": "Chapter 10",
+      "itemIndex": 8,
+      "primaryTheme": "ecclesiology.church_unity_papacy",
+      "secondaryThemes": [
+        "eschatology.heaven_beatific_vision",
+        "sacraments.eucharist"
+      ],
+      "keyExcerpt": "and gather it together from the four winds—even the Church which has been sanctified—into Thy kingdom which Thou hast prepared for it;",
+      "oneSentenceSummary": "The liturgy asks God to gather His holy and unified Church from every corner of the earth into the eternal Kingdom prepared for her.",
+      "fullText": "9. and gather it together from the four winds—even the Church which has been sanctified—into Thy kingdom which Thou hast prepared for it;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_10",
+      "sectionTitle": "Chapter 10",
+      "itemIndex": 9,
+      "primaryTheme": "theology.trinity",
+      "secondaryThemes": [
+        "prayer.vocal_mental_meditation",
+        "sacraments.eucharist"
+      ],
+      "keyExcerpt": "for Thine is the power and the glory for ever and ever.",
+      "oneSentenceSummary": "A concluding Eucharistic doxology affirming that everlasting power and glory belong to God.",
+      "fullText": "10. for Thine is the power and the glory for ever and ever."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_10",
+      "sectionTitle": "Chapter 10",
+      "itemIndex": 10,
+      "primaryTheme": "eschatology.heaven_beatific_vision",
+      "secondaryThemes": [
+        "theology.holy_spirit_grace",
+        "combat.mortification_detachment"
+      ],
+      "keyExcerpt": "May grace come and may this world pass away.",
+      "oneSentenceSummary": "An eschatological longing and prayer for the coming of divine grace and the passing away of the temporal world in anticipation of the eternal Kingdom.",
+      "fullText": "11. May grace come and may this world pass away."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_10",
+      "sectionTitle": "Chapter 10",
+      "itemIndex": 11,
+      "primaryTheme": "theology.christ_incarnation",
+      "secondaryThemes": [
+        "sacraments.eucharist",
+        "prayer.vocal_mental_meditation"
+      ],
+      "keyExcerpt": "Hosanna to the God of David.",
+      "oneSentenceSummary": "A liturgical Eucharistic acclamation hailing Christ as the divine fulfillment of the Davidic promises.",
+      "fullText": "12. Hosanna to the God of David."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_10",
+      "sectionTitle": "Chapter 10",
+      "itemIndex": 12,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "sacraments.general_liturgy",
+        "virtues.purity_modesty"
+      ],
+      "keyExcerpt": "If any man is holy, let him come;",
+      "oneSentenceSummary": "Only those who are sanctified and in a state of grace are invited to approach and receive the Most Holy Eucharist.",
+      "fullText": "13. If any man is holy, let him come;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_10",
+      "sectionTitle": "Chapter 10",
+      "itemIndex": 13,
+      "primaryTheme": "sacraments.penance",
+      "secondaryThemes": [
+        "sacraments.eucharist",
+        "eschatology.death_judgment"
+      ],
+      "keyExcerpt": "if any man is not, let him repent. Maran Atha. Amen.",
+      "oneSentenceSummary": "Those conscious of sin must repent before approaching the Eucharistic mystery in anticipation of the Lord's coming.",
+      "fullText": "14. if any man is not, let him repent. Maran Atha. Amen."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_10",
+      "sectionTitle": "Chapter 10",
+      "itemIndex": 14,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "sacraments.general_liturgy",
+        "prayer.vocal_mental_meditation"
+      ],
+      "keyExcerpt": "But permit the prophets to offer thanksgiving as much as they desire.",
+      "oneSentenceSummary": "Prophets in the early Christian assembly are permitted freedom to offer extensive Eucharistic prayers of thanksgiving as the Spirit moves them.",
+      "fullText": "15. But permit the prophets to offer thanksgiving as much as they desire."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 0,
+      "primaryTheme": "theology.scripture_tradition",
+      "secondaryThemes": [
+        "ecclesiology.apostolic_succession"
+      ],
+      "keyExcerpt": "Whosoever therefore shall come and teach you all these things that have been said before, receive him;",
+      "oneSentenceSummary": "The faithful must welcome and receive any minister who faithfully hands on the authentic doctrine of the Apostolic Tradition.",
+      "fullText": "1. Whosoever therefore shall come and teach you all these things that have been said before, receive him;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 1,
+      "primaryTheme": "theology.scripture_tradition",
+      "secondaryThemes": [
+        "combat.spiritual_warfare",
+        "ecclesiology.apostolic_succession"
+      ],
+      "keyExcerpt": "but if the teacher himself be perverted and teach a different doctrine to the destruction thereof, hear him not;",
+      "oneSentenceSummary": "Christians are bound to reject any teacher who perverts sound doctrine and spreads destructive errors contrary to apostolic faith.",
+      "fullText": "2. but if the teacher himself be perverted and teach a different doctrine to the destruction thereof, hear him not;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 2,
+      "primaryTheme": "ecclesiology.apostolic_succession",
+      "secondaryThemes": [
+        "theology.scripture_tradition",
+        "virtues.faith_hope_charity"
+      ],
+      "keyExcerpt": "but if to the increase of righteousness and the knowledge of the Lord, receive him as the Lord.",
+      "oneSentenceSummary": "Teachers whose instruction fosters righteousness and the knowledge of God are to be reverenced as the Lord Himself.",
+      "fullText": "3. but if to the increase of righteousness and the knowledge of the Lord, receive him as the Lord."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 3,
+      "primaryTheme": "theology.scripture_tradition",
+      "secondaryThemes": [
+        "ecclesiology.apostolic_succession",
+        "combat.spiritual_warfare"
+      ],
+      "keyExcerpt": "But concerning the apostles and prophets, so do ye according to the ordinance of the Gospel.",
+      "oneSentenceSummary": "The Church's discernment and reception of traveling apostles and prophets must conform strictly to the standard of the Gospel.",
+      "fullText": "4. But concerning the apostles and prophets, so do ye according to the ordinance of the Gospel."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 4,
+      "primaryTheme": "ecclesiology.apostolic_succession",
+      "secondaryThemes": [
+        "theology.christ_incarnation",
+        "virtues.mercy_neighbor_almsgiving"
+      ],
+      "keyExcerpt": "Let every apostle, when he cometh to you, be received as the Lord;",
+      "oneSentenceSummary": "Authentic apostolic emissaries are to be received with the honor and hospitality due to Christ Himself.",
+      "fullText": "5. Let every apostle, when he cometh to you, be received as the Lord;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 5,
+      "primaryTheme": "ecclesiology.apostolic_succession",
+      "secondaryThemes": [
+        "combat.spiritual_warfare",
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "but he shall not abide more than a single day, or if there be need, a second likewise;",
+      "oneSentenceSummary": "Itinerant ministers are to maintain their missionary momentum and not linger beyond one or two days in any single community.",
+      "fullText": "6. but he shall not abide more than a single day, or if there be need, a second likewise;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 6,
+      "primaryTheme": "combat.spiritual_warfare",
+      "secondaryThemes": [
+        "ecclesiology.apostolic_succession"
+      ],
+      "keyExcerpt": "but if he abide three days, he is a false prophet.",
+      "oneSentenceSummary": "Lingering to exploit a local congregation's hospitality exposes an itinerant traveler as a false prophet.",
+      "fullText": "7. but if he abide three days, he is a false prophet."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 7,
+      "primaryTheme": "combat.mortification_detachment",
+      "secondaryThemes": [
+        "ecclesiology.apostolic_succession",
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "And when he departeth let the apostle receive nothing save bread, until he findeth shelter;",
+      "oneSentenceSummary": "True apostolic laborers practice evangelical poverty, accepting only necessary daily food for their continuing mission.",
+      "fullText": "8. And when he departeth let the apostle receive nothing save bread, until he findeth shelter;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 8,
+      "primaryTheme": "combat.spiritual_warfare",
+      "secondaryThemes": [
+        "combat.mortification_detachment",
+        "ecclesiology.apostolic_succession"
+      ],
+      "keyExcerpt": "but if he ask money, he is a false prophet.",
+      "oneSentenceSummary": "Demanding monetary payment for spiritual ministry unmasks a preacher as a counterfeit prophet motivated by worldly greed.",
+      "fullText": "9. but if he ask money, he is a false prophet."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 9,
+      "primaryTheme": "theology.holy_spirit_grace",
+      "secondaryThemes": [
+        "combat.spiritual_warfare"
+      ],
+      "keyExcerpt": "And any prophet speaking in the Spirit ye shall not try neither discern;",
+      "oneSentenceSummary": "The Didache commands reverence toward genuine utterances of the Holy Spirit, warning against rashly testing authentic prophetic charisms.",
+      "fullText": "10. And any prophet speaking in the Spirit ye shall not try neither discern;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 10,
+      "primaryTheme": "theology.holy_spirit_grace",
+      "secondaryThemes": [
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "for every sin shall be forgiven, but this sin shall not be forgiven.",
+      "oneSentenceSummary": "Reflecting the Gospel teaching on blasphemy against the Holy Spirit, the Didache warns of the uniquely severe gravity of resisting the Spirit.",
+      "fullText": "11. for every sin shall be forgiven, but this sin shall not be forgiven."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 11,
+      "primaryTheme": "combat.spiritual_warfare",
+      "secondaryThemes": [
+        "theology.holy_spirit_grace",
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "Yet not every one that speaketh in the Spirit is a prophet, but only if he have the ways of the Lord.",
+      "oneSentenceSummary": "True prophetic authenticity requires not merely ecstatic speech, but a life fully conforming to the character and commandments of Christ.",
+      "fullText": "12. Yet not every one that speaketh in the Spirit is a prophet, but only if he have the ways of the Lord."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 12,
+      "primaryTheme": "combat.spiritual_warfare",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "From his ways therefore the false prophet and the prophet shall be recognized.",
+      "oneSentenceSummary": "A person's moral conduct and daily way of life serve as the indispensable criteria for discerning true prophets from deceivers.",
+      "fullText": "13. From his ways therefore the false prophet and the prophet shall be recognized."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 13,
+      "primaryTheme": "combat.spiritual_warfare",
+      "secondaryThemes": [
+        "combat.mortification_detachment"
+      ],
+      "keyExcerpt": "And no prophet when he ordereth a table in the Spirit shall eat of it;",
+      "oneSentenceSummary": "A prophet who orders a meal for the poor under inspiration must not partake of it himself, guarding against self-serving spiritual abuse.",
+      "fullText": "14. And no prophet when he ordereth a table in the Spirit shall eat of it;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 14,
+      "primaryTheme": "combat.spiritual_warfare",
+      "secondaryThemes": [
+        "combat.mortification_detachment"
+      ],
+      "keyExcerpt": "otherwise he is a false prophet.",
+      "oneSentenceSummary": "Any minister who exploits spiritual authority for personal physical gratification reveals himself to be a false prophet.",
+      "fullText": "15. otherwise he is a false prophet."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 15,
+      "primaryTheme": "combat.spiritual_warfare",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life",
+        "theology.scripture_tradition"
+      ],
+      "keyExcerpt": "And every prophet teaching the truth, if he doeth not what he teacheth, is a false prophet.",
+      "oneSentenceSummary": "Authentic Christian ministry demands moral integrity, as teaching correct doctrine while failing to practice it unmasks a false prophet.",
+      "fullText": "16. And every prophet teaching the truth, if he doeth not what he teacheth, is a false prophet."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 16,
+      "primaryTheme": "ecclesiology.apostolic_succession",
+      "secondaryThemes": [
+        "ecclesiology.church_unity_papacy",
+        "theology.scripture_tradition"
+      ],
+      "keyExcerpt": "And every prophet approved and found true, if he doeth ought as an outward mystery typical of the Church, and yet teacheth you not to do all that he himself doeth, shall not be judged before you;",
+      "oneSentenceSummary": "The faithful are instructed not to judge true prophets who enact symbolic actions representative of the Church's mystery without imposing those unique actions on the congregation.",
+      "fullText": "17. And every prophet approved and found true, if he doeth ought as an outward mystery typical of the Church, and yet teacheth you not to do all that he himself doeth, shall not be judged before you;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 17,
+      "primaryTheme": "eschatology.death_judgment",
+      "secondaryThemes": [
+        "ecclesiology.apostolic_succession"
+      ],
+      "keyExcerpt": "he hath his judgment in the presence of God;",
+      "oneSentenceSummary": "The ultimate evaluation and accountability of an approved minister of the Church rests directly in the judgment of God.",
+      "fullText": "18. he hath his judgment in the presence of God;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 18,
+      "primaryTheme": "theology.scripture_tradition",
+      "secondaryThemes": [
+        "ecclesiology.apostolic_succession"
+      ],
+      "keyExcerpt": "for in like manner also did the prophets of old time.",
+      "oneSentenceSummary": "The symbolic and mysterious actions of Christian prophets stand in direct continuity with the prophetic traditions of the Old Testament.",
+      "fullText": "19. for in like manner also did the prophets of old time."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 19,
+      "primaryTheme": "combat.spiritual_warfare",
+      "secondaryThemes": [
+        "combat.mortification_detachment"
+      ],
+      "keyExcerpt": "And whosoever shall say in the Spirit, Give me silver or anything else, ye shall not listen to him;",
+      "oneSentenceSummary": "The Didache warns believers to reject any supposed prophet who demands money or material possessions for personal benefit under the guise of spiritual inspiration.",
+      "fullText": "20. And whosoever shall say in the Spirit, Give me silver or anything else, ye shall not listen to him;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_11",
+      "sectionTitle": "Chapter 11",
+      "itemIndex": 20,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "combat.spiritual_warfare"
+      ],
+      "keyExcerpt": "but if he tell you to give on behalf of others that are in want, let no man judge him.",
+      "oneSentenceSummary": "A minister who solicits charity and alms purely on behalf of the destitute is commendable and above suspicion.",
+      "fullText": "21. but if he tell you to give on behalf of others that are in want, let no man judge him."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_12",
+      "sectionTitle": "Chapter 12",
+      "itemIndex": 0,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "ecclesiology.church_unity_papacy",
+        "virtues.faith_hope_charity"
+      ],
+      "keyExcerpt": "But let every one that cometh in the name of the Lord be received;",
+      "oneSentenceSummary": "The Didache instructs the Christian community to extend open hospitality and welcome to anyone who comes in the name of the Lord.",
+      "fullText": "1. But let every one that cometh in the name of the Lord be received;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_12",
+      "sectionTitle": "Chapter 12",
+      "itemIndex": 1,
+      "primaryTheme": "combat.spiritual_warfare",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "and then when ye have tested him ye shall know him, for ye shall have understanding on the right hand and on the left.",
+      "oneSentenceSummary": "Believers are urged to exercise spiritual discernment and prudent testing to evaluate the authenticity and motives of visiting travelers.",
+      "fullText": "2. and then when ye have tested him ye shall know him, for ye shall have understanding on the right hand and on the left."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_12",
+      "sectionTitle": "Chapter 12",
+      "itemIndex": 2,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "If the comer is a traveller, assist him, so far as ye are able;",
+      "oneSentenceSummary": "Christians are called to perform corporal works of mercy by aiding traveling brethren according to their means.",
+      "fullText": "3. If the comer is a traveller, assist him, so far as ye are able;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_12",
+      "sectionTitle": "Chapter 12",
+      "itemIndex": 3,
+      "primaryTheme": "virtues.daily_duties_state_in_life",
+      "secondaryThemes": [
+        "combat.spiritual_warfare",
+        "virtues.mercy_neighbor_almsgiving"
+      ],
+      "keyExcerpt": "but he shall not stay with you more than two or three days, if it be necessary.",
+      "oneSentenceSummary": "The early Church placed prudent time limits on hospitality to prevent itinerant guests from taking unfair advantage of Christian charity.",
+      "fullText": "4. but he shall not stay with you more than two or three days, if it be necessary."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_12",
+      "sectionTitle": "Chapter 12",
+      "itemIndex": 4,
+      "primaryTheme": "virtues.daily_duties_state_in_life",
+      "secondaryThemes": [
+        "virtues.mercy_neighbor_almsgiving"
+      ],
+      "keyExcerpt": "But if he wishes to settle with you, being a craftsman, let him work for and eat his bread.",
+      "oneSentenceSummary": "The Didache affirms the dignity of manual labor, requiring any visiting craftsman seeking to settle in the community to earn his own sustenance.",
+      "fullText": "5. But if he wishes to settle with you, being a craftsman, let him work for and eat his bread."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_12",
+      "sectionTitle": "Chapter 12",
+      "itemIndex": 5,
+      "primaryTheme": "virtues.daily_duties_state_in_life",
+      "secondaryThemes": [
+        "virtues.mercy_neighbor_almsgiving"
+      ],
+      "keyExcerpt": "But if he has no craft, according to your wisdom provide how he shall live as a Christian among you, but not in idleness.",
+      "oneSentenceSummary": "The community is tasked with finding honest occupation for unskilled newcomers so that no Christian lives in spiritual or social idleness.",
+      "fullText": "6. But if he has no craft, according to your wisdom provide how he shall live as a Christian among you, but not in idleness."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_12",
+      "sectionTitle": "Chapter 12",
+      "itemIndex": 6,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "combat.spiritual_warfare",
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "If he will not do this, he is trafficking upon Christ.",
+      "oneSentenceSummary": "Refusing to work and instead exploiting the charity of the Church is condemned as a grave sin of trafficking upon the name of Christ.",
+      "fullText": "7. If he will not do this, he is trafficking upon Christ."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_12",
+      "sectionTitle": "Chapter 12",
+      "itemIndex": 7,
+      "primaryTheme": "combat.spiritual_warfare",
+      "secondaryThemes": [
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "Beware of such men.",
+      "oneSentenceSummary": "The faithful are explicitly warned to remain vigilant against dishonest opportunists who abuse the faith for material gain.",
+      "fullText": "8. Beware of such men."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_13",
+      "sectionTitle": "Chapter 13",
+      "itemIndex": 0,
+      "primaryTheme": "ecclesiology.apostolic_succession",
+      "secondaryThemes": [
+        "virtues.mercy_neighbor_almsgiving",
+        "sacraments.holy_orders"
+      ],
+      "keyExcerpt": "But every true prophet desiring to settle among you is worthy of his food.",
+      "oneSentenceSummary": "Genuine prophets and ministers dedicated to building up the local Church are worthy of material support and sustenance from the faithful.",
+      "fullText": "1. But every true prophet desiring to settle among you is worthy of his food."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_13",
+      "sectionTitle": "Chapter 13",
+      "itemIndex": 1,
+      "primaryTheme": "ecclesiology.apostolic_succession",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life",
+        "virtues.mercy_neighbor_almsgiving"
+      ],
+      "keyExcerpt": "In like manner a true teacher is also worthy, like the workman, of his food.",
+      "oneSentenceSummary": "Authentic teachers of Catholic doctrine are entitled to sustenance, affirming the principle that those who minister the Gospel are worthy of their livelihood.",
+      "fullText": "2. In like manner a true teacher is also worthy, like the workman, of his food."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_13",
+      "sectionTitle": "Chapter 13",
+      "itemIndex": 2,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "ecclesiology.apostolic_succession",
+        "sacraments.holy_orders"
+      ],
+      "keyExcerpt": "Every firstfruit then of the produce of the wine-vat and of the threshing-floor, of thy oxen and of thy sheep, thou shalt take and give as the firstfruit to the prophets;",
+      "oneSentenceSummary": "The faithful are commanded to tithe the firstfruits of their agricultural labor and flocks to support the Church's prophets and ministers.",
+      "fullText": "3. Every firstfruit then of the produce of the wine-vat and of the threshing-floor, of thy oxen and of thy sheep, thou shalt take and give as the firstfruit to the prophets;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_13",
+      "sectionTitle": "Chapter 13",
+      "itemIndex": 3,
+      "primaryTheme": "sacraments.holy_orders",
+      "secondaryThemes": [
+        "ecclesiology.apostolic_succession"
+      ],
+      "keyExcerpt": "for they are your chief-priests.",
+      "oneSentenceSummary": "The Didache identifies the authentic ministers and prophets as chief priests within the Christian community, justifying their reception of the firstfruits.",
+      "fullText": "4. for they are your chief-priests."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_13",
+      "sectionTitle": "Chapter 13",
+      "itemIndex": 4,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "But if ye have not a prophet, give them to the poor.",
+      "oneSentenceSummary": "When no resident prophet or teacher is present to receive the firstfruits, they must be given as alms to the poor.",
+      "fullText": "5. But if ye have not a prophet, give them to the poor."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_13",
+      "sectionTitle": "Chapter 13",
+      "itemIndex": 5,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "If thou makest bread, take the firstfruit and give according to the commandment.",
+      "oneSentenceSummary": "Believers are instructed to set aside the first portion of their daily bread as an offering in obedience to God's law.",
+      "fullText": "6. If thou makest bread, take the firstfruit and give according to the commandment."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_13",
+      "sectionTitle": "Chapter 13",
+      "itemIndex": 6,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "ecclesiology.apostolic_succession",
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "In like manner, when thou openest a jar of wine or of oil, take the firstfruit and give to the prophets;",
+      "oneSentenceSummary": "The firstfruits of provisions such as wine and oil are to be given dutifully for the material support of the prophets.",
+      "fullText": "7. In like manner, when thou openest a jar of wine or of oil, take the firstfruit and give to the prophets;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_13",
+      "sectionTitle": "Chapter 13",
+      "itemIndex": 7,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "combat.mortification_detachment",
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "yea and of money and raiment and every possession take the firstfruit, as shall seem good to thee, and give according to the commandment.",
+      "oneSentenceSummary": "Christians are called to exercise detachment and generosity by offering the first portion of all their money, clothing, and possessions.",
+      "fullText": "8. yea and of money and raiment and every possession take the firstfruit, as shall seem good to thee, and give according to the commandment."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_14",
+      "sectionTitle": "Chapter 14",
+      "itemIndex": 0,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "sacraments.penance",
+        "sacraments.general_liturgy"
+      ],
+      "keyExcerpt": "And on the Lord's own day gather yourselves together and break bread and give thanks, first confessing your transgressions, that your sacrifice may be pure.",
+      "oneSentenceSummary": "The faithful must gather on Sunday to offer the Eucharistic sacrifice of thanksgiving, confessing their sins beforehand so that their offering is pure.",
+      "fullText": "1. And on the Lord's own day gather yourselves together and break bread and give thanks, first confessing your transgressions, that your sacrifice may be pure."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_14",
+      "sectionTitle": "Chapter 14",
+      "itemIndex": 1,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "virtues.mercy_neighbor_almsgiving",
+        "sacraments.penance"
+      ],
+      "keyExcerpt": "And let no man, having his dispute with his fellow, join your assembly until they have been reconciled, that your sacrifice may not be defiled;",
+      "oneSentenceSummary": "Fraternal reconciliation is an essential prerequisite for participating in the Eucharistic assembly so that the sacrifice remains undefiled.",
+      "fullText": "2. And let no man, having his dispute with his fellow, join your assembly until they have been reconciled, that your sacrifice may not be defiled;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_14",
+      "sectionTitle": "Chapter 14",
+      "itemIndex": 2,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "theology.scripture_tradition"
+      ],
+      "keyExcerpt": "for this sacrifice it is that was spoken of by the Lord:",
+      "oneSentenceSummary": "The Sunday Eucharistic assembly is identified as the very sacrifice foretold in Sacred Scripture by the Lord.",
+      "fullText": "3. for this sacrifice it is that was spoken of by the Lord:"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_14",
+      "sectionTitle": "Chapter 14",
+      "itemIndex": 3,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "theology.scripture_tradition",
+        "sacraments.general_liturgy"
+      ],
+      "keyExcerpt": "In every place and at every time offer Me a pure sacrifice;",
+      "oneSentenceSummary": "The prophetic command demands a pure Eucharistic sacrifice offered perpetually across all times and places.",
+      "fullText": "4. In every place and at every time offer Me a pure sacrifice;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_14",
+      "sectionTitle": "Chapter 14",
+      "itemIndex": 4,
+      "primaryTheme": "theology.trinity",
+      "secondaryThemes": [
+        "theology.scripture_tradition"
+      ],
+      "keyExcerpt": "for I am a great king, saith the Lord and My name is wonderful among the nations.",
+      "oneSentenceSummary": "God reveals His sovereign divine majesty and universal kingship, declaring His name to be exalted among all peoples.",
+      "fullText": "5. for I am a great king, saith the Lord and My name is wonderful among the nations."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_15",
+      "sectionTitle": "Chapter 15",
+      "itemIndex": 0,
+      "primaryTheme": "ecclesiology.apostolic_succession",
+      "secondaryThemes": [
+        "sacraments.holy_orders",
+        "virtues.humility_meekness"
+      ],
+      "keyExcerpt": "Appoint for yourselves therefore bishops and deacons worthy of the Lord, men who are meek and not lovers of money, and true and approved;",
+      "oneSentenceSummary": "The Church must appoint bishops and deacons of proven virtue, meekness, honesty, and financial detachment to shepherd the faithful.",
+      "fullText": "1. Appoint for yourselves therefore bishops and deacons worthy of the Lord, men who are meek and not lovers of money, and true and approved;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_15",
+      "sectionTitle": "Chapter 15",
+      "itemIndex": 1,
+      "primaryTheme": "ecclesiology.apostolic_succession",
+      "secondaryThemes": [
+        "sacraments.holy_orders"
+      ],
+      "keyExcerpt": "for unto you they also perform the service of the prophets and teachers.",
+      "oneSentenceSummary": "Bishops and deacons are to be honored because they carry out the liturgical and pedagogical ministry of prophets and teachers in the community.",
+      "fullText": "2. for unto you they also perform the service of the prophets and teachers."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_15",
+      "sectionTitle": "Chapter 15",
+      "itemIndex": 2,
+      "primaryTheme": "ecclesiology.apostolic_succession",
+      "secondaryThemes": [
+        "sacraments.holy_orders"
+      ],
+      "keyExcerpt": "Therefore despise them not;",
+      "oneSentenceSummary": "The faithful are strictly enjoined not to despise their ordained local ministers but to give them proper honor.",
+      "fullText": "3. Therefore despise them not;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_15",
+      "sectionTitle": "Chapter 15",
+      "itemIndex": 3,
+      "primaryTheme": "ecclesiology.apostolic_succession",
+      "secondaryThemes": [
+        "sacraments.holy_orders"
+      ],
+      "keyExcerpt": "for they are your honourable men along with the prophets and teachers.",
+      "oneSentenceSummary": "Bishops and deacons are to be held in equal honor alongside prophets and teachers as legitimate ministers of the Church.",
+      "fullText": "4. for they are your honourable men along with the prophets and teachers."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_15",
+      "sectionTitle": "Chapter 15",
+      "itemIndex": 4,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "theology.scripture_tradition",
+        "virtues.humility_meekness"
+      ],
+      "keyExcerpt": "And reprove one another, not in anger but in peace, as ye find in the Gospel;",
+      "oneSentenceSummary": "Fraternal correction must always be administered in peaceful charity rather than wrath, in accordance with the Gospel.",
+      "fullText": "5. And reprove one another, not in anger but in peace, as ye find in the Gospel;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_15",
+      "sectionTitle": "Chapter 15",
+      "itemIndex": 5,
+      "primaryTheme": "sacraments.penance",
+      "secondaryThemes": [
+        "virtues.mercy_neighbor_almsgiving"
+      ],
+      "keyExcerpt": "and let no one speak to any that has gone wrong towards his neighbour, neither let him hear a word from you, until he repent.",
+      "oneSentenceSummary": "Ecclesial discipline requires withholding fellowship from an unrepentant offender until true contrition and reconciliation are achieved.",
+      "fullText": "6. and let no one speak to any that has gone wrong towards his neighbour, neither let him hear a word from you, until he repent."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_15",
+      "sectionTitle": "Chapter 15",
+      "itemIndex": 6,
+      "primaryTheme": "theology.scripture_tradition",
+      "secondaryThemes": [
+        "prayer.vocal_mental_meditation",
+        "virtues.mercy_neighbor_almsgiving"
+      ],
+      "keyExcerpt": "But your prayers and your almsgivings and all your deeds so do ye as ye find it in the Gospel of our Lord.",
+      "oneSentenceSummary": "All prayers, charitable giving, and Christian actions must be patterned faithfully upon the teaching of the Gospel.",
+      "fullText": "7. But your prayers and your almsgivings and all your deeds so do ye as ye find it in the Gospel of our Lord."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 0,
+      "primaryTheme": "eschatology.death_judgment",
+      "secondaryThemes": [
+        "combat.spiritual_warfare"
+      ],
+      "keyExcerpt": "Be watchful for your life;",
+      "oneSentenceSummary": "Christians are exhorted to maintain constant spiritual vigilance over their souls in anticipation of the Lord's return.",
+      "fullText": "1. Be watchful for your life;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 1,
+      "primaryTheme": "eschatology.death_judgment",
+      "secondaryThemes": [
+        "virtues.faith_hope_charity"
+      ],
+      "keyExcerpt": "let your lamps not be quenched and your loins not ungirded, but be ye ready;",
+      "oneSentenceSummary": "Believers must keep their spiritual lamps burning and remain actively prepared for the Parousia.",
+      "fullText": "2. let your lamps not be quenched and your loins not ungirded, but be ye ready;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 2,
+      "primaryTheme": "eschatology.death_judgment",
+      "secondaryThemes": [
+        "theology.christ_incarnation"
+      ],
+      "keyExcerpt": "for ye know not the hour in which our Lord cometh.",
+      "oneSentenceSummary": "The uncertainty of the exact hour of Christ's return demands continual readiness and holy living.",
+      "fullText": "3. for ye know not the hour in which our Lord cometh."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 3,
+      "primaryTheme": "ecclesiology.church_unity_papacy",
+      "secondaryThemes": [
+        "sacraments.general_liturgy",
+        "eschatology.death_judgment"
+      ],
+      "keyExcerpt": "And ye shall gather yourselves together frequently, seeking what is fitting for your souls;",
+      "oneSentenceSummary": "Frequent communal assembly is essential for edifying the faithful and securing the salvation of their souls.",
+      "fullText": "4. And ye shall gather yourselves together frequently, seeking what is fitting for your souls;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 4,
+      "primaryTheme": "eschatology.death_judgment",
+      "secondaryThemes": [
+        "virtues.faith_hope_charity"
+      ],
+      "keyExcerpt": "for the whole time of your faith shall not profit you, if ye be not perfected at the last season.",
+      "oneSentenceSummary": "Lifelong faith is of no eternal benefit without final perseverance and perfection in grace at the end.",
+      "fullText": "5. for the whole time of your faith shall not profit you, if ye be not perfected at the last season."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 5,
+      "primaryTheme": "eschatology.death_judgment",
+      "secondaryThemes": [
+        "combat.spiritual_warfare"
+      ],
+      "keyExcerpt": "For in the last days the false prophets and corrupters shall be multiplied, and the sheep shall be turned into wolves, and love shall be turned into hate.",
+      "oneSentenceSummary": "The end times will be characterized by the multiplication of deceivers, the apostasy of believers, and the perversion of charity into malice.",
+      "fullText": "6. For in the last days the false prophets and corrupters shall be multiplied, and the sheep shall be turned into wolves, and love shall be turned into hate."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 6,
+      "primaryTheme": "eschatology.death_judgment",
+      "secondaryThemes": [
+        "combat.suffering_cross",
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "For as lawlessness increaseth, they shall hate one another and shall persecute and betray.",
+      "oneSentenceSummary": "The escalation of iniquity in the final days will lead to widespread hatred, mutual betrayal, and severe persecution.",
+      "fullText": "7. For as lawlessness increaseth, they shall hate one another and shall persecute and betray."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 7,
+      "primaryTheme": "eschatology.death_judgment",
+      "secondaryThemes": [
+        "combat.spiritual_warfare"
+      ],
+      "keyExcerpt": "And then the world-deceiver shall appear as a son of God;",
+      "oneSentenceSummary": "The ultimate eschatological tribulation includes the appearance of the Antichrist, who blasphemously masquerades as the Son of God.",
+      "fullText": "8. And then the world-deceiver shall appear as a son of God;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 8,
+      "primaryTheme": "combat.spiritual_warfare",
+      "secondaryThemes": [
+        "eschatology.death_judgment"
+      ],
+      "keyExcerpt": "and shall work signs and wonders, and the earth shall be delivered into his hands;",
+      "oneSentenceSummary": "In the end times, the deceiver of the world will perform false signs and wonders to lead humanity astray.",
+      "fullText": "9. and shall work signs and wonders, and the earth shall be delivered into his hands;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 9,
+      "primaryTheme": "combat.spiritual_warfare",
+      "secondaryThemes": [
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "and he shall do unholy things, which have never been since the world began.",
+      "oneSentenceSummary": "The eschatological deceiver will commit unprecedented acts of lawlessness and iniquity against God and His creation.",
+      "fullText": "10. and he shall do unholy things, which have never been since the world began."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 10,
+      "primaryTheme": "combat.suffering_cross",
+      "secondaryThemes": [
+        "eschatology.death_judgment",
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "Then all created mankind shall come to the fire of testing, and many shall be offended and perish;",
+      "oneSentenceSummary": "Humanity will undergo a severe furnace of trial in the final days, causing many to stumble and fall away.",
+      "fullText": "11. Then all created mankind shall come to the fire of testing, and many shall be offended and perish;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 11,
+      "primaryTheme": "virtues.faith_hope_charity",
+      "secondaryThemes": [
+        "theology.redemption_cross",
+        "eschatology.death_judgment"
+      ],
+      "keyExcerpt": "but they that endure in their faith shall be saved by the Curse Himself.",
+      "oneSentenceSummary": "Those who persevere in theological faith through trials will attain salvation through Christ, who became a curse for our redemption.",
+      "fullText": "12. but they that endure in their faith shall be saved by the Curse Himself."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 12,
+      "primaryTheme": "eschatology.death_judgment",
+      "secondaryThemes": [],
+      "keyExcerpt": "And then shall the signs of the truth appear;",
+      "oneSentenceSummary": "Following the great tribulation, the authentic signs of divine truth will appear to inaugurate the Parousia.",
+      "fullText": "13. And then shall the signs of the truth appear;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 13,
+      "primaryTheme": "eschatology.heaven_beatific_vision",
+      "secondaryThemes": [
+        "eschatology.death_judgment"
+      ],
+      "keyExcerpt": "first a sign of a rift in the heaven, then a sign of a voice of a trumpet, and thirdly a resurrection of the dead;",
+      "oneSentenceSummary": "The final arrival of the Kingdom will be heralded by the opening of the heavens, the angelic trumpet, and the bodily resurrection of the dead.",
+      "fullText": "14. first a sign of a rift in the heaven, then a sign of a voice of a trumpet, and thirdly a resurrection of the dead;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 14,
+      "primaryTheme": "theology.scripture_tradition",
+      "secondaryThemes": [
+        "eschatology.death_judgment"
+      ],
+      "keyExcerpt": "yet not of all, but as it was said:",
+      "oneSentenceSummary": "The author appeals to prophetic Sacred Scripture to explain the nature of the first resurrection of the righteous at the Parousia.",
+      "fullText": "15. yet not of all, but as it was said:"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 15,
+      "primaryTheme": "eschatology.death_judgment",
+      "secondaryThemes": [
+        "devotion.angels_communion_of_saints",
+        "theology.christ_incarnation"
+      ],
+      "keyExcerpt": "The Lord shall come and all His saints with Him.",
+      "oneSentenceSummary": "The Lord Jesus Christ will return in glory accompanied by the communion of all His holy angels and saints.",
+      "fullText": "16. The Lord shall come and all His saints with Him."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_16",
+      "sectionTitle": "Chapter 16",
+      "itemIndex": 16,
+      "primaryTheme": "eschatology.death_judgment",
+      "secondaryThemes": [
+        "theology.christ_incarnation"
+      ],
+      "keyExcerpt": "Then shall the world see the Lord coming upon the clouds of heaven.",
+      "oneSentenceSummary": "Human history will culminate in the visible, glorious return of the Lord on the clouds of heaven to judge the living and the dead.",
+      "fullText": "17. Then shall the world see the Lord coming upon the clouds of heaven."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_2",
+      "sectionTitle": "Chapter 2",
+      "itemIndex": 0,
+      "primaryTheme": "theology.scripture_tradition",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "And this is the second commandment of the teaching.",
+      "oneSentenceSummary": "The Didache introduces the second section of apostolic moral catechesis containing specific prohibitions and duties.",
+      "fullText": "1. And this is the second commandment of the teaching."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_2",
+      "sectionTitle": "Chapter 2",
+      "itemIndex": 1,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "virtues.purity_modesty",
+        "virtues.mercy_neighbor_almsgiving"
+      ],
+      "keyExcerpt": "thou shalt not murder a child by abortion nor kill them when born, thou shalt not covet thy neighbour's goods,",
+      "oneSentenceSummary": "The Didache outlines essential moral prohibitions for Christians, forbidding murder, abortion, infanticide, sexual immorality, theft, sorcery, perjury, and malice.",
+      "fullText": "2. Thou shalt do no murder, thou shalt not commit adultery, thou shalt not corrupt boys, thou shalt not commit fornication, thou shalt not steal, thou shalt not deal in magic, thou shalt do no sorcery, thou shalt not murder a child by abortion nor kill them when born, thou shalt not covet thy neighbour's goods, thou shalt not perjure thyself, thou shalt not bear false witness, thou shalt not speak evil, thou shalt not cherish a grudge, thou shalt not be double-minded nor double-tongued;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_2",
+      "sectionTitle": "Chapter 2",
+      "itemIndex": 2,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "eschatology.death_judgment"
+      ],
+      "keyExcerpt": "for the double tongue is a snare of death.",
+      "oneSentenceSummary": "Duplicity and deceitful speech are warned against as deadly traps leading to spiritual ruin.",
+      "fullText": "3. for the double tongue is a snare of death."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_2",
+      "sectionTitle": "Chapter 2",
+      "itemIndex": 3,
+      "primaryTheme": "virtues.daily_duties_state_in_life",
+      "secondaryThemes": [
+        "virtues.faith_hope_charity"
+      ],
+      "keyExcerpt": "Thy word shall not be false or empty, but fulfilled by action.",
+      "oneSentenceSummary": "Christian speech must be characterized by truthfulness and matched by righteous deeds.",
+      "fullText": "4. Thy word shall not be false or empty, but fulfilled by action."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_2",
+      "sectionTitle": "Chapter 2",
+      "itemIndex": 4,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "virtues.humility_meekness"
+      ],
+      "keyExcerpt": "Thou shalt not be avaricious nor a plunderer nor a hypocrite nor ill-tempered nor proud.",
+      "oneSentenceSummary": "Believers are commanded to reject the capital vices of greed, hypocrisy, anger, and pride.",
+      "fullText": "5. Thou shalt not be avaricious nor a plunderer nor a hypocrite nor ill-tempered nor proud."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_2",
+      "sectionTitle": "Chapter 2",
+      "itemIndex": 5,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "Thou shalt not entertain an evil design against thy neighbour.",
+      "oneSentenceSummary": "Charity requires rooting out all internal malice and premeditated harm directed toward one's neighbor.",
+      "fullText": "6. Thou shalt not entertain an evil design against thy neighbour."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_2",
+      "sectionTitle": "Chapter 2",
+      "itemIndex": 6,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "prayer.vocal_mental_meditation"
+      ],
+      "keyExcerpt": "Thou shalt not hate any man, but some thou shalt reprove, and for others thou shalt pray, and others thou shalt love more than thy life.",
+      "oneSentenceSummary": "Christians must reject all hatred, practicing fraternal correction, intercessory prayer, and sacrificial love for others.",
+      "fullText": "7. Thou shalt not hate any man, but some thou shalt reprove, and for others thou shalt pray, and others thou shalt love more than thy life."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 0,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "combat.spiritual_warfare"
+      ],
+      "keyExcerpt": "My child, flee from every evil and everything that resembleth it.",
+      "oneSentenceSummary": "The spiritual disciple must strictly avoid not only blatant sin, but also all near occasions and appearances of evil.",
+      "fullText": "1. My child, flee from every evil and everything that resembleth it."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 1,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "virtues.humility_meekness"
+      ],
+      "keyExcerpt": "Be not angry, for anger leadeth to murder, nor jealous nor contentious nor wrathful;",
+      "oneSentenceSummary": "Passions of anger, jealousy, and contention must be checked at their inception because they logically culminate in murder.",
+      "fullText": "2. Be not angry, for anger leadeth to murder, nor jealous nor contentious nor wrathful;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 2,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "virtues.humility_meekness"
+      ],
+      "keyExcerpt": "for of all these things murders are engendered.",
+      "oneSentenceSummary": "Unchecked internal wrath and strife are the spiritual seeds from which violent external crimes arise.",
+      "fullText": "3. for of all these things murders are engendered."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 3,
+      "primaryTheme": "virtues.purity_modesty",
+      "secondaryThemes": [
+        "combat.mortification_detachment",
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "My child, be not lustful, for lust leadeth to fornication, neither foul-speaking neither with uplifted eyes;",
+      "oneSentenceSummary": "Preserving chastity requires custody of the eyes, clean speech, and guarding against the initial movements of lust.",
+      "fullText": "4. My child, be not lustful, for lust leadeth to fornication, neither foul-speaking neither with uplifted eyes;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 4,
+      "primaryTheme": "virtues.purity_modesty",
+      "secondaryThemes": [
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "for of all these things adulteries are engendered.",
+      "oneSentenceSummary": "Immodest glances, impure speech, and harbored lusts inevitably breed the grave sin of adultery.",
+      "fullText": "5. for of all these things adulteries are engendered."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 5,
+      "primaryTheme": "combat.spiritual_warfare",
+      "secondaryThemes": [
+        "combat.temptation_sin",
+        "virtues.faith_hope_charity"
+      ],
+      "keyExcerpt": "My child, be no dealer in omens, since it leads to idolatry, nor an enchanter nor an astrologer nor a magician,",
+      "oneSentenceSummary": "The Didache strictly forbids divination, astrology, and magic because occult practices seduce the soul into idolatry.",
+      "fullText": "6. My child, be no dealer in omens, since it leads to idolatry, nor an enchanter nor an astrologer nor a magician, neither be willing to look at them;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 6,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "theology.creation_providence"
+      ],
+      "keyExcerpt": "for from all these things idolatry is engendered.",
+      "oneSentenceSummary": "The text warns that superstitious and occult practices serve as spiritual gateways from which full idolatry is engendered.",
+      "fullText": "7. for from all these things idolatry is engendered."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 7,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "virtues.humility_meekness"
+      ],
+      "keyExcerpt": "My child, be not a liar, since lying leads to theft, neither avaricious neither vainglorious;",
+      "oneSentenceSummary": "Counsel is given against falsehood, greed, and vanity, identifying them as dangerous precursors to the sin of theft.",
+      "fullText": "8. My child, be not a liar, since lying leads to theft, neither avaricious neither vainglorious;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 8,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [],
+      "keyExcerpt": "for from all these things thefts are engendered.",
+      "oneSentenceSummary": "The passage warns that lying, avarice, and vainglory inevitably give birth to theft.",
+      "fullText": "9. for from all these things thefts are engendered."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 9,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "prayer.conformity_divine_will"
+      ],
+      "keyExcerpt": "My child, be not a murmurer, since it leadeth to blasphemy, neither self-willed neither a thinker of evil thoughts;",
+      "oneSentenceSummary": "The believer is exhorted to shun grumbling, obstinacy, and malicious thoughts because they lead directly to blasphemy.",
+      "fullText": "10. My child, be not a murmurer, since it leadeth to blasphemy, neither self-willed neither a thinker of evil thoughts;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 10,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [],
+      "keyExcerpt": "for from all these things blasphemies are engendered.",
+      "oneSentenceSummary": "The text cautions that inner discontent, self-will, and malicious thoughts are the fertile ground from which blasphemies arise.",
+      "fullText": "11. for from all these things blasphemies are engendered."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 11,
+      "primaryTheme": "virtues.humility_meekness",
+      "secondaryThemes": [
+        "eschatology.heaven_beatific_vision"
+      ],
+      "keyExcerpt": "But be meek, since the meek shall inherit the earth.",
+      "oneSentenceSummary": "Echoing Christ's Beatitudes, the text commands the practice of meekness and promises the inheritance of the earth.",
+      "fullText": "12. But be meek, since the meek shall inherit the earth."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 12,
+      "primaryTheme": "virtues.humility_meekness",
+      "secondaryThemes": [
+        "virtues.mercy_neighbor_almsgiving",
+        "theology.scripture_tradition"
+      ],
+      "keyExcerpt": "Be long-suffering and pitiful and guileless and quiet and kindly and always fearing the words which thou hast heard.",
+      "oneSentenceSummary": "Christians are instructed to cultivate patience, compassion, simplicity, peaceableness, and a reverent awe before the word of God.",
+      "fullText": "13. Be long-suffering and pitiful and guileless and quiet and kindly and always fearing the words which thou hast heard."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 13,
+      "primaryTheme": "virtues.humility_meekness",
+      "secondaryThemes": [
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "Thou shalt not exalt thyself, neither shalt thou admit boldness into thy soul.",
+      "oneSentenceSummary": "The passage forbids pride and presumption, commanding the soul to avoid self-exaltation and arrogant boldness.",
+      "fullText": "14. Thou shalt not exalt thyself, neither shalt thou admit boldness into thy soul."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 14,
+      "primaryTheme": "virtues.humility_meekness",
+      "secondaryThemes": [
+        "virtues.faith_hope_charity"
+      ],
+      "keyExcerpt": "Thy soul shall not cleave together with the lofty, but with the righteous and humble shalt thou walk.",
+      "oneSentenceSummary": "The Christian is called to reject companionship with the proud and walk in fellowship with the righteous and humble.",
+      "fullText": "15. Thy soul shall not cleave together with the lofty, but with the righteous and humble shalt thou walk."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_3",
+      "sectionTitle": "Chapter 3",
+      "itemIndex": 15,
+      "primaryTheme": "prayer.conformity_divine_will",
+      "secondaryThemes": [
+        "theology.creation_providence",
+        "combat.suffering_cross"
+      ],
+      "keyExcerpt": "The accidents that befal thee thou shalt receive as good, knowing that nothing is done without God.",
+      "oneSentenceSummary": "The faithful are taught to accept all circumstances and trials as good, recognizing the sovereign, all-embracing providence of God.",
+      "fullText": "16. The accidents that befal thee thou shalt receive as good, knowing that nothing is done without God."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 0,
+      "primaryTheme": "ecclesiology.apostolic_succession",
+      "secondaryThemes": [
+        "theology.scripture_tradition",
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "My child, thou shalt remember him that speaketh unto thee the word of God night and day, and shalt honour him as the Lord;",
+      "oneSentenceSummary": "The faithful are commanded to remember and revere their spiritual pastors and teachers who preach God's word as representatives of the Lord.",
+      "fullText": "1. My child, thou shalt remember him that speaketh unto thee the word of God night and day, and shalt honour him as the Lord;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 1,
+      "primaryTheme": "theology.scripture_tradition",
+      "secondaryThemes": [
+        "ecclesiology.apostolic_succession",
+        "theology.christ_incarnation"
+      ],
+      "keyExcerpt": "for whencesoever the Lordship speaketh, there is the Lord.",
+      "oneSentenceSummary": "Christ the Lord is truly present wherever His divine authority and saving teaching are proclaimed.",
+      "fullText": "2. for whencesoever the Lordship speaketh, there is the Lord."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 2,
+      "primaryTheme": "devotion.angels_communion_of_saints",
+      "secondaryThemes": [
+        "ecclesiology.church_unity_papacy",
+        "virtues.faith_hope_charity"
+      ],
+      "keyExcerpt": "Moreover thou shalt seek out day by day the persons of the saints, that thou mayest find rest in their words.",
+      "oneSentenceSummary": "Believers are exhorted to daily seek the fellowship and counsel of holy Christians to find spiritual consolation and edification in their words.",
+      "fullText": "3. Moreover thou shalt seek out day by day the persons of the saints, that thou mayest find rest in their words."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 3,
+      "primaryTheme": "ecclesiology.church_unity_papacy",
+      "secondaryThemes": [
+        "virtues.mercy_neighbor_almsgiving",
+        "virtues.humility_meekness"
+      ],
+      "keyExcerpt": "Thou shalt not make a schism, but thou shalt pacify them that contend;",
+      "oneSentenceSummary": "The Didache forbids schism and commands Christians to be active peacemakers among those in dispute to preserve ecclesial unity.",
+      "fullText": "4. Thou shalt not make a schism, but thou shalt pacify them that contend;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 4,
+      "primaryTheme": "virtues.daily_duties_state_in_life",
+      "secondaryThemes": [
+        "virtues.mercy_neighbor_almsgiving",
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "thou shalt judge righteously, thou shalt not make a difference in a person to reprove him for transgressions.",
+      "oneSentenceSummary": "Fraternal correction and moral judgments must be carried out righteously and impartially, without showing favoritism or respect of persons.",
+      "fullText": "5. thou shalt judge righteously, thou shalt not make a difference in a person to reprove him for transgressions."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 5,
+      "primaryTheme": "virtues.faith_hope_charity",
+      "secondaryThemes": [
+        "theology.creation_providence",
+        "prayer.conformity_divine_will"
+      ],
+      "keyExcerpt": "Thou shalt not doubt whether a thing shall be or not be.",
+      "oneSentenceSummary": "Christians are called to steadfast faith and unhesitating trust in God's providence, avoiding spiritual wavering and double-minded doubt.",
+      "fullText": "6. Thou shalt not doubt whether a thing shall be or not be."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 6,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "combat.mortification_detachment"
+      ],
+      "keyExcerpt": "Be not thou found holding out thy hands to receive, but drawing them in as to giving.",
+      "oneSentenceSummary": "The disciple of Christ must cultivate an openhanded spirit of generosity rather than a selfish posture of eager receiving and grudging giving.",
+      "fullText": "7. Be not thou found holding out thy hands to receive, but drawing them in as to giving."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 7,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "sacraments.penance",
+        "theology.redemption_cross"
+      ],
+      "keyExcerpt": "If thou hast ought passing through thy hands, thou shalt give a ransom for thy sins.",
+      "oneSentenceSummary": "In accordance with patristic theology, almsgiving from one's possessions serves as an expiatory work and spiritual remedy for sin.",
+      "fullText": "8. If thou hast ought passing through thy hands, thou shalt give a ransom for thy sins."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 8,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "virtues.humility_meekness",
+        "virtues.faith_hope_charity"
+      ],
+      "keyExcerpt": "Thou shalt not hesitate to give, neither shalt thou murmur when giving;",
+      "oneSentenceSummary": "Almsgiving must be offered promptly and with a cheerful heart, free from hesitation, reluctance, or complaining.",
+      "fullText": "9. Thou shalt not hesitate to give, neither shalt thou murmur when giving;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 9,
+      "primaryTheme": "theology.creation_providence",
+      "secondaryThemes": [
+        "virtues.mercy_neighbor_almsgiving",
+        "eschatology.death_judgment"
+      ],
+      "keyExcerpt": "for thou shalt know who is the good paymaster of thy reward.",
+      "oneSentenceSummary": "Generosity is grounded in the assurance that God is the just and bountiful recompenser of every good work done for His sake.",
+      "fullText": "10. for thou shalt know who is the good paymaster of thy reward."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 10,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "combat.mortification_detachment",
+        "ecclesiology.church_unity_papacy"
+      ],
+      "keyExcerpt": "Thou shalt not turn away from him that is in want, but shalt make thy brother partaker in all things, and shalt not say that anything is thine own.",
+      "oneSentenceSummary": "Early Christian charity demands radical solidarity with the poor and the sharing of material goods without claiming exclusive ownership.",
+      "fullText": "11. Thou shalt not turn away from him that is in want, but shalt make thy brother partaker in all things, and shalt not say that anything is thine own."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 11,
+      "primaryTheme": "sacraments.matrimony",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life",
+        "virtues.mercy_neighbor_almsgiving"
+      ],
+      "keyExcerpt": "Thou shalt not withhold thy hand from thy son or from thy daughter, but from their youth thou shalt teach them the fear of God.",
+      "oneSentenceSummary": "Sharing spiritual and earthly goods extends to the domestic church, where parents are commanded to raise and discipline their children in the fear of God.",
+      "fullText": "12. For if ye are fellow-partakers in that which is imperishable, how much rather in the things which are perishable? Thou shalt not withhold thy hand from thy son or from thy daughter, but from their youth thou shalt teach them the fear of God."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 12,
+      "primaryTheme": "virtues.daily_duties_state_in_life",
+      "secondaryThemes": [
+        "virtues.humility_meekness",
+        "virtues.mercy_neighbor_almsgiving"
+      ],
+      "keyExcerpt": "Thou shalt not command thy bondservant or thine handmaid in thy bitterness, who trust in the same God as thyself, lest haply they should cease to fear the God who is over both of you;",
+      "oneSentenceSummary": "Christian masters are forbidden from treating servants harshly, recognizing their shared spiritual equality under the one God and Master of all.",
+      "fullText": "13. Thou shalt not command thy bondservant or thine handmaid in thy bitterness, who trust in the same God as thyself, lest haply they should cease to fear the God who is over both of you;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 13,
+      "primaryTheme": "theology.holy_spirit_grace",
+      "secondaryThemes": [
+        "theology.creation_providence",
+        "eschatology.death_judgment"
+      ],
+      "keyExcerpt": "for He cometh, not to call men with respect of persons, but He cometh to those whom the Spirit hath prepared.",
+      "oneSentenceSummary": "God’s sovereign call is impartial toward earthly status, calling all those whom the Holy Spirit has interiorly disposed and prepared by grace.",
+      "fullText": "14. for He cometh, not to call men with respect of persons, but He cometh to those whom the Spirit hath prepared."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 14,
+      "primaryTheme": "virtues.daily_duties_state_in_life",
+      "secondaryThemes": [
+        "virtues.humility_meekness"
+      ],
+      "keyExcerpt": "But ye, servants, shall be subject unto your masters, as to a type of God, in shame and fear.",
+      "oneSentenceSummary": "Christian servants are called to fulfill their daily duties by submitting to their masters with reverence and humility as an earthly reflection of divine authority.",
+      "fullText": "15. But ye, servants, shall be subject unto your masters, as to a type of God, in shame and fear."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 15,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "prayer.conformity_divine_will"
+      ],
+      "keyExcerpt": "Thou shalt hate all hypocrisy, and everything that is not pleasing to the Lord.",
+      "oneSentenceSummary": "The Christian must utterly renounce hypocrisy and avoid anything contrary to the will and pleasure of God.",
+      "fullText": "16. Thou shalt hate all hypocrisy, and everything that is not pleasing to the Lord."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 16,
+      "primaryTheme": "virtues.faith_hope_charity",
+      "secondaryThemes": [
+        "theology.scripture_tradition"
+      ],
+      "keyExcerpt": "Thou shalt never forsake the commandments of the Lord;",
+      "oneSentenceSummary": "Believers are commanded to maintain unwavering fidelity and obedience to the Lord's moral commandments.",
+      "fullText": "17. Thou shalt never forsake the commandments of the Lord;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 17,
+      "primaryTheme": "theology.scripture_tradition",
+      "secondaryThemes": [
+        "virtues.faith_hope_charity"
+      ],
+      "keyExcerpt": "but shalt keep those things which thou hast received, neither adding to them nor taking away from them.",
+      "oneSentenceSummary": "The Apostolic Tradition must be guarded intact, preserved faithfully without addition or subtraction.",
+      "fullText": "18. but shalt keep those things which thou hast received, neither adding to them nor taking away from them."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 18,
+      "primaryTheme": "sacraments.penance",
+      "secondaryThemes": [
+        "prayer.vocal_mental_meditation",
+        "sacraments.general_liturgy"
+      ],
+      "keyExcerpt": "In church thou shalt confess thy transgressions, and shalt not betake thyself to prayer with an evil conscience.",
+      "oneSentenceSummary": "The faithful are instructed to confess their sins within the ecclesial assembly so as not to approach prayer with a defiled conscience.",
+      "fullText": "19. In church thou shalt confess thy transgressions, and shalt not betake thyself to prayer with an evil conscience."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_4",
+      "sectionTitle": "Chapter 4",
+      "itemIndex": 19,
+      "primaryTheme": "virtues.faith_hope_charity",
+      "secondaryThemes": [
+        "theology.scripture_tradition"
+      ],
+      "keyExcerpt": "This is the way of life.",
+      "oneSentenceSummary": "Living according to these divine precepts constitutes the true path of supernatural life and salvation.",
+      "fullText": "20. This is the way of life."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_5",
+      "sectionTitle": "Chapter 5",
+      "itemIndex": 0,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "eschatology.death_judgment"
+      ],
+      "keyExcerpt": "But the way of death is this.",
+      "oneSentenceSummary": "The text introduces the 'Way of Death', summarizing the path of sin that leads to spiritual ruin and eternal damnation.",
+      "fullText": "1. But the way of death is this."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_5",
+      "sectionTitle": "Chapter 5",
+      "itemIndex": 1,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "virtues.purity_modesty",
+        "virtues.humility_meekness"
+      ],
+      "keyExcerpt": "First of all, it is evil and full of a curse: murders, adulteries, lusts, fornications, thefts, idolatries, magical arts, witchcrafts, plunderings, false witnessings, hypocrisies...",
+      "oneSentenceSummary": "A comprehensive catalogue of vices—including idolatry, murder, impurity, occultism, and pride—illustrates the cursed nature of mortal sin.",
+      "fullText": "2. First of all, it is evil and full of a curse: murders, adulteries, lusts, fornications, thefts, idolatries, magical arts, witchcrafts, plunderings, false witnessings, hypocrisies, doubleness of heart, treachery, pride, malice, stubbornness, covetousness, foul-speaking, jealousy, boldness, exaltation, boastfulness;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_5",
+      "sectionTitle": "Chapter 5",
+      "itemIndex": 2,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "combat.spiritual_warfare",
+        "eschatology.death_judgment"
+      ],
+      "keyExcerpt": "persecutors of good men, hating truth, loving a lie, not perceiving the reward of righteousness, not cleaving to the good nor to righteous judgment...",
+      "oneSentenceSummary": "Those walking the way of death oppose truth, persecute the righteous, and remain blind to God's eternal rewards.",
+      "fullText": "3. persecutors of good men, hating truth, loving a lie, not perceiving the reward of righteousness, not cleaving to the good nor to righteous judgment, wakeful not for that which is good but for that which is evil;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_5",
+      "sectionTitle": "Chapter 5",
+      "itemIndex": 3,
+      "primaryTheme": "virtues.humility_meekness",
+      "secondaryThemes": [
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "from whom gentleness and forbearance stand aloof;",
+      "oneSentenceSummary": "Those ensnared in evil are utterly devoid of the Christian virtues of meekness, gentleness, and patient forbearance.",
+      "fullText": "4. from whom gentleness and forbearance stand aloof;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_5",
+      "sectionTitle": "Chapter 5",
+      "itemIndex": 4,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "combat.temptation_sin",
+        "theology.creation_providence"
+      ],
+      "keyExcerpt": "not pitying the poor man, not toiling for him that is oppressed with toil, not recognizing Him that made them, murderers of children, corrupters of the creatures of God...",
+      "oneSentenceSummary": "The way of death is characterized by cold indifference to the poor, violent disregard for unborn human life, and willful rebellion against the Creator.",
+      "fullText": "5. loving vain things, pursuing a recompense, not pitying the poor man, not toiling for him that is oppressed with toil, not recognizing Him that made them, murderers of children, corrupters of the creatures of God, turning away from him that is in want, oppressing him that is afflicted, advocates of the wealthy, unjust judges of the poor, altogether sinful."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_5",
+      "sectionTitle": "Chapter 5",
+      "itemIndex": 5,
+      "primaryTheme": "combat.spiritual_warfare",
+      "secondaryThemes": [
+        "prayer.vocal_mental_meditation",
+        "combat.temptation_sin"
+      ],
+      "keyExcerpt": "May ye be delivered, my children, from all these things.",
+      "oneSentenceSummary": "The author concludes the warning against the way of death with a pastoral blessing praying for the spiritual deliverance and protection of the faithful.",
+      "fullText": "6. May ye be delivered, my children, from all these things."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_6",
+      "sectionTitle": "Chapter 6",
+      "itemIndex": 0,
+      "primaryTheme": "theology.scripture_tradition",
+      "secondaryThemes": [
+        "combat.spiritual_warfare"
+      ],
+      "keyExcerpt": "See lest any man lead you astray from this way of righteousness, for he teacheth thee apart from God.",
+      "oneSentenceSummary": "Believers are warned against false teachers who deviate from the apostolic way of righteousness and instruct apart from God.",
+      "fullText": "1. See lest any man lead you astray from this way of righteousness, for he teacheth thee apart from God."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_6",
+      "sectionTitle": "Chapter 6",
+      "itemIndex": 1,
+      "primaryTheme": "prayer.conformity_divine_will",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life",
+        "combat.mortification_detachment"
+      ],
+      "keyExcerpt": "For if thou art able to bear the whole yoke of the Lord, thou shalt be perfect;",
+      "oneSentenceSummary": "Bearing the complete yoke of Christ's commandments leads the Christian soul to evangelical perfection.",
+      "fullText": "2. For if thou art able to bear the whole yoke of the Lord, thou shalt be perfect;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_6",
+      "sectionTitle": "Chapter 6",
+      "itemIndex": 2,
+      "primaryTheme": "virtues.humility_meekness",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "but if thou art not able, do that which thou art able.",
+      "oneSentenceSummary": "Pastoral wisdom urges the faithful to humbly do what they are capable of when full ascetical perfection is beyond their present reach.",
+      "fullText": "3. but if thou art not able, do that which thou art able."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_6",
+      "sectionTitle": "Chapter 6",
+      "itemIndex": 3,
+      "primaryTheme": "combat.mortification_detachment",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "But concerning eating, bear that which thou art able;",
+      "oneSentenceSummary": "Disciples are advised to practice dietary self-denial and fasting according to their individual capacity.",
+      "fullText": "4. But concerning eating, bear that which thou art able;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_6",
+      "sectionTitle": "Chapter 6",
+      "itemIndex": 4,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "virtues.faith_hope_charity"
+      ],
+      "keyExcerpt": "yet abstain by all means from meat sacrificed to idols;",
+      "oneSentenceSummary": "Christians are strictly commanded to abstain from food sacrificed to idols to preserve fidelity to the true God.",
+      "fullText": "5. yet abstain by all means from meat sacrificed to idols;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_6",
+      "sectionTitle": "Chapter 6",
+      "itemIndex": 5,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "theology.trinity"
+      ],
+      "keyExcerpt": "for it is the worship of dead gods.",
+      "oneSentenceSummary": "Partaking of idolatrous sacrifices is condemned because it constitutes the worship of lifeless, false deities.",
+      "fullText": "6. for it is the worship of dead gods."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_7",
+      "sectionTitle": "Chapter 7",
+      "itemIndex": 0,
+      "primaryTheme": "sacraments.baptism",
+      "secondaryThemes": [
+        "sacraments.general_liturgy"
+      ],
+      "keyExcerpt": "But concerning baptism, thus shall ye baptize.",
+      "oneSentenceSummary": "The Didache introduces the liturgical and ritual instructions for the valid administration of Holy Baptism.",
+      "fullText": "1. But concerning baptism, thus shall ye baptize."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_7",
+      "sectionTitle": "Chapter 7",
+      "itemIndex": 1,
+      "primaryTheme": "sacraments.baptism",
+      "secondaryThemes": [
+        "theology.trinity",
+        "sacraments.general_liturgy"
+      ],
+      "keyExcerpt": "Having first recited all these things, baptize in the name of the Father and of the Son and of the Holy Spirit in living (running) water.",
+      "oneSentenceSummary": "Baptism is administered in running water using the essential Trinitarian formula following moral and catechetical instruction.",
+      "fullText": "2. Having first recited all these things, baptize in the name of the Father and of the Son and of the Holy Spirit in living (running) water."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_7",
+      "sectionTitle": "Chapter 7",
+      "itemIndex": 2,
+      "primaryTheme": "sacraments.baptism",
+      "secondaryThemes": [
+        "sacraments.general_liturgy"
+      ],
+      "keyExcerpt": "But if thou hast not living water, then baptize in other water;",
+      "oneSentenceSummary": "The Church provides liturgical accommodation allowing baptism in standing water if running water is unavailable.",
+      "fullText": "3. But if thou hast not living water, then baptize in other water;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_7",
+      "sectionTitle": "Chapter 7",
+      "itemIndex": 3,
+      "primaryTheme": "sacraments.baptism",
+      "secondaryThemes": [
+        "sacraments.general_liturgy"
+      ],
+      "keyExcerpt": "and if thou art not able in cold, then in warm.",
+      "oneSentenceSummary": "Warm water is permitted for the administration of Baptism when cold water cannot be used.",
+      "fullText": "4. and if thou art not able in cold, then in warm."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_7",
+      "sectionTitle": "Chapter 7",
+      "itemIndex": 4,
+      "primaryTheme": "sacraments.baptism",
+      "secondaryThemes": [
+        "theology.trinity",
+        "sacraments.general_liturgy"
+      ],
+      "keyExcerpt": "But if thou hast neither, then pour water on the head thrice in the name of the Father and of the Son and of the Holy Spirit.",
+      "oneSentenceSummary": "Baptism by affusion is explicitly validated through the threefold pouring of water upon the head in the Trinitarian name.",
+      "fullText": "5. But if thou hast neither, then pour water on the head thrice in the name of the Father and of the Son and of the Holy Spirit."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_7",
+      "sectionTitle": "Chapter 7",
+      "itemIndex": 5,
+      "primaryTheme": "sacraments.baptism",
+      "secondaryThemes": [
+        "combat.mortification_detachment"
+      ],
+      "keyExcerpt": "But before the baptism let him that baptizeth and him that is baptized fast, and any others also who are able;",
+      "oneSentenceSummary": "A preparatory fast is enjoined upon the minister, the catechumen, and the community prior to the celebration of Baptism.",
+      "fullText": "6. But before the baptism let him that baptizeth and him that is baptized fast, and any others also who are able;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_7",
+      "sectionTitle": "Chapter 7",
+      "itemIndex": 6,
+      "primaryTheme": "sacraments.baptism",
+      "secondaryThemes": [
+        "combat.mortification_detachment"
+      ],
+      "keyExcerpt": "and thou shalt order him that is baptized to fast a day or two before.",
+      "oneSentenceSummary": "The Didache prescribes preparatory fasting for catechumens prior to receiving the Sacrament of Baptism.",
+      "fullText": "7. and thou shalt order him that is baptized to fast a day or two before."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_8",
+      "sectionTitle": "Chapter 8",
+      "itemIndex": 0,
+      "primaryTheme": "combat.mortification_detachment",
+      "secondaryThemes": [
+        "virtues.humility_meekness"
+      ],
+      "keyExcerpt": "And let not your fastings be with the hypocrites, for they fast on the second and the fifth day of the week;",
+      "oneSentenceSummary": "Christians are instructed to distinguish their ascetical practices from the ostentatious fasting of hypocrites.",
+      "fullText": "1. And let not your fastings be with the hypocrites, for they fast on the second and the fifth day of the week;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_8",
+      "sectionTitle": "Chapter 8",
+      "itemIndex": 1,
+      "primaryTheme": "combat.mortification_detachment",
+      "secondaryThemes": [
+        "theology.redemption_cross"
+      ],
+      "keyExcerpt": "but do ye keep your fast on the fourth and on the preparation (the sixth) day.",
+      "oneSentenceSummary": "The early Church establishes weekly fasts on Wednesdays and Fridays in solemn remembrance of the Lord's betrayal and Passion.",
+      "fullText": "2. but do ye keep your fast on the fourth and on the preparation (the sixth) day."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_8",
+      "sectionTitle": "Chapter 8",
+      "itemIndex": 2,
+      "primaryTheme": "prayer.vocal_mental_meditation",
+      "secondaryThemes": [
+        "theology.scripture_tradition",
+        "virtues.humility_meekness"
+      ],
+      "keyExcerpt": "Neither pray ye as the hypocrites, but as the Lord commanded in His Gospel, thus pray ye:",
+      "oneSentenceSummary": "Believers are commanded to shun hypocritical prayer and instead pray according to the authentic pattern instituted by Christ in the Gospel.",
+      "fullText": "3. Neither pray ye as the hypocrites, but as the Lord commanded in His Gospel, thus pray ye:"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_8",
+      "sectionTitle": "Chapter 8",
+      "itemIndex": 3,
+      "primaryTheme": "prayer.vocal_mental_meditation",
+      "secondaryThemes": [
+        "theology.trinity"
+      ],
+      "keyExcerpt": "Our Father, which art in heaven, hallowed be Thy name;",
+      "oneSentenceSummary": "The Lord's Prayer opens with filial adoration of God the Father and the sanctification of His holy Name.",
+      "fullText": "4. Our Father, which art in heaven, hallowed be Thy name;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_8",
+      "sectionTitle": "Chapter 8",
+      "itemIndex": 4,
+      "primaryTheme": "prayer.vocal_mental_meditation",
+      "secondaryThemes": [
+        "eschatology.heaven_beatific_vision"
+      ],
+      "keyExcerpt": "Thy kingdom come;",
+      "oneSentenceSummary": "The faithful petition for the coming of God's Kingdom in hearts, in the Church, and in eschatological fullness.",
+      "fullText": "5. Thy kingdom come;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_8",
+      "sectionTitle": "Chapter 8",
+      "itemIndex": 5,
+      "primaryTheme": "prayer.conformity_divine_will",
+      "secondaryThemes": [
+        "prayer.vocal_mental_meditation"
+      ],
+      "keyExcerpt": "Thy will be done, as in heaven, so also on earth;",
+      "oneSentenceSummary": "This petition expresses total surrender and desire for earthly obedience to correspond perfectly to the divine will in heaven.",
+      "fullText": "6. Thy will be done, as in heaven, so also on earth;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_8",
+      "sectionTitle": "Chapter 8",
+      "itemIndex": 6,
+      "primaryTheme": "prayer.vocal_mental_meditation",
+      "secondaryThemes": [
+        "theology.creation_providence",
+        "sacraments.eucharist"
+      ],
+      "keyExcerpt": "give us this day our daily bread;",
+      "oneSentenceSummary": "The soul petitions God for daily sustenance, acknowledging Divine Providence and anticipating the supersubstantial Bread of the Eucharist.",
+      "fullText": "7. give us this day our daily bread;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_8",
+      "sectionTitle": "Chapter 8",
+      "itemIndex": 7,
+      "primaryTheme": "virtues.mercy_neighbor_almsgiving",
+      "secondaryThemes": [
+        "prayer.vocal_mental_meditation",
+        "sacraments.penance"
+      ],
+      "keyExcerpt": "and forgive us our debt, as we also forgive our debtors;",
+      "oneSentenceSummary": "Divine mercy and forgiveness are asked in direct proportion to the believer's readiness to forgive those who have offended them.",
+      "fullText": "8. and forgive us our debt, as we also forgive our debtors;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_8",
+      "sectionTitle": "Chapter 8",
+      "itemIndex": 8,
+      "primaryTheme": "combat.temptation_sin",
+      "secondaryThemes": [
+        "combat.spiritual_warfare",
+        "prayer.vocal_mental_meditation"
+      ],
+      "keyExcerpt": "and lead us not into temptation, but deliver us from the evil one;",
+      "oneSentenceSummary": "The Christian prays for divine preservation against spiritual temptation and deliverance from Satan's snares.",
+      "fullText": "9. and lead us not into temptation, but deliver us from the evil one;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_8",
+      "sectionTitle": "Chapter 8",
+      "itemIndex": 9,
+      "primaryTheme": "theology.trinity",
+      "secondaryThemes": [
+        "prayer.vocal_mental_meditation"
+      ],
+      "keyExcerpt": "for Thine is the power and the glory for ever and ever.",
+      "oneSentenceSummary": "The prayer concludes with an ancient liturgical doxology praising the eternal sovereignty, power, and glory of God.",
+      "fullText": "10. for Thine is the power and the glory for ever and ever."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_8",
+      "sectionTitle": "Chapter 8",
+      "itemIndex": 10,
+      "primaryTheme": "prayer.vocal_mental_meditation",
+      "secondaryThemes": [
+        "virtues.daily_duties_state_in_life"
+      ],
+      "keyExcerpt": "Three times in the day pray ye so.",
+      "oneSentenceSummary": "The Didache establishes the regular rule of reciting the Lord's Prayer three times daily as a sanctification of the day.",
+      "fullText": "11. Three times in the day pray ye so."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_9",
+      "sectionTitle": "Chapter 9",
+      "itemIndex": 0,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "sacraments.general_liturgy",
+        "prayer.vocal_mental_meditation"
+      ],
+      "keyExcerpt": "But as touching the eucharistic thanksgiving give ye thanks thus.",
+      "oneSentenceSummary": "The Didache introduces liturgical formulas and instructions for offering the Eucharistic thanksgiving.",
+      "fullText": "1. But as touching the eucharistic thanksgiving give ye thanks thus."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_9",
+      "sectionTitle": "Chapter 9",
+      "itemIndex": 1,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "sacraments.general_liturgy"
+      ],
+      "keyExcerpt": "First, as regards the cup:",
+      "oneSentenceSummary": "The liturgical order of the Eucharistic prayer commences with the thanksgiving over the chalice.",
+      "fullText": "2. First, as regards the cup:"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_9",
+      "sectionTitle": "Chapter 9",
+      "itemIndex": 2,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "theology.christ_incarnation",
+        "prayer.vocal_mental_meditation"
+      ],
+      "keyExcerpt": "We give Thee thanks, O our Father, for the holy vine of Thy son David, which Thou madest known unto us through Thy Son Jesus;",
+      "oneSentenceSummary": "The Eucharistic prayer over the chalice thanks the Father for the Davidic holy vine revealed through His Son Jesus Christ.",
+      "fullText": "3. We give Thee thanks, O our Father, for the holy vine of Thy son David, which Thou madest known unto us through Thy Son Jesus;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_9",
+      "sectionTitle": "Chapter 9",
+      "itemIndex": 3,
+      "primaryTheme": "prayer.vocal_mental_meditation",
+      "secondaryThemes": [
+        "theology.trinity",
+        "sacraments.eucharist"
+      ],
+      "keyExcerpt": "Thine is the glory for ever and ever.",
+      "oneSentenceSummary": "The Eucharistic prayer renders eternal praise and glory unto God the Father.",
+      "fullText": "4. Thine is the glory for ever and ever."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_9",
+      "sectionTitle": "Chapter 9",
+      "itemIndex": 4,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "sacraments.general_liturgy"
+      ],
+      "keyExcerpt": "Then as regards the broken bread:",
+      "oneSentenceSummary": "The Didache directs the liturgical thanksgiving to proceed to the blessing of the broken bread.",
+      "fullText": "5. Then as regards the broken bread:"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_9",
+      "sectionTitle": "Chapter 9",
+      "itemIndex": 5,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "theology.christ_incarnation",
+        "prayer.vocal_mental_meditation"
+      ],
+      "keyExcerpt": "We give Thee thanks, O our Father, for the life and knowledge which Thou didst make known unto us through Thy Son Jesus;",
+      "oneSentenceSummary": "The Eucharistic blessing over the bread gives thanks to the Father for the divine life and knowledge revealed through Christ.",
+      "fullText": "6. We give Thee thanks, O our Father, for the life and knowledge which Thou didst make known unto us through Thy Son Jesus;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_9",
+      "sectionTitle": "Chapter 9",
+      "itemIndex": 6,
+      "primaryTheme": "prayer.vocal_mental_meditation",
+      "secondaryThemes": [
+        "theology.trinity",
+        "sacraments.eucharist"
+      ],
+      "keyExcerpt": "Thine is the glory for ever and ever.",
+      "oneSentenceSummary": "A liturgical doxology confirms the eternal honor and glory due to the Almighty Father.",
+      "fullText": "7. Thine is the glory for ever and ever."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_9",
+      "sectionTitle": "Chapter 9",
+      "itemIndex": 7,
+      "primaryTheme": "ecclesiology.church_unity_papacy",
+      "secondaryThemes": [
+        "sacraments.eucharist",
+        "eschatology.heaven_beatific_vision"
+      ],
+      "keyExcerpt": "As this broken bread was scattered upon the mountains and being gathered together became one, so may Thy Church be gathered together from the ends of the earth into Thy kingdom;",
+      "oneSentenceSummary": "The unification of scattered wheat into one Eucharistic bread serves as a typology and prayer for the unity of the Catholic Church gathered from the ends of the earth into God's Kingdom.",
+      "fullText": "8. As this broken bread was scattered upon the mountains and being gathered together became one, so may Thy Church be gathered together from the ends of the earth into Thy kingdom;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_9",
+      "sectionTitle": "Chapter 9",
+      "itemIndex": 8,
+      "primaryTheme": "prayer.vocal_mental_meditation",
+      "secondaryThemes": [
+        "theology.trinity",
+        "theology.christ_incarnation"
+      ],
+      "keyExcerpt": "for Thine is the glory and the power through Jesus Christ for ever and ever.",
+      "oneSentenceSummary": "The Eucharistic prayer concludes with a solemn doxology acknowledging the Father's eternal glory and power through Jesus Christ.",
+      "fullText": "9. for Thine is the glory and the power through Jesus Christ for ever and ever."
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_9",
+      "sectionTitle": "Chapter 9",
+      "itemIndex": 9,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "sacraments.baptism"
+      ],
+      "keyExcerpt": "But let no one eat or drink of this eucharistic thanksgiving, but they that have been baptized into the name of the Lord;",
+      "oneSentenceSummary": "Holy Communion is strictly restricted to those who have been incorporated into Christ through Holy Baptism.",
+      "fullText": "10. But let no one eat or drink of this eucharistic thanksgiving, but they that have been baptized into the name of the Lord;"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_9",
+      "sectionTitle": "Chapter 9",
+      "itemIndex": 10,
+      "primaryTheme": "theology.scripture_tradition",
+      "secondaryThemes": [
+        "sacraments.eucharist"
+      ],
+      "keyExcerpt": "for concerning this also the Lord hath said:",
+      "oneSentenceSummary": "The Didache grounds its Eucharistic discipline in the authoritative spoken words of the Lord Jesus.",
+      "fullText": "11. for concerning this also the Lord hath said:"
+    },
+    {
+      "bookId": "didache_lightfoot",
+      "bookTitle": "The Didache",
+      "author": "The Apostolic Fathers (Trans. J. B. Lightfoot)",
+      "sectionId": "sec_didache_9",
+      "sectionTitle": "Chapter 9",
+      "itemIndex": 11,
+      "primaryTheme": "sacraments.eucharist",
+      "secondaryThemes": [
+        "theology.scripture_tradition",
+        "virtues.purity_modesty"
+      ],
+      "keyExcerpt": "Give not that which is holy to the dogs.",
+      "oneSentenceSummary": "The Gospel precept against casting holy things to dogs is applied to guard the sacred mysteries of the Holy Eucharist from profanation.",
+      "fullText": "12. Give not that which is holy to the dogs."
+    }
+  ]
+}
