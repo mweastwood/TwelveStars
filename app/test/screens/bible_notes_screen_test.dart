@@ -17,6 +17,8 @@ void main() {
     await testDb.ensurePopulated();
   });
 
+  tearDown(() async => await testDb.close());
+
   final List<FavoritePassage> mockFavorites = [
     const FavoritePassage(
       id: 1,

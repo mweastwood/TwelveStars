@@ -441,7 +441,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     }
   }
 
-  void _navigateToFavorite(FavoritePassage fav) {
+  void navigateToFavorite(FavoritePassage fav) {
     final pageIndex = _allChapters.indexWhere(
       (ref) =>
           ref.book.bookNumber == fav.bookNumber && ref.chapter == fav.chapter,
@@ -461,7 +461,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     }
   }
 
-  void _navigateToComment(UserComment comment) {
+  void navigateToComment(UserComment comment) {
     final verseNum = int.tryParse(comment.nodeId.split('_').last) ?? 1;
     final book = catholicBooks.firstWhere(
       (b) => b.abbrev == comment.documentId,
@@ -494,11 +494,11 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
         builder: (context) => BibleNotesScreen(
           onSelectFavorite: (fav) {
             Navigator.pop(context);
-            _navigateToFavorite(fav);
+            navigateToFavorite(fav);
           },
           onSelectComment: (comment) {
             Navigator.pop(context);
-            _navigateToComment(comment);
+            navigateToComment(comment);
           },
           onFavoritesOrCommentsChanged: () {
             _loadFavorites();
@@ -764,14 +764,14 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
               onChapterSelected: _navigateToChapter,
               favorites: _favorites,
               loadingFavorites: _loadingFavorites,
-              onFavoriteTapped: _navigateToFavorite,
+              onFavoriteTapped: navigateToFavorite,
               onDeleteFavorite: (fav) async {
                 await BibleDatabaseHelper.db.deleteFavorite(fav.id);
                 _loadFavorites();
               },
               comments: _comments,
               loadingComments: _loadingComments,
-              onCommentTapped: _navigateToComment,
+              onCommentTapped: navigateToComment,
               onEditComment: (comment) async {
                 final verseNum =
                     int.tryParse(comment.nodeId.split('_').last) ?? 1;

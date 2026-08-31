@@ -4,6 +4,7 @@ import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/screens/home_screen.dart';
 import 'package:twelve_stars/screens/settings_screen.dart';
 import 'package:twelve_stars/screens/confirmation_discernment_screen.dart';
+import 'package:twelve_stars/screens/bible_notes_screen.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:drift/native.dart';
@@ -347,6 +348,7 @@ void main() {
       );
       expect(find.byKey(const Key('drawer_saints_tile')), findsOneWidget);
       expect(find.byKey(const Key('drawer_confirmation_tile')), findsOneWidget);
+      expect(find.byKey(const Key('drawer_bible_notes_tile')), findsOneWidget);
       expect(find.byKey(const Key('drawer_settings_tile')), findsOneWidget);
       expect(find.byKey(const Key('drawer_version_tile')), findsOneWidget);
       expect(
@@ -364,6 +366,31 @@ void main() {
       expect(find.byType(SettingsScreen), findsOneWidget);
       expect(find.byKey(const Key('settings_haptics_tile')), findsOneWidget);
     });
+
+    testWidgets(
+      'HomeScreen drawer Bible Notes tile navigates to BibleNotesScreen',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byIcon(Icons.menu));
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byKey(const Key('drawer_bible_notes_tile')),
+          findsOneWidget,
+        );
+
+        await tester.tap(find.byKey(const Key('drawer_bible_notes_tile')));
+        await tester.pumpAndSettle();
+
+        expect(find.byType(BibleNotesScreen), findsOneWidget);
+      },
+    );
 
     testWidgets(
       'HomeScreen drawer confirmation tile navigates to ConfirmationDiscernmentScreen',

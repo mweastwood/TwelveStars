@@ -601,10 +601,16 @@ class _HomeScreenState extends State<HomeScreen>
                     onSelectFavorite: (fav) {
                       Navigator.pop(context);
                       setState(() => _currentTab = 2); // Switch to Bible tab
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                        _bibleTabKey.currentState?.navigateToFavorite(fav);
+                      });
                     },
                     onSelectComment: (comment) {
                       Navigator.pop(context);
                       setState(() => _currentTab = 2); // Switch to Bible tab
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                        _bibleTabKey.currentState?.navigateToComment(comment);
+                      });
                     },
                   ),
                 ),
