@@ -166,7 +166,7 @@ class BibleVerseRow extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.0),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
-        margin: const EdgeInsets.only(left: 8.0, top: 2.0, bottom: 2.0),
+        margin: const EdgeInsets.symmetric(vertical: 2.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
