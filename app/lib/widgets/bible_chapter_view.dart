@@ -26,6 +26,7 @@ class BibleChapterView extends StatefulWidget {
   final String? navigationSessionId;
   final VoidCallback? onFavoriteSaved;
   final List<BibleRibbonBookmark>? bookmarks;
+  final ValueChanged<bool>? onSelectionChanged;
 
   const BibleChapterView({
     super.key,
@@ -42,6 +43,7 @@ class BibleChapterView extends StatefulWidget {
     this.navigationSessionId,
     this.onFavoriteSaved,
     this.bookmarks,
+    this.onSelectionChanged,
   });
 
   @override
@@ -88,6 +90,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
         oldWidget.chapter != widget.chapter ||
         oldWidget.primaryTranslation != widget.primaryTranslation ||
         oldWidget.compareTranslation != widget.compareTranslation) {
+      if (_firstSelectedVerseNumber != null) {
+        widget.onSelectionChanged?.call(false);
+      }
       _firstSelectedVerseNumber = null;
       _lastSelectedVerseNumber = null;
       _loadChapterData();
@@ -239,6 +244,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
       _firstSelectedVerseNumber = verseNumber;
       _lastSelectedVerseNumber = verseNumber;
     });
+    widget.onSelectionChanged?.call(true);
   }
 
   void _onVerseTap(int verseNumber) {
@@ -254,6 +260,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
       _firstSelectedVerseNumber = null;
       _lastSelectedVerseNumber = null;
     });
+    widget.onSelectionChanged?.call(false);
   }
 
   Widget _buildSelectionActionBar(ThemeData theme) {

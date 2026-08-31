@@ -11,6 +11,7 @@ import 'package:twelve_stars/screens/missal_tab.dart';
 import 'package:twelve_stars/screens/library_tab.dart';
 import 'package:twelve_stars/screens/saints_screen.dart';
 import 'package:twelve_stars/screens/confirmation_discernment_screen.dart';
+import 'package:twelve_stars/screens/bible_notes_screen.dart';
 import 'package:twelve_stars/screens/settings_screen.dart';
 import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
 import 'package:twelve_stars/logic/utils/app_version.dart';
@@ -583,6 +584,35 @@ class _HomeScreenState extends State<HomeScreen>
                 context,
                 MaterialPageRoute(
                   builder: (context) => const ConfirmationDiscernmentScreen(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            key: const Key('drawer_bible_notes_tile'),
+            leading: const Icon(Icons.edit_note_rounded),
+            title: const Text('Bible Notes & Favorites'),
+            onTap: () {
+              Navigator.pop(context); // Close drawer
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BibleNotesScreen(
+                    onSelectFavorite: (fav) {
+                      Navigator.pop(context);
+                      setState(() => _currentTab = 2); // Switch to Bible tab
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                        _bibleTabKey.currentState?.navigateToFavorite(fav);
+                      });
+                    },
+                    onSelectComment: (comment) {
+                      Navigator.pop(context);
+                      setState(() => _currentTab = 2); // Switch to Bible tab
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                        _bibleTabKey.currentState?.navigateToComment(comment);
+                      });
+                    },
+                  ),
                 ),
               );
             },

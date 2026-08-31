@@ -115,6 +115,81 @@ void main() {
       },
     );
 
+    testWidgets('navigateToFavorite navigates and sets highlight target', (
+      WidgetTester tester,
+    ) async {
+      await tester.runAsync(() async {
+        await testDb.ensureBookPopulated(1, 'Genesis', 'GEN');
+      });
+
+      final settings = UserSettings(
+        lastBibleBookNumber: 1,
+        lastBibleChapter: 1,
+      );
+      await testDb.saveUserSettings(settings);
+      PrayerDatabase.mockPrayers = null;
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: BibleTab())),
+      );
+      await tester.pumpAndSettle();
+
+      const fav = FavoritePassage(
+        id: 1,
+        bookNumber: 1,
+        bookName: 'Genesis',
+        chapter: 2,
+        startVerse: 3,
+        endVerse: 4,
+        textPreview: 'And he blessed the seventh day, and sanctified it.',
+      );
+
+      final state = tester.state<BibleTabState>(find.byType(BibleTab));
+      state.navigateToFavorite(fav);
+      await tester.pumpAndSettle();
+
+      final updatedSettings = await testDb.getUserSettings();
+      expect(updatedSettings?.lastBibleBookNumber, equals(1));
+      expect(updatedSettings?.lastBibleChapter, equals(2));
+    });
+
+    testWidgets('navigateToComment navigates and sets highlight target', (
+      WidgetTester tester,
+    ) async {
+      await tester.runAsync(() async {
+        await testDb.ensureBookPopulated(1, 'Genesis', 'GEN');
+      });
+
+      final settings = UserSettings(
+        lastBibleBookNumber: 1,
+        lastBibleChapter: 1,
+      );
+      await testDb.saveUserSettings(settings);
+      PrayerDatabase.mockPrayers = null;
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: BibleTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final comment = UserComment(
+        id: 1,
+        documentId: 'gen',
+        sectionIndex: 3,
+        nodeId: 'gen_3_5',
+        commentText: 'Test reflection',
+        createdAt: DateTime(2026, 1, 1),
+      );
+
+      final state = tester.state<BibleTabState>(find.byType(BibleTab));
+      state.navigateToComment(comment);
+      await tester.pumpAndSettle();
+
+      final updatedSettings = await testDb.getUserSettings();
+      expect(updatedSettings?.lastBibleBookNumber, equals(1));
+      expect(updatedSettings?.lastBibleChapter, equals(3));
+    });
+
     testGoldens('renders correctly', (tester) async {
       final builder = GoldenBuilder.column()
         ..addScenario(

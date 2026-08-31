@@ -6,6 +6,7 @@ import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
+import 'package:twelve_stars/screens/bible_notes_screen.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
 import 'package:twelve_stars/widgets/bible_translation_selector_card.dart';
 import 'package:twelve_stars/widgets/bible_translation_selector_dialog.dart';
@@ -54,6 +55,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   UserSettings? _settings;
   String _primaryTranslation = 'CPDV';
   String _compareTranslation = 'none';
+  bool _isSelectingVerses = false;
   bool _showTranslationSelectors = false;
 
   bool get showTranslationSelectors => _showTranslationSelectors;
@@ -439,7 +441,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     }
   }
 
-  void _navigateToFavorite(FavoritePassage fav) {
+  void navigateToFavorite(FavoritePassage fav) {
     final pageIndex = _allChapters.indexWhere(
       (ref) =>
           ref.book.bookNumber == fav.bookNumber && ref.chapter == fav.chapter,
@@ -459,7 +461,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     }
   }
 
-  void _navigateToComment(UserComment comment) {
+  void navigateToComment(UserComment comment) {
     final verseNum = int.tryParse(comment.nodeId.split('_').last) ?? 1;
     final book = catholicBooks.firstWhere(
       (b) => b.abbrev == comment.documentId,
@@ -483,6 +485,31 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       _collapsePanel();
       _saveReadingPosition(pageIndex);
     }
+  }
+
+  void _openNotesScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => BibleNotesScreen(
+          onSelectFavorite: (fav) {
+            Navigator.pop(context);
+            navigateToFavorite(fav);
+          },
+          onSelectComment: (comment) {
+            Navigator.pop(context);
+            navigateToComment(comment);
+          },
+          onFavoritesOrCommentsChanged: () {
+            _loadFavorites();
+            _loadComments();
+          },
+        ),
+      ),
+    ).then((_) {
+      _loadFavorites();
+      _loadComments();
+    });
   }
 
   void _onRibbonTap(int index, BibleRibbonBookmark? bookmark) {
@@ -664,6 +691,11 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                 navigationSessionId: isTarget ? _navigationSessionId : null,
                 onFavoriteSaved: _loadFavorites,
                 bookmarks: _settings?.bibleRibbons,
+                onSelectionChanged: (isSelecting) {
+                  if (_isSelectingVerses != isSelecting) {
+                    setState(() => _isSelectingVerses = isSelecting);
+                  }
+                },
               );
             },
           ),
@@ -696,7 +728,20 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
               ),
             ),
 
-          // 4. Persistent Peeking Bottom Panel
+          // 4. Notes FAB (floats above collapsed bottom sheet when not selecting verses)
+          if (!_isPanelExpanded && !_isSelectingVerses)
+            Positioned(
+              right: 16,
+              bottom: 88, // float 16px above collapsed bottom sheet (72px)
+              child: FloatingActionButton.extended(
+                key: const Key('bible_notes_fab'),
+                onPressed: _openNotesScreen,
+                icon: const Icon(Icons.edit_note_rounded),
+                label: const Text('Notes'),
+              ),
+            ),
+
+          // 5. Persistent Peeking Bottom Panel
           Positioned(
             left: 0,
             right: 0,
@@ -719,14 +764,14 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
               onChapterSelected: _navigateToChapter,
               favorites: _favorites,
               loadingFavorites: _loadingFavorites,
-              onFavoriteTapped: _navigateToFavorite,
+              onFavoriteTapped: navigateToFavorite,
               onDeleteFavorite: (fav) async {
                 await BibleDatabaseHelper.db.deleteFavorite(fav.id);
                 _loadFavorites();
               },
               comments: _comments,
               loadingComments: _loadingComments,
-              onCommentTapped: _navigateToComment,
+              onCommentTapped: navigateToComment,
               onEditComment: (comment) async {
                 final verseNum =
                     int.tryParse(comment.nodeId.split('_').last) ?? 1;
