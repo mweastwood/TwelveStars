@@ -4,6 +4,7 @@ import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
+import 'package:twelve_stars/screens/thematic_quote_browser_screen.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
 
 class LibraryTab extends StatefulWidget {
@@ -504,12 +505,15 @@ class _LibraryTabState extends State<LibraryTab> {
     final theme = Theme.of(context);
 
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Column(
         children: [
           TabBar(
+            isScrollable: true,
+            tabAlignment: TabAlignment.start,
             tabs: const [
               Tab(text: 'Books'),
+              Tab(text: 'Quotes & Themes'),
               Tab(text: 'Favorites'),
               Tab(text: 'Comments'),
             ],
@@ -518,6 +522,7 @@ class _LibraryTabState extends State<LibraryTab> {
             child: TabBarView(
               children: [
                 _buildCatalogTab(theme),
+                const ThematicQuoteBrowserScreen(embedded: true),
                 _buildFavoritesTab(theme),
                 _buildCommentsTab(theme),
               ],
@@ -746,6 +751,78 @@ class _LibraryTabState extends State<LibraryTab> {
               _buildContinueReadingHero(theme, catalog),
               const SizedBox(height: 12),
             ],
+
+            // Thematic Quote Browser Banner
+            Card(
+              elevation: 0,
+              color: theme.colorScheme.tertiaryContainer.withValues(
+                alpha: 0.35,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+                side: BorderSide(
+                  color: theme.colorScheme.tertiary.withValues(alpha: 0.3),
+                ),
+              ),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(16),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ThematicQuoteBrowserScreen(),
+                    ),
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(14.0),
+                  child: Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.tertiaryContainer,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          Icons.format_quote_rounded,
+                          size: 20,
+                          color: theme.colorScheme.onTertiaryContainer,
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'EXPLORE BY THEME',
+                              style: theme.textTheme.labelSmall?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: theme.colorScheme.tertiary,
+                                letterSpacing: 1.1,
+                              ),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              'Swipe through quotations by sacrament & virtue',
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: theme.colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Icon(
+                        Icons.chevron_right_rounded,
+                        color: theme.colorScheme.tertiary,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
 
             // Category Filter Chips
             SingleChildScrollView(

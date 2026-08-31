@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:drift/drift.dart' hide isNull, isNotNull;
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
+import 'package:twelve_stars/logic/thematic_database.dart';
 import 'package:twelve_stars/screens/library_tab.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
@@ -20,9 +22,11 @@ void main() {
   setUp(() {
     testDb = BibleDatabase(NativeDatabase.memory());
     BibleDatabaseHelper.db = testDb;
+    ThematicHelper.mockRandom = Random(42);
   });
 
   tearDown(() async {
+    ThematicHelper.mockRandom = null;
     await testDb.close();
   });
 
@@ -136,6 +140,31 @@ void main() {
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(tester, 'library_tab_search_results_golden');
+    });
+
+    testGoldens('LibraryTab renders quotes and themes tab correctly', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await ThematicHelper.loadAllPassages();
+      });
+
+      await tester.pumpWidgetBuilder(
+        const Scaffold(body: LibraryTab()),
+        wrapper: materialAppWrapper(),
+        surfaceSize: const Size(480, 800),
+      );
+      await tester.pump();
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Quotes & Themes'));
+      await tester.pump();
+      await tester.pumpAndSettle();
+
+      await screenMatchesGolden(
+        tester,
+        'library_tab_quotes_and_themes_tab_golden',
+      );
     });
 
     testGoldens('LibraryTab renders favorites tab correctly', (tester) async {
