@@ -348,6 +348,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                     children: [
                       FilterChip(
                         key: const Key('filter_favorites_chip'),
+                        showCheckmark: false,
                         avatar: Icon(
                           _showFavorites
                               ? Icons.star_rounded
@@ -371,6 +372,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                       const SizedBox(width: 8.0),
                       FilterChip(
                         key: const Key('filter_notes_chip'),
+                        showCheckmark: false,
                         avatar: Icon(
                           _showComments
                               ? Icons.comment_rounded
