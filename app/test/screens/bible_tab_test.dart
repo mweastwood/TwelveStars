@@ -1947,5 +1947,70 @@ void main() {
         'bible_tab_bookmarked_page_ribbons_golden',
       );
     });
+
+    testGoldens(
+      'renders highlighted Bible verse on chapter marked with ribbon without ribbon intersection',
+      (tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'In the beginning God created heaven, and earth.',
+                translationCode: 'CPDV',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 2,
+                verseText:
+                    'And the earth was void and empty, and darkness was upon the face of the deep; and the spirit of God moved over the waters.',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        final settings = UserSettings(
+          lastBibleBookNumber: 1,
+          lastBibleChapter: 1,
+          bibleRibbons: [
+            const BibleRibbonBookmark(
+              ribbonIndex: 0,
+              bookNumber: 1,
+              chapter: 1,
+            ),
+          ],
+        );
+        await testDb.saveUserSettings(settings);
+        PrayerDatabase.mockPrayers = null;
+
+        await tester.pumpWidgetBuilder(
+          const Scaffold(body: BibleTab()),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
+
+        // Long press verse 1 to highlight / select it
+        await tester.longPress(
+          find.text('In the beginning God created heaven, and earth.'),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'bible_tab_bookmarked_ribbon_verse_highlight_golden',
+        );
+      },
+    );
   });
 }
