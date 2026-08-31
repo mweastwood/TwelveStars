@@ -1662,9 +1662,7 @@ void main() {
         await tester.pumpAndSettle();
 
         await tester.longPress(find.byKey(const Key('bible_ribbon_2')));
-        await tester.pump();
-
-        expect(find.text('Bookmarked Genesis 1 to ribbon'), findsOneWidget);
+        await tester.pumpAndSettle();
 
         final settings = await testDb.getUserSettings();
         expect(settings?.bibleRibbons, isNotNull);
@@ -1709,7 +1707,6 @@ void main() {
       await tester.tap(find.byKey(const Key('bible_ribbon_1')));
       await tester.pumpAndSettle();
 
-      expect(find.text('Jumped to Exodus 1'), findsOneWidget);
       expect(find.text('Exodus 1'), findsNWidgets(2));
 
       final updatedSettings = await testDb.getUserSettings();

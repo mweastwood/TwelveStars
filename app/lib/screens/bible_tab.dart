@@ -522,13 +522,6 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       setState(() {
         _selectedBookForPicker = book;
       });
-      ScaffoldMessenger.of(context).hideCurrentSnackBar();
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Jumped to ${book.bookName} ${bookmark.chapter}'),
-          duration: const Duration(seconds: 2),
-        ),
-      );
     } else {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
@@ -578,18 +571,6 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
 
     await PrayerDatabase.saveSettings(settings);
     await UserSettingsController.instance.update(settings);
-
-    if (mounted) {
-      ScaffoldMessenger.of(context).hideCurrentSnackBar();
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            'Bookmarked ${currentRef.book.bookName} ${currentRef.chapter} to ribbon',
-          ),
-          duration: const Duration(seconds: 2),
-        ),
-      );
-    }
   }
 
   @override
