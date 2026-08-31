@@ -151,7 +151,7 @@ class BiblePageRibbon extends StatelessWidget {
       elevation: 2.0,
       shadowColor: Colors.black38,
       color: color,
-      child: const SizedBox(width: 16.0),
+      child: const SizedBox(width: 16.0, height: double.infinity),
     );
   }
 }
@@ -163,6 +163,7 @@ class BiblePageRibbonsWidget extends StatelessWidget {
   final double top;
   final double bottom;
   final double left;
+  final double width;
 
   static const List<Color> ribbonColors = BibleRibbonsWidget.ribbonColors;
 
@@ -174,32 +175,53 @@ class BiblePageRibbonsWidget extends StatelessWidget {
     this.top = 0.0,
     this.bottom = 0.0,
     this.left = 4.0,
+    this.width = 16.0,
   });
 
   @override
   Widget build(BuildContext context) {
-    if (bookmarks == null || bookmarks!.isEmpty) {
-      return const SizedBox.shrink();
-    }
-
     BibleRibbonBookmark? matchingBookmark;
-    for (final b in bookmarks!) {
-      if (b.bookNumber == bookNumber && b.chapter == chapter) {
-        matchingBookmark = b;
-        break;
+    if (bookmarks != null && bookmarks!.isNotEmpty) {
+      for (final b in bookmarks!) {
+        if (b.bookNumber == bookNumber && b.chapter == chapter) {
+          matchingBookmark = b;
+          break;
+        }
       }
-    }
-
-    if (matchingBookmark == null) {
-      return const SizedBox.shrink();
     }
 
     return Positioned(
       top: top,
       bottom: bottom,
       left: left,
+      width: width,
       child: IgnorePointer(
-        child: BiblePageRibbon(ribbonIndex: matchingBookmark.ribbonIndex),
+        child: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 350),
+          switchInCurve: Curves.easeOutCubic,
+          switchOutCurve: Curves.easeInCubic,
+          transitionBuilder: (Widget child, Animation<double> animation) {
+            return SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, -1.0),
+                end: Offset.zero,
+              ).animate(animation),
+              child: FadeTransition(opacity: animation, child: child),
+            );
+          },
+          layoutBuilder: (Widget? currentChild, List<Widget> previousChildren) {
+            return Stack(
+              fit: StackFit.expand,
+              children: <Widget>[...previousChildren, ?currentChild],
+            );
+          },
+          child: matchingBookmark != null
+              ? BiblePageRibbon(
+                  key: ValueKey<int>(matchingBookmark.ribbonIndex),
+                  ribbonIndex: matchingBookmark.ribbonIndex,
+                )
+              : const SizedBox.shrink(key: ValueKey<String>('empty')),
+        ),
       ),
     );
   }

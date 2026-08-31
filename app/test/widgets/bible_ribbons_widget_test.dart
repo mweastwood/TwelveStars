@@ -299,6 +299,135 @@ void main() {
       },
     );
 
+    testWidgets(
+      'BiblePageRibbonsWidget animates ribbon entrance with smooth slide and fade transition',
+      (WidgetTester tester) async {
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(
+              body: Stack(
+                children: [
+                  BiblePageRibbonsWidget(
+                    bookmarks: null,
+                    bookNumber: 1,
+                    chapter: 1,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+        expect(find.byType(BiblePageRibbon), findsNothing);
+
+        // Update with bookmark to trigger entrance animation
+        const bookmarks = [
+          BibleRibbonBookmark(ribbonIndex: 0, bookNumber: 1, chapter: 1),
+        ];
+
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(
+              body: Stack(
+                children: [
+                  BiblePageRibbonsWidget(
+                    bookmarks: bookmarks,
+                    bookNumber: 1,
+                    chapter: 1,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+
+        // Initially at the start of transition, SlideTransition is running
+        expect(find.byType(SlideTransition), findsWidgets);
+        expect(find.byType(FadeTransition), findsWidgets);
+
+        // Advance halfway through the 350ms animation
+        await tester.pump(const Duration(milliseconds: 175));
+        expect(find.byKey(const Key('bible_page_ribbon_0')), findsOneWidget);
+
+        // Settle the animation
+        await tester.pumpAndSettle();
+        expect(find.byKey(const Key('bible_page_ribbon_0')), findsOneWidget);
+
+        final physicalShape = tester.widget<PhysicalShape>(
+          find.byKey(const Key('bible_page_ribbon_0')),
+        );
+        expect(physicalShape.color, equals(AppThemeTokens.liturgicalRed));
+      },
+    );
+
+    testWidgets(
+      'BiblePageRibbonsWidget smoothly transitions ribbon when replaced by another ribbon color',
+      (WidgetTester tester) async {
+        // Start with Ribbon 0 (Red)
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(
+              body: Stack(
+                children: [
+                  BiblePageRibbonsWidget(
+                    bookmarks: [
+                      BibleRibbonBookmark(
+                        ribbonIndex: 0,
+                        bookNumber: 1,
+                        chapter: 1,
+                      ),
+                    ],
+                    bookNumber: 1,
+                    chapter: 1,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(find.byKey(const Key('bible_page_ribbon_0')), findsOneWidget);
+        expect(find.byKey(const Key('bible_page_ribbon_2')), findsNothing);
+
+        // Switch to Ribbon 2 (Green)
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(
+              body: Stack(
+                children: [
+                  BiblePageRibbonsWidget(
+                    bookmarks: [
+                      BibleRibbonBookmark(
+                        ribbonIndex: 2,
+                        bookNumber: 1,
+                        chapter: 1,
+                      ),
+                    ],
+                    bookNumber: 1,
+                    chapter: 1,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+
+        // Midway through transition, AnimatedSwitcher handles the crossfade/slide
+        await tester.pump(const Duration(milliseconds: 150));
+
+        // Settle transition
+        await tester.pumpAndSettle();
+
+        // Old ribbon is removed, new ribbon is present
+        expect(find.byKey(const Key('bible_page_ribbon_0')), findsNothing);
+        expect(find.byKey(const Key('bible_page_ribbon_2')), findsOneWidget);
+
+        final physicalShape = tester.widget<PhysicalShape>(
+          find.byKey(const Key('bible_page_ribbon_2')),
+        );
+        expect(physicalShape.color, equals(AppThemeTokens.liturgicalGreen));
+      },
+    );
+
     testGoldens(
       'renders BiblePageRibbonsWidget and BibleRibbonsWidget scenarios',
       (tester) async {
