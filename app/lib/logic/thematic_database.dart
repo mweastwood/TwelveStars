@@ -74,6 +74,8 @@ class ThematicCategoryGroup {
 
 class ThematicHelper {
   static List<ThematicPassage>? _cachedPassages;
+  static List<ThematicPassage>? mockPassages;
+  static Random? mockRandom;
   static const String assetPath = 'assets/catechism/thematic_index.json';
 
   static const List<ThematicCategoryGroup> categoryGroups = [
@@ -174,6 +176,10 @@ class ThematicHelper {
   static Future<List<ThematicPassage>> loadAllPassages({
     bool forceReload = false,
   }) async {
+    if (mockPassages != null) {
+      return mockPassages!;
+    }
+
     if (_cachedPassages != null && !forceReload) {
       return _cachedPassages!;
     }
@@ -232,7 +238,7 @@ class ThematicHelper {
         .toList();
 
     if (shuffle && filtered.isNotEmpty) {
-      filtered.shuffle(Random());
+      filtered.shuffle(mockRandom ?? Random());
     }
     return filtered;
   }
