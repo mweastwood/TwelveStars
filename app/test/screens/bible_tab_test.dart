@@ -8,7 +8,6 @@ import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
-import 'package:twelve_stars/widgets/reader/bible_ribbons_widget.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 
@@ -1949,9 +1948,9 @@ void main() {
       );
     });
 
-    testWidgets(
-      'selecting a Bible verse when ribbon bookmark is present places ribbon on top and allows interaction',
-      (WidgetTester tester) async {
+    testGoldens(
+      'renders highlighted Bible verse on chapter marked with ribbon without ribbon intersection',
+      (tester) async {
         await testDb
             .into(testDb.bibleVerses)
             .insert(
@@ -1960,8 +1959,20 @@ void main() {
                 bookName: 'Genesis',
                 chapter: 1,
                 verseNumber: 1,
+                verseText: 'In the beginning God created heaven, and earth.',
+                translationCode: 'CPDV',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 2,
                 verseText:
-                    'In the beginning God created the heaven, and the earth.',
+                    'And the earth was void and empty, and darkness was upon the face of the deep; and the spirit of God moved over the waters.',
                 translationCode: 'CPDV',
               ),
             );
@@ -1980,37 +1991,25 @@ void main() {
         await testDb.saveUserSettings(settings);
         PrayerDatabase.mockPrayers = null;
 
-        await tester.pumpWidget(
-          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        await tester.pumpWidgetBuilder(
+          const Scaffold(body: BibleTab()),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
         );
-        await tester.pumpAndSettle();
 
-        // Verify page ribbon is rendered
-        expect(find.byKey(const Key('bible_page_ribbon_0')), findsOneWidget);
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
 
-        // Verify that BiblePageRibbonsWidget is painted after the chapter Column in the Stack (rendering on top of verse selection highlights)
-        final stackFinder = find.descendant(
-          of: find.byType(BibleChapterView),
-          matching: find.byWidgetPredicate(
-            (w) => w is Stack && w.clipBehavior == Clip.none,
-          ),
-        );
-        expect(stackFinder, findsOneWidget);
-        final stackWidget = tester.widget<Stack>(stackFinder);
-        expect(stackWidget.children.length, equals(2));
-        expect(stackWidget.children[0], isA<Column>());
-        expect(stackWidget.children[1], isA<BiblePageRibbonsWidget>());
-
-        // Long press verse 1 (which overlaps with the ribbon on the left)
+        // Long press verse 1 to highlight / select it
         await tester.longPress(
-          find.text('In the beginning God created the heaven, and the earth.'),
+          find.text('In the beginning God created heaven, and earth.'),
         );
         await tester.pumpAndSettle();
 
-        // Selection should activate successfully without being obstructed by the ribbon
-        expect(find.text('Genesis 1:1'), findsOneWidget);
-        expect(find.text('1 verse selected'), findsOneWidget);
-        expect(find.byKey(const Key('bible_page_ribbon_0')), findsOneWidget);
+        await screenMatchesGolden(
+          tester,
+          'bible_tab_bookmarked_ribbon_verse_highlight_golden',
+        );
       },
     );
   });

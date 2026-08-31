@@ -388,6 +388,14 @@ class _BibleChapterViewState extends State<BibleChapterView>
           child: Stack(
             clipBehavior: Clip.none,
             children: [
+              BiblePageRibbonsWidget(
+                bookmarks: widget.bookmarks,
+                bookNumber: widget.book.bookNumber,
+                chapter: widget.chapter,
+                top: -16.0,
+                bottom: -16.0,
+                left: -12.0,
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -557,14 +565,6 @@ class _BibleChapterViewState extends State<BibleChapterView>
                     );
                   }),
                 ],
-              ),
-              BiblePageRibbonsWidget(
-                bookmarks: widget.bookmarks,
-                bookNumber: widget.book.bookNumber,
-                chapter: widget.chapter,
-                top: -16.0,
-                bottom: -16.0,
-                left: -12.0,
               ),
             ],
           ),
