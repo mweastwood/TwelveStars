@@ -1,3 +1,4 @@
+import 'package:drift/drift.dart' show Value;
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -221,6 +222,143 @@ void main() {
       await tester.pumpAndSettle();
       expect(selectedComment?.id, equals(101));
     });
+
+    testWidgets(
+      'tapping delete favorite shows confirmation dialog; cancel retains item, confirm deletes item',
+      (tester) async {
+        // Save initial favorite to testDb
+        await testDb.saveFavorite(
+          FavoritePassagesCompanion.insert(
+            bookNumber: 1,
+            bookName: 'Genesis',
+            chapter: 1,
+            startVerse: 1,
+            endVerse: 3,
+            textPreview: 'In the beginning God created heaven, and earth.',
+          ),
+        );
+        final initialFavs = await testDb.getFavorites();
+        expect(initialFavs.length, equals(1));
+
+        bool changedCalled = false;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: BibleNotesScreen(
+              onFavoritesOrCommentsChanged: () {
+                changedCalled = true;
+              },
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Genesis 1:1-3'), findsOneWidget);
+
+        // Tap delete button on favorite card
+        await tester.tap(find.byTooltip('Delete'));
+        await tester.pumpAndSettle();
+
+        // Confirmation dialog is shown
+        expect(find.text('Remove Favorite'), findsOneWidget);
+        expect(
+          find.text(
+            'Are you sure you want to remove "Genesis 1:1-3" from your favorites?',
+          ),
+          findsOneWidget,
+        );
+
+        // Tap Cancel
+        await tester.tap(find.text('Cancel'));
+        await tester.pumpAndSettle();
+
+        expect(changedCalled, isFalse);
+        expect(find.text('Genesis 1:1-3'), findsOneWidget);
+        expect((await testDb.getFavorites()).length, equals(1));
+
+        // Tap delete again and confirm
+        await tester.tap(find.byTooltip('Delete'));
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.widgetWithText(FilledButton, 'Remove'));
+        await tester.pumpAndSettle();
+
+        expect(changedCalled, isTrue);
+        expect(find.text('Genesis 1:1-3'), findsNothing);
+        expect((await testDb.getFavorites()), isEmpty);
+        expect(
+          find.text('Removed Genesis 1:1-3 from Favorites'),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'tapping delete comment shows confirmation dialog; cancel retains item, confirm deletes item',
+      (tester) async {
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'GEN',
+            sectionIndex: 1,
+            nodeId: '1_1_1',
+            commentText: 'Creation note.',
+            textPreview: const Value('In the beginning God created heaven...'),
+            createdAt: DateTime.now(),
+          ),
+        );
+        final initialComments = await testDb.getComments();
+        expect(initialComments.length, equals(1));
+
+        bool changedCalled = false;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: BibleNotesScreen(
+              onFavoritesOrCommentsChanged: () {
+                changedCalled = true;
+              },
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Genesis 1:1'), findsOneWidget);
+        expect(find.text('Creation note.'), findsOneWidget);
+
+        // Tap delete button on comment card
+        await tester.tap(find.byTooltip('Delete'));
+        await tester.pumpAndSettle();
+
+        // Confirmation dialog is shown
+        expect(find.text('Delete Comment'), findsOneWidget);
+        expect(
+          find.text(
+            'Are you sure you want to delete your note on Genesis 1:1?',
+          ),
+          findsOneWidget,
+        );
+
+        // Tap Cancel
+        await tester.tap(find.text('Cancel'));
+        await tester.pumpAndSettle();
+
+        expect(changedCalled, isFalse);
+        expect(find.text('Genesis 1:1'), findsOneWidget);
+        expect((await testDb.getComments()).length, equals(1));
+
+        // Tap delete again and confirm
+        await tester.tap(find.byTooltip('Delete'));
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
+        await tester.pumpAndSettle();
+
+        expect(changedCalled, isTrue);
+        expect(find.text('Genesis 1:1'), findsNothing);
+        expect((await testDb.getComments()), isEmpty);
+        expect(find.text('Deleted note on Genesis 1:1'), findsOneWidget);
+      },
+    );
 
     testWidgets('BibleTab displays Notes FAB and opens BibleNotesScreen', (
       tester,

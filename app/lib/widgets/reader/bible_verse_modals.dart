@@ -381,6 +381,15 @@ Future<void> showVerseCommentsModal({
                                   tooltip: 'Delete comment',
                                   color: theme.colorScheme.error,
                                   onPressed: () async {
+                                    final confirmed =
+                                        await showDeleteConfirmationDialog(
+                                          context: context,
+                                          title: 'Delete Comment',
+                                          content:
+                                              'Are you sure you want to delete this comment?',
+                                          confirmLabel: 'Delete',
+                                        );
+                                    if (!confirmed) return;
                                     await BibleDatabaseHelper.db.deleteComment(
                                       comment.id,
                                     );
@@ -670,6 +679,15 @@ Future<void> showVerseFavoritesModal({
                               icon: const Icon(Icons.delete_outline, size: 20),
                               color: theme.colorScheme.error,
                               onPressed: () async {
+                                final confirmed =
+                                    await showDeleteConfirmationDialog(
+                                      context: context,
+                                      title: 'Remove Favorite',
+                                      content:
+                                          'Are you sure you want to remove this favorite passage?',
+                                      confirmLabel: 'Remove',
+                                    );
+                                if (!confirmed) return;
                                 await BibleDatabaseHelper.db.deleteFavorite(
                                   fav.id,
                                 );
@@ -694,4 +712,38 @@ Future<void> showVerseFavoritesModal({
       );
     },
   );
+}
+
+Future<bool> showDeleteConfirmationDialog({
+  required BuildContext context,
+  required String title,
+  required String content,
+  String confirmLabel = 'Delete',
+  String cancelLabel = 'Cancel',
+}) async {
+  final result = await showDialog<bool>(
+    context: context,
+    builder: (ctx) {
+      final theme = Theme.of(ctx);
+      return AlertDialog(
+        title: Text(title),
+        content: Text(content),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: Text(cancelLabel),
+          ),
+          FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: theme.colorScheme.error,
+              foregroundColor: theme.colorScheme.onError,
+            ),
+            onPressed: () => Navigator.pop(ctx, true),
+            child: Text(confirmLabel),
+          ),
+        ],
+      );
+    },
+  );
+  return result ?? false;
 }

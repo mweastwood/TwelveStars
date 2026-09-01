@@ -267,6 +267,17 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
   }
 
   Future<void> _deleteItem(BibleAnnotationItem item) async {
+    final isFav = item.type == BibleAnnotationType.favorite;
+    final confirmed = await showDeleteConfirmationDialog(
+      context: context,
+      title: isFav ? 'Remove Favorite' : 'Delete Comment',
+      content: isFav
+          ? 'Are you sure you want to remove "${item.citation}" from your favorites?'
+          : 'Are you sure you want to delete your note on ${item.citation}?',
+      confirmLabel: isFav ? 'Remove' : 'Delete',
+    );
+    if (!confirmed || !mounted) return;
+
     if (item.type == BibleAnnotationType.favorite && item.favorite != null) {
       await BibleDatabaseHelper.db.deleteFavorite(item.favorite!.id);
       if (mounted) {

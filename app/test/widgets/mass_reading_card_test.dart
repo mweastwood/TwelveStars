@@ -198,6 +198,10 @@ void main() {
       await tester.tap(find.byIcon(Icons.delete_outline));
       await tester.pumpAndSettle();
 
+      // Confirm deletion
+      await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
+      await tester.pumpAndSettle();
+
       // Verify comment is removed from DB
       final comments = await testDb.getComments(
         documentId: 'GEN',
@@ -269,6 +273,10 @@ void main() {
 
       // Delete favorite
       await tester.tap(find.byIcon(Icons.delete_outline));
+      await tester.pumpAndSettle();
+
+      // Confirm removal
+      await tester.tap(find.widgetWithText(FilledButton, 'Remove'));
       await tester.pumpAndSettle();
 
       // Verify favorite is removed from DB
