@@ -170,57 +170,66 @@ class BibleVerseRow extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              width: hasAlternateVerse
-                  ? 52
-                  : (verseNumText.length > 2 ? 34 : 28),
-              child: Text(
-                verseNumText,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: theme.colorScheme.primary,
-                  fontSize: fontSize != null
-                      ? (fontSize! * 0.85).clamp(10.0, 20.0)
-                      : (hasAlternateVerse ? 11.0 : null),
-                ),
-                textAlign: TextAlign.right,
+            Expanded(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children: [
+                  SizedBox(
+                    width: hasAlternateVerse
+                        ? 52
+                        : (verseNumText.length > 2 ? 34 : 28),
+                    child: Text(
+                      verseNumText,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: theme.colorScheme.primary,
+                        height: 1.5,
+                        fontSize: fontSize != null
+                            ? (fontSize! * 0.85).clamp(10.0, 20.0)
+                            : (hasAlternateVerse ? 11.0 : null),
+                      ),
+                      textAlign: TextAlign.right,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  if (compareVerseText == null)
+                    Expanded(
+                      child: Text(
+                        verseText,
+                        style: theme.textTheme.bodyLarge?.copyWith(
+                          color: theme.colorScheme.onSurface,
+                          fontSize: fontSize,
+                          height: 1.5,
+                        ),
+                      ),
+                    )
+                  else ...[
+                    Expanded(
+                      child: Text(
+                        verseText,
+                        style: theme.textTheme.bodyLarge?.copyWith(
+                          color: theme.colorScheme.onSurface,
+                          fontSize: fontSize,
+                          height: 1.5,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Text(
+                        compareVerseText!,
+                        style: theme.textTheme.bodyLarge?.copyWith(
+                          color: theme.colorScheme.onSurface,
+                          fontSize: fontSize,
+                          height: 1.5,
+                        ),
+                      ),
+                    ),
+                  ],
+                ],
               ),
             ),
-            const SizedBox(width: 12),
-            if (compareVerseText == null)
-              Expanded(
-                child: Text(
-                  verseText,
-                  style: theme.textTheme.bodyLarge?.copyWith(
-                    color: theme.colorScheme.onSurface,
-                    fontSize: fontSize,
-                    height: 1.5,
-                  ),
-                ),
-              )
-            else ...[
-              Expanded(
-                child: Text(
-                  verseText,
-                  style: theme.textTheme.bodyLarge?.copyWith(
-                    color: theme.colorScheme.onSurface,
-                    fontSize: fontSize,
-                    height: 1.5,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Text(
-                  compareVerseText!,
-                  style: theme.textTheme.bodyLarge?.copyWith(
-                    color: theme.colorScheme.onSurface,
-                    fontSize: fontSize,
-                    height: 1.5,
-                  ),
-                ),
-              ),
-            ],
             if (chips.isNotEmpty) ...[
               const SizedBox(width: 8),
               if (isWide)

@@ -604,7 +604,8 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 6.0),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
                   children: [
                     SizedBox(
                       width: 28,
@@ -613,6 +614,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                         style: theme.textTheme.bodyMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                           color: theme.colorScheme.primary,
+                          height: 1.5,
                         ),
                         textAlign: TextAlign.right,
                       ),
@@ -623,6 +625,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                         verse.verseText,
                         style: theme.textTheme.bodyLarge?.copyWith(
                           color: theme.colorScheme.onSurface,
+                          height: 1.5,
                         ),
                       ),
                     ),
