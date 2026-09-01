@@ -98,6 +98,15 @@ void main() {
         ),
       );
 
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/baltimore_2.json',
+        );
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/baltimore_4.json',
+        );
+      });
+
       await tester.tap(find.text('Open Cross Ref'));
       await tester.pump();
       await tester.pumpAndSettle();

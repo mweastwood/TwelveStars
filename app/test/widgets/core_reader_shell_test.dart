@@ -342,6 +342,10 @@ void main() {
           dbHelper: db,
         );
 
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(singleSectionAsset);
+        });
+
         await tester.pumpWidget(
           MaterialApp(home: CoreReaderShell(adapter: adapter)),
         );
@@ -414,6 +418,10 @@ void main() {
           assetPath: multiSectionAsset,
           dbHelper: db,
         );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(multiSectionAsset);
+        });
 
         await tester.pumpWidget(
           MaterialApp(home: CoreReaderShell(adapter: adapter)),
