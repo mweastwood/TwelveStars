@@ -194,8 +194,8 @@ void main() {
       // Initial pill should show 1 / N
       expect(find.textContaining('1 / '), findsOneWidget);
 
-      // Drag PageView upwards to go to page 2
-      await tester.drag(find.byType(PageView), const Offset(0, -600));
+      // Drag PageView upwards from outer margin to go to page 2 without scrollview interception
+      await tester.dragFrom(const Offset(5, 300), const Offset(0, -400));
       await tester.pumpAndSettle();
 
       // Should now show 2 / N
