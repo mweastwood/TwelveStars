@@ -102,6 +102,20 @@ class ThematicTaxonomy {
   }
 
   static bool isValidTheme(String themeId) => allThemes.containsKey(themeId);
+
+  static String? normalizeTheme(String? themeId) {
+    if (themeId == null) return null;
+    final cleaned = themeId
+        .replaceAll('`', '')
+        .replaceAll("'", '')
+        .replaceAll('"', '')
+        .trim()
+        .toLowerCase();
+    for (final key in allThemes.keys) {
+      if (key.toLowerCase() == cleaned) return key;
+    }
+    return null;
+  }
 }
 
 /// Categorized passage result from a subagent.
@@ -392,14 +406,29 @@ Future<bool> runAgyOnBatch({
       final jsonStr = extractJsonArray(rawOutput);
       final rawList = jsonDecode(jsonStr) as List<dynamic>;
 
-      // Validate taxonomy
+      // Normalize & validate taxonomy
       int errors = 0;
       for (final item in rawList) {
         final m = item as Map<String, dynamic>;
-        final primary = m['primaryTheme'] as String?;
-        if (primary == null || !ThematicTaxonomy.isValidTheme(primary)) {
+        final rawPrimary = m['primaryTheme'] as String?;
+        final normPrimary = ThematicTaxonomy.normalizeTheme(rawPrimary);
+        if (normPrimary == null) {
           errors++;
+        } else {
+          m['primaryTheme'] = normPrimary;
         }
+
+        final secondaries = (m['secondaryThemes'] as List<dynamic>?) ?? [];
+        final normSecondaries = <String>[];
+        for (final sec in secondaries) {
+          final normSec = ThematicTaxonomy.normalizeTheme(sec.toString());
+          if (normSec != null &&
+              normSec != normPrimary &&
+              !normSecondaries.contains(normSec)) {
+            normSecondaries.add(normSec);
+          }
+        }
+        m['secondaryThemes'] = normSecondaries;
       }
 
       if (errors > 0) {
