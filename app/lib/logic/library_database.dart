@@ -31,7 +31,6 @@ ParsedBookData _parseBookDataInBackground(String rawJson) {
   return ParsedBookData.fromJson(map);
 }
 
-
 class LibraryHelper {
   static const int maxCacheSize = 5;
   static final Map<String, ParsedBookData> _cache = {};
