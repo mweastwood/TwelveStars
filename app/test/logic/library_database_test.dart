@@ -12,6 +12,167 @@ void main() {
       expect(catalog.length, greaterThanOrEqualTo(25));
     });
 
+    test('LibraryCatalog and LibraryHelper consistency', () {
+      final catalogFromHelper = LibraryHelper.getCatalog();
+      final catalogFromCatalog = LibraryCatalog.getCatalog();
+      expect(catalogFromHelper.length, equals(catalogFromCatalog.length));
+
+      final allPathsHelper = LibraryHelper.getAllCatalogPaths();
+      final allPathsCatalog = LibraryCatalog.getAllCatalogPaths();
+      expect(allPathsHelper, equals(allPathsCatalog));
+      expect(allPathsHelper, isNotEmpty);
+
+      // Verify forwarding getters
+      expect(
+        LibraryHelper.baltimoreVolumes,
+        equals(LibraryCatalog.baltimoreVolumes),
+      );
+      expect(
+        LibraryHelper.ignatiusVolumes,
+        equals(LibraryCatalog.ignatiusVolumes),
+      );
+      expect(
+        LibraryHelper.polycarpVolumes,
+        equals(LibraryCatalog.polycarpVolumes),
+      );
+      expect(LibraryHelper.justinVolumes, equals(LibraryCatalog.justinVolumes));
+      expect(
+        LibraryHelper.irenaeusVolumes,
+        equals(LibraryCatalog.irenaeusVolumes),
+      );
+      expect(
+        LibraryHelper.confessionsVolumes,
+        equals(LibraryCatalog.confessionsVolumes),
+      );
+      expect(
+        LibraryHelper.cityOfGodVolumes,
+        equals(LibraryCatalog.cityOfGodVolumes),
+      );
+      expect(LibraryHelper.cyrilVolumes, equals(LibraryCatalog.cyrilVolumes));
+      expect(
+        LibraryHelper.gregoryVolumes,
+        equals(LibraryCatalog.gregoryVolumes),
+      );
+      expect(
+        LibraryHelper.gregoryPastoralRuleVolumes,
+        equals(LibraryCatalog.gregoryPastoralRuleVolumes),
+      );
+      expect(
+        LibraryHelper.chrysostomOnThePriesthoodVolumes,
+        equals(LibraryCatalog.chrysostomOnThePriesthoodVolumes),
+      );
+      expect(
+        LibraryHelper.damasceneOrthodoxFaithVolumes,
+        equals(LibraryCatalog.damasceneOrthodoxFaithVolumes),
+      );
+      expect(
+        LibraryHelper.ambroseVolumes,
+        equals(LibraryCatalog.ambroseVolumes),
+      );
+      expect(
+        LibraryHelper.leoGreatVolumes,
+        equals(LibraryCatalog.leoGreatVolumes),
+      );
+      expect(
+        LibraryHelper.cyprianVolumes,
+        equals(LibraryCatalog.cyprianVolumes),
+      );
+      expect(
+        LibraryHelper.aquinasCompendiumVolumes,
+        equals(LibraryCatalog.aquinasCompendiumVolumes),
+      );
+      expect(
+        LibraryHelper.aquinasCatecheticalVolumes,
+        equals(LibraryCatalog.aquinasCatecheticalVolumes),
+      );
+      expect(
+        LibraryHelper.anselmCurDeusHomoVolumes,
+        equals(LibraryCatalog.anselmCurDeusHomoVolumes),
+      );
+      expect(
+        LibraryHelper.devoutLifeVolumes,
+        equals(LibraryCatalog.devoutLifeVolumes),
+      );
+      expect(
+        LibraryHelper.salesLoveOfGodVolumes,
+        equals(LibraryCatalog.salesLoveOfGodVolumes),
+      );
+      expect(
+        LibraryHelper.teresaWayOfPerfectionVolumes,
+        equals(LibraryCatalog.teresaWayOfPerfectionVolumes),
+      );
+    });
+
+    test('Library domain models deserialization and helpers', () {
+      final tocJson = {'id': 'sec1', 'title': 'Section 1'};
+      final toc = TocEntry.fromJson(tocJson);
+      expect(toc.id, equals('sec1'));
+      expect(toc.title, equals('Section 1'));
+
+      final contentQaJson = {
+        'type': 'qa',
+        'questionNumber': 1,
+        'crossRefQNum': 2,
+        'question': 'Who made us?',
+        'answer': 'God made us.',
+        'explanation': 'Explanation text',
+      };
+      final qaItem = ContentItem.fromJson(contentQaJson);
+      expect(qaItem.type, equals('qa'));
+      expect(qaItem.questionNumber, equals(1));
+      expect(qaItem.crossRefQNum, equals(2));
+      expect(qaItem.question, equals('Who made us?'));
+      expect(qaItem.answer, equals('God made us.'));
+      expect(qaItem.explanation, equals('Explanation text'));
+
+      final sectionJson = {
+        'id': 'sec_1',
+        'title': 'Chapter 1',
+        'subtitle': 'The Beginning',
+        'content': [contentQaJson],
+      };
+      final section = BookSection.fromJson(sectionJson);
+      expect(section.id, equals('sec_1'));
+      expect(section.title, equals('Chapter 1'));
+      expect(section.subtitle, equals('The Beginning'));
+      expect(section.content.length, equals(1));
+
+      final bookDataJson = {
+        'bookId': 'my_book',
+        'title': 'My Book',
+        'subtitle': 'Sub',
+        'author': 'Author Name',
+        'verseSystem': 'vulgate',
+        'toc': [tocJson],
+        'sections': [sectionJson],
+      };
+      final parsed = ParsedBookData.fromJson(bookDataJson);
+      expect(parsed.bookId, equals('my_book'));
+      expect(parsed.title, equals('My Book'));
+      expect(parsed.subtitle, equals('Sub'));
+      expect(parsed.author, equals('Author Name'));
+      expect(parsed.toc.length, equals(1));
+      expect(parsed.sections.length, equals(1));
+
+      final searchHit = BookSearchResult(
+        bookTitle: 'My Book',
+        sectionId: 'sec_1',
+        sectionTitle: 'Chapter 1',
+        matchedSnippet: 'Snippet text',
+      );
+      expect(searchHit.bookTitle, equals('My Book'));
+      expect(searchHit.sectionId, equals('sec_1'));
+
+      // Search service test
+      final searchResults = LibraryHelper.searchInBook(parsed, 'God made');
+      expect(searchResults, isNotEmpty);
+      expect(searchResults.first.sectionId, equals('sec_1'));
+
+      // Empty search test
+      expect(LibraryHelper.searchInBook(parsed, ''), isEmpty);
+      expect(LibraryHelper.searchInBook(parsed, '   '), isEmpty);
+    });
+
     test(
       'all configured authorSaintId values correspond to valid saints in the database',
       () async {
