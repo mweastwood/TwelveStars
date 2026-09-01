@@ -542,7 +542,10 @@ Future<void> main(List<String> args) async {
         continue;
       }
 
-      final sectionBatches = extractSectionBatchesFromBook(bFile, maxItemsPerBatch: batchSize);
+      final sectionBatches = extractSectionBatchesFromBook(
+        bFile,
+        maxItemsPerBatch: batchSize,
+      );
       if (sectionBatches.isEmpty) continue;
 
       final totalBatches = sectionBatches.length;
@@ -662,7 +665,10 @@ Future<void> main(List<String> args) async {
         continue;
       }
 
-      final sectionBatches = extractSectionBatchesFromBook(bFile, maxItemsPerBatch: batchSize);
+      final sectionBatches = extractSectionBatchesFromBook(
+        bFile,
+        maxItemsPerBatch: batchSize,
+      );
       if (sectionBatches.isEmpty) {
         print('Warning: No section batches found in ${bFile.path}');
         continue;
