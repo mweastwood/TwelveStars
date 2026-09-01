@@ -142,7 +142,8 @@ Future<void> showLibraryScriptureModal({
                                   : null,
                             ),
                             child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.baseline,
+                              textBaseline: TextBaseline.alphabetic,
                               children: [
                                 SizedBox(
                                   width: 28,
@@ -151,6 +152,7 @@ Future<void> showLibraryScriptureModal({
                                     style: theme.textTheme.bodyMedium?.copyWith(
                                       fontWeight: FontWeight.bold,
                                       color: theme.colorScheme.primary,
+                                      height: 1.5,
                                     ),
                                     textAlign: TextAlign.right,
                                   ),

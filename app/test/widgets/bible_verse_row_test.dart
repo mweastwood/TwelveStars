@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import '../test_helper.dart';
@@ -179,6 +180,166 @@ void main() {
 
         expect(starTop, equals(citationsTop));
         expect(citationsTop, equals(commentsTop));
+      },
+    );
+
+    testWidgets(
+      'aligns verse number and verse text along alphabetic baseline',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: BibleVerseRow(
+                verseNumber: 1,
+                verseText: 'In the beginning God created heaven, and earth.',
+              ),
+            ),
+          ),
+        );
+
+        final numFinder = find.text('1');
+        final textFinder = find.text(
+          'In the beginning God created heaven, and earth.',
+        );
+
+        final numRender = tester.renderObject<RenderParagraph>(numFinder);
+        final textRender = tester.renderObject<RenderParagraph>(textFinder);
+
+        final numBaselineY =
+            tester.getTopLeft(numFinder).dy +
+            numRender.computeDistanceToActualBaseline(TextBaseline.alphabetic);
+        final textBaselineY =
+            tester.getTopLeft(textFinder).dy +
+            textRender.computeDistanceToActualBaseline(TextBaseline.alphabetic);
+
+        expect(numBaselineY, closeTo(textBaselineY, 0.001));
+      },
+    );
+
+    testWidgets(
+      'aligns verse number and verse text along alphabetic baseline across different font sizes',
+      (tester) async {
+        for (final size in [12.0, 16.0, 20.0, 28.0]) {
+          await tester.pumpWidget(
+            buildTestableWidget(
+              child: Scaffold(
+                body: BibleVerseRow(
+                  verseNumber: 12,
+                  verseText:
+                      'And God said: Let there be light. And light was made.',
+                  fontSize: size,
+                ),
+              ),
+            ),
+          );
+
+          final numFinder = find.text('12');
+          final textFinder = find.text(
+            'And God said: Let there be light. And light was made.',
+          );
+
+          final numRender = tester.renderObject<RenderParagraph>(numFinder);
+          final textRender = tester.renderObject<RenderParagraph>(textFinder);
+
+          final numBaselineY =
+              tester.getTopLeft(numFinder).dy +
+              numRender.computeDistanceToActualBaseline(
+                TextBaseline.alphabetic,
+              );
+          final textBaselineY =
+              tester.getTopLeft(textFinder).dy +
+              textRender.computeDistanceToActualBaseline(
+                TextBaseline.alphabetic,
+              );
+
+          expect(numBaselineY, closeTo(textBaselineY, 0.001));
+        }
+      },
+    );
+
+    testWidgets(
+      'aligns verse number, primary verse text, and compare verse text along alphabetic baseline in compare translation mode',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: BibleVerseRow(
+                verseNumber: 1,
+                verseText: 'In the beginning God created heaven, and earth.',
+                compareVerseText:
+                    'In the beginning God created the heavens and the earth.',
+              ),
+            ),
+          ),
+        );
+
+        final numFinder = find.text('1');
+        final primaryFinder = find.text(
+          'In the beginning God created heaven, and earth.',
+        );
+        final compareFinder = find.text(
+          'In the beginning God created the heavens and the earth.',
+        );
+
+        final numRender = tester.renderObject<RenderParagraph>(numFinder);
+        final primaryRender = tester.renderObject<RenderParagraph>(
+          primaryFinder,
+        );
+        final compareRender = tester.renderObject<RenderParagraph>(
+          compareFinder,
+        );
+
+        final numBaselineY =
+            tester.getTopLeft(numFinder).dy +
+            numRender.computeDistanceToActualBaseline(TextBaseline.alphabetic);
+        final primaryBaselineY =
+            tester.getTopLeft(primaryFinder).dy +
+            primaryRender.computeDistanceToActualBaseline(
+              TextBaseline.alphabetic,
+            );
+        final compareBaselineY =
+            tester.getTopLeft(compareFinder).dy +
+            compareRender.computeDistanceToActualBaseline(
+              TextBaseline.alphabetic,
+            );
+
+        expect(numBaselineY, closeTo(primaryBaselineY, 0.001));
+        expect(primaryBaselineY, closeTo(compareBaselineY, 0.001));
+      },
+    );
+
+    testWidgets(
+      'aligns verse number and verse text along alphabetic baseline with alternate verse numbers and chips',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: BibleVerseRow(
+                verseNumber: 1,
+                alternateVerseNumber: '2',
+                verseText: 'Unto the end, a psalm for David.',
+                isFavorite: true,
+                citationsCount: 5,
+                commentsCount: 3,
+              ),
+            ),
+          ),
+        );
+
+        final numFinder = find.text('1 (2)');
+        final textFinder = find.text('Unto the end, a psalm for David.');
+
+        final numRender = tester.renderObject<RenderParagraph>(numFinder);
+        final textRender = tester.renderObject<RenderParagraph>(textFinder);
+
+        final numBaselineY =
+            tester.getTopLeft(numFinder).dy +
+            numRender.computeDistanceToActualBaseline(TextBaseline.alphabetic);
+        final textBaselineY =
+            tester.getTopLeft(textFinder).dy +
+            textRender.computeDistanceToActualBaseline(TextBaseline.alphabetic);
+
+        expect(numBaselineY, closeTo(textBaselineY, 0.001));
       },
     );
   });
