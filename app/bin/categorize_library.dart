@@ -542,7 +542,7 @@ Future<void> main(List<String> args) async {
         continue;
       }
 
-      final sectionBatches = extractSectionBatchesFromBook(bFile);
+      final sectionBatches = extractSectionBatchesFromBook(bFile, maxItemsPerBatch: batchSize);
       if (sectionBatches.isEmpty) continue;
 
       final totalBatches = sectionBatches.length;
@@ -634,6 +634,16 @@ Future<void> main(List<String> args) async {
     }
     final targetBookId = bookArg.replaceFirst('--book=', '').trim();
 
+    int batchSize = 12;
+    final batchArg = args.firstWhere(
+      (a) => a.startsWith('--batch-size='),
+      orElse: () => '',
+    );
+    if (batchArg.isNotEmpty) {
+      batchSize =
+          int.tryParse(batchArg.replaceFirst('--batch-size=', '')) ?? 12;
+    }
+
     if (!batchesDir.existsSync()) {
       batchesDir.createSync(recursive: true);
     }
@@ -652,7 +662,7 @@ Future<void> main(List<String> args) async {
         continue;
       }
 
-      final sectionBatches = extractSectionBatchesFromBook(bFile);
+      final sectionBatches = extractSectionBatchesFromBook(bFile, maxItemsPerBatch: batchSize);
       if (sectionBatches.isEmpty) {
         print('Warning: No section batches found in ${bFile.path}');
         continue;
