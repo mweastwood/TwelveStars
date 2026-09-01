@@ -833,5 +833,106 @@ void main() {
         expect(lukeCitations.first.questionNumber, equals(42));
       });
     });
+
+    group('parseBookCitationsInBackground Worker Tests', () {
+      test(
+        'parses raw JSON string payload and extracts citations accurately',
+        () {
+          const rawJson = '''
+{
+  "bookId": "isolate_worker_test",
+  "title": "Worker Test Book",
+  "subtitle": "Subtitle",
+  "author": "St. Jerome",
+  "verseSystem": "vulgate",
+  "toc": [],
+  "sections": [
+    {
+      "id": "sec_worker_1",
+      "title": "Worker Section 1",
+      "subtitle": "",
+      "content": [
+        {
+          "type": "heading",
+          "text": "Heading text"
+        },
+        {
+          "type": "text",
+          "text": "Saint Paul teaches that love is patient (1 Cor 13:4-7). We also read Psalm 23."
+        },
+        {
+          "type": "qa",
+          "questionNumber": 7,
+          "question": "What does Christ say in John 14:6?",
+          "answer": "I am the way, and the truth, and the life (John 14:6).",
+          "explanation": "Compare Matthew 7:14 for the narrow gate."
+        }
+      ]
+    }
+  ]
+}
+''';
+
+          final params = CitationParseParams(
+            sourceKey: 'test/path/worker_test.json',
+            rawJson: rawJson,
+          );
+
+          final citations = parseBookCitationsInBackground(params);
+          expect(citations.length, equals(5));
+
+          // 1 Cor 13:4-7
+          final corCitation = citations.firstWhere(
+            (c) => c.citation.bookName == '1 Corinthians',
+          );
+          expect(corCitation.sourceBookId, equals('isolate_worker_test'));
+          expect(corCitation.sourceBookTitle, equals('Worker Test Book'));
+          expect(corCitation.sourceAuthor, equals('St. Jerome'));
+          expect(
+            corCitation.sourceAssetPath,
+            equals('test/path/worker_test.json'),
+          );
+          expect(corCitation.citation.chapter, equals(13));
+          expect(corCitation.citation.verse, equals(4));
+          expect(corCitation.citation.endVerse, equals(7));
+          expect(corCitation.itemIndex, equals(1));
+
+          // Psalm 23 entire chapter
+          final psalmCitation = citations.firstWhere(
+            (c) => c.citation.bookName == 'Psalms',
+          );
+          expect(psalmCitation.citation.chapter, equals(23));
+          expect(psalmCitation.citation.isEntireChapter, isTrue);
+
+          // Q&A Question John 14:6
+          final qaQuestionCitation = citations.firstWhere(
+            (c) =>
+                c.citation.bookName == 'John' &&
+                c.snippet.startsWith('Q. What does Christ say in John 14:6?'),
+          );
+          expect(qaQuestionCitation.questionNumber, equals(7));
+          expect(qaQuestionCitation.itemIndex, equals(2));
+
+          // Q&A Answer John 14:6
+          final qaAnswerCitation = citations.firstWhere(
+            (c) =>
+                c.citation.bookName == 'John' &&
+                c.snippet.contains(
+                  'A. I am the way, and the truth, and the life',
+                ),
+          );
+          expect(qaAnswerCitation.questionNumber, equals(7));
+          expect(qaAnswerCitation.itemIndex, equals(2));
+
+          // Q&A Explanation Matt 7:14
+          final mattCitation = citations.firstWhere(
+            (c) => c.citation.bookName == 'Matthew',
+          );
+          expect(mattCitation.citation.chapter, equals(7));
+          expect(mattCitation.citation.verse, equals(14));
+          expect(mattCitation.questionNumber, equals(7));
+        },
+      );
+    });
   });
 }
