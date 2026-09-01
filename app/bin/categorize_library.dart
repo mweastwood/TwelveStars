@@ -104,60 +104,6 @@ class ThematicTaxonomy {
   static bool isValidTheme(String themeId) => allThemes.containsKey(themeId);
 }
 
-/// Represents an addressable text unit to be categorized.
-class PassageUnit {
-  final String bookId;
-  final String bookTitle;
-  final String author;
-  final String sectionId;
-  final String sectionTitle;
-  final String? sectionSubtitle;
-  final int itemIndex;
-  final int? questionNumber;
-  final String type;
-  final String text;
-
-  PassageUnit({
-    required this.bookId,
-    required this.bookTitle,
-    required this.author,
-    required this.sectionId,
-    required this.sectionTitle,
-    this.sectionSubtitle,
-    required this.itemIndex,
-    this.questionNumber,
-    required this.type,
-    required this.text,
-  });
-
-  Map<String, dynamic> toJson() => {
-    'bookId': bookId,
-    'bookTitle': bookTitle,
-    'author': author,
-    'sectionId': sectionId,
-    'sectionTitle': sectionTitle,
-    if (sectionSubtitle != null && sectionSubtitle!.isNotEmpty)
-      'sectionSubtitle': sectionSubtitle,
-    'itemIndex': itemIndex,
-    if (questionNumber != null) 'questionNumber': questionNumber,
-    'type': type,
-    'text': text,
-  };
-
-  factory PassageUnit.fromJson(Map<String, dynamic> json) => PassageUnit(
-    bookId: json['bookId'] as String,
-    bookTitle: json['bookTitle'] as String,
-    author: json['author'] as String,
-    sectionId: json['sectionId'] as String,
-    sectionTitle: json['sectionTitle'] as String,
-    sectionSubtitle: json['sectionSubtitle'] as String?,
-    itemIndex: json['itemIndex'] as int,
-    questionNumber: json['questionNumber'] as int?,
-    type: json['type'] as String,
-    text: json['text'] as String,
-  );
-}
-
 /// Categorized passage result from a subagent.
 class CategorizedPassage {
   final String bookId;
@@ -233,8 +179,43 @@ String extractJsonArray(String raw) {
   return raw.trim();
 }
 
-/// Helper to load book JSON and extract passage units.
-List<PassageUnit> extractUnitsFromBook(File bookFile) {
+/// Represents a raw section batch with un-chunked items for LLM semantic chunking.
+class RawSectionBatch {
+  final String bookId;
+  final String bookTitle;
+  final String author;
+  final String sectionId;
+  final String sectionTitle;
+  final String? sectionSubtitle;
+  final List<Map<String, dynamic>> items;
+
+  RawSectionBatch({
+    required this.bookId,
+    required this.bookTitle,
+    required this.author,
+    required this.sectionId,
+    required this.sectionTitle,
+    this.sectionSubtitle,
+    required this.items,
+  });
+
+  Map<String, dynamic> toJson() => {
+    'bookId': bookId,
+    'bookTitle': bookTitle,
+    'author': author,
+    'sectionId': sectionId,
+    'sectionTitle': sectionTitle,
+    if (sectionSubtitle != null && sectionSubtitle!.isNotEmpty)
+      'sectionSubtitle': sectionSubtitle,
+    'items': items,
+  };
+}
+
+/// Helper to load book JSON and extract raw section batches for LLM semantic chunking.
+List<RawSectionBatch> extractSectionBatchesFromBook(
+  File bookFile, {
+  int maxItemsPerBatch = 20,
+}) {
   final content =
       jsonDecode(bookFile.readAsStringSync()) as Map<String, dynamic>;
   final bookId =
@@ -243,64 +224,83 @@ List<PassageUnit> extractUnitsFromBook(File bookFile) {
   final author = content['author'] as String? ?? '';
   final sections = content['sections'] as List<dynamic>? ?? [];
 
-  final List<PassageUnit> units = [];
+  final List<RawSectionBatch> batches = [];
 
   for (final sec in sections) {
     final secMap = sec as Map<String, dynamic>;
     final secId = secMap['id'] as String? ?? '';
     final secTitle = secMap['title'] as String? ?? '';
     final secSubtitle = secMap['subtitle'] as String?;
-    final items = secMap['content'] as List<dynamic>? ?? [];
+    final rawItems = secMap['content'] as List<dynamic>? ?? [];
 
-    for (int i = 0; i < items.length; i++) {
-      final itemMap = items[i] as Map<String, dynamic>;
+    final List<Map<String, dynamic>> cleanItems = [];
+    for (int i = 0; i < rawItems.length; i++) {
+      final itemMap = rawItems[i] as Map<String, dynamic>;
       final type = itemMap['type'] as String? ?? 'text';
-
-      // Skip pure section headings unless they have descriptive theological content
       if (type == 'heading') continue;
 
-      String text = '';
-      int? qNum = itemMap['questionNumber'] as int?;
-
       if (type == 'qa') {
+        final qNum = itemMap['questionNumber'] as int?;
         final q = itemMap['question'] as String? ?? '';
         final a = itemMap['answer'] as String? ?? '';
         final exp = itemMap['explanation'] as String?;
-        text = 'Q. $qNum $q\nA. $a';
-        if (exp != null && exp.isNotEmpty) {
-          text += '\nExplanation: $exp';
+        String text = 'Q. $qNum $q\nA. $a';
+        if (exp != null && exp.trim().isNotEmpty) {
+          text += '\nExplanation: ${exp.trim()}';
         }
+        cleanItems.add({
+          'itemIndex': i,
+          'questionNumber': ?qNum,
+          'type': 'qa',
+          'text': text,
+        });
       } else {
-        text = (itemMap['text'] as String? ?? '').trim();
+        final text = (itemMap['text'] as String? ?? '').trim();
+        if (text.isEmpty) continue;
+        cleanItems.add({'itemIndex': i, 'type': 'text', 'text': text});
       }
+    }
 
-      if (text.isEmpty) continue;
+    if (cleanItems.isEmpty) continue;
 
-      units.add(
-        PassageUnit(
+    if (cleanItems.length <= maxItemsPerBatch) {
+      batches.add(
+        RawSectionBatch(
           bookId: bookId,
           bookTitle: bookTitle,
           author: author,
           sectionId: secId,
           sectionTitle: secTitle,
           sectionSubtitle: secSubtitle,
-          itemIndex: i,
-          questionNumber: qNum,
-          type: type,
-          text: text,
+          items: cleanItems,
         ),
       );
+    } else {
+      for (int i = 0; i < cleanItems.length; i += maxItemsPerBatch) {
+        final end = (i + maxItemsPerBatch < cleanItems.length)
+            ? i + maxItemsPerBatch
+            : cleanItems.length;
+        batches.add(
+          RawSectionBatch(
+            bookId: bookId,
+            bookTitle: bookTitle,
+            author: author,
+            sectionId: secId,
+            sectionTitle: secTitle,
+            sectionSubtitle: secSubtitle,
+            items: cleanItems.sublist(i, end),
+          ),
+        );
+      }
     }
   }
 
-  return units;
+  return batches;
 }
 
-/// Generates a standardized, ready-to-dispatch subagent prompt for a batch of passages.
+/// Generates a standardized prompt for LLM-driven semantic chunking and categorization.
 String buildSubagentPrompt({
-  required String bookTitle,
-  required String author,
-  required List<PassageUnit> batch,
+  required RawSectionBatch sectionBatch,
   required int batchNumber,
   required int totalBatches,
 }) {
@@ -313,46 +313,53 @@ String buildSubagentPrompt({
     taxonomyBuffer.writeln();
   }
 
-  final passagesJson = jsonEncode(batch.map((u) => u.toJson()).toList());
+  final itemsJson = jsonEncode(sectionBatch.items);
 
   return '''
 You are a patristic scholar and Catholic theologian categorizing text passages for the TwelveStars library.
 
 ### TASK:
-Categorize each of the following ${batch.length} passages from "$bookTitle" by $author (Batch $batchNumber of $totalBatches).
+Perform LLM semantic chunking and thematic categorization on the following section items from "${sectionBatch.bookTitle}" by ${sectionBatch.author} (${sectionBatch.sectionTitle}${sectionBatch.sectionSubtitle != null && sectionBatch.sectionSubtitle!.isNotEmpty ? ': ${sectionBatch.sectionSubtitle}' : ''}) (Batch $batchNumber of $totalBatches).
 
 ### TAXONOMY REFERENCE (You MUST use only these exact theme IDs):
 $taxonomyBuffer
 
 ### GUIDELINES:
-1. Assign exactly one `primaryTheme` (the most dominant theme of the passage).
-2. Assign 0 to 2 `secondaryThemes` if the passage clearly speaks to additional themes.
-3. For each of the Seven Sacraments, use the specific sacrament theme ID (e.g. `sacraments.baptism`, `sacraments.confirmation`, `sacraments.eucharist`, `sacraments.penance`, `sacraments.anointing_of_sick`, `sacraments.holy_orders`, `sacraments.matrimony`). Do NOT merge Confirmation into Baptism.
-4. Extract a `keyExcerpt` (1-2 powerful, memorable sentences from the passage).
-5. Provide a crisp `oneSentenceSummary` explaining what insight or doctrine this passage teaches.
+1. LLM SEMANTIC CHUNKING:
+   - Group short consecutive items (e.g. short verse lines, prayers, introductory clauses) and split long paragraphs so that every output quote passage is between 1 and 5 sentences.
+   - Every passage MUST express a complete, self-contained thought. NEVER output an isolated fragment or trailing clause ending in a colon (e.g. "5. Then as regards the broken bread:" MUST be grouped with the thanksgiving prayer that follows it).
+   - Set `itemIndex` to the starting `itemIndex` where the quote begins in the reader.
+   - Set `fullText` to the complete verbatim text of the chunked passage.
+2. THEMATIC CATEGORIZATION:
+   - Assign exactly one `primaryTheme` (the most dominant theme of the passage from the taxonomy reference).
+   - Assign 0 to 2 `secondaryThemes` if the passage clearly speaks to additional themes.
+   - For each of the Seven Sacraments, use the specific sacrament theme ID (e.g. `sacraments.baptism`, `sacraments.confirmation`, `sacraments.eucharist`, `sacraments.penance`, `sacraments.anointing_of_sick`, `sacraments.holy_orders`, `sacraments.matrimony`). Do NOT merge Confirmation into Baptism.
+3. EXCERPT & SUMMARY:
+   - Extract `keyExcerpt`: 1 to 5 powerful, memorable sentences from the passage that express a complete, self-contained thought or theme.
+   - Provide `oneSentenceSummary`: A crisp 1-sentence doctrinal summary explaining what insight or doctrine this passage teaches.
 
-### INPUT PASSAGES:
+### INPUT ITEMS:
 ```json
-$passagesJson
+$itemsJson
 ```
 
 ### REQUIRED OUTPUT FORMAT:
-Respond with ONLY valid JSON (a list of categorized objects) conforming to this schema:
+Respond with ONLY valid JSON (a list of categorized passage objects) conforming to this schema:
 ```json
 [
   {
-    "bookId": "string",
-    "bookTitle": "string",
-    "author": "string",
-    "sectionId": "string",
-    "sectionTitle": "string",
+    "bookId": "${sectionBatch.bookId}",
+    "bookTitle": "${sectionBatch.bookTitle}",
+    "author": "${sectionBatch.author}",
+    "sectionId": "${sectionBatch.sectionId}",
+    "sectionTitle": "${sectionBatch.sectionTitle}",
     "itemIndex": 0,
     "questionNumber": null,
     "primaryTheme": "theology.christ_incarnation",
     "secondaryThemes": ["sacraments.eucharist"],
     "keyExcerpt": "quoted key sentence",
     "oneSentenceSummary": "Summary explanation here.",
-    "fullText": "exact full text from input"
+    "fullText": "exact full text of the chunked passage"
   }
 ]
 ```
@@ -535,13 +542,16 @@ Future<void> main(List<String> args) async {
         continue;
       }
 
-      final units = extractUnitsFromBook(bFile);
-      if (units.isEmpty) continue;
+      final sectionBatches = extractSectionBatchesFromBook(
+        bFile,
+        maxItemsPerBatch: batchSize,
+      );
+      if (sectionBatches.isEmpty) continue;
 
-      final totalBatches = (units.length / batchSize).ceil();
+      final totalBatches = sectionBatches.length;
       final bookId = p.basenameWithoutExtension(bFile.path);
       print(
-        '\n📖 Processing "$bookId" (${units.length} passages across $totalBatches batches):',
+        '\n📖 Processing "$bookId" across $totalBatches section batch(es):',
       );
 
       final queue = <int>[for (int i = 0; i < totalBatches; i++) i];
@@ -561,22 +571,16 @@ Future<void> main(List<String> args) async {
           return;
         }
 
-        final start = b * batchSize;
-        final end = (start + batchSize < units.length)
-            ? start + batchSize
-            : units.length;
-        final batch = units.sublist(start, end);
+        final batch = sectionBatches[b];
 
         final prompt = buildSubagentPrompt(
-          bookTitle: batch.first.bookTitle,
-          author: batch.first.author,
-          batch: batch,
+          sectionBatch: batch,
           batchNumber: batchNum,
           totalBatches: totalBatches,
         );
 
         print(
-          '   [Batch $batchNum/$totalBatches] 🤖 Dispatching agy agent (${batch.length} passages)...',
+          '   [Batch $batchNum/$totalBatches] 🤖 Dispatching agy agent (${batch.items.length} items from ${batch.sectionTitle})...',
         );
         final stopwatch = Stopwatch()..start();
         final success = await runAgyOnBatch(
@@ -661,29 +665,24 @@ Future<void> main(List<String> args) async {
         continue;
       }
 
-      final units = extractUnitsFromBook(bFile);
-      if (units.isEmpty) {
-        print('Warning: No passage units found in ${bFile.path}');
+      final sectionBatches = extractSectionBatchesFromBook(
+        bFile,
+        maxItemsPerBatch: batchSize,
+      );
+      if (sectionBatches.isEmpty) {
+        print('Warning: No section batches found in ${bFile.path}');
         continue;
       }
 
-      final totalBatches = (units.length / batchSize).ceil();
+      final totalBatches = sectionBatches.length;
       final bookId = p.basenameWithoutExtension(bFile.path);
-      print(
-        '📖 Preparing "$bookId": ${units.length} passages -> $totalBatches batch(es) of ~$batchSize items.',
-      );
+      print('📖 Preparing "$bookId": $totalBatches section batch(es).');
 
       for (int b = 0; b < totalBatches; b++) {
-        final start = b * batchSize;
-        final end = (start + batchSize < units.length)
-            ? start + batchSize
-            : units.length;
-        final batch = units.sublist(start, end);
+        final batch = sectionBatches[b];
 
         final prompt = buildSubagentPrompt(
-          bookTitle: batch.first.bookTitle,
-          author: batch.first.author,
-          batch: batch,
+          sectionBatch: batch,
           batchNumber: b + 1,
           totalBatches: totalBatches,
         );
@@ -697,9 +696,7 @@ Future<void> main(List<String> args) async {
           p.join(batchesDir.path, '${bookId}_units_batch_${b + 1}.json'),
         );
         payloadFile.writeAsStringSync(
-          const JsonEncoder.withIndent(
-            '  ',
-          ).convert(batch.map((u) => u.toJson()).toList()),
+          const JsonEncoder.withIndent('  ').convert(batch.toJson()),
         );
       }
       print('   ✓ Saved prompts and unit payloads in ${batchesDir.path}');
@@ -828,17 +825,17 @@ Future<void> main(List<String> args) async {
     );
     print('===============================================================');
 
-    int totalPassages = 0;
+    int totalBatches = 0;
     for (final bFile in bookFiles) {
-      final units = extractUnitsFromBook(bFile);
-      totalPassages += units.length;
+      final batches = extractSectionBatchesFromBook(bFile);
+      totalBatches += batches.length;
       final bookId = p.basenameWithoutExtension(bFile.path);
       print(
-        '  • ${bookId.padRight(36)}: ${units.length.toString().padLeft(4)} passage units',
+        '  • ${bookId.padRight(36)}: ${batches.length.toString().padLeft(4)} section batch(es)',
       );
     }
     print('---------------------------------------------------------------');
-    print('Total Library Units: $totalPassages');
+    print('Total Section Batches across Library: $totalBatches');
     return;
   }
 
