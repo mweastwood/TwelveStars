@@ -20,7 +20,16 @@ void main() {
               'subtitle': '',
               'author': '',
               'toc': [],
-              'sections': [],
+              'sections': [
+                {
+                  'id': 'sec_1',
+                  'title': 'Section 1',
+                  'subtitle': '',
+                  'content': [
+                    {'type': 'text', 'text': 'Content for Book in $key'},
+                  ],
+                },
+              ],
             };
             final jsonStr = jsonEncode(dummyData);
             return ByteData.view(
@@ -51,6 +60,33 @@ void main() {
         // Load a 6th item -> should evict path_2.json (which is now the LRU item)
         await LibraryHelper.loadBookData('path_6.json');
         expect(LibraryHelper.cacheSize, equals(5));
+      },
+    );
+
+    test(
+      'searchCatalog does not perturb reader LRU cache or evict cached reader items',
+      () async {
+        expect(LibraryHelper.cacheSize, equals(0));
+        expect(LibraryHelper.searchIndexSize, equals(0));
+
+        // Prime the reader LRU cache with 3 items
+        await LibraryHelper.loadBookData('path_1.json');
+        await LibraryHelper.loadBookData('path_2.json');
+        await LibraryHelper.loadBookData('path_3.json');
+        expect(LibraryHelper.cacheSize, equals(3));
+
+        // Execute global catalog search
+        final results = await LibraryHelper.searchCatalog('Book');
+        expect(results, isNotEmpty);
+
+        // Reader cache size should remain 3 (untouched by search)
+        expect(LibraryHelper.cacheSize, equals(3));
+        expect(LibraryHelper.searchIndexSize, greaterThan(0));
+
+        // Clear cache should reset both LRU cache and search index
+        LibraryHelper.clearCache();
+        expect(LibraryHelper.cacheSize, equals(0));
+        expect(LibraryHelper.searchIndexSize, equals(0));
       },
     );
   });

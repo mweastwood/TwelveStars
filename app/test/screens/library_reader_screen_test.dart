@@ -176,11 +176,22 @@ void main() {
         find.byType(LibraryReaderScreen),
         matchesGoldenFile('goldens/library_reader_screen_golden.png'),
       );
+
+      await tester.runAsync(() async {
+        await Future.delayed(const Duration(milliseconds: 100));
+      });
+      await tester.pumpWidget(const SizedBox());
     });
 
     testWidgets(
       'LibraryReaderScreen supports swipe navigation between sections',
       (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_1.json',
+          );
+        });
+
         await tester.pumpWidget(
           MaterialApp(
             theme: ThemeData.light(useMaterial3: true),
@@ -218,6 +229,12 @@ void main() {
     testWidgets(
       'LibraryReaderScreen footer buttons navigate between sections',
       (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_1.json',
+          );
+        });
+
         await tester.pumpWidget(
           MaterialApp(
             theme: ThemeData.light(useMaterial3: true),
@@ -249,6 +266,12 @@ void main() {
     testWidgets(
       'LibraryReaderScreen Table of Contents drawer jumps to selected section',
       (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_1.json',
+          );
+        });
+
         await tester.pumpWidget(
           MaterialApp(
             theme: ThemeData.light(useMaterial3: true),

@@ -106,4 +106,139 @@ void main() {
       },
     );
   });
+
+  group('Library Search & Background Parsing Tests', () {
+    final sampleBook = ParsedBookData(
+      bookId: 'test_book',
+      title: 'Sample Test Book',
+      subtitle: 'A testing guide',
+      author: 'Test Author',
+      toc: [TocEntry(id: 'sec_1', title: 'Chapter 1')],
+      sections: [
+        BookSection(
+          id: 'sec_1',
+          title: 'Chapter 1: The Foundations of Faith',
+          subtitle: '',
+          content: [
+            ContentItem(
+              type: 'qa',
+              questionNumber: 1,
+              question: 'Who made us?',
+              answer: 'God made us to know Him, to love Him, and to serve Him.',
+            ),
+            ContentItem(
+              type: 'text',
+              text:
+                  'Grace is a supernatural gift of God bestowed upon us through the merits of Jesus Christ for our salvation.',
+            ),
+          ],
+        ),
+      ],
+    );
+
+    test('searchInBook finds QA and text matches with snippets', () {
+      final qaResults = LibraryHelper.searchInBook(sampleBook, 'know love');
+      expect(qaResults, hasLength(1));
+      expect(qaResults.first.bookTitle, equals('Sample Test Book'));
+      expect(qaResults.first.sectionId, equals('sec_1'));
+      expect(
+        qaResults.first.matchedSnippet,
+        contains('God made us to know Him'),
+      );
+
+      final textResults = LibraryHelper.searchInBook(sampleBook, 'grace gift');
+      expect(textResults, hasLength(1));
+      expect(
+        textResults.first.matchedSnippet,
+        contains('Grace is a supernatural gift'),
+      );
+
+      final noResults = LibraryHelper.searchInBook(
+        sampleBook,
+        'nonexistent query',
+      );
+      expect(noResults, isEmpty);
+
+      final emptyResults = LibraryHelper.searchInBook(sampleBook, '   ');
+      expect(emptyResults, isEmpty);
+    });
+
+    test('searchInBook caps results at 50', () {
+      final manySections = List.generate(
+        60,
+        (i) => BookSection(
+          id: 'sec_$i',
+          title: 'Section $i',
+          subtitle: '',
+          content: [
+            ContentItem(
+              type: 'text',
+              text: 'Repeated common content matching the query number $i.',
+            ),
+          ],
+        ),
+      );
+
+      final largeBook = ParsedBookData(
+        bookId: 'large_book',
+        title: 'Large Book',
+        subtitle: '',
+        author: 'Author',
+        toc: [],
+        sections: manySections,
+      );
+
+      final results = LibraryHelper.searchInBook(largeBook, 'Repeated common');
+      expect(results.length, equals(50));
+    });
+
+    test('searchCatalog returns empty on whitespace or empty query', () async {
+      expect(await LibraryHelper.searchCatalog(''), isEmpty);
+      expect(await LibraryHelper.searchCatalog('   '), isEmpty);
+    });
+
+    test('ParsedBookData.fromJson parses all fields and nested structures', () {
+      final jsonMap = {
+        'bookId': 'council_of_trent',
+        'title': 'The Canons and Decrees of the Council of Trent',
+        'subtitle': 'Ecumenical Council',
+        'author': 'Pope Pius IV',
+        'verseSystem': 'vulgate',
+        'toc': [
+          {'id': 'session_1', 'title': 'Session I'},
+        ],
+        'sections': [
+          {
+            'id': 'session_1',
+            'title': 'Session I: Opening Decree',
+            'subtitle': '',
+            'content': [
+              {
+                'type': 'qa',
+                'questionNumber': 1,
+                'question': 'What was declared?',
+                'answer': 'The opening of the holy ecumenical council.',
+              },
+            ],
+          },
+        ],
+      };
+
+      final parsed = ParsedBookData.fromJson(jsonMap);
+      expect(parsed.bookId, equals('council_of_trent'));
+      expect(
+        parsed.title,
+        equals('The Canons and Decrees of the Council of Trent'),
+      );
+      expect(parsed.subtitle, equals('Ecumenical Council'));
+      expect(parsed.author, equals('Pope Pius IV'));
+      expect(parsed.verseSystem, equals('vulgate'));
+      expect(parsed.toc.length, equals(1));
+      expect(parsed.toc.first.id, equals('session_1'));
+      expect(parsed.sections.length, equals(1));
+      expect(parsed.sections.first.content.length, equals(1));
+      expect(parsed.sections.first.content.first.type, equals('qa'));
+      expect(parsed.sections.first.content.first.questionNumber, equals(1));
+    });
+  });
 }

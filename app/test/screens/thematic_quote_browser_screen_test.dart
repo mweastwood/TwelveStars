@@ -255,7 +255,8 @@ void main() {
 
       final readContextBtn = find.text('Read in Context').first;
       await tester.tap(readContextBtn);
-      await tester.pumpAndSettle();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 500));
 
       expect(find.byType(LibraryReaderScreen), findsOneWidget);
     });

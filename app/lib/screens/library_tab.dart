@@ -19,6 +19,7 @@ class _LibraryTabState extends State<LibraryTab> {
   String _searchQuery = '';
   bool _isSearchingGlobal = false;
   List<BookSearchResult> _globalSearchResults = [];
+  int _searchSessionId = 0;
 
   List<LibraryBookmark> _favorites = [];
   bool _loadingFavorites = true;
@@ -105,6 +106,7 @@ class _LibraryTabState extends State<LibraryTab> {
   }
 
   Future<void> _performGlobalSearch(String query) async {
+    final sessionId = ++_searchSessionId;
     final cleanQuery = query.trim();
     if (cleanQuery.isEmpty) {
       setState(() {
@@ -118,32 +120,9 @@ class _LibraryTabState extends State<LibraryTab> {
       _isSearchingGlobal = true;
     });
 
-    final catalog = LibraryHelper.getCatalog();
-    final allResults = <BookSearchResult>[];
+    final allResults = await LibraryHelper.searchCatalog(cleanQuery);
 
-    for (final bookItem in catalog) {
-      if (bookItem.isSeries) {
-        for (final vol in bookItem.volumes!) {
-          try {
-            final parsedData = await LibraryHelper.loadBookData(vol.assetPath);
-            final res = LibraryHelper.searchInBook(parsedData, cleanQuery);
-            allResults.addAll(res);
-            if (allResults.length >= 50) break;
-          } catch (_) {}
-        }
-      } else if (bookItem.defaultAssetPath != null) {
-        try {
-          final parsedData = await LibraryHelper.loadBookData(
-            bookItem.defaultAssetPath!,
-          );
-          final res = LibraryHelper.searchInBook(parsedData, cleanQuery);
-          allResults.addAll(res);
-        } catch (_) {}
-      }
-      if (allResults.length >= 50) break;
-    }
-
-    if (mounted) {
+    if (mounted && sessionId == _searchSessionId) {
       setState(() {
         _globalSearchResults = allResults;
         _isSearchingGlobal = false;
