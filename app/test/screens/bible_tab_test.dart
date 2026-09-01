@@ -977,6 +977,11 @@ void main() {
       await tester.tap(find.byIcon(Icons.delete_outline));
       await tester.pumpAndSettle();
 
+      // Confirm deletion in dialog
+      expect(find.text('Delete Comment'), findsOneWidget);
+      await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
+      await tester.pumpAndSettle();
+
       // Verify comment deleted from DB
       final commentsInDb = await testDb.getComments(
         documentId: 'GEN',
@@ -1034,6 +1039,11 @@ void main() {
         // Tap delete button in modal
         expect(find.byIcon(Icons.delete_outline), findsOneWidget);
         await tester.tap(find.byIcon(Icons.delete_outline));
+        await tester.pumpAndSettle();
+
+        // Confirm deletion in dialog
+        expect(find.text('Remove Favorite'), findsOneWidget);
+        await tester.tap(find.widgetWithText(FilledButton, 'Remove'));
         await tester.pumpAndSettle();
 
         // Verify favorite deleted from DB

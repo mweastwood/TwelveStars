@@ -507,7 +507,75 @@ void main() {
     );
 
     testWidgets(
-      'tapping delete icon deletes comment from DB, updates state, and invokes onCommentsChanged',
+      'tapping delete icon shows confirmation dialog; canceling keeps comment intact',
+      (WidgetTester tester) async {
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'bible_cpdv',
+            sectionIndex: 40,
+            nodeId: 'mat_5_3',
+            commentText: 'Comment to delete.',
+            textPreview: const Value('Blessed are the poor in spirit.'),
+            createdAt: DateTime(2026, 8, 30, 10, 0),
+          ),
+        );
+
+        final dbComments = await testDb.getComments(nodeId: 'mat_5_3');
+        expect(dbComments.length, equals(1));
+        final mutableComments = List<UserComment>.from(dbComments);
+
+        bool commentsChangedCalled = false;
+
+        await tester.pumpWidget(
+          buildTestScaffold(
+            builder: (context) => ElevatedButton(
+              onPressed: () => showVerseCommentsModal(
+                context: context,
+                title: 'Matthew 5:3',
+                nodeId: 'mat_5_3',
+                textPreview: 'Blessed are the poor in spirit.',
+                comments: mutableComments,
+                onCommentsChanged: () {
+                  commentsChangedCalled = true;
+                },
+                onAddComment: () {},
+              ),
+              child: const Text('Open Comments Modal'),
+            ),
+          ),
+        );
+
+        await tester.tap(find.text('Open Comments Modal'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Comment to delete.'), findsOneWidget);
+
+        // Tap Delete comment icon
+        await tester.tap(find.byTooltip('Delete comment'));
+        await tester.pumpAndSettle();
+
+        // Confirmation dialog is shown
+        expect(find.text('Delete Comment'), findsOneWidget);
+        expect(
+          find.text('Are you sure you want to delete this comment?'),
+          findsOneWidget,
+        );
+
+        // Tap Cancel
+        await tester.tap(find.text('Cancel'));
+        await tester.pumpAndSettle();
+
+        expect(commentsChangedCalled, isFalse);
+        expect(find.text('Comment to delete.'), findsOneWidget);
+        expect(mutableComments.length, equals(1));
+
+        final remainingDbComments = await testDb.getComments(nodeId: 'mat_5_3');
+        expect(remainingDbComments.length, equals(1));
+      },
+    );
+
+    testWidgets(
+      'tapping delete icon and confirming deletes comment from DB, updates state, and invokes onCommentsChanged',
       (WidgetTester tester) async {
         await testDb.saveComment(
           UserCommentsCompanion.insert(
@@ -552,6 +620,11 @@ void main() {
 
         // Tap Delete comment
         await tester.tap(find.byTooltip('Delete comment'));
+        await tester.pumpAndSettle();
+
+        // Confirmation dialog is shown
+        expect(find.text('Delete Comment'), findsOneWidget);
+        await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
         await tester.pumpAndSettle();
 
         expect(commentsChangedCalled, isTrue);
@@ -1003,6 +1076,71 @@ void main() {
     );
 
     testWidgets(
+      'tapping delete favorite shows confirmation dialog; canceling keeps favorite intact',
+      (WidgetTester tester) async {
+        await testDb.saveFavorite(
+          FavoritePassagesCompanion.insert(
+            bookNumber: 43,
+            bookName: 'John',
+            chapter: 1,
+            startVerse: 1,
+            endVerse: 1,
+            textPreview: 'In the beginning was the Word.',
+          ),
+        );
+
+        final initialFavs = await testDb.getFavoritesForChapter(43, 1);
+        expect(initialFavs.length, equals(1));
+        final mutableFavs = List<FavoritePassage>.from(initialFavs);
+
+        bool favoritesChangedCalled = false;
+
+        await tester.pumpWidget(
+          buildTestScaffold(
+            builder: (context) => ElevatedButton(
+              onPressed: () => showVerseFavoritesModal(
+                context: context,
+                title: 'John 1:1',
+                favorites: mutableFavs,
+                onFavoritesChanged: () {
+                  favoritesChangedCalled = true;
+                },
+              ),
+              child: const Text('Open Favorites Modal'),
+            ),
+          ),
+        );
+
+        await tester.tap(find.text('Open Favorites Modal'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Favorite Passage for John 1:1'), findsOneWidget);
+
+        // Tap Delete favorite
+        await tester.tap(find.byIcon(Icons.delete_outline));
+        await tester.pumpAndSettle();
+
+        // Confirmation dialog is shown
+        expect(find.text('Remove Favorite'), findsOneWidget);
+        expect(
+          find.text('Are you sure you want to remove this favorite passage?'),
+          findsOneWidget,
+        );
+
+        // Tap Cancel
+        await tester.tap(find.text('Cancel'));
+        await tester.pumpAndSettle();
+
+        expect(favoritesChangedCalled, isFalse);
+        expect(mutableFavs.length, equals(1));
+        expect(find.text('Favorite Passage for John 1:1'), findsOneWidget);
+
+        final remainingFavs = await testDb.getFavoritesForChapter(43, 1);
+        expect(remainingFavs.length, equals(1));
+      },
+    );
+
+    testWidgets(
       'deleting favorite removes from DB, mutates list, calls onFavoritesChanged, and auto-closes when list becomes empty',
       (WidgetTester tester) async {
         await testDb.saveFavorite(
@@ -1045,6 +1183,11 @@ void main() {
 
         // Tap Delete favorite
         await tester.tap(find.byIcon(Icons.delete_outline));
+        await tester.pumpAndSettle();
+
+        // Confirm deletion
+        expect(find.text('Remove Favorite'), findsOneWidget);
+        await tester.tap(find.widgetWithText(FilledButton, 'Remove'));
         await tester.pumpAndSettle();
 
         expect(favoritesChangedCalled, isTrue);
@@ -1115,6 +1258,11 @@ void main() {
         await tester.tap(find.byIcon(Icons.delete_outline).first);
         await tester.pumpAndSettle();
 
+        // Confirm deletion
+        expect(find.text('Remove Favorite'), findsOneWidget);
+        await tester.tap(find.widgetWithText(FilledButton, 'Remove'));
+        await tester.pumpAndSettle();
+
         expect(favoritesChangedCalled, isTrue);
         expect(mutableFavs.length, equals(1));
         expect(find.text('John 1:1-5'), findsNothing);
@@ -1127,5 +1275,76 @@ void main() {
         expect(remainingFavs.first.startVerse, equals(14));
       },
     );
+  });
+
+  group('showDeleteConfirmationDialog Unit & Widget Tests', () {
+    testWidgets('displays title, content, cancel and confirm buttons', (
+      WidgetTester tester,
+    ) async {
+      bool? result;
+
+      await tester.pumpWidget(
+        buildTestScaffold(
+          builder: (context) => ElevatedButton(
+            onPressed: () async {
+              result = await showDeleteConfirmationDialog(
+                context: context,
+                title: 'Confirm Delete',
+                content: 'Do you really want to delete this?',
+                confirmLabel: 'Yes, Delete',
+                cancelLabel: 'No, Keep',
+              );
+            },
+            child: const Text('Open Confirm Dialog'),
+          ),
+        ),
+      );
+
+      await tester.tap(find.text('Open Confirm Dialog'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Confirm Delete'), findsOneWidget);
+      expect(find.text('Do you really want to delete this?'), findsOneWidget);
+      expect(find.text('No, Keep'), findsOneWidget);
+      expect(find.text('Yes, Delete'), findsOneWidget);
+
+      // Confirm
+      await tester.tap(find.text('Yes, Delete'));
+      await tester.pumpAndSettle();
+
+      expect(result, isTrue);
+      expect(find.text('Confirm Delete'), findsNothing);
+    });
+
+    testWidgets('canceling dialog returns false', (WidgetTester tester) async {
+      bool? result;
+
+      await tester.pumpWidget(
+        buildTestScaffold(
+          builder: (context) => ElevatedButton(
+            onPressed: () async {
+              result = await showDeleteConfirmationDialog(
+                context: context,
+                title: 'Delete Item',
+                content: 'Are you sure?',
+              );
+            },
+            child: const Text('Open Dialog'),
+          ),
+        ),
+      );
+
+      await tester.tap(find.text('Open Dialog'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Delete Item'), findsOneWidget);
+
+      // Cancel
+      await tester.tap(find.text('Cancel'));
+      await tester.pumpAndSettle();
+
+      expect(result, isFalse);
+      expect(find.text('Delete Item'), findsNothing);
+    });
   });
 }

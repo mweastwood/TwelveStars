@@ -3,6 +3,7 @@ import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 
 class BibleBottomNavigationPanel extends StatelessWidget {
   final Animation<double> panelHeightAnimation;
@@ -163,7 +164,18 @@ class BibleBottomNavigationPanel extends StatelessWidget {
             ),
             trailing: IconButton(
               icon: Icon(Icons.delete_outline, color: theme.colorScheme.error),
-              onPressed: () => onDeleteFavorite(fav),
+              onPressed: () async {
+                final confirmed = await showDeleteConfirmationDialog(
+                  context: context,
+                  title: 'Remove Favorite',
+                  content:
+                      'Are you sure you want to remove this favorite passage?',
+                  confirmLabel: 'Remove',
+                );
+                if (confirmed) {
+                  onDeleteFavorite(fav);
+                }
+              },
             ),
             onTap: () => onFavoriteTapped(fav),
           ),
@@ -277,7 +289,17 @@ class BibleBottomNavigationPanel extends StatelessWidget {
                     color: theme.colorScheme.error,
                   ),
                   tooltip: 'Delete comment',
-                  onPressed: () => onDeleteComment(comment),
+                  onPressed: () async {
+                    final confirmed = await showDeleteConfirmationDialog(
+                      context: context,
+                      title: 'Delete Comment',
+                      content: 'Are you sure you want to delete this comment?',
+                      confirmLabel: 'Delete',
+                    );
+                    if (confirmed) {
+                      onDeleteComment(comment);
+                    }
+                  },
                 ),
               ],
             ),

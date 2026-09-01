@@ -1315,8 +1315,27 @@ void main() {
 
       expect(find.text('Important lesson on God.'), findsOneWidget);
 
-      // Delete the comment
+      // Tap Delete icon -> confirmation dialog appears
       await tester.tap(find.byIcon(Icons.delete_outline));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Delete Comment'), findsOneWidget);
+      expect(
+        find.text('Are you sure you want to delete this comment?'),
+        findsOneWidget,
+      );
+
+      // Tap Cancel -> comment remains
+      await tester.tap(find.text('Cancel'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Important lesson on God.'), findsOneWidget);
+
+      // Tap Delete again -> confirm deletion
+      await tester.tap(find.byIcon(Icons.delete_outline));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
       await tester.pumpAndSettle();
 
       expect(find.text('No comments on library books yet.'), findsOneWidget);

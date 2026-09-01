@@ -5,6 +5,7 @@ import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/screens/thematic_quote_browser_screen.dart';
+import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
 
 class LibraryTab extends StatefulWidget {
@@ -1506,6 +1507,14 @@ class _LibraryTabState extends State<LibraryTab> {
                       color: theme.colorScheme.error,
                     ),
                     onPressed: () async {
+                      final confirmed = await showDeleteConfirmationDialog(
+                        context: context,
+                        title: 'Delete Comment',
+                        content:
+                            'Are you sure you want to delete this comment?',
+                        confirmLabel: 'Delete',
+                      );
+                      if (!confirmed || !mounted) return;
                       await BibleDatabaseHelper.db.deleteComment(comment.id);
                       _loadComments();
                     },
