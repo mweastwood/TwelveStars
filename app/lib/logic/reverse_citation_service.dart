@@ -30,6 +30,104 @@ class ReverseCitation {
   });
 }
 
+class CitationParseParams {
+  final String sourceKey;
+  final String rawJson;
+
+  const CitationParseParams({required this.sourceKey, required this.rawJson});
+}
+
+List<ReverseCitation> _extractCitationsFromBookData(
+  String sourceKey,
+  ParsedBookData bookData,
+) {
+  final List<ReverseCitation> citations = [];
+  for (final sec in bookData.sections) {
+    for (int itemIdx = 0; itemIdx < sec.content.length; itemIdx++) {
+      final item = sec.content[itemIdx];
+
+      void processText({
+        required String text,
+        String? questionContext,
+        String? fieldPrefix,
+      }) {
+        if (text.trim().isEmpty) return;
+        final sentences = ReverseCitationService.extractSentences(text);
+        if (sentences.isEmpty) return;
+
+        for (int sIdx = 0; sIdx < sentences.length; sIdx++) {
+          final sentence = sentences[sIdx];
+          final segments = BibleCitationParser.parse(
+            sentence,
+            verseSystem: bookData.verseSystem,
+          );
+          for (final seg in segments) {
+            if (seg.isCitation) {
+              final snippet = ReverseCitationService.buildContextualSnippet(
+                sentences: sentences,
+                sentenceIndex: sIdx,
+                questionContext: questionContext,
+                fieldPrefix: fieldPrefix,
+              );
+              citations.add(
+                ReverseCitation(
+                  sourceBookId: bookData.bookId,
+                  sourceAssetPath: sourceKey,
+                  sourceBookTitle: bookData.title,
+                  sourceAuthor: bookData.author,
+                  sectionId: sec.id,
+                  sectionTitle: sec.title,
+                  questionNumber: item.questionNumber,
+                  itemIndex: itemIdx,
+                  snippet: snippet,
+                  citation: seg.citation!,
+                ),
+              );
+            }
+          }
+        }
+      }
+
+      if (item.type == 'qa') {
+        if (item.question != null && item.question!.isNotEmpty) {
+          processText(text: item.question!, fieldPrefix: 'Q. ');
+        }
+        if (item.answer != null && item.answer!.isNotEmpty) {
+          processText(
+            text: item.answer!,
+            questionContext: item.question,
+            fieldPrefix: 'A. ',
+          );
+        }
+        if (item.explanation != null && item.explanation!.isNotEmpty) {
+          processText(text: item.explanation!, questionContext: item.question);
+        }
+        if (item.text != null && item.text!.isNotEmpty) {
+          processText(text: item.text!, questionContext: item.question);
+        }
+      } else {
+        if (item.text != null && item.text!.isNotEmpty) {
+          processText(text: item.text!);
+        }
+        if (item.question != null && item.question!.isNotEmpty) {
+          processText(text: item.question!);
+        }
+      }
+    }
+  }
+  return citations;
+}
+
+/// Top-level worker function executed in background isolate via [compute].
+List<ReverseCitation> parseBookCitationsInBackground(
+  CitationParseParams params,
+) {
+  final Map<String, dynamic> decoded =
+      jsonDecode(params.rawJson) as Map<String, dynamic>;
+  final bookData = ParsedBookData.fromJson(decoded);
+  return _extractCitationsFromBookData(params.sourceKey, bookData);
+}
+
 class ReverseCitationService {
   static const int maxIndexedSources = 160;
   static final Map<String, List<ReverseCitation>> _indexedSources = {};
@@ -315,7 +413,7 @@ class ReverseCitationService {
     return sentences;
   }
 
-  static String _buildContextualSnippet({
+  static String buildContextualSnippet({
     required List<String> sentences,
     required int sentenceIndex,
     String? questionContext,
@@ -378,10 +476,11 @@ class ReverseCitationService {
           }
           try {
             final rawJson = await rootBundle.loadString(path);
-            final bookData = ParsedBookData.fromJson(
-              jsonDecode(rawJson) as Map<String, dynamic>,
+            final citations = await compute(
+              parseBookCitationsInBackground,
+              CitationParseParams(sourceKey: path, rawJson: rawJson),
             );
-            indexBookData(path, bookData);
+            _addIndexedSource(path, citations);
           } catch (e, stack) {
             debugPrint(
               'ReverseCitationService error indexing $path: $e\n$stack',
@@ -429,7 +528,10 @@ class ReverseCitationService {
     }
   }
 
-  static void indexBookData(String sourceKey, ParsedBookData bookData) {
+  static void _addIndexedSource(
+    String sourceKey,
+    List<ReverseCitation> citations,
+  ) {
     bool needsFullRebuild = false;
     if (_indexedSources.containsKey(sourceKey)) {
       _indexedSources.remove(sourceKey);
@@ -439,89 +541,17 @@ class ReverseCitationService {
       needsFullRebuild = true;
     }
 
-    final List<ReverseCitation> citations = [];
-    for (final sec in bookData.sections) {
-      for (int itemIdx = 0; itemIdx < sec.content.length; itemIdx++) {
-        final item = sec.content[itemIdx];
-
-        void processText({
-          required String text,
-          String? questionContext,
-          String? fieldPrefix,
-        }) {
-          if (text.trim().isEmpty) return;
-          final sentences = extractSentences(text);
-          if (sentences.isEmpty) return;
-
-          for (int sIdx = 0; sIdx < sentences.length; sIdx++) {
-            final sentence = sentences[sIdx];
-            final segments = BibleCitationParser.parse(
-              sentence,
-              verseSystem: bookData.verseSystem,
-            );
-            for (final seg in segments) {
-              if (seg.isCitation) {
-                final snippet = _buildContextualSnippet(
-                  sentences: sentences,
-                  sentenceIndex: sIdx,
-                  questionContext: questionContext,
-                  fieldPrefix: fieldPrefix,
-                );
-                citations.add(
-                  ReverseCitation(
-                    sourceBookId: bookData.bookId,
-                    sourceAssetPath: sourceKey,
-                    sourceBookTitle: bookData.title,
-                    sourceAuthor: bookData.author,
-                    sectionId: sec.id,
-                    sectionTitle: sec.title,
-                    questionNumber: item.questionNumber,
-                    itemIndex: itemIdx,
-                    snippet: snippet,
-                    citation: seg.citation!,
-                  ),
-                );
-              }
-            }
-          }
-        }
-
-        if (item.type == 'qa') {
-          if (item.question != null && item.question!.isNotEmpty) {
-            processText(text: item.question!, fieldPrefix: 'Q. ');
-          }
-          if (item.answer != null && item.answer!.isNotEmpty) {
-            processText(
-              text: item.answer!,
-              questionContext: item.question,
-              fieldPrefix: 'A. ',
-            );
-          }
-          if (item.explanation != null && item.explanation!.isNotEmpty) {
-            processText(
-              text: item.explanation!,
-              questionContext: item.question,
-            );
-          }
-          if (item.text != null && item.text!.isNotEmpty) {
-            processText(text: item.text!, questionContext: item.question);
-          }
-        } else {
-          if (item.text != null && item.text!.isNotEmpty) {
-            processText(text: item.text!);
-          }
-          if (item.question != null && item.question!.isNotEmpty) {
-            processText(text: item.question!);
-          }
-        }
-      }
-    }
     _indexedSources[sourceKey] = citations;
     if (needsFullRebuild) {
       _rebuildIndices();
     } else {
       _insertCitations(citations);
     }
+  }
+
+  static void indexBookData(String sourceKey, ParsedBookData bookData) {
+    final citations = _extractCitationsFromBookData(sourceKey, bookData);
+    _addIndexedSource(sourceKey, citations);
   }
 
   static List<ReverseCitation> getChapterCitations(
