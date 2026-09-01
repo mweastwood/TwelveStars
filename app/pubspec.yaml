@@ -55,7 +55,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   http: ^1.2.1
-  html: ^0.15.4
+  html: ^0.15.7
   build_runner: ^2.16.0
   drift_dev: ^2.34.5
 
