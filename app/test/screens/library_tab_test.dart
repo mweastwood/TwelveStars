@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 import 'package:drift/drift.dart' hide isNull, isNotNull;
 import 'package:drift/native.dart';
@@ -13,6 +14,31 @@ import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
 import '../test_helper.dart';
+
+/// Polls until search results are rendered on screen, or until [timeout] is exceeded.
+///
+/// Alternates between [tester.runAsync] to allow the background isolate worker
+/// (`compute`) to complete and post results back to the main isolate, and
+/// [tester.pump] to process setState and rebuild the widget tree.
+Future<void> _waitForSearchResults(
+  WidgetTester tester, {
+  Duration timeout = const Duration(seconds: 5),
+  Duration step = const Duration(milliseconds: 50),
+}) async {
+  final end = DateTime.now().add(timeout);
+  while (DateTime.now().isBefore(end)) {
+    await tester.runAsync(() => Future<void>.delayed(step));
+    await tester.pump(step);
+    if (find.text('SEARCH RESULTS').evaluate().isNotEmpty &&
+        find.byType(CircularProgressIndicator).evaluate().isEmpty) {
+      return;
+    }
+  }
+  throw TimeoutException(
+    'Timed out waiting for search results to appear',
+    timeout,
+  );
+}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -133,10 +159,8 @@ void main() {
       final searchField = find.byType(TextField).first;
       await tester.runAsync(() async {
         await tester.enterText(searchField, 'Baptism');
-        await Future<void>.delayed(const Duration(milliseconds: 1000));
       });
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 300));
+      await _waitForSearchResults(tester);
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(tester, 'library_tab_search_results_golden');
@@ -1484,9 +1508,8 @@ void main() {
       final searchField = find.byType(TextField).first;
       await tester.runAsync(() async {
         await tester.enterText(searchField, 'Baptism');
-        await Future<void>.delayed(const Duration(milliseconds: 1000));
       });
-      await tester.pump();
+      await _waitForSearchResults(tester);
       await tester.pump(const Duration(milliseconds: 300));
 
       expect(find.text('SEARCH RESULTS'), findsOneWidget);
