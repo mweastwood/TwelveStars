@@ -11,6 +11,10 @@ import '../test_helper.dart';
 
 void main() {
   group('PrayerCard Widget', () {
+    tearDown(() {
+      LocalAgentHelper.instance = null;
+    });
+
     final testPrayer = Prayer.mock(
       id: 'our_father',
       defaultTitle: 'Our Father',

@@ -91,6 +91,10 @@ void main() {
     LocalAgentHelper.instance = mockAi;
   });
 
+  tearDown(() {
+    LocalAgentHelper.instance = null;
+  });
+
   const testReadingsData = [
     HomilyReadingData(
       readingType: 'first',

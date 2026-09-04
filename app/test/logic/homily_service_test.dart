@@ -477,6 +477,10 @@ void main() {
   });
 
   group('HomilyService.generateReflection', () {
+    tearDown(() {
+      LocalAgentHelper.instance = null;
+    });
+
     test('calls generateContentWithContinuation with valid response', () async {
       final mockAi = MockAiServiceForHomily();
       LocalAgentHelper.instance = mockAi;

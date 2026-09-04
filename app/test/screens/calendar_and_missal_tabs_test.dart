@@ -409,6 +409,7 @@ void main() {
     await testDb.close();
     PrayerDatabase.mockPrayers = null;
     SaintDatabase.mockSaints = null;
+    LocalAgentHelper.instance = null;
   });
 
   group('Placeholder Tabs Golden Tests', () {
