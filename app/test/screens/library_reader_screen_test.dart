@@ -160,6 +160,12 @@ void main() {
     testGoldens('LibraryReaderScreen renders reader UI correctly', (
       tester,
     ) async {
+      await tester.runAsync(() async {
+        await LibraryHelper.loadBookData(
+          'assets/catechism/json/baltimore_1.json',
+        );
+      });
+
       await tester.pumpWidget(
         MaterialApp(
           theme: ThemeData.light(useMaterial3: true),
@@ -177,10 +183,8 @@ void main() {
         matchesGoldenFile('goldens/library_reader_screen_golden.png'),
       );
 
-      await tester.runAsync(() async {
-        await Future.delayed(const Duration(milliseconds: 100));
-      });
       await tester.pumpWidget(const SizedBox());
+      await tester.pumpAndSettle();
     });
 
     testWidgets(
