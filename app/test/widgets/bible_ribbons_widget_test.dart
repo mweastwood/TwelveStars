@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
@@ -508,6 +509,142 @@ void main() {
         await screenMatchesGolden(
           tester,
           'bible_ribbons_widget_scenarios_golden',
+        );
+      },
+    );
+
+    test('PageRibbonPatternPainter paints expected pattern without error', () {
+      final recorder = PictureRecorder();
+      final canvas = Canvas(recorder);
+      const painter = PageRibbonPatternPainter(
+        stripeColor: Color(0x24FFFFFF),
+        edgeColor: Color(0x1A000000),
+      );
+
+      // Should paint successfully on normal size
+      expect(
+        () => painter.paint(canvas, const Size(16.0, 100.0)),
+        returnsNormally,
+      );
+      final picture = recorder.endRecording();
+      expect(picture, isNotNull);
+
+      // Should safely no-op on zero or unbounded height
+      final recorder2 = PictureRecorder();
+      final canvas2 = Canvas(recorder2);
+      expect(() => painter.paint(canvas2, Size.zero), returnsNormally);
+      expect(
+        () => painter.paint(canvas2, const Size(16.0, double.infinity)),
+        returnsNormally,
+      );
+      recorder2.endRecording();
+    });
+
+    test(
+      'PageRibbonPatternPainter shouldRepaint compares color configuration',
+      () {
+        const painter1 = PageRibbonPatternPainter(
+          stripeColor: Color(0x24FFFFFF),
+          edgeColor: Color(0x1A000000),
+        );
+        const painter2 = PageRibbonPatternPainter(
+          stripeColor: Color(0x24FFFFFF),
+          edgeColor: Color(0x1A000000),
+        );
+        const painter3 = PageRibbonPatternPainter(
+          stripeColor: Color(0xFFFF0000),
+          edgeColor: Color(0x1A000000),
+        );
+        const painter4 = PageRibbonPatternPainter(
+          stripeColor: Color(0x24FFFFFF),
+          edgeColor: Color(0xFF00FF00),
+        );
+
+        expect(painter1.shouldRepaint(painter2), isFalse);
+        expect(painter1.shouldRepaint(painter3), isTrue);
+        expect(painter1.shouldRepaint(painter4), isTrue);
+      },
+    );
+
+    testWidgets(
+      'BiblePageRibbon builds with PageRibbonPatternPainter CustomPaint',
+      (tester) async {
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(
+              body: SizedBox(
+                height: 200,
+                child: BiblePageRibbon(ribbonIndex: 0),
+              ),
+            ),
+          ),
+        );
+
+        final customPaintFinder = find.descendant(
+          of: find.byKey(const Key('bible_page_ribbon_0')),
+          matching: find.byType(CustomPaint),
+        );
+        expect(customPaintFinder, findsOneWidget);
+
+        final customPaint = tester.widget<CustomPaint>(customPaintFinder);
+        expect(customPaint.painter, isA<PageRibbonPatternPainter>());
+        final patternPainter = customPaint.painter as PageRibbonPatternPainter;
+        expect(
+          patternPainter.stripeColor,
+          equals(Colors.white.withValues(alpha: 0.14)),
+        );
+        expect(
+          patternPainter.edgeColor,
+          equals(Colors.black.withValues(alpha: 0.10)),
+        );
+      },
+    );
+
+    testGoldens(
+      'renders all liturgical BiblePageRibbon variations with woven line work pattern',
+      (tester) async {
+        final builder = GoldenBuilder.column()
+          ..addScenario(
+            'Liturgical Red Ribbon (Index 0)',
+            const SizedBox(
+              height: 80,
+              width: 100,
+              child: Stack(children: [BiblePageRibbon(ribbonIndex: 0)]),
+            ),
+          )
+          ..addScenario(
+            'Liturgical Gold Ribbon (Index 1)',
+            const SizedBox(
+              height: 80,
+              width: 100,
+              child: Stack(children: [BiblePageRibbon(ribbonIndex: 1)]),
+            ),
+          )
+          ..addScenario(
+            'Liturgical Green Ribbon (Index 2)',
+            const SizedBox(
+              height: 80,
+              width: 100,
+              child: Stack(children: [BiblePageRibbon(ribbonIndex: 2)]),
+            ),
+          )
+          ..addScenario(
+            'Liturgical Purple Ribbon (Index 3)',
+            const SizedBox(
+              height: 80,
+              width: 100,
+              child: Stack(children: [BiblePageRibbon(ribbonIndex: 3)]),
+            ),
+          );
+
+        await tester.pumpWidgetBuilder(
+          builder.build(),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(400, 550),
+        );
+        await screenMatchesGolden(
+          tester,
+          'bible_page_ribbons_all_variations_golden',
         );
       },
     );
