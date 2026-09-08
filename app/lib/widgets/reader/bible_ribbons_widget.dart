@@ -132,6 +132,73 @@ class PageRibbonClipper extends CustomClipper<Path> {
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
 
+class PageRibbonPatternPainter extends CustomPainter {
+  final Color stripeColor;
+  final Color edgeColor;
+
+  const PageRibbonPatternPainter({
+    this.stripeColor = const Color(0x24FFFFFF),
+    this.edgeColor = const Color(0x1A000000),
+  });
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    if (size.width <= 0 || size.height <= 0 || size.height.isInfinite) return;
+
+    final edgePaint = Paint()
+      ..color = edgeColor
+      ..strokeWidth = 1.0
+      ..style = PaintingStyle.stroke;
+
+    final stripePaint = Paint()
+      ..color = stripeColor
+      ..strokeWidth = 1.0
+      ..style = PaintingStyle.stroke;
+
+    const double edgeInset = 1.5;
+    final double midX = size.width / 2;
+
+    // Draw edge pinstripes (woven selvage edges)
+    canvas.drawLine(
+      const Offset(edgeInset, 0),
+      Offset(edgeInset, size.height),
+      edgePaint,
+    );
+    canvas.drawLine(
+      Offset(size.width - edgeInset, 0),
+      Offset(size.width - edgeInset, size.height),
+      edgePaint,
+    );
+
+    // Draw herringbone / twill chevron weave pattern
+    const double step = 7.0;
+    const double chevronHeight = 5.0;
+
+    for (
+      double y = -chevronHeight;
+      y <= size.height + chevronHeight;
+      y += step
+    ) {
+      canvas.drawLine(
+        Offset(edgeInset, y),
+        Offset(midX, y + chevronHeight),
+        stripePaint,
+      );
+      canvas.drawLine(
+        Offset(size.width - edgeInset, y),
+        Offset(midX, y + chevronHeight),
+        stripePaint,
+      );
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant PageRibbonPatternPainter oldDelegate) {
+    return oldDelegate.stripeColor != stripeColor ||
+        oldDelegate.edgeColor != edgeColor;
+  }
+}
+
 class BiblePageRibbon extends StatelessWidget {
   final int ribbonIndex;
 
@@ -151,7 +218,16 @@ class BiblePageRibbon extends StatelessWidget {
       elevation: 2.0,
       shadowColor: Colors.black38,
       color: color,
-      child: const SizedBox(width: 16.0, height: double.infinity),
+      child: SizedBox(
+        width: 16.0,
+        height: double.infinity,
+        child: CustomPaint(
+          painter: PageRibbonPatternPainter(
+            stripeColor: Colors.white.withValues(alpha: 0.14),
+            edgeColor: Colors.black.withValues(alpha: 0.10),
+          ),
+        ),
+      ),
     );
   }
 }
