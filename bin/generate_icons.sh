@@ -36,6 +36,7 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 ICON_PATHS=(
   "$REPO_ROOT"/app/android/app/src/main/res/mipmap-*
+  "$REPO_ROOT"/app/android/app/src/main/res/drawable-*/ic_launcher_foreground.png
   "$REPO_ROOT/app/android/app/src/main/res/drawable/ic_launcher_monochrome.xml"
   "$REPO_ROOT/app/android/app/src/main/res/values/colors.xml"
   "$REPO_ROOT/app/ios/Runner/Assets.xcassets/AppIcon.appiconset"

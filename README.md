@@ -41,7 +41,7 @@ To run the application locally, make sure you have the Flutter SDK installed and
    ```
 
 5. **Generate App Launcher Icons**:
-   When raw assets in `assets/` are updated, regenerate icons across Android, iOS, and Web:
+   When raw assets in `assets/` are updated, regenerate icons across Android, iOS, and Web (run from the repository root, or `../bin/generate_icons.sh` if within `app/`):
    ```bash
    ./bin/generate_icons.sh
    ```
