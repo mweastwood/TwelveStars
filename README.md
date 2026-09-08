@@ -39,3 +39,13 @@ To run the application locally, make sure you have the Flutter SDK installed and
    cd app
    flutter run
    ```
+
+5. **Generate App Launcher Icons**:
+   When raw assets in `assets/` are updated, regenerate icons across Android, iOS, and Web:
+   ```bash
+   ./bin/generate_icons.sh
+   ```
+   To verify that generated icons match checked-in icons without making changes:
+   ```bash
+   ./bin/generate_icons.sh --check
+   ```
