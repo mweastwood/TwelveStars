@@ -34,6 +34,36 @@ done
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
+ICON_PATHS=(
+  "$REPO_ROOT"/app/android/app/src/main/res/mipmap-*
+  "$REPO_ROOT/app/android/app/src/main/res/drawable/ic_launcher_monochrome.xml"
+  "$REPO_ROOT/app/android/app/src/main/res/values/colors.xml"
+  "$REPO_ROOT/app/ios/Runner/Assets.xcassets/AppIcon.appiconset"
+  "$REPO_ROOT/app/web/favicon.png"
+  "$REPO_ROOT/app/web/icons"
+  "$REPO_ROOT/app/web/manifest.json"
+)
+
+if [ "$CHECK_MODE" = true ]; then
+  # Verify git is installed and directory is inside a git working tree
+  if ! command -v git >/dev/null 2>&1; then
+    echo "Error: 'git' was not found in PATH." >&2
+    exit 1
+  fi
+  if ! git -C "$REPO_ROOT" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    echo "Error: Not in a git repository." >&2
+    exit 1
+  fi
+
+  # In check mode, ensure working tree is restored to original state on exit
+  restore_icons() {
+    rm -f "$REPO_ROOT"/app/android/app/src/main/res/drawable-*/ic_launcher_monochrome.png
+    git -C "$REPO_ROOT" checkout HEAD -- "${ICON_PATHS[@]}" >/dev/null 2>&1 || true
+    git -C "$REPO_ROOT" clean -fd -- "${ICON_PATHS[@]}" >/dev/null 2>&1 || true
+  }
+  trap restore_icons EXIT
+fi
+
 # Verify environment dependencies
 if command -v dart >/dev/null 2>&1; then
   LAUNCHER_CMD=(dart run flutter_launcher_icons)
@@ -60,13 +90,8 @@ rm -f "$REPO_ROOT"/app/android/app/src/main/res/drawable-*/ic_launcher_monochrom
 
 if [ "$CHECK_MODE" = true ]; then
   echo "Checking for differences against checked-in icon files..."
-  ICON_PATHS=(
-    "$REPO_ROOT/app/android/app/src/main/res"
-    "$REPO_ROOT/app/ios/Runner/Assets.xcassets/AppIcon.appiconset"
-    "$REPO_ROOT/app/web"
-  )
 
-  DIFF_OUTPUT=$(git -C "$REPO_ROOT" diff -- "${ICON_PATHS[@]}")
+  DIFF_OUTPUT=$(git -C "$REPO_ROOT" diff HEAD -- "${ICON_PATHS[@]}")
   STATUS_OUTPUT=$(git -C "$REPO_ROOT" status --porcelain -- "${ICON_PATHS[@]}")
 
   if [ -n "$DIFF_OUTPUT" ] || [ -n "$STATUS_OUTPUT" ]; then
