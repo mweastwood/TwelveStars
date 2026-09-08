@@ -45,7 +45,7 @@ dependencies:
   yaml: ^3.1.4
   dynamic_color: ^2.1.0
   material_ui: ^1.1.0
-  drift: ^2.34.3
+  drift: ^2.34.4
   sqlite3_flutter_libs: ^0.6.0+eol
   flutter_markdown: ^0.7.7+1
   flutter_local_notifications: ^22.3.0
