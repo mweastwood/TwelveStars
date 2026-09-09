@@ -40,12 +40,16 @@ List<int> parseVerseRange(String rangeStr) {
   return verses;
 }
 
+final RegExp _alphaRegex = RegExp(r'[a-zA-Z]');
+final RegExp _trailingDigitsRegex = RegExp(r'\d+$');
+final RegExp _nonDigitsRegex = RegExp(r'[^\d]');
+
 String cleanVerseStr(String str) {
   String clean = str
       .replaceAll(' and ', ',')
       .replaceAll('&', ',')
       .replaceAll(';', ',');
-  return clean.replaceAll(RegExp(r'[a-zA-Z]'), '');
+  return clean.replaceAll(_alphaRegex, '');
 }
 
 BibleReference mapModernToVulgate(
@@ -480,7 +484,7 @@ List<ChapterVerseRange> resolveReadingRanges({
     final colonIndex1 = part1.indexOf(':');
     if (colonIndex1 != -1) {
       final chapterPart = part1.substring(0, colonIndex1);
-      final chapterMatch = RegExp(r'\d+$').firstMatch(chapterPart.trim());
+      final chapterMatch = _trailingDigitsRegex.firstMatch(chapterPart.trim());
       if (chapterMatch != null) {
         final ch1 = int.parse(chapterMatch.group(0)!);
         final versesStr1 = part1.substring(colonIndex1 + 1);
@@ -502,7 +506,7 @@ List<ChapterVerseRange> resolveReadingRanges({
       if (colonIndex2 != -1) {
         final ch2Str = part2
             .substring(0, colonIndex2)
-            .replaceAll(RegExp(r'[^\d]'), '');
+            .replaceAll(_nonDigitsRegex, '');
         final ch2 = int.tryParse(ch2Str);
         if (ch2 != null) {
           final versesStr2 = part2.substring(colonIndex2 + 1);
@@ -542,7 +546,7 @@ List<ChapterVerseRange> resolveReadingRanges({
 
       if (rightPart.contains(':')) {
         final rightSubParts = rightPart.split(':');
-        final endChapterStr = rightSubParts[0].replaceAll(RegExp(r'[^\d]'), '');
+        final endChapterStr = rightSubParts[0].replaceAll(_nonDigitsRegex, '');
         final endChapterVal = int.tryParse(endChapterStr);
 
         if (endChapterVal != null) {
@@ -552,9 +556,9 @@ List<ChapterVerseRange> resolveReadingRanges({
           final leftColonIndex = leftPart.indexOf(':');
           if (leftColonIndex != -1) {
             final leftChapterPart = leftPart.substring(0, leftColonIndex);
-            final leftChapterMatch = RegExp(
-              r'\d+$',
-            ).firstMatch(leftChapterPart.trim());
+            final leftChapterMatch = _trailingDigitsRegex.firstMatch(
+              leftChapterPart.trim(),
+            );
             if (leftChapterMatch != null) {
               startChapterVal = int.parse(leftChapterMatch.group(0)!);
             }
