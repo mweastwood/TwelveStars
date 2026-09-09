@@ -98,15 +98,14 @@ class _ThematicQuoteBrowserScreenState
         if (match != null) {
           await BibleDatabaseHelper.db.deleteLibraryBookmark(match.id);
         }
+        if (!mounted) return;
         setState(() => _bookmarkedIds.remove(key));
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Removed from favorites'),
-              duration: Duration(seconds: 1),
-            ),
-          );
-        }
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Removed from favorites'),
+            duration: Duration(seconds: 1),
+          ),
+        );
       } else {
         await BibleDatabaseHelper.db.saveLibraryBookmark(
           LibraryBookmarksCompanion.insert(
@@ -119,16 +118,15 @@ class _ThematicQuoteBrowserScreenState
             createdAt: DateTime.now(),
           ),
         );
+        if (!mounted) return;
         setState(() => _bookmarkedIds.add(key));
         HapticFeedback.lightImpact();
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Saved to favorites! ❤️'),
-              duration: Duration(seconds: 1),
-            ),
-          );
-        }
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Saved to favorites! ❤️'),
+            duration: Duration(seconds: 1),
+          ),
+        );
       }
     } catch (_) {}
   }
