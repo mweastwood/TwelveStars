@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
-import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/prayers.dart';
-import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 
 class BibleBottomNavigationPanel extends StatelessWidget {
   final Animation<double> panelHeightAnimation;
@@ -15,15 +13,6 @@ class BibleBottomNavigationPanel extends StatelessWidget {
   final BibleBook selectedBookForPicker;
   final ValueChanged<BibleBook> onBookSelectedForPicker;
   final void Function(BibleBook book, int chapter) onChapterSelected;
-  final List<FavoritePassage> favorites;
-  final bool loadingFavorites;
-  final ValueChanged<FavoritePassage> onFavoriteTapped;
-  final ValueChanged<FavoritePassage> onDeleteFavorite;
-  final List<UserComment> comments;
-  final bool loadingComments;
-  final ValueChanged<UserComment> onCommentTapped;
-  final ValueChanged<UserComment> onEditComment;
-  final ValueChanged<UserComment> onDeleteComment;
   final VoidCallback onTogglePanel;
   final GestureDragUpdateCallback onVerticalDragUpdate;
   final GestureDragEndCallback onVerticalDragEnd;
@@ -39,15 +28,6 @@ class BibleBottomNavigationPanel extends StatelessWidget {
     required this.selectedBookForPicker,
     required this.onBookSelectedForPicker,
     required this.onChapterSelected,
-    required this.favorites,
-    required this.loadingFavorites,
-    required this.onFavoriteTapped,
-    required this.onDeleteFavorite,
-    required this.comments,
-    required this.loadingComments,
-    required this.onCommentTapped,
-    required this.onEditComment,
-    required this.onDeleteComment,
     required this.onTogglePanel,
     required this.onVerticalDragUpdate,
     required this.onVerticalDragEnd,
@@ -92,221 +72,6 @@ class BibleBottomNavigationPanel extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildFavoritesTab(BuildContext context, ThemeData theme) {
-    if (loadingFavorites) {
-      return const Center(child: CircularProgressIndicator());
-    }
-    if (favorites.isEmpty) {
-      return Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.bookmark_outline,
-                size: 48,
-                color: theme.colorScheme.onSurfaceVariant.withValues(
-                  alpha: 0.5,
-                ),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                'No favorite passages saved yet.',
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'Long-press on a verse to start selection, then save.',
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.outline,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ),
-      );
-    }
-
-    return ListView.builder(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      itemCount: favorites.length,
-      itemBuilder: (context, index) {
-        final fav = favorites[index];
-        final citation = fav.startVerse == fav.endVerse
-            ? '${fav.bookName} ${fav.chapter}:${fav.startVerse}'
-            : '${fav.bookName} ${fav.chapter}:${fav.startVerse}-${fav.endVerse}';
-
-        return Card(
-          margin: const EdgeInsets.symmetric(vertical: 4.0),
-          child: ListTile(
-            title: Text(
-              citation,
-              style: theme.textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.primary,
-              ),
-            ),
-            subtitle: Text(
-              fav.textPreview,
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.colorScheme.onSurfaceVariant,
-              ),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
-            trailing: IconButton(
-              icon: Icon(Icons.delete_outline, color: theme.colorScheme.error),
-              onPressed: () async {
-                final confirmed = await showDeleteConfirmationDialog(
-                  context: context,
-                  title: 'Remove Favorite',
-                  content:
-                      'Are you sure you want to remove this favorite passage?',
-                  confirmLabel: 'Remove',
-                );
-                if (confirmed) {
-                  onDeleteFavorite(fav);
-                }
-              },
-            ),
-            onTap: () => onFavoriteTapped(fav),
-          ),
-        );
-      },
-    );
-  }
-
-  Widget _buildCommentsTab(BuildContext context, ThemeData theme) {
-    if (loadingComments) {
-      return const Center(child: CircularProgressIndicator());
-    }
-    if (comments.isEmpty) {
-      return Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.comment_outlined,
-                size: 48,
-                color: theme.colorScheme.onSurfaceVariant.withValues(
-                  alpha: 0.5,
-                ),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                'No comments on Bible verses yet.',
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'Long-press on a verse, then tap Comment to add a note.',
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.outline,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ),
-      );
-    }
-
-    return ListView.builder(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      itemCount: comments.length,
-      itemBuilder: (context, index) {
-        final comment = comments[index];
-        final verseNum = int.tryParse(comment.nodeId.split('_').last) ?? 1;
-        final book = catholicBooks.firstWhere(
-          (b) => b.abbrev == comment.documentId,
-          orElse: () => catholicBooks.first,
-        );
-        final citation = '${book.bookName} ${comment.sectionIndex}:$verseNum';
-
-        return Card(
-          margin: const EdgeInsets.symmetric(vertical: 4.0),
-          child: ListTile(
-            title: Text(
-              citation,
-              style: theme.textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.primary,
-              ),
-            ),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 2),
-                Text(
-                  comment.commentText,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: theme.colorScheme.onSurface,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                if (comment.textPreview != null &&
-                    comment.textPreview!.isNotEmpty) ...[
-                  const SizedBox(height: 2),
-                  Text(
-                    comment.textPreview!,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      fontStyle: FontStyle.italic,
-                      color: theme.colorScheme.onSurfaceVariant,
-                    ),
-                  ),
-                ],
-              ],
-            ),
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                IconButton(
-                  icon: Icon(
-                    Icons.edit_outlined,
-                    color: theme.colorScheme.primary,
-                  ),
-                  tooltip: 'Edit comment',
-                  onPressed: () => onEditComment(comment),
-                ),
-                IconButton(
-                  icon: Icon(
-                    Icons.delete_outline,
-                    color: theme.colorScheme.error,
-                  ),
-                  tooltip: 'Delete comment',
-                  onPressed: () async {
-                    final confirmed = await showDeleteConfirmationDialog(
-                      context: context,
-                      title: 'Delete Comment',
-                      content: 'Are you sure you want to delete this comment?',
-                      confirmLabel: 'Delete',
-                    );
-                    if (confirmed) {
-                      onDeleteComment(comment);
-                    }
-                  },
-                ),
-              ],
-            ),
-            onTap: () => onCommentTapped(comment),
-          ),
-        );
-      },
     );
   }
 
@@ -404,8 +169,6 @@ class BibleBottomNavigationPanel extends StatelessWidget {
                         tabs: const [
                           Tab(text: 'Books'),
                           Tab(text: 'Chapters'),
-                          Tab(text: 'Favorites'),
-                          Tab(text: 'Comments'),
                         ],
                       ),
                       Expanded(
@@ -530,12 +293,6 @@ class BibleBottomNavigationPanel extends StatelessWidget {
                                 );
                               },
                             ),
-
-                            // Tab 3: Favorites List
-                            _buildFavoritesTab(context, theme),
-
-                            // Tab 4: Comments List
-                            _buildCommentsTab(context, theme),
                           ],
                         ),
                       ),
