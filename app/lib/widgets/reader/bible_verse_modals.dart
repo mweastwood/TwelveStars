@@ -436,51 +436,14 @@ Future<void> showEditCommentDialog({
   FutureOr<void> Function(String updatedText)? onCommentUpdated,
 }) async {
   final messenger = ScaffoldMessenger.of(context);
-  final controller = TextEditingController(text: initialText);
 
   final result = await showDialog<String>(
     context: context,
-    builder: (ctx) {
-      return AlertDialog(
-        title: Text('Edit Comment for $citation'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (textPreview.isNotEmpty) ...[
-              Text(
-                '"$textPreview"',
-                style: TextStyle(
-                  fontStyle: FontStyle.italic,
-                  color: Theme.of(ctx).colorScheme.outline,
-                ),
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-              ),
-              const SizedBox(height: 12),
-            ],
-            TextField(
-              controller: controller,
-              maxLines: 3,
-              decoration: const InputDecoration(
-                hintText: 'Enter your comment...',
-                border: OutlineInputBorder(),
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx),
-            child: const Text('Cancel'),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(ctx, controller.text.trim()),
-            child: const Text('Save'),
-          ),
-        ],
-      );
-    },
+    builder: (ctx) => _EditCommentDialog(
+      citation: citation,
+      textPreview: textPreview,
+      initialText: initialText,
+    ),
   );
 
   if (result != null && result.isNotEmpty) {
@@ -499,6 +462,80 @@ Future<void> showEditCommentDialog({
   }
 }
 
+class _EditCommentDialog extends StatefulWidget {
+  const _EditCommentDialog({
+    required this.citation,
+    required this.textPreview,
+    required this.initialText,
+  });
+
+  final String citation;
+  final String textPreview;
+  final String initialText;
+
+  @override
+  State<_EditCommentDialog> createState() => _EditCommentDialogState();
+}
+
+class _EditCommentDialogState extends State<_EditCommentDialog> {
+  late final TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController(text: widget.initialText);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('Edit Comment for ${widget.citation}'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (widget.textPreview.isNotEmpty) ...[
+            Text(
+              '"${widget.textPreview}"',
+              style: TextStyle(
+                fontStyle: FontStyle.italic,
+                color: Theme.of(context).colorScheme.outline,
+              ),
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const SizedBox(height: 12),
+          ],
+          TextField(
+            controller: _controller,
+            maxLines: 3,
+            decoration: const InputDecoration(
+              hintText: 'Enter your comment...',
+              border: OutlineInputBorder(),
+            ),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Cancel'),
+        ),
+        FilledButton(
+          onPressed: () => Navigator.pop(context, _controller.text.trim()),
+          child: const Text('Save'),
+        ),
+      ],
+    );
+  }
+}
+
 Future<void> showAddCommentDialog({
   required BuildContext context,
   required String citation,
@@ -509,49 +546,11 @@ Future<void> showAddCommentDialog({
   FutureOr<void> Function()? onCommentSaved,
 }) async {
   final messenger = ScaffoldMessenger.of(context);
-  final controller = TextEditingController();
 
   final result = await showDialog<String>(
     context: context,
-    builder: (ctx) {
-      return AlertDialog(
-        title: Text('Add Comment for $citation'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              '"$textPreview"',
-              style: TextStyle(
-                fontStyle: FontStyle.italic,
-                color: Theme.of(ctx).colorScheme.outline,
-              ),
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-            ),
-            const SizedBox(height: 12),
-            TextField(
-              controller: controller,
-              maxLines: 3,
-              decoration: const InputDecoration(
-                hintText: 'Enter your comment...',
-                border: OutlineInputBorder(),
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx),
-            child: const Text('Cancel'),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(ctx, controller.text.trim()),
-            child: const Text('Save'),
-          ),
-        ],
-      );
-    },
+    builder: (ctx) =>
+        _AddCommentDialog(citation: citation, textPreview: textPreview),
   );
 
   if (result != null && result.isNotEmpty) {
@@ -576,6 +575,73 @@ Future<void> showAddCommentDialog({
     if (onCommentSaved != null) {
       await onCommentSaved();
     }
+  }
+}
+
+class _AddCommentDialog extends StatefulWidget {
+  const _AddCommentDialog({required this.citation, required this.textPreview});
+
+  final String citation;
+  final String textPreview;
+
+  @override
+  State<_AddCommentDialog> createState() => _AddCommentDialogState();
+}
+
+class _AddCommentDialogState extends State<_AddCommentDialog> {
+  late final TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('Add Comment for ${widget.citation}'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '"${widget.textPreview}"',
+            style: TextStyle(
+              fontStyle: FontStyle.italic,
+              color: Theme.of(context).colorScheme.outline,
+            ),
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+          ),
+          const SizedBox(height: 12),
+          TextField(
+            controller: _controller,
+            maxLines: 3,
+            decoration: const InputDecoration(
+              hintText: 'Enter your comment...',
+              border: OutlineInputBorder(),
+            ),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Cancel'),
+        ),
+        FilledButton(
+          onPressed: () => Navigator.pop(context, _controller.text.trim()),
+          child: const Text('Save'),
+        ),
+      ],
+    );
   }
 }
 
