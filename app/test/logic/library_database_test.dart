@@ -16,13 +16,55 @@ void main() {
       final catalogFromHelper = LibraryHelper.getCatalog();
       final catalogFromCatalog = LibraryCatalog.getCatalog();
       expect(catalogFromHelper.length, equals(catalogFromCatalog.length));
+      expect(identical(catalogFromHelper, catalogFromCatalog), isTrue);
 
       final allPathsHelper = LibraryHelper.getAllCatalogPaths();
       final allPathsCatalog = LibraryCatalog.getAllCatalogPaths();
       expect(allPathsHelper, equals(allPathsCatalog));
+      expect(identical(allPathsHelper, allPathsCatalog), isTrue);
       expect(allPathsHelper, isNotEmpty);
+    });
 
-      // Verify forwarding getters
+    test(
+      'LibraryCatalog and LibraryHelper cache catalog and asset paths without re-allocation',
+      () {
+        expect(
+          identical(LibraryCatalog.getCatalog(), LibraryCatalog.getCatalog()),
+          isTrue,
+        );
+        expect(
+          identical(
+            LibraryCatalog.getAllCatalogPaths(),
+            LibraryCatalog.getAllCatalogPaths(),
+          ),
+          isTrue,
+        );
+        expect(
+          identical(LibraryHelper.getCatalog(), LibraryHelper.getCatalog()),
+          isTrue,
+        );
+        expect(
+          identical(
+            LibraryHelper.getAllCatalogPaths(),
+            LibraryHelper.getAllCatalogPaths(),
+          ),
+          isTrue,
+        );
+        expect(
+          identical(LibraryHelper.getCatalog(), LibraryCatalog.getCatalog()),
+          isTrue,
+        );
+        expect(
+          identical(
+            LibraryHelper.getAllCatalogPaths(),
+            LibraryCatalog.getAllCatalogPaths(),
+          ),
+          isTrue,
+        );
+      },
+    );
+
+    test('LibraryCatalog and LibraryHelper volume forwarding', () {
       expect(
         LibraryHelper.baltimoreVolumes,
         equals(LibraryCatalog.baltimoreVolumes),
