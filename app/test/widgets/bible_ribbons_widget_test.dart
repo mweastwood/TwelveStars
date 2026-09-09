@@ -580,8 +580,15 @@ void main() {
           ),
         );
 
+        final physicalShapeFinder = find.byKey(
+          const Key('bible_page_ribbon_0'),
+        );
+        expect(physicalShapeFinder, findsOneWidget);
+        final physicalShape = tester.widget<PhysicalShape>(physicalShapeFinder);
+        expect(physicalShape.clipBehavior, equals(Clip.antiAlias));
+
         final customPaintFinder = find.descendant(
-          of: find.byKey(const Key('bible_page_ribbon_0')),
+          of: physicalShapeFinder,
           matching: find.byType(CustomPaint),
         );
         expect(customPaintFinder, findsOneWidget);

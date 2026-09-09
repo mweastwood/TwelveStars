@@ -98,6 +98,7 @@ class BibleRibbonsWidget extends StatelessWidget {
               onLongPress: () => onRibbonLongPress(index),
               child: PhysicalShape(
                 clipper: const RibbonClipper(),
+                clipBehavior: Clip.antiAlias,
                 elevation: isAssigned ? 2.0 : 0.0,
                 shadowColor: Colors.black45,
                 color: isAssigned ? color : color.withValues(alpha: 0.35),
@@ -215,6 +216,7 @@ class BiblePageRibbon extends StatelessWidget {
     return PhysicalShape(
       key: Key('bible_page_ribbon_$ribbonIndex'),
       clipper: const PageRibbonClipper(),
+      clipBehavior: Clip.antiAlias,
       elevation: 2.0,
       shadowColor: Colors.black38,
       color: color,
