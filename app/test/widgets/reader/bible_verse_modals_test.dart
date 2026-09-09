@@ -635,6 +635,161 @@ void main() {
         expect(remainingDbComments, isEmpty);
       },
     );
+
+    testWidgets(
+      'updating a comment after comments list has mutated targets comment by id and avoids RangeError',
+      (WidgetTester tester) async {
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'bible_cpdv',
+            sectionIndex: 40,
+            nodeId: 'mat_5_3',
+            commentText: 'First comment.',
+            textPreview: const Value('Blessed are the poor in spirit.'),
+            createdAt: DateTime(2026, 8, 30, 10, 0),
+          ),
+        );
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'bible_cpdv',
+            sectionIndex: 40,
+            nodeId: 'mat_5_3',
+            commentText: 'Second comment.',
+            textPreview: const Value('Blessed are the poor in spirit.'),
+            createdAt: DateTime(2026, 8, 30, 10, 5),
+          ),
+        );
+
+        final initialDbComments = await testDb.getComments(nodeId: 'mat_5_3');
+        expect(initialDbComments.length, equals(2));
+        final mutableComments = List<UserComment>.from(initialDbComments);
+
+        bool commentsChangedCalled = false;
+
+        await tester.pumpWidget(
+          buildTestScaffold(
+            builder: (context) => ElevatedButton(
+              onPressed: () => showVerseCommentsModal(
+                context: context,
+                title: 'Matthew 5:3',
+                nodeId: 'mat_5_3',
+                textPreview: 'Blessed are the poor in spirit.',
+                comments: mutableComments,
+                onCommentsChanged: () {
+                  commentsChangedCalled = true;
+                },
+                onAddComment: () {},
+              ),
+              child: const Text('Open Comments Modal'),
+            ),
+          ),
+        );
+
+        await tester.tap(find.text('Open Comments Modal'));
+        await tester.pumpAndSettle();
+
+        // Tap Edit on the second comment (index 1)
+        await tester.tap(find.byTooltip('Edit comment').at(1));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Edit Comment for Matthew 5:3'), findsOneWidget);
+
+        // Simulate list mutation while edit dialog is open (e.g., first comment removed)
+        mutableComments.removeAt(0);
+        expect(mutableComments.length, equals(1));
+
+        // Enter new text and save
+        await tester.enterText(
+          find.byType(TextField),
+          'Updated second comment.',
+        );
+        await tester.tap(find.text('Save'));
+        await tester.pumpAndSettle();
+
+        expect(commentsChangedCalled, isTrue);
+        expect(mutableComments.length, equals(1));
+        expect(
+          mutableComments.first.commentText,
+          equals('Updated second comment.'),
+        );
+        expect(mutableComments.first.id, equals(initialDbComments[1].id));
+      },
+    );
+
+    testWidgets(
+      'deleting a comment after comments list has mutated removes comment by id and avoids RangeError',
+      (WidgetTester tester) async {
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'bible_cpdv',
+            sectionIndex: 40,
+            nodeId: 'mat_5_3',
+            commentText: 'First comment.',
+            textPreview: const Value('Blessed are the poor in spirit.'),
+            createdAt: DateTime(2026, 8, 30, 10, 0),
+          ),
+        );
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'bible_cpdv',
+            sectionIndex: 40,
+            nodeId: 'mat_5_3',
+            commentText: 'Second comment.',
+            textPreview: const Value('Blessed are the poor in spirit.'),
+            createdAt: DateTime(2026, 8, 30, 10, 5),
+          ),
+        );
+
+        final initialDbComments = await testDb.getComments(nodeId: 'mat_5_3');
+        expect(initialDbComments.length, equals(2));
+        final mutableComments = List<UserComment>.from(initialDbComments);
+
+        bool commentsChangedCalled = false;
+
+        await tester.pumpWidget(
+          buildTestScaffold(
+            builder: (context) => ElevatedButton(
+              onPressed: () => showVerseCommentsModal(
+                context: context,
+                title: 'Matthew 5:3',
+                nodeId: 'mat_5_3',
+                textPreview: 'Blessed are the poor in spirit.',
+                comments: mutableComments,
+                onCommentsChanged: () {
+                  commentsChangedCalled = true;
+                },
+                onAddComment: () {},
+              ),
+              child: const Text('Open Comments Modal'),
+            ),
+          ),
+        );
+
+        await tester.tap(find.text('Open Comments Modal'));
+        await tester.pumpAndSettle();
+
+        // Tap Delete on second comment (index 1)
+        await tester.tap(find.byTooltip('Delete comment').at(1));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Delete Comment'), findsOneWidget);
+
+        // Simulate list mutation while confirmation dialog is open
+        mutableComments.removeAt(0);
+        expect(mutableComments.length, equals(1));
+
+        // Confirm delete
+        await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
+        await tester.pumpAndSettle();
+
+        expect(commentsChangedCalled, isTrue);
+        expect(mutableComments, isEmpty);
+
+        final remainingDbComments = await testDb.getComments(nodeId: 'mat_5_3');
+        expect(remainingDbComments.length, equals(1));
+        expect(remainingDbComments.first.commentText, equals('First comment.'));
+      },
+    );
   });
 
   group('showAddCommentDialog Tests', () {
@@ -1273,6 +1428,78 @@ void main() {
         final remainingFavs = await testDb.getFavorites();
         expect(remainingFavs.length, equals(1));
         expect(remainingFavs.first.startVerse, equals(14));
+      },
+    );
+
+    testWidgets(
+      'deleting a favorite after favorites list has mutated removes favorite by id and avoids RangeError',
+      (WidgetTester tester) async {
+        await testDb.saveFavorite(
+          FavoritePassagesCompanion.insert(
+            bookNumber: 43,
+            bookName: 'John',
+            chapter: 1,
+            startVerse: 1,
+            endVerse: 5,
+            textPreview: 'In the beginning was the Word...',
+          ),
+        );
+        await testDb.saveFavorite(
+          FavoritePassagesCompanion.insert(
+            bookNumber: 43,
+            bookName: 'John',
+            chapter: 1,
+            startVerse: 14,
+            endVerse: 14,
+            textPreview: 'And the Word was made flesh...',
+          ),
+        );
+
+        final allFavorites = await testDb.getFavorites();
+        expect(allFavorites.length, equals(2));
+        final mutableFavs = List<FavoritePassage>.from(allFavorites);
+
+        bool favoritesChangedCalled = false;
+
+        await tester.pumpWidget(
+          buildTestScaffold(
+            builder: (context) => ElevatedButton(
+              onPressed: () => showVerseFavoritesModal(
+                context: context,
+                title: 'John 1',
+                favorites: mutableFavs,
+                onFavoritesChanged: () {
+                  favoritesChangedCalled = true;
+                },
+              ),
+              child: const Text('Open Favorites Modal'),
+            ),
+          ),
+        );
+
+        await tester.tap(find.text('Open Favorites Modal'));
+        await tester.pumpAndSettle();
+
+        // Tap Delete on second favorite (index 1)
+        await tester.tap(find.byIcon(Icons.delete_outline).at(1));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Remove Favorite'), findsOneWidget);
+
+        // Simulate list mutation while delete dialog is open
+        mutableFavs.removeAt(0);
+        expect(mutableFavs.length, equals(1));
+
+        // Confirm remove
+        await tester.tap(find.widgetWithText(FilledButton, 'Remove'));
+        await tester.pumpAndSettle();
+
+        expect(favoritesChangedCalled, isTrue);
+        expect(mutableFavs, isEmpty);
+
+        final remainingFavs = await testDb.getFavorites();
+        expect(remainingFavs.length, equals(1));
+        expect(remainingFavs.first.startVerse, equals(1));
       },
     );
   });
