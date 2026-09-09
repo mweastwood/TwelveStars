@@ -12,7 +12,6 @@ import 'package:twelve_stars/widgets/bible_translation_selector_card.dart';
 import 'package:twelve_stars/widgets/bible_translation_selector_dialog.dart';
 import 'package:twelve_stars/widgets/reader/bible_bottom_navigation_panel.dart';
 import 'package:twelve_stars/widgets/reader/bible_ribbons_widget.dart';
-import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 
 class BibleChapterRef {
   final BibleBook book;
@@ -45,12 +44,6 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
 
   // TabController inside bottom sheet
   late TabController _sheetTabController;
-
-  List<FavoritePassage> _favorites = [];
-  bool _loadingFavorites = true;
-
-  List<UserComment> _comments = [];
-  bool _loadingComments = true;
 
   UserSettings? _settings;
   String _primaryTranslation = 'CPDV';
@@ -179,9 +172,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
           ),
         );
 
-    _sheetTabController = TabController(length: 4, vsync: this);
-    _loadFavorites();
-    _loadComments();
+    _sheetTabController = TabController(length: 2, vsync: this);
     _loadSettings();
   }
 
@@ -231,44 +222,6 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
           s.lastBibleBookNumber = ref.book.bookNumber;
           s.lastBibleChapter = ref.chapter;
           PrayerDatabase.saveSettings(s);
-        });
-      }
-    }
-  }
-
-  Future<void> _loadFavorites() async {
-    setState(() => _loadingFavorites = true);
-    try {
-      final favs = await BibleDatabaseHelper.db.getFavorites();
-      if (mounted) {
-        setState(() {
-          _favorites = favs;
-          _loadingFavorites = false;
-        });
-      }
-    } catch (e) {
-      if (mounted) {
-        setState(() {
-          _loadingFavorites = false;
-        });
-      }
-    }
-  }
-
-  Future<void> _loadComments() async {
-    setState(() => _loadingComments = true);
-    try {
-      final comments = await BibleDatabaseHelper.db.getComments();
-      if (mounted) {
-        setState(() {
-          _comments = comments;
-          _loadingComments = false;
-        });
-      }
-    } catch (e) {
-      if (mounted) {
-        setState(() {
-          _loadingComments = false;
         });
       }
     }
@@ -500,16 +453,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
             Navigator.pop(context);
             navigateToComment(comment);
           },
-          onFavoritesOrCommentsChanged: () {
-            _loadFavorites();
-            _loadComments();
-          },
         ),
       ),
-    ).then((_) {
-      _loadFavorites();
-      _loadComments();
-    });
+    );
   }
 
   void _onRibbonTap(int index, BibleRibbonBookmark? bookmark) {
@@ -673,7 +619,6 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                 highlightStartVerse: isTarget ? _highlightStartVerse : null,
                 highlightEndVerse: isTarget ? _highlightEndVerse : null,
                 navigationSessionId: isTarget ? _navigationSessionId : null,
-                onFavoriteSaved: _loadFavorites,
                 bookmarks: _settings?.bibleRibbons,
                 onSelectionChanged: (isSelecting) {
                   if (_isSelectingVerses != isSelecting) {
@@ -746,41 +691,6 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                 });
               },
               onChapterSelected: _navigateToChapter,
-              favorites: _favorites,
-              loadingFavorites: _loadingFavorites,
-              onFavoriteTapped: navigateToFavorite,
-              onDeleteFavorite: (fav) async {
-                await BibleDatabaseHelper.db.deleteFavorite(fav.id);
-                _loadFavorites();
-              },
-              comments: _comments,
-              loadingComments: _loadingComments,
-              onCommentTapped: navigateToComment,
-              onEditComment: (comment) async {
-                final verseNum =
-                    int.tryParse(comment.nodeId.split('_').last) ?? 1;
-                final book = catholicBooks.firstWhere(
-                  (b) => b.abbrev == comment.documentId,
-                  orElse: () => catholicBooks.first,
-                );
-                final citation =
-                    '${book.bookName} ${comment.sectionIndex}:$verseNum';
-
-                await showEditCommentDialog(
-                  context: context,
-                  citation: citation,
-                  textPreview: comment.textPreview ?? '',
-                  commentId: comment.id,
-                  initialText: comment.commentText,
-                  onCommentUpdated: (_) async {
-                    await _loadComments();
-                  },
-                );
-              },
-              onDeleteComment: (comment) async {
-                await BibleDatabaseHelper.db.deleteComment(comment.id);
-                await _loadComments();
-              },
               onTogglePanel: _togglePanel,
               onVerticalDragUpdate: _onVerticalDragUpdate,
               onVerticalDragEnd: _onVerticalDragEnd,

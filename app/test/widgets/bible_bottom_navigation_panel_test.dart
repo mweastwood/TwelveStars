@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/widgets/reader/bible_bottom_navigation_panel.dart';
@@ -16,7 +15,7 @@ void main() {
         value: 72.0,
       );
 
-      final tabController = TabController(length: 4, vsync: const TestVSync());
+      final tabController = TabController(length: 2, vsync: const TestVSync());
 
       await tester.pumpWidget(
         MaterialApp(
@@ -31,15 +30,6 @@ void main() {
               selectedBookForPicker: catholicBooks.first,
               onBookSelectedForPicker: (_) {},
               onChapterSelected: (_, _) {},
-              favorites: const [],
-              loadingFavorites: false,
-              onFavoriteTapped: (_) {},
-              onDeleteFavorite: (_) {},
-              comments: const [],
-              loadingComments: false,
-              onCommentTapped: (_) {},
-              onEditComment: (_) {},
-              onDeleteComment: (_) {},
               onTogglePanel: () {
                 panelToggled = true;
               },
@@ -63,7 +53,7 @@ void main() {
     ) async {
       int? selectedChapter;
       final tabController = TabController(
-        length: 4,
+        length: 2,
         vsync: const TestVSync(),
         initialIndex: 1, // Chapter tab
       );
@@ -83,15 +73,6 @@ void main() {
               onChapterSelected: (_, chap) {
                 selectedChapter = chap;
               },
-              favorites: const [],
-              loadingFavorites: false,
-              onFavoriteTapped: (_) {},
-              onDeleteFavorite: (_) {},
-              comments: const [],
-              loadingComments: false,
-              onCommentTapped: (_) {},
-              onEditComment: (_) {},
-              onDeleteComment: (_) {},
               onTogglePanel: () {},
               onVerticalDragUpdate: (_) {},
               onVerticalDragEnd: (_) {},
@@ -102,8 +83,8 @@ void main() {
 
       expect(find.text('Books'), findsOneWidget);
       expect(find.text('Chapters'), findsOneWidget);
-      expect(find.text('Favorites'), findsOneWidget);
-      expect(find.text('Comments'), findsOneWidget);
+      expect(find.text('Favorites'), findsNothing);
+      expect(find.text('Comments'), findsNothing);
 
       // Chapter 1 button
       expect(find.text('1'), findsWidgets);
@@ -115,167 +96,47 @@ void main() {
       tabController.dispose();
     });
 
-    testWidgets(
-      'Favorites tab: tapping delete displays confirmation; canceling keeps item and confirming invokes onDeleteFavorite',
-      (WidgetTester tester) async {
-        FavoritePassage? deletedFav;
-        const fav = FavoritePassage(
-          id: 10,
-          bookNumber: 1,
-          bookName: 'Genesis',
-          chapter: 1,
-          startVerse: 1,
-          endVerse: 1,
-          textPreview: 'In the beginning God created heaven and earth.',
-        );
+    testWidgets('selecting a book switches to Chapter tab', (
+      WidgetTester tester,
+    ) async {
+      BibleBook? selectedBook;
+      final tabController = TabController(
+        length: 2,
+        vsync: const TestVSync(),
+        initialIndex: 0, // Books tab
+      );
 
-        final tabController = TabController(
-          length: 4,
-          vsync: const TestVSync(),
-          initialIndex: 2, // Favorites tab
-        );
-
-        await tester.pumpWidget(
-          MaterialApp(
-            home: Scaffold(
-              body: BibleBottomNavigationPanel(
-                panelHeightAnimation: const AlwaysStoppedAnimation(400.0),
-                isPanelExpanded: true,
-                currentBook: catholicBooks.first,
-                currentChapter: 1,
-                numberingSystem: BibleNumberingSystem.vulgate,
-                sheetTabController: tabController,
-                selectedBookForPicker: catholicBooks.first,
-                onBookSelectedForPicker: (_) {},
-                onChapterSelected: (_, _) {},
-                favorites: const [fav],
-                loadingFavorites: false,
-                onFavoriteTapped: (_) {},
-                onDeleteFavorite: (f) => deletedFav = f,
-                comments: const [],
-                loadingComments: false,
-                onCommentTapped: (_) {},
-                onEditComment: (_) {},
-                onDeleteComment: (_) {},
-                onTogglePanel: () {},
-                onVerticalDragUpdate: (_) {},
-                onVerticalDragEnd: (_) {},
-              ),
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: BibleBottomNavigationPanel(
+              panelHeightAnimation: const AlwaysStoppedAnimation(400.0),
+              isPanelExpanded: true,
+              currentBook: catholicBooks.first,
+              currentChapter: 1,
+              numberingSystem: BibleNumberingSystem.vulgate,
+              sheetTabController: tabController,
+              selectedBookForPicker: catholicBooks.first,
+              onBookSelectedForPicker: (book) {
+                selectedBook = book;
+              },
+              onChapterSelected: (_, _) {},
+              onTogglePanel: () {},
+              onVerticalDragUpdate: (_) {},
+              onVerticalDragEnd: (_) {},
             ),
           ),
-        );
-        await tester.pumpAndSettle();
+        ),
+      );
 
-        expect(find.text('Genesis 1:1'), findsOneWidget);
+      expect(find.text('Exodus'), findsOneWidget);
+      await tester.tap(find.text('Exodus'));
+      await tester.pumpAndSettle();
 
-        // Tap delete icon
-        await tester.tap(find.byIcon(Icons.delete_outline));
-        await tester.pumpAndSettle();
+      expect(selectedBook?.bookName, equals('Exodus'));
+      expect(tabController.index, equals(1));
 
-        // Confirmation dialog is shown
-        expect(find.text('Remove Favorite'), findsOneWidget);
-        expect(
-          find.text('Are you sure you want to remove this favorite passage?'),
-          findsOneWidget,
-        );
-
-        // Tap cancel
-        await tester.tap(find.text('Cancel'));
-        await tester.pumpAndSettle();
-
-        expect(deletedFav, isNull);
-
-        // Tap delete again and confirm
-        await tester.tap(find.byIcon(Icons.delete_outline));
-        await tester.pumpAndSettle();
-
-        await tester.tap(find.widgetWithText(FilledButton, 'Remove'));
-        await tester.pumpAndSettle();
-
-        expect(deletedFav?.id, equals(10));
-        tabController.dispose();
-      },
-    );
-
-    testWidgets(
-      'Comments tab: tapping delete displays confirmation; canceling keeps item and confirming invokes onDeleteComment',
-      (WidgetTester tester) async {
-        UserComment? deletedComment;
-        final comment = UserComment(
-          id: 20,
-          documentId: 'GEN',
-          sectionIndex: 1,
-          nodeId: 'GEN_1_1',
-          commentText: 'My reflection on verse 1',
-          createdAt: DateTime(2026, 1, 1),
-        );
-
-        final tabController = TabController(
-          length: 4,
-          vsync: const TestVSync(),
-          initialIndex: 3, // Comments tab
-        );
-
-        await tester.pumpWidget(
-          MaterialApp(
-            home: Scaffold(
-              body: BibleBottomNavigationPanel(
-                panelHeightAnimation: const AlwaysStoppedAnimation(400.0),
-                isPanelExpanded: true,
-                currentBook: catholicBooks.first,
-                currentChapter: 1,
-                numberingSystem: BibleNumberingSystem.vulgate,
-                sheetTabController: tabController,
-                selectedBookForPicker: catholicBooks.first,
-                onBookSelectedForPicker: (_) {},
-                onChapterSelected: (_, _) {},
-                favorites: const [],
-                loadingFavorites: false,
-                onFavoriteTapped: (_) {},
-                onDeleteFavorite: (_) {},
-                comments: [comment],
-                loadingComments: false,
-                onCommentTapped: (_) {},
-                onEditComment: (_) {},
-                onDeleteComment: (c) => deletedComment = c,
-                onTogglePanel: () {},
-                onVerticalDragUpdate: (_) {},
-                onVerticalDragEnd: (_) {},
-              ),
-            ),
-          ),
-        );
-        await tester.pumpAndSettle();
-
-        expect(find.text('My reflection on verse 1'), findsOneWidget);
-
-        // Tap delete icon
-        await tester.tap(find.byTooltip('Delete comment'));
-        await tester.pumpAndSettle();
-
-        // Confirmation dialog is shown
-        expect(find.text('Delete Comment'), findsOneWidget);
-        expect(
-          find.text('Are you sure you want to delete this comment?'),
-          findsOneWidget,
-        );
-
-        // Tap cancel
-        await tester.tap(find.text('Cancel'));
-        await tester.pumpAndSettle();
-
-        expect(deletedComment, isNull);
-
-        // Tap delete again and confirm
-        await tester.tap(find.byTooltip('Delete comment'));
-        await tester.pumpAndSettle();
-
-        await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
-        await tester.pumpAndSettle();
-
-        expect(deletedComment?.id, equals(20));
-        tabController.dispose();
-      },
-    );
+      tabController.dispose();
+    });
   });
 }
