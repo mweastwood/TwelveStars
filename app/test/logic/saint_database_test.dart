@@ -392,6 +392,24 @@ void main() {
       expect(identical(saints1, saints2), isTrue);
     });
 
+    test(
+      'loadSaints populates cachedSaintsById and cachedFeastDayMap, resetCache clears them',
+      () async {
+        expect(SaintDatabase.cachedSaintsById, isNull);
+        expect(SaintDatabase.cachedFeastDayMap, isNull);
+
+        final saints = await SaintDatabase.loadSaints();
+        expect(SaintDatabase.cachedSaintsById, isNotNull);
+        expect(SaintDatabase.cachedSaintsById!.length, saints.length);
+        expect(SaintDatabase.cachedFeastDayMap, isNotNull);
+        expect(SaintDatabase.cachedFeastDayMap!.containsKey('1_28'), isTrue);
+
+        SaintDatabase.resetCache();
+        expect(SaintDatabase.cachedSaintsById, isNull);
+        expect(SaintDatabase.cachedFeastDayMap, isNull);
+      },
+    );
+
     test('loadSaints returns mockSaints when set', () async {
       final mock = [
         const Saint(
@@ -863,6 +881,27 @@ void main() {
           'unknown-saint-id',
         );
         expect(nonExistent, isNull);
+
+        // Verify lookup identity with cached map
+        expect(
+          identical(aquinas, SaintDatabase.cachedSaintsById!['thomas-aquinas']),
+          isTrue,
+        );
+
+        // Verify mockSaints fallback without polluting cache
+        SaintDatabase.mockSaints = [
+          const Saint(
+            id: 'mock-saint',
+            name: 'Mock Saint',
+            nationality: 'Mockland',
+            profession: 'Tester',
+          ),
+        ];
+        final mockResult = await SaintDatabase.getSaintById('mock-saint');
+        expect(mockResult, isNotNull);
+        expect(mockResult!.name, 'Mock Saint');
+        expect(await SaintDatabase.getSaintById('thomas-aquinas'), isNull);
+        SaintDatabase.mockSaints = null;
       },
     );
 
@@ -879,6 +918,12 @@ void main() {
         );
         expect(jan28Saints.any((s) => s.id == 'thomas-aquinas'), isTrue);
         expect(feastMap['1_28']!.any((s) => s.id == 'thomas-aquinas'), isTrue);
+
+        // Verify getSaintsForDate works without explicit saints parameter (queries cache in O(1))
+        final jan28SaintsCached = SaintDatabase.getSaintsForDate(
+          DateTime(2026, 1, 28),
+        );
+        expect(jan28SaintsCached, jan28Saints);
 
         // 2. Multi-date feast: St. John the Baptist ("June 24 / August 29")
         final jun24Saints = SaintDatabase.getSaintsForDate(
@@ -940,6 +985,27 @@ void main() {
         );
         expect(jul4Saints, isEmpty);
         expect(feastMap.containsKey('7_4'), isFalse);
+
+        // 5. Fallback parsing for custom list not identical to _cachedSaints
+        final customSaints = [
+          const Saint(
+            id: 'custom-saint',
+            name: 'Custom Saint',
+            feastDay: 'July 4',
+            nationality: 'Test',
+            profession: 'Tester',
+          ),
+        ];
+        final customResult = SaintDatabase.getSaintsForDate(
+          DateTime(2026, 7, 4),
+          customSaints,
+        );
+        expect(customResult.length, 1);
+        expect(customResult.first.id, 'custom-saint');
+
+        // 6. When cache is reset and no saints parameter passed
+        SaintDatabase.resetCache();
+        expect(SaintDatabase.getSaintsForDate(DateTime(2026, 1, 28)), isEmpty);
       },
     );
 

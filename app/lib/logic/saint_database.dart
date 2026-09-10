@@ -7,6 +7,8 @@ import 'package:twelve_stars/logic/prayer_database.dart';
 class SaintDatabase {
   static List<Saint>? mockSaints;
   static List<Saint>? _cachedSaints;
+  static Map<String, Saint>? _cachedSaintsById;
+  static Map<String, List<Saint>>? _cachedFeastDayMap;
 
   static final RegExp _whitespaceSplitRegex = RegExp(r'\s+');
   static final RegExp _feastDaySplitRegex = RegExp(r'[/,;&]');
@@ -14,7 +16,15 @@ class SaintDatabase {
   @visibleForTesting
   static void resetCache() {
     _cachedSaints = null;
+    _cachedSaintsById = null;
+    _cachedFeastDayMap = null;
   }
+
+  @visibleForTesting
+  static Map<String, Saint>? get cachedSaintsById => _cachedSaintsById;
+
+  @visibleForTesting
+  static Map<String, List<Saint>>? get cachedFeastDayMap => _cachedFeastDayMap;
 
   /// Loads saints from assets or returns in-memory cached/mock data.
   static Future<List<Saint>> loadSaints() async {
@@ -31,12 +41,18 @@ class SaintDatabase {
     final jsonStr = await rootBundle.loadString('assets/saints.json');
     final saints = loadSaintsFromJson(jsonStr);
     _cachedSaints = saints;
+    _cachedSaintsById = {for (final s in saints) s.id: s};
+    _cachedFeastDayMap = buildFeastDayMap(saints);
     return saints;
   }
 
   /// Looks up a Saint by [id].
   static Future<Saint?> getSaintById(String id) async {
     final saints = await loadSaints();
+    if (identical(saints, _cachedSaints)) {
+      _cachedSaintsById ??= {for (final s in saints) s.id: s};
+      return _cachedSaintsById![id];
+    }
     try {
       return saints.firstWhere((s) => s.id == id);
     } catch (_) {
@@ -247,9 +263,20 @@ class SaintDatabase {
   }
 
   /// Returns saints whose feast day matches [date.month] and [date.day].
-  static List<Saint> getSaintsForDate(DateTime date, List<Saint> saints) {
+  static List<Saint> getSaintsForDate(DateTime date, [List<Saint>? saints]) {
+    final targetSaints = saints ?? _cachedSaints;
+    if (targetSaints != null && identical(targetSaints, _cachedSaints)) {
+      _cachedFeastDayMap ??= buildFeastDayMap(_cachedSaints!);
+      final key = '${date.month}_${date.day}';
+      return _cachedFeastDayMap![key] ?? const <Saint>[];
+    }
+
+    if (targetSaints == null) {
+      return const <Saint>[];
+    }
+
     final List<Saint> matching = [];
-    for (final saint in saints) {
+    for (final saint in targetSaints) {
       if (saint.feastDay == null || saint.feastDay!.isEmpty) continue;
       final parts = saint.feastDay!.split(_feastDaySplitRegex);
       for (final part in parts) {
