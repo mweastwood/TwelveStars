@@ -301,5 +301,54 @@ void main() {
 
       expect(find.textContaining('1 / '), findsOneWidget);
     });
+
+    testWidgets(
+      'unmounting screen during async bookmark addition does not throw StateError',
+      (tester) async {
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: ThematicQuoteBrowserScreen(
+              initialThemeId: 'sacraments.eucharist',
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final favoriteBtn = find.byIcon(Icons.favorite_border_rounded).first;
+        await tester.tap(favoriteBtn);
+        // Immediately unmount screen before async operation completes
+        await tester.pumpWidget(const SizedBox());
+        await tester.pumpAndSettle();
+
+        expect(tester.takeException(), isNull);
+      },
+    );
+
+    testWidgets(
+      'unmounting screen during async bookmark removal does not throw StateError',
+      (tester) async {
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: ThematicQuoteBrowserScreen(
+              initialThemeId: 'sacraments.eucharist',
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // First bookmark the passage
+        final favoriteBtn = find.byIcon(Icons.favorite_border_rounded).first;
+        await tester.tap(favoriteBtn);
+        await tester.pumpAndSettle();
+
+        // Tap to remove, and immediately unmount before async completes
+        final removeBtn = find.byIcon(Icons.favorite_rounded).first;
+        await tester.tap(removeBtn);
+        await tester.pumpWidget(const SizedBox());
+        await tester.pumpAndSettle();
+
+        expect(tester.takeException(), isNull);
+      },
+    );
   });
 }
