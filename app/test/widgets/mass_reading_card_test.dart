@@ -114,6 +114,16 @@ void main() {
 
       // Should show individual verse rows on separate lines
       expect(find.byType(BibleVerseRow), findsNWidgets(2));
+      for (final verseRow in tester.widgetList<BibleVerseRow>(
+        find.byType(BibleVerseRow),
+      )) {
+        expect(
+          verseRow.padding,
+          equals(
+            const EdgeInsets.only(left: 0.0, right: 8.0, top: 6.0, bottom: 6.0),
+          ),
+        );
+      }
       expect(
         find.text('In the beginning God created heaven, and earth.'),
         findsOneWidget,

@@ -6,6 +6,7 @@ class BibleVerseRow extends StatelessWidget {
   final String verseText;
   final String? compareVerseText;
   final String? alternateVerseNumber;
+  final EdgeInsetsGeometry? padding;
   final bool isSelected;
   final double? fontSize;
   final int citationsCount;
@@ -23,6 +24,7 @@ class BibleVerseRow extends StatelessWidget {
     required this.verseText,
     this.compareVerseText,
     this.alternateVerseNumber,
+    this.padding,
     this.isSelected = false,
     this.fontSize,
     this.citationsCount = 0,
@@ -165,7 +167,9 @@ class BibleVerseRow extends StatelessWidget {
               : Colors.transparent,
           borderRadius: BorderRadius.circular(8.0),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
+        padding:
+            padding ??
+            const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
         margin: const EdgeInsets.symmetric(vertical: 2.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
