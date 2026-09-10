@@ -594,6 +594,8 @@ class BibleCitationParser {
     caseSensitive: true,
   );
 
+  static final RegExp _saintPrefixRegex = RegExp(r'^(?:st|saint)\s+');
+
   static List<CitationSegment> parse(
     String input, {
     String verseSystem = 'vulgate',
@@ -612,7 +614,7 @@ class BibleCitationParser {
 
       var bookKey = rawBook
           .toLowerCase()
-          .replaceAll(RegExp(r'^(?:st|saint)\s+'), '')
+          .replaceAll(_saintPrefixRegex, '')
           .trim();
       final bookNum = _aliasToBookNumber[bookKey];
 

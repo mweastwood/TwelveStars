@@ -138,10 +138,9 @@ class _PrayerCardState extends State<PrayerCard> {
     GestureRecognizer? recognizer,
   }) {
     final spans = <InlineSpan>[];
-    final regex = RegExp(r'\*([^*]+)\*');
     int lastMatchEnd = 0;
 
-    for (final match in regex.allMatches(text)) {
+    for (final match in _italicsRegex.allMatches(text)) {
       if (match.start > lastMatchEnd) {
         spans.add(
           TextSpan(
@@ -173,6 +172,8 @@ class _PrayerCardState extends State<PrayerCard> {
 
     return spans;
   }
+
+  static final RegExp _italicsRegex = RegExp(r'\*([^*]+)\*');
 
   static final RegExp _responsePrefixRegex = RegExp(
     r'^\s*(?:(?:People|Response|All|Populus|Omnes|Asamblea|Pueblo|Todos|Cộng\s+đoàn|Người\s+đáp|Tất\s+cả|Peuple|Tous|Fidèles|Popolo|Tutti|Bayan|Lahat|信友|全體|答|應|眾|會眾|同答)\s*[:：]|℟\.?|R\.|R:)',
