@@ -5,6 +5,7 @@ import 'package:twelve_stars/widgets/library/library_node_parser.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 
 class LibraryCommentsView extends StatefulWidget {
+  final List<LibraryBookItem>? catalog;
   final List<UserComment> comments;
   final bool isLoading;
   final VoidCallback onRefresh;
@@ -20,6 +21,7 @@ class LibraryCommentsView extends StatefulWidget {
 
   const LibraryCommentsView({
     super.key,
+    this.catalog,
     required this.comments,
     required this.isLoading,
     required this.onRefresh,
@@ -32,6 +34,9 @@ class LibraryCommentsView extends StatefulWidget {
 
 class _LibraryCommentsViewState extends State<LibraryCommentsView> {
   String _selectedCommentBookId = 'all';
+
+  List<LibraryBookItem> get _catalog =>
+      widget.catalog ?? LibraryHelper.getCatalog();
 
   @override
   void didUpdateWidget(covariant LibraryCommentsView oldWidget) {
@@ -85,7 +90,7 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
       );
     }
 
-    final catalog = LibraryHelper.getCatalog();
+    final catalog = _catalog;
     final distinctBookIds = widget.comments
         .map((c) => c.documentId)
         .toSet()
@@ -223,6 +228,7 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
                       );
                       if (!confirmed || !context.mounted) return;
                       await BibleDatabaseHelper.db.deleteComment(comment.id);
+                      if (!mounted) return;
                       widget.onRefresh();
                     },
                   ),

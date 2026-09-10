@@ -200,4 +200,48 @@ void main() {
       );
     },
   );
+
+  testWidgets('renders injected custom catalog books when provided', (
+    tester,
+  ) async {
+    const customBook = LibraryBookItem(
+      id: 'custom_book_1',
+      title: 'Custom Injected Book',
+      subtitle: 'A custom book subtitle',
+      category: 'Custom Category',
+      author: 'Author Name',
+      description: 'Custom description for book',
+    );
+
+    await tester.pumpWidget(
+      buildTestableWidget(
+        child: Scaffold(
+          body: LibraryCatalogView(
+            catalog: const [customBook],
+            onOpenReader:
+                (
+                  book, {
+                  volumeKey,
+                  assetPath,
+                  sectionId,
+                  sectionIndex,
+                  questionNumber,
+                  itemIndex,
+                }) {},
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Custom Injected Book'), findsOneWidget);
+    expect(find.text('Custom description for book'), findsOneWidget);
+    expect(find.widgetWithText(FilterChip, 'Custom Category'), findsOneWidget);
+    expect(find.text('1 WORK'), findsOneWidget);
+
+    await tester.tap(find.widgetWithText(FilterChip, 'Custom Category'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('CUSTOM CATEGORY'), findsOneWidget);
+  });
 }

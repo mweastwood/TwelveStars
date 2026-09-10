@@ -181,4 +181,64 @@ void main() {
       expect(inDb.any((c) => c.id == 201), isFalse);
     },
   );
+
+  testWidgets(
+    'uses injected custom catalog for book titles and reader routing',
+    (tester) async {
+      const customBook = LibraryBookItem(
+        id: 'custom_comment_book',
+        title: 'Custom Comment Book',
+        subtitle: 'Subtitle',
+        category: 'Custom Category',
+        author: 'Author',
+        description: 'Description',
+      );
+
+      final comment = UserComment(
+        id: 601,
+        documentId: 'custom_comment_book',
+        sectionIndex: 0,
+        nodeId: 'ch1_0',
+        commentText: 'My note on custom book',
+        textPreview: 'Snippet text',
+        createdAt: DateTime.now(),
+      );
+
+      LibraryBookItem? openedBook;
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: LibraryCommentsView(
+              catalog: const [customBook],
+              comments: [comment],
+              isLoading: false,
+              onRefresh: () {},
+              onOpenReader:
+                  (
+                    book, {
+                    volumeKey,
+                    assetPath,
+                    sectionIndex,
+                    itemIndex,
+                    questionNumber,
+                  }) {
+                    openedBook = book;
+                  },
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('Custom Comment Book'), findsOneWidget);
+      expect(find.text('My note on custom book'), findsOneWidget);
+
+      await tester.tap(find.text('Custom Comment Book'));
+      await tester.pumpAndSettle();
+
+      expect(openedBook?.id, 'custom_comment_book');
+      expect(openedBook?.title, 'Custom Comment Book');
+    },
+  );
 }

@@ -7,6 +7,7 @@ import 'package:twelve_stars/widgets/library/library_continue_reading_hero.dart'
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
 
 class LibraryCatalogView extends StatefulWidget {
+  final List<LibraryBookItem>? catalog;
   final BookReadingPosition? latestReadingPosition;
   final void Function(
     LibraryBookItem book, {
@@ -21,6 +22,7 @@ class LibraryCatalogView extends StatefulWidget {
 
   const LibraryCatalogView({
     super.key,
+    this.catalog,
     this.latestReadingPosition,
     required this.onOpenReader,
   });
@@ -37,9 +39,12 @@ class _LibraryCatalogViewState extends State<LibraryCatalogView> {
   int _searchSessionId = 0;
   String _selectedCategory = 'All';
 
+  List<LibraryBookItem> get _catalog =>
+      widget.catalog ?? LibraryHelper.getCatalog();
+
   List<String> get _categories => [
     'All',
-    ...{for (final b in LibraryHelper.getCatalog()) b.category},
+    ...{for (final b in _catalog) b.category},
   ];
 
   @override
@@ -220,7 +225,7 @@ class _LibraryCatalogViewState extends State<LibraryCatalogView> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final catalog = LibraryHelper.getCatalog();
+    final catalog = _catalog;
     final displayedBooks = _selectedCategory == 'All'
         ? catalog
         : catalog.where((b) => b.category == _selectedCategory).toList();

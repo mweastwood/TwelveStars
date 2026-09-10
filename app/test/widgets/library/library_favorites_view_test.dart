@@ -169,4 +169,61 @@ void main() {
       expect(inDb.any((b) => b.id == 101), isFalse);
     },
   );
+
+  testWidgets(
+    'renders custom catalog book info and opens reader with injected catalog',
+    (tester) async {
+      const customBook = LibraryBookItem(
+        id: 'custom_favorite_book',
+        title: 'Custom Favorite Book',
+        subtitle: 'Subtitle',
+        category: 'Custom Category',
+        author: 'Author',
+        description: 'Description',
+      );
+
+      final fav = LibraryBookmark(
+        id: 501,
+        documentId: 'custom_favorite_book',
+        sectionIndex: 0,
+        nodeId: 'ch1_0',
+        textPreview: 'Custom Favorite Book, Chapter 1\nSome snippet...',
+        createdAt: DateTime.now(),
+      );
+
+      LibraryBookItem? openedBook;
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: LibraryFavoritesView(
+              catalog: const [customBook],
+              favorites: [fav],
+              isLoading: false,
+              onRefresh: () {},
+              onOpenReader:
+                  (
+                    book, {
+                    volumeKey,
+                    assetPath,
+                    sectionIndex,
+                    itemIndex,
+                    questionNumber,
+                  }) {
+                    openedBook = book;
+                  },
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('Custom Favorite Book, Chapter 1'), findsOneWidget);
+      await tester.tap(find.text('Custom Favorite Book, Chapter 1'));
+      await tester.pumpAndSettle();
+
+      expect(openedBook?.id, 'custom_favorite_book');
+      expect(openedBook?.title, 'Custom Favorite Book');
+    },
+  );
 }

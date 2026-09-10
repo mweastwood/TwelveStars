@@ -4,6 +4,7 @@ import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/widgets/library/library_node_parser.dart';
 
 class LibraryFavoritesView extends StatefulWidget {
+  final List<LibraryBookItem>? catalog;
   final List<LibraryBookmark> favorites;
   final bool isLoading;
   final VoidCallback onRefresh;
@@ -19,6 +20,7 @@ class LibraryFavoritesView extends StatefulWidget {
 
   const LibraryFavoritesView({
     super.key,
+    this.catalog,
     required this.favorites,
     required this.isLoading,
     required this.onRefresh,
@@ -31,6 +33,9 @@ class LibraryFavoritesView extends StatefulWidget {
 
 class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
   String _selectedFavoriteBookId = 'all';
+
+  List<LibraryBookItem> get _catalog =>
+      widget.catalog ?? LibraryHelper.getCatalog();
 
   @override
   void didUpdateWidget(covariant LibraryFavoritesView oldWidget) {
@@ -84,7 +89,7 @@ class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
       );
     }
 
-    final catalog = LibraryHelper.getCatalog();
+    final catalog = _catalog;
     final distinctBookIds = widget.favorites
         .map((f) => f.documentId)
         .toSet()
@@ -192,6 +197,7 @@ class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
                       await BibleDatabaseHelper.db.deleteLibraryBookmark(
                         fav.id,
                       );
+                      if (!mounted) return;
                       widget.onRefresh();
                     },
                   ),
