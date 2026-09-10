@@ -11,6 +11,7 @@ import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/logic/thematic_database.dart';
 import 'package:twelve_stars/screens/library_tab.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
+import 'package:twelve_stars/screens/thematic_quote_browser_screen.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
 import '../test_helper.dart';
@@ -49,10 +50,12 @@ void main() {
     testDb = BibleDatabase(NativeDatabase.memory());
     BibleDatabaseHelper.db = testDb;
     ThematicHelper.mockRandom = Random(42);
+    LibraryTab.mockNow = DateTime(2026, 9, 10);
   });
 
   tearDown(() async {
     ThematicHelper.mockRandom = null;
+    LibraryTab.mockNow = null;
     await testDb.close();
   });
 
@@ -111,7 +114,13 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      await tester.tap(find.widgetWithText(FilterChip, 'Apostolic Fathers'));
+      final filterFinder = find.widgetWithText(FilterChip, 'Apostolic Fathers');
+      await tester.scrollUntilVisible(
+        filterFinder,
+        150,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(filterFinder);
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(tester, 'library_tab_category_filter_golden');
@@ -128,6 +137,11 @@ void main() {
       await tester.pumpAndSettle();
 
       final browseBtn = find.widgetWithText(TextButton, 'Browse All ▾').first;
+      await tester.scrollUntilVisible(
+        browseBtn,
+        150,
+        scrollable: find.byType(Scrollable).first,
+      );
       await tester.tap(browseBtn);
       await tester.pumpAndSettle();
 
@@ -181,8 +195,13 @@ void main() {
       await tester.pump();
       await tester.pumpAndSettle();
 
-      await tester.tap(find.text('Quotes & Themes'));
-      await tester.pump();
+      final swipeBtn = find.widgetWithText(FilledButton, 'Swipe Theme');
+      await tester.scrollUntilVisible(
+        swipeBtn,
+        100,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(swipeBtn);
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(
@@ -220,6 +239,8 @@ void main() {
       );
       await tester.pumpAndSettle();
 
+      await tester.tap(find.byKey(const Key('library_saved_button')));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Favorites'));
       await tester.pumpAndSettle();
 
@@ -257,6 +278,8 @@ void main() {
       );
       await tester.pumpAndSettle();
 
+      await tester.tap(find.byKey(const Key('library_saved_button')));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Comments'));
       await tester.pumpAndSettle();
 
@@ -711,6 +734,11 @@ void main() {
       await tester.pumpAndSettle();
 
       final vol1Chip = find.text('No. 1 (First Communion)');
+      await tester.scrollUntilVisible(
+        vol1Chip,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
       await tester.tap(vol1Chip);
       await tester.pumpAndSettle();
 
@@ -1298,7 +1326,9 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      // Tap Favorites tab
+      // Open Saved modal sheet and tap Favorites tab
+      await tester.tap(find.byKey(const Key('library_saved_button')));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Favorites'));
       await tester.pumpAndSettle();
 
@@ -1333,7 +1363,9 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      // Tap Comments tab
+      // Open Saved modal sheet and tap Comments tab
+      await tester.tap(find.byKey(const Key('library_saved_button')));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Comments'));
       await tester.pumpAndSettle();
 
@@ -1384,32 +1416,77 @@ void main() {
         findsOneWidget,
       );
 
-      expect(find.text('Baltimore Catechism'), findsOneWidget);
-      expect(find.text('The Didache'), findsOneWidget);
+      expect(
+        find.byKey(const ValueKey('book_card_baltimore_catechism')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const ValueKey('book_card_didache_lightfoot')),
+        findsOneWidget,
+      );
 
       // Select 'Apostolic Fathers'
-      await tester.tap(find.widgetWithText(FilterChip, 'Apostolic Fathers'));
+      final apostolicChip = find.widgetWithText(
+        FilterChip,
+        'Apostolic Fathers',
+      );
+      await tester.scrollUntilVisible(
+        apostolicChip,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(apostolicChip);
       await tester.pumpAndSettle();
 
-      expect(find.text('Baltimore Catechism'), findsNothing);
-      expect(find.text('The Didache'), findsOneWidget);
+      expect(
+        find.byKey(const ValueKey('book_card_baltimore_catechism')),
+        findsNothing,
+      );
+      expect(
+        find.byKey(const ValueKey('book_card_didache_lightfoot')),
+        findsOneWidget,
+      );
       expect(find.text('First Epistle of Clement'), findsOneWidget);
       expect(find.text('Epistles of St. Ignatius'), findsOneWidget);
 
       // Select 'Catechisms'
-      await tester.tap(find.widgetWithText(FilterChip, 'Catechisms'));
+      final catechismsChip = find.widgetWithText(FilterChip, 'Catechisms');
+      await tester.scrollUntilVisible(
+        catechismsChip,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(catechismsChip);
       await tester.pumpAndSettle();
 
-      expect(find.text('Baltimore Catechism'), findsOneWidget);
+      expect(
+        find.byKey(const ValueKey('book_card_baltimore_catechism')),
+        findsOneWidget,
+      );
       expect(find.text('Catechism of the Council of Trent'), findsOneWidget);
-      expect(find.text('The Didache'), findsNothing);
+      expect(
+        find.byKey(const ValueKey('book_card_didache_lightfoot')),
+        findsNothing,
+      );
 
       // Select 'All'
-      await tester.tap(find.widgetWithText(FilterChip, 'All'));
+      final allChip = find.widgetWithText(FilterChip, 'All');
+      await tester.scrollUntilVisible(
+        allChip,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(allChip);
       await tester.pumpAndSettle();
 
-      expect(find.text('Baltimore Catechism'), findsOneWidget);
-      expect(find.text('The Didache'), findsOneWidget);
+      expect(
+        find.byKey(const ValueKey('book_card_baltimore_catechism')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const ValueKey('book_card_didache_lightfoot')),
+        findsOneWidget,
+      );
     });
 
     testWidgets('renders continue reading hero card and resumes reading', (
@@ -1436,7 +1513,13 @@ void main() {
       expect(find.text('The Didache'), findsWidgets);
       expect(find.text('Resume'), findsOneWidget);
 
-      await tester.tap(find.text('Resume'));
+      final resumeBtn = find.text('Resume');
+      await tester.scrollUntilVisible(
+        resumeBtn,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(resumeBtn);
       await tester.pumpAndSettle();
 
       expect(find.byType(LibraryReaderScreen), findsOneWidget);
@@ -1473,6 +1556,11 @@ void main() {
       await tester.pumpAndSettle();
 
       final browseBtn = find.widgetWithText(TextButton, 'Browse All ▾').first;
+      await tester.scrollUntilVisible(
+        browseBtn,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
       await tester.tap(browseBtn);
       await tester.pumpAndSettle();
 
@@ -1541,6 +1629,8 @@ void main() {
       );
       await tester.pumpAndSettle();
 
+      await tester.tap(find.byKey(const Key('library_saved_button')));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Favorites'));
       await tester.pumpAndSettle();
 
@@ -1588,6 +1678,8 @@ void main() {
       );
       await tester.pumpAndSettle();
 
+      await tester.tap(find.byKey(const Key('library_saved_button')));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Comments'));
       await tester.pumpAndSettle();
 
@@ -3556,5 +3648,112 @@ void main() {
         expect(find.text('Doctor'), findsOneWidget);
       },
     );
+
+    testWidgets(
+      'renders today\'s thematic reflection card with quote, author, and actions',
+      (tester) async {
+        await tester.runAsync(() async {
+          await ThematicHelper.loadAllPassages();
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text("TODAY'S THEMATIC SPARK"), findsOneWidget);
+        expect(find.text('Swipe Theme'), findsOneWidget);
+        expect(find.text('Read in Book'), findsOneWidget);
+        expect(find.byTooltip('Shuffle reflection'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'renders explore by theme shelf with category pillars and quick chips',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('EXPLORE BY THEME'), findsOneWidget);
+        expect(find.text('The Seven Sacraments'), findsOneWidget);
+        expect(find.text('God & Sacred Dogma'), findsOneWidget);
+        expect(find.text('🕊️ Eucharist'), findsOneWidget);
+        expect(find.text('🕯️ Mental Prayer'), findsOneWidget);
+        expect(find.text('⚔️ Spiritual Warfare'), findsOneWidget);
+      },
+    );
+
+    testWidgets('tapping quick topic chip opens ThematicQuoteBrowserScreen', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await ThematicHelper.loadAllPassages();
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final chip = find.widgetWithText(ActionChip, '🕊️ Eucharist');
+      await tester.scrollUntilVisible(
+        chip,
+        100,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(chip);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(ThematicQuoteBrowserScreen), findsOneWidget);
+      expect(find.text('The Most Holy Eucharist & The Mass'), findsWidgets);
+    });
+
+    testWidgets(
+      'tapping Swipe Theme on daily quote card opens ThematicQuoteBrowserScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await ThematicHelper.loadAllPassages();
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final swipeBtn = find.widgetWithText(FilledButton, 'Swipe Theme');
+        await tester.scrollUntilVisible(
+          swipeBtn,
+          100,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(swipeBtn);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(ThematicQuoteBrowserScreen), findsOneWidget);
+      },
+    );
+
+    testWidgets('tapping bookmark on daily quote toggles favorite status', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await ThematicHelper.loadAllPassages();
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      final bookmarkBtn = find.byTooltip('Bookmark reflection');
+      expect(bookmarkBtn, findsOneWidget);
+      await tester.tap(bookmarkBtn);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Saved to bookmarks ❤️'), findsOneWidget);
+      expect(find.byTooltip('Remove bookmark'), findsOneWidget);
+    });
   });
 }
