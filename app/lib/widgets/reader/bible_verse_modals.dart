@@ -364,9 +364,16 @@ Future<void> showVerseCommentsModal({
                                       initialText: comment.commentText,
                                       onCommentUpdated: (newText) async {
                                         setSheetState(() {
-                                          comments[index] = comment.copyWith(
-                                            commentText: newText,
-                                          );
+                                          final targetIndex = comments
+                                              .indexWhere(
+                                                (c) => c.id == comment.id,
+                                              );
+                                          if (targetIndex != -1) {
+                                            comments[targetIndex] =
+                                                comments[targetIndex].copyWith(
+                                                  commentText: newText,
+                                                );
+                                          }
                                         });
                                         await onCommentsChanged();
                                       },
@@ -394,7 +401,9 @@ Future<void> showVerseCommentsModal({
                                       comment.id,
                                     );
                                     setSheetState(() {
-                                      comments.removeAt(index);
+                                      comments.removeWhere(
+                                        (c) => c.id == comment.id,
+                                      );
                                     });
                                     await onCommentsChanged();
                                   },
@@ -758,7 +767,7 @@ Future<void> showVerseFavoritesModal({
                                   fav.id,
                                 );
                                 setSheetState(() {
-                                  favorites.removeAt(index);
+                                  favorites.removeWhere((f) => f.id == fav.id);
                                 });
                                 await onFavoritesChanged();
                                 if (favorites.isEmpty && ctx.mounted) {
