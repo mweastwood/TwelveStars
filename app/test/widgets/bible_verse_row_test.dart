@@ -342,5 +342,67 @@ void main() {
         expect(numBaselineY, closeTo(textBaselineY, 0.001));
       },
     );
+
+    testWidgets(
+      'applies default padding of EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0) when not provided',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: BibleVerseRow(
+                verseNumber: 1,
+                verseText: 'In the beginning God created heaven, and earth.',
+              ),
+            ),
+          ),
+        );
+
+        final animatedContainerFinder = find.descendant(
+          of: find.byType(BibleVerseRow),
+          matching: find.byType(AnimatedContainer),
+        );
+        expect(animatedContainerFinder, findsOneWidget);
+
+        final animatedContainer = tester.widget<AnimatedContainer>(
+          animatedContainerFinder,
+        );
+        expect(
+          animatedContainer.padding,
+          equals(const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0)),
+        );
+      },
+    );
+
+    testWidgets('applies custom padding when provided', (tester) async {
+      const customPadding = EdgeInsets.only(
+        left: 0.0,
+        right: 8.0,
+        top: 6.0,
+        bottom: 6.0,
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(
+            body: BibleVerseRow(
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+              padding: customPadding,
+            ),
+          ),
+        ),
+      );
+
+      final animatedContainerFinder = find.descendant(
+        of: find.byType(BibleVerseRow),
+        matching: find.byType(AnimatedContainer),
+      );
+      expect(animatedContainerFinder, findsOneWidget);
+
+      final animatedContainer = tester.widget<AnimatedContainer>(
+        animatedContainerFinder,
+      );
+      expect(animatedContainer.padding, equals(customPadding));
+    });
   });
 }

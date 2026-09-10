@@ -499,6 +499,12 @@ class _MassReadingCardState extends State<MassReadingCard> {
                   return BibleVerseRow(
                     verseNumber: verse.verseNumber,
                     verseText: verse.verseText,
+                    padding: const EdgeInsets.only(
+                      left: 0.0,
+                      right: 8.0,
+                      top: 6.0,
+                      bottom: 6.0,
+                    ),
                     isSelected: isSelected,
                     fontSize: widget.fontSize,
                     citationsCount: verseCitations.length,
