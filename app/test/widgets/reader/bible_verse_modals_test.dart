@@ -795,6 +795,37 @@ void main() {
         expect(dbComments, isEmpty);
       },
     );
+
+    testWidgets('disposes TextEditingController when dialog is dismissed', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(
+        buildTestScaffold(
+          builder: (context) => ElevatedButton(
+            onPressed: () => showAddCommentDialog(
+              context: context,
+              citation: 'Luke 1:28',
+              textPreview: 'Hail, full of grace.',
+              documentId: 'bible_cpdv',
+              sectionIndex: 42,
+              nodeId: 'luk_1_28',
+            ),
+            child: const Text('Open Add Dialog'),
+          ),
+        ),
+      );
+
+      await tester.tap(find.text('Open Add Dialog'));
+      await tester.pumpAndSettle();
+
+      final textField = tester.widget<TextField>(find.byType(TextField));
+      final controller = textField.controller!;
+
+      await tester.tap(find.text('Cancel'));
+      await tester.pumpAndSettle();
+
+      expect(() => controller.addListener(() {}), throwsFlutterError);
+    });
   });
 
   group('showEditCommentDialog Tests', () {
@@ -960,6 +991,36 @@ void main() {
         expect(find.text('""'), findsNothing);
       },
     );
+
+    testWidgets('disposes TextEditingController when dialog is dismissed', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(
+        buildTestScaffold(
+          builder: (context) => ElevatedButton(
+            onPressed: () => showEditCommentDialog(
+              context: context,
+              citation: 'Romans 8:28',
+              textPreview: 'All things work together for good.',
+              commentId: 1,
+              initialText: 'God provides.',
+            ),
+            child: const Text('Open Edit Dialog'),
+          ),
+        ),
+      );
+
+      await tester.tap(find.text('Open Edit Dialog'));
+      await tester.pumpAndSettle();
+
+      final textField = tester.widget<TextField>(find.byType(TextField));
+      final controller = textField.controller!;
+
+      await tester.tap(find.text('Cancel'));
+      await tester.pumpAndSettle();
+
+      expect(() => controller.addListener(() {}), throwsFlutterError);
+    });
   });
 
   group('showVerseFavoritesModal Tests', () {
