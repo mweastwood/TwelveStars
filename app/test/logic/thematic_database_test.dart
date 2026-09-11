@@ -238,6 +238,8 @@ void main() {
           forceReload: true,
         );
         expect(resultOnException, isEmpty);
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+            .setMockMessageHandler('flutter/assets', null);
 
         // 2. Corrupted malformed JSON payload
         ThematicHelper.clearCache();
@@ -341,8 +343,12 @@ void main() {
 
         final counts = await ThematicHelper.getThemeCounts();
 
-        // theology.trinity: b1 (primary) + b3 (primary) + b3 (secondary) = 3
-        expect(counts['theology.trinity'], 3);
+        // Note: counts theme-slot occurrences, not distinct passages.
+        // A passage with theology.trinity in both primary and secondary contributes 2.
+        expect(
+          counts['theology.trinity'],
+          3,
+        ); // b1 primary + b3 primary + b3 secondary
         // sacraments.eucharist: b1 (secondary) + b2 (primary) = 2
         expect(counts['sacraments.eucharist'], 2);
         // prayer.contemplation_union: b2 (secondary) = 1
@@ -474,6 +480,11 @@ void main() {
 
       expect(indices1, equals(indices2));
       expect(indices1, isNot(equals(List.generate(10, (i) => i))));
+      expect(
+        shuffled1.map((p) => p.itemIndex).toSet(),
+        equals(List.generate(10, (i) => i).toSet()),
+      );
+      expect(shuffled1.toSet(), equals(mockList.toSet()));
     });
   });
 }
