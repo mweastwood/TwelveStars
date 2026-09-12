@@ -134,10 +134,12 @@ class PageRibbonClipper extends CustomClipper<Path> {
 }
 
 class PageRibbonPatternPainter extends CustomPainter {
+  final int ribbonIndex;
   final Color stripeColor;
   final Color edgeColor;
 
   const PageRibbonPatternPainter({
+    this.ribbonIndex = 0,
     this.stripeColor = const Color(0x24FFFFFF),
     this.edgeColor = const Color(0x1A000000),
   });
@@ -146,18 +148,31 @@ class PageRibbonPatternPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     if (size.width <= 0 || size.height <= 0 || size.height.isInfinite) return;
 
+    _paintSelvageEdges(canvas, size);
+
+    switch (ribbonIndex) {
+      case 1:
+        _paintGoldDiamondBrocade(canvas, size);
+        break;
+      case 2:
+        _paintGreenVineWeave(canvas, size);
+        break;
+      case 3:
+        _paintPurpleCrossLattice(canvas, size);
+        break;
+      case 0:
+      default:
+        _paintRedChevronTwill(canvas, size);
+        break;
+    }
+  }
+
+  void _paintSelvageEdges(Canvas canvas, Size size) {
     final edgePaint = Paint()
       ..color = edgeColor
       ..strokeWidth = 1.0
       ..style = PaintingStyle.stroke;
-
-    final stripePaint = Paint()
-      ..color = stripeColor
-      ..strokeWidth = 1.0
-      ..style = PaintingStyle.stroke;
-
     const double edgeInset = 1.5;
-    final double midX = size.width / 2;
 
     // Draw edge pinstripes (woven selvage edges)
     canvas.drawLine(
@@ -170,8 +185,16 @@ class PageRibbonPatternPainter extends CustomPainter {
       Offset(size.width - edgeInset, size.height),
       edgePaint,
     );
+  }
 
-    // Draw herringbone / twill chevron weave pattern
+  void _paintRedChevronTwill(Canvas canvas, Size size) {
+    final stripePaint = Paint()
+      ..color = stripeColor
+      ..strokeWidth = 1.0
+      ..style = PaintingStyle.stroke;
+
+    const double edgeInset = 1.5;
+    final double midX = size.width / 2;
     const double step = 7.0;
     const double chevronHeight = 5.0;
 
@@ -193,9 +216,145 @@ class PageRibbonPatternPainter extends CustomPainter {
     }
   }
 
+  void _paintGoldDiamondBrocade(Canvas canvas, Size size) {
+    final stripePaint = Paint()
+      ..color = stripeColor
+      ..strokeWidth = 1.0
+      ..style = PaintingStyle.stroke;
+
+    const double edgeInset = 1.5;
+    final double midX = size.width / 2;
+    const double step = 12.0;
+
+    for (double y = -step; y <= size.height + step; y += step) {
+      canvas.drawLine(
+        Offset(edgeInset, y),
+        Offset(size.width - edgeInset, y + step),
+        stripePaint,
+      );
+      canvas.drawLine(
+        Offset(size.width - edgeInset, y),
+        Offset(edgeInset, y + step),
+        stripePaint,
+      );
+      canvas.drawLine(
+        Offset(midX - 1.5, y),
+        Offset(midX + 1.5, y),
+        stripePaint,
+      );
+    }
+  }
+
+  void _paintGreenVineWeave(Canvas canvas, Size size) {
+    final stripePaint = Paint()
+      ..color = stripeColor
+      ..strokeWidth = 1.0
+      ..style = PaintingStyle.stroke;
+
+    const double edgeInset = 1.5;
+    final double midX = size.width / 2;
+    const double cycle = 16.0;
+
+    final path1 = Path();
+    final path2 = Path();
+
+    path1.moveTo(midX - 3.5, -cycle);
+    path2.moveTo(midX + 3.5, -cycle);
+
+    for (double y = -cycle; y <= size.height + cycle; y += cycle) {
+      path1.cubicTo(
+        midX - 3.5,
+        y + 4.0,
+        midX + 3.5,
+        y + 4.0,
+        midX + 3.5,
+        y + 8.0,
+      );
+      path2.cubicTo(
+        midX + 3.5,
+        y + 4.0,
+        midX - 3.5,
+        y + 4.0,
+        midX - 3.5,
+        y + 8.0,
+      );
+
+      path1.cubicTo(
+        midX + 3.5,
+        y + 12.0,
+        midX - 3.5,
+        y + 12.0,
+        midX - 3.5,
+        y + 16.0,
+      );
+      path2.cubicTo(
+        midX - 3.5,
+        y + 12.0,
+        midX + 3.5,
+        y + 12.0,
+        midX + 3.5,
+        y + 16.0,
+      );
+
+      canvas.drawLine(
+        Offset(midX - 3.5, y),
+        Offset(edgeInset + 0.5, y - 2.5),
+        stripePaint,
+      );
+      canvas.drawLine(
+        Offset(midX + 3.5, y + 8.0),
+        Offset(size.width - edgeInset - 0.5, y + 8.0 - 2.5),
+        stripePaint,
+      );
+    }
+
+    canvas.drawPath(path1, stripePaint);
+    canvas.drawPath(path2, stripePaint);
+  }
+
+  void _paintPurpleCrossLattice(Canvas canvas, Size size) {
+    final stripePaint = Paint()
+      ..color = stripeColor
+      ..strokeWidth = 1.0
+      ..style = PaintingStyle.stroke;
+
+    const double edgeInset = 1.5;
+    final double midX = size.width / 2;
+    const double cycle = 18.0;
+
+    for (double y = -cycle; y <= size.height + cycle; y += cycle) {
+      canvas.drawLine(
+        Offset(edgeInset + 1.0, y),
+        Offset(size.width - edgeInset - 1.0, y),
+        stripePaint,
+      );
+      canvas.drawLine(
+        Offset(midX, y + 2.0),
+        Offset(midX, y + 14.0),
+        stripePaint,
+      );
+      canvas.drawLine(
+        Offset(midX - 4.0, y + 6.0),
+        Offset(midX + 4.0, y + 6.0),
+        stripePaint,
+      );
+      canvas.drawLine(
+        Offset(midX - 4.0, y + 5.0),
+        Offset(midX - 4.0, y + 7.0),
+        stripePaint,
+      );
+      canvas.drawLine(
+        Offset(midX + 4.0, y + 5.0),
+        Offset(midX + 4.0, y + 7.0),
+        stripePaint,
+      );
+    }
+  }
+
   @override
   bool shouldRepaint(covariant PageRibbonPatternPainter oldDelegate) {
-    return oldDelegate.stripeColor != stripeColor ||
+    return oldDelegate.ribbonIndex != ribbonIndex ||
+        oldDelegate.stripeColor != stripeColor ||
         oldDelegate.edgeColor != edgeColor;
   }
 }
@@ -225,6 +384,7 @@ class BiblePageRibbon extends StatelessWidget {
         height: double.infinity,
         child: CustomPaint(
           painter: PageRibbonPatternPainter(
+            ribbonIndex: ribbonIndex,
             stripeColor: Colors.white.withValues(alpha: 0.14),
             edgeColor: Colors.black.withValues(alpha: 0.10),
           ),
