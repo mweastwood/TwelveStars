@@ -78,6 +78,8 @@ class _WebsiteViewerScreenState extends State<WebsiteViewerScreen> {
               }
             },
             onWebResourceError: (WebResourceError error) {
+              if (error.errorCode == -999) return;
+              if (!(error.isForMainFrame ?? true)) return;
               if (mounted) {
                 setState(() {
                   _hasError = true;
@@ -138,10 +140,25 @@ class _WebsiteViewerScreenState extends State<WebsiteViewerScreen> {
   }
 
   Future<void> _openInExternalBrowser() async {
-    final activeUrl = _currentUrl.isNotEmpty ? _currentUrl : widget.url;
-    final uri = Uri.tryParse(activeUrl);
-    if (uri != null && await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    bool launched = false;
+    try {
+      final activeUrl = _currentUrl.isNotEmpty ? _currentUrl : widget.url;
+      final uri = Uri.tryParse(activeUrl);
+      if (uri != null && await canLaunchUrl(uri)) {
+        launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
+      }
+    } catch (_) {
+      launched = false;
+    }
+
+    if (!launched && mounted) {
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Could not open external browser'),
+          duration: Duration(seconds: 2),
+        ),
+      );
     }
   }
 
@@ -176,6 +193,11 @@ class _WebsiteViewerScreenState extends State<WebsiteViewerScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            tooltip: 'Back to library',
+            onPressed: () => Navigator.of(context).pop(),
+          ),
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,

@@ -59,6 +59,8 @@ dev_dependencies:
   html: ^0.15.7
   build_runner: ^2.16.1
   drift_dev: ^2.34.6
+  url_launcher_platform_interface: ^2.3.2
+  webview_flutter_platform_interface: ^2.15.1
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
