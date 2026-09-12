@@ -934,6 +934,19 @@ class LibraryCatalog {
       defaultAssetPath: 'assets/catechism/json/council_of_trent.json',
     ),
     LibraryBookItem(
+      id: 'ccc_usccb',
+      title: 'Catechism of the Catholic Church',
+      subtitle: 'Promulgated by Pope St. John Paul II (1992)',
+      category: 'Catechisms',
+      author: 'Libreria Editrice Vaticana / USCCB',
+      authorSaintId: 'john-paul-ii',
+      era: '1992 AD',
+      description:
+          'The authoritative modern exposition of Catholic doctrine, liturgy, sacraments, morality, and prayer, promulgated by Pope St. John Paul II. Hosted online by the USCCB.',
+      webUrl:
+          'https://www.usccb.org/beliefs-and-teachings/what-we-believe/catechism/catechism-of-the-catholic-church',
+    ),
+    LibraryBookItem(
       id: 'didache_lightfoot',
       title: 'The Didache',
       subtitle:

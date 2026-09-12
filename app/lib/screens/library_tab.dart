@@ -7,6 +7,7 @@ import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/thematic_database.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/screens/thematic_quote_browser_screen.dart';
+import 'package:twelve_stars/screens/website_viewer_screen.dart';
 import 'package:twelve_stars/widgets/library/library_catalog_view.dart';
 import 'package:twelve_stars/widgets/library/library_saved_sheet.dart';
 import 'package:twelve_stars/widgets/library/library_thematic_shelf.dart';
@@ -265,6 +266,18 @@ class _LibraryTabState extends State<LibraryTab> {
     int? questionNumber,
     int? itemIndex,
   }) async {
+    if (bookItem.isWeb) {
+      if (!context.mounted) return;
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>
+              WebsiteViewerScreen(title: bookItem.title, url: bookItem.webUrl!),
+        ),
+      );
+      return;
+    }
+
     String? targetVolumeKey = volumeKey;
     String? targetAssetPath = assetPath;
     String? targetSectionId = sectionId;

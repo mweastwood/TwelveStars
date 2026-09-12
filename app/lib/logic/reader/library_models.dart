@@ -136,6 +136,7 @@ class LibraryBookItem {
   final String? defaultAssetPath;
   final List<BaltimoreVolume>? volumes;
   final String verseSystem;
+  final String? webUrl;
 
   const LibraryBookItem({
     required this.id,
@@ -149,7 +150,10 @@ class LibraryBookItem {
     this.defaultAssetPath,
     this.volumes,
     this.verseSystem = 'vulgate',
+    this.webUrl,
   });
+
+  bool get isWeb => webUrl != null && webUrl!.isNotEmpty;
 
   bool get isSeries => volumes != null && volumes!.isNotEmpty;
 

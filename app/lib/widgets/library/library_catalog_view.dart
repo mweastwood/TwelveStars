@@ -793,6 +793,46 @@ class _LibraryCatalogViewState extends State<LibraryCatalogView> {
                                               ),
                                         ),
                                       ),
+                                    if (bookItem.isWeb)
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 6,
+                                          vertical: 2,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: theme
+                                              .colorScheme
+                                              .tertiaryContainer
+                                              .withValues(alpha: 0.5),
+                                          borderRadius: BorderRadius.circular(
+                                            6,
+                                          ),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Icon(
+                                              Icons.language_rounded,
+                                              size: 11,
+                                              color: theme
+                                                  .colorScheme
+                                                  .onTertiaryContainer,
+                                            ),
+                                            const SizedBox(width: 3),
+                                            Text(
+                                              'Online Work',
+                                              style: theme.textTheme.labelSmall
+                                                  ?.copyWith(
+                                                    color: theme
+                                                        .colorScheme
+                                                        .onTertiaryContainer,
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 10,
+                                                  ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                   ],
                                 ),
                               ],
@@ -860,8 +900,15 @@ class _LibraryCatalogViewState extends State<LibraryCatalogView> {
                         Align(
                           alignment: Alignment.centerRight,
                           child: FilledButton.icon(
-                            icon: const Icon(Icons.menu_book, size: 18),
-                            label: const Text('Read Book'),
+                            icon: Icon(
+                              bookItem.isWeb
+                                  ? Icons.open_in_browser_rounded
+                                  : Icons.menu_book,
+                              size: 18,
+                            ),
+                            label: Text(
+                              bookItem.isWeb ? 'Read Online' : 'Read Book',
+                            ),
                             onPressed: () => widget.onOpenReader(bookItem),
                           ),
                         ),
