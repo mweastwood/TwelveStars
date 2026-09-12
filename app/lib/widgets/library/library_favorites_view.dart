@@ -8,6 +8,7 @@ class LibraryFavoritesView extends StatefulWidget {
   final List<LibraryBookmark> favorites;
   final bool isLoading;
   final VoidCallback onRefresh;
+  final ScrollController? scrollController;
   final void Function(
     LibraryBookItem book, {
     String? volumeKey,
@@ -21,6 +22,7 @@ class LibraryFavoritesView extends StatefulWidget {
   const LibraryFavoritesView({
     super.key,
     this.catalog,
+    this.scrollController,
     required this.favorites,
     required this.isLoading,
     required this.onRefresh,
@@ -150,6 +152,7 @@ class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
         ],
         Expanded(
           child: ListView.builder(
+            controller: widget.scrollController,
             padding: const EdgeInsets.symmetric(
               horizontal: 16.0,
               vertical: 8.0,

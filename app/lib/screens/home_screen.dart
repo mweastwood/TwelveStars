@@ -46,8 +46,7 @@ class _HomeScreenState extends State<HomeScreen>
   final ScrollController _prayersScrollController = ScrollController();
   final ScrollController _missalScrollController = ScrollController();
   final GlobalKey<BibleTabState> _bibleTabKey = GlobalKey<BibleTabState>();
-  final GlobalKey<LibraryTabState> _libraryTabKey =
-      GlobalKey<LibraryTabState>();
+  final LibraryTabController _libraryTabController = LibraryTabController();
 
   static const double _kLanguageSelectorTopSpacerHeight = 92.0;
 
@@ -315,7 +314,7 @@ class _HomeScreenState extends State<HomeScreen>
           ? Center(child: Text('Error loading prayers: $_error'))
           : _buildPrayersTab(theme, isWide: isWide),
       BibleTab(key: _bibleTabKey),
-      LibraryTab(key: _libraryTabKey),
+      LibraryTab(controller: _libraryTabController),
     ];
 
     final content = Stack(
@@ -434,7 +433,7 @@ class _HomeScreenState extends State<HomeScreen>
               icon: const Icon(Icons.bookmarks_outlined),
               tooltip: 'Saved Passages & Notes',
               onPressed: () {
-                _libraryTabKey.currentState?.showSavedModalSheet();
+                _libraryTabController.showSavedModalSheet();
               },
             ),
           ],

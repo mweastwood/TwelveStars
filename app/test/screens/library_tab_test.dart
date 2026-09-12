@@ -180,7 +180,7 @@ void main() {
       await screenMatchesGolden(tester, 'library_tab_search_results_golden');
     });
 
-    testGoldens('LibraryTab renders quotes and themes tab correctly', (
+    testGoldens('LibraryTab renders thematic spark card correctly', (
       tester,
     ) async {
       await tester.runAsync(() async {
@@ -206,7 +206,7 @@ void main() {
 
       await screenMatchesGolden(
         tester,
-        'library_tab_quotes_and_themes_tab_golden',
+        'library_tab_thematic_spark_card_golden',
       );
     });
 
