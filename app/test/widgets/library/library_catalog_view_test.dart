@@ -244,4 +244,55 @@ void main() {
 
     expect(find.text('CUSTOM CATEGORY'), findsOneWidget);
   });
+
+  testWidgets(
+    'renders Online Work badge and Read Online button for isWeb items and triggers onOpenReader',
+    (tester) async {
+      const webBook = LibraryBookItem(
+        id: 'web_book_1',
+        title: 'Web Catechism Test',
+        subtitle: 'A web book subtitle',
+        category: 'Catechisms',
+        author: 'Online Author',
+        description: 'An online resource description',
+        webUrl: 'https://example.com/catechism',
+      );
+
+      LibraryBookItem? openedBook;
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: LibraryCatalogView(
+              catalog: const [webBook],
+              onOpenReader:
+                  (
+                    book, {
+                    volumeKey,
+                    assetPath,
+                    sectionId,
+                    sectionIndex,
+                    questionNumber,
+                    itemIndex,
+                  }) {
+                    openedBook = book;
+                  },
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('Online Work'), findsOneWidget);
+      expect(find.widgetWithText(FilledButton, 'Read Online'), findsOneWidget);
+      expect(find.widgetWithText(FilledButton, 'Read Book'), findsNothing);
+
+      await tester.tap(find.widgetWithText(FilledButton, 'Read Online'));
+      await tester.pumpAndSettle();
+
+      expect(openedBook, isNotNull);
+      expect(openedBook!.id, 'web_book_1');
+      expect(openedBook!.webUrl, 'https://example.com/catechism');
+    },
+  );
 }
