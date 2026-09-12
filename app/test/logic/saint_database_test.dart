@@ -360,6 +360,11 @@ void main() {
       SaintDatabase.resetCache();
     });
 
+    tearDown(() {
+      SaintDatabase.mockSaints = null;
+      SaintDatabase.resetCache();
+    });
+
     test('loadSaints loads bundled assets/saints.json properly', () async {
       final saints = await SaintDatabase.loadSaints();
       expect(saints, isNotEmpty);
@@ -421,6 +426,7 @@ void main() {
         ),
       ];
       SaintDatabase.mockSaints = mock;
+      addTearDown(() => SaintDatabase.mockSaints = null);
       final saints = await SaintDatabase.loadSaints();
       expect(saints, mock);
     });
@@ -897,6 +903,7 @@ void main() {
             profession: 'Tester',
           ),
         ];
+        addTearDown(() => SaintDatabase.mockSaints = null);
         final mockResult = await SaintDatabase.getSaintById('mock-saint');
         expect(mockResult, isNotNull);
         expect(mockResult!.name, 'Mock Saint');

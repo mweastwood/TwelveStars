@@ -7,6 +7,16 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('ConfirmationDiscernmentEngine Tests', () {
+    setUp(() {
+      SaintDatabase.mockSaints = null;
+      SaintDatabase.resetCache();
+    });
+
+    tearDown(() {
+      SaintDatabase.mockSaints = null;
+      SaintDatabase.resetCache();
+    });
+
     test('Question bank has exactly 32 well-formed questions', () {
       expect(ConfirmationDiscernmentEngine.questionBank.length, 32);
 
@@ -112,7 +122,6 @@ void main() {
     test(
       'generateTournamentSeeds handles fewer than 16 candidates by cycling',
       () async {
-        SaintDatabase.mockSaints = null;
         final allSaints = (await SaintDatabase.loadSaints()).take(5).toList();
         expect(allSaints.length, 5);
 
@@ -135,7 +144,6 @@ void main() {
     test(
       'generateTournamentSeeds generates 16 seeds with match scores and highlights',
       () async {
-        SaintDatabase.mockSaints = null;
         final allSaints = await SaintDatabase.loadSaints();
         expect(allSaints.length, greaterThanOrEqualTo(16));
 
@@ -163,7 +171,6 @@ void main() {
     test(
       'TournamentState handles complete 15-match single-elimination progression',
       () async {
-        SaintDatabase.mockSaints = null;
         final allSaints = await SaintDatabase.loadSaints();
         final userVector = [0.5, 0.5, -0.5, 0.5, -0.5, -0.5];
 
@@ -234,7 +241,6 @@ void main() {
     test(
       'generateTournamentSeeds uses mockRandom for deterministic seeding',
       () async {
-        SaintDatabase.mockSaints = null;
         final allSaints = await SaintDatabase.loadSaints();
         final userVector = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
 
