@@ -513,75 +513,91 @@ void main() {
       },
     );
 
-    test('PageRibbonPatternPainter paints expected pattern without error', () {
-      final recorder = PictureRecorder();
-      final canvas = Canvas(recorder);
-      const painter = PageRibbonPatternPainter(
-        stripeColor: Color(0x24FFFFFF),
-        edgeColor: Color(0x1A000000),
-      );
+    test(
+      'PageRibbonPatternPainter paints expected pattern without error across all ribbonIndex values',
+      () {
+        for (final index in [0, 1, 2, 3, 99]) {
+          final recorder = PictureRecorder();
+          final canvas = Canvas(recorder);
+          final painter = PageRibbonPatternPainter(
+            ribbonIndex: index,
+            stripeColor: const Color(0x24FFFFFF),
+            edgeColor: const Color(0x1A000000),
+          );
 
-      // Should paint successfully on normal size
-      expect(
-        () => painter.paint(canvas, const Size(16.0, 100.0)),
-        returnsNormally,
-      );
-      final picture = recorder.endRecording();
-      expect(picture, isNotNull);
+          // Should paint successfully on normal size
+          expect(
+            () => painter.paint(canvas, const Size(16.0, 100.0)),
+            returnsNormally,
+          );
+          final picture = recorder.endRecording();
+          expect(picture, isNotNull);
 
-      // Should safely no-op on zero or unbounded height
-      final recorder2 = PictureRecorder();
-      final canvas2 = Canvas(recorder2);
-      expect(() => painter.paint(canvas2, Size.zero), returnsNormally);
-      expect(
-        () => painter.paint(canvas2, const Size(16.0, double.infinity)),
-        returnsNormally,
-      );
-      recorder2.endRecording();
-    });
+          // Should safely no-op on zero or unbounded height
+          final recorder2 = PictureRecorder();
+          final canvas2 = Canvas(recorder2);
+          expect(() => painter.paint(canvas2, Size.zero), returnsNormally);
+          expect(
+            () => painter.paint(canvas2, const Size(16.0, double.infinity)),
+            returnsNormally,
+          );
+          recorder2.endRecording();
+        }
+      },
+    );
 
     test(
-      'PageRibbonPatternPainter shouldRepaint compares color configuration',
+      'PageRibbonPatternPainter shouldRepaint compares ribbonIndex and color configuration',
       () {
         const painter1 = PageRibbonPatternPainter(
+          ribbonIndex: 0,
           stripeColor: Color(0x24FFFFFF),
           edgeColor: Color(0x1A000000),
         );
         const painter2 = PageRibbonPatternPainter(
+          ribbonIndex: 0,
           stripeColor: Color(0x24FFFFFF),
           edgeColor: Color(0x1A000000),
         );
         const painter3 = PageRibbonPatternPainter(
+          ribbonIndex: 0,
           stripeColor: Color(0xFFFF0000),
           edgeColor: Color(0x1A000000),
         );
         const painter4 = PageRibbonPatternPainter(
+          ribbonIndex: 0,
           stripeColor: Color(0x24FFFFFF),
           edgeColor: Color(0xFF00FF00),
+        );
+        const painter5 = PageRibbonPatternPainter(
+          ribbonIndex: 1,
+          stripeColor: Color(0x24FFFFFF),
+          edgeColor: Color(0x1A000000),
         );
 
         expect(painter1.shouldRepaint(painter2), isFalse);
         expect(painter1.shouldRepaint(painter3), isTrue);
         expect(painter1.shouldRepaint(painter4), isTrue);
+        expect(painter1.shouldRepaint(painter5), isTrue);
       },
     );
 
     testWidgets(
-      'BiblePageRibbon builds with PageRibbonPatternPainter CustomPaint',
+      'BiblePageRibbon builds with PageRibbonPatternPainter CustomPaint and forwards ribbonIndex',
       (tester) async {
         await tester.pumpWidget(
           const MaterialApp(
             home: Scaffold(
               body: SizedBox(
                 height: 200,
-                child: BiblePageRibbon(ribbonIndex: 0),
+                child: BiblePageRibbon(ribbonIndex: 2),
               ),
             ),
           ),
         );
 
         final physicalShapeFinder = find.byKey(
-          const Key('bible_page_ribbon_0'),
+          const Key('bible_page_ribbon_2'),
         );
         expect(physicalShapeFinder, findsOneWidget);
         final physicalShape = tester.widget<PhysicalShape>(physicalShapeFinder);
@@ -596,6 +612,7 @@ void main() {
         final customPaint = tester.widget<CustomPaint>(customPaintFinder);
         expect(customPaint.painter, isA<PageRibbonPatternPainter>());
         final patternPainter = customPaint.painter as PageRibbonPatternPainter;
+        expect(patternPainter.ribbonIndex, equals(2));
         expect(
           patternPainter.stripeColor,
           equals(Colors.white.withValues(alpha: 0.14)),
