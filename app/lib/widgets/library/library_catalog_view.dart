@@ -9,6 +9,9 @@ import 'package:twelve_stars/widgets/saint_details_sheet.dart';
 class LibraryCatalogView extends StatefulWidget {
   final List<LibraryBookItem>? catalog;
   final BookReadingPosition? latestReadingPosition;
+  final String? searchHintText;
+  final Widget? searchTrailing;
+  final Widget? header;
   final void Function(
     LibraryBookItem book, {
     String? volumeKey,
@@ -24,6 +27,9 @@ class LibraryCatalogView extends StatefulWidget {
     super.key,
     this.catalog,
     this.latestReadingPosition,
+    this.searchHintText,
+    this.searchTrailing,
+    this.header,
     required this.onOpenReader,
   });
 
@@ -236,59 +242,74 @@ class _LibraryCatalogViewState extends State<LibraryCatalogView> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // Global Library Search Bar
-          Card(
-            elevation: 0,
-            color: theme.colorScheme.surfaceContainerLow,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-              side: BorderSide(
-                color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5),
-              ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 12.0,
-                vertical: 4.0,
-              ),
-              child: Row(
-                children: [
-                  Icon(Icons.search, color: theme.colorScheme.primary),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: TextField(
-                      controller: _searchController,
-                      style: TextStyle(color: theme.colorScheme.onSurface),
-                      decoration: InputDecoration(
-                        hintText: 'Search catechisms & library...',
-                        hintStyle: TextStyle(
-                          color: theme.colorScheme.onSurfaceVariant.withValues(
-                            alpha: 0.7,
-                          ),
-                        ),
-                        border: InputBorder.none,
+          Row(
+            children: [
+              Expanded(
+                child: Card(
+                  elevation: 0,
+                  color: theme.colorScheme.surfaceContainerLow,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    side: BorderSide(
+                      color: theme.colorScheme.outlineVariant.withValues(
+                        alpha: 0.5,
                       ),
-                      onChanged: (val) {
-                        setState(() {
-                          _searchQuery = val;
-                        });
-                        _performGlobalSearch(val);
-                      },
                     ),
                   ),
-                  if (_searchQuery.isNotEmpty)
-                    IconButton(
-                      icon: const Icon(Icons.clear, size: 20),
-                      onPressed: () {
-                        setState(() {
-                          _searchController.clear();
-                          _searchQuery = '';
-                          _globalSearchResults = [];
-                        });
-                      },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0,
+                      vertical: 4.0,
                     ),
-                ],
+                    child: Row(
+                      children: [
+                        Icon(Icons.search, color: theme.colorScheme.primary),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: TextField(
+                            controller: _searchController,
+                            style: TextStyle(
+                              color: theme.colorScheme.onSurface,
+                            ),
+                            decoration: InputDecoration(
+                              hintText:
+                                  widget.searchHintText ??
+                                  'Search catechisms & library...',
+                              hintStyle: TextStyle(
+                                color: theme.colorScheme.onSurfaceVariant
+                                    .withValues(alpha: 0.7),
+                              ),
+                              border: InputBorder.none,
+                            ),
+                            onChanged: (val) {
+                              setState(() {
+                                _searchQuery = val;
+                              });
+                              _performGlobalSearch(val);
+                            },
+                          ),
+                        ),
+                        if (_searchQuery.isNotEmpty)
+                          IconButton(
+                            icon: const Icon(Icons.clear, size: 20),
+                            onPressed: () {
+                              setState(() {
+                                _searchController.clear();
+                                _searchQuery = '';
+                                _globalSearchResults = [];
+                              });
+                            },
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
-            ),
+              if (widget.searchTrailing != null) ...[
+                const SizedBox(width: 8),
+                widget.searchTrailing!,
+              ],
+            ],
           ),
           const SizedBox(height: 16),
 
@@ -436,6 +457,10 @@ class _LibraryCatalogViewState extends State<LibraryCatalogView> {
             ],
             const SizedBox(height: 80),
           ] else ...[
+            if (widget.header != null) ...[
+              widget.header!,
+              const SizedBox(height: 20),
+            ],
             // Continue Reading Hero Card if available
             if (widget.latestReadingPosition != null) ...[
               LibraryContinueReadingHero(
@@ -455,76 +480,79 @@ class _LibraryCatalogViewState extends State<LibraryCatalogView> {
             ],
 
             // Thematic Quote Browser Banner
-            Card(
-              elevation: 0,
-              color: theme.colorScheme.tertiaryContainer.withValues(
-                alpha: 0.35,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-                side: BorderSide(
-                  color: theme.colorScheme.tertiary.withValues(alpha: 0.3),
+            if (widget.header == null) ...[
+              Card(
+                elevation: 0,
+                color: theme.colorScheme.tertiaryContainer.withValues(
+                  alpha: 0.35,
                 ),
-              ),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(16),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ThematicQuoteBrowserScreen(),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  side: BorderSide(
+                    color: theme.colorScheme.tertiary.withValues(alpha: 0.3),
+                  ),
+                ),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(16),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            const ThematicQuoteBrowserScreen(),
+                      ),
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.tertiaryContainer,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.format_quote_rounded,
+                            size: 20,
+                            color: theme.colorScheme.onTertiaryContainer,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'EXPLORE BY THEME',
+                                style: theme.textTheme.labelSmall?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.tertiary,
+                                  letterSpacing: 1.1,
+                                ),
+                              ),
+                              const SizedBox(height: 2),
+                              Text(
+                                'Swipe through quotations by sacrament & virtue',
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: theme.colorScheme.onSurfaceVariant,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Icon(
+                          Icons.chevron_right_rounded,
+                          color: theme.colorScheme.tertiary,
+                        ),
+                      ],
                     ),
-                  );
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(14.0),
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.tertiaryContainer,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          Icons.format_quote_rounded,
-                          size: 20,
-                          color: theme.colorScheme.onTertiaryContainer,
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'EXPLORE BY THEME',
-                              style: theme.textTheme.labelSmall?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: theme.colorScheme.tertiary,
-                                letterSpacing: 1.1,
-                              ),
-                            ),
-                            const SizedBox(height: 2),
-                            Text(
-                              'Swipe through quotations by sacrament & virtue',
-                              style: theme.textTheme.bodySmall?.copyWith(
-                                color: theme.colorScheme.onSurfaceVariant,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Icon(
-                        Icons.chevron_right_rounded,
-                        color: theme.colorScheme.tertiary,
-                      ),
-                    ],
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height: 16),
+              const SizedBox(height: 16),
+            ],
 
             // Category Filter Chips
             SingleChildScrollView(
@@ -585,6 +613,7 @@ class _LibraryCatalogViewState extends State<LibraryCatalogView> {
               final categoryIcon = _getCategoryIcon(bookItem.category);
 
               return Card(
+                key: ValueKey('book_card_${bookItem.id}'),
                 margin: const EdgeInsets.only(bottom: 16.0),
                 elevation: 1,
                 shape: RoundedRectangleBorder(

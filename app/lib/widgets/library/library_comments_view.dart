@@ -9,6 +9,7 @@ class LibraryCommentsView extends StatefulWidget {
   final List<UserComment> comments;
   final bool isLoading;
   final VoidCallback onRefresh;
+  final ScrollController? scrollController;
   final void Function(
     LibraryBookItem book, {
     String? volumeKey,
@@ -22,6 +23,7 @@ class LibraryCommentsView extends StatefulWidget {
   const LibraryCommentsView({
     super.key,
     this.catalog,
+    this.scrollController,
     required this.comments,
     required this.isLoading,
     required this.onRefresh,
@@ -151,6 +153,7 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
         ],
         Expanded(
           child: ListView.builder(
+            controller: widget.scrollController,
             padding: const EdgeInsets.symmetric(
               horizontal: 16.0,
               vertical: 8.0,
