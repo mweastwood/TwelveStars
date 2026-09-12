@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 
@@ -77,6 +79,11 @@ class ThematicHelper {
   static List<ThematicPassage>? mockPassages;
   static Random? mockRandom;
   static const String assetPath = 'assets/catechism/thematic_index.json';
+
+  @visibleForTesting
+  static void clearCache() {
+    _cachedPassages = null;
+  }
 
   static const List<ThematicCategoryGroup> categoryGroups = [
     ThematicCategoryGroup(
