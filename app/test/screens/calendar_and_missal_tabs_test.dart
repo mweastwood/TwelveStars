@@ -1530,8 +1530,7 @@ void main() {
         await testDb
             .into(testDb.bibleVerses)
             .insert(
-              BibleVerse(
-                id: 501,
+              BibleVersesCompanion.insert(
                 bookNumber: firstReading.bookNumber,
                 bookName: firstReading.bookName,
                 chapter: firstReading.chapter,
@@ -1543,8 +1542,7 @@ void main() {
         await testDb
             .into(testDb.bibleVerses)
             .insert(
-              BibleVerse(
-                id: 502,
+              BibleVersesCompanion.insert(
                 bookNumber: gospelReading.bookNumber,
                 bookName: gospelReading.bookName,
                 chapter: gospelReading.chapter,
