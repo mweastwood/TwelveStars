@@ -449,23 +449,23 @@ class _HomeScreenState extends State<HomeScreen>
                     labelType: NavigationRailLabelType.all,
                     destinations: const [
                       NavigationRailDestination(
-                        icon: Icon(Icons.auto_stories_outlined),
-                        selectedIcon: Icon(Icons.auto_stories),
+                        icon: Icon(Icons.church_outlined),
+                        selectedIcon: Icon(Icons.church),
                         label: Text('Missal'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.volunteer_activism_outlined),
+                        selectedIcon: Icon(Icons.volunteer_activism),
+                        label: Text('Prayers'),
                       ),
                       NavigationRailDestination(
                         icon: Icon(Icons.menu_book_outlined),
                         selectedIcon: Icon(Icons.menu_book),
-                        label: Text('Prayers'),
-                      ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.book_outlined),
-                        selectedIcon: Icon(Icons.book),
                         label: Text('Bible'),
                       ),
                       NavigationRailDestination(
-                        icon: Icon(Icons.local_library_outlined),
-                        selectedIcon: Icon(Icons.local_library),
+                        icon: Icon(Icons.library_books_outlined),
+                        selectedIcon: Icon(Icons.library_books),
                         label: Text('Library'),
                       ),
                     ],
@@ -502,23 +502,23 @@ class _HomeScreenState extends State<HomeScreen>
               onDestinationSelected: _onTabSelected,
               destinations: const [
                 NavigationDestination(
-                  icon: Icon(Icons.auto_stories_outlined),
-                  selectedIcon: Icon(Icons.auto_stories),
+                  icon: Icon(Icons.church_outlined),
+                  selectedIcon: Icon(Icons.church),
                   label: 'Missal',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.volunteer_activism_outlined),
+                  selectedIcon: Icon(Icons.volunteer_activism),
+                  label: 'Prayers',
                 ),
                 NavigationDestination(
                   icon: Icon(Icons.menu_book_outlined),
                   selectedIcon: Icon(Icons.menu_book),
-                  label: 'Prayers',
-                ),
-                NavigationDestination(
-                  icon: Icon(Icons.book_outlined),
-                  selectedIcon: Icon(Icons.book),
                   label: 'Bible',
                 ),
                 NavigationDestination(
-                  icon: Icon(Icons.local_library_outlined),
-                  selectedIcon: Icon(Icons.local_library),
+                  icon: Icon(Icons.library_books_outlined),
+                  selectedIcon: Icon(Icons.library_books),
                   label: 'Library',
                 ),
               ],
