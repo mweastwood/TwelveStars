@@ -9,6 +9,10 @@ enum BibleAnnotationType { favorite, comment }
 
 enum BibleNotesScope { chapter, book, all }
 
+/// Maximum length of a book name before falling back to its abbreviation
+/// to prevent label overflow in the SegmentedButton on compact screens.
+const int _kBookNameMaxLength = 12;
+
 class BibleAnnotationItem {
   final int bookNumber;
   final String bookName;
@@ -199,6 +203,26 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
     return items;
   }
 
+  bool _matchesScope(
+    BibleAnnotationItem item, [
+    BibleNotesScope? scopeOverride,
+  ]) {
+    final scope = scopeOverride ?? _scope;
+    if (_activeBook == null) {
+      return scope == BibleNotesScope.all;
+    }
+    switch (scope) {
+      case BibleNotesScope.chapter:
+        return _activeChapter != null &&
+            item.bookNumber == _activeBook!.bookNumber &&
+            item.chapter == _activeChapter;
+      case BibleNotesScope.book:
+        return item.bookNumber == _activeBook!.bookNumber;
+      case BibleNotesScope.all:
+        return true;
+    }
+  }
+
   List<BibleAnnotationItem> _getFilteredItems() {
     final unified = _buildUnifiedItems();
     final query = _searchQuery.trim().toLowerCase();
@@ -211,18 +235,8 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
         return false;
       }
 
-      // Scope filtering
-      if (_activeBook != null) {
-        if (_scope == BibleNotesScope.chapter && _activeChapter != null) {
-          if (item.bookNumber != _activeBook!.bookNumber ||
-              item.chapter != _activeChapter) {
-            return false;
-          }
-        } else if (_scope == BibleNotesScope.book) {
-          if (item.bookNumber != _activeBook!.bookNumber) {
-            return false;
-          }
-        }
+      if (!_matchesScope(item)) {
+        return false;
       }
 
       if (query.isEmpty) return true;
@@ -353,12 +367,14 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
           (item.type == BibleAnnotationType.comment && _showComments);
       if (!matchesType) continue;
 
-      allCount++;
-      if (_activeBook != null && item.bookNumber == _activeBook!.bookNumber) {
+      if (_matchesScope(item, BibleNotesScope.all)) {
+        allCount++;
+      }
+      if (_matchesScope(item, BibleNotesScope.book)) {
         bookCount++;
-        if (_activeChapter != null && item.chapter == _activeChapter) {
-          chapterCount++;
-        }
+      }
+      if (_matchesScope(item, BibleNotesScope.chapter)) {
+        chapterCount++;
       }
     }
 
@@ -367,17 +383,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
     int noteCount = 0;
 
     for (final item in unified) {
-      bool matchesScope = true;
-      if (_activeBook != null) {
-        if (_scope == BibleNotesScope.chapter && _activeChapter != null) {
-          matchesScope =
-              item.bookNumber == _activeBook!.bookNumber &&
-              item.chapter == _activeChapter;
-        } else if (_scope == BibleNotesScope.book) {
-          matchesScope = item.bookNumber == _activeBook!.bookNumber;
-        }
-      }
-      if (!matchesScope) continue;
+      if (!_matchesScope(item)) continue;
 
       if (item.type == BibleAnnotationType.favorite) {
         favCount++;
@@ -452,7 +458,8 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                       enabled: _activeBook != null,
                       label: Text(
                         _activeBook != null
-                            ? (_activeBook!.bookName.length > 12
+                            ? (_activeBook!.bookName.length >
+                                      _kBookNameMaxLength
                                   ? '${_activeBook!.abbrev} ($bookCount)'
                                   : '${_activeBook!.bookName} ($bookCount)')
                             : 'Book',
@@ -469,7 +476,18 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                   ],
                   selected: {_scope},
                   onSelectionChanged: (newSelection) {
-                    setState(() => _scope = newSelection.first);
+                    setState(() {
+                      _scope = newSelection.first;
+                      // Keep dropdown pickers in sync with the new scope selection
+                      if (_scope == BibleNotesScope.all) {
+                        _activeBook = null;
+                        _activeChapter = null;
+                      } else if (_scope == BibleNotesScope.book) {
+                        // Retain _activeBook if already set; only clear chapter selection
+                        _activeChapter = null;
+                      }
+                      // For chapter scope, retain both _activeBook and _activeChapter as-is.
+                    });
                   },
                 ),
                 const SizedBox(height: 10.0),
