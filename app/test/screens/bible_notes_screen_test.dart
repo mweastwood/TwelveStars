@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/screens/bible_notes_screen.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import '../test_helper.dart';
@@ -376,6 +377,134 @@ void main() {
 
       expect(find.byType(BibleNotesScreen), findsOneWidget);
       expect(find.text('Bible Notes & Favorites'), findsOneWidget);
+      expect(
+        find.byKey(const Key('bible_notes_scope_segmented_button')),
+        findsOneWidget,
+      );
+      expect(find.text('Ch. 1 (0)'), findsOneWidget);
+      expect(find.text('Genesis (0)'), findsOneWidget);
+    });
+
+    testWidgets(
+      'scopes annotations to current chapter and book, and toggles scopes via SegmentedButton',
+      (tester) async {
+        final matthew = catholicBooks.firstWhere((b) => b.bookNumber == 49);
+        await tester.pumpWidget(
+          MaterialApp(
+            home: BibleNotesScreen(
+              initialFavorites: mockFavorites,
+              initialComments: mockComments,
+              currentBook: matthew,
+              currentChapter: 5,
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Should default to Chapter scope
+        expect(find.text('Ch. 5 (2)'), findsOneWidget);
+        expect(find.text('Matthew (2)'), findsOneWidget);
+        expect(find.text('All Bible (6)'), findsOneWidget);
+
+        // Only Matthew 5 annotations should be visible
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+        expect(find.text('Matthew 5:3'), findsOneWidget);
+        expect(find.text('Genesis 1:1-3'), findsNothing);
+        expect(find.text('Psalms 23:1'), findsNothing);
+
+        // Favorites and Notes counts should reflect active chapter scope
+        expect(find.text('Favorites (1)'), findsOneWidget);
+        expect(find.text('Notes (1)'), findsOneWidget);
+
+        // Switch scope to Book: "Matthew (2)"
+        await tester.tap(find.text('Matthew (2)'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+        expect(find.text('Matthew 5:3'), findsOneWidget);
+        expect(find.text('Genesis 1:1-3'), findsNothing);
+
+        // Switch scope to All Bible: "All Bible (6)"
+        await tester.tap(find.text('All Bible (6)'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Genesis 1:1-3'), findsOneWidget);
+        expect(find.text('Psalms 23:1'), findsOneWidget);
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+        expect(find.text('Matthew 5:3'), findsOneWidget);
+        expect(find.text('Romans 8:28'), findsOneWidget);
+        expect(find.text('Revelation 21:4'), findsOneWidget);
+        expect(find.text('Favorites (3)'), findsOneWidget);
+        expect(find.text('Notes (3)'), findsOneWidget);
+
+        // Switch back to Chapter: "Ch. 5 (2)"
+        await tester.tap(find.text('Ch. 5 (2)'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+        expect(find.text('Genesis 1:1-3'), findsNothing);
+      },
+    );
+
+    testWidgets('filters annotations by book and chapter using dropdowns', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: BibleNotesScreen(
+            initialFavorites: mockFavorites,
+            initialComments: mockComments,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Starts with All Bible
+      expect(find.text('All Bible (6)'), findsOneWidget);
+      expect(find.text('Genesis 1:1-3'), findsOneWidget);
+
+      // Tap book dropdown to select Genesis
+      await tester.tap(find.byKey(const Key('bible_notes_book_dropdown')));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Genesis').last);
+      await tester.pumpAndSettle();
+
+      // Genesis has 1 annotation (in chapter 1)
+      expect(find.text('Genesis (1)'), findsOneWidget);
+      expect(find.text('Genesis 1:1-3'), findsOneWidget);
+      expect(find.text('Matthew 5:3-5'), findsNothing);
+      expect(find.text('Psalms 23:1'), findsNothing);
+
+      // Switch chapter to chapter 2 (which has no notes in Genesis)
+      await tester.tap(find.byKey(const Key('bible_notes_chapter_dropdown')));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Ch. 2').last);
+      await tester.pumpAndSettle();
+
+      expect(find.text('No notes or favorites in Genesis 2.'), findsOneWidget);
+      expect(find.text('Genesis 1:1-3'), findsNothing);
+
+      // Switch back to chapter 1
+      await tester.tap(find.byKey(const Key('bible_notes_chapter_dropdown')));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Ch. 1').last);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Genesis 1:1-3'), findsOneWidget);
+
+      // Switch to "All Books" in book dropdown
+      await tester.tap(find.byKey(const Key('bible_notes_book_dropdown')));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('All Books').last);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Genesis 1:1-3'), findsOneWidget);
+      expect(find.text('Matthew 5:3'), findsOneWidget);
+      expect(find.text('Psalms 23:1'), findsOneWidget);
     });
   });
 
