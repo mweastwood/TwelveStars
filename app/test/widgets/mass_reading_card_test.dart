@@ -443,6 +443,117 @@ void main() {
     },
   );
 
+  testWidgets(
+    'MassReadingCard delegates selection to onSelectionChanged and clears when unselected',
+    (WidgetTester tester) async {
+      const reading = LectionaryReading(
+        id: 10,
+        readingKey: 'feast_test',
+        readingType: 'first',
+        bookNumber: 1,
+        bookName: 'Genesis',
+        chapter: 1,
+        verseRange: '1-2',
+        citation: 'Genesis 1:1-2',
+      );
+
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 2,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 2,
+              verseText: 'And the earth was void and empty.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      MassReadingSelection? currentSelection;
+      bool isSelected = false;
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: StatefulBuilder(
+            builder: (context, setState) {
+              return Scaffold(
+                body: MassReadingCard(
+                  reading: reading,
+                  isSelected: isSelected,
+                  onSelectionChanged: (sel) {
+                    setState(() {
+                      currentSelection = sel;
+                      isSelected = sel != null;
+                    });
+                  },
+                ),
+              );
+            },
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Long press verse 1
+      await tester.longPress(
+        find.text('In the beginning God created heaven, and earth.'),
+      );
+      await tester.pumpAndSettle();
+
+      // Selection callback was triggered with Genesis 1:1
+      expect(currentSelection, isNotNull);
+      expect(currentSelection!.citation, 'Genesis 1:1');
+      expect(currentSelection!.selectedCount, 1);
+      expect(isSelected, isTrue);
+
+      // Inline ReaderSelectionActionBar is NOT rendered inside MassReadingCard
+      expect(find.byType(ReaderSelectionActionBar), findsNothing);
+
+      // Tap verse 2 to expand selection
+      await tester.tap(find.text('And the earth was void and empty.'));
+      await tester.pumpAndSettle();
+
+      expect(currentSelection!.citation, 'Genesis 1:1-2');
+      expect(currentSelection!.selectedCount, 2);
+
+      // Deselect via isSelected = false update
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: MassReadingCard(
+              reading: reading,
+              isSelected: false,
+              onSelectionChanged: (sel) {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Verse highlight should be cleared
+      final verseFinder = find.byType(BibleVerseRow);
+      expect(verseFinder, findsNWidgets(2));
+      for (final element in tester.widgetList<BibleVerseRow>(verseFinder)) {
+        expect(element.isSelected, isFalse);
+      }
+    },
+  );
+
   testGoldens('MassReadingCard renders correctly expanded and collapsed', (
     tester,
   ) async {
