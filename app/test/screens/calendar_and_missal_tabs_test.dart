@@ -1552,7 +1552,7 @@ void main() {
               ),
             );
 
-        TimeHelper.setCustomTime(DateTime(2024, 11, 24));
+        TimeHelper.setCustomTime(DateTime(2024, 11, 25));
         await tester.pumpWidget(
           buildTestableWidget(
             child: Scaffold(
@@ -1565,8 +1565,17 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        // 1. Initial State: FABs are present, no floating action bar
+        // 1. Initial State (Today): Only Next Sunday FAB is present, Today FAB is hidden
         expect(find.byType(ReaderSelectionActionBar), findsNothing);
+        expect(find.byKey(const Key('missal_today_fab')), findsNothing);
+        expect(find.byKey(const Key('missal_next_sunday_fab')), findsOneWidget);
+
+        // Navigate to past date (Sunday 2024-11-24)
+        await tester.tap(find.byTooltip('Previous Day'));
+        await tester.pumpAndSettle();
+
+        // Both FABs are now present on past date
+        expect(find.byKey(const Key('missal_today_fab')), findsOneWidget);
         expect(find.byKey(const Key('missal_next_sunday_fab')), findsOneWidget);
 
         // 2. Select verse in First Reading
@@ -1596,7 +1605,8 @@ void main() {
           findsOneWidget,
         );
 
-        // FAB is hidden
+        // Both FABs are hidden while selection is active
+        expect(find.byKey(const Key('missal_today_fab')), findsNothing);
         expect(find.byKey(const Key('missal_next_sunday_fab')), findsNothing);
 
         // 3. Select verse in Gospel (cross-reading selection!)
@@ -1619,6 +1629,10 @@ void main() {
           findsOneWidget,
         );
 
+        // Both FABs remain hidden
+        expect(find.byKey(const Key('missal_today_fab')), findsNothing);
+        expect(find.byKey(const Key('missal_next_sunday_fab')), findsNothing);
+
         // First reading verse is now unselected, Gospel verse is selected
         final verseRows = tester
             .widgetList<BibleVerseRow>(find.byType(BibleVerseRow))
@@ -1634,8 +1648,9 @@ void main() {
         await tester.tap(find.byTooltip('Clear Selection'));
         await tester.pumpAndSettle();
 
-        // Floating action bar is gone, FAB is restored
+        // Floating action bar is gone, both FABs are restored
         expect(find.byType(ReaderSelectionActionBar), findsNothing);
+        expect(find.byKey(const Key('missal_today_fab')), findsOneWidget);
         expect(find.byKey(const Key('missal_next_sunday_fab')), findsOneWidget);
       },
     );

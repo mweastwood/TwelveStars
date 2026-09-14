@@ -554,6 +554,106 @@ void main() {
     },
   );
 
+  test('MassReadingSelection equality and hashCode work as expected', () {
+    final sel1 = MassReadingSelection(
+      readingIdentifier: 'key_first_1',
+      citation: 'Genesis 1:1',
+      selectedCount: 1,
+      onSaveFavorite: () {},
+      onCopy: () {},
+      onClearSelection: () {},
+    );
+    final sel2 = MassReadingSelection(
+      readingIdentifier: 'key_first_1',
+      citation: 'Genesis 1:1',
+      selectedCount: 1,
+      onSaveFavorite: () {},
+      onCopy: () {},
+      onClearSelection: () {},
+    );
+    final sel3 = MassReadingSelection(
+      readingIdentifier: 'key_first_1',
+      citation: 'Genesis 1:1-2',
+      selectedCount: 2,
+      onSaveFavorite: () {},
+      onCopy: () {},
+      onClearSelection: () {},
+    );
+
+    expect(sel1, equals(sel2));
+    expect(sel1.hashCode, equals(sel2.hashCode));
+    expect(sel1, isNot(equals(sel3)));
+  });
+
+  testWidgets(
+    'MassReadingSelection.onClearSelection clears local card selection without re-notifying onSelectionChanged',
+    (WidgetTester tester) async {
+      const reading = LectionaryReading(
+        id: 10,
+        readingKey: 'feast_test',
+        readingType: 'first',
+        bookNumber: 1,
+        bookName: 'Genesis',
+        chapter: 1,
+        verseRange: '1-2',
+        citation: 'Genesis 1:1-2',
+      );
+
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      int callbackCount = 0;
+      MassReadingSelection? currentSelection;
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: MassReadingCard(
+              reading: reading,
+              isSelected: true,
+              onSelectionChanged: (sel) {
+                callbackCount++;
+                currentSelection = sel;
+              },
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Long press verse 1
+      await tester.longPress(
+        find.text('In the beginning God created heaven, and earth.'),
+      );
+      await tester.pumpAndSettle();
+
+      expect(callbackCount, 1);
+      expect(currentSelection, isNotNull);
+
+      // Invoke onClearSelection from the selection data
+      currentSelection!.onClearSelection();
+      await tester.pumpAndSettle();
+
+      // Callback count should remain 1 (no re-notification / double setState)
+      expect(callbackCount, 1);
+
+      // Verse highlight should be cleared
+      final verseFinder = find.byType(BibleVerseRow);
+      expect(tester.widget<BibleVerseRow>(verseFinder).isSelected, isFalse);
+    },
+  );
+
   testGoldens('MassReadingCard renders correctly expanded and collapsed', (
     tester,
   ) async {

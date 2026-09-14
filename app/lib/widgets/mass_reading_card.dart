@@ -15,6 +15,10 @@ import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 
 /// Encapsulates an active verse selection within a [MassReadingCard],
 /// allowing parent widgets like [MissalTab] to render a floating action bar.
+///
+/// Action callbacks are bound to closures within the active [MassReadingCard]
+/// state instance. Value equality is based on [readingIdentifier], [citation],
+/// and [selectedCount].
 class MassReadingSelection {
   final String readingIdentifier;
   final String citation;
@@ -33,6 +37,18 @@ class MassReadingSelection {
     this.onAddComment,
     required this.onClearSelection,
   });
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MassReadingSelection &&
+          runtimeType == other.runtimeType &&
+          readingIdentifier == other.readingIdentifier &&
+          citation == other.citation &&
+          selectedCount == other.selectedCount;
+
+  @override
+  int get hashCode => Object.hash(readingIdentifier, citation, selectedCount);
 }
 
 /// Renders an individual reading for the Catholic Mass lectionary.
@@ -300,28 +316,32 @@ class _MassReadingCardState extends State<MassReadingCard> {
     setState(() {
       _firstSelectedVerseIndex = index;
       _lastSelectedVerseIndex = index;
+      _notifySelectionChanged();
     });
-    _notifySelectionChanged();
   }
 
   void _onVerseTap(int index) {
     if (_firstSelectedVerseIndex != null) {
       setState(() {
         _lastSelectedVerseIndex = index;
+        _notifySelectionChanged();
       });
-      _notifySelectionChanged();
     }
   }
 
-  void _clearSelection() {
+  void _clearSelection({bool notify = true}) {
     setState(() {
       _firstSelectedVerseIndex = null;
       _lastSelectedVerseIndex = null;
+      if (notify) {
+        _notifySelectionChanged();
+      }
     });
-    _notifySelectionChanged();
   }
 
   void _notifySelectionChanged() {
+    // Invariant: Must be called inside or after updating _firstSelectedVerseIndex
+    // and _lastSelectedVerseIndex so _createSelectionData reflects current state.
     widget.onSelectionChanged?.call(_createSelectionData());
   }
 
@@ -420,11 +440,15 @@ class _MassReadingCardState extends State<MassReadingCard> {
           _clearSelection();
         }
       },
-      onClearSelection: _clearSelection,
+      onClearSelection: () => _clearSelection(notify: false),
     );
   }
 
   Widget _buildSelectionActionBar(ThemeData theme) {
+    // Inline fallback path: Used when MassReadingCard is rendered standalone
+    // without an external onSelectionChanged coordinator (e.g. outside MissalTab).
+    // In this mode, the ReaderSelectionActionBar is rendered inline at the bottom
+    // of the card rather than floated by the parent viewport.
     final selection = _createSelectionData();
     if (selection == null) {
       return const SizedBox.shrink();

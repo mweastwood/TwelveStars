@@ -92,6 +92,7 @@ class _MissalTabState extends State<MissalTab> {
   Future<List<LectionaryReading>> _getReadingsForDay(String lectionaryKey) {
     if (_readingsFuture == null || _cachedLectionaryKey != lectionaryKey) {
       _cachedLectionaryKey = lectionaryKey;
+      _activeSelection = null;
       _readingsFuture = BibleDatabaseHelper.db.getReadings(lectionaryKey);
     }
     return _readingsFuture!;
@@ -460,6 +461,7 @@ class _MissalTabState extends State<MissalTab> {
               children: [
                 if (!_isTodaySelected) ...[
                   FloatingActionButton.extended(
+                    key: const Key('missal_today_fab'),
                     heroTag: 'missal_today_fab',
                     onPressed: () {
                       setState(() {
@@ -474,6 +476,7 @@ class _MissalTabState extends State<MissalTab> {
                   const SizedBox(height: 8),
                 ],
                 FloatingActionButton.extended(
+                  key: const Key('missal_next_sunday_fab'),
                   heroTag: 'missal_next_sunday_fab',
                   onPressed: () {
                     setState(() {
@@ -629,6 +632,15 @@ class _MissalTabState extends State<MissalTab> {
                         builder: (context, snapshot) {
                           if (snapshot.connectionState ==
                               ConnectionState.waiting) {
+                            if (_activeSelection != null) {
+                              WidgetsBinding.instance.addPostFrameCallback((_) {
+                                if (mounted && _activeSelection != null) {
+                                  setState(() {
+                                    _activeSelection = null;
+                                  });
+                                }
+                              });
+                            }
                             return Column(
                               children: [
                                 const Padding(
