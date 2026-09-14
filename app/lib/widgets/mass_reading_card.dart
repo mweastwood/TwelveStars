@@ -13,6 +13,44 @@ import 'package:twelve_stars/widgets/bible_verse_modals.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 
+/// Encapsulates an active verse selection within a [MassReadingCard],
+/// allowing parent widgets like [MissalTab] to render a floating action bar.
+///
+/// Action callbacks are bound to closures within the active [MassReadingCard]
+/// state instance. Value equality is based on [readingIdentifier], [citation],
+/// and [selectedCount].
+class MassReadingSelection {
+  final String readingIdentifier;
+  final String citation;
+  final int selectedCount;
+  final VoidCallback onSaveFavorite;
+  final VoidCallback onCopy;
+  final VoidCallback? onAddComment;
+  final VoidCallback onClearSelection;
+
+  const MassReadingSelection({
+    required this.readingIdentifier,
+    required this.citation,
+    required this.selectedCount,
+    required this.onSaveFavorite,
+    required this.onCopy,
+    this.onAddComment,
+    required this.onClearSelection,
+  });
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MassReadingSelection &&
+          runtimeType == other.runtimeType &&
+          readingIdentifier == other.readingIdentifier &&
+          citation == other.citation &&
+          selectedCount == other.selectedCount;
+
+  @override
+  int get hashCode => Object.hash(readingIdentifier, citation, selectedCount);
+}
+
 /// Renders an individual reading for the Catholic Mass lectionary.
 ///
 /// Automatically indexes reverse Bible citations across patristic, Marian,
@@ -23,6 +61,8 @@ class MassReadingCard extends StatefulWidget {
   final double fontSize;
   final PrayerLanguage primaryLanguage;
   final PrayerLanguage? compareLanguage;
+  final bool isSelected;
+  final ValueChanged<MassReadingSelection?>? onSelectionChanged;
 
   const MassReadingCard({
     super.key,
@@ -30,6 +70,8 @@ class MassReadingCard extends StatefulWidget {
     this.fontSize = 16.0,
     this.primaryLanguage = PrayerLanguage.english,
     this.compareLanguage,
+    this.isSelected = false,
+    this.onSelectionChanged,
   });
 
   @override
@@ -65,6 +107,15 @@ class _MassReadingCardState extends State<MassReadingCard> {
     } else if (oldWidget.primaryLanguage != widget.primaryLanguage ||
         oldWidget.compareLanguage != widget.compareLanguage) {
       setState(() {});
+    }
+
+    if (widget.onSelectionChanged != null &&
+        oldWidget.isSelected &&
+        !widget.isSelected) {
+      setState(() {
+        _firstSelectedVerseIndex = null;
+        _lastSelectedVerseIndex = null;
+      });
     }
   }
 
@@ -248,6 +299,9 @@ class _MassReadingCardState extends State<MassReadingCard> {
     }
   }
 
+  String get _readingIdentifier =>
+      '${widget.reading.readingKey}_${widget.reading.readingType}_${widget.reading.id}';
+
   bool _isVerseSelected(int index) {
     if (_firstSelectedVerseIndex != null && _lastSelectedVerseIndex != null) {
       final start = min(_firstSelectedVerseIndex!, _lastSelectedVerseIndex!);
@@ -262,6 +316,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
     setState(() {
       _firstSelectedVerseIndex = index;
       _lastSelectedVerseIndex = index;
+      _notifySelectionChanged();
     });
   }
 
@@ -269,23 +324,33 @@ class _MassReadingCardState extends State<MassReadingCard> {
     if (_firstSelectedVerseIndex != null) {
       setState(() {
         _lastSelectedVerseIndex = index;
+        _notifySelectionChanged();
       });
     }
   }
 
-  void _clearSelection() {
+  void _clearSelection({bool notify = true}) {
     setState(() {
       _firstSelectedVerseIndex = null;
       _lastSelectedVerseIndex = null;
+      if (notify) {
+        _notifySelectionChanged();
+      }
     });
   }
 
-  Widget _buildSelectionActionBar(ThemeData theme) {
+  void _notifySelectionChanged() {
+    // Invariant: Must be called inside or after updating _firstSelectedVerseIndex
+    // and _lastSelectedVerseIndex so _createSelectionData reflects current state.
+    widget.onSelectionChanged?.call(_createSelectionData());
+  }
+
+  MassReadingSelection? _createSelectionData() {
     if (_firstSelectedVerseIndex == null ||
         _lastSelectedVerseIndex == null ||
         _verses == null ||
         _verses!.isEmpty) {
-      return const SizedBox.shrink();
+      return null;
     }
 
     final start = min(_firstSelectedVerseIndex!, _lastSelectedVerseIndex!);
@@ -308,76 +373,97 @@ class _MassReadingCardState extends State<MassReadingCard> {
 
     final textPreview = selectedVerses.map((v) => v.verseText).join(' ');
 
+    return MassReadingSelection(
+      readingIdentifier: _readingIdentifier,
+      citation: citation,
+      selectedCount: count,
+      onSaveFavorite: () async {
+        final favorite = FavoritePassagesCompanion.insert(
+          bookNumber: firstV.bookNumber,
+          bookName: firstV.bookName,
+          chapter: firstV.chapter,
+          startVerse: firstV.verseNumber,
+          endVerse: lastV.verseNumber,
+          textPreview: textPreview,
+        );
+
+        await BibleDatabaseHelper.db.saveFavorite(favorite);
+        await _loadFavorites();
+
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Saved $citation to Favorites'),
+              behavior: SnackBarBehavior.floating,
+            ),
+          );
+          _clearSelection();
+        }
+      },
+      onAddComment: () {
+        final bookMeta = catholicBooks.firstWhere(
+          (b) => b.bookNumber == widget.reading.bookNumber,
+        );
+        showAddCommentDialog(
+          context: context,
+          citation: citation,
+          textPreview: textPreview,
+          documentId: bookMeta.abbrev,
+          sectionIndex: firstV.chapter,
+          nodeId:
+              '${firstV.bookNumber}_${firstV.chapter}_${firstV.verseNumber}',
+          onCommentSaved: () async {
+            _clearSelection();
+            await _loadComments();
+          },
+        );
+      },
+      onCopy: () async {
+        final versesText = selectedVerses
+            .map((v) {
+              return count == 1
+                  ? v.verseText
+                  : '${v.verseNumber} ${v.verseText}';
+            })
+            .join(count == 1 ? '' : '\n');
+
+        final clipboardContent = '$citation\n$versesText';
+        await Clipboard.setData(ClipboardData(text: clipboardContent));
+
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Copied $citation to clipboard'),
+              behavior: SnackBarBehavior.floating,
+            ),
+          );
+          _clearSelection();
+        }
+      },
+      onClearSelection: () => _clearSelection(notify: false),
+    );
+  }
+
+  Widget _buildSelectionActionBar(ThemeData theme) {
+    // Inline fallback path: Used when MassReadingCard is rendered standalone
+    // without an external onSelectionChanged coordinator (e.g. outside MissalTab).
+    // In this mode, the ReaderSelectionActionBar is rendered inline at the bottom
+    // of the card rather than floated by the parent viewport.
+    final selection = _createSelectionData();
+    if (selection == null) {
+      return const SizedBox.shrink();
+    }
+
     return Padding(
       padding: const EdgeInsets.only(top: 12.0),
       child: ReaderSelectionActionBar(
-        title: citation,
-        selectedCount: count,
+        title: selection.citation,
+        selectedCount: selection.selectedCount,
         itemLabel: 'verse',
-        onSaveFavorite: () async {
-          final favorite = FavoritePassagesCompanion.insert(
-            bookNumber: firstV.bookNumber,
-            bookName: firstV.bookName,
-            chapter: firstV.chapter,
-            startVerse: firstV.verseNumber,
-            endVerse: lastV.verseNumber,
-            textPreview: textPreview,
-          );
-
-          await BibleDatabaseHelper.db.saveFavorite(favorite);
-          await _loadFavorites();
-
-          if (mounted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text('Saved $citation to Favorites'),
-                behavior: SnackBarBehavior.floating,
-              ),
-            );
-            _clearSelection();
-          }
-        },
-        onAddComment: () {
-          final bookMeta = catholicBooks.firstWhere(
-            (b) => b.bookNumber == widget.reading.bookNumber,
-          );
-          showAddCommentDialog(
-            context: context,
-            citation: citation,
-            textPreview: textPreview,
-            documentId: bookMeta.abbrev,
-            sectionIndex: firstV.chapter,
-            nodeId:
-                '${firstV.bookNumber}_${firstV.chapter}_${firstV.verseNumber}',
-            onCommentSaved: () async {
-              _clearSelection();
-              await _loadComments();
-            },
-          );
-        },
-        onCopy: () async {
-          final versesText = selectedVerses
-              .map((v) {
-                return count == 1
-                    ? v.verseText
-                    : '${v.verseNumber} ${v.verseText}';
-              })
-              .join(count == 1 ? '' : '\n');
-
-          final clipboardContent = '$citation\n$versesText';
-          await Clipboard.setData(ClipboardData(text: clipboardContent));
-
-          if (mounted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text('Copied $citation to clipboard'),
-                behavior: SnackBarBehavior.floating,
-              ),
-            );
-            _clearSelection();
-          }
-        },
-        onClearSelection: _clearSelection,
+        onSaveFavorite: selection.onSaveFavorite,
+        onCopy: selection.onCopy,
+        onAddComment: selection.onAddComment,
+        onClearSelection: selection.onClearSelection,
       ),
     );
   }
@@ -553,7 +639,8 @@ class _MassReadingCardState extends State<MassReadingCard> {
                 }),
                 if (_buildConcludingAcclamation(theme) != null)
                   _buildConcludingAcclamation(theme)!,
-                if (_firstSelectedVerseIndex != null)
+                if (widget.onSelectionChanged == null &&
+                    _firstSelectedVerseIndex != null)
                   _buildSelectionActionBar(theme),
               ],
             ],

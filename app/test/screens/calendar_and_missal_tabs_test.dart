@@ -8,6 +8,7 @@ import 'package:twelve_stars/widgets/homily_reflection_sheet.dart';
 import 'package:twelve_stars/widgets/anima_christi_sheet.dart';
 import 'package:twelve_stars/widgets/missal_creed_carousel.dart';
 import 'package:twelve_stars/widgets/reader/missal_section_widgets.dart';
+import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
@@ -1506,6 +1507,151 @@ void main() {
 
         expect(find.text('Universal Prayer'), findsWidgets);
         expect(find.text('Oratio Universalis'), findsWidgets);
+      },
+    );
+
+    testWidgets(
+      'MissalTab renders floating selection action bar, hides FABs, and handles cross-reading selection',
+      (tester) async {
+        final day = LiturgicalCalendar.computeDay(DateTime(2024, 11, 24));
+        final readings = await BibleDatabaseHelper.db.getReadings(
+          day.lectionaryKey,
+        );
+        expect(readings.length, 4);
+
+        final firstReading = readings.firstWhere(
+          (r) => r.readingType == 'first',
+        );
+        final gospelReading = readings.firstWhere(
+          (r) => r.readingType == 'gospel',
+        );
+
+        // Insert sample verses for First Reading and Gospel in testDb
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: firstReading.bookNumber,
+                bookName: firstReading.bookName,
+                chapter: firstReading.chapter,
+                verseNumber: 13,
+                verseText: 'I beheld therefore in the vision of the night.',
+                translationCode: 'CPDV',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: gospelReading.bookNumber,
+                bookName: gospelReading.bookName,
+                chapter: gospelReading.chapter,
+                verseNumber: 33,
+                verseText: 'Pilate therefore went into the hall again.',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        TimeHelper.setCustomTime(DateTime(2024, 11, 25));
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: MissalTab(
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // 1. Initial State (Today): Only Next Sunday FAB is present, Today FAB is hidden
+        expect(find.byType(ReaderSelectionActionBar), findsNothing);
+        expect(find.byKey(const Key('missal_today_fab')), findsNothing);
+        expect(find.byKey(const Key('missal_next_sunday_fab')), findsOneWidget);
+
+        // Navigate to past date (Sunday 2024-11-24)
+        await tester.tap(find.byTooltip('Previous Day'));
+        await tester.pumpAndSettle();
+
+        // Both FABs are now present on past date
+        expect(find.byKey(const Key('missal_today_fab')), findsOneWidget);
+        expect(find.byKey(const Key('missal_next_sunday_fab')), findsOneWidget);
+
+        // 2. Select verse in First Reading
+        final firstVerseFinder = find.text(
+          'I beheld therefore in the vision of the night.',
+        );
+        await tester.ensureVisible(firstVerseFinder);
+        await tester.longPress(firstVerseFinder);
+        await tester.pumpAndSettle();
+
+        // Floating ReaderSelectionActionBar appears
+        expect(find.byType(ReaderSelectionActionBar), findsOneWidget);
+        expect(
+          find.descendant(
+            of: find.byType(ReaderSelectionActionBar),
+            matching: find.textContaining(
+              '${firstReading.bookName} ${firstReading.chapter}:13',
+            ),
+          ),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(
+            of: find.byType(ReaderSelectionActionBar),
+            matching: find.text('1 verse selected'),
+          ),
+          findsOneWidget,
+        );
+
+        // Both FABs are hidden while selection is active
+        expect(find.byKey(const Key('missal_today_fab')), findsNothing);
+        expect(find.byKey(const Key('missal_next_sunday_fab')), findsNothing);
+
+        // 3. Select verse in Gospel (cross-reading selection!)
+        final gospelVerseFinder = find.text(
+          'Pilate therefore went into the hall again.',
+        );
+        await tester.ensureVisible(gospelVerseFinder);
+        await tester.longPress(gospelVerseFinder);
+        await tester.pumpAndSettle();
+
+        // Floating toolbar updates to Gospel
+        expect(find.byType(ReaderSelectionActionBar), findsOneWidget);
+        expect(
+          find.descendant(
+            of: find.byType(ReaderSelectionActionBar),
+            matching: find.textContaining(
+              '${gospelReading.bookName} ${gospelReading.chapter}:33',
+            ),
+          ),
+          findsOneWidget,
+        );
+
+        // Both FABs remain hidden
+        expect(find.byKey(const Key('missal_today_fab')), findsNothing);
+        expect(find.byKey(const Key('missal_next_sunday_fab')), findsNothing);
+
+        // First reading verse is now unselected, Gospel verse is selected
+        final verseRows = tester
+            .widgetList<BibleVerseRow>(find.byType(BibleVerseRow))
+            .toList();
+        final firstReadingRow = verseRows.firstWhere(
+          (r) => r.verseNumber == 13,
+        );
+        final gospelRow = verseRows.firstWhere((r) => r.verseNumber == 33);
+        expect(firstReadingRow.isSelected, isFalse);
+        expect(gospelRow.isSelected, isTrue);
+
+        // 4. Tap Clear Selection
+        await tester.tap(find.byTooltip('Clear Selection'));
+        await tester.pumpAndSettle();
+
+        // Floating action bar is gone, both FABs are restored
+        expect(find.byType(ReaderSelectionActionBar), findsNothing);
+        expect(find.byKey(const Key('missal_today_fab')), findsOneWidget);
+        expect(find.byKey(const Key('missal_next_sunday_fab')), findsOneWidget);
       },
     );
   });
