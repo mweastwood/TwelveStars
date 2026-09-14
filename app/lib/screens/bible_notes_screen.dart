@@ -93,7 +93,11 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
     _activeChapter = widget.currentChapter;
     _scope =
         widget.initialScope ??
-        (_activeBook != null ? BibleNotesScope.chapter : BibleNotesScope.all);
+        (_activeBook != null
+            ? (_activeChapter != null
+                  ? BibleNotesScope.chapter
+                  : BibleNotesScope.book)
+            : BibleNotesScope.all);
     _loadData();
   }
 
@@ -478,15 +482,6 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                   onSelectionChanged: (newSelection) {
                     setState(() {
                       _scope = newSelection.first;
-                      // Keep dropdown pickers in sync with the new scope selection
-                      if (_scope == BibleNotesScope.all) {
-                        _activeBook = null;
-                        _activeChapter = null;
-                      } else if (_scope == BibleNotesScope.book) {
-                        // Retain _activeBook if already set; only clear chapter selection
-                        _activeChapter = null;
-                      }
-                      // For chapter scope, retain both _activeBook and _activeChapter as-is.
                     });
                   },
                 ),
@@ -508,7 +503,9 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton<BibleBook?>(
                             key: const Key('bible_notes_book_dropdown'),
-                            value: _activeBook,
+                            value: _scope == BibleNotesScope.all
+                                ? null
+                                : _activeBook,
                             isDense: true,
                             isExpanded: true,
                             icon: const Icon(Icons.arrow_drop_down, size: 20),
@@ -532,7 +529,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                               setState(() {
                                 _activeBook = newBook;
                                 if (newBook != null) {
-                                  _activeChapter = 1;
+                                  _activeChapter = null;
                                   _scope = BibleNotesScope.book;
                                 } else {
                                   _activeChapter = null;
@@ -560,7 +557,9 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton<int?>(
                             key: const Key('bible_notes_chapter_dropdown'),
-                            value: _activeChapter,
+                            value: _scope == BibleNotesScope.chapter
+                                ? _activeChapter
+                                : null,
                             isDense: true,
                             isExpanded: true,
                             icon: const Icon(Icons.arrow_drop_down, size: 20),
@@ -573,13 +572,19 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                             ),
                             items: _activeBook == null
                                 ? null
-                                : List.generate(
-                                    _activeBook!.chaptersCount,
-                                    (index) => DropdownMenuItem<int?>(
-                                      value: index + 1,
-                                      child: Text('Ch. ${index + 1}'),
+                                : [
+                                    const DropdownMenuItem<int?>(
+                                      value: null,
+                                      child: Text('All Chapters'),
                                     ),
-                                  ),
+                                    ...List.generate(
+                                      _activeBook!.chaptersCount,
+                                      (index) => DropdownMenuItem<int?>(
+                                        value: index + 1,
+                                        child: Text('Ch. ${index + 1}'),
+                                      ),
+                                    ),
+                                  ],
                             onChanged: _activeBook == null
                                 ? null
                                 : (newChapter) {
@@ -587,6 +592,8 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                                       _activeChapter = newChapter;
                                       if (newChapter != null) {
                                         _scope = BibleNotesScope.chapter;
+                                      } else {
+                                        _scope = BibleNotesScope.book;
                                       }
                                     });
                                   },
