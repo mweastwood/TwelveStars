@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/screens/bible_notes_screen.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import '../test_helper.dart';
@@ -376,6 +377,508 @@ void main() {
 
       expect(find.byType(BibleNotesScreen), findsOneWidget);
       expect(find.text('Bible Notes & Favorites'), findsOneWidget);
+      expect(
+        find.byKey(const Key('bible_notes_scope_segmented_button')),
+        findsOneWidget,
+      );
+      expect(find.text('Ch. 1 (0)'), findsOneWidget);
+      expect(find.text('Genesis (0)'), findsOneWidget);
+    });
+
+    testWidgets(
+      'scopes annotations to current chapter and book, and toggles scopes via SegmentedButton',
+      (tester) async {
+        final matthew = catholicBooks.firstWhere((b) => b.bookNumber == 49);
+        await tester.pumpWidget(
+          MaterialApp(
+            home: BibleNotesScreen(
+              initialFavorites: mockFavorites,
+              initialComments: mockComments,
+              currentBook: matthew,
+              currentChapter: 5,
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Should default to Chapter scope
+        expect(find.text('Ch. 5 (2)'), findsOneWidget);
+        expect(find.text('Matthew (2)'), findsOneWidget);
+        expect(find.text('All Bible (6)'), findsOneWidget);
+
+        // Only Matthew 5 annotations should be visible
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+        expect(find.text('Matthew 5:3'), findsOneWidget);
+        expect(find.text('Genesis 1:1-3'), findsNothing);
+        expect(find.text('Psalms 23:1'), findsNothing);
+
+        // Favorites and Notes counts should reflect active chapter scope
+        expect(find.text('Favorites (1)'), findsOneWidget);
+        expect(find.text('Notes (1)'), findsOneWidget);
+
+        // Switch scope to Book: "Matthew (2)"
+        await tester.tap(find.text('Matthew (2)'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+        expect(find.text('Matthew 5:3'), findsOneWidget);
+        expect(find.text('Genesis 1:1-3'), findsNothing);
+
+        // Switch scope to All Bible: "All Bible (6)"
+        await tester.tap(find.text('All Bible (6)'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Genesis 1:1-3'), findsOneWidget);
+        expect(find.text('Psalms 23:1'), findsOneWidget);
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+        expect(find.text('Matthew 5:3'), findsOneWidget);
+        expect(find.text('Romans 8:28'), findsOneWidget);
+        expect(find.text('Revelation 21:4'), findsOneWidget);
+        expect(find.text('Favorites (3)'), findsOneWidget);
+        expect(find.text('Notes (3)'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'tapping SegmentedButton keeps book and chapter dropdown pickers in sync',
+      (tester) async {
+        final matthew = catholicBooks.firstWhere((b) => b.bookNumber == 49);
+        await tester.pumpWidget(
+          MaterialApp(
+            home: BibleNotesScreen(
+              initialFavorites: mockFavorites,
+              initialComments: mockComments,
+              currentBook: matthew,
+              currentChapter: 5,
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final bookDropdownFinder = find.byKey(
+          const Key('bible_notes_book_dropdown'),
+        );
+        final chapterDropdownFinder = find.byKey(
+          const Key('bible_notes_chapter_dropdown'),
+        );
+
+        // 1. Starts in Chapter scope with currentBook: matthew, currentChapter: 5
+        expect(
+          tester.widget<DropdownButton<BibleBook?>>(bookDropdownFinder).value,
+          matthew,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).value,
+          5,
+        );
+
+        // 2. Taps 'Matthew (2)' on the SegmentedButton
+        await tester.tap(find.text('Matthew (2)'));
+        await tester.pumpAndSettle();
+
+        // 3. Asserts the chapter dropdown clears and all Matthew annotations (not just chapter 5) are visible
+        expect(
+          tester.widget<DropdownButton<BibleBook?>>(bookDropdownFinder).value,
+          matthew,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).value,
+          isNull,
+        );
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+        expect(find.text('Matthew 5:3'), findsOneWidget);
+        expect(find.text('Genesis 1:1-3'), findsNothing);
+
+        // 4. Taps 'All Bible' on the SegmentedButton directly
+        await tester.tap(find.text('All Bible (6)'));
+        await tester.pumpAndSettle();
+
+        // 5. Asserts the book dropdown resets to 'All Books' and all 6 annotations are visible
+        expect(
+          tester.widget<DropdownButton<BibleBook?>>(bookDropdownFinder).value,
+          isNull,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).value,
+          isNull,
+        );
+        expect(find.text('Genesis 1:1-3'), findsOneWidget);
+        expect(find.text('Psalms 23:1'), findsOneWidget);
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+        expect(find.text('Matthew 5:3'), findsOneWidget);
+        expect(find.text('Romans 8:28'), findsOneWidget);
+        expect(find.text('Revelation 21:4'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'tapping All Bible on SegmentedButton resets book dropdown from Chapter scope',
+      (tester) async {
+        final matthew = catholicBooks.firstWhere((b) => b.bookNumber == 49);
+        await tester.pumpWidget(
+          MaterialApp(
+            home: BibleNotesScreen(
+              initialFavorites: mockFavorites,
+              initialComments: mockComments,
+              currentBook: matthew,
+              currentChapter: 5,
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final bookDropdownFinder = find.byKey(
+          const Key('bible_notes_book_dropdown'),
+        );
+        final chapterDropdownFinder = find.byKey(
+          const Key('bible_notes_chapter_dropdown'),
+        );
+
+        // Opens in Chapter scope with currentBook: matthew, currentChapter: 5
+        expect(
+          tester.widget<DropdownButton<BibleBook?>>(bookDropdownFinder).value,
+          matthew,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).value,
+          5,
+        );
+
+        // Taps 'All Bible' on the SegmentedButton directly
+        await tester.tap(find.text('All Bible (6)'));
+        await tester.pumpAndSettle();
+
+        // Asserts the book dropdown resets to 'All Books', chapter dropdown is disabled, and all 6 annotations are visible
+        expect(
+          tester.widget<DropdownButton<BibleBook?>>(bookDropdownFinder).value,
+          isNull,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).value,
+          isNull,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).items,
+          isNull,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).onChanged,
+          isNull,
+        );
+        expect(find.text('Genesis 1:1-3'), findsOneWidget);
+        expect(find.text('Psalms 23:1'), findsOneWidget);
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+        expect(find.text('Matthew 5:3'), findsOneWidget);
+        expect(find.text('Romans 8:28'), findsOneWidget);
+        expect(find.text('Revelation 21:4'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'initializing with currentBook and null currentChapter defaults to Book scope, displays book annotations, and keeps book segment selected',
+      (tester) async {
+        final matthew = catholicBooks.firstWhere((b) => b.bookNumber == 49);
+        await tester.pumpWidget(
+          MaterialApp(
+            home: BibleNotesScreen(
+              initialFavorites: mockFavorites,
+              initialComments: mockComments,
+              currentBook: matthew,
+              currentChapter: null,
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final segmentedButtonFinder = find.byKey(
+          const Key('bible_notes_scope_segmented_button'),
+        );
+        final bookDropdownFinder = find.byKey(
+          const Key('bible_notes_book_dropdown'),
+        );
+        final chapterDropdownFinder = find.byKey(
+          const Key('bible_notes_chapter_dropdown'),
+        );
+
+        final segmentedButton = tester.widget<SegmentedButton<BibleNotesScope>>(
+          segmentedButtonFinder,
+        );
+
+        // SegmentedButton defaults to Book scope and chapter segment is disabled
+        expect(segmentedButton.selected, equals({BibleNotesScope.book}));
+        expect(segmentedButton.segments[0].enabled, isFalse);
+        expect(segmentedButton.segments[1].enabled, isTrue);
+        expect(segmentedButton.segments[2].enabled, isTrue);
+
+        // Dropdowns reflect active book and all chapters enabled
+        expect(
+          tester.widget<DropdownButton<BibleBook?>>(bookDropdownFinder).value,
+          matthew,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).value,
+          isNull,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).items,
+          isNotNull,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).onChanged,
+          isNotNull,
+        );
+
+        // Displays all annotations for that book
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+        expect(find.text('Matthew 5:3'), findsOneWidget);
+
+        // Does not display annotations from other books
+        expect(find.text('Genesis 1:1-3'), findsNothing);
+        expect(find.text('Psalms 23:1'), findsNothing);
+        expect(find.text('Romans 8:28'), findsNothing);
+        expect(find.text('Revelation 21:4'), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'round-trip toggling on SegmentedButton (Chapter -> Book -> All Bible -> Book -> Chapter) preserves reading context and segment enablement',
+      (tester) async {
+        final matthew = catholicBooks.firstWhere((b) => b.bookNumber == 49);
+        await tester.pumpWidget(
+          MaterialApp(
+            home: BibleNotesScreen(
+              initialFavorites: mockFavorites,
+              initialComments: mockComments,
+              currentBook: matthew,
+              currentChapter: 5,
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final segmentedButtonFinder = find.byKey(
+          const Key('bible_notes_scope_segmented_button'),
+        );
+        final bookDropdownFinder = find.byKey(
+          const Key('bible_notes_book_dropdown'),
+        );
+        final chapterDropdownFinder = find.byKey(
+          const Key('bible_notes_chapter_dropdown'),
+        );
+
+        SegmentedButton<BibleNotesScope> getSegmentedButton() => tester
+            .widget<SegmentedButton<BibleNotesScope>>(segmentedButtonFinder);
+
+        // 1. Initially on Chapter scope (Matthew 5)
+        expect(
+          getSegmentedButton().selected,
+          equals({BibleNotesScope.chapter}),
+        );
+        expect(getSegmentedButton().segments[0].enabled, isTrue); // Chapter
+        expect(getSegmentedButton().segments[1].enabled, isTrue); // Book
+        expect(getSegmentedButton().segments[2].enabled, isTrue); // All
+        expect(
+          tester.widget<DropdownButton<BibleBook?>>(bookDropdownFinder).value,
+          matthew,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).value,
+          5,
+        );
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+        expect(find.text('Genesis 1:1-3'), findsNothing);
+
+        // 2. Toggle to Book: Chapter -> Book
+        await tester.tap(find.text('Matthew (2)'));
+        await tester.pumpAndSettle();
+
+        expect(getSegmentedButton().selected, equals({BibleNotesScope.book}));
+        expect(getSegmentedButton().segments[0].enabled, isTrue);
+        expect(getSegmentedButton().segments[1].enabled, isTrue);
+        expect(getSegmentedButton().segments[2].enabled, isTrue);
+        expect(
+          tester.widget<DropdownButton<BibleBook?>>(bookDropdownFinder).value,
+          matthew,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).value,
+          isNull,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).items,
+          isNotNull,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).onChanged,
+          isNotNull,
+        );
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+        expect(find.text('Genesis 1:1-3'), findsNothing);
+
+        // 3. Toggle to All Bible: Book -> All Bible
+        await tester.tap(find.text('All Bible (6)'));
+        await tester.pumpAndSettle();
+
+        expect(getSegmentedButton().selected, equals({BibleNotesScope.all}));
+        expect(getSegmentedButton().segments[0].enabled, isTrue);
+        expect(getSegmentedButton().segments[1].enabled, isTrue);
+        expect(getSegmentedButton().segments[2].enabled, isTrue);
+        expect(
+          tester.widget<DropdownButton<BibleBook?>>(bookDropdownFinder).value,
+          isNull,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).value,
+          isNull,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).items,
+          isNull,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).onChanged,
+          isNull,
+        );
+        expect(find.text('Genesis 1:1-3'), findsOneWidget);
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+
+        // 4. Toggle back to Book: All Bible -> Book
+        await tester.tap(find.text('Matthew (2)'));
+        await tester.pumpAndSettle();
+
+        expect(getSegmentedButton().selected, equals({BibleNotesScope.book}));
+        expect(getSegmentedButton().segments[0].enabled, isTrue);
+        expect(getSegmentedButton().segments[1].enabled, isTrue);
+        expect(getSegmentedButton().segments[2].enabled, isTrue);
+        expect(
+          tester.widget<DropdownButton<BibleBook?>>(bookDropdownFinder).value,
+          matthew,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).value,
+          isNull,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).items,
+          isNotNull,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).onChanged,
+          isNotNull,
+        );
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+        expect(find.text('Genesis 1:1-3'), findsNothing);
+
+        // 5. Toggle back to Chapter: Book -> Chapter
+        await tester.tap(find.text('Ch. 5 (2)'));
+        await tester.pumpAndSettle();
+
+        expect(
+          getSegmentedButton().selected,
+          equals({BibleNotesScope.chapter}),
+        );
+        expect(getSegmentedButton().segments[0].enabled, isTrue);
+        expect(getSegmentedButton().segments[1].enabled, isTrue);
+        expect(getSegmentedButton().segments[2].enabled, isTrue);
+        expect(
+          tester.widget<DropdownButton<BibleBook?>>(bookDropdownFinder).value,
+          matthew,
+        );
+        expect(
+          tester.widget<DropdownButton<int?>>(chapterDropdownFinder).value,
+          5,
+        );
+        expect(find.text('Matthew 5:3-5'), findsOneWidget);
+        expect(find.text('Genesis 1:1-3'), findsNothing);
+      },
+    );
+
+    testWidgets('filters annotations by book and chapter using dropdowns', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: BibleNotesScreen(
+            initialFavorites: mockFavorites,
+            initialComments: mockComments,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Starts with All Bible
+      expect(find.text('All Bible (6)'), findsOneWidget);
+      expect(find.text('Genesis 1:1-3'), findsOneWidget);
+
+      // Tap book dropdown to select Genesis
+      await tester.tap(find.byKey(const Key('bible_notes_book_dropdown')));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Genesis').last);
+      await tester.pumpAndSettle();
+
+      // Genesis has 1 annotation (in chapter 1)
+      expect(find.text('Genesis (1)'), findsOneWidget);
+      expect(find.text('Genesis 1:1-3'), findsOneWidget);
+      expect(find.text('Matthew 5:3-5'), findsNothing);
+      expect(find.text('Psalms 23:1'), findsNothing);
+
+      // Chapter dropdown displays 'All Chapters' by default on book selection
+      expect(
+        tester
+            .widget<DropdownButton<int?>>(
+              find.byKey(const Key('bible_notes_chapter_dropdown')),
+            )
+            .value,
+        isNull,
+      );
+
+      // Switch chapter to chapter 2 (which has no notes in Genesis)
+      await tester.tap(find.byKey(const Key('bible_notes_chapter_dropdown')));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Ch. 2').last);
+      await tester.pumpAndSettle();
+
+      expect(find.text('No notes or favorites in Genesis 2.'), findsOneWidget);
+      expect(find.text('Genesis 1:1-3'), findsNothing);
+
+      // Switch back to chapter 1
+      await tester.tap(find.byKey(const Key('bible_notes_chapter_dropdown')));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Ch. 1').last);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Genesis 1:1-3'), findsOneWidget);
+
+      // Clear chapter scoping directly via 'All Chapters' option in chapter dropdown
+      await tester.tap(find.byKey(const Key('bible_notes_chapter_dropdown')));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('All Chapters').last);
+      await tester.pumpAndSettle();
+
+      expect(
+        tester
+            .widget<DropdownButton<int?>>(
+              find.byKey(const Key('bible_notes_chapter_dropdown')),
+            )
+            .value,
+        isNull,
+      );
+      expect(find.text('Genesis 1:1-3'), findsOneWidget);
+
+      // Switch to "All Books" in book dropdown
+      await tester.tap(find.byKey(const Key('bible_notes_book_dropdown')));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('All Books').last);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Genesis 1:1-3'), findsOneWidget);
+      expect(find.text('Matthew 5:3'), findsOneWidget);
+      expect(find.text('Psalms 23:1'), findsOneWidget);
     });
   });
 

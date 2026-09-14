@@ -441,10 +441,16 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   }
 
   void _openNotesScreen() {
+    final currentRef =
+        _allChapters.isNotEmpty && _currentPageIndex < _allChapters.length
+        ? _allChapters[_currentPageIndex]
+        : null;
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => BibleNotesScreen(
+          currentBook: currentRef?.book,
+          currentChapter: currentRef?.chapter,
           onSelectFavorite: (fav) {
             Navigator.pop(context);
             navigateToFavorite(fav);
