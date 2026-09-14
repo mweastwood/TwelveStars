@@ -396,6 +396,9 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
       }
     }
 
+    final isChapterDropdownDisabled =
+        _scope == BibleNotesScope.all || _activeBook == null;
+
     return Scaffold(
       appBar: AppBar(title: const Text('Bible Notes & Favorites')),
       body: Column(
@@ -550,7 +553,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                         decoration: BoxDecoration(
                           color: theme.colorScheme.surfaceContainerHighest
                               .withValues(
-                                alpha: _activeBook == null ? 0.2 : 0.5,
+                                alpha: isChapterDropdownDisabled ? 0.2 : 0.5,
                               ),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
@@ -570,7 +573,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                                 color: theme.colorScheme.outline,
                               ),
                             ),
-                            items: _activeBook == null
+                            items: isChapterDropdownDisabled
                                 ? null
                                 : [
                                     const DropdownMenuItem<int?>(
@@ -585,7 +588,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                                       ),
                                     ),
                                   ],
-                            onChanged: _activeBook == null
+                            onChanged: isChapterDropdownDisabled
                                 ? null
                                 : (newChapter) {
                                     setState(() {
