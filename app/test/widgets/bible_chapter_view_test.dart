@@ -143,14 +143,13 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      // Verify chapter title formatted according to numbering system
-      expect(find.text('Genesis 1'), findsOneWidget);
+      // Verify chapter title formatted according to numbering system and font
+      final chapterTitle = tester.widget<Text>(find.text('Genesis 1'));
+      expect(chapterTitle.style?.fontFamily, 'CinzelDecorative');
 
-      // Verify subtitle displays single translation name
-      expect(
-        find.text('Catholic Public Domain Version (CPDV)'),
-        findsOneWidget,
-      );
+      // Verify translation label and horizontal divider are removed
+      expect(find.text('Catholic Public Domain Version (CPDV)'), findsNothing);
+      expect(find.byType(Divider), findsNothing);
 
       // Verify each verse row renders the verse number and verse text
       for (int i = 0; i < mockCpdvVersesCh1.length; i++) {
@@ -176,12 +175,12 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      // Verify subtitle displays dual translation names separated by delimiter
+      // Verify subtitle does not display translation names
       expect(
         find.text(
           'Catholic Public Domain Version (CPDV)  |  Douay-Rheims Bible (DRC)',
         ),
-        findsOneWidget,
+        findsNothing,
       );
 
       // Verify each verse row receives both primary verse text and compareVerseText
