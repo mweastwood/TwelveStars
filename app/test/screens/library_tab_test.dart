@@ -89,6 +89,7 @@ void main() {
         await LibraryHelper.loadBookData(
           'assets/catechism/json/didache_lightfoot.json',
         );
+        await ThematicHelper.loadAllPassages();
       });
 
       await tester.pumpWidgetBuilder(
