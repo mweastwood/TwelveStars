@@ -89,6 +89,7 @@ void main() {
         await LibraryHelper.loadBookData(
           'assets/catechism/json/didache_lightfoot.json',
         );
+        await ThematicHelper.loadAllPassages();
       });
 
       await tester.pumpWidgetBuilder(
@@ -195,13 +196,13 @@ void main() {
       await tester.pump();
       await tester.pumpAndSettle();
 
-      final swipeBtn = find.widgetWithText(FilledButton, 'Swipe Theme');
+      final moreBtn = find.byTooltip('More from this theme');
       await tester.scrollUntilVisible(
-        swipeBtn,
+        moreBtn,
         100,
         scrollable: find.byType(Scrollable).first,
       );
-      await tester.tap(swipeBtn);
+      await tester.tap(moreBtn);
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(
@@ -3661,10 +3662,11 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        expect(find.text("TODAY'S THEMATIC SPARK"), findsOneWidget);
-        expect(find.text('Swipe Theme'), findsOneWidget);
-        expect(find.text('Read in Book'), findsOneWidget);
-        expect(find.byTooltip('Shuffle reflection'), findsOneWidget);
+        expect(find.text("TODAY'S SPARK"), findsOneWidget);
+        expect(find.byTooltip('More from this theme'), findsOneWidget);
+        expect(find.byTooltip('Read in context'), findsOneWidget);
+        expect(find.byTooltip('Bookmark reflection'), findsOneWidget);
+        expect(find.byTooltip('Shuffle reflection'), findsNothing);
       },
     );
 
@@ -3711,7 +3713,7 @@ void main() {
     });
 
     testWidgets(
-      'tapping Swipe Theme on daily quote card opens ThematicQuoteBrowserScreen',
+      'tapping More on daily quote card opens ThematicQuoteBrowserScreen',
       (tester) async {
         await tester.runAsync(() async {
           await ThematicHelper.loadAllPassages();
@@ -3722,16 +3724,42 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        final swipeBtn = find.widgetWithText(FilledButton, 'Swipe Theme');
+        final moreBtn = find.byTooltip('More from this theme');
         await tester.scrollUntilVisible(
-          swipeBtn,
+          moreBtn,
           100,
           scrollable: find.byType(Scrollable).first,
         );
-        await tester.tap(swipeBtn);
+        await tester.tap(moreBtn);
         await tester.pumpAndSettle();
 
         expect(find.byType(ThematicQuoteBrowserScreen), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'tapping Read in context on daily quote card opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await ThematicHelper.loadAllPassages();
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final readBtn = find.byTooltip('Read in context');
+        await tester.scrollUntilVisible(
+          readBtn,
+          100,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(readBtn);
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 300));
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
       },
     );
 
@@ -3754,6 +3782,59 @@ void main() {
 
       expect(find.text('Saved to bookmarks ❤️'), findsOneWidget);
       expect(find.byTooltip('Remove bookmark'), findsOneWidget);
+    });
+
+    testWidgets('Today\'s spark uses date seeding for passage selection', (
+      tester,
+    ) async {
+      late final List<ThematicPassage> passages;
+      await tester.runAsync(() async {
+        passages = await ThematicHelper.loadAllPassages();
+      });
+
+      final dateA = DateTime(2026, 9, 15);
+      final seedA = dateA.year * 10000 + dateA.month * 100 + dateA.day;
+      final expectedPassageA = passages[Random(seedA).nextInt(passages.length)];
+
+      ThematicHelper.mockRandom = null;
+      LibraryTab.mockNow = dateA;
+      addTearDown(() {
+        ThematicHelper.mockRandom = null;
+        LibraryTab.mockNow = null;
+      });
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(body: LibraryTab(key: ValueKey('day-a'))),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text("TODAY'S SPARK"), findsOneWidget);
+      final expectedQuoteA = expectedPassageA.keyExcerpt.isNotEmpty
+          ? expectedPassageA.keyExcerpt
+          : expectedPassageA.fullText;
+      expect(find.text(expectedQuoteA), findsOneWidget);
+      expect(find.text('— ${expectedPassageA.author}'), findsOneWidget);
+
+      final dateB = DateTime(2026, 9, 16);
+      final seedB = dateB.year * 10000 + dateB.month * 100 + dateB.day;
+      final expectedPassageB = passages[Random(seedB).nextInt(passages.length)];
+      final expectedQuoteB = expectedPassageB.keyExcerpt.isNotEmpty
+          ? expectedPassageB.keyExcerpt
+          : expectedPassageB.fullText;
+      expect(expectedQuoteA, isNot(expectedQuoteB));
+
+      LibraryTab.mockNow = dateB;
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(body: LibraryTab(key: ValueKey('day-b'))),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text(expectedQuoteB), findsOneWidget);
+      expect(find.text('— ${expectedPassageB.author}'), findsOneWidget);
     });
   });
 }

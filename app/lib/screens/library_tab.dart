@@ -50,7 +50,6 @@ class _LibraryTabState extends State<LibraryTab> {
 
   BookReadingPosition? _latestReadingPosition;
 
-  List<ThematicPassage> _allThematicPassages = [];
   ThematicPassage? _featuredPassage;
 
   List<LibraryBookItem> get _catalog =>
@@ -86,25 +85,15 @@ class _LibraryTabState extends State<LibraryTab> {
       final passages = await ThematicHelper.loadAllPassages();
       if (mounted) {
         setState(() {
-          _allThematicPassages = passages;
           if (passages.isNotEmpty && _featuredPassage == null) {
             final now = LibraryTab.mockNow ?? DateTime.now();
-            final dayOfYear = now.difference(DateTime(now.year, 1, 1)).inDays;
-            _featuredPassage = passages[dayOfYear % passages.length];
+            final seed = now.year * 10000 + now.month * 100 + now.day;
+            final random = ThematicHelper.mockRandom ?? Random(seed);
+            _featuredPassage = passages[random.nextInt(passages.length)];
           }
         });
       }
     } catch (_) {}
-  }
-
-  void _shuffleFeaturedQuote() {
-    if (_allThematicPassages.isEmpty) return;
-    HapticFeedback.lightImpact();
-    final random = ThematicHelper.mockRandom ?? Random();
-    setState(() {
-      _featuredPassage =
-          _allThematicPassages[random.nextInt(_allThematicPassages.length)];
-    });
   }
 
   bool _isPassageBookmarked(ThematicPassage passage) {
@@ -408,7 +397,6 @@ class _LibraryTabState extends State<LibraryTab> {
             LibraryThematicSparkCard(
               passage: _featuredPassage!,
               isBookmarked: _isPassageBookmarked(_featuredPassage!),
-              onShuffle: _shuffleFeaturedQuote,
               onToggleBookmark: () =>
                   _toggleFeaturedBookmark(_featuredPassage!),
               onOpenTheme: (themeId) => _openThemeBrowser(themeId: themeId),
