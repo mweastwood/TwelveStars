@@ -602,7 +602,7 @@ class _HomeScreenState extends State<HomeScreen>
           ListTile(
             key: const Key('drawer_bible_notes_tile'),
             leading: const Icon(Icons.edit_note_rounded),
-            title: const Text('Bible Notes & Favorites'),
+            title: const Text('Bible Notes'),
             onTap: () {
               Navigator.pop(context); // Close drawer
               Navigator.push(
