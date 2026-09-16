@@ -678,5 +678,40 @@ void main() {
         expect(find.text('The Confessions'), findsOneWidget);
       },
     );
+
+    testWidgets(
+      'LibraryReaderScreen handles null defaultAssetPath gracefully without crashing',
+      (tester) async {
+        const bookWithoutAsset = LibraryBookItem(
+          id: 'test_web_book',
+          title: 'Test Web Title',
+          subtitle: 'Web resource',
+          category: 'Catechisms',
+          author: 'USCCB',
+          description: 'A resource hosted online.',
+          webUrl: 'https://example.com',
+          defaultAssetPath: null,
+        );
+
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: LibraryReaderScreen(
+              bookItem: bookWithoutAsset,
+              initialAssetPath: null,
+            ),
+          ),
+        );
+
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        expect(
+          find.text(
+            'Error loading book: No reader content available for this title.',
+          ),
+          findsOneWidget,
+        );
+      },
+    );
   });
 }

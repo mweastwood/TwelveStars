@@ -92,8 +92,15 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
         _currentAssetPath = widget.bookItem.volumes!.first.assetPath;
       }
     } else {
-      _currentAssetPath =
-          widget.initialAssetPath ?? widget.bookItem.defaultAssetPath!;
+      final resolvedPath =
+          widget.initialAssetPath ?? widget.bookItem.defaultAssetPath;
+      if (resolvedPath == null) {
+        _currentAssetPath = '';
+        _isLoading = false;
+        _error = 'No reader content available for this title.';
+        return;
+      }
+      _currentAssetPath = resolvedPath;
     }
     _loadComments();
     _loadBookData(

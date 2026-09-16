@@ -5,6 +5,7 @@ import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/logic/thematic_database.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
+import 'package:twelve_stars/screens/website_viewer_screen.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
 
 class ThematicQuoteBrowserScreen extends StatefulWidget {
@@ -165,6 +166,22 @@ class _ThematicQuoteBrowserScreenState
         }
       }
       if (matchedBook != null) break;
+    }
+
+    if (matchedBook != null &&
+        matchedBook.isWeb &&
+        matchedBook.webUrl != null) {
+      final bookTitle = matchedBook.title;
+      final bookUrl = matchedBook.webUrl!;
+      if (!context.mounted) return;
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>
+              WebsiteViewerScreen(title: bookTitle, url: bookUrl),
+        ),
+      );
+      return;
     }
 
     if (matchedBook == null) {
