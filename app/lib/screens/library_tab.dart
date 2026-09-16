@@ -401,8 +401,6 @@ class _LibraryTabState extends State<LibraryTab> {
                   _toggleFeaturedBookmark(_featuredPassage!),
               onOpenTheme: (themeId) => _openThemeBrowser(themeId: themeId),
               onOpenReader: () => _openReaderForPassage(_featuredPassage!),
-              onMore: () =>
-                  _openThemeBrowser(themeId: _featuredPassage!.primaryTheme),
             ),
             const SizedBox(height: 20),
           ],

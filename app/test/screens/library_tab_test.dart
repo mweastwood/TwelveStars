@@ -196,7 +196,7 @@ void main() {
       await tester.pump();
       await tester.pumpAndSettle();
 
-      final moreBtn = find.byTooltip('More');
+      final moreBtn = find.byTooltip('More from this theme');
       await tester.scrollUntilVisible(
         moreBtn,
         100,
@@ -3663,7 +3663,7 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(find.text("TODAY'S SPARK"), findsOneWidget);
-        expect(find.byTooltip('More'), findsOneWidget);
+        expect(find.byTooltip('More from this theme'), findsOneWidget);
         expect(find.byTooltip('Read in context'), findsOneWidget);
         expect(find.byTooltip('Bookmark reflection'), findsOneWidget);
         expect(find.byTooltip('Shuffle reflection'), findsNothing);
@@ -3724,7 +3724,7 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        final moreBtn = find.byTooltip('More');
+        final moreBtn = find.byTooltip('More from this theme');
         await tester.scrollUntilVisible(
           moreBtn,
           100,
@@ -3787,19 +3787,54 @@ void main() {
     testWidgets('Today\'s spark uses date seeding for passage selection', (
       tester,
     ) async {
+      late final List<ThematicPassage> passages;
       await tester.runAsync(() async {
-        await ThematicHelper.loadAllPassages();
+        passages = await ThematicHelper.loadAllPassages();
       });
 
-      LibraryTab.mockNow = DateTime(2026, 9, 15);
-      addTearDown(() => LibraryTab.mockNow = null);
+      final dateA = DateTime(2026, 9, 15);
+      final seedA = dateA.year * 10000 + dateA.month * 100 + dateA.day;
+      final expectedPassageA = passages[Random(seedA).nextInt(passages.length)];
+
+      ThematicHelper.mockRandom = null;
+      LibraryTab.mockNow = dateA;
+      addTearDown(() {
+        ThematicHelper.mockRandom = null;
+        LibraryTab.mockNow = null;
+      });
 
       await tester.pumpWidget(
-        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        buildTestableWidget(
+          child: const Scaffold(body: LibraryTab(key: ValueKey('day-a'))),
+        ),
       );
       await tester.pumpAndSettle();
 
       expect(find.text("TODAY'S SPARK"), findsOneWidget);
+      final expectedQuoteA = expectedPassageA.keyExcerpt.isNotEmpty
+          ? expectedPassageA.keyExcerpt
+          : expectedPassageA.fullText;
+      expect(find.text(expectedQuoteA), findsOneWidget);
+      expect(find.text('— ${expectedPassageA.author}'), findsOneWidget);
+
+      final dateB = DateTime(2026, 9, 16);
+      final seedB = dateB.year * 10000 + dateB.month * 100 + dateB.day;
+      final expectedPassageB = passages[Random(seedB).nextInt(passages.length)];
+      final expectedQuoteB = expectedPassageB.keyExcerpt.isNotEmpty
+          ? expectedPassageB.keyExcerpt
+          : expectedPassageB.fullText;
+      expect(expectedQuoteA, isNot(expectedQuoteB));
+
+      LibraryTab.mockNow = dateB;
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(body: LibraryTab(key: ValueKey('day-b'))),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text(expectedQuoteB), findsOneWidget);
+      expect(find.text('— ${expectedPassageB.author}'), findsOneWidget);
     });
   });
 }

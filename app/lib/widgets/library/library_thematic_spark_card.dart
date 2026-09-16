@@ -9,7 +9,6 @@ class LibraryThematicSparkCard extends StatelessWidget {
   final VoidCallback onToggleBookmark;
   final ValueChanged<String> onOpenTheme;
   final VoidCallback onOpenReader;
-  final VoidCallback? onMore;
 
   const LibraryThematicSparkCard({
     super.key,
@@ -18,7 +17,6 @@ class LibraryThematicSparkCard extends StatelessWidget {
     required this.onToggleBookmark,
     required this.onOpenTheme,
     required this.onOpenReader,
-    this.onMore,
   });
 
   @override
@@ -241,9 +239,9 @@ class LibraryThematicSparkCard extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  tooltip: 'More',
+                  tooltip: 'More from this theme',
                   icon: const Icon(Icons.more_horiz_rounded, size: 20),
-                  onPressed: onMore ?? () => onOpenTheme(passage.primaryTheme),
+                  onPressed: () => onOpenTheme(passage.primaryTheme),
                 ),
                 IconButton(
                   tooltip: 'Read in context',
