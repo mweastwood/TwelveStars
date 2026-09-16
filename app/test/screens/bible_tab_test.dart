@@ -68,10 +68,8 @@ void main() {
 
       // Verify title and verses are displayed
       expect(find.text('Genesis 1'), findsNWidgets(2));
-      expect(
-        find.text('Catholic Public Domain Version (CPDV)'),
-        findsOneWidget,
-      );
+      expect(find.text('Catholic Public Domain Version (CPDV)'), findsNothing);
+      expect(find.byType(Divider), findsNothing);
       expect(
         find.text('In the beginning God created the heaven, and the earth.'),
         findsOneWidget,

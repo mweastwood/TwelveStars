@@ -347,17 +347,6 @@ class _BibleChapterViewState extends State<BibleChapterView>
     );
   }
 
-  String _getTranslationName(String code) {
-    if (code == 'CPDV') return 'Catholic Public Domain Version (CPDV)';
-    if (code == 'DRC') return 'Douay-Rheims Bible (DRC)';
-    if (code == 'JUN') return 'Biblia de Jünemann (JUN)';
-    if (code == 'TAM') return 'Torres Amat (TAM)';
-    if (code == 'VUL') return 'Vulgata Clementina (VUL)';
-    if (code == 'LXX') return 'Greek Septuagint (LXX)';
-    if (code == 'ORIG') return 'Original Languages (ORIG)';
-    return code;
-  }
-
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -410,18 +399,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
                             numberingSystem: widget.numberingSystem,
                           ),
                           style: theme.textTheme.headlineMedium?.copyWith(
+                            fontFamily: 'CinzelDecorative',
                             fontWeight: FontWeight.bold,
                             color: theme.colorScheme.primary,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          widget.compareTranslation == 'none'
-                              ? _getTranslationName(widget.primaryTranslation)
-                              : '${_getTranslationName(widget.primaryTranslation)}  |  ${_getTranslationName(widget.compareTranslation)}',
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            fontStyle: FontStyle.italic,
-                            color: theme.colorScheme.outline,
                           ),
                         ),
                         if (chapterCitations.isNotEmpty) ...[
@@ -459,7 +439,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                       ],
                     ),
                   ),
-                  const Divider(height: 24, indent: 16),
+                  const SizedBox(height: 16),
                   ..._verses.map((verse) {
                     final isSelected = _isVerseSelected(verse.verseNumber);
                     _verseKeys.putIfAbsent(verse.id, () => GlobalKey());
