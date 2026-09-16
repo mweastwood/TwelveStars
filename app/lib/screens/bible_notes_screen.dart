@@ -712,7 +712,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
               child: InkWell(
                 key: const Key('breadcrumb_chapter'),
                 borderRadius: BorderRadius.circular(8),
-                onTap: () {},
+                onTap: null,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 6.0,
