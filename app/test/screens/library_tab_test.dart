@@ -195,13 +195,13 @@ void main() {
       await tester.pump();
       await tester.pumpAndSettle();
 
-      final swipeBtn = find.widgetWithText(FilledButton, 'Swipe Theme');
+      final moreBtn = find.byTooltip('More');
       await tester.scrollUntilVisible(
-        swipeBtn,
+        moreBtn,
         100,
         scrollable: find.byType(Scrollable).first,
       );
-      await tester.tap(swipeBtn);
+      await tester.tap(moreBtn);
       await tester.pumpAndSettle();
 
       await screenMatchesGolden(
@@ -3661,10 +3661,11 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        expect(find.text("TODAY'S THEMATIC SPARK"), findsOneWidget);
-        expect(find.text('Swipe Theme'), findsOneWidget);
-        expect(find.text('Read in Book'), findsOneWidget);
-        expect(find.byTooltip('Shuffle reflection'), findsOneWidget);
+        expect(find.text("TODAY'S SPARK"), findsOneWidget);
+        expect(find.byTooltip('More'), findsOneWidget);
+        expect(find.byTooltip('Read in context'), findsOneWidget);
+        expect(find.byTooltip('Bookmark reflection'), findsOneWidget);
+        expect(find.byTooltip('Shuffle reflection'), findsNothing);
       },
     );
 
@@ -3711,7 +3712,7 @@ void main() {
     });
 
     testWidgets(
-      'tapping Swipe Theme on daily quote card opens ThematicQuoteBrowserScreen',
+      'tapping More on daily quote card opens ThematicQuoteBrowserScreen',
       (tester) async {
         await tester.runAsync(() async {
           await ThematicHelper.loadAllPassages();
@@ -3722,16 +3723,42 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        final swipeBtn = find.widgetWithText(FilledButton, 'Swipe Theme');
+        final moreBtn = find.byTooltip('More');
         await tester.scrollUntilVisible(
-          swipeBtn,
+          moreBtn,
           100,
           scrollable: find.byType(Scrollable).first,
         );
-        await tester.tap(swipeBtn);
+        await tester.tap(moreBtn);
         await tester.pumpAndSettle();
 
         expect(find.byType(ThematicQuoteBrowserScreen), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'tapping Read in context on daily quote card opens LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await ThematicHelper.loadAllPassages();
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final readBtn = find.byTooltip('Read in context');
+        await tester.scrollUntilVisible(
+          readBtn,
+          100,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(readBtn);
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 300));
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
       },
     );
 
@@ -3754,6 +3781,24 @@ void main() {
 
       expect(find.text('Saved to bookmarks ❤️'), findsOneWidget);
       expect(find.byTooltip('Remove bookmark'), findsOneWidget);
+    });
+
+    testWidgets('Today\'s spark uses date seeding for passage selection', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        await ThematicHelper.loadAllPassages();
+      });
+
+      LibraryTab.mockNow = DateTime(2026, 9, 15);
+      addTearDown(() => LibraryTab.mockNow = null);
+
+      await tester.pumpWidget(
+        buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text("TODAY'S SPARK"), findsOneWidget);
     });
   });
 }

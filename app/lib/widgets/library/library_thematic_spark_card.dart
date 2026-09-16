@@ -6,19 +6,19 @@ import 'package:twelve_stars/widgets/saint_details_sheet.dart';
 class LibraryThematicSparkCard extends StatelessWidget {
   final ThematicPassage passage;
   final bool isBookmarked;
-  final VoidCallback onShuffle;
   final VoidCallback onToggleBookmark;
   final ValueChanged<String> onOpenTheme;
   final VoidCallback onOpenReader;
+  final VoidCallback? onMore;
 
   const LibraryThematicSparkCard({
     super.key,
     required this.passage,
     required this.isBookmarked,
-    required this.onShuffle,
     required this.onToggleBookmark,
     required this.onOpenTheme,
     required this.onOpenReader,
+    this.onMore,
   });
 
   @override
@@ -61,7 +61,7 @@ class LibraryThematicSparkCard extends StatelessWidget {
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    "TODAY'S THEMATIC SPARK",
+                    "TODAY'S SPARK",
                     style: theme.textTheme.labelSmall?.copyWith(
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1.1,
@@ -241,9 +241,14 @@ class LibraryThematicSparkCard extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  tooltip: 'Shuffle reflection',
-                  icon: const Icon(Icons.shuffle_rounded, size: 20),
-                  onPressed: onShuffle,
+                  tooltip: 'More',
+                  icon: const Icon(Icons.more_horiz_rounded, size: 20),
+                  onPressed: onMore ?? () => onOpenTheme(passage.primaryTheme),
+                ),
+                IconButton(
+                  tooltip: 'Read in context',
+                  icon: const Icon(Icons.auto_stories_rounded, size: 20),
+                  onPressed: onOpenReader,
                 ),
                 IconButton(
                   tooltip: isBookmarked
@@ -259,28 +264,6 @@ class LibraryThematicSparkCard extends StatelessWidget {
                     size: 20,
                   ),
                   onPressed: onToggleBookmark,
-                ),
-              ],
-            ),
-            const Divider(height: 16),
-
-            // Action Buttons
-            Row(
-              children: [
-                Expanded(
-                  child: FilledButton.tonalIcon(
-                    onPressed: () => onOpenTheme(passage.primaryTheme),
-                    icon: const Icon(Icons.style_rounded, size: 18),
-                    label: const Text('Swipe Theme'),
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: OutlinedButton.icon(
-                    onPressed: onOpenReader,
-                    icon: const Icon(Icons.menu_book_rounded, size: 18),
-                    label: const Text('Read in Book'),
-                  ),
                 ),
               ],
             ),
