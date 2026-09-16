@@ -49,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen>
   final LibraryTabController _libraryTabController = LibraryTabController();
 
   static const double _kLanguageSelectorTopSpacerHeight = 92.0;
+  static final RegExp _whitespaceRegex = RegExp(r'\s+');
 
   bool _wasScrolledDown = false;
   double _initialScrollOffset = 0.0;
@@ -723,21 +724,25 @@ class _HomeScreenState extends State<HomeScreen>
     }
 
     final query = _searchQuery.trim().toLowerCase();
+    final queryWords = query.isEmpty
+        ? const <String>[]
+        : query.split(_whitespaceRegex).where((w) => w.isNotEmpty).toList();
+
     final filteredPrayers = prayers.where((prayer) {
       if (prayer.category == 'liturgy') return false;
       final transList = prayer.translations[_primaryLanguage];
       if (transList == null || transList.isEmpty) return false;
-      if (query.isEmpty) return true;
+      if (queryWords.isEmpty) return true;
       final trans = transList[0];
 
-      final queryWords = query.split(RegExp(r'\s+')).where((w) => w.isNotEmpty);
-      if (queryWords.isEmpty) return true;
+      final title = trans.title.toLowerCase();
+      final subtitle = trans.subtitle.toLowerCase();
+      final text = trans.text.toLowerCase();
 
       return queryWords.every((word) {
-        final matchTitle = trans.title.toLowerCase().contains(word);
-        final matchSubtitle = trans.subtitle.toLowerCase().contains(word);
-        final matchText = trans.text.toLowerCase().contains(word);
-        return matchTitle || matchSubtitle || matchText;
+        return title.contains(word) ||
+            subtitle.contains(word) ||
+            text.contains(word);
       });
     }).toList();
 

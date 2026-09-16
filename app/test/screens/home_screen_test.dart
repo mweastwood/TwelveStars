@@ -549,6 +549,22 @@ void main() {
       expect(find.text('Our Father'), findsNothing);
       expect(find.text('Glory Be'), findsNothing);
 
+      // Enter multi-word query with extra whitespace "our   father"
+      await tester.enterText(searchTextField, 'our   father');
+      await tester.pumpAndSettle();
+
+      expect(find.text('Our Father'), findsOneWidget);
+      expect(find.text('Hail Mary'), findsNothing);
+      expect(find.text('Glory Be'), findsNothing);
+
+      // Enter whitespace-only query
+      await tester.enterText(searchTextField, '   ');
+      await tester.pumpAndSettle();
+
+      expect(find.text('Our Father'), findsOneWidget);
+      expect(find.text('Hail Mary', skipOffstage: false), findsOneWidget);
+      expect(find.text('Glory Be', skipOffstage: false), findsOneWidget);
+
       // Clear search via clear button
       final clearButton = find.byIcon(Icons.clear);
       expect(clearButton, findsOneWidget);
