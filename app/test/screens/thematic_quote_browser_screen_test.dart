@@ -5,6 +5,7 @@ import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/thematic_database.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/screens/thematic_quote_browser_screen.dart';
+import 'package:twelve_stars/screens/website_viewer_screen.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +18,7 @@ void main() {
   });
 
   tearDown(() async {
+    ThematicHelper.mockPassages = null;
     await testDb.close();
   });
 
@@ -260,6 +262,47 @@ void main() {
 
       expect(find.byType(LibraryReaderScreen), findsOneWidget);
     });
+
+    testWidgets(
+      'tapping Read in Context for web catalog item navigates to WebsiteViewerScreen',
+      (tester) async {
+        ThematicHelper.mockPassages = [
+          ThematicPassage(
+            bookId: 'ccc_usccb',
+            bookTitle: 'Catechism of the Catholic Church',
+            author: 'Libreria Editrice Vaticana / USCCB',
+            sectionId: 'section_1',
+            sectionTitle: 'The Sacraments',
+            itemIndex: 0,
+            primaryTheme: 'sacraments.eucharist',
+            secondaryThemes: const [],
+            keyExcerpt:
+                'The Eucharist is the source and summit of Christian life.',
+            oneSentenceSummary: 'The Eucharist is the source and summit.',
+            fullText:
+                'The Eucharist is the source and summit of Christian life.',
+          ),
+        ];
+
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: ThematicQuoteBrowserScreen(
+              initialThemeId: 'sacraments.eucharist',
+            ),
+          ),
+        );
+
+        await tester.pumpAndSettle();
+
+        final readContextBtn = find.text('Read in Context').first;
+        await tester.tap(readContextBtn);
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+
+        expect(find.byType(WebsiteViewerScreen), findsOneWidget);
+        expect(find.text('Catechism of the Catholic Church'), findsWidgets);
+      },
+    );
 
     testWidgets('empty state renders when theme has no quotes', (tester) async {
       await tester.pumpWidget(
