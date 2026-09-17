@@ -1654,6 +1654,60 @@ void main() {
         expect(find.byKey(const Key('missal_next_sunday_fab')), findsOneWidget);
       },
     );
+
+    testWidgets(
+      'MissalTab indexes prayers in _prayersById, resolves standard prayers, and returns null for non-existent IDs',
+      (tester) async {
+        final fixedDate = DateTime(2026, 7, 2);
+        TimeHelper.setCustomTime(fixedDate);
+
+        await tester.pumpWidget(
+          materialAppWrapper()(
+            const Scaffold(
+              body: MissalTab(
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final dynamic state = tester.state(find.byType(MissalTab));
+        expect(state.prayersByIdForTesting, isNotNull);
+        final Map<String, Prayer> indexedPrayers = state.prayersByIdForTesting!;
+
+        // Verify indexed map contains loaded mock prayers
+        expect(indexedPrayers.containsKey('confiteor'), isTrue);
+        expect(indexedPrayers.containsKey('gloria'), isTrue);
+        expect(indexedPrayers.containsKey('our_father'), isTrue);
+        expect(indexedPrayers.containsKey('sanctus'), isTrue);
+        expect(indexedPrayers.containsKey('agnus_dei'), isTrue);
+        expect(indexedPrayers.containsKey('anima_christi'), isTrue);
+
+        // Verify O(1) resolution via findPrayerForTesting
+        expect(
+          state.findPrayerForTesting('confiteor')?.prayerId,
+          equals('confiteor'),
+        );
+        expect(
+          state.findPrayerForTesting('gloria')?.prayerId,
+          equals('gloria'),
+        );
+        expect(
+          state.findPrayerForTesting('our_father')?.prayerId,
+          equals('our_father'),
+        );
+
+        // Verify non-existent prayer ID cleanly returns null without throwing
+        expect(state.findPrayerForTesting('non_existent_prayer_id'), isNull);
+        expect(state.findPrayerForTesting(''), isNull);
+
+        // Verify that MissalTab resolves and renders loaded missal prayers on screen
+        expect(find.text('Confiteor'), findsWidgets);
+        expect(find.text('Greeting'), findsWidgets);
+      },
+    );
   });
 }
 
