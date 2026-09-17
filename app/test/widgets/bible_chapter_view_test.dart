@@ -264,12 +264,29 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        // Verify that the ActionChip with the library references count is visible
-        expect(find.byType(ActionChip), findsOneWidget);
-        expect(find.text('1 Library Reference to Genesis 1'), findsOneWidget);
+        // Verify that the compact chapter citations chip is visible to the right of the title
+        final chipFinder = find.byKey(const Key('chapter_citations_chip'));
+        expect(chipFinder, findsOneWidget);
+        expect(
+          find.descendant(
+            of: chipFinder,
+            matching: find.byIcon(Icons.auto_stories_rounded),
+          ),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(of: chipFinder, matching: find.text('1')),
+          findsOneWidget,
+        );
+
+        // Verify the bottom of the chip is aligned with the bottom of the chapter title text
+        final titleRect = tester.getRect(find.text('Genesis 1'));
+        final chipRect = tester.getRect(chipFinder);
+        expect(chipRect.bottom, equals(titleRect.bottom));
+        expect(chipRect.left, greaterThan(titleRect.right));
 
         // Verify tapping the chip invokes showReverseCitationsModal
-        await tester.tap(find.byType(ActionChip));
+        await tester.tap(chipFinder);
         await tester.pumpAndSettle();
 
         expect(find.text('Library References to Genesis 1'), findsOneWidget);
