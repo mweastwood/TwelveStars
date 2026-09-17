@@ -139,4 +139,52 @@ void main() {
       expect(resumedSectionId, 'chap_2');
     },
   );
+
+  testWidgets(
+    'renders Card with elevation 0, transparent surfaceTint, and surfaceContainerLow styling',
+    (tester) async {
+      final pos = BookReadingPosition(
+        bookId: singleBook.id,
+        sectionIndex: 0,
+        updatedAt: DateTime.now(),
+      );
+
+      late BuildContext capturedContext;
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Builder(
+            builder: (context) {
+              capturedContext = context;
+              return Scaffold(
+                body: LibraryContinueReadingHero(
+                  readingPosition: pos,
+                  catalog: catalog,
+                  onResume:
+                      (_, {volumeKey, assetPath, sectionIndex, sectionId}) {},
+                ),
+              );
+            },
+          ),
+        ),
+      );
+
+      final cardFinder = find.byType(Card);
+      expect(cardFinder, findsOneWidget);
+
+      final card = tester.widget<Card>(cardFinder);
+      final theme = Theme.of(capturedContext);
+
+      expect(card.elevation, 0);
+      expect(card.surfaceTintColor, Colors.transparent);
+      expect(card.color, theme.colorScheme.surfaceContainerLow);
+
+      final shape = card.shape as RoundedRectangleBorder;
+      expect(shape.borderRadius, BorderRadius.circular(16));
+      expect(
+        shape.side.color,
+        theme.colorScheme.primary.withValues(alpha: 0.35),
+      );
+      expect(shape.side.width, 1.2);
+    },
+  );
 }
