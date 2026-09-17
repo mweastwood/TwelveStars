@@ -78,7 +78,7 @@ class _MissalTabState extends State<MissalTab> {
   bool _calendarExpanded = false;
   bool _loading = true;
   String? _error;
-  List<Prayer>? _prayers;
+  Map<String, Prayer>? _prayersById;
   UserSettings? _settings;
   List<Saint>? _saints;
   Map<String, List<Saint>>? _feastDayMap;
@@ -127,7 +127,7 @@ class _MissalTabState extends State<MissalTab> {
       final saints = await SaintDatabase.loadSaints();
       if (mounted) {
         setState(() {
-          _prayers = prayers;
+          _prayersById = {for (final p in prayers) p.prayerId: p};
           _settings = settings;
           _saints = saints;
           _feastDayMap = SaintDatabase.buildFeastDayMap(saints);
@@ -248,14 +248,13 @@ class _MissalTabState extends State<MissalTab> {
     );
   }
 
-  Prayer? _findPrayer(String id) {
-    if (_prayers == null) return null;
-    try {
-      return _prayers!.firstWhere((p) => p.prayerId == id);
-    } catch (_) {
-      return null;
-    }
-  }
+  Prayer? _findPrayer(String id) => _prayersById?[id];
+
+  @visibleForTesting
+  Prayer? findPrayerForTesting(String id) => _findPrayer(id);
+
+  @visibleForTesting
+  Map<String, Prayer>? get prayersByIdForTesting => _prayersById;
 
   bool get _isTodaySelected {
     final now = TimeHelper.now();
