@@ -14,6 +14,18 @@ class LiturgicalDay {
   final String sundayCycle; // A, B, or C
   final String weekdayCycle; // I or II
 
+  // Pre-compiled regex and constant days list to avoid per-invocation allocations.
+  static final RegExp _ordinalRegex = RegExp(r'(\d+)(?:st|nd|rd|th)');
+  static const List<String> _daysOfWeek = [
+    'monday',
+    'tuesday',
+    'wednesday',
+    'thursday',
+    'friday',
+    'saturday',
+    'sunday',
+  ];
+
   const LiturgicalDay({
     required this.date,
     required this.season,
@@ -85,19 +97,10 @@ class LiturgicalDay {
       return 'season_easter_sunday';
     }
 
-    final weekMatch = RegExp(r'(\d+)(?:st|nd|rd|th)').firstMatch(weekName);
+    final weekMatch = _ordinalRegex.firstMatch(weekName);
     final week = weekMatch != null ? int.parse(weekMatch.group(1)!) : 1;
     final isSunday = date.weekday == DateTime.sunday;
-    final days = [
-      'monday',
-      'tuesday',
-      'wednesday',
-      'thursday',
-      'friday',
-      'saturday',
-      'sunday',
-    ];
-    final dayName = days[date.weekday - 1];
+    final dayName = _daysOfWeek[date.weekday - 1];
 
     switch (season) {
       case LiturgicalSeason.advent:
@@ -178,6 +181,22 @@ class LiturgicalDay {
 }
 
 class LiturgicalCalendar {
+  // In-memory memoization cache keyed by a compact YYYYMMDD integer.
+  // This avoids re-running the Easter Computus and all season arithmetic for
+  // dates that have already been computed (e.g. every cell rendered by
+  // MissalCalendarGrid when AnimatedCrossFade builds both week and month views).
+  static final Map<int, LiturgicalDay> _cachedDays = {};
+
+  /// Clears the memoization cache. Intended only for tests.
+  @visibleForTesting
+  static void resetCache() {
+    _cachedDays.clear();
+  }
+
+  /// Returns the number of currently cached days. Intended only for tests.
+  @visibleForTesting
+  static int get cacheSize => _cachedDays.length;
+
   // Butcher's Gregorian Easter Computus Algorithm
   static DateTime calculateEaster(int year) {
     final int a = year % 19;
@@ -317,6 +336,13 @@ class LiturgicalCalendar {
     // Normalize date to midnight to prevent timezone issues
     final localDate = DateTime(date.year, date.month, date.day);
     final year = localDate.year;
+
+    // Cache lookup: key is a compact YYYYMMDD integer for O(1) retrieval.
+    final cacheKey = year * 10000 + localDate.month * 100 + localDate.day;
+    final cached = _cachedDays[cacheKey];
+    if (cached != null) {
+      return cached;
+    }
 
     // We calculate anchor dates for the current calendar year
     final easter = calculateEaster(year);
@@ -611,7 +637,7 @@ class LiturgicalCalendar {
       }
     }
 
-    return LiturgicalDay(
+    final result = LiturgicalDay(
       date: localDate,
       season: season,
       color: color,
@@ -620,5 +646,7 @@ class LiturgicalCalendar {
       sundayCycle: sundayCycle,
       weekdayCycle: weekdayCycle,
     );
+    _cachedDays[cacheKey] = result;
+    return result;
   }
 }

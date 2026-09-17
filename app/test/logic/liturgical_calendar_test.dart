@@ -2,6 +2,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 
 void main() {
+  setUp(LiturgicalCalendar.resetCache);
+  tearDown(LiturgicalCalendar.resetCache);
+
   group('LiturgicalCalendar Computus & Anchors', () {
     test('calculates correct Easter Sunday dates', () {
       // 2026: April 5
@@ -322,5 +325,165 @@ void main() {
         expect(day2019Advent.weekdayCycle, 'II');
       },
     );
+  });
+
+  group('LiturgicalCalendar computeDay memoization cache', () {
+    setUp(LiturgicalCalendar.resetCache);
+    tearDown(LiturgicalCalendar.resetCache);
+
+    test('cache starts empty and grows after computeDay calls', () {
+      expect(LiturgicalCalendar.cacheSize, 0);
+
+      LiturgicalCalendar.computeDay(DateTime(2026, 4, 5));
+      expect(LiturgicalCalendar.cacheSize, 1);
+
+      LiturgicalCalendar.computeDay(DateTime(2026, 4, 6));
+      expect(LiturgicalCalendar.cacheSize, 2);
+    });
+
+    test('returns identical instance for the same calendar date', () {
+      final first = LiturgicalCalendar.computeDay(DateTime(2026, 4, 5));
+      final second = LiturgicalCalendar.computeDay(DateTime(2026, 4, 5));
+      expect(identical(first, second), isTrue);
+    });
+
+    test(
+      'returns cached result for different DateTime objects with the same date '
+      '(e.g. non-midnight timestamps are normalised)',
+      () {
+        // Simulate a timestamp that has non-zero time components.
+        final withTime = DateTime(2026, 7, 2, 14, 30, 45);
+        final midnight = DateTime(2026, 7, 2);
+
+        final a = LiturgicalCalendar.computeDay(withTime);
+        final b = LiturgicalCalendar.computeDay(midnight);
+
+        // Same cache entry: identical object reference.
+        expect(identical(a, b), isTrue);
+        expect(LiturgicalCalendar.cacheSize, 1);
+      },
+    );
+
+    test('cache does not conflate distinct dates', () {
+      final easter = LiturgicalCalendar.computeDay(DateTime(2026, 4, 5));
+      final christmas = LiturgicalCalendar.computeDay(DateTime(2026, 12, 25));
+
+      expect(identical(easter, christmas), isFalse);
+      expect(easter.season, LiturgicalSeason.easter);
+      expect(christmas.season, LiturgicalSeason.christmas);
+      expect(LiturgicalCalendar.cacheSize, 2);
+    });
+
+    test('resetCache clears all entries and cacheSize returns to zero', () {
+      LiturgicalCalendar.computeDay(DateTime(2026, 4, 5));
+      LiturgicalCalendar.computeDay(DateTime(2026, 4, 6));
+      expect(LiturgicalCalendar.cacheSize, 2);
+
+      LiturgicalCalendar.resetCache();
+      expect(LiturgicalCalendar.cacheSize, 0);
+
+      // After reset, computeDay should recompute (cache miss) and re-populate.
+      final recomputed = LiturgicalCalendar.computeDay(DateTime(2026, 4, 5));
+      expect(LiturgicalCalendar.cacheSize, 1);
+      expect(recomputed.season, LiturgicalSeason.easter);
+    });
+  });
+
+  group('LiturgicalDay lectionaryKey correctness', () {
+    setUp(LiturgicalCalendar.resetCache);
+    tearDown(LiturgicalCalendar.resetCache);
+
+    test('returns correct key for each Advent weekday', () {
+      // Dec 1, 2026 is Tuesday of the 1st Week of Advent (Cycle B)
+      final tue = LiturgicalCalendar.computeDay(DateTime(2026, 12, 1));
+      expect(tue.season, LiturgicalSeason.advent);
+      expect(tue.lectionaryKey, 'season_advent_1_tuesday');
+
+      // Dec 5, 2026 is Saturday of the 1st Week of Advent
+      final sat = LiturgicalCalendar.computeDay(DateTime(2026, 12, 5));
+      expect(sat.lectionaryKey, 'season_advent_1_saturday');
+
+      // Dec 6, 2026 is 2nd Sunday of Advent, Year B
+      final sun = LiturgicalCalendar.computeDay(DateTime(2026, 12, 6));
+      expect(sun.lectionaryKey, 'season_advent_2_sunday_b');
+    });
+
+    test('returns correct key for Ash Wednesday', () {
+      final ashWed = LiturgicalCalendar.computeDay(DateTime(2026, 2, 18));
+      expect(ashWed.lectionaryKey, 'season_lent_ash_wednesday');
+    });
+
+    test('returns correct key for Lent weekdays and Sundays', () {
+      // Feb 22, 2026 is 1st Sunday of Lent, Year A
+      final sun = LiturgicalCalendar.computeDay(DateTime(2026, 2, 22));
+      expect(sun.lectionaryKey, 'season_lent_1_sunday_a');
+
+      // Feb 23, 2026 is Monday of the 1st Week of Lent
+      // (Ash Wednesday was Feb 18, week 0 days; 1st week starts Feb 22)
+      final mon = LiturgicalCalendar.computeDay(DateTime(2026, 2, 23));
+      expect(mon.lectionaryKey, 'season_lent_1_monday');
+    });
+
+    test('returns correct key for Triduum days', () {
+      final holyThursday = LiturgicalCalendar.computeDay(DateTime(2026, 4, 2));
+      expect(holyThursday.lectionaryKey, 'triduum_holy_thursday');
+
+      final goodFriday = LiturgicalCalendar.computeDay(DateTime(2026, 4, 3));
+      expect(goodFriday.lectionaryKey, 'triduum_good_friday');
+    });
+
+    test('returns correct key for Easter season weekdays and Sundays', () {
+      // Easter Sunday 2026 (Apr 5) → special 'season_easter_sunday' key
+      final easter = LiturgicalCalendar.computeDay(DateTime(2026, 4, 5));
+      expect(easter.lectionaryKey, 'season_easter_sunday');
+
+      // Apr 12, 2026 is 7 days after Easter (still within the Octave, days < 8
+      // is false for days==7; weekName has no ordinal so week defaults to 1).
+      final octaveSunday = LiturgicalCalendar.computeDay(DateTime(2026, 4, 12));
+      expect(octaveSunday.season, LiturgicalSeason.easter);
+      expect(octaveSunday.lectionaryKey, 'season_easter_1_sunday_a');
+
+      // Apr 13, 2026 is Monday of the 2nd Week of Easter
+      final mon = LiturgicalCalendar.computeDay(DateTime(2026, 4, 13));
+      expect(mon.season, LiturgicalSeason.easter);
+      expect(mon.lectionaryKey, 'season_easter_2_monday');
+    });
+
+    test(
+      'returns correct key for Ordinary Time Sundays and weekdays across cycles',
+      () {
+        // Jul 5, 2026 is 14th Sunday in Ordinary Time, Year A
+        final sun = LiturgicalCalendar.computeDay(DateTime(2026, 7, 5));
+        expect(sun.season, LiturgicalSeason.ordinaryTime);
+        expect(sun.lectionaryKey, 'season_ordinary_time_14_sunday_a');
+
+        // Jul 6, 2026 is Monday of 14th Week in Ordinary Time, Weekday Cycle II
+        final mon = LiturgicalCalendar.computeDay(DateTime(2026, 7, 6));
+        expect(mon.weekdayCycle, 'II');
+        expect(mon.lectionaryKey, startsWith('season_ordinary_time_'));
+        expect(mon.lectionaryKey, endsWith('_2'));
+      },
+    );
+
+    test('lectionaryKey returns the correct value for every day of the week '
+        'in Advent Week 2 (verifying _daysOfWeek indexing)', () {
+      // Dec 7-12, 2026 spans all 6 weekdays of Advent Week 2.
+      final expected = {
+        DateTime(2026, 12, 7): 'season_advent_2_monday',
+        DateTime(2026, 12, 8): 'feast_immaculate_conception', // fixed feast
+        DateTime(2026, 12, 9): 'season_advent_2_wednesday',
+        DateTime(2026, 12, 10): 'season_advent_2_thursday',
+        DateTime(2026, 12, 11): 'season_advent_2_friday',
+        DateTime(2026, 12, 12): 'season_advent_2_saturday',
+      };
+      for (final entry in expected.entries) {
+        final day = LiturgicalCalendar.computeDay(entry.key);
+        expect(
+          day.lectionaryKey,
+          entry.value,
+          reason: 'Failed for ${entry.key}',
+        );
+      }
+    });
   });
 }
