@@ -347,6 +347,56 @@ class _BibleChapterViewState extends State<BibleChapterView>
     );
   }
 
+  Widget _buildChapterCitationsChip(
+    BuildContext context,
+    ThemeData theme,
+    List<ReverseCitation> citations,
+  ) {
+    return Tooltip(
+      message:
+          '${citations.length} Library Reference${citations.length > 1 ? "s" : ""} to ${widget.book.bookName} ${widget.chapter}',
+      child: InkWell(
+        key: const Key('chapter_citations_chip'),
+        mouseCursor: SystemMouseCursors.click,
+        onTap: () => showReverseCitationsModal(
+          context: context,
+          title: '${widget.book.bookName} ${widget.chapter}',
+          citations: citations,
+        ),
+        borderRadius: BorderRadius.circular(12),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          decoration: BoxDecoration(
+            color: theme.colorScheme.tertiaryContainer.withValues(alpha: 0.8),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: theme.colorScheme.tertiary.withValues(alpha: 0.4),
+            ),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                Icons.auto_stories_rounded,
+                size: 13,
+                color: theme.colorScheme.onTertiaryContainer,
+              ),
+              const SizedBox(width: 4),
+              Text(
+                '${citations.length}',
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.onTertiaryContainer,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -388,51 +438,34 @@ class _BibleChapterViewState extends State<BibleChapterView>
                     ),
                   Padding(
                     padding: const EdgeInsets.only(left: 16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Text(
-                          BibleVerseResolver.formatChapterTitle(
-                            bookNumber: widget.book.bookNumber,
-                            bookName: widget.book.bookName,
-                            chapter: widget.chapter,
-                            numberingSystem: widget.numberingSystem,
-                          ),
-                          style: theme.textTheme.headlineMedium?.copyWith(
-                            fontFamily: 'CinzelDecorative',
-                            fontWeight: FontWeight.bold,
-                            color: theme.colorScheme.primary,
+                        Flexible(
+                          child: Text(
+                            BibleVerseResolver.formatChapterTitle(
+                              bookNumber: widget.book.bookNumber,
+                              bookName: widget.book.bookName,
+                              chapter: widget.chapter,
+                              numberingSystem: widget.numberingSystem,
+                            ),
+                            style: theme.textTheme.headlineMedium?.copyWith(
+                              fontFamily: 'CinzelDecorative',
+                              fontWeight: FontWeight.bold,
+                              color: theme.colorScheme.primary,
+                            ),
                           ),
                         ),
                         if (chapterCitations.isNotEmpty) ...[
-                          const SizedBox(height: 10),
-                          ActionChip(
-                            avatar: Icon(
-                              Icons.auto_stories_rounded,
-                              size: 16,
-                              color: theme.colorScheme.primary,
-                            ),
-                            label: Text(
-                              '${chapterCitations.length} Library Reference${chapterCitations.length > 1 ? "s" : ""} to ${widget.book.bookName} ${widget.chapter}',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 12,
-                                color: theme.colorScheme.primary,
-                              ),
-                            ),
-                            backgroundColor: theme.colorScheme.primaryContainer
-                                .withValues(alpha: 0.5),
-                            side: BorderSide(
-                              color: theme.colorScheme.primary.withValues(
-                                alpha: 0.3,
-                              ),
-                            ),
-                            mouseCursor: SystemMouseCursors.click,
-                            onPressed: () => showReverseCitationsModal(
-                              context: context,
-                              title:
-                                  '${widget.book.bookName} ${widget.chapter}',
-                              citations: chapterCitations,
+                          const SizedBox(width: 8),
+                          Padding(
+                            // Compensates for the font descender space (~9.5px in headlineMedium CinzelDecorative),
+                            // aligning the bottom of the chip with the baseline of the chapter title text.
+                            padding: const EdgeInsets.only(bottom: 9.5),
+                            child: _buildChapterCitationsChip(
+                              context,
+                              theme,
+                              chapterCitations,
                             ),
                           ),
                         ],

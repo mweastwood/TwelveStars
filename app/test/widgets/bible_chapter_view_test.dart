@@ -2,6 +2,7 @@ import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/library_database.dart';
@@ -264,16 +265,86 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        // Verify that the ActionChip with the library references count is visible
-        expect(find.byType(ActionChip), findsOneWidget);
-        expect(find.text('1 Library Reference to Genesis 1'), findsOneWidget);
+        // Verify that the compact chapter citations chip is visible to the right of the title
+        final chipFinder = find.byKey(const Key('chapter_citations_chip'));
+        expect(chipFinder, findsOneWidget);
+        expect(
+          find.descendant(
+            of: chipFinder,
+            matching: find.byIcon(Icons.auto_stories_rounded),
+          ),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(of: chipFinder, matching: find.text('1')),
+          findsOneWidget,
+        );
+
+        // Verify the bottom of the chip is aligned with the baseline of the chapter title text
+        final titleRect = tester.getRect(find.text('Genesis 1'));
+        final chipRect = tester.getRect(chipFinder);
+        final titleWidget = tester.widget<Text>(find.text('Genesis 1'));
+        final textPainter = TextPainter(
+          text: TextSpan(text: titleWidget.data, style: titleWidget.style),
+          textDirection: TextDirection.ltr,
+        )..layout();
+        final titleBaseline =
+            titleRect.top +
+            textPainter.computeDistanceToActualBaseline(
+              TextBaseline.alphabetic,
+            );
+        expect(chipRect.bottom, closeTo(titleBaseline, 0.5));
+        expect(chipRect.left, greaterThan(titleRect.right));
 
         // Verify tapping the chip invokes showReverseCitationsModal
-        await tester.tap(find.byType(ActionChip));
+        await tester.tap(chipFinder);
         await tester.pumpAndSettle();
 
         expect(find.text('Library References to Genesis 1'), findsOneWidget);
         expect(find.text('Catechism Commentary'), findsOneWidget);
+      },
+    );
+
+    testGoldens(
+      'Chapter library references chip renders correctly next to chapter title',
+      (WidgetTester tester) async {
+        final testBookData = ParsedBookData(
+          bookId: 'test_commentary',
+          title: 'Catechism Commentary',
+          subtitle: '',
+          author: 'Church Father',
+          toc: [],
+          sections: [
+            BookSection(
+              id: 'sec1',
+              title: 'Section 1',
+              subtitle: '',
+              content: [
+                ContentItem(type: 'text', text: 'See Genesis 1 for creation.'),
+              ],
+            ),
+          ],
+        );
+        ReverseCitationService.indexBookData('test_source_key', testBookData);
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: BibleChapterView(
+              book: genesisBook,
+              chapter: 1,
+              primaryTranslation: 'CPDV',
+              compareTranslation: 'none',
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'bible_chapter_citations_chip_golden',
+        );
       },
     );
   });
