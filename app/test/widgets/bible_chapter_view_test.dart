@@ -2,6 +2,7 @@ import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/library_database.dart';
@@ -291,6 +292,49 @@ void main() {
 
         expect(find.text('Library References to Genesis 1'), findsOneWidget);
         expect(find.text('Catechism Commentary'), findsOneWidget);
+      },
+    );
+
+    testGoldens(
+      'Chapter library references chip renders correctly next to chapter title',
+      (WidgetTester tester) async {
+        final testBookData = ParsedBookData(
+          bookId: 'test_commentary',
+          title: 'Catechism Commentary',
+          subtitle: '',
+          author: 'Church Father',
+          toc: [],
+          sections: [
+            BookSection(
+              id: 'sec1',
+              title: 'Section 1',
+              subtitle: '',
+              content: [
+                ContentItem(type: 'text', text: 'See Genesis 1 for creation.'),
+              ],
+            ),
+          ],
+        );
+        ReverseCitationService.indexBookData('test_source_key', testBookData);
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(
+            body: BibleChapterView(
+              book: genesisBook,
+              chapter: 1,
+              primaryTranslation: 'CPDV',
+              compareTranslation: 'none',
+            ),
+          ),
+          wrapper: materialAppWrapper(),
+          surfaceSize: const Size(480, 800),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'bible_chapter_citations_chip_golden',
+        );
       },
     );
   });
