@@ -42,12 +42,14 @@ class LibraryContinueReadingHero extends StatelessWidget {
     }
 
     return Card(
-      elevation: 2,
-      color: theme.colorScheme.primaryContainer.withValues(alpha: 0.35),
+      elevation: 0,
+      surfaceTintColor: Colors.transparent,
+      color: theme.colorScheme.surfaceContainerLow,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
         side: BorderSide(
-          color: theme.colorScheme.primary.withValues(alpha: 0.3),
+          color: theme.colorScheme.primary.withValues(alpha: 0.35),
+          width: 1.2,
         ),
       ),
       child: Padding(
