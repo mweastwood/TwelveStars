@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
-import 'package:twelve_stars/logic/prayers.dart';
 
 Future<void> showLibraryScriptureModal({
   required BuildContext context,

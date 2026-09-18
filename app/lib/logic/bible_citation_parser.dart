@@ -1,6 +1,8 @@
 import 'bible_metadata.dart';
 import 'prayers.dart';
 
+export 'prayers.dart' show BibleNumberingSystem;
+
 class BibleCitation {
   final String rawMatch;
   final String displayLabel;
@@ -762,6 +764,7 @@ class BibleCitationParser {
     r'|'
     r'\s*(\d{1,3})'
     r')'
+    r'(?:\s*\[\d{1,3}(?::\d{1,3})?\])?'
     r'(?:'
     r'[\:\.\,\s]+([0-9ivxlcdmIVXLCDM]+)'
     r'(?:\s*[\-\u2013\u2014]\s*([0-9ivxlcdmIVXLCDM]+))?'

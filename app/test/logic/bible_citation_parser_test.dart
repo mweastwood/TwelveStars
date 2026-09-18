@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
-import 'package:twelve_stars/logic/prayers.dart';
 
 void main() {
   group('BibleCitationParser Unit Tests', () {
@@ -400,6 +399,78 @@ void main() {
           expect(segments.first.isCitation, true);
           expect(segments.first.citation!.displayLabel, entry.value);
         }
+      });
+
+      test('parses bracketed dual notations accurately', () {
+        // Single verse with bracketed dual notation
+        final ps94 = BibleCitationParser.parse('Ps 94[95]:8');
+        expect(ps94.length, 1);
+        expect(ps94.first.isCitation, true);
+        expect(ps94.first.citation!.bookName, 'Psalms');
+        expect(ps94.first.citation!.chapter, 94);
+        expect(ps94.first.citation!.verse, 8);
+        expect(ps94.first.citation!.endVerse, isNull);
+        expect(ps94.first.citation!.displayLabel, 'Psalms 94:8');
+        expect(ps94.first.citation!.rawMatch, 'Ps 94[95]:8');
+
+        // Another single verse bracketed dual citation
+        final ps130 = BibleCitationParser.parse('Ps 130[131]:1');
+        expect(ps130.length, 1);
+        expect(ps130.first.isCitation, true);
+        expect(ps130.first.citation!.bookName, 'Psalms');
+        expect(ps130.first.citation!.chapter, 130);
+        expect(ps130.first.citation!.verse, 1);
+        expect(ps130.first.citation!.displayLabel, 'Psalms 130:1');
+        expect(ps130.first.citation!.rawMatch, 'Ps 130[131]:1');
+
+        // Verse range with bracketed dual notation
+        final ps33 = BibleCitationParser.parse(
+          '(Ps 33[34]:12-15)',
+          verseSystem: 'dual',
+        );
+        expect(ps33.length, 1);
+        expect(ps33.first.isCitation, true);
+        expect(ps33.first.citation!.bookName, 'Psalms');
+        expect(ps33.first.citation!.chapter, 33);
+        expect(ps33.first.citation!.verse, 12);
+        expect(ps33.first.citation!.endVerse, 15);
+        expect(ps33.first.citation!.displayLabel, 'Psalms 33:12-15');
+        expect(ps33.first.citation!.rawMatch, '(Ps 33[34]:12-15)');
+        expect(ps33.first.citation!.verseSystem, 'dual');
+
+        // Embedded in parenthesized text without space before colon
+        final ps14 = BibleCitationParser.parse(
+          'Lord, who shall rest in Thy holy hill (Ps 14[15]:1)?',
+        );
+        expect(ps14.length, 3);
+        expect(ps14[0].text, 'Lord, who shall rest in Thy holy hill ');
+        expect(ps14[1].isCitation, true);
+        expect(ps14[1].citation!.chapter, 14);
+        expect(ps14[1].citation!.verse, 1);
+        expect(ps14[1].citation!.displayLabel, 'Psalms 14:1');
+        expect(ps14[1].citation!.rawMatch, '(Ps 14[15]:1)');
+        expect(ps14[2].text, '?');
+
+        // Bracketed notation with chapter and verse inside brackets (e.g. Benedict Rule)
+        final ps113 = BibleCitationParser.parse('(Ps 113[115:1]:9)');
+        expect(ps113.length, 1);
+        expect(ps113.first.isCitation, true);
+        expect(ps113.first.citation!.bookName, 'Psalms');
+        expect(ps113.first.citation!.chapter, 113);
+        expect(ps113.first.citation!.verse, 9);
+        expect(ps113.first.citation!.displayLabel, 'Psalms 113:9');
+        expect(ps113.first.citation!.rawMatch, '(Ps 113[115:1]:9)');
+
+        // Whole-chapter citation with bracketed alternate chapter
+        final wholeChap = BibleCitationParser.parse('Ps 94[95]');
+        expect(wholeChap.length, 1);
+        expect(wholeChap.first.isCitation, true);
+        expect(wholeChap.first.citation!.bookName, 'Psalms');
+        expect(wholeChap.first.citation!.chapter, 94);
+        expect(wholeChap.first.citation!.verse, isNull);
+        expect(wholeChap.first.citation!.isEntireChapter, true);
+        expect(wholeChap.first.citation!.displayLabel, 'Psalms 94');
+        expect(wholeChap.first.citation!.rawMatch, 'Ps 94[95]');
       });
     });
 
