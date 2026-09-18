@@ -99,13 +99,26 @@ class BibleTranslationInfo {
       shortName: 'CPDV',
       languages: ['English'],
       primaryLanguageCode: 'en',
-      publicationDate: '2009',
+      publicationDate: '2025',
       publicDomainStatus: 'Public Domain (Open License)',
       approvalStatus: BibleApprovalStatus.noImprimatur,
       originDescription:
-          'A modern verse-by-verse English translation of the Clementine Latin Vulgate edited independently by lay scholar Ronald L. Conte Jr. in 2009.',
+          'A modern verse-by-verse English translation of the Clementine Latin Vulgate edited by Ronald L. Conte Jr., updated with all errata and text revisions through 2025.',
       churchUsage:
           'Popular for open-source digital study platforms, side-by-side Vulgate reference, and mobile prayer applications.',
+    ),
+    BibleTranslationInfo(
+      code: 'CPDV2009',
+      name: 'Catholic Public Domain Version (2009 Original)',
+      shortName: 'CPDV 2009',
+      languages: ['English'],
+      primaryLanguageCode: 'en',
+      publicationDate: '2009',
+      publicDomainStatus: 'Public Domain (Historic)',
+      approvalStatus: BibleApprovalStatus.noImprimatur,
+      originDescription:
+          'The original 2009 edition of the Catholic Public Domain Version translated from the Clementine Latin Vulgate by Ronald L. Conte Jr.',
+      churchUsage: 'Historic first edition completed on March 28, 2009.',
     ),
     BibleTranslationInfo(
       code: 'LXX',
@@ -138,8 +151,12 @@ class BibleTranslationInfo {
   ];
 
   static BibleTranslationInfo getByCode(String code) {
+    final upper = code.toUpperCase();
+    if (upper == 'CPDV2025') {
+      return allTranslations.firstWhere((t) => t.code == 'CPDV');
+    }
     return allTranslations.firstWhere(
-      (t) => t.code.toUpperCase() == code.toUpperCase(),
+      (t) => t.code.toUpperCase() == upper,
       orElse: () => allTranslations.first,
     );
   }
