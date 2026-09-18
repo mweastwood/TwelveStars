@@ -94,34 +94,11 @@ class BibleVerseResolver {
   }) {
     // 1 Kings (11)
     if (bookNumber == 11) {
-      if (chapter == 4 && verse >= 21 && verse <= 34) {
-        return (chapter: 5, verse: verse - 20);
-      }
-      if (chapter == 5 && verse >= 1 && verse <= 18) {
-        return (chapter: 5, verse: verse + 14);
-      }
-      return (chapter: chapter, verse: verse);
-    }
-
-    // 1 Chronicles (13)
-    if (bookNumber == 13) {
-      if (chapter == 6) {
-        if (verse >= 1 && verse <= 15) {
-          return (chapter: 5, verse: verse + 26);
-        } else if (verse >= 16 && verse <= 81) {
-          return (chapter: 6, verse: verse - 15);
-        }
-      }
-      return (chapter: chapter, verse: verse);
-    }
-
-    // Nehemiah (16)
-    if (bookNumber == 16) {
-      if (chapter == 4) {
-        if (verse >= 1 && verse <= 6) {
-          return (chapter: 3, verse: verse + 32);
-        } else if (verse >= 7 && verse <= 23) {
-          return (chapter: 4, verse: verse - 6);
+      if (chapter == 22) {
+        if (verse == 44) {
+          return (chapter: 22, verse: 43);
+        } else if (verse >= 45 && verse <= 54) {
+          return (chapter: 22, verse: verse - 1);
         }
       }
       return (chapter: chapter, verse: verse);
@@ -229,17 +206,6 @@ class BibleVerseResolver {
       return (chapter: chapter, verse: verse);
     }
 
-    // Joel (34)
-    if (bookNumber == 34) {
-      if (chapter == 2 && verse >= 28 && verse <= 32) {
-        return (chapter: 3, verse: verse - 27);
-      }
-      if (chapter == 3 && verse >= 1 && verse <= 21) {
-        return (chapter: 4, verse: verse);
-      }
-      return (chapter: chapter, verse: verse);
-    }
-
     // Jonah (37)
     if (bookNumber == 37) {
       if (chapter == 2) {
@@ -248,25 +214,6 @@ class BibleVerseResolver {
         } else if (verse >= 2 && verse <= 11) {
           return (chapter: 2, verse: verse - 1);
         }
-      }
-      return (chapter: chapter, verse: verse);
-    }
-
-    // Zechariah (43)
-    if (bookNumber == 43) {
-      if (chapter == 1 && verse >= 18 && verse <= 21) {
-        return (chapter: 2, verse: verse - 17);
-      }
-      if (chapter == 2 && verse >= 1 && verse <= 13) {
-        return (chapter: 2, verse: verse + 4);
-      }
-      return (chapter: chapter, verse: verse);
-    }
-
-    // Malachi (44)
-    if (bookNumber == 44) {
-      if (chapter == 4 && verse >= 1 && verse <= 6) {
-        return (chapter: 3, verse: verse + 18);
       }
       return (chapter: chapter, verse: verse);
     }
@@ -282,34 +229,8 @@ class BibleVerseResolver {
   }) {
     // 1 Kings (11)
     if (bookNumber == 11) {
-      if (chapter == 5) {
-        if (verse >= 1 && verse <= 14) {
-          return (chapter: 4, verse: verse + 20);
-        } else if (verse >= 15 && verse <= 32) {
-          return (chapter: 5, verse: verse - 14);
-        }
-      }
-      return (chapter: chapter, verse: verse);
-    }
-
-    // 1 Chronicles (13)
-    if (bookNumber == 13) {
-      if (chapter == 5 && verse >= 27 && verse <= 41) {
-        return (chapter: 6, verse: verse - 26);
-      }
-      if (chapter == 6 && verse >= 1 && verse <= 66) {
-        return (chapter: 6, verse: verse + 15);
-      }
-      return (chapter: chapter, verse: verse);
-    }
-
-    // Nehemiah (16)
-    if (bookNumber == 16) {
-      if (chapter == 3 && verse >= 33 && verse <= 38) {
-        return (chapter: 4, verse: verse - 32);
-      }
-      if (chapter == 4 && verse >= 1 && verse <= 17) {
-        return (chapter: 4, verse: verse + 6);
+      if (chapter == 22 && verse >= 44 && verse <= 53) {
+        return (chapter: 22, verse: verse + 1);
       }
       return (chapter: chapter, verse: verse);
     }
@@ -417,17 +338,6 @@ class BibleVerseResolver {
       return (chapter: chapter, verse: verse);
     }
 
-    // Joel (34)
-    if (bookNumber == 34) {
-      if (chapter == 3 && verse >= 1 && verse <= 5) {
-        return (chapter: 2, verse: verse + 27);
-      }
-      if (chapter == 4 && verse >= 1 && verse <= 21) {
-        return (chapter: 3, verse: verse);
-      }
-      return (chapter: chapter, verse: verse);
-    }
-
     // Jonah (37)
     if (bookNumber == 37) {
       if (chapter == 1 && verse == 17) {
@@ -435,26 +345,6 @@ class BibleVerseResolver {
       }
       if (chapter == 2 && verse >= 1 && verse <= 10) {
         return (chapter: 2, verse: verse + 1);
-      }
-      return (chapter: chapter, verse: verse);
-    }
-
-    // Zechariah (43)
-    if (bookNumber == 43) {
-      if (chapter == 2) {
-        if (verse >= 1 && verse <= 4) {
-          return (chapter: 1, verse: verse + 17);
-        } else if (verse >= 5 && verse <= 17) {
-          return (chapter: 2, verse: verse - 4);
-        }
-      }
-      return (chapter: chapter, verse: verse);
-    }
-
-    // Malachi (44)
-    if (bookNumber == 44) {
-      if (chapter == 3 && verse >= 19 && verse <= 24) {
-        return (chapter: 4, verse: verse - 18);
       }
       return (chapter: chapter, verse: verse);
     }

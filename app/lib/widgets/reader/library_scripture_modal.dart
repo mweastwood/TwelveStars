@@ -71,9 +71,22 @@ Future<void> showLibraryScriptureModal({
               final targetVerseNum = isModern
                   ? resolvedStart.verse
                   : (citation.verse ?? 1);
-              final endVerseNum = isModern
-                  ? (resolvedEnd?.verse ?? targetVerseNum)
-                  : (citation.endVerse ?? targetVerseNum);
+              final int endVerseNum;
+              if (isModern) {
+                if (resolvedEnd == null) {
+                  endVerseNum = targetVerseNum;
+                } else if (resolvedEnd.chapter > resolvedStart.chapter) {
+                  endVerseNum = verses.isNotEmpty
+                      ? verses.last.verseNumber
+                      : 999999;
+                } else if (resolvedEnd.chapter < resolvedStart.chapter) {
+                  endVerseNum = targetVerseNum - 1;
+                } else {
+                  endVerseNum = resolvedEnd.verse;
+                }
+              } else {
+                endVerseNum = citation.endVerse ?? targetVerseNum;
+              }
 
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 if (scrollController.hasClients &&
