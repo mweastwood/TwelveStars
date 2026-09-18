@@ -8,6 +8,7 @@ import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
+import 'package:twelve_stars/widgets/reader/bible_ribbons_widget.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 
@@ -1862,6 +1863,44 @@ void main() {
           tester,
           'bible_tab_bookmarked_ribbon_verse_highlight_golden',
         );
+      },
+    );
+
+    testWidgets(
+      'chapter title has sufficient top padding to clear top-right ribbons bookmark overlay',
+      (tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'Verse 1 text',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final ribbonsFinder = find.byType(BibleRibbonsWidget);
+        expect(ribbonsFinder, findsOneWidget);
+        final ribbonsRect = tester.getRect(ribbonsFinder);
+
+        // Find the chapter title in BibleChapterView
+        final titleFinder = find.descendant(
+          of: find.byType(BibleChapterView),
+          matching: find.text('Genesis 1'),
+        );
+        expect(titleFinder, findsOneWidget);
+        final titleRect = tester.getRect(titleFinder);
+
+        // Chapter title top must be positioned strictly below the bottom of the ribbons overlay
+        expect(titleRect.top, greaterThanOrEqualTo(ribbonsRect.bottom));
       },
     );
   });
