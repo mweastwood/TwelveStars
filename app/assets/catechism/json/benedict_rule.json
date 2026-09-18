@@ -3,7 +3,7 @@
   "title": "The Rule of St. Benedict",
   "subtitle": "Regula Sancti Benedicti (Trans. Rev. Boniface Verheyen, O.S.B., 1928)",
   "author": "St. Benedict of Nursia (Trans. Rev. Boniface Verheyen, O.S.B.)",
-  "verseSystem": "vulgate",
+  "verseSystem": "dual",
   "toc": [
     {
       "id": "sec_benedict_rule_1",

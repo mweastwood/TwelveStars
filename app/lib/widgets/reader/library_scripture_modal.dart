@@ -1,12 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/logic/prayers.dart';
 
 Future<void> showLibraryScriptureModal({
   required BuildContext context,
   required BibleCitation citation,
 }) async {
   final theme = Theme.of(context);
+
+  final isModern = citation.verseSystem == 'modern';
+  final resolvedStart = isModern
+      ? BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: citation.bookNumber,
+          chapter: citation.chapter,
+          verse: citation.verse ?? 1,
+        )
+      : (chapter: citation.chapter, verse: citation.verse ?? 1);
+
+  final resolvedEnd = (isModern && citation.endVerse != null)
+      ? BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: citation.bookNumber,
+          chapter: citation.chapter,
+          verse: citation.endVerse!,
+        )
+      : null;
+
+  final vulgateChapter = resolvedStart.chapter;
 
   await showModalBottomSheet(
     context: context,
@@ -30,7 +50,7 @@ Future<void> showLibraryScriptureModal({
               return await BibleDatabaseHelper.db.getChapterVerses(
                 'CPDV',
                 citation.bookNumber,
-                citation.chapter,
+                vulgateChapter,
               );
             }(),
             builder: (bCtx, snapshot) {
@@ -48,8 +68,12 @@ Future<void> showLibraryScriptureModal({
 
               final verses = snapshot.data ?? [];
               final bool hasTargetVerse = citation.verse != null;
-              final targetVerseNum = citation.verse ?? 1;
-              final endVerseNum = citation.endVerse ?? targetVerseNum;
+              final targetVerseNum = isModern
+                  ? resolvedStart.verse
+                  : (citation.verse ?? 1);
+              final endVerseNum = isModern
+                  ? (resolvedEnd?.verse ?? targetVerseNum)
+                  : (citation.endVerse ?? targetVerseNum);
 
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 if (scrollController.hasClients &&
@@ -67,6 +91,11 @@ Future<void> showLibraryScriptureModal({
                   }
                 }
               });
+
+              final headerTitle =
+                  (isModern && vulgateChapter != citation.chapter)
+                  ? '${citation.bookName} $vulgateChapter (Modern ${citation.chapter})'
+                  : '${citation.bookName} $vulgateChapter';
 
               return Container(
                 padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
@@ -93,7 +122,7 @@ Future<void> showLibraryScriptureModal({
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      '${citation.bookName} ${citation.chapter}',
+                      headerTitle,
                       style: theme.textTheme.headlineMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: theme.colorScheme.primary,
@@ -118,6 +147,21 @@ Future<void> showLibraryScriptureModal({
                               hasTargetVerse &&
                               verse.verseNumber >= targetVerseNum &&
                               verse.verseNumber <= endVerseNum;
+
+                          final verseDisplay =
+                              BibleVerseResolver.formatVerseDisplay(
+                                bookNumber: citation.bookNumber,
+                                chapter: vulgateChapter,
+                                verseNumber: verse.verseNumber,
+                                numberingSystem: isModern
+                                    ? BibleNumberingSystem.dual
+                                    : BibleNumberingSystem.vulgate,
+                              );
+                          final hasAlt =
+                              verseDisplay.alternateVerseNumber != null;
+                          final verseNumText = hasAlt
+                              ? '${verseDisplay.displayVerseNumber} (${verseDisplay.alternateVerseNumber})'
+                              : '${verseDisplay.displayVerseNumber}';
 
                           return AnimatedContainer(
                             duration: const Duration(milliseconds: 200),
@@ -146,13 +190,16 @@ Future<void> showLibraryScriptureModal({
                               textBaseline: TextBaseline.alphabetic,
                               children: [
                                 SizedBox(
-                                  width: 28,
+                                  width: hasAlt
+                                      ? (verseNumText.length > 7 ? 68 : 52)
+                                      : (verseNumText.length > 2 ? 34 : 28),
                                   child: Text(
-                                    '${verse.verseNumber}',
+                                    verseNumText,
                                     style: theme.textTheme.bodyMedium?.copyWith(
                                       fontWeight: FontWeight.bold,
                                       color: theme.colorScheme.primary,
                                       height: 1.5,
+                                      fontSize: hasAlt ? 11.0 : null,
                                     ),
                                     textAlign: TextAlign.right,
                                   ),

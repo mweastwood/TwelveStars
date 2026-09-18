@@ -1044,6 +1044,7 @@ class LibraryCatalog {
           'Written c. 155–160 AD. The most extensive 2nd-century patristic dialogue exploring Old Testament typology, Messianic prophecies, the divinity of Christ the Logos, the abrogation of the Old Law, and the Church as the new spiritual Israel.',
       defaultAssetPath:
           'assets/catechism/json/justin_dialogue_trypho_dods.json',
+      verseSystem: 'modern',
     ),
     LibraryBookItem(
       id: 'irenaeus_against_heresies',
@@ -1069,6 +1070,7 @@ class LibraryCatalog {
           'Written c. 318–335 AD by the Patriarch of Alexandria. The classic treatise on why God became man, the redemption of humanity through Christ\'s death and resurrection, and the spiritual renewal of the world.',
       defaultAssetPath:
           'assets/catechism/json/athanasius_on_the_incarnation.json',
+      verseSystem: 'modern',
     ),
     LibraryBookItem(
       id: 'athanasius_life_of_anthony',
@@ -1093,6 +1095,7 @@ class LibraryCatalog {
       description:
           'Written c. 397–400 AD. The world\'s first spiritual autobiography tracing Augustine\'s journey from sinful youth and Manichaeism to his conversion at Milan ("Tolle, lege"), the life and death of St. Monica, and profound reflections on memory, time, and creation.',
       volumes: confessionsVolumes,
+      verseSystem: 'modern',
     ),
     LibraryBookItem(
       id: 'augustine_city_of_god',
@@ -1105,6 +1108,7 @@ class LibraryCatalog {
       description:
           'Written c. 413–426 AD following the sack of Rome. Augustine\'s magnum opus in 22 books contrasting the City of God (founded on the love of God) with the City of Man (founded on the love of self), expounding providence, Christian history, true peace, and eternal beatitude.',
       volumes: cityOfGodVolumes,
+      verseSystem: 'modern',
     ),
     LibraryBookItem(
       id: 'cyril_catechetical_lectures',
@@ -1153,6 +1157,7 @@ class LibraryCatalog {
       description:
           'Written c. 386–390 AD. The classic patristic masterwork on the sacred dignity, moral gravity, perils, and pastoral duties of the Catholic priesthood, expounding the Eucharistic Sacrifice, spiritual warfare, and the ministry of preaching.',
       volumes: chrysostomOnThePriesthoodVolumes,
+      verseSystem: 'modern',
     ),
     LibraryBookItem(
       id: 'ambrose_mysteries_and_sacraments',
@@ -1204,6 +1209,7 @@ class LibraryCatalog {
       description:
           'Written c. 590 AD by Pope St. Gregory the Great upon his accession to the Papacy. The premier 4-book guide for bishops, priests, and spiritual directors on pastoral care, discretionary preaching to diverse souls, and the preservation of humility.',
       volumes: gregoryPastoralRuleVolumes,
+      verseSystem: 'modern',
     ),
     LibraryBookItem(
       id: 'cyprian_unity_of_church',
@@ -1217,6 +1223,7 @@ class LibraryCatalog {
       description:
           'Written in 251 AD by the Bishop and Martyr of Carthage. The foundational early patristic treatise on the unity of the Church and the Chair of Peter, together with his commentary on the Lord\'s Prayer.',
       volumes: cyprianVolumes,
+      verseSystem: 'modern',
     ),
     LibraryBookItem(
       id: 'john_damascene_orthodox_faith',
@@ -1242,6 +1249,7 @@ class LibraryCatalog {
       description:
           'Written c. 1077–1078 AD. The classic philosophical and devotional masterpiece formulating the ontological argument for the existence of God ("that than which nothing greater can be conceived") and exploring the divine attributes through prayer and reason.',
       defaultAssetPath: 'assets/catechism/json/anselm_proslogion.json',
+      verseSystem: 'modern',
     ),
     LibraryBookItem(
       id: 'anselm_cur_deus_homo',
@@ -1268,6 +1276,7 @@ class LibraryCatalog {
           'c. 1578–1585. St. John of the Cross\'s classic systematic treatise on active purification of the senses and spiritual faculties (intellect, memory, and will) through the theological virtues of Faith, Hope, and Charity leading to divine union.',
       defaultAssetPath:
           'assets/catechism/json/john_cross_ascent_mount_carmel.json',
+      verseSystem: 'modern',
     ),
     LibraryBookItem(
       id: 'john_cross_dark_night_soul',
@@ -1281,6 +1290,7 @@ class LibraryCatalog {
       description:
           'c. 1584–1586. The companion masterpiece on passive purification of the sensory and spiritual appetites, guiding the soul through dark contemplation and the ten steps of the ladder of divine love into mystical union with God.',
       defaultAssetPath: 'assets/catechism/json/john_cross_dark_night_soul.json',
+      verseSystem: 'modern',
     ),
     LibraryBookItem(
       id: 'aquinas_compendium_of_theology',
@@ -1332,6 +1342,7 @@ class LibraryCatalog {
       description:
           'Written c. 516–530 AD at Monte Cassino. The foundational charter of Western monasticism and European Christian culture, establishing the rhythm of prayer, work, and community life ("Ora et Labora").',
       defaultAssetPath: 'assets/catechism/json/benedict_rule.json',
+      verseSystem: 'dual',
     ),
     LibraryBookItem(
       id: 'francis_de_sales_devout_life',
@@ -1369,6 +1380,7 @@ class LibraryCatalog {
       description:
           'Written in 1577 by the Doctor of the Church. St. Teresa\'s definitive masterpiece on the interior journey through the Seven Mansions of the soul, from vocal prayer and purification to spiritual betrothal, transforming union, and the indwelling of the Most Holy Trinity.',
       defaultAssetPath: 'assets/catechism/json/teresa_interior_castle.json',
+      verseSystem: 'modern',
     ),
     LibraryBookItem(
       id: 'teresa_way_of_perfection',
@@ -1393,6 +1405,7 @@ class LibraryCatalog {
       description:
           'Written c. 1418–1427. The most widely read devotional classic in Christian history after Sacred Scripture, providing profound guidance on spiritual interiority, peace in trials, humility, the Royal Road of the Cross, and devout preparation for the Holy Eucharist.',
       defaultAssetPath: 'assets/catechism/json/kempis_imitation_of_christ.json',
+      verseSystem: 'modern',
     ),
     LibraryBookItem(
       id: 'bonaventure_minds_road_to_god',

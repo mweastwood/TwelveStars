@@ -181,7 +181,7 @@ class BibleVerseRow extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: hasAlternateVerse
-                        ? 52
+                        ? (verseNumText.length > 7 ? 68 : 52)
                         : (verseNumText.length > 2 ? 34 : 28),
                     child: Text(
                       verseNumText,

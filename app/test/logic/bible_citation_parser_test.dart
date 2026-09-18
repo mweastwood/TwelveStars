@@ -992,7 +992,567 @@ void main() {
           ),
           equals((displayVerseNumber: 10, alternateVerseNumber: '19')),
         );
+
+        // Job 39:30 (matches)
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 20,
+            chapter: 39,
+            verseNumber: 30,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals((displayVerseNumber: 30, alternateVerseNumber: null)),
+        );
+
+        // Job 39:31 -> Modern 40:1 (cross-chapter)
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 20,
+            chapter: 39,
+            verseNumber: 31,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals((displayVerseNumber: 31, alternateVerseNumber: '40:1')),
+        );
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 20,
+            chapter: 39,
+            verseNumber: 31,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((displayVerseNumber: 1, alternateVerseNumber: null)),
+        );
+
+        // Job 40:1 -> Modern 40:6 (same chapter shift)
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 20,
+            chapter: 40,
+            verseNumber: 1,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals((displayVerseNumber: 1, alternateVerseNumber: '6')),
+        );
+
+        // Job 40:20 -> Modern 41:1 (cross-chapter)
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 20,
+            chapter: 40,
+            verseNumber: 20,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals((displayVerseNumber: 20, alternateVerseNumber: '41:1')),
+        );
+
+        // Ecclesiastes 4:17 -> Modern 5:1 (cross-chapter)
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 23,
+            chapter: 4,
+            verseNumber: 17,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals((displayVerseNumber: 17, alternateVerseNumber: '5:1')),
+        );
+
+        // Ecclesiastes 5:1 -> Modern 5:2 (same chapter shift)
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 23,
+            chapter: 5,
+            verseNumber: 1,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals((displayVerseNumber: 1, alternateVerseNumber: '2')),
+        );
+
+        // Jonah 2:1 -> Modern 1:17 (cross-chapter)
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 37,
+            chapter: 2,
+            verseNumber: 1,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals((displayVerseNumber: 1, alternateVerseNumber: '1:17')),
+        );
+
+        // Hosea 14:1 -> Modern 13:16 (cross-chapter)
+        expect(
+          BibleVerseResolver.formatVerseDisplay(
+            bookNumber: 33,
+            chapter: 14,
+            verseNumber: 1,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals((displayVerseNumber: 1, alternateVerseNumber: '13:16')),
+        );
       },
     );
+
+    test('bidirectional mappings for all divergent Old Testament books', () {
+      // 1. Job (20)
+      // Vulgate 39:31-35 -> Modern 40:1-5
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 20,
+          chapter: 39,
+          verse: 31,
+        ),
+        equals((chapter: 40, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 20,
+          chapter: 39,
+          verse: 35,
+        ),
+        equals((chapter: 40, verse: 5)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 20,
+          chapter: 40,
+          verse: 1,
+        ),
+        equals((chapter: 39, verse: 31)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 20,
+          chapter: 40,
+          verse: 5,
+        ),
+        equals((chapter: 39, verse: 35)),
+      );
+
+      // Vulgate 40:1-19 -> Modern 40:6-24
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 20,
+          chapter: 40,
+          verse: 1,
+        ),
+        equals((chapter: 40, verse: 6)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 20,
+          chapter: 40,
+          verse: 19,
+        ),
+        equals((chapter: 40, verse: 24)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 20,
+          chapter: 40,
+          verse: 6,
+        ),
+        equals((chapter: 40, verse: 1)),
+      );
+
+      // Vulgate 40:20-28 -> Modern 41:1-9
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 20,
+          chapter: 40,
+          verse: 20,
+        ),
+        equals((chapter: 41, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 20,
+          chapter: 40,
+          verse: 28,
+        ),
+        equals((chapter: 41, verse: 9)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 20,
+          chapter: 41,
+          verse: 1,
+        ),
+        equals((chapter: 40, verse: 20)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 20,
+          chapter: 41,
+          verse: 9,
+        ),
+        equals((chapter: 40, verse: 28)),
+      );
+
+      // Vulgate 41:1-25 -> Modern 41:10-34
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 20,
+          chapter: 41,
+          verse: 1,
+        ),
+        equals((chapter: 41, verse: 10)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 20,
+          chapter: 41,
+          verse: 25,
+        ),
+        equals((chapter: 41, verse: 34)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 20,
+          chapter: 41,
+          verse: 10,
+        ),
+        equals((chapter: 41, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 20,
+          chapter: 41,
+          verse: 34,
+        ),
+        equals((chapter: 41, verse: 25)),
+      );
+
+      // 2. Ecclesiastes (23)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 23,
+          chapter: 4,
+          verse: 17,
+        ),
+        equals((chapter: 5, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 23,
+          chapter: 5,
+          verse: 1,
+        ),
+        equals((chapter: 4, verse: 17)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 23,
+          chapter: 5,
+          verse: 1,
+        ),
+        equals((chapter: 5, verse: 2)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 23,
+          chapter: 5,
+          verse: 19,
+        ),
+        equals((chapter: 5, verse: 20)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 23,
+          chapter: 5,
+          verse: 20,
+        ),
+        equals((chapter: 5, verse: 19)),
+      );
+
+      // 3. Canticle of Canticles (24)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 24,
+          chapter: 7,
+          verse: 1,
+        ),
+        equals((chapter: 6, verse: 13)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 24,
+          chapter: 6,
+          verse: 13,
+        ),
+        equals((chapter: 7, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 24,
+          chapter: 7,
+          verse: 2,
+        ),
+        equals((chapter: 7, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 24,
+          chapter: 7,
+          verse: 1,
+        ),
+        equals((chapter: 7, verse: 2)),
+      );
+
+      // 4. 1 Kings (11)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 11,
+          chapter: 4,
+          verse: 21,
+        ),
+        equals((chapter: 5, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 11,
+          chapter: 5,
+          verse: 1,
+        ),
+        equals((chapter: 4, verse: 21)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 11,
+          chapter: 5,
+          verse: 1,
+        ),
+        equals((chapter: 5, verse: 15)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 11,
+          chapter: 5,
+          verse: 15,
+        ),
+        equals((chapter: 5, verse: 1)),
+      );
+
+      // 5. 1 Chronicles (13)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 13,
+          chapter: 6,
+          verse: 1,
+        ),
+        equals((chapter: 5, verse: 27)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 13,
+          chapter: 5,
+          verse: 27,
+        ),
+        equals((chapter: 6, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 13,
+          chapter: 6,
+          verse: 16,
+        ),
+        equals((chapter: 6, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 13,
+          chapter: 6,
+          verse: 1,
+        ),
+        equals((chapter: 6, verse: 16)),
+      );
+
+      // 6. Nehemiah (16)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 16,
+          chapter: 4,
+          verse: 1,
+        ),
+        equals((chapter: 3, verse: 33)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 16,
+          chapter: 3,
+          verse: 33,
+        ),
+        equals((chapter: 4, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 16,
+          chapter: 4,
+          verse: 7,
+        ),
+        equals((chapter: 4, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 16,
+          chapter: 4,
+          verse: 1,
+        ),
+        equals((chapter: 4, verse: 7)),
+      );
+
+      // 7. Hosea (33)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 33,
+          chapter: 14,
+          verse: 1,
+        ),
+        equals((chapter: 13, verse: 16)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 33,
+          chapter: 13,
+          verse: 16,
+        ),
+        equals((chapter: 14, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 33,
+          chapter: 14,
+          verse: 2,
+        ),
+        equals((chapter: 14, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 33,
+          chapter: 14,
+          verse: 1,
+        ),
+        equals((chapter: 14, verse: 2)),
+      );
+
+      // 8. Joel (34)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 34,
+          chapter: 2,
+          verse: 28,
+        ),
+        equals((chapter: 3, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 34,
+          chapter: 3,
+          verse: 1,
+        ),
+        equals((chapter: 2, verse: 28)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 34,
+          chapter: 3,
+          verse: 1,
+        ),
+        equals((chapter: 4, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 34,
+          chapter: 4,
+          verse: 1,
+        ),
+        equals((chapter: 3, verse: 1)),
+      );
+
+      // 9. Jonah (37)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 37,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 1, verse: 17)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 37,
+          chapter: 1,
+          verse: 17,
+        ),
+        equals((chapter: 2, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 37,
+          chapter: 2,
+          verse: 2,
+        ),
+        equals((chapter: 2, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 37,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 2, verse: 2)),
+      );
+
+      // 10. Zechariah (43)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 43,
+          chapter: 1,
+          verse: 18,
+        ),
+        equals((chapter: 2, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 43,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 1, verse: 18)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 43,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 2, verse: 5)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 43,
+          chapter: 2,
+          verse: 5,
+        ),
+        equals((chapter: 2, verse: 1)),
+      );
+
+      // 11. Malachi (44)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 44,
+          chapter: 4,
+          verse: 1,
+        ),
+        equals((chapter: 3, verse: 19)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 44,
+          chapter: 3,
+          verse: 19,
+        ),
+        equals((chapter: 4, verse: 1)),
+      );
+    });
   });
 }
