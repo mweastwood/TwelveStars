@@ -420,7 +420,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
           controller: widget.scrollController,
           padding: const EdgeInsets.fromLTRB(
             16.0,
-            16.0,
+            48.0,
             16.0,
             160.0, // space for bottom sheet + action bar
           ),
@@ -575,7 +575,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                 bookmarks: widget.bookmarks,
                 bookNumber: widget.book.bookNumber,
                 chapter: widget.chapter,
-                top: -16.0,
+                top: -48.0,
                 bottom: -16.0,
                 left: -12.0,
               ),
