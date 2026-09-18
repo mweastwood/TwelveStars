@@ -280,11 +280,20 @@ void main() {
           findsOneWidget,
         );
 
-        // Verify the bottom of the chip is positioned with the 6.0px descender offset
-        // to align with the CinzelDecorative baseline of the chapter title text
+        // Verify the bottom of the chip is aligned with the baseline of the chapter title text
         final titleRect = tester.getRect(find.text('Genesis 1'));
         final chipRect = tester.getRect(chipFinder);
-        expect(chipRect.bottom, closeTo(titleRect.bottom - 6.0, 0.5));
+        final titleWidget = tester.widget<Text>(find.text('Genesis 1'));
+        final textPainter = TextPainter(
+          text: TextSpan(text: titleWidget.data, style: titleWidget.style),
+          textDirection: TextDirection.ltr,
+        )..layout();
+        final titleBaseline =
+            titleRect.top +
+            textPainter.computeDistanceToActualBaseline(
+              TextBaseline.alphabetic,
+            );
+        expect(chipRect.bottom, closeTo(titleBaseline, 0.5));
         expect(chipRect.left, greaterThan(titleRect.right));
 
         // Verify tapping the chip invokes showReverseCitationsModal
