@@ -46,6 +46,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
+          theme: ThemeData(splashFactory: InkRipple.splashFactory),
           home: Scaffold(
             body: Builder(
               builder: (context) {
@@ -137,6 +138,7 @@ void main() {
 
         await tester.pumpWidget(
           MaterialApp(
+            theme: ThemeData(splashFactory: InkRipple.splashFactory),
             home: Scaffold(
               body: Builder(
                 builder: (context) {
