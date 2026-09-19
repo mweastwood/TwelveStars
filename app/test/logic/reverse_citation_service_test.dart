@@ -933,6 +933,55 @@ void main() {
           expect(mattCitation.questionNumber, equals(7));
         },
       );
+
+      test('indexes modern verseSystem citations to Vulgate coordinates', () {
+        final modernBookData = ParsedBookData(
+          bookId: 'test_modern_book',
+          title: 'Modern Treatise',
+          subtitle: '',
+          author: 'Test Author',
+          verseSystem: 'modern',
+          toc: [],
+          sections: [
+            BookSection(
+              id: 'sec1',
+              title: 'Section 1',
+              subtitle: '',
+              content: [
+                ContentItem(
+                  type: 'text',
+                  text: 'The Lord is my shepherd in Psalm 23:1 and Job 40:1.',
+                ),
+              ],
+            ),
+          ],
+        );
+
+        ReverseCitationService.indexBookData('modern_source', modernBookData);
+
+        // Psalm 23:1 (Modern) resolves to Vulgate Psalm 22:1 (book 21, ch 22, v 1)
+        final ps22Citations = ReverseCitationService.getVerseCitations(
+          21,
+          22,
+          1,
+        );
+        expect(ps22Citations, isNotEmpty);
+        expect(ps22Citations.first.sourceBookId, equals('test_modern_book'));
+        expect(
+          ps22Citations.first.citation.displayLabel,
+          equals('Psalms 23:1'),
+        );
+
+        // Job 40:1 (Modern) resolves to Vulgate Job 39:31 (book 20, ch 39, v 31)
+        final job39Citations = ReverseCitationService.getVerseCitations(
+          20,
+          39,
+          31,
+        );
+        expect(job39Citations, isNotEmpty);
+        expect(job39Citations.first.sourceBookId, equals('test_modern_book'));
+        expect(job39Citations.first.citation.displayLabel, equals('Job 40:1'));
+      });
     });
   });
 }

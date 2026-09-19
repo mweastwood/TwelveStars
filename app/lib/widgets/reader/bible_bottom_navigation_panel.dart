@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
-import 'package:twelve_stars/logic/prayers.dart';
 
 class BibleBottomNavigationPanel extends StatelessWidget {
   final Animation<double> panelHeightAnimation;

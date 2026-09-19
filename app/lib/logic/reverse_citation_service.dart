@@ -499,21 +499,50 @@ class ReverseCitationService {
     for (final rc in citations) {
       final c = rc.citation;
       final b = c.bookNumber;
-      final ch = c.chapter;
 
-      if (c.isEntireChapter) {
-        _chapterIndex
-            .putIfAbsent(b, () => {})
-            .putIfAbsent(ch, () => [])
-            .add(rc);
-      } else if (c.verse != null) {
-        final start = c.verse!;
-        final end = c.endVerse ?? start;
-        final bookChapterMap = _verseIndex
-            .putIfAbsent(b, () => {})
-            .putIfAbsent(ch, () => {});
-        for (int v = start; v <= end; v++) {
-          bookChapterMap.putIfAbsent(v, () => []).add(rc);
+      if (c.verseSystem == 'modern') {
+        if (c.isEntireChapter) {
+          final resolved = BibleVerseResolver.masoreticToVulgateVerse(
+            bookNumber: b,
+            chapter: c.chapter,
+            verse: 1,
+          );
+          _chapterIndex
+              .putIfAbsent(b, () => {})
+              .putIfAbsent(resolved.chapter, () => [])
+              .add(rc);
+        } else if (c.verse != null) {
+          final start = c.verse!;
+          final end = c.endVerse ?? start;
+          for (int v = start; v <= end; v++) {
+            final resolved = BibleVerseResolver.masoreticToVulgateVerse(
+              bookNumber: b,
+              chapter: c.chapter,
+              verse: v,
+            );
+            _verseIndex
+                .putIfAbsent(b, () => {})
+                .putIfAbsent(resolved.chapter, () => {})
+                .putIfAbsent(resolved.verse, () => [])
+                .add(rc);
+          }
+        }
+      } else {
+        final ch = c.chapter;
+        if (c.isEntireChapter) {
+          _chapterIndex
+              .putIfAbsent(b, () => {})
+              .putIfAbsent(ch, () => [])
+              .add(rc);
+        } else if (c.verse != null) {
+          final start = c.verse!;
+          final end = c.endVerse ?? start;
+          final bookChapterMap = _verseIndex
+              .putIfAbsent(b, () => {})
+              .putIfAbsent(ch, () => {});
+          for (int v = start; v <= end; v++) {
+            bookChapterMap.putIfAbsent(v, () => []).add(rc);
+          }
         }
       }
     }

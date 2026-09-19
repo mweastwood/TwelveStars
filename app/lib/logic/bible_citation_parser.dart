@@ -1,6 +1,8 @@
 import 'bible_metadata.dart';
 import 'prayers.dart';
 
+export 'prayers.dart' show BibleNumberingSystem;
+
 class BibleCitation {
   final String rawMatch;
   final String displayLabel;
@@ -86,110 +88,270 @@ class BibleVerseResolver {
     return masoreticPsalm;
   }
 
-  /// Resolves Vulgate Psalm chapter and verse to Masoretic Psalm chapter and verse
+  /// Resolves Vulgate chapter and verse to Masoretic/Modern chapter and verse
   static ({int chapter, int verse}) vulgateToMasoreticVerse({
     required int bookNumber,
     required int chapter,
     required int verse,
   }) {
-    if (bookNumber != 21) {
+    // 1 Kings (11)
+    if (bookNumber == 11) {
+      if (chapter == 22) {
+        if (verse == 44) {
+          return (chapter: 22, verse: 43);
+        } else if (verse >= 45 && verse <= 54) {
+          return (chapter: 22, verse: verse - 1);
+        }
+      }
       return (chapter: chapter, verse: verse);
     }
-    final vulgatePsalm = chapter;
-    final vulgateVerse = verse;
 
-    if (vulgatePsalm <= 8) {
+    // Job (20)
+    if (bookNumber == 20) {
+      if (chapter == 39 && verse >= 31 && verse <= 35) {
+        return (chapter: 40, verse: verse - 30);
+      }
+      if (chapter == 40) {
+        if (verse >= 1 && verse <= 19) {
+          return (chapter: 40, verse: verse + 5);
+        } else if (verse >= 20 && verse <= 28) {
+          return (chapter: 41, verse: verse - 19);
+        }
+      }
+      if (chapter == 41 && verse >= 1 && verse <= 25) {
+        return (chapter: 41, verse: verse + 9);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Psalms (21)
+    if (bookNumber == 21) {
+      final vulgatePsalm = chapter;
+      final vulgateVerse = verse;
+
+      if (vulgatePsalm <= 8) {
+        return (chapter: vulgatePsalm, verse: vulgateVerse);
+      }
+      if (vulgatePsalm == 9) {
+        if (vulgateVerse <= 21) {
+          return (chapter: 9, verse: vulgateVerse);
+        } else {
+          return (chapter: 10, verse: vulgateVerse - 21);
+        }
+      }
+      if (vulgatePsalm >= 10 && vulgatePsalm <= 112) {
+        return (chapter: vulgatePsalm + 1, verse: vulgateVerse);
+      }
+      if (vulgatePsalm == 113) {
+        if (vulgateVerse <= 8) {
+          return (chapter: 114, verse: vulgateVerse);
+        } else {
+          return (chapter: 115, verse: vulgateVerse - 8);
+        }
+      }
+      if (vulgatePsalm == 114) {
+        return (chapter: 116, verse: vulgateVerse);
+      }
+      if (vulgatePsalm == 115) {
+        return (chapter: 116, verse: vulgateVerse + 9);
+      }
+      if (vulgatePsalm >= 116 && vulgatePsalm <= 145) {
+        return (chapter: vulgatePsalm + 1, verse: vulgateVerse);
+      }
+      if (vulgatePsalm == 146) {
+        return (chapter: 147, verse: vulgateVerse);
+      }
+      if (vulgatePsalm == 147) {
+        return (chapter: 147, verse: vulgateVerse + 11);
+      }
+      if (vulgatePsalm >= 148 && vulgatePsalm <= 150) {
+        return (chapter: vulgatePsalm, verse: vulgateVerse);
+      }
       return (chapter: vulgatePsalm, verse: vulgateVerse);
     }
-    if (vulgatePsalm == 9) {
-      if (vulgateVerse <= 21) {
-        return (chapter: 9, verse: vulgateVerse);
-      } else {
-        return (chapter: 10, verse: vulgateVerse - 21);
+
+    // Ecclesiastes (23)
+    if (bookNumber == 23) {
+      if (chapter == 4 && verse == 17) {
+        return (chapter: 5, verse: 1);
       }
-    }
-    if (vulgatePsalm >= 10 && vulgatePsalm <= 112) {
-      return (chapter: vulgatePsalm + 1, verse: vulgateVerse);
-    }
-    if (vulgatePsalm == 113) {
-      if (vulgateVerse <= 8) {
-        return (chapter: 114, verse: vulgateVerse);
-      } else {
-        return (chapter: 115, verse: vulgateVerse - 8);
+      if (chapter == 5 && verse >= 1 && verse <= 19) {
+        return (chapter: 5, verse: verse + 1);
       }
+      return (chapter: chapter, verse: verse);
     }
-    if (vulgatePsalm == 114) {
-      return (chapter: 116, verse: vulgateVerse);
+
+    // Canticle of Canticles (24)
+    if (bookNumber == 24) {
+      if (chapter == 7) {
+        if (verse == 1) {
+          return (chapter: 6, verse: 13);
+        } else if (verse >= 2 && verse <= 13) {
+          return (chapter: 7, verse: verse - 1);
+        }
+      }
+      return (chapter: chapter, verse: verse);
     }
-    if (vulgatePsalm == 115) {
-      return (chapter: 116, verse: vulgateVerse + 9);
+
+    // Hosea (33)
+    if (bookNumber == 33) {
+      if (chapter == 2 && verse == 24) {
+        return (chapter: 2, verse: 23);
+      }
+      if (chapter == 14) {
+        if (verse == 1) {
+          return (chapter: 13, verse: 16);
+        } else if (verse >= 2 && verse <= 10) {
+          return (chapter: 14, verse: verse - 1);
+        }
+      }
+      return (chapter: chapter, verse: verse);
     }
-    if (vulgatePsalm >= 116 && vulgatePsalm <= 145) {
-      return (chapter: vulgatePsalm + 1, verse: vulgateVerse);
+
+    // Jonah (37)
+    if (bookNumber == 37) {
+      if (chapter == 2) {
+        if (verse == 1) {
+          return (chapter: 1, verse: 17);
+        } else if (verse >= 2 && verse <= 11) {
+          return (chapter: 2, verse: verse - 1);
+        }
+      }
+      return (chapter: chapter, verse: verse);
     }
-    if (vulgatePsalm == 146) {
-      return (chapter: 147, verse: vulgateVerse);
-    }
-    if (vulgatePsalm == 147) {
-      return (chapter: 147, verse: vulgateVerse + 11);
-    }
-    if (vulgatePsalm >= 148 && vulgatePsalm <= 150) {
-      return (chapter: vulgatePsalm, verse: vulgateVerse);
-    }
-    return (chapter: vulgatePsalm, verse: vulgateVerse);
+
+    return (chapter: chapter, verse: verse);
   }
 
-  /// Resolves Masoretic Psalm chapter and verse to Vulgate Psalm chapter and verse
+  /// Resolves Masoretic/Modern chapter and verse to Vulgate chapter and verse
   static ({int chapter, int verse}) masoreticToVulgateVerse({
     required int bookNumber,
     required int chapter,
     required int verse,
   }) {
-    if (bookNumber != 21) {
+    // 1 Kings (11)
+    if (bookNumber == 11) {
+      if (chapter == 22 && verse >= 44 && verse <= 53) {
+        return (chapter: 22, verse: verse + 1);
+      }
       return (chapter: chapter, verse: verse);
     }
-    final masoreticPsalm = chapter;
-    final masoreticVerse = verse;
 
-    if (masoreticPsalm <= 8) {
+    // Job (20)
+    if (bookNumber == 20) {
+      if (chapter == 40) {
+        if (verse >= 1 && verse <= 5) {
+          return (chapter: 39, verse: verse + 30);
+        } else if (verse >= 6 && verse <= 24) {
+          return (chapter: 40, verse: verse - 5);
+        }
+      }
+      if (chapter == 41) {
+        if (verse >= 1 && verse <= 9) {
+          return (chapter: 40, verse: verse + 19);
+        } else if (verse >= 10 && verse <= 34) {
+          return (chapter: 41, verse: verse - 9);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Psalms (21)
+    if (bookNumber == 21) {
+      final masoreticPsalm = chapter;
+      final masoreticVerse = verse;
+
+      if (masoreticPsalm <= 8) {
+        return (chapter: masoreticPsalm, verse: masoreticVerse);
+      }
+      if (masoreticPsalm == 9) {
+        return (chapter: 9, verse: masoreticVerse);
+      }
+      if (masoreticPsalm == 10) {
+        return (chapter: 9, verse: masoreticVerse + 21);
+      }
+      if (masoreticPsalm >= 11 && masoreticPsalm <= 113) {
+        return (chapter: masoreticPsalm - 1, verse: masoreticVerse);
+      }
+      if (masoreticPsalm == 114) {
+        return (chapter: 113, verse: masoreticVerse);
+      }
+      if (masoreticPsalm == 115) {
+        return (chapter: 113, verse: masoreticVerse + 8);
+      }
+      if (masoreticPsalm == 116) {
+        if (masoreticVerse <= 9) {
+          return (chapter: 114, verse: masoreticVerse);
+        } else {
+          return (chapter: 115, verse: masoreticVerse - 9);
+        }
+      }
+      if (masoreticPsalm >= 117 && masoreticPsalm <= 146) {
+        return (chapter: masoreticPsalm - 1, verse: masoreticVerse);
+      }
+      if (masoreticPsalm == 147) {
+        if (masoreticVerse <= 11) {
+          return (chapter: 146, verse: masoreticVerse);
+        } else {
+          return (chapter: 147, verse: masoreticVerse - 11);
+        }
+      }
+      if (masoreticPsalm >= 148 && masoreticPsalm <= 150) {
+        return (chapter: masoreticPsalm, verse: masoreticVerse);
+      }
       return (chapter: masoreticPsalm, verse: masoreticVerse);
     }
-    if (masoreticPsalm == 9) {
-      return (chapter: 9, verse: masoreticVerse);
-    }
-    if (masoreticPsalm == 10) {
-      return (chapter: 9, verse: masoreticVerse + 21);
-    }
-    if (masoreticPsalm >= 11 && masoreticPsalm <= 113) {
-      return (chapter: masoreticPsalm - 1, verse: masoreticVerse);
-    }
-    if (masoreticPsalm == 114) {
-      return (chapter: 113, verse: masoreticVerse);
-    }
-    if (masoreticPsalm == 115) {
-      return (chapter: 113, verse: masoreticVerse + 8);
-    }
-    if (masoreticPsalm == 116) {
-      if (masoreticVerse <= 9) {
-        return (chapter: 114, verse: masoreticVerse);
-      } else {
-        return (chapter: 115, verse: masoreticVerse - 9);
+
+    // Ecclesiastes (23)
+    if (bookNumber == 23) {
+      if (chapter == 5) {
+        if (verse == 1) {
+          return (chapter: 4, verse: 17);
+        } else if (verse >= 2 && verse <= 20) {
+          return (chapter: 5, verse: verse - 1);
+        }
       }
+      return (chapter: chapter, verse: verse);
     }
-    if (masoreticPsalm >= 117 && masoreticPsalm <= 146) {
-      return (chapter: masoreticPsalm - 1, verse: masoreticVerse);
-    }
-    if (masoreticPsalm == 147) {
-      if (masoreticVerse <= 11) {
-        return (chapter: 146, verse: masoreticVerse);
-      } else {
-        return (chapter: 147, verse: masoreticVerse - 11);
+
+    // Canticle of Canticles (24)
+    if (bookNumber == 24) {
+      if (chapter == 6 && verse == 13) {
+        return (chapter: 7, verse: 1);
       }
+      if (chapter == 7) {
+        if (verse >= 1 && verse <= 12) {
+          return (chapter: 7, verse: verse + 1);
+        } else if (verse == 13) {
+          return (chapter: 7, verse: 13);
+        }
+      }
+      return (chapter: chapter, verse: verse);
     }
-    if (masoreticPsalm >= 148 && masoreticPsalm <= 150) {
-      return (chapter: masoreticPsalm, verse: masoreticVerse);
+
+    // Hosea (33)
+    if (bookNumber == 33) {
+      if (chapter == 13 && verse == 16) {
+        return (chapter: 14, verse: 1);
+      }
+      if (chapter == 14 && verse >= 1 && verse <= 9) {
+        return (chapter: 14, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
     }
-    return (chapter: masoreticPsalm, verse: masoreticVerse);
+
+    // Jonah (37)
+    if (bookNumber == 37) {
+      if (chapter == 1 && verse == 17) {
+        return (chapter: 2, verse: 1);
+      }
+      if (chapter == 2 && verse >= 1 && verse <= 10) {
+        return (chapter: 2, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    return (chapter: chapter, verse: verse);
   }
 
   /// Formats chapter title for display in Bible tab and chapter header
@@ -249,10 +411,6 @@ class BibleVerseResolver {
     required int verseNumber,
     required BibleNumberingSystem numberingSystem,
   }) {
-    if (bookNumber != 21) {
-      return (displayVerseNumber: verseNumber, alternateVerseNumber: null);
-    }
-
     final masoretic = vulgateToMasoreticVerse(
       bookNumber: bookNumber,
       chapter: chapter,
@@ -268,12 +426,32 @@ class BibleVerseResolver {
           alternateVerseNumber: null,
         );
       case BibleNumberingSystem.dual:
-        if (verseNumber == masoretic.verse) {
+        // In Psalms (bookNumber == 21), the psalm chapter shift is already conveyed in
+        // the chapter title (e.g. "Psalms 22 (Modern 23)"), so alternate verse numbers are
+        // only shown when the verse number itself diverges within the psalm.
+        if (bookNumber == 21) {
+          if (verseNumber == masoretic.verse) {
+            return (
+              displayVerseNumber: verseNumber,
+              alternateVerseNumber: null,
+            );
+          }
+          return (
+            displayVerseNumber: verseNumber,
+            alternateVerseNumber: '${masoretic.verse}',
+          );
+        }
+
+        if (masoretic.chapter == chapter && masoretic.verse == verseNumber) {
           return (displayVerseNumber: verseNumber, alternateVerseNumber: null);
         }
+
+        final altLabel = masoretic.chapter != chapter
+            ? '${masoretic.chapter}:${masoretic.verse}'
+            : '${masoretic.verse}';
         return (
           displayVerseNumber: verseNumber,
-          alternateVerseNumber: '${masoretic.verse}',
+          alternateVerseNumber: altLabel,
         );
     }
   }
@@ -586,6 +764,7 @@ class BibleCitationParser {
     r'|'
     r'\s*(\d{1,3})'
     r')'
+    r'(?:\s*\[\d{1,3}(?::\d{1,3})?\])?'
     r'(?:'
     r'[\:\.\,\s]+([0-9ivxlcdmIVXLCDM]+)'
     r'(?:\s*[\-\u2013\u2014]\s*([0-9ivxlcdmIVXLCDM]+))?'
