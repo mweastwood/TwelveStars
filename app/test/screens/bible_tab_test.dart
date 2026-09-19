@@ -1887,6 +1887,12 @@ void main() {
         expect(highlightBoxLeft, equals(24.0));
         expect(highlightBoxLeft, greaterThan(ribbonRect.right));
 
+        // The verse text itself does not move and remains anchored at its correct position
+        final verseTextRect = tester.getRect(
+          find.text('In the beginning God created heaven, and earth.'),
+        );
+        expect(verseTextRect.left, equals(64.0));
+
         await screenMatchesGolden(
           tester,
           'bible_tab_bookmarked_ribbon_verse_highlight_golden',

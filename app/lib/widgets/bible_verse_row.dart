@@ -157,6 +157,27 @@ class BibleVerseRow extends StatelessWidget {
       if (commentsCount > 0) _buildCommentsChip(context, theme),
     ];
 
+    final resolvedMargin = (margin ?? const EdgeInsets.symmetric(vertical: 2.0))
+        .resolve(Directionality.of(context));
+    final resolvedPadding =
+        (padding ?? const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0))
+            .resolve(Directionality.of(context));
+    // When horizontal margin is applied to shift the highlight box (e.g. to avoid
+    // overlapping bookmark ribbons in Bible chapter view), compensate the inner
+    // padding so the verse itself remains in its original position without shifting.
+    final effectivePadding = EdgeInsets.only(
+      left: (resolvedPadding.left - resolvedMargin.left).clamp(
+        0.0,
+        double.infinity,
+      ),
+      right: (resolvedPadding.right - resolvedMargin.right).clamp(
+        0.0,
+        double.infinity,
+      ),
+      top: resolvedPadding.top,
+      bottom: resolvedPadding.bottom,
+    );
+
     return GestureDetector(
       onLongPress: onLongPress,
       onTap: onTap,
@@ -169,10 +190,8 @@ class BibleVerseRow extends StatelessWidget {
               : Colors.transparent,
           borderRadius: BorderRadius.circular(8.0),
         ),
-        padding:
-            padding ??
-            const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
-        margin: margin ?? const EdgeInsets.symmetric(vertical: 2.0),
+        padding: effectivePadding,
+        margin: resolvedMargin,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
