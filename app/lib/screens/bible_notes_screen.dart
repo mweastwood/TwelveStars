@@ -79,8 +79,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
 
   String _searchQuery = '';
   final TextEditingController _searchController = TextEditingController();
-  bool _showFavorites = true;
-  bool _showComments = true;
+  BibleAnnotationType? _selectedTypeFilter;
 
   @override
   void initState() {
@@ -228,10 +227,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
     final query = _searchQuery.trim().toLowerCase();
 
     return unified.where((item) {
-      if (item.type == BibleAnnotationType.favorite && !_showFavorites) {
-        return false;
-      }
-      if (item.type == BibleAnnotationType.comment && !_showComments) {
+      if (_selectedTypeFilter != null && item.type != _selectedTypeFilter) {
         return false;
       }
 
@@ -363,8 +359,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
 
     for (final item in unified) {
       final matchesType =
-          (item.type == BibleAnnotationType.favorite && _showFavorites) ||
-          (item.type == BibleAnnotationType.comment && _showComments);
+          _selectedTypeFilter == null || item.type == _selectedTypeFilter;
       if (!matchesType) continue;
 
       if (_matchesScope(item, BibleNotesScope.all)) {
@@ -746,19 +741,22 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
             key: const Key('filter_favorites_chip'),
             showCheckmark: false,
             avatar: Icon(
-              _showFavorites ? Icons.star_rounded : Icons.star_border_rounded,
+              _selectedTypeFilter == BibleAnnotationType.favorite
+                  ? Icons.star_rounded
+                  : Icons.star_border_rounded,
               size: 16,
-              color: _showFavorites
+              color: _selectedTypeFilter == BibleAnnotationType.favorite
                   ? theme.colorScheme.onPrimaryContainer
                   : theme.colorScheme.outline,
             ),
             label: Text('Favorites ($favCount)'),
-            selected: _showFavorites,
-            onSelected: (selected) {
+            selected: _selectedTypeFilter == BibleAnnotationType.favorite,
+            onSelected: (_) {
               setState(() {
-                _showFavorites = selected;
-                if (!_showFavorites && !_showComments) {
-                  _showComments = true;
+                if (_selectedTypeFilter == BibleAnnotationType.favorite) {
+                  _selectedTypeFilter = null;
+                } else {
+                  _selectedTypeFilter = BibleAnnotationType.favorite;
                 }
               });
             },
@@ -768,19 +766,22 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
             key: const Key('filter_notes_chip'),
             showCheckmark: false,
             avatar: Icon(
-              _showComments ? Icons.comment_rounded : Icons.comment_outlined,
+              _selectedTypeFilter == BibleAnnotationType.comment
+                  ? Icons.comment_rounded
+                  : Icons.comment_outlined,
               size: 16,
-              color: _showComments
+              color: _selectedTypeFilter == BibleAnnotationType.comment
                   ? theme.colorScheme.onSecondaryContainer
                   : theme.colorScheme.outline,
             ),
             label: Text('Notes ($noteCount)'),
-            selected: _showComments,
-            onSelected: (selected) {
+            selected: _selectedTypeFilter == BibleAnnotationType.comment,
+            onSelected: (_) {
               setState(() {
-                _showComments = selected;
-                if (!_showComments && !_showFavorites) {
-                  _showFavorites = true;
+                if (_selectedTypeFilter == BibleAnnotationType.comment) {
+                  _selectedTypeFilter = null;
+                } else {
+                  _selectedTypeFilter = BibleAnnotationType.comment;
                 }
               });
             },
