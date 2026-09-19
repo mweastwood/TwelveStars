@@ -459,9 +459,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
                         if (chapterCitations.isNotEmpty) ...[
                           const SizedBox(width: 8),
                           Padding(
-                            // Compensates for the font descender space (~9.5px in headlineMedium CinzelDecorative),
+                            // Compensates for the font descender space (~6.0px in headlineMedium CinzelDecorative),
                             // aligning the bottom of the chip with the baseline of the chapter title text.
-                            padding: const EdgeInsets.only(bottom: 9.5),
+                            padding: const EdgeInsets.only(bottom: 6.0),
                             child: _buildChapterCitationsChip(
                               context,
                               theme,
