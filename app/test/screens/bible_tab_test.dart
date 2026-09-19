@@ -1878,14 +1878,16 @@ void main() {
         final verseRow = tester.widget<BibleVerseRow>(verseRowFinder);
         expect(
           verseRow.margin,
-          equals(const EdgeInsets.only(left: 8.0, top: 2.0, bottom: 2.0)),
+          equals(const EdgeInsets.only(left: 16.0, top: 2.0, bottom: 2.0)),
         );
         final highlightBoxLeft =
             verseRect.left + (verseRow.margin as EdgeInsets).left;
 
-        // Highlight box left edge must be positioned strictly right of ribbon edge (zero overlap)
-        expect(highlightBoxLeft, equals(24.0));
+        // Highlight box left edge must be positioned strictly right of ribbon edge with breathing room
+        // (centered between the right edge of ribbon at 20.0 and verse number at 44.0)
+        expect(highlightBoxLeft, equals(32.0));
         expect(highlightBoxLeft, greaterThan(ribbonRect.right));
+        expect(highlightBoxLeft - ribbonRect.right, equals(12.0));
 
         // The verse text itself does not move and remains anchored at its correct position
         final verseTextRect = tester.getRect(

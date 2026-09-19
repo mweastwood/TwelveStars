@@ -525,7 +525,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                         compareVerseText: compareVerse?.verseText,
                         isSelected: isSelected,
                         margin: const EdgeInsets.only(
-                          left: 8.0,
+                          left: 16.0,
                           top: 2.0,
                           bottom: 2.0,
                         ),

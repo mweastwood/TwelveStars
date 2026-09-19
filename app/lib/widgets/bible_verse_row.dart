@@ -164,7 +164,8 @@ class BibleVerseRow extends StatelessWidget {
             .resolve(Directionality.of(context));
     // When horizontal margin is applied to shift the highlight box (e.g. to avoid
     // overlapping bookmark ribbons in Bible chapter view), compensate the inner
-    // padding so the verse itself remains in its original position without shifting.
+    // padding and verse number container width so the verse number and text remain
+    // stationary at their original anchored positions.
     final effectivePadding = EdgeInsets.only(
       left: (resolvedPadding.left - resolvedMargin.left).clamp(
         0.0,
@@ -176,6 +177,21 @@ class BibleVerseRow extends StatelessWidget {
       ),
       top: resolvedPadding.top,
       bottom: resolvedPadding.bottom,
+    );
+
+    final isRtl = Directionality.of(context) == TextDirection.rtl;
+    final leadMargin = isRtl ? resolvedMargin.right : resolvedMargin.left;
+    final leadPadding = isRtl ? resolvedPadding.right : resolvedPadding.left;
+    final horizontalShift = (leadMargin - leadPadding).clamp(
+      0.0,
+      double.infinity,
+    );
+    final baseNumWidth = hasAlternateVerse
+        ? (verseNumText.length > 7 ? 68.0 : 52.0)
+        : (verseNumText.length > 2 ? 34.0 : 28.0);
+    final effectiveNumWidth = (baseNumWidth - horizontalShift).clamp(
+      0.0,
+      double.infinity,
     );
 
     return GestureDetector(
@@ -201,9 +217,7 @@ class BibleVerseRow extends StatelessWidget {
                 textBaseline: TextBaseline.alphabetic,
                 children: [
                   SizedBox(
-                    width: hasAlternateVerse
-                        ? (verseNumText.length > 7 ? 68 : 52)
-                        : (verseNumText.length > 2 ? 34 : 28),
+                    width: effectiveNumWidth,
                     child: Text(
                       verseNumText,
                       style: theme.textTheme.bodyMedium?.copyWith(
