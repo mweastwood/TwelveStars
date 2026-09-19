@@ -136,5 +136,51 @@ void main() {
         );
       },
     );
+
+    test('Strips \\qs Pause\\qs* and does not leave literal Pause', () {
+      const usfm = r'''
+\c 3
+\v 1 First verse.
+\v 2 Second verse.\qs Pause\qs*
+\v 3 Third verse. \qs Pause\qs*
+''';
+      final results = UsfmParser.parse(usfm, 'CPDV', 21, 'Psalms');
+      expect(results.length, equals(3));
+      expect(results[1]['verseText'], equals('Second verse.'));
+      expect(results[2]['verseText'], equals('Third verse.'));
+    });
+
+    test('Handles inline \\v and preserves prefix text for prior verse', () {
+      const usfm = r'''
+\c 63
+\v 7 Searching for iniquities.\f + footnote \f*\v 8 and God will be exalted.
+''';
+      final results = UsfmParser.parse(usfm, 'CPDV', 21, 'Psalms');
+      expect(results.length, equals(2));
+      expect(results[0]['verseNumber'], equals(7));
+      expect(results[0]['verseText'], equals('Searching for iniquities.'));
+      expect(results[1]['verseNumber'], equals(8));
+      expect(results[1]['verseText'], equals('and God will be exalted.'));
+    });
+
+    test('Does not leak acrostic \\qa or section \\s into preceding verse', () {
+      const usfm = r'''
+\c 118
+\v 8 I will keep your justifications. Do not utterly abandon me.
+\qa BETH.
+\s Section Header
+\v 9 By what does an adolescent correct his way?
+''';
+      final results = UsfmParser.parse(usfm, 'CPDV', 21, 'Psalms');
+      expect(results.length, equals(2));
+      expect(
+        results[0]['verseText'],
+        equals('I will keep your justifications. Do not utterly abandon me.'),
+      );
+      expect(
+        results[1]['verseText'],
+        equals('By what does an adolescent correct his way?'),
+      );
+    });
   });
 }

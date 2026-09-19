@@ -357,7 +357,7 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 16;
+  int get schemaVersion => 17;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -519,6 +519,10 @@ class BibleDatabase extends _$BibleDatabase {
           userSettingsTable.bibleRibbons,
         );
       }
+      if (from < 17) {
+        // Clear bible_verses to force clean re-population with repaired CPDV 2009 and CPDV 2025
+        await delete(bibleVerses).go();
+      }
     },
     beforeOpen: (details) async {
       if (details.hadUpgrade) {
@@ -598,9 +602,11 @@ class BibleDatabase extends _$BibleDatabase {
                 ..limit(1))
               .get();
       if (existingCheck.isNotEmpty) {
-        if (existingCheck.first.verseText.contains('|strong=')) {
+        final firstVerse = existingCheck.first.verseText;
+        if (firstVerse.contains('|strong=') ||
+            (bookNumber == 21 && firstVerse == 'Blessed')) {
           debugPrint(
-            'Detected strong tags in populated $bookName ($translation). Re-populating...',
+            'Detected corrupted verse in $bookName ($translation). Re-populating...',
           );
           await (delete(bibleVerses)..where(
                 (t) =>
@@ -632,8 +638,9 @@ class BibleDatabase extends _$BibleDatabase {
       } else if (translation == 'ORIG') {
         assetPath = 'assets/bible/orig/usfm/$numStr-$abbrev-ORIG[pd].usfm';
       } else {
+        // Default: CPDV (2025 Edition)
         assetPath =
-            'assets/bible/cpdv/usfm/$numStr-$abbrev-ENG[B]CPDV2009[pd].p.sfm';
+            'assets/bible/cpdv/usfm/$numStr-$abbrev-ENG[B]CPDV2025[pd].usfm';
       }
 
       final usfmContent = await rootBundle.loadString(assetPath);
@@ -943,13 +950,14 @@ class UsfmParseParams {
 // Simple USFM Parser
 class UsfmParser {
   static final RegExp _footnoteRegex = RegExp(r'\\f\s+.*?\\f\*');
+  static final RegExp _qsRegex = RegExp(r'\\qs\s*.*?\s*\\qs\*');
   static final RegExp _tagRegex = RegExp(r'\\[a-zA-Z0-9]+(?:\*|\s)?');
   static final RegExp _attributeRegex = RegExp(
     r'\|[a-zA-Z0-9_]+="[^"]*"(?:\s+[a-zA-Z0-9_]+="[^"]*")*',
   );
   static final RegExp _multiSpaceRegex = RegExp(r'\s+');
   static final RegExp _chapterRegex = RegExp(r'^\\c\s+(\d+)');
-  static final RegExp _verseRegex = RegExp(r'\\v\s+(\d+)\s*(.*)');
+  static final RegExp _verseRegex = RegExp(r'\\v\s+(\d+)\s*');
 
   static List<Map<String, dynamic>> parseInBackground(UsfmParseParams params) {
     return parse(
@@ -978,6 +986,7 @@ class UsfmParser {
         var text = currentVerseText;
         // Strip inline footnotes and formatting
         text = text.replaceAll(_footnoteRegex, '');
+        text = text.replaceAll(_qsRegex, '');
         text = text.replaceAll(_tagRegex, '');
         text = text.replaceAll(_attributeRegex, '');
         text = text.trim();
@@ -1008,11 +1017,28 @@ class UsfmParser {
         continue;
       }
 
-      final verseMatch = _verseRegex.firstMatch(line);
-      if (verseMatch != null) {
-        saveCurrentVerse();
-        currentVerseNumber = int.parse(verseMatch.group(1)!);
-        currentVerseText = verseMatch.group(2)!;
+      final verseMatches = _verseRegex.allMatches(line).toList();
+      if (verseMatches.isNotEmpty) {
+        for (int i = 0; i < verseMatches.length; i++) {
+          final m = verseMatches[i];
+          final textEnd = (i + 1 < verseMatches.length)
+              ? verseMatches[i + 1].start
+              : line.length;
+          final chunk = line.substring(m.end, textEnd);
+
+          if (i == 0) {
+            final prefix = line.substring(0, m.start).trim();
+            if (prefix.isNotEmpty &&
+                currentChapter > 0 &&
+                currentVerseNumber > 0) {
+              currentVerseText += ' $prefix';
+            }
+          }
+
+          saveCurrentVerse();
+          currentVerseNumber = int.parse(m.group(1)!);
+          currentVerseText = chunk;
+        }
         continue;
       }
 
@@ -1022,7 +1048,12 @@ class UsfmParser {
             line.startsWith(r'\toc') ||
             line.startsWith(r'\mt') ||
             line.startsWith(r'\cl') ||
-            line.startsWith(r'\ca')) {
+            line.startsWith(r'\ca') ||
+            line.startsWith(r'\qa') ||
+            line.startsWith(r'\s') ||
+            line.startsWith(r'\cd') ||
+            line.startsWith(r'\rem') ||
+            line.startsWith(r'\ip')) {
           continue;
         }
         currentVerseText += ' $line';

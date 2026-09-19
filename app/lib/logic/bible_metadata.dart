@@ -168,7 +168,7 @@ const List<BibleBook> catholicBooks = [
     bookNumber: 19,
     bookName: 'Esther',
     abbrev: 'EST',
-    chaptersCount: 10,
+    chaptersCount: 16,
     category: 'Historical Books',
     testament: 'Old Testament',
   ),

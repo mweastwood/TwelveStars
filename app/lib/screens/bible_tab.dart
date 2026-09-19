@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/bible_translation_info.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
@@ -340,7 +341,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
         setState(() {
           _compareTranslation = newCompare ?? 'none';
           if (_primaryTranslation == newCompare) {
-            final options = ['CPDV', 'DRC', 'JUN', 'TAM', 'VUL', 'LXX', 'ORIG'];
+            final options = BibleTranslationInfo.allTranslations
+                .map((t) => t.code)
+                .toList();
             _primaryTranslation = options.firstWhere((o) => o != newCompare);
           }
           _settings?.primaryBibleTranslation = _primaryTranslation;

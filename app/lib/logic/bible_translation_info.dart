@@ -99,11 +99,11 @@ class BibleTranslationInfo {
       shortName: 'CPDV',
       languages: ['English'],
       primaryLanguageCode: 'en',
-      publicationDate: '2009',
+      publicationDate: '2025',
       publicDomainStatus: 'Public Domain (Open License)',
       approvalStatus: BibleApprovalStatus.noImprimatur,
       originDescription:
-          'A modern verse-by-verse English translation of the Clementine Latin Vulgate edited independently by lay scholar Ronald L. Conte Jr. in 2009.',
+          'A modern verse-by-verse English translation of the Clementine Latin Vulgate edited by Ronald L. Conte Jr., updated with all errata and text revisions through 2025.',
       churchUsage:
           'Popular for open-source digital study platforms, side-by-side Vulgate reference, and mobile prayer applications.',
     ),
@@ -138,8 +138,12 @@ class BibleTranslationInfo {
   ];
 
   static BibleTranslationInfo getByCode(String code) {
+    final upper = code.toUpperCase();
+    if (upper == 'CPDV2025' || upper == 'CPDV2009') {
+      return allTranslations.firstWhere((t) => t.code == 'CPDV');
+    }
     return allTranslations.firstWhere(
-      (t) => t.code.toUpperCase() == code.toUpperCase(),
+      (t) => t.code.toUpperCase() == upper,
       orElse: () => allTranslations.first,
     );
   }

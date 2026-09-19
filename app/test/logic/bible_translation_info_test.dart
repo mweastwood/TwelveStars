@@ -148,16 +148,20 @@ void main() {
         expect(orig.shortName, equals('Original Languages'));
       });
 
-      test('is case-insensitive for lookup codes', () {
+      test('is case-insensitive for lookup codes and handles aliases', () {
         expect(BibleTranslationInfo.getByCode('drc').code, equals('DRC'));
         expect(BibleTranslationInfo.getByCode('vul').code, equals('VUL'));
         expect(BibleTranslationInfo.getByCode('jun').code, equals('JUN'));
         expect(BibleTranslationInfo.getByCode('tam').code, equals('TAM'));
         expect(BibleTranslationInfo.getByCode('cpdv').code, equals('CPDV'));
+        expect(BibleTranslationInfo.getByCode('cpdv2025').code, equals('CPDV'));
+        expect(BibleTranslationInfo.getByCode('cpdv2009').code, equals('CPDV'));
         expect(BibleTranslationInfo.getByCode('lxx').code, equals('LXX'));
         expect(BibleTranslationInfo.getByCode('orig').code, equals('ORIG'));
 
         expect(BibleTranslationInfo.getByCode('CpdV').code, equals('CPDV'));
+        expect(BibleTranslationInfo.getByCode('CpdV2025').code, equals('CPDV'));
+        expect(BibleTranslationInfo.getByCode('CpdV2009').code, equals('CPDV'));
         expect(BibleTranslationInfo.getByCode('VuL').code, equals('VUL'));
         expect(BibleTranslationInfo.getByCode('Drc').code, equals('DRC'));
       });

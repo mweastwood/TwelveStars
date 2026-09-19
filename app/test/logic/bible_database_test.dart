@@ -248,7 +248,7 @@ void main() {
 
   group('Book Reading Position Operations', () {
     test('save and get book reading positions', () async {
-      expect(testDb.schemaVersion, equals(16));
+      expect(testDb.schemaVersion, equals(17));
 
       await testDb.saveBookReadingPosition(
         bookId: 'baltimore_catechism',
@@ -283,7 +283,7 @@ void main() {
 
   group('Library Bookmarks Operations', () {
     test('save, get, and delete library bookmarks in BibleDatabase', () async {
-      expect(testDb.schemaVersion, equals(16));
+      expect(testDb.schemaVersion, equals(17));
 
       final now = DateTime.now();
       await testDb.saveLibraryBookmark(
@@ -442,7 +442,7 @@ void main() {
         final migratedDb = BibleDatabase(rawDb);
         addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(16));
+        expect(migratedDb.schemaVersion, equals(17));
 
         final readings = await migratedDb.getReadings('feast_all_saints');
         expect(readings, isNotEmpty);
@@ -534,7 +534,7 @@ void main() {
         final migratedDb = BibleDatabase(rawDb);
         addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(16));
+        expect(migratedDb.schemaVersion, equals(17));
 
         final readings = await migratedDb.getReadings('feast_all_saints');
         expect(readings, isNotEmpty);
@@ -636,7 +636,7 @@ void main() {
         final migratedDb = BibleDatabase(rawDb);
         addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(16));
+        expect(migratedDb.schemaVersion, equals(17));
 
         final readings = await migratedDb.getReadings('feast_all_saints');
         expect(readings, isNotEmpty);
@@ -738,7 +738,7 @@ void main() {
         final migratedDb = BibleDatabase(rawDb);
         addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(16));
+        expect(migratedDb.schemaVersion, equals(17));
 
         final initialSettings = UserSettings(
           angelusReminderEnabled: true,
@@ -850,7 +850,7 @@ void main() {
         final migratedDb = BibleDatabase(rawDb);
         addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(16));
+        expect(migratedDb.schemaVersion, equals(17));
 
         final settings = UserSettings(
           bibleRibbons: [
@@ -870,6 +870,167 @@ void main() {
         expect(loaded.bibleRibbons!.first.ribbonIndex, equals(3));
         expect(loaded.bibleRibbons!.first.bookNumber, equals(43));
         expect(loaded.bibleRibbons!.first.chapter, equals(1));
+      },
+    );
+
+    test(
+      'migrates from schema version 16 to 17 and clears bible_verses while preserving user data',
+      () async {
+        final rawDb = NativeDatabase.memory(
+          setup: (db) {
+            db.execute('''
+              CREATE TABLE bible_verses (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                book_number INT NOT NULL,
+                book_name TEXT NOT NULL,
+                chapter INT NOT NULL,
+                verse_number INT NOT NULL,
+                verse_text TEXT NOT NULL,
+                translation_code TEXT NOT NULL
+              );
+              CREATE TABLE favorite_passages (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                book_number INT NOT NULL,
+                book_name TEXT NOT NULL,
+                chapter INT NOT NULL,
+                start_verse INT NOT NULL,
+                end_verse INT NOT NULL,
+                text_preview TEXT NOT NULL
+              );
+              CREATE TABLE prayers (
+                isar_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                prayer_id TEXT NOT NULL UNIQUE,
+                default_title TEXT NOT NULL,
+                category TEXT NOT NULL,
+                default_order INT NOT NULL,
+                has_amen INTEGER NOT NULL,
+                hash TEXT NOT NULL,
+                localized_translations TEXT
+              );
+              CREATE TABLE user_settings (
+                id INTEGER NOT NULL DEFAULT 1,
+                primary_language_code TEXT NOT NULL,
+                compare_language_code TEXT NOT NULL,
+                primary_bible_translation TEXT NOT NULL,
+                compare_bible_translation TEXT NOT NULL,
+                preferred_versions TEXT,
+                haptics_enabled INTEGER NOT NULL DEFAULT 1,
+                app_theme_mode_code TEXT NOT NULL DEFAULT 'marian_blue',
+                sunday_notifications_enabled INTEGER NOT NULL DEFAULT 1,
+                show_bible_translation_selectors INTEGER NOT NULL DEFAULT 0,
+                bible_numbering_system_code TEXT NOT NULL DEFAULT 'vulgate',
+                prayer_catalog_version INT NOT NULL DEFAULT 0,
+                last_bible_book_number INT NOT NULL DEFAULT 1,
+                last_bible_chapter INT NOT NULL DEFAULT 1,
+                missal_readings_only INTEGER NOT NULL DEFAULT 0,
+                missal_hidden_prayers TEXT,
+                angelus_reminder_enabled INTEGER NOT NULL DEFAULT 0,
+                angelus_morning_enabled INTEGER NOT NULL DEFAULT 0,
+                angelus_midday_enabled INTEGER NOT NULL DEFAULT 1,
+                angelus_evening_enabled INTEGER NOT NULL DEFAULT 0,
+                rosary_reminder_enabled INTEGER NOT NULL DEFAULT 0,
+                rosary_reminder_hour INT NOT NULL DEFAULT 20,
+                rosary_reminder_minute INT NOT NULL DEFAULT 0,
+                morning_prayer_reminder_enabled INTEGER NOT NULL DEFAULT 0,
+                morning_prayer_reminder_hour INT NOT NULL DEFAULT 7,
+                morning_prayer_reminder_minute INT NOT NULL DEFAULT 0,
+                night_prayer_reminder_enabled INTEGER NOT NULL DEFAULT 0,
+                night_prayer_reminder_hour INT NOT NULL DEFAULT 21,
+                night_prayer_reminder_minute INT NOT NULL DEFAULT 30,
+                bible_ribbons TEXT,
+                PRIMARY KEY (id)
+              );
+              CREATE TABLE user_comments (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                document_id TEXT NOT NULL,
+                section_index INT NOT NULL,
+                node_id TEXT NOT NULL,
+                comment_text TEXT NOT NULL,
+                text_preview TEXT,
+                created_at DATETIME NOT NULL
+              );
+              CREATE TABLE library_bookmarks (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                document_id TEXT NOT NULL,
+                section_index INT NOT NULL,
+                node_id TEXT NOT NULL,
+                text_preview TEXT NOT NULL,
+                created_at DATETIME NOT NULL
+              );
+              CREATE TABLE book_reading_positions (
+                book_id TEXT NOT NULL PRIMARY KEY,
+                volume_key TEXT,
+                section_index INT NOT NULL DEFAULT 0,
+                section_id TEXT,
+                updated_at DATETIME NOT NULL
+              );
+              CREATE TABLE lectionary_readings (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                reading_key TEXT NOT NULL,
+                reading_type TEXT NOT NULL,
+                book_number INT NOT NULL,
+                book_name TEXT NOT NULL,
+                chapter INT NOT NULL,
+                verse_range TEXT NOT NULL,
+                citation TEXT NOT NULL
+              );
+              INSERT INTO bible_verses (book_number, book_name, chapter, verse_number, verse_text, translation_code)
+              VALUES (21, 'Psalms', 1, 1, 'Blessed', 'CPDV');
+              INSERT INTO user_comments (document_id, section_index, node_id, comment_text, created_at)
+              VALUES ('bible_21_1_1', 0, 'node1', 'My psalm note', 1700000000);
+              PRAGMA user_version = 16;
+            ''');
+          },
+        );
+        final migratedDb = BibleDatabase(rawDb);
+        addTearDown(migratedDb.close);
+
+        expect(migratedDb.schemaVersion, equals(17));
+
+        // Verses should be cleared by the v17 migration to force reseed
+        final verses = await migratedDb.select(migratedDb.bibleVerses).get();
+        expect(verses, isEmpty);
+
+        // User notes/comments should be preserved!
+        final comments = await migratedDb.select(migratedDb.userComments).get();
+        expect(comments.length, equals(1));
+        expect(comments.first.commentText, equals('My psalm note'));
+      },
+    );
+
+    test(
+      'self-heals corrupted single-word Psalm 1:1 during ensureBookPopulated',
+      () async {
+        // Insert a corrupted single-word Psalm 1:1
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 21,
+                bookName: 'Psalms',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'Blessed',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        final initial = await testDb.getChapterVerses('CPDV', 21, 1);
+        expect(initial.length, equals(1));
+        expect(initial.first.verseText, equals('Blessed'));
+
+        // Calling ensureBookPopulated should detect the corruption and re-populate
+        await testDb.ensureBookPopulated(
+          21,
+          'Psalms',
+          'PSA',
+          translation: 'CPDV',
+        );
+
+        final healed = await testDb.getChapterVerses('CPDV', 21, 1);
+        expect(healed.length, greaterThan(1));
+        expect(healed.first.verseText, isNot(equals('Blessed')));
+        expect(healed.first.verseText, startsWith('Blessed is the man'));
       },
     );
   });
