@@ -524,6 +524,11 @@ class _BibleChapterViewState extends State<BibleChapterView>
                         verseText: verse.verseText,
                         compareVerseText: compareVerse?.verseText,
                         isSelected: isSelected,
+                        margin: const EdgeInsets.only(
+                          left: 8.0,
+                          top: 2.0,
+                          bottom: 2.0,
+                        ),
                         citationsCount: verseCitations.length,
                         commentsCount: verseComments.length,
                         isFavorite: isFavorite,

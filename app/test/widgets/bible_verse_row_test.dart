@@ -404,5 +404,61 @@ void main() {
       );
       expect(animatedContainer.padding, equals(customPadding));
     });
+
+    testWidgets('uses default margin when margin parameter is null', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(
+            body: BibleVerseRow(
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+            ),
+          ),
+        ),
+      );
+
+      final animatedContainerFinder = find.descendant(
+        of: find.byType(BibleVerseRow),
+        matching: find.byType(AnimatedContainer),
+      );
+      expect(animatedContainerFinder, findsOneWidget);
+
+      final animatedContainer = tester.widget<AnimatedContainer>(
+        animatedContainerFinder,
+      );
+      expect(
+        animatedContainer.margin,
+        equals(const EdgeInsets.symmetric(vertical: 2.0)),
+      );
+    });
+
+    testWidgets('applies custom margin when provided', (tester) async {
+      const customMargin = EdgeInsets.only(left: 8.0, top: 2.0, bottom: 2.0);
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(
+            body: BibleVerseRow(
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+              margin: customMargin,
+            ),
+          ),
+        ),
+      );
+
+      final animatedContainerFinder = find.descendant(
+        of: find.byType(BibleVerseRow),
+        matching: find.byType(AnimatedContainer),
+      );
+      expect(animatedContainerFinder, findsOneWidget);
+
+      final animatedContainer = tester.widget<AnimatedContainer>(
+        animatedContainerFinder,
+      );
+      expect(animatedContainer.margin, equals(customMargin));
+    });
   });
 }
