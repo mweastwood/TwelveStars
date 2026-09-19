@@ -637,13 +637,10 @@ class BibleDatabase extends _$BibleDatabase {
         assetPath = 'assets/bible/lxx/usfm/$numStr-$abbrev-GRC[B]LXX[pd].usfm';
       } else if (translation == 'ORIG') {
         assetPath = 'assets/bible/orig/usfm/$numStr-$abbrev-ORIG[pd].usfm';
-      } else if (translation == 'CPDV2009') {
-        assetPath =
-            'assets/bible/cpdv/usfm/$numStr-$abbrev-ENG[B]CPDV2009[pd].p.sfm';
       } else {
-        // Default: CPDV (2025 Edition) or CPDV2025
+        // Default: CPDV (2025 Edition)
         assetPath =
-            'assets/bible/cpdv2025/usfm/$numStr-$abbrev-ENG[B]CPDV2025[pd].usfm';
+            'assets/bible/cpdv/usfm/$numStr-$abbrev-ENG[B]CPDV2025[pd].usfm';
       }
 
       final usfmContent = await rootBundle.loadString(assetPath);

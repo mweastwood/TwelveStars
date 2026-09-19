@@ -139,10 +139,6 @@ void main() {
         expect(cpdv.code, equals('CPDV'));
         expect(cpdv.shortName, equals('CPDV'));
 
-        final cpdv2009 = BibleTranslationInfo.getByCode('CPDV2009');
-        expect(cpdv2009.code, equals('CPDV2009'));
-        expect(cpdv2009.shortName, equals('CPDV 2009'));
-
         final lxx = BibleTranslationInfo.getByCode('LXX');
         expect(lxx.code, equals('LXX'));
         expect(lxx.shortName, equals('Septuagint'));
@@ -159,19 +155,13 @@ void main() {
         expect(BibleTranslationInfo.getByCode('tam').code, equals('TAM'));
         expect(BibleTranslationInfo.getByCode('cpdv').code, equals('CPDV'));
         expect(BibleTranslationInfo.getByCode('cpdv2025').code, equals('CPDV'));
-        expect(
-          BibleTranslationInfo.getByCode('cpdv2009').code,
-          equals('CPDV2009'),
-        );
+        expect(BibleTranslationInfo.getByCode('cpdv2009').code, equals('CPDV'));
         expect(BibleTranslationInfo.getByCode('lxx').code, equals('LXX'));
         expect(BibleTranslationInfo.getByCode('orig').code, equals('ORIG'));
 
         expect(BibleTranslationInfo.getByCode('CpdV').code, equals('CPDV'));
         expect(BibleTranslationInfo.getByCode('CpdV2025').code, equals('CPDV'));
-        expect(
-          BibleTranslationInfo.getByCode('CpdV2009').code,
-          equals('CPDV2009'),
-        );
+        expect(BibleTranslationInfo.getByCode('CpdV2009').code, equals('CPDV'));
         expect(BibleTranslationInfo.getByCode('VuL').code, equals('VUL'));
         expect(BibleTranslationInfo.getByCode('Drc').code, equals('DRC'));
       });
@@ -196,8 +186,8 @@ void main() {
     });
 
     group('Catalog Invariants & Completeness (allTranslations)', () {
-      test('contains exactly 8 supported Catholic translations', () {
-        expect(BibleTranslationInfo.allTranslations.length, equals(8));
+      test('contains exactly 7 supported Catholic translations', () {
+        expect(BibleTranslationInfo.allTranslations.length, equals(7));
       });
 
       test('first translation is Douay-Rheims (DRC) as default', () {
@@ -260,7 +250,6 @@ void main() {
           final jun = BibleTranslationInfo.getByCode('JUN');
           final tam = BibleTranslationInfo.getByCode('TAM');
           final cpdv = BibleTranslationInfo.getByCode('CPDV');
-          final cpdv2009 = BibleTranslationInfo.getByCode('CPDV2009');
           final lxx = BibleTranslationInfo.getByCode('LXX');
           final orig = BibleTranslationInfo.getByCode('ORIG');
 
@@ -269,10 +258,6 @@ void main() {
           expect(jun.approvalStatus, equals(BibleApprovalStatus.imprimatur));
           expect(tam.approvalStatus, equals(BibleApprovalStatus.imprimatur));
           expect(cpdv.approvalStatus, equals(BibleApprovalStatus.noImprimatur));
-          expect(
-            cpdv2009.approvalStatus,
-            equals(BibleApprovalStatus.noImprimatur),
-          );
           expect(
             lxx.approvalStatus,
             equals(BibleApprovalStatus.canonicalSourceText),

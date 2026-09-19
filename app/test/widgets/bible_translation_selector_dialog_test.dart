@@ -6,8 +6,8 @@ import 'package:twelve_stars/widgets/bible_translation_selector_dialog.dart';
 
 void main() {
   group('BibleTranslationSelectorDialog Unit & Widget Tests', () {
-    test('BibleTranslationInfo contains all 8 translations', () {
-      expect(BibleTranslationInfo.allTranslations.length, equals(8));
+    test('BibleTranslationInfo contains all 7 translations', () {
+      expect(BibleTranslationInfo.allTranslations.length, equals(7));
 
       final drc = BibleTranslationInfo.getByCode('DRC');
       expect(drc.name, contains('Douay-Rheims'));
@@ -15,9 +15,6 @@ void main() {
 
       final cpvd = BibleTranslationInfo.getByCode('CPDV');
       expect(cpvd.approvalStatus, equals(BibleApprovalStatus.noImprimatur));
-
-      final cpdv2009 = BibleTranslationInfo.getByCode('CPDV2009');
-      expect(cpdv2009.approvalStatus, equals(BibleApprovalStatus.noImprimatur));
 
       final lxx = BibleTranslationInfo.getByCode('LXX');
       expect(

@@ -81,7 +81,8 @@ BOOKS = [
     (76, 'REV', 'Revelation', 'NT-27_Revelation.htm')
 ]
 
-OUTPUT_DIR = os.path.abspath('app/assets/bible/cpdv2025/usfm')
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_DIR = os.path.join(os.path.dirname(SCRIPT_DIR), 'usfm')
 
 def clean_verse_text(chunk, is_song=False):
     # Remove chapter anchors like [<A NAME=...>]

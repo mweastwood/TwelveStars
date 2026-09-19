@@ -108,19 +108,6 @@ class BibleTranslationInfo {
           'Popular for open-source digital study platforms, side-by-side Vulgate reference, and mobile prayer applications.',
     ),
     BibleTranslationInfo(
-      code: 'CPDV2009',
-      name: 'Catholic Public Domain Version (2009 Original)',
-      shortName: 'CPDV 2009',
-      languages: ['English'],
-      primaryLanguageCode: 'en',
-      publicationDate: '2009',
-      publicDomainStatus: 'Public Domain (Historic)',
-      approvalStatus: BibleApprovalStatus.noImprimatur,
-      originDescription:
-          'The original 2009 edition of the Catholic Public Domain Version translated from the Clementine Latin Vulgate by Ronald L. Conte Jr.',
-      churchUsage: 'Historic first edition completed on March 28, 2009.',
-    ),
-    BibleTranslationInfo(
       code: 'LXX',
       name: 'Septuaginta (LXX)',
       shortName: 'Septuagint',
@@ -152,7 +139,7 @@ class BibleTranslationInfo {
 
   static BibleTranslationInfo getByCode(String code) {
     final upper = code.toUpperCase();
-    if (upper == 'CPDV2025') {
+    if (upper == 'CPDV2025' || upper == 'CPDV2009') {
       return allTranslations.firstWhere((t) => t.code == 'CPDV');
     }
     return allTranslations.firstWhere(
