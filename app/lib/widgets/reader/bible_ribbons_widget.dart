@@ -86,16 +86,19 @@ class BibleRibbonsWidget extends StatelessWidget {
               'Ribbon ${index + 1}: Unassigned (Long press to set)';
         }
 
-        return Padding(
-          padding: EdgeInsets.only(left: index == 0 ? 0.0 : 6.0),
-          child: Tooltip(
-            message: tooltipMessage,
-            triggerMode: TooltipTriggerMode.manual,
-            child: GestureDetector(
-              key: Key('bible_ribbon_$index'),
-              behavior: HitTestBehavior.opaque,
-              onTap: () => onRibbonTap(index, bookmark),
-              onLongPress: () => onRibbonLongPress(index),
+        return Tooltip(
+          message: tooltipMessage,
+          triggerMode: TooltipTriggerMode.manual,
+          child: GestureDetector(
+            key: Key('bible_ribbon_$index'),
+            behavior: HitTestBehavior.opaque,
+            onTap: () => onRibbonTap(index, bookmark),
+            onLongPress: () => onRibbonLongPress(index),
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: index == 0 ? 0.0 : 3.0,
+                right: index == 3 ? 16.0 : 3.0,
+              ),
               child: PhysicalShape(
                 clipper: const RibbonClipper(),
                 clipBehavior: Clip.antiAlias,

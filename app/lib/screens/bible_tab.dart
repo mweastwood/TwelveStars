@@ -641,7 +641,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
           // 2. Ribbons Bookmark Overlay
           Positioned(
             top: 0,
-            right: 16,
+            right: 0,
             child: BibleRibbonsWidget(
               bookmarks: _settings?.bibleRibbons,
               onRibbonTap: _onRibbonTap,
