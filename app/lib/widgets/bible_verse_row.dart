@@ -7,6 +7,7 @@ class BibleVerseRow extends StatelessWidget {
   final String? compareVerseText;
   final String? alternateVerseNumber;
   final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
   final bool isSelected;
   final double? fontSize;
   final int citationsCount;
@@ -25,6 +26,7 @@ class BibleVerseRow extends StatelessWidget {
     this.compareVerseText,
     this.alternateVerseNumber,
     this.padding,
+    this.margin,
     this.isSelected = false,
     this.fontSize,
     this.citationsCount = 0,
@@ -155,6 +157,43 @@ class BibleVerseRow extends StatelessWidget {
       if (commentsCount > 0) _buildCommentsChip(context, theme),
     ];
 
+    final resolvedMargin = (margin ?? const EdgeInsets.symmetric(vertical: 2.0))
+        .resolve(Directionality.of(context));
+    final resolvedPadding =
+        (padding ?? const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0))
+            .resolve(Directionality.of(context));
+    // When horizontal margin is applied to shift the highlight box (e.g. to avoid
+    // overlapping bookmark ribbons in Bible chapter view), compensate the inner
+    // padding and verse number container width so the verse number and text remain
+    // stationary at their original anchored positions.
+    final effectivePadding = EdgeInsets.only(
+      left: (resolvedPadding.left - resolvedMargin.left).clamp(
+        0.0,
+        double.infinity,
+      ),
+      right: (resolvedPadding.right - resolvedMargin.right).clamp(
+        0.0,
+        double.infinity,
+      ),
+      top: resolvedPadding.top,
+      bottom: resolvedPadding.bottom,
+    );
+
+    final isRtl = Directionality.of(context) == TextDirection.rtl;
+    final leadMargin = isRtl ? resolvedMargin.right : resolvedMargin.left;
+    final leadPadding = isRtl ? resolvedPadding.right : resolvedPadding.left;
+    final horizontalShift = (leadMargin - leadPadding).clamp(
+      0.0,
+      double.infinity,
+    );
+    final baseNumWidth = hasAlternateVerse
+        ? (verseNumText.length > 7 ? 68.0 : 52.0)
+        : (verseNumText.length > 2 ? 34.0 : 28.0);
+    final effectiveNumWidth = (baseNumWidth - horizontalShift).clamp(
+      0.0,
+      double.infinity,
+    );
+
     return GestureDetector(
       onLongPress: onLongPress,
       onTap: onTap,
@@ -167,10 +206,8 @@ class BibleVerseRow extends StatelessWidget {
               : Colors.transparent,
           borderRadius: BorderRadius.circular(8.0),
         ),
-        padding:
-            padding ??
-            const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
-        margin: const EdgeInsets.symmetric(vertical: 2.0),
+        padding: effectivePadding,
+        margin: resolvedMargin,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -180,9 +217,7 @@ class BibleVerseRow extends StatelessWidget {
                 textBaseline: TextBaseline.alphabetic,
                 children: [
                   SizedBox(
-                    width: hasAlternateVerse
-                        ? (verseNumText.length > 7 ? 68 : 52)
-                        : (verseNumText.length > 2 ? 34 : 28),
+                    width: effectiveNumWidth,
                     child: Text(
                       verseNumText,
                       style: theme.textTheme.bodyMedium?.copyWith(

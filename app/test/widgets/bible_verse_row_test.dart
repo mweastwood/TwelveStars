@@ -404,5 +404,149 @@ void main() {
       );
       expect(animatedContainer.padding, equals(customPadding));
     });
+
+    testWidgets('uses default margin when margin parameter is null', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(
+            body: BibleVerseRow(
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+            ),
+          ),
+        ),
+      );
+
+      final animatedContainerFinder = find.descendant(
+        of: find.byType(BibleVerseRow),
+        matching: find.byType(AnimatedContainer),
+      );
+      expect(animatedContainerFinder, findsOneWidget);
+
+      final animatedContainer = tester.widget<AnimatedContainer>(
+        animatedContainerFinder,
+      );
+      expect(
+        animatedContainer.margin,
+        equals(const EdgeInsets.symmetric(vertical: 2.0)),
+      );
+    });
+
+    testWidgets('applies custom margin when provided', (tester) async {
+      const customMargin = EdgeInsets.only(left: 8.0, top: 2.0, bottom: 2.0);
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(
+            body: BibleVerseRow(
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+              margin: customMargin,
+            ),
+          ),
+        ),
+      );
+
+      final animatedContainerFinder = find.descendant(
+        of: find.byType(BibleVerseRow),
+        matching: find.byType(AnimatedContainer),
+      );
+      expect(animatedContainerFinder, findsOneWidget);
+
+      final animatedContainer = tester.widget<AnimatedContainer>(
+        animatedContainerFinder,
+      );
+      expect(animatedContainer.margin, equals(customMargin));
+    });
+
+    testWidgets(
+      'custom margin shifts highlight box without shifting verse text and number',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: BibleVerseRow(
+                verseNumber: 1,
+                verseText: 'In the beginning God created heaven, and earth.',
+              ),
+            ),
+          ),
+        );
+
+        final defaultTextRect = tester.getRect(
+          find.text('In the beginning God created heaven, and earth.'),
+        );
+        final defaultNumRect = tester.getRect(find.text('1'));
+
+        const customMargin = EdgeInsets.only(left: 8.0, top: 2.0, bottom: 2.0);
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: BibleVerseRow(
+                verseNumber: 1,
+                verseText: 'In the beginning God created heaven, and earth.',
+                margin: customMargin,
+              ),
+            ),
+          ),
+        );
+
+        final customTextRect = tester.getRect(
+          find.text('In the beginning God created heaven, and earth.'),
+        );
+        final customNumRect = tester.getRect(find.text('1'));
+
+        // Verse text and number must remain in the exact same horizontal position
+        expect(customTextRect.left, equals(defaultTextRect.left));
+        expect(customNumRect.left, equals(defaultNumRect.left));
+      },
+    );
+
+    testWidgets(
+      'custom margin of 16px shifts highlight box while anchoring verse text and number',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: BibleVerseRow(
+                verseNumber: 1,
+                verseText: 'In the beginning God created heaven, and earth.',
+              ),
+            ),
+          ),
+        );
+
+        final defaultTextRect = tester.getRect(
+          find.text('In the beginning God created heaven, and earth.'),
+        );
+        final defaultNumRect = tester.getRect(find.text('1'));
+
+        const customMargin = EdgeInsets.only(left: 16.0, top: 2.0, bottom: 2.0);
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: BibleVerseRow(
+                verseNumber: 1,
+                verseText: 'In the beginning God created heaven, and earth.',
+                margin: customMargin,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final customTextRect = tester.getRect(
+          find.text('In the beginning God created heaven, and earth.'),
+        );
+        final customNumRect = tester.getRect(find.text('1'));
+
+        // Verse text remains at the exact same horizontal position
+        expect(customTextRect.left, equals(defaultTextRect.left));
+        // Verse number right edge remains anchored to the same position
+        expect(customNumRect.right, equals(defaultNumRect.right));
+      },
+    );
   });
 }

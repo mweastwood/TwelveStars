@@ -8,6 +8,7 @@ import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
+import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/reader/bible_ribbons_widget.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
@@ -1858,6 +1859,41 @@ void main() {
           find.text('In the beginning God created heaven, and earth.'),
         );
         await tester.pumpAndSettle();
+
+        final ribbonFinder = find.byType(BiblePageRibbonsWidget);
+        expect(ribbonFinder, findsOneWidget);
+        final ribbonRect = tester.getRect(ribbonFinder);
+
+        final verseRowFinder = find.widgetWithText(
+          BibleVerseRow,
+          'In the beginning God created heaven, and earth.',
+        );
+        expect(verseRowFinder, findsOneWidget);
+        final verseContainerFinder = find.descendant(
+          of: verseRowFinder,
+          matching: find.byType(AnimatedContainer),
+        );
+        final verseRect = tester.getRect(verseContainerFinder);
+
+        final verseRow = tester.widget<BibleVerseRow>(verseRowFinder);
+        expect(
+          verseRow.margin,
+          equals(const EdgeInsets.only(left: 16.0, top: 2.0, bottom: 2.0)),
+        );
+        final highlightBoxLeft =
+            verseRect.left + (verseRow.margin as EdgeInsets).left;
+
+        // Highlight box left edge must be positioned strictly right of ribbon edge with breathing room
+        // (centered between the right edge of ribbon at 20.0 and verse number at 44.0)
+        expect(highlightBoxLeft, equals(32.0));
+        expect(highlightBoxLeft, greaterThan(ribbonRect.right));
+        expect(highlightBoxLeft - ribbonRect.right, equals(12.0));
+
+        // The verse text itself does not move and remains anchored at its correct position
+        final verseTextRect = tester.getRect(
+          find.text('In the beginning God created heaven, and earth.'),
+        );
+        expect(verseTextRect.left, equals(64.0));
 
         await screenMatchesGolden(
           tester,
