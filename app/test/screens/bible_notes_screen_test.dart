@@ -127,24 +127,52 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      // Initially both are visible (3 favs + 3 notes)
+      // Initially both favorites and notes are shown (3 favs + 3 notes).
+      // Neither chip is selected.
       expect(find.text('Genesis 1:1-3'), findsOneWidget); // Fav
       expect(find.text('Psalms 23:1'), findsOneWidget); // Note
+      expect(find.text('Favorites (3)'), findsOneWidget);
+      expect(find.text('Notes (3)'), findsOneWidget);
 
-      // Deselect favorites chip -> only notes shown
+      // Tap Favorites chip -> only favorites shown; Favorites chip is selected.
       await tester.tap(find.byKey(const Key('filter_favorites_chip')));
       await tester.pumpAndSettle();
 
-      expect(find.text('Genesis 1:1-3'), findsNothing);
+      expect(find.text('Genesis 1:1-3'), findsOneWidget);
+      expect(find.text('Revelation 21:4'), findsOneWidget);
+      expect(find.text('Psalms 23:1'), findsNothing);
+      expect(find.text('Romans 8:28'), findsNothing);
+
+      // Tap Notes chip -> switches to only notes shown; Notes chip is selected.
+      await tester.tap(find.byKey(const Key('filter_notes_chip')));
+      await tester.pumpAndSettle();
+
       expect(find.text('Psalms 23:1'), findsOneWidget);
       expect(find.text('Romans 8:28'), findsOneWidget);
+      expect(find.text('Genesis 1:1-3'), findsNothing);
+      expect(find.text('Revelation 21:4'), findsNothing);
 
-      // Deselect notes chip -> only favorites shown
+      // Tap Notes chip again -> reverts to showing both; neither chip selected.
       await tester.tap(find.byKey(const Key('filter_notes_chip')));
       await tester.pumpAndSettle();
 
       expect(find.text('Genesis 1:1-3'), findsOneWidget);
+      expect(find.text('Psalms 23:1'), findsOneWidget);
+      expect(find.text('Revelation 21:4'), findsOneWidget);
+      expect(find.text('Romans 8:28'), findsOneWidget);
+
+      // Tap Favorites chip -> only favorites; then tap Favorites again -> both shown.
+      await tester.tap(find.byKey(const Key('filter_favorites_chip')));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Genesis 1:1-3'), findsOneWidget);
       expect(find.text('Psalms 23:1'), findsNothing);
+
+      await tester.tap(find.byKey(const Key('filter_favorites_chip')));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Genesis 1:1-3'), findsOneWidget);
+      expect(find.text('Psalms 23:1'), findsOneWidget);
     });
 
     testWidgets(
