@@ -149,6 +149,48 @@ void main() {
       },
     );
 
+    testWidgets(
+      'fourth ribbon (purple) has expanded hit target registering taps in rightmost margin and inter-ribbon gap',
+      (WidgetTester tester) async {
+        int? tappedIndex;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: BibleRibbonsWidget(
+                bookmarks: null,
+                onRibbonTap: (index, _) {
+                  tappedIndex = index;
+                },
+                onRibbonLongPress: (_) {},
+              ),
+            ),
+          ),
+        );
+
+        final ribbon3Finder = find.byKey(const Key('bible_ribbon_3'));
+        expect(ribbon3Finder, findsOneWidget);
+        final rect = tester.getRect(ribbon3Finder);
+
+        // Width must be 35px (16px visual + 16px right margin + 3px gap)
+        expect(rect.width, equals(35.0));
+
+        // 1. Center tap triggers Ribbon 4
+        await tester.tapAt(rect.center);
+        expect(tappedIndex, equals(3));
+        tappedIndex = null;
+
+        // 2. Tap in the rightmost margin region (e.g. 2px from right edge)
+        await tester.tapAt(Offset(rect.right - 2, rect.top + 10));
+        expect(tappedIndex, equals(3));
+        tappedIndex = null;
+
+        // 3. Tap in the left gap margin (e.g. 1px from left edge)
+        await tester.tapAt(Offset(rect.left + 1, rect.top + 10));
+        expect(tappedIndex, equals(3));
+      },
+    );
+
     test(
       'RibbonClipper produces expected path with notch and does not reclip',
       () {

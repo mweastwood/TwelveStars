@@ -1903,5 +1903,41 @@ void main() {
         expect(titleRect.top, greaterThanOrEqualTo(ribbonsRect.bottom));
       },
     );
+
+    testWidgets(
+      'tapping in top-right screen margin triggers fourth ribbon tap in BibleTab',
+      (tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'Verse 1 text',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final ribbonsFinder = find.byType(BibleRibbonsWidget);
+        expect(ribbonsFinder, findsOneWidget);
+        final ribbonsRect = tester.getRect(ribbonsFinder);
+
+        // Tap within the rightmost 16px screen margin (e.g., 5px from right screen edge)
+        await tester.tapAt(Offset(ribbonsRect.right - 5, ribbonsRect.top + 15));
+        await tester.pump();
+
+        expect(
+          find.text('Long press this ribbon to bookmark the current chapter'),
+          findsOneWidget,
+        );
+      },
+    );
   });
 }
