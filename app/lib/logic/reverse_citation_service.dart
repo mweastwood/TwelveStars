@@ -130,6 +130,7 @@ List<ReverseCitation> parseBookCitationsInBackground(
 
 class ReverseCitationService {
   static const int maxIndexedSources = 160;
+  static const int indexingConcurrencyLimit = 6;
   static final Map<String, List<ReverseCitation>> _indexedSources = {};
   static final Map<int, Map<int, List<ReverseCitation>>> _chapterIndex = {};
   static final Map<int, Map<int, Map<int, List<ReverseCitation>>>> _verseIndex =
@@ -462,30 +463,29 @@ class ReverseCitationService {
     }
   }
 
-  static Future<void> ensureIndexed() {
+  static Future<void> ensureIndexed({
+    int concurrency = indexingConcurrencyLimit,
+  }) {
     if (_inFlightIndexing != null) return _inFlightIndexing!;
     final future = () async {
       try {
         final catalogPaths = ReverseCitationService.catalogPaths;
+        final unindexedPaths = <String>[];
 
         for (final path in catalogPaths) {
           if (_indexedSources.containsKey(path)) {
             final existing = _indexedSources.remove(path)!;
             _indexedSources[path] = existing;
-            continue;
+          } else {
+            unindexedPaths.add(path);
           }
-          try {
-            final rawJson = await rootBundle.loadString(path);
-            final citations = await compute(
-              parseBookCitationsInBackground,
-              CitationParseParams(sourceKey: path, rawJson: rawJson),
-            );
-            _addIndexedSource(path, citations);
-          } catch (e, stack) {
-            debugPrint(
-              'ReverseCitationService error indexing $path: $e\n$stack',
-            );
-          }
+        }
+
+        if (unindexedPaths.isNotEmpty) {
+          await _indexPathsConcurrently(
+            unindexedPaths,
+            concurrency: concurrency,
+          );
         }
       } finally {
         _inFlightIndexing = null;
@@ -493,6 +493,38 @@ class ReverseCitationService {
     }();
     _inFlightIndexing = future;
     return future;
+  }
+
+  static Future<void> _indexPathsConcurrently(
+    List<String> paths, {
+    required int concurrency,
+  }) async {
+    int index = 0;
+
+    Future<void> worker() async {
+      while (index < paths.length) {
+        final pathIndex = index++;
+        if (pathIndex >= paths.length) break;
+        final path = paths[pathIndex];
+
+        try {
+          final rawJson = await rootBundle.loadString(path);
+          final citations = await compute(
+            parseBookCitationsInBackground,
+            CitationParseParams(sourceKey: path, rawJson: rawJson),
+          );
+          _addIndexedSource(path, citations);
+        } catch (e, stack) {
+          debugPrint(
+            'ReverseCitationService error indexing $path: $e\n$stack',
+          );
+        }
+      }
+    }
+
+    final workerCount = concurrency.clamp(1, paths.length);
+    final workers = List.generate(workerCount, (_) => worker());
+    await Future.wait(workers);
   }
 
   static void _insertCitations(Iterable<ReverseCitation> citations) {

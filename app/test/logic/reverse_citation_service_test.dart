@@ -65,6 +65,22 @@ void main() {
       },
     );
 
+    test(
+      'indexes catalog sources in parallel with controlled concurrency limit',
+      () async {
+        ReverseCitationService.clear();
+        expect(ReverseCitationService.isInFlightIndexing, isFalse);
+
+        await ReverseCitationService.ensureIndexed(concurrency: 4);
+
+        expect(ReverseCitationService.isInFlightIndexing, isFalse);
+        expect(
+          ReverseCitationService.indexedSourcesCount,
+          equals(ReverseCitationService.catalogPaths.length),
+        );
+      },
+    );
+
     test('indexes and retrieves citations spanning verse ranges correctly', () {
       final bookData = ParsedBookData(
         bookId: 'test_range_book',
