@@ -277,51 +277,54 @@ void main() {
       );
     });
 
-    test('computeDay returns correct Sunday and weekday cycles for historical dates', () {
-      // 2016
-      final day2016Mid = LiturgicalCalendar.computeDay(DateTime(2016, 6, 1));
-      expect(day2016Mid.sundayCycle, 'C');
-      expect(day2016Mid.weekdayCycle, 'II');
+    test(
+      'computeDay returns correct Sunday and weekday cycles for historical dates',
+      () {
+        // 2016
+        final day2016Mid = LiturgicalCalendar.computeDay(DateTime(2016, 6, 1));
+        expect(day2016Mid.sundayCycle, 'C');
+        expect(day2016Mid.weekdayCycle, 'II');
 
-      final day2016Advent = LiturgicalCalendar.computeDay(
-        DateTime(2016, 11, 27),
-      );
-      expect(day2016Advent.sundayCycle, 'A');
-      expect(day2016Advent.weekdayCycle, 'I');
+        final day2016Advent = LiturgicalCalendar.computeDay(
+          DateTime(2016, 11, 27),
+        );
+        expect(day2016Advent.sundayCycle, 'A');
+        expect(day2016Advent.weekdayCycle, 'I');
 
-      // 2017
-      final day2017Mid = LiturgicalCalendar.computeDay(DateTime(2017, 6, 1));
-      expect(day2017Mid.sundayCycle, 'A');
-      expect(day2017Mid.weekdayCycle, 'I');
+        // 2017
+        final day2017Mid = LiturgicalCalendar.computeDay(DateTime(2017, 6, 1));
+        expect(day2017Mid.sundayCycle, 'A');
+        expect(day2017Mid.weekdayCycle, 'I');
 
-      final day2017Advent = LiturgicalCalendar.computeDay(
-        DateTime(2017, 12, 3),
-      );
-      expect(day2017Advent.sundayCycle, 'B');
-      expect(day2017Advent.weekdayCycle, 'II');
+        final day2017Advent = LiturgicalCalendar.computeDay(
+          DateTime(2017, 12, 3),
+        );
+        expect(day2017Advent.sundayCycle, 'B');
+        expect(day2017Advent.weekdayCycle, 'II');
 
-      // 2018
-      final day2018Mid = LiturgicalCalendar.computeDay(DateTime(2018, 6, 1));
-      expect(day2018Mid.sundayCycle, 'B');
-      expect(day2018Mid.weekdayCycle, 'II');
+        // 2018
+        final day2018Mid = LiturgicalCalendar.computeDay(DateTime(2018, 6, 1));
+        expect(day2018Mid.sundayCycle, 'B');
+        expect(day2018Mid.weekdayCycle, 'II');
 
-      final day2018Advent = LiturgicalCalendar.computeDay(
-        DateTime(2018, 12, 2),
-      );
-      expect(day2018Advent.sundayCycle, 'C');
-      expect(day2018Advent.weekdayCycle, 'I');
+        final day2018Advent = LiturgicalCalendar.computeDay(
+          DateTime(2018, 12, 2),
+        );
+        expect(day2018Advent.sundayCycle, 'C');
+        expect(day2018Advent.weekdayCycle, 'I');
 
-      // 2019
-      final day2019Mid = LiturgicalCalendar.computeDay(DateTime(2019, 6, 1));
-      expect(day2019Mid.sundayCycle, 'C');
-      expect(day2019Mid.weekdayCycle, 'I');
+        // 2019
+        final day2019Mid = LiturgicalCalendar.computeDay(DateTime(2019, 6, 1));
+        expect(day2019Mid.sundayCycle, 'C');
+        expect(day2019Mid.weekdayCycle, 'I');
 
-      final day2019Advent = LiturgicalCalendar.computeDay(
-        DateTime(2019, 12, 1),
-      );
-      expect(day2019Advent.sundayCycle, 'A');
-      expect(day2019Advent.weekdayCycle, 'II');
-    });
+        final day2019Advent = LiturgicalCalendar.computeDay(
+          DateTime(2019, 12, 1),
+        );
+        expect(day2019Advent.sundayCycle, 'A');
+        expect(day2019Advent.weekdayCycle, 'II');
+      },
+    );
   });
 
   group('LiturgicalCalendar computeDay memoization cache', () {
@@ -467,18 +470,21 @@ void main() {
       expect(mon.lectionaryKey, 'season_easter_2_monday');
     });
 
-    test('returns correct key for Ordinary Time Sundays and weekdays across cycles', () {
-      // Jul 5, 2026 is 14th Sunday in Ordinary Time, Year A
-      final sun = LiturgicalCalendar.computeDay(DateTime(2026, 7, 5));
-      expect(sun.season, LiturgicalSeason.ordinaryTime);
-      expect(sun.lectionaryKey, 'season_ordinary_time_14_sunday_a');
+    test(
+      'returns correct key for Ordinary Time Sundays and weekdays across cycles',
+      () {
+        // Jul 5, 2026 is 14th Sunday in Ordinary Time, Year A
+        final sun = LiturgicalCalendar.computeDay(DateTime(2026, 7, 5));
+        expect(sun.season, LiturgicalSeason.ordinaryTime);
+        expect(sun.lectionaryKey, 'season_ordinary_time_14_sunday_a');
 
-      // Jul 6, 2026 is Monday of 14th Week in Ordinary Time, Weekday Cycle II
-      final mon = LiturgicalCalendar.computeDay(DateTime(2026, 7, 6));
-      expect(mon.weekdayCycle, 'II');
-      expect(mon.lectionaryKey, startsWith('season_ordinary_time_'));
-      expect(mon.lectionaryKey, endsWith('_2'));
-    });
+        // Jul 6, 2026 is Monday of 14th Week in Ordinary Time, Weekday Cycle II
+        final mon = LiturgicalCalendar.computeDay(DateTime(2026, 7, 6));
+        expect(mon.weekdayCycle, 'II');
+        expect(mon.lectionaryKey, startsWith('season_ordinary_time_'));
+        expect(mon.lectionaryKey, endsWith('_2'));
+      },
+    );
 
     test('lectionaryKey returns the correct value for every day of the week '
         'in Advent Week 2 (verifying _daysOfWeek indexing)', () {
