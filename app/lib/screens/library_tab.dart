@@ -178,7 +178,9 @@ class _LibraryTabState extends State<LibraryTab> {
     try {
       final allComments = await BibleDatabaseHelper.db.getComments();
       final nonBibleComments = allComments
-          .where((c) => !catholicBookAbbrevs.contains(c.documentId.toUpperCase()))
+          .where(
+            (c) => !catholicBookAbbrevs.contains(c.documentId.toUpperCase()),
+          )
           .toList();
       if (mounted) {
         setState(() {

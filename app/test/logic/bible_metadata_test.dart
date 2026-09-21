@@ -256,13 +256,16 @@ void main() {
     });
 
     group('Book Abbreviations Lookup Set', () {
-      test('contains all 73 book abbreviations in uppercase for O(1) lookup', () {
-        expect(catholicBookAbbrevs.length, 73);
-        expect(catholicBookAbbrevs.contains('GEN'), isTrue);
-        expect(catholicBookAbbrevs.contains('REV'), isTrue);
-        expect(catholicBookAbbrevs.contains('MAT'), isTrue);
-        expect(catholicBookAbbrevs.contains('NON_EXISTENT'), isFalse);
-      });
+      test(
+        'contains all 73 book abbreviations in uppercase for O(1) lookup',
+        () {
+          expect(catholicBookAbbrevs.length, 73);
+          expect(catholicBookAbbrevs.contains('GEN'), isTrue);
+          expect(catholicBookAbbrevs.contains('REV'), isTrue);
+          expect(catholicBookAbbrevs.contains('MAT'), isTrue);
+          expect(catholicBookAbbrevs.contains('NON_EXISTENT'), isFalse);
+        },
+      );
     });
   });
 }
