@@ -1053,7 +1053,8 @@ void main() {
         final indexResult = await migratedDb.customSelect(
           "SELECT name FROM sqlite_master WHERE type = 'index'",
         ).get();
-        final indexNames = indexResult.map((r) => r.data['name'] as String).toSet();
+        final indexNames =
+            indexResult.map((r) => r.data['name'] as String).toSet();
 
         expect(indexNames, contains('idx_bible_verses_lookup'));
         expect(indexNames, contains('idx_lectionary_key'));
