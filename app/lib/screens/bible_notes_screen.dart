@@ -69,6 +69,8 @@ class BibleNotesScreen extends StatefulWidget {
 }
 
 class _BibleNotesScreenState extends State<BibleNotesScreen> {
+  static final Set<String> _catholicBookAbbrevs = catholicBookAbbrevs;
+
   List<FavoritePassage> _favorites = [];
   List<UserComment> _comments = [];
   bool _isLoading = true;
@@ -122,9 +124,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
 
       // Only include comments on Bible verses (documentId matches a Bible book abbrev)
       final bibleComments = allComments.where((c) {
-        return catholicBooks.any(
-          (b) => b.abbrev.toUpperCase() == c.documentId.toUpperCase(),
-        );
+        return _catholicBookAbbrevs.contains(c.documentId.toUpperCase());
       }).toList();
 
       if (mounted) {

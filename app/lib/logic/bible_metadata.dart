@@ -615,3 +615,8 @@ const List<BibleBook> catholicBooks = [
     testament: 'New Testament',
   ),
 ];
+
+/// Set of uppercase Catholic Bible book abbreviations for O(1) constant lookup.
+final Set<String> catholicBookAbbrevs =
+    catholicBooks.map((b) => b.abbrev.toUpperCase()).toSet();
+

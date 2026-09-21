@@ -77,7 +77,7 @@ class _LibrarySavedSheetState extends State<LibrarySavedSheet> {
     try {
       final allComments = await BibleDatabaseHelper.db.getComments();
       final nonBibleComments = allComments
-          .where((c) => !catholicBooks.any((b) => b.abbrev == c.documentId))
+          .where((c) => !catholicBookAbbrevs.contains(c.documentId.toUpperCase()))
           .toList();
       if (mounted) {
         setState(() {
