@@ -81,7 +81,8 @@ class LiturgicalDay {
     }
 
     final normWeek = weekName.toLowerCase();
-    if (normWeek.contains('ash wednesday')) {
+    if (normWeek.contains('ash wednesday') &&
+        !normWeek.contains('after ash wednesday')) {
       return 'season_lent_ash_wednesday';
     }
     if (normWeek.contains('holy thursday')) {
