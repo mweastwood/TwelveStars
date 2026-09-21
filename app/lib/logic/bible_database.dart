@@ -357,7 +357,7 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 17;
+  int get schemaVersion => 18;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -522,6 +522,20 @@ class BibleDatabase extends _$BibleDatabase {
       if (from < 17) {
         // Clear bible_verses to force clean re-population with repaired CPDV 2009 and CPDV 2025
         await delete(bibleVerses).go();
+      }
+      if (from < 18) {
+        await customStatement(
+          'CREATE INDEX IF NOT EXISTS idx_bible_verses_lookup ON bible_verses(translation_code, book_number, chapter);',
+        );
+        await customStatement(
+          'CREATE INDEX IF NOT EXISTS idx_lectionary_key ON lectionary_readings(reading_key);',
+        );
+        await customStatement(
+          'CREATE INDEX IF NOT EXISTS idx_user_comments_doc_node ON user_comments(document_id, node_id);',
+        );
+        await customStatement(
+          'CREATE INDEX IF NOT EXISTS idx_favorite_passages_book_ch ON favorite_passages(book_number, chapter);',
+        );
       }
     },
     beforeOpen: (details) async {
