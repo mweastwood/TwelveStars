@@ -499,6 +499,7 @@ class ReverseCitationService {
     List<String> paths, {
     required int concurrency,
   }) async {
+    if (paths.isEmpty) return;
     int index = 0;
 
     Future<void> worker() async {
@@ -515,9 +516,7 @@ class ReverseCitationService {
           );
           _addIndexedSource(path, citations);
         } catch (e, stack) {
-          debugPrint(
-            'ReverseCitationService error indexing $path: $e\n$stack',
-          );
+          debugPrint('ReverseCitationService error indexing $path: $e\n$stack');
         }
       }
     }
