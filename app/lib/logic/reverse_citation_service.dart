@@ -500,6 +500,8 @@ class ReverseCitationService {
     required int concurrency,
   }) async {
     if (paths.isEmpty) return;
+
+    final results = List<List<ReverseCitation>?>.filled(paths.length, null);
     int index = 0;
 
     Future<void> worker() async {
@@ -514,9 +516,9 @@ class ReverseCitationService {
             parseBookCitationsInBackground,
             CitationParseParams(sourceKey: path, rawJson: rawJson),
           );
-          _addIndexedSource(path, citations);
+          results[pathIndex] = citations;
         } catch (e, stack) {
-          debugPrint('ReverseCitationService error indexing $path: $e\n$stack');
+          debugPrint('Error indexing $path: $e\n$stack');
         }
       }
     }
@@ -524,6 +526,13 @@ class ReverseCitationService {
     final workerCount = concurrency.clamp(1, paths.length);
     final workers = List.generate(workerCount, (_) => worker());
     await Future.wait(workers);
+
+    for (int i = 0; i < paths.length; i++) {
+      final citations = results[i];
+      if (citations != null) {
+        _addIndexedSource(paths[i], citations);
+      }
+    }
   }
 
   static void _insertCitations(Iterable<ReverseCitation> citations) {
