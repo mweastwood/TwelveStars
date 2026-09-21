@@ -279,8 +279,7 @@ const List<DiscernmentQuestion> questionBank = [
     primaryAxis: DiscernmentAxis.courageVsMercy,
     options: [
       DiscernmentOption(
-        text:
-            '“Blessed are those who are persecuted for righteousness’ sake”',
+        text: '“Blessed are those who are persecuted for righteousness’ sake”',
         icon: Icons.military_tech,
         weights: {DiscernmentAxis.courageVsMercy: -0.9},
       ),
@@ -506,8 +505,7 @@ const List<DiscernmentQuestion> questionBank = [
   ),
   DiscernmentQuestion(
     id: 'q27_creative_methods',
-    title:
-        'When sharing the Gospel with the next generation, you prioritize:',
+    title: 'When sharing the Gospel with the next generation, you prioritize:',
     primaryAxis: DiscernmentAxis.pioneeringVsPreservation,
     options: [
       DiscernmentOption(
