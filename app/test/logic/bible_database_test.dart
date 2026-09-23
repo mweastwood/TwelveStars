@@ -63,146 +63,130 @@ void main() {
       expect(testDb.inFlightBookPopulations, isEmpty);
     });
 
-    test(
-      'handles concurrent getReadings and ensurePopulated calls with in-flight deduplication',
-      () async {
-        expect(testDb.inFlightLectionaryPopulation, isNull);
+    test('handles concurrent getReadings and ensurePopulated calls with in-flight deduplication', () async {
+      expect(testDb.inFlightLectionaryPopulation, isNull);
 
-        final future1 = testDb.getReadings('feast_all_saints');
-        final inFlightFuture = testDb.inFlightLectionaryPopulation;
-        expect(inFlightFuture, isNotNull);
+      final future1 = testDb.getReadings('feast_all_saints');
+      final inFlightFuture = testDb.inFlightLectionaryPopulation;
+      expect(inFlightFuture, isNotNull);
 
-        final future2 = testDb.getReadings('feast_all_saints');
-        final future3 = testDb.ensurePopulated();
+      final future2 = testDb.getReadings('feast_all_saints');
+      final future3 = testDb.ensurePopulated();
 
-        // While in flight, the same future is referenced
-        expect(testDb.inFlightLectionaryPopulation, equals(inFlightFuture));
+      // While in flight, the same future is referenced
+      expect(testDb.inFlightLectionaryPopulation, equals(inFlightFuture));
 
-        final results = await Future.wait([future1, future2]);
-        await future3;
+      final results = await Future.wait([future1, future2]);
+      await future3;
 
-        expect(testDb.inFlightLectionaryPopulation, isNull);
-        expect(results[0], isNotEmpty);
-        expect(results[1], isNotEmpty);
-        expect(results[0].length, equals(results[1].length));
+      expect(testDb.inFlightLectionaryPopulation, isNull);
+      expect(results[0], isNotEmpty);
+      expect(results[1], isNotEmpty);
+      expect(results[0].length, equals(results[1].length));
 
-        // Subsequent call should succeed and leave inFlightLectionaryPopulation as null
-        final subsequent = await testDb.getReadings('feast_all_saints');
-        expect(subsequent.length, equals(results[0].length));
-        expect(testDb.inFlightLectionaryPopulation, isNull);
-      },
-    );
+      // Subsequent call should succeed and leave inFlightLectionaryPopulation as null
+      final subsequent = await testDb.getReadings('feast_all_saints');
+      expect(subsequent.length, equals(results[0].length));
+      expect(testDb.inFlightLectionaryPopulation, isNull);
+    });
   });
 
   group('UserSettings Operations', () {
-    test(
-      'saveUserSettings persists all user settings fields including haptics, theme, and notifications',
-      () async {
-        final settings = UserSettings(
-          id: 1,
-          primaryLanguageCode: 'spanish',
-          compareLanguageCode: 'english',
-          primaryBibleTranslation: 'VUL',
-          compareBibleTranslation: 'CPDV',
-          preferredVersions: [
-            PrayerVersionPreference('our_father_english', 1),
-            PrayerVersionPreference('hail_mary_latin', 2),
-          ],
-          hapticsEnabled: false,
-          appThemeModeCode: 'gothic_dark',
-          sundayNotificationsEnabled: false,
-          showBibleTranslationSelectors: true,
-          bibleNumberingSystemCode: 'dual',
-          prayerCatalogVersion: 1,
-          lastBibleBookNumber: 19,
-          lastBibleChapter: 23,
-          missalReadingsOnly: true,
-          missalHiddenPrayers: ['mass_greeting', 'gloria'],
-          angelusReminderEnabled: true,
-          angelusMorningEnabled: true,
-          angelusMiddayEnabled: false,
-          angelusEveningEnabled: true,
-          rosaryReminderEnabled: true,
-          rosaryReminderHour: 19,
-          rosaryReminderMinute: 45,
-          morningPrayerReminderEnabled: true,
-          morningPrayerReminderHour: 6,
-          morningPrayerReminderMinute: 15,
-          nightPrayerReminderEnabled: true,
-          nightPrayerReminderHour: 22,
-          nightPrayerReminderMinute: 10,
-          bibleRibbons: [
-            const BibleRibbonBookmark(
-              ribbonIndex: 0,
-              bookNumber: 40,
-              chapter: 26,
-            ),
-            const BibleRibbonBookmark(
-              ribbonIndex: 1,
-              bookNumber: 1,
-              chapter: 1,
-            ),
-          ],
-        );
+    test('saveUserSettings persists all user settings fields including haptics, theme, and notifications', () async {
+      final settings = UserSettings(
+        id: 1,
+        primaryLanguageCode: 'spanish',
+        compareLanguageCode: 'english',
+        primaryBibleTranslation: 'VUL',
+        compareBibleTranslation: 'CPDV',
+        preferredVersions: [
+          PrayerVersionPreference('our_father_english', 1),
+          PrayerVersionPreference('hail_mary_latin', 2),
+        ],
+        hapticsEnabled: false,
+        appThemeModeCode: 'gothic_dark',
+        sundayNotificationsEnabled: false,
+        showBibleTranslationSelectors: true,
+        bibleNumberingSystemCode: 'dual',
+        prayerCatalogVersion: 1,
+        lastBibleBookNumber: 19,
+        lastBibleChapter: 23,
+        missalReadingsOnly: true,
+        missalHiddenPrayers: ['mass_greeting', 'gloria'],
+        angelusReminderEnabled: true,
+        angelusMorningEnabled: true,
+        angelusMiddayEnabled: false,
+        angelusEveningEnabled: true,
+        rosaryReminderEnabled: true,
+        rosaryReminderHour: 19,
+        rosaryReminderMinute: 45,
+        morningPrayerReminderEnabled: true,
+        morningPrayerReminderHour: 6,
+        morningPrayerReminderMinute: 15,
+        nightPrayerReminderEnabled: true,
+        nightPrayerReminderHour: 22,
+        nightPrayerReminderMinute: 10,
+        bibleRibbons: [
+          const BibleRibbonBookmark(
+            ribbonIndex: 0,
+            bookNumber: 40,
+            chapter: 26,
+          ),
+          const BibleRibbonBookmark(ribbonIndex: 1, bookNumber: 1, chapter: 1),
+        ],
+      );
 
-        await testDb.saveUserSettings(settings);
+      await testDb.saveUserSettings(settings);
 
-        final retrieved = await testDb.getUserSettings();
-        expect(retrieved, isNotNull);
-        expect(retrieved!.id, equals(1));
-        expect(retrieved.primaryLanguageCode, equals('spanish'));
-        expect(retrieved.compareLanguageCode, equals('english'));
-        expect(retrieved.primaryBibleTranslation, equals('VUL'));
-        expect(retrieved.compareBibleTranslation, equals('CPDV'));
-        expect(retrieved.preferredVersions, isNotNull);
-        expect(retrieved.preferredVersions!.length, equals(2));
-        expect(
-          retrieved.preferredVersions![0].key,
-          equals('our_father_english'),
-        );
-        expect(retrieved.preferredVersions![0].versionIndex, equals(1));
-        expect(retrieved.preferredVersions![1].key, equals('hail_mary_latin'));
-        expect(retrieved.preferredVersions![1].versionIndex, equals(2));
-        expect(retrieved.hapticsEnabled, isFalse);
-        expect(retrieved.appThemeModeCode, equals('gothic_dark'));
-        expect(retrieved.sundayNotificationsEnabled, isFalse);
-        expect(retrieved.showBibleTranslationSelectors, isTrue);
-        expect(retrieved.bibleNumberingSystemCode, equals('dual'));
-        expect(
-          retrieved.bibleNumberingSystem,
-          equals(BibleNumberingSystem.dual),
-        );
-        expect(retrieved.prayerCatalogVersion, equals(1));
-        expect(retrieved.lastBibleBookNumber, equals(19));
-        expect(retrieved.lastBibleChapter, equals(23));
-        expect(retrieved.missalReadingsOnly, isTrue);
-        expect(
-          retrieved.missalHiddenPrayers,
-          equals(['mass_greeting', 'gloria']),
-        );
-        expect(retrieved.angelusReminderEnabled, isTrue);
-        expect(retrieved.angelusMorningEnabled, isTrue);
-        expect(retrieved.angelusMiddayEnabled, isFalse);
-        expect(retrieved.angelusEveningEnabled, isTrue);
-        expect(retrieved.rosaryReminderEnabled, isTrue);
-        expect(retrieved.rosaryReminderHour, equals(19));
-        expect(retrieved.rosaryReminderMinute, equals(45));
-        expect(retrieved.morningPrayerReminderEnabled, isTrue);
-        expect(retrieved.morningPrayerReminderHour, equals(6));
-        expect(retrieved.morningPrayerReminderMinute, equals(15));
-        expect(retrieved.nightPrayerReminderEnabled, isTrue);
-        expect(retrieved.nightPrayerReminderHour, equals(22));
-        expect(retrieved.nightPrayerReminderMinute, equals(10));
-        expect(retrieved.bibleRibbons, isNotNull);
-        expect(retrieved.bibleRibbons!.length, equals(2));
-        expect(retrieved.bibleRibbons![0].ribbonIndex, equals(0));
-        expect(retrieved.bibleRibbons![0].bookNumber, equals(40));
-        expect(retrieved.bibleRibbons![0].chapter, equals(26));
-        expect(retrieved.bibleRibbons![1].ribbonIndex, equals(1));
-        expect(retrieved.bibleRibbons![1].bookNumber, equals(1));
-        expect(retrieved.bibleRibbons![1].chapter, equals(1));
-      },
-    );
+      final retrieved = await testDb.getUserSettings();
+      expect(retrieved, isNotNull);
+      expect(retrieved!.id, equals(1));
+      expect(retrieved.primaryLanguageCode, equals('spanish'));
+      expect(retrieved.compareLanguageCode, equals('english'));
+      expect(retrieved.primaryBibleTranslation, equals('VUL'));
+      expect(retrieved.compareBibleTranslation, equals('CPDV'));
+      expect(retrieved.preferredVersions, isNotNull);
+      expect(retrieved.preferredVersions!.length, equals(2));
+      expect(retrieved.preferredVersions![0].key, equals('our_father_english'));
+      expect(retrieved.preferredVersions![0].versionIndex, equals(1));
+      expect(retrieved.preferredVersions![1].key, equals('hail_mary_latin'));
+      expect(retrieved.preferredVersions![1].versionIndex, equals(2));
+      expect(retrieved.hapticsEnabled, isFalse);
+      expect(retrieved.appThemeModeCode, equals('gothic_dark'));
+      expect(retrieved.sundayNotificationsEnabled, isFalse);
+      expect(retrieved.showBibleTranslationSelectors, isTrue);
+      expect(retrieved.bibleNumberingSystemCode, equals('dual'));
+      expect(retrieved.bibleNumberingSystem, equals(BibleNumberingSystem.dual));
+      expect(retrieved.prayerCatalogVersion, equals(1));
+      expect(retrieved.lastBibleBookNumber, equals(19));
+      expect(retrieved.lastBibleChapter, equals(23));
+      expect(retrieved.missalReadingsOnly, isTrue);
+      expect(
+        retrieved.missalHiddenPrayers,
+        equals(['mass_greeting', 'gloria']),
+      );
+      expect(retrieved.angelusReminderEnabled, isTrue);
+      expect(retrieved.angelusMorningEnabled, isTrue);
+      expect(retrieved.angelusMiddayEnabled, isFalse);
+      expect(retrieved.angelusEveningEnabled, isTrue);
+      expect(retrieved.rosaryReminderEnabled, isTrue);
+      expect(retrieved.rosaryReminderHour, equals(19));
+      expect(retrieved.rosaryReminderMinute, equals(45));
+      expect(retrieved.morningPrayerReminderEnabled, isTrue);
+      expect(retrieved.morningPrayerReminderHour, equals(6));
+      expect(retrieved.morningPrayerReminderMinute, equals(15));
+      expect(retrieved.nightPrayerReminderEnabled, isTrue);
+      expect(retrieved.nightPrayerReminderHour, equals(22));
+      expect(retrieved.nightPrayerReminderMinute, equals(10));
+      expect(retrieved.bibleRibbons, isNotNull);
+      expect(retrieved.bibleRibbons!.length, equals(2));
+      expect(retrieved.bibleRibbons![0].ribbonIndex, equals(0));
+      expect(retrieved.bibleRibbons![0].bookNumber, equals(40));
+      expect(retrieved.bibleRibbons![0].chapter, equals(26));
+      expect(retrieved.bibleRibbons![1].ribbonIndex, equals(1));
+      expect(retrieved.bibleRibbons![1].bookNumber, equals(1));
+      expect(retrieved.bibleRibbons![1].chapter, equals(1));
+    });
 
     test(
       'BibleRibbonBookmark serialization, deserialization, and equality',
@@ -248,7 +232,7 @@ void main() {
 
   group('Book Reading Position Operations', () {
     test('save and get book reading positions', () async {
-      expect(testDb.schemaVersion, equals(17));
+      expect(testDb.schemaVersion, equals(18));
 
       await testDb.saveBookReadingPosition(
         bookId: 'baltimore_catechism',
@@ -283,7 +267,7 @@ void main() {
 
   group('Library Bookmarks Operations', () {
     test('save, get, and delete library bookmarks in BibleDatabase', () async {
-      expect(testDb.schemaVersion, equals(17));
+      expect(testDb.schemaVersion, equals(18));
 
       final now = DateTime.now();
       await testDb.saveLibraryBookmark(
@@ -371,23 +355,20 @@ void main() {
     const locConverter = LocalizedTranslationsConverter();
     const prefConverter = PreferredVersionsConverter();
 
-    test(
-      'LocalizedTranslationsConverter handles empty and malformed JSON safely',
-      () {
-        expect(locConverter.fromSql(''), isEmpty);
-        expect(locConverter.fromSql('not-valid-json'), isEmpty);
-        expect(locConverter.fromSql('{"not": "a list"}'), isEmpty);
-        expect(locConverter.fromSql('[{"invalid": "structure"}]'), isNotEmpty);
-        expect(
-          locConverter
-              .fromSql(
-                '[{"languageCode": "en", "list": [{"title": "P", "text": "T"}]}]',
-              )
-              .length,
-          equals(1),
-        );
-      },
-    );
+    test('LocalizedTranslationsConverter handles empty and malformed JSON safely', () {
+      expect(locConverter.fromSql(''), isEmpty);
+      expect(locConverter.fromSql('not-valid-json'), isEmpty);
+      expect(locConverter.fromSql('{"not": "a list"}'), isEmpty);
+      expect(locConverter.fromSql('[{"invalid": "structure"}]'), isNotEmpty);
+      expect(
+        locConverter
+            .fromSql(
+              '[{"languageCode": "en", "list": [{"title": "P", "text": "T"}]}]',
+            )
+            .length,
+        equals(1),
+      );
+    });
 
     test(
       'PreferredVersionsConverter handles empty and malformed JSON safely',
@@ -420,12 +401,10 @@ void main() {
   });
 
   group('Database Migration Tests', () {
-    test(
-      'migrates from schema version 1 to 14 creating lectionary_readings and seeding data',
-      () async {
-        final rawDb = NativeDatabase.memory(
-          setup: (db) {
-            db.execute('''
+    test('migrates from schema version 1 to 14 creating lectionary_readings and seeding data', () async {
+      final rawDb = NativeDatabase.memory(
+        setup: (db) {
+          db.execute('''
               CREATE TABLE bible_verses (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                 book_number INT NOT NULL,
@@ -437,25 +416,22 @@ void main() {
               );
               PRAGMA user_version = 1;
             ''');
-          },
-        );
-        final migratedDb = BibleDatabase(rawDb);
-        addTearDown(migratedDb.close);
+        },
+      );
+      final migratedDb = BibleDatabase(rawDb);
+      addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(17));
+      expect(migratedDb.schemaVersion, equals(18));
 
-        final readings = await migratedDb.getReadings('feast_all_saints');
-        expect(readings, isNotEmpty);
-        expect(readings.first.readingKey, equals('feast_all_saints'));
-      },
-    );
+      final readings = await migratedDb.getReadings('feast_all_saints');
+      expect(readings, isNotEmpty);
+      expect(readings.first.readingKey, equals('feast_all_saints'));
+    });
 
-    test(
-      'migrates from schema version 13 to 16 when lectionary_readings table is missing',
-      () async {
-        final rawDb = NativeDatabase.memory(
-          setup: (db) {
-            db.execute('''
+    test('migrates from schema version 13 to 16 when lectionary_readings table is missing', () async {
+      final rawDb = NativeDatabase.memory(
+        setup: (db) {
+          db.execute('''
               CREATE TABLE bible_verses (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                 book_number INT NOT NULL,
@@ -529,25 +505,22 @@ void main() {
               );
               PRAGMA user_version = 13;
             ''');
-          },
-        );
-        final migratedDb = BibleDatabase(rawDb);
-        addTearDown(migratedDb.close);
+        },
+      );
+      final migratedDb = BibleDatabase(rawDb);
+      addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(17));
+      expect(migratedDb.schemaVersion, equals(18));
 
-        final readings = await migratedDb.getReadings('feast_all_saints');
-        expect(readings, isNotEmpty);
-        expect(readings.first.readingKey, equals('feast_all_saints'));
-      },
-    );
+      final readings = await migratedDb.getReadings('feast_all_saints');
+      expect(readings, isNotEmpty);
+      expect(readings.first.readingKey, equals('feast_all_saints'));
+    });
 
-    test(
-      'migrates from schema version 13 to 16 when lectionary_readings table already exists',
-      () async {
-        final rawDb = NativeDatabase.memory(
-          setup: (db) {
-            db.execute('''
+    test('migrates from schema version 13 to 16 when lectionary_readings table already exists', () async {
+      final rawDb = NativeDatabase.memory(
+        setup: (db) {
+          db.execute('''
               CREATE TABLE bible_verses (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                 book_number INT NOT NULL,
@@ -631,25 +604,22 @@ void main() {
               );
               PRAGMA user_version = 13;
             ''');
-          },
-        );
-        final migratedDb = BibleDatabase(rawDb);
-        addTearDown(migratedDb.close);
+        },
+      );
+      final migratedDb = BibleDatabase(rawDb);
+      addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(17));
+      expect(migratedDb.schemaVersion, equals(18));
 
-        final readings = await migratedDb.getReadings('feast_all_saints');
-        expect(readings, isNotEmpty);
-        expect(readings.first.readingKey, equals('feast_all_saints'));
-      },
-    );
+      final readings = await migratedDb.getReadings('feast_all_saints');
+      expect(readings, isNotEmpty);
+      expect(readings.first.readingKey, equals('feast_all_saints'));
+    });
 
-    test(
-      'migrates from schema version 14 to 16 and adds reminder fields and bible_ribbons',
-      () async {
-        final rawDb = NativeDatabase.memory(
-          setup: (db) {
-            db.execute('''
+    test('migrates from schema version 14 to 16 and adds reminder fields and bible_ribbons', () async {
+      final rawDb = NativeDatabase.memory(
+        setup: (db) {
+          db.execute('''
               CREATE TABLE bible_verses (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                 book_number INT NOT NULL,
@@ -733,39 +703,34 @@ void main() {
               );
               PRAGMA user_version = 14;
             ''');
-          },
-        );
-        final migratedDb = BibleDatabase(rawDb);
-        addTearDown(migratedDb.close);
+        },
+      );
+      final migratedDb = BibleDatabase(rawDb);
+      addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(17));
+      expect(migratedDb.schemaVersion, equals(18));
 
-        final initialSettings = UserSettings(
-          angelusReminderEnabled: true,
-          rosaryReminderEnabled: true,
-          rosaryReminderHour: 21,
-          rosaryReminderMinute: 15,
-          bibleRibbons: [
-            const BibleRibbonBookmark(
-              ribbonIndex: 0,
-              bookNumber: 1,
-              chapter: 1,
-            ),
-          ],
-        );
-        await migratedDb.saveUserSettings(initialSettings);
+      final initialSettings = UserSettings(
+        angelusReminderEnabled: true,
+        rosaryReminderEnabled: true,
+        rosaryReminderHour: 21,
+        rosaryReminderMinute: 15,
+        bibleRibbons: [
+          const BibleRibbonBookmark(ribbonIndex: 0, bookNumber: 1, chapter: 1),
+        ],
+      );
+      await migratedDb.saveUserSettings(initialSettings);
 
-        final loaded = await migratedDb.getUserSettings();
-        expect(loaded, isNotNull);
-        expect(loaded!.angelusReminderEnabled, isTrue);
-        expect(loaded.rosaryReminderEnabled, isTrue);
-        expect(loaded.rosaryReminderHour, equals(21));
-        expect(loaded.rosaryReminderMinute, equals(15));
-        expect(loaded.bibleRibbons, isNotNull);
-        expect(loaded.bibleRibbons!.length, equals(1));
-        expect(loaded.bibleRibbons!.first.ribbonIndex, equals(0));
-      },
-    );
+      final loaded = await migratedDb.getUserSettings();
+      expect(loaded, isNotNull);
+      expect(loaded!.angelusReminderEnabled, isTrue);
+      expect(loaded.rosaryReminderEnabled, isTrue);
+      expect(loaded.rosaryReminderHour, equals(21));
+      expect(loaded.rosaryReminderMinute, equals(15));
+      expect(loaded.bibleRibbons, isNotNull);
+      expect(loaded.bibleRibbons!.length, equals(1));
+      expect(loaded.bibleRibbons!.first.ribbonIndex, equals(0));
+    });
 
     test(
       'migrates from schema version 15 to 16 and adds bible_ribbons column',
@@ -850,7 +815,7 @@ void main() {
         final migratedDb = BibleDatabase(rawDb);
         addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(17));
+        expect(migratedDb.schemaVersion, equals(18));
 
         final settings = UserSettings(
           bibleRibbons: [
@@ -873,12 +838,10 @@ void main() {
       },
     );
 
-    test(
-      'migrates from schema version 16 to 17 and clears bible_verses while preserving user data',
-      () async {
-        final rawDb = NativeDatabase.memory(
-          setup: (db) {
-            db.execute('''
+    test('migrates from schema version 16 to 17 and clears bible_verses while preserving user data', () async {
+      final rawDb = NativeDatabase.memory(
+        setup: (db) {
+          db.execute('''
               CREATE TABLE bible_verses (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                 book_number INT NOT NULL,
@@ -980,21 +943,86 @@ void main() {
               VALUES ('bible_21_1_1', 0, 'node1', 'My psalm note', 1700000000);
               PRAGMA user_version = 16;
             ''');
+        },
+      );
+      final migratedDb = BibleDatabase(rawDb);
+      addTearDown(migratedDb.close);
+
+      expect(migratedDb.schemaVersion, equals(18));
+
+      // Verses should be cleared by the v17 migration to force reseed
+      final verses = await migratedDb.select(migratedDb.bibleVerses).get();
+      expect(verses, isEmpty);
+
+      // User notes/comments should be preserved!
+      final comments = await migratedDb.select(migratedDb.userComments).get();
+      expect(comments.length, equals(1));
+      expect(comments.first.commentText, equals('My psalm note'));
+    });
+
+    test(
+      'migrates to schema version 18 and creates composite indexes',
+      () async {
+        final rawDb = NativeDatabase.memory(
+          setup: (db) {
+            db.execute('''
+              CREATE TABLE bible_verses (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                book_number INT NOT NULL,
+                book_name TEXT NOT NULL,
+                chapter INT NOT NULL,
+                verse_number INT NOT NULL,
+                verse_text TEXT NOT NULL,
+                translation_code TEXT NOT NULL
+              );
+              CREATE TABLE lectionary_readings (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                reading_key TEXT NOT NULL,
+                reading_type TEXT NOT NULL,
+                book_number INT NOT NULL,
+                book_name TEXT NOT NULL,
+                chapter INT NOT NULL,
+                verse_range TEXT NOT NULL,
+                citation TEXT NOT NULL
+              );
+              CREATE TABLE favorite_passages (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                book_number INT NOT NULL,
+                book_name TEXT NOT NULL,
+                chapter INT NOT NULL,
+                start_verse INT NOT NULL,
+                end_verse INT NOT NULL,
+                text_preview TEXT NOT NULL
+              );
+              CREATE TABLE user_comments (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                document_id TEXT NOT NULL,
+                section_index INT NOT NULL,
+                node_id TEXT NOT NULL,
+                comment_text TEXT NOT NULL,
+                text_preview TEXT,
+                created_at DATETIME NOT NULL
+              );
+              PRAGMA user_version = 17;
+            ''');
           },
         );
         final migratedDb = BibleDatabase(rawDb);
         addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(17));
+        expect(migratedDb.schemaVersion, equals(18));
 
-        // Verses should be cleared by the v17 migration to force reseed
-        final verses = await migratedDb.select(migratedDb.bibleVerses).get();
-        expect(verses, isEmpty);
+        final indexResult = await migratedDb
+            .customSelect("SELECT name FROM sqlite_master WHERE type = 'index'")
+            .get();
+        final indexNames = indexResult
+            .map((r) => r.data['name'] as String)
+            .toSet();
 
-        // User notes/comments should be preserved!
-        final comments = await migratedDb.select(migratedDb.userComments).get();
-        expect(comments.length, equals(1));
-        expect(comments.first.commentText, equals('My psalm note'));
+        expect(indexNames, contains('idx_bible_verses_lookup'));
+        expect(indexNames, contains('idx_lectionary_key'));
+        expect(indexNames, contains('idx_user_comments_doc_node'));
+        expect(indexNames, contains('idx_favorite_passages_book_ch'));
       },
     );
 
