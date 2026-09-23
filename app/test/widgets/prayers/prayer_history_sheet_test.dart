@@ -4,8 +4,9 @@ import 'package:twelve_stars/widgets/prayers/prayer_history_sheet.dart';
 
 void main() {
   group('PrayerHistoryPanel Widget Tests', () {
-    testWidgets('Header & Iconography Verification',
-        (WidgetTester tester) async {
+    testWidgets('Header & Iconography Verification', (
+      WidgetTester tester,
+    ) async {
       const testOrigin = '4th Century Latin Mass';
       const testDescription = 'Attributed to Saint Ambrose of Milan.';
 
@@ -34,8 +35,9 @@ void main() {
       final Icon iconWidget = tester.widget<Icon>(iconFinder);
       expect(iconWidget.size, equals(14));
 
-      final BuildContext context =
-          tester.element(find.byType(PrayerHistoryPanel));
+      final BuildContext context = tester.element(
+        find.byType(PrayerHistoryPanel),
+      );
       final theme = Theme.of(context);
       expect(iconWidget.color, equals(theme.colorScheme.primary));
 
@@ -83,70 +85,65 @@ void main() {
     });
 
     testWidgets(
-        'Edge Cases & Dynamic Constraints - Empty & Single Character Strings', (
-      WidgetTester tester,
-    ) async {
-      await tester.pumpWidget(
-        const MaterialApp(
-          home: Scaffold(
-            body: PrayerHistoryPanel(
-              origin: '',
-              description: '',
+      'Edge Cases & Dynamic Constraints - Empty & Single Character Strings',
+      (WidgetTester tester) async {
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(
+              body: PrayerHistoryPanel(origin: '', description: ''),
             ),
           ),
-        ),
-      );
+        );
 
-      expect(find.text('HISTORICAL CONTEXT'), findsOneWidget);
-      expect(find.text('Origin: '), findsOneWidget);
-      expect(find.text(''), findsOneWidget);
+        expect(find.text('HISTORICAL CONTEXT'), findsOneWidget);
+        expect(find.text('Origin: '), findsOneWidget);
+        expect(find.text(''), findsOneWidget);
 
-      await tester.pumpWidget(
-        const MaterialApp(
-          home: Scaffold(
-            body: PrayerHistoryPanel(
-              origin: 'A',
-              description: 'B',
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(
+              body: PrayerHistoryPanel(origin: 'A', description: 'B'),
             ),
           ),
-        ),
-      );
+        );
 
-      expect(find.text('Origin: A'), findsOneWidget);
-      expect(find.text('B'), findsOneWidget);
-    });
+        expect(find.text('Origin: A'), findsOneWidget);
+        expect(find.text('B'), findsOneWidget);
+      },
+    );
 
     testWidgets(
-        'Edge Cases & Dynamic Constraints - Long Multi-line Description', (
-      WidgetTester tester,
-    ) async {
-      final longDescription = List.generate(
-        20,
-        (i) =>
-            'Line $i: Detailed historical narrative of prayer origin and liturgical development.',
-      ).join('\n');
+      'Edge Cases & Dynamic Constraints - Long Multi-line Description',
+      (WidgetTester tester) async {
+        final longDescription = List.generate(
+          20,
+          (i) =>
+              'Line $i: Detailed historical narrative of prayer origin and liturgical development.',
+        ).join('\n');
 
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: SingleChildScrollView(
-              child: PrayerHistoryPanel(
-                origin: 'Historical Archive',
-                description: longDescription,
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: SingleChildScrollView(
+                child: PrayerHistoryPanel(
+                  origin: 'Historical Archive',
+                  description: longDescription,
+                ),
               ),
             ),
           ),
-        ),
-      );
+        );
 
-      expect(find.text('HISTORICAL CONTEXT'), findsOneWidget);
-      expect(find.text('Origin: Historical Archive'), findsOneWidget);
-      expect(find.text(longDescription), findsOneWidget);
-      expect(tester.takeException(), isNull);
-    });
+        expect(find.text('HISTORICAL CONTEXT'), findsOneWidget);
+        expect(find.text('Origin: Historical Archive'), findsOneWidget);
+        expect(find.text(longDescription), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      },
+    );
 
-    testWidgets('Theme Adaptability - Light and Dark Themes',
-        (WidgetTester tester) async {
+    testWidgets('Theme Adaptability - Light and Dark Themes', (
+      WidgetTester tester,
+    ) async {
       // 1. Light Theme
       await tester.pumpWidget(
         MaterialApp(
@@ -163,15 +160,21 @@ void main() {
       final lightContext = tester.element(find.byType(PrayerHistoryPanel));
       final lightTheme = Theme.of(lightContext);
 
-      final lightOriginWidget =
-          tester.widget<Text>(find.text('Origin: Subiaco Monastery'));
-      expect(lightOriginWidget.style?.color,
-          equals(lightTheme.colorScheme.onSurface));
+      final lightOriginWidget = tester.widget<Text>(
+        find.text('Origin: Subiaco Monastery'),
+      );
+      expect(
+        lightOriginWidget.style?.color,
+        equals(lightTheme.colorScheme.onSurface),
+      );
 
-      final lightDescWidget =
-          tester.widget<Text>(find.text('Rule of Saint Benedict, c. 516 AD.'));
-      expect(lightDescWidget.style?.color,
-          equals(lightTheme.colorScheme.onSurfaceVariant));
+      final lightDescWidget = tester.widget<Text>(
+        find.text('Rule of Saint Benedict, c. 516 AD.'),
+      );
+      expect(
+        lightDescWidget.style?.color,
+        equals(lightTheme.colorScheme.onSurfaceVariant),
+      );
 
       // 2. Dark Theme
       await tester.pumpWidget(
@@ -189,15 +192,21 @@ void main() {
       final darkContext = tester.element(find.byType(PrayerHistoryPanel));
       final darkTheme = Theme.of(darkContext);
 
-      final darkOriginWidget =
-          tester.widget<Text>(find.text('Origin: Subiaco Monastery'));
-      expect(darkOriginWidget.style?.color,
-          equals(darkTheme.colorScheme.onSurface));
+      final darkOriginWidget = tester.widget<Text>(
+        find.text('Origin: Subiaco Monastery'),
+      );
+      expect(
+        darkOriginWidget.style?.color,
+        equals(darkTheme.colorScheme.onSurface),
+      );
 
-      final darkDescWidget =
-          tester.widget<Text>(find.text('Rule of Saint Benedict, c. 516 AD.'));
-      expect(darkDescWidget.style?.color,
-          equals(darkTheme.colorScheme.onSurfaceVariant));
+      final darkDescWidget = tester.widget<Text>(
+        find.text('Rule of Saint Benedict, c. 516 AD.'),
+      );
+      expect(
+        darkDescWidget.style?.color,
+        equals(darkTheme.colorScheme.onSurfaceVariant),
+      );
     });
   });
 }
