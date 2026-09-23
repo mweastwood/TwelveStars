@@ -40,13 +40,17 @@ class ReaderSelectionActionBar extends StatelessWidget {
                 children: [
                   Text(
                     title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: theme.colorScheme.primary,
                     ),
                   ),
                   Text(
-                    '$selectedCount ${itemLabel ?? "item"}${selectedCount > 1 ? "s" : ""} selected',
+                    '$selectedCount ${itemLabel ?? "item"}${selectedCount != 1 ? "s" : ""} selected',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: theme.textTheme.bodySmall?.copyWith(
                       color: theme.colorScheme.onSurfaceVariant,
                     ),
