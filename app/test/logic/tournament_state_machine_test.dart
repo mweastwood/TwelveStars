@@ -6,14 +6,12 @@ Saint _createMockSaint(int id, String name) {
   return Saint(
     id: 'saint_$id',
     name: name,
-    title: 'Saint $name',
+    nationality: 'Roman',
+    profession: 'Testing',
     feastDay: 'Jan 1',
     patronage: 'Testing',
-    bio: 'Bio of $name',
+    summary: 'Bio of $name',
     categories: const [SaintCategory.doctor],
-    attributes: const ['Faith', 'Hope'],
-    quote: 'Pray always.',
-    era: SaintEra.ancient,
   );
 }
 
@@ -167,24 +165,29 @@ void main() {
       expect(match.entrant2?.seed, 16);
     });
 
-    test('recordWinner advances currentMatchIndex and updates match winner', () {
-      final seeds = _create16Seeds();
-      final tournament = ConfirmationDiscernmentEngine.createTournament(seeds);
+    test(
+      'recordWinner advances currentMatchIndex and updates match winner',
+      () {
+        final seeds = _create16Seeds();
+        final tournament = ConfirmationDiscernmentEngine.createTournament(
+          seeds,
+        );
 
-      final match0 = tournament.currentMatch!;
-      final winner = match0.entrant1!;
-      tournament.recordWinner(winner);
+        final match0 = tournament.currentMatch!;
+        final winner = match0.entrant1!;
+        tournament.recordWinner(winner);
 
-      expect(match0.isDecided, isTrue);
-      expect(match0.winner, winner);
-      expect(tournament.completedMatchCount, 1);
+        expect(match0.isDecided, isTrue);
+        expect(match0.winner, winner);
+        expect(tournament.completedMatchCount, 1);
 
-      // Advanced to round 0, match 1
-      expect(tournament.currentRoundIndex, 0);
-      expect(tournament.currentMatchIndex, 1);
-      expect(tournament.currentMatch?.entrant1?.seed, 8);
-      expect(tournament.currentMatch?.entrant2?.seed, 9);
-    });
+        // Advanced to round 0, match 1
+        expect(tournament.currentRoundIndex, 0);
+        expect(tournament.currentMatchIndex, 1);
+        expect(tournament.currentMatch?.entrant1?.seed, 8);
+        expect(tournament.currentMatch?.entrant2?.seed, 9);
+      },
+    );
 
     test('Winner propagation to entrant1 (even match index) in next round', () {
       final seeds = _create16Seeds();
@@ -402,23 +405,26 @@ void main() {
   });
 
   group('Edge Cases & Boundary Condition Tests', () {
-    test('currentMatch returns null when round or match indices are out of bounds', () {
-      final seeds = _create16Seeds();
-      final tournament = TournamentState(
-        initialSeeds: seeds,
-        rounds: [
-          [TournamentMatch(round: 0, matchIndex: 0)],
-        ],
-        currentRoundIndex: 5, // Out of bounds
-        currentMatchIndex: 0,
-      );
+    test(
+      'currentMatch returns null when round or match indices are out of bounds',
+      () {
+        final seeds = _create16Seeds();
+        final tournament = TournamentState(
+          initialSeeds: seeds,
+          rounds: [
+            [TournamentMatch(round: 0, matchIndex: 0)],
+          ],
+          currentRoundIndex: 5, // Out of bounds
+          currentMatchIndex: 0,
+        );
 
-      expect(tournament.currentMatch, isNull);
+        expect(tournament.currentMatch, isNull);
 
-      // Calling recordWinner when currentMatch is null does nothing
-      tournament.recordWinner(seeds[0]);
-      expect(tournament.currentRoundIndex, 5);
-    });
+        // Calling recordWinner when currentMatch is null does nothing
+        tournament.recordWinner(seeds[0]);
+        expect(tournament.currentRoundIndex, 5);
+      },
+    );
 
     test('TournamentState handles custom constructor default values', () {
       final seeds = _create16Seeds();
