@@ -31,6 +31,20 @@ class PrayerPinyinView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+    ChineseChar? targetChar;
+    if (isDualMode && isTargetColumn && selectedPhraseId != null) {
+      for (final line in chineseLines) {
+        for (final charItem in line.chars ?? []) {
+          if (charItem.phraseId == selectedPhraseId) {
+            targetChar = charItem;
+            break;
+          }
+        }
+        if (targetChar != null) break;
+      }
+    }
+
     return Column(
       children: chineseLines.map((line) {
         final lineText = (line.chars ?? []).map((c) => c.char).join('');
@@ -95,7 +109,8 @@ class PrayerPinyinView extends StatelessWidget {
                 ),
               );
 
-              final wrappedChar = (isSelected && isTargetColumn)
+              final isTarget = charItem == targetChar;
+              final wrappedChar = isTarget
                   ? CompositedTransformTarget(
                       link: layerLink,
                       child: charWidget,
