@@ -80,9 +80,7 @@ void main() {
       final descriptionFinder = find.text(testDescription);
       expect(descriptionFinder, findsOneWidget);
 
-      final Text descriptionTextWidget = tester.widget<Text>(
-        descriptionFinder,
-      );
+      final Text descriptionTextWidget = tester.widget<Text>(descriptionFinder);
       expect(descriptionTextWidget.style?.fontSize, equals(11));
       expect(descriptionTextWidget.style?.height, equals(1.3));
     });
