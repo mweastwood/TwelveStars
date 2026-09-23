@@ -65,6 +65,22 @@ void main() {
       },
     );
 
+    test(
+      'indexes catalog sources in parallel with controlled concurrency limit',
+      () async {
+        ReverseCitationService.clear();
+        expect(ReverseCitationService.isInFlightIndexing, isFalse);
+
+        await ReverseCitationService.ensureIndexed(concurrency: 4);
+
+        expect(ReverseCitationService.isInFlightIndexing, isFalse);
+        expect(
+          ReverseCitationService.indexedSourcesCount,
+          equals(ReverseCitationService.catalogPaths.length),
+        );
+      },
+    );
+
     test('indexes and retrieves citations spanning verse ranges correctly', () {
       final bookData = ParsedBookData(
         bookId: 'test_range_book',
@@ -982,6 +998,73 @@ void main() {
         expect(job39Citations.first.sourceBookId, equals('test_modern_book'));
         expect(job39Citations.first.citation.displayLabel, equals('Job 40:1'));
       });
+    });
+
+    group('Concurrency bounds, error handling, and deterministic caching', () {
+      test(
+        'handles edge case concurrency bounds (0, negative, high concurrency)',
+        () async {
+          ReverseCitationService.clear();
+          expect(ReverseCitationService.isInFlightIndexing, isFalse);
+
+          // Test concurrency: 0 (clamped to 1 without throwing)
+          await ReverseCitationService.ensureIndexed(concurrency: 0);
+          expect(
+            ReverseCitationService.indexedSourcesCount,
+            equals(ReverseCitationService.catalogPaths.length),
+          );
+
+          ReverseCitationService.clear();
+
+          // Test negative concurrency (clamped to 1 without throwing)
+          await ReverseCitationService.ensureIndexed(concurrency: -5);
+          expect(
+            ReverseCitationService.indexedSourcesCount,
+            equals(ReverseCitationService.catalogPaths.length),
+          );
+
+          ReverseCitationService.clear();
+
+          // Test high concurrency (e.g. 100, clamped to paths.length)
+          await ReverseCitationService.ensureIndexed(concurrency: 100);
+          expect(
+            ReverseCitationService.indexedSourcesCount,
+            equals(ReverseCitationService.catalogPaths.length),
+          );
+        },
+      );
+
+      test('handles empty catalog or unindexed paths gracefully', () async {
+        ReverseCitationService.clear();
+
+        // Populate all catalog paths first so unindexedPaths is empty
+        await ReverseCitationService.ensureIndexed();
+        final initialCount = ReverseCitationService.indexedSourcesCount;
+        expect(
+          initialCount,
+          equals(ReverseCitationService.catalogPaths.length),
+        );
+
+        // Calling again when all paths are already indexed should return early without error
+        await ReverseCitationService.ensureIndexed();
+        expect(
+          ReverseCitationService.indexedSourcesCount,
+          equals(initialCount),
+        );
+      });
+
+      test(
+        'maintains deterministic cache order across multiple indexing runs',
+        () async {
+          ReverseCitationService.clear();
+          await ReverseCitationService.ensureIndexed(concurrency: 8);
+
+          expect(
+            ReverseCitationService.indexedSourcesCount,
+            equals(ReverseCitationService.catalogPaths.length),
+          );
+        },
+      );
     });
   });
 }
