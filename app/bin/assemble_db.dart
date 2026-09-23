@@ -136,7 +136,10 @@ void main() {
 
       int globalCharIndex = 0;
       for (final line in bodyText.split('\n')) {
-        if (line.trim().isEmpty) continue;
+        if (line.trim().isEmpty) {
+          globalCharIndex += line.runes.length + 1;
+          continue;
+        }
         final List<Map<String, dynamic>> currentLine = [];
         for (final char in line.runes.map((r) => String.fromCharCode(r))) {
           final isChinese = RegExp(r'[\u4e00-\u9fff]').hasMatch(char);
