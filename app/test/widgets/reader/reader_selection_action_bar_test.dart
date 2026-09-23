@@ -283,27 +283,26 @@ void main() {
     });
 
     group('Conditional Action Button Omission', () {
-      testWidgets(
-        'omits Add Comment button when onAddComment is null',
-        (WidgetTester tester) async {
-          await tester.pumpWidget(
-            buildTestableWidget(
-              child: Scaffold(
-                body: ReaderSelectionActionBar(
-                  title: 'Selection Title',
-                  selectedCount: 1,
-                  onSaveFavorite: () {},
-                  onCopy: () {},
-                  onAddComment: null,
-                ),
+      testWidgets('omits Add Comment button when onAddComment is null', (
+        WidgetTester tester,
+      ) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: ReaderSelectionActionBar(
+                title: 'Selection Title',
+                selectedCount: 1,
+                onSaveFavorite: () {},
+                onCopy: () {},
+                onAddComment: null,
               ),
             ),
-          );
+          ),
+        );
 
-          expect(find.byIcon(Icons.comment_outlined), findsNothing);
-          expect(find.byTooltip('Add Comment'), findsNothing);
-        },
-      );
+        expect(find.byIcon(Icons.comment_outlined), findsNothing);
+        expect(find.byTooltip('Add Comment'), findsNothing);
+      });
 
       testWidgets(
         'omits Clear Selection button when onClearSelection is null',
