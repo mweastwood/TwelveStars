@@ -83,6 +83,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/prayers.json
     - assets/prayers/
     - assets/saints.json
     - assets/pinyin_dict.txt
