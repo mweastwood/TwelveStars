@@ -56,6 +56,23 @@ class _LibrarySavedSheetState extends State<LibrarySavedSheet> {
     _loadingComments = widget.loadingComments;
   }
 
+  @override
+  void didUpdateWidget(LibrarySavedSheet oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.favorites != widget.favorites) {
+      _favorites = List.from(widget.favorites);
+    }
+    if (oldWidget.comments != widget.comments) {
+      _comments = List.from(widget.comments);
+    }
+    if (oldWidget.loadingFavorites != widget.loadingFavorites) {
+      _loadingFavorites = widget.loadingFavorites;
+    }
+    if (oldWidget.loadingComments != widget.loadingComments) {
+      _loadingComments = widget.loadingComments;
+    }
+  }
+
   Future<void> _refreshFavorites() async {
     setState(() => _loadingFavorites = true);
     try {

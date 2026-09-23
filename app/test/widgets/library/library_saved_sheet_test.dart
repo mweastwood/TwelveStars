@@ -1,9 +1,10 @@
-import 'package:drift/drift.dart' hide isNull, isNotNull;
+import 'package:drift/drift.dart' hide isNull, isNotNull, Column;
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/logic/reader/library_models.dart';
 import 'package:twelve_stars/widgets/library/library_comments_view.dart';
 import 'package:twelve_stars/widgets/library/library_favorites_view.dart';
 import 'package:twelve_stars/widgets/library/library_saved_sheet.dart';
@@ -495,5 +496,146 @@ void main() {
 
     expect(find.text('Saved in Library'), findsNothing);
     expect(popped, isTrue);
+  });
+
+  testWidgets(
+    'updates internal state when parent rebuilds with updated widget properties',
+    (tester) async {
+      final initialFav = LibraryBookmark(
+        id: 601,
+        documentId: 'didache_lightfoot',
+        sectionIndex: 0,
+        nodeId: 'ch1_0',
+        textPreview: 'Initial Favorite',
+        createdAt: DateTime.now(),
+      );
+      final updatedFav = LibraryBookmark(
+        id: 602,
+        documentId: 'first_clement_lightfoot',
+        sectionIndex: 0,
+        nodeId: 'ch1_0',
+        textPreview: 'Updated Favorite Item',
+        createdAt: DateTime.now(),
+      );
+
+      List<LibraryBookmark> currentFavs = [initialFav];
+
+      await tester.pumpWidget(
+        StatefulBuilder(
+          builder: (context, setState) {
+            return buildTestableWidget(
+              child: Scaffold(
+                body: Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          currentFavs = [updatedFav];
+                        });
+                      },
+                      child: const Text('Update Favorites'),
+                    ),
+                    Expanded(
+                      child: LibrarySavedSheet(
+                        favorites: currentFavs,
+                        loadingFavorites: false,
+                        comments: const [],
+                        loadingComments: false,
+                        onOpenReader:
+                            (
+                              book, {
+                              volumeKey,
+                              assetPath,
+                              sectionIndex,
+                              itemIndex,
+                              questionNumber,
+                            }) {},
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('Initial Favorite'), findsOneWidget);
+      expect(find.text('Updated Favorite Item'), findsNothing);
+
+      await tester.tap(find.text('Update Favorites'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Initial Favorite'), findsNothing);
+      expect(find.text('Updated Favorite Item'), findsOneWidget);
+    },
+  );
+
+  testWidgets('passes catalog parameter to favorites and comments views', (
+    tester,
+  ) async {
+    final customCatalog = [
+      const LibraryBookItem(
+        id: 'custom_doc_1',
+        title: 'Custom Catalog Title 1',
+        subtitle: 'Custom Subtitle 1',
+        category: 'Patristics',
+        author: 'Early Church Father 1',
+        description: 'Custom description text 1',
+      ),
+      const LibraryBookItem(
+        id: 'custom_doc_2',
+        title: 'Custom Catalog Title 2',
+        subtitle: 'Custom Subtitle 2',
+        category: 'Patristics',
+        author: 'Early Church Father 2',
+        description: 'Custom description text 2',
+      ),
+    ];
+
+    final fav1 = LibraryBookmark(
+      id: 701,
+      documentId: 'custom_doc_1',
+      sectionIndex: 0,
+      nodeId: 'node_1',
+      textPreview: 'Custom catalog item preview 1',
+      createdAt: DateTime.now(),
+    );
+    final fav2 = LibraryBookmark(
+      id: 702,
+      documentId: 'custom_doc_2',
+      sectionIndex: 0,
+      nodeId: 'node_2',
+      textPreview: 'Custom catalog item preview 2',
+      createdAt: DateTime.now(),
+    );
+
+    await tester.pumpWidget(
+      buildTestableWidget(
+        child: Scaffold(
+          body: LibrarySavedSheet(
+            catalog: customCatalog,
+            favorites: [fav1, fav2],
+            loadingFavorites: false,
+            comments: const [],
+            loadingComments: false,
+            onOpenReader:
+                (
+                  book, {
+                  volumeKey,
+                  assetPath,
+                  sectionIndex,
+                  itemIndex,
+                  questionNumber,
+                }) {},
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Custom Catalog Title 1 (1)'), findsOneWidget);
+    expect(find.text('Custom Catalog Title 2 (1)'), findsOneWidget);
   });
 }
