@@ -54,7 +54,8 @@ void main() {
     testWidgets('Content & Data Binding', (WidgetTester tester) async {
       const testOrigin = 'Rome, 1570 (Tridentine Missal)';
       const testDescription =
-          'Promulgated by Pope St. Pius V following the Council of Trent to standardize liturgical worship across the Western Church.';
+          'Promulgated by Pope St. Pius V following the Council of Trent to '
+          'standardize liturgical worship across the Western Church.';
 
       await tester.pumpWidget(
         MaterialApp(
@@ -79,7 +80,9 @@ void main() {
       final descriptionFinder = find.text(testDescription);
       expect(descriptionFinder, findsOneWidget);
 
-      final Text descriptionTextWidget = tester.widget<Text>(descriptionFinder);
+      final Text descriptionTextWidget = tester.widget<Text>(
+        descriptionFinder,
+      );
       expect(descriptionTextWidget.style?.fontSize, equals(11));
       expect(descriptionTextWidget.style?.height, equals(1.3));
     });
@@ -118,7 +121,8 @@ void main() {
         final longDescription = List.generate(
           20,
           (i) =>
-              'Line $i: Detailed historical narrative of prayer origin and liturgical development.',
+              'Line $i: Detailed historical narrative of prayer origin and '
+              'liturgical development.',
         ).join('\n');
 
         await tester.pumpWidget(
