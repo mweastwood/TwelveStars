@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/widgets/prayers/prayer_history_sheet.dart';
+import '../../test_helper.dart';
 
 void main() {
   group('PrayerHistoryPanel Widget Tests', () {
@@ -27,6 +29,7 @@ void main() {
           ),
         ),
       );
+      await tester.pumpAndSettle();
 
       // Verify history_edu icon with primary color
       final iconFinder = find.byIcon(Icons.history_edu);
@@ -67,6 +70,7 @@ void main() {
           ),
         ),
       );
+      await tester.pumpAndSettle();
 
       // Verify formatted origin string
       final originFinder = find.text('Origin: $testOrigin');
@@ -85,21 +89,26 @@ void main() {
       expect(descriptionTextWidget.style?.height, equals(1.3));
     });
 
-    testWidgets(
-      'Edge Cases & Dynamic Constraints - Empty & Single Character Strings',
-      (WidgetTester tester) async {
-        await tester.pumpWidget(
-          const MaterialApp(
-            home: Scaffold(
-              body: PrayerHistoryPanel(origin: '', description: ''),
-            ),
+    testWidgets('Edge Cases & Dynamic Constraints - Empty Strings Handling', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: PrayerHistoryPanel(origin: '', description: ''),
           ),
-        );
+        ),
+      );
+      await tester.pumpAndSettle();
 
-        expect(find.text('HISTORICAL CONTEXT'), findsOneWidget);
-        expect(find.text('Origin: '), findsOneWidget);
-        expect(find.text(''), findsOneWidget);
+      expect(find.text('HISTORICAL CONTEXT'), findsOneWidget);
+      expect(find.text('Origin: '), findsOneWidget);
+      expect(find.text(''), findsOneWidget);
+    });
 
+    testWidgets(
+      'Edge Cases & Dynamic Constraints - Single Character Strings Handling',
+      (WidgetTester tester) async {
         await tester.pumpWidget(
           const MaterialApp(
             home: Scaffold(
@@ -107,6 +116,7 @@ void main() {
             ),
           ),
         );
+        await tester.pumpAndSettle();
 
         expect(find.text('Origin: A'), findsOneWidget);
         expect(find.text('B'), findsOneWidget);
@@ -135,6 +145,7 @@ void main() {
             ),
           ),
         );
+        await tester.pumpAndSettle();
 
         expect(find.text('HISTORICAL CONTEXT'), findsOneWidget);
         expect(find.text('Origin: Historical Archive'), findsOneWidget);
@@ -158,6 +169,7 @@ void main() {
           ),
         ),
       );
+      await tester.pumpAndSettle();
 
       final lightContext = tester.element(find.byType(PrayerHistoryPanel));
       final lightTheme = Theme.of(lightContext);
@@ -190,6 +202,7 @@ void main() {
           ),
         ),
       );
+      await tester.pumpAndSettle();
 
       final darkContext = tester.element(find.byType(PrayerHistoryPanel));
       final darkTheme = Theme.of(darkContext);
@@ -209,6 +222,42 @@ void main() {
         darkDescWidget.style?.color,
         equals(darkTheme.colorScheme.onSurfaceVariant),
       );
+    });
+  });
+
+  group('PrayerHistoryPanel Golden Tests', () {
+    testGoldens('renders PrayerHistoryPanel (Light Theme)', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidgetBuilder(
+        const Scaffold(
+          body: PrayerHistoryPanel(
+            origin: 'Subiaco Monastery',
+            description: 'Rule of Saint Benedict, c. 516 AD.',
+          ),
+        ),
+        wrapper: materialAppWrapper(theme: ThemeData.light(useMaterial3: true)),
+        surfaceSize: const Size(400, 200),
+      );
+      await tester.pumpAndSettle();
+      await screenMatchesGolden(tester, 'prayer_history_sheet_light_golden');
+    });
+
+    testGoldens('renders PrayerHistoryPanel (Dark Theme)', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidgetBuilder(
+        const Scaffold(
+          body: PrayerHistoryPanel(
+            origin: 'Subiaco Monastery',
+            description: 'Rule of Saint Benedict, c. 516 AD.',
+          ),
+        ),
+        wrapper: materialAppWrapper(theme: ThemeData.dark(useMaterial3: true)),
+        surfaceSize: const Size(400, 200),
+      );
+      await tester.pumpAndSettle();
+      await screenMatchesGolden(tester, 'prayer_history_sheet_dark_golden');
     });
   });
 }
