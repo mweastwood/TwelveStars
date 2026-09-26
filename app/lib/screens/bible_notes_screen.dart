@@ -122,9 +122,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
 
       // Only include comments on Bible verses (documentId matches a Bible book abbrev)
       final bibleComments = allComments.where((c) {
-        return catholicBooks.any(
-          (b) => b.abbrev.toUpperCase() == c.documentId.toUpperCase(),
-        );
+        return catholicBookAbbrevs.contains(c.documentId.toUpperCase());
       }).toList();
 
       if (mounted) {
