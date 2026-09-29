@@ -143,10 +143,14 @@ class BibleReaderAdapter implements ReaderAdapter {
   }
 
   @override
-  Future<List<ReaderComment>> loadComments({String? nodeId}) async {
+  Future<List<ReaderComment>> loadComments({
+    String? nodeId,
+    int? sectionIndex,
+  }) async {
     final list = await dbHelper.getComments(
       documentId: bibleBook.abbrev,
       nodeId: nodeId,
+      sectionIndex: sectionIndex,
     );
     return list
         .map(

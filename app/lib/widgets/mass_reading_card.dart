@@ -190,6 +190,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
       );
       final comments = await BibleDatabaseHelper.db.getComments(
         documentId: bookMeta.abbrev,
+        sectionIndex: widget.reading.chapter,
       );
       final byNodeId = <String, List<UserComment>>{};
       for (final c in comments) {

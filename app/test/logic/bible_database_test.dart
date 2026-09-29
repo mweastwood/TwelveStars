@@ -365,6 +365,89 @@ void main() {
       );
       expect(emptyComments, isEmpty);
     });
+
+    test('getComments filters by sectionIndex, documentId, and nodeId', () async {
+      final now = DateTime.now();
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'GEN',
+          sectionIndex: 1,
+          nodeId: '1_1_1',
+          commentText: 'Gen 1:1 comment',
+          createdAt: now,
+        ),
+      );
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'GEN',
+          sectionIndex: 1,
+          nodeId: '1_1_2',
+          commentText: 'Gen 1:2 comment',
+          createdAt: now,
+        ),
+      );
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'GEN',
+          sectionIndex: 2,
+          nodeId: '1_2_1',
+          commentText: 'Gen 2:1 comment',
+          createdAt: now,
+        ),
+      );
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'EXO',
+          sectionIndex: 1,
+          nodeId: '2_1_1',
+          commentText: 'Exo 1:1 comment',
+          createdAt: now,
+        ),
+      );
+
+      // 1. Filter by sectionIndex only
+      final sec1Comments = await testDb.getComments(sectionIndex: 1);
+      expect(sec1Comments.length, equals(3));
+      expect(
+        sec1Comments.map((c) => c.commentText).toSet(),
+        equals({'Gen 1:1 comment', 'Gen 1:2 comment', 'Exo 1:1 comment'}),
+      );
+
+      // 2. Filter by documentId + sectionIndex
+      final genSec1Comments = await testDb.getComments(
+        documentId: 'GEN',
+        sectionIndex: 1,
+      );
+      expect(genSec1Comments.length, equals(2));
+      expect(
+        genSec1Comments.map((c) => c.commentText).toSet(),
+        equals({'Gen 1:1 comment', 'Gen 1:2 comment'}),
+      );
+
+      // 3. Filter by documentId + nodeId + sectionIndex
+      final genSec1Node1Comments = await testDb.getComments(
+        documentId: 'GEN',
+        nodeId: '1_1_1',
+        sectionIndex: 1,
+      );
+      expect(genSec1Node1Comments.length, equals(1));
+      expect(genSec1Node1Comments.first.commentText, equals('Gen 1:1 comment'));
+
+      // 4. Non-matching sectionIndex returns empty list
+      final nonMatching = await testDb.getComments(
+        documentId: 'GEN',
+        sectionIndex: 99,
+      );
+      expect(nonMatching, isEmpty);
+
+      // 5. Mismatched combination (correct document and node, wrong sectionIndex)
+      final mismatched = await testDb.getComments(
+        documentId: 'GEN',
+        nodeId: '1_1_1',
+        sectionIndex: 2,
+      );
+      expect(mismatched, isEmpty);
+    });
   });
 
   group('TypeConverters Error Resilience', () {

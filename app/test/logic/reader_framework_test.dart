@@ -228,6 +228,55 @@ void main() {
         final emptyList = await adapter.loadComments(nodeId: '1_1_1');
         expect(emptyList.isEmpty, true);
       });
+
+      test('loadComments filters by sectionIndex', () async {
+        await adapter.saveComment(
+          ReaderComment(
+            id: '1',
+            documentId: 'GEN',
+            sectionIndex: 0,
+            nodeId: '1_1_1',
+            text: 'Chapter 1 note',
+            textPreview: 'In the beginning...',
+            timestamp: DateTime.now(),
+          ),
+        );
+        await adapter.saveComment(
+          ReaderComment(
+            id: '2',
+            documentId: 'GEN',
+            sectionIndex: 1,
+            nodeId: '1_2_1',
+            text: 'Chapter 2 note',
+            textPreview: 'Thus the heavens...',
+            timestamp: DateTime.now(),
+          ),
+        );
+
+        final ch1Comments = await adapter.loadComments(sectionIndex: 0);
+        expect(ch1Comments.length, 1);
+        expect(ch1Comments.first.text, 'Chapter 1 note');
+
+        final ch2Comments = await adapter.loadComments(sectionIndex: 1);
+        expect(ch2Comments.length, 1);
+        expect(ch2Comments.first.text, 'Chapter 2 note');
+
+        final ch3Comments = await adapter.loadComments(sectionIndex: 2);
+        expect(ch3Comments, isEmpty);
+
+        final filteredWithNode = await adapter.loadComments(
+          nodeId: '1_1_1',
+          sectionIndex: 0,
+        );
+        expect(filteredWithNode.length, 1);
+        expect(filteredWithNode.first.text, 'Chapter 1 note');
+
+        final mismatchedNode = await adapter.loadComments(
+          nodeId: '1_1_1',
+          sectionIndex: 1,
+        );
+        expect(mismatchedNode, isEmpty);
+      });
     });
 
     group('LibraryReaderAdapter', () {
@@ -387,6 +436,42 @@ void main() {
           expect(afterDelete.isEmpty, true);
         },
       );
+
+      test('loadComments filters by sectionIndex', () async {
+        await adapter.saveComment(
+          ReaderComment(
+            id: '10',
+            documentId: 'test_book',
+            sectionIndex: 0,
+            nodeId: 's1-1',
+            text: 'Section 0 note',
+            textPreview: 'Intro...',
+            timestamp: DateTime.now(),
+          ),
+        );
+        await adapter.saveComment(
+          ReaderComment(
+            id: '11',
+            documentId: 'test_book',
+            sectionIndex: 1,
+            nodeId: 's2-1',
+            text: 'Section 1 note',
+            textPreview: 'Body...',
+            timestamp: DateTime.now(),
+          ),
+        );
+
+        final sec0 = await adapter.loadComments(sectionIndex: 0);
+        expect(sec0.length, 1);
+        expect(sec0.first.text, 'Section 0 note');
+
+        final sec1 = await adapter.loadComments(sectionIndex: 1);
+        expect(sec1.length, 1);
+        expect(sec1.first.text, 'Section 1 note');
+
+        final secEmpty = await adapter.loadComments(sectionIndex: 5);
+        expect(secEmpty, isEmpty);
+      });
     });
   });
 }
