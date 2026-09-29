@@ -299,6 +299,89 @@ void main() {
   );
 
   testWidgets(
+    'MassReadingCard indexes multi-verse favorites across all covered verses and comments by verse nodeId',
+    (WidgetTester tester) async {
+      const reading = LectionaryReading(
+        id: 1,
+        readingKey: 'feast_annunciation',
+        readingType: 'first',
+        bookNumber: 1, // Genesis
+        bookName: 'Genesis',
+        chapter: 1,
+        verseRange: '1-3',
+        citation: 'Genesis 1:1-3',
+      );
+
+      for (int i = 1; i <= 3; i++) {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVerse(
+                id: i,
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: i,
+                verseText: 'Verse $i text content.',
+                translationCode: 'CPDV',
+              ),
+            );
+      }
+
+      // Multi-verse favorite spanning verses 1 to 2
+      await testDb.saveFavorite(
+        FavoritePassagesCompanion.insert(
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          startVerse: 1,
+          endVerse: 2,
+          textPreview: 'Verse 1 text content.\nVerse 2 text content.',
+        ),
+      );
+
+      // Multiple comments on verse 2
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'GEN',
+          sectionIndex: 1,
+          nodeId: '1_1_2',
+          commentText: 'First note on verse 2',
+          createdAt: DateTime.now(),
+        ),
+      );
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'GEN',
+          sectionIndex: 1,
+          nodeId: '1_1_2',
+          commentText: 'Second note on verse 2',
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(body: MassReadingCard(reading: reading)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Verses 1 and 2 are covered by the multi-verse favorite -> 2 star badges
+      expect(find.byIcon(Icons.star_rounded), findsNWidgets(2));
+
+      // Verse 2 has 2 comments -> tapping comment badge opens modal showing both comments
+      expect(find.byIcon(Icons.comment_rounded), findsOneWidget);
+      await tester.tap(find.byIcon(Icons.comment_rounded));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Comments for Genesis 1:2'), findsOneWidget);
+      expect(find.text('First note on verse 2'), findsOneWidget);
+      expect(find.text('Second note on verse 2'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
     'MassReadingCard supports verse selection, saving favorite, adding comment, and copying selection',
     (WidgetTester tester) async {
       // Mock Clipboard

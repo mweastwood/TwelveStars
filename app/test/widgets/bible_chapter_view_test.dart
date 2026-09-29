@@ -338,6 +338,69 @@ void main() {
         );
       },
     );
+
+    testWidgets(
+      'Multi-verse favorites and indexed comments render on correct verse rows',
+      (WidgetTester tester) async {
+        // Multi-verse favorite spanning verses 1 to 2
+        await testDb.saveFavorite(
+          FavoritePassagesCompanion.insert(
+            bookNumber: 1,
+            bookName: 'Genesis',
+            chapter: 1,
+            startVerse: 1,
+            endVerse: 2,
+            textPreview: 'Genesis 1:1-2 favorite',
+          ),
+        );
+
+        // Save comments on Genesis 1:3
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'GEN',
+            sectionIndex: 1,
+            nodeId: '1_1_3',
+            commentText: 'Comment 1 on verse 3',
+            createdAt: DateTime.now(),
+          ),
+        );
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'GEN',
+            sectionIndex: 1,
+            nodeId: '1_1_3',
+            commentText: 'Comment 2 on verse 3',
+            createdAt: DateTime.now(),
+          ),
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: BibleChapterView(
+                book: genesisBook,
+                chapter: 1,
+                primaryTranslation: 'CPDV',
+                compareTranslation: 'none',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Verses 1 and 2 have favorite badges
+        expect(find.byIcon(Icons.star_rounded), findsNWidgets(2));
+
+        // Verse 3 has comments badge with 2 comments -> tapping comment badge opens modal showing both comments
+        expect(find.byIcon(Icons.comment_rounded), findsOneWidget);
+        await tester.tap(find.byIcon(Icons.comment_rounded));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Comments for Genesis 1:3'), findsOneWidget);
+        expect(find.text('Comment 1 on verse 3'), findsOneWidget);
+        expect(find.text('Comment 2 on verse 3'), findsOneWidget);
+      },
+    );
   });
 
   group('Group 2: Multi-Verse Long-Press & Selection Range', () {
