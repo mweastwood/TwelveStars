@@ -139,6 +139,10 @@ void main() {
         final first = ThematicHelper.allThemes;
         final second = ThematicHelper.allThemes;
         expect(identical(first, second), isTrue);
+        expect(
+          () => ThematicHelper.allThemes['invalid.theme'] = 'Value',
+          throwsUnsupportedError,
+        );
       },
     );
 

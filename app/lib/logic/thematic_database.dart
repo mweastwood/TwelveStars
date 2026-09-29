@@ -168,9 +168,9 @@ class ThematicHelper {
     ),
   ];
 
-  static final Map<String, String> _allThemes = {
+  static final Map<String, String> _allThemes = Map.unmodifiable({
     for (final group in categoryGroups) ...group.themes,
-  };
+  });
 
   static Map<String, String> get allThemes => _allThemes;
 
