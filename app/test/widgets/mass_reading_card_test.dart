@@ -222,6 +222,93 @@ void main() {
   );
 
   testWidgets(
+    'MassReadingCard loads and displays comments across multiple chapters in lectionary readings',
+    (WidgetTester tester) async {
+      const reading = LectionaryReading(
+        id: 1,
+        readingKey: 'feast_cross_chapter',
+        readingType: 'first',
+        bookNumber: 1, // Genesis
+        bookName: 'Genesis',
+        chapter: 1,
+        verseRange: '1-2; 2:1-2',
+        citation: 'Genesis 1:1-2; 2:1-2',
+      );
+
+      // Insert verses for Chapter 1 and Chapter 2
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 2,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 2,
+              verseNumber: 1,
+              verseText: 'So the heavens and the earth were finished.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      // Save comments for Chapter 1 verse 1 and Chapter 2 verse 1
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'GEN',
+          sectionIndex: 1,
+          nodeId: '1_1_1',
+          commentText: 'Comment on Genesis 1:1',
+          textPreview: const Value(
+            'In the beginning God created heaven, and earth.',
+          ),
+          createdAt: DateTime.now(),
+        ),
+      );
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'GEN',
+          sectionIndex: 2,
+          nodeId: '1_2_1',
+          commentText: 'Comment on Genesis 2:1',
+          textPreview: const Value(
+            'So the heavens and the earth were finished.',
+          ),
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(body: MassReadingCard(reading: reading)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Comments on both chapters should be loaded, showing 2 comment badge icons
+      expect(find.byIcon(Icons.comment_rounded), findsNWidgets(2));
+
+      // Tap the second comment icon (for Genesis 2:1)
+      await tester.tap(find.byIcon(Icons.comment_rounded).last);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Comments for Genesis 2:1'), findsOneWidget);
+      expect(find.text('Comment on Genesis 2:1'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
     'MassReadingCard displays favorite star badge and allows removing via favorites modal',
     (WidgetTester tester) async {
       const reading = LectionaryReading(

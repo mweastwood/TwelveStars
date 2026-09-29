@@ -133,7 +133,7 @@ class BibleReaderAdapter implements ReaderAdapter {
     await dbHelper.saveComment(
       UserCommentsCompanion.insert(
         documentId: comment.documentId,
-        sectionIndex: comment.sectionIndex,
+        sectionIndex: comment.sectionIndex + 1,
         nodeId: comment.nodeId,
         commentText: comment.text,
         textPreview: Value(comment.textPreview),
@@ -150,14 +150,14 @@ class BibleReaderAdapter implements ReaderAdapter {
     final list = await dbHelper.getComments(
       documentId: bibleBook.abbrev,
       nodeId: nodeId,
-      sectionIndex: sectionIndex,
+      sectionIndex: sectionIndex != null ? sectionIndex + 1 : null,
     );
     return list
         .map(
           (c) => ReaderComment(
             id: '${c.id}',
             documentId: c.documentId,
-            sectionIndex: c.sectionIndex,
+            sectionIndex: c.sectionIndex - 1,
             nodeId: c.nodeId,
             text: c.commentText,
             textPreview: c.textPreview,
