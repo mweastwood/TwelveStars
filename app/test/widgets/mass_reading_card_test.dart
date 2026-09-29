@@ -382,6 +382,113 @@ void main() {
   );
 
   testWidgets(
+    'MassReadingCard indexes favorites across multi-chapter lectionary readings',
+    (WidgetTester tester) async {
+      const reading = LectionaryReading(
+        id: 1,
+        readingKey: 'feast_annunciation',
+        readingType: 'first',
+        bookNumber: 1, // Genesis
+        bookName: 'Genesis',
+        chapter: 1,
+        verseRange: '1-2',
+        citation: 'Genesis 1:1-2; 2:1-2',
+      );
+
+      // Insert verses for chapter 1 (1..2) and chapter 2 (1..2)
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 2,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 2,
+              verseText: 'And the earth was void and empty.',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 3,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 2,
+              verseNumber: 1,
+              verseText: 'So the heavens and the earth were finished.',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 4,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 2,
+              verseNumber: 2,
+              verseText: 'And on the seventh day God ended his work.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      // Save a favorite in chapter 1 (verse 1)
+      await testDb.saveFavorite(
+        FavoritePassagesCompanion.insert(
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          startVerse: 1,
+          endVerse: 1,
+          textPreview: 'In the beginning God created heaven, and earth.',
+        ),
+      );
+
+      // Save a favorite in chapter 2 (verse 2)
+      await testDb.saveFavorite(
+        FavoritePassagesCompanion.insert(
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 2,
+          startVerse: 2,
+          endVerse: 2,
+          textPreview: 'And on the seventh day God ended his work.',
+        ),
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(body: MassReadingCard(reading: reading)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Verses rendered should be 4 (2 from ch 1, 2 from ch 2)
+      expect(find.byType(BibleVerseRow), findsNWidgets(4));
+
+      // Both favorites from chapter 1 and chapter 2 should have star icons rendered
+      expect(find.byIcon(Icons.star_rounded), findsNWidgets(2));
+    },
+  );
+
+  testWidgets(
     'MassReadingCard supports verse selection, saving favorite, adding comment, and copying selection',
     (WidgetTester tester) async {
       // Mock Clipboard

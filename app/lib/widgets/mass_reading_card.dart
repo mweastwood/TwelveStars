@@ -150,15 +150,27 @@ class _MassReadingCardState extends State<MassReadingCard> {
 
   Future<void> _loadFavorites() async {
     try {
-      final favorites = await BibleDatabaseHelper.db.getFavoritesForChapter(
-        widget.reading.bookNumber,
-        widget.reading.chapter,
+      final ranges = resolveReadingRanges(
+        bookNumber: widget.reading.bookNumber,
+        defaultChapter: widget.reading.chapter,
+        defaultVerseRange: widget.reading.verseRange,
+        citation: widget.reading.citation,
       );
+      final chapters = ranges.map((r) => r.chapter).toSet();
+      if (chapters.isEmpty) {
+        chapters.add(widget.reading.chapter);
+      }
       final byVerseKey = <String, List<FavoritePassage>>{};
-      for (final fav in favorites) {
-        for (int v = fav.startVerse; v <= fav.endVerse; v++) {
-          final key = '${fav.bookNumber}_${fav.chapter}_$v';
-          byVerseKey.putIfAbsent(key, () => []).add(fav);
+      for (final ch in chapters) {
+        final favorites = await BibleDatabaseHelper.db.getFavoritesForChapter(
+          widget.reading.bookNumber,
+          ch,
+        );
+        for (final fav in favorites) {
+          for (int v = fav.startVerse; v <= fav.endVerse; v++) {
+            final key = '${fav.bookNumber}_${fav.chapter}_$v';
+            byVerseKey.putIfAbsent(key, () => []).add(fav);
+          }
         }
       }
       if (mounted) {

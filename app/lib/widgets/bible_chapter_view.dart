@@ -126,10 +126,11 @@ class _BibleChapterViewState extends State<BibleChapterView>
       final comments = await BibleDatabaseHelper.db.getComments(
         documentId: widget.book.abbrev,
       );
-      final filtered = comments.where((c) => c.sectionIndex == widget.chapter);
       final byNodeId = <String, List<UserComment>>{};
-      for (final c in filtered) {
-        byNodeId.putIfAbsent(c.nodeId, () => []).add(c);
+      for (final c in comments) {
+        if (c.sectionIndex == widget.chapter) {
+          byNodeId.putIfAbsent(c.nodeId, () => []).add(c);
+        }
       }
       if (mounted) {
         setState(() {
