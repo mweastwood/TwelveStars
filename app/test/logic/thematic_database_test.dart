@@ -133,6 +133,15 @@ void main() {
       expect(uniqueKeys.length, 35);
     });
 
+    test(
+      'allThemes returns memoized map instance across multiple accesses',
+      () {
+        final first = ThematicHelper.allThemes;
+        final second = ThematicHelper.allThemes;
+        expect(identical(first, second), isTrue);
+      },
+    );
+
     test('getThemeTitle returns expected titles and falls back to themeId', () {
       expect(
         ThematicHelper.getThemeTitle('sacraments.eucharist'),
