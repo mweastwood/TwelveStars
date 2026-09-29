@@ -309,6 +309,68 @@ void main() {
   );
 
   testWidgets(
+    'MassReadingCard loads and displays comments when reading has a mapped single chapter differing from defaultChapter',
+    (WidgetTester tester) async {
+      // Modern Psalm 23 maps to Vulgate Psalm 22
+      const reading = LectionaryReading(
+        id: 1,
+        readingKey: 'psalm_23_mapped',
+        readingType: 'responsorial',
+        bookNumber: 21, // Psalms
+        bookName: 'Psalms',
+        chapter: 23,
+        verseRange: '1-6',
+        citation: 'Psalm 23:1-6',
+      );
+
+      // Insert verse for Vulgate Chapter 22
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 21,
+              bookName: 'Psalms',
+              chapter: 22,
+              verseNumber: 1,
+              verseText: 'The Lord ruleth me: and I shall want nothing.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      // Save comment for Vulgate Chapter 22 verse 1
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'PSA',
+          sectionIndex: 22,
+          nodeId: '21_22_1',
+          commentText: 'Comment on Psalm 23/Vulgate 22:1',
+          textPreview: const Value(
+            'The Lord ruleth me: and I shall want nothing.',
+          ),
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(body: MassReadingCard(reading: reading)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Comment should be loaded for chapter 22, showing 1 comment badge icon
+      expect(find.byIcon(Icons.comment_rounded), findsOneWidget);
+
+      await tester.tap(find.byIcon(Icons.comment_rounded));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Comments for Psalms 22:1'), findsOneWidget);
+      expect(find.text('Comment on Psalm 23/Vulgate 22:1'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
     'MassReadingCard displays favorite star badge and allows removing via favorites modal',
     (WidgetTester tester) async {
       const reading = LectionaryReading(

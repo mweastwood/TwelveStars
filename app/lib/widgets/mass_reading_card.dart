@@ -195,16 +195,19 @@ class _MassReadingCardState extends State<MassReadingCard> {
         citation: widget.reading.citation,
       );
       final chapters = ranges.map((r) => r.chapter).toSet();
+      final targetChapters = chapters.isNotEmpty
+          ? chapters
+          : {widget.reading.chapter};
 
       final List<UserComment> comments;
-      if (chapters.length <= 1) {
+      if (targetChapters.length == 1) {
         comments = await BibleDatabaseHelper.db.getComments(
           documentId: bookMeta.abbrev,
-          sectionIndex: widget.reading.chapter,
+          sectionIndex: targetChapters.first,
         );
       } else {
         final commentsList = await Future.wait(
-          chapters.map(
+          targetChapters.map(
             (ch) => BibleDatabaseHelper.db.getComments(
               documentId: bookMeta.abbrev,
               sectionIndex: ch,

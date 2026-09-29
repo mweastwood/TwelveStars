@@ -132,7 +132,9 @@ class BibleReaderAdapter implements ReaderAdapter {
   Future<void> saveComment(ReaderComment comment) async {
     await dbHelper.saveComment(
       UserCommentsCompanion.insert(
-        documentId: comment.documentId,
+        documentId: comment.documentId.isNotEmpty
+            ? comment.documentId
+            : bibleBook.abbrev,
         sectionIndex: comment.sectionIndex + 1,
         nodeId: comment.nodeId,
         commentText: comment.text,
@@ -157,7 +159,7 @@ class BibleReaderAdapter implements ReaderAdapter {
           (c) => ReaderComment(
             id: '${c.id}',
             documentId: c.documentId,
-            sectionIndex: c.sectionIndex - 1,
+            sectionIndex: c.sectionIndex > 0 ? c.sectionIndex - 1 : 0,
             nodeId: c.nodeId,
             text: c.commentText,
             textPreview: c.textPreview,

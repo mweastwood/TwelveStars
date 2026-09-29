@@ -310,6 +310,47 @@ void main() {
         );
         expect(mismatchedNode, isEmpty);
       });
+
+      test(
+        'saveComment falls back to bibleBook.abbrev when documentId is empty',
+        () async {
+          await adapter.saveComment(
+            ReaderComment(
+              id: '1',
+              documentId: '',
+              sectionIndex: 0,
+              nodeId: '1_1_1',
+              text: 'Comment with empty doc ID',
+              textPreview: 'In the beginning...',
+              timestamp: DateTime.now(),
+            ),
+          );
+
+          final loaded = await adapter.loadComments(nodeId: '1_1_1');
+          expect(loaded.length, 1);
+          expect(loaded.first.documentId, 'GEN');
+          expect(loaded.first.text, 'Comment with empty doc ID');
+        },
+      );
+
+      test(
+        'loadComments handles legacy 0-indexed comments without underflow',
+        () async {
+          await db.saveComment(
+            UserCommentsCompanion.insert(
+              documentId: 'GEN',
+              sectionIndex: 0, // Legacy 0-indexed sectionIndex in SQLite
+              nodeId: '1_1_1',
+              commentText: 'Legacy comment',
+              createdAt: DateTime.now(),
+            ),
+          );
+
+          final loaded = await adapter.loadComments(nodeId: '1_1_1');
+          expect(loaded.length, 1);
+          expect(loaded.first.sectionIndex, 0);
+        },
+      );
     });
 
     group('LibraryReaderAdapter', () {
