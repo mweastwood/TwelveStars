@@ -409,6 +409,8 @@ void main() {
     TimeHelper.setCustomTime(null);
     await testDb.close();
     PrayerDatabase.mockPrayers = null;
+    PrayerDatabase.mockSettings = null;
+    PrayerDatabase.resetCache();
     SaintDatabase.mockSaints = null;
     LocalAgentHelper.instance = null;
   });
