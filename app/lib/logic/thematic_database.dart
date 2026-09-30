@@ -168,17 +168,13 @@ class ThematicHelper {
     ),
   ];
 
-  static Map<String, String> get allThemes {
-    final map = <String, String>{};
-    for (final group in categoryGroups) {
-      map.addAll(group.themes);
-    }
-    return map;
-  }
+  static final Map<String, String> _allThemes = Map.unmodifiable({
+    for (final group in categoryGroups) ...group.themes,
+  });
 
-  static String getThemeTitle(String themeId) {
-    return allThemes[themeId] ?? themeId;
-  }
+  static Map<String, String> get allThemes => _allThemes;
+
+  static String getThemeTitle(String themeId) => _allThemes[themeId] ?? themeId;
 
   static Future<List<ThematicPassage>> loadAllPassages({
     bool forceReload = false,
