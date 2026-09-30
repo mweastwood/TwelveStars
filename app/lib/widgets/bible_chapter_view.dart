@@ -54,8 +54,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
     with AutomaticKeepAliveClientMixin {
   List<BibleVerse> _verses = [];
   List<BibleVerse> _compareVerses = [];
-  List<UserComment> _comments = [];
-  List<FavoritePassage> _favorites = [];
+  Map<String, List<UserComment>> _commentsByNodeId = {};
+  Map<int, List<FavoritePassage>> _favoritesByVerse = {};
   bool _loading = true;
   String? _error;
 
@@ -107,9 +107,15 @@ class _BibleChapterViewState extends State<BibleChapterView>
         widget.book.bookNumber,
         widget.chapter,
       );
+      final byVerse = <int, List<FavoritePassage>>{};
+      for (final fav in favorites) {
+        for (int v = fav.startVerse; v <= fav.endVerse; v++) {
+          byVerse.putIfAbsent(v, () => []).add(fav);
+        }
+      }
       if (mounted) {
         setState(() {
-          _favorites = favorites;
+          _favoritesByVerse = byVerse;
         });
       }
     } catch (_) {}
@@ -120,11 +126,15 @@ class _BibleChapterViewState extends State<BibleChapterView>
       final comments = await BibleDatabaseHelper.db.getComments(
         documentId: widget.book.abbrev,
       );
+      final byNodeId = <String, List<UserComment>>{};
+      for (final c in comments) {
+        if (c.sectionIndex == widget.chapter) {
+          byNodeId.putIfAbsent(c.nodeId, () => []).add(c);
+        }
+      }
       if (mounted) {
         setState(() {
-          _comments = comments
-              .where((c) => c.sectionIndex == widget.chapter)
-              .toList();
+          _commentsByNodeId = byNodeId;
         });
       }
     } catch (_) {}
@@ -486,17 +496,10 @@ class _BibleChapterViewState extends State<BibleChapterView>
 
                     final nodeId =
                         '${verse.bookNumber}_${verse.chapter}_${verse.verseNumber}';
-                    final verseComments = _comments
-                        .where((c) => c.nodeId == nodeId)
-                        .toList();
+                    final verseComments = _commentsByNodeId[nodeId] ?? const [];
 
-                    final matchingFavorites = _favorites
-                        .where(
-                          (fav) =>
-                              verse.verseNumber >= fav.startVerse &&
-                              verse.verseNumber <= fav.endVerse,
-                        )
-                        .toList();
+                    final matchingFavorites =
+                        _favoritesByVerse[verse.verseNumber] ?? const [];
                     final isFavorite = matchingFavorites.isNotEmpty;
 
                     BibleVerse? compareVerse;
