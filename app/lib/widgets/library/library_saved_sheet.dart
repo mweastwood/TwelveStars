@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
@@ -54,6 +55,23 @@ class _LibrarySavedSheetState extends State<LibrarySavedSheet> {
     _comments = List.from(widget.comments);
     _loadingFavorites = widget.loadingFavorites;
     _loadingComments = widget.loadingComments;
+  }
+
+  @override
+  void didUpdateWidget(LibrarySavedSheet oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!listEquals(oldWidget.favorites, widget.favorites)) {
+      _favorites = List.from(widget.favorites);
+    }
+    if (!listEquals(oldWidget.comments, widget.comments)) {
+      _comments = List.from(widget.comments);
+    }
+    if (oldWidget.loadingFavorites != widget.loadingFavorites) {
+      _loadingFavorites = widget.loadingFavorites;
+    }
+    if (oldWidget.loadingComments != widget.loadingComments) {
+      _loadingComments = widget.loadingComments;
+    }
   }
 
   Future<void> _refreshFavorites() async {
