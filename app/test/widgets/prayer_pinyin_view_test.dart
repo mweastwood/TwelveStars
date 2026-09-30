@@ -53,7 +53,14 @@ void main() {
         expect(find.text('fù'), findsOneWidget);
 
         // Verify punctuation character has empty Pinyin string
-        expect(find.text(''), findsWidgets);
+        final punctColumn = find.ancestor(
+          of: find.text('，'),
+          matching: find.byType(Column),
+        );
+        expect(
+          find.descendant(of: punctColumn, matching: find.text('')),
+          findsOneWidget,
+        );
       },
     );
 
@@ -240,6 +247,32 @@ void main() {
               selectedPhraseId: 'phrase_1',
               isDualMode: true,
               isTargetColumn: false,
+              fontSize: 16.0,
+              layerLink: LayerLink(),
+              onPhraseSelected: (_) {},
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(find.byType(CompositedTransformTarget), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'Display Modes: omits CompositedTransformTarget when selectedPhraseId has no match in target column',
+      (tester) async {
+        final lines = [
+          ChineseLine(
+            chars: [ChineseChar('天', 'tiān', 'phrase_1')],
+          ),
+        ];
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: PrayerPinyinView(
+              chineseLines: lines,
+              selectedPhraseId: 'unmatched_phrase',
+              isDualMode: true,
+              isTargetColumn: true,
               fontSize: 16.0,
               layerLink: LayerLink(),
               onPhraseSelected: (_) {},

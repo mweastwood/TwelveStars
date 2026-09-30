@@ -109,7 +109,7 @@ class PrayerPinyinView extends StatelessWidget {
                 ),
               );
 
-              final isTarget = charItem == targetChar;
+              final isTarget = identical(charItem, targetChar);
               final wrappedChar = isTarget
                   ? CompositedTransformTarget(
                       link: layerLink,
