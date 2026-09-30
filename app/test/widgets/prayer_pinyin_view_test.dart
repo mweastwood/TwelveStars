@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/widgets/prayers/prayer_pinyin_view.dart';
+
 import '../test_helper.dart';
 
 void main() {
@@ -262,9 +263,7 @@ void main() {
       'Display Modes: omits CompositedTransformTarget when selectedPhraseId has no match in target column',
       (tester) async {
         final lines = [
-          ChineseLine(
-            chars: [ChineseChar('天', 'tiān', 'phrase_1')],
-          ),
+          ChineseLine(chars: [ChineseChar('天', 'tiān', 'phrase_1')]),
         ];
         await tester.pumpWidget(
           buildTestableWidget(
