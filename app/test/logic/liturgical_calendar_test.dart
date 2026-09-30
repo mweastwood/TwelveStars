@@ -408,10 +408,31 @@ void main() {
       expect(sun.lectionaryKey, 'season_advent_2_sunday_b');
     });
 
-    test('returns correct key for Ash Wednesday', () {
-      final ashWed = LiturgicalCalendar.computeDay(DateTime(2026, 2, 18));
-      expect(ashWed.lectionaryKey, 'season_lent_ash_wednesday');
-    });
+    test(
+      'returns correct key for Ash Wednesday and days after Ash Wednesday',
+      () {
+        final ashWed = LiturgicalCalendar.computeDay(DateTime(2026, 2, 18));
+        expect(ashWed.lectionaryKey, 'season_lent_ash_wednesday');
+
+        final thuAfterAshWed = LiturgicalCalendar.computeDay(
+          DateTime(2026, 2, 19),
+        );
+        expect(thuAfterAshWed.weekName, 'Thursday after Ash Wednesday');
+        expect(thuAfterAshWed.lectionaryKey, 'season_lent_0_thursday');
+
+        final friAfterAshWed = LiturgicalCalendar.computeDay(
+          DateTime(2026, 2, 20),
+        );
+        expect(friAfterAshWed.weekName, 'Friday after Ash Wednesday');
+        expect(friAfterAshWed.lectionaryKey, 'season_lent_0_friday');
+
+        final satAfterAshWed = LiturgicalCalendar.computeDay(
+          DateTime(2026, 2, 21),
+        );
+        expect(satAfterAshWed.weekName, 'Saturday after Ash Wednesday');
+        expect(satAfterAshWed.lectionaryKey, 'season_lent_0_saturday');
+      },
+    );
 
     test('returns correct key for Lent weekdays and Sundays', () {
       // Feb 22, 2026 is 1st Sunday of Lent, Year A

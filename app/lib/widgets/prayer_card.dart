@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_agent_core/flutter_agent_core.dart';
 import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/widgets/prayers/prayer_history_sheet.dart';
+import 'package:twelve_stars/widgets/prayers/prayer_pinyin_view.dart';
 import 'package:twelve_stars/widgets/translation_explainer_sheet.dart';
 
 class PrayerCard extends StatefulWidget {
@@ -181,12 +183,6 @@ class _PrayerCardState extends State<PrayerCard> {
     multiLine: true,
   );
 
-  static final RegExp _celebrantPrefixRegex = RegExp(
-    r'^\s*(?:(?:Priest|Celebrant|Reader|Lector|Lecteur|Lettore|Sacerdos|Diaconus|Sacerdote|Diácono|Linh\s+mục|Phó\s+tế|Người\s+xướng|Người\s+đọc|Namumuno|領經者|主祭|司鐸|執事|讀經者|主禮|啟)\s*[:：]|℣\.?|V\.|V:)',
-    caseSensitive: false,
-    multiLine: true,
-  );
-
   InlineSpan _buildTokenSpan(
     PrayerToken token,
     int index,
@@ -337,96 +333,21 @@ class _PrayerCardState extends State<PrayerCard> {
 
     // Chinese Character rendering with Pinyin grid
     if (trans.chineseLines != null) {
-      bodyWidget = Column(
-        children: trans.chineseLines!.map((line) {
-          final lineText = (line.chars ?? []).map((c) => c.char).join('');
-          final isCelebrant = _celebrantPrefixRegex.hasMatch(lineText);
-          final fontWeight = isCelebrant ? FontWeight.normal : FontWeight.bold;
-
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4.0),
-            child: Wrap(
-              alignment: WrapAlignment.center,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              spacing: 2,
-              runSpacing: 4,
-              children: (line.chars ?? []).map((charItem) {
-                final isPunct = charItem.pinyin.isEmpty;
-                final isSelected =
-                    charItem.phraseId != null &&
-                    charItem.phraseId == _selectedPhraseId &&
-                    _isDualMode;
-
-                final charWidget = Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 1.0,
-                    vertical: 2.0,
-                  ),
-                  decoration: BoxDecoration(
-                    color: isSelected
-                        ? theme.colorScheme.primaryContainer.withValues(
-                            alpha: 0.8,
-                          )
-                        : null,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        charItem.char,
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: fontWeight,
-                          fontSize: widget.fontSize * 1.125,
-                          color: isSelected
-                              ? theme.colorScheme.onPrimaryContainer
-                              : theme.colorScheme.onSurface,
-                        ),
-                      ),
-                      const SizedBox(height: 2),
-                      Text(
-                        isPunct ? '' : charItem.pinyin,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          fontSize: 10,
-                          color: isSelected
-                              ? theme.colorScheme.onPrimaryContainer.withValues(
-                                  alpha: 0.7,
-                                )
-                              : theme.colorScheme.onSurfaceVariant.withValues(
-                                  alpha: 0.7,
-                                ),
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-
-                final wrappedChar = (isSelected && isTargetColumn)
-                    ? CompositedTransformTarget(
-                        link: _layerLink,
-                        child: charWidget,
-                      )
-                    : charWidget;
-
-                return GestureDetector(
-                  onTap: (charItem.phraseId != null && _isDualMode)
-                      ? () {
-                          setState(() {
-                            if (_selectedPhraseId == charItem.phraseId) {
-                              _selectedPhraseId = null;
-                            } else {
-                              _selectedPhraseId = charItem.phraseId;
-                              _checkAiAvailability();
-                            }
-                          });
-                        }
-                      : null,
-                  child: wrappedChar,
-                );
-              }).toList(),
-            ),
-          );
-        }).toList(),
+      bodyWidget = PrayerPinyinView(
+        chineseLines: trans.chineseLines!,
+        selectedPhraseId: _selectedPhraseId,
+        isDualMode: _isDualMode,
+        isTargetColumn: isTargetColumn,
+        fontSize: widget.fontSize,
+        layerLink: _layerLink,
+        onPhraseSelected: (phraseId) {
+          setState(() {
+            _selectedPhraseId = phraseId;
+            if (phraseId != null) {
+              _checkAiAvailability();
+            }
+          });
+        },
       );
     } else if (trans.tokens != null && trans.tokens!.isNotEmpty) {
       // Text rendering with phrase alignments
@@ -835,10 +756,9 @@ class _PrayerCardState extends State<PrayerCard> {
                   // 3. Historical Context Row
                   if (historyTrans != null) ...[
                     const SizedBox(height: 12),
-                    _buildHistoryPanel(
-                      historyTrans.historyOrigin,
-                      historyTrans.historyDescription,
-                      theme,
+                    PrayerHistoryPanel(
+                      origin: historyTrans.historyOrigin,
+                      description: historyTrans.historyDescription,
                     ),
                   ],
 
@@ -895,53 +815,6 @@ class _PrayerCardState extends State<PrayerCard> {
 
     _pruneUnusedRecognizers();
     return card;
-  }
-
-  Widget _buildHistoryPanel(
-    String origin,
-    String description,
-    ThemeData theme,
-  ) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Row(
-          children: [
-            Icon(Icons.history_edu, size: 14, color: theme.colorScheme.primary),
-            const SizedBox(width: 6),
-            Expanded(
-              child: Text(
-                'HISTORICAL CONTEXT',
-                style: theme.textTheme.labelSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: theme.colorScheme.primary,
-                  letterSpacing: 0.5,
-                ),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 6),
-        Text(
-          'Origin: $origin',
-          style: theme.textTheme.bodySmall?.copyWith(
-            fontWeight: FontWeight.bold,
-            fontSize: 12,
-            color: theme.colorScheme.onSurface,
-          ),
-        ),
-        const SizedBox(height: 2),
-        Text(
-          description,
-          style: theme.textTheme.bodySmall?.copyWith(
-            fontSize: 11,
-            color: theme.colorScheme.onSurfaceVariant,
-            height: 1.3,
-          ),
-        ),
-      ],
-    );
   }
 
   String _getPhraseText(PrayerTranslation trans, String phraseId) {

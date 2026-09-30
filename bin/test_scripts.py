@@ -81,6 +81,16 @@ class TestRepositoryScripts(unittest.TestCase):
             self.assertIn("[DRY RUN]", res.stdout)
             self.assertIn("Would create signed tag v", res.stdout)
 
+    def test_assemble_db_pinyin_alignment_across_empty_lines(self):
+        assemble_db_path = REPO_ROOT / "app" / "bin" / "assemble_db.dart"
+        self.assertTrue(assemble_db_path.is_file(), "assemble_db.dart should exist")
+        content = assemble_db_path.read_text(encoding="utf-8")
+        
+        # Verify the fix advancing globalCharIndex across empty lines exists
+        self.assertIn("if (line.trim().isEmpty)", content)
+        self.assertIn("globalCharIndex += line.runes.length + 1;", content)
+
 
 if __name__ == "__main__":
     unittest.main()
+
