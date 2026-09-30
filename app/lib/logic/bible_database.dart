@@ -384,6 +384,18 @@ class BibleDatabase extends _$BibleDatabase {
         }
       }
 
+      Future<void> createIndexIfNotExists(
+        String tableName,
+        String statement,
+      ) async {
+        final tableCheck = await customSelect(
+          "SELECT count(*) AS cnt FROM sqlite_master WHERE type = 'table' AND name = '$tableName'",
+        ).getSingle();
+        if ((tableCheck.data['cnt'] as num? ?? 0) > 0) {
+          await customStatement(statement);
+        }
+      }
+
       if (from < 2) {
         await createTableIfNotExists(favoritePassages);
         // Clear bible_verses to force re-population with the corrected UsfmParser
@@ -524,16 +536,20 @@ class BibleDatabase extends _$BibleDatabase {
         await delete(bibleVerses).go();
       }
       if (from < 18) {
-        await customStatement(
+        await createIndexIfNotExists(
+          'bible_verses',
           'CREATE INDEX IF NOT EXISTS idx_bible_verses_lookup ON bible_verses(translation_code, book_number, chapter);',
         );
-        await customStatement(
+        await createIndexIfNotExists(
+          'lectionary_readings',
           'CREATE INDEX IF NOT EXISTS idx_lectionary_key ON lectionary_readings(reading_key);',
         );
-        await customStatement(
+        await createIndexIfNotExists(
+          'user_comments',
           'CREATE INDEX IF NOT EXISTS idx_user_comments_doc_node ON user_comments(document_id, node_id);',
         );
-        await customStatement(
+        await createIndexIfNotExists(
+          'favorite_passages',
           'CREATE INDEX IF NOT EXISTS idx_favorite_passages_book_ch ON favorite_passages(book_number, chapter);',
         );
       }
