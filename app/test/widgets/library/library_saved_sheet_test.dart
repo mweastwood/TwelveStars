@@ -518,7 +518,27 @@ void main() {
         createdAt: DateTime.now(),
       );
 
+      final initialComment = UserComment(
+        id: 603,
+        documentId: 'didache_lightfoot',
+        sectionIndex: 0,
+        nodeId: 'ch1_0',
+        commentText: 'Initial Comment Note',
+        createdAt: DateTime.now(),
+      );
+      final updatedComment = UserComment(
+        id: 604,
+        documentId: 'first_clement_lightfoot',
+        sectionIndex: 0,
+        nodeId: 'ch1_0',
+        commentText: 'Updated Comment Note',
+        createdAt: DateTime.now(),
+      );
+
       List<LibraryBookmark> currentFavs = [initialFav];
+      List<UserComment> currentComments = [initialComment];
+      bool currentLoadingFavorites = false;
+      bool currentLoadingComments = false;
 
       await tester.pumpWidget(
         StatefulBuilder(
@@ -530,17 +550,43 @@ void main() {
                     ElevatedButton(
                       onPressed: () {
                         setState(() {
-                          currentFavs = [updatedFav];
+                          currentLoadingFavorites = true;
                         });
                       },
-                      child: const Text('Update Favorites'),
+                      child: const Text('Start Loading Favorites'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          currentFavs = [updatedFav];
+                          currentLoadingFavorites = false;
+                        });
+                      },
+                      child: const Text('Update Favorites And Stop Loading'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          currentLoadingComments = true;
+                        });
+                      },
+                      child: const Text('Start Loading Comments'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          currentComments = [updatedComment];
+                          currentLoadingComments = false;
+                        });
+                      },
+                      child: const Text('Update Comments And Stop Loading'),
                     ),
                     Expanded(
                       child: LibrarySavedSheet(
                         favorites: currentFavs,
-                        loadingFavorites: false,
-                        comments: const [],
-                        loadingComments: false,
+                        loadingFavorites: currentLoadingFavorites,
+                        comments: currentComments,
+                        loadingComments: currentLoadingComments,
                         onOpenReader:
                             (
                               book, {
@@ -561,14 +607,74 @@ void main() {
       );
       await tester.pumpAndSettle();
 
+      // --- 1. Test Favorites Tab ---
       expect(find.text('Initial Favorite'), findsOneWidget);
       expect(find.text('Updated Favorite Item'), findsNothing);
+      expect(find.byType(CircularProgressIndicator), findsNothing);
 
-      await tester.tap(find.text('Update Favorites'));
+      final initialFavView = tester.widget<LibraryFavoritesView>(
+        find.byType(LibraryFavoritesView),
+      );
+      expect(initialFavView.favorites, [initialFav]);
+      expect(initialFavView.isLoading, isFalse);
+
+      // Rebuild with loadingFavorites = true
+      await tester.tap(find.text('Start Loading Favorites'));
+      await tester.pump();
+
+      final loadingFavView = tester.widget<LibraryFavoritesView>(
+        find.byType(LibraryFavoritesView),
+      );
+      expect(loadingFavView.isLoading, isTrue);
+      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+
+      // Rebuild with updated favorites and loadingFavorites = false
+      await tester.tap(find.text('Update Favorites And Stop Loading'));
       await tester.pumpAndSettle();
 
+      final updatedFavView = tester.widget<LibraryFavoritesView>(
+        find.byType(LibraryFavoritesView),
+      );
+      expect(updatedFavView.favorites, [updatedFav]);
+      expect(updatedFavView.isLoading, isFalse);
       expect(find.text('Initial Favorite'), findsNothing);
       expect(find.text('Updated Favorite Item'), findsOneWidget);
+
+      // --- 2. Test Comments Tab ---
+      await tester.tap(find.widgetWithText(Tab, 'Comments'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Initial Comment Note'), findsOneWidget);
+      expect(find.text('Updated Comment Note'), findsNothing);
+      expect(find.byType(CircularProgressIndicator), findsNothing);
+
+      final initialCommView = tester.widget<LibraryCommentsView>(
+        find.byType(LibraryCommentsView),
+      );
+      expect(initialCommView.comments, [initialComment]);
+      expect(initialCommView.isLoading, isFalse);
+
+      // Rebuild with loadingComments = true
+      await tester.tap(find.text('Start Loading Comments'));
+      await tester.pump();
+
+      final loadingCommView = tester.widget<LibraryCommentsView>(
+        find.byType(LibraryCommentsView),
+      );
+      expect(loadingCommView.isLoading, isTrue);
+      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+
+      // Rebuild with updated comments and loadingComments = false
+      await tester.tap(find.text('Update Comments And Stop Loading'));
+      await tester.pumpAndSettle();
+
+      final updatedCommView = tester.widget<LibraryCommentsView>(
+        find.byType(LibraryCommentsView),
+      );
+      expect(updatedCommView.comments, [updatedComment]);
+      expect(updatedCommView.isLoading, isFalse);
+      expect(find.text('Initial Comment Note'), findsNothing);
+      expect(find.text('Updated Comment Note'), findsOneWidget);
     },
   );
 
