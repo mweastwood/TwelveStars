@@ -357,7 +357,7 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 17;
+  int get schemaVersion => 18;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -381,6 +381,18 @@ class BibleDatabase extends _$BibleDatabase {
         final colNames = cols.map((r) => r.data['name'] as String).toSet();
         if (!colNames.contains(column.$name)) {
           await m.addColumn(table, column);
+        }
+      }
+
+      Future<void> createIndexIfNotExists(
+        String tableName,
+        String statement,
+      ) async {
+        final tableCheck = await customSelect(
+          "SELECT count(*) AS cnt FROM sqlite_master WHERE type = 'table' AND name = '$tableName'",
+        ).getSingle();
+        if ((tableCheck.data['cnt'] as num? ?? 0) > 0) {
+          await customStatement(statement);
         }
       }
 
@@ -522,6 +534,24 @@ class BibleDatabase extends _$BibleDatabase {
       if (from < 17) {
         // Clear bible_verses to force clean re-population with repaired CPDV 2009 and CPDV 2025
         await delete(bibleVerses).go();
+      }
+      if (from < 18) {
+        await createIndexIfNotExists(
+          'bible_verses',
+          'CREATE INDEX IF NOT EXISTS idx_bible_verses_lookup ON bible_verses(translation_code, book_number, chapter);',
+        );
+        await createIndexIfNotExists(
+          'lectionary_readings',
+          'CREATE INDEX IF NOT EXISTS idx_lectionary_key ON lectionary_readings(reading_key);',
+        );
+        await createIndexIfNotExists(
+          'user_comments',
+          'CREATE INDEX IF NOT EXISTS idx_user_comments_doc_node ON user_comments(document_id, node_id);',
+        );
+        await createIndexIfNotExists(
+          'favorite_passages',
+          'CREATE INDEX IF NOT EXISTS idx_favorite_passages_book_ch ON favorite_passages(book_number, chapter);',
+        );
       }
     },
     beforeOpen: (details) async {
