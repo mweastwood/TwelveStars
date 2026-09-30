@@ -264,8 +264,22 @@ void main() {
           expect(catholicBookAbbrevs.contains('REV'), isTrue);
           expect(catholicBookAbbrevs.contains('MAT'), isTrue);
           expect(catholicBookAbbrevs.contains('NON_EXISTENT'), isFalse);
+
+          for (final book in catholicBooks) {
+            expect(
+              catholicBookAbbrevs.contains(book.abbrev.toUpperCase()),
+              isTrue,
+            );
+          }
         },
       );
+
+      test('catholicBookAbbrevs is unmodifiable', () {
+        expect(
+          () => catholicBookAbbrevs.add('TEST'),
+          throwsUnsupportedError,
+        );
+      });
     });
   });
 }
