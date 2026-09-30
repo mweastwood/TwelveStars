@@ -321,6 +321,9 @@ void main() {
     tearDown(() async {
       TimeHelper.setCustomTime(null);
       await testDb.close();
+      PrayerDatabase.mockPrayers = null;
+      PrayerDatabase.mockSettings = null;
+      PrayerDatabase.resetCache();
     });
 
     testWidgets('HomeScreen drawer opens and navigates to settings', (
