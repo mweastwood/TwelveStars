@@ -349,6 +349,19 @@ void main() {
           final loaded = await adapter.loadComments(nodeId: '1_1_1');
           expect(loaded.length, 1);
           expect(loaded.first.sectionIndex, 0);
+
+          final loadedBySection = await adapter.loadComments(sectionIndex: 0);
+          expect(loadedBySection.length, 1);
+          expect(loadedBySection.first.sectionIndex, 0);
+          expect(loadedBySection.first.text, 'Legacy comment');
+
+          final loadedByNodeAndSection = await adapter.loadComments(
+            nodeId: '1_1_1',
+            sectionIndex: 0,
+          );
+          expect(loadedByNodeAndSection.length, 1);
+          expect(loadedByNodeAndSection.first.sectionIndex, 0);
+          expect(loadedByNodeAndSection.first.text, 'Legacy comment');
         },
       );
     });

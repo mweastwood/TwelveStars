@@ -154,7 +154,16 @@ class BibleReaderAdapter implements ReaderAdapter {
       nodeId: nodeId,
       sectionIndex: sectionIndex != null ? sectionIndex + 1 : null,
     );
-    return list
+    final comments = List<UserComment>.from(list);
+    if (sectionIndex == 0) {
+      final legacyList = await dbHelper.getComments(
+        documentId: bibleBook.abbrev,
+        nodeId: nodeId,
+        sectionIndex: 0,
+      );
+      comments.addAll(legacyList);
+    }
+    return comments
         .map(
           (c) => ReaderComment(
             id: '${c.id}',

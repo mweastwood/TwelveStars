@@ -129,9 +129,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
       );
       final byNodeId = <String, List<UserComment>>{};
       for (final c in comments) {
-        if (c.sectionIndex == widget.chapter) {
-          byNodeId.putIfAbsent(c.nodeId, () => []).add(c);
-        }
+        byNodeId.putIfAbsent(c.nodeId, () => []).add(c);
       }
       if (mounted) {
         setState(() {
