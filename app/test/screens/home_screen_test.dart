@@ -316,14 +316,16 @@ void main() {
       BibleDatabaseHelper.db = testDb;
       await testDb.ensurePopulated();
       PrayerDatabase.mockPrayers = mockPrayers;
+      PrayerDatabase.mockSettings = null;
+      PrayerDatabase.resetCache();
     });
 
     tearDown(() async {
       TimeHelper.setCustomTime(null);
-      await testDb.close();
       PrayerDatabase.mockPrayers = null;
       PrayerDatabase.mockSettings = null;
       PrayerDatabase.resetCache();
+      await testDb.close();
     });
 
     testWidgets('HomeScreen drawer opens and navigates to settings', (
@@ -770,9 +772,6 @@ void main() {
         (p) => p.key == 'our_father_english',
       );
       expect(pref?.versionIndex, 0);
-
-      // Reset mockSettings to avoid cross-test pollution
-      PrayerDatabase.mockSettings = null;
     });
 
     testWidgets(
@@ -819,9 +818,6 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(PrayerDatabase.mockSettings?.compareLanguageCode, 'spanish');
-
-        // Reset mockSettings
-        PrayerDatabase.mockSettings = null;
       },
     );
 
@@ -851,8 +847,6 @@ void main() {
 
       expect(PrayerDatabase.mockSettings?.primaryLanguageCode, 'latin');
       expect(PrayerDatabase.mockSettings?.compareLanguageCode, 'english');
-
-      PrayerDatabase.mockSettings = null;
     });
 
     testGoldens(
