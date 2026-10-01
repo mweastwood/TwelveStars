@@ -21,7 +21,9 @@ void main() {
   setUp(() {
     testDb = BibleDatabase(NativeDatabase.memory());
     BibleDatabaseHelper.db = testDb;
-    PrayerDatabase.mockPrayers = [];
+    PrayerDatabase.mockPrayers = null;
+    PrayerDatabase.mockSettings = null;
+    PrayerDatabase.resetCache();
   });
 
   tearDown(() async {
