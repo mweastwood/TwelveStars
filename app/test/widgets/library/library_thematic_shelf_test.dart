@@ -249,163 +249,167 @@ void main() {
     );
   });
 
-  group(
-    'LibraryThematicShelf - Modal Theme Picker Bottom Sheet Navigation',
-    () {
-      testWidgets(
-        'tapping All Themes button opens DraggableScrollableSheet modal with header',
-        (tester) async {
-          await tester.pumpWidget(buildShelf());
-          await tester.pumpAndSettle();
+  group('LibraryThematicShelf - Modal Theme Picker Bottom Sheet Navigation', () {
+    testWidgets(
+      'tapping All Themes button opens DraggableScrollableSheet modal with header',
+      (tester) async {
+        await tester.pumpWidget(buildShelf());
+        await tester.pumpAndSettle();
 
-          final allThemesButton = find.widgetWithText(
-            TextButton,
-            'All Themes (${ThematicHelper.allThemes.length})',
-          );
-          await tester.tap(allThemesButton);
-          await tester.pumpAndSettle();
+        final allThemesButton = find.widgetWithText(
+          TextButton,
+          'All Themes (${ThematicHelper.allThemes.length})',
+        );
+        await tester.tap(allThemesButton);
+        await tester.pumpAndSettle();
 
-          // Verify modal bottom sheet is shown
-          expect(find.byType(DraggableScrollableSheet), findsOneWidget);
+        // Verify modal bottom sheet is shown
+        expect(find.byType(DraggableScrollableSheet), findsOneWidget);
 
-          // Verify header elements
-          expect(find.byIcon(Icons.category_rounded), findsOneWidget);
-          expect(find.text('Explore by Spiritual Theme'), findsOneWidget);
-          expect(
-            find.text('${ThematicHelper.allThemes.length} Themes'),
-            findsOneWidget,
-          );
-        },
-      );
+        // Verify header elements
+        expect(find.byIcon(Icons.category_rounded), findsOneWidget);
+        expect(find.text('Explore by Spiritual Theme'), findsOneWidget);
+        expect(
+          find.text('${ThematicHelper.allThemes.length} Themes'),
+          findsOneWidget,
+        );
+      },
+    );
 
-      testWidgets(
-        'category group 0 is expanded by default and displays theme items',
-        (tester) async {
-          await tester.pumpWidget(buildShelf());
-          await tester.pumpAndSettle();
+    testWidgets(
+      'category group 0 is expanded by default and displays theme items',
+      (tester) async {
+        await tester.pumpWidget(buildShelf());
+        await tester.pumpAndSettle();
 
-          await tester.tap(find.byType(TextButton));
-          await tester.pumpAndSettle();
+        await tester.tap(find.byType(TextButton));
+        await tester.pumpAndSettle();
 
-          // Group 0 'The Seven Sacraments' is expanded by default
-          expect(
-            find.text('The Most Holy Eucharist & The Mass'),
-            findsOneWidget,
-          );
-          expect(find.text('Holy Baptism & Regeneration'), findsOneWidget);
-        },
-      );
+        // Group 0 'The Seven Sacraments' is expanded by default
+        expect(find.text('The Most Holy Eucharist & The Mass'), findsOneWidget);
+        expect(find.text('Holy Baptism & Regeneration'), findsOneWidget);
+      },
+    );
 
-      testWidgets(
-        'selecting theme from default group invokes onOpenTheme and dismisses modal',
-        (tester) async {
-          String? selectedTheme;
-          await tester.pumpWidget(
-            buildShelf(
-              onOpenTheme: (themeId) {
-                selectedTheme = themeId;
-              },
-            ),
-          );
-          await tester.pumpAndSettle();
+    testWidgets(
+      'selecting theme from default group invokes onOpenTheme and dismisses modal',
+      (tester) async {
+        String? selectedTheme;
+        await tester.pumpWidget(
+          buildShelf(
+            onOpenTheme: (themeId) {
+              selectedTheme = themeId;
+            },
+          ),
+        );
+        await tester.pumpAndSettle();
 
-          await tester.tap(find.byType(TextButton));
-          await tester.pumpAndSettle();
+        await tester.tap(find.byType(TextButton));
+        await tester.pumpAndSettle();
 
-          // Tap on 'The Most Holy Eucharist & The Mass'
-          await tester.tap(find.text('The Most Holy Eucharist & The Mass'));
-          await tester.pumpAndSettle();
+        // Tap on 'The Most Holy Eucharist & The Mass'
+        await tester.tap(find.text('The Most Holy Eucharist & The Mass'));
+        await tester.pumpAndSettle();
 
-          // Verify callback was invoked
-          expect(selectedTheme, equals('sacraments.eucharist'));
+        // Verify callback was invoked
+        expect(selectedTheme, equals('sacraments.eucharist'));
 
-          // Verify bottom sheet is dismissed
-          expect(find.byType(DraggableScrollableSheet), findsNothing);
-          expect(find.text('Explore by Spiritual Theme'), findsNothing);
-        },
-      );
+        // Verify bottom sheet is dismissed
+        expect(find.byType(DraggableScrollableSheet), findsNothing);
+        expect(find.text('Explore by Spiritual Theme'), findsNothing);
+      },
+    );
 
-      testWidgets(
-        'expanding and selecting theme from another group invokes onOpenTheme and dismisses modal',
-        (tester) async {
-          String? selectedTheme;
-          await tester.pumpWidget(
-            buildShelf(
-              onOpenTheme: (themeId) {
-                selectedTheme = themeId;
-              },
-            ),
-          );
-          await tester.pumpAndSettle();
+    testWidgets(
+      'expanding and selecting theme from another group invokes onOpenTheme and dismisses modal',
+      (tester) async {
+        String? selectedTheme;
+        await tester.pumpWidget(
+          buildShelf(
+            onOpenTheme: (themeId) {
+              selectedTheme = themeId;
+            },
+          ),
+        );
+        await tester.pumpAndSettle();
 
-          await tester.tap(find.byType(TextButton));
-          await tester.pumpAndSettle();
+        await tester.tap(find.byType(TextButton));
+        await tester.pumpAndSettle();
 
-          // Find the modal sheet's scrollable ListView
-          final modalListView = find.descendant(
-            of: find.byType(DraggableScrollableSheet),
-            matching: find.byType(Scrollable),
-          );
+        // Find the modal sheet's scrollable ListView
+        final modalListView = find.descendant(
+          of: find.byType(DraggableScrollableSheet),
+          matching: find.byType(Scrollable),
+        );
 
-          // Scroll to 'Moral Virtues & Christian Living' group
-          await tester.scrollUntilVisible(
-            find.text('Moral Virtues & Christian Living'),
-            100,
-            scrollable: modalListView,
-          );
-          await tester.pumpAndSettle();
+        final modalGroupFinder = find.descendant(
+          of: find.byType(DraggableScrollableSheet),
+          matching: find.text('Moral Virtues & Christian Living'),
+        );
 
-          // Tap to expand 'Moral Virtues & Christian Living'
-          await tester.tap(find.text('Moral Virtues & Christian Living'));
-          await tester.pumpAndSettle();
+        // Scroll to 'Moral Virtues & Christian Living' group
+        await tester.scrollUntilVisible(
+          modalGroupFinder,
+          100,
+          scrollable: modalListView,
+        );
+        await tester.pumpAndSettle();
 
-          // Scroll to 'Humility & Meekness' child theme
-          await tester.scrollUntilVisible(
-            find.text('Humility & Meekness'),
-            100,
-            scrollable: modalListView,
-          );
-          await tester.pumpAndSettle();
+        // Tap to expand 'Moral Virtues & Christian Living'
+        await tester.tap(modalGroupFinder);
+        await tester.pumpAndSettle();
 
-          // Tap 'Humility & Meekness'
-          await tester.tap(find.text('Humility & Meekness'));
-          await tester.pumpAndSettle();
+        final childThemeFinder = find.descendant(
+          of: find.byType(DraggableScrollableSheet),
+          matching: find.text('Humility & Meekness'),
+        );
 
-          // Verify callback was invoked
-          expect(selectedTheme, equals('virtues.humility_meekness'));
+        // Scroll to 'Humility & Meekness' child theme
+        await tester.scrollUntilVisible(
+          childThemeFinder,
+          100,
+          scrollable: modalListView,
+        );
+        await tester.pumpAndSettle();
 
-          // Verify bottom sheet is dismissed
-          expect(find.byType(DraggableScrollableSheet), findsNothing);
-          expect(find.text('Explore by Spiritual Theme'), findsNothing);
-        },
-      );
+        // Tap 'Humility & Meekness'
+        await tester.tap(childThemeFinder);
+        await tester.pumpAndSettle();
 
-      testWidgets(
-        'dismissal without selection via scrim tap closes sheet and does not invoke callback',
-        (tester) async {
-          String? selectedTheme;
-          await tester.pumpWidget(
-            buildShelf(
-              onOpenTheme: (themeId) {
-                selectedTheme = themeId;
-              },
-            ),
-          );
-          await tester.pumpAndSettle();
+        // Verify callback was invoked
+        expect(selectedTheme, equals('virtues.humility_meekness'));
 
-          await tester.tap(find.byType(TextButton));
-          await tester.pumpAndSettle();
+        // Verify bottom sheet is dismissed
+        expect(find.byType(DraggableScrollableSheet), findsNothing);
+        expect(find.text('Explore by Spiritual Theme'), findsNothing);
+      },
+    );
 
-          expect(find.byType(DraggableScrollableSheet), findsOneWidget);
+    testWidgets(
+      'dismissal without selection via scrim tap closes sheet and does not invoke callback',
+      (tester) async {
+        String? selectedTheme;
+        await tester.pumpWidget(
+          buildShelf(
+            onOpenTheme: (themeId) {
+              selectedTheme = themeId;
+            },
+          ),
+        );
+        await tester.pumpAndSettle();
 
-          // Tap outside the sheet (scrim/barrier)
-          await tester.tapAt(const Offset(20, 20));
-          await tester.pumpAndSettle();
+        await tester.tap(find.byType(TextButton));
+        await tester.pumpAndSettle();
 
-          expect(find.byType(DraggableScrollableSheet), findsNothing);
-          expect(selectedTheme, isNull);
-        },
-      );
-    },
-  );
+        expect(find.byType(DraggableScrollableSheet), findsOneWidget);
+
+        // Tap outside the sheet (scrim/barrier)
+        await tester.tapAt(const Offset(20, 20));
+        await tester.pumpAndSettle();
+
+        expect(find.byType(DraggableScrollableSheet), findsNothing);
+        expect(selectedTheme, isNull);
+      },
+    );
+  });
 }

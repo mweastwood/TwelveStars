@@ -41,7 +41,8 @@ void main() {
             PrayerTranslation.mock(
               title: 'Sign of the Cross',
               subtitle: 'Signum Crucis',
-              text: 'In the name of the Father, and of the Son, and of the Holy Spirit.',
+              text:
+                  'In the name of the Father, and of the Son, and of the Holy Spirit.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),
@@ -155,7 +156,8 @@ void main() {
           PrayerLanguage.english: [
             PrayerTranslation.mock(
               title: 'Greeting',
-              text: 'Priest: In the name of the Father...\nPeople: Amen.\n\nPriest: The Lord be with you.\nPeople: And with your spirit.',
+              text:
+                  'Priest: In the name of the Father...\nPeople: Amen.\n\nPriest: The Lord be with you.\nPeople: And with your spirit.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),
@@ -163,7 +165,8 @@ void main() {
           PrayerLanguage.latin: [
             PrayerTranslation.mock(
               title: 'Salutatio',
-              text: 'Sacerdos: In nomine Patris...\nPopulus: Amen.\n\nSacerdos: Dominus vobiscum.\nPopulus: Et cum spiritu tuo.',
+              text:
+                  'Sacerdos: In nomine Patris...\nPopulus: Amen.\n\nSacerdos: Dominus vobiscum.\nPopulus: Et cum spiritu tuo.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),
@@ -203,7 +206,8 @@ void main() {
             PrayerTranslation.mock(
               title: 'Universal Prayer',
               subtitle: 'Oratio Universalis / Prayers of the Faithful',
-              text: 'Reader: Let us pray to the Lord.\nPeople: Lord, hear our prayer.',
+              text:
+                  'Reader: Let us pray to the Lord.\nPeople: Lord, hear our prayer.',
               sourceName: 'Roman Missal',
               sourceUrl:
                   'https://www.universalis.com/static/mass/orderofmass.htm',
@@ -213,7 +217,8 @@ void main() {
             PrayerTranslation.mock(
               title: 'Oratio Universalis',
               subtitle: 'Preces Universales',
-              text: 'Lector: Te rogamus, audi nos.\nPopulus: Te rogamus, audi nos.',
+              text:
+                  'Lector: Te rogamus, audi nos.\nPopulus: Te rogamus, audi nos.',
               sourceName: 'Maranatha',
               sourceUrl: 'https://www.maranatha.it/RitoMessa/missaetext.htm',
             ),
@@ -253,7 +258,8 @@ void main() {
             PrayerTranslation.mock(
               title: 'Embolism & Doxology',
               subtitle: 'For the kingdom, the power and the glory',
-              text: 'Priest: Deliver us, Lord, we pray, from every evil, graciously grant peace in our days, that, by the help of your mercy, we may be always free from sin and safe from all distress, as we await the blessed hope and the coming of our Savior, Jesus Christ.\nPeople: For the kingdom, the power and the glory are yours now and for ever.',
+              text:
+                  'Priest: Deliver us, Lord, we pray, from every evil, graciously grant peace in our days, that, by the help of your mercy, we may be always free from sin and safe from all distress, as we await the blessed hope and the coming of our Savior, Jesus Christ.\nPeople: For the kingdom, the power and the glory are yours now and for ever.',
               sourceName: 'Roman Missal',
               sourceUrl:
                   'https://www.universalis.com/static/mass/orderofmass.htm',
@@ -263,7 +269,8 @@ void main() {
             PrayerTranslation.mock(
               title: 'Embolismus',
               subtitle: 'Quia tuum est regnum',
-              text: 'Sacerdos: Libera nos, quaesumus, Domine, ab omnibus malis, da propitius pacem in diebus nostris, ut, ope misericordiae tuae adiuti, et a peccato simus semper liberi et ab omni perturbatione securi: expectantes beatam spem et adventum Salvatoris nostri Iesu Christi.\nPopulus: Quia tuum est regnum, et potestas, et gloria in saecula.',
+              text:
+                  'Sacerdos: Libera nos, quaesumus, Domine, ab omnibus malis, da propitius pacem in diebus nostris, ut, ope misericordiae tuae adiuti, et a peccato simus semper liberi et ab omni perturbatione securi: expectantes beatam spem et adventum Salvatoris nostri Iesu Christi.\nPopulus: Quia tuum est regnum, et potestas, et gloria in saecula.',
               sourceName: 'Maranatha',
               sourceUrl: 'https://www.maranatha.it/RitoMessa/missaetext.htm',
             ),
@@ -278,7 +285,8 @@ void main() {
           PrayerLanguage.english: [
             PrayerTranslation.mock(
               title: 'Sign of Peace',
-              text: 'Priest: The peace of the Lord be with you always.\nPeople: And with your spirit.',
+              text:
+                  'Priest: The peace of the Lord be with you always.\nPeople: And with your spirit.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),
@@ -286,7 +294,8 @@ void main() {
           PrayerLanguage.latin: [
             PrayerTranslation.mock(
               title: 'Pax Domini',
-              text: 'Sacerdos: Pax Domini sit semper vobiscum.\nPopulus: Et cum spiritu tuo.',
+              text:
+                  'Sacerdos: Pax Domini sit semper vobiscum.\nPopulus: Et cum spiritu tuo.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),
@@ -349,7 +358,8 @@ void main() {
             PrayerTranslation.mock(
               title: 'Anima Christi',
               subtitle: 'Soul of Christ',
-              text: 'Soul of Christ, sanctify me. Body of Christ, save me. Blood of Christ, inebriate me.',
+              text:
+                  'Soul of Christ, sanctify me. Body of Christ, save me. Blood of Christ, inebriate me.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),
@@ -358,7 +368,8 @@ void main() {
             PrayerTranslation.mock(
               title: 'Anima Christi',
               subtitle: 'Corpus Christi',
-              text: 'Anima Christi, sanctifica me. Corpus Christi, salva me. Sanguis Christi, inebria me.',
+              text:
+                  'Anima Christi, sanctifica me. Corpus Christi, salva me. Sanguis Christi, inebria me.',
               sourceName: 'Vatican',
               sourceUrl: 'https://vatican.va',
             ),
@@ -757,34 +768,37 @@ void main() {
       },
     );
 
-    test('verifies BibleDatabase getReadings for Christ the King Solemnity across cycles', () async {
-      // Year A (2026-11-22)
-      final dayA = LiturgicalCalendar.computeDay(DateTime(2026, 11, 22));
-      expect(dayA.lectionaryKey, 'season_ordinary_time_34_sunday_a');
-      final readingsA = await BibleDatabaseHelper.db.getReadings(
-        dayA.lectionaryKey,
-      );
-      expect(readingsA, isNotEmpty);
-      expect(readingsA.length, equals(4)); // First, Psalm, Second, Gospel
+    test(
+      'verifies BibleDatabase getReadings for Christ the King Solemnity across cycles',
+      () async {
+        // Year A (2026-11-22)
+        final dayA = LiturgicalCalendar.computeDay(DateTime(2026, 11, 22));
+        expect(dayA.lectionaryKey, 'season_ordinary_time_34_sunday_a');
+        final readingsA = await BibleDatabaseHelper.db.getReadings(
+          dayA.lectionaryKey,
+        );
+        expect(readingsA, isNotEmpty);
+        expect(readingsA.length, equals(4)); // First, Psalm, Second, Gospel
 
-      // Year B (2024-11-24)
-      final dayB = LiturgicalCalendar.computeDay(DateTime(2024, 11, 24));
-      expect(dayB.lectionaryKey, 'season_ordinary_time_34_sunday_b');
-      final readingsB = await BibleDatabaseHelper.db.getReadings(
-        dayB.lectionaryKey,
-      );
-      expect(readingsB, isNotEmpty);
-      expect(readingsB.length, equals(4));
+        // Year B (2024-11-24)
+        final dayB = LiturgicalCalendar.computeDay(DateTime(2024, 11, 24));
+        expect(dayB.lectionaryKey, 'season_ordinary_time_34_sunday_b');
+        final readingsB = await BibleDatabaseHelper.db.getReadings(
+          dayB.lectionaryKey,
+        );
+        expect(readingsB, isNotEmpty);
+        expect(readingsB.length, equals(4));
 
-      // Year C (2025-11-23)
-      final dayC = LiturgicalCalendar.computeDay(DateTime(2025, 11, 23));
-      expect(dayC.lectionaryKey, 'season_ordinary_time_34_sunday_c');
-      final readingsC = await BibleDatabaseHelper.db.getReadings(
-        dayC.lectionaryKey,
-      );
-      expect(readingsC, isNotEmpty);
-      expect(readingsC.length, equals(4));
-    });
+        // Year C (2025-11-23)
+        final dayC = LiturgicalCalendar.computeDay(DateTime(2025, 11, 23));
+        expect(dayC.lectionaryKey, 'season_ordinary_time_34_sunday_c');
+        final readingsC = await BibleDatabaseHelper.db.getReadings(
+          dayC.lectionaryKey,
+        );
+        expect(readingsC, isNotEmpty);
+        expect(readingsC.length, equals(4));
+      },
+    );
 
     testWidgets(
       'MissalTab renders Christ the King readings correctly without showing no readings seeded',
