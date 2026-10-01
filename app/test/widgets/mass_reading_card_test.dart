@@ -222,6 +222,155 @@ void main() {
   );
 
   testWidgets(
+    'MassReadingCard loads and displays comments across multiple chapters in lectionary readings',
+    (WidgetTester tester) async {
+      const reading = LectionaryReading(
+        id: 1,
+        readingKey: 'feast_cross_chapter',
+        readingType: 'first',
+        bookNumber: 1, // Genesis
+        bookName: 'Genesis',
+        chapter: 1,
+        verseRange: '1-2; 2:1-2',
+        citation: 'Genesis 1:1-2; 2:1-2',
+      );
+
+      // Insert verses for Chapter 1 and Chapter 2
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 2,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 2,
+              verseNumber: 1,
+              verseText: 'So the heavens and the earth were finished.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      // Save comments for Chapter 1 verse 1 and Chapter 2 verse 1
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'GEN',
+          sectionIndex: 1,
+          nodeId: '1_1_1',
+          commentText: 'Comment on Genesis 1:1',
+          textPreview: const Value(
+            'In the beginning God created heaven, and earth.',
+          ),
+          createdAt: DateTime.now(),
+        ),
+      );
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'GEN',
+          sectionIndex: 2,
+          nodeId: '1_2_1',
+          commentText: 'Comment on Genesis 2:1',
+          textPreview: const Value(
+            'So the heavens and the earth were finished.',
+          ),
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(body: MassReadingCard(reading: reading)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Comments on both chapters should be loaded, showing 2 comment badge icons
+      expect(find.byIcon(Icons.comment_rounded), findsNWidgets(2));
+
+      // Tap the second comment icon (for Genesis 2:1)
+      await tester.tap(find.byIcon(Icons.comment_rounded).last);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Comments for Genesis 2:1'), findsOneWidget);
+      expect(find.text('Comment on Genesis 2:1'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
+    'MassReadingCard loads and displays comments when reading has a mapped single chapter differing from defaultChapter',
+    (WidgetTester tester) async {
+      // Modern Psalm 23 maps to Vulgate Psalm 22
+      const reading = LectionaryReading(
+        id: 1,
+        readingKey: 'psalm_23_mapped',
+        readingType: 'responsorial',
+        bookNumber: 21, // Psalms
+        bookName: 'Psalms',
+        chapter: 23,
+        verseRange: '1-6',
+        citation: 'Psalm 23:1-6',
+      );
+
+      // Insert verse for Vulgate Chapter 22
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 21,
+              bookName: 'Psalms',
+              chapter: 22,
+              verseNumber: 1,
+              verseText: 'The Lord ruleth me: and I shall want nothing.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      // Save comment for Vulgate Chapter 22 verse 1
+      await testDb.saveComment(
+        UserCommentsCompanion.insert(
+          documentId: 'PSA',
+          sectionIndex: 22,
+          nodeId: '21_22_1',
+          commentText: 'Comment on Psalm 23/Vulgate 22:1',
+          textPreview: const Value(
+            'The Lord ruleth me: and I shall want nothing.',
+          ),
+          createdAt: DateTime.now(),
+        ),
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(body: MassReadingCard(reading: reading)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Comment should be loaded for chapter 22, showing 1 comment badge icon
+      expect(find.byIcon(Icons.comment_rounded), findsOneWidget);
+
+      await tester.tap(find.byIcon(Icons.comment_rounded));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Comments for Psalms 22:1'), findsOneWidget);
+      expect(find.text('Comment on Psalm 23/Vulgate 22:1'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
     'MassReadingCard displays favorite star badge and allows removing via favorites modal',
     (WidgetTester tester) async {
       const reading = LectionaryReading(

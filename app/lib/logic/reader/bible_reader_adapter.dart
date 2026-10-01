@@ -132,8 +132,10 @@ class BibleReaderAdapter implements ReaderAdapter {
   Future<void> saveComment(ReaderComment comment) async {
     await dbHelper.saveComment(
       UserCommentsCompanion.insert(
-        documentId: comment.documentId,
-        sectionIndex: comment.sectionIndex,
+        documentId: comment.documentId.isNotEmpty
+            ? comment.documentId
+            : bibleBook.abbrev,
+        sectionIndex: comment.sectionIndex + 1,
         nodeId: comment.nodeId,
         commentText: comment.text,
         textPreview: Value(comment.textPreview),
@@ -143,17 +145,30 @@ class BibleReaderAdapter implements ReaderAdapter {
   }
 
   @override
-  Future<List<ReaderComment>> loadComments({String? nodeId}) async {
+  Future<List<ReaderComment>> loadComments({
+    String? nodeId,
+    int? sectionIndex,
+  }) async {
     final list = await dbHelper.getComments(
       documentId: bibleBook.abbrev,
       nodeId: nodeId,
+      sectionIndex: sectionIndex != null ? sectionIndex + 1 : null,
     );
-    return list
+    final comments = List<UserComment>.from(list);
+    if (sectionIndex == 0) {
+      final legacyList = await dbHelper.getComments(
+        documentId: bibleBook.abbrev,
+        nodeId: nodeId,
+        sectionIndex: 0,
+      );
+      comments.addAll(legacyList);
+    }
+    return comments
         .map(
           (c) => ReaderComment(
             id: '${c.id}',
             documentId: c.documentId,
-            sectionIndex: c.sectionIndex,
+            sectionIndex: c.sectionIndex > 0 ? c.sectionIndex - 1 : 0,
             nodeId: c.nodeId,
             text: c.commentText,
             textPreview: c.textPreview,

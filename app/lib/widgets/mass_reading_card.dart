@@ -188,9 +188,35 @@ class _MassReadingCardState extends State<MassReadingCard> {
         orElse: () =>
             throw Exception('Book ${widget.reading.bookName} not found'),
       );
-      final comments = await BibleDatabaseHelper.db.getComments(
-        documentId: bookMeta.abbrev,
+      final ranges = resolveReadingRanges(
+        bookNumber: widget.reading.bookNumber,
+        defaultChapter: widget.reading.chapter,
+        defaultVerseRange: widget.reading.verseRange,
+        citation: widget.reading.citation,
       );
+      final chapters = ranges.map((r) => r.chapter).toSet();
+      final targetChapters = chapters.isNotEmpty
+          ? chapters
+          : {widget.reading.chapter};
+
+      final List<UserComment> comments;
+      if (targetChapters.length == 1) {
+        comments = await BibleDatabaseHelper.db.getComments(
+          documentId: bookMeta.abbrev,
+          sectionIndex: targetChapters.first,
+        );
+      } else {
+        final commentsList = await Future.wait(
+          targetChapters.map(
+            (ch) => BibleDatabaseHelper.db.getComments(
+              documentId: bookMeta.abbrev,
+              sectionIndex: ch,
+            ),
+          ),
+        );
+        comments = commentsList.expand((list) => list).toList();
+      }
+
       final byNodeId = <String, List<UserComment>>{};
       for (final c in comments) {
         byNodeId.putIfAbsent(c.nodeId, () => []).add(c);
