@@ -21,11 +21,15 @@ void main() {
   setUp(() {
     testDb = BibleDatabase(NativeDatabase.memory());
     BibleDatabaseHelper.db = testDb;
-    PrayerDatabase.mockPrayers = [];
+    PrayerDatabase.mockPrayers = null;
+    PrayerDatabase.mockSettings = null;
+    PrayerDatabase.resetCache();
   });
 
   tearDown(() async {
     PrayerDatabase.mockSettings = null;
+    PrayerDatabase.mockPrayers = null;
+    PrayerDatabase.resetCache();
     await testDb.close();
   });
 
@@ -94,7 +98,6 @@ void main() {
           lastBibleChapter: 1,
         );
         await testDb.saveUserSettings(settings);
-        PrayerDatabase.mockPrayers = null;
 
         await tester.pumpWidget(
           buildTestableWidget(child: const Scaffold(body: BibleTab())),
@@ -127,7 +130,6 @@ void main() {
         lastBibleChapter: 1,
       );
       await testDb.saveUserSettings(settings);
-      PrayerDatabase.mockPrayers = null;
 
       await tester.pumpWidget(
         buildTestableWidget(child: const Scaffold(body: BibleTab())),
@@ -165,7 +167,6 @@ void main() {
         lastBibleChapter: 1,
       );
       await testDb.saveUserSettings(settings);
-      PrayerDatabase.mockPrayers = null;
 
       await tester.pumpWidget(
         buildTestableWidget(child: const Scaffold(body: BibleTab())),
@@ -544,9 +545,6 @@ void main() {
         find.text('In the beginning God created heaven (DRC).'),
         findsOneWidget,
       );
-
-      // Clean up mock settings
-      PrayerDatabase.mockSettings = null;
     });
 
     testGoldens('renders primary translation dialog correctly', (tester) async {
@@ -585,8 +583,6 @@ void main() {
       // Tap Close to close dialog
       await tester.tap(find.byTooltip('Close'));
       await tester.pumpAndSettle();
-
-      PrayerDatabase.mockSettings = null;
     });
 
     testWidgets('primary and comparison selection dialogs update preferences', (
@@ -657,8 +653,6 @@ void main() {
 
       // Verify comparison selection is updated
       expect(settings.compareBibleTranslation, equals('CPDV'));
-
-      PrayerDatabase.mockSettings = null;
     });
 
     testWidgets('comparison verse text uses matching onSurface color', (
@@ -707,8 +701,6 @@ void main() {
 
       // Verify that their styles have the exact same color
       expect(cpdvTextWidget.style?.color, equals(drcTextWidget.style?.color));
-
-      PrayerDatabase.mockSettings = null;
     });
 
     testGoldens('renders parallel translations side-by-side correctly', (
@@ -760,9 +752,6 @@ void main() {
         tester,
         'bible_tab_parallel_translation_golden',
       );
-
-      // Clean up mock settings
-      PrayerDatabase.mockSettings = null;
     });
 
     testWidgets('allows adding a comment to a verse via selection action bar', (
@@ -1508,7 +1497,6 @@ void main() {
                 translationCode: 'CPDV',
               ),
             );
-        PrayerDatabase.mockPrayers = null;
 
         await tester.pumpWidget(
           buildTestableWidget(child: const Scaffold(body: BibleTab())),
@@ -1547,7 +1535,6 @@ void main() {
         ],
       );
       await testDb.saveUserSettings(settings);
-      PrayerDatabase.mockPrayers = null;
 
       await tester.pumpWidget(
         buildTestableWidget(child: const Scaffold(body: BibleTab())),
@@ -1583,7 +1570,6 @@ void main() {
                 translationCode: 'CPDV',
               ),
             );
-        PrayerDatabase.mockPrayers = null;
 
         await tester.pumpWidget(
           buildTestableWidget(child: const Scaffold(body: BibleTab())),
@@ -1642,7 +1628,6 @@ void main() {
           ],
         );
         await testDb.saveUserSettings(settings);
-        PrayerDatabase.mockPrayers = null;
 
         await tester.pumpWidget(
           buildTestableWidget(child: const Scaffold(body: BibleTab())),
@@ -1703,7 +1688,6 @@ void main() {
           ],
         );
         await testDb.saveUserSettings(initialSettings);
-        PrayerDatabase.mockPrayers = null;
 
         await tester.pumpWidget(
           buildTestableWidget(child: const Scaffold(body: BibleTab())),
@@ -1785,7 +1769,6 @@ void main() {
         ],
       );
       await testDb.saveUserSettings(settings);
-      PrayerDatabase.mockPrayers = null;
 
       await tester.pumpWidgetBuilder(
         const Scaffold(body: BibleTab()),
@@ -1843,7 +1826,6 @@ void main() {
           ],
         );
         await testDb.saveUserSettings(settings);
-        PrayerDatabase.mockPrayers = null;
 
         await tester.pumpWidgetBuilder(
           const Scaffold(body: BibleTab()),
