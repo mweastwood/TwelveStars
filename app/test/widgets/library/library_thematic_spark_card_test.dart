@@ -67,33 +67,36 @@ void main() {
   });
 
   group('Group 1: Layout & Presentation', () {
-    testWidgets('displays spark header, spark icon, and formatted theme title', (
-      WidgetTester tester,
-    ) async {
-      final passage = createPassage(primaryTheme: 'theology.trinity');
-      await tester.pumpWidget(
-        buildTestableWidget(
-          child: Scaffold(
-            body: LibraryThematicSparkCard(
-              passage: passage,
-              isBookmarked: false,
-              onToggleBookmark: () {},
-              onOpenTheme: (_) {},
-              onOpenReader: () {},
+    testWidgets(
+      'displays spark header, spark icon, and formatted theme title',
+      (WidgetTester tester) async {
+        final passage = createPassage(primaryTheme: 'theology.trinity');
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryThematicSparkCard(
+                passage: passage,
+                isBookmarked: false,
+                onToggleBookmark: () {},
+                onOpenTheme: (_) {},
+                onOpenReader: () {},
+              ),
             ),
           ),
-        ),
-      );
+        );
 
-      // Verify spark icon and header text
-      expect(find.byIcon(Icons.auto_awesome_rounded), findsOneWidget);
-      expect(find.text("TODAY'S SPARK"), findsOneWidget);
+        // Verify spark icon and header text
+        expect(find.byIcon(Icons.auto_awesome_rounded), findsOneWidget);
+        expect(find.text("TODAY'S SPARK"), findsOneWidget);
 
-      // Verify primary theme chip label
-      final expectedThemeTitle = ThematicHelper.getThemeTitle('theology.trinity');
-      expect(find.text(expectedThemeTitle), findsOneWidget);
-      expect(find.byIcon(Icons.chevron_right_rounded), findsOneWidget);
-    });
+        // Verify primary theme chip label
+        final expectedThemeTitle = ThematicHelper.getThemeTitle(
+          'theology.trinity',
+        );
+        expect(find.text(expectedThemeTitle), findsOneWidget);
+        expect(find.byIcon(Icons.chevron_right_rounded), findsOneWidget);
+      },
+    );
 
     testWidgets('displays keyExcerpt when non-empty', (
       WidgetTester tester,
@@ -346,39 +349,42 @@ void main() {
   });
 
   group('Group 3: Navigation Callbacks', () {
-    testWidgets('tapping header theme chip invokes onOpenTheme with primary theme', (
-      WidgetTester tester,
-    ) async {
-      String? openedTheme;
-      final passage = createPassage(primaryTheme: 'sacraments.eucharist');
-      await tester.pumpWidget(
-        buildTestableWidget(
-          child: Scaffold(
-            body: LibraryThematicSparkCard(
-              passage: passage,
-              isBookmarked: false,
-              onToggleBookmark: () {},
-              onOpenTheme: (themeId) {
-                openedTheme = themeId;
-              },
-              onOpenReader: () {},
+    testWidgets(
+      'tapping header theme chip invokes onOpenTheme with primary theme',
+      (WidgetTester tester) async {
+        String? openedTheme;
+        final passage = createPassage(primaryTheme: 'sacraments.eucharist');
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: LibraryThematicSparkCard(
+                passage: passage,
+                isBookmarked: false,
+                onToggleBookmark: () {},
+                onOpenTheme: (themeId) {
+                  openedTheme = themeId;
+                },
+                onOpenReader: () {},
+              ),
             ),
           ),
-        ),
-      );
+        );
 
-      final themeTitle = ThematicHelper.getThemeTitle('sacraments.eucharist');
-      await tester.tap(find.text(themeTitle));
-      await tester.pump();
+        final themeTitle = ThematicHelper.getThemeTitle('sacraments.eucharist');
+        await tester.tap(find.text(themeTitle));
+        await tester.pump();
 
-      expect(openedTheme, 'sacraments.eucharist');
-    });
+        expect(openedTheme, 'sacraments.eucharist');
+      },
+    );
 
     testWidgets(
       'tapping more from this theme icon button invokes onOpenTheme with primary theme',
       (WidgetTester tester) async {
         String? openedTheme;
-        final passage = createPassage(primaryTheme: 'prayer.contemplation_union');
+        final passage = createPassage(
+          primaryTheme: 'prayer.contemplation_union',
+        );
         await tester.pumpWidget(
           buildTestableWidget(
             child: Scaffold(
@@ -490,8 +496,22 @@ void main() {
           ),
         );
 
+        // Verify author text is rendered without an InkWell ancestor
+        // and uses onSurfaceVariant styling
+        final authorFinder = find.text('— Anonymous Author');
+        expect(
+          find.ancestor(of: authorFinder, matching: find.byType(InkWell)),
+          findsNothing,
+        );
+        final authorTextWidget = tester.widget<Text>(authorFinder);
+        final theme = Theme.of(tester.element(authorFinder));
+        expect(
+          authorTextWidget.style?.color,
+          equals(theme.colorScheme.onSurfaceVariant),
+        );
+
         // Tap author text
-        await tester.tap(find.text('— Anonymous Author'));
+        await tester.tap(authorFinder);
         await tester.pumpAndSettle();
 
         // Verify no bottom sheet opened
