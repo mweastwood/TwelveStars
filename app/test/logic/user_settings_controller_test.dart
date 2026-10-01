@@ -7,12 +7,13 @@ void main() {
   setUp(() {
     PrayerDatabase.mockSettings = null;
     PrayerDatabase.mockPrayers = null;
+    UserSettingsController.instance.resetForTesting();
   });
 
   tearDown(() {
     PrayerDatabase.mockSettings = null;
     PrayerDatabase.mockPrayers = null;
-    UserSettingsController.instance.value = UserSettings();
+    UserSettingsController.instance.resetForTesting();
   });
 
   group('UserSettingsController', () {
@@ -258,6 +259,24 @@ void main() {
           controller.removeListener(listener1);
           controller.removeListener(listener2);
         }
+      },
+    );
+
+    test(
+      'resetForTesting() resets isInitialized and restores default settings',
+      () async {
+        final controller = UserSettingsController.instance;
+        PrayerDatabase.mockSettings = UserSettings(
+          primaryLanguageCode: 'spanish',
+        );
+        await controller.load();
+        expect(controller.isInitialized, isTrue);
+        expect(controller.value.primaryLanguageCode, equals('spanish'));
+
+        controller.resetForTesting();
+
+        expect(controller.isInitialized, isFalse);
+        expect(controller.value.primaryLanguageCode, equals('english'));
       },
     );
   });
