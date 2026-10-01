@@ -61,6 +61,11 @@ void main() {
     );
   }
 
+  setUp(() {
+    SaintDatabase.resetCache();
+    SaintDatabase.mockSaints = null;
+  });
+
   tearDown(() {
     SaintDatabase.resetCache();
     SaintDatabase.mockSaints = null;
@@ -87,6 +92,13 @@ void main() {
 
         // Verify spark icon and header text
         expect(find.byIcon(Icons.auto_awesome_rounded), findsOneWidget);
+        final sparkIcon = tester.widget<Icon>(
+          find.byIcon(Icons.auto_awesome_rounded),
+        );
+        final context = tester.element(find.byType(LibraryThematicSparkCard));
+        final theme = Theme.of(context);
+        expect(sparkIcon.size, 16);
+        expect(sparkIcon.color, theme.colorScheme.primary);
         expect(find.text("TODAY'S SPARK"), findsOneWidget);
 
         // Verify primary theme chip label
@@ -120,6 +132,16 @@ void main() {
       );
 
       expect(find.byIcon(Icons.format_quote_rounded), findsOneWidget);
+      final quoteIcon = tester.widget<Icon>(
+        find.byIcon(Icons.format_quote_rounded),
+      );
+      final context = tester.element(find.byType(LibraryThematicSparkCard));
+      final theme = Theme.of(context);
+      expect(quoteIcon.size, 28);
+      expect(
+        quoteIcon.color,
+        theme.colorScheme.primary.withValues(alpha: 0.5),
+      );
       expect(find.text('Key excerpt passage text.'), findsOneWidget);
       expect(find.text('Full text backup passage.'), findsNothing);
     });
@@ -401,6 +423,11 @@ void main() {
           ),
         );
 
+        final iconButton = tester.widget<IconButton>(
+          find.widgetWithIcon(IconButton, Icons.more_horiz_rounded),
+        );
+        expect(iconButton.tooltip, 'More from this theme');
+
         await tester.tap(
           find.widgetWithIcon(IconButton, Icons.more_horiz_rounded),
         );
@@ -430,6 +457,11 @@ void main() {
           ),
         ),
       );
+
+      final iconButton = tester.widget<IconButton>(
+        find.widgetWithIcon(IconButton, Icons.auto_stories_rounded),
+      );
+      expect(iconButton.tooltip, 'Read in context');
 
       await tester.tap(
         find.widgetWithIcon(IconButton, Icons.auto_stories_rounded),
@@ -464,8 +496,19 @@ void main() {
           ),
         );
 
+        // Verify author text is wrapped in an InkWell ancestor and uses primary bold styling
+        final authorFinder = find.text('— St. Augustine');
+        expect(
+          find.ancestor(of: authorFinder, matching: find.byType(InkWell)),
+          findsOneWidget,
+        );
+        final authorTextWidget = tester.widget<Text>(authorFinder);
+        final theme = Theme.of(tester.element(authorFinder));
+        expect(authorTextWidget.style?.color, equals(theme.colorScheme.primary));
+        expect(authorTextWidget.style?.fontWeight, equals(FontWeight.bold));
+
         // Tap the author attribution link
-        await tester.tap(find.text('— St. Augustine'));
+        await tester.tap(authorFinder);
         await tester.pumpAndSettle();
 
         // Verify SaintDetailsSheet appears with the saint's information
