@@ -138,10 +138,7 @@ void main() {
       final context = tester.element(find.byType(LibraryThematicSparkCard));
       final theme = Theme.of(context);
       expect(quoteIcon.size, 28);
-      expect(
-        quoteIcon.color,
-        theme.colorScheme.primary.withValues(alpha: 0.5),
-      );
+      expect(quoteIcon.color, theme.colorScheme.primary.withValues(alpha: 0.5));
       expect(find.text('Key excerpt passage text.'), findsOneWidget);
       expect(find.text('Full text backup passage.'), findsNothing);
     });
@@ -504,7 +501,10 @@ void main() {
         );
         final authorTextWidget = tester.widget<Text>(authorFinder);
         final theme = Theme.of(tester.element(authorFinder));
-        expect(authorTextWidget.style?.color, equals(theme.colorScheme.primary));
+        expect(
+          authorTextWidget.style?.color,
+          equals(theme.colorScheme.primary),
+        );
         expect(authorTextWidget.style?.fontWeight, equals(FontWeight.bold));
 
         // Tap the author attribution link
