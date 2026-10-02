@@ -19,7 +19,6 @@ import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/time_helper.dart';
-
 import '../test_helper.dart';
 
 void main() {

@@ -89,6 +89,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Quick topic ActionChips
+      expect(find.byType(ActionChip), findsNWidgets(10));
       expect(find.widgetWithText(ActionChip, '🕊️ Eucharist'), findsOneWidget);
       expect(
         find.widgetWithText(ActionChip, '🕯️ Mental Prayer'),
@@ -100,6 +101,23 @@ void main() {
       );
       expect(find.widgetWithText(ActionChip, '👑 Our Lady'), findsOneWidget);
       expect(find.widgetWithText(ActionChip, '🌿 Humility'), findsOneWidget);
+      expect(find.widgetWithText(ActionChip, '🕊️ Confession'), findsOneWidget);
+      expect(
+        find.widgetWithText(ActionChip, '⚔️ Suffering & Cross'),
+        findsOneWidget,
+      );
+      expect(
+        find.widgetWithText(ActionChip, '🏛️ Holy Trinity'),
+        findsOneWidget,
+      );
+      expect(
+        find.widgetWithText(ActionChip, '🌿 Faith, Hope & Charity'),
+        findsOneWidget,
+      );
+      expect(
+        find.widgetWithText(ActionChip, '👑 Heaven & Eternity'),
+        findsOneWidget,
+      );
 
       // Verify label outline icons in ActionChips
       expect(find.byIcon(Icons.label_outline_rounded), findsWidgets);
@@ -277,7 +295,7 @@ void main() {
     );
 
     testWidgets(
-      'category group 0 is expanded by default and displays theme items',
+      'category group 0 is expanded by default and displays theme items while other groups are collapsed',
       (tester) async {
         await tester.pumpWidget(buildShelf());
         await tester.pumpAndSettle();
@@ -288,6 +306,9 @@ void main() {
         // Group 0 'The Seven Sacraments' is expanded by default
         expect(find.text('The Most Holy Eucharist & The Mass'), findsOneWidget);
         expect(find.text('Holy Baptism & Regeneration'), findsOneWidget);
+
+        // Subsequent groups (idx > 0) are collapsed by default
+        expect(find.text('Humility & Meekness'), findsNothing);
       },
     );
 
