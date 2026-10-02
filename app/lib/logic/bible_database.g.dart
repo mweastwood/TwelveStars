@@ -4378,6 +4378,22 @@ abstract class _$BibleDatabase extends GeneratedDatabase {
   late final BookReadingPositions bookReadingPositions = BookReadingPositions(
     this,
   );
+  late final Index idxBibleVersesLookup = Index(
+    'idx_bible_verses_lookup',
+    'CREATE INDEX idx_bible_verses_lookup ON bible_verses (translation_code, book_number, chapter)',
+  );
+  late final Index idxLectionaryKey = Index(
+    'idx_lectionary_key',
+    'CREATE INDEX idx_lectionary_key ON lectionary_readings (reading_key)',
+  );
+  late final Index idxUserCommentsDocNode = Index(
+    'idx_user_comments_doc_node',
+    'CREATE INDEX idx_user_comments_doc_node ON user_comments (document_id, node_id)',
+  );
+  late final Index idxFavoritePassagesBookCh = Index(
+    'idx_favorite_passages_book_ch',
+    'CREATE INDEX idx_favorite_passages_book_ch ON favorite_passages (book_number, chapter)',
+  );
   late final $PrayersTable prayers = $PrayersTable(this);
   late final $UserSettingsTableTable userSettingsTable =
       $UserSettingsTableTable(this);
@@ -4392,6 +4408,10 @@ abstract class _$BibleDatabase extends GeneratedDatabase {
     userComments,
     libraryBookmarks,
     bookReadingPositions,
+    idxBibleVersesLookup,
+    idxLectionaryKey,
+    idxUserCommentsDocNode,
+    idxFavoritePassagesBookCh,
     prayers,
     userSettingsTable,
   ];
@@ -4611,7 +4631,16 @@ class $BibleVersesTableManager
                 translationCode: translationCode,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<BibleVerses, BibleVerse>(table),
+                  BaseReferences<_$BibleDatabase, BibleVerses, BibleVerse>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -4871,7 +4900,16 @@ class $LectionaryReadingsTableManager
                 citation: citation,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<LectionaryReadings, LectionaryReading>(table),
+                  BaseReferences<
+                    _$BibleDatabase,
+                    LectionaryReadings,
+                    LectionaryReading
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -5109,7 +5147,16 @@ class $FavoritePassagesTableManager
                 textPreview: textPreview,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<FavoritePassages, FavoritePassage>(table),
+                  BaseReferences<
+                    _$BibleDatabase,
+                    FavoritePassages,
+                    FavoritePassage
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -5349,7 +5396,16 @@ class $UserCommentsTableManager
                 createdAt: createdAt,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<UserComments, UserComment>(table),
+                  BaseReferences<_$BibleDatabase, UserComments, UserComment>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -5565,7 +5621,16 @@ class $LibraryBookmarksTableManager
                 createdAt: createdAt,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<LibraryBookmarks, LibraryBookmark>(table),
+                  BaseReferences<
+                    _$BibleDatabase,
+                    LibraryBookmarks,
+                    LibraryBookmark
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -5773,7 +5838,16 @@ class $BookReadingPositionsTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<BookReadingPositions, BookReadingPosition>(table),
+                  BaseReferences<
+                    _$BibleDatabase,
+                    BookReadingPositions,
+                    BookReadingPosition
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -6039,7 +6113,16 @@ class $$PrayersTableTableManager
                 localizedTranslations: localizedTranslations,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$PrayersTable, Prayer>(table),
+                  BaseReferences<_$BibleDatabase, $PrayersTable, Prayer>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -6792,7 +6875,16 @@ class $$UserSettingsTableTableTableManager
                 bibleRibbons: bibleRibbons,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$UserSettingsTableTable, UserSettings>(table),
+                  BaseReferences<
+                    _$BibleDatabase,
+                    $UserSettingsTableTable,
+                    UserSettings
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),

@@ -55,3 +55,9 @@ CREATE TABLE book_reading_positions (
     section_id TEXT,
     updated_at DATETIME NOT NULL
 );
+
+CREATE INDEX idx_bible_verses_lookup ON bible_verses(translation_code, book_number, chapter);
+CREATE INDEX idx_lectionary_key ON lectionary_readings(reading_key);
+CREATE INDEX idx_user_comments_doc_node ON user_comments(document_id, node_id);
+CREATE INDEX idx_favorite_passages_book_ch ON favorite_passages(book_number, chapter);
+

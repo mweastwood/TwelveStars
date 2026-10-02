@@ -215,6 +215,15 @@ void main() {
         expect(loaded.length, 1);
         expect(loaded.first.text, 'Reflections on Genesis 1:1');
         expect(loaded.first.nodeId, '1_1_1');
+        expect(loaded.first.sectionIndex, 0);
+
+        // Verify underlying SQLite storage uses 1-based section_index (1 for Chapter 1)
+        final dbComments = await db.getComments(
+          documentId: 'GEN',
+          sectionIndex: 1,
+        );
+        expect(dbComments.length, 1);
+        expect(dbComments.first.sectionIndex, 1);
 
         await adapter.updateComment(
           loaded.first.id,
@@ -228,6 +237,133 @@ void main() {
         final emptyList = await adapter.loadComments(nodeId: '1_1_1');
         expect(emptyList.isEmpty, true);
       });
+
+      test(
+        'loadComments loads comments stored with 1-based chapter numbers in user_comments with 0-based sectionIndex',
+        () async {
+          // Direct insertion with 1-based sectionIndex into SQLite
+          await db.saveComment(
+            UserCommentsCompanion.insert(
+              documentId: 'GEN',
+              sectionIndex: 1, // Chapter 1
+              nodeId: '1_1_1',
+              commentText: 'Stored with chapter 1',
+              createdAt: DateTime.now(),
+            ),
+          );
+
+          final comments = await adapter.loadComments(sectionIndex: 0);
+          expect(comments.length, 1);
+          expect(comments.first.text, 'Stored with chapter 1');
+          expect(comments.first.sectionIndex, 0);
+        },
+      );
+
+      test('loadComments filters by sectionIndex', () async {
+        await adapter.saveComment(
+          ReaderComment(
+            id: '1',
+            documentId: 'GEN',
+            sectionIndex: 0,
+            nodeId: '1_1_1',
+            text: 'Chapter 1 note',
+            textPreview: 'In the beginning...',
+            timestamp: DateTime.now(),
+          ),
+        );
+        await adapter.saveComment(
+          ReaderComment(
+            id: '2',
+            documentId: 'GEN',
+            sectionIndex: 1,
+            nodeId: '1_2_1',
+            text: 'Chapter 2 note',
+            textPreview: 'Thus the heavens...',
+            timestamp: DateTime.now(),
+          ),
+        );
+
+        final ch1Comments = await adapter.loadComments(sectionIndex: 0);
+        expect(ch1Comments.length, 1);
+        expect(ch1Comments.first.text, 'Chapter 1 note');
+        expect(ch1Comments.first.sectionIndex, 0);
+
+        final ch2Comments = await adapter.loadComments(sectionIndex: 1);
+        expect(ch2Comments.length, 1);
+        expect(ch2Comments.first.text, 'Chapter 2 note');
+        expect(ch2Comments.first.sectionIndex, 1);
+
+        final ch3Comments = await adapter.loadComments(sectionIndex: 2);
+        expect(ch3Comments, isEmpty);
+
+        final filteredWithNode = await adapter.loadComments(
+          nodeId: '1_1_1',
+          sectionIndex: 0,
+        );
+        expect(filteredWithNode.length, 1);
+        expect(filteredWithNode.first.text, 'Chapter 1 note');
+        expect(filteredWithNode.first.sectionIndex, 0);
+
+        final mismatchedNode = await adapter.loadComments(
+          nodeId: '1_1_1',
+          sectionIndex: 1,
+        );
+        expect(mismatchedNode, isEmpty);
+      });
+
+      test(
+        'saveComment falls back to bibleBook.abbrev when documentId is empty',
+        () async {
+          await adapter.saveComment(
+            ReaderComment(
+              id: '1',
+              documentId: '',
+              sectionIndex: 0,
+              nodeId: '1_1_1',
+              text: 'Comment with empty doc ID',
+              textPreview: 'In the beginning...',
+              timestamp: DateTime.now(),
+            ),
+          );
+
+          final loaded = await adapter.loadComments(nodeId: '1_1_1');
+          expect(loaded.length, 1);
+          expect(loaded.first.documentId, 'GEN');
+          expect(loaded.first.text, 'Comment with empty doc ID');
+        },
+      );
+
+      test(
+        'loadComments handles legacy 0-indexed comments without underflow',
+        () async {
+          await db.saveComment(
+            UserCommentsCompanion.insert(
+              documentId: 'GEN',
+              sectionIndex: 0, // Legacy 0-indexed sectionIndex in SQLite
+              nodeId: '1_1_1',
+              commentText: 'Legacy comment',
+              createdAt: DateTime.now(),
+            ),
+          );
+
+          final loaded = await adapter.loadComments(nodeId: '1_1_1');
+          expect(loaded.length, 1);
+          expect(loaded.first.sectionIndex, 0);
+
+          final loadedBySection = await adapter.loadComments(sectionIndex: 0);
+          expect(loadedBySection.length, 1);
+          expect(loadedBySection.first.sectionIndex, 0);
+          expect(loadedBySection.first.text, 'Legacy comment');
+
+          final loadedByNodeAndSection = await adapter.loadComments(
+            nodeId: '1_1_1',
+            sectionIndex: 0,
+          );
+          expect(loadedByNodeAndSection.length, 1);
+          expect(loadedByNodeAndSection.first.sectionIndex, 0);
+          expect(loadedByNodeAndSection.first.text, 'Legacy comment');
+        },
+      );
     });
 
     group('LibraryReaderAdapter', () {
@@ -387,6 +523,42 @@ void main() {
           expect(afterDelete.isEmpty, true);
         },
       );
+
+      test('loadComments filters by sectionIndex', () async {
+        await adapter.saveComment(
+          ReaderComment(
+            id: '10',
+            documentId: 'test_book',
+            sectionIndex: 0,
+            nodeId: 's1-1',
+            text: 'Section 0 note',
+            textPreview: 'Intro...',
+            timestamp: DateTime.now(),
+          ),
+        );
+        await adapter.saveComment(
+          ReaderComment(
+            id: '11',
+            documentId: 'test_book',
+            sectionIndex: 1,
+            nodeId: 's2-1',
+            text: 'Section 1 note',
+            textPreview: 'Body...',
+            timestamp: DateTime.now(),
+          ),
+        );
+
+        final sec0 = await adapter.loadComments(sectionIndex: 0);
+        expect(sec0.length, 1);
+        expect(sec0.first.text, 'Section 0 note');
+
+        final sec1 = await adapter.loadComments(sectionIndex: 1);
+        expect(sec1.length, 1);
+        expect(sec1.first.text, 'Section 1 note');
+
+        final secEmpty = await adapter.loadComments(sectionIndex: 5);
+        expect(secEmpty, isEmpty);
+      });
     });
   });
 }

@@ -26,9 +26,9 @@ Future<void> _waitForSearchResults(
   Duration timeout = const Duration(seconds: 5),
   Duration step = const Duration(milliseconds: 50),
 }) async {
-  final end = DateTime.now().add(timeout);
-  while (DateTime.now().isBefore(end)) {
-    await tester.runAsync(() => Future<void>.delayed(step));
+  final maxAttempts = timeout.inMicroseconds ~/ step.inMicroseconds;
+  for (var i = 0; i < maxAttempts; i++) {
+    await tester.runAsync(() => Future<void>.delayed(Duration.zero));
     await tester.pump(step);
     if (find.text('SEARCH RESULTS').evaluate().isNotEmpty &&
         find.byType(CircularProgressIndicator).evaluate().isEmpty) {

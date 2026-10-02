@@ -22,4 +22,10 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
     await PrayerDatabase.saveSettings(settings);
     notifyListeners();
   }
+
+  @visibleForTesting
+  void resetForTesting() {
+    _isInitialized = false;
+    value = UserSettings();
+  }
 }
