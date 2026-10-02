@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/widgets/prayers/prayer_history_sheet.dart';
+
 import '../../test_helper.dart';
 
 void main() {
@@ -41,8 +42,9 @@ void main() {
       expect(rowWidget.children[2], isA<Expanded>());
       expect(find.byType(Expanded), findsOneWidget);
 
-      final sizedBoxes =
-          tester.widgetList<SizedBox>(find.byType(SizedBox)).toList();
+      final sizedBoxes = tester
+          .widgetList<SizedBox>(find.byType(SizedBox))
+          .toList();
       expect(
         sizedBoxes.any((box) => box.width == 6),
         isTrue,
