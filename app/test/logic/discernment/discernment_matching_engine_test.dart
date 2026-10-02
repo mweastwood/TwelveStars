@@ -1065,40 +1065,37 @@ void main() {
         );
 
         ConfirmationDiscernmentEngine.mockRandom = Random(111);
-        final runWithParam =
-            ConfirmationDiscernmentEngine.generateTournamentSeeds(
+        final seedsParam = ConfirmationDiscernmentEngine.generateTournamentSeeds(
           allSaints: saints,
           userVector: [0.5, 0.5, 0.0, 0.0, 0.0, 0.0],
           random: Random(222),
         );
 
         ConfirmationDiscernmentEngine.mockRandom = null;
-        final runDirectParam =
-            ConfirmationDiscernmentEngine.generateTournamentSeeds(
+        final seedsDirect = ConfirmationDiscernmentEngine.generateTournamentSeeds(
           allSaints: saints,
           userVector: [0.5, 0.5, 0.0, 0.0, 0.0, 0.0],
           random: Random(222),
         );
 
         expect(
-          runWithParam.map((s) => s.saint.id).toList(),
-          equals(runDirectParam.map((s) => s.saint.id).toList()),
+          seedsParam.map((s) => s.saint.id).toList(),
+          equals(seedsDirect.map((s) => s.saint.id).toList()),
         );
         expect(
-          runWithParam.map((s) => s.matchScore).toList(),
-          equals(runDirectParam.map((s) => s.matchScore).toList()),
+          seedsParam.map((s) => s.matchScore).toList(),
+          equals(seedsDirect.map((s) => s.matchScore).toList()),
         );
 
         ConfirmationDiscernmentEngine.mockRandom = Random(111);
-        final runMockOnly =
-            ConfirmationDiscernmentEngine.generateTournamentSeeds(
+        final seedsMock = ConfirmationDiscernmentEngine.generateTournamentSeeds(
           allSaints: saints,
           userVector: [0.5, 0.5, 0.0, 0.0, 0.0, 0.0],
         );
 
         expect(
-          runWithParam.map((s) => s.matchScore).toList(),
-          isNot(equals(runMockOnly.map((s) => s.matchScore).toList())),
+          seedsParam.map((s) => s.matchScore).toList(),
+          isNot(equals(seedsMock.map((s) => s.matchScore).toList())),
         );
       });
     });
