@@ -198,6 +198,7 @@ void main() {
           random: Random(222),
         );
 
+        ConfirmationDiscernmentEngine.mockRandom = null;
         final runDirectParam = ConfirmationDiscernmentEngine.selectQuestions(
           count: 14,
           random: Random(222),
@@ -206,6 +207,16 @@ void main() {
         expect(
           runWithParam.map((q) => q.id).toList(),
           equals(runDirectParam.map((q) => q.id).toList()),
+        );
+
+        ConfirmationDiscernmentEngine.mockRandom = Random(111);
+        final runMockOnly = ConfirmationDiscernmentEngine.selectQuestions(
+          count: 14,
+        );
+
+        expect(
+          runWithParam.map((q) => q.id).toList(),
+          isNot(equals(runMockOnly.map((q) => q.id).toList())),
         );
       });
 
@@ -769,6 +780,7 @@ void main() {
         final seeds8 = ConfirmationDiscernmentEngine.generateTournamentSeeds(
           allSaints: saints,
           userVector: [1.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+          noiseMagnitude: 0.0,
           count: 8,
         );
         expect(seeds8.length, 8);
@@ -777,6 +789,7 @@ void main() {
         final seeds16 = ConfirmationDiscernmentEngine.generateTournamentSeeds(
           allSaints: saints,
           userVector: [1.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+          noiseMagnitude: 0.0,
           count: 16,
         );
         expect(seeds16.length, 16);
@@ -919,6 +932,7 @@ void main() {
         final seeds = ConfirmationDiscernmentEngine.generateTournamentSeeds(
           allSaints: all,
           userVector: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+          noiseMagnitude: 0.0,
           count: all.length,
         );
 
@@ -965,6 +979,126 @@ void main() {
           'Hermit Monk',
           reason:
               'Rule 7: Fallback to profession when patronage is empty string',
+        );
+      });
+
+      test('Determinism with injected Random seed', () {
+        final saints = List.generate(
+          20,
+          (i) => createTestSaint(
+            id: 'saint_$i',
+            name: 'Saint $i',
+            embedding: SaintEmbedding(
+              contemplativeVsActive: (i % 5 - 2) / 2.0,
+              intellectualVsDevotional: ((i * 3) % 5 - 2) / 2.0,
+            ),
+          ),
+        );
+
+        final runA = ConfirmationDiscernmentEngine.generateTournamentSeeds(
+          allSaints: saints,
+          userVector: [0.5, 0.5, 0.0, 0.0, 0.0, 0.0],
+          random: Random(999),
+        );
+        final runB = ConfirmationDiscernmentEngine.generateTournamentSeeds(
+          allSaints: saints,
+          userVector: [0.5, 0.5, 0.0, 0.0, 0.0, 0.0],
+          random: Random(999),
+        );
+
+        expect(
+          runA.map((s) => s.saint.id).toList(),
+          equals(runB.map((s) => s.saint.id).toList()),
+        );
+        expect(
+          runA.map((s) => s.matchScore).toList(),
+          equals(runB.map((s) => s.matchScore).toList()),
+        );
+      });
+
+      test('Determinism using ConfirmationDiscernmentEngine.mockRandom', () {
+        final saints = List.generate(
+          20,
+          (i) => createTestSaint(
+            id: 'saint_$i',
+            name: 'Saint $i',
+            embedding: SaintEmbedding(
+              contemplativeVsActive: (i % 5 - 2) / 2.0,
+              intellectualVsDevotional: ((i * 3) % 5 - 2) / 2.0,
+            ),
+          ),
+        );
+
+        ConfirmationDiscernmentEngine.mockRandom = Random(888);
+        final runA = ConfirmationDiscernmentEngine.generateTournamentSeeds(
+          allSaints: saints,
+          userVector: [0.5, 0.5, 0.0, 0.0, 0.0, 0.0],
+        );
+
+        ConfirmationDiscernmentEngine.mockRandom = Random(888);
+        final runB = ConfirmationDiscernmentEngine.generateTournamentSeeds(
+          allSaints: saints,
+          userVector: [0.5, 0.5, 0.0, 0.0, 0.0, 0.0],
+        );
+
+        expect(
+          runA.map((s) => s.saint.id).toList(),
+          equals(runB.map((s) => s.saint.id).toList()),
+        );
+        expect(
+          runA.map((s) => s.matchScore).toList(),
+          equals(runB.map((s) => s.matchScore).toList()),
+        );
+      });
+
+      test('Injected random parameter takes precedence over mockRandom', () {
+        final saints = List.generate(
+          20,
+          (i) => createTestSaint(
+            id: 'saint_$i',
+            name: 'Saint $i',
+            embedding: SaintEmbedding(
+              contemplativeVsActive: (i % 5 - 2) / 2.0,
+              intellectualVsDevotional: ((i * 3) % 5 - 2) / 2.0,
+            ),
+          ),
+        );
+
+        ConfirmationDiscernmentEngine.mockRandom = Random(111);
+        final runWithParam =
+            ConfirmationDiscernmentEngine.generateTournamentSeeds(
+          allSaints: saints,
+          userVector: [0.5, 0.5, 0.0, 0.0, 0.0, 0.0],
+          random: Random(222),
+        );
+
+        ConfirmationDiscernmentEngine.mockRandom = null;
+        final runDirectParam =
+            ConfirmationDiscernmentEngine.generateTournamentSeeds(
+          allSaints: saints,
+          userVector: [0.5, 0.5, 0.0, 0.0, 0.0, 0.0],
+          random: Random(222),
+        );
+
+        expect(
+          runWithParam.map((s) => s.saint.id).toList(),
+          equals(runDirectParam.map((s) => s.saint.id).toList()),
+        );
+        expect(
+          runWithParam.map((s) => s.matchScore).toList(),
+          equals(runDirectParam.map((s) => s.matchScore).toList()),
+        );
+
+        ConfirmationDiscernmentEngine.mockRandom = Random(111);
+        final runMockOnly =
+            ConfirmationDiscernmentEngine.generateTournamentSeeds(
+          allSaints: saints,
+          userVector: [0.5, 0.5, 0.0, 0.0, 0.0, 0.0],
+        );
+
+        expect(
+          runWithParam.map((s) => s.matchScore).toList(),
+          isNot(equals(runMockOnly.map((s) => s.matchScore).toList())),
         );
       });
     });
