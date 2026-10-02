@@ -275,10 +275,7 @@ void main() {
       );
 
       test('catholicBookAbbrevs is unmodifiable', () {
-        expect(
-          () => catholicBookAbbrevs.add('TEST'),
-          throwsUnsupportedError,
-        );
+        expect(() => catholicBookAbbrevs.add('TEST'), throwsUnsupportedError);
       });
     });
   });
