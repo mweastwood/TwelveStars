@@ -1065,18 +1065,20 @@ void main() {
         );
 
         ConfirmationDiscernmentEngine.mockRandom = Random(111);
-        final seedsParam = ConfirmationDiscernmentEngine.generateTournamentSeeds(
-          allSaints: saints,
-          userVector: [0.5, 0.5, 0.0, 0.0, 0.0, 0.0],
-          random: Random(222),
-        );
+        final seedsParam =
+            ConfirmationDiscernmentEngine.generateTournamentSeeds(
+              allSaints: saints,
+              userVector: [0.5, 0.5, 0.0, 0.0, 0.0, 0.0],
+              random: Random(222),
+            );
 
         ConfirmationDiscernmentEngine.mockRandom = null;
-        final seedsDirect = ConfirmationDiscernmentEngine.generateTournamentSeeds(
-          allSaints: saints,
-          userVector: [0.5, 0.5, 0.0, 0.0, 0.0, 0.0],
-          random: Random(222),
-        );
+        final seedsDirect =
+            ConfirmationDiscernmentEngine.generateTournamentSeeds(
+              allSaints: saints,
+              userVector: [0.5, 0.5, 0.0, 0.0, 0.0, 0.0],
+              random: Random(222),
+            );
 
         expect(
           seedsParam.map((s) => s.saint.id).toList(),
