@@ -103,7 +103,12 @@ void main() {
 
       expect(find.text('HISTORICAL CONTEXT'), findsOneWidget);
       expect(find.text('Origin: '), findsOneWidget);
-      expect(find.text(''), findsOneWidget);
+      expect(
+        find.byWidgetPredicate(
+          (w) => w is Text && w.data == '' && w.style?.fontSize == 11,
+        ),
+        findsOneWidget,
+      );
     });
 
     testWidgets(
@@ -153,6 +158,50 @@ void main() {
         expect(tester.takeException(), isNull);
       },
     );
+
+    testWidgets(
+      'Edge Cases & Dynamic Constraints - Long Origin String Handling',
+      (WidgetTester tester) async {
+        const longOrigin =
+            'Archdiocese of Milan, Ambrosian Rite, Fourth Century Liturgical Manuscript Collection, Codex Ambrosianus';
+
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(
+              body: SizedBox(
+                width: 250,
+                child: PrayerHistoryPanel(
+                  origin: longOrigin,
+                  description: 'Historical context test description.',
+                ),
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Origin: $longOrigin'), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      },
+    );
+
+    testWidgets('Key Propagation Verification', (WidgetTester tester) async {
+      const testKey = Key('prayer_history_panel_test_key');
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: PrayerHistoryPanel(
+              key: testKey,
+              origin: 'Origin',
+              description: 'Description',
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(testKey), findsOneWidget);
+    });
 
     testWidgets('Theme Adaptability - Light and Dark Themes', (
       WidgetTester tester,
@@ -206,6 +255,17 @@ void main() {
 
       final darkContext = tester.element(find.byType(PrayerHistoryPanel));
       final darkTheme = Theme.of(darkContext);
+
+      final darkIconFinder = find.byIcon(Icons.history_edu);
+      final darkIconWidget = tester.widget<Icon>(darkIconFinder);
+      expect(darkIconWidget.color, equals(darkTheme.colorScheme.primary));
+
+      final darkHeaderFinder = find.text('HISTORICAL CONTEXT');
+      final darkHeaderWidget = tester.widget<Text>(darkHeaderFinder);
+      expect(
+        darkHeaderWidget.style?.color,
+        equals(darkTheme.colorScheme.primary),
+      );
 
       final darkOriginWidget = tester.widget<Text>(
         find.text('Origin: Subiaco Monastery'),
