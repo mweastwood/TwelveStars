@@ -1115,7 +1115,7 @@ class BibleDatabaseHelper {
   }
 
   @visibleForTesting
-  static set db(BibleDatabase database) {
+  static set db(BibleDatabase? database) {
     _db = database;
   }
 }
