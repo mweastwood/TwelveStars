@@ -122,9 +122,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
 
       // Only include comments on Bible verses (documentId matches a Bible book abbrev)
       final bibleComments = allComments.where((c) {
-        return catholicBooks.any(
-          (b) => b.abbrev.toUpperCase() == c.documentId.toUpperCase(),
-        );
+        return catholicBookAbbrevs.contains(c.documentId.toUpperCase());
       }).toList();
 
       if (mounted) {
@@ -161,10 +159,9 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
     }
 
     for (final comment in _comments) {
-      final book = catholicBooks.firstWhere(
-        (b) => b.abbrev.toUpperCase() == comment.documentId.toUpperCase(),
-        orElse: () => catholicBooks.first,
-      );
+      final book =
+          catholicBooksByAbbrev[comment.documentId.toUpperCase()] ??
+          catholicBooks.first;
       final verseNum = int.tryParse(comment.nodeId.split('_').last) ?? 1;
 
       items.add(
@@ -287,10 +284,9 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
   }
 
   Future<void> _editComment(UserComment comment) async {
-    final book = catholicBooks.firstWhere(
-      (b) => b.abbrev.toUpperCase() == comment.documentId.toUpperCase(),
-      orElse: () => catholicBooks.first,
-    );
+    final book =
+        catholicBooksByAbbrev[comment.documentId.toUpperCase()] ??
+        catholicBooks.first;
     final verseNum = int.tryParse(comment.nodeId.split('_').last) ?? 1;
     final citation = '${book.bookName} ${comment.sectionIndex}:$verseNum';
 

@@ -615,3 +615,13 @@ const List<BibleBook> catholicBooks = [
     testament: 'New Testament',
   ),
 ];
+
+/// Map of uppercase Catholic Bible book abbreviations to [BibleBook] for O(1) constant lookup.
+final Map<String, BibleBook> catholicBooksByAbbrev = Map.unmodifiable({
+  for (final book in catholicBooks) book.abbrev.toUpperCase(): book,
+});
+
+/// Set of uppercase Catholic Bible book abbreviations for O(1) constant lookup.
+final Set<String> catholicBookAbbrevs = Set.unmodifiable(
+  catholicBooksByAbbrev.keys,
+);

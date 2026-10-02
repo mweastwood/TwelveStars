@@ -254,5 +254,50 @@ void main() {
         expect(baruch.category, 'Prophets');
       });
     });
+
+    group('Book Abbreviations Lookup Map', () {
+      test('contains all 73 book entries keyed by uppercase abbreviation', () {
+        expect(catholicBooksByAbbrev.length, 73);
+        expect(catholicBooksByAbbrev['GEN']?.bookName, 'Genesis');
+        expect(catholicBooksByAbbrev['REV']?.bookName, 'Revelation');
+        expect(catholicBooksByAbbrev['MAT']?.bookName, 'Matthew');
+        expect(catholicBooksByAbbrev['NON_EXISTENT'], isNull);
+
+        for (final book in catholicBooks) {
+          expect(catholicBooksByAbbrev[book.abbrev.toUpperCase()], book);
+        }
+      });
+
+      test('catholicBooksByAbbrev is unmodifiable', () {
+        expect(
+          () => catholicBooksByAbbrev['TEST'] = catholicBooks.first,
+          throwsUnsupportedError,
+        );
+      });
+    });
+
+    group('Book Abbreviations Lookup Set', () {
+      test(
+        'contains all 73 book abbreviations in uppercase for O(1) lookup',
+        () {
+          expect(catholicBookAbbrevs.length, 73);
+          expect(catholicBookAbbrevs.contains('GEN'), isTrue);
+          expect(catholicBookAbbrevs.contains('REV'), isTrue);
+          expect(catholicBookAbbrevs.contains('MAT'), isTrue);
+          expect(catholicBookAbbrevs.contains('NON_EXISTENT'), isFalse);
+
+          for (final book in catholicBooks) {
+            expect(
+              catholicBookAbbrevs.contains(book.abbrev.toUpperCase()),
+              isTrue,
+            );
+          }
+        },
+      );
+
+      test('catholicBookAbbrevs is unmodifiable', () {
+        expect(() => catholicBookAbbrevs.add('TEST'), throwsUnsupportedError);
+      });
+    });
   });
 }
