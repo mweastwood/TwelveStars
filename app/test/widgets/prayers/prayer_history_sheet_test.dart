@@ -13,15 +13,8 @@ void main() {
       const testDescription = 'Attributed to Saint Ambrose of Milan.';
 
       await tester.pumpWidget(
-        MaterialApp(
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color(0xFF1E3A8A),
-              brightness: Brightness.light,
-            ),
-            useMaterial3: true,
-          ),
-          home: const Scaffold(
+        buildTestableWidget(
+          child: const Scaffold(
             body: PrayerHistoryPanel(
               origin: testOrigin,
               description: testDescription,
@@ -30,6 +23,41 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
+
+      // Verify structural layout constraints
+      final columnFinder = find.byType(Column);
+      expect(columnFinder, findsOneWidget);
+      final Column columnWidget = tester.widget<Column>(columnFinder);
+      expect(columnWidget.mainAxisSize, equals(MainAxisSize.min));
+      expect(columnWidget.crossAxisAlignment, equals(CrossAxisAlignment.start));
+
+      final rowFinder = find.byType(Row);
+      expect(rowFinder, findsOneWidget);
+      final Row rowWidget = tester.widget<Row>(rowFinder);
+      expect(rowWidget.children.length, equals(3));
+      expect(rowWidget.children[0], isA<Icon>());
+      expect(rowWidget.children[1], isA<SizedBox>());
+      expect((rowWidget.children[1] as SizedBox).width, equals(6));
+      expect(rowWidget.children[2], isA<Expanded>());
+      expect(find.byType(Expanded), findsOneWidget);
+
+      final sizedBoxes =
+          tester.widgetList<SizedBox>(find.byType(SizedBox)).toList();
+      expect(
+        sizedBoxes.any((box) => box.width == 6),
+        isTrue,
+        reason: 'Icon and header should have 6px horizontal spacing',
+      );
+      expect(
+        sizedBoxes.any((box) => box.height == 6),
+        isTrue,
+        reason: 'Header row and origin should have 6px vertical spacing',
+      );
+      expect(
+        sizedBoxes.any((box) => box.height == 2),
+        isTrue,
+        reason: 'Origin and description should have 2px vertical spacing',
+      );
 
       // Verify history_edu icon with primary color
       final iconFinder = find.byIcon(Icons.history_edu);
@@ -61,8 +89,8 @@ void main() {
           'standardize liturgical worship across the Western Church.';
 
       await tester.pumpWidget(
-        MaterialApp(
-          home: const Scaffold(
+        buildTestableWidget(
+          child: const Scaffold(
             body: PrayerHistoryPanel(
               origin: testOrigin,
               description: testDescription,
@@ -93,8 +121,8 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
-        const MaterialApp(
-          home: Scaffold(
+        buildTestableWidget(
+          child: const Scaffold(
             body: PrayerHistoryPanel(origin: '', description: ''),
           ),
         ),
@@ -112,11 +140,29 @@ void main() {
     });
 
     testWidgets(
+      'Edge Cases & Dynamic Constraints - Whitespace-Only Strings Handling',
+      (WidgetTester tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: PrayerHistoryPanel(origin: '   ', description: '   '),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('HISTORICAL CONTEXT'), findsOneWidget);
+        expect(find.text('Origin:    '), findsOneWidget);
+        expect(find.text('   '), findsOneWidget);
+      },
+    );
+
+    testWidgets(
       'Edge Cases & Dynamic Constraints - Single Character Strings Handling',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          const MaterialApp(
-            home: Scaffold(
+          buildTestableWidget(
+            child: const Scaffold(
               body: PrayerHistoryPanel(origin: 'A', description: 'B'),
             ),
           ),
@@ -139,8 +185,8 @@ void main() {
         ).join('\n');
 
         await tester.pumpWidget(
-          MaterialApp(
-            home: Scaffold(
+          buildTestableWidget(
+            child: Scaffold(
               body: SingleChildScrollView(
                 child: PrayerHistoryPanel(
                   origin: 'Historical Archive',
@@ -166,8 +212,8 @@ void main() {
             'Archdiocese of Milan, Ambrosian Rite, Fourth Century Liturgical Manuscript Collection, Codex Ambrosianus';
 
         await tester.pumpWidget(
-          const MaterialApp(
-            home: Scaffold(
+          buildTestableWidget(
+            child: const Scaffold(
               body: SizedBox(
                 width: 250,
                 child: PrayerHistoryPanel(
@@ -185,11 +231,37 @@ void main() {
       },
     );
 
+    testWidgets(
+      'Edge Cases & Dynamic Constraints - Multi-line Origin String Wrapping',
+      (WidgetTester tester) async {
+        const multiLineOrigin =
+            'Archdiocese of Milan,\nAmbrosian Rite, Fourth Century,\nCodex Ambrosianus';
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(
+              body: SizedBox(
+                width: 200,
+                child: PrayerHistoryPanel(
+                  origin: multiLineOrigin,
+                  description: 'Historical context test description.',
+                ),
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Origin: $multiLineOrigin'), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      },
+    );
+
     testWidgets('Key Propagation Verification', (WidgetTester tester) async {
       const testKey = Key('prayer_history_panel_test_key');
       await tester.pumpWidget(
-        const MaterialApp(
-          home: Scaffold(
+        buildTestableWidget(
+          child: const Scaffold(
             body: PrayerHistoryPanel(
               key: testKey,
               origin: 'Origin',
@@ -222,6 +294,17 @@ void main() {
 
       final lightContext = tester.element(find.byType(PrayerHistoryPanel));
       final lightTheme = Theme.of(lightContext);
+
+      final lightIconFinder = find.byIcon(Icons.history_edu);
+      final lightIconWidget = tester.widget<Icon>(lightIconFinder);
+      expect(lightIconWidget.color, equals(lightTheme.colorScheme.primary));
+
+      final lightHeaderFinder = find.text('HISTORICAL CONTEXT');
+      final lightHeaderWidget = tester.widget<Text>(lightHeaderFinder);
+      expect(
+        lightHeaderWidget.style?.color,
+        equals(lightTheme.colorScheme.primary),
+      );
 
       final lightOriginWidget = tester.widget<Text>(
         find.text('Origin: Subiaco Monastery'),
