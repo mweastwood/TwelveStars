@@ -358,7 +358,11 @@ void main() {
         expect(find.text('The Most Holy Eucharist & The Mass'), findsOneWidget);
 
         // Tap group header to collapse it
-        await tester.tap(find.text('The Seven Sacraments'));
+        final groupHeaderFinder = find.descendant(
+          of: find.byType(DraggableScrollableSheet),
+          matching: find.text('The Seven Sacraments'),
+        );
+        await tester.tap(groupHeaderFinder);
         await tester.pumpAndSettle();
 
         // Verify themes are no longer visible
