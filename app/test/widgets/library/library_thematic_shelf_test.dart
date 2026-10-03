@@ -120,7 +120,7 @@ void main() {
       );
 
       // Verify label outline icons in ActionChips
-      expect(find.byIcon(Icons.label_outline_rounded), findsWidgets);
+      expect(find.byIcon(Icons.label_outline_rounded), findsNWidgets(10));
     });
   });
 
@@ -265,6 +265,39 @@ void main() {
         expect(selectedTheme, equals('prayer.vocal_mental_meditation'));
       },
     );
+
+    testWidgets(
+      'scrolling to end of category pillars reveals last group and triggers onOpenTheme',
+      (tester) async {
+        String? selectedTheme;
+        await tester.pumpWidget(
+          buildShelf(
+            onOpenTheme: (themeId) {
+              selectedTheme = themeId;
+            },
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final categoryListView = find.byType(ListView).first;
+        final categoryScrollable = find.descendant(
+          of: categoryListView,
+          matching: find.byType(Scrollable),
+        );
+
+        await tester.scrollUntilVisible(
+          find.text('Our Lady, Saints & Eternity'),
+          100,
+          scrollable: categoryScrollable,
+        );
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.text('Our Lady, Saints & Eternity'));
+        await tester.pumpAndSettle();
+
+        expect(selectedTheme, equals('devotion.our_lady'));
+      },
+    );
   });
 
   group('LibraryThematicShelf - Modal Theme Picker Bottom Sheet Navigation', () {
@@ -309,6 +342,27 @@ void main() {
 
         // Subsequent groups (idx > 0) are collapsed by default
         expect(find.text('Humility & Meekness'), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'tapping expanded category group toggles it collapsed and hides themes',
+      (tester) async {
+        await tester.pumpWidget(buildShelf());
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byType(TextButton));
+        await tester.pumpAndSettle();
+
+        // Group 0 'The Seven Sacraments' is initially expanded
+        expect(find.text('The Most Holy Eucharist & The Mass'), findsOneWidget);
+
+        // Tap group header to collapse it
+        await tester.tap(find.text('The Seven Sacraments'));
+        await tester.pumpAndSettle();
+
+        // Verify themes are no longer visible
+        expect(find.text('The Most Holy Eucharist & The Mass'), findsNothing);
       },
     );
 
