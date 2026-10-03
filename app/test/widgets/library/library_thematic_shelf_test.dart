@@ -318,6 +318,15 @@ void main() {
         expect(find.byType(DraggableScrollableSheet), findsOneWidget);
 
         // Verify header elements
+        expect(
+          find.byWidgetPredicate(
+            (w) =>
+                w is Container &&
+                w.constraints?.maxWidth == 40 &&
+                w.constraints?.maxHeight == 4,
+          ),
+          findsOneWidget,
+        );
         expect(find.byIcon(Icons.category_rounded), findsOneWidget);
         expect(find.text('Explore by Spiritual Theme'), findsOneWidget);
         expect(
@@ -339,6 +348,13 @@ void main() {
         // Group 0 'The Seven Sacraments' is expanded by default
         expect(find.text('The Most Holy Eucharist & The Mass'), findsOneWidget);
         expect(find.text('Holy Baptism & Regeneration'), findsOneWidget);
+        expect(
+          find.descendant(
+            of: find.byType(DraggableScrollableSheet),
+            matching: find.byIcon(Icons.chevron_right),
+          ),
+          findsWidgets,
+        );
 
         // Subsequent groups (idx > 0) are collapsed by default
         expect(find.text('Humility & Meekness'), findsNothing);
@@ -367,6 +383,13 @@ void main() {
 
         // Verify themes are no longer visible
         expect(find.text('The Most Holy Eucharist & The Mass'), findsNothing);
+
+        // Tap group header again to re-expand it
+        await tester.tap(groupHeaderFinder);
+        await tester.pumpAndSettle();
+
+        // Verify themes are visible again
+        expect(find.text('The Most Holy Eucharist & The Mass'), findsOneWidget);
       },
     );
 
