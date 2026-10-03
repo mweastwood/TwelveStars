@@ -801,10 +801,7 @@ class BibleCitationParser {
         continue;
       }
 
-      final bookMetadata = catholicBooks.firstWhere(
-        (b) => b.bookNumber == bookNum,
-        orElse: () => catholicBooks[0],
-      );
+      final bookMetadata = catholicBooksByNumber[bookNum] ?? catholicBooks[0];
 
       final int chapter;
       if (rawRomanChap != null) {
