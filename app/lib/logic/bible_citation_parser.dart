@@ -801,8 +801,7 @@ class BibleCitationParser {
         continue;
       }
 
-      final bookMetadata =
-          catholicBooksByNumber[bookNum] ?? catholicBooks[0];
+      final bookMetadata = catholicBooksByNumber[bookNum] ?? catholicBooks[0];
 
       final int chapter;
       if (rawRomanChap != null) {
