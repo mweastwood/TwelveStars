@@ -67,7 +67,10 @@ class MockReaderAdapter implements ReaderAdapter {
   Future<void> saveComment(ReaderComment comment) async {}
 
   @override
-  Future<List<ReaderComment>> loadComments({String? nodeId}) async {
+  Future<List<ReaderComment>> loadComments({
+    String? nodeId,
+    int? sectionIndex,
+  }) async {
     return [];
   }
 

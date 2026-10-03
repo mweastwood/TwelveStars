@@ -807,17 +807,28 @@ class BibleDatabase extends _$BibleDatabase {
   }
 
   // User Comments operations
-  Future<List<UserComment>> getComments({String? documentId, String? nodeId}) {
+  Future<List<UserComment>> getComments({
+    String? documentId,
+    String? nodeId,
+    int? sectionIndex,
+  }) {
     final query = select(userComments);
-    if (documentId != null && nodeId != null) {
-      query.where(
-        (t) => t.documentId.equals(documentId) & t.nodeId.equals(nodeId),
-      );
-    } else if (documentId != null) {
-      query.where((t) => t.documentId.equals(documentId));
-    } else if (nodeId != null) {
-      query.where((t) => t.nodeId.equals(nodeId));
+    final conditions = <Expression<bool>>[];
+
+    if (documentId != null) {
+      conditions.add(userComments.documentId.equals(documentId));
     }
+    if (nodeId != null) {
+      conditions.add(userComments.nodeId.equals(nodeId));
+    }
+    if (sectionIndex != null) {
+      conditions.add(userComments.sectionIndex.equals(sectionIndex));
+    }
+
+    if (conditions.isNotEmpty) {
+      query.where((t) => conditions.reduce((a, b) => a & b));
+    }
+
     return query.get();
   }
 
@@ -1104,7 +1115,7 @@ class BibleDatabaseHelper {
   }
 
   @visibleForTesting
-  static set db(BibleDatabase database) {
+  static set db(BibleDatabase? database) {
     _db = database;
   }
 }

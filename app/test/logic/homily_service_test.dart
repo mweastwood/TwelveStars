@@ -541,6 +541,13 @@ void main() {
       );
     });
 
+    tearDown(() async {
+      await testDb.close();
+      BibleDatabaseHelper.db = null;
+      PrayerDatabase.mockSettings = null;
+      PrayerDatabase.resetCache();
+    });
+
     test('fetches verse text correctly for a reading', () async {
       final reading = LectionaryReading(
         id: 1,
