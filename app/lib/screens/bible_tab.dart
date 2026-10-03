@@ -21,6 +21,24 @@ class BibleChapterRef {
   const BibleChapterRef({required this.book, required this.chapter});
 }
 
+/// Static canonical list of all 1,334 Catholic Bible chapters across 73 books.
+final List<BibleChapterRef> canonicalBibleChapters = List.unmodifiable([
+  for (final book in catholicBooks)
+    for (int c = 1; c <= book.chaptersCount; c++)
+      BibleChapterRef(book: book, chapter: c),
+]);
+
+final Map<String, int> _canonicalChapterIndexMap = Map.unmodifiable({
+  for (int i = 0; i < canonicalBibleChapters.length; i++)
+    '${canonicalBibleChapters[i].book.bookNumber}:${canonicalBibleChapters[i].chapter}':
+        i,
+});
+
+/// Returns the 0-based canonical page index for the given [bookNumber] and [chapterNum],
+/// or -1 if the chapter does not exist in the Catholic canon.
+int getCanonicalChapterIndex(int bookNumber, int chapterNum) =>
+    _canonicalChapterIndexMap['$bookNumber:$chapterNum'] ?? -1;
+
 class BibleTab extends StatefulWidget {
   final List<BibleVerse>? initialVerses;
 
@@ -31,7 +49,7 @@ class BibleTab extends StatefulWidget {
 }
 
 class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
-  late List<BibleChapterRef> _allChapters;
+  List<BibleChapterRef> get _allChapters => canonicalBibleChapters;
   late PageController _pageController;
   int _currentPageIndex = 0;
 
@@ -145,14 +163,6 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       reverseCurve: Curves.easeInOutCubic,
     );
 
-    // Build flat list of all chapters in order
-    _allChapters = [];
-    for (final book in catholicBooks) {
-      for (int c = 1; c <= book.chaptersCount; c++) {
-        _allChapters.add(BibleChapterRef(book: book, chapter: c));
-      }
-    }
-
     _pageController = PageController(initialPage: 0);
     _selectedBookForPicker = catholicBooks.first;
 
@@ -181,10 +191,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     try {
       final settings = await PrayerDatabase.loadSettings();
       if (mounted) {
-        final targetIndex = _allChapters.indexWhere(
-          (ref) =>
-              ref.book.bookNumber == settings.lastBibleBookNumber &&
-              ref.chapter == settings.lastBibleChapter,
+        final targetIndex = getCanonicalChapterIndex(
+          settings.lastBibleBookNumber,
+          settings.lastBibleChapter,
         );
         final initialIndex = targetIndex != -1 ? targetIndex : 0;
         if (_currentPageIndex != initialIndex) {
@@ -386,10 +395,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       _navigateToChapter(book, chapterNum);
 
   void _navigateToChapter(BibleBook book, int chapterNum) {
-    final pageIndex = _allChapters.indexWhere(
-      (ref) =>
-          ref.book.bookNumber == book.bookNumber && ref.chapter == chapterNum,
-    );
+    final pageIndex = getCanonicalChapterIndex(book.bookNumber, chapterNum);
     if (pageIndex != -1) {
       _pageController.jumpToPage(pageIndex);
       _collapsePanel();
@@ -398,10 +404,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   }
 
   void navigateToFavorite(FavoritePassage fav) {
-    final pageIndex = _allChapters.indexWhere(
-      (ref) =>
-          ref.book.bookNumber == fav.bookNumber && ref.chapter == fav.chapter,
-    );
+    final pageIndex = getCanonicalChapterIndex(fav.bookNumber, fav.chapter);
     if (pageIndex != -1) {
       setState(() {
         _targetBookNumber = fav.bookNumber;
@@ -423,10 +426,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       (b) => b.abbrev == comment.documentId,
       orElse: () => catholicBooks.first,
     );
-    final pageIndex = _allChapters.indexWhere(
-      (ref) =>
-          ref.book.bookNumber == book.bookNumber &&
-          ref.chapter == comment.sectionIndex,
+    final pageIndex = getCanonicalChapterIndex(
+      book.bookNumber,
+      comment.sectionIndex,
     );
     if (pageIndex != -1) {
       setState(() {
