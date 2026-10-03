@@ -299,5 +299,27 @@ void main() {
         expect(() => catholicBookAbbrevs.add('TEST'), throwsUnsupportedError);
       });
     });
+
+    group('Book Numbers Lookup Map', () {
+      test('contains all 73 book entries keyed by bookNumber', () {
+        expect(catholicBooksByNumber.length, 73);
+        expect(catholicBooksByNumber[1]?.bookName, 'Genesis');
+        expect(catholicBooksByNumber[49]?.bookName, 'Matthew');
+        expect(catholicBooksByNumber[76]?.bookName, 'Revelation');
+        expect(catholicBooksByNumber[-1], isNull);
+        expect(catholicBooksByNumber[999], isNull);
+
+        for (final book in catholicBooks) {
+          expect(catholicBooksByNumber[book.bookNumber], book);
+        }
+      });
+
+      test('catholicBooksByNumber is unmodifiable', () {
+        expect(
+          () => catholicBooksByNumber[999] = catholicBooks.first,
+          throwsUnsupportedError,
+        );
+      });
+    });
   });
 }

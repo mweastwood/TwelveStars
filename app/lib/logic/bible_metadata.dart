@@ -625,3 +625,8 @@ final Map<String, BibleBook> catholicBooksByAbbrev = Map.unmodifiable({
 final Set<String> catholicBookAbbrevs = Set.unmodifiable(
   catholicBooksByAbbrev.keys,
 );
+
+/// Map of Catholic Bible book number to [BibleBook] for O(1) constant lookup.
+final Map<int, BibleBook> catholicBooksByNumber = Map.unmodifiable({
+  for (final book in catholicBooks) book.bookNumber: book,
+});
