@@ -21,18 +21,21 @@ class BibleChapterRef {
   const BibleChapterRef({required this.book, required this.chapter});
 }
 
-final List<BibleChapterRef> canonicalBibleChapters = [
+/// Static canonical list of all 1,334 Catholic Bible chapters across 73 books.
+final List<BibleChapterRef> canonicalBibleChapters = List.unmodifiable([
   for (final book in catholicBooks)
     for (int c = 1; c <= book.chaptersCount; c++)
       BibleChapterRef(book: book, chapter: c),
-];
+]);
 
-final Map<String, int> _canonicalChapterIndexMap = {
+final Map<String, int> _canonicalChapterIndexMap = Map.unmodifiable({
   for (int i = 0; i < canonicalBibleChapters.length; i++)
     '${canonicalBibleChapters[i].book.bookNumber}:${canonicalBibleChapters[i].chapter}':
         i,
-};
+});
 
+/// Returns the 0-based canonical page index for the given [bookNumber] and [chapterNum],
+/// or -1 if the chapter does not exist in the Catholic canon.
 int getCanonicalChapterIndex(int bookNumber, int chapterNum) =>
     _canonicalChapterIndexMap['$bookNumber:$chapterNum'] ?? -1;
 

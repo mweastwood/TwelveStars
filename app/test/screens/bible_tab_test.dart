@@ -1964,6 +1964,15 @@ void main() {
       expect(canonicalBibleChapters.length, equals(1334));
     });
 
+    test('canonicalBibleChapters is unmodifiable', () {
+      expect(
+        () => canonicalBibleChapters.add(
+          BibleChapterRef(book: catholicBooks.first, chapter: 1),
+        ),
+        throwsUnsupportedError,
+      );
+    });
+
     test(
       'getCanonicalChapterIndex resolves boundary and mid-canon chapters correctly',
       () {
@@ -1973,19 +1982,19 @@ void main() {
         // Genesis 2 -> 1
         expect(getCanonicalChapterIndex(1, 2), equals(1));
 
-        // Mid-canon: Matthew 1 (bookNumber: 47, chapter: 1)
+        // Mid-canon: Matthew 1 (bookNumber: 49, chapter: 1)
         final matthewIndex = canonicalBibleChapters.indexWhere(
-          (ref) => ref.book.bookNumber == 47 && ref.chapter == 1,
+          (ref) => ref.book.bookNumber == 49 && ref.chapter == 1,
         );
-        expect(getCanonicalChapterIndex(47, 1), equals(matthewIndex));
+        expect(getCanonicalChapterIndex(49, 1), equals(matthewIndex));
         expect(
           canonicalBibleChapters[matthewIndex].book.bookName,
           equals('Matthew'),
         );
         expect(canonicalBibleChapters[matthewIndex].chapter, equals(1));
 
-        // Final chapter: Revelation 22 (bookNumber: 73, chapter: 22) -> 1333
-        expect(getCanonicalChapterIndex(73, 22), equals(1333));
+        // Final chapter: Revelation 22 (bookNumber: 76, chapter: 22) -> 1333
+        expect(getCanonicalChapterIndex(76, 22), equals(1333));
         expect(
           canonicalBibleChapters[1333].book.bookName,
           equals('Revelation'),
@@ -2004,11 +2013,16 @@ void main() {
 
         // Out-of-range chapters
         expect(getCanonicalChapterIndex(1, 0), equals(-1)); // Genesis 0
-        expect(getCanonicalChapterIndex(1, 51), equals(-1)); // Genesis 51 (Genesis has 50)
-        expect(getCanonicalChapterIndex(73, 23), equals(-1)); // Revelation 23 (Revelation has 22)
-        expect(getCanonicalChapterIndex(47, -1), equals(-1));
+        expect(
+          getCanonicalChapterIndex(1, 51),
+          equals(-1),
+        ); // Genesis 51 (Genesis has 50)
+        expect(
+          getCanonicalChapterIndex(76, 23),
+          equals(-1),
+        ); // Revelation 23 (Revelation has 22)
+        expect(getCanonicalChapterIndex(49, -1), equals(-1));
       },
     );
   });
 }
-
