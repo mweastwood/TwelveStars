@@ -1958,4 +1958,57 @@ void main() {
       },
     );
   });
+
+  group('Canonical Bible Chapters & O(1) Index Lookup', () {
+    test('canonicalBibleChapters contains 1334 chapters', () {
+      expect(canonicalBibleChapters.length, equals(1334));
+    });
+
+    test(
+      'getCanonicalChapterIndex resolves boundary and mid-canon chapters correctly',
+      () {
+        // First chapter: Genesis 1 (bookNumber: 1, chapter: 1) -> 0
+        expect(getCanonicalChapterIndex(1, 1), equals(0));
+
+        // Genesis 2 -> 1
+        expect(getCanonicalChapterIndex(1, 2), equals(1));
+
+        // Mid-canon: Matthew 1 (bookNumber: 47, chapter: 1)
+        final matthewIndex = canonicalBibleChapters.indexWhere(
+          (ref) => ref.book.bookNumber == 47 && ref.chapter == 1,
+        );
+        expect(getCanonicalChapterIndex(47, 1), equals(matthewIndex));
+        expect(
+          canonicalBibleChapters[matthewIndex].book.bookName,
+          equals('Matthew'),
+        );
+        expect(canonicalBibleChapters[matthewIndex].chapter, equals(1));
+
+        // Final chapter: Revelation 22 (bookNumber: 73, chapter: 22) -> 1333
+        expect(getCanonicalChapterIndex(73, 22), equals(1333));
+        expect(
+          canonicalBibleChapters[1333].book.bookName,
+          equals('Revelation'),
+        );
+        expect(canonicalBibleChapters[1333].chapter, equals(22));
+      },
+    );
+
+    test(
+      'getCanonicalChapterIndex returns -1 for non-existent books or out-of-range chapters',
+      () {
+        // Non-existent books
+        expect(getCanonicalChapterIndex(0, 1), equals(-1));
+        expect(getCanonicalChapterIndex(99, 1), equals(-1));
+        expect(getCanonicalChapterIndex(-1, 1), equals(-1));
+
+        // Out-of-range chapters
+        expect(getCanonicalChapterIndex(1, 0), equals(-1)); // Genesis 0
+        expect(getCanonicalChapterIndex(1, 51), equals(-1)); // Genesis 51 (Genesis has 50)
+        expect(getCanonicalChapterIndex(73, 23), equals(-1)); // Revelation 23 (Revelation has 22)
+        expect(getCanonicalChapterIndex(47, -1), equals(-1));
+      },
+    );
+  });
 }
+
