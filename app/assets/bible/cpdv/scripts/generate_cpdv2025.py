@@ -81,12 +81,18 @@ BOOKS = [
     (76, 'REV', 'Revelation', 'NT-27_Revelation.htm')
 ]
 
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/119.0',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'en-US,en;q=0.5'
+}
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(os.path.dirname(SCRIPT_DIR), 'usfm')
 
 def clean_verse_text(chunk, is_song=False):
-    # Remove chapter anchors like [<A NAME=...>]
-    chunk = re.sub(r'\[<A\s+NAME=[^>]+>.*?\]', '', chunk, flags=re.S)
+    # Remove chapter anchors like [<A NAME=...>] and optional trailing alternate chapter numbering like (9 - 10) or (11)
+    chunk = re.sub(r'\[<A\s+NAME=[^>]+>.*?\](?:\s*\([^)]*\))?', '', chunk, flags=re.S)
     
     # In Song of Songs, convert <I>Speaker:</I> to \it Speaker:\it*
     if is_song:
@@ -104,7 +110,8 @@ def clean_verse_text(chunk, is_song=False):
 
 def generate_book(bnum, abbrev, bname, fname):
     url = f'https://www.sacredbible.org/catholic/{fname}'
-    raw = urllib.request.urlopen(url, timeout=30).read().decode("cp1252")
+    req = urllib.request.Request(url, headers=HEADERS)
+    raw = urllib.request.urlopen(req, timeout=30).read().decode("cp1252")
     
     matches = list(re.finditer(r'\{(\d+):(\d+)\}', raw))
     if not matches:
@@ -161,15 +168,18 @@ def generate_book(bnum, abbrev, bname, fname):
 
 def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
+    targets = [arg.upper() for arg in sys.argv[1:]]
+    books_to_run = [b for b in BOOKS if b[1] in targets] if targets else BOOKS
+
     print(f'Generating CPDV 2025 USFM files in {OUTPUT_DIR}...')
     total_all_verses = 0
     
-    for bnum, abbrev, bname, fname in BOOKS:
+    for bnum, abbrev, bname, fname in books_to_run:
         ch_count, v_count = generate_book(bnum, abbrev, bname, fname)
         total_all_verses += v_count
         print(f'[{bnum:02d}] {abbrev:5} {bname:25}: {ch_count:3} chapters, {v_count:4} verses')
     
-    print(f'\nFinished generating all 73 books for CPDV 2025! Total verses: {total_all_verses}')
+    print(f'\nFinished generating {len(books_to_run)} books for CPDV 2025! Total verses: {total_all_verses}')
 
 if __name__ == '__main__':
     main()
