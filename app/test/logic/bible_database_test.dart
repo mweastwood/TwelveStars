@@ -1299,7 +1299,52 @@ void main() {
 
         final ps9Verses = await testDb.getChapterVerses('CPDV', 21, 9);
         final ps9v39 = ps9Verses.firstWhere((v) => v.verseNumber == 39);
+        expect(
+          ps9v39.verseText,
+          equals(
+            'so as to judge for the orphan and the humble, so that man may no longer presume to magnify himself upon the earth.',
+          ),
+        );
         expect(ps9v39.verseText, isNot(contains('(11)')));
+      },
+    );
+
+    test(
+      'regression test: all CPDV Psalms verses do not match trailing alternate chapter numbering',
+      () async {
+        await testDb.ensureBookPopulated(
+          21,
+          'Psalms',
+          'PSA',
+          translation: 'CPDV',
+        );
+
+        final allPsalmsVerses = await (testDb.select(testDb.bibleVerses)
+              ..where(
+                (t) =>
+                    t.bookNumber.equals(21) &
+                    t.translationCode.equals('CPDV'),
+              ))
+            .get();
+
+        expect(allPsalmsVerses, isNotEmpty);
+        final trailingAlternatePattern = RegExp(r'\(\d+( - \d+)?\)\s*$');
+        final trailingAlphaAlternatePattern =
+            RegExp(r'\(\d+[A-Za-z]?( - \d+[A-Za-z]?)?\)\s*$');
+        for (final verse in allPsalmsVerses) {
+          expect(
+            trailingAlternatePattern.hasMatch(verse.verseText),
+            isFalse,
+            reason:
+                'Psalm ${verse.chapter}:${verse.verseNumber} has trailing alternate numbering: "${verse.verseText}"',
+          );
+          expect(
+            trailingAlphaAlternatePattern.hasMatch(verse.verseText),
+            isFalse,
+            reason:
+                'Psalm ${verse.chapter}:${verse.verseNumber} has trailing alphanumeric alternate numbering: "${verse.verseText}"',
+          );
+        }
       },
     );
   });
