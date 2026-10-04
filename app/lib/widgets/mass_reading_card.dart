@@ -183,7 +183,8 @@ class _MassReadingCardState extends State<MassReadingCard> {
 
   Future<void> _loadComments() async {
     try {
-      final bookMeta = catholicBooksByNumber[widget.reading.bookNumber] ??
+      final bookMeta =
+          catholicBooksByNumber[widget.reading.bookNumber] ??
           (throw Exception('Book ${widget.reading.bookName} not found'));
       final ranges = resolveReadingRanges(
         bookNumber: widget.reading.bookNumber,
@@ -245,7 +246,8 @@ class _MassReadingCardState extends State<MassReadingCard> {
       });
 
       final db = BibleDatabaseHelper.db;
-      final bookMeta = catholicBooksByNumber[widget.reading.bookNumber] ??
+      final bookMeta =
+          catholicBooksByNumber[widget.reading.bookNumber] ??
           (throw Exception('Book ${widget.reading.bookName} not found'));
       await db.ensureBookPopulated(
         bookMeta.bookNumber,
@@ -444,7 +446,8 @@ class _MassReadingCardState extends State<MassReadingCard> {
         }
       },
       onAddComment: () {
-        final bookMeta = catholicBooksByNumber[widget.reading.bookNumber] ??
+        final bookMeta =
+            catholicBooksByNumber[widget.reading.bookNumber] ??
             (throw Exception('Book ${widget.reading.bookName} not found'));
         showAddCommentDialog(
           context: context,

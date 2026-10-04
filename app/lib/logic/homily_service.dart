@@ -54,7 +54,8 @@ class HomilyService {
 
     for (final reading in readings) {
       try {
-        final bookMeta = catholicBooksByNumber[reading.bookNumber] ??
+        final bookMeta =
+            catholicBooksByNumber[reading.bookNumber] ??
             (throw Exception('Book ${reading.bookName} not found in metadata'));
 
         await db.ensureBookPopulated(
