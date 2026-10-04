@@ -64,146 +64,130 @@ void main() {
       expect(testDb.inFlightBookPopulations, isEmpty);
     });
 
-    test(
-      'handles concurrent getReadings and ensurePopulated calls with in-flight deduplication',
-      () async {
-        expect(testDb.inFlightLectionaryPopulation, isNull);
+    test('handles concurrent getReadings and ensurePopulated calls with in-flight deduplication', () async {
+      expect(testDb.inFlightLectionaryPopulation, isNull);
 
-        final future1 = testDb.getReadings('feast_all_saints');
-        final inFlightFuture = testDb.inFlightLectionaryPopulation;
-        expect(inFlightFuture, isNotNull);
+      final future1 = testDb.getReadings('feast_all_saints');
+      final inFlightFuture = testDb.inFlightLectionaryPopulation;
+      expect(inFlightFuture, isNotNull);
 
-        final future2 = testDb.getReadings('feast_all_saints');
-        final future3 = testDb.ensurePopulated();
+      final future2 = testDb.getReadings('feast_all_saints');
+      final future3 = testDb.ensurePopulated();
 
-        // While in flight, the same future is referenced
-        expect(testDb.inFlightLectionaryPopulation, equals(inFlightFuture));
+      // While in flight, the same future is referenced
+      expect(testDb.inFlightLectionaryPopulation, equals(inFlightFuture));
 
-        final results = await Future.wait([future1, future2]);
-        await future3;
+      final results = await Future.wait([future1, future2]);
+      await future3;
 
-        expect(testDb.inFlightLectionaryPopulation, isNull);
-        expect(results[0], isNotEmpty);
-        expect(results[1], isNotEmpty);
-        expect(results[0].length, equals(results[1].length));
+      expect(testDb.inFlightLectionaryPopulation, isNull);
+      expect(results[0], isNotEmpty);
+      expect(results[1], isNotEmpty);
+      expect(results[0].length, equals(results[1].length));
 
-        // Subsequent call should succeed and leave inFlightLectionaryPopulation as null
-        final subsequent = await testDb.getReadings('feast_all_saints');
-        expect(subsequent.length, equals(results[0].length));
-        expect(testDb.inFlightLectionaryPopulation, isNull);
-      },
-    );
+      // Subsequent call should succeed and leave inFlightLectionaryPopulation as null
+      final subsequent = await testDb.getReadings('feast_all_saints');
+      expect(subsequent.length, equals(results[0].length));
+      expect(testDb.inFlightLectionaryPopulation, isNull);
+    });
   });
 
   group('UserSettings Operations', () {
-    test(
-      'saveUserSettings persists all user settings fields including haptics, theme, and notifications',
-      () async {
-        final settings = UserSettings(
-          id: 1,
-          primaryLanguageCode: 'spanish',
-          compareLanguageCode: 'english',
-          primaryBibleTranslation: 'VUL',
-          compareBibleTranslation: 'CPDV',
-          preferredVersions: [
-            PrayerVersionPreference('our_father_english', 1),
-            PrayerVersionPreference('hail_mary_latin', 2),
-          ],
-          hapticsEnabled: false,
-          appThemeModeCode: 'gothic_dark',
-          sundayNotificationsEnabled: false,
-          showBibleTranslationSelectors: true,
-          bibleNumberingSystemCode: 'dual',
-          prayerCatalogVersion: 1,
-          lastBibleBookNumber: 19,
-          lastBibleChapter: 23,
-          missalReadingsOnly: true,
-          missalHiddenPrayers: ['mass_greeting', 'gloria'],
-          angelusReminderEnabled: true,
-          angelusMorningEnabled: true,
-          angelusMiddayEnabled: false,
-          angelusEveningEnabled: true,
-          rosaryReminderEnabled: true,
-          rosaryReminderHour: 19,
-          rosaryReminderMinute: 45,
-          morningPrayerReminderEnabled: true,
-          morningPrayerReminderHour: 6,
-          morningPrayerReminderMinute: 15,
-          nightPrayerReminderEnabled: true,
-          nightPrayerReminderHour: 22,
-          nightPrayerReminderMinute: 10,
-          bibleRibbons: [
-            const BibleRibbonBookmark(
-              ribbonIndex: 0,
-              bookNumber: 40,
-              chapter: 26,
-            ),
-            const BibleRibbonBookmark(
-              ribbonIndex: 1,
-              bookNumber: 1,
-              chapter: 1,
-            ),
-          ],
-        );
+    test('saveUserSettings persists all user settings fields including haptics, theme, and notifications', () async {
+      final settings = UserSettings(
+        id: 1,
+        primaryLanguageCode: 'spanish',
+        compareLanguageCode: 'english',
+        primaryBibleTranslation: 'VUL',
+        compareBibleTranslation: 'CPDV',
+        preferredVersions: [
+          PrayerVersionPreference('our_father_english', 1),
+          PrayerVersionPreference('hail_mary_latin', 2),
+        ],
+        hapticsEnabled: false,
+        appThemeModeCode: 'gothic_dark',
+        sundayNotificationsEnabled: false,
+        showBibleTranslationSelectors: true,
+        bibleNumberingSystemCode: 'dual',
+        prayerCatalogVersion: 1,
+        lastBibleBookNumber: 19,
+        lastBibleChapter: 23,
+        missalReadingsOnly: true,
+        missalHiddenPrayers: ['mass_greeting', 'gloria'],
+        angelusReminderEnabled: true,
+        angelusMorningEnabled: true,
+        angelusMiddayEnabled: false,
+        angelusEveningEnabled: true,
+        rosaryReminderEnabled: true,
+        rosaryReminderHour: 19,
+        rosaryReminderMinute: 45,
+        morningPrayerReminderEnabled: true,
+        morningPrayerReminderHour: 6,
+        morningPrayerReminderMinute: 15,
+        nightPrayerReminderEnabled: true,
+        nightPrayerReminderHour: 22,
+        nightPrayerReminderMinute: 10,
+        bibleRibbons: [
+          const BibleRibbonBookmark(
+            ribbonIndex: 0,
+            bookNumber: 40,
+            chapter: 26,
+          ),
+          const BibleRibbonBookmark(ribbonIndex: 1, bookNumber: 1, chapter: 1),
+        ],
+      );
 
-        await testDb.saveUserSettings(settings);
+      await testDb.saveUserSettings(settings);
 
-        final retrieved = await testDb.getUserSettings();
-        expect(retrieved, isNotNull);
-        expect(retrieved!.id, equals(1));
-        expect(retrieved.primaryLanguageCode, equals('spanish'));
-        expect(retrieved.compareLanguageCode, equals('english'));
-        expect(retrieved.primaryBibleTranslation, equals('VUL'));
-        expect(retrieved.compareBibleTranslation, equals('CPDV'));
-        expect(retrieved.preferredVersions, isNotNull);
-        expect(retrieved.preferredVersions!.length, equals(2));
-        expect(
-          retrieved.preferredVersions![0].key,
-          equals('our_father_english'),
-        );
-        expect(retrieved.preferredVersions![0].versionIndex, equals(1));
-        expect(retrieved.preferredVersions![1].key, equals('hail_mary_latin'));
-        expect(retrieved.preferredVersions![1].versionIndex, equals(2));
-        expect(retrieved.hapticsEnabled, isFalse);
-        expect(retrieved.appThemeModeCode, equals('gothic_dark'));
-        expect(retrieved.sundayNotificationsEnabled, isFalse);
-        expect(retrieved.showBibleTranslationSelectors, isTrue);
-        expect(retrieved.bibleNumberingSystemCode, equals('dual'));
-        expect(
-          retrieved.bibleNumberingSystem,
-          equals(BibleNumberingSystem.dual),
-        );
-        expect(retrieved.prayerCatalogVersion, equals(1));
-        expect(retrieved.lastBibleBookNumber, equals(19));
-        expect(retrieved.lastBibleChapter, equals(23));
-        expect(retrieved.missalReadingsOnly, isTrue);
-        expect(
-          retrieved.missalHiddenPrayers,
-          equals(['mass_greeting', 'gloria']),
-        );
-        expect(retrieved.angelusReminderEnabled, isTrue);
-        expect(retrieved.angelusMorningEnabled, isTrue);
-        expect(retrieved.angelusMiddayEnabled, isFalse);
-        expect(retrieved.angelusEveningEnabled, isTrue);
-        expect(retrieved.rosaryReminderEnabled, isTrue);
-        expect(retrieved.rosaryReminderHour, equals(19));
-        expect(retrieved.rosaryReminderMinute, equals(45));
-        expect(retrieved.morningPrayerReminderEnabled, isTrue);
-        expect(retrieved.morningPrayerReminderHour, equals(6));
-        expect(retrieved.morningPrayerReminderMinute, equals(15));
-        expect(retrieved.nightPrayerReminderEnabled, isTrue);
-        expect(retrieved.nightPrayerReminderHour, equals(22));
-        expect(retrieved.nightPrayerReminderMinute, equals(10));
-        expect(retrieved.bibleRibbons, isNotNull);
-        expect(retrieved.bibleRibbons!.length, equals(2));
-        expect(retrieved.bibleRibbons![0].ribbonIndex, equals(0));
-        expect(retrieved.bibleRibbons![0].bookNumber, equals(40));
-        expect(retrieved.bibleRibbons![0].chapter, equals(26));
-        expect(retrieved.bibleRibbons![1].ribbonIndex, equals(1));
-        expect(retrieved.bibleRibbons![1].bookNumber, equals(1));
-        expect(retrieved.bibleRibbons![1].chapter, equals(1));
-      },
-    );
+      final retrieved = await testDb.getUserSettings();
+      expect(retrieved, isNotNull);
+      expect(retrieved!.id, equals(1));
+      expect(retrieved.primaryLanguageCode, equals('spanish'));
+      expect(retrieved.compareLanguageCode, equals('english'));
+      expect(retrieved.primaryBibleTranslation, equals('VUL'));
+      expect(retrieved.compareBibleTranslation, equals('CPDV'));
+      expect(retrieved.preferredVersions, isNotNull);
+      expect(retrieved.preferredVersions!.length, equals(2));
+      expect(retrieved.preferredVersions![0].key, equals('our_father_english'));
+      expect(retrieved.preferredVersions![0].versionIndex, equals(1));
+      expect(retrieved.preferredVersions![1].key, equals('hail_mary_latin'));
+      expect(retrieved.preferredVersions![1].versionIndex, equals(2));
+      expect(retrieved.hapticsEnabled, isFalse);
+      expect(retrieved.appThemeModeCode, equals('gothic_dark'));
+      expect(retrieved.sundayNotificationsEnabled, isFalse);
+      expect(retrieved.showBibleTranslationSelectors, isTrue);
+      expect(retrieved.bibleNumberingSystemCode, equals('dual'));
+      expect(retrieved.bibleNumberingSystem, equals(BibleNumberingSystem.dual));
+      expect(retrieved.prayerCatalogVersion, equals(1));
+      expect(retrieved.lastBibleBookNumber, equals(19));
+      expect(retrieved.lastBibleChapter, equals(23));
+      expect(retrieved.missalReadingsOnly, isTrue);
+      expect(
+        retrieved.missalHiddenPrayers,
+        equals(['mass_greeting', 'gloria']),
+      );
+      expect(retrieved.angelusReminderEnabled, isTrue);
+      expect(retrieved.angelusMorningEnabled, isTrue);
+      expect(retrieved.angelusMiddayEnabled, isFalse);
+      expect(retrieved.angelusEveningEnabled, isTrue);
+      expect(retrieved.rosaryReminderEnabled, isTrue);
+      expect(retrieved.rosaryReminderHour, equals(19));
+      expect(retrieved.rosaryReminderMinute, equals(45));
+      expect(retrieved.morningPrayerReminderEnabled, isTrue);
+      expect(retrieved.morningPrayerReminderHour, equals(6));
+      expect(retrieved.morningPrayerReminderMinute, equals(15));
+      expect(retrieved.nightPrayerReminderEnabled, isTrue);
+      expect(retrieved.nightPrayerReminderHour, equals(22));
+      expect(retrieved.nightPrayerReminderMinute, equals(10));
+      expect(retrieved.bibleRibbons, isNotNull);
+      expect(retrieved.bibleRibbons!.length, equals(2));
+      expect(retrieved.bibleRibbons![0].ribbonIndex, equals(0));
+      expect(retrieved.bibleRibbons![0].bookNumber, equals(40));
+      expect(retrieved.bibleRibbons![0].chapter, equals(26));
+      expect(retrieved.bibleRibbons![1].ribbonIndex, equals(1));
+      expect(retrieved.bibleRibbons![1].bookNumber, equals(1));
+      expect(retrieved.bibleRibbons![1].chapter, equals(1));
+    });
 
     test(
       'BibleRibbonBookmark serialization, deserialization, and equality',
@@ -367,111 +351,114 @@ void main() {
       expect(emptyComments, isEmpty);
     });
 
-    test('getComments filters by sectionIndex, documentId, and nodeId', () async {
-      final now = DateTime.now();
-      await testDb.saveComment(
-        UserCommentsCompanion.insert(
+    test(
+      'getComments filters by sectionIndex, documentId, and nodeId',
+      () async {
+        final now = DateTime.now();
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'GEN',
+            sectionIndex: 1,
+            nodeId: '1_1_1',
+            commentText: 'Gen 1:1 comment',
+            createdAt: now,
+          ),
+        );
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'GEN',
+            sectionIndex: 1,
+            nodeId: '1_1_2',
+            commentText: 'Gen 1:2 comment',
+            createdAt: now,
+          ),
+        );
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'GEN',
+            sectionIndex: 2,
+            nodeId: '1_2_1',
+            commentText: 'Gen 2:1 comment',
+            createdAt: now,
+          ),
+        );
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'EXO',
+            sectionIndex: 1,
+            nodeId: '2_1_1',
+            commentText: 'Exo 1:1 comment',
+            createdAt: now,
+          ),
+        );
+
+        // 1. Filter by sectionIndex only
+        final sec1Comments = await testDb.getComments(sectionIndex: 1);
+        expect(sec1Comments.length, equals(3));
+        expect(
+          sec1Comments.map((c) => c.commentText).toSet(),
+          equals({'Gen 1:1 comment', 'Gen 1:2 comment', 'Exo 1:1 comment'}),
+        );
+
+        // 2. Filter by documentId + sectionIndex
+        final genSec1Comments = await testDb.getComments(
           documentId: 'GEN',
           sectionIndex: 1,
+        );
+        expect(genSec1Comments.length, equals(2));
+        expect(
+          genSec1Comments.map((c) => c.commentText).toSet(),
+          equals({'Gen 1:1 comment', 'Gen 1:2 comment'}),
+        );
+
+        // 3. Filter by documentId + nodeId + sectionIndex
+        final genSec1Node1Comments = await testDb.getComments(
+          documentId: 'GEN',
           nodeId: '1_1_1',
-          commentText: 'Gen 1:1 comment',
-          createdAt: now,
-        ),
-      );
-      await testDb.saveComment(
-        UserCommentsCompanion.insert(
-          documentId: 'GEN',
           sectionIndex: 1,
-          nodeId: '1_1_2',
-          commentText: 'Gen 1:2 comment',
-          createdAt: now,
-        ),
-      );
-      await testDb.saveComment(
-        UserCommentsCompanion.insert(
+        );
+        expect(genSec1Node1Comments.length, equals(1));
+        expect(
+          genSec1Node1Comments.first.commentText,
+          equals('Gen 1:1 comment'),
+        );
+
+        // 4. Non-matching sectionIndex returns empty list
+        final nonMatching = await testDb.getComments(
           documentId: 'GEN',
+          sectionIndex: 99,
+        );
+        expect(nonMatching, isEmpty);
+
+        // 5. Mismatched combination (correct document and node, wrong sectionIndex)
+        final mismatched = await testDb.getComments(
+          documentId: 'GEN',
+          nodeId: '1_1_1',
           sectionIndex: 2,
-          nodeId: '1_2_1',
-          commentText: 'Gen 2:1 comment',
-          createdAt: now,
-        ),
-      );
-      await testDb.saveComment(
-        UserCommentsCompanion.insert(
-          documentId: 'EXO',
-          sectionIndex: 1,
-          nodeId: '2_1_1',
-          commentText: 'Exo 1:1 comment',
-          createdAt: now,
-        ),
-      );
-
-      // 1. Filter by sectionIndex only
-      final sec1Comments = await testDb.getComments(sectionIndex: 1);
-      expect(sec1Comments.length, equals(3));
-      expect(
-        sec1Comments.map((c) => c.commentText).toSet(),
-        equals({'Gen 1:1 comment', 'Gen 1:2 comment', 'Exo 1:1 comment'}),
-      );
-
-      // 2. Filter by documentId + sectionIndex
-      final genSec1Comments = await testDb.getComments(
-        documentId: 'GEN',
-        sectionIndex: 1,
-      );
-      expect(genSec1Comments.length, equals(2));
-      expect(
-        genSec1Comments.map((c) => c.commentText).toSet(),
-        equals({'Gen 1:1 comment', 'Gen 1:2 comment'}),
-      );
-
-      // 3. Filter by documentId + nodeId + sectionIndex
-      final genSec1Node1Comments = await testDb.getComments(
-        documentId: 'GEN',
-        nodeId: '1_1_1',
-        sectionIndex: 1,
-      );
-      expect(genSec1Node1Comments.length, equals(1));
-      expect(genSec1Node1Comments.first.commentText, equals('Gen 1:1 comment'));
-
-      // 4. Non-matching sectionIndex returns empty list
-      final nonMatching = await testDb.getComments(
-        documentId: 'GEN',
-        sectionIndex: 99,
-      );
-      expect(nonMatching, isEmpty);
-
-      // 5. Mismatched combination (correct document and node, wrong sectionIndex)
-      final mismatched = await testDb.getComments(
-        documentId: 'GEN',
-        nodeId: '1_1_1',
-        sectionIndex: 2,
-      );
-      expect(mismatched, isEmpty);
-    });
+        );
+        expect(mismatched, isEmpty);
+      },
+    );
   });
 
   group('TypeConverters Error Resilience', () {
     const locConverter = LocalizedTranslationsConverter();
     const prefConverter = PreferredVersionsConverter();
 
-    test(
-      'LocalizedTranslationsConverter handles empty and malformed JSON safely',
-      () {
-        expect(locConverter.fromSql(''), isEmpty);
-        expect(locConverter.fromSql('not-valid-json'), isEmpty);
-        expect(locConverter.fromSql('{"not": "a list"}'), isEmpty);
-        expect(locConverter.fromSql('[{"invalid": "structure"}]'), isNotEmpty);
-        expect(
-          locConverter
-              .fromSql(
-                '[{"languageCode": "en", "list": [{"title": "P", "text": "T"}]}]',
-              )
-              .length,
-          equals(1),
-        );
-      },
-    );
+    test('LocalizedTranslationsConverter handles empty and malformed JSON safely', () {
+      expect(locConverter.fromSql(''), isEmpty);
+      expect(locConverter.fromSql('not-valid-json'), isEmpty);
+      expect(locConverter.fromSql('{"not": "a list"}'), isEmpty);
+      expect(locConverter.fromSql('[{"invalid": "structure"}]'), isNotEmpty);
+      expect(
+        locConverter
+            .fromSql(
+              '[{"languageCode": "en", "list": [{"title": "P", "text": "T"}]}]',
+            )
+            .length,
+        equals(1),
+      );
+    });
 
     test(
       'PreferredVersionsConverter handles empty and malformed JSON safely',
@@ -504,12 +491,10 @@ void main() {
   });
 
   group('Database Migration Tests', () {
-    test(
-      'migrates from schema version 1 to 14 creating lectionary_readings and seeding data',
-      () async {
-        final rawDb = NativeDatabase.memory(
-          setup: (db) {
-            db.execute('''
+    test('migrates from schema version 1 to 14 creating lectionary_readings and seeding data', () async {
+      final rawDb = NativeDatabase.memory(
+        setup: (db) {
+          db.execute('''
               CREATE TABLE bible_verses (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                 book_number INT NOT NULL,
@@ -521,25 +506,22 @@ void main() {
               );
               PRAGMA user_version = 1;
             ''');
-          },
-        );
-        final migratedDb = BibleDatabase(rawDb);
-        addTearDown(migratedDb.close);
+        },
+      );
+      final migratedDb = BibleDatabase(rawDb);
+      addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(19));
+      expect(migratedDb.schemaVersion, equals(19));
 
-        final readings = await migratedDb.getReadings('feast_all_saints');
-        expect(readings, isNotEmpty);
-        expect(readings.first.readingKey, equals('feast_all_saints'));
-      },
-    );
+      final readings = await migratedDb.getReadings('feast_all_saints');
+      expect(readings, isNotEmpty);
+      expect(readings.first.readingKey, equals('feast_all_saints'));
+    });
 
-    test(
-      'migrates from schema version 13 to 16 when lectionary_readings table is missing',
-      () async {
-        final rawDb = NativeDatabase.memory(
-          setup: (db) {
-            db.execute('''
+    test('migrates from schema version 13 to 16 when lectionary_readings table is missing', () async {
+      final rawDb = NativeDatabase.memory(
+        setup: (db) {
+          db.execute('''
               CREATE TABLE bible_verses (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                 book_number INT NOT NULL,
@@ -613,25 +595,22 @@ void main() {
               );
               PRAGMA user_version = 13;
             ''');
-          },
-        );
-        final migratedDb = BibleDatabase(rawDb);
-        addTearDown(migratedDb.close);
+        },
+      );
+      final migratedDb = BibleDatabase(rawDb);
+      addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(19));
+      expect(migratedDb.schemaVersion, equals(19));
 
-        final readings = await migratedDb.getReadings('feast_all_saints');
-        expect(readings, isNotEmpty);
-        expect(readings.first.readingKey, equals('feast_all_saints'));
-      },
-    );
+      final readings = await migratedDb.getReadings('feast_all_saints');
+      expect(readings, isNotEmpty);
+      expect(readings.first.readingKey, equals('feast_all_saints'));
+    });
 
-    test(
-      'migrates from schema version 13 to 16 when lectionary_readings table already exists',
-      () async {
-        final rawDb = NativeDatabase.memory(
-          setup: (db) {
-            db.execute('''
+    test('migrates from schema version 13 to 16 when lectionary_readings table already exists', () async {
+      final rawDb = NativeDatabase.memory(
+        setup: (db) {
+          db.execute('''
               CREATE TABLE bible_verses (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                 book_number INT NOT NULL,
@@ -715,25 +694,22 @@ void main() {
               );
               PRAGMA user_version = 13;
             ''');
-          },
-        );
-        final migratedDb = BibleDatabase(rawDb);
-        addTearDown(migratedDb.close);
+        },
+      );
+      final migratedDb = BibleDatabase(rawDb);
+      addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(19));
+      expect(migratedDb.schemaVersion, equals(19));
 
-        final readings = await migratedDb.getReadings('feast_all_saints');
-        expect(readings, isNotEmpty);
-        expect(readings.first.readingKey, equals('feast_all_saints'));
-      },
-    );
+      final readings = await migratedDb.getReadings('feast_all_saints');
+      expect(readings, isNotEmpty);
+      expect(readings.first.readingKey, equals('feast_all_saints'));
+    });
 
-    test(
-      'migrates from schema version 14 to 16 and adds reminder fields and bible_ribbons',
-      () async {
-        final rawDb = NativeDatabase.memory(
-          setup: (db) {
-            db.execute('''
+    test('migrates from schema version 14 to 16 and adds reminder fields and bible_ribbons', () async {
+      final rawDb = NativeDatabase.memory(
+        setup: (db) {
+          db.execute('''
               CREATE TABLE bible_verses (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                 book_number INT NOT NULL,
@@ -817,39 +793,34 @@ void main() {
               );
               PRAGMA user_version = 14;
             ''');
-          },
-        );
-        final migratedDb = BibleDatabase(rawDb);
-        addTearDown(migratedDb.close);
+        },
+      );
+      final migratedDb = BibleDatabase(rawDb);
+      addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(19));
+      expect(migratedDb.schemaVersion, equals(19));
 
-        final initialSettings = UserSettings(
-          angelusReminderEnabled: true,
-          rosaryReminderEnabled: true,
-          rosaryReminderHour: 21,
-          rosaryReminderMinute: 15,
-          bibleRibbons: [
-            const BibleRibbonBookmark(
-              ribbonIndex: 0,
-              bookNumber: 1,
-              chapter: 1,
-            ),
-          ],
-        );
-        await migratedDb.saveUserSettings(initialSettings);
+      final initialSettings = UserSettings(
+        angelusReminderEnabled: true,
+        rosaryReminderEnabled: true,
+        rosaryReminderHour: 21,
+        rosaryReminderMinute: 15,
+        bibleRibbons: [
+          const BibleRibbonBookmark(ribbonIndex: 0, bookNumber: 1, chapter: 1),
+        ],
+      );
+      await migratedDb.saveUserSettings(initialSettings);
 
-        final loaded = await migratedDb.getUserSettings();
-        expect(loaded, isNotNull);
-        expect(loaded!.angelusReminderEnabled, isTrue);
-        expect(loaded.rosaryReminderEnabled, isTrue);
-        expect(loaded.rosaryReminderHour, equals(21));
-        expect(loaded.rosaryReminderMinute, equals(15));
-        expect(loaded.bibleRibbons, isNotNull);
-        expect(loaded.bibleRibbons!.length, equals(1));
-        expect(loaded.bibleRibbons!.first.ribbonIndex, equals(0));
-      },
-    );
+      final loaded = await migratedDb.getUserSettings();
+      expect(loaded, isNotNull);
+      expect(loaded!.angelusReminderEnabled, isTrue);
+      expect(loaded.rosaryReminderEnabled, isTrue);
+      expect(loaded.rosaryReminderHour, equals(21));
+      expect(loaded.rosaryReminderMinute, equals(15));
+      expect(loaded.bibleRibbons, isNotNull);
+      expect(loaded.bibleRibbons!.length, equals(1));
+      expect(loaded.bibleRibbons!.first.ribbonIndex, equals(0));
+    });
 
     test(
       'migrates from schema version 15 to 16 and adds bible_ribbons column',
@@ -981,12 +952,10 @@ void main() {
       },
     );
 
-    test(
-      'migrates from schema version 16 to 17 and clears bible_verses while preserving user data',
-      () async {
-        final rawDb = NativeDatabase.memory(
-          setup: (db) {
-            db.execute('''
+    test('migrates from schema version 16 to 17 and clears bible_verses while preserving user data', () async {
+      final rawDb = NativeDatabase.memory(
+        setup: (db) {
+          db.execute('''
               CREATE TABLE bible_verses (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                 book_number INT NOT NULL,
@@ -1088,23 +1057,22 @@ void main() {
               VALUES ('bible_21_1_1', 0, 'node1', 'My psalm note', 1700000000);
               PRAGMA user_version = 16;
             ''');
-          },
-        );
-        final migratedDb = BibleDatabase(rawDb);
-        addTearDown(migratedDb.close);
+        },
+      );
+      final migratedDb = BibleDatabase(rawDb);
+      addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(19));
+      expect(migratedDb.schemaVersion, equals(19));
 
-        // Verses should be cleared by the v17 migration to force reseed
-        final verses = await migratedDb.select(migratedDb.bibleVerses).get();
-        expect(verses, isEmpty);
+      // Verses should be cleared by the v17 migration to force reseed
+      final verses = await migratedDb.select(migratedDb.bibleVerses).get();
+      expect(verses, isEmpty);
 
-        // User notes/comments should be preserved!
-        final comments = await migratedDb.select(migratedDb.userComments).get();
-        expect(comments.length, equals(1));
-        expect(comments.first.commentText, equals('My psalm note'));
-      },
-    );
+      // User notes/comments should be preserved!
+      final comments = await migratedDb.select(migratedDb.userComments).get();
+      expect(comments.length, equals(1));
+      expect(comments.first.commentText, equals('My psalm note'));
+    });
 
     test(
       'migrates to schema version 18 and creates composite indexes',
@@ -1172,12 +1140,10 @@ void main() {
       },
     );
 
-    test(
-      'migrates from schema version 18 to 19 and clears bible_verses while preserving user data',
-      () async {
-        final rawDb = NativeDatabase.memory(
-          setup: (db) {
-            db.execute('''
+    test('migrates from schema version 18 to 19 and clears bible_verses while preserving user data', () async {
+      final rawDb = NativeDatabase.memory(
+        setup: (db) {
+          db.execute('''
               CREATE TABLE bible_verses (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                 book_number INT NOT NULL,
@@ -1202,23 +1168,22 @@ void main() {
               VALUES ('bible_21_8_10', 8, 'node1', 'My psalm 8 comment', 1700000000);
               PRAGMA user_version = 18;
             ''');
-          },
-        );
-        final migratedDb = BibleDatabase(rawDb);
-        addTearDown(migratedDb.close);
+        },
+      );
+      final migratedDb = BibleDatabase(rawDb);
+      addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(19));
+      expect(migratedDb.schemaVersion, equals(19));
 
-        // Verses should be cleared by the v19 migration to force reseed
-        final verses = await migratedDb.select(migratedDb.bibleVerses).get();
-        expect(verses, isEmpty);
+      // Verses should be cleared by the v19 migration to force reseed
+      final verses = await migratedDb.select(migratedDb.bibleVerses).get();
+      expect(verses, isEmpty);
 
-        // User notes/comments should be preserved!
-        final comments = await migratedDb.select(migratedDb.userComments).get();
-        expect(comments.length, equals(1));
-        expect(comments.first.commentText, equals('My psalm 8 comment'));
-      },
-    );
+      // User notes/comments should be preserved!
+      final comments = await migratedDb.select(migratedDb.userComments).get();
+      expect(comments.length, equals(1));
+      expect(comments.first.commentText, equals('My psalm 8 comment'));
+    });
 
     test(
       'creates composite indexes on fresh database initialization',
@@ -1278,72 +1243,65 @@ void main() {
       },
     );
 
-    test(
-      'CPDV Psalms does not contain trailing alternate chapter numbering in Psalm 8:10 or 9:39',
-      () async {
-        await testDb.ensureBookPopulated(
-          21,
-          'Psalms',
-          'PSA',
-          translation: 'CPDV',
-        );
+    test('CPDV Psalms does not contain trailing alternate chapter numbering in Psalm 8:10 or 9:39', () async {
+      await testDb.ensureBookPopulated(
+        21,
+        'Psalms',
+        'PSA',
+        translation: 'CPDV',
+      );
 
-        final ps8Verses = await testDb.getChapterVerses('CPDV', 21, 8);
-        final ps8v10 = ps8Verses.firstWhere((v) => v.verseNumber == 10);
+      final ps8Verses = await testDb.getChapterVerses('CPDV', 21, 8);
+      final ps8v10 = ps8Verses.firstWhere((v) => v.verseNumber == 10);
+      expect(
+        ps8v10.verseText,
+        equals(
+          'O Lord, our Lord, how admirable is your name throughout all the earth!',
+        ),
+      );
+      expect(ps8v10.verseText, isNot(contains('(9 - 10)')));
+
+      final ps9Verses = await testDb.getChapterVerses('CPDV', 21, 9);
+      final ps9v39 = ps9Verses.firstWhere((v) => v.verseNumber == 39);
+      expect(
+        ps9v39.verseText,
+        equals(
+          'so as to judge for the orphan and the humble, so that man may no longer presume to magnify himself upon the earth.',
+        ),
+      );
+      expect(ps9v39.verseText, isNot(contains('(11)')));
+    });
+
+    test('regression test: all CPDV Psalms verses do not match trailing alternate chapter numbering', () async {
+      await testDb.ensureBookPopulated(
+        21,
+        'Psalms',
+        'PSA',
+        translation: 'CPDV',
+      );
+
+      final query = testDb.select(testDb.bibleVerses)
+        ..where(
+          (t) => t.bookNumber.equals(21) & t.translationCode.equals('CPDV'),
+        );
+      final allPsalmsVerses = await query.get();
+
+      expect(allPsalmsVerses, isNotEmpty);
+      // Regression check for sacredbible.org scraping artifact where the next Psalm's
+      // alternate Masoretic chapter number (e.g. "(9 - 10)", "(11)", "(119)") was erroneously
+      // appended to the final verse of the preceding Psalm. While a general verse could theoretically
+      // end in a parenthetical, CPDV Psalms verses do not end in numeric chapter ranges of this form.
+      final trailingAlphaAlternatePattern = RegExp(
+        r'\(\d+[A-Za-z]?( - \d+[A-Za-z]?)?\)\s*$',
+      );
+      for (final verse in allPsalmsVerses) {
         expect(
-          ps8v10.verseText,
-          equals(
-            'O Lord, our Lord, how admirable is your name throughout all the earth!',
-          ),
+          trailingAlphaAlternatePattern.hasMatch(verse.verseText),
+          isFalse,
+          reason:
+              'Psalm ${verse.chapter}:${verse.verseNumber} has trailing alphanumeric alternate numbering: "${verse.verseText}"',
         );
-        expect(ps8v10.verseText, isNot(contains('(9 - 10)')));
-
-        final ps9Verses = await testDb.getChapterVerses('CPDV', 21, 9);
-        final ps9v39 = ps9Verses.firstWhere((v) => v.verseNumber == 39);
-        expect(
-          ps9v39.verseText,
-          equals(
-            'so as to judge for the orphan and the humble, so that man may no longer presume to magnify himself upon the earth.',
-          ),
-        );
-        expect(ps9v39.verseText, isNot(contains('(11)')));
-      },
-    );
-
-    test(
-      'regression test: all CPDV Psalms verses do not match trailing alternate chapter numbering',
-      () async {
-        await testDb.ensureBookPopulated(
-          21,
-          'Psalms',
-          'PSA',
-          translation: 'CPDV',
-        );
-
-        final query = testDb.select(testDb.bibleVerses)
-          ..where(
-            (t) =>
-                t.bookNumber.equals(21) &
-                t.translationCode.equals('CPDV'),
-          );
-        final allPsalmsVerses = await query.get();
-
-        expect(allPsalmsVerses, isNotEmpty);
-        // Regression check for sacredbible.org scraping artifact where the next Psalm's
-        // alternate Masoretic chapter number (e.g. "(9 - 10)", "(11)", "(119)") was erroneously
-        // appended to the final verse of the preceding Psalm. While a general verse could theoretically
-        // end in a parenthetical, CPDV Psalms verses do not end in numeric chapter ranges of this form.
-        final trailingAlphaAlternatePattern =
-            RegExp(r'\(\d+[A-Za-z]?( - \d+[A-Za-z]?)?\)\s*$');
-        for (final verse in allPsalmsVerses) {
-          expect(
-            trailingAlphaAlternatePattern.hasMatch(verse.verseText),
-            isFalse,
-            reason:
-                'Psalm ${verse.chapter}:${verse.verseNumber} has trailing alphanumeric alternate numbering: "${verse.verseText}"',
-          );
-        }
-      },
-    );
+      }
+    });
   });
 }
