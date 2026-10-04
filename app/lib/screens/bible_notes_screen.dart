@@ -6,42 +6,10 @@ import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
 import 'package:twelve_stars/widgets/bible_annotation_card.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 
-enum BibleAnnotationType { favorite, comment }
+export 'package:twelve_stars/widgets/bible_annotation_card.dart'
+    show BibleAnnotationItem, BibleAnnotationType;
 
 enum BibleNotesScope { chapter, book, all }
-
-class BibleAnnotationItem {
-  final int bookNumber;
-  final String bookName;
-  final int chapter;
-  final int startVerse;
-  final int endVerse;
-  final String textPreview;
-  final BibleAnnotationType type;
-  final FavoritePassage? favorite;
-  final UserComment? comment;
-  final DateTime createdAt;
-
-  BibleAnnotationItem({
-    required this.bookNumber,
-    required this.bookName,
-    required this.chapter,
-    required this.startVerse,
-    required this.endVerse,
-    required this.textPreview,
-    required this.type,
-    this.favorite,
-    this.comment,
-    required this.createdAt,
-  });
-
-  String get citation {
-    if (type == BibleAnnotationType.favorite && startVerse != endVerse) {
-      return '$bookName $chapter:$startVerse-$endVerse';
-    }
-    return '$bookName $chapter:$startVerse';
-  }
-}
 
 class BibleNotesScreen extends StatefulWidget {
   final ValueChanged<FavoritePassage>? onSelectFavorite;
@@ -812,8 +780,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
       subMessage = 'Try switching to "All Bible" or selecting another book.';
     } else {
       message = 'No saved favorites or notes yet.';
-      subMessage =
-          'Long-press any verse in the Bible reader to add notes or save passages to your favorites.';
+      subMessage = 'Long-press any verse in the Bible reader to add notes or save passages to your favorites.';
     }
 
     return Center(

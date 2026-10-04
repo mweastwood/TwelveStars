@@ -1,6 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
-import 'package:twelve_stars/screens/bible_notes_screen.dart';
+
+enum BibleAnnotationType { favorite, comment }
+
+class BibleAnnotationItem {
+  final int bookNumber;
+  final String bookName;
+  final int chapter;
+  final int startVerse;
+  final int endVerse;
+  final String textPreview;
+  final BibleAnnotationType type;
+  final FavoritePassage? favorite;
+  final UserComment? comment;
+  final DateTime createdAt;
+
+  BibleAnnotationItem({
+    required this.bookNumber,
+    required this.bookName,
+    required this.chapter,
+    required this.startVerse,
+    required this.endVerse,
+    required this.textPreview,
+    required this.type,
+    this.favorite,
+    this.comment,
+    required this.createdAt,
+  });
+
+  String get citation {
+    if (type == BibleAnnotationType.favorite && startVerse != endVerse) {
+      return '$bookName $chapter:$startVerse-$endVerse';
+    }
+    return '$bookName $chapter:$startVerse';
+  }
+}
 
 class BibleAnnotationCard extends StatelessWidget {
   final BibleAnnotationItem item;
@@ -24,9 +58,11 @@ class BibleAnnotationCard extends StatelessWidget {
     final isFav = item.type == BibleAnnotationType.favorite;
 
     return Card(
-      key: Key(
-        'bible_annotation_${item.type.name}_${item.bookNumber}_${item.chapter}_${item.startVerse}',
-      ),
+      key:
+          key ??
+          Key(
+            'bible_annotation_${item.type.name}_${item.bookNumber}_${item.chapter}_${item.startVerse}',
+          ),
       margin: const EdgeInsets.only(bottom: 12.0),
       elevation: 0,
       shape: RoundedRectangleBorder(
