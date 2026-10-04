@@ -1329,16 +1329,9 @@ void main() {
             .get();
 
         expect(allPsalmsVerses, isNotEmpty);
-        final trailingAlternatePattern = RegExp(r'\(\d+( - \d+)?\)\s*$');
         final trailingAlphaAlternatePattern =
             RegExp(r'\(\d+[A-Za-z]?( - \d+[A-Za-z]?)?\)\s*$');
         for (final verse in allPsalmsVerses) {
-          expect(
-            trailingAlternatePattern.hasMatch(verse.verseText),
-            isFalse,
-            reason:
-                'Psalm ${verse.chapter}:${verse.verseNumber} has trailing alternate numbering: "${verse.verseText}"',
-          );
           expect(
             trailingAlphaAlternatePattern.hasMatch(verse.verseText),
             isFalse,

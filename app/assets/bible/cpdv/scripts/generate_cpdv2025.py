@@ -107,17 +107,17 @@ def clean_verse_text(chunk, is_song=False):
         chunk,
         flags=re.S,
     )
-
+    
     # In Song of Songs, convert <I>Speaker:</I> to \it Speaker:\it*
     if is_song:
         chunk = re.sub(r'<I>(.*?)</I>', r'\\it \1\\it* ', chunk, flags=re.I)
 
     # Remove all other HTML tags
     chunk = re.sub(r'<[^>]+>', ' ', chunk)
-
+    
     # Unescape HTML entities
     chunk = html.unescape(chunk)
-
+    
     # Strip leading/trailing whitespace and collapse internal whitespace
     chunk = re.sub(r'\s+', ' ', chunk).strip()
     return chunk
@@ -126,34 +126,34 @@ def generate_book(bnum, abbrev, bname, fname):
     url = f'https://www.sacredbible.org/catholic/{fname}'
     req = urllib.request.Request(url, headers=HEADERS)
     raw = urllib.request.urlopen(req, timeout=30).read().decode("cp1252")
-
+    
     matches = list(re.finditer(r'\{(\d+):(\d+)\}', raw))
     if not matches:
         raise ValueError(f'No verses found for {bname} in {fname}')
-
+    
     chapters = {}
     is_song = (abbrev == 'SNG')
-
+    
     for i, m in enumerate(matches):
         start = m.end()
         end = matches[i+1].start() if i+1 < len(matches) else len(raw)
         chunk = raw[start:end]
-
+        
         # If last verse, trim trailing navigation/footer text
         if i == len(matches) - 1:
             chunk = chunk.split('The Sacred Bible')[0]
             chunk = chunk.split('<!--')[0]
-
+        
         c = int(m.group(1))
         v = int(m.group(2))
         text = clean_verse_text(chunk, is_song=is_song)
         if not text:
             raise ValueError(f'Empty verse text for {bname} {c}:{v}')
-
+        
         if c not in chapters:
             chapters[c] = []
         chapters[c].append((v, text))
-
+    
     num_str = f'{bnum:02d}'
     lines = [
         f'\\id {abbrev} ENG (usfm) - CPDV 2025 The Sacred Bible: Catholic Public Domain Version (2025 Edition) ☩',
@@ -164,19 +164,19 @@ def generate_book(bnum, abbrev, bname, fname):
         f'\\toc3 {abbrev}',
         f'\\mt1 {bname}'
     ]
-
+    
     for c in sorted(chapters.keys()):
         lines.append(f'\\c {c}')
         lines.append(f'\\cl {bname} {c}')
         lines.append('\\p')
         for v, text in chapters[c]:
             lines.append(f'\\v {v} {text}')
-
+    
     usfm_content = '\n'.join(lines) + '\n'
     out_path = os.path.join(OUTPUT_DIR, f'{num_str}-{abbrev}-ENG[B]CPDV2025[pd].usfm')
     with open(out_path, 'w', encoding='utf-8') as f:
         f.write(usfm_content)
-
+    
     total_verses = sum(len(vlist) for vlist in chapters.values())
     return len(chapters), total_verses
 
@@ -186,17 +186,26 @@ def main():
         return
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
+    valid_abbrevs = {b[1] for b in BOOKS}
     targets = [arg.upper() for arg in sys.argv[1:]]
-    books_to_run = [b for b in BOOKS if b[1] in targets] if targets else BOOKS
+    if targets:
+        unknown = [t for t in targets if t not in valid_abbrevs]
+        if unknown:
+            unknown_str = ', '.join(dict.fromkeys(unknown))
+            print(f'Error: Unknown book abbreviation(s): {unknown_str}', file=sys.stderr)
+            sys.exit(1)
+        books_to_run = [b for b in BOOKS if b[1] in targets]
+    else:
+        books_to_run = BOOKS
 
     print(f'Generating CPDV 2025 USFM files in {OUTPUT_DIR}...')
     total_all_verses = 0
-
+    
     for bnum, abbrev, bname, fname in books_to_run:
         ch_count, v_count = generate_book(bnum, abbrev, bname, fname)
         total_all_verses += v_count
         print(f'[{bnum:02d}] {abbrev:5} {bname:25}: {ch_count:3} chapters, {v_count:4} verses')
-
+    
     print(f'\nFinished generating {len(books_to_run)} books for CPDV 2025! Total verses: {total_all_verses}')
 
 if __name__ == '__main__':
