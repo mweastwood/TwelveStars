@@ -357,7 +357,7 @@ class BibleDatabase extends _$BibleDatabase {
     : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 18;
+  int get schemaVersion => 19;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -552,6 +552,10 @@ class BibleDatabase extends _$BibleDatabase {
           'favorite_passages',
           'CREATE INDEX IF NOT EXISTS idx_favorite_passages_book_ch ON favorite_passages(book_number, chapter);',
         );
+      }
+      if (from < 19) {
+        // Clear all translations' cached verses in bible_verses to force clean re-population (including repaired CPDV 2025 Psalms)
+        await delete(bibleVerses).go();
       }
     },
     beforeOpen: (details) async {

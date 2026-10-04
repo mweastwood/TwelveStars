@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+"""Generates USFM files for CPDV 2025 from sacredbible.org.
+
+Usage:
+    python3 generate_cpdv2025.py [BOOK_ABBREV ...]
+
+Arguments:
+    BOOK_ABBREV: Optional 3-letter book abbreviations (e.g. PSA, GEN, MAT)
+                 to regenerate specific books. If omitted, all books are generated.
+"""
 import urllib.request
 import re
 import html
@@ -81,12 +90,23 @@ BOOKS = [
     (76, 'REV', 'Revelation', 'NT-27_Revelation.htm')
 ]
 
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/119.0',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'en-US,en;q=0.5'
+}
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(os.path.dirname(SCRIPT_DIR), 'usfm')
 
 def clean_verse_text(chunk, is_song=False):
-    # Remove chapter anchors like [<A NAME=...>]
-    chunk = re.sub(r'\[<A\s+NAME=[^>]+>.*?\]', '', chunk, flags=re.S)
+    # Remove chapter anchors like [<A NAME=...>] and optional trailing alternate chapter numbering like (9 - 10), (11), or (116A)
+    chunk = re.sub(
+        r'\[<A\s+NAME=[^>]+>.*?\](?:\s*\(\d+[A-Za-z]?(?:\s*-\s*\d+[A-Za-z]?)?\))?',
+        '',
+        chunk,
+        flags=re.S,
+    )
     
     # In Song of Songs, convert <I>Speaker:</I> to \it Speaker:\it*
     if is_song:
@@ -104,7 +124,8 @@ def clean_verse_text(chunk, is_song=False):
 
 def generate_book(bnum, abbrev, bname, fname):
     url = f'https://www.sacredbible.org/catholic/{fname}'
-    raw = urllib.request.urlopen(url, timeout=30).read().decode("cp1252")
+    req = urllib.request.Request(url, headers=HEADERS)
+    raw = urllib.request.urlopen(req, timeout=30).read().decode("cp1252")
     
     matches = list(re.finditer(r'\{(\d+):(\d+)\}', raw))
     if not matches:
@@ -160,16 +181,32 @@ def generate_book(bnum, abbrev, bname, fname):
     return len(chapters), total_verses
 
 def main():
+    if any(arg in ('-h', '--help') for arg in sys.argv[1:]):
+        print(__doc__.strip())
+        return
+
     os.makedirs(OUTPUT_DIR, exist_ok=True)
+    valid_abbrevs = {b[1] for b in BOOKS}
+    targets = [arg.upper() for arg in sys.argv[1:]]
+    if targets:
+        unknown = [t for t in targets if t not in valid_abbrevs]
+        if unknown:
+            unknown_str = ', '.join(dict.fromkeys(unknown))
+            print(f'Error: Unknown book abbreviation(s): {unknown_str}', file=sys.stderr)
+            sys.exit(1)
+        books_to_run = [b for b in BOOKS if b[1] in targets]
+    else:
+        books_to_run = BOOKS
+
     print(f'Generating CPDV 2025 USFM files in {OUTPUT_DIR}...')
     total_all_verses = 0
     
-    for bnum, abbrev, bname, fname in BOOKS:
+    for bnum, abbrev, bname, fname in books_to_run:
         ch_count, v_count = generate_book(bnum, abbrev, bname, fname)
         total_all_verses += v_count
         print(f'[{bnum:02d}] {abbrev:5} {bname:25}: {ch_count:3} chapters, {v_count:4} verses')
     
-    print(f'\nFinished generating all 73 books for CPDV 2025! Total verses: {total_all_verses}')
+    print(f'\nFinished generating {len(books_to_run)} books for CPDV 2025! Total verses: {total_all_verses}')
 
 if __name__ == '__main__':
     main()

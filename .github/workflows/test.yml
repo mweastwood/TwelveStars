@@ -45,3 +45,27 @@ jobs:
         with:
           name: golden-failures
           path: app/test/**/failures/
+
+  test-scripts:
+    name: Script Tests (Python)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            scripts:
+              - 'app/assets/bible/cpdv/scripts/**'
+              - '.github/workflows/test.yml'
+
+      - uses: actions/setup-python@v5
+        if: steps.filter.outputs.scripts == 'true'
+        with:
+          python-version: '3.x'
+
+      - name: Run CPDV generator tests
+        if: steps.filter.outputs.scripts == 'true'
+        run: python3 -m unittest discover app/assets/bible/cpdv/scripts

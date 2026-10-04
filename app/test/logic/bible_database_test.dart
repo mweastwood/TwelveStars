@@ -1,3 +1,4 @@
+import 'package:drift/drift.dart' hide isNull, isNotNull;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
@@ -248,7 +249,7 @@ void main() {
 
   group('Book Reading Position Operations', () {
     test('save and get book reading positions', () async {
-      expect(testDb.schemaVersion, equals(18));
+      expect(testDb.schemaVersion, equals(19));
 
       await testDb.saveBookReadingPosition(
         bookId: 'baltimore_catechism',
@@ -283,7 +284,7 @@ void main() {
 
   group('Library Bookmarks Operations', () {
     test('save, get, and delete library bookmarks in BibleDatabase', () async {
-      expect(testDb.schemaVersion, equals(18));
+      expect(testDb.schemaVersion, equals(19));
 
       final now = DateTime.now();
       await testDb.saveLibraryBookmark(
@@ -525,7 +526,7 @@ void main() {
         final migratedDb = BibleDatabase(rawDb);
         addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(18));
+        expect(migratedDb.schemaVersion, equals(19));
 
         final readings = await migratedDb.getReadings('feast_all_saints');
         expect(readings, isNotEmpty);
@@ -617,7 +618,7 @@ void main() {
         final migratedDb = BibleDatabase(rawDb);
         addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(18));
+        expect(migratedDb.schemaVersion, equals(19));
 
         final readings = await migratedDb.getReadings('feast_all_saints');
         expect(readings, isNotEmpty);
@@ -719,7 +720,7 @@ void main() {
         final migratedDb = BibleDatabase(rawDb);
         addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(18));
+        expect(migratedDb.schemaVersion, equals(19));
 
         final readings = await migratedDb.getReadings('feast_all_saints');
         expect(readings, isNotEmpty);
@@ -821,7 +822,7 @@ void main() {
         final migratedDb = BibleDatabase(rawDb);
         addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(18));
+        expect(migratedDb.schemaVersion, equals(19));
 
         final initialSettings = UserSettings(
           angelusReminderEnabled: true,
@@ -957,7 +958,7 @@ void main() {
         final migratedDb = BibleDatabase(rawDb);
         addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(18));
+        expect(migratedDb.schemaVersion, equals(19));
 
         final settings = UserSettings(
           bibleRibbons: [
@@ -1092,7 +1093,7 @@ void main() {
         final migratedDb = BibleDatabase(rawDb);
         addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(18));
+        expect(migratedDb.schemaVersion, equals(19));
 
         // Verses should be cleared by the v17 migration to force reseed
         final verses = await migratedDb.select(migratedDb.bibleVerses).get();
@@ -1155,7 +1156,7 @@ void main() {
         final migratedDb = BibleDatabase(rawDb);
         addTearDown(migratedDb.close);
 
-        expect(migratedDb.schemaVersion, equals(18));
+        expect(migratedDb.schemaVersion, equals(19));
 
         final indexResult = await migratedDb
             .customSelect("SELECT name FROM sqlite_master WHERE type = 'index'")
@@ -1172,12 +1173,60 @@ void main() {
     );
 
     test(
+      'migrates from schema version 18 to 19 and clears bible_verses while preserving user data',
+      () async {
+        final rawDb = NativeDatabase.memory(
+          setup: (db) {
+            db.execute('''
+              CREATE TABLE bible_verses (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                book_number INT NOT NULL,
+                book_name TEXT NOT NULL,
+                chapter INT NOT NULL,
+                verse_number INT NOT NULL,
+                verse_text TEXT NOT NULL,
+                translation_code TEXT NOT NULL
+              );
+              CREATE TABLE user_comments (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                document_id TEXT NOT NULL,
+                section_index INT NOT NULL,
+                node_id TEXT NOT NULL,
+                comment_text TEXT NOT NULL,
+                text_preview TEXT,
+                created_at DATETIME NOT NULL
+              );
+              INSERT INTO bible_verses (book_number, book_name, chapter, verse_number, verse_text, translation_code)
+              VALUES (21, 'Psalms', 8, 10, 'O Lord, our Lord, how admirable is your name throughout all the earth! (9 - 10)', 'CPDV');
+              INSERT INTO user_comments (document_id, section_index, node_id, comment_text, created_at)
+              VALUES ('bible_21_8_10', 8, 'node1', 'My psalm 8 comment', 1700000000);
+              PRAGMA user_version = 18;
+            ''');
+          },
+        );
+        final migratedDb = BibleDatabase(rawDb);
+        addTearDown(migratedDb.close);
+
+        expect(migratedDb.schemaVersion, equals(19));
+
+        // Verses should be cleared by the v19 migration to force reseed
+        final verses = await migratedDb.select(migratedDb.bibleVerses).get();
+        expect(verses, isEmpty);
+
+        // User notes/comments should be preserved!
+        final comments = await migratedDb.select(migratedDb.userComments).get();
+        expect(comments.length, equals(1));
+        expect(comments.first.commentText, equals('My psalm 8 comment'));
+      },
+    );
+
+    test(
       'creates composite indexes on fresh database initialization',
       () async {
         final freshDb = BibleDatabase(NativeDatabase.memory());
         addTearDown(freshDb.close);
 
-        expect(freshDb.schemaVersion, equals(18));
+        expect(freshDb.schemaVersion, equals(19));
 
         final indexResult = await freshDb
             .customSelect("SELECT name FROM sqlite_master WHERE type = 'index'")
@@ -1226,6 +1275,73 @@ void main() {
         expect(healed.length, greaterThan(1));
         expect(healed.first.verseText, isNot(equals('Blessed')));
         expect(healed.first.verseText, startsWith('Blessed is the man'));
+      },
+    );
+
+    test(
+      'CPDV Psalms does not contain trailing alternate chapter numbering in Psalm 8:10 or 9:39',
+      () async {
+        await testDb.ensureBookPopulated(
+          21,
+          'Psalms',
+          'PSA',
+          translation: 'CPDV',
+        );
+
+        final ps8Verses = await testDb.getChapterVerses('CPDV', 21, 8);
+        final ps8v10 = ps8Verses.firstWhere((v) => v.verseNumber == 10);
+        expect(
+          ps8v10.verseText,
+          equals(
+            'O Lord, our Lord, how admirable is your name throughout all the earth!',
+          ),
+        );
+        expect(ps8v10.verseText, isNot(contains('(9 - 10)')));
+
+        final ps9Verses = await testDb.getChapterVerses('CPDV', 21, 9);
+        final ps9v39 = ps9Verses.firstWhere((v) => v.verseNumber == 39);
+        expect(
+          ps9v39.verseText,
+          equals(
+            'so as to judge for the orphan and the humble, so that man may no longer presume to magnify himself upon the earth.',
+          ),
+        );
+        expect(ps9v39.verseText, isNot(contains('(11)')));
+      },
+    );
+
+    test(
+      'regression test: all CPDV Psalms verses do not match trailing alternate chapter numbering',
+      () async {
+        await testDb.ensureBookPopulated(
+          21,
+          'Psalms',
+          'PSA',
+          translation: 'CPDV',
+        );
+
+        final query = testDb.select(testDb.bibleVerses)
+          ..where(
+            (t) => t.bookNumber.equals(21) & t.translationCode.equals('CPDV'),
+          );
+        final allPsalmsVerses = await query.get();
+
+        expect(allPsalmsVerses, isNotEmpty);
+        // Regression check for sacredbible.org scraping artifact where the next Psalm's
+        // alternate Masoretic chapter number (e.g. "(9 - 10)", "(11)", "(119)") was erroneously
+        // appended to the final verse of the preceding Psalm. While a general verse could theoretically
+        // end in a parenthetical, CPDV Psalms verses do not end in numeric chapter ranges of this form.
+        final trailingAlphaAlternatePattern = RegExp(
+          r'\(\d+[A-Za-z]?( - \d+[A-Za-z]?)?\)\s*$',
+        );
+        for (final verse in allPsalmsVerses) {
+          expect(
+            trailingAlphaAlternatePattern.hasMatch(verse.verseText),
+            isFalse,
+            reason:
+                'Psalm ${verse.chapter}:${verse.verseNumber} has trailing alphanumeric alternate numbering: "${verse.verseText}"',
+          );
+        }
       },
     );
   });
