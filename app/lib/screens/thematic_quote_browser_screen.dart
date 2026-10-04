@@ -7,6 +7,7 @@ import 'package:twelve_stars/logic/thematic_database.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/screens/website_viewer_screen.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
+import 'package:twelve_stars/widgets/thematic_quote_card.dart';
 
 class ThematicQuoteBrowserScreen extends StatefulWidget {
   final String? initialThemeId;
@@ -31,7 +32,7 @@ class _ThematicQuoteBrowserScreenState
   Map<String, int> _themeCounts = {};
   bool _isLoading = true;
   int _currentIndex = 0;
-  final Set<String> _bookmarkedIds = {};
+  final Map<String, int> _bookmarkedIds = {};
 
   @override
   void initState() {
@@ -60,7 +61,7 @@ class _ThematicQuoteBrowserScreenState
       final bookmarks = await BibleDatabaseHelper.db.getLibraryBookmarks();
       _bookmarkedIds.clear();
       for (final b in bookmarks) {
-        _bookmarkedIds.add('${b.documentId}_${b.nodeId}');
+        _bookmarkedIds['${b.documentId}_${b.nodeId}'] = b.id;
       }
     } catch (_) {}
 
@@ -88,16 +89,23 @@ class _ThematicQuoteBrowserScreenState
   Future<void> _toggleBookmark(ThematicPassage passage) async {
     final nodeId = '${passage.sectionId}_${passage.itemIndex}';
     final key = '${passage.bookId}_$nodeId';
-    final isBookmarked = _bookmarkedIds.contains(key);
+    final isBookmarked = _bookmarkedIds.containsKey(key);
 
     try {
       if (isBookmarked) {
-        final bookmarks = await BibleDatabaseHelper.db.getLibraryBookmarks();
-        final match = bookmarks
-            .where((b) => b.documentId == passage.bookId && b.nodeId == nodeId)
-            .firstOrNull;
-        if (match != null) {
-          await BibleDatabaseHelper.db.deleteLibraryBookmark(match.id);
+        final existingId = _bookmarkedIds[key];
+        if (existingId != null) {
+          await BibleDatabaseHelper.db.deleteLibraryBookmark(existingId);
+        } else {
+          final bookmarks = await BibleDatabaseHelper.db.getLibraryBookmarks(
+            documentId: passage.bookId,
+          );
+          final match = bookmarks
+              .where((b) => b.documentId == passage.bookId && b.nodeId == nodeId)
+              .firstOrNull;
+          if (match != null) {
+            await BibleDatabaseHelper.db.deleteLibraryBookmark(match.id);
+          }
         }
         if (!mounted) return;
         setState(() => _bookmarkedIds.remove(key));
@@ -108,7 +116,7 @@ class _ThematicQuoteBrowserScreenState
           ),
         );
       } else {
-        await BibleDatabaseHelper.db.saveLibraryBookmark(
+        final newId = await BibleDatabaseHelper.db.saveLibraryBookmark(
           LibraryBookmarksCompanion.insert(
             documentId: passage.bookId,
             sectionIndex: 0,
@@ -120,7 +128,7 @@ class _ThematicQuoteBrowserScreenState
           ),
         );
         if (!mounted) return;
-        setState(() => _bookmarkedIds.add(key));
+        setState(() => _bookmarkedIds[key] = newId);
         HapticFeedback.lightImpact();
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -476,11 +484,17 @@ class _ThematicQuoteBrowserScreenState
                   setState(() => _currentIndex = idx);
                 },
                 itemBuilder: (context, index) {
-                  return _buildInstagramQuoteCard(
-                    theme,
-                    _passages[index],
-                    index,
-                    _passages.length,
+                  final passage = _passages[index];
+                  final nodeId = '${passage.sectionId}_${passage.itemIndex}';
+                  final isBookmarked = _bookmarkedIds.containsKey(
+                    '${passage.bookId}_$nodeId',
+                  );
+                  return ThematicQuoteCard(
+                    passage: passage,
+                    isBookmarked: isBookmarked,
+                    onToggleBookmark: () => _toggleBookmark(passage),
+                    onOpenReaderContext: () => _openReaderContext(passage),
+                    onShowSaintDetails: _showSaintSheet,
                   );
                 },
               ),
@@ -601,209 +615,5 @@ class _ThematicQuoteBrowserScreenState
         ),
       ),
     );
-  }
-
-  Widget _buildInstagramQuoteCard(
-    ThemeData theme,
-    ThematicPassage passage,
-    int index,
-    int total,
-  ) {
-    final nodeId = '${passage.sectionId}_${passage.itemIndex}';
-    final isBookmarked = _bookmarkedIds.contains('${passage.bookId}_$nodeId');
-
-    return Container(
-      padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
-      decoration: BoxDecoration(color: theme.colorScheme.surface),
-      child: Card(
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(24),
-          side: BorderSide(
-            color: theme.colorScheme.outlineVariant.withValues(alpha: 0.6),
-          ),
-        ),
-        color: theme.colorScheme.surfaceContainerLow,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Header: Source Title + Bookmark
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          passage.bookTitle.toUpperCase(),
-                          style: theme.textTheme.labelSmall?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1.2,
-                            color: theme.colorScheme.primary,
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        const SizedBox(height: 2),
-                        Text(
-                          passage.sectionTitle,
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            color: theme.colorScheme.onSurfaceVariant,
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
-                    ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      isBookmarked
-                          ? Icons.favorite_rounded
-                          : Icons.favorite_border_rounded,
-                      color: isBookmarked
-                          ? Colors.redAccent
-                          : theme.colorScheme.onSurfaceVariant,
-                    ),
-                    onPressed: () => _toggleBookmark(passage),
-                  ),
-                ],
-              ),
-
-              const Divider(height: 20),
-
-              // Quote Body & Insight Excerpt
-              Expanded(
-                child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.format_quote_rounded,
-                        size: 36,
-                        color: theme.colorScheme.primary.withValues(alpha: 0.5),
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        passage.keyExcerpt.isNotEmpty
-                            ? passage.keyExcerpt
-                            : passage.fullText,
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontFamily: 'serif',
-                          fontSize: 19,
-                          height: 1.5,
-                          fontWeight: FontWeight.w600,
-                          color: theme.colorScheme.onSurface,
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      // Insight / Summary Box
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.primaryContainer.withValues(
-                            alpha: 0.3,
-                          ),
-                          borderRadius: BorderRadius.circular(14),
-                          border: Border.all(
-                            color: theme.colorScheme.primary.withValues(
-                              alpha: 0.2,
-                            ),
-                          ),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Icon(
-                              Icons.lightbulb_outline_rounded,
-                              size: 18,
-                              color: theme.colorScheme.primary,
-                            ),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: Text(
-                                passage.oneSentenceSummary,
-                                style: theme.textTheme.bodySmall?.copyWith(
-                                  fontStyle: FontStyle.italic,
-                                  color: theme.colorScheme.onSurface,
-                                  height: 1.4,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 12),
-
-              // Author attribution and Jump Link
-              Row(
-                children: [
-                  Expanded(
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(8),
-                      onTap: passage.authorSaintId != null
-                          ? () => _showSaintSheet(passage.authorSaintId!)
-                          : null,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 4),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            CircleAvatar(
-                              radius: 12,
-                              backgroundColor:
-                                  theme.colorScheme.primaryContainer,
-                              child: Icon(
-                                Icons.person,
-                                size: 14,
-                                color: theme.colorScheme.primary,
-                              ),
-                            ),
-                            const SizedBox(width: 8),
-                            Flexible(
-                              child: Text(
-                                passage.author,
-                                style: theme.textTheme.bodySmall?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  decoration: passage.authorSaintId != null
-                                      ? TextDecoration.underline
-                                      : null,
-                                ),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  FilledButton.tonalIcon(
-                    style: FilledButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 8,
-                      ),
-                    ),
-                    onPressed: () => _openReaderContext(passage),
-                    icon: const Icon(Icons.auto_stories_rounded, size: 16),
-                    label: const Text('Read in Context'),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 }
+
