@@ -242,6 +242,60 @@ void main() {
       expect(find.text('Removed from favorites'), findsOneWidget);
     });
 
+    testWidgets(
+      'loads pre-existing bookmarks on init and removes them via scoped delete',
+      (tester) async {
+        ThematicHelper.mockPassages = [
+          ThematicPassage(
+            bookId: 'test_book',
+            bookTitle: 'Test Book',
+            author: 'Test Author',
+            sectionId: 'sec_1',
+            sectionTitle: 'Section 1',
+            itemIndex: 0,
+            primaryTheme: 'sacraments.eucharist',
+            secondaryThemes: const [],
+            keyExcerpt: 'Eucharist passage excerpt',
+            oneSentenceSummary: 'Summary of eucharist',
+            fullText: 'Full text',
+          ),
+        ];
+
+        await testDb.saveLibraryBookmark(
+          LibraryBookmarksCompanion.insert(
+            documentId: 'test_book',
+            sectionIndex: 0,
+            nodeId: 'sec_1_0',
+            textPreview: 'Eucharist passage excerpt',
+            createdAt: DateTime.now(),
+          ),
+        );
+
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: ThematicQuoteBrowserScreen(
+              initialThemeId: 'sacraments.eucharist',
+            ),
+          ),
+        );
+
+        await tester.pumpAndSettle();
+
+        // Card should be rendered as favorited
+        expect(find.byIcon(Icons.favorite_rounded), findsOneWidget);
+
+        // Tap favorite icon to remove
+        await tester.tap(find.byIcon(Icons.favorite_rounded));
+        await tester.pumpAndSettle();
+
+        final bookmarks = await testDb.getLibraryBookmarks(
+          documentId: 'test_book',
+        );
+        expect(bookmarks, isEmpty);
+        expect(find.text('Removed from favorites'), findsOneWidget);
+      },
+    );
+
     testWidgets('tapping Read in Context navigates to LibraryReaderScreen', (
       tester,
     ) async {
