@@ -150,6 +150,34 @@ void main() {
     );
 
     testWidgets(
+      'renders fallback book name for assigned ribbon with unknown bookNumber',
+      (WidgetTester tester) async {
+        final bookmarks = [
+          const BibleRibbonBookmark(
+            ribbonIndex: 0,
+            bookNumber: 999,
+            chapter: 5,
+          ),
+        ];
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: BibleRibbonsWidget(
+                bookmarks: bookmarks,
+                onRibbonTap: (_, _) {},
+                onRibbonLongPress: (_) {},
+              ),
+            ),
+          ),
+        );
+
+        // Fallback to catholicBooks.first (Genesis)
+        expect(find.byTooltip('Red Ribbon: Genesis 5'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
       'fourth ribbon (purple) has expanded hit target registering taps in rightmost margin and inter-ribbon gap',
       (WidgetTester tester) async {
         int? tappedIndex;
