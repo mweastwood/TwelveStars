@@ -1329,6 +1329,10 @@ void main() {
             .get();
 
         expect(allPsalmsVerses, isNotEmpty);
+        // Regression check for sacredbible.org scraping artifact where the next Psalm's
+        // alternate Masoretic chapter number (e.g. "(9 - 10)", "(11)", "(119)") was erroneously
+        // appended to the final verse of the preceding Psalm. While a general verse could theoretically
+        // end in a parenthetical, CPDV Psalms verses do not end in numeric chapter ranges of this form.
         final trailingAlphaAlternatePattern =
             RegExp(r'\(\d+[A-Za-z]?( - \d+[A-Za-z]?)?\)\s*$');
         for (final verse in allPsalmsVerses) {

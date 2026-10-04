@@ -554,7 +554,7 @@ class BibleDatabase extends _$BibleDatabase {
         );
       }
       if (from < 19) {
-        // Clear bible_verses to force clean re-population with repaired CPDV 2025 Psalms
+        // Clear all translations' cached verses in bible_verses to force clean re-population (including repaired CPDV 2025 Psalms)
         await delete(bibleVerses).go();
       }
     },
