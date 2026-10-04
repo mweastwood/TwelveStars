@@ -133,9 +133,7 @@ class SaintDatabase {
       final feastDay = (saint.feastDay ?? '').toLowerCase();
       final dates = saint.dateRange.toLowerCase();
       final saintGender = (saint.gender ?? '').toLowerCase();
-      final categoryLabels = saint.categories
-          .map((c) => c.label.toLowerCase())
-          .toList();
+      final categories = saint.categories;
       final eraLabel = saint.era.label.toLowerCase();
 
       return words.every((word) {
@@ -156,17 +154,25 @@ class SaintDatabase {
             feastDay.contains(word) ||
             dates.contains(word) ||
             eraLabel.contains(word) ||
-            categoryLabels.any((label) => label.contains(word));
+            categories.any((c) => c.label.toLowerCase().contains(word));
       });
     }).toList();
 
     // Apply sorting
+    if (filtered.length <= 1) {
+      return filtered;
+    }
+
+    final lowerNames = {for (final s in filtered) s.id: s.name.toLowerCase()};
+    int compareByName(Saint a, Saint b) =>
+        lowerNames[a.id]!.compareTo(lowerNames[b.id]!);
+
     filtered.sort((a, b) {
       switch (sortBy) {
         case SaintSortOption.nameAsc:
-          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+          return compareByName(a, b);
         case SaintSortOption.nameDesc:
-          return b.name.toLowerCase().compareTo(a.name.toLowerCase());
+          return compareByName(b, a);
         case SaintSortOption.feastDay:
           final aMonth = a.feastMonth ?? 99;
           final bMonth = b.feastMonth ?? 99;
@@ -174,17 +180,17 @@ class SaintDatabase {
           final aDay = a.feastDayOfMonth ?? 99;
           final bDay = b.feastDayOfMonth ?? 99;
           if (aDay != bDay) return aDay.compareTo(bDay);
-          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+          return compareByName(a, b);
         case SaintSortOption.chronologicalAsc:
           final aYear = a.approximateYear ?? 9999;
           final bYear = b.approximateYear ?? 9999;
           if (aYear != bYear) return aYear.compareTo(bYear);
-          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+          return compareByName(a, b);
         case SaintSortOption.chronologicalDesc:
           final aYear = a.approximateYear ?? -9999;
           final bYear = b.approximateYear ?? -9999;
           if (aYear != bYear) return bYear.compareTo(aYear);
-          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+          return compareByName(a, b);
         case SaintSortOption.doctorsFirst:
           if (a.isDoctor != b.isDoctor) {
             return a.isDoctor ? -1 : 1;
@@ -208,7 +214,7 @@ class SaintDatabase {
           if (aIsSpecial != bIsSpecial) {
             return aIsSpecial ? -1 : 1;
           }
-          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+          return compareByName(a, b);
       }
     });
 
