@@ -1320,13 +1320,13 @@ void main() {
           translation: 'CPDV',
         );
 
-        final allPsalmsVerses = await (testDb.select(testDb.bibleVerses)
-              ..where(
-                (t) =>
-                    t.bookNumber.equals(21) &
-                    t.translationCode.equals('CPDV'),
-              ))
-            .get();
+        final query = testDb.select(testDb.bibleVerses)
+          ..where(
+            (t) =>
+                t.bookNumber.equals(21) &
+                t.translationCode.equals('CPDV'),
+          );
+        final allPsalmsVerses = await query.get();
 
         expect(allPsalmsVerses, isNotEmpty);
         // Regression check for sacredbible.org scraping artifact where the next Psalm's
