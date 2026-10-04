@@ -31,12 +31,7 @@ jobs:
         run: dart run bin/assemble_db.dart
 
       - name: Verify formatting
-        run: |
-          if ! dart format --output=none --set-exit-if-changed .; then
-            dart format --output=write .
-            git diff
-            exit 1
-          fi
+        run: dart format --output=none --set-exit-if-changed .
 
       - name: Analyze project source
         run: flutter analyze --fatal-infos
