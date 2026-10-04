@@ -3,44 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
+import 'package:twelve_stars/widgets/bible_annotation_card.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 
-enum BibleAnnotationType { favorite, comment }
+export 'package:twelve_stars/widgets/bible_annotation_card.dart'
+    show BibleAnnotationItem, BibleAnnotationType;
 
 enum BibleNotesScope { chapter, book, all }
-
-class BibleAnnotationItem {
-  final int bookNumber;
-  final String bookName;
-  final int chapter;
-  final int startVerse;
-  final int endVerse;
-  final String textPreview;
-  final BibleAnnotationType type;
-  final FavoritePassage? favorite;
-  final UserComment? comment;
-  final DateTime createdAt;
-
-  BibleAnnotationItem({
-    required this.bookNumber,
-    required this.bookName,
-    required this.chapter,
-    required this.startVerse,
-    required this.endVerse,
-    required this.textPreview,
-    required this.type,
-    this.favorite,
-    this.comment,
-    required this.createdAt,
-  });
-
-  String get citation {
-    if (type == BibleAnnotationType.favorite && startVerse != endVerse) {
-      return '$bookName $chapter:$startVerse-$endVerse';
-    }
-    return '$bookName $chapter:$startVerse';
-  }
-}
 
 class BibleNotesScreen extends StatefulWidget {
   final ValueChanged<FavoritePassage>? onSelectFavorite;
@@ -71,6 +40,7 @@ class BibleNotesScreen extends StatefulWidget {
 class _BibleNotesScreenState extends State<BibleNotesScreen> {
   List<FavoritePassage> _favorites = [];
   List<UserComment> _comments = [];
+  List<BibleAnnotationItem> _cachedUnifiedItems = const [];
   bool _isLoading = true;
 
   BibleBook? _activeBook;
@@ -107,6 +77,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
       setState(() {
         _favorites = widget.initialFavorites!;
         _comments = widget.initialComments!;
+        _recomputeUnifiedItems();
         _isLoading = false;
       });
       return;
@@ -129,6 +100,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
         setState(() {
           _favorites = favs;
           _comments = bibleComments;
+          _recomputeUnifiedItems();
           _isLoading = false;
         });
       }
@@ -139,7 +111,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
     }
   }
 
-  List<BibleAnnotationItem> _buildUnifiedItems() {
+  void _recomputeUnifiedItems() {
     final items = <BibleAnnotationItem>[];
 
     for (final fav in _favorites) {
@@ -196,7 +168,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
       return a.type.index.compareTo(b.type.index);
     });
 
-    return items;
+    _cachedUnifiedItems = items;
   }
 
   bool _matchesScope(
@@ -219,8 +191,10 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
     }
   }
 
-  List<BibleAnnotationItem> _getFilteredItems() {
-    final unified = _buildUnifiedItems();
+  List<BibleAnnotationItem> _getFilteredItems([
+    List<BibleAnnotationItem>? items,
+  ]) {
+    final unified = items ?? _cachedUnifiedItems;
     final query = _searchQuery.trim().toLowerCase();
 
     return unified.where((item) {
@@ -345,8 +319,8 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isWide = isWideScreen(context);
-    final filteredItems = _getFilteredItems();
-    final unified = _buildUnifiedItems();
+    final unified = _cachedUnifiedItems;
+    final filteredItems = _getFilteredItems(unified);
 
     // Scope counts (respecting _showFavorites / _showComments)
     int chapterCount = 0;
@@ -569,8 +543,8 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                 : filteredItems.isEmpty
                 ? _buildEmptyState(theme)
                 : isWide
-                ? _buildMasonryWideLayout(filteredItems, theme)
-                : _buildSingleColumnLayout(filteredItems, theme),
+                ? _buildMasonryWideLayout(filteredItems)
+                : _buildSingleColumnLayout(filteredItems),
           ),
         ],
       ),
@@ -806,8 +780,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
       subMessage = 'Try switching to "All Bible" or selecting another book.';
     } else {
       message = 'No saved favorites or notes yet.';
-      subMessage =
-          'Long-press any verse in the Bible reader to add notes or save passages to your favorites.';
+      subMessage = 'Long-press any verse in the Bible reader to add notes or save passages to your favorites.';
     }
 
     return Center(
@@ -846,23 +819,26 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
     );
   }
 
-  Widget _buildSingleColumnLayout(
-    List<BibleAnnotationItem> items,
-    ThemeData theme,
-  ) {
+  Widget _buildSingleColumnLayout(List<BibleAnnotationItem> items) {
     return ListView.builder(
       padding: const EdgeInsets.all(16.0),
       itemCount: items.length,
       itemBuilder: (context, index) {
-        return _buildAnnotationCard(items[index], theme);
+        final item = items[index];
+        return BibleAnnotationCard(
+          item: item,
+          onOpen: () => _onOpenItem(item),
+          onCopy: () => _copyItem(item),
+          onEdit: item.comment != null
+              ? () => _editComment(item.comment!)
+              : null,
+          onDelete: () => _deleteItem(item),
+        );
       },
     );
   }
 
-  Widget _buildMasonryWideLayout(
-    List<BibleAnnotationItem> items,
-    ThemeData theme,
-  ) {
+  Widget _buildMasonryWideLayout(List<BibleAnnotationItem> items) {
     final col1 = <BibleAnnotationItem>[];
     final col2 = <BibleAnnotationItem>[];
 
@@ -882,7 +858,17 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
           Expanded(
             child: Column(
               children: col1
-                  .map((item) => _buildAnnotationCard(item, theme))
+                  .map(
+                    (item) => BibleAnnotationCard(
+                      item: item,
+                      onOpen: () => _onOpenItem(item),
+                      onCopy: () => _copyItem(item),
+                      onEdit: item.comment != null
+                          ? () => _editComment(item.comment!)
+                          : null,
+                      onDelete: () => _deleteItem(item),
+                    ),
+                  )
                   .toList(),
             ),
           ),
@@ -890,205 +876,21 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
           Expanded(
             child: Column(
               children: col2
-                  .map((item) => _buildAnnotationCard(item, theme))
+                  .map(
+                    (item) => BibleAnnotationCard(
+                      item: item,
+                      onOpen: () => _onOpenItem(item),
+                      onCopy: () => _copyItem(item),
+                      onEdit: item.comment != null
+                          ? () => _editComment(item.comment!)
+                          : null,
+                      onDelete: () => _deleteItem(item),
+                    ),
+                  )
                   .toList(),
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildAnnotationCard(BibleAnnotationItem item, ThemeData theme) {
-    final isFav = item.type == BibleAnnotationType.favorite;
-
-    return Card(
-      key: Key(
-        'bible_annotation_${item.type.name}_${item.bookNumber}_${item.chapter}_${item.startVerse}',
-      ),
-      margin: const EdgeInsets.only(bottom: 12.0),
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.0),
-        side: BorderSide(
-          color: theme.colorScheme.outlineVariant.withValues(alpha: 0.6),
-        ),
-      ),
-      child: InkWell(
-        onTap: () => _onOpenItem(item),
-        borderRadius: BorderRadius.circular(12.0),
-        child: Padding(
-          padding: const EdgeInsets.all(14.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Header Row: Citation + Badge
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      item.citation,
-                      style: theme.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: theme.colorScheme.primary,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: isFav
-                          ? theme.colorScheme.primaryContainer.withValues(
-                              alpha: 0.8,
-                            )
-                          : theme.colorScheme.secondaryContainer.withValues(
-                              alpha: 0.8,
-                            ),
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: isFav
-                            ? theme.colorScheme.primary.withValues(alpha: 0.4)
-                            : theme.colorScheme.secondary.withValues(
-                                alpha: 0.4,
-                              ),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                          isFav ? Icons.star_rounded : Icons.comment_rounded,
-                          size: 13,
-                          color: isFav
-                              ? theme.colorScheme.onPrimaryContainer
-                              : theme.colorScheme.onSecondaryContainer,
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          isFav ? 'Favorite' : 'Note',
-                          style: TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.bold,
-                            color: isFav
-                                ? theme.colorScheme.onPrimaryContainer
-                                : theme.colorScheme.onSecondaryContainer,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10.0),
-
-              // Scripture Verse Preview
-              if (item.textPreview.isNotEmpty)
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12.0,
-                    vertical: 8.0,
-                  ),
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.surfaceContainerHighest.withValues(
-                      alpha: 0.35,
-                    ),
-                    borderRadius: BorderRadius.circular(8.0),
-                    border: Border(
-                      left: BorderSide(
-                        color: theme.colorScheme.primary.withValues(alpha: 0.6),
-                        width: 3.0,
-                      ),
-                    ),
-                  ),
-                  child: Text(
-                    '"${item.textPreview}"',
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      fontStyle: FontStyle.italic,
-                      color: theme.colorScheme.onSurfaceVariant,
-                      height: 1.4,
-                    ),
-                  ),
-                ),
-
-              // Personal Note Block (if comment)
-              if (item.comment != null) ...[
-                const SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.edit_note_rounded,
-                      size: 16,
-                      color: theme.colorScheme.secondary,
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      'Personal Reflection',
-                      style: theme.textTheme.labelMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: theme.colorScheme.secondary,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 4.0),
-                Text(
-                  item.comment!.commentText,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: theme.colorScheme.onSurface,
-                    fontWeight: FontWeight.w500,
-                    height: 1.4,
-                  ),
-                ),
-              ],
-
-              const SizedBox(height: 8.0),
-              const Divider(height: 16),
-
-              // Action buttons footer
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton.icon(
-                    onPressed: () => _onOpenItem(item),
-                    icon: const Icon(Icons.menu_book_rounded, size: 16),
-                    label: const Text('Open'),
-                    style: TextButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      visualDensity: VisualDensity.compact,
-                    ),
-                  ),
-                  IconButton(
-                    tooltip: 'Copy',
-                    icon: const Icon(Icons.copy_rounded, size: 18),
-                    visualDensity: VisualDensity.compact,
-                    onPressed: () => _copyItem(item),
-                  ),
-                  if (item.type == BibleAnnotationType.comment)
-                    IconButton(
-                      tooltip: 'Edit note',
-                      icon: const Icon(Icons.edit_outlined, size: 18),
-                      visualDensity: VisualDensity.compact,
-                      onPressed: () => _editComment(item.comment!),
-                    ),
-                  IconButton(
-                    tooltip: 'Delete',
-                    icon: Icon(
-                      Icons.delete_outline,
-                      size: 18,
-                      color: theme.colorScheme.error,
-                    ),
-                    visualDensity: VisualDensity.compact,
-                    onPressed: () => _deleteItem(item),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
