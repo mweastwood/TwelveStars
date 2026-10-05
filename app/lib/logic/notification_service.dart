@@ -344,9 +344,9 @@ class NotificationService {
     DateTime? fromDate,
   ]) async {
     if (kIsWeb) return;
-    final userSettings = settings ?? await PrayerDatabase.loadSettings();
 
     try {
+      final userSettings = settings ?? await PrayerDatabase.loadSettings();
       await initialize();
 
       if (!userSettings.sundayNotificationsEnabled) {
@@ -442,9 +442,9 @@ class NotificationService {
     DateTime? fromDate,
   ]) async {
     if (kIsWeb) return;
-    final userSettings = settings ?? await PrayerDatabase.loadSettings();
 
     try {
+      final userSettings = settings ?? await PrayerDatabase.loadSettings();
       await initialize();
 
       Future<void> syncAngelusSlot({
@@ -537,9 +537,9 @@ class NotificationService {
     DateTime? fromDate,
   ]) async {
     if (kIsWeb) return;
-    final userSettings = settings ?? await PrayerDatabase.loadSettings();
 
     try {
+      final userSettings = settings ?? await PrayerDatabase.loadSettings();
       await initialize();
 
       if (userSettings.rosaryReminderEnabled) {
@@ -578,9 +578,9 @@ class NotificationService {
     UserSettings? settings,
   ]) async {
     if (kIsWeb) return;
-    final userSettings = settings ?? await PrayerDatabase.loadSettings();
 
     try {
+      final userSettings = settings ?? await PrayerDatabase.loadSettings();
       await initialize();
 
       if (userSettings.morningPrayerReminderEnabled) {
@@ -610,9 +610,9 @@ class NotificationService {
     UserSettings? settings,
   ]) async {
     if (kIsWeb) return;
-    final userSettings = settings ?? await PrayerDatabase.loadSettings();
 
     try {
+      final userSettings = settings ?? await PrayerDatabase.loadSettings();
       await initialize();
 
       if (userSettings.nightPrayerReminderEnabled) {
