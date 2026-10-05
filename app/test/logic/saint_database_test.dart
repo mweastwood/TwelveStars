@@ -2502,11 +2502,11 @@ void main() {
     );
 
     test(
-      'searchSaints matches category labels lazily and sorts correctly across options',
+      'searchSaints matches category labels and sorts correctly across options',
       () async {
         final saints = await SaintDatabase.loadSaints();
 
-        // Verify category label search works via lazy iterator
+        // Verify category label search matches against category labels
         final mysticResults = SaintDatabase.searchSaints(
           saints,
           query: 'Contemplative',
@@ -2544,30 +2544,74 @@ void main() {
           );
         }
 
-        // Verify feastDay, chronological, and doctorsFirst sort without errors
+        // Verify feastDay ordering
         final feastSorted = SaintDatabase.searchSaints(
           saints,
           sortBy: SaintSortOption.feastDay,
         );
         expect(feastSorted.length, saints.length);
+        for (int i = 0; i < feastSorted.length - 1; i++) {
+          final a = feastSorted[i];
+          final b = feastSorted[i + 1];
+          final c1 = (a.feastMonth ?? 99).compareTo(b.feastMonth ?? 99);
+          if (c1 != 0) {
+            expect(c1, lessThan(0));
+            continue;
+          }
+          final c2 = (a.feastDayOfMonth ?? 99).compareTo(
+            b.feastDayOfMonth ?? 99,
+          );
+          if (c2 != 0) {
+            expect(c2, lessThan(0));
+            continue;
+          }
+          expect(
+            a.name.toLowerCase().compareTo(b.name.toLowerCase()),
+            lessThanOrEqualTo(0),
+          );
+        }
 
+        // Verify chronological ordering
         final chronoAsc = SaintDatabase.searchSaints(
           saints,
           sortBy: SaintSortOption.chronologicalAsc,
         );
         expect(chronoAsc.length, saints.length);
+        for (int i = 0; i < chronoAsc.length - 1; i++) {
+          expect(
+            (chronoAsc[i].approximateYear ?? 9999).compareTo(
+              chronoAsc[i + 1].approximateYear ?? 9999,
+            ),
+            lessThanOrEqualTo(0),
+          );
+        }
 
         final chronoDesc = SaintDatabase.searchSaints(
           saints,
           sortBy: SaintSortOption.chronologicalDesc,
         );
         expect(chronoDesc.length, saints.length);
+        for (int i = 0; i < chronoDesc.length - 1; i++) {
+          expect(
+            (chronoDesc[i].approximateYear ?? -9999).compareTo(
+              chronoDesc[i + 1].approximateYear ?? -9999,
+            ),
+            greaterThanOrEqualTo(0),
+          );
+        }
 
+        // Verify doctors come first and never follow a non-doctor
         final doctorsSorted = SaintDatabase.searchSaints(
           saints,
           sortBy: SaintSortOption.doctorsFirst,
         );
+        expect(doctorsSorted.length, saints.length);
         expect(doctorsSorted.first.isDoctor, isTrue);
+        var seenNonDoctor = false;
+        for (final saint in doctorsSorted) {
+          if (!saint.isDoctor) seenNonDoctor = true;
+          if (seenNonDoctor) expect(saint.isDoctor, isFalse);
+        }
 
         // Verify chronological tie-breaker: saints with same year break ties
         // by nameAsc
@@ -2621,5 +2665,48 @@ void main() {
         expect(orderedChronoDesc.last.name, 'St. Bede');
       },
     );
+
+    test('searchSaints sorts correctly when saints share duplicate ids', () {
+      const dupB = Saint(
+        id: 'dup',
+        name: 'St. Bartholomew',
+        nationality: 'Galilean',
+        profession: 'Apostle',
+      );
+      const dupA = Saint(
+        id: 'dup',
+        name: 'St. Andrew',
+        nationality: 'Galilean',
+        profession: 'Apostle',
+      );
+      const dupC = Saint(
+        id: 'dup',
+        name: 'St. Cecilia',
+        nationality: 'Roman',
+        profession: 'Martyr',
+      );
+
+      final asc = SaintDatabase.searchSaints([
+        dupC,
+        dupA,
+        dupB,
+      ], sortBy: SaintSortOption.nameAsc);
+      expect(asc.map((s) => s.name), [
+        'St. Andrew',
+        'St. Bartholomew',
+        'St. Cecilia',
+      ]);
+
+      final desc = SaintDatabase.searchSaints([
+        dupA,
+        dupC,
+        dupB,
+      ], sortBy: SaintSortOption.nameDesc);
+      expect(desc.map((s) => s.name), [
+        'St. Cecilia',
+        'St. Bartholomew',
+        'St. Andrew',
+      ]);
+    });
   });
 }
