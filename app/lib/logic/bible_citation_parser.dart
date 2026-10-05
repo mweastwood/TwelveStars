@@ -94,13 +94,165 @@ class BibleVerseResolver {
     required int chapter,
     required int verse,
   }) {
+    // Genesis (1)
+    if (bookNumber == 1) {
+      if (chapter == 31 && verse == 55) {
+        return (chapter: 32, verse: 1);
+      }
+      if (chapter == 32) {
+        return (chapter: 32, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Exodus (2)
+    if (bookNumber == 2) {
+      if (chapter == 8) {
+        if (verse >= 1 && verse <= 4) {
+          return (chapter: 7, verse: verse + 25);
+        } else if (verse >= 5 && verse <= 32) {
+          return (chapter: 8, verse: verse - 4);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Leviticus (3)
+    if (bookNumber == 3) {
+      if (chapter == 6) {
+        if (verse >= 1 && verse <= 7) {
+          return (chapter: 5, verse: verse + 19);
+        } else if (verse >= 8 && verse <= 30) {
+          return (chapter: 6, verse: verse - 7);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Numbers (4)
+    if (bookNumber == 4) {
+      if (chapter == 16 && verse >= 36 && verse <= 50) {
+        return (chapter: 17, verse: verse - 35);
+      }
+      if (chapter == 17 && verse >= 1 && verse <= 13) {
+        return (chapter: 17, verse: verse + 15);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Deuteronomy (5)
+    if (bookNumber == 5) {
+      if (chapter == 12 && verse == 32) {
+        return (chapter: 13, verse: 1);
+      }
+      if (chapter == 13 && verse >= 1 && verse <= 18) {
+        return (chapter: 13, verse: verse + 1);
+      }
+      if (chapter == 22 && verse == 30) {
+        return (chapter: 23, verse: 1);
+      }
+      if (chapter == 23 && verse >= 1 && verse <= 25) {
+        return (chapter: 23, verse: verse + 1);
+      }
+      if (chapter == 29) {
+        if (verse == 1) {
+          return (chapter: 28, verse: 69);
+        } else if (verse >= 2 && verse <= 29) {
+          return (chapter: 29, verse: verse - 1);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // 1 Samuel (9)
+    if (bookNumber == 9) {
+      if (chapter == 20 && verse == 43) {
+        return (chapter: 21, verse: 1);
+      }
+      if (chapter == 21 && verse >= 1 && verse <= 15) {
+        return (chapter: 21, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // 2 Samuel (10)
+    if (bookNumber == 10) {
+      if (chapter == 18 && verse == 33) {
+        return (chapter: 19, verse: 1);
+      }
+      if (chapter == 19 && verse >= 1 && verse <= 43) {
+        return (chapter: 19, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
     // 1 Kings (11)
     if (bookNumber == 11) {
+      if (chapter == 4 && verse >= 21 && verse <= 34) {
+        return (chapter: 5, verse: verse - 20);
+      }
+      if (chapter == 5 && verse >= 1 && verse <= 18) {
+        return (chapter: 5, verse: verse + 14);
+      }
       if (chapter == 22) {
         if (verse == 44) {
           return (chapter: 22, verse: 43);
         } else if (verse >= 45 && verse <= 54) {
           return (chapter: 22, verse: verse - 1);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // 2 Kings (12)
+    if (bookNumber == 12) {
+      if (chapter == 11 && verse == 21) {
+        return (chapter: 12, verse: 1);
+      }
+      if (chapter == 12 && verse >= 1 && verse <= 21) {
+        return (chapter: 12, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // 1 Chronicles (13)
+    if (bookNumber == 13) {
+      if (chapter == 6) {
+        if (verse >= 1 && verse <= 15) {
+          return (chapter: 5, verse: verse + 26);
+        } else if (verse >= 16 && verse <= 81) {
+          return (chapter: 6, verse: verse - 15);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // 2 Chronicles (14)
+    if (bookNumber == 14) {
+      if (chapter == 2) {
+        if (verse == 1) {
+          return (chapter: 1, verse: 18);
+        } else if (verse >= 2 && verse <= 18) {
+          return (chapter: 2, verse: verse - 1);
+        }
+      }
+      if (chapter == 14) {
+        if (verse == 1) {
+          return (chapter: 13, verse: 23);
+        } else if (verse >= 2 && verse <= 15) {
+          return (chapter: 14, verse: verse - 1);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Nehemiah (16)
+    if (bookNumber == 16) {
+      if (chapter == 4) {
+        if (verse >= 1 && verse <= 6) {
+          return (chapter: 3, verse: verse + 32);
+        } else if (verse >= 7 && verse <= 23) {
+          return (chapter: 4, verse: verse - 6);
         }
       }
       return (chapter: chapter, verse: verse);
@@ -193,10 +345,54 @@ class BibleVerseResolver {
       return (chapter: chapter, verse: verse);
     }
 
+    // Isaiah (27)
+    if (bookNumber == 27) {
+      if (chapter == 9) {
+        if (verse == 1) {
+          return (chapter: 8, verse: 23);
+        } else if (verse >= 2 && verse <= 21) {
+          return (chapter: 9, verse: verse - 1);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Ezekiel (31)
+    if (bookNumber == 31) {
+      if (chapter == 20 && verse >= 45 && verse <= 49) {
+        return (chapter: 21, verse: verse - 44);
+      }
+      if (chapter == 21 && verse >= 1 && verse <= 32) {
+        return (chapter: 21, verse: verse + 5);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Daniel (32)
+    if (bookNumber == 32) {
+      if (chapter == 3 && verse >= 98 && verse <= 100) {
+        return (chapter: 3, verse: verse - 67);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
     // Hosea (33)
     if (bookNumber == 33) {
-      if (chapter == 2 && verse == 24) {
-        return (chapter: 2, verse: 23);
+      if (chapter == 1 && verse >= 10 && verse <= 11) {
+        return (chapter: 2, verse: verse - 9);
+      }
+      if (chapter == 2) {
+        if (verse >= 1 && verse <= 23) {
+          return (chapter: 2, verse: verse + 2);
+        } else if (verse == 24) {
+          return (chapter: 2, verse: 25);
+        }
+      }
+      if (chapter == 11 && verse == 12) {
+        return (chapter: 12, verse: 1);
+      }
+      if (chapter == 12 && verse >= 1 && verse <= 14) {
+        return (chapter: 12, verse: verse + 1);
       }
       if (chapter == 14) {
         if (verse == 1) {
@@ -204,6 +400,17 @@ class BibleVerseResolver {
         } else if (verse >= 2 && verse <= 10) {
           return (chapter: 14, verse: verse - 1);
         }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Joel (34)
+    if (bookNumber == 34) {
+      if (chapter == 2 && verse >= 28 && verse <= 32) {
+        return (chapter: 3, verse: verse - 27);
+      }
+      if (chapter == 3 && verse >= 1 && verse <= 21) {
+        return (chapter: 4, verse: verse);
       }
       return (chapter: chapter, verse: verse);
     }
@@ -220,6 +427,48 @@ class BibleVerseResolver {
       return (chapter: chapter, verse: verse);
     }
 
+    // Micah (38)
+    if (bookNumber == 38) {
+      if (chapter == 5) {
+        if (verse == 1) {
+          return (chapter: 4, verse: 14);
+        } else if (verse >= 2 && verse <= 15) {
+          return (chapter: 5, verse: verse - 1);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Nahum (39)
+    if (bookNumber == 39) {
+      if (chapter == 1 && verse == 15) {
+        return (chapter: 2, verse: 1);
+      }
+      if (chapter == 2 && verse >= 1 && verse <= 13) {
+        return (chapter: 2, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Zechariah (43)
+    if (bookNumber == 43) {
+      if (chapter == 1 && verse >= 18 && verse <= 21) {
+        return (chapter: 2, verse: verse - 17);
+      }
+      if (chapter == 2 && verse >= 1 && verse <= 13) {
+        return (chapter: 2, verse: verse + 4);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Malachi (44)
+    if (bookNumber == 44) {
+      if (chapter == 4 && verse >= 1 && verse <= 6) {
+        return (chapter: 3, verse: verse + 18);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
     return (chapter: chapter, verse: verse);
   }
 
@@ -229,10 +478,163 @@ class BibleVerseResolver {
     required int chapter,
     required int verse,
   }) {
+    // Genesis (1)
+    if (bookNumber == 1) {
+      if (chapter == 32) {
+        if (verse == 1) {
+          return (chapter: 31, verse: 55);
+        } else if (verse >= 2 && verse <= 33) {
+          return (chapter: 32, verse: verse - 1);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Exodus (2)
+    if (bookNumber == 2) {
+      if (chapter == 7 && verse >= 26 && verse <= 29) {
+        return (chapter: 8, verse: verse - 25);
+      }
+      if (chapter == 8 && verse >= 1 && verse <= 28) {
+        return (chapter: 8, verse: verse + 4);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Leviticus (3)
+    if (bookNumber == 3) {
+      if (chapter == 5 && verse >= 20 && verse <= 26) {
+        return (chapter: 6, verse: verse - 19);
+      }
+      if (chapter == 6 && verse >= 1 && verse <= 23) {
+        return (chapter: 6, verse: verse + 7);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Numbers (4)
+    if (bookNumber == 4) {
+      if (chapter == 17) {
+        if (verse >= 1 && verse <= 15) {
+          return (chapter: 16, verse: verse + 35);
+        } else if (verse >= 16 && verse <= 28) {
+          return (chapter: 17, verse: verse - 15);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Deuteronomy (5)
+    if (bookNumber == 5) {
+      if (chapter == 13) {
+        if (verse == 1) {
+          return (chapter: 12, verse: 32);
+        } else if (verse >= 2 && verse <= 19) {
+          return (chapter: 13, verse: verse - 1);
+        }
+      }
+      if (chapter == 23) {
+        if (verse == 1) {
+          return (chapter: 22, verse: 30);
+        } else if (verse >= 2 && verse <= 26) {
+          return (chapter: 23, verse: verse - 1);
+        }
+      }
+      if (chapter == 28 && verse == 69) {
+        return (chapter: 29, verse: 1);
+      }
+      if (chapter == 29 && verse >= 1 && verse <= 28) {
+        return (chapter: 29, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // 1 Samuel (9)
+    if (bookNumber == 9) {
+      if (chapter == 21) {
+        if (verse == 1) {
+          return (chapter: 20, verse: 43);
+        } else if (verse >= 2 && verse <= 16) {
+          return (chapter: 21, verse: verse - 1);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // 2 Samuel (10)
+    if (bookNumber == 10) {
+      if (chapter == 19) {
+        if (verse == 1) {
+          return (chapter: 18, verse: 33);
+        } else if (verse >= 2 && verse <= 44) {
+          return (chapter: 19, verse: verse - 1);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
     // 1 Kings (11)
     if (bookNumber == 11) {
+      if (chapter == 5) {
+        if (verse >= 1 && verse <= 14) {
+          return (chapter: 4, verse: verse + 20);
+        } else if (verse >= 15 && verse <= 32) {
+          return (chapter: 5, verse: verse - 14);
+        }
+      }
       if (chapter == 22 && verse >= 44 && verse <= 53) {
         return (chapter: 22, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // 2 Kings (12)
+    if (bookNumber == 12) {
+      if (chapter == 12) {
+        if (verse == 1) {
+          return (chapter: 11, verse: 21);
+        } else if (verse >= 2 && verse <= 22) {
+          return (chapter: 12, verse: verse - 1);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // 1 Chronicles (13)
+    if (bookNumber == 13) {
+      if (chapter == 5 && verse >= 27 && verse <= 41) {
+        return (chapter: 6, verse: verse - 26);
+      }
+      if (chapter == 6 && verse >= 1 && verse <= 66) {
+        return (chapter: 6, verse: verse + 15);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // 2 Chronicles (14)
+    if (bookNumber == 14) {
+      if (chapter == 1 && verse == 18) {
+        return (chapter: 2, verse: 1);
+      }
+      if (chapter == 2 && verse >= 1 && verse <= 17) {
+        return (chapter: 2, verse: verse + 1);
+      }
+      if (chapter == 13 && verse == 23) {
+        return (chapter: 14, verse: 1);
+      }
+      if (chapter == 14 && verse >= 1 && verse <= 14) {
+        return (chapter: 14, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Nehemiah (16)
+    if (bookNumber == 16) {
+      if (chapter == 3 && verse >= 33 && verse <= 38) {
+        return (chapter: 4, verse: verse - 32);
+      }
+      if (chapter == 4 && verse >= 1 && verse <= 17) {
+        return (chapter: 4, verse: verse + 6);
       }
       return (chapter: chapter, verse: verse);
     }
@@ -329,13 +731,69 @@ class BibleVerseResolver {
       return (chapter: chapter, verse: verse);
     }
 
+    // Isaiah (27)
+    if (bookNumber == 27) {
+      if (chapter == 8 && verse == 23) {
+        return (chapter: 9, verse: 1);
+      }
+      if (chapter == 9 && verse >= 1 && verse <= 20) {
+        return (chapter: 9, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Ezekiel (31)
+    if (bookNumber == 31) {
+      if (chapter == 21) {
+        if (verse >= 1 && verse <= 5) {
+          return (chapter: 20, verse: verse + 44);
+        } else if (verse >= 6 && verse <= 37) {
+          return (chapter: 21, verse: verse - 5);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Daniel (32)
+    if (bookNumber == 32) {
+      if (chapter == 3 && verse >= 31 && verse <= 33) {
+        return (chapter: 3, verse: verse + 67);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
     // Hosea (33)
     if (bookNumber == 33) {
+      if (chapter == 2) {
+        if (verse >= 1 && verse <= 2) {
+          return (chapter: 1, verse: verse + 9);
+        } else if (verse >= 3 && verse <= 25) {
+          return (chapter: 2, verse: verse - 2);
+        }
+      }
+      if (chapter == 12) {
+        if (verse == 1) {
+          return (chapter: 11, verse: 12);
+        } else if (verse >= 2 && verse <= 15) {
+          return (chapter: 12, verse: verse - 1);
+        }
+      }
       if (chapter == 13 && verse == 16) {
         return (chapter: 14, verse: 1);
       }
       if (chapter == 14 && verse >= 1 && verse <= 9) {
         return (chapter: 14, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Joel (34)
+    if (bookNumber == 34) {
+      if (chapter == 3 && verse >= 1 && verse <= 5) {
+        return (chapter: 2, verse: verse + 27);
+      }
+      if (chapter == 4 && verse >= 1 && verse <= 21) {
+        return (chapter: 3, verse: verse);
       }
       return (chapter: chapter, verse: verse);
     }
@@ -347,6 +805,49 @@ class BibleVerseResolver {
       }
       if (chapter == 2 && verse >= 1 && verse <= 10) {
         return (chapter: 2, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Micah (38)
+    if (bookNumber == 38) {
+      if (chapter == 4 && verse == 14) {
+        return (chapter: 5, verse: 1);
+      }
+      if (chapter == 5 && verse >= 1 && verse <= 14) {
+        return (chapter: 5, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Nahum (39)
+    if (bookNumber == 39) {
+      if (chapter == 2) {
+        if (verse == 1) {
+          return (chapter: 1, verse: 15);
+        } else if (verse >= 2 && verse <= 14) {
+          return (chapter: 2, verse: verse - 1);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Zechariah (43)
+    if (bookNumber == 43) {
+      if (chapter == 2) {
+        if (verse >= 1 && verse <= 4) {
+          return (chapter: 1, verse: verse + 17);
+        } else if (verse >= 5 && verse <= 17) {
+          return (chapter: 2, verse: verse - 4);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Malachi (44)
+    if (bookNumber == 44) {
+      if (chapter == 3 && verse >= 19 && verse <= 24) {
+        return (chapter: 4, verse: verse - 18);
       }
       return (chapter: chapter, verse: verse);
     }

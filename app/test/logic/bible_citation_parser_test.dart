@@ -1461,10 +1461,27 @@ void main() {
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
           bookNumber: 11,
+          chapter: 3,
+          verse: 1,
+        ),
+        equals((chapter: 3, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 11,
+          chapter: 3,
+          verse: 1,
+        ),
+        equals((chapter: 3, verse: 1)),
+      );
+      // Divergent 1 Kings 4:21-34 -> MT 5:1-14
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 11,
           chapter: 4,
           verse: 21,
         ),
-        equals((chapter: 4, verse: 21)),
+        equals((chapter: 5, verse: 1)),
       );
       expect(
         BibleVerseResolver.masoreticToVulgateVerse(
@@ -1472,23 +1489,23 @@ void main() {
           chapter: 5,
           verse: 1,
         ),
-        equals((chapter: 5, verse: 1)),
+        equals((chapter: 4, verse: 21)),
       );
 
-      // 5. 1 Chronicles (13) - identical versification in CPDV and Modern Christian Bibles
+      // 5. 1 Chronicles (13)
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
           bookNumber: 13,
           chapter: 6,
           verse: 1,
         ),
-        equals((chapter: 6, verse: 1)),
+        equals((chapter: 5, verse: 27)),
       );
       expect(
         BibleVerseResolver.masoreticToVulgateVerse(
           bookNumber: 13,
-          chapter: 6,
-          verse: 1,
+          chapter: 5,
+          verse: 27,
         ),
         equals((chapter: 6, verse: 1)),
       );
@@ -1498,31 +1515,31 @@ void main() {
           chapter: 6,
           verse: 16,
         ),
-        equals((chapter: 6, verse: 16)),
+        equals((chapter: 6, verse: 1)),
       );
       expect(
         BibleVerseResolver.masoreticToVulgateVerse(
           bookNumber: 13,
           chapter: 6,
-          verse: 16,
+          verse: 1,
         ),
         equals((chapter: 6, verse: 16)),
       );
 
-      // 6. Nehemiah (16) - identical versification in CPDV and Modern Christian Bibles
+      // 6. Nehemiah (16)
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
           bookNumber: 16,
           chapter: 4,
           verse: 1,
         ),
-        equals((chapter: 4, verse: 1)),
+        equals((chapter: 3, verse: 33)),
       );
       expect(
         BibleVerseResolver.masoreticToVulgateVerse(
           bookNumber: 16,
-          chapter: 4,
-          verse: 1,
+          chapter: 3,
+          verse: 33,
         ),
         equals((chapter: 4, verse: 1)),
       );
@@ -1532,13 +1549,13 @@ void main() {
           chapter: 4,
           verse: 7,
         ),
-        equals((chapter: 4, verse: 7)),
+        equals((chapter: 4, verse: 1)),
       );
       expect(
         BibleVerseResolver.masoreticToVulgateVerse(
           bookNumber: 16,
           chapter: 4,
-          verse: 7,
+          verse: 1,
         ),
         equals((chapter: 4, verse: 7)),
       );
@@ -1547,10 +1564,26 @@ void main() {
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
           bookNumber: 33,
+          chapter: 1,
+          verse: 10,
+        ),
+        equals((chapter: 2, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 33,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 1, verse: 10)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 33,
           chapter: 2,
           verse: 24,
         ),
-        equals((chapter: 2, verse: 23)),
+        equals((chapter: 2, verse: 25)),
       );
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
@@ -1585,20 +1618,20 @@ void main() {
         equals((chapter: 14, verse: 2)),
       );
 
-      // 8. Joel (34) - identical versification in CPDV and Modern Christian Bibles
+      // 8. Joel (34)
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
           bookNumber: 34,
           chapter: 2,
           verse: 28,
         ),
-        equals((chapter: 2, verse: 28)),
+        equals((chapter: 3, verse: 1)),
       );
       expect(
         BibleVerseResolver.masoreticToVulgateVerse(
           bookNumber: 34,
-          chapter: 2,
-          verse: 28,
+          chapter: 3,
+          verse: 1,
         ),
         equals((chapter: 2, verse: 28)),
       );
@@ -1608,12 +1641,12 @@ void main() {
           chapter: 3,
           verse: 1,
         ),
-        equals((chapter: 3, verse: 1)),
+        equals((chapter: 4, verse: 1)),
       );
       expect(
         BibleVerseResolver.masoreticToVulgateVerse(
           bookNumber: 34,
-          chapter: 3,
+          chapter: 4,
           verse: 1,
         ),
         equals((chapter: 3, verse: 1)),
@@ -1653,28 +1686,12 @@ void main() {
         equals((chapter: 2, verse: 2)),
       );
 
-      // 10. Zechariah (43) - identical versification in CPDV and Modern Christian Bibles
+      // 10. Zechariah (43)
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
           bookNumber: 43,
           chapter: 1,
           verse: 18,
-        ),
-        equals((chapter: 1, verse: 18)),
-      );
-      expect(
-        BibleVerseResolver.masoreticToVulgateVerse(
-          bookNumber: 43,
-          chapter: 1,
-          verse: 18,
-        ),
-        equals((chapter: 1, verse: 18)),
-      );
-      expect(
-        BibleVerseResolver.vulgateToMasoreticVerse(
-          bookNumber: 43,
-          chapter: 2,
-          verse: 1,
         ),
         equals((chapter: 2, verse: 1)),
       );
@@ -1683,32 +1700,32 @@ void main() {
           bookNumber: 43,
           chapter: 2,
           verse: 1,
+        ),
+        equals((chapter: 1, verse: 18)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 43,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 2, verse: 5)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 43,
+          chapter: 2,
+          verse: 5,
         ),
         equals((chapter: 2, verse: 1)),
       );
 
-      // 11. Malachi (44) - identical versification in CPDV and Modern Christian Bibles
+      // 11. Malachi (44)
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
           bookNumber: 44,
           chapter: 4,
           verse: 1,
-        ),
-        equals((chapter: 4, verse: 1)),
-      );
-      expect(
-        BibleVerseResolver.masoreticToVulgateVerse(
-          bookNumber: 44,
-          chapter: 4,
-          verse: 1,
-        ),
-        equals((chapter: 4, verse: 1)),
-      );
-      expect(
-        BibleVerseResolver.vulgateToMasoreticVerse(
-          bookNumber: 44,
-          chapter: 3,
-          verse: 19,
         ),
         equals((chapter: 3, verse: 19)),
       );
@@ -1718,7 +1735,403 @@ void main() {
           chapter: 3,
           verse: 19,
         ),
-        equals((chapter: 3, verse: 19)),
+        equals((chapter: 4, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 44,
+          chapter: 3,
+          verse: 18,
+        ),
+        equals((chapter: 3, verse: 18)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 44,
+          chapter: 3,
+          verse: 18,
+        ),
+        equals((chapter: 3, verse: 18)),
+      );
+
+      // 12. Genesis (1)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 1,
+          chapter: 31,
+          verse: 55,
+        ),
+        equals((chapter: 32, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 1,
+          chapter: 32,
+          verse: 1,
+        ),
+        equals((chapter: 31, verse: 55)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 1,
+          chapter: 32,
+          verse: 1,
+        ),
+        equals((chapter: 32, verse: 2)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 1,
+          chapter: 32,
+          verse: 2,
+        ),
+        equals((chapter: 32, verse: 1)),
+      );
+
+      // 13. Exodus (2)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 2,
+          chapter: 8,
+          verse: 1,
+        ),
+        equals((chapter: 7, verse: 26)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 2,
+          chapter: 7,
+          verse: 26,
+        ),
+        equals((chapter: 8, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 2,
+          chapter: 8,
+          verse: 5,
+        ),
+        equals((chapter: 8, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 2,
+          chapter: 8,
+          verse: 1,
+        ),
+        equals((chapter: 8, verse: 5)),
+      );
+
+      // 14. Leviticus (3)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 3,
+          chapter: 6,
+          verse: 1,
+        ),
+        equals((chapter: 5, verse: 20)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 3,
+          chapter: 5,
+          verse: 20,
+        ),
+        equals((chapter: 6, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 3,
+          chapter: 6,
+          verse: 8,
+        ),
+        equals((chapter: 6, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 3,
+          chapter: 6,
+          verse: 1,
+        ),
+        equals((chapter: 6, verse: 8)),
+      );
+
+      // 15. Numbers (4)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 4,
+          chapter: 16,
+          verse: 36,
+        ),
+        equals((chapter: 17, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 4,
+          chapter: 17,
+          verse: 1,
+        ),
+        equals((chapter: 16, verse: 36)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 4,
+          chapter: 17,
+          verse: 1,
+        ),
+        equals((chapter: 17, verse: 16)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 4,
+          chapter: 17,
+          verse: 16,
+        ),
+        equals((chapter: 17, verse: 1)),
+      );
+
+      // 16. Deuteronomy (5)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 5,
+          chapter: 12,
+          verse: 32,
+        ),
+        equals((chapter: 13, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 5,
+          chapter: 13,
+          verse: 1,
+        ),
+        equals((chapter: 12, verse: 32)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 5,
+          chapter: 22,
+          verse: 30,
+        ),
+        equals((chapter: 23, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 5,
+          chapter: 23,
+          verse: 1,
+        ),
+        equals((chapter: 22, verse: 30)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 5,
+          chapter: 29,
+          verse: 1,
+        ),
+        equals((chapter: 28, verse: 69)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 5,
+          chapter: 28,
+          verse: 69,
+        ),
+        equals((chapter: 29, verse: 1)),
+      );
+
+      // 17. 1 Samuel (9)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 9,
+          chapter: 20,
+          verse: 43,
+        ),
+        equals((chapter: 21, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 9,
+          chapter: 21,
+          verse: 1,
+        ),
+        equals((chapter: 20, verse: 43)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 9,
+          chapter: 21,
+          verse: 1,
+        ),
+        equals((chapter: 21, verse: 2)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 9,
+          chapter: 21,
+          verse: 2,
+        ),
+        equals((chapter: 21, verse: 1)),
+      );
+
+      // 18. 2 Samuel (10)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 10,
+          chapter: 18,
+          verse: 33,
+        ),
+        equals((chapter: 19, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 10,
+          chapter: 19,
+          verse: 1,
+        ),
+        equals((chapter: 18, verse: 33)),
+      );
+
+      // 19. 2 Kings (12)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 12,
+          chapter: 11,
+          verse: 21,
+        ),
+        equals((chapter: 12, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 12,
+          chapter: 12,
+          verse: 1,
+        ),
+        equals((chapter: 11, verse: 21)),
+      );
+
+      // 20. 2 Chronicles (14)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 14,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 1, verse: 18)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 14,
+          chapter: 1,
+          verse: 18,
+        ),
+        equals((chapter: 2, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 14,
+          chapter: 14,
+          verse: 1,
+        ),
+        equals((chapter: 13, verse: 23)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 14,
+          chapter: 13,
+          verse: 23,
+        ),
+        equals((chapter: 14, verse: 1)),
+      );
+
+      // 21. Isaiah (27)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 27,
+          chapter: 9,
+          verse: 1,
+        ),
+        equals((chapter: 8, verse: 23)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 27,
+          chapter: 8,
+          verse: 23,
+        ),
+        equals((chapter: 9, verse: 1)),
+      );
+
+      // 22. Ezekiel (31)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 31,
+          chapter: 20,
+          verse: 45,
+        ),
+        equals((chapter: 21, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 31,
+          chapter: 21,
+          verse: 1,
+        ),
+        equals((chapter: 20, verse: 45)),
+      );
+
+      // 23. Daniel (32)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 32,
+          chapter: 3,
+          verse: 98,
+        ),
+        equals((chapter: 3, verse: 31)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 32,
+          chapter: 3,
+          verse: 31,
+        ),
+        equals((chapter: 3, verse: 98)),
+      );
+
+      // 24. Micah (38)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 38,
+          chapter: 5,
+          verse: 1,
+        ),
+        equals((chapter: 4, verse: 14)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 38,
+          chapter: 4,
+          verse: 14,
+        ),
+        equals((chapter: 5, verse: 1)),
+      );
+
+      // 25. Nahum (39)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 39,
+          chapter: 1,
+          verse: 15,
+        ),
+        equals((chapter: 2, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 39,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 1, verse: 15)),
       );
     });
   });
