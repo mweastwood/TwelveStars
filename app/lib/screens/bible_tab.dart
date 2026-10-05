@@ -422,10 +422,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
 
   void navigateToComment(UserComment comment) {
     final verseNum = int.tryParse(comment.nodeId.split('_').last) ?? 1;
-    final book = catholicBooks.firstWhere(
-      (b) => b.abbrev == comment.documentId,
-      orElse: () => catholicBooks.first,
-    );
+    final book =
+        catholicBooksByAbbrev[comment.documentId.toUpperCase()] ??
+        catholicBooks.first;
     final pageIndex = getCanonicalChapterIndex(
       book.bookNumber,
       comment.sectionIndex,
@@ -471,10 +470,8 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
 
   void _onRibbonTap(int index, BibleRibbonBookmark? bookmark) {
     if (bookmark != null) {
-      final book = catholicBooks.firstWhere(
-        (b) => b.bookNumber == bookmark.bookNumber,
-        orElse: () => catholicBooks.first,
-      );
+      final book =
+          catholicBooksByNumber[bookmark.bookNumber] ?? catholicBooks.first;
       _navigateToChapter(book, bookmark.chapter);
       setState(() {
         _selectedBookForPicker = book;

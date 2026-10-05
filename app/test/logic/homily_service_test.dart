@@ -571,5 +571,30 @@ void main() {
         'In the beginning God created heaven, and earth.',
       );
     });
+
+    test(
+      'gracefully falls back to empty text when reading has invalid bookNumber',
+      () async {
+        final reading = LectionaryReading(
+          id: 2,
+          readingKey: 'invalid_reading',
+          readingType: 'first',
+          bookNumber: 999,
+          bookName: 'NonExistentBook',
+          chapter: 1,
+          verseRange: '1',
+          citation: 'Non 1:1',
+        );
+
+        final results = await HomilyService.fetchReadingsData([
+          reading,
+        ], translation: 'drc');
+
+        expect(results.length, equals(1));
+        expect(results.first.readingType, equals('first'));
+        expect(results.first.citation, equals('Non 1:1'));
+        expect(results.first.text, isEmpty);
+      },
+    );
   });
 }

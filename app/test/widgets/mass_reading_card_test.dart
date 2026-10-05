@@ -1933,5 +1933,29 @@ void main() {
         findsOneWidget,
       );
     });
+
+    testWidgets('displays error message when reading has unknown book number', (
+      WidgetTester tester,
+    ) async {
+      const reading = LectionaryReading(
+        id: 99,
+        readingKey: 'invalid_reading',
+        readingType: 'gospel',
+        bookNumber: 999,
+        bookName: 'UnknownBook',
+        chapter: 1,
+        verseRange: '1',
+        citation: 'Unknown 1:1',
+      );
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: const Scaffold(body: MassReadingCard(reading: reading)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.textContaining('Book UnknownBook not found'), findsOneWidget);
+    });
   });
 }

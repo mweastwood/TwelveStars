@@ -191,6 +191,43 @@ void main() {
       expect(updatedSettings?.lastBibleChapter, equals(3));
     });
 
+    testWidgets(
+      'navigateToComment falls back to first book when abbreviation unknown',
+      (WidgetTester tester) async {
+        await tester.runAsync(() async {
+          await testDb.ensureBookPopulated(1, 'Genesis', 'GEN');
+        });
+
+        final settings = UserSettings(
+          lastBibleBookNumber: 1,
+          lastBibleChapter: 1,
+        );
+        await testDb.saveUserSettings(settings);
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final comment = UserComment(
+          id: 2,
+          documentId: 'unknown_abbrev',
+          sectionIndex: 2,
+          nodeId: 'unknown_2_1',
+          commentText: 'Unknown book reflection',
+          createdAt: DateTime(2026, 1, 1),
+        );
+
+        final state = tester.state<BibleTabState>(find.byType(BibleTab));
+        state.navigateToComment(comment);
+        await tester.pumpAndSettle();
+
+        final updatedSettings = await testDb.getUserSettings();
+        expect(updatedSettings?.lastBibleBookNumber, equals(1));
+        expect(updatedSettings?.lastBibleChapter, equals(2));
+      },
+    );
+
     testGoldens('renders correctly', (tester) async {
       final builder = GoldenBuilder.column()
         ..addScenario(

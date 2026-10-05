@@ -54,11 +54,9 @@ class HomilyService {
 
     for (final reading in readings) {
       try {
-        final bookMeta = catholicBooks.firstWhere(
-          (b) => b.bookNumber == reading.bookNumber,
-          orElse: () =>
-              throw Exception('Book ${reading.bookName} not found in metadata'),
-        );
+        final bookMeta =
+            catholicBooksByNumber[reading.bookNumber] ??
+            (throw Exception('Book ${reading.bookName} not found in metadata'));
 
         await db.ensureBookPopulated(
           bookMeta.bookNumber,

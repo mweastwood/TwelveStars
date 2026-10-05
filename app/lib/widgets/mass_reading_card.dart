@@ -183,11 +183,9 @@ class _MassReadingCardState extends State<MassReadingCard> {
 
   Future<void> _loadComments() async {
     try {
-      final bookMeta = catholicBooks.firstWhere(
-        (b) => b.bookNumber == widget.reading.bookNumber,
-        orElse: () =>
-            throw Exception('Book ${widget.reading.bookName} not found'),
-      );
+      final bookMeta =
+          catholicBooksByNumber[widget.reading.bookNumber] ??
+          (throw Exception('Book ${widget.reading.bookName} not found'));
       final ranges = resolveReadingRanges(
         bookNumber: widget.reading.bookNumber,
         defaultChapter: widget.reading.chapter,
@@ -248,11 +246,9 @@ class _MassReadingCardState extends State<MassReadingCard> {
       });
 
       final db = BibleDatabaseHelper.db;
-      final bookMeta = catholicBooks.firstWhere(
-        (b) => b.bookNumber == widget.reading.bookNumber,
-        orElse: () =>
-            throw Exception('Book ${widget.reading.bookName} not found'),
-      );
+      final bookMeta =
+          catholicBooksByNumber[widget.reading.bookNumber] ??
+          (throw Exception('Book ${widget.reading.bookName} not found'));
       await db.ensureBookPopulated(
         bookMeta.bookNumber,
         bookMeta.bookName,
@@ -450,9 +446,9 @@ class _MassReadingCardState extends State<MassReadingCard> {
         }
       },
       onAddComment: () {
-        final bookMeta = catholicBooks.firstWhere(
-          (b) => b.bookNumber == widget.reading.bookNumber,
-        );
+        final bookMeta =
+            catholicBooksByNumber[widget.reading.bookNumber] ??
+            (throw Exception('Book ${widget.reading.bookName} not found'));
         showAddCommentDialog(
           context: context,
           citation: citation,
@@ -645,9 +641,11 @@ class _MassReadingCardState extends State<MassReadingCard> {
                       citations: verseCitations,
                     ),
                     onTapComments: () {
-                      final bookMeta = catholicBooks.firstWhere(
-                        (b) => b.bookNumber == widget.reading.bookNumber,
-                      );
+                      final bookMeta =
+                          catholicBooksByNumber[widget.reading.bookNumber] ??
+                          (throw Exception(
+                            'Book ${widget.reading.bookName} not found',
+                          ));
                       showVerseCommentsModal(
                         context: context,
                         title:
