@@ -133,9 +133,7 @@ class SaintDatabase {
       final feastDay = (saint.feastDay ?? '').toLowerCase();
       final dates = saint.dateRange.toLowerCase();
       final saintGender = (saint.gender ?? '').toLowerCase();
-      final categoryLabels = saint.categories
-          .map((c) => c.label.toLowerCase())
-          .toList();
+      final categories = saint.categories;
       final eraLabel = saint.era.label.toLowerCase();
 
       return words.every((word) {
@@ -156,17 +154,34 @@ class SaintDatabase {
             feastDay.contains(word) ||
             dates.contains(word) ||
             eraLabel.contains(word) ||
-            categoryLabels.any((label) => label.contains(word));
+            categories.any((c) => _categoryLabelsLower[c]!.contains(word));
       });
     }).toList();
 
     // Apply sorting
-    filtered.sort((a, b) {
+    if (filtered.length <= 1) {
+      return filtered;
+    }
+
+    // Decorate each saint with its lowercase name so sorting never relies on
+    // saint ids (which may be duplicated) and avoids recomputing lowercase.
+    final decorated = [
+      for (final s in filtered) (saint: s, lowerName: s.name.toLowerCase()),
+    ];
+
+    int compareByName(
+      ({Saint saint, String lowerName}) x,
+      ({Saint saint, String lowerName}) y,
+    ) => x.lowerName.compareTo(y.lowerName);
+
+    decorated.sort((da, db) {
+      final a = da.saint;
+      final b = db.saint;
       switch (sortBy) {
         case SaintSortOption.nameAsc:
-          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+          return compareByName(da, db);
         case SaintSortOption.nameDesc:
-          return b.name.toLowerCase().compareTo(a.name.toLowerCase());
+          return compareByName(db, da);
         case SaintSortOption.feastDay:
           final aMonth = a.feastMonth ?? 99;
           final bMonth = b.feastMonth ?? 99;
@@ -174,17 +189,17 @@ class SaintDatabase {
           final aDay = a.feastDayOfMonth ?? 99;
           final bDay = b.feastDayOfMonth ?? 99;
           if (aDay != bDay) return aDay.compareTo(bDay);
-          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+          return compareByName(da, db);
         case SaintSortOption.chronologicalAsc:
           final aYear = a.approximateYear ?? 9999;
           final bYear = b.approximateYear ?? 9999;
           if (aYear != bYear) return aYear.compareTo(bYear);
-          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+          return compareByName(da, db);
         case SaintSortOption.chronologicalDesc:
           final aYear = a.approximateYear ?? -9999;
           final bYear = b.approximateYear ?? -9999;
           if (aYear != bYear) return bYear.compareTo(aYear);
-          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+          return compareByName(da, db);
         case SaintSortOption.doctorsFirst:
           if (a.isDoctor != b.isDoctor) {
             return a.isDoctor ? -1 : 1;
@@ -208,12 +223,16 @@ class SaintDatabase {
           if (aIsSpecial != bIsSpecial) {
             return aIsSpecial ? -1 : 1;
           }
-          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+          return compareByName(da, db);
       }
     });
 
-    return filtered;
+    return [for (final d in decorated) d.saint];
   }
+
+  static final Map<SaintCategory, String> _categoryLabelsLower = {
+    for (final c in SaintCategory.values) c: c.label.toLowerCase(),
+  };
 
   static final RegExp _datePartRegex = RegExp(r'([A-Za-z]+)\s+(\d+)');
   static const Map<String, int> _monthNames = {
