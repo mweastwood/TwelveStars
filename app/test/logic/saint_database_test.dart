@@ -2491,10 +2491,9 @@ void main() {
           );
           expect(emptyResults, isEmpty);
 
-          final singleResults = SaintDatabase.searchSaints(
-            [singleSaint],
-            sortBy: sortOption,
-          );
+          final singleResults = SaintDatabase.searchSaints([
+            singleSaint,
+          ], sortBy: sortOption);
           expect(singleResults.length, 1);
           expect(singleResults.first.id, 'single-saint');
         }
@@ -2513,9 +2512,7 @@ void main() {
         );
         expect(mysticResults, isNotEmpty);
         expect(
-          mysticResults.any(
-            (s) => s.categories.contains(SaintCategory.mystic),
-          ),
+          mysticResults.any((s) => s.categories.contains(SaintCategory.mystic)),
           isTrue,
         );
 
@@ -2629,17 +2626,17 @@ void main() {
           nationality: 'English',
           profession: 'Priest',
         );
-        final tiedChronoDesc = SaintDatabase.searchSaints(
-          [sameYearSyntheticZ, sameYearSyntheticA],
-          sortBy: SaintSortOption.chronologicalDesc,
-        );
+        final tiedChronoDesc = SaintDatabase.searchSaints([
+          sameYearSyntheticZ,
+          sameYearSyntheticA,
+        ], sortBy: SaintSortOption.chronologicalDesc);
         expect(tiedChronoDesc.first.name, 'St. Aaron');
         expect(tiedChronoDesc.last.name, 'St. Zachary');
 
-        final tiedChronoAsc = SaintDatabase.searchSaints(
-          [sameYearSyntheticZ, sameYearSyntheticA],
-          sortBy: SaintSortOption.chronologicalAsc,
-        );
+        final tiedChronoAsc = SaintDatabase.searchSaints([
+          sameYearSyntheticZ,
+          sameYearSyntheticA,
+        ], sortBy: SaintSortOption.chronologicalAsc);
         expect(tiedChronoAsc.first.name, 'St. Aaron');
         expect(tiedChronoAsc.last.name, 'St. Zachary');
 
@@ -2650,17 +2647,17 @@ void main() {
           nationality: 'English',
           profession: 'Priest',
         );
-        final orderedChronoAsc = SaintDatabase.searchSaints(
-          [sameYearSyntheticA, earlierSynthetic],
-          sortBy: SaintSortOption.chronologicalAsc,
-        );
+        final orderedChronoAsc = SaintDatabase.searchSaints([
+          sameYearSyntheticA,
+          earlierSynthetic,
+        ], sortBy: SaintSortOption.chronologicalAsc);
         expect(orderedChronoAsc.first.name, 'St. Bede');
         expect(orderedChronoAsc.last.name, 'St. Aaron');
 
-        final orderedChronoDesc = SaintDatabase.searchSaints(
-          [earlierSynthetic, sameYearSyntheticA],
-          sortBy: SaintSortOption.chronologicalDesc,
-        );
+        final orderedChronoDesc = SaintDatabase.searchSaints([
+          earlierSynthetic,
+          sameYearSyntheticA,
+        ], sortBy: SaintSortOption.chronologicalDesc);
         expect(orderedChronoDesc.first.name, 'St. Aaron');
         expect(orderedChronoDesc.last.name, 'St. Bede');
       },
