@@ -2473,68 +2473,153 @@ void main() {
       },
     );
 
-    test('searchSaints handles empty and single-element results across all sort options', () {
-      const singleSaint = Saint(
-        id: 'single-saint',
-        name: 'St. Athanasius',
-        nationality: 'Egyptian',
-        profession: 'Bishop & Doctor',
-        isDoctor: true,
-      );
-
-      for (final sortOption in SaintSortOption.values) {
-        final emptyResults = SaintDatabase.searchSaints(
-          const [],
-          sortBy: sortOption,
+    test(
+      'searchSaints handles empty and single-element results across all sort options',
+      () {
+        const singleSaint = Saint(
+          id: 'single-saint',
+          name: 'St. Athanasius',
+          nationality: 'Egyptian',
+          profession: 'Bishop & Doctor',
+          isDoctor: true,
         );
-        expect(emptyResults, isEmpty);
 
-        final singleResults = SaintDatabase.searchSaints(
-          [singleSaint],
-          sortBy: sortOption,
+        for (final sortOption in SaintSortOption.values) {
+          final emptyResults = SaintDatabase.searchSaints(
+            const [],
+            sortBy: sortOption,
+          );
+          expect(emptyResults, isEmpty);
+
+          final singleResults = SaintDatabase.searchSaints(
+            [singleSaint],
+            sortBy: sortOption,
+          );
+          expect(singleResults.length, 1);
+          expect(singleResults.first.id, 'single-saint');
+        }
+      },
+    );
+
+    test(
+      'searchSaints matches category labels lazily and sorts correctly across options',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+
+        // Verify category label search works via lazy iterator
+        final mysticResults = SaintDatabase.searchSaints(
+          saints,
+          query: 'Contemplative',
         );
-        expect(singleResults.length, 1);
-        expect(singleResults.first.id, 'single-saint');
-      }
-    });
-
-    test('searchSaints matches category labels lazily and sorts correctly across options', () async {
-      final saints = await SaintDatabase.loadSaints();
-
-      // Verify category label search works via lazy iterator
-      final mysticResults = SaintDatabase.searchSaints(saints, query: 'Contemplative');
-      expect(mysticResults, isNotEmpty);
-      expect(mysticResults.any((s) => s.categories.contains(SaintCategory.mystic)), isTrue);
-
-      // Verify nameAsc and nameDesc
-      final asc = SaintDatabase.searchSaints(saints, sortBy: SaintSortOption.nameAsc);
-      for (int i = 0; i < asc.length - 1; i++) {
+        expect(mysticResults, isNotEmpty);
         expect(
-          asc[i].name.toLowerCase().compareTo(asc[i + 1].name.toLowerCase()),
-          lessThanOrEqualTo(0),
+          mysticResults.any(
+            (s) => s.categories.contains(SaintCategory.mystic),
+          ),
+          isTrue,
         );
-      }
 
-      final desc = SaintDatabase.searchSaints(saints, sortBy: SaintSortOption.nameDesc);
-      for (int i = 0; i < desc.length - 1; i++) {
-        expect(
-          desc[i].name.toLowerCase().compareTo(desc[i + 1].name.toLowerCase()),
-          greaterThanOrEqualTo(0),
+        // Verify nameAsc and nameDesc
+        final asc = SaintDatabase.searchSaints(
+          saints,
+          sortBy: SaintSortOption.nameAsc,
         );
-      }
+        for (int i = 0; i < asc.length - 1; i++) {
+          expect(
+            asc[i].name.toLowerCase().compareTo(asc[i + 1].name.toLowerCase()),
+            lessThanOrEqualTo(0),
+          );
+        }
 
-      // Verify feastDay, chronological, and doctorsFirst sort without errors
-      final feastSorted = SaintDatabase.searchSaints(saints, sortBy: SaintSortOption.feastDay);
-      expect(feastSorted.length, saints.length);
+        final desc = SaintDatabase.searchSaints(
+          saints,
+          sortBy: SaintSortOption.nameDesc,
+        );
+        for (int i = 0; i < desc.length - 1; i++) {
+          expect(
+            desc[i].name.toLowerCase().compareTo(
+              desc[i + 1].name.toLowerCase(),
+            ),
+            greaterThanOrEqualTo(0),
+          );
+        }
 
-      final chronoAsc = SaintDatabase.searchSaints(saints, sortBy: SaintSortOption.chronologicalAsc);
-      expect(chronoAsc.length, saints.length);
+        // Verify feastDay, chronological, and doctorsFirst sort without errors
+        final feastSorted = SaintDatabase.searchSaints(
+          saints,
+          sortBy: SaintSortOption.feastDay,
+        );
+        expect(feastSorted.length, saints.length);
 
-      final chronoDesc = SaintDatabase.searchSaints(saints, sortBy: SaintSortOption.chronologicalDesc);
-      expect(chronoDesc.length, saints.length);
+        final chronoAsc = SaintDatabase.searchSaints(
+          saints,
+          sortBy: SaintSortOption.chronologicalAsc,
+        );
+        expect(chronoAsc.length, saints.length);
 
-      final doctorsSorted = SaintDatabase.searchSaints(saints, sortBy: SaintSortOption.doctorsFirst);
-      expect(doctorsSorted.first.isDoctor, isTrue);
-    });
+        final chronoDesc = SaintDatabase.searchSaints(
+          saints,
+          sortBy: SaintSortOption.chronologicalDesc,
+        );
+        expect(chronoDesc.length, saints.length);
+
+        final doctorsSorted = SaintDatabase.searchSaints(
+          saints,
+          sortBy: SaintSortOption.doctorsFirst,
+        );
+        expect(doctorsSorted.first.isDoctor, isTrue);
+
+        // Verify chronological tie-breaker: saints with same year break ties
+        // by nameAsc
+        const sameYearSyntheticA = Saint(
+          id: 'synth-a',
+          name: 'St. Aaron',
+          birthDate: '1200',
+          nationality: 'English',
+          profession: 'Bishop',
+        );
+        const sameYearSyntheticZ = Saint(
+          id: 'synth-z',
+          name: 'St. Zachary',
+          birthDate: '1200',
+          nationality: 'English',
+          profession: 'Priest',
+        );
+        final tiedChronoDesc = SaintDatabase.searchSaints(
+          [sameYearSyntheticZ, sameYearSyntheticA],
+          sortBy: SaintSortOption.chronologicalDesc,
+        );
+        expect(tiedChronoDesc.first.name, 'St. Aaron');
+        expect(tiedChronoDesc.last.name, 'St. Zachary');
+
+        final tiedChronoAsc = SaintDatabase.searchSaints(
+          [sameYearSyntheticZ, sameYearSyntheticA],
+          sortBy: SaintSortOption.chronologicalAsc,
+        );
+        expect(tiedChronoAsc.first.name, 'St. Aaron');
+        expect(tiedChronoAsc.last.name, 'St. Zachary');
+
+        const earlierSynthetic = Saint(
+          id: 'synth-early',
+          name: 'St. Bede',
+          birthDate: '700',
+          nationality: 'English',
+          profession: 'Priest',
+        );
+        final orderedChronoAsc = SaintDatabase.searchSaints(
+          [sameYearSyntheticA, earlierSynthetic],
+          sortBy: SaintSortOption.chronologicalAsc,
+        );
+        expect(orderedChronoAsc.first.name, 'St. Bede');
+        expect(orderedChronoAsc.last.name, 'St. Aaron');
+
+        final orderedChronoDesc = SaintDatabase.searchSaints(
+          [earlierSynthetic, sameYearSyntheticA],
+          sortBy: SaintSortOption.chronologicalDesc,
+        );
+        expect(orderedChronoDesc.first.name, 'St. Aaron');
+        expect(orderedChronoDesc.last.name, 'St. Bede');
+      },
+    );
   });
 }
