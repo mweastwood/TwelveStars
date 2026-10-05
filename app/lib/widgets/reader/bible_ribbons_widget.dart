@@ -77,8 +77,7 @@ class BibleRibbonsWidget extends StatelessWidget {
         final String tooltipMessage;
         if (isAssigned) {
           final book =
-              catholicBooksByNumber[bookmark.bookNumber] ??
-              catholicBooks.first;
+              catholicBooksByNumber[bookmark.bookNumber] ?? catholicBooks.first;
           tooltipMessage = '$ribbonName: ${book.bookName} ${bookmark.chapter}';
         } else {
           tooltipMessage =
