@@ -99,7 +99,7 @@ class BibleVerseResolver {
       if (chapter == 31 && verse == 55) {
         return (chapter: 32, verse: 1);
       }
-      if (chapter == 32) {
+      if (chapter == 32 && verse >= 1 && verse <= 32) {
         return (chapter: 32, verse: verse + 1);
       }
       return (chapter: chapter, verse: verse);
@@ -112,6 +112,13 @@ class BibleVerseResolver {
           return (chapter: 7, verse: verse + 25);
         } else if (verse >= 5 && verse <= 32) {
           return (chapter: 8, verse: verse - 4);
+        }
+      }
+      if (chapter == 22) {
+        if (verse == 1) {
+          return (chapter: 21, verse: 37);
+        } else if (verse >= 2 && verse <= 31) {
+          return (chapter: 22, verse: verse - 1);
         }
       }
       return (chapter: chapter, verse: verse);
@@ -369,8 +376,9 @@ class BibleVerseResolver {
     }
 
     // Daniel (32)
+    // Note: DRC Daniel 3:24-90 is the Greek addition (Song of the Three) and has no MT counterpart.
     if (bookNumber == 32) {
-      if (chapter == 3 && verse >= 98 && verse <= 100) {
+      if (chapter == 3 && verse >= 91 && verse <= 100) {
         return (chapter: 3, verse: verse - 67);
       }
       return (chapter: chapter, verse: verse);
@@ -385,6 +393,7 @@ class BibleVerseResolver {
         if (verse >= 1 && verse <= 23) {
           return (chapter: 2, verse: verse + 2);
         } else if (verse == 24) {
+          // DRC Hosea 2:24 is a split of MT 2:25 (both DRC 2:23 and 2:24 map to MT 2:25; reverse maps MT 2:25 -> DRC 2:23).
           return (chapter: 2, verse: 25);
         }
       }
@@ -497,6 +506,12 @@ class BibleVerseResolver {
       }
       if (chapter == 8 && verse >= 1 && verse <= 28) {
         return (chapter: 8, verse: verse + 4);
+      }
+      if (chapter == 21 && verse == 37) {
+        return (chapter: 22, verse: 1);
+      }
+      if (chapter == 22 && verse >= 1 && verse <= 30) {
+        return (chapter: 22, verse: verse + 1);
       }
       return (chapter: chapter, verse: verse);
     }
@@ -756,7 +771,7 @@ class BibleVerseResolver {
 
     // Daniel (32)
     if (bookNumber == 32) {
-      if (chapter == 3 && verse >= 31 && verse <= 33) {
+      if (chapter == 3 && verse >= 24 && verse <= 33) {
         return (chapter: 3, verse: verse + 67);
       }
       return (chapter: chapter, verse: verse);
@@ -768,6 +783,7 @@ class BibleVerseResolver {
         if (verse >= 1 && verse <= 2) {
           return (chapter: 1, verse: verse + 9);
         } else if (verse >= 3 && verse <= 25) {
+          // Note: MT 2:25 maps to DRC 2:23 (DRC 2:24 is also a split of MT 2:25).
           return (chapter: 2, verse: verse - 2);
         }
       }
