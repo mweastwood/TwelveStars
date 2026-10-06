@@ -849,29 +849,65 @@ void main() {
         PrayerDatabase.mockPrayers = null;
       });
 
-      test('syncSundayNotification catches loadSettings error and completes normally', () async {
-        await expectLater(NotificationService.syncSundayNotification(), completes);
-      });
+      test(
+        'syncSundayNotification catches loadSettings error and completes normally',
+        () async {
+          await expectLater(
+            NotificationService.syncSundayNotification(),
+            completes,
+          );
+        },
+      );
 
-      test('syncAngelusNotifications catches loadSettings error and completes normally', () async {
-        await expectLater(NotificationService.syncAngelusNotifications(), completes);
-      });
+      test(
+        'syncAngelusNotifications catches loadSettings error and completes normally',
+        () async {
+          await expectLater(
+            NotificationService.syncAngelusNotifications(),
+            completes,
+          );
+        },
+      );
 
-      test('syncRosaryNotification catches loadSettings error and completes normally', () async {
-        await expectLater(NotificationService.syncRosaryNotification(), completes);
-      });
+      test(
+        'syncRosaryNotification catches loadSettings error and completes normally',
+        () async {
+          await expectLater(
+            NotificationService.syncRosaryNotification(),
+            completes,
+          );
+        },
+      );
 
-      test('syncMorningPrayerNotification catches loadSettings error and completes normally', () async {
-        await expectLater(NotificationService.syncMorningPrayerNotification(), completes);
-      });
+      test(
+        'syncMorningPrayerNotification catches loadSettings error and completes normally',
+        () async {
+          await expectLater(
+            NotificationService.syncMorningPrayerNotification(),
+            completes,
+          );
+        },
+      );
 
-      test('syncNightPrayerNotification catches loadSettings error and completes normally', () async {
-        await expectLater(NotificationService.syncNightPrayerNotification(), completes);
-      });
+      test(
+        'syncNightPrayerNotification catches loadSettings error and completes normally',
+        () async {
+          await expectLater(
+            NotificationService.syncNightPrayerNotification(),
+            completes,
+          );
+        },
+      );
 
-      test('syncAllNotifications catches loadSettings error and completes normally', () async {
-        await expectLater(NotificationService.syncAllNotifications(), completes);
-      });
+      test(
+        'syncAllNotifications catches loadSettings error and completes normally',
+        () async {
+          await expectLater(
+            NotificationService.syncAllNotifications(),
+            completes,
+          );
+        },
+      );
     });
   });
 }
