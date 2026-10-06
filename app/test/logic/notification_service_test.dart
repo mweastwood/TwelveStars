@@ -11,6 +11,12 @@ import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/main.dart';
 
+class ThrowingBibleDatabase extends Fake implements BibleDatabase {
+  @override
+  Future<UserSettings?> getUserSettings() =>
+      Future.error(Exception('Database disk I/O failure'));
+}
+
 class ScheduledNotificationRecord {
   final int id;
   final String? title;
@@ -826,6 +832,80 @@ void main() {
           );
           await tester.pump();
           expect(NotificationService.syncAllCallCount, equals(2));
+        },
+      );
+    });
+
+    group('Error Handling & Fault Tolerance', () {
+      setUp(() {
+        BibleDatabaseHelper.db = ThrowingBibleDatabase();
+        PrayerDatabase.mockSettings = null;
+        PrayerDatabase.mockPrayers = null;
+      });
+
+      tearDown(() {
+        BibleDatabaseHelper.db = null;
+        PrayerDatabase.mockSettings = null;
+        PrayerDatabase.mockPrayers = null;
+      });
+
+      test(
+        'syncSundayNotification catches loadSettings error and completes normally',
+        () async {
+          await expectLater(
+            NotificationService.syncSundayNotification(),
+            completes,
+          );
+        },
+      );
+
+      test(
+        'syncAngelusNotifications catches loadSettings error and completes normally',
+        () async {
+          await expectLater(
+            NotificationService.syncAngelusNotifications(),
+            completes,
+          );
+        },
+      );
+
+      test(
+        'syncRosaryNotification catches loadSettings error and completes normally',
+        () async {
+          await expectLater(
+            NotificationService.syncRosaryNotification(),
+            completes,
+          );
+        },
+      );
+
+      test(
+        'syncMorningPrayerNotification catches loadSettings error and completes normally',
+        () async {
+          await expectLater(
+            NotificationService.syncMorningPrayerNotification(),
+            completes,
+          );
+        },
+      );
+
+      test(
+        'syncNightPrayerNotification catches loadSettings error and completes normally',
+        () async {
+          await expectLater(
+            NotificationService.syncNightPrayerNotification(),
+            completes,
+          );
+        },
+      );
+
+      test(
+        'syncAllNotifications catches loadSettings error and completes normally',
+        () async {
+          await expectLater(
+            NotificationService.syncAllNotifications(),
+            completes,
+          );
         },
       );
     });
