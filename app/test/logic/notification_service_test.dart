@@ -119,6 +119,7 @@ void main() {
     NotificationService.mockPlugin = null;
     NotificationService.isInitialized = false;
     NotificationService.syncAllCallCount = 0;
+    NotificationService.onSyncAll = null;
     PrayerDatabase.mockSettings = null;
   });
 
@@ -680,9 +681,50 @@ void main() {
           );
         }
       });
+
+      test('invokes onSyncAll hook when synchronizing', () async {
+        int hookCalls = 0;
+        NotificationService.onSyncAll = () {
+          hookCalls++;
+        };
+
+        final settings = UserSettings(
+          sundayNotificationsEnabled: false,
+          angelusReminderEnabled: false,
+          rosaryReminderEnabled: false,
+        );
+
+        await NotificationService.syncAllNotifications(settings);
+        expect(hookCalls, equals(1));
+      });
+
+      test(
+        'completes safely without throwing even if initialization or database throws',
+        () async {
+          NotificationService.mockPlugin = null;
+          NotificationService.isInitialized = false;
+
+          await expectLater(
+            NotificationService.syncAllNotifications(),
+            completes,
+          );
+        },
+      );
     });
 
     group('Lifecycle Resync in TwelveStarsApp', () {
+      setUp(() {
+        NotificationService.syncAllCallCount = 0;
+        NotificationService.onSyncAll = () {
+          NotificationService.syncAllCallCount++;
+        };
+      });
+
+      tearDown(() {
+        NotificationService.onSyncAll = null;
+        NotificationService.syncAllCallCount = 0;
+      });
+
       testWidgets(
         'calls syncAllNotifications on init and on resumed lifecycle state',
         (tester) async {
@@ -691,8 +733,6 @@ void main() {
             angelusReminderEnabled: false,
             rosaryReminderEnabled: false,
           );
-
-          NotificationService.syncAllCallCount = 0;
 
           await tester.pumpWidget(const TwelveStarsApp());
           await tester.pump();

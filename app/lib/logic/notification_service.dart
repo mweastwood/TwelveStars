@@ -10,23 +10,18 @@ import 'package:timezone/data/latest_all.dart' as tz;
 
 class NotificationService {
   static const int kSundayNotificationLegacyId = 1001;
-  static const int kSundayNotificationId = kSundayNotificationLegacyId;
   static const int kSundayNotificationBaseId = 1010;
   static const int kSundayRollingWeeks = 6;
 
   static const int kAngelusMorningLegacyId = 2001;
   static const int kAngelusMiddayLegacyId = 2002;
   static const int kAngelusEveningLegacyId = 2003;
-  static const int kAngelusMorningNotificationId = kAngelusMorningLegacyId;
-  static const int kAngelusMiddayNotificationId = kAngelusMiddayLegacyId;
-  static const int kAngelusEveningNotificationId = kAngelusEveningLegacyId;
   static const int kAngelusMorningBaseId = 2100;
   static const int kAngelusMiddayBaseId = 2200;
   static const int kAngelusEveningBaseId = 2300;
   static const int kAngelusRollingDays = 14;
 
   static const int kRosaryNotificationLegacyId = 2004;
-  static const int kRosaryNotificationId = kRosaryNotificationLegacyId;
   static const int kRosaryNotificationBaseId = 2400; // IDs 2401..2407 for weekdays 1..7
 
   static const int kMorningPrayerNotificationId = 2005;
@@ -36,6 +31,9 @@ class NotificationService {
   static final FlutterLocalNotificationsPlugin _notificationsPlugin =
       FlutterLocalNotificationsPlugin();
   static bool _isInitialized = false;
+
+  @visibleForTesting
+  static VoidCallback? onSyncAll;
 
   @visibleForTesting
   static int syncAllCallCount = 0;
@@ -629,13 +627,18 @@ class NotificationService {
     UserSettings? settings,
     DateTime? fromDate,
   ]) async {
-    syncAllCallCount++;
+    onSyncAll?.call();
     if (kIsWeb) return;
-    final userSettings = settings ?? await PrayerDatabase.loadSettings();
-    await syncSundayNotification(userSettings, fromDate);
-    await syncAngelusNotifications(userSettings, fromDate);
-    await syncRosaryNotification(userSettings, fromDate);
-    await syncMorningPrayerNotification(userSettings);
-    await syncNightPrayerNotification(userSettings);
+    try {
+      await initialize();
+      final userSettings = settings ?? await PrayerDatabase.loadSettings();
+      await syncSundayNotification(userSettings, fromDate);
+      await syncAngelusNotifications(userSettings, fromDate);
+      await syncRosaryNotification(userSettings, fromDate);
+      await syncMorningPrayerNotification(userSettings);
+      await syncNightPrayerNotification(userSettings);
+    } catch (e, stack) {
+      debugPrint('NotificationService syncAllNotifications error: $e\n$stack');
+    }
   }
 }

@@ -93,7 +93,13 @@ class _TwelveStarsAppState extends State<TwelveStarsApp>
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     _loadThemeSetting();
-    unawaited(NotificationService.syncAllNotifications());
+    unawaited(
+      NotificationService.syncAllNotifications().catchError((e, stack) {
+        debugPrint(
+          'Error during NotificationService.syncAllNotifications in initState: $e\n$stack',
+        );
+      }),
+    );
   }
 
   @override
@@ -105,7 +111,13 @@ class _TwelveStarsAppState extends State<TwelveStarsApp>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      unawaited(NotificationService.syncAllNotifications());
+      unawaited(
+        NotificationService.syncAllNotifications().catchError((e, stack) {
+          debugPrint(
+            'Error during NotificationService.syncAllNotifications in didChangeAppLifecycleState: $e\n$stack',
+          );
+        }),
+      );
     }
   }
 
