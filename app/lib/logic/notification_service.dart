@@ -22,7 +22,8 @@ class NotificationService {
   static const int kAngelusRollingDays = 14;
 
   static const int kRosaryNotificationLegacyId = 2004;
-  static const int kRosaryNotificationBaseId = 2400; // IDs 2401..2407 for weekdays 1..7
+  static const int kRosaryNotificationBaseId =
+      2400; // IDs 2401..2407 for weekdays 1..7
 
   static const int kMorningPrayerNotificationId = 2005;
   static const int kNightPrayerNotificationId = 2006;
@@ -350,7 +351,11 @@ class NotificationService {
 
       if (!userSettings.sundayNotificationsEnabled) {
         await plugin.cancel(id: kSundayNotificationLegacyId);
-        for (int weekOffset = 0; weekOffset < kSundayRollingWeeks; weekOffset++) {
+        for (
+          int weekOffset = 0;
+          weekOffset < kSundayRollingWeeks;
+          weekOffset++
+        ) {
           await plugin.cancel(id: kSundayNotificationBaseId + weekOffset);
         }
         return;
@@ -372,8 +377,7 @@ class NotificationService {
         final androidDetails = AndroidNotificationDetails(
           'sunday_liturgical_season',
           'Sunday Liturgical Season',
-          channelDescription:
-              'Subtle weekly notification showing the current liturgical season and color accent',
+          channelDescription: 'Subtle weekly notification showing the current liturgical season and color accent',
           importance: Importance.defaultImportance,
           priority: Priority.defaultPriority,
           color: liturgicalDay.colorWidget,
@@ -418,7 +422,9 @@ class NotificationService {
               androidScheduleMode: AndroidScheduleMode.inexact,
             );
           } catch (e, stack) {
-            debugPrint('NotificationService inexact schedule error: $e\n$stack');
+            debugPrint(
+              'NotificationService inexact schedule error: $e\n$stack',
+            );
           }
         }
       }
@@ -450,7 +456,11 @@ class NotificationService {
         await plugin.cancel(id: legacyId);
         if (enabled) {
           final firstOccurrence = nextDailyTime(hour, minute, fromDate);
-          for (int dayOffset = 0; dayOffset < kAngelusRollingDays; dayOffset++) {
+          for (
+            int dayOffset = 0;
+            dayOffset < kAngelusRollingDays;
+            dayOffset++
+          ) {
             final targetDate = tz.TZDateTime(
               tz.local,
               firstOccurrence.year,
@@ -471,7 +481,11 @@ class NotificationService {
             );
           }
         } else {
-          for (int dayOffset = 0; dayOffset < kAngelusRollingDays; dayOffset++) {
+          for (
+            int dayOffset = 0;
+            dayOffset < kAngelusRollingDays;
+            dayOffset++
+          ) {
             await plugin.cancel(id: baseId + dayOffset);
           }
         }
