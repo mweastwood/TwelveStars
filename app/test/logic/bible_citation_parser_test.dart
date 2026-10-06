@@ -1461,10 +1461,27 @@ void main() {
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
           bookNumber: 11,
+          chapter: 3,
+          verse: 1,
+        ),
+        equals((chapter: 3, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 11,
+          chapter: 3,
+          verse: 1,
+        ),
+        equals((chapter: 3, verse: 1)),
+      );
+      // Divergent 1 Kings 4:21-34 -> MT 5:1-14
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 11,
           chapter: 4,
           verse: 21,
         ),
-        equals((chapter: 4, verse: 21)),
+        equals((chapter: 5, verse: 1)),
       );
       expect(
         BibleVerseResolver.masoreticToVulgateVerse(
@@ -1472,23 +1489,23 @@ void main() {
           chapter: 5,
           verse: 1,
         ),
-        equals((chapter: 5, verse: 1)),
+        equals((chapter: 4, verse: 21)),
       );
 
-      // 5. 1 Chronicles (13) - identical versification in CPDV and Modern Christian Bibles
+      // 5. 1 Chronicles (13)
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
           bookNumber: 13,
           chapter: 6,
           verse: 1,
         ),
-        equals((chapter: 6, verse: 1)),
+        equals((chapter: 5, verse: 27)),
       );
       expect(
         BibleVerseResolver.masoreticToVulgateVerse(
           bookNumber: 13,
-          chapter: 6,
-          verse: 1,
+          chapter: 5,
+          verse: 27,
         ),
         equals((chapter: 6, verse: 1)),
       );
@@ -1498,31 +1515,31 @@ void main() {
           chapter: 6,
           verse: 16,
         ),
-        equals((chapter: 6, verse: 16)),
+        equals((chapter: 6, verse: 1)),
       );
       expect(
         BibleVerseResolver.masoreticToVulgateVerse(
           bookNumber: 13,
           chapter: 6,
-          verse: 16,
+          verse: 1,
         ),
         equals((chapter: 6, verse: 16)),
       );
 
-      // 6. Nehemiah (16) - identical versification in CPDV and Modern Christian Bibles
+      // 6. Nehemiah (16)
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
           bookNumber: 16,
           chapter: 4,
           verse: 1,
         ),
-        equals((chapter: 4, verse: 1)),
+        equals((chapter: 3, verse: 33)),
       );
       expect(
         BibleVerseResolver.masoreticToVulgateVerse(
           bookNumber: 16,
-          chapter: 4,
-          verse: 1,
+          chapter: 3,
+          verse: 33,
         ),
         equals((chapter: 4, verse: 1)),
       );
@@ -1532,13 +1549,13 @@ void main() {
           chapter: 4,
           verse: 7,
         ),
-        equals((chapter: 4, verse: 7)),
+        equals((chapter: 4, verse: 1)),
       );
       expect(
         BibleVerseResolver.masoreticToVulgateVerse(
           bookNumber: 16,
           chapter: 4,
-          verse: 7,
+          verse: 1,
         ),
         equals((chapter: 4, verse: 7)),
       );
@@ -1547,10 +1564,26 @@ void main() {
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
           bookNumber: 33,
+          chapter: 1,
+          verse: 10,
+        ),
+        equals((chapter: 2, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 33,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 1, verse: 10)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 33,
           chapter: 2,
           verse: 24,
         ),
-        equals((chapter: 2, verse: 23)),
+        equals((chapter: 2, verse: 25)),
       );
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
@@ -1585,20 +1618,20 @@ void main() {
         equals((chapter: 14, verse: 2)),
       );
 
-      // 8. Joel (34) - identical versification in CPDV and Modern Christian Bibles
+      // 8. Joel (34)
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
           bookNumber: 34,
           chapter: 2,
           verse: 28,
         ),
-        equals((chapter: 2, verse: 28)),
+        equals((chapter: 3, verse: 1)),
       );
       expect(
         BibleVerseResolver.masoreticToVulgateVerse(
           bookNumber: 34,
-          chapter: 2,
-          verse: 28,
+          chapter: 3,
+          verse: 1,
         ),
         equals((chapter: 2, verse: 28)),
       );
@@ -1608,12 +1641,12 @@ void main() {
           chapter: 3,
           verse: 1,
         ),
-        equals((chapter: 3, verse: 1)),
+        equals((chapter: 4, verse: 1)),
       );
       expect(
         BibleVerseResolver.masoreticToVulgateVerse(
           bookNumber: 34,
-          chapter: 3,
+          chapter: 4,
           verse: 1,
         ),
         equals((chapter: 3, verse: 1)),
@@ -1653,28 +1686,12 @@ void main() {
         equals((chapter: 2, verse: 2)),
       );
 
-      // 10. Zechariah (43) - identical versification in CPDV and Modern Christian Bibles
+      // 10. Zechariah (43)
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
           bookNumber: 43,
           chapter: 1,
           verse: 18,
-        ),
-        equals((chapter: 1, verse: 18)),
-      );
-      expect(
-        BibleVerseResolver.masoreticToVulgateVerse(
-          bookNumber: 43,
-          chapter: 1,
-          verse: 18,
-        ),
-        equals((chapter: 1, verse: 18)),
-      );
-      expect(
-        BibleVerseResolver.vulgateToMasoreticVerse(
-          bookNumber: 43,
-          chapter: 2,
-          verse: 1,
         ),
         equals((chapter: 2, verse: 1)),
       );
@@ -1683,32 +1700,32 @@ void main() {
           bookNumber: 43,
           chapter: 2,
           verse: 1,
+        ),
+        equals((chapter: 1, verse: 18)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 43,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 2, verse: 5)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 43,
+          chapter: 2,
+          verse: 5,
         ),
         equals((chapter: 2, verse: 1)),
       );
 
-      // 11. Malachi (44) - identical versification in CPDV and Modern Christian Bibles
+      // 11. Malachi (44)
       expect(
         BibleVerseResolver.vulgateToMasoreticVerse(
           bookNumber: 44,
           chapter: 4,
           verse: 1,
-        ),
-        equals((chapter: 4, verse: 1)),
-      );
-      expect(
-        BibleVerseResolver.masoreticToVulgateVerse(
-          bookNumber: 44,
-          chapter: 4,
-          verse: 1,
-        ),
-        equals((chapter: 4, verse: 1)),
-      );
-      expect(
-        BibleVerseResolver.vulgateToMasoreticVerse(
-          bookNumber: 44,
-          chapter: 3,
-          verse: 19,
         ),
         equals((chapter: 3, verse: 19)),
       );
@@ -1718,8 +1735,1431 @@ void main() {
           chapter: 3,
           verse: 19,
         ),
-        equals((chapter: 3, verse: 19)),
+        equals((chapter: 4, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 44,
+          chapter: 3,
+          verse: 18,
+        ),
+        equals((chapter: 3, verse: 18)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 44,
+          chapter: 3,
+          verse: 18,
+        ),
+        equals((chapter: 3, verse: 18)),
+      );
+
+      // 12. Genesis (1)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 1,
+          chapter: 31,
+          verse: 55,
+        ),
+        equals((chapter: 32, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 1,
+          chapter: 32,
+          verse: 1,
+        ),
+        equals((chapter: 31, verse: 55)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 1,
+          chapter: 32,
+          verse: 1,
+        ),
+        equals((chapter: 32, verse: 2)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 1,
+          chapter: 32,
+          verse: 2,
+        ),
+        equals((chapter: 32, verse: 1)),
+      );
+
+      // 13. Exodus (2)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 2,
+          chapter: 8,
+          verse: 1,
+        ),
+        equals((chapter: 7, verse: 26)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 2,
+          chapter: 7,
+          verse: 26,
+        ),
+        equals((chapter: 8, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 2,
+          chapter: 8,
+          verse: 5,
+        ),
+        equals((chapter: 8, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 2,
+          chapter: 8,
+          verse: 1,
+        ),
+        equals((chapter: 8, verse: 5)),
+      );
+      // Exodus 22 mapping
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 2,
+          chapter: 22,
+          verse: 1,
+        ),
+        equals((chapter: 21, verse: 37)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 2,
+          chapter: 21,
+          verse: 37,
+        ),
+        equals((chapter: 22, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 2,
+          chapter: 22,
+          verse: 2,
+        ),
+        equals((chapter: 22, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 2,
+          chapter: 22,
+          verse: 1,
+        ),
+        equals((chapter: 22, verse: 2)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 2,
+          chapter: 22,
+          verse: 31,
+        ),
+        equals((chapter: 22, verse: 30)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 2,
+          chapter: 22,
+          verse: 30,
+        ),
+        equals((chapter: 22, verse: 31)),
+      );
+
+      // 14. Leviticus (3)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 3,
+          chapter: 6,
+          verse: 1,
+        ),
+        equals((chapter: 5, verse: 20)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 3,
+          chapter: 5,
+          verse: 20,
+        ),
+        equals((chapter: 6, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 3,
+          chapter: 6,
+          verse: 8,
+        ),
+        equals((chapter: 6, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 3,
+          chapter: 6,
+          verse: 1,
+        ),
+        equals((chapter: 6, verse: 8)),
+      );
+
+      // 15. Numbers (4)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 4,
+          chapter: 16,
+          verse: 36,
+        ),
+        equals((chapter: 17, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 4,
+          chapter: 17,
+          verse: 1,
+        ),
+        equals((chapter: 16, verse: 36)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 4,
+          chapter: 17,
+          verse: 1,
+        ),
+        equals((chapter: 17, verse: 16)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 4,
+          chapter: 17,
+          verse: 16,
+        ),
+        equals((chapter: 17, verse: 1)),
+      );
+
+      // 16. Deuteronomy (5)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 5,
+          chapter: 12,
+          verse: 32,
+        ),
+        equals((chapter: 13, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 5,
+          chapter: 13,
+          verse: 1,
+        ),
+        equals((chapter: 12, verse: 32)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 5,
+          chapter: 22,
+          verse: 30,
+        ),
+        equals((chapter: 23, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 5,
+          chapter: 23,
+          verse: 1,
+        ),
+        equals((chapter: 22, verse: 30)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 5,
+          chapter: 29,
+          verse: 1,
+        ),
+        equals((chapter: 28, verse: 69)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 5,
+          chapter: 28,
+          verse: 69,
+        ),
+        equals((chapter: 29, verse: 1)),
+      );
+
+      // 17. 1 Samuel (9)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 9,
+          chapter: 20,
+          verse: 43,
+        ),
+        equals((chapter: 21, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 9,
+          chapter: 21,
+          verse: 1,
+        ),
+        equals((chapter: 20, verse: 43)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 9,
+          chapter: 21,
+          verse: 1,
+        ),
+        equals((chapter: 21, verse: 2)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 9,
+          chapter: 21,
+          verse: 2,
+        ),
+        equals((chapter: 21, verse: 1)),
+      );
+
+      // 18. 2 Samuel (10)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 10,
+          chapter: 18,
+          verse: 33,
+        ),
+        equals((chapter: 19, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 10,
+          chapter: 19,
+          verse: 1,
+        ),
+        equals((chapter: 18, verse: 33)),
+      );
+
+      // 19. 2 Kings (12)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 12,
+          chapter: 11,
+          verse: 21,
+        ),
+        equals((chapter: 12, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 12,
+          chapter: 12,
+          verse: 1,
+        ),
+        equals((chapter: 11, verse: 21)),
+      );
+
+      // 20. 2 Chronicles (14)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 14,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 1, verse: 18)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 14,
+          chapter: 1,
+          verse: 18,
+        ),
+        equals((chapter: 2, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 14,
+          chapter: 14,
+          verse: 1,
+        ),
+        equals((chapter: 13, verse: 23)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 14,
+          chapter: 13,
+          verse: 23,
+        ),
+        equals((chapter: 14, verse: 1)),
+      );
+
+      // 21. Isaiah (27)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 27,
+          chapter: 9,
+          verse: 1,
+        ),
+        equals((chapter: 8, verse: 23)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 27,
+          chapter: 8,
+          verse: 23,
+        ),
+        equals((chapter: 9, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 27,
+          chapter: 64,
+          verse: 1,
+        ),
+        equals((chapter: 63, verse: 19)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 27,
+          chapter: 64,
+          verse: 2,
+        ),
+        equals((chapter: 64, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 27,
+          chapter: 64,
+          verse: 1,
+        ),
+        equals((chapter: 64, verse: 2)),
+      );
+
+      // 22. Ezekiel (31)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 31,
+          chapter: 20,
+          verse: 45,
+        ),
+        equals((chapter: 21, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 31,
+          chapter: 21,
+          verse: 1,
+        ),
+        equals((chapter: 20, verse: 45)),
+      );
+
+      // 23. Daniel (32)
+      // Narrative continuation: DRC 3:91-97 -> MT 3:24-30
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 32,
+          chapter: 3,
+          verse: 91,
+        ),
+        equals((chapter: 3, verse: 24)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 32,
+          chapter: 3,
+          verse: 24,
+        ),
+        equals((chapter: 3, verse: 91)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 32,
+          chapter: 3,
+          verse: 97,
+        ),
+        equals((chapter: 3, verse: 30)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 32,
+          chapter: 3,
+          verse: 30,
+        ),
+        equals((chapter: 3, verse: 97)),
+      );
+      // DRC 3:98-100 -> MT 3:31-33
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 32,
+          chapter: 3,
+          verse: 98,
+        ),
+        equals((chapter: 3, verse: 31)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 32,
+          chapter: 3,
+          verse: 31,
+        ),
+        equals((chapter: 3, verse: 98)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 32,
+          chapter: 3,
+          verse: 100,
+        ),
+        equals((chapter: 3, verse: 33)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 32,
+          chapter: 3,
+          verse: 33,
+        ),
+        equals((chapter: 3, verse: 100)),
+      );
+      // DRC Greek addition (3:24-90) falls through as unmapped identity
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 32,
+          chapter: 3,
+          verse: 24,
+        ),
+        equals((chapter: 3, verse: 24)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 32,
+          chapter: 3,
+          verse: 90,
+        ),
+        equals((chapter: 3, verse: 90)),
+      );
+
+      // 24. Micah (38)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 38,
+          chapter: 5,
+          verse: 1,
+        ),
+        equals((chapter: 4, verse: 14)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 38,
+          chapter: 4,
+          verse: 14,
+        ),
+        equals((chapter: 5, verse: 1)),
+      );
+
+      // 25. Nahum (39)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 39,
+          chapter: 1,
+          verse: 15,
+        ),
+        equals((chapter: 2, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 39,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 1, verse: 15)),
+      );
+
+      // 26. Jeremiah (28)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 28,
+          chapter: 9,
+          verse: 1,
+        ),
+        equals((chapter: 8, verse: 23)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 28,
+          chapter: 8,
+          verse: 23,
+        ),
+        equals((chapter: 9, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 28,
+          chapter: 9,
+          verse: 2,
+        ),
+        equals((chapter: 9, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 28,
+          chapter: 9,
+          verse: 1,
+        ),
+        equals((chapter: 9, verse: 2)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 28,
+          chapter: 37,
+          verse: 11,
+        ),
+        equals((chapter: 37, verse: 11)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 28,
+          chapter: 37,
+          verse: 11,
+        ),
+        equals((chapter: 37, verse: 11)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 28,
+          chapter: 37,
+          verse: 12,
+        ),
+        equals((chapter: 37, verse: 13)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 28,
+          chapter: 37,
+          verse: 13,
+        ),
+        equals((chapter: 37, verse: 12)),
+      );
+
+      // 27. Haggai (42)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 42,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 1, verse: 15)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 42,
+          chapter: 1,
+          verse: 15,
+        ),
+        equals((chapter: 2, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 42,
+          chapter: 2,
+          verse: 2,
+        ),
+        equals((chapter: 2, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 42,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 2, verse: 2)),
       );
     });
+
+    test(
+      'pins Hosea 2:23 and 2:24 non-injective split round-trip behavior',
+      () {
+        // DRC Hosea 2:23 maps to MT 2:25
+        final mt23 = BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 33,
+          chapter: 2,
+          verse: 23,
+        );
+        expect(mt23, equals((chapter: 2, verse: 25)));
+
+        // DRC Hosea 2:24 also maps to MT 2:25 (split verse)
+        final mt24 = BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 33,
+          chapter: 2,
+          verse: 24,
+        );
+        expect(mt24, equals((chapter: 2, verse: 25)));
+
+        // MT 2:25 maps back to DRC 2:23
+        final drcFromMt = BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 33,
+          chapter: 2,
+          verse: 25,
+        );
+        expect(drcFromMt, equals((chapter: 2, verse: 23)));
+
+        // Round-trip of 2:23 returns 2:23
+        expect(
+          BibleVerseResolver.masoreticToVulgateVerse(
+            bookNumber: 33,
+            chapter: mt23.chapter,
+            verse: mt23.verse,
+          ),
+          equals((chapter: 2, verse: 23)),
+        );
+
+        // Round-trip of 2:24 returns 2:23 due to non-injective split
+        expect(
+          BibleVerseResolver.masoreticToVulgateVerse(
+            bookNumber: 33,
+            chapter: mt24.chapter,
+            verse: mt24.verse,
+          ),
+          equals((chapter: 2, verse: 23)),
+        );
+      },
+    );
+
+    test(
+      'pins Jeremiah 37:11 and 37:12 non-injective merged round-trip behavior',
+      () {
+        // DRC Jeremiah 37:11 maps to MT 37:11
+        final mt11 = BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 28,
+          chapter: 37,
+          verse: 11,
+        );
+        expect(mt11, equals((chapter: 37, verse: 11)));
+
+        // MT 37:11 maps back to DRC 37:11
+        expect(
+          BibleVerseResolver.masoreticToVulgateVerse(
+            bookNumber: 28,
+            chapter: 37,
+            verse: 11,
+          ),
+          equals((chapter: 37, verse: 11)),
+        );
+
+        // MT 37:12 also maps back to DRC 37:11 (merged verse)
+        expect(
+          BibleVerseResolver.masoreticToVulgateVerse(
+            bookNumber: 28,
+            chapter: 37,
+            verse: 12,
+          ),
+          equals((chapter: 37, verse: 11)),
+        );
+      },
+    );
+
+    test('pins Isaiah 64:1 non-injective round-trip behavior', () {
+      // DRC Isaiah 64:1 maps to MT 63:19
+      final mt = BibleVerseResolver.vulgateToMasoreticVerse(
+        bookNumber: 27,
+        chapter: 64,
+        verse: 1,
+      );
+      expect(mt, equals((chapter: 63, verse: 19)));
+
+      // MT 63:19 maps back to DRC 63:19
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 27,
+          chapter: 63,
+          verse: 19,
+        ),
+        equals((chapter: 63, verse: 19)),
+      );
+    });
+
+    test(
+      'boundary tests for verse range transitions and out-of-range guards',
+      () {
+        void assertDrcToMt(int book, int ch, int v, int expCh, int expV) {
+          expect(
+            BibleVerseResolver.vulgateToMasoreticVerse(
+              bookNumber: book,
+              chapter: ch,
+              verse: v,
+            ),
+            equals((chapter: expCh, verse: expV)),
+            reason: 'DRC $book $ch:$v -> MT $expCh:$expV',
+          );
+        }
+
+        void assertMtToDrc(int book, int ch, int v, int expCh, int expV) {
+          expect(
+            BibleVerseResolver.masoreticToVulgateVerse(
+              bookNumber: book,
+              chapter: ch,
+              verse: v,
+            ),
+            equals((chapter: expCh, verse: expV)),
+            reason: 'MT $book $ch:$v -> DRC $expCh:$expV',
+          );
+        }
+
+        // Genesis (1)
+        assertDrcToMt(1, 31, 54, 31, 54);
+        assertDrcToMt(1, 31, 55, 32, 1);
+        assertDrcToMt(1, 32, 1, 32, 2);
+        assertDrcToMt(1, 32, 32, 32, 33);
+        assertDrcToMt(1, 32, 33, 32, 33); // Out-of-range guard check
+        assertMtToDrc(1, 32, 1, 31, 55);
+        assertMtToDrc(1, 32, 2, 32, 1);
+        assertMtToDrc(1, 32, 33, 32, 32);
+        assertMtToDrc(1, 32, 34, 32, 34);
+
+        // Exodus (2)
+        assertDrcToMt(2, 8, 4, 7, 29);
+        assertDrcToMt(2, 8, 5, 8, 1);
+        assertDrcToMt(2, 8, 32, 8, 28);
+        assertDrcToMt(2, 8, 33, 8, 33);
+        assertDrcToMt(2, 22, 1, 21, 37);
+        assertDrcToMt(2, 22, 2, 22, 1);
+        assertDrcToMt(2, 22, 31, 22, 30);
+        assertDrcToMt(2, 22, 32, 22, 32);
+        assertMtToDrc(2, 7, 25, 7, 25);
+        assertMtToDrc(2, 7, 26, 8, 1);
+        assertMtToDrc(2, 7, 29, 8, 4);
+        assertMtToDrc(2, 7, 30, 7, 30);
+        assertMtToDrc(2, 8, 1, 8, 5);
+        assertMtToDrc(2, 8, 28, 8, 32);
+        assertMtToDrc(2, 8, 29, 8, 29);
+        assertMtToDrc(2, 21, 36, 21, 36);
+        assertMtToDrc(2, 21, 37, 22, 1);
+        assertMtToDrc(2, 21, 38, 21, 38);
+        assertMtToDrc(2, 22, 1, 22, 2);
+        assertMtToDrc(2, 22, 30, 22, 31);
+        assertMtToDrc(2, 22, 31, 22, 31);
+
+        // Leviticus (3)
+        assertDrcToMt(3, 6, 7, 5, 26);
+        assertDrcToMt(3, 6, 8, 6, 1);
+        assertDrcToMt(3, 6, 30, 6, 23);
+        assertDrcToMt(3, 6, 31, 6, 31);
+        assertMtToDrc(3, 5, 19, 5, 19);
+        assertMtToDrc(3, 5, 20, 6, 1);
+        assertMtToDrc(3, 5, 26, 6, 7);
+        assertMtToDrc(3, 5, 27, 5, 27);
+        assertMtToDrc(3, 6, 1, 6, 8);
+        assertMtToDrc(3, 6, 23, 6, 30);
+        assertMtToDrc(3, 6, 24, 6, 24);
+
+        // Numbers (4)
+        assertDrcToMt(4, 16, 35, 16, 35);
+        assertDrcToMt(4, 16, 36, 17, 1);
+        assertDrcToMt(4, 16, 50, 17, 15);
+        assertDrcToMt(4, 16, 51, 16, 51);
+        assertDrcToMt(4, 17, 1, 17, 16);
+        assertDrcToMt(4, 17, 13, 17, 28);
+        assertDrcToMt(4, 17, 14, 17, 14);
+        assertMtToDrc(4, 17, 1, 16, 36);
+        assertMtToDrc(4, 17, 15, 16, 50);
+        assertMtToDrc(4, 17, 16, 17, 1);
+        assertMtToDrc(4, 17, 28, 17, 13);
+        assertMtToDrc(4, 17, 29, 17, 29);
+
+        // Deuteronomy (5)
+        assertDrcToMt(5, 12, 31, 12, 31);
+        assertDrcToMt(5, 12, 32, 13, 1);
+        assertDrcToMt(5, 12, 33, 12, 33);
+        assertDrcToMt(5, 13, 18, 13, 19);
+        assertDrcToMt(5, 13, 19, 13, 19);
+        assertDrcToMt(5, 22, 29, 22, 29);
+        assertDrcToMt(5, 22, 30, 23, 1);
+        assertDrcToMt(5, 22, 31, 22, 31);
+        assertDrcToMt(5, 23, 25, 23, 26);
+        assertDrcToMt(5, 23, 26, 23, 26);
+        assertDrcToMt(5, 29, 1, 28, 69);
+        assertDrcToMt(5, 29, 29, 29, 28);
+        assertDrcToMt(5, 29, 30, 29, 30);
+        assertMtToDrc(5, 13, 1, 12, 32);
+        assertMtToDrc(5, 13, 19, 13, 18);
+        assertMtToDrc(5, 13, 20, 13, 20);
+        assertMtToDrc(5, 23, 1, 22, 30);
+        assertMtToDrc(5, 23, 26, 23, 25);
+        assertMtToDrc(5, 23, 27, 23, 27);
+        assertMtToDrc(5, 28, 69, 29, 1);
+        assertMtToDrc(5, 28, 70, 28, 70);
+        assertMtToDrc(5, 29, 28, 29, 29);
+        assertMtToDrc(5, 29, 29, 29, 29);
+
+        // 1 Samuel (9)
+        assertDrcToMt(9, 20, 42, 20, 42);
+        assertDrcToMt(9, 20, 43, 21, 1);
+        assertDrcToMt(9, 20, 44, 20, 44);
+        assertDrcToMt(9, 21, 15, 21, 16);
+        assertDrcToMt(9, 21, 16, 21, 16);
+        assertMtToDrc(9, 21, 1, 20, 43);
+        assertMtToDrc(9, 21, 16, 21, 15);
+        assertMtToDrc(9, 21, 17, 21, 17);
+
+        // 2 Samuel (10)
+        assertDrcToMt(10, 18, 32, 18, 32);
+        assertDrcToMt(10, 18, 33, 19, 1);
+        assertDrcToMt(10, 18, 34, 18, 34);
+        assertDrcToMt(10, 19, 43, 19, 44);
+        assertDrcToMt(10, 19, 44, 19, 44);
+        assertMtToDrc(10, 19, 1, 18, 33);
+        assertMtToDrc(10, 19, 44, 19, 43);
+        assertMtToDrc(10, 19, 45, 19, 45);
+
+        // 1 Kings (11)
+        assertDrcToMt(11, 4, 20, 4, 20);
+        assertDrcToMt(11, 4, 21, 5, 1);
+        assertDrcToMt(11, 4, 34, 5, 14);
+        assertDrcToMt(11, 4, 35, 4, 35);
+        assertDrcToMt(11, 5, 1, 5, 15);
+        assertDrcToMt(11, 5, 18, 5, 32);
+        assertDrcToMt(11, 5, 19, 5, 19);
+        assertDrcToMt(11, 22, 44, 22, 43);
+        assertDrcToMt(11, 22, 54, 22, 53);
+        assertDrcToMt(11, 22, 55, 22, 55);
+        assertMtToDrc(11, 5, 1, 4, 21);
+        assertMtToDrc(11, 5, 14, 4, 34);
+        assertMtToDrc(11, 5, 15, 5, 1);
+        assertMtToDrc(11, 5, 32, 5, 18);
+        assertMtToDrc(11, 5, 33, 5, 33);
+        assertMtToDrc(11, 22, 43, 22, 43);
+        assertMtToDrc(11, 22, 44, 22, 45);
+        assertMtToDrc(11, 22, 53, 22, 54);
+        assertMtToDrc(11, 22, 54, 22, 54);
+
+        // 2 Kings (12)
+        assertDrcToMt(12, 11, 20, 11, 20);
+        assertDrcToMt(12, 11, 21, 12, 1);
+        assertDrcToMt(12, 11, 22, 11, 22);
+        assertDrcToMt(12, 12, 21, 12, 22);
+        assertDrcToMt(12, 12, 22, 12, 22);
+        assertMtToDrc(12, 12, 1, 11, 21);
+        assertMtToDrc(12, 12, 22, 12, 21);
+        assertMtToDrc(12, 12, 23, 12, 23);
+
+        // 1 Chronicles (13)
+        assertDrcToMt(13, 6, 15, 5, 41);
+        assertDrcToMt(13, 6, 16, 6, 1);
+        assertDrcToMt(13, 6, 81, 6, 66);
+        assertDrcToMt(13, 6, 82, 6, 82);
+        assertMtToDrc(13, 5, 26, 5, 26);
+        assertMtToDrc(13, 5, 27, 6, 1);
+        assertMtToDrc(13, 5, 41, 6, 15);
+        assertMtToDrc(13, 5, 42, 5, 42);
+        assertMtToDrc(13, 6, 1, 6, 16);
+        assertMtToDrc(13, 6, 66, 6, 81);
+        assertMtToDrc(13, 6, 67, 6, 67);
+
+        // 2 Chronicles (14)
+        assertDrcToMt(14, 2, 1, 1, 18);
+        assertDrcToMt(14, 2, 2, 2, 1);
+        assertDrcToMt(14, 2, 18, 2, 17);
+        assertDrcToMt(14, 2, 19, 2, 19);
+        assertDrcToMt(14, 14, 1, 13, 23);
+        assertDrcToMt(14, 14, 2, 14, 1);
+        assertDrcToMt(14, 14, 15, 14, 14);
+        assertDrcToMt(14, 14, 16, 14, 16);
+        assertMtToDrc(14, 1, 18, 2, 1);
+        assertMtToDrc(14, 1, 19, 1, 19);
+        assertMtToDrc(14, 2, 1, 2, 2);
+        assertMtToDrc(14, 2, 17, 2, 18);
+        assertMtToDrc(14, 2, 18, 2, 18);
+        assertMtToDrc(14, 13, 23, 14, 1);
+        assertMtToDrc(14, 13, 24, 13, 24);
+        assertMtToDrc(14, 14, 1, 14, 2);
+        assertMtToDrc(14, 14, 14, 14, 15);
+        assertMtToDrc(14, 14, 15, 14, 15);
+
+        // Nehemiah (16)
+        assertDrcToMt(16, 4, 6, 3, 38);
+        assertDrcToMt(16, 4, 7, 4, 1);
+        assertDrcToMt(16, 4, 23, 4, 17);
+        assertDrcToMt(16, 4, 24, 4, 24);
+        assertMtToDrc(16, 3, 32, 3, 32);
+        assertMtToDrc(16, 3, 33, 4, 1);
+        assertMtToDrc(16, 3, 38, 4, 6);
+        assertMtToDrc(16, 3, 39, 3, 39);
+        assertMtToDrc(16, 4, 1, 4, 7);
+        assertMtToDrc(16, 4, 17, 4, 23);
+        assertMtToDrc(16, 4, 18, 4, 18);
+
+        // Job (20)
+        assertDrcToMt(20, 39, 30, 39, 30);
+        assertDrcToMt(20, 39, 31, 40, 1);
+        assertDrcToMt(20, 39, 35, 40, 5);
+        assertDrcToMt(20, 39, 36, 39, 36);
+        assertDrcToMt(20, 40, 1, 40, 6);
+        assertDrcToMt(20, 40, 19, 40, 24);
+        assertDrcToMt(20, 40, 20, 41, 1);
+        assertDrcToMt(20, 40, 28, 41, 9);
+        assertDrcToMt(20, 40, 29, 40, 29);
+        assertDrcToMt(20, 41, 1, 41, 10);
+        assertDrcToMt(20, 41, 25, 41, 34);
+        assertDrcToMt(20, 41, 26, 41, 26);
+        assertMtToDrc(20, 40, 1, 39, 31);
+        assertMtToDrc(20, 40, 5, 39, 35);
+        assertMtToDrc(20, 40, 6, 40, 1);
+        assertMtToDrc(20, 40, 24, 40, 19);
+        assertMtToDrc(20, 40, 25, 40, 25);
+        assertMtToDrc(20, 41, 1, 40, 20);
+        assertMtToDrc(20, 41, 9, 40, 28);
+        assertMtToDrc(20, 41, 10, 41, 1);
+        assertMtToDrc(20, 41, 34, 41, 25);
+        assertMtToDrc(20, 41, 35, 41, 35);
+
+        // Ecclesiastes (23)
+        assertDrcToMt(23, 4, 16, 4, 16);
+        assertDrcToMt(23, 4, 17, 5, 1);
+        assertDrcToMt(23, 4, 18, 4, 18);
+        assertDrcToMt(23, 5, 1, 5, 2);
+        assertDrcToMt(23, 5, 19, 5, 20);
+        assertDrcToMt(23, 5, 20, 5, 20);
+        assertMtToDrc(23, 5, 1, 4, 17);
+        assertMtToDrc(23, 5, 2, 5, 1);
+        assertMtToDrc(23, 5, 20, 5, 19);
+        assertMtToDrc(23, 5, 21, 5, 21);
+
+        // Canticle of Canticles (24)
+        assertDrcToMt(24, 7, 1, 6, 13);
+        assertDrcToMt(24, 7, 2, 7, 1);
+        assertDrcToMt(24, 7, 13, 7, 12);
+        assertDrcToMt(24, 7, 14, 7, 14);
+        assertMtToDrc(24, 6, 13, 7, 1);
+        assertMtToDrc(24, 7, 1, 7, 2);
+        assertMtToDrc(24, 7, 12, 7, 13);
+        assertMtToDrc(24, 7, 13, 7, 13);
+
+        // Isaiah (27)
+        assertDrcToMt(27, 9, 1, 8, 23);
+        assertDrcToMt(27, 9, 2, 9, 1);
+        assertDrcToMt(27, 9, 21, 9, 20);
+        assertDrcToMt(27, 9, 22, 9, 22);
+        assertDrcToMt(27, 64, 1, 63, 19);
+        assertDrcToMt(27, 64, 2, 64, 1);
+        assertDrcToMt(27, 64, 12, 64, 11);
+        assertDrcToMt(27, 64, 13, 64, 13);
+        assertMtToDrc(27, 8, 22, 8, 22);
+        assertMtToDrc(27, 8, 23, 9, 1);
+        assertMtToDrc(27, 8, 24, 8, 24);
+        assertMtToDrc(27, 9, 1, 9, 2);
+        assertMtToDrc(27, 9, 20, 9, 21);
+        assertMtToDrc(27, 9, 21, 9, 21);
+        assertMtToDrc(27, 63, 18, 63, 18);
+        assertMtToDrc(27, 63, 19, 63, 19);
+        assertMtToDrc(27, 63, 20, 63, 20);
+        assertMtToDrc(27, 64, 1, 64, 2);
+        assertMtToDrc(27, 64, 11, 64, 12);
+        assertMtToDrc(27, 64, 12, 64, 12);
+
+        // Jeremiah (28)
+        assertDrcToMt(28, 9, 1, 8, 23);
+        assertDrcToMt(28, 9, 2, 9, 1);
+        assertDrcToMt(28, 9, 26, 9, 25);
+        assertDrcToMt(28, 9, 27, 9, 27);
+        assertDrcToMt(28, 37, 10, 37, 10);
+        assertDrcToMt(28, 37, 11, 37, 11);
+        assertDrcToMt(28, 37, 12, 37, 13);
+        assertDrcToMt(28, 37, 20, 37, 21);
+        assertDrcToMt(28, 37, 21, 37, 21);
+        assertMtToDrc(28, 8, 22, 8, 22);
+        assertMtToDrc(28, 8, 23, 9, 1);
+        assertMtToDrc(28, 8, 24, 8, 24);
+        assertMtToDrc(28, 9, 1, 9, 2);
+        assertMtToDrc(28, 9, 25, 9, 26);
+        assertMtToDrc(28, 9, 26, 9, 26);
+        assertMtToDrc(28, 37, 10, 37, 10);
+        assertMtToDrc(28, 37, 11, 37, 11);
+        assertMtToDrc(28, 37, 12, 37, 11);
+        assertMtToDrc(28, 37, 13, 37, 12);
+        assertMtToDrc(28, 37, 21, 37, 20);
+        assertMtToDrc(28, 37, 22, 37, 22);
+
+        // Ezekiel (31)
+        assertDrcToMt(31, 20, 44, 20, 44);
+        assertDrcToMt(31, 20, 45, 21, 1);
+        assertDrcToMt(31, 20, 49, 21, 5);
+        assertDrcToMt(31, 20, 50, 20, 50);
+        assertDrcToMt(31, 21, 1, 21, 6);
+        assertDrcToMt(31, 21, 32, 21, 37);
+        assertDrcToMt(31, 21, 33, 21, 33);
+        assertMtToDrc(31, 21, 1, 20, 45);
+        assertMtToDrc(31, 21, 5, 20, 49);
+        assertMtToDrc(31, 21, 6, 21, 1);
+        assertMtToDrc(31, 21, 37, 21, 32);
+        assertMtToDrc(31, 21, 38, 21, 38);
+
+        // Daniel (32)
+        assertDrcToMt(32, 3, 90, 3, 90);
+        assertDrcToMt(32, 3, 91, 3, 24);
+        assertDrcToMt(32, 3, 97, 3, 30);
+        assertDrcToMt(32, 3, 98, 3, 31);
+        assertDrcToMt(32, 3, 100, 3, 33);
+        assertDrcToMt(32, 3, 101, 3, 101);
+        assertMtToDrc(32, 3, 23, 3, 23);
+        assertMtToDrc(32, 3, 24, 3, 91);
+        assertMtToDrc(32, 3, 30, 3, 97);
+        assertMtToDrc(32, 3, 31, 3, 98);
+        assertMtToDrc(32, 3, 33, 3, 100);
+        assertMtToDrc(32, 3, 34, 3, 34);
+
+        // Hosea (33)
+        assertDrcToMt(33, 1, 9, 1, 9);
+        assertDrcToMt(33, 1, 10, 2, 1);
+        assertDrcToMt(33, 1, 11, 2, 2);
+        assertDrcToMt(33, 1, 12, 1, 12);
+        assertDrcToMt(33, 2, 1, 2, 3);
+        assertDrcToMt(33, 2, 23, 2, 25);
+        assertDrcToMt(33, 2, 24, 2, 25);
+        assertDrcToMt(33, 2, 25, 2, 25);
+        assertDrcToMt(33, 11, 11, 11, 11);
+        assertDrcToMt(33, 11, 12, 12, 1);
+        assertDrcToMt(33, 11, 13, 11, 13);
+        assertDrcToMt(33, 12, 1, 12, 2);
+        assertDrcToMt(33, 12, 14, 12, 15);
+        assertDrcToMt(33, 12, 15, 12, 15);
+        assertDrcToMt(33, 14, 1, 13, 16);
+        assertDrcToMt(33, 14, 2, 14, 1);
+        assertDrcToMt(33, 14, 10, 14, 9);
+        assertDrcToMt(33, 14, 11, 14, 11);
+        assertMtToDrc(33, 2, 1, 1, 10);
+        assertMtToDrc(33, 2, 2, 1, 11);
+        assertMtToDrc(33, 2, 3, 2, 1);
+        assertMtToDrc(33, 2, 25, 2, 23);
+        assertMtToDrc(33, 2, 26, 2, 26);
+        assertMtToDrc(33, 12, 1, 11, 12);
+        assertMtToDrc(33, 12, 2, 12, 1);
+        assertMtToDrc(33, 12, 15, 12, 14);
+        assertMtToDrc(33, 12, 16, 12, 16);
+        assertMtToDrc(33, 13, 15, 13, 15);
+        assertMtToDrc(33, 13, 16, 14, 1);
+        assertMtToDrc(33, 13, 17, 13, 17);
+        assertMtToDrc(33, 14, 1, 14, 2);
+        assertMtToDrc(33, 14, 9, 14, 10);
+        assertMtToDrc(33, 14, 10, 14, 10);
+
+        // Joel (34)
+        assertDrcToMt(34, 2, 27, 2, 27);
+        assertDrcToMt(34, 2, 28, 3, 1);
+        assertDrcToMt(34, 2, 32, 3, 5);
+        assertDrcToMt(34, 2, 33, 2, 33);
+        assertDrcToMt(34, 3, 1, 4, 1);
+        assertDrcToMt(34, 3, 21, 4, 21);
+        assertDrcToMt(34, 3, 22, 3, 22);
+        assertMtToDrc(34, 3, 1, 2, 28);
+        assertMtToDrc(34, 3, 5, 2, 32);
+        assertMtToDrc(34, 3, 6, 3, 6);
+        assertMtToDrc(34, 4, 1, 3, 1);
+        assertMtToDrc(34, 4, 21, 3, 21);
+        assertMtToDrc(34, 4, 22, 4, 22);
+
+        // Jonah (37)
+        assertDrcToMt(37, 2, 1, 1, 17);
+        assertDrcToMt(37, 2, 2, 2, 1);
+        assertDrcToMt(37, 2, 11, 2, 10);
+        assertDrcToMt(37, 2, 12, 2, 12);
+        assertMtToDrc(37, 1, 16, 1, 16);
+        assertMtToDrc(37, 1, 17, 2, 1);
+        assertMtToDrc(37, 1, 18, 1, 18);
+        assertMtToDrc(37, 2, 1, 2, 2);
+        assertMtToDrc(37, 2, 10, 2, 11);
+        assertMtToDrc(37, 2, 11, 2, 11);
+
+        // Micah (38)
+        assertDrcToMt(38, 5, 1, 4, 14);
+        assertDrcToMt(38, 5, 2, 5, 1);
+        assertDrcToMt(38, 5, 10, 5, 9);
+        assertDrcToMt(38, 5, 11, 5, 10);
+        assertDrcToMt(38, 5, 12, 5, 12);
+        assertDrcToMt(38, 5, 14, 5, 14);
+        assertMtToDrc(38, 4, 13, 4, 13);
+        assertMtToDrc(38, 4, 14, 5, 1);
+        assertMtToDrc(38, 4, 15, 4, 15);
+        assertMtToDrc(38, 5, 1, 5, 2);
+        assertMtToDrc(38, 5, 9, 5, 10);
+        assertMtToDrc(38, 5, 10, 5, 11);
+        assertMtToDrc(38, 5, 11, 5, 11);
+        assertMtToDrc(38, 5, 12, 5, 12);
+        assertMtToDrc(38, 5, 14, 5, 14);
+
+        // Nahum (39)
+        assertDrcToMt(39, 1, 14, 1, 14);
+        assertDrcToMt(39, 1, 15, 2, 1);
+        assertDrcToMt(39, 1, 16, 1, 16);
+        assertDrcToMt(39, 2, 1, 2, 2);
+        assertDrcToMt(39, 2, 13, 2, 14);
+        assertDrcToMt(39, 2, 14, 2, 14);
+        assertMtToDrc(39, 2, 1, 1, 15);
+        assertMtToDrc(39, 2, 2, 2, 1);
+        assertMtToDrc(39, 2, 14, 2, 13);
+        assertMtToDrc(39, 2, 15, 2, 15);
+
+        // Haggai (42)
+        assertDrcToMt(42, 2, 1, 1, 15);
+        assertDrcToMt(42, 2, 2, 2, 1);
+        assertDrcToMt(42, 2, 24, 2, 23);
+        assertDrcToMt(42, 2, 25, 2, 25);
+        assertMtToDrc(42, 1, 14, 1, 14);
+        assertMtToDrc(42, 1, 15, 2, 1);
+        assertMtToDrc(42, 1, 16, 1, 16);
+        assertMtToDrc(42, 2, 1, 2, 2);
+        assertMtToDrc(42, 2, 23, 2, 24);
+        assertMtToDrc(42, 2, 24, 2, 24);
+
+        // Zechariah (43)
+        assertDrcToMt(43, 1, 17, 1, 17);
+        assertDrcToMt(43, 1, 18, 2, 1);
+        assertDrcToMt(43, 1, 21, 2, 4);
+        assertDrcToMt(43, 1, 22, 1, 22);
+        assertDrcToMt(43, 2, 1, 2, 5);
+        assertDrcToMt(43, 2, 13, 2, 17);
+        assertDrcToMt(43, 2, 14, 2, 14);
+        assertMtToDrc(43, 2, 1, 1, 18);
+        assertMtToDrc(43, 2, 4, 1, 21);
+        assertMtToDrc(43, 2, 5, 2, 1);
+        assertMtToDrc(43, 2, 17, 2, 13);
+        assertMtToDrc(43, 2, 18, 2, 18);
+
+        // Malachi (44)
+        assertDrcToMt(44, 3, 18, 3, 18);
+        assertDrcToMt(44, 4, 1, 3, 19);
+        assertDrcToMt(44, 4, 6, 3, 24);
+        assertDrcToMt(44, 4, 7, 4, 7);
+        assertMtToDrc(44, 3, 18, 3, 18);
+        assertMtToDrc(44, 3, 19, 4, 1);
+        assertMtToDrc(44, 3, 24, 4, 6);
+        assertMtToDrc(44, 3, 25, 3, 25);
+      },
+    );
+
+    test(
+      'table-driven round-trip verification across all mapped Old Testament ranges',
+      () {
+        final mappedRanges = <int, List<({int chapter, int start, int end})>>{
+          // Genesis (1)
+          1: [
+            (chapter: 31, start: 55, end: 55),
+            (chapter: 32, start: 1, end: 32),
+          ],
+          // Exodus (2)
+          2: [
+            (chapter: 8, start: 1, end: 4),
+            (chapter: 8, start: 5, end: 32),
+            (chapter: 22, start: 1, end: 1),
+            (chapter: 22, start: 2, end: 31),
+          ],
+          // Leviticus (3)
+          3: [(chapter: 6, start: 1, end: 7), (chapter: 6, start: 8, end: 30)],
+          // Numbers (4)
+          4: [
+            (chapter: 16, start: 36, end: 50),
+            (chapter: 17, start: 1, end: 13),
+          ],
+          // Deuteronomy (5)
+          5: [
+            (chapter: 12, start: 32, end: 32),
+            (chapter: 13, start: 1, end: 18),
+            (chapter: 22, start: 30, end: 30),
+            (chapter: 23, start: 1, end: 25),
+            (chapter: 29, start: 1, end: 1),
+            (chapter: 29, start: 2, end: 29),
+          ],
+          // 1 Samuel (9)
+          9: [
+            (chapter: 20, start: 43, end: 43),
+            (chapter: 21, start: 1, end: 15),
+          ],
+          // 2 Samuel (10)
+          10: [
+            (chapter: 18, start: 33, end: 33),
+            (chapter: 19, start: 1, end: 43),
+          ],
+          // 1 Kings (11)
+          11: [
+            (chapter: 4, start: 21, end: 34),
+            (chapter: 5, start: 1, end: 18),
+            (chapter: 22, start: 44, end: 44),
+            (chapter: 22, start: 45, end: 54),
+          ],
+          // 2 Kings (12)
+          12: [
+            (chapter: 11, start: 21, end: 21),
+            (chapter: 12, start: 1, end: 21),
+          ],
+          // 1 Chronicles (13)
+          13: [
+            (chapter: 6, start: 1, end: 15),
+            (chapter: 6, start: 16, end: 81),
+          ],
+          // 2 Chronicles (14)
+          14: [
+            (chapter: 2, start: 1, end: 1),
+            (chapter: 2, start: 2, end: 18),
+            (chapter: 14, start: 1, end: 1),
+            (chapter: 14, start: 2, end: 15),
+          ],
+          // Nehemiah (16)
+          16: [(chapter: 4, start: 1, end: 6), (chapter: 4, start: 7, end: 23)],
+          // Job (20)
+          20: [
+            (chapter: 39, start: 31, end: 35),
+            (chapter: 40, start: 1, end: 19),
+            (chapter: 40, start: 20, end: 28),
+            (chapter: 41, start: 1, end: 25),
+          ],
+          // Ecclesiastes (23)
+          23: [
+            (chapter: 4, start: 17, end: 17),
+            (chapter: 5, start: 1, end: 19),
+          ],
+          // Canticle of Canticles (24)
+          24: [(chapter: 7, start: 1, end: 1), (chapter: 7, start: 2, end: 13)],
+          // Isaiah (27)
+          27: [
+            (chapter: 9, start: 1, end: 1),
+            (chapter: 9, start: 2, end: 21),
+            (chapter: 64, start: 1, end: 12),
+          ],
+          // Jeremiah (28)
+          28: [
+            (chapter: 9, start: 1, end: 26),
+            (chapter: 37, start: 11, end: 20),
+          ],
+          // Ezekiel (31)
+          31: [
+            (chapter: 20, start: 45, end: 49),
+            (chapter: 21, start: 1, end: 32),
+          ],
+          // Daniel (32)
+          32: [(chapter: 3, start: 91, end: 100)],
+          // Hosea (33)
+          33: [
+            (chapter: 1, start: 10, end: 11),
+            (chapter: 2, start: 1, end: 23),
+            (chapter: 2, start: 24, end: 24),
+            (chapter: 11, start: 12, end: 12),
+            (chapter: 12, start: 1, end: 14),
+            (chapter: 14, start: 1, end: 1),
+            (chapter: 14, start: 2, end: 10),
+          ],
+          // Joel (34)
+          34: [
+            (chapter: 2, start: 28, end: 32),
+            (chapter: 3, start: 1, end: 21),
+          ],
+          // Jonah (37)
+          37: [(chapter: 2, start: 1, end: 1), (chapter: 2, start: 2, end: 11)],
+          // Micah (38)
+          38: [(chapter: 5, start: 1, end: 1), (chapter: 5, start: 2, end: 11)],
+          // Nahum (39)
+          39: [
+            (chapter: 1, start: 15, end: 15),
+            (chapter: 2, start: 1, end: 13),
+          ],
+          // Haggai (42)
+          42: [(chapter: 2, start: 1, end: 24)],
+          // Zechariah (43)
+          43: [
+            (chapter: 1, start: 18, end: 21),
+            (chapter: 2, start: 1, end: 13),
+          ],
+          // Malachi (44)
+          44: [(chapter: 4, start: 1, end: 6)],
+        };
+
+        var totalVersesTested = 0;
+
+        for (final entry in mappedRanges.entries) {
+          final bookNumber = entry.key;
+          for (final range in entry.value) {
+            for (var v = range.start; v <= range.end; v++) {
+              totalVersesTested++;
+              final mt = BibleVerseResolver.vulgateToMasoreticVerse(
+                bookNumber: bookNumber,
+                chapter: range.chapter,
+                verse: v,
+              );
+
+              // Forward mapping must shift (or map) the verse
+              if (bookNumber == 28 && range.chapter == 37 && v == 11) {
+                // DRC 37:11 maps to MT 37:11 (merges MT 37:11-12)
+                expect(mt, equals((chapter: 37, verse: 11)));
+              } else {
+                expect(
+                  mt,
+                  isNot(equals((chapter: range.chapter, verse: v))),
+                  reason:
+                      'Book $bookNumber ${range.chapter}:$v should have a distinct Masoretic mapping',
+                );
+              }
+
+              // Reverse mapping: masoreticToVulgate(vulgateToMasoretic(x))
+              final vBack = BibleVerseResolver.masoreticToVulgateVerse(
+                bookNumber: bookNumber,
+                chapter: mt.chapter,
+                verse: mt.verse,
+              );
+
+              // Pinned non-injective exceptions
+              if (bookNumber == 33 && range.chapter == 2 && v == 24) {
+                // Hosea 2:24 is a split of MT 2:25; MT 2:25 maps back to DRC 2:23
+                expect(
+                  vBack,
+                  equals((chapter: 2, verse: 23)),
+                  reason: 'Hosea 2:24 round-trip expected exception',
+                );
+              } else if (bookNumber == 11 && range.chapter == 22 && v == 44) {
+                // 1 Kings 22:44 maps to MT 22:43; MT 22:43 maps back to DRC 22:43
+                expect(
+                  vBack,
+                  equals((chapter: 22, verse: 43)),
+                  reason: '1 Kings 22:44 round-trip expected exception',
+                );
+              } else if (bookNumber == 27 && range.chapter == 64 && v == 1) {
+                // DRC 64:1 maps to MT 63:19; MT 63:19 maps back to DRC 63:19
+                expect(
+                  vBack,
+                  equals((chapter: 63, verse: 19)),
+                  reason: 'Isaiah 64:1 round-trip expected exception',
+                );
+              } else if (bookNumber == 28 && range.chapter == 37 && v == 11) {
+                // DRC 37:11 maps to MT 37:11; MT 37:11 maps back to DRC 37:11
+                expect(
+                  vBack,
+                  equals((chapter: 37, verse: 11)),
+                  reason: 'Jeremiah 37:11 round-trip expected exception',
+                );
+              } else {
+                expect(
+                  vBack,
+                  equals((chapter: range.chapter, verse: v)),
+                  reason:
+                      'Round trip failed for book $bookNumber ${range.chapter}:$v -> MT ${mt.chapter}:${mt.verse}',
+                );
+              }
+
+              // Injective MT back to DRC must preserve MT when mapped forward again
+              final mtBack = BibleVerseResolver.vulgateToMasoreticVerse(
+                bookNumber: bookNumber,
+                chapter: vBack.chapter,
+                verse: vBack.verse,
+              );
+              expect(
+                mtBack,
+                equals(mt),
+                reason:
+                    'MT consistency failed for book $bookNumber MT ${mt.chapter}:${mt.verse}',
+              );
+            }
+          }
+        }
+
+        // Assert that all ranges across the 26 non-psalm divergent books were verified
+        expect(totalVersesTested, greaterThan(400));
+      },
+    );
   });
 }
