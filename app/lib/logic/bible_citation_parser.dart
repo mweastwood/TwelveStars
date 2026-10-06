@@ -441,9 +441,13 @@ class BibleVerseResolver {
       if (chapter == 5) {
         if (verse == 1) {
           return (chapter: 4, verse: 14);
-        } else if (verse >= 2 && verse <= 15) {
+        } else if (verse >= 2 && verse <= 10) {
           return (chapter: 5, verse: verse - 1);
+        } else if (verse == 11) {
+          // DRC Micah 5:11 combines MT 5:10 and 5:11; maps to MT 5:10.
+          return (chapter: 5, verse: 10);
         }
+        // Verses 12-14 re-align with MT 5:12-14 (no shift).
       }
       return (chapter: chapter, verse: verse);
     }
@@ -830,8 +834,14 @@ class BibleVerseResolver {
       if (chapter == 4 && verse == 14) {
         return (chapter: 5, verse: 1);
       }
-      if (chapter == 5 && verse >= 1 && verse <= 14) {
-        return (chapter: 5, verse: verse + 1);
+      if (chapter == 5) {
+        if (verse >= 1 && verse <= 9) {
+          return (chapter: 5, verse: verse + 1);
+        } else if (verse == 10 || verse == 11) {
+          // MT 5:10 and 5:11 are merged into DRC 5:11.
+          return (chapter: 5, verse: 11);
+        }
+        // Verses 12-14 re-align with DRC 5:12-14 (no shift).
       }
       return (chapter: chapter, verse: verse);
     }

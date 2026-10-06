@@ -2661,14 +2661,19 @@ void main() {
         // Micah (38)
         assertDrcToMt(38, 5, 1, 4, 14);
         assertDrcToMt(38, 5, 2, 5, 1);
-        assertDrcToMt(38, 5, 15, 5, 14);
-        assertDrcToMt(38, 5, 16, 5, 16);
+        assertDrcToMt(38, 5, 10, 5, 9);
+        assertDrcToMt(38, 5, 11, 5, 10);
+        assertDrcToMt(38, 5, 12, 5, 12);
+        assertDrcToMt(38, 5, 14, 5, 14);
         assertMtToDrc(38, 4, 13, 4, 13);
         assertMtToDrc(38, 4, 14, 5, 1);
         assertMtToDrc(38, 4, 15, 4, 15);
         assertMtToDrc(38, 5, 1, 5, 2);
-        assertMtToDrc(38, 5, 14, 5, 15);
-        assertMtToDrc(38, 5, 15, 5, 15);
+        assertMtToDrc(38, 5, 9, 5, 10);
+        assertMtToDrc(38, 5, 10, 5, 11);
+        assertMtToDrc(38, 5, 11, 5, 11);
+        assertMtToDrc(38, 5, 12, 5, 12);
+        assertMtToDrc(38, 5, 14, 5, 14);
 
         // Nahum (39)
         assertDrcToMt(39, 1, 14, 1, 14);
@@ -2817,7 +2822,7 @@ void main() {
           // Jonah (37)
           37: [(chapter: 2, start: 1, end: 1), (chapter: 2, start: 2, end: 11)],
           // Micah (38)
-          38: [(chapter: 5, start: 1, end: 1), (chapter: 5, start: 2, end: 15)],
+          38: [(chapter: 5, start: 1, end: 1), (chapter: 5, start: 2, end: 11)],
           // Nahum (39)
           39: [
             (chapter: 1, start: 15, end: 15),
