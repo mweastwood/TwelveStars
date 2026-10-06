@@ -361,6 +361,32 @@ class BibleVerseResolver {
           return (chapter: 9, verse: verse - 1);
         }
       }
+      if (chapter == 64) {
+        if (verse == 1) {
+          return (chapter: 63, verse: 19);
+        } else if (verse >= 2 && verse <= 12) {
+          return (chapter: 64, verse: verse - 1);
+        }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Jeremiah (28)
+    if (bookNumber == 28) {
+      if (chapter == 9) {
+        if (verse == 1) {
+          return (chapter: 8, verse: 23);
+        } else if (verse >= 2 && verse <= 26) {
+          return (chapter: 9, verse: verse - 1);
+        }
+      }
+      if (chapter == 37) {
+        if (verse == 11) {
+          return (chapter: 37, verse: 11);
+        } else if (verse >= 12 && verse <= 20) {
+          return (chapter: 37, verse: verse + 1);
+        }
+      }
       return (chapter: chapter, verse: verse);
     }
 
@@ -459,6 +485,18 @@ class BibleVerseResolver {
       }
       if (chapter == 2 && verse >= 1 && verse <= 13) {
         return (chapter: 2, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Haggai (42)
+    if (bookNumber == 42) {
+      if (chapter == 2) {
+        if (verse == 1) {
+          return (chapter: 1, verse: 15);
+        } else if (verse >= 2 && verse <= 24) {
+          return (chapter: 2, verse: verse - 1);
+        }
       }
       return (chapter: chapter, verse: verse);
     }
@@ -758,6 +796,31 @@ class BibleVerseResolver {
       if (chapter == 9 && verse >= 1 && verse <= 20) {
         return (chapter: 9, verse: verse + 1);
       }
+      if (chapter == 63 && verse == 19) {
+        // MT 63:19 contains both DRC 63:19 and DRC 64:1; reverse maps to DRC 63:19.
+        return (chapter: 63, verse: 19);
+      }
+      if (chapter == 64 && verse >= 1 && verse <= 11) {
+        return (chapter: 64, verse: verse + 1);
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Jeremiah (28)
+    if (bookNumber == 28) {
+      if (chapter == 8 && verse == 23) {
+        return (chapter: 9, verse: 1);
+      }
+      if (chapter == 9 && verse >= 1 && verse <= 25) {
+        return (chapter: 9, verse: verse + 1);
+      }
+      if (chapter == 37) {
+        if (verse == 11 || verse == 12) {
+          return (chapter: 37, verse: 11);
+        } else if (verse >= 13 && verse <= 21) {
+          return (chapter: 37, verse: verse - 1);
+        }
+      }
       return (chapter: chapter, verse: verse);
     }
 
@@ -854,6 +917,17 @@ class BibleVerseResolver {
         } else if (verse >= 2 && verse <= 14) {
           return (chapter: 2, verse: verse - 1);
         }
+      }
+      return (chapter: chapter, verse: verse);
+    }
+
+    // Haggai (42)
+    if (bookNumber == 42) {
+      if (chapter == 1 && verse == 15) {
+        return (chapter: 2, verse: 1);
+      }
+      if (chapter == 2 && verse >= 1 && verse <= 23) {
+        return (chapter: 2, verse: verse + 1);
       }
       return (chapter: chapter, verse: verse);
     }

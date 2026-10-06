@@ -2110,6 +2110,30 @@ void main() {
         ),
         equals((chapter: 9, verse: 1)),
       );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 27,
+          chapter: 64,
+          verse: 1,
+        ),
+        equals((chapter: 63, verse: 19)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 27,
+          chapter: 64,
+          verse: 2,
+        ),
+        equals((chapter: 64, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 27,
+          chapter: 64,
+          verse: 1,
+        ),
+        equals((chapter: 64, verse: 2)),
+      );
 
       // 22. Ezekiel (31)
       expect(
@@ -2249,6 +2273,106 @@ void main() {
         ),
         equals((chapter: 1, verse: 15)),
       );
+
+      // 26. Jeremiah (28)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 28,
+          chapter: 9,
+          verse: 1,
+        ),
+        equals((chapter: 8, verse: 23)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 28,
+          chapter: 8,
+          verse: 23,
+        ),
+        equals((chapter: 9, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 28,
+          chapter: 9,
+          verse: 2,
+        ),
+        equals((chapter: 9, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 28,
+          chapter: 9,
+          verse: 1,
+        ),
+        equals((chapter: 9, verse: 2)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 28,
+          chapter: 37,
+          verse: 11,
+        ),
+        equals((chapter: 37, verse: 11)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 28,
+          chapter: 37,
+          verse: 11,
+        ),
+        equals((chapter: 37, verse: 11)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 28,
+          chapter: 37,
+          verse: 12,
+        ),
+        equals((chapter: 37, verse: 13)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 28,
+          chapter: 37,
+          verse: 13,
+        ),
+        equals((chapter: 37, verse: 12)),
+      );
+
+      // 27. Haggai (42)
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 42,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 1, verse: 15)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 42,
+          chapter: 1,
+          verse: 15,
+        ),
+        equals((chapter: 2, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 42,
+          chapter: 2,
+          verse: 2,
+        ),
+        equals((chapter: 2, verse: 1)),
+      );
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 42,
+          chapter: 2,
+          verse: 1,
+        ),
+        equals((chapter: 2, verse: 2)),
+      );
     });
 
     test(
@@ -2296,6 +2420,62 @@ void main() {
             verse: mt24.verse,
           ),
           equals((chapter: 2, verse: 23)),
+        );
+      },
+    );
+
+    test(
+      'pins Jeremiah 37:11 and 37:12 non-injective merged round-trip behavior',
+      () {
+        // DRC Jeremiah 37:11 maps to MT 37:11
+        final mt11 = BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 28,
+          chapter: 37,
+          verse: 11,
+        );
+        expect(mt11, equals((chapter: 37, verse: 11)));
+
+        // MT 37:11 maps back to DRC 37:11
+        expect(
+          BibleVerseResolver.masoreticToVulgateVerse(
+            bookNumber: 28,
+            chapter: 37,
+            verse: 11,
+          ),
+          equals((chapter: 37, verse: 11)),
+        );
+
+        // MT 37:12 also maps back to DRC 37:11 (merged verse)
+        expect(
+          BibleVerseResolver.masoreticToVulgateVerse(
+            bookNumber: 28,
+            chapter: 37,
+            verse: 12,
+          ),
+          equals((chapter: 37, verse: 11)),
+        );
+      },
+    );
+
+    test(
+      'pins Isaiah 64:1 non-injective round-trip behavior',
+      () {
+        // DRC Isaiah 64:1 maps to MT 63:19
+        final mt = BibleVerseResolver.vulgateToMasoreticVerse(
+          bookNumber: 27,
+          chapter: 64,
+          verse: 1,
+        );
+        expect(mt, equals((chapter: 63, verse: 19)));
+
+        // MT 63:19 maps back to DRC 63:19
+        expect(
+          BibleVerseResolver.masoreticToVulgateVerse(
+            bookNumber: 27,
+            chapter: 63,
+            verse: 19,
+          ),
+          equals((chapter: 63, verse: 19)),
         );
       },
     );
@@ -2561,12 +2741,45 @@ void main() {
         assertDrcToMt(27, 9, 2, 9, 1);
         assertDrcToMt(27, 9, 21, 9, 20);
         assertDrcToMt(27, 9, 22, 9, 22);
+        assertDrcToMt(27, 64, 1, 63, 19);
+        assertDrcToMt(27, 64, 2, 64, 1);
+        assertDrcToMt(27, 64, 12, 64, 11);
+        assertDrcToMt(27, 64, 13, 64, 13);
         assertMtToDrc(27, 8, 22, 8, 22);
         assertMtToDrc(27, 8, 23, 9, 1);
         assertMtToDrc(27, 8, 24, 8, 24);
         assertMtToDrc(27, 9, 1, 9, 2);
         assertMtToDrc(27, 9, 20, 9, 21);
         assertMtToDrc(27, 9, 21, 9, 21);
+        assertMtToDrc(27, 63, 18, 63, 18);
+        assertMtToDrc(27, 63, 19, 63, 19);
+        assertMtToDrc(27, 63, 20, 63, 20);
+        assertMtToDrc(27, 64, 1, 64, 2);
+        assertMtToDrc(27, 64, 11, 64, 12);
+        assertMtToDrc(27, 64, 12, 64, 12);
+
+        // Jeremiah (28)
+        assertDrcToMt(28, 9, 1, 8, 23);
+        assertDrcToMt(28, 9, 2, 9, 1);
+        assertDrcToMt(28, 9, 26, 9, 25);
+        assertDrcToMt(28, 9, 27, 9, 27);
+        assertDrcToMt(28, 37, 10, 37, 10);
+        assertDrcToMt(28, 37, 11, 37, 11);
+        assertDrcToMt(28, 37, 12, 37, 13);
+        assertDrcToMt(28, 37, 20, 37, 21);
+        assertDrcToMt(28, 37, 21, 37, 21);
+        assertMtToDrc(28, 8, 22, 8, 22);
+        assertMtToDrc(28, 8, 23, 9, 1);
+        assertMtToDrc(28, 8, 24, 8, 24);
+        assertMtToDrc(28, 9, 1, 9, 2);
+        assertMtToDrc(28, 9, 25, 9, 26);
+        assertMtToDrc(28, 9, 26, 9, 26);
+        assertMtToDrc(28, 37, 10, 37, 10);
+        assertMtToDrc(28, 37, 11, 37, 11);
+        assertMtToDrc(28, 37, 12, 37, 11);
+        assertMtToDrc(28, 37, 13, 37, 12);
+        assertMtToDrc(28, 37, 21, 37, 20);
+        assertMtToDrc(28, 37, 22, 37, 22);
 
         // Ezekiel (31)
         assertDrcToMt(31, 20, 44, 20, 44);
@@ -2687,6 +2900,18 @@ void main() {
         assertMtToDrc(39, 2, 14, 2, 13);
         assertMtToDrc(39, 2, 15, 2, 15);
 
+        // Haggai (42)
+        assertDrcToMt(42, 2, 1, 1, 15);
+        assertDrcToMt(42, 2, 2, 2, 1);
+        assertDrcToMt(42, 2, 24, 2, 23);
+        assertDrcToMt(42, 2, 25, 2, 25);
+        assertMtToDrc(42, 1, 14, 1, 14);
+        assertMtToDrc(42, 1, 15, 2, 1);
+        assertMtToDrc(42, 1, 16, 1, 16);
+        assertMtToDrc(42, 2, 1, 2, 2);
+        assertMtToDrc(42, 2, 23, 2, 24);
+        assertMtToDrc(42, 2, 24, 2, 24);
+
         // Zechariah (43)
         assertDrcToMt(43, 1, 17, 1, 17);
         assertDrcToMt(43, 1, 18, 2, 1);
@@ -2796,7 +3021,16 @@ void main() {
           // Canticle of Canticles (24)
           24: [(chapter: 7, start: 1, end: 1), (chapter: 7, start: 2, end: 13)],
           // Isaiah (27)
-          27: [(chapter: 9, start: 1, end: 1), (chapter: 9, start: 2, end: 21)],
+          27: [
+            (chapter: 9, start: 1, end: 1),
+            (chapter: 9, start: 2, end: 21),
+            (chapter: 64, start: 1, end: 12),
+          ],
+          // Jeremiah (28)
+          28: [
+            (chapter: 9, start: 1, end: 26),
+            (chapter: 37, start: 11, end: 20),
+          ],
           // Ezekiel (31)
           31: [
             (chapter: 20, start: 45, end: 49),
@@ -2828,6 +3062,8 @@ void main() {
             (chapter: 1, start: 15, end: 15),
             (chapter: 2, start: 1, end: 13),
           ],
+          // Haggai (42)
+          42: [(chapter: 2, start: 1, end: 24)],
           // Zechariah (43)
           43: [
             (chapter: 1, start: 18, end: 21),
@@ -2851,12 +3087,17 @@ void main() {
               );
 
               // Forward mapping must shift (or map) the verse
-              expect(
-                mt,
-                isNot(equals((chapter: range.chapter, verse: v))),
-                reason:
-                    'Book $bookNumber ${range.chapter}:$v should have a distinct Masoretic mapping',
-              );
+              if (bookNumber == 28 && range.chapter == 37 && v == 11) {
+                // DRC 37:11 maps to MT 37:11 (merges MT 37:11-12)
+                expect(mt, equals((chapter: 37, verse: 11)));
+              } else {
+                expect(
+                  mt,
+                  isNot(equals((chapter: range.chapter, verse: v))),
+                  reason:
+                      'Book $bookNumber ${range.chapter}:$v should have a distinct Masoretic mapping',
+                );
+              }
 
               // Reverse mapping: masoreticToVulgate(vulgateToMasoretic(x))
               final vBack = BibleVerseResolver.masoreticToVulgateVerse(
@@ -2879,6 +3120,20 @@ void main() {
                   vBack,
                   equals((chapter: 22, verse: 43)),
                   reason: '1 Kings 22:44 round-trip expected exception',
+                );
+              } else if (bookNumber == 27 && range.chapter == 64 && v == 1) {
+                // DRC 64:1 maps to MT 63:19; MT 63:19 maps back to DRC 63:19
+                expect(
+                  vBack,
+                  equals((chapter: 63, verse: 19)),
+                  reason: 'Isaiah 64:1 round-trip expected exception',
+                );
+              } else if (bookNumber == 28 && range.chapter == 37 && v == 11) {
+                // DRC 37:11 maps to MT 37:11; MT 37:11 maps back to DRC 37:11
+                expect(
+                  vBack,
+                  equals((chapter: 37, verse: 11)),
+                  reason: 'Jeremiah 37:11 round-trip expected exception',
                 );
               } else {
                 expect(
@@ -2905,7 +3160,7 @@ void main() {
           }
         }
 
-        // Assert that all ranges across the 24 non-psalm divergent books were verified
+        // Assert that all ranges across the 26 non-psalm divergent books were verified
         expect(totalVersesTested, greaterThan(400));
       },
     );
