@@ -1,8 +1,10 @@
+import 'package:drift/native.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
+import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/notification_service.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
@@ -101,6 +103,39 @@ class MockFlutterLocalNotificationsPlugin extends Fake
   }
 }
 
+class ThrowingMockFlutterLocalNotificationsPlugin extends Fake
+    implements FlutterLocalNotificationsPlugin {
+  @override
+  Future<bool?> initialize({
+    required InitializationSettings settings,
+    DidReceiveNotificationResponseCallback? onDidReceiveNotificationResponse,
+    DidReceiveBackgroundNotificationResponseCallback?
+    onDidReceiveBackgroundNotificationResponse,
+  }) async {
+    throw Exception('Simulated notifications initialization error');
+  }
+
+  @override
+  Future<void> cancel({required int id, String? tag}) async {
+    throw Exception('Simulated notifications cancel error');
+  }
+
+  @override
+  Future<void> zonedSchedule({
+    required int id,
+    String? title,
+    String? body,
+    required tz.TZDateTime scheduledDate,
+    required NotificationDetails notificationDetails,
+    required AndroidScheduleMode androidScheduleMode,
+    String? payload,
+    DateTimeComponents? matchDateTimeComponents,
+    bool uiLocalNotificationDateInterpretation = true,
+  }) async {
+    throw Exception('Simulated notifications zonedSchedule error');
+  }
+}
+
 void main() {
   late MockFlutterLocalNotificationsPlugin mockPlugin;
 
@@ -121,6 +156,7 @@ void main() {
     NotificationService.syncAllCallCount = 0;
     NotificationService.onSyncAll = null;
     PrayerDatabase.mockSettings = null;
+    BibleDatabaseHelper.db = null;
   });
 
   group('NotificationService Logic Tests', () {
@@ -729,7 +765,13 @@ void main() {
       test(
         'completes safely without throwing even if initialization or database throws',
         () async {
-          NotificationService.mockPlugin = null;
+          final testDb = BibleDatabase(NativeDatabase.memory());
+          await testDb.close();
+          BibleDatabaseHelper.db = testDb;
+          PrayerDatabase.mockSettings = null;
+
+          NotificationService.mockPlugin =
+              ThrowingMockFlutterLocalNotificationsPlugin();
           NotificationService.isInitialized = false;
 
           await expectLater(
