@@ -345,56 +345,65 @@ void main() {
         expect(day.color, equals(LiturgicalColor.white));
       });
 
-      test('initializes and cancels notifications when Sunday notifications disabled', () async {
-        final settings = UserSettings(sundayNotificationsEnabled: false);
+      test(
+        'initializes and cancels notifications when Sunday notifications disabled',
+        () async {
+          final settings = UserSettings(sundayNotificationsEnabled: false);
 
-        await NotificationService.syncSundayNotification(settings);
+          await NotificationService.syncSundayNotification(settings);
 
-        expect(mockPlugin.isInitialized, isTrue);
-        expect(mockPlugin.cancelCalled, isTrue);
-        expect(
-          mockPlugin.cancelledIds,
-          contains(NotificationService.kSundayNotificationLegacyId),
-        );
-        for (int i = 0; i < NotificationService.kSundayRollingWeeks; i++) {
+          expect(mockPlugin.isInitialized, isTrue);
+          expect(mockPlugin.cancelCalled, isTrue);
           expect(
             mockPlugin.cancelledIds,
-            contains(NotificationService.kSundayNotificationBaseId + i),
+            contains(NotificationService.kSundayNotificationLegacyId),
           );
-        }
-      });
+          for (int i = 0; i < NotificationService.kSundayRollingWeeks; i++) {
+            expect(
+              mockPlugin.cancelledIds,
+              contains(NotificationService.kSundayNotificationBaseId + i),
+            );
+          }
+        },
+      );
 
-      test('initializes and schedules 6 rolling weekly instances when Sunday notifications enabled', () async {
-        final settings = UserSettings(sundayNotificationsEnabled: true);
-        final fromDate = DateTime(2026, 2, 20, 10, 0);
+      test(
+        'initializes and schedules 6 rolling weekly instances when Sunday notifications enabled',
+        () async {
+          final settings = UserSettings(sundayNotificationsEnabled: true);
+          final fromDate = DateTime(2026, 2, 20, 10, 0);
 
-        await NotificationService.syncSundayNotification(settings, fromDate);
+          await NotificationService.syncSundayNotification(settings, fromDate);
 
-        expect(mockPlugin.isInitialized, isTrue);
-        expect(
-          mockPlugin.cancelledIds,
-          contains(NotificationService.kSundayNotificationLegacyId),
-        );
-        expect(
-          mockPlugin.scheduledList.length,
-          equals(NotificationService.kSundayRollingWeeks),
-        );
-
-        for (int i = 0; i < NotificationService.kSundayRollingWeeks; i++) {
-          final record = mockPlugin.scheduledList[i];
+          expect(mockPlugin.isInitialized, isTrue);
           expect(
-            record.id,
-            equals(NotificationService.kSundayNotificationBaseId + i),
+            mockPlugin.cancelledIds,
+            contains(NotificationService.kSundayNotificationLegacyId),
           );
-          expect(record.title, contains('Liturgical Season:'));
-          expect(record.body, contains('Tap to view Mass readings & prayers'));
-          expect(record.matchDateTimeComponents, isNull);
           expect(
-            record.androidScheduleMode,
-            equals(AndroidScheduleMode.exactAllowWhileIdle),
+            mockPlugin.scheduledList.length,
+            equals(NotificationService.kSundayRollingWeeks),
           );
-        }
-      });
+
+          for (int i = 0; i < NotificationService.kSundayRollingWeeks; i++) {
+            final record = mockPlugin.scheduledList[i];
+            expect(
+              record.id,
+              equals(NotificationService.kSundayNotificationBaseId + i),
+            );
+            expect(record.title, contains('Liturgical Season:'));
+            expect(
+              record.body,
+              contains('Tap to view Mass readings & prayers'),
+            );
+            expect(record.matchDateTimeComponents, isNull);
+            expect(
+              record.androidScheduleMode,
+              equals(AndroidScheduleMode.exactAllowWhileIdle),
+            );
+          }
+        },
+      );
 
       test(
         'falls back to inexact schedule when exact schedule throws',
@@ -419,63 +428,68 @@ void main() {
     });
 
     group('Angelus Notifications', () {
-      test('schedules 14 one-shot notifications per enabled slot and cancels legacy IDs', () async {
-        final settings = UserSettings(
-          angelusReminderEnabled: true,
-          angelusMorningEnabled: true,
-          angelusMiddayEnabled: true,
-          angelusEveningEnabled: false,
-        );
-
-        await NotificationService.syncAngelusNotifications(settings);
-
-        // Morning (14) + Midday (14) = 28 scheduled notifications
-        expect(
-          mockPlugin.scheduledList.length,
-          equals(NotificationService.kAngelusRollingDays * 2),
-        );
-
-        final scheduledIds = mockPlugin.scheduledList.map((e) => e.id).toSet();
-        for (int i = 0; i < NotificationService.kAngelusRollingDays; i++) {
-          expect(
-            scheduledIds,
-            contains(NotificationService.kAngelusMorningBaseId + i),
+      test(
+        'schedules 14 one-shot notifications per enabled slot and cancels legacy IDs',
+        () async {
+          final settings = UserSettings(
+            angelusReminderEnabled: true,
+            angelusMorningEnabled: true,
+            angelusMiddayEnabled: true,
+            angelusEveningEnabled: false,
           );
-          expect(
-            scheduledIds,
-            contains(NotificationService.kAngelusMiddayBaseId + i),
-          );
-          expect(
-            scheduledIds,
-            isNot(contains(NotificationService.kAngelusEveningBaseId + i)),
-          );
-        }
 
-        // Cancelled IDs include legacy IDs and disabled evening IDs
-        expect(
-          mockPlugin.cancelledIds,
-          contains(NotificationService.kAngelusMorningLegacyId),
-        );
-        expect(
-          mockPlugin.cancelledIds,
-          contains(NotificationService.kAngelusMiddayLegacyId),
-        );
-        expect(
-          mockPlugin.cancelledIds,
-          contains(NotificationService.kAngelusEveningLegacyId),
-        );
-        for (int i = 0; i < NotificationService.kAngelusRollingDays; i++) {
+          await NotificationService.syncAngelusNotifications(settings);
+
+          // Morning (14) + Midday (14) = 28 scheduled notifications
+          expect(
+            mockPlugin.scheduledList.length,
+            equals(NotificationService.kAngelusRollingDays * 2),
+          );
+
+          final scheduledIds = mockPlugin.scheduledList
+              .map((e) => e.id)
+              .toSet();
+          for (int i = 0; i < NotificationService.kAngelusRollingDays; i++) {
+            expect(
+              scheduledIds,
+              contains(NotificationService.kAngelusMorningBaseId + i),
+            );
+            expect(
+              scheduledIds,
+              contains(NotificationService.kAngelusMiddayBaseId + i),
+            );
+            expect(
+              scheduledIds,
+              isNot(contains(NotificationService.kAngelusEveningBaseId + i)),
+            );
+          }
+
+          // Cancelled IDs include legacy IDs and disabled evening IDs
           expect(
             mockPlugin.cancelledIds,
-            contains(NotificationService.kAngelusEveningBaseId + i),
+            contains(NotificationService.kAngelusMorningLegacyId),
           );
-        }
+          expect(
+            mockPlugin.cancelledIds,
+            contains(NotificationService.kAngelusMiddayLegacyId),
+          );
+          expect(
+            mockPlugin.cancelledIds,
+            contains(NotificationService.kAngelusEveningLegacyId),
+          );
+          for (int i = 0; i < NotificationService.kAngelusRollingDays; i++) {
+            expect(
+              mockPlugin.cancelledIds,
+              contains(NotificationService.kAngelusEveningBaseId + i),
+            );
+          }
 
-        // All Angelus instances are scheduled as one-shot notifications
-        for (final record in mockPlugin.scheduledList) {
-          expect(record.matchDateTimeComponents, isNull);
-        }
-      });
+          // All Angelus instances are scheduled as one-shot notifications
+          for (final record in mockPlugin.scheduledList) {
+            expect(record.matchDateTimeComponents, isNull);
+          }
+        },
+      );
 
       test(
         'switches from The Angelus to Regina Caeli across Easter boundary',
@@ -712,15 +726,18 @@ void main() {
         expect(hookCalls, equals(1));
       });
 
-      test('completes safely without throwing even if initialization or database throws', () async {
-        NotificationService.mockPlugin = null;
-        NotificationService.isInitialized = false;
+      test(
+        'completes safely without throwing even if initialization or database throws',
+        () async {
+          NotificationService.mockPlugin = null;
+          NotificationService.isInitialized = false;
 
-        await expectLater(
-          NotificationService.syncAllNotifications(),
-          completes,
-        );
-      });
+          await expectLater(
+            NotificationService.syncAllNotifications(),
+            completes,
+          );
+        },
+      );
     });
 
     group('Lifecycle Resync in TwelveStarsApp', () {
