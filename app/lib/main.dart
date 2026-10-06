@@ -1,9 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:material_ui/material_ui.dart' as material_ui;
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
+import 'package:twelve_stars/logic/notification_service.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+
 import 'screens/home_screen.dart';
 
 void main() {
@@ -84,11 +88,39 @@ class TwelveStarsApp extends StatefulWidget {
   State<TwelveStarsApp> createState() => _TwelveStarsAppState();
 }
 
-class _TwelveStarsAppState extends State<TwelveStarsApp> {
+class _TwelveStarsAppState extends State<TwelveStarsApp>
+    with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _loadThemeSetting();
+    unawaited(
+      NotificationService.syncAllNotifications().catchError((e, stack) {
+        debugPrint(
+          'Error during NotificationService.syncAllNotifications in initState: $e\n$stack',
+        );
+      }),
+    );
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      unawaited(
+        NotificationService.syncAllNotifications().catchError((e, stack) {
+          debugPrint(
+            'Error during NotificationService.syncAllNotifications in didChangeAppLifecycleState: $e\n$stack',
+          );
+        }),
+      );
+    }
   }
 
   Future<void> _loadThemeSetting() async {
