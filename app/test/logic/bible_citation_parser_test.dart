@@ -2457,28 +2457,25 @@ void main() {
       },
     );
 
-    test(
-      'pins Isaiah 64:1 non-injective round-trip behavior',
-      () {
-        // DRC Isaiah 64:1 maps to MT 63:19
-        final mt = BibleVerseResolver.vulgateToMasoreticVerse(
-          bookNumber: 27,
-          chapter: 64,
-          verse: 1,
-        );
-        expect(mt, equals((chapter: 63, verse: 19)));
+    test('pins Isaiah 64:1 non-injective round-trip behavior', () {
+      // DRC Isaiah 64:1 maps to MT 63:19
+      final mt = BibleVerseResolver.vulgateToMasoreticVerse(
+        bookNumber: 27,
+        chapter: 64,
+        verse: 1,
+      );
+      expect(mt, equals((chapter: 63, verse: 19)));
 
-        // MT 63:19 maps back to DRC 63:19
-        expect(
-          BibleVerseResolver.masoreticToVulgateVerse(
-            bookNumber: 27,
-            chapter: 63,
-            verse: 19,
-          ),
-          equals((chapter: 63, verse: 19)),
-        );
-      },
-    );
+      // MT 63:19 maps back to DRC 63:19
+      expect(
+        BibleVerseResolver.masoreticToVulgateVerse(
+          bookNumber: 27,
+          chapter: 63,
+          verse: 19,
+        ),
+        equals((chapter: 63, verse: 19)),
+      );
+    });
 
     test(
       'boundary tests for verse range transitions and out-of-range guards',
