@@ -780,7 +780,8 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
       subMessage = 'Try switching to "All Bible" or selecting another book.';
     } else {
       message = 'No saved favorites or notes yet.';
-      subMessage = 'Long-press any verse in the Bible reader to add notes or save passages to your favorites.';
+      subMessage =
+          'Long-press any verse in the Bible reader to add notes or save passages to your favorites.';
     }
 
     return Center(

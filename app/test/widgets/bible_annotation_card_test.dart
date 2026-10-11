@@ -14,7 +14,7 @@ void main() {
     endVerse: 3,
     textPreview: 'In the beginning God created heaven, and earth.',
     type: BibleAnnotationType.favorite,
-    favorite: FavoritePassage(
+    favorite: const FavoritePassage(
       id: 1,
       bookNumber: 1,
       bookName: 'Genesis',
@@ -22,7 +22,6 @@ void main() {
       startVerse: 1,
       endVerse: 3,
       textPreview: 'In the beginning God created heaven, and earth.',
-      createdAt: DateTime(2026, 1, 1),
     ),
     createdAt: DateTime.fromMillisecondsSinceEpoch(0),
   );

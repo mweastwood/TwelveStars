@@ -58,11 +58,9 @@ class BibleAnnotationCard extends StatelessWidget {
     final isFav = item.type == BibleAnnotationType.favorite;
 
     return Card(
-      key:
-          key ??
-          Key(
-            'bible_annotation_${item.type.name}_${item.bookNumber}_${item.chapter}_${item.startVerse}',
-          ),
+      key: Key(
+        'bible_annotation_${item.type.name}_${item.bookNumber}_${item.chapter}_${item.startVerse}',
+      ),
       margin: const EdgeInsets.only(bottom: 12.0),
       elevation: 0,
       shape: RoundedRectangleBorder(
