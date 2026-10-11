@@ -161,9 +161,9 @@ class ThematicQuoteCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                       onTap:
                           passage.authorSaintId != null &&
-                                  onShowSaintDetails != null
-                              ? () => onShowSaintDetails!(passage.authorSaintId!)
-                              : null,
+                              onShowSaintDetails != null
+                          ? () => onShowSaintDetails!(passage.authorSaintId!)
+                          : null,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 4),
                         child: Row(
@@ -185,10 +185,9 @@ class ThematicQuoteCard extends StatelessWidget {
                                 passage.author,
                                 style: theme.textTheme.bodySmall?.copyWith(
                                   fontWeight: FontWeight.bold,
-                                  decoration:
-                                      passage.authorSaintId != null
-                                          ? TextDecoration.underline
-                                          : null,
+                                  decoration: passage.authorSaintId != null
+                                      ? TextDecoration.underline
+                                      : null,
                                 ),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,

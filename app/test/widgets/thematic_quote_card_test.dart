@@ -74,41 +74,40 @@ void main() {
       expect(find.byIcon(Icons.favorite_rounded), findsNothing);
     });
 
-    testWidgets(
-      'falls back to fullText when keyExcerpt is empty',
-      (tester) async {
-        final passageWithNoExcerpt = ThematicPassage(
-          bookId: 'test_book',
-          bookTitle: 'Test Book Title',
-          author: 'Test Author',
-          sectionId: 'sec_1',
-          sectionTitle: 'Section 1',
-          itemIndex: 0,
-          primaryTheme: 'theology.trinity',
-          keyExcerpt: '',
-          oneSentenceSummary: 'Summary of the full text passage.',
-          fullText: 'This is the complete full text being displayed.',
-        );
+    testWidgets('falls back to fullText when keyExcerpt is empty', (
+      tester,
+    ) async {
+      final passageWithNoExcerpt = ThematicPassage(
+        bookId: 'test_book',
+        bookTitle: 'Test Book Title',
+        author: 'Test Author',
+        sectionId: 'sec_1',
+        sectionTitle: 'Section 1',
+        itemIndex: 0,
+        primaryTheme: 'theology.trinity',
+        keyExcerpt: '',
+        oneSentenceSummary: 'Summary of the full text passage.',
+        fullText: 'This is the complete full text being displayed.',
+      );
 
-        await tester.pumpWidget(
-          MaterialApp(
-            home: Scaffold(
-              body: ThematicQuoteCard(
-                passage: passageWithNoExcerpt,
-                isBookmarked: false,
-                onToggleBookmark: () {},
-                onOpenReaderContext: () {},
-              ),
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: ThematicQuoteCard(
+              passage: passageWithNoExcerpt,
+              isBookmarked: false,
+              onToggleBookmark: () {},
+              onOpenReaderContext: () {},
             ),
           ),
-        );
+        ),
+      );
 
-        expect(
-          find.text('This is the complete full text being displayed.'),
-          findsOneWidget,
-        );
-      },
-    );
+      expect(
+        find.text('This is the complete full text being displayed.'),
+        findsOneWidget,
+      );
+    });
 
     testWidgets('toggles bookmark callback on heart icon tap', (tester) async {
       bool toggleCalled = false;

@@ -101,7 +101,9 @@ class _ThematicQuoteBrowserScreenState
             documentId: passage.bookId,
           );
           final match = bookmarks
-              .where((b) => b.documentId == passage.bookId && b.nodeId == nodeId)
+              .where(
+                (b) => b.documentId == passage.bookId && b.nodeId == nodeId,
+              )
               .firstOrNull;
           if (match != null) {
             await BibleDatabaseHelper.db.deleteLibraryBookmark(match.id);
@@ -615,5 +617,5 @@ class _ThematicQuoteBrowserScreenState
         ),
       ),
     );
+  }
 }
-
