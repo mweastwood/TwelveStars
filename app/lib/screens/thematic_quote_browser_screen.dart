@@ -96,18 +96,6 @@ class _ThematicQuoteBrowserScreenState
         final existingId = _bookmarkedIds[key];
         if (existingId != null) {
           await BibleDatabaseHelper.db.deleteLibraryBookmark(existingId);
-        } else {
-          final bookmarks = await BibleDatabaseHelper.db.getLibraryBookmarks(
-            documentId: passage.bookId,
-          );
-          final match = bookmarks
-              .where(
-                (b) => b.documentId == passage.bookId && b.nodeId == nodeId,
-              )
-              .firstOrNull;
-          if (match != null) {
-            await BibleDatabaseHelper.db.deleteLibraryBookmark(match.id);
-          }
         }
         if (!mounted) return;
         setState(() => _bookmarkedIds.remove(key));
@@ -139,7 +127,17 @@ class _ThematicQuoteBrowserScreenState
           ),
         );
       }
-    } catch (_) {}
+    } catch (e) {
+      debugPrint('Error toggling bookmark: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Failed to update bookmark'),
+            duration: Duration(seconds: 2),
+          ),
+        );
+      }
+    }
   }
 
   void _openReaderContext(ThematicPassage passage) {

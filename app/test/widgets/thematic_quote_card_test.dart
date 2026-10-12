@@ -67,6 +67,8 @@ void main() {
       );
       // Author
       expect(find.text('St. Thomas Aquinas'), findsOneWidget);
+      final authorText = tester.widget<Text>(find.text('St. Thomas Aquinas'));
+      expect(authorText.style?.decoration, TextDecoration.underline);
       // Read in Context button
       expect(find.text('Read in Context'), findsOneWidget);
       // Unfavorited icon
@@ -223,5 +225,27 @@ void main() {
 
       expect(readerContextCalled, isTrue);
     });
+
+    testWidgets(
+      'does not underline saint author when onShowSaintDetails is null',
+      (tester) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: ThematicQuoteCard(
+                passage: testPassage,
+                isBookmarked: false,
+                onToggleBookmark: () {},
+                onOpenReaderContext: () {},
+                onShowSaintDetails: null,
+              ),
+            ),
+          ),
+        );
+
+        final textWidget = tester.widget<Text>(find.text('St. Thomas Aquinas'));
+        expect(textWidget.style?.decoration, isNull);
+      },
+    );
   });
 }

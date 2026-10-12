@@ -185,9 +185,11 @@ class ThematicQuoteCard extends StatelessWidget {
                                 passage.author,
                                 style: theme.textTheme.bodySmall?.copyWith(
                                   fontWeight: FontWeight.bold,
-                                  decoration: passage.authorSaintId != null
-                                      ? TextDecoration.underline
-                                      : null,
+                                  decoration:
+                                      passage.authorSaintId != null &&
+                                              onShowSaintDetails != null
+                                          ? TextDecoration.underline
+                                          : null,
                                 ),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
