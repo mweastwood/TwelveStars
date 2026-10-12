@@ -74,12 +74,35 @@ class MissalTab extends StatefulWidget {
 }
 
 class _MissalTabState extends State<MissalTab> {
+  static const Map<String, int> _readingTypeOrder = {
+    'first': 0,
+    'psalm': 1,
+    'second': 2,
+    'gospel': 3,
+  };
+
+  static const List<String> _monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
   late DateTime _selectedDate;
   bool _calendarExpanded = false;
   bool _loading = true;
   String? _error;
   Map<String, Prayer>? _prayersById;
   UserSettings? _settings;
+  Set<String> _hiddenPrayers = const {};
   List<Saint>? _saints;
   Map<String, List<Saint>>? _feastDayMap;
   late PrayerLanguage _primaryLanguage;
@@ -93,7 +116,11 @@ class _MissalTabState extends State<MissalTab> {
     if (_readingsFuture == null || _cachedLectionaryKey != lectionaryKey) {
       _cachedLectionaryKey = lectionaryKey;
       _activeSelection = null;
-      _readingsFuture = BibleDatabaseHelper.db.getReadings(lectionaryKey);
+      _readingsFuture = BibleDatabaseHelper.db
+          .getReadings(lectionaryKey)
+          .then((list) => list.toList()
+            ..sort((a, b) => (_readingTypeOrder[a.readingType] ?? 99)
+                .compareTo(_readingTypeOrder[b.readingType] ?? 99)));
     }
     return _readingsFuture!;
   }
@@ -129,6 +156,7 @@ class _MissalTabState extends State<MissalTab> {
         setState(() {
           _prayersById = {for (final p in prayers) p.prayerId: p};
           _settings = settings;
+          _hiddenPrayers = (settings.missalHiddenPrayers ?? const []).toSet();
           _saints = saints;
           _feastDayMap = SaintDatabase.buildFeastDayMap(saints);
           _primaryLanguage = settings.primaryLanguage;
@@ -181,40 +209,12 @@ class _MissalTabState extends State<MissalTab> {
 
   String _formatFullDate(DateTime date) {
     final weekday = LiturgicalCalendar.getDayOfWeekName(date.weekday);
-    final monthNames = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    final month = monthNames[date.month - 1];
+    final month = _monthNames[date.month - 1];
     return '$weekday, $month ${date.day}, ${date.year}';
   }
 
   String _formatMonthYear(DateTime date) {
-    final monthNames = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    return '${monthNames[date.month - 1]} ${date.year}';
+    return '${_monthNames[date.month - 1]} ${date.year}';
   }
 
   List<DateTime> _generateWeekDays(DateTime date) {
@@ -255,6 +255,9 @@ class _MissalTabState extends State<MissalTab> {
 
   @visibleForTesting
   Map<String, Prayer>? get prayersByIdForTesting => _prayersById;
+
+  @visibleForTesting
+  Set<String> get hiddenPrayersForTesting => _hiddenPrayers;
 
   bool get _isTodaySelected {
     final now = TimeHelper.now();
@@ -306,8 +309,7 @@ class _MissalTabState extends State<MissalTab> {
   bool _isPrayerVisible(String id) {
     if (_settings == null) return true;
     if (_settings!.missalReadingsOnly) return false;
-    final hidden = _settings!.missalHiddenPrayers ?? [];
-    return !hidden.contains(id);
+    return !_hiddenPrayers.contains(id);
   }
 
   Future<void> _toggleReadingsOnly(bool enabled) async {
@@ -331,6 +333,7 @@ class _MissalTabState extends State<MissalTab> {
         }
       }
       _settings!.missalHiddenPrayers = list;
+      _hiddenPrayers = list.toSet();
       if (_settings!.missalReadingsOnly) {
         _settings!.missalReadingsOnly = false;
       }
@@ -341,7 +344,6 @@ class _MissalTabState extends State<MissalTab> {
 
   Widget _buildFilterChips(BuildContext context) {
     final isReadingsOnly = _settings?.missalReadingsOnly ?? false;
-    final hiddenPrayers = _settings?.missalHiddenPrayers ?? <String>[];
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
@@ -356,7 +358,7 @@ class _MissalTabState extends State<MissalTab> {
           const SizedBox(width: 8),
           ...kMissalPrayerFilterOptions.map((option) {
             final isSelected =
-                !isReadingsOnly && !hiddenPrayers.contains(option.id);
+                !isReadingsOnly && !_hiddenPrayers.contains(option.id);
             return Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: FilterChip(
@@ -678,20 +680,7 @@ class _MissalTabState extends State<MissalTab> {
                               ],
                             );
                           }
-                          final readings = (snapshot.data ?? []).toList();
-
-                          // Sort readings: First Reading, Responsorial Psalm, Second Reading, Gospel
-                          readings.sort((a, b) {
-                            const order = {
-                              'first': 0,
-                              'psalm': 1,
-                              'second': 2,
-                              'gospel': 3,
-                            };
-                            final indexA = order[a.readingType] ?? 99;
-                            final indexB = order[b.readingType] ?? 99;
-                            return indexA.compareTo(indexB);
-                          });
+                          final readings = snapshot.data ?? const [];
 
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,

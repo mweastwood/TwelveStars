@@ -1710,6 +1710,57 @@ void main() {
         expect(find.text('Greeting'), findsWidgets);
       },
     );
+
+    testWidgets(
+      'MissalTab pre-sorts lectionary readings in canonical order and formats month dates correctly',
+      (tester) async {
+        final sundayDate = DateTime(2024, 11, 24);
+        TimeHelper.setCustomTime(sundayDate);
+
+        await tester.pumpWidget(
+          materialAppWrapper()(
+            Scaffold(
+              body: MissalTab(
+                initialDate: sundayDate,
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // 1. Verify date header formatting using hoisted _monthNames
+        expect(find.text('Sunday, November 24, 2024'), findsOneWidget);
+
+        // 2. Verify lectionary readings are rendered in sorted order: first, psalm, second, gospel
+        final readingCards = tester
+            .widgetList<MassReadingCard>(find.byType(MassReadingCard))
+            .toList();
+        expect(readingCards.length, equals(4));
+        expect(readingCards[0].reading.readingType, equals('first'));
+        expect(readingCards[1].reading.readingType, equals('psalm'));
+        expect(readingCards[2].reading.readingType, equals('second'));
+        expect(readingCards[3].reading.readingType, equals('gospel'));
+
+        // 3. Verify hidden prayers Set state
+        final dynamic state = tester.state(find.byType(MissalTab));
+        expect(state.hiddenPrayersForTesting, isA<Set<String>>());
+        expect(state.hiddenPrayersForTesting.contains('confiteor'), isFalse);
+
+        // Toggle Confiteor off
+        await tester.tap(find.byKey(const ValueKey('missal_filter_confiteor')));
+        await tester.pumpAndSettle();
+
+        expect(state.hiddenPrayersForTesting.contains('confiteor'), isTrue);
+
+        // Toggle Confiteor back on
+        await tester.tap(find.byKey(const ValueKey('missal_filter_confiteor')));
+        await tester.pumpAndSettle();
+
+        expect(state.hiddenPrayersForTesting.contains('confiteor'), isFalse);
+      },
+    );
   });
 }
 
