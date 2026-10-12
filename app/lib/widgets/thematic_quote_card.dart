@@ -69,6 +69,9 @@ class ThematicQuoteCard extends StatelessWidget {
                     ),
                   ),
                   IconButton(
+                    tooltip: isBookmarked
+                        ? 'Remove from favorites'
+                        : 'Save to favorites',
                     icon: Icon(
                       isBookmarked
                           ? Icons.favorite_rounded
@@ -189,7 +192,7 @@ class ThematicQuoteCard extends StatelessWidget {
                                       passage.authorSaintId != null &&
                                           onShowSaintDetails != null
                                       ? TextDecoration.underline
-                                      : null,
+                                      : TextDecoration.none,
                                 ),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,

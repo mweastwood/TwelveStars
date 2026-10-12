@@ -74,6 +74,7 @@ void main() {
       // Unfavorited icon
       expect(find.byIcon(Icons.favorite_border_rounded), findsOneWidget);
       expect(find.byIcon(Icons.favorite_rounded), findsNothing);
+      expect(find.byTooltip('Save to favorites'), findsOneWidget);
     });
 
     testWidgets('falls back to fullText when keyExcerpt is empty', (
@@ -130,6 +131,7 @@ void main() {
       // Bookmarked state should show filled favorite icon
       expect(find.byIcon(Icons.favorite_rounded), findsOneWidget);
       expect(find.byIcon(Icons.favorite_border_rounded), findsNothing);
+      expect(find.byTooltip('Remove from favorites'), findsOneWidget);
 
       await tester.tap(find.byIcon(Icons.favorite_rounded));
       await tester.pump();
@@ -244,7 +246,7 @@ void main() {
         );
 
         final textWidget = tester.widget<Text>(find.text('St. Thomas Aquinas'));
-        expect(textWidget.style?.decoration, isNull);
+        expect(textWidget.style?.decoration, isNot(TextDecoration.underline));
       },
     );
   });

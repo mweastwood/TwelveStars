@@ -243,7 +243,7 @@ void main() {
     });
 
     testWidgets(
-      'loads pre-existing bookmarks on init and removes them via scoped delete',
+      'loads pre-existing bookmarks on init and removes them via cached ID delete',
       (tester) async {
         ThematicHelper.mockPassages = [
           ThematicPassage(
