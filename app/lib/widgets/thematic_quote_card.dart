@@ -164,6 +164,7 @@ class ThematicQuoteCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                       onTap:
                           passage.authorSaintId != null &&
+                              passage.authorSaintId!.isNotEmpty &&
                               onShowSaintDetails != null
                           ? () => onShowSaintDetails!(passage.authorSaintId!)
                           : null,
@@ -190,6 +191,7 @@ class ThematicQuoteCard extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                   decoration:
                                       passage.authorSaintId != null &&
+                                          passage.authorSaintId!.isNotEmpty &&
                                           onShowSaintDetails != null
                                       ? TextDecoration.underline
                                       : TextDecoration.none,

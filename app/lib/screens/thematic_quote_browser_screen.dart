@@ -96,6 +96,14 @@ class _ThematicQuoteBrowserScreenState
         final existingId = _bookmarkedIds[key];
         if (existingId != null) {
           await BibleDatabaseHelper.db.deleteLibraryBookmark(existingId);
+        } else {
+          final bookmarks = await BibleDatabaseHelper.db.getLibraryBookmarks(
+            documentId: passage.bookId,
+          );
+          final match = bookmarks.where((b) => b.nodeId == nodeId).firstOrNull;
+          if (match != null) {
+            await BibleDatabaseHelper.db.deleteLibraryBookmark(match.id);
+          }
         }
         if (!mounted) return;
         setState(() => _bookmarkedIds.remove(key));

@@ -249,5 +249,48 @@ void main() {
         expect(textWidget.style?.decoration, isNot(TextDecoration.underline));
       },
     );
+
+    testWidgets(
+      'does not trigger onShowSaintDetails or underline when authorSaintId is empty',
+      (tester) async {
+        final emptySaintPassage = ThematicPassage(
+          bookId: 'test_book',
+          bookTitle: 'Test Book Title',
+          author: 'Test Author',
+          authorSaintId: '',
+          sectionId: 'sec_1',
+          sectionTitle: 'Section 1',
+          itemIndex: 0,
+          primaryTheme: 'theology.trinity',
+          keyExcerpt: 'Some excerpt.',
+          oneSentenceSummary: 'Some summary.',
+          fullText: 'Some full text.',
+        );
+
+        String? tappedSaintId;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: ThematicQuoteCard(
+                passage: emptySaintPassage,
+                isBookmarked: false,
+                onToggleBookmark: () {},
+                onOpenReaderContext: () {},
+                onShowSaintDetails: (saintId) => tappedSaintId = saintId,
+              ),
+            ),
+          ),
+        );
+
+        final textWidget = tester.widget<Text>(find.text('Test Author'));
+        expect(textWidget.style?.decoration, isNot(TextDecoration.underline));
+
+        await tester.tap(find.text('Test Author'));
+        await tester.pump();
+
+        expect(tappedSaintId, isNull);
+      },
+    );
   });
 }
