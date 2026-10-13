@@ -1780,84 +1780,96 @@ void main() {
         final day = LiturgicalCalendar.computeDay(testDate);
 
         // Clear any existing readings for test key
-        await (testDb.delete(testDb.lectionaryReadings)
-              ..where((tbl) => tbl.readingKey.equals(day.lectionaryKey)))
-            .go();
+        await (testDb.delete(
+          testDb.lectionaryReadings,
+        )..where((tbl) => tbl.readingKey.equals(day.lectionaryKey))).go();
 
         // Insert readings with mixed casing and tie-breaker IDs out of order
-        await testDb.into(testDb.lectionaryReadings).insert(
-          LectionaryReadingsCompanion.insert(
-            id: const Value(90050),
-            readingKey: day.lectionaryKey,
-            readingType: 'GOSPEL',
-            bookNumber: 40,
-            bookName: 'Matthew',
-            chapter: 1,
-            verseRange: '1-10',
-            citation: 'Matt 1:1-10',
-          ),
-        );
-        await testDb.into(testDb.lectionaryReadings).insert(
-          LectionaryReadingsCompanion.insert(
-            id: const Value(90010),
-            readingKey: day.lectionaryKey,
-            readingType: 'first',
-            bookNumber: 1,
-            bookName: 'Genesis',
-            chapter: 1,
-            verseRange: '1-5',
-            citation: 'Gen 1:1-5',
-          ),
-        );
-        await testDb.into(testDb.lectionaryReadings).insert(
-          LectionaryReadingsCompanion.insert(
-            id: const Value(90020),
-            readingKey: day.lectionaryKey,
-            readingType: 'Psalm',
-            bookNumber: 19,
-            bookName: 'Psalms',
-            chapter: 23,
-            verseRange: '1-3',
-            citation: 'Ps 23:1-3',
-          ),
-        );
-        await testDb.into(testDb.lectionaryReadings).insert(
-          LectionaryReadingsCompanion.insert(
-            id: const Value(90035),
-            readingKey: day.lectionaryKey,
-            readingType: 'Second',
-            bookNumber: 45,
-            bookName: 'Romans',
-            chapter: 8,
-            verseRange: '1-4',
-            citation: 'Rom 8:1-4',
-          ),
-        );
+        await testDb
+            .into(testDb.lectionaryReadings)
+            .insert(
+              LectionaryReadingsCompanion.insert(
+                id: const Value(90050),
+                readingKey: day.lectionaryKey,
+                readingType: 'GOSPEL',
+                bookNumber: 40,
+                bookName: 'Matthew',
+                chapter: 1,
+                verseRange: '1-10',
+                citation: 'Matt 1:1-10',
+              ),
+            );
+        await testDb
+            .into(testDb.lectionaryReadings)
+            .insert(
+              LectionaryReadingsCompanion.insert(
+                id: const Value(90010),
+                readingKey: day.lectionaryKey,
+                readingType: 'first',
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseRange: '1-5',
+                citation: 'Gen 1:1-5',
+              ),
+            );
+        await testDb
+            .into(testDb.lectionaryReadings)
+            .insert(
+              LectionaryReadingsCompanion.insert(
+                id: const Value(90020),
+                readingKey: day.lectionaryKey,
+                readingType: 'Psalm',
+                bookNumber: 19,
+                bookName: 'Psalms',
+                chapter: 23,
+                verseRange: '1-3',
+                citation: 'Ps 23:1-3',
+              ),
+            );
+        await testDb
+            .into(testDb.lectionaryReadings)
+            .insert(
+              LectionaryReadingsCompanion.insert(
+                id: const Value(90035),
+                readingKey: day.lectionaryKey,
+                readingType: 'Second',
+                bookNumber: 45,
+                bookName: 'Romans',
+                chapter: 8,
+                verseRange: '1-4',
+                citation: 'Rom 8:1-4',
+              ),
+            );
         // Fallback/unknown types to verify stable tie-breaking by id
-        await testDb.into(testDb.lectionaryReadings).insert(
-          LectionaryReadingsCompanion.insert(
-            id: const Value(90100),
-            readingKey: day.lectionaryKey,
-            readingType: 'extra_b',
-            bookNumber: 50,
-            bookName: 'Philippians',
-            chapter: 2,
-            verseRange: '1-5',
-            citation: 'Phil 2:1-5',
-          ),
-        );
-        await testDb.into(testDb.lectionaryReadings).insert(
-          LectionaryReadingsCompanion.insert(
-            id: const Value(90090),
-            readingKey: day.lectionaryKey,
-            readingType: 'extra_a',
-            bookNumber: 50,
-            bookName: 'Philippians',
-            chapter: 1,
-            verseRange: '1-5',
-            citation: 'Phil 1:1-5',
-          ),
-        );
+        await testDb
+            .into(testDb.lectionaryReadings)
+            .insert(
+              LectionaryReadingsCompanion.insert(
+                id: const Value(90100),
+                readingKey: day.lectionaryKey,
+                readingType: 'extra_b',
+                bookNumber: 50,
+                bookName: 'Philippians',
+                chapter: 2,
+                verseRange: '1-5',
+                citation: 'Phil 2:1-5',
+              ),
+            );
+        await testDb
+            .into(testDb.lectionaryReadings)
+            .insert(
+              LectionaryReadingsCompanion.insert(
+                id: const Value(90090),
+                readingKey: day.lectionaryKey,
+                readingType: 'extra_a',
+                bookNumber: 50,
+                bookName: 'Philippians',
+                chapter: 1,
+                verseRange: '1-5',
+                citation: 'Phil 1:1-5',
+              ),
+            );
 
         TimeHelper.setCustomTime(testDate);
 
