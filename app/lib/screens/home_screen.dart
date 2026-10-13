@@ -295,32 +295,42 @@ class _HomeScreenState extends State<HomeScreen>
     });
   }
 
+  Widget _buildActiveTab(ThemeData theme, {required bool isWide}) {
+    switch (_currentTab) {
+      case 0:
+        return MissalTab(
+          primaryLanguage: _primaryLanguage,
+          compareLanguage: _compareLanguage,
+          initialDate: widget.initialDate,
+          languageSelectorAnimation: _languageSelectorAnimation,
+          scrollController: _missalScrollController,
+          fontSize: _fontSize,
+        );
+      case 1:
+        if (_loading) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        if (_error != null) {
+          return Center(child: Text('Error loading prayers: $_error'));
+        }
+        return _buildPrayersTab(theme, isWide: isWide);
+      case 2:
+        return BibleTab(key: _bibleTabKey);
+      case 3:
+        return LibraryTab(controller: _libraryTabController);
+      default:
+        return const SizedBox.shrink();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isWide = isWideScreen(context);
 
-    final tabs = [
-      MissalTab(
-        primaryLanguage: _primaryLanguage,
-        compareLanguage: _compareLanguage,
-        initialDate: widget.initialDate,
-        languageSelectorAnimation: _languageSelectorAnimation,
-        scrollController: _missalScrollController,
-        fontSize: _fontSize,
-      ),
-      _loading
-          ? const Center(child: CircularProgressIndicator())
-          : _error != null
-          ? Center(child: Text('Error loading prayers: $_error'))
-          : _buildPrayersTab(theme, isWide: isWide),
-      BibleTab(key: _bibleTabKey),
-      LibraryTab(controller: _libraryTabController),
-    ];
-
     final content = Stack(
       children: [
-        tabs[_currentTab],
+        _buildActiveTab(theme, isWide: isWide),
         if (_currentTab == 0 || _currentTab == 1)
           Positioned(
             top: 0,

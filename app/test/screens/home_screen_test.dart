@@ -5,6 +5,9 @@ import 'package:twelve_stars/screens/home_screen.dart';
 import 'package:twelve_stars/screens/settings_screen.dart';
 import 'package:twelve_stars/screens/confirmation_discernment_screen.dart';
 import 'package:twelve_stars/screens/bible_notes_screen.dart';
+import 'package:twelve_stars/screens/missal_tab.dart';
+import 'package:twelve_stars/screens/bible_tab.dart';
+import 'package:twelve_stars/screens/library_tab.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:drift/native.dart';
@@ -1082,6 +1085,60 @@ void main() {
         expect(find.byType(NavigationRail), findsOneWidget);
         expect(find.byType(NavigationBar), findsNothing);
         expect(find.byType(SliverCrossAxisGroup), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'HomeScreen lazily evaluates tabs and only builds the active tab',
+      (tester) async {
+        TimeHelper.setCustomTime(DateTime(2026, 7, 6));
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: HomeScreen(initialDate: DateTime(2026, 7, 6)),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // 1. Initial active tab: Missal (tab 0)
+        expect(find.byType(MissalTab), findsOneWidget);
+        expect(find.byType(BibleTab), findsNothing);
+        expect(find.byType(LibraryTab), findsNothing);
+        expect(find.text('Sign of the Cross'), findsNothing);
+
+        // Rebuild while on Missal tab
+        await tester.pump();
+        expect(find.byType(MissalTab), findsOneWidget);
+        expect(find.byType(BibleTab), findsNothing);
+        expect(find.byType(LibraryTab), findsNothing);
+        expect(find.text('Sign of the Cross'), findsNothing);
+
+        // 2. Switch to Prayers tab (tab 1)
+        await tester.tap(find.text('Prayers').last);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(MissalTab), findsNothing);
+        expect(find.byType(BibleTab), findsNothing);
+        expect(find.byType(LibraryTab), findsNothing);
+        expect(find.text('Sign of the Cross'), findsOneWidget);
+
+        // 3. Switch to Bible tab (tab 2)
+        await tester.tap(find.text('Bible').last);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(BibleTab), findsOneWidget);
+        expect(find.byType(MissalTab), findsNothing);
+        expect(find.byType(LibraryTab), findsNothing);
+        expect(find.text('Sign of the Cross'), findsNothing);
+
+        // 4. Switch to Library tab (tab 3)
+        await tester.tap(find.text('Library').last);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryTab), findsOneWidget);
+        expect(find.byType(MissalTab), findsNothing);
+        expect(find.byType(BibleTab), findsNothing);
+        expect(find.text('Sign of the Cross'), findsNothing);
       },
     );
   });
