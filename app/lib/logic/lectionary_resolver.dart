@@ -18,8 +18,9 @@ List<int> parseVerseRange(String rangeStr) {
     return const [];
   }
   final orIndex = trimmed.toLowerCase().indexOf(' or ');
-  final primary =
-      orIndex != -1 ? trimmed.substring(0, orIndex).trim() : trimmed;
+  final primary = orIndex != -1
+      ? trimmed.substring(0, orIndex).trim()
+      : trimmed;
   final List<int> verses = [];
   final parts = primary.split(',');
   for (final part in parts) {
@@ -52,7 +53,7 @@ final RegExp _chapterCrossingRegex = RegExp(r'[\—\–\-]\s*(\d+)\s*\:');
 
 String cleanVerseStr(String str) {
   final orIndex = str.toLowerCase().indexOf(' or ');
-  final primary = orIndex != -1 ? str.substring(0, orIndex).trim() : str;
+  final primary = orIndex != -1 ? str.substring(0, orIndex).trim() : str.trim();
   final clean = primary
       .replaceAll(' and ', ',')
       .replaceAll('&', ',')
@@ -137,8 +138,9 @@ List<ChapterVerseRange> resolveReadingRanges({
   required String citation,
 }) {
   final orIndex = citation.toLowerCase().indexOf(' or ');
-  final primaryCitation =
-      orIndex != -1 ? citation.substring(0, orIndex).trim() : citation;
+  final primaryCitation = orIndex != -1
+      ? citation.substring(0, orIndex).trim()
+      : citation;
 
   // Semicolon-separated cross-chapter citations (e.g., "Isaiah 63:16b-17, 19b; 64:2-7")
   if (primaryCitation.contains(';')) {
