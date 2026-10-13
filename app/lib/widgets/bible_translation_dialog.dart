@@ -7,12 +7,14 @@ class BibleTranslationDialog extends StatelessWidget {
   final BibleTranslationDialogMode mode;
   final String currentPrimary;
   final String currentCompare;
+  final int? currentBookNumber;
 
   const BibleTranslationDialog({
     super.key,
     required this.mode,
     required this.currentPrimary,
     required this.currentCompare,
+    this.currentBookNumber,
   });
 
   @override
@@ -23,6 +25,7 @@ class BibleTranslationDialog extends StatelessWidget {
       initialTarget: mode == BibleTranslationDialogMode.compare
           ? BibleTranslationTarget.compare
           : BibleTranslationTarget.primary,
+      currentBookNumber: currentBookNumber,
       onPrimarySelected: (newPrimary) {
         Navigator.of(context).pop(newPrimary);
       },

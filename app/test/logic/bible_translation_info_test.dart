@@ -268,6 +268,42 @@ void main() {
           );
         },
       );
+
+      test(
+        'isOldTestamentOnly is true for LXX and false for all other translations',
+        () {
+          final lxx = BibleTranslationInfo.getByCode('LXX');
+          expect(lxx.isOldTestamentOnly, isTrue);
+
+          for (final t in BibleTranslationInfo.allTranslations) {
+            if (t.code == 'LXX') {
+              expect(t.isOldTestamentOnly, isTrue);
+            } else {
+              expect(t.isOldTestamentOnly, isFalse);
+            }
+          }
+        },
+      );
+
+      test(
+        'supportsBook correctly differentiates Old and New Testament books for LXX',
+        () {
+          final lxx = BibleTranslationInfo.getByCode('LXX');
+          // Old Testament boundaries (1–46)
+          expect(lxx.supportsBook(1), isTrue); // Genesis
+          expect(lxx.supportsBook(46), isTrue); // 2 Maccabees
+          // New Testament boundaries (47–73)
+          expect(lxx.supportsBook(47), isFalse);
+          expect(lxx.supportsBook(49), isFalse); // Matthew
+          expect(lxx.supportsBook(73), isFalse); // Revelation
+
+          // Other translations support all books
+          final cpdv = BibleTranslationInfo.getByCode('CPDV');
+          expect(cpdv.supportsBook(1), isTrue);
+          expect(cpdv.supportsBook(49), isTrue);
+          expect(cpdv.supportsBook(73), isTrue);
+        },
+      );
     });
   });
 }
