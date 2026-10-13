@@ -611,8 +611,7 @@ List<ChapterVerseRange> resolveReadingRanges({
 
           // 3. Add second chapter verses
           if (endVerses.isNotEmpty) {
-            final hasCommaOrMultiple =
-                endVersesPart.contains(',') || endVersesPart.contains('and');
+            final hasCommaOrMultiple = endVerseStr.contains(',');
             if (hasCommaOrMultiple) {
               result.add(
                 ChapterVerseRange(chapter: endChapter, verses: endVerses),
