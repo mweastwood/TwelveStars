@@ -43,7 +43,7 @@ List<int> parseVerseRange(String rangeStr) {
 final RegExp _alphaRegex = RegExp(r'[a-zA-Z]');
 final RegExp _trailingDigitsRegex = RegExp(r'\d+$');
 final RegExp _nonDigitsRegex = RegExp(r'[^\d]');
-final RegExp _chapterCrossingRegex = RegExp(r'[\—\–\-]\s*(\d+)\:');
+final RegExp _chapterCrossingRegex = RegExp(r'[\—\–\-]\s*(\d+)\s*\:');
 
 String cleanVerseStr(String str) {
   String clean = str

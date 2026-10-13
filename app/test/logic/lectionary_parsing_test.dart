@@ -875,7 +875,7 @@ void main() {
         ],
       ),
 
-      // --- 4. Multi-Chapter Crossings (18 cases) ---
+      // --- 4. Multi-Chapter Crossings (19 cases) ---
       _TestCase(
         description: 'Exodus em-dash chapter crossing',
         bookNumber: 2,
@@ -1145,6 +1145,22 @@ void main() {
             startVerseLimit: 15,
           ),
           const ChapterVerseRange(chapter: 4, verses: [1, 3]),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Multi-chapter crossing with secondary non-verse-1 range without comma',
+        bookNumber: 56, // 2 Corinthians
+        defaultChapter: 3,
+        defaultVerseRange: '15 - 4',
+        citation: '2 Corinthians 3:15 - 4:3-6',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 3,
+            verses: null,
+            startVerseLimit: 15,
+          ),
+          const ChapterVerseRange(chapter: 4, verses: [3, 4, 5, 6]),
         ],
       ),
 
@@ -1624,6 +1640,26 @@ void main() {
       });
     }
   });
+
+  test(
+    'resolveReadingRanges handles whitespace before colon in chapter crossing citation',
+    () {
+      final result = resolveReadingRanges(
+        bookNumber: 56, // 2 Corinthians
+        defaultChapter: 3,
+        defaultVerseRange: '15 - 4',
+        citation: '2 Corinthians 3:15 - 4 : 1',
+      );
+      expect(result, [
+        const ChapterVerseRange(
+          chapter: 3,
+          verses: null,
+          startVerseLimit: 15,
+        ),
+        const ChapterVerseRange(chapter: 4, endVerseLimit: 1),
+      ]);
+    },
+  );
 }
 
 class _TestCase {
