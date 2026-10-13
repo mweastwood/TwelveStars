@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/lectionary_resolver.dart';
 
 void main() {
-  group('resolveReadingRanges unit tests - 119 cases', () {
+  group('resolveReadingRanges unit tests - 120 cases', () {
     final testCases = <_TestCase>[
       // --- 1. Standard Single-Chapter Cases (20 cases) ---
       _TestCase(
@@ -875,7 +875,7 @@ void main() {
         ],
       ),
 
-      // --- 4. Multi-Chapter Crossings (19 cases) ---
+      // --- 4. Multi-Chapter Crossings (20 cases) ---
       _TestCase(
         description: 'Exodus em-dash chapter crossing',
         bookNumber: 2,
@@ -1161,6 +1161,22 @@ void main() {
             startVerseLimit: 15,
           ),
           const ChapterVerseRange(chapter: 4, verses: [3, 4, 5, 6]),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Multi-chapter crossing with whitespace before colon',
+        bookNumber: 56, // 2 Corinthians
+        defaultChapter: 3,
+        defaultVerseRange: '15 - 4',
+        citation: '2 Corinthians 3:15 - 4 : 1',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 3,
+            verses: null,
+            startVerseLimit: 15,
+          ),
+          const ChapterVerseRange(chapter: 4, endVerseLimit: 1),
         ],
       ),
 
@@ -1640,26 +1656,6 @@ void main() {
       });
     }
   });
-
-  test(
-    'resolveReadingRanges handles whitespace before colon in chapter crossing citation',
-    () {
-      final result = resolveReadingRanges(
-        bookNumber: 56, // 2 Corinthians
-        defaultChapter: 3,
-        defaultVerseRange: '15 - 4',
-        citation: '2 Corinthians 3:15 - 4 : 1',
-      );
-      expect(result, [
-        const ChapterVerseRange(
-          chapter: 3,
-          verses: null,
-          startVerseLimit: 15,
-        ),
-        const ChapterVerseRange(chapter: 4, endVerseLimit: 1),
-      ]);
-    },
-  );
 }
 
 class _TestCase {
