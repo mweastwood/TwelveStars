@@ -17,8 +17,11 @@ List<int> parseVerseRange(String rangeStr) {
   if (trimmed.isEmpty || trimmed.toLowerCase() == 'all') {
     return const [];
   }
+  final orIndex = trimmed.toLowerCase().indexOf(' or ');
+  final primary =
+      orIndex != -1 ? trimmed.substring(0, orIndex).trim() : trimmed;
   final List<int> verses = [];
-  final parts = trimmed.split(',');
+  final parts = primary.split(',');
   for (final part in parts) {
     final cleanPart = part.trim().replaceAll('–', '-').replaceAll('—', '-');
     if (cleanPart.contains('-')) {
@@ -48,7 +51,9 @@ final RegExp _nonDigitsRegex = RegExp(r'[^\d]');
 final RegExp _chapterCrossingRegex = RegExp(r'[\—\–\-]\s*(\d+)\s*\:');
 
 String cleanVerseStr(String str) {
-  String clean = str
+  final orIndex = str.toLowerCase().indexOf(' or ');
+  final primary = orIndex != -1 ? str.substring(0, orIndex).trim() : str;
+  final clean = primary
       .replaceAll(' and ', ',')
       .replaceAll('&', ',')
       .replaceAll(';', ',');
@@ -131,9 +136,13 @@ List<ChapterVerseRange> resolveReadingRanges({
   required String defaultVerseRange,
   required String citation,
 }) {
+  final orIndex = citation.toLowerCase().indexOf(' or ');
+  final primaryCitation =
+      orIndex != -1 ? citation.substring(0, orIndex).trim() : citation;
+
   // Semicolon-separated cross-chapter citations (e.g., "Isaiah 63:16b-17, 19b; 64:2-7")
-  if (citation.contains(';')) {
-    final parts = citation.split(';');
+  if (primaryCitation.contains(';')) {
+    final parts = primaryCitation.split(';');
     final List<ChapterVerseRange> result = [];
 
     // Process the first part
@@ -185,10 +194,10 @@ List<ChapterVerseRange> resolveReadingRanges({
   }
 
   // Multi-chapter crossings (e.g. "Exodus 11:10—12:14", "2 Corinthians 3:15 - 4:1, 3-6")
-  final crossingMatch = _chapterCrossingRegex.firstMatch(citation);
+  final crossingMatch = _chapterCrossingRegex.firstMatch(primaryCitation);
   if (crossingMatch != null) {
-    final leftPart = citation.substring(0, crossingMatch.start).trim();
-    final rightPart = citation.substring(crossingMatch.start + 1).trim();
+    final leftPart = primaryCitation.substring(0, crossingMatch.start).trim();
+    final rightPart = primaryCitation.substring(crossingMatch.start + 1).trim();
 
     final colonIndex = rightPart.indexOf(':');
     if (colonIndex != -1) {
