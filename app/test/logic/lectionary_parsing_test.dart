@@ -1584,269 +1584,384 @@ void main() {
       expect(cleanVerseStr('12-19 Or 5'), '12-19');
       expect(
         cleanVerseStr('1-9, 15-17, 19-30, 33-62 or 13'),
-        '1-9,15-17,19-30,33-62',
+        '1-9, 15-17, 19-30, 33-62',
       );
       expect(cleanVerseStr('21-43 or 5:21-24, 35b-43'), '21-43');
     });
 
     test('parseVerseRange strips " or ..." clause defensively', () {
-      expect(
-        parseVerseRange('12-19 or 5'),
-        [12, 13, 14, 15, 16, 17, 18, 19],
-      );
-      expect(
-        parseVerseRange('12-19 OR 5'),
-        [12, 13, 14, 15, 16, 17, 18, 19],
-      );
-      expect(
-        parseVerseRange('12-19 Or 5'),
-        [12, 13, 14, 15, 16, 17, 18, 19],
-      );
-      expect(
-        parseVerseRange('1-3 or 4-5'),
-        [1, 2, 3],
-      );
+      expect(parseVerseRange('12-19 or 5'), [12, 13, 14, 15, 16, 17, 18, 19]);
+      expect(parseVerseRange('12-19 OR 5'), [12, 13, 14, 15, 16, 17, 18, 19]);
+      expect(parseVerseRange('12-19 Or 5'), [12, 13, 14, 15, 16, 17, 18, 19]);
+      expect(parseVerseRange('1-3 or 4-5'), [1, 2, 3]);
     });
   });
 
-  group('resolveReadingRanges optional "or" lectionary pericopes (Issue #682)', () {
-    final orTestCases = <_TestCase>[
-      _TestCase(
-        description: 'season_lent_1_sunday_a: Romans 5:12-19 or 5:12, 17-19',
-        bookNumber: 54,
-        defaultChapter: 5,
-        defaultVerseRange: '12-19 or 5',
-        citation: 'Romans 5:12-19 or 5:12, 17-19',
-        expected: [
-          const ChapterVerseRange(
-            chapter: 5,
-            verses: [12, 13, 14, 15, 16, 17, 18, 19],
-          ),
-        ],
-      ),
-      _TestCase(
-        description:
-            'season_lent_5_monday: Daniel 13:1-9, 15-17, 19-30, 33-62 or 13:41c-62',
-        bookNumber: 32,
-        defaultChapter: 13,
-        defaultVerseRange: '1-9, 15-17, 19-30, 33-62 or 13',
-        citation: 'Daniel 13:1-9, 15-17, 19-30, 33-62 or 13:41c-62',
-        expected: [
-          const ChapterVerseRange(
-            chapter: 13,
-            verses: [
-              1, 2, 3, 4, 5, 6, 7, 8, 9,
-              15, 16, 17,
-              19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
-              33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48,
-              49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62,
-            ],
-          ),
-        ],
-      ),
-      _TestCase(
-        description:
-            'season_ordinary_time_13_sunday_b: Mk 5:21-43 or 5:21-24, 35b-43',
-        bookNumber: 50,
-        defaultChapter: 5,
-        defaultVerseRange: '21-43 or 5',
-        citation: 'Mk 5:21-43 or 5:21-24, 35b-43',
-        expected: [
-          const ChapterVerseRange(
-            chapter: 5,
-            verses: [
-              21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36,
-              37, 38, 39, 40, 41, 42, 43,
-            ],
-          ),
-        ],
-      ),
-      _TestCase(
-        description: 'season_ordinary_time_15_sunday_b: Eph 1:3-14 or 1:3-10',
-        bookNumber: 58,
-        defaultChapter: 1,
-        defaultVerseRange: '3-14 or 1',
-        citation: 'Eph 1:3-14 or 1:3-10',
-        expected: [
-          const ChapterVerseRange(
-            chapter: 1,
-            verses: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-          ),
-        ],
-      ),
-      _TestCase(
-        description:
-            'season_ordinary_time_21_sunday_b: Eph 5:21-32 or 5:2a, 25-32',
-        bookNumber: 58,
-        defaultChapter: 5,
-        defaultVerseRange: '21-32 or 5',
-        citation: 'Eph 5:21-32 or 5:2a, 25-32',
-        expected: [
-          const ChapterVerseRange(
-            chapter: 5,
-            verses: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32],
-          ),
-        ],
-      ),
-      _TestCase(
-        description: 'season_ordinary_time_27_sunday_b: Mk 10:2-16 or 10:2-12',
-        bookNumber: 50,
-        defaultChapter: 10,
-        defaultVerseRange: '2-16 or 10',
-        citation: 'Mk 10:2-16 or 10:2-12',
-        expected: [
-          const ChapterVerseRange(
-            chapter: 10,
-            verses: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-          ),
-        ],
-      ),
-      _TestCase(
-        description:
-            'season_ordinary_time_28_sunday_b: Mk 10:17-30 or 10:17-27',
-        bookNumber: 50,
-        defaultChapter: 10,
-        defaultVerseRange: '17-30 or 10',
-        citation: 'Mk 10:17-30 or 10:17-27',
-        expected: [
-          const ChapterVerseRange(
-            chapter: 10,
-            verses: [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-          ),
-        ],
-      ),
-      _TestCase(
-        description:
-            'season_ordinary_time_29_sunday_b: Mk 10:35-45 or 10:42-45',
-        bookNumber: 50,
-        defaultChapter: 10,
-        defaultVerseRange: '35-45 or 10',
-        citation: 'Mk 10:35-45 or 10:42-45',
-        expected: [
-          const ChapterVerseRange(
-            chapter: 10,
-            verses: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
-          ),
-        ],
-      ),
-      _TestCase(
-        description:
-            'season_ordinary_time_32_sunday_b: Mk 12:38-44 or 12:41-44',
-        bookNumber: 50,
-        defaultChapter: 12,
-        defaultVerseRange: '38-44 or 12',
-        citation: 'Mk 12:38-44 or 12:41-44',
-        expected: [
-          const ChapterVerseRange(
-            chapter: 12,
-            verses: [38, 39, 40, 41, 42, 43, 44],
-          ),
-        ],
-      ),
-      _TestCase(
-        description:
-            'season_ordinary_time_3_sunday_a: Matthew 4:12-23 or 4:12-17',
-        bookNumber: 49,
-        defaultChapter: 4,
-        defaultVerseRange: '12-23 or 4',
-        citation: 'Matthew 4:12-23 or 4:12-17',
-        expected: [
-          const ChapterVerseRange(
-            chapter: 4,
-            verses: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
-          ),
-        ],
-      ),
-      _TestCase(
-        description: 'season_ordinary_time_4_monday_2: Luke 2:22-40 or 2:22-32',
-        bookNumber: 51,
-        defaultChapter: 2,
-        defaultVerseRange: '22-40 or 2',
-        citation: 'Luke 2:22-40 or 2:22-32',
-        expected: [
-          const ChapterVerseRange(
-            chapter: 2,
-            verses: [
-              22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
-              38, 39, 40,
-            ],
-          ),
-        ],
-      ),
-      _TestCase(
-        description: 'season_ordinary_time_4_sunday_c: Luke 2:22-40 or 2:22-32',
-        bookNumber: 51,
-        defaultChapter: 2,
-        defaultVerseRange: '22-40 or 2',
-        citation: 'Luke 2:22-40 or 2:22-32',
-        expected: [
-          const ChapterVerseRange(
-            chapter: 2,
-            verses: [
-              22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
-              38, 39, 40,
-            ],
-          ),
-        ],
-      ),
-      _TestCase(
-        description:
-            'season_ordinary_time_4_tuesday_1: Luke 2:22-40 or 2:22-32',
-        bookNumber: 51,
-        defaultChapter: 2,
-        defaultVerseRange: '22-40 or 2',
-        citation: 'Luke 2:22-40 or 2:22-32',
-        expected: [
-          const ChapterVerseRange(
-            chapter: 2,
-            verses: [
-              22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
-              38, 39, 40,
-            ],
-          ),
-        ],
-      ),
-      _TestCase(
-        description: 'Case insensitivity: OR uppercase in citation',
-        bookNumber: 54,
-        defaultChapter: 5,
-        defaultVerseRange: '12-19 OR 5',
-        citation: 'Romans 5:12-19 OR 5:12, 17-19',
-        expected: [
-          const ChapterVerseRange(
-            chapter: 5,
-            verses: [12, 13, 14, 15, 16, 17, 18, 19],
-          ),
-        ],
-      ),
-      _TestCase(
-        description: 'Case insensitivity: Or capitalized in citation',
-        bookNumber: 54,
-        defaultChapter: 5,
-        defaultVerseRange: '12-19 Or 5',
-        citation: 'Romans 5:12-19 Or 5:12, 17-19',
-        expected: [
-          const ChapterVerseRange(
-            chapter: 5,
-            verses: [12, 13, 14, 15, 16, 17, 18, 19],
-          ),
-        ],
-      ),
-    ];
+  group(
+    'resolveReadingRanges optional "or" lectionary pericopes (Issue #682)',
+    () {
+      final orTestCases = <_TestCase>[
+        _TestCase(
+          description: 'season_lent_1_sunday_a: Romans 5:12-19 or 5:12, 17-19',
+          bookNumber: 54,
+          defaultChapter: 5,
+          defaultVerseRange: '12-19 or 5',
+          citation: 'Romans 5:12-19 or 5:12, 17-19',
+          expected: [
+            const ChapterVerseRange(
+              chapter: 5,
+              verses: [12, 13, 14, 15, 16, 17, 18, 19],
+            ),
+          ],
+        ),
+        _TestCase(
+          description:
+              'season_lent_5_monday: Daniel 13:1-9, 15-17, 19-30, 33-62 or 13:41c-62',
+          bookNumber: 32,
+          defaultChapter: 13,
+          defaultVerseRange: '1-9, 15-17, 19-30, 33-62 or 13',
+          citation: 'Daniel 13:1-9, 15-17, 19-30, 33-62 or 13:41c-62',
+          expected: [
+            const ChapterVerseRange(
+              chapter: 13,
+              verses: [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                15,
+                16,
+                17,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+              ],
+            ),
+          ],
+        ),
+        _TestCase(
+          description:
+              'season_ordinary_time_13_sunday_b: Mk 5:21-43 or 5:21-24, 35b-43',
+          bookNumber: 50,
+          defaultChapter: 5,
+          defaultVerseRange: '21-43 or 5',
+          citation: 'Mk 5:21-43 or 5:21-24, 35b-43',
+          expected: [
+            const ChapterVerseRange(
+              chapter: 5,
+              verses: [
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+              ],
+            ),
+          ],
+        ),
+        _TestCase(
+          description: 'season_ordinary_time_15_sunday_b: Eph 1:3-14 or 1:3-10',
+          bookNumber: 58,
+          defaultChapter: 1,
+          defaultVerseRange: '3-14 or 1',
+          citation: 'Eph 1:3-14 or 1:3-10',
+          expected: [
+            const ChapterVerseRange(
+              chapter: 1,
+              verses: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+            ),
+          ],
+        ),
+        _TestCase(
+          description:
+              'season_ordinary_time_21_sunday_b: Eph 5:21-32 or 5:2a, 25-32',
+          bookNumber: 58,
+          defaultChapter: 5,
+          defaultVerseRange: '21-32 or 5',
+          citation: 'Eph 5:21-32 or 5:2a, 25-32',
+          expected: [
+            const ChapterVerseRange(
+              chapter: 5,
+              verses: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32],
+            ),
+          ],
+        ),
+        _TestCase(
+          description:
+              'season_ordinary_time_27_sunday_b: Mk 10:2-16 or 10:2-12',
+          bookNumber: 50,
+          defaultChapter: 10,
+          defaultVerseRange: '2-16 or 10',
+          citation: 'Mk 10:2-16 or 10:2-12',
+          expected: [
+            const ChapterVerseRange(
+              chapter: 10,
+              verses: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+            ),
+          ],
+        ),
+        _TestCase(
+          description:
+              'season_ordinary_time_28_sunday_b: Mk 10:17-30 or 10:17-27',
+          bookNumber: 50,
+          defaultChapter: 10,
+          defaultVerseRange: '17-30 or 10',
+          citation: 'Mk 10:17-30 or 10:17-27',
+          expected: [
+            const ChapterVerseRange(
+              chapter: 10,
+              verses: [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+            ),
+          ],
+        ),
+        _TestCase(
+          description:
+              'season_ordinary_time_29_sunday_b: Mk 10:35-45 or 10:42-45',
+          bookNumber: 50,
+          defaultChapter: 10,
+          defaultVerseRange: '35-45 or 10',
+          citation: 'Mk 10:35-45 or 10:42-45',
+          expected: [
+            const ChapterVerseRange(
+              chapter: 10,
+              verses: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+            ),
+          ],
+        ),
+        _TestCase(
+          description:
+              'season_ordinary_time_32_sunday_b: Mk 12:38-44 or 12:41-44',
+          bookNumber: 50,
+          defaultChapter: 12,
+          defaultVerseRange: '38-44 or 12',
+          citation: 'Mk 12:38-44 or 12:41-44',
+          expected: [
+            const ChapterVerseRange(
+              chapter: 12,
+              verses: [38, 39, 40, 41, 42, 43, 44],
+            ),
+          ],
+        ),
+        _TestCase(
+          description:
+              'season_ordinary_time_3_sunday_a: Matthew 4:12-23 or 4:12-17',
+          bookNumber: 49,
+          defaultChapter: 4,
+          defaultVerseRange: '12-23 or 4',
+          citation: 'Matthew 4:12-23 or 4:12-17',
+          expected: [
+            const ChapterVerseRange(
+              chapter: 4,
+              verses: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            ),
+          ],
+        ),
+        _TestCase(
+          description:
+              'season_ordinary_time_4_monday_2: Luke 2:22-40 or 2:22-32',
+          bookNumber: 51,
+          defaultChapter: 2,
+          defaultVerseRange: '22-40 or 2',
+          citation: 'Luke 2:22-40 or 2:22-32',
+          expected: [
+            const ChapterVerseRange(
+              chapter: 2,
+              verses: [
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+              ],
+            ),
+          ],
+        ),
+        _TestCase(
+          description:
+              'season_ordinary_time_4_sunday_c: Luke 2:22-40 or 2:22-32',
+          bookNumber: 51,
+          defaultChapter: 2,
+          defaultVerseRange: '22-40 or 2',
+          citation: 'Luke 2:22-40 or 2:22-32',
+          expected: [
+            const ChapterVerseRange(
+              chapter: 2,
+              verses: [
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+              ],
+            ),
+          ],
+        ),
+        _TestCase(
+          description:
+              'season_ordinary_time_4_tuesday_1: Luke 2:22-40 or 2:22-32',
+          bookNumber: 51,
+          defaultChapter: 2,
+          defaultVerseRange: '22-40 or 2',
+          citation: 'Luke 2:22-40 or 2:22-32',
+          expected: [
+            const ChapterVerseRange(
+              chapter: 2,
+              verses: [
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+              ],
+            ),
+          ],
+        ),
+        _TestCase(
+          description: 'Case insensitivity: OR uppercase in citation',
+          bookNumber: 54,
+          defaultChapter: 5,
+          defaultVerseRange: '12-19 OR 5',
+          citation: 'Romans 5:12-19 OR 5:12, 17-19',
+          expected: [
+            const ChapterVerseRange(
+              chapter: 5,
+              verses: [12, 13, 14, 15, 16, 17, 18, 19],
+            ),
+          ],
+        ),
+        _TestCase(
+          description: 'Case insensitivity: Or capitalized in citation',
+          bookNumber: 54,
+          defaultChapter: 5,
+          defaultVerseRange: '12-19 Or 5',
+          citation: 'Romans 5:12-19 Or 5:12, 17-19',
+          expected: [
+            const ChapterVerseRange(
+              chapter: 5,
+              verses: [12, 13, 14, 15, 16, 17, 18, 19],
+            ),
+          ],
+        ),
+      ];
 
-    for (var i = 0; i < orTestCases.length; i++) {
-      final tc = orTestCases[i];
-      test('Optional pericope #${i + 1}: ${tc.description}', () {
-        final result = resolveReadingRanges(
-          bookNumber: tc.bookNumber,
-          defaultChapter: tc.defaultChapter,
-          defaultVerseRange: tc.defaultVerseRange,
-          citation: tc.citation,
-        );
-        expect(result, tc.expected);
-      });
-    }
-  });
+      for (var i = 0; i < orTestCases.length; i++) {
+        final tc = orTestCases[i];
+        test('Optional pericope #${i + 1}: ${tc.description}', () {
+          final result = resolveReadingRanges(
+            bookNumber: tc.bookNumber,
+            defaultChapter: tc.defaultChapter,
+            defaultVerseRange: tc.defaultVerseRange,
+            citation: tc.citation,
+          );
+          expect(result, tc.expected);
+        });
+      }
+    },
+  );
 }
 
 class _TestCase {
