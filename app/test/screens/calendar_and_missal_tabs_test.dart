@@ -1787,7 +1787,7 @@ void main() {
         // Insert readings with mixed casing and tie-breaker IDs out of order
         await testDb.into(testDb.lectionaryReadings).insert(
           LectionaryReadingsCompanion.insert(
-            id: const Value(50),
+            id: const Value(90050),
             readingKey: day.lectionaryKey,
             readingType: 'GOSPEL',
             bookNumber: 40,
@@ -1799,7 +1799,7 @@ void main() {
         );
         await testDb.into(testDb.lectionaryReadings).insert(
           LectionaryReadingsCompanion.insert(
-            id: const Value(10),
+            id: const Value(90010),
             readingKey: day.lectionaryKey,
             readingType: 'first',
             bookNumber: 1,
@@ -1811,7 +1811,7 @@ void main() {
         );
         await testDb.into(testDb.lectionaryReadings).insert(
           LectionaryReadingsCompanion.insert(
-            id: const Value(20),
+            id: const Value(90020),
             readingKey: day.lectionaryKey,
             readingType: 'Psalm',
             bookNumber: 19,
@@ -1823,7 +1823,7 @@ void main() {
         );
         await testDb.into(testDb.lectionaryReadings).insert(
           LectionaryReadingsCompanion.insert(
-            id: const Value(35),
+            id: const Value(90035),
             readingKey: day.lectionaryKey,
             readingType: 'Second',
             bookNumber: 45,
@@ -1836,7 +1836,7 @@ void main() {
         // Fallback/unknown types to verify stable tie-breaking by id
         await testDb.into(testDb.lectionaryReadings).insert(
           LectionaryReadingsCompanion.insert(
-            id: const Value(100),
+            id: const Value(90100),
             readingKey: day.lectionaryKey,
             readingType: 'extra_b',
             bookNumber: 50,
@@ -1848,7 +1848,7 @@ void main() {
         );
         await testDb.into(testDb.lectionaryReadings).insert(
           LectionaryReadingsCompanion.insert(
-            id: const Value(90),
+            id: const Value(90090),
             readingKey: day.lectionaryKey,
             readingType: 'extra_a',
             bookNumber: 50,
@@ -1884,7 +1884,7 @@ void main() {
         );
         expect(
           readingCards.map((c) => c.reading.id).toList(),
-          equals([10, 20, 35, 50, 90, 100]),
+          equals([90010, 90020, 90035, 90050, 90090, 90100]),
         );
       },
     );
