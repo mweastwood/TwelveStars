@@ -536,10 +536,7 @@ List<ChapterVerseRange> resolveReadingRanges({
 
     final colonIndex = rightPart.indexOf(':');
     if (colonIndex != -1) {
-      final endChapterStr = rightPart
-          .substring(0, colonIndex)
-          .replaceAll(_nonDigitsRegex, '');
-      final endChapterVal = int.tryParse(endChapterStr);
+      final endChapterVal = int.tryParse(crossingMatch.group(1)!);
 
       if (endChapterVal != null) {
         // Parse start chapter and verses from leftPart of the citation
@@ -611,7 +608,8 @@ List<ChapterVerseRange> resolveReadingRanges({
 
           // 3. Add second chapter verses
           if (endVerses.isNotEmpty) {
-            final hasCommaOrMultiple = endVerseStr.contains(',');
+            final hasCommaOrMultiple = endVerseStr.contains(',') ||
+                (rawEndVerses.length > 1 && rawEndVerses.first != 1);
             if (hasCommaOrMultiple) {
               result.add(
                 ChapterVerseRange(chapter: endChapter, verses: endVerses),

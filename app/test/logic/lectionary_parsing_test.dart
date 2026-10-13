@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/lectionary_resolver.dart';
 
 void main() {
-  group('resolveReadingRanges unit tests - 118 cases', () {
+  group('resolveReadingRanges unit tests - 119 cases', () {
     final testCases = <_TestCase>[
       // --- 1. Standard Single-Chapter Cases (20 cases) ---
       _TestCase(
