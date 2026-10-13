@@ -120,11 +120,14 @@ class _MissalTabState extends State<MissalTab> {
           .getReadings(lectionaryKey)
           .then(
             (list) => list.toList()
-              ..sort(
-                (a, b) => (_readingTypeOrder[a.readingType] ?? 99).compareTo(
-                  _readingTypeOrder[b.readingType] ?? 99,
-                ),
-              ),
+              ..sort((a, b) {
+                final orderA =
+                    _readingTypeOrder[a.readingType.toLowerCase()] ?? 99;
+                final orderB =
+                    _readingTypeOrder[b.readingType.toLowerCase()] ?? 99;
+                final cmp = orderA.compareTo(orderB);
+                return cmp != 0 ? cmp : a.id.compareTo(b.id);
+              }),
           );
     }
     return _readingsFuture!;
@@ -329,16 +332,14 @@ class _MissalTabState extends State<MissalTab> {
   Future<void> _togglePrayerFilter(String prayerId, bool enabled) async {
     if (_settings == null) return;
     setState(() {
-      final list = List<String>.from(_settings!.missalHiddenPrayers ?? []);
+      final updated = Set<String>.of(_hiddenPrayers);
       if (enabled) {
-        list.remove(prayerId);
+        updated.remove(prayerId);
       } else {
-        if (!list.contains(prayerId)) {
-          list.add(prayerId);
-        }
+        updated.add(prayerId);
       }
-      _settings!.missalHiddenPrayers = list;
-      _hiddenPrayers = list.toSet();
+      _hiddenPrayers = updated;
+      _settings!.missalHiddenPrayers = updated.toList();
       if (_settings!.missalReadingsOnly) {
         _settings!.missalReadingsOnly = false;
       }

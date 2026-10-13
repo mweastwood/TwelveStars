@@ -13,6 +13,7 @@ import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
+import 'package:drift/drift.dart' show Value;
 import 'package:drift/native.dart';
 import 'package:flutter_agent_core/flutter_agent_core.dart';
 import 'package:twelve_stars/logic/ai_service_helper.dart';
@@ -1733,6 +1734,16 @@ void main() {
         // 1. Verify date header formatting using hoisted _monthNames
         expect(find.text('Sunday, November 24, 2024'), findsOneWidget);
 
+        // Tap calendar header to expand and assert month/year format (_formatMonthYear)
+        await tester.tap(find.text('Sunday, November 24, 2024'));
+        await tester.pumpAndSettle();
+        expect(find.text('November 2024'), findsOneWidget);
+
+        // Tap again to collapse calendar grid back to full date
+        await tester.tap(find.text('November 2024'));
+        await tester.pumpAndSettle();
+        expect(find.text('Sunday, November 24, 2024'), findsOneWidget);
+
         // 2. Verify lectionary readings are rendered in sorted order: first, psalm, second, gospel
         final readingCards = tester
             .widgetList<MassReadingCard>(find.byType(MassReadingCard))
@@ -1759,6 +1770,122 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(state.hiddenPrayersForTesting.contains('confiteor'), isFalse);
+      },
+    );
+
+    testWidgets(
+      'MissalTab sorts lectionary readings case-insensitively with stable id tie-breaking',
+      (tester) async {
+        final testDate = DateTime(2024, 11, 25);
+        final day = LiturgicalCalendar.computeDay(testDate);
+
+        // Clear any existing readings for test key
+        await (testDb.delete(testDb.lectionaryReadings)
+              ..where((tbl) => tbl.readingKey.equals(day.lectionaryKey)))
+            .go();
+
+        // Insert readings with mixed casing and tie-breaker IDs out of order
+        await testDb.into(testDb.lectionaryReadings).insert(
+          LectionaryReadingsCompanion.insert(
+            id: const Value(50),
+            readingKey: day.lectionaryKey,
+            readingType: 'GOSPEL',
+            bookNumber: 40,
+            bookName: 'Matthew',
+            chapter: 1,
+            verseRange: '1-10',
+            citation: 'Matt 1:1-10',
+          ),
+        );
+        await testDb.into(testDb.lectionaryReadings).insert(
+          LectionaryReadingsCompanion.insert(
+            id: const Value(10),
+            readingKey: day.lectionaryKey,
+            readingType: 'first',
+            bookNumber: 1,
+            bookName: 'Genesis',
+            chapter: 1,
+            verseRange: '1-5',
+            citation: 'Gen 1:1-5',
+          ),
+        );
+        await testDb.into(testDb.lectionaryReadings).insert(
+          LectionaryReadingsCompanion.insert(
+            id: const Value(20),
+            readingKey: day.lectionaryKey,
+            readingType: 'Psalm',
+            bookNumber: 19,
+            bookName: 'Psalms',
+            chapter: 23,
+            verseRange: '1-3',
+            citation: 'Ps 23:1-3',
+          ),
+        );
+        await testDb.into(testDb.lectionaryReadings).insert(
+          LectionaryReadingsCompanion.insert(
+            id: const Value(35),
+            readingKey: day.lectionaryKey,
+            readingType: 'Second',
+            bookNumber: 45,
+            bookName: 'Romans',
+            chapter: 8,
+            verseRange: '1-4',
+            citation: 'Rom 8:1-4',
+          ),
+        );
+        // Fallback/unknown types to verify stable tie-breaking by id
+        await testDb.into(testDb.lectionaryReadings).insert(
+          LectionaryReadingsCompanion.insert(
+            id: const Value(100),
+            readingKey: day.lectionaryKey,
+            readingType: 'extra_b',
+            bookNumber: 50,
+            bookName: 'Philippians',
+            chapter: 2,
+            verseRange: '1-5',
+            citation: 'Phil 2:1-5',
+          ),
+        );
+        await testDb.into(testDb.lectionaryReadings).insert(
+          LectionaryReadingsCompanion.insert(
+            id: const Value(90),
+            readingKey: day.lectionaryKey,
+            readingType: 'extra_a',
+            bookNumber: 50,
+            bookName: 'Philippians',
+            chapter: 1,
+            verseRange: '1-5',
+            citation: 'Phil 1:1-5',
+          ),
+        );
+
+        TimeHelper.setCustomTime(testDate);
+
+        await tester.pumpWidget(
+          materialAppWrapper()(
+            Scaffold(
+              body: MissalTab(
+                initialDate: testDate,
+                primaryLanguage: PrayerLanguage.english,
+                compareLanguage: PrayerLanguage.latin,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final readingCards = tester
+            .widgetList<MassReadingCard>(find.byType(MassReadingCard))
+            .toList();
+        expect(readingCards.length, equals(6));
+        expect(
+          readingCards.map((c) => c.reading.readingType).toList(),
+          equals(['first', 'Psalm', 'Second', 'GOSPEL', 'extra_a', 'extra_b']),
+        );
+        expect(
+          readingCards.map((c) => c.reading.id).toList(),
+          equals([10, 20, 35, 50, 90, 100]),
+        );
       },
     );
   });
