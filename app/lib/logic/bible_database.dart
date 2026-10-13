@@ -601,7 +601,14 @@ class BibleDatabase extends _$BibleDatabase {
     String bookName,
     String abbrev, {
     String translation = 'CPDV',
-  }) {
+  }) async {
+    if (translation == 'LXX' && bookNumber > 46) {
+      debugPrint(
+        'LXX translation contains only Old Testament books (1–46). Skipping book $bookNumber ($bookName).',
+      );
+      return;
+    }
+
     final key = '$translation:$bookNumber';
     final inFlight = _inFlightBookPopulations[key];
     if (inFlight != null) {

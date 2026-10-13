@@ -1127,5 +1127,72 @@ void main() {
         expect(find.byType(CircularProgressIndicator), findsNothing);
       },
     );
+
+    testWidgets(
+      'Comparative translation failure does not block primary translation rendering',
+      (WidgetTester tester) async {
+        final matthewBook = catholicBooks.firstWhere((b) => b.bookNumber == 49);
+        await seedVerses(
+          testDb,
+          bookNumber: 49,
+          bookName: 'Matthew',
+          chapter: 1,
+          translationCode: 'CPDV',
+          verseTexts: ['The book of the genealogy of Jesus Christ.'],
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: BibleChapterView(
+                book: matthewBook,
+                chapter: 1,
+                primaryTranslation: 'CPDV',
+                compareTranslation: 'LXX',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Verify primary translation is loaded and displayed
+        expect(
+          find.text('The book of the genealogy of Jesus Christ.'),
+          findsOneWidget,
+        );
+        expect(find.textContaining('Error loading Bible:'), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'Viewing New Testament book with LXX as primary renders informational OT-only notice',
+      (WidgetTester tester) async {
+        final matthewBook = catholicBooks.firstWhere((b) => b.bookNumber == 49);
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: BibleChapterView(
+                book: matthewBook,
+                chapter: 1,
+                primaryTranslation: 'LXX',
+                compareTranslation: 'none',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Verify informative notice is rendered
+        expect(
+          find.text(
+            'The Septuagint (LXX) contains only Old Testament books. Select another translation to read Matthew.',
+          ),
+          findsOneWidget,
+        );
+        expect(find.byIcon(Icons.info_outline), findsOneWidget);
+        expect(find.textContaining('Error loading Bible:'), findsNothing);
+      },
+    );
   });
 }

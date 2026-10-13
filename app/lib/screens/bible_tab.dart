@@ -372,6 +372,10 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   Future<void> _showTranslationSelectorDialog(
     BibleTranslationTarget target,
   ) async {
+    final currentBookNumber =
+        _allChapters.isNotEmpty && _currentPageIndex < _allChapters.length
+        ? _allChapters[_currentPageIndex].book.bookNumber
+        : null;
     await BibleTranslationSelectorDialog.show(
       context,
       currentPrimaryCode: _primaryTranslation,
@@ -379,6 +383,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
           ? null
           : _compareTranslation,
       initialTarget: target,
+      currentBookNumber: currentBookNumber,
       onPrimarySelected: (newPrimary) async {
         final nextCompare = _compareTranslation == newPrimary
             ? 'none'

@@ -89,6 +89,66 @@ void main() {
       },
     );
 
+    testWidgets(
+      'BibleTranslationSelectorDialog displays OT Only badge on LXX and contextual NT disclaimer',
+      (tester) async {
+        // When opened with New Testament book (Matthew, bookNumber 49)
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: BibleTranslationSelectorDialog(
+                currentPrimaryCode: 'CPDV',
+                currentCompareCode: null,
+                currentBookNumber: 49,
+                onPrimarySelected: (_) {},
+                onCompareSelected: (_) {},
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Search for Septuaginta
+        await tester.enterText(find.byType(TextField), 'Septuaginta');
+        await tester.pumpAndSettle();
+
+        expect(find.text('Septuaginta (LXX)'), findsOneWidget);
+        expect(find.text('OT Only'), findsOneWidget);
+        expect(
+          find.text('Old Testament only. Not available for this book.'),
+          findsOneWidget,
+        );
+        expect(find.byIcon(Icons.warning_amber_rounded), findsOneWidget);
+
+        // When opened with Old Testament book (Genesis, bookNumber 1)
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: BibleTranslationSelectorDialog(
+                currentPrimaryCode: 'CPDV',
+                currentCompareCode: null,
+                currentBookNumber: 1,
+                onPrimarySelected: (_) {},
+                onCompareSelected: (_) {},
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        await tester.enterText(find.byType(TextField), 'Septuaginta');
+        await tester.pumpAndSettle();
+
+        expect(find.text('Septuaginta (LXX)'), findsOneWidget);
+        expect(find.text('OT Only'), findsOneWidget);
+        // Disclaimer should NOT appear for Genesis
+        expect(
+          find.text('Old Testament only. Not available for this book.'),
+          findsNothing,
+        );
+      },
+    );
+
     // --- GOLDEN TESTS ---
 
     testGoldens(

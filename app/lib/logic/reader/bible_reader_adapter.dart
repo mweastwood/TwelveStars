@@ -74,20 +74,24 @@ class BibleReaderAdapter implements ReaderAdapter {
 
     Map<int, BibleVerse> compareVersesByNumber = {};
     if (compareTranslation != 'none') {
-      await dbHelper.ensureBookPopulated(
-        bibleBook.bookNumber,
-        bibleBook.bookName,
-        bibleBook.abbrev,
-        translation: compareTranslation,
-      );
-      final compareVerses = await dbHelper.getChapterVerses(
-        compareTranslation,
-        bibleBook.bookNumber,
-        chapterNumber,
-      );
-      compareVersesByNumber = {
-        for (final cv in compareVerses) cv.verseNumber: cv,
-      };
+      try {
+        await dbHelper.ensureBookPopulated(
+          bibleBook.bookNumber,
+          bibleBook.bookName,
+          bibleBook.abbrev,
+          translation: compareTranslation,
+        );
+        final compareVerses = await dbHelper.getChapterVerses(
+          compareTranslation,
+          bibleBook.bookNumber,
+          chapterNumber,
+        );
+        compareVersesByNumber = {
+          for (final cv in compareVerses) cv.verseNumber: cv,
+        };
+      } catch (_) {
+        // Comparative translation failure or missing book should not crash primary translation view
+      }
     }
 
     return (
