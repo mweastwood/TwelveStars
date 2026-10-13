@@ -118,9 +118,14 @@ class _MissalTabState extends State<MissalTab> {
       _activeSelection = null;
       _readingsFuture = BibleDatabaseHelper.db
           .getReadings(lectionaryKey)
-          .then((list) => list.toList()
-            ..sort((a, b) => (_readingTypeOrder[a.readingType] ?? 99)
-                .compareTo(_readingTypeOrder[b.readingType] ?? 99)));
+          .then(
+            (list) => list.toList()
+              ..sort(
+                (a, b) => (_readingTypeOrder[a.readingType] ?? 99).compareTo(
+                  _readingTypeOrder[b.readingType] ?? 99,
+                ),
+              ),
+          );
     }
     return _readingsFuture!;
   }
