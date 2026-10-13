@@ -25,5 +25,36 @@ void main() {
       expect(verses.first.verseText, contains('ἘΝ ἀρχῇ ἐποίησεν ὁ Θεὸς'));
       expect(verses.first.translationCode, equals('LXX'));
     });
+
+    test(
+      'ensureBookPopulated cleanly skips New Testament books for LXX without crashing',
+      () async {
+        // Matthew is book 49
+        await expectLater(
+          testDb.ensureBookPopulated(49, 'Matthew', 'MAT', translation: 'LXX'),
+          completes,
+        );
+
+        expect(testDb.inFlightBookPopulations, isEmpty);
+
+        final verses = await testDb.getChapterVerses('LXX', 49, 1);
+        expect(verses, isEmpty);
+
+        // Apocalypse / Revelation is book 73
+        await expectLater(
+          testDb.ensureBookPopulated(
+            73,
+            'Apocalypse',
+            'REV',
+            translation: 'LXX',
+          ),
+          completes,
+        );
+        expect(testDb.inFlightBookPopulations, isEmpty);
+
+        final revVerses = await testDb.getChapterVerses('LXX', 73, 1);
+        expect(revVerses, isEmpty);
+      },
+    );
   });
 }

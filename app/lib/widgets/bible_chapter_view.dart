@@ -169,17 +169,23 @@ class _BibleChapterViewState extends State<BibleChapterView>
       // Load compare translation if needed
       List<BibleVerse> compareVerses = [];
       if (widget.compareTranslation != 'none') {
-        await db.ensureBookPopulated(
-          widget.book.bookNumber,
-          widget.book.bookName,
-          widget.book.abbrev,
-          translation: widget.compareTranslation,
-        );
-        compareVerses = await db.getChapterVerses(
-          widget.compareTranslation,
-          widget.book.bookNumber,
-          widget.chapter,
-        );
+        try {
+          await db.ensureBookPopulated(
+            widget.book.bookNumber,
+            widget.book.bookName,
+            widget.book.abbrev,
+            translation: widget.compareTranslation,
+          );
+          compareVerses = await db.getChapterVerses(
+            widget.compareTranslation,
+            widget.book.bookNumber,
+            widget.chapter,
+          );
+        } catch (e) {
+          debugPrint(
+            'Error loading comparative translation (${widget.compareTranslation}): $e',
+          );
+        }
       }
 
       if (mounted) {
@@ -482,7 +488,45 @@ class _BibleChapterViewState extends State<BibleChapterView>
                     ),
                   ),
                   const SizedBox(height: 16),
-                  ..._verses.map((verse) {
+                  if (_verses.isEmpty)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16.0,
+                        vertical: 32.0,
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.all(16.0),
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.surfaceContainerHighest
+                              .withValues(alpha: 0.5),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: theme.colorScheme.outlineVariant,
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.info_outline,
+                              color: theme.colorScheme.primary,
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                widget.primaryTranslation == 'LXX'
+                                    ? 'The Septuagint (LXX) contains only Old Testament books. Select another translation to read ${widget.book.bookName}.'
+                                    : 'No verses available for ${widget.book.bookName} in this translation.',
+                                style: theme.textTheme.bodyMedium?.copyWith(
+                                  color: theme.colorScheme.onSurfaceVariant,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  else
+                    ..._verses.map((verse) {
                     final isSelected = _isVerseSelected(verse.verseNumber);
                     _verseKeys.putIfAbsent(verse.id, () => GlobalKey());
 

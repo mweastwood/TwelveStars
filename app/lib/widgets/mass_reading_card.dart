@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:drift/drift.dart' hide Column;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/bible_translation_info.dart';
 import 'package:twelve_stars/logic/lectionary_resolver.dart';
 import 'package:twelve_stars/logic/lectionary_responses.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
@@ -229,7 +230,11 @@ class _MassReadingCardState extends State<MassReadingCard> {
 
   Future<void> _loadVerses({bool force = false}) async {
     final settings = await PrayerDatabase.loadSettings();
-    final translation = settings.primaryBibleTranslation;
+    final requestedTranslation = settings.primaryBibleTranslation;
+    final transInfo = BibleTranslationInfo.getByCode(requestedTranslation);
+    final translation = transInfo.supportsBook(widget.reading.bookNumber)
+        ? requestedTranslation
+        : 'CPDV';
 
     if (_verses != null && _loadedTranslation == translation && !force) return;
 

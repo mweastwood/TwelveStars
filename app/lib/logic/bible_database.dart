@@ -626,6 +626,13 @@ class BibleDatabase extends _$BibleDatabase {
     String translation = 'CPDV',
   }) async {
     try {
+      if (translation == 'LXX' && bookNumber > 46) {
+        debugPrint(
+          'LXX translation contains only Old Testament books (1–46). Skipping book $bookNumber ($bookName).',
+        );
+        return;
+      }
+
       final existingCheck =
           await (select(bibleVerses)
                 ..where(
