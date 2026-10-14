@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/lectionary_resolver.dart';
 
 void main() {
-  group('resolveReadingRanges unit tests - 115 cases', () {
+  group('resolveReadingRanges unit tests - 121 cases', () {
     final testCases = <_TestCase>[
       // --- 1. Standard Single-Chapter Cases (20 cases) ---
       _TestCase(
@@ -875,7 +875,7 @@ void main() {
         ],
       ),
 
-      // --- 4. Multi-Chapter Crossings (15 cases) ---
+      // --- 4. Multi-Chapter Crossings (20 cases) ---
       _TestCase(
         description: 'Exodus em-dash chapter crossing',
         bookNumber: 2,
@@ -1098,6 +1098,85 @@ void main() {
           const ChapterVerseRange(chapter: 22, verses: null, endVerseLimit: 5),
         ],
         citation: 'Revelation 21:9—22:5',
+      ),
+      _TestCase(
+        description:
+            '2 Corinthians multi-chapter crossing with secondary hyphenated verse range',
+        bookNumber: 56, // 2 Corinthians
+        defaultChapter: 3,
+        defaultVerseRange: '15 - 4',
+        citation: '2 Corinthians 3:15 - 4:1, 3-6',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 3,
+            verses: null,
+            startVerseLimit: 15,
+          ),
+          const ChapterVerseRange(chapter: 4, verses: [1, 3, 4, 5, 6]),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Malachi multi-chapter crossing with secondary hyphenated verse range',
+        bookNumber: 44, // Malachi
+        defaultChapter: 1,
+        defaultVerseRange: '14b-2',
+        citation: 'Mal 1:14b-2:2b, 8-10',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 1,
+            verses: null,
+            startVerseLimit: 14,
+          ),
+          const ChapterVerseRange(chapter: 2, verses: [2, 8, 9, 10]),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Multi-chapter crossing with ampersand delimiter in second chapter',
+        bookNumber: 56, // 2 Corinthians
+        defaultChapter: 3,
+        defaultVerseRange: '15 - 4',
+        citation: '2 Corinthians 3:15 - 4:1 & 3',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 3,
+            verses: null,
+            startVerseLimit: 15,
+          ),
+          const ChapterVerseRange(chapter: 4, verses: [1, 3]),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Multi-chapter crossing with secondary non-verse-1 range without comma',
+        bookNumber: 56, // 2 Corinthians
+        defaultChapter: 3,
+        defaultVerseRange: '15 - 4',
+        citation: '2 Corinthians 3:15 - 4:3-6',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 3,
+            verses: null,
+            startVerseLimit: 15,
+          ),
+          const ChapterVerseRange(chapter: 4, verses: [3, 4, 5, 6]),
+        ],
+      ),
+      _TestCase(
+        description: 'Multi-chapter crossing with whitespace before colon',
+        bookNumber: 56, // 2 Corinthians
+        defaultChapter: 3,
+        defaultVerseRange: '15 - 4',
+        citation: '2 Corinthians 3:15 - 4 : 1',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 3,
+            verses: null,
+            startVerseLimit: 15,
+          ),
+          const ChapterVerseRange(chapter: 4, endVerseLimit: 1),
+        ],
       ),
 
       // --- 5. Other Specific Vulgate Mappings (20 cases) ---

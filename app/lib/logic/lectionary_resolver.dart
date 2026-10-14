@@ -43,6 +43,7 @@ List<int> parseVerseRange(String rangeStr) {
 final RegExp _alphaRegex = RegExp(r'[a-zA-Z]');
 final RegExp _trailingDigitsRegex = RegExp(r'\d+$');
 final RegExp _nonDigitsRegex = RegExp(r'[^\d]');
+final RegExp _chapterCrossingRegex = RegExp(r'[\—\–\-]\s*(\d+)\s*\:');
 
 String cleanVerseStr(String str) {
   String clean = str
@@ -527,117 +528,105 @@ List<ChapterVerseRange> resolveReadingRanges({
     }
   }
 
-  // Multi-chapter crossings (e.g. "Exodus 11:10—12:14")
-  if (citation.contains('—') ||
-      citation.contains('–') ||
-      citation.contains('-')) {
-    String dash = '—';
-    if (citation.contains('—')) {
-      dash = '—';
-    } else if (citation.contains('–')) {
-      dash = '–';
-    } else {
-      dash = '-';
-    }
-    final parts = citation.split(dash);
-    if (parts.length == 2) {
-      final leftPart = parts[0].trim();
-      final rightPart = parts[1].trim();
+  // Multi-chapter crossings (e.g. "Exodus 11:10—12:14", "2 Corinthians 3:15 - 4:1, 3-6")
+  final crossingMatch = _chapterCrossingRegex.firstMatch(citation);
+  if (crossingMatch != null) {
+    final leftPart = citation.substring(0, crossingMatch.start).trim();
+    final rightPart = citation.substring(crossingMatch.start + 1).trim();
 
-      if (rightPart.contains(':')) {
-        final rightSubParts = rightPart.split(':');
-        final endChapterStr = rightSubParts[0].replaceAll(_nonDigitsRegex, '');
-        final endChapterVal = int.tryParse(endChapterStr);
+    final colonIndex = rightPart.indexOf(':');
+    if (colonIndex != -1) {
+      final endChapterVal = int.tryParse(crossingMatch.group(1)!);
 
-        if (endChapterVal != null) {
-          // Parse start chapter and verses from leftPart of the citation
-          int startChapterVal = defaultChapter;
-          List<int> initialVersesList = const [];
-          final leftColonIndex = leftPart.indexOf(':');
-          if (leftColonIndex != -1) {
-            final leftChapterPart = leftPart.substring(0, leftColonIndex);
-            final leftChapterMatch = _trailingDigitsRegex.firstMatch(
-              leftChapterPart.trim(),
-            );
-            if (leftChapterMatch != null) {
-              startChapterVal = int.parse(leftChapterMatch.group(0)!);
-            }
-            final leftVersesStr = leftPart.substring(leftColonIndex + 1);
-            initialVersesList = parseVerseRange(cleanVerseStr(leftVersesStr));
-          } else {
-            final cleanRange = cleanVerseStr(defaultVerseRange);
-            initialVersesList = parseVerseRange(cleanRange);
-          }
-
-          final mappedRef = mapModernToVulgate(
-            bookNumber,
-            startChapterVal,
-            initialVersesList,
+      if (endChapterVal != null) {
+        // Parse start chapter and verses from leftPart of the citation
+        int startChapterVal = defaultChapter;
+        List<int> initialVersesList = const [];
+        final leftColonIndex = leftPart.indexOf(':');
+        if (leftColonIndex != -1) {
+          final leftChapterPart = leftPart.substring(0, leftColonIndex);
+          final leftChapterMatch = _trailingDigitsRegex.firstMatch(
+            leftChapterPart.trim(),
           );
+          if (leftChapterMatch != null) {
+            startChapterVal = int.parse(leftChapterMatch.group(0)!);
+          }
+          final leftVersesStr = leftPart.substring(leftColonIndex + 1);
+          initialVersesList = parseVerseRange(cleanVerseStr(leftVersesStr));
+        } else {
+          final cleanRange = cleanVerseStr(defaultVerseRange);
+          initialVersesList = parseVerseRange(cleanRange);
+        }
 
-          final mappedEndRef = mapModernToVulgate(
+        final mappedRef = mapModernToVulgate(
+          bookNumber,
+          startChapterVal,
+          initialVersesList,
+        );
+
+        final mappedEndRef = mapModernToVulgate(
+          bookNumber,
+          endChapterVal,
+          const [],
+        );
+        final endChapter = mappedEndRef.chapter;
+
+        if (endChapter != mappedRef.chapter) {
+          final endVersesPart = rightPart.substring(colonIndex + 1);
+          final endVerseStr = cleanVerseStr(endVersesPart);
+          final rawEndVerses = parseVerseRange(endVerseStr);
+          final mappedEndVerseRef = mapModernToVulgate(
             bookNumber,
             endChapterVal,
-            const [],
+            rawEndVerses,
           );
-          final endChapter = mappedEndRef.chapter;
+          final endVerses = mappedEndVerseRef.verses;
 
-          if (endChapter != mappedRef.chapter) {
-            final endVerseStr = cleanVerseStr(rightSubParts[1]);
-            final rawEndVerses = parseVerseRange(endVerseStr);
-            final mappedEndVerseRef = mapModernToVulgate(
-              bookNumber,
-              endChapterVal,
-              rawEndVerses,
+          final startVerses = mappedRef.verses;
+          final List<ChapterVerseRange> result = [];
+
+          // 1. Add first chapter verses
+          if (startVerses.isNotEmpty) {
+            final startVerseLimit = startVerses.last;
+            final specificVerses = startVerses.sublist(
+              0,
+              startVerses.length - 1,
             );
-            final endVerses = mappedEndVerseRef.verses;
+            result.add(
+              ChapterVerseRange(
+                chapter: mappedRef.chapter,
+                verses: specificVerses.isNotEmpty ? specificVerses : null,
+                startVerseLimit: startVerseLimit,
+              ),
+            );
+          }
 
-            final startVerses = mappedRef.verses;
-            final List<ChapterVerseRange> result = [];
+          // 2. Add intermediate chapters
+          for (int c = mappedRef.chapter + 1; c < endChapter; c++) {
+            result.add(ChapterVerseRange(chapter: c));
+          }
 
-            // 1. Add first chapter verses
-            if (startVerses.isNotEmpty) {
-              final startVerseLimit = startVerses.last;
-              final specificVerses = startVerses.sublist(
-                0,
-                startVerses.length - 1,
+          // 3. Add second chapter verses
+          if (endVerses.isNotEmpty) {
+            final hasCommaOrMultiple =
+                endVerseStr.contains(',') ||
+                (rawEndVerses.length > 1 && rawEndVerses.first != 1);
+            if (hasCommaOrMultiple) {
+              result.add(
+                ChapterVerseRange(chapter: endChapter, verses: endVerses),
               );
+            } else {
+              final endVerseLimit = endVerses.last;
               result.add(
                 ChapterVerseRange(
-                  chapter: mappedRef.chapter,
-                  verses: specificVerses.isNotEmpty ? specificVerses : null,
-                  startVerseLimit: startVerseLimit,
+                  chapter: endChapter,
+                  endVerseLimit: endVerseLimit,
                 ),
               );
             }
-
-            // 2. Add intermediate chapters
-            for (int c = mappedRef.chapter + 1; c < endChapter; c++) {
-              result.add(ChapterVerseRange(chapter: c));
-            }
-
-            // 3. Add second chapter verses
-            if (endVerses.isNotEmpty) {
-              final hasCommaOrMultiple =
-                  rightSubParts[1].contains(',') ||
-                  rightSubParts[1].contains('and');
-              if (hasCommaOrMultiple) {
-                result.add(
-                  ChapterVerseRange(chapter: endChapter, verses: endVerses),
-                );
-              } else {
-                final endVerseLimit = endVerses.last;
-                result.add(
-                  ChapterVerseRange(
-                    chapter: endChapter,
-                    endVerseLimit: endVerseLimit,
-                  ),
-                );
-              }
-            }
-
-            return result;
           }
+
+          return result;
         }
       }
     }
